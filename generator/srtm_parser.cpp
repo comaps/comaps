@@ -90,7 +90,7 @@ void SrtmTile::Init(std::string const & dir, ms::LatLon const & coord)
   }
   else
   {
-    GetPlatform().GetReader(file)->ReadAsString(m_data);
+    FileReader(base::JoinPath(dir, file)).ReadAsString(m_data);
   }
 
   if (m_data.size() != kSrtmTileSize)
