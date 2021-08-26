@@ -240,7 +240,7 @@ class TileIsolinesTask
 public:
   TileIsolinesTask(int left, int bottom, int right, int top, std::string const & srtmDir,
                    TileIsolinesParams const * params, bool forceRegenerate)
-    : m_strmDir(srtmDir)
+    : m_srtmDir(srtmDir)
     , m_srtmProvider(srtmDir)
     , m_params(params)
     , m_forceRegenerate(forceRegenerate)
@@ -251,7 +251,7 @@ public:
 
   TileIsolinesTask(int left, int bottom, int right, int top, std::string const & srtmDir,
                    TileIsolinesProfileParams const * profileParams, bool forceRegenerate)
-    : m_strmDir(srtmDir)
+    : m_srtmDir(srtmDir)
     , m_srtmProvider(srtmDir)
     , m_profileParams(profileParams)
     , m_forceRegenerate(forceRegenerate)
@@ -296,8 +296,9 @@ private:
         return;
       }
     }
-
-    if (!GetPlatform().IsFileExistsByFullPath(generator::SrtmTile::GetPath(m_strmDir, tileName)))
+    auto const & pl = GetPlatform();
+    if (!pl.IsFileExistsByFullPath(base::JoinPath(m_srtmDir, tileName + ".hgt"))
+        && !pl.IsFileExistsByFullPath(generator::SrtmTile::GetPath(m_srtmDir, tileName)))
     {
       LOG(LINFO, ("SRTM tile", tileName, "doesn't exist, skip processing."));
       return;
@@ -413,7 +414,7 @@ private:
   int m_bottom;
   int m_right;
   int m_top;
-  std::string m_strmDir;
+  std::string m_srtmDir;
   SrtmProvider m_srtmProvider;
   TileIsolinesParams const * m_params = nullptr;
   TileIsolinesProfileParams const * m_profileParams = nullptr;
@@ -435,14 +436,14 @@ void RunGenerateIsolinesTasks(int left, int bottom, int right, int top,
   int tilesRowPerTask = top - bottom;
   int tilesColPerTask = right - left;
 
-  if (tilesRowPerTask * tilesColPerTask <= threadsCount)
+  if (tilesRowPerTask * tilesColPerTask <= static_cast<long>(threadsCount))
   {
     tilesRowPerTask = 1;
     tilesColPerTask = 1;
   }
   else
   {
-    while (tilesRowPerTask * tilesColPerTask > maxCachedTilesPerThread)
+    while (tilesRowPerTask * tilesColPerTask > static_cast<long>(maxCachedTilesPerThread))
     {
       if (tilesRowPerTask > tilesColPerTask)
         tilesRowPerTask = (tilesRowPerTask + 1) / 2;
