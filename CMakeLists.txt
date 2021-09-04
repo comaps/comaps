@@ -94,6 +94,11 @@ if (PLATFORM_WIN)
   )
 endif()
 
+# Try fast native arch.
+if (PLATFORM_LINUX)
+  add_compile_options(-march=native)
+endif()
+
 # Built-in CMake configurations: Debug, Release, RelWithDebInfo, MinSizeRel
 if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
   add_definitions(-DDEBUG)
@@ -103,10 +108,27 @@ if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
 elseif (${CMAKE_BUILD_TYPE} MATCHES "Rel")
   add_definitions(-DRELEASE)
   if (NOT MSVC)
-    add_compile_options(-Ofast)  # Also enables -ffast-math
+    add_compile_options(-Ofast $<$<CXX_COMPILER_ID:GNU>:-flto=auto>)  # Also enables -ffast-math
   endif()
 else()
   message(FATAL_ERROR "Unknown build type: " ${CMAKE_BUILD_TYPE})
+endif()
+
+if (${CMAKE_BUILD_TYPE} STREQUAL "RelWithDebInfo")
+  add_compile_options(-fno-omit-frame-pointer)
+endif()
+
+# Linux GCC LTO plugin fix.
+if (PLATFORM_LINUX AND (CMAKE_CXX_COMPILER_ID STREQUAL "GNU") AND (CMAKE_BUILD_TYPE MATCHES "^Rel"))
+  # To force errors if LTO was not enabled.
+  add_compile_options(-fno-fat-lto-objects)
+  # To fix ar and ranlib "plugin needed to handle lto object".
+  string(REGEX MATCH "[0-9]+" GCC_MAJOR_VERSION ${CMAKE_CXX_COMPILER_VERSION})
+  file(GLOB_RECURSE plugin /usr/lib/gcc/*/${GCC_MAJOR_VERSION}/liblto_plugin.so)
+  set(CMAKE_C_ARCHIVE_CREATE "<CMAKE_AR> --plugin ${plugin} qcs <TARGET> <OBJECTS>")
+  set(CMAKE_C_ARCHIVE_FINISH "<CMAKE_RANLIB> --plugin ${plugin} <TARGET>")
+  set(CMAKE_CXX_ARCHIVE_CREATE "<CMAKE_AR> --plugin ${plugin} qcs <TARGET> <OBJECTS>")
+  set(CMAKE_CXX_ARCHIVE_FINISH "<CMAKE_RANLIB> --plugin ${plugin} <TARGET>")
 endif()
 
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
