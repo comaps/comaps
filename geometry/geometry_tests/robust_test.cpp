@@ -62,8 +62,12 @@ UNIT_TEST(Segment_Smoke)
     TEST(!OnSegment(P(10 + eps, 10), ps), ());
     TEST(!OnSegment(P(0, 0), ps), ());
   }
+}
 
-  // Paranoid tests.
+// This paranoid test doesn' work with Release optimizations (LTO?).
+#ifndef NDEBUG
+UNIT_TEST(Segment_Paranoid)
+{
   {
     P ps[] = {{0, 0}, {1e100, 1e100}};
     TEST(OnSegment(ps[0], ps), ());
@@ -94,6 +98,7 @@ UNIT_TEST(Segment_Smoke)
     TEST(!OnSegment(P(1e-16, 2.0 * 1e-16), ps), ());
   }
 }
+#endif
 
 UNIT_TEST(Triangle_Smoke)
 {
@@ -129,6 +134,8 @@ UNIT_TEST(Triangle_PointInsideSegment)
   TEST(!InsideTriangle(P(eps, eps), ps), ());
 }
 
+// This paranoid test doesn' work with Release optimizations (LTO?).
+#ifndef NDEBUG
 UNIT_TEST(Triangle_PointInsidePoint)
 {
   double constexpr eps = 1.0E-10;
@@ -147,6 +154,7 @@ UNIT_TEST(Triangle_PointInsidePoint)
   TEST(!InsideTriangle(P(eps, eps), ps), ());
 #endif
 }
+#endif
 
 UNIT_TEST(PolygonSelfIntersections_IntersectSmoke)
 {
