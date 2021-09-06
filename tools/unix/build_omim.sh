@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
-set -eu
+set -euo pipefail
 
 OPT_DEBUG=
 OPT_RELEASE=
+OPT_RELEASEDEBUGINFO=
 OPT_CLEAN=
 OPT_DESIGNER=
 OPT_GCC=
@@ -13,7 +14,7 @@ OPT_STANDALONE=
 OPT_COMPILE_DATABASE=
 OPT_LAUNCH_BINARY=
 OPT_NJOBS=
-while getopts ":cdrxtagjlp:n:" opt; do
+while getopts ":cdrRxtagjlp:n:" opt; do
   case $opt in
     a) OPT_STANDALONE=1 ;;
     c) OPT_CLEAN=1 ;;
@@ -29,16 +30,18 @@ while getopts ":cdrxtagjlp:n:" opt; do
        ;;
     p) OPT_PATH="$OPTARG" ;;
     r) OPT_RELEASE=1 ;;
+    R) OPT_RELEASEDEBUGINFO=1 ;;
     t) OPT_DESIGNER=1 ;;
     *)
       echo "Build the desktop app and other C++ targets (tests, tools...)"
-      echo "Usage: $0 [-d] [-r] [-c] [-x] [-s] [-t] [-a] [-g] [-j] [-l] [-p PATH] [-n NUM] [target1 target2 ...]"
+      echo "Usage: $0 [-d] [-r] [-R] [-c] [-x] [-s] [-t] [-a] [-g] [-j] [-l] [-p PATH] [-n NUM] [target1 target2 ...]"
       echo
       echo "By default both debug and release versions are built in ../omim-build-<buildtype> dir."
       echo
-      echo -e "-d  Build a debug version"
-      echo -e "-r  Build a release version"
-      echo -e "-x  Use pre-compiled headers"
+      echo -e "-d  Build debug version"
+      echo -e "-r  Build release version"
+      echo -e "-R  Build release with debug info"
+      echo -e "-x  Use precompiled headers"
       echo -e "-c  Clean before building"
       echo -e "-t  Build Qt based designer tool (Linux/MacOS only)"
       echo -e "-a  Build Qt based standalone desktop app (Linux/MacOS only)"
@@ -59,10 +62,10 @@ if [ "$OPT_TARGET" != "desktop" -a -z "$OPT_DESIGNER" -a -z "$OPT_STANDALONE" ];
   CMAKE_CONFIG="${CMAKE_CONFIG:-} -DSKIP_QT_GUI=ON"
 fi
 
-# By default build everything
-if [ -z "$OPT_DEBUG$OPT_RELEASE" ]; then
+# By default build Debug and RelWithDebugInfo
+if [ -z "$OPT_DEBUG$OPT_RELEASE$OPT_RELEASEDEBUGINFO" ]; then
   OPT_DEBUG=1
-  OPT_RELEASE=1
+  OPT_RELEASEDEBUGINFO=1
 fi
 
 OMIM_PATH="$(cd "${OMIM_PATH:-$(dirname "$0")/../..}"; pwd)"
@@ -155,4 +158,5 @@ build()
 
 [ -n "$OPT_DEBUG" ]   && build Debug
 [ -n "$OPT_RELEASE" ] && build Release
+[ -n "$OPT_RELEASEDEBUGINFO" ] && build RelWithDebInfo
 exit 0
