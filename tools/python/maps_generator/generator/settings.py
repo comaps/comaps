@@ -83,7 +83,7 @@ MAIN_OUT_PATH = os.path.join(_WORK_PATH, "generation")
 CACHE_PATH = ""
 
 # Developer section:
-BUILD_PATH = os.path.join(_WORK_PATH, "omim-build-release")
+BUILD_PATH = os.path.join(_WORK_PATH, "omim-build-relwithdebinfo")
 OMIM_PATH = os.path.join(_WORK_PATH, "omim")
 
 # Osm tools section:
