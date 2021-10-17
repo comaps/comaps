@@ -1,4 +1,5 @@
 #include "generator.hpp"
+#include "generator/utils.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
@@ -53,7 +54,7 @@ DEFINE_uint64(median_r, 1, "Custom isolines generating mode. Median filter radiu
 
 using namespace topography_generator;
 
-int main(int argc, char ** argv)
+MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
 {
   gflags::SetUsageMessage(
     "\n\nThis tool generates isolines and works in the following modes:\n"
@@ -205,4 +206,4 @@ int main(int argc, char ** argv)
   generator.GenerateIsolines(FLAGS_left, FLAGS_bottom, FLAGS_right, FLAGS_top, params);
 
   return EXIT_SUCCESS;
-}
+});
