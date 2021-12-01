@@ -67,7 +67,11 @@ UNIT_TEST(AlmostEqualULPs_double)
   TEST(!base::AlmostEqualULPs(1.0, -1.0), ());
   TEST(!base::AlmostEqualULPs(2.0, -2.0), ());
   TEST(!base::AlmostEqualULPs(dmax, -dmax), ());
+
+  // That's why AlmostEqualULPs is a strange function, IMHO.
   TEST(!base::AlmostEqualULPs(0.0, eps), ());
+  TEST(!base::AlmostEqualULPs(-eps, 0.0), ());
+  TEST(!base::AlmostEqualULPs(eps, 2.0*eps), ());
 }
 
 UNIT_TEST(AlmostEqualULPs_float)
@@ -91,7 +95,11 @@ UNIT_TEST(AlmostEqualULPs_float)
   TEST(!base::AlmostEqualULPs(1.0f, -1.0f), ());
   TEST(!base::AlmostEqualULPs(2.0f, -2.0f), ());
   TEST(!base::AlmostEqualULPs(dmax, -dmax), ());
+
+  // That's why AlmostEqualULPs is a strange function, IMHO.
   TEST(!base::AlmostEqualULPs(0.0f, eps), ());
+  TEST(!base::AlmostEqualULPs(-eps, 0.0f), ());
+  TEST(!base::AlmostEqualULPs(eps, 2.0f*eps), ());
 }
 
 UNIT_TEST(AlmostEqual_Smoke)

@@ -1,6 +1,7 @@
 #include "testing/testing.hpp"
 
 #include "drape_frontend/path_text_handle.hpp"
+#include "drape_frontend/visual_params.hpp"
 
 #include "base/logging.hpp"
 
@@ -15,10 +16,12 @@ bool IsSmooth(m2::SplineEx const & spline)
   }
   return true;
 }
-}
+} // namespace
 
 UNIT_TEST(Rounding_Spline)
 {
+  df::VisualParams::Init(1.0, 1024);
+
   m2::SplineEx spline1;
   df::AddPointAndRound(spline1, m2::PointD(0, 200));
   df::AddPointAndRound(spline1, m2::PointD(0, 0));
