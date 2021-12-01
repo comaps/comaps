@@ -12,15 +12,38 @@ using namespace std;
 using m2::Spline;
 using m2::PointD;
 
+namespace
+{
+
+double constexpr kAlmostZero = 1.0E-16;
+
+void TestEqual(double x, double y)
+{
+  if (fabs(x) < kAlmostZero || fabs(y) < kAlmostZero)
+    TEST_ALMOST_EQUAL_ABS(x, y, kAlmostZero, ());
+  else
+    TEST_ALMOST_EQUAL_ULPS(x, y, ());
+}
+
 void TestPointDDir(PointD const & dst, PointD const & src)
 {
   double const len1 = dst.Length();
   double const len2 = src.Length();
-  TEST_ALMOST_EQUAL_ULPS(dst.x/len1, src.x/len2, ());
-  TEST_ALMOST_EQUAL_ULPS(dst.y/len1, src.y/len2, ());
+  if (len1 < kAlmostZero || len2 < kAlmostZero)
+  {
+    TestEqual(dst.x, src.x);
+    TestEqual(dst.y, src.y);
+  }
+  else
+  {
+    TestEqual(dst.x/len1, src.x/len2);
+    TestEqual(dst.y/len1, src.y/len2);
+  }
 }
 
-UNIT_TEST(SmoothedDirections)
+} // namespace
+
+UNIT_TEST(Spline_SmoothedDirections)
 {
   vector<PointD> path;
   path.push_back(PointD(0, 0));
