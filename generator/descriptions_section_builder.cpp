@@ -88,9 +88,9 @@ std::string DescriptionsCollectionBuilderStat::LangStatisticsToString() const
 
 void DescriptionsCollector::operator() (FeatureType & ft, uint32_t featureId)
 {
-  auto const & attractionsChecker = ftypes::AttractionsChecker::Instance();
-  if (!attractionsChecker(ft))
-    return;
+//  auto const & attractionsChecker = ftypes::AttractionsChecker::Instance();
+//  if (!attractionsChecker(ft))
+//    return;
 
   (*this)(ft.GetMetadata().GetWikiURL(), featureId);
 }
