@@ -55,10 +55,10 @@ void WikiUrlDumper::Dump(size_t cpuCount) const
 // static
 void WikiUrlDumper::DumpOne(std::string const & path, std::ostream & stream)
 {
-  auto const & needWikiUrl = ftypes::AttractionsChecker::Instance();
+  //auto const & needWikiUrl = ftypes::AttractionsChecker::Instance();
   feature::ForEachFeatureRawFormat(path, [&](FeatureBuilder const & feature, uint64_t /* pos */) {
-    if (!needWikiUrl(feature.GetTypesHolder()))
-      return;
+//    if (!needWikiUrl(feature.GetTypesHolder()))
+//      return;
 
     auto const wikiUrl = feature.GetMetadata().GetWikiURL();
     if (wikiUrl.empty())
@@ -89,10 +89,10 @@ WikiDataFilter::WikiDataFilter(std::string const & path, std::vector<std::string
 void WikiDataFilter::FilterOne(std::string const & path, std::map<base::GeoObjectId, std::string> const & idToWikiData,
                                std::ostream & stream)
 {
-  auto const & needWikiUrl = ftypes::AttractionsChecker::Instance();
+  //auto const & needWikiUrl = ftypes::AttractionsChecker::Instance();
   feature::ForEachFeatureRawFormat(path, [&](FeatureBuilder const & feature, uint64_t /* pos */) {
-    if (!needWikiUrl(feature.GetTypesHolder()))
-      return;
+//    if (!needWikiUrl(feature.GetTypesHolder()))
+//      return;
 
     auto const it = idToWikiData.find(feature.GetMostGenericOsmId());
     if (it == std::end(idToWikiData))
