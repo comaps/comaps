@@ -143,6 +143,7 @@ class StageFeatures(Stage):
 @helper_stage_for("StageDescriptions")
 class StageDownloadDescriptions(Stage):
     def apply(self, env: Env):
+        """
         run_gen_tool(
             env.gen_tool,
             out=env.get_subprocess_out(),
@@ -165,6 +166,20 @@ class StageDownloadDescriptions(Stage):
         download_from_wikidata_tags(
             env.paths.id_to_wikidata_path, env.paths.descriptions_path, langs, checker
         )
+        """
+
+        src = "/home/planet/descriptions"
+        dest = env.paths.descriptions_path
+        # Empty folder "descriptions" can be already created.
+        try:
+            if os.path.isdir(dest):
+                shutil.rmtree(dest)
+            else:
+                os.remove(dest)
+        except OSError as e:
+            print("rmtree error: %s - %s" % (e.filename, e.strerror))
+
+        os.symlink(src, dest)
 
 
 @outer_stage
