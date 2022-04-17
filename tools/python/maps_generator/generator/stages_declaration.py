@@ -12,7 +12,7 @@ import os
 import shutil
 import tarfile
 from collections import defaultdict
-from multiprocessing.pool import ThreadPool
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import AnyStr
 from typing import Type
 
@@ -173,11 +173,10 @@ class StageMwm(Stage):
         tmp_mwm_names = env.get_tmp_mwm_names()
         if len(tmp_mwm_names):
             logger.info(f'Number of feature data .mwm.tmp country files to process: {len(tmp_mwm_names)}')
-            with ThreadPool(settings.THREADS_COUNT) as pool:
+            with ThreadPoolExecutor(settings.THREADS_COUNT) as pool:
                 pool.map(
                     lambda c: StageMwm.make_mwm(c, env),
-                    tmp_mwm_names,
-                    chunksize=1,
+                    tmp_mwm_names
                 )
         else:
             # TODO: list all countries that were not found?
