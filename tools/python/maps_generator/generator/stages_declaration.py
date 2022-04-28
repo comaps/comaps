@@ -140,7 +140,6 @@ class StageFeatures(Stage):
 
 
 @outer_stage
-@production_only
 @helper_stage_for("StageDescriptions")
 class StageDownloadDescriptions(Stage):
     def apply(self, env: Env):
@@ -292,7 +291,6 @@ class StageIsolinesInfo(Stage):
 
 
 @country_stage
-@production_only
 class StageDescriptions(Stage):
     def apply(self, env: Env, country, **kwargs):
         steps.step_description(env, country, **kwargs)
