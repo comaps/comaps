@@ -7,6 +7,8 @@ import time
 import types
 import urllib.error
 import urllib.parse
+import http.client
+
 from multiprocessing.pool import ThreadPool
 
 import htmlmin
@@ -73,6 +75,7 @@ def try_get(obj, prop, *args, **kwargs):
             requests.exceptions.ConnectionError,
             requests.exceptions.ReadTimeout,
             json.decoder.JSONDecodeError,
+            http.client.HTTPException,
         ):
             time.sleep(random.uniform(0.0, 1.0 / 1000.0 * ATTEMPTS_PAUSE_MS))
             attempts -= 1
@@ -236,7 +239,7 @@ def wikipedia_worker(output_dir, checker, langs):
             if not checker(ident):
                 return
             url = url.strip()
-        except (AttributeError, IndexError):
+        except (AttributeError, ValueError):
             log.exception(f"{line} is incorrect.")
             return
         parsed = urllib.parse.urlparse(url)
@@ -279,7 +282,7 @@ def wikidata_worker(output_dir, checker, langs):
             wikidata_id = wikidata_id.strip()
             if not checker(ident):
                 return
-        except (AttributeError, IndexError):
+        except (AttributeError, ValueError):
             log.exception(f"{line} is incorrect.")
             return
         client = Client()
