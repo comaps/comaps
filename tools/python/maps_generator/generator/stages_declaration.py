@@ -156,7 +156,8 @@ class StageDownloadDescriptions(Stage):
             threads_count=settings.THREADS_COUNT,
         )
 
-        langs = ("en", "ru", "es", "fr", "de")
+        # https://en.wikipedia.org/wiki/Wikipedia:Multilingual_statistics
+        langs = ("en", "de", "fr", "es", "ru", "tr")
         checker = check_and_get_checker(env.paths.popularity_path)
         download_from_wikipedia_tags(
             env.paths.wiki_url_path, env.paths.descriptions_path, langs, checker
