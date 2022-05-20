@@ -40,7 +40,6 @@ BAD_SECTIONS = {
         "Further reading",
         "References",
     ],
-    "ru": ["Литература", "Ссылки", "См. также", "Библиография", "Примечания"],
     "de": [
         "Einzelnachweise",
         "Weblinks",
@@ -51,7 +50,6 @@ BAD_SECTIONS = {
         "Filme",
         "Einzelbelege",
     ],
-    "es": ["Vínculos de interés", "Véase también", "Enlaces externos", "Referencias"],
     "fr": [
         "Bibliographie",
         "Lien externe",
@@ -61,6 +59,9 @@ BAD_SECTIONS = {
         "Notes et références",
         "Articles connexes",
     ],
+    "es": ["Vínculos de interés", "Véase también", "Enlaces externos", "Referencias"],
+    "ru": ["Литература", "Ссылки", "См. также", "Библиография", "Примечания"],
+    "tr": ["Kaynakça", "Ayrıca bakınız", "Dış bağlantılar", "Notlar", "Dipnot"],
 }
 
 
