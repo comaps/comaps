@@ -1,4 +1,3 @@
-import functools
 import json
 import logging
 import os
@@ -9,7 +8,7 @@ import urllib.error
 import urllib.parse
 import http.client
 
-from multiprocessing.pool import ThreadPool
+from concurrent.futures import ThreadPoolExecutor
 
 import htmlmin
 import requests
@@ -17,8 +16,7 @@ import wikipediaapi
 from bs4 import BeautifulSoup
 from wikidata.client import Client
 
-from descriptions.exceptions import GettingError
-from descriptions.exceptions import ParseError
+from descriptions.exceptions import GettingError, ParseError
 
 """
 This script downloads Wikipedia pages for different languages.
@@ -26,9 +24,8 @@ This script downloads Wikipedia pages for different languages.
 log = logging.getLogger(__name__)
 
 WORKERS = 80
-CHUNK_SIZE = 16
-REQUEST_ATTEMPTS = 32
-ATTEMPTS_PAUSE_MS = 4000
+REQUEST_ATTEMPTS = 8
+ATTEMPTS_PAUSE_SECONDS = 4.0
 
 HEADERS = {f"h{x}" for x in range(1, 7)}
 BAD_SECTIONS = {
@@ -77,9 +74,8 @@ def try_get(obj, prop, *args, **kwargs):
             requests.exceptions.ReadTimeout,
             json.decoder.JSONDecodeError,
             http.client.HTTPException,
-        ):
-            time.sleep(random.uniform(0.0, 1.0 / 1000.0 * ATTEMPTS_PAUSE_MS))
-            attempts -= 1
+        ) as e:
+            log.debug(e)
         except urllib.error.HTTPError as e:
             if e.code == 404:
                 raise GettingError(f"Page not found {e.msg}")
@@ -88,9 +84,10 @@ def try_get(obj, prop, *args, **kwargs):
         except urllib.error.URLError:
             raise GettingError(f"URLError: {obj}, {prop}, {args}, {kwargs}")
 
-    raise GettingError(
-        f"Getting {prop} field failed. " f"All {REQUEST_ATTEMPTS} attempts are spent"
-    )
+        time.sleep(random.uniform(0.0, ATTEMPTS_PAUSE_SECONDS))
+        attempts -= 1
+
+    raise GettingError(f"Getting {prop} field failed")
 
 
 def read_popularity(path):
@@ -109,7 +106,6 @@ def read_popularity(path):
 
 
 def should_download_page(popularity_set):
-    @functools.wraps(popularity_set)
     def wrapped(ident):
         return popularity_set is None or ident in popularity_set
 
@@ -177,18 +173,21 @@ def download(directory, url):
     try:
         lang, page_name = get_page_info(url)
     except ParseError:
-        log.exception("Parsing failed. {url} is incorrect.")
+        log.exception(f"Parsing failed. {url} is incorrect.")
         return None
+
     path = os.path.join(directory, f"{lang}.html")
     if os.path.exists(path):
-        log.warning(f"{path} already exists.")
+        log.debug(f"{path} already exists.")
         return None
+
     page = get_wiki_page(lang, page_name)
     try:
         text = try_get(page, "text")
-    except GettingError:
-        log.exception(f"Error: page is not downloaded {page_name}.")
+    except GettingError as e:
+        log.exception(f"Error: page {page_name} is not downloaded for lang {lang} and url {url} ({e}).")
         return None
+
     page_size = len(text)
     if page_size > 0:
         os.makedirs(directory, exist_ok=True)
@@ -198,15 +197,15 @@ def download(directory, url):
             file.write(text)
     else:
         log.warning(f"Page {url} is empty. It has not been saved.")
+
     return text
 
 
 def get_wiki_langs(url):
     lang, page_name = get_page_info(url)
     page = get_wiki_page(lang, page_name)
-    curr_lang = [
-        (lang, url),
-    ]
+
+    curr_lang = [(lang, url)]
     try:
         langlinks = try_get(page, "langlinks")
         return (
@@ -214,7 +213,7 @@ def get_wiki_langs(url):
             + curr_lang
         )
     except GettingError as e:
-        log.warning(f"Error: no languages for {url} ({e}).")
+        log.exception(f"Error: no languages for page {page_name} with url {url} ({e}).")
         return curr_lang
 
 
@@ -230,12 +229,12 @@ def download_all_from_wikipedia(path, url, langs):
 
 
 def wikipedia_worker(output_dir, checker, langs):
-    @functools.wraps(wikipedia_worker)
     def wrapped(line):
         if not line.strip():
             return
         try:
-            mwm_path, ident, url = line.split("\t")
+            # First param is mwm_path, which added this line entry.
+            _, ident, url = line.split("\t")
             ident = int(ident)
             if not checker(ident):
                 return
@@ -252,11 +251,9 @@ def wikipedia_worker(output_dir, checker, langs):
 
 def download_from_wikipedia_tags(input_file, output_dir, langs, checker):
     with open(input_file) as file:
-        _ = file.readline()
-        pool = ThreadPool(processes=WORKERS)
-        pool.map(wikipedia_worker(output_dir, checker, langs), file, CHUNK_SIZE)
-        pool.close()
-        pool.join()
+        _ = file.readline() # skip header
+        with ThreadPoolExecutor(WORKERS) as pool:
+            pool.map(wikipedia_worker(output_dir, checker, langs), file)
 
 
 def get_wikidata_urls(entity, langs):
@@ -273,7 +270,6 @@ def get_wikidata_urls(entity, langs):
 
 
 def wikidata_worker(output_dir, checker, langs):
-    @functools.wraps(wikidata_worker)
     def wrapped(line):
         if not line.strip():
             return
@@ -306,10 +302,8 @@ def download_from_wikidata_tags(input_file, output_dir, langs, checker):
     wikidata_output_dir = os.path.join(output_dir, "wikidata")
     os.makedirs(wikidata_output_dir, exist_ok=True)
     with open(input_file) as file:
-        with ThreadPool(processes=WORKERS) as pool:
-            pool.map(
-                wikidata_worker(wikidata_output_dir, checker, langs), file, CHUNK_SIZE
-            )
+        with ThreadPoolExecutor(WORKERS) as pool:
+            pool.map(wikidata_worker(wikidata_output_dir, checker, langs), file)
 
 
 def check_and_get_checker(popularity_file):
