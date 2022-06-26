@@ -91,8 +91,8 @@ private:
   ProfileToTileIsolinesParams m_profileToTileParams;
   ProfileToIsolinesPackingParams m_profileToPackingParams;
 
-  std::unique_ptr<storage::CountryInfoGetter> m_infoGetter;
-  storage::CountryInfoReader * m_infoReader = nullptr;
+  std::mutex m_infoMutex;
+  std::unique_ptr<storage::CountryInfoReader> m_infoReader;
 
   // They can't be negative, it is done to avoid compiler warnings.
   long m_threadsCount;
