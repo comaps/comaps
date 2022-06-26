@@ -700,9 +700,8 @@ void Generator::InitCountryInfoGetter(std::string const & dataDir)
 
   GetPlatform().SetResourceDir(dataDir);
 
-  m_infoGetter = storage::CountryInfoReader::CreateCountryInfoReader(GetPlatform());
-  CHECK(m_infoGetter, ());
-  m_infoReader = static_cast<storage::CountryInfoReader *>(m_infoGetter.get());
+  m_infoReader = storage::CountryInfoReader::CreateCountryInfoReader(GetPlatform());
+  CHECK(m_infoReader, ());
 }
 
 void Generator::InitProfiles(std::string const & isolinesProfilesFileName,
@@ -767,6 +766,8 @@ void Generator::GetCountryRegions(storage::CountryId const & countryId, m2::Rect
   }
   CHECK_LESS(id, m_infoReader->GetCountries().size(), ());
 
+  /// @todo Refactor using Memory[Mapped] reader for countries.
+  std::lock_guard guard(m_infoMutex);
   m_infoReader->LoadRegionsFromDisk(id, countryRegions);
 }
 }  // namespace topography_generator
