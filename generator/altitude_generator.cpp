@@ -9,25 +9,20 @@
 #include "indexer/feature_processor.hpp"
 
 #include "coding/files_container.hpp"
-#include "coding/read_write_utils.hpp"
 #include "coding/reader.hpp"
 #include "coding/succinct_mapper.hpp"
-#include "coding/varint.hpp"
 
 #include "geometry/latlon.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
-#include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 #include "base/scope_guard.hpp"
 #include "base/stl_helpers.hpp"
-#include "base/string_utils.hpp"
 
 #include "defines.hpp"
 
 #include "3party/succinct/elias_fano.hpp"
-#include "3party/succinct/mapper.hpp"
 #include "3party/succinct/rs_bit_vector.hpp"
 
 namespace routing
@@ -57,7 +52,6 @@ class Processor
 public:
   struct FeatureAltitude
   {
-    FeatureAltitude() : m_featureId(0) {}
     FeatureAltitude(uint32_t featureId, geometry::Altitudes && altitudes)
       : m_featureId(featureId), m_altitudes(std::move(altitudes))
     {
@@ -72,13 +66,10 @@ public:
   {
   }
 
-  void operator()(FeatureType & f, uint32_t const & id)
+  void operator()(FeatureType & f, uint32_t id)
   {
-    if (id != m_altitudeAvailabilityBuilder.size())
-    {
-      LOG(LERROR, ("There's a gap in feature id order."));
-      return;
-    }
+    CHECK_EQUAL(f.GetID().m_index, id, ());
+    CHECK_EQUAL(id, m_altitudeAvailabilityBuilder.size(), ());
 
     bool hasAltitude = false;
     SCOPE_GUARD(altitudeAvailabilityBuilding,
@@ -96,9 +87,15 @@ public:
     Altitude minFeatureAltitude = geometry::kInvalidAltitude;
     for (size_t i = 0; i < pointsCount; ++i)
     {
-      Altitude const a = m_altitudeGetter.GetAltitude(f.GetPoint(i));
+      auto const & pt = f.GetPoint(i);
+      Altitude const a = m_altitudeGetter.GetAltitude(pt);
       if (a == geometry::kInvalidAltitude)
       {
+        // Print warning for missing altitude point (if not a ferry or so).
+        auto const type = CarModel::AllLimitsInstance().GetHighwayType(feature::TypesHolder(f));
+        if (type && *type != HighwayType::RouteFerry && *type != HighwayType::RouteShuttleTrain)
+          LOG(LWARNING, ("Invalid altitude at:", mercator::ToLatLon(pt)));
+
         // One invalid point invalidates the whole feature.
         return;
       }
@@ -122,12 +119,6 @@ public:
 
   bool HasAltitudeInfo() const { return !m_featureAltitudes.empty(); }
 
-  bool IsFeatureAltitudesSorted()
-  {
-    return base::IsSortedAndUnique(m_featureAltitudes.begin(), m_featureAltitudes.end(),
-                                   base::LessBy(&Processor::FeatureAltitude::m_featureId));
-  }
-
 public:
   std::vector<FeatureAltitude> m_featureAltitudes;
   succinct::bit_vector_builder m_altitudeAvailabilityBuilder;
@@ -148,11 +139,10 @@ void BuildRoadAltitudes(std::string const & mwmPath, AltitudeGetter & altitudeGe
 
     if (!processor.HasAltitudeInfo())
     {
-      LOG(LINFO, ("No altitude information for road features of mwm:", mwmPath));
+      // Possible for small islands like Bouvet or Willis.
+      LOG(LWARNING, ("No altitude information for road features of mwm:", mwmPath));
       return;
     }
-
-    CHECK(processor.IsFeatureAltitudesSorted(), ());
 
     FilesContainerW cont(mwmPath, FileWriter::OP_WRITE_EXISTING);
     auto w = cont.GetWriter(ALTITUDES_FILE_TAG);

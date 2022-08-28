@@ -2,15 +2,18 @@
 
 #include "geometry/latlon.hpp"
 
-#include "indexer/feature_altitude.hpp"
-
 #include "geometry/point_with_altitude.hpp"
 
 #include "base/macros.hpp"
 
+#include <boost/container_hash/hash.hpp>
+
 #include <cstdint>
 #include <string>
 #include <unordered_map>
+#include <utility>
+#include <vector>
+
 
 namespace generator
 {
@@ -31,8 +34,10 @@ public:
   geometry::Altitude GetTriangleHeight(ms::LatLon const & coord) const;
   /// @}
 
+  using LatLonKey = std::pair<int32_t, int32_t>;
+  static LatLonKey GetKey(ms::LatLon const & coord);
+
   static std::string GetBase(ms::LatLon const & coord);
-  static ms::LatLon GetCenter(ms::LatLon const & coord);
   static std::string GetPath(std::string const & dir, std::string const & base);
 
   /// Used in unit tests only to prepare mock tile.
@@ -76,20 +81,20 @@ public:
   void Purge();
 
 private:
-  using LatLonKey = std::pair<int32_t, int32_t>;
-  static LatLonKey GetKey(ms::LatLon const & coord);
-
   std::string m_dir;
 
   struct Hash
   {
-    size_t operator()(LatLonKey const & key) const
+    size_t operator()(SrtmTile::LatLonKey const & key) const
     {
-      return (static_cast<size_t>(key.first) << 32u) | static_cast<size_t>(key.second);
+      size_t seed = 0;
+      boost::hash_combine(seed, key.first);
+      boost::hash_combine(seed, key.second);
+      return seed;
     }
   };
 
-  using MapT = std::unordered_map<LatLonKey, SrtmTile, Hash>;
+  using MapT = std::unordered_map<SrtmTile::LatLonKey, SrtmTile, Hash>;
   MapT m_tiles;
 
   DISALLOW_COPY(SrtmTileManager);
