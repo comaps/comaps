@@ -16,7 +16,7 @@ namespace generator
 {
 namespace
 {
-size_t constexpr kArcSecondsInDegree = 60 * 60;
+int constexpr kArcSecondsInDegree = 60 * 60;
 size_t constexpr kSrtmTileSize = (kArcSecondsInDegree + 1) * (kArcSecondsInDegree + 1) * 2;
 
 struct UnzipMemDelegate : public ZipFileReader::Delegate
@@ -191,39 +191,41 @@ std::string SrtmTile::GetPath(std::string const & dir, std::string const & base)
 }
 
 // static
-ms::LatLon SrtmTile::GetCenter(ms::LatLon const & coord)
+SrtmTile::LatLonKey SrtmTile::GetKey(ms::LatLon const & coord)
 {
-  return {floor(coord.m_lat) + 0.5, floor(coord.m_lon) + 0.5};
+  ms::LatLon center{floor(coord.m_lat) + 0.5, floor(coord.m_lon) + 0.5};
+  if (coord.m_lat < 0)
+    center.m_lat -= 1.0;
+  if (coord.m_lon < 0)
+    center.m_lon -= 1.0;
+
+  return {static_cast<int32_t>(center.m_lat), static_cast<int32_t>(center.m_lon)};
 }
 
 // static
 std::string SrtmTile::GetBase(ms::LatLon const & coord)
 {
-  auto center = GetCenter(coord);
+  auto key = GetKey(coord);
   std::ostringstream ss;
-  if (center.m_lat < 0)
+  if (coord.m_lat < 0)
   {
     ss << "S";
-    center.m_lat *= -1;
-    center.m_lat += 1;
+    key.first = -key.first;
   }
   else
-  {
     ss << "N";
-  }
-  ss << std::setw(2) << std::setfill('0') << static_cast<int>(center.m_lat);
 
-  if (center.m_lon < 0)
+  ss << std::setw(2) << std::setfill('0') << key.first;
+
+  if (coord.m_lon < 0)
   {
     ss << "W";
-    center.m_lon *= -1;
-    center.m_lon += 1;
+    key.second = -key.second;
   }
   else
-  {
     ss << "E";
-  }
-  ss << std::setw(3) << static_cast<int>(center.m_lon);
+
+  ss << std::setw(3) << key.second;
   return ss.str();
 }
 
@@ -245,7 +247,7 @@ void SrtmTile::Invalidate()
 // SrtmTileManager ---------------------------------------------------------------------------------
 SrtmTile const & SrtmTileManager::GetTile(ms::LatLon const & coord)
 {
-  auto res = m_tiles.emplace(GetKey(coord), SrtmTile());
+  auto res = m_tiles.emplace(SrtmTile::GetKey(coord), SrtmTile());
   if (res.second)
   {
     try
@@ -259,13 +261,6 @@ SrtmTile const & SrtmTileManager::GetTile(ms::LatLon const & coord)
     }
   }
   return res.first->second;
-}
-
-// static
-SrtmTileManager::LatLonKey SrtmTileManager::GetKey(ms::LatLon const & coord)
-{
-  auto const tileCenter = SrtmTile::GetCenter(coord);
-  return {static_cast<int32_t>(tileCenter.m_lat), static_cast<int32_t>(tileCenter.m_lon)};
 }
 
 void SrtmTileManager::Purge()

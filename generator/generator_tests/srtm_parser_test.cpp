@@ -2,6 +2,8 @@
 
 #include "generator/srtm_parser.hpp"
 
+#include "coding/endianness.hpp"
+
 #include <iostream>
 
 namespace srtm_parser_test
@@ -14,6 +16,11 @@ inline std::string GetBase(ms::LatLon const & coord)
   return SrtmTile::GetBase(coord);
 }
 
+inline SrtmTile::LatLonKey GetKey(ms::LatLon const & coord)
+{
+  return SrtmTile::GetKey(coord);
+}
+
 UNIT_TEST(SRTM_FilenameTest)
 {
   auto name = GetBase({56.4566, 37.3467});
@@ -22,17 +29,33 @@ UNIT_TEST(SRTM_FilenameTest)
   name = GetBase({34.077433, -118.304569});
   TEST_EQUAL(name, "N34W119", ());
 
+  name = GetBase({1.0, 1.0});
+  TEST_EQUAL(name, "N01E001", ());
+
   name = GetBase({0.1, 0.1});
   TEST_EQUAL(name, "N00E000", ());
+
+  TEST_NOT_EQUAL(GetKey({0.1, 0.1}), GetKey({1.0, 1.0}), ());
+
+  name = GetBase({-0.1, -0.1});
+  TEST_EQUAL(name, "S01W001", ());
+
+  TEST_NOT_EQUAL(GetKey({0.1, 0.1}), GetKey({-0.1, -0.1}), ());
 
   name = GetBase({-0.9, -0.9});
   TEST_EQUAL(name, "S01W001", ());
 
+  TEST_EQUAL(GetKey({-0.9, -0.9}), GetKey({-0.1, -0.1}), ());
+
   name = GetBase({-1.0, -1.0});
   TEST_EQUAL(name, "S01W001", ());
 
+  TEST_EQUAL(GetKey({-0.9, -0.9}), GetKey({-1.0, -1.0}), ());
+
   name = GetBase({-1.9, -1.1});
   TEST_EQUAL(name, "S02W002", ());
+
+  TEST_NOT_EQUAL(GetKey({-1.1, -1.1}), GetKey({-1.0, -1.0}), ());
 
   name = GetBase({-35.35, -12.1});
   TEST_EQUAL(name, "S36W013", ());
