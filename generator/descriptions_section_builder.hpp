@@ -78,8 +78,8 @@ public:
 
   static std::string FillStringFromFile(std::string const & fullPath);
 
-  /// @return -1 If page not found. 0 if page from cache. Size > 0 if page was loaded from disk.
-  int FindPageAndFill(std::string const & wikipediaUrl, descriptions::LangMeta & meta);
+  /// @return Aggregated loaded from disk page's size.
+  size_t FindPageAndFill(std::string const & wikipediaUrl, descriptions::LangMeta & meta);
 
 public:
   DescriptionsCollectionBuilderStat m_stat;

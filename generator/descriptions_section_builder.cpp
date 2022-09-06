@@ -2,7 +2,6 @@
 #include "generator/utils.hpp"
 
 #include "indexer/feature.hpp"
-#include "indexer/ftypes_matcher.hpp"
 #include "indexer/feature_processor.hpp"
 
 #include "platform/platform.hpp"
@@ -97,36 +96,29 @@ void DescriptionsCollector::operator() (FeatureType & ft, uint32_t featureId)
 
 void DescriptionsCollector::operator() (std::string const & wikiUrl, uint32_t featureId)
 {
-  std::string path;
+  descriptions::LangMeta langsMeta;
 
+  size_t size = 0;
   // First try to get wikipedia url.
-  bool const isWikiUrl = !wikiUrl.empty();
-  if (isWikiUrl)
+  if (!wikiUrl.empty())
+    size = FindPageAndFill(MakePathForWikipedia(m_wikipediaDir, wikiUrl), langsMeta);
+
+  // Second try to get wikidata id.
+  bool const isWikiUrl = !langsMeta.empty();
+  if (!isWikiUrl)
   {
-    path = MakePathForWikipedia(m_wikipediaDir, wikiUrl);
-  }
-  else
-  {
-    // Second try to get wikidata id.
     auto const wikidataId = m_wikidataHelper.GetWikidataId(featureId);
     if (wikidataId)
-      path = MakePathForWikidata(m_wikipediaDir, *wikidataId);
+      size = FindPageAndFill(MakePathForWikidata(m_wikipediaDir, *wikidataId), langsMeta);
   }
 
-  if (path.empty())
+  if (langsMeta.empty())
     return;
 
-  descriptions::LangMeta langsMeta;
-  int const sz = FindPageAndFill(path, langsMeta);
-  if (sz < 0)
-  {
-    LOG(LWARNING, ("Page", path, "not found."));
-    return;
-  }
-  else if (sz > 0)
+  if (size > 0)
   {
     // Add only new loaded pages (not from cache).
-    m_stat.AddSize(sz);
+    m_stat.AddSize(size);
     m_stat.IncPage();
   }
 
@@ -166,10 +158,10 @@ std::string DescriptionsCollector::FillStringFromFile(std::string const & fullPa
   return std::string(std::istreambuf_iterator<char>(stream), std::istreambuf_iterator<char>());
 }
 
-int DescriptionsCollector::FindPageAndFill(std::string const & path, descriptions::LangMeta & meta)
+size_t DescriptionsCollector::FindPageAndFill(std::string const & path, descriptions::LangMeta & meta)
 {
-  int size = -1;
-  if (!IsValidDir(path))
+  size_t size = 0;
+  if (path.empty() || !IsValidDir(path))
     return size;
 
   Platform::FilesList filelist;
@@ -184,24 +176,27 @@ int DescriptionsCollector::FindPageAndFill(std::string const & path, description
       continue;
     }
 
-    if (size < 0)
-      size = 0;
-
-    m_stat.IncCode(code);
-
     auto res = m_path2Index.try_emplace(base::JoinPath(path, filename), 0);
     if (res.second)
     {
       auto const & filePath = res.first->first;
+      auto content = FillStringFromFile(filePath);
+      size_t const sz = content.size();
+      if (sz == 0)
+      {
+        LOG(LWARNING, ("Empty descriptions file:", filePath));
+        m_path2Index.erase(res.first);
+        continue;
+      }
+
       auto & strings = m_collection.m_strings;
       res.first->second = strings.size();
-      strings.push_back(FillStringFromFile(filePath));
+      strings.push_back(std::move(content));
 
-      size_t const sz = strings.back().size();
-      CHECK(sz > 0, ("Empty file:", filePath));
       size += sz;
     }
 
+    m_stat.IncCode(code);
     meta.emplace_back(code, res.first->second);
   }
 
