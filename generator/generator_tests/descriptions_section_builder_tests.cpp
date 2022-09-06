@@ -113,8 +113,10 @@ public:
       StringUtf8Multilang str;
       std::string const badUrl = "https://en.wikipedia.org/wiki/Not_exists";
       auto const path = DescriptionsCollector::MakePathForWikipedia(m_wikiDir, badUrl);
+
       descriptions::LangMeta meta;
-      TEST_EQUAL(collector.FindPageAndFill(path, meta), -1, ());
+      TEST_EQUAL(collector.FindPageAndFill(path, meta), 0, ());
+      TEST(meta.empty(), ());
     }
   }
 
