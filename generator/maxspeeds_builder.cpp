@@ -87,10 +87,14 @@ class MaxspeedsMwmCollector
     return m_graph->GetRoadGeometry(fid);
   }
 
+  // OSM data related warning tag for convenient grep.
+  std::string m_logTag;
+
 public:
   MaxspeedsMwmCollector(string const & dataPath, FeatureIdToOsmId const & ft2osm, IndexGraph * graph)
     : m_dataPath(dataPath), m_ft2osm(ft2osm), m_graph(graph)
     , m_converter(MaxspeedConverter::Instance())
+    , m_logTag("SpeedsBuilder")
   {
   }
 
@@ -267,6 +271,13 @@ public:
 
   void AddSpeed(uint32_t featureID, uint64_t osmID, Maxspeed const & speed)
   {
+    MaxspeedType constexpr kMaxReasonableSpeed = 280;
+    if ((speed.GetSpeedKmPH(true) >= kMaxReasonableSpeed) ||
+        (speed.IsBidirectional() && speed.GetSpeedKmPH(false) >= kMaxReasonableSpeed))
+    {
+      LOG(LWARNING, (m_logTag, "Very big speed", speed, "for way", osmID));
+    }
+
     // Add converted macro speed.
     SpeedInUnits const forward(speed.GetForward(), speed.GetUnits());
     CHECK(forward.IsValid(), ());
@@ -278,12 +289,12 @@ public:
 
     if (ftSpeed.m_forward == SpeedMacro::Undefined)
     {
-      LOG(LWARNING, ("Undefined forward speed macro", forward, "for way", osmID));
+      LOG(LWARNING, (m_logTag, "Undefined forward speed macro", forward, "for way", osmID));
       return;
     }
     if (backward.IsValid() && backwardMacro == SpeedMacro::Undefined)
     {
-      LOG(LWARNING, ("Undefined backward speed macro", backward, "for way", osmID));
+      LOG(LWARNING, (m_logTag, "Undefined backward speed macro", backward, "for way", osmID));
     }
 
     m_maxspeeds.push_back(ftSpeed);
@@ -311,7 +322,7 @@ public:
       }
     }
     else
-      LOG(LWARNING, ("Undefined HighwayType for way", osmID));
+      LOG(LWARNING, (m_logTag, "Undefined HighwayType for way", osmID));
   }
 
   void SerializeMaxspeeds() const
