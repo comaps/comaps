@@ -78,6 +78,8 @@ public:
     return GetTile(coord).GetTriangleHeight(coord);
   }
 
+  size_t GeTilesNumber() const { return m_tiles.size(); }
+
   void Purge();
 
 private:
