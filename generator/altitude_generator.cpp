@@ -3,16 +3,13 @@
 
 #include "routing/routing_helpers.hpp"
 
-#include "indexer/altitude_loader.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/feature_altitude.hpp"
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_processor.hpp"
 
 #include "coding/files_container.hpp"
-#include "coding/reader.hpp"
 #include "coding/succinct_mapper.hpp"
-
-#include "geometry/latlon.hpp"
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
@@ -41,6 +38,12 @@ public:
   Altitude GetAltitude(m2::PointD const & p) override
   {
     return m_srtmManager.GetTriangleHeight(mercator::ToLatLon(p));
+  }
+
+  void PrintStatsAndPurge() override
+  {
+    LOG(LINFO, ("Srtm tiles number (x26Mb):", m_srtmManager.GeTilesNumber()));
+    m_srtmManager.Purge();
   }
 
 private:
@@ -84,6 +87,7 @@ public:
       return;
 
     geometry::Altitudes altitudes;
+    altitudes.reserve(pointsCount);
     Altitude minFeatureAltitude = geometry::kInvalidAltitude;
     for (size_t i = 0; i < pointsCount; ++i)
     {
@@ -124,7 +128,6 @@ public:
   succinct::bit_vector_builder m_altitudeAvailabilityBuilder;
   Altitude m_minAltitude;
 
-private:
   AltitudeGetter & m_altitudeGetter;
 };
 }  // namespace
@@ -136,6 +139,7 @@ void BuildRoadAltitudes(std::string const & mwmPath, AltitudeGetter & altitudeGe
     // Preparing altitude information.
     Processor processor(altitudeGetter);
     feature::ForEachFeature(mwmPath, processor);
+    processor.m_altitudeGetter.PrintStatsAndPurge();
 
     if (!processor.HasAltitudeInfo())
     {
