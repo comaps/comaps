@@ -30,8 +30,15 @@ public:
   /// @{
   /// Nearest serialized height.
   geometry::Altitude GetHeight(ms::LatLon const & coord) const;
-  /// Height from underlying triangle (better than GetHeight).
-  geometry::Altitude GetTriangleHeight(ms::LatLon const & coord) const;
+  /// Triangle interpolation.
+  double GetTriangleHeight(ms::LatLon const & coord) const;
+  /// Bilinear interpolation.
+  double GetBilinearHeight(ms::LatLon const & coord) const;
+
+  geometry::Altitude GetAltitude(ms::LatLon const & coord) const
+  {
+    return static_cast<geometry::Altitude>(std::round(GetBilinearHeight(coord)));
+  }
   /// @}
 
   using LatLonKey = std::pair<int32_t, int32_t>;
@@ -68,14 +75,9 @@ public:
 
   SrtmTile const & GetTile(ms::LatLon const & coord);
 
-  geometry::Altitude GetHeight(ms::LatLon const & coord)
+  geometry::Altitude GetAltitude(ms::LatLon const & coord)
   {
-    return GetTile(coord).GetHeight(coord);
-  }
-
-  geometry::Altitude GetTriangleHeight(ms::LatLon const & coord)
-  {
-    return GetTile(coord).GetTriangleHeight(coord);
+    return GetTile(coord).GetAltitude(coord);
   }
 
   size_t GeTilesNumber() const { return m_tiles.size(); }
