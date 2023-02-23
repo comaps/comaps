@@ -188,7 +188,7 @@ public:
     for (uint32_t i = 0; i < numPoints; ++i)
     {
       // Feature segment altitude.
-      geometry::Altitude altitude = m_srtmManager.GetTriangleHeight(mercator::ToLatLon(f.GetPoint(i)));
+      geometry::Altitude altitude = m_srtmManager.GetAltitude(mercator::ToLatLon(f.GetPoint(i)));
       pointAltitudes[i] = altitude == geometry::kInvalidAltitude ? 0 : altitude;
       if (i == 0)
       {

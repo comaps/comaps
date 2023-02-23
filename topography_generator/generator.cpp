@@ -184,7 +184,7 @@ public:
     , m_bottomLat(bottomLat)
   {}
 
-  /// @todo Should we use the same approach as in SrtmTile::GetTriangleHeight?
+  /// @todo Should we use the same approach as in SrtmTile::GetTriangleHeight/GetBilinearHeight?
   /// This function is used in ASTER fiter only.
   Altitude GetValue(ms::LatLon const & pos) override
   {

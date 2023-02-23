@@ -87,21 +87,23 @@ UNIT_TEST(SRTM_TileTest)
   double const len = 1.0 / (sz - 1);
 
   TEST_EQUAL(tile.GetHeight({0, 0}), 4, ());
-  TEST_EQUAL(tile.GetTriangleHeight({0, 0}), 4, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetTriangleHeight({0, 0}), 4.0, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetBilinearHeight({0, 0}), 4.0, ());
   TEST_EQUAL(tile.GetHeight({len, len}), 2, ());
-  TEST_EQUAL(tile.GetTriangleHeight({len, len}), 2, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetTriangleHeight({len, len}), 2.0, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetBilinearHeight({len, len}), 2.0, ());
 
-  // Key difference here: GetHeight snaps on the nearest node, while GetTriangleHeight calculates
-  // from the nearest nodes' triangle.
   double l = len / 2;
   Altitude h = tile.GetHeight({l, l});
   TEST(h == 4 || h == 2, (h));
-  TEST_EQUAL(tile.GetTriangleHeight({l, l}), 3, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetTriangleHeight({l, l}), 3.0, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetBilinearHeight({l, l}), 3.0, ());
 
   l = 3 * len + len / 2;
   h = tile.GetHeight({l, l});
   TEST(h == -4 || h == -2, (h));
-  TEST_EQUAL(tile.GetTriangleHeight({l, l}), -3, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetTriangleHeight({l, l}), -3.0, ());
+  TEST_ALMOST_EQUAL_ULPS(tile.GetBilinearHeight({l, l}), -3.0, ());
 }
 
 /*
