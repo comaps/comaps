@@ -37,7 +37,7 @@ public:
   // AltitudeGetter overrides:
   Altitude GetAltitude(m2::PointD const & p) override
   {
-    return m_srtmManager.GetTriangleHeight(mercator::ToLatLon(p));
+    return m_srtmManager.GetAltitude(mercator::ToLatLon(p));
   }
 
   void PrintStatsAndPurge() override

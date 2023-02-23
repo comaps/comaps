@@ -48,10 +48,10 @@ public:
     return (routing::IsRoad(types) && !types.Has(m_ferry));
   }
 
-  geometry::Altitude GetHeight(ms::LatLon const & coord)
+  geometry::Altitude GetAltitude(ms::LatLon const & coord)
   {
     std::lock_guard guard(m_mutex);
-    return m_manager.GetTriangleHeight(coord);
+    return m_manager.GetAltitude(coord);
   }
 
   void Purge()
@@ -119,7 +119,7 @@ void CheckCoverage(SafeTileManager & manager)
 
       for (size_t i = 0; i < ft.GetPointsCount(); ++i)
       {
-        auto const height = manager.GetHeight(mercator::ToLatLon(ft.GetPoint(i)));
+        auto const height = manager.GetAltitude(mercator::ToLatLon(ft.GetPoint(i)));
         if (height != geometry::kInvalidAltitude)
           good++;
       }
@@ -150,9 +150,9 @@ void CheckDistance(SafeTileManager & manager)
       for (size_t i = 1; i < ft.GetPointsCount(); ++i)
       {
         auto const ll1 = mercator::ToLatLon(ft.GetPoint(i-1));
-        auto const alt1 = manager.GetHeight(ll1);
+        auto const alt1 = manager.GetAltitude(ll1);
         auto const ll2 = mercator::ToLatLon(ft.GetPoint(i));
-        auto const alt2 = manager.GetHeight(ll2);
+        auto const alt2 = manager.GetAltitude(ll2);
 
         if (alt1 == geometry::kInvalidAltitude || alt2 == geometry::kInvalidAltitude)
         {
@@ -171,7 +171,7 @@ void CheckDistance(SafeTileManager & manager)
           ms::LatLon const ll(ll2.m_lat * a + ll1.m_lat * (1 - a), ll2.m_lon * a + ll1.m_lon * (1 - a));
 
           // Get diff between approx altitude and real one.
-          auto const alt = manager.GetHeight(ll);
+          auto const alt = manager.GetAltitude(ll);
           if (alt == geometry::kInvalidAltitude)
           {
             LOG_SHORT(LWARNING, ("Invalid altitude for the middle point:", ll));
@@ -242,7 +242,10 @@ int main(int argc, char * argv[])
       }
       else
       {
-        cout << "H = " << manager.GetHeight({lat, lon}) << "; TrgH = " << manager.GetTriangleHeight({lat, lon});
+        auto const & tile = manager.GetTile({lat, lon});
+        cout << "H = " << tile.GetHeight({lat, lon}) <<
+                "; Trg = " << tile.GetTriangleHeight({lat, lon}) <<
+                "; Bilinear = " << tile.GetBilinearHeight({lat, lon});
         cout << endl;
       }
     }

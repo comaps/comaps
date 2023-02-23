@@ -135,7 +135,7 @@ geometry::Altitude SrtmTile::GetHeightRC(size_t row, size_t col) const
   return ReverseByteOrder(Data()[ix]);
 }
 
-geometry::Altitude SrtmTile::GetTriangleHeight(ms::LatLon const & coord) const
+double SrtmTile::GetTriangleHeight(ms::LatLon const & coord) const
 {
   if (!IsValid())
     return geometry::kInvalidAltitude;
@@ -179,9 +179,32 @@ geometry::Altitude SrtmTile::GetTriangleHeight(ms::LatLon const & coord) const
   double const a2 = ((p3.y - p1.y) * (ll.m_lon - p3.x) + (p1.x - p3.x) * (ll.m_lat - p3.y)) / det;
   double const a3 = 1 - a1 - a2;
 
-  return static_cast<geometry::Altitude>(std::round(a1 * GetHeightRC(p1.y, p1.x) +
-                                                    a2 * GetHeightRC(p2.y, p2.x) +
-                                                    a3 * GetHeightRC(p3.y, p3.x)));
+  return a1 * GetHeightRC(p1.y, p1.x) + a2 * GetHeightRC(p2.y, p2.x) + a3 * GetHeightRC(p3.y, p3.x);
+}
+
+double SrtmTile::GetBilinearHeight(ms::LatLon const & coord) const
+{
+  if (!IsValid())
+    return geometry::kInvalidAltitude;
+
+  auto const ll = GetCoordInSeconds(coord);
+
+  m2::Point<int> const p1(static_cast<int>(ll.m_lon), static_cast<int>(ll.m_lat));
+  auto p2 = p1;
+  if (p2.x < kArcSecondsInDegree)
+    ++p2.x;
+  if (p2.y < kArcSecondsInDegree)
+    ++p2.y;
+
+  // https://en.wikipedia.org/wiki/Bilinear_interpolation
+  double const denom = (p2.x - p1.x) * (p2.y - p1.y);
+  if (denom == 0)
+    return GetHeightRC(p1.y, p1.x);
+
+  return (GetHeightRC(p1.y, p1.x) * (p2.x - ll.m_lon) * (p2.y - ll.m_lat) +
+          GetHeightRC(p1.y, p2.x) * (ll.m_lon - p1.x) * (p2.y - ll.m_lat) +
+          GetHeightRC(p2.y, p1.x) * (p2.x - ll.m_lon) * (ll.m_lat - p1.y) +
+          GetHeightRC(p2.y, p2.x) * (ll.m_lon - p1.x) * (ll.m_lat - p1.y)) / denom;
 }
 
 // static
