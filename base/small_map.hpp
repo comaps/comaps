@@ -34,6 +34,8 @@ public:
   }
 
   size_t size() const { return m_map.size(); }
+  auto begin() const { return m_map.begin(); }
+  auto end() const { return m_map.end(); }
 
 protected:
   /// @todo buffer_vector is not suitable now, because Key/Value is not default constructible.
