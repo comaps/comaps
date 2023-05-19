@@ -7,6 +7,7 @@
 #include "routing/maxspeeds_serialization.hpp"
 #include "routing/routing_helpers.hpp"
 
+#include "routing_common/car_model_coefs.hpp"
 #include "routing_common/maxspeed_conversion.hpp"
 
 #include "indexer/feature.hpp"
@@ -37,6 +38,10 @@ using namespace routing;
 using std::string;
 
 char constexpr kDelim[] = ", \t\r\n";
+double constexpr kMinDefSpeedRoadsLengthKm = 5.0;
+double constexpr kMaxPossibleDefSpeedKmH = 400.0;
+// This factor should be greater than sqrt(2) / 2 - prefer diagonal link to square path.
+double constexpr kLinkToMainSpeedFactor = 0.85;
 
 template <class TokenizerT> bool ParseOneSpeedValue(TokenizerT & iter, MaxspeedType & value)
 {
@@ -68,11 +73,21 @@ class MaxspeedsMwmCollector
   {
     double m_lengthKM = 0;
     double m_timeH = 0;
+
+    double m_speed = -1;  // invalid initial value
+
+    friend std::string DebugPrint(AvgInfo const & i)
+    {
+      std::ostringstream ss;
+      ss << "AvgInfo{ " << i.m_speed << ", " << i.m_lengthKM << ", " << i.m_timeH << " }";
+      return ss.str();
+    }
   };
 
-  static int constexpr SPEEDS_COUNT = MaxspeedsSerializer::DEFAULT_SPEEDS_COUNT;
+  static int constexpr kSpeedsCount = MaxspeedsSerializer::DEFAULT_SPEEDS_COUNT;
+  static int constexpr kOutsideCityIdx = 0;
   // 0 - outside a city; 1 - inside a city.
-  std::unordered_map<HighwayType, AvgInfo> m_avgSpeeds[SPEEDS_COUNT];
+  std::unordered_map<HighwayType, AvgInfo> m_avgSpeeds[kSpeedsCount];
 
   base::GeoObjectId GetOsmID(uint32_t fid) const
   {
@@ -150,9 +165,8 @@ public:
           (*parentHwType == HighwayType::HighwayTertiary && hwType == HighwayType::HighwayTertiaryLink))
       {
         // Reduce factor from parent road. See DontUseLinksWhenRidingOnMotorway test.
-        // 0.85, this factor should be greater than sqrt(2) / 2 - prefer diagonal link to square path.
         return converter.ClosestValidMacro(
-              { base::asserted_cast<MaxspeedType>(std::lround(s.GetForward() * 0.85)), s.GetUnits() });
+              { base::asserted_cast<MaxspeedType>(std::lround(s.GetForward() * kLinkToMainSpeedFactor)), s.GetUnits() });
       }
 
       return {};
@@ -269,6 +283,7 @@ public:
     });
   }
 
+private:
   void AddSpeed(uint32_t featureID, uint64_t osmID, Maxspeed const & speed)
   {
     MaxspeedType constexpr kMaxReasonableSpeed = 280;
@@ -325,33 +340,164 @@ public:
       LOG(LWARNING, (m_logTag, "Undefined HighwayType for way", osmID));
   }
 
-  void SerializeMaxspeeds() const
+public:
+  void CalculateDefaultTypeSpeeds(MaxspeedsSerializer::HW2SpeedMap typeSpeeds[])
   {
-    if (m_maxspeeds.empty())
-      return;
-
-    MaxspeedsSerializer::HW2SpeedMap typeSpeeds[SPEEDS_COUNT];
-    for (int ind = 0; ind < SPEEDS_COUNT; ++ind)
+    std::vector<std::pair<HighwayType, InOutCitySpeedKMpH>> baseSpeeds(
+        kHighwayBasedSpeeds.begin(), kHighwayBasedSpeeds.end());
+    // Remove links, because they don't conform speed consistency.
+    baseSpeeds.erase(std::remove_if(baseSpeeds.begin(), baseSpeeds.end(), [](auto const & e)
     {
-      LOG(LINFO, ("Average speeds", ind == 0 ? "outside" : "inside", "a city:"));
+      return (e.first == HighwayType::HighwayMotorwayLink ||
+              e.first == HighwayType::HighwayTrunkLink ||
+              e.first == HighwayType::HighwayPrimaryLink ||
+              e.first == HighwayType::HighwaySecondaryLink ||
+              e.first == HighwayType::HighwayTertiaryLink);
+    }), baseSpeeds.end());
+
+    for (int ind = 0; ind < kSpeedsCount; ++ind)
+    {
+      // Calculate average speed.
+      for (auto & e : m_avgSpeeds[ind])
+      {
+        // Check some reasonable conditions when assigning average speed.
+        if (e.second.m_lengthKM > kMinDefSpeedRoadsLengthKm)
+        {
+          auto const speed = e.second.m_lengthKM / e.second.m_timeH;
+          if (speed < kMaxPossibleDefSpeedKmH)
+            e.second.m_speed = speed;
+        }
+      }
+
+      // Prepare ethalon vector.
+      bool const inCity = ind != kOutsideCityIdx;
+      std::sort(baseSpeeds.begin(), baseSpeeds.end(), [inCity](auto const & l, auto const & r)
+      {
+        // Sort from biggest to smallest.
+        return r.second.GetSpeed(inCity).m_weight < l.second.GetSpeed(inCity).m_weight;
+      });
+
+      // First of all check that calculated speed and base speed difference is less than 2x.
+      for (auto const & e : baseSpeeds)
+      {
+        auto & l = m_avgSpeeds[ind][e.first];
+        if (l.m_speed > 0)
+        {
+          double const base = e.second.GetSpeed(inCity).m_weight;
+          double const factor = l.m_speed / base;
+          if (factor > 2 || factor < 0.5)
+          {
+            LOG(LWARNING, (m_logTag, "More than 2x diff:", e.first, l.m_speed, base));
+            l.m_speed = -1;
+          }
+        }
+      }
+
+      // Check speed's pairs consistency.
+      // Constraints from the previous iteration can be broken if we modify l-speed on the next iteration.
+      for (size_t il = 0, ir = 1; ir < baseSpeeds.size(); ++ir)
+      {
+        auto & l = m_avgSpeeds[ind][baseSpeeds[il].first];
+        if (l.m_speed < 0)
+        {
+          ++il;
+          continue;
+        }
+        auto & r = m_avgSpeeds[ind][baseSpeeds[ir].first];
+        if (r.m_speed < 0)
+          continue;
+
+        // |l| should be greater than |r|
+        if (l.m_speed < r.m_speed)
+        {
+          LOG(LWARNING, (m_logTag, "Bad def speeds pair:", baseSpeeds[il].first, baseSpeeds[ir].first, l, r));
+
+          if (l.m_lengthKM >= r.m_lengthKM)
+            r.m_speed = l.m_speed;
+          else
+            l.m_speed = r.m_speed;
+        }
+
+        il = ir;
+      }
+
+      auto const getSpeed = [this, ind, inCity](HighwayType type)
+      {
+        auto const s = m_avgSpeeds[ind][type].m_speed;
+        if (s > 0)
+          return s;
+        auto const * p = kHighwayBasedSpeeds.Find(type);
+        CHECK(p, ());
+        return p->GetSpeed(inCity).m_weight;
+      };
+
+      // These speeds: Primary, Secondary, Tertiary, Residential have the biggest routing quality impact.
+      {
+        double const primaryS = getSpeed(HighwayType::HighwayPrimary);
+        double const secondaryS = getSpeed(HighwayType::HighwaySecondary);
+        double const tertiaryS = getSpeed(HighwayType::HighwayTertiary);
+        double const residentialS = getSpeed(HighwayType::HighwayResidential);
+        double constexpr eps = 1.0;
+        if (primaryS + eps < secondaryS || secondaryS + eps < tertiaryS || tertiaryS + eps < residentialS)
+        {
+          LOG(LWARNING, (m_logTag, "Ignore primary, secondary, tertiary, residential speeds:",
+                                    primaryS, secondaryS, tertiaryS, residentialS));
+
+          m_avgSpeeds[ind][HighwayType::HighwayPrimary].m_speed = -1;
+          m_avgSpeeds[ind][HighwayType::HighwaySecondary].m_speed = -1;
+          m_avgSpeeds[ind][HighwayType::HighwayTertiary].m_speed = -1;
+          m_avgSpeeds[ind][HighwayType::HighwayResidential].m_speed = -1;
+        }
+      }
+
+      // Update links.
+      std::pair<HighwayType, HighwayType> arrLinks[] = {
+        {HighwayType::HighwayMotorway, HighwayType::HighwayMotorwayLink},
+        {HighwayType::HighwayTrunk, HighwayType::HighwayTrunkLink},
+        {HighwayType::HighwayPrimary, HighwayType::HighwayPrimaryLink},
+        {HighwayType::HighwaySecondary, HighwayType::HighwaySecondaryLink},
+        {HighwayType::HighwayTertiary, HighwayType::HighwayTertiaryLink},
+      };
+      for (auto const & e : arrLinks)
+      {
+        auto const main = m_avgSpeeds[ind][e.first].m_speed;
+        auto & link = m_avgSpeeds[ind][e.second].m_speed;
+        if (main > 0)
+          link = kLinkToMainSpeedFactor * main;
+        else
+          link = -1;
+      }
+
+      // Fill type-speed map.
+      LOG(LINFO, ("Average speeds", ind == kOutsideCityIdx ? "outside" : "inside", "a city:"));
       for (auto const & e : m_avgSpeeds[ind])
       {
-        long const speed = std::lround(e.second.m_lengthKM / e.second.m_timeH);
-        if (speed < routing::kInvalidSpeed)
+        if (e.second.m_speed > 0)
         {
           // Store type speeds in Metric system, like VehicleModel profiles.
           auto const speedInUnits = m_converter.ClosestValidMacro(
-                { static_cast<MaxspeedType>(speed), measurement_utils::Units::Metric });
+                { static_cast<MaxspeedType>(e.second.m_speed), measurement_utils::Units::Metric });
 
           LOG(LINFO, ("*", e.first, "=", speedInUnits));
 
           typeSpeeds[ind][e.first] = m_converter.SpeedToMacro(speedInUnits);
         }
-        else
-          LOG(LWARNING, ("Large average speed for", e.first, "=", speed));
       }
     }
+  }
 
+  void SerializeMaxspeeds()
+  {
+    if (m_maxspeeds.empty())
+      return;
+
+    MaxspeedsSerializer::HW2SpeedMap typeSpeeds[kSpeedsCount];
+    /// @todo There are too many claims/bugs with Turkey calculated defaults.
+    /// And yes, now this dummy country check :)
+    if (m_dataPath.find("Turkey_") == std::string::npos)
+      CalculateDefaultTypeSpeeds(typeSpeeds);
+
+    // Serialize speeds.
     FilesContainerW cont(m_dataPath, FileWriter::OP_WRITE_EXISTING);
     auto writer = cont.GetWriter(MAXSPEEDS_FILE_TAG);
     MaxspeedsSerializer::Serialize(m_maxspeeds, typeSpeeds, *writer);
