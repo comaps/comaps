@@ -4,14 +4,10 @@
 
 #include "routing_common/maxspeed_conversion.hpp"
 
-#include "platform/measurement_utils.hpp"
-
 #include "base/geo_object_id.hpp"
 
-#include <cstdint>
 #include <map>
 #include <string>
-#include <vector>
 
 namespace routing
 {
