@@ -8,6 +8,8 @@
 #include <string>
 #include <vector>
 
+namespace csv_reader_test
+{
 using platform::tests_support::ScopedFile;
 
 using Row = coding::CSVReader::Row;
@@ -179,3 +181,41 @@ UNIT_TEST(CSVReaderIterator)
     TEST_EQUAL(index, answer.size(), ());
   }
 }
+
+UNIT_TEST(CSVReaderEmptyColumns)
+{
+  auto const kContentWithEmptyColumns = ",,2,,4,\n,,,,,";
+  auto const fileName = "test.csv";
+  ScopedFile sf(fileName, kContentWithEmptyColumns);
+  Rows const answer = {{"", "", "2", "", "4", ""}, {"", "", "", "", "", ""}};
+  coding::CSVReader reader(sf.GetFullPath());
+  size_t index = 0;
+  while (auto const optionalRow = reader.ReadRow())
+  {
+    TEST_EQUAL(*optionalRow, answer[index], ());
+    ++index;
+  }
+  TEST_EQUAL(index, answer.size(), ());
+  TEST(!reader.ReadRow(), ());
+  TEST(!reader.ReadRow(), ());
+}
+
+UNIT_TEST(CSVReaderQuotes)
+{
+  auto const kContentWithQuotes = R"(noquotes, "" , "with space","with, comma","""double"" quotes","""double,"", commas", """""",)";
+  auto const fileName = "test.csv";
+  ScopedFile sf(fileName, kContentWithQuotes);
+  Rows const answer = {{"noquotes", "", "with space", "with, comma", "\"double\" quotes", "\"double,\", commas","\"\"", ""}};
+  coding::CSVReader reader(sf.GetFullPath());
+  size_t index = 0;
+  while (auto const optionalRow = reader.ReadRow())
+  {
+    TEST_EQUAL(*optionalRow, answer[index], ());
+    ++index;
+  }
+  TEST_EQUAL(index, answer.size(), ());
+  TEST(!reader.ReadRow(), ());
+  TEST(!reader.ReadRow(), ());
+}
+
+}  // namespace csv_reader_test
