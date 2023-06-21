@@ -440,15 +440,66 @@ bool AlmostEqual(std::string const & str1, std::string const & str2, size_t mism
   return false;
 }
 
-void ParseCSVRow(std::string const & s, char const delimiter, std::vector<std::string> & target)
+namespace
+{
+// Trim, unquote the string, and unescape two double quotes.
+std::string & UnescapeCSVColumn(std::string & s)
+{
+  Trim(s);
+
+  if (s.size() < 2)
+    return s;
+
+  if (*s.begin() == '"' && *s.rbegin() == '"')
+    s = s.substr(1, s.size() - 2);
+
+  for (size_t i = 1; i < s.size(); ++i)
+    if (s[i] == '"' && s[i - 1] == '"')
+      s.erase(i, 1);
+
+  return s;
+}
+}  // namespace
+
+void ParseCSVRow(std::string const & row, char const delimiter, std::vector<std::string> & target)
 {
   target.clear();
-  TokenizeIterator<SimpleDelimiter, std::string::const_iterator, true /* KeepEmptyTokens */> it(s.begin(), s.end(), delimiter);
-  for (; it; ++it)
+
+  std::string prevColumns;
+  for (TokenizeIterator<SimpleDelimiter, std::string::const_iterator, true /* KeepEmptyTokens */> it {row.begin(), row.end(), delimiter}; it; ++it)
   {
-    std::string column(*it);
-    Trim(column);
-    target.push_back(std::move(column));
+    std::string_view column = *it;
+    size_t const quotesCount = std::count(column.begin(), column.end(), '"');
+    bool const evenQuotes = quotesCount % 2 == 0;
+    if (prevColumns.empty())
+    {
+      if (evenQuotes)
+      {
+        if (quotesCount == 0)
+          target.emplace_back(column);
+        else
+        {
+          std::string strColumn {column};
+          target.push_back(UnescapeCSVColumn(strColumn));
+        }
+      }
+      else
+      {
+        prevColumns = column;
+        prevColumns.push_back(',');
+      }
+    }
+    else
+    {
+      prevColumns.append(column);
+      if (evenQuotes)
+        prevColumns.push_back(',');
+      else
+      {
+        target.push_back(UnescapeCSVColumn(prevColumns));
+        prevColumns.clear();
+      }
+    }
   }
 
   // Special case: if the string is empty, return an empty array instead of {""}.
