@@ -9,6 +9,10 @@ set(SRC
   affiliation.hpp
   altitude_generator.cpp
   altitude_generator.hpp
+  # Should precede booking_dataset.cpp because of Unity build + template instantiation order.
+  booking_scoring.cpp
+  booking_dataset.cpp
+  booking_dataset.hpp
   borders.cpp
   borders.hpp
   boundary_postcodes_enricher.cpp
@@ -196,6 +200,12 @@ set(SRC
   routing_world_roads_generator.hpp
   search_index_builder.cpp
   search_index_builder.hpp
+  sponsored_dataset.hpp
+  sponsored_dataset_inl.hpp
+  sponsored_object_base.hpp
+  sponsored_object_storage.hpp
+  sponsored_scoring.cpp
+  sponsored_scoring.hpp
   srtm_parser.cpp
   srtm_parser.hpp
   statistics.cpp
@@ -274,5 +284,6 @@ omim_add_tool_subdirectory(generator_tool)
 #omim_add_tool_subdirectory(complex_generator)
 omim_add_tool_subdirectory(feature_segments_checker)
 omim_add_tool_subdirectory(srtm_coverage_checker)
+omim_add_tool_subdirectory(booking_quality_check)
 add_subdirectory(world_roads_builder)
 add_subdirectory(address_parser)

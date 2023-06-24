@@ -55,6 +55,8 @@ private:
   MwmSet::MwmId m_mwmId;
 };
 
+void LoadDataSource(DataSource & dataSource);
+
 class FeatureGetter
 {
 public:

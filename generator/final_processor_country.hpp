@@ -41,6 +41,12 @@ public:
     m_addressPath = dir;
   }
 
+  void SetHotels(std::string const & hotelsFile, std::string const & statusFile)
+  {
+    m_hotelsFilename = hotelsFile;
+    m_hotelsStatusFilename = statusFile;
+  }
+
   void SetCityBoundariesFiles(std::string const & collectorFile)
   {
     m_boundariesCollectorFile = collectorFile;
@@ -54,6 +60,7 @@ public:
 private:
   //void Order();
   void ProcessCoastline();
+  void ProcessBooking();
   void ProcessRoundabouts();
   void AddFakeNodes();
   void AddIsolines();
@@ -63,12 +70,13 @@ private:
 
   bool IsCountry(std::string const & filename);
 
-  std::string m_borderPath;
   std::string m_temporaryMwmPath;
   std::string m_intermediateDir;
   std::string m_isolinesPath, m_addressPath;
   std::string m_boundariesCollectorFile;
   std::string m_coastlineGeomFilename;
+  std::string m_hotelsFilename;
+  std::string m_hotelsStatusFilename;
   std::string m_worldCoastsFilename;
   std::string m_fakeNodesFilename;
   std::string m_miniRoundaboutsFilename;
