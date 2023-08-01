@@ -6,6 +6,7 @@
 #include "indexer/classificator.hpp"
 #include "indexer/classificator_loader.hpp"
 #include "indexer/data_source.hpp"
+#include "indexer/feature_algo.hpp"
 #include "indexer/feature_altitude.hpp"
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_processor.hpp"
@@ -27,27 +28,42 @@
 namespace get_altitude_tests
 {
 using namespace feature;
+using namespace geometry;
 using namespace platform;
 using namespace std;
 
-void TestAltitudeOfAllMwmFeatures(string const & countryId,
-                                  geometry::Altitude const altitudeLowerBoundMeters,
-                                  geometry::Altitude const altitudeUpperBoundMeters)
+class FeaturesGuard
 {
-  FrozenDataSource dataSource;
+public:
+  FrozenDataSource m_dataSource;
+  MwmSet::MwmHandle m_handle;
+  unique_ptr<AltitudeLoaderCached> m_altitudes;
 
-  LocalCountryFile const country = integration::GetLocalCountryFileByCountryId(CountryFile(countryId));
-  TEST_NOT_EQUAL(country, LocalCountryFile(), ());
-  TEST(country.HasFiles(), (country));
+  explicit FeaturesGuard(string const & countryId)
+  {
+    LocalCountryFile const country = integration::GetLocalCountryFileByCountryId(CountryFile(countryId));
+    TEST_NOT_EQUAL(country, LocalCountryFile(), ());
+    TEST(country.HasFiles(), (country));
 
-  pair<MwmSet::MwmId, MwmSet::RegResult> const res = dataSource.RegisterMap(country);
-  TEST_EQUAL(res.second, MwmSet::RegResult::Success, ());
-  auto const handle = dataSource.GetMwmHandleById(res.first);
-  TEST(handle.IsAlive(), ());
+    pair<MwmSet::MwmId, MwmSet::RegResult> const res = m_dataSource.RegisterMap(country);
+    TEST_EQUAL(res.second, MwmSet::RegResult::Success, ());
+    m_handle = m_dataSource.GetMwmHandleById(res.first);
+    TEST(m_handle.IsAlive(), ());
+    TEST(GetValue(), ());
 
-  auto altitudeLoader = make_unique<AltitudeLoaderCached>(*handle.GetValue());
+    m_altitudes = make_unique<AltitudeLoaderCached>(*GetValue());
+  }
 
-  ForEachFeature(country.GetPath(MapFileType::Map), [&](FeatureType & f, uint32_t const & id)
+  MwmValue const * GetValue() { return m_handle.GetValue(); }
+};
+
+void TestAltitudeOfAllMwmFeatures(string const & countryId,
+                                  Altitude const altitudeLowerBoundMeters,
+                                  Altitude const altitudeUpperBoundMeters)
+{
+  FeaturesGuard features(countryId);
+
+  ForEachFeature(features.GetValue()->m_cont, [&](FeatureType & f, uint32_t const & id)
   {
     if (!routing::IsRoad(TypesHolder(f)))
       return;
@@ -57,7 +73,7 @@ void TestAltitudeOfAllMwmFeatures(string const & countryId,
     if (pointsCount == 0)
       return;
 
-    geometry::Altitudes const & altitudes = altitudeLoader->GetAltitudes(id, pointsCount);
+    auto const & altitudes = features.m_altitudes->GetAltitudes(id, pointsCount);
     TEST(!altitudes.empty(),
          ("Empty altitude vector. MWM:", countryId, ", feature id:", id, ", altitudes:", altitudes));
 
@@ -69,7 +85,7 @@ void TestAltitudeOfAllMwmFeatures(string const & countryId,
   });
 }
 
-UNIT_TEST(AllMwmFeaturesGetAltitudeTest)
+UNIT_TEST(GetAltitude_AllMwmFeaturesTest)
 {
   classificator::Load();
 
@@ -80,4 +96,49 @@ UNIT_TEST(AllMwmFeaturesGetAltitudeTest)
   TestAltitudeOfAllMwmFeatures("Netherlands_North Holland_Amsterdam", -25 /* altitudeLowerBoundMeters */,
                                50 /* altitudeUpperBoundMeters */);
 }
+
+/*
+void PrintGeometryAndAltitude(std::string const & countryID, ms::LatLon const & ll, double distM)
+{
+  FeaturesGuard features(countryID);
+  auto const point = mercator::FromLatLon(ll);
+  m2::RectD const rect = mercator::RectByCenterXYAndSizeInMeters(point, distM);
+
+  features.m_dataSource.ForEachInRect([&](FeatureType & ft)
+  {
+    if (!routing::IsRoad(TypesHolder(ft)))
+      return;
+
+    ft.ParseGeometry(FeatureType::BEST_GEOMETRY);
+    size_t const pointsCount = ft.GetPointsCount();
+    if (pointsCount == 0)
+      return;
+
+    if (GetMinDistanceMeters(ft, point) > distM)
+      return;
+
+    stringstream geomSS;
+    geomSS.precision(20);
+    for (size_t i = 0; i < pointsCount; ++i)
+    {
+      auto const ll = mercator::ToLatLon(ft.GetPoint(i));
+      geomSS << "{ " << ll.m_lat << ", " << ll.m_lon << " }, ";
+    }
+    LOG(LINFO, (geomSS.str()));
+
+    auto const & altitudes = features.m_altitudes->GetAltitudes(ft.GetID().m_index, pointsCount);
+    LOG(LINFO, (ft.GetName(StringUtf8Multilang::kDefaultCode), altitudes));
+
+  }, rect, scales::GetUpperScale());
+}
+
+UNIT_TEST(GetAltitude_SamplesTest)
+{
+  classificator::Load();
+
+  PrintGeometryAndAltitude("Italy_Lazio", {41.8998667, 12.4985937}, 15.0);
+  PrintGeometryAndAltitude("Crimea", { 44.7598876, 34.3160482 }, 5.0);
+}
+*/
+
 }  // namespace get_altitude_tests

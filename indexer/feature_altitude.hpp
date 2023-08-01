@@ -77,7 +77,7 @@ class Altitudes
 public:
   Altitudes() = default;
 
-  explicit Altitudes(geometry::Altitudes const & altitudes) : m_altitudes(altitudes) {}
+  explicit Altitudes(geometry::Altitudes && altitudes) : m_altitudes(std::move(altitudes)) {}
 
   template <class TSink>
   void Serialize(geometry::Altitude minAltitude, TSink & sink) const
