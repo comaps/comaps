@@ -102,30 +102,35 @@ public:
   }
 
 private:
-  Altitude GetValueImpl(ms::LatLon const & pos)
+  Altitude GetValueImpl(ms::LatLon pos)
   {
     if (m_preferredTile != nullptr)
     {
+      using mercator::kPointEqualityEps;
+
       // Each SRTM tile overlaps the top row in the bottom tile and the right row in the left tile.
       // Try to prevent loading a new tile if the position can be found in the loaded one.
       auto const latDist = pos.m_lat - m_leftBottomOfPreferredTile.m_lat;
       auto const lonDist = pos.m_lon - m_leftBottomOfPreferredTile.m_lon;
-      if (latDist > -mercator::kPointEqualityEps && latDist < 1.0 + mercator::kPointEqualityEps && lonDist > -mercator::kPointEqualityEps && lonDist < 1.0 + mercator::kPointEqualityEps)
+      if (latDist > -kPointEqualityEps && latDist < 1.0 + kPointEqualityEps &&
+          lonDist > -kPointEqualityEps && lonDist < 1.0 + kPointEqualityEps)
       {
-        ms::LatLon innerPos = pos;
         if (latDist < 0.0)
-          innerPos.m_lat += mercator::kPointEqualityEps;
+          pos.m_lat += kPointEqualityEps;
         else if (latDist >= 1.0)
-          innerPos.m_lat -= mercator::kPointEqualityEps;
+          pos.m_lat -= kPointEqualityEps;
         if (lonDist < 0.0)
-          innerPos.m_lon += mercator::kPointEqualityEps;
+          pos.m_lon += kPointEqualityEps;
         else if (lonDist >= 1.0)
-          innerPos.m_lon -= mercator::kPointEqualityEps;
-        return m_preferredTile->GetHeight(innerPos);
+          pos.m_lon -= kPointEqualityEps;
+
+        /// @todo Can't call GetTriangleHeight here and below because it breaks
+        /// ContoursBuilder::AddSegment level constraint. Should investigate deeper.
+        return m_preferredTile->GetHeight(pos);
       }
     }
 
-    return m_srtmManager.GetHeight(pos);
+    return m_srtmManager.GetTile(pos).GetHeight(pos);
   }
 
   Altitude GetMedianValue(ms::LatLon const & pos)
@@ -179,6 +184,8 @@ public:
     , m_bottomLat(bottomLat)
   {}
 
+  /// @todo Should we use the same approach as in SrtmTile::GetTriangleHeight?
+  /// This function is used in ASTER fiter only.
   Altitude GetValue(ms::LatLon const & pos) override
   {
     double ln = pos.m_lon - m_leftLon;
@@ -374,11 +381,10 @@ private:
                                 ValuesProvider<Altitude> & altProvider,
                                 Contours<Altitude> & contours)
   {
-    auto const avoidSeam = lat == kAsterTilesLatTop || (lat == kAsterTilesLatBottom - 1);
-    if (avoidSeam)
+    // Avoid seam between SRTM and ASTER.
+    if ((lat == kAsterTilesLatTop) || (lat == kAsterTilesLatBottom - 1))
     {
-      m_srtmProvider.SetPrefferedTile(ms::LatLon(lat == kAsterTilesLatTop ? lat - 0.5 : lat + 0.5,
-                                                 lon));
+      m_srtmProvider.SetPrefferedTile(ms::LatLon(lat == kAsterTilesLatTop ? lat - 0.5 : lat + 0.5, lon));
       SeamlessAltitudeProvider seamlessAltProvider(m_srtmProvider, altProvider,
           [](ms::LatLon const & pos)
           {
