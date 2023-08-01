@@ -3,6 +3,7 @@
 #include "topography_generator/marching_squares/contours_builder.hpp"
 #include "topography_generator/marching_squares/square.hpp"
 #include "topography_generator/utils/contours.hpp"
+#include "topography_generator/utils/values_provider.hpp"
 
 #include "base/logging.hpp"
 
@@ -34,7 +35,9 @@ public:
 
   void GenerateContours(Contours<ValueType> & result)
   {
-    ScanValuesInRect(result.m_minValue, result.m_maxValue, result.m_invalidValuesCount);
+    std::vector<ValueType> grid((m_stepsCountLat + 1) * (m_stepsCountLon + 1));
+
+    ScanValuesInRect(result, grid);
     result.m_valueStep = m_valueStep;
 
     auto const levelsCount = static_cast<size_t>(result.m_maxValue - result.m_minValue) / m_valueStep;
@@ -45,60 +48,72 @@ public:
     }
 
     ContoursBuilder contoursBuilder(levelsCount, m_debugId);
+    Square<ValueType> square(result.m_minValue, m_valueStep, m_debugId);
 
     for (size_t i = 0; i < m_stepsCountLat; ++i)
     {
       contoursBuilder.BeginLine();
       for (size_t j = 0; j < m_stepsCountLon; ++j)
       {
-        auto const leftBottom = ms::LatLon(m_leftBottom.m_lat + m_step * i,
-                                           m_leftBottom.m_lon + m_step * j);
-        // Use std::min to prevent floating-point number precision error.
-        auto const rightTop = ms::LatLon(std::min(leftBottom.m_lat + m_step, m_rightTop.m_lat),
-                                         std::min(leftBottom.m_lon + m_step, m_rightTop.m_lon));
+        // This point should be calculated _exact_ the same way as in ScanValuesInRect.
+        // leftBottom + m_step doesn't work due to different floating results.
 
-        Square<ValueType> square(leftBottom, rightTop, result.m_minValue, m_valueStep,
-                                 m_valuesProvider, m_debugId);
+        square.Init(
+            m_leftBottom.m_lon + m_step * j,        // Left
+            m_leftBottom.m_lat + m_step * i,        // Bottom
+            m_leftBottom.m_lon + m_step * (j + 1),  // Right
+            m_leftBottom.m_lat + m_step * (i + 1),  // Top
+
+            grid[Idx(i, j)],          // LB
+            grid[Idx(i, j + 1)],      // RB
+            grid[Idx(i + 1, j)],      // LT
+            grid[Idx(i + 1, j + 1)],  // RT
+
+            m_valuesProvider.GetInvalidValue());
+
         square.GenerateSegments(contoursBuilder);
       }
-      auto const isLastLine = i == m_stepsCountLat - 1;
-      contoursBuilder.EndLine(isLastLine);
+
+      contoursBuilder.EndLine(i == m_stepsCountLat - 1 /* finalLine */);
     }
 
     contoursBuilder.GetContours(result.m_minValue, result.m_valueStep, result.m_contours);
   }
 
 private:
-  void ScanValuesInRect(ValueType & minValue, ValueType & maxValue, size_t & invalidValuesCount) const
+  size_t Idx(size_t iLat, size_t jLon) const { return iLat * (m_stepsCountLon + 1) + jLon; }
+
+  void ScanValuesInRect(Contours<ValueType> & res, std::vector<ValueType> & grid) const
   {
-    minValue = maxValue = m_valuesProvider.GetValue(m_leftBottom);
-    invalidValuesCount = 0;
+    res.m_minValue = res.m_maxValue = m_valuesProvider.GetValue(m_leftBottom);
+    res.m_invalidValuesCount = 0;
 
     for (size_t i = 0; i <= m_stepsCountLat; ++i)
     {
       for (size_t j = 0; j <= m_stepsCountLon; ++j)
       {
-        auto const pos = ms::LatLon(m_leftBottom.m_lat + m_step * i,
-                                    m_leftBottom.m_lon + m_step * j);
+        ms::LatLon const pos(m_leftBottom.m_lat + m_step * i, m_leftBottom.m_lon + m_step * j);
         auto const value = m_valuesProvider.GetValue(pos);
+        grid[Idx(i, j)] = value;
+
         if (value == m_valuesProvider.GetInvalidValue())
         {
-          ++invalidValuesCount;
+          ++res.m_invalidValuesCount;
           continue;
         }
-        if (value < minValue)
-          minValue = value;
-        if (value > maxValue)
-          maxValue = value;
+        if (value < res.m_minValue)
+          res.m_minValue = value;
+        if (value > res.m_maxValue)
+          res.m_maxValue = value;
       }
     }
 
-    if (invalidValuesCount > 0)
-      LOG(LWARNING, ("Tile", m_debugId, "contains", invalidValuesCount, "invalid values."));
+    if (res.m_invalidValuesCount > 0)
+      LOG(LWARNING, ("Tile", m_debugId, "contains", res.m_invalidValuesCount, "invalid values."));
 
-    Square<ValueType>::ToLevelsRange(m_valueStep, minValue, maxValue);
+    Square<ValueType>::ToLevelsRange(m_valueStep, res.m_minValue, res.m_maxValue);
 
-    CHECK_GREATER_OR_EQUAL(maxValue, minValue, (m_debugId));
+    CHECK_GREATER_OR_EQUAL(res.m_maxValue, res.m_minValue, (m_debugId));
   }
 
   ms::LatLon const m_leftBottom;
