@@ -7,20 +7,25 @@
 
 #include <memory>
 #include <string>
-#include <utility>
 
 namespace feature
 {
 template <class ToDo>
-void ForEachFeature(ModelReaderPtr const & reader, ToDo && toDo)
+void ForEachFeature(FilesContainerR const & cont, ToDo && toDo)
 {
-  FeaturesVectorTest features((FilesContainerR(reader)));
-  features.GetVector().ForEach(std::forward<ToDo>(toDo));
+  FeaturesVectorTest features(cont);
+  features.GetVector().ForEach(toDo);
+}
+
+template <class ToDo>
+void ForEachFeature(ModelReaderPtr reader, ToDo && toDo)
+{
+  ForEachFeature(FilesContainerR(reader), toDo);
 }
 
 template <class ToDo>
 void ForEachFeature(std::string const & fPath, ToDo && toDo)
 {
-  ForEachFeature(std::make_unique<FileReader>(fPath), std::forward<ToDo>(toDo));
+  ForEachFeature(std::make_unique<FileReader>(fPath), toDo);
 }
 }  // namespace feature
