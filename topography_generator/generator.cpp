@@ -9,8 +9,6 @@
 
 #include "geometry/mercator.hpp"
 
-#include "base/scope_guard.hpp"
-#include "base/string_utils.hpp"
 #include "base/thread_pool_computational.hpp"
 
 #include <algorithm>
@@ -124,13 +122,11 @@ private:
         else if (lonDist >= 1.0)
           pos.m_lon -= kPointEqualityEps;
 
-        /// @todo Can't call GetTriangleHeight here and below because it breaks
-        /// ContoursBuilder::AddSegment level constraint. Should investigate deeper.
-        return m_preferredTile->GetHeight(pos);
+        return m_preferredTile->GetAltitude(pos);
       }
     }
 
-    return m_srtmManager.GetTile(pos).GetHeight(pos);
+    return m_srtmManager.GetAltitude(pos);
   }
 
   Altitude GetMedianValue(ms::LatLon const & pos)
@@ -185,7 +181,7 @@ public:
   {}
 
   /// @todo Should we use the same approach as in SrtmTile::GetTriangleHeight/GetBilinearHeight?
-  /// This function is used in ASTER fiter only.
+  /// This function is used in ASTER filter only.
   Altitude GetValue(ms::LatLon const & pos) override
   {
     double ln = pos.m_lon - m_leftLon;
@@ -304,8 +300,8 @@ private:
       }
     }
     auto const & pl = GetPlatform();
-    if (!pl.IsFileExistsByFullPath(base::JoinPath(m_srtmDir, tileName + ".hgt"))
-        && !pl.IsFileExistsByFullPath(generator::SrtmTile::GetPath(m_srtmDir, tileName)))
+    if (!pl.IsFileExistsByFullPath(base::JoinPath(m_srtmDir, tileName + ".hgt")) &&
+        !pl.IsFileExistsByFullPath(generator::SrtmTile::GetPath(m_srtmDir, tileName)))
     {
       LOG(LINFO, ("SRTM tile", tileName, "doesn't exist, skip processing."));
       return;
@@ -500,8 +496,9 @@ void Generator::GenerateIsolines(int left, int bottom, int right, int top,
 
 void Generator::GenerateIsolinesForCountries()
 {
-  if (!GetPlatform().IsFileExistsByFullPath(m_isolinesTilesOutDir) &&
-      !GetPlatform().MkDirRecursively(m_isolinesTilesOutDir))
+  auto const & pl = GetPlatform();
+  if (!pl.IsFileExistsByFullPath(m_isolinesTilesOutDir) &&
+      !pl.MkDirRecursively(m_isolinesTilesOutDir))
   {
     LOG(LERROR, ("Can't create directory", m_isolinesTilesOutDir));
     return;
@@ -515,8 +512,8 @@ void Generator::GenerateIsolinesForCountries()
       continue;
     checkedProfiles.insert(profileName);
     auto const profileTilesDir = GetTilesDir(m_isolinesTilesOutDir, profileName);
-    if (!GetPlatform().IsFileExistsByFullPath(profileTilesDir) &&
-        !GetPlatform().MkDirChecked(profileTilesDir))
+    if (!pl.IsFileExistsByFullPath(profileTilesDir) &&
+        !pl.MkDirChecked(profileTilesDir))
     {
       LOG(LERROR, ("Can't create directory", profileTilesDir));
       return;
@@ -526,7 +523,7 @@ void Generator::GenerateIsolinesForCountries()
   auto const tmpTileProfilesDir = GetTileProfilesDir(m_isolinesTilesOutDir);
 
   Platform::RmDirRecursively(tmpTileProfilesDir);
-  if (!GetPlatform().MkDirChecked(tmpTileProfilesDir))
+  if (!pl.MkDirChecked(tmpTileProfilesDir))
   {
     LOG(LERROR, ("Can't create directory", tmpTileProfilesDir));
     return;
@@ -540,7 +537,7 @@ void Generator::GenerateIsolinesForCountries()
 
     auto const countryFile = GetIsolinesFilePath(countryId, m_isolinesCountriesOutDir);
 
-    if (!m_forceRegenerate && GetPlatform().IsFileExistsByFullPath(countryFile))
+    if (!m_forceRegenerate && pl.IsFileExistsByFullPath(countryFile))
     {
       LOG(LINFO, ("Isolines for", countryId, "are ready, skip processing."));
       continue;
