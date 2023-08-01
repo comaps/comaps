@@ -117,8 +117,8 @@ bool SaveContrours(std::string const & filePath,
     LOG(LWARNING, ("File writer exception raised:", ex.what(), ", file", tmpFilePath));
     return false;
   }
-  base::DeleteFileX(filePath);
-  VERIFY(base::RenameFileX(tmpFilePath, filePath), (tmpFilePath, filePath));
+
+  CHECK(base::RenameFileX(tmpFilePath, filePath), (tmpFilePath, filePath));
   return true;
 }
 
