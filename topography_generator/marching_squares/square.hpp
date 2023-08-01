@@ -1,7 +1,7 @@
 #pragma once
 
 #include "topography_generator/marching_squares/contours_builder.hpp"
-#include "topography_generator/utils/values_provider.hpp"
+
 
 namespace topography_generator
 {
@@ -9,28 +9,31 @@ template <typename ValueType>
 class Square
 {
 public:
-  Square(ms::LatLon const & leftBottom,
-         ms::LatLon const & rightTop,
-         ValueType minValue, ValueType valueStep,
-         ValuesProvider<ValueType> & valuesProvider,
-         std::string const & debugId)
+  Square(ValueType minValue, ValueType valueStep, std::string const & debugId)
     : m_minValue(minValue)
     , m_valueStep(valueStep)
-    , m_left(leftBottom.m_lon)
-    , m_right(rightTop.m_lon)
-    , m_bottom(leftBottom.m_lat)
-    , m_top(rightTop.m_lat)
     , m_debugId(debugId)
   {
-    static_assert(std::is_integral<ValueType>::value, "Only integral types are supported.");
-
-    m_valueLB = GetValue(leftBottom, valuesProvider);
-    m_valueLT = GetValue(ms::LatLon(m_top, m_left), valuesProvider);
-    m_valueRT = GetValue(ms::LatLon(m_top, m_right), valuesProvider);
-    m_valueRB = GetValue(ms::LatLon(m_bottom, m_right), valuesProvider);
+    static_assert(std::is_integral<ValueType>::value && std::is_signed<ValueType>::value);
   }
 
-  void GenerateSegments(ContoursBuilder & builder)
+  void Init(double left, double bottom, double right, double top,
+            ValueType lb, ValueType rb, ValueType lt, ValueType rt, ValueType invalid)
+  {
+    m_isValid = true;
+
+    m_left = left;
+    m_bottom = bottom;
+    m_right = right;
+    m_top = top;
+
+    m_valueLB = GetValue(lb, invalid);
+    m_valueRB = GetValue(rb, invalid);
+    m_valueLT = GetValue(lt, invalid);
+    m_valueRT = GetValue(rt, invalid);
+  }
+
+  void GenerateSegments(ContoursBuilder & builder) const
   {
     if (!m_isValid)
       return;
@@ -70,14 +73,13 @@ private:
     Unclear,
   };
 
-  ValueType GetValue(ms::LatLon const & pos, ValuesProvider<ValueType> & valuesProvider)
+  ValueType GetValue(ValueType val, ValueType invalid)
   {
     // If a contour goes right through the corner of the square false segments can be generated.
     // Shift the value slightly from the corner.
-    ValueType val = valuesProvider.GetValue(pos);
-    if (val == valuesProvider.GetInvalidValue())
+    if (val == invalid)
     {
-      LOG(LWARNING, ("Invalid value at the position", pos, m_debugId));
+      //LOG(LWARNING, ("Invalid value at the position", pos, m_debugId));
       m_isValid = false;
       return val;
     }
@@ -87,7 +89,7 @@ private:
     return val;
   }
 
-  void AddSegments(ValueType val, uint16_t ind, ContoursBuilder & builder)
+  void AddSegments(ValueType val, uint16_t ind, ContoursBuilder & builder) const
   {
     // Segment is a vector directed so that higher values is on the right.
     static const std::pair<Rib, Rib> intersectedRibs[] =
@@ -159,7 +161,7 @@ private:
     }
   }
 
-  ms::LatLon InterpolatePoint(Square::Rib rib, ValueType val)
+  ms::LatLon InterpolatePoint(Square::Rib rib, ValueType val) const
   {
     double val1;
     double val2;
@@ -212,9 +214,6 @@ private:
     return {lat, lon};
   }
 
-  ValueType m_minValue;
-  ValueType m_valueStep;
-
   double m_left;
   double m_right;
   double m_bottom;
@@ -225,7 +224,10 @@ private:
   ValueType m_valueRT;
   ValueType m_valueRB;
 
-  bool m_isValid = true;
+  ValueType m_minValue;
+  ValueType m_valueStep;
   std::string m_debugId;
+
+  bool m_isValid;
 };
 }  // topography_generator

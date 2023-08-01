@@ -1,14 +1,11 @@
 #include "testing/testing.hpp"
 
 #include "coding/internal/file_data.hpp"
-#include "coding/writer.hpp"
-
-#include "base/logging.hpp"
 
 #include <cstring>  // strlen
 #include <fstream>
 #include <string>
-#include <vector>
+
 
 namespace file_data_test
 {
@@ -217,6 +214,35 @@ UNIT_TEST(EmptyFile)
   TEST_EQUAL(sz, 0, ());
 
   // Delete copy file.
+  TEST(DeleteFileX(copy), ());
+}
+
+UNIT_TEST(RenameOnExistingFile)
+{
+  using namespace base;
+
+  std::string const name = "test.empty";
+  std::string const copy = "test.empty.copy";
+  {
+    FileData f(name, FileData::Op::WRITE_TRUNCATE);
+    uint8_t const x = 1;
+    f.Write(&x, 1);
+  }
+  {
+    FileData f(copy, FileData::Op::WRITE_TRUNCATE);
+    uint8_t const x = 2;
+    f.Write(&x, 1);
+  }
+
+  TEST(RenameFileX(name, copy), ());
+
+  {
+    FileData f(copy, FileData::Op::READ);
+    uint8_t x;
+    f.Read(0, &x, 1);
+    TEST_EQUAL(x, 1, ());
+  }
+
   TEST(DeleteFileX(copy), ());
 }
 
