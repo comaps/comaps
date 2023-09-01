@@ -192,7 +192,13 @@ RawGenerator::FinalProcessorPtr RawGenerator::CreateCountryFinalProcessor(
   finalProcessor->SetIsolinesDir(m_genInfo.m_isolinesDir);
   finalProcessor->SetAddressesDir(m_genInfo.m_addressesDir);
 
-  finalProcessor->SetHotels(m_genInfo.m_bookingDataFilename, m_genInfo.GetIntermediateFileName("hotels_status.csv"));
+  if (!m_genInfo.m_hotelsPath.empty())
+  {
+    finalProcessor->SetHotels(base::JoinPath(m_genInfo.m_hotelsPath, "hotels.csv"),
+                              base::JoinPath(m_genInfo.m_hotelsPath, "placefeed.csv"),
+                              m_genInfo.GetIntermediateFileName("hotels_status.csv"));
+  }
+
   finalProcessor->SetMiniRoundabouts(m_genInfo.GetIntermediateFileName(MINI_ROUNDABOUTS_FILENAME));
   finalProcessor->SetAddrInterpolation(m_genInfo.GetIntermediateFileName(ADDR_INTERPOL_FILENAME));
   if (addAds)

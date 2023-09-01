@@ -41,9 +41,10 @@ public:
     m_addressPath = dir;
   }
 
-  void SetHotels(std::string const & hotelsFile, std::string const & statusFile)
+  void SetHotels(std::string const & hotelsFile, std::string const & hotelPlacesFile, std::string const & statusFile)
   {
     m_hotelsFilename = hotelsFile;
+    m_hotelPlacesFileName = hotelPlacesFile;
     m_hotelsStatusFilename = statusFile;
   }
 
@@ -75,8 +76,7 @@ private:
   std::string m_isolinesPath, m_addressPath;
   std::string m_boundariesCollectorFile;
   std::string m_coastlineGeomFilename;
-  std::string m_hotelsFilename;
-  std::string m_hotelsStatusFilename;
+  std::string m_hotelsFilename, m_hotelPlacesFileName, m_hotelsStatusFilename;
   std::string m_worldCoastsFilename;
   std::string m_fakeNodesFilename;
   std::string m_miniRoundaboutsFilename;
