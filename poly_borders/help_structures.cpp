@@ -21,7 +21,6 @@ bool ReplaceData::operator<(ReplaceData const & rhs) const
 // MarkedPoint -------------------------------------------------------------------------------------
 void MarkedPoint::AddLink(size_t borderId, size_t pointId)
 {
-  std::lock_guard<std::mutex> lock(*m_mutex);
   m_links.emplace(borderId, pointId);
 }
 

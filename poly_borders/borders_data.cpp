@@ -18,7 +18,7 @@
 #include "base/thread_pool_computational.hpp"
 
 #include <algorithm>
-#include <future>
+#include <iostream>
 #include <tuple>
 
 namespace
@@ -133,21 +133,15 @@ void SwapIfNeeded(size_t & a, size_t & b)
 
 namespace poly_borders
 {
-// BordersData::Processor --------------------------------------------------------------------------
-void BordersData::Processor::operator()(size_t borderId)
-{
-  if (ShouldLog(borderId, m_data.m_bordersPolygons.size()))
-    LOG(LINFO, ("Marking:", borderId + 1, "/", m_data.m_bordersPolygons.size()));
-
-  auto const & polygon = m_data.m_bordersPolygons[borderId];
-  for (size_t pointId = 0; pointId < polygon.m_points.size(); ++pointId)
-    m_data.MarkPoint(borderId, pointId);
-}
 
 // BordersData -------------------------------------------------------------------------------------
 void BordersData::Init(std::string const & bordersDir)
 {
   LOG(LINFO, ("Borders path:", bordersDir));
+
+  // key - coordinates
+  // value - {border idx, point idx}
+  std::unordered_map<int64_t, std::vector<std::pair<size_t, size_t>>> index;
 
   std::vector<std::string> files;
   Platform::GetFilesByExt(bordersDir, kBorderExtension, files);
@@ -159,11 +153,14 @@ void BordersData::Init(std::string const & bordersDir)
     auto const fullPath = base::JoinPath(bordersDir, file);
     size_t polygonId = 1;
 
-    std::vector<m2::RegionD> borders;
+    borders::PolygonsList borders;
     borders::LoadBorders(fullPath, borders);
-    for (auto const & region : borders)
+    for (auto & region : borders)
     {
-      Polygon polygon;
+      auto & points = region.MutableData();
+      m_duplicatedPointsCount += RemoveDuplicatingPointImpl(points);
+      CHECK_GREATER(points.size(), 1, (fullPath));
+
       // Some mwms have several polygons. For example, for Japan_Kanto_Tokyo that has 2 polygons we
       // will write 2 files:
       // Japan_Kanto_Tokyo.poly1
@@ -172,35 +169,27 @@ void BordersData::Init(std::string const & bordersDir)
 
       m_indexToPolyFileName[prevIndex] = fileCopy;
       m_polyFileNameToIndex[fileCopy] = prevIndex++;
-      for (auto const & point : region.Data())
-        polygon.m_points.emplace_back(point);
 
-      polygon.m_rect = region.GetRect();
+      size_t const borderIdx = m_bordersPolygons.size();
+      for (size_t i = 0; i < points.size(); ++i)
+        index[PointToInt64Obsolete(points[i], kPointCoordBits)].emplace_back(borderIdx, i);
+
       ++polygonId;
-      m_bordersPolygons.emplace_back(std::move(polygon));
+      m_bordersPolygons.emplace_back(region.GetRect(), points);
     }
   }
 
-  m_duplicatedPointsCount += RemoveDuplicatePoints();
-  LOG(LINFO, ("Removed:", m_duplicatedPointsCount, "from input data."));
-}
-
-void BordersData::MarkPoints()
-{
-  size_t const threadsNumber = std::thread::hardware_concurrency();
-  LOG(LINFO, ("Start marking points, threads number:", threadsNumber));
-
-  base::ComputationalThreadPool threadPool(threadsNumber);
-
-  std::vector<std::future<void>> tasks;
-  for (size_t i = 0; i < m_bordersPolygons.size(); ++i)
+  for (auto const & [_, v] : index)
   {
-    Processor processor(*this);
-    tasks.emplace_back(threadPool.Submit(processor, i));
+    for (size_t i = 0; i < v.size() - 1; ++i)
+      for (size_t j = i + 1; j < v.size(); ++j)
+      {
+        m_bordersPolygons[v[i].first].m_points[v[i].second].AddLink(v[j].first, v[j].second);
+        m_bordersPolygons[v[j].first].m_points[v[j].second].AddLink(v[i].first, v[i].second);
+      }
   }
 
-  for (auto & task : tasks)
-    task.wait();
+  LOG(LINFO, ("Removed:", m_duplicatedPointsCount, "from input data."));
 }
 
 void BordersData::DumpPolyFiles(std::string const & targetDir)
@@ -236,68 +225,9 @@ void BordersData::DumpPolyFiles(std::string const & targetDir)
 size_t BordersData::RemoveDuplicatePoints()
 {
   size_t count = 0;
-
-  auto const pointsAreEqual = [](auto const & p1, auto const & p2) {
-    return base::AlmostEqualAbs(p1.m_point, p2.m_point, kEqualityEpsilon);
-  };
-
   for (auto & polygon : m_bordersPolygons)
-  {
-    auto & points = polygon.m_points;
-    auto const last = std::unique(points.begin(), points.end(), pointsAreEqual);
-
-    count += std::distance(last, points.end());
-    points.erase(last, points.end());
-
-    if (polygon.m_points.begin() == polygon.m_points.end())
-      continue;
-
-    while (points.size() > 1 && pointsAreEqual(points.front(), points.back()))
-    {
-      ++count;
-      points.pop_back();
-    }
-  }
-
+    count += RemoveDuplicatingPointImpl(polygon.m_points);
   return count;
-}
-
-void BordersData::MarkPoint(size_t curBorderId, size_t curPointId)
-{
-  MarkedPoint & curMarkedPoint = m_bordersPolygons[curBorderId].m_points[curPointId];
-
-  for (size_t anotherBorderId = 0; anotherBorderId < m_bordersPolygons.size(); ++anotherBorderId)
-  {
-    if (curBorderId == anotherBorderId)
-      continue;
-
-    if (curMarkedPoint.m_marked)
-      return;
-
-    Polygon & anotherPolygon = m_bordersPolygons[anotherBorderId];
-
-    if (!anotherPolygon.m_rect.IsPointInside(curMarkedPoint.m_point))
-      continue;
-
-    for (size_t anotherPointId = 0; anotherPointId < anotherPolygon.m_points.size(); ++anotherPointId)
-    {
-      auto & anotherMarkedPoint = anotherPolygon.m_points[anotherPointId];
-
-      if (base::AlmostEqualAbs(anotherMarkedPoint.m_point, curMarkedPoint.m_point, kEqualityEpsilon))
-      {
-        anotherMarkedPoint.m_marked = true;
-        curMarkedPoint.m_marked = true;
-
-        // Save info that border with id: |anotherBorderId| has the same point with id:
-        // |anotherPointId|.
-        curMarkedPoint.AddLink(anotherBorderId, anotherPointId);
-        // And vice versa.
-        anotherMarkedPoint.AddLink(curBorderId, curPointId);
-
-        return;
-      }
-    }
-  }
 }
 
 void BordersData::PrintDiff()

@@ -13,7 +13,6 @@
 #include "coding/varint.hpp"
 
 #include "geometry/mercator.hpp"
-#include "geometry/parametrized_segment.hpp"
 #include "geometry/simplification.hpp"
 
 #include "base/assert.hpp"
@@ -24,13 +23,10 @@
 
 #include <cmath>
 #include <fstream>
-#include <functional>
 #include <iomanip>
 #include <iostream>
+#include <mutex>
 #include <vector>
-
-#include "base/assert.hpp"
-#include "base/string_utils.hpp"
 
 #include "defines.hpp"
 
@@ -38,6 +34,7 @@ namespace borders
 {
 namespace
 {
+
 template <class ToDo>
 void ForEachCountry(std::string const & baseDir, ToDo && toDo)
 {
@@ -49,11 +46,11 @@ void ForEachCountry(std::string const & baseDir, ToDo && toDo)
   Platform::GetFilesByExt(bordersDir, BORDERS_EXTENSION, files);
   for (std::string file : files)
   {
-    std::vector<m2::RegionD> polygons;
+    PolygonsList polygons;
     if (LoadBorders(bordersDir + file, polygons))
     {
       base::GetNameWithoutExt(file);
-      toDo(file, polygons);
+      toDo(std::move(file), std::move(polygons));
     }
   }
 }
@@ -65,7 +62,7 @@ public:
   {
   }
 
-  void operator()(std::string const & name, std::vector<m2::RegionD> const & borders)
+  void operator()(std::string name, PolygonsList && borders)
   {
     // use index in vector as tag
     auto w = m_writer.GetWriter(strings::to_string(m_polys.size()));
@@ -105,7 +102,7 @@ private:
   std::vector<storage::CountryDef> m_polys;
 };
 
-bool ReadPolygon(std::istream & stream, m2::RegionD & region, std::string const & filename)
+bool ReadPolygon(std::istream & stream, Polygon & poly, std::string const & filename)
 {
   std::string line, name;
   double lon, lat;
@@ -130,7 +127,7 @@ bool ReadPolygon(std::istream & stream, m2::RegionD & region, std::string const 
     iss >> lon >> lat;
     CHECK(!iss.fail(), ("Incorrect data in", filename));
 
-    region.AddPoint(mercator::FromLatLon(lat, lon));
+    poly.AddPoint(mercator::FromLatLon(lat, lon));
   }
 
   // drop inner rings
@@ -146,7 +143,7 @@ bool CountryPolygons::Contains(m2::PointD const & point) const
   });
 }
 
-bool LoadBorders(std::string const & borderFile, std::vector<m2::RegionD> & outBorders)
+bool LoadBorders(std::string const & borderFile, PolygonsList & outBorders)
 {
   std::ifstream stream(borderFile);
   std::string line;
@@ -156,12 +153,12 @@ bool LoadBorders(std::string const & borderFile, std::vector<m2::RegionD> & outB
     return false;
   }
 
-  m2::RegionD currentPolygon;
+  Polygon currentPolygon;
   while (ReadPolygon(stream, currentPolygon, borderFile))
   {
     CHECK(currentPolygon.IsValid(), ("Invalid region in", borderFile));
     outBorders.emplace_back(std::move(currentPolygon));
-    currentPolygon = m2::RegionD();
+    currentPolygon = {};
   }
 
   CHECK(!outBorders.empty(), ("No borders were loaded from", borderFile));
@@ -178,7 +175,7 @@ bool GetBordersRect(std::string const & baseDir, std::string const & country,
     return false;
   }
 
-  std::vector<m2::RegionD> borders;
+  PolygonsList borders;
   CHECK(LoadBorders(bordersFile, borders), ());
   bordersRect.MakeEmpty();
   for (auto const & border : borders)
@@ -192,13 +189,16 @@ CountryPolygonsCollection LoadCountriesList(std::string const & baseDir)
   LOG(LINFO, ("Loading countries in", BORDERS_DIR, "folder in", baseDir));
 
   CountryPolygonsCollection countryPolygonsCollection;
-  ForEachCountry(baseDir, [&](auto const & name, auto const & borders)
+  ForEachCountry(baseDir, [&](std::string name, PolygonsList && borders)
   {
     PolygonsTree polygons;
-    for (m2::RegionD const & border : borders)
-      polygons.Add(border, border.GetRect());
+    for (Polygon & border : borders)
+    {
+      auto const rect = border.GetRect();
+      polygons.Add(std::move(border), rect);
+    }
 
-    countryPolygonsCollection.Add(CountryPolygons(name, polygons));
+    countryPolygonsCollection.Add(CountryPolygons(std::move(name), std::move(polygons)));
   });
 
   LOG(LINFO, ("Countries loaded:", countryPolygonsCollection.GetSize()));
@@ -214,7 +214,7 @@ void GeneratePackedBorders(std::string const & baseDir)
 }
 
 void DumpBorderToPolyFile(std::string const & targetDir, storage::CountryId const & mwmName,
-                          std::vector<m2::RegionD> const & polygons)
+                          PolygonsList const & polygons)
 {
   CHECK(!polygons.empty(), ());
 
@@ -222,7 +222,8 @@ void DumpBorderToPolyFile(std::string const & targetDir, storage::CountryId cons
   std::ofstream poly(filePath);
   CHECK(poly.good(), ());
 
-  poly << std::setprecision(20) << std::fixed;
+  // Used to have fixed precicion with 6 digits. And Alaska has 4 digits after comma :) Strange, but as is.
+  poly << std::setprecision(6) << std::fixed;
 
   poly << mwmName << std::endl;
   size_t polygonId = 1;

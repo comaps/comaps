@@ -27,12 +27,12 @@ static string const kTestDir = "borders_poly_dir";
 
 void TestMarked(Polygon const & polygon, size_t i)
 {
-  TEST(polygon.m_points[i].m_marked, (i, "th point point must be marked."));
+  TEST(!polygon.m_points[i].m_links.empty(), (i, "th point point must be marked."));
 }
 
 void TestNotMarked(Polygon const & polygon, size_t i)
 {
-  TEST(!polygon.m_points[i].m_marked, (i, "th point must not be marked."));
+  TEST(polygon.m_points[i].m_links.empty(), (i, "th point must not be marked."));
 }
 
 void CheckByMask(Polygon const & polygons, vector<bool> markedMask)
@@ -77,7 +77,6 @@ UNIT_TEST(PolyBordersPostprocessor_MarkPoints_1)
 
   BordersData bordersData;
   bordersData.Init(bordersDir);
-  bordersData.MarkPoints();
 
   auto const & bordersPolygon1 = bordersData.GetBordersPolygonByName("First" + BordersData::kBorderExtension + "1");
   CheckByMask(bordersPolygon1, markedMask1[0]);
@@ -113,7 +112,6 @@ UNIT_TEST(PolyBordersPostprocessor_MarkPoints_2)
 
   BordersData bordersData;
   bordersData.Init(bordersDir);
-  bordersData.MarkPoints();
 
   auto const & bordersPolygon1 = bordersData.GetBordersPolygonByName("First" + BordersData::kBorderExtension + "1");
   CheckByMask(bordersPolygon1, markedMask1[0]);
@@ -174,7 +172,6 @@ UNIT_TEST(PolyBordersPostprocessor_MarkPoints_3)
 
   BordersData bordersData;
   bordersData.Init(bordersDir);
-  bordersData.MarkPoints();
 
   auto const & bordersPolygon1 = bordersData.GetBordersPolygonByName("First" + BordersData::kBorderExtension + "1");
   CheckByMask(bordersPolygon1, markedMask1[0]);
@@ -196,7 +193,7 @@ UNIT_TEST(PolyBordersPostprocessor_MarkPoints_4)
 
   m2::PointD a(6.0, 2.0);
   m2::PointD b(6.0, 4.0);
-  
+
   vector<vector<m2::PointD>> polygons1 = {
       {{-2.0, -2.0}, {-2.0, 2.0}, {2.0, 2.0}, {2.0, -2.0}},
       {{4.0, 2.0}, {4.0, 4.0}, a, b}
@@ -221,7 +218,6 @@ UNIT_TEST(PolyBordersPostprocessor_MarkPoints_4)
 
   BordersData bordersData;
   bordersData.Init(bordersDir);
-  bordersData.MarkPoints();
 
   auto const & firstBordersPolygon1 = bordersData.GetBordersPolygonByName("First" + BordersData::kBorderExtension + "1");
   CheckByMask(firstBordersPolygon1, markedMask1[0]);

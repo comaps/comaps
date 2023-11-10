@@ -1,7 +1,5 @@
 #pragma once
 
-#include "generator/feature_builder.hpp"
-
 #include "storage/storage_defines.hpp"
 
 #include "coding/geometry_coding.hpp"
@@ -11,12 +9,9 @@
 #include "geometry/region2d.hpp"
 #include "geometry/tree4d.hpp"
 
-#include <memory>
-#include <mutex>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include <utility>
 #include <vector>
 
 #define BORDERS_DIR "borders/"
@@ -48,9 +43,8 @@ class CountryPolygons
 {
 public:
   CountryPolygons() = default;
-  explicit CountryPolygons(std::string const & name, PolygonsTree const & regions)
-    : m_name(name)
-    , m_polygons(regions)
+  explicit CountryPolygons(std::string && name, PolygonsTree && regions)
+      : m_name(std::move(name)), m_polygons(std::move(regions))
   {
   }
 
@@ -97,6 +91,8 @@ public:
 
 private:
   std::string m_name;
+
+  /// @todo Is it an overkill to store Tree4D for each country's polygon?
   PolygonsTree m_polygons;
 };
 
@@ -105,11 +101,15 @@ class CountryPolygonsCollection
 public:
   CountryPolygonsCollection() = default;
 
-  void Add(CountryPolygons const & countryPolygons)
+  void Add(CountryPolygons && countryPolygons)
   {
-    auto const it = m_countryPolygonsMap.emplace(countryPolygons.GetName(), countryPolygons);
-    countryPolygons.ForEachPolygon([&](auto const & polygon) {
-      m_regionsTree.Add(it.first->second, polygon.GetRect());
+    auto const res = m_countryPolygonsMap.emplace(countryPolygons.GetName(), std::move(countryPolygons));
+    CHECK(res.second, ());
+
+    auto const & inserted = res.first->second;
+    inserted.ForEachPolygon([&inserted, this](Polygon const & polygon)
+    {
+      m_regionsTree.Add(inserted, polygon.GetRect());
     });
   }
 
@@ -119,9 +119,10 @@ public:
   void ForEachCountryInRect(m2::RectD const & rect, ToDo && toDo) const
   {
     std::unordered_set<CountryPolygons const *> uniq;
-    m_regionsTree.ForEachInRect(rect, [&](auto const & countryPolygons) {
-      if (uniq.emplace(&countryPolygons.get()).second)
-        toDo(countryPolygons);
+    m_regionsTree.ForEachInRect(rect, [&](CountryPolygons const & cp)
+    {
+      if (uniq.insert(&cp).second)
+        toDo(cp);
     });
   }
 
@@ -142,8 +143,10 @@ private:
   std::unordered_map<std::string, CountryPolygons> m_countryPolygonsMap;
 };
 
+using PolygonsList = std::vector<Polygon>;
+
 /// @return false if borderFile can't be opened
-bool LoadBorders(std::string const & borderFile, std::vector<m2::RegionD> & outBorders);
+bool LoadBorders(std::string const & borderFile, PolygonsList & outBorders);
 
 bool GetBordersRect(std::string const & baseDir, std::string const & country,
                     m2::RectD & bordersRect);
@@ -153,10 +156,10 @@ bool LoadCountriesList(std::string const & baseDir, CountryPolygonsCollection & 
 void GeneratePackedBorders(std::string const & baseDir);
 
 template <typename Source>
-std::vector<m2::RegionD> ReadPolygonsOfOneBorder(Source & src)
+PolygonsList ReadPolygonsOfOneBorder(Source & src)
 {
   auto const count = ReadVarUint<uint32_t>(src);
-  std::vector<m2::RegionD> result(count);
+  PolygonsList result(count);
   for (size_t i = 0; i < count; ++i)
   {
     std::vector<m2::PointD> points;
@@ -168,7 +171,7 @@ std::vector<m2::RegionD> ReadPolygonsOfOneBorder(Source & src)
 }
 
 void DumpBorderToPolyFile(std::string const & filePath, storage::CountryId const & mwmName,
-                          std::vector<m2::RegionD> const & polygons);
+                          PolygonsList const & polygons);
 void UnpackBorders(std::string const & baseDir, std::string const & targetDir);
 
 CountryPolygonsCollection const & GetOrCreateCountryPolygonsTree(std::string const & baseDir);
