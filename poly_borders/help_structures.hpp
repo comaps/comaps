@@ -1,40 +1,19 @@
 #pragma once
 
 #include "geometry/rect2d.hpp"
-#include "geometry/point2d.hpp"
 
-#include "base/assert.hpp"
 #include "base/non_intersecting_intervals.hpp"
 
-#include <atomic>
 #include <limits>
 #include <map>
 #include <memory>
-#include <mutex>
 #include <optional>
 #include <set>
 #include <string>
-#include <utility>
 #include <vector>
 
 namespace poly_borders
 {
-struct AtomicBoolWrapper
-{
-  AtomicBoolWrapper() { m_value = false; }
-  AtomicBoolWrapper(bool value) { m_value = value; }
-  AtomicBoolWrapper(std::atomic<bool> const & rhs) { m_value = rhs.load(); }
-  AtomicBoolWrapper(AtomicBoolWrapper const & rhs) { m_value = rhs.m_value.load(); }
-  AtomicBoolWrapper operator=(AtomicBoolWrapper const & rhs)
-  {
-    m_value = rhs.m_value.load();
-    return *this;
-  }
-
-  explicit operator bool() const { return m_value.load(); }
-
-  std::atomic<bool> m_value;
-};
 
 struct Link
 {
@@ -77,23 +56,32 @@ struct ReplaceData
 struct MarkedPoint
 {
   MarkedPoint() = default;
-  explicit MarkedPoint(m2::PointD const & point) : m_point(point) {}
+  MarkedPoint(m2::PointD const & point) : m_point(point) {}
 
   void AddLink(size_t borderId, size_t pointId);
 
   std::optional<Link> GetLink(size_t curBorderId) const;
 
+  bool EqualDxDy(MarkedPoint const & p, double eps) const
+  {
+    return m_point.EqualDxDy(p.m_point, eps);
+  }
+
   m2::PointD m_point;
-  AtomicBoolWrapper m_marked;
   std::set<Link> m_links;
-  std::unique_ptr<std::mutex> m_mutex = std::make_unique<std::mutex>();
 };
 
 struct Polygon
 {
   Polygon() = default;
+  Polygon(m2::RectD const & rect, std::vector<m2::PointD> const & points) : m_rect(rect)
+  {
+    m_points.assign(points.begin(), points.end());
+  }
   Polygon(m2::RectD const & rect, std::vector<MarkedPoint> && points)
-    : m_rect(rect), m_points(std::move(points)) {}
+    : m_rect(rect), m_points(std::move(points))
+  {
+  }
 
   Polygon(Polygon &&) = default;
   Polygon & operator=(Polygon &&) noexcept = default;
