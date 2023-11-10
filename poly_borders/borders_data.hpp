@@ -14,13 +14,10 @@ namespace poly_borders
 class BordersData
 {
 public:
-  inline static double const kEqualityEpsilon = 1e-20;
+  inline static double const kEqualityEpsilon = 1.0E-7;
   inline static std::string const kBorderExtension = ".poly";
 
   void Init(std::string const & bordersDir);
-  /// \brief Runs |MarkPoint(borderId, pointId)| for each borderId and its pointId. Look to
-  /// |MarkPoint| for more details.
-  void MarkPoints();
 
   void RemoveEmptySpaceBetweenBorders();
 
@@ -29,23 +26,29 @@ public:
   void PrintDiff();
 
 private:
-  struct Processor
-  {
-    explicit Processor(BordersData & data) : m_data(data) {}
-    void operator()(size_t borderId);
-
-    BordersData & m_data;
-  };
-
   /// \brief Some polygons can have sequentially same points - duplicates. This method removes such
   /// points and leaves only unique.
   size_t RemoveDuplicatePoints();
 
-  /// \brief Finds point on other polygons equal to points passed as in the argument. If such point
-  /// is found, the method will create a link of the form "some border (with id = anotherBorderId)
-  /// has the same point (with id = anotherPointId)".
-  //  If point belongs to more than 2 polygons, the link will be created for an arbitrary pair.
-  void MarkPoint(size_t curBorderId, size_t curPointId);
+  template <class PointsT> static size_t RemoveDuplicatingPointImpl(PointsT & points)
+  {
+    auto const equalFn = [](auto const & p1, auto const & p2)
+    {
+      return p1.EqualDxDy(p2, kEqualityEpsilon);
+    };
+
+    auto const last = std::unique(points.begin(), points.end(), equalFn);
+    size_t count = std::distance(last, points.end());
+    points.erase(last, points.end());
+
+    while (points.size() > 1 && equalFn(points.front(), points.back()))
+    {
+      ++count;
+      points.pop_back();
+    }
+
+    return count;
+  }
 
   /// \brief Checks whether we can replace points from segment: [curLeftPointId, curRightPointId]
   /// of |curBorderId| to points from another border in order to get rid of empty space

@@ -42,9 +42,7 @@ int main(int argc, char ** argv)
   {
     BordersData data;
     data.Init(FLAGS_borders_path);
-    data.MarkPoints();
     data.RemoveEmptySpaceBetweenBorders();
-    data.MarkPoints();
     data.PrintDiff();
     data.DumpPolyFiles(FLAGS_output_path);
   }

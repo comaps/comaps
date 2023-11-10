@@ -27,7 +27,6 @@ auto constexpr kSmallPointShift = m2::PointD(kSmallShift, kSmallShift);
 void Process(BordersData & bordersData, string const & bordersDir)
 {
   bordersData.Init(bordersDir);
-  bordersData.MarkPoints();
   bordersData.RemoveEmptySpaceBetweenBorders();
 }
 

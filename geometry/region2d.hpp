@@ -157,6 +157,7 @@ public:
   }
 
   Container const & Data() const { return m_points; }
+  Container & MutableData() { return m_points; }
 
   template <typename EqualFn>
   static bool IsIntersect(Coord const & x11, Coord const & y11, Coord const & x12,
