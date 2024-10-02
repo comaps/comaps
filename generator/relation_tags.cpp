@@ -209,7 +209,11 @@ void RelationTagsWay::Process(RelationElement const & e)
       continue;
 
     // Do not pass "ref" tags from boundaries and other, non-route relations to highways.
-    if (p.first == "ref" && isHighway)
+    if (isHighway && p.first == "ref")
+      continue;
+
+    // https://github.com/organicmaps/organicmaps/issues/8246
+    if (type == "route" && (p.first == "oneway" || p.first == "surface"))
       continue;
 
     Base::AddCustomTag(p);
