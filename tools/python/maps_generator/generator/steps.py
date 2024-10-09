@@ -33,10 +33,12 @@ logger = logging.getLogger("maps_generator")
 
 def multithread_run_if_one_country(func):
     @functools.wraps(func)
-    def wrap(env, *args, **kwargs):
+    def wrap(env, country, **kwargs):
         if len(env.countries) == 1:
             kwargs.update({"threads_count": settings.THREADS_COUNT})
-        func(env, *args, **kwargs)
+        elif country == 'Taiwan_North':
+            kwargs.update({"threads_count": 4})
+        func(env, country, **kwargs)
 
     return wrap
 
