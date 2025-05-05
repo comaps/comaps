@@ -1,5 +1,5 @@
 import os
-
+import subprocess
 
 class MapsGeneratorError(Exception):
     pass
@@ -35,9 +35,24 @@ class FailedTest(MapsGeneratorError):
 
 def wait_and_raise_if_fail(p):
     if p.wait() != os.EX_OK:
-        args = p.args
-        logs = p.output.name
-        if p.error.name != logs:
-            logs += " and " + p.error.name
-        msg = f"The launch of {args.pop(0)} failed.\nArguments used: {' '.join(args)}\nSee details in {logs}"
-        raise BadExitStatusError(msg)
+        if type(p) is subprocess.Popen:
+            args = p.args
+            stdout = p.stdout
+            stderr = p.stderr
+            logs = None
+            errors = None
+            if type(stdout) is not type(None):
+              logs = stdout.read(256).decode()
+            if type(stderr) is not type(None):
+              errors = stderr.read(256).decode()
+            if errors != logs:
+                logs += " and " + errors
+            msg = f"The launch of {args.pop(0)} failed.\nArguments used: {' '.join(args)}\nSee details in {logs}"
+            raise BadExitStatusError(msg)
+        else:
+            args = p.args
+            logs = p.output.name
+            if p.error.name != logs:
+                logs += " and " + p.error.name
+            msg = f"The launch of {args.pop(0)} failed.\nArguments used: {' '.join(args)}\nSee details in {logs}"
+            raise BadExitStatusError(msg)

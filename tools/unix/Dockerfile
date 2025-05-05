@@ -14,6 +14,7 @@ ENV TZ=Etc/UTC
 RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends \
     curl \
+    osmctools \
     sshpass \
     vim \
     wget \
