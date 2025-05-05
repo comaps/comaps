@@ -9,6 +9,8 @@ from maps_generator.utils.file import download_file
 
 def make_test_booking_data(max_days):
     def test_booking_data(env: Env, logger, *args, **kwargs):
+        if not settings.HOTELS_URL:
+            return None
         base_url, _ = settings.HOTELS_URL.rsplit("/", maxsplit=1)
         url = f"{base_url}/meta.json"
         meta_path = os.path.join(env.paths.tmp_dir(), "hotels-meta.json")
