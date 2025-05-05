@@ -25,39 +25,39 @@ echo "<$(date +%T)> Starting..."
 #   /root/OM/maps_build
 #   /home/planet
 #
-mkdir /root/.config
-mkdir /root/.config/OMaps # Odd mkdir permission errors in generator_tool in Docker without these
-chmod 777 /root/.config
-chmod 777 /root/.config/OMaps
-mkdir ~/OM/maps_build
-mkdir ~/OM/omim-build-release
-mkdir ~/OM/osmctools
-mkdir /home/planet/planet
-mkdir /home/planet/planet/isolines/
-mkdir /home/planet/planet/kayak
-mkdir /home/planet/planet/tiger/
-mkdir /home/planet/postcodes/
-mkdir /home/planet/postcodes/gb-postcode-data/
-mkdir /home/planet/postcodes/us-postcodes/
-mkdir /home/planet/SRTM-patched-europe/
-mkdir /home/planet/subway
+mkdir -p /root/.config/OMaps # Odd mkdir permission errors in generator_tool in Docker without these
+chmod -R 777 /root/.config
+mkdir -p ~/OM/maps_build
+mkdir -p ~/OM/omim-build-release
+mkdir -p ~/OM/osmctools
+mkdir -p /home/planet/planet/isolines/
+mkdir -p /home/planet/planet/kayak/
+mkdir -p /home/planet/planet/tiger/
+mkdir -p /home/planet/postcodes/gb-postcode-data/
+mkdir -p /home/planet/postcodes/us-postcodes/
+mkdir -p /home/planet/SRTM-patched-europe/
+mkdir -p /home/planet/subway
 
 echo "Writing S3 config..."
 echo "[default]" > ~/.s3cfg
-echo "access_key = $S3_KEY_ID" >> ~/.s3cfg
-echo "secret_key = $S3_SECRET_KEY" >> ~/.s3cfg
-echo "host_base = $S3_HOST_BASE" >> ~/.s3cfg
-echo "host_bucket = $(bucket)s.$S3_HOST_BASE" >> ~/.s3cfg
+echo "access_key = \$S3_KEY_ID" >> ~/.s3cfg
+echo "secret_key = \$S3_SECRET_KEY" >> ~/.s3cfg
+echo "host_base = \$S3_HOST_BASE" >> ~/.s3cfg
+echo "host_bucket = \$(bucket)s.\$S3_HOST_BASE" >> ~/.s3cfg
 # S3_BUCKET is used during upload
 
 echo "Wrote:"
 cat ~/.s3cfg
 
+echo "<$(date +%T)> Running ./configure.sh ..."
+cd ~/OM/organicmaps
+./configure.sh
+
 echo "<$(date +%T)> Compiling tools..."
 cd ~/OM/organicmaps
-./tools/unix/build_omim.sh -r generator_tool
-./tools/unix/build_omim.sh -r world_roads_builder_tool
-./tools/unix/build_omim.sh -r mwm_diff_tool
+./tools/unix/build_omim.sh -R generator_tool
+./tools/unix/build_omim.sh -R world_roads_builder_tool
+./tools/unix/build_omim.sh -R mwm_diff_tool
 cd tools/python/maps_generator
 python3 -m venv /tmp/venv
 /tmp/venv/bin/pip3 install -r requirements_dev.txt
@@ -66,10 +66,10 @@ echo "<$(date +%T)> Copying map generator INI..."
 cp var/etc/map_generator.ini.prod var/etc/map_generator.ini
 
 #TODO: may be duplicated by maps_generator at "osmctools are not found, building from the sources"
-echo "<$(date +%T)> Prebuild some tools so we can make an o5m file or run update_planet..."
-cd ~/OM/organicmaps/tools/osmctools
-gcc osmupdate.c -l z -o ~/OM/osmctools/osmupdate
-gcc osmconvert.c -l z -o ~/OM/osmctools/osmconvert
+#echo "<$(date +%T)> Prebuild some tools so we can make an o5m file or run update_planet..."
+#cd ~/OM/organicmaps/tools/osmctools
+#gcc osmupdate.c -l z -o ~/OM/osmctools/osmupdate
+#gcc osmconvert.c -l z -o ~/OM/osmctools/osmconvert
 
 # May be unnecessary when running world
 # /tmp/venv/bin/python -m maps_generator --coasts
@@ -79,7 +79,7 @@ gcc osmconvert.c -l z -o ~/OM/osmctools/osmconvert
 cd /home/planet/planet
 if [ ! -f planet-latest.osm.pbf ]; then
   echo "<$(date +%T)> Downloading planet-latest.osm.pbf..."
-  # curl -OL https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf
+  curl -OL https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf
   echo "<$(date +%T)> Downloading planet-latest.osm.pbf.md5..."
   curl -OL https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf.md5
 else
@@ -99,26 +99,34 @@ fi
 
 echo "<$(date +%T)> Generating maps..."
 cd ~/OM/organicmaps/tools/python
-/tmp/venv/bin/python -m maps_generator --production
+#/tmp/venv/bin/python -m maps_generator # do not use --production except for Kayak/recommendation/popularity/food data
 #/tmp/venv/bin/python -m maps_generator --countries="World, WorldCoasts, US_Oregon_*, US_California_*, US_Washington_*" --production
-#/tmp/venv/bin/python -m maps_generator --countries="US_Oregon_Portland" --skip="Coastline"
+/tmp/venv/bin/python -m maps_generator --countries="US_Oregon_Portland" --skip="MwmDiffs"
 
-echo "<$(date +%T)> Uploading maps..."
-# maps.zyphon.com:www <<EOF
-# Needs StrictHostKeyChecking=no otherwise new containers/SFTP_HOSTs will require a manual ssh attempt
-#sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
-#put ~/OM/maps_build/generation.log
-#put ~/OM/maps_build/20*/2*/*.mwm
-#put ~/OM/maps_build/20*/logs
-#exit
-#EOF
+shopt -s nullglob
+mwmfiles=( ~/OM/maps_build/*/*/*.mwm )
 
-s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
-s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
-s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+if (( ${#mwmfiles[@]} )); then
+  echo "<$(date +%T)> Uploading maps..."
+  # maps.zyphon.com:www <<EOF
+  # Needs StrictHostKeyChecking=no otherwise new containers/SFTP_HOSTs will require a manual ssh attempt
+  #sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
+  #put ~/OM/maps_build/generation.log
+  #put ~/OM/maps_build/20*/2*/*.mwm
+  #put ~/OM/maps_build/20*/logs
+  #exit
+  #EOF
+  
+  s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
+  s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+  s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+else
+  echo "<$(date +%T)> No MWM files, not uploading maps."
+fi
 
-echo "<$(date +%T)> Removing intermediate data..."
-rm -rf ~/OM/maps_build/*/intermediate_data
+echo "<$(date +%T)> NOT Removing intermediate data..."
+#rm -rf ~/OM/maps_build/*/intermediate_data
 # rm -rf ~/OM/
 
 echo "<$(date +%T)> DONE"
+
