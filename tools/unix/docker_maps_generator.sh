@@ -97,18 +97,20 @@ else
 fi
 # (currently unused:) ~/OM/organicmaps/tools/unix/update_planet.sh planet.o5m
 
+
 echo "<$(date +%T)> Generating maps..."
 cd ~/OM/organicmaps/tools/python
-#/tmp/venv/bin/python -m maps_generator # do not use --production except for Kayak/recommendation/popularity/food data
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
+# do not use --production except for Kayak/recommendation/popularity/food data
 #/tmp/venv/bin/python -m maps_generator --countries="World, WorldCoasts, US_Oregon_*, US_California_*, US_Washington_*" --production
-/tmp/venv/bin/python -m maps_generator --countries="US_Oregon_Portland" --skip="MwmDiffs"
+#/tmp/venv/bin/python -m maps_generator --countries="US_Oregon_Portland" --skip="MwmDiffs"
+#/tmp/venv/bin/python -m maps_generator --countries="Macedonia" --skip="MwmDiffs"
 
 shopt -s nullglob
 mwmfiles=( ~/OM/maps_build/*/*/*.mwm )
 
 if (( ${#mwmfiles[@]} )); then
   echo "<$(date +%T)> Uploading maps..."
-  # maps.zyphon.com:www <<EOF
   # Needs StrictHostKeyChecking=no otherwise new containers/SFTP_HOSTs will require a manual ssh attempt
   #sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
   #put ~/OM/maps_build/generation.log
@@ -124,7 +126,7 @@ else
   echo "<$(date +%T)> No MWM files, not uploading maps."
 fi
 
-echo "<$(date +%T)> NOT Removing intermediate data..."
+echo "<$(date +%T)> Temporarily NOT Removing intermediate data..."
 #rm -rf ~/OM/maps_build/*/intermediate_data
 # rm -rf ~/OM/
 

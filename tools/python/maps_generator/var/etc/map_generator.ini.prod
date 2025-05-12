@@ -2,7 +2,8 @@
 # Path to the `organicmaps` source code repository:
 OMIM_PATH: ~/OM/organicmaps
 # A path with the generator_tool binary:
-BUILD_PATH: ${Developer:OMIM_PATH}/../omim-build-release
+BUILD_PATH: /root/OM/omim-build-relwithdebinfo
+#${Developer:OMIM_PATH}/../omim-build-release
 
 
 [Main]
@@ -21,15 +22,17 @@ MAIN_OUT_PATH: ${Developer:OMIM_PATH}/../maps_build
 USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
 THREADS_COUNT_FEATURES_STAGE: 0
+# Do not change it. This is determined automatically.
+NODE_STORAGE: mem
 
 
 [Osm tools]
 # Path to osmctools binaries:
-OSM_TOOLS_PATH: ${Developer:OMIM_PATH}/../osmctools
+OSM_TOOLS_PATH: /usr/bin/
+#${Developer:OMIM_PATH}/../osmctools
 # If the binaries are not found neither in the configured path nor system-wide,
 # then the tools are built from the sources:
 OSM_TOOLS_SRC_PATH: ${Developer:OMIM_PATH}/tools/osmctools
-
 
 [Logging]
 # maps_generator's general (python output only) log file path and name.
@@ -62,7 +65,8 @@ PLANET_COASTS_URL: file:///home/planet/
 NEED_BUILD_WORLD_ROADS: true
 # Subway file location, see docs/SUBWAY_GENERATION.md if you want to generate your own file.
 # Comment to disable subway layer generation.
-SUBWAY_URL: file:///home/planet/subway/beta.json
+
+#SUBWAY_URL: file:///home/planet/subway/beta.json
 
 # Location of the EXPERIMENTAL GTFS-extracted public transport transit files:
 # TRANSIT_URL:
@@ -74,13 +78,14 @@ SUBWAY_URL: file:///home/planet/subway/beta.json
 # POPULARITY_URL:
 # FOOD_URL:
 # FOOD_TRANSLATIONS_URL:
-SRTM_PATH: /home/planet/SRTM-patched-europe/
-ISOLINES_PATH: /home/planet/planet/isolines/
-ADDRESSES_PATH: /home/planet/planet/tiger/
+
+#SRTM_PATH: /home/planet/SRTM-patched-europe/
+#ISOLINES_PATH: /home/planet/planet/isolines/
+#ADDRESSES_PATH: /home/planet/planet/tiger/
 
 # Local path (not url!) to .csv files.
-UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
-US_POSTCODES_URL: /home/planet/postcodes/us-postcodes/uszips.csv
+#UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
+#US_POSTCODES_URL: /home/planet/postcodes/us-postcodes/uszips.csv
 
 
 [Stages]

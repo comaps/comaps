@@ -1,10 +1,24 @@
-# Check out this whole repo with submodules and shallow
+# Check out this whole repo with submodules and shallow:
+
+# cd /path/to/4tb
+# git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
+# cd /path/to/4tb/comaps
+# git checkout docker_maps_generator
+
+#TODO: shaders_complier ?
+
+# Get static data:
+# cd /path/to/4tb/comaps/data/
+# wget World.mwm
+# wget WorldCoasts.mwm
+#TODO: isolines, postcodes, subways, wiki
+
 # Build with: docker build . -t maps_generator
 # Edit as appropriate and run with:
 #  docker run \
 #  -e S3_KEY_ID=foo -e S3_SECRET_KEY=bar -e S3_HOST_BASE=digitaloceanspaces.com -e S3_BUCKET=comaps-map-files \
-#  -v /path/to/organicmaps:/root/OM/organicmaps -v /tmp/osm-planet:/home/planet \
-#  -v /tmp/osm-maps:/root/OM/maps_build -it maps_generator
+#  -v /path/to/comaps:/root/OM/organicmaps -v /path/to/4tb/osm-planet:/home/planet \
+#  -v /path/to/4tb/osm-maps:/root/OM/maps_build -it maps_generator
 
 FROM ubuntu:noble
 
@@ -15,6 +29,7 @@ RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends \
     curl \
     osmctools \
+    s3cmd \
     sshpass \
     vim \
     wget \
