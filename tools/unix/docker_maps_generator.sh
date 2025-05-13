@@ -40,10 +40,10 @@ mkdir -p /home/planet/subway
 
 echo "Writing S3 config..."
 echo "[default]" > ~/.s3cfg
-echo "access_key = \$S3_KEY_ID" >> ~/.s3cfg
-echo "secret_key = \$S3_SECRET_KEY" >> ~/.s3cfg
-echo "host_base = \$S3_HOST_BASE" >> ~/.s3cfg
-echo "host_bucket = \$(bucket)s.\$S3_HOST_BASE" >> ~/.s3cfg
+echo "access_key = $S3_KEY_ID" >> ~/.s3cfg
+echo "secret_key = $S3_SECRET_KEY" >> ~/.s3cfg
+echo "host_base = $S3_HOST_BASE" >> ~/.s3cfg
+echo "host_bucket = \$(bucket)s.$S3_HOST_BASE" >> ~/.s3cfg
 # S3_BUCKET is used during upload
 
 echo "Wrote:"
