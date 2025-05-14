@@ -5,11 +5,11 @@
 # cd /path/to/4tb/comaps
 # git checkout docker_maps_generator
 
-#TODO: shaders_complier ?
+#TODO: shaders_complier ? //pastk - not needed
 
 # Get static data:
 # cd /path/to/4tb/comaps/data/
-# wget World.mwm
+# wget World.mwm //pastk - not needed
 # wget WorldCoasts.mwm
 #TODO: isolines, postcodes, subways, wiki
 
