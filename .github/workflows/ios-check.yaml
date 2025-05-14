@@ -22,6 +22,26 @@ jobs:
       cancel-in-progress: true
 
     steps:
+      - name: Install build tools and dependencies
+        shell: bash
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y \
+          ninja-build \
+          libgl1-mesa-dev \
+          libglvnd-dev \
+          libharfbuzz-dev \
+          libxrandr-dev \
+          libxinerama-dev \
+          libxcursor-dev \
+          libxi-dev \
+          qt6-base-dev \
+          libqt6svg6-dev \
+          qt6-positioning-dev \
+          libqt6positioning6-plugins \
+          libqt6positioning6 \
+          optipng
+      
       - name: Checkout sources
         uses: actions/checkout@v4
 
@@ -32,6 +52,10 @@ jobs:
       - name: Configure repository
         shell: bash
         run: ./configure.sh
+
+      - name: Generate symbols
+        shell: bash
+        run: ./tools/unix/generate_symbols.sh
 
       - name: Configure XCode cache
         uses: irgaly/xcode-cache@v1
