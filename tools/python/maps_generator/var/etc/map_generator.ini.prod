@@ -21,7 +21,7 @@ MAIN_OUT_PATH: ${Developer:OMIM_PATH}/../maps_build
 # Path to the data/ folder in the repository:
 USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
-THREADS_COUNT_FEATURES_STAGE: 0
+THREADS_COUNT_FEATURES_STAGE: 16
 # Do not change it. This is determined automatically.
 NODE_STORAGE: mem
 
@@ -62,11 +62,11 @@ PLANET_MD5_URL: ${External:PLANET_URL}.md5
 PLANET_COASTS_URL: file:///home/planet/
 # Should be 'true' for an entire planet build to make a special routing section in World.mwm
 # for alerting about absent regions without which the route can't be built.
-NEED_BUILD_WORLD_ROADS: true
+# NEED_BUILD_WORLD_ROADS: true
 # Subway file location, see docs/SUBWAY_GENERATION.md if you want to generate your own file.
 # Comment to disable subway layer generation.
 
-#SUBWAY_URL: file:///home/planet/subway/beta.json
+SUBWAY_URL: file:///home/planet/subways/subways-latest.json
 
 # Location of the EXPERIMENTAL GTFS-extracted public transport transit files:
 # TRANSIT_URL:
@@ -79,13 +79,13 @@ NEED_BUILD_WORLD_ROADS: true
 # FOOD_URL:
 # FOOD_TRANSLATIONS_URL:
 
-#SRTM_PATH: /home/planet/SRTM-patched-europe/
-#ISOLINES_PATH: /home/planet/planet/isolines/
-#ADDRESSES_PATH: /home/planet/planet/tiger/
+SRTM_PATH: /home/planet/SRTM-patched-europe/
+ISOLINES_PATH: /home/planet/isolines/
+ADDRESSES_PATH: /home/planet/tiger/
 
 # Local path (not url!) to .csv files.
-#UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
-#US_POSTCODES_URL: /home/planet/postcodes/us-postcodes/uszips.csv
+UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
+US_POSTCODES_URL: /home/planet/postcodes/us-postcodes/uszips.csv
 
 
 [Stages]
