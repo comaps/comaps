@@ -9,6 +9,7 @@ Makefile.Release
 object_script.*.Debug
 object_script.*.Release
 compile_commands.json
+*.local.*
 
 stxxl.errlog
 stxxl.log
