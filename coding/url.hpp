@@ -11,7 +11,7 @@ namespace url
 {
 
 // Url in format: 'scheme://host/path?key1=value1&key2&key3=&key4=value4'
-// host - any string ('omaps.app' or 'search'), without any valid domain check
+// host - any string ('comaps.app' or 'search'), without any valid domain check
 class Url
 {
 public:

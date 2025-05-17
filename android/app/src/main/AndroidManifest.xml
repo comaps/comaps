@@ -98,7 +98,7 @@
 
         <data android:scheme="geo"/>
         <data android:scheme="ge0"/>
-        <data android:scheme="om"/>
+        <data android:scheme="comaps"/>
       </intent-filter>
 
       <intent-filter>
@@ -120,7 +120,7 @@
 
         <data android:scheme="http"/>
         <data android:scheme="https"/>
-        <data android:host="omaps.app"/>
+        <data android:host="comaps.app"/>
       </intent-filter>
 
       <intent-filter>

@@ -52,7 +52,7 @@ std::string_view constexpr kKmlFooter =
     "</kml>\n";
 
 std::string_view constexpr kExtendedDataHeader =
-    "<ExtendedData xmlns:mwm=\"https://omaps.app\">\n";
+    "<ExtendedData xmlns:mwm=\"https://comaps.app\">\n";
 
 std::string_view constexpr kExtendedDataFooter =
     "</ExtendedData>\n";
@@ -145,7 +145,7 @@ void SaveStyle(Writer & writer, std::string const & style,
   writer << indent << kIndent2 << "<Style id=\"" << style << "\">\n"
          << indent << kIndent4 << "<IconStyle>\n"
          << indent << kIndent6 << "<Icon>\n"
-         << indent << kIndent8 << "<href>https://omaps.app/placemarks/" << style << ".png</href>\n"
+         << indent << kIndent8 << "<href>https://comaps.app/placemarks/" << style << ".png</href>\n"
          << indent << kIndent6 << "</Icon>\n"
          << indent << kIndent4 << "</IconStyle>\n"
          << indent << kIndent2 << "</Style>\n";

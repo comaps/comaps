@@ -49,6 +49,8 @@ Configure the repository (make sure you have a working C++ build environment):
 bash ./configure.sh
 ```
 
+<!-- What about optipng? -->
+
 For _Windows 10_:  You should be able to build the project by following either of these setup methods:
 
 **Setup 1: Using WSL**
@@ -64,7 +66,12 @@ For _Windows 10_:  You should be able to build the project by following either o
 "C:\Program Files\Git\bin\bash.exe" configure.sh # execute the script by using Developer Command Prompt
 ```
 
-Download the latest `World.mwm` and `WorldCoast.mwm` files and put them into the `data/` dir.
+If planning to build a Google variant, download the latest `World.mwm` and `WorldCoast.mwm` files and put them into the `data/` dir.
+<!-- TODO: is this necessary? How? -->
+<!-- cp: cannot stat '/home/will/Will/apps/comaps/data/World.mwm': No such file or directory
+cp: cannot stat '/home/will/Will/apps/comaps/data/WorldCoasts.mwm': No such file or directory
+cp: cannot stat '/home/will/Will/apps/comaps/tools/shaders_compiler/linux': No such file or directory
+-->
 
 Run the skins/textures generation script:
 ```bash
@@ -156,7 +163,7 @@ There is a matrix of different build variants:
 
 - _[Flavor](https://codeberg.org/comaps/comaps/src/commit/d02aefbf12a1a201090b40b395585e679b04c798/android/app/build.gradle#L179)_:
   - `Web` is a light APK without any bundled maps.
-  - `Google` is a full Google Play store version including a low-zoom overview world map.
+  - `Google` is a full Google Play store version including a low-zoom overview world map. The `World.mwm` and `WorldCoasts.mwm` files are needed in the `data` directory for this.
   - `Fdroid` is a version for publishing on the [F-Droid](https://f-droid.org/) open source apps store (no bundled maps;  FOSS microG services instead of Google's).
   - ...and other flavors like `Huawei`.
 
@@ -166,9 +173,13 @@ The Active ABI can be set to "arm64-v8a".
 
 To build and run the app in the emulator or on a hardware device use a "Run > Run (android)" menu item or press the Play / Debug button on the top right of the IDE.
 
+See also https://developer.android.com/studio/run.
+
+### Beta / Release
+
 To build a redistributable APK use a "Build > Build Bundle(s) / APK(s) > Build APK(s)" menu item. Generated APKs are stored in `build/outputs/apk/`.
 
-See also https://developer.android.com/studio/run.
+For Beta/Release builds, signing keys are required. See [CREDENTIALS.md](CREDENTIALS.md).
 
 
 ### Debugging

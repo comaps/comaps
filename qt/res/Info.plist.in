@@ -38,14 +38,7 @@
       <true/>
       <key>NSExceptionDomains</key>
       <dict>
-        <key>omaps.app</key>
-        <dict>
-          <key>NSExceptionAllowsInsecureHTTPLoads</key>
-          <true/>
-          <key>NSIncludesSubdomains</key>
-          <true/>
-        </dict>
-        <key>organicmaps.app</key>
+        <key>comaps.app</key>
         <dict>
           <key>NSExceptionAllowsInsecureHTTPLoads</key>
           <true/>

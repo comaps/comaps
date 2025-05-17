@@ -16,7 +16,9 @@ This file contains a list of all sensitive credentials, access keys, authenticat
 
 ## PRIVATE_H
 
-Shared compile-time secrets for all platforms.
+Shared compile-time secrets for all platforms, including OSM OAuth, Meta server URL, default map CDN URLs, etc.
+
+`private.h` in the project root.
 
 ```bash
 gh secret set PRIVATE_H --env beta --body "$(base64 < private.h)"
@@ -27,6 +29,8 @@ gh secret set PRIVATE_H --env production --body "$(base64 < private.h)"
 
 Android Java-compatible keystore with certificates used for signing APKs.
 
+Usually at `android/app/release.keystore`, created via https://developer.android.com/studio/publish/app-signing#generate-key -- delete the .jks extension, if any.
+
 ```bash
 gh secret set RELEASE_KEYSTORE --env beta --body "$(base64 < android/app/release.keystore)"
 gh secret set RELEASE_KEYSTORE --env production --body "$(base64 < android/app/release.keystore)"
@@ -34,7 +38,18 @@ gh secret set RELEASE_KEYSTORE --env production --body "$(base64 < android/app/r
 
 ## SECURE_PROPERTIES
 
-Android Gradle configuration file containing the passwords for the `release.keystore`.
+Android Gradle configuration file containing the passwords for the `release.keystore`, in Groovy format.
+
+For example, `android/app/secure.properties`:
+
+```bash
+ext {
+  spropStoreFile=release.keystore
+  spropStorePassword=MySecurePasswordHere
+  spropKeyAlias=release
+  spropKeyPassword=MySecurePasswordHere
+}
+```
 
 ```bash
 gh secret set SECURE_PROPERTIES --env beta --body "$(base64 < android/app/secure.properties)"

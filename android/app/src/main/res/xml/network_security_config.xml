@@ -14,7 +14,6 @@
     </trust-anchors>
   </base-config>
   <domain-config cleartextTrafficPermitted="true">
-    <domain includeSubdomains="true">organicmaps.app</domain>
-    <domain includeSubdomains="true">omaps.app</domain>
+    <domain includeSubdomains="true">comaps.app</domain>
   </domain-config>
 </network-security-config>
