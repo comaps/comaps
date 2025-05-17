@@ -20,9 +20,9 @@ export SKIP_PLANET_UPDATE="1"
 # If unavailable then replace with a local file.
 # TODO: keep the downloaded csv file from the latest run.
 #export CITIES_INFO_URL=""
-export TMPDIR="$BUILD_PATH/subways"
+export TMPDIR="$BUILD_PATH/subway"
 # The output file, which needs post-processing by transit_graph_generator.py
-export MAPSME="$SUBWAYS_PATH/subways.json"
+export MAPSME="$SUBWAYS_PATH/subway.json"
 
 # Produce additional files needed for https://cdn.organicmaps.app/subway/
 export HTML_DIR="$SUBWAYS_VALIDATOR_PATH"
@@ -36,7 +36,7 @@ export DUMP_CITY_LIST="$SUBWAYS_VALIDATOR_PATH/cities.txt"
 cp -r "$SUBWAYS_REPO_PATH"/render/* "$SUBWAYS_VALIDATOR_PATH/"
 
 TRANSIT_TOOL_PATH="$REPO_PATH/tools/python/transit"
-SUBWAYS_GRAPH_FILE="$SUBWAYS_PATH/subways.transit.json"
+SUBWAYS_GRAPH_FILE="$SUBWAYS_PATH/subway.transit.json"
 
 activate_venv_at_path "$TRANSIT_TOOL_PATH"
 "$PYTHON" "$TRANSIT_TOOL_PATH/transit_graph_generator.py" "$MAPSME" "$SUBWAYS_GRAPH_FILE" 2>&1 | tee -a "$SUBWAYS_LOG"

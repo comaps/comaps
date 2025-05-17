@@ -100,7 +100,9 @@ fi
 
 echo "<$(date +%T)> Generating maps..."
 cd ~/OM/organicmaps/tools/python
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
+#/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" --continue
+
 # do not use --production except for Kayak/recommendation/popularity/food data
 #/tmp/venv/bin/python -m maps_generator --countries="World, WorldCoasts, US_Oregon_*, US_California_*, US_Washington_*" --production
 #/tmp/venv/bin/python -m maps_generator --countries="US_Oregon_Portland" --skip="MwmDiffs"
@@ -119,9 +121,9 @@ if (( ${#mwmfiles[@]} )); then
   #exit
   #EOF
   
-  s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
-  s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
-  s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+  #s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
+  #s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+  #s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
 else
   echo "<$(date +%T)> No MWM files, not uploading maps."
 fi
