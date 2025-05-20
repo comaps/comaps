@@ -8,10 +8,10 @@ then
        echo 'run command'
        echo 'brew install optipng'
        echo 'to install it'
-       exit
+       exit 1
     fi
     echo 'take a look to http://optipng.sourceforge.net/'
-    exit
+    exit 1
 fi
 
 # Prevent python from generating compiled *.pyc files

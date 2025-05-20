@@ -14,4 +14,8 @@ pushd 3party/boost/
 ./bootstrap.sh
 ./b2 headers
 popd
-echo "The repository is configured for development."
+
+./tools/unix/generate_symbols.sh
+if [ $? -eq 0 ]; then
+	echo "The repository is configured for development."
+fi
