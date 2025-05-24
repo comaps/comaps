@@ -353,6 +353,16 @@ void RoutePointsLayout::SetFollowingMode(bool enabled)
     m_editSession.GetMarkForEdit<RouteMarkPoint>(markId)->SetFollowingMode(enabled);
 }
 
+void RoutePointsLayout::RemovePassedPoints()
+{
+    for (auto markId : m_manager.GetUserMarkIds(UserMark::Type::ROUTING)) {
+        auto * mark = m_editSession.GetMarkForEdit<RouteMarkPoint>(markId);
+        if (mark->IsPassed())
+            m_editSession.DeleteUserMark(mark->GetId());
+    }
+}
+
+
 RouteMarkPoint const * RoutePointsLayout::GetRoutePoint(RouteMarkType type, size_t intermediateIndex) const
 {
   for (auto markId : m_manager.GetUserMarkIds(UserMark::Type::ROUTING))

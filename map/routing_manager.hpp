@@ -354,6 +354,8 @@ private:
 
   void SetPointsFollowingMode(bool enabled);
 
+  void RemovePassedPoints();
+
   void ReorderIntermediatePoints();
 
   m2::RectD ShowPreviewSegments(std::vector<RouteMarkData> const & routePoints);
