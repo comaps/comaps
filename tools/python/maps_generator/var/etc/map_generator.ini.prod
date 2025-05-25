@@ -21,7 +21,7 @@ MAIN_OUT_PATH: ${Developer:OMIM_PATH}/../maps_build
 # Path to the data/ folder in the repository:
 USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
-THREADS_COUNT_FEATURES_STAGE: 12
+THREADS_COUNT_FEATURES_STAGE: 16
 # Do not change it. This is determined automatically.
 NODE_STORAGE: mem
 
