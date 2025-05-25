@@ -100,8 +100,8 @@ fi
 
 echo "<$(date +%T)> Generating maps..."
 cd ~/OM/organicmaps/tools/python
-#/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" --continue
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
+#/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" --continue
 
 # do not use --production except for Kayak/recommendation/popularity/food data
 #/tmp/venv/bin/python -m maps_generator --countries="World, WorldCoasts, US_Oregon_*, US_California_*, US_Washington_*" --production
