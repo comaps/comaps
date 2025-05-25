@@ -8,17 +8,17 @@
   <color name="text_light_subtitle">@color/white_secondary</color>
   <color name="text_light_hint">@color/white_lightest</color>
 
-  <color name="base_accent">#FF249CF2</color>
-  <color name="base_accent_night">#FF4BB9E6</color>
-  <color name="base_accent_pressed">#FF1C85D6</color>
-  <color name="base_accent_pressed_night">#FF3C9BBE</color>
-  <color name="base_accent_transparent">#1E249CF2</color>
+  <color name="base_accent">#FFF9B42D</color> <!-- orange - accent -->
+  <color name="base_accent_night">#FF588157</color>
+  <color name="base_accent_pressed">#9FF9B42D</color>
+  <color name="base_accent_pressed_night">#9F588157</color>
+  <color name="base_accent_transparent">#1EF9B42D</color>
 
   <color name="base_red">#FFF54137</color>
   <color name="dark_red">#F51E30</color>
   <color name="base_yellow">#FFFFC30A</color>
   <color name="base_green">#FF558B2F</color>
-  <color name="light_green">#508550</color>
+  <color name="light_green">#7CBC7B</color> <!-- secondary light -->
   <color name="driving_options_bg_black">#25282B</color>
 
   <color name="black_primary">#DE000000</color>   <!-- 87% black -->
@@ -65,13 +65,13 @@
   <!-- Backgrounds -->
   <color name="bg_window">#FFEEEEEE</color>
   <color name="bg_window_night">#FF32363A</color>
-  <color name="bg_primary">#588157</color>
-  <color name="bg_primary_night">#1E2226</color>
+  <color name="bg_primary">#588157</color> <!-- deep olive green - primary -->
+  <color name="bg_primary_night">#37653F</color> <!-- secondary dark -->
   <color name="bg_cards">@android:color/white</color>
   <color name="bg_cards_night">#FF3C4044</color>
   <color name="bg_panel">@color/bg_window</color>
   <color name="bg_panel_night">@color/bg_window_night</color>
-  <color name="bg_primary_dark">#5E895D</color>
+  <color name="bg_primary_dark">#37653F</color> <!-- secondary dark -->
   <color name="bg_primary_dark_night">#14181C</color>
 
   <color name="bg_dialog_translucent">#BB000000</color>
@@ -98,8 +98,8 @@
 
   <color name="button_accent_normal">@color/base_accent</color>
   <color name="button_accent_normal_night">@color/base_accent_night</color>
-  <color name="button_accent_pressed">#FF1C85D6</color>
-  <color name="button_accent_pressed_night">#FF3C9BBE</color>
+  <color name="button_accent_pressed">@color/base_accent_pressed</color>
+  <color name="button_accent_pressed_night">@color/base_accent_pressed_night</color>
   <color name="button_accent_disabled">@color/black_12</color>
   <color name="button_accent_disabled_night">#FF505050</color>
   <color name="button_accent_text">#FFFFFFFF</color>
