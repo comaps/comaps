@@ -113,14 +113,16 @@ mwmfiles=( ~/OM/maps_build/*/*/*.mwm )
 
 if (( ${#mwmfiles[@]} )); then
   echo "<$(date +%T)> Uploading maps..."
+  # TODO: upload limited files via SFTP to Dreamhost (cdn-us-1.comaps.app)
   # Needs StrictHostKeyChecking=no otherwise new containers/SFTP_HOSTs will require a manual ssh attempt
   #sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
-  #put ~/OM/maps_build/generation.log
-  #put ~/OM/maps_build/20*/2*/*.mwm
-  #put ~/OM/maps_build/20*/logs
+  #put ~/OM/maps_build/20*/2*/countries.txt
+  #put ~/OM/maps_build/20*/2*/World.mwm
+  #put ~/OM/maps_build/20*/2*/WorldCoasts.mwm
   #exit
   #EOF
   
+  # TODO: upload all files via rclone to Cloudflare (R2)
   #s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
   #s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
   #s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
