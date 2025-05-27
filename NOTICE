@@ -1,6 +1,14 @@
 Copyright 2020 My.com B.V. (Mail.Ru Group)
-Copyright 2025 Organic Maps Contributors
+Copyright 2021-2025 Organic Maps Contributors
+
+
+This project is a parallel fork of Organic Maps and includes heavily modified code from the
+above sources licensed under the Apache License 2.0. Modifications began on April 2, 2025 by
+various CoMaps Contributors, and merges from upstream have continued since. Please refer to
+file modification dates or the Git functions for log, blame, diff and show in the CoMaps and
+Organic Maps Git repositories to establish ownership, copyright, and licensing.
 Copyright 2025 CoMaps Contributors
+
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
