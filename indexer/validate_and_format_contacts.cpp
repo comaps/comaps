@@ -48,6 +48,7 @@ constexpr string_view kUrlInstagram{"https://instagram.com/"};
 constexpr string_view kUrlTwitter{"https://twitter.com/"};
 constexpr string_view kUrlVk{"https://vk.com/"};
 constexpr string_view kUrlLine{"https://line.me/R/ti/p/@"};
+constexpr string_view kUrlPanoramax{"https://api.panoramax.xyz/?pic="};
 constexpr string_view kHttp{"http://"};
 constexpr string_view kHttps{"https://"};
 
@@ -507,6 +508,8 @@ string socialContactToURL(MapObject::MetadataID metaID, string_view value)
         return string{kUrlLine}.append(value);
       else // 'value' is an URL.
         return string{kHttps}.append(value);
+    case MapObject::MetadataID:FMD_PANORAMAX
+      return string{kUrlPanoramax}.append(value);
     default:
       return string{value};
   }

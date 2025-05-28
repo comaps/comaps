@@ -155,6 +155,7 @@ public:
     FMD_SELF_SERVICE = 47,
     FMD_OUTDOOR_SEATING = 48,
     FMD_NETWORK = 49,
+    FMD_PANORAMAX = 52,
     FMD_COUNT
   };
 

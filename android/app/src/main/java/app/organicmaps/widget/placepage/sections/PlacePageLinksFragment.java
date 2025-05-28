@@ -52,6 +52,9 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
   private View mWikimedia;
   private TextView mTvWikimedia;
 
+  private View mPanoramax;
+  private TextView mTvPanoramax;
+
   private PlacePageViewModel mViewModel;
   private MapObject mMapObject;
 
@@ -148,6 +151,11 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
     mTvLinePage = mFrame.findViewById(R.id.tv__place_line_page);
     mLinePage.setOnClickListener((v) -> openUrl(Metadata.MetadataType.FMD_CONTACT_LINE));
     mLinePage.setOnLongClickListener((v) -> copyUrl(mLinePage, Metadata.MetadataType.FMD_CONTACT_LINE));
+
+    mPanoramax = mFrame.findViewById(R.id.ll__place_panoramax);
+    mTvPanoramax = mFrame.findViewById(R.id.tv__place_panoramax);
+    mPanoramax.setOnClickListener((v) -> openUrl(Metadata.MetadataType.FMD_PANORAMAX));
+    mTvPanoramax.setOnLongClickListener((v) -> copyUrl(mPanoramax, Metadata.Metadata.FMD_PANORAMAX));
   }
 
   private void openUrl(Metadata.MetadataType type)
@@ -205,6 +213,9 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
 
     final String line = mMapObject.getMetadata(Metadata.MetadataType.FMD_CONTACT_LINE);
     refreshMetadataOrHide(line, mLinePage, mTvLinePage);
+
+    final String panoramax = mapObject.getMetadata(Metadata.MetadataType.FMD_PANORAMAX);
+    refreshMetadataOrHide(panoramax, mPanoramax, mTvPanoramax);
   }
 
   @Override
