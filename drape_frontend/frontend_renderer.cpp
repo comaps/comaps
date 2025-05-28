@@ -58,8 +58,6 @@ double constexpr kVSyncInterval = 0.06;
 // Metal/Vulkan rendering is fast, so we can decrease sync inverval.
 double constexpr kVSyncIntervalMetalVulkan = 0.03;
 
-std::string const kTransitBackgroundColor = "TransitBackground";
-
 template <typename ToDo>
 bool RemoveGroups(ToDo && filter, std::vector<drape_ptr<RenderGroup>> & groups,
                   ref_ptr<dp::OverlayTree> tree)
@@ -691,7 +689,6 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
 
       // Must be recreated on map style changing.
       CHECK(m_context != nullptr, ());
-      m_transitBackground = make_unique_dp<ScreenQuadRenderer>(m_context);
 
       // Invalidate read manager.
       {
@@ -1652,32 +1649,9 @@ void FrontendRenderer::RenderTrafficLayer(ScreenBase const & modelView)
   }
 }
 
-void FrontendRenderer::RenderTransitBackground()
-{
-  TRACE_SECTION("[drape] RenderTransitBackground");
-  if (!m_finishTexturesInitialization)
-    return;
-
-  CHECK(m_context != nullptr, ());
-  DEBUG_LABEL(m_context, "Transit Background");
-
-  dp::TextureManager::ColorRegion region;
-  m_texMng->GetColorRegion(df::GetColorConstant(kTransitBackgroundColor), region);
-  CHECK(region.GetTexture() != nullptr, ("Texture manager is not initialized"));
-  if (!m_transitBackground->IsInitialized())
-    m_transitBackground->SetTextureRect(m_context, region.GetTexRect());
-
-  m_transitBackground->RenderTexture(m_context, make_ref(m_gpuProgramManager),
-                                     region.GetTexture(), 1.0f /* opacity */, false /* invertV */);
-}
-
 void FrontendRenderer::RenderRouteLayer(ScreenBase const & modelView)
 {
   TRACE_SECTION("[drape] RenderRouteLayer");
-  /// @todo(pastk): do we need the semi-opaque bg when routing via subway?
-  /// ref: https://github.com/organicmaps/organicmaps/pull/8431
-  if (HasTransitRouteData())
-    RenderTransitBackground();
 
   if (m_routeRenderer->HasData() || m_routeRenderer->HasPreviewData())
   {
@@ -2336,7 +2310,6 @@ void FrontendRenderer::OnContextDestroy()
   m_postprocessRenderer->ClearContextDependentResources();
   m_transitSchemeRenderer->ClearContextDependentResources(nullptr /* overlayTree */);
 
-  m_transitBackground.reset();
   m_debugRectRenderer.reset();
 
   CHECK(m_context != nullptr, ());
@@ -2418,7 +2391,6 @@ void FrontendRenderer::OnContextCreate()
     return m_postprocessRenderer->OnFramebufferFallback(m_context);
   });
 
-  m_transitBackground = make_unique_dp<ScreenQuadRenderer>(m_context);
 }
 
 void FrontendRenderer::OnRenderingEnabled()
@@ -2498,7 +2470,6 @@ void FrontendRenderer::ReleaseResources()
   m_trafficRenderer.reset();
   m_transitSchemeRenderer.reset();
   m_postprocessRenderer.reset();
-  m_transitBackground.reset();
   m_gpuProgramManager.reset();
 
   // Here m_context can be nullptr, so call the method

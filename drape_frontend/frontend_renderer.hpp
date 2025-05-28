@@ -191,7 +191,6 @@ private:
   void RenderTransitSchemeLayer(ScreenBase const & modelView);
   void RenderTrafficLayer(ScreenBase const & modelView);
   void RenderRouteLayer(ScreenBase const & modelView);
-  void RenderTransitBackground();
   void RenderEmptyFrame();
 
   bool HasTransitRouteData() const;
@@ -430,7 +429,6 @@ private:
 #endif
 
   bool m_finishTexturesInitialization = false;
-  drape_ptr<ScreenQuadRenderer> m_transitBackground;
 
   drape_ptr<DrapeNotifier> m_notifier;
 
