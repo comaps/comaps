@@ -233,6 +233,13 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       data->addWidget(value, row++, 1);
     }
 
+    if (auto panoramax = info.GetMetadata(feature::Metadata::EType::FMD_PANORAMAX); !panoramax.empty())
+    {
+      data->addWidget(new QLabel("Panoramax Picture"), row, 0);
+      QLabel * value = new QLabel(QString::fromStdString("<a href='https://api.panoramax.xyz/?pic=" + feature::Metadata::FMD_PANORAMAX"'></a>"));
+      value->setOpenExternalLinks(true);
+      value->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    }
     // Level fragment
     if (auto level = info.GetMetadata(feature::Metadata::EType::FMD_LEVEL); !level.empty())
       addEntry("Level", std::string(level));

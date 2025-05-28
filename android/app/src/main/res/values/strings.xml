@@ -291,6 +291,8 @@
     <string name="vk">VK</string>
     <!-- Text in menu -->
     <string name="bluesky">Bluesky</string>
+    <!-- Text on the place page -->
+    <string name="panoramax">Panoramax Picture</string>
     <!-- Text in the editor -->
     <string name="editor_line_social_network">LINE</string>
     <!-- Text in menu -->

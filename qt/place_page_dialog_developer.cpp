@@ -117,6 +117,7 @@ PlacePageDialogDeveloper::PlacePageDialogDeveloper(QWidget * parent, place_page:
     case PropID::FMD_CONTACT_BLUESKY:
     case PropID::FMD_WIKIPEDIA:
     case PropID::FMD_WIKIMEDIA_COMMONS:
+    case PropID::FMD_PANORAMAX;
       isLink = true;
       break;
     default:

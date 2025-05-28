@@ -21,4 +21,5 @@
   <include layout="@layout/place_page_line" />
   <include layout="@layout/place_page_bluesky" />
   <include layout="@layout/place_page_wikimedia" />
+  <include layout="@layout/place_page_panoramax" />
 </LinearLayout>
