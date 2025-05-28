@@ -170,10 +170,10 @@ void AddTransitPedestrianSegment(m2::PointD const & destPoint, df::Subroute & su
 
 void AddTransitShapes(vector<routing::transit::ShapeId> const & shapeIds,
                       TransitShapesInfo const & shapes, df::ColorConstant const & color,
-                      bool isInverted, df::Subroute & subroute)
+                      df::ColorConstant const & casingColor, bool isInverted, df::Subroute & subroute)
 {
   ASSERT_GREATER(subroute.m_polyline.GetSize(), 0, ());
-  df::SubrouteStyle style(color);
+  df::SubrouteStyle style(color, casingColor);
   style.m_startIndex = subroute.m_polyline.GetSize() - 1;
 
   for (auto it = shapeIds.crbegin(); it != shapeIds.crend(); ++it)
@@ -190,10 +190,11 @@ void AddTransitShapes(vector<routing::transit::ShapeId> const & shapeIds,
 }
 
 void AddTransitShapes(::transit::ShapeLink shapeLink, TransitShapesInfoPT const & shapesInfo,
-                      df::ColorConstant const & color, df::Subroute & subroute)
+                      df::ColorConstant const & color, df::ColorConstant const & casingColor,
+                      df::Subroute & subroute)
 {
   ASSERT_GREATER(subroute.m_polyline.GetSize(), 0, ());
-  df::SubrouteStyle style(color);
+  df::SubrouteStyle style(color, casingColor);
   style.m_startIndex = subroute.m_polyline.GetSize() - 1;
 
   bool const isInverted = shapeLink.m_startIndex > shapeLink.m_endIndex;
@@ -256,6 +257,9 @@ void TransitRouteDisplay::AddEdgeSubwayForSubroute(routing::RouteSegment const &
 
   auto const & line = ssp.m_displayInfo.m_linesSubway.at(currentLineId);
   auto const currentColor = df::GetTransitColorName(line.GetColor());
+  //TODO: @hb0nd Use proper colour definition instead of reusing
+  // and figure out how to increase casing width
+  std::string const casingColor = df::kTransitStopInnerMarkerColor;
   sp.m_transitType = GetTransitType(line.GetType());
 
   m_routeInfo.AddStep(TransitStepInfo(sp.m_transitType, ssp.m_distance, ssp.m_time,
@@ -295,7 +299,7 @@ void TransitRouteDisplay::AddEdgeSubwayForSubroute(routing::RouteSegment const &
   if (id1 != id2)
   {
     bool const isInverted = id1 > id2;
-    AddTransitShapes(edge.m_shapeIds, ssp.m_displayInfo.m_shapesSubway, currentColor, isInverted,
+    AddTransitShapes(edge.m_shapeIds, ssp.m_displayInfo.m_shapesSubway, currentColor, casingColor, isInverted,
                      subroute);
   }
 
@@ -383,6 +387,9 @@ void TransitRouteDisplay::AddEdgePTForSubroute(routing::RouteSegment const & seg
   auto const & route = it->second;
 
   auto const currentColor = df::GetTransitColorName(route.GetColor());
+  //TODO: @hb0nd Use proper colour definition instead of reusing
+  // and figure out how to increase casing width
+  std::string const casingColor = df::kTransitStopInnerMarkerColor;
   sp.m_transitType = GetTransitType(route.GetType());
 
   m_routeInfo.AddStep(TransitStepInfo(sp.m_transitType, ssp.m_distance, ssp.m_time,
@@ -425,7 +432,7 @@ void TransitRouteDisplay::AddEdgePTForSubroute(routing::RouteSegment const & seg
 
   if (id1 != id2)
   {
-    AddTransitShapes(edge.m_shapeLink, ssp.m_displayInfo.m_shapesPT, currentColor, subroute);
+    AddTransitShapes(edge.m_shapeLink, ssp.m_displayInfo.m_shapesPT, currentColor, casingColor, subroute);
   }
 
   CHECK_GREATER(subroute.m_polyline.GetSize(), 1, ());
