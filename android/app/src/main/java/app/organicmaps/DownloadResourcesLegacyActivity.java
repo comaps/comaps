@@ -112,15 +112,16 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
       int status = MapManager.nativeGetStatus(mCurrentCountry);
       String name = MapManager.nativeGetName(mCurrentCountry);
+      String downloadSize = getCountryDownloadSize(mCurrentCountry);
 
       if (status != CountryItem.STATUS_DONE)
       {
         UiUtils.show(mChbDownloadCountry);
         String checkBoxText;
         if (status == CountryItem.STATUS_UPDATABLE)
-          checkBoxText = String.format(getString(R.string.update_country_ask), name);
+          checkBoxText = String.format(getString(R.string.update_country_ask), name, downloadSize);
         else
-          checkBoxText = String.format(getString(R.string.download_country_ask), name);
+          checkBoxText = String.format(getString(R.string.download_country_ask), name, downloadSize);
 
         mChbDownloadCountry.setText(checkBoxText);
       }
@@ -251,6 +252,14 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   {
     mTvMessage.setText(getString(R.string.download_resources,
                                  StringUtils.getFileSizeString(this, bytesToDownload)));
+  }
+
+  private String getCountryDownloadSize(String country)
+  {
+    if (country == null)
+      return null;
+    long size = CountryItem.fill(country).totalSize;
+    return StringUtils.getFileSizeString(this, size);
   }
 
   private boolean prepareFilesDownload(boolean showMap)
@@ -385,7 +394,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       {
         CountryItem item = CountryItem.fill(mCurrentCountry);
         UiUtils.hide(mChbDownloadCountry);
-        mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name));
+        mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name,  getCountryDownloadSize(mCurrentCountry)));
         mProgress.setMax((int)item.totalSize);
         mProgress.setProgressCompat(0, true);
 
