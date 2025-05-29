@@ -1852,6 +1852,8 @@ node|z18-[amenity=bbq],
 area|z18-[amenity=bbq]
 {icon-image: bbq-m.svg;font-size: 11;}
 
+node|z17[leisure=firepit],
+{text: none;} /* reset z17 caption inherited from the generic [leisure] rule */
 node|z18-[leisure=firepit],
 {icon-image: firepit-m.svg;font-size: 11;}
 
