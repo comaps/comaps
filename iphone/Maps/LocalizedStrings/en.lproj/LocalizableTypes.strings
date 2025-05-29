@@ -1365,6 +1365,7 @@
 
 /* Used to tag a scuba diving site. */
 "type.sport.scuba_diving" = "Scuba Diving Site";
+"type.sport.diving" = "Diving";
 "type.sport.shooting" = "Shooting";
 "type.sport.skateboard" = "Skateboarding";
 "type.sport.skiing" = "Skiing";
