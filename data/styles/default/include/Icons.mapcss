@@ -171,6 +171,9 @@ area|z15-[landuse=forest][name],
 area|z13-[landuse=forest][!name],
 {}
 
+area|z17-[landuse=plant_nursery],
+{icon-image: plant_nursery-m.svg; text-offset: 1;}
+
 node|z14-[natural=spring],
 node|z14-[natural=hot_spring],
 {icon-image: drinking-water-s.svg; font-size: 10;}
