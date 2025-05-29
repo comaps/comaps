@@ -713,7 +713,6 @@ highway-path-tunnel                                 # pathtext z13- (also has li
 === 2820
 
 highway-steps                                       # pathtext z13- (also has line z12-)
-highway-ladder
 highway-steps-bridge                                # pathtext z13- (also has line z12-, line::bridgeblack z17-, line::bridgewhite z15-)
 highway-steps-tunnel                                # pathtext z13- (also has line z12-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2810
@@ -1097,6 +1096,7 @@ man_made-flagpole                                   # icon z12- (also has captio
 man_made-flare                                      # icon z13- (also has caption(optional) z18-)
 man_made-tower                                      # icon z13- (also has caption(optional) z14-)
 man_made-tower-communication                        # icon z13- (also has caption(optional) z14-)
+highway-ladder
 === 850
 
 junction                                            # caption z17-
