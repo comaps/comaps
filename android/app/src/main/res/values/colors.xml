@@ -8,10 +8,10 @@
   <color name="text_light_subtitle">@color/white_secondary</color>
   <color name="text_light_hint">@color/white_lightest</color>
 
-  <color name="base_accent">#FFF9B42D</color> <!-- orange - accent -->
-  <color name="base_accent_night">#FF588157</color>
-  <color name="base_accent_pressed">#9FF9B42D</color>
-  <color name="base_accent_pressed_night">#9F588157</color>
+  <color name="base_accent">#FF588157</color>
+  <color name="base_accent_night">#FF7CBC7B</color>
+  <color name="base_accent_pressed">#FF588157</color>
+  <color name="base_accent_pressed_night">#FF588157</color>
   <color name="base_accent_transparent">#1EF9B42D</color>
 
   <color name="base_red">#FFF54137</color>
