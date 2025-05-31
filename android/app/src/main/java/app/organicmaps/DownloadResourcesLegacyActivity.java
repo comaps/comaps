@@ -110,17 +110,17 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
         return;
       }
 
-      int status = MapManager.nativeGetStatus(mCurrentCountry);
+      CountryItem item = CountryItem.fill(mCurrentCountry);
+      final String fileSizeString = StringUtils.getFileSizeString(getApplicationContext(), item.totalSize);
 
-      if (status != CountryItem.STATUS_DONE)
+      if (item.status != CountryItem.STATUS_DONE)
       {
-        String name = getFormattedCountryName(mCurrentCountry);
         UiUtils.show(mChbDownloadCountry);
         String checkBoxText;
-        if (status == CountryItem.STATUS_UPDATABLE)
-          checkBoxText = String.format(getString(R.string.update_country_ask), name);
+        if (item.status == CountryItem.STATUS_UPDATABLE)
+          checkBoxText = String.format(getString(R.string.update_country_ask), item.name, fileSizeString);
         else
-          checkBoxText = String.format(getString(R.string.download_country_ask), name);
+          checkBoxText = String.format(getString(R.string.download_country_ask), item.name, fileSizeString);
 
         mChbDownloadCountry.setText(checkBoxText);
       }
@@ -128,18 +128,6 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       LocationHelper.from(DownloadResourcesLegacyActivity.this).removeListener(this);
     }
   };
-
-  private String getFormattedCountryName(String mCurrentCountry) {
-    String name = MapManager.nativeGetName(mCurrentCountry);
-    CountryItem country = CountryItem.fill(mCurrentCountry);
-    String sizeText = StringUtils.getFileSizeString(DownloadResourcesLegacyActivity.this, country.totalSize);
-
-    if (!TextUtils.isEmpty(sizeText)) {
-      name = name + " (" + sizeText + ")";
-    }
-
-    return name;
-  }
 
   private final Listener mResourcesDownloadListener = new Listener()
   {
@@ -395,9 +383,10 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
       if (mCurrentCountry != null && mChbDownloadCountry.isChecked())
       {
-        CountryItem item = CountryItem.fill(mCurrentCountry);
         UiUtils.hide(mChbDownloadCountry);
-        mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name));
+        CountryItem item = CountryItem.fill(mCurrentCountry);
+        final String fileSizeString = StringUtils.getFileSizeString(this, item.totalSize);
+        mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name, fileSizeString));
         mProgress.setMax((int)item.totalSize);
         mProgress.setProgressCompat(0, true);
 

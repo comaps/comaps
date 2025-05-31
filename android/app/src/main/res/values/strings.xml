@@ -65,10 +65,10 @@
     <string name="download_resources">Before you start using the app, please download the world overview map to your device.
 \nIt will use %s of storage.</string>
     <string name="download_resources_continue">Go to Map</string>
-    <string name="downloading_country_can_proceed">Downloading %s. You can now
+    <string name="downloading_country_can_proceed">Downloading %1$s (%2$s). You can now
 \nproceed to the map.</string>
-    <string name="download_country_ask">Download %s?</string>
-    <string name="update_country_ask">Update %s?</string>
+    <string name="download_country_ask">Download %1$s? (%2$s)</string>
+    <string name="update_country_ask">Update %1$s? (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="pause">Pause</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
