@@ -117,7 +117,7 @@
     <item name="fontButton">@style/TextAppearance.MdcTypographyStyles.Button</item>
     <item name="fontCaption">@style/TextAppearance.MdcTypographyStyles.Caption</item>
     <item name="fontOverline">@style/TextAppearance.MdcTypographyStyles.Overline</item>
-    <item name="drivingOptionsViewBg">@color/light_green</item>
+    <item name="drivingOptionsViewBg">@color/bg_primary</item>
     <item name="elevationProfilePropertyBg">@drawable/bg_rounded_rect</item>
     <item name="elevationProfilePropIconTint">@color/black_secondary</item>
     <item name="altitudeBg">@drawable/bg_altitude</item>
@@ -240,7 +240,7 @@
     <item name="fontButton">@style/TextAppearance.MdcTypographyStyles.Button</item>
     <item name="fontCaption">@style/TextAppearance.MdcTypographyStyles.Caption</item>
     <item name="fontOverline">@style/TextAppearance.MdcTypographyStyles.Overline</item>
-    <item name="drivingOptionsViewBg">@color/driving_options_bg_black</item>
+    <item name="drivingOptionsViewBg">@color/bg_primary_dark</item>
     <item name="elevationProfilePropertyBg">@drawable/bg_rounded_rect_night</item>
     <item name="elevationProfilePropIconTint">@color/white_secondary</item>
     <item name="altitudeBg">@drawable/bg_altitude_night</item>
