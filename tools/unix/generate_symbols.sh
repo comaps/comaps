@@ -22,7 +22,7 @@ export QT_QPA_PLATFORM=offscreen
 
 OMIM_PATH="${OMIM_PATH:-$(cd "$(dirname "$0")/../.."; pwd)}"
 OUT_PATH="$OMIM_PATH/out/release"
-SKIN_GENERATOR="${SKIN_GENERATOR:-$OUT_PATH/skin_generator_tool}"
+SKIN_GENERATOR="${SKIN_GENERATOR:-$OUT_PATH/skin_generator/skin_generator_tool}"
 DATA_PATH="$OMIM_PATH/data"
 
 # If skin_generator does not exist then build it
@@ -37,7 +37,7 @@ then
   fi
   mkdir -p "$OUT_PATH"
   pushd "$OUT_PATH" > /dev/null
-  "$CMAKE" "$OMIM_PATH" -DSKIP_TESTS:bool=true
+  "$CMAKE" "$OMIM_PATH" -DCMAKE_BUILD_TYPE="Release" -DSKIP_TESTS:bool=true
   make skin_generator_tool -j$PROCESSES
   popd > /dev/null
 fi

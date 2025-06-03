@@ -90,21 +90,21 @@ if (PLATFORM_WIN)
 endif()
 
 # Built-in CMake configurations: Debug, Release, RelWithDebInfo, MinSizeRel
-if (${CMAKE_BUILD_TYPE} STREQUAL "Debug")
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
   add_definitions(-DDEBUG)
   if (NOT MSVC)
     add_compile_options(-fno-omit-frame-pointer)
   endif()
-elseif (${CMAKE_BUILD_TYPE} MATCHES "Rel")
+elseif ("${CMAKE_BUILD_TYPE}" MATCHES "Rel")
   add_definitions(-DRELEASE)
   if (NOT MSVC)
     add_compile_options(-Ofast)  # Also enables -ffast-math
   endif()
 else()
-  message(FATAL_ERROR "Unknown build type: " ${CMAKE_BUILD_TYPE})
+  message(FATAL_ERROR "Unknown build type: ${CMAKE_BUILD_TYPE}")
 endif()
 
-message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 
 if (PLATFORM_LINUX OR PLATFORM_ANDROID)
   find_program(LLD_FOUND ld.lld)
