@@ -506,23 +506,15 @@ public class LocationHelper implements BaseLocationProvider.Listener
   public float getAverageSpeed()
   {
     if (mSavedLocation == null)
-    {
       return Float.NaN;
-    }
     if (Double.isNaN(mTimeElapsedAtLastAverage))
-    {
       updateSpeedHistory();
-    }
     if (mSavedLocation.getElapsedRealtimeNanos() * 1.0E-9 - mTimeElapsedAtLastAverage < SPEED_AVERAGING_TIME)
     {
       if (!Float.isNaN(mLastAverageSpeed))
-      {
         return mLastAverageSpeed;
-      }
       else
-      {
         return mSavedLocation.getSpeed();
-      }
     }
     else
     {
