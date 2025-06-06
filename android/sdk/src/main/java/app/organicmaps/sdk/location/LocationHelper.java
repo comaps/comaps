@@ -26,6 +26,7 @@ import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.NetworkPolicy;
 import app.organicmaps.sdk.util.log.Logger;
 import org.chromium.base.ObserverList;
+import java.util.ArrayList;
 
 public class LocationHelper implements BaseLocationProvider.Listener
 {
@@ -34,6 +35,8 @@ public class LocationHelper implements BaseLocationProvider.Listener
 
   private static final long AGPS_EXPIRATION_TIME_MS = 16 * 60 * 60 * 1000; // 16 hours
   private static final long LOCATION_UPDATE_TIMEOUT_MS = 30 * 1000; // 30 seconds
+
+  private static final double SPEED_AVERAGING_TIME = 0.5; // 0.5 seconds
 
   @NonNull
   private final Context mContext;
@@ -55,6 +58,10 @@ public class LocationHelper implements BaseLocationProvider.Listener
   private boolean mActive;
   private Handler mHandler;
   private Runnable mLocationTimeoutRunnable = this::notifyLocationUpdateTimeout;
+
+  private double mTimeElapsedAtLastAverage = Double.NaN;
+  private float mLastAverageSpeed = Float.NaN;
+  private ArrayList<Float> mSpeedHistory = new ArrayList<>();
 
   @NonNull
   private final GnssStatusCompat.Callback mGnssStatusCallback = new GnssStatusCompat.Callback() {
@@ -167,6 +174,8 @@ public class LocationHelper implements BaseLocationProvider.Listener
                                         mSavedLocation.getLongitude(), mSavedLocation.getAccuracy(),
                                         mSavedLocation.getAltitude(), mSavedLocation.getSpeed(),
                                         mSavedLocation.getBearing());
+
+    updateSpeedHistory();
   }
 
   private void notifyLocationUpdateTimeout()
@@ -477,6 +486,51 @@ public class LocationHelper implements BaseLocationProvider.Listener
       notifyLocationUpdated();
       Logger.d(TAG, "Current location is available, so play the nice zoom animation");
       Framework.nativeRunFirstLaunchAnimation();
+    }
+  }
+
+  private void updateSpeedHistory()
+  {
+    if (mSavedLocation == null)
+    {
+      return;
+    }
+
+    if (Double.isNaN(mTimeElapsedAtLastAverage))
+    {
+      mTimeElapsedAtLastAverage = mSavedLocation.getElapsedRealtimeNanos() * 1.0E-9;
+    }
+    mSpeedHistory.add(mSavedLocation.getSpeed());
+  }
+
+  public float getAverageSpeed()
+  {
+    if (mSavedLocation == null)
+    {
+      return Float.NaN;
+    }
+    if (Double.isNaN(mTimeElapsedAtLastAverage))
+    {
+      updateSpeedHistory();
+    }
+    if (mSavedLocation.getElapsedRealtimeNanos() * 1.0E-9 - mTimeElapsedAtLastAverage < SPEED_AVERAGING_TIME)
+    {
+      if (!Float.isNaN(mLastAverageSpeed))
+      {
+        return mLastAverageSpeed;
+      }
+      else
+      {
+        return mSavedLocation.getSpeed();
+      }
+    }
+    else
+    {
+      mLastAverageSpeed = mSpeedHistory.stream().reduce(0.0F, Float::sum);
+      mLastAverageSpeed /= mSpeedHistory.size();
+      mSpeedHistory.clear();
+      mTimeElapsedAtLastAverage = mSavedLocation.getElapsedRealtimeNanos() * 1.0E-9;
+      return mLastAverageSpeed;
     }
   }
 }

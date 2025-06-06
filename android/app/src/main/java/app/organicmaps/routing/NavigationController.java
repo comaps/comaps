@@ -18,6 +18,7 @@ import app.organicmaps.R;
 import app.organicmaps.maplayer.MapButtonsViewModel;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Router;
+import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
 import app.organicmaps.sdk.routing.CarDirection;
 import app.organicmaps.sdk.routing.RoutingController;
@@ -267,16 +268,18 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private void updateSpeedWidgets(@NonNull final RoutingInfo info)
   {
-    final Location location = MwmApplication.from(mFrame.getContext()).getLocationHelper().getSavedLocation();
+    final LocationHelper locationHelper = MwmApplication.from(mFrame.getContext()).getLocationHelper();
+    final Location location = locationHelper.getSavedLocation();
     if (location == null)
     {
       mSpeedLimit.setSpeedLimit(-1, false);
       mCurrentSpeed.setCurrentSpeed(-1);
       return;
     }
+    final double currentAvgSpeed = locationHelper.getAverageSpeed();
     final int fSpeedLimit = StringUtils.nativeFormatSpeed(info.speedLimitMps);
-    final boolean speedLimitExceeded = fSpeedLimit < StringUtils.nativeFormatSpeed(location.getSpeed());
+    final boolean speedLimitExceeded = fSpeedLimit < StringUtils.nativeFormatSpeed(currentAvgSpeed);
     mSpeedLimit.setSpeedLimit(fSpeedLimit, speedLimitExceeded);
-    mCurrentSpeed.setCurrentSpeed(location.getSpeed());
+    mCurrentSpeed.setCurrentSpeed(currentAvgSpeed);
   }
 }
