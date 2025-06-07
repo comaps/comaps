@@ -1,8 +1,8 @@
 To build, install and run e.g. a Web Debug version on your device/emulator: './gradlew runWebDebug'
 
-Or to compile a redistributable Fdroid Beta apk for testing: './gradlew assembleFdroidBeta'
+Or to compile a redistributable Fdroid Testing apk for testing: './gradlew assembleFdroidTesting'
 
-Or to build beta apks for all flavors: './gradlew assembleBeta'
+Or to build test apks for all flavors: './gradlew assembleTesting'
 
 To see all available build targets './gradlew tasks'
 

@@ -495,7 +495,7 @@ public class Utils
     catch (RuntimeException e)
     {
       Logger.e(TAG, "Failed to get string with id '" + key + "'", e);
-      if (BuildConfig.BUILD_TYPE.equals("debug") || BuildConfig.BUILD_TYPE.equals("beta"))
+      if (BuildConfig.BUILD_TYPE.equals("debug") || BuildConfig.BUILD_TYPE.equals("Testing"))
       {
         Toast.makeText(context, "Add string id for '" + key + "'!", Toast.LENGTH_LONG).show();
       }

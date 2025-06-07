@@ -4,11 +4,6 @@ buildscript {
     mavenCentral()
   }
 
-  // Detect flavors from the task name.
-  def taskName = getGradle().getStartParameter().getTaskRequests().toString().toLowerCase()
-  def isFdroid = taskName.contains('fdroid')
-  def isBeta = taskName.contains('beta')
-
   dependencies {
     classpath libs.android.tools
     classpath(libs.triplet.play.publisher)
@@ -238,7 +233,7 @@ android {
       keyPassword '12345678'
     }
 
-    test {
+    testing {
       if (secureTestPropertiesFileExists) {
         storeFile file(secretTestStoreFile)
         storePassword secretTestStorePassword
@@ -262,6 +257,7 @@ android {
   }
 
   buildTypes {
+    // Detect buildtypes from the task name
     def taskName = getGradle().getStartParameter().getTaskRequests().toString().toLowerCase()
 
     debug {
@@ -296,14 +292,14 @@ android {
       ndk.debugSymbolLevel = 'symbol_table'
     }
 
-    // TODO(@pastk): rename to "test" everywhere in code
-    beta {
+    // Has to be capitalized as everything starting with "test" is treated as a reserved keyword
+    Testing {
       applicationIdSuffix '.test'
       versionNameSuffix '-test'
-      if (taskName.contains('beta')) {
+      if (taskName.contains('testing')) {
         if (secureTestPropertiesFileExists) {
           println('Using TEST signing keys from secure.properties.test')
-          signingConfig signingConfigs.test
+          signingConfig signingConfigs.testing
         } else {
           println('NO TEST signing keys found')
           println('Using DEBUG signing keys')
