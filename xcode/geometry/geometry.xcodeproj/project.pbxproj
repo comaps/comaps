@@ -638,7 +638,7 @@
 					"$(inherited)",
 					"OMIM_UNIT_TEST_DISABLE_PLATFORM_INIT=1",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.geometry_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.geometry_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -651,7 +651,7 @@
 					"$(inherited)",
 					"OMIM_UNIT_TEST_DISABLE_PLATFORM_INIT=1",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.geometry_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.geometry_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Organic_Maps__Debug_
+@testable import CoMaps__Debug_
 
 final class SynchronizationtateManagerTests: XCTestCase {
 

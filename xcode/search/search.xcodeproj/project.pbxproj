@@ -1293,7 +1293,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.search_integration_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.search_integration_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1302,7 +1302,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.search_integration_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.search_integration_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -1311,7 +1311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.search_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.search_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1320,7 +1320,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.search_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.search_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

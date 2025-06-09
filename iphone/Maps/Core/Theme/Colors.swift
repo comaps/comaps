@@ -1,10 +1,10 @@
 class DayColors: IColors {
   var clear = UIColor.clear
   var primaryDark = UIColor(24, 128, 68, alpha100)
-  var primary = UIColor(0, 108, 53, alpha100)
-  var secondary = UIColor(45, 137, 83, alpha100)
+  var primary = UIColor(88, 129, 87, alpha100)
+  var secondary = UIColor(55, 101, 63, alpha100)
   // Light green color
-  var primaryLight = UIColor(36, 180, 98, alpha100)
+  var primaryLight = UIColor(124, 188, 123, alpha100)
   var menuBackground = UIColor(255, 255, 255, alpha90)
   var tabBarButtonBackground = UIColor(255, 255, 255, alpha70)
   var downloadBadgeBackground = UIColor(255, 55, 35, alpha100)

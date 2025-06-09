@@ -1038,7 +1038,7 @@ void KmlParser::Pop(std::string_view tag)
   {
     // This code assumes that <Style> is stored inside <Placemark>.
     // It is a violation of KML format, but it must be here to support
-    // loading of KML files which were stored by older versions of OMaps.
+    // loading of KML files which were stored by older versions of CoMaps.
     TrackLayer layer;
     layer.m_lineWidth = m_trackWidth;
     // Fix wrongly parsed transparent color, see https://github.com/organicmaps/organicmaps/issues/5800

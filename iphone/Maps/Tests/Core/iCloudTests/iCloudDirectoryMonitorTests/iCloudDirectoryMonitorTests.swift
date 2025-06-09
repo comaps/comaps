@@ -1,5 +1,5 @@
 import XCTest
-@testable import Organic_Maps__Debug_
+@testable import CoMaps__Debug_
 
 typealias UbiquityIdentityToken = NSCoding & NSCopying & NSObjectProtocol
 
@@ -8,7 +8,7 @@ class iCloudDirectoryMonitorTests: XCTestCase {
   var cloudMonitor: iCloudDocumentsMonitor!
   var mockFileManager: FileManagerMock!
   var mockDelegate: UbiquitousDirectoryMonitorDelegateMock!
-  var cloudContainerIdentifier: String = "iCloud.app.organicmaps.debug"
+  var cloudContainerIdentifier: String = "iCloud.app.comaps.debug"
 
   override func setUp() {
     super.setUp()

@@ -670,11 +670,11 @@ NSString *const kSettingsSegue = @"Map2Settings";
   [self.navigationController popToRootViewControllerAnimated:NO];
   if (self.isViewLoaded) {
     [MWMRouter stopRouting];
-    if ([action isEqualToString:@"app.organicmaps.3daction.bookmarks"])
+    if ([action isEqualToString:@"app.comaps.3daction.bookmarks"])
       [self.bookmarksCoordinator open];
-    else if ([action isEqualToString:@"app.organicmaps.3daction.search"])
+    else if ([action isEqualToString:@"app.comaps.3daction.search"])
       [self.searchManager startSearchingWithIsRouting:NO];
-    else if ([action isEqualToString:@"app.organicmaps.3daction.route"])
+    else if ([action isEqualToString:@"app.comaps.3daction.route"])
       [self.controlsManager onRoutePrepare];
   } else {
     dispatch_async(dispatch_get_main_queue(), ^{

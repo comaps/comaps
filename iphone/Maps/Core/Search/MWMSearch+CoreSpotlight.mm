@@ -49,7 +49,7 @@
 
     CSSearchableItem * item =
         [[CSSearchableItem alloc] initWithUniqueIdentifier:categoryKeyString
-                                          domainIdentifier:@"omaps.app.categories"
+                                          domainIdentifier:@"comaps.app.categories"
                                               attributeSet:attrSet];
     [items addObject:item];
   }

@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "ic_social_media_x.pdf",
+      "filename" : "ic_social_media_bluesky.svg",
       "idiom" : "universal"
     }
   ],
@@ -10,6 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "template-rendering-intent" : "template"
+    "template-rendering-intent" : "original"
   }
 }

@@ -150,7 +150,7 @@
   } else {
     if (errorPtr) {
       if (pointsCount == 0) {
-        *errorPtr = [NSError errorWithDomain:@"omaps.app.routing"
+        *errorPtr = [NSError errorWithDomain:@"comaps.app.routing"
                                         code:MWMRouterResultCodeStartPointNotFound
                                     userInfo:nil];
       } else {
@@ -161,7 +161,7 @@
         } else {
           code = MWMRouterResultCodeStartPointNotFound;
         }
-        *errorPtr = [NSError errorWithDomain:@"omaps.app.routing"
+        *errorPtr = [NSError errorWithDomain:@"comaps.app.routing"
                                         code:code
                                     userInfo:nil];
       }

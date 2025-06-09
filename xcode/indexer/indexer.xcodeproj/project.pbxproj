@@ -1059,7 +1059,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.indexer_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.indexer_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1068,7 +1068,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.indexer_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.indexer_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

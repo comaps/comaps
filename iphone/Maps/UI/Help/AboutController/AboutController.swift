@@ -277,7 +277,7 @@ private extension AboutController {
         case .faq:
           self?.navigationController?.pushViewController(FaqController(), animated: true)
         case .reportABug:
-          MailComposer.sendBugReportWith(title:"Organic Maps Bug Report")
+          MailComposer.sendBugReportWith(title:"CoMaps Bug Report")
         case .reportMapDataProblem, .volunteer, .news:
           self?.openUrl(aboutInfo.link)
         case .rateTheApp:
@@ -291,21 +291,21 @@ private extension AboutController {
   }
 
   func buildSocialMediaCollectionViewData() -> [SocialMediaCollectionViewCellModel] {
-    let socialMediaContent: [SocialMedia] = [.telegram, .github, .instagram, .twitter, .linkedin, .organicMapsEmail, .reddit, .matrix, .facebook, .fosstodon]
+    let socialMediaContent: [SocialMedia] = [.telegram, .codeberg, .instagram, .bluesky, .linkedin, .CoMapsEmail, .lemmy, .matrix, .facebook, .fosstodon]
     let data = socialMediaContent.map { [weak self] socialMedia in
       return SocialMediaCollectionViewCellModel(image: socialMedia.image, didTapHandler: {
         switch socialMedia {
         case .telegram: fallthrough
-        case .github: fallthrough
-        case .reddit: fallthrough
+        case .codeberg: fallthrough
+        case .lemmy: fallthrough
         case .matrix: fallthrough
         case .fosstodon: fallthrough
         case .facebook: fallthrough
-        case .twitter: fallthrough
+        case .bluesky: fallthrough
         case .instagram: fallthrough
         case .linkedin:
           self?.openUrl(socialMedia.link, externally: true)
-        case .organicMapsEmail:
+        case .CoMapsEmail:
           MailComposer.sendEmail(toRecipients: [socialMedia.link])
         }
       })

@@ -26,9 +26,9 @@
 
 Platform::Platform()
 {
-  // OMaps.app/Content/Resources or omim-build-debug for tests.
+  // CoMaps.app/Content/Resources or omim-build-debug for tests.
   std::string const resourcesPath = NSBundle.mainBundle.resourcePath.UTF8String;
-  // Omaps.app or omim-build-debug for tests.
+  // CoMaps.app or omim-build-debug for tests.
   std::string const bundlePath = NSBundle.mainBundle.bundlePath.UTF8String;
   // Current working directory, can be overrided for Xcode projects in the scheme's settings.
   std::string const currentDir = [NSFileManager.defaultManager currentDirectoryPath].UTF8String;
@@ -109,9 +109,9 @@ Platform::Platform()
       NSString * supportDir = [dirPaths objectAtIndex:0];
       m_writableDir = supportDir.UTF8String;
 #ifdef BUILD_DESIGNER
-      m_writableDir += "/OMapsData.Designer/";
+      m_writableDir += "/CoMapsData.Designer/";
 #else // BUILD_DESIGNER
-      m_writableDir += "/OMapsData/";
+      m_writableDir += "/CoMapsData/";
 #endif // BUILD_DESIGNER
       ::mkdir(m_writableDir.c_str(), 0755);
     }

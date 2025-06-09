@@ -1,37 +1,37 @@
 enum SocialMedia {
   case telegram
-  case twitter
+  case bluesky
   case instagram
   case facebook
-  case reddit
+  case lemmy
   case matrix
   case fosstodon
   case linkedin
-  case organicMapsEmail
-  case github
+  case CoMapsEmail
+  case codeberg
 
   var link: String {
     switch self {
     case .telegram:
       return L("telegram_url")
-    case .github:
-      return "https://github.com/organicmaps/organicmaps/"
+    case .codeberg:
+      return "https://codeberg.org/comaps/comaps/"
     case .linkedin:
-      return "https://www.linkedin.com/company/organic-maps/"
-    case .organicMapsEmail:
-      return "ios@organicmaps.app"
+      return "https://www.linkedin.com/company/comaps-community/"
+    case .CoMapsEmail:
+      return "hello@comaps.app"
     case .matrix:
-      return "https://matrix.to/#/#organicmaps:matrix.org"
+      return "https://matrix.to/#/%23comaps:matrix.org"
     case .fosstodon:
-      return "https://fosstodon.org/@organicmaps"
+      return "https://floss.social/@CoMaps"
     case .facebook:
-      return "https://facebook.com/OrganicMaps"
-    case .twitter:
-      return "https://twitter.com/OrganicMapsApp"
+      return "https://www.facebook.com/CoMapsCommunity/"
+    case .bluesky:
+      return "https://bsky.app/profile/comaps.app"
     case .instagram:
       return L("instagram_url")
-    case .reddit:
-      return "https://www.reddit.com/r/organicmaps/"
+    case .lemmy:
+      return "https://sopuli.xyz/c/CoMaps/"
     }
   }
 
@@ -39,11 +39,11 @@ enum SocialMedia {
     switch self {
     case .telegram:
       return UIImage(named: "ic_social_media_telegram")!
-    case .github:
-      return UIImage(named: "ic_social_media_github")!
+    case .codeberg:
+      return UIImage(named: "ic_social_media_codeberg")!
     case .linkedin:
       return UIImage(named: "ic_social_media_linkedin")!
-    case .organicMapsEmail:
+    case .CoMapsEmail:
       return UIImage(named: "ic_social_media_mail")!
     case .matrix:
       return UIImage(named: "ic_social_media_matrix")!
@@ -51,12 +51,12 @@ enum SocialMedia {
       return UIImage(named: "ic_social_media_fosstodon")!
     case .facebook:
       return UIImage(named: "ic_social_media_facebook")!
-    case .twitter:
-      return UIImage(named: "ic_social_media_x")!
+    case .bluesky:
+      return UIImage(named: "ic_social_media_bluesky")!
     case .instagram:
       return UIImage(named: "ic_social_media_instagram")!
-    case .reddit:
-      return UIImage(named: "ic_social_media_reddit")!
+    case .lemmy:
+      return UIImage(named: "ic_social_media_lemmy")!
     }
   }
 }

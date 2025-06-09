@@ -1,4 +1,4 @@
-@testable import Organic_Maps__Debug_
+@testable import CoMaps__Debug_
 
 extension LocalMetadataItem {
   static func stub(fileName: String, 

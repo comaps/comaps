@@ -9,7 +9,7 @@
 
 namespace style
 {
-// Fixes icons which are not supported by Organic Maps.
+// Fixes icons which are not supported by CoMaps.
 std::string GetSupportedStyle(std::string const & style);
 }  // style
 

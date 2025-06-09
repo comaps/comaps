@@ -598,7 +598,7 @@ GlyphImage GlyphManager::GetGlyphImage(GlyphFontAndId key, int pixelHeight, bool
 
 namespace
 {
-hb_language_t OrganicMapsLanguageToHarfbuzzLanguage(int8_t lang)
+hb_language_t CoMapsLanguageToHarfbuzzLanguage(int8_t lang)
 {
   // TODO(AB): can langs be converted faster?
   auto const svLang = StringUtf8Multilang::GetLangByCode(lang);
@@ -625,7 +625,7 @@ text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHe
   const auto [text, segments] = harfbuzz_shaping::GetTextSegments(utf8);
 
   // TODO(AB): Optimize language conversion.
-  hb_language_t const hbLanguage = OrganicMapsLanguageToHarfbuzzLanguage(lang);
+  hb_language_t const hbLanguage = CoMapsLanguageToHarfbuzzLanguage(lang);
 
   text::TextMetrics allGlyphs;
   // For SplitText it's enough to know if the last visual (first logical) segment is RTL.

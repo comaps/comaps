@@ -58,7 +58,7 @@ static BOOL _fileLoggingEnabled = NO;
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     dispatch_queue_attr_t attributes = dispatch_queue_attr_make_with_qos_class(DISPATCH_QUEUE_SERIAL, QOS_CLASS_UTILITY, 0);
-    fileLoggingQueue = dispatch_queue_create("app.organicmaps.fileLoggingQueue", attributes);
+    fileLoggingQueue = dispatch_queue_create("app.comaps.fileLoggingQueue", attributes);
   });
   return fileLoggingQueue;
 }

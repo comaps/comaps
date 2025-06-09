@@ -749,7 +749,7 @@
 					"$(inherited)",
 					"OMIM_UNIT_TEST_WITH_QT_EVENT_LOOP=1",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.map_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.map_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -762,7 +762,7 @@
 					"$(inherited)",
 					"OMIM_UNIT_TEST_WITH_QT_EVENT_LOOP=1",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = app.organicmaps.map_tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.map_tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

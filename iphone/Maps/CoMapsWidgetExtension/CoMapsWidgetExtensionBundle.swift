@@ -2,7 +2,7 @@ import WidgetKit
 import SwiftUI
 
 @main
-struct OMapsWidgetExtensionBundle: WidgetBundle {
+struct CoMapsWidgetExtensionBundle: WidgetBundle {
   var body: some Widget {
     TrackRecordingLiveActivityConfiguration()
   }

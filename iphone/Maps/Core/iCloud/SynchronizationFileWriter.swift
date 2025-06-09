@@ -1,6 +1,6 @@
 final class SynchronizationFileWriter {
   private let fileManager: FileManager
-  private let backgroundQueue = DispatchQueue(label: "iCloud.app.organicmaps.backgroundQueue", qos: .background)
+  private let backgroundQueue = DispatchQueue(label: "iCloud.app.comaps.backgroundQueue", qos: .background)
   private let fileCoordinator: NSFileCoordinator
   private let localDirectoryUrl: URL
   private let cloudDirectoryUrl: URL
