@@ -23,7 +23,7 @@
       android:orientation="vertical"
       android:layout_marginEnd="@dimen/margin_base"
       android:layout_gravity="center_vertical" >
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
           android:id="@+id/time"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
           tools:text="5 h 55 min • 1555km"
           tools:visibility="visible" />
 
-        <TextView
+        <com.google.android.material.textview.MaterialTextView
           android:id="@+id/altitude_difference"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"

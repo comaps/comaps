@@ -28,6 +28,9 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.Framework;
 import app.organicmaps.R;
 import app.organicmaps.bookmarks.data.DistanceAndAzimut;
@@ -67,21 +70,21 @@ final class RoutingBottomMenuController implements View.OnClickListener
   @NonNull
   private final ImageView mAltitudeChart;
   @NonNull
-  private final TextView mTime;
+  private final MaterialTextView mTime;
   @NonNull
-  private final TextView mAltitudeDifference;
+  private final MaterialTextView mAltitudeDifference;
   @NonNull
   private final TextView mTimeVehicle;
   @Nullable
-  private final TextView mArrival;
+  private final MaterialTextView mArrival;
   @NonNull
   private final View mActionFrame;
   @NonNull
-  private final TextView mActionMessage;
+  private final MaterialTextView mActionMessage;
   @NonNull
   private final View mActionButton;
   @NonNull
-  private final ImageView mActionIcon;
+  private final ShapeableImageView mActionIcon;
   @NonNull
   private final DotDividerItemDecoration mTransitViewDecorator;
 
@@ -98,10 +101,10 @@ final class RoutingBottomMenuController implements View.OnClickListener
     TextView error = (TextView) getViewById(activity, frame, R.id.error);
     Button start = (Button) getViewById(activity, frame, R.id.start);
     ImageView altitudeChart = (ImageView) getViewById(activity, frame, R.id.altitude_chart);
-    TextView time = (TextView) getViewById(activity, frame, R.id.time);
+    MaterialTextView time = (MaterialTextView) getViewById(activity, frame, R.id.time);
     TextView timeVehicle = (TextView) getViewById(activity, frame, R.id.time_vehicle);
-    TextView altitudeDifference = (TextView) getViewById(activity, frame, R.id.altitude_difference);
-    TextView arrival = (TextView) getViewById(activity, frame, R.id.arrival);
+    MaterialTextView altitudeDifference = (MaterialTextView) getViewById(activity, frame, R.id.altitude_difference);
+    MaterialTextView arrival = (MaterialTextView) getViewById(activity, frame, R.id.arrival);
     View actionFrame = getViewById(activity, frame, R.id.routing_action_frame);
 
     return new RoutingBottomMenuController(activity, altitudeChartFrame, timeElevationLine, transitFrame,
@@ -124,10 +127,10 @@ final class RoutingBottomMenuController implements View.OnClickListener
                                       @NonNull TextView error,
                                       @NonNull Button start,
                                       @NonNull ImageView altitudeChart,
-                                      @NonNull TextView time,
-                                      @NonNull TextView altitudeDifference,
+                                      @NonNull MaterialTextView time,
+                                      @NonNull MaterialTextView altitudeDifference,
                                       @NonNull TextView timeVehicle,
-                                      @Nullable TextView arrival,
+                                      @Nullable MaterialTextView arrival,
                                       @NonNull View actionFrame,
                                       @Nullable RoutingBottomMenuListener listener)
   {
@@ -198,12 +201,12 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
     scrollToBottom(rv);
 
-    TextView totalTimeView = mTransitFrame.findViewById(R.id.total_time);
+    MaterialTextView totalTimeView = mTransitFrame.findViewById(R.id.total_time);
     totalTimeView.setText(RoutingController.formatRoutingTime(mContext, info.getTotalTime(),
                                                             R.dimen.text_size_routing_number));
     View dotView = mTransitFrame.findViewById(R.id.dot);
     View pedestrianIcon = mTransitFrame.findViewById(R.id.pedestrian_icon);
-    TextView distanceView = mTransitFrame.findViewById(R.id.total_distance);
+    MaterialTextView distanceView = mTransitFrame.findViewById(R.id.total_distance);
     UiUtils.showIf(info.getTotalPedestrianTimeInSec() > 0, dotView, pedestrianIcon, distanceView);
     distanceView.setText(info.getTotalPedestrianDistance() + " " + info.getTotalPedestrianDistanceUnits());
   }
