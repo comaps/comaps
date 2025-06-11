@@ -15,14 +15,14 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:background="?clickableBackground">
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:srcCompat="@drawable/ic_search"
       app:tint="?colorAccent"
       android:layout_marginStart="@dimen/margin_base"
       android:layout_marginEnd="@dimen/margin_base"/>
-    <TextView
+    <com.google.android.material.textview.MaterialTextView
       android:id="@+id/tv__message"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
       android:layout_marginBottom="@dimen/margin_half"
       android:layout_marginTop="@dimen/margin_half"
       android:background="?dividerHorizontal"/>
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/iv__icon"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"

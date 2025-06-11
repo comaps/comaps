@@ -5,7 +5,7 @@
   android:id="@+id/numbers"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content">
-  <TextView
+  <com.google.android.material.textview.MaterialTextView
     android:id="@+id/time"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -13,7 +13,7 @@
     android:ellipsize="end"
     android:layout_marginBottom="4dp"
     tools:text="5 h 55 min • 1555km"/>
-  <TextView
+  <com.google.android.material.textview.MaterialTextView
     android:id="@+id/arrival"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
     tools:text="Arrival 13:03"
     style="@style/MwmWidget.TextView.PlanDetail.Number.Secondary"
     android:textSize="@dimen/text_size_routing_plan_detail_arrival"/>
-  <TextView
+  <com.google.android.material.textview.MaterialTextView
     android:id="@+id/altitude_difference"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
