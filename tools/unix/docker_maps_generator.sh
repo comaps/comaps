@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 #Volumes/paths for downloads:
 #home/planet/planet/planet.o5m
 #home/planet/planet/planet.o5m.md5
@@ -27,6 +29,7 @@ echo "<$(date +%T)> Starting..."
 #
 mkdir -p /root/.config/OMaps # Odd mkdir permission errors in generator_tool in Docker without these
 chmod -R 777 /root/.config
+mkdir -p ~/.config/rclone
 mkdir -p ~/OM/maps_build
 mkdir -p ~/OM/omim-build-release
 mkdir -p ~/OM/osmctools
@@ -38,16 +41,15 @@ mkdir -p /home/planet/postcodes/us-postcodes/
 mkdir -p /home/planet/SRTM-patched-europe/
 mkdir -p /home/planet/subway
 
-echo "Writing S3 config..."
-echo "[default]" > ~/.s3cfg
-echo "access_key = $S3_KEY_ID" >> ~/.s3cfg
-echo "secret_key = $S3_SECRET_KEY" >> ~/.s3cfg
-echo "host_base = $S3_HOST_BASE" >> ~/.s3cfg
-echo "host_bucket = \$(bucket)s.$S3_HOST_BASE" >> ~/.s3cfg
-# S3_BUCKET is used during upload
-
-echo "Wrote:"
-cat ~/.s3cfg
+echo "Writing rclone config..."
+echo "[r2]" > ~/.config/rclone/rclone.conf
+echo "type = s3" >> ~/.config/rclone/rclone.conf
+echo "provider = Cloudflare" >> ~/.config/rclone/rclone.conf
+echo "access_key_id = $S3_KEY_ID" >> ~/.config/rclone/rclone.conf
+echo "secret_access_key = $S3_SECRET_KEY" >> ~/.config/rclone/rclone.conf
+echo "region = auto" >> ~/.config/rclone/rclone.conf
+echo "endpoint = $S3_ENDPOINT" >> ~/.config/rclone/rclone.conf
+# S3_BUCKET is used below during uploading
 
 echo "<$(date +%T)> Running ./configure.sh ..."
 cd ~/OM/organicmaps
@@ -109,30 +111,51 @@ cd ~/OM/organicmaps/tools/python
 #/tmp/venv/bin/python -m maps_generator --countries="Macedonia" --skip="MwmDiffs"
 
 shopt -s nullglob
-mwmfiles=( ~/OM/maps_build/*/*/*.mwm )
+buildfolder=$(find ~/OM/maps_build/ -mindepth 1 -maxdepth 1 -iname 2* -type d | sort -n -r | head -1 | cut -d/ -f5)
+builddate=$(find ~/OM/maps_build/*/ -mindepth 1 -maxdepth 1 -iname 2* -type d | sort -n -r | head -1 | cut -d/ -f6)
+mwmfiles=( ~/OM/maps_build/$buildfolder/$builddate/*.mwm )
 
 if (( ${#mwmfiles[@]} )); then
-  echo "<$(date +%T)> Uploading maps..."
-  # TODO: upload limited files via SFTP to Dreamhost (cdn-us-1.comaps.app)
+  echo "<$(date +%T)> Uploading maps to sftp..."
+  # upload limited files via SFTP to Dreamhost (cdn-us-1.comaps.app)
   # Needs StrictHostKeyChecking=no otherwise new containers/SFTP_HOSTs will require a manual ssh attempt
-  #sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
-  #put ~/OM/maps_build/20*/2*/countries.txt
-  #put ~/OM/maps_build/20*/2*/World.mwm
-  #put ~/OM/maps_build/20*/2*/WorldCoasts.mwm
-  #exit
-  #EOF
-  
-  # TODO: upload all files via rclone to Cloudflare (R2)
-  #s3cmd put ~/OM/maps_build/generation.log "s3://$S3_BUCKET/$(date +%y%m%d)/"
-  #s3cmd put ~/OM/maps_build/*/*/*.mwm "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
-  #s3cmd put ~/OM/maps_build/*/logs "s3://$S3_BUCKET/$(date +%y%m%d)/" --recursive
+sshpass -p $SFTP_PASSWORD sftp -o StrictHostKeyChecking=no $SFTP_USER@$SFTP_HOST:$SFTP_PATH <<EOF
+  lcd ~/OM/maps_build/$buildfolder/$builddate
+  mkdir maps/$builddate
+  cd maps/$builddate
+  put countries.txt
+  put World.mwm
+  put WorldCoasts.mwm
+  cd ..
+  rm latest
+  ln -s $builddate latest
+  cd ..
+  lcd /home/planet/subway/
+  put subway.json
+  put subway.log
+  put subway.transit.json
+  lcd /home/planet/subway/subway/validator
+  rm subway/js/*
+  rmdir subway/js
+  rm subway/*
+  rmdir subway
+  mkdir subway
+  cd subway
+  put *
+  exit
+EOF
+
+  # upload all files via rclone to Cloudflare (R2)
+  echo "<$(date +%T)> Uploading maps to cloudflare..."
+  rclone --progress copy ~/OM/maps_build/$buildfolder/$builddate r2:$S3_BUCKET/maps/$builddate/
+
 else
-  echo "<$(date +%T)> No MWM files, not uploading maps."
+  echo "<$(date +%T)> No MWM files in ~/OM/maps_build/$buildfolder/$builddate/*.mwm, not uploading maps."
+  echo "<$(date +%T)> Found: $(ls -alt ~/OM/maps_build/*)"
 fi
 
 echo "<$(date +%T)> Temporarily NOT Removing intermediate data..."
 #rm -rf ~/OM/maps_build/*/intermediate_data
-# rm -rf ~/OM/
 
 echo "<$(date +%T)> DONE"
 

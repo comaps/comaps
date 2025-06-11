@@ -8,7 +8,8 @@ RUN apt-get update -qq \
     && apt-get install -y --no-install-recommends \
     curl \
     osmctools \
-    s3cmd \
+    rclone \
+    sftp \
     sshpass \
     vim \
     wget \
