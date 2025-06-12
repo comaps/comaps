@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "منشآت للمنازل المتنقلة";
-"share_bookmarks_email_body" = "مرحباً! ْ\n\n تم إرفاق إشاراتي المرجعية من تطبيق CoMaps. الرجاء فتحهم إذا لديك تطبيق CoMaps مثبتاً. أو، إذا لم يكن مثبتاً، قم بتنزيل التطبيق لنظام iOS أو أندرويد من خلال الضغط على هذا الرابط: https://www.comaps.app/download/ \n\nاستمتع بالسفر مع Organic Maps!";
+"share_bookmarks_email_body" = "مرحباً! ْ\n\n تم إرفاق إشاراتي المرجعية من تطبيق CoMaps. الرجاء فتحهم إذا لديك تطبيق CoMaps مثبتاً. أو، إذا لم يكن مثبتاً، قم بتنزيل التطبيق لنظام iOS أو أندرويد من خلال الضغط على هذا الرابط: https://www.comaps.app/download/ \n\nاستمتع بالسفر مع CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "يتم تحميل الإشارات المرجعية";
@@ -283,7 +283,7 @@
 "donate_description" = "تبرع لبناء أفضل الخرائط معًا!";
 "already_donated" = "تم التبرع";
 "remind_me_later" = "ذكر لاحقاً";
-"support_organic_maps" = "دعم CoMaps";
+"support_comaps" = "دعم CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "حقوق النشر";

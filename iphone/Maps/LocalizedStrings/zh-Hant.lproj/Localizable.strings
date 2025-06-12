@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "露營車設施";
-"share_bookmarks_email_body" = "您好！\n\n附件是我的書籤，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 Organic Maps 旅行愉快！";
+"share_bookmarks_email_body" = "您好！\n\n附件是我的書籤，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
 
 /* message title of loading file */
 "load_kmz_title" = "正在載入書籤…";
@@ -283,7 +283,7 @@
 "donate_description" = "捐助，以共同打造最好的地圖！";
 "already_donated" = "已捐贈";
 "remind_me_later" = "稍後提醒";
-"support_organic_maps" = "支持 CoMaps";
+"support_comaps" = "支持 CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "版權";

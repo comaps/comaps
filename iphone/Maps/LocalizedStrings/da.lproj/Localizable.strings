@@ -283,7 +283,7 @@
 "donate_description" = "Donér for at bygge de bedste kort sammen!";
 "already_donated" = "Allerede doneret";
 "remind_me_later" = "Påmind mig senere";
-"support_organic_maps" = "Støt CoMaps";
+"support_comaps" = "Støt CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Copyright";

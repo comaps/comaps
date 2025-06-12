@@ -7,7 +7,7 @@ enum SocialMedia {
   case matrix
   case fosstodon
   case linkedin
-  case CoMapsEmail
+  case email
   case codeberg
 
   var link: String {
@@ -18,7 +18,7 @@ enum SocialMedia {
       return "https://codeberg.org/comaps/comaps/"
     case .linkedin:
       return "https://www.linkedin.com/company/comaps-community/"
-    case .CoMapsEmail:
+    case .email:
       return "hello@comaps.app"
     case .matrix:
       return "https://matrix.to/#/%23comaps:matrix.org"
@@ -43,7 +43,7 @@ enum SocialMedia {
       return UIImage(named: "ic_social_media_codeberg")!
     case .linkedin:
       return UIImage(named: "ic_social_media_linkedin")!
-    case .CoMapsEmail:
+    case .email:
       return UIImage(named: "ic_social_media_mail")!
     case .matrix:
       return UIImage(named: "ic_social_media_matrix")!

@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Einrichtungen für Wohnmobile";
-"share_bookmarks_email_body" = "Hallo!\n\nIm Anhang sind meine Lesezeichen der CoMaps App. Sie können sie mit CoMaps öffnen. Wenn Sie die App nicht installiert haben, können Sie sie von https://www.comaps.app/download/ für iOS oder Android herunterladen.\n\nViel Spaß beim Reisen mit Organic Maps!";
+"share_bookmarks_email_body" = "Hallo!\n\nIm Anhang sind meine Lesezeichen der CoMaps App. Sie können sie mit CoMaps öffnen. Wenn Sie die App nicht installiert haben, können Sie sie von https://www.comaps.app/download/ für iOS oder Android herunterladen.\n\nViel Spaß beim Reisen mit CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Lesezeichen werden geladen";
@@ -283,7 +283,7 @@
 "donate_description" = "Spende, um gemeinsam die besten Karten zu erstellen!";
 "already_donated" = "Bereits gespendet";
 "remind_me_later" = "Später erinnern";
-"support_organic_maps" = "CoMaps unterstützen";
+"support_comaps" = "CoMaps unterstützen";
 
 /* Button in the main Help dialog */
 "copyright" = "Copyright";

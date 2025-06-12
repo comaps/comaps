@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Для аўтадамоў";
-"share_bookmarks_email_body" = "Вітаю!\n\nУ далучаным файле мае закладкі з праграмы CoMaps. Калі ласка, адкрыйце іх, калі ў вас усталяваны CoMaps. Калі не, спампуйце праграму для вашай прылады iOS альбо Andriod па спасылцы: https://www.comaps.app/download/\n\nПрыемных падарожжаў з Organic Maps!";
+"share_bookmarks_email_body" = "Вітаю!\n\nУ далучаным файле мае закладкі з праграмы CoMaps. Калі ласка, адкрыйце іх, калі ў вас усталяваны CoMaps. Калі не, спампуйце праграму для вашай прылады iOS альбо Andriod па спасылцы: https://www.comaps.app/download/\n\nПрыемных падарожжаў з CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Загрузка закладак";
@@ -283,7 +283,7 @@
 "donate_description" = "Падтрымайць, каб разам ствараць лепшыя карты!";
 "already_donated" = "Ужо ахвяравана";
 "remind_me_later" = "Нагадаць пазней";
-"support_organic_maps" = "Падтрымаць CoMaps";
+"support_comaps" = "Падтрымаць CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Аўтарскія правы";
@@ -916,7 +916,7 @@
 "track_title" = "Сцежка";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/OrganicMapsRu";
+"telegram_url" = "https://t.me/CoMapsRu";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/comapscommunity/";

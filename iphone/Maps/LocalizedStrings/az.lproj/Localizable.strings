@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karvan qurğuları";
-"share_bookmarks_email_body" = "Salam!\n\nCoMaps əlfəcinlərim əlavə olunub. Zəhmət olmasa CoMaps-da onları açın. Əgər onu quraşdırmamısınızsa, bu linkə daxil olub cihazınıza yükləyə bilərsiniz: https://www.comaps.app/download/\n\nOrganic Maps ilə səyahətdən həzz alın!";
+"share_bookmarks_email_body" = "Salam!\n\nCoMaps əlfəcinlərim əlavə olunub. Zəhmət olmasa CoMaps-da onları açın. Əgər onu quraşdırmamısınızsa, bu linkə daxil olub cihazınıza yükləyə bilərsiniz: https://www.comaps.app/download/\n\nCoMaps ilə səyahətdən həzz alın!";
 
 /* message title of loading file */
 "load_kmz_title" = "Əlfəcinlər yüklənir";
@@ -283,7 +283,7 @@
 "donate_description" = "Ən yaxşı xəritələri birlikdə qurmaq üçün ianə edin!";
 "already_donated" = "Artıq ianə edildi";
 "remind_me_later" = "Daha sonra xatırlat";
-"support_organic_maps" = "CoMaps-i dəstəkləmək";
+"support_comaps" = "CoMaps-i dəstəkləmək";
 
 /* Button in the main Help dialog */
 "copyright" = "Müəllif hüququ";
@@ -916,7 +916,7 @@
 "track_title" = "Yol qeydi";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/OrganicMapsTR # Probably better than Ru";
+"telegram_url" = "https://t.me/CoMapsTR # Probably better than Ru";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/comapscommunity/";

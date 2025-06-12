@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Instal·lacions per a autocaravanes";
-"share_bookmarks_email_body" = "Hola!\n\nAdjunto els meus marcadors de l'aplicació CoMaps. Obriu-los si teniu l'CoMaps instal·lat. O, si no teniu l'aplicació, baixeu-la per al vostre aparell iOS o Android seguint aquest enllaç: https://www.comaps.app/download/\n\nGaudiu viatjant amb l'Organic Maps!";
+"share_bookmarks_email_body" = "Hola!\n\nAdjunto els meus marcadors de l'aplicació CoMaps. Obriu-los si teniu l'CoMaps instal·lat. O, si no teniu l'aplicació, baixeu-la per al vostre aparell iOS o Android seguint aquest enllaç: https://www.comaps.app/download/\n\nGaudiu viatjant amb l'CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "S'estan carregant els marcadors";
@@ -283,7 +283,7 @@
 "donate_description" = "Fes una donació per construir els millors mapes junts!";
 "already_donated" = "Ja donat";
 "remind_me_later" = "Recorda més tard";
-"support_organic_maps" = "Donar suport a CoMaps";
+"support_comaps" = "Donar suport a CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Drets d’autor";

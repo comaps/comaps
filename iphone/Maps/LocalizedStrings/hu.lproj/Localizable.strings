@@ -283,7 +283,7 @@
 "donate_description" = "Adományozzon, hogy együtt építsük a legjobb térképeket!";
 "already_donated" = "Már adományozott";
 "remind_me_later" = "Emlékeztessen később";
-"support_organic_maps" = "CoMaps támogatása";
+"support_comaps" = "CoMaps támogatása";
 
 /* Button in the main Help dialog */
 "copyright" = "Szerzői jogok";

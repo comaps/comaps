@@ -32,10 +32,10 @@
   }
 
   func applicationDidReceiveUniversalLink(_ universalLink: URL) -> Bool {
-    // Convert http(s)://comaps.app/ENCODEDCOORDS/NAME to cm://ENCODEDCOORDS/NAME
+    // Convert http(s)://comaps.app/ENCODEDCOORDS/NAME to comaps://ENCODEDCOORDS/NAME
     self.url = URL(string: universalLink.absoluteString
-                    .replacingOccurrences(of: "http://comaps.app", with: "cm:/")
-                    .replacingOccurrences(of: "https://comaps.app", with: "cm:/"))
+                    .replacingOccurrences(of: "http://comaps.app", with: "comaps:/")
+                    .replacingOccurrences(of: "https://comaps.app", with: "comaps:/"))
     isLaunchedByUniversalLink = true
     return handleDeepLink(url: self.url!)
   }

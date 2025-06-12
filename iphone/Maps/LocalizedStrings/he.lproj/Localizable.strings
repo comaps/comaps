@@ -283,7 +283,7 @@
 "donate_description" = "תרמו כדי לבנות יחד את המפות הטובות ביותר!";
 "already_donated" = "כבר נתרם";
 "remind_me_later" = "הזכר מאוחר יותר";
-"support_organic_maps" = "לתמוך ב-CoMaps";
+"support_comaps" = "לתמוך ב-CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "זכויות יוצרים";

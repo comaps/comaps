@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BMCViewController" customModule="OMaps" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BMCViewController" customModule="CoMaps" customModuleProvider="target">
             <connections>
                 <outlet property="actionsHeader" destination="DhR-7O-ccQ" id="PPD-Ov-b69"/>
                 <outlet property="notificationsHeader" destination="G0o-Op-zPp" id="PUK-3H-1q3"/>
@@ -50,7 +50,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="483" y="-50"/>
         </view>
-        <view contentMode="scaleToFill" id="G0o-Op-zPp" customClass="BMCNotificationsHeader" customModule="OMaps" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="G0o-Op-zPp" customClass="BMCNotificationsHeader" customModule="CoMaps" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

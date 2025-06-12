@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Aménagements pour camping-car";
-"share_bookmarks_email_body" = "Bonjour !\n\nVous trouverez ci-joint mes signets de l'appli CoMaps. Veuillez les ouvrir si vous avez installé CoMaps. Si vous ne l'avez pas, téléchargez l'application pour votre appareil iOS ou Android en suivant ce lien : https://www.comaps.app/download/\n\nBon voyage avec Organic Maps !";
+"share_bookmarks_email_body" = "Bonjour !\n\nVous trouverez ci-joint mes signets de l'appli CoMaps. Veuillez les ouvrir si vous avez installé CoMaps. Si vous ne l'avez pas, téléchargez l'application pour votre appareil iOS ou Android en suivant ce lien : https://www.comaps.app/download/\n\nBon voyage avec CoMaps !";
 
 /* message title of loading file */
 "load_kmz_title" = "Chargement des signets";
@@ -283,7 +283,7 @@
 "donate_description" = "Fais un don pour construire ensemble les meilleures cartes !";
 "already_donated" = "Déjà donné";
 "remind_me_later" = "Rappeler plus tard";
-"support_organic_maps" = "Soutenir CoMaps";
+"support_comaps" = "Soutenir CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Tous droits réservés";

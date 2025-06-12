@@ -283,7 +283,7 @@
 "donate_description" = "Skenk om saam die beste kaarte te bou!";
 "already_donated" = "Reeds geskenk";
 "remind_me_later" = "Herinner later";
-"support_organic_maps" = "Ondersteun CoMaps";
+"support_comaps" = "Ondersteun CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Kopiereg";

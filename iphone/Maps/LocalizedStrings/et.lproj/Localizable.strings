@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Haagiselamud";
-"share_bookmarks_email_body" = "Tere!\n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul on CoMaps paigaldatud. Või kui ei ole, laadi rakendus alla oma iOS või Android seadmesse, järgides seda linki: https:omaps.appget?kmz\n\nNaudi reisimist Organic Mapsiga!";
+"share_bookmarks_email_body" = "Tere!\n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul on CoMaps paigaldatud. Või kui ei ole, laadi rakendus alla oma iOS või Android seadmesse, järgides seda linki: https:omaps.appget?kmz\n\nNaudi reisimist CoMapsiga!";
 
 /* message title of loading file */
 "load_kmz_title" = "Järjehoidjate laadimine";
@@ -283,7 +283,7 @@
 "donate_description" = "Anneta, et luua koos parimaid kaarte!";
 "already_donated" = "Juba annetasin";
 "remind_me_later" = "Meenuta hiljem";
-"support_organic_maps" = "Toeta CoMapsi";
+"support_comaps" = "Toeta CoMapsi";
 
 /* Button in the main Help dialog */
 "copyright" = "Autoriõigused";

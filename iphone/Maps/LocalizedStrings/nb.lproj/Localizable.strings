@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Bobilanlegg";
-"share_bookmarks_email_body" = "Hei!\n\nVedlagt er mine bokmerker fra CoMaps-appen. Åpne de dersom du har CoMaps installert. Har du ikke har det, last ned appen til iOS eller Android ved å trykke på denne linken: https://www.comaps.app/download/\n\nNyt reisen med Organic Maps!";
+"share_bookmarks_email_body" = "Hei!\n\nVedlagt er mine bokmerker fra CoMaps-appen. Åpne de dersom du har CoMaps installert. Har du ikke har det, last ned appen til iOS eller Android ved å trykke på denne linken: https://www.comaps.app/download/\n\nNyt reisen med CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Laster inn bokmerker";
@@ -283,7 +283,7 @@
 "donate_description" = "Doner for å bygge de beste kartene sammen!";
 "already_donated" = "Allerede donert";
 "remind_me_later" = "Påminn senere";
-"support_organic_maps" = "Støtte CoMaps";
+"support_comaps" = "Støtte CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Opphavsrett";

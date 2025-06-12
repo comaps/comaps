@@ -283,7 +283,7 @@
 "donate_description" = "کمک مالی کنید تا بهترین نقشه ها را با هم بسازید!";
 "already_donated" = "قبلاً اهدا شده";
 "remind_me_later" = "بعداً یادآوری کن";
-"support_organic_maps" = "پشتیبانی از CoMaps";
+"support_comaps" = "پشتیبانی از CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "حق نشر و کپی رایت";
@@ -916,7 +916,7 @@
 "track_title" = "مسیر";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/OrganicMapsIR";
+"telegram_url" = "https://t.me/CoMapsIR";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/comapscommunity/";

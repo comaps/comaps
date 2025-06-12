@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="WR7-Hs-CVJ" customClass="LocationServicesDisabledAlert" customModule="Organic_Maps" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="WR7-Hs-CVJ" customClass="LocationServicesDisabledAlert" customModule="CoMaps" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="539" height="770"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>

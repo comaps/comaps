@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomTabBarViewController" customModule="Organic_Maps" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BottomTabBarViewController" customModule="CoMaps" customModuleProvider="target">
             <connections>
                 <outlet property="bookmarksButton" destination="dgG-ki-3tB" id="md5-3T-9tb"/>
                 <outlet property="downloadBadge" destination="uDI-ZC-4wx" id="fAf-cy-Ozn"/>
@@ -20,14 +20,14 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zuH-WU-hiP" customClass="BottomTabBarView" customModule="Organic_Maps" customModuleProvider="target" propertyAccessControl="none">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="zuH-WU-hiP" customClass="BottomTabBarView" customModule="CoMaps" customModuleProvider="target" propertyAccessControl="none">
             <rect key="frame" x="0.0" y="0.0" width="373" height="84"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vum-s3-PHx" userLabel="MainButtons" customClass="ExtendedBottomTabBarContainerView" customModule="Organic_Maps" customModuleProvider="target">
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vum-s3-PHx" userLabel="MainButtons" customClass="ExtendedBottomTabBarContainerView" customModule="CoMaps" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="373" height="48"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzf-7Z-N6a" userLabel="Help" customClass="BottomTabBarButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dzf-7Z-N6a" userLabel="Help" customClass="BottomTabBarButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="22.5" y="0.0" width="48" height="48"/>
                             <accessibility key="accessibilityConfiguration" identifier="helpButton"/>
                             <constraints>
@@ -40,7 +40,7 @@
                                 <action selector="onHelpButtonPressed:" destination="-1" eventType="touchUpInside" id="1gx-P2-sRJ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No0-ld-JX3" userLabel="Search" customClass="BottomTabBarButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No0-ld-JX3" userLabel="Search" customClass="BottomTabBarButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="116" y="0.0" width="48" height="48"/>
                             <accessibility key="accessibilityConfiguration" identifier="searchButton"/>
                             <constraints>
@@ -52,7 +52,7 @@
                                 <action selector="onSearchButtonPressed:" destination="-1" eventType="touchUpInside" id="0D5-RB-HBQ"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-ki-3tB" userLabel="Bookmarks" customClass="BottomTabBarButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgG-ki-3tB" userLabel="Bookmarks" customClass="BottomTabBarButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="209" y="0.0" width="48" height="48"/>
                             <accessibility key="accessibilityConfiguration" identifier="bookmarksButton"/>
                             <constraints>
@@ -64,7 +64,7 @@
                                 <action selector="onBookmarksButtonPressed:" destination="-1" eventType="touchUpInside" id="9Z1-eg-xth"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svD-yi-GrZ" userLabel="Menu" customClass="BottomTabBarButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="svD-yi-GrZ" userLabel="Menu" customClass="BottomTabBarButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="302.5" y="0.0" width="48" height="48"/>
                             <accessibility key="accessibilityConfiguration" identifier="menuButton"/>
                             <constraints>

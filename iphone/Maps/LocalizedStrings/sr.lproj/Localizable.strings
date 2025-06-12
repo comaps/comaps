@@ -283,7 +283,7 @@
 "donate_description" = "Донирате да бисмо заједно направили најбоље мапе!";
 "already_donated" = "Већ је донирано";
 "remind_me_later" = "Подсети ме касније";
-"support_organic_maps" = "Подршка CoMaps";
+"support_comaps" = "Подршка CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Copyright";

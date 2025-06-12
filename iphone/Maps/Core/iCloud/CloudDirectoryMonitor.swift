@@ -11,7 +11,7 @@ protocol CloudDirectoryMonitorDelegate : AnyObject {
   func didReceiveCloudMonitorError(_ error: Error)
 }
 
-private let kUDCloudIdentityKey = "com.apple.organicmaps.UbiquityIdentityToken"
+private let kUDCloudIdentityKey = "com.apple.comaps.UbiquityIdentityToken"
 private let kDocumentsDirectoryName = "Documents"
 
 final class iCloudDocumentsMonitor: NSObject, CloudDirectoryMonitor {

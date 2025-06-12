@@ -18,7 +18,7 @@
                         <sections>
                             <tableViewSection id="eZf-AO-B39">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="e1E-Do-3np" detailTextLabel="1V3-XN-CvQ" style="IBUITableViewCellStyleValue1" id="yh8-cr-14c" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="e1E-Do-3np" detailTextLabel="1V3-XN-CvQ" style="IBUITableViewCellStyleValue1" id="yh8-cr-14c" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="10" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yh8-cr-14c" id="MYm-HI-oOR">
@@ -46,7 +46,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="ОБЩИЕ НАСТРОЙКИ" id="Swo-3Q-lWx">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="puY-pS-VLF" detailTextLabel="bFh-q4-XRL" style="IBUITableViewCellStyleValue1" id="Igk-BI-aHN" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="puY-pS-VLF" detailTextLabel="bFh-q4-XRL" style="IBUITableViewCellStyleValue1" id="Igk-BI-aHN" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="102" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Igk-BI-aHN" id="Qae-gb-v0B">
@@ -72,7 +72,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="wc3-ay-DU9" style="IBUITableViewCellStyleDefault" id="LYi-oF-eGj" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="wc3-ay-DU9" style="IBUITableViewCellStyleDefault" id="LYi-oF-eGj" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="146" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LYi-oF-eGj" id="6SA-kx-JeG">
@@ -90,7 +90,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="4ZU-eO-SwJ" style="IBUITableViewCellStyleDefault" id="0Lf-xU-P2U" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="4ZU-eO-SwJ" style="IBUITableViewCellStyleDefault" id="0Lf-xU-P2U" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="190" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Lf-xU-P2U" id="3Q1-iE-5pP">
@@ -108,7 +108,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="DNL-3U-dOf" style="IBUITableViewCellStyleDefault" id="eE4-OC-9uX" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="DNL-3U-dOf" style="IBUITableViewCellStyleDefault" id="eE4-OC-9uX" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="234" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eE4-OC-9uX" id="xJx-2K-AIP">
@@ -126,7 +126,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="69E-D6-cEB" detailTextLabel="9wB-xX-9yk" style="IBUITableViewCellStyleValue1" id="6NC-QX-WiF" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="69E-D6-cEB" detailTextLabel="9wB-xX-9yk" style="IBUITableViewCellStyleValue1" id="6NC-QX-WiF" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="278" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6NC-QX-WiF" id="gGY-3t-Lik">
@@ -152,7 +152,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="IPG-rQ-Ri5" detailTextLabel="HR2-T2-84i" style="IBUITableViewCellStyleValue1" id="MN2-YK-AUo" userLabel="Power Managment Cell" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="IPG-rQ-Ri5" detailTextLabel="HR2-T2-84i" style="IBUITableViewCellStyleValue1" id="MN2-YK-AUo" userLabel="Power Managment Cell" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="322" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MN2-YK-AUo" id="n6P-oZ-gz7">
@@ -178,7 +178,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="YsF-IJ-DDS" style="IBUITableViewCellStyleDefault" id="pri-6G-9Zb" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="YsF-IJ-DDS" style="IBUITableViewCellStyleDefault" id="pri-6G-9Zb" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="366" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pri-6G-9Zb" id="Zp6-d6-V6o">
@@ -196,7 +196,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="Teb-hc-7QH" style="IBUITableViewCellStyleDefault" id="f8Z-Jk-JIR" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="Teb-hc-7QH" style="IBUITableViewCellStyleDefault" id="f8Z-Jk-JIR" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="410" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f8Z-Jk-JIR" id="1QF-6L-hJp">
@@ -214,7 +214,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="VO1-Vg-frW" style="IBUITableViewCellStyleDefault" id="P5e-67-f4k" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="VO1-Vg-frW" style="IBUITableViewCellStyleDefault" id="P5e-67-f4k" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="454" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P5e-67-f4k" id="RlB-hW-A2l">
@@ -232,7 +232,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="PpF-Oo-iCA" detailTextLabel="wIT-zF-Ogz" style="IBUITableViewCellStyleValue1" id="QNt-XC-xma" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="PpF-Oo-iCA" detailTextLabel="wIT-zF-Ogz" style="IBUITableViewCellStyleValue1" id="QNt-XC-xma" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="498" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QNt-XC-xma" id="fBV-aJ-Mo8">
@@ -258,7 +258,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="QEX-D4-ejR" detailTextLabel="Iy7-de-pvk" style="IBUITableViewCellStyleSubtitle" id="E6M-av-wQu" userLabel="iCloud synchronization" customClass="SettingsTableViewiCloudSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="QEX-D4-ejR" detailTextLabel="Iy7-de-pvk" style="IBUITableViewCellStyleSubtitle" id="E6M-av-wQu" userLabel="iCloud synchronization" customClass="SettingsTableViewiCloudSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="542" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E6M-av-wQu" id="PbS-4v-dzK">
@@ -283,7 +283,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewDetailedSwitchCell" textLabel="IuW-8X-Xdf" detailTextLabel="dON-be-sur" style="IBUITableViewCellStyleSubtitle" id="uxV-uf-u44" userLabel="EnadbleLogging" customClass="SettingsTableViewDetailedSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewDetailedSwitchCell" textLabel="IuW-8X-Xdf" detailTextLabel="dON-be-sur" style="IBUITableViewCellStyleSubtitle" id="uxV-uf-u44" userLabel="EnadbleLogging" customClass="SettingsTableViewDetailedSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="586" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uxV-uf-u44" id="uwY-wf-q0J">
@@ -312,7 +312,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="НАВИГАЦИЯ" id="E4E-hs-9xW">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="E7d-pi-YM1" style="IBUITableViewCellStyleDefault" id="X5R-fv-yd7" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="E7d-pi-YM1" style="IBUITableViewCellStyleDefault" id="X5R-fv-yd7" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="678" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X5R-fv-yd7" id="s7y-Nu-Y01">
@@ -330,7 +330,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="T7T-10-R9B" style="IBUITableViewCellStyleDefault" id="veW-Fm-2Hl" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="T7T-10-R9B" style="IBUITableViewCellStyleDefault" id="veW-Fm-2Hl" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="722" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="veW-Fm-2Hl" id="AP7-jd-F4b">
@@ -348,7 +348,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="DvL-U3-thq" detailTextLabel="aVn-3D-tVQ" style="IBUITableViewCellStyleValue1" id="nED-2n-gN6" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="DvL-U3-thq" detailTextLabel="aVn-3D-tVQ" style="IBUITableViewCellStyleValue1" id="nED-2n-gN6" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="766" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nED-2n-gN6" id="2oQ-0g-poj">
@@ -374,7 +374,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="nJu-c9-12J" detailTextLabel="2ux-Rf-ECf" style="IBUITableViewCellStyleValue1" id="KrE-Sc-fI1" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="nJu-c9-12J" detailTextLabel="2ux-Rf-ECf" style="IBUITableViewCellStyleValue1" id="KrE-Sc-fI1" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="810" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KrE-Sc-fI1" id="AKJ-VB-Pzr">
@@ -452,7 +452,7 @@
                         <sections>
                             <tableViewSection id="XFW-hZ-fJo">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="pYN-AB-ulM" style="IBUITableViewCellStyleDefault" id="Hgm-jL-Gnn" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="pYN-AB-ulM" style="IBUITableViewCellStyleDefault" id="Hgm-jL-Gnn" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hgm-jL-Gnn" id="LeE-yP-Eoi">
@@ -473,7 +473,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="Wf1-gh-MfK" style="IBUITableViewCellStyleDefault" id="WyO-qs-a7i" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="Wf1-gh-MfK" style="IBUITableViewCellStyleDefault" id="WyO-qs-a7i" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WyO-qs-a7i" id="q2k-AU-VdG">
@@ -494,7 +494,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="gt3-z7-EWk" style="IBUITableViewCellStyleDefault" id="HHw-BT-UeJ" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="gt3-z7-EWk" style="IBUITableViewCellStyleDefault" id="HHw-BT-UeJ" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HHw-BT-UeJ" id="WD5-kW-BlC">
@@ -542,7 +542,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="V63-3T-hlH" style="IBUITableViewCellStyleDefault" id="hb3-Fe-677" customClass="SettingsTableViewSwitchCell" customModule="Organic_Maps" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSwitchCell" textLabel="V63-3T-hlH" style="IBUITableViewCellStyleDefault" id="hb3-Fe-677" customClass="SettingsTableViewSwitchCell" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hb3-Fe-677" id="gQB-q8-5c8">
@@ -559,7 +559,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="8db-i1-8gT" style="IBUITableViewCellStyleDefault" id="79I-kz-hl4" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="8db-i1-8gT" style="IBUITableViewCellStyleDefault" id="79I-kz-hl4" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="99.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="79I-kz-hl4" id="gBB-ji-big">
@@ -576,7 +576,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="Pmp-ZG-gqa" detailTextLabel="wfh-A4-F60" style="IBUITableViewCellStyleValue1" id="lO6-zb-qb8" customClass="SettingsTableViewLinkCell" customModule="Organic_Maps" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewLinkCell" textLabel="Pmp-ZG-gqa" detailTextLabel="wfh-A4-F60" style="IBUITableViewCellStyleValue1" id="lO6-zb-qb8" customClass="SettingsTableViewLinkCell" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="143.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lO6-zb-qb8" id="35k-Nb-XSD">
@@ -625,7 +625,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="Njs-bV-A8m" style="IBUITableViewCellStyleDefault" id="6Px-TO-sMc" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="Njs-bV-A8m" style="IBUITableViewCellStyleDefault" id="6Px-TO-sMc" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Px-TO-sMc" id="aqp-aV-B3y">
@@ -670,7 +670,7 @@
                         <sections>
                             <tableViewSection id="YbY-TG-Fq9">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="ztG-a9-OC9" style="IBUITableViewCellStyleDefault" id="233-Ku-OFh" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="ztG-a9-OC9" style="IBUITableViewCellStyleDefault" id="233-Ku-OFh" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="233-Ku-OFh" id="Tig-SC-0oN">
@@ -691,7 +691,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="QPX-vB-g0y" style="IBUITableViewCellStyleDefault" id="XGu-p4-IVy" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="QPX-vB-g0y" style="IBUITableViewCellStyleDefault" id="XGu-p4-IVy" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XGu-p4-IVy" id="c5A-yh-Pec">
@@ -759,7 +759,7 @@
 
 Приложение не использует мобильный интернет в роуминге.</string>
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="3iB-8Y-o7D" style="IBUITableViewCellStyleDefault" id="gS7-2k-8yw" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="3iB-8Y-o7D" style="IBUITableViewCellStyleDefault" id="gS7-2k-8yw" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gS7-2k-8yw" id="1pg-RV-MG8">
@@ -780,7 +780,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="69o-rz-iMD" style="IBUITableViewCellStyleDefault" id="lTE-DT-aCE" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="69o-rz-iMD" style="IBUITableViewCellStyleDefault" id="lTE-DT-aCE" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lTE-DT-aCE" id="N6p-8U-90b">
@@ -801,7 +801,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="CjE-C8-5hG" style="IBUITableViewCellStyleDefault" id="9uV-jg-h2A" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="CjE-C8-5hG" style="IBUITableViewCellStyleDefault" id="9uV-jg-h2A" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9uV-jg-h2A" id="z0N-m2-ums">
@@ -851,7 +851,7 @@
                         <sections>
                             <tableViewSection footerTitle="Когда автоматический режим выбран, приложение может отключать энергопотребляющую функциональность при снижении уровня заряда" id="JOr-Xh-pe0">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="wdf-RE-3q8" style="IBUITableViewCellStyleDefault" id="E3v-HX-t4T" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="wdf-RE-3q8" style="IBUITableViewCellStyleDefault" id="E3v-HX-t4T" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="18" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E3v-HX-t4T" id="3Lz-ko-Zz4">
@@ -872,7 +872,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="I5D-RF-NtK" style="IBUITableViewCellStyleDefault" id="ZIh-Ok-kbn" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="I5D-RF-NtK" style="IBUITableViewCellStyleDefault" id="ZIh-Ok-kbn" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="62" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZIh-Ok-kbn" id="Ev7-bM-Auy">
@@ -893,7 +893,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="41G-Q1-Chj" style="IBUITableViewCellStyleDefault" id="L0p-Ud-RNv" customClass="SettingsTableViewSelectableCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingsTableViewSelectableCell" textLabel="41G-Q1-Chj" style="IBUITableViewCellStyleDefault" id="L0p-Ud-RNv" customClass="SettingsTableViewSelectableCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="106" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L0p-Ud-RNv" id="ZKy-q3-B0i">

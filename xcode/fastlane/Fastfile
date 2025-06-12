@@ -45,7 +45,7 @@ platform :ios do
         keychain_name: ENV['MATCH_KEYCHAIN_NAME'],
         keychain_password: ENV['MATCH_KEYCHAIN_PASSWORD']
       )
-      # Organic Maps certificates.
+      # CoMaps certificates.
       import_certificate(
         certificate_path: 'keys/CertificatesDev.p12',
         certificate_password: ENV['APPSTORE_CERTIFICATE_PASSWORD'],
@@ -60,7 +60,7 @@ platform :ios do
       )
       get_provisioning_profile(
         api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.organicmaps',
+        app_identifier: 'app.comaps',
         provisioning_name: 'App Development (Fastlane)',
         ignore_profiles_with_different_name: true,
         readonly: true,
@@ -70,7 +70,7 @@ platform :ios do
       )
       get_provisioning_profile(
         api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.organicmaps',
+        app_identifier: 'app.comaps',
         provisioning_name: 'App Distribution (Fastlane)',
         ignore_profiles_with_different_name: true,
         adhoc: false,
@@ -80,7 +80,7 @@ platform :ios do
       )
       get_provisioning_profile(
         api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.organicmaps.widgetextension',
+        app_identifier: 'app.comaps.widgetextension',
         provisioning_name: 'WidgetExtension Development (Fastlane)',
         ignore_profiles_with_different_name: true,
         readonly: true,
@@ -90,7 +90,7 @@ platform :ios do
       )
       get_provisioning_profile(
         api_key_path: 'keys/appstore.json',
-        app_identifier: 'app.organicmaps.widgetextension',
+        app_identifier: 'app.comaps.widgetextension',
         provisioning_name: 'WidgetExtension Distribution (Fastlane)',
         ignore_profiles_with_different_name: true,
         adhoc: false,
@@ -117,7 +117,7 @@ platform :ios do
     generate_testflight_changelog
     update_code_signing_settings(
       path: "../iphone/Maps/Maps.xcodeproj",
-      targets: ["OMaps"],
+      targets: ["CoMaps"],
       build_configurations: "Release",
       use_automatic_signing: false,
       code_sign_identity: "Apple Distribution",
@@ -126,7 +126,7 @@ platform :ios do
     )
     update_code_signing_settings(
       path: "../iphone/Maps/Maps.xcodeproj",
-      targets: ["OMapsWidgetExtension"],
+      targets: ["CoMapsWidgetExtension"],
       build_configurations: "Release",
       use_automatic_signing: false,
       code_sign_identity: "Apple Distribution",
@@ -135,7 +135,7 @@ platform :ios do
     )
     build_ios_app(
       workspace: 'omim.xcworkspace',
-      scheme: 'OMaps',
+      scheme: 'CoMaps',
       configuration: 'Release',
       destination: 'generic/platform=iOS',
       silent: false,
@@ -144,8 +144,8 @@ platform :ios do
       export_method: 'app-store',
       export_options: {
         provisioningProfiles: {
-          'app.organicmaps' => 'App Distribution (Fastlane)',
-          'app.organicmaps.widgetextension' => 'WidgetExtension Distribution (Fastlane)',
+          'app.comaps' => 'App Distribution (Fastlane)',
+          'app.comaps.widgetextension' => 'WidgetExtension Distribution (Fastlane)',
         }
       },
       skip_profile_detection: false,
@@ -154,7 +154,7 @@ platform :ios do
               'CURRENT_PROJECT_VERSION=' + lane_context[SharedValues::BUILD_NUMBER] + ' '
     )
     upload_to_testflight(
-      beta_app_feedback_email: 'testflight@organicmaps.app',
+      beta_app_feedback_email: 'testflight@comaps.app',
       notify_external_testers: false,
       changelog: lane_context[SharedValues::FL_CHANGELOG]
     )

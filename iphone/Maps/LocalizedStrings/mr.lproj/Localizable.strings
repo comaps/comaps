@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "कँपिंग वाहन सोयी";
-"share_bookmarks_email_body" = "नमस्कार!\n\nCoMaps ऍप मधील माझे खूणपत्रे संलग्न केले आहेत. तुम्ही CoMaps इन्स्टॉल केले असल्यास हे खूणपत्रे उघडा. इन्स्टॉल केले नसल्यास, पुढील दुव्यावर जाऊन तुमच्या iOS किंवा अँड्रॉइड उपकरणावर हे डाउनलोड करा: https://www.comaps.app/download/\n\nOrganic Maps सह प्रवासाचा आनंद घ्या!";
+"share_bookmarks_email_body" = "नमस्कार!\n\nCoMaps ऍप मधील माझे खूणपत्रे संलग्न केले आहेत. तुम्ही CoMaps इन्स्टॉल केले असल्यास हे खूणपत्रे उघडा. इन्स्टॉल केले नसल्यास, पुढील दुव्यावर जाऊन तुमच्या iOS किंवा अँड्रॉइड उपकरणावर हे डाउनलोड करा: https://www.comaps.app/download/\n\nCoMaps सह प्रवासाचा आनंद घ्या!";
 
 /* message title of loading file */
 "load_kmz_title" = "खूणपत्रे वाचत आहे";
@@ -283,7 +283,7 @@
 "donate_description" = "एकत्र सर्वोत्तम नकाशे तयार करण्यासाठी देणगी द्या!";
 "already_donated" = "आधीच दान केले";
 "remind_me_later" = "नंतर आठवण करून द्या";
-"support_organic_maps" = "CoMaps ला समर्थन द्या";
+"support_comaps" = "CoMaps ला समर्थन द्या";
 
 /* Button in the main Help dialog */
 "copyright" = "प्रकाशन अधिकार (कॉपीराईट)";

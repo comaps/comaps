@@ -291,7 +291,7 @@ private extension AboutController {
   }
 
   func buildSocialMediaCollectionViewData() -> [SocialMediaCollectionViewCellModel] {
-    let socialMediaContent: [SocialMedia] = [.telegram, .codeberg, .instagram, .bluesky, .linkedin, .CoMapsEmail, .lemmy, .matrix, .facebook, .fosstodon]
+    let socialMediaContent: [SocialMedia] = [.telegram, .codeberg, .instagram, .bluesky, .linkedin, .email, .lemmy, .matrix, .facebook, .fosstodon]
     let data = socialMediaContent.map { [weak self] socialMedia in
       return SocialMediaCollectionViewCellModel(image: socialMedia.image, didTapHandler: {
         switch socialMedia {
@@ -305,7 +305,7 @@ private extension AboutController {
         case .instagram: fallthrough
         case .linkedin:
           self?.openUrl(socialMedia.link, externally: true)
-        case .CoMapsEmail:
+        case .email:
           MailComposer.sendEmail(toRecipients: [socialMedia.link])
         }
       })

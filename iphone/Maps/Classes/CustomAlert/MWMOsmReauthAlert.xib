@@ -55,7 +55,7 @@
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <dataDetectorType key="dataDetectorTypes" link="YES"/>
                         </textView>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33p-SN-9fc" userLabel="login_osm" customClass="MWMButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="33p-SN-9fc" userLabel="login_osm" customClass="MWMButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="20" y="257.33333333333337" width="240" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="240" id="6Mj-n7-paj"/>
@@ -70,7 +70,7 @@
                                 <action selector="osmTap" destination="OOr-tJ-QfW" eventType="touchUpInside" id="eEw-ZQ-bth"/>
                             </connections>
                         </button>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS7-Xd-HGC" userLabel="cancel" customClass="MWMButton" customModule="Organic_Maps" customModuleProvider="target">
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OS7-Xd-HGC" userLabel="cancel" customClass="MWMButton" customModule="CoMaps" customModuleProvider="target">
                             <rect key="frame" x="20" y="311.33333333333326" width="240" height="44"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="240" id="Bzd-Uh-BSU"/>

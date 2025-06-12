@@ -283,7 +283,7 @@
 "donate_description" = "Paaukokite, kad kartu sukurtume geriausius žemėlapius!";
 "already_donated" = "Jau paaukojau";
 "remind_me_later" = "Priminti vėliau";
-"support_organic_maps" = "Paremti „CoMaps“";
+"support_comaps" = "Paremti „CoMaps“";
 
 /* Button in the main Help dialog */
 "copyright" = "Autorių teisės";

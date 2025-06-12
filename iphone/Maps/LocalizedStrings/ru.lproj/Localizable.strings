@@ -283,7 +283,7 @@
 "donate_description" = "Поддержать деньгами, чтобы вместе создавать лучшие карты!";
 "already_donated" = "Уже пожертвовано";
 "remind_me_later" = "Напомнить позже";
-"support_organic_maps" = "Поддержать CoMaps";
+"support_comaps" = "Поддержать CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Копирайт";
@@ -916,7 +916,7 @@
 "track_title" = "Трек";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/OrganicMapsRu";
+"telegram_url" = "https://t.me/CoMapsRu";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/comapscommunity/";

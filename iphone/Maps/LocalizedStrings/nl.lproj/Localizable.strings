@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Caravanfaciliteiten";
-"share_bookmarks_email_body" = "Hallo!\n\nBijgesloten zijn mijn bladwijzers uit de CoMaps app. Open ze als je CoMaps geïnstalleerd hebt. Of, als je dat niet hebt, download de app voor je iOS- of Android-apparaat door deze link te volgen: https://www.comaps.app/download/\n\nGeniet van het reizen met Organic Maps!";
+"share_bookmarks_email_body" = "Hallo!\n\nBijgesloten zijn mijn bladwijzers uit de CoMaps app. Open ze als je CoMaps geïnstalleerd hebt. Of, als je dat niet hebt, download de app voor je iOS- of Android-apparaat door deze link te volgen: https://www.comaps.app/download/\n\nGeniet van het reizen met CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Bladwijzers worden geladen";
@@ -283,7 +283,7 @@
 "donate_description" = "Doneer om samen de beste kaarten te bouwen!";
 "already_donated" = "Reeds gedoneerd";
 "remind_me_later" = "Herinner later";
-"support_organic_maps" = "Ondersteun CoMaps";
+"support_comaps" = "Ondersteun CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Auteursrechten";

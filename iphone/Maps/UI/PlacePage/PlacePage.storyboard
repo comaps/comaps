@@ -13,8 +13,8 @@
         <!--Place Page View Controller-->
         <scene sceneID="6YW-kA-w2N">
             <objects>
-                <viewController id="bX8-ZQ-XDA" customClass="PlacePageViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="WOB-EV-vjA" customClass="TouchTransparentView" customModule="Organic_Maps" customModuleProvider="target">
+                <viewController id="bX8-ZQ-XDA" customClass="PlacePageViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WOB-EV-vjA" customClass="TouchTransparentView" customModule="CoMaps" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -25,7 +25,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="PPBackgroundView"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-97-CDh" customClass="PlacePageScrollView" customModule="Organic_Maps" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ0-97-CDh" customClass="PlacePageScrollView" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="597"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="bsv-S8-EiF">
@@ -114,7 +114,7 @@
         <!--Place Page Preview View Controller-->
         <scene sceneID="3hX-xL-LxX">
             <objects>
-                <viewController storyboardIdentifier="PlacePagePreviewViewController" id="76G-o4-sUY" customClass="PlacePagePreviewViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlacePagePreviewViewController" id="76G-o4-sUY" customClass="PlacePagePreviewViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1x8-x0-W3C">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="regular14:blackSecondaryText"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-Yj-XQR" customClass="PlacePageDirectionView" customModule="Organic_Maps" customModuleProvider="target">
+                                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="jaa-Yj-XQR" customClass="PlacePageDirectionView" customModule="CoMaps" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="69.5" height="50"/>
                                                 <subviews>
                                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_direction_light" translatesAutoresizingMaskIntoConstraints="NO" id="4kK-Rj-36V">
@@ -242,7 +242,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="regular14:blackPrimaryText"/>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
-                                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="y54-Rh-kGm" customClass="PlacePageDirectionView" customModule="Organic_Maps" customModuleProvider="target">
+                                            <view hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="y54-Rh-kGm" customClass="PlacePageDirectionView" customModule="CoMaps" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="69.5" height="50"/>
                                                 <subviews>
                                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_direction_light" translatesAutoresizingMaskIntoConstraints="NO" id="cGR-t8-OJR">
@@ -330,7 +330,7 @@
         <!--Wiki Description View Controller-->
         <scene sceneID="xL3-C9-3Pb">
             <objects>
-                <viewController storyboardIdentifier="WikiDescriptionViewController" id="WSQ-QR-4WY" customClass="WikiDescriptionViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WikiDescriptionViewController" id="WSQ-QR-4WY" customClass="WikiDescriptionViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="99j-36-7TK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -391,7 +391,7 @@
         <!--Place Page Info View Controller-->
         <scene sceneID="qdz-ee-nO9">
             <objects>
-                <viewController storyboardIdentifier="PlacePageInfoViewController" id="Ey0-wy-VrR" customClass="PlacePageInfoViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlacePageInfoViewController" id="Ey0-wy-VrR" customClass="PlacePageInfoViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uyH-Qn-86F">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -425,7 +425,7 @@
         <!--Action Bar View Controller-->
         <scene sceneID="MOc-50-GOI">
             <objects>
-                <viewController storyboardIdentifier="ActionBarViewController" id="idq-Vs-dIh" customClass="ActionBarViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActionBarViewController" id="idq-Vs-dIh" customClass="ActionBarViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Odt-s0-pOf" customClass="SolidTouchView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -458,7 +458,7 @@
         <!--Place Page Buttons View Controller-->
         <scene sceneID="ogi-1N-syw">
             <objects>
-                <viewController storyboardIdentifier="PlacePageButtonsViewController" id="4Am-Sa-65S" customClass="PlacePageButtonsViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlacePageButtonsViewController" id="4Am-Sa-65S" customClass="PlacePageButtonsViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uEh-Ml-VWK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -524,7 +524,7 @@
         <!--Info Item View Controller-->
         <scene sceneID="f7X-K7-lgf">
             <objects>
-                <viewController storyboardIdentifier="InfoItemViewController" id="cJQ-4x-NFc" customClass="InfoItemViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InfoItemViewController" id="cJQ-4x-NFc" customClass="InfoItemViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oz0-2o-icQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -543,7 +543,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="coloring" value="MWMBlack"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-Fj-XRv" customClass="CopyLabel" customModule="Organic_Maps" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8eU-Fj-XRv" customClass="CopyLabel" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="56" y="10" width="267" height="24"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -598,7 +598,7 @@
         <!--Opening Hours View Controller-->
         <scene sceneID="txO-kw-ZRm">
             <objects>
-                <viewController storyboardIdentifier="OpeningHoursViewController" id="zV1-F6-GqX" customClass="OpeningHoursViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpeningHoursViewController" id="zV1-F6-GqX" customClass="OpeningHoursViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QE6-Lg-X0g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -628,7 +628,7 @@
         <!--Opening Hours Today View Controller-->
         <scene sceneID="YRt-yX-ZY6">
             <objects>
-                <viewController storyboardIdentifier="OpeningHoursTodayViewController" id="0Mj-uY-vPG" customClass="OpeningHoursTodayViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpeningHoursTodayViewController" id="0Mj-uY-vPG" customClass="OpeningHoursTodayViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2IW-oU-HLV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -756,7 +756,7 @@
         <!--Catalog Single Item View Controller-->
         <scene sceneID="HJX-eR-h7W">
             <objects>
-                <viewController storyboardIdentifier="CatalogSingleItemViewController" id="Uqa-lN-kxa" customClass="CatalogSingleItemViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CatalogSingleItemViewController" id="Uqa-lN-kxa" customClass="CatalogSingleItemViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="8M2-fC-tzU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="454"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -985,7 +985,7 @@
         <!--Catalog Gallery View Controller-->
         <scene sceneID="2SQ-Cj-ThU">
             <objects>
-                <viewController storyboardIdentifier="CatalogGalleryViewController" id="JgS-R4-vTi" customClass="CatalogGalleryViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CatalogGalleryViewController" id="JgS-R4-vTi" customClass="CatalogGalleryViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="VPS-rm-qWf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="247"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1012,7 +1012,7 @@
                                     <inset key="sectionInset" minX="8" minY="0.0" maxX="16" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoveryGuideCell" id="IN7-Mv-bq7" customClass="CatalogPromoItemCell" customModule="Organic_Maps" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DiscoveryGuideCell" id="IN7-Mv-bq7" customClass="CatalogPromoItemCell" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="8" y="0.5" width="160" height="194"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1201,7 +1201,7 @@
         <!--Place Page Edit Bookmark Or Track View Controller-->
         <scene sceneID="clb-tD-Svo">
             <objects>
-                <viewController storyboardIdentifier="PlacePageEditBookmarkOrTrackViewController" id="cB4-oj-3Tv" customClass="PlacePageEditBookmarkOrTrackViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlacePageEditBookmarkOrTrackViewController" id="cB4-oj-3Tv" customClass="PlacePageEditBookmarkOrTrackViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bRD-Uv-Uak">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1209,7 +1209,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iB6-kj-Bi1">
                                 <rect key="frame" x="16" y="16" width="343" height="184"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-eA-gNS" customClass="ExpandableLabel" customModule="Organic_Maps" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-eA-gNS" customClass="ExpandableLabel" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="140"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <userDefinedRuntimeAttributes>
@@ -1283,7 +1283,7 @@
         <!--Opening Hours Day View Controller-->
         <scene sceneID="4L0-Kt-il9">
             <objects>
-                <viewController storyboardIdentifier="OpeningHoursDayViewController" id="3bP-Zj-z8s" customClass="OpeningHoursDayViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OpeningHoursDayViewController" id="3bP-Zj-z8s" customClass="OpeningHoursDayViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bn7-Ag-wuu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1364,12 +1364,12 @@
         <!--Place Page Header View Controller-->
         <scene sceneID="qX4-pw-H2p">
             <objects>
-                <viewController storyboardIdentifier="PlacePageHeaderViewController" id="aB1-Yk-7p4" customClass="PlacePageHeaderViewController" customModule="Organic_Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xTs-NP-HcT" customClass="PlacePageHeaderView" customModule="Organic_Maps" customModuleProvider="target">
+                <viewController storyboardIdentifier="PlacePageHeaderViewController" id="aB1-Yk-7p4" customClass="PlacePageHeaderViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xTs-NP-HcT" customClass="PlacePageHeaderView" customModule="CoMaps" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spW-XI-KSY" customClass="PlacePageHeaderView" customModule="Organic_Maps" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spW-XI-KSY" customClass="PlacePageHeaderView" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="62" width="375" height="10"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -1379,7 +1379,7 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="PPNavigationShadowView"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-H3-eji" customClass="PlacePageHeaderView" customModule="Organic_Maps" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fqh-H3-eji" customClass="PlacePageHeaderView" customModule="CoMaps" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="52"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gdy-g5-gbM">
@@ -1406,7 +1406,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZT-ea-Kac" userLabel="Close Buton" customClass="CircleImageButton" customModule="Organic_Maps" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yZT-ea-Kac" userLabel="Close Buton" customClass="CircleImageButton" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="331" y="16" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="IYz-Cb-KoJ"/>
@@ -1418,7 +1418,7 @@
                                             <action selector="onCloseButtonPressed:" destination="aB1-Yk-7p4" eventType="touchUpInside" id="uaQ-Fr-c1K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apG-SB-14M" userLabel="Share Button" customClass="CircleImageButton" customModule="Organic_Maps" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="apG-SB-14M" userLabel="Share Button" customClass="CircleImageButton" customModule="CoMaps" customModuleProvider="target">
                                         <rect key="frame" x="293" y="16" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="28" id="BGG-zy-6QM"/>

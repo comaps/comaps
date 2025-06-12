@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karabanak";
-"share_bookmarks_email_body" = "Kaixo!\nNire markagailuak CoMaps aplikazioan erantsi ditut. Mesedez, ireki itzazu CoMaps instalatuta baduzu. Edo, ez baduzu, deskargatu aplikazioa zure iOS edo Android gailurako esteka hau jarraituz: https://www.comaps.app/download/\n\nGozatu bidaiatzen Organic Maps-ekin!";
+"share_bookmarks_email_body" = "Kaixo!\nNire markagailuak CoMaps aplikazioan erantsi ditut. Mesedez, ireki itzazu CoMaps instalatuta baduzu. Edo, ez baduzu, deskargatu aplikazioa zure iOS edo Android gailurako esteka hau jarraituz: https://www.comaps.app/download/\n\nGozatu bidaiatzen CoMaps-ekin!";
 
 /* message title of loading file */
 "load_kmz_title" = "Markagailuak kargatzen";
@@ -283,7 +283,7 @@
 "donate_description" = "Eman dohaintza elkarrekin mapa onenak eraikitzeko!";
 "already_donated" = "Dohaintza jada emana";
 "remind_me_later" = "Gogoratu geroago";
-"support_organic_maps" = "Sustatu CoMaps";
+"support_comaps" = "Sustatu CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Egile eskubideak";
