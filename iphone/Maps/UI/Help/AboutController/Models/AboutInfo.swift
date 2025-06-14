@@ -63,7 +63,7 @@ enum AboutInfo {
     case .reportMapDataProblem:
       return "https://www.openstreetmap.org/fixthemap"
     case .volunteer:
-      return L("translated_om_site_url") + "support-us/"
+      return L("translated_om_site_url") + "community/"
     case .news:
       return L("translated_om_site_url") + "news/"
     }

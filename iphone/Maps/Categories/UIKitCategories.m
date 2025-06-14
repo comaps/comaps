@@ -85,7 +85,7 @@
 
 - (void)rateApp
 {
-  NSString * urlString = @"https://apps.apple.com/app/id1567437057?action=write-review";
+  NSString * urlString = @"https://apps.apple.com/app/comaps/id6747180809?action=write-review";
   NSURL * url = [NSURL URLWithString:urlString];
   [self openURL:url options:@{} completionHandler:nil];
 }
