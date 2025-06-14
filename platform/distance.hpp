@@ -12,7 +12,7 @@ public:
   /*!
    * \warning The order of values below shall not be changed.
    * \warning The values of Units shall be synchronized with values of Distance.Units enum in
-   * java (see app.comaps.util.Distance for details).
+   * java (see app.organicmaps.util.Distance for details).
    * \warning The values of Units shall be synchronized with values of unitLength func in
    * swift (see iphone/Maps/Classes/CarPlay/Templates Data/RouteInfo.swift for details).
    */

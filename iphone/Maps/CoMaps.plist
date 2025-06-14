@@ -61,6 +61,12 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>cm</string>
+				<string>mapswithme</string>
+				<string>mapsme</string>
+				<string>ge0</string>
+				<string>geo</string>
+				<string>om</string>
+				<string>mapswithmepro</string>
 			</array>
 		</dict>
 	</array>
