@@ -1,7 +1,7 @@
 struct ProductsViewModel {
   private let productsManager: ProductsManager.Type
 
-  let title: String = L("support_comaps")
+  let title: String = L("support_us")
   let description: String
   let leadingSubtitle: String = L("already_donated")
   let trailingSubtitle: String = L("remind_me_later")

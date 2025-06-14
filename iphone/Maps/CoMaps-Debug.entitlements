@@ -6,8 +6,8 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:comaps.at</string>
 		<string>applinks:comaps.app</string>
+		<string>applinks:comaps.at</string>
 	</array>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>

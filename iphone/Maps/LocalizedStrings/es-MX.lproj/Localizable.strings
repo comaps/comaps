@@ -283,7 +283,7 @@
 "donate_description" = "¡Dona para construir los mejores mapas juntos!";
 "already_donated" = "Ya donado";
 "remind_me_later" = "Recordar más tarde";
-"support_comaps" = "Apoyar CoMaps";
+"support_us" = "Apoyar CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Derechos de autor";

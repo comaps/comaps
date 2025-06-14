@@ -283,7 +283,7 @@
 "donate_description" = "Lahjoittakaa, jotta voimme rakentaa parhaita karttoja yhdessä!";
 "already_donated" = "Jo lahjoitettu";
 "remind_me_later" = "Muistuta myöhemmin";
-"support_comaps" = "Tukea CoMaps";
+"support_us" = "Tukea CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Tekijänoikeudet";

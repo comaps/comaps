@@ -283,7 +283,7 @@
 "donate_description" = "En iyi harita uygulamasını birlikte geliştirmemiz için bağış yapın!";
 "already_donated" = "Zaten bağış yaptım";
 "remind_me_later" = "Sonra hatırlat";
-"support_comaps" = "CoMaps’i Destekleyin";
+"support_us" = "CoMaps’i Destekleyin";
 
 /* Button in the main Help dialog */
 "copyright" = "Telif hakkı";
@@ -916,7 +916,7 @@
 "track_title" = "GPS İzi Kaydı";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/CoMapsTR";
+"telegram_url" = "https://t.me/CoMaps_TR";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/organicmapstr";

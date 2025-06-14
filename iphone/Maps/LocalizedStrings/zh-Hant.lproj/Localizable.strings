@@ -283,7 +283,7 @@
 "donate_description" = "捐助，以共同打造最好的地圖！";
 "already_donated" = "已捐贈";
 "remind_me_later" = "稍後提醒";
-"support_comaps" = "支持 CoMaps";
+"support_us" = "支持 CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "版權";

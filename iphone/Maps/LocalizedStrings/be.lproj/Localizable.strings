@@ -283,7 +283,7 @@
 "donate_description" = "Падтрымайць, каб разам ствараць лепшыя карты!";
 "already_donated" = "Ужо ахвяравана";
 "remind_me_later" = "Нагадаць пазней";
-"support_comaps" = "Падтрымаць CoMaps";
+"support_us" = "Падтрымаць CoMaps";
 
 /* Button in the main Help dialog */
 "copyright" = "Аўтарскія правы";
@@ -916,7 +916,7 @@
 "track_title" = "Сцежка";
 
 /* Telegram group url for the "?" About page */
-"telegram_url" = "https://t.me/CoMapsRu";
+"telegram_url" = "https://t.me/CoMaps_RU";
 
 /* Instagram account url for the "?" About page */
 "instagram_url" = "https://www.instagram.com/comapscommunity/";

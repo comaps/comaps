@@ -19,9 +19,9 @@ enum SocialMedia {
     case .linkedin:
       return "https://www.linkedin.com/company/comaps-community/"
     case .email:
-      return "hello@comaps.app"
+      return "ios@comaps.app"
     case .matrix:
-      return "https://matrix.to/#/%23comaps:matrix.org"
+      return "https://matrix.to/#/#comaps:matrix.org"
     case .fosstodon:
       return "https://floss.social/@CoMaps"
     case .facebook:
