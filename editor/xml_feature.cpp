@@ -840,6 +840,10 @@ XMLFeature TypeToXML(uint32_t type, feature::GeomType geomType, m2::PointD merca
     toFeature.SetTagValue("amenity", "recycling");
     toFeature.SetTagValue("recycling_type", "container");
   }
+  else if (ftypes::IsAddressChecker::Instance()(type))
+  {
+    // Addresses don't have a category tag
+  }
   else
   {
     string const strType = classif().GetReadableObjectName(type);

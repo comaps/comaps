@@ -941,7 +941,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
   case MWMEditorCellTypeBuilding:
     m_mapObject.SetHouseNumber(val);
-    isFieldValid = osm::EditableMapObject::ValidateHouseNumber(val);
+    isFieldValid = m_mapObject.DynamicValidateHouseNumber(val);
     break;
   case MWMEditorCellTypeAdditionalName:
     isFieldValid = osm::EditableMapObject::ValidateName(val);

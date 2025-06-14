@@ -249,6 +249,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       if (!Editor.nativeIsHouseValid(mHouseNumber.getText().toString()))
       {
         mHouseNumber.requestFocus();
+        UiUtils.setInputError(mInputHouseNumber, R.string.error_enter_correct_house_number);
         InputUtils.showKeyboard(mHouseNumber);
         return false;
       }

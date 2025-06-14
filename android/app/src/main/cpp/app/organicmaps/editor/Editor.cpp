@@ -514,7 +514,7 @@ Java_app_organicmaps_editor_Editor_nativeGetMwmVersion(JNIEnv * env, jclass claz
 JNIEXPORT jboolean JNICALL
 Java_app_organicmaps_editor_Editor_nativeIsHouseValid(JNIEnv * env, jclass clazz, jstring houseNumber)
 {
-  return osm::EditableMapObject::ValidateHouseNumber(jni::ToNativeString(env, houseNumber));
+  return g_editableMapObject.DynamicValidateHouseNumber(jni::ToNativeString(env, houseNumber));
 }
 
 JNIEXPORT jboolean JNICALL

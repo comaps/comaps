@@ -123,6 +123,7 @@ public:
 
   static bool ValidateBuildingLevels(std::string const & buildingLevels);
   static bool ValidateHouseNumber(std::string const & houseNumber);
+  bool DynamicValidateHouseNumber(std::string const & houseNumber);
   static bool ValidateFlats(std::string const & flats);
   static bool ValidatePostCode(std::string const & postCode);
   static bool ValidatePhoneList(std::string const & phone);

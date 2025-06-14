@@ -388,6 +388,14 @@ bool EditableMapObject::ValidateBuildingLevels(string const & buildingLevels)
   return strings::to_uint64(buildingLevels, levels) && levels > 0 && levels <= kMaximumLevelsEditableByUsers;
 }
 
+bool EditableMapObject::DynamicValidateHouseNumber(string const & houseNumber)
+{
+  if (houseNumber.empty() && m_types.Has(classif().GetTypeByReadableObjectName("building-address")))
+    return false;
+
+  return ValidateHouseNumber(houseNumber);
+}
+
 // static
 bool EditableMapObject::ValidateHouseNumber(string const & houseNumber)
 {
