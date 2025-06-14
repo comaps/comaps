@@ -125,6 +125,12 @@ public final class Config
     nativeSetBoolean(key, value);
   }
 
+  @SuppressWarnings("ConstantConditions")
+  public static boolean isGoogleVariant()
+  {
+    return BuildConfig.FLAVOR.equals("google");
+  }
+
   public static String getStoragePath()
   {
     return getString(KEY_APP_STORAGE);
@@ -187,7 +193,8 @@ public final class Config
 
   public static boolean useGoogleServices()
   {
-    return getBool(KEY_PREF_USE_GS, false);
+    // Only enable google services by default on Google Play variant
+    return getBool(KEY_PREF_USE_GS, isGoogleVariant());
   }
 
   public static void setUseGoogleService(boolean use)
