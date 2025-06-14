@@ -9,8 +9,8 @@
 
 NSString * httpGe0Url(NSString * shortUrl)
 {
-  // Replace 'cm://' with 'https://comaps.app/'
-  return [shortUrl stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@"https://app/"];
+  // Replace 'cm://' with 'https://comaps.at/'
+  return [shortUrl stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@"https://at/"];
 }
 
 @interface MWMShareActivityItem ()
