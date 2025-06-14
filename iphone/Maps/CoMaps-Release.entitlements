@@ -6,14 +6,12 @@
 	<string>development</string>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:omaps.app</string>
-		<string>applinks:omaps.at</string>
+		<string>applinks:comaps.app</string>
+		<string>applinks:comaps.at</string>
 	</array>
-	<key>com.apple.developer.carplay-maps</key>
-	<true/>
 	<key>com.apple.developer.icloud-container-identifiers</key>
 	<array>
-		<string>iCloud.app.organicmaps</string>
+		<string>iCloud.app.comaps</string>
 	</array>
 	<key>com.apple.developer.icloud-services</key>
 	<array>
@@ -22,7 +20,7 @@
 	</array>
 	<key>com.apple.developer.ubiquity-container-identifiers</key>
 	<array>
-		<string>iCloud.app.organicmaps</string>
+		<string>iCloud.app.comaps</string>
 	</array>
 	<key>com.apple.developer.ubiquity-kvstore-identifier</key>
 	<string>$(TeamIdentifierPrefix)$(CFBundleIdentifier)</string>
