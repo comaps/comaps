@@ -129,10 +129,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end"
-            android:background="?clickableBackground"
             android:padding="@dimen/margin_half"
             android:text="@string/forgot_password"
-            android:textAppearance="@style/MwmTextAppearance.Body3" />
+            android:textAppearance="@style/MwmTextAppearance.Body3"
+            app:backgroundTint="?clickableBackground"/>
           <com.google.android.material.divider.MaterialDivider
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -151,12 +151,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_base"
-            android:background="@drawable/button_editor_light"
             android:fontFamily="@string/robotoMedium"
             android:padding="@dimen/margin_quarter"
             android:text="@string/register_at_openstreetmap"
             android:textAppearance="@style/MwmTextAppearance.Body2"
-            android:textColor="@color/text_dark" />
+            android:textColor="@color/text_dark"
+            app:backgroundTint="@drawable/button_editor_light"/>
         </LinearLayout>
       </LinearLayout>
     </LinearLayout>

@@ -59,6 +59,7 @@
   <style name="MwmWidget.Button.Accent">
     <item name="android:background">?accentButtonBackground</item>
     <item name="android:textColor">?accentButtonTextColor</item>
+    <item name="backgroundTint">?accentButtonBackground</item>
   </style>
 
   <style name="MwmWidget.Button.StackedButtonsDialog">
@@ -100,6 +101,7 @@
     <item name="android:paddingEnd">@dimen/margin_base</item>
     <item name="textAllCaps">true</item>
     <item name="android:gravity">center</item>
+    <item name="backgroundTint">?primaryButtonBackground</item>
   </style>
 
   <style name="MwmWidget.ProgressWheel.RoutingPlan">
