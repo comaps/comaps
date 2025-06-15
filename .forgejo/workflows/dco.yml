@@ -1,0 +1,7 @@
+name: dco
+on: [pull_request]
+jobs:
+  check:
+    runs-on: codeberg-tiny
+    steps:
+      - uses: https://github.com/KineticCafe/actions-dco@v1
