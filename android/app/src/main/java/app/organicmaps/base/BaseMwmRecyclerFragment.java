@@ -54,7 +54,7 @@ public abstract class BaseMwmRecyclerFragment<T extends RecyclerView.Adapter> ex
   }
 
   @Override
-  public void onAttach(Context context)
+  public void onAttach(@NonNull Context context)
   {
     super.onAttach(context);
     Utils.detachFragmentIfCoreNotInitialized(context, this);
