@@ -424,8 +424,11 @@ public class Utils
     }
   }
 
-  public static <T> T getParcelable(@NonNull Bundle in, @Nullable String key, @NonNull Class<T> clazz)
+  @Nullable
+  public static <T> T getParcelable(@Nullable Bundle in, @Nullable String key, @NonNull Class<T> clazz)
   {
+    if (in == null)
+      return null;
     in.setClassLoader(clazz.getClassLoader());
     return BundleCompat.getParcelable(in, key, clazz);
   }
