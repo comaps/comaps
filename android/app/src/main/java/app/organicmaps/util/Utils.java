@@ -84,10 +84,13 @@ public class Utils
 
   private static void showOnLockScreenOld(boolean enable, Activity activity)
   {
+    @SuppressWarnings("deprecation")
+    int flags = WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED;
+
     if (enable)
-      activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+      activity.getWindow().addFlags(flags);
     else
-      activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+      activity.getWindow().clearFlags(flags);
   }
 
   public static void showOnLockScreen(boolean enable, Activity activity)
