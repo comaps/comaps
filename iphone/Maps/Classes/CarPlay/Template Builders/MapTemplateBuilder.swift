@@ -5,6 +5,7 @@ final class MapTemplateBuilder {
     case startPanning
     case zoomIn
     case zoomOut
+    case positionMode
   }
   enum BarButtonType {
     case dismissPaning
@@ -69,7 +70,10 @@ final class MapTemplateBuilder {
     let zoomOutButton = buildMapButton(type: .zoomOut) { _ in
       FrameworkHelper.zoomMap(.out)
     }
-    mapTemplate.mapButtons = [panningButton, zoomInButton, zoomOutButton]
+    let positionModeButton = buildMapButton(type: .positionMode) { _ in
+      FrameworkHelper.switchMyPositionMode()
+    }
+    mapTemplate.mapButtons = [positionModeButton, panningButton, zoomInButton, zoomOutButton]
     
     let settingsButton = buildBarButton(type: .settings) { _ in
       let gridTemplate = SettingsTemplateBuilder.buildGridTemplate()
@@ -99,7 +103,10 @@ final class MapTemplateBuilder {
     let panningButton = buildMapButton(type: .startPanning) { _ in
       mapTemplate.showPanningInterface(animated: true)
     }
-    mapTemplate.mapButtons = [panningButton]
+    let positionModeButton = buildMapButton(type: .positionMode) { _ in
+      FrameworkHelper.switchMyPositionMode()
+    }
+    mapTemplate.mapButtons = [positionModeButton, panningButton]
     setupMuteAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
       CarPlayService.shared.cancelCurrentTrip()
@@ -115,6 +122,28 @@ final class MapTemplateBuilder {
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
     mapTemplate.leadingNavigationBarButtons = [destinationButton]
+  }
+  
+  class func updatePositionModeButton(mapTemplate: CPMapTemplate, newMode: MWMMyPositionMode) {
+    let button = CPMapButton(handler: { _ in
+      FrameworkHelper.switchMyPositionMode()
+    })
+    
+    switch newMode {
+    case .pendingPosition:
+      button.image = UIImage(named: "btn_pending_light")
+    case .notFollowNoPosition:
+      button.image = UIImage(named: "btn_get_position_light")
+    case .notFollow:
+      button.image = UIImage(named: "btn_get_position_light")
+    case .follow:
+      button.image = UIImage(named: "btn_follow_light")
+    case .followAndRotate:
+      button.image = UIImage(named: "btn_follow_and_rotate_light")
+    }
+    if mapTemplate.mapButtons.count > 0 {
+      mapTemplate.mapButtons[0] = button
+    }
   }
   
   class func setupRecenterButton(mapTemplate: CPMapTemplate) {
@@ -166,6 +195,8 @@ final class MapTemplateBuilder {
       button.image = UIImage(systemName: "plus")
     case .zoomOut:
       button.image = UIImage(systemName: "minus")
+    case .positionMode:
+      button.image = UIImage(named: "btn_pending_light")
     }
     // Remove code below once Apple has fixed its issue with the button background
     if #unavailable(iOS 26) {
