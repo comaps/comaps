@@ -325,11 +325,18 @@ public class Utils
     if (MwmApplication.from(context).getOrganicMaps().arePlatformAndCoreInitialized())
       return;
 
-    FragmentManager manager = fragment.getFragmentManager();
-    if (manager == null)
-      return;
-
-    manager.beginTransaction().detach(fragment).commit();
+    if (fragment.isAdded())
+    {
+      try
+      {
+        FragmentManager manager = fragment.getParentFragmentManager();
+        manager.beginTransaction().detach(fragment).commit();
+      }
+      catch(IllegalStateException e)
+      {
+        Logger.e(TAG, "Fragment.getParentFragmentManager() IllegalStateException", e);
+      }
+    }
   }
 
   public static String capitalize(@Nullable String src)
