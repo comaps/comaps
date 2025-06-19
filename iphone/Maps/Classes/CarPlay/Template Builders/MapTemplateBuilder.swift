@@ -5,7 +5,7 @@ final class MapTemplateBuilder {
     case startPanning
     case zoomIn
     case zoomOut
-    case positionMode
+    case myPositionMode
   }
   enum BarButtonType {
     case dismissPaning
@@ -70,10 +70,10 @@ final class MapTemplateBuilder {
     let zoomOutButton = buildMapButton(type: .zoomOut) { _ in
       FrameworkHelper.zoomMap(.out)
     }
-    let positionModeButton = buildMapButton(type: .positionMode) { _ in
+    let myPositionModeButton = buildMapButton(type: .myPositionMode) { _ in
       FrameworkHelper.switchMyPositionMode()
     }
-    mapTemplate.mapButtons = [positionModeButton, panningButton, zoomInButton, zoomOutButton]
+    mapTemplate.mapButtons = [myPositionModeButton, panningButton, zoomInButton, zoomOutButton]
     
     let settingsButton = buildBarButton(type: .settings) { _ in
       let gridTemplate = SettingsTemplateBuilder.buildGridTemplate()
@@ -103,10 +103,10 @@ final class MapTemplateBuilder {
     let panningButton = buildMapButton(type: .startPanning) { _ in
       mapTemplate.showPanningInterface(animated: true)
     }
-    let positionModeButton = buildMapButton(type: .positionMode) { _ in
+    let myPositionModeButton = buildMapButton(type: .myPositionMode) { _ in
       FrameworkHelper.switchMyPositionMode()
     }
-    mapTemplate.mapButtons = [positionModeButton, panningButton]
+    mapTemplate.mapButtons = [myPositionModeButton, panningButton]
     setupMuteAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
       CarPlayService.shared.cancelCurrentTrip()
@@ -124,7 +124,7 @@ final class MapTemplateBuilder {
     mapTemplate.leadingNavigationBarButtons = [destinationButton]
   }
   
-  class func updatePositionModeButton(mapTemplate: CPMapTemplate, newMode: MWMMyPositionMode) {
+  class func updateMyPositionModeButton(mapTemplate: CPMapTemplate, newMode: MWMMyPositionMode) {
     let button = CPMapButton(handler: { _ in
       FrameworkHelper.switchMyPositionMode()
     })
@@ -195,7 +195,7 @@ final class MapTemplateBuilder {
       button.image = UIImage(systemName: "plus")
     case .zoomOut:
       button.image = UIImage(systemName: "minus")
-    case .positionMode:
+    case .myPositionMode:
       button.image = UIImage(named: "btn_pending_light")
     }
     // Remove code below once Apple has fixed its issue with the button background
