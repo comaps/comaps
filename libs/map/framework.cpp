@@ -2093,6 +2093,11 @@ place_page::Info & Framework::GetCurrentPlacePageInfo()
   return *m_currentPlacePageInfo;
 }
 
+void Framework::UpdateBookmarksTextPlacement()
+{
+  m_bmManager->UpdateBookmarksTextPlacement();
+}
+
 void Framework::ActivateMapSelection()
 {
   if (!m_currentPlacePageInfo)
@@ -2148,7 +2153,7 @@ void Framework::DeactivateMapSelection()
 
 void Framework::DeactivateMapSelectionCircle(bool restoreViewport)
 {
-  if (m_drapeEngine != nullptr)
+  if (m_drapeEngine)
     m_drapeEngine->DeselectObject(restoreViewport);
 }
 
