@@ -181,6 +181,30 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
+  QLabel * bookmarksPlacementLabel = new QLabel("Bookmark's text placement");
+  QComboBox * bookmarksPlacementCB = new QComboBox();
+  {
+    using namespace settings;
+
+    QStringList lst;
+    for (int i = 0; i < static_cast<int>(Placement::Count); ++i)
+      lst << QString::fromStdString(ToString(static_cast<Placement>(i)));
+
+    bookmarksPlacementCB->addItems(lst);
+
+    Placement s;
+    if (Get(kBookmarksTextPlacement, s))
+      bookmarksPlacementCB->setCurrentText(QString::fromStdString(ToString(s)));
+    else
+      bookmarksPlacementCB->setCurrentIndex(0);
+
+    connect(bookmarksPlacementCB, &QComboBox::activated, [&framework](int index)
+    {
+      settings::Set(kBookmarksTextPlacement, static_cast<Placement>(index));
+      framework.UpdateBookmarksTextPlacement();
+    });
+  }
+
   QButtonGroup * mapAppearanceGroup = new QButtonGroup(this);
   QGroupBox * mapAppearanceRadioBox = new QGroupBox("Map Appearance");
   {
@@ -239,6 +263,8 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
   finalLayout->addWidget(alternativeMapLanguageHandlingLabel);
   finalLayout->addWidget(alternativeMapLanguageHandlingComboBox);
   finalLayout->addWidget(mapAppearanceRadioBox);
+  finalLayout->addWidget(bookmarksPlacementLabel);
+  finalLayout->addWidget(bookmarksPlacementCB);
 #ifdef BUILD_DESIGNER
   finalLayout->addWidget(indexRegenCheckBox);
 #endif

@@ -31,6 +31,7 @@
 #include "kml/type_utils.hpp"
 
 #include "platform/location.hpp"
+#include "platform/placement_settings.hpp"
 
 #include "geometry/any_rect2d.hpp"
 #include "geometry/point2d.hpp"
@@ -165,8 +166,9 @@ public:
 
   void ClearUserMarksGroup(kml::MarkGroupId groupId);
   void ChangeVisibilityUserMarksGroup(kml::MarkGroupId groupId, bool isVisible);
-  void UpdateUserMarks(UserMarksProvider * provider, bool firstTime);
   void InvalidateUserMarks();
+  void UpdateBookmarksTextPlacement(UserMarksProvider * provider);
+  void UpdateUserMarks(UserMarksProvider * provider, bool firstTime);
 
   void SetRenderingEnabled(ref_ptr<dp::GraphicsContextFactory> contextFactory = nullptr);
   void SetRenderingDisabled(bool const destroySurface);
@@ -288,7 +290,7 @@ private:
 
   dp::DrapeID GenerateDrapeID();
 
-  static drape_ptr<UserMarkRenderParams> GenerateMarkRenderInfo(UserPointMark const * mark);
+  drape_ptr<UserMarkRenderParams> GenerateMarkRenderInfo(UserPointMark const * mark) const;
   static drape_ptr<UserLineRenderParams> GenerateLineRenderInfo(UserLineMark const * mark);
 
   drape_ptr<FrontendRenderer> m_frontend;
@@ -318,6 +320,8 @@ private:
   std::atomic<dp::AccessibilityData *> m_accessibilityData;
   // only access this from the gui thread! it may get modified or deallocated racily otherwise.
   std::optional<drape_ptr<dp::AccessibilityPresenter>> m_accessibilityPresenter;
+
+  settings::Placement m_bookmarksTextPlacement = settings::Placement::None;
 
   friend class DrapeApi;
 };

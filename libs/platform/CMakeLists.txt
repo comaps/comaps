@@ -47,6 +47,7 @@ set(SRC
   mwm_version.hpp
   platform.cpp
   platform.hpp
+  placement_settings.hpp
   preferred_languages.cpp
   preferred_languages.hpp
   remote_file.cpp

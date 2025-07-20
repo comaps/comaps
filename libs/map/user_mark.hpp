@@ -17,10 +17,7 @@
 
 #include "base/macros.hpp"
 
-#include <limits>
-#include <memory>
 #include <string>
-#include <utility>
 
 class UserMark : public df::UserPointMark
 {
