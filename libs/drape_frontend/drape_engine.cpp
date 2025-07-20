@@ -78,6 +78,8 @@ DrapeEngine::DrapeEngine(Params && params)
   if (!settings::Get(kLastEnterBackground, m_startBackgroundTime))
     m_startBackgroundTime = base::Timer::LocalTime();
 
+  (void)settings::Get(settings::kBookmarksTextPlacement, m_bookmarksTextPlacement);
+
   std::vector<PostprocessRenderer::Effect> effects;
 
   //  bool enabledAntialiasing;
@@ -254,6 +256,20 @@ void DrapeEngine::InvalidateUserMarks()
 {
   m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread, make_unique_dp<InvalidateUserMarksMessage>(),
                                   MessagePriority::Normal);
+}
+
+void DrapeEngine::UpdateBookmarksTextPlacement(UserMarksProvider * provider)
+{
+  using namespace settings;
+  Placement s;
+  if (Get(kBookmarksTextPlacement, s) && s != m_bookmarksTextPlacement)
+  {
+    m_bookmarksTextPlacement = s;
+
+    UpdateUserMarks(provider, true /* firstTime */);
+
+    InvalidateUserMarks();
+  }
 }
 
 void DrapeEngine::UpdateUserMarks(UserMarksProvider * provider, bool firstTime)
@@ -915,7 +931,7 @@ void DrapeEngine::EnableDebugRectRendering(bool enabled)
                                   make_unique_dp<EnableDebugRectRenderingMessage>(enabled), MessagePriority::Normal);
 }
 
-drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMark const * mark)
+drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMark const * mark) const
 {
   auto renderInfo = make_unique_dp<UserMarkRenderParams>();
   renderInfo->m_markId = mark->GetId();
@@ -926,13 +942,13 @@ drape_ptr<UserMarkRenderParams> DrapeEngine::GenerateMarkRenderInfo(UserPointMar
     renderInfo->m_depth = mark->GetDepth();
     renderInfo->m_customDepth = true;
   }
-  renderInfo->m_depthLayer = mark->GetDepthLayer();
+  renderInfo->m_depthLayer = mark->GetDepthLayerEx(m_bookmarksTextPlacement);
   renderInfo->m_minZoom = mark->GetMinZoom();
   renderInfo->m_minTitleZoom = mark->GetMinTitleZoom();
   renderInfo->m_isVisible = mark->IsVisible();
   renderInfo->m_pivot = mark->GetPivot();
   renderInfo->m_pixelOffset = mark->GetPixelOffset();
-  renderInfo->m_titleDecl = mark->GetTitleDecl();
+  renderInfo->m_titleDecl = mark->GetTitleDeclEx(m_bookmarksTextPlacement);
   renderInfo->m_symbolNames = mark->GetSymbolNames();
   renderInfo->m_coloredSymbols = mark->GetColoredSymbols();
   renderInfo->m_symbolSizes = mark->GetSymbolSizes();
