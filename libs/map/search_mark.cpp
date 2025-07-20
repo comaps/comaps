@@ -366,11 +366,6 @@ df::ColorConstant SearchMarkPoint::GetColorConstant() const
   return kColorConstant;
 }
 
-drape_ptr<df::UserPointMark::TitlesInfo> SearchMarkPoint::GetTitleDecl() const
-{
-  return {};
-}
-
 int SearchMarkPoint::GetMinTitleZoom() const
 {
   return scales::GetUpperCountryScale();
