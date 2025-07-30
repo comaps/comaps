@@ -39,6 +39,12 @@ template <class Value>
   return StringStorage::Instance().GetValue(key, strVal) && FromString(strVal, outValue);
 }
 
+inline bool IsEnabled(std::string_view key)
+{
+  bool val;
+  return Get(key, val) && val;
+}
+
 template <class Value>
 void TryGet(std::string_view key, Value & outValue)
 {
