@@ -47,6 +47,7 @@
 #include "storage/storage_defines.hpp"
 
 #include "platform/location.hpp"
+#include "platform/placement_settings.hpp"
 #include "platform/platform.hpp"
 #include "platform/safe_callback.hpp"
 #include "platform/settings.hpp"
@@ -325,9 +326,9 @@ public:
   bool ParseSearchQueryCommand(search::SearchParams const & params) override;
   m2::PointD GetMinDistanceBetweenResults() const override;
 
+private:
   void UpdateBookmarksTextPlacement();
 
-private:
   void ActivateMapSelection();
   void InvalidateUserMarks();
 
@@ -731,6 +732,9 @@ public:
   bool LoadAutoZoom();
   void AllowAutoZoom(bool allowAutoZoom);
   void SaveAutoZoom(bool allowAutoZoom);
+
+  static settings::Placement GetBookmarksTextPlacement();
+  void SetBookmarksTextPlacement(settings::Placement setting);
 
   TrafficManager & GetTrafficManager();
 
