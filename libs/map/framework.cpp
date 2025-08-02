@@ -2619,6 +2619,20 @@ void Framework::SaveAutoZoom(bool allowAutoZoom)
   settings::Set(kAllowAutoZoom, allowAutoZoom);
 }
 
+settings::Placement Framework::GetBookmarksTextPlacement()
+{
+  using namespace settings;
+  auto setting = kDefaultBookmarksTextPlacement;
+  TryGet(kBookmarksTextPlacement, setting);
+  return setting;
+}
+
+void Framework::SetBookmarksTextPlacement(settings::Placement setting)
+{
+  settings::Set(settings::kBookmarksTextPlacement, setting);
+  UpdateBookmarksTextPlacement();
+}
+
 void Framework::SwitchToMapAppearance(MapAppearance const mapAppearance)
 {
   if (mapAppearance == CurrentMapAppearance())
