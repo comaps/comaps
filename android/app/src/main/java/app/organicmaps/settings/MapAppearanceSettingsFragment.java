@@ -35,6 +35,7 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
     initLargeFontSizePrefsCallbacks();
     initTransliterationPrefsCallbacks();
     initAlternativeMapLanguageHandlingCallbacks();
+    initBookmarksTextPlacementPrefsCallbacks();
   }
 
   @Override
@@ -101,6 +102,16 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
       final int alternativeMapLanguageHandling = Integer.parseInt((String) newValue);
       Config.setAlternativeMapLanguageHandling(alternativeMapLanguageHandling);
       preference.setSummary(pref.getEntries()[alternativeMapLanguageHandling]);
+      return true;
+    });
+  }
+
+  private void initBookmarksTextPlacementPrefsCallbacks()
+  {
+    final ListPreference pref = getPreference(getString(R.string.pref_bookmarks_text_placement));
+    pref.setValue(String.valueOf(Framework.nativeGetBookmarksTextPlacement()));
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      Framework.nativeSetBookmarksTextPlacement(Integer.parseInt((String) newValue));
       return true;
     });
   }
