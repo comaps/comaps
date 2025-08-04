@@ -1896,6 +1896,7 @@ void Framework::SetMapStyle(MapStyle mapStyle, bool const forceRerendering)
   if (m_drapeEngine != nullptr)
     m_drapeEngine->UpdateMapStyle(forceRerendering);
   InvalidateUserMarks();
+  UpdateBookmarksTextPlacement();
   UpdateMinBuildingsTapZoom();
 }
 
