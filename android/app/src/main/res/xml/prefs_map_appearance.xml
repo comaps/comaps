@@ -34,5 +34,12 @@
     android:widgetLayout="@layout/preference_switch"
     app:icon="@drawable/ic_translate_indic"
     app:singleLineTitle="false" />
+  <ListPreference
+    android:entries="@array/bookmarks_text_placement_options"
+    android:entryValues="@array/bookmarks_text_placement_values"
+    android:key="@string/pref_bookmarks_text_placement"
+    android:summary="@string/bookmarks_text_placement_description"
+    android:title="@string/bookmarks_text_placement_title"
+    app:singleLineTitle="false" />
 
 </androidx.preference.PreferenceScreen>
