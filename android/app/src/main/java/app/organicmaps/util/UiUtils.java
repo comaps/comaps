@@ -211,6 +211,7 @@ public final class UiUtils
     layout.setError(error == 0 ? null : layout.getContext().getString(error));
   }
 
+  // Show/hide the android system bars
   public static void setFullscreen(@NonNull Activity activity, boolean fullscreen)
   {
     final Window window = activity.getWindow();

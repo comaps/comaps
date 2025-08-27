@@ -998,4 +998,5 @@
         <item quantity="one">%d resident</item>
         <item quantity="other">%d residents</item>
     </plurals>
+    <string name="fullscreen_exit_hint">Tap on the map to exit fullscreen mode</string>
 </resources>

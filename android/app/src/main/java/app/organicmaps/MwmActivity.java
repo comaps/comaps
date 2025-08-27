@@ -1343,6 +1343,10 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public void onPlacePageActivated(@NonNull PlacePageData data)
   {
+    // Exit fullscreen mode when a place is tapped
+    if (isFullscreen())
+      setFullscreen(false);
+
     // This will open the place page
     mPlacePageViewModel.setMapObject((MapObject) data);
   }
@@ -1359,13 +1363,13 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if ((mPanelAnimator != null && mPanelAnimator.isVisible()) || UiUtils.isVisible(mSearchController.getToolbar()))
       return;
 
-    setFullscreen(!isFullscreen());
-    if (isFullscreen())
+    // Long tap should enable full screen
+    // Then it'll be disabled on tap by onPlacePageActivated
+    if (!isFullscreen())
     {
+      setFullscreen(true);
       closePlacePage();
-      // Show the toast every time so that users don't forget and don't get trapped in the FS mode.
-      // TODO(pastk): there are better solutions, see https://github.com/organicmaps/organicmaps/issues/9344
-      Toast.makeText(this, R.string.long_tap_toast, Toast.LENGTH_LONG).show();
+      Toast.makeText(this, R.string.fullscreen_exit_hint, Toast.LENGTH_SHORT).show();
     }
   }
 
