@@ -5,8 +5,6 @@ set(SRC
   altitude_loader.hpp
   brands_holder.cpp
   brands_holder.hpp
-  caching_rank_table_loader.cpp
-  caching_rank_table_loader.hpp
   categories_holder.cpp
   categories_holder.hpp
   categories_holder_loader.cpp
@@ -155,7 +153,6 @@ file(COPY ${OTHER_FILES} DESTINATION ${CMAKE_BINARY_DIR})
 omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_link_libraries(${PROJECT_NAME}
-  search  # search::DummyRankTable in CachingRankTableLoader
   platform
   geometry
   protobuf
