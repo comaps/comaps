@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  style="@style/MwmWidget.Editor.CardView"
+  style="@style/MwmWidget.M3.Editor.CardView"
   android:layout_marginBottom="@dimen/margin_half"
   android:layout_marginTop="@dimen/margin_half">
 

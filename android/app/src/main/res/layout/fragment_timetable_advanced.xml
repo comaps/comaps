@@ -16,6 +16,7 @@
     <com.google.android.material.card.MaterialCardView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
+      style="@style/MwmWidget.M3.Editor.CardView"
       card_view:cardBackgroundColor="?cardBackground"
       card_view:cardCornerRadius="2dp"
       card_view:cardElevation="4dp">

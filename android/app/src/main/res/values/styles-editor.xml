@@ -57,12 +57,14 @@
   <style name="MwmWidget.Editor.CustomTextInput">
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_width">match_parent</item>
+    <item name="android:textColorHint">?iconTint</item>
   </style>
 
   <style name="MwmWidget.Editor.FieldLayout">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_marginStart">@dimen/editor_margin_left</item>
+    <item name="android:textColorHighlight">?colorPrimary</item>
   </style>
 
   <style name="MwmWidget.Editor.FieldLayout.EditText" parent="MwmWidget.Editor">
@@ -82,5 +84,14 @@
     <item name="android:background">?selectableItemBackground</item>
     <item name="android:clickable">true</item>
     <item name="android:textAppearance">@style/MwmTextAppearance.Body1</item>
+  </style>
+
+  <style name="MwmWidget.M3.Editor.CardView" parent="Widget.Material3.CardView.Elevated">
+    <item name="android:layout_width">match_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:layout_marginBottom">@dimen/margin_half</item>
+    <item name="cardBackgroundColor">?cardBackground</item>
+    <item name="android:padding">@dimen/margin_base</item>
+    <item name="cardPreventCornerOverlap">false</item>
   </style>
 </resources>

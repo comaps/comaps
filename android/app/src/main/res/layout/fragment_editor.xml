@@ -23,7 +23,7 @@
         android:textAppearance="@style/MwmTextAppearance.Body4"/>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__category"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <RelativeLayout
           android:id="@+id/category"
           style="@style/MwmWidget.Editor.MetadataBlock"
@@ -64,7 +64,7 @@
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__charging_station"
-        style="@style/MwmWidget.Editor.CardView"
+        style="@style/MwmWidget.M3.Editor.CardView"
         android:visibility="gone">
       <LinearLayout
           android:layout_width="match_parent"
@@ -86,12 +86,12 @@
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__name"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <include layout="@layout/localized_name"/>
     </com.google.android.material.card.MaterialCardView>
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__address"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__details"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -327,7 +327,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__social_media"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -369,7 +369,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__building"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.M3.Editor.CardView">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -394,7 +394,7 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__more"
-        style="@style/MwmWidget.Editor.CardView"
+        style="@style/MwmWidget.M3.Editor.CardView"
         android:layout_marginBottom="@dimen/margin_base">
       <LinearLayout
           android:layout_width="match_parent"

@@ -43,9 +43,8 @@
 
           <app.organicmaps.widget.RoutingToolbarButton
               android:id="@+id/vehicle"
-              style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="@dimen/routing_toolbar_button"
+              android:layout_height="@dimen/routing_toolbar_button"
               android:layout_marginStart="@dimen/routing_selector_wheel_margin"
               android:contentDescription="@string/vehicle"
               tools:button="@drawable/ic_car"
@@ -53,9 +52,8 @@
 
           <app.organicmaps.widget.RoutingToolbarButton
               android:id="@+id/pedestrian"
-              style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="@dimen/routing_toolbar_button"
+              android:layout_height="@dimen/routing_toolbar_button"
               android:layout_marginStart="12dp"
               android:layout_marginEnd="12dp"
               android:contentDescription="@string/pedestrian"
@@ -64,9 +62,8 @@
 
           <app.organicmaps.widget.RoutingToolbarButton
               android:id="@+id/transit"
-              style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="@dimen/routing_toolbar_button"
+              android:layout_height="@dimen/routing_toolbar_button"
               android:layout_marginEnd="@dimen/margin_half_plus"
               android:contentDescription="@string/subway"
               tools:button="@drawable/ic_route_planning_metro_40px"
@@ -74,9 +71,8 @@
 
           <app.organicmaps.widget.RoutingToolbarButton
               android:id="@+id/bicycle"
-              style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="@dimen/routing_toolbar_button"
+              android:layout_height="@dimen/routing_toolbar_button"
               android:layout_marginEnd="12dp"
               android:contentDescription="@string/bicycle"
               tools:button="@drawable/ic_bike"
@@ -84,9 +80,8 @@
 
           <app.organicmaps.widget.RoutingToolbarButton
               android:id="@+id/ruler"
-              style="@style/Widget.AppCompat.CompoundButton.RadioButton"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
+              android:layout_width="@dimen/routing_toolbar_button"
+              android:layout_height="@dimen/routing_toolbar_button"
               android:layout_marginEnd="12dp"
               android:contentDescription="@string/ruler"
               tools:button="@drawable/ic_ruler_route"

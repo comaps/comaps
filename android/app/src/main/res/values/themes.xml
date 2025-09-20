@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Default theme -->
-  <style name="MwmTheme.Base" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
-    <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
-    <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen</item>
-    <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar</item>
+  <style name="MwmTheme.Base" parent="Theme.Material3.Light.NoActionBar">
+    <item name="materialCalendarStyle">@style/Widget.Material3.MaterialCalendar</item>
+    <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.Material3.MaterialCalendar.Fullscreen</item>
+    <item name="materialCalendarTheme">@style/ThemeOverlay.Material3.MaterialCalendar</item>
     <item name="android:listViewStyle">@style/MwmWidget.ListView</item>
     <item name="android:textViewStyle">@style/MwmWidget.TextView</item>
     <item name="android:forceDarkAllowed" tools:targetApi="Q">false</item>
@@ -128,6 +128,12 @@
     <item name="colorSecondary">@color/base_accent</item>
     <item name="colorPrimaryContainer">?colorSecondary</item>
     <item name="colorOnPrimaryContainer">?android:textColorPrimaryInverse</item>
+    <item name="colorOnSurfaceInverse">?android:textColorPrimaryInverse</item>
+    <item name="colorPrimaryInverse">?colorSecondary</item>
+    <item name="android:textColorLink">?colorSecondary</item>
+    <item name="colorOnSurfaceVariant">?colorSecondary</item>
+    <item name="colorControlActivated">?colorSecondary</item>
+    <item name="colorOutlineVariant">@color/divider</item>
 
   </style>
 
@@ -161,7 +167,7 @@
     <item name="android:windowBackground">@color/bg_window</item>
   </style>
 
-  <style name="MwmTheme.AlertDialog" parent="Theme.MaterialComponents.DayNight.Dialog.Alert">
+  <style name="MwmTheme.AlertDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
     <item name="colorAccent">?buttonDialogTextColor</item>
     <item name="colorSecondary">?buttonDialogTextColor</item>
     <item name="colorPrimary">?buttonDialogTextColor</item>
@@ -180,7 +186,7 @@
     <item name="android:textColor">?titleDialogTheme</item>
   </style>
 
-  <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.AppCompat.Light">
+  <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.Material3.Light">
     <item name="android:colorPrimaryDark">?statusBar</item>
     <item name="colorAccent">@color/base_accent</item>
     <item name="colorPrimary">@color/bg_primary</item>
@@ -247,7 +253,7 @@
     <item name="iconTint">@color/white_primary</item>
   </style>
 
-  <style name="PopupMenu" parent="ThemeOverlay.MaterialComponents">
+  <style name="PopupMenu" parent="ThemeOverlay.Material3">
     <item name="android:popupBackground">?windowBackgroundForced</item>
   </style>
 </resources>

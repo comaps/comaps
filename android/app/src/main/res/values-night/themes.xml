@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
-  <style name="MwmTheme.Base" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+  <style name="MwmTheme.Base" parent="Theme.Material3.DayNight.NoActionBar">
     <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
     <item name="materialCalendarFullscreenTheme">@style/MwmWidget.MaterialCalendar.Theme.FullScreen.Dark</item>
     <item name="materialCalendarTheme">@style/MwmWidget.MaterialCalendar.Theme.Dark</item>
@@ -121,11 +121,17 @@
     <item name="colorSecondary">@color/base_accent</item>
     <item name="colorPrimaryContainer">?colorSecondary</item>
     <item name="colorOnPrimaryContainer">?android:textColorPrimaryInverse</item>
+    <item name="colorOnSurfaceInverse">?android:textColorPrimaryInverse</item>
+    <item name="colorPrimaryInverse">?colorSecondary</item>
+    <item name="android:textColorLink">?colorSecondary</item>
+    <item name="colorOnSurfaceVariant">?colorSecondary</item>
+    <item name="colorControlActivated">?colorSecondary</item>
+    <item name="colorOutlineVariant">@color/divider</item>
   </style>
 
   <style name="MwmTheme" parent="MwmTheme.Base"/>
 
-  <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.AppCompat.DayNight">
+  <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.Material3.DayNight">
     <item name="colorControlNormal">@color/text_dark_hint</item>
     <item name="android:textColorHint">@color/text_light_hint</item>
   </style>
