@@ -40,6 +40,7 @@ class CountryInfoGetter;
 namespace routing
 {
 class NumMwmIds;
+RouterType GetLastUsedRouter();
 }
 
 class DataSource;
@@ -172,7 +173,6 @@ public:
   m2::PointD GetRouteEndPoint() const { return m_routingSession.GetEndPoint(); }
   /// Returns the most situable router engine type.
   routing::RouterType GetBestRouter(m2::PointD const & startPoint, m2::PointD const & finalPoint) const;
-  routing::RouterType GetLastUsedRouter() const;
   void SetLastUsedRouter(routing::RouterType type);
   // Sound notifications for turn instructions.
   void EnableTurnNotifications(bool enable) { m_routingSession.EnableTurnNotifications(enable); }

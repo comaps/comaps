@@ -1,5 +1,10 @@
 #pragma once
 
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+#include "map/everywhere_search_params.hpp"
+#include "map/routing_mark.hpp"
+#endif
+
 #include "geometry/latlon.hpp"
 #include "geometry/point2d.hpp"
 
@@ -22,9 +27,20 @@ struct MapPoint
 struct RoutePoint
 {
   RoutePoint() = default;
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+  RoutePoint(m2::PointD const & org, std::string const & name, RouteMarkType type)
+    : m_org(org)
+    , m_name(name)
+    , m_type(type)
+  {}
+#else
   RoutePoint(m2::PointD const & org, std::string const & name) : m_org(org), m_name(name) {}
+#endif
   m2::PointD m_org = m2::PointD::Zero();
   std::string m_name;
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+  RouteMarkType m_type;
+#endif
 };
 
 struct SearchRequest
@@ -66,6 +82,9 @@ public:
   explicit ParsedMapApi(std::string const & url) { SetUrlAndParse(url); }
 
   UrlType SetUrlAndParse(std::string const & url);
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+  UrlType ParseGeoNav(std::string const & raw, Framework & fm);
+#endif
   UrlType GetRequestType() const { return m_requestType; }
   std::string const & GetGlobalBackUrl() const { return m_globalBackUrl; }
   std::string const & GetAppName() const { return m_appName; }
@@ -123,6 +142,9 @@ public:
 
 private:
   void ParseMapParam(std::string const & key, std::string const & value, bool & correctOrder);
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+  void SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type);
+#endif
   void ParseRouteParam(std::string const & key, std::string const & value, std::vector<std::string_view> & pattern);
   void ParseSearchParam(std::string const & key, std::string const & value);
   void ParseInAppFeatureHighlightParam(std::string const & key, std::string const & value);

@@ -469,10 +469,10 @@ void RoutingManager::OnLocationUpdate(location::GpsInfo const & info)
 RouterType RoutingManager::GetBestRouter(m2::PointD const & startPoint, m2::PointD const & finalPoint) const
 {
   // todo Implement something more sophisticated here (or delete the method).
-  return GetLastUsedRouter();
+  return routing::GetLastUsedRouter();
 }
 
-RouterType RoutingManager::GetLastUsedRouter() const
+RouterType routing::GetLastUsedRouter()
 {
   string routerTypeStr;
   if (!settings::Get(kRouterTypeKey, routerTypeStr))

@@ -25,6 +25,7 @@ std::string GetCurrentMapTwine();
 std::string Normalize(std::string_view lang);
 std::string GetCurrentNorm();
 std::string GetCurrentMapLanguage();
+std::string GetMostPreferredLang();
 std::vector<int8_t> GetPreferredLangIndexes();
 
 buffer_vector<std::string, 4> const & GetSystemPreferred();

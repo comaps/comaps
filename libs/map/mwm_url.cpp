@@ -1,8 +1,19 @@
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+#include "platform/preferred_languages.hpp"
+#endif
+
 #include "map/mwm_url.hpp"
 
 #include "map/api_mark_point.hpp"
 #include "map/bookmark_manager.hpp"
 #include "map/framework.hpp"
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+#include "map/everywhere_search_params.hpp"
+#include "map/routing_manager.hpp"
+#include "map/routing_mark.hpp"
+
+#include "search/result.hpp"
+#endif
 
 #include "ge0/geo_url_parser.hpp"
 #include "ge0/parser.hpp"
@@ -17,8 +28,9 @@
 #include "base/scope_guard.hpp"
 #include "base/string_utils.hpp"
 
-#include <array>
-#include <tuple>
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+#include <future>
+#endif
 
 namespace url_scheme
 {
@@ -237,6 +249,131 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
   }
   UNREACHABLE();
 }
+
+#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framework & fm)
+{
+  Reset();
+  SCOPE_GUARD(guard, [this]
+  {
+    if (m_requestType == UrlType::Incorrect)
+      Reset();
+  });
+
+  url::Url const url(raw);
+
+  if (url.GetHost() == "place")
+  {
+    auto const latLon = url.GetParamValue("coordinate");
+    auto const addr = url.GetParamValue("address");
+
+    if (latLon)
+    {
+      auto const tokens = strings::Tokenize(*latLon, ",");
+      double lat;
+      double lon;
+
+      if (tokens.size() != 2 || !strings::to_double(tokens[0], lat) || !strings::to_double(tokens[1], lon) ||
+          !mercator::ValidLat(lat) || !mercator::ValidLon(lon))
+      {
+        LOG(LWARNING, ("Invalid lat,lon in", raw));
+        return m_requestType = UrlType::Incorrect;
+      }
+
+      if (addr)
+      {
+        m_searchRequest = SearchRequest();
+        m_searchRequest.m_query = *addr;
+        m_centerLatLon = {lat, lon};
+        return m_requestType = UrlType::Search;
+      }
+
+      else
+      {
+        m_centerLatLon = {lat, lon};
+        m_mapPoints.push_back({lat /* m_lat */, lon /* m_lon */, "" /* m_label */, "" /* m_id */, "" /* m_style */});
+        return m_requestType = UrlType::Map;
+      }
+    }
+
+    else if (addr)
+    {
+      m_searchRequest = SearchRequest();
+      m_searchRequest.m_query = *addr;
+      return m_requestType = UrlType::Search;
+    }
+  }
+
+  else if (url.GetHost() == "directions")
+  {
+    auto const source = url.GetParamValue("source");
+    auto const destination = url.GetParamValue("destination");
+
+    if (source)
+      SetRouteMark(*source, fm, RouteMarkType::Finish);
+
+    if (url.GetParamValue("waypoint"))
+      for (auto const & param : url.GetParams())
+        if (param.first == "waypoint")
+          SetRouteMark(param.second, fm, RouteMarkType::Intermediate);
+
+    if (destination)
+      SetRouteMark(*destination, fm, RouteMarkType::Finish);
+
+    if (source || destination)
+    {
+      m_routingType = routing::ToString(routing::GetLastUsedRouter());
+
+      return m_requestType = UrlType::Route;
+    }
+
+    return m_requestType = UrlType::Incorrect;
+  }
+
+  return m_requestType = UrlType::Incorrect;
+}
+
+void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type)
+{
+  auto const tokens = strings::Tokenize(raw, ",");
+  double lat;
+  double lon;
+
+  if (tokens.size() != 2 || !strings::to_double(tokens[0], lat) || !strings::to_double(tokens[1], lon) ||
+      !mercator::ValidLat(lat) || !mercator::ValidLon(lon))
+  {
+    std::promise<void> signal;
+    std::future<void> future = signal.get_future();
+
+    ::search::EverywhereSearchParams params{
+        std::string(raw),
+        languages::GetMostPreferredLang(),
+        {} /* timeout */,
+        false,
+        // m_onResults
+        [this, type = std::move(type), &signal](::search::Results results, std::vector<::search::ProductInfo>)
+    {
+      auto const center = results[0].GetFeatureCenter();
+      RoutePoint p;
+      p.m_type = type;
+      p.m_org = mercator::FromLatLon(mercator::YToLat(center.y), mercator::XToLon(center.x));
+      p.m_name = results[0].GetString();
+      m_routePoints.push_back(p);
+      signal.set_value();
+    }};
+
+    fm.GetSearchAPI().SearchEverywhere(std::move(params));
+    future.wait();
+  }
+  else
+  {
+    RoutePoint p;
+    p.m_org = mercator::FromLatLon(lat, lon);
+    p.m_type = type;
+    m_routePoints.push_back(p);
+  }
+}
+#endif
 
 void ParsedMapApi::ParseMapParam(std::string const & key, std::string const & value, bool & correctOrder)
 {
