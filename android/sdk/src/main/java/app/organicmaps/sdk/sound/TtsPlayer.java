@@ -1,6 +1,7 @@
 package app.organicmaps.sdk.sound;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.os.ConfigurationCompat;
+import androidx.core.os.LocaleListCompat;
 import androidx.core.content.ContextCompat;
 import androidx.media.AudioAttributesCompat;
 import androidx.media.AudioFocusRequestCompat;
@@ -78,6 +81,8 @@ public enum TtsPlayer
   // TTS is locked down due to absence of supported languages
   private boolean mUnavailable;
 
+  private LocaleListCompat mInstalledSystemLocales;
+
   TtsPlayer() {}
 
   private static @Nullable LanguageData findSupportedLanguage(String internalCode, List<LanguageData> langs)
@@ -130,24 +135,35 @@ public enum TtsPlayer
   {
     LanguageData res;
 
-    Locale defLocale = Locale.getDefault();
-    if (defLocale != null)
-    {
-      res = findSupportedLanguage(defLocale, langs);
-      if (res != null && res.downloaded)
-        return res;
-    }
-
+    // Try default app locale (en.US)
     res = findSupportedLanguage(DEFAULT_LOCALE, langs);
     if (res != null && res.downloaded)
       return res;
-
     return null;
   }
 
   public static @Nullable LanguageData getSelectedLanguage(List<LanguageData> langs)
   {
     return findSupportedLanguage(Config.TTS.getLanguage(), langs);
+  }
+
+  private @Nullable LanguageData getSystemLanguage(List<LanguageData> langs) {
+    LanguageData res;
+
+    // Try default system locale
+    Locale defLocale = Locale.getDefault();
+    res = findSupportedLanguage(defLocale, langs);
+    if (res != null && res.downloaded)
+      return res;
+
+    // Try other installed system locales
+    for(int i=0; i < mInstalledSystemLocales.size(); i++) {
+      Locale loc = mInstalledSystemLocales.get(i);
+      res = findSupportedLanguage(loc, langs);
+      if (res != null && res.downloaded)
+        return res;
+    }
+    return null;
   }
 
   private void lockDown()
@@ -167,6 +183,10 @@ public enum TtsPlayer
     // TextToSpeech.OnInitListener() can be called from a non-main thread
     // on LineageOS '20.0-20231127-RELEASE-thyme' 'Xiaomi/thyme/thyme'.
     // https://github.com/organicmaps/organicmaps/issues/6903
+
+    Configuration config = context.getResources().getConfiguration();
+    mInstalledSystemLocales = ConfigurationCompat.getLocales(config);
+
     mTts = new TextToSpeech(context, status -> UiThread.run(() -> {
       if (status == TextToSpeech.ERROR)
       {
@@ -336,6 +356,10 @@ public enum TtsPlayer
     LanguageData res = getSelectedLanguage(outList);
     if (res == null || !res.downloaded)
       // Selected locale is not available or not downloaded
+      res = getSystemLanguage(outList);
+
+    if (res == null || !res.downloaded)
+      // System locale is not available or not downloaded
       res = getDefaultLanguage(outList);
 
     if (res == null || !res.downloaded)
