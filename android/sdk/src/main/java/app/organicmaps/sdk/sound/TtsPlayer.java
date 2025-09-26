@@ -26,6 +26,7 @@ import app.organicmaps.sdk.util.log.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * {@code TtsPlayer} class manages available TTS voice languages.
@@ -131,17 +132,6 @@ public enum TtsPlayer
     return (lang != null && setLanguageInternal(lang));
   }
 
-  private static @Nullable LanguageData getDefaultLanguage(List<LanguageData> langs)
-  {
-    LanguageData res;
-
-    // Try default app locale (en.US)
-    res = findSupportedLanguage(DEFAULT_LOCALE, langs);
-    if (res != null && res.downloaded)
-      return res;
-    return null;
-  }
-
   public static @Nullable LanguageData getSelectedLanguage(List<LanguageData> langs)
   {
     return findSupportedLanguage(Config.TTS.getLanguage(), langs);
@@ -163,6 +153,32 @@ public enum TtsPlayer
       if (res != null && res.downloaded)
         return res;
     }
+    return null;
+  }
+
+  private @Nullable LanguageData getTTSLanguage(List<LanguageData> langs) {
+    LanguageData res;
+
+    // Try all TTS installed languages
+    Set<Locale> ttsLocales = mTts.getAvailableLanguages();
+    for(Locale loc : ttsLocales) {
+      res = findSupportedLanguage(loc, langs);
+      if (res != null && res.downloaded)
+        return res;
+    }
+
+    return null;
+
+  }
+
+  private static @Nullable LanguageData getDefaultLanguage(List<LanguageData> langs)
+  {
+    LanguageData res;
+
+    // Try default app locale (en.US)
+    res = findSupportedLanguage(DEFAULT_LOCALE, langs);
+    if (res != null && res.downloaded)
+      return res;
     return null;
   }
 
@@ -356,25 +372,31 @@ public enum TtsPlayer
     LanguageData res = getSelectedLanguage(outList);
     if (res != null && res.downloaded)
     {
-      Logger.d("TtsPlayer", "Selected locale " + res.internalCode + " is available and downloaded");
+      Logger.d("TtsPlayer", "Selected locale " + res.internalCode + " will be used for TTS");
       return res;
     }
-
     Logger.d("TtsPlayer", "Selected locale " + Config.TTS.getLanguage() + " is not available or not downloaded, trying system locales...");
-    res = getSystemLanguage(outList);
 
+    res = getSystemLanguage(outList);
     if (res != null && res.downloaded)
     {
-      Logger.d("TtsPlayer", "System locale " + res.internalCode + " is available and downloaded");
+      Logger.d("TtsPlayer", "System locale " + res.internalCode + " will be used for TTS");
       return res;
     }
+    Logger.d("TtsPlayer", "None of the system locales are available, or they are not downloaded, trying TTS engine locales...");
 
-    Logger.d("TtsPlayer", "None of the system locales are available, or they are not downloaded, trying default locale...");
-    res = getDefaultLanguage(outList);
-
+    res = getTTSLanguage(outList);
     if (res != null && res.downloaded)
     {
-      Logger.d("TtsPlayer", "Default locale " + res.internalCode + " is available and downloaded");
+      Logger.d("TtsPlayer", "TTS locale " + res.internalCode + " will be used for TTS");
+      return res;
+    }
+    Logger.d("TtsPlayer", "None of the TTS engine locales are available, or they are not downloaded, trying default locale...");
+
+    res = getDefaultLanguage(outList);
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "Default locale " + res.internalCode + " will be used for TTS");
       return res;
     }
 
