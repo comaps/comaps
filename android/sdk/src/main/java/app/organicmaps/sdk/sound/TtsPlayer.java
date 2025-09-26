@@ -348,28 +348,39 @@ public enum TtsPlayer
 
     if (outList.isEmpty())
     {
-      // No supported languages found, lock down TTS :(
+      Logger.d("TtsPlayer", "No supported languages found, lock down TTS :( ");
       lockDown();
       return null;
     }
 
     LanguageData res = getSelectedLanguage(outList);
-    if (res == null || !res.downloaded)
-      // Selected locale is not available or not downloaded
-      res = getSystemLanguage(outList);
-
-    if (res == null || !res.downloaded)
-      // System locale is not available or not downloaded
-      res = getDefaultLanguage(outList);
-
-    if (res == null || !res.downloaded)
+    if (res != null && res.downloaded)
     {
-      // Default locale can not be used too
-      Config.TTS.setEnabled(false);
-      return null;
+      Logger.d("TtsPlayer", "Selected locale " + res.internalCode + " is available and downloaded");
+      return res;
     }
 
-    return res;
+    Logger.d("TtsPlayer", "Selected locale " + Config.TTS.getLanguage() + " is not available or not downloaded, trying system locales...");
+    res = getSystemLanguage(outList);
+
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "System locale " + res.internalCode + " is available and downloaded");
+      return res;
+    }
+
+    Logger.d("TtsPlayer", "None of the system locales are available, or they are not downloaded, trying default locale...");
+    res = getDefaultLanguage(outList);
+
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "Default locale " + res.internalCode + " is available and downloaded");
+      return res;
+    }
+
+    Logger.d("TtsPlayer", "Default locale " + DEFAULT_LOCALE + " can not be used either, disable TTS :( ");
+    Config.TTS.setEnabled(false);
+    return null;
   }
 
   public @NonNull List<LanguageData> refreshLanguages()
