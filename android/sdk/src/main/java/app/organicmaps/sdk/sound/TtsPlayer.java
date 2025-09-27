@@ -275,9 +275,14 @@ public enum TtsPlayer
     return (INSTANCE.mTts != null && !INSTANCE.mUnavailable && !INSTANCE.mInitializing);
   }
 
+  public Locale getVoiceLocale()
+  {
+    return mTts.getVoice().getLocale();
+  }
+
   public String getLanguageDisplayName()
   {
-    Locale locale = mTts.getVoice().getLocale();
+    Locale locale = getVoiceLocale();
     return locale.getDisplayName(locale);
   }
 

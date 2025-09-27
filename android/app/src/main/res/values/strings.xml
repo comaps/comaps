@@ -932,6 +932,7 @@
     <string name="share_track">Share Track</string>
     <string name="delete_track_dialog_title">Delete %s?</string>
     <string name="pref_tts_no_system_tts_short">No text-to-speech engine found, check the app settings</string>
+    <string name="navigation_start_tts_message">"Starting Navigation, voice instruction language: "</string>
     <string name="unknown_power_output">unknown</string>
     <string name="charge_socket_type2">Type 2 (no cable)</string>
     <string name="charge_socket_type2_cable">Type 2 (w/ cable)</string>

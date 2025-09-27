@@ -36,6 +36,7 @@ public final class Config
   private static final String KEY_PREF_USE_GS = "UseGoogleServices";
 
   private static final String KEY_MISC_DISCLAIMER_ACCEPTED = "IsDisclaimerApproved";
+  private static final String KEY_MISC_TTS_MESSAGE_DELIVERED = "TtsMessageDelivered";
   private static final String KEY_MISC_LOCATION_REQUESTED = "LocationRequested";
   private static final String KEY_MISC_USE_MOBILE_DATA = "UseMobileData";
   private static final String KEY_MISC_USE_MOBILE_DATA_TIMESTAMP = "UseMobileDataTimestamp";
@@ -235,6 +236,16 @@ public final class Config
   public static void acceptRoutingDisclaimer()
   {
     setBool(KEY_MISC_DISCLAIMER_ACCEPTED);
+  }
+
+  public static boolean isTtsMessageDelivered()
+  {
+    return getBool(KEY_MISC_TTS_MESSAGE_DELIVERED);
+  }
+
+  public static void setTtsMessageDelivered()
+  {
+    setBool(KEY_MISC_TTS_MESSAGE_DELIVERED);
   }
 
   public static boolean isLocationRequested()
