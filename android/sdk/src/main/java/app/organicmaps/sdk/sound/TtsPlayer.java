@@ -37,9 +37,9 @@ import java.util.Set;
  * unsupported voices are excluded.
  * <p>
  * At startup we check whether currently selected language is in our list of supported voices and its data is
- * downloaded. If not, we check system default locale. If failed, the same check is made for English language. Finally,
- * if mentioned checks fail we manually disable TTS, so the user must go to the settings and select preferred voice
- * language by hand. <p> If no core supported languages can be used by the system, TTS is locked down and can not be
+ * downloaded. If not, we check system default locale. If failed, the same check is made for other system locales.
+ * If those fail too, we check for English language. Then, as a final resort, all installed TTS locales are checked.
+ * <p> If no core supported languages can be used by the system, TTS is locked down and can not be
  * enabled and used.
  */
 public enum TtsPlayer
@@ -275,6 +275,12 @@ public enum TtsPlayer
     return (INSTANCE.mTts != null && !INSTANCE.mUnavailable && !INSTANCE.mInitializing);
   }
 
+  public String getLanguageDisplayName()
+  {
+    Locale locale = mTts.getVoice().getLocale();
+    return locale.getDisplayName(locale);
+  }
+
   public void speak(String textToSpeak)
   {
     if (Config.TTS.isEnabled())
@@ -383,15 +389,7 @@ public enum TtsPlayer
       Logger.d("TtsPlayer", "System locale " + res.internalCode + " will be used for TTS");
       return res;
     }
-    Logger.d("TtsPlayer", "None of the system locales are available, or they are not downloaded, trying TTS engine locales...");
-
-    res = getTTSLanguage(outList);
-    if (res != null && res.downloaded)
-    {
-      Logger.d("TtsPlayer", "TTS locale " + res.internalCode + " will be used for TTS");
-      return res;
-    }
-    Logger.d("TtsPlayer", "None of the TTS engine locales are available, or they are not downloaded, trying default locale...");
+    Logger.d("TtsPlayer", "None of the system locales are available, or they are not downloaded, trying default locale...");
 
     res = getDefaultLanguage(outList);
     if (res != null && res.downloaded)
@@ -399,8 +397,16 @@ public enum TtsPlayer
       Logger.d("TtsPlayer", "Default locale " + res.internalCode + " will be used for TTS");
       return res;
     }
+    Logger.d("TtsPlayer", "Default locale " + DEFAULT_LOCALE + " can not be used either, trying all installed TTS locales...");
 
-    Logger.d("TtsPlayer", "Default locale " + DEFAULT_LOCALE + " can not be used either, disable TTS :( ");
+    res = getTTSLanguage(outList);
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "TTS locale " + res.internalCode + " will be used for TTS");
+      return res;
+    }
+
+    Logger.d("TtsPlayer", "None of the TTS engine locales are available, or they are not downloaded, disabling TTS :( ");
     Config.TTS.setEnabled(false);
     return null;
   }
