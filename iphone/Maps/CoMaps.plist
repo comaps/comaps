@@ -65,6 +65,7 @@
 				<string>mapsme</string>
 				<string>ge0</string>
 				<string>geo</string>
+				<string>geo-navigation</string>
 				<string>om</string>
 				<string>mapswithmepro</string>
 			</array>
@@ -89,7 +90,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>comaps.at</key>
+			<key>comaps.app</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -98,7 +99,7 @@
 				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
 				<false/>
 			</dict>
-			<key>comaps.app</key>
+			<key>comaps.at</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>

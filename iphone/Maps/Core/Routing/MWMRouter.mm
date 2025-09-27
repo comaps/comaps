@@ -255,6 +255,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 
 + (void)buildApiRouteWithType:(MWMRouterType)type
                    startPoint:(MWMRoutePoint *)startPoint
+            intermediatePoint:(MWMRoutePoint *)intermediatePoint
                   finishPoint:(MWMRoutePoint *)finishPoint {
   if (!startPoint || !finishPoint)
     return;
@@ -264,6 +265,9 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   auto router = [MWMRouter router];
   router.isAPICall = YES;
   [self addPoint:startPoint];
+  if (intermediatePoint) {
+    [self addPoint:intermediatePoint];
+  }
   [self addPoint:finishPoint];
   router.isAPICall = NO;
 
