@@ -1217,6 +1217,11 @@ JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetScree
   return jLatLon;
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeRestoreDownloadQueue(JNIEnv * env, jclass)
+{
+  frm()->GetStorage().RestoreDownloadQueue();
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeShowTrackRect(JNIEnv * env, jclass, jlong track)
 {
   frm()->ShowTrack(static_cast<kml::TrackId>(track));
