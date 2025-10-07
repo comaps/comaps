@@ -510,16 +510,13 @@ public class LocationHelper implements BaseLocationProvider.Listener
     if (Double.isNaN(mTimeElapsedAtLastAverage))
       updateSpeedHistory();
     double timeDiff = mSavedLocation.getElapsedRealtimeNanos() * 1.0E-9 - mTimeElapsedAtLastAverage;
-    if (timeDiff < SPEED_AVERAGING_TIME)
+    if (timeDiff < SPEED_AVERAGING_TIME || mSpeedHistory.isEmpty())
     {
       if (!Float.isNaN(mLastAverageSpeed))
         return mLastAverageSpeed;
       else
         return mSavedLocation.getSpeed();
     }
-    else if (mSpeedHistory.isEmpty())
-      // If no measurements since last average, return 0
-      return 0.0F;
     else {
       mLastAverageSpeed = mSpeedHistory.stream().reduce(0.0F, Float::sum);
       mLastAverageSpeed /= mSpeedHistory.size();
