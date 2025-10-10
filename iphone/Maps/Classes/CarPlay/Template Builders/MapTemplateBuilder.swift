@@ -131,15 +131,15 @@ final class MapTemplateBuilder {
     
     switch newMode {
     case .pendingPosition:
-      button.image = UIImage(named: "btn_pending_light")
+      button.image = UIImage(systemName: "location.fill")
     case .notFollowNoPosition:
-      button.image = UIImage(named: "btn_get_position_light")
+      button.image = UIImage(systemName: "location")
     case .notFollow:
-      button.image = UIImage(named: "btn_get_position_light")
+      button.image = UIImage(systemName: "location")
     case .follow:
-      button.image = UIImage(named: "btn_follow_light")
+      button.image = UIImage(systemName: "location.fill")
     case .followAndRotate:
-      button.image = UIImage(named: "btn_follow_and_rotate_light")
+      button.image = UIImage(systemName: "location.north.line.fill")
     }
     if mapTemplate.mapButtons.count > 0 {
       mapTemplate.mapButtons[0] = button
@@ -196,7 +196,7 @@ final class MapTemplateBuilder {
     case .zoomOut:
       button.image = UIImage(systemName: "minus")
     case .myPositionMode:
-      button.image = UIImage(named: "btn_pending_light")
+      button.image = UIImage(systemName: "location.fill")
     }
     // Remove code below once Apple has fixed its issue with the button background
     if #unavailable(iOS 26) {
