@@ -21,6 +21,8 @@
 #include "geometry/point_with_altitude.hpp"
 #include "geometry/polyline2d.hpp"
 
+#include "indexer/ftypes_matcher.hpp"
+
 #include "base/assert.hpp"
 #include "base/math.hpp"
 
@@ -74,6 +76,7 @@ public:
 
   struct RoadNameInfo
   {
+    FeatureID m_mwmId;
     // This is for street/road. |m_ref| |m_name|.
     std::string m_name;             // E.g "Johnson Ave.".
     std::string m_destination_ref;  // Number of next road, e.g. "CA 85", Sometimes "CA 85 South". Usually match |m_ref|
@@ -83,6 +86,7 @@ public:
     std::string m_destination;   // E.g. "Cupertino".
     std::string m_ref;           // Number of street/road e.g. "CA 85".
     bool m_isLink = false;
+    ftypes::HighwayClass m_highwayClass = ftypes::HighwayClass::Undefined;
 
     RoadNameInfo() = default;
     RoadNameInfo(std::string name) : m_name(std::move(name)) {}
