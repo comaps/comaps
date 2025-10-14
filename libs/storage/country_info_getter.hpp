@@ -13,7 +13,6 @@
 
 #include <algorithm>
 #include <limits>
-#include <map>
 #include <memory>
 #include <mutex>
 #include <string>
@@ -84,7 +83,6 @@ public:
   void GetRegionInfo(m2::PointD const & pt, CountryInfo & info) const;
 
   // Fills info for the country by id.
-  /// @todo Remove, because we return X->X here :) @see StoreFile2Info InsertToCountryTree.
   void GetRegionInfo(CountryId const & countryId, CountryInfo & info) const;
 
   // Fills limit rects of the USA:
@@ -130,9 +128,6 @@ protected:
   ankerl::unordered_dense::map<CountryId, RegionId> m_countryIndex;
 
   Affiliations const * m_affiliations = nullptr;
-
-  // Maps country file name without extension to a country info.
-  std::map<std::string, CountryInfo> m_idToInfo;
 };
 
 // This class reads info about countries from polygons file and
@@ -148,7 +143,7 @@ public:
   std::vector<m2::RegionD> LoadRegionsFromDisk(RegionId id) const;
 
 protected:
-  CountryInfoReader(ModelReaderPtr polyR, ModelReaderPtr countryR);
+  CountryInfoReader(ModelReaderPtr polyR);
 
   // CountryInfoGetter overrides:
   void ClearCachesImpl() const override;
