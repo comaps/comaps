@@ -263,7 +263,9 @@ public:
 
   void InvalidateRect(m2::RectD const & rect);
 
-  std::string GetCountryName(m2::PointD const & pt) const;
+  /// @return 0 if there is no country under point or country is not loaded.
+  int64_t GetMwmVersion(m2::PointD const & pt) const;
+  bool NeedUpdateForRoutes() const;
 
   enum class DoAfterUpdate
   {

@@ -1310,11 +1310,16 @@ void Framework::InitTransliteration()
     Transliteration::Instance().SetMode(Transliteration::Mode::Disabled);
 }
 
-string Framework::GetCountryName(m2::PointD const & pt) const
+int64_t Framework::GetMwmVersion(m2::PointD const & pt) const
 {
-  storage::CountryInfo info;
-  m_infoGetter->GetRegionInfo(pt, info);
-  return info.m_name;
+  auto name = m_infoGetter->GetRegionCountryId(pt);
+  return (name != storage::kInvalidCountryId) ? m_featuresFetcher.GetMwmVersion(std::move(name)) : 0;
+}
+
+bool Framework::NeedUpdateForRoutes() const
+{
+  auto const version = GetMwmVersion(GetViewportCenter());
+  return version > 0 && version < 250801;
 }
 
 /*
