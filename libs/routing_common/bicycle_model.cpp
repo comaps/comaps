@@ -171,7 +171,7 @@ VehicleModel::SurfaceInitList const kBicycleSurface = {
     {{"psurface", "paved_good"}, {1.0, 1.0}},
     {{"psurface", "paved_bad"}, {0.8, 0.8}},
     {{"psurface", "unpaved_good"}, {0.9, 0.9}},
-    {{"psurface", "unpaved_bad"}, {0.3, 0.3}},
+    {{"psurface", "unpaved_bad"}, {0.6, 0.6}},
     // No dedicated cycleway doesn't mean that bicycle is not allowed, just lower weight.
     // If nocycleway is tagged explicitly then there is no cycling infra for sure.
     // Otherwise there is a small chance cycling infra is present though not mapped?

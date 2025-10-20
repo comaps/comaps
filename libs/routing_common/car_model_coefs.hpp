@@ -73,7 +73,7 @@ HighwayBasedSpeeds const kHighwayBasedSpeeds = {
     // The rest:
     {HighwayType::HighwayService, InOutCitySpeedKMpH(15.00 /* in city */, 15.00 /* out city */)},
     {HighwayType::HighwayRoad, InOutCitySpeedKMpH(10.00 /* in city */, 10.00 /* out city */)},
-    {HighwayType::HighwayTrack, InOutCitySpeedKMpH(5.00 /* in city */, 5.00 /* out city */)},
+    {HighwayType::HighwayTrack, InOutCitySpeedKMpH(45.00 /* in city */, 45.00 /* out city */)},
     {HighwayType::ManMadePier, InOutCitySpeedKMpH({17.00, 10.00} /* in city */, {17.00, 10.00} /* out city */)},
 
     {HighwayType::RouteFerry, InOutCitySpeedKMpH(10.00 /* in city */, 10.00 /* out city */)},
