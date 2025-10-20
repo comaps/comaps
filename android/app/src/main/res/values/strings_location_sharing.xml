@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Location Sharing -->
+  <string name="location_sharing_title">Live Location Sharing</string>
+  <string name="location_sharing_start">Start Sharing</string>
+  <string name="location_sharing_stop">Stop Sharing</string>
+  <string name="location_sharing_active">Sharing location</string>
+  <string name="location_sharing_status_active">Your location is being shared</string>
+  <string name="location_sharing_status_inactive">Location sharing is not active</string>
+
+  <!-- Notification -->
+  <string name="location_sharing_notification_text">Your live location is being shared</string>
+  <string name="location_sharing_tap_to_view">Tap to view in app</string>
+  <string name="location_sharing_eta">ETA: %s</string>
+  <string name="location_sharing_remaining">remaining</string>
+  <string name="location_sharing_accuracy">Accuracy: %s</string>
+  <string name="location_sharing_accuracy_high">high</string>
+  <string name="location_sharing_accuracy_medium">medium</string>
+  <string name="location_sharing_accuracy_low">low</string>
+  <string name="location_sharing_waiting_for_location">Waiting for location…</string>
+
+  <!-- Messages -->
+  <string name="location_sharing_started">Location sharing started</string>
+  <string name="location_sharing_stopped">Location sharing stopped</string>
+  <string name="location_sharing_failed_to_start">Failed to start location sharing</string>
+  <string name="location_sharing_url_copied">Share URL copied to clipboard</string>
+  <string name="location_sharing_share_message">Follow my live location: %s</string>
+
+  <!-- Dialog -->
+  <string name="location_sharing_description">Share your real-time location with end-to-end encryption. Only people with the link can view your location.</string>
+  <string name="location_sharing_copy_url">Copy Link</string>
+  <string name="location_sharing_share_url">Share Link</string>
+  <!-- Using existing close string from main strings.xml -->
+
+  <!-- Settings -->
+  <string name="pref_location_sharing_category">Live Location Sharing</string>
+  <string name="pref_location_sharing_update_interval">Update interval</string>
+  <string name="pref_location_sharing_update_interval_summary">How often to send location updates</string>
+  <string name="pref_location_sharing_server_url">Server URL</string>
+  <string name="pref_location_sharing_server_url_summary">Location sharing server endpoint</string>
+</resources>

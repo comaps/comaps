@@ -26,8 +26,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.location.LocationSharingDialog;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.DistanceAndAzimut;
 import app.organicmaps.sdk.routing.RouteMarkData;
@@ -144,6 +146,9 @@ final class RoutingBottomMenuController implements View.OnClickListener
     mActionButton.setOnClickListener(this);
     View actionSearchButton = actionFrame.findViewById(R.id.btn__search_point);
     actionSearchButton.setOnClickListener(this);
+    View shareLocationButton = actionFrame.findViewById(R.id.btn__share_location);
+    if (shareLocationButton != null)
+      shareLocationButton.setOnClickListener(this);
     mActionIcon = mActionButton.findViewById(R.id.iv__icon);
     UiUtils.hide(mAltitudeChartFrame, mActionFrame);
     mListener = listener;
@@ -471,6 +476,11 @@ final class RoutingBottomMenuController implements View.OnClickListener
     {
       final RouteMarkType pointType = (RouteMarkType) mActionMessage.getTag();
       mListener.onSearchRoutePoint(pointType);
+    }
+    else if (id == R.id.btn__share_location)
+    {
+      if (mContext instanceof MwmActivity)
+        LocationSharingDialog.show(((MwmActivity) mContext).getSupportFragmentManager());
     }
     else if (id == R.id.btn__manage_route)
       mListener.onManageRouteOpen();

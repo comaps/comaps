@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+  <!-- Status Text -->
+  <TextView
+      android:id="@+id/status_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textSize="16sp"
+      android:textColor="?android:textColorPrimary"
+      android:paddingBottom="8dp"
+      tools:text="Location sharing is not active" />
+
+  <!-- Description -->
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="@string/location_sharing_description"
+      android:textSize="14sp"
+      android:textColor="?android:textColorSecondary"
+      android:paddingBottom="16dp" />
+
+  <!-- Share URL (visible only when sharing) -->
+  <TextView
+      android:id="@+id/share_url_text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textSize="12sp"
+      android:textColor="?android:textColorPrimary"
+      android:fontFamily="monospace"
+      android:background="?android:selectableItemBackground"
+      android:padding="12dp"
+      android:textIsSelectable="true"
+      android:visibility="gone"
+      tools:visibility="visible"
+      tools:text="https://live.organicmaps.app/live/abc123def456" />
+
+  <!-- Button Row -->
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:gravity="end"
+      android:paddingTop="16dp">
+
+    <!-- Copy Button -->
+    <Button
+        android:id="@+id/copy_button"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_sharing_copy_url"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <!-- Share Button -->
+    <Button
+        android:id="@+id/share_button"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location_sharing_share_url"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        tools:visibility="visible" />
+
+    <!-- Start/Stop Button -->
+    <Button
+        android:id="@+id/start_stop_button"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        tools:text="Start Sharing" />
+
+  </LinearLayout>
+
+</LinearLayout>

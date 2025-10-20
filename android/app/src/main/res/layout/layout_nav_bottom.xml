@@ -44,6 +44,17 @@
     tools:background="#300000FF">
 
     <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/share_location"
+      android:layout_width="0dp"
+      android:layout_height="@dimen/nav_icon_size"
+      android:layout_weight="0.2"
+      android:background="?selectableItemBackgroundBorderless"
+      android:scaleType="center"
+      android:contentDescription="@string/location_sharing_title"
+      app:srcCompat="@drawable/ic_location_sharing"
+      app:tint="?iconTint" />
+
+    <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/tts_volume"
       android:layout_width="0dp"
       android:layout_height="@dimen/nav_icon_size"

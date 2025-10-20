@@ -53,6 +53,7 @@ set(SRC
   app/organicmaps/sdk/editor/OpeningHours.cpp
   app/organicmaps/sdk/editor/OsmOAuth.cpp
   app/organicmaps/sdk/Framework.cpp
+  app/organicmaps/location/LocationSharingJni.cpp
   app/organicmaps/sdk/isolines/IsolinesManager.cpp
   app/organicmaps/sdk/LocationState.cpp
   app/organicmaps/sdk/Map.cpp
@@ -94,6 +95,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE .)
 target_link_libraries(${PROJECT_NAME}
   # CoMaps libs
   map
+  location_sharing
   # ge0
   # tracking
   # routing

@@ -500,6 +500,13 @@
       android:stopWithTask="false"
       />
 
+    <service android:name=".location.LocationSharingService"
+      android:foregroundServiceType="location"
+      android:exported="false"
+      android:enabled="true"
+      android:stopWithTask="false"
+      />
+
     <service
         android:name=".downloader.DownloaderService"
         android:foregroundServiceType="dataSync"

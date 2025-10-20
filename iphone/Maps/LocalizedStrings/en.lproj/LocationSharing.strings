@@ -1,0 +1,58 @@
+/* Location Sharing */
+
+/* Title for location sharing feature */
+"location_sharing_title" = "Live Location Sharing";
+
+/* Start sharing button */
+"location_sharing_start" = "Start Sharing";
+
+/* Stop sharing button */
+"location_sharing_stop" = "Stop Sharing";
+
+/* Location sharing active status */
+"location_sharing_active" = "Sharing location";
+
+/* Status message when sharing is active */
+"location_sharing_status_active" = "Your location is being shared";
+
+/* Status message when sharing is inactive */
+"location_sharing_status_inactive" = "Location sharing is not active";
+
+/* Description text explaining the feature */
+"location_sharing_description" = "Share your real-time location with end-to-end encryption. Only people with the link can view your location.";
+
+/* Copy link button */
+"location_sharing_copy_url" = "Copy Link";
+
+/* Share link button */
+"location_sharing_share_url" = "Share Link";
+
+/* Close button */
+"close" = "Close";
+
+/* Success message when sharing started */
+"location_sharing_started" = "Location sharing started";
+
+/* Success message when sharing stopped */
+"location_sharing_stopped" = "Location sharing stopped";
+
+/* Error message when failed to start */
+"location_sharing_failed_to_start" = "Failed to start location sharing";
+
+/* Success message when URL copied */
+"location_sharing_url_copied" = "Share URL copied to clipboard";
+
+/* Share message template */
+"location_sharing_share_message" = "Follow my live location: %@";
+
+/* Notification title */
+"location_sharing_notification_title" = "Location Sharing Active";
+
+/* Notification body */
+"location_sharing_notification_body" = "Your live location is being shared. Tap to view or stop.";
+
+/* Reminder notification title */
+"location_sharing_reminder_title" = "Location Sharing Reminder";
+
+/* Reminder notification body */
+"location_sharing_reminder_body" = "Your location is still being shared. Tap to stop if needed.";

@@ -5,6 +5,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import app.organicmaps.R;
+import app.organicmaps.location.LocationSharingDialog;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.DateUtils;
@@ -97,6 +98,8 @@ public class NavMenu
     mRouteProgress = bottomFrame.findViewById(R.id.navigation_progress);
 
     // Bottom frame buttons
+    ShapeableImageView shareLocation = bottomFrame.findViewById(R.id.share_location);
+    shareLocation.setOnClickListener(v -> onShareLocationClicked());
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
     mSettings.setOnClickListener(v -> onSettingsClicked());
     mTts = bottomFrame.findViewById(R.id.tts_volume);
@@ -108,6 +111,11 @@ public class NavMenu
   private void onStopClicked()
   {
     mNavMenuListener.onStopClicked();
+  }
+
+  private void onShareLocationClicked()
+  {
+    LocationSharingDialog.show(mActivity.getSupportFragmentManager());
   }
 
   private void onSettingsClicked()
