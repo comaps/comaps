@@ -23,6 +23,8 @@ struct LocationSharingConfig {
   var includeDestinationName: Bool = true
   var includeBatteryLevel: Bool = true
   var lowBatteryThreshold: Int = 10
+  // Default from LOCATION_SHARING_SERVER_URL in private.h
+  // Can be overridden by user settings
   var serverBaseUrl: String = "https://live.organicmaps.app"
 }
 

@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 
 import app.organicmaps.MwmApplication;
 import app.organicmaps.sdk.routing.RoutingController;
+import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.log.Logger;
 
 /**
@@ -30,10 +31,6 @@ public class LocationSharingManager
   private boolean mIsSharing = false;
 
   private final Context mContext;
-
-  // Configuration
-  private int mUpdateIntervalSeconds = 20;
-  private String mServerBaseUrl = "https://live.organicmaps.app"; // TODO: Configure
 
   private LocationSharingManager()
   {
@@ -72,8 +69,9 @@ public class LocationSharingManager
     mSessionId = credentials[0];
     mEncryptionKey = credentials[1];
 
-    // Generate share URL
-    mShareUrl = nativeGenerateShareUrl(mSessionId, mEncryptionKey, mServerBaseUrl);
+    // Generate share URL using configured server
+    String serverUrl = Config.LocationSharing.getServerUrl();
+    mShareUrl = nativeGenerateShareUrl(mSessionId, mEncryptionKey, serverUrl);
     if (mShareUrl == null)
     {
       Logger.e(TAG, "Failed to generate share URL");
@@ -86,8 +84,8 @@ public class LocationSharingManager
     Intent intent = new Intent(mContext, LocationSharingService.class);
     intent.putExtra(LocationSharingService.EXTRA_SESSION_ID, mSessionId);
     intent.putExtra(LocationSharingService.EXTRA_ENCRYPTION_KEY, mEncryptionKey);
-    intent.putExtra(LocationSharingService.EXTRA_SERVER_URL, mServerBaseUrl);
-    intent.putExtra(LocationSharingService.EXTRA_UPDATE_INTERVAL, mUpdateIntervalSeconds);
+    intent.putExtra(LocationSharingService.EXTRA_SERVER_URL, serverUrl);
+    intent.putExtra(LocationSharingService.EXTRA_UPDATE_INTERVAL, Config.LocationSharing.getUpdateInterval());
 
     mContext.startForegroundService(intent);
 
@@ -138,28 +136,23 @@ public class LocationSharingManager
 
   public void setUpdateIntervalSeconds(int seconds)
   {
-    if (seconds < 5 || seconds > 60)
-    {
-      Logger.w(TAG, "Invalid update interval: " + seconds + ", using default");
-      return;
-    }
-    mUpdateIntervalSeconds = seconds;
+    Config.LocationSharing.setUpdateInterval(seconds);
   }
 
   public int getUpdateIntervalSeconds()
   {
-    return mUpdateIntervalSeconds;
+    return Config.LocationSharing.getUpdateInterval();
   }
 
   public void setServerBaseUrl(@NonNull String url)
   {
-    mServerBaseUrl = url;
+    Config.LocationSharing.setServerUrl(url);
   }
 
   @NonNull
   public String getServerBaseUrl()
   {
-    return mServerBaseUrl;
+    return Config.LocationSharing.getServerUrl();
   }
 
   /**

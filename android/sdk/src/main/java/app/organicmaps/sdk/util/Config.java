@@ -520,6 +520,46 @@ public final class Config
     }
   }
 
+  public static class LocationSharing
+  {
+    interface Keys
+    {
+      String SERVER_URL = "LocationSharingServerUrl";
+      String UPDATE_INTERVAL = "LocationSharingUpdateInterval";
+    }
+
+    public interface Defaults
+    {
+      String SERVER_URL = "https://live.organicmaps.app";
+      int UPDATE_INTERVAL = 20;  // seconds
+      int UPDATE_INTERVAL_MIN = 5;
+      int UPDATE_INTERVAL_MAX = 60;
+    }
+
+    @NonNull
+    public static String getServerUrl()
+    {
+      return getString(Keys.SERVER_URL, Defaults.SERVER_URL);
+    }
+
+    public static void setServerUrl(@NonNull String url)
+    {
+      setString(Keys.SERVER_URL, url);
+    }
+
+    public static int getUpdateInterval()
+    {
+      return getInt(Keys.UPDATE_INTERVAL, Defaults.UPDATE_INTERVAL);
+    }
+
+    public static void setUpdateInterval(int seconds)
+    {
+      if (seconds < Defaults.UPDATE_INTERVAL_MIN || seconds > Defaults.UPDATE_INTERVAL_MAX)
+        seconds = Defaults.UPDATE_INTERVAL;
+      setInt(Keys.UPDATE_INTERVAL, seconds);
+    }
+  }
+
   private static native boolean nativeHasConfigValue(String name);
   private static native boolean nativeDeleteConfigValue(String name);
   private static native boolean nativeGetBoolean(String name, boolean defaultValue);

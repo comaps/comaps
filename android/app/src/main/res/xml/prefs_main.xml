@@ -194,6 +194,27 @@
   </PreferenceCategory>
 
   <androidx.preference.PreferenceCategory
+    android:key="@string/pref_location_sharing_category"
+    android:title="@string/location_sharing_title"
+    android:order="5">
+    <EditTextPreference
+      android:key="@string/pref_location_sharing_server_url"
+      android:title="@string/pref_location_sharing_server_url"
+      app:singleLineTitle="false"
+      android:summary="@string/pref_location_sharing_server_url_summary"
+      android:defaultValue="https://live.organicmaps.app"
+      android:order="1"/>
+    <ListPreference
+      android:key="@string/pref_location_sharing_update_interval"
+      android:title="@string/pref_location_sharing_update_interval"
+      app:singleLineTitle="false"
+      android:summary="@string/pref_location_sharing_update_interval_summary"
+      android:entries="@array/location_sharing_intervals"
+      android:entryValues="@array/location_sharing_interval_values"
+      android:defaultValue="20"
+      android:order="2"/>
+  </androidx.preference.PreferenceCategory>
+  <androidx.preference.PreferenceCategory
     android:key="@string/pref_privacy"
     android:title="@string/privacy"
     android:order="5">

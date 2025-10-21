@@ -111,6 +111,22 @@ public class LocationSharingService extends Service implements LocationListener
     // Initialize API client
     mApiClient = new LocationSharingApiClient(mServerUrl, mSessionId);
 
+    // Create session on server
+    mApiClient.createSession(new LocationSharingApiClient.Callback()
+    {
+      @Override
+      public void onSuccess()
+      {
+        Logger.i(TAG, "Session created on server");
+      }
+
+      @Override
+      public void onFailure(@NonNull String error)
+      {
+        Logger.w(TAG, "Failed to create session on server: " + error);
+      }
+    });
+
     // Start foreground with notification
     Notification notification = mNotificationHelper != null
         ? mNotificationHelper.buildNotification(getStopIntent())
@@ -212,7 +228,7 @@ public class LocationSharingService extends Service implements LocationListener
       return;
 
     // Encrypt payload
-    String encryptedJson = LocationSharingManager.nativeEncryptPayload(mEncryptionKey, payload.toString());
+    String encryptedJson = LocationCrypto.encrypt(mEncryptionKey, payload.toString());
     if (encryptedJson == null)
     {
       Logger.e(TAG, "Failed to encrypt payload");

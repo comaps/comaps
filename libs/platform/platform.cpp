@@ -171,6 +171,11 @@ std::string Platform::DefaultUrlsJSON() const
   return DEFAULT_URLS_JSON;
 }
 
+std::string Platform::LocationSharingServerUrl() const
+{
+  return LOCATION_SHARING_SERVER_URL;
+}
+
 bool Platform::RemoveFileIfExists(std::string const & filePath)
 {
   return IsFileExistsByFullPath(filePath) ? base::DeleteFileX(filePath) : true;
