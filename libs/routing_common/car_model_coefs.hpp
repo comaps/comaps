@@ -34,12 +34,13 @@ HighwayBasedFactors const kHighwayBasedFactors = {
     {HighwayType::HighwayLivingStreet, InOutCityFactor(0.70)},
 
     // The rest:
-    // By VNG: Changed 0.3 -> 0.95 for Road and 0.3 -> 1.0 for Track.
+    // By VNG: Changed 0.3 -> 0.95 for Road.
     // They are already have very small speeds (10, 5 respectively).
+    // For tracks, weight is reduced to make them harder to take, but keep the full ETA speed.
     // There are no (99%) traffic lights or pedestrian crossings on this kind of roads.
     {HighwayType::HighwayService, InOutCityFactor(0.70)},
     {HighwayType::HighwayRoad, InOutCityFactor(0.90)},
-    {HighwayType::HighwayTrack, InOutCityFactor(1.0)},
+    {HighwayType::HighwayTrack, InOutCityFactor({0.11, 1.0} /* in city */, {0.11, 1.0} /* out city */)},
     {HighwayType::ManMadePier, InOutCityFactor(0.90)},
 
     {HighwayType::RouteFerry, InOutCityFactor(0.90)},
