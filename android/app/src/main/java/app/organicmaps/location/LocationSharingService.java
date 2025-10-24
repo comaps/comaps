@@ -44,8 +44,9 @@ public class LocationSharingService extends Service implements LocationListener
   public static final String EXTRA_SERVER_URL = "server_url";
   public static final String EXTRA_UPDATE_INTERVAL = "update_interval";
 
-  // Action for notification stop button
+  // Actions for notification buttons
   private static final String ACTION_STOP = "app.organicmaps.ACTION_STOP_LOCATION_SHARING";
+  private static final String ACTION_COPY_URL = "app.organicmaps.ACTION_COPY_LOCATION_URL";
 
   @Nullable
   private String mSessionId;
@@ -95,6 +96,21 @@ public class LocationSharingService extends Service implements LocationListener
       return START_NOT_STICKY;
     }
 
+    // Handle copy URL action from notification
+    if (ACTION_COPY_URL.equals(intent.getAction()))
+    {
+      Logger.i(TAG, "Copy URL action received from notification");
+      String shareUrl = LocationSharingManager.getInstance().getShareUrl();
+      if (shareUrl != null)
+      {
+        android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+        android.content.ClipData clip = android.content.ClipData.newPlainText("Location Share URL", shareUrl);
+        clipboard.setPrimaryClip(clip);
+        android.widget.Toast.makeText(this, R.string.location_sharing_url_copied, android.widget.Toast.LENGTH_SHORT).show();
+      }
+      return START_STICKY;
+    }
+
     // Extract session info
     mSessionId = intent.getStringExtra(EXTRA_SESSION_ID);
     mEncryptionKey = intent.getStringExtra(EXTRA_ENCRYPTION_KEY);
@@ -129,7 +145,7 @@ public class LocationSharingService extends Service implements LocationListener
 
     // Start foreground with notification
     Notification notification = mNotificationHelper != null
-        ? mNotificationHelper.buildNotification(getStopIntent())
+        ? mNotificationHelper.buildNotification(getStopIntent(), getCopyUrlIntent())
         : buildFallbackNotification();
 
     startForeground(NOTIFICATION_ID, notification);
@@ -176,15 +192,7 @@ public class LocationSharingService extends Service implements LocationListener
   {
     mLastLocation = location;
 
-    // Update notification with location info
-    if (mNotificationHelper != null)
-    {
-      Notification notification = mNotificationHelper.buildNotification(
-          getStopIntent(),
-          location,
-          getNavigationInfo());
-      mNotificationHelper.updateNotification(NOTIFICATION_ID, notification);
-    }
+    // No need to update notification - it's simple and static now
 
     // Schedule update if needed
     scheduleUpdate();
@@ -333,6 +341,15 @@ public class LocationSharingService extends Service implements LocationListener
   }
 
   @NonNull
+  private PendingIntent getCopyUrlIntent()
+  {
+    Intent copyIntent = new Intent(this, LocationSharingService.class);
+    copyIntent.setAction(ACTION_COPY_URL);
+    return PendingIntent.getService(this, 1, copyIntent,
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+  }
+
+  @NonNull
   private Notification buildFallbackNotification()
   {
     Intent notificationIntent = new Intent(this, MwmActivity.class);
@@ -341,8 +358,7 @@ public class LocationSharingService extends Service implements LocationListener
 
     return new NotificationCompat.Builder(this, LocationSharingNotification.CHANNEL_ID)
         .setContentTitle(getString(R.string.location_sharing_active))
-        .setContentText(getString(R.string.location_sharing_notification_text))
-        .setSmallIcon(R.drawable.ic_location_sharing)
+        .setSmallIcon(R.drawable.ic_share)
         .setContentIntent(pendingIntent)
         .setOngoing(true)
         .build();

@@ -147,6 +147,12 @@ public class LocationSharingDialog extends DialogFragment
 
       updateUI();
 
+      // Notify the activity
+      if (getActivity() instanceof app.organicmaps.MwmActivity)
+      {
+        ((app.organicmaps.MwmActivity) getActivity()).onLocationSharingStateChanged(true);
+      }
+
       // Auto-copy URL to clipboard
       copyUrlToClipboard(shareUrl);
     }
@@ -167,6 +173,12 @@ public class LocationSharingDialog extends DialogFragment
         Toast.LENGTH_SHORT).show();
 
     updateUI();
+
+    // Notify the activity
+    if (getActivity() instanceof app.organicmaps.MwmActivity)
+    {
+      ((app.organicmaps.MwmActivity) getActivity()).onLocationSharingStateChanged(false);
+    }
   }
 
   private void copyUrl()

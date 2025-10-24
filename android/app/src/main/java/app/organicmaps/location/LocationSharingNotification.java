@@ -66,21 +66,19 @@ public class LocationSharingNotification
   @NonNull
   public Notification buildNotification(@NonNull PendingIntent stopIntent)
   {
-    return buildNotification(stopIntent, null, null);
+    return buildNotification(stopIntent, null);
   }
 
   /**
-   * Build notification with current location and routing info.
+   * Build notification with copy URL action.
    * @param stopIntent PendingIntent to stop sharing
-   * @param location Current location (optional)
-   * @param routingInfo Navigation info (optional)
+   * @param copyUrlIntent PendingIntent to copy URL (optional)
    * @return Notification object
    */
   @NonNull
   public Notification buildNotification(
       @NonNull PendingIntent stopIntent,
-      @Nullable Location location,
-      @Nullable RoutingInfo routingInfo)
+      @Nullable PendingIntent copyUrlIntent)
   {
     Intent notificationIntent = new Intent(mContext, MwmActivity.class);
     PendingIntent pendingIntent = PendingIntent.getActivity(
@@ -90,7 +88,7 @@ public class LocationSharingNotification
         PendingIntent.FLAG_IMMUTABLE);
 
     NotificationCompat.Builder builder = new NotificationCompat.Builder(mContext, CHANNEL_ID)
-        .setSmallIcon(R.drawable.ic_location_sharing)
+        .setSmallIcon(R.drawable.ic_share)
         .setContentIntent(pendingIntent)
         .setOngoing(true)
         .setPriority(NotificationCompat.PRIORITY_LOW)
@@ -101,17 +99,15 @@ public class LocationSharingNotification
     // Title
     builder.setContentTitle(mContext.getString(R.string.location_sharing_active));
 
-    // Content text
-    String contentText = buildContentText(location, routingInfo);
-    builder.setContentText(contentText);
+    // No subtitle - keep it simple
 
-    // Big text style for more details
-    if (routingInfo != null)
+    // Copy URL action button (if provided)
+    if (copyUrlIntent != null)
     {
-      NotificationCompat.BigTextStyle bigTextStyle = new NotificationCompat.BigTextStyle()
-          .bigText(contentText)
-          .setSummaryText(mContext.getString(R.string.location_sharing_tap_to_view));
-      builder.setStyle(bigTextStyle);
+      builder.addAction(
+          R.drawable.ic_share,
+          mContext.getString(R.string.location_sharing_copy_url),
+          copyUrlIntent);
     }
 
     // Stop action button
@@ -127,71 +123,6 @@ public class LocationSharingNotification
     }
 
     return builder.build();
-  }
-
-  @NonNull
-  private String buildContentText(@Nullable Location location, @Nullable RoutingInfo routingInfo)
-  {
-    StringBuilder text = new StringBuilder();
-
-    // If navigating, show ETA and distance
-    if (routingInfo != null && routingInfo.distToTarget != null)
-    {
-      if (routingInfo.totalTimeInSeconds > 0)
-      {
-        String eta = formatTime(routingInfo.totalTimeInSeconds);
-        text.append(mContext.getString(R.string.location_sharing_eta, eta));
-      }
-
-      if (routingInfo.distToTarget != null && routingInfo.distToTarget.isValid())
-      {
-        if (text.length() > 0)
-          text.append(" • ");
-        text.append(routingInfo.distToTarget.toString(mContext));
-        text.append(" ").append(mContext.getString(R.string.location_sharing_remaining));
-      }
-    }
-    else
-    {
-      // Standalone mode - show accuracy if available
-      if (location != null)
-      {
-        text.append(mContext.getString(R.string.location_sharing_accuracy,
-            formatAccuracy(location.getAccuracy())));
-      }
-      else
-      {
-        text.append(mContext.getString(R.string.location_sharing_waiting_for_location));
-      }
-    }
-
-    return text.toString();
-  }
-
-  @NonNull
-  private String formatTime(int seconds)
-  {
-    if (seconds < 60)
-      return String.format(Locale.US, "%ds", seconds);
-
-    int minutes = seconds / 60;
-    if (minutes < 60)
-      return String.format(Locale.US, "%d min", minutes);
-
-    int hours = minutes / 60;
-    int remainingMinutes = minutes % 60;
-    return String.format(Locale.US, "%dh %dm", hours, remainingMinutes);
-  }
-
-  @NonNull
-  private String formatAccuracy(float accuracyMeters)
-  {
-    if (accuracyMeters < 10)
-      return mContext.getString(R.string.location_sharing_accuracy_high);
-    else if (accuracyMeters < 50)
-      return mContext.getString(R.string.location_sharing_accuracy_medium);
-    else
-      return mContext.getString(R.string.location_sharing_accuracy_low);
   }
 
   /**

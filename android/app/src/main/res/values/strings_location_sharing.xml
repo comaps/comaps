@@ -4,7 +4,7 @@
   <string name="location_sharing_title">Live Location Sharing</string>
   <string name="location_sharing_start">Start Sharing</string>
   <string name="location_sharing_stop">Stop Sharing</string>
-  <string name="location_sharing_active">Sharing location</string>
+  <string name="location_sharing_active">Sharing live location</string>
   <string name="location_sharing_status_active">Your location is being shared</string>
   <string name="location_sharing_status_inactive">Location sharing is not active</string>
 

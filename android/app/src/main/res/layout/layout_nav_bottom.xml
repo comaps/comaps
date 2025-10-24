@@ -51,7 +51,7 @@
       android:background="?selectableItemBackgroundBorderless"
       android:scaleType="center"
       android:contentDescription="@string/location_sharing_title"
-      app:srcCompat="@drawable/ic_location_sharing"
+      app:srcCompat="@drawable/ic_share"
       app:tint="?iconTint" />
 
     <com.google.android.material.imageview.ShapeableImageView

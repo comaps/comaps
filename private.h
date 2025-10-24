@@ -11,4 +11,4 @@
 #define TRAFFIC_DATA_BASE_URL ""
 #define USER_BINDING_PKCS12 ""
 #define USER_BINDING_PKCS12_PASSWORD ""
-#define LOCATION_SHARING_SERVER_URL "https://ec1e1096-e991-4cb1-ac21-30fbad2bd406.mock.pstmn.io"
+#define LOCATION_SHARING_SERVER_URL "https://live.comaps.app"

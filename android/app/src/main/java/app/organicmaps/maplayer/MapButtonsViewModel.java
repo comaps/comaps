@@ -16,6 +16,7 @@ public class MapButtonsViewModel extends ViewModel
   private final MutableLiveData<SearchWheel.SearchOption> mSearchOption = new MutableLiveData<>();
   private final MutableLiveData<Boolean> mTrackRecorderState =
       new MutableLiveData<>(TrackRecorder.nativeIsTrackRecordingEnabled());
+  private final MutableLiveData<Boolean> mLocationSharingState = new MutableLiveData<>(false);
 
   public MutableLiveData<Boolean> getButtonsHidden()
   {
@@ -85,5 +86,15 @@ public class MapButtonsViewModel extends ViewModel
   public MutableLiveData<Boolean> getTrackRecorderState()
   {
     return mTrackRecorderState;
+  }
+
+  public void setLocationSharingState(boolean state)
+  {
+    mLocationSharingState.setValue(state);
+  }
+
+  public MutableLiveData<Boolean> getLocationSharingState()
+  {
+    return mLocationSharingState;
   }
 }

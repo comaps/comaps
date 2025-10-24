@@ -210,6 +210,9 @@
     <!-- Length of track in cell that describes route -->
     <string name="length">Length</string>
     <string name="share_my_location">Share My Location</string>
+    <string name="stop_sharing_my_location">Stop Sharing My Location</string>
+    <string name="share_location_coordinates">Share Current Coordinates</string>
+    <string name="share_location_live">Start Live Location Sharing</string>
     <!-- Settings general group in settings screen -->
     <string name="prefs_group_general">General settings</string>
     <!-- Settings information group in settings screen -->

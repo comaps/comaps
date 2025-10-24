@@ -27,6 +27,7 @@ public class NavMenu
   private final View mHeaderFrame;
 
   private final ShapeableImageView mTts;
+  private final ShapeableImageView mShareLocation;
   private final MaterialTextView mEtaValue;
   private final MaterialTextView mEtaAmPm;
   private final MaterialTextView mTimeHourValue;
@@ -98,14 +99,16 @@ public class NavMenu
     mRouteProgress = bottomFrame.findViewById(R.id.navigation_progress);
 
     // Bottom frame buttons
-    ShapeableImageView shareLocation = bottomFrame.findViewById(R.id.share_location);
-    shareLocation.setOnClickListener(v -> onShareLocationClicked());
+    mShareLocation = bottomFrame.findViewById(R.id.share_location);
+    mShareLocation.setOnClickListener(v -> onShareLocationClicked());
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
     mSettings.setOnClickListener(v -> onSettingsClicked());
     mTts = bottomFrame.findViewById(R.id.tts_volume);
     mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
+
+    updateShareLocationColor();
   }
 
   private void onStopClicked()
@@ -116,6 +119,17 @@ public class NavMenu
   private void onShareLocationClicked()
   {
     LocationSharingDialog.show(mActivity.getSupportFragmentManager());
+    // Update color after dialog is shown (in case state changes)
+    mShareLocation.postDelayed(this::updateShareLocationColor, 500);
+  }
+
+  public void updateShareLocationColor()
+  {
+    final boolean isLocationSharing = app.organicmaps.location.LocationSharingManager.getInstance().isSharing();
+    final int color = isLocationSharing
+        ? androidx.core.content.ContextCompat.getColor(mActivity, R.color.active_location_sharing)
+        : app.organicmaps.util.ThemeUtils.getColor(mActivity, R.attr.iconTint);
+    mShareLocation.setImageTintList(android.content.res.ColorStateList.valueOf(color));
   }
 
   private void onSettingsClicked()

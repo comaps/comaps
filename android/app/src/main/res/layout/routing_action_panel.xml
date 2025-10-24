@@ -76,7 +76,7 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_margin="@dimen/margin_base"
-      app:srcCompat="@drawable/ic_location_sharing"
+      app:srcCompat="@drawable/ic_share"
       app:tint="?colorSecondary"
       android:contentDescription="@string/location_sharing_title"/>
   </LinearLayout>

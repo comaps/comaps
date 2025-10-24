@@ -210,6 +210,11 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mNavMenu.refreshTts();
   }
 
+  public void refreshShareLocationColor()
+  {
+    mNavMenu.updateShareLocationColor();
+  }
+
   @Override
   public void onEnabled()
   {

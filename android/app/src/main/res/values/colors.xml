@@ -125,6 +125,7 @@
   <color name="elevation_profile">@color/base_accent</color>
 
   <color name="active_track_recording">#FFFF0000</color>
+  <color name="active_location_sharing">#FF9500</color>
 
   <color name="material_calendar_surface_dark">#929292</color>
   <color name="notification_warning">#FFC22219</color>
