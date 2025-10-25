@@ -206,6 +206,9 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
+node|z18-[natural=tree],
+{icon-image: tree-m.svg;}
+
 /* 3. TRANSPORT */
 
 node|z12-[railway=station],
