@@ -846,6 +846,7 @@
 "type.natural.spring" = "Quelle";
 "type.natural.spring.drinking_water_no" = "Quelle";
 "type.natural.strait" = "Meerenge";
+"type.natural.tree" = "Baum";
 "type.natural.tree_row" = "Baumreihe";
 "type.natural.vineyard" = "Weinberg";
 "type.natural.volcano" = "Vulkan";

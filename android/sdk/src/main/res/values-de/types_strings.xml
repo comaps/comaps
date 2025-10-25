@@ -753,6 +753,7 @@
     <string name="type.natural.spring">Quelle</string>
     <string name="type.natural.spring.drinking_water_no">Quelle</string>
     <string name="type.natural.strait">Meerenge</string>
+    <string name="type.natural.tree">Baum</string>
     <string name="type.natural.tree_row">Baumreihe</string>
     <string name="type.natural.vineyard">Weinberg</string>
     <string name="type.natural.volcano">Vulkan</string>

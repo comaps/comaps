@@ -2395,6 +2395,9 @@ emergency-fire_hydrant                              # icon z19- (also has captio
 power-substation                                    # icon z17- (also has caption(optional) z18-, area z13-)
 === -9990
 
+natural-tree                                        # icon z18-
+=== -9991
+
 # amenity-bench                                     # caption(optional) z19- (also has icon z18-)
 # amenity-bench-backless                            # caption(optional) z19- (also has icon z18-)
 # amenity-food_sharing                              # caption(optional) z18- (also has icon z18-)

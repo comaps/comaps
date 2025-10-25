@@ -889,6 +889,7 @@
 "type.natural.spring" = "Natural Spring";
 "type.natural.spring.drinking_water_no" = "Natural Spring";
 "type.natural.strait" = "Strait";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "Tree Row";
 "type.natural.vineyard" = "Vineyard";
 "type.natural.volcano" = "Volcano";
