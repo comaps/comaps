@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoMaps Live Location Sharing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: 48px;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 32px;
+    }
+
+    .feature-list {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .feature-icon {
+      width: 40px;
+      height: 40px;
+      background: #667eea;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 20px;
+      margin-right: 16px;
+      flex-shrink: 0;
+    }
+
+    .feature-text {
+      color: #333;
+      font-size: 15px;
+    }
+
+    .api-docs {
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 24px;
+      text-align: left;
+      margin-top: 32px;
+    }
+
+    .api-docs h2 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 16px;
+    }
+
+    .endpoint {
+      background: white;
+      border-radius: 4px;
+      padding: 12px;
+      margin-bottom: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+
+    .method {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-weight: 600;
+      margin-right: 8px;
+      font-size: 11px;
+    }
+
+    .method.get {
+      background: #e3f2fd;
+      color: #1976d2;
+    }
+
+    .method.post {
+      background: #e8f5e9;
+      color: #388e3c;
+    }
+
+    .method.delete {
+      background: #ffebee;
+      color: #d32f2f;
+    }
+
+    .stats {
+      margin-top: 24px;
+      padding: 16px;
+      background: #e8f5e9;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #2e7d32;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CoMaps Live Location Sharing</h1>
+    <p>
+      End-to-end encrypted real-time location sharing server. Share your location securely
+      with friends and family while navigating.
+    </p>
+
+    <div class="feature-list">
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <div class="feature-text">
+          <strong>End-to-end encrypted</strong><br>
+          Location data is encrypted on device, only you and recipients can decrypt it
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🗺️</div>
+        <div class="feature-text">
+          <strong>Real-time updates</strong><br>
+          See live location updates with navigation info and ETA
+        </div>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📱</div>
+        <div class="feature-text">
+          <strong>Works everywhere</strong><br>
+          Compatible with CoMaps mobile apps and any web browser
+        </div>
+      </div>
+    </div>
+
+    <div class="api-docs">
+      <h2>API Endpoints</h2>
+
+      <div class="endpoint">
+        <span class="method post">POST</span>
+        /api/sessions
+      </div>
+
+      <div class="endpoint">
+        <span class="method post">POST</span>
+        /api/sessions/:sessionId/location
+      </div>
+
+      <div class="endpoint">
+        <span class="method get">GET</span>
+        /api/sessions/:sessionId/location/latest
+      </div>
+
+      <div class="endpoint">
+        <span class="method get">GET</span>
+        /api/sessions/:sessionId/location/history
+      </div>
+
+      <div class="endpoint">
+        <span class="method delete">DELETE</span>
+        /api/sessions/:sessionId
+      </div>
+    </div>
+
+    <div class="stats" id="stats">
+      Loading server statistics...
+    </div>
+  </div>
+
+  <script>
+    // Load server stats
+    fetch('/api/stats')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('stats').innerHTML = `
+          Active sessions: <strong>${data.activeSessions}</strong> |
+          Total updates: <strong>${data.totalLocationUpdates}</strong>
+        `;
+      })
+      .catch(() => {
+        document.getElementById('stats').innerHTML = 'Server statistics unavailable';
+      });
+  </script>
+</body>
+</html>
