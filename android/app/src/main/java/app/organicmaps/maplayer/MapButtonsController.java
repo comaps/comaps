@@ -323,8 +323,7 @@ public class MapButtonsController extends Fragment
     BadgeUtils.attachBadgeDrawable(mBadgeDrawable, menuButton);
 
     final boolean isTrackRecording = TrackRecorder.nativeIsTrackRecordingEnabled();
-    final boolean isLocationSharing = app.organicmaps.location.LocationSharingManager.getInstance().isSharing();
-    updateMenuBadge(isTrackRecording || isLocationSharing);
+    updateMenuBadge(isTrackRecording);
   }
 
   public void updateLayerButton()
