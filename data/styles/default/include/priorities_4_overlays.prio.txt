@@ -550,7 +550,7 @@ railway-subway_entrance-yokohama                    # icon z16- (also has captio
 railway-tram_stop                                   # icon z14- (also has caption(optional) z17-)
 === 3650
 
-highway-bus_stop                                    # icon z16- (also has caption(optional) z17-)
+highway-bus_stop                                    # icon z14- (also has caption(optional) z17-)
 === 3600
 
 amenity-drinking_water                              # icon z17- (also has caption(optional) z18-)
@@ -1776,7 +1776,7 @@ leisure-swimming_pool-private                       # icon z17- (also has captio
 # railway-tram_stop                                 # caption(optional) z17- (also has icon z14-)
 # === -6350
 
-# highway-bus_stop                                  # caption(optional) z17- (also has icon z16-)
+# highway-bus_stop                                  # caption(optional) z17- (also has icon z14-)
 # === -6400
 
 # amenity-drinking_water                            # caption(optional) z18- (also has icon z17-)
