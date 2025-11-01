@@ -11,8 +11,8 @@ namespace df
 namespace
 {
 double constexpr kValidPathSplineTurn = 15 * math::pi / 180;
-double constexpr kCosTurn = 0.999989561; // cos(kValidPathSplineTurn)
-double constexpr kSinTurn = 0.004569245; // sin(kValidPathSplineTurn)
+double constexpr kCosTurn = 0.999989561;  // cos(kValidPathSplineTurn)
+double constexpr kSinTurn = 0.004569245;  // sin(kValidPathSplineTurn)
 double constexpr kRoundStep = 23;
 int constexpr kMaxStepsCount = 7;
 
@@ -120,11 +120,6 @@ void PathTextContext::SetLayout(drape_ptr<PathTextLayout> && layout, double base
 ref_ptr<PathTextLayout> const PathTextContext::GetLayout() const
 {
   return make_ref(m_layout);
-}
-
-void PathTextContext::BeforeUpdate()
-{
-  m_updated = false;
 }
 
 std::vector<double> const & PathTextContext::GetOffsets() const

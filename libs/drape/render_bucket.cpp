@@ -6,7 +6,7 @@
 #include "drape/overlay_tree.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
-#include "base/stl_helpers.hpp"
+#include <execution>
 
 namespace dp
 {
@@ -51,23 +51,25 @@ void RenderBucket::AddOverlayHandle(drape_ptr<OverlayHandle> && handle)
 
 void RenderBucket::BeforeUpdate()
 {
-  for (auto & overlayHandle : m_overlay)
-    overlayHandle->BeforeUpdate();
+  std::for_each(std::execution::par_unseq, m_overlay.begin(), m_overlay.end(),
+                [](auto & overlayHandle) { overlayHandle->BeforeUpdate(); });
 }
 
 void RenderBucket::Update(ScreenBase const & modelView)
 {
   BeforeUpdate();
-  for (auto & overlayHandle : m_overlay)
+  std::for_each(std::execution::par_unseq, m_overlay.begin(), m_overlay.end(), [&modelView](auto & overlayHandle)
+  {
     if (overlayHandle->IsVisible())
       overlayHandle->Update(modelView);
+  });
 }
 
 void RenderBucket::CollectOverlayHandles(ref_ptr<OverlayTree> tree)
 {
   BeforeUpdate();
-  for (auto const & overlayHandle : m_overlay)
-    tree->Add(make_ref(overlayHandle));
+  std::for_each(std::execution::par_unseq, m_overlay.begin(), m_overlay.end(),
+                [&tree](auto & overlayHandle) { tree->Add(make_ref(overlayHandle)); });
 }
 
 bool RenderBucket::HasOverlayHandles() const
@@ -102,7 +104,8 @@ void RenderBucket::Render(ref_ptr<GraphicsContext> context, bool drawAsLine)
     ref_ptr<AttributeBufferMutator> rfpAttrib = make_ref(&attributeMutator);
 
     bool hasIndexMutation = false;
-    for (drape_ptr<OverlayHandle> const & handle : m_overlay)
+    std::for_each(std::execution::par_unseq, m_overlay.begin(), m_overlay.end(),
+                  [&, this](drape_ptr<OverlayHandle> const & handle)
     {
       if (handle->IndexesRequired())
       {
@@ -113,7 +116,7 @@ void RenderBucket::Render(ref_ptr<GraphicsContext> context, bool drawAsLine)
 
       if (handle->HasDynamicAttributes())
         handle->GetAttributeMutation(rfpAttrib);
-    }
+    });
 
     m_buffer->ApplyMutation(context, hasIndexMutation ? rfpIndex : nullptr, rfpAttrib);
   }
@@ -129,7 +132,7 @@ void RenderBucket::SetFeatureMinZoom(int minZoom)
 void RenderBucket::RenderDebug(ref_ptr<GraphicsContext> context, ScreenBase const & screen,
                                ref_ptr<DebugRenderer> debugRectRenderer) const
 {
-  if (!debugRectRenderer || !debugRectRenderer->IsEnabled() || m_overlay.empty())
+  if (m_overlay.empty())
     return;
 
   for (auto const & handle : m_overlay)

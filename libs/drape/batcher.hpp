@@ -10,6 +10,7 @@
 
 #include "base/macros.hpp"
 
+#include <execution>
 #include <functional>
 #include <map>
 #include <vector>
@@ -68,7 +69,13 @@ public:
 
   void SetBatcherHash(uint64_t batcherHash);
 
-  void SetFeatureMinZoom(int minZoom);
+  inline void SetFeatureMinZoom(int minZoom)
+  {
+    m_featureMinZoom = minZoom;
+
+    std::for_each(std::execution::par_unseq, m_buckets.begin(), m_buckets.end(),
+                  [this](auto const & bucket) { bucket.second->SetFeatureMinZoom(m_featureMinZoom); });
+  }
 
 private:
   template <typename TBatcher, typename... TArgs>

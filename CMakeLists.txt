@@ -88,6 +88,11 @@ else()
   add_compile_options(-ffast-math $<$<CXX_COMPILER_ID:GNU>:-Wno-psabi>)
 endif()
 
+# Needed for std::execution::par
+if (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+  add_compile_options(-fexperimental-library)
+endif()
+
 if (PLATFORM_WIN)
   add_definitions(
     -DWIN32_LEAN_AND_MEAN

@@ -8,9 +8,8 @@
 
 #include "geometry/screenbase.hpp"
 
-#include "base/stl_helpers.hpp"
-
 #include <algorithm>
+#include <execution>
 #include <sstream>
 #include <utility>
 
@@ -43,8 +42,8 @@ void RenderGroup::CollectOverlay(ref_ptr<dp::OverlayTree> tree)
   if (CanBeDeleted())
     return;
 
-  for (auto & renderBucket : m_renderBuckets)
-    renderBucket->CollectOverlayHandles(tree);
+  std::for_each(std::execution::par_unseq, m_renderBuckets.begin(), m_renderBuckets.end(),
+                [&](auto & renderBucket) { renderBucket->CollectOverlayHandles(tree); });
 }
 
 bool RenderGroup::HasOverlayHandles() const
@@ -78,8 +77,9 @@ void RenderGroup::Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::Prog
   programPtr->Bind();
   dp::ApplyState(context, programPtr, m_state);
 
-  for (auto & renderBucket : m_renderBuckets)
-    renderBucket->GetBuffer()->Build(context, programPtr);
+  std::for_each(std::execution::par_unseq, m_renderBuckets.begin(), m_renderBuckets.end(),
+                [&context, &programPtr](auto const & renderBucket)
+  { renderBucket->GetBuffer()->Build(context, programPtr); });
 
   auto const program = m_state.GetProgram<gpu::Program>();
   auto const program3d = m_state.GetProgram3d<gpu::Program>();
@@ -100,8 +100,9 @@ void RenderGroup::Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::Prog
     m_params.m_isOutlinePass = 1.0f;
 
     mng->GetParamsSetter()->Apply(context, programPtr, m_params);
-    for (auto & renderBucket : m_renderBuckets)
-      renderBucket->Render(context, m_state.GetDrawAsLine());
+    std::for_each(std::execution::par_unseq, m_renderBuckets.begin(), m_renderBuckets.end(),
+                  [&context, this](auto const & renderBucket)
+    { renderBucket->Render(context, m_state.GetDrawAsLine()); });
 
     m_params.m_contrastGamma = glsl::vec2(glyphParams.m_contrast, glyphParams.m_gamma);
     m_params.m_isOutlinePass = 0.0f;
@@ -112,11 +113,14 @@ void RenderGroup::Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::Prog
   }
 
   mng->GetParamsSetter()->Apply(context, programPtr, m_params);
-  for (auto & renderBucket : m_renderBuckets)
-    renderBucket->Render(context, m_state.GetDrawAsLine());
+  std::for_each(std::execution::par_unseq, m_renderBuckets.begin(), m_renderBuckets.end(),
+                [&context, this](auto const & renderBucket)
+  { renderBucket->Render(context, m_state.GetDrawAsLine()); });
 
-  for (auto const & renderBucket : m_renderBuckets)
-    renderBucket->RenderDebug(context, screen, debugRectRenderer);
+  if (debugRectRenderer && debugRectRenderer->IsEnabled())
+    std::for_each(std::execution::par_unseq, m_renderBuckets.begin(), m_renderBuckets.end(),
+                  [&context, &screen, &debugRectRenderer](auto const & renderBucket)
+    { renderBucket->RenderDebug(context, screen, debugRectRenderer); });
 }
 
 void RenderGroup::AddBucket(drape_ptr<dp::RenderBucket> && bucket)

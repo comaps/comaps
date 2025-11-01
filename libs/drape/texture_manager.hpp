@@ -95,7 +95,11 @@ public:
                                       TMultilineGlyphsBuffer & multilineGlyphRegions);
 
   // This method must be called only on Frontend renderer's thread.
-  bool AreGlyphsReady(TGlyphs const & glyphs) const;
+  inline bool AreGlyphsReady(TGlyphs const & glyphs) const
+  {
+    CHECK(m_isInitialized, ());
+    return m_glyphManager->AreGlyphsReady(glyphs);
+  }
 
   GlyphFontAndId GetSpaceGlyph() const;
 

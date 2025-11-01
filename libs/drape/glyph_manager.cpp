@@ -16,6 +16,8 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include <execution>
+
 #include <ft2build.h>
 #include <hb-ft.h>
 #include <unicode/unistr.h>
@@ -203,9 +205,9 @@ FreetypeError constexpr g_FT_Errors[] =
 
     static void Close(FT_Stream) {}
 
-    void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
+    inline void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
 
-    bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
+    inline bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
 
     std::string GetName() const { return std::string(m_fontFace->family_name) + ':' + m_fontFace->style_name; }
 
@@ -229,7 +231,9 @@ FreetypeError constexpr g_FT_Errors[] =
       hb_glyph_info_t const * glyphInfo = hb_buffer_get_glyph_infos(hbBuffer, &glyphCount);
       hb_glyph_position_t const * glyphPos = hb_buffer_get_glyph_positions(hbBuffer, &glyphCount);
 
-      for (unsigned int i = 0; i < glyphCount; ++i)
+      auto const range = std::ranges::views::iota(0u, glyphCount);
+
+      std::for_each(std::execution::par_unseq, range.begin(), range.end(), [&, this](auto const i)
       {
         // TODO(AB): Check for missing glyph ID?
         auto const glyphId = static_cast<uint16_t>(glyphInfo[i].codepoint);
@@ -247,7 +251,7 @@ FreetypeError constexpr g_FT_Errors[] =
         // yAdvance is always zero for horizontal text layouts.
 
         outMetrics.AddGlyphMetrics(static_cast<int16_t>(fontIndex), glyphId, xOffset, yOffset, xAdvance, fontPixelSize);
-      }
+      });
     }
 
   private:
@@ -255,7 +259,7 @@ FreetypeError constexpr g_FT_Errors[] =
     FT_StreamRec_ m_stream;
     FT_Face m_fontFace;
 
-    std::set<uint16_t> m_readyGlyphs;
+    std::unordered_set<uint16_t> m_readyGlyphs;
 
     hb_font_t * m_harfbuzzFont{nullptr};
   };
@@ -332,7 +336,6 @@ FreetypeError constexpr g_FT_Errors[] =
       using is_transparent = void;
     };
 
-    // TODO(AB): Compare performance with std::map.
     std::unordered_map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
     hb_buffer_t * m_harfbuzzBuffer;
   };
@@ -598,7 +601,7 @@ FreetypeError constexpr g_FT_Errors[] =
 
     allGlyphs.m_glyphs.reserve(strings::CountChar(utf8));
 
-    for (auto const & substring : segments)
+    std::for_each(std::execution::par_unseq, segments.begin(), segments.end(), [&, this](auto const & substring)
     {
       hb_buffer_clear_contents(m_impl->m_harfbuzzBuffer);
 
@@ -626,7 +629,7 @@ FreetypeError constexpr g_FT_Errors[] =
         }
       }
       while (u32CharacterIter != end);
-    }
+    });
 
     // Uncomment utf8 printing for debugging if necessary. It crashes JNI with non-modified UTF-8 strings on Android 5
     // and 6. See https://github.com/organicmaps/organicmaps/issues/10685

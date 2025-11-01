@@ -21,7 +21,8 @@ public:
 
   bool GetPivot(size_t textIndex, m2::PointD & pivot, m2::Spline::iterator & centerPointIter) const;
 
-  void BeforeUpdate();
+  // TODO: these are unused?
+  inline void BeforeUpdate() { m_updated = false; }
   void Update(ScreenBase const & screen);
 
   std::vector<double> const & GetOffsets() const;

@@ -2,7 +2,7 @@
 
 #include "drape/texture.hpp"
 
-#include <map>
+#include <unordered_map>
 #include <string>
 #include <vector>
 
@@ -39,19 +39,17 @@ public:
   void Invalidate(ref_ptr<dp::GraphicsContext> context, std::string const & skinPathName,
                   ref_ptr<HWTextureAllocator> allocator, std::vector<drape_ptr<HWTexture>> & internalTextures);
 
-  bool IsSymbolContained(std::string const & symbolName) const;
-
-  static bool DecodeToMemory(std::string const & skinPathName, std::string const & textureName,
-                             std::vector<uint8_t> & symbolsSkin, std::map<std::string, m2::RectU> & symbolsIndex,
-                             uint32_t & skinWidth, uint32_t & skinHeight);
+  inline bool IsSymbolContained(std::string const & symbolName) const
+  {
+    return m_definition.find(symbolName) != m_definition.end();
+  }
 
 private:
   void Fail(ref_ptr<dp::GraphicsContext> context);
   void Load(ref_ptr<dp::GraphicsContext> context, std::string const & skinPathName,
             ref_ptr<HWTextureAllocator> allocator);
 
-  using TSymDefinition = std::map<std::string, SymbolInfo>;
   std::string m_name;
-  mutable TSymDefinition m_definition;
+  mutable std::unordered_map<std::string, SymbolInfo> m_definition;
 };
 }  // namespace dp

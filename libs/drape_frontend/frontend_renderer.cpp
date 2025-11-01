@@ -37,14 +37,8 @@
 #include "std/target_os.hpp"
 
 #include <algorithm>
-#include <array>
-#include <chrono>
 #include <cmath>
-#include <functional>
-#include <limits>
-#include <memory>
-#include <thread>
-#include <utility>
+#include <execution>
 
 namespace df
 {
@@ -1813,14 +1807,17 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
     return;
 
   BeginUpdateOverlayTree(modelView);
-  for (auto const layerId :
-       {DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
+  constexpr std::array<uint8_t, 3> layers = {static_cast<uint8_t>(DepthLayer::OverlayLayer),
+                                             static_cast<uint8_t>(DepthLayer::RoutingBottomMarkLayer),
+                                             static_cast<uint8_t>(DepthLayer::RoutingMarkLayer)};
+
+  std::for_each(std::execution::par_unseq, layers.begin(), layers.end(), [this, &modelView](uint8_t const layerId)
   {
-    RenderLayer & overlay = m_layers[static_cast<size_t>(layerId)];
+    RenderLayer & overlay = m_layers[layerId];
     overlay.Sort(make_ref(m_overlayTree));
-    for (auto & group : overlay.m_renderGroups)
-      UpdateOverlayTree(modelView, group);
-  }
+    std::for_each(std::execution::par_unseq, overlay.m_renderGroups.begin(), overlay.m_renderGroups.end(),
+                  [this, &modelView](auto & group) { UpdateOverlayTree(modelView, group); });
+  });
   if (m_transitSchemeRenderer->IsSchemeVisible(GetCurrentZoom()) && !HasTransitRouteData())
     m_transitSchemeRenderer->CollectOverlays(make_ref(m_overlayTree), modelView);
   EndUpdateOverlayTree();
