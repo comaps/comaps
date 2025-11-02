@@ -495,7 +495,7 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
 
       if (!street.empty())
       {
-        auto const streets = search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, kStreetRadiusM);
+        auto const streets = search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, kStreetRadiusM, true);
         streetId = MatchObjectByName(street, streets, [](std::string_view name)
         { return search::GetStreetNameAsKey(name, false /* ignoreStreetSynonyms */); });
 
@@ -508,7 +508,7 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
 
       if (!place.empty())
       {
-        auto const places = search::ReverseGeocoder::GetNearbyPlaces(*contexts[threadIdx], center, kPlaceRadiusM);
+        auto const places = search::ReverseGeocoder::GetNearbyPlaces(*contexts[threadIdx], center, kPlaceRadiusM, true);
         placeId = MatchObjectByName(place, places, [](std::string_view name) { return strings::MakeUniString(name); });
       }
 
