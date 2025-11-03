@@ -93,9 +93,7 @@ public:
 
     ForEachIndexImpl(intervals, scale, [&](uint32_t index)
     {
-      auto ft = GetFeature(index, ignoredEditedStatus);
-      if (ft)
-        fn(*ft);
+      fn(*GetFeature(index, ignoredEditedStatus));
     });
   }
 
