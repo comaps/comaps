@@ -83,7 +83,7 @@ class ApplyAreaFeature : public ApplyPointFeature
 
 public:
   ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const & insertShape, FeatureType & f,
-                   double currentScaleGtoP, bool isBuilding, float minPosZ, float posZ,
+                   double currentScaleGtoP, bool isBuilding, bool isMwmBorder, float minPosZ, float posZ,
                    CaptionDescription const & captions);
 
   void operator()(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3);
@@ -136,6 +136,7 @@ private:
 
   float const m_minPosZ;
   bool const m_isBuilding;
+  bool const m_isMwmBorder;
   double const m_currentScaleGtoP;
 };
 
