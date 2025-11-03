@@ -10,6 +10,7 @@ std::array<RenderStateExtension, static_cast<size_t>(DepthLayer::LayersCount)> k
     RenderStateExtension(DepthLayer::GeometryLayer),
     RenderStateExtension(DepthLayer::Geometry3dLayer),
     RenderStateExtension(DepthLayer::UserLineLayer),
+    RenderStateExtension(DepthLayer::MwmBorderLayer),
     RenderStateExtension(DepthLayer::OverlayLayer),
     RenderStateExtension(DepthLayer::TransitSchemeLayer),
     RenderStateExtension(DepthLayer::UserMarkLayer),
