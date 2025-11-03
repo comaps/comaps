@@ -85,7 +85,7 @@ public:
   }
 
   template <typename Fn>
-  void ForEachFeature(m2::RectD const & rect, Fn && fn, bool ignoredEditedStatus = false) const
+  void ForEachFeature(m2::RectD const & rect, Fn && fn, bool ignoreEditedStatus = false) const
   {
     uint32_t const scale = m_value.GetHeader().GetLastScale();
     covering::Intervals intervals;
@@ -93,12 +93,12 @@ public:
 
     ForEachIndexImpl(intervals, scale, [&](uint32_t index)
     {
-      fn(*GetFeature(index, ignoredEditedStatus));
+      fn(*GetFeature(index, ignoreEditedStatus));
     });
   }
 
   // Returns false if feature was deleted by user.
-  std::unique_ptr<FeatureType> GetFeature(uint32_t index, bool ignoredEditedStatus = false) const;
+  std::unique_ptr<FeatureType> GetFeature(uint32_t index, bool ignoreEditedStatus = false) const;
 
   [[nodiscard]] inline bool GetCenter(uint32_t index, m2::PointD & center) { return m_centers.Get(index, center); }
 

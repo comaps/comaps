@@ -35,13 +35,13 @@ void StreetVicinityLoader::OnQueryFinished()
   m_cache.ClearIfNeeded();
 }
 
-StreetVicinityLoader::Street const & StreetVicinityLoader::GetStreet(uint32_t featureId, bool ignoredEditedStatus)
+StreetVicinityLoader::Street const & StreetVicinityLoader::GetStreet(uint32_t featureId, bool ignoreEditedStatus)
 {
   auto r = m_cache.Get(featureId);
   if (!r.second)
     return r.first;
 
-  LoadStreet(featureId, r.first, ignoredEditedStatus);
+  LoadStreet(featureId, r.first, ignoreEditedStatus);
   return r.first;
 }
 
@@ -54,9 +54,9 @@ bool StreetVicinityLoader::IsStreet(FeatureType & ft)
   return ((isLineOrArea && ftypes::IsWayChecker::Instance()(ft)) || ftypes::IsSquareChecker::Instance()(ft));
 }
 
-void StreetVicinityLoader::LoadStreet(uint32_t featureId, Street & street, bool ignoredEditedStatus)
+void StreetVicinityLoader::LoadStreet(uint32_t featureId, Street & street, bool ignoreEditedStatus)
 {
-  auto feature = m_context->GetFeature(featureId, ignoredEditedStatus);
+  auto feature = m_context->GetFeature(featureId, ignoreEditedStatus);
   if (!feature || !IsStreet(*feature))
     return;
 

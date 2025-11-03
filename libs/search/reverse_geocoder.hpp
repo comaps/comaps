@@ -114,11 +114,11 @@ public:
   /// Parameter |includeSquaresAndSuburbs| needed for backward compatibility:
   /// existing mwms operate on streets without squares and suburbs.
   static std::vector<Street> GetNearbyStreets(search::MwmContext & context, m2::PointD const & center,
-                                              double radiusM = kLookupRadiusM, bool ignoredEditedStatus = false);
+                                              double radiusM = kLookupRadiusM, bool ignoreEditedStatus = false);
   std::vector<Street> GetNearbyStreets(MwmSet::MwmId const & id, m2::PointD const & center) const;
   std::vector<Street> GetNearbyStreets(FeatureType & ft) const;
 
-  static std::vector<Place> GetNearbyPlaces(search::MwmContext & context, m2::PointD const & center, double radiusM, bool ignoredEditedStatus = false);
+  static std::vector<Place> GetNearbyPlaces(search::MwmContext & context, m2::PointD const & center, double radiusM, bool ignoreEditedStatus = false);
 
   /// @return feature street name.
   /// Returns empty string when there is no street the feature belongs to.

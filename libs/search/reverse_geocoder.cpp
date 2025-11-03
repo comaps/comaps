@@ -77,7 +77,7 @@ ReverseGeocoder::ReverseGeocoder(DataSource const & dataSource) : m_dataSource(d
 
 template <class ObjT, class FilterT>
 vector<ObjT> GetNearbyObjects(search::MwmContext & context, m2::PointD const & center, double radiusM,
-                              FilterT && filter, bool ignoredEditedStatus = false)
+                              FilterT && filter, bool ignoreEditedStatus = false)
 {
   vector<ObjT> objs;
 
@@ -90,17 +90,17 @@ vector<ObjT> GetNearbyObjects(search::MwmContext & context, m2::PointD const & c
       if (!name.empty())
         objs.emplace_back(ft.GetID(), feature::GetMinDistanceMeters(ft, center), name, ft.GetNames());
     }
-  }, ignoredEditedStatus);
+  }, ignoreEditedStatus);
 
   sort(objs.begin(), objs.end(), base::LessBy(&ObjT::m_distanceMeters));
   return objs;
 }
 
 vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(search::MwmContext & context,
-                                                                  m2::PointD const & center, double radiusM, bool ignoredEditedStatus)
+                                                                  m2::PointD const & center, double radiusM, bool ignoreEditedStatus)
 {
   return GetNearbyObjects<Street>(context, center, radiusM,
-                                  [](FeatureType & ft) { return StreetVicinityLoader::IsStreet(ft); }, ignoredEditedStatus);
+                                  [](FeatureType & ft) { return StreetVicinityLoader::IsStreet(ft); }, ignoreEditedStatus);
 }
 
 vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(MwmSet::MwmId const & id,
@@ -122,13 +122,13 @@ vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(FeatureType & 
 }
 
 std::vector<ReverseGeocoder::Place> ReverseGeocoder::GetNearbyPlaces(search::MwmContext & context,
-                                                                     m2::PointD const & center, double radiusM, bool ignoredEditedStatus)
+                                                                     m2::PointD const & center, double radiusM, bool ignoreEditedStatus)
 {
   return GetNearbyObjects<Place>(context, center, radiusM, [](FeatureType & ft)
   {
     return (ftypes::IsLocalityChecker::Instance().GetType(ft) >= ftypes::LocalityType::City ||
             ftypes::IsSuburbChecker::Instance()(ft));
-  }, ignoredEditedStatus);
+  }, ignoreEditedStatus);
 }
 
 string ReverseGeocoder::GetFeatureStreetName(FeatureType & ft) const

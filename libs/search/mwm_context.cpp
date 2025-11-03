@@ -29,9 +29,9 @@ MwmContext::MwmContext(MwmSet::MwmHandle handle, MwmType type) : MwmContext(std:
   m_type = type;
 }
 
-std::unique_ptr<FeatureType> MwmContext::GetFeature(uint32_t index, bool ignoredEditedStatus) const
+std::unique_ptr<FeatureType> MwmContext::GetFeature(uint32_t index, bool ignoreEditedStatus) const
 {
-  if (ignoredEditedStatus) {
+  if (ignoreEditedStatus) {
     auto ft = m_vector.GetByIndex(index);
     CHECK(ft, ());
     ft->SetID(FeatureID(GetId(), index));

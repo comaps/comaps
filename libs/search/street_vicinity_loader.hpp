@@ -73,10 +73,10 @@ public:
 
   void OnQueryFinished();
 
-  Street const & GetStreet(uint32_t featureId, bool ignoredEditedStatus = false);
+  Street const & GetStreet(uint32_t featureId, bool ignoreEditedStatus = false);
 
 private:
-  void LoadStreet(uint32_t featureId, Street & street, bool ignoredEditedStatus = false);
+  void LoadStreet(uint32_t featureId, Street & street, bool ignoreEditedStatus = false);
 
   MwmContext * m_context;
   int m_scale;
