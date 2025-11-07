@@ -13,6 +13,7 @@
 #include "3party/skarupke/bytell_hash_map.hpp"  // needed despite of IDE warning
 
 #include <algorithm>
+#include <execution>
 #include <map>
 #include <optional>
 #include <queue>
@@ -474,7 +475,8 @@ void IndexGraphStarterJoints<Graph>::GetEdgeList(astar::VertexData<Vertex, Weigh
     CHECK(it != m_savedWeight.cend(), ("Can not find weight for:", vertex));
 
     Weight const weight = it->second;
-    for (size_t i = 0; i < edges.size(); ++i)
+    auto const range = std::ranges::views::iota(0uz, edges.size());
+    std::for_each(std::execution::par_unseq, range.begin(), range.end(), [&, this](auto const i)
     {
       // Saving weight of current edges for returning in the next iterations.
       auto & w = edges[i].GetWeight();
@@ -490,7 +492,7 @@ void IndexGraphStarterJoints<Graph>::GetEdgeList(astar::VertexData<Vertex, Weigh
       // |parentWeights[]|. So the weight of an ith edge is a cached "weight of parent JointSegment" +
       // "parentWeight[i]".
       w = weight + parentWeights[i];
-    }
+    });
 
     // Delete useless weight of parent JointSegment.
     m_savedWeight.erase(vertex);
@@ -498,8 +500,9 @@ void IndexGraphStarterJoints<Graph>::GetEdgeList(astar::VertexData<Vertex, Weigh
   else
   {
     // This needs for correct weights calculation of FakeJointSegments during forward A* search.
-    for (size_t i = firstFakeId; i < edges.size(); ++i)
-      edges[i].GetWeight() += parentWeights[i];
+    auto const range = std::ranges::views::iota(firstFakeId, edges.size());
+    std::for_each(std::execution::par_unseq, range.begin(), range.end(),
+                  [&edges, &parentWeights](auto const i) { edges[i].GetWeight() += parentWeights[i]; });
   }
 
   auto const vertexMwmId = vertex.GetMwmId();
@@ -510,12 +513,12 @@ void IndexGraphStarterJoints<Graph>::GetEdgeList(astar::VertexData<Vertex, Weigh
     /// a weight of v1->v2 transition moving backward (v2 ingoing). This is impossible in current (m_savedWeight)
     /// logic, so I moved Cross-MWM penalty into separate block here after _all_ weights calculations.
 
-    for (auto & e : edges)
+    std::for_each(std::execution::par_unseq, edges.begin(), edges.end(), [&, this](auto & e)
     {
       auto const targetMwmId = e.GetTarget().GetMwmId();
       if (targetMwmId != kFakeNumMwmId && vertexMwmId != targetMwmId)
         e.GetWeight() += m_graph.GetCrossBorderPenalty(vertexMwmId, targetMwmId);
-    }
+    });
   }
 }
 

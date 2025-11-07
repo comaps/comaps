@@ -4,16 +4,14 @@
 #include "routing/routing_options.hpp"
 #include "routing/world_graph.hpp"
 
-#include "platform/settings.hpp"
-
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
-#include "base/exception.hpp"
 #include "base/timer.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 
 #include <algorithm>
+#include <execution>
 #include <limits>
 #include <utility>
 
@@ -321,7 +319,9 @@ void IndexGraph::ReconstructJointSegment(astar::VertexData<JointSegment, RouteWe
 
   auto const & weightTimeToParent = parentVertexData.m_realDistance;
   auto const & parentJoint = parentVertexData.m_vertex;
-  for (size_t i = 0; i < firstChildren.size(); ++i)
+
+  auto const range = std::ranges::views::iota(0uz, firstChildren.size());
+  std::for_each(std::execution::par_unseq, range.begin(), range.end(), [&, this](auto const i)
   {
     auto const & firstChild = firstChildren[i];
     auto const lastPointId = lastPointIds[i];
@@ -335,22 +335,21 @@ void IndexGraph::ReconstructJointSegment(astar::VertexData<JointSegment, RouteWe
     { return currentPointId < lastPointId ? pointId + 1 : pointId - 1; };
 
     if (IsAccessNoForSure(firstChild.GetFeatureId(), weightTimeToParent, true /* useAccessConditional */))
-      continue;
+      return;
 
     if (IsAccessNoForSure(parent.GetRoadPoint(isOutgoing), weightTimeToParent, true /* useAccessConditional */))
-      continue;
+      return;
 
     if (IsUTurn(parent, firstChild) && IsUTurnAndRestricted(parent, firstChild, isOutgoing))
-      continue;
+      return;
 
     if (IsRestricted(parentJoint, parent.GetFeatureId(), firstChild.GetFeatureId(), isOutgoing, parents))
-      continue;
+      return;
 
     RouteWeight summaryWeight;
     // Check current JointSegment for bad road access between segments.
     RoadPoint rp = firstChild.GetRoadPoint(isOutgoing);
     uint32_t start = currentPointId;
-    bool noRoadAccess = false;
     do
     {
       // This is optimization: we calculate accesses of road points before calculating weight of
@@ -360,18 +359,12 @@ void IndexGraph::ReconstructJointSegment(astar::VertexData<JointSegment, RouteWe
       // until this |rp|. But we assume that segments have small length and inaccuracy will not
       // affect user.
       if (IsAccessNoForSure(rp, weightTimeToParent, true /* useAccessConditional */))
-      {
-        noRoadAccess = true;
-        break;
-      }
+        return;
 
       start = increment(start);
       rp.SetPointId(start);
     }
     while (start != lastPointId);
-
-    if (noRoadAccess)
-      continue;
 
     bool forward = currentPointId < lastPointId;
     Segment current = firstChild;
@@ -396,7 +389,7 @@ void IndexGraph::ReconstructJointSegment(astar::VertexData<JointSegment, RouteWe
 
     jointEdges.emplace_back(isOutgoing ? JointSegment(firstChild, prev) : JointSegment(prev, firstChild),
                             summaryWeight);
-  }
+  });
 }
 
 void IndexGraph::GetNeighboringEdge(astar::VertexData<Segment, RouteWeight> const & fromVertexData, Segment const & to,

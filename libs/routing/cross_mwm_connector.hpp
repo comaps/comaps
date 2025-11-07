@@ -11,6 +11,7 @@
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 
+#include <execution>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -117,27 +118,31 @@ public:
   template <class FnT>
   void ForEachEnter(FnT && fn) const
   {
-    for (auto const & [key, transit] : m_transitions)
+    std::for_each(std::execution::par_unseq, m_transitions.begin(), m_transitions.end(), [&](auto const & pair)
     {
+      auto const & [key, transit] = pair;
+
       if (transit.m_forwardIsEnter)
         fn(transit.m_enterIdx, Segment(m_mwmId, key.m_featureId, key.m_segmentIdx, true));
 
       if (!transit.m_oneWay && !transit.m_forwardIsEnter)
         fn(transit.m_enterIdx, Segment(m_mwmId, key.m_featureId, key.m_segmentIdx, false));
-    }
+    });
   }
 
   template <class FnT>
   void ForEachExit(FnT && fn) const
   {
-    for (auto const & [key, transit] : m_transitions)
+    std::for_each(std::execution::par_unseq, m_transitions.begin(), m_transitions.end(), [&](auto const & pair)
     {
+      auto const & [key, transit] = pair;
+
       if (!transit.m_forwardIsEnter)
         fn(transit.m_exitIdx, Segment(m_mwmId, key.m_featureId, key.m_segmentIdx, true));
 
       if (!transit.m_oneWay && transit.m_forwardIsEnter)
         fn(transit.m_exitIdx, Segment(m_mwmId, key.m_featureId, key.m_segmentIdx, false));
-    }
+    });
   }
 
   void GetOutgoingEdgeList(Segment const & segment, EdgeListT & edges) const
