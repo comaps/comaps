@@ -375,7 +375,12 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Haupteingang";
-"type.entrance.exit" = "Ausgang";
+"type.entrance.house" = "Hauseingang";
+"type.entrance.garage" = "Garageneingang";
+"type.entrance.service" = "Serviceeingang";
+"type.entrance.entry" = "(Nur) Eingang";
+"type.entrance.exit" = "(Nur) Ausgang";
+"type.entrance.emergency" = "Notausgang";
 "type.fee.yes" = "$";
 "type.fee.no" = "Kostenlos";
 "type.healthcare.laboratory" = "Medizinisches Labor";

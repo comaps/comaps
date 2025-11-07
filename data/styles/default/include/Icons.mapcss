@@ -1363,7 +1363,7 @@ node|z17-[barrier=wicket_gate],
 {icon-image: dot-m.svg;font-size: 11;}
 
 node|z16-[barrier=entrance],
-{icon-image: entrance-barrier-s.svg; font-size: 11;}
+{icon-image: entrance-barrier-xs.svg; font-size: 11;}
 
 node|z17-[highway=ladder],
 {icon-image: ladder-m.svg;font-size: 11;}
@@ -1544,7 +1544,7 @@ node|z17-[amenity=telephone]
 {icon-image: phone-m.svg;}
 
 node|z17-[emergency=phone]
-{icon-image: emergency-phone-m.svg;}
+{icon-image: emergency-phone-m.svg; text-offset: 1;}
 
 
 node|z16-[amenity=recycling][recycling_type=centre],

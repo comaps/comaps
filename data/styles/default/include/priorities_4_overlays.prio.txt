@@ -1296,9 +1296,15 @@ power-plant-wind                                    # icon z15- (also has captio
 === 230
 
 barrier-entrance                                    # icon z16- (also has caption(optional) z16-)
-entrance-main                                       # icon z16- (also has caption(optional) z18-)
+entrance-main                                       # icon z17- (also has caption(optional) z18-)
+=== 225
+
+entrance                                            # icon z17- (also has caption(optional) z19-)
+entrance-entry                                      # icon z17- (also has caption(optional) z19-)
+entrance-exit                                       # icon z17- (also has caption(optional) z19-)
 === 220
 
+entrance-emergency                                  # icon z20- (also has caption(optional) z20-)
 highway-traffic_signals                             # icon z19-
 === 215
 
@@ -2286,8 +2292,16 @@ leisure-swimming_pool-private                       # icon z17- (also has captio
 # === -9770
 
 # barrier-entrance                                  # caption(optional) z16- (also has icon z16-)
-# entrance-main                                     # caption(optional) z18- (also has icon z16-)
+# entrance-main                                     # caption(optional) z18- (also has icon z17-)
+# === -9775
+
+# entrance                                          # caption(optional) z19- (also has icon z17-)
+# entrance-entry                                    # caption(optional) z19- (also has icon z17-)
+# entrance-exit                                     # caption(optional) z19- (also has icon z17-)
 # === -9780
+
+# entrance-emergency                                # caption(optional) z20- (also has icon z20-)
+# === -9785
 
 # historic-anchor                                   # caption(optional) z18- (also has icon z18-)
 # historic-cannon                                   # caption(optional) z18- (also has icon z18-)
@@ -2330,11 +2344,14 @@ tourism-information                                 # icon z16- (also has captio
 tourism-information-board                           # icon z16- (also has caption(optional) z16-)
 tourism-information-guidepost                       # icon z16- (also has caption(optional) z16-)
 tourism-information-map                             # icon z16- (also has caption(optional) z16-)
-=== -9950
+=== -9940
 
 amenity                                             # caption z19-
 amenity-telephone                                   # icon z17- (also has caption(optional) z19-)
-entrance                                            # icon z17- (also has caption(optional) z19-)
+entrance-house                                      # icon z19- (also has caption(optional) z19-)
+=== -9950
+
+entrance-garage                                     # icon z19- (also has caption(optional) z19-)
 === -9960
 
 amenity-food_sharing                                # icon z18- (also has caption(optional) z18-)
@@ -2363,7 +2380,7 @@ amenity-lounger                                     # icon z18- (also has captio
 amenity-waste_disposal                              # icon z18- (also has caption(optional) z18-)
 emergency-assembly_point                            # icon z18- (also has caption(optional) z18-)
 emergency-defibrillator                             # icon z18- (also has caption(optional) z18-)
-emergency-phone                                     # icon z17-
+emergency-phone                                     # icon z17- (also has caption(optional) z19-)
 man_made-telescope                                  # icon z18- (also has caption(optional) z18-)
 === -9980
 
@@ -2376,8 +2393,8 @@ power-substation                                    # icon z17- (also has captio
 # amenity-bench-backless                            # caption(optional) z19- (also has icon z18-)
 # amenity-food_sharing                              # caption(optional) z18- (also has icon z18-)
 # amenity-give_box                                  # caption(optional) z18- (also has icon z18-)
-amenity-loading_dock                                # icon z18- (also has caption(optional) z19-)
-# amenity-loading_dock                              # caption(optional) z19- (also has icon z18-)
+amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
+# amenity-loading_dock                              # caption(optional) z19- (also has icon z19-)
 # amenity-lounger                                   # caption(optional) z19- (also has icon z18-)
 # amenity-parking_space-disabled                    # caption(optional) z19- (also has icon z18-)
 # amenity-telephone                                 # caption(optional) z19- (also has icon z17-)
@@ -2395,9 +2412,11 @@ amenity-loading_dock                                # icon z18- (also has captio
 # emergency-assembly_point                          # caption(optional) z18- (also has icon z18-)
 # emergency-defibrillator                           # caption(optional) z18- (also has icon z18-)
 # emergency-fire_hydrant                            # caption(optional) z19- (also has icon z19-)
-# entrance                                          # caption(optional) z19- (also has icon z17-)
-entrance-exit                                       # icon z17- (also has caption(optional) z19-)
-# entrance-exit                                     # caption(optional) z19- (also has icon z17-)
+# emergency-phone                                   # caption(optional) z19- (also has icon z17-)
+# entrance-garage                                   # caption(optional) z19- (also has icon z19-)
+# entrance-house                                    # caption(optional) z19- (also has icon z19-)
+entrance-service                                    # icon z19- (also has caption(optional) z19-)
+# entrance-service                                  # caption(optional) z19- (also has icon z19-)
 # man_made-cairn                                    # caption(optional) z19- (also has icon z19-)
 # man_made-survey_point                             # caption(optional) z18- (also has icon z18-)
 # man_made-telescope                                # caption(optional) z18- (also has icon z18-)

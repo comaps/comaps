@@ -666,12 +666,17 @@ node|z16-[addr:housenumber][addr:street]::int_name,
 
 node|z18-[entrance=main],
 node|z18-[emergency=emergency_ward_entrance],
-node|z19-[entrance],
+node|z19-[entrance!=emergency],
+node|z19-[entrance=entry],
 node|z19-[entrance=exit],
+node|z19-[entrance=house],
+node|z19-[entrance=service],
 node|z19-[amenity=loading_dock],
+node|z20-[entrance=emergency],
 {text: name; text-color: @building_label;}
 node|z18-[entrance=main]::flats,
-node|z19-[entrance]::flats,
+node|z19-[entrance!=emergency]::flats,
+node|z19-[entrance=entry]::flats,
 node|z19-[entrance=exit]::flats,
 {text: int_name; text-color: @building_label; font-size: 8; text-offset: 1;}
 
@@ -706,21 +711,39 @@ node|z18-[addr:housenumber][addr:street],
 node|z16-[addr:housenumber][addr:street]::int_name,
 {font-size: 8;}
 
-node|z17[entrance],
-node|z18[amenity=loading_dock],
-node|z16[entrance=main],
-node|z16[emergency=emergency_ward_entrance],
-{icon-image: square-m.svg;}
+node|z17-[entrance],
+{icon-image: entrance-xs.svg;}
+node|z17[entrance=entrance],
+{icon-image: entrance-entry-xs.svg;}
+node|z17[entrance=exit],
+{icon-image: entrance-exit-xs.svg;}
+node|z17-[entrance=main],
+{icon-image: entrance-main-xs.svg;}
+node|z16-[emergency=emergency_ward_entrance],
+{icon-image: entrance-emergency-xs.svg;}
 
 node|z18-[entrance],
-node|z19-[amenity=loading_dock],
-{icon-image: entrance-s.svg; font-size: 10; text-offset: 1;}
+{icon-image: entrance-m.svg; font-size: 10; text-offset: 1;}
+node|z18-[entrance=entrance],
+{icon-image: entrance-entry-m.svg; font-size: 10; text-offset: 1;}
 node|z18-[entrance=exit],
-{icon-image: entrance-exit-s.svg; font-size: 10; text-offset: 1;}
-node|z17-[entrance=main],
-{icon-image: entrance-main-s.svg; font-size: 10; text-offset: 1;}
-node|z17-[emergency=emergency_ward_entrance],
-{icon-image: entrance-emergency-s.svg; font-size: 10; text-offset: 1;}
+{icon-image: entrance-exit-m.svg; font-size: 10; text-offset: 1;}
+node|z18-[entrance=main],
+{icon-image: entrance-main-m.svg; font-size: 10; text-offset: 1;}
+node|z18-[emergency=emergency_ward_entrance],
+{icon-image: entrance-emergency-m.svg; font-size: 10; text-offset: 1;}
+node|z19-[entrance=service],
+node|z19-[amenity=loading_dock],
+{icon-image: entrance-service-m.svg; font-size: 10; text-offset: 1;}
+node|z20-[entrance=emergency],
+{icon-image: emergency-exit-m.svg; font-size: 10; text-offset: 1;}
+
+node|z17[entrance=home],
+node|z17[entrance=staircase],
+node|z17-18[entrance=garage],
+node|z17-18[entrance=service],
+node|z17-19[entrance=emergency],
+{icon-image: none;}
 
 /* 8.3 Airports */
 area|z14-[aeroway=terminal]

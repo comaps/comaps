@@ -349,7 +349,12 @@
     <string name="type.entrance">Eingang</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Haupteingang</string>
-    <string name="type.entrance.exit">Ausgang</string>
+    <string name="type.entrance.house">Hauseingang</string>
+    <string name="type.entrance.garage">Garageneingang</string>
+    <string name="type.entrance.service">Serviceeingang</string>
+    <string name="type.entrance.entry">(Nur) Eingang</string>
+    <string name="type.entrance.exit">(Nur) Ausgang</string>
+    <string name="type.entrance.emergency">Notausgang</string>
     <string name="type.fee.no">Kostenlos</string>
     <string name="type.healthcare.laboratory">Medizinisches Labor</string>
     <string name="type.healthcare.physiotherapist">Physiotherapie</string>

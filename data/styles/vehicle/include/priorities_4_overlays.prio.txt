@@ -757,10 +757,18 @@ building-has_parts                                  # caption z18- (also has are
 
 building-garage                                     # caption z18- (also has area z15-)
 building-guardhouse                                 # icon z18- (also has area z15-)
-=== 30
+=== 40
 
 entrance-main                                       # icon z18- (also has caption(optional) z18-)
+=== 30
+
+entrance                                            # icon z19- (also has caption(optional) z19-)
+entrance-entry                                      # icon z19- (also has caption(optional) z19-)
+entrance-exit                                       # icon z19- (also has caption(optional) z19-)
 === 20
+
+entrance-emergency                                  # icon z19- (also has caption(optional) z19-)
+=== 10
 
 #
 # All automatic optional captions priorities are below 0.
@@ -1232,13 +1240,27 @@ entrance-main                                       # icon z18- (also has captio
 # leisure-park-private                              # caption(optional) z14- (also has icon z14-, area z10-)
 # === -9900
 
+entrance-garage                                     # icon z19- (also has caption(optional) z19-)
+=== -9910
+
+entrance-house                                      # icon z19- (also has caption(optional) z19-)
+=== -9920
+
 # entrance-main                                     # caption(optional) z18- (also has icon z18-)
+# === -9970
+
+# entrance                                          # caption(optional) z19- (also has icon z19-)
+# entrance-entry                                    # caption(optional) z19- (also has icon z19-)
+# entrance-exit                                     # caption(optional) z19- (also has icon z19-)
 # === -9980
+
+# entrance-emergency                                # caption(optional) z19- (also has icon z19-)
+# === -9990
 
 amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
 # amenity-loading_dock                              # caption(optional) z19- (also has icon z19-)
-entrance                                            # icon z19- (also has caption(optional) z19-)
-# entrance                                          # caption(optional) z19- (also has icon z19-)
-entrance-exit                                       # icon z19- (also has caption(optional) z19-)
-# entrance-exit                                     # caption(optional) z19- (also has icon z19-)
+# entrance-garage                                   # caption(optional) z19- (also has icon z19-)
+# entrance-house                                    # caption(optional) z19- (also has icon z19-)
+entrance-service                                    # icon z19- (also has caption(optional) z19-)
+# entrance-service                                  # caption(optional) z19- (also has icon z19-)
 === -10000

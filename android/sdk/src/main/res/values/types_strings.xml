@@ -383,7 +383,12 @@
     <string name="type.entrance">Entrance</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Main Entrance</string>
-    <string name="type.entrance.exit">Exit</string>
+    <string name="type.entrance.house">House Entrance</string>
+    <string name="type.entrance.garage">Garage Entrance</string>
+    <string name="type.entrance.service">Service Entrance</string>
+    <string name="type.entrance.entry">Entry (Only)</string>
+    <string name="type.entrance.exit">Exit (Only)</string>
+    <string name="type.entrance.emergency">Emergency Exit</string>
     <string name="type.fee.yes">$</string>
     <string name="type.fee.no">Free</string>
     <string name="type.healthcare.laboratory">Medical Laboratory</string>
