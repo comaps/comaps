@@ -18,8 +18,6 @@
 
 #include "indexer/feature_meta.hpp"
 
-#include "geometry/point2d.hpp"
-
 #include <memory>
 #include <optional>
 #include <unordered_map>
