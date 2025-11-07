@@ -462,7 +462,7 @@ place|country;349;
 deprecated:highway|path|alpine_hiking:04.2024;[highway=path][sac_scale=alpine_hiking];x;name;int_name;350;highway|path|expert
 tourism|zoo|petting;[tourism=zoo][zoo=petting_zoo];;name;int_name;351;
 sport|scuba_diving;352;
-deprecated:highway|cycleway|permissive:12.2023;[highway=cycleway][access=permissive];x;name;int_name;353;highway|cycleway
+entrance|emergency;[entrance=emergency],[exit=emergency];;name;int_name;353;
 highway|unclassified|area;[highway=unclassified][area?];;name;int_name;354;
 natural|volcano;355;
 amenity|parking|underground|fee;[amenity=parking][location=underground][fee],[amenity=parking][parking=underground][fee];;name;int_name;356;
@@ -564,8 +564,8 @@ deprecated:railway|yard:06.2023;447;x
 natural|water|ditch;[natural=water][water=ditch];;name;int_name;448;
 natural|water|moat;[natural=water][water=moat];;name;int_name;449;
 natural|water|wastewater;[natural=water][water=wastewater];;name;int_name;450;
-deprecated:railway|razed:06.2023;451;x
-deprecated:highway|footway|demanding_mountain_hiking:04.2024;[highway=footway][sac_scale=demanding_mountain_hiking];x;name;int_name;452;highway|path|difficult
+entrance|service;451;
+entrance|entry;[entrance=entrance];;ref;addr:flats;452;
 amenity|shelter|basic_hut;[amenity=shelter][shelter_type=basic_hut];;name;int_name;453;
 amenity|shelter|lean_to;[amenity=shelter][shelter_type=lean_to];;name;int_name;454;
 landuse|orchard;455;
@@ -1117,8 +1117,8 @@ junction|roundabout;990;
 highway|speed_camera;991;
 shop|beauty;992;
 shop|sports;993;
-deprecated:route|ferry|motor_vehicle:09.2021;[route=ferry][motor_vehicle];x;name;int_name;994;route|ferry
-deprecated:railway|rail|motor_vehicle:06.2023;[railway=rail][motor_vehicle],[railway=rail][motorcar];x;name;int_name;995;railway|rail
+entrance|house;[entrance=home],[entrance=staircase];;ref;addr:flats;994;
+entrance|garage;[entrance=garage];;ref;addr:flats;995;
 hwtag|nofoot;996;
 place|city|capital|2;[place=city][capital=2],[place=city][capital?][admin_level=2];;name;int_name;997;
 place|city|capital|3;[place=city][capital=3],[place=city][capital?][admin_level=3];;name;int_name;998;
