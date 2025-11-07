@@ -134,6 +134,7 @@ std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
 std::string_view constexpr kFontScaleFactor = "FontScaleFactor";
 std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
+std::string_view constexpr kShowDownloadedRegions = "DownloadedRegions";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
 // Old (pre-modes) settings keys, kept for backward-compatible fallback reads.
@@ -424,6 +425,8 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
 
   if (loadMaps)
     LoadMapsSync();
+
+  UNUSED_VALUE(settings::Get(kShowDownloadedRegions, m_showDownloadedRegions));
 }
 
 Framework::~Framework()
@@ -1524,11 +1527,11 @@ bool Framework::GetDistanceAndAzimut(m2::PointD const & point, double lat, doubl
 
 void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFactory, DrapeCreationParams && params)
 {
-  auto idReadFn = [this](df::MapDataProvider::TReadCallback<FeatureID const> const & fn, m2::RectD const & r, int scale)
+  auto idReadFn = [this](auto const & fn, m2::RectD const & r, int scale)
   {
     m_featuresFetcher.ForEachFeatureID(r, fn, scale);
 
-    if (scale <= 7)
+    if (m_showDownloadedRegions && scale <= 7)
     {
       auto names = m_featuresFetcher.GetDataSource().GetLoadedCountryNames(r);
       ASSERT(base::IsSortedAndUnique(names), ());
@@ -1537,8 +1540,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   };
 
   uint32_t const borderType = classif().GetTypeByPath({"organicapp", "mwm_border"});
-  auto featureReadFn =
-      [this, borderType](df::MapDataProvider::TReadCallback<FeatureType> const & fn, vector<FeatureID> const & ids)
+  auto featureReadFn = [this, borderType](auto const & fn, vector<FeatureID> const & ids)
   {
     m_featuresFetcher.ReadFeatures(fn, ids);
 
@@ -1638,9 +1640,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_transitManager.EnableTransitSchemeMode(CurrentMapModeHasTransitLines());
 
   // Show debug info if it's enabled in the config.
-  bool showDebugInfo;
-  if (!settings::Get(kShowDebugInfo, showDebugInfo))
-    showDebugInfo = false;
+  bool showDebugInfo = false;
+  UNUSED_VALUE(settings::Get(kShowDebugInfo, showDebugInfo));
   if (showDebugInfo)
     m_drapeEngine->ShowDebugInfo(showDebugInfo);
 
@@ -3064,6 +3065,19 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     m_drapeEngine->EnableDebugRectRendering(false /* shown */);
     return true;
   }
+  if (query == "?show-downloaded")
+  {
+    settings::Set(kShowDownloadedRegions, true);
+    m_showDownloadedRegions = true;
+    return true;
+  }
+  if (query == "?no-show-downloaded")
+  {
+    settings::Set(kShowDownloadedRegions, false);
+    m_showDownloadedRegions = false;
+    return true;
+  }
+
 #if defined(OMIM_METAL_AVAILABLE)
   if (query == "?metal")
   {
