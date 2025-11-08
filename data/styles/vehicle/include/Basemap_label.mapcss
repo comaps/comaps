@@ -363,6 +363,7 @@ area|z18-[leisure=park][!name]
 
 area|z14-[natural=desert],
 area|z15-[leisure=beach_resort],
+area|z15-[natural=sand],
 area|z15-[natural=beach],
 node|z17-[leisure=beach_resort],
 node|z17-[natural=beach]

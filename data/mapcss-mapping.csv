@@ -113,7 +113,7 @@ highway|service|driveway;[highway=service][service=driveway];;name;int_name;42;
 addr:interpolation|even;43;
 highway|motorway_link;44;
 waterway|stream|intermittent;[waterway=stream][intermittent=yes];;name;int_name;45;
-deprecated:highway|track|grade4:04.2024;[highway=track][tracktype=grade4];x;name;int_name;46;highway|track
+natural|sand;46;
 natural|water|pond;[natural=water][water=pond];;name;int_name;47;
 landuse|farmland;48;
 barrier|fence;49;
@@ -1348,7 +1348,7 @@ railway|subway_entrance|warszawa;[railway=subway_entrance][city=warszawa];;name;
 shop|bed;1221;
 shop|outpost;1222;
 shop|gas;1223;
-natural|desert;[natural=desert],[natural=sand][desert=erg];;name;int_name;1224;
+natural|desert;1224;
 natural|water|tunnel;[natural=water][tunnel?];;name;int_name;1225;
 place|square;1226;
 tourism|artwork|architecture;[tourism=artwork][artwork_type=architecture],[tourism=artwork][type=architecture];;name;int_name;1227;

@@ -862,6 +862,7 @@
 "type.man_made.embankment" = "Embankment";
 "type.natural.coastline" = "Coastline";
 "type.natural.desert" = "Desert";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "Geyser";
 "type.natural.glacier" = "Glacier";
 "type.natural.grassland" = "Grassland";
