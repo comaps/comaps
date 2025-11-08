@@ -473,6 +473,7 @@ shop-mall                                           # icon z14- (also has captio
 === 1500
 
 natural-desert                                      # caption z14- (also has area z1-)
+natural-sand                                        # caption z15- (also has area z1-)
 === 1450
 
 natural-bay                                         # caption z14-

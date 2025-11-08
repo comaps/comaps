@@ -468,6 +468,7 @@ area|z17-[landuse=plant_nursery],
 /* 5.2 Beach, Glacier, Desert, etc. */
 
 area|z14-[natural=desert],
+area|z15-[natural=sand],
 node|z15-[natural=beach],
 {text: name;font-size: 10;text-color: @poi_label;}
 

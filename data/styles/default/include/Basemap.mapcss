@@ -254,6 +254,7 @@ area|z11-[natural=bare_rock],
 /* 5.BEACH, GLACIER, DESERT, etc. */
 
 area|z0-[natural=glacier],
+area|z0-[natural=sand],
 area|z10-[natural=beach],
 area|z0-[natural=desert],
 area|z10-[leisure=beach_resort],
@@ -262,6 +263,7 @@ area|z10-[leisure=beach_resort],
 area|z0-[natural=glacier]
 {fill-color: @glacier;}
 
+area|z0-[natural=sand],
 area|z10-[natural=beach],
 area|z10-[leisure=beach_resort],
 {fill-color: @beach;}
