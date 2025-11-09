@@ -210,6 +210,9 @@ public:
    * Distance is measured up to the end of the current segment, i.e. including the segment. For the
    * first segment, this is identical to the length of the segment; for the last segment, it is
    * identical to the length of the entire route.
+   *
+   * Note that the first and last real (non-fake) segment on the route may not report the actual
+   * length between their endpoints, but only the part which is also part of the route.
    */
   double GetDistFromBeginningMeters() const { return m_distFromBeginningMeters; }
   double GetDistFromBeginningMerc() const { return m_distFromBeginningMerc; }
@@ -220,6 +223,10 @@ public:
    * Travel time is the ETA from the beginning of the route to the end of the current segment, i.e.
    * including the segment. For the first segment, this is identical to the travel time along the
    * segment; for the last segment, it is identical to the travel time along the entire route.
+   *
+   * Note that the first and last real (non-fake) segment on the route may report time based not
+   * upon the actual length between their endpoints, but upon the part which is also part of the
+   * route.
    */
   double GetTimeFromBeginningSec() const { return m_timeFromBeginningS; }
 
