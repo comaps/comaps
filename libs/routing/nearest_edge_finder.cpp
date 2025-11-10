@@ -9,9 +9,11 @@ namespace routing
 {
 using namespace std;
 
-NearestEdgeFinder::NearestEdgeFinder(m2::PointD const & point, IsEdgeProjGood const & isEdgeProjGood)
+NearestEdgeFinder::NearestEdgeFinder(m2::PointD const & point, IsEdgeProjGood const & isEdgeProjGood,
+                                     bool snapToEnds)
   : m_point(point)
   , m_isEdgeProjGood(isEdgeProjGood)
+  , m_snapToEnds(snapToEnds)
 {}
 
 void NearestEdgeFinder::AddInformationSource(IRoadGraph::FullRoadInfo const & roadInfo)
@@ -28,7 +30,7 @@ void NearestEdgeFinder::AddInformationSource(IRoadGraph::FullRoadInfo const & ro
   {
     m2::ParametrizedSegment<m2::PointD> segment(junctions[i - 1].GetPoint(), junctions[i].GetPoint());
 
-    m2::PointD const closestPoint = segment.ClosestPointTo(m_point);
+    m2::PointD const closestPoint = segment.ClosestPointTo(m_point, m_snapToEnds);
     double const squaredDist = m_point.SquaredLength(closestPoint);
 
     if (squaredDist < res.m_squaredDist)
@@ -48,7 +50,7 @@ void NearestEdgeFinder::AddInformationSource(IRoadGraph::FullRoadInfo const & ro
   geometry::Altitude const startAlt = segStart.GetAltitude();
   geometry::Altitude const endAlt = segEnd.GetAltitude();
   m2::ParametrizedSegment<m2::PointD> segment(junctions[idx - 1].GetPoint(), junctions[idx].GetPoint());
-  m2::PointD const closestPoint = segment.ClosestPointTo(m_point);
+  m2::PointD const closestPoint = segment.ClosestPointTo(m_point, m_snapToEnds);
 
   double const segLenM = mercator::DistanceOnEarth(segStart.GetPoint(), segEnd.GetPoint());
   geometry::Altitude projPointAlt = geometry::kDefaultAltitudeMeters;

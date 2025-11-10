@@ -1,5 +1,6 @@
 #pragma once
 
+#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 
 #include "base/math.hpp"
@@ -59,9 +60,20 @@ public:
 
   /**
    * @brief Returns the point of the segment that is closest to `p`.
+   *
+   * @param p The checkpoint
+   * @param snapToEnds If true, the result is the endpoint of the segment which is closest to `p`
    */
-  m2::PointD ClosestPointTo(Point const & p) const
+  m2::PointD ClosestPointTo(Point const & p, bool snapToEnds = false) const
   {
+    if (snapToEnds)
+    {
+      if (mercator::DistanceOnEarth(p, m_p0) < mercator::DistanceOnEarth(p, m_p1))
+        return m_p0;
+      else
+        return m_p1;
+    }
+
     m2::PointD const diff(p - m_p0);
     double const t = DotProduct(m_d, diff);
 

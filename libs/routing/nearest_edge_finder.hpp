@@ -27,7 +27,12 @@ using IsEdgeProjGood = std::function<bool(std::pair<Edge, geometry::PointWithAlt
 class NearestEdgeFinder
 {
 public:
-  NearestEdgeFinder(m2::PointD const & point, IsEdgeProjGood const & isEdgeProjGood);
+  /**
+   * @param snapToEnds If false, projections of `point` can be anywhere on a segment;
+   * if true, `point` is projected onto the nearest segment endpoint.
+   */
+  NearestEdgeFinder(m2::PointD const & point, IsEdgeProjGood const & isEdgeProjGood,
+                    bool snapToEnds = false);
 
   inline bool HasCandidates() const { return !m_candidates.empty(); }
 
@@ -56,6 +61,7 @@ private:
                          std::vector<EdgeProjectionT> & res) const;
 
   m2::PointD const m_point;
+  bool m_snapToEnds;
   std::vector<Candidate> m_candidates;
   IsEdgeProjGood m_isEdgeProjGood;
 };

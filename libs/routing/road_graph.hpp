@@ -263,7 +263,7 @@ public:
   /// then returns empty array.
   using EdgeProjectionT = std::pair<Edge, JunctionPointT>;
   virtual void FindClosestEdges(m2::RectD const & /*rect*/, uint32_t /*count*/,
-                                std::vector<EdgeProjectionT> & /*vicinities*/) const
+                                std::vector<EdgeProjectionT> & /*vicinities*/, bool snapToEnds) const
   {}
 
   /// \returns Vector of pairs FeatureID and corresponding RoadInfo for road features

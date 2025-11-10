@@ -314,7 +314,7 @@ bool IndexRouter::FindClosestProjectionToRoad(m2::PointD const & point, m2::Poin
   std::vector<EdgeProjectionT> candidates;
 
   uint32_t const count = direction.IsAlmostZero() ? 1 : 4;
-  m_roadGraph.FindClosestEdges(rect, count, candidates);
+  m_roadGraph.FindClosestEdges(rect, count, candidates, (GetMode() == Mode::Decoding));
 
   if (candidates.empty())
     return false;
@@ -1146,10 +1146,10 @@ int IndexRouter::PointsOnEdgesSnapping::Snap(m2::PointD const & start, m2::Point
 
   // One of startEnding or finishEnding will be empty here.
   if (startEnding.m_projections.empty())
-    startEnding = MakeFakeEnding(m_startSegments, start, m_graph);
+    startEnding = MakeFakeEnding(m_startSegments, start, m_graph, (m_router.GetMode() == Mode::Decoding));
 
   if (finishEnding.m_projections.empty())
-    finishEnding = MakeFakeEnding(finishSegments, finish, m_graph);
+    finishEnding = MakeFakeEnding(finishSegments, finish, m_graph, (m_router.GetMode() == Mode::Decoding));
 
   return 0;
 }
@@ -1231,12 +1231,11 @@ bool IndexRouter::PointsOnEdgesSnapping::IsFencedOff(m2::PointD const & point, E
   return false;
 }
 
-// static
 void IndexRouter::PointsOnEdgesSnapping::RoadsToNearestEdges(m2::PointD const & point, vector<RoadInfoT> const & roads,
                                                              IsEdgeProjGood const & isGood,
                                                              vector<EdgeProjectionT> & edgeProj)
 {
-  NearestEdgeFinder finder(point, isGood);
+  NearestEdgeFinder finder(point, isGood, (m_router.GetMode() == Mode::Decoding));
   for (auto const & road : roads)
     finder.AddInformationSource(road);
 

@@ -964,11 +964,15 @@ void RoutingTraffDecoder::AddDecodedSegment(traffxml::MultiMwmColoring & decoded
 void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rsegments,
                                         routing::Checkpoints const & checkpoints, bool backwards)
 {
+  double startWeight = 0;
   double const endWeight = rsegments.back().GetTimeFromBeginningSec();
 
   // erase leading and trailing fake segments
   while(!rsegments.empty() && rsegments.front().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
+  {
+    startWeight = rsegments.front().GetTimeFromBeginningSec();
     rsegments.erase(rsegments.begin());
+  }
   while(!rsegments.empty() && rsegments.back().GetSegment().GetMwmId() == routing::kFakeNumMwmId)
     rsegments.pop_back();
 
@@ -985,7 +989,7 @@ void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rse
   // Cost saved by omitting the last `end` segments.
   double endSaving = 0;
 
-  TruncateStart(rsegments, checkpoints, start, startSaving,
+  TruncateStart(rsegments, checkpoints, start, startSaving, startWeight,
                 backwards ? m_endJunctions : m_startJunctions);
   TruncateEnd(rsegments, checkpoints, end, endSaving, endWeight,
               backwards ? m_startJunctions : m_endJunctions);
@@ -1016,7 +1020,7 @@ void RoutingTraffDecoder::TruncateRoute(std::vector<routing::RouteSegment> & rse
     rsegments.erase(rsegments.begin() + end + 1, rsegments.end());
     start = 0;
     startSaving = 0;
-    TruncateStart(rsegments, checkpoints, start, startSaving,
+    TruncateStart(rsegments, checkpoints, start, startSaving, startWeight,
                   backwards ? m_endJunctions : m_startJunctions);
     rsegments.erase(rsegments.begin(), rsegments.begin() + start);
   }
@@ -1497,7 +1501,7 @@ std::vector<std::string> ParseRef(std::string const & ref)
 
 void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
                    routing::Checkpoints const & checkpoints,
-                   size_t & start, double & startSaving,
+                   size_t & start, double & startSaving, double const startWeight,
                    std::map<m2::PointD, double> const & junctions)
 {
   if (rsegments.empty())
@@ -1535,6 +1539,16 @@ void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
       startSaving = newStartSaving;
     }
   }
+  /*
+   * The router may return a route that starts and ends with a partial segment. In decoder mode,
+   * we don’t allow starting or ending a segment at an intermediate point but use the nearest
+   * segment endpoint instead. However, this may leave us with a zero-length segment, which we
+   * need to remove so we don’t overshoot the reference point.
+   */
+  // TODO not if we have an `at` point
+  if ((start == 0) && (rsegments.size() > 1)
+      && (rsegments[0].GetTimeFromBeginningSec() == startWeight))
+      start = 1;
 }
 
 void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
@@ -1574,5 +1588,16 @@ void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
       endSaving = newEndSaving;
     }
   }
+  /*
+   * The router may return a route that starts and ends with a partial segment. In decoder mode,
+   * we don’t allow starting or ending a segment at an intermediate point but use the nearest
+   * segment endpoint instead. However, this may leave us with a zero-length segment, which we
+   * need to remove so we don’t overshoot the reference point.
+   */
+  // TODO not if we have an `at` point
+  if ((end == (rsegments.size() - 1)) && (rsegments.size() > 1)
+      && (rsegments[rsegments.size() - 1].GetTimeFromBeginningSec()
+          == rsegments[rsegments.size() - 2].GetTimeFromBeginningSec()))
+      end--;
 }
 }  // namespace traffxml

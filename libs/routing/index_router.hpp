@@ -247,8 +247,8 @@ private:
     static bool IsFencedOff(m2::PointD const & point, EdgeProjectionT const & edgeProjection,
                             std::vector<RoadInfoT> const & fences);
 
-    static void RoadsToNearestEdges(m2::PointD const & point, std::vector<RoadInfoT> const & roads,
-                                    IsEdgeProjGood const & isGood, std::vector<EdgeProjectionT> & edgeProj);
+    void RoadsToNearestEdges(m2::PointD const & point, std::vector<RoadInfoT> const & roads,
+                             IsEdgeProjGood const & isGood, std::vector<EdgeProjectionT> & edgeProj);
 
     Segment GetSegmentByEdge(Edge const & edge) const;
 

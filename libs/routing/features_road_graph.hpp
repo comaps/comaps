@@ -85,7 +85,8 @@ public:
   /// @{
   void ForEachFeatureClosestToCross(m2::PointD const & cross, ICrossEdgesLoader & edgesLoader) const override;
   void FindClosestEdges(m2::RectD const & rect, uint32_t count,
-                        std::vector<std::pair<Edge, geometry::PointWithAltitude>> & vicinities) const override;
+                        std::vector<std::pair<Edge, geometry::PointWithAltitude>> & vicinities,
+                        bool snapToEnds = false) const override;
   std::vector<IRoadGraph::FullRoadInfo> FindRoads(m2::RectD const & rect,
                                                   IsGoodFeatureFn const & isGoodFeature) const override;
   void GetFeatureTypes(FeatureID const & featureId, feature::TypesHolder & types) const override;

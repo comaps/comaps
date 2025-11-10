@@ -143,9 +143,10 @@ void FeaturesRoadGraphBase::ForEachFeatureClosestToCross(m2::PointD const & cros
 }
 
 void FeaturesRoadGraphBase::FindClosestEdges(m2::RectD const & rect, uint32_t count,
-                                             vector<pair<Edge, geometry::PointWithAltitude>> & vicinities) const
+                                             vector<pair<Edge, geometry::PointWithAltitude>> & vicinities,
+                                             bool snapToEnds) const
 {
-  NearestEdgeFinder finder(rect.Center(), nullptr /* IsEdgeProjGood */);
+  NearestEdgeFinder finder(rect.Center(), nullptr /* IsEdgeProjGood */, snapToEnds);
 
   m_dataSource.ForEachStreet([&](FeatureType & ft)
   {

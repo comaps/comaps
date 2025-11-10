@@ -596,11 +596,12 @@ std::vector<std::string> ParseRef(std::string const & ref);
  * @param checkpoints The reference points (at least two)
  * @param start Index of the first segment to keep
  * @param startSaving Cost saved by truncating
+ * @param startWeight Weight of the fake segments up to the first real segment
  * @param junctions Junctions with the weight of their leap segment
  */
 void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
                    routing::Checkpoints const & checkpoints,
-                   size_t & start, double & startSaving,
+                   size_t & start, double & startSaving, double const startWeight,
                    std::map<m2::PointD, double> const & junctions);
 
 /**

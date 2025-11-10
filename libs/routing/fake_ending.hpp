@@ -40,9 +40,11 @@ struct FakeEnding final
   std::vector<Projection> m_projections;
 };
 
-FakeEnding MakeFakeEnding(std::vector<Segment> const & segments, m2::PointD const & point, WorldGraph & graph);
-FakeEnding MakeFakeEnding(Segment const & segment, m2::PointD const & point, IndexGraph & graph);
+FakeEnding MakeFakeEnding(std::vector<Segment> const & segments, m2::PointD const & point,
+                          WorldGraph & graph, bool snapToEnds = false);
+FakeEnding MakeFakeEnding(Segment const & segment, m2::PointD const & point, IndexGraph & graph,
+                          bool snapToEnds = false);
 
 LatLonWithAltitude CalcProjectionToSegment(LatLonWithAltitude const & begin, LatLonWithAltitude const & end,
-                                           m2::PointD const & point);
+                                           m2::PointD const & point, bool snapToEnds = false);
 }  // namespace routing

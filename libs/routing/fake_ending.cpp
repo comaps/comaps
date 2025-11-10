@@ -18,12 +18,12 @@ using namespace routing;
 using namespace std;
 
 LatLonWithAltitude CalcProjectionToSegment(LatLonWithAltitude const & begin, LatLonWithAltitude const & end,
-                                           m2::PointD const & point)
+                                           m2::PointD const & point, bool snapToEnds)
 {
   m2::ParametrizedSegment<m2::PointD> segment(mercator::FromLatLon(begin.GetLatLon()),
                                               mercator::FromLatLon(end.GetLatLon()));
 
-  auto const projectedPoint = segment.ClosestPointTo(point);
+  auto const projectedPoint = segment.ClosestPointTo(point, snapToEnds);
   auto const distBeginToEnd = ms::DistanceOnEarth(begin.GetLatLon(), end.GetLatLon());
 
   auto const projectedLatLon = mercator::ToLatLon(projectedPoint);
@@ -45,7 +45,8 @@ bool Projection::operator==(Projection const & other) const
          tie(other.m_segment, other.m_isOneWay, other.m_segmentFront, other.m_segmentBack, other.m_junction);
 }
 
-FakeEnding MakeFakeEnding(vector<Segment> const & segments, m2::PointD const & point, WorldGraph & graph)
+FakeEnding MakeFakeEnding(vector<Segment> const & segments, m2::PointD const & point,
+                          WorldGraph & graph, bool snapToEnds)
 {
   FakeEnding ending;
   double averageAltitude = 0.0;
@@ -57,7 +58,7 @@ FakeEnding MakeFakeEnding(vector<Segment> const & segments, m2::PointD const & p
     bool const oneWay = graph.IsOneWay(segment.GetMwmId(), segment.GetFeatureId());
     auto const & frontJunction = graph.GetJunction(segment, true /* front */);
     auto const & backJunction = graph.GetJunction(segment, false /* front */);
-    auto const & projectedJunction = CalcProjectionToSegment(backJunction, frontJunction, point);
+    auto const & projectedJunction = CalcProjectionToSegment(backJunction, frontJunction, point, snapToEnds);
 
     ending.m_projections.emplace_back(segment, oneWay, frontJunction, backJunction, projectedJunction);
 
@@ -69,13 +70,14 @@ FakeEnding MakeFakeEnding(vector<Segment> const & segments, m2::PointD const & p
   return ending;
 }
 
-FakeEnding MakeFakeEnding(Segment const & segment, m2::PointD const & point, IndexGraph & graph)
+FakeEnding MakeFakeEnding(Segment const & segment, m2::PointD const & point, IndexGraph & graph,
+                          bool snapToEnds)
 {
   auto const & road = graph.GetRoadGeometry(segment.GetFeatureId());
   bool const oneWay = road.IsOneWay();
   auto const & frontJunction = road.GetJunction(segment.GetPointId(true /* front */));
   auto const & backJunction = road.GetJunction(segment.GetPointId(false /* front */));
-  auto const & projectedJunction = CalcProjectionToSegment(backJunction, frontJunction, point);
+  auto const & projectedJunction = CalcProjectionToSegment(backJunction, frontJunction, point, snapToEnds);
 
   FakeEnding ending;
   ending.m_originJunction = LatLonWithAltitude(mercator::ToLatLon(point), projectedJunction.GetAltitude());
