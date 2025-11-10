@@ -616,6 +616,7 @@ void TruncateStart(std::vector<routing::RouteSegment> & rsegments,
  * @param checkpoints The reference points (at least two)
  * @param end Index of the last segment to keep
  * @param endSaving Cost saved by truncating
+ * @param endWeight Total weight of the route, including trailing fake segments
  * @param junctions Junctions with the weight of their leap segment
  */
 void TruncateEnd(std::vector<routing::RouteSegment> & rsegments,
