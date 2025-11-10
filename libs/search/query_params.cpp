@@ -1482,13 +1482,7 @@ unordered_map<string, vector<string>> const kSynonyms = {
 // QueryParams::Token ------------------------------------------------------------------------------
 void QueryParams::Token::AddSynonym(string const & s)
 {
-  AddSynonym(strings::MakeUniString(s));
-}
-
-void QueryParams::Token::AddSynonym(String const & s)
-{
-  if (!IsStopWord(s))
-    m_synonyms.push_back(s);
+  m_synonyms.push_back(strings::MakeUniString(s));
 }
 
 string DebugPrint(QueryParams::Token const & token)
@@ -1510,10 +1504,11 @@ void QueryParams::ClearStreetIndices()
     AdditionalCommonTokens()
     {
       char const * arr[] = {
-          "the",                       // English
-          "der", "zum", "und", "auf",  // German
-          "del", "les",                // Spanish
-          "в",   "на"                  // Cyrillic
+          "a",  "and", "s",   "the",                       // English
+          "am", "an",  "auf", "der", "im",  "und", "zum",  // German
+          "d",  "da",  "de",  "del", "di",  "du",  "el",
+          "et", "la",  "las", "le",  "les", "los", "y",  // French, Spanish, Italian
+          "в",  "и",   "на",  "я"                        // Cyrillic
       };
       for (char const * s : arr)
         m_strings.insert(NormalizeAndSimplifyString(s));
