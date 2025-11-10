@@ -76,7 +76,7 @@ char const * g_strings[] = {
 // ./clusterize-tag-values.lisp house-number path-to-taginfo-db.db > numbers.txt
 // tail -n +2 numbers.txt  | head -78 | sed 's/^.*) \(.*\) \[.*$/"\1"/g;s/[ -/]//g;s/$/,/' |
 // sort | uniq
-vector<string> const g_patterns = {"BL", "BLN", "BLNSL", "BN", "BNL", "BNSL", "L", "LL", "LN", "LNL", "LNLN", "LNN",
+array<string_view, 48> constexpr g_patterns = {"BL", "BLN", "BLNSL", "BN", "BNL", "BNSL", "L", "LL", "LN", "LNL", "LNLN", "LNN",
                                    "N", "NBL", "NBLN", "NBN", "NBNBN", "NBNL", "NL", "NLBN", "NLL", "NLLN", "NLN",
                                    "NLNL", "NLS", "NLSN", "NN", "NNBN", "NNL", "NNLN", "NNN", "NNS", "NS", "NSN", "NSS",
                                    "S", "SL", "SLL", "SLN", "SN", "SNBNSS", "SNL", "SNN", "SS", "SSN", "SSS", "SSSS",
@@ -85,13 +85,14 @@ vector<string> const g_patterns = {"BL", "BLN", "BLNSL", "BN", "BNL", "BNSL", "L
                                    "NNBNL"};
 
 // List of patterns which look like house numbers more than other patterns. Constructed by hand.
-vector<string> const g_patternsStrict = {"N", "NBN", "NBL", "NL"};
+array<string_view, 4> constexpr g_patternsStrict = {"N", "NBN", "NBL", "NL"};
 
 // List of common synonyms for building parts. Constructed by hand.
 char const * g_buildingPartSynonyms[] = {"building", "bldg", "bld",   "bl",  "unit",     "block", "blk",  "корпус",
                                          "корп",     "кор",  "литер", "лит", "строение", "стр",   "блок", "бл"};
 
 // List of common stop words for buildings. Constructed by hand.
+// TODO: add more stop words?
 UniString const g_stopWords[] = {MakeUniString("дом"), MakeUniString("house"), MakeUniString("д")};
 
 bool IsStopWord(UniString const & s, bool isPrefix)
@@ -167,7 +168,8 @@ class HouseNumberClassifier
 public:
   using Patterns = StringSet<Token::Type, 4>;
 
-  HouseNumberClassifier(vector<string> const & patterns = g_patterns)
+  template <size_t size>
+  HouseNumberClassifier(array<string_view, size> const & patterns)
   {
     for (auto const & p : patterns)
       m_patterns.Add(make_transform_iterator(p.begin(), &CharToType), make_transform_iterator(p.end(), &CharToType));
@@ -590,7 +592,7 @@ bool HouseNumbersMatchRange(std::string_view const & hnRange, TokensT const & qu
 
 bool LooksLikeHouseNumber(UniString const & s, bool isPrefix)
 {
-  static HouseNumberClassifier const classifier;
+  static HouseNumberClassifier const classifier(g_patterns);
   return classifier.LooksGood(s, isPrefix);
 }
 

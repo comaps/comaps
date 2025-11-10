@@ -94,42 +94,9 @@ ErrorsMade GetPrefixErrorsMade(QueryParams::Token const & token, strings::UniStr
 }
 }  // namespace impl
 
-bool IsStopWord(UniString const & s)
-{
-  /// @todo Get all common used stop words and take out this array into search_string_utils.cpp module for example.
-  /// Should skip this tokens when building search index?
-  class StopWordsChecker
-  {
-    set<UniString> m_set;
-
-  public:
-    StopWordsChecker()
-    {
-      // Don't want to put _full_ stopwords list, not to break current ranking.
-      // Only 2-letters and the most common.
-      char const * arr[] = {
-          "a",  "s",  "the",                          // English
-          "am", "im", "an",                           // German
-          "d",  "da", "de",  "di", "du", "la", "le",  // French, Spanish, Italian
-          "и",  "я"                                   // Cyrillic
-      };
-      for (char const * s : arr)
-        m_set.insert(MakeUniString(s));
-    }
-    bool Has(UniString const & s) const { return m_set.count(s) > 0; }
-  };
-
-  static StopWordsChecker const swChecker;
-  return swChecker.Has(s);
-}
-
 TokensVector::TokensVector(string_view name)
 {
-  ForEachNormalizedToken(name, [this](strings::UniString && token)
-  {
-    if (!IsStopWord(token))
-      m_tokens.push_back(std::move(token));
-  });
+  m_tokens = NormalizeAndTokenizeString(std::move(name));
 
   Init();
 }

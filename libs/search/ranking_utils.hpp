@@ -180,9 +180,6 @@ struct NameScores
 std::string DebugPrint(NameScore const & score);
 std::string DebugPrint(NameScores const & scores);
 
-// Returns true when |s| is a stop-word and may be removed from a query.
-bool IsStopWord(strings::UniString const & s);
-
 class TokensVector
 {
   std::vector<strings::UniString> m_tokens;
