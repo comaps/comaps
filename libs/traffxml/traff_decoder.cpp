@@ -102,9 +102,9 @@ const std::unordered_map<std::optional<RoadClass>, std::array<double, 2>> kJunct
   { RoadClass::Motorway, { {300.0, 500.0} } },
   { RoadClass::Trunk, { {300.0, 500.0} } },
   { RoadClass::Primary, { {200.0, 300.0} } },
-  { RoadClass::Secondary, { {200.0, 300.0} } },
-  { RoadClass::Tertiary, { {200.0, 300.0} } },
-  { RoadClass::Other, { {200.0, 300.0} } },
+  { RoadClass::Secondary, { {150.0, 200.0} } },
+  { RoadClass::Tertiary, { {0.0, 150.0} } },
+  { RoadClass::Other, { {0.0, 150.0} } },
   { std::nullopt, { {300.0, 500.0} } }
 };
 
