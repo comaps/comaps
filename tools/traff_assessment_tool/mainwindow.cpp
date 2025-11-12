@@ -314,7 +314,7 @@ MainWindow::MainWindow(Framework & framework)
 #endif
 }
 
-void MainWindow::CreateTrafficPanel()
+void MainWindow::CreateTrafficPanel(bool hasMessages)
 {
   if (!m_trafficModel)
   {
@@ -340,8 +340,11 @@ void MainWindow::CreateTrafficPanel()
     m_dockWidget->adjustSize();
     m_dockWidget->setMinimumWidth(400);
   }
-  m_trafficPanel->SetStatus(true);
-  m_trafficPanel->GetTimer().Resume();
+  if (hasMessages)
+  {
+    m_trafficPanel->SetStatus(true);
+    m_trafficPanel->GetTimer().Resume();
+  }
   m_dockWidget->show();
 }
 
@@ -378,8 +381,10 @@ void MainWindow::OnOpenTrafficSample()
   std::setlocale(LC_ALL, "en_US.UTF-8");
   traffxml::TraffFeed feed;
   traffxml::TraffFeed shiftedFeed;
+  bool hasMessages = false;
   if (traffxml::ParseTraff(document, std::nullopt /* dataSource */, feed))
   {
+    hasMessages = !feed.empty();
     for (auto message : feed)
     {
       // `ShiftTimestamps()` will not change the message in `feed`, therefore construct a new feed
@@ -399,7 +404,7 @@ void MainWindow::OnOpenTrafficSample()
 
   try
   {
-    CreateTrafficPanel();
+    CreateTrafficPanel(hasMessages);
   }
   catch (TrafficModelError const & e)
   {

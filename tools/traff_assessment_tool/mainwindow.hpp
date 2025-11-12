@@ -35,7 +35,7 @@ public:
   explicit MainWindow(Framework & framework);
 
 private:
-  void CreateTrafficPanel();
+  void CreateTrafficPanel(bool hasMessages);
   void DestroyTrafficPanel();
 
   /**
