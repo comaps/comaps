@@ -48,7 +48,7 @@ echo "<$(date +%T)> Generating only specific maps [$MWMCOUNTRIES]..."
 else
 
 echo "<$(date +%T)> Generating maps..."
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" -s="test"
 
 fi
 fi
