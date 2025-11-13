@@ -88,6 +88,11 @@ protected:
    */
   std::map<std::string, traffxml::TraffMessage> & m_messageCache;
 
+  /**
+   * @brief Consolidated traffic impact of the message currently being decoded
+   */
+  std::optional<traffxml::TrafficImpact> m_trafficImpact;
+
 private:
 };
 
@@ -320,6 +325,18 @@ public:
     double GetTurnPenalty(Purpose /* purpose */, double angle, routing::RoadGeometry const & from_road,
                           routing::RoadGeometry const & to_road, bool is_left_hand_traffic = false) const override;
     double GetFerryLandingPenalty(Purpose /* purpose */) const override;
+
+    /**
+     * @brief Whether access restrictions are ignored.
+     *
+     * A return value of false indicates that access restrictions should be observed, which is the
+     * default behavior for a routing use case. If true, it indicates that routing should ignore
+     * access restrictions. This is needed to resolve traffic message locations; it could also be
+     * used e.g. for emergency vehicle use cases.
+     *
+     * This implementation may return true or false, depending on the location being decoded.
+     */
+    bool IsAccessIgnored() override;
 
   private:
     RoutingTraffDecoder & m_decoder;

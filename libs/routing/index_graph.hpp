@@ -217,6 +217,9 @@ template <typename AccessPositionType>
 bool IndexGraph::IsAccessNoForSure(AccessPositionType const & accessPositionType, RouteWeight const & weight,
                                    bool useAccessConditional) const
 {
+  if (m_estimator->IsAccessIgnored())
+    return false;
+
   auto const [accessType, confidence] = useAccessConditional
                                           ? m_roadAccess.GetAccess(accessPositionType, weight)
                                           : m_roadAccess.GetAccessWithoutConditional(accessPositionType);

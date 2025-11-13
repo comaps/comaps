@@ -145,6 +145,18 @@ public:
   virtual double GetFerryLandingPenalty(Purpose purpose) const = 0;
 
   /**
+   * @brief Whether access restrictions are ignored.
+   *
+   * A return value of false indicates that access restrictions should be observed, which is the
+   * default behavior for a routing use case. If true, it indicates that routing should ignore
+   * access restrictions. This is needed to resolve traffic message locations; it could also be
+   * used e.g. for emergency vehicle use cases.
+   *
+   * This implementation always returns false.
+   */
+  virtual bool IsAccessIgnored() { return false; }
+
+  /**
    * @brief Creates an `EdgeEstimator` based on maximum speeds.
    *
    * @param vehicleType The vehicle type.

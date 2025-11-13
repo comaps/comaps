@@ -252,12 +252,12 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
   if (!message.m_location)
     return;
   // Decode events into consolidated traffic impact
-  std::optional<traffxml::TrafficImpact> impact = message.GetTrafficImpact();
+  m_trafficImpact = message.GetTrafficImpact();
 
-  LOG(LINFO, ("    Impact: ", impact));
+  LOG(LINFO, ("    Impact: ", m_trafficImpact));
 
   // Skip further processing if there is no impact
-  if (!impact)
+  if (!m_trafficImpact)
     return;
 
   traffxml::MultiMwmColoring decoded;
@@ -278,7 +278,7 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
       LOG(LINFO, ("    Location for message", message.m_id, "can be reused from cache"));
 
       std::optional<traffxml::TrafficImpact> cachedImpact = it->second.GetTrafficImpact();
-      if (cachedImpact.has_value() && cachedImpact.value() == impact.value())
+      if (cachedImpact.has_value() && cachedImpact.value() == m_trafficImpact.value())
       {
         LOG(LINFO, ("    Impact for message", message.m_id, "unchanged, reusing cached coloring"));
 
@@ -300,10 +300,11 @@ void TraffDecoder::DecodeMessage(traffxml::TraffMessage & message)
   if (!isDecoded)
     DecodeLocation(message, decoded);
 
-  if (impact)
+  if (m_trafficImpact)
   {
-    ApplyTrafficImpact(impact.value(), decoded);
+    ApplyTrafficImpact(m_trafficImpact.value(), decoded);
     std::swap(message.m_decoded, decoded);
+    m_trafficImpact = std::nullopt;
   }
 }
 
@@ -691,6 +692,12 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
   }
 
   return result;
+}
+
+bool RoutingTraffDecoder::TraffEstimator::IsAccessIgnored()
+{
+  ASSERT(m_decoder.m_trafficImpact, ("Traffic impact for current message is not set"));
+  return (m_decoder.m_trafficImpact.value().m_speedGroup == traffic::SpeedGroup::TempBlock);
 }
 
 RoutingTraffDecoder::DecoderRouter::DecoderRouter(CountryParentNameGetterFn const & countryParentNameGetterFn,
