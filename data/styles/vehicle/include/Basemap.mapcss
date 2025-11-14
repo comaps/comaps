@@ -187,12 +187,13 @@ area|z10-[leisure=beach_resort],
 area|z0-[natural=glacier]
 {fill-color: @glacier;}
 
-area|z0-[natural=sand],
+area|z10-[natural=sand],
 area|z10-[natural=beach],
 area|z10-[leisure=beach_resort],
 {fill-color: @beach;fill-opacity: 0.35;}
 
 area|z0-[natural=desert],
+area|z0-9[natural=sand],
 {fill-color: @desert;}
 
 /* 6.WATER */
