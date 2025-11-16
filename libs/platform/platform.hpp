@@ -268,6 +268,9 @@ public:
   /// @return integer version in yyMMdd format.
   int32_t IntVersion() const;
 
+  /// Set custom meta server url to allow user-defined download servers
+  void SetCustomMetaServerUrl(std::string const & url);
+
   /// @return url for clients to download maps
   std::string MetaServerUrl() const;
 

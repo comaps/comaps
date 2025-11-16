@@ -582,6 +582,12 @@ public:
 
   void RestoreDownloadQueue();
 
+  void ResetMapDownloadMetaConfig()
+  {
+    if (m_downloader)
+      m_downloader->ResetMetaConfig();
+  }
+
 protected:
   void OnFinishDownloading();
 

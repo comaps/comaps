@@ -49,6 +49,11 @@ bool GetFileTypeChecked(std::string const & path, Platform::EFileType & type)
 }
 }  // namespace
 
+namespace
+{
+    std::string g_customMetaServerUrl;
+} // namespace
+
 // static
 Platform::EError Platform::ErrnoToError()
 {
@@ -150,8 +155,16 @@ std::string Platform::ReadPathForFile(std::string const & file, std::string sear
                                 "\nr: ", m_resourcesDir, "\ns: ", m_settingsDir));
 }
 
+void Platform::SetCustomMetaServerUrl(std::string const & url)
+{
+    g_customMetaServerUrl = url;
+}
+
 std::string Platform::MetaServerUrl() const
 {
+  if (!g_customMetaServerUrl.empty())
+    return g_customMetaServerUrl;
+
   return METASERVER_URL;
 }
 

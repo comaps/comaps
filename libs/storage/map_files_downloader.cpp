@@ -190,4 +190,10 @@ void MapFilesDownloader::GetMetaConfig(MetaConfigCallback const & callback)
   callback(LoadMetaConfig());
 }
 
+void MapFilesDownloader::ResetMetaConfig()
+{
+    m_serversList.clear();
+    m_isMetaConfigRequested = false;
+}
+
 }  // namespace storage
