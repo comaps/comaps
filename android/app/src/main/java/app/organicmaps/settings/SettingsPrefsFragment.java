@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -73,6 +74,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initScreenSleepEnabledPrefsCallbacks();
     initShowOnLockScreenPrefsCallbacks();
     initLeftButtonPrefs();
+    initCustomMapDownloadUrlPrefsCallbacks();
   }
 
   private void initLeftButtonPrefs()
@@ -533,6 +535,20 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
       }
       return true;
     });
+  }
+
+  private void initCustomMapDownloadUrlPrefsCallbacks()
+  {
+    EditTextPreference customUrlPref = getPreference(getString(R.string.pref_custom_map_download_url));
+    customUrlPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      String url = newValue != null ? ((String) newValue).trim() : "";
+      Framework.applyCustomMapDownloadUrl(requireContext(), url);
+      return true; // save the value
+    });
+
+    // Ensure native side is updated when the screen opens
+    String current = customUrlPref.getText();
+    Framework.applyCustomMapDownloadUrl(requireContext(), current != null ? current.trim() : "");
   }
 
   private void removePreference(@NonNull String categoryKey, @NonNull Preference preference)
