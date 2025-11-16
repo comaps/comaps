@@ -14,8 +14,10 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
 import androidx.activity.result.ActivityResultLauncher;
@@ -42,6 +44,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 import java.util.Objects;
@@ -54,6 +57,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   private MaterialTextView mTvMessage;
   private LinearProgressIndicator mProgress;
   private MaterialButton mBtnDownload;
+  private MaterialButton mBtnAdvanced;
   private MaterialCheckBox mChbDownloadCountry;
 
   private String mCurrentCountry;
@@ -267,6 +271,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mProgress = findViewById(R.id.progressbar);
     mBtnDownload = findViewById(R.id.btn_download_resources);
     mChbDownloadCountry = findViewById(R.id.chb_download_country);
+    mBtnAdvanced = findViewById(R.id.btn_advanced);
+
+    mBtnAdvanced.setOnClickListener(v -> openCustomServerDialog());
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
     mBtnNames = new String[BTN_COUNT];
@@ -291,6 +298,11 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   {
     mBtnDownload.setOnClickListener(mBtnListeners[action]);
     mBtnDownload.setText(mBtnNames[action]);
+
+    // Allow changing server only when idle or after an error.
+    boolean advancedEnabled = (action == DOWNLOAD || action == TRY_AGAIN);
+    mBtnAdvanced.setEnabled(advancedEnabled);
+    mBtnAdvanced.setAlpha(advancedEnabled ? 1f : 0.5f);
   }
 
   private void doDownload()
@@ -388,6 +400,39 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     {
       showErrorDialog(result);
     }
+  }
+
+  private void openCustomServerDialog()
+  {
+    View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_map_server, null);
+    TextInputEditText edit = dialogView.findViewById(R.id.edit_custom_map_server);
+
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+    String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
+    edit.setText(current);
+
+    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        .setTitle(R.string.download_resources_custom_url_title)
+        .setMessage(R.string.download_resources_custom_url_message)
+        .setView(dialogView)
+        .setNegativeButton(android.R.string.cancel, null)
+        .setPositiveButton(R.string.save, (dialog, which) -> {
+          String url = "";
+          if (edit.getText() != null)
+            url = edit.getText().toString().trim();
+
+          // Persist for future runs + Settings screen
+          prefs.edit()
+              .putString(getString(R.string.pref_custom_map_download_url), url)
+              .apply();
+
+          // Apply to native + reset meta configs
+          Framework.applyCustomMapDownloadUrl(this, url);
+
+          // Recompute total bytes (it can change with another server)
+          prepareFilesDownload(false);
+        })
+        .show();
   }
 
   private void showErrorDialog(int result)
