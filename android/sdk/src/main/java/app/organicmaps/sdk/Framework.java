@@ -1,5 +1,6 @@
 package app.organicmaps.sdk;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
@@ -348,4 +349,13 @@ public class Framework
 
   public static native void nativeMemoryWarning();
   public static native void nativeSaveRoute();
+  public static native void nativeSetCustomMapDownloadUrl(String url);
+
+  public static void applyCustomMapDownloadUrl(@NonNull Context context, @Nullable String url)
+  {
+    String trimmed = url != null ? url.trim() : "";
+    nativeSetCustomMapDownloadUrl(trimmed);
+    // Reset the legacy downloader too (world/coasts).
+    app.organicmaps.sdk.DownloadResourcesLegacyActivity.nativeResetMetaConfig();
+  }
 }

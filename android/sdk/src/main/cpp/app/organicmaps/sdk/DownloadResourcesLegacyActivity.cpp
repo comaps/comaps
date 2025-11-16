@@ -42,12 +42,16 @@ using namespace std::placeholders;
 
 namespace
 {
+  std::unique_ptr<MapFilesDownloader> & LegacyDownloader()
+  {
+    static auto downloader = storage::GetDownloader();
+    return downloader;
+  }
 
-static std::vector<platform::CountryFile> g_filesToDownload;
-static int g_totalDownloadedBytes;
-static int g_totalBytesToDownload;
-static std::shared_ptr<HttpRequest> g_currentRequest;
-
+  static std::vector<platform::CountryFile> g_filesToDownload;
+  static int g_totalDownloadedBytes;
+  static int g_totalBytesToDownload;
+  static std::shared_ptr<HttpRequest> g_currentRequest;
 }  // namespace
 
 extern "C"
@@ -152,11 +156,11 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_
     return ERR_NO_MORE_FILES;
 
   /// @todo One downloader instance with cached servers. All this routine will be refactored some time.
-  static auto downloader = storage::GetDownloader();
+  auto & downloader = LegacyDownloader();
   storage::Storage const & storage = g_framework->GetStorage();
   downloader->SetDataVersion(storage.GetCurrentDataVersion());
 
-  downloader->EnsureMetaConfigReady([&storage, ptr = jni::make_global_ref(listener)]()
+  downloader->EnsureMetaConfigReady([&storage, ptr = jni::make_global_ref(listener), &downloader]()
   {
     auto const & curFile = g_filesToDownload.back();
     auto const fileName = curFile.GetFileName(MapFileType::Map);
@@ -176,5 +180,13 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_
 {
   LOG(LDEBUG, ("cancelCurrentFile, currentRequest=", g_currentRequest));
   g_currentRequest.reset();
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_nativeResetMetaConfig(JNIEnv *,
+                                                                                                      jclass)
+{
+  auto & downloader = LegacyDownloader();
+  if (downloader)
+    downloader->ResetMetaConfig();
 }
 }

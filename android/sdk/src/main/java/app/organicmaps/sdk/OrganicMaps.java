@@ -2,6 +2,8 @@ package app.organicmaps.sdk;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
@@ -166,6 +168,11 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     nativeInitPlatform(mContext, apkPath, writablePath, privatePath, tempPath, mFlavor, BuildConfig.BUILD_TYPE,
                        /* isTablet */ false);
     Config.setStoragePath(writablePath);
+
+    // Use the same prefs as SettingsPrefsFragment
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+    final String savedUrl = prefs.getString(mContext.getString(R.string.pref_custom_map_download_url), "");
+    Framework.nativeSetCustomMapDownloadUrl(savedUrl.trim());
 
     mPlatformInitialized = true;
     Logger.i(TAG, "Platform initialized");

@@ -27,4 +27,5 @@ public class DownloadResourcesLegacyActivity
   public static native int nativeGetBytesToDownload();
   public static native int nativeStartNextFileDownload(Listener listener);
   public static native void nativeCancelCurrentFile();
+  public static native void nativeResetMetaConfig();
 }
