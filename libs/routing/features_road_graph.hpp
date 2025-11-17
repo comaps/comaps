@@ -84,9 +84,21 @@ public:
   /// @name IRoadGraph overrides
   /// @{
   void ForEachFeatureClosestToCross(m2::PointD const & cross, ICrossEdgesLoader & edgesLoader) const override;
+
+  /**
+   * @brief Finds the closest edges to a reference point within a given distance.
+   *
+   * @param rect A rectangle. Its center is the reference point; the search distance is expressed
+   * through the height and width.
+   * @param count The number of results to return.
+   * @param vicinities Receives the results.
+   * @param snapToEnds If true, the projection point (the point on the edge closest to the reference
+   * point) is constrained to one of the edge endpoints; if false, it can be anywhere on the edge.
+   */
   void FindClosestEdges(m2::RectD const & rect, uint32_t count,
                         std::vector<std::pair<Edge, geometry::PointWithAltitude>> & vicinities,
                         bool snapToEnds = false) const override;
+
   std::vector<IRoadGraph::FullRoadInfo> FindRoads(m2::RectD const & rect,
                                                   IsGoodFeatureFn const & isGoodFeature) const override;
   void GetFeatureTypes(FeatureID const & featureId, feature::TypesHolder & types) const override;
