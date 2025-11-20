@@ -514,9 +514,11 @@ public:
     : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
                                    {{"A", HighwayClass::Motorway, RoadShieldType::Generic_Blue_Bordered},
                                     {"S", HighwayClass::Trunk, RoadShieldType::Generic_Blue_Bordered},
-                                    {"B", HighwayClass::Primary, RoadShieldType::Generic_Blue},
-                                    {"L", HighwayClass::Secondary, RoadShieldType::Generic_Pill_White_Bordered},
-                                    {"L", HighwayClass::Tertiary, RoadShieldType::Generic_Pill_White_Bordered}})
+                                    {"B", HighwayClass::Primary, RoadShieldType::Generic_Blue, false, true},
+                                    {"L", HighwayClass::Secondary, RoadShieldType::Generic_Pill_White_Bordered, false, true},
+                                    {"L", HighwayClass::Tertiary, RoadShieldType::Generic_Pill_White_Bordered, false, true},
+                                    {"P", HighwayClass::Primary, RoadShieldType::Generic_Pill_White_Bordered}})
+                                    
   {}
 };
 
@@ -611,9 +613,9 @@ class RomaniaRoadShieldParser : public SimpleRoadShieldParser
 public:
   explicit RomaniaRoadShieldParser(std::string const & baseRoadNumber)
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Generic_Green},
-                                              {"DN", RoadShieldType::Generic_Red},
-                                              {"DJ", RoadShieldType::Generic_Blue},
-                                              {"DC", RoadShieldType::Generic_Blue}})
+                                              {"DN", RoadShieldType::Generic_Red, false, true},
+                                              {"DJ", RoadShieldType::Generic_Blue, false, true},
+                                              {"DC", RoadShieldType::Generic_Blue, false, true}})
   {}
 };
 
