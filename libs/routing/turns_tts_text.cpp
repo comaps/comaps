@@ -213,15 +213,18 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
       }
     }
 
-    std::string ttsOut = distDirOntoStreetStr + distStr +  // in 100 feet
-                         dirStr +                          // turn right / take exit
-                         ontoStr +                         // onto / null
-                         streetOut +                       // Main Street / 543:: M4: Queens Parkway, London
-                         dirVerb;                          // (optional "turn right" verb)
+    char ttsOut[1024];
+    std::snprintf(ttsOut, std::size(ttsOut), distDirOntoStreetStr.c_str(),
+                  distStr.c_str(),    // in 100 feet
+                  dirStr.c_str(),     // turn right / take exit
+                  ontoStr.c_str(),    // onto / null
+                  streetOut.c_str(),  // Main Street / 543:: M4: Queens Parkway, London
+                  dirVerb.c_str()     // (optional "turn right" verb)
+    );
 
     // remove floating punctuation
     static boost::regex const rP(" [,\\.:;]+ ");
-    std::string cleanOut = boost::regex_replace(ttsOut, rP, " ");
+    std::string cleanOut = boost::regex_replace(std::string(ttsOut), rP, " ");
     // remove repetitious spaces or colons
     static boost::regex const rS("[ :]{2,99}");
     cleanOut = boost::regex_replace(cleanOut, rS, " ");
