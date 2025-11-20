@@ -608,7 +608,9 @@ public:
   explicit PortugalRoadShieldParser(std::string const & baseRoadNumber)
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Generic_Blue},
                                               {"N", RoadShieldType::Generic_White_Bordered},
+                                              {"IP", RoadShieldType::Generic_Red},
                                               {"EN", RoadShieldType::Generic_White_Bordered},
+                                              {"IC", RoadShieldType::Generic_White_Bordered},
                                               {"R", RoadShieldType::Generic_Orange},
                                               {"EM", RoadShieldType::Generic_Orange},
                                               {"CM", RoadShieldType::Generic_Orange}})
