@@ -1008,6 +1008,8 @@ std::string DebugPrint(RoadShieldType shieldType)
   case RoadShieldType::Italy_Autostrada: return "Italy autostrada";
   case RoadShieldType::Hungary_Green: return "hungary green";
   case RoadShieldType::Hungary_Blue: return "hungary blue";
+  case RoadShieldType::Romania_DN: return "romania dn";
+  case RoadShieldType::Romania_DJ: return "romania dj";
   case RoadShieldType::Hidden: return "hidden";
   case RoadShieldType::Count: CHECK(false, ("RoadShieldType::Count is not to be used as a type"));
   }
