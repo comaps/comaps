@@ -908,8 +908,8 @@ RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & 
     return TurkeyRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Hungary")
     return HungaryRoadShieldParser(roadNumber).GetRoadShields();
-  if (mwmName == "Lativa")
-    return LativaRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Latvia")
+    return LatviaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Moldova")
     return MoldovaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Portugal")
