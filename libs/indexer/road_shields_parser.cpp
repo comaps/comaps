@@ -561,6 +561,13 @@ public:
                                               {"SP", RoadShieldType::Generic_Blue}})
   {}
 };
+class AlbaniaRoadShieldParser : public SimpleRoadShieldParser
+{
+public:
+  explicit AlbaniaRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Italy_Autostrada})
+  {}
+};
 
 class TurkeyRoadShieldParser : public SimpleRoadShieldParser
 {
@@ -893,6 +900,8 @@ RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & 
     return IrelandRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Italy")
     return ItalyRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Albania")
+    return AlbaniaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Turkey")
     return TurkeyRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Hungary")
