@@ -196,7 +196,7 @@ m2::PointF GetOffset(int offsetX, int offsetY)
 
 bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||  shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey || shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada || shield.m_type == ftypes::RoadShieldType::Hungary_Green || shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
+  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||  shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey || shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada || shield.m_type == ftypes::RoadShieldType::Hungary_Green || shield.m_type == ftypes::RoadShieldType::Hungary_Blue || shield.m_type == ftypes::RoadShieldType::Romania_DN || shield.m_type == ftypes::RoadShieldType::Romania_DJ;
 }
 
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
@@ -221,6 +221,10 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     result = "shield-hungary-green";
   else if (shield.m_type == ftypes::RoadShieldType::Hungary_Blue)
     result = "shield-hungary-blue";
+  else if (shield.m_type == ftypes::RoadShieldType::Romania_DN)
+    result = "shield-romania-dn";
+  else if (shield.m_type == ftypes::RoadShieldType::Romania_DJ)
+    result = "shield-romania-dj";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
@@ -327,7 +331,9 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
       {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
-      {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
+      {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}}
+      {RoadShieldType::Romania_DN, kRoadShieldWhiteTextColor}}
+      {RoadShieldType::Romania_DJ, kRoadShieldWhiteTextColor}};
 
   if (auto const * cl = kColors.Find(shield.m_type); cl)
     return df::GetColorConstant(*cl);
