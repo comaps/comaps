@@ -331,8 +331,8 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
       {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
-      {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}}
-      {RoadShieldType::Romania_DN, kRoadShieldWhiteTextColor}}
+      {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Romania_DN, kRoadShieldWhiteTextColor},
       {RoadShieldType::Romania_DJ, kRoadShieldWhiteTextColor}};
 
   if (auto const * cl = kColors.Find(shield.m_type); cl)
