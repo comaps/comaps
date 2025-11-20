@@ -44,6 +44,8 @@ enum class RoadShieldType
   Italy_Autostrada,
   Hungary_Green,
   Hungary_Blue,
+  Romania_DN,
+  Romania_DJ,
   Hidden,
   Count
 };
