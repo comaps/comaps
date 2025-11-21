@@ -556,9 +556,11 @@ class ItalyRoadShieldParser : public SimpleRoadShieldParser
 public:
   explicit ItalyRoadShieldParser(std::string const & baseRoadNumber)
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Italy_Autostrada},
-                                              {"SS", RoadShieldType::Generic_Blue},
-                                              {"SR", RoadShieldType::Generic_Blue},
-                                              {"SP", RoadShieldType::Generic_Blue}})
+                                              {"T", RoadShieldType::Italy_Autostrada},
+                                              {"RA", RoadShieldType::Generic_Green_Bordered},
+                                              {"SS", RoadShieldType::Generic_Blue_Bordered},
+                                              {"SR", RoadShieldType::Generic_Blue_Bordered},
+                                              {"SP", RoadShieldType::Generic_Blue_Bordered}})
   {}
 };
 class AlbaniaRoadShieldParser : public SimpleRoadShieldParser
