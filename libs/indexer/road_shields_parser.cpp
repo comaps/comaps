@@ -560,6 +560,7 @@ public:
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Italy_Autostrada},
                                               {"T", RoadShieldType::Italy_Autostrada},
                                               {"RA", RoadShieldType::Generic_Green_Bordered},
+                                              {"E", RoadShieldType::Generic_Green_Bordered},
                                               {"SS", RoadShieldType::Generic_Blue_Bordered},
                                               {"SR", RoadShieldType::Generic_Blue_Bordered},
                                               {"SP", RoadShieldType::Generic_Blue_Bordered}})
