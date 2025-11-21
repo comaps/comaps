@@ -218,7 +218,7 @@
       android:summary="@string/pref_custom_map_download_url_summary"
       android:inputType="textUri"
       android:singleLine="true"
-      android:defaultValue=""
+      app:placeholderText="@string/pref_custom_map_download_url_hint"
       android:order="3"/>
 
   </androidx.preference.PreferenceCategory>

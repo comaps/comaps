@@ -967,10 +967,11 @@
     <string name="offline_explanation_text">A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.</string>
     <string name="list_description_empty">Edit the list to add a description</string>
     <!-- Custom Download URL -->
-    <string name="pref_custom_map_download_url_title">Custom map server</string>
-    <string name="pref_custom_map_download_url_summary">Leave empty to use the default CoMaps servers. Example: https://example.org/servers</string>
+    <string name="pref_custom_map_download_url_title">Custom Map Server</string>
+    <string name="pref_custom_map_download_url_summary">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
+    <string name="pref_custom_map_download_url_hint">https://maps.comaps.app/</string>
     <string name="download_resources_advanced">Advanced…</string>
-    <string name="download_resources_custom_url_title">Custom map server</string>
+    <string name="download_resources_custom_url_title">Custom Map Server</string>
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
-    <string name="download_resources_custom_url_hint">https://comaps.app/servers/</string>
+    <string name="download_resources_custom_url_hint">https://maps.comaps.app/</string>
 </resources>
