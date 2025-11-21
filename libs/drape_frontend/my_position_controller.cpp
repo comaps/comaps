@@ -23,19 +23,19 @@ namespace df
 {
 namespace
 {
-int const kPositionRoutingOffsetY = 104;
+int constexpr kPositionRoutingOffsetY = 104;
 // Speed threshold to switch to GPS bearing. Use compass for slow walking only.
-double const kMinSpeedThresholdMps = 0.7;  // 2.5 km/h
-double const kGpsBearingLifetimeSec = 5.0;
-double const kMaxTimeInBackgroundSec = 60.0 * 60 * 30;  // 30 hours before starting detecting position again
-double const kMaxNotFollowRoutingTimeSec = 20.0;
-double const kMaxUpdateLocationInvervalSec = 30.0;
-double const kMaxBlockAutoZoomTimeSec = 10.0;
+double constexpr kMinSpeedThresholdMps = 0.7;  // 2.5 km/h
+double constexpr kGpsBearingLifetimeSec = 5.0;
+double constexpr kMaxTimeInBackgroundSec = 60.0 * 60 * 30;  // 30 hours before starting detecting position again
+double constexpr kMaxNotFollowRoutingTimeSec = 20.0;
+double constexpr kMaxUpdateLocationInvervalSec = 30.0;
+double constexpr kMaxBlockAutoZoomTimeSec = 10.0;
 
-int const kZoomThreshold = 10;
-int const kMaxScaleZoomLevel = 16;
-int const kDefaultAutoZoom = 16;
-double const kUnknownAutoZoom = -1.0;
+int constexpr kZoomThreshold = 10;
+int constexpr kMaxScaleZoomLevel = 16;
+int constexpr kDefaultAutoZoom = 16;
+double constexpr kUnknownAutoZoom = -1.0;
 
 inline int GetZoomLevel(ScreenBase const & screen)
 {
@@ -231,7 +231,7 @@ void MyPositionController::DragStarted()
 
 void MyPositionController::DragEnded(m2::PointD const & distance)
 {
-  float const kBindingDistance = 0.1f;
+  float constexpr kBindingDistance = 0.1f;
   m_needBlockAnimation = false;
   if (distance.Length() > kBindingDistance * std::min(m_pixelRect.SizeX(), m_pixelRect.SizeY()))
     StopLocationFollow();

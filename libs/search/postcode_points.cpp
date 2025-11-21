@@ -49,7 +49,7 @@ PostcodePoints::PostcodePoints(MwmValue const & value)
   m_points = CentersTable::LoadV1(*m_pointsSubReader);
   CHECK(m_points, ());
 
-  auto const kPostcodeRadiusMultiplier = 5.0;
+  auto constexpr kPostcodeRadiusMultiplier = 5.0;
   auto const area = value.GetHeader().GetBounds().Area();
   auto const count = static_cast<double>(m_points->Count());
   CHECK_NOT_EQUAL(count, 0.0, ("Zero postcodes should not be serialized to", POSTCODE_POINTS_FILE_TAG, "section"));

@@ -575,7 +575,7 @@
     <string name="type.amenity.hospital">Болница</string>
     <string name="type.amenity.hunting_stand">Ловджийска пусия</string>
     <string name="type.amenity.ice_cream">Сладолед</string>
-    <string name="type.amenity.internet_cafe">Кафене с интернет</string>
+    <string name="type.amenity.internet_cafe">Интернет кафене</string>
     <string name="type.amenity.kindergarten">Детска градина</string>
     <string name="type.amenity.library">Библиотека</string>
     <string name="type.amenity.parking_space">Място за спиране</string>
@@ -621,7 +621,7 @@
     <string name="type.tourism.attraction">Забележителност</string>
     <string name="type.shop.beverages">Напитки</string>
     <string name="type.highway.elevator">Асансьор</string>
-    <string name="type.amenity.car_sharing">Споделяне на коли</string>
+    <string name="type.amenity.car_sharing">Коли под наем</string>
     <string name="type.waterway.river.tunnel">Река</string>
     <string name="type.railway.subway_entrance.london">Вход на метростанция</string>
     <string name="type.shop.wine">Вино</string>
@@ -635,7 +635,7 @@
     <string name="type.amenity.payment_terminal">Разплащателна остановка</string>
     <string name="type.recycling.cans">Консерви</string>
     <string name="type.amenity.townhall">Община</string>
-    <string name="type.barrier.border_control">Гранична остановка</string>
+    <string name="type.barrier.border_control">Граничен контрол</string>
     <string name="type.barrier.entrance">Вход</string>
     <string name="type.barrier.fence">Ограда</string>
     <string name="type.barrier.wall">Стена</string>
@@ -814,7 +814,7 @@
     <string name="type.cuisine.chicken">Пиле</string>
     <string name="type.cuisine.coffee_shop">Кафе</string>
     <string name="type.cuisine.crepe">Креп</string>
-    <string name="type.cuisine.croatian">Хърватски</string>
+    <string name="type.cuisine.croatian">Хърватска</string>
     <string name="type.cuisine.diner">Вагон-ресторант</string>
     <string name="type.cuisine.donut">Донът</string>
     <string name="type.cuisine.fine_dining">Изящна кухня</string>
@@ -895,7 +895,7 @@
     <string name="type.man_made.chimney">Комин</string>
     <string name="type.leisure">Място за отдих</string>
     <string name="type.cuisine.malaysian">Мадагаскарска</string>
-    <string name="type.cuisine.malagasy">Мадагаскар</string>
+    <string name="type.cuisine.malagasy">Малгашка</string>
     <string name="type.cuisine.polish">Полска</string>
     <string name="type.cuisine.portuguese">Португалска</string>
     <string name="type.leisure.slipway">Стапел</string>

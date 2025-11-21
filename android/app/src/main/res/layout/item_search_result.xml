@@ -58,7 +58,7 @@
       android:textStyle="italic"
       android:maxLines="2"
       android:ellipsize="end"
-      tools:text="Russia, Moscow &amp; Central, Moscow"/>
+      tools:text="1, Rue des Carrières, Québec, G1R 4P5"/>
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/distance"

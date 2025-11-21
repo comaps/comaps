@@ -33,7 +33,7 @@
   <color name="button_accent_text_disabled">#4CFFFFFF</color>
 
   <!-- LanesView -->
-  <color name="nav_lane_arrow_active">@color/black_primary</color>
+  <color name="nav_lane_arrow_active">@color/white_primary</color>
 
   <color name="elevation_profile_dot_enabled">#FF9600</color>
   <color name="elevation_profile">@color/base_accent</color>

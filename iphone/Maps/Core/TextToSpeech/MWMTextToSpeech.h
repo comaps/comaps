@@ -1,8 +1,10 @@
 #import "MWMTextToSpeechObserver.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface MWMTextToSpeech : NSObject
 
 + (MWMTextToSpeech *)tts;
+- (AVSpeechSynthesisVoice *)voice;
 + (BOOL)isTTSEnabled;
 + (void)setTTSEnabled:(BOOL)enabled;
 + (BOOL)isStreetNamesTTSEnabled;

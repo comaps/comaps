@@ -267,6 +267,8 @@ public:
     BicycleOnedir,
     Ferry,
     ShuttleTrain,
+    DisusedBusiness,
+    Building,
     Count
   };
 
@@ -306,6 +308,8 @@ public:
         {BicycleOnedir, {"hwtag", "onedir_bicycle"}},
         {Ferry, {"route", "ferry"}},
         {ShuttleTrain, {"route", "shuttle_train"}},
+        {DisusedBusiness, {"disusedbusiness"}},
+        {Building, {"building"}},
     };
 
     m_types.resize(static_cast<size_t>(Count));
@@ -1071,6 +1075,31 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
         }
       }
     exit:;
+    }
+  }
+
+  // Clear POI attributes for disused businesses (e.g. disused:shop)
+  for (uint32_t t : params.m_types)
+  {
+    if (t == types.Get(CachedTypes::DisusedBusiness))
+    {
+      // Avoid removing attributes in cases where e.g. shop AND disused:shop are present
+      bool hasPoiType = false;
+      for (uint32_t type : params.m_types)
+      {
+        ftype::TruncValue(type, 1);
+        if (type != types.Get(CachedTypes::WheelchairAny) && type != types.Get(CachedTypes::InternetAny)
+            && type != types.Get(CachedTypes::DisusedBusiness) && type != types.Get(CachedTypes::Building))
+        {
+          hasPoiType = true;
+          break;
+        }
+      }
+
+      if (!hasPoiType)
+        params.ClearPOIAttribs();
+
+      break;
     }
   }
 

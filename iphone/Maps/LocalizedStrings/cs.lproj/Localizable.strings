@@ -1097,5 +1097,11 @@
 "pref_maplanguage_local" = "Místní jazyk";
 "existence_confirmed_time_ago" = "Existence potvrzena %@";
 "hours_confirmed_time_ago" = "Potvrzeno %@";
-"offline_explanation_text" = "Pro prohlížení a navigaci v dané oblasti je nutné stáhnout mapu.\nStáhnout mapy oblastí, které chcete navštívit.";
+"offline_explanation_text" = "Pro prohlížení a navigaci v dané oblasti je nutné si stáhnout mapu.\nStáhněte si mapy oblastí, které chcete navštívit.";
 "offline_explanation_title" = "Offline mapy";
+"avoid_steps" = "Vyhnout se schodům";
+"editor_place_doesnt_exist_description" = "Popište, jak místo vypadá nyní a pošlete poznámku o chybě komunitě OpenStreetMap";
+"voice" = "Hlas";
+"unknown" = "Neznámý";
+"voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
+"voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";

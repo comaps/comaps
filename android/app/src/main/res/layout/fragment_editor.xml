@@ -78,8 +78,7 @@
             android:layout_marginTop="@dimen/margin_base"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/charging_station_available_sockets"
-            android:textAppearance="@style/MwmTextAppearance.Body3"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="@style/MwmTextAppearance.Body3" />
         <include
             android:id="@+id/block_charge_sockets"
             layout="@layout/item_charging_sockets"/>
@@ -105,8 +104,7 @@
             android:layout_marginTop="@dimen/margin_base"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/address"
-            android:textAppearance="@style/MwmTextAppearance.Body3"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="@style/MwmTextAppearance.Body3" />
         <RelativeLayout
             android:id="@+id/block_street"
             style="@style/MwmWidget.Editor.MetadataBlock.Clickable"
@@ -114,8 +112,7 @@
             android:paddingTop="@dimen/margin_half">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_street_address"
-              tools:ignore="ContentDescription" />
+              app:srcCompat="@drawable/ic_street_address" />
           <com.google.android.material.textview.MaterialTextView
               android:id="@+id/street_title"
               android:layout_width="match_parent"
@@ -132,13 +129,12 @@
               android:textAppearance="@style/MwmTextAppearance.Body1"
               tools:text="Red str."
               app:drawableEndCompat="@drawable/ic_arrow_down" />
-          <View
+          <com.google.android.material.divider.MaterialDivider
               android:layout_width="match_parent"
-              android:layout_height="1dp"
+              android:layout_height="@dimen/divider_height"
               android:layout_alignStart="@id/street"
               android:layout_below="@id/street"
-              android:layout_marginTop="@dimen/margin_quarter_plus"
-              android:background="?dividerHorizontal"/>
+              android:layout_marginTop="@dimen/margin_quarter_plus" />
         </RelativeLayout>
         <include
             android:id="@+id/block_building"
@@ -165,8 +161,7 @@
             android:paddingBottom="@dimen/margin_half"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/details"
-            android:textAppearance="@style/MwmTextAppearance.Body3"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="@style/MwmTextAppearance.Body3" />
 
         <include
             android:id="@+id/block_opening_hours"
@@ -179,8 +174,7 @@
             android:paddingTop="@dimen/margin_half">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_cuisine"
-              tools:ignore="ContentDescription" />
+              app:srcCompat="@drawable/ic_cuisine" />
           <com.google.android.material.textview.MaterialTextView
               android:id="@+id/title_cuisine"
               android:layout_width="match_parent"
@@ -195,15 +189,14 @@
               android:layout_marginTop="@dimen/margin_quarter"
               android:gravity="center_vertical"
               android:textAppearance="@style/MwmTextAppearance.Body1"
-              tools:text="Italian, russian, russian, russian, russian, russian, russian, russian, russian"
+              tools:text="italian, russian, coffee_shop, sandwich, dessert, cake, regional, sausage, sandwich, breakfast, pizza"
               app:drawableEndCompat="@drawable/ic_arrow_down" />
-          <View
+          <com.google.android.material.divider.MaterialDivider
               android:layout_width="match_parent"
-              android:layout_height="1dp"
+              android:layout_height="@dimen/divider_height"
               android:layout_alignStart="@id/cuisine"
               android:layout_below="@id/cuisine"
-              android:layout_marginTop="@dimen/margin_quarter_plus"
-              android:background="?dividerHorizontal"/>
+              android:layout_marginTop="@dimen/margin_quarter_plus" />
         </RelativeLayout>
 
         <include
@@ -223,8 +216,7 @@
             style="@style/MwmWidget.Editor.MetadataBlock.Clickable">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_phone"
-              tools:ignore="ContentDescription"/>
+              app:srcCompat="@drawable/ic_phone" />
           <com.google.android.material.textview.MaterialTextView
               android:id="@+id/phone"
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
@@ -260,8 +252,7 @@
             style="@style/MwmWidget.Editor.MetadataBlock.Clickable">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_wifi"
-              tools:ignore="ContentDescription" />
+              app:srcCompat="@drawable/ic_wifi" />
           <com.google.android.material.textview.MaterialTextView
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
               android:layout_width="match_parent"
@@ -285,8 +276,7 @@
             android:paddingTop="@dimen/margin_half">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_self_service"
-              tools:ignore="ContentDescription" />
+              app:srcCompat="@drawable/ic_self_service" />
           <com.google.android.material.textview.MaterialTextView
               android:id="@+id/self_service_title"
               android:layout_width="match_parent"
@@ -303,13 +293,12 @@
               android:textAppearance="@style/MwmTextAppearance.Body1"
               tools:text="Red str."
               app:drawableEndCompat="@drawable/ic_arrow_down" />
-          <View
+          <com.google.android.material.divider.MaterialDivider
               android:layout_width="match_parent"
-              android:layout_height="1dp"
+              android:layout_height="@dimen/divider_height"
               android:layout_alignStart="@id/self_service"
               android:layout_below="@id/self_service"
-              android:layout_marginTop="@dimen/margin_quarter_plus"
-              android:background="?dividerHorizontal"/>
+              android:layout_marginTop="@dimen/margin_quarter_plus" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -317,8 +306,7 @@
             style="@style/MwmWidget.Editor.MetadataBlock.Clickable">
           <com.google.android.material.imageview.ShapeableImageView
               style="@style/MwmWidget.Editor.MetadataIcon"
-              app:srcCompat="@drawable/ic_outdoor_seating"
-              tools:ignore="ContentDescription" />
+              app:srcCompat="@drawable/ic_outdoor_seating" />
           <com.google.android.material.textview.MaterialTextView
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
               android:layout_width="match_parent"
@@ -353,8 +341,7 @@
             android:paddingBottom="@dimen/margin_half"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/social_media"
-            android:textAppearance="@style/MwmTextAppearance.Body3"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="@style/MwmTextAppearance.Body3" />
 
         <include
             android:id="@+id/block_fediverse"
@@ -396,8 +383,7 @@
             android:paddingBottom="@dimen/margin_half"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/building"
-            android:textAppearance="@style/MwmTextAppearance.Body3"
-            tools:ignore="UnusedAttribute"/>
+            android:textAppearance="@style/MwmTextAppearance.Body3" />
 
         <include
             android:id="@+id/block_levels"

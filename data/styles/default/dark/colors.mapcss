@@ -231,11 +231,16 @@
 @subway_label: #9E9E9E;
 @indigenous_label: #6A512F;
 @shop_label: #6B425C;
+@industry_label: #574469;
 @food_label: #8C491C;
+@entertainment_label: #8C311B;
 @culture_label: #6E4426;
 @hotel_label: #614A43;
+@sport_label: #2B5C4B;
+@nature_label: #3C612E;
+@water_label: #0A6074;
+@neutral_label: #51585E;
 @healthcare_label: #983E44;
-@industry_label: #51585E;
 @public_transport_label: #2F6499;
 
 /* 6.4 Road labels */

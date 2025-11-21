@@ -20,7 +20,7 @@
       android:textAppearance="?fontHeadline6"
       tools:text="Xindian Shitoushan Trail" />
     <include
-      layout="@layout/list_divider"
+      layout="@layout/item_divider"
       android:layout_width="match_parent"
       android:layout_height="@dimen/divider_height"
       android:layout_marginStart="@dimen/margin_base"

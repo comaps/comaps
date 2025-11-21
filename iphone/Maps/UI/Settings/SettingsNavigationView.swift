@@ -4,6 +4,10 @@ import SwiftUI
 struct SettingsNavigationView: View {
     // MARK: Properties
     
+    /// The scene phase of the environment
+    @Environment(\.scenePhase) private var scenePhase
+    
+    
     /// If the perspective view should be used during routing
     @State var hasPerspectiveViewWhileRouting: Bool = true
     
@@ -48,6 +52,10 @@ struct SettingsNavigationView: View {
     @State var shouldAvoidStepsWhileRouting: Bool = false
     
     
+    /// A date for forcing a refresh of the view
+    @State var forceRefreshDate: Date = Date.now
+    
+    
     /// If live traffic data should be used
     @State var hasLiveTraffic: Bool = false
     
@@ -79,6 +87,28 @@ struct SettingsNavigationView: View {
                         }
                     } label: {
                         Text("pref_tts_language_title")
+                    }
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("voice")
+                            
+                            if #available(iOS 26, *) {
+                                Text("voice_explanation")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            } else {
+                                Text("voice_explanation_before_version26")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                        
+                        Spacer()
+                        
+                        Text(Settings.voiceForVoiceRouting ?? "unknown")
+                            .foregroundStyle(.secondary)
+                            .id(UUID())
                     }
                     
                     Toggle(isOn: $shouldAnnounceStreetnamesWhileVoiceRouting) {
@@ -119,6 +149,7 @@ struct SettingsNavigationView: View {
                     .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
                 }
             }
+            .id(forceRefreshDate)
             
             Section {
                 Toggle("avoid_tolls", isOn: $shouldAvoidTollRoadsWhileRouting)
@@ -174,6 +205,9 @@ struct SettingsNavigationView: View {
             shouldAvoidStepsWhileRouting = Settings.shouldAvoidStepsWhileRouting
             hasLiveTraffic = Settings.hasLiveTraffic
             liveTrafficServerUrlString = Settings.liveTrafficServerUrl?.absoluteString ?? ""
+        }
+        .onChange(of: scenePhase) { _ in
+            forceRefreshDate = Date.now
         }
         .onChange(of: hasPerspectiveViewWhileRouting) { changedHasPerspectiveViewWhileRouting in
             Settings.hasPerspectiveViewWhileRouting = changedHasPerspectiveViewWhileRouting

@@ -1462,7 +1462,7 @@
 
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Sportshal";
-"type.amenity.studio" = "Studie";
+"type.amenity.studio" = "Medie-studio";
 "type.landuse.plant_nursery" = "Planteskole";
 "type.leisure.firepit" = "Bålplads";
 "type.man_made.crane" = "Kran";
@@ -1489,3 +1489,7 @@
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Sikkerhedsbås";
 "type.shop.lighting" = "Lysbutik";
+"type.amenity.charging_station.motorcar.small" = "Opladningspunkt til biler";
+"type.leisure.sports_centre.sport.american_football" = "Sportscenter";
+"type.leisure.sports_centre.sport.multi" = "Sportscenter";
+"type.amenity.bench.backless" = "Rygløs bænk";

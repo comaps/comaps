@@ -1,9 +1,7 @@
-• Visibilidade e interface do usuário aprimoradas para instruções na navegação
-• Opção adicionada para evitar degraus
-• Busca aprimorada em vários idiomas
-• Adição de ícone específico para rodoviárias
-• Problemas corrigidos no Android Auto (via projeto OM)
-• Editor aprimorado e correção de problemas menores
-• Estilos de mapa aprimorados (via projeto OM)
-• Traduções aprimoradas
-Confira nossas notas de lançamento do Codeberg para mais mudanças!
+• Dados OSM de 04/11
+• Ícones do mapa recategorizados, incluindo novas cores
+• Exibição de informações sobre tomadas disponíveis em eletropostos
+• Adição de ícones para diferentes centros esportivos, locais de eventos, salões de massagem, pousadas e alguns estabelecimentos comerciais desativados
+• Diversas melhorias e correção de erro na busca
+• Melhoria na orientação por voz durante a navegação
+Confira nossas notas de lançamento no Codeberg para mais detalhes!

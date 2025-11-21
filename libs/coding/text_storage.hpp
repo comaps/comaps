@@ -212,7 +212,7 @@ private:
 class BlockedTextStorageReader
 {
 public:
-  inline static size_t const kDefaultCacheSize = 32;
+  inline static size_t constexpr kDefaultCacheSize = 32;
 
   BlockedTextStorageReader() : m_cache(kDefaultCacheSize) {}
   explicit BlockedTextStorageReader(size_t cacheSize) : m_cache(cacheSize) {}

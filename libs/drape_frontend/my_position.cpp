@@ -211,7 +211,7 @@ void MyPosition::CacheSymbol(ref_ptr<dp::GraphicsContext> context, dp::TextureMa
 
 void MyPosition::CachePointPosition(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::TextureManager> mng)
 {
-  int const kSymbolsCount = 1;
+  int constexpr kSymbolsCount = 1;
   dp::TextureManager::SymbolRegion pointSymbol;
   mng->GetSymbolRegion("current-position", pointSymbol);
 

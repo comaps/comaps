@@ -1097,3 +1097,9 @@
 "hours_confirmed_time_ago" = "Kontrollitud %@";
 "offline_explanation_text" = "Selles piirkonnas liikumiseks ja teekonna juhatamiseks pead vajaliku kaardi alla laadima.\nVali allalaaditav kaart selle piirkonna kohta.";
 "offline_explanation_title" = "Ilma võrguühenduseta toimivad kaardid";
+"avoid_steps" = "Väldi treppe";
+"editor_place_doesnt_exist_description" = "Kirjelda selle koha praegust välimust ja lisa veamärge OpenStreetMapi kogukonnale";
+"voice" = "Hääled";
+"unknown" = "Teadmata";
+"voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Räägitav sisu*, *Hääled*.";
+"voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Lugemine ja rääkimine*, *Hääled*.";

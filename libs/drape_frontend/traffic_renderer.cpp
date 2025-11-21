@@ -31,41 +31,41 @@ int constexpr kMinVisibleArrowZoomLevel = 16;
 int constexpr kRoadClass2MinVisibleArrowZoomLevel = 17;
 int constexpr kOutlineMinZoomLevel = 14;
 
-float const kTrafficArrowAspect = 128.0f / 8.0f;
+float constexpr kTrafficArrowAspect = 128.0f / 8.0f;
 
-std::array<float, 20> const kLeftWidthInPixel = {
+std::array<float, 20> constexpr kLeftWidthInPixel = {
     // 1   2     3     4     5     6     7     8     9    10
     0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f, 0.5f,
     // 11   12    13   14    15    16    17   18     19    20
     0.5f, 0.5f, 0.5f, 0.6f, 1.6f, 2.7f, 3.5f, 4.0f, 4.0f, 4.0f};
 
-std::array<float, 20> const kRightWidthInPixel = {
+std::array<float, 20> constexpr kRightWidthInPixel = {
     // 1   2     3     4     5     6     7     8     9    10
     2.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.0f, 2.5f, 3.0f, 3.0f,
     // 11  12    13    14    15    16    17    18    19     20
     3.0f, 3.5f, 4.0f, 3.9f, 3.2f, 2.7f, 3.5f, 4.0f, 4.0f, 4.0f};
 
-std::array<float, 20> const kRoadClass1WidthScalar = {
+std::array<float, 20> constexpr kRoadClass1WidthScalar = {
     // 1   2     3     4     5     6     7     8     9    10
     0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.3,
     // 11  12    13    14    15    16    17    18    19     20
     0.3, 0.35f, 0.45f, 0.55f, 0.6f, 0.8f, 1.0f, 1.0f, 1.0f, 1.0f};
 
-std::array<float, 20> const kRoadClass2WidthScalar = {
+std::array<float, 20> constexpr kRoadClass2WidthScalar = {
     // 1   2     3     4     5     6     7     8     9     10
     0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.3f,
     // 11  12    13    14    15     16   17    18    19    20
     0.3f, 0.3f, 0.3f, 0.4f, 0.5f, 0.5f, 0.65f, 0.85f, 0.95f, 1.0f};
 
-std::array<float, 20> const kTwoWayOffsetInPixel = {
+std::array<float, 20> constexpr kTwoWayOffsetInPixel = {
     // 1   2     3     4     5     6     7     8     9     10
     0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
     // 11  12    13    14    15     16   17    18    19    20
     0.0f, 0.5f, 0.5f, 0.75f, 1.7f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f};
 
-std::array<int, 3> const kLineDrawerRoadClass1 = {12, 13, 14};
+std::array<int, 3> constexpr kLineDrawerRoadClass1 = {12, 13, 14};
 
-std::array<int, 2> const kLineDrawerRoadClass2 = {15, 16};
+std::array<int, 2> constexpr kLineDrawerRoadClass2 = {15, 16};
 
 float CalculateHalfWidth(ScreenBase const & screen, RoadClass const & roadClass, bool left)
 {
@@ -206,7 +206,7 @@ void TrafficRenderer::RenderTraffic(ref_ptr<dp::GraphicsContext> context, ref_pt
       float const leftPixelHalfWidth = CalculateHalfWidth(screen, renderData.m_roadClass, true /* left */);
       float const invLeftPixelLength = 1.0f / (2.0f * leftPixelHalfWidth * kTrafficArrowAspect);
       float const rightPixelHalfWidth = CalculateHalfWidth(screen, renderData.m_roadClass, false /* left */);
-      float const kEps = 1e-5;
+      float constexpr kEps = 1e-5;
       if (fabs(leftPixelHalfWidth) < kEps && fabs(rightPixelHalfWidth) < kEps)
         continue;
 
@@ -249,7 +249,7 @@ float TrafficRenderer::GetTwoWayOffset(RoadClass const & roadClass, int zoomLeve
 {
   // There is no offset for class-0 roads, the offset for them is created by
   // kLeftWidthInPixel and kRightWidthInPixel.
-  int const kRoadClass0MinZoomLevel = 14;
+  int constexpr kRoadClass0MinZoomLevel = 14;
   if (roadClass == RoadClass::Class0 && zoomLevel <= kRoadClass0MinZoomLevel)
     return 0.0f;
 

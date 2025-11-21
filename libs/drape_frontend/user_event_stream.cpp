@@ -1246,11 +1246,11 @@ void UserEventStream::UpdateDoubleTapAndHold(Touch const & touch)
 {
   TEST_CALL(DOUBLE_TAP_AND_HOLD);
   ASSERT_EQUAL(m_state, STATE_DOUBLE_TAP_HOLD, ());
-  float const kPowerModifier = 10.0f;
+  float constexpr kPowerModifier = 10.0f;
 #if defined(OMIM_OS_IPHONE) || defined(OMIM_OS_MAC)
-  int const kPlatformScaleModifier = -1;
+  int constexpr kPlatformScaleModifier = -1;
 #else
-  int const kPlatformScaleModifier = 1;
+  int constexpr kPlatformScaleModifier = 1;
 #endif
   double const scaleFactor = exp(kPowerModifier * (touch.m_location.y - m_startDoubleTapAndHold.y) /
                                  GetCurrentScreen().PixelRectIn3d().SizeY() * kPlatformScaleModifier);

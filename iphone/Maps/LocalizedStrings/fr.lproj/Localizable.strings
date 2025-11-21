@@ -391,7 +391,7 @@
 /* bookmark button text */
 "bookmark" = "signet";
 "save" = "Enregistrer";
-"create" = "créer";
+"create" = "Créer";
 
 /* red color */
 "red" = "Rouge";
@@ -1099,3 +1099,9 @@
 "hours_confirmed_time_ago" = "Confirmées %@";
 "offline_explanation_title" = "Cartes hors-ligne";
 "avoid_steps" = "Éviter les escaliers";
+"offline_explanation_text" = "Une carte doit être téléchargée pour visualiser et vous déplacer dans une zone.\nTéléchargez les cartes des zones que vous souhaitez visiter.";
+"editor_place_doesnt_exist_description" = "Décrivez le lieu afin de signaler l'erreur à la communauté OpenStreetMap";
+"voice" = "Voix";
+"unknown" = "Inconnu";
+"voice_explanation_before_version26" = "Il est possible de choisir une meilleure voix dans les paramètres système sous *Accessibilité*, *Contenu parlé*, *Voix*.";
+"voice_explanation" = "Il est possible de choisir une meilleure voix dans les paramètres système sous *Accessibilité*, *Lire et parler*, *Voix*.";

@@ -235,7 +235,7 @@ void ClipPathByRectBeforeSmooth(m2::RectD const & rect, std::vector<m2::PointD> 
 
   m2::PointD guideFront;
   m2::PointD guideBack;
-  double const kEps = 1e-5;
+  double constexpr kEps = 1e-5;
   if (path.front().EqualDxDy(path.back(), kEps))
   {
     guideFront = path[path.size() - 2];

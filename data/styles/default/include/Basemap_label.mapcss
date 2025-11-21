@@ -644,9 +644,9 @@ area|z16-[landuse=commercial],
 
 /* 8.BUILDINGS */
 
-node|z16-[building],
+node|z17-[building],
 {text: name;text-color: @building_label;text-position: center;}
-node|z16-[building]::int_name,
+node|z17-[building]::int_name,
 {text:int_name;text-color: @building_label;text-position: center;}
 
 /*
@@ -689,9 +689,9 @@ node|z17-[man_made=breakwater]
 
 /*	8.2 Building */
 
-node|z16-17[building],
+node|z17[building],
 {font-size: 9;}
-node|z16-17[building]::int_name,
+node|z17[building]::int_name,
 {font-size: 8;}
 node|z18-[building],
 {font-size: 11;}

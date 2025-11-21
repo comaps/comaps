@@ -857,4 +857,27 @@
     <string name="osm_note_toast">Bemærkning vil blive sendt til OpenStreetMap</string>
     <string name="existence_confirmed_time_ago">Eksistens bekræftet %s</string>
     <string name="hours_confirmed_time_ago">Bekræftet %s</string>
+    <string name="editor_place_doesnt_exist_description">Beskriv, hvordan stedet ser ud nu, for at sende en fejlnote til OpenStreetMap-fællesskabet</string>
+    <string name="avoid_steps">Undgå trapper</string>
+    <string name="unknown_power_output">ukendt</string>
+    <string name="charge_socket_type2">Type 2 (intet kabel)</string>
+    <string name="charge_socket_type2_cable">Type 2 (med kabel)</string>
+    <string name="charge_socket_type2_combo">Type 2 combi</string>
+    <string name="charge_socket_type1">Type 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">ukendt stik</string>
+    <string name="unknow_socket_type">ukendt stik</string>
+    <string name="edit_socket_info_tooltip">Opret nye stik eller rediger eksisterende stik.</string>
+    <string name="charging_station_available_sockets">Tilgængelige stik</string>
+    <string name="charge_socket_unknown_other">Andet eller ukendt</string>
+    <string name="charge_socket_count">Antal</string>
+    <string name="charge_socket_power">Effekt (kW)</string>
+    <string name="editor_socket">Rediger stik</string>
+    <string name="unknown_count">ukendt</string>
+    <string name="error_value_must_be_positive">Værdien skal være positiv</string>
+    <string name="error_invalid_number">Ugyldigt nummer</string>
+    <string name="offline_explanation_title">Offline kort</string>
+    <string name="offline_explanation_text">Der skal downloades et kort for at kunne se og navigere i området.\nDownload kort over de områder, du ønsker at rejse i.</string>
+    <string name="list_description_empty">Rediger listen for at tilføje en beskrivelse</string>
 </resources>

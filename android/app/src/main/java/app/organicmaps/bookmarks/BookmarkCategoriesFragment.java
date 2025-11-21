@@ -188,7 +188,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     ArrayList<MenuBottomSheetItem> items = new ArrayList<>();
     if (mSelectedCategory != null)
     {
-      items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_settings,
+      items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_edit,
                                         () -> onSettingsActionSelected(mSelectedCategory)));
       items.add(new MenuBottomSheetItem(mSelectedCategory.isVisible() ? R.string.hide : R.string.show,
                                         mSelectedCategory.isVisible() ? R.drawable.ic_hide : R.drawable.ic_show,

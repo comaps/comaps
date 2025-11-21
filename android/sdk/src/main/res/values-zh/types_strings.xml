@@ -26,7 +26,7 @@
     <string name="type.amenity.bank">银行</string>
     <string name="type.amenity.bar">酒吧</string>
     <string name="type.amenity.bbq">烧烤架</string>
-    <string name="type.amenity.bench">长凳</string>
+    <string name="type.amenity.bench">长椅</string>
     <string name="type.amenity.bicycle_parking">自行车停车处</string>
     <string name="type.amenity.bicycle_rental">自行车出租点</string>
     <string name="type.amenity.bicycle_repair_station">自行车维修站</string>
@@ -431,7 +431,6 @@
     <string name="type.highway.pedestrian.area">步行区</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">人行天桥</string>
-
     <string name="type.highway.pedestrian.square">广场</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">人行隧道</string>
@@ -1382,7 +1381,7 @@
     <string name="type.man_made.crane">起重机</string>
     <string name="type.railway.station.subway.qingdao">地铁车站</string>
     <string name="type.amenity.bicycle_parking.covered">有顶棚自行车停车处</string>
-    <string name="type.amenity.luggage_locker">行李寄存点</string>
+    <string name="type.amenity.luggage_locker">行李寄存处</string>
     <string name="type.landuse.religious">宗教用地</string>
     <string name="type.natural.wetland.saltmarsh">盐沼</string>
     <string name="type.natural.wetland.saltmarsh.tidal">潮汐盐沼</string>
@@ -1396,4 +1395,9 @@
     <string name="type.post_office.post_partner">邮政合作点</string>
     <string name="type.barrier.wicket_gate">旁门</string>
     <string name="type.amenity.animal_shelter">动物收容所</string>
+    <string name="type.amenity.bench.backless">长凳</string>
+    <string name="type.amenity.charging_station.motorcar.small">充电桩</string>
+    <string name="type.office.security">保安室</string>
+    <string name="type.building.guardhouse">保安亭</string>
+    <string name="type.power.portal">能源站</string>
 </resources>

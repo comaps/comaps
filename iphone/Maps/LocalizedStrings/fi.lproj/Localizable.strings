@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karavaanaritilat";
-"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
+"share_bookmarks_email_body" = "Hei!\nLiitteenä kirjanmerkkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!";
 
 /* message title of loading file */
 "load_kmz_title" = "Ladataan kirjanmerkkejä";
@@ -205,7 +205,7 @@
 "share_my_location" = "Jaa sijaintini";
 "prefs_group_route" = "Navigointi";
 "pref_zoom_title" = "Zoomauspainikkeet";
-"pref_left_button_type" = "Left Main Button";
+"pref_left_button_type" = "Vasen pääpainike";
 
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Ulkoasu";
@@ -217,7 +217,7 @@
 "pref_appearance_dark" = "Tumma";
 
 /* Generic «Disabled» string */
-"disabled" = "Disabled";
+"disabled" = "Pois käytöstä";
 
 /* Generic «Off» string */
 "off" = "Pois päältä";
@@ -241,7 +241,7 @@
 "pref_tts_title" = "Ääniohjeistukset";
 
 /* Settings «Route» category: «Tts enable» title */
-"pref_tts_enable_title" = "Enable Voice Instructions";
+"pref_tts_enable_title" = "Ota ääniohjeet käyttöön";
 
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Ilmoita kadunnimet";
@@ -325,7 +325,7 @@
 "report_incorrect_map_bug" = "Ilmoita tai korjaa virheelliset karttatiedot";
 
 /* Button in the About screen */
-"volunteer" = "Auta parantamaan CoMapsia";
+"volunteer" = "Tee vapaaehtoistyötä ja paranna CoMapsia";
 
 /* "Social media" section header in the About screen */
 "follow_us" = "Ota yhteyttä";
@@ -826,7 +826,7 @@
 "avoid_ferry" = "Vältä lautan käyttöä";
 "avoid_motorways" = "Vältä moottoritietä";
 "unable_to_calc_alert_title" = "Reittiä ei voi luoda";
-"unable_to_calc_alert_subtitle" = "Valitettavasti emme voineet luoda reittiä valituilla vaihtoehdoilla. Vaihda asetuksia ja yritä uudelleen";
+"unable_to_calc_alert_subtitle" = "Reittiä ei löytynyt. Tämä voi johtua reititysasetuksistasi tai puutteellisista OpenStreetMap-tiedoista. Muuta reititysvaihtoehtoja ja yritä uudelleen.";
 "define_to_avoid_btn" = "Määritä vältettävät tiet";
 "change_driving_options_btn" = "Reititysvalinnat ovat päällä";
 "toll_road" = "Maksullinen tie";
@@ -984,7 +984,7 @@
 "app_tip_09" = "Päätavoitteemme on rakentaa nopeita, yksityisyyteen keskittyviä, helppokäyttöisiä karttoja, joista pidät.";
 
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
-"car_used_on_the_phone_screen" = "Käytät nyt puhelimen näytöllä CoMaps -palvelua.";
+"car_used_on_the_phone_screen" = "Käytät nyt CoMapsia puhelimen näytöllä";
 
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "Käytät nyt CoMaps auton näytöllä";
@@ -1015,7 +1015,7 @@
 "bugreport_alert_message" = "Haluatko lähettää vikailmoituksen kehittäjille?\nLuotamme käyttäjiin, sillä CoMaps ei kerää virhetietoja automaattisesti. Kiitos etukäteen CoMapsin tukemisesta!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud Synkronointi (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Ota iCloud-synkronointi käyttöön";
@@ -1039,10 +1039,10 @@
 "icloud_synchronization_error_alert_title" = "iCloud-synkronoinnin epäonnistuminen";
 
 /* iCloud error message: Failed to synchronize due to connection error */
-"icloud_synchronization_error_connection_error" = "Virhe: Synkronointi epäonnistui yhteysvirheen vuoksi.";
+"icloud_synchronization_error_connection_error" = "Virhe: Synkronointi epäonnistui yhteysvirheen vuoksi";
 
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
-"icloud_synchronization_error_quota_exceeded" = "Virhe: iCloud-kiintiön ylittymisen vuoksi synkronointi epäonnistui.";
+"icloud_synchronization_error_quota_exceeded" = "Virhe: iCloud-kiintiön ylittymisen vuoksi synkronointi epäonnistui";
 
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Virhe: iCloud ei ole käytettävissä";
@@ -1097,3 +1097,10 @@
 "pref_maplanguage_local" = "Paikallinen kieli";
 "existence_confirmed_time_ago" = "Olemassaolo varmistettu %@";
 "hours_confirmed_time_ago" = "Varmistettu %@";
+"offline_explanation_text" = "Alueen katseluun ja navigointiin tarvitaan kartta.\nLataa karttoja alueille, joille haluat matkustaa.";
+"offline_explanation_title" = "Ei-verkkotilassa olevat kartat";
+"avoid_steps" = "Vältä portaita";
+"editor_place_doesnt_exist_description" = "Kuvaile, miltä paikka näyttää nyt, lähettääksesi virheilmoituksen OpenStreetMap-yhteisölle";
+"voice" = "Ääni";
+"unknown" = "Tuntematon";
+"voice_explanation" = "Voit valita paremman äänen järjestelmäasetuksista kohdasta *Helppokäyttöisyys*, *Lue ja Puhu*, *Äänet*.";

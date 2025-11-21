@@ -358,7 +358,7 @@
     <string name="type.entrance">Sissepääs</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Peasissepääs</string>
-    <string name="type.entrance.exit">Väljupääs</string>
+    <string name="type.entrance.exit">Väljapääs</string>
     <string name="type.fee.no">Tasuta</string>
     <string name="type.healthcare.laboratory">Meditsiinilabor</string>
     <string name="type.healthcare.physiotherapist">Füsioterapeut</string>
@@ -647,8 +647,8 @@
     <string name="type.leisure.sauna">Saun</string>
     <string name="type.leisure.slipway">Slipp</string>
     <string name="type.leisure.sports_centre">Spordikeskus</string>
-    <string name="type.sport.climbing">Ronimiskeskus</string>
-    <string name="type.sport.yoga">Joogastuudio</string>
+    <string name="type.sport.climbing">Ronimine</string>
+    <string name="type.sport.yoga">Jooga</string>
     <string name="type.leisure.stadium">Staadion</string>
     <string name="type.leisure.swimming_pool">Ujumisbassein</string>
     <string name="type.leisure.swimming_pool.private">Privaatne ujumisbassein</string>
@@ -1235,7 +1235,7 @@
     <string name="type.sport.handball">Käsipall</string>
     <string name="type.sport.multi">Erinevad spordialad</string>
     <!-- Used to tag a scuba diving site. -->
-    <string name="type.sport.scuba_diving">Sukeldusmiskoht</string>
+    <string name="type.sport.scuba_diving">Sukeldumine</string>
     <string name="type.sport.shooting">Laskesport</string>
     <string name="type.sport.skateboard">Rulasõit</string>
     <string name="type.sport.skiing">Suusatamine</string>
@@ -1376,7 +1376,7 @@
     <string name="type.landuse.plant_nursery">Puukool</string>
     <string name="type.highway.ladder">Redel</string>
     <string name="type.barrier.guard_rail">Madal maanteepiire</string>
-    <string name="type.amenity.studio">Stuudio</string>
+    <string name="type.amenity.studio">Meediastuudio</string>
     <string name="type.man_made.crane">Kraana</string>
     <string name="type.railway.station.subway.qingdao">Qingdao metroojaam</string>
     <string name="type.landuse.religious">Usuorganisatsiooni maa</string>
@@ -1398,4 +1398,42 @@
     <string name="type.power.portal">Õhuliini värava-tüüpi mast</string>
     <string name="type.office.security">Turvafirma kontor</string>
     <string name="type.shop.lighting">Lambipood</string>
+    <string name="type.amenity.bench.backless">Ilma seljatoeta pink</string>
+    <string name="type.amenity.charging_station.motorcar.small">Auto laadimispunkt</string>
+    <string name="type.leisure.bandstand">Väike vabaõhulava</string>
+    <string name="type.leisure.sports_centre.sport.multi">Spordikeskus</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Joogastuudio</string>
+    <string name="type.leisure.sports_centre.sport.tennis">Tennisekeskus</string>
+    <string name="type.leisure.sports_centre.sport.table_tennis">Lauatennisekeskus</string>
+    <string name="type.leisure.sports_centre.sport.american_football">Spordikeskus</string>
+    <string name="type.leisure.sports_centre.sport.archery">Vibuspordikeskus</string>
+    <string name="type.leisure.sports_centre.sport.athletics">Kergejõustikukeskus</string>
+    <string name="type.leisure.sports_centre.sport.australian_football">Austraalia jalgpalli spordikeskus</string>
+    <string name="type.leisure.sports_centre.sport.badminton">Sulgpallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.baseball">Pesapallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.basketball">Korvpallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.beachvolleyball">Rannavollekeskus</string>
+    <string name="type.leisure.sports_centre.sport.bowls">Keegli- ja bowlingukeskus</string>
+    <string name="type.leisure.sports_centre.sport.climbing">Ronimiskeskus</string>
+    <string name="type.leisure.sports_centre.sport.cricket">Kriketikeskus</string>
+    <string name="type.leisure.sports_centre.sport.curling">Kurlingukeskus</string>
+    <string name="type.leisure.sports_centre.sport.equestrian">Ratsaspordikeskus</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Maahokikeskus</string>
+    <string name="type.leisure.sports_centre.sport.futsal">Futsalikeskus</string>
+    <string name="type.leisure.sports_centre.sport.golf">Golfikeskus</string>
+    <string name="type.leisure.sports_centre.sport.gymnastics">Iluvõimlemiskeskus</string>
+    <string name="type.leisure.sports_centre.sport.handball">Käsipallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.ice_hockey">Jäähokikeskus</string>
+    <string name="type.leisure.sports_centre.sport.padel">Padelikeskus</string>
+    <string name="type.leisure.sports_centre.sport.pelota">Pelotakeskus</string>
+    <string name="type.leisure.sports_centre.sport.scuba_diving">Sukeldumiskeskus</string>
+    <string name="type.leisure.sports_centre.sport.shooting">Laskespordikeskus</string>
+    <string name="type.leisure.sports_centre.sport.skateboard">Rulakeskus</string>
+    <string name="type.leisure.sports_centre.sport.skiing">Uisutamiskeskus</string>
+    <string name="type.leisure.sports_centre.sport.soccer">Jalgpallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Ujumiskeskus</string>
+    <string name="type.leisure.sports_centre.sport.volleyball">Võrkpallikeskus</string>
+    <string name="type.leisure.sports_centre.sport.yoga">Joogakeskus</string>
+    <string name="type.disusedbusiness">Vaba äripind</string>
+    <string name="type.amenity.lounger">Rannatool</string>
 </resources>

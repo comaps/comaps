@@ -414,7 +414,7 @@ unique_ptr<CompressedBitVector> CompressedBitVectorBuilder::FromBitPositions(vec
 // static
 unique_ptr<CompressedBitVector> CompressedBitVectorBuilder::FromBitGroups(vector<uint64_t> && bitGroups)
 {
-  static uint64_t const kBlockSize = DenseCBV::kBlockSize;
+  static uint64_t constexpr kBlockSize = DenseCBV::kBlockSize;
 
   while (!bitGroups.empty() && bitGroups.back() == 0)
     bitGroups.pop_back();

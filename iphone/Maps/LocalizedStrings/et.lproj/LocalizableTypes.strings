@@ -371,7 +371,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Peasissepääs";
-"type.entrance.exit" = "Väljupääs";
+"type.entrance.exit" = "Väljapääs";
 "type.fee.yes" = "$ / €";
 "type.fee.no" = "Tasuta";
 "type.healthcare.laboratory" = "Meditsiinilabor";
@@ -715,8 +715,8 @@
 "type.leisure.sauna" = "Saun";
 "type.leisure.slipway" = "Slipp";
 "type.leisure.sports_centre" = "Spordikeskus";
-"type.sport.climbing" = "Ronimiskeskus";
-"type.sport.yoga" = "Joogastuudio";
+"type.sport.climbing" = "Ronimine";
+"type.sport.yoga" = "Jooga";
 "type.leisure.stadium" = "Staadion";
 "type.leisure.swimming_pool" = "Ujumisbassein";
 "type.leisure.swimming_pool.private" = "Privaatne ujumisbassein";
@@ -1325,14 +1325,14 @@
 "type.sport.multi" = "Erinevad spordialad";
 
 /* Used to tag a scuba diving site. */
-"type.sport.scuba_diving" = "Sukeldusmiskoht";
+"type.sport.scuba_diving" = "Sukeldumine";
 "type.sport.shooting" = "Laskesport";
 "type.sport.skateboard" = "Rulasõit";
 "type.sport.skiing" = "Suusatamine";
 "type.sport.soccer" = "Jalgpall";
 "type.sport.swimming" = "Ujumine";
 "type.sport.table_tennis" = "Lauatennis";
-"type.sport.tennis" = "Tenniseväljak";
+"type.sport.tennis" = "Tennis";
 "type.sport.volleyball" = "Võrkpall";
 "type.sport.10pin" = "Hobikeegel";
 "type.sport.9pin" = "Keegel";
@@ -1465,7 +1465,7 @@
 "type.landuse.plant_nursery" = "Puukool";
 "type.highway.ladder" = "Redel";
 "type.amenity.love_hotel" = "Armuhotell";
-"type.amenity.studio" = "Stuudio";
+"type.amenity.studio" = "Meediastuudio";
 "type.barrier.guard_rail" = "Madal maanteepiire";
 "type.leisure.firepit" = "Tulease";
 "type.sport.diving" = "Vettehüpped";
@@ -1489,3 +1489,41 @@
 "type.power.portal" = "Õhuliini värava-tüüpi mast";
 "type.building.guardhouse" = "Valvuriputka";
 "type.shop.lighting" = "Lambipood";
+"type.amenity.bench.backless" = "Ilma seljatoeta pink";
+"type.amenity.charging_station.motorcar.small" = "Auto laadimispunkt";
+"type.leisure.fitness_centre.sport.yoga" = "Joogastuudio";
+"type.leisure.sports_centre.sport.table_tennis" = "Lauatennisekeskus";
+"type.leisure.sports_centre.sport.american_football" = "Spordikeskus";
+"type.leisure.sports_centre.sport.multi" = "Spordikeskus";
+"type.leisure.sports_centre.sport.tennis" = "Tennisekeskus";
+"type.leisure.bandstand" = "Väike vabaõhulava";
+"type.leisure.sports_centre.sport.soccer" = "Jalgpallikeskus";
+"type.leisure.sports_centre.sport.athletics" = "Kergejõustikukeskus";
+"type.leisure.sports_centre.sport.padel" = "Padelikeskus";
+"type.leisure.sports_centre.sport.swimming" = "Ujumiskeskus";
+"type.leisure.sports_centre.sport.ice_hockey" = "Jäähokikeskus";
+"type.leisure.sports_centre.sport.golf" = "Golfikeskus";
+"type.leisure.sports_centre.sport.shooting" = "Laskespordikeskus";
+"type.leisure.sports_centre.sport.handball" = "Käsipallikeskus";
+"type.leisure.sports_centre.sport.baseball" = "Pesapallikeskus";
+"type.leisure.sports_centre.sport.pelota" = "Pelotakeskus";
+"type.leisure.sports_centre.sport.skiing" = "Uisutamiskeskus";
+"type.leisure.sports_centre.sport.cricket" = "Kriketikeskus";
+"type.leisure.sports_centre.sport.equestrian" = "Ratsaspordikeskus";
+"type.leisure.sports_centre.sport.volleyball" = "Võrkpallikeskus";
+"type.leisure.sports_centre.sport.curling" = "Kurlingukeskus";
+"type.leisure.sports_centre.sport.futsal" = "Futsalikeskus";
+"type.leisure.sports_centre.sport.yoga" = "Joogakeskus";
+"type.leisure.sports_centre.sport.australian_football" = "Austraalia jalgpalli spordikeskus";
+"type.leisure.sports_centre.sport.basketball" = "Korvpallikeskus";
+"type.leisure.sports_centre.sport.archery" = "Vibuspordikeskus";
+"type.leisure.sports_centre.sport.gymnastics" = "Iluvõimlemiskeskus";
+"type.leisure.sports_centre.sport.badminton" = "Sulgpallikeskus";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Rannavollekeskus";
+"type.leisure.sports_centre.sport.skateboard" = "Rulakeskus";
+"type.leisure.sports_centre.sport.climbing" = "Ronimiskeskus";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sukeldumiskeskus";
+"type.leisure.sports_centre.sport.field_hockey" = "Maahokikeskus";
+"type.leisure.sports_centre.sport.bowls" = "Keegli- ja bowlingukeskus";
+"type.disusedbusiness" = "Vaba äripind";
+"type.amenity.lounger" = "Rannatool";

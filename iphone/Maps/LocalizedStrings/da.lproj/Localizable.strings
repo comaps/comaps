@@ -1095,3 +1095,11 @@
 "pref_maplanguage_local" = "Lokalt sprog";
 "hours_confirmed_time_ago" = "Bekræftet %@";
 "existence_confirmed_time_ago" = "Eksistens bekræftet %@";
+"avoid_steps" = "Undgå trapper";
+"editor_place_doesnt_exist_description" = "Beskriv, hvordan stedet ser ud nu, for at sende en fejlnote til OpenStreetMap-fællesskabet";
+"offline_explanation_text" = "Der skal downloades et kort for at kunne se og navigere i området.\nDownload kort over de områder, du ønsker at rejse i.";
+"offline_explanation_title" = "Offline kort";
+"voice" = "Stemme";
+"unknown" = "Ukendt";
+"voice_explanation_before_version26" = "Det er muligt at vælge en bedre stemme i systemindstillingerne under *Tilgængelighed*, *Talt indhold*, *Stemmer*.";
+"voice_explanation" = "Det er muligt at vælge en bedre stemme i systemindstillingerne under *Tilgængelighed*, *Læs og tal*, *Stemmer*.";

@@ -25,6 +25,7 @@
     <string name="type.amenity.bank">Bankfiliale</string>
     <string name="type.amenity.bbq">Grillstelle</string>
     <string name="type.amenity.bench">Sitzbank</string>
+    <string name="type.amenity.bench.backless">Sitzbank ohne Rückenlehne</string>
     <string name="type.amenity.bicycle_parking">Fahrradständer</string>
     <string name="type.amenity.bicycle_rental">Fahrradverleih</string>
     <string name="type.amenity.bicycle_repair_station">Fahrrad-Reparaturstation</string>
@@ -43,6 +44,7 @@
     <string name="type.amenity.charging_station">Ladestation</string>
     <string name="type.amenity.charging_station.bicycle">Fahrrad-Ladestation</string>
     <string name="type.amenity.charging_station.motorcar">Kfz-Ladestation</string>
+    <string name="type.amenity.charging_station.motorcar.small">Kfz-Ladestation</string>
     <string name="type.amenity.childcare">Kindertagesstätte</string>
     <string name="type.amenity.cinema">Kino</string>
     <string name="type.leisure.bowling_alley">Bowlingbahn</string>
@@ -77,6 +79,7 @@
     <string name="type.amenity.internet_cafe">Internetcafé</string>
     <string name="type.amenity.library">Bibliothek</string>
     <string name="type.amenity.loading_dock">Laderampe</string>
+    <string name="type.amenity.lounger">Liege</string>
     <string name="type.amenity.marketplace">Marktplatz</string>
     <string name="type.amenity.motorcycle_parking">Motorrad-Parkplatz</string>
     <string name="type.amenity.nightclub">Nachtclub</string>
@@ -608,6 +611,7 @@
     <string name="type.landuse.village_green">Grünfläche</string>
     <string name="type.landuse.vineyard">Weinberg</string>
     <string name="type.leisure">Freizeit</string>
+    <string name="type.leisure.bandstand">Musikpavillon</string>
     <string name="type.leisure.common">Öffentliche Grünfläche</string>
     <string name="type.leisure.dog_park">Hundeauslauffläche</string>
     <string name="type.leisure.fitness_centre">Fitnessstudio</string>
@@ -632,7 +636,39 @@
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Bootsrampe</string>
     <string name="type.leisure.sports_centre">Sportzentrum</string>
-    <string name="type.sport.climbing">Kletterhalle</string>
+    <string name="type.leisure.sports_centre.sport.multi">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.american_football">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.archery">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.athletics">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.australian_football">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.badminton">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.baseball">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.basketball">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.beachvolleyball">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.bowls">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.climbing">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.cricket">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.curling">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.equestrian">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.futsal">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.golf">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.gymnastics">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.handball">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.ice_hockey">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.padel">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.pelota">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.scuba_diving">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.shooting">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.skateboard">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.skiing">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.soccer">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Schwimmbad</string>
+    <string name="type.leisure.sports_centre.sport.table_tennis">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.tennis">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.volleyball">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.yoga">Sportzentrum</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Yoga-Studio</string>
     <string name="type.leisure.stadium">Stadion</string>
     <string name="type.leisure.swimming_pool">Schwimmbecken</string>
     <string name="type.leisure.swimming_pool.private">Schwimmbecken</string>
@@ -1196,23 +1232,36 @@
     <string name="type.shop.watches">Uhrengeschäft</string>
     <string name="type.shop.wholesale">Großhandelsgeschäft</string>
     <string name="type.sport">Sport</string>
+    <!-- Used for high diving sites. -->
+    <!-- Used to tag a scuba diving site. -->
+    <string name="type.sport.9pin">Kegeln</string>
+    <string name="type.sport.10pin">Bowling</string>
     <string name="type.sport.american_football">American Football</string>
     <string name="type.sport.archery">Bogenschießen</string>
     <string name="type.sport.athletics">Leichtathletik</string>
     <string name="type.sport.australian_football">Australian Football</string>
+    <string name="type.sport.badminton">Badminton</string>
     <string name="type.sport.baseball">Baseball</string>
     <string name="type.sport.basketball">Basketball</string>
     <string name="type.sport.beachvolleyball">Beachvolleyball</string>
     <string name="type.sport.bowls">Bowls</string>
     <string name="type.sport.chess">Schach</string>
+    <string name="type.sport.climbing">Klettern</string>
     <string name="type.sport.cricket">Cricket</string>
     <string name="type.sport.curling">Curling</string>
+    <!-- Used for high diving. -->
+    <string name="type.sport.diving">Turmspringen</string>
     <string name="type.sport.equestrian">Reitsport</string>
+    <string name="type.sport.field_hockey">Feldhockey</string>
+    <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.golf">Golf</string>
     <string name="type.sport.gymnastics">Gymnastik</string>
     <string name="type.sport.handball">Handball</string>
+    <string name="type.sport.ice_hockey">Eishockey</string>
     <string name="type.sport.multi">Verschiedene Sportarten</string>
-    <!-- Used to tag a scuba diving site. -->
+    <string name="type.sport.padel">Padel</string>
+    <string name="type.sport.pelota">Pelota Vasca</string>
+    <!-- Used to tag a scuba diving. -->
     <string name="type.sport.scuba_diving">Gerätetauchen</string>
     <string name="type.sport.shooting">Schießen</string>
     <string name="type.sport.skateboard">Skateboarden</string>
@@ -1222,14 +1271,7 @@
     <string name="type.sport.table_tennis">Tischtennis</string>
     <string name="type.sport.tennis">Tennisplatz</string>
     <string name="type.sport.volleyball">Volleyball</string>
-    <string name="type.sport.10pin">Bowling</string>
-    <string name="type.sport.9pin">Kegeln</string>
-    <string name="type.sport.padel">Padel</string>
-    <string name="type.sport.futsal">Futsal</string>
-    <string name="type.sport.ice_hockey">Eishockey</string>
-    <string name="type.sport.field_hockey">Feldhockey</string>
-    <string name="type.sport.badminton">Badminton</string>
-    <string name="type.sport.pelota">Pelota Vasca</string>
+    <string name="type.sport.yoga">Yoga</string>
     <string name="type.tourism">Tourismus</string>
     <string name="type.tourism.aquarium">Aquarium</string>
     <!-- Typically serviced, staff is present and food is available (compared to wilderness_hut). -->
@@ -1349,7 +1391,6 @@
     <string name="type.internet_access">Internet</string>
     <string name="type.internet_access.wlan">Internet</string>
     <string name="type.leisure.hackerspace">Hackerspace</string>
-    <string name="type.sport.yoga">Yoga Studio</string>
     <string name="type.noexit">Sackgasse</string>
     <string name="type.shop.kiosk">Kiosk</string>
     <string name="type.boundary.administrative.2">Landesgrenze</string>
@@ -1368,13 +1409,12 @@
     <string name="type.boundary.administrative.3">Regionale Grenze</string>
     <string name="type.power.pole">Strommast</string>
     <string name="type.man_made.pipeline.overground">Oberirdische Rohrleitung</string>
-    <string name="type.sport.diving">Turmspringen</string>
     <string name="type.amenity.love_hotel">Stundenhotel</string>
     <string name="type.landuse.plant_nursery">Gärtnerei</string>
     <string name="type.leisure.firepit">Feuerstelle</string>
     <string name="type.barrier.guard_rail">Leitplanke</string>
     <string name="type.highway.ladder">Leiter</string>
-    <string name="type.amenity.studio">Studio</string>
+    <string name="type.amenity.studio">Medienstudio</string>
     <string name="type.man_made.crane">Kran</string>
     <string name="type.railway.station.subway.qingdao">U-Bahn-Station</string>
     <string name="type.landuse.religious">Religiöses Gelände</string>
@@ -1396,4 +1436,5 @@
     <string name="type.building.guardhouse">Pförtnerhäuschen</string>
     <string name="type.power.portal">Abspannportal</string>
     <string name="type.shop.lighting">Lampenladen</string>
+    <string name="type.disusedbusiness">Leerstehendes Geschäft</string>
 </resources>

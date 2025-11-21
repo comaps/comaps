@@ -173,6 +173,29 @@ inline constexpr bool IsASCIISpace(T c)
 
 bool IsASCIILatin(UniChar c);
 
+/// Escape characters not allowed in XML
+template <typename T>
+std::string EscapeForXML(const T & in)
+{
+  std::string result;
+  result.reserve(in.size());
+
+  for (char c : in)
+  {
+    switch (c)
+    {
+      case '&':  result.append("&amp;");  break;
+      case '<':  result.append("&lt;");   break;
+      case '>':  result.append("&gt;");   break;
+      case '"':  result.append("&quot;"); break;
+      case '\'': result.append("&apos;"); break;
+      default:   result.append(1, c);     break;
+    }
+  }
+
+  return result;
+}
+
 inline std::string DebugPrint(UniString const & s)
 {
   return ToUtf8(s);

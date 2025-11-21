@@ -72,13 +72,13 @@
 "core_my_places" = "گیاگ‌های من";
 
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
-"address" = "آدرس";
+"address" = "نشانی";
 
 /* Settings button in system menu */
 "settings" = "تنظیمات";
 
 /* Measurement units title in settings activity */
-"measurement_units" = "واحد اندازه‌گیری";
+"measurement_units" = "یکا‌ی اندازه‌گیری";
 
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "کجا غذا بخوریم";
@@ -96,7 +96,7 @@
 "category_parking" = "پارکینگ";
 
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
-"category_shopping" = "خرید کردن";
+"category_shopping" = "خرید";
 
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "دست دوم";

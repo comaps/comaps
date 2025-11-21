@@ -66,7 +66,7 @@
     <!-- Show popup notification on top of the map when country download has failed. -->
     <string name="download_country_failed">Herunterladen von %s ist fehlgeschlagen</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">Neue Liste hinzufügen</string>
+    <string name="add_new_set">Neue Liste erstellen</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
     <string name="bookmark_set_name">Name der Lesezeichenliste</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
@@ -871,4 +871,26 @@
     <string name="hours_confirmed_time_ago">Bestätigt %s</string>
     <string name="pref_tts_no_system_tts_short">Kein Text-zu-Sprache-Modul gefunden, überprüfe die App-Einstellungen</string>
     <string name="avoid_steps">Treppen vermeiden</string>
+    <string name="editor_place_doesnt_exist_description">Beschreibe wie der Ort jetzt aussieht um eine Fehlermeldung an die OpenStreetMap Community zu senden</string>
+    <string name="offline_explanation_title">Offline-Karten</string>
+    <string name="offline_explanation_text">Um die Gegend anzusehen, muss eine Karte heruntergeladen werden.\nLaden Sie Karten für die Gebiete herunter, die Sie bereisen möchten.</string>
+    <string name="charge_socket_type2">Typ 2 (ohne Kabel)</string>
+    <string name="charge_socket_type2_cable">Typ 2 (mit Kabel)</string>
+    <string name="charge_socket_type2_combo">Typ 2 Combo</string>
+    <string name="charge_socket_type1">Typ 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="unknown_socket_type">Unbekannter Anschluss</string>
+    <string name="unknow_socket_type">Unbekannter Anschluss</string>
+    <string name="edit_socket_info_tooltip">Neue Anschlüsse erstellen oder Existierende bearbeiten.</string>
+    <string name="charging_station_available_sockets">Verfügbare Anschlüsse</string>
+    <string name="charge_socket_unknown_other">Andere oder unbekannt</string>
+    <string name="charge_socket_power">Leistung (kW)</string>
+    <string name="editor_socket">Anschluss bearbeiten</string>
+    <string name="error_value_must_be_positive">Wert muss positiv sein</string>
+    <string name="unknown_power_output">unbekannt</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="charge_socket_count">Anzahl</string>
+    <string name="unknown_count">unbekannt</string>
+    <string name="error_invalid_number">ungültige Zahl</string>
+    <string name="list_description_empty">Liste bearbeiten, um eine Beschreibung hinzuzufügen</string>
 </resources>

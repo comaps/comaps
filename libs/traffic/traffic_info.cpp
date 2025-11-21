@@ -60,7 +60,7 @@ bool ReadRemoteFile(string const & url, vector<uint8_t> & contents, int & errorC
   return true;
 }
 
-char const kETag[] = "etag";
+char constexpr kETag[] = "etag";
 }  // namespace
 
 // TrafficInfo::RoadSegmentId -----------------------------------------------------------------

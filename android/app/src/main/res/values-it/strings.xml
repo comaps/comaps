@@ -871,4 +871,24 @@
     <string name="share_track">Traccia condivisa</string>
     <string name="delete_track_dialog_title">Eliminare %s?</string>
     <string name="pref_tts_no_system_tts_short">Motore testo - parlato non trovato, controlla le impostazioni dell\'app</string>
+    <string name="avoid_steps">Evita scale</string>
+    <string name="unknown_power_output">Sconosciuto</string>
+    <string name="charge_socket_type2">Tipo 2 (senza cavo)</string>
+    <string name="charge_socket_type2_cable">Tipo 2 (con cavo)</string>
+    <string name="charge_socket_type1">Tipo 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="unknown_socket_type">Presa sconosciuta</string>
+    <string name="unknow_socket_type">Presa sconosciuta</string>
+    <string name="editor_place_doesnt_exist_description">Descrivi come appare il posto per inviare una nota alla comunità di OpenStreetMap</string>
+    <string name="offline_explanation_title">Mappe scaricate</string>
+    <string name="offline_explanation_text">Per esplorare e navigare la zona, scarica la mappa.\nScarica le mappe delle zone dove vuoi viaggiare.</string>
+    <string name="edit_socket_info_tooltip">Aggiungi un nuovo Connettore o modificane uno esistente.</string>
+    <string name="charging_station_available_sockets">Connettori disponibili</string>
+    <string name="charge_socket_unknown_other">Altro o sconosciuto</string>
+    <string name="charge_socket_count">Numero</string>
+    <string name="charge_socket_power">Potenza (kW)</string>
+    <string name="editor_socket">Modifica Connettore</string>
+    <string name="unknown_count">sconosciuto</string>
+    <string name="error_value_must_be_positive">Il valore deve essere positivo</string>
+    <string name="error_invalid_number">Numero non valido</string>
 </resources>

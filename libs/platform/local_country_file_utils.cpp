@@ -29,9 +29,9 @@ using std::string;
 
 namespace
 {
-char const kBitsExt[] = ".bftsegbits";
-char const kNodesExt[] = ".bftsegnodes";
-char const kOffsetsExt[] = ".offsets";
+char constexpr kBitsExt[] = ".bftsegbits";
+char constexpr kNodesExt[] = ".bftsegnodes";
+char constexpr kOffsetsExt[] = ".offsets";
 
 string GetAdditionalWorldScope()
 {

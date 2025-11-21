@@ -960,7 +960,7 @@
 "app_tip_03" = "Ja pazīstat kādu programmatūras izstrādātāju, varat viņam vai viņai palūgt ieviest funkciju, kas jums pietrūkst.";
 
 /* App tip #04 */
-"app_tip_04" = "Tap anywhere on the map to select anything. A long tap is used to hide and show the interface.";
+"app_tip_04" = "Jāpiesit jebkur kartē, lai atlasītu jebko. Ilga piespiešana tiek izmantota, lai paslēptu un parādītu saskarni.";
 
 /* App tip #05 */
 "app_tip_05" = "Vai zinājāt, ka ir iespējams atlasīt jūsu pašreizējo atrašanās vietu kartē?";
@@ -1093,3 +1093,11 @@
 "pref_maplanguage_local" = "Vietējā valoda";
 "existence_confirmed_time_ago" = "Pastāvēšana apstiprināta %@";
 "hours_confirmed_time_ago" = "Apstiprināts %@";
+"offline_explanation_text" = "Ir nepieciešams lejupielādēt karti, lai apskatītu un pārvietotos apgabalā.\nJālejupielādē apgabalu, kuros vēlies ceļot, kartes.";
+"offline_explanation_title" = "Bezsaistes kartes";
+"avoid_steps" = "Izvairīties no kāpnēm";
+"editor_place_doesnt_exist_description" = "Jāapraksta, kā vieta tagad izskatās, lai nosūtītu kļūdas piezīmi OpenStreetMap kopienai";
+"voice" = "Balss";
+"unknown" = "Nezināms";
+"voice_explanation_before_version26" = "Sistēmas iestatījumos ir iespējams izvēlēties labāku balsi: *Piekļūstamība*, *Runātais saturs*, *Balsis*.";
+"voice_explanation" = "Sistēmas iestatījumos ir iespējams izvēlēties labāku balsi: *Piekļūstamība*, *Lasīt un runāt*, *Balsis*.";

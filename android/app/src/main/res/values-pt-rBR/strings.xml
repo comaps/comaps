@@ -345,7 +345,7 @@
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Faça o download da região onde está pesquisando ou tente adicionar o nome de uma cidade ou povoado ao redor.</string>
     <string name="search_history_title">Histórico de busca</string>
-    <string name="search_history_text">Visualizar as buscas recentes</string>
+    <string name="search_history_text">Veja suas pesquisas recentes</string>
     <string name="clear_search">Limpar histórico de pesquisa</string>
     <!-- Place Page link to Wikipedia article (if map object has it). -->
     <string name="read_in_wikipedia">Wikipédia</string>
@@ -855,7 +855,7 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="unknown_socket_type">tomada desconhecida</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
-    <string name="avoid_steps">Evitar degraus</string>
+    <string name="avoid_steps">Evitar escadas</string>
     <string name="unknow_socket_type">tomada desconhecida</string>
     <string name="edit_socket_info_tooltip">Criar novas tomadas ou editar existentes.</string>
     <string name="charging_station_available_sockets">Tomadas disponíveis</string>
@@ -866,4 +866,8 @@
     <string name="unknown_count">desconhecida</string>
     <string name="error_value_must_be_positive">O valor deve ser positivo</string>
     <string name="error_invalid_number">Número inválido</string>
+    <string name="offline_explanation_text">É necessário baixar um mapa para visualizar e navegar pela área.\nBaixe mapas das áreas que você deseja visitar.</string>
+    <string name="offline_explanation_title">Mapas offline</string>
+    <string name="editor_place_doesnt_exist_description">Descreva com detalhes como está o local agora mesmo para enviar uma nota de erro à comunidade do OpenStreetMap</string>
+    <string name="list_description_empty">Edite a lista para adicionar uma descrição</string>
 </resources>

@@ -209,7 +209,7 @@
     <!-- Settings «Map» category: «Perspective view» title -->
     <string name="pref_map_3d_title">Vista en perspectiva</string>
     <!-- Settings «Map» category: «3D buildings» title -->
-    <string name="pref_map_3d_buildings_title">Edificios en 3D</string>
+    <string name="pref_map_3d_buildings_title">Edificaciones en 3D</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Los edificios 3D se desactivan en el modo de ahorro de energía</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
@@ -392,7 +392,7 @@
     <string name="editor_time_delete">Eliminar horario</string>
     <!-- Text for allday switch. -->
     <string name="editor_time_allday">Todo el día (24 horas)</string>
-    <string name="editor_time_open">Apertura</string>
+    <string name="editor_time_open">Abierto</string>
     <string name="editor_time_close">Cierre</string>
     <string name="editor_time_add_closed">Añadir horas de pausa</string>
     <string name="editor_time_title">Horario de apertura</string>
@@ -444,7 +444,7 @@
     <string name="select_cuisine">Seleccionar cocina</string>
     <!-- login text field -->
     <string name="editor_add_phone">Añadir teléfono</string>
-    <string name="level">Piso</string>
+    <string name="level">Nivel</string>
     <string name="downloader_delete_map_dialog">Todas las ediciones hechas al mapa se eliminarán junto con este</string>
     <string name="downloader_update_maps">Actualizar mapas</string>
     <string name="downloader_mwm_migration_dialog">Para crear una ruta, es necesario actualizar todos los mapas y volver a planificar la ruta.</string>
@@ -886,4 +886,16 @@
     <string name="charge_socket_count">Recuento</string>
     <string name="charge_socket_power">Potencia (kW)</string>
     <string name="unknown_count">desconocido</string>
+    <string name="avoid_steps">Evitar escaleras</string>
+    <string name="unknown_socket_type">enchufe desconocido</string>
+    <string name="unknow_socket_type">enchufe desconocido</string>
+    <string name="edit_socket_info_tooltip">Crear nuevo enchufe o editar existentes.</string>
+    <string name="charging_station_available_sockets">Enchufes disponibles</string>
+    <string name="charge_socket_unknown_other">Otros o desconocido</string>
+    <string name="editor_socket">Editar enchufe</string>
+    <string name="error_value_must_be_positive">El valor debe ser positivo</string>
+    <string name="error_invalid_number">Número inválido</string>
+    <string name="offline_explanation_title">Mapas sin conexión</string>
+    <string name="offline_explanation_text">Se debe descargar un mapa para ver y navegar el área\nDescarga mapas de las áreas que quieras navegar.</string>
+    <string name="editor_place_doesnt_exist_description">Describe la situación actual del lugar para enviar una nota de error a la comunidad de OpenStreetMap</string>
 </resources>

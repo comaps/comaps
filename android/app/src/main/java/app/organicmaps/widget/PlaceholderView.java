@@ -3,6 +3,7 @@ package app.organicmaps.widget;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
@@ -176,9 +178,10 @@ public class PlaceholderView extends LinearLayout
     return view.getMeasuredHeight() + params.bottomMargin + params.topMargin;
   }
 
-  public void setContent(@StringRes int titleRes, @StringRes int subtitleRes)
+  public void setContent(@StringRes int titleRes, @StringRes int subtitleRes, @DrawableRes int iconRes)
   {
     mTitle.setText(titleRes);
     mSubtitle.setText(subtitleRes);
+    mImage.setImageDrawable(ContextCompat.getDrawable(getContext(), iconRes));
   }
 }

@@ -179,7 +179,6 @@
           android:textAllCaps="true"
           android:textAppearance="?android:attr/textAppearanceSmall"
           android:textColor="@color/text_light"
-          tools:ignore="UnusedAttribute"
           tools:text="test" />
       </LinearLayout>
     </RelativeLayout>

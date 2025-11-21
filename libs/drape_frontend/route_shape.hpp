@@ -20,25 +20,39 @@
 
 namespace df
 {
-double const kArrowSize = 0.0008;
+double constexpr kArrowSize = 0.0008;
 
 // Constants below depend on arrow texture.
-double const kArrowTextureWidth = 74.0;
-double const kArrowTextureHeight = 44.0;
-double const kArrowBodyHeight = 24.0;
-double const kArrowHeadTextureWidth = 32.0;
-double const kArrowTailTextureWidth = 4.0;
+double constexpr kArrowTextureWidth = 74.0;
+double constexpr kArrowTextureHeight = 44.0;
+double constexpr kArrowBodyHeight = 24.0;
+double constexpr kArrowHeadTextureWidth = 32.0;
+double constexpr kArrowTailTextureWidth = 4.0;
 
-double const kArrowHeadSize = kArrowHeadTextureWidth / kArrowTextureWidth;
-float const kArrowHeadFactor = static_cast<float>(2.0 * kArrowHeadTextureWidth / kArrowTextureHeight);
-double const kArrowTailSize = kArrowTailTextureWidth / kArrowTextureWidth;
-float const kArrowTailFactor = static_cast<float>(2.0 * kArrowTailTextureWidth / kArrowTextureHeight);
-double const kArrowHeightFactor = kArrowTextureHeight / kArrowBodyHeight;
-double const kArrowAspect = kArrowTextureWidth / kArrowTextureHeight;
+double constexpr kArrowHeadSize = kArrowHeadTextureWidth / kArrowTextureWidth;
+float constexpr kArrowHeadFactor = static_cast<float>(2.0 * kArrowHeadTextureWidth / kArrowTextureHeight);
+double constexpr kArrowTailSize = kArrowTailTextureWidth / kArrowTextureWidth;
+float constexpr kArrowTailFactor = static_cast<float>(2.0 * kArrowTailTextureWidth / kArrowTextureHeight);
+double constexpr kArrowHeightFactor = kArrowTextureHeight / kArrowBodyHeight;
+double constexpr kArrowAspect = kArrowTextureWidth / kArrowTextureHeight;
 
-extern std::array<float, 20> const kRouteHalfWidthInPixelCar;
-extern std::array<float, 20> const kRouteHalfWidthInPixelTransit;
-extern std::array<float, 20> const kRouteHalfWidthInPixelOthers;
+std::array<float, 20> constexpr kRouteHalfWidthInPixelCar = {
+    // 1   2     3     4     5     6     7     8     9     10
+    1.0f, 1.2f, 1.5f, 1.5f, 1.7f, 2.0f, 2.0f, 2.3f, 2.5f, 2.7f,
+    // 11   12    13    14    15   16    17    18    19     20
+    3.0f, 3.5f, 4.5f, 5.5f, 7.0, 9.0f, 10.0f, 14.0f, 22.0f, 27.0f};
+
+std::array<float, 20> constexpr kRouteHalfWidthInPixelTransit = {
+    // 1   2     3     4     5     6     7     8     9     10
+    1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.1f, 1.2f, 1.3f, 1.4f, 1.7f,
+    // 11   12    13    14    15   16    17    18    19     20
+    1.8f, 2.1f, 2.5f, 2.8f, 3.5, 4.5f, 5.0f, 7.0f, 11.0f, 13.0f};
+
+std::array<float, 20> constexpr kRouteHalfWidthInPixelOthers = {
+    // 1   2     3     4     5     6     7     8     9     10
+    1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.1f, 1.2f, 1.3f,
+    // 11   12    13    14    15   16    17    18    19     20
+    1.5f, 1.7f, 2.3f, 2.7f, 3.5, 4.5f, 5.0f, 7.0f, 11.0f, 13.0f};
 
 enum class RouteType : uint8_t
 {
@@ -59,7 +73,7 @@ struct RoutePattern
 
   bool operator==(RoutePattern const & pattern) const
   {
-    double const kEps = 1e-5;
+    double constexpr kEps = 1e-5;
     return m_isDashed == pattern.m_isDashed && std::fabs(m_dashLength - pattern.m_dashLength) < kEps &&
            std::fabs(m_gapLength - pattern.m_gapLength) < kEps;
   }

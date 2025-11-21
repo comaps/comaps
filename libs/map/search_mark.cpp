@@ -85,8 +85,8 @@ namespace
 {
 df::ColorConstant const kColorConstant = "SearchmarkDefault";
 
-float const kVisitedSymbolOpacity = 0.7f;
-float const kOutOfFiltersSymbolOpacity = 0.4f;
+float constexpr kVisitedSymbolOpacity = 0.7f;
+float constexpr kOutOfFiltersSymbolOpacity = 0.4f;
 
 std::array<std::string, SearchMarkType::Count> const kSymbols = {
     "search-result",                          // Default.

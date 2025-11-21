@@ -62,10 +62,7 @@
           android:textAppearance="@style/MwmTextAppearance.Body3"
           android:textColor="?colorSecondary"/>
 
-        <View
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="?dividerHorizontal" />
+        <include layout="@layout/item_divider" />
 
         <WebView
           android:id="@+id/wv__examples"

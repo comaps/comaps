@@ -16,7 +16,7 @@ namespace df
 {
 namespace
 {
-uint32_t const kDynamicStreamID = 0x7F;
+uint32_t constexpr kDynamicStreamID = 0x7F;
 
 struct CirclesPackStaticVertex
 {

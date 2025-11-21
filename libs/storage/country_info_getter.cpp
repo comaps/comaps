@@ -22,7 +22,7 @@ namespace storage
 {
 namespace
 {
-size_t const kInvalidId = std::numeric_limits<size_t>::max();
+size_t constexpr kInvalidId = std::numeric_limits<size_t>::max();
 }  // namespace
 
 // CountryInfoGetterBase ---------------------------------------------------------------------------

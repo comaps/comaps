@@ -36,7 +36,7 @@ void TileInfo::ReadFeatureIndex(MapDataProvider const & model)
 
   ThrowIfCancelled();
 
-  size_t const kAverageFeaturesCount = 256;
+  size_t constexpr kAverageFeaturesCount = 256;
   m_featureInfo.reserve(kAverageFeaturesCount);
 
   MwmSet::MwmId lastMwm;

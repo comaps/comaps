@@ -28,7 +28,7 @@ size_t constexpr kMaxTransitCacheSizeBytes = 5 /* Mb */ * 1024 * 1024;
 
 size_t CalculateCacheSize(TransitDisplayInfo const & transitInfo)
 {
-  size_t const kSegmentSize = 72;
+  size_t constexpr kSegmentSize = 72;
   size_t cacheSize = 0;
   for (auto const & shape : transitInfo.m_shapesSubway)
     cacheSize += shape.second.GetPolyline().size() * kSegmentSize;

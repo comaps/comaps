@@ -146,7 +146,7 @@
     <string name="category_rv">房车设施</string>
     <!-- SECTION: Other translations -->
     <!-- Notes field in Bookmarks view -->
-    <string name="description">注释</string>
+    <string name="description">注记</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">已与您分享 CoMaps 书签</string>
     <string name="share_bookmarks_email_body">您好！ \n \n附件是我的书签，请在 CoMaps 中打开。如果您没有安装 CoMaps，可以在这里下载: https://www.comaps.app/download/ \n \n祝您使用 CoMaps 旅行愉快！</string>
@@ -473,7 +473,7 @@
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
     <string name="osm_presentation">截至 %s 的社区创建的 OpenStreetMap 数据。请访问 OpenStreetMap.org 以了解有关如何编辑和更新地图的信息</string>
     <!-- OSM explanation on Android login screen -->
-    <string name="login_osm_presentation">OpenStreetMap.org（OSM）是一个构建免费开放地图的社区项目。它是 CoMaps 中地图数据的主要来源，其工作原理类似于维基百科。您可以添加或编辑地点，可供全世界数以百万计的用户使用并受益。\n加入OSM，让我们共绘更优质的地图吧！</string>
+    <string name="login_osm_presentation">OpenStreetMap.org（OSM）是一个构建自由开放地图的社区项目。它是 CoMaps 中地图数据的主要来源，其工作原理类似于维基百科。您可以添加或编辑地点，可供全世界数以百万计的用户使用并受益。\n加入社区，让我们共绘更优质的地图吧！</string>
     <string name="login_to_make_edits_visible">创建 OpenStreetMap 账号或登录，向全世界发布您编辑的地图</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d / %2$d</string>
@@ -485,14 +485,14 @@
     <string name="editor_zip_code">邮政编码</string>
     <string name="error_enter_correct_zip_code">输入有效的邮政编码</string>
     <!-- Title for OSM note section in the editor -->
-    <string name="editor_other_info">OpenStreetMap 志愿者须知（可选）</string>
+    <string name="editor_other_info">OpenStreetMap 志愿者注记（选填）</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">描述地图上的错误或无法使用 CoMaps 编辑的内容</string>
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">您的编辑内容将上传到公共<a href="https://wiki.openstreetmap.org/wiki/Zh-hans:关于">OpenStreetMap</a>数据库。请勿添加个人或受版权保护的信息。</string>
     <string name="editor_more_about_osm">关于 OpenStreetMap 的更多信息</string>
     <string name="editor_osm_history">您的编辑历史</string>
-    <string name="editor_osm_notes">您的地图数据说明</string>
+    <string name="editor_osm_notes">您的地图数据注记</string>
     <string name="editor_operator">操作员</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">操作员: %s</string>
@@ -509,7 +509,7 @@
     <string name="day">天</string>
     <string name="placepage_more_button">更多</string>
     <string name="placepage_edit_bookmark_button">编辑书签</string>
-    <string name="placepage_personal_notes_hint">个人备注（文字或 html）</string>
+    <string name="placepage_personal_notes_hint">个人注记（文字或 html）</string>
     <string name="editor_reset_edits_message">重置所有本地更改？</string>
     <string name="editor_reset_edits_button">重置</string>
     <string name="editor_remove_place_message">删除已添加的地点？</string>
@@ -615,7 +615,7 @@
     <string name="export_file_gpx">导出为 GPX</string>
     <string name="delete_list">删除列表</string>
     <string name="speedcams_alert_title">限速拍照</string>
-    <string name="place_description_title">地点说明</string>
+    <string name="place_description_title">地点描述</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">加载地图</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
@@ -658,7 +658,7 @@
     <!-- To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="network">网络：%s</string>
     <string name="trip_finished">您已到达目的地！</string>
-    <string name="ok">好的</string>
+    <string name="ok">确定</string>
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">排序…</string>
     <!-- Android, title, max 20-22 symbols -->
@@ -866,8 +866,8 @@
     <string name="closed_now">已歇业</string>
     <string name="open_now">营业中</string>
     <string name="at">%s</string>
-    <string name="osm_note_hint">或者，也可以给 OpenStreetMap 社区留言，以便其他人可以在此添加或修复地点。</string>
-    <string name="osm_note_toast">注释将发送至 OpenStreetMap</string>
+    <string name="osm_note_hint">或者，也可以给 OpenStreetMap 社区留下注记，以便其他人可以在此添加或修复地点。</string>
+    <string name="osm_note_toast">注记将发送至 OpenStreetMap</string>
     <string name="existence_confirmed_time_ago">已于%s确认地点存在</string>
     <string name="delete_track_dialog_title">是否删除%s？</string>
     <string name="hours_confirmed_time_ago">已于%s确认</string>
@@ -891,4 +891,9 @@
     <string name="unknown_count">未知</string>
     <string name="error_value_must_be_positive">值必须为正数</string>
     <string name="error_invalid_number">无效的数字</string>
+    <string name="editor_place_doesnt_exist_description">描述该地点的现状，以便向 OpenStreetMap 社区发送错误注记</string>
+    <string name="avoid_steps">避开台阶</string>
+    <string name="offline_explanation_title">离线地图</string>
+    <string name="offline_explanation_text">需要下载地图才能查看并在该区域内导航。\n请为您计划前往的区域下载地图。</string>
+    <string name="list_description_empty">编辑列表以添加描述</string>
 </resources>

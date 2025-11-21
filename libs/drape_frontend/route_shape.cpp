@@ -21,34 +21,17 @@
 
 namespace df
 {
-std::array<float, 20> const kRouteHalfWidthInPixelCar = {
-    // 1   2     3     4     5     6     7     8     9     10
-    1.0f, 1.2f, 1.5f, 1.5f, 1.7f, 2.0f, 2.0f, 2.3f, 2.5f, 2.7f,
-    // 11   12    13    14    15   16    17    18    19     20
-    3.0f, 3.5f, 4.5f, 5.5f, 7.0, 9.0f, 10.0f, 14.0f, 22.0f, 27.0f};
-
-std::array<float, 20> const kRouteHalfWidthInPixelTransit = {
-    // 1   2     3     4     5     6     7     8     9     10
-    1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.1f, 1.2f, 1.3f, 1.4f, 1.7f,
-    // 11   12    13    14    15   16    17    18    19     20
-    1.8f, 2.1f, 2.5f, 2.8f, 3.5, 4.5f, 5.0f, 7.0f, 11.0f, 13.0f};
-
-std::array<float, 20> const kRouteHalfWidthInPixelOthers = {
-    // 1   2     3     4     5     6     7     8     9     10
-    1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.1f, 1.2f, 1.3f,
-    // 11   12    13    14    15   16    17    18    19     20
-    1.5f, 1.7f, 2.3f, 2.7f, 3.5, 4.5f, 5.0f, 7.0f, 11.0f, 13.0f};
 
 namespace rs
 {
-float const kLeftSide = 1.0f;
-float const kCenter = 0.0f;
-float const kRightSide = -1.0f;
+float constexpr kLeftSide = 1.0f;
+float constexpr kCenter = 0.0f;
+float constexpr kRightSide = -1.0f;
 
-float const kRouteDepth = 99.0f;
-float const kMarkersDepth = 100.0f;
-float const kArrowsDepth = 200.0f;
-float const kDepthPerSubroute = 200.0f;
+float constexpr kRouteDepth = 99.0f;
+float constexpr kMarkersDepth = 100.0f;
+float constexpr kArrowsDepth = 200.0f;
+float constexpr kDepthPerSubroute = 200.0f;
 
 void GetArrowTextureRegion(ref_ptr<dp::TextureManager> textures, dp::TextureManager::SymbolRegion & region)
 {
@@ -106,7 +89,7 @@ void CalculatePoints(m2::PolylineD const & polyline, double start, double end, s
 
 float SideByNormal(glsl::vec2 const & normal, bool isLeft)
 {
-  float const kEps = 1e-5;
+  float constexpr kEps = 1e-5;
   float const side = isLeft ? kLeftSide : kRightSide;
   return glsl::length(normal) < kEps ? kCenter : side;
 }
@@ -399,10 +382,10 @@ void RouteShape::PrepareMarkersGeometry(std::vector<SubrouteMarker> const & mark
 {
   ASSERT(!markers.empty(), ());
 
-  static float const kSqrt3 = sqrt(3.0f);
-  static float const kSqrt2 = sqrt(2.0f);
-  static float const kInnerRadius = 0.6f;
-  static float const kOuterRadius = 1.0f;
+  static float constexpr kSqrt3 = 1.732050808f;
+  static float constexpr kSqrt2 = 1.414213562f;
+  static float constexpr kInnerRadius = 0.6f;
+  static float constexpr kOuterRadius = 1.0f;
 
   float const depth = baseDepth - 0.5f;
   float const innerDepth = baseDepth + 0.5f;
@@ -589,7 +572,7 @@ drape_ptr<df::SubrouteMarkersData> RouteShape::CacheMarkers(ref_ptr<dp::Graphics
 
   // Batching.
   {
-    uint32_t const kBatchSize = 200;
+    uint32_t constexpr kBatchSize = 200;
     dp::Batcher batcher(kBatchSize, kBatchSize);
     batcher.SetBatcherHash(static_cast<uint64_t>(BatcherBucket::Routing));
     dp::SessionGuard guard(context, batcher,

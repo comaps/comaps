@@ -134,7 +134,10 @@ using Observers = NSHashTable<Observer>;
   [ud setObject:locale forKey:kUserDefaultsTTSLanguageBcp47];
   [self createVoice:locale];
 }
-
+- (AVSpeechSynthesisVoice *)voice {
+  [self createVoice:[[self class] savedLanguage]];
+  return self.speechVoice;
+}
 - (BOOL)isValid { return _speechSynthesizer != nil && _speechVoice != nil; }
 + (BOOL)isTTSEnabled { return [NSUserDefaults.standardUserDefaults boolForKey:kIsTTSEnabled]; }
 + (void)setTTSEnabled:(BOOL)enabled {

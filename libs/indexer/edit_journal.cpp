@@ -1,5 +1,6 @@
 #include "indexer/edit_journal.hpp"
 
+#include "base/assert.hpp"
 #include "base/control_flow.hpp"
 #include "base/string_utils.hpp"
 
@@ -102,6 +103,7 @@ std::string EditJournal::ToString(osm::JournalEntry const & journalEntry)
     LegacyObjData const & legacyObjData = std::get<LegacyObjData>(journalEntry.data);
     return ToString(journalEntry.journalEntryType).append(": version=\"").append(legacyObjData.version).append("\"");
   }
+  default: UNREACHABLE();
   }
 }
 
@@ -112,6 +114,7 @@ std::string EditJournal::ToString(osm::JournalEntryType journalEntryType)
   case osm::JournalEntryType::TagModification: return "TagModification";
   case osm::JournalEntryType::ObjectCreated: return "ObjectCreated";
   case osm::JournalEntryType::LegacyObject: return "LegacyObject";
+  default: UNREACHABLE();
   }
 }
 

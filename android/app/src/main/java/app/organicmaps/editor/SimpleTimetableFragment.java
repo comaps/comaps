@@ -8,10 +8,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
-import app.organicmaps.sdk.editor.data.HoursMinutes;
 
 public class SimpleTimetableFragment extends BaseMwmRecyclerFragment<SimpleTimetableAdapter>
-    implements TimetableProvider, HoursMinutesPickerFragment.OnPickListener
+    implements TimetableProvider
 {
   private SimpleTimetableAdapter mAdapter;
   @Nullable
@@ -56,11 +55,5 @@ public class SimpleTimetableFragment extends BaseMwmRecyclerFragment<SimpleTimet
   public void setTimetables(@Nullable String timetables)
   {
     mInitTimetables = timetables;
-  }
-
-  @Override
-  public void onHoursMinutesPicked(HoursMinutes from, HoursMinutes to, int id)
-  {
-    mAdapter.onHoursMinutesPicked(from, to, id);
   }
 }

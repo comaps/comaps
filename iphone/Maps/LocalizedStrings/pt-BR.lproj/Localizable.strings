@@ -1097,4 +1097,11 @@
 "pref_maplanguage_local" = "Idioma local";
 "existence_confirmed_time_ago" = "Existência confirmada %@";
 "hours_confirmed_time_ago" = "Confirmado %@";
-"avoid_steps" = "Evitar degraus";
+"avoid_steps" = "Evitar escadas";
+"offline_explanation_text" = "É necessário baixar um mapa para visualizar e navegar pela área.\nBaixe mapas das áreas que você deseja visitar.";
+"offline_explanation_title" = "Mapas offline";
+"editor_place_doesnt_exist_description" = "Descreva com detalhes como está o local agora mesmo para enviar uma nota de erro à comunidade do OpenStreetMap";
+"voice" = "Voz";
+"unknown" = "Desconhecida";
+"voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
+"voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Ler e Falar*, *Vozes*.";

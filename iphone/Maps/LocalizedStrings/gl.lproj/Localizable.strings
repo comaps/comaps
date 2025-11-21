@@ -589,3 +589,7 @@
 "pref_maplanguage_local" = "Local Language";
 "hours_confirmed_time_ago" = "Confirmed %@";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
+"offline_explanation_text" = "Hai que descargar un mapa para ver e navegar polo área.\nDescarga os mapas para as zonas polas que vas viaxar.";
+"offline_explanation_title" = "Mapas sen conexión";
+"avoid_steps" = "Evitar pasos";
+"editor_place_doesnt_exist_description" = "Describe a aparencia do lugar para enviar unha nota co erro á comunidade OpenStreetMap";

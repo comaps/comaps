@@ -2,8 +2,11 @@
 <com.google.android.material.imageview.ShapeableImageView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/image"
   android:layout_width="@dimen/placeholder_size"
   android:layout_height="@dimen/placeholder_size"
+  android:layout_marginTop="@dimen/placeholder_size"
   android:layout_marginBottom="@dimen/margin_half_plus"
-  tools:src="@drawable/ic_search"/>
+  app:tint="?iconTint"
+  tools:src="@drawable/ic_search" />

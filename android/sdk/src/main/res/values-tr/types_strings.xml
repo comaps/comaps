@@ -1393,4 +1393,10 @@
     <string name="type.leisure.escape_game">Kaçış odası</string>
     <string name="type.natural.wetland.reedbed">Sazlık</string>
     <string name="type.shop.lighting">Aydınlatma dükkanı</string>
+    <string name="type.natural.wetland.mangrove">Mangrov</string>
+    <string name="type.natural.wetland.tidalflat">Gelgit Düzlüğü</string>
+    <string name="type.attraction.bumper_car">Çarpışan Arabalar</string>
+    <string name="type.amenity.ranger_station">Orman Bekçisi</string>
+    <string name="type.amenity.bench.backless">Sırtı Açık Bank</string>
+    <string name="type.amenity.charging_station.motorcar.small">Araç Şarj Noktası</string>
 </resources>

@@ -41,9 +41,9 @@ std::string const kLastEditedBookmarkColor = "LastBookmarkColor";
 std::string const kMetadataFileName = "bm.json";
 std::string const kSortingTypeProperty = "sortingType";
 std::string const kLargestBookmarkSymbolName = "bookmark-default-m";
-size_t const kMinCommonTypesCount = 3;
-double const kNearDistanceInMeters = 20 * 1000.0;
-double const kMyPositionTrackSnapInMeters = 20.0;
+size_t constexpr kMinCommonTypesCount = 3;
+double constexpr kNearDistanceInMeters = 20 * 1000.0;
+double constexpr kMyPositionTrackSnapInMeters = 20.0;
 
 std::string const kKMZMimeType = "application/vnd.google-earth.kmz";
 std::string const kGPXMimeType = "application/gpx+xml";
@@ -809,7 +809,7 @@ void BookmarkManager::UpdateElevationMyPosition(kml::TrackId const & trackId)
   double myPositionDistance = TrackSelectionMark::kInvalidDistance;
   if (m_myPositionMark->HasPosition())
   {
-    double const kEps = 1e-5;
+    double constexpr kEps = 1e-5;
     if (m_lastElevationMyPosition.EqualDxDy(m_myPositionMark->GetPivot(), kEps))
       return;
     m_lastElevationMyPosition = m_myPositionMark->GetPivot();
@@ -833,7 +833,7 @@ void BookmarkManager::UpdateElevationMyPosition(kml::TrackId const & trackId)
   auto es = GetEditSession();
   auto trackSelectionMark = GetMarkForEdit<TrackSelectionMark>(markId);
 
-  double const kEpsMeters = 1e-2;
+  double constexpr kEpsMeters = 1e-2;
   if (!AlmostEqualAbs(trackSelectionMark->GetMyPositionDistance(), myPositionDistance, kEpsMeters))
   {
     trackSelectionMark->SetMyPositionDistance(myPositionDistance);

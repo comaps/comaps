@@ -232,7 +232,7 @@
 "pref_map_3d_title" = "Vista en perspectiva";
 
 /* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "Edificios en 3D";
+"pref_map_3d_buildings_title" = "Edificaciones en 3D";
 
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Los edificios 3D se desactivan en el modo de ahorro de energía";
@@ -509,7 +509,7 @@
 
 /* Text for allday switch. */
 "editor_time_allday" = "Todo el día (24 horas)";
-"editor_time_open" = "Apertura";
+"editor_time_open" = "Abierto";
 "editor_time_close" = "Cierre";
 "editor_time_add_closed" = "Añadir horas de pausa";
 "editor_time_title" = "Horario de apertura";
@@ -584,7 +584,7 @@
 /* login text field */
 "email_or_username" = "Correo electrónico o usuario";
 "phone" = "Teléfono";
-"level" = "Piso";
+"level" = "Nivel";
 "please_note" = "Atención";
 "downloader_delete_map_dialog" = "Todas las ediciones hechas al mapa se eliminarán junto con este.";
 "downloader_update_maps" = "Actualizar mapas";
@@ -1097,3 +1097,7 @@
 "pref_maplanguage_local" = "Idioma local";
 "existence_confirmed_time_ago" = "Existencia confirmada %@";
 "hours_confirmed_time_ago" = "Confirmado %@";
+"offline_explanation_text" = "Se debe descargar un mapa para ver y navegar el área\nDescarga mapas de las áreas que quieras navegar.";
+"offline_explanation_title" = "Mapas sin conexión";
+"avoid_steps" = "Evitar escaleras";
+"editor_place_doesnt_exist_description" = "Describe la situación actual del lugar para enviar una nota de error a la comunidad de OpenStreetMap";

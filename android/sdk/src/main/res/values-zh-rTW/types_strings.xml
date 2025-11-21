@@ -476,4 +476,5 @@
     <string name="type.railway.station.subway.pyongyang">地鐵站</string>
     <string name="type.railway.station.subway.rotterdam">地鐵站</string>
     <string name="type.shop.wholesale">批發店</string>
+    <string name="type.shop.coffee">咖啡零售商</string>
 </resources>

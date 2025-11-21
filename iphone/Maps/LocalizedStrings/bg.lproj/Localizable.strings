@@ -493,7 +493,7 @@
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Общомедия";
 "p2p_your_location" = "Вашето местоположение";
-"p2p_start" = "Начало";
+"p2p_start" = "Почна";
 "p2p_from_here" = "Маршрут от";
 "p2p_to_here" = "Маршрут към";
 "p2p_only_from_current" = "Навигацията е възможна само от текущото ви местоположение.";

@@ -23,7 +23,7 @@
 "type.amenity.bank" = "银行";
 "type.amenity.bar" = "酒吧";
 "type.amenity.bbq" = "烧烤架";
-"type.amenity.bench" = "长凳";
+"type.amenity.bench" = "长椅";
 "type.amenity.bicycle_parking" = "自行车停车处";
 "type.amenity.bicycle_rental" = "自行车出租点";
 "type.amenity.bicycle_repair_station" = "自行车维修站";
@@ -465,7 +465,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "人行天桥";
-
 "type.highway.pedestrian.square" = "广场";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -1480,12 +1479,14 @@
 "type.natural.wetland.saltmarsh.tidal" = "潮汐盐沼";
 "type.natural.wetland.reedbed" = "芦苇地";
 "type.leisure.escape_game" = "密室逃脱";
-"type.amenity.luggage_locker" = "行李寄存点";
+"type.amenity.luggage_locker" = "行李寄存处";
 "type.amenity.ranger_station" = "护林站";
 "type.amenity.bicycle_parking.covered" = "有顶棚自行车停车处";
 "type.post_office.post_partner" = "邮政合作点";
 "type.barrier.wicket_gate" = "旁门";
 "type.amenity.animal_shelter" = "动物收容所";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
+"type.office.security" = "保安室";
+"type.power.portal" = "能源站";
+"type.building.guardhouse" = "保安亭";
+"type.amenity.charging_station.motorcar.small" = "充电桩";
+"type.amenity.bench.backless" = "长凳";

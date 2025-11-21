@@ -1,4 +1,5 @@
 #include "search/highlighting.hpp"
+#include "std/target_os.hpp"
 
 namespace search
 {
@@ -49,14 +50,13 @@ void HighlightResult(QueryTokens const & tokens, strings::UniString const & pref
 
   // Highlight Title (potentially including branch)
   std::string titleForHighlighting = res.GetString();
+#if defined(OMIM_OS_IPHONE)
   std::string const & branch = res.GetBranch();
   
-  // If we have a branch that is not already in the title, create combined string for highlighting
-  // This matches the iOS UI behavior where branch is appended as " branchText"
+  // On iOS we append branch text to the title for highlighting if it's not already present.
   if (!branch.empty() && titleForHighlighting.find(branch) == std::string::npos)
-  {
     titleForHighlighting += " " + branch;
-  }
+#endif
   
   SearchStringTokensIntersectionRanges(
       titleForHighlighting, beg, end, [&](std::pair<uint16_t, uint16_t> const & range) { res.AddHighlightRange(range); });

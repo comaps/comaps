@@ -19,10 +19,10 @@ static std::string const kTransitMarkPrimaryTextOutline = "TransitMarkPrimaryTex
 static std::string const kTransitMarkSecondaryText = "TransitMarkSecondaryText";
 static std::string const kTransitMarkSecondaryTextOutline = "TransitMarkSecondaryTextOutline";
 
-float const kRouteMarkPrimaryTextSize = 10.5f;
-float const kRouteMarkSecondaryTextSize = 10.0f;
-float const kRouteMarkSecondaryOffsetY = 2.0f;
-float const kTransitMarkTextSize = 12.0f;
+float constexpr kRouteMarkPrimaryTextSize = 10.5f;
+float constexpr kRouteMarkSecondaryTextSize = 10.0f;
+float constexpr kRouteMarkSecondaryOffsetY = 2.0f;
+float constexpr kTransitMarkTextSize = 12.0f;
 
 static std::string const kSpeedCameraMarkText = "SpeedCameraMarkText";
 static std::string const kSpeedCameraMarkBg = "SpeedCameraMarkBg";

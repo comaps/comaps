@@ -134,7 +134,7 @@ waterway|ditch;60;
 amenity|restaurant;61;
 # TODO: deprecated, 250k, replace with natural=water + water=reservoir?
 landuse|reservoir;62;
-deprecated:highway|track|grade5:04.2024;[highway=track][tracktype=grade5];x;name;int_name;63;highway|track
+amenity|bench|backless;[amenity=bench][backrest=not],[amenity=bench][backrest=no];;name;int_name;63;
 amenity|bench;64;
 # Branch railway lines include ordinary railway=rail w/o any specific usage= or service=, ~500k usages.
 # Using service= together with usage=branch is a mismapping, but people do it, so exclude explicitly.
@@ -251,7 +251,7 @@ railway|tram;150;
 # ~430k usages.
 amenity|toilets;151;
 natural|water|basin;[natural=water][water=basin];;name;int_name;152;
-deprecated:highway|footway|permissive:12.2023;[highway=footway][access=permissive],[highway=footway][foot=permissive];x;name;int_name;153;highway|footway
+amenity|lounger;[amenity=lounger][!seasonal];;name;int_name;153;
 leisure|picnic_table;154;
 landuse|construction;155;
 tourism|viewpoint;156;
@@ -301,7 +301,7 @@ railway|crossing;197;
 boundary|national_park;198;
 deprecated:natural|wood|deciduous:01.2020;[natural=wood][wood=deciduous],[natural=wood][leaf_type=deciduous],[natural=wood][leaf_cycle=deciduous];x;name;int_name;199;landuse|forest|deciduous
 waterway|dam;200;
-amenity|charging_station|motorcar;[amenity=charging_station][motorcar?];;name;int_name;201;
+amenity|charging_station|motorcar|small;[amenity=charging_station][motorcar?][!capacity],[amenity=charging_station][motorcar?][capacity=1],[amenity=charging_station][motorcar?][capacity=2];;name;int_name;201;
 leisure|golf_course;202;
 highway|service|bridge;[highway=service][bridge?];;name;int_name;203;
 # ~250K usages.
@@ -410,7 +410,7 @@ man_made|storage_tank;301;
 man_made|silo;302;
 power|generator;303;
 highway|pedestrian|bridge;[highway=pedestrian][bridge?];;name;int_name;304;
-deprecated:man_made|pipeline|overground:02.2022;[man_made=pipeline][location=overground];x;name;int_name;305;man_made|pipeline
+amenity|charging_station|motorcar;[amenity=charging_station][motorcar?][capacity?];;name;int_name;305;
 natural|saddle;306;
 mountain_pass;[mountain_pass];;name;int_name;307;
 highway|raceway;308;
@@ -609,7 +609,7 @@ boundary|protected_area|6;[boundary=protected_area][protect_class=6];;name;int_n
 leisure|park|permissive;[leisure=park][access=permissive];;name;int_name;487;
 highway|bridleway|tunnel;[highway=bridleway][tunnel?];;name;int_name;488;
 highway|motorway_link|tunnel;[highway=motorway_link][tunnel?];;name;int_name;489;
-deprecated|deprecated;490;x
+leisure|fitness_centre|sport|yoga;[leisure=fitness_centre][sport=yoga];;name;int_name;490;
 deprecated|deprecated;491;x
 deprecated|deprecated;492;x
 highway|tertiary_link|bridge;[highway=tertiary_link][bridge?];;name;int_name;493;
@@ -620,7 +620,7 @@ waterway|fish_pass|tunnel;[waterway=fish_pass][tunnel?];;name;int_name;497;
 natural|water|lock;[natural=water][water=lock];;name;int_name;498;
 deprecated:waterway|lock:06.2022;499;waterway|canal
 fee|yes;[fee?];;name;int_name;500;
-fee|no;[fee=no];;name;int_name;501;
+fee|no;[fee=not],[fee=no];;name;int_name;501;
 toilets|yes;502;
 highway|trunk_link|tunnel;[highway=trunk_link][tunnel?];;name;int_name;503;
 drinking_water|yes;[drinking_water=yes],[drinking_water=treated],[drinking_water:refill=yes];;;;504;
@@ -860,7 +860,7 @@ tourism|motel;735;
 deprecated:boundary|administrative|4|state:01.2022;[boundary=administrative][admin_level=4][border_type=state];x;name;int_name;736;boundary|administrative|4
 place|state|USA;[place=state][addr:country=US],[place=state][is_in=USA],[place=state][is_in:country=USA],[place=state][is_in:country_code=us];;name;int_name;737;
 building|address;[addr:housenumber][addr:street];;addr:housenumber;name;738;
-amenity|parking|no-access;[amenity=parking][access=no];;name;int_name;739;
+amenity|parking|no-access;[amenity=parking][access=not],[amenity=parking][access=no];;name;int_name;739;
 barrier|swing_gate;740;
 barrier|chain;741;
 sport|climbing;742;
@@ -878,38 +878,38 @@ landuse|flowerbed;752;
 deprecated|OM;753;x
 # Used for barrier|wicket_gate in OM
 deprecated|OM;754;x
-deprecated|deprecated;755;x
-deprecated|deprecated;756;x
-deprecated|deprecated;757;x
-deprecated|deprecated;758;x
-deprecated|deprecated;759;x
-deprecated|deprecated;760;x
-deprecated|deprecated;761;x
-deprecated|deprecated;762;x
-deprecated|deprecated;763;x
-deprecated|deprecated;764;x
-deprecated|deprecated;765;x
-deprecated|deprecated;766;x
-deprecated|deprecated;767;x
-deprecated|deprecated;768;x
-deprecated|deprecated;769;x
-deprecated|deprecated;770;x
-deprecated|deprecated;771;x
-deprecated|deprecated;772;x
-deprecated|deprecated;773;x
-deprecated|deprecated;774;x
-deprecated|deprecated;775;x
-deprecated|deprecated;776;x
-deprecated|deprecated;777;x
-deprecated|deprecated;778;x
-deprecated|deprecated;779;x
-deprecated|deprecated;780;x
-deprecated|deprecated;781;x
-deprecated|deprecated;782;x
-deprecated|deprecated;783;x
-deprecated|deprecated;784;x
-deprecated|deprecated;785;x
-deprecated|deprecated;786;x
+leisure|sports_centre|sport|american_football;[leisure=sports_centre][sport=american_football];;name;int_name;755;
+leisure|sports_centre|sport|athletics;[leisure=sports_centre][sport=athletics];;name;int_name;756;
+leisure|sports_centre|sport|badminton;[leisure=sports_centre][sport=badminton];;name;int_name;757;
+leisure|sports_centre|sport|baseball;[leisure=sports_centre][sport=baseball];;name;int_name;758;
+leisure|sports_centre|sport|basketball;[leisure=sports_centre][sport=basketball];;name;int_name;759;
+leisure|sports_centre|sport|beachvolleyball;[leisure=sports_centre][sport=beachvolleyball];;name;int_name;760;
+leisure|sports_centre|sport|climbing;[leisure=sports_centre][sport=climbing];;name;int_name;761;
+leisure|sports_centre|sport|field_hockey;[leisure=sports_centre][sport=field_hockey];;name;int_name;762;
+leisure|sports_centre|sport|golf;[leisure=sports_centre][sport=golf];;name;int_name;763;
+leisure|sports_centre|sport|gymnastics;[leisure=sports_centre][sport=gymnastics];;name;int_name;764;
+leisure|sports_centre|sport|handball;[leisure=sports_centre][sport=handball];;name;int_name;765;
+leisure|sports_centre|sport|ice_hockey;[leisure=sports_centre][sport=ice_hockey];;name;int_name;766;
+leisure|sports_centre|sport|padel;[leisure=sports_centre][sport=padel];;name;int_name;767;
+leisure|sports_centre|sport|pelota;[leisure=sports_centre][sport=pelota];;name;int_name;768;
+leisure|sports_centre|sport|skateboard;[leisure=sports_centre][sport=skateboard];;name;int_name;769;
+leisure|sports_centre|sport|skiing;[leisure=sports_centre][sport=skiing];;name;int_name;770;
+leisure|sports_centre|sport|swimming;[leisure=sports_centre][sport=swimming];;name;int_name;771;
+leisure|sports_centre|sport|table_tennis;[leisure=sports_centre][sport=table_tennis];;name;int_name;772;
+leisure|sports_centre|sport|tennis;[leisure=sports_centre][sport=tennis];;name;int_name;773;
+leisure|sports_centre|sport|volleyball;[leisure=sports_centre][sport=volleyball];;name;int_name;774;
+leisure|sports_centre|sport|yoga;[leisure=sports_centre][sport=yoga];;name;int_name;775;
+leisure|sports_centre|sport|archery;[leisure=sports_centre][sport=archery];;name;int_name;776;
+leisure|sports_centre|sport|australian_football;[leisure=sports_centre][sport=australian_football];;name;int_name;777;
+leisure|sports_centre|sport|bowls;[leisure=sports_centre][sport=bowls];;name;int_name;778;
+leisure|sports_centre|sport|cricket;[leisure=sports_centre][sport=cricket];;name;int_name;779;
+leisure|sports_centre|sport|curling;[leisure=sports_centre][sport=curling];;name;int_name;780;
+leisure|sports_centre|sport|equestrian;[leisure=sports_centre][sport=equestrian];;name;int_name;781;
+leisure|sports_centre|sport|futsal;[leisure=sports_centre][sport=futsal];;name;int_name;782;
+leisure|sports_centre|sport|scuba_diving;[leisure=sports_centre][sport=scuba_diving];;name;int_name;783;
+leisure|sports_centre|sport|shooting;[leisure=sports_centre][sport=shooting];;name;int_name;784;
+leisure|sports_centre|sport|multi;[leisure=sports_centre][sport=multi];;name;int_name;785;
+leisure|sports_centre|sport|soccer;[leisure=sports_centre][sport=soccer];;name;int_name;786;
 deprecated|deprecated;787;x
 deprecated|deprecated;788;x
 deprecated|deprecated;789;x
@@ -944,10 +944,10 @@ deprecated|deprecated;817;x
 deprecated|deprecated;818;x
 deprecated|deprecated;819;x
 deprecated|deprecated;820;x
-highway|track|grade3|no-access;[highway=track][tracktype=grade3][access=no];x;name;int_name;821;highway|track
-highway|track|grade4|no-access;[highway=track][tracktype=grade4][access=no];x;name;int_name;822;highway|track
-highway|track|grade5|no-access;[highway=track][tracktype=grade5][access=no];x;name;int_name;823;highway|track
-highway|track|no-access;[highway=track][access=no];;name;int_name;824;
+highway|track|grade3|no-access;[highway=track][tracktype=grade3][access=not],[highway=track][tracktype=grade3][access=no];x;name;int_name;821;highway|track
+highway|track|grade4|no-access;[highway=track][tracktype=grade4][access=not],[highway=track][tracktype=grade4][access=no];x;name;int_name;822;highway|track
+highway|track|grade5|no-access;[highway=track][tracktype=grade4][access=not],[highway=track][tracktype=grade5][access=no];x;name;int_name;823;highway|track
+highway|track|no-access;[highway=track][access=not],[highway=track][access=no];;name;int_name;824;
 deprecated|deprecated;825;x
 deprecated|deprecated;826;x
 deprecated|deprecated;827;x
@@ -970,7 +970,7 @@ deprecated|deprecated;843;x
 deprecated|deprecated;844;x
 deprecated|deprecated;845;x
 deprecated|deprecated;846;x
-leisure|park|no-access;[leisure=park][access=no];;name;int_name;847;
+leisure|park|no-access;[leisure=park][access=not],[leisure=park][access=no];;name;int_name;847;
 deprecated|deprecated;848;x
 deprecated|deprecated;849;x
 deprecated|deprecated;850;x
@@ -1000,7 +1000,7 @@ deprecated|deprecated;872;x
 area:highway|pedestrian;873;
 area:highway|unclassified;874;
 highway|pedestrian|square;[highway=pedestrian][place=square];;;;875;
-deprecated|deprecated;876;x
+leisure|bandstand;876;
 area:highway|cycleway;877;
 entrance|exit;878;
 area:highway|motorway;879;
@@ -1230,10 +1230,10 @@ shop|paint;1101;
 traffic_calming|bump;1102;
 traffic_calming|hump;1103;
 shop|car_parts;1104;
-leisure|sports_centre|climbing;[leisure=sports_centre][sport=climbing];x;name;int_name;1105;leisure|sports_centre
-leisure|sports_centre|shooting;[leisure=sports_centre][sport=shooting];x;name;int_name;1106;leisure|sports_centre
-leisure|sports_centre|swimming;[leisure=sports_centre][sport=swimming];x;name;int_name;1107;leisure|sports_centre
-leisure|sports_centre|yoga;[leisure=sports_centre][sport=yoga];x;name;int_name;1108;leisure|sports_centre
+deprecated|deprecated;1105;x
+deprecated|deprecated;1106;x
+deprecated|deprecated;1107;x
+deprecated|deprecated;1108;x
 amenity|public_bookcase;1109;
 tourism|apartment;1110;
 leisure|resort;[leisure=resort],[tourism=resort],[leisure=summer_camp];;name;int_name;1111;
@@ -1362,7 +1362,7 @@ historic|memorial|plaque;[historic=memorial][memorial=plaque],[historic=memorial
 historic|castle|defensive;[historic=castle][castle_type=defensive];;name;int_name;1234;
 historic|castle|stately;[historic=castle][castle_type=stately];;name;int_name;1235;
 attraction|animal;1236;
-deprecated:tourism|attraction|specified:03.2024;[tourism=attraction][attraction=specified];x;name;int_name;1237;tourism|attraction
+disusedbusiness;[disused:shop?],[disused:amenity=restaurant],[disused:amenity=fast_food],[disused:amenity=cafe],[disused:amenity=pub],[disused:amenity=bar];;;;1237;
 cuisine|regional;1238;
 cuisine|pizza;1239;
 cuisine|burger;1240;
@@ -1729,8 +1729,8 @@ craft;[craft?];;name;int_name;1600;
 emergency|emergency_ward_entrance;1601;
 amenity|dojo;1602;
 leisure|sports_hall;1603;
-man_made|water_tap|drinking_water_no;[man_made=water_tap][drinking_water=not],[man_made=water_tap][drinking_water=no],[man_made=water_tap][drinking_water:legal=no];;;;1604;
-man_made|water_well|drinking_water_no;[man_made=water_well][drinking_water=not],[man_made=water_well][drinking_water=no],[man_made=water_well][drinking_water:legal=no];;;;1605;
+man_made|water_tap|drinking_water_no;[man_made=water_tap][drinking_water=not],[man_made=water_tap][drinking_water=no],[man_made=water_tap][drinking_water:legal=not],[man_made=water_tap][drinking_water:legal=no];;;;1604;
+man_made|water_well|drinking_water_no;[man_made=water_well][drinking_water=not],[man_made=water_well][drinking_water=no],[man_made=water_well][drinking_water:legal=not],[man_made=water_well][drinking_water:legal=no];;;;1605;
 natural|spring|drinking_water_no;[natural=spring][drinking_water=not],[natural=spring][drinking_water=no];;;;1606;
 amenity|water_point|drinking_water_no;[amenity=water_point][drinking_water=not],[amenity=water_point][drinking_water=no];;;;1607;
 shop|pasta;1608;

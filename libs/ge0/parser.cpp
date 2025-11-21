@@ -48,11 +48,11 @@ bool Ge0Parser::Parse(std::string const & url, Result & result)
 
 bool Ge0Parser::ParseAfterPrefix(std::string const & url, size_t from, Result & result)
 {
-  size_t const kEncodedZoomAndCoordinatesLength = 10;
+  size_t constexpr kEncodedZoomAndCoordinatesLength = 10;
   if (url.size() < from + kEncodedZoomAndCoordinatesLength)
     return false;
 
-  size_t const kMaxNameLength = 256;
+  size_t constexpr kMaxNameLength = 256;
 
   size_t const posZoom = from;
   size_t const posLatLon = posZoom + 1;

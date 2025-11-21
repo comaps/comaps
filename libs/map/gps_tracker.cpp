@@ -14,7 +14,7 @@ using namespace std::chrono;
 namespace
 {
 
-char const kEnabledKey[] = "GpsTrackingEnabled";
+char constexpr kEnabledKey[] = "GpsTrackingEnabled";
 
 inline std::string GetFilePath()
 {

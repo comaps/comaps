@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
@@ -29,13 +30,13 @@ import java.util.Calendar;
 import java.util.List;
 
 class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter.BaseTimetableViewHolder>
-    implements HoursMinutesPickerFragment.OnPickListener, TimetableProvider
+    implements FromToTimePicker.OnPickListener, TimetableProvider
 {
   private static final int TYPE_TIMETABLE = 0;
   private static final int TYPE_ADD_TIMETABLE = 1;
 
-  private static final int ID_OPENING = 0;
-  private static final int ID_CLOSING = 1;
+  private static final int ID_OPENING_TIME = 0;
+  private static final int ID_CLOSED_SPAN = 1;
 
   private static final int[] DAYS = {R.id.day1, R.id.day2, R.id.day3, R.id.day4, R.id.day5, R.id.day6, R.id.day7};
 
@@ -69,7 +70,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
   @Override
   public String getTimetables()
   {
-    return OpeningHours.nativeTimetablesToString(mItems.toArray(new Timetable[mItems.size()]));
+    return OpeningHours.nativeTimetablesToString(mItems.toArray(new Timetable[0]));
   }
 
   @Override
@@ -101,7 +102,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
   private void addTimetable()
   {
-    mItems.add(OpeningHours.nativeGetComplementTimetable(mItems.toArray(new Timetable[mItems.size()])));
+    mItems.add(OpeningHours.nativeGetComplementTimetable(mItems.toArray(new Timetable[0])));
     notifyItemInserted(mItems.size() - 1);
     refreshComplement();
   }
@@ -115,25 +116,31 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
   private void refreshComplement()
   {
-    mComplementItem = OpeningHours.nativeGetComplementTimetable(mItems.toArray(new Timetable[mItems.size()]));
+    mComplementItem = OpeningHours.nativeGetComplementTimetable(mItems.toArray(new Timetable[0]));
     notifyItemChanged(getItemCount() - 1);
   }
 
   private void pickTime(int position,
-                        @IntRange(from = HoursMinutesPickerFragment.TAB_FROM, to = HoursMinutesPickerFragment.TAB_TO)
-                        int tab, @IntRange(from = ID_OPENING, to = ID_CLOSING) int id)
+                        @IntRange(from = ID_OPENING_TIME, to = ID_CLOSED_SPAN) int id,
+                        boolean startWithToTime)
   {
     final Timetable data = mItems.get(position);
     mPickingPosition = position;
-    HoursMinutesPickerFragment.pick(mFragment.requireActivity(), mFragment.getChildFragmentManager(),
-                                    data.workingTimespan.start, data.workingTimespan.end, tab, id);
+
+    FromToTimePicker.pickTime(mFragment,
+        this,
+        data.workingTimespan.start,
+        data.workingTimespan.end,
+        id,
+        startWithToTime);
+
   }
 
   @Override
   public void onHoursMinutesPicked(HoursMinutes from, HoursMinutes to, int id)
   {
     final Timetable item = mItems.get(mPickingPosition);
-    if (id == ID_OPENING)
+    if (id == ID_OPENING_TIME)
       mItems.set(mPickingPosition, OpeningHours.nativeSetOpeningTime(item, new Timespan(from, to)));
     else
       mItems.set(mPickingPosition, OpeningHours.nativeAddClosedSpan(item, new Timespan(from, to)));
@@ -148,7 +155,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
   private void addWorkingDay(int day, int position)
   {
-    final Timetable[] tts = mItems.toArray(new Timetable[mItems.size()]);
+    final Timetable[] tts = mItems.toArray(new Timetable[0]);
     mItems = new ArrayList<>(Arrays.asList(OpeningHours.nativeAddWorkingDay(tts, position, day)));
     refreshComplement();
     notifyDataSetChanged();
@@ -156,7 +163,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
   private void removeWorkingDay(int day, int position)
   {
-    final Timetable[] tts = mItems.toArray(new Timetable[mItems.size()]);
+    final Timetable[] tts = mItems.toArray(new Timetable[0]);
     mItems = new ArrayList<>(Arrays.asList(OpeningHours.nativeRemoveWorkingDay(tts, position, day)));
     refreshComplement();
     notifyDataSetChanged();
@@ -262,13 +269,13 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     {
       final int id = v.getId();
       if (id == R.id.time_open)
-        pickTime(getBindingAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_OPENING);
+        pickTime(getBindingAdapterPosition(), ID_OPENING_TIME, false);
       else if (id == R.id.time_close)
-        pickTime(getBindingAdapterPosition(), HoursMinutesPickerFragment.TAB_TO, ID_OPENING);
+        pickTime(getBindingAdapterPosition(), ID_OPENING_TIME, true);
       else if (id == R.id.tv__remove_timetable)
         removeTimetable(getBindingAdapterPosition());
       else if (id == R.id.tv__add_closed)
-        pickTime(getBindingAdapterPosition(), HoursMinutesPickerFragment.TAB_FROM, ID_CLOSING);
+        pickTime(getBindingAdapterPosition(), ID_CLOSED_SPAN, false);
       else if (id == R.id.allday)
         swAllday.toggle();
     }

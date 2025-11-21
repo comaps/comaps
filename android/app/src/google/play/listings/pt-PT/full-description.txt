@@ -1,0 +1,36 @@
+Uma aplicação pela comunidade, grátis e ‘open-source’, de mapas baseada em dados do OpenStreetMap e reforçada com compromisso para transparência, privacidade e sem fins lucrativos. 
+
+Junte-se à comunidade e ajude a fazer a melhor aplicação de mapas
+• Use a aplicação e partilhe-a com outros
+• Dê ‘feedback’ e reporte problemas
+• Atualize os dados de mapa na aplicação ou no site do OpenStreetMap
+
+<i>O seu ‘feedback’ e ‘reviews’ de 5 estrelas são a melhor maneira de nos ajudar!</i>
+
+‣ <b>Simples e Polida</b>: funcionalidades essenciais fáceis que “somente funcionam”.
+‣ <b>Foco Offline</b>: Planeie e navegue as suas viagens no estrangeiro sem dados móveis, procure locais numa caminhada distante, etc. Todas as funções da aplicação foram criadas com intenção de serem usadas sem internet.
+‣ <b>Respeita a privacidade</b>: A aplicação foi criada com privacidade em mente — não identifica o utilizador, não rastreia, e não usa a sua informação pessoal. Sem anúncios.
+‣ <b>Saves Your Battery and Space</b>: Não esgota a sua bateria ao contrário de outras aplicações. Mapas compactos salvam espaço no seu telemóvel.
+‣ <b>Gratuita e Feita pela Comunidade</b>: Pessoas como si ajudam a criar a aplicação ao adicionar locais ao OpenStreetMap, testando e dando opiniões em funcionalidades e contribuindo com dotes de desenvolvimento e dinheiro.
+‣ <b>Decisões e Finanças Abertas e Transparentes, Sem fins lucrativos e ‘Open-Source’.</b>
+
+<b>Funcionalidades principais</b>:
+• Mapas detalhados descarregáveis com locais que não estão disponíveis com o Google Maps
+• Modo ao Ar Livre com trilhos de caminhada destacados, acampamentos, fontes de água, cumes, curvas de nível, etc
+• Caminhos pedestres e ciclovias
+• Pontos de interesse como restaurantes, estações de serviço, hotéis, lojas, atrações e muitos mais
+• Pesquise por nome, endereço, ou por categoria de ponto de interesse
+• Navegação com anúncios de voz ao caminhar, pedalar ou conduzir
+• Marque os seus locais favoritos com um único clique
+• Artigos da Wikipédia Offline
+• Camada de metro e direções
+• Gravação de Percursos
+• Exportar e importar marcadores e percursos em formatos KML, KMZ, GPX
+• Um modo escuro para usar durante a noite
+• Melhore a informação do mapa para todos com um editor básico embebido
+• Suporte para ‘Android Auto’
+
+Por favor, reporte problemas da aplicação, sugira ideias e junte-se à nossa comunidade no website <b><i>comaps.app</i></b>.
+
+<b>A liberdade chegou</b>
+Descubra a sua jornada, navegue o mundo com privacidade e a comunidade à frente!

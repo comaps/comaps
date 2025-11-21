@@ -21,8 +21,8 @@
 
 namespace df
 {
-int const kDoNotChangeZoom = -1;
-double const kDoNotAutoZoom = -1.0;
+int constexpr kDoNotChangeZoom = -1;
+double constexpr kDoNotAutoZoom = -1.0;
 
 using TAnimationCreator = std::function<drape_ptr<Animation>(ref_ptr<Animation>)>;
 

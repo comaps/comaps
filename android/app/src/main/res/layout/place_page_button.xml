@@ -5,7 +5,6 @@
   style="@style/PlacePageButton"
   tools:layout_width="100dp"
   tools:layout_height="@dimen/place_page_buttons_height"
-  tools:ignore="UseCompoundDrawables"
   tools:background="#40202020">
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/icon"

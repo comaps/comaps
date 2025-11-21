@@ -143,7 +143,7 @@ bool EatVersion(string & s, uint32_t & version)
     return true;
   }
 
-  size_t const kVersionLength = 6;
+  size_t constexpr kVersionLength = 6;
   if (s.size() >= kVersionLength && all_of(s.begin(), s.begin() + kVersionLength, ::isdigit) &&
       (s.size() == kVersionLength || !isdigit(s[kVersionLength + 1])))
   {

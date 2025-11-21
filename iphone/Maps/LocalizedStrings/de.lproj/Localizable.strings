@@ -60,7 +60,7 @@
 "continue_button" = "Fortfahren";
 
 /* "Add new bookmark list" dialog title */
-"add_new_set" = "Neue Liste hinzufügen";
+"add_new_set" = "Neue Liste erstellen";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Name der Lesezeichenliste";
@@ -790,7 +790,7 @@
 "terms_of_use" = "Nutzungsbedingungen";
 "button_layer_subway" = "U-Bahn";
 "layers_title" = "Kartenstile und Ebenen";
-"subway_data_unavailable" = "Die U-Bahnkarte steht nicht zur Verfügung";
+"subway_data_unavailable" = "Die U-Bahn-Karte steht nicht zur Verfügung";
 "title_error_downloading_bookmarks" = "Es ist ein Fehler aufgetreten";
 "popular_place" = "Beliebt";
 "export_file" = "KMZ exportieren";
@@ -1098,4 +1098,10 @@
 "pref_maplanguage_local" = "Lokale Sprache";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";
 "hours_confirmed_time_ago" = "Bestätigt %@";
-"offline_explanation_title" = "Offline Karten";
+"offline_explanation_title" = "Offline-Karten";
+"offline_explanation_text" = "Um die Gegend anzusehen, muss eine Karte heruntergeladen werden.\nLaden Sie Karten für die Gebiete herunter, die Sie bereisen möchten.";
+"editor_place_doesnt_exist_description" = "Beschreibe wie der Ort jetzt aussieht um eine Fehlermeldung an die OpenStreetMap Community zu senden";
+"voice" = "Stimme";
+"unknown" = "Unbekannt";
+"voice_explanation_before_version26" = "Es ist möglich, in den Systemeinstellungen unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* eine bessere Stimme auszuwählen.";
+"voice_explanation" = "Es ist möglich, in den Systemeinstellungen unter *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* eine bessere Stimme auszuwählen.";

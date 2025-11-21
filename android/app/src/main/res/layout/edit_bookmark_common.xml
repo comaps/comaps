@@ -69,13 +69,12 @@
       android:textAlignment="viewStart"
       android:textAppearance="@style/MwmTextAppearance.Body1"
       app:drawableEndCompat="@drawable/ic_arrow_down" />
-    <View
+    <com.google.android.material.divider.MaterialDivider
       android:id="@+id/divideerrr"
       android:layout_width="match_parent"
-      android:layout_height="1dp"
+      android:layout_height="@dimen/divider_height"
       android:layout_alignBottom="@id/tv__bookmark_set"
-      android:layout_marginEnd="@dimen/margin_quadruple"
-      android:background="@color/divider" />
+      android:layout_marginEnd="@dimen/margin_quadruple" />
     <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/iv__bookmark_color"
       android:layout_width="wrap_content"

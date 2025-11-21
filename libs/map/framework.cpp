@@ -124,7 +124,7 @@ size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
 // This is temporary solution while we don't have a good filter.
 bool ParseSetGpsTrackMinAccuracyCommand(string const & query)
 {
-  char const kGpsAccuracy[] = "?gpstrackaccuracy:";
+  char constexpr kGpsAccuracy[] = "?gpstrackaccuracy:";
   if (!query.starts_with(kGpsAccuracy))
     return false;
 
@@ -954,6 +954,9 @@ void Framework::PrepareToShutdown()
 
 void Framework::SaveViewport()
 {
+  if (m_routingManager.IsRoutingActive())
+    return;
+
   m2::AnyRectD rect;
   if (m_currentModelView.isPerspective())
   {
@@ -3179,7 +3182,16 @@ bool Framework::RollBackChanges(FeatureID const & fid)
 void Framework::CreateNote(osm::MapObject const & mapObject, osm::Editor::NoteProblemType const type,
                            string const & note)
 {
-  osm::Editor::Instance().CreateNote(mapObject.GetLatLon(), mapObject.GetID(), mapObject.GetTypes(),
+  ms::LatLon latLon;
+  if (HasPlacePageInfo())
+    latLon = mercator::ToLatLon(GetCurrentPlacePageInfo().GetMercator());
+  else
+  {
+    LOG(LWARNING, ("Could not get selected map point, falling back to mapObject location"));
+    latLon = mapObject.GetLatLon();
+  }
+
+  osm::Editor::Instance().CreateNote(latLon, mapObject.GetID(), mapObject.GetTypes(),
                                      mapObject.GetDefaultName(), type, note);
   if (type == osm::Editor::NoteProblemType::PlaceDoesNotExist)
     DeactivateMapSelection();

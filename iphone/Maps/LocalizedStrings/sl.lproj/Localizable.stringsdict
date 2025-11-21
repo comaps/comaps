@@ -6,6 +6,67 @@
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>%#@value@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Brez zaznamkov</string>
+			<key>one</key>
+			<string>%d zaznamek</string>
+			<key>two</key>
+			<string>%d zaznamka</string>
+			<key>few</key>
+			<string>%d zaznamki</string>
+			<key>other</key>
+			<string>%d zaznamki</string>
+		</dict>
+	</dict>
+	<key>bookmarks_detect_message</key>
+	<dict>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Najdenih ni bilo %d datotek. Ogledate si jih lahko po pretvorbi.</string>
+			<key>one</key>
+			<string>Najdena je bila %d datoteka. Ogledate si jo lahko po pretvorbi.</string>
+			<key>two</key>
+			<string>Najdeni sta bili %d datoteki. Ogledate si ju lahko po pretvorbi.</string>
+			<key>few</key>
+			<string>Najdene so bile %d datoteke. Ogledate si jih lahko po pretvorbi.</string>
+			<key>other</key>
+			<string>Najdenih je bilo %d datotek. Ogledate si jih lahko po pretvorbi.</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@value@</string>
+	</dict>
+	<key>tracks</key>
+	<dict>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>%d sledi</string>
+			<key>one</key>
+			<string>%d sled</string>
+			<key>two</key>
+			<string>%d sledi</string>
+			<key>few</key>
+			<string>%d sledi</string>
+			<key>other</key>
+			<string>%d sledi</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@value@</string>
 	</dict>
 </dict>
 </plist>

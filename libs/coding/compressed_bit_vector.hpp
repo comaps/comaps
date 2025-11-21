@@ -89,7 +89,7 @@ class DenseCBV : public CompressedBitVector
 {
 public:
   friend class CompressedBitVectorBuilder;
-  static uint64_t const kBlockSize = 64;
+  static uint64_t constexpr kBlockSize = 64;
 
   DenseCBV() = default;
 

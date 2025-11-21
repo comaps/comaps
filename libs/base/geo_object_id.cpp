@@ -10,9 +10,9 @@ namespace
 //          and add assertions about the highest bit.
 //          The old scheme used the highest bit and the new one does not.
 // uint64_t const kTypeMask = 0x7F00000000000000;
-uint64_t const kTypeMask = 0xFF00000000000000;
-uint64_t const kReservedMask = 0x00FF000000000000;
-uint64_t const kSerialMask = 0x0000FFFFFFFFFFFF;
+uint64_t constexpr kTypeMask = 0xFF00000000000000;
+uint64_t constexpr kReservedMask = 0x00FF000000000000;
+uint64_t constexpr kSerialMask = 0x0000FFFFFFFFFFFF;
 }  // namespace
 
 namespace base

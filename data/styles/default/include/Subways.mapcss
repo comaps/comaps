@@ -27,9 +27,9 @@ node|z13-[railway=station][transport=subway],
 node|z15-[railway=station][transport=subway],
 {icon-image: subway-m.svg;}
 node|z13-[railway=station][station=light_rail],
-{icon-image: train-s.svg;}
+{icon-image: train_light-s.svg;}
 node|z15-[railway=station][station=light_rail],
-{icon-image: train-m.svg;}
+{icon-image: train_light-m.svg;}
 node|z13-[railway=station][station=monorail],
 {icon-image: monorail-s.svg;}
 node|z15-[railway=station][station=monorail],

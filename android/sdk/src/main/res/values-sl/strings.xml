@@ -2,4 +2,33 @@
 <resources>
     <string name="core_my_position">Moj položaj</string>
     <string name="core_my_places">Moji kraji</string>
+    <string name="gb">GB</string>
+    <string name="mb">MB</string>
+    <string name="maps_storage_internal">Notranja zasebna shramba</string>
+    <string name="maps_storage_shared">Notranja deljena shramba</string>
+    <string name="maps_storage_removable">kartica SD</string>
+    <string name="maps_storage_external">Zunanja deljena shramba</string>
+    <string name="category_wifi">WiFi</string>
+    <string name="postal_code">Poštna številka</string>
+    <string name="core_placepage_unknown_place">Točka zemljevida</string>
+    <string name="m">m</string>
+    <string name="km">km</string>
+    <string name="mi">milj</string>
+    <string name="ft">čevlji</string>
+    <string name="core_exit">Izhod</string>
+    <string name="core_entrance">Vhod</string>
+    <string name="subway_data_unavailable">Zemljevid podzemne železnice ni na voljo</string>
+    <string name="public_access">Javni dostop</string>
+    <string name="limited_access">Omejen dostop</string>
+    <string name="not_shared">Zasebno</string>
+    <string name="access_rules_author_only">Urejanje s povezavo</string>
+    <string name="today">Danes</string>
+    <string name="yesterday">Včeraj</string>
+    <string name="days_ago">%s dni nazaj</string>
+    <string name="week_ago">%s teden nazaj</string>
+    <string name="weeks_ago">%s tednov nazaj</string>
+    <string name="month_ago">%s mesec nazaj</string>
+    <string name="months_ago">%s mesecev nazaj</string>
+    <string name="year_ago">%s leto nazaj</string>
+    <string name="years_ago">%s let nazaj</string>
 </resources>

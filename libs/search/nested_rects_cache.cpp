@@ -16,7 +16,7 @@ namespace search
 {
 namespace
 {
-double const kPositionToleranceMeters = 15.0;
+double constexpr kPositionToleranceMeters = 15.0;
 }  // namespace
 
 NestedRectsCache::NestedRectsCache(DataSource const & dataSource)

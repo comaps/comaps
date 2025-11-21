@@ -224,13 +224,13 @@ area|z10-17[boundary=protected_area][protect_class=1],
 
 line|z10-[boundary=national_park],
 line|z10-[boundary=protected_area][protect_class=1],
-{width: 2; color: @protected_nature;}
+{width: 0.5; opacity: 0.3; color: @protected_nature;}
 
 area|z10-16[boundary=aboriginal_lands],
 {fill-opacity: 0.07; fill-color: @indigenous_lands;}
 
 line|z10-[boundary=aboriginal_lands],
-{width: 2; color: @indigenous_lands;}
+{width: 0.5; opacity: 0.3; color: @indigenous_lands;}
 
 /* ToDo: Assume that military areas already have fences? */
 
@@ -482,6 +482,9 @@ area|z13-[leisure=stadium],
 
 area|z13-[leisure=sports_centre],
 {fill-color: @sport0; fill-opacity: 1;}
+
+area|z16-[leisure=fitness_centre][sport=yoga],
+{fill-color: @sport0; fill-opacity: 0.1;}
 
 area|z14-[piste:type=snow_park],
 {fill-color: @piste; fill-opacity: 0.2;}

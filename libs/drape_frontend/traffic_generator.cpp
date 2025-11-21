@@ -101,7 +101,7 @@ void SubmitCircleStaticVertices(RoadClass roadClass, glsl::vec3 const & pivot, g
                                 glsl::vec2 const & uv, std::vector<TrafficCircleStaticVertex> & circlesGeometry)
 {
   // Here we use an equilateral triangle to render circle (incircle of a triangle).
-  static float const kSqrt3 = sqrt(3.0f);
+  static float constexpr kSqrt3 = 1.732050808f;
   auto const p = glsl::vec4(pivot, static_cast<float>(roadClass));
   circlesGeometry.emplace_back(p, glsl::vec4(rightNormal, -kSqrt3, -1.0f), uv);
   circlesGeometry.emplace_back(p, glsl::vec4(rightNormal, kSqrt3, -1.0f), uv);
@@ -138,7 +138,7 @@ void TrafficGenerator::GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> con
                                                 traffic::TrafficInfo::Coloring const & coloring,
                                                 ref_ptr<dp::TextureManager> texturesMgr)
 {
-  static std::array<int, 3> const kGenerateCirclesZoomLevel = {14, 14, 16};
+  static std::array<int, 3> constexpr kGenerateCirclesZoomLevel = {14, 14, 16};
 
   ASSERT(m_colorsCacheValid, ());
   auto const colorTexture = m_colorsCache[static_cast<size_t>(traffic::SpeedGroup::G0)].GetTexture();
@@ -161,7 +161,7 @@ void TrafficGenerator::GenerateSegmentsGeometry(ref_ptr<dp::GraphicsContext> con
     isLeftHand = (regionData.Get(feature::RegionData::RD_DRIVING) == "l");
   }
 
-  static std::array<float, 3> const kRoadClassDepths = {30.0f, 20.0f, 10.0f};
+  static std::array<float, 3> constexpr kRoadClassDepths = {30.0f, 20.0f, 10.0f};
 
   for (auto const & geomPair : geometry)
   {

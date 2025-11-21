@@ -59,8 +59,6 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
     mFrame = view;
     mTvBookmarkNote = mFrame.findViewById(R.id.tv__bookmark_notes);
     mTvBookmarkNote.setOnLongClickListener(this);
-    final View editBookmarkBtn = mFrame.findViewById(R.id.tv__bookmark_edit);
-    editBookmarkBtn.setOnClickListener(this);
   }
 
   private void initWebView()

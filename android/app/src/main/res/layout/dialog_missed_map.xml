@@ -17,10 +17,7 @@
     android:visibility="gone"
     tools:visibility="visible"/>
 
-  <View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="?dividerHorizontal"/>
+  <include layout="@layout/item_divider" />
 
   <!-- Outer FrameLayout must NOT be removed -->
   <FrameLayout
@@ -34,8 +31,5 @@
       android:layout_height="wrap_content"/>
   </FrameLayout>
 
-  <View
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="?dividerHorizontal"/>
+  <include layout="@layout/item_divider" />
 </LinearLayout>

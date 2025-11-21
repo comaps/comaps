@@ -10,8 +10,8 @@ namespace dp
 
 namespace
 {
-int const kResourceSize = 2;
-int const kBytesPerPixel = 4;
+int constexpr kResourceSize = 2;
+int constexpr kBytesPerPixel = 4;
 }  // namespace
 
 ColorPalette::ColorPalette(m2::PointU const & canvasSize) : m_textureSize(canvasSize), m_cursor(m2::PointU::Zero()) {}

@@ -130,9 +130,9 @@ public:
   };
 
   inline static std::string const kHeaderMagic = "mwmftosm";
-  inline static Version const kLatestVersion = FeatureIdToGeoObjectIdSerDes::Version::V0;
-  inline static size_t const kMagicAndVersionSize = 9;
-  inline static size_t const kHeaderOffset = 16;
+  inline static Version constexpr kLatestVersion = FeatureIdToGeoObjectIdSerDes::Version::V0;
+  inline static size_t constexpr kMagicAndVersionSize = 9;
+  inline static size_t constexpr kHeaderOffset = 16;
 
   struct HeaderV0
   {

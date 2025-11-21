@@ -4,7 +4,7 @@
 
 namespace impl
 {
-static char const kToHexTable[] = "0123456789ABCDEF";
+static char constexpr kToHexTable[] = "0123456789ABCDEF";
 
 void ToHexRaw(void const * src, size_t size, void * dst)
 {

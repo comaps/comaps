@@ -115,7 +115,7 @@ ChangesetWrapper::~ChangesetWrapper()
   {
     try
     {
-      m_changesetComments["comment"] = GetDescription();
+      AddChangesetTag("comment", GetDescription());
       m_api.UpdateChangeSet(m_changesetId, m_changesetComments);
       m_api.CloseChangeSet(m_changesetId);
     }
@@ -177,7 +177,7 @@ editor::XMLFeature ChangesetWrapper::GetMatchingNodeFeatureFromOSM(m2::PointD co
 
 editor::XMLFeature ChangesetWrapper::GetMatchingAreaFeatureFromOSM(std::vector<m2::PointD> const & geometry)
 {
-  auto const kSamplePointsCount = 3;
+  auto constexpr kSamplePointsCount = 3;
   bool hasRelation = false;
   // Try several points in case of poor osm response.
   for (auto const & pt : NaiveSample(geometry, kSamplePointsCount))
@@ -240,7 +240,25 @@ void ChangesetWrapper::Modify(editor::XMLFeature node)
 
 void ChangesetWrapper::AddChangesetTag(std::string key, std::string value)
 {
-  m_changesetComments.emplace(std::move(key), std::move(value));
+  value = strings::EscapeForXML(value);
+
+  //OSM has a length limit of 255 characters
+  if (value.length() > kMaximumOsmChars)
+  {
+    LOG(LWARNING, ("value is too long for OSM 255 char limit: ", value));
+    value = value.substr(0, kMaximumOsmChars - 3).append("...");
+  }
+
+  m_changesetComments.insert_or_assign(std::move(key), std::move(value));
+}
+
+void ChangesetWrapper::AddToChangesetKeyList(std::string key, std::string value)
+{
+  auto it = m_changesetComments.find(key);
+  if (it == m_changesetComments.end())
+    AddChangesetTag(std::move(key), std::move(value));
+  else
+    AddChangesetTag(std::move(key), it->second + "; " + value);
 }
 
 void ChangesetWrapper::Delete(editor::XMLFeature node)
@@ -338,17 +356,6 @@ std::string ChangesetWrapper::GetDescription() const
       result.append("; ");
     result.append("Deleted ").append(TypeCountToString(m_deleted_types));
   }
-  if (!m_error.empty())
-  {
-    if (!result.empty())
-      result.append("; ");
-    result.append(m_error);
-  }
   return result;
-}
-
-void ChangesetWrapper::SetErrorDescription(std::string const & error)
-{
-  m_error = error;
 }
 }  // namespace osm

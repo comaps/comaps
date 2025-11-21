@@ -73,7 +73,7 @@
     <item name="android:textAppearance">@style/MwmTextAppearance.Body1</item>
   </style>
 
-  <style name="MwmWidget.Editor.Problem" tools:ignore="NewApi">
+  <style name="MwmWidget.Editor.Problem">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">@dimen/height_block_base</item>
     <item name="android:gravity">center_vertical</item>

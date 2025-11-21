@@ -1362,7 +1362,7 @@
     <string name="type.leisure.firepit">Bålplads</string>
     <string name="type.man_made.crane">Kran</string>
     <string name="type.barrier.guard_rail">Autoværn</string>
-    <string name="type.amenity.studio">Studie</string>
+    <string name="type.amenity.studio">Medie-studio</string>
     <string name="type.power.generator">Strømgenerator</string>
     <string name="type.power">Strøm</string>
     <string name="type.power.line.underground">Underjordisk strømledning</string>
@@ -1389,4 +1389,8 @@
     <string name="type.barrier.wicket_gate">Portlåge</string>
     <string name="type.natural.wetland.reedbed">Rørskov</string>
     <string name="type.shop.lighting">Lysbutik</string>
+    <string name="type.amenity.bench.backless">Rygløs bænk</string>
+    <string name="type.amenity.charging_station.motorcar.small">Opladningspunkt til biler</string>
+    <string name="type.leisure.sports_centre.sport.multi">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.american_football">Sportscenter</string>
 </resources>

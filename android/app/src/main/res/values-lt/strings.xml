@@ -849,4 +849,26 @@
     <string name="existence_confirmed_time_ago">Egzistavimas patvirtintas %s</string>
     <string name="pref_tts_no_system_tts_short">Neaptikta jokia šnekos sintezės sistema, patikrinkite programėlės nustatymus</string>
     <string name="osm_note_toast">Pastaba bus nusiųsta į „OpenStreetMap“</string>
+    <string name="unknown_power_output">nežinoma</string>
+    <string name="editor_place_doesnt_exist_description">Praneškite „OpenStreetMap“ bendruomenei apie šią klaidą, apibūdindami, kaip ši vieta atrodo dabar</string>
+    <string name="avoid_steps">Vengti laiptų</string>
+    <string name="charge_socket_type2">Type 2 (be kabelio)</string>
+    <string name="charge_socket_type2_cable">Type 2 (su kabeliu)</string>
+    <string name="charge_socket_type2_combo">CCS 2</string>
+    <string name="charge_socket_type1">Type 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">nežinomo tipo jungtis</string>
+    <string name="unknow_socket_type">nežinomo tipo jungtis</string>
+    <string name="edit_socket_info_tooltip">Galite įvesti naujas jungtis arba redaguoti esamas.</string>
+    <string name="charging_station_available_sockets">Galimos jungtys</string>
+    <string name="charge_socket_unknown_other">Kita / nežinoma</string>
+    <string name="charge_socket_count">Kiekis</string>
+    <string name="charge_socket_power">Galia (kW)</string>
+    <string name="editor_socket">Taisyti jungtį</string>
+    <string name="unknown_count">nežinomas</string>
+    <string name="error_value_must_be_positive">Reikšmė turi būti teigiama</string>
+    <string name="error_invalid_number">Netinkamas skaičius</string>
+    <string name="offline_explanation_title">Žemėlapio parsisiuntimas</string>
+    <string name="offline_explanation_text">Kad galėtumėte matyti šios vietovės žemėlapį ir planuoti jame keliones, pirma turite jį atsiųsti.</string>
 </resources>

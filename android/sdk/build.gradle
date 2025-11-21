@@ -122,6 +122,7 @@ dependencies {
   implementation libs.androidx.annotation
   implementation libs.androidx.fragment
   implementation libs.androidx.lifecycle.process
+  implementation libs.androidx.media
   implementation libs.androidx.recyclerview
   implementation libs.android.material
 

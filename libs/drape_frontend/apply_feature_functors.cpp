@@ -46,19 +46,20 @@ dp::Color ToDrapeColor(uint32_t src)
 
 namespace
 {
-double const kMinVisibleFontSize = 8.0;
+double constexpr kMinVisibleFontSize = 8.0;
 
 df::ColorConstant const kPoiDeletedMaskColor = "PoiDeletedMask";
 df::ColorConstant const kRoadShieldBlackTextColor = "RoadShieldBlackText";
 df::ColorConstant const kRoadShieldWhiteTextColor = "RoadShieldWhiteText";
-df::ColorConstant const kRoadShieldUKYellowTextColor = "RoadShieldUKYellowText";
+df::ColorConstant const kRoadShieldWhiteBackgroundColor = "RoadShieldWhiteBackground";
 df::ColorConstant const kRoadShieldGreenBackgroundColor = "RoadShieldGreenBackground";
 df::ColorConstant const kRoadShieldBlueBackgroundColor = "RoadShieldBlueBackground";
 df::ColorConstant const kRoadShieldRedBackgroundColor = "RoadShieldRedBackground";
 df::ColorConstant const kRoadShieldOrangeBackgroundColor = "RoadShieldOrangeBackground";
+df::ColorConstant const kRoadShieldUKYellowTextColor = "RoadShieldUKYellowText";
 
-uint32_t const kPathTextBaseTextIndex = 128;
-uint32_t const kShieldBaseTextIndex = 0;
+uint32_t constexpr kPathTextBaseTextIndex = 128;
+uint32_t constexpr kShieldBaseTextIndex = 0;
 
 #ifdef LINES_GENERATION_CALC_FILTERED_POINTS
 class LinesStat
@@ -195,7 +196,7 @@ m2::PointF GetOffset(int offsetX, int offsetY)
 
 bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway;
+  return shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada;
 }
 
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
@@ -206,6 +207,8 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     result = shield.m_name.size() <= 2 ? "shield-us-i-thin" : "shield-us-i-wide";
   else if (shield.m_type == ftypes::RoadShieldType::US_Highway)
     result = shield.m_name.size() <= 2 ? "shield-us-hw-thin" : "shield-us-hw-wide";
+  else if (shield.m_type == ftypes::RoadShieldType::Italy_Autostrada)
+    result = "shield-it-a";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
@@ -217,31 +220,32 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
 
 bool IsColoredRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Default || shield.m_type == ftypes::RoadShieldType::UK_Highway ||
+  return shield.m_type == ftypes::RoadShieldType::Default ||
          shield.m_type == ftypes::RoadShieldType::Generic_White ||
-         shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
          shield.m_type == ftypes::RoadShieldType::Generic_Green ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
          shield.m_type == ftypes::RoadShieldType::Generic_Red ||
-         shield.m_type == ftypes::RoadShieldType::Generic_Orange;
+         shield.m_type == ftypes::RoadShieldType::Generic_Orange ||
+         shield.m_type == ftypes::RoadShieldType::Generic_White_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Green_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Blue_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Red_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Orange_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::UK_Highway;
 }
 
-void UpdateRoadShieldTextFont(dp::FontDecl & font, ftypes::RoadShield const & shield)
+bool IsColoredPillRoadShield(ftypes::RoadShield const & shield)
 {
-  font.m_outlineColor = dp::Color::Transparent();
-
-  using ftypes::RoadShieldType;
-
-  static base::SmallMapBase<RoadShieldType, df::ColorConstant> kColors = {
-      {RoadShieldType::Generic_Green, kRoadShieldWhiteTextColor},
-      {RoadShieldType::Generic_Blue, kRoadShieldWhiteTextColor},
-      {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
-      {RoadShieldType::US_Interstate, kRoadShieldWhiteTextColor},
-      {RoadShieldType::US_Highway, kRoadShieldBlackTextColor},
-      {RoadShieldType::Generic_Red, kRoadShieldWhiteTextColor},
-      {RoadShieldType::Generic_Orange, kRoadShieldBlackTextColor}};
-
-  if (auto const * cl = kColors.Find(shield.m_type); cl)
-    font.m_color = df::GetColorConstant(*cl);
+  return shield.m_type == ftypes::RoadShieldType::Generic_Pill_White ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_White_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red_Bordered ||
+         shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange_Bordered;
 }
 
 dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield const & shield)
@@ -249,11 +253,63 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
   using ftypes::RoadShieldType;
 
   static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
+      {RoadShieldType::Generic_White, kRoadShieldWhiteBackgroundColor},
       {RoadShieldType::Generic_Green, kRoadShieldGreenBackgroundColor},
       {RoadShieldType::Generic_Blue, kRoadShieldBlueBackgroundColor},
-      {RoadShieldType::UK_Highway, kRoadShieldGreenBackgroundColor},
       {RoadShieldType::Generic_Red, kRoadShieldRedBackgroundColor},
-      {RoadShieldType::Generic_Orange, kRoadShieldOrangeBackgroundColor}};
+      {RoadShieldType::Generic_Orange, kRoadShieldOrangeBackgroundColor},
+      {RoadShieldType::Generic_White_Bordered, kRoadShieldWhiteBackgroundColor},
+      {RoadShieldType::Generic_Green_Bordered, kRoadShieldGreenBackgroundColor},
+      {RoadShieldType::Generic_Blue_Bordered, kRoadShieldBlueBackgroundColor},
+      {RoadShieldType::Generic_Red_Bordered, kRoadShieldRedBackgroundColor},
+      {RoadShieldType::Generic_Orange_Bordered, kRoadShieldOrangeBackgroundColor},
+      {RoadShieldType::Generic_Pill_White, kRoadShieldWhiteBackgroundColor},
+      {RoadShieldType::Generic_Pill_Green, kRoadShieldGreenBackgroundColor},
+      {RoadShieldType::Generic_Pill_Blue, kRoadShieldBlueBackgroundColor},
+      {RoadShieldType::Generic_Pill_Red, kRoadShieldRedBackgroundColor},
+      {RoadShieldType::Generic_Pill_Orange, kRoadShieldOrangeBackgroundColor},
+      {RoadShieldType::Generic_Pill_White_Bordered, kRoadShieldWhiteBackgroundColor},
+      {RoadShieldType::Generic_Pill_Green_Bordered, kRoadShieldGreenBackgroundColor},
+      {RoadShieldType::Generic_Pill_Blue_Bordered, kRoadShieldBlueBackgroundColor},
+      {RoadShieldType::Generic_Pill_Red_Bordered, kRoadShieldRedBackgroundColor},
+      {RoadShieldType::Generic_Pill_Orange_Bordered, kRoadShieldOrangeBackgroundColor},
+      {RoadShieldType::UK_Highway, kRoadShieldGreenBackgroundColor}};
+
+  if (auto const * cl = kColors.Find(shield.m_type); cl)
+    return df::GetColorConstant(*cl);
+
+  return baseColor;
+}
+
+dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield const & shield)
+{
+  using ftypes::RoadShieldType;
+
+  static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
+      {RoadShieldType::Generic_White, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Green, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Blue, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Red, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Orange, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_White_Bordered, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Green_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Blue_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Red_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Orange_Bordered, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Pill_White, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Pill_Green, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Blue, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Red, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Orange, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Pill_White_Bordered, kRoadShieldBlackTextColor},
+      {RoadShieldType::Generic_Pill_Green_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Blue_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Red_Bordered, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Generic_Pill_Orange_Bordered, kRoadShieldBlackTextColor},
+      {RoadShieldType::US_Interstate, kRoadShieldWhiteTextColor},
+      {RoadShieldType::US_Highway, kRoadShieldBlackTextColor},
+      {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
+      {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor}};
 
   if (auto const * cl = kColors.Find(shield.m_type); cl)
     return df::GetColorConstant(*cl);
@@ -263,8 +319,11 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
 
 float GetRoadShieldOutlineWidth(float baseWidth, ftypes::RoadShield const & shield)
 {
-  if (shield.m_type == ftypes::RoadShieldType::UK_Highway || shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Green || shield.m_type == ftypes::RoadShieldType::Generic_Red)
+  if (shield.m_type == ftypes::RoadShieldType::Generic_White || shield.m_type == ftypes::RoadShieldType::Generic_Green ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Red ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Orange || shield.m_type == ftypes::RoadShieldType::Generic_Pill_White || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange || shield.m_type == ftypes::RoadShieldType::UK_Highway)
     return 0.0f;
 
   return baseWidth;
@@ -896,7 +955,8 @@ void ApplyLineFeatureAdditional::GetRoadShieldsViewParams(ref_ptr<dp::TextureMan
 
   dp::FontDecl font;
   ShieldRuleProtoToFontDecl(m_shieldRule, font);
-  UpdateRoadShieldTextFont(font, shield);
+  font.m_outlineColor = dp::Color::Transparent();
+  font.m_color = GetRoadShieldTextColor(font.m_color, shield);
 
   FillCommonParams(textParams);
   textParams.m_depthLayer = DepthLayer::OverlayLayer;
@@ -939,6 +999,29 @@ void ApplyLineFeatureAdditional::GetRoadShieldsViewParams(ref_ptr<dp::TextureMan
       symbolParams.m_outlineWidth = static_cast<float>(1.0 * mainScale);
     }
     symbolParams.m_sizeInPixels = shieldPixelSize;
+    symbolParams.m_outlineColor = GetRoadShieldTextColor(symbolParams.m_outlineColor, shield);
+    symbolParams.m_outlineWidth = GetRoadShieldOutlineWidth(symbolParams.m_outlineWidth, shield);
+    symbolParams.m_color = GetRoadShieldColor(symbolParams.m_color, shield);
+  }
+  // A colored pill road shield.
+  if (IsColoredPillRoadShield(shield))
+  {
+    FillCommonParams(symbolParams);
+    symbolParams.m_depthLayer = DepthLayer::OverlayLayer;
+    symbolParams.m_depthTestEnabled = true;
+    symbolParams.m_depth = m_shieldDepth;
+    symbolParams.m_anchor = anchor;
+    symbolParams.m_offset = shieldOffset;
+    symbolParams.m_shape = ColoredSymbolViewParams::Shape::RoundedRectangle;
+    symbolParams.m_radiusInPixels = static_cast<float>(6.0 * mainScale);
+    symbolParams.m_color = ToDrapeColor(m_shieldRule->color());
+    if (m_shieldRule->stroke_color() != m_shieldRule->color())
+    {
+      symbolParams.m_outlineColor = ToDrapeColor(m_shieldRule->stroke_color());
+      symbolParams.m_outlineWidth = static_cast<float>(1.0 * mainScale);
+    }
+    symbolParams.m_sizeInPixels = shieldPixelSize;
+    symbolParams.m_outlineColor = GetRoadShieldTextColor(symbolParams.m_outlineColor, shield);
     symbolParams.m_outlineWidth = GetRoadShieldOutlineWidth(symbolParams.m_outlineWidth, shield);
     symbolParams.m_color = GetRoadShieldColor(symbolParams.m_color, shield);
   }
@@ -1092,7 +1175,7 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
       m_insertShape(make_unique_dp<TextShape>(shieldPos, textParams, m_tileKey, m2::PointF(0.0f, 0.0f) /* symbolSize */,
                                               m2::PointF(0.0f, 0.0f) /* symbolOffset */, dp::Center /* symbolAnchor */,
                                               textIndex));
-      if (IsColoredRoadShield(shield))
+      if (IsColoredRoadShield(shield) || IsColoredPillRoadShield(shield))
         m_insertShape(make_unique_dp<ColoredSymbolShape>(shieldPos, symbolParams, m_tileKey, textIndex));
       else if (IsSymbolRoadShield(shield))
         m_insertShape(make_unique_dp<PoiSymbolShape>(shieldPos, poiParams, m_tileKey, textIndex));

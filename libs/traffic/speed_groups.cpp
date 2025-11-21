@@ -4,7 +4,7 @@
 
 namespace traffic
 {
-uint32_t const kSpeedGroupThresholdPercentage[] = {8, 16, 33, 58, 83, 100, 100, 100};
+uint32_t constexpr kSpeedGroupThresholdPercentage[] = {8, 16, 33, 58, 83, 100, 100, 100};
 
 SpeedGroup GetSpeedGroupByPercentage(double p)
 {

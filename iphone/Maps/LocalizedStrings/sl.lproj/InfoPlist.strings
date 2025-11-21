@@ -1,3 +1,5 @@
 "search" = "Išči";
 "route" = "Pot";
 "bookmarks_and_tracks" = "Zaznamki in poti";
+"NSLocationAlwaysUsageDescription" = "Zaznavanje položaja v ozadju je potrebno, da lahko izkoristite zmogljivosti orodja v celoti. Uporablja se za potno usmerjanje in shranjevanje vaše nedavno prepotovane poti.";
+"NSLocationWhenInUseUsageDescription" = "Določanje vašega položaja je potrebno za potno usmerjanje in shranjevanje vaše nedavno prepotovane poti.";

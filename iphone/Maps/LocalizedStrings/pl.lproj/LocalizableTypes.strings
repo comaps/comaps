@@ -465,7 +465,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Most dla pieszych";
-
 "type.highway.pedestrian.square" = "Plac";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -716,8 +715,8 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Pochylnia";
 "type.leisure.sports_centre" = "Centrum sportowe";
-"type.sport.climbing" = "Centrum wspinaczkowe";
-"type.sport.yoga" = "Studio jogi";
+"type.sport.climbing" = "Wspinaczka";
+"type.sport.yoga" = "Joga";
 "type.leisure.stadium" = "Stadion";
 "type.leisure.swimming_pool" = "Basen";
 "type.leisure.swimming_pool.private" = "Basen";
@@ -1333,7 +1332,7 @@
 "type.sport.soccer" = "Piłka nożna";
 "type.sport.swimming" = "Pływanie";
 "type.sport.table_tennis" = "Tenis stołowy";
-"type.sport.tennis" = "Kort tenisowy";
+"type.sport.tennis" = "Tenis";
 "type.sport.volleyball" = "Piłka siatkowa";
 "type.sport.10pin" = "Bowling";
 "type.sport.9pin" = "Bowling";
@@ -1485,7 +1484,46 @@
 "type.post_office.post_partner" = "Post Partner";
 "type.amenity.ranger_station" = "Budynek obsługi parku";
 "type.amenity.animal_shelter" = "Schronisko dla zwierząt";
-"type.barrier.wicket_gate" = "Wicket gate";
+"type.barrier.wicket_gate" = "Furtka";
 "type.office.security" = "Biuro ochrony";
 "type.power.portal" = "Portal elektroenergetyczny";
 "type.building.guardhouse" = "Wartownia";
+"type.shop.lighting" = "Sklep oświetleniowy";
+"type.leisure.sports_centre.sport.soccer" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.athletics" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.padel" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.swimming" = "Ośrodek pływacki";
+"type.leisure.sports_centre.sport.ice_hockey" = "Centrum sportowe";
+"type.leisure.fitness_centre.sport.yoga" = "Studio Jogi";
+"type.leisure.sports_centre.sport.golf" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.shooting" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.table_tennis" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.handball" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.baseball" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.pelota" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.skiing" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.cricket" = "Centrum sportowe";
+"type.amenity.charging_station.motorcar.small" = "Punkt ładowania samochodów";
+"type.leisure.sports_centre.sport.equestrian" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.volleyball" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.curling" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.futsal" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.american_football" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.multi" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.yoga" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.australian_football" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.basketball" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.archery" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.gymnastics" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.badminton" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.tennis" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.skateboard" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.climbing" = "Centrum wspinaczkowe";
+"type.leisure.sports_centre.sport.scuba_diving" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.field_hockey" = "Centrum sportowe";
+"type.leisure.sports_centre.sport.bowls" = "Centrum sportowe";
+"type.amenity.bench.backless" = "Ławka bez oparcia";
+"type.leisure.bandstand" = "Muszla koncertowa";
+"type.disusedbusiness" = "Pusty lokal";
+"type.amenity.lounger" = "Leżak";

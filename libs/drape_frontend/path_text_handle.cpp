@@ -10,11 +10,11 @@ namespace df
 
 namespace
 {
-double const kValidPathSplineTurn = 15 * math::pi / 180;
-double const kCosTurn = cos(kValidPathSplineTurn);
-double const kSinTurn = sin(kValidPathSplineTurn);
-double const kRoundStep = 23;
-int const kMaxStepsCount = 7;
+double constexpr kValidPathSplineTurn = 15 * math::pi / 180;
+double constexpr kCosTurn = 0.999989561; // cos(kValidPathSplineTurn)
+double constexpr kSinTurn = 0.004569245; // sin(kValidPathSplineTurn)
+double constexpr kRoundStep = 23;
+int constexpr kMaxStepsCount = 7;
 
 bool RoundCorner(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3, int leftStepsCount,
                  std::vector<m2::PointD> & roundedCorner)
@@ -31,7 +31,7 @@ bool RoundCorner(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const 
     return false;
 
   double const vs = df::VisualParams::Instance().GetVisualScale();
-  double const kMinCornerDist = 1.0;
+  double constexpr kMinCornerDist = 1.0;
   if ((p3 - p1).SquaredLength() < kMinCornerDist * vs)
   {
     roundedCorner.push_back(p1);
@@ -72,7 +72,7 @@ void ReplaceLastCorner(std::vector<m2::PointD> const & roundedCorner, m2::Spline
 bool IsValidSplineTurn(m2::PointD const & normalizedDir1, m2::PointD const & normalizedDir2)
 {
   double const dotProduct = m2::DotProduct(normalizedDir1, normalizedDir2);
-  double const kEps = 1e-5;
+  double constexpr kEps = 1e-5;
   return dotProduct > kCosTurn || fabs(dotProduct - kCosTurn) < kEps;
 }
 

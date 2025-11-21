@@ -1,5 +1,5 @@
-"search" = "Search";
-"route" = "Route";
+"search" = "Guetar";
+"route" = "Ruta";
 "NSLocationAlwaysUsageDescription" = "Detecting location in the background is necessary to fully enjoy the functionality of the app. It is used for navigation and saving your recently traveled track.";
-"bookmarks_and_tracks" = "Bookmarks and Tracks";
+"bookmarks_and_tracks" = "Marcadores y trayeutos";
 "NSLocationWhenInUseUsageDescription" = "Determining your location is necessary for navigation and for saving your recently traveled track.";

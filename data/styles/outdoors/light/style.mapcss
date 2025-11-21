@@ -73,8 +73,9 @@ colors
   RoadShieldBlackText-color: #000000;
   RoadShieldWhiteText-color: #FFFFFF;
   RoadShieldUKYellowText-color: #FFD400;
-  RoadShieldBlueBackground-color: #1A5EC1;
+  RoadShieldWhiteBackground-color: #FFFFFF;
   RoadShieldGreenBackground-color: #309302;
+  RoadShieldBlueBackground-color: #1A5EC1;
   RoadShieldRedBackground-color: #E63534;
   RoadShieldOrangeBackground-color: #FFBE00;
   PoiHotelTextOutline-color: #FFFFFF;

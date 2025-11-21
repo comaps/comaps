@@ -17,8 +17,7 @@
     android:clipToPadding="false"
     android:clipChildren="false"
     android:layout_gravity="center"
-    android:gravity="center"
-    tools:ignore="UselessParent">
+    android:gravity="center">
     <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -64,8 +63,7 @@
         android:fontFamily="@string/robotoMedium"
         android:textStyle="normal"
         android:gravity="center_horizontal"
-        tools:text="Some name very loooooooooong name"
-        tools:ignore="UnusedAttribute"/>
+        tools:text="Some name very loooooooooong name" />
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/downloader_size"
         android:layout_width="wrap_content"

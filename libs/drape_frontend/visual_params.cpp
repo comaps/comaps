@@ -128,21 +128,21 @@ uint32_t VisualParams::GetTileSize() const
 uint32_t VisualParams::GetTouchRectRadius() const
 {
   ASSERT_INITED;
-  float const kRadiusInPixels = 20.0f;
+  float constexpr kRadiusInPixels = 20.0f;
   return static_cast<uint32_t>(kRadiusInPixels * GetVisualScale());
 }
 
 double VisualParams::GetDragThreshold() const
 {
   ASSERT_INITED;
-  double const kDragThresholdInPixels = 10.0;
+  double constexpr kDragThresholdInPixels = 10.0;
   return kDragThresholdInPixels * GetVisualScale();
 }
 
 double VisualParams::GetScaleThreshold() const
 {
   ASSERT_INITED;
-  double const kScaleThresholdInPixels = 2.0;
+  double constexpr kScaleThresholdInPixels = 2.0;
   return kScaleThresholdInPixels * GetVisualScale();
 }
 
@@ -305,7 +305,7 @@ void ExtractZoomFactors(ScreenBase const & s, double & zoom, int & index, float 
 
 double GetNormalizedZoomLevel(double screenScale, int minZoom)
 {
-  double const kMaxZoom = scales::GetUpperStyleScale() + 1.0;
+  double constexpr kMaxZoom = scales::GetUpperStyleScale() + 1.0;
   return math::Clamp((GetZoomLevel(screenScale) - minZoom) / (kMaxZoom - minZoom), 0.0, 1.0);
 }
 

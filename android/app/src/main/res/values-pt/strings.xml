@@ -863,4 +863,26 @@
     <string name="existence_confirmed_time_ago">Existência confirmada %s</string>
     <string name="hours_confirmed_time_ago">Confirmado %s</string>
     <string name="pref_tts_no_system_tts_short">Nenhuma máquina de ‘text-to-speech’ foi encnotrada, verifique as definições da aplicação</string>
+    <string name="offline_explanation_title">Mapas Offline</string>
+    <string name="offline_explanation_text">Um mapa necessita de ser descarregado para ver e navegar a área. \nDescarregue mapas para as áreas para as quais quer navegar.</string>
+    <string name="editor_place_doesnt_exist_description">Descreva o que o local parece agora para enviar uma nota de erro à comunidade do OpenStreetMap</string>
+    <string name="avoid_steps">Evitar escadas</string>
+    <string name="unknown_power_output">desconhecido</string>
+    <string name="charge_socket_type2">Tipo 2 (sem cabo)</string>
+    <string name="charge_socket_type2_cable">Tipo 2 (com cabo)</string>
+    <string name="charge_socket_type2_combo">Tipo 2 combo</string>
+    <string name="charge_socket_type1">Tipo 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">tomada desconhecida</string>
+    <string name="unknow_socket_type">tomada desconhecida</string>
+    <string name="edit_socket_info_tooltip">Crie tomadas ou adicione pré-existentes.</string>
+    <string name="charging_station_available_sockets">Tomadas disponíveis</string>
+    <string name="charge_socket_unknown_other">Outra ou desconhecida</string>
+    <string name="charge_socket_count">Quantidade</string>
+    <string name="charge_socket_power">Potência (kW)</string>
+    <string name="editor_socket">Editar tomada</string>
+    <string name="unknown_count">desconhecido</string>
+    <string name="error_value_must_be_positive">O valor tem que ser positivo</string>
+    <string name="error_invalid_number">Número inválido</string>
 </resources>

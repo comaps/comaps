@@ -16,8 +16,7 @@
     android:clipChildren="false"
     android:layout_gravity="center"
     android:gravity="center_horizontal"
-    android:background="@drawable/onmap_downloader_background"
-    tools:ignore="UselessParent">
+    android:background="@drawable/onmap_downloader_background">
 
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="@dimen/square_block_size"
@@ -58,8 +57,7 @@
       android:fontFamily="@string/robotoMedium"
       android:textStyle="normal"
       android:gravity="center_horizontal"
-      tools:text="Some name very loooooooooong name"
-      tools:ignore="UnusedAttribute"/>
+      tools:text="Some name very loooooooooong name"/>
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/downloader_size"
       android:layout_width="wrap_content"

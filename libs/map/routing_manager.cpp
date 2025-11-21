@@ -44,9 +44,9 @@ using namespace std;
 
 namespace
 {
-char const kRouterTypeKey[] = "router";
+char constexpr kRouterTypeKey[] = "router";
 
-double const kRouteScaleMultiplier = 1.5;
+double constexpr kRouteScaleMultiplier = 1.5;
 
 string const kRoutePointsFile = "route_points.dat";
 

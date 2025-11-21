@@ -115,9 +115,23 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     mapLanguageComboBox->setMaxVisibleItems(10);
     StringUtf8Multilang::Languages const & supportedLanguages =
         StringUtf8Multilang::GetSupportedLanguages(/* includeServiceLangs */ false);
+
+    // Create a vector of pairs (name, index) and sort by name
+    std::vector<std::pair<std::string, size_t>> languageNameIndexPairs;
+    for (size_t i = 0; i < supportedLanguages.size(); ++i)
+    {
+      languageNameIndexPairs.emplace_back(std::string(supportedLanguages[i].m_name), i);
+    }
+    std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(),
+              [](auto const & a, auto const & b) { return a.first < b.first; });
+
     QStringList languagesList = QStringList();
-    for (auto const & language : supportedLanguages)
-      languagesList << QString::fromStdString(std::string(language.m_name));
+    std::vector<size_t> sortedIndices;
+    for (auto const & pair : languageNameIndexPairs)
+    {
+      languagesList << QString::fromStdString(pair.first);
+      sortedIndices.push_back(pair.second);
+    }
 
     mapLanguageComboBox->addItems(languagesList);
     std::string const & mapLanguageCode = framework.GetMapLanguageCode();
@@ -127,9 +141,9 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
     mapLanguageComboBox->setCurrentText(
         QString::fromStdString(std::string(StringUtf8Multilang::GetLangNameByCode(languageIndex))));
-    connect(mapLanguageComboBox, &QComboBox::activated, [&framework, &supportedLanguages](int index)
+    connect(mapLanguageComboBox, &QComboBox::activated, [&framework, &supportedLanguages, sortedIndices](int index)
     {
-      auto const & mapLanguageCode = std::string(supportedLanguages[index].m_code);
+      auto const & mapLanguageCode = std::string(supportedLanguages[sortedIndices[index]].m_code);
       framework.SetMapLanguageCode(mapLanguageCode);
     });
   }

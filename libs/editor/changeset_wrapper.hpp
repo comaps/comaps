@@ -52,8 +52,8 @@ public:
   /// Add a tag to the changeset
   void AddChangesetTag(std::string key, std::string value);
 
-  /// Allows to see exception details in OSM changesets for easier debugging.
-  void SetErrorDescription(std::string const & error);
+  /// Add item to ';' separated list for a changeset key
+  void AddToChangesetKeyList(std::string key, std::string value);
 
 private:
   /// Unfortunately, pugi can't return xml_documents from methods.
@@ -65,11 +65,11 @@ private:
   ServerApi06 m_api;
   static constexpr uint64_t kInvalidChangesetId = 0;
   uint64_t m_changesetId = kInvalidChangesetId;
+  static constexpr int kMaximumOsmChars = 255;
 
   TypeCount m_modified_types;
   TypeCount m_created_types;
   TypeCount m_deleted_types;
-  std::string m_error;
   static std::string TypeCountToString(TypeCount const & typeCount);
   std::string GetDescription() const;
 };

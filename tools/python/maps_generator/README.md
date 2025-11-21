@@ -63,7 +63,7 @@ cd tools/python
 
 Build a `.mwm` map file for North Macedonia without using coastlines (it's a land-locked country anyway):
 ```sh
-python -m maps_generator --countries="Macedonia" --skip="Coastline"
+python3 -m maps_generator --countries="Macedonia" --skip="Coastline"
 ```
 
 It's possible to skip coastlines for countries that have a sea coast too, but the sea water will not be rendered in that case.
@@ -72,7 +72,7 @@ Make sure that you specify country names that are actually contained in your pbf
 
 To see other possible command-line options:
 ```sh
-python -m maps_generator -h
+python3 -m maps_generator -h
 ```
 
 ## Troubleshooting
@@ -89,7 +89,7 @@ The general log file (by default its `maps_build/generation.log`) contains outpu
 4. Run
 
 ```sh
-python -m maps_generator --countries="World, WorldCoasts, Japan_*"
+python3 -m maps_generator --countries="World, WorldCoasts, Japan_*"
 ```
 
 ### Rebuild stages
@@ -98,7 +98,7 @@ For example, you changed routing code in the project and want to regenerate maps
 You must have previous generation. You may regenerate starting from the routing stage and only for two mwms:
 
 ```sh
-python -m maps_generator -c --from_stage="Routing" --countries="Japan_Kinki Region_Osaka_Osaka, Japan_Chugoku Region_Tottori"
+python3 -m maps_generator -c --from_stage="Routing" --countries="Japan_Kinki Region_Osaka_Osaka, Japan_Chugoku Region_Tottori"
 ```
 
 ### Custom maps from GeoJSON
@@ -163,7 +163,7 @@ osmium extract -p borders.geojson germany-latest.osm.pbf -o germany_part.osm.pbf
 5. Run the `maps_generator` tool:
 
 ```sh
-python -m maps_generator --skip="Coastline" --without_countries="World*"
+python3 -m maps_generator --skip="Coastline" --without_countries="World*"
 ```
 
 In this example we skipped generation of the World\* files because they are ones of the most time- and resources-consuming mwms.

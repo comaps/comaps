@@ -5,8 +5,7 @@
   android:layout_width="wrap_content"
   android:layout_height="@dimen/elevation_profile_height"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  tools:background="@color/black_54"
-  tools:ignore="Overdraw">
+  tools:background="@color/black_54">
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/image"
     android:layout_width="@dimen/elevation_profile_marker_width"
@@ -20,14 +19,14 @@
     android:layout_marginStart="@dimen/margin_eighth"
     android:layout_marginEnd="@dimen/margin_eighth"
     android:layout_toEndOf="@id/image"
-    android:clipChildren="false"
-    tools:ignore="UnusedAttribute">
+    android:clipChildren="false">
     <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/floating_triangle"
-      android:layout_width="@dimen/margin_half"
-      android:layout_height="@dimen/margin_base"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:elevation="@dimen/margin_eighth"
       android:layout_centerVertical="true"
+      app:tint="@android:color/white"
       app:srcCompat="?elevationProfileFloatingTriangle" />
     <RelativeLayout
       android:id="@+id/floating_text_container"
@@ -41,8 +40,7 @@
       android:background="?elevationProfileSelectedPointBg"
       android:elevation="@dimen/margin_eighth"
       android:maxWidth="@dimen/dialog_min_height"
-      android:padding="@dimen/margin_quarter_plus"
-      tools:ignore="UnusedAttribute">
+      android:padding="@dimen/margin_quarter_plus">
       <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/distance_icon"
         android:layout_width="@dimen/margin_half_plus"
@@ -72,6 +70,7 @@
           android:id="@+id/triangle"
           android:layout_width="@dimen/margin_half_plus_eight"
           android:layout_height="@dimen/margin_half_plus_eight"
+          app:tint="?colorControlNormal"
           app:srcCompat="?elevationProfileSelectedPointTriangle" />
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/altitude"

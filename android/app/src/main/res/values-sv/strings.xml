@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Begränsad noggrannhet</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">För att säkerställa korrekt navigering aktiverar du Precise Location i inställningarna.</string>
+    <string name="precise_location_is_disabled_long_text">Aktivera Exakt Plats i inställningarna för att säkerställa korrekt navigering</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Visa på kartan</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -36,13 +36,13 @@
     <string name="try_again">Försök igen</string>
     <string name="about_menu_title">Om CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• Inga annonser, ingen spårning, ingen datainsamling</string>
+    <string name="about_proposition_1">• Lättanvändlig och finslipad</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• Låg batteriförbrukning, fungerar utan uppkoppling</string>
+    <string name="about_proposition_2">• Integritetsfokuserad och fri från annonser</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, snabb och kompakt</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">Öppen källkod-app skapad av entusiaster och frivilliga.</string>
+    <string name="about_developed_by_enthusiasts">Fullständigt öppen källkod, icke-vinstdrivande, transparent beslutsfattande och ekonomi.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">Platsinställningar</string>
     <string name="close">Stäng</string>
@@ -829,4 +829,8 @@
     <string name="delete_track_dialog_title">Ta bort %s?</string>
     <string name="existence_confirmed_time_ago">Existens bekräftad %s</string>
     <string name="hours_confirmed_time_ago">Bekräftat %s</string>
+    <string name="editor_building_levels">Våningar (inkl. bottenplan, exkl. takvåningar)</string>
+    <string name="editor_level">Våningsplan (0 är bottenplan)</string>
+    <string name="error_enter_correct_level">Ange ett giltigt nummer för våningsplan</string>
+    <string name="avoid_steps">Undvik trappor</string>
 </resources>

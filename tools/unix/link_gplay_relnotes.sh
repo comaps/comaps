@@ -12,9 +12,8 @@ GPLAY_PATH="$ANDROID_PATH/google/play/release-notes"
 pushd $ANDROID_PATH >/dev/null
 
 echo "Deleting all GPlay relnotes symlinks in $GPLAY_PATH"
-pushd $GPLAY_PATH >/dev/null
-rm -rf *
-popd >/dev/null
+rm -rf $GPLAY_PATH
+mkdir -p $GPLAY_PATH
 
 pushd fdroid/play/listings >/dev/null
 

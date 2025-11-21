@@ -884,4 +884,9 @@
     <string name="error_invalid_number">Neplatné číslo</string>
     <string name="charge_socket_count">Počet</string>
     <string name="unknown_count">neznámé</string>
+    <string name="offline_explanation_text">Pro prohlížení a navigaci v dané oblasti je nutné si stáhnout mapu.\nStáhněte si mapy oblastí, které chcete navštívit.</string>
+    <string name="editor_place_doesnt_exist_description">Popište, jak místo vypadá nyní a pošlete poznámku o chybě komunitě OpenStreetMap</string>
+    <string name="avoid_steps">Vyhnout se schodům</string>
+    <string name="offline_explanation_title">Offline mapy</string>
+    <string name="list_description_empty">Upravit seznam pro přidání popisu</string>
 </resources>

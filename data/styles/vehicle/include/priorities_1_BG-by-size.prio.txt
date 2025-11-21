@@ -33,6 +33,7 @@ amenity-parking-street_side-private                 # area z15- (also has icon z
 
 amenity-car_wash                                    # area z17- (also has icon z17-, caption(optional) z17-)
 amenity-charging_station-motorcar                   # area z15- (also has icon z14-, caption(optional) z14-)
+amenity-charging_station-motorcar-small             # area z15- (also has icon z16-, caption(optional) z16-)
 amenity-fuel                                        # area z15- (also has icon z12-, caption(optional) z12-)
 amenity-vehicle_inspection                          # area z17- (also has icon z17-)
 highway-rest_area                                   # area z13- (also has icon z14-, caption(optional) z14-)

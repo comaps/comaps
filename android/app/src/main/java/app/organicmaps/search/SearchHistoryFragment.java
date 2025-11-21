@@ -47,7 +47,7 @@ public class SearchHistoryFragment extends BaseMwmRecyclerFragment<SearchHistory
     super.onViewCreated(view, savedInstanceState);
     getRecyclerView().setLayoutManager(new LinearLayoutManager(view.getContext()));
     mPlaceHolder = view.findViewById(R.id.placeholder);
-    mPlaceHolder.setContent(R.string.search_history_title, R.string.search_history_text);
+    mPlaceHolder.setContent(R.string.search_history_title, R.string.search_history_text, R.drawable.ic_search_recent);
 
     getAdapter().registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
       @Override

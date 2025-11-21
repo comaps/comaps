@@ -26,7 +26,7 @@ std::string_view constexpr kPair = "Pair";
 std::string_view constexpr kExtendedData = "ExtendedData";
 std::string const kCompilation = "mwm:compilation";
 
-std::string_view const kCoordinates = "coordinates";
+std::string_view constexpr kCoordinates = "coordinates";
 
 bool IsTrack(std::string const & s)
 {

@@ -539,6 +539,12 @@
 "editor_report_problem_send_button" = "Send";
 "autodownload" = "Auto-download maps";
 
+/* Voice */
+"voice" = "Voice";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accesibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accesibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Unknown";
+
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
@@ -854,7 +860,7 @@
 "avoid_unpaved" = "Avoid unpaved roads";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_steps" = "Avoid steps";
+"avoid_steps" = "Avoid stairs";
 "avoid_ferry" = "Avoid ferries";
 "avoid_motorways" = "Avoid motorways";
 "unable_to_calc_alert_title" = "Unable to calculate route";

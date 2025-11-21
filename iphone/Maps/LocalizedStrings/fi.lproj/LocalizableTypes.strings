@@ -1488,3 +1488,5 @@
 "type.office.security" = "Vartijoiden toimisto";
 "type.power.portal" = "Sähköportaali";
 "type.building.guardhouse" = "Vartijankoppi";
+"type.amenity.charging_station.motorcar.small" = "Auton latauspiste";
+"type.amenity.bench.backless" = "Selkänojaton penkki";

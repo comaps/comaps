@@ -5,8 +5,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/ll__place_cuisine"
   style="@style/PlacePageItemFrame"
-  tools:visibility="visible"
-  tools:ignore="UseCompoundDrawables">
+  tools:visibility="visible">
 
   <com.google.android.material.imageview.ShapeableImageView
     android:layout_width="wrap_content"

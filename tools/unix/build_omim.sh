@@ -33,7 +33,9 @@ while getopts ":cdrRxtagjlp:n:" opt; do
        CMAKE_CONFIG="${CMAKE_CONFIG:-} -DNJOBS=${OPT_NJOBS}"
        ;;
     p) OPT_PATH="$OPTARG" ;;
-    r) OPT_RELEASE=1 ;;
+    r) OPT_RELEASE=1
+       CMAKE_CONFIG="${CMAKE_CONFIG:-} -DSKIP_TESTS=1"
+       ;;
     R) OPT_RELEASEDEBUGINFO=1 ;;
     t) OPT_DESIGNER=1 ;;
     *)

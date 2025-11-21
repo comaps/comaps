@@ -14,8 +14,7 @@
     android:layout_height="wrap_content"
     android:background="?colorPrimary"
     android:gravity="end|center_vertical"
-    android:theme="@style/MwmWidget.ToolbarTheme"
-    tools:ignore="UnusedAttribute">
+    android:theme="@style/MwmWidget.ToolbarTheme">
     <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/logout"
       android:layout_width="?actionBarSize"

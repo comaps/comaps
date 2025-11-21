@@ -1,9 +1,8 @@
-• Interface utilisateur et visibilité des instructions en navigation améliorée
-• Option pour éviter les escaliers ajoutée
-• Recherche améliorée dans différents languages
-• Icône pour les gares routières ajoutée
-• Corrections de bugs liées à Android Auto (via OM)
-• Editeur amélioré et corrections de bugs
-• Style de la carte amélioré (via OM)
-• Traductions améliorées
+• Données OpenStreetMap au 4 novembre
+• Recatégorisation des icônes sur la carte avec ajout de nouvelles couleurs pour certains types de lieux
+• Affichage des prises sur les bornes électriques
+• Ajout d'icônes pour les centres sportifs, salles d'événements, salon de massage et autres lieux
+• Multiple améliorations dans la recherche
+• Correction d'un plantage dans la recherche
+• Amélioration de la synthèse vocale durant la navigation
 Plus d'informations sur notre Codeberg

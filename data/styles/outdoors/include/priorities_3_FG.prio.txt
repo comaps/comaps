@@ -398,11 +398,11 @@ railway-rail-utility-bridge::bridgeblack            # line::bridgeblack z16- (al
 railway-subway-bridge::bridgeblack                  # line::bridgeblack z16- (also has line z13-, line::bridgewhite z13-, line::dash z16-)
 === 140
 
-building                                            # area z14- (also has caption z16-)
-building-garage                                     # area z14- (also has caption z16-)
+building                                            # area z14- (also has caption z17-)
+building-garage                                     # area z14- (also has caption z17-)
 building-guardhouse                                 # area z14- (also has icon z16-, caption(optional) z18-)
-building-has_parts                                  # area z14- (also has caption z16-)
-building-train_station                              # area z14- (also has caption z16-)
+building-has_parts                                  # area z14- (also has caption z17-)
+building-train_station                              # area z14- (also has caption z17-)
 === 130
 
 piste:type-connection                               # line z15-

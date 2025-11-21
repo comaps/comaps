@@ -118,7 +118,7 @@ void ColoredSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::
     pixelSize = m2::PointU(2 * static_cast<uint32_t>(m_params.m_radiusInPixels),
                            2 * static_cast<uint32_t>(m_params.m_radiusInPixels));
     // Here we use an equilateral triangle to render circle (incircle of a triangle).
-    static float const kSqrt3 = static_cast<float>(sqrt(3.0f));
+    static float constexpr kSqrt3 = 1.732050808f;
     float r = m_params.m_radiusInPixels - m_params.m_outlineWidth;
 
     V::TTexCoord uv2(uv.x, uv.y, norm(0.0, 0.0));
@@ -195,7 +195,7 @@ void ColoredSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::
     }
 
     // Here we use an right triangle to render a quarter of circle.
-    static float const kSqrt2 = static_cast<float>(sqrt(2.0f));
+    static float constexpr kSqrt2 = 1.414213562f;
     float r = m_params.m_radiusInPixels - m_params.m_outlineWidth;
     V::TTexCoord uv2(uv.x, uv.y, norm(-halfWidthBody, halfHeightBody));
     buffer.push_back(V(position, V::TNormal(0.0, 0.0, r, 0.0f), uv2));

@@ -34,7 +34,7 @@ public:
   /// this value.
   ///
   /// WARNING! Existing sections may not be properly aligned.
-  static uint64_t const kSectionAlignment = 8;
+  static uint64_t constexpr kSectionAlignment = 8;
 
   bool IsExist(Tag const & tag) const { return GetInfo(tag) != 0; }
 

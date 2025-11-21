@@ -21,8 +21,7 @@
     android:lineSpacingExtra="@dimen/line_spacing_extra_2"
     android:textColor="?android:attr/textColorPrimary"
     android:textAppearance="?android:attr/textAppearance"
-    tools:text="asdasdadadasdasdasdasdasdasdasdadas"
-    tools:ignore="UnusedAttribute"/>
+    tools:text="asdasdadadasdasdasdasdasdasdasdadas" />
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/more_btn"
@@ -38,5 +37,5 @@
     android:text="@string/category_desc_more"
     android:background="@android:color/transparent"/>
   <include
-    layout="@layout/divider_horizontal"/>
+    layout="@layout/item_divider"/>
 </LinearLayout>

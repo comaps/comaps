@@ -30,6 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_base"
+        android:layout_marginStart="@dimen/margin_base"
+        android:layout_marginEnd="@dimen/margin_base"
         android:gravity="center"
         android:text="@string/download_map_title" />
       <com.google.android.material.textview.MaterialTextView

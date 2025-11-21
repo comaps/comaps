@@ -385,7 +385,7 @@ void TrafficManager::UpdateMyPosition(MyPosition const & myPosition)
 {
   // Side of square around |myPosition|. Every mwm which is covered by the square
   // will get traffic info.
-  double const kSquareSideM = 5000.0;
+  double constexpr kSquareSideM = 5000.0;
   m_currentPosition = {myPosition, true /* initialized */};
 
   if (!m_currentPositionLazy.second

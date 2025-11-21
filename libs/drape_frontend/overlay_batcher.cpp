@@ -8,12 +8,12 @@
 
 namespace df
 {
-uint32_t const kOverlayIndexBufferSize = 30000;
-uint32_t const kOverlayVertexBufferSize = 20000;
+uint32_t constexpr kOverlayIndexBufferSize = 30000;
+uint32_t constexpr kOverlayVertexBufferSize = 20000;
 
 OverlayBatcher::OverlayBatcher(TileKey const & key) : m_batcher(kOverlayIndexBufferSize, kOverlayVertexBufferSize)
 {
-  int const kAverageRenderDataCount = 5;
+  int constexpr kAverageRenderDataCount = 5;
   m_data.reserve(kAverageRenderDataCount);
 
   m_batcher.SetBatcherHash(key.GetHashValue(BatcherBucket::Overlay));

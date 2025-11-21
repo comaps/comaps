@@ -13,14 +13,14 @@ namespace vulkan
 {
 namespace
 {
-std::array<uint32_t, VulkanMemoryManager::kResourcesCount> const kMinBlockSizeInBytes = {{
+std::array<uint32_t, VulkanMemoryManager::kResourcesCount> constexpr kMinBlockSizeInBytes = {{
     1024 * 1024,  // Geometry
     128 * 1024,   // Uniform
     0,            // Staging (no minimal size)
     0,            // Image (no minimal size)
 }};
 
-std::array<uint32_t, VulkanMemoryManager::kResourcesCount> const kDesiredSizeInBytes = {{
+std::array<uint32_t, VulkanMemoryManager::kResourcesCount> constexpr kDesiredSizeInBytes = {{
     80 * 1024 * 1024,                      // Geometry
     std::numeric_limits<uint32_t>::max(),  // Uniform (unlimited)
     20 * 1024 * 1024,                      // Staging

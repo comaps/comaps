@@ -622,4 +622,8 @@
     <string name="charging_station_available_sockets">Enganches dispoñibles</string>
     <string name="charge_socket_unknown_other">Outro ou descoñecido</string>
     <string name="unknow_socket_type">engache descoñecido</string>
+    <string name="editor_place_doesnt_exist_description">Describe a aparencia do lugar para enviar unha nota co erro á comunidade OpenStreetMap</string>
+    <string name="avoid_steps">Evitar pasos</string>
+    <string name="offline_explanation_title">Mapas sen conexión</string>
+    <string name="offline_explanation_text">Hai que descargar un mapa para ver e navegar polo área.\nDescarga os mapas para as zonas polas que vas viaxar.</string>
 </resources>

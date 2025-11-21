@@ -96,7 +96,7 @@
 "historic-wayside_shrine": "5रास्ते का तीर्थ",
 "leisure-dog_park": "श्वान पार्क",
 "leisure-garden": "बाग",
-"amenity-bench": "बेंच",
+"amenity-bench|amenity-bench-backless": "बेंच",
 "amenity-bicycle_rental": "4साइकिल किराए के लिए",
 "amenity-bicycle_repair_station": "4साइकिल मरम्मत स्टेशन",
 "amenity-car_sharing": "3गाड़ी साँझा",

@@ -101,6 +101,13 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
     rm -f WorldCoasts.mwm; ln -s "$WORLD_PATH2" WorldCoasts.mwm
   fi
 
+  if [ ! -f "World.mwm" ]; then
+    ln -s "$WORLD_PATH" World.mwm
+  fi
+  if [ ! -f "WorldCoasts.mwm" ]; then
+    ln -s "$WORLD_PATH2" WorldCoasts.mwm
+  fi
+
   popd
 else
   echo "Skipping world map download..."

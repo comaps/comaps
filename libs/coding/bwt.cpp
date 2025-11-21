@@ -10,11 +10,11 @@
 
 namespace
 {
-size_t const kNumBytes = 256;
+size_t constexpr kNumBytes = 256;
 
 // Fake trailing '$' for the BWT, used for original string
 // reconstruction.
-uint32_t const kEOS = 256;
+uint32_t constexpr kEOS = 256;
 
 // FirstColumn represents the first column in the BWT matrix. As
 // during reverse BWT we need to reconstruct canonical first column,

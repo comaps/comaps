@@ -20,8 +20,8 @@ using namespace std;
 
 namespace
 {
-double const kMaxCityRadiusMeters = 30000.0;
-double const kMaxVillageRadiusMeters = 2000.0;
+double constexpr kMaxCityRadiusMeters = 30000.0;
+double constexpr kMaxVillageRadiusMeters = 2000.0;
 
 struct Filter
 {
@@ -126,7 +126,7 @@ int GetVillagesScale()
 
   // Needed for backward compatibility. |kCompatibilityVillagesMinDrawableScale| should be set to
   // maximal value we have in mwms over all data versions.
-  int const kCompatibilityVillagesMinDrawableScale = 13;
+  int constexpr kCompatibilityVillagesMinDrawableScale = 13;
   ASSERT_LESS_OR_EQUAL(currentVillagesMinDrawableScale, kCompatibilityVillagesMinDrawableScale,
                        ("Set kCompatibilityVillagesMinDrawableScale to", currentVillagesMinDrawableScale));
   return max(currentVillagesMinDrawableScale, kCompatibilityVillagesMinDrawableScale);

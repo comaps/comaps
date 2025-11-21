@@ -4,7 +4,7 @@
 
 namespace routing
 {
-std::string const kDebugSpeedCamSetting = "DebugSpeedCam";
+std::string_view constexpr kDebugSpeedCamSetting = "DebugSpeedCam";
 
 /// \returns true if any information about speed cameras is prohibited in |mwm|.
 bool AreSpeedCamerasProhibited(platform::CountryFile const & mwm);

@@ -465,7 +465,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "橋";
-
 "type.highway.pedestrian.square" = "廣場";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -1208,7 +1207,7 @@
 "type.shop.chemist" = "藥妝店";
 "type.shop.chocolate" = "巧克力店";
 "type.shop.clothes" = "買衣服";
-"type.shop.coffee" = "咖啡店";
+"type.shop.coffee" = "咖啡零售商";
 "type.shop.computer" = "電腦店";
 "type.shop.confectionery" = "糕餅店";
 "type.shop.convenience" = "便利店";

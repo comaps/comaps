@@ -15,7 +15,7 @@
 
 namespace df
 {
-double const kDefault3dScale = 1.0;
+double constexpr kDefault3dScale = 1.0;
 
 void Navigator::SetFromScreen(ScreenBase const & screen)
 {
@@ -29,7 +29,7 @@ void Navigator::SetFromScreen(ScreenBase const & screen, uint32_t tileSize, doub
 
   if (!CheckMaxScale(tmp, tileSize, visualScale))
   {
-    int const scale = scales::GetUpperStyleScale() - 1;
+    int constexpr scale = scales::GetUpperStyleScale() - 1;
     m2::RectD newRect = df::GetRectForDrawScale(scale, screen.GetOrg());
     newRect.Scale(m_Screen.GetScale3d());
     CheckMinMaxVisibleScale(newRect, scale, m_Screen.GetScale3d());

@@ -11,7 +11,6 @@
     app:layout_constraintEnd_toStartOf="@+id/custom_input"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
-    tools:ignore="ContentDescription"
     tools:src="@drawable/ic_phone" />
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/custom_input"

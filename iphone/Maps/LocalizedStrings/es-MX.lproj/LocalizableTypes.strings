@@ -17,7 +17,7 @@
 "type.aeroway.runway" = "Pista de despegue";
 "type.aeroway.taxiway" = "Pista de rodaje";
 "type.aeroway.terminal" = "Terminal";
-"type.amenity" = "Infraestructura";
+"type.amenity" = "Infrastrukturni element";
 "type.amenity.arts_centre" = "Centro de arte";
 "type.amenity.atm" = "Cajero automático";
 "type.amenity.bank" = "Banco";
@@ -465,7 +465,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Puente peatonal";
-
 "type.highway.pedestrian.square" = "Plaza";
 
 /* These translations are used for all type.highway.*.tunnel. */

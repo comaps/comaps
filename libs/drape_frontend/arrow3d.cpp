@@ -50,7 +50,7 @@ df::ColorConstant const kArrow3DOutlineColor = "Arrow3DOutline";
 std::string const kDefaultArrowMesh = "arrow.obj";
 std::string const kDefaultArrowShadowMesh = "arrow_shadow.obj";
 
-std::string_view const kMainFileId = "main_obj_file_id";
+std::string_view constexpr kMainFileId = "main_obj_file_id";
 
 using TLoadingCompletion =
     std::function<void(std::vector<float> positions, std::vector<float> normals, std::vector<float> texCoords)>;
@@ -351,7 +351,7 @@ bool Arrow3d::IsValid() const
 // static
 double Arrow3d::GetMaxBottomSize()
 {
-  double const kBottomSize = 1.0;
+  double constexpr kBottomSize = 1.0;
   return kBottomSize * arrow3d::kArrowSize * arrow3d::kArrow3dScaleMax * kOutlineScale;
 }
 

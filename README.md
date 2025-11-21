@@ -23,10 +23,10 @@
       <img src="https://img.shields.io/github/license/comaps/comaps?style=for-the-badge&logo=opensourceinitiative&logoColor=white&color=588157" alt="License"/>
     </a>
     <a href="https://github.com/comaps/comaps/actions/workflows/android-check.yaml">
-      <img src="https://img.shields.io/github/actions/workflow/status/comaps/comaps/.github/workflows/android-check.yaml?label=Android%20Build&logo=android&logoColor=white&style=for-the-badge&color=588157" alt="Android Build Status"/>
+      <img src="https://img.shields.io/github/actions/workflow/status/comaps/comaps/.github/workflows/android-check.yaml?label=Android%20Build&logo=android&logoColor=white&style=for-the-badge" alt="Android Build Status"/>
     </a>
     <a href="https://github.com/comaps/comaps/actions/workflows/ios-check.yaml">
-      <img src="https://img.shields.io/github/actions/workflow/status/comaps/comaps/.github/workflows/ios-check.yaml?label=iOS%20Build&logo=apple&logoColor=white&style=for-the-badge&color=588157" alt="iOS Build Status"/>
+      <img src="https://img.shields.io/github/actions/workflow/status/comaps/comaps/.github/workflows/ios-check.yaml?label=iOS%20Build&logo=apple&logoColor=white&style=for-the-badge" alt="iOS Build Status"/>
     </a>
     <a href="https://opencollective.com/comaps">
       <img src="https://img.shields.io/opencollective/all/comaps?label=Open%20Collective%20Donors&logo=opencollective&logoColor=white&style=for-the-badge&color=588157" alt="Open Collective Donors"/>

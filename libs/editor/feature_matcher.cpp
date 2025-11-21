@@ -29,7 +29,7 @@ using AreaType = bg::default_area_result<Polygon>::type;
 using ForEachRefFn = std::function<void(XMLFeature const & xmlFt)>;
 using ForEachWayFn = std::function<void(pugi::xml_node const & way, std::string const & role)>;
 
-double const kPointDiffEps = 1e-5;
+double constexpr kPointDiffEps = 1e-5;
 
 void AddInnerIfNeeded(pugi::xml_document const & osmResponse, pugi::xml_node const & way, Polygon & dest)
 {

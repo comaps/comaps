@@ -160,7 +160,7 @@
 "type.craft.caterer" = "Caterer";
 "type.railway" = "Railway";
 "type.aeroway.gate" = "Gate";
-"type.addr_interpolation" = "Address/Block";
+"type.addr_interpolation" = "Direición/Bloque";
 "type.aerialway.station" = "Aerialway Station";
 "type.aeroway.apron" = "Apron";
 "type.aeroway.terminal" = "Terminal";
@@ -528,7 +528,6 @@
 "type.railway.subway_entrance.stockholm" = "Subway Entrance";
 "type.place.locality" = "Locality";
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 "type.cuisine.turkish" = "Turkish";
 "type.historic.anchor" = "Historic Anchor";
@@ -810,7 +809,7 @@
 "type.landuse.forest.mixed" = "Mixed-Leaf Forest";
 "type.natural.shingle" = "Shingle";
 "type.recycling.clothes" = "Clothes";
-"type.aerialway" = "Aerialway";
+"type.aerialway" = "Tresporte per cable";
 "type.craft.sawmill" = "Sawmill";
 "type.highway.service.parking_aisle" = "Parking Aisle";
 "type.cuisine.pizza" = "Pizza";
@@ -1063,7 +1062,7 @@
 "type.railway.station.subway.milan" = "Subway Station";
 "type.natural.glacier" = "Glacier";
 "type.cuisine.ramen" = "Ramen";
-"type.addr_interpolation.even" = "Address/Block";
+"type.addr_interpolation.even" = "Direición/Bloque";
 "type.railway.station.subway.dubai" = "Subway Station";
 "type.railway.subway_entrance.chengdu" = "Subway Entrance";
 "type.cuisine.grill" = "Grill";
@@ -1111,7 +1110,7 @@
 "type.railway.subway_entrance.changchun" = "Subway Entrance";
 "type.cuisine.hungarian" = "Hungarian";
 "type.natural.cape" = "Cape";
-"type.addr_interpolation.odd" = "Address/Block";
+"type.addr_interpolation.odd" = "Direición/Bloque";
 "type.barrier.ditch" = "Ditch";
 "type.railway.subway_entrance.moscow" = "Subway Entrance";
 "type.piste_type.downhill.novice.area" = "Novice Downhill Ski Run";

@@ -307,7 +307,7 @@ void LocalityScorer::GetDocVecs(uint32_t localityId, vector<DocVec> & dvs) const
 
 double LocalityScorer::GetSimilarity(QueryVec & qv, IdfMap & docIdfs, vector<DocVec> & dvc) const
 {
-  double const kScale = 1e6;
+  double constexpr kScale = 1e6;
 
   double similarity = 0;
   for (auto & dv : dvc)

@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:layout_marginBottom="@dimen/margin_half"
-        android:selectAllOnFocus="true"
         android:textAppearance="@style/MwmTextAppearance.Body3"
         android:textIsSelectable="true"
         tools:text="2025.04.16-FDroid" />
@@ -218,12 +217,11 @@
         android:textAlignment="viewStart"
         app:drawableStartCompat="@drawable/ic_email" />
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="@dimen/divider_height"
         android:layout_marginBottom="@dimen/margin_quarter"
-        android:layout_marginTop="@dimen/margin_quarter"
-        android:background="?dividerHorizontal" />
+        android:layout_marginTop="@dimen/margin_quarter" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/privacy_policy"

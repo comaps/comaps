@@ -11,7 +11,7 @@
 
 namespace
 {
-char const kMinHorizontalAccuracyKey[] = "GpsTrackingMinAccuracy";
+char constexpr kMinHorizontalAccuracyKey[] = "GpsTrackingMinAccuracy";
 
 // Minimal horizontal accuracy is required to skip 'bad' points.
 // Use 250 meters to allow points from a pure GPS + GPS through wifi.

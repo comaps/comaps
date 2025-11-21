@@ -36,7 +36,7 @@ bool IsPointOnSegment(PointD const & pt, PointD const & p1, PointD const & p2)
   // better ideas how to check whether pt belongs to (p1, p2) segment
   // more precisely or without kEps, feel free to submit a pull
   // request.
-  double const kEps = 1e-100;
+  double constexpr kEps = 1e-100;
   return IsPointOnSegmentEps(pt, p1, p2, kEps);
 }
 

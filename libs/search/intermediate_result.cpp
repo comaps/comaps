@@ -28,7 +28,7 @@ namespace
 {
 class SkipRegionInfo
 {
-  static size_t const kCount = 2;
+  static size_t constexpr kCount = 2;
   uint32_t m_types[kCount];
 
 public:

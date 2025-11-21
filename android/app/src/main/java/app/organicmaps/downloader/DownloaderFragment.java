@@ -222,10 +222,10 @@ public class DownloaderFragment
       return;
 
     if (mAdapter != null && mAdapter.isSearchResultsMode())
-      placeholder.setContent(R.string.search_not_found, R.string.search_not_found_query);
+      placeholder.setContent(R.string.search_not_found, R.string.search_not_found_query, R.drawable.ic_search_fail);
     else
       placeholder.setContent(R.string.downloader_no_downloaded_maps_title,
-                             R.string.downloader_no_downloaded_maps_message);
+                             R.string.downloader_no_downloaded_maps_message, R.drawable.ic_download);
   }
 
   @Override

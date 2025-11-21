@@ -86,7 +86,7 @@ size_t PedestrianDirectionsEngine::GetTurnDirection(IRoutingResult const & resul
 
 void PedestrianDirectionsEngine::FixupTurns(vector<RouteSegment> & routeSegments)
 {
-  double const kMergeDistMeters = 15.0;
+  double constexpr kMergeDistMeters = 15.0;
 
   for (size_t idx = 0; idx < routeSegments.size(); ++idx)
   {

@@ -54,9 +54,9 @@
     <string name="download_resources_continue">برو به نقشه</string>
     <string name="downloading_country_can_proceed">درحال دانلود %1$s (%2$s). شما اکنون می توانید \nبه نقشه بروید.</string>
     <string name="download_country_ask">دانلود %1$s؟ (%2$s)</string>
-    <string name="update_country_ask">آپدیت %1$s؟ (%2$s)</string>
+    <string name="update_country_ask">بروزرسانی %1$s؟ (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
-    <string name="pause">مکث</string>
+    <string name="pause">درنگ</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="continue_button">ادامه</string>
     <!-- Show popup notification on top of the map when country download has failed. -->
@@ -70,9 +70,9 @@
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">نام</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
-    <string name="address">آدرس</string>
+    <string name="address">نشانی</string>
     <!-- Add Bookmark dialog/Bookmark list; Bookmarks dialog/Bookmark list cell. -->
-    <string name="list">لیست</string>
+    <string name="list">پهرست</string>
     <!-- Settings button in system menu -->
     <string name="settings">تنظیمات</string>
     <!-- Header of settings activity where user defines storage path -->
@@ -80,15 +80,15 @@
     <!-- Detailed description of Maps Storage settings button -->
     <string name="maps_storage_summary">مسیری را که نقشه‌ها باید در آن دانلود شود را انتخاب کنید</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
-    <string name="maps_storage_downloaded">نقشه‌ها</string>
+    <string name="maps_storage_downloaded">نقشه‌های بارگیری‌شده</string>
     <!-- Question dialog for transferring maps from one storage to another -->
     <string name="move_maps">آیا نقشه‌ها جابه‌جا شود؟</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
     <string name="wait_several_minutes">ممکن است چند دقیقه طول بکشد. \nلطفا صبر کنید…</string>
     <!-- Measurement units title in settings activity -->
-    <string name="measurement_units">واحد اندازه‌گیری</string>
+    <string name="measurement_units">یکا‌ی اندازه‌گیری</string>
     <!-- Detailed description of Measurement Units settings button -->
-    <string name="measurement_units_summary">بین مایل و کیلومتر انتخاب کنید</string>
+    <string name="measurement_units_summary">میان مایل اود کیلومتر برگزینید</string>
     <!-- SECTION: Search categories -->
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">کجا غذا بخوریم</string>
@@ -101,7 +101,7 @@
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
     <string name="category_parking">پارکینگ</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
-    <string name="category_shopping">خرید کردن</string>
+    <string name="category_shopping">خرید</string>
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
     <string name="category_secondhand">دست دوم</string>
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
@@ -735,9 +735,9 @@
     <string name="pref_tts_no_system_tts">تنظیمات Speech Synthesis پیدا نشد، آیا مطمئن هستید که دستگاه شما از آن پشتیبانی می کند؟</string>
     <string name="drive_through">رانندگی از طریق</string>
     <string name="clear_the_search">جستجو را پاک کنید</string>
-    <string name="zoom_in">بزرگنمایی</string>
+    <string name="zoom_in">بزرگ‌نمایی</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">کوچک نمایی</string>
+    <string name="zoom_out">کوچک‌نمایی</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">لینک منو</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
@@ -779,4 +779,9 @@
     <string name="app_site_url">https://comaps.app</string>
     <string name="saved">ذخیره شد</string>
     <string name="about_headline">رایگان برای همه، ساخته شده با عشق</string>
+    <string name="pedestrian">پیاده</string>
+    <string name="bicycle">دوچرخه</string>
+    <string name="backup_interval_every_week">هفتگی</string>
+    <string name="backup_interval_manual_only">خاموش (تنها به شیوه دستی)</string>
+    <string name="backup_interval_every_day">روزانه</string>
 </resources>

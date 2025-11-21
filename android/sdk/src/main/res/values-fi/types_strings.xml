@@ -1396,4 +1396,6 @@
     <string name="type.office.security">Vartijoiden toimisto</string>
     <string name="type.building.guardhouse">Vartijankoppi</string>
     <string name="type.power.portal">Sähköportaali</string>
+    <string name="type.amenity.bench.backless">Selkänojaton penkki</string>
+    <string name="type.amenity.charging_station.motorcar.small">Auton latauspiste</string>
 </resources>

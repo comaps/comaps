@@ -1340,8 +1340,20 @@ line|z16-[railway=disused],
 
 /* 9.2 Rail tunnel 14-22 ZOOM */
 
+line|z12[railway=rail][tunnel?],
+{opacity:0.9}
+line|z13[railway=rail][tunnel?],
+{opacity:0.7}
 line|z14-[railway=rail][tunnel?],
-{casing-width: 1;casing-linecap: butt;casing-color: @railway_tunnel;casing-dashes: 5,5;casing-opacity: 0.7;}
+{casing-width: 1;casing-linecap: butt;casing-color: @railway_tunnel;casing-dashes: 5,5;casing-opacity: 0.5; opacity:0.6}
+line|z15[railway=rail][tunnel?],
+{casing-opacity: 0.4; opacity:0.5}
+line|z16[railway=rail][tunnel?],
+{casing-opacity: 0.3; opacity:0.4}
+line|z17-[railway=rail][tunnel?],
+{casing-opacity: 0.2; opacity:0.3}
+line|z16-[railway=rail][tunnel?]::dash,
+{color:@background1}
 
 /* 9.3 Rail bridge 14-22 ZOOM */
 

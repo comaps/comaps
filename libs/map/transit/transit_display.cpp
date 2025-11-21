@@ -25,18 +25,18 @@ map<TransitType, string> const kTransitSymbols = {{TransitType::Subway, "transit
 
 namespace
 {
-float const kStopMarkerScale = 2.2f;
-float const kTransferMarkerScale = 4.0f;
-float const kGateBgScale = 1.2f;
+float constexpr kStopMarkerScale = 2.2f;
+float constexpr kTransferMarkerScale = 4.0f;
+float constexpr kGateBgScale = 1.2f;
 
-int const kSmallIconZoom = 1;
-int const kMediumIconZoom = 10;
+int constexpr kSmallIconZoom = 1;
+int constexpr kMediumIconZoom = 10;
 
-int const kMinStopTitleZoom = 13;
+int constexpr kMinStopTitleZoom = 13;
 
-int const kTransferTitleOffset = 2;
-int const kStopTitleOffset = 0;
-int const kGateTitleOffset = 0;
+int constexpr kTransferTitleOffset = 2;
+int constexpr kStopTitleOffset = 0;
+int constexpr kGateTitleOffset = 0;
 
 std::string const kZeroIcon = "zero-icon";
 

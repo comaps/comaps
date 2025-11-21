@@ -1097,3 +1097,7 @@
 "pref_maplanguage_local" = "Uygulama Dili";
 "existence_confirmed_time_ago" = "%@ varlığı onaylandı";
 "hours_confirmed_time_ago" = "%@ onaylandı";
+"offline_explanation_text" = "Bölgeyi görüntülemek ve yön bulmak için bir harita indirilmesi gerekiyor.\nYolculuk etmek istediğiniz bölgelerin haritalarını indirin.";
+"offline_explanation_title" = "Çevrimdışı Haritalar";
+"avoid_steps" = "Merdivenlerden kaçın";
+"editor_place_doesnt_exist_description" = "OpeenStreetMap topluluğuna bir hata notu göndermek için şimdi mekanın nasıl gözüktüğünü tarif et";

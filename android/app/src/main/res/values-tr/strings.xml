@@ -442,7 +442,7 @@
     <string name="editor_add_phone">Telefon Ekle</string>
     <string name="level">Kat</string>
     <!-- Building level -->
-    <string name="level_value_generic">Kat sayısı: %s</string>
+    <string name="level_value_generic">Bulunduğu kat: %s</string>
     <string name="downloader_delete_map_dialog">Harita ile birlikte tüm harita değişiklikleri de silinecektir</string>
     <string name="downloader_update_maps">Haritaları güncelle</string>
     <string name="downloader_mwm_migration_dialog">Rota oluşturmak için tüm haritaları güncellemeli ve rotayı yeniden planlamalısınız.</string>
@@ -831,8 +831,8 @@
     <string name="error_enter_correct_fediverse_page">Gireceğiniz Mastodon kullanıcı adı ve adresi halihazırda mevcut olmalı</string>
     <string name="saved">Kaydedildi</string>
     <string name="error_enter_correct_bluesky_page">Gireceğiniz Bluesky kullanıcı adı ve adresi halihazırda mevcut olmalı</string>
-    <string name="editor_building_levels">Katlar (zemin kat dahil, çatı hariç)</string>
-    <string name="editor_level">Kat Sayısı (zemin kat 0\'dır)</string>
+    <string name="editor_building_levels">Kat sayısı (zemin kat dahil, çatı hariç)</string>
+    <string name="editor_level">Kaçıncı katta bulunuyor (zemin kat 0\'dır)</string>
     <string name="error_enter_correct_level">Geçerli kat numarası girin</string>
     <string name="about_help">Hakkında ve Yardım</string>
     <string name="panoramax">Panoramax Görseli</string>
@@ -872,4 +872,26 @@
     <string name="share_track">Rotayı paylaş</string>
     <string name="delete_track_dialog_title">%s silinsin mi?</string>
     <string name="pref_tts_no_system_tts_short">Metinden sese dönüştürme motoru bulunamadı, uygulama ayarlarını kontrol edin</string>
+    <string name="offline_explanation_title">Çevrimdışı Haritalar</string>
+    <string name="offline_explanation_text">Bölgeyi görüntülemek ve yön bulmak için bir harita indirilmesi gerekiyor.\nYolculuk etmek istediğiniz bölgelerin haritalarını indirin.</string>
+    <string name="editor_place_doesnt_exist_description">OpeenStreetMap topluluğuna bir hata notu göndermek için şimdi mekanın nasıl gözüktüğünü tarif et</string>
+    <string name="avoid_steps">Merdivenlerden kaçın</string>
+    <string name="unknown_power_output">bilinmiyor</string>
+    <string name="charge_socket_type2">Tip 2 (kablosuz)</string>
+    <string name="charge_socket_type2_cable">Tip 2 (kablolu)</string>
+    <string name="charge_socket_type2_combo">Tip 2 birleşik</string>
+    <string name="charge_socket_type1">Tip 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">bilinmeyen priz</string>
+    <string name="unknow_socket_type">bilinmeyen priz</string>
+    <string name="edit_socket_info_tooltip">Yeni prizler oluştur ya da var olanları düzenle.</string>
+    <string name="charging_station_available_sockets">Mevcut prizler</string>
+    <string name="charge_socket_unknown_other">Diğer ya da bilinmeyen</string>
+    <string name="charge_socket_count">Sayı</string>
+    <string name="charge_socket_power">Güç (kW)</string>
+    <string name="editor_socket">Prizi düzenle</string>
+    <string name="unknown_count">bilinmiyor</string>
+    <string name="error_value_must_be_positive">Değer pozitif olmalıdır</string>
+    <string name="error_invalid_number">Geçersiz sayı</string>
 </resources>

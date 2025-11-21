@@ -14,7 +14,7 @@ void UpdateNormalBetweenSegments(LineSegment * segment1, LineSegment * segment2)
 
   float const dotProduct = glsl::dot(segment1->m_leftNormals[EndPoint], segment2->m_leftNormals[StartPoint]);
   float const absDotProduct = fabs(dotProduct);
-  float const kEps = 1e-5;
+  float constexpr kEps = 1e-5;
 
   if (fabs(absDotProduct - 1.0f) < kEps)
   {
@@ -22,7 +22,7 @@ void UpdateNormalBetweenSegments(LineSegment * segment1, LineSegment * segment2)
     return;
   }
 
-  float const kMaxScalar = 5;
+  float constexpr kMaxScalar = 5;
   float const crossProduct = glsl::cross(glsl::vec3(segment1->m_tangent, 0), glsl::vec3(segment2->m_tangent, 0)).z;
   if (crossProduct < 0)
   {

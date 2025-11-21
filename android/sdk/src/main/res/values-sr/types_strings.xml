@@ -178,7 +178,7 @@
     <string name="type.amenity.vending_machine.sweets">Аутомат за слаткише</string>
     <string name="type.amenity.vending_machine.excrement_bags">Кесе за псећи измет</string>
     <string name="type.amenity.parcel_locker">Пакетомат</string>
-    <string name="type.amenity.vehicle_inspection">Контрола возила</string>
+    <string name="type.amenity.vehicle_inspection">Технички преглед возила</string>
     <string name="type.amenity.vending_machine.fuel">Пумпа за гориво</string>
     <string name="type.amenity.veterinary">Ветеринар</string>
     <string name="type.amenity.waste_basket">Канта за смеће</string>
@@ -1243,7 +1243,7 @@
     <string name="type.tourism">Туризам</string>
     <string name="type.tourism.aquarium">Акваријум</string>
     <!-- Typically serviced, staff is present and food is available (compared to wilderness_hut). -->
-    <string name="type.tourism.alpine_hut">Планинарска колиба</string>
+    <string name="type.tourism.alpine_hut">Планинарски дом</string>
     <string name="type.tourism.apartment">Апартман</string>
     <string name="type.tourism.artwork">Уметничка скулптура</string>
     <string name="type.tourism.artwork.architecture">Архитектонско уметничко дело</string>

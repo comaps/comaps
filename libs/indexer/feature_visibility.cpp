@@ -303,7 +303,7 @@ int GetMinDrawableScale(FeatureType & ft)
 
 int GetMinDrawableScale(TypesHolder const & types, m2::RectD const & limitRect)
 {
-  int const upBound = scales::GetUpperStyleScale();
+  int constexpr upBound = scales::GetUpperStyleScale();
 
   for (int level = 0; level <= upBound; ++level)
     if (IsDrawableForIndex(types, limitRect, level))
@@ -315,7 +315,7 @@ int GetMinDrawableScale(TypesHolder const & types, m2::RectD const & limitRect)
 /*
 int GetMinDrawableScaleGeometryOnly(TypesHolder const & types, m2::RectD const & limitRect)
 {
-  int const upBound = scales::GetUpperStyleScale();
+  int constexpr upBound = scales::GetUpperStyleScale();
 
   for (int level = 0; level <= upBound; ++level)
   {
@@ -329,7 +329,7 @@ int GetMinDrawableScaleGeometryOnly(TypesHolder const & types, m2::RectD const &
 
 int GetMinDrawableScaleClassifOnly(TypesHolder const & types)
 {
-  int const upBound = scales::GetUpperStyleScale();
+  int constexpr upBound = scales::GetUpperStyleScale();
 
   for (int level = 0; level <= upBound; ++level)
     if (IsDrawableForIndexClassifOnly(types, level))
@@ -406,7 +406,7 @@ bool IsDrawableForRules(TypesHolder const & types, int level, int rules)
 
 pair<int, int> GetDrawableScaleRangeForRules(TypesHolder const & types, int rules)
 {
-  int const upBound = scales::GetUpperStyleScale();
+  int constexpr upBound = scales::GetUpperStyleScale();
   int lowL = -1;
   for (int level = 0; level <= upBound; ++level)
   {

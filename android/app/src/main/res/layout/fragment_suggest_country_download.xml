@@ -34,10 +34,10 @@
       android:textAppearance="@style/MwmTextAppearance.Body2"/>
 
     <com.google.android.material.imageview.ShapeableImageView
-      android:layout_width="wrap_content"
+      android:layout_width="match_parent"
       android:layout_height="@dimen/placeholder_size"
       android:layout_marginTop="@dimen/margin_half"
-      app:srcCompat="@drawable/img_search_no_maps"
+      app:srcCompat="@drawable/ic_download"
       android:tag="@string/tag_height_limited"/>
 
     <LinearLayout

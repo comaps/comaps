@@ -1,9 +1,0 @@
-• Vylepšena viditelnost a uživatelské rozhraní pokynů v navigaci
-• Přidána možnost vynechat kroky
-• Vylepšeno vyhledávání ve více jazycích
-• Přidána specifická ikona pro autobusové zastávky
-• Opraveny problémy s Android Auto (prostřednictvím projektu OM)
-• Vylepšen editor a opraveny drobné problémy
-• Vylepšeny styly map (prostřednictvím projektu OM)
-• Vylepšeny překlady aplikace
-Další změny najdete v našich poznámkách k vydání Codeberg!

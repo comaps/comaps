@@ -168,12 +168,17 @@
 @building_label: #737373;
 @poi_label: #666666;
 @subway_label: #555555;
-@shop_label: #8C5F93;
-@food_label: #BB9342;
-@culture_label: #7F5933;
-@hotel_label: #6D544C;
-@healthcare_label: #C15746;
-@industry_label: #717065;
+@shop_label: #6B425C;
+@industry_label: #574469;
+@food_label: #8C491C;
+@entertainment_label: #8C311B;
+@culture_label: #6E4426;
+@hotel_label: #614A43;
+@sport_label: #2B5C4B;
+@nature_label: #3C612E;
+@water_label: #0A6074;
+@neutral_label: #51585E;
+@healthcare_label: #983E44;
 @public_transport_label: #2F6499;
 
 /* 6.4 Road labels */

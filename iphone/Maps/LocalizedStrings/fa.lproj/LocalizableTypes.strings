@@ -32,12 +32,12 @@
 "type.amenity.bureau_de_change" = "صرافی";
 "type.amenity.bus_station" = "ایستگاه اتوبوس";
 "type.amenity.cafe" = "قهوه‌خانه";
-"type.amenity.car_rental" = "مکان اجاره ماشین";
+"type.amenity.car_rental" = "جایگه کرایه خودرو";
 "type.amenity.motorcycle_rental" = "اجاره موتور سیکلت";
-"type.amenity.car_sharing" = "Car Sharing";
-"type.amenity.car_wash" = "کارواش";
-"type.amenity.casino" = "قمارخانه";
-"type.amenity.gambling" = "قمار";
+"type.amenity.car_sharing" = "انبازیدن خودرو";
+"type.amenity.car_wash" = "خودرو شویی";
+"type.amenity.casino" = "مَنگیاخانه";
+"type.amenity.gambling" = "مَنگیا";
 "type.leisure.adult_gaming_centre" = "کانون بازی بزرگسالان";
 "type.leisure.amusement_arcade" = "گذرگاه طاقدار";
 "type.amenity.charging_station" = "ایستگاه شارژ";
@@ -63,11 +63,11 @@
 "type.amenity.language_school" = "آموزشگاه زبان";
 "type.office.diplomatic" = "سفارت";
 "type.amenity.fast_food" = "فست فود";
-"type.amenity.ferry_terminal" = "حمل و نقل";
+"type.amenity.ferry_terminal" = "فرابَری";
 "type.amenity.fire_station" = "ایستگاه آتش‌نشانی";
 "type.amenity.food_court" = "Food Court";
 "type.amenity.fountain" = "فواره";
-"type.amenity.fuel" = "سوخت";
+"type.amenity.fuel" = "ایستگاه سوخت‌گیری";
 
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "گورستان";
@@ -79,7 +79,7 @@
 "type.amenity.ice_cream" = "بستنی";
 "type.amenity.internet_cafe" = "کافی نت";
 "type.amenity.kindergarten" = "مهدکودک";
-"type.amenity.library" = "کتابخانه";
+"type.amenity.library" = "نبیگ‌خانه";
 "type.amenity.loading_dock" = "اسکله بارگیری";
 "type.amenity.marketplace" = "فروشگاه";
 "type.amenity.motorcycle_parking" = "پارکینگ موتورسیکلت";
@@ -112,14 +112,14 @@
 "type.amenity.parking_space.disabled" = "ﻦﯿﻟﻮﻠﻌﻣ ﮎﺭﺎﭘ ﯼﺎﺟ";
 "type.amenity.payment_terminal" = "دستگاه کارتخوان";
 "type.amenity.pharmacy" = "داروخانه";
-"type.amenity.place_of_worship" = "گردشگری";
+"type.amenity.place_of_worship" = "کنشت";
 "type.amenity.place_of_worship.buddhist" = "گردشگری";
-"type.amenity.place_of_worship.christian" = "گردشگری";
-"type.amenity.place_of_worship.christian.mormon" = "کلیسای عیسی مسیح مقدسین آخرالزمان";
-"type.amenity.place_of_worship.christian.jehovahs_witness" = "سال مملکت شاهدان یهوه";
+"type.amenity.place_of_worship.christian" = "کلیسا";
+"type.amenity.place_of_worship.christian.mormon" = "کنیسه‌ی مورمون‌ها";
+"type.amenity.place_of_worship.christian.jehovahs_witness" = "کنیسه‌ی شاهدان یهوه";
 "type.amenity.place_of_worship.hindu" = "گردشگری";
-"type.amenity.place_of_worship.jewish" = "گردشگری";
-"type.amenity.place_of_worship.muslim" = "گردشگری";
+"type.amenity.place_of_worship.jewish" = "کنیسه";
+"type.amenity.place_of_worship.muslim" = "مزگت";
 "type.amenity.place_of_worship.shinto" = "گردشگری";
 "type.amenity.place_of_worship.taoist" = "گردشگری";
 "type.amenity.police" = "کلانتری";
@@ -1488,3 +1488,4 @@
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.amenity.bench.backless" = "صندلی بی پشتی";

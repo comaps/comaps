@@ -438,21 +438,17 @@ public class Holders
     static final float SPACING_MULTIPLE = 1.0f;
     static final float SPACING_ADD = 0.0f;
     @NonNull
-    private final MaterialTextView mTitle;
-    @NonNull
     private final MaterialTextView mDescText;
 
     DescriptionViewHolder(@NonNull View itemView, @NonNull BookmarkCategory category)
     {
       super(itemView);
       mDescText = itemView.findViewById(R.id.text);
-      mTitle = itemView.findViewById(R.id.title);
     }
 
     @Override
     void bind(@NonNull SectionPosition position, @NonNull BookmarkListAdapter.SectionsDataSource sectionsDataSource)
     {
-      mTitle.setText(sectionsDataSource.getCategory().getName());
       bindDescription(sectionsDataSource.getCategory());
     }
 
@@ -462,9 +458,12 @@ public class Holders
 
       String formattedDesc = desc.replace("\n", "<br>");
       Spanned spannedDesc = Utils.fromHtml(formattedDesc);
-      mDescText.setText(spannedDesc);
-
-      UiUtils.showIf(!TextUtils.isEmpty(spannedDesc), mDescText);
+      if (!TextUtils.isEmpty(spannedDesc)) {
+        mDescText.setText(spannedDesc);
+      }
+      else {
+        mDescText.setText(R.string.list_description_empty);
+      }
     }
   }
 }

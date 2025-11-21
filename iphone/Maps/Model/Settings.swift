@@ -1,4 +1,5 @@
 import Combine
+import AVFoundation
 
 /// The settings
 @objc class Settings: NSObject {
@@ -322,6 +323,16 @@ import Combine
         set {
             MWMTextToSpeech.tts().setNotificationsLocale(newValue)
         }
+    }
+    
+    
+    /// The voice used for voice guidance during routing
+    @objc static var voiceForVoiceRouting: String? {
+        if let voice = MWMTextToSpeech.tts().voice() {
+            return voice.name
+        }
+        
+        return nil
     }
     
     

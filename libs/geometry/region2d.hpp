@@ -330,7 +330,7 @@ public:
     std::uniform_real_distribution<> distrX(m_rect.minX(), m_rect.maxX());
     std::uniform_real_distribution<> distrY(m_rect.minY(), m_rect.maxY());
 
-    size_t const kMaxIterations = 1000;
+    size_t constexpr kMaxIterations = 1000;
     for (size_t it = 0; it < kMaxIterations; ++it)
     {
       auto const x = distrX(engine);

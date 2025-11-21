@@ -48,7 +48,7 @@
 
     <item name="navNextTurnFrame">@drawable/bg_nav_next_turn</item>
     <item name="navNextNextTurnFrame">@drawable/bg_nav_next_next_turn</item>
-    <item name="navLanesBackgroundColor">@color/base_accent</item>
+    <item name="navLanesBackgroundColor">@color/bg_primary</item>
     <item name="navLaneArrowActiveColor">@color/nav_lane_arrow_active</item>
     <item name="navLaneArrowInactiveColor">@color/nav_lane_arrow_inactive</item>
 
@@ -108,7 +108,7 @@
     <item name="elevationProfileAxisLabelColor">@color/white_54</item>
     <item name="elevationProfileYourLocationPinBg">@drawable/bg_your_location_pin</item>
     <item name="elevationProfileSelectedPointBg">@drawable/bg_point_desc</item>
-    <item name="elevationProfileSelectedPointTriangle">@drawable/ic_triangle</item>
+    <item name="elevationProfileSelectedPointTriangle">@drawable/ic_ascent</item>
     <item name="elevationProfileFloatingTriangle">@drawable/ic_triangle_elevation</item>
     <item name="elevationProfileColor">@color/elevation_profile</item>
     <item name="android:popupMenuStyle">@style/PopupMenu</item>

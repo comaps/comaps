@@ -158,4 +158,8 @@
     <string name="type.amenity.language_school">Escuela de llingües</string>
     <string name="type.amenity.hospital">Hospital</string>
     <string name="type.craft.confectionery">Confitería</string>
+    <string name="type.addr_interpolation">Direición/Bloque</string>
+    <string name="type.addr_interpolation.even">Direición/Bloque</string>
+    <string name="type.addr_interpolation.odd">Direición/Bloque</string>
+    <string name="type.aerialway">Tresporte per cable</string>
 </resources>

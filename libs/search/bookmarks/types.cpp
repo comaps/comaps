@@ -4,6 +4,6 @@ namespace search
 {
 namespace bookmarks
 {
-GroupId const kInvalidGroupId = std::numeric_limits<GroupId>::max();
+GroupId constexpr kInvalidGroupId = std::numeric_limits<GroupId>::max();
 }  // namespace bookmarks
 }  // namespace search

@@ -432,7 +432,6 @@
     <string name="type.highway.pedestrian.area">Area pedonale</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Ponte</string>
-
     <string name="type.highway.pedestrian.square">Piazza</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Tunnel</string>
@@ -1398,4 +1397,7 @@
     <string name="type.building.guardhouse">Guardiola</string>
     <string name="type.office.security">Ufficio della sicurezza</string>
     <string name="type.power.portal">Portale elettrico</string>
+    <string name="type.shop.lighting">Negozio di illuminazione</string>
+    <string name="type.amenity.bench.backless">Panchina senza schienale</string>
+    <string name="type.amenity.charging_station.motorcar.small">Colonnina di ricarica</string>
 </resources>

@@ -22,11 +22,11 @@
     <string name="type.amenity.bureau_de_change">صرافی</string>
     <string name="type.amenity.bus_station">ایستگاه اتوبوس</string>
     <string name="type.amenity.cafe">قهوه‌خانه</string>
-    <string name="type.amenity.car_rental">مکان اجاره ماشین</string>
+    <string name="type.amenity.car_rental">جایگه کرایه خودرو</string>
     <string name="type.amenity.motorcycle_rental">اجاره موتور سیکلت</string>
-    <string name="type.amenity.car_wash">کارواش</string>
-    <string name="type.amenity.casino">قمارخانه</string>
-    <string name="type.amenity.gambling">قمار</string>
+    <string name="type.amenity.car_wash">خودرو شویی</string>
+    <string name="type.amenity.casino">مَنگیاخانه</string>
+    <string name="type.amenity.gambling">مَنگیا</string>
     <string name="type.leisure.adult_gaming_centre">کانون بازی بزرگسالان</string>
     <string name="type.leisure.amusement_arcade">گذرگاه طاقدار</string>
     <string name="type.amenity.charging_station">ایستگاه شارژ</string>
@@ -52,10 +52,10 @@
     <string name="type.amenity.language_school">آموزشگاه زبان</string>
     <string name="type.office.diplomatic">سفارت</string>
     <string name="type.amenity.fast_food">فست فود</string>
-    <string name="type.amenity.ferry_terminal">حمل و نقل</string>
+    <string name="type.amenity.ferry_terminal">فرابَری</string>
     <string name="type.amenity.fire_station">ایستگاه آتش‌نشانی</string>
     <string name="type.amenity.fountain">فواره</string>
-    <string name="type.amenity.fuel">سوخت</string>
+    <string name="type.amenity.fuel">ایستگاه سوخت‌گیری</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.amenity.grave_yard">گورستان</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
@@ -65,7 +65,7 @@
     <string name="type.amenity.ice_cream">بستنی</string>
     <string name="type.amenity.internet_cafe">کافی نت</string>
     <string name="type.amenity.kindergarten">مهدکودک</string>
-    <string name="type.amenity.library">کتابخانه</string>
+    <string name="type.amenity.library">نبیگ‌خانه</string>
     <string name="type.amenity.loading_dock">اسکله بارگیری</string>
     <string name="type.amenity.marketplace">فروشگاه</string>
     <string name="type.amenity.motorcycle_parking">پارکینگ موتورسیکلت</string>
@@ -98,14 +98,14 @@
     <string name="type.amenity.parking_space.disabled">ﻦﯿﻟﻮﻠﻌﻣ ﮎﺭﺎﭘ ﯼﺎﺟ</string>
     <string name="type.amenity.payment_terminal">دستگاه کارتخوان</string>
     <string name="type.amenity.pharmacy">داروخانه</string>
-    <string name="type.amenity.place_of_worship">گردشگری</string>
+    <string name="type.amenity.place_of_worship">کنشت</string>
     <string name="type.amenity.place_of_worship.buddhist">گردشگری</string>
-    <string name="type.amenity.place_of_worship.christian">گردشگری</string>
-    <string name="type.amenity.place_of_worship.christian.mormon">کلیسای عیسی مسیح مقدسین آخرالزمان</string>
-    <string name="type.amenity.place_of_worship.christian.jehovahs_witness">سال مملکت شاهدان یهوه</string>
+    <string name="type.amenity.place_of_worship.christian">کلیسا</string>
+    <string name="type.amenity.place_of_worship.christian.mormon">کنیسه‌ی مورمون‌ها</string>
+    <string name="type.amenity.place_of_worship.christian.jehovahs_witness">کنیسه‌ی شاهدان یهوه</string>
     <string name="type.amenity.place_of_worship.hindu">گردشگری</string>
-    <string name="type.amenity.place_of_worship.jewish">گردشگری</string>
-    <string name="type.amenity.place_of_worship.muslim">گردشگری</string>
+    <string name="type.amenity.place_of_worship.jewish">کنیسه</string>
+    <string name="type.amenity.place_of_worship.muslim">مزگت</string>
     <string name="type.amenity.place_of_worship.shinto">گردشگری</string>
     <string name="type.amenity.place_of_worship.taoist">گردشگری</string>
     <string name="type.amenity.police">کلانتری</string>
@@ -1114,4 +1114,6 @@
     <string name="type.natural.water.drain">زهکش</string>
     <string name="type.waterway.weir">سرریز</string>
     <string name="type.wheelchair">رواگ‌صندلی</string>
+    <string name="type.amenity.bench.backless">صندلی بی پشتی</string>
+    <string name="type.amenity.car_sharing">انبازیدن خودرو</string>
 </resources>

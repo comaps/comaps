@@ -159,7 +159,7 @@ public:
   }
 
 private:
-  static uint32_t const kDefaultFeatureId = 0;
+  static uint32_t constexpr kDefaultFeatureId = 0;
 
   /// \brief Serializes a range of restrictions form |begin| to |end| to |sink|.
   /// \param begin is an iterator to the first item to serialize.

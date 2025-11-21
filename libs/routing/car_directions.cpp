@@ -30,7 +30,7 @@ void FixupCarTurns(vector<RouteSegment> & routeSegments)
   // (1) the route enters to the roundabout;
   // (2) the route leaves the roundabout;
   uint32_t exitNum = 0;
-  size_t const kInvalidEnter = numeric_limits<size_t>::max();
+  size_t constexpr kInvalidEnter = numeric_limits<size_t>::max();
   size_t enterRoundAbout = kInvalidEnter;
 
   for (size_t idx = 0; idx < routeSegments.size(); ++idx)

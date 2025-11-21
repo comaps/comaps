@@ -13,7 +13,7 @@
 "downloading" = "Преузимање…";
 
 /* Choose measurement on first launch alert - choose metric system button */
-"kilometres" = "Колиметри";
+"kilometres" = "Километри";
 
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Оставите рецензију";
@@ -1095,3 +1095,11 @@
 "pref_maplanguage_local" = "Локални језик";
 "existence_confirmed_time_ago" = "Проверено да постоји %@";
 "hours_confirmed_time_ago" = "Потврђено %@";
+"offline_explanation_text" = "Потребно је преузимање мапе да би област могла да се прегледа и да би радило навођење.\nПреузмите мапе за области где желите да путујете.";
+"offline_explanation_title" = "Офлајн мапе";
+"avoid_steps" = "Избегавај степенице";
+"editor_place_doesnt_exist_description" = "Опишите како место сада изгледа та бисте послали поруку о грешци OpenStreetMap заједници";
+"voice" = "Глас";
+"unknown" = "Непознато";
+"voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Гласовни садржај*, *Гласови*.";
+"voice_explanation" = "Можете изабрати бољи глас у *Приступачност*, *Читање и говор*, *Гласови*.";

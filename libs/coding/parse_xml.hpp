@@ -39,7 +39,7 @@ public:
   }
 
 private:
-  uint32_t static const kBufferSize = 16 * 1024;
+  uint32_t static constexpr kBufferSize = 16 * 1024;
 
   uint64_t m_res = 0;
   uint64_t m_numRead = 0;

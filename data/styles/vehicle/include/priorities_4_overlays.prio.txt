@@ -174,6 +174,9 @@ amenity-charging_station-motorcar                   # icon z14- (also has captio
 amenity-fuel                                        # icon z12- (also has caption(optional) z12-, area z15-)
 === 3200
 
+amenity-charging_station-motorcar-small             # icon z16- (also has caption(optional) z16-, area z15-)
+=== 3190
+
 amenity-charging_station                            # icon z16- (also has caption(optional) z16-)
 amenity-vending_machine-fuel                        # icon z17- (also has caption(optional) z17-)
 === 3150
@@ -263,6 +266,9 @@ boundary-protected_area-5                           # icon z12- (also has captio
 boundary-protected_area-6                           # icon z12- (also has caption(optional) z12-)
 leisure-nature_reserve                              # icon z12- (also has caption(optional) z12-, area z10-)
 === 2500
+
+historic-ruins                                      # icon z17- (also has caption(optional) z17-)
+=== 2451
 
 historic-castle                                     # icon z12- (also has caption(optional) z15-)
 historic-castle-castrum                             # icon z12- (also has caption(optional) z15-)
@@ -714,7 +720,6 @@ historic-memorial-cross                             # icon z17- (also has captio
 
 amenity-arts_centre                                 # icon z17- (also has caption(optional) z17-)
 historic-archaeological_site                        # icon z17- (also has caption(optional) z17-)
-historic-ruins                                      # icon z17- (also has caption(optional) z17-)
 === 300
 
 amenity-fast_food                                   # icon z17- (also has caption(optional) z17-)
@@ -772,6 +777,9 @@ entrance-main                                       # icon z18- (also has captio
 # amenity-charging_station-motorcar                 # caption(optional) z14- (also has icon z14-, area z15-)
 # amenity-fuel                                      # caption(optional) z12- (also has icon z12-, area z15-)
 # === -6800
+
+# amenity-charging_station-motorcar-small           # caption(optional) z16- (also has icon z16-, area z15-)
+# === -6810
 
 # amenity-charging_station                          # caption(optional) z16- (also has icon z16-)
 # amenity-vending_machine-fuel                      # caption(optional) z17- (also has icon z17-)
@@ -831,6 +839,9 @@ entrance-main                                       # icon z18- (also has captio
 # boundary-protected_area-6                         # caption(optional) z12- (also has icon z12-)
 # leisure-nature_reserve                            # caption(optional) z12- (also has icon z12-, area z10-)
 # === -7500
+
+# historic-ruins                                    # caption(optional) z17- (also has icon z17-)
+# === -7549
 
 # historic-castle                                   # caption(optional) z15- (also has icon z12-)
 # historic-castle-castrum                           # caption(optional) z15- (also has icon z12-)
@@ -1201,7 +1212,6 @@ entrance-main                                       # icon z18- (also has captio
 
 # amenity-arts_centre                               # caption(optional) z17- (also has icon z17-)
 # historic-archaeological_site                      # caption(optional) z17- (also has icon z17-)
-# historic-ruins                                    # caption(optional) z17- (also has icon z17-)
 # === -9700
 
 # amenity-fast_food                                 # caption(optional) z17- (also has icon z17-)

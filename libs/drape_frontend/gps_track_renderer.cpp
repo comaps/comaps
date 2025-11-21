@@ -22,26 +22,26 @@ df::ColorConstant const kTrackCarSpeedColor = "TrackCarSpeed";
 df::ColorConstant const kTrackPlaneSpeedColor = "TrackPlaneSpeed";
 df::ColorConstant const kTrackHumanSpeedColor = "TrackHumanSpeed";
 
-int const kMinVisibleZoomLevel = 5;
+int constexpr kMinVisibleZoomLevel = 5;
 
-uint32_t const kAveragePointsCount = 512;
+uint32_t constexpr kAveragePointsCount = 512;
 
 // Radius of circles depending on zoom levels.
-std::array<float, 20> const kRadiusInPixel = {
+std::array<float, 20> constexpr kRadiusInPixel = {
     // 1   2     3     4     5     6     7     8     9     10
     0.8f, 0.8f, 1.5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f,
     // 11   12    13    14    15    16    17    18    19     20
     2.5f, 2.5f, 2.5f, 2.5f, 3.0f, 4.0f, 4.5f, 4.5f, 5.0f, 5.5f};
 
-double const kHumanSpeed = 2.6;  // meters per second
-double const kCarSpeed = 6.2;    // meters per second
-uint8_t const kMinDayAlpha = 90;
-uint8_t const kMaxDayAlpha = 144;
-uint8_t const kMinNightAlpha = 50;
-uint8_t const kMaxNightAlpha = 102;
-double const kUnknownDistanceTime = 5 * 60;  // seconds
+double constexpr kHumanSpeed = 2.6;  // meters per second
+double constexpr kCarSpeed = 6.2;    // meters per second
+uint8_t constexpr kMinDayAlpha = 90;
+uint8_t constexpr kMaxDayAlpha = 144;
+uint8_t constexpr kMinNightAlpha = 50;
+uint8_t constexpr kMaxNightAlpha = 102;
+double constexpr kUnknownDistanceTime = 5 * 60;  // seconds
 
-double const kDistanceScalar = 0.4;
+double constexpr kDistanceScalar = 0.4;
 
 #ifdef DEBUG
 bool GpsPointsSortPredicate(GpsTrackPoint const & pt1, GpsTrackPoint const & pt2)

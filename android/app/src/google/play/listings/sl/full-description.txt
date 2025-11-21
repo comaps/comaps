@@ -1,0 +1,36 @@
+Skupnostno vodena brezplačna in odprtokodna aplikacija za zemljevide, ki temelji na podatkih OpenStreetMap, ter je okrepljena z zavezanostjo k transparentnosti, zasebnosti, in ostajanju neprofitne organizacije.
+
+Pridružite se skupnosti in pomagajte ustvariti najboljšo aplikacijo za zemljevide.
+• Uporabljajte aplikacijo in jo priporočajte drugim.
+• Podajte povratne informacije in poročajte o težavah.
+• Posodobite podatke zemljevida v aplikaciji ali na spletni strani OpenStreetMap.
+
+<i>Vaše povratne informacije in 5-zvezdične ocene so najboljša podpora za nas!</i>
+
+‣ <b>Preprostost in izpopolnjenost</b>: bistvene, enostavne za uporabo funkcije, ki preprosto delujejo.
+‣ <b>Osredotočena na delovanje brez internetne povezave</b>: načrtujte in navigirajte svoje potovanje v tujini brez potrebe po mobilni povezavi, iščite točke na poti med daljšo pohodniško turo, itd. Vse funkcije aplikacije so zasnovane za delovanje brez internetne povezave.
+‣ <b>Spoštovanje zasebnosti</b>: aplikacija je zasnovana z mislijo na zasebnost – ne identificira ljudi, ne sledi in ne zbira osebnih podatkov. Brez oglasov.
+‣ <b>Varčuje z baterijo in prostorom</b>: ne izčrpava baterije kot druge navigacijske aplikacije. Kompaktni zemljevidi varčujejo dragoceni prostor na vašem telefonu.
+‣ <b>Brezplačna in ustvarjena s pomočjo skupnosti</b>: ljudje, kot ste vi, so pomagali ustvariti aplikacijo z dodajanjem krajev v OpenStreetMap, testiranjem in dajanjem povratnih informacij o funkcijah ter prispevanjem svojih razvojnih veščin in denarja.
+‣ <b>Odprto in pregledno odločanje in finance, neprofitna in popolnoma odprtokodna aplikacija.
+
+<b>Glavne značilnosti</b>:
+• Podrobni zemljevidi z mesti, ki niso na voljo v Google Maps, ki jih lahko prenesete
+• Način za uporabo na prostem z označenimi pohodniškimi potmi, kampi, vodnimi viri, vrhovi, višinskimi krivuljami itd.
+• Pešpoti in kolesarske poti
+• Zanimivosti, kot so restavracije, bencinske črpalke, hoteli, trgovine, znamenitosti in še veliko več
+• Iskanje po imenu, naslovu ali kategoriji zanimivih točk
+• Navigacija z glasovnimi napovedmi za hojo, kolesarjenje ali vožnjo
+• Z enim dotikom dodajte svoje priljubljene kraje v zaznamke
+• Članki iz Wikipedije za uporabo brez internetne povezave
+• Plast podzemne železnice in navodila za pot
+• Sledenje poti
+• Izvoz in uvoz zaznamkov in poti v formatih KML, KMZ, GPX
+• Temni način za uporabo ponoči
+• Izboljšajte zemljevidne podatke za vse z uporabo vgrajenega osnovnega urejevalnika.
+• Podpora za Android Auto.
+
+Prijavite težave z aplikacijo, predlagajte ideje in se pridružite naši skupnosti na spletni strani <b><i>comaps.app</i></b>.
+
+<b>Svoboda je tu</b>
+Odkrijte svojo pot, raziskujte svet z zasebnostjo in skupnostjo v ospredju!

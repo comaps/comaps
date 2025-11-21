@@ -198,7 +198,7 @@ private:
   void CreateRoundCap(glsl::vec2 const & pos)
   {
     // Here we use an equilateral triangle to render circle (incircle of a triangle).
-    static float const kSqrt3 = sqrt(3.0f);
+    static float constexpr kSqrt3 = 1.732050808f;
     float const radius = GetHalfWidth();
 
     m_capGeometry.emplace_back(CapVertex::TPosition(pos, m_params.m_depth),

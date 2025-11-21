@@ -1,8 +1,7 @@
-• Mejora de la visibilidad y la interfaz de usuario de las instrucciones de navegación
-• Se ha añadido la opción de evitar escaleras
-• Mejora de la búsqueda en varios idiomas como ES
-• Se ha añadido un icono específico para las estaciones de autobús
-• Se han solucionado los problemas de Android Auto (a través del proyecto OM)
-• Se ha mejorado el editor y se han solucionado pequeños problemas
-• Se han mejorado los estilos de los mapas (a través del proyecto OM)
+• Datos OSM del 04/11
+• Iconos del mapa recategorizados, incluyendo nuevos colores
+• Visualización de información sobre enchufes disponibles en estaciones de recarga
+• Adición de iconos para diferentes centros deportivos, lugares de eventos, salones de masajes, posadas y algunos establecimientos comerciales desactivados
+• Varias mejoras y correcciones de errores en la búsqueda
+• Mejora en la orientación por voz durante la navegación
 Más detalles en Codeberg

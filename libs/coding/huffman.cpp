@@ -100,7 +100,7 @@ void HuffmanCoder::SetDepths(Node * root, uint32_t depth)
   // One would need more than 2^32 symbols to build a code that long.
   // On the other hand, 32 is short enough for our purposes, so do not
   // try to shrink the trees beyond this threshold.
-  uint32_t const kMaxDepth = 32;
+  uint32_t constexpr kMaxDepth = 32;
 
   if (!root)
     return;

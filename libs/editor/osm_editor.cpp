@@ -829,7 +829,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
           uploadInfo.m_uploadError = ex.Msg();
           ++errorsCount;
           LOG(LWARNING, (ex.what()));
-          changeset.SetErrorDescription(ex.Msg());
+          changeset.AddToChangesetKeyList("upload_attempt_error", kDeletedFromOSMServer);
         }
         catch (ChangesetWrapper::EmptyFeatureException const & ex)
         {
@@ -837,7 +837,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
           uploadInfo.m_uploadError = ex.Msg();
           ++errorsCount;
           LOG(LWARNING, (ex.what()));
-          changeset.SetErrorDescription(ex.Msg());
+          changeset.AddToChangesetKeyList("upload_attempt_error", kMatchedFeatureIsEmpty);
         }
         catch (RootException const & ex)
         {
@@ -845,7 +845,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
           uploadInfo.m_uploadError = ex.Msg();
           ++errorsCount;
           LOG(LWARNING, (ex.what()));
-          changeset.SetErrorDescription(ex.Msg());
+          changeset.AddToChangesetKeyList("upload_attempt_error", ex.Msg());
         }
         // TODO(AlexZ): Use timestamp from the server.
         uploadInfo.m_uploadAttemptTimestamp = time(nullptr);

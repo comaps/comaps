@@ -32,8 +32,7 @@
     android:inputType="text"
     android:padding="@dimen/margin_half_plus"
     android:singleLine="true"
-    android:textCursorDrawable="@drawable/cursor_drawable"
-    tools:ignore="UnusedAttribute"/>
+    android:textCursorDrawable="@drawable/cursor_drawable" />
 
   <ProgressBar
     android:id="@+id/progress"

@@ -47,10 +47,10 @@ string const kDownloadQueueKey = "DownloadQueue";
 // is most likely already fixed on OSM. Not limited to the latest one or two versions,
 // because a user can forget to update maps after a new app version has been installed
 // automatically in the background.
-uint64_t const kMaxSecondsTillLastVersionUpdate = 3600 * 24 * 31 * 3;
+uint64_t constexpr kMaxSecondsTillLastVersionUpdate = 3600 * 24 * 31 * 3;
 // Editing maps older than approximately six months old is disabled, because the device
 // may have been offline for a long time.
-uint64_t const kMaxSecondsTillNoEdits = 3600 * 24 * 31 * 6;
+uint64_t constexpr kMaxSecondsTillNoEdits = 3600 * 24 * 31 * 6;
 
 void DeleteCountryIndexes(LocalCountryFile const & localFile)
 {

@@ -27,16 +27,16 @@ Clone the repository
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
-Go into the cloned repository:
-```bash
-cd comaps
-./configure.sh
-```
-
 Install required packages (Ubuntu/Debian):
 ```bash
 sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-pip ninja-build
 pip install "protobuf<3.21" --break-system-packages
+```
+
+Go into the cloned repository and configure it for development:
+```bash
+cd comaps
+./configure.sh
 ```
 
 If you plan to publish the app privately in stores check [special options](#special-cases-options).

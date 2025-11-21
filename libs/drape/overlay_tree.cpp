@@ -7,14 +7,14 @@
 
 namespace dp
 {
-int const kMinFrameUpdatePeriod = 5;
-int const kAvgFrameUpdatePeriod = 10;
-int const kMaxFrameUpdatePeriod = 15;
-uint32_t const kMinHandlesCount = 100;
-uint32_t const kMaxHandlesCount = 1000;
+int constexpr kMinFrameUpdatePeriod = 5;
+int constexpr kAvgFrameUpdatePeriod = 10;
+int constexpr kMaxFrameUpdatePeriod = 15;
+uint32_t constexpr kMinHandlesCount = 100;
+uint32_t constexpr kMaxHandlesCount = 1000;
 
-size_t const kAverageHandlesCount[dp::OverlayRanksCount] = {300, 200, 50};
-int const kInvalidFrame = -1;
+size_t constexpr kAverageHandlesCount[dp::OverlayRanksCount] = {300, 200, 50};
+int constexpr kInvalidFrame = -1;
 
 namespace
 {
@@ -466,7 +466,7 @@ void OverlayTree::Select(m2::PointD const & glbPoint, TOverlayContainer & result
   ScreenBase const & screen = GetModelView();
   m2::PointD const pxPoint = screen.GtoP(glbPoint);
 
-  double const kSearchRectHalfSize = 10.0;
+  double constexpr kSearchRectHalfSize = 10.0;
   m2::RectD rect(pxPoint, pxPoint);
   rect.Inflate(kSearchRectHalfSize, kSearchRectHalfSize);
 

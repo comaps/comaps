@@ -25,8 +25,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            app:endIconMode="clear_text">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_power"
@@ -46,9 +45,7 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            app:endIconMode="clear_text"
-            >
+            android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_count"

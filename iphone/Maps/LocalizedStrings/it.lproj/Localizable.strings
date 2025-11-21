@@ -1097,3 +1097,9 @@
 "pref_maplanguage_local" = "Lingua Locale";
 "existence_confirmed_time_ago" = "Esistenza confermata %@";
 "hours_confirmed_time_ago" = "Confermato %@";
+"avoid_steps" = "Evita scale";
+"offline_explanation_text" = "Per esplorare e navigare la zona, scarica la mappa.\nScarica le mappe delle zone dove vuoi viaggiare.";
+"offline_explanation_title" = "Mappe scaricate";
+"editor_place_doesnt_exist_description" = "Descrivi come appare il posto per inviare una nota alla comunità di OpenStreetMap";
+"voice" = "Voce";
+"unknown" = "Sconosciuto";

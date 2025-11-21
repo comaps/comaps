@@ -9,7 +9,7 @@ namespace search
 {
 namespace
 {
-uint64_t const kModulo = 18446744073709551557LLU;
+uint64_t constexpr kModulo = 18446744073709551557LLU;
 }  // namespace
 
 // static

@@ -38,7 +38,7 @@ namespace
 {
 // The first zoom level in kAverageSegmentsCount.
 int constexpr kFirstZoomInAverageSegments = 10;
-std::array<size_t, 11> const kAverageSegmentsCount = {
+std::array<size_t, 11> constexpr kAverageSegmentsCount = {
     // 10  11    12     13    14    15    16    17    18   19   20
     10000, 5000, 10000, 5000, 2500, 5000, 2000, 1000, 500, 500, 500};
 
@@ -131,7 +131,7 @@ void ExtractTrafficGeometry(FeatureType const & f, df::RoadClass const & roadCla
       ASSERT_EQUAL(segment.size(), 2, ());
 
       // Skip zero-length segments.
-      double const kEps = 1e-5;
+      double constexpr kEps = 1e-5;
       if (segment[0].EqualDxDy(segment[1], kEps))
         break;
 
@@ -183,7 +183,7 @@ RuleDrawer::RuleDrawer(TCheckCancelledCallback const & checkCancelled, TIsCountr
   geometryConvertor.SetFromRect(m2::AnyRectD(r));
   m_trafficScalePtoG = geometryConvertor.GetScale();
 
-  int const kAverageOverlaysCount = 200;
+  int constexpr kAverageOverlaysCount = 200;
   m_mapShapes[df::OverlayType].reserve(kAverageOverlaysCount);
 }
 

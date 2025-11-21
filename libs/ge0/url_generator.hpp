@@ -5,8 +5,8 @@
 namespace ge0
 {
 // Max number of base64 bytes to encode a geo point.
-inline static int const kMaxPointBytes = 10;
-inline static int const kMaxCoordBits = kMaxPointBytes * 3;
+inline static int constexpr kMaxPointBytes = 10;
+inline static int constexpr kMaxCoordBits = kMaxPointBytes * 3;
 
 // Generates a short url.
 //

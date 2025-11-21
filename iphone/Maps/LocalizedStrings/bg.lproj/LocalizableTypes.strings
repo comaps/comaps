@@ -34,7 +34,7 @@
 "type.amenity.cafe" = "Кафене";
 "type.amenity.car_rental" = "Коли под наем";
 "type.amenity.motorcycle_rental" = "Мотоциклети под наем";
-"type.amenity.car_sharing" = "Споделяне на коли";
+"type.amenity.car_sharing" = "Коли под наем";
 "type.amenity.car_wash" = "Автомивка";
 "type.amenity.casino" = "Казино";
 "type.amenity.gambling" = "Хазарт";
@@ -76,7 +76,7 @@
 "type.amenity.hospital" = "Болница";
 "type.amenity.hunting_stand" = "Ловджийска пусия";
 "type.amenity.ice_cream" = "Сладолед";
-"type.amenity.internet_cafe" = "Кафене с интернет";
+"type.amenity.internet_cafe" = "Интернет кафене";
 "type.amenity.kindergarten" = "Детска градина";
 "type.amenity.library" = "Библиотека";
 "type.amenity.loading_dock" = "Товарен док";
@@ -191,7 +191,7 @@
 "type.barrier.yes" = "Бариера";
 "type.barrier.block" = "Блокова преграда";
 "type.barrier.bollard" = "Колчета";
-"type.barrier.border_control" = "Гранична остановка";
+"type.barrier.border_control" = "Граничен контрол";
 "type.barrier.chain" = "Верига";
 "type.barrier.city_wall" = "Градска стена";
 "type.barrier.cycle_barrier" = "Преграда за колела";
@@ -288,7 +288,7 @@
 "type.cuisine.chinese" = "Китайска";
 "type.cuisine.coffee_shop" = "Кафе";
 "type.cuisine.crepe" = "Креп";
-"type.cuisine.croatian" = "Хърватски";
+"type.cuisine.croatian" = "Хърватска";
 "type.cuisine.curry" = "Къри";
 "type.cuisine.deli" = "Деликатеси";
 "type.cuisine.diner" = "Вагон-ресторант";
@@ -320,7 +320,7 @@
 "type.cuisine.lao" = "Лао";
 "type.cuisine.lebanese" = "Ливанска";
 "type.cuisine.local" = "Местна";
-"type.cuisine.malagasy" = "Мадагаскар";
+"type.cuisine.malagasy" = "Малгашка";
 "type.cuisine.malaysian" = "Мадагаскарска";
 "type.cuisine.mediterranean" = "Средиземноморски";
 "type.cuisine.mexican" = "Мексиканска";

@@ -43,11 +43,9 @@
           android:layout_height="@dimen/tabs_height"
           android:elevation="@dimen/appbar_elevation"/>
 
-        <View
+        <include
           android:id="@+id/tabs_divider"
-          android:layout_width="match_parent"
-          android:layout_height="1dp"
-          android:background="?dividerHorizontal"/>
+          layout="@layout/item_divider" />
 
         <androidx.viewpager.widget.ViewPager
           android:id="@+id/pages"

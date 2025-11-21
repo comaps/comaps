@@ -38,7 +38,7 @@ string EditorDelegate::GetOriginalFeatureStreet(FeatureID const & fid) const
 
 void EditorDelegate::ForEachFeatureAtPoint(osm::Editor::FeatureTypeFn && fn, m2::PointD const & point) const
 {
-  auto const kToleranceMeters = 1e-2;
+  auto constexpr kToleranceMeters = 1e-2;
   indexer::ForEachFeatureAtPoint(m_dataSource, std::move(fn), point, kToleranceMeters);
 }
 }  // namespace search

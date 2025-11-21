@@ -165,7 +165,7 @@
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
     <string name="cant_change_this_setting">Atvainojamies, karšu krātuves iestatījumi šobrīd ir atspējoti</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">Notiek kartes lejupielāde</string>
+    <string name="downloading_is_active">Tagad notiek kartes lejupielāde</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Apskatiet manu atrašanās vietu „CoMaps“ lietotnē! %1$s vai %2$s Vai Jums nav nesaistes kartes? Lejupielādējiet to: https://www.comaps.app/download/</string>
     <!-- Subject for emailed bookmark -->
@@ -824,4 +824,24 @@
     <string name="edit_socket_info_tooltip">Pievienot jaunas ligzdas vai labot esošās.</string>
     <string name="unknow_socket_type">nezināma ligzda</string>
     <string name="unknown_count">nezināms</string>
+    <string name="offline_explanation_title">Bezsaistes kartes</string>
+    <string name="offline_explanation_text">Ir nepieciešams lejupielādēt karti, lai apskatītu un pārvietotos apgabalā.\nJālejupielādē apgabalu, kuros vēlies ceļot, kartes.</string>
+    <string name="avoid_steps">Izvairīties no kāpnēm</string>
+    <string name="editor_place_doesnt_exist_description">Jāapraksta, kā vieta tagad izskatās, lai nosūtītu kļūdas piezīmi OpenStreetMap kopienai</string>
+    <string name="unknown_socket_type">nezināma ligzda</string>
+    <string name="unknown_power_output">nezināms</string>
+    <string name="charge_socket_type2">2. veids (bez vada)</string>
+    <string name="charge_socket_type2_cable">2. veids (ar vadu)</string>
+    <string name="charge_socket_type1">1. veids</string>
+    <string name="charge_socket_type2_combo">2. veida apvienojums</string>
+    <string name="list_description_empty">Jālabo saraksts, lai pievienotu aprakstu</string>
+    <string name="delete_track_dialog_title">Izdzēst %s?</string>
+    <string name="app_tip_04">Jāpiesit jebkur kartē, lai atlasītu jebko. Ilga piespiešana tiek izmantota, lai paslēptu un parādītu saskarni.</string>
+    <string name="pref_left_button_disable">Atspējot</string>
+    <string name="error_enter_correct_level">Jāievada derīgs stāvu skaits</string>
+    <string name="error_enter_correct_fediverse_page">Jāievada derīgs Mastodon lietotājvārds vai tīmekļa adrese</string>
+    <string name="error_enter_correct_bluesky_page">Jāievada derīgs Bluesky lietotājvārds vai tīmekļa adrese</string>
+    <string name="backup_interval_every_day">Ik dienu</string>
+    <string name="clear">Notīrīt</string>
+    <string name="closed_now">Šobrīd slēgts</string>
 </resources>

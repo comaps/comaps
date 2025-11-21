@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:tools="http://schemas.android.com/tools"
   android:background="?attr/cardBackground"
   android:orientation="vertical"
   android:layout_width="match_parent"
@@ -13,8 +12,7 @@
     android:layout_height="wrap_content"
     android:background="?colorPrimary"
     android:gravity="end|center_vertical"
-    android:theme="@style/MwmWidget.ToolbarTheme"
-    tools:ignore="UnusedAttribute">
+    android:theme="@style/MwmWidget.ToolbarTheme">
   </com.google.android.material.appbar.MaterialToolbar>
   <LinearLayout
     android:layout_marginTop="@dimen/margin_half_double_plus"
@@ -38,7 +36,7 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/list_divider"/>
+  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
@@ -60,7 +58,7 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/list_divider"/>
+  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
@@ -82,7 +80,7 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/list_divider"/>
+  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
@@ -104,7 +102,7 @@
       android:padding="@dimen/margin_half_double_plus"
       android:layout_height="match_parent"/>
   </LinearLayout>
-  <include layout="@layout/list_divider"/>
+  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"

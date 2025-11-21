@@ -59,7 +59,6 @@
         android:maxLines="@integer/pp_title_lines"
         android:textAppearance="@style/MwmTextAppearance.Body1"
         tools:background="#C0800000"
-        tools:ignore="UnusedAttribute"
         tools:text="Secondary Title" />
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv__subtitle"
@@ -217,17 +216,15 @@
         android:background="?clickableBackground"
         android:textAllCaps="false"
         tools:text="@string/categories" />
-      <com.google.android.material.imageview.ShapeableImageView
+      <com.google.android.material.button.MaterialButton
         android:id="@+id/edit_Bookmark"
-        style="@style/MwmWidget.Editor.MetadataIcon"
+        style="@style/MwmWidget.M3.Button.Secondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_margin="@dimen/margin_base"
-        android:background="?clickableBackground"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_edit" />
+        android:text="@string/edit"
+        app:icon="@drawable/ic_edit"
+        app:iconTint="?colorSecondary" />
     </LinearLayout>
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/place_page_bookmark_fragment"

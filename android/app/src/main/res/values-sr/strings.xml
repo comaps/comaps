@@ -13,7 +13,7 @@
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">Преузимање…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
-    <string name="kilometres">Колиметри</string>
+    <string name="kilometres">Километри</string>
     <!-- Choose measurement on first launch alert - choose imperial system button -->
     <string name="miles">Миље</string>
     <!-- Update maps later button text -->
@@ -886,4 +886,8 @@
     <string name="charge_socket_power">Снага (kW)</string>
     <string name="editor_socket">Измени утичницу</string>
     <string name="edit_socket_info_tooltip">Креирајте нову утичницу или промените постојеће.</string>
+    <string name="offline_explanation_text">Потребно је преузимање мапе да би област могла да се прегледа и да би радило навођење.\nПреузмите мапе за области где желите да путујете.</string>
+    <string name="offline_explanation_title">Офлајн мапе</string>
+    <string name="editor_place_doesnt_exist_description">Опишите како место сада изгледа та бисте послали поруку о грешци OpenStreetMap заједници</string>
+    <string name="avoid_steps">Избегавај степенице</string>
 </resources>

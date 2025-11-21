@@ -32,18 +32,18 @@ std::string const kRouteFakeOutlineColor = "RouteFakeOutline";
 
 namespace
 {
-std::array<float, 20> const kPreviewPointRadiusInPixel = {
+std::array<float, 20> constexpr kPreviewPointRadiusInPixel = {
     // 1   2     3     4     5     6     7     8     9     10
     0.8f, 0.8f, 2.0f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f, 2.5f,
     // 11   12    13    14    15    16    17    18    19     20
     2.5f, 2.5f, 2.5f, 2.5f, 3.0f, 4.0f, 4.5f, 4.5f, 5.0f, 5.5f};
 
-int const kArrowAppearingZoomLevel = 14;
-int const kInvalidGroup = -1;
+int constexpr kArrowAppearingZoomLevel = 14;
+int constexpr kInvalidGroup = -1;
 
-uint32_t const kPreviewPointsCount = 512;
+uint32_t constexpr kPreviewPointsCount = 512;
 
-double const kInvalidDistance = -1.0;
+double constexpr kInvalidDistance = -1.0;
 
 void InterpolateByZoom(SubrouteConstPtr const & subroute, ScreenBase const & screen, float & halfWidth, double & zoom)
 {
@@ -111,7 +111,7 @@ bool AreEqualArrowBorders(std::vector<ArrowBorders> const & borders1, std::vecto
     if (borders1[i].m_groupIndex != borders2[i].m_groupIndex)
       return false;
 
-  double const kDistanceEps = 1e-5;
+  double constexpr kDistanceEps = 1e-5;
   for (size_t i = 0; i < borders1.size(); i++)
   {
     if (fabs(borders1[i].m_startDistance - borders2[i].m_startDistance) > kDistanceEps)

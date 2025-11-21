@@ -1519,7 +1519,7 @@ void FrontendRenderer::Render3dLayer(ScreenBase const & modelView)
   DEBUG_LABEL(m_context, "3D Layer");
   if (m_buildingsFramebuffer->IsSupported())
   {
-    float const kOpacity = 0.7f;
+    float constexpr kOpacity = 0.7f;
     m_screenQuadRenderer->RenderTexture(m_context, make_ref(m_gpuProgramManager), m_buildingsFramebuffer->GetTexture(),
                                         kOpacity);
   }
@@ -2501,7 +2501,7 @@ void FrontendRenderer::UpdateScene(ScreenBase const & modelView)
 
   auto removePredicate = [this](drape_ptr<RenderGroup> const & group)
   {
-    uint32_t const kMaxGenerationRange = 5;
+    uint32_t constexpr kMaxGenerationRange = 5;
     TileKey const & key = group->GetTileKey();
 
     return (GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer && key.m_zoomLevel > GetCurrentZoom()) ||

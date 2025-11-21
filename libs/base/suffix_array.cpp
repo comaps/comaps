@@ -96,7 +96,7 @@ Slice<Container> MakeSlice(Container const & c, size_t offset)
 template <typename S>
 void RawSkew(size_t n, size_t maxValue, S const & s, size_t * sa)
 {
-  size_t const kInvalidId = std::numeric_limits<size_t>::max();
+  size_t constexpr kInvalidId = std::numeric_limits<size_t>::max();
 
   if (n == 0)
     return;

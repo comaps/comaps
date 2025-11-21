@@ -8,8 +8,7 @@
   android:background="?clickableBackground"
   android:minHeight="@dimen/editor_height_field"
   android:paddingEnd="@dimen/margin_quarter"
-  android:paddingStart="@dimen/margin_half_plus_eight"
-  tools:ignore="RtlSymmetry">
+  android:paddingStart="@dimen/margin_half_plus_eight">
 
   <com.google.android.material.imageview.ShapeableImageView
     android:layout_width="wrap_content"
@@ -37,11 +36,7 @@
       android:textSize="@dimen/text_size_body_1"
       android:visibility="visible"/>
 
-    <View
-      android:layout_width="match_parent"
-      android:layout_height="1dp"
-      android:layout_marginTop="@dimen/margin_half"
-      android:background="?dividerHorizontal"/>
+    <include layout="@layout/item_divider" />
 
   </LinearLayout>
 

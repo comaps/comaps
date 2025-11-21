@@ -114,7 +114,7 @@ impl::Polygon PointsToPolygon(Container const & points)
 template <typename Container>
 impl::MultiPolygon TrianglesToPolygon(Container const & points)
 {
-  size_t const kTriangleSize = 3;
+  size_t constexpr kTriangleSize = 3;
   if (points.size() % kTriangleSize != 0)
     MYTHROW(geometry::NotAPolygonException, ("Count of points must be multiple of", kTriangleSize));
 

@@ -7,15 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StyleRes;
 import androidx.fragment.app.DialogFragment;
-import app.organicmaps.R;
 
 public class BaseMwmDialogFragment extends DialogFragment
 {
-  @StyleRes
-  protected final int getFullscreenTheme()
-  {
-    return R.style.MwmTheme_DialogFragment_Fullscreen;
-  }
 
   protected int getStyle()
   {

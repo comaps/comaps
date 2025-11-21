@@ -1,5 +1,6 @@
 package app.organicmaps.widget.placepage;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import app.organicmaps.R;
@@ -103,9 +105,9 @@ public class EditBookmarkFragment extends BaseMwmDialogFragment implements View.
   public EditBookmarkFragment() {}
 
   @Override
-  protected int getCustomTheme()
-  {
-    return getFullscreenTheme();
+  public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setStyle(DialogFragment.STYLE_NORMAL, R.style.MwmTheme_FullScreenDialog);
   }
 
   @Nullable
@@ -181,6 +183,12 @@ public class EditBookmarkFragment extends BaseMwmDialogFragment implements View.
   public void onStart()
   {
     super.onStart();
+    Dialog dialog = getDialog();
+    if (dialog != null) {
+      dialog.getWindow().setLayout(
+              ViewGroup.LayoutParams.MATCH_PARENT,
+              ViewGroup.LayoutParams.MATCH_PARENT);
+    }
 
     // Focus name and show keyboard for "Unknown Place" bookmarks
     if (mBookmark != null

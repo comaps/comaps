@@ -1,0 +1,28 @@
+Uma aplicação pela comunidade, grátis e ‘open-source’, de mapas baseada em dados do OpenStreetMap e reforçada com compromisso para transparência, privacidade e sem fins lucrativos. 
+
+‣ Simples e Polida: funcionalidades essenciais fáceis que “somente funcionam”.
+‣ Foco Offline: Planeie e navegue as suas viagens no estrangeiro sem dados móveis, procure locais numa caminhada distante, etc. Todas as funções da aplicação foram criadas com intenção de serem usadas sem internet.
+‣ Respeita a privacidade: A aplicação foi criada com privacidade em mente — não identifica o utilizador, não rastreia, e não usa a sua informação pessoal. Sem anúncios.
+‣ Saves Your Battery and Space: Não esgota a sua bateria ao contrário de outras aplicações. Mapas compactos salvam espaço no seu telemóvel.
+‣ Gratuita e Feita pela Comunidade: Pessoas como si ajudam a criar a aplicação ao adicionar locais ao OpenStreetMap, testando e dando opiniões em funcionalidades e contribuindo com dotes de desenvolvimento e dinheiro.
+‣ Decisões e Finanças Abertas e Transparentes, Sem fins lucrativos e ‘Open-Source’.</b>
+
+Funcionalidades principais:
+• Mapas detalhados descarregáveis com locais que não estão disponíveis com o Google Maps
+• Modo ao Ar Livre com trilhos de caminhada destacados, acampamentos, fontes de água, cumes, curvas de nível, etc
+• Caminhos pedestres e ciclovias
+• Pontos de interesse como restaurantes, estações de serviço, hotéis, lojas, atrações e muitos mais
+• Pesquise por nome, endereço, ou por categoria de ponto de interesse
+• Navegação com anúncios de voz ao caminhar, pedalar ou conduzir
+• Marque os seus locais favoritos com um único clique
+• Sincronização dos marcadores e percursos na iCloud
+• Artigos da Wikipédia Offline
+• Camada de metro e direções
+• Gravação de Percursos
+• Exportar e importar marcadores e percursos em formatos KML, KMZ, GPX
+• Um modo escuro para usar durante a noite
+• Melhore a informação do mapa para todos com um editor básico embebido
+• Suporte para ‘CarPlay’
+
+A liberdade chegou
+Descubra a sua jornada, navegue o mundo com privacidade e a comunidade à frente!

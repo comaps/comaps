@@ -1095,3 +1095,11 @@
 "pref_maplanguage_local" = "Vietos kalba";
 "existence_confirmed_time_ago" = "Egzistavimas patvirtintas %@";
 "hours_confirmed_time_ago" = "Patvirtinta %@";
+"avoid_steps" = "Vengti laiptų";
+"editor_place_doesnt_exist_description" = "Praneškite „OpenStreetMap“ bendruomenei apie šią klaidą, apibūdindami, kaip ši vieta atrodo dabar";
+"offline_explanation_text" = "Kad galėtumėte matyti šios vietovės žemėlapį ir planuoti jame keliones, pirma turite jį atsiųsti.";
+"offline_explanation_title" = "Žemėlapio parsisiuntimas";
+"voice" = "Balsas";
+"unknown" = "Nežinomas";
+"voice_explanation_before_version26" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Perskaitomas tekstas*, *Balsai*.";
+"voice_explanation" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Skaitymas ir ištarimas*, *Balsai*.";

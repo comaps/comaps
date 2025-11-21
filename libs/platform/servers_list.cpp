@@ -14,8 +14,8 @@ namespace downloader
 
 std::optional<MetaConfig> ParseMetaConfig(std::string const & jsonStr)
 {
-  char const kSettings[] = "settings";
-  char const kServers[] = "servers";
+  char constexpr kSettings[] = "settings";
+  char constexpr kServers[] = "servers";
 
   MetaConfig outMetaConfig;
   try

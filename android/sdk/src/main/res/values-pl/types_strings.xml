@@ -431,7 +431,6 @@
     <string name="type.highway.pedestrian.area">Obszar deptaka</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Most dla pieszych</string>
-
     <string name="type.highway.pedestrian.square">Plac</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Tunel dla pieszych</string>
@@ -641,8 +640,8 @@
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Pochylnia</string>
     <string name="type.leisure.sports_centre">Centrum sportowe</string>
-    <string name="type.sport.climbing">Centrum wspinaczkowe</string>
-    <string name="type.sport.yoga">Studio jogi</string>
+    <string name="type.sport.climbing">Wspinaczka</string>
+    <string name="type.sport.yoga">Joga</string>
     <string name="type.leisure.stadium">Stadion</string>
     <string name="type.leisure.swimming_pool">Basen</string>
     <string name="type.leisure.swimming_pool.private">Basen</string>
@@ -1395,4 +1394,45 @@
     <string name="type.amenity.ranger_station">Budynek obsługi parku</string>
     <string name="type.power.portal">Portal elektroenergetyczny</string>
     <string name="type.office.security">Biuro ochrony</string>
+    <string name="type.shop.lighting">Sklep oświetleniowy</string>
+    <string name="type.barrier.wicket_gate">Furtka</string>
+    <string name="type.leisure.escape_game">Escape Room</string>
+    <string name="type.amenity.bench.backless">Ławka bez oparcia</string>
+    <string name="type.amenity.charging_station.motorcar.small">Punkt ładowania samochodów</string>
+    <string name="type.amenity.lounger">Leżak</string>
+    <string name="type.leisure.bandstand">Muszla koncertowa</string>
+    <string name="type.leisure.sports_centre.sport.multi">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.american_football">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.archery">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.athletics">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.australian_football">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.badminton">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.baseball">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.basketball">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.beachvolleyball">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.bowls">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.climbing">Centrum wspinaczkowe</string>
+    <string name="type.leisure.sports_centre.sport.cricket">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.curling">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.equestrian">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.futsal">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.golf">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.gymnastics">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.handball">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.ice_hockey">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.padel">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.pelota">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.scuba_diving">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.shooting">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.skateboard">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.skiing">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.soccer">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Ośrodek pływacki</string>
+    <string name="type.leisure.sports_centre.sport.table_tennis">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.tennis">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.volleyball">Centrum sportowe</string>
+    <string name="type.leisure.sports_centre.sport.yoga">Centrum sportowe</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Studio Jogi</string>
+    <string name="type.disusedbusiness">Pusty lokal</string>
 </resources>

@@ -256,7 +256,7 @@ int main(int argc, char * argv[])
         GpsInfo const extrapolated = LinearExtrapolation(info1, info2, timeMs);
         m2::PointD const extrapolatedMerc = mercator::FromLatLon(extrapolated.m_latitude, extrapolated.m_longitude);
 
-        double const kHalfSquareSide = 100.0;
+        double constexpr kHalfSquareSide = 100.0;
         // |kHalfSquareSide| is chosen based on maximum value of GpsInfo::m_horizontalAccuracy
         // which is used calculation of projection in production code.
         m2::RectD const posSquare =

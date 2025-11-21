@@ -26,9 +26,9 @@ namespace
 {
 std::string const kTrackSelectedSymbolName = "track_marker_selected";
 df::ColorConstant const kSelectionColor = "Selection";
-float const kLeftSide = 1.0f;
-float const kCenter = 0.0f;
-float const kRightSide = -1.0f;
+float constexpr kLeftSide = 1.0f;
+float constexpr kCenter = 0.0f;
+float constexpr kRightSide = -1.0f;
 
 struct MarkerVertex
 {
@@ -91,7 +91,7 @@ dp::BindingInfo GetSelectionLineVertexBindingInfo()
 
 float SideByNormal(glsl::vec2 const & normal, bool isLeft)
 {
-  float const kEps = 1e-5;
+  float constexpr kEps = 1e-5;
   float const side = isLeft ? kLeftSide : kRightSide;
   return glsl::length(normal) < kEps ? kCenter : side;
 }

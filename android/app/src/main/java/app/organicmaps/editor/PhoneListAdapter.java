@@ -113,9 +113,6 @@ public class PhoneListAdapter extends RecyclerView.Adapter<PhoneListAdapter.View
 
       deleteButton = itemView.findViewById(R.id.delete_icon);
       deleteButton.setOnClickListener(this);
-      // TODO: setting icons from code because icons defined in layout XML are white.
-      deleteButton.setImageResource(R.drawable.ic_delete);
-      ((ShapeableImageView) itemView.findViewById(R.id.phone_icon)).setImageResource(R.drawable.ic_phone);
     }
 
     public void setPosition(int position)

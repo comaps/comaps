@@ -297,7 +297,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Veuillez activer les services de localisation</string>
     <string name="save">Enregistrer</string>
-    <string name="create">créer</string>
+    <string name="create">Créer</string>
     <!-- red color -->
     <string name="red">Rouge</string>
     <!-- yellow color -->
@@ -466,7 +466,7 @@
     <string name="editor_report_problem_other_title">Autre problème</string>
     <string name="message_invalid_feature_position">Aucun objet ne peut être localisé ici</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Données OpenStreetMap créées par la communauté en date du %s. Pour en savoir plus sur la façon de modifier et de mettre à jour la carte, consultez le site OpenStreetMap.org</string>
+    <string name="osm_presentation">Données OpenStreetMap fournies par la communauté en date du %s. Pour en savoir plus sur la façon de modifier et de mettre à jour la carte, consultez le site OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) est un projet communautaire visant à créer une carte libre et ouverte. C’est la principale source de données cartographiques de CoMaps et son fonctionnement est similaire à celui de Wikipédia. Vous pouvez ajouter ou modifier des lieux et ils deviennent accessibles à des millions d’utilisateurs dans le monde entier. \nRejoignez la communauté et aidez-nous à créer une meilleure carte pour tout le monde !</string>
     <string name="login_to_make_edits_visible">Créez un compte OpenStreetMap ou connectez-vous pour publier vos modifications de carte et les diffuser au monde entier</string>
@@ -895,4 +895,7 @@
     <string name="charging_station_available_sockets">Prises libres</string>
     <string name="avoid_steps">Éviter les escaliers</string>
     <string name="offline_explanation_title">Cartes hors-ligne</string>
+    <string name="editor_place_doesnt_exist_description">Décrivez le lieu afin de signaler l\'erreur à la communauté OpenStreetMap</string>
+    <string name="offline_explanation_text">Une carte doit être téléchargée pour visualiser et vous déplacer dans une zone.\nTéléchargez les cartes des zones que vous souhaitez visiter.</string>
+    <string name="list_description_empty">Modifier la liste pour ajouter une description</string>
 </resources>

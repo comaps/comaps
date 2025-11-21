@@ -28,7 +28,7 @@ namespace
 {
 using BookmarkIdDoc = pair<bookmarks::Id, bookmarks::Doc>;
 
-double const kDistEqualQueryMeters = 100.0;
+double constexpr kDistEqualQueryMeters = 100.0;
 double const kDistEqualQueryMercator = mercator::MetersToMercator(kDistEqualQueryMeters);
 
 // Cancels search query by |handle|.

@@ -53,7 +53,7 @@ namespace search
 class FeaturesLayerMatcher
 {
 public:
-  static uint32_t const kInvalidId = std::numeric_limits<uint32_t>::max();
+  static uint32_t constexpr kInvalidId = std::numeric_limits<uint32_t>::max();
   static int constexpr kBuildingRadiusMeters = 50;
   static int constexpr kComplexPoiRadiusMeters = 300;
   static int constexpr kStreetRadiusMeters = 100;

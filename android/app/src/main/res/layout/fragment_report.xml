@@ -12,8 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:gravity="end|center_vertical"
-    android:theme="@style/MwmWidget.ToolbarTheme"
-    tools:ignore="UnusedAttribute">
+    android:theme="@style/MwmWidget.ToolbarTheme">
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/save"
       style="@style/MwmWidget.Downloader.ToolbarButton"

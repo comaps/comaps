@@ -72,7 +72,7 @@
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Locuri preferate și trasee</string>
     <!-- Add bookmark dialog - bookmark name -->
-    <string name="name">Denumire</string>
+    <string name="name">Nume</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
     <string name="address">Adresă</string>
     <!-- Add Bookmark dialog/Bookmark list; Bookmarks dialog/Bookmark list cell. -->

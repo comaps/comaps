@@ -1,9 +1,8 @@
-• Verbesserte Sichtbarkeit & Benutzeroberfläche für Navigationsanweisungen
-• Option um Treppen zu vermeiden
-• Verbesserte Suche in mehreren Sprachen
-• Spezifisches Symbol für Busbahnöfe hinzugefügt
-• Probleme mit Android Auto behoben (via OM)
-• Verbesserter Editor mit kleinere Bugfixes
-• Kartenstile verbessert (via OM)
-• Verbesserte Übersetzungen
-Für weitere Änderungen siehe Codeberg-Versionshinweise
+• OpenStreetMap-Daten vom 4. November
+• Aktualisierte Karten-Icons, inkl. Farben für Unterhaltungs-, Sport- & andere Unternehmen
+• Informationen zu Steckdosen an EV-Ladestationen
+• Symbole für Sportzentren, Veranstaltungsorte, Massagesalons, Gästehäuser und einige stillgelegte Unternehmen
+• Verbesserungen bei der Suche
+• Behebung eines Absturzes bei der Suche
+• Verbesserte Sprachführung während der Navigation
+Weitere Änderungen finden in unseren Codeberg-Versionshinweisen!

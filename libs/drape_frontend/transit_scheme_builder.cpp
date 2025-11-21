@@ -118,7 +118,7 @@ void GenerateLineCaps(ref_ptr<dp::GraphicsContext> context, std::vector<SchemeSe
   for (auto const & segment : segments)
   {
     // Here we use an equilateral triangle to render a circle (incircle of a triangle).
-    static float const kSqrt3 = sqrt(3.0f);
+    static float constexpr kSqrt3 = 1.732050808f;
     auto const offset = lineOffset * segment.m_rightNormal;
     auto const pivot = glsl::vec3(segment.m_p2, depth);
 
@@ -1081,7 +1081,7 @@ void TransitSchemeBuilder::GenerateLine(ref_ptr<dp::GraphicsContext> context, st
   auto const color =
       glsl::vec4(colorConst.GetRedF(), colorConst.GetGreenF(), colorConst.GetBlueF(), colorConst.GetAlphaF());
   size_t const kAverageSize = path.size() * 6;
-  size_t const kAverageCapSize = 12;
+  size_t constexpr kAverageCapSize = 12;
   geometry.reserve(kAverageSize + kAverageCapSize * 2);
 
   std::vector<SchemeSegment> segments;
@@ -1133,8 +1133,8 @@ void TransitSchemeBuilder::GenerateStop(ref_ptr<dp::GraphicsContext> context, St
     return;
   }
 
-  float const kInnerScale = 0.8f;
-  float const kOuterScale = 2.0f;
+  float constexpr kInnerScale = 0.8f;
+  float constexpr kOuterScale = 2.0f;
 
   auto const lineId = *stopParams.m_stopsInfo.begin()->second.m_lines.begin();
   auto const colorName = df::GetTransitColorName(lines.at(lineId).m_color);
@@ -1210,8 +1210,8 @@ void TransitSchemeBuilder::GenerateStop(ref_ptr<dp::GraphicsContext> context, St
     return;
   }
 
-  float const kInnerScale = 0.8f;
-  float const kOuterScale = 2.0f;
+  float constexpr kInnerScale = 0.8f;
+  float constexpr kOuterScale = 2.0f;
 
   ::transit::TransitId lineId = *stopParams.m_stopsInfo.begin()->second.m_lines.begin();
 
@@ -1397,8 +1397,8 @@ void TransitSchemeBuilder::GenerateTransfer(ref_ptr<dp::GraphicsContext> context
     }
   }
 
-  float const kInnerScale = 1.0f;
-  float const kOuterScale = 1.5f;
+  float constexpr kInnerScale = 1.0f;
+  float constexpr kOuterScale = 1.5f;
 
   auto const outerColor = GetColorConstant(kTransitTransferOuterColor);
   auto const innerColor = GetColorConstant(kTransitTransferInnerColor);
@@ -1423,8 +1423,8 @@ void TransitSchemeBuilder::GenerateTransfer(ref_ptr<dp::GraphicsContext> context
 
   CHECK_GREATER(maxLinesCount, 0, ());
 
-  float const kInnerScale = 1.0f;
-  float const kOuterScale = 1.5f;
+  float constexpr kInnerScale = 1.0f;
+  float constexpr kOuterScale = 1.5f;
 
   auto const outerColor = GetColorConstant(kTransitTransferOuterColor);
   auto const innerColor = GetColorConstant(kTransitTransferInnerColor);

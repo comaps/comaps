@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Rajoitettu tarkkuus</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Tarkan navigoinnin varmistamiseksi ota käyttöön tarkka sijainti asetuksista</string>
+    <string name="precise_location_is_disabled_long_text">Tarkan navigoinnin varmistamiseksi ota Tarkka sijainti käyttöön asetuksissa</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Näytä kartalla</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -164,9 +164,9 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Sijaintiasi ei ole vielä määritetty</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">Kartan tallennusasetukset ovat poissa käytöstä</string>
+    <string name="cant_change_this_setting">Valitettavasti karttatallennustilaasetukset ovat tällä hetkellä poissa käytöstä</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">Kartan lataus käynnissä</string>
+    <string name="downloading_is_active">Kartan lataus on parhaillaan käynnissä</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hei, katso sijaintini CoMaps-sovelluksessa! %1$s tai %2$s Eikö sinulla ole vielä offline-karttoja? Lataa ne täältä: https://www.comaps.app/download/</string>
     <!-- Subject for emailed bookmark -->
@@ -342,16 +342,16 @@
     <string name="dialog_routing_location_turn_on">Ota sijaintipalvelut käyttöön</string>
     <string name="dialog_routing_location_unknown_turn_on">Tämänhetkisiä GPS-koordinaatteja ei löydy. Ota sijaintipalvelut käyttöön reitin laskemista varten.</string>
     <string name="dialog_routing_unable_locate_route">Reitin paikannus ei onnistu</string>
-    <string name="dialog_routing_cant_build_route">Reitin luonti ei onnistu</string>
+    <string name="dialog_routing_cant_build_route">Reittiä ei voi luoda</string>
     <string name="dialog_routing_change_start_or_end">Muuta aloituskohtaa tai määränpäätä.</string>
     <string name="dialog_routing_change_start">Muuta aloituskohtaa</string>
     <string name="dialog_routing_start_not_determined">Reittiä ei luotu. Aloituskohdan paikannus ei onnistu.</string>
     <string name="dialog_routing_select_closer_start">Valitse lähempänä tietä oleva aloituskohta.</string>
     <string name="dialog_routing_change_end">Muuta määränpäätä</string>
     <string name="dialog_routing_end_not_determined">Reittiä ei luotu. Määränpään paikannus ei onnistu.</string>
-    <string name="dialog_routing_select_closer_end">Valitse lähempänä tietä oleva määränpää</string>
-    <string name="dialog_routing_change_intermediate">Välipisteen paikallistaminen ei onnistunut</string>
-    <string name="dialog_routing_intermediate_not_determined">Siirrä välipistettä</string>
+    <string name="dialog_routing_select_closer_end">Valitse lähempänä tietä sijaitseva määränpää</string>
+    <string name="dialog_routing_change_intermediate">Välikohtaa ei voi paikantaa</string>
+    <string name="dialog_routing_intermediate_not_determined">Säädä välikohtaasi</string>
     <string name="dialog_routing_system_error">Järjestelmävirhe</string>
     <string name="dialog_routing_application_error">Reittiä ei voi luoda sovellusvirheen vuoksi</string>
     <string name="dialog_routing_try_again">Yritä uudelleen</string>
@@ -367,7 +367,7 @@
     <string name="hide">Piilota</string>
     <string name="categories">Luokat</string>
     <string name="history">Historia</string>
-    <string name="search_not_found">Pahoittelut, hakutuloksia ei ole</string>
+    <string name="search_not_found">Hups, tuloksia ei löytynyt</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Lataa alue, jolta etsit, tai yritä lisätä läheisen kaupungin tai kylän nimi.</string>
     <string name="search_history_title">Hakuhistoria</string>
@@ -379,7 +379,7 @@
     <string name="p2p_start">Aloita</string>
     <string name="p2p_from_here">Lähtöpaikka</string>
     <string name="p2p_to_here">Reitin loppupiste</string>
-    <string name="p2p_only_from_current">Navigointi onnistuu vain nykyisestä sijainnistasi</string>
+    <string name="p2p_only_from_current">Navigointi on käytettävissä vain nykyisestä sijainnistasi</string>
     <string name="p2p_reroute_from_current">Haluatko valita vaihtoehtoisen reitin?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Seuraava</string>
@@ -451,7 +451,7 @@
     <string name="common_check_internet_connection_dialog">Varmista, että laitteesi on yhteydessä Internetiin</string>
     <string name="downloader_no_space_title">Ei tarpeeksi tilaa</string>
     <string name="downloader_no_space_message">Poista tarpeeton data</string>
-    <string name="editor_login_error_dialog">Kirjautumisvirhe</string>
+    <string name="editor_login_error_dialog">Sisäänkirjautumisvirhe</string>
     <string name="editor_profile_changes">Vahvistetut karttamuutokset</string>
     <string name="editor_focus_map_on_location">Aseta risti paikan tai yrityksen sijaintiin vetämällä karttaa.</string>
     <string name="editor_edit_place_title">Muokkaus</string>
@@ -471,7 +471,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d/%2$d</string>
     <string name="download_over_mobile_header">Lataa käyttämällä puhelinverkkoyhteyttä?</string>
-    <string name="download_over_mobile_message">Tämä vaihtoehto saattaa olla huomattavasti kalliimpi tietyillä sopimuksilla tai roaming-yhteydellä</string>
+    <string name="download_over_mobile_message">Tämä vaihtoehto saattaa olla huomattavasti kalliimpi tietyillä sopimuksilla tai verkkovierailunyhteydellä</string>
     <string name="error_enter_correct_house_number">Syötä oikea talon numero</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Kerrosten määrä saa olla korkeintaan %d</string>
@@ -492,7 +492,7 @@
     <string name="editor_category_unsuitable_title">Etkö löydä sopivaa luokkaa?</string>
     <string name="editor_category_unsuitable_text">CoMaps mahdollistaa vain yksinkertaisten pisteluokkien lisäämisen, eli ei kaupunkeja, teitä, järviä, rakennusten ääriviivoja jne. Lisää tällaiset luokat suoraan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Tarkista <a href="https://www.comaps.app/support/advanced-map-editing/">oppaastamme</a> yksityiskohtaiset ohjeet vaihe vaiheelta.</string>
     <string name="downloader_no_downloaded_maps_title">Et ole ladannut yhtään karttaa</string>
-    <string name="downloader_no_downloaded_maps_message">Lataa karttoja löytääksesi paikkoja ja navigoidaksesi offline-tilassa</string>
+    <string name="downloader_no_downloaded_maps_message">Lataa karttoja ei-verkkotilassa etsimistä ja navigoimista varten</string>
     <string name="current_location_unknown_error_title">Nykyinen sijainti on tuntematon</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
@@ -523,8 +523,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Haluatko lähettää sen kaikille käyttäjille?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Varmista, ettet syöttänyt henkilökohtaisia tietojasi</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-editorit tarkistavat muutokset ja ottavat sinuun yhteyttä, jos heillä on kysyttävää</string>
+    <string name="editor_share_to_all_dialog_message_1">Varmista, ettet ole syöttänyt yksityisiä tai henkilökohtaisia tietoja</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-muokkaimet tarkistavat muutokset ja ottavat sinuun yhteyttä, jos niillä on kysyttävää</string>
     <string name="navigation_stop_button">Lopeta</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Reitin kirjaaminen</string>
@@ -538,7 +538,7 @@
     <string name="mobile_data_option_not_today">Älä käytä tänään</string>
     <string name="mobile_data">Mobiili-internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobiili-internet vaaditaan paikkojen lisätietojen, kuten valokuvien, hintojen ja arvioiden näyttämiseen</string>
+    <string name="mobile_data_description">Mobiili-internet vaaditaan karttapäivitysilmoituksiin ja muokkausten lataamiseen ulospäin</string>
     <string name="mobile_data_option_never">Älä käytä koskaan</string>
     <string name="mobile_data_option_ask">Kysy aina</string>
     <string name="traffic_update_maps_text">Liikennetietojen näyttämiseksi kartat on päivitettävä</string>
@@ -621,7 +621,7 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Älä koskaan varoita</string>
     <string name="power_managment_title">Virransäästötila</string>
-    <string name="power_managment_description">Yritä vähentää virrankulutusta toiminnallisuuden kustannuksella</string>
+    <string name="power_managment_description">Yritä vähentää virrankulutusta joidenkin toimintojen kustannuksella</string>
     <string name="power_managment_setting_never">Ei koskaan</string>
     <string name="power_managment_setting_auto">Automaattinen</string>
     <string name="power_managment_setting_manual_max">Täysi virransäästö</string>
@@ -635,7 +635,7 @@
     <string name="avoid_ferry">Vältä lautan käyttöä</string>
     <string name="avoid_motorways">Vältä moottoritietä</string>
     <string name="unable_to_calc_alert_title">Reittiä ei voi luoda</string>
-    <string name="unable_to_calc_alert_subtitle">Valitettavasti emme voineet luoda reittiä valituilla vaihtoehdoilla. Tämä voi johtua reittiasetuksista tai OpenStreetMap:n puuttuvista tiedoista. Vaihda reititysasetuksia ja yritä uudelleen.</string>
+    <string name="unable_to_calc_alert_subtitle">Reittiä ei löytynyt. Tämä voi johtua reititysasetuksistasi tai puutteellisista OpenStreetMap-tiedoista. Muuta reititysvaihtoehtoja ja yritä uudelleen.</string>
     <string name="define_to_avoid_btn">Määritä vältettävät tiet</string>
     <string name="change_driving_options_btn">Reititysvalinnat ovat päällä</string>
     <string name="toll_road">Maksullinen tie</string>
@@ -870,4 +870,26 @@
     <string name="hours_confirmed_time_ago">Vahvistettu %s</string>
     <string name="existence_confirmed_time_ago">Olemassaolo vahvistettu %s</string>
     <string name="pref_tts_no_system_tts_short">Tekstistä puheeksi -moottoria ei löytynyt, tarkista sovelluksen asetukset</string>
+    <string name="unknown_power_output">tuntematon</string>
+    <string name="charge_socket_count">Lukumäärä</string>
+    <string name="unknown_count">tuntematon</string>
+    <string name="error_invalid_number">Ei kelvollinen numero</string>
+    <string name="offline_explanation_title">Ei-verkkotilassa olevat kartat</string>
+    <string name="editor_place_doesnt_exist_description">Kuvaile, miltä paikka näyttää nyt, lähettääksesi virheilmoituksen OpenStreetMap-yhteisölle</string>
+    <string name="avoid_steps">Vältä portaita</string>
+    <string name="charge_socket_type2">Tyyppi 2 (ei kaapelia)</string>
+    <string name="charge_socket_type2_cable">Tyyppi 2 (w/ -kaapeli)</string>
+    <string name="charge_socket_type2_combo">Tyyppi 2 combo</string>
+    <string name="charge_socket_type1">Tyyppi 1</string>
+    <string name="unknown_socket_type">tuntematon pistoke</string>
+    <string name="unknow_socket_type">tuntematon pistoke</string>
+    <string name="edit_socket_info_tooltip">Luo uusia pistokkeita tai muokkaa olemassa olevia.</string>
+    <string name="charging_station_available_sockets">Saatavilla olevat pistokkeet</string>
+    <string name="charge_socket_unknown_other">Muu tai tuntematon</string>
+    <string name="charge_socket_power">Teho (kW)</string>
+    <string name="editor_socket">Muokkaa pistoketta</string>
+    <string name="error_value_must_be_positive">Arvon on oltava positiivinen</string>
+    <string name="offline_explanation_text">Alueen katseluun ja navigointiin tarvitaan kartta.\nLataa karttoja alueille, joille haluat matkustaa.</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
 </resources>

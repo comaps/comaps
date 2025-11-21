@@ -171,9 +171,9 @@
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Смотри где я сейчас! Жми %1$s или %2$s Нету автономных карт? Скачай тут https://www.comaps.app/download/</string>
     <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Смотри мою метку на карте CoMaps!</string>
+    <string name="bookmark_share_email_subject">Моя метка на карте CoMaps!</string>
     <!-- Subject for emailed position -->
-    <string name="my_position_share_email_subject">Посмотри на карте CoMaps, где я сейчас нахожусь!</string>
+    <string name="my_position_share_email_subject">Смотри моё текущее местоположение на карте CoMaps!</string>
     <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
     <string name="my_position_share_email">Привет! \n \nЯ сейчас здесь: %1$s. Чтобы увидеть это место на карте CoMaps, открой эту ссылку %2$s или эту %3$s \n \nСпасибо.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
@@ -221,7 +221,7 @@
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">Язык подсказок</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Попробовать голосовые подсказки</string>
+    <string name="pref_tts_test_voice_title">Тест голосовых подсказок</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
     <string name="pref_tts_playing_test_voice">Проверьте громкость или системные настройки преобразования текста в речь, если сейчас ничего не слышно</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
@@ -232,7 +232,7 @@
     <!-- Menu button -->
     <string name="menu">Меню</string>
     <!-- Text in menu -->
-    <string name="website">Вебсайт</string>
+    <string name="website">Веб-сайт</string>
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Новости</string>
     <!-- Settings: Send feedback button and dialog title -->
@@ -878,4 +878,8 @@
     <string name="panoramax">Panoramax Фото</string>
     <string name="open_now">Открыто</string>
     <string name="closed_now">Закрыто</string>
+    <string name="avoid_steps">Избегать лестниц</string>
+    <string name="offline_explanation_title">Офлайн-карты</string>
+    <string name="offline_explanation_text">Для просмотра и навигации необходима загруженная карта.\nЗагрузите карты для тех регионов, в которых вы планируете перемещаться.</string>
+    <string name="editor_place_doesnt_exist_description">Опишите как выглядит это место, чтобы отправить сообщение о неточности сообществу OpenStreetMap</string>
 </resources>

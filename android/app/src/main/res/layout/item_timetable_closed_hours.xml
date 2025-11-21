@@ -38,10 +38,9 @@
     android:textAppearance="@style/MwmTextAppearance.Body1"
     tools:text="15:00--16:00"/>
 
-  <View
+  <com.google.android.material.divider.MaterialDivider
     android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:layout_alignParentBottom="true"
-    android:background="?dividerHorizontal"/>
+    android:layout_height="@dimen/divider_height"
+    android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

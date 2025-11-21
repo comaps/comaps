@@ -538,7 +538,7 @@
     <string name="mobile_data_option_not_today">Nie stosuj dzisiaj</string>
     <string name="mobile_data">Dane mobilne</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Dane mobilne są wymagane do powiadomień o aktualizacji map i wyświetlania dokładniejszych informacji o miejscach i zakładkach.</string>
+    <string name="mobile_data_description">Dane mobilne są wymagane do powiadomień o aktualizacji map i wysyłania edycji</string>
     <string name="mobile_data_option_never">Nigdy nie stosuj</string>
     <string name="mobile_data_option_ask">Zawsze pytaj</string>
     <string name="traffic_update_maps_text">Aby wyświetlić dane o ruchu, muszą zostać zaktualizowane mapy.</string>
@@ -631,7 +631,7 @@
     <string name="power_managment_setting_never">Nigdy</string>
     <string name="power_managment_setting_auto">Automatycznie</string>
     <string name="power_managment_setting_manual_max">Maksymalna oszczędność energii</string>
-    <string name="enable_logging_warning_message">Ta opcja zostaje włączona do zbierania danych działań w celach diagnostycznych. Pomaga to zespołowi zidentyfikować problemy z aplikacją. Włączaj opcję tylko na żądanie wsparcia technicznego CoMaps.</string>
+    <string name="enable_logging_warning_message">Włącz tę opcję tymczasowo, aby zebrać szczegółowe dane diagnostyczne o twoim problemie. Dane zostaną użyte na potrzeby zgłaszania błędu przy użyciu opcji „Zgłoś błąd” w sekcji Pomoc. Logi mogą zawierać dane lokalizacyjne.</string>
     <string name="driving_options_title">Ustawienia nawigacji</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Unikaj płatnych dróg</string>
@@ -640,10 +640,10 @@
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_ferry">Unikaj przepraw promowych</string>
     <string name="avoid_motorways">Unikaj autostrad</string>
-    <string name="unable_to_calc_alert_title">Brak możliwości zbudowania trasy</string>
+    <string name="unable_to_calc_alert_title">Nie udało się wyznaczyć trasy</string>
     <string name="unable_to_calc_alert_subtitle">Nie udało się znaleźć trasy. Może to być spowodowane ustawieniami nawigacji lub niekompletnymi danymi OpenStreetMap. Zmień opcje nawigacji i spróbuj ponownie.</string>
-    <string name="define_to_avoid_btn">Dostosuj ścieżkę objazdu</string>
-    <string name="change_driving_options_btn">Ustawienia objazdu są włączone</string>
+    <string name="define_to_avoid_btn">Dostosuj omijane typy dróg</string>
+    <string name="change_driving_options_btn">Niektóre typy dróg są omijane</string>
     <string name="toll_road">Droga płatna</string>
     <string name="unpaved_road">Droga gruntowa</string>
     <string name="ferry_crossing">Przeprawa promowa</string>
@@ -877,4 +877,26 @@
     <string name="existence_confirmed_time_ago">Istnienie potwierdzone %s</string>
     <string name="osm_note_hint">Ewentualnie zostaw notatkę dla społeczności OpenStreetMap, żeby ktoś inny mógł dodać lub poprawić to miejsce.</string>
     <string name="osm_note_toast">Notatka zostanie wysłana do OpenStreetMap</string>
+    <string name="offline_explanation_title">Mapy Offline</string>
+    <string name="offline_explanation_text">Aby przeglądać i nawigować po okolicy potrzebujesz pobrać mapę.\nPobierz mapy obszarów, po których chcesz podróżować.</string>
+    <string name="editor_place_doesnt_exist_description">Opisz jak to miejsce wygląda teraz, aby wysłać zgłoszenie do społeczności OpenStreetMap</string>
+    <string name="avoid_steps">Unikaj schodów</string>
+    <string name="unknown_power_output">nieznana</string>
+    <string name="charge_socket_type2">Typ 2 (bez kabla)</string>
+    <string name="charge_socket_type2_cable">Typ 2 (z kablem)</string>
+    <string name="charge_socket_type2_combo">Typ 2 combo</string>
+    <string name="charge_socket_type1">Typ 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">nieznane gniazdo</string>
+    <string name="unknow_socket_type">nieznane gniazdo</string>
+    <string name="edit_socket_info_tooltip">Stwórz nowe gniazda lub edytuj już istniejące.</string>
+    <string name="charging_station_available_sockets">Dostępne gniazda</string>
+    <string name="charge_socket_unknown_other">Inne lub nieznane</string>
+    <string name="charge_socket_count">Liczba</string>
+    <string name="charge_socket_power">Moc (kW)</string>
+    <string name="editor_socket">Edytuj gniazdo</string>
+    <string name="unknown_count">nieznana</string>
+    <string name="error_value_must_be_positive">Wartość musi być dodatnia</string>
+    <string name="error_invalid_number">Nieprawidłowa liczba</string>
 </resources>

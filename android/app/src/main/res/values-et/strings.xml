@@ -884,4 +884,9 @@
     <string name="error_value_must_be_positive">Sisestuse väärtus peab olema positiitve</string>
     <string name="unknown_count">tundmatu</string>
     <string name="error_invalid_number">Vigane number</string>
+    <string name="editor_place_doesnt_exist_description">Kirjelda selle koha praegust välimust ja lisa veamärge OpenStreetMapi kogukonnale</string>
+    <string name="avoid_steps">Väldi treppe</string>
+    <string name="offline_explanation_title">Ilma võrguühenduseta toimivad kaardid</string>
+    <string name="offline_explanation_text">Selles piirkonnas liikumiseks ja teekonna juhatamiseks pead vajaliku kaardi alla laadima.\nVali allalaaditav kaart selle piirkonna kohta.</string>
+    <string name="list_description_empty">Kirjelduse lisamiseks muuda loendit</string>
 </resources>

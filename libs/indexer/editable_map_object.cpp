@@ -490,8 +490,8 @@ bool EditableMapObject::ValidatePhoneList(string const & phone)
   if (phone.empty())
     return true;
 
-  auto const kMaxNumberLen = 15;
-  auto const kMinNumberLen = 5;
+  auto constexpr kMaxNumberLen = 15;
+  auto constexpr kMinNumberLen = 5;
 
   if (phone.size() < kMinNumberLen)
     return false;
@@ -563,20 +563,42 @@ bool EditableMapObject::ValidateLevel(string const & level)
   if (level.empty())
     return true;
 
-  if (level.size() > 4 /* 10.5, for example */)
+  if (level.front() == ';' || level.back() == ';' || level.find(";;") != std::string::npos)
     return false;
 
-  // Allowing only half-levels.
-  if (level.find('.') != string::npos && !level.ends_with(".5"))
-    return false;
+  // validate ";" separated values separately
+  vector<std::string_view> const tokenizedValues = strings::Tokenize(level, ";");
 
-  // Forbid "04" and "0.".
-  if ('0' == level.front() && level.size() == 2)
-    return false;
+  for (std::string_view const & value : tokenizedValues)
+  {
+    auto const isValidNumber = [](std::string_view const & s)
+    {
+      auto constexpr kMinBuildingLevel = -9;
+      double valueDouble;
+      return strings::to_double(s, valueDouble) && valueDouble > kMinBuildingLevel && valueDouble <= kMaximumLevelsEditableByUsers;
+    };
 
-  auto constexpr kMinBuildingLevel = -9;
-  double result;
-  return strings::to_double(level, result) && result > kMinBuildingLevel && result <= kMaximumLevelsEditableByUsers;
+    // Check for simple value (e.g. "42")
+    if (!isValidNumber(value))
+    {
+      // Check for range (e.g. "-3-12")
+      size_t rangeSymbol = value.find('-', 1); // skip first as it could be a negative sign
+      if (rangeSymbol == std::string::npos)
+        return false;
+
+      std::string_view from = value.substr(0, rangeSymbol);
+      std::string_view to = value.substr(rangeSymbol + 1, value.size());
+
+      if (!isValidNumber(from) || !isValidNumber(to))
+        return false;
+    }
+
+    // Forbid leading zero (e.g. "04")
+    if (value.front() == '0' && value.size() >= 2 && value[1] != '.')
+      return false;
+  }
+
+  return true;
 }
 
 // static

@@ -282,11 +282,11 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
   {
     if (isEmptySearchResults())
     {
-      requirePlaceholder().setContent(R.string.search_not_found, R.string.search_not_found_query);
+      requirePlaceholder().setContent(R.string.search_not_found, R.string.search_not_found_query, R.drawable.ic_search_fail);
     }
     else if (isEmpty())
     {
-      requirePlaceholder().setContent(R.string.bookmarks_empty_list_title, R.string.bookmarks_empty_list_message);
+      requirePlaceholder().setContent(R.string.bookmarks_empty_list_title, R.string.bookmarks_empty_list_message, R.drawable.ic_bookmarks);
     }
 
     boolean isEmptyRecycler = isEmpty() || isEmptySearchResults();
@@ -771,7 +771,7 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
       items.add(new MenuBottomSheetItem(R.string.export_file_gpx, R.drawable.ic_file_gpx,
                                         () -> onShareOptionSelected(KmlFileType.Gpx)));
     }
-    items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_settings, this::onSettingsOptionSelected));
+    items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_edit, this::onSettingsOptionSelected));
     if (!isLastOwnedCategory())
       items.add(new MenuBottomSheetItem(R.string.delete_list, R.drawable.ic_delete, this::onDeleteOptionSelected));
     return items;

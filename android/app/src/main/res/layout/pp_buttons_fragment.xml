@@ -7,7 +7,7 @@
   android:background="?ppButtonsBackground"
   android:orientation="horizontal"
   android:layout_gravity="bottom">
-  <include layout="@layout/divider_horizontal" />
+  <include layout="@layout/item_divider" />
   <LinearLayout
     android:id="@+id/container"
     android:layout_width="match_parent"

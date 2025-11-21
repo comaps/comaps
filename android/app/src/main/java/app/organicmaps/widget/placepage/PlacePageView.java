@@ -152,7 +152,7 @@ public class PlacePageView extends Fragment
   private View mEditTopSpace;
   private ShapeableImageView mColorIcon;
   private MaterialTextView mTvCategory;
-  private ShapeableImageView mEditBookmark;
+  private MaterialButton mEditBookmark;
 
   // Data
   private CoordinatesFormat mCoordsFormat = CoordinatesFormat.LatLonDecimal;
@@ -691,16 +691,27 @@ public class PlacePageView extends Fragment
       mTvAddPlace.setOnClickListener(this);
       mTvEditPlace.setEnabled(Editor.nativeShouldEnableEditPlace());
       mTvAddPlace.setEnabled(Editor.nativeShouldEnableAddPlace());
-      final int editPlaceButtonColor =
+      final int editTextButtonColor =
           Editor.nativeShouldEnableEditPlace()
               ? ContextCompat.getColor(
                     getContext(),
                     UiUtils.getStyledResourceId(getContext(), com.google.android.material.R.attr.colorSecondary))
               : ContextCompat.getColor(getContext(), R.color.button_accent_text_disabled);
-      mTvEditPlace.setTextColor(editPlaceButtonColor);
-      mTvAddPlace.setTextColor(editPlaceButtonColor);
-      mTvEditPlace.setStrokeColor(ColorStateList.valueOf(editPlaceButtonColor));
-      mTvAddPlace.setStrokeColor(ColorStateList.valueOf(editPlaceButtonColor));
+      final ColorStateList editStrokeButtonColor = new ColorStateList(
+              new int[][]{
+                      new int[]{android.R.attr.state_enabled}, // enabled
+                      new int[]{-android.R.attr.state_enabled} // disabled
+      },
+              new int[]{
+                      ContextCompat.getColor(
+                              getContext(),
+                              UiUtils.getStyledResourceId(getContext(), com.google.android.material.R.attr.colorSecondary)),
+                      ContextCompat.getColor(getContext(), R.color.button_accent_text_disabled)
+              });
+      mTvEditPlace.setTextColor(editTextButtonColor);
+      mTvAddPlace.setTextColor(editTextButtonColor);
+      mTvEditPlace.setStrokeColor(editStrokeButtonColor);
+      mTvAddPlace.setStrokeColor(editStrokeButtonColor);
       UiUtils.showIf(
           UiUtils.isVisible(mEditPlace) || UiUtils.isVisible(mAddPlace),
           mEditTopSpace);

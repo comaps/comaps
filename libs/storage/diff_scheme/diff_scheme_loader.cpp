@@ -21,13 +21,13 @@ namespace
 {
 using namespace storage::diffs;
 
-char const kMaxVersionKey[] = "max_version";
-char const kMwmsKey[] = "mwms";
-char const kNameKey[] = "name";
-char const kSizeKey[] = "size";
-char const kVersionKey[] = "version";
+char constexpr kMaxVersionKey[] = "max_version";
+char constexpr kMwmsKey[] = "mwms";
+char constexpr kNameKey[] = "name";
+char constexpr kSizeKey[] = "size";
+char constexpr kVersionKey[] = "version";
 
-auto const kTimeoutInSeconds = 5.0;
+auto constexpr kTimeoutInSeconds = 5.0;
 
 string SerializeCheckerData(LocalMapsInfo const & info)
 {

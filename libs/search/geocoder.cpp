@@ -1429,7 +1429,7 @@ void Geocoder::MatchPOIsAndBuildings(BaseContext & ctx, size_t curToken, CBV con
 
   // Clusters of features by search type. Each cluster is a sorted
   // list of ids.
-  size_t const kNumClusters = Model::TYPE_BUILDING + 1;
+  size_t constexpr kNumClusters = Model::TYPE_BUILDING + 1;
   vector<uint32_t> clusters[kNumClusters];
 
   // Appends |featureId| to the end of the corresponding cluster, if

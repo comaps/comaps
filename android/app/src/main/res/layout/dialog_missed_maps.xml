@@ -18,11 +18,9 @@
     tools:text="Select maps to download"
     tools:visibility="visible"/>
 
-  <View
+  <include
     android:id="@+id/divider_top"
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="?dividerHorizontal"/>
+    layout="@layout/item_divider" />
 
   <ExpandableListView
     android:id="@+id/items_frame"
@@ -32,9 +30,7 @@
     android:listSelector="?clickableBackground"
     android:drawSelectorOnTop="true"/>
 
-  <View
+  <include
     android:id="@+id/divider_bottom"
-    android:layout_width="match_parent"
-    android:layout_height="1dp"
-    android:background="?dividerHorizontal"/>
+    layout="@layout/item_divider" />
 </LinearLayout>

@@ -52,11 +52,11 @@
     <string name="disconnect_usb_cable">A CoMaps használatához válassza le az USB-kábelt vagy helyezze be a memóriakártyát</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="not_enough_free_space_on_sdcard">Az alkalmazás használatához először szabadítson fel némi helyet az SD-kártyán/USB-tárolón</string>
-    <string name="download_resources">Mielőtt elkezdené használni az alkalmazást, töltse le az áttekintő világtérképet az eszközre. \nEz %s tárhelyet fog igénybe venni.</string>
+    <string name="download_resources">Mielőtt elkezdené használni az alkalmazást, töltse le az áttekintő világtérképet az eszközére.\nEz %s tárhelyet fog igénybe venni.</string>
     <string name="download_resources_continue">Ugrás a térképre</string>
     <string name="downloading_country_can_proceed">%1$s (%2$s) letöltése. Most már\ntovábbléphet a térképre.</string>
-    <string name="download_country_ask">Letölti a következőt: %1$s? (%2$s)</string>
-    <string name="update_country_ask">Frissíti a következőt: %1$s? (%2$s)</string>
+    <string name="download_country_ask">Biztosan letölti a következőt: %1$s? (%2$s)</string>
+    <string name="update_country_ask">Biztosan frissíti a következőt: %1$s? (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="pause">Szüneteltetés</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
@@ -88,7 +88,7 @@
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
     <string name="maps_storage_free_size">%1$s szabad terület ennyiből: %2$s</string>
     <!-- Question dialog for transferring maps from one storage to another -->
-    <string name="move_maps">Áthelyezi a térképeket?</string>
+    <string name="move_maps">Biztosan áthelyezi a térképeket?</string>
     <!-- Error moving map files from one storage to another -->
     <string name="move_maps_error">Hiba történt a térképfájlok áthelyezésekor</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
@@ -225,7 +225,7 @@
     <string name="placepage_distance">Távolság</string>
     <string name="search_show_on_map">Megtekintés a térképen</string>
     <!-- Text in menu -->
-    <string name="website">Honlap</string>
+    <string name="website">Webhely</string>
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Hírek</string>
     <!-- Settings: Send feedback button and dialog title -->
@@ -245,9 +245,9 @@
     <!-- Text in menu + Button in the main Help dialog -->
     <string name="report_a_bug">Hibajelentés</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
-    <string name="compass_calibration_recommended">Javítsa a nyíl irányát a telefon nyolcas mozgatásával az iránytű kalibrálásához.</string>
+    <string name="compass_calibration_recommended">Javítsa a nyíl irányát az eszköz nyolcas mozgatásával az iránytű kalibrálásához.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
-    <string name="compass_calibration_required">Mozgassa a telefont egy nyolcas mozdulattal az iránytű kalibrálásához és a nyíl irányának rögzítéséhez a térképen.</string>
+    <string name="compass_calibration_required">Mozgassa az eszközt egy nyolcas mozdulattal az iránytű kalibrálásához és a nyíl irányának rögzítéséhez a térképen.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
     <string name="long_tap_toast">Érintse meg újra hosszan a térképet a kezelőfelület megjelenítéséhez</string>
     <!-- Update all button text -->
@@ -266,7 +266,7 @@
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
     <string name="downloader_delete_map_while_routing_dialog">A térkép törléséhez állítsa le a navigációt</string>
     <!-- PointsInDifferentMWM -->
-    <string name="routing_failed_cross_mwm_building">Útvonalakat csak akkor lehet készíteni, ha teljesen rajta vannak egy térképen.</string>
+    <string name="routing_failed_cross_mwm_building">Csak olyan útvonalakat lehet létrehozni, amelyek teljes egészében egy régió térképén belül helyezkednek el.</string>
     <!-- Context menu item for downloader. -->
     <string name="downloader_download_map">Térkép letöltése</string>
     <!-- Item status in downloader. -->
@@ -284,7 +284,7 @@
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Összes térkép letöltése az útvonal mentén</string>
     <!-- Text for routing error dialog -->
-    <string name="routing_requires_all_map">Az útvonal létrehozásához le kell töltenie és frissítenie kell az összes térképet az Ön tartózkodási helyétől a célig.</string>
+    <string name="routing_requires_all_map">Az útvonal létrehozásához le kell töltenie és frissítenie kell az összes térképet a saját tartózkodási helyétől a célig.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_not_enough_space">Nincs elegendő tárhely</string>
     <!-- location service disabled -->
@@ -325,10 +325,10 @@
     <string name="blue_gray">Kékes szürke</string>
     <!-- SECTION: Routing dialogs strings -->
     <string name="dialog_routing_disclaimer_title">Az útvonal követésekor vegye figyelembe az alábbiakat:</string>
-    <string name="dialog_routing_disclaimer_priority">– Az útviszonyok, a közlekedési szabályok és a jelzőtáblák mindig elsőbbséget élveznek a navigációs útmutatással szemben;</string>
-    <string name="dialog_routing_disclaimer_precision">– A térkép pontatlan lehet és a javasolt útvonal lehetséges, hogy nem mindig a legoptimálisabb módja a célállomás elérésének;</string>
-    <string name="dialog_routing_disclaimer_recommendations">– A javasolt útvonalakat csupán ajánlottként kell tekinteni;</string>
-    <string name="dialog_routing_disclaimer_borders">– Legyen óvatos az útvonalakkal a határzónákban: az alkalmazásunk által létrehozott útvonalak néha nem engedélyezett helyeken léphetik át az országhatárokat.</string>
+    <string name="dialog_routing_disclaimer_priority">- Az útviszonyok, a közlekedési szabályok és a jelzőtáblák mindig elsőbbséget élveznek a navigációs útmutatással szemben;</string>
+    <string name="dialog_routing_disclaimer_precision">- A térkép pontatlan lehet és a javasolt útvonal lehetséges, hogy nem mindig a legoptimálisabb módja a célállomás elérésének;</string>
+    <string name="dialog_routing_disclaimer_recommendations">- A javasolt útvonalakat csak ajánlásként kell értelmezni;</string>
+    <string name="dialog_routing_disclaimer_borders">- Legyen óvatos az útvonalakkal a határzónákban: az alkalmazásunk által létrehozott útvonalak néha nem engedélyezett helyeken léphetik át az országhatárokat.</string>
     <string name="dialog_routing_disclaimer_beware">Mindig maradjon éber és vezessen biztonságosan az utakon!</string>
     <string name="dialog_routing_check_gps">Ellenőrizze a GPS-jelet</string>
     <string name="dialog_routing_error_location_not_found">Nem sikerült létrehozni az útvonalat. A jelenlegi GPS-koordináták nem azonosíthatók.</string>
@@ -347,13 +347,13 @@
     <string name="dialog_routing_change_intermediate">Nem sikerült meghatározni a köztes helyet</string>
     <string name="dialog_routing_intermediate_not_determined">Pontosítsa a köztes helyet</string>
     <string name="dialog_routing_system_error">Rendszerhiba</string>
-    <string name="dialog_routing_application_error">Az alkalmazás hibája miatt nem lehet létrehozni az útvonalat</string>
+    <string name="dialog_routing_application_error">Egy alkalmazáshiba miatt nem lehet létrehozni az útvonalat</string>
     <string name="dialog_routing_try_again">Próbálja meg újra</string>
     <string name="not_now">Most nem</string>
-    <string name="dialog_routing_download_and_build_cross_route">Szeretné letölteni a térképet, és egynél több térképen átívelő, optimálisabb útvonalat létrehozni?</string>
-    <string name="dialog_routing_download_cross_route">Töltsön le további térképeket, hogy egy jobb útvonalat hozzon létre, amely keresztezi ennek a térképnek a határait.</string>
+    <string name="dialog_routing_download_and_build_cross_route">Szeretné letölteni a térképet és létrehozni egy optimálisabb útvonalat, amely több térképet is igényel?</string>
+    <string name="dialog_routing_download_cross_route">Töltsön le további térképeket, hogy jobb útvonalat állíthasson össze, amely átlép a ennek a térképnek a határain.</string>
     <!-- SECTION: Strings for downloading map from search -->
-    <string name="search_without_internet_advertisement">Az útvonalak kereséséhez és létrehozásához, töltse le a térképet és többé nem lesz szüksége internetkapcsolatra.</string>
+    <string name="search_without_internet_advertisement">Az útvonalak keresésének és létrehozásának megkezdéséhez, töltse le a térképet. Ezután már nem lesz szüksége internetkapcsolatra.</string>
     <string name="search_select_map">Térkép kiválasztása</string>
     <!-- «Show» context menu -->
     <string name="show">Megjelenítés</string>
@@ -393,7 +393,7 @@
     <string name="editor_example_values">Példaértékek</string>
     <string name="editor_correct_mistake">Hiba javítása</string>
     <string name="editor_add_select_location">Hely kiválasztása</string>
-    <string name="editor_report_problem_desription_1">Írja le részletesen a problémát, hogy az OpenStreetMap csapata kijavíthassa.</string>
+    <string name="editor_report_problem_desription_1">Írja le részletesen a problémát, hogy az OpenStreetMap közössége kijavíthassa.</string>
     <string name="editor_report_problem_desription_2">Vagy javítsa ki Ön itt: https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Küldés</string>
     <string name="editor_report_problem_title">Hibajegy</string>
@@ -409,11 +409,11 @@
     <string name="closed">Zárva</string>
     <string name="edit_opening_hours">Nyitvatartás szerkesztése</string>
     <string name="no_osm_account">Nem rendelkezik még felhasználói fiókkal az OpenStreetMapen?</string>
-    <string name="register_at_openstreetmap">Regisztráció az OpenStreetMap oldalon</string>
+    <string name="register_at_openstreetmap">Regisztráció az OpenStreetMapen</string>
     <string name="login">Bejelentkezés</string>
     <!-- Status message indicating that user did not login to OSM profile yet. -->
     <string name="not_signed_in">Nincs bejelentkezve</string>
-    <string name="login_osm">Jelentkezzen be az OpenStreetMap fiókjába</string>
+    <string name="login_osm">Jelentkezzen be az OpenStreetMapbe</string>
     <string name="logout">Kijelentkezés</string>
     <string name="edit_place">Hely szerkesztése</string>
     <string name="add_language">Nyelv hozzáadása</string>
@@ -453,7 +453,7 @@
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
     <string name="osm_presentation">A közösségi OpenStreetMap adatok frissítésének időpontja: %s. Tudjon meg többet a térkép szerkesztéséről és frissítéséről az OpenStreetMap.org oldalon</string>
     <!-- OSM explanation on Android login screen -->
-    <string name="login_osm_presentation">Az OpenStreetMap.org (OSM) egy közösségi projekt, amelynek célja egy ingyenes és nyílt térkép létrehozása. Ez a CoMaps alkalmazás térképadatainak fő forrása, és a Wikipédiához hasonlóan működik. Helyeket adhat hozzá vagy szerkeszthet, és azok világszerte felhasználók milliói számára válnak elérhetővé. \nCsatlakozzon a közösséghez, és segítsen jobb térképet készíteni mindenki számára!</string>
+    <string name="login_osm_presentation">Az OpenStreetMap.org (OSM) egy közösségi projekt, amelynek célja egy ingyenes és szabad térkép létrehozása. Ez a CoMaps alkalmazás térképadatainak fő forrása, és a Wikipédiához hasonlóan működik. Helyeket adhat hozzá vagy szerkeszthet, és azok világszerte felhasználók milliói számára válnak elérhetővé.\nCsatlakozzon a közösséghez, és segítsen jobb térképet készíteni mindenki számára!</string>
     <string name="login_to_make_edits_visible">Hozzon létre egy OpenStreetMap-fiókot vagy jelentkezzen be, hogy közzétehesse a térképszerkesztéseit a világ számára</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d / %2$d</string>
@@ -496,7 +496,7 @@
     <string name="editor_place_doesnt_exist">A hely nem létezik</string>
     <!-- Phone number error message -->
     <string name="error_enter_correct_phone">Adjon megy egy érvényes telefonszámot</string>
-    <string name="error_enter_correct_web">Adjon meg egy érvényes weboldalcímet</string>
+    <string name="error_enter_correct_web">Adjon meg egy érvényes webcímet</string>
     <string name="error_enter_correct_email">Adjon meg egy érvényes e-mail-címet</string>
     <string name="placepage_add_place_button">Hely hozzáadása az OpenStreetMap adatbázisához</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
@@ -524,12 +524,12 @@
     <string name="big_font">Betűméret növelése a térképen</string>
     <string name="traffic_update_app">Frissítse a CoMaps alkalmazást</string>
     <!-- "traffic" as in "road congestion" -->
-    <string name="traffic_data_unavailable">Forgalmi adatok nem állnak rendelkezésre</string>
+    <string name="traffic_data_unavailable">Nem állnak rendelkezésre forgalmi adatok</string>
     <string name="enable_logging">Naplózás engedélyezése</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Általános visszajelzés</string>
     <string name="prefs_languages_information">Az CoMaps TTS-rendszert használ a hangnavigációhoz. Sok androidos eszköz használja a Google TTS-t; töltse le vagy frissítse a Google Play áruházból (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Egyes nyelveknél másik beszédszintetizátort vagy további nyelvi csomagot kell telepítenie az alkalmazás-áruházból (Google Play, Galaxy Store, App Gallery, FDroid). \nNyissa meg az eszköz beállításait → Nyelv és bevitel → Beszéd → Szöveg-beszéd átalakító kimenet. \nItt kezelheti a beszédszintézis beállításokat (például: nyelvi csomag letöltése a kapcsolat nélküli használathoz) és másik szövegfelolvasót jelölhet ki.</string>
+    <string name="prefs_languages_information_off">Egyes nyelveknél másik beszédszintetizátort vagy további nyelvi csomagot kell telepítenie az alkalmazás-áruházból (Google Play, Galaxy Store, App Gallery, FDroid).\nNyissa meg az eszköz beállításait → Nyelv és bevitel → Beszéd → Szöveg-beszéd átalakító kimenet.\nItt kezelheti a beszédszintézis beállításokat (például: nyelvi csomag letöltése a kapcsolat nélküli használathoz) és másik szövegfelolvasót jelölhet ki.</string>
     <string name="prefs_languages_information_off_link">Ebben az útmutatóban további tájékoztatást talál</string>
     <string name="transliteration_title">Átírás latin betűkre</string>
     <string name="learn_more">Tudjon meg többet</string>
@@ -556,7 +556,7 @@
     <string name="bookmarks_create_new_group">Új lista létrehozása</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
     <string name="bookmarks_import">Könyvjelzők és nyomvonalak importálása</string>
-    <string name="bookmarks_error_message_share_general">Nem lehet megosztani egy alkalmazáshiba miatt</string>
+    <string name="bookmarks_error_message_share_general">Egy alkalmazáshiba miatt nem lehet megosztani</string>
     <string name="bookmarks_error_title_share_empty">Megosztási hiba</string>
     <string name="bookmarks_error_message_share_empty">Üres lista nem osztható meg</string>
     <string name="bookmarks_error_title_empty_list_name">A név nem lehet üres</string>
@@ -594,7 +594,7 @@
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Térképletöltő</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
-    <string name="pref_tts_speedcams_auto">Gyorshajtáskor figyelmeztessen</string>
+    <string name="pref_tts_speedcams_auto">Figyelmeztetés gyorshajtáskor</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
     <string name="pref_tts_speedcams_always">Mindig figyelmeztessen</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
@@ -602,7 +602,7 @@
     <string name="power_managment_title">Energiatakarékos mód</string>
     <string name="power_managment_description">Megpróbálja csökkenteni az energiafelhasználást bizonyos funkciók rovására</string>
     <string name="power_managment_setting_never">Soha</string>
-    <string name="power_managment_setting_auto">Amikor az akkumulátor lemerül</string>
+    <string name="power_managment_setting_auto">Alacsony akkumulátorszinten</string>
     <string name="power_managment_setting_manual_max">Mindig</string>
     <string name="enable_logging_warning_message">Engedélyezze ideiglenesen ezt a beállítást, hogy rögzíthesse és elküldhesse nekünk a problémájával kapcsolatos részletes diagnosztikai naplókat a „Névjegy és súgó” képernyő „Hibajelentés” funkciójával. A naplók tartalmazhatnak helyadatokat.</string>
     <string name="driving_options_title">Útvonaltervezési beállítások</string>
@@ -707,15 +707,15 @@
     <!-- App tip #01 -->
     <string name="app_tip_01">Adományaival és támogatásával létrehozhatjuk a világ legjobb térképes alkalmazását!</string>
     <!-- App tip #02 -->
-    <string name="app_tip_02">Tetszik az alkalmazásunk? Adományozzon, hogy támogassa a fejlesztést! – Mégsem tetszik? Jelezze felénk, hogy miért nem, és mi kijavítjuk!</string>
+    <string name="app_tip_02">Tetszik az alkalmazásunk? Adományozzon, hogy támogassa a fejlesztést! - Mégsem tetszik? Jelezze felénk, hogy miért nem, és mi kijavítjuk!</string>
     <!-- App tip #03 -->
     <string name="app_tip_03">Ha ismer egy szoftverfejlesztőt, megkérheti őt egy olyan funkció megvalósítására, amelyre szüksége van.</string>
     <!-- App tip #04 -->
     <string name="app_tip_04">Koppintson a térképen bárhová, hogy bármit kiválaszthasson. Hosszú koppintással elrejtheti és visszahozhatja a felületet.</string>
     <!-- App tip #05 -->
-    <string name="app_tip_05">Tudja, hogy kijelölheti pozícióját a térképen?</string>
+    <string name="app_tip_05">Tudta, hogy a térképen kiválaszthatja a jelenlegi tartózkodási helyét?</string>
     <!-- App tip #06 -->
-    <string name="app_tip_06">Segítsen lefordítani az alkalmazást az Ön nyelvére.</string>
+    <string name="app_tip_06">Segítsen lefordítani az alkalmazást a saját nyelvére.</string>
     <!-- App tip #07 -->
     <string name="app_tip_07">Ezt az alkalmazást néhány lelkes közreműködő és a közösség fejleszteti.</string>
     <!-- App tip #08 -->
@@ -723,17 +723,17 @@
     <!-- App tip #09 -->
     <string name="app_tip_09">A fő célunk az, hogy gyors, az adatvédelemre fókuszáló, könnyen használható térképeket készítsünk, amelyeket szeretni fog.</string>
     <!-- Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen -->
-    <string name="car_used_on_the_phone_screen">Ön most a CoMaps alkalmazást használja a telefon képernyőjén</string>
+    <string name="car_used_on_the_phone_screen">Ön most a CoMaps alkalmazást használja az eszköz képernyőjén</string>
     <!-- Text on the phone placeholder screen that maps are displayed on the car screen -->
     <string name="car_used_on_the_car_screen">Ön most a CoMaps alkalmazást használja az autó képernyőjén</string>
     <!-- Displayed on the phone screen. Android Auto connected -->
     <string name="aa_connected_title">Ön már kapcsolódva van az Android Auto rendszerhez</string>
     <!-- Displayed on the phone screen. Button to display maps on the phone screen instead of a car -->
-    <string name="car_continue_on_the_phone">Folytatás telefonon</string>
+    <string name="car_continue_on_the_phone">Folytatás az eszközön</string>
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Az autó képernyőjére</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">A CoMaps alkalmazásnak szüksége van a helymeghatározáshoz való hozzáférésre. Ha biztonságos, ellenőrizze az értesítést a telefonján.</string>
+    <string name="aa_location_permissions_request">A CoMaps alkalmazásnak szüksége van a helymeghatározáshoz való hozzáférésre. Ha biztonságos, ellenőrizze az értesítést az eszközén.</string>
     <!-- Notification title for permission request from AA. -->
     <string name="aa_request_permission_notification">Ennek az alkalmazásnak szüksége van az Ön engedélyére</string>
     <!-- The text in the activity for location permission request. -->
@@ -768,7 +768,7 @@
     <!-- To indicate if restaurant or other place has outdoor seating -->
     <string name="outdoor_seating">Kiülős helyek</string>
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
-    <string name="power_save_dialog_summary">A legpontosabb navigáció érdekében javasoljuk az energiatakarékos üzemmód kikapcsolását a telefon akkumulátor-beállításaiban.</string>
+    <string name="power_save_dialog_summary">A legpontosabb navigáció érdekében javasoljuk az energiatakarékos üzemmód kikapcsolását az eszköz akkumulátor-beállításaiban.</string>
     <!-- Prompt to start recording a track. -->
     <string name="start_track_recording">Nyomvonal rögzítése</string>
     <!-- Prompt for stopping a track recording. -->
@@ -780,7 +780,7 @@
     <!-- Title for the alert when saving a track recording. -->
     <string name="track_recording_alert_title">Menti a könyvjelzők és nyomvonalak közé?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
-    <string name="track_recording_toast_nothing_to_save">A nyomvonal üres – nincs mit menteni</string>
+    <string name="track_recording_toast_nothing_to_save">A nyomvonal üres - nincs mit menteni</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
     <string name="error_no_file_manager_app">Nem lehet megjeleníteni a mappaválasztó párbeszédpanelt, mert nincs megfelelő alkalmazás telepítve az eszközén. Telepítsen egy fájlkezelő alkalmazást, és próbálja meg újra.</string>
     <string name="choose_color">Válasszon színt</string>
@@ -817,7 +817,7 @@
     <string name="panoramax">Panoramax kép</string>
     <string name="app_site_url">https://comaps.app/hu/</string>
     <string name="saved">Mentett</string>
-    <string name="about_headline">Közösség által működtetett nyílt projekt</string>
+    <string name="about_headline">Közösség által működtetett szabad projekt</string>
     <string name="closed_now">Jelenleg zárva</string>
     <string name="existence_confirmed_time_ago">A létezése ellenőrizve és megerősítve: %s</string>
     <string name="hours_confirmed_time_ago">Megerősítve: %s</string>
@@ -869,5 +869,19 @@
     <string name="charge_socket_nacs">NACS (Észak-Amerikai töltőszabvány)</string>
     <string name="charge_socket_chademo">Gyors töltési szabvány Japán autókhoz</string>
     <string name="unknown_socket_type">ismeretlen aljzat</string>
-    <string name="unknown_power_output">ismeretlen áramkimenet</string>
+    <string name="unknown_power_output">ismeretlen</string>
+    <string name="editor_place_doesnt_exist_description">Írja le, hogy jelenleg hogyan néz ki a hely, a hibaüzenet elküldéséhez az OpenStreetMap közösségnek</string>
+    <string name="avoid_steps">Lépcsők elkerülése</string>
+    <string name="unknow_socket_type">ismeretlen aljzat</string>
+    <string name="edit_socket_info_tooltip">Új aljzatok létrehozása vagy a meglévők szerkesztése.</string>
+    <string name="charging_station_available_sockets">Elérhető aljzatok</string>
+    <string name="charge_socket_unknown_other">Egyéb vagy ismeretlen aljzat</string>
+    <string name="charge_socket_count">Darabszám</string>
+    <string name="charge_socket_power">Teljesítmény (kW)</string>
+    <string name="editor_socket">Aljzat szerkesztése</string>
+    <string name="unknown_count">ismeretlen</string>
+    <string name="error_value_must_be_positive">Az érték csak pozitív egész szám lehet</string>
+    <string name="error_invalid_number">Érvénytelen szám</string>
+    <string name="offline_explanation_title">Offline térképek</string>
+    <string name="offline_explanation_text">A terület megtekintéséhez és az azon való navigálásához egy térképet kell letölteni.\nTöltsön le térképeket azokra a területekre, ahová utazni szeretne.</string>
 </resources>
