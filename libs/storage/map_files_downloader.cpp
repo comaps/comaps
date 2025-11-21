@@ -156,6 +156,26 @@ std::string GetAcceptLanguage()
 MetaConfig MapFilesDownloader::LoadMetaConfig()
 {
   Platform & pl = GetPlatform();
+  std::optional<MetaConfig> metaConfig;
+
+  std::string const customServer = pl.CustomMapServerUrl();
+
+  if (!customServer.empty())
+  {
+    LOG(LINFO, ("Using custom map server URL:", customServer));
+
+    // Reuse default meta settings (timeouts, other endpoints) and override servers
+    metaConfig = downloader::ParseMetaConfig(pl.DefaultUrlsJSON());
+    CHECK(metaConfig, ());
+
+    metaConfig->m_serversList.clear();
+    metaConfig->m_serversList.push_back(customServer);
+
+    LOG(LINFO, ("Got servers list (custom server):", metaConfig->m_serversList));
+    CHECK(!metaConfig->m_serversList.empty(), ());
+    return *metaConfig;
+  }
+
   std::string const metaServerUrl = pl.MetaServerUrl();
   std::string httpResult;
 
@@ -170,7 +190,7 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
     request.RunHttpRequest(httpResult);
   }
 
-  std::optional<MetaConfig> metaConfig = downloader::ParseMetaConfig(httpResult);
+  metaConfig = downloader::ParseMetaConfig(httpResult);
   if (!metaConfig)
   {
     metaConfig = downloader::ParseMetaConfig(pl.DefaultUrlsJSON());

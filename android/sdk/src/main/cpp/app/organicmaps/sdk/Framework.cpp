@@ -1508,8 +1508,8 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeGet3dMode(JNIEnv
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCustomMapDownloadUrl(JNIEnv * env, jclass, 
                                                                                         jstring url)
 {
-  std::string const nativeUrl = jni::ToNativeString(env, url);
-  GetPlatform().SetCustomMetaServerUrl(nativeUrl);
+  std::string nativeUrl = jni::ToNativeString(env, url);
+  GetPlatform().SetCustomMapServerUrl(nativeUrl);
 
   if (g_framework)
   {

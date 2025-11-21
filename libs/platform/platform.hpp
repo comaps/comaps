@@ -268,8 +268,9 @@ public:
   /// @return integer version in yyMMdd format.
   int32_t IntVersion() const;
 
-  /// Set custom meta server url to allow user-defined download servers
-  void SetCustomMetaServerUrl(std::string const & url);
+  /// Set custom map server url to allow user-defined download servers
+  void SetCustomMapServerUrl(std::string & url);
+  std::string const & CustomMapServerUrl() const;
 
   /// @return url for clients to download maps
   std::string MetaServerUrl() const;
@@ -342,6 +343,8 @@ private:
   void ShutdownThreads();
 
   void GetSystemFontNames(FilesList & res) const;
+
+  std::string m_customMapServerUrl;
 };
 
 std::string DebugPrint(Platform::EError err);

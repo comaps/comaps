@@ -155,16 +155,19 @@ std::string Platform::ReadPathForFile(std::string const & file, std::string sear
                                 "\nr: ", m_resourcesDir, "\ns: ", m_settingsDir));
 }
 
-void Platform::SetCustomMetaServerUrl(std::string const & url)
+void Platform::SetCustomMapServerUrl(std::string & url)
 {
-    g_customMetaServerUrl = url;
+    strings::Trim(url);
+    m_customMapServerUrl = std::move(url);
+}
+
+std::string const & Platform::CustomMapServerUrl() const
+{
+  return m_customMapServerUrl;
 }
 
 std::string Platform::MetaServerUrl() const
 {
-  if (!g_customMetaServerUrl.empty())
-    return g_customMetaServerUrl;
-
   return METASERVER_URL;
 }
 
