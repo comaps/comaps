@@ -481,9 +481,12 @@ private:
 class GpsInfoMessage : public Message
 {
 public:
-  GpsInfoMessage(location::GpsInfo const & info, bool isNavigable, location::RouteMatchingInfo const & routeInfo)
+  GpsInfoMessage(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+                 location::RouteMatchingInfo const & routeInfo)
     : m_info(info)
     , m_isNavigable(isNavigable)
+    , m_distToNextTurn(distToNextTurn)
+    , m_speedLimit(speedLimit)
     , m_routeInfo(routeInfo)
   {}
 
@@ -491,11 +494,15 @@ public:
 
   location::GpsInfo const & GetInfo() const { return m_info; }
   bool IsNavigable() const { return m_isNavigable; }
+  double const & GetSpeedLimit() const { return m_speedLimit; }
+  double const & GetDistanceToNextTurn() const { return m_distToNextTurn; }
   location::RouteMatchingInfo const & GetRouteInfo() const { return m_routeInfo; }
 
 private:
   location::GpsInfo const m_info;
   bool const m_isNavigable;
+  double const m_distToNextTurn;
+  double const m_speedLimit;
   location::RouteMatchingInfo const m_routeInfo;
 };
 

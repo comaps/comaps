@@ -100,6 +100,8 @@ public:
 
   SessionState OnLocationPositionChanged(location::GpsInfo const & info);
   void GetRouteFollowingInfo(FollowingInfo & info) const;
+  double GetDistanceToNextTurn() const;
+  double GetCurrentSpeedLimit() const;
 
   bool MatchLocationToRoute(location::GpsInfo & location, location::RouteMatchingInfo & routeMatchingInfo);
   void MatchLocationToRoadGraph(location::GpsInfo & location);

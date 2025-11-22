@@ -154,7 +154,8 @@ public:
   void UpdateMapStyle();
 
   void SetCompassInfo(location::CompassInfo const & info);
-  void SetGpsInfo(location::GpsInfo const & info, bool isNavigable, location::RouteMatchingInfo const & routeInfo);
+  void SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+                  location::RouteMatchingInfo const & routeInfo);
   void SwitchMyPositionNextMode();
   void LoseLocation();
   void StopLocationFollow();

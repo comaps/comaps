@@ -363,6 +363,32 @@ void GetFullRoadName(RouteSegment::RoadNameInfo & road, std::string & name)
   }
 }
 
+double RoutingSession::GetDistanceToNextTurn() const
+{
+  if (!m_route->IsValid())
+    return -1;
+
+  double distanceToTurnMeters = 0.;
+  turns::TurnItem turn;
+  m_route->GetNearestTurn(distanceToTurnMeters, turn);
+  return distanceToTurnMeters;
+}
+
+double RoutingSession::GetCurrentSpeedLimit() const
+{
+  if (!m_route->IsValid())
+    return -1;
+
+  SpeedInUnits speedLimit;
+  m_route->GetCurrentSpeedLimit(speedLimit);
+  if (speedLimit.IsNumeric())
+    return measurement_utils::KmphToMps(speedLimit.GetSpeedKmPH());
+  else if (speedLimit.GetSpeed() == kNoneMaxSpeed)
+    return 0;
+  else
+    return -1.0;
+}
+
 void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
@@ -392,14 +418,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   info.m_distToTurn = platform::Distance::CreateFormatted(distanceToTurnMeters);
   info.m_turn = turn.m_turn;
 
-  SpeedInUnits speedLimit;
-  m_route->GetCurrentSpeedLimit(speedLimit);
-  if (speedLimit.IsNumeric())
-    info.m_speedLimitMps = measurement_utils::KmphToMps(speedLimit.GetSpeedKmPH());
-  else if (speedLimit.GetSpeed() == kNoneMaxSpeed)
-    info.m_speedLimitMps = 0;
-  else
-    info.m_speedLimitMps = -1.0;
+  info.m_speedLimitMps = GetCurrentSpeedLimit();
 
   // The turn after the next one.
   if (m_routingSettings.m_showTurnAfterNext)

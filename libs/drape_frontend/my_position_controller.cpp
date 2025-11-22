@@ -56,32 +56,18 @@ inline double GetVisualScale()
   return df::VisualParams::Instance().GetVisualScale();
 }
 
-// Calculate zoom value in meters per pixel
-double CalculateZoomBySpeed(double speedMpS, bool isPerspectiveAllowed)
+double CalculateZoomByMaxSpeed(double speedMpS, bool isPerspectiveAllowed)
 {
   using TSpeedScale = std::pair<double, double>;
-  static std::array<TSpeedScale, 6> const scales3d = {{
-      {20.0, 0.25},
-      {40.0, 0.75},
-      {60.0, 1.50},
-      {75.0, 2.50},
-      {85.0, 3.75},
-      {95.0, 6.00},
+  static std::array<TSpeedScale, 2> const scales2d = {{
+      {0.0, 1.75}, {77.0, 4.50}  // 48 mph
   }};
+  static std::array<TSpeedScale, 2> const scales3d = {{{0.0, 1.00}, {77.0, 4.50}}};
 
-  static std::array<TSpeedScale, 6> const scales2d = {{
-      {20.0, 0.70},
-      {40.0, 1.25},
-      {60.0, 2.25},
-      {75.0, 3.00},
-      {85.0, 3.75},
-      {95.0, 6.00},
-  }};
+  std::array<TSpeedScale, 2> const & scales = isPerspectiveAllowed ? scales3d : scales2d;
 
-  std::array<TSpeedScale, 6> const & scales = isPerspectiveAllowed ? scales3d : scales2d;
-
-  double constexpr kDefaultSpeedKmpH = 80.0;
-  double const speedKmpH = speedMpS >= 0 ? measurement_utils::MpsToKmph(speedMpS) : kDefaultSpeedKmpH;
+  double constexpr kDefaultSpeedLimitKmpH = 50.0;
+  double const speedKmpH = speedMpS > 0 ? measurement_utils::MpsToKmph(speedMpS) : kDefaultSpeedLimitKmpH;
 
   size_t i = 0;
   for (size_t sz = scales.size(); i < sz; ++i)
@@ -92,18 +78,62 @@ double CalculateZoomBySpeed(double speedMpS, bool isPerspectiveAllowed)
 
   if (i == 0)
     return scales.front().second / vs;
-  if (i == scales.size())
-    return scales.back().second / vs;
 
-  double const minSpeed = scales[i - 1].first;
-  double const maxSpeed = scales[i].first;
-  double const k = (speedKmpH - minSpeed) / (maxSpeed - minSpeed);
+  return scales[i - 1].second / vs;
+}
 
-  double const minScale = scales[i - 1].second;
-  double const maxScale = scales[i].second;
+double CalculateZoomByDistanceToTurn(double distance, bool isPerspectiveAllowed)
+{
+  using TSpeedScale = std::pair<double, double>;
+  static std::array<TSpeedScale, 5> const scales2d = {{
+      {200, 0.50},
+      {500, 0.80},   // 0.3 mi
+      {1200, 1.75},  // 0.75 mi
+      {2000, 3.50},  // 1.2 mi
+      {5000, 6.50}   // 3 mi
+  }};
+  static std::array<TSpeedScale, 5> const scales3d = {{
+      {200, 0.25},
+      {500, 0.60},   // 0.3 mi
+      {1200, 1.25},  // 0.75 mi
+      {2000, 3.50},  // 1.2 mi
+      {5000, 6.50}   // 3 mi
+  }};
+
+  std::array<TSpeedScale, 5> const & scale = isPerspectiveAllowed ? scales3d : scales2d;
+
+  double constexpr kDefaultDistance = 2000;
+  double const distanceM = distance >= 0 ? distance : kDefaultDistance;
+
+  size_t i = 0;
+  for (size_t sz = scale.size(); i < sz; ++i)
+    if (scale[i].first >= distanceM)
+      break;
+
+  double const vs = GetVisualScale();
+
+  if (i == 0)
+    return scale.front().second / vs;
+  if (i == scale.size())
+    return scale.back().second / vs;
+
+  double const minDist = scale[i - 1].first;
+  double const maxDist = scale[i].first;
+  double const k = (distanceM - minDist) / (maxDist - minDist);
+
+  double const minScale = scale[i - 1].second;
+  double const maxScale = scale[i].second;
   double const zoom = minScale + k * (maxScale - minScale);
 
   return zoom / vs;
+}
+
+double CalculateAutoZoom(double speedMpS, double distanceToTurn, bool isPerspectiveAllowed)
+{
+  double const zoomByDistance = CalculateZoomByDistanceToTurn(distanceToTurn, isPerspectiveAllowed);
+  double const zoomByMaxSpeed = CalculateZoomByMaxSpeed(speedMpS, isPerspectiveAllowed);
+
+  return std::min(zoomByDistance, zoomByMaxSpeed);
 }
 
 void ResetNotification(uint64_t & notifyId)
@@ -395,7 +425,8 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   }
 }
 
-void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool isNavigable, ScreenBase const & screen)
+void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool isNavigable, double distanceToNextTurn,
+                                            double speedLimit, ScreenBase const & screen)
 {
   m2::PointD const oldPos = GetDrawablePosition();
   double const oldAzimut = GetDrawableAzimut();
@@ -407,11 +438,13 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
   m_errorRadius = rect.SizeX() * 0.5;
   m_horizontalAccuracy = info.m_horizontalAccuracy;
 
-  if (info.m_speed > 0.0)
+  if (distanceToNextTurn >= 0.0 || speedLimit >= 0.0)
   {
     double const mercatorPerMeter = m_errorRadius / info.m_horizontalAccuracy;
-    m_autoScale2d = mercatorPerMeter * CalculateZoomBySpeed(info.m_speed, false /* isPerspectiveAllowed */);
-    m_autoScale3d = mercatorPerMeter * CalculateZoomBySpeed(info.m_speed, true /* isPerspectiveAllowed */);
+    m_autoScale2d =
+        mercatorPerMeter * CalculateAutoZoom(speedLimit, distanceToNextTurn, false /* isPerspectiveAllowed */);
+    m_autoScale3d =
+        mercatorPerMeter * CalculateAutoZoom(speedLimit, distanceToNextTurn, true /* isPerspectiveAllowed */);
   }
   else
   {
