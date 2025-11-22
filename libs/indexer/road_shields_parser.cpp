@@ -660,16 +660,11 @@ public:
   {}
 };
 
-class SwitzerlandRoadShieldParser : public HighwayClassRoadShieldParser
+class SwitzerlandRoadShieldParser : public SimpleRoadShieldParser
 {
-public:
-  explicit SwitzerlandRoadShieldParser(HighwayClass const & highwayClass)
-    : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
-                                             {{HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Red},
-                                             {{HighwayClass::Primary, RoadShieldType::Generic_Blue},
-                                             {{HighwayClass::Secondary, RoadShieldType::Generic_White},
-                                             {{HighwayClass::Tertiary, RoadShieldType::Generic_White}})
-            {}
+  explicit SwitzerlandRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Highway_Hexagon_Red}})
+  {}
 };
 
 class LiechtensteinRoadShieldParser : public SimpleRoadShieldParser
