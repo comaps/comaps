@@ -33,36 +33,6 @@ namespace traffic
 {
 using namespace std;
 
-namespace
-{
-bool ReadRemoteFile(string const & url, vector<uint8_t> & contents, int & errorCode)
-{
-  platform::HttpClient request(url);
-  if (!request.RunHttpRequest())
-  {
-    errorCode = request.ErrorCode();
-    LOG(LINFO, ("Couldn't run traffic request", url, ". Error:", errorCode));
-    return false;
-  }
-
-  errorCode = request.ErrorCode();
-
-  string const & result = request.ServerResponse();
-  contents.resize(result.size());
-  memcpy(contents.data(), result.data(), result.size());
-
-  if (errorCode != 200)
-  {
-    LOG(LINFO, ("Traffic request", url, "failed. HTTP Error:", errorCode));
-    return false;
-  }
-
-  return true;
-}
-
-char constexpr kETag[] = "etag";
-}  // namespace
-
 // TrafficInfo::RoadSegmentId -----------------------------------------------------------------
 TrafficInfo::RoadSegmentId::RoadSegmentId() : m_fid(0), m_idx(0), m_dir(0) {}
 
