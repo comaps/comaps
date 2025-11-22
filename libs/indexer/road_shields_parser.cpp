@@ -662,6 +662,7 @@ public:
 
 class SwitzerlandRoadShieldParser : public SimpleRoadShieldParser
 {
+public:
   explicit SwitzerlandRoadShieldParser(std::string const & baseRoadNumber)
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Highway_Hexagon_Red}})
   {}
