@@ -2,10 +2,12 @@ package app.organicmaps.sdk;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.Size;
+
 import app.organicmaps.sdk.api.ParsedRoutingData;
 import app.organicmaps.sdk.api.ParsedSearchRequest;
 import app.organicmaps.sdk.api.RequestType;
@@ -24,6 +26,7 @@ import app.organicmaps.sdk.routing.RoutingRecommendationListener;
 import app.organicmaps.sdk.routing.TransitRouteInfo;
 import app.organicmaps.sdk.settings.SpeedCameraMode;
 import app.organicmaps.sdk.util.Constants;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -353,8 +356,13 @@ public class Framework
 
   public static void applyCustomMapDownloadUrl(@NonNull Context context, @Nullable String url)
   {
-    String trimmed = url != null ? url.trim() : "";
-    nativeSetCustomMapDownloadUrl(trimmed);
+    String normalizedUrl = url != null ? url.trim() : "";
+
+    // Normalize
+    if (!normalizedUrl.isEmpty() && !normalizedUrl.endsWith("/"))
+      normalizedUrl = normalizedUrl + "/";
+
+    nativeSetCustomMapDownloadUrl(normalizedUrl);
     // Reset the legacy downloader too (world/coasts).
     app.organicmaps.sdk.DownloadResourcesLegacyActivity.nativeResetMetaConfig();
   }

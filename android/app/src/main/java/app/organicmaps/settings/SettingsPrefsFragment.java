@@ -6,6 +6,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.EditTextPreference;
@@ -13,6 +15,9 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.TwoStatePreference;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.downloader.OnmapDownloader;
@@ -36,7 +41,7 @@ import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.sdk.util.log.LogsManager;
 import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -542,6 +547,16 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     EditTextPreference customUrlPref = getPreference(getString(R.string.pref_custom_map_download_url));
     customUrlPref.setOnPreferenceChangeListener((preference, newValue) -> {
       String url = newValue != null ? ((String) newValue).trim() : "";
+
+      if (!url.isEmpty()
+          && !url.startsWith("http://")
+          && !url.startsWith("https://")) {
+        Toast.makeText(requireContext(),
+            R.string.download_resources_custom_url_error_scheme,
+            Toast.LENGTH_SHORT).show();
+        return false;
+      }
+
       Framework.applyCustomMapDownloadUrl(requireContext(), url);
       return true; // save the value
     });

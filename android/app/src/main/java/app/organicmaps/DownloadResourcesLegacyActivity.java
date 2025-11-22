@@ -13,6 +13,7 @@ import static app.organicmaps.sdk.DownloadResourcesLegacyActivity.nativeStartNex
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.location.Location;
@@ -20,13 +21,25 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.ViewCompat;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.base.BaseMwmFragmentActivity;
 import app.organicmaps.downloader.MapManagerHelper;
 import app.organicmaps.intent.Factory;
@@ -40,12 +53,7 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.checkbox.MaterialCheckBox;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textview.MaterialTextView;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -274,6 +282,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mBtnAdvanced = findViewById(R.id.btn_advanced);
 
     mBtnAdvanced.setOnClickListener(v -> openCustomServerDialog());
+    mBtnAdvanced.setEnabled(true);
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
     mBtnNames = new String[BTN_COUNT];
@@ -300,7 +309,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mBtnDownload.setText(mBtnNames[action]);
 
     // Allow changing server only when idle or after an error.
-    boolean advancedEnabled = (action == DOWNLOAD || action == TRY_AGAIN);
+    boolean advancedEnabled = (action == DOWNLOAD || action == TRY_AGAIN || action == RESUME);
     mBtnAdvanced.setEnabled(advancedEnabled);
     mBtnAdvanced.setAlpha(advancedEnabled ? 1f : 0.5f);
   }
@@ -371,6 +380,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
   private void finishFilesDownload(int result)
   {
+    mBtnAdvanced.setEnabled(true);
+    mBtnAdvanced.setAlpha(1f);
+
     if (result == ERR_NO_MORE_FILES)
     {
       // World and WorldCoasts has been downloaded, we should register maps again to correctly add them to the model.
@@ -405,34 +417,51 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   private void openCustomServerDialog()
   {
     View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_map_server, null);
+    TextInputLayout til = dialogView.findViewById(R.id.til_custom_map_server);
     TextInputEditText edit = dialogView.findViewById(R.id.edit_custom_map_server);
 
     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
     String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
     edit.setText(current);
 
-    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    MaterialAlertDialogBuilder builder =
+      new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
         .setTitle(R.string.download_resources_custom_url_title)
         .setMessage(R.string.download_resources_custom_url_message)
         .setView(dialogView)
         .setNegativeButton(android.R.string.cancel, null)
-        .setPositiveButton(R.string.save, (dialog, which) -> {
-          String url = "";
-          if (edit.getText() != null)
-            url = edit.getText().toString().trim();
+        .setPositiveButton(R.string.save, null);
 
-          // Persist for future runs + Settings screen
-          prefs.edit()
-              .putString(getString(R.string.pref_custom_map_download_url), url)
-              .apply();
+    AlertDialog dialog = builder.create();
+    dialog.setOnShowListener(d -> {
+      Button ok = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+      ok.setOnClickListener(v -> {
+        String url = edit.getText() != null ? edit.getText().toString().trim() : "";
 
-          // Apply to native + reset meta configs
-          Framework.applyCustomMapDownloadUrl(this, url);
+        if (!url.isEmpty()
+            && !url.startsWith("http://")
+            && !url.startsWith("https://")) {
+          til.setError(getString(R.string.download_resources_custom_url_error_scheme));
+          return;
+        }
 
-          // Recompute total bytes (it can change with another server)
-          prepareFilesDownload(false);
-        })
-        .show();
+        til.setError(null);
+
+        prefs.edit()
+            .putString(getString(R.string.pref_custom_map_download_url), url)
+            .apply();
+
+        // Apply to native + reset meta configs
+        Framework.applyCustomMapDownloadUrl(this, url);
+
+        // Recompute total bytes (it can change with another server)
+        prepareFilesDownload(false);
+
+        dialog.dismiss();
+      });
+    });
+
+    dialog.show();
   }
 
   private void showErrorDialog(int result)
