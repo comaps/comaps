@@ -103,6 +103,11 @@ boost::python::list GenerateTrafficKeys(std::string const & mwmPath)
   return pyhelpers::StdVectorToPythonList(result);
 }
 
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * We no longer separate keys (segments IDs) from values (their speed groups).
+ * See if we can refactor this into something meaningful and useful, else remove.
+ */
 std::vector<uint8_t> GenerateTrafficValues(std::vector<traffic::TrafficInfo::RoadSegmentId> const & keys,
                                            boost::python::dict const & segmentMappingDict, uint8_t useTempBlock)
 {
@@ -139,6 +144,13 @@ std::vector<uint8_t> GenerateTrafficValues(std::vector<traffic::TrafficInfo::Roa
   return buf;
 }
 
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * We no longer separate keys (segments IDs) from values (their speed groups), nor do we store
+ * either in binary files: Segment/speed group pairs are generated from TraFF data and cached in
+ * XML format (using a custom extension to TraFF).
+ * See if we can refactor this into something meaningful and useful, else remove.
+ */
 std::vector<uint8_t> GenerateTrafficValuesFromList(boost::python::list const & keys,
                                                    boost::python::dict const & segmentMappingDict)
 {
@@ -148,6 +160,13 @@ std::vector<uint8_t> GenerateTrafficValuesFromList(boost::python::list const & k
   return GenerateTrafficValues(keysVec, segmentMappingDict, 1 /* useTempBlock */);
 }
 
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * We no longer separate keys (segments IDs) from values (their speed groups), nor do we store
+ * either in binary files: Segment/speed group pairs are generated from TraFF data and cached in
+ * XML format (using a custom extension to TraFF).
+ * See if we can refactor this into something meaningful and useful, else remove.
+ */
 std::vector<uint8_t> GenerateTrafficValuesFromBinary(std::vector<uint8_t> const & keysBlob,
                                                      boost::python::dict const & segmentMappingDict,
                                                      uint8_t useTempBlock = 1)
@@ -201,7 +220,9 @@ BOOST_PYTHON_MODULE(pytraffic)
 
   def("load_classificator", LoadClassificator);
   def("generate_traffic_keys", GenerateTrafficKeys);
+  // TODO obsolete, see function definition
   def("generate_traffic_values_from_list", GenerateTrafficValuesFromList);
+  // TODO obsolete, see function definition
   def("generate_traffic_values_from_binary", GenerateTrafficValuesFromBinary,
       (arg("keysBlob"), arg("segmentMappingDict"), arg("useTempBlock") = 1));
 }

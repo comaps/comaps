@@ -37,7 +37,11 @@ protected:
 };
 }  // namespace
 
-/// @todo Need TRAFFIC_DATA_BASE_URL for this test.
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * Leaving it here for now, maybe we can derive some TraFF tests from it.
+ * This tests retrieval of traffic information from the server.
+ */
 /*
 UNIT_TEST(TrafficInfo_RemoteFile)
 {
@@ -69,6 +73,13 @@ UNIT_TEST(TrafficInfo_RemoteFile)
 }
 */
 
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * Leaving it here for now, maybe we can derive some TraFF tests from it.
+ * This tests serialization of traffic data to files and reading it back, results should be
+ * identical and satisfy whatever constraints there are in the app.
+ */
+/*
 UNIT_TEST(TrafficInfo_Serialization)
 {
   TrafficInfo::Coloring coloring = {
@@ -114,7 +125,14 @@ UNIT_TEST(TrafficInfo_Serialization)
     TEST_EQUAL(values, deserializedValues, ());
   }
 }
+*/
 
+/*
+ * TODO Inherited from MWM/OM, no longer works with TraFF logic (API logic changed).
+ * Leaving it here for now, maybe we can derive some TraFF tests from it.
+ * This tests processing of updated traffic data.
+ */
+/*
 UNIT_TEST(TrafficInfo_UpdateTrafficData)
 {
   vector<TrafficInfo::RoadSegmentId> const keys = {
@@ -147,4 +165,5 @@ UNIT_TEST(TrafficInfo_UpdateTrafficData)
   for (size_t i = 0; i < keys.size(); ++i)
     TEST_EQUAL(info.GetSpeedGroup(keys[i]), values2[i], ());
 }
+*/
 }  // namespace traffic

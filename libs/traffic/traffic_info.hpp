@@ -126,6 +126,12 @@ public:
   /**
    * @brief Extracts RoadSegmentIds from an MWM and stores them in a sorted order.
    * @param mwmPath Path to the MWM file
+   *
+   * @todo We don’t need this any longer as the API has been reworked: We no longer separate keys
+   * (segment IDs) from values (their speed groups) and no longer have a use case for retrieving a
+   * list of all possible segment IDs – rather, we decode TraFF messages into segments, or have a
+   * cached list of the segments affected by a particular message. However, pytraffic still has some
+   * references to this function. We need to clean those up first, then we can delete this function.
    */
   static void ExtractTrafficKeys(std::string const & mwmPath, std::vector<RoadSegmentId> & result);
 
@@ -150,14 +156,13 @@ public:
   // Serializes the keys of the coloring map to |result|.
   // The keys are road segments ids which do not change during
   // an mwm's lifetime so there's no point in downloading them every time.
-  // todo(@m) Document the format.
-  static void SerializeTrafficKeys(std::vector<RoadSegmentId> const & keys, std::vector<uint8_t> & result);
-
+  /*
+   * TODO We don’t need these any longer as the format is obsolete, but pytraffic still has some
+   * references to these. We need to clean those up first, then we can delete these functions.
+   */
   static void DeserializeTrafficKeys(std::vector<uint8_t> const & data, std::vector<RoadSegmentId> & result);
 
   static void SerializeTrafficValues(std::vector<SpeedGroup> const & values, std::vector<uint8_t> & result);
-
-  static void DeserializeTrafficValues(std::vector<uint8_t> const & data, std::vector<SpeedGroup> & result);
 
 private:
   /**
@@ -174,11 +179,6 @@ private:
     /** An error prevented data from being requested, or the server responded with an error. */
     Error,
   };
-
-  friend void UnitTest_TrafficInfo_UpdateTrafficData();
-
-  // Updates the coloring and changes the availability status if needed.
-  bool UpdateTrafficData(std::vector<SpeedGroup> const & values);
 
   /**
    * @brief The mapping from feature segments to speed groups (see speed_groups.hpp).

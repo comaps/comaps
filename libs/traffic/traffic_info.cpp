@@ -126,70 +126,6 @@ void TrafficInfo::CombineColorings(vector<TrafficInfo::RoadSegmentId> const & ke
 }
 
 // static
-void TrafficInfo::SerializeTrafficKeys(vector<RoadSegmentId> const & keys, vector<uint8_t> & result)
-{
-  vector<uint32_t> fids;
-  vector<size_t> numSegs;
-  vector<bool> oneWay;
-  for (size_t i = 0; i < keys.size();)
-  {
-    size_t j = i;
-    while (j < keys.size() && keys[i].m_fid == keys[j].m_fid)
-      ++j;
-
-    bool ow = true;
-    for (size_t k = i; k < j; ++k)
-    {
-      if (keys[k].m_dir == RoadSegmentId::kReverseDirection)
-      {
-        ow = false;
-        break;
-      }
-    }
-
-    auto const numDirs = ow ? 1 : 2;
-    size_t numSegsForThisFid = j - i;
-    CHECK_GREATER(numDirs, 0, ());
-    CHECK_EQUAL(numSegsForThisFid % numDirs, 0, ());
-    numSegsForThisFid /= numDirs;
-
-    fids.push_back(keys[i].m_fid);
-    numSegs.push_back(numSegsForThisFid);
-    oneWay.push_back(ow);
-
-    i = j;
-  }
-
-  MemWriter<vector<uint8_t>> memWriter(result);
-  WriteToSink(memWriter, kLatestKeysVersion);
-  WriteVarUint(memWriter, fids.size());
-
-  {
-    BitWriter<decltype(memWriter)> bitWriter(memWriter);
-
-    uint32_t prevFid = 0;
-    for (auto const & fid : fids)
-    {
-      uint64_t const fidDiff = static_cast<uint64_t>(fid - prevFid);
-      bool ok = coding::GammaCoder::Encode(bitWriter, fidDiff + 1);
-      ASSERT(ok, ());
-      UNUSED_VALUE(ok);
-      prevFid = fid;
-    }
-
-    for (auto const & s : numSegs)
-    {
-      bool ok = coding::GammaCoder::Encode(bitWriter, s + 1);
-      ASSERT(ok, ());
-      UNUSED_VALUE(ok);
-    }
-
-    for (auto const val : oneWay)
-      bitWriter.Write(val ? 1 : 0, 1 /* numBits */);
-  }
-}
-
-// static
 void TrafficInfo::DeserializeTrafficKeys(vector<uint8_t> const & data, vector<TrafficInfo::RoadSegmentId> & result)
 {
   MemReaderWithExceptions memReader(data.data(), data.size());
@@ -259,53 +195,6 @@ void TrafficInfo::SerializeTrafficValues(vector<SpeedGroup> const & values, vect
   Deflate deflate(Deflate::Format::ZLib, Deflate::Level::BestCompression);
 
   deflate(buf.data(), buf.size(), back_inserter(result));
-}
-
-// static
-void TrafficInfo::DeserializeTrafficValues(vector<uint8_t> const & data, vector<SpeedGroup> & result)
-{
-  using Inflate = coding::ZLib::Inflate;
-
-  vector<uint8_t> decompressedData;
-
-  Inflate inflate(Inflate::Format::ZLib);
-  inflate(data.data(), data.size(), back_inserter(decompressedData));
-
-  MemReaderWithExceptions memReader(decompressedData.data(), decompressedData.size());
-  ReaderSource<decltype(memReader)> src(memReader);
-
-  auto const version = ReadPrimitiveFromSource<uint8_t>(src);
-  CHECK_EQUAL(version, kLatestValuesVersion, ("Unsupported version of traffic keys."));
-
-  auto const n = ReadVarUint<uint32_t>(src);
-  result.resize(n);
-  BitReader<decltype(src)> bitReader(src);
-  for (size_t i = 0; i < static_cast<size_t>(n); ++i)
-  {
-    // SpeedGroup's values fit into 3 bits.
-    result[i] = static_cast<SpeedGroup>(bitReader.Read(3));
-  }
-
-  ASSERT_EQUAL(src.Size(), 0, ());
-}
-
-bool TrafficInfo::UpdateTrafficData(vector<SpeedGroup> const & values)
-{
-  m_coloring.clear();
-
-  if (m_keys.size() != values.size())
-  {
-    LOG(LWARNING, ("The number of received traffic values does not correspond to the number of keys:", m_keys.size(),
-                   "keys", values.size(), "values."));
-    m_availability = Availability::NoData;
-    return false;
-  }
-
-  for (size_t i = 0; i < m_keys.size(); ++i)
-    if (values[i] != SpeedGroup::Unknown)
-      m_coloring.emplace(m_keys[i], values[i]);
-
-  return true;
 }
 
 string DebugPrint(TrafficInfo::RoadSegmentId const & id)
