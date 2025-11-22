@@ -665,11 +665,11 @@ class SwitzerlandRoadShieldParser : public HighwayClassRoadShieldParser
 public:
   explicit SwitzerlandRoadShieldParser(HighwayClass const & highwayClass)
     : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
-                                  {{HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Red},
-                                  {{HighwayClass::Primary, RoadShieldType::Generic_Blue},
-                                  {{HighwayClass::Secondary, RoadShieldType::Generic_White},
-                                  {{HighwayClass::Tertiary, RoadShieldType::Generic_White}})
-  {}
+                                             {{HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Red},
+                                             {{HighwayClass::Primary, RoadShieldType::Generic_Blue},
+                                             {{HighwayClass::Secondary, RoadShieldType::Generic_White},
+                                             {{HighwayClass::Tertiary, RoadShieldType::Generic_White}})
+            {}
 };
 
 class LiechtensteinRoadShieldParser : public SimpleRoadShieldParser
