@@ -514,13 +514,10 @@ public:
     : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
                                    {{"A", HighwayClass::Motorway, RoadShieldType::Generic_Blue_Bordered},
                                     {"S", HighwayClass::Trunk, RoadShieldType::Generic_Blue_Bordered},
-                                    {"E", HighwayClass::Primary, RoadShieldType::Generic_Green_Bordered},
-                                    {"E", HighwayClass::Secondary, RoadShieldType::Generic_Green_Bordered},
                                     {"B", HighwayClass::Primary, RoadShieldType::Generic_Blue, false, true},
+                                    {"P", HighwayClass::Primary, RoadShieldType::Generic_Blue_Bordered, false, true},
                                     {"L", HighwayClass::Secondary, RoadShieldType::Generic_Pill_White_Bordered, false, true},
-                                    {"L", HighwayClass::Tertiary, RoadShieldType::Generic_Pill_White_Bordered, false, true},
-                                    {"P", HighwayClass::Primary, RoadShieldType::Generic_Pill_Red_Bordered}})
-                                    
+                                    {"L", HighwayClass::Tertiary, RoadShieldType::Generic_Pill_White_Bordered, false, true}})
   {}
 };
 
