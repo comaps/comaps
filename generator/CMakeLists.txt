@@ -207,8 +207,6 @@ set(SRC
   tesselator.hpp
   towns_dumper.cpp
   towns_dumper.hpp
-  traffic_generator.cpp
-  traffic_generator.hpp
   transit_generator.cpp
   transit_generator.hpp
   transit_generator_experimental.cpp

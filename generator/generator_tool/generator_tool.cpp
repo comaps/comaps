@@ -26,7 +26,6 @@
 #include "generator/routing_world_roads_generator.hpp"
 #include "generator/search_index_builder.hpp"
 #include "generator/statistics.hpp"
-#include "generator/traffic_generator.hpp"
 #include "generator/transit_generator.hpp"
 #include "generator/transit_generator_experimental.hpp"
 #include "generator/unpack_mwm.hpp"
@@ -171,7 +170,6 @@ DEFINE_string(unpack_borders, "", "Convert packed_polygons to a directory of pol
 DEFINE_bool(unpack_mwm, false, "Unpack each section of mwm into a separate file with name filePath.sectionName.");
 DEFINE_bool(check_mwm, false, "Check map file to be correct.");
 DEFINE_string(delete_section, "", "Delete specified section (defines.hpp) from container.");
-DEFINE_bool(generate_traffic_keys, false, "Generate keys for the traffic map (road segment -> speed group).");
 
 DEFINE_bool(dump_mwm_tmp, false, "Prints feature builder objects from .mwm.tmp");
 
@@ -545,12 +543,6 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
         // Used for countries.
         BuildPopularPlacesFromDescriptions(dataFile);
       }
-    }
-
-    if (FLAGS_generate_traffic_keys)
-    {
-      if (!traffic::GenerateTrafficKeysFromDataFile(dataFile))
-        LOG(LCRITICAL, ("Error generating traffic keys."));
     }
   }
 
