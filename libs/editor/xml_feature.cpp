@@ -1,4 +1,5 @@
 #include "editor/xml_feature.hpp"
+#include "editor/keys_to_remove.hpp"
 
 #include "indexer/classificator.hpp"
 #include "indexer/editable_map_object.hpp"
@@ -15,6 +16,7 @@
 #include "base/timer.hpp"
 
 #include <array>
+#include <boost/regex.hpp>
 #include <sstream>
 #include <string>
 
@@ -502,6 +504,29 @@ osm::EditJournal XMLFeature::GetEditJournal() const
         entry.data = legacyObjData;
         break;
       }
+      case osm::JournalEntryType::BusinessReplacement:
+      {
+        osm::BusinessReplacementData businessReplacementData;
+
+        // Old Feature Type
+        std::string old_strType = getAttribute(xmlData, "old_type");
+        if (old_strType.empty())
+          MYTHROW(editor::InvalidJournalEntry, ("Old Feature type is empty"));
+        businessReplacementData.old_type = classif().GetTypeByReadableObjectName(old_strType);
+        if (businessReplacementData.old_type == IndexAndTypeMapping::INVALID_TYPE)
+          MYTHROW(editor::InvalidJournalEntry, ("Invalid old Feature Type:", old_strType));
+
+        // New Feature Type
+        std::string new_strType = getAttribute(xmlData, "new_type");
+        if (new_strType.empty())
+          MYTHROW(editor::InvalidJournalEntry, ("New Feature type is empty"));
+        businessReplacementData.new_type = classif().GetTypeByReadableObjectName(new_strType);
+        if (businessReplacementData.new_type == IndexAndTypeMapping::INVALID_TYPE)
+          MYTHROW(editor::InvalidJournalEntry, ("Invalid new Feature Type:", new_strType));
+
+        entry.data = businessReplacementData;
+        break;
+      }
       }
       if (isHistory)
         journal.AddJournalHistoryEntry(entry);
@@ -570,6 +595,14 @@ void XMLFeature::SetEditJournal(osm::EditJournal const & journal)
       {
         osm::LegacyObjData const & legacyObjData = std::get<osm::LegacyObjData>(entry.data);
         xmlData.append_attribute("version") = legacyObjData.version.data();
+        break;
+      }
+      case osm::JournalEntryType::BusinessReplacement:
+      {
+        osm::BusinessReplacementData const & businessReplacementData =
+            std::get<osm::BusinessReplacementData>(entry.data);
+        xmlData.append_attribute("old_type") = classif().GetReadableObjectName(businessReplacementData.old_type).data();
+        xmlData.append_attribute("new_type") = classif().GetReadableObjectName(businessReplacementData.new_type).data();
         break;
       }
       }
@@ -672,6 +705,52 @@ void XMLFeature::UpdateOSMTag(std::string_view key, std::string_view value)
       }
     }
     SetTagValue(key, value);
+  }
+}
+
+void XMLFeature::OSMBusinessReplacement(uint32_t old_type, uint32_t new_type)
+{
+  std::string name = GetTagValue("name");
+
+  // Remove OSM tags using the list from keys_to_remove.hpp
+  static boost::regex const regex([]
+  {
+    std::string regexPattern;
+
+    for (auto const & key : kKeysToRemove)
+    {
+      if (!regexPattern.empty())
+        regexPattern.append("|");
+      regexPattern.append(key);
+    }
+    return regexPattern;
+  }());
+
+  ForEachTag([this](std::string_view key, std::string_view /*value*/)
+  {
+    if (boost::regex_match(key.begin(), key.end(), regex))
+      RemoveTag(key);
+  });
+
+  if (classif().GetReadableObjectName(new_type) == "disusedbusiness")
+  {
+    // Mark as 'disused'
+    string const strOldType = classif().GetReadableObjectName(old_type);
+    strings::SimpleTokenizer iter(strOldType, "-");
+    string_view const key = *iter;
+    if (++iter)
+      SetTagValue("disused:" + std::string(key), *iter);
+    else
+      SetTagValue("disused:" + std::string(key), "yes");
+
+    if (!name.empty())
+      SetTagValue("old_name", name);
+  }
+  else
+  {
+    // Add new category tag
+    ASSERT_FAIL("Only marking places as 'disused' is implemented yet. Wrong new_type: " +
+                classif().GetReadableObjectName(new_type));
   }
 }
 

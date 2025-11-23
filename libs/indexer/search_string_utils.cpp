@@ -21,7 +21,7 @@ using namespace strings;
 
 namespace
 {
-std::vector<UniString> const kAllowedMisprints = {
+std::array<UniString, 11> const kAllowedMisprints = {
     MakeUniString("ckq"), MakeUniString("eyjiu"), MakeUniString("gh"), MakeUniString("pf"), MakeUniString("vw"),
 
     // Russian
@@ -118,11 +118,12 @@ static std::pair<UniString, UniString> const kPreprocessReplacements[] = {
     {MakeUniString("ι.ν"), MakeUniString("ιερός ναός")},
     {MakeUniString("κων/νου"), MakeUniString("κωνσταντίνου")},
     {MakeUniString("д-р"), MakeUniString("доктор")},
-    {MakeUniString("ж.к"), MakeUniString("жилищен комплекс")},
+    {MakeUniString("ж.к."), MakeUniString("жилищен комплекс")},
     {MakeUniString("м-н"), MakeUniString("микрорайон")},
     {MakeUniString("наб-я"), MakeUniString("набережная")},
     {MakeUniString("пр-д"), MakeUniString("проезд")},
     {MakeUniString("пр-т"), MakeUniString("проспект")},
+    {MakeUniString("আ/এ"), MakeUniString("আবাসিক এলাকা")},
 };
 
 void TransliterateHiraganaToKatakana(UniString & s)

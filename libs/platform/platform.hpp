@@ -18,6 +18,8 @@
 #include <utility>
 #include <vector>
 
+#include <boost/regex.hpp>
+
 #include "defines.hpp"
 
 DECLARE_EXCEPTION(FileAbsentException, RootException);
@@ -209,7 +211,8 @@ public:
   //@{
   /// @param ext files extension to find, like ".mwm".
   static void GetFilesByExt(std::string const & directory, std::string_view ext, FilesList & outFiles);
-  static void GetFilesByRegExp(std::string const & directory, std::string const & regexp, FilesList & outFiles);
+  static void GetFilesByRegExp(std::string const & directory, boost::regex const & regexp, FilesList & outFiles);
+  static void GetAllFiles(std::string const & directory, FilesList & outFiles);
   //@}
 
   static void GetFilesByType(std::string const & directory, unsigned typeMask, TFilesWithType & outFiles);

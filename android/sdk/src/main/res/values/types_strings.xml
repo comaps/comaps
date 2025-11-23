@@ -30,6 +30,7 @@
     <string name="type.amenity.bench.backless">Backless Bench</string>
     <string name="type.amenity.bicycle_parking">Bicycle Parking</string>
     <string name="type.amenity.bicycle_parking.covered">Covered Bicycle Parking</string>
+    <string name="type.amenity.boat_rental">Boat Rental</string>
     <string name="type.amenity.bicycle_rental">Bicycle Rental</string>
     <string name="type.amenity.bicycle_repair_station">Bicycle Repair Station</string>
     <string name="type.amenity.biergarten">Biergarten</string>
@@ -42,6 +43,11 @@
     <string name="type.amenity.motorcycle_rental">Motorcycle Rental</string>
     <string name="type.amenity.car_sharing">Car Sharing</string>
     <string name="type.amenity.car_wash">Car Wash</string>
+    <string name="type.man_made.telescope">Telescope</string>
+    <string name="type.man_made.telescope.optical">Telescope (Optical)</string>
+    <string name="type.man_made.telescope.radio">Telescope (Radio)</string>
+    <string name="type.man_made.telescope.gamma">Telescope (Gamma)</string>
+    <string name="type.man_made.observatory">Observatory</string>
     <string name="type.amenity.casino">Casino</string>
     <string name="type.amenity.gambling">Gambling</string>
     <string name="type.leisure.adult_gaming_centre">Adult Gaming Centre</string>
@@ -68,6 +74,9 @@
     <string name="type.amenity.exhibition_centre">Exhibition Center</string>
     <string name="type.amenity.money_transfer">Money Transfer</string>
     <string name="type.amenity.music_school">Music School</string>
+    <string name="type.amenity.sailing_school">Sailing School</string>
+    <string name="type.amenity.flight_school">Flight School</string>
+    <string name="type.amenity.prep_school">Tutorial School</string>
     <string name="type.amenity.language_school">Language School</string>
     <string name="type.office.diplomatic">Embassy</string>
     <string name="type.office.security">Security Guards Office</string>
@@ -92,6 +101,7 @@
     <string name="type.amenity.loading_dock">Loading Dock</string>
     <string name="type.amenity.lounger">Lounger</string>
     <string name="type.amenity.luggage_locker">Luggage Locker</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.amenity.marketplace">Marketplace</string>
     <string name="type.amenity.motorcycle_parking">Motorcycle Parking</string>
     <string name="type.amenity.nightclub">Nightclub</string>
@@ -121,6 +131,8 @@
     <string name="type.amenity.parking_space.private">Parking Space</string>
     <string name="type.amenity.parking_space.underground">Parking Space</string>
     <string name="type.amenity.parking_space.disabled">Disabled Parking Space</string>
+    <string name="type.amenity.car_pooling">Car Pooling</string>
+    <string name="type.amenity.payment_centre">Payment Centre</string>
     <string name="type.amenity.payment_terminal">Payment Terminal</string>
     <string name="type.amenity.pharmacy">Pharmacy</string>
     <string name="type.amenity.place_of_worship">Place of Worship</string>
@@ -362,19 +374,59 @@
     <string name="type.cuisine.vegetarian">Vegetarian</string>
     <string name="type.cuisine.vietnamese">Vietnamese</string>
     <string name="type.emergency">Emergency</string>
+    <string name="type.emergency.access_point">Emergency Rescue Point</string>
     <string name="type.emergency.assembly_point">Emergency Assembly Point</string>
+    <string name="type.emergency.life_ring">Lifebuoy</string>
     <string name="type.emergency.defibrillator">Defibrillator</string>
     <string name="type.emergency.fire_hydrant">Fire Hydrant</string>
     <string name="type.emergency.phone">Emergency Phone</string>
     <!-- A place where a lifeguard is on duty. -->
     <string name="type.emergency.lifeguard">Lifeguard</string>
+    <string name="type.beacon.cardinal.east">Cardinal Beacon</string>
+    <string name="type.beacon.cardinal.north">Cardinal Beacon</string>
+    <string name="type.beacon.cardinal.south">Cardinal Beacon</string>
+    <string name="type.beacon.cardinal.west">Cardinal Beacon</string>
+    <string name="type.beacon.isolated_danger">Isolated Danger Beacon</string>
+    <string name="type.beacon.lateral.port">Lateral Beacon</string>
+    <string name="type.beacon.lateral.starboard">Lateral Beacon</string>
+    <string name="type.beacon.safe_water">Safe Water Beacon</string>
+    <string name="type.beacon.special_purpose">Special Purpose Beacon</string>
+    <string name="type.buoy.cardinal.east">Cardinal Buoy</string>
+    <string name="type.buoy.cardinal.north">Cardinal Buoy</string>
+    <string name="type.buoy.cardinal.south">Cardinal Buoy</string>
+    <string name="type.buoy.cardinal.west">Cardinal Buoy</string>
+    <string name="type.buoy.isolated_danger">Isolated Danger Buoy</string>
+    <string name="type.buoy.lateral.port">Lateral Buoy</string>
+    <string name="type.buoy.lateral.starboard">Lateral Buoy</string>
+    <string name="type.buoy.safe_water">Safe Water Buoy</string>
+    <string name="type.buoy.special_purpose">Special Purpose Buoy</string>
+    <string name="type.spherical_buoy.cardinal.east">Spherical Cardinal Buoy</string>
+    <string name="type.spherical_buoy.cardinal.north">Spherical Cardinal Buoy</string>
+    <string name="type.spherical_buoy.cardinal.south">Spherical Cardinal Buoy</string>
+    <string name="type.spherical_buoy.cardinal.west">Spherical Cardinal Buoy</string>
+    <string name="type.spherical_buoy.isolated_danger">Spherical Isolated Danger Buoy</string>
+    <string name="type.spherical_buoy.lateral.port">Spherical Lateral Buoy</string>
+    <string name="type.spherical_buoy.lateral.starboard">Spherical Lateral Buoy</string>
+    <string name="type.spherical_buoy.safe_water">Spherical Safe Water Buoy</string>
+    <string name="type.spherical_buoy.special_purpose">Spherical Special Purpose Buoy</string>
+    <string name="type.lateral.port">Port</string>
+    <string name="type.lateral.starboard">Starboard</string>
+    <string name="type.cardinal.east">East</string>
+    <string name="type.cardinal.north">North</string>
+    <string name="type.cardinal.south">South</string>
+    <string name="type.cardinal.west">West</string>
     <!-- A mountain rescue base for search and rescue activities. -->
     <string name="type.emergency.mountain_rescue">Mountain Rescue Station</string>
     <!-- This is for secondary entrances, for main entrances see type.entrance.main -->
     <string name="type.entrance">Entrance</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Main Entrance</string>
-    <string name="type.entrance.exit">Exit</string>
+    <string name="type.entrance.house">House Entrance</string>
+    <string name="type.entrance.garage">Garage Entrance</string>
+    <string name="type.entrance.service">Service Entrance</string>
+    <string name="type.entrance.entry">Entry (Only)</string>
+    <string name="type.entrance.exit">Exit (Only)</string>
+    <string name="type.entrance.emergency">Emergency Exit</string>
     <string name="type.fee.yes">$</string>
     <string name="type.fee.no">Free</string>
     <string name="type.healthcare.laboratory">Medical Laboratory</string>
@@ -657,6 +709,7 @@
     <string name="type.leisure.miniature_golf">Minigolf</string>
     <string name="type.leisure.hackerspace">Hackerspace</string>
     <string name="type.leisure.ice_rink">Ice Rink</string>
+    <string name="type.leisure.indoor_play">Indoor Play Centre</string>
     <string name="type.leisure.marina">Marina</string>
     <string name="type.leisure.nature_reserve">Nature Reserve</string>
     <string name="type.leisure.outdoor_seating">Outdoor Seating</string>
@@ -766,6 +819,7 @@
     <string name="type.man_made.embankment">Embankment</string>
     <string name="type.natural.coastline">Coastline</string>
     <string name="type.natural.desert">Desert</string>
+    <string name="type.natural.sand">Sand</string>
     <string name="type.natural.geyser">Geyser</string>
     <string name="type.natural.glacier">Glacier</string>
     <string name="type.natural.grassland">Grassland</string>
@@ -787,6 +841,7 @@
     <string name="type.natural.spring">Natural Spring</string>
     <string name="type.natural.spring.drinking_water_no">Natural Spring</string>
     <string name="type.natural.strait">Strait</string>
+    <string name="type.natural.tree">Tree</string>
     <string name="type.natural.tree_row">Tree Row</string>
     <string name="type.natural.vineyard">Vineyard</string>
     <string name="type.natural.volcano">Volcano</string>
@@ -1173,6 +1228,7 @@
     <string name="type.shop.bakery">Bakery</string>
     <string name="type.shop.bathroom_furnishing">Bathroom Furnishings</string>
     <string name="type.shop.beauty">Beauty Shop</string>
+    <string name="type.shop.beauty.nails">Nail Salon</string>
     <string name="type.shop.beverages">Beverages</string>
     <string name="type.shop.bicycle">Bicycle Shop</string>
     <string name="type.shop.bookmaker">Bookmaker</string>
@@ -1224,6 +1280,7 @@
     <string name="type.shop.kitchen">Kitchen Store</string>
     <string name="type.shop.laundry">Laundry</string>
     <string name="type.shop.mall">Mall</string>
+    <string name="type.shop.beauty.day_spa">Day Spa</string>
     <string name="type.shop.massage">Massage Salon</string>
     <string name="type.shop.mobile_phone">Mobile Phone Store</string>
     <string name="type.shop.money_lender">Money Lender</string>
@@ -1251,6 +1308,7 @@
     <string name="type.shop.supermarket">Supermarket</string>
     <string name="type.shop.tattoo">Tattoo Parlour</string>
     <string name="type.shop.tea">Tea Shop</string>
+    <string name="type.shop.telecommunication">Telecommunication Shop</string>
     <string name="type.shop.ticket">Ticket Shop</string>
     <string name="type.shop.toys">Toy Store</string>
     <string name="type.shop.travel_agency">Travel Agency</string>
@@ -1435,10 +1493,15 @@
     <string name="type.self_service.no">No self-service</string>
     <!-- https://wiki.openstreetmap.org/wiki/Key:social_facility -->
     <string name="type.amenity.social_facility">Social Facility</string>
+    <string name="type.social_facility.soup_kitchen">Soup Kitchen</string>
+    <string name="type.social_facility.food_bank">Food Bank</string>
+    <string name="type.amenity.food_sharing">Food Sharing</string>
+    <string name="type.amenity.give_box">Give Box</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance -->
     <string name="type.emergency.emergency_ward_entrance">Emergency Ward Entrance</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo -->
     <string name="type.amenity.dojo">Dojo</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall -->
     <string name="type.leisure.sports_hall">Sports hall</string>
+    <string name="type.xmas.tree">Christmas Tree</string>
 </resources>

@@ -394,7 +394,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cv__more"
-        style="@style/MwmWidget.Editor.CardView">
+        style="@style/MwmWidget.Editor.CardView"
+        android:layout_marginBottom="@dimen/margin_base">
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -421,6 +422,17 @@
         </com.google.android.material.textfield.TextInputLayout>
       </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/disused"
+        style="@style/MwmWidget.M3.Button.Secondary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="@dimen/margin_quarter"
+        app:backgroundTint="?cardBackground"
+        android:textColor="@color/base_red"
+        app:strokeColor="@color/base_red"
+        android:text="@string/editor_business_vacant_button"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/reset"
         style="@style/MwmWidget.M3.Button.Secondary"

@@ -70,3 +70,7 @@ All the following commands require an app restart:
 
 - `?all-types`: Shows all internal types in place page
 - `?no-all-types`: Disables showing all internal types in place page
+
+## Search
+
+- `?wiki`: Search results for all elements with Wikipedia links

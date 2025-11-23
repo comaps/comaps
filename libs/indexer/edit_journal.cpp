@@ -41,6 +41,14 @@ void EditJournal::MarkAsCreated(uint32_t type, feature::GeomType geomType, m2::P
   AddJournalEntry({JournalEntryType::ObjectCreated, time(nullptr), osm::ObjCreateData{type, geomType, mercator}});
 }
 
+void EditJournal::AddBusinessReplacement(uint32_t old_type, uint32_t new_type)
+{
+  LOG(LDEBUG, ("Business of type ", classif().GetReadableObjectName(old_type), " was replaced by a ",
+               classif().GetReadableObjectName(new_type)));
+  AddJournalEntry(
+      {JournalEntryType::BusinessReplacement, time(nullptr), osm::BusinessReplacementData{old_type, new_type}});
+}
+
 void EditJournal::AddJournalEntry(JournalEntry entry)
 {
   m_journal.push_back(std::move(entry));
@@ -103,6 +111,15 @@ std::string EditJournal::ToString(osm::JournalEntry const & journalEntry)
     LegacyObjData const & legacyObjData = std::get<LegacyObjData>(journalEntry.data);
     return ToString(journalEntry.journalEntryType).append(": version=\"").append(legacyObjData.version).append("\"");
   }
+  case osm::JournalEntryType::BusinessReplacement:
+  {
+    BusinessReplacementData const & businessReplacementData = std::get<BusinessReplacementData>(journalEntry.data);
+    return ToString(journalEntry.journalEntryType)
+        .append(": Category changed from ")
+        .append(classif().GetReadableObjectName(businessReplacementData.old_type))
+        .append(" to ")
+        .append(classif().GetReadableObjectName(businessReplacementData.new_type));
+  }
   default: UNREACHABLE();
   }
 }
@@ -114,6 +131,7 @@ std::string EditJournal::ToString(osm::JournalEntryType journalEntryType)
   case osm::JournalEntryType::TagModification: return "TagModification";
   case osm::JournalEntryType::ObjectCreated: return "ObjectCreated";
   case osm::JournalEntryType::LegacyObject: return "LegacyObject";
+  case osm::JournalEntryType::BusinessReplacement: return "BusinessReplacement";
   default: UNREACHABLE();
   }
 }
@@ -126,6 +144,8 @@ std::optional<JournalEntryType> EditJournal::TypeFromString(std::string const & 
     return JournalEntryType::ObjectCreated;
   else if (entryType == "LegacyObject")
     return JournalEntryType::LegacyObject;
+  else if (entryType == "BusinessReplacement")
+    return JournalEntryType::BusinessReplacement;
   else
     return {};
 }

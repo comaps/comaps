@@ -700,8 +700,8 @@
 "editor_share_to_all_dialog_title" = "Deseja enviar para todos os usuários?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Certifique-se de não ter incluído nenhum dado pessoal.";
-"editor_share_to_all_dialog_message_2" = "Os editores do OpenStreetMap verificarão as mudanças e entrarão em contato com você se tiverem alguma dúvida.";
+"editor_share_to_all_dialog_message_1" = "Certifique-se de não ter incluído nenhum dado privado ou pessoal.";
+"editor_share_to_all_dialog_message_2" = "Os mapeadores do OpenStreetMap verificarão as alterações e entrarão em contato caso tenham alguma dúvida.";
 "navigation_stop_button" = "Parar";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -1105,3 +1105,4 @@
 "unknown" = "Desconhecida";
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Ler e Falar*, *Vozes*.";
+"avoid_paved" = "Evitar vias pavimentadas";

@@ -21,6 +21,9 @@ import app.organicmaps.util.UiUtils;
 
 class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHolder>
 {
+  private static final int SHORT_HORIZON_CLOSE_MIN = 60;
+  private static final int SHORT_HORIZON_OPEN_MIN = 15;
+
   private final SearchFragment mSearchFragment;
   @Nullable
   private SearchResult[] mResults;
@@ -149,41 +152,32 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
     {
       final Resources resources = mSearchFragment.getResources();
 
-      switch (result.description.openNow)
+      if (result.description.openNow != SearchResult.OPEN_NOW_YES && result.description.openNow != SearchResult.OPEN_NOW_NO)
       {
-      case SearchResult.OPEN_NOW_YES ->
-      {
-        if (result.description.minutesUntilClosed < 60) // less than 1 hour
-        {
-          final String time = result.description.minutesUntilClosed + " " + resources.getString(R.string.minute);
-          final String string = resources.getString(R.string.closes_in, time);
-
-          UiUtils.setTextAndShow(mOpen, string);
-          mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_yellow));
-        }
-        else
-        {
-          UiUtils.setTextAndShow(mOpen, resources.getString(R.string.editor_time_open));
-          mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_green));
-        }
+        // Hide if unknown opening hours state
+        UiUtils.hide(mOpen);
+        return;
       }
-      case SearchResult.OPEN_NOW_NO ->
-      {
-        if (result.description.minutesUntilOpen < 60) // less than 1 hour
-        {
-          final String time = result.description.minutesUntilOpen + " " + resources.getString(R.string.minute);
-          final String string = resources.getString(R.string.opens_in, time);
 
-          UiUtils.setTextAndShow(mOpen, string);
-          mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_red));
-        }
-        else
-        {
-          UiUtils.setTextAndShow(mOpen, resources.getString(R.string.closed));
-          mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_red));
-        }
+      final boolean isOpen = result.description.openNow == SearchResult.OPEN_NOW_YES;
+      final int minsToNextState = isOpen ? result.description.minutesUntilClosed : result.description.minutesUntilOpen;
+
+      final boolean shortHorizonClosing = isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_CLOSE_MIN;
+      final boolean shortHorizonOpening = !isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_OPEN_MIN;
+
+      if (shortHorizonClosing || shortHorizonOpening)
+      {
+        final String minsToChangeStr = resources.getQuantityString(
+            R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
+        final String nextChangeFormatted = resources.getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
+
+        UiUtils.setTextAndShow(mOpen, nextChangeFormatted);
+        mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_yellow));
       }
-      default -> UiUtils.hide(mOpen);
+      else
+      {
+        UiUtils.setTextAndShow(mOpen, isOpen ? resources.getString(R.string.editor_time_open) : resources.getString(R.string.closed));
+        mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), isOpen ? R.color.base_green : R.color.base_red));
       }
     }
 

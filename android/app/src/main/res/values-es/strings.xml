@@ -898,4 +898,19 @@
     <string name="offline_explanation_title">Mapas sin conexión</string>
     <string name="offline_explanation_text">Se debe descargar un mapa para ver y navegar el área\nDescarga mapas de las áreas que quieras navegar.</string>
     <string name="editor_place_doesnt_exist_description">Describe la situación actual del lugar para enviar una nota de error a la comunidad de OpenStreetMap</string>
+    <string name="avoid_paved">Evitar caminos pavimentados</string>
+    <string name="opens_at">Abre a las %s</string>
+    <string name="closes_at">Cierra a las %s</string>
+    <string name="opens_day_at">Abre el %1$s a las %2$s</string>
+    <string name="closes_day_at">Cierra el %1$s a las %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="list_description_empty">Modificar la lista para añadir una descripción</string>
+    <string name="editor_business_vacant_button">Negocio vacante</string>
+    <string name="editor_mark_business_vacant_title">Marcar negocio como vacante</string>
+    <string name="editor_mark_business_vacant_description">Usa esto si el negocio ya no existe y el local ha quedado vacío para un nuevo inquilino.</string>
+    <string name="editor_submit">Enviar</string>
 </resources>

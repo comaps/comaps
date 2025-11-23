@@ -498,5 +498,16 @@
 "sport-9pin": "Bolos",
 "sport-10pin": "Bolos",
 "shop-bookmaker|@gambling": "Corredor de apuestas",
-"leisure-fitness_centre-sport-yoga": "Estudio de yoga"
+"leisure-fitness_centre-sport-yoga": "Estudio de yoga",
+"amenity-mobile_money_agent": "Agencia de efectivo móvil | agente de dinero móvil | agencia de dinero móvil | agente de efectivo móvil",
+"amenity-boat_rental": "4aquiler de botes|alquiler de barcos|bote|botes|barco|barcos|barca|barcas|lancha|lanchas|embarcación|embarcaciones|velero|veleros|nagegar|3alquiler",
+"man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": "4Telescopio",
+"man_made-observatory": "3Observatorio",
+"amenity-car_pooling|@category_parking": "Car pooling | Vehículo compartido | Blabla Car",
+"amenity-payment_centre": "Centro de pagos",
+"leisure-indoor_play": "Parque interior|niños",
+"shop-telecommunication|@shop": "Telecomunicaciones",
+"leisure-bandstand": "4Tarima",
+"social_facility-soup_kitchen": "4Comedor social | Comedor popular | Comedor comunitario | Comida",
+"social_facility-food_bank": "Banco de alimentos | alimento | comida | voluntariado"
 }

@@ -7,8 +7,9 @@
 
 #include "base/string_utils.hpp"
 
-#include <regex>
 #include <string>
+
+#include <boost/regex.hpp>
 
 namespace routing::turns::sound
 {
@@ -200,9 +201,10 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
       // if the first pronounceable character of the street is a vowel, use "az" instead of "a"
       // 1, 5, and 1000 start with vowels but not 10 or 100 (numbers are combined as in English: 5*, 5**, 1*, 1**, 1***,
       // etc)
-      static std::regex const rHun("^[5aeiouyáéíóúöüőű]|^1$|^1[^\\d]|^1\\d\\d\\d[^\\d]", std::regex_constants::icase);
-      std::smatch ma;
-      if (std::regex_search(streetOut, ma, rHun) && ma.size() > 0)
+      static boost::regex const rHun("^[5aeiouyáéíóúöüőű]|^1$|^1[^\\d]|^1\\d\\d\\d[^\\d]",
+                                     boost::regex_constants::icase);
+      boost::smatch ma;
+      if (boost::regex_search(streetOut, ma, rHun) && ma.size() > 0)
       {
         if (ontoStr == "a")
           ontoStr.push_back('z');
@@ -211,21 +213,18 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
       }
     }
 
-    char ttsOut[1024];
-    std::snprintf(ttsOut, std::size(ttsOut), distDirOntoStreetStr.c_str(),
-                  distStr.c_str(),    // in 100 feet
-                  dirStr.c_str(),     // turn right / take exit
-                  ontoStr.c_str(),    // onto / null
-                  streetOut.c_str(),  // Main Street / 543:: M4: Queens Parkway, London
-                  dirVerb.c_str()     // (optional "turn right" verb)
-    );
+    std::string ttsOut = distDirOntoStreetStr + distStr +  // in 100 feet
+                         dirStr +                          // turn right / take exit
+                         ontoStr +                         // onto / null
+                         streetOut +                       // Main Street / 543:: M4: Queens Parkway, London
+                         dirVerb;                          // (optional "turn right" verb)
 
     // remove floating punctuation
-    static std::regex const rP(" [,\\.:;]+ ");
-    std::string cleanOut = std::regex_replace(ttsOut, rP, " ");
+    static boost::regex const rP(" [,\\.:;]+ ");
+    std::string cleanOut = boost::regex_replace(ttsOut, rP, " ");
     // remove repetitious spaces or colons
-    static std::regex const rS("[ :]{2,99}");
-    cleanOut = std::regex_replace(cleanOut, rS, " ");
+    static boost::regex const rS("[ :]{2,99}");
+    cleanOut = boost::regex_replace(cleanOut, rS, " ");
     // trim leading spaces
     strings::Trim(cleanOut);
 

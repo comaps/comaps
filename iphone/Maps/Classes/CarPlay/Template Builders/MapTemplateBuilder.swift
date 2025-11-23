@@ -125,27 +125,35 @@ final class MapTemplateBuilder {
   }
   
   private class func setupMuteAndRedirectButtons(template: CPMapTemplate) {
-    let muteButton = buildBarButton(type: .mute) { _ in
-      MWMTextToSpeech.setTTSEnabled(false)
-      setupUnmuteAndRedirectButtons(template: template)
-    }
     let redirectButton = buildBarButton(type: .redirectRoute) { _ in
       let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
-    template.leadingNavigationBarButtons = [muteButton, redirectButton]
+    if MWMTextToSpeech.isTTSEnabled() {
+      let muteButton = buildBarButton(type: .mute) { _ in
+        MWMTextToSpeech.tts().active = false
+        setupUnmuteAndRedirectButtons(template: template)
+      }
+      template.leadingNavigationBarButtons = [muteButton, redirectButton]
+    } else {
+      template.leadingNavigationBarButtons = [redirectButton]
+    }
   }
   
   private class func setupUnmuteAndRedirectButtons(template: CPMapTemplate) {
-    let unmuteButton = buildBarButton(type: .unmute) { _ in
-      MWMTextToSpeech.setTTSEnabled(true)
-      setupMuteAndRedirectButtons(template: template)
-    }
     let redirectButton = buildBarButton(type: .redirectRoute) { _ in
       let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
-    template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
+    if MWMTextToSpeech.isTTSEnabled() {
+      let unmuteButton = buildBarButton(type: .unmute) { _ in
+        MWMTextToSpeech.tts().active = true
+        setupMuteAndRedirectButtons(template: template)
+      }
+      template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
+    } else {
+      template.leadingNavigationBarButtons = [redirectButton]
+    }
   }
   
   // MARK: - CPMapButton builder
@@ -158,6 +166,17 @@ final class MapTemplateBuilder {
       button.image = UIImage(systemName: "plus")
     case .zoomOut:
       button.image = UIImage(systemName: "minus")
+    }
+    // Remove code below once Apple has fixed its issue with the button background
+    if #unavailable(iOS 26) {
+      switch type {
+      case .startPanning:
+        button.focusedImage = UIImage(systemName: "smallcircle.filled.circle.fill")
+      case .zoomIn:
+        button.focusedImage = UIImage(systemName: "plus.circle.fill")
+      case .zoomOut:
+        button.focusedImage = UIImage(systemName: "minus.circle.fill")
+      }
     }
     return button
   }

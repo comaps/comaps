@@ -520,8 +520,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Wil je het naar alle gebruikers sturen?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Controleer dat je geen persoonlijke gegevens hebt ingevoerd</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-editors zullen de wijzigingen controleren en contact met u opnemen als ze vragen hebben</string>
+    <string name="editor_share_to_all_dialog_message_1">Controleer dat je geen persoonlijke gegevens hebt ingevoerd.</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-editors zullen de wijzigingen controleren en contact met u opnemen als ze vragen hebben.</string>
     <string name="navigation_stop_button">Stop</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Spoor opnemen</string>
@@ -555,8 +555,8 @@
     <string name="routing_add_start_point">Gebruik zoeken of tik op de kaart om een startpunt voor de route toe te voegen</string>
     <!-- User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". -->
     <string name="routing_add_finish_point">Gebruik Zoeken of tik op de kaart om een bestemmingspunt toe te voegen</string>
-    <string name="planning_route_manage_route">Beheer route</string>
-    <string name="button_plan">Plan</string>
+    <string name="planning_route_manage_route">Route beheren</string>
+    <string name="button_plan">Plannen</string>
     <string name="placepage_remove_stop">Verwijder tussenstop</string>
     <string name="placepage_add_stop">Voeg tussenstop toe</string>
     <string name="dialog_error_storage_title">Probleem met opslagtoegang</string>
@@ -871,4 +871,39 @@
     <string name="hours_confirmed_time_ago">Bevestigd %s</string>
     <string name="pref_tts_no_system_tts_short">Geen tekst-naar-spraak processor gevonden, controleer de app-instellingen</string>
     <string name="offline_explanation_title">Offline kaarten</string>
+    <string name="offline_explanation_text">Er moet een kaart worden gedownload om het gebied te kunnen bekijken en navigeren.\nDownload kaarten voor gebieden waar u wilt reizen.</string>
+    <string name="editor_place_doesnt_exist_description">Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community</string>
+    <string name="avoid_steps">Trappen vermijden</string>
+    <string name="avoid_paved">Verharde wegen vermijden</string>
+    <string name="charge_socket_type2">Type 2 (geen kabel)</string>
+    <string name="charge_socket_type2_cable">Type 2 (met kabel)</string>
+    <string name="charge_socket_type2_combo">Type 2 combinatie</string>
+    <string name="charge_socket_type1">Type 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="unknown_power_output">onbekend</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="unknown_socket_type">onbekende stekker</string>
+    <string name="unknow_socket_type">onbekende stekker</string>
+    <string name="unknown_count">onbekend</string>
+    <string name="error_invalid_number">ongeldig aantal</string>
+    <string name="edit_socket_info_tooltip">Maak nieuwe stekkers aan of bewerk bestaande.</string>
+    <string name="charging_station_available_sockets">Beschikbare stekkers</string>
+    <string name="charge_socket_unknown_other">Andere of onbekend</string>
+    <string name="charge_socket_count">Aantal</string>
+    <string name="charge_socket_power">Vermogen (kW)</string>
+    <string name="editor_socket">Stekker bewerken</string>
+    <string name="error_value_must_be_positive">De waarde moet positief zijn</string>
+    <string name="list_description_empty">Bewerk de lijst om een beschrijving toe te voegen</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min.</item>
+        <item quantity="other">%d min.</item>
+    </plurals>
+    <string name="opens_at">Opent om %s</string>
+    <string name="closes_at">Sluit om %s</string>
+    <string name="opens_day_at">Opent op %1$s om %2$s</string>
+    <string name="closes_day_at">Sluit op %1$s om %2$s</string>
+    <string name="editor_submit">Indienen</string>
+    <string name="editor_business_vacant_button">Bedrijfsruimte is leeg</string>
+    <string name="editor_mark_business_vacant_title">Bedrijfsruimte leeg markeren</string>
+    <string name="editor_mark_business_vacant_description">Gebruik dit als het bedrijf is verhuisd en de ruimte leeg is en klaar is voor een nieuwe huurder.</string>
 </resources>

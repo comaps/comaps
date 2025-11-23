@@ -250,7 +250,7 @@
 "type.craft.carpenter" = "Snekker";
 "type.craft.confectionery" = "Konditori";
 "type.craft.electrician" = "Elektriker";
-"type.craft.electronics_repair" = "Elektronikk reparasjon";
+"type.craft.electronics_repair" = "Elektronikkreparasjon";
 "type.craft.gardener" = "Anleggsgartner";
 "type.craft.grinding_mill" = "Slipemølle";
 "type.craft.handicraft" = "Kunsthåndverk";
@@ -371,7 +371,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Hovedinngang";
-"type.entrance.exit" = "Utgang";
+"type.entrance.exit" = "Utgang (bare)";
 "type.fee.yes" = "$";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Medisinsk laboratorium";
@@ -662,7 +662,7 @@
 "type.landuse.religious" = "Religiøst område";
 "type.landuse.commercial" = "Næringsområde";
 "type.landuse.construction" = "Byggeplass";
-"type.landuse.education" = "Educational Facility";
+"type.landuse.education" = "Utdanningsinstitusjon";
 "type.landuse.farmland" = "Jordbruksområde";
 "type.landuse.farmyard" = "Bondegård";
 "type.landuse.field" = "Field";
@@ -760,7 +760,7 @@
 "type.man_made.water_well.drinking_water_no" = "Brønn";
 "type.man_made.windmill" = "Vindmølle";
 "type.man_made.works" = "Industrial Works";
-"type.military" = "Military";
+"type.military" = "Militært";
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Fjellpass";
 "type.natural" = "Natur";
@@ -892,12 +892,12 @@
 "type.railway.abandoned" = "Nedlagt jernbane";
 "type.railway.abandoned.bridge" = "Nedlagt jernbanebru";
 "type.railway.abandoned.tunnel" = "Nedlagt jernbanetunnel";
-"type.railway.construction" = "Railway Construction";
+"type.railway.construction" = "Jernbanebygging";
 "type.railway.crossing" = "Jernbaneovergang";
 "type.railway.disused" = "Ubenyttet jernbane";
 "type.railway.funicular" = "Kabelbane";
-"type.railway.funicular.bridge" = "Funicular Bridge";
-"type.railway.funicular.tunnel" = "Funicular Tunnel";
+"type.railway.funicular.bridge" = "Kabelbanebru";
+"type.railway.funicular.tunnel" = "Kabelbanetunnel";
 "type.railway.halt" = "Togstasjon";
 "type.railway.level_crossing" = "Planovergang";
 "type.railway.light_rail" = "Light Rail";
@@ -1198,7 +1198,7 @@
 "type.shop.books" = "Bokhandel";
 "type.shop.butcher" = "Slakter";
 "type.shop.cannabis" = "Cannabisbutikk";
-"type.shop.car" = "Bil butikk";
+"type.shop.car" = "Bilforhandler";
 "type.shop.car_parts" = "Bildeler";
 "type.shop.car_repair" = "Bilverksted";
 "type.shop.car_repair.tyres" = "Dekkreparasjon";
@@ -1218,7 +1218,7 @@
 "type.shop.department_store" = "Varehus";
 "type.shop.doityourself" = "Jernvareforretning";
 "type.shop.dry_cleaning" = "Renseri";
-"type.shop.electronics" = "Elektronikk forhandler";
+"type.shop.electronics" = "Elektronikkbutikk";
 "type.shop.erotic" = "Erotisk butikk";
 "type.shop.fabric" = "Butikk";
 "type.shop.farm" = "Gårdsmatbutikk";
@@ -1292,7 +1292,7 @@
 "type.shop.cheese" = "Ostebutikk";
 "type.shop.craft" = "Kunst og Håndverk";
 "type.shop.dairy" = "Meieriprodukter";
-"type.shop.electrical" = "Elektronisk butikk";
+"type.shop.electrical" = "Elektroforretning";
 "type.shop.fishing" = "Fiskeutstyrsbutikk";
 "type.shop.interior_decoration" = "Interiørdekorasjoner";
 "type.shop.lottery" = "Lotteribilletter";
@@ -1467,7 +1467,7 @@
 "type.sport.diving" = "High Diving";
 "type.highway.ladder" = "Stige";
 "type.natural.wetland.swamp" = "Sumpskog";
-"type.man_made.crane" = "Crane";
+"type.man_made.crane" = "Kran";
 "type.natural.wetland.saltmarsh" = "Salt Marsh";
 "type.natural.wetland.mangrove" = "Mangrove";
 "type.barrier.guard_rail" = "Autovern";
@@ -1482,7 +1482,7 @@
 "type.amenity.luggage_locker" = "Bagasjeoppbevaring";
 "type.amenity.ranger_station" = "Ranger Station";
 "type.amenity.bicycle_parking.covered" = "Overbygd sykkelparkering";
-"type.post_office.post_partner" = "Post Partner";
+"type.post_office.post_partner" = "Post i butikk";
 "type.barrier.wicket_gate" = "Wicket gate";
 "type.amenity.animal_shelter" = "Dyrehjem";
 "type.office.security" = "Security Guards Office";
@@ -1525,3 +1525,22 @@
 "type.shop.lighting" = "Lampebutikk";
 "type.leisure.sports_centre.sport.swimming" = "Svømmesenter";
 "type.amenity.bench.backless" = "Benk uten rygg";
+"type.man_made.telescope.radio" = "Teleskop (Radio)";
+"type.social_facility.food_bank" = "Matsentral";
+"type.social_facility.soup_kitchen" = "Suppekjøkken";
+"type.man_made.telescope" = "Teleskop";
+"type.man_made.telescope.gamma" = "Teleskop (Gamma)";
+"type.amenity.car_pooling" = "Samkjøring";
+"type.man_made.observatory" = "Observatorium";
+"type.shop.telecommunication" = "Telekommunikasjonsbutikk";
+"type.amenity.boat_rental" = "Båtutleie";
+"type.emergency.life_ring" = "Livbøye";
+"type.natural.sand" = "Sand";
+"type.natural.tree" = "Tre";
+"type.cardinal.south" = "Sør";
+"type.cardinal.north" = "Nord";
+"type.cardinal.east" = "Øst";
+"type.cardinal.west" = "Vest";
+"type.xmas.tree" = "Juletre";
+"type.entrance.emergency" = "Nødutgang";
+"type.entrance.entry" = "Inngang (bare)";

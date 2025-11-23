@@ -16,6 +16,7 @@ enum class JournalEntryType
   TagModification,
   ObjectCreated,
   LegacyObject,  // object without full journal history, used for transition to new editor
+  BusinessReplacement,
   // Possible future values: ObjectDeleted, ObjectDisused, ObjectNotDisused, LocationChanged, FeatureTypeChanged
 };
 
@@ -38,11 +39,17 @@ struct LegacyObjData
   std::string version;
 };
 
+struct BusinessReplacementData
+{
+  uint32_t old_type;
+  uint32_t new_type;
+};
+
 struct JournalEntry
 {
   JournalEntryType journalEntryType = JournalEntryType::TagModification;
   time_t timestamp;
-  std::variant<TagModData, ObjCreateData, LegacyObjData> data;
+  std::variant<TagModData, ObjCreateData, LegacyObjData, BusinessReplacementData> data;
 };
 
 /// Used to determine whether existing OSM object should be updated or new one created
@@ -68,6 +75,9 @@ public:
 
   /// Log object creation in the journal
   void MarkAsCreated(uint32_t type, feature::GeomType geomType, m2::PointD mercator);
+
+  /// Log business replacement in the journal
+  void AddBusinessReplacement(uint32_t old_type, uint32_t new_type);
 
   void AddJournalEntry(JournalEntry entry);
 

@@ -41,6 +41,8 @@
 #include <exception>
 #include <iostream>
 
+#include <boost/regex.hpp>
+
 #include "defines.hpp"
 
 #include <gflags/gflags.h>
@@ -112,7 +114,8 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
     // Find directory with *.mwm. Directory FLAGS_maps_build_path must contain directory with *.mwm,
     // whose name must consist of six digits.
     Platform::FilesList files;
-    pl.GetFilesByRegExp(FLAGS_maps_build_path, "[0-9]{6}", files);
+    static boost::regex const regexp("[0-9]{6}");
+    pl.GetFilesByRegExp(FLAGS_maps_build_path, regexp, files);
     CHECK_EQUAL(files.size(), 1, ());
     auto const mwmPath = base::JoinPath(FLAGS_maps_build_path, files[0]);
     finalProcessor->UseCentersEnricher(mwmPath, osm2FtPath);

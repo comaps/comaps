@@ -2,8 +2,9 @@
 
 #include "coding/url.hpp"
 
-#include <regex>
 #include <string>
+
+#include <boost/regex.hpp>
 
 namespace geo
 {
@@ -34,8 +35,8 @@ public:
   bool Parse(url::Url const & url, GeoURLInfo & info) const;
 
 private:
-  std::regex m_pathRe;
-  std::regex m_paramRe;
+  boost::regex m_pathRe;
+  boost::regex m_paramRe;
 };
 
 class OpenStreetMapParser
@@ -45,7 +46,7 @@ public:
   bool Parse(url::Url const & url, GeoURLInfo & info) const;
 
 private:
-  std::regex m_regex;
+  boost::regex m_regex;
 };
 
 class LatLonParser
@@ -73,7 +74,7 @@ private:
 
   GeoURLInfo * m_info;
   bool m_swapLatLon;
-  std::regex m_regexp;
+  boost::regex m_regexp;
   int m_latPriority;
   int m_lonPriority;
 };
@@ -85,8 +86,8 @@ public:
   bool Parse(std::string const & url, GeoURLInfo & info) const;
 
 private:
-  std::regex m_latlonRe;
-  std::regex m_zoomRe;
+  boost::regex m_latlonRe;
+  boost::regex m_zoomRe;
 };
 
 class UnifiedParser

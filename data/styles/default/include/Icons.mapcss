@@ -5,7 +5,7 @@
  3.2 Road Icons
  3.3 Tram Station
  3.4 Bus Station
- 3.5 Ferry terminal
+ 3.5 Ferry terminal & seamarks
  3.6 Airport
  3.7 Aerialway
 4.TOURISM
@@ -206,6 +206,12 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
+node|z18-[natural=tree],
+{icon-image: tree-m.svg;}
+
+node|z18-[xmas:feature=tree],
+{icon-image: christmas-tree-m.svg;}
+
 /* 3. TRANSPORT */
 
 node|z12-[railway=station],
@@ -323,14 +329,16 @@ node|z19-[amenity=bus_station],
 node|z19-[amenity=bus_station]::int_name,
 {text-offset: 1;font-size: 10;}
 
+node|z15[highway=bus_stop],
+{icon-image: bus-xvs.svg;icon-min-distance: 1;}
 node|z16[highway=bus_stop],
-{icon-image: bus-m.svg;}
+{icon-image: bus-xs.svg;icon-min-distance: 1;}
 node|z17-[highway=bus_stop],
-{icon-image: bus-m.svg;text-offset: 1;font-size: 11;}
+{icon-image: bus-xm.svg;text-offset: 1;font-size: 11;}
 node|z18-19[highway=bus_stop]::int_name,
-{icon-image: bus-m.svg;text-offset: 1;font-size: 9;}
+{icon-image: bus-xm.svg;text-offset: 1;font-size: 9;}
 
-/* 3.5 Ferry terminal */
+/* 3.5 Ferry terminal & seamarks */
 
 node|z11-12[amenity=ferry_terminal]
 {icon-image: ship-s.svg;icon-min-distance: 12;}
@@ -342,6 +350,167 @@ node|z16[amenity=ferry_terminal]
 {icon-image: ship-m.svg;text-offset: 1;font-size: 11;text-halo-opacity: 0.8;}
 node|z17-[amenity=ferry_terminal]
 {icon-image: ship-m.svg;text-offset: 1;font-size: 12;}
+
+node|z16[seamark:type=buoy_lateral][seamark:buoy_lateral:category=port],
+{icon-image: buoy-lateral-port-s.svg;}
+node|z16[seamark:type=buoy_lateral][seamark:buoy_lateral:category=starboard],
+{icon-image: buoy-lateral-starboard-s.svg;}
+node|z16[seamark:type=buoy_isolated_danger],
+{icon-image: buoy-isolated_danger-s.svg;}
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=east],
+{icon-image: buoy-cardinal-east-s.svg;}
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=west],
+{icon-image: buoy-cardinal-west-s.svg;}
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south],
+{icon-image: buoy-cardinal-south-s.svg;}
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=north],
+{icon-image: buoy-cardinal-north-s.svg;}
+node|z16[seamark:type=buoy_special_purpose],
+{icon-image: buoy-special_purpose-s.svg;}
+node|z16[seamark:type=buoy_safe_water],
+{icon-image: buoy-safe_water-s.svg;}
+
+node|z17-[seamark:type=buoy_lateral][seamark:buoy_lateral:category=port],
+{icon-image: buoy-lateral-port-m.svg;}
+node|z17-[seamark:type=buoy_lateral][seamark:buoy_lateral:category=starboard],
+{icon-image: buoy-lateral-starboard-m.svg;}
+node|z17-[seamark:type=buoy_isolated_danger],
+{icon-image: buoy-isolated_danger-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=east],
+{icon-image: buoy-cardinal-east-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=west],
+{icon-image: buoy-cardinal-west-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south],
+{icon-image: buoy-cardinal-south-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=north],
+{icon-image: buoy-cardinal-north-m.svg;}
+node|z17-[seamark:type=buoy_special_purpose],
+{icon-image: buoy-special_purpose-m.svg;}
+node|z17-[seamark:type=buoy_safe_water],
+{icon-image: buoy-safe_water-m.svg;}
+
+node|z16[seamark:type=buoy_lateral][seamark:buoy_lateral:category=port][seamark:buoy_lateral:shape=spherical],
+node|z16[seamark:type=buoy_lateral][seamark:buoy_lateral:category=starboard][seamark:buoy_lateral:shape=spherical],
+node|z16[seamark:type=buoy_isolated_danger][seamark:buoy_isolated_danger:shape=spherical],
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=east][seamark:buoy_cardinal:shape=spherical],
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=west][seamark:buoy_cardinal:shape=spherical],
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south][seamark:buoy_cardinal:shape=spherical],
+node|z16[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=north][seamark:buoy_cardinal:shape=spherical],
+node|z16[seamark:type=buoy_special_purpose][seamark:buoy_special_purpose:shape=spherical],
+node|z16[seamark:type=buoy_safe_water][seamark:buoy_safe_water:shape=spherical],
+{icon-image: none;}
+
+node|z17-[seamark:type=buoy_lateral][seamark:buoy_lateral:category=port][seamark:buoy_lateral:shape=spherical],
+{icon-image: buoy-spherical-lateral-port-m.svg;}
+node|z17-[seamark:type=buoy_lateral][seamark:buoy_lateral:category=starboard][seamark:buoy_lateral:shape=spherical],
+{icon-image: buoy-spherical-lateral-starboard-m.svg;}
+node|z17-[seamark:type=buoy_isolated_danger][seamark:buoy_isolated_danger:shape=spherical],
+{icon-image: buoy-spherical-isolated_danger-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=east][seamark:buoy_cardinal:shape=spherical],
+{icon-image: buoy-spherical-cardinal-east-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=west][seamark:buoy_cardinal:shape=spherical],
+{icon-image: buoy-spherical-cardinal-west-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical],
+{icon-image: buoy-spherical-cardinal-south-m.svg;}
+node|z17-[seamark:type=buoy_cardinal][seamark:buoy_cardinal:category=north][seamark:buoy_cardinal:shape=spherical],
+{icon-image: buoy-spherical-cardinal-north-m.svg;}
+node|z17-[seamark:type=buoy_special_purpose][seamark:buoy_special_purpose:shape=spherical],
+{icon-image: buoy-spherical-special_purpose-m.svg;}
+node|z17-[seamark:type=buoy_safe_water][seamark:buoy_safe_water:shape=spherical],
+{icon-image: buoy-spherical-safe_water-m.svg;}
+
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=tower],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=lattice],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=pile],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=buoyant],
+{icon-image: beacon-lateral-port-s.svg;}
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=tower],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=lattice],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=pile],
+node|z16[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=buoyant],
+{icon-image: beacon-lateral-starboard-s.svg;}
+node|z16[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=tower],
+node|z16[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=lattice],
+node|z16[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=pile],
+node|z16[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=buoyant],
+{icon-image: beacon-isolated_danger-s.svg;}
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=tower],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=lattice],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=pile],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-east-s.svg;}
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=tower],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=lattice],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=pile],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-west-s.svg;}
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=tower],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=lattice],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=pile],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-south-s.svg;}
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=tower],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=lattice],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=pile],
+node|z16[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-north-s.svg;}
+node|z16[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=tower],
+node|z16[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=lattice],
+node|z16[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=pile],
+node|z16[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=buoyant],
+{icon-image: beacon-special_purpose-s.svg;}
+node|z16[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=tower],
+node|z16[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=lattice],
+node|z16[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=pile],
+node|z16[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=buoyant],
+{icon-image: beacon-safe_water-s.svg;}
+
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=tower],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=lattice],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=pile],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=buoyant],
+{icon-image: beacon-lateral-port-m.svg;}
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=tower],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=lattice],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=pile],
+node|z17-[seamark:type=beacon_lateral][seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=buoyant],
+{icon-image: beacon-lateral-starboard-m.svg;}
+node|z17-[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=tower],
+node|z17-[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=lattice],
+node|z17-[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=pile],
+node|z17-[seamark:type=beacon_isolated_danger][seamark:beacon_isolated_danger:shape=buoyant],
+{icon-image: beacon-isolated_danger-m.svg;}
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=tower],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=lattice],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=pile],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=east][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-east-m.svg;}
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=tower],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=lattice],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=pile],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=west][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-west-m.svg;}
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=tower],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=lattice],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=pile],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=south][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-south-m.svg;}
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=tower],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=lattice],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=pile],
+node|z17-[seamark:type=beacon_cardinal][seamark:beacon_cardinal:category=north][seamark:beacon_cardinal:shape=buoyant],
+{icon-image: beacon-cardinal-north-m.svg;}
+node|z17-[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=tower],
+node|z17-[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=lattice],
+node|z17-[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=pile],
+node|z17-[seamark:type=beacon_special_purpose][seamark:beacon_special_purpose:shape=buoyant],
+{icon-image: beacon-special_purpose-m.svg;}
+node|z17-[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=tower],
+node|z17-[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=lattice],
+node|z17-[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=pile],
+node|z17-[seamark:type=beacon_safe_water][seamark:beacon_safe_water:shape=buoyant],
+{icon-image: beacon-safe_water-m.svg;}
+
 
 /* 3.6 Airport */
 
@@ -788,7 +957,6 @@ node|z16-[amenity=biergarten],
 /* 5.AMENITY (infrastructure) */
 
 node|z13-[leisure=stadium],
-node|z14-[barrier=toll_booth],
 node|z14-[amenity=university],
 node|z14-[amenity=place_of_worship],
 node|z14-[man_made=lighthouse],
@@ -812,6 +980,7 @@ node|z16-[barrier=kissing_gate],
 node|z16-[barrier=lift_gate],
 node|z16-[barrier=swing_gate],
 node|z16-[barrier=stile],
+node|z16-[barrier=toll_booth],
 node|z16-[barrier=turnstile],
 node|z17-[barrier=wicket_gate],
 node|z16-[barrier=cycle_barrier],
@@ -844,9 +1013,12 @@ node|z17-[amenity=casino],
 node|z17-[amenity=gambling],
 node|z17-[leisure=adult_gaming_centre],
 node|z17-[leisure=amusement_arcade],
+node|z17-[leisure=indoor_play],
 node|z17-[amenity=courthouse],
 node|z17-[amenity=nursing_home],
 node|z17-[amenity=social_facility],
+node|z17-[social_facility=food_bank],
+node|z17-[social_facility=soup_kitchen],
 node|z17-[amenity=animal_shelter],
 node|z17-[amenity=kindergarten],
 node|z17-[amenity=childcare],
@@ -854,6 +1026,9 @@ node|z16-[amenity=school],
 node|z17-[amenity=driving_school],
 node|z17-[amenity=language_school],
 node|z17-[amenity=music_school],
+node|z17-[amenity=sailing_school],
+node|z17-[amenity=flight_school],
+node|z17-[amenity=prep_school],
 node|z17-[amenity=cinema],
 node|z17-[amenity=ice_cream],
 node|z17-[leisure=bowling_alley],
@@ -865,9 +1040,11 @@ node|z17-[amenity=vending_machine][vending=parking_tickets],
 node|z17-[amenity=vending_machine][vending=public_transport_tickets],
 node|z17-[amenity=payment_terminal],
 node|z17-[amenity=shower],
+node|z17-[amenity=slipway],
 node|z17-[amenity=motorcycle_rental],
 node|z17-[amenity=bicycle_rental],
 node|z17-[amenity=bicycle_repair_station],
+node|z17-[amenity=boat_rental],
 node|z17-[amenity=post_office],
 node|z17-[amenity=library],
 node|z18-[post_office=post_partner],
@@ -912,15 +1089,26 @@ node|z15-[leisure=sports_centre][sport=swimming],
 node|z17-[highway=ladder],
 node|z18-[amenity=dojo],
 node|z18-[amenity=vending_machine],
+node|z18-[amenity=food_sharing],
+node|z18-[amenity=give_box],
+node|z18-[man_made=telescope],
+node|z17-[man_made=telescope][telescope:type=optical],
+node|z17-[man_made=telescope][telescope:type=radio],
+node|z17-[man_made=telescope][telescope:type=gamma],
+node|z16-[man_made=observatory],
 node|z17-[amenity=fire_station],
 node|z18-[amenity=internet_cafe],
 node|z18-[emergency=defibrillator],
+node|z18-[emergency=access_point],
 node|z18-[emergency=assembly_point],
+node|z19-[emergency=life_ring],
 node|z18-[emergency=lifeguard],
 node|z18-[amenity=toilets],
 node|z18-[amenity=atm],
 node|z18-[amenity=bureau_de_change],
 node|z18-[amenity=money_transfer],
+node|z18-[amenity=mobile_money_agent],
+node|z18-[amenity=payment_centre],
 node|z18-[amenity=waste_disposal],
 node|z18-[amenity=recycling],
 node|z16-[amenity=recycling][recycling_type=centre],
@@ -1073,6 +1261,12 @@ node|z17-[amenity=driving_school],
 {icon-image: driving_school-m.svg;}
 node|z17-[amenity=language_school],
 {icon-image: language_school-m.svg;}
+node|z17-[amenity=sailing_school],
+{icon-image: boating_school-m.svg;}
+node|z17-[amenity=flight_school],
+{icon-image: flying_school-m.svg;}
+node|z17-[amenity=prep_school],
+{icon-image: prep_school-m.svg;}
 node|z17-[leisure=hackerspace],
 {icon-image: hackerspace-m.svg;}
 node|z17-[leisure=escape_game]
@@ -1327,9 +1521,7 @@ node|z13-14[man_made=lighthouse],
 node|z15-[man_made=lighthouse],
 {icon-image: lighthouse-m.svg;}
 
-node|z12-14[barrier=toll_booth],
-{icon-image: toll_booth-s.svg;}
-node|z15-[barrier=toll_booth],
+node|z16-[barrier=toll_booth],
 {icon-image: toll_booth-m.svg;}
 
 node|z14[barrier=border_control],
@@ -1347,7 +1539,7 @@ node|z17-[barrier=wicket_gate],
 {icon-image: dot-m.svg;font-size: 11;}
 
 node|z16-[barrier=entrance],
-{icon-image: entrance-barrier-s.svg; font-size: 11;}
+{icon-image: entrance-barrier-xs.svg; font-size: 11;}
 
 node|z17-[highway=ladder],
 {icon-image: ladder-m.svg;font-size: 11;}
@@ -1387,7 +1579,7 @@ node|z17-[man_made=petroleum_well],
 {icon-image: pole-m.svg;}
 
 node|z16-[amenity=taxi],
-{icon-image: taxi-m.svg;icon-min-distance: 30;}
+{icon-image: taxi-xm.svg;icon-min-distance: 30;}
 node|z17-[amenity=taxi],
 {icon-min-distance: 20;}
 
@@ -1419,6 +1611,9 @@ node|z17-[leisure=amusement_arcade],
 node|z18-[shop=lottery],
 {icon-image: lottery-m.svg;}
 
+node|z17-[leisure=indoor_play],
+{icon-image: indoor_play-m.svg;icon-min-distance: 20;}
+
 node|z17-[amenity=courthouse],
 {icon-image: public-building-m.svg;}
 
@@ -1427,6 +1622,12 @@ node|z17-[amenity=nursing_home],
 
 node|z17-[amenity=social_facility],
 {icon-image: social_facility-m.svg;}
+
+node|z17-[social_facility=soup_kitchen],
+{icon-image: soup_kitchen-m.svg;}
+
+node|z17-[social_facility=food_bank],
+{icon-image: food_bank-m.svg;}
 
 node|z17-[amenity=cinema],
 {icon-image: cinema-m.svg;}
@@ -1452,6 +1653,9 @@ node|z16-17[building=guardhouse],
 node|z16-[building=guardhouse]::int_name,
 {text: none;}
 
+node|z17-[building=train_station],
+{icon-image: train_building-m.svg; font-size: 11; text-offset: 1;}
+
 node|z17-[amenity=prison],
 {icon-image: prison-m.svg;}
 node|z18-[amenity=prison],
@@ -1470,8 +1674,13 @@ node|z17-[amenity=motorcycle_rental],
 node|z18-[amenity=motorcycle_rental],
 {font-size: 11;}
 
+node|z17-[amenity=boat_rental],
+{icon-image: boat_rental-m.svg;}
+node|z18-[amenity=boat_rental],
+{font-size: 11;}
+
 node|z17-[amenity=bicycle_rental],
-{icon-image: bicycle-rental.svg;}
+{icon-image: bicycle-rental-xm.svg;}
 node|z18-[amenity=bicycle_rental],
 {font-size: 11;}
 
@@ -1494,8 +1703,14 @@ node|z19-[emergency=fire_hydrant],
 node|z18-[emergency=defibrillator],
 {icon-image: defibrillator-m.svg;font-size: 11;}
 
+node|z18-[emergency=access_point],
+{icon-image: access_point-m.svg;font-size: 11;}
+
 node|z18-[emergency=assembly_point],
 {icon-image: assembly_point-m.svg;font-size: 11;}
+
+node|z19-[emergency=life_ring],
+{icon-image: lifebuoy-m.svg; font-size: 11;}
 
 node|z17-[emergency=lifeguard],
 {icon-image: lifeguard-m.svg; font-size: 11;}
@@ -1511,15 +1726,14 @@ node|z17-[amenity=telephone]
 {icon-image: phone-m.svg;}
 
 node|z17-[emergency=phone]
-{icon-image: emergency-phone-m.svg;}
-
-
-node|z16-[amenity=recycling][recycling_type=centre],
-{icon-image: recycling-centre-m.svg;}
+{icon-image: emergency-phone-m.svg; text-offset: 1;}
 
 node|z17-[amenity=recycling],
 node|z17-[amenity=waste_transfer_station],
 {icon-image: recycling-m.svg;}
+
+node|z16-[amenity=recycling][recycling_type=centre],
+{icon-image: recycling-centre-m.svg;}
 
 node|z17-[power=plant],
 /* Skip individual solar generators, because there are a lot of mapped panels */
@@ -1537,6 +1751,9 @@ node|z15-[power=plant][plant:source=wind],
 {icon-image: power_plant_wind-m.svg;}
 node|z16-[power=plant][plant:source=wind],
 {text: name;text-color: @neutral_label;text-halo-radius: 1;text-halo-opacity: 0.9;text-halo-color: @label_halo_light; text-offset: 1; font-size: 10;}
+
+node|z17-[leisure=slipway],
+{icon-image: slipway-m.svg;}
 
 node|z17-[amenity=shower],
 {icon-image: shower-m.svg;}
@@ -1557,11 +1774,30 @@ node|z17-[amenity=parcel_locker],
 node|z18-[amenity=vending_machine][vending=fuel],
 {icon-image: fuel-dispenser-m.svg;}
 
+node|z18-[amenity=food_sharing],
+{icon-image: food_sharing-m.svg;}
+node|z18-[amenity=give_box],
+{icon-image: give_box-m.svg;}
+
+node|z18-[man_made=telescope],
+{icon-image: telescope-m.svg;}
+node|z17-[man_made=telescope][telescope:type=optical],
+{icon-image: telescope-optical-m.svg;}
+node|z17-[man_made=telescope][telescope:type=radio],
+{icon-image: telescope-radio-m.svg;}
+node|z17-[man_made=telescope][telescope:type=gamma],
+{icon-image: telescope-gamma-m.svg;}
+
+node|z16-[man_made=observatory],
+{icon-image: observatory-m.svg;}
+
 node|z17-[aeroway=gate],
 {icon-image: airport_gate-m.svg;font-size: 11;}
 
 node|z17-[amenity=bureau_de_change],
 node|z17-[amenity=money_transfer],
+node|z17-[amenity=mobile_money_agent],
+node|z17-[amenity=payment_centre],
 {icon-image: banknote-m.svg;font-size: 11;}
 
 node|z16-[amenity=fire_station],
@@ -1708,6 +1944,7 @@ node|z16-[shop=laundry],
 node|z16-[shop=lighting],
 node|z16-[shop=dry_cleaning],
 node|z16-[shop=mobile_phone],
+node|z16-[shop=telecommunication],
 node|z16-[shop=optician],
 node|z16-[shop=outdoor],
 node|z16-[shop=rental],
@@ -1874,6 +2111,7 @@ node|z16[shop=laundry],
 node|z16[shop=dry_cleaning],
 {icon-image:dry_cleaning-m.svg;}
 node|z16[shop=mobile_phone],
+node|z16[shop=telecommunication],
 {icon-image: mobile_phone-m.svg;}
 node|z16[shop=optician],
 {icon-image: optician-m.svg;}
@@ -1921,6 +2159,8 @@ node|z17-[shop=pastry],
 {icon-image: bakery-m.svg;icon-min-distance: 24;}
 node|z17-[shop=beauty],
 {icon-image: beauty-m.svg;icon-min-distance: 24;}
+node|z17-[shop=beauty][beauty=nails],
+{icon-image: nails-m.svg;icon-min-distance: 24;}
 node|z17-[shop=cosmetics],
 {icon-image: beauty-m.svg;icon-min-distance: 24;}
 node|z17-[shop=beverages],
@@ -2020,6 +2260,7 @@ node|z17-[shop=laundry],
 node|z17-[shop=dry_cleaning],
 {icon-image:dry_cleaning-m.svg;icon-min-distance: 24;}
 node|z17-[shop=mobile_phone],
+node|z17-[shop=telecommunication],
 {icon-image: mobile_phone-m.svg;icon-min-distance: 24;}
 node|z17-[shop=optician],
 {icon-image: optician-m.svg;icon-min-distance: 24;}
@@ -2043,6 +2284,8 @@ node|z17-[shop=variety_store],
 {icon-image: shop-m.svg;}
 node|z17-[shop=massage],
 {icon-image: massage_salon-m.svg;icon-min-distance: 24;}
+node|z17-[shop=beauty][beauty=spa],
+{icon-image: day-spa-m.svg;icon-min-distance: 24;}
 node|z17-[shop=money_lender],
 {icon-image: bank-m.svg;icon-min-distance: 24;}
 node|z17-[shop=pawnbroker],
@@ -2133,6 +2376,7 @@ node|z17-[amenity=bicycle_parking],
 node|z17-[amenity=motorcycle_parking],
 node|z17-[amenity=car_wash],
 node|z18-[amenity=parking],
+node|z18-[amenity=car_pooling],
 node|z18-[amenity=car_rental],
 node|z18-[amenity=car_sharing],
 {text: name;text-color: @poi_label;text-offset: 1;font-size: 10;}
@@ -2206,6 +2450,11 @@ node|z16-[amenity=parking],
 {icon-image: parking-s.svg;icon-min-distance: 5;}
 node|z17-[amenity=parking],
 {icon-image: parking-m.svg;font-size: 11;icon-min-distance: 10}
+
+node|z16-[amenity=car_pooling],
+{icon-image: parking-pooling-s.svg;icon-min-distance: 5;}
+node|z17-[amenity=car_pooling],
+{icon-image: parking-pooling-m.svg;font-size: 11;icon-min-distance: 10}
 
 node|z16-[amenity=parking][location=underground],
 {icon-image:parking_underground-m.svg;}

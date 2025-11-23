@@ -453,7 +453,7 @@
     <string name="type.landuse.landfill">دفن گاه زباله</string>
     <string name="type.landuse.railway">محدوده راه آهن</string>
     <string name="type.landuse.reservoir">اب</string>
-    <string name="type.leisure.dog_park">محدوده مخصوص سگ</string>
+    <string name="type.leisure.dog_park">بوستان سگ</string>
     <string name="type.leisure.fitness_centre">باشگاه بدنسازی</string>
     <string name="type.leisure.fitness_station">پارک سلامت</string>
     <string name="type.leisure.dance">ﺺﻗﺭ ﻦﻟﺎﺳ</string>
@@ -462,37 +462,36 @@
     <string name="type.leisure.golf_course">زمین گلف</string>
     <string name="type.leisure.hackerspace">هکراسپیس</string>
     <string name="type.leisure.outdoor_seating">نشستن در فضای باز</string>
-    <string name="type.leisure.park">پارک</string>
-    <string name="type.leisure.park.no.access">پارک</string>
-    <string name="type.leisure.park.permissive">پارک</string>
-    <string name="type.leisure.park.private">پارک</string>
-    <string name="type.leisure.picnic_table">ﮏﯿﻨﮑﯿﭘ ﺰﯿﻣ</string>
+    <string name="type.leisure.park">بوستان</string>
+    <string name="type.leisure.park.no.access">بوستان خوشیک</string>
+    <string name="type.leisure.park.permissive">بوستان</string>
+    <string name="type.leisure.park.private">پارک خوشیک</string>
     <string name="type.leisure.pitch">زمین ورزشی</string>
     <string name="type.leisure.playground">زمین بازی</string>
     <string name="type.leisure.sauna">سونا</string>
-    <string name="type.leisure.sports_centre">مرکزورزشی</string>
+    <string name="type.leisure.sports_centre">کانون ورزشی</string>
     <string name="type.sport.climbing">مرکز صعود</string>
     <string name="type.sport.yoga">سالن یوگا</string>
     <string name="type.leisure.stadium">استادیوم</string>
-    <string name="type.leisure.swimming_pool">استخرشنا</string>
-    <string name="type.leisure.swimming_pool.private">استخرشنا</string>
-    <string name="type.leisure.water_park">گردشگری</string>
+    <string name="type.leisure.swimming_pool">استخرِ شنا</string>
+    <string name="type.leisure.swimming_pool.private">استخرِ شنا</string>
+    <string name="type.leisure.water_park">بوستان آبی</string>
     <string name="type.man_made.lighthouse">گردشگری</string>
-    <string name="type.man_made.surveillance">دوربین نظارتی</string>
-    <string name="type.man_made.tower">برج</string>
+    <string name="type.man_made.surveillance">دوربین پایشی</string>
+    <string name="type.man_made.tower">بُرگ</string>
     <!-- A huge telecommunications tower. Often a local monument or a landmark. -->
     <string name="type.man_made.communications_tower">برج ارتباطات</string>
     <!-- A regular telecommunications tower / mast. -->
-    <string name="type.man_made.tower.communication">برج ارتباطات</string>
+    <string name="type.man_made.tower.communication">بُرگ ارتباطات</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
     <string name="type.man_made.petroleum_well">چاه نفت یا گاز</string>
     <!-- A tower/mast constructed to burn off excess gas. -->
     <string name="type.man_made.flare">مشعل گاز</string>
-    <string name="type.man_made.water_tap">شیراب</string>
-    <string name="type.man_made.water_tap.drinking_water_no">شیراب</string>
+    <string name="type.man_made.water_tap">شیر آب</string>
+    <string name="type.man_made.water_tap.drinking_water_no">شیر آب</string>
     <string name="type.man_made.water_tower">منبع اب</string>
-    <string name="type.man_made.water_well">چاه اب</string>
-    <string name="type.man_made.water_well.drinking_water_no">چاه اب</string>
+    <string name="type.man_made.water_well">چاه آب</string>
+    <string name="type.man_made.water_well.drinking_water_no">چاه آب</string>
     <string name="type.man_made.windmill">توربین بادی</string>
     <string name="type.military.bunker">پناهگاه</string>
     <string name="type.natural">طبیعت</string>
@@ -507,7 +506,7 @@
     <string name="type.natural.beach.sand">ساحل شنی</string>
     <string name="type.natural.beach.gravel">ساحل شن</string>
     <string name="type.natural.cape">دماغه</string>
-    <string name="type.natural.cave_entrance">غار</string>
+    <string name="type.natural.cave_entrance">دروازه گال</string>
     <string name="type.natural.cliff">پرتگاه</string>
     <string name="type.natural.earth_bank">صخره</string>
     <string name="type.man_made.embankment">خاک‌ریز</string>
@@ -1116,4 +1115,9 @@
     <string name="type.wheelchair">رواگ‌صندلی</string>
     <string name="type.amenity.bench.backless">صندلی بی پشتی</string>
     <string name="type.amenity.car_sharing">انبازیدن خودرو</string>
+    <string name="type.leisure.common">زمین اَمَرکانیگ</string>
+    <string name="type.leisure.sports_centre.sport.multi">کانون ورزشی</string>
+    <string name="type.leisure.sports_centre.sport.american_football">کانون ورزشی</string>
+    <string name="type.leisure.sports_centre.sport.archery">کانون ورزشی</string>
+    <string name="type.leisure.sports_centre.sport.yoga">کانون ورزشی</string>
 </resources>

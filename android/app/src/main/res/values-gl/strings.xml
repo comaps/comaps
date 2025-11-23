@@ -623,7 +623,21 @@
     <string name="charge_socket_unknown_other">Outro ou descoñecido</string>
     <string name="unknow_socket_type">engache descoñecido</string>
     <string name="editor_place_doesnt_exist_description">Describe a aparencia do lugar para enviar unha nota co erro á comunidade OpenStreetMap</string>
-    <string name="avoid_steps">Evitar pasos</string>
+    <string name="avoid_steps">Evitar escaleiras</string>
     <string name="offline_explanation_title">Mapas sen conexión</string>
     <string name="offline_explanation_text">Hai que descargar un mapa para ver e navegar polo área.\nDescarga os mapas para as zonas polas que vas viaxar.</string>
+    <string name="list_description_empty">Editar a lista para engadir unha descrición</string>
+    <string name="opens_at">Abre ás %s</string>
+    <string name="closes_at">Fecha ás %s</string>
+    <string name="opens_day_at">Abre o %1$s ás %2$s</string>
+    <string name="closes_day_at">Fecha o %1$s ás %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_mark_business_vacant_description">Usa isto se a empresa marchou e o espazo está baleiro e preparado para un novo proxecto.</string>
+    <string name="editor_submit">Enviar</string>
+    <string name="avoid_paved">Evitar estradas asfaltadas</string>
+    <string name="editor_business_vacant_button">Dispoñible para empresas</string>
+    <string name="editor_mark_business_vacant_title">Marcar como dispoñible para negocios</string>
 </resources>

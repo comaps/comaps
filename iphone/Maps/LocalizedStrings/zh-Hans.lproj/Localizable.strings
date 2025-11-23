@@ -43,7 +43,7 @@
 "country_status_download_failed" = "下载失败";
 
 /* Text in About screen */
-"about_headline" = "由社区推动的开放项目";
+"about_headline" = "由社区驱动的开源项目";
 
 /* Text in About screen */
 "about_proposition_1" = "离线、快速、易用";
@@ -524,21 +524,21 @@
 "autodownload" = "自动下载";
 
 /* Place Page opening hours text */
-"closed_now" = "已歇业";
+"closed_now" = "已关闭";
 
 /* Place Page opening hours text */
 "daily" = "每天";
-"twentyfour_seven" = "24/7 全天候营业";
-"day_off_today" = "今天不营业";
-"day_off" = "不营业";
+"twentyfour_seven" = "24/7";
+"day_off_today" = "今天关闭";
+"day_off" = "关闭";
 "today" = "今天";
-"opens_tomorrow_at" = "明天 %@ 营业";
-"opens_dayoftheweek_at" = "%1$@ %2$@ 营业";
-"opens_at" = "%@ 营业";
-"opens_in" = "将于 %@ 后营业";
-"closes_at" = "%@ 不营业";
-"closes_in" = "将于 %@ 后不营业";
-"closed" = "已停止营业";
+"opens_tomorrow_at" = "明天 %@ 开放";
+"opens_dayoftheweek_at" = "%1$@ %2$@ 开放";
+"opens_at" = "%@ 开放";
+"opens_in" = "%@ 开放";
+"closes_at" = "%@ 关闭";
+"closes_in" = "%@ 关闭";
+"closed" = "已关闭";
 "add_opening_hours" = "添加营业时间";
 
 /* OpenStreetMap */
@@ -700,8 +700,8 @@
 "editor_share_to_all_dialog_title" = "您想要发送给所有用户吗？";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "确保您没有输入任何个人数据。";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap 编辑人员将检查更改并在有任何问题时与您联系。";
+"editor_share_to_all_dialog_message_1" = "请确保您没有输入任何私人或个人数据。";
+"editor_share_to_all_dialog_message_2" = "OpenStreetMap 编辑人员将检查更改，如有任何疑问，将与您联系。";
 "navigation_stop_button" = "停止";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -820,7 +820,7 @@
 "avoid_tolls" = "避开收费公路";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "避开未铺砌道路";
+"avoid_unpaved" = "避开非铺装道路";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_ferry" = "避开轮渡";
@@ -830,7 +830,7 @@
 "define_to_avoid_btn" = "选择要避开的道路";
 "change_driving_options_btn" = "绕行设置已开启";
 "toll_road" = "收费公路";
-"unpaved_road" = "未铺砌道路";
+"unpaved_road" = "非铺装道路";
 "ferry_crossing" = "轮渡";
 "trip_start" = "出发";
 "pick_destination" = "目的地";
@@ -1105,3 +1105,4 @@
 "unknown" = "未知";
 "voice_explanation_before_version26" = "可以在系统设置中的 *辅助功能*、*朗读内容*、*声音*下选择更好的声音。";
 "voice_explanation" = "可以在系统设置中的 *辅助功能*、*阅读与朗读*、*声音*下选择更好的声音。";
+"avoid_paved" = "避开铺装道路";

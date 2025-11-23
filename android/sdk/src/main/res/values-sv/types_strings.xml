@@ -619,7 +619,7 @@
     <string name="type.natural.vineyard">Vingård</string>
     <string name="type.natural.volcano">Vulkan</string>
     <string name="type.natural.water">Vatten</string>
-    <string name="type.natural.wetland">Sumpmarken</string>
+    <string name="type.natural.wetland">Sumpmark</string>
     <string name="type.natural.wetland.bog">Myr</string>
     <string name="type.natural.wetland.marsh">Träsk</string>
     <string name="type.office">Kontor</string>
@@ -1358,4 +1358,12 @@
     <string name="type.amenity.love_hotel">Kärlekshotell</string>
     <string name="type.tourism.zoo.petting">Djurpark för barn</string>
     <string name="type.amenity.bicycle_parking.covered">Cykelparkering under tak</string>
+    <string name="type.emergency.life_ring">Livboj</string>
+    <string name="type.emergency.access_point">Räddningspunkt</string>
+    <string name="type.social_facility.soup_kitchen">Soppkök</string>
+    <string name="type.man_made.observatory">Observatorium</string>
+    <string name="type.man_made.telescope">Teleskop</string>
+    <string name="type.amenity.boat_rental">Båtuthyrning</string>
+    <string name="type.amenity.bench.backless">Bänk utan ryggstöd</string>
+    <string name="type.leisure.bandstand">Musikpaviljong</string>
 </resources>

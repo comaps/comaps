@@ -4,6 +4,7 @@ import android.location.Location;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import app.organicmaps.MwmActivity;
@@ -26,6 +27,10 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
 {
   private static boolean sAutodownloadLocked;
 
+  private static final int HIDE_THRESHOLD = 2;
+  // Default bundles (e.g., world/coasts). Used to approximate “user-downloaded” count.
+  private static final int DEFAULT_MAP_BASELINE = 2;
+
   private final MwmActivity mActivity;
   private final View mFrame;
   private final MaterialTextView mParent;
@@ -33,6 +38,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
   private final MaterialTextView mSize;
   private final WheelProgressView mProgress;
   private final MaterialButton mButton;
+  private final View mOfflineExplanation;
 
   private int mStorageSubscriptionSlot;
 
@@ -43,8 +49,10 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     @Override
     public void onStatusChanged(List<MapManager.StorageCallbackData> data)
     {
-      if (mCurrentCountry == null)
+      if (mCurrentCountry == null) {
+        updateOfflineExplanationVisibility();
         return;
+      }
 
       for (MapManager.StorageCallbackData item : data)
       {
@@ -58,7 +66,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
         {
           mCurrentCountry.update();
           updateProgressState(false);
-
+          updateOfflineExplanationVisibility();
           return;
         }
       }
@@ -101,6 +109,12 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     return enqueued || progress || applying;
   }
 
+  private void updateOfflineExplanationVisibility() {
+    if (mOfflineExplanation == null) return;
+    // hide once threshold reached; safe to call repeatedly.
+    app.organicmaps.util.UiUtils.showIf(MapManager.nativeGetDownloadedCount() < (DEFAULT_MAP_BASELINE + HIDE_THRESHOLD), mOfflineExplanation);
+  }
+
   private void updateProgressState(boolean shouldAutoDownload)
   {
     updateStateInternal(shouldAutoDownload);
@@ -108,6 +122,8 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
 
   private void updateStateInternal(boolean shouldAutoDownload)
   {
+    updateOfflineExplanationVisibility();
+
     boolean showFrame =
         (mCurrentCountry != null && !mCurrentCountry.present && !RoutingController.get().isNavigating());
     if (showFrame)
@@ -191,6 +207,9 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     mProgress = controls.findViewById(R.id.wheel_downloader_progress);
     mButton = controls.findViewById(R.id.downloader_button);
 
+    mOfflineExplanation = mFrame.findViewById(R.id.offline_explanation);
+    updateOfflineExplanationVisibility();
+
     mProgress.setOnClickListener(v -> {
       if (mCurrentCountry == null)
         return;
@@ -247,6 +266,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
 
   public void onResume()
   {
+    updateOfflineExplanationVisibility();
     if (mStorageSubscriptionSlot == 0)
     {
       mStorageSubscriptionSlot = MapManager.nativeSubscribe(mStorageCallback);

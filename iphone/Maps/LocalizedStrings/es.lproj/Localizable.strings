@@ -1101,3 +1101,4 @@
 "offline_explanation_title" = "Mapas sin conexión";
 "avoid_steps" = "Evitar escaleras";
 "editor_place_doesnt_exist_description" = "Describe la situación actual del lugar para enviar una nota de error a la comunidad de OpenStreetMap";
+"avoid_paved" = "Evitar caminos pavimentados";

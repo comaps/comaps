@@ -818,6 +818,7 @@ public:
   bool GetEditableMapObject(FeatureID const & fid, osm::EditableMapObject & emo) const;
   osm::Editor::SaveResult SaveEditedMapObject(osm::EditableMapObject emo);
   void DeleteFeature(FeatureID const & fid);
+  void MarkPlaceAsDisused(osm::EditableMapObject emo);
   osm::NewFeatureCategories GetEditorCategories() const;
   bool RollBackChanges(FeatureID const & fid);
   void CreateNote(osm::MapObject const & mapObject, osm::Editor::NoteProblemType const type, std::string const & note);

@@ -1095,3 +1095,4 @@
 "pref_maplanguage_local" = "Hizkuntza lokala";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"editor_place_doesnt_exist_description" = "Deskribatu nolakoa den lekua orain OpenStreetMap komunitateari errore-ohar bat bidaltzeko.";

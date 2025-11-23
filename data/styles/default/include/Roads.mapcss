@@ -23,6 +23,8 @@
   7.2 Residential, Road, Street tunnel 16-22 ZOOM
   7.3 Residential, Road, Street bridge 14-22 ZOOM
   7.4 Service 15-22 ZOOM
+  7.5 Service tunnel 16-22 ZOOM
+  7.6 Service bridge 15-22 ZOOM
 8.OTHERS ROADS 13-22 ZOOM
   8.1 Pedestrian & ford 13-22 ZOOM
   8.2 Pedestrian & ford tunnel 16-22 ZOOM
@@ -678,6 +680,41 @@ line|z19-[highway=service][service=busway],
 line|z19-[highway=busway],
 {width: 4;}
 
+/* 7.5 Service tunnel 16-22 ZOOM */
+
+line|z15-[highway=service][tunnel?],
+line|z15-[highway=service][service=busway][tunnel?],
+line|z15-[highway=busway][tunnel?],
+{opacity: 0.7; casing-width: 1; casing-dashes: 5,5; color: @residential_tunnel; casing-linecap: butt; casing-color: @residential_tunnel_casing; casing-opacity: 0.7;}
+
+/* 7.6 Service bridge 15-22 ZOOM */
+
+line|z15-[highway=service][bridge?]::bridgewhite,
+line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
+line|z15-[highway=busway][bridge?]::bridgewhite,
+{casing-width-add: 0;}
+line|z15-[highway=service][bridge?]::bridgewhite,
+line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
+line|z15-[highway=busway][bridge?]::bridgewhite,
+{casing-width-add: 0.8;}
+line|z15-[highway=service][bridge?]::bridgewhite,
+line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
+line|z15-[highway=busway][bridge?]::bridgewhite,
+{casing-width-add: 1;}
+
+line|z15-[highway=service][bridge?]::bridgeblack,
+line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
+line|z15-[highway=busway][bridge?]::bridgeblack,
+{casing-width-add: 0.4;}
+line|z15-[highway=service][bridge?]::bridgeblack,
+line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
+line|z15-[highway=busway][bridge?]::bridgeblack,
+{casing-width-add: 1.6;}
+line|z15-[highway=service][bridge?]::bridgeblack,
+line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
+line|z15-[highway=busway][bridge?]::bridgeblack,
+{casing-width-add: 2;}
+
 /* 8.OTHERS ROADS 13-22 ZOOM */
 
 line|z13-[highway=pedestrian],
@@ -702,7 +739,8 @@ line|z15-[highway=track][bridge?]::bridgewhite,
 line|z15-[highway=bridleway][bridge?]::bridgewhite,
 line|z15-[highway=steps][bridge?]::bridgewhite,
 line|z16-[highway=road][bridge?]::bridgewhite,
-line|z16-[highway=service][bridge?]::bridgewhite
+line|z15-[highway=service][bridge?]::bridgewhite,
+line|z15-[highway=busway][bridge?]::bridgewhite
 {casing-linecap: butt;casing-color:@bridge_background;casing-opacity: 0.8;}
 line|z13-[highway=pedestrian][bridge?]::bridgeblack,
 line|z17-[highway=footway][bridge?]::bridgeblack,
@@ -712,7 +750,8 @@ line|z17-[highway=track][bridge?]::bridgeblack,
 line|z17-[highway=bridleway][bridge?]::bridgeblack,
 line|z17-[highway=steps][bridge?]::bridgeblack,
 line|z16-[highway=road][bridge?]::bridgeblack,
-line|z16-[highway=service][bridge?]::bridgeblack
+line|z15-[highway=service][bridge?]::bridgeblack,
+line|z15-[highway=busway][bridge?]::bridgeblack,
 {casing-linecap: butt;casing-color:@bridge_casing;casing-opacity: 0.7;}
 line|z15-[highway=track],
 {color: @track;opacity: 0.6;}
@@ -1341,19 +1380,17 @@ line|z16-[railway=disused],
 /* 9.2 Rail tunnel 14-22 ZOOM */
 
 line|z12[railway=rail][tunnel?],
-{opacity:0.9}
+{opacity:0.8}
 line|z13[railway=rail][tunnel?],
-{opacity:0.7}
+{opacity:0.6}
 line|z14-[railway=rail][tunnel?],
-{casing-width: 1;casing-linecap: butt;casing-color: @railway_tunnel;casing-dashes: 5,5;casing-opacity: 0.5; opacity:0.6}
+{casing-width: 1;casing-linecap: butt;casing-color: @railway_tunnel;casing-dashes: 5,5;casing-opacity: 0.3; opacity:0.4}
 line|z15[railway=rail][tunnel?],
-{casing-opacity: 0.4; opacity:0.5}
+{casing-opacity: 0.3; opacity:0.3}
 line|z16[railway=rail][tunnel?],
-{casing-opacity: 0.3; opacity:0.4}
+{casing-opacity: 0.1; opacity:0.2}
 line|z17-[railway=rail][tunnel?],
-{casing-opacity: 0.2; opacity:0.3}
-line|z16-[railway=rail][tunnel?]::dash,
-{color:@background1}
+{casing-opacity: 0.05; opacity:0.1}
 
 /* 9.3 Rail bridge 14-22 ZOOM */
 
@@ -1442,6 +1479,13 @@ line|z16[railway=tram]
 {width: 0.8; opacity: 0.8;}
 line|z17-[railway=tram]
 {width: 1; opacity: 1;}
+
+line|z15[railway=tram][tunnel?],
+{opacity:0.3}
+line|z16[railway=tram][tunnel?],
+{opacity:0.2}
+line|z17-[railway=tram][tunnel?],
+{opacity:0.1}
 
 /* 9.6 Funicular 12-22 ZOOM */
 

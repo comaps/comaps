@@ -280,6 +280,14 @@ public:
   uint32_t GetType() const { return m_types[0]; }
 };
 
+class IsUnderBuildingChecker : public BaseChecker
+{
+  IsUnderBuildingChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsUnderBuildingChecker);
+};
+
 class IsIsolineChecker : public BaseChecker
 {
   IsIsolineChecker();
@@ -503,12 +511,28 @@ public:
   DECLARE_CHECKER_INSTANCE(IsPublicTransportStopChecker);
 };
 
+class IsDirectionalChecker : public ftypes::BaseChecker
+{
+  IsDirectionalChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsDirectionalChecker);
+};
+
 class IsTaxiChecker : public BaseChecker
 {
   IsTaxiChecker();
 
 public:
   DECLARE_CHECKER_INSTANCE(IsTaxiChecker);
+};
+
+class IsChristmasChecker : public BaseChecker
+{
+  IsChristmasChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsChristmasChecker);
 };
 
 class IsMotorwayJunctionChecker : public BaseChecker
@@ -629,6 +653,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsPlatformChecker);
 };
 
+class IsEmergencyAccessPointChecker : public BaseChecker
+{
+  IsEmergencyAccessPointChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsEmergencyAccessPointChecker);
+};
+
 class IsAddressInterpolChecker : public BaseChecker
 {
   IsAddressInterpolChecker();
@@ -680,9 +712,7 @@ enum class HighwayClass
    * Used when there has not been any attempt of calculating HighwayClass.
    */
   Undefined = 0,
-  /**
-   * Motorway or trunk.
-   */
+  Motorway,
   Trunk,
   Primary,
   Secondary,

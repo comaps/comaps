@@ -36,6 +36,10 @@ void RoutingOptions::SaveCarOptionsToSettings(RoutingOptions options)
 
 void RoutingOptions::Add(RoutingOptions::Road type)
 {
+  if (type == RoutingOptions::Road::Paved)
+    Remove(RoutingOptions::Road::Dirty);
+  else if (type == RoutingOptions::Road::Dirty)
+    Remove(RoutingOptions::Road::Paved);
   m_options |= static_cast<RoadType>(type);
 }
 
@@ -67,7 +71,9 @@ RoutingOptionsClassifier::RoutingOptionsClassifier()
       {{"psurface", "unpaved_bad"}, RoutingOptions::Road::Dirty},
       {{"psurface", "unpaved_good"}, RoutingOptions::Road::Dirty},
       {{"highway", "steps"}, RoutingOptions::Road::Steps},
-      {{"highway", "ladder"}, RoutingOptions::Road::Steps}};
+      {{"highway", "ladder"}, RoutingOptions::Road::Steps},
+      {{"psurface", "paved_good"}, RoutingOptions::Road::Paved},
+      {{"psurface", "paved_bad"}, RoutingOptions::Road::Paved}};
 
   m_data.Reserve(std::size(types));
   for (auto const & data : types)
@@ -108,6 +114,9 @@ RoutingOptions::Road ChooseMainRoutingOptionRoad(RoutingOptions options, bool is
   if (options.Has(RoutingOptions::Road::Steps))
     return RoutingOptions::Road::Steps;
 
+  if (options.Has(RoutingOptions::Road::Paved))
+    return RoutingOptions::Road::Paved;
+
   return RoutingOptions::Road::Usual;
 }
 
@@ -132,6 +141,7 @@ string DebugPrint(RoutingOptions const & routingOptions)
   append(RoutingOptions::Road::Ferry);
   append(RoutingOptions::Road::Dirty);
   append(RoutingOptions::Road::Steps);
+  append(RoutingOptions::Road::Paved);
 
   if (wasAppended)
     ss << " | ";
@@ -150,6 +160,7 @@ string DebugPrint(RoutingOptions::Road type)
   case RoutingOptions::Road::Ferry: return "ferry";
   case RoutingOptions::Road::Dirty: return "dirty";
   case RoutingOptions::Road::Steps: return "steps";
+  case RoutingOptions::Road::Paved: return "paved";
   case RoutingOptions::Road::Usual: return "usual";
   case RoutingOptions::Road::Max: return "max";
   }

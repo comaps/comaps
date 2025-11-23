@@ -98,7 +98,7 @@ public:
   LevenshteinDFA(LevenshteinDFA &&) = default;
   LevenshteinDFA & operator=(LevenshteinDFA &&) = default;
 
-  LevenshteinDFA(UniString const & s, size_t prefixSize, std::vector<UniString> const & prefixMisprints,
+  LevenshteinDFA(UniString const & s, size_t prefixSize, std::array<UniString, 11> const & prefixMisprints,
                  size_t maxErrors);
   LevenshteinDFA(std::string const & s, size_t prefixSize, size_t maxErrors);
   LevenshteinDFA(UniString const & s, size_t maxErrors);

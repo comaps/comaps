@@ -190,7 +190,7 @@ UNIT_TEST(LevenshteinDFA_ErrorsMade)
   }
 
   {
-    vector<UniString> const allowedMisprints = {MakeUniString("yj")};
+    array<UniString, 11> const allowedMisprints = {MakeUniString("yj")};
     size_t const prefixSize = 1;
     size_t const maxErrors = 1;
     string const str = "yekaterinburg";

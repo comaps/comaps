@@ -690,8 +690,8 @@
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "Vineyard";
 "type.leisure" = "Leisure";
-"type.leisure.common" = "Public Land";
-"type.leisure.dog_park" = "محدوده مخصوص سگ";
+"type.leisure.common" = "زمین اَمَرکانیگ";
+"type.leisure.dog_park" = "بوستان سگ";
 "type.leisure.fitness_centre" = "باشگاه بدنسازی";
 "type.leisure.fitness_station" = "پارک سلامت";
 "type.leisure.dance" = "ﺺﻗﺭ ﻦﻟﺎﺳ";
@@ -704,11 +704,10 @@
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Nature Reserve";
 "type.leisure.outdoor_seating" = "نشستن در فضای باز";
-"type.leisure.park" = "پارک";
-"type.leisure.park.no.access" = "پارک";
-"type.leisure.park.permissive" = "پارک";
-"type.leisure.park.private" = "پارک";
-"type.leisure.picnic_table" = "ﮏﯿﻨﮑﯿﭘ ﺰﯿﻣ";
+"type.leisure.park" = "بوستان";
+"type.leisure.park.no.access" = "بوستان خوشیک";
+"type.leisure.park.permissive" = "بوستان";
+"type.leisure.park.private" = "پارک خوشیک";
 "type.leisure.pitch" = "زمین ورزشی";
 "type.leisure.playground" = "زمین بازی";
 "type.leisure.recreation_ground" = "Recreation Ground";
@@ -718,11 +717,11 @@
 "type.sport.climbing" = "مرکز صعود";
 "type.sport.yoga" = "سالن یوگا";
 "type.leisure.stadium" = "استادیوم";
-"type.leisure.swimming_pool" = "استخرشنا";
-"type.leisure.swimming_pool.private" = "استخرشنا";
+"type.leisure.swimming_pool" = "استخرِ شنا";
+"type.leisure.swimming_pool.private" = "استخرِ شنا";
 "type.leisure.track" = "Track";
 "type.leisure.track.area" = "Track";
-"type.leisure.water_park" = "گردشگری";
+"type.leisure.water_park" = "بوستان آبی";
 "type.leisure.beach_resort" = "Beach Resort";
 "type.man_made" = "Man Made";
 "type.man_made.breakwater" = "Breakwater";
@@ -738,14 +737,14 @@
 "type.man_made.pipeline.overground" = "Overground Pipeline";
 "type.man_made.silo" = "سیلو";
 "type.man_made.storage_tank" = "مخازن سیال";
-"type.man_made.surveillance" = "دوربین نظارتی";
-"type.man_made.tower" = "برج";
+"type.man_made.surveillance" = "دوربین پایشی";
+"type.man_made.tower" = "بُرگ";
 
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "برج ارتباطات";
 
 /* A regular telecommunications tower / mast. */
-"type.man_made.tower.communication" = "برج ارتباطات";
+"type.man_made.tower.communication" = "بُرگ ارتباطات";
 
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "چاه نفت یا گاز";
@@ -753,11 +752,11 @@
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "مشعل گاز";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
-"type.man_made.water_tap" = "شیراب";
-"type.man_made.water_tap.drinking_water_no" = "شیراب";
+"type.man_made.water_tap" = "شیر آب";
+"type.man_made.water_tap.drinking_water_no" = "شیر آب";
 "type.man_made.water_tower" = "منبع اب";
-"type.man_made.water_well" = "چاه اب";
-"type.man_made.water_well.drinking_water_no" = "چاه اب";
+"type.man_made.water_well" = "چاه آب";
+"type.man_made.water_well.drinking_water_no" = "چاه آب";
 "type.man_made.windmill" = "توربین بادی";
 "type.man_made.works" = "Industrial Works";
 "type.military" = "Military";
@@ -778,7 +777,7 @@
 "type.natural.beach.sand" = "ساحل شنی";
 "type.natural.beach.gravel" = "ساحل شن";
 "type.natural.cape" = "دماغه";
-"type.natural.cave_entrance" = "غار";
+"type.natural.cave_entrance" = "دروازه گال";
 "type.natural.cliff" = "پرتگاه";
 "type.natural.earth_bank" = "صخره";
 "type.man_made.embankment" = "خاک‌ریز";
@@ -1489,3 +1488,7 @@
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
 "type.amenity.bench.backless" = "صندلی بی پشتی";
+"type.leisure.sports_centre.sport.multi" = "کانون ورزشی";
+"type.leisure.sports_centre.sport.american_football" = "کانون ورزشی";
+"type.leisure.sports_centre.sport.archery" = "کانون ورزشی";
+"type.leisure.sports_centre.sport.yoga" = "کانون ورزشی";

@@ -196,19 +196,31 @@ m2::PointF GetOffset(int offsetX, int offsetY)
 
 bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada;
+  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||  shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey || shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada || shield.m_type == ftypes::RoadShieldType::Hungary_Green || shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
 }
 
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
 {
   ASSERT(IsSymbolRoadShield(shield), ());
   std::string result = "";
-  if (shield.m_type == ftypes::RoadShieldType::US_Interstate)
+  if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green)
+    result = "shield-highway_hexagon_green";
+  else if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue)
+    result = "shield-highway_hexagon_blue";
+  else if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red)
+    result = "shield-highway_hexagon_red";
+  else if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey)
+    result = "shield-highway_hexagon_turkey";
+  else if (shield.m_type == ftypes::RoadShieldType::US_Interstate)
     result = shield.m_name.size() <= 2 ? "shield-us-i-thin" : "shield-us-i-wide";
   else if (shield.m_type == ftypes::RoadShieldType::US_Highway)
     result = shield.m_name.size() <= 2 ? "shield-us-hw-thin" : "shield-us-hw-wide";
   else if (shield.m_type == ftypes::RoadShieldType::Italy_Autostrada)
     result = "shield-it-a";
+  else if (shield.m_type == ftypes::RoadShieldType::Hungary_Green)
+    result = "shield-hungary-green";
+  else if (shield.m_type == ftypes::RoadShieldType::Hungary_Blue)
+    result = "shield-hungary-blue";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
@@ -306,10 +318,16 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::Generic_Pill_Blue_Bordered, kRoadShieldWhiteTextColor},
       {RoadShieldType::Generic_Pill_Red_Bordered, kRoadShieldWhiteTextColor},
       {RoadShieldType::Generic_Pill_Orange_Bordered, kRoadShieldBlackTextColor},
+      {RoadShieldType::Highway_Hexagon_Green, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Highway_Hexagon_Blue, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Highway_Hexagon_Red, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Highway_Hexagon_Turkey, kRoadShieldBlackTextColor},
       {RoadShieldType::US_Interstate, kRoadShieldWhiteTextColor},
       {RoadShieldType::US_Highway, kRoadShieldBlackTextColor},
       {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
-      {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor}};
+      {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
 
   if (auto const * cl = kColors.Find(shield.m_type); cl)
     return df::GetColorConstant(*cl);
@@ -499,7 +517,10 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
   {
     PoiSymbolViewParams params;
     FillCommonParams(params);
-    params.m_depthLayer = DepthLayer::OverlayLayer;
+    if (ftypes::IsUnderBuildingChecker::Instance()(m_f))
+      params.m_depthLayer = DepthLayer::OverlayUnderBuildingLayer;
+    else
+      params.m_depthLayer = DepthLayer::OverlayLayer;
     params.m_depthTestEnabled = false;
     params.m_depth = PriorityToDepth(symbolRule->priority(), drule::symbol, 0);
     params.m_symbolName = symbolRule->name();

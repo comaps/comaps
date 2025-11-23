@@ -388,6 +388,21 @@ import AVFoundation
     }
     
     
+    /// If paved roads should be avoided during routing
+    @objc static var shouldAvoidPavedRoadsWhileRouting: Bool {
+        get {
+            return RoutingOptions().avoidPaved
+        }
+        set {
+            let routingOptions = RoutingOptions()
+            routingOptions.avoidPaved = newValue
+            routingOptions.save()
+            
+            NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
+        }
+    }
+    
+    
     /// If ferries should be avoided during routing
     @objc static var shouldAvoidFerriesWhileRouting: Bool {
         get {

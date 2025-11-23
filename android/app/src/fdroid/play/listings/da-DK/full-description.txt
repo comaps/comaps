@@ -1,0 +1,33 @@
+En fællesskabdrevet og åben source kortapp, baseret på kortdata fra OpenStreetMap og styrket i forpligtelsen til værdierne gennemsigtighed, privatlivets fred, og non-profit. CoMaps udspringer af Organic Maps, som selv udsprang af Maps.ME.
+
+Læs mere om grundlaget for projektet og dets udviklingsretnign på <b><i>codeberg.org/comaps</i></b>.
+Slut dig til fælleskabet og hjælp til med at bygge den bedste kortapp i verden.
+• Brug appen og fortæl andre om den
+• Giv feedback anmeld fejl
+• Opdater kortdata i appen eller på OpenStreetMap-hjemmesiden.
+
+‣ <b>Offlinefokuseret</b>: Planlæg din rute og find vej i udlandet uden brug af mobildata, søg og find afsidesliggende mål på en afsidesliggende vandretur, mm. Alle funktioner er designet til at fungere uden internetforbindelse.
+‣ <b>Respekt for privatlivets fred</b>: Appen er designet med henblik på at respektere dit privatliv – den identificerer dig ikke, indeholder ingen sporingsmekanismer, og insamler ingen personlig information. Appen er reklamefri.
+‣ <b>Enkel og elegant</b>: de essentielle funktioner er nemme at bruge, og de virker bare.
+‣ <b>Sparer på batteriet og på lagerpladsen</b>: Dræner ikke dit batteri hurtigt, som andre kortapps. De kompakte kortfiler minimerer varigt lagerpladsforbrug.
+‣ <b>Gratis og bygget i fællesskab</b>: Folk som dig har hjulpet med denne app ved at tilføje steder til OpenStreetMap, ved at teste appens funktioner og give feedback på dem og ved at bidrage til udviklingen af appen med deres tid og penge.
+‣ <b>Åben og gennemsigtig beslutningstagningsproces og finanser, non-profit, og fuldt ud åben source.</b>
+
+<b>Hovedfunktioner</b>
+• Hent detaljerede kort, der indeholder steder som ikke findes i mange kommericelle kort.
+• En frilufts-tilstand med markede vandrestier, teltpladser, kilder, bjerg- og bakketoppe, højdekonturlinjer, mm.
+• Gangstier og cykelstier
+• Steder, der kan besøges, som f.eks. restauranter, tankstationer, hoteller, butikker, seværdigheder og mange andre.
+• Søg efter stednavn, adresse, eller type af sted.
+• Gem dine yndlingssteder som bogmærker med et enkelt tryk. 
+• iCloud synkronisering af bogmærker og optagede spor.
+• Offline artikler fra Wikipedia.
+• Metro-lag med navigation.
+• Optagelse af spor.
+• Eksport og import af bogmærker og spor i formaterne KML, KMZ og GPX.
+• Mørk tilstand til brug om natten.
+• Mulighed for at forbedre kortet vha. en indbygget editor.
+• CarPlay understøttes.
+
+<b>Friheden er ankommet</b>
+Opdag din rejse, find vej i verden med privatliv og fællesskab i førersædet!

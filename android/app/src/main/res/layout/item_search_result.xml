@@ -6,7 +6,7 @@
   android:layout_height="wrap_content"
   android:background="?selectableItemBackground"
   android:minHeight="@dimen/search_item_height"
-  android:padding="@dimen/margin_base"
+  android:padding="@dimen/margin_half_double_plus"
   tools:background="#20FF0000">
 
   <com.google.android.material.textview.MaterialTextView

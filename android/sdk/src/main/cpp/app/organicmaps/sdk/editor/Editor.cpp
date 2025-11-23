@@ -277,6 +277,12 @@ JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeIsNameEd
   return g_editableMapObject.IsNameEditable();
 }
 
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeCanMarkPlaceAsDisused(JNIEnv * env,
+                                                                                              jclass clazz)
+{
+  return g_editableMapObject.CanMarkPlaceAsDisused();
+}
+
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeIsPointType(JNIEnv * env, jclass clazz)
 {
   return g_editableMapObject.IsPointType();
@@ -432,6 +438,11 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativePlaceDoesNot
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeRollbackMapObject(JNIEnv * env, jclass clazz)
 {
   g_framework->NativeFramework()->RollBackChanges(g_editableMapObject.GetID());
+}
+
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeMarkPlaceAsDisused(JNIEnv * env, jclass clazz)
+{
+  g_framework->NativeFramework()->MarkPlaceAsDisused(g_editableMapObject);
 }
 
 JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeGetAllCreatableFeatureTypes(JNIEnv * env,

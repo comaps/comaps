@@ -1103,3 +1103,4 @@
 "unknown" = "Ukendt";
 "voice_explanation_before_version26" = "Det er muligt at vælge en bedre stemme i systemindstillingerne under *Tilgængelighed*, *Talt indhold*, *Stemmer*.";
 "voice_explanation" = "Det er muligt at vælge en bedre stemme i systemindstillingerne under *Tilgængelighed*, *Læs og tal*, *Stemmer*.";
+"avoid_paved" = "Undgå veje med fast belægning";

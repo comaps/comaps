@@ -462,8 +462,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Deseja enviar para todos os usuários?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Certifique-se de não ter incluído nenhum dado privado ou pessoal</string>
-    <string name="editor_share_to_all_dialog_message_2">Os mapeadores do OpenStreetMap verificarão as mudanças e entrarão em contato com você se tiverem alguma dúvida</string>
+    <string name="editor_share_to_all_dialog_message_1">Certifique-se de não ter incluído nenhum dado privado ou pessoal.</string>
+    <string name="editor_share_to_all_dialog_message_2">Os mapeadores do OpenStreetMap verificarão as alterações e entrarão em contato caso tenham alguma dúvida.</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Registro da pista</string>
     <!-- For the first routing -->
@@ -870,4 +870,18 @@
     <string name="offline_explanation_title">Mapas offline</string>
     <string name="editor_place_doesnt_exist_description">Descreva com detalhes como está o local agora mesmo para enviar uma nota de erro à comunidade do OpenStreetMap</string>
     <string name="list_description_empty">Edite a lista para adicionar uma descrição</string>
+    <string name="avoid_paved">Evitar vias pavimentadas</string>
+    <string name="opens_at">Abre às %s</string>
+    <string name="closes_at">Fecha às %s</string>
+    <string name="opens_day_at">Abre %1$s às %2$s</string>
+    <string name="closes_day_at">Fecha %1$s às %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Local está desocupado</string>
+    <string name="editor_mark_business_vacant_title">Marcar local como desocupado</string>
+    <string name="editor_mark_business_vacant_description">Use isto se o estabelecimento mudou de endereço ou o local está vago e disponível para outra empresa.</string>
+    <string name="editor_submit">Enviar</string>
 </resources>

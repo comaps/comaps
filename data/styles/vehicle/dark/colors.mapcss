@@ -180,6 +180,7 @@
 @neutral_label: #51585E;
 @healthcare_label: #983E44;
 @public_transport_label: #2F6499;
+@emergency_label: #247F52;
 
 /* 6.4 Road labels */
 

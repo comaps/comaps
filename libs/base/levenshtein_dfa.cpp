@@ -21,7 +21,7 @@ size_t AbsDiff(size_t a, size_t b)
 class TransitionTable
 {
 public:
-  TransitionTable(UniString const & s, std::vector<UniString> const & prefixMisprints, size_t prefixSize)
+  TransitionTable(UniString const & s, std::array<UniString, 11> const & prefixMisprints, size_t prefixSize)
     : m_s(s)
     , m_size(s.size())
     , m_prefixMisprints(prefixMisprints)
@@ -108,7 +108,7 @@ private:
 
   UniString const & m_s;
   size_t const m_size;
-  std::vector<UniString> const m_prefixMisprints;
+  std::array<UniString, 11> const m_prefixMisprints;
   size_t const m_prefixSize;
 };
 }  // namespace
@@ -190,7 +190,7 @@ void LevenshteinDFA::State::Normalize()
 
 // LevenshteinDFA ----------------------------------------------------------------------------------
 // static
-LevenshteinDFA::LevenshteinDFA(UniString const & s, size_t prefixSize, std::vector<UniString> const & prefixMisprints,
+LevenshteinDFA::LevenshteinDFA(UniString const & s, size_t prefixSize, std::array<UniString, 11> const & prefixMisprints,
                                size_t maxErrors)
   : m_size(s.size())
   , m_maxErrors(maxErrors)

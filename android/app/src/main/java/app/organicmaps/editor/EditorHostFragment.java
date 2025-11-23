@@ -358,7 +358,7 @@ public class EditorHostFragment
         .show();
   }
 
-  private void processEditedFeatures()
+  public void processEditedFeatures()
   {
     if (OsmOAuth.isAuthorized())
     {

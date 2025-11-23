@@ -311,7 +311,6 @@ RoutingManager::RoutingManager(Callbacks && callbacks, Delegate & delegate)
   , m_delegate(delegate)
   , m_extrapolator([this](location::GpsInfo const & gpsInfo) { this->OnExtrapolatedLocationUpdate(gpsInfo); })
 {
-  m_extrapolator.Enable(true);  // Keeps smooth arrow movement whether routing or not
   m_routingSession.Init(
 #ifdef SHOW_ROUTE_DEBUG_MARKS
       [this](m2::PointD const & pt)
@@ -556,6 +555,10 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
   if (deactivateFollowing)
   {
     m_transitReadManager->BlockTransitSchemeMode(false /* isBlocked */);
+
+    // Switching on the extrapolator only for following mode in car and bicycle navigation.
+    m_extrapolator.Enable(m_currentRouterType == RouterType::Vehicle || m_currentRouterType == RouterType::Bicycle);
+
     // Remove all subroutes.
     m_drapeEngine.SafeCall(&df::DrapeEngine::RemoveSubroute, dp::DrapeID(), true /* deactivateFollowing */);
   }
@@ -766,6 +769,7 @@ void RoutingManager::FollowRoute()
 
 void RoutingManager::CloseRouting(bool removeRoutePoints)
 {
+  m_extrapolator.Enable(false);
   // Hide preview.
   HidePreviewSegments();
 
@@ -942,9 +946,9 @@ void RoutingManager::SetPointsFollowingMode(bool enabled)
 
 void RoutingManager::RemovePassedPoints()
 {
-    ASSERT(m_bmManager != nullptr, ());
-    RoutePointsLayout routePoints(*m_bmManager);
-    routePoints.RemovePassedPoints();
+  ASSERT(m_bmManager != nullptr, ());
+  RoutePointsLayout routePoints(*m_bmManager);
+  routePoints.RemovePassedPoints();
 }
 
 void RoutingManager::ReorderIntermediatePoints()

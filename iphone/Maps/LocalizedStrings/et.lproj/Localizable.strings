@@ -1103,3 +1103,4 @@
 "unknown" = "Teadmata";
 "voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Räägitav sisu*, *Hääled*.";
 "voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Lugemine ja rääkimine*, *Hääled*.";
+"avoid_paved" = "Väldi sillutatud teid";

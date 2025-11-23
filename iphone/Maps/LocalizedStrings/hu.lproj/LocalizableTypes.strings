@@ -1521,3 +1521,9 @@
 "type.leisure.sports_centre.sport.bowls" = "Sportközpont";
 "type.amenity.bench.backless" = "Háttámla nélküli pad";
 "type.leisure.bandstand" = "Zenepavilon";
+"type.amenity.boat_rental" = "Hajóbérlés";
+"type.man_made.telescope" = "Távcső";
+"type.man_made.telescope.optical" = "Távcső (Optikai)";
+"type.man_made.telescope.radio" = "Távcső (Rádió)";
+"type.man_made.telescope.gamma" = "Távcső (Gamma)";
+"type.man_made.observatory" = "Csillagvizsgáló";

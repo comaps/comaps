@@ -11,6 +11,7 @@ import multiprocessing
 import os
 import shutil
 import tarfile
+import errno
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import AnyStr
@@ -168,8 +169,18 @@ class StageDownloadDescriptions(Stage):
         )
         """
 
-        src = "/home/planet/descriptions"
+        # The src folder is hardcoded here and must be implemented on the map building machine
+        src = "/home/planet/wikipedia/descriptions"
+        # The dest folder will generally become build/*/intermediate_data/descriptions
         dest = env.paths.descriptions_path
+        # An empty source folder is a big problem
+        try:
+            if os.path.isdir(src):
+                print("Found %s" % (src))
+            else:
+                raise FileNotFoundError(errno.ENOENT, os.strerror(errno.ENOENT), src)
+        except OSError as e:
+            print("rmtree error: %s - %s" % (e.filename, e.strerror))
         # Empty folder "descriptions" can be already created.
         try:
             if os.path.isdir(dest):

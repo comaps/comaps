@@ -99,13 +99,13 @@
 "category_fuel" = "Tankstelle";
 
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
-"category_parking" = "Parkplätze|Parkplatz|Stellplatz";
+"category_parking" = "Parkplätze";
 
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Shopping";
 
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
-"category_secondhand" = "Second-hand|Gebrauchte Artikel|Gebrauchte Ware";
+"category_secondhand" = "Second-hand";
 
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hotel";
@@ -823,6 +823,7 @@
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Unbefest. Straßen vermeiden";
+"avoid_paved" = "Befst. Straßen vermeiden";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Treppen vermeiden";

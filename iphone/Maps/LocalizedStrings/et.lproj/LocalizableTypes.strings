@@ -354,14 +354,14 @@
 "type.cuisine.vegan" = "Täistaimetoidukoht";
 "type.cuisine.vegetarian" = "Taimetoit";
 "type.cuisine.vietnamese" = "Vietnami";
-"type.emergency" = "Pääste- ja abiteenused";
+"type.emergency" = "Pääste- ja hädaolukorra teenused";
 "type.emergency.assembly_point" = "Kogunemiskoht hädaolukorras";
 "type.emergency.defibrillator" = "Defibrillaator";
 "type.emergency.fire_hydrant" = "Tuletõrjehüdrant";
 "type.emergency.phone" = "Hädaabi telefon";
 
 /* A place where a lifeguard is on duty. */
-"type.emergency.lifeguard" = "Päästja";
+"type.emergency.lifeguard" = "Vetelpäästja";
 
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Mäepäästejaam";
@@ -371,7 +371,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Peasissepääs";
-"type.entrance.exit" = "Väljapääs";
+"type.entrance.exit" = "Vaid väljapääs";
 "type.fee.yes" = "$ / €";
 "type.fee.no" = "Tasuta";
 "type.healthcare.laboratory" = "Meditsiinilabor";
@@ -1527,3 +1527,59 @@
 "type.leisure.sports_centre.sport.bowls" = "Keegli- ja bowlingukeskus";
 "type.disusedbusiness" = "Vaba äripind";
 "type.amenity.lounger" = "Rannatool";
+"type.man_made.observatory" = "Observatoorium";
+"type.man_made.telescope.optical" = "Optiline teleskoop";
+"type.man_made.telescope.radio" = "Raadioteleskoop";
+"type.amenity.food_sharing" = "Toidujagamine";
+"type.social_facility.food_bank" = "Toidupank";
+"type.social_facility.soup_kitchen" = "Supiköök";
+"type.man_made.telescope" = "Teleskoop";
+"type.amenity.give_box" = "Annetuskast";
+"type.man_made.telescope.gamma" = "Gammateleskoop";
+"type.amenity.boat_rental" = "Paadirent";
+"type.amenity.mobile_money_agent" = "Nutiraha müüja";
+"type.amenity.car_pooling" = "Ühiskasutusautode peatus";
+"type.amenity.payment_centre" = "Maksekeskus";
+"type.leisure.indoor_play" = "Mängusaal/Mängutuba";
+"type.shop.telecommunication" = "Sideteenuste pood";
+"type.emergency.access_point" = "Asukohatuvastuspunkt hädaolukorras";
+"type.emergency.life_ring" = "Päästerõngas";
+"type.shop.beauty.day_spa" = "Päevaspaa";
+"type.amenity.sailing_school" = "Purjetamiskool";
+"type.amenity.flight_school" = "Lennukool";
+"type.amenity.prep_school" = "Tugiõpe";
+"type.entrance.house" = "Maja sissepääs";
+"type.entrance.garage" = "Garaaži sissepääs";
+"type.natural.sand" = "Liiv";
+"type.entrance.service" = "Teenistuskäik";
+"type.entrance.entry" = "Vaid sissepääs";
+"type.entrance.emergency" = "Avariiväljapääs";
+"type.natural.tree" = "Üksik puu";
+"type.xmas.tree" = "Jõulupuu";
+"type.beacon.cardinal.east" = "Idatooder";
+"type.beacon.cardinal.north" = "Põhjatooder";
+"type.beacon.cardinal.south" = "Lõunatooder";
+"type.beacon.cardinal.west" = "Läänetooder";
+"type.buoy.cardinal.east" = "Idapoi";
+"type.buoy.cardinal.north" = "Põhjapoi";
+"type.buoy.cardinal.south" = "Lõunapoi";
+"type.buoy.cardinal.west" = "Läänepoi";
+"type.buoy.lateral.port" = "Lateraalpoi pakpoordis";
+"type.buoy.lateral.starboard" = "Lateraalpoi tüürpoordis";
+"type.buoy.special_purpose" = "Eriotstarbeline poi";
+"type.spherical_buoy.cardinal.east" = "Kerapoi idas";
+"type.spherical_buoy.cardinal.north" = "Kerapoi põhjas";
+"type.spherical_buoy.cardinal.south" = "Kerapoi lõunas";
+"type.spherical_buoy.cardinal.west" = "Kerapoi läänes";
+"type.spherical_buoy.lateral.port" = "Kerapoi pakpoordis";
+"type.spherical_buoy.lateral.starboard" = "Kerapoi tüürpoordis";
+"type.spherical_buoy.special_purpose" = "Eritistarbeline kerapoi";
+"type.spherical_buoy.isolated_danger" = "Kerapoi eraldiasetseva ohu märkimiseks";
+"type.buoy.isolated_danger" = "Poi eraldiasetseva ohu märkimiseks";
+"type.beacon.isolated_danger" = "Tooder eraldiasetseva ohu märkimiseks";
+"type.beacon.lateral.port" = "Lateraalne tooder tüürpoordis";
+"type.beacon.lateral.starboard" = "Lateraalne tooder pakpoordis";
+"type.beacon.special_purpose" = "Eriotstarbeline tooder";
+"type.beacon.safe_water" = "Faarvaatri tooder";
+"type.buoy.safe_water" = "Faarvaatri poi";
+"type.spherical_buoy.safe_water" = "Faarvaatri kerapoi";

@@ -2,12 +2,12 @@
 
 #include "base/stl_helpers.hpp"
 
-#include <regex>
+#include <boost/regex.hpp>
 
 namespace regexp_test
 {
 template <typename Fn>
-void ForEachMatched(std::string const & s, std::regex const & regex, Fn && fn)
+void ForEachMatched(std::string const & s, boost::regex const & regex, Fn && fn)
 {
   for (std::sregex_token_iterator cur(s.begin(), s.end(), regex), end; cur != end; ++cur)
     fn(*cur);
@@ -15,24 +15,24 @@ void ForEachMatched(std::string const & s, std::regex const & regex, Fn && fn)
 
 UNIT_TEST(RegExp_Or)
 {
-  std::regex exp("\\.mwm\\.(downloading2?$|resume2?$)");
+  boost::regex exp("\\.mwm\\.(downloading2?$|resume2?$)");
 
-  TEST(std::regex_search("Aruba.mwm.downloading", exp), ());
+  TEST(boost::regex_search("Aruba.mwm.downloading", exp), ());
   TEST(!regex_search("Aruba.mwm.downloading1", exp), ());
-  TEST(std::regex_search("Aruba.mwm.downloading2", exp), ());
+  TEST(boost::regex_search("Aruba.mwm.downloading2", exp), ());
   TEST(!regex_search("Aruba.mwm.downloading3", exp), ());
   TEST(!regex_search("Aruba.mwm.downloading.tmp", exp), ());
 
-  TEST(std::regex_search("Aruba.mwm.resume", exp), ());
+  TEST(boost::regex_search("Aruba.mwm.resume", exp), ());
   TEST(!regex_search("Aruba.mwm.resume1", exp), ());
-  TEST(std::regex_search("Aruba.mwm.resume2", exp), ());
+  TEST(boost::regex_search("Aruba.mwm.resume2", exp), ());
   TEST(!regex_search("Aruba.mwm.resume3", exp), ());
   TEST(!regex_search("Aruba.mwm.resume.tmp", exp), ());
 }
 
 UNIT_TEST(RegExp_ForEachMatched)
 {
-  std::regex exp("-?\\d+\\.?\\d*, *-?\\d+\\.?\\d*");
+  boost::regex exp("-?\\d+\\.?\\d*, *-?\\d+\\.?\\d*");
 
   {
     std::string const s = "6.66, 9.99";

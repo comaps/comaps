@@ -16,7 +16,7 @@ Below are our specific (but not all!) exceptions to the Google's coding standard
 - Includes are sorted and grouped by directory, there should be newlines between different directories.
 - Order of directories in includes: "current_dir/current_file.hpp", includes from other dirs sorted by dependencies (e.g. indexer, then coding, then base), "defines.hpp", C++ standard library headers, boost headers, 3party.
 - We ARE using C++ exceptions.
-- We are using all features of C++17 and C++23 except std::filesystem, std::to_chars & std::from_chars which are not fully supported on all platforms.
+- We are using all features of C++17 and C++23 except `std::filesystem`, `std::to_chars`, `std::from_chars` and `std::format` which are not fully supported on all platforms.
 - We try to limit the usage of boost libraries which require linking (and prefer C++23 types over their boost counterparts).
 
 Naming and formatting

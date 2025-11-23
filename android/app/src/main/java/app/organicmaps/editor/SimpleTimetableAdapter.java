@@ -1,5 +1,6 @@
 package app.organicmaps.editor;
 
+import android.content.res.ColorStateList;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.annotation.IdRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
@@ -381,6 +383,29 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       final boolean enable = mComplementItem != null && mComplementItem.weekdays.length != 0;
       final String text = mFragment.getString(R.string.editor_time_add);
       mAdd.setEnabled(enable);
+      final ColorStateList bgButtonColor = new ColorStateList(
+              new int[][]{
+                      new int[]{android.R.attr.state_enabled}, // enabled
+                      new int[]{-android.R.attr.state_enabled} // disabled
+                      },
+              new int[]{
+                      ContextCompat.getColor(
+                              mAdd.getContext(), R.color.base_accent),
+                      ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_disabled)
+              });
+      final ColorStateList textButtonColor = new ColorStateList(
+              new int[][]{
+                      new int[]{android.R.attr.state_enabled}, // enabled
+                      new int[]{-android.R.attr.state_enabled} // disabled
+                      },
+              new int[]{
+                      ContextCompat.getColor(
+                              mAdd.getContext(),
+                              UiUtils.getStyledResourceId(mAdd.getContext(), android.R.attr.textColorPrimaryInverse)),
+                      ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_text_disabled)
+              });
+      mAdd.setBackgroundTintList(bgButtonColor);
+      mAdd.setTextColor(textButtonColor);
       mAdd.setText(enable ? text + " (" + TimeFormatUtils.formatWeekdays(mComplementItem) + ")" : text);
     }
   }

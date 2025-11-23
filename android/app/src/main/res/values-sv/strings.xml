@@ -833,4 +833,7 @@
     <string name="editor_level">Våningsplan (0 är bottenplan)</string>
     <string name="error_enter_correct_level">Ange ett giltigt nummer för våningsplan</string>
     <string name="avoid_steps">Undvik trappor</string>
+    <string name="avoid_paved">Undvik asfalterade vägar</string>
+    <string name="error_value_must_be_positive">Värdet måste vara positivt</string>
+    <string name="error_invalid_number">ogiltigt tal</string>
 </resources>

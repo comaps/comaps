@@ -21,6 +21,7 @@ openlr::FunctionalRoadClass HighwayClassToFunctionalRoadClass(ftypes::HighwayCla
 {
   switch (hwClass)
   {
+  case ftypes::HighwayClass::Motorway: return openlr::FunctionalRoadClass::FRC0;
   case ftypes::HighwayClass::Trunk: return openlr::FunctionalRoadClass::FRC0;
   case ftypes::HighwayClass::Primary: return openlr::FunctionalRoadClass::FRC1;
   case ftypes::HighwayClass::Secondary: return openlr::FunctionalRoadClass::FRC2;
@@ -48,11 +49,10 @@ optional<Score> GetFrcScore(Graph::Edge const & e, FunctionalRoadClass functiona
   switch (functionalRoadClass)
   {
   case FunctionalRoadClass::FRC0:
-    // Note. HighwayClass::Trunk means motorway, motorway_link, trunk or trunk_link.
-    return hwClass == HighwayClass::Trunk ? optional<Score>(kMaxScoreForFrc) : nullopt;
+    return hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk ? optional<Score>(kMaxScoreForFrc) : nullopt;
 
   case FunctionalRoadClass::FRC1:
-    return (hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) ? optional<Score>(kMaxScoreForFrc)
+    return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) ? optional<Score>(kMaxScoreForFrc)
                                                                                 : nullopt;
 
   case FunctionalRoadClass::FRC2:

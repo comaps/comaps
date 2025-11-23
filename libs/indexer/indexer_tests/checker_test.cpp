@@ -107,7 +107,7 @@ UNIT_TEST(GetHighwayClassTest)
 
   feature::TypesHolder types2;
   types2.Add(c.GetTypeByPath({"highway", "motorway_link", "tunnel"}));
-  TEST_EQUAL(ftypes::GetHighwayClass(types2), ftypes::HighwayClass::Trunk, ());
+  TEST_EQUAL(ftypes::GetHighwayClass(types2), ftypes::HighwayClass::Motorway, ());
 
   feature::TypesHolder types3;
   types3.Add(c.GetTypeByPath({"highway", "unclassified"}));

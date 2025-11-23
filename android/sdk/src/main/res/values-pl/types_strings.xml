@@ -1435,4 +1435,15 @@
     <string name="type.leisure.sports_centre.sport.yoga">Centrum sportowe</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Studio Jogi</string>
     <string name="type.disusedbusiness">Pusty lokal</string>
+    <string name="type.amenity.boat_rental">Wypożyczalnia łodzi</string>
+    <string name="type.man_made.telescope">Teleskop</string>
+    <string name="type.man_made.telescope.optical">Teleskop optyczny</string>
+    <string name="type.man_made.telescope.radio">Radioteleskop</string>
+    <string name="type.man_made.telescope.gamma">Teleskop (prom. gamma)</string>
+    <string name="type.man_made.observatory">Obserwatorium</string>
+    <string name="type.amenity.car_pooling">Car Pooling</string>
+    <string name="type.shop.telecommunication">Sklep dostawcy usług telekomunikacyjnych</string>
+    <string name="type.social_facility.food_bank">Bank żywności</string>
+    <string name="type.social_facility.soup_kitchen">Jadłodajnia</string>
+    <string name="type.amenity.food_sharing">Jadłodzielnia</string>
 </resources>

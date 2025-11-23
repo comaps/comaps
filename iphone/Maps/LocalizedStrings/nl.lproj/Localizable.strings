@@ -748,8 +748,8 @@
 
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Gebruik Zoeken of tik op de kaart om een bestemmingspunt toe te voegen";
-"planning_route_manage_route" = "Beheer route";
-"button_plan" = "Plan";
+"planning_route_manage_route" = "Route beheren";
+"button_plan" = "Plannen";
 "placepage_remove_stop" = "Verwijder tussenstop";
 "planning_route_remove_title" = "Sleep hier om te verwijderen";
 "placepage_add_stop" = "Voeg tussenstop toe";
@@ -1098,3 +1098,11 @@
 "existence_confirmed_time_ago" = "Bestaan bevestigd %@";
 "hours_confirmed_time_ago" = "Bevestigd %@";
 "offline_explanation_title" = "Offline kaarten";
+"offline_explanation_text" = "Er moet een kaart worden gedownload om het gebied te kunnen bekijken en navigeren.\nDownload kaarten voor gebieden waar u wilt reizen.";
+"voice_explanation" = "Het is mogelijk om een betere stem te kiezen in de systeeminstellingen onder *Toegankelijkheid*, *Tekst-naar-Spraak*, *Stemmen*.";
+"voice_explanation_before_version26" = "Het is mogelijk om een betere stem te kiezen in de systeeminstellingen onder *Toegankelijkeid*, *Gesproken tekst*, *Stemmen*.";
+"unknown" = "Onbekend";
+"voice" = "Stem";
+"avoid_paved" = "Verharde wegen vermijden";
+"editor_place_doesnt_exist_description" = "Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community";
+"avoid_steps" = "Trappen vermijden";

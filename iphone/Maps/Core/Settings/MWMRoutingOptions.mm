@@ -35,6 +35,14 @@
   [self setOption:(routing::RoutingOptions::Road::Dirty) enabled:avoid];
 }
 
+- (BOOL)avoidPaved {
+  return _options.Has(routing::RoutingOptions::Road::Paved);
+}
+
+- (void)setAvoidPaved:(BOOL)avoid {
+  [self setOption:(routing::RoutingOptions::Road::Paved) enabled:avoid];
+}
+
 - (BOOL)avoidFerry {
   return _options.Has(routing::RoutingOptions::Road::Ferry);
 }
@@ -60,7 +68,7 @@
 }
 
 - (BOOL)hasOptions {
-  return self.avoidToll || self.avoidDirty || self.avoidFerry || self.avoidMotorway || self.avoidSteps;
+  return self.avoidToll || self.avoidDirty || self.avoidPaved|| self.avoidFerry || self.avoidMotorway || self.avoidSteps;
 }
 
 - (void)save {
@@ -80,8 +88,7 @@
     return NO;
   }
   MWMRoutingOptions *another = (MWMRoutingOptions *)object;
-  return another.avoidToll == self.avoidToll && another.avoidDirty == self.avoidDirty &&
-  another.avoidFerry == self.avoidFerry && another.avoidMotorway == self.avoidMotorway && another.avoidSteps == self.avoidSteps;
+  return another.avoidToll == self.avoidToll && another.avoidDirty == self.avoidDirty && another.avoidPaved == self.avoidPaved && another.avoidFerry == self.avoidFerry && another.avoidMotorway == self.avoidMotorway && another.avoidSteps == self.avoidSteps;
 }
 
 @end

@@ -142,7 +142,7 @@ void Notes::CreateNote(ms::LatLon const & latLon, std::string const & text)
     return;
   }
 
-  std::lock_guard<std::mutex> g(m_mu);
+  std::lock_guard<std::mutex> g(m_dataAccessMutex);
   auto const it = std::find_if(m_notes.begin(), m_notes.end(), [&latLon, &text](Note const & note)
   { return latLon.EqualDxDy(note.m_point, kTolerance) && text == note.m_note; });
   // No need to add the same note. It works in case when saved note are not uploaded yet.
@@ -155,61 +155,56 @@ void Notes::CreateNote(ms::LatLon const & latLon, std::string const & text)
 
 void Notes::Upload(osm::OsmOAuth const & auth)
 {
-  // Capture self to keep it from destruction until this thread is done.
-  auto const self = shared_from_this();
+  std::unique_lock<std::mutex> uploadingNotesLock(m_uploadingNotesMutex, std::defer_lock);
+  if (!uploadingNotesLock.try_lock()) {
+    // Do not run more than one uploading task at a time.
+    LOG(LDEBUG, ("OSM notes upload is already running"));
+    return;
+  }
+  std::unique_lock<std::mutex> dataAccessLock(m_dataAccessMutex);
 
-  auto const doUpload = [self, auth]()
+  // Size of m_notes is decreased only in this method.
+  size_t size = m_notes.size();
+  osm::ServerApi06 api(auth);
+
+  while (size > 0)
   {
-    std::unique_lock<std::mutex> ulock(self->m_mu);
-    // Size of m_notes is decreased only in this method.
-    auto & notes = self->m_notes;
-    size_t size = notes.size();
-    osm::ServerApi06 api(auth);
-
-    while (size > 0)
+    try
     {
-      try
-      {
-        ulock.unlock();
-        auto const id = api.CreateNote(notes.front().m_point, notes.front().m_note);
-        ulock.lock();
-        LOG(LINFO, ("A note uploaded with id", id));
-      }
-      catch (osm::ServerApi06::ServerApi06Exception const & e)
-      {
-        LOG(LERROR, ("Can't upload note.", e.Msg()));
-        // We believe that next iterations will suffer from the same error.
-        return;
-      }
-
-      notes.pop_front();
-      --size;
-      ++self->m_uploadedNotesCount;
-      Save(self->m_fileName, self->m_notes, self->m_uploadedNotesCount);
+      dataAccessLock.unlock();
+      auto const id = api.CreateNote(m_notes.front().m_point, m_notes.front().m_note);
+      dataAccessLock.lock();
+      LOG(LINFO, ("A note uploaded with id", id));
     }
-  };
+    catch (osm::ServerApi06::ServerApi06Exception const & e)
+    {
+      LOG(LERROR, ("Can't upload note.", e.Msg()));
+      // Don't attempt upload for other notes as they will likely suffer from the same error.
+      return;
+    }
 
-  static auto future = std::async(std::launch::async, doUpload);
-  auto const status = future.wait_for(std::chrono::milliseconds(0));
-  if (status == std::future_status::ready)
-    future = std::async(std::launch::async, doUpload);
+    m_notes.pop_front();
+    --size;
+    ++m_uploadedNotesCount;
+    Save(m_fileName, m_notes, m_uploadedNotesCount);
+  }
 }
 
 std::list<Note> Notes::GetNotes() const
 {
-  std::lock_guard<std::mutex> g(m_mu);
+  std::lock_guard<std::mutex> g(m_dataAccessMutex);
   return m_notes;
 }
 
 size_t Notes::NotUploadedNotesCount() const
 {
-  std::lock_guard<std::mutex> g(m_mu);
+  std::lock_guard<std::mutex> g(m_dataAccessMutex);
   return m_notes.size();
 }
 
 size_t Notes::UploadedNotesCount() const
 {
-  std::lock_guard<std::mutex> g(m_mu);
+  std::lock_guard<std::mutex> g(m_dataAccessMutex);
   return m_uploadedNotesCount;
 }
 }  // namespace editor

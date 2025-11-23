@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -e -u
 
-# Prevent python from generating compiled *.pyc files
-export PYTHONDONTWRITEBYTECODE=1
-
 OMIM_PATH="${OMIM_PATH:-$(dirname "$0")/../..}"
 DATA_PATH="${DATA_PATH:-$OMIM_PATH/data}"
 
@@ -22,14 +19,18 @@ function BuildDrawingRules() {
     -o "$DATA_PATH/drules_proto$suffix" \
     -p "$DATA_PATH/styles/$styleType/include/"
   # Output diff and store to a file
-  diff -u "$DATA_PATH"/drules_proto$suffix.txt{.prev,} | tee "$DATA_PATH"/drules_proto$suffix.txt.diff
+  if [ -f "$DATA_PATH/drules_proto$suffix.txt.prev" ]; then
+    diff -u "$DATA_PATH/drules_proto$suffix.txt.prev" "$DATA_PATH/drules_proto$suffix.txt" > "$DATA_PATH/drules_proto$suffix.txt.diff" || true
+  fi
 }
 
 outputs=(classificator.txt types.txt visibility.txt colors.txt patterns.txt drules_proto.txt)
 # Store old versions for diffs
 for item in ${outputs[*]}
 do
-  mv $DATA_PATH/$item{,.prev} || true
+  if [ -f "$DATA_PATH/$item" ]; then
+    mv -f "$DATA_PATH/$item" "$DATA_PATH/$item.prev"
+  fi
 done
 
 # Building drawing rules
@@ -63,7 +64,11 @@ python3 "$OMIM_PATH/tools/python/stylesheet/drules_merge.py" \
 # Output diffs and store to files
 for item in ${outputs[*]}
 do
-  diff -u "$DATA_PATH"/$item{.prev,} | tee "$DATA_PATH"/$item.diff
+  if [ -f "$DATA_PATH/$item.prev" ] && [ -f "$DATA_PATH/$item" ]; then
+    diff -u "$DATA_PATH/$item.prev" "$DATA_PATH/$item" > "$DATA_PATH/$item.diff" || true
+  else
+    echo "Skipping diff for $item (first run or file missing)"
+  fi
 done
 
 echo "Diffs for all changes are stored in $DATA_PATH/*.txt.diff"

@@ -216,6 +216,16 @@ bool RuleDrawer::IsDiscardCustomFeature(FeatureID const & id) const
   return m_customFeaturesContext && m_customFeaturesContext->NeedDiscardGeometry(id);
 }
 
+bool RuleDrawer::IsHiddenChristmasFeature(FeatureType & f) const
+{
+  if (!ftypes::IsChristmasChecker::Instance()(feature::TypesHolder(f)))
+    return false;
+
+  time_t time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
+  tm local_time = *localtime(&time);
+  return !((local_time.tm_mon == 11 && local_time.tm_mday >= 6) || (local_time.tm_mon == 0 && local_time.tm_mday <= 6));
+}
+
 bool RuleDrawer::CheckCoastlines(FeatureType & f)
 {
   if (m_zoomLevel > scales::GetUpperWorldScale() && f.GetID().m_mwmId.GetInfo()->GetType() == MwmInfo::COASTS)
@@ -303,7 +313,7 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
   }
 
   /// @todo Can we put this check in the beginning of this function?
-  if (applyPointStyle && !IsDiscardCustomFeature(f.GetID()))
+  if (applyPointStyle && !IsDiscardCustomFeature(f.GetID()) && !IsHiddenChristmasFeature(f))
   {
     apply.ProcessPointRules(s.m_symbolRule, s.m_captionRule, s.m_houseNumberRule, featureCenter,
                             m_context->GetTextureManager());
@@ -353,7 +363,7 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
       df::RoadClass m_roadClass;
     };
     static Checker const checkers[] = {
-        {{HighwayClass::Trunk, HighwayClass::Primary}, kRoadClass0ZoomLevel, df::RoadClass::Class0},
+        {{HighwayClass::Motorway, HighwayClass::Trunk, HighwayClass::Primary}, kRoadClass0ZoomLevel, df::RoadClass::Class0},
         {{HighwayClass::Secondary, HighwayClass::Tertiary}, kRoadClass1ZoomLevel, df::RoadClass::Class1},
         {{HighwayClass::LivingStreet, HighwayClass::Service, HighwayClass::ServiceMinor},
          kRoadClass2ZoomLevel,
@@ -381,7 +391,7 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
 
 void RuleDrawer::ProcessPointStyle(FeatureType & f, Stylist const & s, TInsertShapeFn const & insertShape)
 {
-  if (IsDiscardCustomFeature(f.GetID()))
+  if (IsDiscardCustomFeature(f.GetID()) || IsHiddenChristmasFeature(f))
     return;
 
   ApplyPointFeature apply(m_context->GetTileKey(), insertShape, f, s.GetCaptionDescription());

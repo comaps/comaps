@@ -1105,3 +1105,4 @@
 "unknown" = "Inconnu";
 "voice_explanation_before_version26" = "Il est possible de choisir une meilleure voix dans les paramètres système sous *Accessibilité*, *Contenu parlé*, *Voix*.";
 "voice_explanation" = "Il est possible de choisir une meilleure voix dans les paramètres système sous *Accessibilité*, *Lire et parler*, *Voix*.";
+"avoid_paved" = "Éviter les routes goudronnées";

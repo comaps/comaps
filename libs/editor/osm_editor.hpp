@@ -1,5 +1,6 @@
 #pragma once
 
+#include "editor/changeset_wrapper.hpp"
 #include "editor/config_loader.hpp"
 #include "editor/editor_config.hpp"
 #include "editor/editor_notes.hpp"
@@ -241,7 +242,8 @@ private:
 
   static bool IsFeatureUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
 
-  void UpdateXMLFeatureTags(editor::XMLFeature & feature, std::list<JournalEntry> const & journal);
+  static void UpdateXMLFeatureTags(editor::XMLFeature & feature, std::list<JournalEntry> const & journal,
+                                   ChangesetWrapper & changeset);
 
   /// Deleted, edited and created features.
   base::AtomicSharedPtr<FeaturesContainer> m_features;
@@ -260,7 +262,7 @@ private:
 
   std::unique_ptr<editor::StorageBase> m_storage;
 
-  std::atomic<bool> m_isUploadingNow;
+  std::mutex m_uploadingEditsMutex;
 
   DECLARE_THREAD_CHECKER(MainThreadChecker);
 };  // class Editor

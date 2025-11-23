@@ -22,6 +22,7 @@ enum class DepthLayer : uint8_t
   RoutingMarkLayer,
   SearchMarkLayer,
   GuiLayer,
+  OverlayUnderBuildingLayer,
   LayersCount
 };
 
@@ -51,6 +52,7 @@ inline std::string DebugPrint(DepthLayer layer)
   case DepthLayer::Geometry3dLayer: return "Geometry3dLayer";
   case DepthLayer::UserLineLayer: return "UserLineLayer";
   case DepthLayer::OverlayLayer: return "OverlayLayer";
+  case DepthLayer::OverlayUnderBuildingLayer: return "OverlayUnderBuildingLayer";
   case DepthLayer::TransitSchemeLayer: return "TransitSchemeLayer";
   case DepthLayer::UserMarkLayer: return "UserMarkLayer";
   case DepthLayer::RoutingBottomMarkLayer: return "RoutingBottomMarkLayer";

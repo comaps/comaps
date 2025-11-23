@@ -592,6 +592,9 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
     case MWMRoadTypeDirty:
       options.avoidDirty = YES;
       break;
+    case MWMRoadTypePaved:
+      options.avoidPaved = YES;
+      break;
     case MWMRoadTypeFerry:
       options.avoidFerry = YES;
       break;

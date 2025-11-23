@@ -200,7 +200,7 @@
     <string name="type.craft.carpenter">Snekker</string>
     <string name="type.craft.confectionery">Konditori</string>
     <string name="type.craft.electrician">Elektriker</string>
-    <string name="type.craft.electronics_repair">Elektronikk reparasjon</string>
+    <string name="type.craft.electronics_repair">Elektronikkreparasjon</string>
     <string name="type.craft.gardener">Anleggsgartner</string>
     <string name="type.craft.grinding_mill">Slipemølle</string>
     <string name="type.craft.handicraft">Kunsthåndverk</string>
@@ -314,7 +314,7 @@
     <string name="type.entrance">Inngang</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Hovedinngang</string>
-    <string name="type.entrance.exit">Utgang</string>
+    <string name="type.entrance.exit">Utgang (bare)</string>
     <string name="type.fee.no">Gratis</string>
     <string name="type.healthcare.laboratory">Medisinsk laboratorium</string>
     <string name="type.healthcare.physiotherapist">Fysioterapeut</string>
@@ -975,7 +975,7 @@
     <string name="type.shop.books">Bokhandel</string>
     <string name="type.shop.butcher">Slakter</string>
     <string name="type.shop.cannabis">Cannabisbutikk</string>
-    <string name="type.shop.car">Bil butikk</string>
+    <string name="type.shop.car">Bilforhandler</string>
     <string name="type.shop.car_parts">Bildeler</string>
     <string name="type.shop.car_repair">Bilverksted</string>
     <string name="type.shop.car_repair.tyres">Dekkreparasjon</string>
@@ -994,7 +994,7 @@
     <string name="type.shop.department_store">Varehus</string>
     <string name="type.shop.doityourself">Jernvareforretning</string>
     <string name="type.shop.dry_cleaning">Renseri</string>
-    <string name="type.shop.electronics">Elektronikk forhandler</string>
+    <string name="type.shop.electronics">Elektronikkbutikk</string>
     <string name="type.shop.erotic">Erotisk butikk</string>
     <string name="type.shop.fabric">Butikk</string>
     <string name="type.shop.farm">Gårdsmatbutikk</string>
@@ -1066,7 +1066,7 @@
     <string name="type.shop.cheese">Ostebutikk</string>
     <string name="type.shop.craft">Kunst og Håndverk</string>
     <string name="type.shop.dairy">Meieriprodukter</string>
-    <string name="type.shop.electrical">Elektronisk butikk</string>
+    <string name="type.shop.electrical">Elektroforretning</string>
     <string name="type.shop.fishing">Fiskeutstyrsbutikk</string>
     <string name="type.shop.interior_decoration">Interiørdekorasjoner</string>
     <string name="type.shop.lottery">Lotteribilletter</string>
@@ -1353,4 +1353,33 @@
     <string name="type.railway.narrow_gauge.bridge">Smalsporet jernbanebru</string>
     <string name="type.railway.narrow_gauge.tunnel">Smalsporet jernbanetunnel</string>
     <string name="type.leisure.slipway">Slipp</string>
+    <string name="type.post_office.post_partner">Post i butikk</string>
+    <string name="type.amenity.pub">Pub</string>
+    <string name="type.historic.monument">Monument</string>
+    <string name="type.man_made.crane">Kran</string>
+    <string name="type.military.bunker">Bunker</string>
+    <string name="type.railway.construction">Jernbanebygging</string>
+    <string name="type.railway.funicular.bridge">Kabelbanebru</string>
+    <string name="type.railway.funicular.tunnel">Kabelbanetunnel</string>
+    <string name="type.military">Militært</string>
+    <string name="type.landuse.education">Utdanningsinstitusjon</string>
+    <string name="type.man_made.telescope">Teleskop</string>
+    <string name="type.social_facility.food_bank">Matsentral</string>
+    <string name="type.man_made.telescope.gamma">Teleskop (Gamma)</string>
+    <string name="type.man_made.telescope.radio">Teleskop (Radio)</string>
+    <string name="type.social_facility.soup_kitchen">Suppekjøkken</string>
+    <string name="type.amenity.car_pooling">Samkjøring</string>
+    <string name="type.shop.telecommunication">Telekommunikasjonsbutikk</string>
+    <string name="type.amenity.boat_rental">Båtutleie</string>
+    <string name="type.man_made.observatory">Observatorium</string>
+    <string name="type.emergency.life_ring">Livbøye</string>
+    <string name="type.natural.sand">Sand</string>
+    <string name="type.natural.tree">Tre</string>
+    <string name="type.cardinal.south">Sør</string>
+    <string name="type.cardinal.north">Nord</string>
+    <string name="type.cardinal.east">Øst</string>
+    <string name="type.cardinal.west">Vest</string>
+    <string name="type.xmas.tree">Juletre</string>
+    <string name="type.entrance.emergency">Nødutgang</string>
+    <string name="type.entrance.entry">Inngang (bare)</string>
 </resources>

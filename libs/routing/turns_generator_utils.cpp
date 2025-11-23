@@ -14,7 +14,7 @@ using namespace ftypes;
 
 bool IsHighway(HighwayClass hwClass, bool isLink)
 {
-  return (hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) && !isLink;
+  return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) && !isLink;
 }
 
 bool IsSmallRoad(HighwayClass hwClass)
@@ -102,6 +102,7 @@ double CalcEstimatedTimeToPass(double const distanceMeters, HighwayClass const h
   double speedKmph = 0;
   switch (highwayClass)
   {
+  case HighwayClass::Motorway: speedKmph = 100.0; break;
   case HighwayClass::Trunk: speedKmph = 100.0; break;
   case HighwayClass::Primary: speedKmph = 70.0; break;
   case HighwayClass::Secondary: speedKmph = 70.0; break;

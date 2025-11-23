@@ -17,9 +17,10 @@
 #include <algorithm>
 #include <cctype>
 #include <memory>
-#include <regex>
 #include <sstream>
 #include <unordered_set>
+
+#include <boost/regex.hpp>
 
 #include "defines.hpp"
 
@@ -42,8 +43,8 @@ bool IsSpecialName(string const & name) { return name == "." || name == ".."; }
 */
 bool IsDownloaderFile(string const & name)
 {
-  static std::regex const filter(".*\\.(downloading|resume|ready)[0-9]?$");
-  return std::regex_match(name.begin(), name.end(), filter);
+  static boost::regex const filter(".*\\.(downloading|resume|ready)[0-9]?$");
+  return boost::regex_match(name.begin(), name.end(), filter);
 }
 
 bool IsDiffFile(string const & name)

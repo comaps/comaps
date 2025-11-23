@@ -1,7 +1,11 @@
-• Dados OSM de 04/11
-• Ícones do mapa recategorizados, incluindo novas cores
-• Exibição de informações sobre tomadas disponíveis em eletropostos
-• Adição de ícones para diferentes centros esportivos, locais de eventos, salões de massagem, pousadas e alguns estabelecimentos comerciais desativados
-• Diversas melhorias e correção de erro na busca
-• Melhoria na orientação por voz durante a navegação
-Confira nossas notas de lançamento no Codeberg para mais detalhes!
+• Dados OSM de 16/11
+• Adição de árvores ao mapa
+• Ícones de pontos de ônibus menores e exibidos mais cedo
+• Visibilidade reduzida das entradas
+• Adição de diversos outros tipos de Pontos de Interesse
+• Exibição de áreas de areia no mapa
+• Adição de opção de "Estabelecimento vazio" ao editor do OSM
+• Melhorias nas placas de rodovias na Europa
+• Opção para evitar rotas por estradas pavimentadas
+• Adição de ícones nas configurações
+Confira as notas de lançamento do Codeberg para mais detalhes!

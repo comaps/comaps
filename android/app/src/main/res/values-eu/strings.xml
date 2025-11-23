@@ -246,7 +246,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Dohaintza eman</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Proiektuari laguntza eman</string>
+    <string name="how_to_support_us">Izan bolondres eta hobetu CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Egile eskubideak</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -863,4 +863,9 @@
     <string name="open_now">Ireki orain</string>
     <string name="closed_now">Orain itxita</string>
     <string name="at">%s-etan</string>
+    <string name="opens_at">%s ean irekitzen da</string>
+    <string name="closes_at">%s ean itxiko da</string>
+    <string name="opens_day_at">1$s ean %2$s tan irekitzen da</string>
+    <string name="closes_day_at">%1$s ean %2$s etan itxiko da</string>
+    <string name="editor_place_doesnt_exist_description">Deskribatu nolakoa den lekua orain OpenStreetMap komunitateari errore-ohar bat bidaltzeko.</string>
 </resources>

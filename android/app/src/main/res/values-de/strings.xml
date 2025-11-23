@@ -109,11 +109,11 @@
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
     <string name="category_fuel">Tankstelle</string>
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
-    <string name="category_parking">Parkplätze|Parkplatz|Stellplatz</string>
+    <string name="category_parking">Parkplätze</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
     <string name="category_shopping">Shopping</string>
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
-    <string name="category_secondhand">Second-hand|Gebrauchte Artikel|Gebrauchte Ware</string>
+    <string name="category_secondhand">Second-hand</string>
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
     <string name="category_hotel">Hotel</string>
     <!-- Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! -->
@@ -893,4 +893,16 @@
     <string name="unknown_count">unbekannt</string>
     <string name="error_invalid_number">ungültige Zahl</string>
     <string name="list_description_empty">Liste bearbeiten, um eine Beschreibung hinzuzufügen</string>
+    <string name="avoid_paved">Befst. Straßen vermeiden</string>
+    <string name="opens_at">Öffnet um %s</string>
+    <string name="closes_at">Schließt um %s</string>
+    <string name="opens_day_at">Öffnet am %1$s um %2$s</string>
+    <string name="closes_day_at">Schließt am %1$s um %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Geschäft ist leerstehend</string>
+    <string name="editor_mark_business_vacant_title">Geschäft als leerstehend markieren</string>
+    <string name="editor_submit">Absenden</string>
 </resources>

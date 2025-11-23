@@ -7,6 +7,7 @@ NS_SWIFT_NAME(RoutingOptions)
 
 @property(nonatomic) BOOL avoidToll;
 @property(nonatomic) BOOL avoidDirty;
+@property(nonatomic) BOOL avoidPaved;
 @property(nonatomic) BOOL avoidFerry;
 @property(nonatomic) BOOL avoidMotorway;
 @property(nonatomic) BOOL avoidSteps;

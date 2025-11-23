@@ -10,6 +10,8 @@
 #include <algorithm>
 #include <thread>
 
+#include <boost/regex.hpp>
+
 #include "private.h"
 
 #include <cerrno>
@@ -30,7 +32,7 @@ std::string RandomString(size_t length)
   return str;
 }
 
-bool IsSpecialDirName(std::string const & dirName)
+inline bool IsSpecialDirName(std::string const & dirName)
 {
   return dirName == "." || dirName == "..";
 }
@@ -73,7 +75,7 @@ bool Platform::RmDirRecursively(std::string const & dirName)
   bool res = true;
 
   FilesList allFiles;
-  GetFilesByRegExp(dirName, ".*", allFiles);
+  GetAllFiles(dirName, allFiles);
   for (std::string const & file : allFiles)
   {
     std::string const path = base::JoinPath(dirName, file);
@@ -207,15 +209,14 @@ void Platform::GetFilesByExt(std::string const & directory, std::string_view ext
   // Transform extension mask to regexp (.mwm -> \.mwm$)
   ASSERT(!ext.empty(), ());
   ASSERT_EQUAL(ext[0], '.', ());
-  std::string regexp = "\\";
-  GetFilesByRegExp(directory, regexp.append(ext).append("$"), outFiles);
+  GetFilesByRegExp(directory, boost::regex(std::string("\\").append(ext).append("$")), outFiles);
 }
 
 // static
 void Platform::GetFilesByType(std::string const & directory, unsigned typeMask, TFilesWithType & outFiles)
 {
   FilesList allFiles;
-  GetFilesByRegExp(directory, ".*", allFiles);
+  GetAllFiles(directory, allFiles);
   for (auto const & file : allFiles)
   {
     EFileType type;

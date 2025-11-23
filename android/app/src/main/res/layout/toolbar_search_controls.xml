@@ -54,7 +54,7 @@
     android:background="?attr/selectableItemBackgroundBorderless"
     android:contentDescription="@string/clear_the_search"
     android:scaleType="center"
-    app:srcCompat="@drawable/ic_cancel"/>
+    app:srcCompat="@drawable/ic_close"/>
 
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/voice_input"

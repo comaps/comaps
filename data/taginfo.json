@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20251020T140841Z",
+    "data_updated": "20251117T175008Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -95,6 +95,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bench.svg"
         },
         {
+            "description": "amenity=bench + backrest=no",
+            "key": "amenity",
+            "value": "bench",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bench_backless.svg"
+        },
+        {
+            "description": "amenity=bench + backrest=no",
+            "key": "backrest",
+            "value": "no",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bench_backless.svg"
+        },
+        {
             "description": "amenity=bicycle_parking",
             "key": "amenity",
             "value": "bicycle_parking",
@@ -131,6 +143,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pub-m.svg"
         },
         {
+            "description": "amenity=boat_rental",
+            "key": "amenity",
+            "value": "boat_rental",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/boat_rental-m.svg"
+        },
+        {
             "description": "amenity=brothel",
             "key": "amenity",
             "value": "brothel",
@@ -153,6 +171,12 @@
             "key": "amenity",
             "value": "cafe",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/cafe-m.svg"
+        },
+        {
+            "description": "amenity=car_pooling",
+            "key": "amenity",
+            "value": "car_pooling",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking-pooling-m.svg"
         },
         {
             "description": "amenity=car_rental",
@@ -182,16 +206,66 @@
             "description": "amenity=charging_station",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=*",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=*",
+            "key": "motorcar?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=1",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=1",
+            "key": "capacity",
+            "value": "1",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=1",
+            "key": "motorcar?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=2",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=2",
+            "key": "capacity",
+            "value": "2",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity=2",
+            "key": "motorcar?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
+            "key": "capacity?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* + capacity?=*",
             "key": "motorcar?",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
         },
@@ -259,7 +333,7 @@
             "description": "amenity=dojo",
             "key": "amenity",
             "value": "dojo",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/martial-arts-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/martial-arts-centre-m.svg"
         },
         {
             "description": "amenity=drinking_water",
@@ -277,7 +351,7 @@
             "description": "amenity=events_venue",
             "key": "amenity",
             "value": "events_venue",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/community-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/events_venue-m.svg"
         },
         {
             "description": "amenity=exhibition_centre",
@@ -304,10 +378,22 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/fire_station-m.svg"
         },
         {
+            "description": "amenity=flight_school",
+            "key": "amenity",
+            "value": "flight_school",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/flying_school-m.svg"
+        },
+        {
             "description": "amenity=food_court",
             "key": "amenity",
             "value": "food_court",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/restaurant-m.svg"
+        },
+        {
+            "description": "amenity=food_sharing",
+            "key": "amenity",
+            "value": "food_sharing",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/food_sharing-m.svg"
         },
         {
             "description": "amenity=fountain",
@@ -326,6 +412,12 @@
             "key": "amenity",
             "value": "gambling",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/gambling-m.svg"
+        },
+        {
+            "description": "amenity=give_box",
+            "key": "amenity",
+            "value": "give_box",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/give_box-m.svg"
         },
         {
             "description": "amenity=hospital",
@@ -370,6 +462,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/library-m.svg"
         },
         {
+            "description": "amenity=lounger",
+            "key": "amenity",
+            "value": "lounger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/lounger-m.svg"
+        },
+        {
             "description": "amenity=love_hotel",
             "key": "amenity",
             "value": "love_hotel",
@@ -386,6 +484,12 @@
             "key": "amenity",
             "value": "marketplace",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/marketplace-m.svg"
+        },
+        {
+            "description": "amenity=mobile_money_agent",
+            "key": "amenity",
+            "value": "mobile_money_agent",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/banknote-m.svg"
         },
         {
             "description": "amenity=money_transfer",
@@ -642,6 +746,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking-disabled-m.svg"
         },
         {
+            "description": "amenity=payment_centre",
+            "key": "amenity",
+            "value": "payment_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/banknote-m.svg"
+        },
+        {
             "description": "amenity=payment_terminal",
             "key": "amenity",
             "value": "payment_terminal",
@@ -798,6 +908,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/mail-m.svg"
         },
         {
+            "description": "amenity=prep_school",
+            "key": "amenity",
+            "value": "prep_school",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/prep_school-m.svg"
+        },
+        {
             "description": "amenity=prison",
             "key": "amenity",
             "value": "prison",
@@ -834,10 +950,28 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/recycling-m.svg"
         },
         {
+            "description": "amenity=recycling + recycling_type=centre",
+            "key": "amenity",
+            "value": "recycling",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/recycling-centre-m.svg"
+        },
+        {
+            "description": "amenity=recycling + recycling_type=centre",
+            "key": "recycling_type",
+            "value": "centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/recycling-centre-m.svg"
+        },
+        {
             "description": "amenity=restaurant",
             "key": "amenity",
             "value": "restaurant",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/restaurant-m.svg"
+        },
+        {
+            "description": "amenity=sailing_school",
+            "key": "amenity",
+            "value": "sailing_school",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/boating_school-m.svg"
         },
         {
             "description": "amenity=sanitary_dump_station",
@@ -900,6 +1034,11 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shower-m.svg"
         },
         {
+            "description": "amenity=slipway",
+            "key": "amenity",
+            "value": "slipway"
+        },
+        {
             "description": "amenity=social_facility",
             "key": "amenity",
             "value": "social_facility",
@@ -945,7 +1084,7 @@
             "description": "amenity=townhall",
             "key": "amenity",
             "value": "townhall",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/embassy-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/public-building-m.svg"
         },
         {
             "description": "amenity=university",
@@ -1147,7 +1286,7 @@
             "description": "barrier=entrance",
             "key": "barrier",
             "value": "entrance",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/entrance-barrier-s.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/entrance-barrier-xs.svg"
         },
         {
             "description": "barrier=gate",
@@ -1229,6 +1368,12 @@
             "key": "building",
             "value": "guardhouse",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/security-m.svg"
+        },
+        {
+            "description": "building=train_station",
+            "key": "building",
+            "value": "train_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/train_building-m.svg"
         },
         {
             "description": "craft=*",
@@ -1368,6 +1513,17 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/winery-m.svg"
         },
         {
+            "description": "disused:shop=*",
+            "key": "disused:shop",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/disusedbusiness-m.svg"
+        },
+        {
+            "description": "emergency=access_point",
+            "key": "emergency",
+            "value": "access_point",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/access_point-m.svg"
+        },
+        {
             "description": "emergency=assembly_point",
             "key": "emergency",
             "value": "assembly_point",
@@ -1386,6 +1542,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/firehydrant-m.svg"
         },
         {
+            "description": "emergency=life_ring",
+            "key": "emergency",
+            "value": "life_ring",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/lifebuoy-m.svg"
+        },
+        {
             "description": "emergency=lifeguard",
             "key": "emergency",
             "value": "lifeguard",
@@ -1402,10 +1564,6 @@
             "key": "emergency",
             "value": "phone",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/emergency-phone-m.svg"
-        },
-        {
-            "description": "healthcare=*",
-            "key": "healthcare"
         },
         {
             "description": "healthcare=alternative",
@@ -1471,7 +1629,7 @@
             "description": "highway=bus_stop",
             "key": "highway",
             "value": "bus_stop",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bus-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bus-xm.svg"
         },
         {
             "description": "highway=elevator",
@@ -1551,6 +1709,90 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
         },
         {
+            "description": "historic=castle + castle_type=castrum",
+            "key": "castle_type",
+            "value": "castrum",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=castrum",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=defensive",
+            "key": "castle_type",
+            "value": "defensive",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=defensive",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=fortified_church",
+            "key": "castle_type",
+            "value": "fortified_church",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=fortified_church",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=fortress",
+            "key": "castle_type",
+            "value": "fortress",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=fortress",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=hillfort",
+            "key": "castle_type",
+            "value": "hillfort",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=hillfort",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=kremlin",
+            "key": "castle_type",
+            "value": "kremlin",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=kremlin",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=shiro",
+            "key": "castle_type",
+            "value": "shiro",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
+            "description": "historic=castle + castle_type=shiro",
+            "key": "historic",
+            "value": "castle",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
+        },
+        {
             "description": "historic=city_gate",
             "key": "historic",
             "value": "city_gate",
@@ -1565,7 +1807,7 @@
             "description": "historic=fort",
             "key": "historic",
             "value": "fort",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/castle-m.svg"
         },
         {
             "description": "historic=gallows",
@@ -1641,6 +1883,90 @@
         },
         {
             "description": "historic=ruins",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=castrum",
+            "key": "castle_type",
+            "value": "castrum",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=castrum",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=defensive",
+            "key": "castle_type",
+            "value": "defensive",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=defensive",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=fortified_church",
+            "key": "castle_type",
+            "value": "fortified_church",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=fortified_church",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=fortress",
+            "key": "castle_type",
+            "value": "fortress",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=fortress",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=hillfort",
+            "key": "castle_type",
+            "value": "hillfort",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=hillfort",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=kremlin",
+            "key": "castle_type",
+            "value": "kremlin",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=kremlin",
+            "key": "historic",
+            "value": "ruins",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=shiro",
+            "key": "castle_type",
+            "value": "shiro",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
+        },
+        {
+            "description": "historic=ruins + castle_type=shiro",
             "key": "historic",
             "value": "ruins",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/remains-m.svg"
@@ -1767,6 +2093,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/arcade-m.svg"
         },
         {
+            "description": "leisure=bandstand",
+            "key": "leisure",
+            "value": "bandstand",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bandstand-m.svg"
+        },
+        {
             "description": "leisure=beach_resort",
             "key": "leisure",
             "value": "beach_resort",
@@ -1809,10 +2141,22 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/fitness_centre-m.svg"
         },
         {
+            "description": "leisure=fitness_centre + sport=yoga",
+            "key": "leisure",
+            "value": "fitness_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/yoga-centre-m.svg"
+        },
+        {
+            "description": "leisure=fitness_centre + sport=yoga",
+            "key": "sport",
+            "value": "yoga",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/yoga-centre-m.svg"
+        },
+        {
             "description": "leisure=fitness_station",
             "key": "leisure",
             "value": "fitness_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/fitness_station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/fitness-m.svg"
         },
         {
             "description": "leisure=golf_course",
@@ -1833,6 +2177,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
         },
         {
+            "description": "leisure=indoor_play",
+            "key": "leisure",
+            "value": "indoor_play",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/indoor_play-m.svg"
+        },
+        {
             "description": "leisure=marina",
             "key": "leisure",
             "value": "marina",
@@ -1842,7 +2192,7 @@
             "description": "leisure=miniature_golf",
             "key": "leisure",
             "value": "miniature_golf",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/golf-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/golf-centre-m.svg"
         },
         {
             "description": "leisure=nature_reserve",
@@ -1884,13 +2234,403 @@
             "description": "leisure=sauna",
             "key": "leisure",
             "value": "sauna",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/public_bath-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sauna-m.svg"
+        },
+        {
+            "description": "leisure=slipway",
+            "key": "leisure",
+            "value": "slipway",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/slipway-m.svg"
         },
         {
             "description": "leisure=sports_centre",
             "key": "leisure",
             "value": "sports_centre",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=american_football",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/america-football-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=american_football",
+            "key": "sport",
+            "value": "american_football",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/america-football-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=archery",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/archery-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=archery",
+            "key": "sport",
+            "value": "archery",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/archery-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=athletics",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=athletics",
+            "key": "sport",
+            "value": "athletics",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=australian_football",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/australian-football-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=australian_football",
+            "key": "sport",
+            "value": "australian_football",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/australian-football-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=badminton",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/badminton-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=badminton",
+            "key": "sport",
+            "value": "badminton",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/badminton-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=baseball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/baseball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=baseball",
+            "key": "sport",
+            "value": "baseball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/baseball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=basketball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/basketball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=basketball",
+            "key": "sport",
+            "value": "basketball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/basketball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=beachvolleyball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=beachvolleyball",
+            "key": "sport",
+            "value": "beachvolleyball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=bowls",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=bowls",
+            "key": "sport",
+            "value": "bowls",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=climbing",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/climbing-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=climbing",
+            "key": "sport",
+            "value": "climbing",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/climbing-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=cricket",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/cricket-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=cricket",
+            "key": "sport",
+            "value": "cricket",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/cricket-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=curling",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/curling-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=curling",
+            "key": "sport",
+            "value": "curling",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/curling-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=equestrian",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/equestrian-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=equestrian",
+            "key": "sport",
+            "value": "equestrian",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/equestrian-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=field_hockey",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=field_hockey",
+            "key": "sport",
+            "value": "field_hockey",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=futsal",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/soccer-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=futsal",
+            "key": "sport",
+            "value": "futsal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/soccer-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=golf",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/golf-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=golf",
+            "key": "sport",
+            "value": "golf",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/golf-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=gymnastics",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=gymnastics",
+            "key": "sport",
+            "value": "gymnastics",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=handball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/handball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=handball",
+            "key": "sport",
+            "value": "handball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/handball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=ice_hockey",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=ice_hockey",
+            "key": "sport",
+            "value": "ice_hockey",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=multi",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=multi",
+            "key": "sport",
+            "value": "multi",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=padel",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/padel-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=padel",
+            "key": "sport",
+            "value": "padel",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/padel-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=pelota",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pelota-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=pelota",
+            "key": "sport",
+            "value": "pelota",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pelota-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=scuba_diving",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/diving-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=scuba_diving",
+            "key": "sport",
+            "value": "scuba_diving",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/diving-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=shooting",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/archery-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=shooting",
+            "key": "sport",
+            "value": "shooting",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/archery-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=skateboard",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/skateboard-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=skateboard",
+            "key": "sport",
+            "value": "skateboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/skateboard-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=skiing",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/skiing-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=skiing",
+            "key": "sport",
+            "value": "skiing",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/skiing-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=soccer",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/soccer-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=soccer",
+            "key": "sport",
+            "value": "soccer",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/soccer-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=swimming",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/swimming-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=swimming",
+            "key": "sport",
+            "value": "swimming",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/swimming-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=table_tennis",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/table-tennis-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=table_tennis",
+            "key": "sport",
+            "value": "table_tennis",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/table-tennis-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=tennis",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tennis-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=tennis",
+            "key": "sport",
+            "value": "tennis",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tennis-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=volleyball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=volleyball",
+            "key": "sport",
+            "value": "volleyball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=yoga",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/yoga-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=yoga",
+            "key": "sport",
+            "value": "yoga",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/yoga-centre-m.svg"
         },
         {
             "description": "leisure=sports_hall",
@@ -1924,7 +2664,7 @@
             "description": "leisure=water_park",
             "key": "leisure",
             "value": "water_park",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/swimming-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/swimming-centre-m.svg"
         },
         {
             "description": "man_made=cairn",
@@ -1981,6 +2721,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/dot-m.svg"
         },
         {
+            "description": "man_made=observatory",
+            "key": "man_made",
+            "value": "observatory",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/observatory-m.svg"
+        },
+        {
             "description": "man_made=petroleum_well",
             "key": "man_made",
             "value": "petroleum_well",
@@ -2003,6 +2749,48 @@
             "key": "man_made",
             "value": "survey_point",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/survey_point-m.svg"
+        },
+        {
+            "description": "man_made=telescope",
+            "key": "man_made",
+            "value": "telescope",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=gamma",
+            "key": "man_made",
+            "value": "telescope",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-gamma-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=gamma",
+            "key": "telescope:type",
+            "value": "gamma",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-gamma-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=optical",
+            "key": "man_made",
+            "value": "telescope",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-optical-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=optical",
+            "key": "telescope:type",
+            "value": "optical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-optical-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=radio",
+            "key": "man_made",
+            "value": "telescope",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-radio-m.svg"
+        },
+        {
+            "description": "man_made=telescope + telescope:type=radio",
+            "key": "telescope:type",
+            "value": "radio",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/telescope-radio-m.svg"
         },
         {
             "description": "man_made=tower",
@@ -2157,6 +2945,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/drinking-water-no-m.svg"
         },
         {
+            "description": "natural=tree",
+            "key": "natural",
+            "value": "tree",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-m.svg"
+        },
+        {
             "description": "natural=volcano",
             "key": "natural",
             "value": "volcano",
@@ -2282,15 +3076,852 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/funicular-m.svg"
         },
         {
+            "description": "railway=station + station=light_rail",
+            "key": "railway",
+            "value": "station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/train_light-m.svg"
+        },
+        {
+            "description": "railway=station + station=light_rail",
+            "key": "station",
+            "value": "light_rail",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/train_light-m.svg"
+        },
+        {
             "description": "railway=tram_stop",
             "key": "railway",
             "value": "tram_stop",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tram-m.svg"
         },
         {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=east + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=north + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=south + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:beacon_cardinal:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_cardinal + seamark:beacon_cardinal:category=west + seamark:beacon_cardinal:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=buoyant",
+            "key": "seamark:beacon_isolated_danger:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=lattice",
+            "key": "seamark:beacon_isolated_danger:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=pile",
+            "key": "seamark:beacon_isolated_danger:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=tower",
+            "key": "seamark:beacon_isolated_danger:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_isolated_danger + seamark:beacon_isolated_danger:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:beacon_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:beacon_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:beacon_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:beacon_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=port + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:beacon_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:beacon_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:beacon_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:beacon_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:beacon_lateral:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_lateral + seamark:beacon_lateral:category=starboard + seamark:beacon_lateral:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=buoyant",
+            "key": "seamark:beacon_safe_water:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=lattice",
+            "key": "seamark:beacon_safe_water:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=pile",
+            "key": "seamark:beacon_safe_water:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=tower",
+            "key": "seamark:beacon_safe_water:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_safe_water + seamark:beacon_safe_water:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=buoyant",
+            "key": "seamark:beacon_special_purpose:shape",
+            "value": "buoyant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=buoyant",
+            "key": "seamark:type",
+            "value": "beacon_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=lattice",
+            "key": "seamark:beacon_special_purpose:shape",
+            "value": "lattice",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=lattice",
+            "key": "seamark:type",
+            "value": "beacon_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=pile",
+            "key": "seamark:beacon_special_purpose:shape",
+            "value": "pile",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=pile",
+            "key": "seamark:type",
+            "value": "beacon_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=tower",
+            "key": "seamark:beacon_special_purpose:shape",
+            "value": "tower",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=beacon_special_purpose + seamark:beacon_special_purpose:shape=tower",
+            "key": "seamark:type",
+            "value": "beacon_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beacon-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=east",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=east",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=east + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "east",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=east + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=east + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-east-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=north",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=north",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=north + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "north",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=north + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=north + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-north-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "south",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "south"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:shape",
+            "value": "spherical"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_cardinal"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "south[seamark:buoy_cardinal:shape=spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=south[seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-south-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=west",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=west",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=west + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:category",
+            "value": "west",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=west + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:buoy_cardinal:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_cardinal + seamark:buoy_cardinal:category=west + seamark:buoy_cardinal:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_cardinal",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-cardinal-west-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_isolated_danger",
+            "key": "seamark:type",
+            "value": "buoy_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_isolated_danger + seamark:buoy_isolated_danger:shape=spherical",
+            "key": "seamark:buoy_isolated_danger:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_isolated_danger + seamark:buoy_isolated_danger:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_isolated_danger",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-isolated_danger-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=port",
+            "key": "seamark:buoy_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=port",
+            "key": "seamark:type",
+            "value": "buoy_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=port + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:buoy_lateral:category",
+            "value": "port",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=port + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:buoy_lateral:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=port + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-port-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=starboard",
+            "key": "seamark:buoy_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=starboard",
+            "key": "seamark:type",
+            "value": "buoy_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=starboard + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:buoy_lateral:category",
+            "value": "starboard",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=starboard + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:buoy_lateral:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_lateral + seamark:buoy_lateral:category=starboard + seamark:buoy_lateral:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_lateral",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-lateral-starboard-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_safe_water",
+            "key": "seamark:type",
+            "value": "buoy_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_safe_water + seamark:buoy_safe_water:shape=spherical",
+            "key": "seamark:buoy_safe_water:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_safe_water + seamark:buoy_safe_water:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_safe_water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-safe_water-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_special_purpose",
+            "key": "seamark:type",
+            "value": "buoy_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_special_purpose + seamark:buoy_special_purpose:shape=spherical",
+            "key": "seamark:buoy_special_purpose:shape",
+            "value": "spherical",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-special_purpose-m.svg"
+        },
+        {
+            "description": "seamark:type=buoy_special_purpose + seamark:buoy_special_purpose:shape=spherical",
+            "key": "seamark:type",
+            "value": "buoy_special_purpose",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/buoy-spherical-special_purpose-m.svg"
+        },
+        {
             "description": "shop=*",
             "key": "shop",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-m.svg"
+        },
+        {
+            "description": "shop=agrarian",
+            "key": "shop",
+            "value": "agrarian",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-industry-m.svg"
         },
         {
             "description": "shop=alcohol",
@@ -2327,6 +3958,18 @@
             "key": "shop",
             "value": "beauty",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beauty-m.svg"
+        },
+        {
+            "description": "shop=beauty + beauty=spa",
+            "key": "beauty",
+            "value": "spa",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/day-spa-m.svg"
+        },
+        {
+            "description": "shop=beauty + beauty=spa",
+            "key": "shop",
+            "value": "beauty",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/day-spa-m.svg"
         },
         {
             "description": "shop=beverages",
@@ -2491,11 +4134,6 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/dry_cleaning-m.svg"
         },
         {
-            "description": "shop=electrical",
-            "key": "shop",
-            "value": "electrical"
-        },
-        {
             "description": "shop=electronics",
             "key": "shop",
             "value": "electronics",
@@ -2542,6 +4180,12 @@
             "key": "shop",
             "value": "garden_centre",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/garden_center-m.svg"
+        },
+        {
+            "description": "shop=gas",
+            "key": "shop",
+            "value": "gas",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-industry-m.svg"
         },
         {
             "description": "shop=gift",
@@ -2643,7 +4287,7 @@
             "description": "shop=massage",
             "key": "shop",
             "value": "massage",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/public_bath-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/massage_salon-m.svg"
         },
         {
             "description": "shop=mobile_phone",
@@ -2715,7 +4359,7 @@
             "description": "shop=pawnbroker",
             "key": "shop",
             "value": "pawnbroker",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bookmaker-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-m.svg"
         },
         {
             "description": "shop=pet",
@@ -2796,6 +4440,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/craft-m.svg"
         },
         {
+            "description": "shop=telecommunication",
+            "key": "shop",
+            "value": "telecommunication",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/mobile_phone-m.svg"
+        },
+        {
             "description": "shop=ticket",
             "key": "shop",
             "value": "ticket",
@@ -2812,6 +4462,12 @@
             "key": "shop",
             "value": "toys",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/toys-m.svg"
+        },
+        {
+            "description": "shop=trade",
+            "key": "shop",
+            "value": "trade",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-industry-m.svg"
         },
         {
             "description": "shop=tyres",
@@ -2850,6 +4506,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/alcohol-m.svg"
         },
         {
+            "description": "social_facility=food_bank",
+            "key": "social_facility",
+            "value": "food_bank",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/food_bank-m.svg"
+        },
+        {
+            "description": "social_facility=soup_kitchen",
+            "key": "social_facility",
+            "value": "soup_kitchen",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/soup_kitchen-m.svg"
+        },
+        {
             "description": "sport=*",
             "key": "sport",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
@@ -2877,6 +4545,12 @@
             "key": "sport",
             "value": "archery",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/archery-m.svg"
+        },
+        {
+            "description": "sport=athletics",
+            "key": "sport",
+            "value": "athletics",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
         },
         {
             "description": "sport=australian_football",
@@ -2907,6 +4581,12 @@
             "key": "sport",
             "value": "beachvolleyball",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-m.svg"
+        },
+        {
+            "description": "sport=bowls",
+            "key": "sport",
+            "value": "bowls",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
         },
         {
             "description": "sport=chess",
@@ -2957,6 +4637,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/golf-m.svg"
         },
         {
+            "description": "sport=gymnastics",
+            "key": "sport",
+            "value": "gymnastics",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
+        },
+        {
             "description": "sport=handball",
             "key": "sport",
             "value": "handball",
@@ -2967,6 +4653,12 @@
             "key": "sport",
             "value": "ice_hockey",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-m.svg"
+        },
+        {
+            "description": "sport=multi",
+            "key": "sport",
+            "value": "multi",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
         },
         {
             "description": "sport=padel",
@@ -3114,7 +4806,7 @@
             "description": "tourism=guest_house",
             "key": "tourism",
             "value": "guest_house",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/apartment-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/guest_house-m.svg"
         },
         {
             "description": "tourism=hostel",
@@ -3253,6 +4945,12 @@
             "key": "waterway",
             "value": "waterfall",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/waterfall-m.svg"
+        },
+        {
+            "description": "xmas:feature=tree",
+            "key": "xmas:feature",
+            "value": "tree",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/christmas-tree-m.svg"
         }
     ]
 }

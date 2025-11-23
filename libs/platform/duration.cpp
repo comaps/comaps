@@ -47,11 +47,6 @@ std::string_view GetUnitsGroupingSeparator(Locale const & locale)
   bool const isEmptySeparator = base::IsExist(kEmptyGroupingSeparatorLocales, locale.m_language);
   return isEmptySeparator ? kNoSpace : kNonBreakingSpace;
 }
-
-bool IsUnitsOrderValid(std::initializer_list<Duration::Units> units)
-{
-  return base::IsSortedAndUnique(units);
-}
 }  // namespace
 
 Duration::Duration(unsigned long seconds) : m_seconds(seconds) {}
@@ -82,7 +77,7 @@ std::string Duration::GetString(std::initializer_list<Units> units, std::string_
                                 std::string_view groupingSeparator) const
 {
   ASSERT(units.size(), ());
-  ASSERT(IsUnitsOrderValid(units), ());
+  ASSERT(base::IsSortedAndUnique(units), ());
 
   if (SecondsToUnits(m_seconds, Units::Minutes) == 0)
     return std::to_string(0U).append(unitSeparator).append(GetUnitsString(Units::Minutes));

@@ -77,6 +77,8 @@ vending=water : vending=drinks
 vending=milk : vending=drinks
 vending=bread : vending=food
 
+highway=emergency_access_point : emergency=access_point
+
 building=entrance : entrance=yes
 
 ice_road=yes : highway=ice_road
@@ -90,11 +92,6 @@ natural=waterfall : waterway=waterfall
 natural=forest    : natural=wood
 natural=shrubbery : natural=scrub
 cliff=yes         : natural=cliff
-
-desert=sand : desert=erg
-desert=yes : desert=erg
-desert=semi_arid : desert=erg
-desert=dune : desert=erg
 
 office=notary : office=lawyer
 office=administrative : office=government

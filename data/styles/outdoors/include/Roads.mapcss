@@ -570,6 +570,18 @@ line|z16-[railway=construction],
 line|z16-[railway=disused]
 {width: 1.7; dashes: 2.5,7;}
 
+line|z12[railway=rail][tunnel?],
+{opacity:0.8}
+line|z13[railway=rail][tunnel?],
+{opacity:0.6}
+line|z14-[railway=rail][tunnel?],
+{casing-width: 1;casing-linecap: butt;casing-color: @railway_tunnel;casing-dashes: 5,5;casing-opacity: 0.3; opacity:0.4}
+line|z15[railway=rail][tunnel?],
+{casing-opacity: 0.3; opacity:0.3}
+line|z16[railway=rail][tunnel?],
+{casing-opacity: 0.1; opacity:0.2}
+line|z17-[railway=rail][tunnel?],
+{casing-opacity: 0.05; opacity:0.1}
 
 /* Power lines are good for orienteering */
 line|z13-[power=line],

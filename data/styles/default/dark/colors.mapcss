@@ -51,6 +51,7 @@
 @wetland_swamp: #3D5045;
 @wetland_mangrove: #3E5143;
 @beach: #322C20;
+@sand: #312d24;
 @barerock: #2B2A26;
 @scree: #292825;
 @desert: #312E28;
@@ -242,6 +243,7 @@
 @neutral_label: #51585E;
 @healthcare_label: #983E44;
 @public_transport_label: #2F6499;
+@emergency_label: #247F52;
 
 /* 6.4 Road labels */
 

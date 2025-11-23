@@ -14,6 +14,7 @@
 # - BG-top: water (linear and areal)
 # - BG-by-size: landcover areas sorted by their size
 
+amenity-car_pooling                                 # area z15- (also has icon z15-, caption(optional) z16-)
 amenity-motorcycle_parking                          # area z17- (also has icon z17-)
 amenity-parking                                     # area z15- (also has icon z15-, caption(optional) z16-)
 amenity-parking-fee                                 # area z15- (also has icon z15-, caption(optional) z16-)
@@ -132,6 +133,7 @@ natural-beach-gravel                                # area z10- (also has captio
 natural-beach-sand                                  # area z10- (also has caption z15-)
 natural-desert                                      # area z1- (also has caption z14-)
 natural-glacier                                     # area z1-
+natural-sand                                        # area z1- (also has caption z15-)
 === 30
 
 natural-land                                        # area z1-

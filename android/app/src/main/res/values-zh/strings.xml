@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">精度有限</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">为确保准确导航，请在设置中启用确切位置</string>
+    <string name="precise_location_is_disabled_long_text">为确保导航准确，请在设置中启用 \"精确定位\"</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">在地图上显示</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -36,13 +36,13 @@
     <string name="try_again">再试一次</string>
     <string name="about_menu_title">关于 CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_headline">由社区推动的开放项目</string>
+    <string name="about_headline">由社区驱动的开源项目</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• 使用方便，外观精美</string>
+    <string name="about_proposition_1">• 简单易用，精工细作</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">•注重隐私，毫无广告</string>
+    <string name="about_proposition_2">• 专注隐私，绝无广告</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_3">• 离线、快速、精简</string>
+    <string name="about_proposition_3">• 离线、迅捷、轻量</string>
     <!-- Text in About screen -->
     <string name="about_developed_by_enthusiasts">完全开源、决策问责、财务透明的非营利应用。</string>
     <!-- The button that opens system location settings -->
@@ -416,12 +416,12 @@
     <string name="autodownload">自动下载</string>
     <!-- Place Page opening hours text -->
     <string name="daily">每天</string>
-    <string name="twentyfour_seven">24/7 全天候营业</string>
-    <string name="day_off_today">今天不营业</string>
-    <string name="day_off">不营业</string>
-    <string name="opens_in">将于 %s 后开业</string>
-    <string name="closes_in">将于 %s 后歇业</string>
-    <string name="closed">已停止营业</string>
+    <string name="twentyfour_seven">24/7</string>
+    <string name="day_off_today">今天关闭</string>
+    <string name="day_off">关闭</string>
+    <string name="opens_in">%s 开放</string>
+    <string name="closes_in">%s 关闭</string>
+    <string name="closed">已关闭</string>
     <string name="edit_opening_hours">编辑营业时间</string>
     <string name="no_osm_account">没有 OpenStreetMap 账号吗？</string>
     <string name="register_at_openstreetmap">注册 OpenStreetMap 账号</string>
@@ -530,8 +530,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">您想要发送给所有用户吗？</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">请确保您没有输入任何私人或个人数据</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap 编辑人员将检查更改，如有任何疑问，将与您联系</string>
+    <string name="editor_share_to_all_dialog_message_1">请确保您没有输入任何私人或个人数据。</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap 编辑人员将检查更改，如有任何疑问，将与您联系。</string>
     <string name="navigation_stop_button">停止</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">记录轨迹</string>
@@ -634,7 +634,7 @@
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">避开收费公路</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_unpaved">避开未铺砌道路</string>
+    <string name="avoid_unpaved">避开非铺装道路</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_ferry">避开轮渡</string>
     <string name="avoid_motorways">避开高速公路</string>
@@ -643,7 +643,7 @@
     <string name="define_to_avoid_btn">选择要避开的道路</string>
     <string name="change_driving_options_btn">绕行设置已开启</string>
     <string name="toll_road">收费公路</string>
-    <string name="unpaved_road">未铺砌道路</string>
+    <string name="unpaved_road">非铺装道路</string>
     <string name="ferry_crossing">轮渡</string>
     <!-- A generic "Yes" button in dialogs -->
     <string name="yes">是</string>
@@ -718,9 +718,9 @@
     <!-- Used in DownloadResources startup screen -->
     <string name="disk_error_title">磁盘错误</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="connection_failure">磁盘错误</string>
+    <string name="connection_failure">连接失败</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="disconnect_usb_cable_title">断开 USB 线缆</string>
+    <string name="disconnect_usb_cable_title">断开 USB 线连接</string>
     <string name="enable_keep_screen_on">保持屏幕打开</string>
     <!-- Description in preferences -->
     <string name="enable_keep_screen_on_description">启用后，显示地图时屏幕将始终打开。</string>
@@ -863,8 +863,8 @@
     <string name="backup_interval_manual_only">关闭（仅手动）</string>
     <string name="dialog_report_error_missing_folder">所选备份位置不可用或不可写入。请选择其他位置。</string>
     <string name="dialog_report_error_with_logs">请向我们发送错误报告：\n - 在设置中“启用日志记录”\n - 重现问题\n - 在“关于和帮助”屏幕中点击“报告错误”按钮，然后通过电子邮件或聊天软件发送\n - 禁用日志记录</string>
-    <string name="closed_now">已歇业</string>
-    <string name="open_now">营业中</string>
+    <string name="closed_now">已关闭</string>
+    <string name="open_now">已开放</string>
     <string name="at">%s</string>
     <string name="osm_note_hint">或者，也可以给 OpenStreetMap 社区留下注记，以便其他人可以在此添加或修复地点。</string>
     <string name="osm_note_toast">注记将发送至 OpenStreetMap</string>
@@ -896,4 +896,16 @@
     <string name="offline_explanation_title">离线地图</string>
     <string name="offline_explanation_text">需要下载地图才能查看并在该区域内导航。\n请为您计划前往的区域下载地图。</string>
     <string name="list_description_empty">编辑列表以添加描述</string>
+    <string name="opens_at">%s 开放</string>
+    <string name="closes_at">%s 关闭</string>
+    <string name="opens_day_at">%1$s %2$s 开放</string>
+    <string name="closes_day_at">%1$s %2$s 关闭</string>
+    <plurals name="minutes_short">
+        <item quantity="other">%d 分钟</item>
+    </plurals>
+    <string name="editor_business_vacant_button">商铺空置</string>
+    <string name="editor_mark_business_vacant_title">将商铺标记为空置</string>
+    <string name="editor_mark_business_vacant_description">如果商铺已搬离且场地空置待租，请使用此选项。</string>
+    <string name="editor_submit">提交</string>
+    <string name="avoid_paved">避开铺装道路</string>
 </resources>

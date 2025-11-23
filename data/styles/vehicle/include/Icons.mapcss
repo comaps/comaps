@@ -600,6 +600,7 @@ node|z14-[amenity=charging_station][motorcar?][capacity?],
 node|z15-[amenity=sanitary_dump_station],
 node|z16-[amenity=charging_station],
 node|z16-[amenity=parking],
+node|z16-[amenity=car_pooling],
 area|z16-[landuse=garages],
 node|z16-[tourism=caravan_site],
 node|z17-[amenity=car_wash],
@@ -732,9 +733,13 @@ node|z18-[amenity=water_point][drinking_water=not],
 
 node|z15-[amenity=parking],
 {icon-image: parking-m.svg;icon-min-distance: 10;font-size: 12.5;}
+node|z15-[amenity=car_pooling],
+{icon-image: parking-pooling-m.svg;icon-min-distance: 10;font-size: 12.5;}
 node|z17[amenity=parking],
+node|z17[amenity=car_pooling],
 {icon-min-distance: 15;font-size: 13.75;}
 node|z18-[amenity=parking],
+node|z18-[amenity=car_pooling],
 {font-size: 14.5;}
 
 node|z15-[amenity=parking][location=underground],

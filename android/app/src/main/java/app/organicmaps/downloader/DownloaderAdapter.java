@@ -357,7 +357,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
   private MenuBottomSheetItem getCancelMenuItem()
   {
-    return new MenuBottomSheetItem(R.string.cancel, R.drawable.ic_cancel, () -> onCancelActionSelected(mSelectedItem));
+    return new MenuBottomSheetItem(R.string.cancel, R.drawable.ic_close, () -> onCancelActionSelected(mSelectedItem));
   }
 
   private class ItemViewHolder extends BaseInnerViewHolder<CountryItem>

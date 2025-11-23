@@ -225,6 +225,11 @@ bool FeatureBuilder::PreSerialize()
         });
         m_params.name = std::move(nameWithRef);
       }
+      else if (ftypes::IsEmergencyAccessPointChecker::Instance()(types))
+      {
+        m_params.name.Clear();
+        m_params.name.AddString(StringUtf8Multilang::kDefaultCode, m_params.ref);
+      }
 
       m_params.ref.clear();
     }

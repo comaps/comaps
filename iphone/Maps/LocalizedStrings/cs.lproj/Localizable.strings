@@ -700,7 +700,7 @@
 "editor_share_to_all_dialog_title" = "Chcete změnu odeslat všem uživatelům?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Ujistěte se, že jste nezadali žádná osobní data.";
+"editor_share_to_all_dialog_message_1" = "Ujistěte se, že jste nezadali žádná soukromá nebo osobní data.";
 "editor_share_to_all_dialog_message_2" = "Editoři OpenStreetMap zkontrolují změny a budou vás kontaktovat, pokud budou mít nějaké dotazy.";
 "navigation_stop_button" = "Zastavit";
 
@@ -1105,3 +1105,4 @@
 "unknown" = "Neznámý";
 "voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
 "voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";
+"avoid_paved" = "Vyhnout se zpevněným cestám";

@@ -13,9 +13,6 @@ if ! command -v scour &> /dev/null; then
     exit
 fi
 
-# Prevent python from generating compiled *.pyc files
-export PYTHONDONTWRITEBYTECODE=1
-
 OMIM_PATH="${OMIM_PATH:-$(cd "$(dirname "$0")/../.."; pwd)}"
 
 echo "Started processing"

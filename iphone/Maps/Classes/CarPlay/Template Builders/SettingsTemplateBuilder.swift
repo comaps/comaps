@@ -12,8 +12,10 @@ final class SettingsTemplateBuilder {
   
   private class func buildGridButtons() -> [CPGridButton] {
     let options = RoutingOptions()
-    return [createUnpavedButton(options: options),
-            createTollButton(options: options),
+    return [createTollButton(options: options),
+            createUnpavedButton(options: options),
+            createPavedButton(options: options),
+            createMotorwayButton(options: options),
             createFerryButton(options: options),
             createStepsButton(options: options),
             createSpeedcamButton()]
@@ -21,7 +23,7 @@ final class SettingsTemplateBuilder {
   
   // MARK: - CPGridButton builders
   private class func createTollButton(options: RoutingOptions) -> CPGridButton {
-    var tollIconName = "options.tolls"
+    var tollIconName = "tolls.circle"
     if options.avoidToll { tollIconName += ".slash" }
     let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
     var image = UIImage(named: tollIconName, in: nil, with: configuration)!
@@ -39,8 +41,8 @@ final class SettingsTemplateBuilder {
   }
   
   private class func createUnpavedButton(options: RoutingOptions) -> CPGridButton {
-    var unpavedIconName = "options.unpaved"
-    if options.avoidDirty { unpavedIconName += ".slash" }
+    var unpavedIconName = "unpaved.circle"
+    if options.avoidDirty && !options.avoidPaved { unpavedIconName += ".slash" }
     let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
     var image = UIImage(named: unpavedIconName, in: nil, with: configuration)!
     if #unavailable(iOS 26) {
@@ -49,15 +51,59 @@ final class SettingsTemplateBuilder {
     }
     let unpavedButton = CPGridButton(titleVariants: [L("avoid_unpaved")], image: image) { _ in
                                       options.avoidDirty = !options.avoidDirty
+                                      if options.avoidDirty {
+                                        options.avoidPaved = false
+                                      }
                                       options.save()
                                       CarPlayService.shared.updateRouteAfterChangingSettings()
                                       CarPlayService.shared.popTemplate(animated: true)
     }
+    unpavedButton.isEnabled = !options.avoidPaved
     return unpavedButton
+  }
+    
+  private class func createPavedButton(options: RoutingOptions) -> CPGridButton {
+    var pavedIconName = "paved.circle"
+    if options.avoidPaved && !options.avoidDirty { pavedIconName += ".slash" }
+    let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
+    var image = UIImage(named: pavedIconName, in: nil, with: configuration)!
+    if #unavailable(iOS 26) {
+      image = image.withTintColor(.white, renderingMode: .alwaysTemplate)
+      image = UIImage(data: image.pngData()!)!.withRenderingMode(.alwaysTemplate)
+    }
+    let pavedButton = CPGridButton(titleVariants: [L("avoid_paved")], image: image) { _ in
+                                      options.avoidPaved = !options.avoidPaved
+                                      if options.avoidPaved {
+                                        options.avoidDirty = false
+                                      }
+                                      options.save()
+                                      CarPlayService.shared.updateRouteAfterChangingSettings()
+                                      CarPlayService.shared.popTemplate(animated: true)
+    }
+    pavedButton.isEnabled = !options.avoidDirty
+    return pavedButton
+  }
+    
+  private class func createMotorwayButton(options: RoutingOptions) -> CPGridButton {
+    var motorwayIconName = "motorways.circle"
+    if options.avoidMotorway { motorwayIconName += ".slash" }
+    let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
+    var image = UIImage(named: motorwayIconName, in: nil, with: configuration)!
+    if #unavailable(iOS 26) {
+      image = image.withTintColor(.white, renderingMode: .alwaysTemplate)
+      image = UIImage(data: image.pngData()!)!.withRenderingMode(.alwaysTemplate)
+    }
+    let motorwayButton = CPGridButton(titleVariants: [L("avoid_motorways")], image: image) { _ in
+                                      options.avoidMotorway = !options.avoidMotorway
+                                      options.save()
+                                      CarPlayService.shared.updateRouteAfterChangingSettings()
+                                      CarPlayService.shared.popTemplate(animated: true)
+    }
+    return motorwayButton
   }
   
   private class func createFerryButton(options: RoutingOptions) -> CPGridButton {
-    var ferryIconName = "options.ferries"
+    var ferryIconName = "ferries.circle"
     if options.avoidFerry { ferryIconName += ".slash" }
     let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
     var image = UIImage(named: ferryIconName, in: nil, with: configuration)!
@@ -75,7 +121,7 @@ final class SettingsTemplateBuilder {
   }
     
   private class func createStepsButton(options: RoutingOptions) -> CPGridButton {
-    var stepsIconName = "options.steps"
+    var stepsIconName = "steps.circle"
     if options.avoidSteps { stepsIconName += ".slash" }
     let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
     var image = UIImage(named: stepsIconName, in: nil, with: configuration)!
@@ -93,7 +139,7 @@ final class SettingsTemplateBuilder {
   }
   
   private class func createSpeedcamButton() -> CPGridButton {
-    var speedcamIconName = "options.speedcamera"
+    var speedcamIconName = "speedcamera"
     let isSpeedCamActivated = CarPlayService.shared.isSpeedCamActivated
     if !isSpeedCamActivated { speedcamIconName += ".slash" }
     let configuration = UIImage.SymbolConfiguration(textStyle: .title1)

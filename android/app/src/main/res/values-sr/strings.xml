@@ -84,7 +84,7 @@
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
     <string name="maps_storage_free_size">слободно %1$s од %2$s</string>
     <!-- Question dialog for transferring maps from one storage to another -->
-    <string name="move_maps">Преместаш мапу?</string>
+    <string name="move_maps">Преместити мапу?</string>
     <!-- Error moving map files from one storage to another -->
     <string name="move_maps_error">Грешка приликом премештања мапа</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
@@ -240,7 +240,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Донација</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Волонтирај и унапреди CoMaps</string>
+    <string name="how_to_support_us">Волонтирајте и побољшајте CoMaps</string>
     <!-- Text in menu + Button in the main Help dialog -->
     <string name="report_a_bug">Пријавите проблем</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
@@ -513,8 +513,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Да ли желите да поделите са свим другим корисницима?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Проверите да нисте унели приватне или личне податке</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap мапери ће проверити промене и контактирати Вас уколико буду имали питања</string>
+    <string name="editor_share_to_all_dialog_message_1">Проверите да нисте унели приватне или личне податке.</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap мапери ће проверити промене и контактирати Вас уколико буду имали питања.</string>
     <string name="navigation_stop_button">Стоп</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Снимање путање</string>
@@ -871,7 +871,7 @@
     <string name="error_invalid_number">Неисправан број</string>
     <string name="error_value_must_be_positive">Вредност мора бити већа од нуле</string>
     <string name="unknown_count">непознато</string>
-    <string name="unknown_power_output">Непознато напајање</string>
+    <string name="unknown_power_output">непознато</string>
     <string name="charge_socket_type2">Тип 2 (без кабла)</string>
     <string name="charge_socket_type2_cable">Тип 2 (са каблом)</string>
     <string name="charge_socket_type2_combo">Тип 2 комбо</string>
@@ -890,4 +890,19 @@
     <string name="offline_explanation_title">Офлајн мапе</string>
     <string name="editor_place_doesnt_exist_description">Опишите како место сада изгледа та бисте послали поруку о грешци OpenStreetMap заједници</string>
     <string name="avoid_steps">Избегавај степенице</string>
+    <string name="avoid_paved">Избегавај асфалтиране путеве</string>
+    <string name="list_description_empty">Промените листу да бисте додали опис</string>
+    <string name="opens_at">Отвара се у %s</string>
+    <string name="closes_at">Затвара се у %s</string>
+    <string name="opens_day_at">Отвара се у %1$s у %2$s</string>
+    <string name="closes_day_at">Затвара се у %1$s у %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d мин</item>
+        <item quantity="few">%d мин</item>
+        <item quantity="other">%d мин</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Пословни простор је празан</string>
+    <string name="editor_mark_business_vacant_title">Означи пословни простор као празан</string>
+    <string name="editor_mark_business_vacant_description">Користите да бисте назначили да се фирма иселила и да је пословни простор празан и спреман да прими новог закупца.</string>
+    <string name="editor_submit">Пошаљи</string>
 </resources>

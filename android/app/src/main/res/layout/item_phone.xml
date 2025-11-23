@@ -28,12 +28,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/delete_icon"
         app:layout_constraintStart_toEndOf="@+id/phone_icon"
+        app:hintEnabled="false"
         app:layout_constraintTop_toTopOf="parent">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input"
             style="@style/MwmWidget.Editor.FieldLayout.EditText"
-            tools:hint="Hint"
-            tools:text="Input"
+            android:hint="@string/phone_format"
             android:inputType="phone"/>
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -87,6 +87,32 @@ vector<MapObject::MetadataID> EditableMapObject::GetEditableProperties() const
   return props;
 }
 
+bool EditableMapObject::CanMarkPlaceAsDisused() const
+{
+  if (GetEditingLifecycle() == EditingLifecycle::CREATED)
+    return false;
+
+  auto types = GetTypes();
+  types.SortBySpec();
+  uint32_t mainType = *types.begin();
+  std::string mainTypeStr = classif().GetReadableObjectName(mainType);
+
+  constexpr string_view typePrefixes[] = {
+      "shop",
+      "amenity-restaurant",
+      "amenity-fast_food",
+      "amenity-cafe",
+      "amenity-pub",
+      "amenity-bar",
+  };
+
+  for (auto const & typePrefix : typePrefixes)
+    if (mainTypeStr.starts_with(typePrefix))
+      return true;
+
+  return false;
+}
+
 NamesDataSource EditableMapObject::GetNamesDataSource()
 {
   auto const mwmInfo = GetID().m_mwmId.GetInfo();
@@ -656,6 +682,16 @@ void EditableMapObject::MarkAsCreated(uint32_t type, feature::GeomType geomType,
   m_journal.MarkAsCreated(type, geomType, std::move(mercator));
 }
 
+void EditableMapObject::MarkAsDisused()
+{
+  auto types = GetTypes();
+  types.SortBySpec();
+  uint32_t old_type = *types.begin();
+  uint32_t new_type = classif().GetTypeByReadableObjectName("disusedbusiness");
+  ApplyBusinessReplacement(new_type);
+  m_journal.AddBusinessReplacement(old_type, new_type);
+}
+
 void EditableMapObject::ClearJournal()
 {
   m_journal.Clear();
@@ -673,7 +709,7 @@ void EditableMapObject::ApplyEditsFromJournal(EditJournal const & editJournal)
 void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
 {
   LOG(LDEBUG, ("Applying Journal Entry: ", osm::EditJournal::ToString(entry)));
-  // Todo
+
   switch (entry.journalEntryType)
   {
   case JournalEntryType::TagModification:
@@ -758,6 +794,12 @@ void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
   case JournalEntryType::LegacyObject:
   {
     ASSERT_FAIL(("Legacy Objects can not be loaded from Journal"));
+    break;
+  }
+  case JournalEntryType::BusinessReplacement:
+  {
+    BusinessReplacementData const & businessReplacementData = std::get<BusinessReplacementData>(entry.data);
+    ApplyBusinessReplacement(businessReplacementData.new_type);
     break;
   }
   }
@@ -857,6 +899,47 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
     std::tie(key, old_value, new_value) = kvdiff;
     m_journal.AddTagChange(key, old_value, new_value);
   }
+}
+
+void EditableMapObject::ApplyBusinessReplacement(uint32_t new_type)
+{
+  // Types
+  feature::TypesHolder new_feature_types;
+
+  new_feature_types.Add(new_type);  // Update feature type
+
+  std::string wheelchairType = feature::GetReadableWheelchairType(m_types);
+  if (!wheelchairType.empty())
+    new_feature_types.SafeAdd(classif().GetTypeByReadableObjectName(wheelchairType));
+
+  std::vector<uint32_t> const buildingTypes = ftypes::IsBuildingChecker::Instance().GetTypes();
+  for (uint32_t const & type : buildingTypes)
+    if (m_types.Has(type))
+      new_feature_types.SafeAdd(type);
+
+  m_types = new_feature_types;
+
+  // Names
+  m_name.Clear();
+
+  // Metadata
+  feature::Metadata new_metadata;
+
+  constexpr MetadataID metadataToKeep[] = {
+      MetadataID::FMD_WHEELCHAIR,
+      MetadataID::FMD_POSTCODE,
+      MetadataID::FMD_LEVEL,
+      MetadataID::FMD_ELE,
+      MetadataID::FMD_HEIGHT,
+      MetadataID::FMD_MIN_HEIGHT,
+      MetadataID::FMD_BUILDING_LEVELS,
+      MetadataID::FMD_BUILDING_MIN_LEVEL
+  };
+
+  for (MetadataID const & metadataID : metadataToKeep)
+    new_metadata.Set(metadataID, std::string(m_metadata.Get(metadataID)));
+
+  m_metadata = new_metadata;
 }
 
 bool AreObjectsEqualIgnoringStreet(EditableMapObject const & lhs, EditableMapObject const & rhs)

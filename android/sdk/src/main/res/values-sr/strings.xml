@@ -36,11 +36,11 @@
     <string name="core_placepage_unknown_place">Тачка на мапи</string>
     <string name="today">Данас</string>
     <string name="yesterday">Јуче</string>
-    <string name="days_ago">Пре %s дана</string>
-    <string name="week_ago">Пре %s недеља</string>
-    <string name="month_ago">Пре %s месец</string>
-    <string name="months_ago">Пре %s месеци</string>
-    <string name="weeks_ago">Пре %s недеља</string>
-    <string name="year_ago">Пре %s године</string>
-    <string name="years_ago">Пре %s година</string>
+    <string name="days_ago">пре %s дана</string>
+    <string name="week_ago">пре %s недеља</string>
+    <string name="month_ago">пре %s месец</string>
+    <string name="months_ago">пре %s месеци</string>
+    <string name="weeks_ago">пре %s недеља</string>
+    <string name="year_ago">пре %s године</string>
+    <string name="years_ago">пре %s година</string>
 </resources>

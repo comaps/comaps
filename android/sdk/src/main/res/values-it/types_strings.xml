@@ -1400,4 +1400,5 @@
     <string name="type.shop.lighting">Negozio di illuminazione</string>
     <string name="type.amenity.bench.backless">Panchina senza schienale</string>
     <string name="type.amenity.charging_station.motorcar.small">Colonnina di ricarica</string>
+    <string name="type.man_made.observatory">Osservatorio</string>
 </resources>

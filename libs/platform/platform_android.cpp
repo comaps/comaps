@@ -9,11 +9,11 @@
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
-#include "base/thread.hpp"
 
 #include <memory>
-#include <regex>
 #include <string>
+
+#include <boost/regex.hpp>
 
 #include <sys/stat.h>
 #include <unistd.h>  // for sysconf
@@ -125,7 +125,7 @@ std::unique_ptr<ModelReader> Platform::GetReader(std::string const & file, std::
   return nullptr;
 }
 
-void Platform::GetFilesByRegExp(std::string const & directory, std::string const & regexp, FilesList & res)
+void Platform::GetFilesByRegExp(std::string const & directory, boost::regex const & regexp, FilesList & res)
 {
   if (ZipFileReader::IsZip(directory))
   {
@@ -134,12 +134,10 @@ void Platform::GetFilesByRegExp(std::string const & directory, std::string const
     FilesT fList;
     ZipFileReader::FilesList(directory, fList);
 
-    std::regex exp(regexp);
-
     for (FilesT::iterator it = fList.begin(); it != fList.end(); ++it)
     {
       std::string & name = it->first;
-      if (std::regex_search(name.begin(), name.end(), exp))
+      if (boost::regex_search(name.begin(), name.end(), regexp))
       {
         // Remove assets/ prefix - clean files are needed for fonts white/blacklisting logic
         size_t const ASSETS_LENGTH = 7;
@@ -152,6 +150,30 @@ void Platform::GetFilesByRegExp(std::string const & directory, std::string const
   }
   else
     pl::EnumerateFilesByRegExp(directory, regexp, res);
+}
+
+void Platform::GetAllFiles(std::string const & directory, FilesList & res)
+{
+  if (ZipFileReader::IsZip(directory))
+  {
+    // Get files list inside zip file
+    typedef ZipFileReader::FileList FilesT;
+    FilesT fList;
+    ZipFileReader::FilesList(directory, fList);
+
+    for (FilesT::iterator it = fList.begin(); it != fList.end(); ++it)
+    {
+      std::string & name = it->first;
+      // Remove assets/ prefix - clean files are needed for fonts white/blacklisting logic
+      size_t const ASSETS_LENGTH = 7;
+      if (name.find("assets/") == 0)
+        name.erase(0, ASSETS_LENGTH);
+
+      res.push_back(name);
+    }
+  }
+  else
+    pl::EnumerateFiles(directory, res);
 }
 
 int Platform::VideoMemoryLimit() const

@@ -506,9 +506,9 @@
     <!-- Error message for "Place doesn't exist" dialog when comment is empty -->
     <string name="delete_place_empty_comment_error">Norādiet šīs vietas dzēšanas iemeslu</string>
     <!-- Phone number error message -->
-    <string name="error_enter_correct_phone">Ierakstiet derīgu tālruņa numuru</string>
-    <string name="error_enter_correct_web">Ierakstiet derīgu tīmekļa vietnes adresi</string>
-    <string name="error_enter_correct_email">Ierakstiet e-pasta adresi</string>
+    <string name="error_enter_correct_phone">Jāievada derīgs tālruņa numurs</string>
+    <string name="error_enter_correct_web">Jāievada derīga tīmekļa adrese</string>
+    <string name="error_enter_correct_email">Jāievada derīga e-pasta adrese</string>
     <string name="error_enter_correct_facebook_page">Ierakstiet „Facebook“ lapas adresi, kontu vai mājaslapas nosaukumu</string>
     <string name="error_enter_correct_instagram_page">Ierakstiet „Instagram“ vietnes adresi vai konta nosaukumu</string>
     <string name="error_enter_correct_twitter_page">Ierakstiet „Twitter“ vietnes adresi vai lietotājvārdu</string>
@@ -518,8 +518,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Vai vēlaties to nosūtīt visiem lietotājiem?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Jāpārliecinās, ka neievadīji nekādus privātus vai personīgus datus</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap redaktori pārbaudīs veiktās izmaiņas, un sazināsies ar Tevi, ja viņiem būs kādi jautājumi</string>
+    <string name="editor_share_to_all_dialog_message_1">Jāpārliecinās, ka neievadīji nekādus privātus vai personīgus datus.</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap redaktori pārbaudīs veiktās izmaiņas, un sazināsies ar Tevi, ja viņiem būs kādi jautājumi.</string>
     <string name="navigation_stop_button">Apturēt</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Maršruta reģistrēšana</string>
@@ -844,4 +844,6 @@
     <string name="backup_interval_every_day">Ik dienu</string>
     <string name="clear">Notīrīt</string>
     <string name="closed_now">Šobrīd slēgts</string>
+    <string name="avoid_paved">Izvairīties no ceļiem ar cietu mākslīgo segumu</string>
+    <string name="editor_submit">Iesniegt</string>
 </resources>

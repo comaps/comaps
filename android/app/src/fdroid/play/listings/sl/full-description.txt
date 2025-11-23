@@ -1,0 +1,31 @@
+Brezplačno in odprtokodno zemljevidno orodje, ki ga vodi skupnost, temelji na podatkih OpenStreetMap in je okrepljena s predanostjo transparentnosti, zasebnosti in nedobičkonosnosti. CoMaps je izpeljanka OrganicMaps, ta pa je izpeljanka Maps.ME.
+
+Preverite si o razlogih za ta projekt in njegovi usmerjenosti na <b><i>codeberg.org/comaps</i></b>.
+Pridružite se skupnosti in pomagajte narediti najboljše zemljevidno orodje
+• Uporabljajte orodje in širite glas o njem
+• Dajajte povratne informacije in poročajte o napakah
+• Posodabljajte podatke zemljevida v tem orodju ali na spletni strani OpenStreetMap
+
+‣ <b>Osredotočeno na uporabo brez povezave</b>: Načrtujte in se usmerjajte na vašem potovanju v tujini vrez potrebe po mobilnih podatkih, iščite vmesne točke potocanja ko ste na daljšem pohodu ipd. Vse zmogljivosti orodja so zasnovane za delo brez povezave.
+‣ <b>Spoštovanje zasebnosti</b>: orodje je zasnovano z mislijo na zasebnost – ne prepoznava oseb, ne sledi in ne zbira osebnih podatkov. Brez oglasov.
+‣ <b>Preprosto in dodelano</b>: nujne zmogljivosti, enostavne za uporabo, ki preprosto delujejo.
+‣ <b>Prihrani vašo baterijo in prostor.</b>: ne izčrpava vaše baterije kakor druga usmerjevalna orodja. Strnjeni zemljevidi prihranijo dragocen prostor na vašem telefonu.
+‣ <b>Brezplačno in ustvarjeno v skupnosti</b>: ljudje kot ste vi pomagajo ustvarjati to orodje, tako da dodajajo kraje na OpenStreetMap, preizkušajo in dajejo povratne informacije o zmogljivostih in prispevajo svoje razvijalske sposobnosti in sredstva.
+‣ <b>Odprto in transparentno odločanje in finance, nedobičkonosno in popolnoma odprtokodno.</b>
+
+<b>Glavne zmogljivosti</b>:
+• Prenosljivi podrobni zemljevidi s kraji, ki na Googlovoh zemljevidih niso na voljo.
+• Prikaz za dejavnosti na prostem s poudarjenimi pohodniškimi potmi, tabornimi prostori, vodnimi viri, vrhovi, plastnicami itd.
+• Pešpoti in kolesarke poti
+• Kraji zanimanja, npr. restavracije, bencinske črpalke, hoteli, trgovine, znamenitosti in mnogo več
+• Iščite po imenu, hišnemu naslovu ali po vrsti
+• Usmerjanje z glasovnimi obvestili za hojo, kolesarjenje ali vožnjo avtomobila.
+• Zaznamujte svoje najljubše kraje s preprostim dotikom
+• Wikipedijini članki brez povezave
+• Prometna plast podzemne železnice z usmerjanjem
+• Izvozite ali uvozite zaznamke in sledi v oblikah KML, KMZ, GPX
+• Temni prikaz za uporabo ponoči
+• Izboljšajtw podatke zemljevida za vse z uporabo vgrajenega urejevalnika
+
+<b>Svoboda je tu</b>
+Odkijte več o vašem potovanju, usmerjajte se po svetu s poudarkom na zasebnosti in skupnostnem delovanju!

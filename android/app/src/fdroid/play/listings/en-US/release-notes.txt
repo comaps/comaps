@@ -1,8 +1,11 @@
-• OpenStreetMap data as of November 4
-• Recategorized map icons including some new colors for entertainment, sports and other businesses
-• Display info about available sockets on charging stations
-• Added bandstands, backless benches and loungers
-• New icons for different sport centres, event venues, massage salons, guest houses and some disused businesses
-• Multiple search improvements and crash fix
-• Improved voice guidance during navigation
+• OpenStreetMap data as of November 16
+• Added trees
+• Made bus stop icons smaller and show up earlier
+• Reduce visibility of entrances
+• Added several other POI types
+• Show sand areas on the map
+• Add business is vacant option to the OSM editor
+• Improved road shields in Europe
+• Avoid paved roads routing option
+• Added icons to the settings page
 Check our Codeberg release notes for more changes!

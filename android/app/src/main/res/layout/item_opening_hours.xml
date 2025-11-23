@@ -22,7 +22,7 @@
     android:id="@+id/empty_opening_hours"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_centerVertical="true"
+    android:layout_marginTop="@dimen/margin_base"
     android:layout_marginStart="@dimen/editor_margin_timetable_left"
     android:orientation="vertical"
     tools:visibility="gone">
@@ -57,10 +57,8 @@
     android:layout_height="wrap_content"
     style="@style/Widget.Material3.Button.TextButton"
     android:layout_below="@id/opening_hours"
-    android:layout_marginStart="@dimen/editor_margin_timetable_left"
-    android:layout_marginTop="@dimen/margin_base_plus"
-    android:gravity="center_vertical"
-    android:minHeight="@dimen/height_block_base"
+    android:layout_marginTop="@dimen/margin_base"
+    android:gravity="center_horizontal"
     android:text="@string/edit_opening_hours"
     android:textColor="?colorSecondary"
     android:textAppearance="@style/MwmTextAppearance.Body1" />

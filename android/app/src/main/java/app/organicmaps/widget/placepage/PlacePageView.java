@@ -31,6 +31,8 @@ import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+
+import app.organicmaps.BuildConfig;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
@@ -85,9 +87,11 @@ import com.google.android.material.textview.MaterialTextView;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 public class PlacePageView extends Fragment
     implements View.OnClickListener, View.OnLongClickListener, LocationListener, SensorListener, Observer<MapObject>,
@@ -104,6 +108,9 @@ public class PlacePageView extends Fragment
   private static final String OPENING_HOURS_FRAGMENT_TAG = "OPENING_HOURS_FRAGMENT_TAG";
   private static final String LINKS_FRAGMENT_TAG = "LINKS_FRAGMENT_TAG";
   private static final String TRACK_SHARE_MENU_ID = "TRACK_SHARE_MENU_ID";
+
+  private static final int SHORT_HORIZON_CLOSE_MIN = 60;
+  private static final int SHORT_HORIZON_OPEN_MIN = 15;
 
   private static final List<CoordinatesFormat> visibleCoordsFormat =
       Arrays.asList(CoordinatesFormat.LatLonDMS, CoordinatesFormat.LatLonDecimal, CoordinatesFormat.OLCFull,
@@ -797,57 +804,127 @@ public class PlacePageView extends Fragment
     final String ohStr = mMapObject.getMetadata(Metadata.MetadataType.FMD_OPEN_HOURS);
     final Timetable[] timetables = OpeningHours.nativeTimetablesFromString(ohStr);
 
-    if (timetables != null && timetables.length != 0)
+    // No valid timetable
+    if (timetables == null || timetables.length == 0)
     {
-      final Context context = requireContext();
-      final OhState poiState = OpeningHours.nativeCurrentState(timetables);
+      UiUtils.hide(mTvOpenState);
+      return;
+    }
 
-      // Ignore unknown rule state
-      if (poiState.state == OhState.State.Unknown)
+    final Context context = requireContext();
+    final OhState poiState = OpeningHours.nativeCurrentState(timetables);
+
+    // Ignore unknown rule state
+    if (poiState.state == OhState.State.Unknown)
+    {
+      UiUtils.hide(mTvOpenState);
+      return;
+    }
+
+    // Get colours
+    final ForegroundColorSpan colorGreen =
+      new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_green));
+    final ForegroundColorSpan colorYellow =
+      new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_yellow));
+    final ForegroundColorSpan colorRed = new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_red));
+
+    // Get next state info
+    final SpannableStringBuilder openStateString = new SpannableStringBuilder();
+    final boolean isOpen = (poiState.state == OhState.State.Open); // False == Closed due to early exit for Unknown
+    final long nextStateTime = isOpen ? poiState.nextTimeClosed : poiState.nextTimeOpen; // Unix time (seconds)
+
+    ZonedDateTime nextChangeLocal = null;
+    boolean hasFiniteNextChange = false;
+
+    final long nowSec = System.currentTimeMillis() / 1000;
+    final int minsToNextState = (int) ((nextStateTime - nowSec) / 60);
+
+    // Try to resolve a finite next-change time; handle 24/7 case
+    final boolean looksLike247 = "24/7".equals(ohStr.trim());
+    final int ONE_WEEK_MIN = 7 * 24 * 60;
+    final boolean noRealNextChange = looksLike247 || minsToNextState >= ONE_WEEK_MIN;
+
+    if (!noRealNextChange)
+    {
+      try
       {
-        UiUtils.hide(mTvOpenState);
-        return;
+        if (nextStateTime > 0 && nextStateTime < Long.MAX_VALUE / 2)
+        {
+          // NOTE: Timezone is currently device timezone. TODO: use feature-specific timezone.
+          nextChangeLocal = ZonedDateTime.ofInstant(
+              Instant.ofEpochSecond(nextStateTime), ZoneId.systemDefault()
+          );
+          hasFiniteNextChange = true;
+        }
       }
+      catch (Throwable ignored) {}
+    }
 
-      // Get colours
-      final ForegroundColorSpan colorGreen =
-          new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_green));
-      final ForegroundColorSpan colorYellow =
-          new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_yellow));
-      final ForegroundColorSpan colorRed = new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_red));
-
-      // Get next state info
-      final SpannableStringBuilder openStateString = new SpannableStringBuilder();
-      final boolean isOpen = (poiState.state == OhState.State.Open); // False == Closed due to early exit for Unknown
-      final long nextStateTime = isOpen ? poiState.nextTimeClosed : poiState.nextTimeOpen; // Unix time (seconds)
-      final int minsToNextState = (int) ((nextStateTime - (System.currentTimeMillis() / 1000)) / 60);
-
-      if (minsToNextState <= 60) // POI opens/closes in 60 mins
-      {
-        final String minsToChangeStr = minsToNextState + " " + getString(R.string.minute);
-        final String nextChangeFormatted = getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
-        final ForegroundColorSpan nextChangeColor = isOpen ? colorYellow : colorRed;
-        // TODO: We should check closed/open time for specific feature's timezone.
-        ZonedDateTime time = ZonedDateTime.ofInstant(Instant.ofEpochSecond(nextStateTime), ZoneId.systemDefault());
-        String localizedTime =
-            new HoursMinutes(time.getHour(), time.getMinute(), DateUtils.is24HourFormat(context)).toString();
-
-        openStateString.append(nextChangeFormatted, nextChangeColor, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            .append(" • ") // Add spacer
-            .append(getString(R.string.at, localizedTime));
-      }
-      else if (isOpen)
+    if (!hasFiniteNextChange) // No valid next change
+    {
+      if (isOpen)
         openStateString.append(getString(R.string.open_now), colorGreen, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-      // TODO: Add "Closes at 18:00" etc
-      else // Closed
+      else
         openStateString.append(getString(R.string.closed_now), colorRed, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-      // TODO: Add "Opens at 18:00" etc
 
       UiUtils.setTextAndHideIfEmpty(mTvOpenState, openStateString);
       return;
     }
-    // No valid timetable
-    UiUtils.hide(mTvOpenState);
+
+    String localizedTimeString = OpenStateTextFormatter.formatHoursMinutes(
+      nextChangeLocal.getHour(), nextChangeLocal.getMinute(), DateUtils.is24HourFormat(context));
+
+    final boolean shortHorizonClosing = isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_CLOSE_MIN;
+    final boolean shortHorizonOpening = !isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_OPEN_MIN;
+
+    if (shortHorizonClosing || shortHorizonOpening) // POI Opens/Closes in 60 mins • at 18:00
+    {
+      final String minsToChangeStr = getResources().getQuantityString(
+        R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
+      final String nextChangeFormatted = getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
+
+      openStateString.append(nextChangeFormatted, colorYellow, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        .append(" • ") // Add spacer
+        .append(getString(R.string.at, localizedTimeString));
+    }
+    else
+    {
+      final String opensAtStr = getString(R.string.opens_at); // "Opens at %s"
+      final String closesAtStr = getString(R.string.closes_at); // "Closes at %s"
+      final String opensDayAtStr = getString(R.string.opens_day_at); // "Opens %1$s at %2$s"
+      final String closesDayAtStr = getString(R.string.closes_day_at); // "Closes %1$s at %2$s"
+
+      final boolean isToday =
+        OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, ZonedDateTime.now(nextChangeLocal.getZone()));
+      // Full weekday name per design feedback.
+      final String dayName =
+        nextChangeLocal.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+
+      if (isOpen) // > 60 minutes OR negative (safety). Show “Open now • Closes at 18:00”
+      {
+        openStateString.append(getString(R.string.open_now), colorGreen, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        final String atLabel =
+          OpenStateTextFormatter.buildAtLabel(false, isToday, dayName, localizedTimeString,
+            opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+
+        if (!TextUtils.isEmpty(atLabel))
+          openStateString.append(" • ").append(atLabel);
+      }
+      else // Closed
+      {
+        openStateString.append(getString(R.string.closed_now), colorRed, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        final String atLabel =
+          OpenStateTextFormatter.buildAtLabel(true, isToday, dayName, localizedTimeString,
+            opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+
+        if (!TextUtils.isEmpty(atLabel))
+          openStateString.append(" • ").append(atLabel);
+      }
+    }
+
+    UiUtils.setTextAndHideIfEmpty(mTvOpenState, openStateString);
   }
 
   private void addPlace()

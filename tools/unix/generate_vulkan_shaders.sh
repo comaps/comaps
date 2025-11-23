@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -e -u
 
-# Prevent python from generating compiled *.pyc files
-export PYTHONDONTWRITEBYTECODE=1
-
 DEBUG="${1:-empty}"
 
 MY_PATH="`dirname \"$0\"`"              # relative

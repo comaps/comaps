@@ -31,6 +31,7 @@
 "type.amenity.bench.backless" = "Backless Bench";
 "type.amenity.bicycle_parking" = "Bicycle Parking";
 "type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "Bicycle Rental";
 "type.amenity.bicycle_repair_station" = "Bicycle Repair Station";
 "type.amenity.biergarten" = "Biergarten";
@@ -43,6 +44,11 @@
 "type.amenity.motorcycle_rental" = "Motorcycle Rental";
 "type.amenity.car_sharing" = "Car Sharing";
 "type.amenity.car_wash" = "Car Wash";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Gambling";
 "type.amenity.studio" = "Media Studio";
@@ -69,6 +75,9 @@
 "type.amenity.exhibition_centre" = "Exhibition Center";
 "type.amenity.money_transfer" = "Money Transfer";
 "type.amenity.music_school" = "Music School";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Language School";
 "type.office.diplomatic" = "Embassy";
 "type.office.security" = "Security Guards Office";
@@ -96,6 +105,7 @@
 "type.amenity.lounger" = "Lounger";
 "type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "Marketplace";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcycle Parking";
 "type.amenity.nightclub" = "Nightclub";
 "type.amenity.nursing_home" = "Nursing Home";
@@ -124,7 +134,9 @@
 "type.amenity.parking_space.private" = "Parking Space";
 "type.amenity.parking_space.underground" = "Parking Space";
 "type.amenity.parking_space.disabled" = "Disabled Parking Space";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "Payment Terminal";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "Pharmacy";
 "type.amenity.place_of_worship" = "Place of Worship";
 "type.amenity.place_of_worship.buddhist" = "Buddhist Temple";
@@ -377,13 +389,48 @@
 "type.cuisine.vegetarian" = "Vegetarian";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
+"type.emergency.access_point" = "Emergency Rescue Point";
 "type.emergency.assembly_point" = "Emergency Assembly Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Defibrillator";
 "type.emergency.fire_hydrant" = "Fire Hydrant";
 "type.emergency.phone" = "Emergency Phone";
 
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Lifeguard";
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Mountain Rescue Station";
@@ -393,7 +440,12 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Main Entrance";
-"type.entrance.exit" = "Exit";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
+"type.entrance.exit" = "Exit (Only)";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "Free";
 "type.healthcare.laboratory" = "Medical Laboratory";
@@ -736,6 +788,7 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Nature Reserve";
 "type.leisure.outdoor_seating" = "Outdoor Seating";
@@ -852,6 +905,7 @@
 "type.man_made.embankment" = "Embankment";
 "type.natural.coastline" = "Coastline";
 "type.natural.desert" = "Desert";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "Geyser";
 "type.natural.glacier" = "Glacier";
 "type.natural.grassland" = "Grassland";
@@ -873,6 +927,7 @@
 "type.natural.spring" = "Natural Spring";
 "type.natural.spring.drinking_water_no" = "Natural Spring";
 "type.natural.strait" = "Strait";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "Tree Row";
 "type.natural.vineyard" = "Vineyard";
 "type.natural.volcano" = "Volcano";
@@ -1268,6 +1323,7 @@
 "type.shop.bakery" = "Bakery";
 "type.shop.bathroom_furnishing" = "Bathroom Furnishings";
 "type.shop.beauty" = "Beauty Shop";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "Beverages";
 "type.shop.bicycle" = "Bicycle Shop";
 "type.shop.bookmaker" = "Bookmaker";
@@ -1319,6 +1375,7 @@
 "type.shop.kitchen" = "Kitchen Store";
 "type.shop.laundry" = "Laundry";
 "type.shop.mall" = "Mall";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "Massage Salon";
 "type.shop.mobile_phone" = "Mobile Phone Store";
 "type.shop.money_lender" = "Money Lender";
@@ -1346,6 +1403,7 @@
 "type.shop.supermarket" = "Supermarket";
 "type.shop.tattoo" = "Tattoo Parlour";
 "type.shop.tea" = "Tea Shop";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Ticket Shop";
 "type.shop.toys" = "Toy Store";
 "type.shop.travel_agency" = "Travel Agency";
@@ -1534,6 +1592,10 @@
 
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Social Facility";
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Emergency Ward Entrance";
@@ -1543,3 +1605,5 @@
 
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Sports hall";
+
+"type.xmas.tree" = "Christmas Tree";

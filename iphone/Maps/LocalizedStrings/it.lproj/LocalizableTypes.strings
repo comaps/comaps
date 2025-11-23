@@ -1491,3 +1491,4 @@
 "type.shop.lighting" = "Negozio di illuminazione";
 "type.amenity.charging_station.motorcar.small" = "Colonnina di ricarica";
 "type.amenity.bench.backless" = "Panchina senza schienale";
+"type.man_made.observatory" = "Osservatorio";

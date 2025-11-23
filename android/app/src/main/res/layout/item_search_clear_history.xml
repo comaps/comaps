@@ -3,4 +3,4 @@
           xmlns:app="http://schemas.android.com/apk/res-auto"
           style="@style/MwmWidget.TextView.Search"
           android:text="@string/clear_search"
-          app:drawableStartCompat="@drawable/ic_cancel"/>
+          app:drawableStartCompat="@drawable/ic_close"/>

@@ -891,4 +891,8 @@
     <string name="unknown_count">sconosciuto</string>
     <string name="error_value_must_be_positive">Il valore deve essere positivo</string>
     <string name="error_invalid_number">Numero non valido</string>
+    <string name="editor_business_vacant_button">L\'attività è vacante</string>
+    <string name="editor_mark_business_vacant_title">Contrassegna l\'attività come vacante</string>
+    <string name="editor_mark_business_vacant_description">Utilizza questa opzione se l\'azienda ha traslocato e lo spazio è vuoto e pronto per un nuovo inquilino.</string>
+    <string name="editor_submit">Conferma</string>
 </resources>

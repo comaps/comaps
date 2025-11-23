@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:background="?attr/cardBackground"
   android:orientation="vertical"
   android:layout_width="match_parent"
@@ -20,8 +21,15 @@
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_half"
     android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_tolls_disabled"
+      app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
       android:text="@string/avoid_tolls"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -36,14 +44,20 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_half"
     android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_unpaved_disabled"
+      app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
       android:text="@string/avoid_unpaved"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -58,14 +72,48 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_half"
     android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_paved_disabled"
+      app:tint="?iconTint" />
+    <com.google.android.material.textview.MaterialTextView
+      android:text="@string/avoid_paved"
+      android:textAppearance="?android:attr/textAppearanceMedium"
+      android:layout_width="0dp"
+      android:layout_weight="1"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_vertical"
+      android:textColor="?android:attr/textColorPrimary"/>
+    <androidx.appcompat.widget.SwitchCompat
+      android:id="@+id/avoid_paved_roads_btn"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:padding="@dimen/margin_half_double_plus"/>
+  </LinearLayout>
+  <LinearLayout
+    android:orientation="horizontal"
+    android:minHeight="@dimen/height_block_base"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/margin_half"
+    android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_ferry_disabled"
+      app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
       android:text="@string/avoid_ferry"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -80,14 +128,20 @@
       android:layout_height="match_parent"
       android:padding="@dimen/margin_half_double_plus"/>
   </LinearLayout>
-  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_half"
     android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_motorways_disabled"
+      app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
       android:text="@string/avoid_motorways"
       android:textAppearance="?android:attr/textAppearanceMedium"
@@ -102,14 +156,20 @@
       android:padding="@dimen/margin_half_double_plus"
       android:layout_height="match_parent"/>
   </LinearLayout>
-  <include layout="@layout/item_divider"/>
   <LinearLayout
     android:orientation="horizontal"
     android:minHeight="@dimen/height_block_base"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingEnd="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_half"
     android:paddingStart="@dimen/margin_base">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="24dp"
+      android:layout_height="24dp"
+      android:layout_marginEnd="@dimen/margin_base_plus"
+      android:layout_marginTop="@dimen/margin_half_plus"
+      app:srcCompat="@drawable/ic_avoid_steps_disabled"
+      app:tint="?iconTint" />
     <com.google.android.material.textview.MaterialTextView
       android:text="@string/avoid_steps"
       android:textAppearance="?android:attr/textAppearanceMedium"

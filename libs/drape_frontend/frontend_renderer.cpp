@@ -1383,6 +1383,8 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
     Render2dLayer(modelView);
     RenderUserMarksLayer(modelView, DepthLayer::UserLineLayer);
 
+    RenderOverlayUnderBuildingLayer(modelView);
+
     bool const hasTransitRouteData = HasTransitRouteData();
     if (m_buildingsFramebuffer->IsSupported() && !m_routeRenderer->IsRulerRoute())
     {
@@ -1541,6 +1543,17 @@ void FrontendRenderer::RenderOverlayLayer(ScreenBase const & modelView)
   CHECK(m_context != nullptr, ());
   DEBUG_LABEL(m_context, "Overlay Layer");
   RenderLayer & overlay = m_layers[static_cast<size_t>(DepthLayer::OverlayLayer)];
+  BuildOverlayTree(modelView);
+  for (drape_ptr<RenderGroup> & group : overlay.m_renderGroups)
+    RenderSingleGroup(m_context, modelView, make_ref(group));
+}
+
+void FrontendRenderer::RenderOverlayUnderBuildingLayer(ScreenBase const & modelView)
+{
+  TRACE_SECTION("[drape] RenderOverlayUnderBuildingLayer");
+  CHECK(m_context != nullptr, ());
+  DEBUG_LABEL(m_context, "Overlay Under Building Layer");
+  RenderLayer & overlay = m_layers[static_cast<size_t>(DepthLayer::OverlayUnderBuildingLayer)];
   BuildOverlayTree(modelView);
   for (drape_ptr<RenderGroup> & group : overlay.m_renderGroups)
     RenderSingleGroup(m_context, modelView, make_ref(group));
@@ -1814,7 +1827,7 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
 
   BeginUpdateOverlayTree(modelView);
   for (auto const layerId :
-       {DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
+       {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
   {
     RenderLayer & overlay = m_layers[static_cast<size_t>(layerId)];
     overlay.Sort(make_ref(m_overlayTree));
@@ -2504,7 +2517,7 @@ void FrontendRenderer::UpdateScene(ScreenBase const & modelView)
     uint32_t constexpr kMaxGenerationRange = 5;
     TileKey const & key = group->GetTileKey();
 
-    return (GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer && key.m_zoomLevel > GetCurrentZoom()) ||
+    return ((GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer || GetDepthLayer(group->GetState()) == DepthLayer::OverlayUnderBuildingLayer) && key.m_zoomLevel > GetCurrentZoom()) ||
            (m_maxGeneration - key.m_generation > kMaxGenerationRange) ||
            (group->IsUserMark() && (m_maxUserMarksGeneration - key.m_userMarksGeneration > kMaxGenerationRange));
   };

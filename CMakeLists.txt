@@ -175,10 +175,10 @@ if (NOT PLATFORM_IPHONE AND NOT PLATFORM_ANDROID)
   find_package(Qt6 COMPONENTS REQUIRED ${qt_components} PATHS $ENV{QT_PATH} /opt/homebrew/opt/qt@6 /usr/local/opt/qt@6 /usr/lib/x86_64-linux-gnu/qt6)
 
   set(MINIMUM_REQUIRED_QT_VERSION 6.4.0)
-  if (Qt6Widgets_VERSION VERSION_LESS ${MINIMUM_REQUIRED_QT_VERSION})
-    message(FATAL_ERROR "Unsupported Qt version: ${Qt6Widgets_VERSION}, the minimum required is ${MINIMUM_REQUIRED_QT_VERSION}")
+  if (Qt6_VERSION VERSION_LESS ${MINIMUM_REQUIRED_QT_VERSION})
+    message(FATAL_ERROR "Unsupported Qt version: ${Qt6_VERSION}, the minimum required is ${MINIMUM_REQUIRED_QT_VERSION}")
   else()
-    message(STATUS "Found Qt version: ${Qt6Widgets_VERSION}")
+    message(STATUS "Found Qt version: ${Qt6_VERSION}")
   endif()
 endif()
 
@@ -220,6 +220,11 @@ add_subdirectory(3party)
 # that doesn't see gflags/gflags.h in binary dir (gflags has tricky cmake configuration).
 if (PLATFORM_DESKTOP AND NOT WITH_SYSTEM_PROVIDED_3PARTY)
   include_directories("${PROJECT_BINARY_DIR}/3party/gflags/include")
+endif()
+
+# Android fails to find boost in many cases, this fixes it.
+if (PLATFORM_ANDROID)
+  include_directories("${OMIM_ROOT}/3party/boost")
 endif()
 
 # Used in qt/ and shaders/

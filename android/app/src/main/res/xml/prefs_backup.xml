@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
   <Preference
       android:key="backup_location"
       android:summary="@string/pref_backup_location_summary_initial"
-      android:title="@string/pref_backup_location_title" />
+      android:title="@string/pref_backup_location_title"
+      app:iconSpaceReserved="false" />
   <Preference
       android:key="backup_now"
       android:summary="@string/pref_backup_now_summary"
-      android:title="@string/pref_backup_now_title" />
+      android:title="@string/pref_backup_now_title"
+      app:iconSpaceReserved="false" />
   <ListPreference
       android:defaultValue="86400000"
       android:entries="@array/backup_interval_entries"
       android:entryValues="@array/backup_interval_values"
       android:key="backup_history_interval"
-      android:title="@string/pref_backup_interval_title" />
+      android:title="@string/pref_backup_interval_title"
+      app:iconSpaceReserved="false" />
   <ListPreference
       android:defaultValue="10"
       android:entries="@array/backup_history_entries"
       android:entryValues="@array/backup_history_values"
       android:key="backup_history_count"
-      android:title="@string/pref_backup_history_title" />
+      android:title="@string/pref_backup_history_title"
+      app:iconSpaceReserved="false" />
 
 </PreferenceScreen>

@@ -74,8 +74,8 @@
   <color name="bg_statusbar_translucent">#66000000</color>
 
   <!-- App icons background and foreground colors -->
-  <color name="bg_app_icon_release">@color/bg_primary</color>
-  <color name="bg_app_icon_test">@color/bg_primary</color>
+  <color name="bg_app_icon_release">#588157</color>
+  <color name="bg_app_icon_test">#588157</color>
   <color name="bg_app_icon_debug">#f8b42e</color>
 
   <color name="fg_app_icon_white">#fefdf6</color>

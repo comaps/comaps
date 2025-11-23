@@ -61,6 +61,7 @@ private:
   bool CheckCancelled();
 
   bool IsDiscardCustomFeature(FeatureID const & id) const;
+  bool IsHiddenChristmasFeature(FeatureType & f) const;
 
   TCheckCancelledCallback m_checkCancelled;
   TIsCountryLoadedByNameFn m_isLoadedFn;

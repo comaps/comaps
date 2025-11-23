@@ -3,7 +3,7 @@
   <color name="base_accent">#FF7CBC7B</color>
   <color name="base_accent_pressed">#FF588157</color>
 
-  <color name="icon_tint">#FFC4C6C7</color>
+  <color name="icon_tint">#FFF</color>
 
   <color name="icon_tint_light">#FF76797C</color>
 

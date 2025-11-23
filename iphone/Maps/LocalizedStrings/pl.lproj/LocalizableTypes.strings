@@ -1527,3 +1527,14 @@
 "type.leisure.bandstand" = "Muszla koncertowa";
 "type.disusedbusiness" = "Pusty lokal";
 "type.amenity.lounger" = "Leżak";
+"type.man_made.observatory" = "Obserwatorium";
+"type.man_made.telescope.optical" = "Teleskop optyczny";
+"type.man_made.telescope.radio" = "Radioteleskop";
+"type.man_made.telescope" = "Teleskop";
+"type.man_made.telescope.gamma" = "Teleskop (prom. gamma)";
+"type.amenity.boat_rental" = "Wypożyczalnia łodzi";
+"type.amenity.food_sharing" = "Jadłodzielnia";
+"type.social_facility.food_bank" = "Bank żywności";
+"type.social_facility.soup_kitchen" = "Jadłodajnia";
+"type.amenity.car_pooling" = "Car Pooling";
+"type.shop.telecommunication" = "Sklep dostawcy usług telekomunikacyjnych";

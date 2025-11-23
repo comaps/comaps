@@ -119,6 +119,7 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
   copy.SortBySpec();
 
   auto const & isPoi = ftypes::IsPoiChecker::Instance();
+  auto const & isDirectional = ftypes::IsDirectionalChecker::Instance();
   auto const & amenityChecker = ftypes::IsAmenityChecker::Instance();
 
   std::ostringstream oss;
@@ -133,7 +134,7 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
     }
 
     // Ignore types that are not POI
-    if (!isMainType && !isPoi(type))
+    if (!isMainType && !isPoi(type) && !isDirectional(type))
       continue;
 
     // Ignore general amenity

@@ -119,7 +119,7 @@ echo "Generating search categories / synonyms..."
 if [ -z "$SKIP_GENERATE_SYMBOLS" ]; then
   if Diff data/symbols_hash data/styles/*/*/symbols/* || [ ! -z "$SYMBOLS_NOT_GENERATED" ]; then
     echo "Generating symbols..."
-    bash ./tools/unix/generate_symbols.sh
+    bash ./tools/unix/generate_symbols.sh || (rm data/symbols_hash; exit 1)
   fi
 else
   echo "Skipping generate symbols..."
@@ -128,7 +128,7 @@ fi
 if [ -z "$SKIP_GENERATE_DRULES" ]; then
   if Diff data/drules_hash data/styles/*/*/*.mapcss data/styles/*/*/*.prio.txt data/mapcss-mapping.csv || [ ! -z "$DRULES_NOT_GENERATED" ]; then
     echo "Generating drules..."
-    bash ./tools/unix/generate_drules.sh
+    bash ./tools/unix/generate_drules.sh || (rm data/drules_hash; exit 1)
   fi
 else
   echo "Skipping generate drules..."

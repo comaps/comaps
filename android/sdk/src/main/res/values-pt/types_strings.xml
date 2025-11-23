@@ -1095,7 +1095,7 @@
     <string name="type.shop.chemist">Parafarmácia</string>
     <string name="type.shop.chocolate">Loja de chocolates</string>
     <string name="type.shop.clothes">Loja de roupas</string>
-    <string name="type.shop.coffee">Loja de café</string>
+    <string name="type.shop.coffee">Loja de Café</string>
     <string name="type.shop.computer">Loja de informática</string>
     <string name="type.shop.confectionery">Confeitaria</string>
     <string name="type.shop.convenience">Loja de conveniência</string>
@@ -1348,7 +1348,7 @@
     <string name="type.landuse.plant_nursery">Viveiro de plantas</string>
     <string name="type.recycling.cardboard">Cartão</string>
     <string name="type.highway.ladder">Escada</string>
-    <string name="type.amenity.studio">Estúdio</string>
+    <string name="type.amenity.studio">Estúdio de Média</string>
     <string name="type.amenity.vending_machine.sweets">Dispensador de doces</string>
     <string name="type.recycling.cans">Latas</string>
     <string name="type.amenity.love_hotel">Hotel do Amor</string>
@@ -1435,4 +1435,27 @@
     <string name="type.leisure.sports_centre.sport.volleyball">Centro Desportivo</string>
     <string name="type.leisure.sports_centre.sport.yoga">Centro Desportivo</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Estúdio de Yoga</string>
+    <string name="type.amenity.boat_rental">Aluguer de Barcos</string>
+    <string name="type.man_made.telescope">Telescópio</string>
+    <string name="type.man_made.telescope.optical">Telescópio (Ótico)</string>
+    <string name="type.man_made.telescope.radio">Telescópio (Rádio)</string>
+    <string name="type.man_made.telescope.gamma">Telescópio (Gama)</string>
+    <string name="type.man_made.observatory">Observatório</string>
+    <string name="type.amenity.lounger">Espreguiçadeira</string>
+    <string name="type.amenity.mobile_money_agent">Agente de Mobile Money</string>
+    <string name="type.amenity.car_pooling">Ponto de Veículos Partilhados</string>
+    <string name="type.amenity.payment_centre">Centro de Pagamentos</string>
+    <string name="type.emergency.access_point">Ponto de Resgate de Emergência</string>
+    <string name="type.emergency.life_ring">Salva-vidas</string>
+    <string name="type.leisure.indoor_play">Centro de Atividades Interior</string>
+    <string name="type.shop.telecommunication">Loja de Telecomunicação</string>
+    <string name="type.disusedbusiness">Establecimento Vazio</string>
+    <string name="type.social_facility.soup_kitchen">Sopa Comunitária</string>
+    <string name="type.social_facility.food_bank">Banco Alimentar</string>
+    <string name="type.amenity.food_sharing">Partilha de Comida</string>
+    <string name="type.amenity.give_box">Caixa de Doações</string>
+    <string name="type.shop.beauty.day_spa">Spa Diurno</string>
+    <string name="type.amenity.sailing_school">Escola Náutica</string>
+    <string name="type.amenity.flight_school">Escola de Aviação</string>
+    <string name="type.amenity.prep_school">Centro de Explicações</string>
 </resources>

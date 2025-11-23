@@ -18,6 +18,8 @@
 #include <string>
 #include <utility>
 
+#include <boost/regex.hpp>
+
 #include "defines.hpp"
 
 namespace
@@ -100,7 +102,7 @@ UNIT_TEST(GetFilesInDir_Smoke)
 
   TEST(base::IsExist(files1, "minsk-pass.mwm"), ());
 
-  pl.GetFilesByRegExp(dir, ".*\\" DATA_FILE_EXTENSION "$", files2);
+  pl.GetFilesByRegExp(dir, boost::regex(".*\\" + DATA_FILE_EXTENSION + "$"), files2);
   TEST_EQUAL(files1, files2, ());
 
   files1.clear();

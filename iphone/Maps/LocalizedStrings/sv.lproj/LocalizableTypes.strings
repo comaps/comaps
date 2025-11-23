@@ -809,7 +809,7 @@
 "type.natural.vineyard" = "Vingård";
 "type.natural.volcano" = "Vulkan";
 "type.natural.water" = "Vatten";
-"type.natural.wetland" = "Sumpmarken";
+"type.natural.wetland" = "Sumpmark";
 "type.natural.wetland.bog" = "Myr";
 "type.natural.wetland.marsh" = "Träsk";
 "type.noexit" = "Återvändsgränd";
@@ -1488,3 +1488,11 @@
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.emergency.access_point" = "Räddningspunkt";
+"type.emergency.life_ring" = "Livboj";
+"type.social_facility.soup_kitchen" = "Soppkök";
+"type.man_made.observatory" = "Observatorium";
+"type.man_made.telescope" = "Teleskop";
+"type.amenity.boat_rental" = "Båtuthyrning";
+"type.amenity.bench.backless" = "Bänk utan ryggstöd";
+"type.leisure.bandstand" = "Musikpaviljong";

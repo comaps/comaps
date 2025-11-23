@@ -99,6 +99,7 @@ public final class Editor
 
   public static native boolean nativeIsAddressEditable();
   public static native boolean nativeIsNameEditable();
+  public static native boolean nativeCanMarkPlaceAsDisused();
   public static native boolean nativeIsPointType();
   public static native boolean nativeIsBuilding();
 
@@ -164,6 +165,7 @@ public final class Editor
   public static native void nativeCreateNote(String text);
   public static native void nativePlaceDoesNotExist(@NonNull String comment);
   public static native void nativeRollbackMapObject();
+  public static native void nativeMarkPlaceAsDisused();
   public static native void nativeCreateStandaloneNote(double lat, double lon, String text);
 
   /**

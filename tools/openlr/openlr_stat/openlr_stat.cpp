@@ -28,6 +28,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include <boost/regex.hpp>
+
 #include <gflags/gflags.h>
 #include <pugixml.hpp>
 
@@ -60,7 +62,7 @@ void LoadDataSource(std::string const & pathToMWMFolder, FrozenDataSource & data
   CHECK(Platform::IsDirectory(pathToMWMFolder), (pathToMWMFolder, "must be a directory."));
 
   Platform::FilesList files;
-  Platform::GetFilesByRegExp(pathToMWMFolder, std::string(".*\\") + DATA_FILE_EXTENSION, files);
+  Platform::GetFilesByRegExp(pathToMWMFolder, boost::regex(".*\\") + DATA_FILE_EXTENSION, files);
 
   CHECK(!files.empty(), (pathToMWMFolder, "Contains no .mwm files."));
 

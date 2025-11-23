@@ -144,6 +144,8 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
         cl.GetTypeByPath({"internet_access"}),
         cl.GetTypeByPath({"toilets"}),
         cl.GetTypeByPath({"drinking_water"}),
+        cl.GetTypeByPath({"lateral"}),
+        cl.GetTypeByPath({"cardinal"}),
     };
     if (base::IsExist(arrTypes, type))
       return true;

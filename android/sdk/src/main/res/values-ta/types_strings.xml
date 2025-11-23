@@ -9,4 +9,8 @@
     <string name="type.addr_interpolation">முகவரி/சாலைத் தொகுதி</string>
     <string name="type.addr_interpolation.even">முகவரி/சாலைத் தொகுதி</string>
     <string name="type.amenity.music_school">இசை பள்ளிக்கூடம்</string>
+    <string name="type.aerialway.cable_car">கேபிள் கார்</string>
+    <string name="type.aeroway.aerodrome.international">சர்வதேச விமான நிலையம்</string>
+    <string name="type.aeroway.helipad">ஹெலிபேட்</string>
+    <string name="type.aeroway.runway">ஓடுதளம்</string>
 </resources>

@@ -7,6 +7,7 @@
   <Preference
     android:key="@string/pref_osm_profile"
     android:title="@string/profile"
+    app:icon="@drawable/ic_profile"
     tools:summary="LongLongUsernameHere"
     app:singleLineTitle="false"
     android:order="1"/>
@@ -17,6 +18,7 @@
     <ListPreference
       android:key="@string/pref_munits"
       android:title="@string/measurement_units"
+      app:icon="@drawable/ic_straighten"
       app:singleLineTitle="false"
       android:summary="@string/measurement_units_summary"
       android:entries="@array/measument_units"
@@ -42,6 +44,7 @@
     <SwitchPreferenceCompat
       android:key="@string/pref_autodownload"
       android:title="@string/autodownload"
+      app:icon="@drawable/ic_download_st"
       app:singleLineTitle="false"
       android:order="5"/>
     <SwitchPreferenceCompat
@@ -49,22 +52,26 @@
       android:title="@string/big_font"
       app:singleLineTitle="false"
       android:defaultValue="false"
+      app:icon="@drawable/ic_text_fields"
       android:order="6"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_transliteration"
       android:title="@string/transliteration_title"
       app:singleLineTitle="false"
+      app:icon="@drawable/ic_translate_indic"
       android:defaultValue="false"
       android:order="7"/>
     <Preference
       android:key="@string/pref_storage"
       android:title="@string/maps_storage"
+      app:icon="@drawable/ic_sd_card"
       app:singleLineTitle="false"
       android:summary="@string/maps_storage_summary"
       android:order="8"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_enable_logging"
       android:title="@string/enable_logging"
+      app:icon="@drawable/ic_browse_activity"
       app:singleLineTitle="false"
       android:summary="@string/enable_logging_warning_message"
       android:defaultValue="false"
@@ -80,6 +87,7 @@
       android:key="@string/pref_use_mobile_data"
       android:title="@string/mobile_data"
       app:singleLineTitle="false"
+      app:icon="@drawable/ic_network_manage"
       android:summary="@string/mobile_data_description"
       android:entries="@array/mobile_data_options"
       android:entryValues="@array/mobile_data_options_values"
@@ -91,6 +99,7 @@
       android:summary="@string/power_managment_description"
       android:entries="@array/power_management_scheme"
       android:entryValues="@array/power_management_scheme_values"
+      app:icon="@drawable/ic_eco"
       android:order="15"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_keep_screen_on"
@@ -102,6 +111,7 @@
     <SwitchPreferenceCompat
       android:key="@string/pref_show_on_lock_screen"
       android:title="@string/enable_show_on_lock_screen"
+      app:icon="@drawable/ic_mobile_lock_portrait"
       app:singleLineTitle="false"
       android:summary="@string/enable_show_on_lock_screen_description"
       android:defaultValue="true"
@@ -109,6 +119,7 @@
     <Preference
         android:key="@string/pref_map_locale"
         android:title="@string/change_map_locale"
+        app:icon="@drawable/ic_translate"
         app:singleLineTitle="false"
         android:persistent="false"
         android:order="18"/>
@@ -116,6 +127,7 @@
         android:key="@string/pref_backup"
         android:title="@string/pref_backup_title"
         android:summary="@string/pref_backup_summary"
+        app:icon="@drawable/ic_settings_backup_restore"
         app:singleLineTitle="false"
         android:persistent="false"
         android:order="19"/>
@@ -128,12 +140,14 @@
     <ListPreference
       android:key="@string/pref_map_style"
       android:title="@string/pref_map_style_title"
+      app:icon="@drawable/ic_dark_mode"
       app:singleLineTitle="false"
       android:entries="@array/map_style"
       android:order="1"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_3d"
       android:title="@string/pref_map_3d_title"
+      app:icon="@drawable/ic_three_d_rotation"
       app:singleLineTitle="false"
       android:order="2"/>
     <SwitchPreferenceCompat
@@ -146,12 +160,14 @@
       android:title="@string/pref_tts_enable_title"
       app:singleLineTitle="false"
       android:persistent="false"
+      app:icon="@drawable/ic_record_voice_over"
       android:order="4">
     </Preference>
     <PreferenceScreen
       android:key="@string/prefs_routing"
       android:order="5"
-      android:title="@string/driving_options_title">
+      android:title="@string/driving_options_title"
+      app:icon="@drawable/ic_instant_mix">
       <intent
         android:targetClass="app.organicmaps.settings.DrivingOptionsActivity"
         android:targetPackage="@string/app_id">
@@ -197,12 +213,14 @@
       android:key="@string/pref_play_services"
       android:title="@string/google_play_services"
       app:singleLineTitle="false"
+      app:icon="@drawable/ic_wifi_find"
       android:summary="@string/pref_use_google_play"
       android:defaultValue="true"
       android:order="1"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_search_history"
       android:title="@string/search_history_title"
+      app:icon="@drawable/ic_search_recent_st"
       app:singleLineTitle="false"
       android:defaultValue="true"
       android:order="2"/>

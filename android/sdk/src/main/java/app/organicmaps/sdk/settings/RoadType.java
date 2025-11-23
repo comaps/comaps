@@ -7,5 +7,6 @@ public enum RoadType
   Motorway,
   Ferry,
   Dirty,
-  Steps
+  Steps,
+  Paved
 }

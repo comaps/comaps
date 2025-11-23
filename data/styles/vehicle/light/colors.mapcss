@@ -151,6 +151,7 @@
 @neutral_label: #494F54;
 @healthcare_label: #A6454B;
 @public_transport_label: #234B73;
+@emergency_label: #247F52;
 
 /* ROADS LABELS */
 @shield_text: #000000;

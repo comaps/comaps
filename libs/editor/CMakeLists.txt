@@ -33,6 +33,7 @@ set(SRC
   xml_feature.cpp
   xml_feature.hpp
   yes_no_unknown.hpp
+  keys_to_remove.hpp
 )
 
 omim_add_library(${PROJECT_NAME} ${SRC})

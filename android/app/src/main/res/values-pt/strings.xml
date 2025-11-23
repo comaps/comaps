@@ -885,4 +885,5 @@
     <string name="unknown_count">desconhecido</string>
     <string name="error_value_must_be_positive">O valor tem que ser positivo</string>
     <string name="error_invalid_number">Número inválido</string>
+    <string name="avoid_paved">Evitar rotas pavimentadas</string>
 </resources>

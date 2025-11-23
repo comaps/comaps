@@ -97,9 +97,14 @@ Platform::EError Platform::MkDir(std::string const & dirName)
   return Platform::ERR_OK;
 }
 
-void Platform::GetFilesByRegExp(std::string const & directory, std::string const & regexp, FilesList & res)
+void Platform::GetFilesByRegExp(std::string const & directory, boost::regex const & regexp, FilesList & res)
 {
   pl::EnumerateFilesByRegExp(directory, regexp, res);
+}
+
+void Platform::GetAllFiles(std::string const & directory, FilesList & res)
+{ 
+  pl::EnumerateFiles(directory, res);
 }
 
 bool Platform::GetFileSizeByName(std::string const & fileName, uint64_t & size) const

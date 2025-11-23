@@ -898,4 +898,18 @@
     <string name="editor_place_doesnt_exist_description">Décrivez le lieu afin de signaler l\'erreur à la communauté OpenStreetMap</string>
     <string name="offline_explanation_text">Une carte doit être téléchargée pour visualiser et vous déplacer dans une zone.\nTéléchargez les cartes des zones que vous souhaitez visiter.</string>
     <string name="list_description_empty">Modifier la liste pour ajouter une description</string>
+    <string name="avoid_paved">Éviter les routes goudronnées</string>
+    <string name="opens_at">Ouvre à %s</string>
+    <string name="closes_at">Ferme à %s</string>
+    <string name="opens_day_at">Ouverture le %1$s à %2$s</string>
+    <string name="closes_day_at">Fermeture le %1$s à %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Local commercial vacant</string>
+    <string name="editor_mark_business_vacant_title">Marquer l\'établissement comme vacant</string>
+    <string name="editor_mark_business_vacant_description">Utilisez cette option si l\'entreprise a déménagé et que l\'espace est vide et prêt à accueillir un nouveau locataire.</string>
+    <string name="editor_submit">Soumettre</string>
 </resources>

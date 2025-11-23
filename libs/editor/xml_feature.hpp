@@ -187,6 +187,8 @@ public:
 
   /// Wrapper for SetTagValue and RemoveTag, avoids duplication for similar alternative osm tags
   void UpdateOSMTag(std::string_view key, std::string_view value);
+  /// Replace an old business with a new business
+  void OSMBusinessReplacement(uint32_t old_type, uint32_t new_type);
 
   std::string GetAttribute(std::string const & key) const;
   void SetAttribute(std::string const & key, std::string const & value);

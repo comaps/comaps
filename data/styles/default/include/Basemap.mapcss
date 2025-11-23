@@ -254,6 +254,7 @@ area|z11-[natural=bare_rock],
 /* 5.BEACH, GLACIER, DESERT, etc. */
 
 area|z0-[natural=glacier],
+area|z0-[natural=sand],
 area|z10-[natural=beach],
 area|z0-[natural=desert],
 area|z10-[leisure=beach_resort],
@@ -266,7 +267,11 @@ area|z10-[natural=beach],
 area|z10-[leisure=beach_resort],
 {fill-color: @beach;}
 
+area|z10-[natural=sand],
+{fill-color: @sand;}
+
 area|z0-[natural=desert],
+area|z0-9[natural=sand],
 {fill-color: @desert;}
 
 /* 6.WATER */
@@ -428,6 +433,7 @@ area|z14-[area:highway=living_street],
 area|z14-[amenity=grave_yard],
 area|z14-[landuse=cemetery],
 area|z15-[amenity=parking],
+area|z15-[amenity=car_pooling],
 area|z16-[public_transport=platform],
 area|z16-[railway=platform],
 {fill-opacity: 1;}
@@ -590,6 +596,7 @@ area|z10-[landuse=farmyard],
 /* Parking */
 
 area|z15-[amenity=parking],
+area|z15-[amenity=car_pooling],
 {fill-color: @parking;}
 
 area|z15-[amenity=parking][location=underground],

@@ -30,8 +30,8 @@ public:
     m_map[c.GetTypeByPath({"route", "ferry"})] = HighwayClass::Transported;
     m_map[c.GetTypeByPath({"route", "shuttle_train"})] = HighwayClass::Transported;
 
-    m_map[c.GetTypeByPath({"highway", "motorway"})] = HighwayClass::Trunk;
-    m_map[c.GetTypeByPath({"highway", "motorway_link"})] = HighwayClass::Trunk;
+    m_map[c.GetTypeByPath({"highway", "motorway"})] = HighwayClass::Motorway;
+    m_map[c.GetTypeByPath({"highway", "motorway_link"})] = HighwayClass::Motorway;
     m_map[c.GetTypeByPath({"highway", "trunk"})] = HighwayClass::Trunk;
     m_map[c.GetTypeByPath({"highway", "trunk_link"})] = HighwayClass::Trunk;
 
@@ -83,6 +83,7 @@ char const * HighwayClassToString(HighwayClass const cls)
   {
   case HighwayClass::Undefined: return "Undefined";
   case HighwayClass::Transported: return "Transported";
+  case HighwayClass::Motorway: return "Motorway";
   case HighwayClass::Trunk: return "Trunk";
   case HighwayClass::Primary: return "Primary";
   case HighwayClass::Secondary: return "Secondary";
@@ -435,6 +436,12 @@ IsBuildingHasPartsChecker::IsBuildingHasPartsChecker() : BaseChecker(2 /* level 
   m_types.push_back(classif().GetTypeByPath({"building", "has_parts"}));
 }
 
+IsUnderBuildingChecker::IsUnderBuildingChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"natural", "tree"}));
+}
+
 IsIsolineChecker::IsIsolineChecker() : BaseChecker(1 /* level */)
 {
   m_types.push_back(classif().GetTypeByPath({"isoline"}));
@@ -739,10 +746,23 @@ IsPublicTransportStopChecker::IsPublicTransportStopChecker()
   m_types.push_back(c.GetTypeByPath({"railway", "tram_stop"}));
 }
 
+IsDirectionalChecker::IsDirectionalChecker() : ftypes::BaseChecker(1 /* level */)
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"cardinal"}));
+  m_types.push_back(c.GetTypeByPath({"lateral"}));
+}
+
 IsTaxiChecker::IsTaxiChecker()
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"amenity", "taxi"}));
+}
+
+IsChristmasChecker::IsChristmasChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"xmas", "tree"}));
 }
 
 IsMotorwayJunctionChecker::IsMotorwayJunctionChecker()
@@ -851,6 +871,12 @@ IsPlatformChecker::IsPlatformChecker()
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"railway", "platform"}));
   m_types.push_back(c.GetTypeByPath({"public_transport", "platform"}));
+}
+
+IsEmergencyAccessPointChecker::IsEmergencyAccessPointChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"emergency", "access_point"}));
 }
 
 IsAddressInterpolChecker::IsAddressInterpolChecker() : BaseChecker(1 /* level */)

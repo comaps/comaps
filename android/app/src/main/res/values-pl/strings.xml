@@ -372,7 +372,7 @@
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Pobierz region, w którym szukasz lub spróbuj dodać nazwę pobliskiego miasta/wsi.</string>
     <string name="search_history_title">Historia wyszukiwania</string>
-    <string name="search_history_text">Uzyskaj szybki dostęp do ostatniego hasła wyszukiwania.</string>
+    <string name="search_history_text">Zobacz swoje ostatnie wyszukiwania</string>
     <string name="clear_search">Wyczyść historię wyszukiwania</string>
     <!-- Place Page link to Wikipedia article (if map object has it). -->
     <string name="read_in_wikipedia">Wikipedia</string>

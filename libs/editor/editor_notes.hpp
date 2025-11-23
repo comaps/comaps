@@ -46,7 +46,8 @@ private:
   explicit Notes(std::string const & fileName);
 
   std::string const m_fileName;
-  mutable std::mutex m_mu;
+  mutable std::mutex m_dataAccessMutex;
+  mutable std::mutex m_uploadingNotesMutex;
 
   // m_notes keeps the notes that have not been uploaded yet.
   // Once a note has been uploaded, it is removed from m_notes.

@@ -1,11 +1,13 @@
 package app.organicmaps.background;
 
 import android.content.Context;
+import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.work.Constraints;
 import androidx.work.ExistingWorkPolicy;
 import androidx.work.NetworkType;
 import androidx.work.OneTimeWorkRequest;
+import androidx.work.OutOfQuotaPolicy;
 import androidx.work.WorkManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
@@ -35,7 +37,11 @@ public class OsmUploadWork extends Worker
     if (Editor.nativeHasSomethingToUpload() && OsmOAuth.isAuthorized())
     {
       final Constraints c = new Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build();
-      final OneTimeWorkRequest wr = new OneTimeWorkRequest.Builder(OsmUploadWork.class).setConstraints(c).build();
+      OneTimeWorkRequest.Builder builder = new OneTimeWorkRequest.Builder(OsmUploadWork.class).setConstraints(c);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+          builder.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST);
+      }
+      final OneTimeWorkRequest wr = builder.build();
       WorkManager.getInstance(context).beginUniqueWork("UploadOsmChanges", ExistingWorkPolicy.KEEP, wr).enqueue();
     }
   }

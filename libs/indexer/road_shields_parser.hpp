@@ -1,6 +1,7 @@
 #pragma once
 
 #include "indexer/feature.hpp"
+#include "indexer/ftypes_matcher.hpp"
 
 #include "geometry/rect2d.hpp"
 
@@ -33,10 +34,16 @@ enum class RoadShieldType
   Generic_Pill_Blue_Bordered,
   Generic_Pill_Red_Bordered,
   Generic_Pill_Orange_Bordered,
+  Highway_Hexagon_Green,
+  Highway_Hexagon_Blue,
+  Highway_Hexagon_Red,
+  Highway_Hexagon_Turkey,
   US_Interstate,
   US_Highway,
   UK_Highway,
   Italy_Autostrada,
+  Hungary_Green,
+  Hungary_Blue,
   Hidden,
   Count
 };
@@ -75,7 +82,7 @@ struct RoadShield
 // Use specific country road shield styles based on mwm feature belongs to.
 using RoadShieldsSetT = buffer_vector<RoadShield, 2>;
 RoadShieldsSetT GetRoadShields(FeatureType & f);
-RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & roadNumber);
+RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & roadNumber, HighwayClass const & highwayClass);
 
 // Simple parsing without specific country styles.
 RoadShieldsSetT GetRoadShields(std::string const & rawRoadNumber);

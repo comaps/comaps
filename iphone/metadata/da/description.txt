@@ -1,0 +1,25 @@
+En fællesskabdrevet og åben source kortapp, baseret på kortdata fra OpenStreetMap og styrket i forpligtelsen til værdierne gennemsigtighed, privatlivets fred, og non-profit.
+‣ Enkel og elegant: de essentielle funktioner er nemme at bruge, og de virker bare.
+‣ Offlinefokuseret: Planlæg din rute og find vej i udlandet uden brug af mobildata, søg og find afsidesliggende mål på en afsidesliggende vandretur, mm.
+‣ Respekt for privatlivets fred: Appen er designet med henblik på at respektere dit privatliv – den identificerer dig ikke, indeholder ingen sporingsmekanismer, og insamler ingen personlig information. Appen er reklamefri.
+‣ Sparer på batteriet og på lagerpladsen: Dræner ikke dit batteri hurtigt, som andre kortapps. De kompakte kortfiler minimerer varigt lagerpladsforbrug.
+‣ Gratis og bygget i fællesskab: Folk som dig har hjulpet med denne app ved at tilføje steder til OpenStreetMap, ved at teste appens funktioner og give feedback på dem og ved at bidrage til udviklingen af appen med deres tid og penge.
+‣ Åben og gennemsigtig beslutningstagningsproces og finanser, non-profit, og fuldt ud åben source.
+Hovedfunktioner
+• Hent detaljerede kort, der indeholder steder som ikke findes i mange kommericelle kort.
+• En frilufts-tilstand med markede vandrestier, teltpladser, kilder, bjerg- og bakketoppe, højdekonturlinjer, mm.
+• Gangstier og cykelstier
+• Steder, der kan besøges, som f.eks. restauranter, tankstationer, hoteller, butikker, seværdigheder og mange andre.
+• Søg efter stednavn, adresse, eller type af sted.
+• Gem dine yndlingssteder som bogmærker med et enkelt tryk. 
+• iCloud synkronisering af bogmærker og optagede spor.
+• Offline artikler fra Wikipedia.
+• Metro-lag med navigation.
+• Optagelse af spor.
+• Eksport og import af bogmærker og spor i formaterne KML, KMZ og GPX.
+• Mørk tilstand til brug om natten.
+• Mulighed for at forbedre kortet vha. en indbygget editor.
+• CarPlay understøttes.
+
+Friheden er ankommet
+Opdag din rejse, find vej i verden med privatliv og fællesskab i førersædet!

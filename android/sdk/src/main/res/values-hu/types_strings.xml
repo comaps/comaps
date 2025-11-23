@@ -1431,4 +1431,10 @@
     <string name="type.leisure.sports_centre.sport.yoga">Sportközpont</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Jógastúdió</string>
     <string name="type.amenity.charging_station.motorcar.small">Elektromos töltőpont</string>
+    <string name="type.amenity.boat_rental">Hajóbérlés</string>
+    <string name="type.man_made.telescope">Távcső</string>
+    <string name="type.man_made.telescope.optical">Távcső (Optikai)</string>
+    <string name="type.man_made.telescope.radio">Távcső (Rádió)</string>
+    <string name="type.man_made.telescope.gamma">Távcső (Gamma)</string>
+    <string name="type.man_made.observatory">Csillagvizsgáló</string>
 </resources>

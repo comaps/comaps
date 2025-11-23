@@ -21,10 +21,10 @@ double constexpr kEps = 1e-10;
 //    maximal zoom levels.
 double constexpr kMaxZoom = 20.0;
 
-bool MatchLatLonZoom(string const & s, regex const & re, size_t lati, size_t loni, size_t zoomi, GeoURLInfo & info)
+bool MatchLatLonZoom(string const & s, boost::regex const & re, size_t lati, size_t loni, size_t zoomi, GeoURLInfo & info)
 {
-  std::smatch m;
-  if (!std::regex_search(s, m, re) || m.size() != 4)
+  boost::smatch m;
+  if (!boost::regex_search(s, m, re) || m.size() != 4)
     return false;
 
   double lat, lon, zoom;
@@ -55,7 +55,7 @@ std::string const kFloatIntCoord = R"(([+-]?\d+\.?\d*))";
 std::string const kFloatIntScale = R"((\d+\.?\d*))";
 }  // namespace
 
-LatLonParser::LatLonParser() : m_info(nullptr), m_regexp(kFloatCoord + ", *" + kFloatCoord) {}
+LatLonParser::LatLonParser() : m_info(nullptr), m_regexp(boost::regex(kFloatCoord + ", *" + kFloatCoord)) {}
 
 void LatLonParser::Reset(url::Url const & url, GeoURLInfo & info)
 {
@@ -87,8 +87,8 @@ void LatLonParser::operator()(std::string name, std::string const & value)
 
   if (priority != kXYPriority && priority != kLatLonPriority)
   {
-    std::smatch m;
-    if (std::regex_search(value, m, m_regexp) && m.size() == 3)
+    boost::smatch m;
+    if (boost::regex_search(value, m, m_regexp) && m.size() == 3)
     {
       double lat, lon;
       VERIFY(strings::to_double(m[1].str(), lat), ());
@@ -146,9 +146,7 @@ int LatLonParser::GetCoordinatesPriority(string const & token)
   return -1;
 }
 
-std::string const kLatLon = R"(([+-]?\d+(?:\.\d+)?), *([+-]?\d+(?:\.\d+)?)(:?, *([+-]?\d+(?:\.\d+)?))?)";
-
-GeoParser::GeoParser() : m_latlonRe(kLatLon), m_zoomRe(kFloatIntScale) {}
+GeoParser::GeoParser() : m_latlonRe(boost::regex(R"(([+-]?\d+(?:\.\d+)?), *([+-]?\d+(?:\.\d+)?)(:?, *([+-]?\d+(?:\.\d+)?))?)")), m_zoomRe(boost::regex(kFloatIntScale)) {}
 
 bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
 {
@@ -202,12 +200,12 @@ bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
   std::string coordinates = url.GetHost().substr(0, url.GetHost().find(';'));
   if (!coordinates.empty())
   {
-    std::smatch m;
-    if (!std::regex_match(coordinates, m, m_latlonRe) || m.size() < 3)
+    boost::smatch m;
+    if (!boost::regex_match(coordinates, m, m_latlonRe) || m.size() < 3)
     {
       // no match? try URL decoding before giving up
       coordinates = url::UrlDecode(coordinates);
-      if (!std::regex_match(coordinates, m, m_latlonRe) || m.size() < 3)
+      if (!boost::regex_match(coordinates, m, m_latlonRe) || m.size() < 3)
       {
         LOG(LWARNING, ("Missing coordinates in", raw));
         return false;
@@ -233,8 +231,8 @@ bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
   if (q != nullptr && !q->empty())
   {
     // Try to extract lat,lon from q=
-    std::smatch m;
-    if (std::regex_match(*q, m, m_latlonRe) && m.size() != 3)
+    boost::smatch m;
+    if (boost::regex_match(*q, m, m_latlonRe) && m.size() != 3)
     {
       double lat, lon;
       VERIFY(strings::to_double(m[1].str(), lat), ());
@@ -271,8 +269,8 @@ bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
   std::string const * z = url.GetParamValue("z");
   if (z != nullptr)
   {
-    std::smatch m;
-    if (std::regex_match(*z, m, m_zoomRe) && m.size() == 2)
+    boost::smatch m;
+    if (boost::regex_match(*z, m, m_zoomRe) && m.size() == 2)
     {
       double zoom;
       VERIFY(strings::to_double(m[0].str(), zoom), ());
@@ -288,8 +286,8 @@ bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
 }
 
 DoubleGISParser::DoubleGISParser()
-  : m_pathRe("/" + kFloatIntCoord + "," + kFloatIntCoord + "/zoom/" + kFloatIntScale)
-  , m_paramRe(kFloatIntCoord + "," + kFloatIntCoord + "/" + kFloatIntScale)
+  : m_pathRe(boost::regex("/" + kFloatIntCoord + "," + kFloatIntCoord + "/zoom/" + kFloatIntScale))
+  , m_paramRe(boost::regex(kFloatIntCoord + "," + kFloatIntCoord + "/" + kFloatIntScale))
 {}
 
 bool DoubleGISParser::Parse(url::Url const & url, GeoURLInfo & info) const
@@ -305,7 +303,7 @@ bool DoubleGISParser::Parse(url::Url const & url, GeoURLInfo & info) const
   return MatchLatLonZoom(url.GetHostAndPath(), m_pathRe, 2, 1, 3, info);
 }
 
-OpenStreetMapParser::OpenStreetMapParser() : m_regex(kIntScale + "/" + kFloatCoord + "/" + kFloatCoord) {}
+OpenStreetMapParser::OpenStreetMapParser() : m_regex(boost::regex(kIntScale + "/" + kFloatCoord + "/" + kFloatCoord)) {}
 
 bool OpenStreetMapParser::Parse(url::Url const & url, GeoURLInfo & info) const
 {

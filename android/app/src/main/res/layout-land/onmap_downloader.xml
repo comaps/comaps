@@ -26,27 +26,33 @@
       android:clipChildren="false"
       android:gravity="center"
       tools:ignore="UselessParent">
-      <com.google.android.material.textview.MaterialTextView
+      <LinearLayout
+          android:id="@+id/offline_explanation"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_marginBottom="@dimen/margin_eighth"
-          android:gravity="center_horizontal"
-          android:textStyle="bold"
-          android:textAppearance="?android:attr/textAppearanceLarge"
-          android:text="@string/offline_explanation_title"/>
-      <com.google.android.material.textview.MaterialTextView
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:layout_marginBottom="@dimen/margin_eighth"
-          android:gravity="center_horizontal"
-          android:textStyle="normal"
-          android:textAppearance="@style/MwmTextAppearance.Body1"
-          android:text="@string/offline_explanation_text"/>
-      <com.google.android.material.divider.MaterialDivider
-          android:layout_width="match_parent"
-          android:layout_height="2dp"
-          android:layout_marginTop="@dimen/margin_quarter"
-          android:layout_marginBottom="@dimen/margin_quarter"/>
+          android:orientation="vertical">
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_eighth"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/offline_explanation_title"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_eighth"
+            android:gravity="center_horizontal"
+            android:textStyle="normal"
+            android:textAppearance="@style/MwmTextAppearance.Body1"
+            android:text="@string/offline_explanation_text"/>
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="@dimen/margin_quarter"
+            android:layout_marginBottom="@dimen/margin_quarter"/>
+      </LinearLayout>
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/downloader_parent"
         android:layout_width="wrap_content"

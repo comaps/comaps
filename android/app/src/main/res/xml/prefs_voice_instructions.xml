@@ -5,45 +5,54 @@
 
   <SwitchPreferenceCompat
       android:key="@string/pref_tts_enabled"
-      android:title="@string/pref_tts_enable_title" />
+      android:title="@string/pref_tts_enable_title"
+      app:iconSpaceReserved="false"/>
   <SwitchPreferenceCompat
       android:key="@string/pref_tts_street_names"
       android:title="@string/pref_tts_street_names_title"
       app:isPreferenceVisible="false"
       android:summary="@string/pref_tts_street_names_description"
-      android:defaultValue="false" />
+      android:defaultValue="false"
+      app:iconSpaceReserved="false"/>
   <ListPreference
       android:key="@string/pref_tts_language"
       app:isPreferenceVisible="false"
-      android:title="@string/pref_tts_language_title" />
+      android:title="@string/pref_tts_language_title"
+      app:iconSpaceReserved="false"/>
   <SeekBarPreference
       android:key="@string/pref_tts_volume"
       app:isPreferenceVisible="false"
-      android:title="@string/volume" />
+      android:title="@string/volume"
+      app:iconSpaceReserved="false"/>
   <Preference
       android:key="@string/pref_tts_test_voice"
       app:isPreferenceVisible="false"
-      android:title="@string/pref_tts_test_voice_title" />
+      android:title="@string/pref_tts_test_voice_title"
+      app:iconSpaceReserved="false"/>
   <Preference
       android:key="@string/pref_tts_open_system_settings"
-      android:title="@string/pref_tts_open_system_settings" />
+      android:title="@string/pref_tts_open_system_settings"
+      app:iconSpaceReserved="false"/>
   <Preference
       android:enabled="false"
       android:key="@string/pref_tts_info"
       android:persistent="false"
       android:selectable="false"
-      android:summary="@string/prefs_languages_information" />
+      android:summary="@string/prefs_languages_information"
+      app:iconSpaceReserved="false" />
   <Preference
       android:enabled="true"
       android:key="@string/pref_tts_info_link"
       android:persistent="false"
       android:selectable="true"
-      android:summary="@string/prefs_languages_information_off_link" />
+      android:summary="@string/prefs_languages_information_off_link"
+      app:iconSpaceReserved="false" />
   <ListPreference
       android:key="@string/pref_tts_speed_cameras"
       android:title="@string/speedcams_alert_title"
       app:singleLineTitle="false"
       android:entries="@array/speed_cameras"
       android:entryValues="@array/speed_cameras_values"
-      android:defaultValue="@string/auto_enum_value" />
+      android:defaultValue="@string/auto_enum_value"
+      app:iconSpaceReserved="false" />
 </androidx.preference.PreferenceScreen>

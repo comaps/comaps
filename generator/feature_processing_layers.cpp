@@ -124,17 +124,8 @@ void RepresentationLayer::Handle(FeatureBuilder & fb)
 
 void RepresentationLayer::HandleArea(FeatureBuilder & fb, FeatureBuilderParams const & params)
 {
-  if (CanBeArea(params))
-  {
-    LayerBase::Handle(fb);
-    fb.SetParams(params);
-  }
-  else if (CanBePoint(params))
-  {
-    // CanBePoint ignores exceptional types from TypeAlwaysExists / IsUsefulNondrawableType.
-    auto featurePoint = MakePoint(fb);
-    LayerBase::Handle(featurePoint);
-  }
+  LayerBase::Handle(fb);
+  fb.SetParams(params);
 }
 
 // static

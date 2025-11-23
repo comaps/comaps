@@ -8,7 +8,8 @@
 #include <algorithm>
 #include <cstring>
 #include <memory>
-#include <regex>
+
+#include <boost/regex.hpp>
 
 #include <dirent.h>
 #include <sys/stat.h>
@@ -143,15 +144,13 @@ void EnumerateFiles(std::string const & directory, std::function<void(char const
     fn(entry->d_name);
 }
 
-void EnumerateFilesByRegExp(std::string const & directory, std::string const & regexp, std::vector<std::string> & res)
+void EnumerateFilesByRegExp(std::string const & directory, boost::regex const & regexp, std::vector<std::string> & res)
 {
-  std::regex exp(regexp);
   EnumerateFiles(directory, [&](char const * entry)
   {
     std::string const name(entry);
-    if (std::regex_search(name.begin(), name.end(), exp))
+    if (boost::regex_search(name.begin(), name.end(), regexp))
       res.push_back(name);
   });
 }
-
 }  // namespace pl

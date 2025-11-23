@@ -7,9 +7,9 @@
 
 #include "base/logging.hpp"
 
-#include <future>
 #include <memory>
-#include <regex>
+
+#include <boost/regex.hpp>
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
@@ -33,19 +33,25 @@ bool Platform::GetFileSizeByName(std::string const & fileName, uint64_t & size) 
   }
 }
 
-void Platform::GetFilesByRegExp(std::string const & directory, std::string const & regexp, FilesList & outFiles)
+void Platform::GetFilesByRegExp(std::string const & directory, boost::regex const & regexp, FilesList & outFiles)
 {
-  std::regex exp(regexp);
-
   QDir dir(QString::fromUtf8(directory.c_str()));
   int const count = dir.count();
 
   for (int i = 0; i < count; ++i)
   {
     std::string name = dir[i].toStdString();
-    if (std::regex_search(name.begin(), name.end(), exp))
+    if (boost::regex_search(name.begin(), name.end(), regexp))
       outFiles.push_back(std::move(name));
   }
+}
+
+void Platform::GetAllFiles(std::string const & directory, FilesList & outFiles)
+{
+  QDir dir(QString::fromUtf8(directory.c_str()));
+
+  for (int i = 0; i < dir.count(); ++i)
+    outFiles.push_back(dir[i].toStdString());
 }
 
 int Platform::PreCachingDepth() const

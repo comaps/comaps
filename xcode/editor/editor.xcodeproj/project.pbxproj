@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		271DC2172EC60C0C00442D94 /* keys_to_remove.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */; };
 		340C20DE1C3E4DFD00111D22 /* osm_auth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340C20DC1C3E4DFD00111D22 /* osm_auth.cpp */; };
 		340C20DF1C3E4DFD00111D22 /* osm_auth.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 340C20DD1C3E4DFD00111D22 /* osm_auth.hpp */; };
 		340DC8291C4E71E500EAA2CC /* changeset_wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DC8271C4E71E500EAA2CC /* changeset_wrapper.cpp */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		270C9C212E16AABF00ABA688 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = ../../libs/editor/module.modulemap; sourceTree = SOURCE_ROOT; };
+		271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = keys_to_remove.hpp; sourceTree = "<group>"; };
 		340C20DC1C3E4DFD00111D22 /* osm_auth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osm_auth.cpp; sourceTree = "<group>"; };
 		340C20DD1C3E4DFD00111D22 /* osm_auth.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = osm_auth.hpp; sourceTree = "<group>"; };
 		340DC8271C4E71E500EAA2CC /* changeset_wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = changeset_wrapper.cpp; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				6715560420BEC331002BA3B4 /* edits_migration.hpp */,
 				3D052486200F62ED00F24998 /* feature_matcher.cpp */,
 				3D052485200F62ED00F24998 /* feature_matcher.hpp */,
+				271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */,
 				6715565220BF0F86002BA3B4 /* new_feature_categories.cpp */,
 				6715565320BF0F87002BA3B4 /* new_feature_categories.hpp */,
 				341138741C15AE42002E3B3E /* opening_hours_ui.cpp */,
@@ -337,6 +340,7 @@
 				6715565520BF0F87002BA3B4 /* new_feature_categories.hpp in Headers */,
 				6715560820BEC332002BA3B4 /* edits_migration.hpp in Headers */,
 				3D052487200F62EE00F24998 /* feature_matcher.hpp in Headers */,
+				271DC2172EC60C0C00442D94 /* keys_to_remove.hpp in Headers */,
 				3411387B1C15AE42002E3B3E /* ui2oh.hpp in Headers */,
 				341138791C15AE42002E3B3E /* opening_hours_ui.hpp in Headers */,
 			);

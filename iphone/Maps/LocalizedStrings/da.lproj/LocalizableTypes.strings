@@ -27,7 +27,7 @@
 "type.amenity.bicycle_parking" = "Cykelparkering";
 "type.amenity.bicycle_rental" = "Cykeludlejning";
 "type.amenity.bicycle_repair_station" = "Cykelreparationsstation";
-"type.amenity.biergarten" = "Traktørsted";
+"type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Bordel";
 "type.amenity.bureau_de_change" = "Valutaveksling";
 "type.amenity.bus_station" = "Rutebilstation";
@@ -40,9 +40,9 @@
 "type.amenity.gambling" = "Gambling";
 "type.leisure.adult_gaming_centre" = "Spillehal for voksne";
 "type.leisure.amusement_arcade" = "Arkadespil";
-"type.amenity.charging_station" = "Ladestander";
-"type.amenity.charging_station.bicycle" = "Cykelladestander";
-"type.amenity.charging_station.motorcar" = "Billadestander";
+"type.amenity.charging_station" = "Ladestation";
+"type.amenity.charging_station.bicycle" = "Ladestation til elcykler";
+"type.amenity.charging_station.motorcar" = "Ladestation til elbiler";
 "type.amenity.childcare" = "Vuggestue";
 "type.amenity.cinema" = "Biograf";
 "type.leisure.bowling_alley" = "Bowlinghal";
@@ -99,17 +99,17 @@
 "type.amenity.parking.street_side" = "Parkeringslomme";
 "type.amenity.parking.street_side.fee" = "Parkeringslomme";
 "type.amenity.parking.street_side.private" = "Privat parkeringslomme";
-"type.amenity.parking.lane" = "Parkering i vejside";
-"type.amenity.parking.lane.fee" = "Parkering i vejside";
-"type.amenity.parking.lane.private" = "Privat parkering i vejside";
-"type.amenity.parking_entrance" = "Parkeringsindkørsel";
-"type.amenity.parking_entrance.private" = "Privat parkeringsindkørsel";
-"type.amenity.parking_entrance.permissive" = "Parkeringsindkørsel";
-"type.amenity.parking_space" = "Parkeringsplads";
-"type.amenity.parking_space.permissive" = "Parkeringsplads";
-"type.amenity.parking_space.private" = "Parkeringsplads";
-"type.amenity.parking_space.underground" = "Parkeringsplads";
-"type.amenity.parking_space.disabled" = "Handicapparkeringsplads";
+"type.amenity.parking.lane" = "Gadeparkering";
+"type.amenity.parking.lane.fee" = "Gadeparkering";
+"type.amenity.parking.lane.private" = "Privat gadeparkering";
+"type.amenity.parking_entrance" = "Indkørsel til parkeringshus";
+"type.amenity.parking_entrance.private" = "Indkørsel til privat parkeringshus";
+"type.amenity.parking_entrance.permissive" = "Indkørsel til parkeringshus";
+"type.amenity.parking_space" = "Parkeringsbås";
+"type.amenity.parking_space.permissive" = "Parkeringsbås";
+"type.amenity.parking_space.private" = "Parkeringsbås";
+"type.amenity.parking_space.underground" = "Parkeringsbås";
+"type.amenity.parking_space.disabled" = "Handicapparkeringsbås";
 "type.amenity.payment_terminal" = "Betalingsautomat";
 "type.amenity.pharmacy" = "Apotek";
 "type.amenity.place_of_worship" = "Tilbedelsessted";
@@ -384,7 +384,7 @@
 "type.healthcare.psychotherapist" = "Psykoterapi";
 "type.healthcare.sample_collection" = "Prøvetagning";
 "type.healthcare.speech_therapist" = "Tale terapi";
-"type.highway" = "Hovedvej";
+"type.highway" = "Vej";
 "type.highway.bridleway" = "Ridesti";
 
 /* These translations are used for all type.highway.*.bridge. */
@@ -503,7 +503,7 @@
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
-"type.highway.secondary" = "Sækunder hovedvej";
+"type.highway.secondary" = "Sekundær hovedvej";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Bro";
@@ -1216,7 +1216,7 @@
 "type.shop.curtain" = "Gardinhandel";
 "type.shop.deli" = "Delikatessebutik";
 "type.shop.department_store" = "Stormagasin";
-"type.shop.doityourself" = "Isenkræmmer";
+"type.shop.doityourself" = "Byggemarked";
 "type.shop.dry_cleaning" = "Renseri";
 "type.shop.electronics" = "Elektronikbutik";
 "type.shop.erotic" = "Erotikbutik";
@@ -1232,12 +1232,12 @@
 "type.shop.greengrocer" = "Grønthandler";
 "type.shop.grocery" = "Købmand";
 "type.shop.hairdresser" = "Frisør";
-"type.shop.hardware" = "Byggemarked";
+"type.shop.hardware" = "Isenkræmmer";
 "type.shop.health_food" = "Helsekostbutik";
 "type.shop.hearing_aids" = "Høreapparatbutik";
 "type.shop.herbalist" = "Urtebutik";
 "type.shop.hifi" = "HiFi lyd";
-"type.shop.houseware" = "Husholdningsartikler butik";
+"type.shop.houseware" = "Isenkræmmer";
 "type.shop.jewelry" = "Smykkebutik";
 "type.shop.kiosk" = "Kiosk";
 "type.shop.kitchen" = "Køkkenforretning";
@@ -1247,21 +1247,21 @@
 "type.shop.mobile_phone" = "Mobiltelefonbutik";
 "type.shop.money_lender" = "Pengeudlåner";
 "type.shop.motorcycle" = "Motorcykelforhandler";
-"type.shop.motorcycle_repair" = "Motorcykel reparation";
+"type.shop.motorcycle_repair" = "Motorcykelværksted";
 "type.shop.music" = "Pladebutik";
-"type.shop.musical_instrument" = "Butik med musikinstrumenter";
+"type.shop.musical_instrument" = "Instrumentbutik";
 "type.shop.newsagent" = "Avis-kiosk";
 "type.shop.optician" = "Optiker";
-"type.shop.outdoor" = "Fritidsudstyr";
+"type.shop.outdoor" = "Friluftsbutik";
 "type.shop.outpost" = "Afhentningssted";
-"type.shop.pasta" = "Pasta butik";
+"type.shop.pasta" = "Pastabutik";
 "type.shop.pastry" = "Bagværk";
 "type.shop.pawnbroker" = "Pantelåner";
 "type.shop.pet" = "Dyrehandel";
 "type.shop.pet_grooming" = "Kæledyrspleje";
 "type.shop.photo" = "Fotobutik";
 "type.shop.rental" = "Udlejningsbutik";
-"type.shop.rental.bicycle" = "Cykeludlejningsbutik";
+"type.shop.rental.bicycle" = "Cykeludlejning";
 "type.shop.seafood" = "Fiskehandler";
 "type.shop.second_hand" = "Genbrugsbutik";
 "type.shop.shoes" = "Skobutik";
@@ -1269,7 +1269,7 @@
 "type.shop.stationery" = "Kontorartikler";
 "type.shop.supermarket" = "Supermarked";
 "type.shop.tattoo" = "Tatovør";
-"type.shop.tea" = "Tebutik";
+"type.shop.tea" = "Tehandel";
 "type.shop.ticket" = "Billetkontor";
 "type.shop.toys" = "Legetøjsbutik";
 "type.shop.travel_agency" = "Rejsebureau";
@@ -1280,7 +1280,7 @@
 "type.shop.wine" = "Vinhandel";
 "type.shop.agrarian" = "Landbrugsbutik";
 "type.shop.antiques" = "Antikvitetsbutik";
-"type.shop.appliance" = "Hvidevarer butik";
+"type.shop.appliance" = "Hvidevareforretning";
 
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Kunstbutik";
@@ -1291,8 +1291,8 @@
 "type.shop.charity" = "Velgørenhedsbutik";
 "type.shop.cheese" = "Ostebutik";
 "type.shop.craft" = "Kunst og kunsthåndværk";
-"type.shop.dairy" = "Mejeriprodukter";
-"type.shop.electrical" = "El-butik";
+"type.shop.dairy" = "Mejeributik";
+"type.shop.electrical" = "Elektrikerbutik";
 "type.shop.fishing" = "Fiskeributik";
 "type.shop.interior_decoration" = "Brugskunsthandel";
 "type.shop.lottery" = "Lottobutik";
@@ -1313,7 +1313,7 @@
 "type.sport.australian_football" = "Australsk fodbold";
 "type.sport.baseball" = "Baseball";
 "type.sport.basketball" = "Basketball";
-"type.sport.beachvolleyball" = "Beachvolley";
+"type.sport.beachvolleyball" = "Strandvolley";
 "type.sport.bowls" = "Bowls";
 "type.sport.chess" = "Skak";
 "type.sport.cricket" = "Cricket";
@@ -1486,10 +1486,36 @@
 "type.barrier.wicket_gate" = "Portlåge";
 "type.amenity.animal_shelter" = "Dyreinternat";
 "type.office.security" = "Sikkerhedsvagtkontor";
-"type.power.portal" = "Power Portal";
+"type.power.portal" = "Kraftværksportal";
 "type.building.guardhouse" = "Sikkerhedsbås";
 "type.shop.lighting" = "Lysbutik";
-"type.amenity.charging_station.motorcar.small" = "Opladningspunkt til biler";
-"type.leisure.sports_centre.sport.american_football" = "Sportscenter";
-"type.leisure.sports_centre.sport.multi" = "Sportscenter";
-"type.amenity.bench.backless" = "Rygløs bænk";
+"type.amenity.charging_station.motorcar.small" = "Ladestander til biler";
+"type.leisure.sports_centre.sport.american_football" = "Idrætscenter";
+"type.leisure.sports_centre.sport.multi" = "Idrætscenter";
+"type.amenity.bench.backless" = "Bænk";
+"type.man_made.observatory" = "Observatorium";
+"type.man_made.telescope.optical" = "Teleskop (Optisk)";
+"type.man_made.telescope.radio" = "Teleskop (Radio)";
+"type.amenity.food_sharing" = "Fødevarerdeling";
+"type.social_facility.food_bank" = "Fødevarebank";
+"type.social_facility.soup_kitchen" = "Suppekøkken";
+"type.man_made.telescope" = "Teleskop";
+"type.amenity.give_box" = "Bytteboks";
+"type.man_made.telescope.gamma" = "Teleskop (Gamma)";
+"type.amenity.car_pooling" = "Samkørsel";
+"type.shop.telecommunication" = "Telefonibutik";
+"type.disusedbusiness" = "Ledig forretning";
+"type.amenity.boat_rental" = "Bådudlejning";
+"type.amenity.lounger" = "Solseng";
+"type.leisure.bandstand" = "Scenepavillon";
+"type.leisure.indoor_play" = "Legeland";
+"type.leisure.sports_centre.sport.archery" = "Bueskydningscenter";
+"type.leisure.sports_centre.sport.athletics" = "Atletikcenter";
+"type.leisure.sports_centre.sport.baseball" = "Baseballcenter";
+"type.leisure.sports_centre.sport.badminton" = "Badmintoncenter";
+"type.leisure.sports_centre.sport.basketball" = "Basketballcenter";
+"type.leisure.sports_centre.sport.golf" = "Golfcenter";
+"type.leisure.sports_centre.sport.gymnastics" = "Gymnastikcenter";
+"type.leisure.sports_centre.sport.swimming" = "Svømmehal";
+"type.amenity.sailing_school" = "Sejlerskole";
+"type.amenity.flight_school" = "Flyveskole";

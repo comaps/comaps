@@ -880,4 +880,13 @@
     <string name="offline_explanation_title">Offline kort</string>
     <string name="offline_explanation_text">Der skal downloades et kort for at kunne se og navigere i området.\nDownload kort over de områder, du ønsker at rejse i.</string>
     <string name="list_description_empty">Rediger listen for at tilføje en beskrivelse</string>
+    <string name="avoid_paved">Undgå veje med fast belægning</string>
+    <string name="opens_at">Åbner kl. %s</string>
+    <string name="closes_at">Lukker kl. %s</string>
+    <string name="opens_day_at">Åbner %1$s kl. %2$s</string>
+    <string name="closes_day_at">Lukker %1$s kl. %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
 </resources>

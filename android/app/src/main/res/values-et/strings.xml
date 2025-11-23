@@ -516,8 +516,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Kas soovid saata selle kõigile kasutajatele?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Palun kontrolli, et sa ei sisestanud isiklikke andmeid</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMapi haldajad kontrollivad muudatused üle ja võtavad küsimuste korral sinuga ühendust</string>
+    <string name="editor_share_to_all_dialog_message_1">Palun kontrolli, et sa ei sisestanud isiklikke andmeid.</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMapi haldajad kontrollivad muudatused üle ja võtavad küsimuste korral sinuga ühendust.</string>
     <string name="navigation_stop_button">Lõpeta</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Rada on salvestamisel</string>
@@ -889,4 +889,17 @@
     <string name="offline_explanation_title">Ilma võrguühenduseta toimivad kaardid</string>
     <string name="offline_explanation_text">Selles piirkonnas liikumiseks ja teekonna juhatamiseks pead vajaliku kaardi alla laadima.\nVali allalaaditav kaart selle piirkonna kohta.</string>
     <string name="list_description_empty">Kirjelduse lisamiseks muuda loendit</string>
+    <string name="avoid_paved">Väldi sillutatud teid</string>
+    <string name="opens_at">Avatakse %s</string>
+    <string name="closes_at">Suletakse %s</string>
+    <string name="opens_day_at">Avatakse %1$s kell %2$s</string>
+    <string name="closes_day_at">Suletakse %1$s kell %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Äripind on vaba</string>
+    <string name="editor_mark_business_vacant_title">Märgi äripind vabaks</string>
+    <string name="editor_mark_business_vacant_description">Kasuta seda valikut, kui senine rentnik/omanik on kolinud välja ja äripind on tühi ja uue ootel.</string>
+    <string name="editor_submit">Saada</string>
 </resources>

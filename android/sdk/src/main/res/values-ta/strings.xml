@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="core_my_position">எனது நிலை</string>
+    <string name="core_my_places">எனது இடங்கள்</string>
+    <string name="category_wifi">வைஃபை</string>
+    <string name="m">மீ</string>
+    <string name="mi">மை</string>
+    <string name="ft">அடி</string>
+    <string name="today">இன்று</string>
+    <string name="yesterday">நேற்று</string>
+    <string name="days_ago">%s நாட்களுக்கு முன்பு</string>
+    <string name="weeks_ago">%s வாரங்களுக்கு முன்பு</string>
+    <string name="months_ago">%s மாதங்களுக்கு முன்பு</string>
+    <string name="years_ago">%s ஆண்டுகளுக்கு முன்பு</string>
+    <string name="km">கி.மீ</string>
+    <string name="postal_code">குறியீடு</string>
+    <string name="core_placepage_unknown_place">வரைபட புள்ளி</string>
+    <string name="core_exit">வெளியேறு</string>
+    <string name="core_entrance">நுழைவாயில்</string>
+    <string name="subway_data_unavailable">சுரங்கப்பாதை வரைபடம் கிடைக்கவில்லை</string>
+    <string name="mb">எம்பி</string>
+    <string name="gb">சிபி</string>
+    <string name="maps_storage_internal">உள் தனிப்பட்ட சேமிப்பு</string>
+    <string name="maps_storage_shared">உள் பகிரப்பட்ட சேமிப்பு</string>
+    <string name="maps_storage_removable">SD அட்டை</string>
+    <string name="maps_storage_external">வெளிப்புற பகிர்ந்த சேமிப்பு</string>
+    <string name="public_access">பொது அணுகல்</string>
+    <string name="limited_access">வரையறுக்கப்பட்ட அணுகல்</string>
+    <string name="not_shared">தனிப்பட்ட</string>
+    <string name="access_rules_author_only">நிகழ்நிலை திருத்துதல்</string>
+    <string name="week_ago">%s வாரத்திற்கு முன்பு</string>
+    <string name="month_ago">%s மாதம் முன்பு</string>
+    <string name="year_ago">%s வருடத்திற்கு முன்பு</string>
+</resources>
