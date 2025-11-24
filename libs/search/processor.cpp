@@ -495,11 +495,11 @@ Locales Processor::GetCategoryLocales() const
   Locales result;
 
   // Prepare array of processing locales. English locale is always present for category matching.
-  result.Insert(static_cast<uint64_t>(enLocaleCode));
+  result.insert(static_cast<uint64_t>(enLocaleCode));
   if (m_currentLocaleCode != -1)
-    result.Insert(static_cast<uint64_t>(m_currentLocaleCode));
+    result.insert(static_cast<uint64_t>(m_currentLocaleCode));
   if (m_inputLocaleCode != -1)
-    result.Insert(static_cast<uint64_t>(m_inputLocaleCode));
+    result.insert(static_cast<uint64_t>(m_inputLocaleCode));
 
   return result;
 }
@@ -829,7 +829,7 @@ void Processor::InitParams(QueryParams & params) const
   for (size_t i = 0; i < params.GetNumTokens(); ++i)
     base::SortUnique(params.GetTypeIndices(i));
 
-  m_keywordsScorer.ForEachLanguage([&params](int8_t lang) { params.GetLangs().Insert(static_cast<uint64_t>(lang)); });
+  m_keywordsScorer.ForEachLanguage([&params](int8_t lang) { params.GetLangs().insert(static_cast<uint64_t>(lang)); });
 }
 
 void Processor::InitGeocoder(Geocoder::Params & geocoderParams, SearchParams const & searchParams)

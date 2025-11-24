@@ -85,7 +85,7 @@ bool FillCategories(QuerySliceOnRawStrings<T> const & slice, Locales const & loc
   types.clear();
   catHolder.ForEachNameAndType([&](CategoriesHolder::Category::Name const & categorySynonym, uint32_t type)
   {
-    if (!locales.Contains(static_cast<uint64_t>(categorySynonym.m_locale)))
+    if (!locales.contains(static_cast<uint64_t>(categorySynonym.m_locale)))
       return;
 
     auto const categoryTokens = NormalizeAndTokenizeString(categorySynonym.m_name);

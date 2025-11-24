@@ -3,12 +3,13 @@
 #include "coding/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
-#include "base/small_set.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -19,7 +20,7 @@ class QueryParams
 public:
   using String = strings::UniString;
   using TypeIndices = std::vector<uint32_t>;
-  using Langs = base::SafeSmallSet<StringUtf8Multilang::kMaxSupportedLanguages>;
+  using Langs = ankerl::unordered_dense::set<int8_t>;
 
   class Token
   {
@@ -127,7 +128,7 @@ public:
 
   Langs & GetLangs() { return m_langs; }
   Langs const & GetLangs() const { return m_langs; }
-  bool LangExists(int8_t lang) const { return m_langs.Contains(lang); }
+  bool LangExists(int8_t lang) const { return m_langs.contains(lang); }
 
   void SetCategorialRequest(bool isCategorial) { m_isCategorialRequest = isCategorial; }
   bool IsCategorialRequest() const { return m_isCategorialRequest; }
@@ -147,5 +148,10 @@ private:
   std::vector<TypeIndices> m_typeIndices;
 
   Langs m_langs;
+
+  inline std::string DebugPrint(Langs const & v)
+  {
+    return DebugPrintSequence(v.cbegin(), v.cend());
+  }
 };
 }  // namespace search

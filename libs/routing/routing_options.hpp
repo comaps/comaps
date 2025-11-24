@@ -1,10 +1,12 @@
 #pragma once
 
-#include "base/small_map.hpp"
+#include <boost/container_hash/hash.hpp>
 
 #include <optional>
 #include <string>
 #include <type_traits>
+
+#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace routing
 {
@@ -51,7 +53,7 @@ public:
   static RoutingOptionsClassifier const & Instance();
 
 private:
-  base::SmallMap<uint32_t, RoutingOptions::Road> m_data;
+  ska::flat_hash_map<uint32_t, RoutingOptions::Road, boost::hash<uint32_t>> m_data;
 };
 
 RoutingOptions::Road ChooseMainRoutingOptionRoad(RoutingOptions options, bool isCarRouter);

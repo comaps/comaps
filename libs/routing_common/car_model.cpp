@@ -97,7 +97,7 @@ CarModel::CarModel(VehicleModel::LimitsInitList const & roadLimits)
   m_yesType = cl.GetTypeByPath(hwtagYesCar);
 
   // Set small track speed if highway is not in kHighwayBasedSpeeds (path, pedestrian), but marked as yescar.
-  AddAdditionalRoadTypes(cl, {{std::move(hwtagYesCar), kHighwayBasedSpeeds.Get(HighwayType::HighwayTrack)}});
+  AddAdditionalRoadTypes(cl, {{std::move(hwtagYesCar), kHighwayBasedSpeeds.at(HighwayType::HighwayTrack)}});
 
   // Set max possible (reasonable) car speed. See EdgeEstimator::CalcHeuristic.
   SpeedKMpH constexpr kMaxCarSpeedKMpH(200.0);

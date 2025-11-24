@@ -125,8 +125,8 @@ HighwayBasedSpeeds IncreasePrimary()
 {
   /// @todo Probably, should make Primary = Secondary = 4.
   HighwayBasedSpeeds res = pedestrian_model::kDefaultSpeeds;
-  res.Replace(HighwayType::HighwayPrimary, InOutCitySpeedKMpH(SpeedKMpH(3.0, 5.0)));
-  res.Replace(HighwayType::HighwayPrimaryLink, InOutCitySpeedKMpH(SpeedKMpH(3.0, 5.0)));
+  res[HighwayType::HighwayPrimary] = InOutCitySpeedKMpH(SpeedKMpH(3.0, 5.0));
+  res[HighwayType::HighwayPrimaryLink] = InOutCitySpeedKMpH(SpeedKMpH(3.0, 5.0));
   return res;
 }
 
@@ -163,7 +163,7 @@ PedestrianModel::PedestrianModel(VehicleModel::LimitsInitList const & limits, Hi
   m_noType = cl.GetTypeByPath({"hwtag", "nofoot"});
   m_yesType = cl.GetTypeByPath(hwtagYesFoot);
 
-  AddAdditionalRoadTypes(cl, {{std::move(hwtagYesFoot), kDefaultSpeeds.Get(HighwayType::HighwayLivingStreet)}});
+  AddAdditionalRoadTypes(cl, {{std::move(hwtagYesFoot), kDefaultSpeeds.at(HighwayType::HighwayLivingStreet)}});
 
   // Update max pedestrian speed with possible ferry transfer. See EdgeEstimator::CalcHeuristic.
   SpeedKMpH constexpr kMaxPedestrianSpeedKMpH(60.0);
@@ -194,38 +194,37 @@ PedestrianModelFactory::PedestrianModelFactory(CountryParentNameGetterFn const &
   : VehicleModelFactory(countryParentNameGetterFn)
 {
   using namespace pedestrian_model;
-  using std::make_shared;
 
   // Names must be the same with country names from countries.txt
-  m_models[""] = make_shared<PedestrianModel>(kDefaultOptions);
+  m_models[""] = std::make_shared<PedestrianModel>(kDefaultOptions);
 
-  m_models["Australia"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Austria"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Belarus"] = make_shared<PedestrianModel>(YesCycleway());
-  m_models["Belgium"] = make_shared<PedestrianModel>(YesCycleway(YesBridleway(NoTrunk())));
-  m_models["Brazil"] = make_shared<PedestrianModel>(YesBridleway());
-  m_models["Denmark"] = make_shared<PedestrianModel>(YesCycleway(NoTrunk()));
-  m_models["France"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Finland"] = make_shared<PedestrianModel>(YesCycleway());
-  m_models["Georgia"] = make_shared<PedestrianModel>(AllAllowed(), IncreasePrimary());
-  m_models["Greece"] = make_shared<PedestrianModel>(YesCycleway(YesBridleway(NoTrunk())));
-  m_models["Hungary"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Iceland"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Ireland"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Netherlands"] = make_shared<PedestrianModel>(YesCycleway(NoTrunk()));
-  m_models["Norway"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Oman"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Philippines"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Poland"] = make_shared<PedestrianModel>(YesBridleway(NoTrunk()));
-  m_models["Romania"] = make_shared<PedestrianModel>(YesBridleway());
-  m_models["Russian Federation"] = make_shared<PedestrianModel>(YesCycleway());
-  m_models["Slovakia"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Spain"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Sweden"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["Switzerland"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["Turkey"] = make_shared<PedestrianModel>(AllAllowed(), IncreasePrimary());
-  m_models["Ukraine"] = make_shared<PedestrianModel>(NoTrunk());
-  m_models["United Kingdom"] = make_shared<PedestrianModel>(AllAllowed());
-  m_models["United States of America"] = make_shared<PedestrianModel>(AllAllowed());
+  m_models["Australia"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Austria"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Belarus"] = std::make_shared<PedestrianModel>(YesCycleway());
+  m_models["Belgium"] = std::make_shared<PedestrianModel>(YesCycleway(YesBridleway(NoTrunk())));
+  m_models["Brazil"] = std::make_shared<PedestrianModel>(YesBridleway());
+  m_models["Denmark"] = std::make_shared<PedestrianModel>(YesCycleway(NoTrunk()));
+  m_models["France"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Finland"] = std::make_shared<PedestrianModel>(YesCycleway());
+  m_models["Georgia"] = std::make_shared<PedestrianModel>(AllAllowed(), IncreasePrimary());
+  m_models["Greece"] = std::make_shared<PedestrianModel>(YesCycleway(YesBridleway(NoTrunk())));
+  m_models["Hungary"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Iceland"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Ireland"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Netherlands"] = std::make_shared<PedestrianModel>(YesCycleway(NoTrunk()));
+  m_models["Norway"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Oman"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Philippines"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Poland"] = std::make_shared<PedestrianModel>(YesBridleway(NoTrunk()));
+  m_models["Romania"] = std::make_shared<PedestrianModel>(YesBridleway());
+  m_models["Russian Federation"] = std::make_shared<PedestrianModel>(YesCycleway());
+  m_models["Slovakia"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Spain"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Sweden"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["Switzerland"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["Turkey"] = std::make_shared<PedestrianModel>(AllAllowed(), IncreasePrimary());
+  m_models["Ukraine"] = std::make_shared<PedestrianModel>(NoTrunk());
+  m_models["United Kingdom"] = std::make_shared<PedestrianModel>(AllAllowed());
+  m_models["United States of America"] = std::make_shared<PedestrianModel>(AllAllowed());
 }
 }  // namespace routing

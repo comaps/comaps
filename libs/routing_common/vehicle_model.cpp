@@ -33,19 +33,18 @@ VehicleModel::VehicleModel(Classificator const & classif, LimitsInitList const &
   : m_highwayBasedInfo(info)
   , m_onewayType(ftypes::IsOneWayChecker::Instance().GetType())
 {
-  m_roadTypes.Reserve(featureTypeLimits.size());
+  m_roadTypes.reserve(featureTypeLimits.size());
   for (auto const & v : featureTypeLimits)
   {
-    auto const * speed = info.m_speeds.Find(v.m_type);
-    ASSERT(speed, ("Can't found speed for", v.m_type));
+    auto const it = info.m_speeds.find(v.m_type);
+    ASSERT_EQUAL(it, info.m_speeds.cend(), ("Can't found speed for", v.m_type));
 
-    m_maxModelSpeed = Max(m_maxModelSpeed, *speed);
+    m_maxModelSpeed = Max(m_maxModelSpeed, it->second);
 
-    m_roadTypes.Insert(classif.GetTypeForIndex(static_cast<uint32_t>(v.m_type)), v.m_isPassThroughAllowed);
+    m_roadTypes.insert({classif.GetTypeForIndex(static_cast<uint32_t>(v.m_type)), v.m_isPassThroughAllowed});
   }
-  m_roadTypes.FinishBuilding();
 
-  m_surfaceFactors.Reserve(featureTypeSurface.size());
+  m_surfaceFactors.reserve(featureTypeSurface.size());
   for (auto const & v : featureTypeSurface)
   {
     auto const & speedFactor = v.m_factor;
@@ -53,7 +52,7 @@ VehicleModel::VehicleModel(Classificator const & classif, LimitsInitList const &
     ASSERT_LESS_OR_EQUAL(speedFactor.m_eta, 1.0, ());
     ASSERT_GREATER(speedFactor.m_weight, 0.0, ());
     ASSERT_GREATER(speedFactor.m_eta, 0.0, ());
-    m_surfaceFactors.Insert(classif.GetTypeByPath(v.m_type), speedFactor);
+    m_surfaceFactors.insert({classif.GetTypeByPath(v.m_type), speedFactor});
 
     if (v.m_type[1] == "paved_bad")
       m_minSurfaceFactorForMaxspeed = speedFactor;
@@ -65,9 +64,9 @@ void VehicleModel::AddAdditionalRoadTypes(Classificator const & classif, Additio
   for (auto const & r : roads)
   {
     uint32_t const type = classif.GetTypeByPath(r.m_type);
-    if (m_roadTypes.Find(type) == nullptr)
+    if (m_roadTypes.find(type) == m_roadTypes.cend())
     {
-      m_addRoadTypes.Insert(type, r.m_speed);
+      m_addRoadTypes.insert({type, r.m_speed});
       m_maxModelSpeed = Max(m_maxModelSpeed, r.m_speed);
     }
   }
@@ -95,17 +94,16 @@ double VehicleModel::GetMaxWeightSpeed() const
 
 optional<HighwayType> VehicleModel::GetHighwayType(uint32_t type) const
 {
-  auto const * value = m_roadTypes.Find(type);
-  if (value)
+  if (m_roadTypes.find(type) != m_roadTypes.cend())
     return static_cast<HighwayType>(classif().GetIndexForType(type));
   return {};
 }
 
 void VehicleModel::GetSurfaceFactor(uint32_t type, SpeedFactor & factor) const
 {
-  auto const * surface = m_surfaceFactors.Find(type);
-  if (surface)
-    factor = Pick<min>(factor, *surface);
+  auto const it = m_surfaceFactors.find(type);
+  if (it != m_surfaceFactors.cend())
+    factor = Pick<min>(factor, it->second);
 
   ASSERT_LESS_OR_EQUAL(factor.m_weight, 1.0, ());
   ASSERT_LESS_OR_EQUAL(factor.m_eta, 1.0, ());
@@ -115,12 +113,12 @@ void VehicleModel::GetSurfaceFactor(uint32_t type, SpeedFactor & factor) const
 
 void VehicleModel::GetAdditionalRoadSpeed(uint32_t type, bool isCityRoad, optional<SpeedKMpH> & speed) const
 {
-  auto const * s = m_addRoadTypes.Find(type);
-  if (s)
+  auto const it = m_addRoadTypes.find(type);
+  if (it != m_addRoadTypes.cend())
   {
     // Now we have only 1 additional type "yes" for all models.
     ASSERT(!speed, ());
-    speed = isCityRoad ? s->m_inCity : s->m_outCity;
+    speed = isCityRoad ? it->second.m_inCity : it->second.m_outCity;
   }
 }
 
@@ -157,9 +155,9 @@ SpeedKMpH VehicleModel::GetTypeSpeedImpl(FeatureTypes const & types, SpeedParams
     }
     else
     {
-      auto const * s = m_highwayBasedInfo.m_speeds.Find(*hwType);
-      ASSERT(s, ("Key:", *hwType, "is not found."));
-      speed = s->GetSpeed(isCityRoad);
+      auto const it = m_highwayBasedInfo.m_speeds.find(*hwType);
+      ASSERT_EQUAL(it, m_highwayBasedInfo.m_speeds.cend(), ("Key:", *hwType, "is not found."));
+      speed = it->second.GetSpeed(isCityRoad);
 
       if (isCar)
       {
@@ -183,9 +181,9 @@ SpeedKMpH VehicleModel::GetTypeSpeedImpl(FeatureTypes const & types, SpeedParams
     }
 
     auto const typeKey = *hwType;
-    auto const * factor = m_highwayBasedInfo.m_factors.Find(typeKey);
-    ASSERT(factor, ("Key:", typeKey, "is not found."));
-    auto const & f = factor->GetFactor(isCityRoad);
+    auto const it = m_highwayBasedInfo.m_factors.find(typeKey);
+    ASSERT_EQUAL(it, m_highwayBasedInfo.m_factors.cend(), ("Key:", typeKey, "is not found."));
+    auto const & f = it->second.GetFactor(isCityRoad);
     speed.m_weight *= f.m_weight;
     speed.m_eta *= f.m_eta;
   }
@@ -218,12 +216,12 @@ bool VehicleModel::IsPassThroughAllowed(FeatureTypes const & types) const
     ftype::TruncValue(t, 2);
 
     // Additional types (like ferry) are always pass-through now.
-    if (m_addRoadTypes.Find(t))
+    if (m_addRoadTypes.find(t) != m_addRoadTypes.cend())
       return true;
 
-    bool const * allow = m_roadTypes.Find(t);
-    if (allow && *allow)
-      return true;
+    auto const it = m_roadTypes.find(t);
+    if (it != m_roadTypes.cend())
+      return it->second;
   }
 
   return false;
@@ -232,7 +230,7 @@ bool VehicleModel::IsPassThroughAllowed(FeatureTypes const & types) const
 bool VehicleModel::IsRoadType(uint32_t type) const
 {
   ftype::TruncValue(type, 2);
-  return m_addRoadTypes.Find(type) || m_roadTypes.Find(type);
+  return m_addRoadTypes.find(type) != m_addRoadTypes.cend() || m_roadTypes.find(type) != m_roadTypes.cend();
 }
 
 bool VehicleModel::IsRoadImpl(FeatureTypes const & types) const

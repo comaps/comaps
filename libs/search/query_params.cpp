@@ -1542,7 +1542,7 @@ void QueryParams::Clear()
   m_hasPrefix = false;
   m_isCommonToken.clear();
   m_typeIndices.clear();
-  m_langs.Clear();
+  m_langs.clear();
 }
 
 bool QueryParams::IsCategorySynonym(size_t i) const
@@ -1637,7 +1637,7 @@ string DebugPrint(QueryParams const & params)
   ostringstream os;
   os << boolalpha << "QueryParams "
      << "{ m_tokens: " << ::DebugPrint(params.m_tokens) << ", m_prefixToken: " << DebugPrint(params.m_prefixToken)
-     << ", m_typeIndices: " << ::DebugPrint(params.m_typeIndices) << ", m_langs: " << DebugPrint(params.m_langs)
+     << ", m_typeIndices: " << ::DebugPrint(params.m_typeIndices) << ", m_langs: " << ::DebugPrint(params.m_langs)
      << ", m_isCommonToken: " << ::DebugPrint(params.m_isCommonToken) << " }";
   return os.str();
 }

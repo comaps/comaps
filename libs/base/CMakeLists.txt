@@ -65,8 +65,6 @@ set(SRC
   set_operations.hpp
   shared_buffer_manager.cpp
   shared_buffer_manager.hpp
-  small_map.hpp
-  small_set.hpp
   src_point.cpp
   src_point.hpp
   stats.hpp
