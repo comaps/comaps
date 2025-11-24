@@ -13,8 +13,9 @@
 
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -44,7 +45,7 @@ std::vector<std::vector<std::string>> AppendToMwmTmp(std::vector<feature::Featur
                                                      std::string const & temporaryMwmPath, size_t threadsCount = 1)
 {
   auto affiliations = GetAffiliations(fbs, affiliation, threadsCount);
-  std::unordered_map<std::string, std::vector<size_t>> countryToFbsIndexes;
+  ankerl::unordered_dense::map<std::string, std::vector<size_t>> countryToFbsIndexes;
   for (size_t i = 0; i < fbs.size(); ++i)
     for (auto const & country : affiliations[i])
       countryToFbsIndexes[country].emplace_back(i);

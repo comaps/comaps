@@ -119,9 +119,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     // Create a vector of pairs (name, index) and sort by name
     std::vector<std::pair<std::string, size_t>> languageNameIndexPairs;
     for (size_t i = 0; i < supportedLanguages.size(); ++i)
-    {
       languageNameIndexPairs.emplace_back(std::string(supportedLanguages[i].m_name), i);
-    }
     std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(),
               [](auto const & a, auto const & b) { return a.first < b.first; });
 

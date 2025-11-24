@@ -5,8 +5,9 @@
 #include "indexer/ftypes_matcher.hpp"
 
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace indexer
 {
@@ -34,7 +35,7 @@ public:
   }
 
 private:
-  std::unordered_map<std::string, std::vector<std::string>> m_map;
+  ankerl::unordered_dense::map<std::string, std::vector<std::string>> m_map;
 };
 
 // Builds the latest version of the search index section and writes it to the mwm file.

@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
-
 import androidx.annotation.IdRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
@@ -122,20 +121,14 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
     notifyItemChanged(getItemCount() - 1);
   }
 
-  private void pickTime(int position,
-                        @IntRange(from = ID_OPENING_TIME, to = ID_CLOSED_SPAN) int id,
+  private void pickTime(int position, @IntRange(from = ID_OPENING_TIME, to = ID_CLOSED_SPAN) int id,
                         boolean startWithToTime)
   {
     final Timetable data = mItems.get(position);
     mPickingPosition = position;
 
-    FromToTimePicker.pickTime(mFragment,
-        this,
-        data.workingTimespan.start,
-        data.workingTimespan.end,
-        id,
-        startWithToTime);
-
+    FromToTimePicker.pickTime(mFragment, this, data.workingTimespan.start, data.workingTimespan.end, id,
+                              startWithToTime);
   }
 
   @Override
@@ -384,26 +377,21 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
       final String text = mFragment.getString(R.string.editor_time_add);
       mAdd.setEnabled(enable);
       final ColorStateList bgButtonColor = new ColorStateList(
-              new int[][]{
-                      new int[]{android.R.attr.state_enabled}, // enabled
-                      new int[]{-android.R.attr.state_enabled} // disabled
-                      },
-              new int[]{
-                      ContextCompat.getColor(
-                              mAdd.getContext(), R.color.base_accent),
-                      ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_disabled)
-              });
+          new int[][] {
+              new int[] {android.R.attr.state_enabled}, // enabled
+              new int[] {-android.R.attr.state_enabled} // disabled
+          },
+          new int[] {ContextCompat.getColor(mAdd.getContext(), R.color.base_accent),
+                     ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_disabled)});
       final ColorStateList textButtonColor = new ColorStateList(
-              new int[][]{
-                      new int[]{android.R.attr.state_enabled}, // enabled
-                      new int[]{-android.R.attr.state_enabled} // disabled
-                      },
-              new int[]{
-                      ContextCompat.getColor(
-                              mAdd.getContext(),
-                              UiUtils.getStyledResourceId(mAdd.getContext(), android.R.attr.textColorPrimaryInverse)),
-                      ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_text_disabled)
-              });
+          new int[][] {
+              new int[] {android.R.attr.state_enabled}, // enabled
+              new int[] {-android.R.attr.state_enabled} // disabled
+          },
+          new int[] {
+              ContextCompat.getColor(mAdd.getContext(), UiUtils.getStyledResourceId(
+                                                            mAdd.getContext(), android.R.attr.textColorPrimaryInverse)),
+              ContextCompat.getColor(mAdd.getContext(), R.color.button_accent_text_disabled)});
       mAdd.setBackgroundTintList(bgButtonColor);
       mAdd.setTextColor(textButtonColor);
       mAdd.setText(enable ? text + " (" + TimeFormatUtils.formatWeekdays(mComplementItem) + ")" : text);

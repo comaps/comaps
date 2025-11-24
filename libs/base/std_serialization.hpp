@@ -2,8 +2,9 @@
 
 #include <array>
 #include <map>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 /// @name std containers serialization
 /// TArchive should be an archive class in global namespace.
@@ -130,14 +131,14 @@ TArchive & operator>>(TArchive & ar, std::multimap<T1, T2> & rMap)
 }
 
 template <class TArchive, class T1, class T2>
-TArchive & operator<<(TArchive & ar, std::unordered_map<T1, T2> const & rMap)
+TArchive & operator<<(TArchive & ar, ankerl::unordered_dense::map<T1, T2> const & rMap)
 {
   save_like_map(ar, rMap);
   return ar;
 }
 
 template <class TArchive, class T1, class T2>
-TArchive & operator>>(TArchive & ar, std::unordered_map<T1, T2> & rMap)
+TArchive & operator>>(TArchive & ar, ankerl::unordered_dense::map<T1, T2> & rMap)
 {
   load_like_map(ar, rMap);
   return ar;

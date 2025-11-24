@@ -53,7 +53,7 @@ private:
                       MarksIDGroups const & indexesGroups, ref_ptr<dp::TextureManager> textures,
                       dp::Batcher & batcher) const;
 
-  std::unordered_set<kml::MarkGroupId> m_groupsVisibility;
+  ankerl::unordered_dense::set<kml::MarkGroupId> m_groupsVisibility;
   MarksIDGroups m_groups;
 
   UserMarksRenderCollection m_marks;

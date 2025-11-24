@@ -7,8 +7,9 @@
 
 #include "indexer/scales.hpp"
 
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace topography_generator
 {
@@ -23,7 +24,7 @@ struct Contours
     Latest = V0
   };
 
-  std::unordered_map<ValueType, std::vector<Contour>> m_contours;
+  ankerl::unordered_dense::map<ValueType, std::vector<Contour>> m_contours;
   ValueType m_minValue = 0;
   ValueType m_maxValue = 0;
   ValueType m_valueStep = 0;

@@ -4,7 +4,6 @@ import android.location.Location;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import app.organicmaps.MwmActivity;
@@ -49,7 +48,8 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     @Override
     public void onStatusChanged(List<MapManager.StorageCallbackData> data)
     {
-      if (mCurrentCountry == null) {
+      if (mCurrentCountry == null)
+      {
         updateOfflineExplanationVisibility();
         return;
       }
@@ -109,10 +109,13 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     return enqueued || progress || applying;
   }
 
-  private void updateOfflineExplanationVisibility() {
-    if (mOfflineExplanation == null) return;
+  private void updateOfflineExplanationVisibility()
+  {
+    if (mOfflineExplanation == null)
+      return;
     // hide once threshold reached; safe to call repeatedly.
-    app.organicmaps.util.UiUtils.showIf(MapManager.nativeGetDownloadedCount() < (DEFAULT_MAP_BASELINE + HIDE_THRESHOLD), mOfflineExplanation);
+    app.organicmaps.util.UiUtils.showIf(MapManager.nativeGetDownloadedCount() < (DEFAULT_MAP_BASELINE + HIDE_THRESHOLD),
+                                        mOfflineExplanation);
   }
 
   private void updateProgressState(boolean shouldAutoDownload)

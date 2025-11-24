@@ -60,15 +60,17 @@ void CaptionDescription::Init(FeatureType & f, int8_t deviceLang, int zoomLevel,
     f.GetReadableName(true /* allowTranslit */, deviceLang, out);
   }
   m_mainText = out.GetPrimary();
-  
-  if (ftypes::IsPublicTransportStopChecker::Instance()(feature::TypesHolder(f))) {
+
+  if (ftypes::IsPublicTransportStopChecker::Instance()(feature::TypesHolder(f)))
+  {
     auto const lRef = f.GetMetadata(feature::Metadata::FMD_LOCAL_REF);
-    if (!m_mainText.empty() && !lRef.empty()) {
-      //m_mainText.append(" (").append(lRef).append(")");
+    if (!m_mainText.empty() && !lRef.empty())
+    {
+      // m_mainText.append(" (").append(lRef).append(")");
       m_auxText = lRef;
     }
   }
-  
+
   ASSERT(m_auxText.empty() || !m_mainText.empty(), ("auxText without mainText"));
 
   uint8_t constexpr kLongCaptionsMaxZoom = 4;

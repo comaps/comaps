@@ -7,9 +7,10 @@
 #include <functional>
 #include <iterator>
 #include <list>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace tesselator
 {
@@ -71,7 +72,7 @@ class TrianglesInfo
       size_t operator()(std::pair<T1, T2> const & p) const { return math::Hash(p.first, p.second); }
     };
 
-    using TNeighbours = std::unordered_map<std::pair<int, int>, int, HashPair<int, int>>;
+    using TNeighbours = ankerl::unordered_dense::map<std::pair<int, int>, int, HashPair<int, int>>;
     TNeighbours m_neighbors;
 
     bool AddNeighbour(int p1, int p2, int trg);

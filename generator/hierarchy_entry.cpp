@@ -12,7 +12,8 @@
 #include <algorithm>
 #include <sstream>
 #include <tuple>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "cppjansson/cppjansson.hpp"
 
@@ -140,7 +141,7 @@ HierarchyEntry HierarchyEntryFromCsvRow(coding::CSVReader::Row const & row)
 
 tree_node::types::Ptrs<HierarchyEntry> LoadHierachy(std::string const & filename)
 {
-  std::unordered_map<CompositeId, tree_node::types::Ptr<HierarchyEntry>> nodes;
+  ankerl::unordered_dense::map<CompositeId, tree_node::types::Ptr<HierarchyEntry>> nodes;
   for (auto const & row : coding::CSVRunner(coding::CSVReader(filename, false /* hasHeader */, kCsvDelimiter)))
   {
     auto entry = HierarchyEntryFromCsvRow(row);

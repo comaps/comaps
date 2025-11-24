@@ -7,8 +7,9 @@
 #include <array>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class Reader;
 
@@ -40,7 +41,7 @@ public:
     int8_t m_code;
   };
 
-  using GroupTranslations = std::unordered_map<std::string, std::vector<Category::Name>>;
+  using GroupTranslations = ankerl::unordered_dense::map<std::string, std::vector<Category::Name>>;
 
 private:
   using Type2CategoryCont = std::multimap<uint32_t, std::shared_ptr<Category>>;

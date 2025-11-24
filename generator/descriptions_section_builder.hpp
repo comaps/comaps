@@ -8,7 +8,8 @@
 
 #include <array>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class FeatureType;
 
@@ -22,8 +23,8 @@ public:
   std::optional<std::string> GetWikidataId(uint32_t featureId) const;
 
 private:
-  std::unordered_map<uint32_t, base::GeoObjectId> m_featureIdToOsmId;
-  std::unordered_map<base::GeoObjectId, std::string> m_osmIdToWikidataId;
+  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> m_featureIdToOsmId;
+  ankerl::unordered_dense::map<base::GeoObjectId, std::string> m_osmIdToWikidataId;
 };
 
 class DescriptionsCollectionBuilderStat
@@ -88,7 +89,7 @@ public:
   descriptions::DescriptionsCollection m_collection;
 
 private:
-  std::unordered_map<std::string, descriptions::StringIndex> m_path2Index;
+  ankerl::unordered_dense::map<std::string, descriptions::StringIndex> m_path2Index;
 
   WikidataHelper m_wikidataHelper;
   std::string m_wikipediaDir;

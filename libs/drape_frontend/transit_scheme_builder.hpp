@@ -112,7 +112,7 @@ struct StopNodeParamsPT
   std::map<::transit::TransitId, StopInfo> m_stopsInfo;
 };
 
-using IdToIdSet = std::unordered_map<::transit::TransitId, ::transit::IdSet>;
+using IdToIdSet = ankerl::unordered_dense::map<::transit::TransitId, ::transit::IdSet>;
 
 struct RouteSegment
 {

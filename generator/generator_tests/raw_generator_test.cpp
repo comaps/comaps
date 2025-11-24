@@ -124,12 +124,12 @@ UNIT_CLASS_TEST(TestRawGenerator, HighwayLinks)
 
   using namespace routing;
   MaxspeedType from120 = 104;  // like SpeedMacro::Speed104KmPH
-  std::unordered_map<uint64_t, uint16_t> osmID2Speed = {
+  ankerl::unordered_dense::map<uint64_t, uint16_t> osmID2Speed = {
       {23011515, from120},  {23011492, from120},  {10689329, from120},   {371581901, from120}, {1017695671, from120},
       {577365212, from120}, {23011612, from120},  {1017695670, from120}, {304871606, from120}, {1017695669, from120},
       {577365213, from120}, {369541035, from120}, {1014336646, from120}, {466365947, from120}, {23011511, from120}};
   /// @todo Actually, better to assign speed for this way too.
-  std::unordered_set<uint64_t> osmNoSpeed = {23691193, 1017695668};
+  ankerl::unordered_dense::set<uint64_t> osmNoSpeed = {23691193, 1017695668};
 
   FrozenDataSource dataSource;
   auto const res = dataSource.RegisterMap(platform::LocalCountryFile::MakeTemporary(GetMwmPath(mwmName)));

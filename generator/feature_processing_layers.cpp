@@ -214,7 +214,7 @@ void PreserializeLayer::Handle(FeatureBuilder & fb)
     LayerBase::Handle(fb);
 }
 
-ComplexFeaturesMixer::ComplexFeaturesMixer(std::unordered_set<CompositeId> const & hierarchyNodesSet)
+ComplexFeaturesMixer::ComplexFeaturesMixer(ankerl::unordered_dense::set<CompositeId> const & hierarchyNodesSet)
   : m_hierarchyNodesSet(hierarchyNodesSet)
   , m_complexEntryType(classif().GetTypeByPath({"complex_entry"}))
 {

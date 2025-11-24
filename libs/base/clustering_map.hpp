@@ -4,9 +4,10 @@
 
 #include <cstddef>
 #include <iterator>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace base
 {
@@ -155,6 +156,6 @@ private:
     cv.shrink_to_fit();
   }
 
-  std::unordered_map<Key, Entry, Hash> m_table;
+  ankerl::unordered_dense::map<Key, Entry, Hash> m_table;
 };
 }  // namespace base

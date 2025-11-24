@@ -5,7 +5,8 @@
 #include <algorithm>
 #include <cstring>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace editor
 {
@@ -14,7 +15,7 @@ namespace
 using EType = feature::Metadata::EType;
 
 // TODO(mgsergio): It would be nice to have this map generated from editor.config.
-static std::unordered_map<std::string, EType> const kNamesToFMD = {
+static ankerl::unordered_dense::map<std::string, EType> const kNamesToFMD = {
     {"opening_hours", EType::FMD_OPEN_HOURS},
     {"phone", EType::FMD_PHONE_NUMBER},
     {"fax", EType::FMD_FAX_NUMBER},
@@ -55,7 +56,7 @@ static std::unordered_map<std::string, EType> const kNamesToFMD = {
     /// @todo Add description?
 };
 
-std::unordered_map<std::string, int> const kPriorityWeights = {{"high", 0}, {"", 1}, {"low", 2}};
+ankerl::unordered_dense::map<std::string, int> const kPriorityWeights = {{"high", 0}, {"", 1}, {"low", 2}};
 
 bool TypeDescriptionFromXml(pugi::xml_node const & root, pugi::xml_node const & node,
                             editor::TypeAggregatedDescription & outDesc)

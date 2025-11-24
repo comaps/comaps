@@ -118,9 +118,9 @@ using NodePoints = std::vector<NodePoint>;
 using CrossBorderIndexes = std::vector<size_t>;
 
 std::pair<NodePoints, CrossBorderIndexes> GetCrossBorderPoints(
-    std::vector<uint64_t> const & nodeIds, std::unordered_map<uint64_t, ms::LatLon> const & nodes,
+    std::vector<uint64_t> const & nodeIds, ankerl::unordered_dense::map<uint64_t, ms::LatLon> const & nodes,
     feature::CountriesFilesAffiliation const & mwmMatcher,
-    std::unordered_map<std::string, NumMwmId> const & regionToIdMap)
+    ankerl::unordered_dense::map<std::string, NumMwmId> const & regionToIdMap)
 {
   NodePoints nodePoints;
   CrossBorderIndexes crossBorderIndexes;
@@ -202,9 +202,10 @@ std::optional<std::pair<m2::PointD, double>> GetPointInMwm(NodePoints const & po
 }
 
 bool FillCrossBorderGraph(CrossBorderGraph & graph, RegionSegmentId & curSegmentId,
-                          std::vector<uint64_t> const & nodeIds, std::unordered_map<uint64_t, ms::LatLon> const & nodes,
+                          std::vector<uint64_t> const & nodeIds,
+                          ankerl::unordered_dense::map<uint64_t, ms::LatLon> const & nodes,
                           feature::CountriesFilesAffiliation const & mwmMatcher,
-                          std::unordered_map<std::string, NumMwmId> const & regionToIdMap)
+                          ankerl::unordered_dense::map<std::string, NumMwmId> const & regionToIdMap)
 {
   auto const & [nodePoints, crossBorderIndexes] = GetCrossBorderPoints(nodeIds, nodes, mwmMatcher, regionToIdMap);
 

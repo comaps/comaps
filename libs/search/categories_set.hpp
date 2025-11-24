@@ -8,7 +8,8 @@
 
 #include <algorithm>
 #include <cstdint>
-#include <unordered_set>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -27,7 +28,7 @@ public:
 
 private:
   Classificator const & m_classificator;
-  std::unordered_set<uint32_t> m_categories;
+  ankerl::unordered_dense::set<uint32_t> m_categories;
 
   DISALLOW_COPY_AND_MOVE(CategoriesSet);
 };

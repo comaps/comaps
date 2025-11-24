@@ -13,8 +13,9 @@
 #include <iostream>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class LineRuleProto;
 class AreaRuleProto;
@@ -85,7 +86,7 @@ private:
 
   /// background color for scales in range [0...scales::UPPER_STYLE_SCALE]
   std::vector<uint32_t> m_bgColors;
-  std::unordered_map<std::string, uint32_t> m_colors;
+  ankerl::unordered_dense::map<std::string, uint32_t> m_colors;
   std::vector<BaseRule *> m_dRules;
 };
 

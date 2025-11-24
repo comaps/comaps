@@ -2,13 +2,13 @@
 
 #include "base/assert.hpp"
 
-#include <unordered_map>
+#include "3party/ankerl/unordered_dense.h"
 
 using namespace power_management;
 
 namespace
 {
-std::unordered_map<Scheme, FacilitiesState> const kSchemeToState = {
+ankerl::unordered_dense::map<Scheme, FacilitiesState> const kSchemeToState = {
     {Scheme::Normal,
      {{
          /* Buildings3d */ true,
@@ -47,7 +47,7 @@ std::unordered_map<Scheme, FacilitiesState> const kSchemeToState = {
      }}},
 };
 
-std::unordered_map<AutoScheme, FacilitiesState> const kAutoSchemeToState = {
+ankerl::unordered_dense::map<AutoScheme, FacilitiesState> const kAutoSchemeToState = {
     {AutoScheme::Normal,
      {{
          /* Buildings3d */ true,

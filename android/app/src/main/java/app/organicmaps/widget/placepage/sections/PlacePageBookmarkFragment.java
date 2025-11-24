@@ -31,7 +31,8 @@ import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.textview.MaterialTextView;
 
 public class PlacePageBookmarkFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener,
-                                                                   Observer<MapObject>, EditBookmarkFragment.EditBookmarkListener
+                                                                   Observer<MapObject>,
+                                                                   EditBookmarkFragment.EditBookmarkListener
 {
   private View mFrame;
   private MaterialTextView mTvBookmarkNote;

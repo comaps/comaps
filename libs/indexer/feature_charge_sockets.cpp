@@ -137,7 +137,7 @@ void ChargeSocketsHelper::AggregateChargeSocketKey(std::string const & k, std::s
   }
 
   // normalize type
-  static std::unordered_map<std::string_view, std::string_view> const kTypeMap = {
+  static ankerl::unordered_dense::map<std::string_view, std::string_view> const kTypeMap = {
       {"tesla_supercharger", "nacs"},
       {"tesla_destination", "nacs"},
       {"tesla_standard", "nacs"},
@@ -402,7 +402,7 @@ KeyValueDiffSet ChargeSocketsHelper::Diff(ChargeSocketDescriptors const & oldSoc
   auto oldKeys = ChargeSocketsHelper(oldSockets).GetOSMKeyValues();
   auto newKeys = GetOSMKeyValues();
 
-  std::unordered_map<std::string, std::string> oldMap, newMap;
+  ankerl::unordered_dense::map<std::string, std::string> oldMap, newMap;
 
   for (auto && [k, v] : oldKeys)
     oldMap.emplace(k, v);

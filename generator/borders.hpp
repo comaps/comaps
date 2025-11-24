@@ -10,9 +10,9 @@
 #include "geometry/tree4d.hpp"
 
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #define BORDERS_DIR       "borders/"
 #define BORDERS_EXTENSION ".poly"
@@ -112,7 +112,7 @@ public:
   template <typename ToDo>
   void ForEachCountryInRect(m2::RectD const & rect, ToDo && toDo) const
   {
-    std::unordered_set<CountryPolygons const *> uniq;
+    ankerl::unordered_dense::set<CountryPolygons const *> uniq;
     m_regionsTree.ForEachInRect(rect, [&](CountryPolygons const & cp)
     {
       if (uniq.insert(&cp).second)
@@ -131,7 +131,7 @@ public:
 
 private:
   m4::Tree<std::reference_wrapper<CountryPolygons const>> m_regionsTree;
-  std::unordered_map<std::string, CountryPolygons> m_countryPolygonsMap;
+  ankerl::unordered_dense::map<std::string, CountryPolygons> m_countryPolygonsMap;
 };
 
 using PolygonsList = std::vector<Polygon>;

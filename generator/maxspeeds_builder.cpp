@@ -89,7 +89,7 @@ class MaxspeedsMwmCollector
   static int constexpr kSpeedsCount = MaxspeedsSerializer::DEFAULT_SPEEDS_COUNT;
   static int constexpr kOutsideCityIdx = 0;
   // 0 - outside a city; 1 - inside a city.
-  std::unordered_map<HighwayType, AvgInfo> m_avgSpeeds[kSpeedsCount];
+  ankerl::unordered_dense::map<HighwayType, AvgInfo> m_avgSpeeds[kSpeedsCount];
 
   base::GeoObjectId GetOsmID(uint32_t fid) const
   {
@@ -212,7 +212,7 @@ public:
           if (direction)
             seg = GetOpposite(seg);
 
-          std::unordered_set<uint32_t> reviewed;
+          ankerl::unordered_dense::set<uint32_t> reviewed;
           do
           {
             LOG_MAX_SPEED(("Input seg =", seg));

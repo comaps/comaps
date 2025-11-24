@@ -25,7 +25,8 @@
 #pragma clang diagnostic pop
 #endif
 
-//Currently unused but may come in handy if we implement traffic reporting from the app one day, leaving it here for now
+// Currently unused but may come in handy if we implement traffic reporting from the app one day, leaving it here for
+// now
 namespace location
 {
 class GpsInfo;

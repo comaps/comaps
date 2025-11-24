@@ -7,8 +7,9 @@
 #include <algorithm>
 #include <iterator>
 #include <random>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace small_set_test
 {
@@ -96,7 +97,7 @@ UNIT_TEST(SmallMap_Benchmark1)
 {
   // 1. Init maps.
   // Dataset is similar to routing::VehicleModel.
-  std::unordered_map<uint32_t, bool> uMap = {
+  ankerl::unordered_dense::map<uint32_t, bool> uMap = {
       {1, true},    {2, false},  {4, false},   {6, true},   {7, true},    {8, true},    {12, false},
       {15, false},  {26, true},  {30, false},  {36, false}, {43, false},  {54, false},  {57, true},
       {58, true},   {65, true},  {69, true},   {90, true},  {95, false},  {119, false}, {167, true},
@@ -138,7 +139,7 @@ UNIT_TEST(SmallMap_Benchmark2)
 
   uint32_t i = 0;
   // Dataset is similar to routing::VehicleModelFactory.
-  unordered_map<string, shared_ptr<int>> uMap = {
+  ankerl::unordered_dense::map<string, shared_ptr<int>> uMap = {
       {"", make_shared<int>(i++)},
       {"Australia", make_shared<int>(i++)},
       {"Austria", make_shared<int>(i++)},
@@ -217,7 +218,7 @@ UNIT_TEST(SmallMap_Benchmark2)
 UNIT_TEST(SmallMap_Benchmark3)
 {
   // Dataset is similar to routing::VehicleModel.m_surfaceFactors.
-  std::unordered_map<int, int> uMap = {
+  ankerl::unordered_dense::map<int, int> uMap = {
     {1, 0}, {10, 1}, {100, 2}, {1000, 3},
   };
 

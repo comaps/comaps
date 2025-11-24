@@ -191,8 +191,9 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
       case FMD_PANORAMAX -> null; // Don't add raw ID to list, as it's useless for users.
       default -> mMapObject.getMetadata(type);
     };
-        // Add user names for social media if available
-        if (!TextUtils.isEmpty(title) && !title.equals(url) && !title.contains("/")) items.add(title);
+    // Add user names for social media if available
+    if (!TextUtils.isEmpty(title) && !title.equals(url) && !title.contains("/"))
+      items.add(title);
 
     if (items.size() == 1)
       PlacePageUtils.copyToClipboard(requireContext(), mFrame, items.get(0));

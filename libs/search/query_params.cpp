@@ -6,6 +6,8 @@
 #include <sstream>
 #include <unordered_map>
 
+#include "3party/ankerl/unordered_dense.h"
+
 namespace search
 {
 using namespace std;
@@ -15,7 +17,7 @@ namespace
 // All synonyms should be lowercase.
 
 /// @todo These should check the map language and use only the corresponding translation.
-unordered_map<string, vector<string>> const kSynonyms = {
+ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
     /// @todo Should process synonyms with errors like "blvrd" -> "blvd".
     /// @see HouseOnStreetSynonymsWithMisprints test.
     {"10a", {"décima"}},
@@ -1504,12 +1506,11 @@ void QueryParams::ClearStreetIndices()
     AdditionalCommonTokens()
     {
       char const * arr[] = {
-          "a",  "and", "s",   "the",                       // English
-          "am", "an",  "auf", "der", "im",  "und", "zum",  // German
-          "as", "d", "da", "das", "de", "del", "di", "do",
-          "dos", "du", "e", "el", "et", "la",  "las", "le",
-          "les", "los", "o",   "os", "y",                  // French, Italian, Portuguese, Spanish
-          "в",  "и",   "на",  "я"                                     // Cyrillic
+          "a",  "and", "s",   "the",                      // English
+          "am", "an",  "auf", "der", "im", "und", "zum",  // German
+          "as", "d",   "da",  "das", "de", "del", "di",  "do", "dos", "du", "e",
+          "el", "et",  "la",  "las", "le", "les", "los", "o",  "os",  "y",  // French, Italian, Portuguese, Spanish
+          "в",  "и",   "на",  "я"                                           // Cyrillic
       };
       for (char const * s : arr)
         m_strings.insert(NormalizeAndSimplifyString(s));

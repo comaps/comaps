@@ -52,14 +52,14 @@ void HighlightResult(QueryTokens const & tokens, strings::UniString const & pref
   std::string titleForHighlighting = res.GetString();
 #if defined(OMIM_OS_IPHONE)
   std::string const & branch = res.GetBranch();
-  
+
   // On iOS we append branch text to the title for highlighting if it's not already present.
   if (!branch.empty() && titleForHighlighting.find(branch) == std::string::npos)
     titleForHighlighting += " " + branch;
 #endif
-  
-  SearchStringTokensIntersectionRanges(
-      titleForHighlighting, beg, end, [&](std::pair<uint16_t, uint16_t> const & range) { res.AddHighlightRange(range); });
+
+  SearchStringTokensIntersectionRanges(titleForHighlighting, beg, end, [&](std::pair<uint16_t, uint16_t> const & range)
+  { res.AddHighlightRange(range); });
 
   // Highlight description.
   SearchStringTokensIntersectionRanges(res.GetAddress(), beg, end, [&](std::pair<uint16_t, uint16_t> const & range)

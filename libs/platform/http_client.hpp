@@ -27,8 +27,9 @@ SOFTWARE.
 
 #include <functional>
 #include <string>
-#include <unordered_map>
 #include <utility>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace platform
 {
@@ -43,7 +44,7 @@ public:
     std::string m_value;
   };
 
-  using Headers = std::unordered_map<std::string, std::string>;
+  using Headers = ankerl::unordered_dense::map<std::string, std::string>;
 
   HttpClient() = default;
   explicit HttpClient(std::string const & url);

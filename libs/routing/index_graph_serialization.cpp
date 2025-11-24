@@ -8,9 +8,9 @@ uint32_t constexpr IndexGraphSerializer::JointsFilter::kEmptyEntry;
 uint32_t constexpr IndexGraphSerializer::JointsFilter::kPushedEntry;
 
 // IndexGraphSerializer::SectionSerializer ---------------------------------------------------------
-void IndexGraphSerializer::SectionSerializer::PreSerialize(IndexGraph const & graph,
-                                                           std::unordered_map<uint32_t, VehicleMask> const & masks,
-                                                           JointIdEncoder & jointEncoder)
+void IndexGraphSerializer::SectionSerializer::PreSerialize(
+    IndexGraph const & graph, ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
+    JointIdEncoder & jointEncoder)
 {
   m_buffer.clear();
   MemWriter<std::vector<uint8_t>> memWriter(m_buffer);
@@ -65,7 +65,7 @@ void IndexGraphSerializer::JointsFilter::Push(Joint::Id jointIdInFile, RoadPoint
 
 // IndexGraphSerializer ----------------------------------------------------------------------------
 // static
-VehicleMask IndexGraphSerializer::GetRoadMask(std::unordered_map<uint32_t, VehicleMask> const & masks,
+VehicleMask IndexGraphSerializer::GetRoadMask(ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
                                               uint32_t featureId)
 {
   auto const & it = masks.find(featureId);
@@ -90,7 +90,7 @@ uint32_t IndexGraphSerializer::ConvertJointsNumber(uint32_t jointsNumber)
 
 // static
 void IndexGraphSerializer::PrepareSectionSerializers(IndexGraph const & graph,
-                                                     std::unordered_map<uint32_t, VehicleMask> const & masks,
+                                                     ankerl::unordered_dense::map<uint32_t, VehicleMask> const & masks,
                                                      std::vector<SectionSerializer> & serializers)
 {
   size_t maskToIndex[kNumVehicleMasks] = {};

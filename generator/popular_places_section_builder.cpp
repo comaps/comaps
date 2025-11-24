@@ -155,7 +155,7 @@ void BuildPopularPlacesFromWikiDump(std::string const & mwmFile, std::string con
 PopularPlaces const & GetOrLoadPopularPlaces(std::string const & filename)
 {
   static std::mutex m;
-  static std::unordered_map<std::string, PopularPlaces> placesStorage;
+  static ankerl::unordered_dense::map<std::string, PopularPlaces> placesStorage;
 
   std::lock_guard<std::mutex> lock(m);
   auto const it = placesStorage.find(filename);

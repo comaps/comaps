@@ -14,9 +14,9 @@
 #include <chrono>
 #include <functional>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace df
 {
@@ -119,13 +119,13 @@ private:
   double m_distanceFromBegin;
   bool m_followingEnabled;
   Subroutes m_subroutes;
-  std::unordered_set<dp::DrapeID> m_hiddenSubroutes;
+  ankerl::unordered_dense::set<dp::DrapeID> m_hiddenSubroutes;
 
   PreviewPointsRequestCallback m_previewPointsRequest;
   std::vector<drape_ptr<CirclesPackRenderData>> m_previewRenderData;
   std::vector<std::pair<CirclesPackHandle *, size_t>> m_previewHandlesCache;
   bool m_waitForPreviewRenderData;
-  std::unordered_map<dp::DrapeID, PreviewInfo> m_previewSegments;
+  ankerl::unordered_dense::map<dp::DrapeID, PreviewInfo> m_previewSegments;
   m2::PointD m_previewPivot = m2::PointD::Zero();
 };
 }  // namespace df

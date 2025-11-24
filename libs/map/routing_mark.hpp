@@ -98,6 +98,7 @@ public:
   void PassRoutePoint(RouteMarkType type, size_t intermediateIndex = 0);
   void SetFollowingMode(bool enabled);
   void RemovePassedPoints();
+
 private:
   using TRoutePointCallback = std::function<void(RouteMarkPoint * mark)>;
   void ForEachIntermediatePoint(TRoutePointCallback const & fn);

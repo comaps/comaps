@@ -17,8 +17,9 @@
 #include <mutex>
 #include <string>
 #include <type_traits>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace storage
 {
@@ -119,7 +120,7 @@ protected:
 
   // @TODO(bykoianko): consider getting rid of m_countryIndex.
   // Maps all leaf country id (file names) to their indices in m_countries.
-  std::unordered_map<CountryId, RegionId> m_countryIndex;
+  ankerl::unordered_dense::map<CountryId, RegionId> m_countryIndex;
 
   Affiliations const * m_affiliations = nullptr;
 

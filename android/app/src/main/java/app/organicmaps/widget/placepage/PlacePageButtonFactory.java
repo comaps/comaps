@@ -80,6 +80,6 @@ public class PlacePageButtonFactory
         yield R.drawable.ic_more;
       }
     };
-        return new PlacePageButton(titleId, iconId, buttonType);
+    return new PlacePageButton(titleId, iconId, buttonType);
   }
 }

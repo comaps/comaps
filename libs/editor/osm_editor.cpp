@@ -583,7 +583,8 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
   }
 
   std::unique_lock<std::mutex> uploadingEditsLock(m_uploadingEditsMutex, std::defer_lock);
-  if (!uploadingEditsLock.try_lock()) {
+  if (!uploadingEditsLock.try_lock())
+  {
     // Do not run more than one uploading task at a time.
     LOG(LDEBUG, ("OSM edits upload is already running"));
     return;

@@ -176,7 +176,7 @@ std::optional<m2::PointD> HierarchyEntryEnricher::GetFeatureCenter(CompositeId c
   // because the centers are calculated differently. For example, for an object with a type area,
   // the area will be computed using the triangles geometry, but for an object with a type line,
   // the area will be computed using the outer geometry of a polygon.
-  std::unordered_map<std::underlying_type_t<feature::GeomType>, m2::PointD> m;
+  ankerl::unordered_dense::map<std::underlying_type_t<feature::GeomType>, m2::PointD> m;
   for (auto optId : optIds)
   {
     auto const ftPtr = m_featureGetter.GetFeatureByIndex(optId);

@@ -6,9 +6,6 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.widget.NestedScrollView;
-
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.ChartController;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
@@ -17,6 +14,7 @@ import app.organicmaps.sdk.bookmarks.data.Track;
 import app.organicmaps.sdk.bookmarks.data.TrackStatistics;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
+import com.google.android.material.textview.MaterialTextView;
 import java.util.Objects;
 
 public class ElevationProfileViewRenderer implements PlacePageStateListener

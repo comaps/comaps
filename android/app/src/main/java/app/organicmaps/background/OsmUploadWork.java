@@ -38,8 +38,9 @@ public class OsmUploadWork extends Worker
     {
       final Constraints c = new Constraints.Builder().setRequiredNetworkType(NetworkType.CONNECTED).build();
       OneTimeWorkRequest.Builder builder = new OneTimeWorkRequest.Builder(OsmUploadWork.class).setConstraints(c);
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-          builder.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+      {
+        builder.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST);
       }
       final OneTimeWorkRequest wr = builder.build();
       WorkManager.getInstance(context).beginUniqueWork("UploadOsmChanges", ExistingWorkPolicy.KEEP, wr).enqueue();

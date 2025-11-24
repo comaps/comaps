@@ -654,7 +654,7 @@ void TransitSchemeBuilder::CollectShapesPT(TransitDisplayInfo const & transitDis
   CHECK_EQUAL(transitDisplayInfo.m_transitVersion, ::transit::TransitVersion::AllPublicTransport, ());
 
   float curDepth = kBaseLineDepth;
-  std::unordered_map<std::string, float> routeColorToDepth;
+  ankerl::unordered_dense::map<std::string, float> routeColorToDepth;
 
   for (auto const & [lineId, metaData] : transitDisplayInfo.m_linesMetadataPT)
   {

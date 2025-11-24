@@ -257,7 +257,7 @@ FreetypeError constexpr g_FT_Errors[] =
     FT_StreamRec_ m_stream;
     FT_Face m_fontFace;
 
-    std::unordered_set<uint16_t> m_readyGlyphs;
+    ankerl::unordered_dense::set<uint16_t> m_readyGlyphs;
 
     hb_font_t * m_harfbuzzFont{nullptr};
   };
@@ -328,13 +328,13 @@ FreetypeError constexpr g_FT_Errors[] =
     TUniBlockIter m_lastUsedBlock;
     std::vector<std::unique_ptr<Font>> m_fonts;
 
-    // Required to use std::string_view as a search key for std::unordered_map::find().
+    // Required to use std::string_view as a search key for ankerl::unordered_dense::map::find().
     struct StringHash : public std::hash<std::string_view>
     {
       using is_transparent = void;
     };
 
-    std::unordered_map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
+    ankerl::unordered_dense::map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
     hb_buffer_t * m_harfbuzzBuffer;
   };
 

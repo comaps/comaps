@@ -3,7 +3,8 @@
 #include "base/geo_object_id.hpp"
 
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -52,5 +53,5 @@ namespace generator
 // name is "Сабвей", then "Сабвэй".
 
 bool LoadBrands(std::string const & brandsFilename, std::string const & translationsFilename,
-                std::unordered_map<base::GeoObjectId, std::string> & brands);
+                ankerl::unordered_dense::map<base::GeoObjectId, std::string> & brands);
 }  // namespace generator

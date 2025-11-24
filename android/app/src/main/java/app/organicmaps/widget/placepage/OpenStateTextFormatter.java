@@ -14,7 +14,8 @@ public class OpenStateTextFormatter
       return String.format(Locale.ROOT, "%02d:%02d", hour, minute);
 
     int h = hour % 12;
-    if (h == 0) h = 12;
+    if (h == 0)
+      h = 12;
     String ampm = (hour < 12) ? "AM" : "PM";
     return String.format(Locale.ROOT, "%d:%02d %s", h, minute, ampm);
   }
@@ -29,21 +30,13 @@ public class OpenStateTextFormatter
     return t.getDayOfWeek().getDisplayName(TextStyle.SHORT, locale);
   }
 
-  static String buildAtLabel(
-      boolean opens,
-      boolean isToday,
-      String dayShort,
-      String time,
-      String opensAtLocalized,
-      String closesAtLocalized,
-      String opensDayAtLocalized,
-      String closesDayAtLocalized
-  )
+  static String buildAtLabel(boolean opens, boolean isToday, String dayShort, String time, String opensAtLocalized,
+                             String closesAtLocalized, String opensDayAtLocalized, String closesDayAtLocalized)
   {
     if (isToday)
       return opens ? String.format(Locale.ROOT, opensAtLocalized, time) // Opens at %s
-          : String.format(Locale.ROOT, closesAtLocalized, time); // Closes at %s
+                   : String.format(Locale.ROOT, closesAtLocalized, time); // Closes at %s
     return opens ? String.format(Locale.ROOT, opensDayAtLocalized, dayShort, time) // Opens %s at %s
-        : String.format(Locale.ROOT, closesDayAtLocalized, dayShort, time); // Closes %s at %s
+                 : String.format(Locale.ROOT, closesDayAtLocalized, dayShort, time); // Closes %s at %s
   }
 }

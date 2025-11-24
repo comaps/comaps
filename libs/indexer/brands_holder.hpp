@@ -8,7 +8,8 @@
 #include <memory>
 #include <set>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class Reader;
 
@@ -68,7 +69,7 @@ private:
     size_t operator()(std::string const & str) const { return hash_type{}(str); }
   };
 
-  std::unordered_map<std::string, std::shared_ptr<Brand>, StringViewHash, std::equal_to<>> m_keyToName;
+  ankerl::unordered_dense::map<std::string, std::shared_ptr<Brand>, StringViewHash, std::equal_to<>> m_keyToName;
   std::set<std::string> m_keys;
 };
 

@@ -91,10 +91,7 @@ public:
     covering::Intervals intervals;
     CoverRect(rect, scale, intervals);
 
-    ForEachIndexImpl(intervals, scale, [&](uint32_t index)
-    {
-      fn(*GetFeature(index, ignoreEditedStatus));
-    });
+    ForEachIndexImpl(intervals, scale, [&](uint32_t index) { fn(*GetFeature(index, ignoreEditedStatus)); });
   }
 
   // Returns false if feature was deleted by user.

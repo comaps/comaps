@@ -118,7 +118,8 @@ public:
   std::vector<Street> GetNearbyStreets(MwmSet::MwmId const & id, m2::PointD const & center) const;
   std::vector<Street> GetNearbyStreets(FeatureType & ft) const;
 
-  static std::vector<Place> GetNearbyPlaces(search::MwmContext & context, m2::PointD const & center, double radiusM, bool ignoreEditedStatus = false);
+  static std::vector<Place> GetNearbyPlaces(search::MwmContext & context, m2::PointD const & center, double radiusM,
+                                            bool ignoreEditedStatus = false);
 
   /// @return feature street name.
   /// Returns empty string when there is no street the feature belongs to.

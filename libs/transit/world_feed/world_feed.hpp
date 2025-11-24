@@ -16,11 +16,10 @@
 #include <fstream>
 #include <optional>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <utility>
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
 #include "3party/just_gtfs/just_gtfs.h"
 
 namespace transit
@@ -37,7 +36,7 @@ public:
   TransitId MakeId(std::string const & hash);
 
 private:
-  std::unordered_map<std::string, TransitId> m_hashToId;
+  ankerl::unordered_dense::map<std::string, TransitId> m_hashToId;
   TransitId m_curId = 0;
   std::string m_idMappingPath;
 };
@@ -50,7 +49,7 @@ struct Networks
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
   // Id to agency name mapping.
-  std::unordered_map<TransitId, std::string> m_data;
+  ankerl::unordered_dense::map<TransitId, std::string> m_data;
 };
 
 struct RouteData
@@ -65,7 +64,7 @@ struct Routes
 {
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, RouteData> m_data;
+  ankerl::unordered_dense::map<TransitId, RouteData> m_data;
 };
 
 struct LineData
@@ -84,7 +83,7 @@ struct LineData
   // Fields not intended to be exported to json.
   TransitId m_shapeId = 0;
   std::string m_gtfsTripId;
-  std::unordered_set<std::string> m_gtfsServiceIds;
+  ankerl::unordered_dense::set<std::string> m_gtfsServiceIds;
 };
 
 struct LineSegmentInRegion
@@ -99,17 +98,18 @@ struct LineSegmentInRegion
 
 struct Lines
 {
-  void Write(std::unordered_map<TransitId, LineSegmentInRegion> const & ids, std::ofstream & stream) const;
+  void Write(ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, LineData> m_data;
+  ankerl::unordered_dense::map<TransitId, LineData> m_data;
 };
 
 struct LinesMetadata
 {
-  void Write(std::unordered_map<TransitId, LineSegmentInRegion> const & linesInRegion, std::ofstream & stream) const;
+  void Write(ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> const & linesInRegion,
+             std::ofstream & stream) const;
 
   // Line id to line additional data (e.g. for rendering).
-  std::unordered_map<TransitId, LineSegmentsOrder> m_data;
+  ankerl::unordered_dense::map<TransitId, LineSegmentsOrder> m_data;
 };
 
 struct ShapeData
@@ -122,13 +122,13 @@ struct ShapeData
   IdSet m_lineIds;
 };
 
-using ShapesIter = std::unordered_map<TransitId, ShapeData>::iterator;
+using ShapesIter = ankerl::unordered_dense::map<TransitId, ShapeData>::iterator;
 
 struct Shapes
 {
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, ShapeData> m_data;
+  ankerl::unordered_dense::map<TransitId, ShapeData> m_data;
 };
 
 struct StopData
@@ -155,14 +155,14 @@ struct Stops
 {
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, StopData> m_data;
+  ankerl::unordered_dense::map<TransitId, StopData> m_data;
 };
 
 struct Edges
 {
   void Write(IdEdgeSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<EdgeId, EdgeData, EdgeIdHasher> m_data;
+  ankerl::unordered_dense::map<EdgeId, EdgeData, EdgeIdHasher> m_data;
 };
 
 struct EdgeTransferId
@@ -181,13 +181,13 @@ struct EdgeTransferIdHasher
   size_t operator()(EdgeTransferId const & key) const;
 };
 
-using IdEdgeTransferSet = std::unordered_set<EdgeTransferId, EdgeTransferIdHasher>;
+using IdEdgeTransferSet = ankerl::unordered_dense::set<EdgeTransferId, EdgeTransferIdHasher>;
 
 struct EdgesTransfer
 {
   void Write(IdEdgeTransferSet const & ids, std::ofstream & stream) const;
   // Key is pair of stops and value is |EdgeData|, containing weight (in seconds).
-  std::unordered_map<EdgeTransferId, EdgeData, EdgeTransferIdHasher> m_data;
+  ankerl::unordered_dense::map<EdgeTransferId, EdgeData, EdgeTransferIdHasher> m_data;
 };
 
 struct TransferData
@@ -200,7 +200,7 @@ struct Transfers
 {
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, TransferData> m_data;
+  ankerl::unordered_dense::map<TransitId, TransferData> m_data;
 };
 
 struct GateData
@@ -219,7 +219,7 @@ struct Gates
 {
   void Write(IdSet const & ids, std::ofstream & stream) const;
 
-  std::unordered_map<TransitId, GateData> m_data;
+  ankerl::unordered_dense::map<TransitId, GateData> m_data;
 };
 
 // Indexes for WorldFeed |m_gtfsIdToHash| field. For each type of GTFS entity, e.g. agency or stop,
@@ -234,7 +234,7 @@ enum FieldIdx
   IdxCount
 };
 
-using GtfsIdToHash = std::unordered_map<std::string, std::string>;
+using GtfsIdToHash = ankerl::unordered_dense::map<std::string, std::string>;
 
 struct StopsOnLines
 {
@@ -246,10 +246,11 @@ struct StopsOnLines
   transit::Direction m_direction = Direction::Forward;
 };
 
-using IdsInRegion = std::unordered_map<std::string, IdSet>;
-using LinesInRegion = std::unordered_map<std::string, std::unordered_map<TransitId, LineSegmentInRegion>>;
-using EdgeIdsInRegion = std::unordered_map<std::string, IdEdgeSet>;
-using EdgeTransferIdsInRegion = std::unordered_map<std::string, IdEdgeTransferSet>;
+using IdsInRegion = ankerl::unordered_dense::map<std::string, IdSet>;
+using LinesInRegion =
+    ankerl::unordered_dense::map<std::string, ankerl::unordered_dense::map<TransitId, LineSegmentInRegion>>;
+using EdgeIdsInRegion = ankerl::unordered_dense::map<std::string, IdEdgeSet>;
+using EdgeTransferIdsInRegion = ankerl::unordered_dense::map<std::string, IdEdgeTransferSet>;
 
 using Regions = std::vector<std::string>;
 
@@ -324,7 +325,7 @@ private:
 
   TransitId GetSplineParent(TransitId lineId, std::string const & region) const;
 
-  std::unordered_map<TransitId, std::vector<StopsOnLines>> GetStopsForShapeMatching();
+  ankerl::unordered_dense::map<TransitId, std::vector<StopsOnLines>> GetStopsForShapeMatching();
 
   // Adds stops projections to shapes. Updates corresponding links to shapes. Returns number of
   // invalid and valid shapes.
@@ -336,8 +337,9 @@ private:
   // Recalculates 0-weights of edges based on the shape length.
   bool UpdateEdgeWeights();
 
-  std::optional<Direction> ProjectStopsToShape(ShapesIter & itShape, StopsOnLines const & stopsOnLines,
-                                               std::unordered_map<TransitId, std::vector<size_t>> & stopsToIndexes);
+  std::optional<Direction> ProjectStopsToShape(
+      ShapesIter & itShape, StopsOnLines const & stopsOnLines,
+      ankerl::unordered_dense::map<TransitId, std::vector<size_t>> & stopsToIndexes);
 
   // Splits data into regions.
   void SplitFeedIntoRegions();
@@ -362,7 +364,7 @@ private:
   // contradicts maximum transit speed.
   bool SpeedExceedsMaxVal(EdgeId const & edgeId, EdgeData const & edgeData);
   // Removes entities from feed which are linked only to the |corruptedLineIds|.
-  bool ClearFeedByLineIds(std::unordered_set<TransitId> const & corruptedLineIds);
+  bool ClearFeedByLineIds(ankerl::unordered_dense::set<TransitId> const & corruptedLineIds);
   // Current GTFS feed which is being merged to the global feed.
   gtfs::Feed m_feed;
 
@@ -379,7 +381,7 @@ private:
   Gates m_gates;
 
   // Mapping of the edge to its points on the shape polyline.
-  std::unordered_map<EdgeId, std::vector<std::vector<m2::PointD>>, EdgeIdHasher> m_edgesOnShapes;
+  ankerl::unordered_dense::map<EdgeId, std::vector<std::vector<m2::PointD>>, EdgeIdHasher> m_edgesOnShapes;
 
   // Ids of entities for json'izing, split by regions.
   TransitByRegion m_splitting;
@@ -401,11 +403,11 @@ private:
   std::string m_gtfsHash;
 
   // Unique hashes of all agencies handled by WorldFeed.
-  static std::unordered_set<std::string> m_agencyHashes;
+  static ankerl::unordered_dense::set<std::string> m_agencyHashes;
   // Count of corrupted stops sequences which could not be projected to the shape polyline.
   static size_t m_badStopSeqCount;
   // Agencies which are already handled by WorldFeed and should be copied to the resulting jsons.
-  std::unordered_set<std::string> m_agencySkipList;
+  ankerl::unordered_dense::set<std::string> m_agencySkipList;
 
   // If the feed explicitly specifies its language, we use its value. Otherwise set to default.
   std::string m_feedLanguage;

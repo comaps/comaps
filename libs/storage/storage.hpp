@@ -21,9 +21,10 @@
 #include <memory>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace storage_tests
 {
@@ -163,7 +164,7 @@ public:
   using DeleteCallback = std::function<bool(storage::CountryId const &, LocalFilePtr const)>;
   using ChangeCountryFunction = std::function<void(CountryId const &)>;
   using ProgressFunction = std::function<void(CountryId const &, downloader::Progress const &)>;
-  using DownloadingCountries = std::unordered_map<CountryId, downloader::Progress>;
+  using DownloadingCountries = ankerl::unordered_dense::map<CountryId, downloader::Progress>;
 
 private:
   /// We support only one simultaneous request at the moment
@@ -195,7 +196,7 @@ private:
   // cancelled. However, the storage thread knows for sure whether
   // request was to apply or to cancel the diff, and this knowledge
   // is represented by |m_diffsBeingApplied|.
-  std::unordered_map<CountryId, std::unique_ptr<base::Cancellable>> m_diffsBeingApplied;
+  ankerl::unordered_dense::map<CountryId, std::unique_ptr<base::Cancellable>> m_diffsBeingApplied;
 
   std::vector<platform::LocalCountryFile> m_notAppliedDiffs;
 

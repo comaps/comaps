@@ -6,7 +6,8 @@
 #include <QtWidgets/QDialog>
 
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class QTreeWidget;
 class QTreeWidgetItem;
@@ -43,8 +44,8 @@ private:
 
   QTreeWidget * m_tree;
   Framework & m_framework;
-  std::unordered_map<QTreeWidgetItem *, kml::MarkGroupId> m_categories;
-  std::unordered_map<QTreeWidgetItem *, kml::MarkId> m_bookmarks;
-  std::unordered_map<QTreeWidgetItem *, kml::TrackId> m_tracks;
+  ankerl::unordered_dense::map<QTreeWidgetItem *, kml::MarkGroupId> m_categories;
+  ankerl::unordered_dense::map<QTreeWidgetItem *, kml::MarkId> m_bookmarks;
+  ankerl::unordered_dense::map<QTreeWidgetItem *, kml::TrackId> m_tracks;
 };
 }  // namespace qt

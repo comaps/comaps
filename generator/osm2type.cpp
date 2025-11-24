@@ -1088,8 +1088,8 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
       for (uint32_t type : params.m_types)
       {
         ftype::TruncValue(type, 1);
-        if (type != types.Get(CachedTypes::WheelchairAny) && type != types.Get(CachedTypes::InternetAny)
-            && type != types.Get(CachedTypes::DisusedBusiness) && type != types.Get(CachedTypes::Building))
+        if (type != types.Get(CachedTypes::WheelchairAny) && type != types.Get(CachedTypes::InternetAny) &&
+            type != types.Get(CachedTypes::DisusedBusiness) && type != types.Get(CachedTypes::Building))
         {
           hasPoiType = true;
           break;

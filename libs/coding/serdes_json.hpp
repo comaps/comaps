@@ -17,9 +17,10 @@
 #include <map>
 #include <memory>
 #include <type_traits>
-#include <unordered_set>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace coding
 {
@@ -280,7 +281,7 @@ public:
   }
 
   template <typename T, class H = std::hash<T>>
-  void operator()(std::unordered_set<T, H> & dest, char const * name = nullptr)
+  void operator()(ankerl::unordered_dense::set<T, H> & dest, char const * name = nullptr)
   {
     json_t * outerContext = SaveContext(name);
 

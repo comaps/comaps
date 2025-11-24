@@ -32,7 +32,8 @@
 #include <chrono>
 #include <limits>
 #include <sstream>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace
 {
@@ -2671,8 +2672,8 @@ void BookmarkManager::CreateCategories(KMLDataCollection && dataCollection, bool
       ResetIds(fileData);
     }
 
-    std::unordered_map<kml::CompilationId, BookmarkCategory *> compilations;
-    std::unordered_set<std::string> compilationNames;
+    ankerl::unordered_dense::map<kml::CompilationId, BookmarkCategory *> compilations;
+    ankerl::unordered_dense::set<std::string> compilationNames;
     for (auto & compilation : fileData.m_compilationsData)
     {
       SetUniqueName(compilation, [&compilationNames](auto const & name) { return compilationNames.count(name) == 0; });
@@ -3206,7 +3207,7 @@ void BookmarkManager::MarksChangesTracker::InferVisibility(BookmarkCategory * co
   kml::CategoryData const & categoryData = group->GetCategoryData();
   if (categoryData.m_compilationIds.empty())
     return;
-  std::unordered_set<kml::MarkGroupId> visibility;
+  ankerl::unordered_dense::set<kml::MarkGroupId> visibility;
   visibility.reserve(categoryData.m_compilationIds.size());
   for (kml::MarkGroupId const compilationId : categoryData.m_compilationIds)
   {

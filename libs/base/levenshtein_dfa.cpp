@@ -190,8 +190,8 @@ void LevenshteinDFA::State::Normalize()
 
 // LevenshteinDFA ----------------------------------------------------------------------------------
 // static
-LevenshteinDFA::LevenshteinDFA(UniString const & s, size_t prefixSize, std::array<UniString, 11> const & prefixMisprints,
-                               size_t maxErrors)
+LevenshteinDFA::LevenshteinDFA(UniString const & s, size_t prefixSize,
+                               std::array<UniString, 11> const & prefixMisprints, size_t maxErrors)
   : m_size(s.size())
   , m_maxErrors(maxErrors)
 {

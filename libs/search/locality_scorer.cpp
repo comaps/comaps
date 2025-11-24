@@ -13,7 +13,8 @@
 
 #include <algorithm>
 #include <sstream>
-#include <unordered_set>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -208,7 +209,7 @@ void LocalityScorer::LeaveTopLocalities(IdfMap & idfs, size_t limit, vector<Loca
   localities.clear();
   localities.reserve(els.size());
 
-  unordered_set<uint32_t> seen;
+  ankerl::unordered_dense::set<uint32_t> seen;
   for (auto it = els.begin(); it != els.end() && localities.size() < limit; ++it)
     if (seen.insert(it->GetId()).second)
       localities.push_back(std::move(it->m_locality));
@@ -231,7 +232,7 @@ void LocalityScorer::LeaveTopByExactMatchNormAndRank(size_t limitUniqueIds, vect
   // This logic with additional filtering set makes sense when _equal_ localities by GetId()
   // have _different_ primary compare params (m_exactMatch, m_queryNorm, m_rank).
   // It's possible when same locality was matched by different tokens.
-  unordered_set<uint32_t> seen;
+  ankerl::unordered_dense::set<uint32_t> seen;
   auto it = els.begin();
   for (; it != els.end() && seen.size() < limitUniqueIds; ++it)
     seen.insert(it->GetId());
@@ -296,10 +297,7 @@ void LocalityScorer::GetDocVecs(uint32_t localityId, vector<DocVec> & dvs) const
   for (auto const & name : names)
   {
     DocVec::Builder builder;
-    ForEachNormalizedToken(name, [&](strings::UniString const & token)
-    {
-      builder.Add(token);
-    });
+    ForEachNormalizedToken(name, [&](strings::UniString const & token) { builder.Add(token); });
     dvs.emplace_back(std::move(builder));
   }
 }

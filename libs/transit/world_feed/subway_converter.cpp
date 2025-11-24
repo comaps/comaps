@@ -466,7 +466,7 @@ void SubwayConverter::MinimizeReversedLinesCount()
 }
 
 std::vector<LineSchemeData> SubwayConverter::GetLinesOnScheme(
-    std::unordered_map<TransitId, LineSegmentInRegion> const & linesInRegion) const
+    ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> const & linesInRegion) const
 {
   // Color of line to shape link and one of line ids with this link.
   std::map<std::string, std::map<ShapeLink, TransitId>> colorsToLines;

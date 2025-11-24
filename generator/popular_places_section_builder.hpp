@@ -3,12 +3,13 @@
 #include "base/geo_object_id.hpp"
 
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
 using PopularityIndex = uint8_t;
-using PopularPlaces = std::unordered_map<base::GeoObjectId, PopularityIndex>;
+using PopularPlaces = ankerl::unordered_dense::map<base::GeoObjectId, PopularityIndex>;
 
 void LoadPopularPlaces(std::string const & srcFilename, PopularPlaces & places);
 

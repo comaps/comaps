@@ -196,7 +196,15 @@ m2::PointF GetOffset(int offsetX, int offsetY)
 
 bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||  shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey || shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada || shield.m_type == ftypes::RoadShieldType::Hungary_Green || shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
+  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey ||
+         shield.m_type == ftypes::RoadShieldType::US_Interstate ||
+         shield.m_type == ftypes::RoadShieldType::US_Highway ||
+         shield.m_type == ftypes::RoadShieldType::Italy_Autostrada ||
+         shield.m_type == ftypes::RoadShieldType::Hungary_Green ||
+         shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
 }
 
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
@@ -232,8 +240,7 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
 
 bool IsColoredRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Default ||
-         shield.m_type == ftypes::RoadShieldType::Generic_White ||
+  return shield.m_type == ftypes::RoadShieldType::Default || shield.m_type == ftypes::RoadShieldType::Generic_White ||
          shield.m_type == ftypes::RoadShieldType::Generic_Green ||
          shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
          shield.m_type == ftypes::RoadShieldType::Generic_Red ||
@@ -337,11 +344,15 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
 
 float GetRoadShieldOutlineWidth(float baseWidth, ftypes::RoadShield const & shield)
 {
-  if (shield.m_type == ftypes::RoadShieldType::Generic_White || shield.m_type == ftypes::RoadShieldType::Generic_Green ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Red ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Orange || shield.m_type == ftypes::RoadShieldType::Generic_Pill_White || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange || shield.m_type == ftypes::RoadShieldType::UK_Highway)
+  if (shield.m_type == ftypes::RoadShieldType::Generic_White ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Green || shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Red || shield.m_type == ftypes::RoadShieldType::Generic_Orange ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_White ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange ||
+      shield.m_type == ftypes::RoadShieldType::UK_Highway)
     return 0.0f;
 
   return baseWidth;

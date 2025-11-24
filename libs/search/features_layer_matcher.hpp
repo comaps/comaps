@@ -346,7 +346,7 @@ private:
     };
 
     // Cache is not needed since we process unique and mapped-only house->street.
-    //    std::unordered_map<uint32_t, bool> cache;
+    //    ankerl::unordered_dense::map<uint32_t, bool> cache;
     //    auto const cachingHouseNumberFilter = [&](uint32_t houseId, uint32_t streetId)
     //    {
     //      auto const res = cache.emplace(houseId, false);

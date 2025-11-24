@@ -16,8 +16,9 @@
 #include <limits>
 #include <memory>
 #include <queue>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -94,7 +95,7 @@ bool MatchInTrie(trie::Iterator<ValueList> const & trieRoot, strings::UniChar co
 template <typename Filter, typename Value>
 class OffsetIntersector
 {
-  using Values = std::unordered_map<Value, bool>;
+  using Values = ankerl::unordered_dense::map<Value, bool>;
 
   Filter const & m_filter;
   std::unique_ptr<Values> m_prevValues;
@@ -218,7 +219,7 @@ struct SearchTrieRequest
   // during retrieval from a search index.  Semantics of this field
   // depends on the search index, for example this can be a set of
   // langs from StringUtf8Multilang, or a set of locale indices.
-  std::unordered_set<int8_t> m_langs;
+  ankerl::unordered_dense::set<int8_t> m_langs;
 };
 
 // Calls |toDo| for each feature accepted by at least one DFA.

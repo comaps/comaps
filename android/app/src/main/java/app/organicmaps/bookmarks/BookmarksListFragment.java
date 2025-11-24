@@ -282,11 +282,13 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
   {
     if (isEmptySearchResults())
     {
-      requirePlaceholder().setContent(R.string.search_not_found, R.string.search_not_found_query, R.drawable.ic_search_fail);
+      requirePlaceholder().setContent(R.string.search_not_found, R.string.search_not_found_query,
+                                      R.drawable.ic_search_fail);
     }
     else if (isEmpty())
     {
-      requirePlaceholder().setContent(R.string.bookmarks_empty_list_title, R.string.bookmarks_empty_list_message, R.drawable.ic_bookmarks);
+      requirePlaceholder().setContent(R.string.bookmarks_empty_list_title, R.string.bookmarks_empty_list_message,
+                                      R.drawable.ic_bookmarks);
     }
 
     boolean isEmptyRecycler = isEmpty() || isEmptySearchResults();

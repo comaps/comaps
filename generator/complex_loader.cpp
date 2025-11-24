@@ -45,9 +45,9 @@ tree_node::Forest<HierarchyEntry> const & ComplexLoader::GetForest(storage::Coun
   return it == std::cend(m_forests) ? kEmpty : it->second;
 }
 
-std::unordered_set<CompositeId> ComplexLoader::GetIdsSet() const
+ankerl::unordered_dense::set<CompositeId> ComplexLoader::GetIdsSet() const
 {
-  std::unordered_set<CompositeId> set;
+  ankerl::unordered_dense::set<CompositeId> set;
   ForEach([&](auto const &, auto const & forest)
   {
     forest.ForEachTree([&](auto const & tree)
@@ -59,7 +59,7 @@ std::unordered_set<CompositeId> ComplexLoader::GetIdsSet() const
 ComplexLoader const & GetOrCreateComplexLoader(std::string const & filename)
 {
   static std::mutex m;
-  static std::unordered_map<std::string, ComplexLoader> complexLoaders;
+  static ankerl::unordered_dense::map<std::string, ComplexLoader> complexLoaders;
 
   std::lock_guard<std::mutex> lock(m);
   auto const it = complexLoaders.find(filename);

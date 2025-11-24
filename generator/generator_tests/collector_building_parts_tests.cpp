@@ -12,7 +12,8 @@
 #include "platform/platform_tests_support/scoped_file.hpp"
 
 #include <memory>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace collector_building_parts_tests
 {
@@ -21,7 +22,7 @@ using namespace generator::tests_support;
 class TestOSMElementCacheReader : public generator::cache::OSMElementCacheReaderInterface
 {
 public:
-  TestOSMElementCacheReader(std::unordered_map<generator::cache::Key, RelationElement> & m) : m_mapping(m) {}
+  TestOSMElementCacheReader(ankerl::unordered_dense::map<generator::cache::Key, RelationElement> & m) : m_mapping(m) {}
 
   // OSMElementCacheReaderInterface overrides:
   bool Read(generator::cache::Key /* id */, WayElement & /* value */) override { UNREACHABLE(); }
@@ -37,13 +38,13 @@ public:
   }
 
 private:
-  std::unordered_map<generator::cache::Key, RelationElement> & m_mapping;
+  ankerl::unordered_dense::map<generator::cache::Key, RelationElement> & m_mapping;
 };
 
 class IntermediateDataReaderTest : public generator::cache::IntermediateDataReaderInterface
 {
 public:
-  using IdToIds = std::unordered_map<generator::cache::Key, std::vector<generator::cache::Key>>;
+  using IdToIds = ankerl::unordered_dense::map<generator::cache::Key, std::vector<generator::cache::Key>>;
 
   static generator::cache::Key const kTopRelationId1;
   static generator::cache::Key const kOutlineId1;
@@ -129,7 +130,7 @@ private:
       toDo(id, reader);
   }
 
-  std::unordered_map<generator::cache::Key, RelationElement> m_IdToRelation;
+  ankerl::unordered_dense::map<generator::cache::Key, RelationElement> m_IdToRelation;
   IdToIds m_wayToRelations;
   IdToIds m_relationToRelations;
 };

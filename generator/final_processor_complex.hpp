@@ -10,8 +10,9 @@
 #include <cstddef>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -37,7 +38,7 @@ public:
 private:
   std::unique_ptr<hierarchy::HierarchyEntryEnricher> CreateEnricher(std::string const & countryName) const;
   void WriteLines(std::vector<HierarchyEntry> const & lines);
-  std::unordered_map<base::GeoObjectId, feature::FeatureBuilder> RemoveRelationBuildingParts(
+  ankerl::unordered_dense::map<base::GeoObjectId, feature::FeatureBuilder> RemoveRelationBuildingParts(
       std::vector<feature::FeatureBuilder> & fbs);
 
   hierarchy::GetMainTypeFn m_getMainType;

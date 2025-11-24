@@ -17,7 +17,8 @@
 
 #include <algorithm>
 #include <map>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -67,9 +68,9 @@ private:
     // May be nullptr, because it has "lazy" loading.
     GraphPtrT m_graph;
   };
-  unordered_map<NumMwmId, GraphAttrs> m_graphs;
+  ankerl::unordered_dense::map<NumMwmId, GraphAttrs> m_graphs;
 
-  unordered_map<NumMwmId, SpeedCamerasMapT> m_cachedCameras;
+  ankerl::unordered_dense::map<NumMwmId, SpeedCamerasMapT> m_cachedCameras;
   SpeedCamerasMapT const & ReceiveSpeedCamsFromMwm(NumMwmId numMwmId);
 
   RoutingOptions m_avoidRoutingOptions;
@@ -186,7 +187,8 @@ bool ReadSpeedCamsFromMwm(MwmValue const & mwmValue, SpeedCamerasMapT & camerasM
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR, ("Error while reading", CAMERAS_INFO_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
+    LOG(LERROR,
+        ("Error while reading", CAMERAS_INFO_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
 }
@@ -206,7 +208,8 @@ bool ReadRoadAccessFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, R
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR, ("Error while reading", ROAD_ACCESS_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
+    LOG(LERROR,
+        ("Error while reading", ROAD_ACCESS_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
 }
@@ -236,11 +239,13 @@ bool ReadRoadPenaltyFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, 
   catch (Reader::OpenException const &)
   {
     // This is expected for older mwm files - not an error
-    LOG(LINFO, (ROAD_PENALTY_FILE_TAG, "section not found in", mwmValue.GetCountryFileName(), "- using legacy penalty system"));
+    LOG(LINFO, (ROAD_PENALTY_FILE_TAG, "section not found in", mwmValue.GetCountryFileName(),
+                "- using legacy penalty system"));
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR, ("Error while reading", ROAD_PENALTY_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
+    LOG(LERROR,
+        ("Error while reading", ROAD_PENALTY_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
 }

@@ -253,7 +253,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
       mProgress.setMax(bytes);
       // Start progress at 1% according to M3 guidelines
-      mProgress.setProgressCompat(bytes/100, true);
+      mProgress.setProgressCompat(bytes / 100, true);
     }
     else
       finishFilesDownload(bytes);
@@ -372,7 +372,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
         mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name, fileSizeString));
         mProgress.setMax((int) item.totalSize);
         // Start progress at 1% according to M3 guidelines
-        mProgress.setProgressCompat((int) (item.totalSize/100), true);
+        mProgress.setProgressCompat((int) (item.totalSize / 100), true);
 
         mCountryDownloadListenerSlot = MapManager.nativeSubscribe(mCountryDownloadListener);
         MapManagerHelper.startDownload(mCurrentCountry);
@@ -424,17 +424,17 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       default -> throw new AssertionError("Unexpected result code = " + result);
     };
 
-        mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
-                           .setTitle(titleId)
-                           .setMessage(messageId)
-                           .setCancelable(true)
-                           .setOnCancelListener((dialog) -> setAction(PAUSE))
-                           .setPositiveButton(R.string.try_again,
-                                              (dialog, which) -> {
-                                                setAction(TRY_AGAIN);
-                                                onTryAgainClicked();
-                                              })
-                           .setOnDismissListener(dialog -> mAlertDialog = null)
-                           .show();
+    mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+                       .setTitle(titleId)
+                       .setMessage(messageId)
+                       .setCancelable(true)
+                       .setOnCancelListener((dialog) -> setAction(PAUSE))
+                       .setPositiveButton(R.string.try_again,
+                                          (dialog, which) -> {
+                                            setAction(TRY_AGAIN);
+                                            onTryAgainClicked();
+                                          })
+                       .setOnDismissListener(dialog -> mAlertDialog = null)
+                       .show();
   }
 }

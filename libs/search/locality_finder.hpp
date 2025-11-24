@@ -21,8 +21,9 @@
 #include <map>
 #include <memory>
 #include <string>
-#include <unordered_set>
 #include <utility>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
 
@@ -155,6 +156,6 @@ private:
 
   std::unique_ptr<RankTable> m_ranks;
 
-  std::map<MwmSet::MwmId, std::unordered_set<uint32_t>> m_loadedIds;
+  std::map<MwmSet::MwmId, ankerl::unordered_dense::set<uint32_t>> m_loadedIds;
 };
 }  // namespace search

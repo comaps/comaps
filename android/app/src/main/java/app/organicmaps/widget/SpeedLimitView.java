@@ -5,16 +5,14 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-
 import androidx.annotation.Nullable;
-
 import app.organicmaps.R;
 
 public class SpeedLimitView extends BaseSignView
 {
-  private int    mSpeedLimit = -1;
-  private boolean mAlert     = false;
-  private String mSpeedStr   = "-1";
+  private int mSpeedLimit = -1;
+  private boolean mAlert = false;
+  private String mSpeedStr = "-1";
   private final int unlimitedBorderColor;
   private final int unlimitedStripeColor;
 
@@ -27,15 +25,22 @@ public class SpeedLimitView extends BaseSignView
 
     try (TypedArray styleAttrs = ctx.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedLimitView, 0, 0))
     {
-      final int bgColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBackgroundColor, DefaultValues.BACKGROUND_COLOR);
-      final int borderColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBorderColor, DefaultValues.BORDER_COLOR);
-      final int alertColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitAlertColor, DefaultValues.ALERT_COLOR);
-      final int textColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitTextColor, DefaultValues.TEXT_COLOR);
-      final int txtAlertColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitTextAlertColor, DefaultValues.TEXT_ALERT_COLOR);
+      final int bgColor =
+          styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBackgroundColor, DefaultValues.BACKGROUND_COLOR);
+      final int borderColor =
+          styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBorderColor, DefaultValues.BORDER_COLOR);
+      final int alertColor =
+          styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitAlertColor, DefaultValues.ALERT_COLOR);
+      final int textColor =
+          styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitTextColor, DefaultValues.TEXT_COLOR);
+      final int txtAlertColor =
+          styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitTextAlertColor, DefaultValues.TEXT_ALERT_COLOR);
       setColors(bgColor, borderColor, alertColor, textColor, txtAlertColor);
 
-      unlimitedBorderColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitUnlimitedBorderColor, DefaultValues.UNLIMITED_BORDER_COLOR);
-      unlimitedStripeColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitUnlimitedStripeColor, DefaultValues.UNLIMITED_STRIPE_COLOR);
+      unlimitedBorderColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitUnlimitedBorderColor,
+                                                 DefaultValues.UNLIMITED_BORDER_COLOR);
+      unlimitedStripeColor = styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitUnlimitedStripeColor,
+                                                 DefaultValues.UNLIMITED_STRIPE_COLOR);
 
       if (isInEditMode())
       {
@@ -51,7 +56,7 @@ public class SpeedLimitView extends BaseSignView
     if (mSpeedLimit != limit)
     {
       mSpeedLimit = limit;
-      mSpeedStr   = Integer.toString(limit);
+      mSpeedStr = Integer.toString(limit);
       requestLayout();
     }
     mAlert = alert;
@@ -75,7 +80,7 @@ public class SpeedLimitView extends BaseSignView
   @Override
   protected void onDraw(Canvas canvas)
   {
-    final float cx = mWidth/2f, cy = mHeight/2f;
+    final float cx = mWidth / 2f, cy = mHeight / 2f;
 
     if (mSpeedLimit == 0) // 0 means unlimited speed (maxspeed=none)
     {
@@ -105,7 +110,7 @@ public class SpeedLimitView extends BaseSignView
     stripe.setStrokeWidth(mBorderWidth * 0.4f);
 
     final float radius = mRadius * 0.8f; // Shorten to 80% of full radius
-    final float diag = (float) (1/Math.sqrt(2)); // 45 degrees
+    final float diag = (float) (1 / Math.sqrt(2)); // 45 degrees
     final float dx = -diag, dy = +diag;
     final float px = -dy, py = +dx; // Perpendicular
     final float step = radius * 0.15f; // Spacing
@@ -122,14 +127,13 @@ public class SpeedLimitView extends BaseSignView
     }
   }
 
-
   private interface DefaultValues
   {
-    int BACKGROUND_COLOR       = 0xFFFFFFFF;
-    int BORDER_COLOR           = 0xFFFF0000;
-    int ALERT_COLOR            = 0xFFFF0000;
-    int TEXT_COLOR             = 0xFF000000;
-    int TEXT_ALERT_COLOR       = 0xFFFFFFFF;
+    int BACKGROUND_COLOR = 0xFFFFFFFF;
+    int BORDER_COLOR = 0xFFFF0000;
+    int ALERT_COLOR = 0xFFFF0000;
+    int TEXT_COLOR = 0xFF000000;
+    int TEXT_ALERT_COLOR = 0xFFFFFFFF;
     int UNLIMITED_BORDER_COLOR = 0xFF000000;
     int UNLIMITED_STRIPE_COLOR = 0xFF000000;
   }

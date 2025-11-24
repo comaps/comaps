@@ -6,21 +6,18 @@
 #include "indexer/data_header.hpp"
 #include "indexer/feature_to_osm.hpp"
 
-#include "search/categories_cache.hpp"
 #include "search/cbv.hpp"
-#include "search/localities_source.hpp"
-#include "search/mwm_context.hpp"
 
 #include "coding/file_writer.hpp"
 #include "coding/files_container.hpp"
 
-#include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
 #include "base/geo_object_id.hpp"
 #include "base/logging.hpp"
 
 #include <cstdint>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "defines.hpp"
 
@@ -40,7 +37,7 @@ bool IsWorldMwm(std::string const & path)
 }
 
 void WriteCitiesIdsSectionToFile(std::string const & dataPath,
-                                 std::unordered_map<uint32_t, base::GeoObjectId> const & mapping)
+                                 ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> const & mapping)
 {
   indexer::FeatureIdToGeoObjectIdBimapMem map;
   auto const localities = generator::GetLocalities(dataPath);
@@ -89,7 +86,7 @@ bool BuildCitiesIds(std::string const & dataPath, std::string const & osmToFeatu
 
   classificator::Load();
 
-  std::unordered_map<uint32_t, base::GeoObjectId> mapping;
+  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> mapping;
   if (!ParseFeatureIdToOsmIdMapping(osmToFeaturePath, mapping))
   {
     LOG(LERROR, ("Can't parse feature id to osm id mapping."));
@@ -104,11 +101,11 @@ bool BuildCitiesIdsForTesting(std::string const & dataPath)
 {
   CHECK(IsWorldMwm(dataPath), ());
 
-  std::unordered_map<uint32_t, uint64_t> mapping;
+  ankerl::unordered_dense::map<uint32_t, uint64_t> mapping;
   if (!ParseFeatureIdToTestIdMapping(dataPath, mapping))
     return false;
 
-  std::unordered_map<uint32_t, base::GeoObjectId> mappingToGeoObjects;
+  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> mappingToGeoObjects;
   for (auto const & entry : mapping)
   {
     // todo(@m) Make test ids a new source in base::GeoObjectId?

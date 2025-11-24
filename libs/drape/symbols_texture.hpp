@@ -2,9 +2,10 @@
 
 #include "drape/texture.hpp"
 
-#include <unordered_map>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -50,6 +51,6 @@ private:
             ref_ptr<HWTextureAllocator> allocator);
 
   std::string m_name;
-  mutable std::unordered_map<std::string, SymbolInfo> m_definition;
+  mutable ankerl::unordered_dense::map<std::string, SymbolInfo> m_definition;
 };
 }  // namespace dp

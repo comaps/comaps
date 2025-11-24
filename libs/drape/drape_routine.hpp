@@ -8,8 +8,9 @@
 #include <condition_variable>
 #include <memory>
 #include <mutex>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -147,7 +148,7 @@ private:
     m_condition.notify_all();
   }
 
-  std::unordered_set<uint64_t> m_finishedIds;
+  ankerl::unordered_dense::set<uint64_t> m_finishedIds;
   uint64_t m_counter = 0;
   bool m_finished = false;
   std::condition_variable m_condition;

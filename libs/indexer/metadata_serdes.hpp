@@ -11,8 +11,9 @@
 #include <memory>
 #include <mutex>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -92,8 +93,8 @@ public:
   void Freeze(Writer & writer) const;
 
 private:
-  std::unordered_map<std::string, uint32_t> m_stringToId;
-  std::unordered_map<uint32_t, std::string> m_idToString;
+  ankerl::unordered_dense::map<std::string, uint32_t> m_stringToId;
+  ankerl::unordered_dense::map<uint32_t, std::string> m_idToString;
   MapUint32ToValueBuilder<MetadataDeserializer::MetaIds> m_builder;
 };
 }  // namespace indexer

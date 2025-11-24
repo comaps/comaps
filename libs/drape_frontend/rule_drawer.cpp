@@ -363,7 +363,9 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
       df::RoadClass m_roadClass;
     };
     static Checker const checkers[] = {
-        {{HighwayClass::Motorway, HighwayClass::Trunk, HighwayClass::Primary}, kRoadClass0ZoomLevel, df::RoadClass::Class0},
+        {{HighwayClass::Motorway, HighwayClass::Trunk, HighwayClass::Primary},
+         kRoadClass0ZoomLevel,
+         df::RoadClass::Class0},
         {{HighwayClass::Secondary, HighwayClass::Tertiary}, kRoadClass1ZoomLevel, df::RoadClass::Class1},
         {{HighwayClass::LivingStreet, HighwayClass::Service, HighwayClass::ServiceMinor},
          kRoadClass2ZoomLevel,

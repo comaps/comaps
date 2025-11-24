@@ -27,8 +27,9 @@
 #include <random>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include <gflags/gflags.h>
 
@@ -272,8 +273,8 @@ void ModifyCafe(string const & name, string const & type, string & out)
   AddMisprints(out);
 }
 
-string_view GetLocalizedCafeType(unordered_map<uint32_t, StringUtf8Multilang> const & typesTranslations, uint32_t type,
-                                 uint8_t lang)
+string_view GetLocalizedCafeType(ankerl::unordered_dense::map<uint32_t, StringUtf8Multilang> const & typesTranslations,
+                                 uint32_t type, uint8_t lang)
 {
   auto const it = typesTranslations.find(type);
   if (it == typesTranslations.end())
@@ -286,7 +287,7 @@ string_view GetLocalizedCafeType(unordered_map<uint32_t, StringUtf8Multilang> co
 }
 
 optional<Sample> GenerateRequest(FeatureType & ft, search::ReverseGeocoder const & coder,
-                                 unordered_map<uint32_t, StringUtf8Multilang> const & typesTranslations,
+                                 ankerl::unordered_dense::map<uint32_t, StringUtf8Multilang> const & typesTranslations,
                                  vector<int8_t> const & mwmLangCodes, RequestType requestType)
 {
   string street;
@@ -330,7 +331,7 @@ optional<Sample> GenerateRequest(FeatureType & ft, search::ReverseGeocoder const
   return sample;
 }
 
-unordered_map<uint32_t, StringUtf8Multilang> ParseStrings()
+ankerl::unordered_dense::map<uint32_t, StringUtf8Multilang> ParseStrings()
 {
   auto const stringsFile = base::JoinPath(GetPlatform().ResourcesDir(), "strings", "types_strings.txt");
   ifstream s(stringsFile);
@@ -343,7 +344,7 @@ unordered_map<uint32_t, StringUtf8Multilang> ParseStrings()
   uint32_t type = 0;
   auto const typePrefixSize = strlen("[type.");
   auto const typePostfixSize = strlen("]");
-  unordered_map<uint32_t, StringUtf8Multilang> typesTranslations;
+  ankerl::unordered_dense::map<uint32_t, StringUtf8Multilang> typesTranslations;
   while (s.good())
   {
     getline(s, line);

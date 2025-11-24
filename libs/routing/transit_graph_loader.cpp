@@ -17,8 +17,9 @@
 #include "base/timer.hpp"
 
 #include <memory>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -106,7 +107,7 @@ private:
 
   MwmDataSource & m_dataSource;
   std::shared_ptr<EdgeEstimator> m_estimator;
-  std::unordered_map<NumMwmId, std::unique_ptr<TransitGraph>> m_graphs;
+  ankerl::unordered_dense::map<NumMwmId, std::unique_ptr<TransitGraph>> m_graphs;
 };
 
 // static

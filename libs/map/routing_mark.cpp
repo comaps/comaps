@@ -349,15 +349,15 @@ void RoutePointsLayout::SetFollowingMode(bool enabled)
 
 void RoutePointsLayout::RemovePassedPoints()
 {
-    // Prevent recalculation of markIds at every iteration, since we are removing elements
-    auto markIds = m_manager.GetUserMarkIds(UserMark::Type::ROUTING);
-    for (auto markId : markIds) {
-        auto * mark = m_editSession.GetMarkForEdit<RouteMarkPoint>(markId);
-        if (mark && mark->IsPassed() && mark->GetRoutePointType() == RouteMarkType::Intermediate)
-            m_editSession.DeleteUserMark(mark->GetId());
-    }
+  // Prevent recalculation of markIds at every iteration, since we are removing elements
+  auto markIds = m_manager.GetUserMarkIds(UserMark::Type::ROUTING);
+  for (auto markId : markIds)
+  {
+    auto * mark = m_editSession.GetMarkForEdit<RouteMarkPoint>(markId);
+    if (mark && mark->IsPassed() && mark->GetRoutePointType() == RouteMarkType::Intermediate)
+      m_editSession.DeleteUserMark(mark->GetId());
+  }
 }
-
 
 RouteMarkPoint const * RoutePointsLayout::GetRoutePoint(RouteMarkType type, size_t intermediateIndex) const
 {

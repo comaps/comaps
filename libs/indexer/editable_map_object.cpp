@@ -98,12 +98,7 @@ bool EditableMapObject::CanMarkPlaceAsDisused() const
   std::string mainTypeStr = classif().GetReadableObjectName(mainType);
 
   constexpr string_view typePrefixes[] = {
-      "shop",
-      "amenity-restaurant",
-      "amenity-fast_food",
-      "amenity-cafe",
-      "amenity-pub",
-      "amenity-bar",
+      "shop", "amenity-restaurant", "amenity-fast_food", "amenity-cafe", "amenity-pub", "amenity-bar",
   };
 
   for (auto const & typePrefix : typePrefixes)
@@ -613,14 +608,15 @@ bool EditableMapObject::ValidateLevel(string const & level)
     {
       auto constexpr kMinBuildingLevel = -9;
       double valueDouble;
-      return strings::to_double(s, valueDouble) && valueDouble > kMinBuildingLevel && valueDouble <= kMaximumLevelsEditableByUsers;
+      return strings::to_double(s, valueDouble) && valueDouble > kMinBuildingLevel &&
+             valueDouble <= kMaximumLevelsEditableByUsers;
     };
 
     // Check for simple value (e.g. "42")
     if (!isValidNumber(value))
     {
       // Check for range (e.g. "-3-12")
-      size_t rangeSymbol = value.find('-', 1); // skip first as it could be a negative sign
+      size_t rangeSymbol = value.find('-', 1);  // skip first as it could be a negative sign
       if (rangeSymbol == std::string::npos)
         return false;
 
@@ -950,16 +946,10 @@ void EditableMapObject::ApplyBusinessReplacement(uint32_t new_type)
   // Metadata
   feature::Metadata new_metadata;
 
-  constexpr MetadataID metadataToKeep[] = {
-      MetadataID::FMD_WHEELCHAIR,
-      MetadataID::FMD_POSTCODE,
-      MetadataID::FMD_LEVEL,
-      MetadataID::FMD_ELE,
-      MetadataID::FMD_HEIGHT,
-      MetadataID::FMD_MIN_HEIGHT,
-      MetadataID::FMD_BUILDING_LEVELS,
-      MetadataID::FMD_BUILDING_MIN_LEVEL
-  };
+  constexpr MetadataID metadataToKeep[] = {MetadataID::FMD_WHEELCHAIR,      MetadataID::FMD_POSTCODE,
+                                           MetadataID::FMD_LEVEL,           MetadataID::FMD_ELE,
+                                           MetadataID::FMD_HEIGHT,          MetadataID::FMD_MIN_HEIGHT,
+                                           MetadataID::FMD_BUILDING_LEVELS, MetadataID::FMD_BUILDING_MIN_LEVEL};
 
   for (MetadataID const & metadataID : metadataToKeep)
     new_metadata.Set(metadataID, std::string(m_metadata.Get(metadataID)));

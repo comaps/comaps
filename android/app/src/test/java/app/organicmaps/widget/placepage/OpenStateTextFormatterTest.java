@@ -4,11 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Test;
-
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.Locale;
+import org.junit.Test;
 
 public class OpenStateTextFormatterTest
 {
@@ -36,10 +35,10 @@ public class OpenStateTextFormatterTest
   @Test
   public void buildAtLabel_today_open_close()
   {
-    String open = OpenStateTextFormatter.buildAtLabel(true, true, "Sat", "09:00",
-        OPENS_AT, CLOSES_AT, OPENS_DAY_AT, CLOSES_DAY_AT);
-    String close = OpenStateTextFormatter.buildAtLabel(false, true, "Sat", "18:00",
-        OPENS_AT, CLOSES_AT, OPENS_DAY_AT, CLOSES_DAY_AT);
+    String open = OpenStateTextFormatter.buildAtLabel(true, true, "Sat", "09:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
+                                                      CLOSES_DAY_AT);
+    String close = OpenStateTextFormatter.buildAtLabel(false, true, "Sat", "18:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
+                                                       CLOSES_DAY_AT);
     assertEquals("Opens at 09:00", open);
     assertEquals("Closes at 18:00", close);
   }
@@ -47,10 +46,10 @@ public class OpenStateTextFormatterTest
   @Test
   public void buildAtLabel_other_day()
   {
-    String open = OpenStateTextFormatter.buildAtLabel(true, false, "Sat", "09:00",
-        OPENS_AT, CLOSES_AT, OPENS_DAY_AT, CLOSES_DAY_AT);
-    String close = OpenStateTextFormatter.buildAtLabel(false, false, "Tue", "18:00",
-        OPENS_AT, CLOSES_AT, OPENS_DAY_AT, CLOSES_DAY_AT);
+    String open = OpenStateTextFormatter.buildAtLabel(true, false, "Sat", "09:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
+                                                      CLOSES_DAY_AT);
+    String close = OpenStateTextFormatter.buildAtLabel(false, false, "Tue", "18:00", OPENS_AT, CLOSES_AT, OPENS_DAY_AT,
+                                                       CLOSES_DAY_AT);
     assertEquals("Opens Sat at 09:00", open);
     assertEquals("Closes Tue at 18:00", close);
   }

@@ -8,9 +8,9 @@
 
 #include <functional>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -36,10 +36,10 @@ public:
       fn(pair.first, pair.second);
   }
 
-  std::unordered_set<CompositeId> GetIdsSet() const;
+  ankerl::unordered_dense::set<CompositeId> GetIdsSet() const;
 
 private:
-  std::unordered_map<storage::CountryId, tree_node::Forest<HierarchyEntry>> m_forests;
+  ankerl::unordered_dense::map<storage::CountryId, tree_node::Forest<HierarchyEntry>> m_forests;
 };
 
 // Returns true if hierarchy tree is complex; otherwise returns false.

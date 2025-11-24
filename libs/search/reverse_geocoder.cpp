@@ -97,10 +97,11 @@ vector<ObjT> GetNearbyObjects(search::MwmContext & context, m2::PointD const & c
 }
 
 vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(search::MwmContext & context,
-                                                                  m2::PointD const & center, double radiusM, bool ignoreEditedStatus)
+                                                                  m2::PointD const & center, double radiusM,
+                                                                  bool ignoreEditedStatus)
 {
-  return GetNearbyObjects<Street>(context, center, radiusM,
-                                  [](FeatureType & ft) { return StreetVicinityLoader::IsStreet(ft); }, ignoreEditedStatus);
+  return GetNearbyObjects<Street>(context, center, radiusM, [](FeatureType & ft)
+  { return StreetVicinityLoader::IsStreet(ft); }, ignoreEditedStatus);
 }
 
 vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(MwmSet::MwmId const & id,
@@ -122,7 +123,8 @@ vector<ReverseGeocoder::Street> ReverseGeocoder::GetNearbyStreets(FeatureType & 
 }
 
 std::vector<ReverseGeocoder::Place> ReverseGeocoder::GetNearbyPlaces(search::MwmContext & context,
-                                                                     m2::PointD const & center, double radiusM, bool ignoreEditedStatus)
+                                                                     m2::PointD const & center, double radiusM,
+                                                                     bool ignoreEditedStatus)
 {
   return GetNearbyObjects<Place>(context, center, radiusM, [](FeatureType & ft)
   {

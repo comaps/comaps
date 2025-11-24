@@ -89,7 +89,7 @@ LineStringMerger::OutputData LineStringMerger::Merge(InputData const & data)
     for (auto & lineString : p.second)
       TryMerge(lineString, buffer);
 
-    std::unordered_set<LinePtr> uniqLineStrings;
+    ankerl::unordered_dense::set<LinePtr> uniqLineStrings;
     for (auto const & pb : buffer)
     {
       auto const & ways = pb.second->GetWays();

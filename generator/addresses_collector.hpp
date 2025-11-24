@@ -1,7 +1,7 @@
 #pragma once
 #include "generator/collector_interface.hpp"
 
-#include <unordered_map>
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -18,7 +18,7 @@ public:
   };
 
 private:
-  std::unordered_map<uint64_t, AddressInfo> m_addresses;
+  ankerl::unordered_dense::map<uint64_t, AddressInfo> m_addresses;
 
 public:
   void Add(feature::FeatureBuilder const & fb);
@@ -44,7 +44,7 @@ class AddressesCollector : public CollectorInterface
     uint64_t m_beg, m_end;
   };
   // OSM Way ID is a key here.
-  std::unordered_map<uint64_t, WayInfo> m_interpolWays;
+  ankerl::unordered_dense::map<uint64_t, WayInfo> m_interpolWays;
 
 public:
   explicit AddressesCollector(std::string const & filename);

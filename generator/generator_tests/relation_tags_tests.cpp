@@ -18,7 +18,7 @@ using namespace generator_tests;
 class TestOSMElementCacheReader : public OSMElementCacheReaderInterface
 {
 public:
-  TestOSMElementCacheReader(std::unordered_map<Key, RelationElement> & m) : m_mapping(m) {}
+  TestOSMElementCacheReader(ankerl::unordered_dense::map<Key, RelationElement> & m) : m_mapping(m) {}
 
   // OSMElementCacheReaderInterface overrides:
   bool Read(Key /* id */, WayElement & /* value */) override { UNREACHABLE(); }
@@ -34,7 +34,7 @@ public:
   }
 
 private:
-  std::unordered_map<Key, RelationElement> & m_mapping;
+  ankerl::unordered_dense::map<Key, RelationElement> & m_mapping;
 };
 
 UNIT_TEST(Process_route_with_ref)
@@ -62,7 +62,7 @@ UNIT_TEST(Process_route_with_ref)
   e1.m_tags.emplace("route", "road");
   e1.m_tags.emplace("ref", "E-99");
 
-  std::unordered_map<Key, RelationElement> m_IdToRelation = {{1, e1}};
+  ankerl::unordered_dense::map<Key, RelationElement> m_IdToRelation = {{1, e1}};
   TestOSMElementCacheReader reader(m_IdToRelation);
 
   // Create roads.
@@ -111,7 +111,7 @@ UNIT_TEST(Process_route_with_ref_network)
   e1.m_tags.emplace("ref", "SP60");
   e1.m_tags.emplace("network", "IT:RA");
 
-  std::unordered_map<Key, RelationElement> m_IdToRelation = {{1, e1}};
+  ankerl::unordered_dense::map<Key, RelationElement> m_IdToRelation = {{1, e1}};
   TestOSMElementCacheReader reader(m_IdToRelation);
 
   // Create roads.
@@ -160,7 +160,7 @@ UNIT_TEST(Process_associatedStreet)
   e1.m_tags.emplace("name", "Main Street");
   e1.m_tags.emplace("wikipedia", "en:Main Street");
 
-  std::unordered_map<Key, RelationElement> m_IdToRelation = {{1, e1}};
+  ankerl::unordered_dense::map<Key, RelationElement> m_IdToRelation = {{1, e1}};
   TestOSMElementCacheReader reader(m_IdToRelation);
 
   // Create buildings polygons.
@@ -219,7 +219,7 @@ UNIT_TEST(RelationTags_GoodBoundary)
   e1.m_tags.emplace("name:be", "Лiхтэнштэйн");
   e1.m_tags.emplace("wikidata", "Q347");
 
-  std::unordered_map<Key, RelationElement> m_IdToRelation = {{1, e1}};
+  ankerl::unordered_dense::map<Key, RelationElement> m_IdToRelation = {{1, e1}};
   TestOSMElementCacheReader reader(m_IdToRelation);
 
   // Process ways tags using relation tags.
@@ -267,7 +267,7 @@ UNIT_TEST(RelationTags_BadBoundary)
   e1.m_tags.emplace("name:en", "Italian Peninsula");
   e1.m_tags.emplace("wikidata", "Q145694");
 
-  std::unordered_map<Key, RelationElement> m_IdToRelation = {{1, e1}};
+  ankerl::unordered_dense::map<Key, RelationElement> m_IdToRelation = {{1, e1}};
   TestOSMElementCacheReader reader(m_IdToRelation);
 
   // Create ways.

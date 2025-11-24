@@ -8,7 +8,8 @@
 #include "base/lru_cache.hpp"
 
 #include <map>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -19,7 +20,7 @@ class MwmDataSource
 {
   DataSource & m_dataSource;
   std::shared_ptr<NumMwmIds> m_numMwmIDs;
-  std::unordered_map<NumMwmId, MwmSet::MwmHandle> m_handles;
+  ankerl::unordered_dense::map<NumMwmId, MwmSet::MwmHandle> m_handles;
 
   // Used for FeaturesRoadGraph in openlr only.
   std::map<MwmSet::MwmId, MwmSet::MwmHandle> m_handles2;

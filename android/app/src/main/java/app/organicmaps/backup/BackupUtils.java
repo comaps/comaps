@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.documentfile.provider.DocumentFile;
 import app.organicmaps.R;
 import app.organicmaps.sdk.util.log.Logger;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;

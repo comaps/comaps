@@ -10,7 +10,8 @@
 #include "geometry/point_with_altitude.hpp"
 
 #include <memory>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
 
@@ -64,7 +65,7 @@ public:
 protected:
   VehicleType const m_vehicleType;
   double m_defaultPenalty = 0.0;
-  std::unordered_map<int, double> m_turnPenaltyMap;
+  ankerl::unordered_dense::map<int, double> m_turnPenaltyMap;
 
 private:
   double const m_maxWeightSpeedMpS;
@@ -72,7 +73,7 @@ private:
 
   // DataSource * m_dataSourcePtr;
   // std::shared_ptr<NumMwmIds> m_numMwmIds;
-  // std::unordered_map<NumMwmId, double> m_leapWeightSpeedMpS;
+  // ankerl::unordered_dense::map<NumMwmId, double> m_leapWeightSpeedMpS;
 
   double ComputeDefaultLeapWeightSpeed() const;
   double GetLeapWeightSpeed(NumMwmId mwmId);

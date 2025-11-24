@@ -72,7 +72,7 @@ public class MyPositionButton
         case LocationState.FOLLOW_AND_ROTATE -> R.drawable.ic_follow_and_rotate;
         default -> throw new IllegalArgumentException("Invalid button mode: " + mode);
       };
-          image = ResourcesCompat.getDrawable(resources, drawableRes, context.getTheme());
+      image = ResourcesCompat.getDrawable(resources, drawableRes, context.getTheme());
       mIcons.put(mode, image);
     }
 

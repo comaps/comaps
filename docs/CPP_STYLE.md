@@ -18,6 +18,8 @@ Below are our specific (but not all!) exceptions to the Google's coding standard
 - We ARE using C++ exceptions.
 - We are using all features of C++17 and C++23 except `std::filesystem`, `std::to_chars`, `std::from_chars` and `std::format` which are not fully supported on all platforms.
 - We try to limit the usage of boost libraries which require linking (and prefer C++23 types over their boost counterparts).
+- Do not use `std::unordered_map` for hashmaps. Use `ankerl::unordered_dense::map` (from `3party/ankerl/unordered_dense.h`). When dealing with integers and not iterating, use `ska::flat_hash_map`.
+- Use `ankerl::unordered_dense::set` instead of `std::unordered_set`.
 
 Naming and formatting
 

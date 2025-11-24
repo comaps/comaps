@@ -3,11 +3,12 @@
 #include "base/assert.hpp"
 
 #include <list>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace base
 {
-template <typename Key, typename Value, template <typename...> typename Map = std::unordered_map>
+template <typename Key, typename Value, template <typename...> typename Map = ankerl::unordered_dense::map>
 class LinkedMap
 {
 public:

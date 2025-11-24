@@ -18,8 +18,9 @@
 #include <cstdlib>
 #include <optional>
 #include <regex>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace
 {
@@ -33,7 +34,7 @@ auto constexpr kMaxBuildingLevelsInTheWorld = 167;
 template <class T>
 void RemoveDuplicatesAndKeepOrder(std::vector<T> & vec)
 {
-  std::unordered_set<T> seen;
+  ankerl::unordered_dense::set<T> seen;
   auto const predicate = [&seen](T const & value)
   {
     if (seen.contains(value))

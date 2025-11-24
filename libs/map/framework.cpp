@@ -3130,8 +3130,8 @@ void Framework::CreateNote(osm::MapObject const & mapObject, osm::Editor::NotePr
     latLon = mapObject.GetLatLon();
   }
 
-  osm::Editor::Instance().CreateNote(latLon, mapObject.GetID(), mapObject.GetTypes(),
-                                     mapObject.GetDefaultName(), type, note);
+  osm::Editor::Instance().CreateNote(latLon, mapObject.GetID(), mapObject.GetTypes(), mapObject.GetDefaultName(), type,
+                                     note);
   if (type == osm::Editor::NoteProblemType::PlaceDoesNotExist)
     DeactivateMapSelection();
 }

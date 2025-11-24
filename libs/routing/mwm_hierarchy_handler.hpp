@@ -7,7 +7,8 @@
 
 #include <memory>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -33,7 +34,7 @@ private:
   std::shared_ptr<NumMwmIds> m_numMwmIds;
   CountryParentNameGetterFn m_countryParentNameGetterFn;
 
-  using MwmToCountry = std::unordered_map<NumMwmId, std::string>;
+  using MwmToCountry = ankerl::unordered_dense::map<NumMwmId, std::string>;
   MwmToCountry m_mwmCountriesCache;
 };
 }  // namespace routing

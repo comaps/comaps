@@ -10,9 +10,9 @@
 #include "coding/simple_dense_coding.hpp"
 
 #include <memory>
-#include <unordered_map>
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
 #include "3party/succinct/elias_fano.hpp"
 
 namespace routing
@@ -50,7 +50,7 @@ private:
 
   static int constexpr DEFAULT_SPEEDS_COUNT = 2;
   // Default speeds (KmPerH) for MWM, 0 - outside a city, 1 - inside a city.
-  std::unordered_map<HighwayType, MaxspeedType> m_defaultSpeeds[DEFAULT_SPEEDS_COUNT];
+  ankerl::unordered_dense::map<HighwayType, MaxspeedType> m_defaultSpeeds[DEFAULT_SPEEDS_COUNT];
 };
 
 std::unique_ptr<Maxspeeds> LoadMaxspeeds(MwmSet::MwmHandle const & handle);

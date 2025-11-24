@@ -10,8 +10,9 @@
 #include <condition_variable>
 #include <map>
 #include <memory>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace base
 {
@@ -119,7 +120,7 @@ private:
 
   using DelayedValue = std::shared_ptr<DelayedTask>;
   class DelayedQueue
-    : public BidirectionalMap<TaskId, DelayedValue, std::unordered_map, std::hash<TaskId>, std::multimap,
+    : public BidirectionalMap<TaskId, DelayedValue, ankerl::unordered_dense::map, std::hash<TaskId>, std::multimap,
                               DeRef<DelayedValue>>
   {
   public:
