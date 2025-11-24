@@ -5,10 +5,11 @@
 
 #include <cstddef>
 #include <cstdint>
-#include <map>
 #include <optional>
 #include <utility>
 #include <vector>
+
+#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace generator
 {
@@ -67,7 +68,7 @@ private:
   m2::RectD Union(m2::PointI const & startXy);
   void Remove(m2::PointI const & minXy, m2::PointI const & maxXy);
 
-  std::map<m2::PointI, CellWrapper> m_matrix;
+  ska::flat_hash_map<m2::PointI, CellWrapper> m_matrix;
   int32_t m_maxX = 0;
   int32_t m_maxY = 0;
 };

@@ -27,9 +27,10 @@
 
 #include "defines.hpp"
 
-#include <map>
 #include <string>
 #include <vector>
+
+#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace altitude_test
 {
@@ -72,7 +73,7 @@ TPoint3DList const kRoad4 = {{-10, 1, -1}, {-20, 6, -100}, {-20, -11, -110}};
 class MockAltitudeGetter : public AltitudeGetter
 {
 public:
-  using TMockAltitudes = std::map<m2::PointI, geometry::Altitude>;
+  using TMockAltitudes = ska::flat_hash_map<m2::PointI, geometry::Altitude>;
 
   explicit MockAltitudeGetter(std::vector<TPoint3DList> const & roads)
   {

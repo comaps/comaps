@@ -14,11 +14,13 @@
 #include <typeinfo>
 #include <utility>
 
+#include "3party/skarupke/flat_hash_map.hpp"
+
 // This class tracks usage of drape_ptr's and ref_ptr's
 class DpPointerTracker
 {
 public:
-  typedef std::map<void *, std::pair<int, std::string>> TAlivePointers;
+  using TAlivePointers = ska::flat_hash_map<void *, std::pair<int, std::string>>;
 
   static DpPointerTracker & Instance();
 
