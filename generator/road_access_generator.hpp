@@ -9,12 +9,13 @@
 #include "routing/vehicle_mask.hpp"
 
 #include <array>
-#include <map>
 #include <memory>
 #include <optional>
 #include <set>
 #include <string>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -92,7 +93,7 @@ void Load(Source & src, ConditionalRAVectorT & vec)
 class RoadAccessTagProcessor
 {
 public:
-  using TagMapping = std::map<OsmElement::Tag, RoadAccess::Type>;
+  using TagMapping = ankerl::unordered_dense::map<OsmElement::Tag, RoadAccess::Type>;
   using ConditionalTagsList = std::vector<std::string>;
 
   explicit RoadAccessTagProcessor(VehicleType vehicleType);

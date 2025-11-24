@@ -7,6 +7,8 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
+#include "3party/ankerl/unordered_dense.h"
+
 #include <sstream>
 
 std::string DebugPrint(OsmElement::EntityType type)

@@ -45,7 +45,8 @@ vector<string> const kBycicleAccessConditionalTags = {"bicycle:conditional"};
 // Some tags assume access:conditional in fact, but doesn't have it.
 // For example if road is tagged as "winter_road = yes",
 // for routing it is like: "access:conditional = no @ (Feb - Dec)"
-std::map<OsmElement::Tag, string> kTagToAccessConditional = {
+// TODO: handle Southern Hemisphere
+std::pair<OsmElement::Tag, string> const kTagToAccessConditional[] = {
     {OsmElement::Tag("winter_road", "yes"), "no @ (Mar - Nov)"},
     {OsmElement::Tag("ice_road", "yes"), "no @ (Mar - Nov)"}};
 
