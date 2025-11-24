@@ -5,8 +5,6 @@
 #include "base/logging.hpp"
 
 #include <algorithm>
-#include <functional>
-#include <iterator>
 
 #include "font_constants.hpp"
 

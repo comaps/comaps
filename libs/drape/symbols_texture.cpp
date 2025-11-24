@@ -264,39 +264,4 @@ void SymbolsTexture::Fail(ref_ptr<dp::GraphicsContext> context)
 
   Create(context, p, make_ref(&alphaTexture));
 }
-
-bool SymbolsTexture::IsSymbolContained(std::string const & symbolName) const
-{
-  return m_definition.find(symbolName) != m_definition.end();
-}
-
-bool SymbolsTexture::DecodeToMemory(std::string const & skinPathName, std::string const & textureName,
-                                    std::vector<uint8_t> & symbolsSkin, std::map<std::string, m2::RectU> & symbolsIndex,
-                                    uint32_t & skinWidth, uint32_t & skinHeight)
-{
-  auto definitionInserter = [&symbolsIndex](std::string const & name, m2::RectF const & rect)
-  { symbolsIndex.insert(make_pair(name, m2::RectU(rect))); };
-
-  bool result = true;
-  auto completionHandler =
-      [&result, &symbolsSkin, &skinWidth, &skinHeight](unsigned char * data, uint32_t width, uint32_t height)
-  {
-    size_t size = 4 * width * height;
-    symbolsSkin.resize(size);
-    memcpy(symbolsSkin.data(), data, size);
-    skinWidth = width;
-    skinHeight = height;
-    result = true;
-  };
-
-  auto failureHandler = [&result](std::string const & reason)
-  {
-    LOG(LERROR, (reason));
-    result = false;
-  };
-
-  LoadSymbols(skinPathName, textureName, false /* convertToUV */, definitionInserter, completionHandler,
-              failureHandler);
-  return result;
-}
 }  // namespace dp

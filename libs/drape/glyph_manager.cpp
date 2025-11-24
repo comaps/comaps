@@ -205,9 +205,9 @@ FreetypeError constexpr g_FT_Errors[] =
 
     static void Close(FT_Stream) {}
 
-    void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
+    inline void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
 
-    bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
+    inline bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
 
     std::string GetName() const { return std::string(m_fontFace->family_name) + ':' + m_fontFace->style_name; }
 
@@ -257,7 +257,7 @@ FreetypeError constexpr g_FT_Errors[] =
     FT_StreamRec_ m_stream;
     FT_Face m_fontFace;
 
-    std::set<uint16_t> m_readyGlyphs;
+    std::unordered_set<uint16_t> m_readyGlyphs;
 
     hb_font_t * m_harfbuzzFont{nullptr};
   };
@@ -334,7 +334,6 @@ FreetypeError constexpr g_FT_Errors[] =
       using is_transparent = void;
     };
 
-    // TODO(AB): Compare performance with std::map.
     std::unordered_map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
     hb_buffer_t * m_harfbuzzBuffer;
   };

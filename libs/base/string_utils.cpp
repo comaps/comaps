@@ -4,14 +4,15 @@
 #include "base/math.hpp"
 #include "base/stl_helpers.hpp"
 
+#include <boost/algorithm/string/trim.hpp>
+
 #include <algorithm>
 #include <cmath>
 #include <cstddef>
 #include <iomanip>
+#include <string>
 
 #include <fast_double_parser.h>
-#include <boost/algorithm/string/trim.hpp>
-#include <string>
 
 namespace strings
 {
@@ -271,17 +272,15 @@ bool Truncate(std::string & utf8, size_t const maxTextLengthPlus1)
   {
     if ((utf8[i] & 0xC0) != 0x80)
     {
-      ++codePoints;
-
-      if (codePoints == maxTextLengthPlus1)
+      if (++codePoints == maxTextLengthPlus1)
       {
         --i;
 
-        unsigned char byte = utf8[i];
+        auto const & byte = utf8[i];
         uint8_t bytesInCodepoint = 1;
 
         if ((byte & 0x80) == 0x00)
-          bytesInCodepoint = 1;
+        {}
         else if ((byte & 0xE0) == 0xC0)
           bytesInCodepoint = 2;
         else if ((byte & 0xF0) == 0xE0)

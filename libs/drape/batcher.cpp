@@ -1,11 +1,9 @@
 #include "drape/batcher.hpp"
 #include "drape/batcher_helpers.hpp"
-#include "drape/cpu_buffer.hpp"
 #include "drape/index_storage.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
 #include "base/assert.hpp"
-#include "base/stl_helpers.hpp"
 
 #include <utility>
 
@@ -188,14 +186,6 @@ void Batcher::ResetSession()
 {
   m_flushInterface = TFlushFn();
   m_buckets.clear();
-}
-
-void Batcher::SetFeatureMinZoom(int minZoom)
-{
-  m_featureMinZoom = minZoom;
-
-  for (auto const & bucket : m_buckets)
-    bucket.second->SetFeatureMinZoom(m_featureMinZoom);
 }
 
 void Batcher::SetBatcherHash(uint64_t batcherHash)

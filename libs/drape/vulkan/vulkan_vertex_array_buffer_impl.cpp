@@ -3,16 +3,15 @@
 #include "drape/vulkan/vulkan_base_context.hpp"
 #include "drape/vulkan/vulkan_gpu_buffer_impl.hpp"
 #include "drape/vulkan/vulkan_param_descriptor.hpp"
-#include "drape/vulkan/vulkan_utils.hpp"
 
 #include "base/assert.hpp"
 #include "base/macros.hpp"
+#include "drape/vulkan/vulkan_staging_buffer.hpp"
 
 #include <array>
 #include <cstdint>
 #include <cstring>
 #include <utility>
-#include <vector>
 
 namespace dp
 {
@@ -44,11 +43,11 @@ public:
 
   void RenderRange(ref_ptr<GraphicsContext> context, bool drawAsLine, IndicesRange const & range) override
   {
-    CHECK(m_vertexArrayBuffer->HasBuffers(), ());
+    ASSERT(m_vertexArrayBuffer->HasBuffers(), ());
 
     ref_ptr<dp::vulkan::VulkanBaseContext> vulkanContext = context;
     VkCommandBuffer commandBuffer = vulkanContext->GetCurrentRenderingCommandBuffer();
-    CHECK(commandBuffer != nullptr, ());
+    ASSERT(commandBuffer != nullptr, ());
 
     vulkanContext->SetPrimitiveTopology(drawAsLine ? VK_PRIMITIVE_TOPOLOGY_LINE_LIST
                                                    : VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST);
@@ -71,24 +70,23 @@ public:
     for (auto & buffer : m_vertexArrayBuffer->m_staticBuffers)
     {
       ref_ptr<VulkanGpuBufferImpl> b = buffer.second->GetBuffer();
-      CHECK_LESS(bufferIndex, kMaxBuffersCount, ());
+      ASSERT_LESS(bufferIndex, kMaxBuffersCount, ());
       buffers[bufferIndex++] = b->GetVulkanBuffer();
     }
     for (auto & buffer : m_vertexArrayBuffer->m_dynamicBuffers)
     {
       ref_ptr<VulkanGpuBufferImpl> b = buffer.second->GetBuffer();
-      CHECK_LESS(bufferIndex, kMaxBuffersCount, ());
+      ASSERT_LESS(bufferIndex, kMaxBuffersCount, ());
       buffers[bufferIndex++] = b->GetVulkanBuffer();
     }
     vkCmdBindVertexBuffers(commandBuffer, 0, bufferIndex, buffers.data(), offsets.data());
 
-    ref_ptr<VulkanGpuBufferImpl> ib = m_vertexArrayBuffer->m_indexBuffer->GetBuffer();
-    VkBuffer vulkanIndexBuffer = ib->GetVulkanBuffer();
-    auto const indexType = dp::IndexStorage::IsSupported32bit() ? VK_INDEX_TYPE_UINT32 : VK_INDEX_TYPE_UINT16;
-    vkCmdBindIndexBuffer(commandBuffer, vulkanIndexBuffer, 0, indexType);
+    vkCmdBindIndexBuffer(
+        commandBuffer, ref_ptr<VulkanGpuBufferImpl>(m_vertexArrayBuffer->m_indexBuffer->GetBuffer())->GetVulkanBuffer(),
+        0, m_indexType);
 
-    CHECK_LESS_OR_EQUAL(range.m_idxStart + range.m_idxCount,
-                        m_objectManager->GetMemoryManager().GetDeviceLimits().maxDrawIndexedIndexValue, ());
+    ASSERT_LESS_OR_EQUAL(range.m_idxStart + range.m_idxCount,
+                         m_objectManager->GetMemoryManager().GetDeviceLimits().maxDrawIndexedIndexValue, ());
 
     vkCmdDrawIndexed(commandBuffer, range.m_idxCount, 1, range.m_idxStart, 0, 0);
   }
@@ -99,6 +97,7 @@ private:
   BindingInfoArray m_bindingInfo;
   uint8_t m_bindingInfoCount = 0;
   ParamDescriptorUpdater m_descriptorUpdater;
+  VkIndexType const m_indexType = dp::IndexStorage::IsSupported32bit() ? VK_INDEX_TYPE_UINT32 : VK_INDEX_TYPE_UINT16;
 };
 }  // namespace vulkan
 

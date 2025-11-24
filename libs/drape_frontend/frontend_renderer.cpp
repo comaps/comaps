@@ -37,14 +37,7 @@
 #include "std/target_os.hpp"
 
 #include <algorithm>
-#include <array>
-#include <chrono>
 #include <cmath>
-#include <functional>
-#include <limits>
-#include <memory>
-#include <thread>
-#include <utility>
 
 namespace df
 {
@@ -1827,6 +1820,7 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
     return;
 
   BeginUpdateOverlayTree(modelView);
+
   for (auto const layerId :
        {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
   {

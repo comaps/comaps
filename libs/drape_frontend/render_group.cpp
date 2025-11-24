@@ -8,8 +8,6 @@
 
 #include "geometry/screenbase.hpp"
 
-#include "base/stl_helpers.hpp"
-
 #include <algorithm>
 #include <sstream>
 #include <utility>
@@ -115,8 +113,9 @@ void RenderGroup::Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::Prog
   for (auto & renderBucket : m_renderBuckets)
     renderBucket->Render(context, m_state.GetDrawAsLine());
 
-  for (auto const & renderBucket : m_renderBuckets)
-    renderBucket->RenderDebug(context, screen, debugRectRenderer);
+  if (debugRectRenderer && debugRectRenderer->IsEnabled())
+    for (auto const & renderBucket : m_renderBuckets)
+      renderBucket->RenderDebug(context, screen, debugRectRenderer);
 }
 
 void RenderGroup::AddBucket(drape_ptr<dp::RenderBucket> && bucket)

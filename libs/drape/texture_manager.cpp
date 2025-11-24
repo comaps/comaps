@@ -539,12 +539,6 @@ GlyphFontAndId TextureManager::GetSpaceGlyph() const
   return m_spaceGlyph;
 }
 
-bool TextureManager::AreGlyphsReady(TGlyphs const & glyphs) const
-{
-  CHECK(m_isInitialized, ());
-  return m_glyphManager->AreGlyphsReady(glyphs);
-}
-
 ref_ptr<Texture> TextureManager::GetSymbolsTexture() const
 {
   CHECK(m_isInitialized, ());
