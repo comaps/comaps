@@ -1,4 +1,7 @@
-• OpenStreetMap data as of November 16
+• Fixed voice directions pronouncing weird symbols in the beginning
+• OpenStreetMap data as of November 23
+
+Changes in the previous release:
 • Added trees
 • Made bus stop icons smaller and show up earlier
 • Reduce visibility of entrances
@@ -8,4 +11,3 @@
 • Improved road shields in Europe
 • Avoid paved roads routing option
 • Added icons to the settings page
-Check our Codeberg release notes for more changes!
