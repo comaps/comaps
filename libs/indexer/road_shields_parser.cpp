@@ -627,9 +627,9 @@ class RomaniaRoadShieldParser : public SimpleRoadShieldParser
 public:
   explicit RomaniaRoadShieldParser(std::string const & baseRoadNumber)
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Generic_Green},
-                                              {"DN", RoadShieldType::Generic_Red, false, true},
-                                              {"DJ", RoadShieldType::Generic_Blue, false, true},
-                                              {"DC", RoadShieldType::Generic_Blue, false, true}})
+                                              {"DN", RoadShieldType::Romania_DN, false, true},
+                                              {"DJ", RoadShieldType::Romania_DJ, false, true},
+                                              {"DC", RoadShieldType::Romania_DJ, false, true}})
   {}
 };
 
