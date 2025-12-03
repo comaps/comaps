@@ -3,20 +3,26 @@ package app.organicmaps.settings;
 import static app.organicmaps.leftbutton.LeftButtonsHolder.DISABLE_BUTTON_CODE;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.preference.EditTextPreference;
+import androidx.appcompat.app.AlertDialog;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceManager;
 import androidx.preference.TwoStatePreference;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
@@ -544,26 +550,84 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
 
   private void initCustomMapDownloadUrlPrefsCallbacks()
   {
-    EditTextPreference customUrlPref = getPreference(getString(R.string.pref_custom_map_download_url));
-    customUrlPref.setOnPreferenceChangeListener((preference, newValue) -> {
-      String url = newValue != null ? ((String) newValue).trim() : "";
+    Preference customUrlPref = getPreference(getString(R.string.pref_custom_map_download_url));
 
-      if (!url.isEmpty()
-          && !url.startsWith("http://")
-          && !url.startsWith("https://")) {
-        Toast.makeText(requireContext(),
-            R.string.download_resources_custom_url_error_scheme,
-            Toast.LENGTH_SHORT).show();
-        return false;
-      }
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
 
-      Framework.applyCustomMapDownloadUrl(requireContext(), url);
-      return true; // save the value
+    String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
+    String normalized = current.trim();
+    if (!normalized.isEmpty() && !normalized.endsWith("/"))
+      normalized = normalized + "/";
+
+    // Initial summary
+    customUrlPref.setSummary(normalized.isEmpty()
+        ? getString(R.string.download_resources_custom_url_summary_none)
+        : normalized);
+
+    // Sync native
+    Framework.applyCustomMapDownloadUrl(requireContext(), normalized);
+
+    // Show dialog
+    customUrlPref.setOnPreferenceClickListener(preference -> {
+      openCustomServerDialog(customUrlPref);
+      return true;
+    });
+  }
+
+  private void openCustomServerDialog(Preference pref)
+  {
+    View dialogView = LayoutInflater.from(requireContext())
+        .inflate(R.layout.dialog_custom_map_server, null);
+    TextInputLayout til = dialogView.findViewById(R.id.til_custom_map_server);
+    TextInputEditText edit = dialogView.findViewById(R.id.edit_custom_map_server);
+
+    SharedPreferences prefs =
+        PreferenceManager.getDefaultSharedPreferences(requireContext());
+    String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
+    edit.setText(current);
+
+    MaterialAlertDialogBuilder builder =
+        new MaterialAlertDialogBuilder(requireContext(), R.style.MwmTheme_AlertDialog)
+            .setTitle(R.string.download_resources_custom_url_title)
+            .setMessage(R.string.download_resources_custom_url_message)
+            .setView(dialogView)
+            .setNegativeButton(R.string.cancel, null)
+            .setPositiveButton(R.string.save, null);
+
+    AlertDialog dialog = builder.create();
+    dialog.setOnShowListener(dlg -> {
+      Button ok = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+      ok.setOnClickListener(v -> {
+        String url = edit.getText() != null ? edit.getText().toString().trim() : "";
+
+        if (!url.isEmpty()
+            && !url.startsWith("http://")
+            && !url.startsWith("https://")) {
+          til.setError(getString(R.string.download_resources_custom_url_error_scheme));
+          return;
+        }
+
+        til.setError(null);
+
+        if (!url.isEmpty() && !url.endsWith("/"))
+          url = url + "/";
+
+        prefs.edit()
+            .putString(getString(R.string.pref_custom_map_download_url), url)
+            .apply();
+
+        // Apply native
+        Framework.applyCustomMapDownloadUrl(requireContext(), url);
+
+        pref.setSummary(url.isEmpty()
+            ? getString(R.string.download_resources_custom_url_summary_none)
+            : url);
+
+        dialog.dismiss();
+      });
     });
 
-    // Ensure native side is updated when the screen opens
-    String current = customUrlPref.getText();
-    Framework.applyCustomMapDownloadUrl(requireContext(), current != null ? current.trim() : "");
+    dialog.show();
   }
 
   private void removePreference(@NonNull String categoryKey, @NonNull Preference preference)

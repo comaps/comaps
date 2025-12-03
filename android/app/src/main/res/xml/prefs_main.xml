@@ -212,14 +212,11 @@
       android:defaultValue="true"
       android:widgetLayout="@layout/preference_switch"
       android:order="2"/>
-    <EditTextPreference
-      android:key="@string/pref_custom_map_download_url"
-      android:title="@string/pref_custom_map_download_url_title"
-      android:summary="@string/pref_custom_map_download_url_summary"
-      android:inputType="textUri"
-      android:singleLine="true"
-      app:placeholderText="@string/pref_custom_map_download_url_hint"
-      android:order="3"/>
+    <Preference
+        android:key="@string/pref_custom_map_download_url"
+        android:title="@string/pref_custom_map_download_url_title"
+        android:summary="@string/pref_custom_map_download_url_summary"
+        android:order="3" />
 
   </androidx.preference.PreferenceCategory>
 </androidx.preference.PreferenceScreen>

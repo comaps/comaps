@@ -974,5 +974,6 @@
     <string name="download_resources_custom_url_title">Custom Map Server</string>
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
     <string name="download_resources_custom_url_hint">https://maps.comaps.app/</string>
+    <string name="download_resources_custom_url_summary_none">Not set</string>
     <string name="download_resources_custom_url_error_scheme">Please enter a full URL starting with http:// or https:// and ending with /.</string>
 </resources>
