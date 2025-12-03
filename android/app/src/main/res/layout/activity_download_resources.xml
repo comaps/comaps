@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:icon="@drawable/ic_settings"
-        app:iconTint="?colorOnSurface"
+        app:iconTint="?iconTint"
         android:contentDescription="@string/download_resources_custom_url_title"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

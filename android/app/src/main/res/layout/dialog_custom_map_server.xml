@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/margin_base"
     android:paddingBottom="@dimen/margin_half"
     android:hint="@string/download_resources_custom_url_title"
-    app:placeholderText="@string/download_resources_custom_url_hint">
+    app:placeholderText="@string/download_resources_custom_url_hint"
+    app:endIconMode="clear_text">
 
   <com.google.android.material.textfield.TextInputEditText
       android:id="@+id/edit_custom_map_server"

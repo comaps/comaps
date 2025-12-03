@@ -356,14 +356,16 @@ public class Framework
 
   public static void applyCustomMapDownloadUrl(@NonNull Context context, @Nullable String url)
   {
-    String normalizedUrl = url != null ? url.trim() : "";
-
-    // Normalize
-    if (!normalizedUrl.isEmpty() && !normalizedUrl.endsWith("/"))
-      normalizedUrl = normalizedUrl + "/";
-
-    nativeSetCustomMapDownloadUrl(normalizedUrl);
+    nativeSetCustomMapDownloadUrl(normalizeServerUrl(url));
     // Reset the legacy downloader too (world/coasts).
     app.organicmaps.sdk.DownloadResourcesLegacyActivity.nativeResetMetaConfig();
+  }
+
+  public static String normalizeServerUrl(@Nullable String url)
+  {
+    String out = url != null ? url.trim() : "";
+    if (!out.isEmpty() && !out.endsWith("/"))
+      out = out + "/";
+    return out;
   }
 }

@@ -49,11 +49,6 @@ bool GetFileTypeChecked(std::string const & path, Platform::EFileType & type)
 }
 }  // namespace
 
-namespace
-{
-    std::string g_customMetaServerUrl;
-} // namespace
-
 // static
 Platform::EError Platform::ErrnoToError()
 {

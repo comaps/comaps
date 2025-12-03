@@ -42,16 +42,16 @@ using namespace std::placeholders;
 
 namespace
 {
-  std::unique_ptr<MapFilesDownloader> & LegacyDownloader()
-  {
-    static auto downloader = storage::GetDownloader();
-    return downloader;
-  }
+std::unique_ptr<MapFilesDownloader> & LegacyDownloader()
+{
+  static auto downloader = storage::GetDownloader();
+  return downloader;
+}
 
-  static std::vector<platform::CountryFile> g_filesToDownload;
-  static int g_totalDownloadedBytes;
-  static int g_totalBytesToDownload;
-  static std::shared_ptr<HttpRequest> g_currentRequest;
+static std::vector<platform::CountryFile> g_filesToDownload;
+static int g_totalDownloadedBytes;
+static int g_totalBytesToDownload;
+static std::shared_ptr<HttpRequest> g_currentRequest;
 }  // namespace
 
 extern "C"

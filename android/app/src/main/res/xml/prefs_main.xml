@@ -214,8 +214,8 @@
       android:order="2"/>
     <Preference
         android:key="@string/pref_custom_map_download_url"
-        android:title="@string/pref_custom_map_download_url_title"
-        android:summary="@string/pref_custom_map_download_url_summary"
+        android:title="@string/download_resources_custom_url_title"
+        app:icon="@drawable/ic_cloud_download"
         android:order="3" />
 
   </androidx.preference.PreferenceCategory>

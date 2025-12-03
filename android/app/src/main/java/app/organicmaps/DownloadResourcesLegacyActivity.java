@@ -13,15 +13,11 @@ import static app.organicmaps.sdk.DownloadResourcesLegacyActivity.nativeStartNex
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -29,18 +25,16 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.view.ViewCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 
 import app.organicmaps.base.BaseMwmFragmentActivity;
+import app.organicmaps.dialog.CustomMapServerDialog;
 import app.organicmaps.downloader.MapManagerHelper;
 import app.organicmaps.intent.Factory;
 import app.organicmaps.sdk.Framework;
@@ -281,7 +275,11 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mChbDownloadCountry = findViewById(R.id.chb_download_country);
     mBtnAdvanced = findViewById(R.id.btn_advanced);
 
-    mBtnAdvanced.setOnClickListener(v -> openCustomServerDialog());
+    mBtnAdvanced.setOnClickListener(v -> {
+      CustomMapServerDialog.show(this, url -> {
+        prepareFilesDownload(false);
+      });
+    });
     mBtnAdvanced.setEnabled(true);
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
@@ -412,56 +410,6 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     {
       showErrorDialog(result);
     }
-  }
-
-  private void openCustomServerDialog()
-  {
-    View dialogView = getLayoutInflater().inflate(R.layout.dialog_custom_map_server, null);
-    TextInputLayout til = dialogView.findViewById(R.id.til_custom_map_server);
-    TextInputEditText edit = dialogView.findViewById(R.id.edit_custom_map_server);
-
-    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-    String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
-    edit.setText(current);
-
-    MaterialAlertDialogBuilder builder =
-      new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
-        .setTitle(R.string.download_resources_custom_url_title)
-        .setMessage(R.string.download_resources_custom_url_message)
-        .setView(dialogView)
-        .setNegativeButton(android.R.string.cancel, null)
-        .setPositiveButton(R.string.save, null);
-
-    AlertDialog dialog = builder.create();
-    dialog.setOnShowListener(d -> {
-      Button ok = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
-      ok.setOnClickListener(v -> {
-        String url = edit.getText() != null ? edit.getText().toString().trim() : "";
-
-        if (!url.isEmpty()
-            && !url.startsWith("http://")
-            && !url.startsWith("https://")) {
-          til.setError(getString(R.string.download_resources_custom_url_error_scheme));
-          return;
-        }
-
-        til.setError(null);
-
-        prefs.edit()
-            .putString(getString(R.string.pref_custom_map_download_url), url)
-            .apply();
-
-        // Apply to native + reset meta configs
-        Framework.applyCustomMapDownloadUrl(this, url);
-
-        // Recompute total bytes (it can change with another server)
-        prepareFilesDownload(false);
-
-        dialog.dismiss();
-      });
-    });
-
-    dialog.show();
   }
 
   private void showErrorDialog(int result)
