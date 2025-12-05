@@ -139,7 +139,8 @@ enum EMyPositionMode
   NotFollowNoPosition,
   NotFollow,
   Follow,
-  FollowAndRotate
+  FollowAndRotateCompass,
+  FollowAndRotateRoute
 };
 
 using TMyPositionModeChanged = std::function<void(location::EMyPositionMode, bool)>;

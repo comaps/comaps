@@ -1,9 +1,12 @@
 #include "routing_manager.hpp"
 
+#include "drape_frontend/my_position_controller.hpp"
+#include "geometry/angles.hpp"
 #include "map/chart_generator.hpp"
 #include "map/routing_mark.hpp"
 
 #include "routing/absent_regions_finder.hpp"
+#include "routing/base/followed_polyline.hpp"
 #include "routing/checkpoint_predictor.hpp"
 #include "routing/index_router.hpp"
 #include "routing/route.hpp"
@@ -1170,9 +1173,9 @@ void RoutingManager::SetDrapeEngine(ref_ptr<df::DrapeEngine> engine, bool is3dAl
   if (m_gpsInfoCache != nullptr)
   {
     auto routeMatchingInfo = GetRouteMatchingInfo(*m_gpsInfoCache);
-    m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, *m_gpsInfoCache, m_routingSession.IsNavigable(),
-                           m_routingSession.GetDistanceToNextTurn(), m_routingSession.GetCurrentSpeedLimit(),
-                           routeMatchingInfo);
+    df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
+                                            m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+    m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, *m_gpsInfoCache, navigationContext, routeMatchingInfo);
     m_gpsInfoCache.reset();
   }
 
@@ -1516,9 +1519,9 @@ void RoutingManager::OnExtrapolatedLocationUpdate(location::GpsInfo const & info
     m_gpsInfoCache = make_unique<location::GpsInfo>(gpsInfo);
 
   auto routeMatchingInfo = GetRouteMatchingInfo(gpsInfo);
-  m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, gpsInfo, m_routingSession.IsNavigable(),
-                         m_routingSession.GetDistanceToNextTurn(), m_routingSession.GetCurrentSpeedLimit(),
-                         routeMatchingInfo);
+  df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
+                                          m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+  m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, gpsInfo, navigationContext, routeMatchingInfo);
 }
 
 void RoutingManager::DeleteSavedRoutePoints()

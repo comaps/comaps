@@ -7,6 +7,7 @@
 
 #include "ge0/url_generator.hpp"
 
+#include "platform/location.hpp"
 #include "routing/route.hpp"
 #include "routing/speed_camera_prohibition.hpp"
 
@@ -1453,7 +1454,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     GetPlatform().RunTask(Platform::Thread::Gui, [this, mode, routingActive]()
     {
       // Deactivate selection (and hide place page) if we return to routing in F&R mode.
-      if (routingActive && mode == location::FollowAndRotate)
+      if (routingActive && (mode == location::FollowAndRotateCompass || mode == location::FollowAndRotateRoute))
         DeactivateMapSelection();
 
       if (m_myPositionListener != nullptr)
@@ -3208,6 +3209,7 @@ void Framework::ReadFeatures(function<void(FeatureType &)> const & reader, vecto
 void Framework::OnRouteFollow(routing::RouterType type)
 {
   bool const isPedestrianRoute = type == RouterType::Pedestrian;
+  bool const allowRouteRotation = type == RouterType::Vehicle;
   bool const enableAutoZoom = isPedestrianRoute ? false : LoadAutoZoom();
   int const scale = isPedestrianRoute ? scales::GetPedestrianNavigationScale() : scales::GetNavigationScale();
   int scale3d = isPedestrianRoute ? scales::GetPedestrianNavigation3dScale() : scales::GetNavigation3dScale();
@@ -3223,7 +3225,7 @@ void Framework::OnRouteFollow(routing::RouterType type)
   // TODO. We need to sync two enums VehicleType and RouterType to be able to pass
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
   // |isArrowGlued| parameter fully corresponds to |m_matchRoute| in RoutingSettings.
-  m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */);
+  m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */, allowRouteRotation);
 }
 
 // RoutingManager::Delegate
