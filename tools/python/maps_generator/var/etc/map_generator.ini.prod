@@ -20,7 +20,7 @@ MAIN_OUT_PATH: /mnt/4tbexternal/osm-maps
 # Path to the data/ folder in the repository:
 USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
-THREADS_COUNT_FEATURES_STAGE: 0
+THREADS_COUNT_FEATURES_STAGE: 52
 # Do not change it. This is determined automatically.
 NODE_STORAGE: mem
 
