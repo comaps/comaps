@@ -308,7 +308,8 @@ string ToString<location::EMyPositionMode>(location::EMyPositionMode const & v)
   case location::NotFollow: return "NotFollow";
   case location::NotFollowNoPosition: return "NotFollowNoPosition";
   case location::Follow: return "Follow";
-  case location::FollowAndRotate: return "FollowAndRotate";
+  case location::FollowAndRotateCompass: return "FollowAndRotateCompass";
+  case location::FollowAndRotateRoute: return "FollowAndRotateRoute";
   default: return "Pending";
   }
 }
@@ -324,8 +325,10 @@ bool FromString<location::EMyPositionMode>(string const & s, location::EMyPositi
     v = location::NotFollowNoPosition;
   else if (s == "Follow")
     v = location::Follow;
-  else if (s == "FollowAndRotate")
-    v = location::FollowAndRotate;
+  else if (s == "FollowAndRotateCompass")
+    v = location::FollowAndRotateCompass;
+  else if (s == "FollowAndRotateRoute")
+    v = location::FollowAndRotateRoute;
   else
     return false;
 

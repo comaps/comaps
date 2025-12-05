@@ -1,5 +1,7 @@
 #pragma once
 
+#include "drape_frontend/my_position_controller.hpp"
+#include "routing/base/followed_polyline.hpp"
 #include "traffic/traffic_info.hpp"
 
 #include "drape_frontend/backend_renderer.hpp"
@@ -154,7 +156,7 @@ public:
   void UpdateMapStyle();
 
   void SetCompassInfo(location::CompassInfo const & info);
-  void SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+  void SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
                   location::RouteMatchingInfo const & routeInfo);
   void SwitchMyPositionNextMode();
   void LoseLocation();
@@ -171,7 +173,8 @@ public:
 
   dp::DrapeID AddSubroute(SubrouteConstPtr subroute);
   void RemoveSubroute(dp::DrapeID subrouteId, bool deactivateFollowing);
-  void FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued);
+  void FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued,
+                   bool allowRouteRotation);
   void DeactivateRouteFollowing();
   void SetSubrouteVisibility(dp::DrapeID subrouteId, bool isVisible);
   dp::DrapeID AddRoutePreviewSegment(m2::PointD const & startPt, m2::PointD const & finishPt);
