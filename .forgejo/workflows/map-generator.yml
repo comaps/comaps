@@ -105,17 +105,17 @@ jobs:
         run: |
           echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
           cd ~
-          git clone --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
       - name: Checkout wikiparser repo
         shell: bash
         run: |
           cd ~
-          git clone https://codeberg.org/comaps/wikiparser.git
+          git clone --depth 1 --single-branch https://codeberg.org/comaps/wikiparser.git
       - name: Checkout subways repo
         shell: bash
         run: |
           cd ~
-          git clone https://codeberg.org/comaps/subways.git
+          git clone --depth 1 --single-branch https://codeberg.org/comaps/subways.git
 
   copy-coasts:
     # if: inputs.run-copy-coasts
