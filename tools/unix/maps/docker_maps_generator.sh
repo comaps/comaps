@@ -33,13 +33,13 @@ cp var/etc/map_generator.ini.prod var/etc/map_generator.ini
 
 GENARGS=""
 
-if [ $MWMTEST -eq "true" ]; then
+if [ $MWMTEST == "true" ]; then
     echo "Marking as a test (non-prod) generation"
     # TODO: output test maps into e.g. osm-maps-test/ and use a different generation.log
     GENARGS="$GENARGS -s=test"
 fi
 
-if [ $MWMCONTINUE -eq "true" ]; then
+if [ $MWMCONTINUE == "true" ]; then
     echo "Continuing from preexisting generator run"
     GENARGS="$GENARGS --continue"
 fi
