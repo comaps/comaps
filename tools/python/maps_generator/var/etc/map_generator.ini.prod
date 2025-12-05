@@ -99,7 +99,7 @@ DIFF_VERSION_DEPTH: 2
 
 [Common]
 # Default parallelism level for the most of jobs. Set to 0 for auto detection.
-THREADS_COUNT: 0
+THREADS_COUNT: 48
 
 
 [Stats]
