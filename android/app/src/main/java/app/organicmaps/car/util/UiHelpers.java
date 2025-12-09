@@ -183,9 +183,14 @@ public final class UiHelpers
       drawableRes = R.drawable.ic_follow;
       tintColor = Colors.LOCATION_TINT;
     }
-    case LocationState.FOLLOW_AND_ROTATE ->
+    case LocationState.FOLLOW_AND_ROTATE_COMPASS ->
     {
       drawableRes = R.drawable.ic_follow_and_rotate;
+      tintColor = Colors.LOCATION_TINT;
+    }
+    case LocationState.FOLLOW_AND_ROTATE_ROUTE ->
+    {
+      drawableRes = R.drawable.ic_follow_route;
       tintColor = Colors.LOCATION_TINT;
     }
     default -> throw new IllegalArgumentException("Invalid button mode: " + locationMode);

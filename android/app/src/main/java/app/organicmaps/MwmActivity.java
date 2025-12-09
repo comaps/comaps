@@ -9,7 +9,8 @@ import static app.organicmaps.leftbutton.LeftButtonsHolder.BUTTON_HELP_CODE;
 import static app.organicmaps.leftbutton.LeftButtonsHolder.BUTTON_RECORD_TRACK_CODE;
 import static app.organicmaps.leftbutton.LeftButtonsHolder.BUTTON_SETTINGS_CODE;
 import static app.organicmaps.sdk.location.LocationState.FOLLOW;
-import static app.organicmaps.sdk.location.LocationState.FOLLOW_AND_ROTATE;
+import static app.organicmaps.sdk.location.LocationState.FOLLOW_AND_ROTATE_COMPASS;
+import static app.organicmaps.sdk.location.LocationState.FOLLOW_AND_ROTATE_ROUTE;
 import static app.organicmaps.sdk.location.LocationState.LOCATION_TAG;
 import static app.organicmaps.sdk.util.PowerManagment.POWER_MANAGEMENT_TAG;
 import static app.organicmaps.sdk.util.Utils.dimen;
@@ -1900,7 +1901,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     locationHelper.restartWithNewMode();
 
-    if ((newMode == FOLLOW || newMode == FOLLOW_AND_ROTATE) && !LocationUtils.checkFineLocationPermission(this))
+    if ((newMode == FOLLOW || newMode == FOLLOW_AND_ROTATE_ROUTE || newMode == FOLLOW_AND_ROTATE_COMPASS)
+        && !LocationUtils.checkFineLocationPermission(this))
     {
       // Try to optimistically request FINE permission for FOLLOW and FOLLOW_AND_ROTATE modes.
       Logger.i(LOCATION_TAG, "Requesting ACCESS_FINE_LOCATION permission for " + LocationState.nameOf(newMode));
