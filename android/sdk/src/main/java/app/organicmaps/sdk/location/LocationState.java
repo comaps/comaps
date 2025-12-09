@@ -20,7 +20,8 @@ public final class LocationState
   }
 
   @Retention(RetentionPolicy.SOURCE)
-  @IntDef({PENDING_POSITION, NOT_FOLLOW_NO_POSITION, NOT_FOLLOW, FOLLOW, FOLLOW_AND_ROTATE})
+  @IntDef({PENDING_POSITION, NOT_FOLLOW_NO_POSITION, NOT_FOLLOW, FOLLOW, FOLLOW_AND_ROTATE_COMPASS,
+           FOLLOW_AND_ROTATE_ROUTE})
   @interface Value
   {}
 
@@ -29,7 +30,8 @@ public final class LocationState
   public static final int NOT_FOLLOW_NO_POSITION = 1;
   public static final int NOT_FOLLOW = 2;
   public static final int FOLLOW = 3;
-  public static final int FOLLOW_AND_ROTATE = 4;
+  public static final int FOLLOW_AND_ROTATE_COMPASS = 4;
+  public static final int FOLLOW_AND_ROTATE_ROUTE = 5;
 
   // These constants should correspond to values defined in platform/location.hpp
   // Leave 0-value as no any error.
@@ -69,7 +71,8 @@ public final class LocationState
       case NOT_FOLLOW_NO_POSITION -> "NOT_FOLLOW_NO_POSITION";
       case NOT_FOLLOW -> "NOT_FOLLOW";
       case FOLLOW -> "FOLLOW";
-      case FOLLOW_AND_ROTATE -> "FOLLOW_AND_ROTATE";
+      case FOLLOW_AND_ROTATE_COMPASS -> "FOLLOW_AND_ROTATE_COMPASS";
+      case FOLLOW_AND_ROTATE_ROUTE -> "FOLLOW_AND_ROTATE_ROUTE";
       default -> "Unknown: " + mode;
     };
   }

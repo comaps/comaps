@@ -49,8 +49,8 @@ public class MyPositionButton
     int colorAttr = R.attr.iconTint;
     @DimenRes
     int sizeDimen = R.dimen.map_button_icon_size;
-    if (mode == LocationState.FOLLOW || mode == LocationState.FOLLOW_AND_ROTATE
-        || mode == LocationState.PENDING_POSITION)
+    if (mode == LocationState.FOLLOW || mode == LocationState.FOLLOW_AND_ROTATE_ROUTE
+        || mode == LocationState.FOLLOW_AND_ROTATE_COMPASS || mode == LocationState.PENDING_POSITION)
     {
       colorAttr = com.google.android.material.R.attr.colorSecondary;
       if (mode == LocationState.PENDING_POSITION)
@@ -69,7 +69,8 @@ public class MyPositionButton
         case LocationState.NOT_FOLLOW_NO_POSITION -> R.drawable.ic_location_off;
         case LocationState.NOT_FOLLOW -> R.drawable.ic_location_crosshair;
         case LocationState.FOLLOW -> R.drawable.ic_follow;
-        case LocationState.FOLLOW_AND_ROTATE -> R.drawable.ic_follow_and_rotate;
+        case LocationState.FOLLOW_AND_ROTATE_COMPASS -> R.drawable.ic_follow_and_rotate;
+        case LocationState.FOLLOW_AND_ROTATE_ROUTE -> R.drawable.ic_follow_route;
         default -> throw new IllegalArgumentException("Invalid button mode: " + mode);
       };
           image = ResourcesCompat.getDrawable(resources, drawableRes, context.getTheme());
