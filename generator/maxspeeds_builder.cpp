@@ -151,7 +151,7 @@ public:
       // Set speed as-is from parent link.
       if (parentHwType == hwType)
         return {{s.GetForward(), s.GetUnits()}};
-
+      /* Commenting this part out as an attempt to solve displayed (and inexistent) max speed in highway links (https://codeberg.org/comaps/comaps/issues/1000)
       using routing::HighwayType;
       if ((*parentHwType == HighwayType::HighwayMotorway && hwType == HighwayType::HighwayMotorwayLink) ||
           (*parentHwType == HighwayType::HighwayTrunk && hwType == HighwayType::HighwayTrunkLink) ||
@@ -163,6 +163,7 @@ public:
         return converter.ClosestValidMacro(
             {base::asserted_cast<MaxspeedType>(std::lround(s.GetForward() * kLinkToMainSpeedFactor)), s.GetUnits()});
       }
+      */
 
       return {};
     };
