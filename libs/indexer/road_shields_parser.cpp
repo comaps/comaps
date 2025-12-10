@@ -630,7 +630,8 @@ public:
     : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Generic_Green},
                                               {"DN", RoadShieldType::Romania_DN, false, true},
                                               {"DJ", RoadShieldType::Romania_DJ, false, true},
-                                              {"DC", RoadShieldType::Romania_DJ, false, true}})
+                                              {"DC", RoadShieldType::Romania_DJ, false, true},
+                                              {"DX", RoadShieldType::Romania_DJ, false, true}})
   {}
 };
 
