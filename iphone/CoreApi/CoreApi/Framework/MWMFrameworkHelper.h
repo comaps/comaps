@@ -59,6 +59,7 @@ NS_SWIFT_NAME(FrameworkHelper)
 + (void)updatePlacePageData;
 + (void)updateAfterDeleteBookmark;
 + (int)currentZoomLevel;
++ (void)setCarScreenMode:(BOOL)enabled;
 
 @end
 

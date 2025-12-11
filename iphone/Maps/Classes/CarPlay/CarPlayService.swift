@@ -62,6 +62,8 @@ final class CarPlayService: NSObject {
       toWindow: window,
       isCarplayActivated: true
     )
+      
+    FrameworkHelper.setCarScreenMode(true)
   }
 
   private var savedInterfaceController: CPInterfaceController?
@@ -126,6 +128,7 @@ final class CarPlayService: NSObject {
         isCarplayActivated: false
       )
     }
+    FrameworkHelper.setCarScreenMode(false)
   }
 
   @objc func destroy() {
