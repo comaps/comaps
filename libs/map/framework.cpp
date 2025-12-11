@@ -2424,6 +2424,10 @@ void Framework::Allow3dMode(bool allow3d, bool allow3dBuildings)
   if (!m_powerManager.IsFacilityEnabled(power_management::Facility::Buildings3d))
     allow3dBuildings = false;
 
+  /// If we are in CarPlay/AA mode and Navigation is active, force 3D buildings off.
+  if (m_isCarScreenMode && m_routingManager.IsRoutingActive())
+    allow3dBuildings = false;
+
   m_drapeEngine->Allow3dMode(allow3d, allow3dBuildings);
 }
 
@@ -3224,6 +3228,10 @@ void Framework::OnRouteFollow(routing::RouterType type)
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
   // |isArrowGlued| parameter fully corresponds to |m_matchRoute| in RoutingSettings.
   m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */);
+  
+  bool allow3d, allow3dBuildings;
+  Load3dMode(allow3d, allow3dBuildings);
+  Allow3dMode(allow3d, allow3dBuildings);
 }
 
 // RoutingManager::Delegate
@@ -3291,4 +3299,16 @@ void Framework::OnPowerSchemeChanged(power_management::Scheme const actualScheme
 {
   if (actualScheme == power_management::Scheme::EconomyMaximum && GetTrafficManager().IsEnabled())
     GetTrafficManager().SetEnabled(false);
+}
+
+void Framework::SetCarScreenMode(bool enabled)
+{
+  if (m_isCarScreenMode == enabled)
+    return;
+
+  m_isCarScreenMode = enabled;
+
+  bool allow3d, allow3dBuildings;
+  Load3dMode(allow3d, allow3dBuildings);
+  Allow3dMode(allow3d, allow3dBuildings);
 }
