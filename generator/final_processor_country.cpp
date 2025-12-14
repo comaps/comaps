@@ -10,6 +10,7 @@
 #include "generator/mini_roundabout_transformer.hpp"
 #include "generator/node_mixer.hpp"
 #include "generator/osm2type.hpp"
+#include "generator/panoramax_collector.hpp"
 #include "generator/region_meta.hpp"
 
 #include "routing/speed_camera_prohibition.hpp"
@@ -67,6 +68,9 @@ void CountryFinalProcessor::Process()
   LOG(LINFO, ("Adding isolines..."));
   if (!m_isolinesPath.empty())
     AddIsolines();
+
+  LOG(LINFO, ("Enriching with Panoramax data..."));
+  EnrichPanoramax();
 
   // DropProhibitedSpeedCameras();
   LOG(LINFO, ("Processing building parts..."));
@@ -291,6 +295,50 @@ void CountryFinalProcessor::AddAddresses()
   });
 
   LOG(LINFO, ("Total addresses:", totalStats));
+}
+
+void CountryFinalProcessor::EnrichPanoramax()
+{
+  if (m_panoramaxFilename.empty() || !Platform::IsFileExistsByFullPath(m_panoramaxFilename))
+  {
+    LOG(LINFO, ("Panoramax data not available, skipping enrichment"));
+    return;
+  }
+
+  LOG(LINFO, ("Enriching roads with Panoramax imagery data from:", m_panoramaxFilename));
+
+  // Load Panoramax imagery data
+  PanoramaxCollector collector;
+  if (!collector.LoadImageryData(m_panoramaxFilename, ""))
+  {
+    LOG(LWARNING, ("Failed to load Panoramax data"));
+    return;
+  }
+
+  // Enrich roads in each MWM
+  ForEachMwmTmp(m_temporaryMwmPath, [&](auto const & name, auto const & path)
+  {
+    if (!IsCountry(name))
+      return;
+
+    LOG(LINFO, ("Enriching Panoramax for:", name));
+
+    std::vector<FeatureBuilder> features;
+    ForEachFeatureRawFormat<serialization_policy::MaxAccuracy>(
+        path, [&](FeatureBuilder && fb, uint64_t) {
+          collector.EnrichRoad(fb);
+          features.emplace_back(std::move(fb));
+        });
+
+    // Rewrite the file with enriched features
+    FeatureBuilderWriter<serialization_policy::MaxAccuracy> writer(path, FileWriter::Op::OP_WRITE_TRUNCATE);
+    for (auto & fb : features)
+      writer.Write(fb);
+
+    LOG(LINFO, (name, "done"));
+  });
+
+  LOG(LINFO, ("Panoramax enrichment complete:", DebugPrint(collector.GetStats())));
 }
 
 void CountryFinalProcessor::ProcessCoastline()

@@ -26,6 +26,7 @@ public:
   void SetAddressesDir(std::string const & dir) { m_addressPath = dir; }
 
   void SetCityBoundariesFiles(std::string const & collectorFile) { m_boundariesCollectorFile = collectorFile; }
+  void SetPanoramaxFile(std::string const & filename) { m_panoramaxFilename = filename; }
 
   // FinalProcessorIntermediateMwmInterface overrides:
   void Process() override;
@@ -39,6 +40,7 @@ private:
   void AddFakeNodes();
   void AddIsolines();
   void AddAddresses();
+  void EnrichPanoramax();
   void DropProhibitedSpeedCameras();
   // void Finish();
 
@@ -54,6 +56,7 @@ private:
   std::string m_fakeNodesFilename;
   std::string m_miniRoundaboutsFilename;
   std::string m_addrInterpolFilename;
+  std::string m_panoramaxFilename;
 
   std::string m_hierarchySrcFilename;
 

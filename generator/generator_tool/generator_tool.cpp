@@ -107,6 +107,7 @@ DEFINE_string(nodes_list_path, "",
 DEFINE_bool(generate_isolines_info, false, "Generate the isolines info section");
 DEFINE_string(isolines_path, "", "Path to isolines directory. If set, adds isolines linear features.");
 DEFINE_string(addresses_path, "", "Path to addresses directory. If set, adds addr:interpolation features.");
+DEFINE_string(panoramax_file, "", "Path to Panoramax imagery coords file. If set, enriches roads with street-level imagery availability.");
 
 // Routing.
 DEFINE_bool(make_routing_index, false, "Make sections with the routing information.");
@@ -243,6 +244,7 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
   genInfo.m_complexHierarchyFilename = FLAGS_complex_hierarchy_data;
   genInfo.m_isolinesDir = FLAGS_isolines_path;
   genInfo.m_addressesDir = FLAGS_addresses_path;
+  genInfo.m_panoramaxFilename = FLAGS_panoramax_file;
 
   // Use merged style.
   GetStyleReader().SetCurrentStyle(MapStyleMerged);

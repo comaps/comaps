@@ -42,6 +42,9 @@ struct GenerateInfo
   // External folders with additional preprocessed data (isolines, addresses).
   std::string m_isolinesDir, m_addressesDir;
 
+  // Panoramax imagery data file
+  std::string m_panoramaxFilename;
+
   // Current generated file name if --output option is defined.
   std::string m_fileName;
 
