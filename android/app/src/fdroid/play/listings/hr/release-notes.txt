@@ -1,0 +1,10 @@
+• Podaci OpenStreetMap karte od 9. prosinca
+• Korištenje Material 3 tema
+• Podrška za utičnice za punjenje u OSM Editoru
+• Dodane šuko/tip-E utičnice
+• Poboljšano rangiranje rezultata pretraživanja
+• Omogućeni litvanski i latvijski jezici u glasovnim najavama
+• Povećana veličina indikatora vožnje
+• Razina zumiranja se mijenja ovisno o udaljenosti do sljedećeg skretanja
+• Promijenjen redoslijed postavki
+Više detalja na codeberg.org/comaps/comaps/releases

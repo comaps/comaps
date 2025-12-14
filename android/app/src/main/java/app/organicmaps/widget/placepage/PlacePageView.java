@@ -32,7 +32,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import app.organicmaps.BuildConfig;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
@@ -57,7 +56,6 @@ import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.editor.Editor;
 import app.organicmaps.sdk.editor.OhState;
 import app.organicmaps.sdk.editor.OpeningHours;
-import app.organicmaps.sdk.editor.data.HoursMinutes;
 import app.organicmaps.sdk.editor.data.Timetable;
 import app.organicmaps.sdk.location.LocationListener;
 import app.organicmaps.sdk.location.SensorListener;

@@ -820,8 +820,11 @@
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Funkturm";
 
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Funkturm";
+
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Funkmast";
 
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Öl- oder Gasbohrung";

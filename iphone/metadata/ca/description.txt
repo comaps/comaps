@@ -1,0 +1,28 @@
+Una aplicació de mapes gratuïta i de codi obert dirigida per la comunitat, basada en dades d'OpenStreetMap, i reforçada amb el compromís amb la transparència, la privadesa i ser sense ànim de lucre.
+
+‣ Simple i polit: funcions essencials fàcils d'utilitzar que simplement funcionen.
+‣ Fora de línia: Planifica i navega pel teu viatge a l'estranger sense necessitat de servei mòbil, cerca punts de referència mentre fas una excursió llunyana, etc. Totes les funcions de l'aplicació estan dissenyades per funcionar fora de línia.
+‣ Respecte a la privadesa: l'aplicació està dissenyada tenint en compte la privadesa: no identifica persones, no rastreja i no recopila informació personal. Sense anuncis.
+‣ Estalvia bateria i espai: no consumeix bateria com altres aplicacions de navegació. Els mapes compactes estalvien l'espai preuat del telèfon.
+‣ Gratuït i creat per la comunitat: persones com tu han ajudat a crear l'aplicació afegint llocs a OpenStreetMap, provant i donant comentaris sobre les funcions i aportant les seves habilitats de desenvolupament i diners.
+‣ Presa de decisions i finances obertes i transparents, sense ànim de lucre i totalment de codi obert.
+
+Característiques principals:
+• Mapes detallats descarregables amb llocs que no estan disponibles en molts mapes comercials
+• Mode exterior amb rutes de senderisme destacades, càmpings, fonts d'aigua, pics, corbes de nivell, etc.
+• Senders per caminar i carrils bici
+• Punts d'interès com restaurants, gasolineres, hotels, botigues, llocs d'interès i molts més
+• Cerca per nom, adreça o categoria de punt d'interès
+• Navegació amb anuncis de veu per caminar, anar amb bicicleta o conduir
+• Marca els teus llocs preferits amb un sol toc
+• Sincronització a iCloud per als teus marcadors i rutes
+• Articles de la Viquipèdia fora de línia
+• Capa i indicacions de trànsit de metro
+• Enregistrament de rutes
+• Exportació i importació de marcadors i rutes en formats KML, KMZ i GPX
+• Un mode fosc per utilitzar durant la nit
+• Millora les dades del mapa per a tothom amb un editor bàsic integrat
+• Compatibilitat amb CarPlay
+
+La llibertat és aquí
+Descobreix el teu viatge, navega pel món amb la privadesa i la comunitat al capdavant!

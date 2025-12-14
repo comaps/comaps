@@ -30,7 +30,7 @@ public:
 
   ChargeSocketsHelper(ChargeSocketDescriptors const & sockets) : m_chargeSockets(sockets), m_dirty(true) {}
 
-  /** Create a ChareSocketsHelper instance from an existing list of sockets
+  /** Create a ChargeSocketsHelper instance from an existing list of sockets
    * stored as "<type>|<nb>|[<power>];..."
    *
    * For instance:
@@ -93,9 +93,9 @@ public:
   /** List of supported sockets, ~ordered from high-power to low-power.
    * This order can be used in the UIs.
    */
-  static constexpr std::array<std::string_view, 12> SUPPORTED_TYPES = {
-      "mcs",    "type2_combo", "chademo",     "nacs",  "type1", "gb_dc",
-      "chaoji", "type3c",      "type2_cable", "type2", "gb_ac", "type3a"};
+  static constexpr std::array<std::string_view, 14> SUPPORTED_TYPES = {
+      "mcs",    "type2_combo", "chademo", "nacs",  "type1",  "gb_dc", "chaoji",
+      "type3c", "type2_cable", "type2",   "gb_ac", "type3a", "typee", "schuko"};
 
   /** Return a list of OSM attributes that have changed between the current
    * list of sockets and the provided old list.

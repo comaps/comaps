@@ -1,3 +1,5 @@
+import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+
 plugins {
   id 'com.android.library'
 }
@@ -105,8 +107,6 @@ android {
     disable 'MissingTranslation'
     // https://github.com/organicmaps/organicmaps/issues/3551
     disable 'MissingQuantity', 'UnusedQuantity'
-    // https://github.com/organicmaps/organicmaps/issues/3550
-    disable 'ByteOrderMark'
     // https://github.com/organicmaps/organicmaps/issues/1077
     disable 'CustomSplashScreen'
     // https://github.com/organicmaps/organicmaps/issues/3610
@@ -149,11 +149,14 @@ project.afterEvaluate {
     exec {
       workingDir '../..'
 
+      def isWindows = DefaultNativePlatform.getCurrentOperatingSystem().isWindows()
+      def bash = isWindows ? 'C:/Program Files/Git/bin/bash.exe' : 'bash'
+
       if (!taskName.toString().contains('Google')) {
         environment 'SKIP_MAP_DOWNLOAD', '1'
       }
 
-      commandLine './configure.sh'
+      commandLine bash, './configure.sh'
     }
   }
 }

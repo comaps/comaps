@@ -4,7 +4,6 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/layers_button"
   style="@style/MwmWidget.M3.FAB.MapButton"
-  android:tint="?iconTint"
   android:contentDescription="@string/layers_title"
   app:tint="?accentColorSelector"
   app:srcCompat="@drawable/ic_layers" />

@@ -15,7 +15,7 @@
     <string name="type.aeroway.aerodrome">Vliegveld</string>
     <string name="type.aeroway.aerodrome.international">Vliegveld</string>
     <string name="type.aeroway.apron">Platform</string>
-    <string name="type.aeroway.gate">Poort</string>
+    <string name="type.aeroway.gate">Gate</string>
     <string name="type.aeroway.helipad">Heliplatform</string>
     <string name="type.aeroway.runway">Startbaan</string>
     <string name="type.aeroway.taxiway">Taxibaan</string>
@@ -1492,4 +1492,12 @@
     <string name="type.entrance.emergency">Nooduitgang</string>
     <string name="type.xmas.tree">Kerstboom</string>
     <string name="type.shop.beauty.day_spa">Schoonheidssalon</string>
+    <string name="type.man_made.mast.communication">Telecommunicatiemast</string>
+    <string name="type.amenity.mobile_money_agent">Mobiel geldkantoor</string>
+    <string name="type.beacon.isolated_danger">Geïsoleerd gevaarsbaken</string>
+    <string name="type.buoy.isolated_danger">Geïsoleerde gevaarsboei</string>
+    <string name="type.spherical_buoy.isolated_danger">Sferische geïsoleerde gevaarsboei</string>
+    <string name="type.shop.beauty.nails">Nagelsalon</string>
+    <string name="type.amenity.food_sharing">Voedsel delen</string>
+    <string name="type.amenity.give_box">Giftenkist</string>
 </resources>

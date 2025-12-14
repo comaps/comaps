@@ -44,11 +44,7 @@ public:
     m_scorer.SetPivotForTesting(pivot);
 
     vector<UniString> tokens;
-    search::ForEachNormalizedToken(query, [&tokens](strings::UniString && token)
-    {
-      if (!IsStopWord(token))
-        tokens.push_back(std::move(token));
-    });
+    tokens = NormalizeAndTokenizeString(query);
 
     m_params.Init(query, tokens, lastTokenIsPrefix);
   }

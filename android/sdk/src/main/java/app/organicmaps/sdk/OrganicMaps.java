@@ -166,7 +166,6 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     nativeInitPlatform(mContext, apkPath, writablePath, privatePath, tempPath, mFlavor, BuildConfig.BUILD_TYPE,
                        /* isTablet */ false);
     Config.setStoragePath(writablePath);
-    Config.setStatisticsEnabled(SharedPropertiesUtils.isStatisticsEnabled());
 
     mPlatformInitialized = true;
     Logger.i(TAG, "Platform initialized");

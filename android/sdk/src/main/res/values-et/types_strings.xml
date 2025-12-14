@@ -1492,4 +1492,6 @@
     <string name="type.beacon.safe_water">Faarvaatri tooder</string>
     <string name="type.buoy.safe_water">Faarvaatri poi</string>
     <string name="type.spherical_buoy.safe_water">Faarvaatri kerapoi</string>
+    <string name="type.man_made.mast.communication">Sidemast</string>
+    <string name="type.shop.beauty.nails">Küünestuudio</string>
 </resources>

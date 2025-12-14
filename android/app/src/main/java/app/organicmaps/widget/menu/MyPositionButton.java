@@ -67,7 +67,7 @@ public class MyPositionButton
       {
         case LocationState.PENDING_POSITION -> R.drawable.ic_menu_location_pending;
         case LocationState.NOT_FOLLOW_NO_POSITION -> R.drawable.ic_location_off;
-        case LocationState.NOT_FOLLOW -> R.drawable.ic_not_follow;
+        case LocationState.NOT_FOLLOW -> R.drawable.ic_location_crosshair;
         case LocationState.FOLLOW -> R.drawable.ic_follow;
         case LocationState.FOLLOW_AND_ROTATE -> R.drawable.ic_follow_and_rotate;
         default -> throw new IllegalArgumentException("Invalid button mode: " + mode);

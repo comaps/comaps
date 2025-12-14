@@ -1,0 +1,32 @@
+Una aplicació de mapes gratuïta i de codi obert dirigida per la comunitat basada en dades d'OpenStreetMap i reforçada amb el compromís amb la transparència, la privadesa i la no ànim de lucre. CoMaps és una derivació/fork d'Organic Maps, que al seu torn és una derivació de Maps.ME.
+
+Llegiu sobre els motius del projecte i la seva direcció a <b><i>codeberg.org/comaps</i></b>.
+Uneix-te a la comunitat i ajuda a crear la millor aplicació de mapes
+• Utilitza l'aplicació i difon-la
+• Dona comentaris i informa de problemes
+• Actualitza les dades del mapa a l'aplicació o al lloc web d'OpenStreetMap
+
+‣ <b>Enfocat fora de línia</b>: Planifica i navega pel teu viatge a l'estranger sense necessitat de servei mòbil, cerca punts de referència mentre fas una excursió llunyana, etc. Totes les funcions de l'aplicació estan dissenyades per funcionar fora de línia.
+‣ <b>Respecte a la privadesa</b>: L'aplicació està dissenyada tenint en compte la privadesa: no identifica persones, no fa seguiment i no recopila informació personal. Sense anuncis.
+‣ <b>Senzill i polit</b>: funcions essencials fàcils d'utilitzar que simplement funcionen.
+‣ <b>Estalvia bateria i espai</b>: No consumeix bateria com altres aplicacions de navegació. Els mapes compactes estalvien espai preciós al telèfon.
+‣ <b>Gratuït i creat per la comunitat</b>: Gent com tu ha ajudat a crear l'aplicació afegint llocs a OpenStreetMap, provant i donant comentaris sobre les funcions i aportant les seves habilitats de desenvolupament i diners.
+‣ <b>Presa de decisions i finances obertes i transparents, sense ànim de lucre i de codi obert.</b>
+
+<b>Característiques principals</b>:
+• Mapes detallats descarregables amb llocs que no estan disponibles amb Google Maps
+• Mode exterior amb rutes de senderisme destacades, càmpings, fonts d'aigua, pics, corbes de nivell, etc.
+• Senders per caminar i carrils bici
+• Punts d'interès com restaurants, gasolineres, hotels, botigues, llocs d'interès i molts més
+• Cerca per nom, adreça o categoria de punt d'interès
+• Navegació amb anuncis de veu per caminar, anar amb bicicleta o conduir
+• Marca els teus llocs preferits amb un sol toc
+• Articles de la Viquipèdia fora de línia
+• Capa i indicacions de trànsit de metro
+• Enregistrament de rutes
+• Exporta i importa marcadors i rutes en formats KML, KMZ i GPX
+• Un mode fosc per utilitzar durant la nit
+• Millora les dades del mapa per a tothom mitjançant un editor bàsic integrat
+
+<b>La llibertat és aquí</b>
+Descobreix el teu viatge, navega pel món amb la privadesa i la comunitat al capdavant!

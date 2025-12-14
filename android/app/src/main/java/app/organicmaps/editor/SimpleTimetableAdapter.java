@@ -11,7 +11,6 @@ import android.widget.LinearLayout;
 import androidx.annotation.IdRes;
 import androidx.annotation.IntRange;
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +24,7 @@ import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -195,7 +195,7 @@ class SimpleTimetableAdapter extends RecyclerView.Adapter<SimpleTimetableAdapter
 
     SparseArray<MaterialCheckBox> days = new SparseArray<>(7);
     View allday;
-    SwitchCompat swAllday;
+    MaterialSwitch swAllday;
     View schedule;
     View openClose;
     View open;

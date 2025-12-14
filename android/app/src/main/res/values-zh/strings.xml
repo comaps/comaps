@@ -510,8 +510,8 @@
     <string name="placepage_more_button">更多</string>
     <string name="placepage_edit_bookmark_button">编辑书签</string>
     <string name="placepage_personal_notes_hint">个人注记（文字或 html）</string>
-    <string name="editor_reset_edits_message">重置所有本地更改？</string>
-    <string name="editor_reset_edits_button">重置</string>
+    <string name="editor_reset_edits_message">舍弃所有本地更改？</string>
+    <string name="editor_reset_edits_button">舍弃</string>
     <string name="editor_remove_place_message">删除已添加的地点？</string>
     <string name="editor_remove_place_button">删除</string>
     <string name="editor_place_doesnt_exist">该地点不存在</string>
@@ -881,7 +881,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">未知充电接口</string>
-    <string name="unknow_socket_type">未知充电接口</string>
     <string name="edit_socket_info_tooltip">创建新充电接口或编辑现有充电接口。</string>
     <string name="charging_station_available_sockets">可用的充电接口</string>
     <string name="charge_socket_unknown_other">其他或未知</string>
@@ -908,4 +907,9 @@
     <string name="editor_mark_business_vacant_description">如果商铺已搬离且场地空置待租，请使用此选项。</string>
     <string name="editor_submit">提交</string>
     <string name="avoid_paved">避开铺装道路</string>
+    <string name="power_management">电源管理</string>
+    <string name="charge_socket_schuko">欧盟标准</string>
+    <string name="navigation_start_tts_message">"启动导航，语音指令语言： "</string>
+    <string name="prefs_speed_cameras_information">在当地法律禁止发出警报的国家/地区，测速摄像头警告功能将被禁用。</string>
+    <string name="navigation_start_tts_disabled_message">语音指令已禁用：TTS 引擎不可用</string>
 </resources>

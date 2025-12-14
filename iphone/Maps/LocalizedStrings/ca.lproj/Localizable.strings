@@ -616,7 +616,7 @@
 
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "El nombre de plantes no pot excedir de %d";
-"editor_zip_code" = "Codi postal";
+"editor_zip_code" = "Codi Postal";
 "error_enter_correct_zip_code" = "Introduïu un codi postal vàlid";
 
 /* Place Page title for long tap */
@@ -695,7 +695,7 @@
 
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Assegureu-vos que no heu introduït cap dada personal.";
-"editor_share_to_all_dialog_message_2" = "Revisarem els canvis. Si tenim cap pregunta contactem amb vós via correu electrònic.";
+"editor_share_to_all_dialog_message_2" = "Els editors d'OpenStreetMap revisaran els canvis. Et contactaran si tenen cap pregunta.";
 "navigation_stop_button" = "Atura";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -1086,10 +1086,15 @@
 "osm_profile_view_edit_history" = "Veure l'historial d'edicions";
 "osm_profile_view_notes" = "Veure notes";
 "about_headline" = "Projecte obert, desenvolupat per la comunitat";
-"about_proposition_3" = "Transparent and not for profit";
+"about_proposition_3" = "Transparent i sense ànim de lucre";
 "pref_mapappearance_title" = "Map Appearance";
 "pref_maplanguage_title" = "Map Language";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 "pref_maplanguage_local" = "Local Language";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"offline_explanation_title" = "Mapes sense Connexió";
+"offline_explanation_text" = "Un mapa ha de ser desconegut per a veure i navegar l'àrea.\nDescarrega mapes per a àrees on vulgues viatjar.";
+"editor_place_doesnt_exist_description" = "Descriu com és el lloc ara mateix per enviar una nota d'error a la comunitat d'OpenStreetMap";
+"avoid_steps" = "Evita escales";
+"avoid_paved" = "Evita carreteres asfaltades";

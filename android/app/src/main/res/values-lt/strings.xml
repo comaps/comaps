@@ -281,7 +281,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Įjunkite vietovės tarnybas</string>
     <string name="save">Įrašyti</string>
-    <string name="create">kurti</string>
+    <string name="create">Kurti</string>
     <!-- red color -->
     <string name="red">Raudonas</string>
     <!-- yellow color -->
@@ -401,8 +401,8 @@
     <string name="twentyfour_seven">24×7</string>
     <string name="day_off_today">Šiandien uždaryta</string>
     <string name="day_off">Uždaryta</string>
-    <string name="opens_in">Atsidaro už %s</string>
-    <string name="closes_in">Užsidaro už %s</string>
+    <string name="opens_in">Atidaroma už %s</string>
+    <string name="closes_in">Uždaroma už %s</string>
     <string name="closed">Uždaryta</string>
     <string name="edit_opening_hours">Taisyti darbo valandas</string>
     <string name="no_osm_account">Neturite „OpenStreetMap“ paskyros?</string>
@@ -510,8 +510,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Ar tikrai norite šiuos pakeitimus paviešinti?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Įsitikinkite, kad neįvedėte jokių asmeninių duomenų</string>
-    <string name="editor_share_to_all_dialog_message_2">„OpenStreetMap“ redaktoriai peržiūrės pakeitimus ir su jumis susisieks, jei kiltų klausimų</string>
+    <string name="editor_share_to_all_dialog_message_1">Įsitikinkite, kad neįvedėte jokių asmeninių duomenų.</string>
+    <string name="editor_share_to_all_dialog_message_2">„OpenStreetMap“ redaktoriai peržiūrės pakeitimus ir su jumis susisieks, jei kiltų klausimų.</string>
     <string name="navigation_stop_button">Stabdyti</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Trasa įrašoma</string>
@@ -859,7 +859,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">nežinomo tipo jungtis</string>
-    <string name="unknow_socket_type">nežinomo tipo jungtis</string>
     <string name="edit_socket_info_tooltip">Galite įvesti naujas jungtis arba redaguoti esamas.</string>
     <string name="charging_station_available_sockets">Galimos jungtys</string>
     <string name="charge_socket_unknown_other">Kita / nežinoma</string>
@@ -871,4 +870,22 @@
     <string name="error_invalid_number">Netinkamas skaičius</string>
     <string name="offline_explanation_title">Žemėlapio parsisiuntimas</string>
     <string name="offline_explanation_text">Kad galėtumėte matyti šios vietovės žemėlapį ir planuoti jame keliones, pirma turite jį atsiųsti.</string>
+    <string name="avoid_paved">Vengti grįstų kelių</string>
+    <string name="opens_at">Atidaroma %s</string>
+    <string name="closes_at">Uždaroma %s</string>
+    <string name="opens_day_at">Atidaroma %1$s , %2$s</string>
+    <string name="closes_day_at">Uždaroma %1$s, %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min.</item>
+        <item quantity="few">%d min.</item>
+        <item quantity="many">%d min.</item>
+        <item quantity="other">%d min.</item>
+    </plurals>
+    <string name="editor_business_vacant_button">Erdvė nenaudojama</string>
+    <string name="editor_mark_business_vacant_title">Pažymėti erdvę kaip nenaudojamą</string>
+    <string name="editor_mark_business_vacant_description">Pasinaudokite šia funkcija, jei šioje erdvėje buvusi įmonė ar įstaiga išsikėlė ir ši erdvė dabar nenaudojama.</string>
+    <string name="editor_submit">Pateikti</string>
+    <string name="power_management">Energijos naudojimas</string>
+    <string name="charge_socket_schuko">Buitinis ES</string>
+    <string name="list_description_empty">Paredaguokite sąrašą ir pridėkite aprašymą</string>
 </resources>

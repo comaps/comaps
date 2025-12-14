@@ -1016,7 +1016,7 @@
 "icloud_sync" = "Sünkroonimine iCloudiga (Beeta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_title" = "Luba iCloudi sünkroniseerimine";
+"enable_icloud_synchronization_title" = "Lülita iCloudi sünkroonimine sisse";
 
 /* Message for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_message" = "iCloudi sünkroniseerimine on eksperimentaalne funktsioon, mis on arendamisel. Igaks juhuks veendu, et oled teinud varukoopia kõigist oma järjehoidjatest ja radadest.";
@@ -1025,7 +1025,7 @@
 "icloud_disabled_title" = "iCloud on välja lülitatud";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Selle funktsionaalsuse kasutamiseks luba nutiseadme seadistustes iCloud.";
+"icloud_disabled_message" = "Selle funktsionaalsuse kasutamiseks lülita oma Apple'i kasutajakonto seadistustes sisse iCloud.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Luba";
@@ -1101,6 +1101,6 @@
 "editor_place_doesnt_exist_description" = "Kirjelda selle koha praegust välimust ja lisa veamärge OpenStreetMapi kogukonnale";
 "voice" = "Hääled";
 "unknown" = "Teadmata";
-"voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Räägitav sisu*, *Hääled*.";
-"voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus*, *Lugemine ja rääkimine*, *Hääled*.";
+"voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Räägitav sisu* → *Hääled*.";
+"voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Lugemine ja rääkimine* → *Hääled*.";
 "avoid_paved" = "Väldi sillutatud teid";

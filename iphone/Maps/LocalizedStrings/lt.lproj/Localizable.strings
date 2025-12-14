@@ -1024,7 +1024,7 @@
 "icloud_disabled_title" = "„iCloud“ yra išjungta";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Jei norite naudotis šia funkcija, įjunkite „iCloud“ įrenginio nustatymuose.";
+"icloud_disabled_message" = "Jei norite naudotis šia funkcija, savo „Apple“ paskyros nustatymuose įjunkite „iCloud“ „CoMaps“ programai.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Įjungti";
@@ -1103,3 +1103,4 @@
 "unknown" = "Nežinomas";
 "voice_explanation_before_version26" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Perskaitomas tekstas*, *Balsai*.";
 "voice_explanation" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Skaitymas ir ištarimas*, *Balsai*.";
+"avoid_paved" = "Vengti grįstų kelių";

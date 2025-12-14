@@ -377,6 +377,7 @@ play {
   track.set('production')
   defaultToAppBundles.set(true)
   releaseStatus.set(ReleaseStatus.IN_PROGRESS)
+  userFraction.set(0.2d) // Rollout to 20% of users
   serviceAccountCredentials.set(file('google-play.json'))
 }
 

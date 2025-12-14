@@ -1,4 +1,8 @@
 # Release Management
+ 
+ Details to prepare and push a release are available in the [Wiki](https://codeberg.org/comaps/comaps/wiki/Release-process)
+	
+# Tools to upload metadata and screenshots on stores
 
 ## Apple App Store
 
@@ -41,16 +45,6 @@ cd xcode
 ### Upload metadata and screenshots to Google Play
 
 Use [Forgejo Actions](../.forgejo/workflows/android-release-metadata.yaml).
-
-### Uploading a new version to Google Play
-
-Use [Forgejo Actions](../.forgejo/workflows/android-release.yaml).
-
-Promote version to "Production" manually in Google Play Console.
-
-### Uploading a new version to Huawei AppGallery
-
-Use [Forgejo Actions](../.forgejo/workflows/android-release.yaml).
 
 ### Checking metadata
 

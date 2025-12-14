@@ -297,7 +297,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Aktiver posisjonstjenester</string>
     <string name="save">Lagre</string>
-    <string name="create">opprett</string>
+    <string name="create">Opprett</string>
     <!-- red color -->
     <string name="red">Rød</string>
     <!-- yellow color -->
@@ -879,7 +879,6 @@
     <string name="charge_socket_power">Effekt (kW)</string>
     <string name="ruler">Linjal</string>
     <string name="unknown_socket_type">ukjent kontakt</string>
-    <string name="unknow_socket_type">ukjent kontakt</string>
     <string name="charging_station_available_sockets">Tilgjengelige kontakter</string>
     <string name="charge_socket_unknown_other">Annen eller ukjent</string>
     <string name="editor_socket">Rediger kontakt</string>
@@ -895,4 +894,9 @@
     <string name="closes_at">Stenger %s</string>
     <string name="opens_at">Åpner %s</string>
     <string name="editor_submit">Send</string>
+    <string name="charge_socket_schuko">Schuko</string>
+    <string name="power_management">Strømstyring</string>
+    <string name="navigation_start_tts_disabled_message">Taleveiledninger deaktivert: TTS-motor ikke tilgjengelig</string>
+    <string name="navigation_start_tts_message">"Starter navigering, taleveiledningsspråk: "</string>
+    <string name="prefs_speed_cameras_information">Fotoboksvarsler er deaktivert i land hvor varsler er forbudt i henhold til lokal lovgivning.</string>
 </resources>

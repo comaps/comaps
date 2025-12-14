@@ -1,11 +1,11 @@
-• Nuevos datos OSM a 16.11.25
-• Se añaden árboles
-• Se reducen los iconos de paradas de autobús y aparecen antes
-• Se reduce visibilidad de entradas
-• Se añaden muchos tipos de puntos de interés
-• Se muestran las zonas de arena en el mapa
-• Se añade la opción «negocio vacío» al editor
-• Se mejoran las señales de tráfico en Europa
-• Nueva opción «evitar caminos asfaltadas»
-• Nuevos iconos en la página de configuración
-Más detalles en Codeberg
+• Datos de OpenStreetMap a fecha 9/12.
+• Uso de temas Material 3.
+• Compatibilidad con enchufes de recarga en Editor.
+• Se añaden enchufes de recarga schuko/tipo E.
+• Se mejora la búsqueda.
+• Se habilitan el lituano y el letón en las indicaciones de voz.
+• Se aumenta el tamaño de las indicaciones de conducción.
+• Nivel de zoom base según la distancia al siguiente giro.
+• Se han reordenado los ajustes.
+
+Más detalles en codeberg.org/comaps/comaps/releases

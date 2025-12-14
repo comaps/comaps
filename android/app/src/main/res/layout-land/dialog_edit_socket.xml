@@ -37,15 +37,18 @@
             android:id="@+id/edit_socket_power_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="@string/charge_socket_power">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_power"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:completionThreshold="1"
-                android:gravity="end"
-                android:hint="@string/charge_socket_power"
+                android:gravity="center|end"
+                android:minHeight="35dp"
+                android:paddingEnd="@dimen/margin_half"
                 android:inputType="numberDecimal"
                 app:simpleItems="@array/charge_sockets_common_powers" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -53,15 +56,18 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/edit_socket_count_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="@string/charge_socket_count">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:completionThreshold="1"
-                android:gravity="end"
-                android:hint="@string/charge_socket_count"
+                android:gravity="center|end"
+                android:minHeight="35dp"
+                android:paddingEnd="@dimen/margin_half"
                 android:inputType="numberDecimal"
                 app:simpleItems="@array/charge_sockets_common_counts" />
         </com.google.android.material.textfield.TextInputLayout>

@@ -560,8 +560,8 @@
 
 /* Voice */
 "voice" = "Voice";
-"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accesibility*, *Read & Speak*, *Voices*.";
-"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accesibility*, *Spoken Content*, *Voices*.";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
 "unknown" = "Unknown";
 
 /* Place page confirmation messages and time ago formatting */
@@ -1078,25 +1078,25 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Would you like to send a bug report to the developers?\nWe rely on our users as CoMaps doesn't collect any error information automatically. Thank you in advance for supporting CoMaps!";
 
-/* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+/* Title for the iCloud synchronization setting */
+"icloud_sync" = "iCloud Synchronization (Beta)";
 
-/* Title for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
+/* Title for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_title" = "Enable iCloud Synchronization";
 
-/* Message for the "Enable iCloud Syncronization" alert. */
+/* Message for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_message" = "iCloud synchronization is an experimental feature under development. Make sure that you have made a backup of all your bookmarks and tracks.";
 
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud Is Disabled";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature.";
+"icloud_disabled_message" = "Please enable iCloud for CoMaps in your Apple Account's settings to use this feature.";
 
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Enable";
 
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "Backup";
 
 /* Title for the "iCloud synchronization failure" alert. */

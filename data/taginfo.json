@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20251117T175008Z",
+    "data_updated": "20251120T121118Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -128,7 +128,7 @@
             "description": "amenity=bicycle_rental",
             "key": "amenity",
             "value": "bicycle_rental",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bicycle-rental.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/bicycle-rental-xm.svg"
         },
         {
             "description": "amenity=bicycle_repair_station",
@@ -1060,7 +1060,7 @@
             "description": "amenity=taxi",
             "key": "amenity",
             "value": "taxi",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/taxi-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/taxi-xm.svg"
         },
         {
             "description": "amenity=telephone",
@@ -3958,6 +3958,18 @@
             "key": "shop",
             "value": "beauty",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/beauty-m.svg"
+        },
+        {
+            "description": "shop=beauty + beauty=nails",
+            "key": "beauty",
+            "value": "nails",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/nails-m.svg"
+        },
+        {
+            "description": "shop=beauty + beauty=nails",
+            "key": "shop",
+            "value": "beauty",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/nails-m.svg"
         },
         {
             "description": "shop=beauty + beauty=spa",

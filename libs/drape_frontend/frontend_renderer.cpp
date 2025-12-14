@@ -438,7 +438,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
       break;
 #endif
     ref_ptr<GpsInfoMessage> msg = message;
-    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->IsNavigable(), m_userEventStream.GetCurrentScreen());
+    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->IsNavigable(), msg->GetDistanceToNextTurn(),
+                                             msg->GetSpeedLimit(), m_userEventStream.GetCurrentScreen());
 
     location::RouteMatchingInfo const & info = msg->GetRouteInfo();
     if (info.HasDistanceFromBegin())

@@ -8,7 +8,7 @@
 "type.aerialway.gondola" = "Gondolă";
 "type.aerialway.mixed_lift" = "Transport pe cablu mixt";
 "type.aerialway.station" = "Stație de teleferic";
-"type.aeroway" = "Infrastructura spațiului aerian";
+"type.aeroway" = "Infrastructură aeriană";
 "type.aeroway.aerodrome" = "Aeroport";
 "type.aeroway.aerodrome.international" = "Aeroport Internațional";
 "type.aeroway.apron" = "Parcare aeronave";
@@ -34,7 +34,7 @@
 "type.amenity.cafe" = "Cafenea";
 "type.amenity.car_rental" = "Închiriere mașini";
 "type.amenity.motorcycle_rental" = "Închiriere motociclete";
-"type.amenity.car_sharing" = "Utilizare comună a mașinii";
+"type.amenity.car_sharing" = "Car Sharing";
 "type.amenity.car_wash" = "Spălătorie Auto";
 "type.amenity.casino" = "Cazinou";
 "type.amenity.gambling" = "Jocuri de noroc";
@@ -762,7 +762,7 @@
 "type.man_made.works" = "Întreprinderi industriale";
 "type.military" = "Militară";
 "type.military.bunker" = "Buncăr";
-"type.mountain_pass" = "Mountain Pass";
+"type.mountain_pass" = "Trecătoare";
 "type.natural" = "Natură";
 
 /* A rocky land cover. */
@@ -1533,3 +1533,18 @@
 "type.leisure.sports_centre.sport.yoga" = "Centru Sportiv";
 "type.leisure.fitness_centre.sport.yoga" = "Centru de Yoga";
 "type.leisure.bandstand" = "Foișor";
+"type.amenity.sailing_school" = "Școală de navigație";
+"type.amenity.flight_school" = "Școală de zbor";
+"type.amenity.car_pooling" = "Carpooling";
+"type.entrance.house" = "Intrare casă";
+"type.entrance.garage" = "Intrare garaj";
+"type.entrance.service" = "Intrare de serviciu";
+"type.entrance.emergency" = "Ieșire de urgență";
+"type.leisure.indoor_play" = "Loc de joacă interior";
+"type.natural.sand" = "Nisip";
+"type.natural.tree" = "Copac";
+"type.shop.beauty.nails" = "Salon de unghii";
+"type.shop.telecommunication" = "Magazin de telecomunicații";
+"type.social_facility.soup_kitchen" = "Cantină socială";
+"type.social_facility.food_bank" = "Bancă de alimente";
+"type.xmas.tree" = "Brad de Crăciun";

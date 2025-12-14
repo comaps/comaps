@@ -298,8 +298,7 @@ void LocalityScorer::GetDocVecs(uint32_t localityId, vector<DocVec> & dvs) const
     DocVec::Builder builder;
     ForEachNormalizedToken(name, [&](strings::UniString const & token)
     {
-      if (!IsStopWord(token))
-        builder.Add(token);
+      builder.Add(token);
     });
     dvs.emplace_back(std::move(builder));
   }

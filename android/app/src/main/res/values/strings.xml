@@ -317,7 +317,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Please enable Location Services</string>
     <string name="save">Save</string>
-    <string name="create">create</string>
+    <string name="create">Create</string>
     <!-- red color -->
     <string name="red">Red</string>
     <!-- yellow color -->
@@ -610,6 +610,7 @@
 \nOpen your device\'s settings → Language and input → Speech → Text to speech output.
 \nHere you can manage settings for speech synthesis (for example, download language pack for offline use) and select another text-to-speech engine.</string>
     <string name="prefs_languages_information_off_link">For more information please check this guide</string>
+    <string name="prefs_speed_cameras_information">Speed camera warnings are disabled in countries where alerts are prohibited by local law.</string>
     <string name="transliteration_title">Transliterate into Latin alphabet</string>
     <string name="learn_more">Learn more</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -659,6 +660,7 @@
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Privacy</string>
     <string name="privacy_policy">Privacy policy</string>
+    <string name="power_management">Power management</string>
     <string name="terms_of_use">Terms of use</string>
     <string name="button_layer_traffic">Traffic</string>
     <string name="subway">Subway</string>
@@ -950,6 +952,8 @@
     <string name="share_track">Share Track</string>
     <string name="delete_track_dialog_title">Delete %s?</string>
     <string name="pref_tts_no_system_tts_short">No text-to-speech engine found, check the app settings</string>
+    <string name="navigation_start_tts_message">"Starting Navigation, voice instruction language: "</string>
+    <string name="navigation_start_tts_disabled_message">"Voice instructions disabled: TTS engine not available"</string>
     <string name="unknown_power_output">unknown</string>
     <string name="charge_socket_type2">Type 2 (no cable)</string>
     <string name="charge_socket_type2_cable">Type 2 (w/ cable)</string>
@@ -957,8 +961,8 @@
     <string name="charge_socket_type1">Type 1</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="charge_socket_schuko">Domestic EU</string>
     <string name="unknown_socket_type">unknown socket</string>
-    <string name="unknow_socket_type">unknown socket</string>
     <string name="edit_socket_info_tooltip">Create new sockets or edit existing ones.</string>
     <string name="charging_station_available_sockets">Available sockets</string>
     <string name="charge_socket_unknown_other">Other or unknown</string>

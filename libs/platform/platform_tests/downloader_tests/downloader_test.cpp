@@ -11,6 +11,8 @@
 #include "base/logging.hpp"
 #include "base/std_serialization.hpp"
 
+#include <boost/regex.hpp>
+
 #include <QtCore/QCoreApplication>
 
 #include <functional>
@@ -395,7 +397,7 @@ void DeleteTempDownloadFiles()
   // Remove data from previously failed files.
 
   // Get regexp like this: (\.downloading3$|\.resume3$)
-  string const regexp = "(\\" RESUME_FILE_EXTENSION "$|\\" DOWNLOADING_FILE_EXTENSION "$)";
+  static boost::regex const regexp("(\\" RESUME_FILE_EXTENSION "$|\\" DOWNLOADING_FILE_EXTENSION "$)");
 
   Platform::FilesList files;
   Platform::GetFilesByRegExp(".", regexp, files);

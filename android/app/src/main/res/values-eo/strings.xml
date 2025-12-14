@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Serĉu</string>
+    <string name="cancel">Nuligi</string>
+    <string name="bookmarks_and_tracks">Legosignoj kaj Trakoj</string>
+    <string name="back">Reen</string>
+    <string name="app_site_url">https://comaps.app/eo</string>
+    <string name="delete">Forigi</string>
+</resources>

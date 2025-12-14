@@ -1015,7 +1015,7 @@
 "bugreport_alert_message" = "Você gostaria de enviar um relatório de bug para os desenvolvedores?\nDependemos de nossos usuários, pois o CoMaps não coleta nenhuma informação de erro automaticamente. Agradecemos antecipadamente por você apoiar o CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "Sincronização no iCloud (Beta)";
+"icloud_sync" = "Sincronização com o iCloud (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Ativar a sincronização do iCloud";
@@ -1027,7 +1027,7 @@
 "icloud_disabled_title" = "O iCloud está desativado";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Ative o iCloud nos Ajustes do seu dispositivo para usar esse recurso.";
+"icloud_disabled_message" = "Para usar esse recurso, ative o iCloud para o CoMaps nos ajustes da sua Conta Apple.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Ativar";
@@ -1104,5 +1104,5 @@
 "voice" = "Voz";
 "unknown" = "Desconhecida";
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
-"voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Ler e Falar*, *Vozes*.";
+"voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Leitura e Fala*, *Vozes*.";
 "avoid_paved" = "Evitar vias pavimentadas";

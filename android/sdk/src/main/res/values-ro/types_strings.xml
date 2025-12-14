@@ -1171,7 +1171,7 @@
     <string name="type.aerialway.drag_lift">Teleschi</string>
     <string name="type.aerialway.gondola">Gondolă</string>
     <string name="type.aerialway.mixed_lift">Transport pe cablu mixt</string>
-    <string name="type.aeroway">Infrastructura spațiului aerian</string>
+    <string name="type.aeroway">Infrastructură aeriană</string>
     <string name="type.aeroway.apron">Parcare aeronave</string>
     <string name="type.aeroway.gate">Poartă</string>
     <string name="type.aeroway.runway">Pistă</string>
@@ -1182,7 +1182,7 @@
     <string name="type.amenity.love_hotel">Hotel cu ora</string>
     <string name="type.amenity.studio">Studio Media</string>
     <string name="type.amenity.bicycle_repair_station">Stație Reparații Biciclete</string>
-    <string name="type.amenity.car_sharing">Utilizare comună a mașinii</string>
+    <string name="type.amenity.car_sharing">Car Sharing</string>
     <string name="type.amenity.dentist">Dentist</string>
     <string name="type.office.security">Biroul agenților de securitate</string>
     <string name="type.building.guardhouse">Cabină de pază</string>
@@ -1438,4 +1438,20 @@
     <string name="type.leisure.fitness_centre.sport.yoga">Centru de Yoga</string>
     <string name="type.leisure.sports_centre.sport.tennis">Centru Sportiv</string>
     <string name="type.leisure.bandstand">Foișor</string>
+    <string name="type.amenity.sailing_school">Școală de navigație</string>
+    <string name="type.amenity.flight_school">Școală de zbor</string>
+    <string name="type.amenity.car_pooling">Carpooling</string>
+    <string name="type.entrance.house">Intrare casă</string>
+    <string name="type.entrance.garage">Intrare garaj</string>
+    <string name="type.entrance.service">Intrare de serviciu</string>
+    <string name="type.entrance.emergency">Ieșire de urgență</string>
+    <string name="type.leisure.indoor_play">Loc de joacă interior</string>
+    <string name="type.mountain_pass">Trecătoare</string>
+    <string name="type.natural.sand">Nisip</string>
+    <string name="type.natural.tree">Copac</string>
+    <string name="type.shop.beauty.nails">Salon de unghii</string>
+    <string name="type.shop.telecommunication">Magazin de telecomunicații</string>
+    <string name="type.social_facility.soup_kitchen">Cantină socială</string>
+    <string name="type.social_facility.food_bank">Bancă de alimente</string>
+    <string name="type.xmas.tree">Brad de Crăciun</string>
 </resources>

@@ -9,8 +9,7 @@
 
 #include <string>
 
-/// This function is called from native c++ code
-std::string GetAndroidSystemLanguage()
+std::vector<std::string> GetAndroidSystemLanguages()
 {
   static char const * DEFAULT_LANG = "en";
 
@@ -18,20 +17,31 @@ std::string GetAndroidSystemLanguage()
   if (!env)
   {
     LOG(LWARNING, ("Can't get JNIEnv"));
-    return DEFAULT_LANG;
+    return {DEFAULT_LANG};
   }
 
   static jclass const languageClass = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/util/Language");
-  static jmethodID const getDefaultLocaleId =
-      jni::GetStaticMethodID(env, languageClass, "getDefaultLocale", "()Ljava/lang/String;");
 
-  jni::TScopedLocalRef localeRef(env, env->CallStaticObjectMethod(languageClass, getDefaultLocaleId));
+  static jmethodID const getSystemLocalesId =
+      jni::GetStaticMethodID(env, languageClass, "getSystemLocales", "()[Ljava/lang/String;");
 
-  std::string res = jni::ToNativeString(env, (jstring)localeRef.get());
-  if (res.empty())
-    res = DEFAULT_LANG;
+  jni::TScopedLocalRef resultArray(env, env->CallStaticObjectMethod(languageClass, getSystemLocalesId));
 
-  return res;
+  jobjectArray array = static_cast<jobjectArray>(resultArray.get());
+  size_t len = env->GetArrayLength(array);
+
+  std::vector<std::string> languages;
+  languages.reserve(len);
+
+  for (size_t i = 0; i < len; ++i)
+  {
+    jni::TScopedLocalRef elem(env, env->GetObjectArrayElement(array, i));
+    std::string lang = jni::ToNativeString(env, static_cast<jstring>(elem.get()));
+
+    languages.push_back(lang);
+  }
+
+  return languages;
 }
 
 namespace platform

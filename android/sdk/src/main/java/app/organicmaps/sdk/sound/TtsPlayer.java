@@ -1,6 +1,7 @@
 package app.organicmaps.sdk.sound;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.database.ContentObserver;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -9,11 +10,14 @@ import android.os.Looper;
 import android.provider.Settings;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
+import android.speech.tts.Voice;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.core.os.ConfigurationCompat;
+import androidx.core.os.LocaleListCompat;
 import androidx.media.AudioAttributesCompat;
 import androidx.media.AudioFocusRequestCompat;
 import androidx.media.AudioManagerCompat;
@@ -23,6 +27,7 @@ import app.organicmaps.sdk.util.log.Logger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * {@code TtsPlayer} class manages available TTS voice languages.
@@ -33,9 +38,9 @@ import java.util.Locale;
  * unsupported voices are excluded.
  * <p>
  * At startup we check whether currently selected language is in our list of supported voices and its data is
- * downloaded. If not, we check system default locale. If failed, the same check is made for English language. Finally,
- * if mentioned checks fail we manually disable TTS, so the user must go to the settings and select preferred voice
- * language by hand. <p> If no core supported languages can be used by the system, TTS is locked down and can not be
+ * downloaded. If not, we check system default locale. If failed, the same check is made for other system locales.
+ * If those fail too, we check for English language. Then, as a final resort, all installed TTS locales are checked.
+ * <p> If no core supported languages can be used by the system, TTS is locked down and can not be
  * enabled and used.
  */
 public enum TtsPlayer
@@ -77,6 +82,8 @@ public enum TtsPlayer
 
   // TTS is locked down due to absence of supported languages
   private boolean mUnavailable;
+
+  private LocaleListCompat mInstalledSystemLocales;
 
   TtsPlayer() {}
 
@@ -126,28 +133,57 @@ public enum TtsPlayer
     return (lang != null && setLanguageInternal(lang));
   }
 
-  private static @Nullable LanguageData getDefaultLanguage(List<LanguageData> langs)
+  public static @Nullable LanguageData getSelectedLanguage(List<LanguageData> langs)
+  {
+    return findSupportedLanguage(Config.TTS.getLanguage(), langs);
+  }
+
+  private @Nullable LanguageData getSystemLanguage(List<LanguageData> langs)
   {
     LanguageData res;
 
+    // Try default system locale
     Locale defLocale = Locale.getDefault();
-    if (defLocale != null)
+    res = findSupportedLanguage(defLocale, langs);
+    if (res != null && res.downloaded)
+      return res;
+
+    // Try other installed system locales
+    for (int i = 0; i < mInstalledSystemLocales.size(); i++)
     {
-      res = findSupportedLanguage(defLocale, langs);
+      Locale loc = mInstalledSystemLocales.get(i);
+      res = findSupportedLanguage(loc, langs);
+      if (res != null && res.downloaded)
+        return res;
+    }
+    return null;
+  }
+
+  private @Nullable LanguageData getTTSLanguage(List<LanguageData> langs)
+  {
+    LanguageData res;
+
+    // Try all TTS installed languages
+    Set<Locale> ttsLocales = mTts.getAvailableLanguages();
+    for (Locale loc : ttsLocales)
+    {
+      res = findSupportedLanguage(loc, langs);
       if (res != null && res.downloaded)
         return res;
     }
 
-    res = findSupportedLanguage(DEFAULT_LOCALE, langs);
-    if (res != null && res.downloaded)
-      return res;
-
     return null;
   }
 
-  public static @Nullable LanguageData getSelectedLanguage(List<LanguageData> langs)
+  private static @Nullable LanguageData getDefaultLanguage(List<LanguageData> langs)
   {
-    return findSupportedLanguage(Config.TTS.getLanguage(), langs);
+    LanguageData res;
+
+    // Try default app locale (en.US)
+    res = findSupportedLanguage(DEFAULT_LOCALE, langs);
+    if (res != null && res.downloaded)
+      return res;
+    return null;
   }
 
   private void lockDown()
@@ -167,6 +203,10 @@ public enum TtsPlayer
     // TextToSpeech.OnInitListener() can be called from a non-main thread
     // on LineageOS '20.0-20231127-RELEASE-thyme' 'Xiaomi/thyme/thyme'.
     // https://github.com/organicmaps/organicmaps/issues/6903
+
+    Configuration config = context.getResources().getConfiguration();
+    mInstalledSystemLocales = ConfigurationCompat.getLocales(config);
+
     mTts = new TextToSpeech(context, status -> UiThread.run(() -> {
       if (status == TextToSpeech.ERROR)
       {
@@ -237,6 +277,20 @@ public enum TtsPlayer
   public static boolean isReady()
   {
     return (INSTANCE.mTts != null && !INSTANCE.mUnavailable && !INSTANCE.mInitializing);
+  }
+
+  public Locale getVoiceLocale()
+  {
+    if (INSTANCE.mTts == null)
+      return null;
+    Voice voice = INSTANCE.mTts.getVoice();
+    return voice != null ? voice.getLocale() : null;
+  }
+
+  public String getLanguageDisplayName()
+  {
+    Locale locale = getVoiceLocale();
+    return locale != null ? locale.getDisplayName(locale) : null;
   }
 
   public void speak(String textToSpeak)
@@ -328,24 +382,49 @@ public enum TtsPlayer
 
     if (outList.isEmpty())
     {
-      // No supported languages found, lock down TTS :(
+      Logger.d("TtsPlayer", "No supported languages found, lock down TTS :( ");
       lockDown();
       return null;
     }
 
     LanguageData res = getSelectedLanguage(outList);
-    if (res == null || !res.downloaded)
-      // Selected locale is not available or not downloaded
-      res = getDefaultLanguage(outList);
-
-    if (res == null || !res.downloaded)
+    if (res != null && res.downloaded)
     {
-      // Default locale can not be used too
-      Config.TTS.setEnabled(false);
-      return null;
+      Logger.d("TtsPlayer", "Selected locale " + res.internalCode + " will be used for TTS");
+      return res;
+    }
+    Logger.d("TtsPlayer", "Selected locale " + Config.TTS.getLanguage()
+                              + " is not available or not downloaded, trying system locales...");
+
+    res = getSystemLanguage(outList);
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "System locale " + res.internalCode + " will be used for TTS");
+      return res;
+    }
+    Logger.d("TtsPlayer",
+             "None of the system locales are available, or they are not downloaded, trying default locale...");
+
+    res = getDefaultLanguage(outList);
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "Default locale " + res.internalCode + " will be used for TTS");
+      return res;
+    }
+    Logger.d("TtsPlayer",
+             "Default locale " + DEFAULT_LOCALE + " can not be used either, trying all installed TTS locales...");
+
+    res = getTTSLanguage(outList);
+    if (res != null && res.downloaded)
+    {
+      Logger.d("TtsPlayer", "TTS locale " + res.internalCode + " will be used for TTS");
+      return res;
     }
 
-    return res;
+    Logger.d("TtsPlayer",
+             "None of the TTS engine locales are available, or they are not downloaded, disabling TTS :( ");
+    Config.TTS.setEnabled(false);
+    return null;
   }
 
   public @NonNull List<LanguageData> refreshLanguages()

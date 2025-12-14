@@ -1,6 +1,6 @@
 # Teams
 
-CoMaps is led by community contributors, with functional domains occasionally establishing or dissolving their leadership structures, formal or informal. This file outlines the functional project structure that has evolved over time. The current list of teams is available on [Codeberg]https://codeberg.org/org/comaps/teams).
+CoMaps is led by community contributors, with functional domains occasionally establishing or dissolving their leadership structures, formal or informal. This file outlines the functional project structure that has evolved over time. The current list of teams is available on [Codeberg](https://codeberg.org/org/comaps/teams).
 
 ## Members
 

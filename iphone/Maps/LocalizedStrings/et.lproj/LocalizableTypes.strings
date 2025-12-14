@@ -1583,3 +1583,5 @@
 "type.beacon.safe_water" = "Faarvaatri tooder";
 "type.buoy.safe_water" = "Faarvaatri poi";
 "type.spherical_buoy.safe_water" = "Faarvaatri kerapoi";
+"type.man_made.mast.communication" = "Sidemast";
+"type.shop.beauty.nails" = "Küünestuudio";

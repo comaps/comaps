@@ -287,7 +287,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Моля, разрешете услугите за местоположение</string>
     <string name="save">Запазване</string>
-    <string name="create">създаване</string>
+    <string name="create">Създавам</string>
     <!-- red color -->
     <string name="red">Червено</string>
     <!-- yellow color -->

@@ -34,8 +34,7 @@
     android:textAppearance="?android:attr/textAppearance"
     android:gravity="start|top"
     android:textColor="?attr/colorSecondary"
-    android:text="@string/category_desc_more"
-    android:background="@android:color/transparent"/>
+    android:text="@string/category_desc_more" />
   <include
     layout="@layout/item_divider"/>
 </LinearLayout>

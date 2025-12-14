@@ -823,7 +823,7 @@
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Unbefest. Straßen vermeiden";
-"avoid_paved" = "Befst. Straßen vermeiden";
+"avoid_paved" = "Befestigte Straßen meiden";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Treppen vermeiden";
@@ -1031,7 +1031,7 @@
 "icloud_disabled_title" = "iCloud ist deaktiviert";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Bitte aktiviere iCloud in den Einstellungen deines Geräts, um diese Funktion zu nutzen.";
+"icloud_disabled_message" = "Aktiviere iCloud für CoMaps in den Einstellungen deines Apple-Kontos, um diese Funktion nutzen zu können.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Aktiviere";

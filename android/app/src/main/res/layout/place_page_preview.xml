@@ -215,7 +215,6 @@
         android:layout_weight="1"
         android:padding="@dimen/margin_quarter"
         android:background="?clickableBackground"
-        android:textAllCaps="false"
         tools:text="@string/categories" />
       <com.google.android.material.button.MaterialButton
         android:id="@+id/edit_Bookmark"

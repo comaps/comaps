@@ -177,7 +177,7 @@ public final class UiHelpers
     {
     case LocationState.PENDING_POSITION, LocationState.NOT_FOLLOW_NO_POSITION ->
       drawableRes = R.drawable.ic_location_off;
-    case LocationState.NOT_FOLLOW -> drawableRes = R.drawable.ic_not_follow;
+    case LocationState.NOT_FOLLOW -> drawableRes = R.drawable.ic_location_crosshair;
     case LocationState.FOLLOW ->
     {
       drawableRes = R.drawable.ic_follow;

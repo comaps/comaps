@@ -702,7 +702,7 @@
     <string name="type.railway.narrow_gauge">Smalsporet jernbane</string>
     <string name="type.railway.platform">Jernbaneplattform</string>
     <string name="type.railway.preserved">Museumsjernbane</string>
-    <string name="type.railway.rail">Toglinje</string>
+    <string name="type.railway.rail">Jernbane</string>
     <string name="type.railway.rail.highspeed">Høyhastighetsjernbane</string>
     <string name="type.railway.rail.tourism">Turistjernbane</string>
     <string name="type.railway.rail.main">Jernbane</string>
@@ -1195,7 +1195,7 @@
     <string name="type.leisure.sports_hall">Idrettshall</string>
     <string name="type.leisure.hackerspace">Skaperverksted</string>
     <string name="type.man_made.silo">Silo</string>
-    <string name="type.aeroway">Luftromsinfrastruktur</string>
+    <string name="type.aeroway">Luftfartsinfrastruktur</string>
     <string name="type.aeroway.apron">Oppstillingsplass</string>
     <string name="type.aeroway.gate">Gate</string>
     <string name="type.aeroway.helipad">Helipad</string>
@@ -1382,4 +1382,13 @@
     <string name="type.xmas.tree">Juletre</string>
     <string name="type.entrance.emergency">Nødutgang</string>
     <string name="type.entrance.entry">Inngang (bare)</string>
+    <string name="type.noexit">Blindvei</string>
+    <string name="type.leisure.ice_rink">Skøytebane</string>
+    <string name="type.landuse.village_green">Grøntområde</string>
+    <string name="type.landuse.salt_pond">Saltdam</string>
+    <string name="type.landuse.brownfield">Brakkområde</string>
+    <string name="type.shop.beauty.nails">Neglesalong</string>
+    <string name="type.man_made.works">Fabrikk</string>
+    <string name="type.man_made.mast.communication">Kommunikasjonsmast</string>
+    <string name="type.man_made.wastewater_plant">Avløpsrenseanlegg</string>
 </resources>

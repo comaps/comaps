@@ -8,14 +8,14 @@ on:
 jobs:
   ios-check:
     name: Build iOS
-    runs-on: macos-15
+    runs-on: macos-26
     env:
-      DEVELOPER_DIR: /Applications/Xcode_26.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_26.1.app/Contents/Developer
       LANG: en_US.UTF-8  # Fastlane complains that the terminal is using ASCII.
       LANGUAGE: en_US.UTF-8
       LC_ALL: en_US.UTF-8
       TEST_RESULTS_BUNDLE_NAME: CoMaps-Test-Results
-      SIMULATOR_DEVICE: 'iPhone 16 Pro Max'
+      SIMULATOR_DEVICE: 'iPhone 17 Pro Max'
     strategy:
       fail-fast: false
       matrix:
@@ -31,6 +31,9 @@ jobs:
           brew install qt \
           optipng
           pip3 install "protobuf<3.21" --break-system-packages
+          xcodebuild -downloadComponent metalToolchain
+          xcodebuild -downloadPlatform iOS
+
       - name: Checkout sources
         uses: actions/checkout@v4
 
@@ -38,11 +41,11 @@ jobs:
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
 
-      - name:  Configure repository
+      - name: Configure repository
         shell: bash
         run: ./configure.sh
 
-      - name: Configure XCode cache
+      - name: Configure Xcode cache
         uses: irgaly/xcode-cache@v1
         with:
           key: xcode-cache-deriveddata-${{ github.workflow }}-${{ matrix.buildType }}-${{ github.sha }}

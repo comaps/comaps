@@ -295,7 +295,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Activeu els serveis de geolocalització</string>
     <string name="save">Desa</string>
-    <string name="create">crea</string>
+    <string name="create">Crear</string>
     <!-- red color -->
     <string name="red">Vermell</string>
     <!-- yellow color -->
@@ -473,7 +473,7 @@
     <string name="error_enter_correct_house_number">Introduïu un número d’edifici vàlid</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">El nombre de plantes no pot excedir de %d</string>
-    <string name="editor_zip_code">Codi postal</string>
+    <string name="editor_zip_code">Codi Postal</string>
     <string name="error_enter_correct_zip_code">Introduïu un codi postal vàlid</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Nota per als voluntaris d\'OpenStreetMap (opcional)</string>
@@ -521,8 +521,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Voleu enviar-ho a tots els usuaris?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Assegureu-vos que no heu introduït cap dada personal</string>
-    <string name="editor_share_to_all_dialog_message_2">Revisarem els canvis. Si tenim cap pregunta contactem amb vós via correu electrònic</string>
+    <string name="editor_share_to_all_dialog_message_1">Assegureu-vos que no heu introduït cap dada personal.</string>
+    <string name="editor_share_to_all_dialog_message_2">Els editors d\'OpenStreetMap revisaran els canvis. Et contactaran si tenen cap pregunta.</string>
     <string name="navigation_stop_button">Atura</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">S’està enregistrant el recorregut</string>
@@ -874,4 +874,42 @@
     <string name="share_track">Compartir el Track</string>
     <string name="delete_track_dialog_title">Voleu eliminar %s?</string>
     <string name="pref_tts_no_system_tts_short">No s\'ha trobat cap motor de text a veu, comproveu la configuració de l\'app</string>
+    <string name="offline_explanation_title">Mapes sense Connexió</string>
+    <string name="charge_socket_schuko">EU Domèstic</string>
+    <string name="unknown_socket_type">endoll desconegut</string>
+    <string name="edit_socket_info_tooltip">Crea nous endolls o edita els existents.</string>
+    <string name="charging_station_available_sockets">Endolls disponibles</string>
+    <string name="charge_socket_unknown_other">Altres o desconegut</string>
+    <string name="charge_socket_count">Recompte</string>
+    <string name="charge_socket_power">Potència (kW)</string>
+    <string name="editor_socket">Editar endoll</string>
+    <string name="unknown_count">desconegut</string>
+    <string name="error_value_must_be_positive">El valor ha de ser positiu</string>
+    <string name="error_invalid_number">Número invàlid</string>
+    <string name="offline_explanation_text">Un mapa ha de ser desconegut per a veure i navegar l\'àrea.\nDescarrega mapes per a àrees on vulgues viatjar.</string>
+    <string name="list_description_empty">Edita la llista per afegir una descripció</string>
+    <string name="opens_at">Obre a %s</string>
+    <string name="closes_at">Tanca a %s</string>
+    <string name="opens_day_at">Obre els %1$s a %2$s</string>
+    <string name="closes_day_at">Tanca els %1$s a %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d mins</item>
+        <item quantity="other">%d mins</item>
+    </plurals>
+    <string name="editor_place_doesnt_exist_description">Descriu com és el lloc ara mateix per enviar una nota d\'error a la comunitat d\'OpenStreetMap</string>
+    <string name="editor_business_vacant_button">El negoci està vacant</string>
+    <string name="editor_mark_business_vacant_title">Marcar negoci com a vacant</string>
+    <string name="editor_mark_business_vacant_description">Fes servir aquesta funció si el negoci s\'ha mogut, i l\'espai està buit i llest per a un altre llogater.</string>
+    <string name="editor_submit">Enviar</string>
+    <string name="power_management">Gestió de Potència</string>
+    <string name="avoid_steps">Evita escales</string>
+    <string name="avoid_paved">Evita carreteres asfaltades</string>
+    <string name="unknown_power_output">desconegut</string>
+    <string name="charge_socket_type2">Tipus 2 (sense cable)</string>
+    <string name="charge_socket_type2_cable">Tipus 2 (amb cable)</string>
+    <string name="charge_socket_type2_combo">Tipus 2 comb.</string>
+    <string name="charge_socket_type1">Tipus 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
 </resources>

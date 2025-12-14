@@ -1488,3 +1488,10 @@
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.amenity.boat_rental" = "Itsasontzien alokairua";
+"type.man_made.telescope" = "Teleskopioa";
+"type.man_made.telescope.optical" = "Teleskopioa (optikoa)";
+"type.man_made.telescope.radio" = "Teleskopioa (irratia)";
+"type.man_made.telescope.gamma" = "Teleskopioa (gamma)";
+"type.man_made.observatory" = "Behatokia";
+"type.amenity.charging_station.motorcar.small" = "Autoak kargatzeko puntua";

@@ -864,8 +864,11 @@
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Communications Tower";
 
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Communications Tower";
+
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Oil or Gas Well";

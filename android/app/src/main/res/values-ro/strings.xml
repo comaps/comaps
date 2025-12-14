@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Acuratețe limitată</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Pentru a asigura o navigare precisă activați Localizare precisă în setări</string>
+    <string name="precise_location_is_disabled_long_text">Pentru a asigura o navigare precisă activați Locația precisă în setări</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Arată pe hartă</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -238,7 +238,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Donează</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Voluntariat și îmbunătățirea CoMaps</string>
+    <string name="how_to_support_us">Fii voluntar și îmbunătățește CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Drepturi de autor</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -471,7 +471,7 @@
     <string name="editor_zip_code">Cod poștal</string>
     <string name="error_enter_correct_zip_code">Introdu codul poștal corect</string>
     <!-- Title for OSM note section in the editor -->
-    <string name="editor_other_info">Notă pentru voluntarii OpenStreetMap (opțional)</string>
+    <string name="editor_other_info">Notiță pentru voluntarii OpenStreetMap (opțional)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Descrieți erorile de pe hartă sau lucrurile care nu pot fi editate cu CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
@@ -626,9 +626,9 @@
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evitați drumurile cu taxă</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_unpaved">Evită drumurile neasfaltate</string>
+    <string name="avoid_unpaved">Evitați drumurile neasfaltate</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_ferry">Evită trecerile cu bac</string>
+    <string name="avoid_ferry">Evitați trecerile cu bac</string>
     <string name="avoid_motorways">Evitați autostrăzile</string>
     <string name="unable_to_calc_alert_title">Nu poate fi creat un traseu</string>
     <string name="unable_to_calc_alert_subtitle">Din păcate, nu putem elabora un traseu cu opțiunile alese. Modifică-le și încearcă din nou.</string>
@@ -876,7 +876,17 @@
     <string name="editor_place_doesnt_exist_description">Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap</string>
     <string name="editor_mark_business_vacant_description">Folosește acest buton dacă magazinul a plecat din spațiu și spațiul este gol, aștepând alt magazin.</string>
     <string name="editor_submit">Trimite</string>
-    <string name="avoid_paved">Evită drumurile pavate</string>
-    <string name="avoid_steps">Evită treptele</string>
+    <string name="avoid_paved">Evitați drumurile asfaltate sau pavate</string>
+    <string name="avoid_steps">Evitați treptele</string>
     <string name="offline_explanation_text">O hartă trebuie descărcată ca să vezi și si să nevighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.</string>
+    <string name="offline_explanation_title">Hărti Offline</string>
+    <string name="unknown_power_output">necunoscut</string>
+    <string name="power_management">Economisire energie</string>
+    <string name="charge_socket_power">Putere (kW)</string>
+    <string name="editor_socket">Editează conector</string>
+    <string name="error_value_must_be_positive">Valoarea trebuie să fie pozitivă</string>
+    <string name="error_invalid_number">Număr invalid</string>
+    <string name="list_description_empty">Editează lista ca să adaugi o descriere</string>
+    <string name="charging_station_available_sockets">Conectori</string>
+    <string name="charge_socket_unknown_other">Alte tipuri necunoscute</string>
 </resources>

@@ -28,7 +28,6 @@ public:
     Token(String const & original) : m_original(original) {}
 
     void AddSynonym(std::string const & s);
-    void AddSynonym(String const & s);
 
     template <typename Fn>
     void ForEachSynonym(Fn && fn) const

@@ -872,7 +872,6 @@
     <string name="unknown_power_output">ismeretlen</string>
     <string name="editor_place_doesnt_exist_description">Írja le, hogy jelenleg hogyan néz ki a hely, a hibaüzenet elküldéséhez az OpenStreetMap közösségnek</string>
     <string name="avoid_steps">Lépcsők elkerülése</string>
-    <string name="unknow_socket_type">ismeretlen aljzat</string>
     <string name="edit_socket_info_tooltip">Új aljzatok létrehozása vagy a meglévők szerkesztése.</string>
     <string name="charging_station_available_sockets">Elérhető aljzatok</string>
     <string name="charge_socket_unknown_other">Egyéb vagy ismeretlen aljzat</string>

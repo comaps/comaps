@@ -127,7 +127,7 @@
     <string name="type.amenity.post_box">Buzón de correos</string>
     <string name="type.amenity.post_office">Oficina de correos</string>
     <string name="type.amenity.prison">Prisión</string>
-    <string name="type.amenity.pub">Pub</string>
+    <string name="type.amenity.pub">Taberna</string>
     <string name="type.amenity.public_bookcase">Intercambio de libros</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centro de reciclaje</string>
@@ -360,7 +360,7 @@
     <string name="type.entrance">Entrada</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Entrada principal</string>
-    <string name="type.entrance.exit">Salida</string>
+    <string name="type.entrance.exit">Sólo salida</string>
     <string name="type.fee.no">Gratis</string>
     <string name="type.healthcare.laboratory">Laboratorio médico</string>
     <string name="type.healthcare.physiotherapist">Fisioterapeuta</string>
@@ -477,7 +477,7 @@
     <string name="type.highway.service.area">Vía de servicio</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.service.bridge">Puente</string>
-    <string name="type.highway.service.driveway">Vía de servicio</string>
+    <string name="type.highway.service.driveway">Camino de entrada</string>
     <string name="type.highway.service.parking_aisle">Pasillo de aparcamiento</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.service.tunnel">Túnel</string>
@@ -650,8 +650,8 @@
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Rampa de barcos</string>
     <string name="type.leisure.sports_centre">Complejo deportivo</string>
-    <string name="type.sport.climbing">Centro de escalada</string>
-    <string name="type.sport.yoga">Centro de yoga</string>
+    <string name="type.sport.climbing">Escalada</string>
+    <string name="type.sport.yoga">Yoga</string>
     <string name="type.leisure.stadium">Estadio</string>
     <string name="type.leisure.swimming_pool">Piscina</string>
     <string name="type.leisure.swimming_pool.private">Piscina privada</string>
@@ -1499,4 +1499,6 @@
     <string name="type.natural.tree">Árbol</string>
     <string name="type.shop.beauty.day_spa">Spa</string>
     <string name="type.xmas.tree">Árbol de Navidad</string>
+    <string name="type.man_made.mast.communication">Mástil de telecomunicaciones</string>
+    <string name="type.shop.beauty.nails">Salón de manicura</string>
 </resources>

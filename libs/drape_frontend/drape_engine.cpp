@@ -441,12 +441,13 @@ void DrapeEngine::SetCompassInfo(location::CompassInfo const & info)
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, bool isNavigable,
+void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
                              location::RouteMatchingInfo const & routeInfo)
 {
-  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
-                                  make_unique_dp<GpsInfoMessage>(info, isNavigable, routeInfo),
-                                  MessagePriority::Normal);
+  m_threadCommutator->PostMessage(
+      ThreadsCommutator::RenderThread,
+      make_unique_dp<GpsInfoMessage>(info, isNavigable, distToNextTurn, speedLimit, routeInfo),
+      MessagePriority::Normal);
 }
 
 void DrapeEngine::SwitchMyPositionNextMode()

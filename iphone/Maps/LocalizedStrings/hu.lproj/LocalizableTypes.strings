@@ -1527,3 +1527,4 @@
 "type.man_made.telescope.radio" = "Távcső (Rádió)";
 "type.man_made.telescope.gamma" = "Távcső (Gamma)";
 "type.man_made.observatory" = "Csillagvizsgáló";
+"type.entrance.emergency" = "Vészkijárat";

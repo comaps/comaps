@@ -336,7 +336,7 @@
     <string name="type.emergency">Urgence</string>
     <string name="type.emergency.assembly_point">Point de rassemblement d’urgence</string>
     <string name="type.emergency.defibrillator">Défibrillateur</string>
-    <string name="type.emergency.fire_hydrant">Bouche d’incendie</string>
+    <string name="type.emergency.fire_hydrant">Point d’eau incendie</string>
     <string name="type.emergency.phone">Téléphone d’urgence</string>
     <!-- A place where a lifeguard is on duty. -->
     <string name="type.emergency.lifeguard">Sauveteur</string>
@@ -614,7 +614,7 @@
     <string name="type.leisure.miniature_golf">Minigolf</string>
     <string name="type.leisure.ice_rink">Patinoire</string>
     <string name="type.leisure.nature_reserve">Réserve naturelle</string>
-    <string name="type.leisure.outdoor_seating">Sièges extérieurs</string>
+    <string name="type.leisure.outdoor_seating">Places en terrasse</string>
     <string name="type.leisure.park">Parc</string>
     <string name="type.leisure.park.no.access">Parc</string>
     <string name="type.leisure.park.permissive">Parc</string>
@@ -1436,7 +1436,7 @@
     <string name="type.leisure.fitness_centre.sport.yoga">Salle de yoga</string>
     <string name="type.disusedbusiness">Magasin vacant</string>
     <string name="type.amenity.lounger">Chaise longue</string>
-    <string name="type.amenity.boat_rental">Vente de bateau</string>
+    <string name="type.amenity.boat_rental">Location de bateaux</string>
     <string name="type.amenity.payment_centre">Centre de paiement</string>
     <string name="type.amenity.mobile_money_agent">Agent d\'argent liquide</string>
     <string name="type.leisure.indoor_play">Complexe de jeux intérieurs</string>
@@ -1459,13 +1459,13 @@
     <string name="type.shop.beauty.day_spa">Spa de jour</string>
     <string name="type.beacon.cardinal.east">Phare cardinal</string>
     <string name="type.beacon.cardinal.north">Phare cardinal</string>
-    <string name="type.beacon.cardinal.south">Phare cardinal</string>
-    <string name="type.beacon.cardinal.west">Phare cardinal</string>
-    <string name="type.beacon.isolated_danger">Balise de danger isolée</string>
+    <string name="type.beacon.cardinal.south">Balise cardinale</string>
+    <string name="type.beacon.cardinal.west">Balise cardinale</string>
+    <string name="type.beacon.isolated_danger">Balise de danger isolé</string>
     <string name="type.beacon.lateral.port">Balise latérale</string>
     <string name="type.beacon.lateral.starboard">Balise latérale</string>
-    <string name="type.beacon.safe_water">Balise d\'eau potable</string>
-    <string name="type.beacon.special_purpose">Balise à usage spécial</string>
+    <string name="type.beacon.safe_water">Balise d\'eaux saines</string>
+    <string name="type.beacon.special_purpose">Balise, marque spéciale</string>
     <string name="type.buoy.cardinal.east">Bouée cardinale</string>
     <string name="type.buoy.cardinal.north">Bouée cardinale</string>
     <string name="type.buoy.cardinal.south">Bouée cardinale</string>
@@ -1473,18 +1473,18 @@
     <string name="type.buoy.isolated_danger">Bouée de danger isolée</string>
     <string name="type.buoy.lateral.port">Bouée latérale</string>
     <string name="type.buoy.lateral.starboard">Bouée latérale</string>
-    <string name="type.buoy.safe_water">Bouée en eau sûre</string>
-    <string name="type.buoy.special_purpose">Bouée à usage spécial</string>
+    <string name="type.buoy.safe_water">Bouée d’eaux saines</string>
+    <string name="type.buoy.special_purpose">Bouée, marque spéciale</string>
     <string name="type.spherical_buoy.cardinal.east">Bouée cardinale sphérique</string>
     <string name="type.spherical_buoy.cardinal.north">Bouée cardinale sphérique</string>
     <string name="type.spherical_buoy.cardinal.south">Bouée cardinale sphérique</string>
     <string name="type.spherical_buoy.cardinal.west">Bouée cardinale sphérique</string>
-    <string name="type.spherical_buoy.isolated_danger">Bouée de danger sphérique isolée</string>
+    <string name="type.spherical_buoy.isolated_danger">Bouée sphérique, danger isolé</string>
     <string name="type.spherical_buoy.lateral.port">Bouée latérale sphérique</string>
     <string name="type.spherical_buoy.lateral.starboard">Bouée latérale sphérique</string>
-    <string name="type.spherical_buoy.safe_water">Bouée sphérique de sécurité en eau</string>
-    <string name="type.spherical_buoy.special_purpose">Bouée sphérique à usage spécial</string>
-    <string name="type.lateral.port">Port</string>
+    <string name="type.spherical_buoy.safe_water">Bouée sphérique, marque d’eaux saines</string>
+    <string name="type.spherical_buoy.special_purpose">Bouée sphérique, marque spéciale</string>
+    <string name="type.lateral.port">Bâbord</string>
     <string name="type.lateral.starboard">Tribord</string>
     <string name="type.cardinal.east">Est</string>
     <string name="type.cardinal.north">Nord</string>
@@ -1498,4 +1498,6 @@
     <string name="type.xmas.tree">Arbre de Noël</string>
     <string name="type.natural.tree">Arbre</string>
     <string name="type.natural.sand">Sable</string>
+    <string name="type.man_made.mast.communication">Antenne de télécommunications</string>
+    <string name="type.shop.beauty.nails">Salon de manucure</string>
 </resources>

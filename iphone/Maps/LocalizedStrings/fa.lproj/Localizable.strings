@@ -10,7 +10,7 @@
 "download_maps" = "بارگیری نقشه‌ها";
 
 /* Settings/Downloader - info for country which started downloading */
-"downloading" = "درحال دانلود…";
+"downloading" = "بارگیری می‌شود…";
 
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "کیلومتر";

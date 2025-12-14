@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ProgressBar
+<com.google.android.material.progressindicator.CircularProgressIndicator
   xmlns:android="http://schemas.android.com/apk/res/android"
-  style="@style/Widget.AppCompat.ProgressBar"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="@dimen/height_block_base"
   android:layout_height="@dimen/height_block_base"
   android:padding="@dimen/margin_half"
-  android:background="@null"/>
+  android:indeterminate="true"
+  app:trackColor="@color/text_light"
+  app:indicatorColor="@color/text_light" />

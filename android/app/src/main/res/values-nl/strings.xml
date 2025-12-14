@@ -295,7 +295,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Locatiediensten inschakelen</string>
     <string name="save">Opslaan</string>
-    <string name="create">aanmaken</string>
+    <string name="create">Aanmaken</string>
     <!-- red color -->
     <string name="red">Rood</string>
     <!-- yellow color -->
@@ -883,7 +883,6 @@
     <string name="unknown_power_output">onbekend</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">onbekende stekker</string>
-    <string name="unknow_socket_type">onbekende stekker</string>
     <string name="unknown_count">onbekend</string>
     <string name="error_invalid_number">ongeldig aantal</string>
     <string name="edit_socket_info_tooltip">Maak nieuwe stekkers aan of bewerk bestaande.</string>
@@ -906,4 +905,9 @@
     <string name="editor_business_vacant_button">Bedrijfsruimte is leeg</string>
     <string name="editor_mark_business_vacant_title">Bedrijfsruimte leeg markeren</string>
     <string name="editor_mark_business_vacant_description">Gebruik dit als het bedrijf is verhuisd en de ruimte leeg is en klaar is voor een nieuwe huurder.</string>
+    <string name="power_management">Energiebeheer</string>
+    <string name="charge_socket_schuko">Binnenlandse EU</string>
+    <string name="navigation_start_tts_message">"Navigatie starten, taal voor steminstructie: "</string>
+    <string name="prefs_speed_cameras_information">Waarschuwingen voor flitsers zijn uitgeschakeld in landen waar deze wettelijk zijn verboden.</string>
+    <string name="navigation_start_tts_disabled_message">Spraakinstructies uitgeschakeld: TTS-engine niet beschikbaar</string>
 </resources>

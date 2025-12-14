@@ -24,7 +24,6 @@
     android:layout_gravity="center_vertical"
     android:fontFamily="@string/robotoMedium"
     tools:text="Some text should go here"
-    android:textAllCaps="true"
-    android:textAppearance="@style/MwmTextAppearance.Body3"
+    android:textAppearance="@style/MwmTextAppearance.Body1"
     android:textColor="?colorSecondary"/>
 </LinearLayout>

@@ -31,26 +31,26 @@ python3 -m venv /tmp/venv
 echo "<$(date +%T)> Copying map generator INI..."
 cp var/etc/map_generator.ini.prod var/etc/map_generator.ini
 
+GENARGS=""
 
-cd ~/comaps/tools/python
-if [ $MWMCONTINUE -gt 0 ]; then
+if [ $MWMTEST == "true" ]; then
+    echo "Marking as a test (non-prod) generation"
+    # TODO: output test maps into e.g. osm-maps-test/ and use a different generation.log
+    GENARGS="$GENARGS -s=test"
+fi
 
-echo "<$(date +%T)> Continuing from preexisting generator run..."
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" --continue
-
-else
+if [ $MWMCONTINUE == "true" ]; then
+    echo "Continuing from preexisting generator run"
+    GENARGS="$GENARGS --continue"
+fi
 
 if [[ -n $MWMCOUNTRIES ]]; then
-
-echo "<$(date +%T)> Generating only specific maps [$MWMCOUNTRIES]..."
-/tmp/venv/bin/python -m maps_generator --countries=$MWMCOUNTRIES --skip="MwmDiffs"
-
-else
-
-echo "<$(date +%T)> Generating maps..."
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs"
-
+    echo "Generating only specific maps for [$MWMCOUNTRIES]"
+    GENARGS="$GENARGS --countries=$MWMCOUNTRIES"
 fi
-fi
+
+cd ~/comaps/tools/python
+echo "<$(date +%T)> Generating maps (extra args: $GENARGS)..."
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" $GENARGS
 
 echo "<$(date +%T)> DONE"

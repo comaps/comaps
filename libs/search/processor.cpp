@@ -69,21 +69,6 @@ m2::RectD GetRectAroundPosition(m2::PointD const & position)
   return mercator::RectByCenterXYAndSizeInMeters(position, kMaxPositionRadiusM);
 }
 
-// Removes all full-token stop words from |tokens|.
-// Does nothing if all tokens are non-prefix stop words.
-void RemoveStopWordsIfNeeded(QueryTokens & tokens, strings::UniString & prefix)
-{
-  size_t numStopWords = 0;
-  for (auto const & token : tokens)
-    if (IsStopWord(token))
-      ++numStopWords;
-
-  if (numStopWords == tokens.size() && prefix.empty())
-    return;
-
-  tokens.erase_if(&IsStopWord);
-}
-
 void TrimLeadingSpaces(string & s)
 {
   while (!s.empty() && strings::IsASCIISpace(s.front()))
@@ -276,9 +261,6 @@ void Processor::SetQuery(string const & query, bool categorialRequest /* = false
       m_preferredTypes = ftypes::IsEatChecker::Instance().GetTypes();
     }
   }
-
-  // Remove stopwords *after* FillCategories call (it makes exact tokens match).
-  RemoveStopWordsIfNeeded(m_query.m_tokens, m_query.m_prefix);
 
   if (!m_isCategorialRequest)
   {

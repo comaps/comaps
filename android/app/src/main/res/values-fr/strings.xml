@@ -525,8 +525,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Souhaitez-vous l’envoyer à tous les utilisateurs ?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Assurez-vous de ne pas avoir saisi de données personnelles</string>
-    <string name="editor_share_to_all_dialog_message_2">Les cartographes OpenStreetMap vérifieront vos modifications et vous contacteront en cas de questions</string>
+    <string name="editor_share_to_all_dialog_message_1">Assurez-vous de ne pas avoir saisi de données personnelles.</string>
+    <string name="editor_share_to_all_dialog_message_2">Les contributeurs OpenStreetMap vérifieront vos modifications et vous contacteront s’ils ont des questions.</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Enregistreur de traces</string>
     <!-- For the first routing -->
@@ -658,7 +658,7 @@
     <!-- To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="network">Réseau : %s</string>
     <string name="trip_finished">Vous êtes arrivé(e) !</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Trier…</string>
     <!-- Android, title, max 20-22 symbols -->
@@ -891,7 +891,6 @@
     <string name="error_value_must_be_positive">La valeur doit être positive</string>
     <string name="error_invalid_number">Nombre incorrect</string>
     <string name="unknown_socket_type">type de prise inconnu</string>
-    <string name="unknow_socket_type">prise inconnue</string>
     <string name="charging_station_available_sockets">Prises libres</string>
     <string name="avoid_steps">Éviter les escaliers</string>
     <string name="offline_explanation_title">Cartes hors-ligne</string>
@@ -912,4 +911,6 @@
     <string name="editor_mark_business_vacant_title">Marquer l\'établissement comme vacant</string>
     <string name="editor_mark_business_vacant_description">Utilisez cette option si l\'entreprise a déménagé et que l\'espace est vide et prêt à accueillir un nouveau locataire.</string>
     <string name="editor_submit">Soumettre</string>
+    <string name="power_management">Gestion de l\'énergie</string>
+    <string name="charge_socket_schuko">Europe</string>
 </resources>

@@ -1,5 +1,5 @@
-[!NOTE]
-This info might be outdated.
+> [!NOTE]  
+> This info might be outdated.
 
 First byte:
 - 0 - Amount of types (1-8, write as 0-7, 3 bits)

@@ -8,8 +8,8 @@
   android:background="@drawable/bg_clickable_card">
   <com.google.android.material.checkbox.MaterialCheckBox
     android:id="@+id/checkbox"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="40dp"
+    android:layout_height="40dp"
     android:layout_alignBottom="@id/bottom_line_container"
     android:layout_alignParentStart="true"
     android:layout_alignParentTop="true"
@@ -18,7 +18,7 @@
     android:layout_marginStart="8dp"
     android:background="@null"
     android:button="@drawable/visibility_selector"
-    android:buttonTint="?accentColorSelector"
+    app:buttonTint="@color/accent_color_selector"
     android:padding="@dimen/margin_half" />
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/name"

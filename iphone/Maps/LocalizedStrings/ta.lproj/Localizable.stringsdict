@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <dict>
-    </dict>
+<dict>
+	<key>bookmarks_places</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@மதிப்பு@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>சுழிய புத்தகக்குறிகள்</string>
+			<key>one</key>
+			<string>%d புத்தகக்குறி</string>
+			<key>other</key>
+			<string>%d புத்தகக்குறிகள்</string>
+		</dict>
+	</dict>
+	<key>bookmarks_detect_message</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@மதிப்பு@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>ஏதுமில்லை.</string>
+			<key>one</key>
+			<string>%d கோப்பு கண்டறியப்பட்டது. மாற்றியபின் பார்க்கலாம்.</string>
+			<key>other</key>
+			<string>%d கோப்பு கண்டறியப்பட்டன. மாற்றியபின் பார்க்கலாம்.</string>
+		</dict>
+	</dict>
+	<key>tracks</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@மதிப்பு@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>0 தடங்கள்</string>
+			<key>one</key>
+			<string>%d தடம்</string>
+			<key>other</key>
+			<string>%d தடங்கள்</string>
+		</dict>
+	</dict>
+</dict>
 </plist>

@@ -537,7 +537,7 @@
     <string name="offline_explanation_title">Zemljevidi brez povezave</string>
     <string name="offline_explanation_text">Zemljevid morate prenesti, da siga lahko ogledujete in se po njem usmerjate.\nPrenesite zemljevide za območja, kjer nameravate potovati.</string>
     <string name="google_play_services">Googleova združena lokacijska storitev</string>
-    <string name="create">ustvari</string>
+    <string name="create">Ustvari</string>
     <string name="editor_place_doesnt_exist_description">Opišite, kako to mesto izgleda sedaj, da pošljete obvestilo skupnosti OpenStreetMap</string>
     <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z aplikacijami (Google Play, Galaxy Store, App Gallery, FDroid). \nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor. \nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>
     <string name="category_desc_more">… več</string>
@@ -618,7 +618,6 @@
     <string name="charge_socket_nacs">NACS (severnoameriško polnilno omrežje)</string>
     <string name="charge_socket_chademo">CHAdeMO (japonski standard za polnjenje vozil)</string>
     <string name="unknown_socket_type">neznana vtičnica</string>
-    <string name="unknow_socket_type">neznana vtičnica</string>
     <string name="edit_socket_info_tooltip">Ustvari nove vtičnice ali uredi obstoječe.</string>
     <string name="charging_station_available_sockets">Razpoložljive vtičnice</string>
     <string name="charge_socket_unknown_other">Druge ali neznane</string>
@@ -632,4 +631,12 @@
     <string name="bicycle">Kolo</string>
     <string name="unknown_power_output">neznano</string>
     <string name="ruler">Ravnilo</string>
+    <string name="opens_at">Odpre se ob %s</string>
+    <string name="closes_at">Zapre se ob %s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="two">%d min</item>
+        <item quantity="few">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
 </resources>

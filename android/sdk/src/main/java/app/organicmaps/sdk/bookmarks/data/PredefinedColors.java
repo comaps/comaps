@@ -16,7 +16,7 @@ public class PredefinedColors
   public @interface Color
   {}
 
-  /// @note Color format: ARGB
+  /// note Color format: ARGB
   @ColorInt
   private static final int[] PREDEFINED_COLORS = nativeGetPredefinedColors();
 

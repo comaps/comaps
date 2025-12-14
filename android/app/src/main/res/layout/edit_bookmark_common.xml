@@ -53,7 +53,7 @@
       android:layout_marginEnd="@dimen/margin_quadruple"
       android:layout_marginStart="@dimen/margin_half_plus"
       android:text="@string/list"
-      android:textAppearance="@style/MwmTextAppearance.Body3" />
+      android:textAppearance="@style/MwmTextAppearance.Body4" />
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/tv__bookmark_set"
       android:layout_width="match_parent"
@@ -91,8 +91,9 @@
     style="?fontBody1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/margin_half"
+    android:layout_marginStart="@dimen/margin_half"
     android:layout_below="@id/rl__bookmark_set"
-    android:layout_margin="@dimen/margin_half"
     android:hint="@string/placepage_personal_notes_hint"
     android:textColorHint="?android:textColorSecondary">
 

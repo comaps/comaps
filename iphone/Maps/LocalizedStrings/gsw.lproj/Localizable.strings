@@ -296,7 +296,7 @@
 "error_enter_correct_email" = "Gib e gültigi E-Mail-Adresse ii";
 "placepage_add_place_button" = "Ort zu OpenStreetMap hinzuefüege";
 "editor_share_to_all_dialog_title" = "A alli Benutzer sende?";
-"editor_share_to_all_dialog_message_1" = "Stell sicher, dass du kei persönlichi oder privati Sache iigeh hesch.";
+"editor_share_to_all_dialog_message_1" = "Stell sicher, dass du kei persönlichi oder privati Date iigeh hesch.";
 "editor_share_to_all_dialog_message_2" = "Freiwilligi vo OpenStreetMap werded dini Änderige prüefe und sich bi Frage mit dir in Verbindig setze.";
 "navigation_stop_button" = "Beende";
 "accept" = "Aaneh";
@@ -589,3 +589,12 @@
 "pref_maplanguage_local" = "Lokali Spraach";
 "hours_confirmed_time_ago" = "Bestätigt %@";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";
+"editor_place_doesnt_exist_description" = "Beschrib wie de Ort jetzt usgseht zum e Fehlermeldig a d OpenStreetMap Community z schicke";
+"offline_explanation_title" = "Offline-Charte";
+"offline_explanation_text" = "Zum d Gegend chönne aazluege, muess e Charte abeglade werde.\nLad Charte für die Gebiet abe, wo du bereise möchtsch.";
+"avoid_steps" = "Stäge vermiide";
+"avoid_paved" = "Befestigti Strasse miide";
+"voice" = "Stimm";
+"voice_explanation" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* e besseri Stimm uuszwähle.";
+"voice_explanation_before_version26" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* e besseri Stimm uuszwähle.";
+"unknown" = "Unbekantt";

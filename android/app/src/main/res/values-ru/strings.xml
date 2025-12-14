@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Точность местоположения ограничена</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Включите точное определение местоположения в настройках</string>
+    <string name="precise_location_is_disabled_long_text">Для обеспечения точной навигации включите определение точного местоположения в настройках</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Показать на карте</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -637,12 +637,12 @@
     <string name="enable_logging_warning_message">Эта настройка включается для записи действий в целях диагностики, чтобы помочь нашей команде выявить проблемы с приложением. Включайте ее только на время для отправки детальной информации о неполадках, обнаруженных в приложении, через кнопку «Сообщить о проблеме». Логи могут включать данные о местоположении.</string>
     <string name="driving_options_title">Настройки объезда</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_tolls">Избегать платных дорог</string>
+    <string name="avoid_tolls">Избегать платные дороги</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_unpaved">Избегать грунтовых дорог</string>
+    <string name="avoid_unpaved">Избегать грунтовые дороги</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_ferry">Избегать паромов</string>
-    <string name="avoid_motorways">Избегать автомагистралей</string>
+    <string name="avoid_ferry">Избегать паромы</string>
+    <string name="avoid_motorways">Избегать автомагистрали</string>
     <string name="unable_to_calc_alert_title">Невозможно построить маршрут</string>
     <string name="unable_to_calc_alert_subtitle">Маршрут не найден. Это могло быть спровоцировано вашими настройками прокладки маршрута или неполными данными OpenStreetMap. Пожалуйта, измените ваши настройки прокладки маршрута и попробуйте снова.</string>
     <string name="define_to_avoid_btn">Настроить пути объезда</string>
@@ -878,8 +878,44 @@
     <string name="panoramax">Panoramax Фото</string>
     <string name="open_now">Открыто</string>
     <string name="closed_now">Закрыто</string>
-    <string name="avoid_steps">Избегать лестниц</string>
+    <string name="avoid_steps">Избегать лестницы</string>
     <string name="offline_explanation_title">Офлайн-карты</string>
     <string name="offline_explanation_text">Для просмотра и навигации необходима загруженная карта.\nЗагрузите карты для тех регионов, в которых вы планируете перемещаться.</string>
     <string name="editor_place_doesnt_exist_description">Опишите как выглядит это место, чтобы отправить сообщение о неточности сообществу OpenStreetMap</string>
+    <string name="opens_at">Откроется в %s</string>
+    <string name="closes_at">Закроется в %s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d мин</item>
+        <item quantity="few">%d мин</item>
+        <item quantity="many">%d мин</item>
+        <item quantity="other">%d мин</item>
+    </plurals>
+    <string name="hours_confirmed_time_ago">Подтверждено %s</string>
+    <string name="existence_confirmed_time_ago">Существование подтверждено %s</string>
+    <string name="editor_business_vacant_button">Пустое помещение</string>
+    <string name="editor_mark_business_vacant_title">Отметить как пустое</string>
+    <string name="editor_submit">Отправить</string>
+    <string name="editor_mark_business_vacant_description">Используйте эту опцию в случае, если заведение переехало и помещение теперь пустое и/или сдаётся в аренду.</string>
+    <string name="osm_note_hint">Или оставьте заметку для сообщества OpenStreetMap, чтобы кто-то другой мог добавить или исправить здесь место.</string>
+    <string name="osm_note_toast">Заметка будет отправлена в OpenStreetMap</string>
+    <string name="avoid_paved">Избегать вымощенные дороги</string>
+    <string name="delete_track_dialog_title">Удалить %s?</string>
+    <string name="ruler">Линейка</string>
+    <string name="at">в %s</string>
+    <string name="share_track">Поделиться Треком</string>
+    <string name="charge_socket_type2">Type 2 (без кабеля)</string>
+    <string name="charge_socket_type2_cable">Type 2 (с кабелем)</string>
+    <string name="charging_station_available_sockets">Доступные розетки</string>
+    <string name="charge_socket_power">Мощность (kW)</string>
+    <string name="editor_socket">Редактировать розетку</string>
+    <string name="error_value_must_be_positive">Число должно быть положительным</string>
+    <string name="error_invalid_number">Неверное число</string>
+    <string name="unknown_socket_type">неизвестная розетка</string>
+    <string name="charge_socket_count">Количество</string>
+    <string name="unknown_count">неизвестно</string>
+    <string name="edit_socket_info_tooltip">Добавьте новые розетки или отредактируйте существующие.</string>
+    <string name="charge_socket_unknown_other">Другая или неизвестная</string>
+    <string name="list_description_empty">Отредактируйте список, чтобы добавить описание</string>
+    <string name="pref_tts_no_system_tts_short">Не найден движок синтезатора речи, проверьте настройки приложения</string>
+    <string name="unknown_power_output">неизвестно</string>
 </resources>

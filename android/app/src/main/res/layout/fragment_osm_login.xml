@@ -16,8 +16,7 @@
     android:background="?cardBackground"
     android:fadeScrollbars="false"
     android:fillViewport="true"
-    android:clipToPadding="false"
-    tools:ignore="DuplicateIds">
+    android:clipToPadding="false">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -27,7 +26,6 @@
       android:padding="@dimen/margin_base"
       tools:ignore="ScrollViewSize">
       <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/textView2"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_marginBottom="@dimen/margin_half"

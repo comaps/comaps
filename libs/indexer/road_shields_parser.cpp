@@ -291,10 +291,13 @@ public:
   struct Entry
   {
     Entry() = default;
-    Entry(std::string_view name, RoadShieldType type) : m_name(name), m_type(type) {}
+    Entry(std::string_view name, RoadShieldType type, bool isRedundant = false, bool shouldTrimName = false) : m_name(name), m_type(type), m_isRedundant(isRedundant), m_shouldTrimName(shouldTrimName) {}
 
     std::string_view m_name;
     RoadShieldType m_type = RoadShieldType::Default;
+    /* Hides a specific secondary etc. sign, if there is a primary one */
+    bool m_isRedundant = false;
+    bool m_shouldTrimName = false;
   };
 
   using ShieldTypes = buffer_vector<Entry, 8>;
@@ -311,19 +314,29 @@ public:
     if (rawText.size() > kMaxRoadShieldBytesSize)
       return RoadShield();
 
-    size_t idx = std::numeric_limits<size_t>::max();
     RoadShieldType type = m_defaultType;
+    std::string name = std::string{rawText};
+    size_t idx = std::numeric_limits<size_t>::max();
     for (auto const & p : m_types)
     {
       auto const i = rawText.find(p.m_name);
       if (i != std::string::npos && i < idx)
       {
-        type = p.m_type;
+        name = std::string{rawText};
+        if (p.m_shouldTrimName)
+        {
+          strings::ReplaceFirst(name, std::string{p.m_name}, "");
+          strings::Trim(name);
+        }
+        if (index != 1 && p.m_isRedundant) {
+          type = RoadShieldType::Hidden;
+        } else {
+          type = p.m_type;
+        }
         idx = i;
       }
     }
-
-    return {type, rawText};
+    return {type, name};
   }
 
 private:
@@ -339,56 +352,53 @@ public:
   struct Entry
   {
     Entry() = default;
-    Entry(std::string_view name, HighwayClass highwayClass, RoadShieldType type, bool isRedundant = false) : m_name(name), m_highwayClass(highwayClass), m_type(type), m_isRedundant(isRedundant) {}
+    Entry(std::string_view name, HighwayClass highwayClass, RoadShieldType type, bool isRedundant = false, bool shouldTrimName = false) : m_name(name), m_type(type), m_highwayClass(highwayClass), m_isRedundant(isRedundant), m_shouldTrimName(shouldTrimName) {}
 
     std::string_view m_name;
-    HighwayClass m_highwayClass = HighwayClass::Undefined;
     RoadShieldType m_type = RoadShieldType::Default;
+    HighwayClass m_highwayClass = HighwayClass::Undefined;
     /* Hides a specific secondary etc. sign, if there is a primary one */
     bool m_isRedundant = false;
+    bool m_shouldTrimName = false;
   };
 
   using ShieldTypes = buffer_vector<Entry, 8>;
 
   HighwayClassRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass, ShieldTypes && types, RoadShieldType defaultType = RoadShieldType::Default)
-    : RoadShieldParser(baseRoadNumber)
-    , m_highwayClass(highwayClass)
-    , m_types(std::move(types))
-    , m_defaultType(defaultType)
+  : RoadShieldParser(baseRoadNumber)
+  , m_highwayClass(highwayClass)
+  , m_types(std::move(types))
+  , m_defaultType(defaultType)
   {}
-
+  
   RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
   {
     if (rawText.size() > kMaxRoadShieldBytesSize)
       return RoadShield();
     
-    RoadShieldType type = m_defaultType;
-    if (index == 1) {
+    if (index == 1)
+    {
       for (auto const & p : m_types)
       {
         if (p.m_highwayClass == m_highwayClass)
         {
-          return RoadShield(p.m_type, rawText);
-        }
-      }
-    } else {
-      size_t idx = std::numeric_limits<size_t>::max();
-      for (auto const & p : m_types)
-      {
-        auto const i = rawText.find(p.m_name);
-        if (i != std::string::npos && i < idx)
-        {
-          if (p.m_isRedundant) {
-            type = RoadShieldType::Hidden;
-          } else {
-            type = p.m_type;
+          std::string name = std::string{rawText};
+          if (p.m_shouldTrimName)
+          {
+            strings::ReplaceFirst(name, std::string{p.m_name}, "");
+            strings::Trim(name);
           }
-          idx = i;
+          return RoadShield(p.m_type, name);
         }
       }
     }
-
-    return {type, rawText};
+    
+    SimpleRoadShieldParser::ShieldTypes simpleShieldTypes = {};
+    for (auto const & p : m_types)
+    {
+      simpleShieldTypes.push_back(SimpleRoadShieldParser::Entry(p.m_name, p.m_type, p.m_isRedundant, p.m_shouldTrimName));
+    }
+    return SimpleRoadShieldParser(m_baseRoadNumber, std::move(simpleShieldTypes)).ParseRoadShield(rawText, index);
   }
 
 private:
@@ -693,7 +703,7 @@ class GermanyRoadShieldParser : public HighwayClassRoadShieldParser
 public:
   explicit GermanyRoadShieldParser(std::string const & baseRoadNumber, HighwayClass const & highwayClass)
     : HighwayClassRoadShieldParser(baseRoadNumber, highwayClass,
-                                   {{"A", HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Blue},
+                                   {{"A", HighwayClass::Motorway, RoadShieldType::Highway_Hexagon_Blue, false, true},
                                     {"D", HighwayClass::Motorway, RoadShieldType::Hidden},
                                     {"B", HighwayClass::Trunk, RoadShieldType::Generic_Orange_Bordered},
                                     {"B", HighwayClass::Primary, RoadShieldType::Generic_Orange_Bordered},

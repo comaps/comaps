@@ -9,7 +9,7 @@ namespace regexp_test
 template <typename Fn>
 void ForEachMatched(std::string const & s, boost::regex const & regex, Fn && fn)
 {
-  for (std::sregex_token_iterator cur(s.begin(), s.end(), regex), end; cur != end; ++cur)
+  for (boost::sregex_token_iterator cur(s.begin(), s.end(), regex), end; cur != end; ++cur)
     fn(*cur);
 }
 

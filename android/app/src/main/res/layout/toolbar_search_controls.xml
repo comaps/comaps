@@ -17,7 +17,7 @@
     android:background="?attr/selectableItemBackgroundBorderless"
     app:srcCompat="?homeAsUpIndicator"
     android:scaleType="center"
-    tools:src="@drawable/ic_down"
+    tools:src="@drawable/ic_expand_more"
     android:contentDescription="@string/back"/>
 
   <com.google.android.material.textfield.TextInputEditText
@@ -34,16 +34,17 @@
     android:singleLine="true"
     android:textCursorDrawable="@drawable/cursor_drawable" />
 
-  <ProgressBar
+  <com.google.android.material.progressindicator.CircularProgressIndicator
     android:id="@+id/progress"
-    style="@style/Widget.AppCompat.ProgressBar"
     android:layout_width="@dimen/search_progress_size"
     android:layout_height="@dimen/search_progress_size"
     android:layout_marginEnd="@dimen/margin_half"
     android:layout_weight="0"
-    android:background="@null"
     android:minHeight="@dimen/search_progress_size"
-    android:minWidth="@dimen/search_progress_size"/>
+    android:minWidth="@dimen/search_progress_size"
+    app:trackColor="@color/text_light"
+    app:indicatorColor="@color/text_light"
+    android:indeterminate="true"/>
 
   <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/clear"

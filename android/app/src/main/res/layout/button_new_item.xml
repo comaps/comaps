@@ -8,6 +8,7 @@
     android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
+    app:cardBackgroundColor="?cardBackground"
     app:cardCornerRadius="12dp"
     app:cardElevation="2dp"
     tools:showIn="@layout/item_charging_sockets">

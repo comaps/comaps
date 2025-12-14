@@ -51,9 +51,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:background="?accentButtonBackground"
     android:layout_marginTop="@dimen/margin_base"
-    android:enabled="true"
+    android:enabled="false"
     android:text="@string/editor_report_problem_send_button"
-    app:backgroundTint="@null"/>
+    android:textColor="?android:textColorPrimaryInverse" />
 </LinearLayout>

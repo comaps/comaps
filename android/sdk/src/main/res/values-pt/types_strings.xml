@@ -344,7 +344,7 @@
     <string name="type.entrance">Entrada</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Entrada principal</string>
-    <string name="type.entrance.exit">Saída</string>
+    <string name="type.entrance.exit">Saída (Única)</string>
     <string name="type.fee.no">Gratuito</string>
     <string name="type.healthcare.laboratory">Laboratório médico</string>
     <string name="type.healthcare.physiotherapist">Fisioterapeuta</string>
@@ -523,7 +523,7 @@
     <string name="type.area_highway.unclassified">Estrada sem classificação</string>
     <!-- SECTION: Types: Historic -->
     <string name="type.historic">Objeto histórico</string>
-    <string name="type.historic.aircraft">Aeronaves Históricas</string>
+    <string name="type.historic.aircraft">Aeronave histórica</string>
     <string name="type.historic.anchor">Âncora Histórica</string>
     <string name="type.historic.archaeological_site">Sítio arqueológico</string>
     <string name="type.historic.battlefield">Campo de batalha</string>
@@ -1153,7 +1153,7 @@
     <string name="type.shop.seafood">Peixaria</string>
     <string name="type.shop.second_hand">Loja de segunda mão</string>
     <string name="type.shop.shoes">Sapataria</string>
-    <string name="type.shop.sports">Loga de artigos desportivos</string>
+    <string name="type.shop.sports">Loja de artigos esportivos</string>
     <string name="type.shop.stationery">Papelaria</string>
     <string name="type.shop.supermarket">Supermercado</string>
     <string name="type.shop.tattoo">Estúdio de tatuagens</string>
@@ -1458,4 +1458,47 @@
     <string name="type.amenity.sailing_school">Escola Náutica</string>
     <string name="type.amenity.flight_school">Escola de Aviação</string>
     <string name="type.amenity.prep_school">Centro de Explicações</string>
+    <string name="type.beacon.cardinal.east">Baliza Cardinal</string>
+    <string name="type.beacon.cardinal.north">Baliza Cardinal</string>
+    <string name="type.beacon.cardinal.south">Baliza Cardinal</string>
+    <string name="type.beacon.cardinal.west">Baliza Cardinal</string>
+    <string name="type.beacon.isolated_danger">Baliza de Perigo Isolado</string>
+    <string name="type.beacon.lateral.port">Baliza Lateral</string>
+    <string name="type.beacon.lateral.starboard">Baliza Lateral</string>
+    <string name="type.beacon.safe_water">Baliza de Águas Seguras</string>
+    <string name="type.beacon.special_purpose">Baliza de Uso Especial</string>
+    <string name="type.buoy.cardinal.east">Boia Cardinal</string>
+    <string name="type.buoy.cardinal.north">Boia Cardinal</string>
+    <string name="type.buoy.cardinal.south">Boia Cardinal</string>
+    <string name="type.buoy.cardinal.west">Boia Cardinal</string>
+    <string name="type.buoy.isolated_danger">Boia de Perigo Isolado</string>
+    <string name="type.buoy.lateral.port">Boia Lateral</string>
+    <string name="type.buoy.lateral.starboard">Boia Lateral</string>
+    <string name="type.buoy.safe_water">Boia de Águas Seguras</string>
+    <string name="type.buoy.special_purpose">Boia de Uso Especial</string>
+    <string name="type.spherical_buoy.cardinal.east">Boia Cardinal Esférica</string>
+    <string name="type.spherical_buoy.cardinal.north">Boia Cardinal Esférica</string>
+    <string name="type.spherical_buoy.cardinal.south">Boia Cardinal Esférica</string>
+    <string name="type.spherical_buoy.cardinal.west">Boia Cardinal Esférica</string>
+    <string name="type.spherical_buoy.isolated_danger">Boia Esférica de Perigo Isolado</string>
+    <string name="type.spherical_buoy.lateral.port">Boia Esférica Lateral</string>
+    <string name="type.spherical_buoy.lateral.starboard">Boia Esférica Lateral</string>
+    <string name="type.spherical_buoy.safe_water">Boia Esférica de Águas Seguras</string>
+    <string name="type.spherical_buoy.special_purpose">Boia Esférica de Uso Especial</string>
+    <string name="type.lateral.port">Bombordo</string>
+    <string name="type.lateral.starboard">Estibordo</string>
+    <string name="type.cardinal.east">Este</string>
+    <string name="type.cardinal.north">Norte</string>
+    <string name="type.cardinal.south">Sul</string>
+    <string name="type.cardinal.west">Oeste</string>
+    <string name="type.entrance.house">Entrada de Casa</string>
+    <string name="type.entrance.garage">Entrada de Garagem</string>
+    <string name="type.entrance.service">Entrada de Serviço</string>
+    <string name="type.entrance.entry">Entrada (Única)</string>
+    <string name="type.entrance.emergency">Saída de emergência</string>
+    <string name="type.man_made.mast.communication">Mastro de Comunicações</string>
+    <string name="type.natural.sand">Areia</string>
+    <string name="type.natural.tree">Árvore</string>
+    <string name="type.shop.beauty.nails">Salão de Unhas</string>
+    <string name="type.xmas.tree">Árvore de Natal</string>
 </resources>

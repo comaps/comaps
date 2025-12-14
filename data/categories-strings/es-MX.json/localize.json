@@ -9,6 +9,8 @@
 "recycling-plastic_bottles|@category_recycling": "Botellas de plástico",
 "recycling-scrap_metal|@category_recycling": "Desechos de metal",
 "recycling-small_appliances|@category_recycling": "Desechos electrónico",
+"highway-bus_stop|@category_transport": "Parada de autobús|Parada|Autobús|Bus|omnibus|omni|bondi|colectivo|camión",
+"amenity-bus_station|@category_transport": "3Estación de autobuses|Estación de ómnibus|Estación de micros|Estación de colectivos|Autobús|Bus|Terminal de buses|Terminal de autobuses|camión",
 "amenity-shelter-basic_hut": "Cabaña Vivac",
 "natural-strait": "Estrecho",
 "leisure-hackerspace": "Espacio hacker",

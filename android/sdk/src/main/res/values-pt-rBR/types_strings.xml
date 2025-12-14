@@ -210,7 +210,7 @@
     <string name="type.craft.electronics_repair">Reparo de eletrônicos</string>
     <string name="type.craft.grinding_mill">Moinho</string>
     <!-- Heating, Ventilation, and Air Conditioning -->
-    <string name="type.craft.hvac">Aquecimento, Ventilação e Ar Condicionado</string>
+    <string name="type.craft.hvac">Climatização</string>
     <string name="type.craft.key_cutter">Chaveiro</string>
     <string name="type.craft.locksmith">Serralheiro (chave)</string>
     <string name="type.shop.camera">Loja de câmeras</string>
@@ -486,16 +486,16 @@
     <string name="type.area_highway.trunk">Via expressa</string>
     <string name="type.area_highway.unclassified">Estrada sem classificação</string>
     <!-- SECTION: Types: Historic -->
-    <string name="type.historic.aircraft">Aeronaves Históricas</string>
-    <string name="type.historic.anchor">Âncora Histórica</string>
+    <string name="type.historic.aircraft">Aeronave histórica</string>
+    <string name="type.historic.anchor">Âncora histórica</string>
     <string name="type.historic.cannon">Canhão</string>
     <string name="type.historic.citywalls">Muro da cidade</string>
     <string name="type.historic.gallows">Galo</string>
-    <string name="type.historic.locomotive">Locomotiva Histórica</string>
+    <string name="type.historic.locomotive">Locomotiva histórica</string>
     <string name="type.historic.memorial.cross">Cruz de memorial</string>
-    <string name="type.historic.stone">Pedra Histórica</string>
-    <string name="type.historic.mine">Mina Histórica</string>
-    <string name="type.historic.tank">Tanque Histórico</string>
+    <string name="type.historic.stone">Pedra histórica</string>
+    <string name="type.historic.mine">Mina histórica</string>
+    <string name="type.historic.tank">Tanque histórico</string>
     <!-- Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. -->
     <string name="type.man_made.cross">Cruz</string>
     <string name="type.historic.wreck">Naufrágio</string>
@@ -937,7 +937,7 @@
     <string name="type.shop.copyshop">Copiadora</string>
     <string name="type.shop.cosmetics">Loja de cosméticos</string>
     <string name="type.shop.curtain">Loja de cortinas</string>
-    <string name="type.shop.deli">Loja Delicatessen</string>
+    <string name="type.shop.deli">Loja de delicatessen</string>
     <string name="type.shop.department_store">Loja de departamentos</string>
     <string name="type.shop.doityourself">Loja de ferramentas e materiais de bricolagem</string>
     <string name="type.shop.dry_cleaning">Lavagem a seco</string>
@@ -986,7 +986,7 @@
     <string name="type.shop.seafood">Peixaria</string>
     <string name="type.shop.second_hand">Loja de segunda mão</string>
     <string name="type.shop.shoes">Sapataria</string>
-    <string name="type.shop.sports">Loga de artigos esportivos</string>
+    <string name="type.shop.sports">Loja de artigos esportivos</string>
     <string name="type.shop.stationery">Papelaria</string>
     <string name="type.shop.supermarket">Supermercado</string>
     <string name="type.shop.tattoo">Estúdio de tatuagens</string>
@@ -1222,7 +1222,7 @@
     <string name="type.historic.memorial.statue">Estátua</string>
     <string name="type.historic.memorial.war_memorial">Memorial de Guerra</string>
     <string name="type.historic.monument">Monumento</string>
-    <string name="type.historic.ruins">Ruínas Históricas</string>
+    <string name="type.historic.ruins">Ruínas históricas</string>
     <string name="type.historic.ship">Navio</string>
     <string name="type.historic.tomb">Túmulo</string>
     <string name="type.historic.wayside_shrine">Santuário à beira da estrada</string>
@@ -1238,7 +1238,7 @@
     <string name="type.natural.beach.sand">Praia de areia</string>
     <string name="type.natural.beach.gravel">Praia de cascalho</string>
     <string name="type.natural.cape">Cabo</string>
-    <string name="type.natural.cave_entrance">Entrada da Caverna</string>
+    <string name="type.natural.cave_entrance">Entrada de caverna</string>
     <string name="type.natural.cliff">Penhasco</string>
     <string name="type.natural.earth_bank">Banco de Terras</string>
     <string name="type.man_made.embankment">Aterro</string>
@@ -1427,20 +1427,20 @@
     <string name="type.amenity.lounger">Espreguiçadeira</string>
     <string name="type.amenity.boat_rental">Aluguel de barco</string>
     <string name="type.man_made.telescope">Telescópio</string>
-    <string name="type.man_made.telescope.optical">Telescópio (óptico)</string>
+    <string name="type.man_made.telescope.optical">Telescópio (ótico)</string>
     <string name="type.man_made.telescope.radio">Telescópio (rádio)</string>
     <string name="type.man_made.telescope.gamma">Telescópio (gama)</string>
     <string name="type.man_made.observatory">Observatório</string>
-    <string name="type.amenity.mobile_money_agent">Agente de Mobile Money</string>
+    <string name="type.amenity.mobile_money_agent">Agente mobile money</string>
     <string name="type.amenity.car_pooling">Carona</string>
     <string name="type.amenity.payment_centre">Centro de pagamentos</string>
     <string name="type.leisure.indoor_play">Centro de recreação interno</string>
     <string name="type.shop.telecommunication">Loja de Telecomunicação</string>
     <string name="type.social_facility.soup_kitchen">Restaurante popular</string>
     <string name="type.social_facility.food_bank">Banco de alimentos</string>
-    <string name="type.amenity.food_sharing">Compartilhamento de alimentos</string>
+    <string name="type.amenity.food_sharing">Alimentos compartilhados</string>
     <string name="type.amenity.give_box">Caixa de doação</string>
-    <string name="type.emergency.access_point">Ponto de Resgate de Emergência</string>
+    <string name="type.emergency.access_point">Ponto de resgate de emergência</string>
     <string name="type.emergency.life_ring">Boia salva-vidas</string>
     <string name="type.amenity.sailing_school">Escola de vela</string>
     <string name="type.amenity.flight_school">Escola de aviação</string>
@@ -1487,4 +1487,6 @@
     <string name="type.buoy.cardinal.west">Boia cardeal</string>
     <string name="type.buoy.isolated_danger">Boia de perigo isolado</string>
     <string name="type.buoy.lateral.port">Boia lateral</string>
+    <string name="type.man_made.mast.communication">Mastro de comunicações</string>
+    <string name="type.shop.beauty.nails">Manicure</string>
 </resources>

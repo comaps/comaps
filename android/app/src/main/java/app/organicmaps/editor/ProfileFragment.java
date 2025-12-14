@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
@@ -23,6 +22,7 @@ import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.StackedButtonDialogFragment;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
 import java.text.NumberFormat;
 
@@ -50,7 +50,7 @@ public class ProfileFragment extends BaseMwmToolbarFragment
   private MaterialTextView mEditsSent;
   private MaterialTextView mProfileName;
   private ShapeableImageView mProfileImage;
-  private ProgressBar mProfileInfoLoading;
+  private CircularProgressIndicator mProfileInfoLoading;
 
   @Nullable
   @Override

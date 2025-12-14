@@ -1024,7 +1024,7 @@
 "icloud_disabled_title" = "O iCloud está desativado";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Para utilizar esta funcionalidade, ative o iCloud nas definições do seu dispositivo.";
+"icloud_disabled_message" = "Para utilizar esta funcionalidade, ative o iCloud para o CoMaps nas definições da sua Conta Apple.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Ativar";

@@ -38,17 +38,27 @@ Android and iOS share most of the strings. Codeberg Translate automatically sync
 
 ### Categories strings
 
-Search categories synonyms/aliases usually shouldn't be just direct translations from English, but rather adaptations - e.g. some specific terms could be used in your language to search for a certain feature and they might not have English equivalents.
+Search categories synonyms/aliases usually should **not** just be direct translations from English, but rather adaptations as some specific terms could be used in your language to search for a certain feature and they might not have English equivalents. It's just a matter of "what would you type in the search in <language> to find shop=mall?" (As a concrete example, in regional German dialects, some types of corner/convenience stores or kiosks are called "Spätis". This has no direct translation into English, but would be a relevant search term when looking for `shop=kiosk`).
 
-Some translations are borrowed from the common category (`@` in the key). Please do not duplicate translations if a category in the key already includes it.
+Translations can be borrowed from a common category (indicated by the use of a `@` in the key). Please do not duplicate translations that are already inherited from a parent.
 
 Syntax:
-- |   - used to separate synonyms.
-- 1-9 - digits in front of a synonym indicate the number of symbols that need to be
-       typed in a search query to make this synonym appear in the list of suggestions.
-       Located immediately at the start of a synonym. At most one
-       digit per synonym is allowed.
-It's possible to use emoji codes as search synonyms, e.g. U+1F6B0 for potable water.
+
+- `|`   - used to separate synonyms.
+- `1`-`9` - a digit in front of a synonym indicate the number of characters that need to be typed in a search query to make this synonym appear in the list of suggestions. It is located immediately at the start of a synonym. At most one digit per synonym is allowed. This number doesn't need to be copied from the English string when translating.
+ 
+It's also possible to use emoji codes as search synonyms, e.g. U+1F6B0 for potable water. You do not have to repeat/duplicate terms or emoji that are already listed in the English source, as those will always be searched as well.
+
+#### Example
+
+Look at the following category string: 
+
+`"shop-furniture|@shop": "4Furniture"`
+
+Here, `4Furniture` indicates that `Furniture` will be suggested after the user types `furn` and beyond.
+Furthermore, `@shop` in the key declaration indicate that translations from the `@shop` category will also be used to search for `shop=furniture` POIs. For this reason, translations that are already available in the categories keys do not have to be repeated.
+
+#### Typo matching
 
 For all languages with nominative and gentive cases (e.g. Slavic languagues like Russian,
 Ukrainian, Belarus, Serbian), state _short_ nouns in nominative and genitive case, e.g. `Вино|вина`,

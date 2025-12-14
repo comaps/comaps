@@ -623,7 +623,7 @@
 "core_placepage_unknown_place" = "Punct Hartă";
 
 /* Title for OSM note section in the editor */
-"editor_other_info" = "Notă pentru voluntarii OpenStreetMap (opțional)";
+"editor_other_info" = "Notiță pentru voluntarii OpenStreetMap (opțional)";
 "editor_detailed_description_hint" = "Comentariu detaliat";
 "editor_detailed_description" = "Modificările aduse hărții, sugerate de tine, vor fi trimise comunității OpenStreetMap. Descrie orice detalii suplimentare care nu pot fi modificate în CoMaps.";
 "editor_more_about_osm" = "Mai multe despre OpenStreetMap";
@@ -814,10 +814,10 @@
 "avoid_tolls" = "Evitați drumurile cu taxă";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "Evită drumurile neasfaltate";
+"avoid_unpaved" = "Evitați drumurile neasfaltate";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_ferry" = "Evită trecerile cu bac";
+"avoid_ferry" = "Evitați trecerile cu bac";
 "avoid_motorways" = "Evitați autostrăzile";
 "unable_to_calc_alert_title" = "Nu poate fi creat un traseu";
 "unable_to_calc_alert_subtitle" = "Din păcate, nu putem elabora un traseu cu opțiunile alese. Modifică-le și încearcă din nou.";
@@ -1087,13 +1087,15 @@
 "osm_profile_view_notes" = "Vizualizați notițe";
 "about_headline" = "Proiect deschis, susținut de comunitate";
 "about_proposition_3" = "Transparent și non-profit";
-"pref_mapappearance_title" = "Map Appearance";
-"pref_maplanguage_title" = "Map Language";
+"pref_mapappearance_title" = "Aspectul hărții";
+"pref_maplanguage_title" = "Limba hărții";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 "pref_maplanguage_local" = "Limbă Locală";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"hours_confirmed_time_ago" = "Confirmat acum %@";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
-"avoid_paved" = "Evită drumurile pavate";
+"avoid_paved" = "Evitați drumurile asfaltate sau pavate";
 "editor_place_doesnt_exist_description" = "Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap";
-"avoid_steps" = "Evită treptele";
+"avoid_steps" = "Evitați treptele";
 "offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și si să nevighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
+"offline_explanation_title" = "Hărti Offline";
+"voice" = "Voce";

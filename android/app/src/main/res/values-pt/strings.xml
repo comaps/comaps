@@ -291,7 +291,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Por favor ative os serviços de localização</string>
     <string name="save">Guardar</string>
-    <string name="create">criar</string>
+    <string name="create">Criar</string>
     <!-- red color -->
     <string name="red">Vermelho</string>
     <!-- yellow color -->
@@ -506,8 +506,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Quer enviar para todos os utilizadores?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Certifique-se que não incluiu nenhuns dados pessoais</string>
-    <string name="editor_share_to_all_dialog_message_2">Os editores do OpenStreetMap verificarão as alterações e entrarão em contacto consigo se tiverem alguma dúvida</string>
+    <string name="editor_share_to_all_dialog_message_1">Certifique-se que não incluiu nenhuns dados pessoais.</string>
+    <string name="editor_share_to_all_dialog_message_2">Os editores do OpenStreetMap verificarão as alterações e entrarão em contacto consigo se tiverem alguma dúvida.</string>
     <string name="navigation_stop_button">Parar</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Registar a pista</string>
@@ -875,7 +875,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">tomada desconhecida</string>
-    <string name="unknow_socket_type">tomada desconhecida</string>
     <string name="edit_socket_info_tooltip">Crie tomadas ou adicione pré-existentes.</string>
     <string name="charging_station_available_sockets">Tomadas disponíveis</string>
     <string name="charge_socket_unknown_other">Outra ou desconhecida</string>
@@ -886,4 +885,20 @@
     <string name="error_value_must_be_positive">O valor tem que ser positivo</string>
     <string name="error_invalid_number">Número inválido</string>
     <string name="avoid_paved">Evitar rotas pavimentadas</string>
+    <string name="opens_at">Abre às %s</string>
+    <string name="closes_at">Fecha às %s</string>
+    <string name="opens_day_at">Abre %1$s às %2$s</string>
+    <string name="closes_day_at">Fecha %1$s às %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="editor_business_vacant_button">O negócio está vago</string>
+    <string name="editor_mark_business_vacant_title">Marcar negócio como vago</string>
+    <string name="editor_mark_business_vacant_description">Use isto se o negócio moveu de local e o espaço está vazio e preparado para um novo inquilino.</string>
+    <string name="editor_submit">Submeter</string>
+    <string name="list_description_empty">Edite a lista para adicionar uma descrição</string>
+    <string name="power_management">Gestão de Energia</string>
+    <string name="charge_socket_schuko">Doméstica UE</string>
 </resources>

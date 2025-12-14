@@ -23,6 +23,7 @@
   <string name="pref_tts_info" translatable="false">TtsInfo</string>
   <string name="pref_tts_info_link" translatable="false">TtsInfoLink</string>
   <string name="pref_tts_speed_cameras" translatable="false">SpeedCameras</string>
+  <string name="pref_tts_speed_cameras_info" translatable="false">SpeedCamerasInfo</string>
   <string name="prefs_routing" translatable="false">RoutingOptions</string>
   <string name="pref_autodownload" translatable="false">AutoDownloadMap</string>
   <string name="pref_3d" translatable="false">3D</string>
@@ -46,6 +47,7 @@
   <string name="pref_map_locale" translatable="false">MapLanguage</string>
   <string name="pref_backup" translatable="false">Backup</string>
   <string name="pref_left_button" translatable="false">LeftButton</string>
+  <string name="pref_power" translatable="false">pref_power</string>
 
   <string name="notification_ticker_ltr" translatable="false">%1$s: %2$s</string>
   <string name="notification_ticker_rtl" translatable="false">%2$s :%1$s</string>

@@ -17,7 +17,7 @@
                 android:pivotX="12"
                 android:pivotY="12">
                 <path
-                    android:fillColor="#FFF"
+                    android:fillColor="#000"
                     android:pathData="M22.167,11.328l-5.717,-0.816l-2.45,-5.712l-2.45,5.712l-5.717,0.816l4.083,4.08l-0.817,5.726l4.9,-2.463l4.9,2.448l-0.817,-5.711z" />
             </group>
         </vector>

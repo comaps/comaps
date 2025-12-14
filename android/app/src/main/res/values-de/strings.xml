@@ -25,9 +25,9 @@
     <!-- Location services are disabled by user alert - message -->
     <string name="location_is_disabled_long_text">Standortdienste sind für dieses Gerät oder diese App deaktiviert. Bitte aktivieren Sie diese in den Einstellungen.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="limited_accuracy">Begrenzte Genauigkeit</string>
+    <string name="limited_accuracy">Eingeschränkte Genauigkeit</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Um eine präzise Navigation zu gewährleisten, aktivieren Sie „Genauer Standort“ in den Einstellungen</string>
+    <string name="precise_location_is_disabled_long_text">Um eine genaue Navigation zu gewährleisten, aktivieren Sie „Genauer Standort“ in den Einstellungen</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Auf der Karte anzeigen</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -295,7 +295,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Bitte aktivieren Sie die Standortdienste</string>
     <string name="save">Speichern</string>
-    <string name="create">erstellen</string>
+    <string name="create">Erstellen</string>
     <!-- red color -->
     <string name="red">Rot</string>
     <!-- yellow color -->
@@ -521,8 +521,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">An alle Nutzer*innen senden?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Stellen Sie sicher, dass Sie keine persönlichen oder privaten Daten eingegeben haben</string>
-    <string name="editor_share_to_all_dialog_message_2">Freiwillige von OpenStreetMap werden die Änderungen prüfen und sich bei Fragen mit Ihnen in Verbindung setzen</string>
+    <string name="editor_share_to_all_dialog_message_1">Stellen Sie sicher, dass Sie keine persönlichen oder privaten Daten eingegeben haben.</string>
+    <string name="editor_share_to_all_dialog_message_2">Freiwillige von OpenStreetMap werden die Änderungen prüfen und sich bei Fragen mit Ihnen in Verbindung setzen.</string>
     <string name="navigation_stop_button">Beenden</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Strecke wird aufgezeichnet</string>
@@ -880,7 +880,6 @@
     <string name="charge_socket_type1">Typ 1</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="unknown_socket_type">Unbekannter Anschluss</string>
-    <string name="unknow_socket_type">Unbekannter Anschluss</string>
     <string name="edit_socket_info_tooltip">Neue Anschlüsse erstellen oder Existierende bearbeiten.</string>
     <string name="charging_station_available_sockets">Verfügbare Anschlüsse</string>
     <string name="charge_socket_unknown_other">Andere oder unbekannt</string>
@@ -893,7 +892,7 @@
     <string name="unknown_count">unbekannt</string>
     <string name="error_invalid_number">ungültige Zahl</string>
     <string name="list_description_empty">Liste bearbeiten, um eine Beschreibung hinzuzufügen</string>
-    <string name="avoid_paved">Befst. Straßen vermeiden</string>
+    <string name="avoid_paved">Befestigte Straßen meiden</string>
     <string name="opens_at">Öffnet um %s</string>
     <string name="closes_at">Schließt um %s</string>
     <string name="opens_day_at">Öffnet am %1$s um %2$s</string>
@@ -902,7 +901,10 @@
         <item quantity="one">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
-    <string name="editor_business_vacant_button">Geschäft ist leerstehend</string>
+    <string name="editor_business_vacant_button">Geschäft steht leer</string>
     <string name="editor_mark_business_vacant_title">Geschäft als leerstehend markieren</string>
     <string name="editor_submit">Absenden</string>
+    <string name="editor_mark_business_vacant_description">Wenn das Unternehmen ausgezogen ist und die Fläche leer und bereit für die nächste Miete ist.</string>
+    <string name="charge_socket_schuko">Schuko</string>
+    <string name="power_management">Energiemanagement</string>
 </resources>

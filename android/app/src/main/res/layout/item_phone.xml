@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_item_oneline"
     android:background="?clickableBackground"
+    android:layout_marginTop="@dimen/margin_half"
     android:paddingStart="@dimen/margin_half_plus"
     android:paddingEnd="@dimen/margin_half_plus">
 

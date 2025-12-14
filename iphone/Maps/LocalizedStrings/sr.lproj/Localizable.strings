@@ -1012,7 +1012,7 @@
 "bugreport_alert_message" = "Да ли желите да пошаљете пријаву бага програмерима?\nОслањамо се на кориснике пошто CoMaps не прикупља податке о грешкама аутоматски. Хвала унапред што подржавате CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud синхронизација (бета)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Омогући iCloud синхронизацију";
@@ -1024,7 +1024,7 @@
 "icloud_disabled_title" = "iCloud је искључен";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Молим Вас да укључите iCloud у подешавањима вашег уређаја да бисте користили ову опцију.";
+"icloud_disabled_message" = "Молим Вас да укључите iCloud за CoMaps у подешавањима вашег Apple налога да бисте користили ову опцију.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Укључи";

@@ -102,7 +102,7 @@ UNIT_TEST(GetFilesInDir_Smoke)
 
   TEST(base::IsExist(files1, "minsk-pass.mwm"), ());
 
-  pl.GetFilesByRegExp(dir, boost::regex(".*\\" + DATA_FILE_EXTENSION + "$"), files2);
+  pl.GetFilesByRegExp(dir, boost::regex(std::string(".*\\") + DATA_FILE_EXTENSION + std::string("$")), files2);
   TEST_EQUAL(files1, files2, ());
 
   files1.clear();

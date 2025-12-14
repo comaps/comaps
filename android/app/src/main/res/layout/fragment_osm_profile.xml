@@ -30,12 +30,14 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_base"
       android:background="?colorPrimary">
-    <ProgressBar
+    <com.google.android.material.progressindicator.CircularProgressIndicator
         android:id="@+id/user_profile_loading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:trackColor="@color/text_light"
+        app:indicatorColor="@color/text_light"
         android:layout_gravity="center"
-        android:indeterminateTint="@color/text_light"
+        android:indeterminate="true"
         android:visibility="invisible"
         tools:visibility="visible" />
     <LinearLayout

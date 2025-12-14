@@ -117,7 +117,8 @@ public:
   void OnEnterBackground();
 
   void OnCompassTapped();
-  void OnLocationUpdate(location::GpsInfo const & info, bool isNavigable, ScreenBase const & screen);
+  void OnLocationUpdate(location::GpsInfo const & info, bool isNavigable, double distanceToNextTurn, double speedLimit,
+                        ScreenBase const & screen);
   void OnCompassUpdate(location::CompassInfo const & info, ScreenBase const & screen);
 
   void Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng, ScreenBase const & screen,

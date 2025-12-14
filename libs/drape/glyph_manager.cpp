@@ -56,6 +56,8 @@ FreetypeError constexpr g_FT_Errors[] =
     namespace dp
 {
   int constexpr kInvalidFont = -1;
+  // Empirically measured, may need more tuning.
+  size_t constexpr kMaxCacheSize = 50000;
 
   template <typename ToDo>
   void ParseUniBlocks(std::string const & uniBlocksFile, ToDo toDo)
@@ -360,6 +362,8 @@ FreetypeError constexpr g_FT_Errors[] =
 
     m_impl->m_fonts.reserve(params.m_fonts.size());
 
+    m_impl->m_textMetricsCache.reserve(kMaxCacheSize);
+
     FREETYPE_CHECK(FT_Init_FreeType(&m_impl->m_library));
 
     // Default Freetype spread/sdf border is 8.
@@ -370,11 +374,9 @@ FreetypeError constexpr g_FT_Errors[] =
     for (auto const & fontName : params.m_fonts)
     {
       bool ignoreFont = false;
-      std::for_each(blacklst.begin(), blacklst.end(), [&ignoreFont, &fontName](TFontAndBlockName const & p)
-      {
+      for (TFontAndBlockName const & p : blacklst)
         if (p.first == fontName && p.second == "*")
           ignoreFont = true;
-      });
 
       if (ignoreFont)
         continue;
@@ -633,8 +635,6 @@ FreetypeError constexpr g_FT_Errors[] =
     if (allGlyphs.m_glyphs.empty())
       LOG(LWARNING, ("No glyphs were found in all fonts for string with characters in warnings above" /*, utf8*/));
 
-    // Empirically measured, may need more tuning.
-    size_t constexpr kMaxCacheSize = 50000;
     if (m_impl->m_textMetricsCache.size() > kMaxCacheSize)
     {
       LOG(LINFO, ("Clearing text metrics cache"));

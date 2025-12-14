@@ -259,7 +259,7 @@
 "type.craft.hvac" = "Calefacció, ventilació i aire condicionat";
 "type.craft.key_cutter" = "Tall de claus";
 "type.craft.locksmith" = "Serraller";
-"type.craft.metal_construction" = "Metal Worker";
+"type.craft.metal_construction" = "Metal·listeria";
 "type.craft.painter" = "Pintor";
 "type.craft.photographer" = "Fotògraf";
 "type.shop.camera" = "Botiga de càmeres";
@@ -292,11 +292,11 @@
 "type.cuisine.croatian" = "Croata";
 "type.cuisine.curry" = "Curri";
 "type.cuisine.deli" = "Delicatessen";
-"type.cuisine.diner" = "Diner";
+"type.cuisine.diner" = "Sopar";
 "type.cuisine.donut" = "Donut";
 "type.cuisine.ethiopian" = "Etiòpica";
 "type.cuisine.filipino" = "Filipina";
-"type.cuisine.fine_dining" = "Fine Dining";
+"type.cuisine.fine_dining" = "Alta cuina";
 "type.cuisine.fish" = "Peix";
 "type.cuisine.fish_and_chips" = "Fish and Chips";
 "type.cuisine.french" = "Francesa";
@@ -370,7 +370,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Entrada principal";
-"type.entrance.exit" = "Sortida";
+"type.entrance.exit" = "Sortida (únicament)";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratuït";
 "type.healthcare.laboratory" = "Laboratori mèdic";
@@ -381,14 +381,14 @@
 "type.healthcare.optometrist" = "Optometrista";
 "type.healthcare.podiatrist" = "Podòleg";
 "type.healthcare.psychotherapist" = "Psicoterapeuta";
-"type.healthcare.sample_collection" = "Sample Collection Centre";
+"type.healthcare.sample_collection" = "Centre de recollida de mostres";
 "type.healthcare.speech_therapist" = "Logopeda";
 "type.highway" = "Carretera";
-"type.highway.bridleway" = "Bridle Path";
+"type.highway.bridleway" = "Camí eqüestre";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Pont";
-"type.highway.bridleway.permissive" = "Bridle Path";
+"type.highway.bridleway.permissive" = "Camí eqüestre";
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Túnel";
@@ -521,8 +521,8 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Pont";
-"type.highway.service.driveway" = "Service Road";
-"type.highway.service.parking_aisle" = "Service Road";
+"type.highway.service.driveway" = "Via d'entrada";
+"type.highway.service.parking_aisle" = "Passadís d'aparcament";
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Túnel";
@@ -584,19 +584,19 @@
 "type.highway.unclassified.tunnel" = "Túnel";
 "type.area_highway.cycleway" = "Carril bici";
 "type.area_highway.footway" = "Sender";
-"type.area_highway.living_street" = "Living Street";
+"type.area_highway.living_street" = "Carrer de prioritat peatonal";
 "type.area_highway.motorway" = "Autopista";
 "type.area_highway.path" = "Camí";
 "type.area_highway.pedestrian" = "Carrer de vianants";
 "type.area_highway.primary" = "Carretera primària";
 "type.area_highway.residential" = "Carrer residencial";
 "type.area_highway.secondary" = "Carretera secundària";
-"type.area_highway.service" = "Service Road";
+"type.area_highway.service" = "Via de servei";
 "type.area_highway.tertiary" = "Carretera terciària";
 "type.area_highway.steps" = "Escales";
-"type.area_highway.track" = "Track";
+"type.area_highway.track" = "Pista";
 "type.area_highway.trunk" = "Carretera nacional";
-"type.area_highway.unclassified" = "Minor Road";
+"type.area_highway.unclassified" = "Carretera menor";
 "type.historic" = "Objecte històric";
 "type.historic.aircraft" = "Avions històrics";
 "type.historic.anchor" = "Àncora històrica";
@@ -1461,9 +1461,9 @@
 
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Pavelló esportiu";
-"type.amenity.studio" = "Estudi";
+"type.amenity.studio" = "Estudi Media";
 "type.barrier.guard_rail" = "Barrera de seguretat";
-"type.amenity.love_hotel" = "Love Hotel";
+"type.amenity.love_hotel" = "Hotel d'Amor";
 "type.highway.ladder" = "Escala";
 "type.landuse.plant_nursery" = "Plant Nursery";
 "type.leisure.firepit" = "Firepit";
@@ -1481,9 +1481,65 @@
 "type.amenity.luggage_locker" = "Taquilla d'equipatge";
 "type.amenity.ranger_station" = "Ranger Station";
 "type.amenity.bicycle_parking.covered" = "Aparcament de bicicletes cobert";
-"type.post_office.post_partner" = "Post Partner";
+"type.post_office.post_partner" = "Associat de correu";
 "type.amenity.animal_shelter" = "Refugi d'animals";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.office.security" = "Security Guards Office";
+"type.barrier.wicket_gate" = "Portell";
+"type.office.security" = "Oficina de Guàrdies de Seguretat";
 "type.power.portal" = "Torre d'alta tensió";
-"type.building.guardhouse" = "Security Booth";
+"type.building.guardhouse" = "Cabina de Seguretat";
+"type.amenity.bench.backless" = "Banc sense respatller";
+"type.amenity.boat_rental" = "Lloguer de vaixells";
+"type.man_made.telescope" = "Telescopi";
+"type.man_made.telescope.optical" = "Telescopi (Òptic)";
+"type.man_made.telescope.radio" = "Telescopi (Ràdio)";
+"type.man_made.telescope.gamma" = "Telescopi (Gamma)";
+"type.man_made.observatory" = "Observatori";
+"type.amenity.charging_station.motorcar.small" = "Punt de Càrrega de Cotxes";
+"type.amenity.sailing_school" = "Escola de Navegació";
+"type.amenity.flight_school" = "Escola de Vol";
+"type.amenity.prep_school" = "Escola Preparatòria";
+"type.amenity.lounger" = "Hamaca";
+"type.amenity.mobile_money_agent" = "Agència d'efectiu mòbil";
+"type.amenity.car_pooling" = "Punt de Vehicle Compartit";
+"type.amenity.payment_centre" = "Centre de pagaments";
+"type.cuisine.beef_bowl" = "Gyūdon";
+"type.emergency.access_point" = "Punt de rescat d'emergència";
+"type.emergency.life_ring" = "Salvavides";
+"type.beacon.cardinal.east" = "Marca cardinal";
+"type.beacon.cardinal.north" = "Marca cardinal";
+"type.beacon.cardinal.south" = "Marca cardinal";
+"type.beacon.cardinal.west" = "Marca cardinal";
+"type.beacon.isolated_danger" = "Marca de perill aïllat";
+"type.beacon.lateral.port" = "Marca lateral";
+"type.beacon.lateral.starboard" = "Marca lateral";
+"type.beacon.safe_water" = "Marca d'aigües navegables";
+"type.beacon.special_purpose" = "Marca especial";
+"type.buoy.cardinal.east" = "Boia cardinal";
+"type.buoy.cardinal.north" = "Boia cardinal";
+"type.buoy.cardinal.south" = "Boia cardinal";
+"type.buoy.cardinal.west" = "Boia cardinal";
+"type.buoy.isolated_danger" = "Boia de perill aïllat";
+"type.buoy.lateral.port" = "Boia lateral";
+"type.buoy.lateral.starboard" = "Boia lateral";
+"type.buoy.safe_water" = "Boia d'aigües navegables";
+"type.buoy.special_purpose" = "Boia d'ús especial";
+"type.spherical_buoy.cardinal.east" = "Boia cardinal esfèrica";
+"type.spherical_buoy.cardinal.north" = "Boia cardinal esfèrica";
+"type.spherical_buoy.cardinal.south" = "Boia cardinal esfèrica";
+"type.spherical_buoy.cardinal.west" = "Boia cardinal esfèrica";
+"type.spherical_buoy.isolated_danger" = "Boia esfèrica de perill aïllat";
+"type.spherical_buoy.lateral.port" = "Boia esfèrica lateral";
+"type.spherical_buoy.lateral.starboard" = "Boia esfèrica lateral";
+"type.spherical_buoy.safe_water" = "Boia esfèrica d'aigües navegables";
+"type.spherical_buoy.special_purpose" = "Boia esfèrica d'ús especial";
+"type.lateral.port" = "Babord";
+"type.lateral.starboard" = "Estribord";
+"type.cardinal.east" = "Est";
+"type.cardinal.north" = "Nord";
+"type.cardinal.south" = "Sud";
+"type.cardinal.west" = "Oest";
+"type.entrance.house" = "Entrada de casa";
+"type.entrance.garage" = "Entrada de garatge";
+"type.entrance.service" = "Entrada de servei";
+"type.entrance.entry" = "Entrada (únicament)";
+"type.entrance.emergency" = "Sortida d'emergència";

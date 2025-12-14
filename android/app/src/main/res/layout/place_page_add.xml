@@ -2,6 +2,7 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/ll__place_add"
   style="@style/PlacePageItemFrame"
   tools:visibility="visible">
@@ -11,5 +12,7 @@
     style="@style/MwmWidget.M3.Button.Secondary"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    app:backgroundTint="?windowBackgroundForced"
+    android:backgroundTint="?windowBackgroundForced"
     android:text="@string/placepage_add_place_button" />
 </LinearLayout>

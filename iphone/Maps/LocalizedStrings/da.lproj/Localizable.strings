@@ -697,7 +697,7 @@
 "editor_share_to_all_dialog_title" = "Ønsker du at sende det til alle brugere?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Sørg for at du ikke indtastede personlige oplysninger.";
+"editor_share_to_all_dialog_message_1" = "Sørg for, at du ikke har indtastet private eller personlige oplysninger.";
 "editor_share_to_all_dialog_message_2" = "OpenStreetMap-redaktører vil tjekke ændringerne og kontakte dig, hvis de har spørgsmål.";
 "navigation_stop_button" = "Stop";
 
@@ -817,7 +817,7 @@
 "avoid_tolls" = "Undgå betalingsveje";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "Undgå ikke-asfalterede veje";
+"avoid_unpaved" = "Undgå veje uden fast belægning";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_ferry" = "Undgå færger";
@@ -1012,7 +1012,7 @@
 "bugreport_alert_message" = "Vil du gerne sende en fejlrapport til udviklerne?\nVi er afhængige af vores brugere, da CoMaps ikke indsamler nogen fejloplysninger automatisk. Tak på forhånd for at støtte CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud-synkronisering (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Aktivér iCloud-synkronisering";
@@ -1024,7 +1024,7 @@
 "icloud_disabled_title" = "iCloud er deaktiveret";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Aktivér iCloud i din enheds indstillinger for at bruge denne funktion.";
+"icloud_disabled_message" = "Aktivér iCloud for CoMaps i indstillingerne for din Apple-konto for at bruge denne funktion.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Aktivér";
@@ -1098,7 +1098,7 @@
 "avoid_steps" = "Undgå trapper";
 "editor_place_doesnt_exist_description" = "Beskriv, hvordan stedet ser ud nu, for at sende en fejlnote til OpenStreetMap-fællesskabet";
 "offline_explanation_text" = "Der skal downloades et kort for at kunne se og navigere i området.\nDownload kort over de områder, du ønsker at rejse i.";
-"offline_explanation_title" = "Offline kort";
+"offline_explanation_title" = "Offlinekort";
 "voice" = "Stemme";
 "unknown" = "Ukendt";
 "voice_explanation_before_version26" = "Det er muligt at vælge en bedre stemme i systemindstillingerne under *Tilgængelighed*, *Talt indhold*, *Stemmer*.";

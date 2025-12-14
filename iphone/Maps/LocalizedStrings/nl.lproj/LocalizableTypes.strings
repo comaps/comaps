@@ -12,7 +12,7 @@
 "type.aeroway.aerodrome" = "Vliegveld";
 "type.aeroway.aerodrome.international" = "Vliegveld";
 "type.aeroway.apron" = "Platform";
-"type.aeroway.gate" = "Poort";
+"type.aeroway.gate" = "Gate";
 "type.aeroway.helipad" = "Heliplatform";
 "type.aeroway.runway" = "Startbaan";
 "type.aeroway.taxiway" = "Taxibaan";
@@ -1583,3 +1583,11 @@
 "type.entrance.emergency" = "Nooduitgang";
 "type.xmas.tree" = "Kerstboom";
 "type.shop.beauty.day_spa" = "Schoonheidssalon";
+"type.man_made.mast.communication" = "Telecommunicatiemast";
+"type.amenity.mobile_money_agent" = "Mobiel geldkantoor";
+"type.beacon.isolated_danger" = "Geïsoleerd gevaarsbaken";
+"type.buoy.isolated_danger" = "Geïsoleerde gevaarsboei";
+"type.spherical_buoy.isolated_danger" = "Sferische geïsoleerde gevaarsboei";
+"type.shop.beauty.nails" = "Nagelsalon";
+"type.amenity.food_sharing" = "Voedsel delen";
+"type.amenity.give_box" = "Giftenkist";

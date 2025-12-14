@@ -2,14 +2,12 @@ package app.organicmaps.maplayer;
 
 import android.content.Context;
 import android.view.View;
-import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import app.organicmaps.R;
 import app.organicmaps.adapter.OnItemClickListener;
 import app.organicmaps.sdk.maplayer.Mode;
-import app.organicmaps.util.ThemeUtils;
 
 public class LayerBottomSheetItem
 {
@@ -37,27 +35,25 @@ public class LayerBottomSheetItem
     @DrawableRes
     int drawableResId = 0;
     @StringRes
-    int buttonTextResource = R.string.layers_title;
-    switch (mode)
-    {
-    case OUTDOORS:
-      drawableResId = R.drawable.ic_layers_outdoors;
-      buttonTextResource = R.string.button_layer_outdoor;
-      break;
-    case SUBWAY:
-      drawableResId = R.drawable.ic_layers_subway;
-      buttonTextResource = R.string.subway;
-      break;
-    case ISOLINES:
-      drawableResId = R.drawable.ic_layers_isoline;
-      buttonTextResource = R.string.button_layer_isolines;
-      break;
-    case TRAFFIC:
-      drawableResId = R.drawable.ic_layers_traffic;
-      buttonTextResource = R.string.button_layer_traffic;
-      break;
-    }
-    return new LayerBottomSheetItem(drawableResId, buttonTextResource, mode, layerItemClickListener);
+    int buttonTextResource = switch (mode) {
+        case OUTDOORS -> {
+            drawableResId = R.drawable.ic_layers_outdoors;
+            yield R.string.button_layer_outdoor;
+        }
+        case SUBWAY -> {
+            drawableResId = R.drawable.ic_layers_subway;
+            yield R.string.subway;
+        }
+        case ISOLINES -> {
+            drawableResId = R.drawable.ic_layers_isoline;
+            yield R.string.button_layer_isolines;
+        }
+        case TRAFFIC -> {
+            drawableResId = R.drawable.ic_layers_traffic;
+            yield R.string.button_layer_traffic;
+        }
+    };
+      return new LayerBottomSheetItem(drawableResId, buttonTextResource, mode, layerItemClickListener);
   }
 
   @NonNull

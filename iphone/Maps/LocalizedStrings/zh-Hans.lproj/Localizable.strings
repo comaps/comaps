@@ -682,8 +682,8 @@
 "placepage_delete_bookmark_button" = "删除书签";
 "editor_edits_sent_message" = "您的说明将发送至 OpenStreetMap";
 "editor_comment_hint" = "备注…";
-"editor_reset_edits_message" = "重置所有本地更改？";
-"editor_reset_edits_button" = "重置";
+"editor_reset_edits_message" = "舍弃所有本地更改？";
+"editor_reset_edits_button" = "舍弃";
 "editor_remove_place_message" = "删除已添加的地点？";
 "editor_remove_place_button" = "删除";
 "editor_place_doesnt_exist" = "该地点不存在";
@@ -1015,7 +1015,7 @@
 "bugreport_alert_message" = "您想向开发人员发送错误报告吗？\n由于 CoMaps 不会自动收集任何错误信息，因此我们只能依靠我们的用户。感谢您对 CoMaps 的支持！";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud 同步（Beta）";
+"icloud_sync" = "iCloud 同步（测试）";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "启用 iCloud 同步";
@@ -1027,7 +1027,7 @@
 "icloud_disabled_title" = "iCloud 已禁用";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "请在您的设备设置中启用 iCloud，以使用此功能。";
+"icloud_disabled_message" = "请在您的 Apple 账号设置中为 CoMaps 启用 iCloud 以使用此功能。";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "启用";

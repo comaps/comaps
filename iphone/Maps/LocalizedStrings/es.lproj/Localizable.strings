@@ -700,8 +700,8 @@
 "editor_share_to_all_dialog_title" = "¿Quieres enviarlo a todos los usuarios?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Cerciórese de que no ha introducido ningún dato privado o personal.";
-"editor_share_to_all_dialog_message_2" = "Los editores de OpenStreetMap comprobarán los cambios y se pondrán en contacto con usted si tienen alguna pregunta.";
+"editor_share_to_all_dialog_message_1" = "Cerciórate de que no has introducido ningún dato privado o personal.";
+"editor_share_to_all_dialog_message_2" = "Los editores de OpenStreetMap comprobarán los cambios y se pondrán en contacto contigo si tienen alguna pregunta.";
 "navigation_stop_button" = "Detener";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -1015,7 +1015,7 @@
 "bugreport_alert_message" = "¿Quiere enviar un informe de error a los desarrolladores?\nDependemos de nuestros usuarios, ya que CoMaps no recoge ninguna información sobre errores de forma automática. ¡Gracias de antemano por apoyar a CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "Sincronización iCloud (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Activar la sincronización con iCloud";
@@ -1027,7 +1027,7 @@
 "icloud_disabled_title" = "iCloud está desactivado";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Active iCloud en la configuración del dispositivo para utilizar esta función.";
+"icloud_disabled_message" = "Active iCloud para CoMaps en la configuración del dispositivo para utilizar esta función.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Activar";
@@ -1102,3 +1102,7 @@
 "avoid_steps" = "Evitar escaleras";
 "editor_place_doesnt_exist_description" = "Describe la situación actual del lugar para enviar una nota de error a la comunidad de OpenStreetMap";
 "avoid_paved" = "Evitar caminos pavimentados";
+"voice" = "Voz";
+"unknown" = "Desconocido";
+"voice_explanation" = "Es posible elegir una mejor voz en el la configuración del sistema bajo *Accesibilidad*, *Contenido leído*, *Voces*.";
+"voice_explanation_before_version26" = "Es posible elegir ana mejor voz en el la configuración del sistema bajo *Accesibilidad*, *Contenido leído*, *Voces*.";

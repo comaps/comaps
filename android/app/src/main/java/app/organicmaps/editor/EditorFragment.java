@@ -1,5 +1,7 @@
 package app.organicmaps.editor;
 
+import static android.view.View.INVISIBLE;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
@@ -13,14 +15,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.GridLayout;
-import android.widget.Toast;
+
 import androidx.annotation.CallSuper;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.appcompat.widget.SwitchCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
@@ -42,9 +43,9 @@ import app.organicmaps.util.Graphics;
 import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.card.MaterialCardView;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
@@ -115,9 +116,9 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
   private MaterialTextView mPhone;
   private MaterialButton mEditPhoneLink;
   private MaterialTextView mCuisine;
-  private SwitchCompat mWifi;
+  private MaterialSwitch mWifi;
   private MaterialTextView mSelfService;
-  private SwitchCompat mOutdoorSeating;
+  private MaterialSwitch mOutdoorSeating;
 
   // Default Metadata entries.
   private static final class MetadataEntry
@@ -353,8 +354,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     {
       hasChargeSockets = hasChargeSockets || (type == Metadata.MetadataType.FMD_CHARGE_SOCKETS.toInt());
     }
-    // Hide socket until https://codeberg.org/comaps/comaps/issues/2368 is fixed
-    //UiUtils.showIf(hasChargeSockets, mCardChargingStation);
+    UiUtils.showIf(hasChargeSockets, mCardChargingStation);
 
     setCardVisibility(mCardDetails, mDetailsBlocks, editableDetails);
     setCardVisibility(mCardSocialMedia, mSocialMediaBlocks, editableDetails);
@@ -396,16 +396,18 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     typeBtns.removeAllViews();
 
     List<String> SOCKET_TYPES = Arrays.stream(getResources().getStringArray(R.array.charge_socket_types)).toList();
-    for (String socket : SOCKET_TYPES)
+    for (String socketType : SOCKET_TYPES)
     {
+      ChargeSocketDescriptor socket = new ChargeSocketDescriptor(socketType,0,0);
+
       MaterialButton btn = (MaterialButton) inflater.inflate(R.layout.button_socket_type, typeBtns, false);
 
-      btn.setTag(R.id.socket_type, socket);
+      btn.setTag(R.id.socket_type, socket.type());
 
       // load SVG icon converted into VectorDrawable in res/drawable
       @SuppressLint("DiscouragedApi")
       int resIconId =
-          getResources().getIdentifier("ic_charge_socket_" + socket, "drawable", requireContext().getPackageName());
+          getResources().getIdentifier("ic_charge_socket_" + socket.visualType(), "drawable", requireContext().getPackageName());
       if (resIconId != 0)
       {
         btn.setIcon(getResources().getDrawable(resIconId));
@@ -413,7 +415,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
       @SuppressLint("DiscouragedApi")
       int resTypeId =
-          getResources().getIdentifier("charge_socket_" + socket, "string", requireContext().getPackageName());
+          getResources().getIdentifier("charge_socket_" + socket.visualType(), "string", requireContext().getPackageName());
       if (resTypeId != 0)
       {
         btn.setText(getResources().getString(resTypeId));
@@ -545,7 +547,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
                   updateChargeSockets(socketIndex, socket);
                 })
-        .setNegativeButton(R.string.cancel, (dialog, which) -> { dialog.dismiss(); });
+        .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
   }
 
   // Helper method for validation logic
@@ -601,8 +603,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     GridLayout socketsGrid = mChargeSockets.findViewById(R.id.socket_grid_editor);
     socketsGrid.removeAllViews();
 
-    for (int i = 0; i < sockets.length; i++)
-    {
+    for (int i = 0; i < sockets.length; i++) {
       final int currentIndex = i;
       ChargeSocketDescriptor socket = sockets[i];
 
@@ -613,27 +614,28 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       MaterialTextView power = itemView.findViewById(R.id.socket_power);
       MaterialTextView count = itemView.findViewById(R.id.socket_count);
 
+
       // load SVG icon converted into VectorDrawable in res/drawable
       @SuppressLint("DiscouragedApi")
-      int resIconId = getResources().getIdentifier("ic_charge_socket_" + socket.type(), "drawable",
-                                                   requireContext().getPackageName());
-      if (resIconId != 0)
-      {
+      int resIconId = getResources().getIdentifier("ic_charge_socket_" + socket.visualType(), "drawable",
+              requireContext().getPackageName());
+      if (resIconId != 0) {
         icon.setImageResource(resIconId);
       }
 
       @SuppressLint("DiscouragedApi")
       int resTypeId =
-          getResources().getIdentifier("charge_socket_" + socket.type(), "string", requireContext().getPackageName());
-      if (resTypeId != 0)
-      {
+              getResources().getIdentifier("charge_socket_" + socket.visualType(), "string", requireContext().getPackageName());
+      if (resTypeId != 0) {
         type.setText(resTypeId);
       }
 
-      if (socket.power() != 0)
-      {
+      if (socket.power() != 0) {
         DecimalFormat df = new DecimalFormat("#.##");
         power.setText(getString(R.string.kw_label, df.format(socket.power())));
+      }
+      else if (socket.ignorePower()) {
+        power.setVisibility(INVISIBLE);
       }
 
       if (socket.count() != 0)
@@ -641,17 +643,13 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
         count.setText(getString(R.string.count_label, socket.count()));
       }
 
-      itemView.setOnClickListener(v -> {
-        buildChargeSocketDialog(currentIndex, socket.type(), socket.count(), socket.power()).show();
-      });
+      itemView.setOnClickListener(v -> buildChargeSocketDialog(currentIndex, socket.type(), socket.count(), socket.power()).show());
       socketsGrid.addView(itemView);
     }
 
     // add a 'new item' button at the end, to create new sockets
     View btnNewItemView = inflater.inflate(R.layout.button_new_item, socketsGrid, false);
-    btnNewItemView.setOnClickListener(v -> {
-      buildChargeSocketDialog(-1, "unknown", -1, -1).show();
-    });
+    btnNewItemView.setOnClickListener(v -> buildChargeSocketDialog(-1, "unknown", -1, -1).show());
     socketsGrid.addView(btnNewItemView);
   }
 

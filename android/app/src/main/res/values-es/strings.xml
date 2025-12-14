@@ -197,7 +197,7 @@
     <string name="prefs_group_information">Información</string>
     <string name="prefs_group_route">Navegación</string>
     <string name="pref_zoom_title">Botones de zoom</string>
-    <string name="pref_zoom_summary">Visualizar en la pantalla</string>
+    <string name="pref_zoom_summary">Ver en el mapa</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Modo nocturno</string>
     <!-- Generic «Off» string -->
@@ -297,7 +297,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Por favor, activa los Servicios de Localización</string>
     <string name="save">Guardar</string>
-    <string name="create">crear</string>
+    <string name="create">Crear</string>
     <!-- red color -->
     <string name="red">Rojo</string>
     <!-- yellow color -->
@@ -493,7 +493,7 @@
     <string name="editor_category_unsuitable_title">¿No halla una categoría adecuada?</string>
     <string name="editor_category_unsuitable_text">CoMaps permite añadir únicamente categorías de puntos sencillos, es decir, no ciudades, carreteras, lagos, contornos de edificios, etc. Por favor, añade dichas categorías directamente en <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulta nuestra <a href="https://www.comaps.app/support/advanced-map-editing/">guía</a> para obtener instrucciones detalladas paso a paso.</string>
     <string name="downloader_no_downloaded_maps_title">No has descargado ningún mapa</string>
-    <string name="downloader_no_downloaded_maps_message">Descargue mapas para encontrar la ubicación y navegar sin conexión</string>
+    <string name="downloader_no_downloaded_maps_message">Descarga mapas para buscar ubicaciones y navegar sin conexión</string>
     <string name="current_location_unknown_error_title">Se desconoce la ubicación actual</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
@@ -524,11 +524,11 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">¿Quieres enviarlo a todos los usuarios?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Cerciórate de que no has introducido ningún dato privado o personal</string>
-    <string name="editor_share_to_all_dialog_message_2">Los editores de OpenStreetMap comprobarán los cambios y se pondrán en contacto contigo si tienen alguna pregunta</string>
+    <string name="editor_share_to_all_dialog_message_1">Cerciórate de que no has introducido ningún dato privado o personal.</string>
+    <string name="editor_share_to_all_dialog_message_2">Los editores de OpenStreetMap comprobarán los cambios y se pondrán en contacto contigo si tienen alguna pregunta.</string>
     <string name="navigation_stop_button">Detener</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">Grabando el trayeco</string>
+    <string name="track_recording">Grabando el trayecto</string>
     <!-- For the first routing -->
     <string name="accept">Aceptar</string>
     <!-- For the first routing -->
@@ -539,7 +539,7 @@
     <string name="mobile_data_option_not_today">No usar hoy</string>
     <string name="mobile_data">Internet móvil</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Se requiere Internet móvil para recibir notificaciones de actualización de mapas y cargar ediciones</string>
+    <string name="mobile_data_description">Se requiere conexión a Internet para recibir notificaciones de actualización de mapas y cargar ediciones</string>
     <string name="mobile_data_option_never">No usar nunca</string>
     <string name="mobile_data_option_ask">Preguntar siempre</string>
     <string name="traffic_update_maps_text">Para mostrar los datos de tráfico, deben actualizarse los mapas</string>
@@ -887,8 +887,8 @@
     <string name="charge_socket_power">Potencia (kW)</string>
     <string name="unknown_count">desconocido</string>
     <string name="avoid_steps">Evitar escaleras</string>
+    <string name="charge_socket_schuko">Doméstico UE</string>
     <string name="unknown_socket_type">enchufe desconocido</string>
-    <string name="unknow_socket_type">enchufe desconocido</string>
     <string name="edit_socket_info_tooltip">Crear nuevo enchufe o editar existentes.</string>
     <string name="charging_station_available_sockets">Enchufes disponibles</string>
     <string name="charge_socket_unknown_other">Otros o desconocido</string>
@@ -913,4 +913,5 @@
     <string name="editor_mark_business_vacant_title">Marcar negocio como vacante</string>
     <string name="editor_mark_business_vacant_description">Usa esto si el negocio ya no existe y el local ha quedado vacío para un nuevo inquilino.</string>
     <string name="editor_submit">Enviar</string>
+    <string name="power_management">Gestión de energía</string>
 </resources>

@@ -24,17 +24,20 @@
             android:layout_width="0dp"
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
             android:layout_weight="1"
+            android:hint="@string/charge_socket_power"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_power"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="center|end"
+                android:minHeight="35dp"
+                android:paddingEnd="@dimen/margin_half"
                 android:completionThreshold="1"
                 android:inputType="numberDecimal"
-                android:hint="@string/charge_socket_power"
                 app:simpleItems="@array/charge_sockets_common_powers"
                 />
         </com.google.android.material.textfield.TextInputLayout>
@@ -45,16 +48,19 @@
             android:paddingStart="4dp"
             android:paddingEnd="4dp"
             android:layout_weight="1"
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+            android:hint="@string/charge_socket_count"
             android:layout_height="wrap_content">
 
             <com.google.android.material.textfield.MaterialAutoCompleteTextView
                 android:id="@+id/edit_socket_count"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="end"
+                android:gravity="center|end"
+                android:minHeight="35dp"
+                android:paddingEnd="@dimen/margin_half"
                 android:completionThreshold="1"
                 android:inputType="numberDecimal"
-                android:hint="@string/charge_socket_count"
                 app:simpleItems="@array/charge_sockets_common_counts"
                 />
         </com.google.android.material.textfield.TextInputLayout>

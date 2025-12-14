@@ -297,7 +297,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Proszę włączyć usługi lokalizacji</string>
     <string name="save">Zapisz</string>
-    <string name="create">utwórz</string>
+    <string name="create">Utwórz</string>
     <!-- red color -->
     <string name="red">Czerwony</string>
     <!-- yellow color -->
@@ -889,7 +889,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">nieznane gniazdo</string>
-    <string name="unknow_socket_type">nieznane gniazdo</string>
     <string name="edit_socket_info_tooltip">Stwórz nowe gniazda lub edytuj już istniejące.</string>
     <string name="charging_station_available_sockets">Dostępne gniazda</string>
     <string name="charge_socket_unknown_other">Inne lub nieznane</string>
@@ -899,4 +898,24 @@
     <string name="unknown_count">nieznana</string>
     <string name="error_value_must_be_positive">Wartość musi być dodatnia</string>
     <string name="error_invalid_number">Nieprawidłowa liczba</string>
+    <string name="opens_at">Otwarcie o %s</string>
+    <string name="closes_at">Zamknięcie o %s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="few">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
+    <string name="avoid_paved">Unikaj dróg utwardzonych</string>
+    <string name="charge_socket_schuko">Schuko</string>
+    <string name="opens_day_at">Otwiera w %1$s o %2$s</string>
+    <string name="closes_day_at">Zamyka się w %1$s o %2$s</string>
+    <string name="editor_mark_business_vacant_description">Użyj tego, jeśli firma się wyprowadziła, a lokal jest pusty i gotowy na nowego najemcę.</string>
+    <string name="power_management">Zarządzanie zasilaniem</string>
+    <string name="pref_tts_no_system_tts_short">Nie znaleziono silnika text-to-speech, sprawdź ustawienia aplikacji</string>
+    <string name="list_description_empty">Edytuj listę, aby dodać opis</string>
+    <string name="editor_submit">Wyślij</string>
+    <string name="prefs_speed_cameras_information">Ostrzeżenia o fotoradarach są wyłączone w krajach, gdzie takie alerty są zabronione prawnie.</string>
+    <string name="navigation_start_tts_message">"Startowanie nawigacji, język komunikatów głosowych: "</string>
+    <string name="navigation_start_tts_disabled_message">Komunikaty głosowe są wyłączone: silnik TTS jest niedostępny</string>
 </resources>

@@ -1,0 +1,10 @@
+• Dane OpenStreetMap z 9 grudnia
+• Użycie motywów Material 3
+• Obsługa gniazd ładowania w Edytorze OSM
+• Dodane gniazda ładowania schuko/type-E
+• Poprawiony ranking wyników wyszukiwania
+• Dodane litewskie i łotewskie komunikaty głosowe
+• Poprawiony rozmiar znaków drogowych
+• Poziom powiększenia oparty na odległości do następnego manewru
+• Zmieniona kolejność ustawień
+Więcej szczegółów na codeberg.org/comaps/comaps/releases

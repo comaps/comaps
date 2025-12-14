@@ -126,7 +126,7 @@
 "type.amenity.post_box" = "Buzón de correos";
 "type.amenity.post_office" = "Oficina de correos";
 "type.amenity.prison" = "Prisión";
-"type.amenity.pub" = "Pub";
+"type.amenity.pub" = "Taberna";
 "type.amenity.public_bookcase" = "Intercambio de libros";
 "type.amenity.recycling.centre" = "Centro de reciclaje";
 "type.amenity.recycling" = "Contenedor de reciclaje";
@@ -371,7 +371,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Entrada principal";
-"type.entrance.exit" = "Salida";
+"type.entrance.exit" = "Sólo salida";
 "type.fee.yes" = "$";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Laboratorio médico";
@@ -522,7 +522,7 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Puente";
-"type.highway.service.driveway" = "Vía de servicio";
+"type.highway.service.driveway" = "Camino de entrada";
 "type.highway.service.parking_aisle" = "Pasillo de aparcamiento";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -715,8 +715,8 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Rampa de barcos";
 "type.leisure.sports_centre" = "Complejo deportivo";
-"type.sport.climbing" = "Centro de escalada";
-"type.sport.yoga" = "Centro de yoga";
+"type.sport.climbing" = "Escalada";
+"type.sport.yoga" = "Yoga";
 "type.leisure.stadium" = "Estadio";
 "type.leisure.swimming_pool" = "Piscina";
 "type.leisure.swimming_pool.private" = "Piscina privada";
@@ -1332,7 +1332,7 @@
 "type.sport.soccer" = "Fútbol";
 "type.sport.swimming" = "Natación";
 "type.sport.table_tennis" = "Tenis de mesa";
-"type.sport.tennis" = "Cancha de tenis";
+"type.sport.tennis" = "Tenis";
 "type.sport.volleyball" = "Voleibol";
 "type.sport.10pin" = "Bolos";
 "type.sport.9pin" = "Bolos";
@@ -1589,3 +1589,5 @@
 "type.natural.tree" = "Árbol";
 "type.shop.beauty.day_spa" = "Spa";
 "type.xmas.tree" = "Árbol de Navidad";
+"type.man_made.mast.communication" = "Mástil de telecomunicaciones";
+"type.shop.beauty.nails" = "Salón de manicura";

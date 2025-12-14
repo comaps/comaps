@@ -1350,4 +1350,11 @@
     <string name="type.natural.wetland.saltmarsh.tidal">Mareako gatz-padura</string>
     <string name="type.railway.station.subway.qingdao">Metro geltokia</string>
     <string name="type.amenity.animal_shelter">Animalien babeslekua</string>
+    <string name="type.amenity.boat_rental">Itsasontzien alokairua</string>
+    <string name="type.man_made.telescope">Teleskopioa</string>
+    <string name="type.man_made.telescope.optical">Teleskopioa (optikoa)</string>
+    <string name="type.man_made.telescope.radio">Teleskopioa (irratia)</string>
+    <string name="type.man_made.telescope.gamma">Teleskopioa (gamma)</string>
+    <string name="type.man_made.observatory">Behatokia</string>
+    <string name="type.amenity.charging_station.motorcar.small">Autoak kargatzeko puntua</string>
 </resources>

@@ -493,5 +493,18 @@
 "amenity-luggage_locker": "5Камера хранения|4багаж",
 "office-security": "ЧОП|4Охрана",
 "building-guardhouse": "4Сторож|4Охрана",
-"amenity-studio": "Студия|теле|радио"
+"amenity-studio": "Студия|теле|радио",
+"shop-cannabis|@shop": "Марихуана",
+"shop-beauty-nails": "Маникюр|Педикюр|ногти",
+"leisure-dance|@category_entertainment": "3Танцы|Школа танцев",
+"man_made-cross": "Крест",
+"natural-peak|@mountain": "Вершина|пик",
+"man_made-telescope|man_made-telescope-optical|man_made-telescope-radio|man_made-telescope-gamma": "5Телескоп",
+"man_made-observatory": "3Обсерватория",
+"leisure-fitness_centre-sport-yoga": "2Йога",
+"shop-beauty-day_spa": "Спа|Спа салон",
+"shop-telecommunication|@shop": "6Оператор сотовой связи|оператор мобильной связи|мобильная связь",
+"sport-9pin": "Боулинг",
+"sport-10pin": "Боулинг",
+"amenity-food_sharing": "Обмен едой"
 }

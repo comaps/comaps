@@ -45,7 +45,7 @@ Check the [map styling instructions](STYLES.md) and work on adding new map featu
 ### Code Contributions
 
 Please follow instructions in [INSTALL.md](INSTALL.md) to set up your development environment.
-You will find a list of issues for new contributors [here](https://codeberg.org/comaps/comaps/issues?labels=393881%2c393944) to help you get started with simple tasks.
+You will find a list of issues for new contributors [here](https://codeberg.org/comaps/comaps/issues?labels=393881) to help you get started with simple tasks.
 
 **We do not assign issues to first-time contributors.** Any such request notifies our contributors and the development team, and creates unnecessary noise that distracts us from the work. Just make a PR - and it will be reviewed.
 

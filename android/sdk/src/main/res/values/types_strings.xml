@@ -783,8 +783,10 @@
     <string name="type.man_made.tower">Tower</string>
     <!-- A huge telecommunications tower. Often a local monument or a landmark. -->
     <string name="type.man_made.communications_tower">Communications Tower</string>
-    <!-- A regular telecommunications tower / mast. -->
+    <!-- A regular telecommunications tower. -->
     <string name="type.man_made.tower.communication">Communications Tower</string>
+    <!-- A regular telecommunications mast. -->
+    <string name="type.man_made.mast.communication">Communications Mast</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
     <string name="type.man_made.petroleum_well">Oil or Gas Well</string>
     <!-- A tower/mast constructed to burn off excess gas. -->

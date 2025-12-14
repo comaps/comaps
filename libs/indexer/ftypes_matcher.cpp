@@ -372,7 +372,7 @@ IsAddressObjectChecker::IsAddressObjectChecker() : BaseChecker(1 /* level */)
   m_types = OneLevelPOIChecker().GetTypes();
 
   Classificator const & c = classif();
-  for (auto const * p : {"addr:interpolation", "building", "entrance"})
+  for (auto const * p : {"addr:interpolation", "building", "entrance", "landuse"})
     m_types.push_back(c.GetTypeByPath({p}));
 }
 
@@ -381,7 +381,7 @@ IsAddressObjectChecker::IsAddressObjectChecker() : BaseChecker(1 /* level */)
 IsAddressChecker::IsAddressChecker() : BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
-  for (auto const * p : {"addr:interpolation", "building", "entrance"})
+  for (auto const * p : {"addr:interpolation", "building", "entrance", "landuse"})
     m_types.push_back(c.GetTypeByPath({p}));
 }
 

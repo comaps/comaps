@@ -720,7 +720,17 @@ void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
     MetadataID type;
     if (feature::Metadata::TypeFromString(tagModData.key, type))
     {
-      m_metadata.Set(type, tagModData.new_value);
+      if (type == MetadataID::FMD_CHARGE_SOCKETS)
+      {
+        // Charge sockets need special handling: we need to aggregate the new entry
+        // to existing ones, not just replace the whole string.
+        ChargeSocketsHelper helper(GetChargeSockets());
+        helper.AggregateChargeSocketKey(tagModData.key, tagModData.new_value);
+        m_metadata.Set(type, helper.ToString());
+      }
+      else
+        m_metadata.Set(type, tagModData.new_value);
+
       if (type == MetadataID::FMD_INTERNET)
       {
         uint32_t const wifiType = ftypes::IsWifiChecker::Instance().GetType();

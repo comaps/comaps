@@ -295,7 +295,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Ieslēdziet ierīces atrašanās vietas noteikšanas pakalpojumus</string>
     <string name="save">Saglabāt</string>
-    <string name="create">izveidot</string>
+    <string name="create">Izveidot</string>
     <!-- red color -->
     <string name="red">Sarkana</string>
     <!-- yellow color -->
@@ -822,7 +822,6 @@
     <string name="charge_socket_unknown_other">Cits vai nezināms</string>
     <string name="charging_station_available_sockets">Pieejamās ligzdas</string>
     <string name="edit_socket_info_tooltip">Pievienot jaunas ligzdas vai labot esošās.</string>
-    <string name="unknow_socket_type">nezināma ligzda</string>
     <string name="unknown_count">nezināms</string>
     <string name="offline_explanation_title">Bezsaistes kartes</string>
     <string name="offline_explanation_text">Ir nepieciešams lejupielādēt karti, lai apskatītu un pārvietotos apgabalā.\nJālejupielādē apgabalu, kuros vēlies ceļot, kartes.</string>

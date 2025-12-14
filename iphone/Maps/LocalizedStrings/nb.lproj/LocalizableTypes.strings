@@ -8,7 +8,7 @@
 "type.aerialway.gondola" = "Gondolbane";
 "type.aerialway.mixed_lift" = "Kombibane";
 "type.aerialway.station" = "Taubanestasjon";
-"type.aeroway" = "Luftromsinfrastruktur";
+"type.aeroway" = "Luftfartsinfrastruktur";
 "type.aeroway.aerodrome" = "Flyplass";
 "type.aeroway.aerodrome.international" = "Flyplass";
 "type.aeroway.apron" = "Oppstillingsplass";
@@ -652,7 +652,7 @@
 "type.landuse" = "Arealanvendelse";
 "type.landuse.allotments" = "Kolonihager";
 "type.landuse.basin" = "Basseng";
-"type.landuse.brownfield" = "Brownfield";
+"type.landuse.brownfield" = "Brakkområde";
 
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Gravplass";
@@ -686,8 +686,8 @@
 "type.landuse.reservoir" = "Vann";
 "type.landuse.residential" = "Boligområde";
 "type.landuse.retail" = "Butikkområde";
-"type.landuse.salt_pond" = "Salt Pond";
-"type.landuse.village_green" = "Land";
+"type.landuse.salt_pond" = "Saltdam";
+"type.landuse.village_green" = "Grøntområde";
 "type.landuse.vineyard" = "Vineyard";
 "type.leisure" = "Fritid";
 "type.leisure.common" = "Offentlig område";
@@ -700,7 +700,7 @@
 "type.leisure.golf_course" = "Golfbane";
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Skaperverksted";
-"type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.ice_rink" = "Skøytebane";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Naturreservat";
 "type.leisure.outdoor_seating" = "Uteservering";
@@ -752,14 +752,14 @@
 
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gassflamme";
-"type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
+"type.man_made.wastewater_plant" = "Avløpsrenseanlegg";
 "type.man_made.water_tap" = "Vannkran";
 "type.man_made.water_tap.drinking_water_no" = "Vannkran";
 "type.man_made.water_tower" = "Vanntårn";
 "type.man_made.water_well" = "Brønn";
 "type.man_made.water_well.drinking_water_no" = "Brønn";
 "type.man_made.windmill" = "Vindmølle";
-"type.man_made.works" = "Industrial Works";
+"type.man_made.works" = "Fabrikk";
 "type.military" = "Militært";
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Fjellpass";
@@ -812,7 +812,7 @@
 "type.natural.wetland" = "Våtmarksområde";
 "type.natural.wetland.bog" = "Myr";
 "type.natural.wetland.marsh" = "Sump";
-"type.noexit" = "Dead End";
+"type.noexit" = "Blindvei";
 "type.office" = "Kontor";
 "type.office.company" = "Firmakontor";
 "type.office.estate_agent" = "Eiendomsmegler";
@@ -913,7 +913,7 @@
 "type.railway.preserved" = "Museumsjernbane";
 "type.railway.preserved.bridge" = "Preserved Rail Bridge";
 "type.railway.preserved.tunnel" = "Preserved Rail Tunnel";
-"type.railway.rail" = "Toglinje";
+"type.railway.rail" = "Jernbane";
 "type.railway.rail.highspeed" = "Høyhastighetsjernbane";
 "type.railway.rail.tourism" = "Turistjernbane";
 "type.railway.rail.main" = "Jernbane";
@@ -1544,3 +1544,5 @@
 "type.xmas.tree" = "Juletre";
 "type.entrance.emergency" = "Nødutgang";
 "type.entrance.entry" = "Inngang (bare)";
+"type.man_made.mast.communication" = "Kommunikasjonsmast";
+"type.shop.beauty.nails" = "Neglesalong";

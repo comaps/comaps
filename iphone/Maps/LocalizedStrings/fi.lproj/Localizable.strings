@@ -1104,3 +1104,4 @@
 "voice" = "Ääni";
 "unknown" = "Tuntematon";
 "voice_explanation" = "Voit valita paremman äänen järjestelmäasetuksista kohdasta *Helppokäyttöisyys*, *Lue ja Puhu*, *Äänet*.";
+"avoid_paved" = "Vältä päällystettyjä teitä";

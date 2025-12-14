@@ -290,7 +290,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Prosím, povolte Služby určování polohy</string>
     <string name="save">Uložit</string>
-    <string name="create">vytvořit</string>
+    <string name="create">Vytvořit</string>
     <!-- red color -->
     <string name="red">Červená</string>
     <!-- yellow color -->
@@ -874,7 +874,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">neznámá zásuvka</string>
-    <string name="unknow_socket_type">neznámá zásuvka</string>
     <string name="edit_socket_info_tooltip">Vytvořit nové zásuvky nebo upravit stávající.</string>
     <string name="charging_station_available_sockets">Dostupné zásuvky</string>
     <string name="charge_socket_unknown_other">Jiné nebo neznámé</string>
@@ -904,4 +903,8 @@
         <item quantity="many">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
+    <string name="power_management">Správa výkonu</string>
+    <string name="charge_socket_schuko">Domovní EU</string>
+    <string name="prefs_speed_cameras_information">Upozornění na radary jsou vypnuty v zemích, kde je tato funkcionalita zakázána místními zákony.</string>
+    <string name="navigation_start_tts_message">"Spouštím navigaci, jazyk hlasových instrukcí: "</string>
 </resources>

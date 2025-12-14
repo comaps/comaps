@@ -2,7 +2,7 @@
 <com.google.android.material.button.MaterialButton
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="?attr/materialButtonOutlinedStyle"
+    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
     android:id="@+id/button_socket_type"
     android:checkable="true"
     android:layout_width="0dp"
@@ -13,6 +13,7 @@
     android:paddingBottom="8dp"
     android:text="@string/charge_socket_unknown_other"
     app:icon="@drawable/ic_charge_socket_unknown"
+    app:iconSize="@null"
     app:iconGravity="textTop"
     android:textAppearance="@style/MwmTextAppearance.Body5"
     />

@@ -30,6 +30,7 @@
     <item>type1</item>
     <item>type2_cable</item>
     <item>type2</item>
+    <item>schuko</item>
     <item>unknown</item>
   </string-array>
 

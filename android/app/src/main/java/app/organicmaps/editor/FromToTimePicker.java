@@ -158,7 +158,7 @@ public class FromToTimePicker
                                              .setTitleText(title)
                                              .setTimeFormat(mIs24HourFormat ? TimeFormat.CLOCK_24H : TimeFormat.CLOCK_12H)
                                              .setInputMode(mInputMode)
-                                             .setTheme(R.style.MwmMain_MaterialTimePicker)
+                                             .setTheme(R.style.MwmTheme_MaterialTimePicker)
                                              .setHour((int) time.hours)
                                              .setMinute((int) time.minutes);
 

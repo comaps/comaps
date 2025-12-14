@@ -357,7 +357,7 @@
 "type.emergency" = "Urgence";
 "type.emergency.assembly_point" = "Point de rassemblement d’urgence";
 "type.emergency.defibrillator" = "Défibrillateur";
-"type.emergency.fire_hydrant" = "Bouche d’incendie";
+"type.emergency.fire_hydrant" = "Point d’eau incendie";
 "type.emergency.phone" = "Téléphone d’urgence";
 
 /* A place where a lifeguard is on duty. */
@@ -703,7 +703,7 @@
 "type.leisure.ice_rink" = "Patinoire";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Réserve naturelle";
-"type.leisure.outdoor_seating" = "Sièges extérieurs";
+"type.leisure.outdoor_seating" = "Places en terrasse";
 "type.leisure.park" = "Parc";
 "type.leisure.park.no.access" = "Parc";
 "type.leisure.park.permissive" = "Parc";
@@ -1530,7 +1530,7 @@
 "type.shop.telecommunication" = "Boutique télécom";
 "type.amenity.payment_centre" = "Centre de paiement";
 "type.amenity.mobile_money_agent" = "Agent d'argent liquide";
-"type.amenity.boat_rental" = "Vente de bateau";
+"type.amenity.boat_rental" = "Location de bateaux";
 "type.leisure.indoor_play" = "Complexe de jeux intérieurs";
 "type.man_made.observatory" = "Observatoire";
 "type.man_made.telescope.optical" = "Télescope (optique)";
@@ -1550,13 +1550,13 @@
 "type.shop.beauty.day_spa" = "Spa de jour";
 "type.beacon.cardinal.east" = "Phare cardinal";
 "type.beacon.cardinal.north" = "Phare cardinal";
-"type.beacon.cardinal.south" = "Phare cardinal";
-"type.beacon.cardinal.west" = "Phare cardinal";
-"type.beacon.isolated_danger" = "Balise de danger isolée";
+"type.beacon.cardinal.south" = "Balise cardinale";
+"type.beacon.cardinal.west" = "Balise cardinale";
+"type.beacon.isolated_danger" = "Balise de danger isolé";
 "type.beacon.lateral.port" = "Balise latérale";
 "type.beacon.lateral.starboard" = "Balise latérale";
-"type.beacon.safe_water" = "Balise d'eau potable";
-"type.beacon.special_purpose" = "Balise à usage spécial";
+"type.beacon.safe_water" = "Balise d'eaux saines";
+"type.beacon.special_purpose" = "Balise, marque spéciale";
 "type.buoy.cardinal.east" = "Bouée cardinale";
 "type.buoy.cardinal.north" = "Bouée cardinale";
 "type.buoy.cardinal.south" = "Bouée cardinale";
@@ -1564,18 +1564,18 @@
 "type.buoy.isolated_danger" = "Bouée de danger isolée";
 "type.buoy.lateral.port" = "Bouée latérale";
 "type.buoy.lateral.starboard" = "Bouée latérale";
-"type.buoy.safe_water" = "Bouée en eau sûre";
-"type.buoy.special_purpose" = "Bouée à usage spécial";
+"type.buoy.safe_water" = "Bouée d’eaux saines";
+"type.buoy.special_purpose" = "Bouée, marque spéciale";
 "type.spherical_buoy.cardinal.east" = "Bouée cardinale sphérique";
 "type.spherical_buoy.cardinal.north" = "Bouée cardinale sphérique";
 "type.spherical_buoy.cardinal.south" = "Bouée cardinale sphérique";
 "type.spherical_buoy.cardinal.west" = "Bouée cardinale sphérique";
-"type.spherical_buoy.isolated_danger" = "Bouée de danger sphérique isolée";
+"type.spherical_buoy.isolated_danger" = "Bouée sphérique, danger isolé";
 "type.spherical_buoy.lateral.port" = "Bouée latérale sphérique";
 "type.spherical_buoy.lateral.starboard" = "Bouée latérale sphérique";
-"type.spherical_buoy.safe_water" = "Bouée sphérique de sécurité en eau";
-"type.spherical_buoy.special_purpose" = "Bouée sphérique à usage spécial";
-"type.lateral.port" = "Port";
+"type.spherical_buoy.safe_water" = "Bouée sphérique, marque d’eaux saines";
+"type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
+"type.lateral.port" = "Bâbord";
 "type.lateral.starboard" = "Tribord";
 "type.cardinal.east" = "Est";
 "type.cardinal.north" = "Nord";
@@ -1589,3 +1589,5 @@
 "type.natural.sand" = "Sable";
 "type.xmas.tree" = "Arbre de Noël";
 "type.natural.tree" = "Arbre";
+"type.man_made.mast.communication" = "Antenne de télécommunications";
+"type.shop.beauty.nails" = "Salon de manucure";

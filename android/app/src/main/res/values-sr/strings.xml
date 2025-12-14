@@ -289,7 +289,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Молим вас укључите Локацијске сервисе</string>
     <string name="save">Сачувај</string>
-    <string name="create">креирај</string>
+    <string name="create">Креирај</string>
     <!-- red color -->
     <string name="red">Црвена</string>
     <!-- yellow color -->
@@ -879,7 +879,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">непозната утичница</string>
-    <string name="unknow_socket_type">непозната утичница</string>
     <string name="charging_station_available_sockets">Расположиве утичнице</string>
     <string name="charge_socket_unknown_other">Друга или непозната</string>
     <string name="charge_socket_count">Број</string>

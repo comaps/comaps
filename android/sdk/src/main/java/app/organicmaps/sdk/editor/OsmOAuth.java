@@ -13,19 +13,6 @@ public final class OsmOAuth
 {
   private OsmOAuth() {}
 
-  public enum AuthType
-  {
-    OSM("OSM"),
-    GOOGLE("Google");
-
-    public final String name;
-
-    AuthType(String name)
-    {
-      this.name = name;
-    }
-  }
-
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
   private static SharedPreferences mPrefs;

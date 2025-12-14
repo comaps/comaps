@@ -15,6 +15,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.Set;
 
 public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
@@ -40,7 +41,9 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
     LocaleListCompat systemLocales = ConfigurationCompat.getLocales(config);
 
     List<Language> languages = new ArrayList<>();
-    List<Language> systemLanguages = new ArrayList<>();
+    List<Language> systemLanguages = new ArrayList<>(systemLocales.size());
+    for (int i = 0; i < systemLocales.size(); i++)
+      systemLanguages.add(null);
 
     for (Language lang : Editor.nativeGetSupportedLanguages(false))
     {
@@ -49,7 +52,10 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
       {
         Locale locale = systemLocales.get(i);
         if (locale != null && locale.getLanguage().equals(lang.code))
-          systemLanguages.add(lang);
+        {
+          systemLanguages.add(i, lang);
+          break;
+        }
       }
 
       if (existingLanguages.contains(lang.code) || systemLanguages.contains(lang))
@@ -60,7 +66,7 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
 
     Collections.sort(languages, Comparator.comparing(lhs -> lhs.name));
 
-    languages.addAll(0, systemLanguages);
+    languages.addAll(0, systemLanguages.stream().filter(Objects::nonNull).toList());
 
     return new LanguagesAdapter(this, languages.toArray(new Language[languages.size()]));
   }

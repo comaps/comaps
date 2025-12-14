@@ -7,7 +7,7 @@
     <!-- Internal storage type in Maps Storage settings (not accessible by the user) -->
     <string name="maps_storage_internal">Interner persönlicher Speicher</string>
     <!-- Shared storage type in Maps Storage settings (a primary storage usually) -->
-    <string name="maps_storage_shared">Interner gemeinsamer Speicher</string>
+    <string name="maps_storage_shared">Interner geteilter Speicher</string>
     <!-- Removable external storage type in Maps Storage settings, e.g. an SD card -->
     <string name="maps_storage_removable">SD-Karte</string>
     <!-- Generic external storage type in Maps Storage settings -->
@@ -30,7 +30,7 @@
     <string name="core_entrance">Eingang</string>
     <string name="subway_data_unavailable">Die U-Bahn-Karte steht nicht zur Verfügung</string>
     <string name="public_access">Öffentlicher Zugriff</string>
-    <string name="limited_access">Privater Zugriff</string>
+    <string name="limited_access">Eingeschränkter Zugang</string>
     <string name="not_shared">Privat</string>
     <string name="access_rules_author_only">Online bearbeiten</string>
     <string name="gb">GB</string>

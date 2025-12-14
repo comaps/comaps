@@ -214,7 +214,7 @@
 "pref_appearance_dark" = "Ciemny";
 
 /* Generic «Disabled» string */
-"disabled" = "Disabled";
+"disabled" = "Nieaktywne";
 
 /* Generic «Off» string */
 "off" = "Wyłączony";
@@ -1024,7 +1024,7 @@
 "icloud_disabled_title" = "iCloud jest wyłączony";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Aby korzystać z tej funkcji, włącz usługę iCloud w ustawieniach urządzenia.";
+"icloud_disabled_message" = "Aby korzystać z tej funkcji, włącz usługę iCloud dla CoMaps w ustawieniach swojego konta Apple.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Włącz";
@@ -1103,3 +1103,4 @@
 "unknown" = "Nieznany";
 "voice_explanation_before_version26" = "Istnieje możliwość wybrania lepszego głosu w ustawieniach systemowych w sekcji „Dostępność” > „Zawartość mówiona” > „Głosy”.";
 "voice_explanation" = "Istnieje możliwość wybrania lepszego głosu w ustawieniach systemowych w sekcji „Dostępność” > „Czytaj i mów” > „Głosy”.";
+"avoid_paved" = "Unikaj dróg utwardzonych";

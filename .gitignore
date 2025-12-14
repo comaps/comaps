@@ -189,10 +189,6 @@ tools/python/maps_generator/var/etc/map_generator.ini
 tools/python/routing/etc/*.ini
 tools/unix/maps/settings.sh
 
-# Helpers
-/node_modules/
-/package-lock.json
-
 # Visual Studio
 .vs
 

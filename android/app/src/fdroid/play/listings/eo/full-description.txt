@@ -1,0 +1,32 @@
+Komunum-gvidata senpaga kaj malfermkoda mapapliko bazita sur OpenStreetMap-datumoj kaj fortigita per komitado al transparencio, privateco kaj ne-lucro. CoMaps estas forko/spin-off de Organic Maps, kiu turne estas forko de Maps.ME.
+
+Legu plu pri la kialoj por la projekto kaj ĝia direkto ĉe <b><i>codeberg.org/comaps</i></b>.
+Aliĝu al la komunumo tie kaj helpu fari la plej bonan mapaplikon
+• Uzu la aplikon kaj disvastigu la vorton pri ĝi
+• Donu rimarkojn kaj raportu problemojn
+• Ĝisdatigu mapajn datumojn en la apliko aŭ sur la OpenStreetMap-retejo
+
+‣ <b>Senkonekta-fokusa</b>: Planu kaj navigu vian vojaĝon eksterlande sen bezono de ĉelulara servico, serĉu vojpunktojn dum malproksima promenado, ktp. Ĉiuj funkcioj de la apliko estas dezajnitaj por funkcii senkonekte.
+‣ <b>Rispektante Privatecon</b>: La apliko estas dezajnita kun privateco en menso — ne identigas homojn, ne sekvas, kaj ne kolektas personajn informojn. Sen reklamoj.
+‣ <b>Simpla kaj Perfekta</b>: esencaj, facile uzeblaj funkcioj kiuj simple funkcias.
+‣ <b>Konservas Vian Baterion kaj Spacon</b>: Ne elĉerpas vian baterion kiel aliaj navigaj aplikaĵoj. Kompaktaj mapoj konservas precian spacon sur via telefono.
+‣ <b>Sena kaj Konstruita de la Komunumo</b>: Homoj kiel vi helpis konstrui la aplikon per aldonado de lokoj al OpenStreetMap, testado kaj donado de rimarkoj pri funkcioj kaj kontribuado de siaj programadaj kapabloj kaj mono.
+‣ <b>Malferma kaj Transparenta Decidado kaj Financoj, Ne-lucra kaj Tute Malfermkoda.</b>
+
+<b>Ĉefaj Funkcioj</b>:
+• Elŝuteblaj detalegaj mapoj kun lokoj kiuj ne estas disponeblaj per Google Maps
+• Eksteraj modo kun elstarigitaj promenaj vojoj, kampoj, akvofontoj, pintoj, konturlinioj, ktp
+• Promenaj vojoj kaj biciklaj vojoj
+• Interesaj punktoj kiel restoracioj, benzinstacioj, hoteloj, vendejoj, vidindaĵoj kaj multaj aliaj
+• Serĉo laŭ nomo aŭ adreso aŭ laŭ kategorio de interesaj punktoj
+• Navigado kun voĉaj anoncoj por promenado, biciklado aŭ veturado
+• Marku viajn favorajn lokojn per unu tuŝo
+• Senkonektaj Vikipedio-artikoloj
+• Metroa transporta tavolo kaj indikoj
+• Enregistraĵo de vojoj
+• Eksporto kaj importo de markiloj kaj vojoj en KML, KMZ, GPX formatoj
+• Malhela modo por uzi nokte
+• Plibonigu mapajn datumojn por ĉiuj uzante bazan enkonstruitan redaktilon
+
+<b>Libereco Estas Ĉi Tie</b>
+Malkovru vian vojaĝon, navigu la mondon kun privateco kaj komunumo en la antaŭa plano!

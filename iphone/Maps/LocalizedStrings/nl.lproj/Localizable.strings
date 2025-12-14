@@ -1027,7 +1027,7 @@
 "icloud_disabled_title" = "iCloud is uitgeschakeld";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Schakel iCloud in bij de instellingen van je apparaat om deze functie te gebruiken.";
+"icloud_disabled_message" = "Schakel iCloud in bij de instellingen van je Apple account om deze functie te gebruiken.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Schakel in";

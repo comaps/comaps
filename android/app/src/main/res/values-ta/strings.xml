@@ -10,13 +10,13 @@
     <string name="miles">மைல்கள்</string>
     <string name="search">தேடல்</string>
     <string name="bookmarks_and_tracks">புக்மார்க்குகள் மற்றும் தடங்கள்</string>
-    <string name="later">பின்னர்</string>
+    <string name="later">பிறகு</string>
     <string name="zoom_to_country">வரைபடத்தில் காட்டு</string>
     <string name="country_status_download_failed">பதிவிறக்கம் தோல்வியடைந்தது</string>
     <string name="about_headline">சமூகத்தால் இயக்கப்படும் திறந்த திட்டம்</string>
     <string name="close">மூடு</string>
-    <string name="download">பதிவிறக்கம்</string>
-    <string name="continue_button">தொடரவும்</string>
+    <string name="download">பதிவிறக்கு</string>
+    <string name="continue_button">தொடர்</string>
     <string name="add_new_set">புதிய பட்டியலைச் சேர்க்கவும்</string>
     <string name="bookmark_set_name">புத்தகக்குறி பட்டியல் பெயர்</string>
     <string name="bookmarks">புக்மார்க்குகள்</string>
@@ -41,14 +41,14 @@
     <string name="category_hospital">மருத்துவமனை</string>
     <string name="category_toilet">கழிப்பறை</string>
     <string name="category_post">இடுகை</string>
-    <string name="category_police">போலீச்</string>
+    <string name="category_police">காவல்</string>
     <string name="category_recycling">மறுசுழற்சி</string>
     <string name="category_water">தண்ணீர்</string>
     <string name="category_rv">RV வசதிகள்</string>
     <string name="load_kmz_title">புக்மார்க்குகளை ஏற்றுகிறது</string>
     <string name="load_kmz_successful">புக்மார்க்குகள் வெற்றிகரமாக ஏற்றப்பட்டன! வரைபடத்தில் அல்லது புக்மார்க்ச் மேலாளர் திரையில் அவற்றைக் காணலாம்.</string>
     <string name="load_kmz_failed">புக்மார்க்குகளை ஏற்றுவதில் தோல்வி. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.</string>
-    <string name="edit">தொகு</string>
+    <string name="edit">தொகு</string>
     <string name="unknown_current_position">உங்கள் இருப்பிடம் இன்னும் தீர்மானிக்கப்படவில்லை</string>
     <string name="bookmark_share_email_subject">ஏய், CoMaps இல் எனது பின்னை பாருங்கள்!</string>
     <string name="my_position_share_email_subject">ஏய், CoMaps வரைபடத்தில் எனது தற்போதைய இருப்பிடத்தைப் பாருங்கள்!</string>
@@ -60,7 +60,7 @@
     <string name="prefs_group_route">வானோடல்</string>
     <string name="pref_zoom_title">பெரிதாக்கு பொத்தான்கள்</string>
     <string name="off">அணை</string>
-    <string name="on">அன்று</string>
+    <string name="on">மேல்</string>
     <string name="auto">தானி</string>
     <string name="pref_map_3d_title">முன்னோக்கு பார்வை</string>
     <string name="pref_map_3d_buildings_title">3டி கட்டிடங்கள்</string>
@@ -74,15 +74,15 @@
     <string name="search_show_on_map">வரைபடத்தில் பார்க்கவும்</string>
     <string name="website">இணையதளம்</string>
     <string name="news">செய்தி</string>
-    <string name="rate_the_app">பயன்பாட்டை மதிப்பிடவும்</string>
+    <string name="rate_the_app">பயன்பாட்டை மதிப்பிடு</string>
     <string name="help">உதவி</string>
     <string name="faq">அடிக்கடி கேட்கப்படும் கேள்விகள்</string>
     <string name="donate">நன்கொடை</string>
-    <string name="copyright">காப்புரிமை</string>
-    <string name="report_a_bug">பிழையைப் புகாரளிக்கவும்</string>
+    <string name="copyright">பதிப்புரிமை</string>
+    <string name="report_a_bug">பிழையைப் புகாரளி</string>
     <string name="long_tap_toast">இடைமுகத்தைப் பார்க்க மீண்டும் வரைபடத்தில் நீண்ட நேரம் தட்டவும்</string>
     <string name="downloader_update_all_button">அனைத்தையும் புதுப்பிக்கவும்</string>
-    <string name="downloader_downloaded_subtitle">பதிவிறக்கம் செய்யப்பட்டது</string>
+    <string name="downloader_downloaded_subtitle">பதிவிறக்கப்பட்டது</string>
     <string name="downloader_queued">வரிசையில் நிற்கிறது</string>
     <string name="downloader_near_me_subtitle">என் அருகில்</string>
     <string name="downloader_status_maps">வரைபடங்கள்</string>
@@ -90,12 +90,12 @@
     <string name="downloader_downloading">பதிவிறக்குகிறது:</string>
     <string name="routing_failed_cross_mwm_building">ஒரு பகுதியின் வரைபடத்தில் முழுமையாகக் கொண்டிருக்கும் வழிகளை மட்டுமே உருவாக்க முடியும்.</string>
     <string name="downloader_download_map">வரைபடத்தைப் பதிவிறக்கவும்</string>
-    <string name="downloader_retry">மீண்டும் முயற்சிக்கவும்</string>
+    <string name="downloader_retry">மீண்டும் முயல்</string>
     <string name="downloader_delete_map">வரைபடத்தை நீக்கு</string>
     <string name="routing_download_maps_along">உங்கள் பாதையில் உள்ள அனைத்து வரைபடங்களையும் பதிவிறக்கவும்</string>
     <string name="routing_requires_all_map">வழியை உருவாக்க, உங்கள் இருப்பிடத்திலிருந்து நீங்கள் சேருமிடத்திற்கு அனைத்து வரைபடங்களையும் பதிவிறக்கம் செய்து புதுப்பிக்க வேண்டும்.</string>
     <string name="save">சேமி</string>
-    <string name="create">உருவாக்க</string>
+    <string name="create">உருவாக்கு</string>
     <string name="red">சிவப்பு</string>
     <string name="yellow">மஞ்சள்</string>
     <string name="blue">நீலம்</string>
@@ -188,7 +188,7 @@
     <string name="editor_add_place_title">சேர்த்தல்</string>
     <string name="editor_edit_place_name_hint">இடத்தின் பெயர்</string>
     <string name="editor_default_language_hint">அச் it is written in the local மொழி</string>
-    <string name="editor_edit_place_category_title">வகை</string>
+    <string name="editor_edit_place_category_title">வகையினம்</string>
     <string name="message_invalid_feature_position">எந்தப் பொருளையும் இங்கு வைக்க முடியாது</string>
     <string name="downloader_of">%1$d / %2$d</string>
     <string name="download_over_mobile_header">செல்லுலார் பிணையம் இணைப்பு மூலம் பதிவிறக்கவா?</string>
@@ -198,12 +198,12 @@
     <string name="error_enter_correct_zip_code">சரியான அஞ்சல் குறியீட்டை உள்ளிடவும்</string>
     <string name="editor_other_info">OpenStreetMap தன்னார்வலர்களுக்கான குறிப்பு (விரும்பினால்)</string>
     <string name="editor_more_about_osm">OpenStreetMap பற்றி மேலும்</string>
-    <string name="editor_operator">ஆபரேட்டர்</string>
+    <string name="editor_operator">செயற்குறி</string>
     <string name="editor_category_unsuitable_title">பொருத்தமான வகையைக் கண்டுபிடிக்க முடியவில்லையா?</string>
     <string name="editor_category_unsuitable_text">CoMaps எளிய புள்ளி வகைகளை மட்டும் சேர்க்க அனுமதிக்கிறது, அதாவது நகரங்கள், சாலைகள், ஏரிகள், கட்டிட அவுட்லைன்கள் போன்றவை இல்லை. அத்தகைய வகைகளை நேரடியாக <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> இல் சேர்க்கவும். விரிவான படிப்படியான வழிமுறைகளுக்கு எங்கள் <a href="https://www.comaps.app/support/advanced-map-editing/">வழிகாட்டியைப்</a> பார்க்கவும்.</string>
     <string name="downloader_no_downloaded_maps_title">நீங்கள் எந்த வரைபடத்தையும் பதிவிறக்கம் செய்யவில்லை</string>
     <string name="kilometers_per_hour">கிமீ/ம</string>
-    <string name="miles_per_hour">mph</string>
+    <string name="miles_per_hour">மை/ம</string>
     <string name="hour">ம</string>
     <string name="minute">மணித்துளி</string>
     <string name="day">டி</string>
@@ -211,7 +211,7 @@
     <string name="placepage_edit_bookmark_button">புக்மார்க்கைத் திருத்து</string>
     <string name="placepage_personal_notes_hint">தனிப்பட்ட குறிப்புகள் (உரை அல்லது html)</string>
     <string name="editor_reset_edits_message">அனைத்து உள்ளக மாற்றங்களையும் நிராகரிக்கவா?</string>
-    <string name="editor_reset_edits_button">நிராகரிக்கவும்</string>
+    <string name="editor_reset_edits_button">கைவிடு</string>
     <string name="editor_remove_place_message">சேர்க்கப்பட்ட இடத்தை நீக்கவா?</string>
     <string name="editor_remove_place_button">நீக்கு</string>
     <string name="editor_place_doesnt_exist">இடம் இல்லை</string>
@@ -230,7 +230,7 @@
     <string name="mobile_data_option_not_today">இன்று பயன்படுத்த வேண்டாம்</string>
     <string name="mobile_data">மொபைல் இணையம்</string>
     <string name="mobile_data_option_never">ஒருபோதும் பயன்படுத்த வேண்டாம்</string>
-    <string name="mobile_data_option_ask">எப்போதும் கேள்</string>
+    <string name="mobile_data_option_ask">எப்பொழுதும் கேள்</string>
     <string name="big_font">வரைபட லேபிள்களுக்கான அளவை அதிகரிக்கவும்</string>
     <string name="traffic_data_unavailable">போக்குவரத்து தரவு கிடைக்கவில்லை</string>
     <string name="enable_logging">பதிவு செய்வதை இயக்கு</string>
@@ -282,7 +282,7 @@
     <string name="unable_to_calc_alert_subtitle">ஒரு வழியைக் கண்டுபிடிக்க முடியவில்லை. இது உங்கள் ரூட்டிங் விருப்பங்கள் அல்லது முழுமையடையாத OpenStreetMap தரவு காரணமாக இருக்கலாம். உங்கள் ரூட்டிங் விருப்பங்களை மாற்றி மீண்டும் முயற்சிக்கவும்.</string>
     <string name="define_to_avoid_btn">தவிர்க்க வேண்டிய சாலைகளை வரையறுக்கவும்</string>
     <string name="change_driving_options_btn">ரூட்டிங் விருப்பங்கள் இயக்கப்பட்டன</string>
-    <string name="toll_road">சுங்கச்சாவடி</string>
+    <string name="toll_road">சுங்கச்சாலை</string>
     <string name="unpaved_road">செப்பனிடப்படாத சாலை</string>
     <string name="ferry_crossing">படகு கடப்பு</string>
     <string name="yes">ஆம்</string>
@@ -377,7 +377,7 @@
     <string name="downloading_country_can_proceed">%1$s (%2$s) பதிவிறக்குகிறது. உங்களால் இப்போது முடியும் \nவரைபடத்திற்கு செல்லவும்.</string>
     <string name="download_country_ask">%1$s ஐப் பதிவிறக்கவா? (%2$s)</string>
     <string name="update_country_ask">%1$sஐப் புதுப்பிக்கவா? (%2$s)</string>
-    <string name="pause">இடைநிறுத்தம்</string>
+    <string name="pause">இடைநிறுத்து</string>
     <string name="download_country_failed">%s பதிவிறக்கம் தோல்வியடைந்தது</string>
     <string name="name">பெயர்</string>
     <string name="list">பட்டியல்</string>
@@ -398,10 +398,10 @@
     <string name="downloading_is_active">வரைபடப் பதிவிறக்கம் இப்போது செயலில் உள்ளது</string>
     <string name="my_position_share_sms">CoMaps இல் எனது தற்போதைய இருப்பிடத்தைப் பார்க்கவும்! %1$s அல்லது %2$s இணைப்பில்லாத வரைபடங்கள் இல்லையா? இங்கே பதிவிறக்கவும்: https://www.comaps.app/download/</string>
     <string name="my_position_share_email">வணக்கம், \n\nநான் இப்போது இங்கே இருக்கிறேன்: %1$s. வரைபடத்தில் இடத்தைப் பார்க்க, இந்த இணைப்பை %2$s அல்லது இந்த %3$sஐக் சொடுக்கு செய்யவும். \n\nநன்றி.</string>
-    <string name="share">பங்கு</string>
+    <string name="share">பகிர்</string>
     <string name="copied_to_clipboard">இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது: %s</string>
     <string name="data_version">OpenStreetMap தரவு: %s</string>
-    <string name="prefs_group_general">பொது அமைப்புகள்</string>
+    <string name="prefs_group_general">பொது அமைப்புகள்</string>
     <string name="prefs_group_information">தகவல்</string>
     <string name="pref_zoom_summary">வரைபடத்தில் காட்டவும்</string>
     <string name="pref_map_style_title">இரவு முறை</string>
@@ -422,9 +422,9 @@
     <string name="routing_not_enough_space">போதுமான இடம் இல்லை</string>
     <string name="enable_location_services">இருப்பிடச் சேவைகளை இயக்கவும்</string>
     <string name="dialog_routing_cant_build_route">வழியை உருவாக்க முடியவில்லை</string>
-    <string name="dialog_routing_select_closer_end">சாலைக்கு அருகாமையில் உள்ள இலக்கைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="dialog_routing_select_closer_end">சாலைக்கு அருகில் உள்ள இலக்கைத் தேர்ந்தெடு</string>
     <string name="dialog_routing_change_intermediate">இடைநிலைப் புள்ளியைக் கண்டறிய முடியவில்லை</string>
-    <string name="dialog_routing_intermediate_not_determined">உங்கள் இடைநிலைப் புள்ளியைச் சரிசெய்யவும்</string>
+    <string name="dialog_routing_intermediate_not_determined">உங்கள் இடைநிலைப் புள்ளியைச் சரிசெய்</string>
     <string name="dialog_routing_application_error">பயன்பாட்டுப் பிழையின் காரணமாக வழியை உருவாக்க முடியவில்லை</string>
     <string name="not_now">இப்போது இல்லை</string>
     <string name="search_without_internet_advertisement">வழிகளைத் தேடவும் உருவாக்கவும் தொடங்க, வரைபடத்தைப் பதிவிறக்கவும். அதன் பிறகு உங்களுக்கு இணைய இணைப்பு தேவைப்படாது.</string>
@@ -432,7 +432,7 @@
     <string name="search_not_found">அச்சச்சோ, முடிவுகள் எதுவும் கிடைக்கவில்லை</string>
     <string name="search_history_text">உங்கள் அண்மைக் கால தேடல்களைக் காண்க</string>
     <string name="p2p_only_from_current">உங்களின் தற்போதைய இருப்பிடத்திலிருந்து மட்டுமே வழிசெலுத்தல் கிடைக்கும்</string>
-    <string name="next_button">அடுத்தது</string>
+    <string name="next_button">அடுத்து</string>
     <string name="editor_time_from">இருந்து</string>
     <string name="editor_time_to">பெறுநர்</string>
     <string name="editor_correct_mistake">சரியான தவறு</string>
@@ -469,21 +469,21 @@
     <string name="level_value_generic">நிலை: %s</string>
     <string name="downloader_delete_map_dialog">உங்கள் வரைபடத் திருத்தங்கள் அனைத்தும் வரைபடத்துடன் நீக்கப்படும்</string>
     <string name="downloader_mwm_migration_dialog">வழியை உருவாக்க, நீங்கள் அனைத்து வரைபடங்களையும் புதுப்பித்து, மீண்டும் பாதையைத் திட்டமிட வேண்டும்.</string>
-    <string name="common_check_internet_connection_dialog">உங்கள் சாதனம் இணையத்துடன் இணைக்கப்பட்டுள்ளதை உறுதிசெய்யவும்</string>
+    <string name="common_check_internet_connection_dialog">உங்கள் சாதனம் இணையத்துடன் இணைக்கப்பட்டுள்ளதை உறுதிசெய்</string>
     <string name="editor_login_error_dialog">உள்நுழைவு பிழை</string>
     <string name="detailed_problem_description">சிக்கலின் விரிவான விளக்கம்</string>
     <string name="editor_report_problem_other_title">வித்தியாசமான சிக்கல்</string>
     <string name="osm_presentation">%s இன் சமூகத்தால் உருவாக்கப்பட்ட OpenStreetMap தரவு. OpenStreetMap.org இல் வரைபடத்தை எவ்வாறு திருத்துவது மற்றும் புதுப்பிப்பது என்பது பற்றி மேலும் அறிக</string>
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) என்பது ஒரு இலவச மற்றும் திறந்த வரைபடத்தை உருவாக்குவதற்கான ஒரு சமூக திட்டமாகும். CoMaps இல் உள்ள வரைபடத் தரவின் முக்கிய சான்று இது மற்றும் விக்கிபீடியாவைப் போலவே செயல்படுகிறது. நீங்கள் இடங்களைச் சேர்க்கலாம் அல்லது திருத்தலாம் மற்றும் அவை உலகம் முழுவதும் உள்ள மில்லியன் கணக்கான பயனர்களுக்குக் கிடைக்கும். \nசமூகத்தில் சேர்ந்து அனைவருக்கும் சிறந்த வரைபடத்தை உருவாக்க உதவுங்கள்!</string>
-    <string name="login_to_make_edits_visible">OpenStreetMap கணக்கை உருவாக்கவும் அல்லது உங்கள் வரைபட திருத்தங்களை உலகிற்கு வெளியிட உள்நுழையவும்</string>
-    <string name="download_over_mobile_message">சில திட்டங்கள் அல்லது ரோமிங்கில் இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்</string>
+    <string name="login_to_make_edits_visible">திறந்ததெருவரைபட கணக்கை உருவாக்க அல்லது உங்கள் வரைபட திருத்தங்களை உலகிற்கு வெளியிட உள்நுழை</string>
+    <string name="download_over_mobile_message">சில திட்டங்கள் அல்லது உலாவும்போது இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்</string>
     <string name="editor_building_levels">மாடிகள் (இன்க். தரை தளம், கூரை தவிர)</string>
     <string name="editor_note_hint">வரைபடத்தில் உள்ள பிழைகள் அல்லது CoMaps மூலம் திருத்த முடியாத விசயங்களை விவரிக்கவும்</string>
     <string name="editor_about_osm">உங்கள் திருத்தங்கள் பொது <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> தரவுத்தளத்தில் பதிவேற்றப்படும். தயவுசெய்து தனிப்பட்ட அல்லது பதிப்புரிமை பெற்ற தகவலைச் சேர்க்க வேண்டாம்.</string>
     <string name="editor_osm_history">உங்கள் திருத்துதல் வரலாறு</string>
     <string name="editor_osm_notes">உங்கள் வரைபடத் தரவு குறிப்புகள்</string>
     <string name="operator">ஆபரேட்டர்: %s</string>
-    <string name="downloader_no_downloaded_maps_message">ஆஃப்லைனில் தேட மற்றும் செல்ல வரைபடங்களைப் பதிவிறக்கவும்</string>
+    <string name="downloader_no_downloaded_maps_message">இணையம் இல்லாமல் தேட மற்றும் செல்ல வரைபடங்களைப் பதிவிறக்கு</string>
     <string name="current_location_unknown_error_title">தற்போதைய இடம் தெரியவில்லை</string>
     <string name="delete_place_empty_comment_error">இடத்தை நீக்குவதற்கான காரணத்தைக் குறிப்பிடவும்</string>
     <string name="editor_level">தளம் (0 என்பது தரை தளம்)</string>
@@ -497,11 +497,11 @@
     <string name="error_enter_correct_bluesky_page">சரியான Bluesky பயனர்பெயர் அல்லது இணைய முகவரியை உள்ளிடவும்</string>
     <string name="osm_note_hint">அல்லது, இதற்கு மாற்றாக, OpenStreetMap சமூகத்திற்கு ஒரு குறிப்பை விடுங்கள், இதன் மூலம் வேறு யாராவது ஒரு இடத்தைச் சேர்க்கலாம் அல்லது சரிசெய்யலாம்.</string>
     <string name="osm_note_toast">குறிப்பு OpenStreetMap க்கு அனுப்பப்படும்</string>
-    <string name="editor_share_to_all_dialog_message_1">நீங்கள் தனிப்பட்ட அல்லது தனிப்பட்ட தரவு எதையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்தவும்</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap எடிட்டர்கள் மாற்றங்களைச் சரிபார்த்து, அவர்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உங்களைத் தொடர்புகொள்வார்கள்</string>
+    <string name="editor_share_to_all_dialog_message_1">உங்கள் தனிப்பட்ட தரவு எதையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்து.</string>
+    <string name="editor_share_to_all_dialog_message_2">திறந்ததெருவரைபடம் திருத்திகள் மாற்றங்களைச் சரிபார்த்து, அவர்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உங்களைத் தொடர்புகொள்வார்கள்.</string>
     <string name="track_recording">தடத்தை பதிவு செய்தல்</string>
-    <string name="mobile_data_description">வரைபட புதுப்பிப்பு அறிவிப்புகள் மற்றும் திருத்தங்களை பதிவேற்ற மொபைல் இணையம் தேவை</string>
-    <string name="traffic_update_maps_text">ட்ராஃபிக் தரவைக் காட்ட, வரைபடங்கள் புதுப்பிக்கப்பட வேண்டும்</string>
+    <string name="mobile_data_description">வரைபட புதுப்பிப்பு அறிவிப்புகள் மற்றும் திருத்தங்களைப் பதிவேற்ற கைபேசி இணையம் தேவை</string>
+    <string name="traffic_update_maps_text">போக்குவரத்து தரவைக் காட்ட, வரைபடங்கள் புதுப்பிக்கப்பட வேண்டும்</string>
     <string name="traffic_update_app">CoMaps ஐப் புதுப்பிக்கவும்</string>
     <string name="feedback_general">பொதுவான கருத்து</string>
     <string name="prefs_languages_information">குரல் வழிமுறைகளுக்கு TTS சிச்டத்தைப் பயன்படுத்துகிறோம். பல ஆண்ட்ராய்டு சாதனங்கள் Google TTS ஐப் பயன்படுத்துகின்றன, நீங்கள் அதை Google Play இலிருந்து பதிவிறக்கம் செய்யலாம் அல்லது புதுப்பிக்கலாம் (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
@@ -518,7 +518,7 @@
     <string name="bookmarks_error_title_empty_list_name">பெயர் காலியாக இருக்கக்கூடாது</string>
     <string name="bookmarks_new_list_hint">புதிய பட்டியல்</string>
     <string name="bookmarks_error_message_list_name_already_taken">தயவுசெய்து வேறு பெயரைத் தேர்வு செய்யவும்</string>
-    <string name="please_wait">தயவுசெய்து காத்திருங்கள்…</string>
+    <string name="please_wait">தயவுசெய்து காத்திரு…</string>
     <string name="phone_number">தொலைபேசி எண்</string>
     <plurals name="bookmarks_detect_message">
         <item quantity="one">%d கோப்பு கண்டறியப்பட்டது. மாற்றிய பின் பார்க்கலாம்.</item>
@@ -535,7 +535,7 @@
     <string name="bookmarks_empty_list_message">புக்மார்க்கைச் சேர்க்க, வரைபடத்தில் ஒரு இடத்தைத் தட்டவும், பின்னர் நட்சத்திர ஐகானைத் தட்டவும்</string>
     <string name="category_desc_more">…மேலும்</string>
     <string name="notification_channel_downloader">வரைபடம் பதிவிறக்குபவர்</string>
-    <string name="power_managment_description">சில செயல்பாடுகளின் இழப்பில் மின் பயன்பாட்டைக் குறைக்க முயற்சிக்கவும்</string>
+    <string name="power_managment_description">சில செயல்பாடுகளின் இழப்பில் மின் பயன்பாட்டைக் குறைக்க முயற்சி</string>
     <string name="capacity">திறன்: %s</string>
     <string name="network">நெட்வொர்க்: %s</string>
     <string name="sort_bookmarks">புக்மார்க்குகளை வரிசைப்படுத்தவும்</string>
@@ -553,7 +553,7 @@
     <string name="disk_error_title">வட்டு பிழை</string>
     <string name="connection_failure">இணைப்பு தோல்வி</string>
     <string name="disconnect_usb_cable_title">USB கேபிளைத் துண்டிக்கவும்</string>
-    <string name="enable_keep_screen_on">திரையை இயக்கவும்</string>
+    <string name="enable_keep_screen_on">திரையை இயக்கியபடி வை</string>
     <string name="enable_keep_screen_on_description">இயக்கப்பட்டால், வரைபடத்தைக் காண்பிக்கும் போது திரை எப்போதும் இயக்கத்தில் இருக்கும்.</string>
     <string name="enable_show_on_lock_screen">பூட்டுத் திரையில் காட்டு</string>
     <string name="enable_show_on_lock_screen_description">இயக்கப்பட்டால், சாதனம் பூட்டப்பட்டிருந்தாலும் கூட பூட்டுத் திரையில் பயன்பாடு செயல்படும்.</string>
@@ -571,7 +571,7 @@
     <string name="aa_request_permission_activity_text">ஆண்ட்ராய்டு தானி இல் CoMaps திறம்பட செயல்பட, இருப்பிட அனுமதிகள் தேவை</string>
     <string name="aa_grant_permissions">அனுமதிகளை வழங்கவும்</string>
     <string name="browser_not_available">இணைய உலாவி கிடைக்கவில்லை</string>
-    <string name="volume">தொகுதி</string>
+    <string name="volume">ஒலி</string>
     <string name="pref_tts_open_system_settings">பேச்சு தொகுப்பு அமைப்பு அமைப்புகள்</string>
     <string name="pref_tts_no_system_tts">பேச்சு தொகுப்பு அமைப்புகள் காணப்படவில்லை, உங்கள் சாதனம் அதை ஆதரிக்கிறதா?</string>
     <string name="clear_the_search">தேடலை அழிக்கவும்</string>
@@ -588,7 +588,7 @@
     <string name="pref_left_button_disable">முடக்கு</string>
     <string name="pref_backup_title">புக்மார்க்குகள் மற்றும் டிராக்குகள் காப்புப்பிரதி</string>
     <string name="pref_backup_summary">உங்கள் சாதனத்தில் உள்ள கோப்புறையில் தானாகவே காப்புப் பிரதி எடுக்கவும்</string>
-    <string name="pref_backup_now_title">இப்போது காப்புப்பிரதி எடுக்கவும்</string>
+    <string name="pref_backup_now_title">இப்போது காப்புப்பிரதி எடு</string>
     <string name="pref_backup_now_summary">உடனடியாக காப்புப்பிரதியை உருவாக்கவும்</string>
     <string name="pref_backup_now_summary_progress">காப்புப்பிரதி செயலில் உள்ளது…</string>
     <string name="pref_backup_now_summary_ok">காப்புப்பிரதி வெற்றிகரமாக முடிந்தது</string>
@@ -625,7 +625,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">சேட்மோ</string>
     <string name="unknown_socket_type">தெரியாத சாக்கெட்</string>
-    <string name="unknow_socket_type">தெரியாத சாக்கெட்</string>
     <string name="edit_socket_info_tooltip">புதிய சாக்கெட்டுகளை உருவாக்கவும் அல்லது ஏற்கனவே உள்ளவற்றைத் திருத்தவும்.</string>
     <string name="charging_station_available_sockets">கிடைக்கும் சாக்கெட்டுகள்</string>
     <string name="charge_socket_unknown_other">மற்றவை அல்லது தெரியாதவை</string>
@@ -640,4 +639,6 @@
     <string name="editor_mark_business_vacant_title">வணிகம் காலியாக இருப்பதாகக் குறி</string>
     <string name="editor_mark_business_vacant_description">வணிகம் வெளியேறி, இடம் காலியாக இருந்தால் மற்றும் புதிய குத்தகைதாரருக்கு தயாராக இருந்தால் இதைப் பயன்படுத்தவும்.</string>
     <string name="editor_submit">சமர்ப்பி</string>
+    <string name="power_management">சக்தி மேலாண்மை</string>
+    <string name="charge_socket_schuko">உள்நாட்டு ஐரோப்பிய ஒன்றியம்</string>
 </resources>

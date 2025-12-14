@@ -1437,4 +1437,5 @@
     <string name="type.man_made.telescope.radio">Távcső (Rádió)</string>
     <string name="type.man_made.telescope.gamma">Távcső (Gamma)</string>
     <string name="type.man_made.observatory">Csillagvizsgáló</string>
+    <string name="type.entrance.emergency">Vészkijárat</string>
 </resources>

@@ -24,7 +24,7 @@
 #include <cstdlib>
 #elif defined(OMIM_OS_ANDROID)
 /// Body for this function is inside android/sdk/src/main/cpp sources
-std::string GetAndroidSystemLanguage();
+std::vector<std::string> GetAndroidSystemLanguages();
 #else
 #error "Define language preferences for your platform"
 #endif
@@ -514,7 +514,9 @@ struct SystemLanguages
     }
 
 #elif defined(OMIM_OS_ANDROID)
-    m_langs.push_back(GetAndroidSystemLanguage());
+    std::vector<std::string> system_langs = GetAndroidSystemLanguages();
+    for (auto const & lang : system_langs)
+      m_langs.push_back(lang);
 #else
 #error "Define language preferences for your platform"
 #endif

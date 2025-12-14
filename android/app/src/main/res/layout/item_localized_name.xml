@@ -4,7 +4,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/name"
   android:layout_width="match_parent"
-  android:layout_height="@dimen/editor_height_field"
+  android:layout_height="wrap_content"
   android:animateLayoutChanges="true"
   android:gravity="center_vertical"
   android:orientation="horizontal">
@@ -14,8 +14,7 @@
     android:layout_width="0dp"
     android:layout_height="wrap_content"
     android:layout_weight="1"
-    android:hint="@string/editor_edit_place_name_hint"
-    android:textColorHint="?android:textColorSecondary">
+    android:hint="@string/editor_edit_place_name_hint">
     <com.google.android.material.textfield.TextInputEditText
       android:id="@+id/input"
       style="@style/MwmWidget.Editor.FieldLayout.EditText"
@@ -31,5 +30,5 @@
     android:background="?selectableItemBackgroundBorderless"
     android:padding="@dimen/margin_half_plus"
     app:srcCompat="@drawable/ic_close"
-    app:tint="@color/base_red" />
+    app:tint="?iconTint" />
 </LinearLayout>

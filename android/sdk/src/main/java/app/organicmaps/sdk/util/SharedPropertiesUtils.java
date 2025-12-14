@@ -1,7 +1,5 @@
 package app.organicmaps.sdk.util;
 
-import static app.organicmaps.sdk.util.Config.KEY_PREF_STATISTICS;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
@@ -28,11 +26,6 @@ public final class SharedPropertiesUtils
   public static void init(@NonNull SharedPreferences prefs)
   {
     mPrefs = prefs;
-  }
-
-  public static boolean isStatisticsEnabled()
-  {
-    return mPrefs.getBoolean(KEY_PREF_STATISTICS, true);
   }
 
   public static void setShouldShowEmulateBadStorageSetting(boolean show)

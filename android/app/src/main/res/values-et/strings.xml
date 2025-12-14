@@ -289,7 +289,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Palun luba asukohateenused</string>
     <string name="save">Salvesta</string>
-    <string name="create">loo</string>
+    <string name="create">Loo</string>
     <!-- red color -->
     <string name="red">Punane</string>
     <!-- yellow color -->
@@ -874,7 +874,6 @@
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">pistik pole teada</string>
-    <string name="unknow_socket_type">pistik pole teada</string>
     <string name="charge_socket_count">Pistikuid</string>
     <string name="edit_socket_info_tooltip">Lisa uusi pistikuid või muuda olemasolevaid.</string>
     <string name="charging_station_available_sockets">Saadaval pistikud</string>
@@ -902,4 +901,8 @@
     <string name="editor_mark_business_vacant_title">Märgi äripind vabaks</string>
     <string name="editor_mark_business_vacant_description">Kasuta seda valikut, kui senine rentnik/omanik on kolinud välja ja äripind on tühi ja uue ootel.</string>
     <string name="editor_submit">Saada</string>
+    <string name="power_management">Toitehaldus</string>
+    <string name="charge_socket_schuko">EU-sisene</string>
+    <string name="prefs_speed_cameras_information">Kiiruskaamerate teavitused on nendes riikides lülitatud välja, kus seda keelab kohalik seadusandlus.</string>
+    <string name="navigation_start_tts_message">"Alustan tee juhatamist, hääljuhiste keel: "</string>
 </resources>

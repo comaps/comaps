@@ -6,12 +6,14 @@
   <SwitchPreferenceCompat
       android:key="@string/pref_tts_enabled"
       android:title="@string/pref_tts_enable_title"
+      android:widgetLayout="@layout/preference_switch"
       app:iconSpaceReserved="false"/>
   <SwitchPreferenceCompat
       android:key="@string/pref_tts_street_names"
       android:title="@string/pref_tts_street_names_title"
       app:isPreferenceVisible="false"
       android:summary="@string/pref_tts_street_names_description"
+      android:widgetLayout="@layout/preference_switch"
       android:defaultValue="false"
       app:iconSpaceReserved="false"/>
   <ListPreference
@@ -54,5 +56,12 @@
       android:entries="@array/speed_cameras"
       android:entryValues="@array/speed_cameras_values"
       android:defaultValue="@string/auto_enum_value"
+      app:iconSpaceReserved="false" />
+  <Preference
+      android:enabled="true"
+      android:key="@string/pref_tts_info_link"
+      android:persistent="false"
+      android:selectable="false"
+      android:summary="@string/prefs_speed_cameras_information"
       app:iconSpaceReserved="false" />
 </androidx.preference.PreferenceScreen>

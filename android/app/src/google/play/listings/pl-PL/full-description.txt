@@ -1,0 +1,36 @@
+Aplikacja mapowa tworzona przez społeczność, darmowa i open source, oparta na danych OpenStreetMap, z pełnym naciskiem na transparentność, prywatność i działanie non-profit.
+
+Dołącz do społeczności i pomóż tworzyć najlepszą aplikację mapową
+• Korzystaj z aplikacji i polecaj ją innym
+• Przekazuj opinie i zgłaszaj problemy
+• Aktualizuj dane mapy w aplikacji lub na stronie OpenStreetMap
+
+<i>Twoje opinie i oceny na 5 gwiazdek są dla nas najlepszym wsparciem!</i>
+
+‣ <b>Prosta i dopracowana</b>: najważniejsze, łatwe w użyciu funkcje, które po prostu działają. 
+‣ <b>Skoncentrowana na trybie offline</b>: planuj i nawiguj za granicą bez sieci komórkowej, wyszukuj punkty na odległych szlakach – wszystkie funkcje działają offline.  
+‣ <b>Z poszanowaniem prywatności</b>: aplikacja nie identyfikuje użytkowników, nie śledzi i nie zbiera danych osobowych. Bez reklam.  
+‣ <b>Oszczędza baterię i miejsce</b>: nie zużywa baterii jak inne aplikacje nawigacyjne, a kompaktowe mapy oszczędzają miejsce w telefonie.  
+‣ <b>Darmowa i tworzona przez społeczność</b>: ludzie tacy jak Ty dodają miejsca do OpenStreetMap, testują funkcje, zgłaszają opinie i wspierają projekt.  
+‣ <b>Otwarte i przejrzyste decyzje i finanse, działanie non-profit, pełne open source.</b>
+
+<b>Główne funkcje</b>:
+• Pobierane szczegółowe mapy z miejscami, których nie ma w Google Maps  
+• Tryb outdoor ze szlakami, biwakami, źródłami wody, szczytami, warstwicami itp.  
+• Ścieżki piesze i rowerowe  
+• Punkty zainteresowania: restauracje, stacje paliw, hotele, sklepy, atrakcje i wiele innych  
+• Wyszukiwanie po nazwie, adresie lub kategorii  
+• Nawigacja z komunikatami głosowymi dla pieszych, rowerzystów i kierowców  
+• Dodawanie ulubionych miejsc jednym tapnięciem  
+• Artykuły Wikipedii dostępne offline  
+• Warstwa metra i wskazówki dojazdu  
+• Nagrywanie śladu trasy  
+• Eksport i import ulubionych miejsc i tras w formatach KML, KMZ, GPX  
+• Tryb ciemny do używania nocą  
+• Poprawianie danych mapy za pomocą prostego wbudowanego edytora  
+• Obsługa Android Auto  
+
+Zgłaszaj problemy, proponuj pomysły i dołącz do społeczności na stronie <b><i>comaps.app</i></b>.
+
+<b>Wolność jest tutaj</b>
+Odkrywaj swoją drogę i nawiguj po świecie z prywatnością i społecznością na pierwszym miejscu!

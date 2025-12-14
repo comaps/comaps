@@ -42,4 +42,6 @@
     <string name="weeks_ago">duela %s aste</string>
     <string name="month_ago">duela %s hilabete</string>
     <string name="year_ago">duela %s urte</string>
+    <string name="months_ago">duela %s hilabete</string>
+    <string name="years_ago">duela %s urte</string>
 </resources>

@@ -128,7 +128,6 @@
 
   <style name="MwmTextAppearance.Toolbar.Title.Button">
     <item name="android:textSize">@dimen/text_size_body_3</item>
-    <item name="android:textAllCaps">true</item>
   </style>
 
   <style name="MwmTextAppearance.NavMenu">
@@ -188,7 +187,6 @@
   </style>
 
   <style name="MwmTextAppearance.Tab" parent="MwmTextAppearance.Body3">
-    <item name="android:textAllCaps">true</item>
     <item name="android:textColor">@color/white_secondary</item>
   </style>
 

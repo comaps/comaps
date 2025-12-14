@@ -1015,7 +1015,7 @@
 "bugreport_alert_message" = "Chcete poslat vývojářům hlášení o chybě?\nSpoléháme na naše uživatele, protože společnost CoMaps neshromažďuje žádné informace o chybách automaticky. Předem vám děkujeme za podporu CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "Synchronizace iCloud (Beta)";
+"icloud_sync" = "Synchronizace s iCloudem (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Povolení synchronizace s iCloudem";
@@ -1027,7 +1027,7 @@
 "icloud_disabled_title" = "Služba iCloud je vypnutá";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Chcete-li tuto funkci používat, povolte v nastavení zařízení službu iCloud.";
+"icloud_disabled_message" = "Chcete-li tuto funkci používat, povolte v nastavení vašeho účtu Apple službu iCloud.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Povolit";

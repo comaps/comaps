@@ -5,10 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StyleRes;
 import androidx.fragment.app.Fragment;
 import app.organicmaps.base.BaseMwmFragmentActivity;
-import app.organicmaps.util.ThemeUtils;
 
 public class SearchActivity extends BaseMwmFragmentActivity
 {

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:layout_margin="@dimen/margin_double_and_half"
@@ -32,7 +33,8 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:checked="true"
-      android:text="@string/by_default"/>
+      android:text="@string/by_default"
+      app:buttonTint="@null"/>
 
     <RadioButton
       style="?fontSubtitle1"
@@ -41,7 +43,8 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:checked="false"
-      android:text="@string/by_name"/>
+      android:text="@string/by_name"
+      app:buttonTint="@null"/>
 
     <RadioButton
       style="?fontSubtitle1"
@@ -50,7 +53,8 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:checked="false"
-      android:text="@string/by_type"/>
+      android:text="@string/by_type"
+      app:buttonTint="@null"/>
 
     <RadioButton
       style="?fontSubtitle1"
@@ -59,7 +63,8 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:checked="false"
-      android:text="@string/by_distance"/>
+      android:text="@string/by_distance"
+      app:buttonTint="@null"/>
 
     <RadioButton
       style="?fontSubtitle1"
@@ -68,6 +73,7 @@
       android:layout_height="wrap_content"
       android:padding="@dimen/margin_half_double_plus"
       android:checked="false"
-      android:text="@string/by_date"/>
+      android:text="@string/by_date"
+      app:buttonTint="@null"/>
   </RadioGroup>
 </LinearLayout>

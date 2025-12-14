@@ -256,7 +256,7 @@
 "type.craft.handicraft" = "Artesanato";
 
 /* Heating, Ventilation, and Air Conditioning */
-"type.craft.hvac" = "Aquecimento, Ventilação e Ar Condicionado";
+"type.craft.hvac" = "Climatização";
 "type.craft.key_cutter" = "Chaveiro";
 "type.craft.locksmith" = "Serralheiro (chave)";
 "type.craft.metal_construction" = "Serralheiro (metal)";
@@ -599,8 +599,8 @@
 "type.area_highway.trunk" = "Via expressa";
 "type.area_highway.unclassified" = "Estrada sem classificação";
 "type.historic" = "Objeto histórico";
-"type.historic.aircraft" = "Aeronaves Históricas";
-"type.historic.anchor" = "Âncora Histórica";
+"type.historic.aircraft" = "Aeronave histórica";
+"type.historic.anchor" = "Âncora histórica";
 "type.historic.archaeological_site" = "Sítio arqueológico";
 "type.historic.battlefield" = "Campo de batalha histórico";
 "type.historic.boundary_stone" = "Marco fronteiriço";
@@ -620,21 +620,21 @@
 "type.historic.citywalls" = "Muro da cidade";
 "type.historic.fort" = "Forte";
 "type.historic.gallows" = "Galo";
-"type.historic.locomotive" = "Locomotiva Histórica";
+"type.historic.locomotive" = "Locomotiva histórica";
 "type.historic.memorial" = "Memorial";
 "type.historic.memorial.cross" = "Cruz de memorial";
 "type.historic.memorial.plaque" = "Placa Comemorativa";
 "type.historic.memorial.sculpture" = "Escultura";
 "type.historic.memorial.statue" = "Estátua";
 "type.historic.memorial.stolperstein" = "Pedra memorial";
-"type.historic.stone" = "Pedra Histórica";
+"type.historic.stone" = "Pedra histórica";
 "type.historic.memorial.war_memorial" = "Memorial de Guerra";
-"type.historic.mine" = "Mina Histórica";
+"type.historic.mine" = "Mina histórica";
 "type.historic.monument" = "Monumento";
 "type.historic.pillory" = "Pelourinho";
-"type.historic.ruins" = "Ruínas Históricas";
+"type.historic.ruins" = "Ruínas históricas";
 "type.historic.ship" = "Navio";
-"type.historic.tank" = "Tanque Histórico";
+"type.historic.tank" = "Tanque histórico";
 "type.historic.tomb" = "Túmulo";
 
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
@@ -778,7 +778,7 @@
 "type.natural.beach.sand" = "Praia de areia";
 "type.natural.beach.gravel" = "Praia de cascalho";
 "type.natural.cape" = "Cabo";
-"type.natural.cave_entrance" = "Entrada da Caverna";
+"type.natural.cave_entrance" = "Entrada de caverna";
 "type.natural.cliff" = "Penhasco";
 "type.natural.earth_bank" = "Banco de Terras";
 "type.man_made.embankment" = "Aterro";
@@ -1213,7 +1213,7 @@
 "type.shop.copyshop" = "Copiadora";
 "type.shop.cosmetics" = "Loja de cosméticos";
 "type.shop.curtain" = "Loja de cortinas";
-"type.shop.deli" = "Loja Delicatessen";
+"type.shop.deli" = "Loja de delicatessen";
 "type.shop.department_store" = "Loja de departamentos";
 "type.shop.doityourself" = "Loja de ferramentas e materiais de bricolagem";
 "type.shop.dry_cleaning" = "Lavagem a seco";
@@ -1264,7 +1264,7 @@
 "type.shop.seafood" = "Peixaria";
 "type.shop.second_hand" = "Loja de segunda mão";
 "type.shop.shoes" = "Sapataria";
-"type.shop.sports" = "Loga de artigos esportivos";
+"type.shop.sports" = "Loja de artigos esportivos";
 "type.shop.stationery" = "Papelaria";
 "type.shop.supermarket" = "Supermercado";
 "type.shop.tattoo" = "Estúdio de tatuagens";
@@ -1528,21 +1528,21 @@
 "type.disusedbusiness" = "Estabelecimento vazio";
 "type.amenity.lounger" = "Espreguiçadeira";
 "type.man_made.observatory" = "Observatório";
-"type.man_made.telescope.optical" = "Telescópio (óptico)";
+"type.man_made.telescope.optical" = "Telescópio (ótico)";
 "type.man_made.telescope.radio" = "Telescópio (rádio)";
-"type.amenity.food_sharing" = "Compartilhamento de alimentos";
+"type.amenity.food_sharing" = "Alimentos compartilhados";
 "type.social_facility.food_bank" = "Banco de alimentos";
 "type.social_facility.soup_kitchen" = "Restaurante popular";
 "type.man_made.telescope" = "Telescópio";
 "type.amenity.give_box" = "Caixa de doação";
 "type.man_made.telescope.gamma" = "Telescópio (gama)";
 "type.amenity.boat_rental" = "Aluguel de barco";
-"type.amenity.mobile_money_agent" = "Agente de Mobile Money";
+"type.amenity.mobile_money_agent" = "Agente mobile money";
 "type.amenity.car_pooling" = "Carona";
 "type.amenity.payment_centre" = "Centro de pagamentos";
 "type.leisure.indoor_play" = "Centro de recreação interno";
 "type.shop.telecommunication" = "Loja de Telecomunicação";
-"type.emergency.access_point" = "Ponto de Resgate de Emergência";
+"type.emergency.access_point" = "Ponto de resgate de emergência";
 "type.emergency.life_ring" = "Boia salva-vidas";
 "type.amenity.sailing_school" = "Escola de vela";
 "type.amenity.flight_school" = "Escola de aviação";
@@ -1589,3 +1589,5 @@
 "type.buoy.cardinal.west" = "Boia cardeal";
 "type.buoy.isolated_danger" = "Boia de perigo isolado";
 "type.buoy.lateral.port" = "Boia lateral";
+"type.man_made.mast.communication" = "Mastro de comunicações";
+"type.shop.beauty.nails" = "Manicure";

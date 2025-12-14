@@ -914,34 +914,31 @@
 "type.railway.preserved.tunnel" = "Preserved Rail Tunnel";
 "type.railway.rail" = "راه آهن";
 "type.railway.rail.highspeed" = "راه آهن پرسرعت";
-"type.railway.rail.tourism" = "راه آهن توریستی";
-"type.railway.rail.main" = "راه آهن";
+"type.railway.rail.tourism" = "راه‌آهن گردشگرانه";
+"type.railway.rail.main" = "راه‌آهن";
 
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
-"type.railway.rail.branch" = "راه آهن ثانویه";
+"type.railway.rail.branch" = "اَزگ راه‌آهن";
 
 /* Non-passenger utility tracks: industrial, military, test. */
-"type.railway.rail.utility" = "راه آهن شهری";
-"type.railway.rail.spur" = "خار راه آهن";
-
-/* Short service tracks: siding, yard, crossover. */
-"type.railway.rail.service" = "ریل کمکی";
-"type.railway.rail.bridge" = "پل راه آهن";
-"type.railway.rail.highspeed.bridge" = "پل راه آهن";
-"type.railway.rail.tourism.bridge" = "پل راه آهن";
-"type.railway.rail.main.bridge" = "پل راه آهن";
-"type.railway.rail.branch.bridge" = "پل راه آهن";
-"type.railway.rail.utility.bridge" = "پل راه آهن";
-"type.railway.rail.spur.bridge" = "پل راه آهن";
-"type.railway.rail.service.bridge" = "پل راه آهن";
-"type.railway.rail.tunnel" = "تونل راه آهن";
-"type.railway.rail.highspeed.tunnel" = "تونل راه آهن";
-"type.railway.rail.tourism.tunnel" = "تونل راه آهن";
-"type.railway.rail.main.tunnel" = "تونل راه آهن";
-"type.railway.rail.branch.tunnel" = "تونل راه آهن";
-"type.railway.rail.utility.tunnel" = "تونل راه آهن";
-"type.railway.rail.spur.tunnel" = "تونل راه آهن";
-"type.railway.rail.service.tunnel" = "تونل راه آهن";
+"type.railway.rail.utility" = "سامانه راه‌آهن برقی";
+"type.railway.rail.spur" = "شاخک راه‌آهن";
+"type.railway.rail.bridge" = "پل راه‌آهن";
+"type.railway.rail.highspeed.bridge" = "پل راه‌آهن";
+"type.railway.rail.tourism.bridge" = "پل راه‌آهن";
+"type.railway.rail.main.bridge" = "پل راه‌آهن";
+"type.railway.rail.branch.bridge" = "پل راه‌آهن";
+"type.railway.rail.utility.bridge" = "پل راه‌آهن";
+"type.railway.rail.spur.bridge" = "پل راه‌آهن";
+"type.railway.rail.service.bridge" = "پل راه‌آهن";
+"type.railway.rail.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.highspeed.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.tourism.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.main.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.branch.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.utility.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.spur.tunnel" = "آهون راه‌آهن";
+"type.railway.rail.service.tunnel" = "آهون راه‌آهن";
 "type.railway.station" = "ایستگاه قطار";
 "type.railway.station.funicular" = "فونیکولور";
 "type.railway.station.light_rail" = "ایستگاه قطار";
@@ -1438,7 +1435,7 @@
 "type.piste_type.nordic" = "Nordic Ski Trail";
 "type.piste_type.sled" = "Sledding Piste";
 "type.piste_type.sled.area" = "Sledding Piste";
-"type.piste_type.snow_park" = "پارک برفی";
+"type.piste_type.snow_park" = "بوستان برفی";
 "type.piste_type.hike" = "مسیر پیاده روی برفی";
 "type.piste_type.connection" = "اتصال پیست";
 "type.piste_type.skitour" = "مسیر اسکیتور";
