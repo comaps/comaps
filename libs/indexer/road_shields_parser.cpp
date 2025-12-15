@@ -592,14 +592,6 @@ public:
   {}
 };
 
-class LatviaRoadShieldParser : public SimpleRoadShieldParser
-{
-public:
-  explicit LatviaRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {{"A", RoadShieldType::Generic_Red}, {"P", RoadShieldType::Generic_Blue}})
-  {}
-};
-
 class MoldovaRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
