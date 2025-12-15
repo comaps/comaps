@@ -222,9 +222,9 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
   else if (shield.m_type == ftypes::RoadShieldType::Hungary_Blue)
     result = "shield-hungary-blue";
   else if (shield.m_type == ftypes::RoadShieldType::Romania_DN)
-    result = "shield-romania-dn";
+    result = "shield-ro-dn";
   else if (shield.m_type == ftypes::RoadShieldType::Romania_DJ)
-    result = "shield-romania-dj";
+    result = "shield-ro-dj";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
