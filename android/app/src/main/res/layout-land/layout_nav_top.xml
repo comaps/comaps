@@ -11,13 +11,12 @@
   <FrameLayout
     android:layout_width="match_parent"
     android:id="@+id/statutbar"
-    android:layout_height="15dp"
+    android:layout_height="1dp"
     app:layout_constraintTop_toTopOf="parent" />
   <com.google.android.material.card.MaterialCardView
     android:id="@+id/street_frame"
     android:layout_width="500dp"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/margin_half_plus_eight"
     android:layout_marginEnd="@dimen/margin_quarter"
     app:cardCornerRadius="@dimen/margin_half"
     android:elevation="@dimen/nav_elevation"
@@ -52,7 +51,6 @@
     app:layout_constraintEnd_toStartOf="@+id/street_frame"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/statutbar"
-    android:layout_marginTop="@dimen/margin_half_plus_eight"
     android:layout_marginStart="@dimen/margin_quarter"
     android:clickable="true"
     android:elevation="@dimen/nav_elevation">

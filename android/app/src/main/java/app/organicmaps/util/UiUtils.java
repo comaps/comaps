@@ -281,6 +281,14 @@ public final class UiUtils
     view.setPadding(systemInsets.left, systemInsets.top, systemInsets.right, view.getPaddingBottom());
   }
 
+  public static void setViewNavigationTopInsetsMargin(View view, WindowInsetsCompat windowInsets)
+  {
+      final Insets systemInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+      ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+      lp.topMargin = systemInsets.top;
+      view.setLayoutParams(lp);
+  }
+
   public static void setupNavigationIcon(@NonNull MaterialToolbar toolbar, @NonNull View.OnClickListener listener)
   {
     View customNavigationButton = toolbar.findViewById(R.id.back);
