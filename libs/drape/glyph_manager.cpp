@@ -5,6 +5,7 @@
 #include "drape/harfbuzz_shaping.hpp"
 
 #include "platform/platform.hpp"
+#include "platform/preferred_languages.hpp"
 
 #include "coding/hex.hpp"
 #include "coding/reader.hpp"
@@ -328,6 +329,9 @@ FreetypeError constexpr g_FT_Errors[] =
     TUniBlockIter m_lastUsedBlock;
     std::vector<std::unique_ptr<Font>> m_fonts;
 
+    std::string const lang = languages::GetCurrentOrig();
+    hb_language_t const m_language = hb_language_from_string(lang.data(), static_cast<int>(lang.size()));
+
     // Required to use std::string_view as a search key for std::unordered_map::find().
     struct StringHash : public std::hash<std::string_view>
     {
@@ -563,21 +567,8 @@ FreetypeError constexpr g_FT_Errors[] =
     return m_impl->m_fonts[key.m_fontIndex]->GetGlyphImage(key.m_glyphId, pixelHeight, sdf);
   }
 
-  namespace
-  {
-  hb_language_t OrganicMapsLanguageToHarfbuzzLanguage(int8_t lang)
-  {
-    // TODO(AB): can langs be converted faster?
-    auto const svLang = StringUtf8Multilang::GetLangByCode(lang);
-    auto const hbLanguage = hb_language_from_string(svLang.data(), static_cast<int>(svLang.size()));
-    if (hbLanguage == HB_LANGUAGE_INVALID)
-      return hb_language_get_default();
-    return hbLanguage;
-  }
-  }  // namespace
-
   // This method is NOT multithreading-safe.
-  text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHeight, int8_t lang)
+  text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHeight)
   {
 #ifdef DEBUG
     static int const fontSize = fontPixelHeight;
@@ -590,9 +581,6 @@ FreetypeError constexpr g_FT_Errors[] =
       return found->second;
 
     auto const [text, segments] = harfbuzz_shaping::GetTextSegments(utf8);
-
-    // TODO(AB): Optimize language conversion.
-    hb_language_t const hbLanguage = OrganicMapsLanguageToHarfbuzzLanguage(lang);
 
     text::TextMetrics allGlyphs;
     // For SplitText it's enough to know if the last visual (first logical) segment is RTL.
@@ -609,7 +597,8 @@ FreetypeError constexpr g_FT_Errors[] =
                           static_cast<int>(text.size()), substring.m_start, substring.m_length);
       hb_buffer_set_direction(m_impl->m_harfbuzzBuffer, substring.m_direction);
       hb_buffer_set_script(m_impl->m_harfbuzzBuffer, substring.m_script);
-      hb_buffer_set_language(m_impl->m_harfbuzzBuffer, hbLanguage);
+      // TODO: This property is static, is it possible to set it only once?
+      hb_buffer_set_language(m_impl->m_harfbuzzBuffer, m_impl->m_language);
 
       auto u32CharacterIter{text.begin() + substring.m_start};
       auto const end{u32CharacterIter + substring.m_length};
@@ -646,10 +635,4 @@ FreetypeError constexpr g_FT_Errors[] =
 
     return allGlyphs;
   }
-
-  text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHeight, char const * lang)
-  {
-    return ShapeText(utf8, fontPixelHeight, StringUtf8Multilang::GetLangIndex(lang));
-  }
-
 }  // namespace dp

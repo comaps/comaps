@@ -372,7 +372,7 @@ void TextureManager::Init(ref_ptr<dp::GraphicsContext> context, Params const & p
   m_maxGlypsCount = static_cast<uint32_t>(ceil(kGlyphAreaCoverage * textureSquare / averageGlyphSquare));
 
   std::string_view constexpr kSpace{" "};
-  m_spaceGlyph = m_glyphManager->ShapeText(kSpace, dp::kBaseFontSizePixels, "en").m_glyphs.front().m_key;
+  m_spaceGlyph = m_glyphManager->ShapeText(kSpace, dp::kBaseFontSizePixels).m_glyphs.front().m_key;
 
   LOG(LDEBUG, ("Glyphs texture size =", kGlyphsTextureSize, "with max glyphs count =", m_maxGlypsCount));
 
@@ -467,8 +467,7 @@ text::TextMetrics TextureManager::ShapeSingleTextLine(float fontPixelHeight, std
   // TODO(AB): Is this mutex too slow?
   std::lock_guard lock(m_calcGlyphsMutex);
 
-  // TODO(AB): Fix hard-coded lang.
-  auto textMetrics = m_glyphManager->ShapeText(utf8, fontPixelHeight, "en");
+  auto textMetrics = m_glyphManager->ShapeText(utf8, fontPixelHeight);
 
   auto const & glyphs = textMetrics.m_glyphs;
 
