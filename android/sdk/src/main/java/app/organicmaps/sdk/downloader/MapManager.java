@@ -261,4 +261,9 @@ public final class MapManager
    * Returns country ID which the current PP object points to, or {@code null}.
    */
   public static native @Nullable String nativeGetSelectedCountry();
+
+  /**
+   * Returns true when the map exists and is too old for map editing.
+   */
+  public static native boolean nativeIsMapTooOldToEdit(String countryId);
 }

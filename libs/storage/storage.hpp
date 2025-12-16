@@ -383,6 +383,9 @@ public:
   /// \brief Returns true if the version of countryId can be used to update maps.
   bool IsAllowedToEditVersion(CountryId const & countryId) const;
 
+  /// \brief Returns true when the map exists and is too old for map editing.
+  bool IsMapTooOldToEdit(CountryId const & countryId) const;
+
   /// Returns version of downloaded mwm or zero.
   int64_t GetVersion(CountryId const & countryId) const;
 
@@ -624,6 +627,8 @@ private:
 
   // Returns a path to a place on disk downloader can use for downloaded files.
   std::string GetFileDownloadPath(CountryId const & countryId, MapFileType file) const;
+
+  bool IsAllowedToEditFile(LocalFilePtr const & localFile) const;
 
   /// Fast version, doesn't check if country is out of date
   Status CountryStatus(CountryId const & countryId) const;

@@ -1252,14 +1252,31 @@ bool Storage::IsAllowedToEditVersion(CountryId const & countryId) const
   case Status::OnDiskOutOfDate:
   {
     auto const localFile = GetLatestLocalFile(countryId);
-    ASSERT(localFile, ("Local file shouldn't be nullptr."));
-    auto const currentVersionTime = base::YYMMDDToSecondsSinceEpoch(static_cast<uint32_t>(m_currentVersion));
-    auto const localVersionTime = base::YYMMDDToSecondsSinceEpoch(static_cast<uint32_t>(localFile->GetVersion()));
-    return currentVersionTime - localVersionTime < kMaxSecondsTillLastVersionUpdate &&
-           base::SecondsSinceEpoch() - localVersionTime < kMaxSecondsTillNoEdits;
+    return IsAllowedToEditFile(localFile);
   }
   default: return false;
   }
+}
+
+bool Storage::IsMapTooOldToEdit(CountryId const & countryId) const
+{
+  auto const status = CountryStatusEx(countryId);
+  if (status == Status::OnDiskOutOfDate)
+  {
+    LocalFilePtr const localFile = GetLatestLocalFile(countryId);
+    return !IsAllowedToEditFile(localFile);
+  }
+
+  return false;
+}
+
+bool Storage::IsAllowedToEditFile(LocalFilePtr const & localFile) const
+{
+  ASSERT(localFile, ("Local file shouldn't be nullptr."));
+  auto const currentVersionTime = base::YYMMDDToSecondsSinceEpoch(static_cast<uint32_t>(m_currentVersion));
+  auto const localVersionTime = base::YYMMDDToSecondsSinceEpoch(static_cast<uint32_t>(localFile->GetVersion()));
+  return currentVersionTime - localVersionTime < kMaxSecondsTillLastVersionUpdate &&
+         base::SecondsSinceEpoch() - localVersionTime < kMaxSecondsTillNoEdits;
 }
 
 int64_t Storage::GetVersion(CountryId const & countryId) const

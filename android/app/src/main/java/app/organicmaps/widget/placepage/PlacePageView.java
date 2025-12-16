@@ -700,22 +700,27 @@ public class PlacePageView extends Fragment
 
       if (shouldEnableEditPlace)
       {
+        mTvEditPlace.setEnabled(true);
+        mTvAddPlace.setEnabled(true);
         mTvEditPlace.setOnClickListener(this);
         mTvAddPlace.setOnClickListener(this);
       }
       else
       {
-        mTvEditPlace.setOnClickListener((v) -> {
-          Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
-        });
-        mTvAddPlace.setOnClickListener((v) -> {
-          Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
-        });
-
         String countryId = MapManager.nativeGetSelectedCountry();
 
-        if (countryId != null)
+        if (countryId != null && MapManager.nativeIsMapTooOldToEdit(countryId))
         {
+          // map editing is disabled because the map is too old
+          mTvEditPlace.setEnabled(true);
+          mTvAddPlace.setEnabled(true);
+          mTvEditPlace.setOnClickListener((v) -> {
+            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
+          });
+          mTvAddPlace.setOnClickListener((v) -> {
+            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
+          });
+
           CountryItem map = CountryItem.fill(countryId);
 
           if (map.status == CountryItem.STATUS_UPDATABLE || map.status == CountryItem.STATUS_DONE
@@ -739,6 +744,12 @@ public class PlacePageView extends Fragment
             else
               mapTooOldDescription.setText(R.string.place_page_app_too_old_description);
           }
+        }
+        else
+        {
+          // map editing is disabled for other reasons
+          mTvEditPlace.setEnabled(false);
+          mTvAddPlace.setEnabled(false);
         }
       }
 
