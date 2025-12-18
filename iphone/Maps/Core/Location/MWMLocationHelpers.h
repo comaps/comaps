@@ -32,7 +32,8 @@ static inline MWMMyPositionMode mwmMyPositionMode(location::EMyPositionMode mode
   case location::EMyPositionMode::NotFollowNoPosition: return MWMMyPositionModeNotFollowNoPosition;
   case location::EMyPositionMode::NotFollow: return MWMMyPositionModeNotFollow;
   case location::EMyPositionMode::Follow: return MWMMyPositionModeFollow;
-  case location::EMyPositionMode::FollowAndRotate: return MWMMyPositionModeFollowAndRotate;
+  case location::EMyPositionMode::FollowAndRotateCompass: return MWMMyPositionModeFollowAndRotateCompass;
+  case location::EMyPositionMode::FollowAndRotateRoute: return MWMMyPositionModeFollowAndRotateRoute;
   }
 }
 } // namespace location_helpers

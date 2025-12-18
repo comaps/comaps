@@ -91,7 +91,8 @@ NSString * const kUDDidShowLongTapToShowSideButtonsToast = @"kUDDidShowLongTapTo
     case MWMMyPositionModeNotFollow:
     case MWMMyPositionModeNotFollowNoPosition: [locBtn setStyleNameAndApply: @"ButtonGetPosition"]; break;
     case MWMMyPositionModeFollow: [locBtn setStyleNameAndApply: @"ButtonFollow"]; break;
-    case MWMMyPositionModeFollowAndRotate: [locBtn setStyleNameAndApply: @"ButtonFollowAndRotate"]; break;
+    case MWMMyPositionModeFollowAndRotateCompass: [locBtn setStyleNameAndApply: @"ButtonFollowAndRotateCompass"]; break;
+    case MWMMyPositionModeFollowAndRotateRoute: [locBtn setStyleNameAndApply: @"ButtonFollowAndRotateRoute"]; break;
   }
 }
 

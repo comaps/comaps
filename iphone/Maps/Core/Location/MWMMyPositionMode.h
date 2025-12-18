@@ -3,5 +3,6 @@ typedef NS_CLOSED_ENUM(NSUInteger, MWMMyPositionMode) {
   MWMMyPositionModeNotFollowNoPosition,
   MWMMyPositionModeNotFollow,
   MWMMyPositionModeFollow,
-  MWMMyPositionModeFollowAndRotate
+  MWMMyPositionModeFollowAndRotateCompass,
+  MWMMyPositionModeFollowAndRotateRoute
 };

@@ -239,7 +239,7 @@ final class CarPlayService: NSObject {
     MapTemplateBuilder.configureBaseUI(mapTemplate: mapTemplate)
     if currentPositionMode == .pendingPosition {
       mapTemplate.leadingNavigationBarButtons = []
-    } else if currentPositionMode == .follow || currentPositionMode == .followAndRotate {
+    } else if currentPositionMode == .follow || currentPositionMode == .followAndRotateCompass || currentPositionMode == .followAndRotateRoute {
       MapTemplateBuilder.setupDestinationButton(mapTemplate: mapTemplate)
     } else {
       MapTemplateBuilder.setupRecenterButton(mapTemplate: mapTemplate)
@@ -629,7 +629,7 @@ extension CarPlayService: LocationModeListener {
         return
     }
     switch mode {
-    case .follow, .followAndRotate:
+    case .follow, .followAndRotateCompass, .followAndRotateRoute:
       if !rootMapTemplate.isPanningInterfaceVisible {
         MapTemplateBuilder.setupDestinationButton(mapTemplate: rootMapTemplate)
       }
