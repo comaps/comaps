@@ -632,7 +632,8 @@ NSString *const kAboutSegue = @"Map2About";
     case MWMMyPositionModeNotFollow:
       break;
     case MWMMyPositionModeFollow:
-    case MWMMyPositionModeFollowAndRotate:
+    case MWMMyPositionModeFollowAndRotateCompass:
+    case MWMMyPositionModeFollowAndRotateRoute:
       self.disableStandbyOnLocationStateMode = YES;
       break;
   }

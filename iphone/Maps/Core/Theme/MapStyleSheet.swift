@@ -7,7 +7,8 @@ enum MapStyleSheet: String, CaseIterable {
   case mapButtonPending = "ButtonPending"
   case mapButtonGetPosition = "ButtonGetPosition"
   case mapButtonFollow = "ButtonFollow"
-  case mapButtonFollowAndRotate = "ButtonFollowAndRotate"
+  case mapButtonFollowAndRotateCompass = "ButtonFollowAndRotateCompass"
+  case mapButtonFollowAndRotateRoute = "ButtonFollowAndRotateRoute"
   case mapButtonMapBookmarks = "ButtonMapBookmarks"
   case mapPromoDiscoveryButton = "PromoDiscroveryButton"
   case mapButtonBookmarksBack = "ButtonBookmarksBack"
@@ -67,9 +68,13 @@ extension MapStyleSheet: IStyleSheet {
       return .add { s in
         s.mwmImage = "btn_follow"
       }
-    case .mapButtonFollowAndRotate:
+    case .mapButtonFollowAndRotateCompass:
       return .add { s in
         s.mwmImage = "btn_follow_and_rotate"
+      }
+    case .mapButtonFollowAndRotateRoute:
+      return .add { s in
+        s.mwmImage = "btn_follow_route"
       }
     case .mapButtonMapBookmarks:
       return .add { s in

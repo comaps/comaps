@@ -28,7 +28,7 @@ final class MapTemplateBuilder {
     configureBaseUI(mapTemplate: mapTemplate)
     if positionMode == .pendingPosition {
       mapTemplate.leadingNavigationBarButtons = []
-    } else if positionMode == .follow || positionMode == .followAndRotate {
+    } else if positionMode == .follow || positionMode == .followAndRotateCompass || positionMode == .followAndRotateRoute {
       setupDestinationButton(mapTemplate: mapTemplate)
     } else {
       setupRecenterButton(mapTemplate: mapTemplate)

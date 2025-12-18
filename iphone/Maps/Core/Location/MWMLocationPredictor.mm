@@ -30,7 +30,7 @@ NSUInteger constexpr kMaxPredictionCount = 20;
 
 - (void)setMyPositionMode:(MWMMyPositionMode)mode
 {
-  self.isLastPositionModeValid = (mode == MWMMyPositionModeFollowAndRotate);
+  self.isLastPositionModeValid = (mode == MWMMyPositionModeFollowAndRotateCompass);
   [self restart];
 }
 

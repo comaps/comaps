@@ -50,7 +50,8 @@ std::string DebugPrint(MWMMyPositionMode mode) {
     case MWMMyPositionModeNotFollowNoPosition: return "MWMMyPositionModeNotFollowNoPosition";
     case MWMMyPositionModeNotFollow: return "MWMMyPositionModeNotFollow";
     case MWMMyPositionModeFollow: return "MWMMyPositionModeFollow";
-    case MWMMyPositionModeFollowAndRotate: return "MWMMyPositionModeFollowAndRotate";
+    case MWMMyPositionModeFollowAndRotateCompass: return "MWMMyPositionModeFollowAndRotateCompass";
+    case MWMMyPositionModeFollowAndRotateRoute: return "MWMMyPositionModeFollowAndRotateRoute";
   }
   CHECK(false, ("Unsupported value", static_cast<int>(mode)));
 }
@@ -367,7 +368,8 @@ void setShowLocationAlert(BOOL needShow) {
     case MWMMyPositionModeNotFollowNoPosition:
     case MWMMyPositionModeNotFollow: manager.geoMode = GeoMode::NotInPosition; break;
     case MWMMyPositionModeFollow: manager.geoMode = GeoMode::InPosition; break;
-    case MWMMyPositionModeFollowAndRotate: manager.geoMode = GeoMode::FollowAndRotate; break;
+    case MWMMyPositionModeFollowAndRotateCompass:
+    case MWMMyPositionModeFollowAndRotateRoute: manager.geoMode = GeoMode::FollowAndRotate; break;
     }
   }
 }
