@@ -126,6 +126,7 @@ dependencies {
   implementation libs.androidx.recyclerview
   implementation libs.androidx.preference
   implementation libs.android.material
+  implementation libs.androidx.documentfile
 
   testImplementation libs.junit
 }
