@@ -790,6 +790,8 @@
     <string name="enable_show_on_lock_screen_description">When enabled, the app will work on the lockscreen even when the device is locked.</string>
     <!-- Current language of the map -->
     <string name="change_map_locale">Map language</string>
+    <!-- Current language of the app -->
+    <string name="change_app_locale">App language</string>
     <!-- Local language -->
     <string name="pref_maplanguage_local">Local Language</string>
     <!-- OpenStreetMap text on splash screen -->

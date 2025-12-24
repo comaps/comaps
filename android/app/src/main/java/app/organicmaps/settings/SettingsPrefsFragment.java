@@ -15,6 +15,8 @@ import android.provider.Settings;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.os.ConfigurationCompat;
+import androidx.core.os.LocaleListCompat;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
@@ -160,6 +162,24 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     }
   }
 
+  private void updateAppLanguageCodeSummary()
+  {
+    final Preference pref = getPreference(getString(R.string.pref_app_locale));
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+    {
+      pref.setVisible(true);
+      LocaleListCompat locales = ConfigurationCompat.getLocales(getResources().getConfiguration());
+      Locale currentLocale = locales.get(0);
+      if (currentLocale != null)
+      {
+        pref.setSummary(currentLocale.getDisplayLanguage());
+      }
+    } else
+    {
+      pref.setVisible(false);
+    }
+  }
+
   private void updateRoutingSettingsPrefsSummary()
   {
     final Preference pref = getPreference(getString(R.string.prefs_routing));
@@ -187,6 +207,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     updateVoiceInstructionsPrefsSummary();
     updateRoutingSettingsPrefsSummary();
     updateMapLanguageCodeSummary();
+    updateAppLanguageCodeSummary();
   }
 
   @Override
@@ -209,6 +230,14 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
         LanguagesFragment langFragment = (LanguagesFragment) getSettingsActivity().stackFragment(
             LanguagesFragment.class, getString(R.string.change_map_locale), null);
         langFragment.setListener(this);
+      }
+      else if (key.equals(getString(R.string.pref_app_locale)))
+      {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+          Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
+          intent.setData(Uri.fromParts("package", requireContext().getPackageName(), null));
+          startActivity(intent);
+        }
       }
       else if (key.equals(getString(R.string.pref_backup)))
       {

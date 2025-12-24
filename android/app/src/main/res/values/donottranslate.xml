@@ -40,6 +40,7 @@
   <string name="pref_keep_screen_on" translatable="false">KeepScreenOn</string>
   <string name="pref_show_on_lock_screen" translatable="false">ShowOnLockScreen</string>
   <string name="pref_map_locale" translatable="false">MapLanguage</string>
+  <string name="pref_app_locale" translatable="false">AppLanguage</string>
   <string name="pref_alt_map_lang_handling_key" translatable="false">AlternativeMapLanguageHandling</string>
   <string name="pref_backup" translatable="false">Backup</string>
   <string name="pref_left_button" translatable="false">LeftButton</string>
