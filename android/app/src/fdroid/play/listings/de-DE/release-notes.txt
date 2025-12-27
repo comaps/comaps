@@ -1,8 +1,0 @@
-• OpenStreetMap Daten vom 17. Dezember
-• Map download server nun wählbar
-• Warnung über veraltete Karten hinzugefügt + Knopf zum updaten
-• Vermeidung von Parkplatzwegen im Routing
-• Neuer Zoombutton
-• Verbesserte Französchische Suchsynonme
-• OSM editor: Maximale Länge für OSM-Tags werden nun geprüft
-Mehr auf codeberg.org/comaps/comaps/releases

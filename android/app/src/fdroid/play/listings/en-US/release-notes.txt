@@ -1,8 +1,4 @@
-• OpenStreetMap data as of December 17
-• Make map download server configurable
-• Added info about outdated maps and an update button to the selected place info card
-• Avoid using parking aisles for routing
-• Changed shape of zoom buttons
-• Improved French search synonyms
-• OSM editor: check length limit for OSM tags in value validation
-More details on codeberg.org/comaps/comaps/releases
+This is a maps-only update just to keep your maps fresh!
+• OpenStreetMap data as of December 27
+
+Please see previous releases' changes on codeberg.org/comaps/comaps/releases
