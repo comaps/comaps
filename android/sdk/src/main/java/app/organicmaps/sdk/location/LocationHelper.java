@@ -27,6 +27,8 @@ import app.organicmaps.sdk.util.NetworkPolicy;
 import app.organicmaps.sdk.util.log.Logger;
 import org.chromium.base.ObserverList;
 
+import java.util.HashMap;
+
 public class LocationHelper implements BaseLocationProvider.Listener
 {
   private static final long INTERVAL_MS = 500;
@@ -55,6 +57,12 @@ public class LocationHelper implements BaseLocationProvider.Listener
   private boolean mActive;
   private Handler mHandler;
   private Runnable mLocationTimeoutRunnable = this::notifyLocationUpdateTimeout;
+
+  private static final double INTERVAL_PROVIDER_DECISION = 3.0; // seconds
+  private final HashMap<String, Integer> mProviderLocationCounts = new HashMap<>();
+  private final HashMap<String, Float> mProviderAccuracyMeans = new HashMap<>();
+  private double mTimeAtLastProviderChange = Double.NaN;
+  private String mCurrentProvider = null;
 
   @NonNull
   private final GnssStatusCompat.Callback mGnssStatusCallback = new GnssStatusCompat.Callback() {
@@ -187,7 +195,6 @@ public class LocationHelper implements BaseLocationProvider.Listener
   @Override
   public void onLocationChanged(@NonNull Location location)
   {
-    Logger.d(TAG, "provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
 
     if (!isActive())
     {
@@ -201,21 +208,68 @@ public class LocationHelper implements BaseLocationProvider.Listener
       return;
     }
 
-    if (mSavedLocation != null)
-    {
-      if (!LocationUtils.isLocationBetterThanLast(location, mSavedLocation))
-      {
-        Logger.d(TAG, "The new " + location + " is worse than the last " + mSavedLocation);
+//    if (mSavedLocation != null)
+//    {
+//      if (!LocationUtils.isLocationBetterThanLast(location, mSavedLocation))
+//      {
+//        Logger.d(TAG, "The new " + location + " is worse than the last " + mSavedLocation);
+//        return;
+//      }
+//    }
+
+    updateProviderDecision(location);
+    if(mCurrentProvider == null || !mCurrentProvider.equals(location.getProvider())) {
+        Logger.d(TAG, "Rejected update from provider = " + location.getProvider());
         return;
-      }
     }
+
+    Logger.d(TAG, "provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
 
     mSavedLocation = location;
     mMyPosition = null;
     notifyLocationUpdated();
   }
 
-  // Used by GoogleFusedLocationProvider.
+    private void updateProviderDecision(Location location) {
+      if(Double.isNaN(mTimeAtLastProviderChange))
+          mTimeAtLastProviderChange = location.getElapsedRealtimeNanos() * 1.0E-9;
+
+      String provider = location.getProvider();
+      int count = mProviderLocationCounts.getOrDefault(provider, 0);
+      float average = mProviderAccuracyMeans.getOrDefault(provider, 0.0f);
+
+      float accuracy = location.getAccuracy();
+      float newAverage = (count * average + accuracy) / (count + 1);
+
+      mProviderLocationCounts.put(provider, count + 1);
+      mProviderAccuracyMeans.put(provider, newAverage);
+
+      double currentTime = location.getElapsedRealtimeNanos();
+      double timeDiff = (currentTime - mTimeAtLastProviderChange) * 1.0E-9;
+
+      if(timeDiff > INTERVAL_PROVIDER_DECISION) {
+          mCurrentProvider = getMinAccuracyProvider();
+          Logger.d("ProviderDecision", "Selected: " + mCurrentProvider + ", with acc. " + mProviderAccuracyMeans.get(mCurrentProvider));
+          mTimeAtLastProviderChange = currentTime;
+          mProviderLocationCounts.clear();
+          mProviderAccuracyMeans.clear();
+      }
+    }
+
+    private String getMinAccuracyProvider() {
+        String minAccuracyProvider = null;
+        float minAccuracy = Float.MAX_VALUE;
+        for(String p : mProviderAccuracyMeans.keySet()) {
+            float pAccuracy = mProviderAccuracyMeans.get(p);
+            if(pAccuracy < minAccuracy) {
+                minAccuracy = pAccuracy;
+                minAccuracyProvider = p;
+            }
+        }
+        return minAccuracyProvider;
+    }
+
+    // Used by GoogleFusedLocationProvider.
   @SuppressWarnings("unused")
   @Override
   @UiThread
