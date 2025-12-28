@@ -81,20 +81,6 @@ public class LocationUtils
     return location.getAccuracy() > 0.0f;
   }
 
-  public static boolean isLocationBetterThanLast(@NonNull Location newLocation, @NonNull Location lastLocation)
-  {
-    if (newLocation.getElapsedRealtimeNanos() < lastLocation.getElapsedRealtimeNanos())
-      return false;
-
-    // As described in isAccuracySatisfied, GPS may have zero accuracy "for some reasons".
-    if (isFromGpsProvider(lastLocation) && lastLocation.getAccuracy() == 0.0f)
-      return true;
-
-    double speed = Math.max(DEFAULT_SPEED_MPS, (newLocation.getSpeed() + lastLocation.getSpeed()) / 2.0);
-    double lastAccuracy = lastLocation.getAccuracy() + speed * LocationUtils.getTimeDiff(lastLocation, newLocation);
-    return newLocation.getAccuracy() < lastAccuracy;
-  }
-
   public static boolean areLocationServicesTurnedOn(@NonNull Context context)
   {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P)

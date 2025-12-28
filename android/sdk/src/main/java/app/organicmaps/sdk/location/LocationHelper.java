@@ -208,17 +208,8 @@ public class LocationHelper implements BaseLocationProvider.Listener
       return;
     }
 
-//    if (mSavedLocation != null)
-//    {
-//      if (!LocationUtils.isLocationBetterThanLast(location, mSavedLocation))
-//      {
-//        Logger.d(TAG, "The new " + location + " is worse than the last " + mSavedLocation);
-//        return;
-//      }
-//    }
-
     updateProviderDecision(location);
-    if(mCurrentProvider == null || !mCurrentProvider.equals(location.getProvider())) {
+    if(mCurrentProvider != null && !mCurrentProvider.equals(location.getProvider())) {
         Logger.d(TAG, "Rejected update from provider = " + location.getProvider());
         return;
     }
@@ -249,7 +240,7 @@ public class LocationHelper implements BaseLocationProvider.Listener
 
       if(timeDiff > INTERVAL_PROVIDER_DECISION) {
           mCurrentProvider = getMinAccuracyProvider();
-          Logger.d("ProviderDecision", "Selected: " + mCurrentProvider + ", with acc. " + mProviderAccuracyMeans.get(mCurrentProvider));
+          Logger.d(TAG, "Selected: " + mCurrentProvider + ", with acc. " + mProviderAccuracyMeans.get(mCurrentProvider));
           mTimeAtLastProviderChange = currentTime;
           mProviderLocationCounts.clear();
           mProviderAccuracyMeans.clear();
