@@ -53,14 +53,7 @@ for version in $OLD_VERSIONS_RU1; do
 done
 
 # fi1 - keep max 3 versions
-echo "Cleaning fi1 (keeping 3 newest versions)..."
-OLD_VERSIONS_FI1=$(rclone lsd fi1:/var/www/html/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +4)
-for version in $OLD_VERSIONS_FI1; do
-  if [ $version -gt 250101 ]; then
-    echo "  Deleting fi1:/var/www/html/maps/$version/"
-    rclone purge -v fi1:/var/www/html/maps/$version/
-  fi
-done
+echo "TMP DISABLED: Cleaning fi1 (keeping 3 newest versions)..."
 
 # de1 - keep max 6 versions
 echo "Cleaning de1 (keeping 6 newest versions)..."
