@@ -197,10 +197,8 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
                                         () -> onShareActionSelected(mSelectedCategory, KmlFileType.Text)));
       items.add(new MenuBottomSheetItem(R.string.export_file_gpx, R.drawable.ic_file_gpx,
                                         () -> onShareActionSelected(mSelectedCategory, KmlFileType.Gpx)));
-      // Disallow deleting the last category
-      if (getAdapter().getBookmarkCategories().size() > 1)
-        items.add(new MenuBottomSheetItem(R.string.delete, R.drawable.ic_delete,
-                                          () -> onDeleteActionSelected(mSelectedCategory)));
+      items.add(new MenuBottomSheetItem(R.string.delete, R.drawable.ic_delete,
+                                        () -> onDeleteActionSelected(mSelectedCategory)));
     }
     return items;
   }
@@ -297,8 +295,24 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
 
   private void onDeleteActionSelected(@NonNull BookmarkCategory category)
   {
-    BookmarkManager.INSTANCE.deleteCategory(category.getId());
-    getAdapter().notifyDataSetChanged();
+    // Disallow deleting the last category
+    if ((getAdapter().getBookmarkCategories().size() > 1))
+    {
+        BookmarkManager.INSTANCE.deleteCategory(category.getId());
+        getAdapter().notifyDataSetChanged();
+    }
+    else
+    {
+        new MaterialAlertDialogBuilder(requireActivity())
+                .setMessage(R.string.unable_to_delete_list)
+                .setPositiveButton(android.R.string.yes, ((dialog, which) -> {
+                    onAddButtonClick();
+                    BookmarkManager.INSTANCE.deleteCategory(category.getId());
+                    getAdapter().notifyDataSetChanged();
+                }))
+                .setNegativeButton(android.R.string.no,(dialog, which) -> dialog.dismiss())
+                .show();
+    }
   }
 
   private void onSettingsActionSelected(@NonNull BookmarkCategory category)
