@@ -34,7 +34,8 @@ jobs:
         run: |
           echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
           cd ~
-          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps      - name: Checkout subways repo
+          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+      - name: Checkout subways repo
         shell: bash
         run: |
           cd ~
