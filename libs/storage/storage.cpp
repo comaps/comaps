@@ -119,6 +119,81 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
   return overallProgress;
 }
 
+namespace
+{
+std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
+
+bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
+{
+  auto & pl = GetPlatform();
+  std::string const finalPath = base::JoinPath(pl.WritableDir(), COUNTRIES_FILE);
+  std::string const tmpPath = finalPath + ".tmp";
+
+  try
+  {
+    FileWriter w(tmpPath);
+    w.Write(buffer.data(), buffer.size());
+  }
+  catch (...)
+  {
+    LOG(LWARNING, ("COUNTRIES: write tmp failed:", tmpPath));
+    pl.RemoveFileIfExists(tmpPath);
+    return false;
+  }
+
+  pl.RemoveFileIfExists(finalPath);
+  if (!base::RenameFileX(tmpPath, finalPath))
+  {
+    LOG(LWARNING, ("COUNTRIES: rename failed:", tmpPath, "->", finalPath));
+    pl.RemoveFileIfExists(tmpPath);
+    return false;
+  }
+
+  pl.DisableBackupForFile(finalPath);
+  LOG(LINFO, ("COUNTRIES: saved to:", finalPath));
+  return true;
+}
+}  // namespace
+
+void Storage::RunCountriesCheckAsyncSaveOnly()
+{
+  LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
+
+  // Use MapFilesDownloader so we respect custom server / metaserver selection.
+  m_downloader->DownloadAsString(kCountriesLatestRelativeUrl,
+  [this](std::string const & buffer)
+  {
+    LOG(LDEBUG, ("COUNTRIES: downloaded bytes=", buffer.size()));
+
+    if (buffer.empty())
+    {
+      LOG(LWARNING, ("COUNTRIES: empty response, ignoring"));
+      return false;
+    }
+
+    CountryTree countries;
+    Affiliations affiliations;
+    CountryNameSynonyms synonyms;
+    MwmTopCityGeoIds topCities;
+    MwmTopCountryGeoIds topCountries;
+
+    int64_t const parsedVersion =
+        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
+    LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
+
+    if (parsedVersion <= 0 || parsedVersion <= m_currentVersion)
+      return false;
+
+    GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(buffer)]()
+    {
+      (void)SaveCountriesToWritableDirAtomic(buf);
+    });
+
+    return false;
+  },
+  false /* forceReset */);
+}
+
 Storage::Storage(int)
 {
   // Do nothing here, used in RunCountriesCheckAsync() only.
@@ -131,9 +206,17 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   SetLocale(languages::GetCurrentTwine());
+
+  LOG(LDEBUG, ("COUNTRIES: Storage ctor entered. pathToCountriesFile=", pathToCountriesFile, "dataDir=", m_dataDir));
   LoadCountriesFile(pathToCountriesFile);
 
+  m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
+
+  LOG(LDEBUG, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
+
+  // fetch & store for next start (takes effect after restart).
+  RunCountriesCheckAsyncSaveOnly();
 }
 
 Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
@@ -719,6 +802,7 @@ void Storage::OnDownloadFinished(QueuedCountry const & queuedCountry, DownloadSt
     {
       DownloadStatus status = DownloadStatus::Completed;
 
+      // Verify map checksum.
       if (coding::SHA1::CalculateBase64(path) != sha1)
       {
         LOG(LERROR, ("SHA check error for", path));
