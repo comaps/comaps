@@ -175,6 +175,8 @@ private:
 
   CountryTree m_countries;
 
+  void RunCountriesCheckAsyncSaveOnly();
+
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
   /// Note. This set is necessary for implementation of downloading progress of
