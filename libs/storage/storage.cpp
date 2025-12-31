@@ -123,6 +123,32 @@ namespace
 {
 std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
 
+char const kCountriesTxtLastCheckSuccessKey[] = "CountriesTxtLastCheckSuccess";
+uint64_t constexpr kCountriesTxtCheckIntervalSeconds = 48ull * 3600ull;
+
+bool IsCountriesTxtCheckThrottled()
+{
+  std::string lastStr;
+  settings::TryGet(kCountriesTxtLastCheckSuccessKey, lastStr);
+  if (lastStr.empty())
+    return false;
+
+  uint64_t last = 0;
+  if (!strings::to_uint64(lastStr, last))
+    return false;
+
+  uint64_t const now = base::SecondsSinceEpoch();
+  if (now < last)
+    return false;
+
+  return (now - last) < kCountriesTxtCheckIntervalSeconds;
+}
+
+void MarkCountriesTxtCheckSuccessNow()
+{
+  settings::Set(kCountriesTxtLastCheckSuccessKey, std::to_string(base::SecondsSinceEpoch()));
+}
+
 bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 {
   auto & pl = GetPlatform();
@@ -157,6 +183,12 @@ bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
+  if (IsCountriesTxtCheckThrottled())
+  {
+    LOG(LDEBUG, ("COUNTRIES: check throttled (recent successful check)"));
+    return;
+  }
+
   LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
 
   // Use MapFilesDownloader so we respect custom server / metaserver selection.
@@ -181,7 +213,12 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
         LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
     LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
 
-    if (parsedVersion <= 0 || parsedVersion <= m_currentVersion)
+    if (parsedVersion <= 0)
+      return false;
+
+    MarkCountriesTxtCheckSuccessNow();
+
+    if (parsedVersion <= m_currentVersion)
       return false;
 
     GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(buffer)]()
