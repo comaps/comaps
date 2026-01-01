@@ -210,7 +210,7 @@ public class LocationHelper implements BaseLocationProvider.Listener
 
     updateProviderDecision(location);
     if(mCurrentProvider != null && !mCurrentProvider.equals(location.getProvider())) {
-        Logger.d(TAG, "Rejected update from provider = " + location.getProvider());
+        Logger.d(TAG, "REJECTED: provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
         return;
     }
 
