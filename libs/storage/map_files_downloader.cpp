@@ -84,11 +84,9 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
                                       [this, callback = std::move(callback)](RequestT & request)
     {
       bool deleteRequest = true;
-
-      auto const status = request.GetStatus();
       auto const & buffer = request.GetData();
 
-      LOG(LDEBUG, ("DownloadAsString: status=", status, "bytes=", buffer.size()));
+      LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
 
       if (!buffer.empty())
       {
