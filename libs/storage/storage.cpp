@@ -18,7 +18,6 @@
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
 #include "coding/sha1.hpp"
-#include "coding/base64.hpp"
 
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
@@ -129,45 +128,11 @@ namespace
 std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
 std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.sig";
 
-struct PendingCountriesTxt
-{
-  std::string m_buffer;
-  int64_t m_parsedVersion = 0;
-};
-
-// Returns true if signature checks should be skipped (custom server).
-bool ShouldSkipCountriesSignature()
-{
-  return !GetPlatform().CustomMapServerUrl().empty();
-}
-
-std::array<uint8_t, 32> GetEmbeddedCountriesPublicKey()
-{
-  return storage::kCountriesTxtPublicKey;
-}
-
-bool ParseCountriesSigBase64(std::string const & sigText, std::array<uint8_t, 64> & sigOut)
-{
-  std::string trimmed = sigText;
-  strings::Trim(trimmed);
-
-  std::string decoded = base64::Decode(trimmed);
-  if (decoded.empty())
-    return false;
-
-  if (decoded.size() != sigOut.size())
-    return false;
-
-  std::copy(decoded.begin(), decoded.end(), sigOut.begin());
-  return true;
-}
-
 bool VerifyEd25519(std::array<uint8_t, 32> const & pubKey,
                    std::string const & message,
-                   std::array<uint8_t, 64> const & sig)
+                   uint8_t const * sigPtr)
 {
-    LOG(LDEBUG, ("COUNTRIES: check signature."));
-    return crypto_ed25519_check(sig.data(),
+    return crypto_ed25519_check(sigPtr,
                                 pubKey.data(),
                                 reinterpret_cast<uint8_t const *>(message.data()),
                                 message.size()) == 0;
@@ -205,6 +170,106 @@ bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 }
 }  // namespace
 
+void Storage::ApplyCountriesInMemory(std::string const & buffer)
+{
+  std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
+  parsed->m_currentVersion =
+    LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
+                            parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
+
+  int64_t const newVersion = parsed->m_currentVersion;
+  if (newVersion <= m_currentVersion || newVersion <= 0)
+    return;
+
+  m_currentVersion = newVersion;
+  m_countries = std::move(parsed->m_countries);
+
+  m_downloader->SetDataVersion(m_currentVersion);
+  m_downloader->ResetMetaConfig();
+
+  RegisterAllLocalMaps(false /* enableDiffs */);
+
+  m_affiliations = std::move(parsed->m_affiliations);
+  m_countryNameSynonyms = std::move(parsed->m_countryNameSynonyms);
+  m_mwmTopCityGeoIds = std::move(parsed->m_mwmTopCityGeoIds);
+  m_mwmTopCountryGeoIds = std::move(parsed->m_mwmTopCountryGeoIds);
+
+  NotifyStatusChanged(GetRootId());
+
+  for (auto const & p : m_localFiles)
+    if (IsNode(p.first))
+      NotifyStatusChangedForHierarchy(p.first);
+
+  LOG(LDEBUG, ("COUNTRIES: applied in-memory. version=", m_currentVersion));
+}
+
+void Storage::ApplyPendingCountriesIfAny()
+{
+  if (!m_hasPendingCountries)
+    return;
+
+  if (!IsIdleForCountriesApply())
+    return;
+
+  if (m_pendingCountriesVersion <= m_currentVersion)
+  {
+    m_hasPendingCountries = false;
+    m_pendingCountriesVersion = 0;
+    m_pendingCountriesBuffer.clear();
+    return;
+  }
+
+  std::string buffer = std::move(m_pendingCountriesBuffer);
+  m_hasPendingCountries = false;
+  m_pendingCountriesVersion = 0;
+
+  ApplyCountriesInMemory(buffer);
+}
+
+void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion)
+{
+  if (parsedVersion <= m_currentVersion)
+    return;
+
+  GetPlatform().RunTask(Platform::Thread::File, [buffer]()
+  {
+    (void)SaveCountriesToWritableDirAtomic(*buffer);
+  });
+
+  GetPlatform().RunTask(Platform::Thread::Gui, [this, buffer, parsedVersion]()
+  {
+    if (parsedVersion <= m_currentVersion)
+      return;
+
+    if (IsInitialResourcesDownloadRequired())
+    {
+      // Persist, but do NOT hot-apply during initial Worlds download flow.
+      if (!m_hasPendingCountries || parsedVersion > m_pendingCountriesVersion)
+      {
+        m_pendingCountriesBuffer = *buffer;
+        m_pendingCountriesVersion = parsedVersion;
+        m_hasPendingCountries = true;
+      }
+      LOG(LINFO, ("COUNTRIES: initial resources download active; deferring apply. version=", parsedVersion));
+      return;
+    }
+
+    if (IsIdleForCountriesApply())
+    {
+      ApplyCountriesInMemory(*buffer);
+      return;
+    }
+
+    if (!m_hasPendingCountries || parsedVersion > m_pendingCountriesVersion)
+    {
+      m_pendingCountriesBuffer = *buffer;
+      m_pendingCountriesVersion = parsedVersion;
+      m_hasPendingCountries = true;
+      LOG(LDEBUG, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+    }
+  });
+}
+
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
   LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
@@ -234,24 +299,13 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     if (parsedVersion <= 0)
       return false;
 
-    auto pending = std::make_shared<PendingCountriesTxt>();
-    pending->m_buffer = std::move(buffer);
-    pending->m_parsedVersion = parsedVersion;
+    auto buf = std::make_shared<std::string>(std::move(buffer));
 
-    if (ShouldSkipCountriesSignature())
+    if (!GetPlatform().CustomMapServerUrl().empty())
     {
       LOG(LINFO, ("COUNTRIES: custom map server is set; skipping signature verification."));
-
       MarkCountriesTxtCheckSuccessNow();
-
-      if (parsedVersion <= m_currentVersion)
-        return false;
-
-      GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(pending->m_buffer)]()
-      {
-        (void)SaveCountriesToWritableDirAtomic(buf);
-      });
-
+      PersistAndApplyCountries(buf, parsedVersion);
       return false;
     }
 
@@ -259,34 +313,31 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
     m_downloader->DownloadAsString(
       kCountriesLatestSigRelativeUrl,
-      [this, pending](std::string const & sigBuf) {
-        if (sigBuf.empty()) {
-          LOG(LWARNING, ("COUNTRIES: empty signature response, ignoring."));
-          return false;
-        }
-
-        std::array<uint8_t, 64> sig{};
-        if (!ParseCountriesSigBase64(sigBuf, sig)) {
-          LOG(LWARNING, ("COUNTRIES: failed to parse countries.txt.sig"));
-          return false;
-        }
-
-        auto const pubKey = GetEmbeddedCountriesPublicKey();
-        if (!VerifyEd25519(pubKey, pending->m_buffer, sig)) {
-          LOG(LWARNING, ("COUNTRIES: signature verification failed."));
-          return false;
-        }
-
-        MarkCountriesTxtCheckSuccessNow();
-
-        if (pending->m_parsedVersion <= m_currentVersion)
-          return false;
-
-        GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(pending->m_buffer)]() {
-          (void) SaveCountriesToWritableDirAtomic(buf);
-        });
-
+      [this, buf, parsedVersion](std::string const & sigBuf)
+    {
+      if (sigBuf.empty())
+      {
+        LOG(LWARNING, ("COUNTRIES: empty signature response, ignoring."));
         return false;
+      }
+
+      if (sigBuf.size() != 64)
+      {
+        LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+        return false;
+      }
+
+      uint8_t const * sigPtr = reinterpret_cast<uint8_t const *>(sigBuf.data());
+      LOG(LDEBUG, ("COUNTRIES: verifying signature."));
+      if (!VerifyEd25519(storage::kCountriesTxtPublicKey, *buf, sigPtr))
+      {
+        LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+        return false;
+      }
+
+      PersistAndApplyCountries(buf, parsedVersion);
+
+      return false;
     },true /* forceReset: allow nested request */);
 
     // Don't reset the request, we started another download.
@@ -316,7 +367,7 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
 
   LOG(LDEBUG, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
 
-  // fetch & store for next start (takes effect after restart).
+  // Fetch, persist, and apply.
   RunCountriesCheckAsyncSaveOnly();
 }
 
@@ -1714,6 +1765,8 @@ void Storage::OnFinishDownloading()
         RetryDownloadNode(country);
     }
   });
+
+  ApplyPendingCountriesIfAny();
 }
 
 void Storage::OnDiffStatusReceived(diffs::NameDiffInfoMap && diffs)
