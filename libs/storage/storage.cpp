@@ -6,6 +6,7 @@
 #include "storage/downloader.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
+#include "storage/countries_txt_signature.hpp"
 
 #include "platform/downloader_utils.hpp"
 #include "platform/local_country_file_utils.hpp"
@@ -17,6 +18,7 @@
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
 #include "coding/sha1.hpp"
+#include "coding/base64.hpp"
 
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
@@ -24,6 +26,9 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"
+
+#include "3party/monocypher/monocypher.h"
+#include "3party/monocypher/monocypher-ed25519.h"
 
 #include "defines.hpp"
 
@@ -122,6 +127,51 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
 namespace
 {
 std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
+std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.sig";
+
+struct PendingCountriesTxt
+{
+  std::string m_buffer;
+  int64_t m_parsedVersion = 0;
+};
+
+// Returns true if signature checks should be skipped (custom server).
+bool ShouldSkipCountriesSignature()
+{
+  return !GetPlatform().CustomMapServerUrl().empty();
+}
+
+std::array<uint8_t, 32> GetEmbeddedCountriesPublicKey()
+{
+  return storage::kCountriesTxtPublicKey;
+}
+
+bool ParseCountriesSigBase64(std::string const & sigText, std::array<uint8_t, 64> & sigOut)
+{
+  std::string trimmed = sigText;
+  strings::Trim(trimmed);
+
+  std::string decoded = base64::Decode(trimmed);
+  if (decoded.empty())
+    return false;
+
+  if (decoded.size() != sigOut.size())
+    return false;
+
+  std::copy(decoded.begin(), decoded.end(), sigOut.begin());
+  return true;
+}
+
+bool VerifyEd25519(std::array<uint8_t, 32> const & pubKey,
+                   std::string const & message,
+                   std::array<uint8_t, 64> const & sig)
+{
+    LOG(LDEBUG, ("COUNTRIES: check signature."));
+    return crypto_ed25519_check(sig.data(),
+                                pubKey.data(),
+                                reinterpret_cast<uint8_t const *>(message.data()),
+                                message.size()) == 0;
+}
 
 bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 {
@@ -181,15 +231,66 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
         LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
     LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
 
-    if (parsedVersion <= 0 || parsedVersion <= m_currentVersion)
+    if (parsedVersion <= 0)
       return false;
 
-    GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(buffer)]()
-    {
-      (void)SaveCountriesToWritableDirAtomic(buf);
-    });
+    auto pending = std::make_shared<PendingCountriesTxt>();
+    pending->m_buffer = std::move(buffer);
+    pending->m_parsedVersion = parsedVersion;
 
-    return false;
+    if (ShouldSkipCountriesSignature())
+    {
+      LOG(LINFO, ("COUNTRIES: custom map server is set; skipping signature verification."));
+
+      MarkCountriesTxtCheckSuccessNow();
+
+      if (parsedVersion <= m_currentVersion)
+        return false;
+
+      GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(pending->m_buffer)]()
+      {
+        (void)SaveCountriesToWritableDirAtomic(buf);
+      });
+
+      return false;
+    }
+
+    LOG(LDEBUG, ("COUNTRIES: downloading", kCountriesLatestSigRelativeUrl));
+
+    m_downloader->DownloadAsString(
+      kCountriesLatestSigRelativeUrl,
+      [this, pending](std::string const & sigBuf) {
+        if (sigBuf.empty()) {
+          LOG(LWARNING, ("COUNTRIES: empty signature response, ignoring."));
+          return false;
+        }
+
+        std::array<uint8_t, 64> sig{};
+        if (!ParseCountriesSigBase64(sigBuf, sig)) {
+          LOG(LWARNING, ("COUNTRIES: failed to parse countries.txt.sig"));
+          return false;
+        }
+
+        auto const pubKey = GetEmbeddedCountriesPublicKey();
+        if (!VerifyEd25519(pubKey, pending->m_buffer, sig)) {
+          LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+          return false;
+        }
+
+        MarkCountriesTxtCheckSuccessNow();
+
+        if (pending->m_parsedVersion <= m_currentVersion)
+          return false;
+
+        GetPlatform().RunTask(Platform::Thread::File, [buf = std::move(pending->m_buffer)]() {
+          (void) SaveCountriesToWritableDirAtomic(buf);
+        });
+
+        return false;
+    },true /* forceReset: allow nested request */);
+
+    // Don't reset the request, we started another download.
+    return true;
   },
   false /* forceReset */);
 }

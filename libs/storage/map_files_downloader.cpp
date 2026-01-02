@@ -85,7 +85,11 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
     {
       bool deleteRequest = true;
 
+      auto const status = request.GetStatus();
       auto const & buffer = request.GetData();
+
+      LOG(LDEBUG, ("DownloadAsString: status=", status, "bytes=", buffer.size()));
+
       if (!buffer.empty())
       {
         // Update deleteRequest flag if new download was requested in callback.
