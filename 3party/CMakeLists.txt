@@ -63,6 +63,7 @@ add_subdirectory(open-location-code)
 add_subdirectory(opening_hours)
 add_subdirectory(stb_image)
 add_subdirectory(succinct)
+add_subdirectory(monocypher)
 
 add_subdirectory(vulkan_wrapper)
 
