@@ -175,6 +175,24 @@ private:
 
   CountryTree m_countries;
 
+  std::string m_pendingCountriesBuffer;
+  int64_t m_pendingCountriesVersion = 0;
+  bool m_hasPendingCountries = false;
+
+  inline bool IsIdleForCountriesApply() const
+  {
+    return m_downloader->GetQueue().IsEmpty() &&
+           m_downloadingCountries.empty() &&
+           m_diffsBeingApplied.empty();
+  }
+  inline bool IsInitialResourcesDownloadRequired() const
+  {
+    std::vector<platform::CountryFile> missing;
+    return (GetForceDownloadWorlds(missing) == WorldStatus::READY) && !missing.empty();
+  }
+  void ApplyCountriesInMemory(std::string const & buffer);
+  void ApplyPendingCountriesIfAny();
+  void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
   void RunCountriesCheckAsyncSaveOnly();
 
   /// Set of mwm files which have been downloaded recently.
