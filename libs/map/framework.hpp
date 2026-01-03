@@ -774,4 +774,8 @@ public:
   /// Call this from iOS/Android when CarPlay/AA session starts/ends
   void SetCarScreenMode(bool enabled);
   bool m_isCarScreenMode = false;
+  
+private:
+  void Refresh3dMode();
+  bool m_wasRoutingActive = false;
 };
