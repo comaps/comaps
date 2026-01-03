@@ -175,6 +175,16 @@ void Framework::OnLocationUpdate(GpsInfo const & info)
 #endif
 
   m_routingManager.OnLocationUpdate(rInfo);
+  
+  bool const isRoutingActive = m_routingManager.IsRoutingActive();
+    
+  if (m_wasRoutingActive != isRoutingActive)
+  {
+    m_wasRoutingActive = isRoutingActive;
+      
+    /// State changed (Started OR Stopped) -> Refresh 3D Buildings
+    Refresh3dMode();
+  }
 }
 
 void Framework::OnCompassUpdate(CompassInfo const & info)
@@ -3228,10 +3238,7 @@ void Framework::OnRouteFollow(routing::RouterType type)
   // GetRoutingSettings(type).m_matchRoute to the FollowRoute() instead of |isPedestrianRoute|.
   // |isArrowGlued| parameter fully corresponds to |m_matchRoute| in RoutingSettings.
   m_drapeEngine->FollowRoute(scale, scale3d, enableAutoZoom, !isPedestrianRoute /* isArrowGlued */);
-  
-  bool allow3d, allow3dBuildings;
-  Load3dMode(allow3d, allow3dBuildings);
-  Allow3dMode(allow3d, allow3dBuildings);
+  Refresh3dMode();
 }
 
 // RoutingManager::Delegate
@@ -3309,6 +3316,16 @@ void Framework::SetCarScreenMode(bool enabled)
   m_isCarScreenMode = enabled;
 
   bool allow3d, allow3dBuildings;
+  Load3dMode(allow3d, allow3dBuildings);
+  Allow3dMode(allow3d, allow3dBuildings);
+}
+
+void Framework::Refresh3dMode()
+{
+  bool allow3d = true;
+  bool allow3dBuildings = true;
+  
+  /// Load User Preferences and apply logic
   Load3dMode(allow3d, allow3dBuildings);
   Allow3dMode(allow3d, allow3dBuildings);
 }
