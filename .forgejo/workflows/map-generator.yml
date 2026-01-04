@@ -17,23 +17,22 @@ on:
         required: false
         default: false
         type: boolean
-      # TODO: enable
-      # run-panoramax:
-      #   description: 'Update Panoramax imagery?'
+      run-panoramax:
+        description: 'Update Panoramax imagery?'
+        required: false
+        default: true
+        type: boolean
+      # run-cleanup:
+      #   description: 'Clean up old build files?'
       #   required: false
       #   default: true
       #   type: boolean
-      run-cleanup:
-        description: 'Clean up old build files?'
-        required: false
-        default: false
-        type: boolean
       run-tiger:
         description: 'Update TIGER address data?'
         required: false
         default: true
         type: boolean
-      run-planet-pbf:
+      run-planet:
         description: 'Update PBF planet (for Wiki & subways)?'
         required: false
         default: true
@@ -48,11 +47,11 @@ on:
         required: false
         default: true
         type: boolean
-      run-planet-o5m:
-        description: 'Update O5M planet (for mapgen)?'
-        required: false
-        default: true
-        type: boolean
+      # run-planet-o5m:
+      #   description: 'Update O5M planet (for mapgen)?'
+      #   required: false
+      #   default: true
+      #   type: boolean
       run-mapgen:
         description: 'Run maps generation?'
         required: false
@@ -91,14 +90,14 @@ env:
   ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
   MWMTEST: ${{ inputs.map-generator-test }}
   MWMCONTINUE: ${{ inputs.map-generator-continue }}
-  #TODO: undo ${{ inputs.map-generator-countries }}
+  #TODO: undo inputs.map-generator-countries
   MWMCOUNTRIES: US_Oregon_Portland
   DEBIAN_FRONTEND: noninteractive
   TZ: Etc/UTC
 
 jobs:
   cleanup-old-files:
-    if: inputs.run-cleanup
+    # if: inputs.run-cleanup
     name: Clean Up Old Files
     runs-on: mapfilemaker
     container:
@@ -259,8 +258,7 @@ jobs:
             --data-urlencode 'content=Isolines are done!'
 
   update-panoramax:
-    # TODO: uncommenbt
-    # if: inputs.run-panoramax
+    if: inputs.run-panoramax
     name: Update Panoramax
     runs-on: mapfilemaker
     needs:
@@ -360,7 +358,7 @@ jobs:
           tar -xOzf /home/planet/tiger-nominatim-preprocessed-latest.csv.tar.gz | ~/omim-build-relwithdebinfo/address_parser_tool --output_path=/home/planet/tiger
 
   update-planet-pbf:
-    if: inputs.run-planet-pbf
+    if: inputs.run-planet
     name: Update PBF Planet
     runs-on: mapfilemaker
     container:
@@ -544,7 +542,7 @@ jobs:
             --data-urlencode 'content=Wiki update is done!'
 
   update-planet-o5m:
-    if: inputs.run-planet-o5m
+    if: inputs.run-planet
     name: Update O5M Planet
     runs-on: mapfilemaker
     container:
