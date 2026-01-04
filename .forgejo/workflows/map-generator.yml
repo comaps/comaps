@@ -290,6 +290,7 @@ jobs:
         run: |
           mkdir -p /home/planet/panoramax
           cd /home/planet/panoramax
+          #TODO: force/redownload if old/desired/nonexistent
           # Download the global Panoramax geoparquet file (20GB)
           if [ ! -f panoramax.parquet ]; then
             echo "Downloading Panoramax geoparquet..."
