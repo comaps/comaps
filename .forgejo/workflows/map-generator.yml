@@ -116,10 +116,15 @@ jobs:
           cd /mnt/4tbexternal/osm-maps/
           # List all dated directories, sort by name (newest first)
           ls -1d */ 2>/dev/null | grep -E '^[0-9]{4}_[0-9]{2}_[0-9]{2}__[0-9]{2}_[0-9]{2}_[0-9]{2}/$' | while read dir; do
-            echo "Removing any intermediate data: $dir"
-            rm -rf "$dir/intermediate_data"
-            rm -rf "$dir/osm2ft"
-            rm -rf "$dir/world_roads.o5m"
+            if [ -d "$dir/intermediate_data" ]; then
+              echo "Removing $dir/intermediate_data"
+            fi
+            if [ -d "$dir/osm2ft" ]; then
+              echo "Removing $dir/osm2ft"
+            fi
+            if [ -f "$dir/world_roads.o5m" ]; then
+              echo "Removing $dir/world_roads.o5m"
+            fi
           done
           echo "Intermediate data cleaned up."
       - name: Remove old map builds (keep last 6)
@@ -279,7 +284,6 @@ jobs:
       - name: Install Python dependencies
         shell: bash
         run: |
-          pip install --upgrade pip
           pip install pyarrow duckdb
       - name: Download Panoramax Geoparquet
         shell: bash
