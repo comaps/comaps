@@ -640,6 +640,7 @@ private:
   void FillTrackInfo(Track const & track, m2::PointD const & trackPoint, place_page::Info & info) const;
   void SetPlacePageLocation(place_page::Info & info);
   void FillDescription(FeatureType & ft, place_page::Info & info) const;
+  void CheckPanoramaxImagery(place_page::Info & info) const;
 
 public:
   search::ReverseGeocoder::Address GetAddressAtPoint(m2::PointD const & pt) const;

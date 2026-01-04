@@ -24,6 +24,7 @@ public:
 
   void SetIsolinesDir(std::string const & dir) { m_isolinesPath = dir; }
   void SetAddressesDir(std::string const & dir) { m_addressPath = dir; }
+  void SetPanoramaxDir(std::string const & dir) { m_panoramaxPath = dir; }
 
   void SetCityBoundariesFiles(std::string const & collectorFile) { m_boundariesCollectorFile = collectorFile; }
 
@@ -39,6 +40,7 @@ private:
   void AddFakeNodes();
   void AddIsolines();
   void AddAddresses();
+  void AddPanoramax();
   void DropProhibitedSpeedCameras();
   // void Finish();
 
@@ -47,7 +49,7 @@ private:
   std::string m_borderPath;
   std::string m_temporaryMwmPath;
   std::string m_intermediateDir;
-  std::string m_isolinesPath, m_addressPath;
+  std::string m_isolinesPath, m_addressPath, m_panoramaxPath;
   std::string m_boundariesCollectorFile;
   std::string m_coastlineGeomFilename;
   std::string m_worldCoastsFilename;

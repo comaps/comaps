@@ -1764,6 +1764,16 @@ JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeHasPlacePage
   return static_cast<jboolean>(frm()->HasPlacePageInfo());
 }
 
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeHasPanoramax(JNIEnv *, jclass)
+{
+  return static_cast<jboolean>(g_framework->GetPlacePageInfo().HasPanoramax());
+}
+
+JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_Framework_nativeGetPanoramaxUrl(JNIEnv * env, jclass)
+{
+  return jni::ToJavaString(env, g_framework->GetPlacePageInfo().GetPanoramaxUrl());
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeMemoryWarning(JNIEnv *, jclass)
 {
   return frm()->MemoryWarning();

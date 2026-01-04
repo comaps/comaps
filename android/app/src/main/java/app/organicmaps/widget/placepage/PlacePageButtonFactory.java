@@ -74,6 +74,11 @@ public class PlacePageButtonFactory
         titleId = R.string.avoid_ferry;
         yield R.drawable.ic_avoid_ferry;
       }
+      case PANORAMAX ->
+      {
+        titleId = R.string.panoramax;
+        yield R.drawable.ic_camera;
+      }
       case MORE ->
       {
         titleId = R.string.placepage_more_button;

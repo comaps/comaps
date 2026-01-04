@@ -349,6 +349,8 @@ public class Framework
    * @return true if c++ framework has initialized internal place page object, otherwise - false.
    */
   public static native boolean nativeHasPlacePageInfo();
+  public static native boolean nativeHasPanoramax();
+  public static native String nativeGetPanoramaxUrl();
 
   public static native void nativeMemoryWarning();
   public static native void nativeSaveRoute();

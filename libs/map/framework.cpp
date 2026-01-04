@@ -706,6 +706,7 @@ void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & inf
   info.SetFromFeatureType(ft);
 
   FillDescription(ft, info);
+  CheckPanoramaxImagery(info);
 
   auto const mwmInfo = ft.GetID().m_mwmId.GetInfo();
   bool const isMapVersionEditable = CanEditMapForPosition(info.GetMercator());
@@ -3260,6 +3261,43 @@ void Framework::FillDescription(FeatureType & ft, place_page::Info & info) const
     info.SetWikiDescription(std::move(wikiDescription));
     info.SetOpeningMode(m_routingManager.IsRoutingActive() ? place_page::OpeningMode::Preview
                                                            : place_page::OpeningMode::PreviewPlus);
+  }
+}
+
+void Framework::CheckPanoramaxImagery(place_page::Info & info) const
+{
+  // Query features within 50m radius
+  auto constexpr radiusM = 50.0;
+  auto const center = info.GetMercator();
+  auto const rect = mercator::RectByCenterXYAndSizeInMeters(center, radiusM);
+
+  auto const panoramaxType = classif().GetTypeByPath({"panoramax", "image"});
+
+  bool hasPanoramax = false;
+  std::string panoramaxImageId;
+  std::string panoramaxUrl;
+
+  m_featuresFetcher.GetDataSource().ForEachInRect([&](FeatureType & ft)
+  {
+    if (ft.GetTypes().Has(panoramaxType))
+    {
+      auto const imageId = ft.GetMetadata(feature::Metadata::FMD_PANORAMAX);
+      if (!imageId.empty())
+      {
+        hasPanoramax = true;
+        panoramaxImageId = std::string(imageId);
+        panoramaxUrl = "https://panoramax.openstreetmap.fr/#focus=pic:" + panoramaxImageId;
+        return base::ControlFlow::Break;  // Found one, stop searching
+      }
+    }
+    return base::ControlFlow::Continue;
+  }, rect, df::GetDrawTileScale(rect));
+
+  if (hasPanoramax)
+  {
+    info.m_hasPanoramax = true;
+    info.m_panoramaxImageId = std::move(panoramaxImageId);
+    info.m_panoramaxUrl = std::move(panoramaxUrl);
   }
 }
 

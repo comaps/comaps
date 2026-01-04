@@ -7,6 +7,7 @@
 #include "generator/feature_builder.hpp"
 #include "generator/final_processor_utils.hpp"
 #include "generator/isolines_generator.hpp"
+#include "generator/panoramax_generator.hpp"
 #include "generator/mini_roundabout_transformer.hpp"
 #include "generator/node_mixer.hpp"
 #include "generator/osm2type.hpp"
@@ -67,6 +68,10 @@ void CountryFinalProcessor::Process()
   LOG(LINFO, ("Adding isolines..."));
   if (!m_isolinesPath.empty())
     AddIsolines();
+
+  LOG(LINFO, ("Adding panoramax..."));
+  if (!m_panoramaxPath.empty())
+    AddPanoramax();
 
   // DropProhibitedSpeedCameras();
   LOG(LINFO, ("Processing building parts..."));
@@ -291,6 +296,22 @@ void CountryFinalProcessor::AddAddresses()
   });
 
   LOG(LINFO, ("Total addresses:", totalStats));
+}
+
+void CountryFinalProcessor::AddPanoramax()
+{
+  if (m_panoramaxPath.empty())
+    return;
+
+  PanoramaxFeaturesGenerator panoramaxGenerator(m_panoramaxPath);
+  ForEachMwmTmp(m_temporaryMwmPath, [&](auto const & name, auto const & path)
+  {
+    if (!IsCountry(name))
+      return;
+
+    FeatureBuilderWriter<serialization_policy::MaxAccuracy> writer(path, FileWriter::Op::OP_APPEND);
+    panoramaxGenerator.GeneratePanoramax(name, [&](auto const & fb) { writer.Write(fb); });
+  }, m_threadsCount);
 }
 
 void CountryFinalProcessor::ProcessCoastline()

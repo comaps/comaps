@@ -428,6 +428,7 @@ public class PlacePageController
     case ROUTE_AVOID_TOLL -> onAvoidTollBtnClicked();
     case ROUTE_AVOID_UNPAVED -> onAvoidUnpavedBtnClicked();
     case ROUTE_AVOID_FERRY -> onAvoidFerryBtnClicked();
+    case PANORAMAX -> onPanoramaxBtnClicked();
     }
   }
 
@@ -497,6 +498,19 @@ public class PlacePageController
         .putExtra(Const.EXTRA_ZOOM_LEVEL, Framework.nativeGetDrawScale());
     requireActivity().setResult(Activity.RESULT_OK, result);
     requireActivity().finish();
+  }
+
+  private void onPanoramaxBtnClicked()
+  {
+    if (mMapObject == null)
+      return;
+    String url = Framework.nativeGetPanoramaxUrl();
+    if (!TextUtils.isEmpty(url))
+    {
+      Intent intent = new Intent(Intent.ACTION_VIEW);
+      intent.setData(android.net.Uri.parse(url));
+      startActivity(intent);
+    }
   }
 
   private void onRouteFromBtnClicked()
@@ -637,6 +651,10 @@ public class PlacePageController
           buttons.add(mapObject.isBookmark() ? PlacePageButtons.ButtonType.BOOKMARK_DELETE
                                              : PlacePageButtons.ButtonType.BOOKMARK_SAVE);
       }
+
+      // Add Panoramax button if imagery is available
+      if (Framework.nativeHasPanoramax())
+        buttons.add(PlacePageButtons.ButtonType.PANORAMAX);
     }
     mViewModel.setCurrentButtons(buttons);
   }

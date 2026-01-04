@@ -352,6 +352,10 @@ class PathProvider:
         return settings.ADDRESSES_PATH
 
     @staticmethod
+    def panoramax_path() -> AnyStr:
+        return settings.PANORAMAX_PATH
+
+    @staticmethod
     def borders_path() -> AnyStr:
         return os.path.join(settings.USER_RESOURCE_PATH, "borders")
 

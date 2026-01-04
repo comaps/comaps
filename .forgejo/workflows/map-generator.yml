@@ -17,6 +17,11 @@ on:
         required: false
         default: false
         type: boolean
+      run-panoramax:
+        description: 'Update Panoramax imagery?'
+        required: false
+        default: false
+        type: boolean
       run-tiger:
         description: 'Update TIGER address data?'
         required: false
@@ -208,6 +213,69 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=Isolines are done!'
+
+  update-panoramax:
+    if: inputs.run-panoramax
+    name: Update Panoramax
+    runs-on: mapfilemaker
+    needs:
+      - clone-repos
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/cache@v4
+        with:
+          path: "~"
+          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Install Python dependencies
+        shell: bash
+        run: |
+          pip install --upgrade pip
+          pip install pyarrow duckdb
+      - name: Download Panoramax Geoparquet
+        shell: bash
+        run: |
+          mkdir -p /home/planet/panoramax
+          cd /home/planet/panoramax
+          # Download the global Panoramax geoparquet file (20GB)
+          if [ ! -f panoramax.parquet ]; then
+            echo "Downloading Panoramax geoparquet..."
+            curl -L -o panoramax.parquet https://api.panoramax.xyz/data/geoparquet/panoramax.parquet
+          else
+            echo "panoramax.parquet already exists, skipping download"
+          fi
+      - name: Process Panoramax to per-country files
+        shell: bash
+        run: |
+          cd ~/comaps
+          mkdir -p /home/planet/panoramax/countries
+          python3 tools/python/maps_generator/panoramax_preprocessor.py \
+            --input /home/planet/panoramax/panoramax.parquet \
+            --output /home/planet/panoramax/countries \
+            --polygons ~/comaps/data/packed_polygons.bin
+      - name: Check panoramax files
+        shell: bash
+        run: |
+          NUMPANO=$(ls -1 /home/planet/panoramax/countries/*.panoramax 2>/dev/null | wc -l)
+          echo "Found $NUMPANO panoramax country files"
+          if [ $NUMPANO -lt 5 ]; then
+            echo "ERROR: Did generation fail? Expected at least 5 country files"
+            exit 1
+          fi
+      - name: Notify Zulip
+        run: |
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=Panoramax processing is done!'
 
   update-tiger:
     if: inputs.run-tiger
