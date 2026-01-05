@@ -290,23 +290,78 @@ jobs:
         run: |
           mkdir -p /home/planet/panoramax
           cd /home/planet/panoramax
-          #TODO: force/redownload if old/desired/nonexistent
+
+          PARQUET_UPDATED=false
+
           # Download the global Panoramax geoparquet file (20GB)
           if [ ! -f panoramax.parquet ]; then
-            echo "Downloading Panoramax geoparquet..."
-            curl -L -o panoramax.parquet https://api.panoramax.xyz/data/geoparquet/panoramax.parquet
+            echo "panoramax.parquet does not exist, will download"
+            PARQUET_UPDATED=true
           else
-            echo "panoramax.parquet already exists, skipping download"
+            # Check if file is older than 7 days
+            FILE_AGE_DAYS=$(( ($(date +%s) - $(stat -c %Y panoramax.parquet)) / 86400 ))
+            echo "panoramax.parquet is $FILE_AGE_DAYS days old"
+
+            if [ $FILE_AGE_DAYS -gt 7 ]; then
+              echo "File is older than 7 days, will re-download"
+              PARQUET_UPDATED=true
+            else
+              echo "File is recent (< 7 days), skipping download"
+            fi
           fi
+
+          if [ "$PARQUET_UPDATED" = "true" ]; then
+            echo "Downloading Panoramax geoparquet..."
+            curl -L -o panoramax.parquet.tmp https://api.panoramax.xyz/data/geoparquet/panoramax.parquet
+            mv panoramax.parquet.tmp panoramax.parquet
+          fi
+
+          # Export to GitHub environment for next step
+          echo "PARQUET_UPDATED=$PARQUET_UPDATED" >> $GITHUB_ENV
       - name: Process Panoramax to per-country files
         shell: bash
         run: |
           cd ~/comaps
           mkdir -p /home/planet/panoramax/countries
-          python3 tools/python/maps_generator/panoramax_preprocessor.py \
-            --input /home/planet/panoramax/panoramax.parquet \
-            --output /home/planet/panoramax/countries \
-            --borders-dir ~/comaps/data/borders
+
+          SHOULD_PROCESS=false
+
+          # Check if parquet was just updated in this workflow run
+          if [ "$PARQUET_UPDATED" = "true" ]; then
+            echo "Parquet file was just updated, will process"
+            SHOULD_PROCESS=true
+          # Check if country files don't exist
+          elif [ ! "$(ls -A /home/planet/panoramax/countries/*.panoramax 2>/dev/null)" ]; then
+            echo "No country files exist, will process"
+            SHOULD_PROCESS=true
+          # Check if planet file is newer than last processing marker
+          elif [ -f /home/planet/planet/planet.o5m ] && [ -f /home/planet/panoramax/countries/.last_processed ]; then
+            if [ /home/planet/planet/planet.o5m -nt /home/planet/panoramax/countries/.last_processed ]; then
+              echo "Planet file is newer than last processing, will process"
+              SHOULD_PROCESS=true
+            else
+              echo "Country files are up-to-date, skipping processing"
+            fi
+          elif [ -f /home/planet/planet/planet.o5m ]; then
+            echo "No processing marker exists but planet file does, will process"
+            SHOULD_PROCESS=true
+          else
+            echo "Country files are up-to-date, skipping processing"
+          fi
+
+          if [ "$SHOULD_PROCESS" = "true" ]; then
+            echo "Processing panoramax data to per-country files..."
+            python3 tools/python/maps_generator/panoramax_preprocessor.py \
+              --input /home/planet/panoramax/panoramax.parquet \
+              --output /home/planet/panoramax/countries \
+              --borders-dir ~/comaps/data/borders
+
+            # Mark when processing completed (persists in /home/planet for timestamp comparison)
+            touch /home/planet/panoramax/countries/.last_processed
+          fi
+
+          # Export to GitHub environment for notification step
+          echo "PANORAMAX_PROCESSED=$SHOULD_PROCESS" >> $GITHUB_ENV
       - name: Check panoramax files
         shell: bash
         run: |
@@ -317,13 +372,19 @@ jobs:
             exit 1
           fi
       - name: Notify Zulip
+        shell: bash
         run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Panoramax processing is done!'
+          # Only notify if processing actually happened in this workflow run
+          if [ "$PANORAMAX_PROCESSED" = "true" ]; then
+            curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+              -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+              --data-urlencode type=stream \
+              --data-urlencode 'to="DevOps"' \
+              --data-urlencode topic=codeberg-bot \
+              --data-urlencode 'content=Panoramax processing is done!'
+          else
+            echo "No processing occurred in this run, skipping notification"
+          fi
 
   update-tiger:
     if: inputs.run-tiger
