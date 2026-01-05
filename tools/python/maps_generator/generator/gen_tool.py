@@ -60,6 +60,7 @@ class GenTool:
         "intermediate_data_path": str,
         "isolines_path": str,
         "addresses_path": str,
+        "panoramax_path": str,
         "nodes_list_path": str,
         "node_storage": str,
         "osm_file_name": str,
