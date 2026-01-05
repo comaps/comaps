@@ -8,6 +8,7 @@
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
 
+#include "platform/crypto/ed25519.hpp"
 #include "platform/downloader_utils.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/mwm_version.hpp"
@@ -25,9 +26,6 @@
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"
-
-#include "3party/monocypher/monocypher-ed25519.h"
-#include "3party/monocypher/monocypher.h"
 
 #include "defines.hpp"
 
@@ -130,12 +128,6 @@ std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.si
 
 std::string_view constexpr kCountriesTxtLastCheckSuccessKey = "CountriesTxtLastCheckSuccess";
 uint64_t constexpr kCountriesTxtCheckIntervalSeconds = 48ull * 3600ull;
-
-bool VerifyEd25519(std::array<uint8_t, 32> const & pubKey, std::string const & message, uint8_t const * sigPtr)
-{
-  return crypto_ed25519_check(sigPtr, pubKey.data(), reinterpret_cast<uint8_t const *>(message.data()),
-                              message.size()) == 0;
-}
 
 bool IsCountriesTxtCheckThrottled()
 {
@@ -350,9 +342,10 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
         return false;
       }
 
-      uint8_t const * sigPtr = reinterpret_cast<uint8_t const *>(sigBuf.data());
       LOG(LDEBUG, ("COUNTRIES: verifying signature."));
-      if (!VerifyEd25519(storage::kCountriesTxtPublicKey, *buf, sigPtr))
+      if (!platform::crypto::VerifyEd25519(storage::kCountriesTxtPublicKey.data(),
+                                           reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
+                                           reinterpret_cast<uint8_t const *>(sigBuf.data())))
       {
         LOG(LWARNING, ("COUNTRIES: signature verification failed."));
         return false;
