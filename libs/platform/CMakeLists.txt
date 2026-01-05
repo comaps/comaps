@@ -82,6 +82,7 @@ if (PLATFORM_IPHONE)
     platform_unix_impl.hpp
     secure_storage_ios.mm
     socket_apple.mm
+    crypto/ed25519_apple.mm
   )
 elseif(${PLATFORM_ANDROID})
   append(SRC
@@ -89,6 +90,7 @@ elseif(${PLATFORM_ANDROID})
     platform_unix_impl.cpp
     platform_unix_impl.hpp
     trace_android.cpp
+    crypto/ed25519_monocypher.cpp
   )
 else() # neither iPhone nor Android
   # Find bash first, on Windows it can be either in Git or in WSL
@@ -128,6 +130,7 @@ else() # neither iPhone nor Android
       locale_std.cpp
       platform_win.cpp
       secure_storage_dummy.cpp
+      crypto/ed25519_monocypher.cpp
     )
   elseif(${PLATFORM_MAC})
     append(SRC
@@ -144,6 +147,7 @@ else() # neither iPhone nor Android
       secure_storage_qt.cpp
       socket_apple.mm
       http_session_manager.mm
+      crypto/ed25519_apple.mm
     )
   elseif(${PLATFORM_LINUX})
     append(SRC
@@ -158,6 +162,7 @@ else() # neither iPhone nor Android
       platform_unix_impl.cpp
       platform_unix_impl.hpp
       secure_storage_qt.cpp
+      crypto/ed25519_monocypher.cpp
     )
   endif()
 endif()
