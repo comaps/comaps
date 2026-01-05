@@ -135,9 +135,6 @@ void PanoramaxFeaturesGenerator::GeneratePanoramax(std::string const & countryNa
       fb.GetMetadata().Set(feature::Metadata::FMD_PANORAMAX, point.imageId);
     }
 
-    // Panoramax points are POI features (point geometry)
-    fb.SetPoint();
-
     fn(std::move(fb));
   }
 }

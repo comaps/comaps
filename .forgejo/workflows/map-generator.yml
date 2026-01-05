@@ -284,7 +284,7 @@ jobs:
       - name: Install Python dependencies
         shell: bash
         run: |
-          pip install pyarrow duckdb
+          pip install pyarrow duckdb shapely
       - name: Download Panoramax Geoparquet
         shell: bash
         run: |
@@ -306,7 +306,7 @@ jobs:
           python3 tools/python/maps_generator/panoramax_preprocessor.py \
             --input /home/planet/panoramax/panoramax.parquet \
             --output /home/planet/panoramax/countries \
-            --polygons ~/comaps/data/packed_polygons.bin
+            --borders-dir ~/comaps/data/borders
       - name: Check panoramax files
         shell: bash
         run: |
