@@ -181,9 +181,7 @@ private:
 
   inline bool IsIdleForCountriesApply() const
   {
-    return m_downloader->GetQueue().IsEmpty() &&
-           m_downloadingCountries.empty() &&
-           m_diffsBeingApplied.empty();
+    return m_downloader->GetQueue().IsEmpty() && m_downloadingCountries.empty() && m_diffsBeingApplied.empty();
   }
   inline bool IsInitialResourcesDownloadRequired() const
   {
