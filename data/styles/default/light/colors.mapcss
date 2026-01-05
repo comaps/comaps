@@ -161,11 +161,13 @@
 @path: #8E4E1D;
 @path_expert: #3D2617;
 @bridleway: #3D361E;
+@minor_road_border: #000000;
 
 /* 5.2 Bridges */
 
 @bridge_background: #FCF1DE;
 @bridge_casing: #E1D4BE;
+@bridge_minor_road_border: #E3D9C8;
 
 /* 5.3 Tunnels */
 
