@@ -35,7 +35,8 @@
   8.7 Footway 15-22 ZOOM
   8.8 Steps 15-22 ZOOM
   8.9 Bridleway 14-22 ZOOM
-  8.10 Runway 12-22 ZOOM
+  8.10 Minor road borders
+  8.11 Runway 12-22 ZOOM
 9.RAIL 11-22 ZOOM
   9.1 RAIL 11-22 ZOOM
   9.2 Rail tunnel 14-22 ZOOM
@@ -1137,7 +1138,213 @@ line|z15-[highway=bridleway][bridge?]::bridgewhite
 line|z17-[highway=bridleway][bridge?]::bridgeblack
 {casing-width-add: 1;}
 
-/* 8.10 Runway 12-22 ZOOM */
+/* 8.10 Minor road borders */
+
+line|z11-[highway=tertiary]::border,
+line|z14-[highway=tertiary_link]::border,
+line|z11-[highway=unclassified]::border,
+line|z12-[highway=residential]::border,
+line|z12-[highway=road]::border,
+line|z12-[highway=living_street]::border,
+line|z13-[highway=pedestrian]::border,
+line|z13-[highway=ford]::border,
+line|z15-[highway=service]::border,
+line|z15-[highway=service][service=busway]::border,
+line|z15-[highway=busway]::border,
+line|z15-[highway=footway]::border,
+line|z15-[highway=ladder]::border,
+line|z15-[highway=steps]::border,
+{color: @minor_road_border; opacity: 0.1;}
+
+line|z11-[highway=tertiary][bridge?]::border,
+line|z14-[highway=tertiary_link][bridge?]::border,
+line|z11-[highway=unclassified][bridge?]::border,
+line|z12-[highway=residential][bridge?]::border,
+line|z12-[highway=road][bridge?]::border,
+line|z12-[highway=living_street][bridge?]::border,
+line|z13-[highway=pedestrian][bridge?]::border,
+line|z15-[highway=service][bridge?]::border,
+line|z15-[highway=service][service=busway][bridge?]::border,
+line|z15-[highway=busway][bridge?]::border,
+line|z15-[highway=footway][bridge?]::border,
+line|z15-[highway=steps][bridge?]::border,
+{color: @bridge_minor_road_border; opacity: 1; linecap: butt}
+
+/* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0. Finally subtract 0.5 from everything smaller than 3. */
+
+line|z11[highway=tertiary]::border,
+{width: 1.7;}
+line|z12[highway=tertiary]::border,
+{width: 2.1;}
+line|z13[highway=tertiary]::border,
+{width: 2.3;}
+line|z14[highway=tertiary]::border,
+{width: 3.7;}
+line|z15[highway=tertiary]::border,
+{width: 4.8;}
+line|z16[highway=tertiary]::border,
+{width: 6;}
+line|z17[highway=tertiary]::border,
+{width: 7.6;}
+line|z18[highway=tertiary]::border,
+{width: 10.4;}
+line|z19-[highway=tertiary]::border,
+{width: 12.6;}
+
+line|z14[highway=tertiary_link]::border,
+{width: 2.3;}
+line|z15[highway=tertiary_link]::border,
+{width: 3.5;}
+line|z16[highway=tertiary_link]::border,
+{width: 4.2;}
+line|z17[highway=tertiary_link]::border,
+{width: 5.7;}
+line|z18[highway=tertiary_link]::border,
+{width: 7.4;}
+line|z19-[highway=tertiary_link]::border,
+{width: 9.2;}
+
+line|z11[highway=unclassified]::border,
+{width: 0;}
+line|z12[highway=unclassified]::border,
+{width: 0;}
+line|z13[highway=unclassified]::border,
+{width: 1.9;}
+line|z14[highway=unclassified]::border,
+{width: 3.3;}
+line|z15[highway=unclassified]::border,
+{width: 4.2;}
+line|z16[highway=unclassified]::border,
+{width: 5.2;}
+line|z17[highway=unclassified]::border,
+{width: 7;}
+line|z18[highway=unclassified]::border,
+{width: 9;}
+line|z19-[highway=unclassified]::border,
+{width: 11;}
+
+line|z12[highway=residential]::border,
+line|z12[highway=road]::border,
+line|z12[highway=living_street]::border,
+{width: 0;}
+line|z13[highway=residential]::border,
+line|z13[highway=road]::border,
+line|z13[highway=living_street]::border,
+{width: 0;}
+line|z14[highway=residential]::border,
+line|z14[highway=road]::border,
+line|z14[highway=living_street]::border,
+{width: 2.1;}
+line|z15[highway=residential]::border,
+line|z15[highway=road]::border,
+line|z15[highway=living_street]::border,
+{width: 3.4;}
+line|z16[highway=residential]::border,
+line|z16[highway=road]::border,
+line|z16[highway=living_street]::border,
+{width: 4.2;}
+line|z17[highway=residential]::border,
+line|z17[highway=road]::border,
+line|z17[highway=living_street]::border,
+{width: 5.7;}
+line|z18[highway=residential]::border,
+line|z18[highway=road]::border,
+line|z18[highway=living_street]::border,
+{width: 7.4;}
+line|z19-[highway=residential]::border,
+line|z19-[highway=road]::border,
+line|z19-[highway=living_street]::border,
+{width: 9.2;}
+
+line|z13[highway=pedestrian]::border,
+line|z13[highway=ford]::border,
+{width: 0;dashes: 4,1;}
+line|z14[highway=pedestrian]::border,
+line|z14[highway=ford]::border,
+{width: 2.1;dashes: 6,1.3;}
+line|z15[highway=pedestrian]::border,
+line|z15[highway=ford]::border,
+{width: 3;dashes: 8,1.5;}
+line|z16[highway=pedestrian]::border,
+line|z16[highway=ford]::border,
+{width: 3.4;dashes: 8,1.5;}
+line|z17[highway=pedestrian]::border,
+line|z17[highway=ford]::border,
+{width: 4;dashes: 9,1.8;}
+line|z18[highway=pedestrian]::border,
+line|z18[highway=ford]::border,
+{width: 5;dashes: 11,2.3;}
+line|z19-[highway=pedestrian]::border,
+line|z19-[highway=ford]::border,
+{width: 6;dashes: 13,2.7;}
+
+line|z15[highway=service]::border,
+line|z15[highway=service][service=busway]::border,
+line|z15[highway=busway]::border,
+{width: 1.7;}
+line|z15[highway=service][service=driveway]::border,
+{width: 0;}
+line|z16[highway=service]::border,
+line|z16[highway=service][service=busway]::border,
+line|z16[highway=busway]::border,
+{width: 2.1;}
+line|z17[highway=service]::border,
+line|z17[highway=service][service=busway]::border,
+line|z17[highway=busway]::border,
+{width: 3;}
+line|z18[highway=service]::border,
+line|z18[highway=service][service=busway]::border,
+line|z18[highway=busway]::border,
+{width: 4;}
+line|z19-[highway=service]::border,
+line|z19-[highway=service][service=busway]::border,
+line|z19-[highway=busway]::border,
+{width: 5;}
+
+line|z15[highway=footway]::border,
+{width: 2; dashes: 5,1.5;}
+line|z16[highway=footway]::border,
+{width: 3; dashes: 5,1.5;}
+line|z17[highway=footway]::border,
+{width: 3.4; dashes: 6,1.8;}
+line|z18[highway=footway]::border,
+{width: 4.2; dashes: 8,2.3;}
+line|z19-[highway=footway]::border,
+{width: 5.2; dashes: 10,2.7;}
+
+line|z15[highway=footway][bicycle=designated]::border,
+{width: 2; dashes: 6,9;}
+line|z16[highway=footway][bicycle=designated]::border,
+{width: 3; dashes: 8,10;}
+line|z17[highway=footway][bicycle=designated]::border,
+{width: 3.4; dashes: 10,11;}
+line|z18[highway=footway][bicycle=designated]::border,
+{width: 4.2; dashes: 15,15;}
+line|z19-[highway=footway][bicycle=designated]::border,
+{width: 5.2; dashes: 20,20;}
+
+/* Don't display sidewalks and pedestrian crossings on z15. */
+line|z15[highway=footway][footway=sidewalk]::border,
+line|z15[highway=footway][footway=crossing]::border,
+{width: 0;}
+
+line|z15[highway=ladder]::border,
+line|z15[highway=steps]::border,
+{width: 3.4; dashes: 1.5,1.3;}
+line|z16[highway=ladder]::border,
+line|z16[highway=steps]::border,
+{width: 5; dashes: 1.8,1.6;}
+line|z17-[highway=ladder]::border,
+line|z17-[highway=steps]::border,
+{width: 7; dashes: 2.5,2.2;}
+line|z18[highway=ladder]::border,
+line|z18[highway=steps]::border,
+{width: 9; dashes: 3.2,2.8;}
+line|z19-[highway=ladder]::border,
+line|z19-[highway=steps]::border,
+{width: 11; dashes: 4,3.5;}
+
+/* 8.11 Runway 12-22 ZOOM */
 
 line|z12-[aeroway=runway],
 line|z14-[aeroway=taxiway],

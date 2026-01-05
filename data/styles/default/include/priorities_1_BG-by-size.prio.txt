@@ -101,8 +101,8 @@ amenity-recycling-centre                            # area z15- (also has icon z
 amenity-social_facility                             # area z15- (also has icon z17-, caption(optional) z17-)
 amenity-vehicle_inspection                          # area z15- (also has icon z16-, caption(optional) z16-)
 emergency-mountain_rescue                           # area z13- (also has icon z16-, caption(optional) z16-)
-highway-pedestrian-area                             # area z14- (also has line z13-, pathtext z14-)
-highway-pedestrian-square                           # area z14- (also has line z13-, pathtext z14-)
+highway-pedestrian-area                             # area z14- (also has line z13-, line::border z14-, pathtext z14-)
+highway-pedestrian-square                           # area z14- (also has line z13-, line::border z14-, pathtext z14-)
 highway-rest_area                                   # area z13- (also has icon z15-, caption(optional) z15-)
 highway-services                                    # area z13- (also has icon z14-, caption(optional) z14-)
 landuse-garages                                     # area z13- (also has caption z15-)
@@ -115,7 +115,7 @@ tourism-information-office                          # area z15- (also has icon z
 tourism-information-visitor_centre                  # area z13- (also has icon z15-, caption(optional) z15-)
 === 170
 
-highway-footway-area                                # area z14- (also has line z15-, pathtext z15-)
+highway-footway-area                                # area z14- (also has line z15-, line::border z15-, pathtext z15-)
 leisure-track-area                                  # area z15- (also has caption z16-)
 === 160
 

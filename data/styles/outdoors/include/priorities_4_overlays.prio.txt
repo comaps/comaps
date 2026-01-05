@@ -591,14 +591,14 @@ shop-supermarket                                    # icon z16- (also has captio
 === 3200
 
 area:highway-pedestrian                             # caption z15- (also has area z14-)
-highway-pedestrian                                  # pathtext z14- (also has line z13-)
-highway-pedestrian-area                             # pathtext z14- (also has line z13-, area z14-)
-highway-pedestrian-bridge                           # pathtext z14- (also has line z13-, line::bridgeblack z14-, line::bridgewhite z13-)
-highway-pedestrian-square                           # pathtext z14- (also has line z13-, area z14-)
-highway-pedestrian-tunnel                           # pathtext z14- (also has line z13-, line(casing) z16-)
-highway-tertiary                                    # pathtext z12- (also has shield::shield z13-, line z11-)
-highway-tertiary-bridge                             # pathtext z12- (also has shield::shield z13-, line z11-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-tertiary-tunnel                             # pathtext z12- (also has shield::shield z13-, line z11-, line(casing) z16-)
+highway-pedestrian                                  # pathtext z14- (also has line z13-, line::border z14-)
+highway-pedestrian-area                             # pathtext z14- (also has line z13-, line::border z14-, area z14-)
+highway-pedestrian-bridge                           # pathtext z14- (also has line z13-, line::border z14-, line::bridgeblack z14-, line::bridgewhite z13-)
+highway-pedestrian-square                           # pathtext z14- (also has line z13-, line::border z14-, area z14-)
+highway-pedestrian-tunnel                           # pathtext z14- (also has line z13-, line::border z14-, line(casing) z16-)
+highway-tertiary                                    # pathtext z12- (also has shield::shield z13-, line z11-, line::border z11-)
+highway-tertiary-bridge                             # pathtext z12- (also has shield::shield z13-, line z11-, line::border z11-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-tertiary-tunnel                             # pathtext z12- (also has shield::shield z13-, line z11-, line::border z11-, line(casing) z16-)
 natural-strait                                      # caption z13- (also has line z11-)
 natural-water                                       # caption z10- (also has area z1-)
 natural-water-pond                                  # caption z10- (also has area z1-)
@@ -610,10 +610,10 @@ waterway-dam                                        # pathtext z15- (also has li
 waterway-river                                      # pathtext z11- (also has line z10-)
 === 3150
 
-highway-unclassified                                # pathtext z13- (also has line z11-)
-highway-unclassified-area                           # pathtext z13- (also has line z11-)
-highway-unclassified-bridge                         # pathtext z13- (also has line z11-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-unclassified-tunnel                         # pathtext z13- (also has line z11-, line(casing) z16-)
+highway-unclassified                                # pathtext z13- (also has line z11-, line::border z13-)
+highway-unclassified-area                           # pathtext z13- (also has line z11-, line::border z13-)
+highway-unclassified-bridge                         # pathtext z13- (also has line z11-, line::border z13-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-unclassified-tunnel                         # pathtext z13- (also has line z11-, line::border z13-, line(casing) z16-)
 === 3100
 
 amenity-water_point                                 # icon z12- (also has caption(optional) z14-)
@@ -645,13 +645,13 @@ aerialway-mixed_lift                                # pathtext z15- (also has li
 aerialway-platter                                   # pathtext z15- (also has line z13-, line::dash z13-)
 aerialway-rope_tow                                  # pathtext z15- (also has line z13-, line::dash z13-)
 aerialway-t-bar                                     # pathtext z15- (also has line z13-, line::dash z13-)
-highway-residential                                 # pathtext z13- (also has shield::shield z15-, line z12-)
-highway-residential-area                            # pathtext z13- (also has shield::shield z15-, line z12-)
-highway-residential-bridge                          # pathtext z13- (also has shield::shield z15-, line z12-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-residential-tunnel                          # pathtext z13- (also has shield::shield z15-, line z12-, line(casing) z16-)
-highway-road                                        # pathtext z14- (also has line z12-)
-highway-road-bridge                                 # pathtext z14- (also has line z12-, line::bridgeblack z16-, line::bridgewhite z16-)
-highway-road-tunnel                                 # pathtext z14- (also has line z12-)
+highway-residential                                 # pathtext z13- (also has shield::shield z15-, line z12-, line::border z14-)
+highway-residential-area                            # pathtext z13- (also has shield::shield z15-, line z12-, line::border z14-)
+highway-residential-bridge                          # pathtext z13- (also has shield::shield z15-, line z12-, line::border z14-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-residential-tunnel                          # pathtext z13- (also has shield::shield z15-, line z12-, line::border z14-, line(casing) z16-)
+highway-road                                        # pathtext z14- (also has line z12-, line::border z14-)
+highway-road-bridge                                 # pathtext z14- (also has line z12-, line::border z14-, line::bridgeblack z16-, line::bridgewhite z16-)
+highway-road-tunnel                                 # pathtext z14- (also has line z12-, line::border z14-)
 highway-secondary_link                              # pathtext z16- (also has line z13-)
 highway-secondary_link-bridge                       # pathtext z16- (also has line z13-, line::bridgeblack z14-, line::bridgewhite z14-)
 highway-secondary_link-tunnel                       # pathtext z16- (also has line z13-, line(casing) z16-)
@@ -672,19 +672,19 @@ highway-secondary-bridge::shield                    # shield::shield z12- (also 
 highway-secondary-tunnel::shield                    # shield::shield z12- (also has pathtext z10-, line z10-, line(casing) z16-)
 === 2965
 
-highway-tertiary::shield                            # shield::shield z13- (also has pathtext z12-, line z11-)
-highway-tertiary-bridge::shield                     # shield::shield z13- (also has pathtext z12-, line z11-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-tertiary-tunnel::shield                     # shield::shield z13- (also has pathtext z12-, line z11-, line(casing) z16-)
+highway-tertiary::shield                            # shield::shield z13- (also has pathtext z12-, line z11-, line::border z11-)
+highway-tertiary-bridge::shield                     # shield::shield z13- (also has pathtext z12-, line z11-, line::border z11-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-tertiary-tunnel::shield                     # shield::shield z13- (also has pathtext z12-, line z11-, line::border z11-, line(casing) z16-)
 === 2960
 
 barrier-city_wall                                   # pathtext z16- (also has line z14-)
 historic-citywalls                                  # pathtext z16- (also has line z14-)
 === 2957
 
-highway-residential::shield                         # shield::shield z15- (also has pathtext z13-, line z12-)
-highway-residential-area::shield                    # shield::shield z15- (also has pathtext z13-, line z12-)
-highway-residential-bridge::shield                  # shield::shield z15- (also has pathtext z13-, line z12-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-residential-tunnel::shield                  # shield::shield z15- (also has pathtext z13-, line z12-, line(casing) z16-)
+highway-residential::shield                         # shield::shield z15- (also has pathtext z13-, line z12-, line::border z14-)
+highway-residential-area::shield                    # shield::shield z15- (also has pathtext z13-, line z12-, line::border z14-)
+highway-residential-bridge::shield                  # shield::shield z15- (also has pathtext z13-, line z12-, line::border z14-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-residential-tunnel::shield                  # shield::shield z15- (also has pathtext z13-, line z12-, line::border z14-, line(casing) z16-)
 === 2955
 
 highway-cycleway                                    # pathtext z13- (also has line z11-)
@@ -693,14 +693,14 @@ highway-cycleway-tunnel                             # pathtext z13- (also has li
 === 2953
 
 area:highway-footway                                # caption z15- (also has area z14-)
-highway-footway                                     # pathtext z13- (also has line z11-)
-highway-footway-area                                # pathtext z13- (also has line z11-, area z14-)
-highway-footway-bicycle                             # pathtext z13- (also has line z11-, line::cycleline z13-)
-highway-footway-bridge                              # pathtext z13- (also has line z11-, line::bridgeblack z17-, line::bridgewhite z15-)
-highway-footway-tunnel                              # pathtext z13- (also has line z11-, line::tunnelBackground z17-, line::tunnelCasing z17-)
-highway-tertiary_link                               # pathtext z18- (also has line z14-)
-highway-tertiary_link-bridge                        # pathtext z18- (also has line z14-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-tertiary_link-tunnel                        # pathtext z18- (also has line z14-, line(casing) z16-)
+highway-footway                                     # pathtext z13- (also has line z11-, line::border z15-)
+highway-footway-area                                # pathtext z13- (also has line z11-, line::border z15-, area z14-)
+highway-footway-bicycle                             # pathtext z13- (also has line z11-, line::border z15-, line::cycleline z13-)
+highway-footway-bridge                              # pathtext z13- (also has line z11-, line::border z15-, line::bridgeblack z17-, line::bridgewhite z15-)
+highway-footway-tunnel                              # pathtext z13- (also has line z11-, line::border z15-, line::tunnelBackground z17-, line::tunnelCasing z17-)
+highway-tertiary_link                               # pathtext z18- (also has line z14-, line::border z14-)
+highway-tertiary_link-bridge                        # pathtext z18- (also has line z14-, line::border z14-, line::bridgeblack z14-, line::bridgewhite z14-)
+highway-tertiary_link-tunnel                        # pathtext z18- (also has line z14-, line::border z14-, line(casing) z16-)
 === 2950
 
 natural-water-basin                                 # caption z10- (also has area z1-)
@@ -717,7 +717,7 @@ waterway-stream-intermittent                        # pathtext z13- (also has li
 waterway-weir                                       # pathtext z15- (also has line z14-)
 === 2900
 
-highway-ford                                        # icon z14- and pathtext z16- (also has line z13-)
+highway-ford                                        # icon z14- and pathtext z16- (also has line z13-, line::border z14-)
 natural-rock                                        # icon z14- (also has caption(optional) z17-)
 === 2850
 
@@ -733,9 +733,9 @@ highway-path-horse                                  # pathtext z13- (also has li
 highway-path-tunnel                                 # pathtext z13- (also has line z11-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2820
 
-highway-steps                                       # pathtext z13- (also has line z12-)
-highway-steps-bridge                                # pathtext z13- (also has line z12-, line::bridgeblack z17-, line::bridgewhite z15-)
-highway-steps-tunnel                                # pathtext z13- (also has line z12-, line::tunnelBackground z17-, line::tunnelCasing z17-)
+highway-steps                                       # pathtext z13- (also has line z12-, line::border z15-)
+highway-steps-bridge                                # pathtext z13- (also has line z12-, line::border z15-, line::bridgeblack z17-, line::bridgewhite z15-)
+highway-steps-tunnel                                # pathtext z13- (also has line z12-, line::border z15-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2810
 
 highway-track                                       # pathtext z13- (also has line z11-)
@@ -745,12 +745,12 @@ highway-track-no-access                             # pathtext z13- (also has li
 highway-track-tunnel                                # pathtext z13- (also has line z11-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2780
 
-highway-service                                     # pathtext z16- (also has line z13-)
-highway-service-area                                # pathtext z16- (also has line z13-)
-highway-service-bridge                              # pathtext z16- (also has line z13-, line::bridgeblack z15-, line::bridgewhite z15-)
-highway-service-driveway                            # pathtext z16- (also has line z16-)
-highway-service-parking_aisle                       # pathtext z16- (also has line z15-)
-highway-service-tunnel                              # pathtext z16- (also has line z13-, line(casing) z15-)
+highway-service                                     # pathtext z16- (also has line z13-, line::border z15-)
+highway-service-area                                # pathtext z16- (also has line z13-, line::border z15-)
+highway-service-bridge                              # pathtext z16- (also has line z13-, line::border z15-, line::bridgeblack z15-, line::bridgewhite z15-)
+highway-service-driveway                            # pathtext z16- (also has line z16-, line::border z16-)
+highway-service-parking_aisle                       # pathtext z16- (also has line z15-, line::border z15-)
+highway-service-tunnel                              # pathtext z16- (also has line z13-, line::border z15-, line(casing) z15-)
 piste:type-downhill                                 # pathtext z15- (also has line z12-)
 piste:type-downhill-advanced                        # pathtext z15- (also has line z12-)
 piste:type-downhill-easy                            # pathtext z15- (also has line z12-)
@@ -833,9 +833,9 @@ attraction-historic                                 # icon z17- (also has captio
 attraction-maze                                     # icon z17- (also has caption(optional) z17-)
 attraction-roller_coaster                           # icon z17- (also has caption(optional) z17-)
 highway-construction                                # pathtext z15- (also has line z11-)
-highway-living_street                               # pathtext z14- (also has line z12-)
-highway-living_street-bridge                        # pathtext z14- (also has line z12-)
-highway-living_street-tunnel                        # pathtext z14- (also has line z12-, line(casing) z16-)
+highway-living_street                               # pathtext z14- (also has line z12-, line::border z14-)
+highway-living_street-bridge                        # pathtext z14- (also has line z12-, line::border z14-)
+highway-living_street-tunnel                        # pathtext z14- (also has line z12-, line::border z14-, line(casing) z16-)
 landuse-plant_nursery                               # icon z17- (also has caption(optional) z17-, area z12-)
 leisure-bowling_alley                               # icon z17- (also has caption(optional) z17-)
 leisure-garden                                      # icon z16- (also has caption(optional) z16-, area z12-)
@@ -902,9 +902,9 @@ barrier-yes                                         # icon z16- (also has captio
 leisure-dog_park                                    # icon z16- (also has caption(optional) z16-, area z15-)
 === 2300
 
-highway-busway                                      # pathtext z16- (also has line z15-)
-highway-busway-bridge                               # pathtext z16- (also has line z15-, line::bridgeblack z15-, line::bridgewhite z15-)
-highway-busway-tunnel                               # pathtext z16- (also has line(casing) z15-, line z15-)
+highway-busway                                      # pathtext z16- (also has line z15-, line::border z15-)
+highway-busway-bridge                               # pathtext z16- (also has line z15-, line::border z15-, line::bridgeblack z15-, line::bridgewhite z15-)
+highway-busway-tunnel                               # pathtext z16- (also has line z15-, line::border z15-, line(casing) z15-)
 === 2250
 
 amenity-clinic                                      # icon z17- (also has caption(optional) z17-, area z13-)
@@ -1172,7 +1172,7 @@ amenity-nursing_home                                # icon z17- (also has captio
 amenity-prison                                      # icon z17- (also has caption(optional) z17-, area z12-)
 amenity-social_facility                             # icon z17- (also has caption(optional) z17-, area z15-)
 amenity-waste_transfer_station                      # icon z17- (also has caption(optional) z18-, area z13-)
-highway-ladder                                      # icon z16- and pathtext z17- (also has line z12-)
+highway-ladder                                      # icon z16- and pathtext z17- (also has line z12-, line::border z15-)
 landuse-farmland                                    # caption z15- (also has area z10-)
 landuse-garages                                     # caption z15- (also has area z13-)
 landuse-orchard                                     # caption z15- (also has area z12-)
