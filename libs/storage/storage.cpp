@@ -3,10 +3,10 @@
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
+#include "storage/countries_txt_signature.hpp"
 #include "storage/downloader.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
-#include "storage/countries_txt_signature.hpp"
 
 #include "platform/downloader_utils.hpp"
 #include "platform/local_country_file_utils.hpp"
@@ -26,8 +26,8 @@
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"
 
-#include "3party/monocypher/monocypher.h"
 #include "3party/monocypher/monocypher-ed25519.h"
+#include "3party/monocypher/monocypher.h"
 
 #include "defines.hpp"
 
@@ -128,14 +128,10 @@ namespace
 std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
 std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.sig";
 
-bool VerifyEd25519(std::array<uint8_t, 32> const & pubKey,
-                   std::string const & message,
-                   uint8_t const * sigPtr)
+bool VerifyEd25519(std::array<uint8_t, 32> const & pubKey, std::string const & message, uint8_t const * sigPtr)
 {
-    return crypto_ed25519_check(sigPtr,
-                                pubKey.data(),
-                                reinterpret_cast<uint8_t const *>(message.data()),
-                                message.size()) == 0;
+  return crypto_ed25519_check(sigPtr, pubKey.data(), reinterpret_cast<uint8_t const *>(message.data()),
+                              message.size()) == 0;
 }
 
 bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
@@ -174,8 +170,8 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
 {
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
   parsed->m_currentVersion =
-    LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
-                            parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
+      LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
+                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
 
   int64_t const newVersion = parsed->m_currentVersion;
   if (newVersion <= m_currentVersion || newVersion <= 0)
@@ -231,10 +227,7 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
   if (parsedVersion <= m_currentVersion)
     return;
 
-  GetPlatform().RunTask(Platform::Thread::File, [buffer]()
-  {
-    (void)SaveCountriesToWritableDirAtomic(*buffer);
-  });
+  GetPlatform().RunTask(Platform::Thread::File, [buffer]() { (void)SaveCountriesToWritableDirAtomic(*buffer); });
 
   GetPlatform().RunTask(Platform::Thread::Gui, [this, buffer, parsedVersion]()
   {
@@ -275,8 +268,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
   LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
 
   // Use MapFilesDownloader so we respect custom server / metaserver selection.
-  m_downloader->DownloadAsString(kCountriesLatestRelativeUrl,
-  [this](std::string const & buffer)
+  m_downloader->DownloadAsString(kCountriesLatestRelativeUrl, [this](std::string const & buffer)
   {
     LOG(LDEBUG, ("COUNTRIES: downloaded bytes=", buffer.size()));
 
@@ -311,9 +303,8 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
     LOG(LDEBUG, ("COUNTRIES: downloading", kCountriesLatestSigRelativeUrl));
 
-    m_downloader->DownloadAsString(
-      kCountriesLatestSigRelativeUrl,
-      [this, buf, parsedVersion](std::string const & sigBuf)
+    m_downloader->DownloadAsString(kCountriesLatestSigRelativeUrl,
+                                   [this, buf, parsedVersion](std::string const & sigBuf)
     {
       if (sigBuf.empty())
       {
@@ -338,12 +329,11 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       PersistAndApplyCountries(buf, parsedVersion);
 
       return false;
-    },true /* forceReset: allow nested request */);
+    }, true /* forceReset: allow nested request */);
 
     // Don't reset the request, we started another download.
     return true;
-  },
-  false /* forceReset */);
+  }, false /* forceReset */);
 }
 
 Storage::Storage(int)
