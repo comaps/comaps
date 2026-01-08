@@ -9,6 +9,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Handler;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -16,6 +17,9 @@ import androidx.annotation.UiThread;
 import androidx.core.content.ContextCompat;
 import androidx.core.location.GnssStatusCompat;
 import androidx.core.location.LocationManagerCompat;
+
+import org.chromium.base.ObserverList;
+
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Map;
 import app.organicmaps.sdk.bookmarks.data.FeatureId;
@@ -25,7 +29,6 @@ import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.NetworkPolicy;
 import app.organicmaps.sdk.util.log.Logger;
-import org.chromium.base.ObserverList;
 
 import java.util.HashMap;
 
@@ -209,9 +212,10 @@ public class LocationHelper implements BaseLocationProvider.Listener
     }
 
     updateProviderDecision(location);
-    if(mCurrentProvider != null && !mCurrentProvider.equals(location.getProvider())) {
-        Logger.d(TAG, "REJECTED: provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
-        return;
+    if (mCurrentProvider != null && !mCurrentProvider.equals(location.getProvider()))
+    {
+      Logger.d(TAG, "REJECTED: provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
+      return;
     }
 
     Logger.d(TAG, "provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
@@ -221,46 +225,67 @@ public class LocationHelper implements BaseLocationProvider.Listener
     notifyLocationUpdated();
   }
 
-    private void updateProviderDecision(Location location) {
-      if(Double.isNaN(mTimeAtLastProviderChange))
-          mTimeAtLastProviderChange = location.getElapsedRealtimeNanos() * 1.0E-9;
+  private void updateProviderDecision(Location location)
+  {
+    if (Double.isNaN(mTimeAtLastProviderChange))
+      mTimeAtLastProviderChange = location.getElapsedRealtimeNanos() * 1.0E-9;
 
-      String provider = location.getProvider();
-      int count = mProviderLocationCounts.getOrDefault(provider, 0);
-      float average = mProviderAccuracyMeans.getOrDefault(provider, 0.0f);
+    String provider = location.getProvider();
 
-      float accuracy = location.getAccuracy();
-      float newAverage = (count * average + accuracy) / (count + 1);
+    Integer cnt = mProviderLocationCounts.getOrDefault(provider, 0);
+    Float avg = mProviderAccuracyMeans.getOrDefault(provider, 0.0f);
 
-      mProviderLocationCounts.put(provider, count + 1);
-      mProviderAccuracyMeans.put(provider, newAverage);
+    if (cnt == null || avg == null)
+    {
+      mProviderLocationCounts.clear();
+      mProviderAccuracyMeans.clear();
+      return;
+    }
 
-      double currentTime = location.getElapsedRealtimeNanos();
-      double timeDiff = (currentTime - mTimeAtLastProviderChange) * 1.0E-9;
+    int count = cnt;
+    float average = avg;
 
-      if(timeDiff > INTERVAL_PROVIDER_DECISION) {
-          mCurrentProvider = getMinAccuracyProvider();
-          Logger.d(TAG, "Selected: " + mCurrentProvider + ", with acc. " + mProviderAccuracyMeans.get(mCurrentProvider));
-          mTimeAtLastProviderChange = currentTime;
-          mProviderLocationCounts.clear();
-          mProviderAccuracyMeans.clear();
+    float accuracy = location.getAccuracy();
+    int newCount = count + 1;
+    float newAverage = (count * average + accuracy) / newCount;
+
+    mProviderLocationCounts.put(provider, newCount);
+    mProviderAccuracyMeans.put(provider, newAverage);
+
+    double currentTime = location.getElapsedRealtimeNanos();
+    double timeDiff = (currentTime - mTimeAtLastProviderChange) * 1.0E-9;
+
+    if (timeDiff > INTERVAL_PROVIDER_DECISION)
+    {
+      mCurrentProvider = getMinAccuracyProvider();
+      Logger.d(TAG, "Selected: " + mCurrentProvider + ", with acc. " + mProviderAccuracyMeans.get(mCurrentProvider));
+      mTimeAtLastProviderChange = currentTime;
+      mProviderLocationCounts.clear();
+      mProviderAccuracyMeans.clear();
+    }
+  }
+
+  private String getMinAccuracyProvider()
+  {
+    String minAccuracyProvider = null;
+    float minAccuracy = Float.MAX_VALUE;
+    for (String p : mProviderAccuracyMeans.keySet())
+    {
+      Float pAcc = mProviderAccuracyMeans.get(p);
+      if (pAcc == null)
+        continue;
+      float pAccuracy = pAcc;
+
+      if (pAccuracy < minAccuracy)
+      {
+        minAccuracy = pAccuracy;
+        minAccuracyProvider = p;
       }
     }
+    return minAccuracyProvider;
+  }
 
-    private String getMinAccuracyProvider() {
-        String minAccuracyProvider = null;
-        float minAccuracy = Float.MAX_VALUE;
-        for(String p : mProviderAccuracyMeans.keySet()) {
-            float pAccuracy = mProviderAccuracyMeans.get(p);
-            if(pAccuracy < minAccuracy) {
-                minAccuracy = pAccuracy;
-                minAccuracyProvider = p;
-            }
-        }
-        return minAccuracyProvider;
-    }
-
-    // Used by GoogleFusedLocationProvider.
+  // Used by GoogleFusedLocationProvider.
   @SuppressWarnings("unused")
   @Override
   @UiThread
