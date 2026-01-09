@@ -991,4 +991,8 @@
     <string name="capacity_charging_no">Brak stanowisk postojowych z ładowarką</string>
     <string name="permission_read_navigation_label">Odczytuj dane nawigacyjne CoMaps</string>
     <string name="permission_read_navigation_description">Odczytuj na żywo informacje nawigacyjne, takie jak nadchodzące zakręty lub nazwa drogi, na której się znajdujesz</string>
+    <string name="place_reviews_title">Recenzje miejsca</string>
+    <string name="place_reviews">Recenzje %1$s</string>
+    <string name="rating_stars_description">liczba gwiazdek: %.1f</string>
+    <string name="reviews_by_mangrove">Recenzje z Mangrove</string>
 </resources>

@@ -1052,4 +1052,9 @@
     <!-- Permission descriptions -->
     <string name="permission_read_navigation_label">Read CoMaps navigation data</string>
     <string name="permission_read_navigation_description">read live navigation information such as upcoming turns or the name of the road you are on</string>
+    <!-- Reviews -->
+    <string name="place_reviews_title">Place Reviews</string>
+    <string name="place_reviews">%1$s Reviews</string>
+    <string name="rating_stars_description">stars: %.1f</string>
+    <string name="reviews_by_mangrove">Reviews from Mangrove</string>
 </resources>
