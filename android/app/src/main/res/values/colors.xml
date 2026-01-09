@@ -139,6 +139,10 @@
   <color name="fg_dl_folder">#FFF</color>
   <color name="fg_dl_folder_done">#6c6c6c</color>
 
+  <!-- Rating -->
+  <color name="fg_rating_star">#fabd03</color>
+  <color name="bg_rating_star">#dfdfdf</color>
+
   <!-- Categories -->
   <color name="foreground_color">#FFF</color>
 

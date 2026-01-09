@@ -960,4 +960,8 @@
     <string name="pref_aa_support_summary_yes">Aplikacja zainstalowana przez Google Play - możesz jej użyć w swoim samochodzie.</string>
     <string name="pref_aa_support_summary_no">Aplikacja nie została zainstalowana przez Google Play - nie możesz jej użyć w swoim samochodzie. Kliknij w opcję, by znaleźć więcej szczegółów w FAQ.</string>
     <string name="editor_add_select_category_recent_subtitle">Ostatnio używane</string>
+    <string name="place_reviews_title">Recenzje miejsca</string>
+    <string name="place_reviews">Recenzje %1$s</string>
+    <string name="rating_stars_description">liczba gwiazdek: %.1f</string>
+    <string name="reviews_by_mangrove">Recenzje z Mangrove</string>
 </resources>

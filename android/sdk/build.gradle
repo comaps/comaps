@@ -135,6 +135,7 @@ dependencies {
   implementation libs.androidx.customview
 
   testImplementation libs.junit
+  testImplementation libs.robolectric
 }
 
 android {

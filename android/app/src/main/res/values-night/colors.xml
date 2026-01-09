@@ -47,6 +47,9 @@
   <color name="fg_dl_folder">#756940</color>
   <color name="fg_dl_folder_done">#cccdce</color>
 
+  <!-- Rating -->
+  <color name="fg_rating_star">#d7a203</color>
+  <color name="bg_rating_star">#606060</color>
 
   <!-- Categories -->
   <color name="foreground_color">#000</color>
