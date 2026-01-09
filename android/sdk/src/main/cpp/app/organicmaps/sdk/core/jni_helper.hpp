@@ -60,6 +60,8 @@ inline jstring ToJavaString(JNIEnv * env, std::string_view sv)
 // Remove after dropping Android 5 and 6 support.
 jstring ToJavaStringWithSupplementalCharsFix(JNIEnv * env, std::string const & s);
 
+jobject ToJavaBoxedFloat(JNIEnv * env, float d);
+
 jclass GetStringClass(JNIEnv * env);
 char const * GetStringClassName();
 

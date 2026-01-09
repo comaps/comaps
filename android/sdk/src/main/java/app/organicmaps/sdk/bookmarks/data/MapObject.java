@@ -3,16 +3,20 @@ package app.organicmaps.sdk.bookmarks.data;
 import android.net.Uri;
 import android.os.Parcel;
 import android.text.TextUtils;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.os.ParcelCompat;
+
 import app.organicmaps.sdk.routing.RoutePointInfo;
 import app.organicmaps.sdk.search.Popularity;
 import app.organicmaps.sdk.widget.placepage.PlacePageData;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -71,6 +75,18 @@ public class MapObject implements PlacePageData
   //  private final Popularity mPopularity;
   @NonNull
   private final RoadWarningMarkType mRoadWarningMarkType;
+  @Nullable
+  private final Float mStarRating;
+  /**
+   * The total number of reviews of this object. We cannot rely on mReviews.size(), because
+   * the mReviews might not contain all reviews.
+   */
+  private final int mReviewCount;
+  /**
+   * The most recent reviews of this object.
+   */
+  @NonNull
+  private ArrayList<Review> mReviews;
   @NonNull
   private String mWikiArticle;
   @NonNull
@@ -81,18 +97,19 @@ public class MapObject implements PlacePageData
   public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
                    @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
                    String apiId, @Nullable RoutePointInfo routePointInfo, @OpeningMode int openingMode,
-                   Popularity popularity, @NonNull String wikiArticle, @NonNull String osmDescription,
+                   Popularity popularity, @Nullable Float starRating,
+                   int reviewCount, @NonNull String wikiArticle, @NonNull String osmDescription,
                    int roadWarningType, @Nullable String[] rawTypes)
   {
     this(featureId, mapObjectType, title, secondaryTitle, subtitle, address, lat, lon, new Metadata(), apiId,
-         routePointInfo, openingMode, popularity, wikiArticle, osmDescription, roadWarningType, rawTypes);
+        routePointInfo, openingMode, popularity, starRating, reviewCount, wikiArticle, osmDescription, roadWarningType, rawTypes);
   }
 
   public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
                    @Nullable String secondaryTitle, String subtitle, String address, double lat, double lon,
                    Metadata metadata, String apiId, @Nullable RoutePointInfo routePointInfo,
-                   @OpeningMode int openingMode, Popularity popularity, @NonNull String wikiArticle,
-                   @NonNull String osmDescription, int roadWarningType, @Nullable String[] rawTypes)
+                   @OpeningMode int openingMode, Popularity popularity, @Nullable Float starRating,
+                   int reviewCount, @NonNull String wikiArticle, @NonNull String osmDescription, int roadWarningType, @Nullable String[] rawTypes)
   {
     mFeatureId = featureId;
     mMapObjectType = mapObjectType;
@@ -107,6 +124,9 @@ public class MapObject implements PlacePageData
     mRoutePointInfo = routePointInfo;
     mOpeningMode = openingMode;
     // mPopularity = popularity;
+    mStarRating = starRating;
+    mReviewCount = reviewCount;
+    mReviews = new ArrayList<>();
     mWikiArticle = wikiArticle;
     mOsmDescription = osmDescription;
     mRoadWarningMarkType = RoadWarningMarkType.values()[roadWarningType];
@@ -117,28 +137,39 @@ public class MapObject implements PlacePageData
   protected MapObject(@MapObjectType int type, Parcel source)
   {
     this(Objects.requireNonNull(
-             ParcelCompat.readParcelable(source, FeatureId.class.getClassLoader(), FeatureId.class)), // FeatureId
-         type, // MapObjectType
-         source.readString(), // Title
-         source.readString(), // SecondaryTitle
-         source.readString(), // Subtitle
-         source.readString(), // Address
-         source.readDouble(), // Lat
-         source.readDouble(), // Lon
-         ParcelCompat.readParcelable(source, Metadata.class.getClassLoader(), Metadata.class),
-         source.readString(), // ApiId;
-         ParcelCompat.readParcelable(source, RoutePointInfo.class.getClassLoader(),
-                                     RoutePointInfo.class), // RoutePointInfo
-         source.readInt(), // mOpeningMode
-         Objects.requireNonNull(
-             ParcelCompat.readParcelable(source, Popularity.class.getClassLoader(), Popularity.class)),
-         Objects.requireNonNull(source.readString()), 
-         source.readString(), 
-         source.readInt(),
-         null // mRawTypes
+            ParcelCompat.readParcelable(source, FeatureId.class.getClassLoader(), FeatureId.class)), // FeatureId
+        type, // MapObjectType
+        source.readString(), // Title
+        source.readString(), // SecondaryTitle
+        source.readString(), // Subtitle
+        source.readString(), // Address
+        source.readDouble(), // Lat
+        source.readDouble(), // Lon
+        ParcelCompat.readParcelable(source, Metadata.class.getClassLoader(), Metadata.class),
+        source.readString(), // ApiId;
+        ParcelCompat.readParcelable(source, RoutePointInfo.class.getClassLoader(),
+            RoutePointInfo.class), // RoutePointInfo
+        source.readInt(), // mOpeningMode
+        Objects.requireNonNull(
+            ParcelCompat.readParcelable(source, Popularity.class.getClassLoader(), Popularity.class)),
+        (Float) source.readValue(Float.class.getClassLoader()), // mStarRating
+        source.readInt(), // mReviewCount
+        Objects.requireNonNull(source.readString()),
+        source.readString(),
+        source.readInt(),
+        null // mRawTypes
     );
 
     mRawTypes = readRawTypes(source);
+    mReviews = readReviews(source);
+  }
+
+  @NonNull
+  private ArrayList<Review> readReviews(@NonNull Parcel source)
+  {
+    // use the deprecated method because the replacement is not available at the min API level of this project
+    @SuppressWarnings("deprecation") Review[] reviewArray = (Review[]) source.readParcelableArray(Review.class.getClassLoader());
+    return new ArrayList<>(Arrays.asList(Objects.requireNonNull(reviewArray)));
   }
 
   @NonNull
@@ -146,8 +177,8 @@ public class MapObject implements PlacePageData
                                           @NonNull String title, @NonNull String subtitle, double lat, double lon)
   {
     return new MapObject(featureId, mapObjectType, title, "", subtitle, "", lat, lon, null, "", null,
-                         OPENING_MODE_PREVIEW, Popularity.defaultInstance(), "", null,
-                         RoadWarningMarkType.UNKNOWN.ordinal(), new String[0]);
+        OPENING_MODE_PREVIEW, Popularity.defaultInstance(), null, 0, "", null,
+        RoadWarningMarkType.UNKNOWN.ordinal(), new String[0]);
   }
 
   @NonNull
@@ -179,7 +210,7 @@ public class MapObject implements PlacePageData
       return mFeatureId.equals(other.getFeatureId());
 
     return Double.doubleToLongBits(mLon) == Double.doubleToLongBits(other.mLon)
- && Double.doubleToLongBits(mLat) == Double.doubleToLongBits(other.mLat);
+        && Double.doubleToLongBits(mLat) == Double.doubleToLongBits(other.mLat);
   }
 
   public static boolean same(@Nullable MapObject one, @Nullable MapObject another)
@@ -239,6 +270,22 @@ public class MapObject implements PlacePageData
   public String getAddress()
   {
     return mAddress;
+  }
+
+  @Nullable
+  public Float getStarRating()
+  {
+    return mStarRating;
+  }
+
+  public int getReviewCount()
+  {
+    return mReviewCount;
+  }
+
+  public ArrayList<Review> getReviews()
+  {
+    return mReviews;
   }
 
   @NonNull
@@ -308,6 +355,14 @@ public class MapObject implements PlacePageData
     mMetadata.addMetadata(type, value);
   }
 
+  // Called from JNI.
+  @Keep
+  @SuppressWarnings("unused")
+  public void addReview(float starRating, int year, int month, int dayOfMonth, @NonNull String opinion, @NonNull String author)
+  {
+    mReviews.add(new Review(starRating, LocalDate.of(year, month, dayOfMonth), opinion, author));
+  }
+
   public boolean hasChargeSockets()
   {
     return !TextUtils.isEmpty(getMetadata(Metadata.MetadataType.FMD_CHARGE_SOCKETS));
@@ -322,6 +377,7 @@ public class MapObject implements PlacePageData
   {
     return mRawTypes.contains("amenity-atm");
   }
+
   public String getOrganic()
   {
     return getFeatureType("organic-");
@@ -341,10 +397,13 @@ public class MapObject implements PlacePageData
   {
     return mMapObjectType == TRACK;
   }
+
   private String getFeatureType(String match)
   {
-    for (String type : mRawTypes) {
-      if (type.startsWith(match)) {
+    for (String type : mRawTypes)
+    {
+      if (type.startsWith(match))
+      {
         return type;
       }
     }
@@ -403,12 +462,15 @@ public class MapObject implements PlacePageData
     dest.writeParcelable(mRoutePointInfo, 0);
     dest.writeInt(mOpeningMode);
     // dest.writeParcelable(mPopularity, 0);
+    dest.writeValue(mStarRating);
+    dest.writeInt(mReviewCount);
     dest.writeString(mWikiArticle);
     dest.writeString(mOsmDescription);
     dest.writeInt(getRoadWarningMarkType().ordinal());
     // All collections are deserialized AFTER non-collection and primitive type objects,
     // so collections must be always serialized at the end.
     dest.writeStringList(mRawTypes);
+    dest.writeParcelableArray(mReviews.toArray(new Review[0]), 0);
   }
 
   @Override
@@ -429,7 +491,8 @@ public class MapObject implements PlacePageData
     return mFeatureId.hashCode();
   }
 
-  public static final Creator<MapObject> CREATOR = new Creator<>() {
+  public static final Creator<MapObject> CREATOR = new Creator<>()
+  {
     @Override
     public MapObject createFromParcel(Parcel source)
     {
