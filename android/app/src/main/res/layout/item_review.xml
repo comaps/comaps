@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?clickableBackground"
+    android:gravity="center_vertical"
+    android:minHeight="@dimen/height_item_multiline"
+    android:orientation="vertical"
+    android:paddingEnd="@dimen/margin_base"
+    android:paddingStart="@dimen/margin_half_plus"
+    android:layout_marginTop="@dimen/margin_half"
+    android:layout_marginBottom="@dimen/margin_base">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:paddingTop="@dimen/margin_half"
+      android:paddingBottom="@dimen/margin_half">
+
+    <app.organicmaps.widget.StarRatingView
+        android:id="@+id/star_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/margin_quarter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:size="@dimen/text_size_body_3" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/margin_base"
+        android:paddingRight="@dimen/margin_base"
+        android:textAppearance="@style/MwmTextAppearance.Body3.Primary"
+        app:layout_constraintStart_toEndOf="@id/star_rating"
+        app:layout_constraintBaseline_toBaselineOf="@id/star_rating"
+        tools:text="2026-07-29" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/author"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/MwmTextAppearance.Body3"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintBaseline_toBaselineOf="@id/date"
+        tools:text="someone" />
+
+  </androidx.constraintlayout.widget.ConstraintLayout>
+
+  <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/opinion"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MwmTextAppearance.Body1"
+      tools:text="Very tasty, middle Eastern-influenced dishes served in a relaxed atmosphere. The portions are rather small, be prepared for long food wait times even if the restaurant doesn't appear very busy - they do lots of deliveries and takeaways." />
+
+</LinearLayout>

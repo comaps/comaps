@@ -49,6 +49,7 @@
         tools:background="#C0800000"
         tools:ignore="UnusedAttribute"
         tools:text="Title" />
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv__secondary_title"
         android:textAlignment="viewStart"
@@ -64,6 +65,50 @@
         tools:background="#C0800000"
         tools:text="Secondary Title" />
       <!-- Not focusable by default because it is not clickable -->
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+          android:id="@+id/rating_container"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv__rating_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/MwmTextAppearance.Body3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/rating_stars"
+            android:focusable="true"
+            tools:background="#C0800000"
+            tools:text="3.4" />
+
+        <app.organicmaps.widget.StarRatingView
+            android:id="@+id/rating_stars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_quarter"
+            android:paddingLeft="@dimen/margin_quarter"
+            android:paddingRight="@dimen/margin_quarter"
+            android:paddingTop="@dimen/margin_eighth"
+            app:layout_constraintStart_toEndOf="@id/tv__rating_num"
+            app:layout_constraintTop_toTopOf="parent"
+            app:size="@dimen/text_size_body_3" 
+            android:focusable="true" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv__num_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/MwmTextAppearance.Body3"
+            app:layout_constraintBaseline_toBaselineOf="@id/rating_stars"
+            app:layout_constraintStart_toEndOf="@id/rating_stars"
+            android:focusable="true"
+            tools:background="#C0800000"
+            tools:text="(123)" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tv__subtitle"
         android:textAlignment="viewStart"

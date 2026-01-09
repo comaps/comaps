@@ -212,6 +212,15 @@ jstring ToJavaStringWithSupplementalCharsFix(JNIEnv * env, std::string const & s
   return env->NewStringUTF(s.c_str());
 }
 
+jobject ToJavaBoxedFloat(JNIEnv * env, float d)
+{
+  jclass klass = env->FindClass("java/lang/Float");
+  ASSERT(klass, ());
+  jmethodID methodID = env->GetStaticMethodID(klass, "valueOf", "(F)Ljava/lang/Float;");
+
+  return env->CallStaticObjectMethod(klass, methodID, static_cast<jfloat>(d));
+}
+
 jclass GetStringClass(JNIEnv * env)
 {
   return env->FindClass(GetStringClassName());
