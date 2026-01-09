@@ -12,7 +12,6 @@ namespace
 {
 char const * kAutoDownloadEnabledKey = "AutoDownloadEnabled";
 char const * kZoomButtonsEnabledKey = "ZoomButtonsEnabled";
-char const * kCompassCalibrationEnabledKey = "CompassCalibrationEnabled";
 char const * kMapLanguageCode = "MapLanguageCode";
 char const * kRoutingDisclaimerApprovedKey = "IsDisclaimerApproved";
 
@@ -114,18 +113,6 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 {
   settings::Set(kZoomButtonsEnabledKey, static_cast<bool>(zoomButtonsEnabled));
   [MWMMapViewControlsManager manager].zoomHidden = !zoomButtonsEnabled;
-}
-
-+ (BOOL)compassCalibrationEnabled
-{
-  bool enabled = true;
-  UNUSED_VALUE(settings::Get(kCompassCalibrationEnabledKey, enabled));
-  return enabled;
-}
-
-+ (void)setCompassCalibrationEnabled:(BOOL)compassCalibrationEnabled
-{
-  settings::Set(kCompassCalibrationEnabledKey, static_cast<bool>(compassCalibrationEnabled));
 }
 
 + (MWMTheme)theme

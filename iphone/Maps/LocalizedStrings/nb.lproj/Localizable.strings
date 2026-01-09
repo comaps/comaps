@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Feil ved sending av e-post";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompasskalibrering";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Trykk lenge på kartet igjen for å se grensesnittet";
 

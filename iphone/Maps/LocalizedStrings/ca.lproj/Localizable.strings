@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "S'ha produït un error en enviar el correu";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibratge de la brúixola";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Toqueu llargament el mapa de nou per veure la interfície";
 

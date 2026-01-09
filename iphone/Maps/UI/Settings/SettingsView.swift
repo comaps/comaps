@@ -60,10 +60,6 @@ struct SettingsView: View {
     @State private var isSyncPossible: Bool = true
     
     
-    /// If the compass should be calibrated
-    @State private var shouldCalibrateCompass: Bool = true
-    
-    
     /// The selected power saving mode
     @State private var selectedPowerSavingMode: Settings.PowerSavingMode = .never
     
@@ -238,9 +234,6 @@ struct SettingsView: View {
                         Text("pref_appearance_title")
                     }
                     
-                    Toggle("pref_calibration_title", isOn: $shouldCalibrateCompass)
-                        .tint(.accent)
-                    
                     Picker(selection: $selectedPowerSavingMode) {
                         ForEach(Settings.PowerSavingMode.allCases) { powerSavingMode in
                             Text(powerSavingMode.description)
@@ -300,7 +293,6 @@ struct SettingsView: View {
             selectedMapAppearance = Settings.mapAppearance
             selectedAppearance = Settings.appearance
             shouldSync = Settings.shouldSync
-            shouldCalibrateCompass = Settings.shouldCalibrateCompass
             selectedPowerSavingMode = Settings.powerSavingMode
             selectedMobileDataPolicy = Settings.mobileDataPolicy
             isLogging = Settings.isLogging
@@ -344,9 +336,6 @@ struct SettingsView: View {
             } else {
                 Settings.shouldSync = changedShouldSync
             }
-        }
-        .onChange(of: shouldCalibrateCompass) { changedShouldCalibrateCompass in
-            Settings.shouldCalibrateCompass = changedShouldCalibrateCompass
         }
         .onChange(of: selectedPowerSavingMode) { changedSelectedPowerSavingMode in
             Settings.powerSavingMode = changedSelectedPowerSavingMode

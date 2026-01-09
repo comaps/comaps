@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "E-posstuurfout";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompaskalibrering";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Langtik weer op die kaart om die koppelvlak te sien";
 

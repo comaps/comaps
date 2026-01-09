@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "Żball meta bgħatt e-mejl";
 
-/* Settings item title */
-"pref_calibration_title" = "Kalibrazzjoni tal-boxxla";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Itteppja fit-tul darb’ oħra fuq il-mappa biex tara l-interface";
 

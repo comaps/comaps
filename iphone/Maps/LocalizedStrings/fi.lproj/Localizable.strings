@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Virhe lähetettäessä viestiä";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompassin kalibrointi";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Paina karttaa pitkään uudelleen nähdäksesi käyttöliittymän";
 

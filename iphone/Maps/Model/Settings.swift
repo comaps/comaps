@@ -167,17 +167,6 @@ import AVFoundation
     }
     
     
-    /// If the compass should be calibrated
-    @objc static var shouldCalibrateCompass: Bool {
-        get {
-            return SettingsBridge.compassCalibrationEnabled()
-        }
-        set {
-            SettingsBridge.setCompassCalibrationEnabled(newValue)
-        }
-    }
-    
-    
     /// The current map appearance
     @objc static var mapAppearance: Appearance {
         get {

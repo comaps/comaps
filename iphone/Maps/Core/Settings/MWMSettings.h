@@ -19,9 +19,6 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)zoomButtonsEnabled;
 + (void)setZoomButtonsEnabled:(BOOL)zoomButtonsEnabled;
 
-+ (BOOL)compassCalibrationEnabled;
-+ (void)setCompassCalibrationEnabled:(BOOL)compassCalibrationEnabled;
-
 + (MWMTheme)theme;
 + (void)setTheme:(MWMTheme)theme;
 
