@@ -9,6 +9,7 @@
 
 #include "geometry/mercator.hpp"
 
+#include "platform/location.hpp"
 #include "platform/measurement_utils.hpp"
 
 #include "base/math.hpp"
@@ -203,8 +204,10 @@ MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifi
       m_mode = NotFollowNoPosition;
   }
 
+  m_preferredRoutingMode = params.m_preferredRoutingMode;
+
   if (m_modeChangeCallback)
-    m_modeChangeCallback(m_mode, m_isInRouting);
+    m_modeChangeCallback(m_mode, m_isInRouting, false);
 }
 
 void MyPositionController::UpdatePosition()
@@ -398,7 +401,11 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   // In routing not-follow -> follow-and-rotate, otherwise not-follow -> follow.
   if (m_mode == location::NotFollow)
   {
-    ChangeMode(m_isInRouting ? location::FollowAndRotate : location::Follow);
+    if ((IsRotationAvailable() || m_isInRouting) && m_preferredRoutingMode == location::FollowAndRotate)
+      ChangeMode(location::FollowAndRotate, true);
+    else
+      ChangeMode(location::Follow, true);
+
     UpdateViewport(preferredZoomLevel);
     return;
   }
@@ -409,7 +416,7 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   {
     if (IsRotationAvailable() || m_isInRouting)
     {
-      ChangeMode(location::FollowAndRotate);
+      ChangeMode(location::FollowAndRotate, true);
       UpdateViewport(preferredZoomLevel);
     }
     return;
@@ -420,8 +427,17 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   {
     if (m_isInRouting && screen.isPerspective())
       preferredZoomLevel = static_cast<int>(GetZoomLevel(ScreenBase::GetStartPerspectiveScale() * 1.1));
-    ChangeMode(location::Follow);
+    ChangeMode(location::Follow, true);
     ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), preferredZoomLevel);
+  }
+}
+
+void MyPositionController::StartPendingPositionMode()
+{
+  if (m_mode == location::NotFollowNoPosition)
+  {
+    ChangeMode(location::PendingPosition);
+    return;
   }
 }
 
@@ -478,8 +494,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
 
   if (!m_isPositionAssigned)
   {
-    location::EMyPositionMode newMode = m_desiredInitMode;
-    ChangeMode(newMode);
+    ChangeMode(m_isInRouting ? m_preferredRoutingMode : m_desiredInitMode, true);
 
     if (!m_hints.m_isFirstLaunch || !AnimationSystem::Instance().AnimationExists(Animation::Object::MapPlane))
     {
@@ -497,14 +512,14 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
   }
   else if (m_mode == location::PendingPosition)
   {
-    if (m_isInRouting)
+    if (m_isInRouting && m_preferredRoutingMode == location::FollowAndRotate)
     {
-      ChangeMode(location::FollowAndRotate);
+      ChangeMode(location::FollowAndRotate, true);
       UpdateViewport(kMaxScaleZoomLevel);
     }
     else
     {
-      ChangeMode(location::Follow);
+      ChangeMode(location::Follow, true);
       if (m_hints.m_isFirstLaunch)
       {
         if (!AnimationSystem::Instance().AnimationExists(Animation::Object::MapPlane))
@@ -523,15 +538,15 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
   }
   else if (m_mode == location::NotFollowNoPosition)
   {
-    if (m_isInRouting)
+    if (m_isInRouting && m_preferredRoutingMode == location::FollowAndRotate)
     {
-      ChangeMode(location::FollowAndRotate);
+      ChangeMode(location::FollowAndRotate, true);
       UpdateViewport(kMaxScaleZoomLevel);
     }
     else
     {
       // Here we silently get the position and go to NotFollow mode.
-      ChangeMode(location::NotFollow);
+      ChangeMode(location::NotFollow, true);
     }
   }
 
@@ -654,12 +669,23 @@ void MyPositionController::SetDirection(double bearing)
 
 void MyPositionController::ChangeMode(location::EMyPositionMode newMode)
 {
+  ChangeMode(newMode, false);
+}
+
+void MyPositionController::ChangeMode(location::EMyPositionMode newMode, bool shouldPersist)
+{
   if (m_isInRouting && (m_mode != newMode) && (newMode == location::FollowAndRotate))
     ResetBlockAutoZoomTimer();
 
   m_mode = newMode;
+
+  // We should remember this mode if the user intentionally caused the mode change
+  // (e.g. tapping the mode button)
+  if (m_isInRouting && shouldPersist)
+    m_preferredRoutingMode = newMode;
+
   if (m_modeChangeCallback)
-    m_modeChangeCallback(m_mode, m_isInRouting);
+    m_modeChangeCallback(m_mode, m_isInRouting, shouldPersist);
 }
 
 bool MyPositionController::IsWaitingForLocation() const
@@ -690,7 +716,8 @@ void MyPositionController::OnEnterForeground(double backgroundTime)
     // When location was active during previous session the app will try to follow the user.
     if (m_mode == location::NotFollow)
     {
-      ChangeMode(m_isInRouting ? location::FollowAndRotate : location::Follow);
+      ChangeMode((m_isInRouting && m_preferredRoutingMode == location::FollowAndRotate) ? location::FollowAndRotate
+                                                                                        : location::Follow);
       UpdateViewport(kDoNotChangeZoom);
     }
 
@@ -876,9 +903,17 @@ void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, b
     m_isArrowGluedInRouting = isArrowGlued;
     m_enableAutoZoomInRouting = enableAutoZoom;
 
-    ChangeMode(location::FollowAndRotate);
-    ChangeModelView(m_position, m_isDirectionAssigned ? m_drawDirection : 0.0, GetRoutingRotationPixelCenter(),
-                    zoomLevel, [this](ref_ptr<Animation> anim) { UpdateViewport(kDoNotChangeZoom); });
+    if (m_preferredRoutingMode == location::Follow)
+    {
+      ChangeMode(location::Follow);
+      ChangeModelView(m_position, kDoNotChangeZoom);
+    }
+    else
+    {
+      ChangeMode(location::FollowAndRotate);
+      ChangeModelView(m_position, m_isDirectionAssigned ? m_drawDirection : 0.0, GetRoutingRotationPixelCenter(),
+                      zoomLevel, [this](ref_ptr<Animation> anim) { UpdateViewport(kDoNotChangeZoom); });
+    }
     ResetRoutingNotFollowTimer();
   }
 }
@@ -919,7 +954,7 @@ void MyPositionController::CheckNotFollowRouting()
     CHECK_ON_TIMEOUT(m_routingNotFollowNotifyId, kMaxNotFollowRoutingTimeSec, CheckNotFollowRouting);
     if (m_routingNotFollowTimer.ElapsedSeconds() >= kMaxNotFollowRoutingTimeSec)
     {
-      ChangeMode(location::FollowAndRotate);
+      ChangeMode(m_preferredRoutingMode);
       UpdateViewport(kDoNotChangeZoom);
     }
   }

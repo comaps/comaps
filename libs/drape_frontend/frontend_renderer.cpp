@@ -425,6 +425,12 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     break;
   }
 
+  case Message::Type::StartPendingPositionMode:
+  {
+    m_myPositionController->StartPendingPositionMode();
+    break;
+  }
+
   case Message::Type::CompassInfo:
   {
     ref_ptr<CompassInfoMessage> msg = message;
