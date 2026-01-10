@@ -143,6 +143,14 @@
         <extra android:name="from" android:value="settings" />
       </intent>
     </PreferenceScreen>
+    <SwitchPreferenceCompat
+        android:key="@string/pref_speedlimit"
+        android:title="@string/pref_speedlimit_title"
+        android:summary="@string/pref_speedlimit_summary"
+        android:defaultValue="true"
+        android:widgetLayout="@layout/preference_switch"
+        app:singleLineTitle="true"
+        app:icon="@drawable/ic_speed"/>
   </androidx.preference.PreferenceCategory>
 
   <PreferenceCategory

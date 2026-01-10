@@ -1,7 +1,10 @@
 package app.organicmaps.routing;
 
+import static androidx.core.content.ContextCompat.getString;
 import static app.organicmaps.sdk.util.Utils.dimen;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.maplayer.MapButtonsViewModel;
@@ -58,6 +62,8 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private final NavMenu mNavMenu;
   View.OnClickListener mOnSettingsClickListener;
+  private final SharedPreferences sharedPreferences;
+  private final boolean speedLimitEnabled;
 
   private void addWindowsInsets(@NonNull View topFrame)
   {
@@ -72,6 +78,8 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
   public NavigationController(AppCompatActivity activity, View.OnClickListener onSettingsClickListener,
                               NavMenu.OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
+    sharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
+    speedLimitEnabled = sharedPreferences.getBoolean(getString(activity, R.string.pref_speedlimit),true);
     mMapButtonsViewModel = new ViewModelProvider(activity).get(MapButtonsViewModel.class);
 
     mFrame = activity.findViewById(R.id.navigation_frame);
@@ -97,6 +105,16 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
     mSpeedLimit = topFrame.findViewById(R.id.nav_speed_limit);
     mCurrentSpeed = topFrame.findViewById(R.id.nav_current_speed);
+    if (speedLimitEnabled)
+    {
+        UiUtils.show(mSpeedLimit);
+        UiUtils.show(mCurrentSpeed);
+    }
+    else
+    {
+        UiUtils.hide(mSpeedLimit);
+        UiUtils.hide(mCurrentSpeed);
+    }
 
     View mTopbar = topFrame.findViewById(R.id.statutbar);
     ViewCompat.setOnApplyWindowInsetsListener(mTopbar,(v, windowInsets) -> {
@@ -136,7 +154,8 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
     mLanesView.setLanes(info.lanes);
 
-    updateSpeedWidgets(info);
+    if (speedLimitEnabled)
+        updateSpeedWidgets(info);
   }
 
   private void updatePedestrian(@NonNull RoutingInfo info)
@@ -144,7 +163,8 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mNextTurnDistance.setText(Utils.formatDistance(mFrame.getContext(), info.distToTurn));
 
     info.pedestrianTurnDirection.setTurnDrawable(mNextTurnImage);
-    updateSpeedWidgets(info);
+    if (speedLimitEnabled)
+        updateSpeedWidgets(info);
   }
 
   public void updateNorth()
@@ -205,9 +225,22 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mNavMenu.collapseNavBottomSheet();
   }
 
-  public void refresh()
+  public void refresh(Context context, RoutingInfo info)
   {
-    mNavMenu.refreshTts();
+      mNavMenu.refreshTts();
+      if (speedLimitEnabled != sharedPreferences.getBoolean(getString(context, R.string.pref_speedlimit),true)) {
+          if (speedLimitEnabled)
+          {
+              UiUtils.show(mSpeedLimit);
+              UiUtils.show(mCurrentSpeed);
+              updateSpeedWidgets(info);
+          }
+          else
+          {
+              UiUtils.hide(mSpeedLimit);
+              UiUtils.hide(mCurrentSpeed);
+          }
+      }
   }
 
   @Override

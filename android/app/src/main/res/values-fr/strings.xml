@@ -927,4 +927,6 @@
     <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="pref_maplanguage_local">Langue locale</string>
+    <string name="pref_speedlimit_title">Compteur de vitesse</string>
+    <string name="pref_speedlimit_summary">Affichage de la vitesse durant la navigation</string>
 </resources>

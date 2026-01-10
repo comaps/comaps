@@ -45,6 +45,7 @@
   <string name="pref_power" translatable="false">pref_power</string>
   <string name="pref_custom_map_download_url" translatable="false">CustomMapDownloadUrl</string>
   <string name="pref_advanced" translatable="false">pref_advanced</string>
+  <string name="pref_speedlimit" translatable="false">pref_speedlimit</string>
 
   <string name="notification_ticker_ltr" translatable="false">%1$s: %2$s</string>
   <string name="notification_ticker_rtl" translatable="false">%2$s :%1$s</string>
