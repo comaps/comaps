@@ -15,7 +15,7 @@
 + (void)processFirstLaunch:(BOOL)hasLocation {
   auto &f = GetFramework();
   if (!hasLocation)
-    f.SwitchMyPositionNextMode();
+    f.StartPendingPositionMode();
   else
     f.RunFirstLaunchAnimation();
 }

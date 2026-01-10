@@ -1044,11 +1044,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (isFullscreen())
       setFullscreen(false);
 
-    if (LocationState.getMode() == LocationState.NOT_FOLLOW_NO_POSITION)
-    {
-      // Calls onMyPositionModeChanged(PENDING_POSITION).
-      LocationState.nativeSwitchToNextMode();
-    }
+    // Calls onMyPositionModeChanged(PENDING_POSITION).
+    LocationState.nativeStartPendingPositionMode();
 
     MapObject startPoint = MwmApplication.from(this).getLocationHelper().getMyPosition();
     RoutingController.get().prepare(startPoint, endPoint);
@@ -2016,8 +2013,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     {
       final boolean hasFineLocationPermission = LocationUtils.checkFineLocationPermission(this);
 
-      if (LocationState.getMode() == LocationState.NOT_FOLLOW_NO_POSITION)
-        LocationState.nativeSwitchToNextMode();
+      LocationState.nativeStartPendingPositionMode();
 
       if (requestedForRecording && hasFineLocationPermission)
         startTrackRecording();
@@ -2140,11 +2136,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
 
     Logger.i(LOCATION_TAG, "Location resolution has been granted, restarting location");
-    if (LocationState.getMode() == LocationState.NOT_FOLLOW_NO_POSITION)
-    {
-      // Calls onMyPositionModeChanged(PENDING_POSITION).
-      LocationState.nativeSwitchToNextMode();
-    }
+
+    // Calls onMyPositionModeChanged(PENDING_POSITION).
+    LocationState.nativeStartPendingPositionMode();
   }
 
   /**
