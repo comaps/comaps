@@ -398,8 +398,10 @@ Germany;Q183;de;de
   Germany_Baden-Wurttemberg_Regierungsbezirk Stuttgart_Stuttgart;Q8172-Q1022
   Germany_Baden-Wurttemberg_Regierungsbezirk Tubingen;Q8170
  Germany_Berlin;Q64
- Germany_Brandenburg_North;Q1208-North
- Germany_Brandenburg_South;Q1208-South
+ Germany_Brandenburg;Q1208
+  Germany_Brandenburg_North;Q1208-Q1711
+  Germany_Brandenburg_South;Q1208-Q3214
+ Germany_Lower Saxony_Bremen_Bremen;Q1209
  Germany_Free State of Bavaria;Q980
   Germany_Free State of Bavaria_Lower Bavaria;Q10559
   Germany_Free State of Bavaria_Lower Franconia;Q10547
@@ -417,7 +419,6 @@ Germany;Q183;de;de
   Germany_Hesse_Regierungsbezirk Giessen;Q7931
   Germany_Hesse_Regierungsbezirk Kassel;Q7928
  Germany_Lower Saxony;Q1197
-  Germany_Lower Saxony_Bremen_Bremen;Q1209
   Germany_Lower Saxony_Bremen_Munster;Q3920
   Germany_Lower Saxony_Hannover;Q1715
   Germany_Lower Saxony_Braunschweig;Q2773
@@ -434,15 +435,19 @@ Germany;Q183;de;de
   Germany_North Rhine-Westphalia_Regierungsbezirk Koln_Koln;Q7927-Q365
   Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Munster;Q7920-Q2742
   Germany_North Rhine-Westphalia_Regierungsbezirk Munster_Recklinghausen;Q7920-Q3050
- Germany_Rhineland-Palatinate_Koblenz;Q1200-Q3104
- Germany_Rhineland-Palatinate_South;Q1200-Q1720
+ Germany_Rhineland-Palatinate;Q1200
+  Germany_Rhineland-Palatinate_Koblenz;Q1200-Q3104
+  Germany_Rhineland-Palatinate_South;Q1200-Q1720
  Germany_Saarland;Q1201
- Germany_Saxony-Anhalt_Magdeburg;Q1206-Q1733
- Germany_Saxony-Anhalt_Halle;Q1206-Q2814
- Germany_Saxony_Dresden;Q1202-Q1731
- Germany_Saxony_Leipzig;Q1202-Q2079
- Germany_Schleswig-Holstein_Kiel;Q1194-Q1707
- Germany_Schleswig-Holstein_Flensburg;Q1194-Q3798
+ Germany_Saxony-Anhalt;Q1206
+  Germany_Saxony-Anhalt_Magdeburg;Q1206-Q1733
+  Germany_Saxony-Anhalt_Halle;Q1206-Q2814
+ Germany_Saxony;Q1202
+  Germany_Saxony_Dresden;Q1202-Q1731
+  Germany_Saxony_Leipzig;Q1202-Q2079
+ Germany_Schleswig-Holstein;Q1194
+  Germany_Schleswig-Holstein_Kiel;Q1194-Q1707
+  Germany_Schleswig-Holstein_Flensburg;Q1194-Q3798
  Germany_Thuringia;Q1205
 Ghana;Q117;gh;en
 Gibraltar;Q1410;gi;en
