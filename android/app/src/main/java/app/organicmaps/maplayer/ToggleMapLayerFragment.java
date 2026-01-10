@@ -1,24 +1,31 @@
 package app.organicmaps.maplayer;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.maplayer.Mode;
+import app.organicmaps.sdk.util.PowerManagment;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.widget.recycler.SpanningLinearLayoutManager;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.materialswitch.MaterialSwitch;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,6 +43,21 @@ public class ToggleMapLayerFragment extends Fragment
   {
     View mRoot = inflater.inflate(R.layout.fragment_toggle_map_layer, container, false);
 
+    SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
+    final String powerManagementValue = sharedPreferences.getString(ContextCompat.getString(requireContext(), R.string.pref_power_management), String.valueOf(PowerManagment.AUTO));
+    final boolean _3DEnabled = sharedPreferences.getBoolean(ContextCompat.getString(requireContext(), R.string.pref_3d_buildings),true);
+    MaterialSwitch m3DSwitch = mRoot.findViewById(R.id._3d_button);
+    m3DSwitch.setChecked(_3DEnabled);
+    if (!powerManagementValue.equals(String.valueOf(PowerManagment.HIGH)))
+    {
+        m3DSwitch.setEnabled(true);
+        m3DSwitch.setOnCheckedChangeListener((CompoundButton buttonView, boolean isChecked) -> Framework.nativeSet3dMode(true, isChecked));
+        sharedPreferences.edit().putBoolean(getString(R.string.pref_3d), true).apply();
+    }
+    else
+    {
+        m3DSwitch.setEnabled(false);
+    }
     mMapButtonsController =
         (MapButtonsController) requireActivity().getSupportFragmentManager().findFragmentById(R.id.map_buttons);
     MaterialButton mCloseButton = mRoot.findViewById(R.id.close_button);
