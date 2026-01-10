@@ -177,6 +177,10 @@ if (PLATFORM_LINUX OR PLATFORM_WIN)
   set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 endif()
 
+if (NOT APPLE)
+  target_link_libraries(${PROJECT_NAME} monocypher)
+endif()
+
 target_link_libraries(${PROJECT_NAME}
   geometry  # mercator::YToLat
   coding
