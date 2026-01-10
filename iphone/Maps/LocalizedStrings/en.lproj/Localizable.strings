@@ -730,7 +730,7 @@
 "editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
 "editor_comment_hint" = "Comment…";
 "editor_reset_edits_message" = "Discard all local changes?";
-"editor_reset_edits_button" = "Discard";
+"editor_reset_edits_button" = "Discard changes";
 "editor_remove_place_message" = "Delete added place?";
 "editor_remove_place_button" = "Delete";
 "editor_place_doesnt_exist" = "Place does not exist";

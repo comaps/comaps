@@ -1591,3 +1591,4 @@
 "type.natural.tree" = "Strom";
 "type.xmas.tree" = "Vánoční strom";
 "type.man_made.mast.communication" = "Komunikační stožár";
+"type.amenity.hydrant" = "Hydrant na zavlažování";

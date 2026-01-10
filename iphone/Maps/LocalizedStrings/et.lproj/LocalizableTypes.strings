@@ -1585,3 +1585,4 @@
 "type.spherical_buoy.safe_water" = "Faarvaatri kerapoi";
 "type.man_made.mast.communication" = "Sidemast";
 "type.shop.beauty.nails" = "Küünestuudio";
+"type.amenity.hydrant" = "Kastmishüdrant";

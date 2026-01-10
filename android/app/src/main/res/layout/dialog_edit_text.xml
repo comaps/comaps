@@ -14,7 +14,6 @@
     android:textAppearance="@style/MwmTextAppearance.Title" />
   <com.google.android.material.textfield.TextInputLayout
     android:id="@+id/et__input_layout"
-    style="?fontBody1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:hintEnabled="false">

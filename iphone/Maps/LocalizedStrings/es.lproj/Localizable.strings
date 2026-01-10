@@ -63,7 +63,7 @@
 "add_new_set" = "Agregar una lista nueva";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nombre del grupo de marcadores";
+"bookmark_set_name" = "Nombre de la lista de marcadores";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Lista de marcadores";
@@ -256,7 +256,7 @@
 "pref_tts_test_voice_title" = "Probar indicaciones de voz";
 
 /* Title for "Other" section in TTS settings. */
-"pref_tts_other_section_title" = "Otro";
+"pref_tts_other_section_title" = "Otros";
 "pref_map_auto_zoom" = "Auto Zoom";
 "placepage_distance" = "Distancia";
 "search_show_on_map" = "Ver en el mapa";
@@ -605,18 +605,18 @@
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Como está escrito en la lengua local";
 "editor_edit_place_category_title" = "Categoría";
-"whatsnew_editor_message_1" = "Añada lugares nuevos al mapa y edite los existentes directamente desde la aplicación.";
+"whatsnew_editor_message_1" = "Añade lugares nuevos al mapa y edite los existentes directamente desde la aplicación.";
 "dialog_incorrect_feature_position" = "Cambiar ubicación";
 "message_invalid_feature_position" = "No se puede ubicar ningún objeto aquí";
 
 /* Error dialog no space */
-"migration_no_space_message" = "Necesita más espacio para descargar. Elimine los datos innecesarios.";
+"migration_no_space_message" = "Se necesita más espacio para descargar. Elimina los datos innecesarios.";
 "editor_sharing_title" = "He mejorado los mapas de CoMaps";
 
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d de %2$d";
 "download_over_mobile_header" = "¿Descargar con conexión de red móvil?";
-"download_over_mobile_message" = "Podría ser muy caro con ciertos planes o con itinerancia de datos.";
+"download_over_mobile_message" = "Podría ser muy caro con ciertos planes o en itinerancia de datos.";
 "error_enter_correct_house_number" = "Introducir el número de domicilio correcto";
 "editor_storey_number" = "Número de plantas (máx. %d)";
 
@@ -725,7 +725,7 @@
 "mobile_data" = "Internet móvil";
 
 /* NOTE to translators: please synchronize your translation with the English one. */
-"mobile_data_description" = "Se necesita Internet móvil para mostrar información detallada de los lugares, como fotografías, precios y reseñas.";
+"mobile_data_description" = "Se necesita Internet móvil para notificaciones de actualización de mapas y para subir ediciones.";
 "mobile_data_option_never" = "No usar nunca";
 "mobile_data_option_ask" = "Preguntar siempre";
 "traffic_update_maps_text" = "Para mostrar los datos de tráfico, deben actualizarse los mapas.";
@@ -865,12 +865,12 @@
 "dialog_routing_download_files_carplay" = "Para construir una ruta, descargue los mapas faltantes en su dispositivo";
 "dialog_routing_system_error_carplay" = "Ocurrió un error. Reinicie la aplicación";
 "dialog_routing_rebuild_from_current_location_carplay" = "La ruta se reconstruirá desde su ubicación actual";
-"dialog_routing_rebuild_for_vehicle_carplay" = "La ruta se cambiará a coche";
+"dialog_routing_rebuild_for_vehicle_carplay" = "La ruta se cambiará a una de coche";
 "not_all_shown_bookmarks_carplay" = "No se muestran todos los marcadores";
 "switch_to_phone_bookmarks_carplay" = "Cambie al teléfono para ver todos los marcadores";
 "ok" = "Aceptar";
 "speedcams_alert_title_carplay_1" = "Cám.velocidad";
-"speedcams_alert_title_carplay_2" = "Alerta velocidad";
+"speedcams_alert_title_carplay_2" = "Alertas de velocidad";
 "download_map_carplay" = "Descargue los mapas en la aplicación del dispositivo";
 "carplay_roundabout_exit" = "%@ salida";
 
@@ -936,19 +936,19 @@
 "whats_new_auto_update_button_later" = "Actualizar más tarde de forma manual";
 
 /* Delete track button on track edit screen */
-"placepage_delete_track_button" = "Eliminar trayecto";
+"placepage_delete_track_button" = "Eliminar traza";
 
 /* The track deletion confirmaion alert message. */
-"placepage_delete_track_confirmation_alert_message" = "¿Confirma que quiere eliminar este trayecto?";
+"placepage_delete_track_confirmation_alert_message" = "¿Confirma que quiere eliminar esta traza?";
 
 /* Placeholder for track name input on track edit screen */
-"placepage_track_name_hint" = "Nombre del trayecto";
+"placepage_track_name_hint" = "Nombre de la traza";
 
 /* move track or bookmark from the list button text */
 "move" = "Mover";
 
 /* edit track screen title */
-"track_title" = "Trayecto";
+"track_title" = "Traza";
 
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/es/";

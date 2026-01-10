@@ -28,7 +28,7 @@
         android:layout_marginBottom="8dp"
         android:text="@string/aa_connected_title"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textAppearance="@style/TextAppearance.Headline4"
         android:textStyle="bold" />
 
     <com.google.android.material.textview.MaterialTextView
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:text="@string/car_used_on_the_car_screen"
         android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+        android:textAppearance="@style/TextAppearance.Body1" />
   </LinearLayout>
 
   <com.google.android.material.button.MaterialButton

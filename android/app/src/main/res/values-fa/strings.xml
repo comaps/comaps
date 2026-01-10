@@ -25,46 +25,46 @@
     <!-- Location services are disabled by user alert - message -->
     <string name="location_is_disabled_long_text">هم‌اینک، شما همه‌ی سامانه‌های گیاگ‌یابی را برای این دستگاه یا این برنامه ناکارا کرده‌اید. خواهشمند است آن را در پیکربندی‌ها کارا کنید.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="limited_accuracy">دقت محدود</string>
+    <string name="limited_accuracy">نزومان ویمندیگ</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">برای اطمینان از دقیق ناوبری ، موقعیت مکانی دقیق را در تنظیمات فعال کنید</string>
+    <string name="precise_location_is_disabled_long_text">برای آسوده‌دل بودن از نزومانی ناوبری، گیاگ‌یابی نزومان را در پیکربندی کارا کنید</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">نمایش بر روی نقشه</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
-    <string name="country_status_download_failed">دانلود با شکست مواجه شد</string>
+    <string name="country_status_download_failed">بارگیری ناکام بود</string>
     <!-- Button text for the button under the country_status_download_failed message -->
-    <string name="try_again">تلاش مجدد</string>
-    <string name="about_menu_title">CoMaps درباره‌ی</string>
+    <string name="try_again">تلاش دوباره</string>
+    <string name="about_menu_title">درباره CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• آسان برای استفاده و جلا</string>
+    <string name="about_proposition_1">• بکارگیری آسان اود پیراسته</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• حریم خصوصی متمرکز و بدون تبلیغات</string>
+    <string name="about_proposition_2">• حریم خصوصی متمرکز اود بی‌آگهی</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_3">• آفلاین، سریع و جمع و جور</string>
+    <string name="about_proposition_3">• آفلاین، چابک و جمع و جور</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">منبع کاملا باز، نه برای سود، تصمیم گیری شفاف و امور مالی شفاف.</string>
+    <string name="about_developed_by_enthusiasts">ویدابُن بُوَندگ، نه ازبرای سود، وزیریدن اود تیس‌های مالی رو راست.</string>
     <!-- The button that opens system location settings -->
-    <string name="location_settings">تنظیمات مکان</string>
+    <string name="location_settings">پیکربندی‌های گیاگ</string>
     <string name="close">بستن</string>
-    <string name="unsupported_phone">متأسفانه دستگاه شما از آن پشتیبانی نمی‌کندبرنامه برای اجرا به OpenGL نیازمند است.</string>
-    <string name="download">دانلود</string>
+    <string name="unsupported_phone">برنامه به OpenGL نیازمند است.شوربختانه، از دستگاه شما پشتیبانی نمی‌شود.</string>
+    <string name="download">بارگیری</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="not_enough_free_space_on_sdcard">لطفا مقداری از فضای ذخیره‌سازی را آزاد نمایید</string>
-    <string name="download_resources">قبل از استفاده از اپلیکیشن, اجازه دهید تا ما نقشه جهانی را بر روی موبایل شما دانلود کنیم. \nمقدار %s از حافظه شما اشغال می شود.</string>
+    <string name="not_enough_free_space_on_sdcard">لطفا پیش از بکارگیری برنامه، نخست کمی جا در کارت SD/ویر USB آزاد کنید</string>
+    <string name="download_resources">پیش از بکارگیری برنامه, لطفا نقشه پیش‌نمایش جهانی را بر روی دستگاه خویش بارگیری کنید.\nاندازه %s از ویر شما را می‌گیرد.</string>
     <string name="download_resources_continue">برو به نقشه</string>
-    <string name="downloading_country_can_proceed">درحال دانلود %1$s (%2$s). شما اکنون می توانید \nبه نقشه بروید.</string>
-    <string name="download_country_ask">دانلود %1$s؟ (%2$s)</string>
+    <string name="downloading_country_can_proceed">بارگیری می‌شود %1$s (%2$s). شما اکنون می‌توانید\nبه نقشه بروید.</string>
+    <string name="download_country_ask">بارگیری %1$s؟ (%2$s)</string>
     <string name="update_country_ask">بروزرسانی %1$s؟ (%2$s)</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="pause">درنگ</string>
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="continue_button">ادامه</string>
     <!-- Show popup notification on top of the map when country download has failed. -->
-    <string name="download_country_failed">%s دانلود با شکست مواجه شد</string>
+    <string name="download_country_failed">%s بارگیری ناکام بود</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">اضافه کردن مجموعه جدید</string>
+    <string name="add_new_set">افزودن پهرستی نو</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">نشانه‌ها</string>
+    <string name="bookmarks">نشانگ‌ها</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">نشانه‌ها و مسیر ها</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -138,7 +138,7 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">یادداشت‌ها</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">در حال بارگیری نشانه‌ها</string>
+    <string name="load_kmz_title">بارگذاری نشانگ‌ها</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">نشانه‌ها با موفقیت بارگذاری شد!شما می توانید آنها را در نقشه یا بخش مدیریت نشانه‌ها بیابید.</string>
     <!-- Kml file loading failed -->
@@ -778,10 +778,12 @@
     <string name="panoramax">تصویر Panoramax</string>
     <string name="app_site_url">https://comaps.app</string>
     <string name="saved">ذخیره شد</string>
-    <string name="about_headline">رایگان برای همه، ساخته شده با عشق</string>
+    <string name="about_headline">پروژه‌ای باز نیرو گرفته از انجمن</string>
     <string name="pedestrian">پیاده</string>
     <string name="bicycle">دوچرخه</string>
     <string name="backup_interval_every_week">هفتگی</string>
     <string name="backup_interval_manual_only">خاموش (تنها به شیوه دستی)</string>
     <string name="backup_interval_every_day">روزانه</string>
+    <string name="disconnect_usb_cable">برای بکارگیری CoMaps، لطفا USB را بگسلانید یا کارت‌ویر را اندرون گذارید.</string>
+    <string name="bookmark_set_name">نام پهرست نشانگ‌ها</string>
 </resources>

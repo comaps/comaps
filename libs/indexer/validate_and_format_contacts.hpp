@@ -6,6 +6,8 @@
 
 namespace osm
 {
+static int constexpr kMaximumOsmChars = 255;
+
 std::string ValidateAndFormat_website(std::string const & v);
 std::string ValidateAndFormat_facebook(std::string const & v);
 std::string ValidateAndFormat_instagram(std::string const & v);
@@ -24,8 +26,6 @@ bool ValidateLinePage(std::string const & v);
 bool ValidateFediversePage(std::string const & v);
 bool ValidateBlueskyPage(std::string const & v);
 
-bool isSocialContactTag(std::string_view tag);
 bool isSocialContactTag(osm::MapObject::MetadataID const metaID);
-std::string socialContactToURL(std::string_view tag, std::string_view value);
 std::string socialContactToURL(osm::MapObject::MetadataID metaID, std::string_view value);
 }  // namespace osm

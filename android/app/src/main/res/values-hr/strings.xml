@@ -261,4 +261,13 @@
     <string name="dialog_routing_system_error">Sistemska greška</string>
     <string name="dialog_routing_application_error">Nije moguće napraviti rutu zbog greške u aplikaciji</string>
     <string name="dialog_routing_try_again">Pokušajte ponovno</string>
+    <string name="search_not_found_query">Preuzmite regiju u kojoj pretražujete ili pokušajte dodati naziv obližnjeg grada/sela.</string>
+    <string name="search_history_text">Pogledajte svoja nedavna pretraživanja</string>
+    <string name="read_in_wikipedia">Wikipedija</string>
+    <string name="p2p_your_location">Vaša lokacija</string>
+    <string name="p2p_only_from_current">Navigacija je dostupna samo od vaše trenutne lokacije</string>
+    <string name="p2p_reroute_from_current">Želite li isplanirati rutu od vaše trenutne lokacije?</string>
+    <string name="editor_time_add">Dodaj Raspored</string>
+    <string name="editor_time_delete">Izbriši Raspored</string>
+    <string name="editor_time_allday">Cijeli dan (24 sata)</string>
 </resources>

@@ -907,4 +907,10 @@
     <string name="charge_socket_schuko">Domovní EU</string>
     <string name="prefs_speed_cameras_information">Upozornění na radary jsou vypnuty v zemích, kde je tato funkcionalita zakázána místními zákony.</string>
     <string name="navigation_start_tts_message">"Spouštím navigaci, jazyk hlasových instrukcí: "</string>
+    <string name="place_page_map_too_old_title">Mapová data jsou zastaralá</string>
+    <string name="place_page_map_too_old_description">Vaše mapová data jsou velmi stará, doporučujeme je aktualizovat.</string>
+    <string name="place_page_app_too_old_description">Vaše aktuální mapová data jsou velmi stará, aktualizujte prosím aplikaci CoMaps.</string>
+    <string name="place_page_update_too_old_map">Aktualizovat oblast mapy</string>
+    <string name="place_page_too_old_to_edit">Úprava OpenStreetMap je zakázaná, protože mapová data jsou příliš stará.</string>
+    <string name="navigation_start_tts_disabled_message">Hlasové pokyny vypnuty: služba TTS není dostupná</string>
 </resources>

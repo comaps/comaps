@@ -124,6 +124,7 @@ dependencies {
   implementation libs.androidx.lifecycle.process
   implementation libs.androidx.media
   implementation libs.androidx.recyclerview
+  implementation libs.androidx.preference
   implementation libs.android.material
 
   testImplementation libs.junit

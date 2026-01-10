@@ -68,7 +68,7 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Agregar una lista nueva</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nombre del grupo de marcadores</string>
+    <string name="bookmark_set_name">Nombre de la lista de marcadores</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Marcadores</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
@@ -246,7 +246,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Donar</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Apoya el proyecto</string>
+    <string name="how_to_support_us">Apoya y mejora el proyecto CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Derechos de autor</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -914,4 +914,12 @@
     <string name="editor_mark_business_vacant_description">Usa esto si el negocio ya no existe y el local ha quedado vacío para un nuevo inquilino.</string>
     <string name="editor_submit">Enviar</string>
     <string name="power_management">Gestión de energía</string>
+    <string name="place_page_map_too_old_title">Datos del mapa anticuados</string>
+    <string name="place_page_map_too_old_description">Tus datos del mapa están muy anticuados, por favor actualiza el mapa.</string>
+    <string name="place_page_app_too_old_description">Tus datos del mapa están muy anticuados, por favor actualiza la aplicación CoMaps.</string>
+    <string name="place_page_update_too_old_map">Actualizar mapa de la región</string>
+    <string name="place_page_too_old_to_edit">La edición de OpenStreetMap está deshabilitada porque los datos del mapa están muy anticuados.</string>
+    <string name="prefs_speed_cameras_information">Las advertencias de radares de velocidad están deshabilitadas en países donde las alertas están prohibidas por ley.</string>
+    <string name="navigation_start_tts_message">"Iniciando Navegación, idioma de las instrucciones por voz: "</string>
+    <string name="navigation_start_tts_disabled_message">Instrucciones por voz deshabilitadas: Motor de TTS no disponible</string>
 </resources>

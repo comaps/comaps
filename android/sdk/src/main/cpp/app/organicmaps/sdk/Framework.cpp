@@ -1505,6 +1505,22 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeGet3dMode(JNIEnv
   env->SetBooleanField(result, buildingsField, buildings);
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCustomMapDownloadUrl(JNIEnv * env, jclass, 
+                                                                                        jstring url)
+{
+  std::string nativeUrl = jni::ToNativeString(env, url);
+  GetPlatform().SetCustomMapServerUrl(nativeUrl);
+
+  if (g_framework)
+  {
+    frm()->GetStorage().ResetMapDownloadMetaConfig();
+  }
+  else
+  {
+    LOG(LINFO, ("nativeSetCustomMapDownloadUrl: framework not created yet, skipping ResetMapDownloadMetaConfig"));
+  }
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetAutoZoomEnabled(JNIEnv * env, jclass,
                                                                                    jboolean enabled)
 {

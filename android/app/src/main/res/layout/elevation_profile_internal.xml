@@ -17,7 +17,7 @@
       android:layout_marginEnd="@dimen/margin_base"
       android:paddingTop="@dimen/margin_half"
       android:paddingBottom="@dimen/margin_base"
-      android:textAppearance="?fontHeadline6"
+      android:textAppearance="@style/TextAppearance.Headline6"
       tools:text="Xindian Shitoushan Trail" />
     <include
       layout="@layout/item_divider"

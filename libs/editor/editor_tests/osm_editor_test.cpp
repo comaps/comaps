@@ -143,6 +143,7 @@ void CreateCafeAtPoint(m2::PointD const & point, MwmSet::MwmId const & mwmId, os
 
   editor.CreatePoint(classif().GetTypeByPath({"amenity", "cafe"}), point, mwmId, emo);
   emo.SetHouseNumber("12");
+  emo.LogDiffInJournal({});
   TEST_EQUAL(editor.SaveEditedFeature(emo), osm::Editor::SaveResult::SavedSuccessfully, ());
 }
 
@@ -157,6 +158,7 @@ void GenerateUploadedFeature(MwmSet::MwmId const & mwmId, osm::EditableMapObject
   pugi::xml_node created = mwmNode.append_child("create");
 
   editor::XMLFeature xf = editor::ToXML(emo, true);
+  xf.SetEditJournal(emo.GetJournal());
   xf.SetMWMFeatureIndex(emo.GetID().m_index);
   xf.SetModificationTime(time(nullptr));
   xf.SetUploadTime(time(nullptr));
@@ -870,7 +872,7 @@ void EditorTest::CreateNoteTest()
   };
 
   // Should match a piece of text in the editor note.
-  constexpr char const * kPlaceDoesNotExistMessage = "The place has gone or never existed";
+  constexpr char const * kPlaceDoesNotExistMessage = "This place does not exist:";
 
   ForEachCafeAtPoint(m_dataSource, m2::PointD(1.0, 1.0), [&editor, &createAndCheckNote](FeatureType & ft)
   {

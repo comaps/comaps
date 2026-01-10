@@ -1,10 +1,8 @@
-• OpenStreetMap-Daten vom 9. Dezember
-• Material 3 Design
-• Im OSM-Editor können nun Ladestationen hinzugefügt werden
-• Schuko und Typ E Ladestationen hinzugefügt
-• Verbesserte Suchvorschläge
-• Litauische und lettische Sprachankündigungen
-• Die Fahranweisungen wurden vergrößert
-• Der Zoomlevel passt sich an die Distanz zur nächsten Abbiegung an
-• Neue Anordnung der Einstellungen
-Weitere Einzelheiten auf codeberg.org/comaps/comaps/releases
+• OpenStreetMap Daten vom 17. Dezember
+• Map download server nun wählbar
+• Warnung über veraltete Karten hinzugefügt + Knopf zum updaten
+• Vermeidung von Parkplatzwegen im Routing
+• Neuer Zoombutton
+• Verbesserte Französchische Suchsynonme
+• OSM editor: Maximale Länge für OSM-Tags werden nun geprüft
+Mehr auf codeberg.org/comaps/comaps/releases

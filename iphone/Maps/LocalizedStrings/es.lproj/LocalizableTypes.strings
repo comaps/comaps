@@ -162,7 +162,7 @@
 "type.amenity.public_bath" = "Baños públicos";
 "type.amenity.shower" = "Ducha";
 "type.amenity.stripclub" = "Club de estriptis";
-"type.amenity.taxi" = "Sitio de taxis";
+"type.amenity.taxi" = "Parada de taxis";
 "type.amenity.telephone" = "Teléfono";
 "type.amenity.theatre" = "Teatro";
 "type.amenity.toilets" = "WC";
@@ -358,6 +358,7 @@
 "type.emergency.assembly_point" = "Punto de reunión de emergencia";
 "type.emergency.defibrillator" = "Desfibrilador";
 "type.emergency.fire_hydrant" = "Boca de incendio";
+"type.amenity.hydrant" = "Boca de riego";
 "type.emergency.phone" = "Teléfono de emergencias";
 
 /* A place where a lifeguard is on duty. */
@@ -491,7 +492,7 @@
 "type.highway.residential.bridge" = "Puente";
 
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.residential.tunnel" = "Túnel de calle residencial";
+"type.highway.residential.tunnel" = "Túnel";
 "type.highway.rest_area" = "Área de descanso";
 "type.highway.road" = "Carretera";
 
@@ -509,7 +510,7 @@
 "type.highway.secondary.bridge" = "Puente";
 
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.secondary.tunnel" = "Túnel de carretera secundaria";
+"type.highway.secondary.tunnel" = "Túnel";
 "type.highway.secondary_link" = "Enlace de carretera secundaria";
 
 /* These translations are used for all type.highway.*.bridge. */
@@ -778,7 +779,7 @@
 "type.natural.beach.sand" = "Playa de arena";
 "type.natural.beach.gravel" = "Playa de grava";
 "type.natural.cape" = "Cabo";
-"type.natural.cave_entrance" = "Cueva";
+"type.natural.cave_entrance" = "Entrada de cueva";
 "type.natural.cliff" = "Acantilado";
 "type.natural.earth_bank" = "Talud de tierra";
 "type.man_made.embankment" = "Terraplén";
@@ -814,7 +815,7 @@
 "type.natural.wetland.marsh" = "Ciénaga";
 "type.noexit" = "Sin salida";
 "type.office" = "Oficina";
-"type.office.company" = "Oficina";
+"type.office.company" = "Oficina de compañía";
 "type.office.estate_agent" = "Agente inmobiliario";
 "type.office.government" = "Oficina gubernamental";
 "type.office.insurance" = "Oficina de seguros";
@@ -858,13 +859,13 @@
 "type.place.state.USA" = "Estado";
 
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
-"type.place.suburb" = "Barrio";
+"type.place.suburb" = "Suburbio";
 "type.place.town" = "Pueblo";
 "type.place.village" = "Pueblo";
 "type.power" = "Energía";
 "type.power.generator" = "Generador";
 "type.power.generator.solar" = "Generador solar";
-"type.power.generator.wind" = "Generador de viento";
+"type.power.generator.wind" = "Aerogenerador";
 "type.power.generator.gas" = "Planta termoeléctrica de gas";
 "type.power.generator.hydro" = "Planta hidroeléctrica";
 "type.power.line" = "Línea eléctrica";
@@ -946,10 +947,10 @@
 "type.railway.station" = "Estación de tren";
 "type.railway.station.funicular" = "Funicular";
 "type.railway.station.light_rail" = "Estación de tren";
-"type.railway.station.light_rail.berlin" = "Estación de tren";
+"type.railway.station.light_rail.berlin" = "Estación de tren (S-Bahn)";
 "type.railway.station.light_rail.london" = "Estación de tren";
-"type.railway.station.light_rail.porto" = "Estación de tren";
-"type.railway.station.monorail" = "Estación de tren";
+"type.railway.station.light_rail.porto" = "Estación de metro";
+"type.railway.station.monorail" = "Estación de monoriel";
 "type.railway.station.subway" = "Estación de metro";
 "type.railway.station.subway.adana" = "Estación de metro";
 "type.railway.station.subway.algiers" = "Estación de metro";
@@ -1219,7 +1220,7 @@
 "type.shop.doityourself" = "Tienda de bricolaje";
 "type.shop.dry_cleaning" = "Tintorería";
 "type.shop.electronics" = "Electrónica";
-"type.shop.erotic" = "Sex Shop";
+"type.shop.erotic" = "Tienda erótica";
 "type.shop.fabric" = "Tienda de telas";
 "type.shop.farm" = "Tienda de alimentos de granja";
 "type.shop.fashion_accessories" = "Accesorios de moda";
@@ -1305,7 +1306,7 @@
 "type.shop.tobacco" = "Tabaco";
 "type.shop.trade" = "Suministros comerciales";
 "type.shop.watches" = "Relojes";
-"type.shop.wholesale" = "Almacén al por mayor";
+"type.shop.wholesale" = "Tienda al por mayor";
 "type.sport" = "Deporte";
 "type.sport.american_football" = "Fútbol americano";
 "type.sport.archery" = "Tiro al arco";
@@ -1347,7 +1348,7 @@
 
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Albergue de montaña";
-"type.tourism.apartment" = "Apartamento de vacaciones";
+"type.tourism.apartment" = "Apartamento vacacional";
 "type.tourism.artwork" = "Obra de arte";
 "type.tourism.artwork.architecture" = "Arte arquitectónico";
 "type.tourism.artwork.painting" = "Pintura";

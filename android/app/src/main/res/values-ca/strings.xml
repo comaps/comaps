@@ -912,4 +912,12 @@
     <string name="charge_socket_type1">Tipus 1</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="place_page_too_old_to_edit">L\'edició de dades d\'OpenStreetMap està deshabilitada perquè les dades del mapa són massa antigues.</string>
+    <string name="place_page_map_too_old_title">Dades del mapa desactualitzades</string>
+    <string name="place_page_map_too_old_description">Les teves dades de mapa son molt antigues, per favor actualitza el mapa.</string>
+    <string name="place_page_app_too_old_description">Les teues dades del mapa son molt antigues, per favor actualitza l\'app de CoMaps.</string>
+    <string name="place_page_update_too_old_map">Actualitzar regió del mapa</string>
+    <string name="prefs_speed_cameras_information">Les advertències de càmeres radar estan deshabilitades als països on estan prohibides per llei.</string>
+    <string name="navigation_start_tts_message">"Iniciant Navegació, idioma d\'instruccions de veu: "</string>
+    <string name="navigation_start_tts_disabled_message">Instruccions de veu desactivades: motor TTS no disponible</string>
 </resources>

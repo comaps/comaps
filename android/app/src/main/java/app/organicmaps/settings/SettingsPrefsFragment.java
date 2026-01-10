@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -18,9 +20,14 @@ import androidx.preference.ListPreference;
 import androidx.preference.MultiSelectListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
+import androidx.preference.PreferenceManager;
 import androidx.preference.TwoStatePreference;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.dialog.CustomMapServerDialog;
 import app.organicmaps.downloader.OnmapDownloader;
 import app.organicmaps.editor.LanguagesFragment;
 import app.organicmaps.editor.ProfileActivity;
@@ -44,7 +51,6 @@ import app.organicmaps.sdk.util.log.LogsManager;
 import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
 
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -87,6 +93,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initScreenSleepEnabledPrefsCallbacks();
     initShowOnLockScreenPrefsCallbacks();
     initLeftButtonPrefs();
+    initCustomMapDownloadUrlPrefsCallbacks();
   }
 
   private void initLeftButtonPrefs()
@@ -672,6 +679,34 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
         Config.setShowOnLockScreenEnabled(newVal);
         Utils.showOnLockScreen(newVal, requireActivity());
       }
+      return true;
+    });
+  }
+
+  private void initCustomMapDownloadUrlPrefsCallbacks()
+  {
+    Preference customUrlPref = getPreference(getString(R.string.pref_custom_map_download_url));
+
+    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(requireContext());
+
+    String current = prefs.getString(getString(R.string.pref_custom_map_download_url), "");
+    String normalizedUrl = Framework.normalizeServerUrl(current);
+
+    // Initial summary
+    customUrlPref.setSummary(normalizedUrl.isEmpty()
+        ? getString(R.string.download_resources_custom_url_summary_none)
+        : normalizedUrl);
+
+    // Sync native
+    Framework.applyCustomMapDownloadUrl(requireContext(), normalizedUrl);
+
+    // Show dialog
+    customUrlPref.setOnPreferenceClickListener(preference -> {
+      CustomMapServerDialog.show(requireContext(), url -> {
+        preference.setSummary(url.isEmpty()
+            ? getString(R.string.download_resources_custom_url_summary_none)
+            : url);
+      });
       return true;
     });
   }

@@ -1500,4 +1500,5 @@
     <string name="type.shop.beauty.nails">Nagelsalon</string>
     <string name="type.amenity.food_sharing">Voedsel delen</string>
     <string name="type.amenity.give_box">Giftenkist</string>
+    <string name="type.amenity.hydrant">Watertappunt|waterkraan</string>
 </resources>

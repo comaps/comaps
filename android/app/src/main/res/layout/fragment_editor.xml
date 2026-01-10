@@ -402,11 +402,13 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_half"
             android:fontFamily="@string/robotoMedium"
             android:text="@string/editor_other_info"
             android:textAppearance="@style/MwmTextAppearance.Body3"/>
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/custom_input"
+            android:layout_marginBottom="@dimen/margin_quarter"
             style="@style/MwmWidget.Editor.CustomTextInput"
             android:gravity="center_vertical"
             android:minHeight="74dp"
@@ -416,6 +418,7 @@
               android:id="@+id/input"
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
               android:inputType="textMultiLine"
+              android:gravity="top"
               android:hint="@string/editor_note_hint"/>
         </com.google.android.material.textfield.TextInputLayout>
       </LinearLayout>

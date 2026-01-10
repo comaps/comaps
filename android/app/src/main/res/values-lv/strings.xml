@@ -845,4 +845,12 @@
     <string name="closed_now">Šobrīd slēgts</string>
     <string name="avoid_paved">Izvairīties no ceļiem ar cietu mākslīgo segumu</string>
     <string name="editor_submit">Iesniegt</string>
+    <string name="place_page_map_too_old_title">Novecojuši kartes dati</string>
+    <string name="place_page_map_too_old_description">Pašreizējie kartes dati ir ļoti veci, lūgums atjaunināt karti.</string>
+    <string name="place_page_app_too_old_description">Pašreizējie kartes dati ir ļoti veci, lūgums atjaunināt CoMaps lietotni.</string>
+    <string name="place_page_update_too_old_map">Atjaunināt karšu apgabalu</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap labošana ir atspējota, jo kartes dati ir pārāk veci.</string>
+    <string name="navigation_start_tts_disabled_message">Balss norādes atspējotas: nav pieejams teksta pārveidošanas runā dzinējs</string>
+    <string name="prefs_speed_cameras_information">Brīdinājumi par ātruma noteikšanas kamerā ir atspējoti valstīs, kurās šādus brīdinājumus aizliedz vietējais likums.</string>
+    <string name="navigation_start_tts_message">"Uzsāk navigāciju, balss norāžu valoda: "</string>
 </resources>

@@ -910,4 +910,9 @@
     <string name="navigation_start_tts_message">"Navigatie starten, taal voor steminstructie: "</string>
     <string name="prefs_speed_cameras_information">Waarschuwingen voor flitsers zijn uitgeschakeld in landen waar deze wettelijk zijn verboden.</string>
     <string name="navigation_start_tts_disabled_message">Spraakinstructies uitgeschakeld: TTS-engine niet beschikbaar</string>
+    <string name="place_page_map_too_old_title">Kaartgegevens verouderd</string>
+    <string name="place_page_map_too_old_description">Uw huidige kaartgegevens zijn erg oud. Werk de kaart bij.</string>
+    <string name="place_page_app_too_old_description">Uw huidige kaartgegevens zijn erg oud. Update de CoMaps-app.</string>
+    <string name="place_page_update_too_old_map">Kaart regio bijwerken</string>
+    <string name="place_page_too_old_to_edit">Het bewerken van OpenStreetMap is uitgeschakeld omdat de kaartgegevens te oud zijn.</string>
 </resources>

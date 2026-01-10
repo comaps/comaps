@@ -1501,4 +1501,5 @@
     <string name="type.natural.tree">Árvore</string>
     <string name="type.shop.beauty.nails">Salão de Unhas</string>
     <string name="type.xmas.tree">Árvore de Natal</string>
+    <string name="type.amenity.hydrant">Boca de Rega</string>
 </resources>

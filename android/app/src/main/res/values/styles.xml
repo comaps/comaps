@@ -139,12 +139,13 @@
     <item name="cornerSize">50%</item>
   </style>
 
-  <style name="MwmWidget.ToolbarStyle" parent="ThemeOverlay.Material3.Dark.ActionBar">
+  <style name="MwmWidget.ToolbarStyle" parent="Widget.Material3.Toolbar">
     <item name="android:background">?colorPrimary</item>
     <item name="android:displayOptions">homeAsUp|showTitle</item>
     <item name="contentInsetStart">0dp</item>
     <item name="android:titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title</item>
     <item name="titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title</item>
+    <item name="buttonGravity">center_vertical</item>
   </style>
 
   <style name="MwmWidget.ToolbarStyle.Light">
@@ -424,4 +425,17 @@
     <item name="android:maxWidth">@dimen/map_buttons_bottom_max_width</item>
     <item name="android:padding">@dimen/nav_frame_padding</item>
   </style>
+
+    <style name="ShapeAppearance.MapButton.Zoom.Plus" parent="">
+        <item name="cornerSizeTopLeft">10%</item>
+        <item name="cornerSizeTopRight">10%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+        <item name="cornerSizeBottomLeft">50%</item>
+    </style>
+    <style name="ShapeAppearance.MapButton.Zoom.Minus" parent="">
+        <item name="cornerSizeBottomLeft">10%</item>
+        <item name="cornerSizeBottomRight">10%</item>
+        <item name="cornerSizeTopLeft">50%</item>
+        <item name="cornerSizeTopRight">50%</item>
+    </style>
 </resources>

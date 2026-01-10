@@ -680,7 +680,7 @@
 "editor_edits_sent_message" = "Notatet ditt vil bli sendt til OpenStreetMap";
 "editor_comment_hint" = "Kommentar…";
 "editor_reset_edits_message" = "Forkaste alle lokale endringer?";
-"editor_reset_edits_button" = "Forkast";
+"editor_reset_edits_button" = "Forkast endringer";
 "editor_remove_place_message" = "Slette tillagt sted?";
 "editor_remove_place_button" = "Slett";
 "editor_place_doesnt_exist" = "Sted finnes ikke";

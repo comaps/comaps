@@ -25,7 +25,7 @@
 "core_my_position" = "Мое местоположение";
 
 /* Update maps later button text */
-"later" = "Не сейчас";
+"later" = "Позже";
 
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Поиск";
@@ -700,7 +700,7 @@
 "editor_share_to_all_dialog_title" = "Отправить всем пользователям?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Убедитесь, что вы не ввели личные данные.";
+"editor_share_to_all_dialog_message_1" = "Убедитесь, что вы не указали никаких личных данных.";
 "editor_share_to_all_dialog_message_2" = "Редакторы OpenStreetMap проверят изменения и свяжутся с вами, если у них возникнут вопросы.";
 "navigation_stop_button" = "Cтоп";
 

@@ -134,6 +134,8 @@ TagMapping const kDefaultTagMapping = {
     {OsmElement::Tag("access", "agricultural"), RoadAccess::Type::Private},
     {OsmElement::Tag("access", "forestry"), RoadAccess::Type::Private},
     {OsmElement::Tag("locked", "yes"), RoadAccess::Type::Locked},
+    {OsmElement::Tag("service", "parking_aisle"), RoadAccess::Type::Private},
+    {OsmElement::Tag("amenity", "parking_entrance"), RoadAccess::Type::Private},
 };
 
 // Removed secondary, tertiary from car list. Example https://www.openstreetmap.org/node/8169922700

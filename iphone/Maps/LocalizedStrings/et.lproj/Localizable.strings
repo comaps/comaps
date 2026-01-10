@@ -681,7 +681,7 @@
 "editor_edits_sent_message" = "Sinu märkus saadetakse OpenStreetMapile";
 "editor_comment_hint" = "Kommenteeri…";
 "editor_reset_edits_message" = "Kas loobud kõigist kohalikest muudatustest?";
-"editor_reset_edits_button" = "Loobu";
+"editor_reset_edits_button" = "Loobu muudatustest";
 "editor_remove_place_message" = "Kas kustutad lisatud koha?";
 "editor_remove_place_button" = "Kustuta";
 "editor_place_doesnt_exist" = "Kohta pole olemas";

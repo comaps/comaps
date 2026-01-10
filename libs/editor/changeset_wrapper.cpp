@@ -34,7 +34,7 @@ std::string_view constexpr kVowels = "aeiouy";
 
 std::string_view constexpr kMainTags[] = {"amenity", "shop",     "tourism",  "historic", "craft",      "emergency",
                                           "barrier", "highway",  "office",   "leisure",  "waterway",   "natural",
-                                          "place",   "entrance", "building", "man_made", "healthcare", "attraction"};
+                                          "place",   "entrance", "man_made", "healthcare", "attraction"};
 
 std::string GetTypeForFeature(editor::XMLFeature const & node)
 {
@@ -46,7 +46,7 @@ std::string GetTypeForFeature(editor::XMLFeature const & node)
       std::string value = node.GetTagValue(key);
       if (value == "yes")
         return std::string{key};
-      else if (key == "shop" || key == "office" || key == "building" || key == "entrance" || key == "attraction")
+      else if (key == "shop" || key == "office" || key == "entrance" || key == "attraction")
         return value.append(" ").append(key);  // "convenience shop"
       else if (!value.empty() && value.back() == 's')
         // Remove 's' from the tail: "toilets" -> "toilet".
@@ -59,6 +59,12 @@ std::string GetTypeForFeature(editor::XMLFeature const & node)
 
   if (node.HasTag("disused:shop") || node.HasTag("disused:amenity"))
     return "vacant business";
+
+  if (node.HasTag("building"))
+  {
+    std::string value = node.GetTagValue("building");
+    return value == "yes" ? "building" : value.append(" building");
+  }
 
   if (node.HasTag("addr:housenumber") || node.HasTag("addr:street") || node.HasTag("addr:postcode"))
     return "address";
@@ -243,14 +249,11 @@ void ChangesetWrapper::Modify(editor::XMLFeature node)
 
 void ChangesetWrapper::AddChangesetTag(std::string key, std::string value)
 {
-  value = strings::EscapeForXML(value);
+  // Truncate to 254 characters as OSM has a length limit of 255
+  if (strings::Truncate(value, kMaximumOsmChars))
+    value += "…";
 
-  //OSM has a length limit of 255 characters
-  if (value.length() > kMaximumOsmChars)
-  {
-    LOG(LWARNING, ("value is too long for OSM 255 char limit: ", value));
-    value = value.substr(0, kMaximumOsmChars - 3).append("...");
-  }
+  value = strings::EscapeForXML(value);
 
   m_changesetComments.insert_or_assign(std::move(key), std::move(value));
 }

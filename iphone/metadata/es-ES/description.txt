@@ -2,7 +2,7 @@ Una aplicación de mapas gratuita y de código abierto, liderada por la comunida
 
 ‣ Simple y elegante: funciones esenciales, fáciles de usar y que simplemente funcionan.
 ‣ Funciona sin conexión: Planifica y navega tu viaje al extranjero sin necesidad de cobertura móvil, busca puntos de referencia durante una excursión, etc. Todas las funciones de la aplicación están diseñadas para funcionar sin conexión.
-‣ Respeto a la privacidad: La aplicación está diseñada pensando en la privacidad: no identifica a las personas, no rastrea ni recopila información personal. Sin anuncios.
+‣ Respeto a la privacidad: La aplicación está diseñada pensando en la privacidad, no identifica a las personas, no rastrea ni recopila información personal. Sin anuncios.
 ‣ Ahorra batería y espacio: No consume mucha batería como otras aplicaciones de navegación. Los mapas compactos ahorran el valioso espacio en tu teléfono.
 ‣ Gratuita y desarrollada por la comunidad: Personas como tú ayudaron a desarrollar la aplicación añadiendo lugares a OpenStreetMap, probando y compartiendo sus comentarios sobre las funciones, y aportando sus habilidades de desarrollo y su dinero.
 ‣ Toma de decisiones y finanzas abiertas y transparentes, sin fines de lucro y totalmente de código abierto.

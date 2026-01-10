@@ -66,6 +66,9 @@ public:
   void SetDownloadingPolicy(DownloadingPolicy * policy);
   void SetDataVersion(int64_t version) { m_dataVersion = version; }
 
+  /// Reset after changes, e.g. map download URL.
+  void ResetMetaConfig();
+
   /// @name Legacy functions for Android resources downloading routine (initial World download).
   /// @{
   void EnsureMetaConfigReady(std::function<void()> && callback);

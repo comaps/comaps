@@ -116,6 +116,9 @@ fi
 echo "Generating search categories / synonyms..."
 ./tools/unix/generate_categories.sh
 
+echo "Generating Desktop UI strings..."
+./tools/unix/generate_desktop_ui_strings.sh
+
 if [ -z "$SKIP_GENERATE_SYMBOLS" ]; then
   if Diff data/symbols_hash data/styles/*/*/symbols/* || [ ! -z "$SYMBOLS_NOT_GENERATED" ]; then
     echo "Generating symbols..."

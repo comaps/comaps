@@ -1399,4 +1399,5 @@
     <string name="type.amenity.ranger_station">Orman Bekçisi</string>
     <string name="type.amenity.bench.backless">Sırtı Açık Bank</string>
     <string name="type.amenity.charging_station.motorcar.small">Araç Şarj Noktası</string>
+    <string name="type.amenity.sailing_school">Denizcilik Okulu</string>
 </resources>

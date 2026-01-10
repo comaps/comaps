@@ -160,7 +160,7 @@
     <string name="type.amenity.public_bath">Baños públicos</string>
     <string name="type.amenity.shower">Ducha</string>
     <string name="type.amenity.stripclub">Club de estriptis</string>
-    <string name="type.amenity.taxi">Sitio de taxis</string>
+    <string name="type.amenity.taxi">Parada de taxis</string>
     <string name="type.amenity.telephone">Teléfono</string>
     <string name="type.amenity.theatre">Teatro</string>
     <string name="type.amenity.toilets">WC</string>
@@ -351,6 +351,7 @@
     <string name="type.emergency.assembly_point">Punto de reunión de emergencia</string>
     <string name="type.emergency.defibrillator">Desfibrilador</string>
     <string name="type.emergency.fire_hydrant">Boca de incendio</string>
+    <string name="type.amenity.hydrant">Boca de riego</string>
     <string name="type.emergency.phone">Teléfono de emergencias</string>
     <!-- A place where a lifeguard is on duty. -->
     <string name="type.emergency.lifeguard">Socorrista</string>
@@ -454,7 +455,7 @@
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.residential.bridge">Puente</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.residential.tunnel">Túnel de calle residencial</string>
+    <string name="type.highway.residential.tunnel">Túnel</string>
     <string name="type.highway.rest_area">Área de descanso</string>
     <string name="type.highway.road">Carretera</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -467,7 +468,7 @@
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary.bridge">Puente</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.secondary.tunnel">Túnel de carretera secundaria</string>
+    <string name="type.highway.secondary.tunnel">Túnel</string>
     <string name="type.highway.secondary_link">Enlace de carretera secundaria</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary_link.bridge">Puente</string>
@@ -706,7 +707,7 @@
     <string name="type.natural.beach.sand">Playa de arena</string>
     <string name="type.natural.beach.gravel">Playa de grava</string>
     <string name="type.natural.cape">Cabo</string>
-    <string name="type.natural.cave_entrance">Cueva</string>
+    <string name="type.natural.cave_entrance">Entrada de cueva</string>
     <string name="type.natural.cliff">Acantilado</string>
     <string name="type.natural.earth_bank">Talud de tierra</string>
     <string name="type.man_made.embankment">Terraplén</string>
@@ -742,7 +743,7 @@
     <string name="type.natural.wetland.marsh">Ciénaga</string>
     <string name="type.noexit">Sin salida</string>
     <string name="type.office">Oficina</string>
-    <string name="type.office.company">Oficina</string>
+    <string name="type.office.company">Oficina de compañía</string>
     <string name="type.office.estate_agent">Agente inmobiliario</string>
     <string name="type.office.government">Oficina gubernamental</string>
     <string name="type.office.insurance">Oficina de seguros</string>
@@ -783,13 +784,13 @@
     <string name="type.place.state">Estado</string>
     <string name="type.place.state.USA">Estado</string>
     <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
-    <string name="type.place.suburb">Barrio</string>
+    <string name="type.place.suburb">Suburbio</string>
     <string name="type.place.town">Pueblo</string>
     <string name="type.place.village">Pueblo</string>
     <string name="type.power">Energía</string>
     <string name="type.power.generator">Generador</string>
     <string name="type.power.generator.solar">Generador solar</string>
-    <string name="type.power.generator.wind">Generador de viento</string>
+    <string name="type.power.generator.wind">Aerogenerador</string>
     <string name="type.power.generator.gas">Planta termoeléctrica de gas</string>
     <string name="type.power.generator.hydro">Planta hidroeléctrica</string>
     <string name="type.power.line">Línea eléctrica</string>
@@ -848,10 +849,10 @@
     <string name="type.railway.station">Estación de tren</string>
     <string name="type.railway.station.funicular">Funicular</string>
     <string name="type.railway.station.light_rail">Estación de tren</string>
-    <string name="type.railway.station.light_rail.berlin">Estación de tren</string>
+    <string name="type.railway.station.light_rail.berlin">Estación de tren (S-Bahn)</string>
     <string name="type.railway.station.light_rail.london">Estación de tren</string>
-    <string name="type.railway.station.light_rail.porto">Estación de tren</string>
-    <string name="type.railway.station.monorail">Estación de tren</string>
+    <string name="type.railway.station.light_rail.porto">Estación de metro</string>
+    <string name="type.railway.station.monorail">Estación de monoriel</string>
     <string name="type.railway.station.subway">Estación de metro</string>
     <string name="type.railway.station.subway.adana">Estación de metro</string>
     <string name="type.railway.station.subway.algiers">Estación de metro</string>
@@ -1121,7 +1122,7 @@
     <string name="type.shop.doityourself">Tienda de bricolaje</string>
     <string name="type.shop.dry_cleaning">Tintorería</string>
     <string name="type.shop.electronics">Electrónica</string>
-    <string name="type.shop.erotic">Sex Shop</string>
+    <string name="type.shop.erotic">Tienda erótica</string>
     <string name="type.shop.fabric">Tienda de telas</string>
     <string name="type.shop.farm">Tienda de alimentos de granja</string>
     <string name="type.shop.fashion_accessories">Accesorios de moda</string>
@@ -1206,7 +1207,7 @@
     <string name="type.shop.tobacco">Tabaco</string>
     <string name="type.shop.trade">Suministros comerciales</string>
     <string name="type.shop.watches">Relojes</string>
-    <string name="type.shop.wholesale">Almacén al por mayor</string>
+    <string name="type.shop.wholesale">Tienda al por mayor</string>
     <string name="type.sport">Deporte</string>
     <string name="type.sport.american_football">Fútbol americano</string>
     <string name="type.sport.archery">Tiro al arco</string>
@@ -1246,7 +1247,7 @@
     <string name="type.tourism.aquarium">Acuario</string>
     <!-- Typically serviced, staff is present and food is available (compared to wilderness_hut). -->
     <string name="type.tourism.alpine_hut">Albergue de montaña</string>
-    <string name="type.tourism.apartment">Apartamento de vacaciones</string>
+    <string name="type.tourism.apartment">Apartamento vacacional</string>
     <string name="type.tourism.artwork">Obra de arte</string>
     <string name="type.tourism.artwork.architecture">Arte arquitectónico</string>
     <string name="type.tourism.artwork.painting">Pintura</string>

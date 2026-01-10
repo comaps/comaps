@@ -898,4 +898,12 @@
     <string name="avoid_paved">Evita le strade asfaltate</string>
     <string name="charge_socket_schuko">Domestico EU</string>
     <string name="power_management">Risparmio energetico</string>
+    <string name="place_page_too_old_to_edit">La modifica di OpenStreetMap è disabilitata perché le mappe sono troppo vecchie.</string>
+    <string name="place_page_update_too_old_map">Aggiorna questa mappa</string>
+    <string name="place_page_app_too_old_description">Le mappe correnti sono molto vecchie, si suggerisce di aggiornare CoMaps.</string>
+    <string name="place_page_map_too_old_description">La mappa corrente è molto vecchia, si suggerisce di aggiornarla.</string>
+    <string name="place_page_map_too_old_title">Mappa obsoleta</string>
+    <string name="navigation_start_tts_disabled_message">Istruzioni vocali disabilitate: TTS non disponibile</string>
+    <string name="prefs_speed_cameras_information">Gli avvisi di Autovelox sono disabilitati dove proibito dalla legge locale.</string>
+    <string name="navigation_start_tts_message">"Inizio Navigazione, lingua per istruzioni vocali: "</string>
 </resources>

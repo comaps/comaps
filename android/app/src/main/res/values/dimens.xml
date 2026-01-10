@@ -119,7 +119,7 @@
   <dimen name="nav_menu_landscape_width">360dp</dimen>
 
   <dimen name="nav_frame_padding">@dimen/margin_half</dimen>
-  <dimen name="zoom_buttons_margin">64dp</dimen>
+  <dimen name="zoom_buttons_margin">58dp</dimen>
   <dimen name="map_buttons_bottom_margin">136dp</dimen>
   <dimen name="map_buttons_bottom_max_width">300dp</dimen>
 
@@ -130,7 +130,6 @@
   <!-- Editor -->
   <dimen name="editor_height_days">72dp</dimen>
   <dimen name="editor_height_closed">72dp</dimen>
-  <dimen name="editor_height_allday">56dp</dimen>
   <dimen name="editor_height_field">64dp</dimen>
   <dimen name="editor_margin_left">56dp</dimen>
   <dimen name="editor_auth_btn_height">@dimen/primary_button_min_height</dimen>

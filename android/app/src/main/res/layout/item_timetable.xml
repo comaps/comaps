@@ -147,12 +147,12 @@
     <LinearLayout
       android:id="@+id/allday"
       android:layout_width="match_parent"
-      android:layout_height="@dimen/editor_height_allday"
+      android:layout_height="wrap_content"
       android:layout_gravity="center_vertical"
       android:background="?clickableBackground"
       android:gravity="center_vertical"
       android:orientation="horizontal"
-      android:padding="@dimen/margin_half_plus">
+      android:padding="@dimen/margin_half">
 
       <com.google.android.material.textview.MaterialTextView
         android:layout_width="0dp"
@@ -164,7 +164,8 @@
       <com.google.android.material.materialswitch.MaterialSwitch
         android:id="@+id/sw__allday"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_quarter"/>
 
     </LinearLayout>
 

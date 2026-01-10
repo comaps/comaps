@@ -11,14 +11,14 @@
     style="@style/MwmWidget.M3.FAB.MapButton.Zoom"
     android:tint="?iconTint"
     app:srcCompat="@drawable/ic_plus"
-    app:shapeAppearance="@style/Widget.MaterialComponents.FloatingActionButton"
-    android:layout_marginBottom="@dimen/margin_half"
+    app:shapeAppearanceOverlay="@style/ShapeAppearance.MapButton.Zoom.Minus"
+    android:layout_marginBottom="@dimen/margin_eighth"
     android:contentDescription="@string/zoom_in"/>
   <com.google.android.material.floatingactionbutton.FloatingActionButton
     android:id="@+id/nav_zoom_out"
     style="@style/MwmWidget.M3.FAB.MapButton.Zoom"
     android:tint="?iconTint"
     app:srcCompat="@drawable/ic_minus"
-    app:shapeAppearance="@style/Widget.MaterialComponents.FloatingActionButton"
+    app:shapeAppearanceOverlay="@style/ShapeAppearance.MapButton.Zoom.Plus"
     android:contentDescription="@string/zoom_out"/>
 </LinearLayout>

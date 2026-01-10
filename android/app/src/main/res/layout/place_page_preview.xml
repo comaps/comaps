@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_half_plus"
         android:layout_marginBottom="@dimen/margin_quarter"
-        android:background="?attr/selectableItemBackground"
+        android:background="?selectableItemBackground"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingStart="@dimen/margin_quarter"

@@ -1591,3 +1591,4 @@
 "type.shop.beauty.nails" = "Nagelsalon";
 "type.amenity.food_sharing" = "Voedsel delen";
 "type.amenity.give_box" = "Giftenkist";
+"type.amenity.hydrant" = "Watertappunt|waterkraan";

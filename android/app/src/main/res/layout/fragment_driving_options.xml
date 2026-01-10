@@ -2,7 +2,7 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:background="?attr/cardBackground"
+  android:background="?cardBackground"
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
@@ -11,7 +11,6 @@
     style="@style/MwmWidget.ToolbarStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?colorPrimary"
     android:gravity="end|center_vertical"
     android:theme="@style/MwmWidget.ToolbarTheme">
   </com.google.android.material.appbar.MaterialToolbar>

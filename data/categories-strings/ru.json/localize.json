@@ -199,7 +199,7 @@
 "place-state": "Штат|провинция",
 "place-region": "Район",
 "place-island|place-islet": "Остров",
-"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|микрорайон|квартал|Жилая зона",
+"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|микрорайон|квартал|Жилая зона|Жилой комплекс|ж.к.|ЖК",
 "place-hamlet": "Посёлок|деревня",
 "place-village": "Деревня|поселок",
 "place-locality": "Местность|регион",

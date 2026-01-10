@@ -45,7 +45,7 @@
     android:paddingStart="0dp"
     android:paddingEnd="@dimen/altitude_chart_container_padding_left">
 
-    <View
+    <com.google.android.material.divider.MaterialDivider
       android:layout_width="match_parent"
       android:layout_height="@dimen/divider_height"
       android:background="?dividerHorizontal"/>

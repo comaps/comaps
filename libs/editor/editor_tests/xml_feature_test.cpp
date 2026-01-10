@@ -115,6 +115,42 @@ UNIT_TEST(XMLFeature_UintLang)
   TEST_EQUAL(f2.GetName("int_name"), "Gorky Park", ());
 }
 
+UNIT_TEST(XMLFeature_SetOSMTagsForType)
+{
+  XMLFeature restaurantFeature(XMLFeature::Type::Node);
+  restaurantFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("amenity-restaurant"));
+  ASSERT(restaurantFeature.HasTag("amenity"), ());
+  TEST_EQUAL(restaurantFeature.GetTagValue("amenity"), "restaurant", ());
+
+  XMLFeature officeFeature(XMLFeature::Type::Node);
+  officeFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("office"));
+  ASSERT(officeFeature.HasTag("office"), ());
+  TEST_EQUAL(officeFeature.GetTagValue("office"), "yes", ());
+
+  XMLFeature touristOfficeFeature(XMLFeature::Type::Node);
+  touristOfficeFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("tourism-information-office"));
+  ASSERT(touristOfficeFeature.HasTag("tourism"), ());
+  TEST_EQUAL(touristOfficeFeature.GetTagValue("tourism"), "information", ());
+
+  XMLFeature addressFeature(XMLFeature::Type::Node);
+  addressFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("building-address"));
+  ASSERT(!addressFeature.HasAnyTags(), ("Addresses should not have a category tag"));
+
+  XMLFeature recyclingCenterFeature(XMLFeature::Type::Node);
+  recyclingCenterFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("amenity-recycling-centre"));
+  ASSERT(recyclingCenterFeature.HasTag("amenity"), ());
+  TEST_EQUAL(recyclingCenterFeature.GetTagValue("amenity"), "recycling", ());
+  ASSERT(recyclingCenterFeature.HasTag("recycling_type"), ());
+  TEST_EQUAL(recyclingCenterFeature.GetTagValue("recycling_type"), "centre", ());
+
+  XMLFeature recyclingContainerFeature(XMLFeature::Type::Node);
+  recyclingContainerFeature.SetOSMTagsForType(classif().GetTypeByReadableObjectName("amenity-recycling-container"));
+  ASSERT(recyclingContainerFeature.HasTag("amenity"), ());
+  TEST_EQUAL(recyclingContainerFeature.GetTagValue("amenity"), "recycling", ());
+  ASSERT(recyclingContainerFeature.HasTag("recycling_type"), ());
+  TEST_EQUAL(recyclingContainerFeature.GetTagValue("recycling_type"), "container", ());
+}
+
 UNIT_TEST(XMLFeature_ToOSMString)
 {
   XMLFeature feature(XMLFeature::Type::Node);
@@ -267,104 +303,52 @@ UNIT_TEST(XMLFeature_Geometry)
   TEST_EQUAL(feature.GetGeometry(), geometry, ());
 }
 
-UNIT_TEST(XMLFeature_ApplyPatch)
-{
-  auto const kOsmFeature = R"(<?xml version="1.0"?>
-  <osm>
-  <node id="1" lat="1" lon="2" timestamp="2015-11-27T21:13:32Z" version="1">
-    <tag k="amenity" v="cafe"/>
-  </node>
-  </osm>
-  )";
-
-  auto const kPatch = R"(<?xml version="1.0"?>
-  <node lat="1" lon="2" timestamp="2015-11-27T21:13:32Z">
-    <tag k="website" v="maps.me"/>
-  </node>
-  )";
-
-  XMLFeature const baseOsmFeature = XMLFeature::FromOSM(kOsmFeature).front();
-
-  {
-    XMLFeature noAnyTags = baseOsmFeature;
-    noAnyTags.ApplyPatch(XMLFeature(kPatch));
-    TEST(noAnyTags.HasKey("website"), ());
-  }
-
-  {
-    XMLFeature hasMainTag = baseOsmFeature;
-    hasMainTag.SetTagValue("website", "mapswith.me");
-    hasMainTag.ApplyPatch(XMLFeature(kPatch));
-    TEST_EQUAL(hasMainTag.GetTagValue("website"), "maps.me", ());
-    size_t tagsCount = 0;
-    hasMainTag.ForEachTag([&tagsCount](std::string const &, std::string const &) { ++tagsCount; });
-    TEST_EQUAL(2, tagsCount, ("website should be replaced, not duplicated."));
-  }
-
-  {
-    XMLFeature hasAltTag = baseOsmFeature;
-    hasAltTag.SetTagValue("contact:website", "mapswith.me");
-    hasAltTag.ApplyPatch(XMLFeature(kPatch));
-    TEST(!hasAltTag.HasTag("website"), ("Existing alt tag should be used."));
-    TEST_EQUAL(hasAltTag.GetTagValue("contact:website"), "maps.me", ());
-  }
-
-  {
-    XMLFeature hasAltTag = baseOsmFeature;
-    hasAltTag.SetTagValue("url", "mapswithme.com");
-    hasAltTag.ApplyPatch(XMLFeature(kPatch));
-    TEST(!hasAltTag.HasTag("website"), ("Existing alt tag should be used."));
-    TEST_EQUAL(hasAltTag.GetTagValue("url"), "maps.me", ());
-  }
-
-  {
-    XMLFeature hasTwoAltTags = baseOsmFeature;
-    hasTwoAltTags.SetTagValue("contact:website", "mapswith.me");
-    hasTwoAltTags.SetTagValue("url", "mapswithme.com");
-    hasTwoAltTags.ApplyPatch(XMLFeature(kPatch));
-    TEST(!hasTwoAltTags.HasTag("website"), ("Existing alt tag should be used."));
-    TEST_EQUAL(hasTwoAltTags.GetTagValue("contact:website"), "maps.me", ());
-    TEST_EQUAL(hasTwoAltTags.GetTagValue("url"), "mapswithme.com", ());
-  }
-
-  {
-    XMLFeature hasMainAndAltTag = baseOsmFeature;
-    hasMainAndAltTag.SetTagValue("website", "osmrulezz.com");
-    hasMainAndAltTag.SetTagValue("url", "mapswithme.com");
-    hasMainAndAltTag.ApplyPatch(XMLFeature(kPatch));
-    TEST_EQUAL(hasMainAndAltTag.GetTagValue("website"), "maps.me", ());
-    TEST_EQUAL(hasMainAndAltTag.GetTagValue("url"), "mapswithme.com", ());
-  }
-}
-
 UNIT_TEST(XMLFeature_FromXMLAndBackToXML)
 {
   classificator::Load();
 
   std::string const xmlNoTypeStr = R"(<?xml version="1.0"?>
   <node lat="55.7978998" lon="37.474528" timestamp="2015-11-27T21:13:32Z">
-  <tag k="name" v="Gorki Park" />
-  <tag k="name:en" v="Gorki Park" />
-  <tag k="name:ru" v="Парк Горького" />
-  <tag k="addr:housenumber" v="10" />
+    <tag k="leisure" v="park" />
+    <tag k="name" v="Gorki Park" />
+    <tag k="name:en" v="Gorki Park" />
+    <tag k="name:ru" v="Парк Горького" />
+    <tag k="addr:housenumber" v="10" />
+    <journal version="1.0">
+      <entry type="TagModification" timestamp="2015-10-05T12:33:02Z">
+        <data key="name:en" old_value="" new_value="Gorki Park" />
+      </entry>
+      <entry type="TagModification" timestamp="2015-10-05T12:33:02Z">
+        <data key="name:ru" old_value="xxx" new_value="Парк Горького" />
+      </entry>
+    </journal>
+    <journalHistory version="1.0">
+      <entry type="ObjectCreated" timestamp="2022-12-05T12:32:21Z">
+        <data type="leisure-park" geomType="Point" lat="55.7978998" lon="37.474528" />
+      </entry>
+      <entry type="TagModification" timestamp="2015-10-03T12:33:02Z">
+        <data key="addr:housenumber" old_value="43" new_value="10" />
+      </entry>
+      <entry type="TagModification" timestamp="2015-10-03T12:33:02Z">
+        <data key="name" old_value="" new_value="Gorki Park" />
+      </entry>
+    </journalHistory>
   </node>
   )";
 
   char const kTimestamp[] = "2015-11-27T21:13:32Z";
 
-  editor::XMLFeature xmlNoType(xmlNoTypeStr);
-  editor::XMLFeature xmlWithType = xmlNoType;
-  xmlWithType.SetTagValue("amenity", "atm");
+  editor::XMLFeature xmlFeature(xmlNoTypeStr);
 
   osm::EditableMapObject emo;
-  editor::FromXML(xmlWithType, emo);
-  auto fromFtWithType = editor::ToXML(emo, true);
-  fromFtWithType.SetAttribute("timestamp", kTimestamp);
-  TEST_EQUAL(fromFtWithType, xmlWithType, ());
+  osm::EditJournal journal = xmlFeature.GetEditJournal();
+  emo.ApplyEditsFromJournal(journal);
+  emo.SetJournal(std::move(journal));
 
-  auto fromFtWithoutType = editor::ToXML(emo, false);
-  fromFtWithoutType.SetAttribute("timestamp", kTimestamp);
-  TEST_EQUAL(fromFtWithoutType, xmlNoType, ());
+  auto xmlFromMapObject = editor::ToXML(emo, true);
+  xmlFromMapObject.SetEditJournal(emo.GetJournal());
+  xmlFromMapObject.SetAttribute("timestamp", kTimestamp);
+  TEST_EQUAL(xmlFromMapObject, xmlFeature, ());
 }
 
 UNIT_TEST(XMLFeature_AmenityRecyclingFromAndToXml)
@@ -373,8 +357,14 @@ UNIT_TEST(XMLFeature_AmenityRecyclingFromAndToXml)
   {
     std::string const recyclingCentreStr = R"(<?xml version="1.0"?>
     <node lat="55.8047445" lon="37.5865532" timestamp="2018-07-11T13:24:41Z">
-    <tag k="amenity" v="recycling" />
-    <tag k="recycling_type" v="centre" />
+      <tag k="amenity" v="recycling" />
+      <tag k="recycling_type" v="centre" />
+      <journal version="1.0">
+        <entry type="ObjectCreated" timestamp="2022-12-05T12:32:21Z">
+          <data type="amenity-recycling-centre" geomType="Point" lat="55.8047445" lon="37.5865532" />
+        </entry>
+      </journal>
+      <journalHistory version="1.0" />
     </node>
     )";
 
@@ -383,21 +373,30 @@ UNIT_TEST(XMLFeature_AmenityRecyclingFromAndToXml)
     editor::XMLFeature xmlFeature(recyclingCentreStr);
 
     osm::EditableMapObject emo;
-    editor::FromXML(xmlFeature, emo);
+    osm::EditJournal journal = xmlFeature.GetEditJournal();
+    emo.ApplyEditsFromJournal(journal);
+    emo.SetJournal(std::move(journal));
 
     auto const th = emo.GetTypes();
     TEST_EQUAL(th.Size(), 1, ());
     TEST_EQUAL(th.front(), classif().GetTypeByPath({"amenity", "recycling", "centre"}), ());
 
     auto convertedFt = editor::ToXML(emo, true);
+    convertedFt.SetEditJournal(emo.GetJournal());
     convertedFt.SetAttribute("timestamp", kTimestamp);
     TEST_EQUAL(xmlFeature, convertedFt, ());
   }
   {
     std::string const recyclingContainerStr = R"(<?xml version="1.0"?>
     <node lat="55.8047445" lon="37.5865532" timestamp="2018-07-11T13:24:41Z">
-    <tag k="amenity" v="recycling" />
-    <tag k="recycling_type" v="container" />
+      <tag k="amenity" v="recycling" />
+      <tag k="recycling_type" v="container" />
+      <journal version="1.0">
+        <entry type="ObjectCreated" timestamp="2022-12-05T12:32:21Z">
+          <data type="amenity-recycling-container" geomType="Point" lat="55.8047445" lon="37.5865532" />
+        </entry>
+      </journal>
+      <journalHistory version="1.0" />
     </node>
     )";
 
@@ -406,13 +405,16 @@ UNIT_TEST(XMLFeature_AmenityRecyclingFromAndToXml)
     editor::XMLFeature xmlFeature(recyclingContainerStr);
 
     osm::EditableMapObject emo;
-    editor::FromXML(xmlFeature, emo);
+    osm::EditJournal journal = xmlFeature.GetEditJournal();
+    emo.ApplyEditsFromJournal(journal);
+    emo.SetJournal(std::move(journal));
 
     auto const th = emo.GetTypes();
     TEST_EQUAL(th.Size(), 1, ());
     TEST_EQUAL(th.front(), classif().GetTypeByPath({"amenity", "recycling", "container"}), ());
 
     auto convertedFt = editor::ToXML(emo, true);
+    convertedFt.SetEditJournal(emo.GetJournal());
     convertedFt.SetAttribute("timestamp", kTimestamp);
     TEST_EQUAL(xmlFeature, convertedFt, ());
   }
@@ -466,58 +468,43 @@ UNIT_TEST(XMLFeature_Diet)
   TEST_EQUAL(ft.GetCuisine(), "", ());
 }
 
-UNIT_TEST(XMLFeature_SocialContactsProcessing)
-{
-  {
-    std::string const nightclubStr = R"(<?xml version="1.0"?>
-    <node lat="50.4082862" lon="30.5130017" timestamp="2022-02-24T05:07:00Z">
-    <tag k="amenity" v="nightclub" />
-    <tag k="name" v="Stereo Plaza" />
-    <tag k="contact:facebook" v="http://www.facebook.com/pages/Stereo-Plaza/118100041593935" />
-    <tag k="contact:instagram" v="https://www.instagram.com/p/CSy87IhMhfm/" />
-    <tag k="contact:line" v="liff.line.me/1645278921-kWRPP32q/?accountId=673watcr" />
-    </node>
-    )";
-
-    editor::XMLFeature xmlFeature(nightclubStr);
-
-    osm::EditableMapObject emo;
-    editor::FromXML(xmlFeature, emo);
-
-    auto convertedFt = editor::ToXML(emo, true);
-
-    TEST(convertedFt.HasTag("contact:facebook"), ());
-    TEST_EQUAL(convertedFt.GetTagValue("contact:facebook"), "https://facebook.com/pages/Stereo-Plaza/118100041593935",
-               ());
-
-    TEST(convertedFt.HasTag("contact:instagram"), ());
-    TEST_EQUAL(convertedFt.GetTagValue("contact:instagram"), "https://instagram.com/p/CSy87IhMhfm", ());
-
-    TEST(convertedFt.HasTag("contact:line"), ());
-    TEST_EQUAL(convertedFt.GetTagValue("contact:line"), "https://liff.line.me/1645278921-kWRPP32q/?accountId=673watcr",
-               ());
-  }
-}
-
 UNIT_TEST(XMLFeature_SocialContactsProcessing_clean)
 {
   {
     std::string const nightclubStr = R"(<?xml version="1.0"?>
     <node lat="40.82862" lon="20.30017" timestamp="2022-02-24T05:07:00Z">
-    <tag k="amenity" v="bar" />
-    <tag k="name" v="Irish Pub" />
-    <tag k="contact:facebook" v="https://www.facebook.com/PierreCardinPeru.oficial/" />
-    <tag k="contact:instagram" v="https://www.instagram.com/fraback.genusswelt/" />
-    <tag k="contact:line" v="https://line.me/R/ti/p/%40015qevdv" />
+      <tag k="amenity" v="bar" />
+      <tag k="name" v="Irish Pub" />
+      <tag k="contact:facebook" v="https://www.facebook.com/PierreCardinPeru.oficial/" />
+      <tag k="contact:instagram" v="https://www.instagram.com/fraback.genusswelt/" />
+      <tag k="contact:line" v="https://line.me/R/ti/p/%40015qevdv" />
+      <journal version="1.0">
+        <entry type="ObjectCreated" timestamp="2022-12-05T12:32:21Z">
+          <data type="amenity-nightclub" geomType="Point" lat="50.4082862" lon="30.5130017" />
+        </entry>
+        <entry type="TagModification" timestamp="2022-12-05T12:33:02Z">
+          <data key="contact:facebook" old_value="" new_value="PierreCardinPeru.oficial" />
+        </entry>
+          <entry type="TagModification" timestamp="2022-12-05T12:33:02Z">
+        <data key="contact:instagram" old_value="" new_value="fraback.genusswelt" />
+        </entry>
+          <entry type="TagModification" timestamp="2022-12-05T12:33:02Z">
+        <data key="contact:line" old_value="" new_value="015qevdv" />
+        </entry>
+      </journal>
+      <journalHistory version="1.0" />
     </node>
     )";
 
     editor::XMLFeature xmlFeature(nightclubStr);
 
     osm::EditableMapObject emo;
-    editor::FromXML(xmlFeature, emo);
+    osm::EditJournal journal = xmlFeature.GetEditJournal();
+    emo.ApplyEditsFromJournal(journal);
+    emo.SetJournal(std::move(journal));
 
     auto convertedFt = editor::ToXML(emo, true);
+    convertedFt.SetEditJournal(emo.GetJournal());
 
     TEST(convertedFt.HasTag("contact:facebook"), ());
     TEST_EQUAL(convertedFt.GetTagValue("contact:facebook"), "PierreCardinPeru.oficial", ());

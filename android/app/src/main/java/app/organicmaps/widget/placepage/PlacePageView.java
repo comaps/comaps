@@ -154,6 +154,7 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvLastChecked;
   private View mEditPlace;
   private View mAddPlace;
+  private View mMapTooOld;
   private View mEditTopSpace;
   private ShapeableImageView mColorIcon;
   private MaterialTextView mTvCategory;
@@ -318,6 +319,7 @@ public class PlacePageView extends Fragment
     mTvLastChecked = mFrame.findViewById(R.id.place_page_last_checked);
     mEditPlace = mFrame.findViewById(R.id.ll__place_editor);
     mAddPlace = mFrame.findViewById(R.id.ll__place_add);
+    mMapTooOld = mFrame.findViewById(R.id.cv__map_too_old);
     mEditTopSpace = mFrame.findViewById(R.id.edit_top_space);
     latlon.setOnLongClickListener(this);
     address.setOnLongClickListener(this);
@@ -684,39 +686,84 @@ public class PlacePageView extends Fragment
 
     if (RoutingController.get().isNavigating() || RoutingController.get().isPlanning())
     {
-      UiUtils.hide(mEditPlace, mAddPlace, mEditTopSpace);
+      UiUtils.hide(mEditPlace, mAddPlace, mEditTopSpace, mMapTooOld);
     }
     else
     {
       UiUtils.showIf(Editor.nativeShouldShowEditPlace(), mEditPlace);
       UiUtils.showIf(Editor.nativeShouldShowAddPlace(), mAddPlace);
+      UiUtils.hide(mMapTooOld);
       MaterialButton mTvEditPlace = mEditPlace.findViewById(R.id.mb__place_editor);
       MaterialButton mTvAddPlace = mAddPlace.findViewById(R.id.mb__place_add);
-      mTvEditPlace.setOnClickListener(this);
-      mTvAddPlace.setOnClickListener(this);
-      mTvEditPlace.setEnabled(Editor.nativeShouldEnableEditPlace());
-      mTvAddPlace.setEnabled(Editor.nativeShouldEnableAddPlace());
-      final int editTextButtonColor =
-          Editor.nativeShouldEnableEditPlace()
+
+      boolean shouldEnableEditPlace = Editor.nativeShouldEnableEditPlace();
+
+      if (shouldEnableEditPlace)
+      {
+        mTvEditPlace.setEnabled(true);
+        mTvAddPlace.setEnabled(true);
+        mTvEditPlace.setOnClickListener(this);
+        mTvAddPlace.setOnClickListener(this);
+      }
+      else
+      {
+        String countryId = MapManager.nativeGetSelectedCountry();
+
+        if (countryId != null && MapManager.nativeIsMapTooOldToEdit(countryId))
+        {
+          // map editing is disabled because the map is too old
+          mTvEditPlace.setEnabled(true);
+          mTvAddPlace.setEnabled(true);
+          mTvEditPlace.setOnClickListener((v) -> {
+            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
+          });
+          mTvAddPlace.setOnClickListener((v) -> {
+            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
+          });
+
+          CountryItem map = CountryItem.fill(countryId);
+
+          if (map.status == CountryItem.STATUS_UPDATABLE || map.status == CountryItem.STATUS_DONE
+              || map.status == CountryItem.STATUS_FAILED)
+          {
+            UiUtils.show(mMapTooOld);
+
+            boolean canUpdateMap = map.status != CountryItem.STATUS_DONE;
+            MaterialButton mTvUpdateTooOldMap = mMapTooOld.findViewById(R.id.mb__update_too_old_map);
+            UiUtils.showIf(canUpdateMap, mTvUpdateTooOldMap);
+
+            MaterialTextView mapTooOldDescription = mMapTooOld.findViewById(R.id.tv__map_too_old_description);
+            if (canUpdateMap)
+            {
+              mapTooOldDescription.setText(R.string.place_page_map_too_old_description);
+              mTvUpdateTooOldMap.setOnClickListener((v) -> {
+                MapManagerHelper.warn3gAndDownload(requireActivity(), map.id, null);
+                UiUtils.hide(mMapTooOld);
+              });
+            }
+            else
+              mapTooOldDescription.setText(R.string.place_page_app_too_old_description);
+          }
+        }
+        else
+        {
+          // map editing is disabled for other reasons
+          mTvEditPlace.setEnabled(false);
+          mTvAddPlace.setEnabled(false);
+        }
+      }
+
+      final int editButtonColor =
+          shouldEnableEditPlace
               ? ContextCompat.getColor(
                     getContext(),
                     UiUtils.getStyledResourceId(getContext(), com.google.android.material.R.attr.colorSecondary))
               : ContextCompat.getColor(getContext(), R.color.button_accent_text_disabled);
-      final ColorStateList editStrokeButtonColor = new ColorStateList(
-              new int[][]{
-                      new int[]{android.R.attr.state_enabled}, // enabled
-                      new int[]{-android.R.attr.state_enabled} // disabled
-      },
-              new int[]{
-                      ContextCompat.getColor(
-                              getContext(),
-                              UiUtils.getStyledResourceId(getContext(), com.google.android.material.R.attr.colorSecondary)),
-                      ContextCompat.getColor(getContext(), R.color.button_accent_text_disabled)
-              });
-      mTvEditPlace.setTextColor(editTextButtonColor);
-      mTvAddPlace.setTextColor(editTextButtonColor);
-      mTvEditPlace.setStrokeColor(editStrokeButtonColor);
-      mTvAddPlace.setStrokeColor(editStrokeButtonColor);
+
+      mTvEditPlace.setTextColor(editButtonColor);
+      mTvAddPlace.setTextColor(editButtonColor);
+      mTvEditPlace.setStrokeColor(ColorStateList.valueOf(editButtonColor));
+      mTvAddPlace.setStrokeColor(ColorStateList.valueOf(editButtonColor));
       UiUtils.showIf(
           UiUtils.isVisible(mEditPlace) || UiUtils.isVisible(mAddPlace),
           mEditTopSpace);

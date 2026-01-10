@@ -1494,4 +1494,5 @@
     <string name="type.spherical_buoy.safe_water">Faarvaatri kerapoi</string>
     <string name="type.man_made.mast.communication">Sidemast</string>
     <string name="type.shop.beauty.nails">Küünestuudio</string>
+    <string name="type.amenity.hydrant">Kastmishüdrant</string>
 </resources>

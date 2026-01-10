@@ -503,7 +503,7 @@
     <string name="placepage_edit_bookmark_button">Rediger bokmerke</string>
     <string name="placepage_personal_notes_hint">Personlige notater (tekst eller html)</string>
     <string name="editor_reset_edits_message">Forkaste alle lokale endringer?</string>
-    <string name="editor_reset_edits_button">Forkast</string>
+    <string name="editor_reset_edits_button">Forkast endringer</string>
     <string name="editor_remove_place_message">Slette tillagt sted?</string>
     <string name="editor_remove_place_button">Slett</string>
     <string name="editor_place_doesnt_exist">Sted finnes ikke</string>
@@ -899,4 +899,17 @@
     <string name="navigation_start_tts_disabled_message">Taleveiledninger deaktivert: TTS-motor ikke tilgjengelig</string>
     <string name="navigation_start_tts_message">"Starter navigering, taleveiledningsspråk: "</string>
     <string name="prefs_speed_cameras_information">Fotoboksvarsler er deaktivert i land hvor varsler er forbudt i henhold til lokal lovgivning.</string>
+    <string name="place_page_map_too_old_title">Kartdata utdatert</string>
+    <string name="place_page_map_too_old_description">Gjeldende kartdata er gamle, oppdater kartet.</string>
+    <string name="place_page_app_too_old_description">Gjeldende kartdata er gamle, oppdater CoMaps-appen.</string>
+    <string name="place_page_update_too_old_map">Oppdater kartregion</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap-redigering er deaktivert fordi kartdataene er for gamle.</string>
+    <string name="osm_note_hint">Alternativt, så kan du legge til et notat i OpenStreetMap, slik at noen andre kan redigere eller legge til stedet.</string>
+    <string name="osm_note_toast">Notatet vil bli sendt til OpenStreetMap</string>
+    <string name="advanced">Avansert</string>
+    <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
+    <string name="download_resources_custom_url_error_scheme">Angi en fullstendig nettadresse som starter med https:// og slutter med /</string>
+    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
+    <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
 </resources>

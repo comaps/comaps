@@ -12,7 +12,6 @@
     style="@style/MwmWidget.ToolbarStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?colorPrimary"
     android:gravity="end|center_vertical"
     android:theme="@style/MwmWidget.ToolbarTheme">
     <com.google.android.material.imageview.ShapeableImageView

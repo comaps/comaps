@@ -545,7 +545,7 @@
     <string name="placepage_edit_bookmark_button">Edit Bookmark</string>
     <string name="placepage_personal_notes_hint">Personal notes (text or html)</string>
     <string name="editor_reset_edits_message">Discard all local changes?</string>
-    <string name="editor_reset_edits_button">Discard</string>
+    <string name="editor_reset_edits_button">Discard changes</string>
     <string name="editor_remove_place_message">Delete added place?</string>
     <string name="editor_remove_place_button">Delete</string>
     <string name="editor_place_doesnt_exist">Place does not exist</string>
@@ -574,6 +574,16 @@
     <string name="error_enter_correct_fediverse_page">Enter a valid Mastodon username or web address</string>
     <string name="error_enter_correct_bluesky_page">Enter a valid Bluesky username or web address</string>
     <string name="placepage_add_place_button">Add Place to OpenStreetMap</string>
+    <!-- Title of info shown when the map is older than 3 to 6 months -->
+    <string name="place_page_map_too_old_title">Map data outdated</string>
+    <!-- Description of info shown when the map is older than 3 months -->
+    <string name="place_page_map_too_old_description"> Your current map data is very old, please update the map.</string>
+    <!-- Description of info shown when the app and the map are older than 6 months -->
+    <string name="place_page_app_too_old_description"> Your current map data is very old, please update the CoMaps app.</string>
+    <!-- Button to update map region, part of the map too old info -->
+    <string name="place_page_update_too_old_map">Update map region</string>
+    <!-- Toast shown after pressing add place / edit OpenStreetMap when editing is disabled -->
+    <string name="place_page_too_old_to_edit">OpenStreetMap editing is disabled because the map data is too old.</string>
     <string name="osm_note_hint">Or, alternatively, leave a note to OpenStreetMap community so that someone else can add or fix a place here.</string>
     <string name="osm_note_toast">Note will be sent to OpenStreetMap</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
@@ -975,4 +985,12 @@
     <string name="offline_explanation_title">Offline Maps</string>
     <string name="offline_explanation_text">A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.</string>
     <string name="list_description_empty">Edit the list to add a description</string>
+    <!-- Settings: Advanced group -->
+    <string name="advanced">Advanced</string>
+    <!-- Custom Download URL -->
+    <string name="download_resources_custom_url_title">Custom Map Server</string>
+    <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
+    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_summary_none">Not set</string>
+    <string name="download_resources_custom_url_error_scheme">Please enter a full URL starting with https:// and ending with /</string>
 </resources>

@@ -1,10 +1,8 @@
-• Dados OpenStreetMap atualizados em 9 de dezembro
-• Uso do estilo Material 3
-• Suporte para tomadas de carregamento no Editor OSM
-• Adição de tomadas de carregamento Schuko/Tipo E
-• Melhoria na classificação dos resultados de busca
-• Adição dos idiomas letão e lituano nas orientações por voz
-• Melhoria no tamanho das indicações de direção
-• Nível de zoom baseado em distância até a próxima curva
-• Configurações reordenadas
+• Dados OSM de 17/12
+• Servidor de download de mapas configurável
+• Adição de informações sobre mapas desatualizados e um botão de atualização ao cartão de informações do local selecionado
+• Evita o uso de corredores de estacionamento para roteamento
+• Formato dos botões de zoom alterado
+• Sinônimos de busca em francês aprimorados
+• Editor OSM: verificação do limite de comprimento das tags do OSM na validação de valores
 Mais detalhes em codeberg.org/comaps/comaps/releases

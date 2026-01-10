@@ -17,7 +17,7 @@
     <!-- Choose measurement on first launch alert - choose imperial system button -->
     <string name="miles">Мили</string>
     <!-- Update maps later button text -->
-    <string name="later">Не сейчас</string>
+    <string name="later">Позже</string>
     <!-- View and button titles for accessibility, please also edit it in iphone/plist.txt -->
     <string name="search">Поиск</string>
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Точность местоположения ограничена</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Для обеспечения точной навигации включите определение точного местоположения в настройках</string>
+    <string name="precise_location_is_disabled_long_text">Включите в настройках определение точного местоположения</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Показать на карте</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -297,7 +297,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Пожалуйста, включите геолокацию</string>
     <string name="save">Сохранить</string>
-    <string name="create">создать</string>
+    <string name="create">Создать</string>
     <!-- red color -->
     <string name="red">Красный</string>
     <!-- yellow color -->
@@ -526,8 +526,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Отправить всем пользователям?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Убедитесь, что вы не указали никаких личных данных</string>
-    <string name="editor_share_to_all_dialog_message_2">Редакторы OpenStreetMap проверят изменения и свяжутся с вами, если у них возникнут вопросы</string>
+    <string name="editor_share_to_all_dialog_message_1">Убедитесь, что вы не указали никаких личных данных.</string>
+    <string name="editor_share_to_all_dialog_message_2">Редакторы OpenStreetMap проверят изменения и свяжутся с вами, если у них возникнут вопросы.</string>
     <string name="navigation_stop_button">Cтоп</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Запись трека</string>
@@ -918,4 +918,9 @@
     <string name="list_description_empty">Отредактируйте список, чтобы добавить описание</string>
     <string name="pref_tts_no_system_tts_short">Не найден движок синтезатора речи, проверьте настройки приложения</string>
     <string name="unknown_power_output">неизвестно</string>
+    <string name="opens_day_at">Откроется %1$s на %2$s</string>
+    <string name="closes_day_at">Закроется %1$s на %2$s</string>
+    <string name="place_page_map_too_old_title">Данные карты устарели</string>
+    <string name="place_page_update_too_old_map">Обновить регион карты</string>
+    <string name="place_page_too_old_to_edit">Редактирование OpenStreetMap отключено, так как данные карты слишком старые.</string>
 </resources>

@@ -511,7 +511,7 @@
     <string name="placepage_edit_bookmark_button">编辑书签</string>
     <string name="placepage_personal_notes_hint">个人注记（文字或 html）</string>
     <string name="editor_reset_edits_message">舍弃所有本地更改？</string>
-    <string name="editor_reset_edits_button">舍弃</string>
+    <string name="editor_reset_edits_button">舍弃更改</string>
     <string name="editor_remove_place_message">删除已添加的地点？</string>
     <string name="editor_remove_place_button">删除</string>
     <string name="editor_place_doesnt_exist">该地点不存在</string>
@@ -912,4 +912,15 @@
     <string name="navigation_start_tts_message">"启动导航，语音指令语言： "</string>
     <string name="prefs_speed_cameras_information">在当地法律禁止发出警报的国家/地区，测速摄像头警告功能将被禁用。</string>
     <string name="navigation_start_tts_disabled_message">语音指令已禁用：TTS 引擎不可用</string>
+    <string name="place_page_map_too_old_title">地图数据已过时</string>
+    <string name="place_page_map_too_old_description">您当前的地图数据非常旧，请更新地图。</string>
+    <string name="place_page_app_too_old_description">您当前的地图数据非常旧，请更新 CoMaps 应用。</string>
+    <string name="place_page_update_too_old_map">更新地图区域</string>
+    <string name="place_page_too_old_to_edit">由于地图数据太旧，OpenStreetMap 编辑被禁用。</string>
+    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_summary_none">未设置</string>
+    <string name="download_resources_custom_url_error_scheme">请输入以 https:// 开头、以 / 结尾的完整 URL</string>
+    <string name="advanced">高级</string>
+    <string name="download_resources_custom_url_title">自定义地图服务器</string>
+    <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>
 </resources>

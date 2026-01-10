@@ -20,7 +20,7 @@
       android:layout_marginStart="32dp"
       android:text="@string/aa_request_permission_activity_text"
       android:textAlignment="center"
-      android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+      android:textAppearance="@style/TextAppearance.Headline4"
       android:textStyle="bold" />
 
   <com.google.android.material.button.MaterialButton

@@ -38,7 +38,7 @@ See [translations instructions](TRANSLATIONS.md) for details.
 CoMaps has a strong focus on easy to use UI and smooth user experience. Feel free to join UI/UX discussions in relevant issues. Mockups are very welcome!
 
 If you're into graphic design then CoMaps needs good, clear and free-to-use icons for hundreds of map features / POIs.
-Check CoMaps' [design principles](https://codeberg.org/comaps/comaps/wiki/Design-Principles). Post your icons onto relevant issues or take a next step and [integrate them](STYLES.md) yourself.
+Check CoMaps' [design principles](https://codeberg.org/comaps/comaps/wiki/Design-Principles) and [color scheme](https://codeberg.org/comaps/Governance/src/branch/main/assets/comaps-color-scheme.png). Post your icons onto relevant issues or take a next step and [integrate them](STYLES.md) yourself.
 
 Check the [map styling instructions](STYLES.md) and work on adding new map features and other open map styles issues.
 

@@ -277,7 +277,7 @@
     <!-- Preference title -->
     <string name="google_play_services">Serviciul de Localizare Fuzionat Google</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Un serviciu proprietar care combină GPS, Wi-Fi, rețelele celulare etc. pentru a-ți determina locația mai precisă. Se poate conecta la serverele Google.</string>
+    <string name="pref_use_google_play">Un serviciu proprietar care combină GPS, Wi-Fi, rețelele celulare etc. pentru a-ți determina locația mai precis. Se poate conecta la serverele Google.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
@@ -460,7 +460,7 @@
     <string name="osm_presentation">Date OpenStreetMap create de comunitate la data de %s. Aflați mai multe despre cum să editați și să actualizați harta la OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) este un proiect comunitar pentru construirea unei hărți libere și deschise. Este principala sursă de date cartografice în CoMaps și funcționează similar cu Wikipedia. Puteți adăuga sau edita locuri, iar acestea devin disponibile pentru milioane de utilizatori din întreaga lume. \nAlăturați-vă comunității și ajutați la crearea unei hărți mai bune pentru toată lumea!</string>
-    <string name="login_to_make_edits_visible">Creați un cont OpenStreetMap sau conectați-vă pentru a vă publica edițiile de hartă în întreaga lume</string>
+    <string name="login_to_make_edits_visible">Creați un cont OpenStreetMap sau conectați-vă pentru a vă publica editările hărții pentru întreaga lume</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d din %2$d</string>
     <string name="download_over_mobile_header">Vrei să descarci prin rețeaua de telefonie mobilă?</string>
@@ -475,7 +475,7 @@
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">Descrieți erorile de pe hartă sau lucrurile care nu pot fi editate cu CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">Edițiile dvs. sunt încărcate în baza de date publică <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Vă rugăm să nu adăugați informații personale sau protejate prin drepturi de autor.</string>
+    <string name="editor_about_osm">Editările dvs. sunt încărcate în baza de date publică <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Vă rugăm să nu adăugați informații personale sau protejate prin drepturi de autor.</string>
     <string name="editor_more_about_osm">Mai multe despre OpenStreetMap</string>
     <string name="editor_osm_history">Istoricul dvs. de editare</string>
     <string name="editor_osm_notes">Note privind datele hărții dvs</string>
@@ -889,4 +889,13 @@
     <string name="list_description_empty">Editează lista ca să adaugi o descriere</string>
     <string name="charging_station_available_sockets">Conectori</string>
     <string name="charge_socket_unknown_other">Alte tipuri necunoscute</string>
+    <string name="place_page_map_too_old_title">Harta este prea veche</string>
+    <string name="place_page_map_too_old_description">Harta dvs. este foarte veche, vă rugăm actualizați-o.</string>
+    <string name="place_page_app_too_old_description">Harta dvs. este foarte veche, vă rugăm actualizați CoMaps.</string>
+    <string name="place_page_update_too_old_map">Actualizează harta</string>
+    <string name="place_page_too_old_to_edit">Editarea OpenStreetMap este dezactivată pentru că harta descărcată este prea veche.</string>
+    <string name="prefs_speed_cameras_information">Avertizările pentru radare sunt dezactivate unde avertizarea este interzisă de legea locală.</string>
+    <string name="navigation_start_tts_disabled_message">Instrucțiuni vocale dezactivate: Nu este disponibil niciun sistem TTS</string>
+    <string name="charge_socket_count">Număr</string>
+    <string name="unknown_count">Necunoscut</string>
 </resources>

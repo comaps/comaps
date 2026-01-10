@@ -2,7 +2,7 @@
 <com.google.android.material.textview.MaterialTextView
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:id="@+id/text"
-  style="?fontHeadline6"
+  style="@style/TextAppearance.Headline6"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:background="?windowBackgroundForced"

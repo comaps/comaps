@@ -18,6 +18,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
@@ -25,7 +26,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.view.ViewCompat;
+
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.base.BaseMwmFragmentActivity;
+import app.organicmaps.dialog.CustomMapServerDialog;
 import app.organicmaps.downloader.MapManagerHelper;
 import app.organicmaps.intent.Factory;
 import app.organicmaps.sdk.Framework;
@@ -38,11 +47,7 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.checkbox.MaterialCheckBox;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.google.android.material.textview.MaterialTextView;
+
 import java.util.List;
 import java.util.Objects;
 
@@ -54,6 +59,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   private MaterialTextView mTvMessage;
   private LinearProgressIndicator mProgress;
   private MaterialButton mBtnDownload;
+  private MaterialButton mBtnAdvanced;
   private MaterialCheckBox mChbDownloadCountry;
 
   private String mCurrentCountry;
@@ -267,6 +273,14 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mProgress = findViewById(R.id.progressbar);
     mBtnDownload = findViewById(R.id.btn_download_resources);
     mChbDownloadCountry = findViewById(R.id.chb_download_country);
+    mBtnAdvanced = findViewById(R.id.btn_advanced);
+
+    mBtnAdvanced.setOnClickListener(v -> {
+      CustomMapServerDialog.show(this, url -> {
+        prepareFilesDownload(false);
+      });
+    });
+    mBtnAdvanced.setEnabled(true);
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
     mBtnNames = new String[BTN_COUNT];
@@ -291,6 +305,11 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
   {
     mBtnDownload.setOnClickListener(mBtnListeners[action]);
     mBtnDownload.setText(mBtnNames[action]);
+
+    // Allow changing server only when idle or after an error.
+    boolean advancedEnabled = (action == DOWNLOAD || action == TRY_AGAIN || action == RESUME);
+    mBtnAdvanced.setEnabled(advancedEnabled);
+    mBtnAdvanced.setAlpha(advancedEnabled ? 1f : 0.5f);
   }
 
   private void doDownload()
@@ -359,6 +378,9 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
   private void finishFilesDownload(int result)
   {
+    mBtnAdvanced.setEnabled(true);
+    mBtnAdvanced.setAlpha(1f);
+
     if (result == ERR_NO_MORE_FILES)
     {
       // World and WorldCoasts has been downloaded, we should register maps again to correctly add them to the model.
@@ -428,11 +450,15 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
                            .setTitle(titleId)
                            .setMessage(messageId)
                            .setCancelable(true)
-                           .setOnCancelListener((dialog) -> setAction(PAUSE))
+                           .setOnCancelListener((dialog) -> setAction(RESUME))
                            .setPositiveButton(R.string.try_again,
                                               (dialog, which) -> {
                                                 setAction(TRY_AGAIN);
                                                 onTryAgainClicked();
+                                              })
+                           .setNegativeButton(R.string.cancel,
+                                              (dialog, which) -> {
+                                                setAction(RESUME);
                                               })
                            .setOnDismissListener(dialog -> mAlertDialog = null)
                            .show();

@@ -497,7 +497,7 @@
     <string name="placepage_edit_bookmark_button">Muuda järjehoidjat</string>
     <string name="placepage_personal_notes_hint">Isiklikud märkmed (tekst või html)</string>
     <string name="editor_reset_edits_message">Kas loobud kõigist kohalikest muudatustest?</string>
-    <string name="editor_reset_edits_button">Loobu</string>
+    <string name="editor_reset_edits_button">Loobu muudatustest</string>
     <string name="editor_remove_place_message">Kas kustutad lisatud koha?</string>
     <string name="editor_remove_place_button">Kustuta</string>
     <string name="editor_place_doesnt_exist">Kohta pole olemas</string>
@@ -905,4 +905,16 @@
     <string name="charge_socket_schuko">EU-sisene</string>
     <string name="prefs_speed_cameras_information">Kiiruskaamerate teavitused on nendes riikides lülitatud välja, kus seda keelab kohalik seadusandlus.</string>
     <string name="navigation_start_tts_message">"Alustan tee juhatamist, hääljuhiste keel: "</string>
+    <string name="place_page_map_too_old_title">Kaardiandmed on aegunud</string>
+    <string name="place_page_map_too_old_description">Sinu kasutatavad kaardiandmed on väga vanad. Palun uuenda andmeid.</string>
+    <string name="place_page_app_too_old_description">Sinu kasutatavad kaardiandmed on väga vanad. Palun uuenda CoMapsi rakendust.</string>
+    <string name="place_page_update_too_old_map">Uuenda piirkonna kaardiandmeid</string>
+    <string name="place_page_too_old_to_edit">Kuna kaardiandmed on liiga vanad, siis OpenStreetMapi muutmise võimalus on lülitatud välja.</string>
+    <string name="navigation_start_tts_disabled_message">Hääljuhiste kasutamine on lülitatud välja: kõnesünteesimootorit pole saadaval</string>
+    <string name="download_resources_custom_url_summary_none">Pole määratud</string>
+    <string name="advanced">Täiendavad seadistused</string>
+    <string name="download_resources_custom_url_title">Sinu oma kaardiserver</string>
+    <string name="download_resources_custom_url_message">Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.</string>
+    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on https:// ja lõpus /</string>
 </resources>

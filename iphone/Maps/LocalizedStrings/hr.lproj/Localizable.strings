@@ -215,7 +215,7 @@
 "downloader_search_results" = "Found";
 "category_parking" = "Parking";
 "avoid_motorways" = "Avoid freeways";
-"editor_time_delete" = "Delete Schedule";
+"editor_time_delete" = "Izbriši Raspored";
 "parks" = "Parks";
 "p2p_start" = "Start";
 "downloading" = "Downloading…";
@@ -232,7 +232,7 @@
 "closes_in" = "Closes in %@";
 "gray" = "Gray";
 "downloader_downloading" = "Downloading:";
-"p2p_reroute_from_current" = "Do you want to plan a route from your current location?";
+"p2p_reroute_from_current" = "Želite li isplanirati rutu od vaše trenutne lokacije?";
 "pink" = "Pink";
 "app_tip_09" = "Our main goal is to build fast, privacy-focused, easy-to-use maps that you will love.";
 "app_tip_08" = "You can easily fix and improve the map data.";
@@ -268,7 +268,7 @@
 "download_map_carplay" = "Please download maps in the app on your mobile device";
 "mi" = "mi";
 "planning_route_remove_title" = "Drag here to remove";
-"p2p_your_location" = "Your Location";
+"p2p_your_location" = "Vaša lokacija";
 "category_transport" = "Prijevoz";
 "text_more_button" = "…more";
 "downloader_of" = "%1$d of %2$d";
@@ -328,7 +328,7 @@
 "bookmark_share_email_subject" = "Hej, pogledaj moju oznaku u CoMapsu!";
 "editor_operator" = "Operator";
 "enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
-"read_in_wikipedia" = "Wikipedia";
+"read_in_wikipedia" = "Wikipedija";
 "editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
 "placepage_track_name_hint" = "Track Name";
 "speedcams_alert_title_carplay_2" = "Speed warnings";
@@ -345,7 +345,7 @@
 "dialog_routing_disclaimer_recommendations" = "— Suggested routes should only be understood as recommendations;";
 "download" = "Download";
 "email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
-"editor_time_allday" = "All Day (24 hours)";
+"editor_time_allday" = "Cijeli dan (24 sata)";
 "downloader_download_map" = "Preuzmi kartu";
 "backup" = "Backup";
 "edit_track" = "Izmijeni Rutu";
@@ -426,7 +426,7 @@
 "keyboard_availability_alert" = "Keyboard is not available while driving";
 "whats_new_auto_update_message" = "Updating maps keeps the information about objects up to date";
 "editor_time_close" = "Closed";
-"editor_time_add" = "Add Schedule";
+"editor_time_add" = "Dodaj Raspored";
 "editor_edit_place_category_title" = "Category";
 "bookmarks_error_title_list_name_already_taken" = "Taj naziv je već zauzet";
 "category_entertainment" = "Zabava";
@@ -546,7 +546,7 @@
 "app_tip_00" = "Thank you for using our community-built maps!";
 "sort_default" = "Sort by default";
 "big_font" = "Increase size for map labels";
-"search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
+"search_not_found_query" = "Preuzmite regiju u kojoj pretražujete ili pokušajte dodati naziv obližnjeg grada/sela.";
 "load_kmz_title" = "Učitavam Oznake";
 "later" = "Later";
 "button_plan" = "Plan";

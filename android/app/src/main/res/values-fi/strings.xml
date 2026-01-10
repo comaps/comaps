@@ -524,7 +524,7 @@
     <string name="editor_share_to_all_dialog_title">Haluatko lähettää sen kaikille käyttäjille?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
     <string name="editor_share_to_all_dialog_message_1">Varmista, ettet syöttänyt henkilökohtaisia tietojasi.</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-muokkaimet tarkistavat muutokset ja ottavat sinuun yhteyttä, jos niillä on kysyttävää</string>
+    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-muokkaajat tarkistavat muutokset ja ottavat sinuun yhteyttä, jos heillä on kysyttävää.</string>
     <string name="navigation_stop_button">Lopeta</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Reitin kirjaaminen</string>
@@ -903,4 +903,12 @@
     <string name="editor_submit">Lähetä</string>
     <string name="list_description_empty">Muokkaa listaa lisätäksesi kuvauksen</string>
     <string name="editor_business_vacant_button">Liike on tyhjillään</string>
+    <string name="place_page_map_too_old_title">Karttatiedot vanhentuneet</string>
+    <string name="place_page_map_too_old_description">Nykyinen karttadata on hyvin vanhaa, päivitä kartta.</string>
+    <string name="place_page_app_too_old_description">Nykyinen karttadata on hyvin vanhaa, päivitä CoMaps-sovellus.</string>
+    <string name="place_page_update_too_old_map">Päivitä kartta-alue</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap-muokkaus on poistettu käytöstä, koska karttadata on liian vanhaa.</string>
+    <string name="prefs_speed_cameras_information">Nopeuskameravaroitukset on poistettu käytöstä niissä maissa, missä varoitukset on kielletty lain nojalla.</string>
+    <string name="power_management">Virranhallinta</string>
+    <string name="navigation_start_tts_message">"Käynnistetään navigointi, ääniohjeistuksen kieli: "</string>
 </resources>

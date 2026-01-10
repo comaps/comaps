@@ -377,7 +377,7 @@
 "placepage_call_button" = "Klic";
 "today" = "Danes";
 "bookmark_sets" = "Seznami zaznamkov";
-"about_proposition_3" = "Transparentno in nedobičkonosno";
+"about_proposition_3" = "Transparentno in nepridobitno";
 "share_bookmarks_email_body" = "Pozdravljen!\n\nV prilogi so moji zaznamki; prosim, odpri jih v CoMapsu. Če ga še nimaš nameščenega, ga lahko preneseš tukaj: https://www.comaps.app/download/\n\nUživj v potovanju s CoMaps!";
 "copy_to_clipboard" = "Kopiraj v odložišče";
 "pref_left_button_type" = "Levi glavni gumb";
@@ -473,3 +473,7 @@
 "last_upload" = "Zadnje nalaganje";
 "thank_you" = "Hvala vam";
 "place_name" = "Ime kraja";
+"common_check_internet_connection_dialog" = "Prosimo, prepričajte se, da je vaša naprava povezana z omrežjem.";
+"editor_share_to_all_dialog_message_1" = "Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov";
+"editor_share_to_all_dialog_message_2" = "Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno.";
+"avoid_paved" = "Izogni se neasfaltiranim cestam";

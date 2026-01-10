@@ -93,11 +93,13 @@ public:
 
     ForEachIndexImpl(intervals, scale, [&](uint32_t index)
     {
-      fn(*GetFeature(index, ignoreEditedStatus));
+      std::unique_ptr<FeatureType> ft = GetFeature(index, ignoreEditedStatus);
+      if (ft)
+        fn(*ft);
     });
   }
 
-  // Returns false if feature was deleted by user.
+  // Returns empty unique_ptr if feature was deleted by user.
   std::unique_ptr<FeatureType> GetFeature(uint32_t index, bool ignoreEditedStatus = false) const;
 
   [[nodiscard]] inline bool GetCenter(uint32_t index, m2::PointD & center) { return m_centers.Get(index, center); }

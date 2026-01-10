@@ -81,7 +81,7 @@ public:
     QPainter painter(device);
     painter.fillRect(QRectF(0.0, 0.0, device->width(), device->height()), Qt::white);
 
-    auto const shapedText = m_mng->ShapeText(m_utf8, m_fontPixelSize, m_lang);
+    auto const shapedText = m_mng->ShapeText(m_utf8, m_fontPixelSize);
 
     std::cout << "Total width: " << shapedText.m_lineWidthInPixels << '\n';
     std::cout << "Max height: " << shapedText.m_maxLineHeightInPixels << '\n';

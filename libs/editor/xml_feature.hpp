@@ -73,9 +73,6 @@ public:
   void Save(std::ostream & ost) const;
   std::string ToOSMString() const;
 
-  /// Tags from featureWithChanges are applied to this(osm) feature.
-  void ApplyPatch(XMLFeature const & featureWithChanges);
-
   Type GetType() const;
   std::string GetTypeString() const;
 
@@ -185,6 +182,8 @@ public:
   void SetTagValue(std::string_view key, std::string_view value);
   void RemoveTag(std::string_view key);
 
+  /// Add the OSM tags for a feature type
+  void SetOSMTagsForType(uint32_t type);
   /// Wrapper for SetTagValue and RemoveTag, avoids duplication for similar alternative osm tags
   void UpdateOSMTag(std::string_view key, std::string_view value);
   /// Replace an old business with a new business
@@ -205,21 +204,14 @@ private:
   pugi::xml_document m_document;
 };
 
-/// Rewrites all but geometry and types.
-/// Should be applied to existing features only (in mwm files).
-void ApplyPatch(XMLFeature const & xml, osm::EditableMapObject & object);
-
-/// @param serializeType if false, types are not serialized.
-/// Useful for applying modifications to existing OSM features, to avoid issues when someone
-/// has changed a type in OSM, but our users uploaded invalid outdated type after modifying feature.
+/// @param serializeType if false, type is not serialized.
+/// This function converts the current state of a MapObject to a format similar to OSM style XML.
+/// Tags written in this function are used to see POI details when debugging. Only the data stored
+/// in the EditJournal is used for OSM editing.
 XMLFeature ToXML(osm::EditableMapObject const & object, bool serializeType);
 
 /// Used to generate XML for created objects in the new editor
 XMLFeature TypeToXML(uint32_t type, feature::GeomType geomType, m2::PointD mercator);
-
-/// Creates new feature, including geometry and types.
-/// @Note: only nodes (points) are supported at the moment.
-bool FromXML(XMLFeature const & xml, osm::EditableMapObject & object);
 
 std::string DebugPrint(XMLFeature const & feature);
 std::string DebugPrint(XMLFeature::Type const type);

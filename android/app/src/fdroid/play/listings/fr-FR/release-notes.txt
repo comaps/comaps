@@ -1,10 +1,8 @@
-• Données OpenStreetMap du 9 Décembre
-• Utilisation de Material 3
-• Support de l'édition des bornes de recharge dans l'éditeur OSM
-• Ajout du type de prise schuko/type-E
-• Amélioration de l'ordre des résultats de recherche
-• Ajout du lituanien et du letton dans le guidage vocal
-• Amélioration de la taille des instructions dans la navigation
-• Niveau de zoom basé sur la distance jusqu’au prochain virage
-• Réorganisation des paramètres
-Plus de détails sur codeberg.org/comaps/comaps/releases
+• Données OpenStreetMap du 17 décembre
+• Serveur de téléchargement de cartes configurable
+• Ajout d'un message d'avertissement pour les cartes trop anciennes
+• Évitement des allées de parking dans les itinéraires
+• Mise à jour de l'apparence des boutons de zooms
+• Amélioration des synonymes de recherche en français
+• Editeur OSM: vérification de la taille limite des tags OSM
+Plus d'informations sur codeberg.org/comaps/comaps/releases

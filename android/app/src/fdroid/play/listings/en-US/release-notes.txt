@@ -1,10 +1,8 @@
-• OpenStreetMap data as of December 9
-• Use Material 3 themes
-• Support charging sockets in OSM Editor
-• Added schuko/type-E charge sockets
-• Improved search results ranking
-• Enabled Lithuanian and Latvian in voice announcements
-• Improved size of driving indications
-• Base zoom level on distance to next turn
-• Reordered settings
+• OpenStreetMap data as of December 17
+• Make map download server configurable
+• Added info about outdated maps and an update button to the selected place info card
+• Avoid using parking aisles for routing
+• Changed shape of zoom buttons
+• Improved French search synonyms
+• OSM editor: check length limit for OSM tags in value validation
 More details on codeberg.org/comaps/comaps/releases

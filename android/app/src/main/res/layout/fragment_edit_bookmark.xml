@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/ic_done"
         android:layout_width="?actionBarSize"
         android:layout_height="?actionBarSize"
-        android:background="?attr/selectableItemBackgroundBorderless"
+        android:background="?selectableItemBackgroundBorderless"
         android:layout_gravity="end|center_vertical"
         android:scaleType="centerInside"
         android:contentDescription="@string/save" />

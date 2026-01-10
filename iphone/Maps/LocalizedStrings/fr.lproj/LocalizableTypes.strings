@@ -358,6 +358,7 @@
 "type.emergency.assembly_point" = "Point de rassemblement d’urgence";
 "type.emergency.defibrillator" = "Défibrillateur";
 "type.emergency.fire_hydrant" = "Point d’eau incendie";
+"type.amenity.hydrant" = "Borne d’puisage";
 "type.emergency.phone" = "Téléphone d’urgence";
 
 /* A place where a lifeguard is on duty. */

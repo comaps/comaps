@@ -186,7 +186,7 @@
 "place-state": "Щат|провинция",
 "place-region": "Район|Регион",
 "place-island|place-islet": "Остров",
-"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|микрорайон|окръг|квартал|Предградие",
+"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|микрорайон|окръг|квартал|Предградие|Жилищен комплекс|ж.к.|ЖК",
 "place-hamlet": "Село",
 "place-village": "Село",
 "place-locality": "местност|регион|Място",

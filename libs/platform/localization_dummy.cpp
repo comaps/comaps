@@ -1,11 +1,17 @@
 #include <ctime>
 #include "platform/localization.hpp"
+#include "indexer/localized_types_map.cpp"
 
 namespace platform
 {
 std::string GetLocalizedTypeName(std::string const & type)
 {
-  return type;
+  auto key = "type." + type;
+  std::replace(key.begin(), key.end(), '-', '.');
+  std::replace(key.begin(), key.end(), ':', '_');
+  auto const it = g_type2localizedType.find(key);
+  std::string localizedName = (it != g_type2localizedType.end()) ? it->second : std::string();
+  return localizedName.empty() ? type : localizedName;
 }
 
 std::string GetLocalizedBrandName(std::string const & brand)

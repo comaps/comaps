@@ -40,7 +40,7 @@
 "country_status_download_without_size" = "دانلود نقشه";
 
 /* Message to display at the center of the screen when the country download has failed */
-"country_status_download_failed" = "دانلود با شکست مواجه شد";
+"country_status_download_failed" = "بارگیری ناکام بود";
 
 /* Text in About screen */
 "about_proposition_1" = "آفلاین، سریع و آسان برای استفاده";
@@ -48,22 +48,22 @@
 /* Text in About screen */
 "about_proposition_2" = "متمرکز بر حریم خصوصی و بدون تبلیغات";
 "close" = "بستن";
-"download" = "دانلود";
+"download" = "بارگیری";
 
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "ادامه";
 
 /* "Add new bookmark list" dialog title */
-"add_new_set" = "اضافه کردن مجموعه جدید";
+"add_new_set" = "افزودن پهرستی نو";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Bookmark List Name";
+"bookmark_set_name" = "نام پهرست نشانگ‌ها";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Bookmark Lists";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "نشانه‌ها";
+"bookmarks" = "نشانگ‌ها";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "نشانه‌ها و مسیر ها";
@@ -151,7 +151,7 @@
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "در حال بارگیری نشانه‌ها";
+"load_kmz_title" = "بارگذاری نشانگ‌ها";
 
 /* Kmz file successful loading */
 "load_kmz_successful" = "نشانه‌ها با موفقیت بارگذاری شد!شما می توانید آنها را در نقشه یا بخش مدیریت نشانه‌ها بیابید.";
@@ -1085,7 +1085,7 @@
 "edit_track" = "ویرایش مسیر";
 "osm_profile_view_notes" = "مشاهده یادداشت‌ها";
 "osm_profile_view_edit_history" = "مشاهده تاریخچه ویرایش‌ها";
-"about_headline" = "رایگان برای همه، ساخته شده با عشق";
+"about_headline" = "پروژه‌ای باز نیرو گرفته از انجمن";
 "about_proposition_3" = "شفاف و نه برای سود";
 "pref_mapappearance_title" = "ظاهر نقشه";
 "pref_maplanguage_title" = "زبان نقشه";

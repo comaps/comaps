@@ -543,7 +543,7 @@
 
 /* OpenStreetMap Profile */
 "osm_profile" = "Profil OpenStreetMap";
-"osm_profile_promt" = "Creați un cont OpenStreetMap sau conectați-vă pentru a vă publica edițiile de hartă în întreaga lume.";
+"osm_profile_promt" = "Creați un cont OpenStreetMap sau conectați-vă pentru a vă publica editările hărții pentru întreaga lume.";
 "osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) este un proiect comunitar pentru construirea unei hărți libere și deschise. Este principala sursă de date cartografice în CoMaps și funcționează similar cu Wikipedia. Puteți adăuga sau edita locuri, iar acestea devin disponibile pentru milioane de utilizatori din întreaga lume. \nAlăturați-vă comunității și ajutați la crearea unei hărți mai bune pentru toată lumea!";
 "osm_profile_login" = "Conectează-te la contul OpenStreetMap";
 "osm_profile_reauthorize_promt" = "Contul OpenStreetMap a fost deconectat de la această aplicație";

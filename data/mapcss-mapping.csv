@@ -1232,7 +1232,7 @@ shop|car_parts;1104;
 deprecated|deprecated;1105;x
 deprecated|deprecated;1106;x
 deprecated|deprecated;1107;x
-deprecated|deprecated;1108;x
+amenity|hydrant;1108;
 amenity|public_bookcase;1109;
 tourism|apartment;1110;
 leisure|resort;[leisure=resort],[tourism=resort],[leisure=summer_camp];;name;int_name;1111;

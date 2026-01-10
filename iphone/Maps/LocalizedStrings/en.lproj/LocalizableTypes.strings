@@ -394,6 +394,7 @@
 "type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Defibrillator";
 "type.emergency.fire_hydrant" = "Fire Hydrant";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "Emergency Phone";
 
 /* A place where a lifeguard is on duty. */

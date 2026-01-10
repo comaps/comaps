@@ -587,4 +587,11 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeG
   storage::CountryId const & res = g_framework->GetPlacePageInfo().GetCountryId();
   return (res == storage::kInvalidCountryId ? nullptr : jni::ToJavaString(env, res));
 }
+
+// static native boolean nativeIsMapTooOldToEdit(String countryId);
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeIsMapTooOldToEdit(JNIEnv *env, jclass clazz,
+                                                                                            jstring country_id)
+{
+  return GetStorage().IsMapTooOldToEdit(jni::ToNativeString(env, country_id));
+}
 }  // extern "C"

@@ -897,7 +897,7 @@
     <string name="editor_place_doesnt_exist_description">Décrivez le lieu afin de signaler l\'erreur à la communauté OpenStreetMap</string>
     <string name="offline_explanation_text">Une carte doit être téléchargée pour visualiser et vous déplacer dans une zone.\nTéléchargez les cartes des zones que vous souhaitez visiter.</string>
     <string name="list_description_empty">Modifier la liste pour ajouter une description</string>
-    <string name="avoid_paved">Éviter les routes goudronnées</string>
+    <string name="avoid_paved">Éviter les routes pavées</string>
     <string name="opens_at">Ouvre à %s</string>
     <string name="closes_at">Ferme à %s</string>
     <string name="opens_day_at">Ouverture le %1$s à %2$s</string>
@@ -913,4 +913,12 @@
     <string name="editor_submit">Soumettre</string>
     <string name="power_management">Gestion de l\'énergie</string>
     <string name="charge_socket_schuko">Europe</string>
+    <string name="place_page_map_too_old_title">Carte obsolète</string>
+    <string name="place_page_map_too_old_description">Les données de la carte actuelle sont anciennes, pensez à les mettre à jour.</string>
+    <string name="place_page_update_too_old_map">Mettre à jour la carte</string>
+    <string name="place_page_too_old_to_edit">Les modifications OpenStreetMap sont désactivées car les données de la carte sont trop anciennes.</string>
+    <string name="place_page_app_too_old_description">Vos données cartographiques actuelles sont très anciennes, veuillez mettre à jour l\'application CoMaps.</string>
+    <string name="prefs_speed_cameras_information">Les avertissements relatifs aux radars de vitesse sont désactivés dans les pays où les alertes sont interdites par la législation locale.</string>
+    <string name="navigation_start_tts_message">"Navigation de démarrage, langue des instructions vocales : "</string>
+    <string name="navigation_start_tts_disabled_message">Instructions vocales désactivées : moteur de synthèse vocale non disponible</string>
 </resources>

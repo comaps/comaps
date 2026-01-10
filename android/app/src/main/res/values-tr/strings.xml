@@ -893,4 +893,5 @@
     <string name="unknown_count">bilinmiyor</string>
     <string name="error_value_must_be_positive">Değer pozitif olmalıdır</string>
     <string name="error_invalid_number">Geçersiz sayı</string>
+    <string name="avoid_paved">Asfalt yollardan kaçın</string>
 </resources>

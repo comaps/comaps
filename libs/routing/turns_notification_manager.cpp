@@ -16,7 +16,7 @@ namespace
 {
 // If the distance between two sequential turns is less than kSecondTurnThresholdDistM
 // the information about the second turn will be shown or pronounced
-// when the user is approaching to the first one with "Then.".
+// when the user is approaching to the first one with "Then,".
 double constexpr kSecondTurnThresholdDistM = 400.0;
 // If the distance between two sequential turns is less than kDistanceNotifyThresholdM
 // the notification will *not* append second distance, (like "In 500 meters. Turn left. Then. Turn right.")
@@ -25,7 +25,7 @@ double constexpr kDistanceNotifyThresholdM = 50.0;
 // Returns true if the closest turn is an entrance to a roundabout and the second is
 // an exit form a roundabout.
 // Note. There are some cases when another turn (besides an exit from roundabout)
-// follows an entrance to a roundabout. It could happend in case of turns inside a roundabout.
+// follows an entrance to a roundabout. It could happened in case of turns inside a roundabout.
 // Returns false otherwise.
 bool IsClassicEntranceToRoundabout(routing::turns::TurnItemDist const & firstTurn,
                                    routing::turns::TurnItemDist const & secondTurn)

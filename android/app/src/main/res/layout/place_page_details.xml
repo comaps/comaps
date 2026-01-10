@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:background="?panel"
+  android:background="?windowBackgroundForced"
   android:orientation="vertical">
 
 
@@ -82,12 +82,14 @@
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/place_page_last_checked"
-    style="?fontCaption"
+    style="@style/TextAppearance.Caption"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/margin_half"
     android:paddingHorizontal="@dimen/margin_base"
     tools:text="Existence confirmed 1 month ago"/>
+
+  <include android:visibility="gone" layout="@layout/place_page_map_too_old"/>
 
   <include android:visibility="gone" layout="@layout/place_page_editor"/>
 

@@ -502,7 +502,7 @@
     <string name="placepage_edit_bookmark_button">Lesezeichen bearbeiten</string>
     <string name="placepage_personal_notes_hint">Persönliche Notizen (Text oder html)</string>
     <string name="editor_reset_edits_message">Alle lokalen Änderungen verwerfen?</string>
-    <string name="editor_reset_edits_button">Verwerfen</string>
+    <string name="editor_reset_edits_button">Änderungen verwerfen</string>
     <string name="editor_remove_place_message">Hinzugefügtes Objekt löschen?</string>
     <string name="editor_remove_place_button">Löschen</string>
     <string name="editor_place_doesnt_exist">Dieser Ort existiert nicht</string>
@@ -902,9 +902,17 @@
         <item quantity="other">%d min</item>
     </plurals>
     <string name="editor_business_vacant_button">Geschäft steht leer</string>
-    <string name="editor_mark_business_vacant_title">Geschäft als leerstehend markieren</string>
+    <string name="editor_mark_business_vacant_title">Geschäft auf leerstehend setzen</string>
     <string name="editor_submit">Absenden</string>
-    <string name="editor_mark_business_vacant_description">Wenn das Unternehmen ausgezogen ist und die Fläche leer und bereit für die nächste Miete ist.</string>
+    <string name="editor_mark_business_vacant_description">Verwenden Sie diese Option, wenn das Geschäft ausgezogen ist und ein neues Geschäft die leerstehenden Räume übernehmen könnte.</string>
     <string name="charge_socket_schuko">Schuko</string>
     <string name="power_management">Energiemanagement</string>
+    <string name="place_page_map_too_old_title">Kartendaten veraltet</string>
+    <string name="place_page_map_too_old_description">Die aktuellen Kartendaten sind sehr alt, bitte aktualisiere die Karte.</string>
+    <string name="place_page_app_too_old_description">Die aktuellen Kartendaten sind sehr alt, bitte aktualisiere die CoMaps-App.</string>
+    <string name="place_page_update_too_old_map">Kartenregion aktualisieren</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap-Bearbeitung ist deaktiviert, da die Kartendaten zu alt sind.</string>
+    <string name="prefs_speed_cameras_information">Blitzerwarnungen sind in Ländern deaktiviert, in denen Warnungen durch lokale Gesetze verboten sind.</string>
+    <string name="navigation_start_tts_message">"Navigation wird gestartet, Sprache der Sprachansagen: "</string>
+    <string name="navigation_start_tts_disabled_message">Sprachansagen deaktiviert: TTS-Engine nicht verfügbar</string>
 </resources>

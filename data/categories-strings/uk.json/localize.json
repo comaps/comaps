@@ -196,7 +196,7 @@
 "place-state": "Штат|провінція|регіон",
 "place-region": "Район|область",
 "place-island|place-islet": "Острів",
-"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|мікрорайон|квартал|округа|Сусідство",
+"place-suburb|place-quarter|place-neighbourhood|landuse-residential": "Район|мікрорайон|квартал|округа|Сусідство|Житловий комплекс|ж.к.|ЖК",
 "place-hamlet": "Поселення|селище|село",
 "place-village": "Село|хутір|поселення",
 "place-locality": "Місцевість|регіон|Місце",

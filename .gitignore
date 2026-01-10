@@ -156,6 +156,8 @@ android/huawei-appgallery.json
 android/res/xml/network_security_config.xml
 ./server/
 iphone/Maps/app.omaps/
+# Generated file
+libs/indexer/localized_types_map.cpp
 
 *.li
 

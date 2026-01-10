@@ -885,4 +885,12 @@
     <string name="editor_submit">Enviar</string>
     <string name="power_management">Gerenciamento de energia</string>
     <string name="charge_socket_schuko">Doméstica UE</string>
+    <string name="place_page_map_too_old_title">Dados do mapa desatualizados</string>
+    <string name="place_page_map_too_old_description">Os seus dados do mapa atuais são muito antigos, por favor atualize o mapa.</string>
+    <string name="place_page_app_too_old_description">Seus dados do mapa atuais são muito antigos, por favor atualize o aplicativo CoMaps.</string>
+    <string name="place_page_update_too_old_map">Atualizar região do mapa</string>
+    <string name="place_page_too_old_to_edit">A edição do OpenStreetMap está desativada porque os dados do mapa são antigos demais.</string>
+    <string name="prefs_speed_cameras_information">Alertas de radar fotográfico de velocidade estão desativados em países onde os alertas são proibidos pelas leis locais.</string>
+    <string name="navigation_start_tts_message">"Iniciando navegação, idioma da instrução por voz: "</string>
+    <string name="navigation_start_tts_disabled_message">Instrução por voz desativada: nenhum motor de texto para voz disponível</string>
 </resources>

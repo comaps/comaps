@@ -489,7 +489,7 @@
     <string name="placepage_edit_bookmark_button">Rediger bogmærke</string>
     <string name="placepage_personal_notes_hint">Personlige notater (tekst eller html)</string>
     <string name="editor_reset_edits_message">Kassér alle lokale ændringer?</string>
-    <string name="editor_reset_edits_button">Kassér</string>
+    <string name="editor_reset_edits_button">Kassér ændringer</string>
     <string name="editor_remove_place_message">Slet tilføjet sted?</string>
     <string name="editor_remove_place_button">Slet</string>
     <string name="editor_place_doesnt_exist">Stedet eksisterer ikke</string>
@@ -896,4 +896,10 @@
     <string name="charge_socket_schuko">Europæisk</string>
     <string name="prefs_speed_cameras_information">Advarsler om hastighedskameraer er deaktiveret i lande, hvor advarsler er forbudt i henhold til lokal lovgivning.</string>
     <string name="navigation_start_tts_message">"Starter navigation, sprog for stemmeinstruktioner: "</string>
+    <string name="place_page_map_too_old_title">Kortdata forældet</string>
+    <string name="place_page_map_too_old_description">Dine nuværende kortdata er meget gamle. Opdater kortet.</string>
+    <string name="place_page_app_too_old_description">Dine nuværende kortdata er meget gamle. Opdater CoMaps-appen.</string>
+    <string name="place_page_update_too_old_map">Opdater kortregion</string>
+    <string name="place_page_too_old_to_edit">Redigering af OpenStreetMap er deaktiveret, fordi kortdataene er for gamle.</string>
+    <string name="navigation_start_tts_disabled_message">Stemmeinstruktioner deaktiveret: TTS-motor ikke tilgængelig</string>
 </resources>

@@ -26,6 +26,8 @@ The project consists of multiple components, each with its own translation files
 
 Components without links haven't been integrated into Weblate and must be translated directly via [Codeberg Pull Requests](CONTRIBUTING.md).
 
+TTS translations can be improved with [the TTS locale-viewer](https://comaps.codeberg.page/locale-viewer/).
+
 ## Translating
 
 ### Workflow

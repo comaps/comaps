@@ -73,8 +73,7 @@ public:
   int GetFontIndex(strings::UniChar unicodePoint);
   int GetFontIndex(std::u16string_view sv);
 
-  text::TextMetrics ShapeText(std::string_view utf8, int fontPixelHeight, int8_t lang);
-  text::TextMetrics ShapeText(std::string_view utf8, int fontPixelHeight, char const * lang);
+  text::TextMetrics ShapeText(std::string_view utf8, int fontPixelHeight);
 
   GlyphImage GetGlyphImage(GlyphFontAndId key, int pixelHeight, bool sdf) const;
 

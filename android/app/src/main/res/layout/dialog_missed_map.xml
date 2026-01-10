@@ -24,7 +24,7 @@
     android:id="@+id/items_frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?panel">
+    android:background="?windowBackgroundForced">
     <include
       layout="@layout/item_missed_map"
       android:layout_width="match_parent"

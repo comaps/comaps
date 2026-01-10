@@ -69,19 +69,4 @@
     <attr name="elevationProfileSelectedPointTriangle" format="reference" />
     <attr name="elevationProfileFloatingTriangle" format="reference" />
   </declare-styleable>
-  <declare-styleable name="ThemeAttrs.Fonts">
-    <attr name="fontHeadline1" format="reference" />
-    <attr name="fontHeadline2" format="reference" />
-    <attr name="fontHeadline3" format="reference" />
-    <attr name="fontHeadline4" format="reference" />
-    <attr name="fontHeadline5" format="reference" />
-    <attr name="fontHeadline6" format="reference" />
-    <attr name="fontSubtitle1" format="reference" />
-    <attr name="fontSubtitle2" format="reference" />
-    <attr name="fontBody1" format="reference" />
-    <attr name="fontBody2" format="reference" />
-    <attr name="fontButton" format="reference" />
-    <attr name="fontCaption" format="reference" />
-    <attr name="fontOverline" format="reference" />
-  </declare-styleable>
 </resources>

@@ -90,8 +90,7 @@ public enum ThemeSwitcher
     {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
         uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_YES);
-      else
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
       if (RoutingController.get().isVehicleNavigation())
         style = MapStyle.VehicleDark;
@@ -104,8 +103,7 @@ public enum ThemeSwitcher
     {
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
         uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_NO);
-      else
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+      AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
       if (RoutingController.get().isVehicleNavigation())
         style = MapStyle.VehicleClear;

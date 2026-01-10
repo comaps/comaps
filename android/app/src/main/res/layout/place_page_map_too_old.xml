@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:id="@+id/cv__map_too_old"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:layout_marginHorizontal="@dimen/margin_base"
+android:layout_marginTop="@dimen/margin_half"
+app:strokeWidth="1dp"
+app:strokeColor="@color/base_accent"
+app:cardBackgroundColor="@color/bg_cards">
+
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="horizontal"
+  android:padding="@dimen/margin_base"
+  android:gravity="center_vertical">
+
+  <com.google.android.material.imageview.ShapeableImageView
+    android:layout_width="48dp"
+    android:layout_height="48dp"
+    android:layout_marginEnd="@dimen/margin_base"
+    app:srcCompat="@drawable/info_icon"
+    app:tint="@color/base_accent" />
+
+  <LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:orientation="vertical">
+
+    <com.google.android.material.textview.MaterialTextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/margin_quarter"
+      android:text="@string/place_page_map_too_old_title"
+      android:textAppearance="@style/MwmTextAppearance.Body2"
+      android:textStyle="bold"
+      android:textColor="?android:textColorPrimary" />
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/tv__map_too_old_description"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="@dimen/margin_quarter"
+      android:text="@string/place_page_map_too_old_description"
+      android:fontFamily="@string/robotoRegular"
+      android:textAppearance="@style/MwmTextAppearance.Body3"
+      android:textColor="?android:textColorPrimary" />
+
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/mb__update_too_old_map"
+      style="@style/MwmWidget.M3.Button.Primary"
+      android:layout_height="wrap_content"
+      android:layout_width="wrap_content"
+      android:layout_gravity="end"
+      android:text="@string/place_page_update_too_old_map"/>
+
+  </LinearLayout>
+
+</LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

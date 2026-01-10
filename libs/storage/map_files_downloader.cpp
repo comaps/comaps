@@ -156,6 +156,18 @@ std::string GetAcceptLanguage()
 MetaConfig MapFilesDownloader::LoadMetaConfig()
 {
   Platform & pl = GetPlatform();
+
+  // If user sets a custom download server, skip metaserver entirely.
+  std::string const customServer = pl.CustomMapServerUrl();
+  if (!customServer.empty())
+  {
+    LOG(LINFO, ("Using custom map server URL:", customServer));
+
+    MetaConfig metaConfig;
+    metaConfig.m_serversList = {customServer};
+    return metaConfig;
+  }
+
   std::string const metaServerUrl = pl.MetaServerUrl();
   std::string httpResult;
 
@@ -170,7 +182,7 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
     request.RunHttpRequest(httpResult);
   }
 
-  std::optional<MetaConfig> metaConfig = downloader::ParseMetaConfig(httpResult);
+  auto metaConfig = downloader::ParseMetaConfig(httpResult);
   if (!metaConfig)
   {
     metaConfig = downloader::ParseMetaConfig(pl.DefaultUrlsJSON());
@@ -181,6 +193,7 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
   {
     LOG(LINFO, ("Got servers list:", metaConfig->m_serversList));
   }
+
   CHECK(!metaConfig->m_serversList.empty(), ());
   return *metaConfig;
 }
@@ -188,6 +201,12 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
 void MapFilesDownloader::GetMetaConfig(MetaConfigCallback const & callback)
 {
   callback(LoadMetaConfig());
+}
+
+void MapFilesDownloader::ResetMetaConfig()
+{
+    m_serversList.clear();
+    m_isMetaConfigRequested = false;
 }
 
 }  // namespace storage

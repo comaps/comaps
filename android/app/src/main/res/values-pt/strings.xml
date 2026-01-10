@@ -901,4 +901,18 @@
     <string name="list_description_empty">Edite a lista para adicionar uma descrição</string>
     <string name="power_management">Gestão de Energia</string>
     <string name="charge_socket_schuko">Doméstica UE</string>
+    <string name="place_page_map_too_old_title">Dados do mapa desatualizados</string>
+    <string name="place_page_map_too_old_description">O seu mapa atual tem dados demasiado antigos, por favor atualize-o.</string>
+    <string name="place_page_app_too_old_description">O seu mapa atual tem dados demasiado antigos, por favor atualize a aplicação do CoMaps.</string>
+    <string name="place_page_update_too_old_map">Atualizar região do mapa</string>
+    <string name="place_page_too_old_to_edit">Edição OpenStreetMap está desativada, pois os dados do mapa são demasiado antigos.</string>
+    <string name="prefs_speed_cameras_information">Avisos de câmaras de velocidade estão desativados em países onde alertas estão proibidos por lei.</string>
+    <string name="navigation_start_tts_message">"Iniciando Navegação, idioma das instruções por voz: "</string>
+    <string name="navigation_start_tts_disabled_message">Instruções por voz desativadas: nenhum motor de TTS disponível</string>
+    <string name="advanced">Avançadas</string>
+    <string name="download_resources_custom_url_title">Servidor de Mapa Personalizado</string>
+    <string name="download_resources_custom_url_message">Substitui o servidor de download de mapas normal. Deixe em branco para usar o servidor do CoMaps padrão.</string>
+    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_summary_none">Indefinido</string>
+    <string name="download_resources_custom_url_error_scheme">Por favor insira um URL inteiro começando com https:// e acabando com /</string>
 </resources>

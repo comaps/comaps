@@ -141,7 +141,7 @@ struct Notification
   uint32_t m_distanceUnits;
   uint8_t m_exitNum;
   /// if m_useThenInsteadOfDistance == true the m_distanceUnits is ignored.
-  /// The word "Then" shall be pronounced intead of the distance.
+  /// The word "Then" will be pronounced instead of the distance.
   bool m_useThenInsteadOfDistance;
   CarDirection m_turnDir = CarDirection::None;
   PedestrianDirection m_turnDirPedestrian = PedestrianDirection::None;

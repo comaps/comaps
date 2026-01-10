@@ -479,6 +479,9 @@ bool EditableMapObject::CheckHouseNumberWhenIsAddress() const
 // static
 bool EditableMapObject::ValidateFlats(string const & flats)
 {
+  if (strings::CountChar(flats) > kMaximumOsmChars)
+    return false;
+
   for (auto it = strings::SimpleTokenizer(flats, ";"); it; ++it)
   {
     string_view token = *it;
@@ -515,6 +518,9 @@ bool EditableMapObject::ValidatePhoneList(string const & phone)
 
   if (phone.empty())
     return true;
+
+  if (strings::CountChar(phone) > kMaximumOsmChars)
+    return false;
 
   auto constexpr kMaxNumberLen = 15;
   auto constexpr kMinNumberLen = 5;
@@ -556,6 +562,9 @@ bool EditableMapObject::ValidateEmail(string const & email)
   if (email.empty())
     return true;
 
+  if (strings::CountChar(email) > kMaximumOsmChars)
+    return false;
+
   if (strings::IsASCIIString(email))
   {
     static auto const s_emailRegex = regex(R"([^@\s]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$)");
@@ -588,6 +597,9 @@ bool EditableMapObject::ValidateLevel(string const & level)
 {
   if (level.empty())
     return true;
+
+  if (strings::CountChar(level) > kMaximumOsmChars)
+    return false;
 
   if (level.front() == ';' || level.back() == ';' || level.find(";;") != std::string::npos)
     return false;
@@ -632,6 +644,9 @@ bool EditableMapObject::ValidateName(string const & name)
 {
   if (name.empty())
     return true;
+
+  if (strings::CountChar(name) > kMaximumOsmChars)
+    return false;
 
   static std::u32string_view constexpr excludedSymbols = U"^§><*=_±√•÷×¶";
 

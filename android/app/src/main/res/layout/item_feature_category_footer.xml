@@ -14,7 +14,7 @@
     android:gravity="center"
     android:maxWidth="500dp"
     android:text="@string/editor_category_unsuitable_title"
-    android:textAppearance="@style/TextAppearance.MdcTypographyStyles.Headline6"
+    android:textAppearance="@style/TextAppearance.Headline6"
     android:textStyle="bold" />
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/editor_category_unsuitable_text"

@@ -2433,6 +2433,7 @@ emergency-phone                                     # icon z17- (also has captio
 man_made-telescope                                  # icon z18- (also has caption(optional) z18-)
 === -9980
 
+amenity-hydrant                                     # icon z19- (also has caption(optional) z19-)
 amenity-waste_basket                                # icon z18- (also has caption(optional) z19-)
 emergency-fire_hydrant                              # icon z19- (also has caption(optional) z19-)
 emergency-life_ring                                 # icon z19- (also has caption(optional) z19-)
@@ -2446,6 +2447,7 @@ natural-tree                                        # icon z18-
 # amenity-bench-backless                            # caption(optional) z19- (also has icon z18-)
 # amenity-food_sharing                              # caption(optional) z18- (also has icon z18-)
 # amenity-give_box                                  # caption(optional) z18- (also has icon z18-)
+# amenity-hydrant                                   # caption(optional) z19- (also has icon z19-)
 amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
 # amenity-loading_dock                              # caption(optional) z19- (also has icon z19-)
 # amenity-lounger                                   # caption(optional) z19- (also has icon z18-)

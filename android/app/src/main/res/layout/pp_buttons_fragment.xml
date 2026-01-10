@@ -4,7 +4,7 @@
   android:id="@+id/pp_buttons_layout"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:background="?ppButtonsBackground"
+  android:background="?windowBackgroundForced"
   android:orientation="horizontal"
   android:layout_gravity="bottom">
   <include layout="@layout/item_divider" />

@@ -12,7 +12,7 @@
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/margin_base"
     android:text="@string/download_country_ask"
-    android:textAppearance="?fontBody2"
+    android:textAppearance="@style/TextAppearance.Body2"
     android:visibility="gone"
     tools:visibility="visible"/>
   <com.google.android.material.progressindicator.LinearProgressIndicator

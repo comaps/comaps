@@ -349,8 +349,8 @@
     <string name="osm_note_hint">Ali pa pusti sporočilo skupnosti OpenStreetMap, da bo nekdo drug dodal ali popravil ta kraj.</string>
     <string name="osm_note_toast">Sporočilo bo poslano na OpenStreetMap</string>
     <string name="editor_share_to_all_dialog_title">Ali to želite poslati vsem uporabnikom?</string>
-    <string name="editor_share_to_all_dialog_message_1">Poskrbite, da niste vnesli nobenih zasebnih podatkov</string>
-    <string name="editor_share_to_all_dialog_message_2">Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno</string>
+    <string name="editor_share_to_all_dialog_message_1">Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov</string>
+    <string name="editor_share_to_all_dialog_message_2">Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno.</string>
     <string name="navigation_stop_button">Ustavi</string>
     <string name="track_recording">Snemam pot</string>
     <string name="accept">Potrdi</string>
@@ -639,4 +639,22 @@
         <item quantity="few">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
+    <string name="opens_day_at">Odpre se %1$s, ob %2$s</string>
+    <string name="closes_day_at">Zapre se %1$s, ob %2$s</string>
+    <string name="editor_business_vacant_button">Podjetje ni zakupljeno</string>
+    <string name="editor_mark_business_vacant_title">Označi, da je podjetje nezakupljeno</string>
+    <string name="editor_mark_business_vacant_description">To uporabite, če se je podjetje izselilo in so prostori prazni in pripravljeni za novega zakupnika.</string>
+    <string name="editor_submit">Potrdi</string>
+    <string name="place_page_map_too_old_title">Podatki zemljevida so zastareli</string>
+    <string name="place_page_map_too_old_description">Vaši trenutni podatki zemljevida so zelo stari; prosimo, posodobite zemljevid.</string>
+    <string name="place_page_app_too_old_description">Vaši trenutni podatki zemljevida so zelo stari; prosimo, posodobite orodje CoMaps.</string>
+    <string name="place_page_update_too_old_map">Posodobi področje zemljevida</string>
+    <string name="place_page_too_old_to_edit">Urejanje OpenStreetMap je onemogočeno, ker so podatki zemljevida prestari.</string>
+    <string name="prefs_speed_cameras_information">Opozorila o merilnikih hitrosti so onemogočena v državah, kjer so prepovedana s tamkajšnjimi zakoni.</string>
+    <string name="power_management">Energetsko upravljanje</string>
+    <string name="avoid_paved">Izogni se neasfaltiranim cestam</string>
+    <string name="navigation_start_tts_message">"Začenjanje potnega usmerjanja, jezik glasovnih napotkov: "</string>
+    <string name="navigation_start_tts_disabled_message">Glasovni napotki so onemogočeni: ustvarjalec glasu (TTS) ni na voljo</string>
+    <string name="charge_socket_schuko">standardna evropska vtičnica (Schuko)</string>
+    <string name="list_description_empty">Uredite seznam, da dodate opis</string>
 </resources>
