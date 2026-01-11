@@ -46,7 +46,10 @@ jobs:
         shell: bash
         run: |
           apt-get update -y
-          apt-get install -y git python3-pip
+          apt-get install -y \
+            git \
+            python3-pip \
+            openjdk-21-jdk
           pip install "protobuf<3.21" --break-system-packages
 
       - name: Install Android SDK components
