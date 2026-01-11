@@ -277,7 +277,7 @@ jobs:
         run: |
           cd /home/planet/planet/
           rm -f planet-latest-new.osm.pbf
-          pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -v --size 16384
+          pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -vv --size 16384
           mv planet-latest-new.osm.pbf planet-latest.osm.pbf
       - name: Notify Zulip
         run: |
