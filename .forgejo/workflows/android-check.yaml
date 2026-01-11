@@ -38,7 +38,23 @@ jobs:
   lint:
     name: Android Lint
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:latest
+      options: --user root
     steps:
+      - name: Install build dependencies
+        shell: bash
+        run: |
+          apt-get update -y
+          apt-get install -y git python3-pip
+          pip install "protobuf<3.21" --break-system-packages
+
+      - name: Install Android SDK components
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358"
+
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
@@ -56,6 +72,9 @@ jobs:
   android-check:
     name: Build Android Debug
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:latest
+      options: --user root
     strategy:
       fail-fast: false
       matrix:
@@ -74,8 +93,31 @@ jobs:
       - name: Install build tools and dependencies
         shell: bash
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
+          apt-get update -y
+          apt-get install -y \
+            ninja-build \
+            qt6-base-dev \
+            qt6-declarative-dev \
+            qt6-positioning-dev \
+            libqt6svg6-dev \
+            optipng \
+            libfreetype-dev \
+            libharfbuzz-dev \
+            libxrandr-dev \
+            libxinerama-dev \
+            libxcursor-dev \
+            libxi-dev \
+            python3-pip \
+            zlib1g-dev \
+            git \
+            ccache
+          pip install "protobuf<3.21" --break-system-packages
+
+      - name: Install Android SDK components
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358"
 
       - name: Checkout sources
         uses: actions/checkout@v4
