@@ -22,3 +22,6 @@ Bengali /system/fonts/NotoSansBengali-Regular.ttf
 Bengali fonts/00_NotoSansBengali-Regular.ttf
 Hebrew /system/fonts/NotoSansHebrew-Regular.ttf
 Hebrew fonts/00_NotoSansHebrew-Regular.ttf
+Latin_Extended_Additional /usr/share/fonts/truetype/roboto/Roboto-Medium.ttf
+Latin_Extended_Additional /system/fonts/Roboto-Medium.ttf
+Latin_Extended_Additional fonts/07_roboto_medium.ttf
