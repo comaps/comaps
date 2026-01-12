@@ -67,6 +67,15 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: "3party"
+          key: 3party-cache-${{ steps.date.outputs.date }}
+      
       - name: Parallel submodules checkout
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
