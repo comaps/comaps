@@ -95,19 +95,21 @@ jobs:
           fetch-depth: 1
 
       - uses: actions/cache@v4
+        id: cache-3party
         with:
           path: "3party"
           key: 3party-cache-${{ steps.date.outputs.date }}
 
-      - name: Sync submodule URLs after cache restore
-        shell: bash
-        run: |
-          git submodule sync --recursive
-          git submodule foreach --recursive git reset --hard
-
       - name: Parallel submodules checkout
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          if [ "${{ steps.cache-3party.outputs.cache-hit }}" == "true" ]; then
+            echo "Cache hit, syncing submodules"
+            git submodule sync --recursive
+          else
+            echo "No cache, checking out submodules"
+            git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+          fi
 
       - name: Lint
         shell: bash
@@ -189,19 +191,21 @@ jobs:
           fetch-depth: 200 # enough to get all commits for the current day
 
       - uses: actions/cache@v4
+        id: cache-3party
         with:
           path: "3party"
           key: 3party-cache-${{ steps.date.outputs.date }}
 
-      - name: Sync submodule URLs after cache restore
-        shell: bash
-        run: |
-          git submodule sync --recursive
-          git submodule foreach --recursive git reset --hard
-
       - name: Parallel submodules checkout
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          if [ "${{ steps.cache-3party.outputs.cache-hit }}" == "true" ]; then
+            echo "Cache hit, syncing submodules"
+            git submodule sync --recursive
+          else
+            echo "No cache, checking out submodules"
+            git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+          fi
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
