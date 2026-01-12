@@ -44,15 +44,18 @@ jobs:
     env:
       JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
     steps:
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
+          version: "${{ steps.date.outputs.date }}"
+
       - name: Install build dependencies
         shell: bash
         run: |
-          apt-get update -y
-          apt-get install -y \
-            cmake \
-            git \
-            python3-pip \
-            openjdk-21-jdk
           pip install "protobuf<3.21" --break-system-packages
           update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 
@@ -66,10 +69,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
-
-      - name: Get date for cache key
-        id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v4
         with:
@@ -112,29 +111,18 @@ jobs:
       cancel-in-progress: true
 
     steps:
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
+          version: "${{ steps.date.outputs.date }}"
+
       - name: Install build tools and dependencies
         shell: bash
         run: |
-          apt-get update -y
-          apt-get install -y \
-            cmake \
-            ninja-build \
-            qt6-base-dev \
-            qt6-declarative-dev \
-            qt6-positioning-dev \
-            libqt6svg6-dev \
-            optipng \
-            libfreetype-dev \
-            libharfbuzz-dev \
-            libxrandr-dev \
-            libxinerama-dev \
-            libxcursor-dev \
-            libxi-dev \
-            python3-pip \
-            zlib1g-dev \
-            git \
-            ccache \
-            openjdk-21-jdk
           pip install "protobuf<3.21" --break-system-packages
           update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 
@@ -148,10 +136,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 200 # enough to get all commits for the current day
-
-      - name: Get date for cache key
-        id: date
-        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
       - uses: actions/cache@v4
         with:
@@ -183,5 +167,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: android-${{ matrix.flavor }}
-          path: android/app/build/outputs/apk/**/OrganicMaps-*.apk
+          path: android/app/build/outputs/apk/**/*.apk
           if-no-files-found: error
