@@ -48,7 +48,13 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+      - name: Apt update
+        shell: bash
+        run: |
+          apt update -y
+
+      - name: Install and cache apt packages
+        uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
           packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
           version: "${{ steps.date.outputs.date }}"
@@ -115,7 +121,13 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
-      - uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+      - name: Apt update
+        shell: bash
+        run: |
+          apt update -y
+          
+      - name: Install and cache apt packages
+        uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
           packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
           version: "${{ steps.date.outputs.date }}"
