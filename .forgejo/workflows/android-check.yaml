@@ -253,7 +253,7 @@ jobs:
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
       - name: Upload ${{ matrix.flavor }} apk
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.flavor }}
           path: android/app/build/outputs/apk/**/*.apk
