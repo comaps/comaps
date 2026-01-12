@@ -73,7 +73,9 @@ jobs:
       - name: Lint
         shell: bash
         working-directory: android
-        run: ./gradlew -Pandroidauto=true lint
+        run: |
+          ./configure.sh
+          ./gradlew -Pandroidauto=true lint
 
   android-check:
     name: Build Android Debug
@@ -152,6 +154,7 @@ jobs:
         run: |
           cmake --version
           ninja --version
+          ./configure.sh
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
       - name: Upload ${{ matrix.flavor }} apk
