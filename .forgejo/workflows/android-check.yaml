@@ -34,6 +34,9 @@ on:
       - track_generator/**
       - xcode/**
 
+env:
+  APT_PACKAGES: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
+
 jobs:
   lint:
     name: Android Lint
@@ -63,8 +66,16 @@ jobs:
       - name: Install and cache apt packages
         uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
-          packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
+          packages: ${{ env.APT_PACKAGES }}
           version: "${{ steps.date.outputs.date }}"
+
+      - name: Fallback manual apt install
+        shell: bash
+        run: |
+          if ! command -v pip &> /dev/null; then
+            echo "pip not found, cache action failed, installing packages manually"
+            apt install -y $APT_PACKAGES
+          fi
 
       - name: Install build dependencies
         shell: bash
@@ -143,8 +154,16 @@ jobs:
       - name: Install and cache apt packages
         uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
-          packages: cmake ninja-build qt6-base-dev qt6-declarative-dev qt6-positioning-dev libqt6svg6-dev optipng libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev python3-pip zlib1g-dev git ccache openjdk-21-jdk
+          packages: ${{ env.APT_PACKAGES }}
           version: "${{ steps.date.outputs.date }}"
+
+      - name: Fallback manual apt install
+        shell: bash
+        run: |
+          if ! command -v pip &> /dev/null; then
+            echo "pip not found, cache action failed, installing packages manually"
+            apt install -y $APT_PACKAGES
+          fi
 
       - name: Install build tools and dependencies
         shell: bash
