@@ -48,6 +48,13 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
+      - name: Create sudo wrapper
+        shell: bash
+        run: |
+          echo '#!/bin/bash' > /usr/local/bin/sudo
+          echo 'exec "$@"' >> /usr/local/bin/sudo
+          chmod +x /usr/local/bin/sudo
+
       - name: Apt update
         shell: bash
         run: |
@@ -121,11 +128,18 @@ jobs:
         id: date
         run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
 
+      - name: Create sudo wrapper
+        shell: bash
+        run: |
+          echo '#!/bin/bash' > /usr/local/bin/sudo
+          echo 'exec "$@"' >> /usr/local/bin/sudo
+          chmod +x /usr/local/bin/sudo
+
       - name: Apt update
         shell: bash
         run: |
           apt update -y
-          
+
       - name: Install and cache apt packages
         uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
         with:
