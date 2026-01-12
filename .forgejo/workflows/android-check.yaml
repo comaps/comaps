@@ -98,7 +98,13 @@ jobs:
         with:
           path: "3party"
           key: 3party-cache-${{ steps.date.outputs.date }}
-      
+
+      - name: Sync submodule URLs after cache restore
+        shell: bash
+        run: |
+          git submodule sync --recursive
+          git submodule foreach --recursive git reset --hard
+
       - name: Parallel submodules checkout
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
@@ -186,7 +192,13 @@ jobs:
         with:
           path: "3party"
           key: 3party-cache-${{ steps.date.outputs.date }}
-      
+
+      - name: Sync submodule URLs after cache restore
+        shell: bash
+        run: |
+          git submodule sync --recursive
+          git submodule foreach --recursive git reset --hard
+
       - name: Parallel submodules checkout
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
