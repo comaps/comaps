@@ -136,12 +136,21 @@ jobs:
         with:
           fetch-depth: 200 # enough to get all commits for the current day
 
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: "3party"
+          key: 3party-cache-${{ steps.date.outputs.date }}
+      
       - name: Parallel submodules checkout
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-${{ matrix.flavor }}
 
@@ -154,7 +163,9 @@ jobs:
         run: |
           cmake --version
           ninja --version
+          cd ..
           ./configure.sh
+          cd android
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
       - name: Upload ${{ matrix.flavor }} apk
