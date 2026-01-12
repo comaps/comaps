@@ -41,6 +41,8 @@ jobs:
     container:
       image: codeberg.org/comaps/docker-android-sdk:latest
       options: --user root
+    env:
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
     steps:
       - name: Install build dependencies
         shell: bash
@@ -51,6 +53,7 @@ jobs:
             python3-pip \
             openjdk-21-jdk
           pip install "protobuf<3.21" --break-system-packages
+          update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 
       - name: Install Android SDK components
         shell: bash
@@ -78,6 +81,8 @@ jobs:
     container:
       image: codeberg.org/comaps/docker-android-sdk:latest
       options: --user root
+    env:
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
     strategy:
       fail-fast: false
       matrix:
@@ -113,8 +118,10 @@ jobs:
             python3-pip \
             zlib1g-dev \
             git \
-            ccache
+            ccache \
+            openjdk-21-jdk
           pip install "protobuf<3.21" --break-system-packages
+          update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
 
       - name: Install Android SDK components
         shell: bash
