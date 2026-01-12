@@ -49,6 +49,7 @@ jobs:
         run: |
           apt-get update -y
           apt-get install -y \
+            cmake \
             git \
             python3-pip \
             openjdk-21-jdk
@@ -74,7 +75,9 @@ jobs:
         shell: bash
         working-directory: android
         run: |
+          cd ..
           ./configure.sh
+          cd android
           ./gradlew -Pandroidauto=true lint
 
   android-check:
@@ -105,6 +108,7 @@ jobs:
         run: |
           apt-get update -y
           apt-get install -y \
+            cmake \
             ninja-build \
             qt6-base-dev \
             qt6-declarative-dev \
@@ -161,8 +165,6 @@ jobs:
           CMAKE_C_COMPILER_LAUNCHER: ccache
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
         run: |
-          cmake --version
-          ninja --version
           cd ..
           ./configure.sh
           cd android
