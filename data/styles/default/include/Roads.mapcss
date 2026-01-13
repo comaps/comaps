@@ -139,17 +139,17 @@ line|z12[highway=motorway],
 line|z13[highway=motorway],
 {width: 4.0;}
 line|z14[highway=motorway],
-{width: 4.4;}
+{width: 3.4;}
 line|z15[highway=motorway],
-{width: 5.6;}
+{width: 4.6;}
 line|z16[highway=motorway],
-{width: 7.8;}
+{width: 6.8;}
 line|z17[highway=motorway],
-{width: 9.0;}
+{width: 8.0;}
 line|z18[highway=motorway],
-{width: 12.0;}
+{width: 11.0;}
 line|z19-[highway=motorway],
-{width: 16.0;}
+{width: 15.0;}
 
 line|z6[highway=motorway],
 line|z6[highway=trunk],
@@ -172,17 +172,17 @@ line|z12[highway=trunk],
 line|z13[highway=trunk],
 {width: 3.6;}
 line|z14[highway=trunk],
-{width: 4.0;}
+{width: 3.0;}
 line|z15[highway=trunk],
-{width: 4.8;}
+{width: 3.8;}
 line|z16[highway=trunk],
-{width: 6.2;}
+{width: 5.2;}
 line|z17[highway=trunk],
-{width: 8.2;}
+{width: 7.2;}
 line|z18[highway=trunk],
-{width: 11;}
+{width: 10;}
 line|z19-[highway=trunk],
-{width: 13.5;}
+{width: 12.5;}
 
 line|z10[highway=motorway_link],
 line|z10[highway=trunk_link]
@@ -198,22 +198,22 @@ line|z13[highway=trunk_link]
 {width: 1.9;}
 line|z14[highway=motorway_link],
 line|z14[highway=trunk_link]
-{width: 2.7;}
+{width: 1.7;}
 line|z15[highway=motorway_link],
 line|z15[highway=trunk_link]
-{width: 3.7;}
+{width: 2.7;}
 line|z16[highway=motorway_link],
 line|z16[highway=trunk_link]
-{width: 5.1;}
+{width: 4.1;}
 line|z17[highway=motorway_link],
 line|z17[highway=trunk_link]
-{width: 6.7;}
+{width: 5.7;}
 line|z18[highway=motorway_link],
 line|z18[highway=trunk_link]
-{width: 9.5;}
+{width: 8.5;}
 line|z19-[highway=motorway_link],
 line|z19-[highway=trunk_link]
-{width: 11.7;}
+{width: 10.7;}
 
 /* 3.2 Trunk & Motorway tunnel 12-22 ZOOM */
 
@@ -302,23 +302,23 @@ line|z9[highway=primary],
 line|z10[highway=primary],
 {width: 1.8;}
 line|z11[highway=primary],
-{width: 2.3;}
+{width: 1.3;}
 line|z12[highway=primary],
-{width: 2.7;}
+{width: 1.7;}
 line|z13[highway=primary],
-{width: 3.0;}
+{width: 2.0;}
 line|z14[highway=primary],
-{width: 3.8;}
+{width: 2.8;}
 line|z15[highway=primary],
-{width: 4.4;}
+{width: 3.4;}
 line|z16[highway=primary],
-{width: 5.4;}
+{width: 4.4;}
 line|z17[highway=primary],
-{width: 7;}
+{width: 6;}
 line|z18[highway=primary],
-{width: 10;}
+{width: 9;}
 line|z19-[highway=primary],
-{width: 12;}
+{width: 11;}
 
 
 line|z11[highway=primary_link],
@@ -330,15 +330,15 @@ line|z13[highway=primary_link],
 line|z14[highway=primary_link],
 {width: 1.8;}
 line|z15[highway=primary_link],
-{width: 2.5;}
+{width: 1.5;}
 line|z16[highway=primary_link],
-{width: 3.2;}
+{width: 2.2;}
 line|z17[highway=primary_link],
-{width: 4.7;}
+{width: 3.7;}
 line|z18[highway=primary_link],
-{width: 6.4;}
+{width: 5.4;}
 line|z19-[highway=primary_link],
-{width: 8.2;}
+{width: 7.2;}
 
 /* 4.2 Primary tunnel 14-22 ZOOM */
 
@@ -396,38 +396,38 @@ line|z14-[highway=secondary_link][bridge?]::bridgeblack,
 line|z10[highway=secondary],
 {width: 1.4;}
 line|z11[highway=secondary],
-{width: 2.2;}
+{width: 1.2;}
 line|z12[highway=secondary],
-{width: 2.5;}
+{width: 1.5;}
 line|z13[highway=secondary],
-{width: 2.7;}
+{width: 1.7;}
 line|z14[highway=secondary],
-{width: 3.2;}
+{width: 2.2;}
 line|z15[highway=secondary],
-{width: 3.8;}
+{width: 2.8;}
 line|z16[highway=secondary],
-{width: 5;}
+{width: 4;}
 line|z17[highway=secondary],
-{width: 6.6;}
+{width: 5.6;}
 line|z18[highway=secondary],
-{width: 9.4;}
+{width: 8.4;}
 line|z19-[highway=secondary],
-{width: 11.6;}
+{width: 10.6;}
 
 line|z13[highway=secondary_link],
 {width: 1.3;}
 line|z14[highway=secondary_link],
 {width: 1.8;}
 line|z15[highway=secondary_link],
-{width: 2.5;}
+{width: 1.5;}
 line|z16[highway=secondary_link],
-{width: 3.2;}
+{width: 2.2;}
 line|z17[highway=secondary_link],
-{width: 4.7;}
+{width: 3.7;}
 line|z18[highway=secondary_link],
-{width: 6.4;}
+{width: 5.4;}
 line|z19-[highway=secondary_link],
-{width: 8.2;}
+{width: 7.2;}
 
 /* 5.2 Secondary tunnel 16-22 ZOOM */
 
@@ -1142,18 +1142,6 @@ line|z17-[highway=bridleway][bridge?]::bridgeblack
 
 /* 8.10 Major road borders */
 
-line|z6-9[highway=motorway]::border,
-line|z6-9[highway=trunk]::border,
-{color: @trunk0_border; opacity: 1;}
-
-line|z10-13[highway=motorway]::border,
-line|z10-13[highway=motorway_link]::border,
-{color: @motorway0_border; opacity: 1;}
-
-line|z10-13[highway=trunk]::border,
-line|z10-13[highway=trunk_link]::border,
-{color: @trunk1_border; opacity: 1;}
-
 line|z14-[highway=motorway]::border,
 line|z14-[highway=motorway_link]::border,
 {color: @motorway1_border; opacity: 1;}
@@ -1162,8 +1150,6 @@ line|z14-[highway=trunk]::border,
 line|z14-[highway=trunk_link]::border,
 {color: @trunk1_border; opacity: 1;}
 
-line|z8-10[highway=primary]::border,
-{color: @primary0_border; opacity: 1;}
 line|z11-13[highway=primary]::border,
 line|z11-13[highway=primary_link]::border,
 {color: @primary1_border; opacity: 1;}
@@ -1171,7 +1157,7 @@ line|z14-[highway=primary]::border,
 line|z14-[highway=primary_link]::border,
 {color: @primary2_border; opacity: 1;}
 
-line|z10-13[highway=secondary]::border,
+line|z11-13[highway=secondary]::border,
 line|z13[highway=secondary_link]::border,
 {color: @secondary0_border; opacity: 1;}
 line|z14-[highway=secondary]::border,
@@ -1180,170 +1166,122 @@ line|z14-[highway=secondary_link]::border,
 
 /* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0. Finally subtract 0.5 from everything smaller than 3. */
 
-line|z10[highway=motorway]::border,
-{width: 3.6;}
-line|z11[highway=motorway]::border,
-{width: 4.0;}
-line|z12[highway=motorway]::border,
-{width: 4.6;}
-line|z13[highway=motorway]::border,
-{width: 5.0;}
 line|z14[highway=motorway]::border,
-{width: 5.4;}
+{width: 4.4;}
 line|z15[highway=motorway]::border,
-{width: 6.6;}
+{width: 5.6;}
 line|z16[highway=motorway]::border,
-{width: 8.8;}
+{width: 7.8;}
 line|z17[highway=motorway]::border,
-{width: 10.0;}
+{width: 9.0;}
 line|z18[highway=motorway]::border,
-{width: 13.0;}
+{width: 12.0;}
 line|z19-[highway=motorway]::border,
-{width: 17.0;}
+{width: 16.0;}
 
-line|z6[highway=motorway]::border,
-line|z6[highway=trunk]::border,
-{width: 0;}
-line|z7[highway=motorway]::border,
-line|z7[highway=trunk]::border,
-{width: 0;}
-line|z8[highway=motorway]::border,
-line|z8[highway=trunk]::border,
-{width: 1.7;}
-line|z9[highway=motorway]::border,
-line|z9[highway=trunk]::border,
-{width: 1.8;}
-line|z10[highway=trunk]::border,
-{width: 3.2;}
-line|z11[highway=trunk]::border,
-{width: 3.5;}
-line|z12[highway=trunk]::border,
-{width: 4.0;}
-line|z13[highway=trunk]::border,
-{width: 4.6;}
 line|z14[highway=trunk]::border,
-{width: 5.0;}
+{width: 4.0;}
 line|z15[highway=trunk]::border,
-{width: 5.8;}
+{width: 4.8;}
 line|z16[highway=trunk]::border,
-{width: 7.2;}
+{width: 6.2;}
 line|z17[highway=trunk]::border,
-{width: 9.2;}
+{width: 8.2;}
 line|z18[highway=trunk]::border,
-{width: 12;}
+{width: 11;}
 line|z19-[highway=trunk]::border,
-{width: 14.5;}
+{width: 13.5;}
 
-line|z10[highway=motorway_link]::border,
-line|z10[highway=trunk_link]::border,
-{width: 0;}
-line|z11[highway=motorway_link]::border,
-line|z11[highway=trunk_link]::border,
-{width: 1.6;}
-line|z12[highway=motorway_link]::border,
-line|z12[highway=trunk_link]::border,
-{width: 1.9;}
-line|z13[highway=motorway_link]::border,
-line|z13[highway=trunk_link]::border,
-{width: 2.4;}
 line|z14[highway=motorway_link]::border,
 line|z14[highway=trunk_link]::border,
-{width: 3.7;}
+{width: 2.2;}
 line|z15[highway=motorway_link]::border,
 line|z15[highway=trunk_link]::border,
-{width: 4.7;}
+{width: 3.7;}
 line|z16[highway=motorway_link]::border,
 line|z16[highway=trunk_link]::border,
-{width: 6.1;}
+{width: 5.1;}
 line|z17[highway=motorway_link]::border,
 line|z17[highway=trunk_link]::border,
-{width: 7.7;}
+{width: 6.7;}
 line|z18[highway=motorway_link]::border,
 line|z18[highway=trunk_link]::border,
-{width: 10.5;}
+{width: 9.5;}
 line|z19-[highway=motorway_link]::border,
 line|z19-[highway=trunk_link]::border,
-{width: 12.7;}
+{width: 11.7;}
 
-line|z8[highway=primary]::border,
-{width: 0;}
-line|z9[highway=primary]::border,
-{width: 0;}
-line|z10[highway=primary]::border,
-{width: 2.3;}
 line|z11[highway=primary]::border,
-{width: 3.3;}
+{width: 1.8;}
 line|z12[highway=primary]::border,
-{width: 3.7;}
+{width: 2.2;}
 line|z13[highway=primary]::border,
-{width: 4.0;}
+{width: 3.0;}
 line|z14[highway=primary]::border,
-{width: 4.8;}
+{width: 3.8;}
 line|z15[highway=primary]::border,
-{width: 5.4;}
+{width: 4.4;}
 line|z16[highway=primary]::border,
-{width: 6.4;}
+{width: 5.4;}
 line|z17[highway=primary]::border,
-{width: 8;}
+{width: 7;}
 line|z18[highway=primary]::border,
-{width: 11;}
+{width: 10;}
 line|z19-[highway=primary]::border,
-{width: 13;}
+{width: 12;}
 
 line|z11[highway=primary_link]::border,
 {width: 0;}
 line|z12[highway=primary_link]::border,
 {width: 0;}
 line|z13[highway=primary_link]::border,
-{width: 1.8;}
+{width: 0;}
 line|z14[highway=primary_link]::border,
-{width: 2.3;}
+{width: 0;}
 line|z15[highway=primary_link]::border,
-{width: 3.5;}
+{width: 2;}
 line|z16[highway=primary_link]::border,
-{width: 4.2;}
-line|z17[highway=primary_link]::border,
-{width: 5.7;}
-line|z18[highway=primary_link]::border,
-{width: 7.4;}
-line|z19-[highway=primary_link]::border,
-{width: 9.2;}
-
-line|z10[highway=secondary]::border,
-{width: 1.9;}
-line|z11[highway=secondary]::border,
 {width: 3.2;}
+line|z17[highway=primary_link]::border,
+{width: 4.7;}
+line|z18[highway=primary_link]::border,
+{width: 6.4;}
+line|z19-[highway=primary_link]::border,
+{width: 8.2;}
+
+line|z11[highway=secondary]::border,
+{width: 1.7;}
 line|z12[highway=secondary]::border,
-{width: 3.5;}
+{width: 2;}
 line|z13[highway=secondary]::border,
-{width: 3.7;}
+{width: 2.2;}
 line|z14[highway=secondary]::border,
-{width: 4.2;}
+{width: 3.2;}
 line|z15[highway=secondary]::border,
-{width: 4.8;}
+{width: 3.8;}
 line|z16[highway=secondary]::border,
-{width: 6;}
+{width: 5;}
 line|z17[highway=secondary]::border,
-{width: 7.6;}
+{width: 6.6;}
 line|z18[highway=secondary]::border,
-{width: 10.4;}
+{width: 9.4;}
 line|z19-[highway=secondary]::border,
-{width: 12.6;}
+{width: 11.6;}
 
 line|z13[highway=secondary_link]::border,
-{width: 1.8;}
+{width: 0;}
 line|z14[highway=secondary_link]::border,
-{width: 2.3;}
+{width: 0;}
 line|z15[highway=secondary_link]::border,
-{width: 3.5;}
+{width: 2;}
 line|z16[highway=secondary_link]::border,
-{width: 4.2;}
+{width: 3.2;}
 line|z17[highway=secondary_link]::border,
-{width: 5.7;}
+{width: 4.7;}
 line|z18[highway=secondary_link]::border,
-{width: 7.4;}
+{width: 6.4;}
 line|z19-[highway=secondary_link]::border,
-{width: 9.2;}
+{width: 8.2;}
 
 
 /* 8.11 Minor road borders */

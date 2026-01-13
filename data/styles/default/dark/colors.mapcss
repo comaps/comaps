@@ -162,11 +162,8 @@
 @path: #944A12;
 @path_expert: #523E33;
 @bridleway: #2B2827;
-@motorway0_border: #7A4006;
 @motorway1_border: #784606;
-@trunk0_border: #794D11;
 @trunk1_border: #79511D;
-@primary0_border: #7A5C2A;
 @primary1_border: #7C5E24;
 @primary2_border: #7C622F;
 @secondary0_border: #7F6730;
