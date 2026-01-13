@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  style="@style/Widget.Material3.CardView.Filled"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
   android:layout_margin="@dimen/margin_double_and_half"
-  android:background="?cardBackground"
   android:minWidth="@dimen/dialog_min_width"
   android:minHeight="@dimen/dialog_min_height"
+  app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+  app:cardCornerRadius="28dp">
+<LinearLayout
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
   android:orientation="vertical"
   android:padding="@dimen/margin_base_plus">
 
@@ -27,7 +32,7 @@
     android:layout_marginTop="@dimen/margin_base">
 
     <RadioButton
-      style="@style/TextAppearance.Subtitle1"
+      style="@style/MwmTextAppearance.Subtitle1"
       android:id="@+id/sort_by_default"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
@@ -77,3 +82,4 @@
       app:buttonTint="@null"/>
   </RadioGroup>
 </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

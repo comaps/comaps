@@ -3,7 +3,7 @@ Eine von der Community betriebene, kostenlose Open-Source Karten App, die auf Op
 Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 • Nutze die App und erzähle anderen davon
 • Gib Feedback und melde Probleme
-• Aktualisiere Kartendaten in der App oder auf der OpenStreetMap Website
+• Aktualisiere Kartendaten in der App oder auf der OpenStreetMap-Webseite
 
 <i>Dein Feedback und deine 5-Sterne-Bewertung sind die beste Unterstützung für uns!</i>
 
@@ -12,7 +12,7 @@ Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 ‣ <b>Datenschutz ist uns wichtig!</b>: Die App wurde mit Fokus auf Privatsphäre entwickelt – kein Tracking, keine Erfassung persönlicher Daten, keine Werbung.
 ‣ <b>Spart Akku und Speicherplatz</b>: Verbraucht nicht unnötig Akku wie andere Navi-Apps. Kompakte Karten sparen Speicherplatz auf Deinem Gerät.
 ‣ <b>Kostenlos und von der Community entwickelt</b>: Menschen wie du haben geholfen, die App zu entwickeln – durch das Hinzufügen von Orten zu OpenStreetMap, Testen von neuen Funktionen, Softwareentwicklung oder Spenden.
-‣ <b>Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open Source</b>
+‣ <b>Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open Source.</b>
 
 <b>Hauptfunktionen</b>:
 • Detaillierte, herunterladbare Karten mit Orten, die bei Google Maps oft fehlen
@@ -24,13 +24,13 @@ Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 • Lesezeichen mit einem einzigen Tippen speichern
 • Offline verfügbare Wikipedia-Artikel
 • U- und S-Bahn-Netze
-• Aufzeichnen von GPS Tracks
+• Aufzeichnen von GPS-Tracks
 • Import und Export von Favoriten und Routen im KML-, KMZ- oder GPX-Format
 • Dunkler Modus für die Nutzung bei Nacht
 • Kartenbearbeitung direkt in der App mit einem einfachen Editor
 • Unterstützung für Android Auto
 
-Bitte melde Probleme, schlage neue Funktionen vor und werde Teil der Community auf unserer Website: <b><i>comaps.app</i></b>
+Bitte melde Probleme, schlage neue Funktionen vor und werde Teil der Community auf unserer Website: <b><i>comaps.app/de/</i></b>
 
-<b>Entdecke die Unabhängigkeit</b>
-Entdecke deine Reise – navigiere in der Welt mit Datenschutz!
+<b>Freiheit beginnt hier</b>
+Entdecke deine Reise, wobei Datenschutz und Gemeinschaft im Vordergrund stehen!

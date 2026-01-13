@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
   xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  style="@style/Widget.Material3.CardView.Filled"
+  app:cardBackgroundColor="?attr/colorSurfaceContainerHigh"
+  app:cardCornerRadius="28dp">
+<LinearLayout
   android:orientation="vertical"
-  android:background="?cardBackground"
   android:minWidth="@dimen/bookmark_purchase_img_width"
   android:layout_width="match_parent"
   android:layout_height="wrap_content">
@@ -21,9 +27,11 @@
     android:layout_marginEnd="@dimen/margin_base_plus"
     android:layout_marginStart="@dimen/margin_base_plus"
     tools:text="Select list"/>
-  <include
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler"
     android:layout_marginTop="@dimen/margin_base"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    layout="@layout/recycler_default"/>
+    android:scrollbars="vertical"/>
 </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

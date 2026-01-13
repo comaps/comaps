@@ -1588,3 +1588,4 @@
 "type.cardinal.north" = "Północ";
 "type.cardinal.south" = "Południe";
 "type.cardinal.west" = "Zachód";
+"type.amenity.prep_school" = "Szkoła przygotowująca do egzaminów";

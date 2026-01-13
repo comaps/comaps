@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
-  xmlns:card_view="http://schemas.android.com/apk/res-auto"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
@@ -16,33 +16,9 @@
     <com.google.android.material.card.MaterialCardView
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      style="@style/MwmWidget.M3.Editor.CardView"
-      card_view:cardBackgroundColor="?cardBackground"
-      card_view:cardCornerRadius="2dp"
-      card_view:cardElevation="4dp">
-
-      <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/et__timetable"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@null"
-        android:gravity="top|start"
-        android:inputType="textMultiLine"
-        android:padding="@dimen/margin_base"
-        android:textAppearance="@style/MwmTextAppearance.Body3"
-        tools:hint="hint"
-        tools:text="trololo \ntrololo \ntrololo"/>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <com.google.android.material.card.MaterialCardView
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
       android:layout_marginTop="@dimen/margin_half"
-      card_view:cardBackgroundColor="?cardBackground"
-      card_view:cardCornerRadius="2dp"
-      card_view:cardElevation="4dp">
+      style="@style/MwmWidget.M3.Editor.CardView"
+      app:cardBackgroundColor="?cardBackground">
 
       <LinearLayout
         android:id="@+id/examples"
@@ -50,6 +26,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:animateLayoutChanges="true">
+          <com.google.android.material.textfield.TextInputLayout
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/margin_half"
+              android:layout_marginBottom="@dimen/margin_half"
+              app:hintEnabled="false">
+
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/et__timetable"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_alignParentBottom="true"
+              android:background="@null"
+              android:gravity="top|start"
+              android:inputType="textMultiLine"
+              android:padding="@dimen/margin_base"
+              android:textAppearance="@style/MwmTextAppearance.Body3"
+              tools:hint="hint"
+              tools:text="trololo \ntrololo \ntrololo"/>
+          </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/tv__examples_title"

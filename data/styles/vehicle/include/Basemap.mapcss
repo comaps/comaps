@@ -310,6 +310,7 @@ area|z15-[landuse=quarry],
 area|z15-[power=plant],
 area|z15-[power=substation],
 area|z15-[power=generator],
+area|z15-[man_made=wastewater_plant],
 {fill-opacity: 1; fill-color: @industrial;}
 
 area|z15-[landuse=construction],

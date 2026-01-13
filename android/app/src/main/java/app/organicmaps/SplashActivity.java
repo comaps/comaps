@@ -120,7 +120,7 @@ public class SplashActivity extends AppCompatActivity
   private void showFatalErrorDialog(@StringRes int titleId, @StringRes int messageId, Exception error)
   {
     mCanceled = true;
-    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_M3_AlertDialog)
         .setTitle(titleId)
         .setMessage(messageId)
         .setPositiveButton(

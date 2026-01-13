@@ -449,6 +449,7 @@ area|z13-[landuse=quarry],
 area|z13-[power=plant],
 area|z13-[power=substation],
 area|z13-[power=generator],
+area|z13-[man_made=wastewater_plant]
 {fill-opacity: 1; fill-color: @industrial;}
 
 area|z13-[landuse=construction],

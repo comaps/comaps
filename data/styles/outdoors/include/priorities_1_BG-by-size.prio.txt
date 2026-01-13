@@ -208,6 +208,7 @@ landuse-industrial                                  # area z13- (also has captio
 landuse-industrial-mine                             # area z13- (also has icon z15-, caption(optional) z15-)
 landuse-quarry                                      # area z13- (also has icon z15-, caption(optional) z15-)
 landuse-railway                                     # area z13- (also has caption z15-)
+man_made-wastewater_plant                           # area z13- (also has caption z15-)
 man_made-works                                      # area z13- (also has icon z16-, caption(optional) z17-)
 power-generator                                     # area z13- (also has icon z17-)
 power-generator-gas                                 # area z13- (also has icon z17-)

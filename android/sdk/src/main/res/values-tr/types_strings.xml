@@ -1366,7 +1366,7 @@
     <string name="type.fee.yes">₺</string>
     <string name="type.power.pole">Elektrik Direği</string>
     <string name="type.man_made.utility_pole">Hizmet Direği</string>
-    <string name="type.amenity.studio">Stüdyo</string>
+    <string name="type.amenity.studio">Medya Stüdyosu</string>
     <string name="type.sport.diving">Yüksek Dalış Alanı</string>
     <string name="type.man_made.survey_point">Anket Noktası</string>
     <string name="type.highway.ladder">Merdiven</string>
@@ -1400,4 +1400,13 @@
     <string name="type.amenity.bench.backless">Sırtı Açık Bank</string>
     <string name="type.amenity.charging_station.motorcar.small">Araç Şarj Noktası</string>
     <string name="type.amenity.sailing_school">Denizcilik Okulu</string>
+    <string name="type.natural.tree">Ağaç</string>
+    <string name="type.xmas.tree">Yılbaşı Ağacı</string>
+    <string name="type.man_made.telescope">Teleskop</string>
+    <string name="type.man_made.telescope.optical">Teleskop (Optik)</string>
+    <string name="type.man_made.telescope.radio">Teleskop (Radyo)</string>
+    <string name="type.man_made.telescope.gamma">Teleskop (Gama)</string>
+    <string name="type.man_made.observatory">Gözlemevi</string>
+    <string name="type.emergency.life_ring">Can simidi</string>
+    <string name="type.emergency.access_point">Acil Durum Noktası</string>
 </resources>

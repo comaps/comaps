@@ -61,6 +61,7 @@ public class StackedButtonsDialog extends AppCompatDialog implements View.OnClic
     setCancelable(mCancelable);
     setOnCancelListener(mCancelListener);
     setContentView(R.layout.dialog_stacked_buttons);
+    getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
     TextView title = findViewById(R.id.tv__title);
     UiUtils.setTextAndHideIfEmpty(title, mTitle);

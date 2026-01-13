@@ -17,6 +17,7 @@
     android:id="@+id/street_frame"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    style="@style/Widget.Material3.CardView.Filled"
     android:layout_marginStart="@dimen/nav_street_left"
     android:layout_marginEnd="@dimen/margin_quarter"
     app:cardCornerRadius="@dimen/margin_half"

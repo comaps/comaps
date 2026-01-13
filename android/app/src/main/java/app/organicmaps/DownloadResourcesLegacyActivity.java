@@ -446,7 +446,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       default -> throw new AssertionError("Unexpected result code = " + result);
     };
 
-        mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        mAlertDialog = new MaterialAlertDialogBuilder(this)
                            .setTitle(titleId)
                            .setMessage(messageId)
                            .setCancelable(true)

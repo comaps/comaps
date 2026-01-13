@@ -11,4 +11,11 @@
     <string name="maps_storage_shared">অভ্যন্তরীণ শেয়ার্ড স্টোরেজ</string>
     <string name="postal_code">ডাক কোড</string>
     <string name="today">আজকে</string>
+    <string name="km">কিমি</string>
+    <string name="yesterday">গতকাল</string>
+    <string name="days_ago">%s দিন আগে</string>
+    <string name="week_ago">%s সপ্তাহ আগে</string>
+    <string name="month_ago">%s মাস আগে</string>
+    <string name="year_ago">%s বছর আগে</string>
+    <string name="core_entrance">প্রবেশ</string>
 </resources>

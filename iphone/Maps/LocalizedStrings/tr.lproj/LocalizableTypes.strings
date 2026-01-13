@@ -1462,7 +1462,7 @@
 
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Spor salonu";
-"type.amenity.studio" = "Stüdyo";
+"type.amenity.studio" = "Medya Stüdyosu";
 "type.sport.diving" = "Yüksek Dalış Alanı";
 "type.highway.ladder" = "Merdiven";
 "type.man_made.crane" = "Vinç";
@@ -1492,3 +1492,12 @@
 "type.amenity.charging_station.motorcar.small" = "Araç Şarj Noktası";
 "type.amenity.bench.backless" = "Sırtı Açık Bank";
 "type.amenity.sailing_school" = "Denizcilik Okulu";
+"type.natural.tree" = "Ağaç";
+"type.xmas.tree" = "Yılbaşı Ağacı";
+"type.man_made.telescope" = "Teleskop";
+"type.man_made.telescope.optical" = "Teleskop (Optik)";
+"type.man_made.telescope.radio" = "Teleskop (Radyo)";
+"type.man_made.telescope.gamma" = "Teleskop (Gama)";
+"type.man_made.observatory" = "Gözlemevi";
+"type.emergency.life_ring" = "Can simidi";
+"type.emergency.access_point" = "Acil Durum Noktası";

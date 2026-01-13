@@ -1366,4 +1366,18 @@
     <string name="type.amenity.boat_rental">Båtuthyrning</string>
     <string name="type.amenity.bench.backless">Bänk utan ryggstöd</string>
     <string name="type.leisure.bandstand">Musikpaviljong</string>
+    <string name="type.xmas.tree">Julgran</string>
+    <string name="type.waterway.weir">Överfallsvärn</string>
+    <string name="type.railway.preserved.tunnel">Museijärnvägstunnel</string>
+    <string name="type.railway.preserved.bridge">Museijärnvägsbro</string>
+    <string name="type.natural.tree">Träd</string>
+    <string name="type.natural.sand">Sand</string>
+    <string name="type.man_made.mast.communication">Mobilmast</string>
+    <string name="type.leisure.sports_centre.sport.swimming">Simhall</string>
+    <string name="type.leisure.sports_centre.sport.padel">Padelhall</string>
+    <string name="type.leisure.sports_centre.sport.ice_hockey">Ishall</string>
+    <string name="type.leisure.sports_centre.sport.climbing">Klätterhall</string>
+    <string name="type.leisure.sports_centre.sport.multi">Idrottscentrum</string>
+    <string name="type.leisure.escape_game">Escape Room</string>
+    <string name="type.landuse.plant_nursery">Plantskola</string>
 </resources>

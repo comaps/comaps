@@ -1171,7 +1171,7 @@ leisure-ice_rink                                    # icon z17- (also has captio
 leisure-pitch                                       # icon z17- (also has caption(optional) z17-, area z15-)
 man_made-chimney                                    # icon z16- (also has caption(optional) z18-)
 man_made-crane                                      # icon z16- (also has caption(optional) z18-)
-man_made-flagpole                                   # icon z15-
+man_made-flagpole                                   # icon z17-
 man_made-flare                                      # icon z16- (also has caption(optional) z18-)
 man_made-mast-communication                         # icon z16-
 man_made-tower                                      # icon z16- (also has caption(optional) z18-)
@@ -1374,6 +1374,7 @@ leisure-slipway                                     # icon z17- (also has captio
 leisure-track                                       # caption z16- (also has line z15-)
 leisure-track-area                                  # caption z16- (also has area z15-)
 man_made-petroleum_well                             # icon z17- (also has caption(optional) z18-)
+man_made-wastewater_plant                           # caption z15- (also has area z13-)
 power-generator                                     # icon z17- (also has area z13-)
 power-generator-gas                                 # icon z17- (also has area z13-)
 power-generator-hydro                               # icon z17- (also has area z13-)
@@ -2386,6 +2387,7 @@ tourism-information                                 # icon z16- (also has captio
 tourism-information-board                           # icon z16- (also has caption(optional) z16-)
 tourism-information-guidepost                       # icon z16- (also has caption(optional) z16-)
 tourism-information-map                             # icon z16- (also has caption(optional) z16-)
+tourism-information-tactile_map                     # icon z16- (also has caption(optional) z16-)
 === -9940
 
 amenity                                             # caption z19-
@@ -2477,4 +2479,5 @@ entrance-service                                    # icon z19- (also has captio
 # tourism-information-board                         # caption(optional) z16- (also has icon z16-)
 # tourism-information-guidepost                     # caption(optional) z16- (also has icon z16-)
 # tourism-information-map                           # caption(optional) z16- (also has icon z16-)
+# tourism-information-tactile_map                   # caption(optional) z16- (also has icon z16-)
 === -10000

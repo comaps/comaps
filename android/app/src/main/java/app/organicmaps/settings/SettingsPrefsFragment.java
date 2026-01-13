@@ -494,7 +494,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     pref.setOnPreferenceClickListener(preference -> {
       if (MapManager.nativeIsDownloading())
       {
-        new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.downloading_is_active)
             .setMessage(R.string.cant_change_this_setting)
             .setPositiveButton(R.string.ok, null)

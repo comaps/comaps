@@ -165,7 +165,7 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Nie określono jeszcze aktualnego położenia</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">Przepraszamy, ustawienia pamięci mapy są aktualnie wyłączone.</string>
+    <string name="cant_change_this_setting">Przepraszamy, ustawienia pamięci mapy są aktualnie wyłączone</string>
     <!-- Alert message that downloading is in progress. -->
     <string name="downloading_is_active">Trwa pobieranie mapy</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
@@ -918,4 +918,16 @@
     <string name="prefs_speed_cameras_information">Ostrzeżenia o fotoradarach są wyłączone w krajach, gdzie takie alerty są zabronione prawnie.</string>
     <string name="navigation_start_tts_message">"Startowanie nawigacji, język komunikatów głosowych: "</string>
     <string name="navigation_start_tts_disabled_message">Komunikaty głosowe są wyłączone: silnik TTS jest niedostępny</string>
+    <string name="download_resources_custom_url_title">Własny serwer map</string>
+    <string name="download_resources_custom_url_message">Zastąp domyślny serwer pobierania map. Zostaw puste, by użyć domyślnego serwera CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Nieustawiony</string>
+    <string name="download_resources_custom_url_error_scheme">Proszę wprowadzić pełny URL zaczynający się od https:// i kończący na /</string>
+    <string name="editor_business_vacant_button">Lokal jest pusty</string>
+    <string name="editor_mark_business_vacant_title">Oznacz lokal jako pusty</string>
+    <string name="place_page_map_too_old_title">Dane mapy nieaktualne</string>
+    <string name="place_page_map_too_old_description">Twoje dane mapy są nieaktualne, proszę zaktualizować mapę.</string>
+    <string name="place_page_app_too_old_description">Twoje dane mapy są nieaktualne, proszę zaktualizować mapę oraz aplikację CoMaps.</string>
+    <string name="place_page_update_too_old_map">Zaktualizuj region mapy</string>
+    <string name="place_page_too_old_to_edit">Edytowanie OpenStreetMap jest wyłączone, ponieważ dane mapy są zbyt stare.</string>
+    <string name="advanced">Zaawansowane</string>
 </resources>

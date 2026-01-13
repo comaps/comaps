@@ -616,8 +616,8 @@
 
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Redigera byggnaden med max %d våningar";
-"editor_zip_code" = "Postnr";
-"error_enter_correct_zip_code" = "Ange korrekt postnr";
+"editor_zip_code" = "Postkod";
+"error_enter_correct_zip_code" = "Ange korrekt postkod";
 
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Kartpunkt";
@@ -1085,7 +1085,7 @@
 "edit_track" = "Redigera spår";
 "osm_profile_view_notes" = "Visa anteckningar";
 "osm_profile_view_edit_history" = "Visa redigeringshistorik";
-"about_proposition_3" = "Transparent and not for profit";
+"about_proposition_3" = "Snabb, minimalistisk, utvecklad av gemenskapen";
 "about_headline" = "Open project powered by the community";
 "pref_mapappearance_title" = "Map Appearance";
 "pref_maplanguage_title" = "Map Language";
@@ -1095,3 +1095,4 @@
 "existence_confirmed_time_ago" = "Existens bekräftad %@";
 "avoid_steps" = "Undvik trappor";
 "avoid_paved" = "Undvik asfalterade vägar";
+"offline_explanation_title" = "Offlinekartor";

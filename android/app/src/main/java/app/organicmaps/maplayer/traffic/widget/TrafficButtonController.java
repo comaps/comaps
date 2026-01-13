@@ -107,7 +107,7 @@ public class TrafficButtonController implements TrafficManager.TrafficCallback
     if (mDialog != null && mDialog.isShowing())
       return;
 
-    mDialog = new MaterialAlertDialogBuilder(mActivity, R.style.MwmTheme_AlertDialog)
+    mDialog = new MaterialAlertDialogBuilder(mActivity)
                   .setMessage(R.string.common_check_internet_connection_dialog)
                   .setPositiveButton(R.string.ok, (dialog, which) -> TrafficManager.INSTANCE.setEnabled(false))
                   .setCancelable(true)

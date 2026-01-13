@@ -56,7 +56,7 @@ abstract class BaseRoutingErrorDialogFragment extends BaseMwmDialogFragment
   public Dialog onCreateDialog(Bundle savedInstanceState)
   {
     parseArguments();
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity())
                                              .setCancelable(true)
                                              .setNegativeButton(android.R.string.cancel, null);
     beforeDialogCreated(builder);

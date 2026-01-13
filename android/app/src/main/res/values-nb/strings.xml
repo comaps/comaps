@@ -908,7 +908,7 @@
     <string name="osm_note_toast">Notatet vil bli sendt til OpenStreetMap</string>
     <string name="advanced">Avansert</string>
     <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
-    <string name="download_resources_custom_url_error_scheme">Angi en fullstendig nettadresse som starter med https:// og slutter med /</string>
+    <string name="download_resources_custom_url_error_scheme">Angi en nettadresse som starter med http:// eller https://</string>
     <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
     <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
 </resources>

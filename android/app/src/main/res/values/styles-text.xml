@@ -2,8 +2,6 @@
 <resources>
   <style name="MwmTextAppearance" parent="android:TextAppearance.Material">
     <item name="android:fontFamily">@string/robotoRegular</item>
-    <!-- Force normal textStyle. Some devices (eg Lenovo P70), uses non-normal textStyle by default. -->
-    <item name="android:textStyle">normal</item>
   </style>
 
   <style name="MwmTextAppearance.Title">

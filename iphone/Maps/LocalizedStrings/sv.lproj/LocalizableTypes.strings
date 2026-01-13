@@ -910,8 +910,8 @@
 "type.railway.narrow_gauge.tunnel" = "Smalspårig järnvägstunnel";
 "type.railway.platform" = "Järnvägsperrong";
 "type.railway.preserved" = "Museijärnväg";
-"type.railway.preserved.bridge" = "Preserved Rail Bridge";
-"type.railway.preserved.tunnel" = "Preserved Rail Tunnel";
+"type.railway.preserved.bridge" = "Museijärnvägsbro";
+"type.railway.preserved.tunnel" = "Museijärnvägstunnel";
 "type.railway.rail" = "Järnväg";
 "type.railway.rail.highspeed" = "Järnväg för höghastighetståg";
 "type.railway.rail.tourism" = "Järnväg för turisttrafik";
@@ -1411,7 +1411,7 @@
 "type.waterway.stream.intermittent" = "Flod";
 "type.waterway.stream.tunnel" = "Flod";
 "type.waterway.waterfall" = "Vattenfall";
-"type.waterway.weir" = "Weir";
+"type.waterway.weir" = "Överfallsvärn";
 "type.wheelchair" = "Rullstol";
 "type.wheelchair.limited" = "Delvis utrustad för handikappade";
 "type.wheelchair.no" = "Ej utrustad för handikappade";
@@ -1477,7 +1477,7 @@
 "type.tourism.zoo.petting" = "Djurpark för barn";
 "type.amenity.love_hotel" = "Kärlekshotell";
 "type.amenity.studio" = "Studio";
-"type.landuse.plant_nursery" = "Plant Nursery";
+"type.landuse.plant_nursery" = "Plantskola";
 "type.leisure.escape_game" = "Escape Room";
 "type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.ranger_station" = "Ranger Station";
@@ -1496,3 +1496,12 @@
 "type.amenity.boat_rental" = "Båtuthyrning";
 "type.amenity.bench.backless" = "Bänk utan ryggstöd";
 "type.leisure.bandstand" = "Musikpaviljong";
+"type.xmas.tree" = "Julgran";
+"type.natural.tree" = "Träd";
+"type.natural.sand" = "Sand";
+"type.man_made.mast.communication" = "Mobilmast";
+"type.leisure.sports_centre.sport.swimming" = "Simhall";
+"type.leisure.sports_centre.sport.padel" = "Padelhall";
+"type.leisure.sports_centre.sport.ice_hockey" = "Ishall";
+"type.leisure.sports_centre.sport.climbing" = "Klätterhall";
+"type.leisure.sports_centre.sport.multi" = "Idrottscentrum";

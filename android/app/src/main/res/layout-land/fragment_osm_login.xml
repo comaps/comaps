@@ -22,12 +22,9 @@
       android:layout_height="match_parent"
       android:clipChildren="false"
       android:clipToPadding="false"
-      android:orientation="vertical"
+      android:baselineAligned="false"
+      android:orientation="horizontal"
       tools:ignore="ScrollViewSize">
-      <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
         <LinearLayout
           android:layout_width="0dp"
           android:layout_height="match_parent"
@@ -111,6 +108,5 @@
             android:text="@string/register_at_openstreetmap" />
         </LinearLayout>
       </LinearLayout>
-    </LinearLayout>
   </ScrollView>
 </LinearLayout>

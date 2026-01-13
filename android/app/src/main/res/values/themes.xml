@@ -12,7 +12,7 @@
     <item name="android:textColorPrimary">@color/text_dark</item>
     <item name="android:textColorPrimaryInverse">@color/text_light</item>
     <item name="android:textColorSecondary">@color/text_dark_subtitle</item>
-    <item name="android:windowBackground">?windowBackgroundForced</item>
+    <item name="android:windowBackground">?appBackground</item>
     <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
     <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
@@ -20,7 +20,7 @@
     <item name="android:windowActionBarOverlay">true</item>
     <item name="clickableBackground">?selectableItemBackground</item>
     <item name="android:statusBarColor">?colorPrimary</item>
-    <item name="alertDialogTheme">@style/MwmTheme.AlertDialog</item>
+    <item name="alertDialogTheme">@style/MwmTheme.M3.AlertDialog</item>
     <item name="windowBackgroundForced">@color/bg_window</item>
     <item name="cardBackground">@color/bg_cards</item>
     <item name="titleDialogTheme">@color/black_primary</item>
@@ -185,11 +185,11 @@
   </style>
 
   <style name="MwmTheme.CardBg">
-    <item name="android:windowBackground">@color/bg_cards</item>
+    <item name="android:windowBackground">?appBackground</item>
   </style>
 
   <style name="MwmTheme.WindowBg">
-    <item name="android:windowBackground">@color/bg_window</item>
+    <item name="android:windowBackground">?appBackground</item>
   </style>
 
   <style name="MwmTheme.AlertDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
@@ -243,7 +243,7 @@
 
   <style name="MwmTheme.FullScreenDialog">
     <item name="android:windowIsFloating">false</item>
-    <item name="android:windowBackground">@android:color/white</item>
+    <item name="android:windowBackground">?appBackground</item>
   </style>
 
   <style name="MwmTheme.MaterialTimePicker" parent="ThemeOverlay.MaterialComponents.TimePicker">
@@ -281,4 +281,11 @@
   <style name="PopupMenu" parent="ThemeOverlay.Material3">
     <item name="android:popupBackground">?windowBackgroundForced</item>
   </style>
+    <!-- Theme required to apply M3 dialog style on preference screen -->
+    <style name="MwmTheme.M3.AlertDialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="dialogCornerRadius">28dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="android:colorBackground">?attr/colorSurfaceContainerHigh</item>
+        <item name="android:layout">@layout/m3_alert_dialog</item>
+    </style>
 </resources>

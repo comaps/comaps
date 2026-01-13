@@ -518,7 +518,7 @@ piste:type|sled;402;
 leisure|beach_resort;403;
 leisure|dog_park;404;
 aerialway|gondola;405;
-deprecated:historic|museum:10.2021;[historic=museum];x;name;int_name;406;tourism|museum
+tourism|information|tactile_map;[tourism=information][information=tactile_map];;name;int_name;406;
 highway|living_street|bridge;[highway=living_street][bridge?];;name;int_name;407;
 leisure|track|area;[leisure=track][area?];;name;int_name;408;
 railway|monorail;409;
@@ -757,9 +757,9 @@ highway|track|grade5|permissive;[highway=track][tracktype=grade5][access=permiss
 lateral|port;[seamark:buoy_lateral:category=port],[seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=tower],[seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=lattice],[seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=pile],[seamark:beacon_lateral:category=port][seamark:beacon_lateral:shape=buoyant];;;;632;
 lateral|starboard;[seamark:buoy_lateral:category=starboard],[seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=tower],[seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=lattice],[seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=pile],[seamark:beacon_lateral:category=starboard][seamark:beacon_lateral:shape=buoyant];;;;633;
 highway|tertiary_link|tunnel;[highway=tertiary_link][tunnel?];;name;int_name;634;
-deprecated|deprecated;635;x
-deprecated|deprecated;636;x
-deprecated|deprecated;637;x
+railway|miniature;635;
+railway|miniature|bridge;[railway=miniature][bridge?];;name;int_name;636;
+railway|miniature|tunnel;[railway=miniature][tunnel?];;name;int_name;637;
 deprecated|deprecated;638;x
 deprecated|deprecated;639;x
 deprecated|deprecated;640;x
@@ -1299,7 +1299,7 @@ amenity|water_point;1170;
 emergency|defibrillator;1171;
 emergency|fire_hydrant;1172;
 highway|services;1173;
-leisure|fitness_station;1174;
+leisure|fitness_station;[leisure=fitness_station][sport=fitness],[leisure=fitness_station];;;;1174;
 leisure|ice_rink;1175;
 leisure|marina;1176;
 shop|medical_supply;1177;

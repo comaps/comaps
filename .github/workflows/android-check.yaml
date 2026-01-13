@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 1
 
@@ -78,7 +78,7 @@ jobs:
           pip install "protobuf<3.21" --break-system-packages
 
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 200 # enough to get all commits for the current day
 
@@ -103,7 +103,7 @@ jobs:
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
       - name: Upload ${{ matrix.flavor }} apk
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v6
         with:
           name: android-${{ matrix.flavor }}
           path: android/app/build/outputs/apk/**/CoMaps-*.apk

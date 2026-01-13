@@ -61,12 +61,12 @@
         android:layout_height="match_parent"
         android:clickable="true"
         android:focusable="true"
-        android:background="?cardBackground">
+        android:background="?appBackground">
 
         <androidx.recyclerview.widget.RecyclerView
           android:id="@+id/recycler"
           android:clipToPadding="false"
-          android:background="?cardBackground"
+          android:background="?appBackground"
           android:layout_width="match_parent"
           android:layout_height="match_parent"
           />

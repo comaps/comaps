@@ -924,6 +924,6 @@
     <string name="advanced">Avancé</string>
     <string name="download_resources_custom_url_summary_none">Non défini</string>
     <string name="download_resources_custom_url_title">Serveur de cartes personnalisé</string>
-    <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète débutant par https:// et se terminant par /</string>
+    <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
 </resources>

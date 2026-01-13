@@ -906,5 +906,5 @@
     <string name="download_resources_custom_url_title">Brugerdefineret kortserver</string>
     <string name="download_resources_custom_url_message">Tilsidesæt den som standard anvendte server til download af kort. Lad feltet være tomt for at bruge CoMaps\' standardserver.</string>
     <string name="download_resources_custom_url_summary_none">Ikke indstillet</string>
-    <string name="download_resources_custom_url_error_scheme">Indtast en fuld URL, der starter med https:// og ender med /</string>
+    <string name="download_resources_custom_url_error_scheme">Indtast en URL, der starter med http:// eller https://</string>
 </resources>

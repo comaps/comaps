@@ -1,6 +1,6 @@
 Eine von der Community betriebene, kostenlose Open-Source Karten-App, die auf OpenStreetMap Daten basiert. Transparent und nicht gewinnorientiert. CoMaps ist ein Fork/Abspaltung von Organic Maps, die wiederum ein Fork/Abspaltung von Maps.Me ist.
 
-Lese mehr über die Gründe und Ziele des Projektes unter <b><i>codeberg.org/comaps</i></b>.
+Lese mehr über die Gründe und Ziele des Projektes unter <b><i>codeberg.org/comaps</i></b> (auf Englisch).
 Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 • Nutze die App und erzähle anderen davon
 • Gib Feedback und melde Probleme
@@ -9,9 +9,9 @@ Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 ‣ <b>Einfach und ausgereift</b>: Essenzielle, leicht zu bedienende Funktionen, die einfach funktionieren.
 ‣ <b>Offline-orientiert</b>: Plane und navigiere im Ausland ohne Mobilfunkverbindung, finde Wegpunkte auf abgelegenen Wanderungen usw. Alle Funktionen sind für den Offline-Einsatz konzipiert.
 ‣ <b>Datenschutzfreundlich</b>: Die App wurde mit Fokus auf Privatsphäre entwickelt – keine Personenidentifikation, kein Tracking, keine Erfassung persönlicher Daten, keine Werbung.
-‣ <b>Spart Akku und Speicherplatz</b>: Verbraucht nicht unnötig Akku wie andere Navi-Apps. Kompakte Karten sparen Speicherplatz auf deinem Gerät.
+‣ <b>Spart Akku und Speicherplatz</b>: Verbraucht nicht unnötig viel Akku wie andere Navi-Apps. Kompakte Karten sparen Speicherplatz auf deinem Gerät.
 ‣ <b>Kostenlos und von der Community entwickelt</b>: Menschen wie du haben geholfen, diese App zu entwickeln – durch das Hinzufügen von Orten zu OpenStreetMap, Testen von neuen Funktionen, Softwareentwicklung oder Spenden.
-‣ <b>Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open-Source</b>
+‣ <b>Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open-Source.</b>
 
 <b>Hauptfunktionen</b>:
 • Detaillierte, herunterladbare Karten mit Orten, die bei Google Maps oft fehlen
@@ -28,5 +28,5 @@ Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 • Dunkler Modus für die Nutzung bei Nacht
 • Kartenbearbeitung direkt in der App mit einem einfachen Editor
 
-<b>Entdecke die Unabhängigkeit</b>
-Entdecke deine Reise – navigiere in der Welt mit Datenschutz!
+<b>Freiheit beginnt hier</b>
+Entdecke deine Reise, wobei Datenschutz und Gemeinschaft im Vordergrund stehen!

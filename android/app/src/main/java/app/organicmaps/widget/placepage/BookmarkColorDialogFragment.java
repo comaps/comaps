@@ -47,7 +47,7 @@ public class BookmarkColorDialogFragment extends BaseMwmDialogFragment
         mIconResId = getArguments().getInt(ICON_RES);
     }
 
-    return new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    return new MaterialAlertDialogBuilder(requireActivity())
         .setView(buildView())
         .setTitle(R.string.choose_color)
         .setNegativeButton(R.string.cancel, null)

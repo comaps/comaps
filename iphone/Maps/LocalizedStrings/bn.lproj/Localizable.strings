@@ -14,7 +14,7 @@
 "about_proposition_2" = "গোপনীয়তা বান্ধব এবং বিজ্ঞাপন মুক্ত";
 "osm_mapdata" = "OpenStreetMap থেকে মানচিত্রের তথ্য";
 "about_proposition_1" = "অফলাইন, দ্রুত এবং সহজেই ব্যবহারযোগ্য";
-"follow_us" = "আমাদের অনুসরণ করুন এবং যোগাযোগ করুন";
+"follow_us" = "আমাদের সাথে সংযোগ করুন";
 "social_email" = "ই-মেইল";
 "copy_to_clipboard" = "ক্লিপবোর্ডে অনুলিপি";
 "version %@ (%@)" = "সংস্করণ %@ (%@)";
@@ -45,7 +45,7 @@
 "operator" = "Operator: %@";
 "mi" = "mi";
 "hour" = "h";
-"error_enter_correct_phone" = "Enter a valid phone number";
+"error_enter_correct_phone" = "সঠিক ফোন নম্বর দিন";
 "button_layer_subway" = "Subway";
 "capacity" = "Capacity: %@";
 "ok" = "OK";
@@ -58,10 +58,10 @@
 "cancel_download" = "ডাউনলোড বাতিল করুন";
 "leave_a_review" = "Leave a Review";
 "downloading" = "ডাউনলোডরত…";
-"delete" = "Delete";
+"delete" = "মুছুন";
 "miles" = "মাইল";
 "cancel" = "বাতিল";
-"download_maps" = "Download Maps";
+"download_maps" = "মানচিত্র ডাউনলোড করুন";
 "category_toilet" = "শৌচালয়";
 "add_new_set" = "নতুন তালিকা বানান";
 "category_shopping" = "কেনাকাটা";
@@ -143,7 +143,7 @@
 "purple" = "বেগুনি";
 "blue" = "Blue";
 "mobile_data" = "Mobile Internet";
-"core_entrance" = "Entrance";
+"core_entrance" = "প্রবেশ";
 "bookmarks_import" = "Import Bookmarks and Tracks";
 "bookmark_lists_hide_all" = "Hide all";
 "bookmark_lists" = "Lists";
@@ -174,7 +174,7 @@
 "trip_finished" = "You have arrived!";
 "dialog_routing_select_closer_end" = "Please select a destination point located closer to a road।";
 "icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature।";
-"editor_more_about_osm" = "More about OpenStreetMap";
+"editor_more_about_osm" = "আরো OpenStreetMap সম্বন্ধে";
 "track_recording_alert_title" = "Save into Bookmarks and Tracks?";
 "tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
 "dialog_routing_application_error" = "Unable to create route due to an application error।";
@@ -202,7 +202,7 @@
 "placepage_personal_notes_hint" = "Personal notes (text or html)";
 "start_track_recording" = "Record Track";
 "dialog_routing_change_end_carplay" = "Unable to find a route to your destination. Please choose another end point";
-"placepage_add_place_button" = "Add Place to OpenStreetMap";
+"placepage_add_place_button" = "OpenStreetMap এ স্থান যোগ করুন";
 "downloader_status_maps" = "মানচিত্র";
 "avoid_tolls" = "Avoid tolls";
 "enable_logging" = "Enable logging";
@@ -279,7 +279,7 @@
 "p2p_your_location" = "আপনার অবস্থান";
 "category_transport" = "যানবাহন";
 "text_more_button" = "…more";
-"downloader_of" = "%1$d of %2$d";
+"downloader_of" = "%2$d এর মধ্যে %1$d";
 "mobile_data_option_ask" = "Always Ask";
 "follow_my_position" = "Re-center";
 "download_over_mobile_message" = "This could be considerably expensive with some plans or if roaming।";
@@ -311,7 +311,7 @@
 "phone" = "Phone";
 "app_tip_06" = "You can help to translate our app into your language।";
 "decline" = "Decline";
-"downloader_no_downloaded_maps_title" = "You haven't downloaded any maps";
+"downloader_no_downloaded_maps_title" = "আপনি কোনো মানচিত্র ডাউনলোড করেননি";
 "elevation_profile_ascent" = "Ascent";
 "pref_zoom_title" = "জুম করার বোতামগুলি";
 "p2p_only_from_current" = "Navigation is only available from your current location।";
@@ -376,10 +376,10 @@
 "download_over_mobile_header" = "Download over a cellular network connection?";
 "measurement_units" = "মাপের একক";
 "orange" = "কমলা";
-"error_enter_correct_web" = "Enter a valid web address";
+"error_enter_correct_web" = "সঠিক ওয়েব এড্রেস দিন";
 "editor_edit_place_title" = "সম্পাদনা";
 "category_wifi" = "ওয়াইফাই";
-"editor_place_doesnt_exist" = "Place does not exist";
+"editor_place_doesnt_exist" = "স্থানটি অস্তিত্বই নেই";
 "subway_data_unavailable" = "Subway map is unavailable";
 "near_me_sorttype" = "Near me";
 "pref_tts_speedcams_auto" = "Warn if speeding";
@@ -416,7 +416,7 @@
 "teal" = "টিল";
 "level" = "তলা";
 "refresh" = "Update";
-"use_cellular_data" = "Yes";
+"use_cellular_data" = "হ্যাঁ";
 "day_off_today" = "আজকে বন্ধ";
 "location_services_disabled_3" = "3. Select While Using the App";
 "osm_profile_register" = "Register at OpenStreetMap";
@@ -507,7 +507,7 @@
 "whats_new_auto_update_title" = "Update downloaded maps";
 "power_managment_setting_auto" = "When battery is low";
 "recover" = "Recover";
-"km" = "km";
+"km" = "কিমি";
 "search_history_title" = "খোঁজের ইতিহাস";
 "placepage_delete_track_button" = "Delete Track";
 "house_number" = "বিল্ডিং নম্বর";
@@ -520,13 +520,13 @@
 "start_from_my_position" = "Start from";
 "email_or_username" = "ইমাইল বা ইউইজারনেম";
 "editor_focus_map_on_location" = "স্থান বা ব্যবসার স্থানের চিহ্নটি স্থাপন করতে মানচিত্রটি টেনে আনুন।";
-"error_enter_correct_email" = "Enter a valid email";
+"error_enter_correct_email" = "সঠিক ইমেইল দিন";
 "continue_button" = "চালিয়ে যান";
 "placepage_delete_bookmark_button" = "Delete Bookmark";
 "placepage_call_button" = "Call";
 "define_to_avoid_btn" = "Define roads to avoid";
 "book_button" = "Book";
-"error_enter_correct_house_number" = "Enter a valid building number";
+"error_enter_correct_house_number" = "সঠিক বিল্ডিং নম্বর দিন";
 "toll_road" = "Toll road";
 "editor_edit_place_name_hint" = "স্থানের নাম";
 "accept" = "Accept";

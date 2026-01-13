@@ -1497,4 +1497,5 @@
     <string name="type.cardinal.north">Północ</string>
     <string name="type.cardinal.south">Południe</string>
     <string name="type.cardinal.west">Zachód</string>
+    <string name="type.amenity.prep_school">Szkoła przygotowująca do egzaminów</string>
 </resources>

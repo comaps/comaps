@@ -20,5 +20,19 @@
 			<string>%dটা বুকমার্ক</string>
 		</dict>
 	</dict>
+	<key>bookmarks_detect_message</key>
+	<dict>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d টি ফাইল পাওয়া গেছে। আপনি রূপান্তরের পারে দেখতে পাবেন।</string>
+			<key>other</key>
+			<string>%d টি ফাইল পাওয়া গেছে। আপনি রূপান্তরের পারে দেখতে পাবেন।</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

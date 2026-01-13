@@ -432,7 +432,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
 
     dismissLocationErrorDialog();
-    mLocationErrorDialog = new MaterialAlertDialogBuilder(MwmActivity.this, R.style.MwmTheme_AlertDialog)
+    mLocationErrorDialog = new MaterialAlertDialogBuilder(MwmActivity.this)
                                .setMessage(R.string.unknown_current_position)
                                .setCancelable(true)
                                .setPositiveButton(R.string.ok, null)
@@ -655,7 +655,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
         else
         {
           dismissAlertDialog();
-          mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+          mAlertDialog = new MaterialAlertDialogBuilder(this)
                              .setTitle(R.string.message_invalid_feature_position)
                              .setPositiveButton(R.string.ok, null)
                              .setOnDismissListener(dialog -> mAlertDialog = null)
@@ -1155,7 +1155,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     if (type == IsolinesState.EXPIREDDATA)
     {
-      mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+      mAlertDialog = new MaterialAlertDialogBuilder(this)
                          .setTitle(R.string.downloader_update_maps)
                          .setMessage(R.string.isolines_activation_error_dialog)
                          .setPositiveButton(
@@ -1774,7 +1774,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(this)
             .setTitle(R.string.unable_to_calc_alert_title)
             .setMessage(R.string.unable_to_calc_alert_subtitle)
             .setPositiveButton(R.string.settings,
@@ -1797,7 +1797,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       builder.append(getString(resId)).append("\n\n");
 
     dismissAlertDialog();
-    mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    mAlertDialog = new MaterialAlertDialogBuilder(this)
                        .setTitle(R.string.dialog_routing_disclaimer_title)
                        .setMessage(builder.toString())
                        .setCancelable(false)
@@ -1846,7 +1846,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return true;
 
     final MapObject endPoint = Objects.requireNonNull(controller.getEndPoint());
-    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this)
         .setTitle(R.string.p2p_only_from_current)
         .setMessage(R.string.p2p_reroute_from_current)
         .setCancelable(false)
@@ -2040,7 +2040,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
         {
           mPreciseLocationDialogShown = true;
           final MaterialAlertDialogBuilder builder =
-              new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+              new MaterialAlertDialogBuilder(this)
                   .setTitle("⚠ " + getString(R.string.limited_accuracy))
                   .setMessage(R.string.precise_location_is_disabled_long_text)
                   .setNegativeButton(R.string.close, (dialog, which) -> dialog.dismiss())
@@ -2074,7 +2074,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return;
     }
 
-    mLocationErrorDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    mLocationErrorDialog = new MaterialAlertDialogBuilder(this)
                                .setTitle(R.string.enable_location_services)
                                .setMessage(R.string.location_is_disabled_long_text)
                                .setOnDismissListener(dialog -> mLocationErrorDialog = null)
@@ -2167,7 +2167,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return;
     }
 
-    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this)
                                                    .setTitle(R.string.enable_location_services)
                                                    .setMessage(R.string.location_is_disabled_long_text)
                                                    .setOnDismissListener(dialog -> mLocationErrorDialog = null)
@@ -2253,7 +2253,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     dismissAlertDialog();
     final MaterialAlertDialogBuilder builder =
-        new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(this)
             .setTitle(R.string.current_location_unknown_error_title)
             .setCancelable(true)
             .setMessage(R.string.power_save_dialog_summary)
@@ -2278,7 +2278,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(this)
             .setTitle(R.string.load_kmz_title)
             .setMessage(getString(R.string.unknown_file_type, uri))
             .setPositiveButton(R.string.ok, null)
@@ -2295,7 +2295,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(this)
             .setTitle(R.string.load_kmz_title)
             .setMessage(getString(R.string.failed_to_open_file, uri, error))
             .setPositiveButton(R.string.ok, null)
@@ -2317,7 +2317,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public void onBookmarksFileImportFailed()
   {
     dismissAlertDialog();
-    mAlertDialog = new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    mAlertDialog = new MaterialAlertDialogBuilder(this)
                        .setTitle(R.string.load_kmz_title)
                        .setMessage(R.string.load_kmz_failed)
                        .setPositiveButton(R.string.ok, null)
@@ -2578,7 +2578,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
   private void reportUnsupported()
   {
-    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(this)
         .setMessage(R.string.unsupported_phone)
         .setCancelable(false)
         .setPositiveButton(R.string.close, (dlg, which) -> this.moveTaskToBack(true))

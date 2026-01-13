@@ -127,6 +127,8 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
 
     QStringList languagesList = QStringList();
     std::vector<size_t> sortedIndices;
+    languagesList << QString::fromStdString("Local Language");
+    sortedIndices.push_back(0);
     for (auto const & pair : languageNameIndexPairs)
     {
       languagesList << QString::fromStdString(pair.first);
@@ -143,6 +145,11 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
         QString::fromStdString(std::string(StringUtf8Multilang::GetLangNameByCode(languageIndex))));
     connect(mapLanguageComboBox, &QComboBox::activated, [&framework, &supportedLanguages, sortedIndices](int index)
     {
+      if (index == 0)
+      {
+        framework.SetMapLanguageCode("default");
+        return;
+      }
       auto const & mapLanguageCode = std::string(supportedLanguages[sortedIndices[index]].m_code);
       framework.SetMapLanguageCode(mapLanguageCode);
     });

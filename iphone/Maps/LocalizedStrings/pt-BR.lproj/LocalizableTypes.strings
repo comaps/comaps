@@ -1591,3 +1591,4 @@
 "type.buoy.lateral.port" = "Boia lateral";
 "type.man_made.mast.communication" = "Mastro de comunicações";
 "type.shop.beauty.nails" = "Manicure";
+"type.amenity.hydrant" = "Hidrante de Irrigação";

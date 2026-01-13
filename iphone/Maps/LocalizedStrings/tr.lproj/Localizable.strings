@@ -683,7 +683,7 @@
 "editor_edits_sent_message" = "Notunuz OpenStreetMap'e gönderilecektir";
 "editor_comment_hint" = "Yorum…";
 "editor_reset_edits_message" = "Tüm yerel değişiklikler sıfırlansın mı?";
-"editor_reset_edits_button" = "Sıfırla";
+"editor_reset_edits_button" = "Değişiklikleri gözden çıkar";
 "editor_remove_place_message" = "Eklenen yer kaldırılsın mı?";
 "editor_remove_place_button" = "Kaldır";
 "editor_place_doesnt_exist" = "Bu yer yok";

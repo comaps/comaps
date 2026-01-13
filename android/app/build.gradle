@@ -351,6 +351,8 @@ dependencies {
   implementation libs.androidx.recyclerview
   implementation libs.androidx.work.runtime
   implementation libs.androidx.lifecycle.process
+  implementation libs.androidx.documentfile
+  // 1.13 Material library version doesn't render properly alpha properties on map buttons
   implementation libs.android.material
   // Fix for app/organicmaps/util/FileUploadWorker.java:14: error: cannot access ListenableFuture
   // https://github.com/organicmaps/organicmaps/issues/6106

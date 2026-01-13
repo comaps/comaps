@@ -790,7 +790,7 @@
 		27AF18552E1DB62F00CD41E2 /* PowerSavingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSavingMode.swift; sourceTree = "<group>"; };
 		27AF18572E1DB63900CD41E2 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		27AF18592E1DB64400CD41E2 /* AnnouncingSpeedTrapsWhileVoiceRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncingSpeedTrapsWhileVoiceRouting.swift; sourceTree = "<group>"; };
-		27FDBF202EEEFC830045621D /* mapcss-mapping.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mapcss-mapping.csv"; path = "/Users/yannikbloscheck/Apps/CoMaps/Code/data/mapcss-mapping.csv"; sourceTree = "<absolute>"; };
+		27FDBF202EEEFC830045621D /* mapcss-mapping.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mapcss-mapping.csv"; path = "../../data/mapcss-mapping.csv"; sourceTree = SOURCE_ROOT; };
 		28A0AB4B0D9B1048005BE974 /* Maps_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Maps_Prefix.pch; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; indentWidth = 2; path = main.mm; sourceTree = "<group>"; tabWidth = 2; };
 		30034C5C2B3F0B74005D961A /* az */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = az; path = az.lproj/Localizable.strings; sourceTree = "<group>"; };

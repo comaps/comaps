@@ -1040,6 +1040,9 @@
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -1519,6 +1522,7 @@
 "type.tourism.information.board" = "Information Board";
 "type.tourism.information.guidepost" = "Guidepost";
 "type.tourism.information.map" = "Tourist Map";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Tourist Office";
 "type.tourism.information.visitor_centre" = "Visitor Centre";
 "type.amenity.ranger_station" = "Ranger Station";

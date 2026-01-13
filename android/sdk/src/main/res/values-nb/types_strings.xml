@@ -1050,8 +1050,8 @@
     <string name="type.shop.travel_agency">Reisebyrå</string>
     <string name="type.shop.tyres">Dekkforretning</string>
     <string name="type.shop.variety_store">Billigbutikk</string>
-    <string name="type.shop.video">Videobutikken</string>
-    <string name="type.shop.video_games">Videospillbutikken</string>
+    <string name="type.shop.video">Videobutikk</string>
+    <string name="type.shop.video_games">Videospillbutikk</string>
     <string name="type.shop.wine">Alkoholutsalg</string>
     <string name="type.shop.agrarian">Landbruksbutikk</string>
     <string name="type.shop.antiques">Antikviteter</string>

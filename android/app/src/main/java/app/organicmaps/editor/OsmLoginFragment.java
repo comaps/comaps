@@ -79,7 +79,7 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
 
   private void onAuthFail()
   {
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_login_error_dialog)
         .setPositiveButton(R.string.ok, null)
         .show();

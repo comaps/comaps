@@ -854,7 +854,7 @@
     <string name="prefs_speed_cameras_information">Brīdinājumi par ātruma noteikšanas kamerā ir atspējoti valstīs, kurās šādus brīdinājumus aizliedz vietējais likums.</string>
     <string name="navigation_start_tts_message">"Uzsāk navigāciju, balss norāžu valoda: "</string>
     <string name="download_resources_custom_url_summary_none">Nav iestatīts</string>
-    <string name="download_resources_custom_url_error_scheme">Lūgums ievadīt pilnu URL, kas sākas ar https:// un beidzas ar /</string>
+    <string name="download_resources_custom_url_error_scheme">Lūgums ievadīt URL, kas sākas ar http:// vai https://</string>
     <string name="advanced">Iestatījumi: izvērsta kopa</string>
     <plurals name="minutes_short">
         <item quantity="zero">%d min.</item>

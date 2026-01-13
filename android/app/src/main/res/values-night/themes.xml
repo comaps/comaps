@@ -11,7 +11,7 @@
     <item name="android:textColorPrimary">@color/text_light</item>
     <item name="android:textColorPrimaryInverse">@color/text_dark</item>
     <item name="android:textColorSecondary">@color/text_light_subtitle</item>
-    <item name="android:windowBackground">?windowBackgroundForced</item>
+    <item name="android:windowBackground">?appBackground</item>
     <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
     <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
@@ -21,7 +21,7 @@
     <item name="android:statusBarColor">?colorPrimary</item>
     <item name="android:windowTranslucentNavigation">false</item>
 
-    <item name="alertDialogTheme">@style/MwmTheme.AlertDialog</item>
+    <item name="alertDialogTheme">@style/MwmTheme.M3.AlertDialog</item>
     <item name="windowBackgroundForced">@color/bg_window</item>
     <item name="cardBackground">@color/bg_cards</item>
     <item name="titleDialogTheme">@color/white_primary</item>

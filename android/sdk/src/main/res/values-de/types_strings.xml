@@ -1499,7 +1499,7 @@
     <string name="type.shop.beauty.day_spa">Tages-Spa</string>
     <string name="type.amenity.give_box">Spendenbox</string>
     <string name="type.xmas.tree">Weihnachtsbaum</string>
-    <string name="type.amenity.mobile_money_agent">Mobile Money Vertretung</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.amenity.food_sharing">Food Sharing</string>
     <string name="type.natural.sand">Sand</string>
     <string name="type.amenity.hydrant">Beregnungshydrant</string>

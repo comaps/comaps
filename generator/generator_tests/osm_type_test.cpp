@@ -2979,6 +2979,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ComplexTypesSmoke)
       {{"tourism", "information", "board"}, {{"tourism", "information"}, {"information", "board"}}},
       {{"tourism", "information", "guidepost"}, {{"tourism", "information"}, {"information", "guidepost"}}},
       {{"tourism", "information", "map"}, {{"tourism", "information"}, {"information", "map"}}},
+      {{"tourism", "information", "tactile_map"}, {{"tourism", "information"}, {"information", "tactile_map"}}},
       {{"tourism", "information", "office"}, {{"tourism", "information"}, {"information", "office"}}},
       //{{"waterway", "canal", "tunnel"}, {{"waterway", "canal"}, {"tunnel", "any_value"}}},
       //{{"waterway", "river", "tunnel"}, {{"waterway", "river"}, {"tunnel", "any_value"}}},

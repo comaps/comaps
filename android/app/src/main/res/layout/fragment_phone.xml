@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frameLayout"
-        android:background="?cardBackground">
+        android:background="?windowBackgroundForced">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/phones_recycler"

@@ -448,7 +448,7 @@
     <string name="placepage_edit_bookmark_button">Editar favorito</string>
     <string name="placepage_personal_notes_hint">Anotações pessoais (texto ou html)</string>
     <string name="editor_reset_edits_message">Descartar todas as modificações locais?</string>
-    <string name="editor_reset_edits_button">Descartar</string>
+    <string name="editor_reset_edits_button">Descartar alterações</string>
     <string name="editor_remove_place_message">Remover local adicionado?</string>
     <string name="editor_remove_place_button">Remover</string>
     <string name="editor_place_doesnt_exist">O lugar não existe</string>
@@ -893,4 +893,9 @@
     <string name="prefs_speed_cameras_information">Alertas de radar fotográfico de velocidade estão desativados em países onde os alertas são proibidos pelas leis locais.</string>
     <string name="navigation_start_tts_message">"Iniciando navegação, idioma da instrução por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrução por voz desativada: nenhum motor de texto para voz disponível</string>
+    <string name="advanced">Avançadas</string>
+    <string name="download_resources_custom_url_title">Servidor de Mapas Personalizado</string>
+    <string name="download_resources_custom_url_message">Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor padrão do CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Não definido</string>
+    <string name="download_resources_custom_url_error_scheme">Insira um URL completo começando com https:// e terminando com /</string>
 </resources>

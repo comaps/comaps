@@ -503,7 +503,7 @@
     <string name="placepage_edit_bookmark_button">Yer İmini Düzenle</string>
     <string name="placepage_personal_notes_hint">Kişisel notlar (metin veya html)</string>
     <string name="editor_reset_edits_message">Tüm yerel değişiklikler sıfırlansın mı?</string>
-    <string name="editor_reset_edits_button">Sıfırla</string>
+    <string name="editor_reset_edits_button">Değişiklikleri gözden çıkar</string>
     <string name="editor_remove_place_message">Eklenen yer kaldırılsın mı?</string>
     <string name="editor_remove_place_button">Kaldır</string>
     <string name="editor_place_doesnt_exist">Bu yer yok</string>
@@ -894,4 +894,10 @@
     <string name="error_value_must_be_positive">Değer pozitif olmalıdır</string>
     <string name="error_invalid_number">Geçersiz sayı</string>
     <string name="avoid_paved">Asfalt yollardan kaçın</string>
+    <string name="place_page_map_too_old_title">Harita verisi güncel değil</string>
+    <string name="place_page_map_too_old_description">Mevcut harita verileriniz çok eski, lütfen haritayı güncelleyin.</string>
+    <string name="place_page_app_too_old_description">Mevcut harita verileriniz çok eski, lütfen CoMaps uygulamasını güncelleyin.</string>
+    <string name="place_page_update_too_old_map">Bölge haritasını güncelle</string>
+    <string name="place_page_too_old_to_edit">Harita verisi çok eski olduğu için OpenStreetMap düzenleyicisi devre dışı.</string>
+    <string name="prefs_speed_cameras_information">Yerel yasalarca uyarıların yasaklandığı ülkelerde hız kamerası uyarıları devre dışıdır.</string>
 </resources>

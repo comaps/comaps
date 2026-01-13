@@ -150,7 +150,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Cabana Básica</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Abrigo tipo telheiro</string>
+    <string name="type.amenity.shelter.lean_to">Abrigo tipo Telheiro</string>
     <string name="type.amenity.public_bath">Banho público</string>
     <string name="type.amenity.shower">Chuveiro</string>
     <string name="type.amenity.stripclub">Clube de striptease</string>
@@ -165,7 +165,7 @@
     <string name="type.amenity.vending_machine.cigarettes">Máquina de venda de cigarros</string>
     <string name="type.amenity.vending_machine.drinks">Máquina de venda de bebidas</string>
     <string name="type.amenity.vending_machine.parking_tickets">Máquina venda de bilhetes de estacionamento</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina venda de bilhetes de transporte público</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina de Venda de Bilhetes de Transportes Públicos</string>
     <string name="type.amenity.parcel_locker">Cacifo</string>
     <string name="type.amenity.vehicle_inspection">Inspeção veicular</string>
     <string name="type.amenity.veterinary">Veterinário</string>

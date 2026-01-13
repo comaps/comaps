@@ -15,6 +15,7 @@ id:Cepat saji
 it:Fast food
 ja:ファストフード
 ko:패스트 푸드
+lt:Greitas maistas
 nb:Hurtigmat
 pl:Fast food
 pt:Comida rápida
@@ -51,6 +52,7 @@ id:Roti bagel
 it:Bagel
 ja:ベーグル
 ko:베이글
+lt:Beigeliai
 nb:Bagel
 pl:Bajgle
 pt:Bagel
@@ -86,6 +88,7 @@ id:Sarapan
 it:Colazione
 ja:朝食
 ko:아침 식사
+lt:Pusryčiai
 nb:Frokost
 pl:Śniadaniarnia
 pt:Pequeno-almoço
@@ -122,6 +125,7 @@ id:Burger
 it:Hamburger
 ja:ハンバーガー
 ko:햄버거
+lt:Mėsainiai|Burgeriai
 nb:Burger
 pl:Burgery
 pt:Hambúrguer
@@ -148,6 +152,7 @@ ru:Чай с шариками
 es:Té de burbujas
 eu:Burbuila tea
 hi:बुलबुले वाली चाय
+lt:Burbulinė arbata|Boba
 uk:Бульбашковий чай
 be:Чай з бурбалкамі
 zh-Hans:珍珠奶茶
@@ -171,6 +176,7 @@ id:Kue
 it:Torte
 ja:ケーキ
 ko:케이크
+lt:Pyragaičiai|Tortai|Konditerija
 nb:Kake
 pl:Ciasta
 pt:Bolo|padaria
@@ -207,6 +213,7 @@ id:Kopi
 it:Caffè
 ja:コーヒー
 ko:커피
+lt:Kava
 nb:Kaffe
 pl:Kawa
 pt:Café|cafetaria
@@ -244,6 +251,7 @@ id:Kari
 it:Curry
 ja:カレー
 ko:카레
+lt:Karis
 nb:Karri
 pl:Curry
 pt:Caril
@@ -280,6 +288,7 @@ id:Makan malam
 it:Ristorantino
 ja:ダイナー
 ko:식당
+lt:Užkandinė
 nb:Middag
 pl:Bar szybkiej obsługi
 pt:Diner
@@ -316,6 +325,7 @@ id:Donat
 it:Ciambelle
 ja:ドーナッツ
 ko:도너츠
+lt:Spurgos
 nb:Smultring
 pl:Pączki
 pt:Donuts
@@ -352,6 +362,7 @@ id:Ikan dan kentang goreng
 it:Fish and chips
 ja:フィッシュ・アンド・チップス
 ko:피쉬 앤 칩스
+lt:Žuvis su bulvytėmis
 nb:Fisk og pommes frites
 pl:Ryba i frytki
 pt:Peixe e batatas fritas
@@ -388,6 +399,7 @@ id:Gorengan
 it:Fritture
 ja:揚げ物
 ko:튀김 요리
+lt:Friterija|Gruzdinti patiekalai
 nb:Frityrt
 pl:Smażalnia
 pt:Fritos
@@ -424,6 +436,7 @@ id:Panggangan
 it:Cucina alla griglia
 ja:グリル
 ko:그릴
+lt:Ant grotelių keptas maistas|Grotelės|Grilis
 nb:Grill
 pl:Dania z grilla
 pt:Grelhados
@@ -463,6 +476,7 @@ id:Hotdog
 it:Hot dog
 ja:ホットドッグ
 ko:핫도그
+lt:Dešrainiai
 nb:Hotdog
 nl:Hotdogs
 pl:Hot-dogi
@@ -500,6 +514,7 @@ id:Es_krim
 it:Gelateria|gelato
 ja:アイスクリーム
 ko:아이스크림
+lt:Ledai
 nb:Iskrem
 nl:Ijs
 pl:Lody
@@ -537,6 +552,7 @@ id:Kebab
 it:Kebab
 ja:カバブ
 ko:케밥
+lt:Kebabai
 nb:Kebab
 nl:Kebab
 pl:Kebab
@@ -571,6 +587,7 @@ id:Bakmi
 it:Noodles
 ja:麺類
 ko:국수
+lt:Makaronai|nūdlai
 nb:Nudler
 pl:Noodle
 pt:Massa asiática
@@ -610,6 +627,7 @@ id:Panekuk|Kue dadar
 it:Pancake|Crêpes
 ja:ホットケーキ|クレープ
 ko:팬케이크|크레이프
+lt:Blynai|Blyneliai|Lietiniai
 nb:Pannekake|Crepe
 nl:Pannenkoek
 pl:Naleśniki|Naleśnikarnia
@@ -644,6 +662,7 @@ id:Pasta
 it:Pasta
 ja:パスタ
 ko:파스타
+lt:Itališki makaronai|Makaronai|Pasta
 nb:Pasta
 pl:Makarony
 pt:Massa
@@ -680,6 +699,7 @@ id:Pizza
 it:Pizza
 ja:ピザ
 ko:피자
+lt:Picos|Pica|Picerija
 nb:Pizza
 pl:Pizza|pizzeria
 pt:Pizza|piza|pizaria
@@ -715,6 +735,7 @@ id:Ramen
 it:Ramen
 ja:ラーメン
 ko:라면
+lt:Ramenai
 nb:Ramen
 pl:Ramen
 pt:Lámen|rāmen
@@ -751,6 +772,7 @@ id:Roti isi
 it:Panini
 ja:サンドイッチ
 ko:샌드위치
+lt:Sumuštiniai
 nb:Smørbrød
 pl:Kanapki
 pt:Sanduíche|sande
@@ -787,6 +809,7 @@ id:Sosis
 it:Salsicce
 ja:ソーセージ
 ko:소시지
+lt:Dešrelės
 nb:Pølse
 pl:Kiełbasa|Kiełbasiarnia
 pt:Salsicha|salsichas
@@ -826,6 +849,7 @@ id:Hidangan laut|Ikan
 it:Frutti di mare|Pesce
 ja:シーフード|魚料理
 ko:해산물|생선
+lt:Žuvies patiekalai|Žuvis|Jūros gėrybės
 nb:Sjømat|Fisk
 nl:Vis en zeevruchten|Vis
 pl:Owoce morza|Ryby
@@ -860,6 +884,7 @@ id:Soba
 it:Soba
 ja:そば
 ko:메밀 국수
+lt:Soba makaronai|Grikių makaronai|Makaronai
 nb:Soba
 pl:Soba
 pt:Soba|sobá
@@ -895,6 +920,7 @@ id:Restoran steik
 it:Bisteccheria
 ja:ステーキハウス
 ko:스테이크 하우스
+lt:Kepsnių restoranas|Kepsniai
 nb:Biffrestaurant
 pl:Steki
 pt:Churrasqueira|churrascaria
@@ -931,6 +957,7 @@ id:Sushi
 it:Sushi
 ja:寿司
 ko:초밥
+lt:Sušiai
 nb:Sushi
 pl:Sushi
 pt:Sushi
@@ -967,6 +994,7 @@ id:Kudapan spanyol
 it:Tapas
 ja:タパス
 ko:타파스
+lt:Tapos
 nb:Tapas
 pl:Tapas
 pt:Tapas
@@ -1003,6 +1031,7 @@ id:Teh
 it:Tè
 ja:紅茶
 ko:차
+lt:Arbata
 nb:Te
 pl:Herbata|Herbaciarnia
 pt:Chá
@@ -1039,6 +1068,7 @@ id:Masakan vegetarian
 it:Cucina vegetariana
 ja:ベジタリアン料理
 ko:채식주의자 음식
+lt:Vegetariška virtuvė
 nb:Vegetarisk|Vegetarretter
 pl:Kuchnia wegetariańska
 pt:Vegetariana
@@ -1077,6 +1107,7 @@ id:Masakan vegan|Masakan vegetarian
 it:Cucina vegana|Cucina vegetariana
 ja:ビーガン料理|ベジタリアン料理
 ko:비건 음식|채식주의자 음식
+lt:Veganiška virtuvė|Vegetariška virtuvė
 nb:Vegansk|Vegetarisk|Vegetarretter
 pl:Kuchnia wegańska|Kuchnia wegetariańska
 pt:Vegana|vegetariana
@@ -1112,6 +1143,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina africana
 # ja:アフリカ料理
 # ko:아프리카식 음식
+# lt:Afrikietiška virtuvė|Afrikiečių virtuvė
 # nb:Afrikansk mat
 # pl:Kuchnia afrykańska
 # pt:Cozinha africana
@@ -1146,6 +1178,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina americana
 # ja:アメリカ料理
 # ko:미국식 음식
+# lt:Amerikietiška virtuvė|Amerikiečių virtuvė
 # nb:Amerikansk mat
 # pl:Kuchnia amerykańska
 # pt:Cozinha americana
@@ -1180,6 +1213,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina araba
 # ja:アラビア料理
 # ko:아랍식 음식
+# lt:Arabiška virtuvė|Arabų virtuvė
 # nb:Arabisk mat
 # pl:Kuchnia arabska
 # pt:Cozinha árabe
@@ -1214,6 +1248,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina argentina
 # ja:アルゼンチン料理
 # ko:아르헨티나식 음식
+# lt:Argentiniečių virtuvė|Argentinos virtuvė
 # nb:Argentinsk mat
 # pl:Kuchnia argentyńska
 # pt:Cozinha argentina
@@ -1248,6 +1283,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina asiatica
 # ja:アジア料理
 # ko:아시아식 음식
+# lt:Azijos virtuvė|Azijietiška virtuvė
 # nb:Asiatisk mat
 # pl:Kuchnia azjatycka
 # pt:Cozinha asiática
@@ -1282,6 +1318,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina austriaca
 # ja:オーストリア料理
 # ko:오스트리아식 음식
+# lt:Austrų virtuvė|Austrijos virtuvė
 # nb:Østerriksk mat
 # pl:Kuchnia austriacka
 # pt:Cozinha austríaca
@@ -1316,6 +1353,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina balcanica
 # ja:バルカン料理
 # ko:발칸 반도식 음식
+# lt:Balkanų virtuvė|Balkaniška virtuvė
 # nb:Balkan mat
 # pl:Kuchnia bałkańska
 # pt:Cozinha balcânica
@@ -1350,6 +1388,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Barbecue
 # ja:バーベキュー
 # ko:바베큐
+# lt:Barbekiu|Kepsniai
 # nb:Grillmat
 # pl:Dania z grilla
 # pt:Churrasco
@@ -1384,6 +1423,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina bavarese
 # ja:ババロア料理
 # ko:바이에른식 음식
+# lt:Bavarų virtuvė|Bavarijos virtuvė
 # nb:Bayersk mat
 # pl:Kuchnia bawarska
 # pt:Cozinha bávara
@@ -1418,6 +1458,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Gyūdon
 # ja:牛丼|ビーフボウル
 # ko:쇠고기 덮밥
+# lt:Jautienos ir ryžių dubuo|Bowl
 # nb:Biffbolle
 # pl:Gyūdon|Gyudon
 # pt:Tigela com carne bovina|Gyudon
@@ -1452,6 +1493,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina brasiliana
 # ja:ブラジル料理
 # ko:브라질식 음식
+# lt:Brazilų virtuvė|Brazilijos virtuvė
 # nb:Brasiliansk mat
 # pl:Kuchnia brazylijska
 # pt:Cozinha brasileira
@@ -1486,6 +1528,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Osteria contadina
 # ja:ブッシェンシャンク
 # ko:와인 레스토랑
+# lt:Vyno taverna|Vyninė|Bušenšankas
 # nb:Buschenschank
 # pl:Buschenschank|Heuriger
 # pt:Buschenschank|Heuriger
@@ -1520,6 +1563,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina caraibica
 # ja:カリブ料理
 # ko:카리브식 음식
+# lt:Karibų virtuvė
 # nb:Karibisk mat
 # pl:Kuchnia karaibska
 # pt:Cozinha caribenha
@@ -1554,6 +1598,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Pollo
 # ja:鶏肉
 # ko:닭고기
+# lt:Vištienos patiekalai|Vištienos restoranas
 # nb:Kylling
 # pl:Kurczak
 # pt:Frango
@@ -1588,6 +1633,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina cinese
 # ja:中華料理
 # ko:중국식 음식
+# lt:Kinų virtuvė|Kiniečių virtuvė
 # nb:Kinesisk mat
 # pl:Kuchnia chińska
 # pt:Cozinha chinesa
@@ -1622,6 +1668,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina croata
 # ja:クロアチア料理
 # ko:크로아티아식 음식
+# lt:Kroatų virtuvė|Kroatijos virtuvė
 # nb:Kroatisk mat
 # pl:Kuchnia chorwacka
 # pt:Cozinha croata
@@ -1656,6 +1703,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Gastronomia
 # ja:デリ
 # ko:델리
+# lt:Delikatesai
 # nb:Delikatesse
 # pl:Delikatesy
 # pt:Iguarias regionais|delicatesse
@@ -1690,6 +1738,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina etiope
 # ja:エチオピア料理
 # ko:에티오피아식 음식
+# lt:Etiopų virtuvė|Etiopijos virtuvė
 # nb:Etiopisk mat
 # pl:Kuchnia etiopska
 # pt:Cozinha etíope
@@ -1711,7 +1760,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # cuisine-filipino
 # en:Filipino cuisine
 # ru:Филиппинская кухня
-# g:Филипинска кухня
+# bg:Филипинска кухня
 # ar:مطبخ فلبيني
 # cs:Filipínská kuchyně
 # da:Filippinsk
@@ -1724,6 +1773,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina filippina
 # ja:フィリピン料理
 # ko:필리핀식 음식
+# lt:Filipiniečių virtuvė|Filipinų virtuvė
 # nb:Filippinsk mat
 # pl:Kuchnia filipińska
 # pt:Cozinha filipina
@@ -1758,6 +1808,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Ristorante elegante
 # ja:高級料理
 # ko:고급 식당
+# lt:Prabangus restoranas|Restoranas
 # nb:Gourmet
 # pl:Wykwintna kuchnia
 # pt:Alta gastronomia
@@ -1792,6 +1843,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina francese
 # ja:フランス料理
 # ko:프랑스식 음식
+# lt:Prancūzų virtuvė|Prancūzijos virtuvė|Prancūziški patiekalai
 # nb:Fransk mat
 # pl:Kuchnia francuska
 # pt:Cozinha francesa
@@ -1826,6 +1878,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina georgiana
 # ja:ジョージア料理
 # ko:그루지야식 음식
+# lt:Kartvelų virtuvė|Sakartvelo virtuvė|Gruzinų virtuvė|Gruzijos virtuvė
 # nb:Georgisk mat
 # pl:Kuchnia gruzińska
 # pt:Cozinha georgiana
@@ -1860,6 +1913,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina tedesca
 # ja:ドイツ料理
 # ko:독일식 음식
+# lt:Vokiečių virtuvė|Vokiška virtuvė
 # nb:Tysk mat
 # pl:Kuchnia niemiecka
 # pt:Cozinha alemã
@@ -1894,6 +1948,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina greca
 # ja:ギリシャ料理
 # ko:그리스식 음식
+# lt:Graikų virtuvė|Graikijos virtuvė
 # nb:Gresk mat
 # pl:Kuchnia grecka
 # pt:Cozinha grega
@@ -1928,6 +1983,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Heuriger
 # ja:ホイリゲ
 # ko:호이리거
+# lt:Vyno restoranas|Vyninė
 # nb:Heuriger
 # pl:Heuriger
 # pt:Heuriger
@@ -1962,6 +2018,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina ungherese
 # ja:ハンガリー料理
 # ko:헝가리식 음식
+# lt:Vengrų virtuvė|Vengriška virtuvė|Vengrijos virtuvė
 # nb:Ungarsk mat
 # pl:Kuchnia węgierska
 # pt:Cozinha húngara
@@ -1996,6 +2053,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina indiana
 # ja:インド料理
 # ko:인도식 음식
+# lt:Indų virtuvė|Indiška virtuvė|Indijos virtuvė|Indiškas maistas
 # nb:Indisk mat
 # pl:Kuchnia indyjska
 # pt:Cozinha indiana
@@ -2030,6 +2088,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina indonesiana
 # ja:インドネシア料理
 # ko:인도네시아식 음식
+# lt:Indoneziečių virtuvė|Indonezijos virtuvė
 # nb:Indonesisk mat
 # pl:Kuchnia indonezyjska
 # pt:Cozinha indonésia
@@ -2064,6 +2123,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina internazionale
 # ja:国際料理
 # ko:국제 음식
+# lt:Įvairių šalių virtuvė|Fusion
 # nb:Internasjonal mat
 # pl:Kuchnia międzynarodowa
 # pt:Cozinha internacional
@@ -2098,6 +2158,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina irlandese
 # ja:アイルランド料理
 # ko:아일랜드식 음식
+# lt:Airių virtuvė|Airiška virtuvė
 # nb:Irsk mat
 # pl:Kuchnia irlandzka
 # pt:Cozinha irlandesa
@@ -2132,6 +2193,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina italiana
 # ja:イタリア料理
 # ko:이탈리아식 음식
+# lt:Italų virtuvė|Itališka virtuvė
 # nb:Italiensk mat
 # pl:Kuchnia włoska
 # pt:Cozinha italiana
@@ -2166,6 +2228,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina italiana, pizza
 # ja:イタリア料理；ピザ
 # ko:이탈리아식, 피자
+# lt:Itališka pica|Pica
 # nb:Italiensk mat;pizza
 # pl:Włoska, pizza
 # pt:Piza italiana|pizza italiana
@@ -2200,6 +2263,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina giapponese
 # ja:日本料理
 # ko:일본식 음식
+# lt:Japonų virtuvė|Japoniška virtuvė|Japonų patiekalai
 # nb:Japansk mat
 # pl:Kuchnia japońska
 # pt:Cozinha japonesa
@@ -2234,6 +2298,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina coreana
 # ja:韓国料理
 # ko:한국식 음식
+# lt:Korėjiečių virtuvė|Korėjietiška virtuvė|Korėjiečių patiekalai
 # nb:Koreansk mat
 # pl:Kuchnia koreańska
 # pt:Cozinha coreana
@@ -2268,6 +2333,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina laotiana
 # ja:ラオス料理
 # ko:라오식 음식
+# lt:Laosiečių virtuvė|Laoso virtuvė
 # nb:Lao mat
 # pl:Kuchnia laoska
 # pt:Cozinha laosiana
@@ -2302,6 +2368,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina libanese
 # ja:レバノン料理
 # ko:레바논식 음식
+# lt:Libaniečių virtuvė|Libano virtuvė|Libanietiška virtuvė
 # nb:Libanesisk mat
 # pl:Kuchnia libańska
 # pt:Cozinha libanesa
@@ -2336,6 +2403,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina locale
 # ja:地元料理
 # ko:현지식 음식
+# lt:Vietinė virtuvė|Vietos virtuvė
 # nb:Lokal mat
 # pl:Kuchnia lokalna
 # pt:Cozinha local
@@ -2370,6 +2438,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina malgascia
 # ja:マダガスカル料理
 # ko:마다가스카르식 음식
+# lt:Malagasių virtuvė
 # nb:Gassisk
 # pl:Kuchnia malgaska
 # pt:Cozinha malgaxe
@@ -2404,6 +2473,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina malese
 # ja:マレーシア料理
 # ko:말레이시아식 음식
+# lt:Malajų virtuvė|Malaizijos virtuvė|Malajietiška virtuvė
 # nb:Malaysisk mat
 # pl:Kuchnia malezyjska
 # pt:Cozinha malaia
@@ -2438,6 +2508,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina mediterranea
 # ja:地中海料理
 # ko:지중해식 음식
+# lt:Viduržemio jūros regiono virtuvė|Viduržemio virtuvė
 # nb:Middelhavsmat
 # pl:Kuchnia śródziemnomorska
 # pt:Cozinha mediterrânea
@@ -2472,6 +2543,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina messicana
 # ja:メキシコ料理
 # ko:멕시코식 음식
+# lt:Meksikiečių virtuvė|Meksikietiška virtuvė|Meksikos virtuvė
 # nb:Meksikansk mat
 # pl:Kuchnia meksykańska
 # pt:Cozinha mexicana
@@ -2506,6 +2578,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina marocchina
 # ja:モロッコ料理
 # ko:모로코식 음식
+# lt:Marokiečių virtuvė|Marokietiška virtuvė|Maroko virtuvė
 # nb:Marokkansk mat
 # pl:Kuchnia marokańska
 # pt:Cozinha marroquina
@@ -2540,6 +2613,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina orientale
 # ja:東洋料理
 # ko:극동식 음식
+# lt:Tolimųjų rytų virtuvė|Rytietiška virtuvė
 # nb:Orientalsk mat
 # pl:Kuchnia orientalna
 # pt:Cozinha oriental
@@ -2574,6 +2648,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina persiana
 # ja:ペルシャ料理
 # ko:페르시아식 음식
+# lt:Persų virtuvė|Persijos virtuvė
 # nb:Persisk mat
 # pl:Kuchnia perska
 # pt:Cozinha persa
@@ -2608,6 +2683,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina peruviana
 # ja:ペルー料理
 # ko:페루식 음식
+# lt:Perujiečių virtuvė|Peru virtuvė
 # nb:Peruansk mat
 # pl:Kuchnia peruwiańska
 # pt:Cozinha peruana
@@ -2642,6 +2718,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina polacca
 # ja:ポーランド料理
 # ko:폴란드식 음식
+# lt:Lenkų virtuvė|Lenkiška virtuvė|Lenkijos virtuvė
 # nb:Polsk mat
 # pl:Kuchnia polska
 # pt:Cozinha polonesa
@@ -2676,6 +2753,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina portoghese
 # ja:ポルトガル料理
 # ko:포르투갈식 음식
+# lt:Portugalų virtuvė|Portugališka virtuvė|Portugalijos virtuvė
 # nb:Portugisisk mat
 # pl:Kuchnia portugalska
 # pt:Cozinha portuguesa
@@ -2710,6 +2788,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina regionale
 # ja:郷土料理
 # ko:지역적 음식
+# lt:Regiono virtuvė|Regioninė virtuvė
 # nb:Regional mat
 # pl:Kuchnia regionalna
 # pt:Cozinha regional
@@ -2744,6 +2823,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina russa
 # ja:ロシア料理
 # ko:러시아식 음식
+# lt:Rusų virtuvė|Rusiška virtuvė
 # nb:Russisk mat
 # pl:Kuchnia rosyjska
 # pt:Cozinha russa
@@ -2778,6 +2858,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Pancake salati
 # ja:おいしいホットケーキ
 # ko:맛좋은 팬케이크
+# lt:Pikantiški blynai|Pikantiški lietiniai
 # nb:Fylte pannekaker
 # pl:Wytrawne naleśniki
 # pt:Tortas salgadas
@@ -2812,6 +2893,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina spagnola
 # ja:スペイン料理
 # ko:스페인식 음식
+# lt:Ispanų virtuvė|Ispaniška virtuvė
 # nb:Spansk mat
 # pl:Kuchnia hiszpańska
 # pt:Cozinha espanhola
@@ -2846,6 +2928,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina tailandese
 # ja:タイ料理
 # ko:타이식 음식
+# lt:Tajų virtuvė|Tailandietiška virtuvė|Tailando virtuvė
 # nb:Thaimat
 # pl:Kuchnia tajska
 # pt:Cozinha tailandesa
@@ -2880,6 +2963,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina turca
 # ja:トルコ料理
 # ko:터키식 음식
+# lt:Turkų virtuvė|Turkiška virtuvė|Turkijos virtuvė
 # nb:Tyrkisk mat
 # pl:Kuchnia turecka
 # pt:Cozinha turca
@@ -2914,6 +2998,7 @@ sr:Веганска|Вегетаријанска|Вегетаријанци|Ве
 # it:Cucina vietnamita
 # ja:ベトナム料理
 # ko:베트남식 음식
+# lt:Vietnamietiška virtuvė|Vietnamiečių virtuvė
 # nb:Vietnamesisk mat
 # pl:Kuchnia wietnamska
 # pt:Cozinha vietnamita

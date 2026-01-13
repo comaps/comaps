@@ -5,7 +5,7 @@
   style="@style/MwmTextAppearance.Headline6"
   android:layout_width="match_parent"
   android:layout_height="wrap_content"
-  android:background="?windowBackgroundForced"
+  android:background="?appBackground"
   android:gravity="start|center_vertical"
   android:paddingStart="@dimen/margin_base"
   android:paddingTop="@dimen/margin_base_plus"

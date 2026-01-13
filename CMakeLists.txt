@@ -116,20 +116,6 @@ endif()
 
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
 
-if (PLATFORM_LINUX OR PLATFORM_ANDROID)
-  find_program(LLD_FOUND ld.lld)
-  if (LLD_FOUND)
-    message(STATUS "Using ld.lld linker")
-    set(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=lld")
-  else()
-    find_program(GOLD_FOUND ld.gold)
-    if (GOLD_FOUND)
-      message(STATUS "Using ld.gold")
-      set(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=gold")
-    endif()
-  endif()
-endif()
-
 if (NOT SKIP_TESTS)
   enable_testing()
   # Enables ctest -T memcheck with valgrind

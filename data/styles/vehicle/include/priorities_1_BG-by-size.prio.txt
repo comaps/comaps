@@ -110,6 +110,7 @@ landuse-industrial-mine                             # area z15-
 landuse-landfill                                    # area z15- (also has caption z15-)
 landuse-quarry                                      # area z15- (also has caption z15-)
 landuse-railway                                     # area z15- (also has caption z15-)
+man_made-wastewater_plant                           # area z15-
 man_made-works                                      # area z15-
 power-generator                                     # area z15-
 power-generator-gas                                 # area z15-

@@ -77,6 +77,7 @@ public class ChooseBookmarksSortingTypeFragment
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
   {
     super.onViewCreated(view, savedInstanceState);
+    getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
     final Bundle args = getArguments();
     if (args == null)

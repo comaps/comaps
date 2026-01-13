@@ -918,7 +918,7 @@
     <string name="place_page_update_too_old_map">更新地图区域</string>
     <string name="place_page_too_old_to_edit">由于地图数据太旧，OpenStreetMap 编辑被禁用。</string>
     <string name="download_resources_custom_url_summary_none">未设置</string>
-    <string name="download_resources_custom_url_error_scheme">请输入以 https:// 开头、以 / 结尾的完整 URL</string>
+    <string name="download_resources_custom_url_error_scheme">请输入以 http:// 或 https:// 开头的 URL</string>
     <string name="advanced">高级</string>
     <string name="download_resources_custom_url_title">自定义地图服务器</string>
     <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>

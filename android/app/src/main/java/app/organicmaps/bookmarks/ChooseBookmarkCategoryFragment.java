@@ -42,6 +42,7 @@ public class ChooseBookmarkCategoryFragment
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
   {
     View root = inflater.inflate(R.layout.choose_bookmark_category_fragment, container, false);
+    getDialog().getWindow().setBackgroundDrawableResource(android.R.color.transparent);
     mRecycler = root.findViewById(R.id.recycler);
     mRecycler.setLayoutManager(new LinearLayoutManager(requireActivity()));
     return root;

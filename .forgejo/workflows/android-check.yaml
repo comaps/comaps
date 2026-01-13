@@ -34,28 +34,155 @@ on:
       - track_generator/**
       - xcode/**
 
+env:
+  APT_PACKAGES: >-
+    cmake
+    ninja-build
+    qt6-base-dev
+    qt6-declarative-dev
+    qt6-positioning-dev
+    libqt6svg6-dev
+    optipng
+    libfreetype-dev
+    libharfbuzz-dev
+    libxrandr-dev
+    libxinerama-dev
+    libxcursor-dev
+    libxi-dev
+    python3-pip
+    zlib1g-dev
+    git
+    ccache
+    openjdk-21-jdk
+  PIP_PACKAGES: protobuf<3.21
+  SUBMODULE_CACHE_PATHS: |
+    .git/modules
+    3party/CMake-MetalShaderSupport
+    3party/Vulkan-Headers
+    3party/boost
+    3party/expat
+    3party/fast_double_parser
+    3party/fast_obj
+    3party/freetype/freetype
+    3party/gflags
+    3party/glaze
+    3party/glfw
+    3party/glm
+    3party/googletest
+    3party/harfbuzz/harfbuzz
+    3party/icu/icu
+    3party/imgui/imgui
+    3party/jansson/jansson
+    3party/just_gtfs
+    3party/protobuf/protobuf
+    3party/pugixml/pugixml
+    3party/utfcpp
+    tools/kothic
+    tools/osmctools
+
 jobs:
   lint:
     name: Android Lint
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:latest
+      options: --user root
+    env:
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
     steps:
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Create sudo wrapper
+        shell: bash
+        run: |
+          echo '#!/bin/bash' > /usr/local/bin/sudo
+          echo 'exec "$@"' >> /usr/local/bin/sudo
+          chmod +x /usr/local/bin/sudo
+
+      - name: Apt update
+        shell: bash
+        run: |
+          apt update -y
+
+      - name: Install and cache apt packages
+        uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: ${{ env.APT_PACKAGES }}
+          version: "${{ steps.date.outputs.date }}"
+
+      - name: Fallback manual apt install
+        shell: bash
+        run: |
+          if ! command -v pip &> /dev/null; then
+            echo "pip not found, cache action failed, installing packages manually"
+            apt install -y $APT_PACKAGES
+          fi
+
+      - name: Generate pip cache key
+        id: pip-cache-key
+        run: echo "key=pip-$(echo '${{ env.PIP_PACKAGES }}' | md5sum | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ steps.pip-cache-key.outputs.key }}
+
+      - name: Install build dependencies
+        shell: bash
+        run: |
+          pip install "${{ env.PIP_PACKAGES }}" --break-system-packages
+          update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+
+      - name: Install Android SDK components
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358"
+
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - name: Parallel submodules checkout
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: world_mwm
+          key: world-mwm
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Lint
         shell: bash
         working-directory: android
-        run: ./gradlew -Pandroidauto=true lint
+        run: |
+          cd ..
+          ./configure.sh
+          cd android
+          ./gradlew -Pandroidauto=true lint
 
   android-check:
     name: Build Android Debug
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:latest
+      options: --user root
+    env:
+      JAVA_HOME: /usr/lib/jvm/java-21-openjdk-amd64
     strategy:
       fail-fast: false
       matrix:
@@ -71,23 +198,84 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: Install build tools and dependencies
+      - name: Get date for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_OUTPUT
+
+      - name: Create sudo wrapper
         shell: bash
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
+          echo '#!/bin/bash' > /usr/local/bin/sudo
+          echo 'exec "$@"' >> /usr/local/bin/sudo
+          chmod +x /usr/local/bin/sudo
+
+      - name: Apt update
+        shell: bash
+        run: |
+          apt update -y
+
+      - name: Install and cache apt packages
+        uses: https://github.com/awalsh128/cache-apt-pkgs-action@v1.6.0
+        with:
+          packages: ${{ env.APT_PACKAGES }}
+          version: "${{ steps.date.outputs.date }}"
+
+      - name: Fallback manual apt install
+        shell: bash
+        run: |
+          if ! command -v pip &> /dev/null; then
+            echo "pip not found, cache action failed, installing packages manually"
+            apt install -y $APT_PACKAGES
+          fi
+
+      - name: Generate pip cache key
+        id: pip-cache-key
+        run: echo "key=pip-$(echo '${{ env.PIP_PACKAGES }}' | md5sum | cut -d' ' -f1)" >> $GITHUB_OUTPUT
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ steps.pip-cache-key.outputs.key }}
+
+      - name: Install build dependencies
+        shell: bash
+        run: |
+          pip install "${{ env.PIP_PACKAGES }}" --break-system-packages
+          update-alternatives --set java /usr/lib/jvm/java-21-openjdk-amd64/bin/java
+
+      - name: Install Android SDK components
+        shell: bash
+        run: |
+          yes | sdkmanager --licenses || true
+          sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;28.2.13676358"
 
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 200 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: world_mwm
+          key: world-mwm
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-${{ matrix.flavor }}
 
@@ -98,13 +286,22 @@ jobs:
           CMAKE_C_COMPILER_LAUNCHER: ccache
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
         run: |
-          cmake --version
-          ninja --version
+          cd ..
+          ./configure.sh
+          cd android
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
+      - name: Find built APK
+        id: find-apk
+        shell: bash
+        run: |
+          APK_PATH=$(find android/app/build/outputs/apk/**/ -name "*.apk" -type f | head -n 1)
+          echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT
+          echo "Found APK: $APK_PATH"
+
       - name: Upload ${{ matrix.flavor }} apk
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.flavor }}
-          path: android/app/build/outputs/apk/**/OrganicMaps-*.apk
+          path: ${{ steps.find-apk.outputs.apk_path }}
           if-no-files-found: error

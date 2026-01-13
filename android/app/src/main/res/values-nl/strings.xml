@@ -919,5 +919,5 @@
     <string name="download_resources_custom_url_title">Aangepaste server voor kaarten</string>
     <string name="download_resources_custom_url_message">Overschrijf de standaard kaartdownloadserver die wordt gebruikt voor kaartdownloads. Laat leeg om de standaardserver van CoMaps te gebruiken.</string>
     <string name="download_resources_custom_url_summary_none">Niet ingesteld</string>
-    <string name="download_resources_custom_url_error_scheme">Voer een volledige URL in, beginnend met https:// en eindigend met /</string>
+    <string name="download_resources_custom_url_error_scheme">Voer een URL in beginnend met http:// of https://</string>
 </resources>

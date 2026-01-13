@@ -66,7 +66,7 @@ public class FaqFragment extends BaseMwmFragment
     FloatingActionButton feedbackFab = root.findViewById(R.id.feedback_fab);
     feedbackFab.setOnClickListener(
         v
-        -> new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+        -> new MaterialAlertDialogBuilder(requireActivity())
                .setTitle(R.string.feedback)
                .setNegativeButton(R.string.cancel, null)
                .setItems(new CharSequence[] {getString(R.string.feedback_general), getString(R.string.report_a_bug)},

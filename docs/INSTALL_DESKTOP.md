@@ -111,6 +111,21 @@ sudo apk add \
     sqlite-dev
 ```
 
+#### Void
+
+```bash
+xbps-install -S \
+    wget \
+    optipng \
+    cmake \
+    ninja \
+    qt6-base-devel \
+    qt6-svg-devel \
+    qt6-position-devel \
+    python3-pip
+pip3 install "protobuf<3.21" --break-system-packages
+```
+
 #### macOS
 
 ```bash

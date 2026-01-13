@@ -1172,7 +1172,7 @@ leisure-ice_rink                                    # icon z17- (also has captio
 leisure-pitch                                       # icon z17- (also has caption(optional) z17-, area z15-)
 man_made-chimney                                    # icon z16- (also has caption(optional) z18-)
 man_made-crane                                      # icon z16- (also has caption(optional) z18-)
-man_made-flagpole                                   # icon z12- (also has caption(optional) z14-)
+man_made-flagpole                                   # icon z13- (also has caption(optional) z14-)
 man_made-flare                                      # icon z13- (also has caption(optional) z18-)
 man_made-mast-communication                         # icon z13- (also has caption(optional) z14-)
 man_made-tower                                      # icon z13- (also has caption(optional) z14-)
@@ -1377,6 +1377,7 @@ leisure-slipway                                     # icon z17- (also has captio
 leisure-track                                       # caption z16- (also has line z15-)
 leisure-track-area                                  # caption z16- (also has area z15-)
 man_made-petroleum_well                             # icon z14- (also has caption(optional) z18-)
+man_made-wastewater_plant                           # caption z15- (also has area z13-)
 power-generator                                     # icon z17- (also has area z13-)
 power-generator-gas                                 # icon z17- (also has area z13-)
 power-generator-hydro                               # icon z17- (also has area z13-)
@@ -2227,7 +2228,7 @@ leisure-swimming_pool-private                       # icon z17- (also has captio
 # leisure-pitch                                     # caption(optional) z17- (also has icon z17-, area z15-)
 # man_made-chimney                                  # caption(optional) z18- (also has icon z16-)
 # man_made-crane                                    # caption(optional) z18- (also has icon z16-)
-# man_made-flagpole                                 # caption(optional) z14- (also has icon z12-)
+# man_made-flagpole                                 # caption(optional) z14- (also has icon z13-)
 # man_made-flare                                    # caption(optional) z18- (also has icon z13-)
 # man_made-mast-communication                       # caption(optional) z14- (also has icon z13-)
 # man_made-tower                                    # caption(optional) z14- (also has icon z13-)
@@ -2392,6 +2393,7 @@ tourism-information                                 # icon z15- (also has captio
 tourism-information-board                           # icon z15- (also has caption(optional) z15-)
 tourism-information-guidepost                       # icon z15- (also has caption(optional) z15-)
 tourism-information-map                             # icon z15- (also has caption(optional) z15-)
+tourism-information-tactile_map                     # icon z15- (also has caption(optional) z15-)
 === -9940
 
 amenity                                             # caption z19-
@@ -2483,4 +2485,5 @@ entrance-service                                    # icon z19- (also has captio
 # tourism-information-board                         # caption(optional) z15- (also has icon z15-)
 # tourism-information-guidepost                     # caption(optional) z15- (also has icon z15-)
 # tourism-information-map                           # caption(optional) z15- (also has icon z15-)
+# tourism-information-tactile_map                   # caption(optional) z15- (also has icon z15-)
 === -10000

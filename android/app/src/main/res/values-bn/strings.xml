@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="back">পিছনে</string>
-    <string name="download_maps">ডাউনলোডকৃত মানচিত্র</string>
-    <string name="delete">মুছো</string>
+    <string name="download_maps">মানচিত্র ডাউনলোড করুন</string>
+    <string name="delete">মুছুন</string>
     <string name="cancel">বাতিল</string>
     <string name="miles">মাইল</string>
     <string name="later">পরে</string>
     <string name="search">খুঁজুন</string>
-    <string name="download_has_failed">ডাউনলোড ব্যর্থ। আবার চেষ্টা করতে টিপ দাও।</string>
+    <string name="download_has_failed">ডাউনলোড ব্যর্থ হয়েছে, আবার চেষ্টা করতে টিপ দিন</string>
     <string name="search_map">ম্যাপ অনুসন্ধান</string>
     <string name="kilometres">কিলোমিটার</string>
     <string name="downloading">ডাউনলোডরত…</string>
@@ -303,4 +303,16 @@
     <string name="editor_report_problem_other_title">আলাদা সমস্যা</string>
     <string name="osm_presentation">কমিউনিটি দ্বারা তৈরি ওপেনস্ট্রিটম্যাপ ডেটা টি %s তারিখ অব্দি সাম্পতিক। মানচিত্রটি সম্পাদনা এবং আপডেট করার সম্পর্কে আরও জানুন OpenStreetMap.org-এ</string>
     <string name="editor_edit_place_category_title">শ্রেণি</string>
+    <string name="opens_at">%s এ খুলবে</string>
+    <string name="closes_at">%s এ বন্ধ হবে</string>
+    <string name="downloader_of">%2$d এর মধ্যে %1$d</string>
+    <string name="error_enter_correct_house_number">সঠিক বিল্ডিং নম্বর দিন</string>
+    <string name="editor_more_about_osm">আরো OpenStreetMap সম্বন্ধে</string>
+    <string name="downloader_no_downloaded_maps_title">আপনি কোনো মানচিত্র ডাউনলোড করেননি</string>
+    <string name="current_location_unknown_error_title">বর্তমান অবস্থান অজানা</string>
+    <string name="editor_place_doesnt_exist">স্থানটি অস্তিত্বই নেই</string>
+    <string name="error_enter_correct_phone">সঠিক ফোন নম্বর দিন</string>
+    <string name="error_enter_correct_web">সঠিক ওয়েব এড্রেস দিন</string>
+    <string name="error_enter_correct_email">সঠিক ইমেইল দিন</string>
+    <string name="placepage_add_place_button">OpenStreetMap এ স্থান যোগ করুন</string>
 </resources>

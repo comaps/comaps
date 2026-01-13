@@ -38,7 +38,7 @@
     <!-- Text in About screen -->
     <string name="about_proposition_1">• Lättanvändlig och finslipad</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• Integritetsfokuserad och fri från annonser</string>
+    <string name="about_proposition_2">Låg batteriförbrukning, fungerar utan uppkoppling</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, snabb och kompakt</string>
     <!-- Text in About screen -->
@@ -82,7 +82,7 @@
     <!-- Header of settings activity where user defines storage path -->
     <string name="maps_storage">Spara kartor i</string>
     <!-- Detailed description of Maps Storage settings button -->
-    <string name="maps_storage_summary">Välj en plats för nedladdade kartor.</string>
+    <string name="maps_storage_summary">Välj en plats för nedladdade kartor</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
     <string name="maps_storage_downloaded">Nedladdade kartor</string>
     <!-- Question dialog for transferring maps from one storage to another -->
@@ -158,9 +158,9 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Din position har inte fastslagits ännu</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">Tyvärr, kartlagring är inaktiverat i inställningar.</string>
+    <string name="cant_change_this_setting">Kartlagring är tyvärr inaktiverat i inställningar</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">Kartan har börjat laddas ner.</string>
+    <string name="downloading_is_active">Kartan har börjat laddas ner</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hej, kolla på min nuvarande position på CoMaps! %1$s eller %2$s Har du inte offline-kartor? Ladda ner här: https://www.comaps.app/download/</string>
     <!-- Subject for emailed bookmark -->
@@ -212,7 +212,7 @@
     <!-- Settings «Route» category: «Test Voice Directions» title -->
     <string name="pref_tts_test_voice_title">Testa röstinstruktioner (TTS, Text-To-Speech)</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kontrollera volymen eller systemets text-till-tal-inställningar om du inte hör rösten nu.</string>
+    <string name="pref_tts_playing_test_voice">Kontrollera volymen eller systemets text-till-tal-inställningar om du inte hör rösten nu</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Inte tillgängligt</string>
     <string name="pref_map_auto_zoom">Automatisk zoom</string>
@@ -258,7 +258,7 @@
     <string name="downloader_download_all_button">Ladda ned alla</string>
     <string name="downloader_downloading">Laddar ner:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Avsluta navigering för att radera kartan.</string>
+    <string name="downloader_delete_map_while_routing_dialog">Avsluta navigering för att radera kartan</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Rutter kan endast skapas om de finns inom en enda kart-region.</string>
     <!-- Context menu item for downloader. -->
@@ -284,7 +284,7 @@
     <!-- location service disabled -->
     <string name="enable_location_services">Vänligen aktivera platstjänster</string>
     <string name="save">Spara</string>
-    <string name="create">skapa</string>
+    <string name="create">Skapa</string>
     <!-- red color -->
     <string name="red">Röd</string>
     <!-- yellow color -->
@@ -330,18 +330,18 @@
     <string name="dialog_routing_location_turn_on">Aktivera platstjänster</string>
     <string name="dialog_routing_location_unknown_turn_on">Kan inte läsa nuvarande GPS-koordinater. Aktivera platstjänster för att hitta en rutt.</string>
     <string name="dialog_routing_unable_locate_route">Kan inte hitta rutt</string>
-    <string name="dialog_routing_cant_build_route">Kan inte hitta rutt.</string>
+    <string name="dialog_routing_cant_build_route">Kan inte hitta rutt</string>
     <string name="dialog_routing_change_start_or_end">Justera din startpunkt eller destination.</string>
     <string name="dialog_routing_change_start">Justera startpunkt</string>
     <string name="dialog_routing_start_not_determined">Ingen rutt hittades. Hittar inte startpunkt.</string>
     <string name="dialog_routing_select_closer_start">Välj en startpunkt närmare en väg.</string>
     <string name="dialog_routing_change_end">Justera destination</string>
     <string name="dialog_routing_end_not_determined">Ingen rutt hittades. Kan inte hitta destinationen.</string>
-    <string name="dialog_routing_select_closer_end">Välj en destination närmare en väg.</string>
-    <string name="dialog_routing_change_intermediate">Det går inte att hitta mellanliggande punkt.</string>
-    <string name="dialog_routing_intermediate_not_determined">Justera din mellanliggande punkt.</string>
+    <string name="dialog_routing_select_closer_end">Välj en destination närmare en väg</string>
+    <string name="dialog_routing_change_intermediate">Det går inte att hitta mellanliggande punkt</string>
+    <string name="dialog_routing_intermediate_not_determined">Justera din mellanliggande punkt</string>
     <string name="dialog_routing_system_error">Systemfel</string>
-    <string name="dialog_routing_application_error">Kan inte hitta rutt pga ett programfel.</string>
+    <string name="dialog_routing_application_error">Kan inte hitta rutt pga ett programfel</string>
     <string name="dialog_routing_try_again">Försök igen</string>
     <string name="not_now">Inte nu</string>
     <string name="dialog_routing_download_and_build_cross_route">Vill du ladda ned kartan och hitta en bättre sträcka via fler än en karta?</string>
@@ -355,17 +355,17 @@
     <string name="hide">Dölj</string>
     <string name="categories">Kategorier</string>
     <string name="history">Historik</string>
-    <string name="search_not_found">Ledsen, jag hittade ingenting.</string>
+    <string name="search_not_found">Ledsen, jag hittade ingenting</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Ladda ner den region där du söker eller försök att lägga till ett närliggande stads- eller bynamn.</string>
     <string name="search_history_title">Sökhistorik</string>
-    <string name="search_history_text">Se senaste sökningar.</string>
+    <string name="search_history_text">Se senaste sökningar</string>
     <string name="clear_search">Rensa sökhistorik</string>
     <string name="p2p_your_location">Din plats</string>
     <string name="p2p_start">Start</string>
     <string name="p2p_from_here">Rutt från</string>
     <string name="p2p_to_here">Rutt till</string>
-    <string name="p2p_only_from_current">Navigering är enbart möjlig från din nuvarande plats.</string>
+    <string name="p2p_only_from_current">Navigering är enbart möjlig från din nuvarande plats</string>
     <string name="p2p_reroute_from_current">Vill du att vi planerar en färdväg från din nuvarande plats?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Nästa</string>
@@ -425,14 +425,14 @@
     <string name="select_cuisine">Välj mat</string>
     <!-- login text field -->
     <string name="level">Våningsplan</string>
-    <string name="downloader_delete_map_dialog">Alla kartändringar kommer att raderas tillsammans med kartan.</string>
+    <string name="downloader_delete_map_dialog">Alla kartändringar kommer att raderas tillsammans med kartan</string>
     <string name="downloader_update_maps">Uppdatera kartor</string>
     <string name="downloader_mwm_migration_dialog">För att hitta en rutt måste du uppdatera alla kartor och sedan försöka igen.</string>
     <string name="downloader_search_field_hint">Hitta kartan</string>
-    <string name="common_check_internet_connection_dialog">Kontrollera dina inställningar och se till att din enhet är ansluten till internet.</string>
+    <string name="common_check_internet_connection_dialog">Kontrollera dina inställningar och se till att din enhet är ansluten till internet</string>
     <string name="downloader_no_space_title">Otillräckligt minne</string>
     <string name="downloader_no_space_message">Ta bort onödig data</string>
-    <string name="editor_login_error_dialog">Inloggningsfel.</string>
+    <string name="editor_login_error_dialog">Inloggningsfel</string>
     <string name="editor_profile_changes">Verifierade ändringar</string>
     <string name="editor_focus_map_on_location">Dra kartan för att placera korset på platsen för platsen eller företaget.</string>
     <string name="editor_edit_place_title">Redigerar</string>
@@ -448,16 +448,16 @@
     <string name="osm_presentation">Community-skapade OpenStreetMap-data från och med %s. Läs mer om hur du redigerar och uppdaterar kartan på OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) är ett community-projekt för att bygga en fri och öppen karta. Det är den huvudsakliga källan till kartdata i CoMaps och fungerar på samma sätt som Wikipedia. Du kan lägga till eller redigera platser och de blir tillgängliga för miljontals användare över hela världen. \nGå med i samhället och hjälp till att skapa en bättre karta för alla!</string>
-    <string name="login_to_make_edits_visible">Skapa ett OpenStreetMap-konto eller logga in för att publicera dina kartredigeringar till hela världen.</string>
+    <string name="login_to_make_edits_visible">Skapa ett OpenStreetMap-konto eller logga in för att publicera dina kartredigeringar till hela världen</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d av %2$d</string>
     <string name="download_over_mobile_header">Ladda ned med mobildata?</string>
-    <string name="download_over_mobile_message">Detta kan vara mycket dyrt med vissa abonnemang och vid roaming.</string>
+    <string name="download_over_mobile_message">Detta kan vara mycket dyrt med vissa abonnemang och vid roaming</string>
     <string name="error_enter_correct_house_number">Ange giltigt husnummer</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Redigera byggnaden med max %d våningar</string>
-    <string name="editor_zip_code">Postnr</string>
-    <string name="error_enter_correct_zip_code">Ange korrekt postnr</string>
+    <string name="editor_zip_code">Postkod</string>
+    <string name="error_enter_correct_zip_code">Ange korrekt postkod</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Meddelande till OpenStreetMap-volontärer (valfritt)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -473,8 +473,8 @@
     <string name="editor_category_unsuitable_title">Hittar du ingen lämplig kategori?</string>
     <string name="editor_category_unsuitable_text">CoMaps tillåter endast att lägga till enkla punktkategorier, det betyder inga städer, vägar, sjöar, byggnadskonturer etc. Lägg till sådana kategorier direkt till <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Kontrollera vår <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> för detaljerade steg-för-steg-instruktioner.</string>
     <string name="downloader_no_downloaded_maps_title">Du har inte laddat ner några kartor</string>
-    <string name="downloader_no_downloaded_maps_message">Ladda ner kartor för att hitta platsen och navigera offline.</string>
-    <string name="current_location_unknown_error_title">Den nuvarande platsen är okänd.</string>
+    <string name="downloader_no_downloaded_maps_message">Ladda ner kartor för att hitta platsen och navigera offline</string>
+    <string name="current_location_unknown_error_title">Den nuvarande platsen är okänd</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/tim</string>
     <string name="miles_per_hour">mi/tim</string>
@@ -512,10 +512,10 @@
     <string name="mobile_data_option_not_today">Använd inte idag</string>
     <string name="mobile_data">Mobilt internet</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Mobilt internet krävs för att visa detaljerad information om platser, som t. ex. fotografier, priser och omdömen.</string>
+    <string name="mobile_data_description">Mobilt internet krävs för att visa detaljerad information om platser, som t. ex. fotografier, priser och omdömen</string>
     <string name="mobile_data_option_never">Använd aldrig</string>
     <string name="mobile_data_option_ask">Fråga alltid</string>
-    <string name="traffic_update_maps_text">Kartor måste uppdateras för att visa trafikdata.</string>
+    <string name="traffic_update_maps_text">Kartor måste uppdateras för att visa trafikdata</string>
     <string name="big_font">Öka teckenstorlek på kartan</string>
     <string name="traffic_update_app">Uppdatera CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
@@ -525,7 +525,7 @@
     <string name="feedback_general">Allmän feedback</string>
     <string name="prefs_languages_information">Vi använder TTS-system för röstinstruktioner. Flera Android-enheter använder Google TTS. Du kan ladda ned eller uppdatera det på Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">För vissa språk måste du installera en annan talsyntes eller ett annat språkpaket från appbutiken (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid). \nÖppna inställningarna på enheten → Språk och inmatning → Tal → Text till tal-uppspelning. \nHär kan du hantera inställningarna för talsyntes (till exempel, ladda ned språkpaket för användning offline) och välja en annan text till tal-motor.</string>
-    <string name="prefs_languages_information_off_link">Kolla in den här guiden för mer information.</string>
+    <string name="prefs_languages_information_off_link">Kolla in den här guiden för mer information</string>
     <string name="transliteration_title">Translitterera till latinska alfabetet</string>
     <string name="learn_more">Läs mer</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -595,7 +595,7 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Varna aldrig</string>
     <string name="power_managment_title">Energisparläge</string>
-    <string name="power_managment_description">Försök att begränsa strömförbrukningen på bekostnad av vissa funktioner.</string>
+    <string name="power_managment_description">Försök att begränsa strömförbrukningen på bekostnad av vissa funktioner</string>
     <string name="power_managment_setting_never">Aldrig</string>
     <string name="power_managment_setting_auto">Vid lågt batteri</string>
     <string name="power_managment_setting_manual_max">Alltid</string>
@@ -795,7 +795,7 @@
     <string name="enable_show_on_lock_screen">Visa på låsskärmen</string>
     <string name="share_bookmarks_email_body">Hej! \n \nJag bifogar mina bokmärken, öppna gärna dem med CoMaps. Om du inte redan har appen installerad, kan du ladda ner den här: https://www.comaps.app/download/ \n \nTrevlig resa med CoMaps!</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="telegram_url">https://t.me/CoMapsApp</string>
+    <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Sv:Om_OpenStreetMap</string>
     <string name="change_map_locale">Kartspråk</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
@@ -836,4 +836,18 @@
     <string name="avoid_paved">Undvik asfalterade vägar</string>
     <string name="error_value_must_be_positive">Värdet måste vara positivt</string>
     <string name="error_invalid_number">ogiltigt tal</string>
+    <string name="vehicle">Fordon</string>
+    <string name="route_type">Ruttyp</string>
+    <string name="clear">Rensa</string>
+    <string name="download_resources_custom_url_error_scheme">Använd en URL som börjar med http:// eller https://</string>
+    <string name="download_resources_custom_url_title">Anpassad karttjänst</string>
+    <string name="advanced">Avancerad</string>
+    <string name="offline_explanation_title">Offlinekartor</string>
+    <string name="charge_socket_count">Antal</string>
+    <string name="charge_socket_unknown_other">Andra eller obekant</string>
+    <string name="bookmark_color">Färg för bökmärken</string>
+    <string name="ruler">Måttstock</string>
+    <string name="bicycle">Cykel</string>
+    <string name="pedestrian">Gående</string>
+    <string name="error_enter_correct_line_page">Ange en giltig webbadress</string>
 </resources>

@@ -66,7 +66,7 @@
 "bookmark_set_name" = "Name der Lesezeichenliste";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Lesezeichenliste";
+"bookmark_sets" = "Lesezeichensammlung";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Lesezeichen";
@@ -154,13 +154,13 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Einrichtungen für Wohnmobile";
-"share_bookmarks_email_body" = "Hallo!\n\nIm Anhang sind meine Lesezeichen der CoMaps App. Sie können sie mit CoMaps öffnen. Wenn Sie die App nicht installiert haben, können Sie sie von https://www.comaps.app/download/ für iOS oder Android herunterladen.\n\nViel Spaß beim Reisen mit CoMaps!";
+"share_bookmarks_email_body" = "Hallo!\n\nIm Anhang sind meine Lesezeichen aus der CoMaps-App. Du kannst sie mit CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen.\n\nViel Spaß beim Navigieren mit CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Lesezeichen werden geladen";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Lesezeichen erfolgreich geladen! Sie können diese nun auf Ihrer Karte oder im Lesezeichen-Manager anzeigen.";
+"load_kmz_successful" = "Lesezeichen erfolgreich geladen! Du kannst dieses nun auf deiner Karte oder im Lesezeichen-Manager anzeigen lassen.";
 
 /* Kml file loading failed */
 "load_kmz_failed" = "Laden der Lesezeichen fehlgeschlagen. Die Datei könnte beschädigt oder defekt sein.";
@@ -172,7 +172,7 @@
 "unknown_current_position" = "Dein Standort konnte noch nicht ermittelt werden";
 
 /* Subject for emailed bookmark */
-"bookmark_share_email_subject" = "Hey, sieh dir meine Stecknadel in der CoMaps-App an!";
+"bookmark_share_email_subject" = "Hey, sieh dir mein Lesezeichen in der CoMaps-App an!";
 
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Hey, sieh dir meinen aktuellen Standort auf der CoMaps-Karte an!";
@@ -184,7 +184,7 @@
 "copy_to_clipboard" = "In die Zwischenablage kopieren";
 
 /* Text for message when used successfully copied something */
-"copied_to_clipboard" = "In die Zwischenablage kopiert: %@";
+"copied_to_clipboard" = "Kopiert in der Zwischenablage: %@";
 
 /* place preview title */
 "info" = "Info";
@@ -310,7 +310,7 @@
 "help" = "Hilfe";
 
 /* Button in the main Help dialog */
-"faq" = "Häufige Fragen und Antworten";
+"faq" = "Häufige Fragen und Antworten (FAQ)";
 
 /* Button in the main menu */
 "donate" = "Spenden";
@@ -325,25 +325,25 @@
 "report_incorrect_map_bug" = "Falsche Kartendaten melden oder korrigieren";
 
 /* Button in the About screen */
-"volunteer" = "Freiwillig helfen und CoMaps verbessern";
+"volunteer" = "Freiwilliges Engagement und CoMaps verbessern";
 
 /* "Social media" section header in the About screen */
-"follow_us" = "Bleib in Kontakt";
+"follow_us" = "Kontaktiere uns";
 
 /* Alert text */
-"email_error_body" = "Der Email-Client ist noch nicht eingerichtet worden. Konfigurieren Sie ihn bitte oder nutzen Sie eine andere Möglichkeit oder kontaktieren Sie uns unter %@";
+"email_error_body" = "Der Email-Client ist noch nicht eingerichtet worden. Bitte konfiguriere ihn oder kontaktiere uns unter %@";
 
 /* Alert title */
-"email_error_title" = "Fehler beim Email-Versand";
+"email_error_title" = "Fehler beim E-Mail-Versand";
 
 /* Settings item title */
 "pref_calibration_title" = "Kompass-Kalibrierung";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
-"long_tap_toast" = "Tippe erneut lange auf die Karte, um die Benutzeroberfläche zu sehen";
+"long_tap_toast" = "Tippe erneut lange auf die Karte, um die Benutzeroberfläche wiederzusehen";
 
 /* Update all button text */
-"downloader_update_all_button" = "Alle aktualisieren";
+"downloader_update_all_button" = "Alle Karten aktualisieren";
 
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Heruntergeladen";
@@ -386,7 +386,7 @@
 "routing_download_maps_along" = "Karten entlang der Route herunterladen";
 
 /* Text for routing error dialog */
-"routing_requires_all_map" = "Zum Erstellen einer Route müssen alle Karten von Ihrem Standort bis zum Ziel heruntergeladen und aktualisiert worden sein.";
+"routing_requires_all_map" = "Zum Erstellen einer Route müssen alle Karten von deinem Standort bis zum Ziel heruntergeladen und aktualisiert worden sein.";
 
 /* bookmark button text */
 "bookmark" = "Lesezeichen";
@@ -440,34 +440,34 @@
 
 /* blue gray color */
 "blue_gray" = "Graublau";
-"dialog_routing_disclaimer_title" = "Wenn Sie der Route folgen, beachten Sie bitte:";
+"dialog_routing_disclaimer_title" = "Wenn du der Route folgst, beachte bitte:";
 "dialog_routing_disclaimer_priority" = "— Zustand der Straßen, die Verkehrsordnung und Straßenschilder haben stets Vorrang vor Navigationsanweisungen;";
-"dialog_routing_disclaimer_precision" = "– Die Karte kann ungenau sein, und die vorgeschlagene Route ist möglicherweise nicht der optimale Weg, um das Ziel zu erreichen;";
+"dialog_routing_disclaimer_precision" = "— Die Karte kann ungenau sein, und die vorgeschlagene Route ist möglicherweise nicht der optimale Weg, um das Ziel zu erreichen;";
 "dialog_routing_disclaimer_recommendations" = "— Die vorgeschlagenen Routen sind als Empfehlungen zu verstehen;";
-"dialog_routing_disclaimer_borders" = "— Bitte seien Sie vorsichtig bei Routen in Grenzgebieten: die Routen, die unsere App erstellt, können manchmal Landesgrenzen in gesperrten Gebieten überschreiten.";
-"dialog_routing_disclaimer_beware" = "Bitte fahren Sie aufmerksam und sicher!";
+"dialog_routing_disclaimer_borders" = "— Bitte sei vorsichtig bei Routen in Grenzgebieten: die Routen, die unsere App erstellt, können manchmal Landesgrenzen in gesperrten Gebieten überschreiten.";
+"dialog_routing_disclaimer_beware" = "Bitte fahre aufmerksam und sicher!";
 "dialog_routing_check_gps" = "GPS-Signal prüfen";
 "dialog_routing_error_location_not_found" = "Route kann nicht erstellt werden. Aktuelle GPS-Koordinaten konnten nicht ermittelt werden.";
-"dialog_routing_location_turn_wifi" = "Bitte prüfen Sie Ihr GPS-Signal. WLAN verbessert Ihre Standortgenauigkeit.";
+"dialog_routing_location_turn_wifi" = "Bitte prüfe dein GPS-Signal. Aktiviertes W-LAN verbessert deine Standortgenauigkeit.";
 "dialog_routing_location_turn_on" = "Standortdienste aktivieren";
-"dialog_routing_location_unknown_turn_on" = "Aktuelle GPS-Koordinaten können nicht ermittelt werden. Aktivieren Sie Standortdiensten, um die Route zu berechnen.";
+"dialog_routing_location_unknown_turn_on" = "Aktuelle GPS-Koordinaten können nicht ermittelt werden. Aktiviere die Standortdienste, um die Route zu berechnen.";
 "dialog_routing_download_files" = "Erforderliche Dateien herunterladen";
-"dialog_routing_download_and_update_all" = "Laden Sie alle Karten- und Routeninformationen für den geplanten Weg herunter oder aktualisieren Sie sie, um die Route zu berechnen.";
+"dialog_routing_download_and_update_all" = "Lade alle Karten- und Routeninformationen für den geplanten Weg herunter oder aktualisiere sie, um die Route zu berechnen.";
 "dialog_routing_unable_locate_route" = "Route kann nicht ermittelt werden";
-"dialog_routing_change_start_or_end" = "Bitte passen Sie Ihren Startpunkt oder Ihr Ziel an.";
+"dialog_routing_change_start_or_end" = "Bitte passe deinen Startpunkt oder Ziel an.";
 "dialog_routing_change_start" = "Startpunkt anpassen";
 "dialog_routing_start_not_determined" = "Route wurde nicht erstellt. Startpunkt konnte nicht gefunden werden.";
-"dialog_routing_select_closer_start" = "Bitte wählen Sie einen Startpunkt, der näher an einer Straße liegt.";
+"dialog_routing_select_closer_start" = "Bitte wähle einen Startpunkt, der näher an einer Straße liegt.";
 "dialog_routing_change_end" = "Ziel anpassen";
 "dialog_routing_end_not_determined" = "Route wurde nicht erstellt. Ziel konnte nicht gefunden werden.";
-"dialog_routing_select_closer_end" = "Bitte wählen Sie einen Zielort, der näher an einer Straße liegt.";
+"dialog_routing_select_closer_end" = "Bitte wähle einen Zielort, der näher an einer Straße liegt.";
 "dialog_routing_change_intermediate" = "Zwischenstopp kann nicht gefunden werden.";
-"dialog_routing_intermediate_not_determined" = "Bitte passen Sie Ihren Zwischenstopp an.";
+"dialog_routing_intermediate_not_determined" = "Bitte passe deinen Zwischenstopp an.";
 "dialog_routing_system_error" = "Systemfehler";
 "dialog_routing_application_error" = "Route kann wegen eines Anwendungsfehlers nicht erstellt werden.";
-"dialog_routing_try_again" = "Bitte versuchen Sie es erneut";
-"dialog_routing_download_and_build_cross_route" = "Möchten Sie die Karte herunterladen und eine bessere Route erstellen, die mehr als eine Karte umfasst?";
-"dialog_routing_download_cross_route" = "Laden Sie zusätzliche Karten herunter, um eine bessere Route zu erstellen, welche die Grenzen dieser Karte überschreitet.";
+"dialog_routing_try_again" = "Bitte versuche es erneut";
+"dialog_routing_download_and_build_cross_route" = "Möchtest du die Karte herunterladen und eine bessere Route erstellen, die mehr als eine Karte umfasst?";
+"dialog_routing_download_cross_route" = "Lade zusätzliche Karten herunter, um eine bessere Route zu erstellen, welche die Grenzen dieser Karte überschreitet.";
 
 /* «Show» context menu */
 "show" = "Anzeigen";
@@ -479,18 +479,18 @@
 "routing_planning_error" = "Routenplanung fehlgeschlagen";
 
 /* Arrive routing message in navigation view */
-"routing_arrive" = "Ankunft: %@";
+"routing_arrive" = "Ankunft um: %@";
 
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
-"dialog_routing_download_and_update_maps" = "Zum Erstellen einer Route müssen Sie alle Karten herunterladen und aktualisieren, auf denen die Route liegt.";
+"dialog_routing_download_and_update_maps" = "Zum Erstellen einer Route musst du alle Karten herunterladen und aktualisieren, auf denen die Route liegt.";
 "categories" = "Kategorien";
 "history" = "Verlauf";
 "search_not_found" = "Leider wurde nichts gefunden.";
 
 /* The message when user did not find anything in the search. */
-"search_not_found_query" = "Laden Sie die Region herunter, in der Sie suchen, oder fügen Sie den Namen einer nahe gelegenen Stadt oder eines Dorfes hinzu.";
+"search_not_found_query" = "Lade die Region herunter, in der du suchst, oder füge den Namen einer nahe gelegenen Stadt oder eines Dorfes hinzu.";
 "search_history_title" = "Suchverlauf";
-"search_history_text" = "Hier werden Ihre letzten Suchanfragen angezeigt.";
+"search_history_text" = "Hier werden deine letzten Suchanfragen angezeigt.";
 "clear_search" = "Suchverlauf löschen";
 
 /* Place Page link to Wikipedia article (if map object has it). */
@@ -498,12 +498,12 @@
 
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Wikimedia Commons";
-"p2p_your_location" = "Ihr Standort";
+"p2p_your_location" = "Dein Standort";
 "p2p_start" = "Start";
-"p2p_from_here" = "Von";
-"p2p_to_here" = "Nach";
-"p2p_only_from_current" = "Die Navigation ist nur von Ihrem aktuellen Standort verfügbar.";
-"p2p_reroute_from_current" = "Soll eine Route von Ihrem aktuellen Standort aus berechnet werden?";
+"p2p_from_here" = "Route von";
+"p2p_to_here" = "Route nach";
+"p2p_only_from_current" = "Die Navigation ist nur von deinem aktuellen Standort verfügbar.";
+"p2p_reroute_from_current" = "Soll eine Route von deinem aktuellen Standort aus berechnet werden?";
 "editor_time_add" = "Zeitplan hinzufügen";
 "editor_time_delete" = "Zeitplan löschen";
 
@@ -516,9 +516,9 @@
 "editor_time_advanced" = "Erweiterter Modus";
 "editor_time_simple" = "Einfacher Modus";
 "editor_hours_closed" = "Schließzeiten";
-"editor_example_values" = "Beispiele";
+"editor_example_values" = "Beispielwerte";
 "editor_add_select_location" = "Standort auswählen";
-"editor_done_dialog_1" = "Sie haben die Weltkarte geändert. Behalten Sie das nicht für sich! Erzählen Sie Ihren Freunden davon und bearbeiten Sie sie zusammen.";
+"editor_done_dialog_1" = "Du hast die Weltkarte geändert. Behalte das nicht für dich; Erzähle deinen Freunden davon und bearbeitet die Karte gemeinsam.";
 "share_with_friends" = "Mit Freunden teilen";
 "editor_report_problem_send_button" = "Senden";
 "autodownload" = "Automatisch herunterladen";
@@ -543,32 +543,32 @@
 
 /* OpenStreetMap */
 "osm_mapdata" = "Kartendaten von OpenStreetMap";
-"osm_mapdata_explanation %@" = "Von der Community erstellte Kartendaten vom *%@*. Erfahre mehr darüber, wie du die Karte bearbeiten und aktualisieren kannst unter [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_mapdata_explanation %@" = "Von der Community erstellte Kartendaten vom *%@*. Erfahre mehr darüber, wie du die Karte bearbeiten und aktualisieren kannst unter [OpenStreetMap.org](https://wiki.openstreetmap.org/wiki/DE:Map_Making_Overview).";
 "osm_more_about" = "Mehr Infos über OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/DE:Über_OSM";
 
 /* OpenStreetMap Profile */
 "osm_profile" = "OpenStreetMap-Profil";
-"osm_profile_promt" = "Erstellen Sie ein OpenStreetMap-Konto oder melden Sie sich an, um Ihre Kartenbearbeitungen weltweit zu veröffentlichen.";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) ist ein Gemeinschaftsprojekt zur Erstellung einer freien und offenen Karte. Es ist die Hauptquelle für Kartendaten in CoMaps und funktioniert ähnlich wie Wikipedia. Sie können Orte hinzufügen oder bearbeiten, die dann Millionen von Nutzern weltweit zur Verfügung stehen.\nWerden Sie Teil der Gemeinschaft und helfen Sie mit, eine bessere Karte für alle zu erstellen!";
-"osm_profile_login" = "Bei OpenStreetMap-Konto anmelden";
+"osm_profile_promt" = "Erstelle ein OpenStreetMap-Konto oder melde dich an, um deine Kartenbearbeitungen weltweit zu veröffentlichen.";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) ist ein Gemeinschaftsprojekt zur Erstellung einer freien und offenen Karte. Es ist die Hauptquelle für Kartendaten in CoMaps und funktioniert ähnlich wie Wikipedia. Du kannst Orte hinzufügen oder bearbeiten, die dann Millionen von Nutzern weltweit zur Verfügung stehen.\nWerde Teil der Gemeinschaft und helfe mit, eine bessere Karte für alle zu erstellen!";
+"osm_profile_login" = "Anmelden bei OpenStreetMap";
 "osm_profile_reauthorize_promt" = "Das OpenStreetMap-Konto wurde von dieser App getrennt";
 "osm_profile_reauthorize" = "OpenStreetMap-Konto erneut verbinden";
-"osm_profile_remove_promt" = "Wenn Sie Ihr Konto nicht erneut verbinden können oder möchten, können Sie es einfach aus dieser App entfernen";
+"osm_profile_remove_promt" = "Wenn du dein Konto nicht erneut verbinden kannst oder möchtest, kannst du es einfach aus dieser App entfernen";
 "osm_profile_remove" = "OpenStreetMap-Konto entfernen";
 "osm_profile_register_promt" = "Kein Konto bei OpenStreetMap?";
 "osm_profile_register" = "Bei OpenStreetMap registrieren";
 "osm_profile_verfied_changes" = "Bestätigte Änderungen der Karte";
 "osm_profile_view_edit_history" = "Bearbeitungsverlauf ansehen";
 "osm_profile_view_notes" = "Hinweise ansehen";
-"osm_profile_logout" = "OpenStreetMap-Konto abmelden";
+"osm_profile_logout" = "Abmelden vom OpenStreetMap-Konto";
 "osm_profile_delete" = "OpenStreetMap-Konto löschen";
 
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Zuletzt hochgeladen";
 "thank_you" = "Danke";
 "edit_place" = "Eintrag bearbeiten";
-"place_name" = "Name des Ortes";
+"place_name" = "Ortsname";
 "add_language" = "Eine Sprache hinzufügen";
 
 /* Editable House Number text field (in address block). */
@@ -592,9 +592,9 @@
 "downloader_update_maps" = "Karten aktualisieren";
 "downloader_search_field_hint" = "Karte finden";
 "migration_download_error_dialog" = "Fehler beim Herunterladen";
-"common_check_internet_connection_dialog" = "Bitte überprüfen Sie Ihre Einstellungen und stellen Sie sicher, dass Ihr Gerät mit dem Internet verbunden ist.";
+"common_check_internet_connection_dialog" = "Bitte überprüfe deine Einstellungen und stelle sicher, dass dein Gerät mit dem Internet verbunden ist.";
 "downloader_no_space_title" = "Nicht genug Speicherplatz";
-"downloader_no_space_message" = "Bitte entfernen Sie unnötige Daten";
+"downloader_no_space_message" = "Bitte entferne unnötige Daten";
 "editor_profile_changes" = "Bestätigte Änderungen der Karte";
 "editor_focus_map_on_location" = "Verschiebe die Karte, um das Kreuz an der Stelle zu platzieren, an der sich der Ort oder das Geschäft befindet.";
 "editor_add_select_category" = "Kategorie auswählen";
@@ -607,12 +607,12 @@
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Wie in der lokalen Sprache geschrieben";
 "editor_edit_place_category_title" = "Kategorie";
-"whatsnew_editor_message_1" = "Fügen Sie auf der Karte einen neuen Ort hinzu und bearbeiten Sie existierende Orte direkt in der App.";
+"whatsnew_editor_message_1" = "Füge auf der Karte einen neuen Ort hinzu und bearbeite existierende Orte direkt in der App.";
 "dialog_incorrect_feature_position" = "Standort wechseln";
 "message_invalid_feature_position" = "Ein Objekt kann hier nicht positioniert werden";
 
 /* Error dialog no space */
-"migration_no_space_message" = "Zum Herunterladen benötigen Sie mehr Platz. Bitte löschen Sie unnötige Daten.";
+"migration_no_space_message" = "Zum Herunterladen benötigst du mehr Speicherplatz. Bitte lösche unnötige Daten auf deinem Endgerät.";
 "editor_sharing_title" = "Ich habe die CoMaps-Karten verbessert";
 
 /* Downloaded 10 **of** 20 <- it is that "of" */
@@ -625,7 +625,7 @@
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Das Gebäude kann nicht mehr als %d Etagen haben";
 "editor_zip_code" = "Postleitzahl";
-"error_enter_correct_zip_code" = "Geben Sie eine gültige Postleitzahl ein";
+"error_enter_correct_zip_code" = "Gebe eine gültige Postleitzahl ein";
 
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Kartenpunkt";
@@ -633,25 +633,25 @@
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Hinweis an Freiwillige von OpenStreetMap (optional)";
 "editor_detailed_description_hint" = "Ausführlicher Kommentar";
-"editor_detailed_description" = "Ihre Änderungsvorschläge für die Karte werden an OpenStreetMap gesendet: Beschreiben Sie die Details der Objekte, die Sie in CoMaps nicht bearbeiten können.";
+"editor_detailed_description" = "Deine Änderungsvorschläge für die Karte werden an OpenStreetMap gesendet: Beschreibe die Details der Objekte, die du in CoMaps nicht bearbeiten kannst.";
 "editor_more_about_osm" = "Mehr Informationen über OpenStreetMap";
 "editor_operator" = "Betreiber";
 
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Betreiber: %@";
 "editor_category_unsuitable_title" = "Keine passende Kategorie gefunden?";
-"editor_category_unsuitable_text" = "Mit CoMaps kann man nur einfache Punktkategorien hinzufügen, dass bedeutet keine Städte, Straßen, Seen, Gebäudeumrisse etc. Bitte füge solche Kategorien direkt bei <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzu. In unserem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfaden</a> findest du eine detaillierte Schritt-für-Schritt Anleitung.";
+"editor_category_unsuitable_text" = "Mit CoMaps kannst du nur einfache Punktkategorien hinzufügen, dass bedeutet keine Städte, Straßen, Seen, Gebäudeumrisse etc. Bitte füge solche Kategorien direkt bei <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzu. In unserem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfaden (auf Englisch)</a> findest du eine detaillierte Schritt-für-Schritt Anleitung.";
 "downloader_no_downloaded_maps_title" = "Keine Karten heruntergeladen";
-"downloader_no_downloaded_maps_message" = "Laden Sie Karten für die Offline-Suche und Navigation herunter.";
+"downloader_no_downloaded_maps_message" = "Lade Karten für die Offline-Suche und Navigation herunter.";
 "current_location_unknown_error_title" = "Aktueller Standort ist unbekannt.";
-"current_location_unknown_error_message" = "Bei der Standortsuche ist ein unbekannter Fehler aufgetreten. Prüfen Sie die Funktionstüchtigkeit Ihres Geräts und versuchen Sie es etwas später erneut.";
+"current_location_unknown_error_message" = "Bei der Standortsuche ist ein unbekannter Fehler aufgetreten. Prüfe die Funktionstüchtigkeit deines Endgerätes und versuche es etwas später erneut.";
 "location_services_disabled_header" = "Standortdienste sind deaktiviert";
-"location_services_disabled_message" = "Aktivieren Sie den Zugang zur Positionsbestimmung in den Geräteeinstellungen";
+"location_services_disabled_message" = "Aktiviere den Zugang zur Positionsbestimmung in den Geräteeinstellungen";
 "location_services_disabled_1" = "1. Einstellungen öffnen";
 "location_services_disabled_2" = "2. Auf Standort tippen";
 
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
-"location_services_disabled_3" = "3. Wählen Sie „Beim Verwenden der App“";
+"location_services_disabled_3" = "3. Wähle „Beim Verwenden der App erlauben“ aus";
 "location_services_disabled_on_device_2" = "2. Datenschutz auswählen";
 "location_services_disabled_on_device_3" = "3. Wähle Standortdienste";
 "location_services_disabled_on_device_4" = "4. Standortdienste einschalten";
@@ -692,9 +692,9 @@
 "text_more_button" = "…Mehr";
 
 /* Phone number error message */
-"error_enter_correct_phone" = "Geben Sie eine gültige Telefonnummer ein";
-"error_enter_correct_web" = "Geben Sie eine gültige Internetadresse ein";
-"error_enter_correct_email" = "Geben Sie eine gültige Email-Adresse ein";
+"error_enter_correct_phone" = "Gebe eine gültige Telefonnummer ein";
+"error_enter_correct_web" = "Gebe eine gültige Internetadresse ein";
+"error_enter_correct_email" = "Gebe eine gültige E-Mail-Adresse ein";
 "refresh" = "Aktualisieren";
 "placepage_add_place_button" = "Ort zu OpenStreetMap hinzufügen";
 
@@ -702,7 +702,7 @@
 "editor_share_to_all_dialog_title" = "An alle Nutzer*innen senden?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Stellen Sie sicher, dass Sie keine persönlichen oder privaten Daten eingegeben haben.";
+"editor_share_to_all_dialog_message_1" = "Stelle sicher, dass du keine privaten oder persönlichen Daten eingegeben hast.";
 "editor_share_to_all_dialog_message_2" = "Freiwillige von OpenStreetMap werden die Änderungen prüfen und sich bei Fragen mit Ihnen in Verbindung setzen.";
 "navigation_stop_button" = "Beenden";
 
@@ -760,7 +760,7 @@
 /* Title for button when a route was saved. */
 "saved" = "Gespeichert";
 "core_entrance" = "Eingang";
-"error_enter_correct_name" = "Bitte geben Sie einen korrekten Namen ein";
+"error_enter_correct_name" = "Bitte gebe deinen korrekten Namen ein";
 "bookmark_lists" = "Listen";
 
 /* Do not display all bookmark lists on the map */
@@ -777,7 +777,7 @@
 "bookmarks_error_message_share_general" = "Teilen wegen eines Anwendungsfehlers nicht möglich";
 "bookmarks_error_title_share_empty" = "Fehler beim Teilen";
 "bookmarks_error_message_share_empty" = "Eine leere Liste kann nicht geteilt werden";
-"bookmarks_error_message_empty_list_name" = "Bitte geben Sie den Listennamen ein";
+"bookmarks_error_message_empty_list_name" = "Bitte gebe den Listennamen ein";
 "bookmarks_error_title_list_name_already_taken" = "Dieser Name wird bereits verwendet";
 "bookmarks_error_title_list_name_too_long" = "Dieser Name ist zu lang";
 "profile" = "OpenStreetMap-Profil";
@@ -797,7 +797,7 @@
 "export_file_gpx" = "GPX exportieren";
 "delete_list" = "Liste löschen";
 "hide_from_map" = "Auf der Karte ausblenden";
-"tags_loading_error_subtitle" = "Während dem Laden der Tags ist ein Fehler aufgetreten, bitte versuchen Sie es erneut";
+"tags_loading_error_subtitle" = "Während dem Laden der Tags ist ein Fehler aufgetreten, bitte versuche es erneut";
 "download_button" = "Herunterladen";
 "speedcams_alert_title" = "Blitzer";
 "place_description_title" = "Ortsbeschreibung";
@@ -811,11 +811,11 @@
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Niemals warnen";
 "power_managment_title" = "Stromsparmodus";
-"power_managment_description" = "Versuchen Sie, den Stromverbrauch auf Kosten einiger Funktionen zu reduzieren.";
+"power_managment_description" = "Versuche, den Stromverbrauch mit der Deaktivierung einiger Funktionen zu reduzieren.";
 "power_managment_setting_never" = "Niemals";
 "power_managment_setting_auto" = "Bei niedrigem Akkustand";
 "power_managment_setting_manual_max" = "Maximale Stromsparung";
-"enable_logging_warning_message" = "Diese Option wird aktiviert, um Aktivitäten zwecks Diagnostik aufzuzeichnen. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktivieren Sie diese Option, reproduzieren Sie das Problem und senden Sie die Protokolle über die Schaltfläche \"Fehler melden\" an uns.";
+"enable_logging_warning_message" = "Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche \"Fehler melden\" an uns.";
 "driving_options_title" = "Routenbeschränkungen";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
@@ -830,7 +830,7 @@
 "avoid_ferry" = "Fähren vermeiden";
 "avoid_motorways" = "Autobahnen vermeiden";
 "unable_to_calc_alert_title" = "Route kann nicht berechnet werden";
-"unable_to_calc_alert_subtitle" = "Eine Route konnte nicht gefunden werden. Dies kann an Ihren Routing-Optionen oder an unvollständigen OpenStreetMap-Daten liegen. Bitte ändern Sie Ihre Routing-Optionen und versuchen Sie es erneut.";
+"unable_to_calc_alert_subtitle" = "Es konnte keine Route gefunden werden. Dies kann an deinen Routingoptionen oder an unvollständigen OpenStreetMap-Daten liegen. Bitte ändere deine Routingoptionen und versuche es erneut.";
 "define_to_avoid_btn" = "Routenbeschränkung einstellen";
 "change_driving_options_btn" = "Routenbeschränkungen aktiv";
 "toll_road" = "Mautstraße";
@@ -841,7 +841,7 @@
 "follow_my_position" = "Zentrieren";
 "search_results" = "Suchergebnisse";
 "then_turn" = "Danach";
-"redirect_route_alert" = "Möchten Sie die Route neu erstellen?";
+"redirect_route_alert" = "Möchtest du die Route neu erstellen?";
 
 /* A generic "Yes" button in dialogs */
 "yes" = "Ja";
@@ -860,14 +860,14 @@
 
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Netzwerk: %@";
-"trip_finished" = "Sie sind angekommen!";
+"trip_finished" = "Du bist am Ziel angekommen!";
 "keyboard_availability_alert" = "Die Tastatur ist unterwegs nicht verfügbar";
 "dialog_routing_change_start_carplay" = "Vom aktuellen Standort aus kann keine Route erstellt werden";
-"dialog_routing_change_end_carplay" = "Zu diesem Endpunkt kann keine Route erstellt werden. Bitte wählen Sie einen anderen Endpunkt";
-"dialog_routing_check_gps_carplay" = "Kein GPS-Signal. Gehen Sie in das offene Gelände";
-"dialog_routing_unable_locate_route_carplay" = "Es kann keine Route erstellt werden. Bitte wählen Sie andere Routenpunkte";
-"dialog_routing_download_files_carplay" = "Laden Sie die fehlenden Karten herunter, um die Route zu erstellen";
-"dialog_routing_system_error_carplay" = "Es ist ein Fehler aufgetreten. Bitte starten Sie die App neu";
+"dialog_routing_change_end_carplay" = "Zu diesem Endpunkt kann keine Route erstellt werden. Bitte wähle einen anderen Endpunkt";
+"dialog_routing_check_gps_carplay" = "Kein GPS-Signal. Gehe nach draußen oder in eine Umgebung mit weniger hohen Gebäuden und Bäumen (offenes Gelände)";
+"dialog_routing_unable_locate_route_carplay" = "Es kann keine Route erstellt werden. Bitte wähle andere Routenpunkte";
+"dialog_routing_download_files_carplay" = "Lade die fehlenden Karten herunter, um die Route zu erstellen";
+"dialog_routing_system_error_carplay" = "Es ist ein Fehler aufgetreten. Bitte starte CoMaps neu";
 "dialog_routing_rebuild_from_current_location_carplay" = "Die Route wird von Ihrem derzeitigen Standort aus neu erstellt werden";
 "dialog_routing_rebuild_for_vehicle_carplay" = "Die Route wird zu einer Route für Fahrzeuge geändert";
 "not_all_shown_bookmarks_carplay" = "Es werden nicht alle Lesezeichen angezeigt";
@@ -875,7 +875,7 @@
 "ok" = "Ok";
 "speedcams_alert_title_carplay_1" = "Blitzer";
 "speedcams_alert_title_carplay_2" = "Blitzerwarnung";
-"download_map_carplay" = "Laden Sie Karten in der App CoMaps auf Ihrem Gerät herunter";
+"download_map_carplay" = "Lade Karten in der CoMaps-App auf deinem Endgerät herunter";
 "carplay_roundabout_exit" = "%@ Ausfahrt";
 
 /* max. 10 symbols, both iOS and Android */
@@ -911,9 +911,9 @@
 "religious_places" = "Religiöse Orte";
 "transit_not_found" = "Die U-Bahn-Navigation ist in dieser Region noch nicht verfügbar";
 "dialog_pedestrian_route_is_long_header" = "Keine U-Bahn-Route gefunden";
-"dialog_pedestrian_route_is_long_message" = "Wählen Sie einen Start- oder Endpunkt näher an einer U-Bahn-Station";
+"dialog_pedestrian_route_is_long_message" = "Wähle einen Start- oder Endpunkt näher an einer U-Bahn-Station";
 "button_layer_isolines" = "Höhelinien";
-"isolines_activation_error_dialog" = "Um die Topographieebene nutzen zu können, aktualisieren Sie die Karte des betreffenden Gebiets oder laden Sie diese herunter";
+"isolines_activation_error_dialog" = "Um die Höhenlinien nutzen zu können, aktualisiere die Karte des betreffenden Gebiets oder lade diese herunter";
 "isolines_location_error_dialog" = "Topographieebene ist für dieses Gebiet noch nicht verfügbar";
 "elevation_profile_diff_level" = "Anspruchsniveau";
 "elevation_profile_diff_level_easy" = "Leicht";
@@ -928,7 +928,7 @@
 "downloader_loading_ios" = "Wird heruntergeladen";
 
 /* Autoupdate dialog on start */
-"whats_new_auto_update_title" = "Aktualisieren Sie Ihre heruntergeladenen Karten";
+"whats_new_auto_update_title" = "Aktualisiere deine heruntergeladenen Karten";
 
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Das Aktualisieren der Karten sorgt dafür, dass die Objektinformationen stets auf dem neuesten Stand sind";
@@ -943,7 +943,7 @@
 "placepage_delete_track_button" = "Track löschen";
 
 /* The track deletion confirmaion alert message. */
-"placepage_delete_track_confirmation_alert_message" = "Wollen Sie diesen Track wirklich löschen?";
+"placepage_delete_track_confirmation_alert_message" = "Willst du diesen Track wirklich löschen?";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Name des Tracks";
@@ -964,28 +964,28 @@
 "app_tip_01" = "Mit Ihren Spenden und Ihrer Unterstützung können wir die besten Karten der Welt erstellen!";
 
 /* App tip #02 */
-"app_tip_02" = "Gefällt Ihnen unsere App? Bitte spenden Sie, um die Entwicklung zu unterstützen! Gefällt es Ihnen noch nicht? Bitte lassen Sie uns wissen warum und wir werden das Problem beheben!";
+"app_tip_02" = "Gefällt dir unsere App? Bitte spende, um die Entwicklung zu unterstützen! Gefällt sie dir noch nicht? Bitte lass uns wissen warum und wir werden das Problem beheben!";
 
 /* App tip #03 */
-"app_tip_03" = "Wenn Sie eine*n Softwareentwickler*in kennen, können Sie ihn oder sie bitten, eine Funktion zu implementieren, die Sie benötigen.";
+"app_tip_03" = "Wenn du eine*n Softwareentwickler*in kennst, kannst du der Person bitten, eine Funktion zu implementieren, die du benötigst.";
 
 /* App tip #04 */
-"app_tip_04" = "Tippen Sie irgendwo auf die Karte, um etwas auszuwählen. Tippen Sie lange, um die Oberfläche aus- und wieder einzublenden.";
+"app_tip_04" = "Tippe irgendwo auf der Karte, um etwas auszuwählen. Tippe lange, um die Menü-Oberfläche aus- und wieder einzublenden.";
 
 /* App tip #05 */
-"app_tip_05" = "Wussten Sie, dass Sie Ihren aktuellen Standort auf der Karte auswählen können?";
+"app_tip_05" = "Wusstest du, dass du deinen aktuellen Standort auf der Karte auswählen kannst?";
 
 /* App tip #06 */
-"app_tip_06" = "Sie können dabei helfen, unsere App in Ihre Sprache zu übersetzen.";
+"app_tip_06" = "Du kannst dabei helfen, unsere App in deiner Sprache zu übersetzen.";
 
 /* App tip #07 */
 "app_tip_07" = "Unsere App wird von einigen Enthusiasten und der Community entwickelt.";
 
 /* App tip #08 */
-"app_tip_08" = "Sie können die Kartendaten einfach korrigieren und verbessern.";
+"app_tip_08" = "Du kannst die Kartendaten einfach korrigieren und verbessern.";
 
 /* App tip #09 */
-"app_tip_09" = "Unser Hauptziel ist es, schnelle, datenschutzorientierte und benutzerfreundliche Karten zu erstellen, die Sie lieben werden.";
+"app_tip_09" = "Unser Hauptziel ist es, schnelle, datenschutzorientierte und benutzerfreundliche Karten zu erstellen, die du lieben wirst.";
 
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Du verwendest jetzt CoMaps auf dem Telefondisplay";
@@ -1019,7 +1019,7 @@
 "bugreport_alert_message" = "Willst du einen Fehlerbericht an die Entwickler schicken?\nWir sind auf unsere Nutzer angewiesen, da CoMaps keine Fehlerinformationen automatisch sammelt. Wir danken dir im Voraus für deine Unterstützung von CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Synchronisierung (Beta)";
+"icloud_sync" = "iCloud-Synchronisierung (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Aktiviere die iCloud-Synchronisierung";
@@ -1043,10 +1043,10 @@
 "icloud_synchronization_error_alert_title" = "iCloud-Synchronisierung fehlgeschlagen";
 
 /* iCloud error message: Failed to synchronize due to connection error */
-"icloud_synchronization_error_connection_error" = "Fehler: Synchronisierung aufgrund eines Verbindungsfehlers fehlgeschlagen";
+"icloud_synchronization_error_connection_error" = "Fehler: iCloud-Synchronisierung aufgrund eines Verbindungsfehlers fehlgeschlagen";
 
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
-"icloud_synchronization_error_quota_exceeded" = "Fehler: Synchronisierung fehlgeschlagen, da iCloud-Kontingent überschritten";
+"icloud_synchronization_error_quota_exceeded" = "Fehler: iCloud-Synchronisierung fehlgeschlagen, da das iCloud-Kontingent überschritten wurde";
 
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Fehler: iCloud ist nicht verfügbar";
@@ -1094,15 +1094,15 @@
 "track_recording_toast_nothing_to_save" = "Route ist leer - nichts zu speichern";
 "edit_track" = "Track bearbeiten";
 "pref_mapappearance_title" = "Kartendarstellung";
-"pref_maplanguage_title" = "Kartensprache";
+"pref_maplanguage_title" = "Karten-Sprache";
 "transliteration_title_disabled_summary" = "Bei der Nutzung der lokalen Sprache für die Karte ausgeschaltet";
 "pref_maplanguage_local" = "Lokale Sprache";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";
 "hours_confirmed_time_ago" = "Bestätigt %@";
 "offline_explanation_title" = "Offline-Karten";
 "offline_explanation_text" = "Um die Gegend anzusehen und zu erkunden, musst du eine Karte runterladen.\nLade dir Karten für die Gebiete runter, die du bereisen willst.";
-"editor_place_doesnt_exist_description" = "Beschreibe wie der Ort jetzt aussieht um eine Fehlermeldung an die OpenStreetMap Community zu senden";
+"editor_place_doesnt_exist_description" = "Beschreibe wie der Ort jetzt aussieht, um eine Fehlermeldung an die OpenStreetMap Community zu senden";
 "voice" = "Stimme";
 "unknown" = "Unbekannt";
-"voice_explanation_before_version26" = "Es ist möglich, in den Systemeinstellungen unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* eine bessere Stimme auszuwählen.";
-"voice_explanation" = "Es ist möglich, in den Systemeinstellungen unter *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* eine bessere Stimme auszuwählen.";
+"voice_explanation_before_version26" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* auszuwählen.";
+"voice_explanation" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* auszuwählen.";

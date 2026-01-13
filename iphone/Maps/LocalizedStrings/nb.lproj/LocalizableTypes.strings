@@ -1275,8 +1275,8 @@
 "type.shop.travel_agency" = "Reisebyrå";
 "type.shop.tyres" = "Dekkforretning";
 "type.shop.variety_store" = "Billigbutikk";
-"type.shop.video" = "Videobutikken";
-"type.shop.video_games" = "Videospillbutikken";
+"type.shop.video" = "Videobutikk";
+"type.shop.video_games" = "Videospillbutikk";
 "type.shop.wine" = "Alkoholutsalg";
 "type.shop.agrarian" = "Landbruksbutikk";
 "type.shop.antiques" = "Antikviteter";

@@ -97,7 +97,7 @@ public class StoragePathFragment extends BaseSettingsFragment
     final String oldPath = storages.get(currentIndex).mPath;
     final String newPath = storages.get(newIndex).mPath;
 
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setCancelable(false)
         .setTitle(R.string.move_maps)
         .setPositiveButton(R.string.ok, (dlg, which) -> moveStorage(newPath, oldPath))
@@ -133,7 +133,7 @@ public class StoragePathFragment extends BaseSettingsFragment
 
         if (!result)
         {
-          new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+          new MaterialAlertDialogBuilder(requireActivity())
               .setTitle(R.string.move_maps_error)
               .setPositiveButton(
                   R.string.report_a_bug,

@@ -150,7 +150,7 @@
     <string name="type.amenity.vending_machine.food">Máquina de venda de comidas</string>
     <string name="type.amenity.vending_machine.newspapers">Máquina de venda de jornais</string>
     <string name="type.amenity.vending_machine.parking_tickets">Máquina de venda de tíquetes de estacionamento</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina de venda de passagens de transporte público</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina de Venda de Passagens de Transporte Público</string>
     <string name="type.amenity.vending_machine.sweets">Máquina de venda de doces</string>
     <string name="type.amenity.vending_machine.excrement_bags">Saquinhos de lixo</string>
     <string name="type.amenity.parcel_locker">Armário de encomendas</string>
@@ -1489,4 +1489,5 @@
     <string name="type.buoy.lateral.port">Boia lateral</string>
     <string name="type.man_made.mast.communication">Mastro de comunicações</string>
     <string name="type.shop.beauty.nails">Manicure</string>
+    <string name="type.amenity.hydrant">Hidrante de Irrigação</string>
 </resources>

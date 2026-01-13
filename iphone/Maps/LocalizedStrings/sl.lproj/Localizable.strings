@@ -477,3 +477,12 @@
 "editor_share_to_all_dialog_message_1" = "Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov";
 "editor_share_to_all_dialog_message_2" = "Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno.";
 "avoid_paved" = "Izogni se neasfaltiranim cestam";
+"osm_mapdata_explanation %@" = "Skupnostno ustvarjeni podatki zemljevida kot *%@*. Več o urejanju in posodabljanju zemljevida na [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_profile_promt" = "Ustvarite si račun na OpenStreetMap ali se prijavite za objavo svojih urejanj zemljevida.";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) je projekt skupnosti, ki razvija brezplačen in odprt zemljevid. Je glavni vir podatkov v CoMaps in deluje podobno Wikipediji. Dodajate ali urejate lahko kraje in ti postanejo na voljo milijonom uporabnikom po vsem svetu.\nPridružite se skupnosti in pomagajte izboljšati zemljevid za vse!";
+"osm_profile_view_edit_history" = "Glej zgodovino urejanja";
+"osm_profile_view_notes" = "Glej opombe";
+"email_or_username" = "Elektronski naslov ali uporabniško ime";
+"migration_download_error_dialog" = "Napaka prenašanja";
+"whatsnew_editor_message_1" = "Dodajte nove kraje na zemljevid in uredite že obstoječe neposredno v tem orodju.";
+"dialog_incorrect_feature_position" = "Spremeni položaj";

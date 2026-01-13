@@ -146,16 +146,13 @@
     android:foreground="@drawable/shadow_top"
     android:visibility="gone"
     tools:visibility="visible">
-    <RelativeLayout
+    <LinearLayout
       android:id="@+id/driving_options_btn"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="?selectableItemBackgroundBorderless"
       android:gravity="center"
       android:minHeight="@dimen/height_block_base">
-      <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
         <com.google.android.material.imageview.ShapeableImageView
           android:id="@+id/driving_options_btn_img"
           android:layout_width="@dimen/margin_base_plus"
@@ -174,8 +171,7 @@
           android:textAppearance="?android:attr/textAppearanceSmall"
           android:textColor="@color/text_light"
           tools:text="test" />
-      </LinearLayout>
-    </RelativeLayout>
+    </LinearLayout>
   </FrameLayout>
   <FrameLayout
     style="@style/MwmWidget.FrameLayout.Elevation"

@@ -49,7 +49,7 @@ public class MapManagerHelper
         return;
     }
 
-    final AlertDialog dlg = new MaterialAlertDialogBuilder(activity, R.style.MwmTheme_AlertDialog)
+    final AlertDialog dlg = new MaterialAlertDialogBuilder(activity)
                                 .setTitle(R.string.country_status_download_failed)
                                 .setMessage(getErrorCodeStrRes(errorData.errorCode))
                                 .setNegativeButton(R.string.cancel,
@@ -72,7 +72,7 @@ public class MapManagerHelper
 
   private static void notifyNoSpaceInternal(Activity activity)
   {
-    new MaterialAlertDialogBuilder(activity, R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(activity)
         .setTitle(R.string.downloader_no_space_title)
         .setMessage(R.string.downloader_no_space_message)
         .setPositiveButton(android.R.string.ok, null)
@@ -123,7 +123,7 @@ public class MapManagerHelper
       return false;
     }
 
-    new MaterialAlertDialogBuilder(activity, R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(activity)
         .setTitle(R.string.download_over_mobile_header)
         .setMessage(R.string.download_over_mobile_message)
         .setNegativeButton(R.string.cancel, null)
