@@ -1288,12 +1288,12 @@ line|z19-[highway=secondary_link]::border,
 
 line|z11-[highway=tertiary]::border,
 line|z14-[highway=tertiary_link]::border,
-line|z11-[highway=unclassified]::border,
-line|z12-[highway=residential]::border,
-line|z12-[highway=road]::border,
-line|z12-[highway=living_street]::border,
-line|z13-[highway=pedestrian]::border,
-line|z13-[highway=ford]::border,
+line|z13-[highway=unclassified]::border,
+line|z14-[highway=residential]::border,
+line|z14-[highway=road]::border,
+line|z14-[highway=living_street]::border,
+line|z14-[highway=pedestrian]::border,
+line|z14-[highway=ford]::border,
 line|z15-[highway=service]::border,
 line|z15-[highway=service][service=busway]::border,
 line|z15-[highway=busway]::border,
@@ -1304,11 +1304,11 @@ line|z15-[highway=steps]::border,
 
 line|z11-[highway=tertiary][bridge?]::border,
 line|z14-[highway=tertiary_link][bridge?]::border,
-line|z11-[highway=unclassified][bridge?]::border,
-line|z12-[highway=residential][bridge?]::border,
-line|z12-[highway=road][bridge?]::border,
-line|z12-[highway=living_street][bridge?]::border,
-line|z13-[highway=pedestrian][bridge?]::border,
+line|z13-[highway=unclassified][bridge?]::border,
+line|z14-[highway=residential][bridge?]::border,
+line|z14-[highway=road][bridge?]::border,
+line|z14-[highway=living_street][bridge?]::border,
+line|z14-[highway=pedestrian][bridge?]::border,
 line|z15-[highway=service][bridge?]::border,
 line|z15-[highway=service][service=busway][bridge?]::border,
 line|z15-[highway=busway][bridge?]::border,
@@ -1350,10 +1350,6 @@ line|z18[highway=tertiary_link]::border,
 line|z19-[highway=tertiary_link]::border,
 {width: 9.2;}
 
-line|z11[highway=unclassified]::border,
-{width: 0;}
-line|z12[highway=unclassified]::border,
-{width: 0;}
 line|z13[highway=unclassified]::border,
 {width: 1.9;}
 line|z14[highway=unclassified]::border,
@@ -1369,14 +1365,6 @@ line|z18[highway=unclassified]::border,
 line|z19-[highway=unclassified]::border,
 {width: 11;}
 
-line|z12[highway=residential]::border,
-line|z12[highway=road]::border,
-line|z12[highway=living_street]::border,
-{width: 0;}
-line|z13[highway=residential]::border,
-line|z13[highway=road]::border,
-line|z13[highway=living_street]::border,
-{width: 0;}
 line|z14[highway=residential]::border,
 line|z14[highway=road]::border,
 line|z14[highway=living_street]::border,
@@ -1402,9 +1390,6 @@ line|z19-[highway=road]::border,
 line|z19-[highway=living_street]::border,
 {width: 9.2;}
 
-line|z13[highway=pedestrian]::border,
-line|z13[highway=ford]::border,
-{width: 0;dashes: 4,1;}
 line|z14[highway=pedestrian]::border,
 line|z14[highway=ford]::border,
 {width: 2.1;dashes: 6,1.3;}
