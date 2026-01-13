@@ -126,13 +126,14 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     TextInputEditText mEdit;
     TextInputLayout mInput;
   }
-  Map<Metadata.MetadataType, MetadataEntry> mMetadata = new HashMap<>();
+  private final Map<Metadata.MetadataType, MetadataEntry> mMetadata = new HashMap<>();
+  private final Map<Metadata.MetadataType, String> mMetadataInitial = new HashMap<>();
 
   private void initMetadataEntry(Metadata.MetadataType type, @StringRes int error)
   {
     final MetadataEntry e = mMetadata.get(type);
     final int id = type.toInt();
-    e.mEdit.setText(Editor.nativeGetMetadata(id));
+    e.mEdit.setText(Editor.nativeGetMetadata(id).trim());
     e.mEdit.addTextChangedListener(new StringUtils.SimpleTextWatcher() {
       @Override
       public void onTextChanged(CharSequence s, int start, int before, int count)
@@ -220,6 +221,12 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     mSelfService.setText(Utils.getTagValueLocalized(view.getContext(), "self_service", selfServiceMetadata));
     initMetadataEntry(Metadata.MetadataType.FMD_OPERATOR, 0);
     mWifi.setChecked(Editor.nativeHasWifi());
+
+    // take snapshot of initial metadata state
+    // to compare for checking unsaved changes
+    for (var e : mMetadata.entrySet())
+      mMetadataInitial.put(e.getKey(), e.getValue().mEdit.getText().toString().trim());
+
     // TODO Reimplement this to avoid https://github.com/organicmaps/organicmaps/issues/9049
     // mOutdoorSeating.setChecked(Editor.nativeGetSwitchInput(Metadata.MetadataType.FMD_OUTDOOR_SEATING.toInt(),"yes"));
     refreshChargeSockets();
@@ -233,6 +240,29 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
   {
     super.onSaveInstanceState(outState);
     setEdits();
+  }
+
+  boolean hasUnsavedChanges()
+  {
+    if (!Editor.nativeGetHouseNumber().equals(mHouseNumber.getText().toString()))
+      return true;
+    if (!Editor.nativeGetBuildingLevels().equals(mBuildingLevels.getText().toString()))
+      return true;
+    if (Editor.nativeHasWifi() != mWifi.isChecked())
+      return true;
+//    if (!areNamesEqual(mNamesInitial, mParent.getNamesAsArray()))
+//      return true;
+
+    for (var e : mMetadata.entrySet())
+    {
+      String current = e.getValue().mEdit.getText().toString().trim();
+      String initial = mMetadataInitial.getOrDefault(e.getKey(),"");
+
+      if (!current.equals(initial))
+        return true;
+    }
+
+    return false;
   }
 
   boolean setEdits()

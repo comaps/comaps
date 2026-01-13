@@ -37,7 +37,9 @@ public class CuisineAdapter extends RecyclerView.Adapter<CuisineAdapter.ViewHold
   }
 
   private final List<Item> mItems = new ArrayList<>();
-  private final Set<String> mSelectedKeys = new HashSet<>();
+  private final Set<String> mInitialSelectedKeys = new HashSet<>();
+  private final Set<String> mFinalSelectedKeys = new HashSet<>();
+
   private String mFilter;
 
   public CuisineAdapter()
@@ -53,8 +55,9 @@ public class CuisineAdapter extends RecyclerView.Adapter<CuisineAdapter.ViewHold
       mItems.add(new Item(key, translations[i]));
 
       if (Arrays.binarySearch(selectedKeys, key) >= 0)
-        mSelectedKeys.add(key);
+        mInitialSelectedKeys.add(key);
     }
+    mFinalSelectedKeys.addAll(mInitialSelectedKeys);
   }
 
   public void setFilter(@NonNull String filter)
@@ -93,7 +96,14 @@ public class CuisineAdapter extends RecyclerView.Adapter<CuisineAdapter.ViewHold
 
   public String[] getCuisines()
   {
-    return mSelectedKeys.toArray(new String[mSelectedKeys.size()]);
+    return mFinalSelectedKeys.toArray(new String[mFinalSelectedKeys.size()]);
+  }
+
+  public void resetCuisines()
+  {
+    // hacky?
+    mFinalSelectedKeys.clear();
+    mFinalSelectedKeys.addAll(mInitialSelectedKeys);
   }
 
   protected class ViewHolder extends RecyclerView.ViewHolder implements CompoundButton.OnCheckedChangeListener
@@ -115,7 +125,7 @@ public class CuisineAdapter extends RecyclerView.Adapter<CuisineAdapter.ViewHold
       final String text = mItems.get(position).cuisineTranslated;
       cuisine.setText(text);
       selected.setOnCheckedChangeListener(null);
-      selected.setChecked(mSelectedKeys.contains(mItems.get(position).cuisineKey));
+      selected.setChecked(mFinalSelectedKeys.contains(mItems.get(position).cuisineKey));
       selected.setOnCheckedChangeListener(this);
     }
 
@@ -124,9 +134,9 @@ public class CuisineAdapter extends RecyclerView.Adapter<CuisineAdapter.ViewHold
     {
       final String key = mItems.get(getBindingAdapterPosition()).cuisineKey;
       if (isChecked)
-        mSelectedKeys.add(key);
+        mFinalSelectedKeys.add(key);
       else
-        mSelectedKeys.remove(key);
+        mFinalSelectedKeys.remove(key);
     }
   }
 }

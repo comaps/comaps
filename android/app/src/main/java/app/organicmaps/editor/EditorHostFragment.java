@@ -24,6 +24,7 @@ import app.organicmaps.sdk.editor.data.Language;
 import app.organicmaps.sdk.editor.data.LocalizedName;
 import app.organicmaps.sdk.editor.data.LocalizedStreet;
 import app.organicmaps.sdk.editor.data.NamesDataSource;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
@@ -31,6 +32,7 @@ import app.organicmaps.widget.SearchToolbarController;
 import app.organicmaps.widget.ToolbarController;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 public class EditorHostFragment
@@ -52,6 +54,8 @@ public class EditorHostFragment
     PHONE,
     SELF_SERVICE
   }
+
+  EnumSet<Mode> mModesWithUnsavedChanges = EnumSet.noneOf(Mode.class);
 
   private Mode mMode;
 
@@ -172,11 +176,46 @@ public class EditorHostFragment
   {
     switch (mMode)
     {
-    case OPENING_HOURS, STREET, CUISINE, LANGUAGE, PHONE, SELF_SERVICE -> editMapObject();
-    default -> Utils.navigateToParent(requireActivity());
+      case CUISINE -> { ((CuisineFragment) getChildFragmentManager().findFragmentByTag(CuisineFragment.class.getName())).resetCuisines(); updateUnsavedChangesState(); editMapObject(); } //refactor to avoid resetCuisines?
+      case OPENING_HOURS, STREET, LANGUAGE, PHONE, SELF_SERVICE -> editMapObject(); //todo
+      default ->
+      {
+        updateUnsavedChangesState();
+
+        if (!mModesWithUnsavedChanges.isEmpty())
+          showConfirmExitDialog();
+        else
+          Utils.navigateToParent(requireActivity());
+      }
     }
     return true;
   }
+
+  private void updateUnsavedChangesState()
+  {
+    //TODO: map classes to enums?
+    switch (mMode)
+    {
+      case CUISINE ->
+      {
+        boolean changed = ((CuisineFragment) getChildFragmentManager().findFragmentByTag(CuisineFragment.class.getName())).hasUnsavedChanges();
+        setUnsavedChangesState(mMode, changed);
+      }
+      default ->
+      {
+        boolean changed = ((EditorFragment) getChildFragmentManager().findFragmentByTag(EditorFragment.class.getName())).hasUnsavedChanges(); //nullptr :(
+        setUnsavedChangesState(mMode, changed);
+      }
+    }
+  }
+  private void setUnsavedChangesState(Mode mode, boolean hasUnsaved)
+  {
+    if (hasUnsaved)
+      mModesWithUnsavedChanges.add(mode); //what if already added?
+    else
+      mModesWithUnsavedChanges.remove(mode);
+  }
+
 
   protected void editMapObject()
   {
@@ -301,6 +340,7 @@ public class EditorHostFragment
             ((StreetFragment) getChildFragmentManager().findFragmentByTag(StreetFragment.class.getName())).getStreet());
       case CUISINE ->
       {
+        //TODO set bit for edit having happened after CuisineFragment.hasUnsavedChanges()?
         String[] cuisines =
             ((CuisineFragment) getChildFragmentManager().findFragmentByTag(CuisineFragment.class.getName()))
                 .getCuisines();
@@ -340,6 +380,7 @@ public class EditorHostFragment
         }
       }
       }
+      updateUnsavedChangesState();
     }
   }
 
@@ -399,6 +440,16 @@ public class EditorHostFragment
                            })
         .setNegativeButton(android.R.string.cancel, null)
         .show();
+  }
+
+  private void showConfirmExitDialog()
+  {
+      new MaterialAlertDialogBuilder(requireActivity())
+              .setTitle("Discard pending edits?")
+              .setMessage("Are you sure you want to discard your changes?")
+              .setPositiveButton(android.R.string.yes, (dialog, which) -> Utils.navigateToParent(requireActivity()))
+              .setNegativeButton(android.R.string.no, null)
+              .show();
   }
 
   public void setStreet(LocalizedStreet street)
