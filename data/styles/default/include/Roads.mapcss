@@ -1151,17 +1151,15 @@ line|z14-[highway=trunk_link]::border,
 {color: @trunk1_border; opacity: 1;}
 
 line|z11-13[highway=primary]::border,
-line|z11-13[highway=primary_link]::border,
 {color: @primary1_border; opacity: 1;}
 line|z14-[highway=primary]::border,
-line|z14-[highway=primary_link]::border,
+line|z15-[highway=primary_link]::border,
 {color: @primary2_border; opacity: 1;}
 
 line|z11-13[highway=secondary]::border,
-line|z13[highway=secondary_link]::border,
 {color: @secondary0_border; opacity: 1;}
 line|z14-[highway=secondary]::border,
-line|z14-[highway=secondary_link]::border,
+line|z15-[highway=secondary_link]::border,
 {color: @secondary1_border; opacity: 1;}
 
 /* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0. Finally subtract 0.5 from everything smaller than 3. */
@@ -1230,14 +1228,6 @@ line|z18[highway=primary]::border,
 line|z19-[highway=primary]::border,
 {width: 12;}
 
-line|z11[highway=primary_link]::border,
-{width: 0;}
-line|z12[highway=primary_link]::border,
-{width: 0;}
-line|z13[highway=primary_link]::border,
-{width: 0;}
-line|z14[highway=primary_link]::border,
-{width: 0;}
 line|z15[highway=primary_link]::border,
 {width: 2;}
 line|z16[highway=primary_link]::border,
@@ -1268,10 +1258,6 @@ line|z18[highway=secondary]::border,
 line|z19-[highway=secondary]::border,
 {width: 11.6;}
 
-line|z13[highway=secondary_link]::border,
-{width: 0;}
-line|z14[highway=secondary_link]::border,
-{width: 0;}
 line|z15[highway=secondary_link]::border,
 {width: 2;}
 line|z16[highway=secondary_link]::border,
