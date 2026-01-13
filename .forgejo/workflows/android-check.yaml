@@ -262,9 +262,17 @@ jobs:
           cd android
           ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
+      - name: Find built APK
+        id: find-apk
+        shell: bash
+        run: |
+          APK_PATH=$(find android/app/build/outputs/apk/**/ -name "*.apk" -type f | head -n 1)
+          echo "apk_path=$APK_PATH" >> $GITHUB_OUTPUT
+          echo "Found APK: $APK_PATH"
+
       - name: Upload ${{ matrix.flavor }} apk
         uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.flavor }}
-          path: android/app/build/outputs/apk/**/*.apk
+          path: ${{ steps.find-apk.outputs.apk_path }}
           if-no-files-found: error
