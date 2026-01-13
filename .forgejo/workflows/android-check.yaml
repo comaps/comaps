@@ -97,6 +97,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: |
+            .git/modules
             3party/CMake-MetalShaderSupport
             3party/Vulkan-Headers
             3party/boost
@@ -119,11 +120,15 @@ jobs:
             3party/utfcpp
             tools/kothic
             tools/osmctools
-          key: submodules-cache-${{ steps.date.outputs.date }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
 
-      - name: Parallel submodules checkout
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Lint
         shell: bash
@@ -207,6 +212,7 @@ jobs:
       - uses: actions/cache@v4
         with:
           path: |
+            .git/modules
             3party/CMake-MetalShaderSupport
             3party/Vulkan-Headers
             3party/boost
@@ -229,11 +235,15 @@ jobs:
             3party/utfcpp
             tools/kothic
             tools/osmctools
-          key: submodules-cache-${{ steps.date.outputs.date }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
 
-      - name: Parallel submodules checkout
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
