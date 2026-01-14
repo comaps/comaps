@@ -3279,7 +3279,8 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
 
   m_featuresFetcher.GetDataSource().ForEachInRect([&](FeatureType & ft)
   {
-    if (ft.GetTypes().Has(panoramaxType))
+    feature::TypesHolder types(ft);
+    if (types.Has(panoramaxType))
     {
       auto const imageId = ft.GetMetadata(feature::Metadata::FMD_PANORAMAX);
       if (!imageId.empty())
@@ -3295,9 +3296,7 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
 
   if (hasPanoramax)
   {
-    info.m_hasPanoramax = true;
-    info.m_panoramaxImageId = std::move(panoramaxImageId);
-    info.m_panoramaxUrl = std::move(panoramaxUrl);
+    info.SetPanoramax(true, std::move(panoramaxImageId), std::move(panoramaxUrl));
   }
 }
 
