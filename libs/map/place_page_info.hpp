@@ -215,6 +215,13 @@ public:
   void SetSelectedObject(df::SelectionShape::ESelectedObject selectedObject) { m_selectedObject = selectedObject; }
   df::SelectionShape::ESelectedObject GetSelectedObject() const { return m_selectedObject; }
 
+  void SetPanoramax(bool hasPanoramax, std::string && imageId, std::string && url)
+  {
+    m_hasPanoramax = hasPanoramax;
+    m_panoramaxImageId = std::move(imageId);
+    m_panoramaxUrl = std::move(url);
+  }
+
 private:
   std::string FormatSubtitle(bool withTypes, bool withMainType) const;
   std::string GetBookmarkName();
