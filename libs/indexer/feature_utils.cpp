@@ -4,6 +4,7 @@
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 #include "indexer/scales.hpp"
 
 #include "platform/distance.hpp"
@@ -438,6 +439,17 @@ vector<int8_t> GetDescriptionLangPriority(RegionData const & regionData)
 {
   auto const preferredLangs = languages::GetPreferredLangIndexes();
   return PrioritizedLanguages(preferredLangs, DefaultLanguage(regionData, preferredLangs));
+}
+
+vector<string> GetLocalizedSubtypes(TypesHolder const & types)
+{
+  auto const & classificator = classif();
+  auto subtypes = ftypes::Subtypes::Instance();
+  vector<string> localizedSubtypes;
+  for (auto const & type : types)
+    if (subtypes.IsSubtype(type))
+      localizedSubtypes.push_back(platform::GetLocalizedTypeName(classificator.GetReadableObjectName(type)));
+  return localizedSubtypes;
 }
 
 vector<string> GetCuisines(TypesHolder const & types)

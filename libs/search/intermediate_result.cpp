@@ -279,13 +279,16 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
     }
   }
 
-  feature::TypesHolder const typesHolder(ft);
+  feature::TypesHolder typesHolder(ft);
+  typesHolder.SortBySpec();
 
   std::string stars;
   uint8_t starsCount = 0;
   bool const isHotel = ftypes::IsHotelChecker::Instance()(typesHolder);
   if (isHotel && strings::to_uint(ft.GetMetadata(feature::Metadata::FMD_STARS), starsCount))
     stars = feature::FormatStars(starsCount);
+
+  auto const subtypes = strings::JoinStrings(feature::GetLocalizedSubtypes(typesHolder), feature::kFieldsSeparator);
 
   auto const cuisines = feature::GetLocalizedCuisines(typesHolder);
   auto const cuisine = strings::JoinStrings(cuisines, feature::kFieldsSeparator);
@@ -314,6 +317,7 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
   append(brand);
   append(elevation);
   append(cuisine);
+  append(subtypes);
   append(fee);
 
   details.m_description = std::move(description);

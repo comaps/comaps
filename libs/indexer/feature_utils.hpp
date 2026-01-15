@@ -149,6 +149,9 @@ bool GetPreferredName(StringUtf8Multilang const & src, int8_t deviceLang, std::s
 /// - default language code;
 std::vector<int8_t> GetDescriptionLangPriority(RegionData const & regionData);
 
+// Returns vector of subtypes localized by platform.
+std::vector<std::string> GetLocalizedSubtypes(TypesHolder const & types);
+
 // Returns vector of cuisines readable names from classificator.
 std::vector<std::string> GetCuisines(TypesHolder const & types);
 
