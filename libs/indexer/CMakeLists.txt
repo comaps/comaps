@@ -72,6 +72,8 @@ set(SRC
   feature_impl.hpp
   feature_meta.cpp
   feature_meta.hpp
+  feature_region_locator.cpp
+  feature_region_locator.hpp
   feature_processor.hpp
   feature_source.cpp
   feature_source.hpp

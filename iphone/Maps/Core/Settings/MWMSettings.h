@@ -38,6 +38,9 @@ NS_SWIFT_NAME(SettingsBridge)
 + (NSString *)mapLanguageCode;
 + (void)setMapLanguageCode:(NSString *)mapLanguageCode;
 
++ (BOOL)mapLanguageLimitAlternativesToLocal;
++ (void)setMapLanguageLimitAlternativesToLocal:(BOOL)mapLanguageLimitAlternativesToLocal;
+
 + (BOOL)transliteration;
 + (void)setTransliteration:(BOOL)transliteration;
 

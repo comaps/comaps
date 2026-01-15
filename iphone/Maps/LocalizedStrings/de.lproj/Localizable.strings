@@ -1092,6 +1092,7 @@
 "edit_track" = "Track bearbeiten";
 "pref_mapappearance_title" = "Kartendarstellung";
 "pref_maplanguage_title" = "Karten-Sprache";
+"limit_map_language_alternatives_to_local" = "Nutzung alternativer Sprachen auf lokale Sprachen begrenzen";
 "transliteration_title_disabled_summary" = "Bei der Nutzung der lokalen Sprache für die Karte ausgeschaltet";
 "pref_maplanguage_local" = "Lokale Sprache";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";

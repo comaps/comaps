@@ -31,10 +31,8 @@ std::string GetPreferredBookmarkStr(LocalizableString const & name, std::string 
   for (auto const & pair : name)
     nameMultilang.AddString(pair.first, pair.second);
 
-  auto const deviceLang = StringUtf8Multilang::GetLangIndex(languageNorm);
-
   std::string_view preferredName;
-  if (feature::GetPreferredName(nameMultilang, deviceLang, preferredName))
+  if (feature::GetPreferredName(nameMultilang, preferredName))
     return std::string(preferredName);
 
   return {};

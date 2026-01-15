@@ -1,9 +1,9 @@
 {
 "World": {
- "languages": ["int_name", "en", "default"]
+ "languages": []
 },
 "WorldCoasts": {
- "languages": ["int_name", "en", "default"]
+ "languages": []
 },
 "Abkhazia": {
  "languages": ["ab", "ru"]

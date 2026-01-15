@@ -4,23 +4,23 @@ import AVFoundation
 /// The settings
 @objc class Settings: NSObject {
     // MARK: Properties
-    
+
     // The notification name for changed routing options
     static let routingOptionsChangedNotificationName: Notification.Name = Notification.Name(rawValue: "RoutingOptionsChanged")
-    
-    
+
+
     /// Key for storing if the sync beta alert has been shown in the user defaults
     static private let userDefaultsKeyHasShownSyncBetaAlert = "kUDDidShowICloudSynchronizationEnablingAlert"
-    
-    
+
+
     /// Key for storing the type of action used for the bottom left main interface button in the user defaults
     static private let userDefaultsKeyLeftButtonType = "LeftButtonType"
-    
-    
+
+
     /// Key for storing the map appearance in the user defaults
     static private let userDefaultsKeyMapAppearance = "MapAppearance"
-    
-    
+
+
     /// The current distance unit
     static var distanceUnit: DistanceUnit {
         get {
@@ -38,8 +38,8 @@ import AVFoundation
             }
         }
     }
-    
-    
+
+
     /// If zoom buttons should be displayed
     @objc static var hasZoomButtons: Bool {
         get {
@@ -49,23 +49,23 @@ import AVFoundation
             SettingsBridge.setZoomButtonsEnabled(newValue)
         }
     }
-    
-    
+
+
     /// The type of action used for the bottom left main interface button
     static var leftButtonType: LeftButtonType {
         get {
             if let leftButtonTypeRawValue = UserDefaults.standard.string(forKey: userDefaultsKeyLeftButtonType), let leftButtonType = LeftButtonType(rawValue: leftButtonTypeRawValue) {
                 return leftButtonType
             }
-            
+
             return .help
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: userDefaultsKeyLeftButtonType)
         }
     }
-    
-    
+
+
     /// If 3D buildings should be displayed
     @objc static var has3dBuildings: Bool {
         get {
@@ -75,8 +75,8 @@ import AVFoundation
             SettingsBridge.setBuildings3dViewEnabled(newValue)
         }
     }
-    
-    
+
+
     /// If automatic map downloads should be enabled
     @objc static var hasAutomaticDownload: Bool {
         get {
@@ -86,8 +86,8 @@ import AVFoundation
             SettingsBridge.setAutoDownloadEnabled(newValue)
         }
     }
-    
-    
+
+
     /// The current mobile data policy
     @objc static var mobileDataPolicy: MobileDataPolicy {
         get {
@@ -110,8 +110,8 @@ import AVFoundation
             }
         }
     }
-    
-    
+
+
     /// The current power saving mode
     @objc static var powerSavingMode: PowerSavingMode {
         get {
@@ -121,8 +121,8 @@ import AVFoundation
             SettingsBridge.setPowerManagement(newValue.rawValue)
         }
     }
-    
-    
+
+
     /// If an increased font size should be used for map labels
     @objc static var hasIncreasedFontsize: Bool {
         get {
@@ -132,8 +132,8 @@ import AVFoundation
             SettingsBridge.setLargeFontSize(newValue)
         }
     }
-    
-    
+
+
     /// If names should be transliterated to Latin
     @objc static var shouldTransliterateToLatin: Bool {
         get {
@@ -143,8 +143,8 @@ import AVFoundation
             SettingsBridge.setTransliteration(newValue)
         }
     }
-    
-    
+
+
     /// The available languages for the map
     static var availableLanguagesForMap: [MapLanguage] {
         var languages = SettingsBridge.availableMapLanguages().map { language in
@@ -154,8 +154,8 @@ import AVFoundation
         languages.insert(MapLanguage(id: "auto", localizedName: String(localized: "auto")), at: 0)
         return languages
     }
-    
-    
+
+
     /// The current language for the map
     static var languageForMap: MapLanguage.ID {
         get {
@@ -165,8 +165,29 @@ import AVFoundation
             SettingsBridge.setMapLanguageCode(newValue)
         }
     }
-    
-    
+
+
+    /// If the alternative languages for the app only should be used when they are the local native language
+    static var shouldLimitMapLanguageAlternativesToLocal: Bool {
+        get {
+            return SettingsBridge.mapLanguageLimitAlternativesToLocal()
+        }
+        set {
+            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue)
+        }
+    }
+
+
+    /// If the compass should be calibrated
+    @objc static var shouldCalibrateCompass: Bool {
+        get {
+            return SettingsBridge.compassCalibrationEnabled()
+        }
+        set {
+            SettingsBridge.setCompassCalibrationEnabled(newValue)
+        }
+    }
+
     /// The current map appearance
     @objc static var mapAppearance: Appearance {
         get {
@@ -174,7 +195,7 @@ import AVFoundation
             if mapAppearanceRawValue != 0, let mapAppearance = Appearance(rawValue: mapAppearanceRawValue) {
                 return mapAppearance
             }
-            
+
             return .light
         }
         set {
@@ -182,8 +203,8 @@ import AVFoundation
             ThemeManager.invalidate()
         }
     }
-    
-    
+
+
     /// The current appearance
     @objc static var appearance: Appearance {
         get {
@@ -206,8 +227,8 @@ import AVFoundation
             }
         }
     }
-    
-    
+
+
     /// If the bookmarks should be synced via iCloud
     @objc static var shouldSync: Bool {
         get {
@@ -217,8 +238,8 @@ import AVFoundation
             SettingsBridge.setICLoudSynchronizationEnabled(newValue)
         }
     }
-    
-    
+
+
     /// If the sync beta alert has been shown
     @objc static var hasShownSyncBetaAlert: Bool {
         get {
@@ -228,15 +249,15 @@ import AVFoundation
             UserDefaults.standard.set(newValue, forKey: userDefaultsKeyHasShownSyncBetaAlert)
         }
     }
-    
-    
+
+
     /// The publisher for state changes of the iCloud sync
     static var syncStatePublisher: AnyPublisher<SynchronizationManagerState, Never> {
         iCloudSynchronizaionManager.shared.notifyObservers()
         return iCloudSynchronizaionManager.shared.statePublisher
     }
-    
-    
+
+
     /// If our custom logging is enabled
     @objc static var isLogging: Bool {
         get {
@@ -246,8 +267,8 @@ import AVFoundation
             SettingsBridge.setFileLoggingEnabled(newValue)
         }
     }
-    
-    
+
+
     /// The formatter for the size of the log file
     @objc static var logSizeFormatter: MeasurementFormatter {
         let measurementFormatter = MeasurementFormatter()
@@ -255,14 +276,14 @@ import AVFoundation
         measurementFormatter.unitOptions = .naturalScale
         return measurementFormatter
     }
-    
-    
+
+
     /// The size of the log file in bytes
     @objc static var logSize: Measurement<UnitInformationStorage> {
         return Measurement<UnitInformationStorage>(value: Double(SettingsBridge.logFileSize()), unit: .bytes)
     }
-    
-    
+
+
     /// If the perspective view should be used during routing
     @objc static var hasPerspectiveViewWhileRouting: Bool {
         get {
@@ -272,8 +293,8 @@ import AVFoundation
             SettingsBridge.setPerspectiveViewEnabled(newValue)
         }
     }
-    
-    
+
+
     /// If auto zoom should be used during routing
     @objc static var hasAutoZoomWhileRouting: Bool {
         get {
@@ -283,8 +304,8 @@ import AVFoundation
             SettingsBridge.setAutoZoomEnabled(newValue)
         }
     }
-    
-    
+
+
     /// If voice guidance should be provided during routing
     @objc static var shouldProvideVoiceRouting: Bool {
         get {
@@ -294,16 +315,16 @@ import AVFoundation
             MWMTextToSpeech.setTTSEnabled(newValue)
         }
     }
-    
-    
+
+
     /// The available languages for voice guidance during routing
     static var availableLanguagesForVoiceRouting: [VoiceRoutingLanguage] {
         return MWMTextToSpeech.availableLanguages().map { language in
             return VoiceRoutingLanguage(id: language.key, localizedName: language.value)
         }.sorted()
     }
-    
-    
+
+
     /// The current language for voice guidance during routing
     @objc static var languageForVoiceRouting: VoiceRoutingLanguage.ID {
         get {
@@ -313,18 +334,18 @@ import AVFoundation
             MWMTextToSpeech.tts().setNotificationsLocale(newValue)
         }
     }
-    
-    
+
+
     /// The voice used for voice guidance during routing
     @objc static var voiceForVoiceRouting: String? {
         if let voice = MWMTextToSpeech.tts().voice() {
             return voice.name
         }
-        
+
         return nil
     }
-    
-    
+
+
     /// If street names should be announced in the voice guidance during routing
     @objc static var shouldAnnounceStreetnamesWhileVoiceRouting: Bool {
         get {
@@ -334,8 +355,8 @@ import AVFoundation
             MWMTextToSpeech.setStreetNamesTTSEnabled(newValue)
         }
     }
-    
-    
+
+
     /// The current announcement of speed traps in the voice guidance during routing
     @objc static var announcingSpeedTrapsWhileVoiceRouting: AnnouncingSpeedTrapsWhileVoiceRouting {
         get {
@@ -345,8 +366,8 @@ import AVFoundation
             MWMTextToSpeech.setSpeedCameraMode(newValue.rawValue)
         }
     }
-    
-    
+
+
     /// If toll roads should be avoided during routing
     @objc static var shouldAvoidTollRoadsWhileRouting: Bool {
         get {
@@ -356,12 +377,12 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidToll = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
+
+
     /// If unpaved roads should be avoided during routing
     @objc static var shouldAvoidUnpavedRoadsWhileRouting: Bool {
         get {
@@ -371,12 +392,12 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidDirty = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
+
+
     /// If paved roads should be avoided during routing
     @objc static var shouldAvoidPavedRoadsWhileRouting: Bool {
         get {
@@ -386,12 +407,12 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidPaved = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
+
+
     /// If ferries should be avoided during routing
     @objc static var shouldAvoidFerriesWhileRouting: Bool {
         get {
@@ -401,12 +422,12 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidFerry = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
+
+
     /// If motorways should be avoided during routing
     @objc static var shouldAvoidMotorwaysWhileRouting: Bool {
         get {
@@ -416,12 +437,12 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidMotorway = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
+
+
     /// If steps should be avoided during routing
     @objc static var shouldAvoidStepsWhileRouting: Bool {
         get {
@@ -431,15 +452,15 @@ import AVFoundation
             let routingOptions = RoutingOptions()
             routingOptions.avoidSteps = newValue
             routingOptions.save()
-            
+
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
-    
-    
-    
+
+
+
     // MARK: Methods
-    
+
     /// Create a bookmarks backup before enabling the sync beta
     /// - Parameter completionHandler: A compeltion handler, which returns if a backup has been created
     static func createBookmarksBackupBecauseOfSyncBeta(completionHandler: ((_ hasCreatedBackup: Bool) -> Void)?) {
@@ -465,8 +486,8 @@ import AVFoundation
             }
         }
     }
-    
-    
+
+
     /// Play a test audio snippet for voice guidance during routing
     @objc static func playVoiceRoutingTest() {
         MWMTextToSpeech.playTest()

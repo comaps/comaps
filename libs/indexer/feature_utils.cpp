@@ -10,6 +10,7 @@
 #include "platform/distance.hpp"
 #include "platform/localization.hpp"
 #include "platform/preferred_languages.hpp"
+#include "platform/settings.hpp"
 
 #include "coding/string_utf8_multilang.hpp"
 #include "coding/transliteration.hpp"
@@ -118,7 +119,7 @@ bool IsNativeLang(feature::RegionData const & regionData, int8_t deviceLang)
   return false;
 }
 
-int8_t DefaultLanguage(feature::RegionData const & regionData, vector<int8_t> const & langs)
+int8_t DefaultLanguageFromRegionData(feature::RegionData const & regionData, vector<int8_t> const & langs)
 {
   for (auto const lang : langs)
   {
@@ -133,18 +134,39 @@ int8_t DefaultLanguage(feature::RegionData const & regionData, vector<int8_t> co
   return StrUtf8::kDefaultCode;
 }
 
-vector<int8_t> PrioritizedLanguages(vector<int8_t> const & langs, int8_t defaultLang)
+vector<int8_t> PrioritizedLanguages(optional<feature::RegionData> const & regionData = {})
 {
+  bool limitAlternativesToLocal = true;
+  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, limitAlternativesToLocal));
+
   vector<int8_t> prioritizedLangs = {};
+
+  vector<int8_t> const langs = languages::GetPreferredLangIndexes();
+
+  int8_t defaultLang = StrUtf8::kUnsupportedLanguageCode;
+  if (regionData.has_value())
+    defaultLang = DefaultLanguageFromRegionData(regionData.value(), langs);
 
   for (auto const lang : langs)
   {
-    if (find(prioritizedLangs.begin(), prioritizedLangs.end(), lang) == prioritizedLangs.end())
+    if (!limitAlternativesToLocal &&
+        find(prioritizedLangs.begin(), prioritizedLangs.end(), lang) == prioritizedLangs.end())
       prioritizedLangs.push_back(lang);
 
     if (defaultLang != StrUtf8::kUnsupportedLanguageCode && defaultLang == lang)
       prioritizedLangs.push_back(StrUtf8::kDefaultCode);
 
+    if (!limitAlternativesToLocal)
+    {
+      auto const similarLangs = GetSimilarLanguages(lang);
+      prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
+    }
+  }
+
+  if (limitAlternativesToLocal)
+  {
+    auto lang = langs.front();
+    prioritizedLangs.push_back(lang);
     auto const similarLangs = GetSimilarLanguages(lang);
     prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
   }
@@ -158,8 +180,7 @@ vector<int8_t> PrioritizedLanguages(vector<int8_t> const & langs, int8_t default
 
 void GetReadableNameImpl(NameParamsIn const & in, bool preferDefault, NameParamsOut & out)
 {
-  auto const preferredLangs = languages::GetPreferredLangIndexes();
-  auto const langPriority = PrioritizedLanguages(preferredLangs, DefaultLanguage(in.regionData, preferredLangs));
+  auto const langPriority = PrioritizedLanguages(in.regionData);
 
   if (GetBestName(in.src, langPriority, out.primary))
     return;
@@ -362,8 +383,7 @@ void GetPreferredNames(NameParamsIn const & in, NameParamsOut & out)
   if (in.IsNativeOrSimilarLang())
     return GetReadableNameImpl(in, true /* preferDefault */, out);
 
-  auto const preferredLangs = languages::GetPreferredLangIndexes();
-  auto const primaryCodes = PrioritizedLanguages(preferredLangs, DefaultLanguage(in.regionData, preferredLangs));
+  auto const primaryCodes = PrioritizedLanguages(in.regionData);
 
   if (!GetBestName(in.src, primaryCodes, out.primary) && in.allowTranslit)
     GetTransliteratedName(in.regionData, in.src, out.transliterated);
@@ -428,17 +448,14 @@ int8_t GetNameForSearchOnBooking(RegionData const & regionData, StringUtf8Multil
 }
 */
 
-bool GetPreferredName(StringUtf8Multilang const & src, int8_t deviceLang, string_view & out)
+bool GetPreferredName(StringUtf8Multilang const & src, string_view & out)
 {
-  auto const preferredLangs = languages::GetPreferredLangIndexes();
-  auto const priorityList = PrioritizedLanguages(preferredLangs, StrUtf8::kUnsupportedLanguageCode);
-  return GetBestName(src, priorityList, out);
+  return GetBestName(src, PrioritizedLanguages(), out);
 }
 
 vector<int8_t> GetDescriptionLangPriority(RegionData const & regionData)
 {
-  auto const preferredLangs = languages::GetPreferredLangIndexes();
-  return PrioritizedLanguages(preferredLangs, DefaultLanguage(regionData, preferredLangs));
+  return PrioritizedLanguages(regionData);
 }
 
 vector<string> GetLocalizedSubtypes(TypesHolder const & types)
