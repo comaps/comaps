@@ -234,6 +234,20 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
   }
 }
 
++ (BOOL)mapLanguageLimitAlternativesToLocal
+{
+  bool enabled = true;
+  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, enabled));
+  return enabled;
+}
+
++ (void)setMapLanguageLimitAlternativesToLocal:(BOOL)mapLanguageLimitAlternativesToLocal
+{
+  settings::Set(settings::kMapLanguageLimitAlternativesToLocal, static_cast<bool>(mapLanguageLimitAlternativesToLocal));
+  auto & f = GetFramework();
+  f.InvalidateRect(f.GetCurrentViewport());
+}
+
 + (BOOL)transliteration { return GetFramework().LoadTransliteration(); }
 + (void)setTransliteration:(BOOL)transliteration
 {

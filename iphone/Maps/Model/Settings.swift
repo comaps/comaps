@@ -167,6 +167,17 @@ import AVFoundation
     }
     
     
+    /// If the alternative languages for the app only should be used when they are the local native language
+    static var shouldLimitMapLanguageAlternativesToLocal: Bool {
+        get {
+            return SettingsBridge.mapLanguageLimitAlternativesToLocal()
+        }
+        set {
+            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue)
+        }
+    }
+    
+    
     /// If the compass should be calibrated
     @objc static var shouldCalibrateCompass: Bool {
         get {

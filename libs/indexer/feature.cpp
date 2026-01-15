@@ -3,6 +3,7 @@
 #include "indexer/classificator.hpp"
 #include "indexer/feature_algo.hpp"
 #include "indexer/feature_impl.hpp"
+#include "indexer/feature_region_locator.hpp"
 #include "indexer/feature_utils.hpp"
 #include "indexer/map_object.hpp"
 #include "indexer/shared_load_info.hpp"
@@ -825,7 +826,16 @@ void FeatureType::GetReadableName(bool allowTranslit, int8_t deviceLang, feature
 
   ParseCommon();
 
-  feature::GetReadableName({GetNames(), mwmInfo->GetRegionData(), deviceLang, allowTranslit}, out);
+  auto regionData = mwmInfo->GetRegionData();
+  if (regionData.IsWorldLevel())
+  {
+    if (GetGeomType() == feature::GeomType::Point)
+      regionData.SetLanguages(RegionLocator::Instance().GetLocalLanguages(GetCenter()));
+    else
+      regionData.SetLanguages({"int_name", "en", "default"});
+  }
+
+  feature::GetReadableName({GetNames(), regionData, deviceLang, allowTranslit}, out);
 }
 
 string const & FeatureType::GetHouseNumber()

@@ -224,6 +224,7 @@ public:
     MetadataBase::Set(type, s);
   }
 
+  bool IsWorldLevel() const;
   void SetLanguages(std::vector<std::string> const & codes);
   void GetLanguages(std::vector<int8_t> & langs) const;
   bool HasLanguage(int8_t const lang) const;

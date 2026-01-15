@@ -137,7 +137,7 @@ std::string const GetReadableAddress(std::string const & address);
 // int8_t GetNameForSearchOnBooking(RegionData const & regionData, StringUtf8Multilang const & src, std::string & name);
 
 /// Returns preferred name when only the device language is available.
-bool GetPreferredName(StringUtf8Multilang const & src, int8_t deviceLang, std::string_view & out);
+bool GetPreferredName(StringUtf8Multilang const & src, std::string_view & out);
 
 /// Returns priority list of language codes for feature description,
 /// the priority is the following:

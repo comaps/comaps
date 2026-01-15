@@ -12,6 +12,7 @@
 		165953942CB44B5600CFED7C /* symbols in Resources */ = {isa = PBXBuildFile; fileRef = 165953932CB44B3B00CFED7C /* symbols */; };
 		1DFA2F6A20D3B57400FB2C66 /* UIColor+PartnerColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DFA2F6920D3B57400FB2C66 /* UIColor+PartnerColor.m */; };
 		270C9C282E16AB6F00ABA688 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270C9C252E16AB6300ABA688 /* Profile.swift */; };
+		271186872F19467400FD7FF3 /* countries_meta.txt in Resources */ = {isa = PBXBuildFile; fileRef = 271186862F19467400FD7FF3 /* countries_meta.txt */; };
 		27176A862E65B0150015F25F /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 27176A852E65B0150015F25F /* Icon.icon */; };
 		27176A8A2E65B01B0015F25F /* Debug Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 27176A892E65B01B0015F25F /* Debug Icon.icon */; };
 		272CA4492F127221005A3F5B /* subtypes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 272CA4482F127221005A3F5B /* subtypes.csv */; };
@@ -763,6 +764,7 @@
 		1DFA2F6920D3B57400FB2C66 /* UIColor+PartnerColor.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; indentWidth = 2; lineEnding = 0; path = "UIColor+PartnerColor.m"; sourceTree = "<group>"; tabWidth = 2; };
 		1DFA2F6E20D3CA9200FB2C66 /* UIColorRoutines.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = UIColorRoutines.h; sourceTree = "<group>"; tabWidth = 2; };
 		270C9C252E16AB6300ABA688 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		271186862F19467400FD7FF3 /* countries_meta.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = countries_meta.txt; path = ../../data/countries_meta.txt; sourceTree = SOURCE_ROOT; };
 		27176A852E65B0150015F25F /* Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Icon.icon; sourceTree = "<group>"; };
 		27176A892E65B01B0015F25F /* Debug Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Debug Icon.icon"; sourceTree = "<group>"; };
 		272CA4482F127221005A3F5B /* subtypes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = subtypes.csv; path = ../../data/subtypes.csv; sourceTree = SOURCE_ROOT; };
@@ -3941,6 +3943,7 @@
 				452FCA3A1B6A3DF7007019AB /* colors.txt */,
 				97A5967E19B9CD47007A963F /* copyright.html */,
 				FA46DA2B12D4166E00968C36 /* countries.txt */,
+				271186862F19467400FD7FF3 /* countries_meta.txt */,
 				4A23D1561B8B4DD700D4EB6F /* drules_proto_default_light.bin */,
 				4A00DBDE1AB704C400113624 /* drules_proto_default_dark.bin */,
 				FA637ECC29A500BE00D8921A /* drules_proto_outdoors_light.bin */,
@@ -4179,6 +4182,7 @@
 			files = (
 				165953742CB1D85500CFED7C /* fonts in Resources */,
 				165953942CB44B5600CFED7C /* symbols in Resources */,
+				271186872F19467400FD7FF3 /* countries_meta.txt in Resources */,
 				47AEF8402231249E00D20538 /* categories_brands.txt in Resources */,
 				F6C3A1B221AC22810060EEC8 /* Alert 5.m4a in Resources */,
 				3404F49A2028A20D0090E401 /* BMCCategoryCell.xib in Resources */,

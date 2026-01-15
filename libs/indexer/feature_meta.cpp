@@ -216,6 +216,11 @@ void Metadata::ClearPOIAttribs()
       ++i;
 }
 
+bool RegionData::IsWorldLevel() const
+{
+  return Get(RegionData::Type::RD_LANGUAGES).empty();
+}
+
 void RegionData::SetLanguages(vector<string> const & codes)
 {
   string value;

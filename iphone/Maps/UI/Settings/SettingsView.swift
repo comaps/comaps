@@ -36,6 +36,10 @@ struct SettingsView: View {
     @State var selectedLanguageForMap: Settings.MapLanguage.ID? = nil
     
     
+    /// If the alternative languages for the app only should be used when they are the local native language
+    @State private var shouldLimitMapLanguageAlternativesToLocal: Bool = true
+    
+    
     /// If names should be transliterated to Latin
     @State private var shouldTransliterateToLatin: Bool = true
     
@@ -152,6 +156,20 @@ struct SettingsView: View {
                     } label: {
                         Text("pref_maplanguage_title")
                     }
+                    
+                    Toggle(isOn: $shouldLimitMapLanguageAlternativesToLocal) {
+                        VStack(alignment: .leading) {
+                            Text("limit_map_language_alternatives_to_local")
+                            
+                            if selectedLanguageForMap == "default" {
+                                Text("transliteration_title_disabled_summary")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                    .tint(.accent)
+                    .disabled(selectedLanguageForMap == "default")
                     
                     Toggle(isOn: $shouldTransliterateToLatin) {
                         VStack(alignment: .leading) {
@@ -296,6 +314,7 @@ struct SettingsView: View {
             hasAutomaticDownload = Settings.hasAutomaticDownload
             hasIncreasedFontsize = Settings.hasIncreasedFontsize
             selectedLanguageForMap = Settings.languageForMap
+            shouldLimitMapLanguageAlternativesToLocal = Settings.shouldLimitMapLanguageAlternativesToLocal
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
             selectedMapAppearance = Settings.mapAppearance
             selectedAppearance = Settings.appearance
@@ -327,6 +346,9 @@ struct SettingsView: View {
             if let changedSelectedLanguageForMap {
                 Settings.languageForMap = changedSelectedLanguageForMap
             }
+        }
+        .onChange(of: shouldLimitMapLanguageAlternativesToLocal) { changedShouldLimitMapLanguageAlternativesToLocal in
+            Settings.shouldLimitMapLanguageAlternativesToLocal = changedShouldLimitMapLanguageAlternativesToLocal
         }
         .onChange(of: shouldTransliterateToLatin) { changedShouldTransliterateToLatin in
             Settings.shouldTransliterateToLatin = changedShouldTransliterateToLatin

@@ -786,6 +786,7 @@
 "traffic_data_unavailable" = "Traffic data is not available";
 "enable_logging" = "Enable logging";
 "log_file_size" = "Log file size: %@";
+"limit_map_language_alternatives_to_local" = "Limit use of alternative languages to local ones";
 "transliteration_title" = "Transliterate into Latin alphabet";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 
