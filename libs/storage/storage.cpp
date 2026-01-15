@@ -285,14 +285,6 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
     auto buf = std::make_shared<std::string>(std::move(buffer));
 
-    if (!GetPlatform().CustomMapServerUrl().empty())
-    {
-      LOG(LINFO, ("COUNTRIES: custom map server is set; skipping signature verification."));
-      MarkCountriesTxtCheckSuccessNow();
-      PersistAndApplyCountries(buf, parsedVersion);
-      return false;
-    }
-
     LOG(LDEBUG, ("COUNTRIES: downloading", kCountriesLatestSigRelativeUrl));
 
     m_downloader->DownloadAsString(kCountriesLatestSigRelativeUrl,
@@ -300,7 +292,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     {
       if (sigBuf.empty())
       {
-        LOG(LWARNING, ("COUNTRIES: empty signature response, ignoring."));
+        LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
         return false;
       }
 
