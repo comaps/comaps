@@ -975,4 +975,8 @@
     <string name="limit_map_language_alternatives_to_local">Only use other system languages in their region</string>
     <string name="fused_location_info">CoMaps relies on the system\'s Fused Location provider (typically Google Play Services), which may share your location with Google. Use a privacy-preserving Android OS to avoid this.</string>
     <string name="fused_location_service">Fused Location Service</string>
+    <!-- Custom MWM file import messages -->
+    <string name="custom_mwm_import_success">Custom map imported successfully. Restart the app to load it.</string>
+    <string name="custom_mwm_import_invalid">Invalid MWM file. Please select a valid map file.</string>
+    <string name="custom_mwm_import_error">Failed to import the map file. Please try again.</string>
 </resources>

@@ -67,8 +67,8 @@ struct CountryItemBuilder
   jclass m_class;
   jmethodID m_ctor;
   jfieldID m_Id, m_Name, m_DirectParentId, m_TopmostParentId, m_DirectParentName, m_TopmostParentName, m_Description,
-      m_Size, m_EnqueuedSize, m_TotalSize, m_ChildCount, m_TotalChildCount, m_Present, m_Progress, m_DownloadedBytes,
-      m_BytesToDownload, m_Category, m_Status, m_ErrorCode;
+      m_Size, m_EnqueuedSize, m_TotalSize, m_LocalVersion, m_ChildCount, m_TotalChildCount, m_Present, m_Progress,
+      m_DownloadedBytes, m_BytesToDownload, m_Category, m_Status, m_ErrorCode;
 
   CountryItemBuilder(JNIEnv * env)
   {
@@ -85,6 +85,7 @@ struct CountryItemBuilder
     m_Size = env->GetFieldID(m_class, "size", "J");
     m_EnqueuedSize = env->GetFieldID(m_class, "enqueuedSize", "J");
     m_TotalSize = env->GetFieldID(m_class, "totalSize", "J");
+    m_LocalVersion = env->GetFieldID(m_class, "localVersion", "J");
     m_ChildCount = env->GetFieldID(m_class, "childCount", "I");
     m_TotalChildCount = env->GetFieldID(m_class, "totalChildCount", "I");
     m_Present = env->GetFieldID(m_class, "present", "Z");
@@ -220,6 +221,9 @@ static void UpdateItem(JNIEnv * env, jobject item, storage::NodeAttrs const & at
   env->SetLongField(item, ciBuilder.m_Size, attrs.m_localMwmSize);
   env->SetLongField(item, ciBuilder.m_EnqueuedSize, attrs.m_downloadingMwmSize);
   env->SetLongField(item, ciBuilder.m_TotalSize, attrs.m_mwmSize);
+
+  // Local version (YYMMDD format)
+  env->SetLongField(item, ciBuilder.m_LocalVersion, attrs.m_localMwmVersion);
 
   // Child counts
   env->SetIntField(item, ciBuilder.m_ChildCount, attrs.m_downloadingMwmCounter);

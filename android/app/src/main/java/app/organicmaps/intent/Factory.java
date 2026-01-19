@@ -23,10 +23,12 @@ import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.search.SearchEngine;
 import app.organicmaps.sdk.util.StorageUtils;
 import app.organicmaps.sdk.util.concurrency.ThreadPool;
+import app.organicmaps.sdk.downloader.CustomMwmManager;
 import app.organicmaps.search.SearchActivity;
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class Factory
 {
@@ -62,6 +64,92 @@ public class Factory
       final ContentResolver resolver = activity.getContentResolver();
       ThreadPool.getStorage().execute(() -> BookmarkManager.INSTANCE.importBookmarksFiles(resolver, uris, tempDir));
       return false;
+    }
+  }
+
+  public static class MwmFileProcessor implements IntentProcessor
+  {
+    private static final String MWM_EXTENSION = ".mwm";
+
+    @Override
+    public boolean process(@NonNull Intent intent, @NonNull MwmActivity activity)
+    {
+      if (!Intent.ACTION_VIEW.equals(intent.getAction()))
+        return false;
+
+      final Uri uri = intent.getData();
+      if (uri == null)
+        return false;
+
+      // Check if this is an MWM file
+      if (!isMwmFile(activity, uri))
+        return false;
+
+      // Import the MWM file on a background thread
+      ThreadPool.getStorage().execute(() -> {
+        CustomMwmManager.ImportResult result = CustomMwmManager.importMwmFile(activity, uri);
+
+        // Show result on UI thread
+        activity.runOnUiThread(() -> {
+          switch (result)
+          {
+            case SUCCESS:
+              android.widget.Toast.makeText(activity,
+                  activity.getString(app.organicmaps.R.string.custom_mwm_import_success),
+                  android.widget.Toast.LENGTH_LONG).show();
+              // Reload maps to include the new custom map
+              Framework.nativeReloadWorldMaps();
+              break;
+            case ERROR_INVALID_FILE:
+              android.widget.Toast.makeText(activity,
+                  activity.getString(app.organicmaps.R.string.custom_mwm_import_invalid),
+                  android.widget.Toast.LENGTH_LONG).show();
+              break;
+            case ERROR_IO:
+            case ERROR_STORAGE:
+              android.widget.Toast.makeText(activity,
+                  activity.getString(app.organicmaps.R.string.custom_mwm_import_error),
+                  android.widget.Toast.LENGTH_LONG).show();
+              break;
+          }
+        });
+      });
+
+      return true;
+    }
+
+    private boolean isMwmFile(@NonNull MwmActivity activity, @NonNull Uri uri)
+    {
+      String fileName = null;
+
+      // Try to get filename from content resolver
+      if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()))
+      {
+        try (android.database.Cursor cursor = activity.getContentResolver().query(
+            uri, new String[]{android.provider.OpenableColumns.DISPLAY_NAME}, null, null, null))
+        {
+          if (cursor != null && cursor.moveToFirst())
+          {
+            int nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME);
+            if (nameIndex >= 0)
+              fileName = cursor.getString(nameIndex);
+          }
+        }
+        catch (Exception ignored) {}
+      }
+
+      // Fallback to URI path
+      if (fileName == null)
+      {
+        String path = uri.getPath();
+        if (path != null)
+        {
+          int lastSlash = path.lastIndexOf('/');
+          fileName = lastSlash >= 0 ? path.substring(lastSlash + 1) : path;
+        }
+      }
+
+      return fileName != null && fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION);
     }
   }
 
