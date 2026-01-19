@@ -53,6 +53,9 @@ public final class CountryItem implements Comparable<CountryItem>
   public long enqueuedSize;
   public long totalSize;
 
+  // Local MWM file version (YYMMDD format, e.g. 251231). 0 if not downloaded.
+  public long localVersion;
+
   public int childCount;
   public int totalChildCount;
 
@@ -155,7 +158,7 @@ public final class CountryItem implements Comparable<CountryItem>
   + "\", category: \"" + category + "\", name: \"" + name + "\", directParentName: \"" + directParentName
   + "\", topmostParentName: \"" + topmostParentName + "\", present: " + present + ", status: " + status
   + ", errorCode: " + errorCode + ", headerId: " + headerId + ", size: " + size + ", enqueuedSize: " + enqueuedSize
-  + ", totalSize: " + totalSize + ", childCount: " + childCount + ", totalChildCount: " + totalChildCount
-  + ", progress: " + StringUtils.formatUsingUsLocale("%.2f", progress) + "% }";
+  + ", totalSize: " + totalSize + ", localVersion: " + localVersion + ", childCount: " + childCount
+  + ", totalChildCount: " + totalChildCount + ", progress: " + StringUtils.formatUsingUsLocale("%.2f", progress) + "% }";
   }
 }

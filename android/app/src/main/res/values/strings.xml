@@ -975,4 +975,8 @@
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
     <string name="download_resources_custom_url_summary_none">Not set</string>
     <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
+    <!-- Custom MWM file import messages -->
+    <string name="custom_mwm_import_success">Custom map imported successfully. Restart the app to load it.</string>
+    <string name="custom_mwm_import_invalid">Invalid MWM file. Please select a valid map file.</string>
+    <string name="custom_mwm_import_error">Failed to import the map file. Please try again.</string>
 </resources>

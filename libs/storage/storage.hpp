@@ -54,6 +54,7 @@ struct NodeAttrs
     , m_mwmSize(0)
     , m_localMwmSize(0)
     , m_downloadingMwmSize(0)
+    , m_localMwmVersion(0)
     , m_status(NodeStatus::Undefined)
     , m_error(NodeErrorCode::NoError)
     , m_present(false)
@@ -87,6 +88,10 @@ struct NodeAttrs
   /// plus which are staying in queue.
   /// \note The size of leaves is the size is written in countries.txt.
   MwmSize m_downloadingMwmSize;
+
+  /// Version of the local mwm file (YYMMDD format, e.g. 251231).
+  /// 0 if not downloaded.
+  int64_t m_localMwmVersion;
 
   /// The name of the node in a local language. That means the language dependent on
   /// a device locale.

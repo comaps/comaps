@@ -1666,6 +1666,9 @@ void Storage::GetNodeAttrs(CountryId const & countryId, NodeAttrs & nodeAttrs) c
 
     nodeAttrs.m_localMwmCounter += 1;
     nodeAttrs.m_localMwmSize += localFile->GetSize(MapFileType::Map);
+    // For leaf nodes, store the local file version
+    if (d.ChildrenCount() == 0)
+      nodeAttrs.m_localMwmVersion = localFile->GetVersion();
   });
   nodeAttrs.m_present = m_localFiles.find(countryId) != m_localFiles.end();
 
