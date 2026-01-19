@@ -46,6 +46,10 @@ void FindAllLocalMapsAndCleanup(int64_t latestVersion, std::string const & dataD
 
 void FindAllDiffs(std::string const & dataDir, std::vector<LocalCountryFile> & diffs);
 
+// Finds custom MWM files in the custom_maps/YYMMDD/ directories.
+// Custom maps override downloaded maps when they have a newer version date.
+void FindAllCustomMaps(std::string const & dataDir, std::vector<LocalCountryFile> & localFiles);
+
 // This method removes:
 // * partially downloaded non-latest maps (with version less than |latestVersion|)
 // * empty directories

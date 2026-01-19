@@ -34,6 +34,7 @@ namespace
 char constexpr kBitsExt[] = ".bftsegbits";
 char constexpr kNodesExt[] = ".bftsegnodes";
 char constexpr kOffsetsExt[] = ".offsets";
+char constexpr kCustomMapsDir[] = "custom_maps";
 
 string GetAdditionalWorldScope()
 {
@@ -206,6 +207,44 @@ void FindAllDiffs(std::string const & dataDir, std::vector<LocalCountryFile> & d
     FindAllDiffsInDirectory(base::JoinPath(dir, fwt.first /* subdir */), diffs);
 }
 
+void FindAllCustomMaps(string const & dataDir, std::vector<LocalCountryFile> & localFiles)
+{
+  string const customMapsPath = base::JoinPath(GetDataDirFullPath(dataDir), kCustomMapsDir);
+
+  if (!Platform::IsFileExistsByFullPath(customMapsPath) || !Platform::IsDirectory(customMapsPath))
+    return;
+
+  Platform::TFilesWithType versionDirs;
+  Platform::GetFilesByType(customMapsPath, Platform::EFileType::Directory, versionDirs);
+
+  for (auto const & versionDir : versionDirs)
+  {
+    string const & subdir = versionDir.first;
+    int64_t version;
+    // Custom maps use YYMMDD format for version directories
+    if (!ParseVersion(subdir, version))
+      continue;
+
+    string const versionPath = base::JoinPath(customMapsPath, subdir);
+
+    Platform::TFilesWithType files;
+    Platform::GetFilesByType(versionPath, Platform::EFileType::Regular, files);
+
+    for (auto const & file : files)
+    {
+      string name = file.first;
+      if (!name.ends_with(DATA_FILE_EXTENSION))
+        continue;
+
+      // Remove DATA_FILE_EXTENSION and use base name as a country file name.
+      base::GetNameWithoutExt(name);
+      localFiles.emplace_back(versionPath, CountryFile(std::move(name)), version);
+    }
+  }
+
+  LOG(LINFO, ("Found", localFiles.size(), "custom maps in", customMapsPath));
+}
+
 void FindAllLocalMapsAndCleanup(int64_t latestVersion, std::vector<LocalCountryFile> & localFiles)
 {
   FindAllLocalMapsAndCleanup(latestVersion, string(), localFiles);
@@ -224,6 +263,10 @@ void FindAllLocalMapsAndCleanup(int64_t latestVersion, string const & dataDir,
   for (auto const & fwt : fwts)
   {
     string const & subdir = fwt.first;
+    // Skip the custom_maps directory - it's processed separately
+    if (subdir == kCustomMapsDir)
+      continue;
+
     int64_t version;
     if (!ParseVersion(subdir, version) || version > latestVersion)
       continue;
@@ -236,6 +279,11 @@ void FindAllLocalMapsAndCleanup(int64_t latestVersion, string const & dataDir,
         LOG(LWARNING, ("Can't remove directory:", fullPath, err));
     }
   }
+
+  // Find custom maps in the custom_maps directory.
+  // Custom maps have higher priority and use future date versions (YYMMDD format).
+  // The storage will prefer the newest version when multiple versions exist.
+  FindAllCustomMaps(dataDir, localFiles);
 
   // Check for World and WorldCoasts in app bundle or in resources.
   Platform & platform = GetPlatform();

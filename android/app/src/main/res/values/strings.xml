@@ -997,4 +997,8 @@
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
+    <!-- Custom MWM file import messages -->
+    <string name="custom_mwm_import_success">Custom map imported successfully. Restart the app to load it.</string>
+    <string name="custom_mwm_import_invalid">Invalid MWM file. Please select a valid map file.</string>
+    <string name="custom_mwm_import_error">Failed to import the map file. Please try again.</string>
 </resources>

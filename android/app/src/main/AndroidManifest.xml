@@ -342,6 +342,60 @@
         <data android:mimeType="text/xml" />
       </intent-filter>
 
+      <!-- Custom MWM map files -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="content"/>
+        <data android:scheme="file"/>
+        <data android:host="*"/>
+        <data android:mimeType="*/*"/>
+        <!-- See http://stackoverflow.com/questions/3400072/pathpattern-to-match-file-extension-does-not-work-if-a-period-exists-elsewhere-i -->
+        <data android:pathPattern="/.*\\.mwm" />
+        <data android:pathPattern="/.*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+      </intent-filter>
+
+      <!-- Duplicate without mimeType for MWM files -->
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>
+        <category android:name="android.intent.category.DEFAULT"/>
+        <category android:name="android.intent.category.BROWSABLE"/>
+        <data android:scheme="content"/>
+        <data android:scheme="file"/>
+        <data android:host="*"/>
+        <data android:pathPattern="/.*\\.mwm" />
+        <data android:pathPattern="/.*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.mwm" />
+        <data android:pathPattern="/.*\\..*\\..*\\..*\\..*\\..*\\..*\\..*\\.MWM" />
+      </intent-filter>
+
     </activity>
 
     <activity

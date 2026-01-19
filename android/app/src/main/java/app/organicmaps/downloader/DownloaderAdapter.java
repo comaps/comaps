@@ -474,7 +474,16 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       {
         mName.setText(mItem.name);
         if (!mItem.isExpandable())
-          UiUtils.setTextAndHideIfEmpty(mSubtitle, mItem.description);
+        {
+          // Show version info for downloaded maps (in "My Maps" mode)
+          String subtitle = mItem.description;
+          if (mMyMapsMode && mItem.present && mItem.localVersion > 0)
+          {
+            String versionStr = formatVersion(mItem.localVersion);
+            subtitle = TextUtils.isEmpty(subtitle) ? "v" + versionStr : subtitle + " • v" + versionStr;
+          }
+          UiUtils.setTextAndHideIfEmpty(mSubtitle, subtitle);
+        }
       }
 
       if (mItem.isExpandable())
@@ -509,6 +518,21 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         size = ((!mSearchResultsMode && mMyMapsMode) ? mItem.size : mItem.totalSize);
       }
       return size;
+    }
+
+    /**
+     * Formats a version number (YYMMDD) into a readable date string (YY.MM.DD).
+     */
+    private String formatVersion(long version)
+    {
+      if (version <= 0)
+        return "";
+      String v = String.valueOf(version);
+      // Pad with leading zeros if needed
+      while (v.length() < 6)
+        v = "0" + v;
+      // Format as YY.MM.DD
+      return v.substring(0, 2) + "." + v.substring(2, 4) + "." + v.substring(4, 6);
     }
   }
 
