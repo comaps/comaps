@@ -934,13 +934,23 @@ void ApplyLineFeatureGeometry::ProcessRule(LineRuleProto const & lineRule)
     PathSymProto const & symRule = lineRule.pathsym();
     PathSymbolViewParams params;
     params.m_tileCenter = m_tileRect.Center();
-    params.m_depth = depth;
     params.m_rank = m_f.GetRank();
     params.m_symbolName = symRule.name();
     double const mainScale = df::VisualParams::Instance().GetVisualScale();
     params.m_offset = static_cast<float>(symRule.offset() * mainScale);
     params.m_step = static_cast<float>(symRule.step() * mainScale);
     params.m_baseGtoPScale = m_currentScaleGtoP;
+    if (ftypes::IsUnderBuildingChecker::Instance()(m_f))
+    {
+      params.m_depth = PriorityToDepth(lineRule.priority(), drule::symbol, 0);
+      params.m_depthLayer = DepthLayer::OverlayUnderBuildingLayer;
+      params.m_depthTestEnabled = false;
+    }
+    else
+    {
+      params.m_depth = depth;
+      params.m_depthLayer = DepthLayer::GeometryLayer;
+    }
 
     for (auto const & spline : m_clippedSplines)
       m_insertShape(make_unique_dp<PathSymbolShape>(spline, params));

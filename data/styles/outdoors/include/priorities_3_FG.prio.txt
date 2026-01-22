@@ -613,3 +613,6 @@ piste:type-snow_park                                # area z13- (also has captio
 
 man_made-bridge                                     # area z14-
 === 10
+
+natural-tree_row                                    # line z18-
+=== 5
