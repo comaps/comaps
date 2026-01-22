@@ -1415,6 +1415,9 @@ leisure-park-private                                # icon z14- (also has captio
 leisure-swimming_pool-private                       # icon z17- (also has caption(optional) z17-, area z13-)
 === 100
 
+natural-tree                                        # icon z16- (also has caption(optional) z16-)
+=== 6
+
 #
 # All automatic optional captions priorities are below 0.
 # They follow the order of their correspoding icons.
@@ -2479,8 +2482,8 @@ emergency-life_ring                                 # icon z19- (also has captio
 power-substation                                    # icon z17- (also has caption(optional) z18-, area z13-)
 === -9990
 
-natural-tree                                        # icon z16- (also has caption(optional) z16-)
-=== -9991
+# natural-tree                                      # caption(optional) z16- (also has icon z16-)
+# === -9994
 
 # amenity-bench                                     # caption(optional) z19- (also has icon z18-)
 # amenity-bench-backless                            # caption(optional) z19- (also has icon z18-)
@@ -2518,7 +2521,6 @@ entrance-service                                    # icon z19- (also has captio
 # man_made-survey_point                             # caption(optional) z15- (also has icon z14-)
 # man_made-telescope                                # caption(optional) z18- (also has icon z18-)
 # man_made-telescope-optical                        # caption(optional) z17- (also has icon z17-)
-# natural-tree                                      # caption(optional) z16- (also has icon z16-)
 # power-substation                                  # caption(optional) z18- (also has icon z17-, area z13-)
 # tourism-information                               # caption(optional) z15- (also has icon z15-)
 # tourism-information-board                         # caption(optional) z15- (also has icon z15-)

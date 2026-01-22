@@ -424,6 +424,7 @@ IsUnderBuildingChecker::IsUnderBuildingChecker()
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"natural", "tree"}));
+  m_types.push_back(c.GetTypeByPath({"natural", "tree_row"}));
 }
 
 IsIsolineChecker::IsIsolineChecker() : BaseChecker(1 /* level */)

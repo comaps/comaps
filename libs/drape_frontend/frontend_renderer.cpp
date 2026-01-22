@@ -1557,7 +1557,10 @@ void FrontendRenderer::RenderOverlayUnderBuildingLayer(ScreenBase const & modelV
   RenderLayer & overlay = m_layers[static_cast<size_t>(DepthLayer::OverlayUnderBuildingLayer)];
   BuildOverlayTree(modelView);
   for (drape_ptr<RenderGroup> & group : overlay.m_renderGroups)
+  {
+    group->SetOverlayVisibility(true);
     RenderSingleGroup(m_context, modelView, make_ref(group));
+  }
 }
 
 bool FrontendRenderer::HasTransitRouteData() const

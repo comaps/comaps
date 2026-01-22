@@ -207,6 +207,13 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
+line|z18-[natural=tree_row],
+{pattern-image: tree-m.svg;pattern-spacing: 30;}
+line|z19[natural=tree_row],
+{pattern-spacing: 44;}
+line|z20[natural=tree_row],
+{pattern-spacing: 72;}
+
 node|z17-[natural=tree][name],
 {icon-image: tree-special-m.svg;}
 node|z18-[natural=tree][!name],
