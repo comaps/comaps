@@ -204,6 +204,24 @@ public class PlacePageController
     });
 
     ViewCompat.requestApplyInsets(mPlacePage);
+    // if landscape then layout contains pp_bottom_container
+    final View ppBottomContainer = activity.findViewById(R.id.pp_bottom_container);
+    if (ppBottomContainer != null)
+    {
+      ViewCompat.setOnApplyWindowInsetsListener(ppBottomContainer, (v, insets) -> {
+        Insets horizontalInsets =
+            insets.getInsets(WindowInsetsCompat.Type.systemBars() | WindowInsetsCompat.Type.displayCutout());
+        v.setPadding(horizontalInsets.left, v.getPaddingTop(), horizontalInsets.right, 0);
+        return insets;
+      });
+    }
+    mPlacePage.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
+      if (top != oldTop)
+      {
+        mDistanceToTop = oldTop;
+        mViewModel.setPlacePageDistanceToTop(mDistanceToTop);
+      }
+    });
   }
 
   @NonNull

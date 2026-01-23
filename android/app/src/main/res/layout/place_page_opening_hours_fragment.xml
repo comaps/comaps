@@ -49,6 +49,17 @@
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
 
+  <ImageView
+    android:id="@+id/dropdown_icon"
+    android:layout_width="30dp"
+    android:layout_height="30dp"
+    android:layout_alignParentEnd="true"
+    android:layout_marginTop="1dp"
+    android:layout_marginEnd="@dimen/neg_margin_quarter"
+    app:srcCompat="@drawable/ic_down"
+    app:tint="?iconTint"
+    tools:visibility="visible" />
+
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rw__full_opening_hours"
     android:layout_width="0dp"
