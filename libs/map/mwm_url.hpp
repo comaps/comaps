@@ -1,7 +1,7 @@
 #pragma once
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-#include "map/everywhere_search_params.hpp"
+//#include "map/everywhere_search_params.hpp"
 #include "map/routing_mark.hpp"
 #endif
 
@@ -83,7 +83,7 @@ public:
 
   UrlType SetUrlAndParse(std::string const & url);
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-  UrlType ParseGeoNav(std::string const & raw, Framework & fm);
+  UrlType ParseGeoNav(std::string const & raw /*, Framework & fm*/);
 #endif
   UrlType GetRequestType() const { return m_requestType; }
   std::string const & GetGlobalBackUrl() const { return m_globalBackUrl; }
@@ -143,7 +143,7 @@ public:
 private:
   void ParseMapParam(std::string const & key, std::string const & value, bool & correctOrder);
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-  void SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type);
+  void SetRouteMark(std::string_view const raw, /*Framework & fm,*/ RouteMarkType const type);
 #endif
   void ParseRouteParam(std::string const & key, std::string const & value, std::vector<std::string_view> & pattern);
   void ParseSearchParam(std::string const & key, std::string const & value);

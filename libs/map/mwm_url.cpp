@@ -8,11 +8,11 @@
 #include "map/bookmark_manager.hpp"
 #include "map/framework.hpp"
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-#include "map/everywhere_search_params.hpp"
+//#include "map/everywhere_search_params.hpp"
 #include "map/routing_manager.hpp"
 #include "map/routing_mark.hpp"
 
-#include "search/result.hpp"
+//#include "search/result.hpp"
 #endif
 
 #include "ge0/geo_url_parser.hpp"
@@ -28,9 +28,9 @@
 #include "base/scope_guard.hpp"
 #include "base/string_utils.hpp"
 
-#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
+/*#if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
 #include <future>
-#endif
+#endif*/
 
 namespace url_scheme
 {
@@ -251,7 +251,7 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
 }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framework & fm)
+ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Framework & fm*/)
 {
   Reset();
   SCOPE_GUARD(guard, [this]
@@ -333,7 +333,7 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framewo
   return m_requestType = UrlType::Incorrect;
 }
 
-void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type)
+void ParsedMapApi::SetRouteMark(std::string_view const raw, /*Framework & fm,*/ RouteMarkType const type)
 {
   auto const tokens = strings::Tokenize(raw, ",");
   double lat;
@@ -342,12 +342,13 @@ void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, Rout
   if (tokens.size() != 2 || !strings::to_double(tokens[0], lat) || !strings::to_double(tokens[1], lon) ||
       !mercator::ValidLat(lat) || !mercator::ValidLon(lon))
   {
-    std::promise<void> signal;
+    LOG(LWARNING, ("Address route marks are not supported"))
+    /*std::promise<void> signal;
     std::future<void> future = signal.get_future();
 
     ::search::EverywhereSearchParams params{
         std::string(raw),
-        languages::GetMostPreferredLang(),
+        languages::GetCurrentMapLanguage(),
         {} /* timeout */,
         false,
         // m_onResults
@@ -363,7 +364,7 @@ void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, Rout
     }};
 
     fm.GetSearchAPI().SearchEverywhere(std::move(params));
-    future.wait();
+    future.wait();*/
   }
   else
   {

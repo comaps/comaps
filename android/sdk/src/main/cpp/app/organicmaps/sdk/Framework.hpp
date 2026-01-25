@@ -5,6 +5,7 @@
 #include "map/framework.hpp"
 #include "map/place_page_info.hpp"
 #include "map/power_management/power_manager.hpp"
+#include "map/routing_manager.hpp"
 
 #include "search/result.hpp"
 
@@ -116,7 +117,7 @@ public:
   RoutingManager & GetRoutingManager() { return m_work.GetRoutingManager(); }
   void SetRouter(routing::RouterType type) { m_work.GetRoutingManager().SetRouter(type); }
   routing::RouterType GetRouter() const { return m_work.GetRoutingManager().GetRouter(); }
-  routing::RouterType GetLastUsedRouter() const { return m_work.GetRoutingManager().GetLastUsedRouter(); }
+  routing::RouterType GetLastUsedRouter() const { return routing::GetLastUsedRouter(); }
 
   void Resize(JNIEnv * env, jobject jSurface, int w, int h);
 

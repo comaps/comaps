@@ -581,11 +581,6 @@ std::string GetCurrentMapLanguage()
   return languageCode;
 }
 
-std::string GetMostPreferredLang()
-{
-  return std::string(StringUtf8Multilang::GetLangByCode(GetPreferredLangIndexes()[0]));
-}
-
 std::vector<int8_t> GetPreferredLangIndexes()
 {
   std::vector<int8_t> langs = {};

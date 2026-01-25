@@ -27,7 +27,7 @@
       }
     }
 
-    if (_pStart && _pFinish) {
+    if (_pStart || _pFinish) {
       _type = routerType(parsedData.m_type);
     } else if (points.size() == 2) {
       _pStart = [[MWMRoutePoint alloc] initWithURLSchemeRoutePoint:points.front()
