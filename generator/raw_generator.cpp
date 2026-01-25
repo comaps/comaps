@@ -182,6 +182,7 @@ RawGenerator::FinalProcessorPtr RawGenerator::CreateCountryFinalProcessor(Affili
   auto finalProcessor = std::make_shared<CountryFinalProcessor>(affiliations, m_genInfo.m_tmpDir, m_threadsCount);
   finalProcessor->SetIsolinesDir(m_genInfo.m_isolinesDir);
   finalProcessor->SetAddressesDir(m_genInfo.m_addressesDir);
+  finalProcessor->SetPanoramaxDir(m_genInfo.m_panoramaxDir);
   finalProcessor->SetMiniRoundabouts(m_genInfo.GetIntermediateFileName(MINI_ROUNDABOUTS_FILENAME));
   finalProcessor->SetAddrInterpolation(m_genInfo.GetIntermediateFileName(ADDR_INTERPOL_FILENAME));
   if (addAds)

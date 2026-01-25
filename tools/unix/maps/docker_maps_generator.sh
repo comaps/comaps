@@ -13,6 +13,7 @@ mkdir -p /home/planet/postcodes/gb-postcode-data/
 mkdir -p /home/planet/postcodes/us-postcodes/
 mkdir -p /home/planet/SRTM-patched-europe/
 mkdir -p /home/planet/subway
+mkdir -p /home/planet/panoramax/countries/
 
 echo "<$(date +%T)> Running ./configure.sh ..."
 cd ~/comaps

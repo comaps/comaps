@@ -147,6 +147,8 @@ set(SRC
   osm_o5m_source.hpp
   osm_source.cpp
   osm_xml_source.hpp
+  panoramax_generator.cpp
+  panoramax_generator.hpp
   place_processor.cpp
   place_processor.hpp
   platform_helpers.cpp

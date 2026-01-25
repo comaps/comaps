@@ -114,6 +114,9 @@ public:
   bool HasApiUrl() const { return !m_apiUrl.empty(); }
   /// TODO: Support all possible Internet types in UI. @See MapObject::GetInternet().
   bool HasWifi() const { return GetInternet() == feature::Internet::Wlan; }
+  /// @returns true if Panoramax imagery is available within 50m.
+  bool HasPanoramax() const { return m_hasPanoramax; }
+  std::string const & GetPanoramaxUrl() const { return m_panoramaxUrl; }
   /// Should be used by UI code to generate cool name for new bookmarks.
   // TODO: Tune new bookmark name. May be add address or some other data.
   kml::LocalizableString FormatNewBookmarkName() const;
@@ -212,6 +215,13 @@ public:
   void SetSelectedObject(df::SelectionShape::ESelectedObject selectedObject) { m_selectedObject = selectedObject; }
   df::SelectionShape::ESelectedObject GetSelectedObject() const { return m_selectedObject; }
 
+  void SetPanoramax(bool hasPanoramax, std::string && imageId, std::string && url)
+  {
+    m_hasPanoramax = hasPanoramax;
+    m_panoramaxImageId = std::move(imageId);
+    m_panoramaxUrl = std::move(url);
+  }
+
 private:
   std::string FormatSubtitle(bool withTypes, bool withMainType) const;
   std::string GetBookmarkName();
@@ -257,6 +267,11 @@ private:
   std::string m_apiUrl;
   /// Formatted feature address for inner using.
   std::string m_address;
+
+  /// Panoramax
+  bool m_hasPanoramax = false;
+  std::string m_panoramaxImageId;
+  std::string m_panoramaxUrl;
 
   /// Routing
   RouteMarkType m_routeMarkType;

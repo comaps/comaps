@@ -121,6 +121,7 @@ US_POSTCODES_URL = ""
 SRTM_PATH = ""
 ISOLINES_PATH = ""
 ADDRESSES_PATH = ""
+PANORAMAX_PATH = ""
 
 # Stats section:
 STATS_TYPES_CONFIG = os.path.join(ETC_DIR, "stats_types_config.txt")
@@ -278,6 +279,7 @@ def init(default_settings_path: AnyStr):
     global SRTM_PATH
     global ISOLINES_PATH
     global ADDRESSES_PATH
+    global PANORAMAX_PATH
 
     PLANET_URL = cfg.get_opt_path("External", "PLANET_URL", PLANET_URL)
     PLANET_MD5_URL = cfg.get_opt_path("External", "PLANET_MD5_URL", md5_ext(PLANET_URL))
@@ -306,6 +308,7 @@ def init(default_settings_path: AnyStr):
     SRTM_PATH = cfg.get_opt_path("External", "SRTM_PATH", SRTM_PATH)
     ISOLINES_PATH = cfg.get_opt_path("External", "ISOLINES_PATH", ISOLINES_PATH)
     ADDRESSES_PATH = cfg.get_opt_path("External", "ADDRESSES_PATH", ADDRESSES_PATH)
+    PANORAMAX_PATH = cfg.get_opt_path("External", "PANORAMAX_PATH", PANORAMAX_PATH)
 
     # Stats section:
     global STATS_TYPES_CONFIG
