@@ -1,22 +1,23 @@
 package app.organicmaps.sdk.downloader;
 
 import android.os.AsyncTask;
-import android.util.Base64;
 import androidx.annotation.Keep;
 import app.organicmaps.sdk.util.Constants;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.sdk.util.log.Logger;
-import java.io.BufferedInputStream;
-import java.io.DataOutputStream;
+import okhttp3.CacheControl;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 // Used from JNI.
 @Keep
@@ -27,13 +28,6 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
 
   private static final int TIMEOUT_IN_SECONDS = 10;
 
-  private final long mHttpCallbackID;
-  private final String mUrl;
-  private final long mBeg;
-  private final long mEnd;
-  private final long mExpectedFileSize;
-  private byte[] mPostBody;
-
   private static final int IO_EXCEPTION = -1;
   private static final int WRITE_EXCEPTION = -2;
   private static final int INCONSISTENT_FILE_SIZE = -3;
@@ -41,6 +35,12 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
   private static final int INVALID_URL = -5;
   private static final int CANCELLED = -6;
 
+  private final long mHttpCallbackID;
+  private final String mUrl;
+  private final long mBeg;
+  private final long mEnd;
+  private final long mExpectedFileSize;
+  private final byte[] mPostBody;
   private long mDownloadedBytes;
 
   private static final Executor sExecutors = Executors.newFixedThreadPool(4);
@@ -106,7 +106,7 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
         }
         catch (final NumberFormatException ex)
         {
-          // Return -1 at the end of function
+          return -1;
         }
       }
     }
@@ -116,111 +116,84 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
   @Override
   protected Integer doInBackground(Void... p)
   {
-    HttpURLConnection urlConnection = null;
-    /*
-     * TODO improve reliability of connections & handle EOF errors.
-     * <a href="http://stackoverflow.com/questions/19258518/android-httpurlconnection-eofexception">asd</a>
-     */
+    OkHttpClient client = new OkHttpClient.Builder()
+        .connectTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+        .readTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+        .build();
 
     try
     {
-      final URL url = new URL(mUrl);
-      urlConnection = (HttpURLConnection) url.openConnection();
-
-      if (isCancelled())
-        return CANCELLED;
-
-      Android7RootCertificateWorkaround.applyFixIfNeeded(urlConnection);
-
-      urlConnection.setUseCaches(false);
-      urlConnection.setConnectTimeout(TIMEOUT_IN_SECONDS * 1000);
-      urlConnection.setReadTimeout(TIMEOUT_IN_SECONDS * 1000);
-
-      // Provide authorization credentials
-      String creds = url.getUserInfo();
-      if (creds != null)
-      {
-        String value = "Basic " + Base64.encodeToString(creds.getBytes(), Base64.DEFAULT);
-        urlConnection.setRequestProperty("Authorization", value);
-      }
-
-      // use Range header only if we don't download whole file from start
-      if (!(mBeg == 0 && mEnd < 0))
-      {
-        if (mEnd > 0)
-          urlConnection.setRequestProperty("Range", StringUtils.formatUsingUsLocale("bytes=%d-%d", mBeg, mEnd));
-        else
-          urlConnection.setRequestProperty("Range", StringUtils.formatUsingUsLocale("bytes=%d-", mBeg));
-      }
-
-      final Map<?, ?> requestParams = urlConnection.getRequestProperties();
+      // .addHeader("Connection", "close") is work-around for situation when more than
+      // one consequent POST requests can lead to stable
+      // "java.net.ProtocolException: Unexpected status line:" on a client and Nginx HTTP 499 errors.
+      // The only found reference to this bug is http://stackoverflow.com/a/24303115/1209392
+      Request.Builder requestBuilder = new Request.Builder()
+          .url(mUrl)
+          .cacheControl(new CacheControl.Builder().noStore().noCache().build())
+          .addHeader("Connection", "close");
 
       if (mPostBody != null)
       {
-        urlConnection.setDoOutput(true);
-        urlConnection.setFixedLengthStreamingMode(mPostBody.length);
-
-        final DataOutputStream os = new DataOutputStream(urlConnection.getOutputStream());
-        os.write(mPostBody);
-        os.flush();
-        mPostBody = null;
-        Utils.closeSafely(os);
+        requestBuilder = requestBuilder.post(RequestBody.create(mPostBody, null));
       }
 
-      if (isCancelled())
-        return CANCELLED;
-
-      final int err = urlConnection.getResponseCode();
-      if (err == HttpURLConnection.HTTP_NOT_FOUND)
-        return err;
-
-      // @TODO We can handle redirect (301, 302 and 307) here and display redirected page to user,
-      // to avoid situation when downloading is always failed by "unknown" reason
-      // When we didn't ask for chunks, code should be 200
-      // When we asked for a chunk, code should be 206
-      final boolean isChunk = !(mBeg == 0 && mEnd < 0);
-      if ((isChunk && err != HttpURLConnection.HTTP_PARTIAL) || (!isChunk && err != HttpURLConnection.HTTP_OK))
+      if (!(mBeg == 0 && mEnd < 0))
       {
-        // we've set error code so client should be notified about the error
-        Logger.w(TAG, "Error for " + urlConnection.getURL() + ": Server replied with code " + err
-                          + ", aborting download. " + Utils.mapPrettyPrint(requestParams));
-        return INCONSISTENT_FILE_SIZE;
+        if (mEnd > 0)
+          requestBuilder = requestBuilder.header("Range", StringUtils.formatUsingUsLocale("bytes=%d-%d", mBeg, mEnd));
+        else
+          requestBuilder = requestBuilder.header("Range", StringUtils.formatUsingUsLocale("bytes=%d-", mBeg));
       }
 
-      // Check for content size - are we downloading requested file or some router's garbage?
-      if (mExpectedFileSize > 0)
-      {
-        long contentLength = parseContentRange(urlConnection.getHeaderField("Content-Range"));
-        if (contentLength < 0)
-          contentLength = urlConnection.getContentLength();
+      Request request = requestBuilder.build();
 
-        // Check even if contentLength is invalid (-1), in this case it's not our server!
-        if (contentLength != mExpectedFileSize)
+      try (Response response = client.newCall(request).execute())
+      {
+        if (isCancelled())
+          return CANCELLED;
+
+        int err = response.code();
+        if (err == HttpURLConnection.HTTP_NOT_FOUND)
+          return err;
+
+       final boolean isChunk = !(mBeg == 0 && mEnd < 0);
+        if ((isChunk && err != HttpURLConnection.HTTP_PARTIAL) || (!isChunk && err != HttpURLConnection.HTTP_OK))
         {
           // we've set error code so client should be notified about the error
-          Logger.w(TAG, "Error for " + urlConnection.getURL() + ": Invalid file size received (" + contentLength
-                            + ") while expecting " + mExpectedFileSize + ". Aborting download.");
+          Logger.w(TAG, "Error for " + mUrl + ": Server replied with code " + err
+              + ", aborting download. Headers: " + request.headers());
           return INCONSISTENT_FILE_SIZE;
         }
-        // @TODO Else display received web page to user - router is redirecting us to some page
-      }
 
-      return downloadFromStream(new BufferedInputStream(urlConnection.getInputStream(), 128 * Constants.KB));
-    }
-    catch (final MalformedURLException ex)
-    {
-      Logger.e(TAG, "Invalid url: " + mUrl, ex);
-      return INVALID_URL;
+        // Check for content size - are we downloading requested file or some router's garbage?
+        if (mExpectedFileSize > 0)
+        {
+          long contentLength = parseContentRange(response.header("Content-Range"));
+          if (contentLength < 0)
+            contentLength = response.body().contentLength();
+
+          if (contentLength != mExpectedFileSize)
+          {
+            // we've set error code so client should be notified about the error
+            Logger.w(TAG, "Error for " + mUrl + ": Invalid file size received (" + contentLength + ") while expecting " + mExpectedFileSize + ". Aborting download.");
+            return INCONSISTENT_FILE_SIZE;
+          }
+          // @TODO Else display received web page to user - router is redirecting us to some page ?
+        }
+
+        try (ResponseBody responseBody = response.body())
+        {
+          try (InputStream stream = responseBody.byteStream())
+          {
+            return downloadFromStream(stream);
+          }
+        }
+      }
     }
     catch (final IOException ex)
     {
       Logger.d(TAG, "IOException in doInBackground for URL: " + mUrl, ex);
       return IO_EXCEPTION;
-    }
-    finally
-    {
-      if (urlConnection != null)
-        urlConnection.disconnect();
     }
   }
 
