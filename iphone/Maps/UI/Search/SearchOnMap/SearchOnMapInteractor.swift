@@ -4,6 +4,7 @@ final class SearchOnMapInteractor: NSObject {
   private let searchManager: SearchManager.Type
   private let routeManager: MWMRouter.Type
   private var isUpdatesDisabled = false
+  var autoSelectFirstResult = false
 
   var routingTooltipSearch: SearchOnMapRoutingTooltipSearch = .none
 
@@ -165,6 +166,10 @@ extension SearchOnMapInteractor: MWMSearchObserver {
     guard !isUpdatesDisabled, searchManager.searchMode() != .viewport else { return }
     let results = searchManager.getResults()
     presenter.process(.showResults(SearchOnMap.SearchResults(results), isSearchCompleted: true))
+    if autoSelectFirstResult, !results.isEmpty {
+      searchManager.showResult(at: 0)
+      autoSelectFirstResult = false
+    }
   }
 
   func onSearchResultsUpdated() {

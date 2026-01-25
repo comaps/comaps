@@ -134,8 +134,11 @@ void QuerySaver::Deserialize(string const & data)
       reader.Read(&locale[0], localeLength);
       Length stringLength = ReadPrimitiveFromSource<Length>(reader);
       vector<char> str(stringLength);
-      reader.Read(&str[0], stringLength);
-      m_topQueries.emplace_back(make_pair(string(&locale[0], localeLength), string(&str[0], stringLength)));
+      if (str.size() > 0)
+      {
+        reader.Read(&str[0], stringLength);
+        m_topQueries.emplace_back(make_pair(string(&locale[0], localeLength), string(&str[0], stringLength)));
+      }
     }
   }
 }

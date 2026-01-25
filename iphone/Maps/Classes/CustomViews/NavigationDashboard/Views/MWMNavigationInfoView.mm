@@ -193,7 +193,7 @@ BOOL defaultOrientation(CGSize const &size) {
     NSString * text = [kSearchButtonRequest.at(state) stringByAppendingString:@" "];
     NSString * locale = [[AppInfo sharedInfo] languageId];
     // Category request from navigation search wheel.
-    SearchQuery * query = [[SearchQuery alloc] init:text locale:locale source:SearchTextSourceCategory];
+    SearchQuery * query = [[SearchQuery alloc] init:text locale:locale source:SearchTextSourceCategory autoSelectFirstResult: false];
     [MWMSearch searchQuery:query];
     [self setSearchState:state animated:YES];
   };

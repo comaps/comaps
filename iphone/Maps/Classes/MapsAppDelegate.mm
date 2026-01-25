@@ -85,7 +85,8 @@ void InitLocalizedStrings() {
   }
   SearchQuery * query = [[SearchQuery alloc] init:[searchString stringByAppendingString:@" "]
                                            locale:[MWMSettings spotlightLocaleLanguageId]
-                                           source:SearchTextSourceDeeplink];
+                                           source:SearchTextSourceDeeplink
+                                           autoSelectFirstResult: false];
   [[MWMMapViewControlsManager manager] search:query];
 }
 

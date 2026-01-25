@@ -251,7 +251,7 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
 }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Framework & fm*/)
+ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framework & fm)
 {
   Reset();
   SCOPE_GUARD(guard, [this]
@@ -280,26 +280,18 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Fram
         return m_requestType = UrlType::Incorrect;
       }
 
-      if (addr)
-      {
-        m_searchRequest = SearchRequest();
-        m_searchRequest.m_query = *addr;
-        m_centerLatLon = {lat, lon};
-        return m_requestType = UrlType::Search;
-      }
-
-      else
-      {
-        m_centerLatLon = {lat, lon};
-        m_mapPoints.push_back({lat /* m_lat */, lon /* m_lon */, "" /* m_label */, "" /* m_id */, "" /* m_style */});
-        return m_requestType = UrlType::Map;
-      }
+      m_searchRequest = SearchRequest();
+      m_searchRequest.m_query = *latLon;
+      m_searchRequest.m_selectFirstResult = true;
+      m_centerLatLon = {lat, lon};
+      return m_requestType = UrlType::Search;
     }
 
     else if (addr)
     {
       m_searchRequest = SearchRequest();
       m_searchRequest.m_query = *addr;
+      m_searchRequest.m_selectFirstResult = true;
       return m_requestType = UrlType::Search;
     }
   }
@@ -308,9 +300,9 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Fram
   {
     auto const source = url.GetParamValue("source");
     auto const destination = url.GetParamValue("destination");
-
+    
     if (source)
-      SetRouteMark(*source, fm, RouteMarkType::Finish);
+      SetRouteMark(*source, fm, RouteMarkType::Start);
 
     if (url.GetParamValue("waypoint"))
       for (auto const & param : url.GetParams())
@@ -319,8 +311,8 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Fram
 
     if (destination)
       SetRouteMark(*destination, fm, RouteMarkType::Finish);
-
-    if (source || destination)
+    
+    if (destination)
     {
       m_routingType = routing::ToString(routing::GetLastUsedRouter());
 
@@ -333,7 +325,7 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw /*, Fram
   return m_requestType = UrlType::Incorrect;
 }
 
-void ParsedMapApi::SetRouteMark(std::string_view const raw, /*Framework & fm,*/ RouteMarkType const type)
+void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type)
 {
   auto const tokens = strings::Tokenize(raw, ",");
   double lat;
@@ -342,14 +334,14 @@ void ParsedMapApi::SetRouteMark(std::string_view const raw, /*Framework & fm,*/ 
   if (tokens.size() != 2 || !strings::to_double(tokens[0], lat) || !strings::to_double(tokens[1], lon) ||
       !mercator::ValidLat(lat) || !mercator::ValidLon(lon))
   {
-    LOG(LWARNING, ("Address route marks are not supported"))
+    LOG(LWARNING, ("Address route marks are not supported"));
     /*std::promise<void> signal;
     std::future<void> future = signal.get_future();
 
     ::search::EverywhereSearchParams params{
         std::string(raw),
         languages::GetCurrentMapLanguage(),
-        {} /* timeout */,
+        {},
         false,
         // m_onResults
         [this, type = std::move(type), &signal](::search::Results results, std::vector<::search::ProductInfo>)

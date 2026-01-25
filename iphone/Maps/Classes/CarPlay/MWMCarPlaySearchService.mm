@@ -33,13 +33,13 @@ API_AVAILABLE(ios(12.0))
   self.completionHandler = completionHandler;
   /// @todo Didn't find pure category request in CarPlay.
   [MWMSearch setSearchMode:SearchModeEverywhere];
-  SearchQuery * query = [[SearchQuery alloc] init:text locale:inputLocale source:SearchTextSourceTypedText];
+  SearchQuery * query = [[SearchQuery alloc] init:text locale:inputLocale source:SearchTextSourceTypedText autoSelectFirstResult: false];
   [MWMSearch searchQuery:query];
 }
 
 - (void)saveLastQuery {
   if (self.lastQuery != nil && self.inputLocale != nil) {
-    SearchQuery * query = [[SearchQuery alloc] init:self.lastQuery locale:self.inputLocale source:SearchTextSourceTypedText];
+    SearchQuery * query = [[SearchQuery alloc] init:self.lastQuery locale:self.inputLocale source:SearchTextSourceTypedText autoSelectFirstResult: false];
     [MWMSearch saveQuery:query];
   }
 }
