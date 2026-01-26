@@ -587,9 +587,9 @@ public:
   }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw, Framework & fm)
+  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw)
   {
-    return m_parsedMapApi.ParseGeoNav(raw, fm);
+    return m_parsedMapApi.ParseGeoNav(raw);
   }
 #endif
 

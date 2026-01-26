@@ -251,7 +251,7 @@ ParsedMapApi::UrlType ParsedMapApi::SetUrlAndParse(std::string const & raw)
 }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framework & fm)
+ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw)
 {
   Reset();
   SCOPE_GUARD(guard, [this]
@@ -302,15 +302,15 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framewo
     auto const destination = url.GetParamValue("destination");
     
     if (source)
-      SetRouteMark(*source, fm, RouteMarkType::Start);
+      SetRouteMark(*source, RouteMarkType::Start);
 
     if (url.GetParamValue("waypoint"))
       for (auto const & param : url.GetParams())
         if (param.first == "waypoint")
-          SetRouteMark(param.second, fm, RouteMarkType::Intermediate);
+          SetRouteMark(param.second, RouteMarkType::Intermediate);
 
     if (destination)
-      SetRouteMark(*destination, fm, RouteMarkType::Finish);
+      SetRouteMark(*destination, RouteMarkType::Finish);
     
     if (destination)
     {
@@ -325,7 +325,7 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw, Framewo
   return m_requestType = UrlType::Incorrect;
 }
 
-void ParsedMapApi::SetRouteMark(std::string_view const raw, Framework & fm, RouteMarkType const type)
+void ParsedMapApi::SetRouteMark(std::string_view const raw, RouteMarkType const type)
 {
   auto const tokens = strings::Tokenize(raw, ",");
   double lat;

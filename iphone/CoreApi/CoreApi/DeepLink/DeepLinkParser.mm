@@ -25,7 +25,7 @@ static inline DeeplinkUrlType deeplinkUrlType(url_scheme::ParsedMapApi::UrlType 
 + (DeeplinkUrlType)parseAndSetApiURL:(NSURL *)url {
   Framework &f = GetFramework();
   if ([url.scheme  isEqual: @"geo-navigation"]) {
-    return deeplinkUrlType(f.ParseGeoNav(url.absoluteString.UTF8String, f));
+    return deeplinkUrlType(f.ParseGeoNav(url.absoluteString.UTF8String));
   } else {
     return deeplinkUrlType(f.ParseAndSetApiURL(url.absoluteString.UTF8String));
   }
