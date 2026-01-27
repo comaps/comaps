@@ -1404,6 +1404,9 @@ leisure-park-private                                # icon z14- (also has captio
 leisure-swimming_pool-private                       # icon z17- (also has caption(optional) z17-, area z13-)
 === 100
 
+panoramax-image                                     # icon z16-
+=== 50
+
 #
 # All automatic optional captions priorities are below 0.
 # They follow the order of their correspoding icons.
