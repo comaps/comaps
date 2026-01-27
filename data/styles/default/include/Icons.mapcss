@@ -31,6 +31,10 @@ Generic POIs.
 Declare _before_ all concrete POIs to avoid styles overrides.
 */
 
+/* Panoramax street-level imagery points */
+node|z16-[panoramax=image],
+{icon-image: panoramax-m.svg; icon-min-distance: 8;}
+
 node|z18-[tourism],
 node|z18-[office],
 node|z18-[craft],
