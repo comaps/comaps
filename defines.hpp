@@ -111,6 +111,7 @@ auto constexpr TMP_OFFSETS_EXT = OFFSET_EXT EXTENSION_TMP;
 #define SKIPPED_ELEMENTS_FILE "skipped_elements.json"
 
 #define MAPCSS_MAPPING_FILE "mapcss-mapping.csv"
+#define SUBTYPES_FILE "subtypes.csv"
 #define REPLACED_TAGS_FILE "replaced_tags.txt"
 #define MIXED_TAGS_FILE "mixed_tags.txt"
 #define MIXED_NODES_FILE "mixed_nodes.txt"

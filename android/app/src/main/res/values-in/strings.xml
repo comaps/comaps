@@ -144,7 +144,7 @@
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Bagikan penanda CoMaps</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Memuat Penanda</string>
+    <string name="load_kmz_title">Memuat Tempat Favorit</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Penanda berhasil dimuat! Anda dapat menemukannya pada peta atau pada layar Pengelola Penanda Lokasi.</string>
     <!-- Kml file loading failed -->
@@ -160,7 +160,7 @@
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
     <string name="cant_change_this_setting">Maaf, pengaturan Penyimpanan Peta saat ini sedang non-aktif.</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">Pengunduhan negara sedang berjalan.</string>
+    <string name="downloading_is_active">Pengunduhan peta sedang berjalan</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hei, lihat lokasiku saat ini di CoMaps! %1$s atau %2$s belum memiliki peta offline? Unduh di sini: https://www.comaps.app/download/</string>
     <!-- Subject for emailed bookmark -->
@@ -212,7 +212,7 @@
     <!-- Settings «Route» category: «Test Voice Directions» title -->
     <string name="pref_tts_test_voice_title">Menguji petunjuk suara (TTS, Text-To-Speech)</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Periksa pengaturan volume atau pengaturan teks-ke-ucapan sistem jika anda tidak mendengar suara sekarang.</string>
+    <string name="pref_tts_playing_test_voice">Periksa pengaturan volume atau teks-ke-ucapan sistem jika Anda tidak mendengar suara</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Tidak Tersedia</string>
     <string name="pref_map_auto_zoom">Perbesar otomatis</string>
@@ -231,7 +231,7 @@
     <!-- Button in the main Help dialog -->
     <string name="faq">Pertanyaan dan jawaban</string>
     <!-- Button in the main menu -->
-    <string name="donate">Menyumbangkan</string>
+    <string name="donate">Donasi</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">Mendukung proyek</string>
     <!-- Button in the main Help dialog -->
@@ -258,7 +258,7 @@
     <string name="downloader_download_all_button">Unduh semua</string>
     <string name="downloader_downloading">Mengunduh:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Untuk menghapus peta, silakan hentikan navigasi.</string>
+    <string name="downloader_delete_map_while_routing_dialog">Untuk menghapus peta, silakan hentikan navigasi terlebih dahulu</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Rute hanya dapat dibuat dengan yang seluruhnya ada di dalam peta tunggal.</string>
     <!-- Context menu item for downloader. -->
@@ -272,7 +272,7 @@
     <!-- Preference title -->
     <string name="google_play_services">Layanan Lokasi Google Play</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Dengan cepat menentukan perkiraan lokasi Anda melalui Bluetooth, WiFi, atau jaringan seluler</string>
+    <string name="pref_use_google_play">Layanan berpemilik (proprietary) yang memadukan GPS, Wi-Fi, jaringan seluler, dsb. untuk menentukan lokasi Anda dengan lebih akurat. Layanan ini mungkin terhubung ke server Google.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
@@ -330,18 +330,18 @@
     <string name="dialog_routing_location_turn_on">Aktifkan layanan lokasi</string>
     <string name="dialog_routing_location_unknown_turn_on">TIdak dapat menemukan koordinat GPS saat ini. Aktifkan layanan lokasi untuk mengalkulasi rute.</string>
     <string name="dialog_routing_unable_locate_route">Tidak dapat menemukan rute</string>
-    <string name="dialog_routing_cant_build_route">Tidak dapat membuat rute.</string>
+    <string name="dialog_routing_cant_build_route">Tidak dapat membuat rute</string>
     <string name="dialog_routing_change_start_or_end">Sesuaikan titik mula atau tujuan Anda.</string>
     <string name="dialog_routing_change_start">Sesuaikan titik mula</string>
     <string name="dialog_routing_start_not_determined">Rute tidak dibuat. Tidak dapat menemukan titik mula.</string>
     <string name="dialog_routing_select_closer_start">Pilih titik mula yang lebih dekat dengan jalan.</string>
     <string name="dialog_routing_change_end">Sesuaikan tujuan</string>
     <string name="dialog_routing_end_not_determined">Rute tidak dibuat. Tidak dapat menemukan tujuan.</string>
-    <string name="dialog_routing_select_closer_end">Pilih titik tujuan yang lebih dekat dengan jalan.</string>
+    <string name="dialog_routing_select_closer_end">Mohon pilih titik tujuan yang lebih dekat dengan jalan</string>
     <string name="dialog_routing_change_intermediate">Tidak dapat menemukan titik antara.</string>
     <string name="dialog_routing_intermediate_not_determined">Harap sesuaikan titik antara Anda.</string>
     <string name="dialog_routing_system_error">Kesalahan sistem</string>
-    <string name="dialog_routing_application_error">Tidak dapat membuat rute karena kesalahan aplikasi.</string>
+    <string name="dialog_routing_application_error">Tidak dapat membuat rute karena kesalahan aplikasi</string>
     <string name="dialog_routing_try_again">Mohon coba lagi</string>
     <string name="not_now">Jangan Sekarang</string>
     <string name="dialog_routing_download_and_build_cross_route">Apakah Anda ingin mengunduh peta dan membuat rute yang lebih optimal yang meliputi lebih dari satu peta?</string>
@@ -359,13 +359,13 @@
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Unduh wilayah tempat Anda mencari atau coba tambahkan nama kota/desa terdekat.</string>
     <string name="search_history_title">Riwayat Pencarian</string>
-    <string name="search_history_text">Akses kueri pencarian terbaru dengan cepat.</string>
+    <string name="search_history_text">Lihat pencarian terakhir</string>
     <string name="clear_search">Bersihkan riwayat pencarian</string>
     <string name="p2p_your_location">Lokasi Anda</string>
     <string name="p2p_start">Mulai</string>
     <string name="p2p_from_here">Dari</string>
     <string name="p2p_to_here">Rute ke</string>
-    <string name="p2p_only_from_current">Navigasi tersedia hanya dari lokasi Anda saat ini.</string>
+    <string name="p2p_only_from_current">Navigasi hanya tersedia dari lokasi Anda saat ini</string>
     <string name="p2p_reroute_from_current">Apakah Anda ingin kami merencanakan sebuah rute dari lokasi Anda saat ini?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Berikut</string>
@@ -409,7 +409,7 @@
     <string name="not_signed_in">Belum masuk</string>
     <string name="login_osm">Masuk ke OpenStreetMap</string>
     <string name="logout">Keluar</string>
-    <string name="edit_place">Sunting tempat</string>
+    <string name="edit_place">Sunting Tempat</string>
     <string name="add_language">Tambahkan bahasa</string>
     <string name="street">Jalan</string>
     <!-- Editable House Number text field (in address block). -->
@@ -429,7 +429,7 @@
     <string name="downloader_update_maps">Perbarui peta</string>
     <string name="downloader_mwm_migration_dialog">Untuk membuat rute, Anda perlu memperbarui semua peta dan kemudian merencanakan rute tersebut lagi.</string>
     <string name="downloader_search_field_hint">Temukan peta</string>
-    <string name="common_check_internet_connection_dialog">Harap memeriksa pengaturan Anda dan pastikan perangkat Anda terhubung dengan internet.</string>
+    <string name="common_check_internet_connection_dialog">Pastikan perangkat Anda terhubung dengan internet</string>
     <string name="downloader_no_space_title">Tidak cukup ruang</string>
     <string name="downloader_no_space_message">Harap menghapus data yang tidak diperlukan</string>
     <string name="editor_login_error_dialog">Kesalahan masuk.</string>
@@ -493,7 +493,7 @@
     <string name="error_enter_correct_phone">Masukkan nomor telepon yang benar</string>
     <string name="error_enter_correct_web">Masukkan alamat web valid</string>
     <string name="error_enter_correct_email">Masukkan surel valid</string>
-    <string name="placepage_add_place_button">Menambahkan tempat ke OpenStreetMap</string>
+    <string name="placepage_add_place_button">Tambahkan tempat ke OpenStreetMap</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Apakah Anda ingin mengirimkannya ke semua pengguna?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
@@ -525,7 +525,7 @@
     <string name="feedback_general">Umpan Balik Umum</string>
     <string name="prefs_languages_information">Kami menggunakan TTS sistem untuk petunjuk suara. Banyak perangkat Android menggunakan Google TTS, Anda dapat mengunduhnya dari Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">Untuk beberapa bahasa, Anda perlu menginstal synthesizer suara atau paket bahasa tambahan dari toko aplikasi (Google Play, Galaxy Store, App Gallery, FDroid). \nBuka pengaturan perangkat Anda → Language and input (Bahasa dan input) → Speech (Suara) → Text to speech (Teks ke suara). \nDi sini, Anda dapat mengelola pengaturan untuk sintesis suara (contohnya, mengunduh paket bahasa untuk penggunaan tanpa internet) dan memilih mesin tekske suara lain.</string>
-    <string name="prefs_languages_information_off_link">Untuk informasi selengkapnya, bacalah panduan ini.</string>
+    <string name="prefs_languages_information_off_link">Untuk informasi selengkapnya, bacalah panduan ini</string>
     <string name="transliteration_title">Transliterasi ke dalam bahasa Latin</string>
     <string name="learn_more">Pelajari selengkapnya</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -754,7 +754,7 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">Untuk navigasi yang paling akurat, kami sarankan untuk menonaktifkan mode hemat daya dalam pengaturan baterai ponsel.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">Merekam jalur</string>
+    <string name="start_track_recording">Rekam Jalur</string>
     <!-- Prompt for stopping a track recording. -->
     <string name="stop_track_recording">Hentikan perekaman jalur</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
@@ -779,4 +779,5 @@
     <string name="panoramax">Gambar Panoramax</string>
     <string name="app_site_url">https://comaps.app/id/</string>
     <string name="saved">Disimpan</string>
+    <string name="offline_explanation_text">Peta perlu diunduh untuk melihat dan menavigasi area ini.\nUnduh peta untuk wilayah yang ingin Anda jelajahi.</string>
 </resources>

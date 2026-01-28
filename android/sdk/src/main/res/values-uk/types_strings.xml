@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Книгообмін</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Прийом вторсировини</string>
-    <string name="type.amenity.recycling">Контейнер для вторсировини</string>
     <string name="type.amenity.recycling.container">Контейнер для вторсировини</string>
     <string name="type.recycling.batteries">Батарейки</string>
     <string name="type.recycling.clothes">Одяг</string>
@@ -432,7 +431,6 @@
     <string name="type.highway.pedestrian.area">Пішохідна зона</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Міст</string>
-
     <string name="type.highway.pedestrian.square">Площа</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Тунель</string>
@@ -802,8 +800,6 @@
     <string name="type.public_transport">Громадський транспорт</string>
     <string name="type.railway">Залізниця</string>
     <string name="type.railway.abandoned">Закинута залізниця</string>
-    <string name="type.railway.abandoned.bridge">Закинутий залізничний міст</string>
-    <string name="type.railway.abandoned.tunnel">Закинутий залізничний тунель</string>
     <string name="type.railway.construction">Будівництво залізниці</string>
     <string name="type.railway.crossing">Пішохідний перехід</string>
     <string name="type.railway.disused">Недійсна залізниця</string>
@@ -1394,4 +1390,41 @@
     <string name="type.natural.wetland.tidalflat">Припливна мілина</string>
     <string name="type.railway.station.subway.qingdao">Станція метро</string>
     <string name="type.leisure.escape_game">Квест-кімната</string>
+    <string name="type.amenity.animal_shelter">Притулок для тварин</string>
+    <string name="type.lateral.port">Порт</string>
+    <string name="type.cardinal.east">Схід</string>
+    <string name="type.cardinal.north">Північ</string>
+    <string name="type.cardinal.south">Південь</string>
+    <string name="type.cardinal.west">Захід</string>
+    <string name="type.natural.tree">Дерево</string>
+    <string name="type.natural.sand">Пісок</string>
+    <string name="type.man_made.telescope">Телескоп</string>
+    <string name="type.leisure.sports_centre.sport.basketball">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.beachvolleyball">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.bowls">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.climbing">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.cricket">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.curling">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.equestrian">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.futsal">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.golf">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.gymnastics">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.handball">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.ice_hockey">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.padel">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.australian_football">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.badminton">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.baseball">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.pelota">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.scuba_diving">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.shooting">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.skateboard">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.skiing">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.soccer">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.table_tennis">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.tennis">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.volleyball">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.yoga">Спортивний центр</string>
+    <string name="type.leisure.fitness_centre.sport.yoga">Студія йоги</string>
 </resources>

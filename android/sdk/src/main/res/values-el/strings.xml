@@ -35,4 +35,12 @@
     <string name="mb">MB</string>
     <string name="mi">μι</string>
     <string name="today">Σήμερα</string>
+    <string name="yesterday">Χθες</string>
+    <string name="days_ago">%s μέρες πριν</string>
+    <string name="week_ago">%s εβδομάδα πριν</string>
+    <string name="weeks_ago">%s εβδομάδες πριν</string>
+    <string name="month_ago">%s μήνα πριν</string>
+    <string name="months_ago">%s μήνες πριν</string>
+    <string name="year_ago">%s χρόνο πριν</string>
+    <string name="years_ago">%s χρόνια πριν</string>
 </resources>

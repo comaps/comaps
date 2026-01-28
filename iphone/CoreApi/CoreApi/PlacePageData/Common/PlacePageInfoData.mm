@@ -32,7 +32,7 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
     dateFormatter = [[NSDateFormatter alloc] init];
     dateFormatter.dateFormat = @"yyyy-MM-dd";
     dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
+    dateFormatter.timeZone = [NSTimeZone localTimeZone];
   });
   
   return [dateFormatter dateFromString:dateString];

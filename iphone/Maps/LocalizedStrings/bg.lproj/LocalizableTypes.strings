@@ -128,7 +128,6 @@
 "type.amenity.pub" = "Кръчма";
 "type.amenity.public_bookcase" = "Книжен обмен";
 "type.amenity.recycling.centre" = "Преработвателно средище";
-"type.amenity.recycling" = "Кофи за преработваем отпадък";
 "type.amenity.recycling.container" = "Кофи за преработваем отпадък";
 "type.recycling.batteries" = "Батерии";
 "type.recycling.clothes" = "Дрехи";
@@ -888,8 +887,6 @@
 "type.public_transport.platform" = "Платформа";
 "type.railway" = "Железопътна линия";
 "type.railway.abandoned" = "Изоставена железопътна линия";
-"type.railway.abandoned.bridge" = "Изоставен железопътен мост";
-"type.railway.abandoned.tunnel" = "Изоставен железопътен тунел";
 "type.railway.construction" = "Строителство на железопътни линии";
 "type.railway.crossing" = "Железопътен прелез";
 "type.railway.disused" = "Неизползвана железопътна линия";
@@ -1488,3 +1485,4 @@
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.man_made.telescope" = "Телескоп";

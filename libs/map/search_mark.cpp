@@ -229,6 +229,7 @@ private:
         {{"amenity", "fuel"}, SearchMarkType::Fuel},
         {{"amenity", "charging_station"}, SearchMarkType::ChargingStation},
         {{"amenity", "charging_station", "bicycle"}, SearchMarkType::ChargingStation},
+        {{"amenity", "charging_station", "motorcycle"}, SearchMarkType::ChargingStation},
         {{"amenity", "charging_station", "motorcar"}, SearchMarkType::ChargingStation},
         {{"shop", "alcohol"}, SearchMarkType::ShopAlcohol},
         {{"shop", "beverages"}, SearchMarkType::ShopAlcohol},

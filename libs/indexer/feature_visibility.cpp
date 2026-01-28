@@ -5,6 +5,7 @@
 #include "indexer/feature.hpp"
 #include "indexer/feature_data.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 #include "indexer/scales.hpp"
 
 #include "base/assert.hpp"
@@ -135,6 +136,9 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
   if (IsUsefulStandaloneType(type, geomType))
     return true;
 
+  if (ftypes::Subtypes::Instance().IsTypeWithSubtypesOrSubtype(type))
+    return true;
+
   uint8_t const typeLevel = ftype::GetLevel(type);
   ftype::TruncValue(type, 1);
 
@@ -144,8 +148,6 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
         cl.GetTypeByPath({"internet_access"}),
         cl.GetTypeByPath({"toilets"}),
         cl.GetTypeByPath({"drinking_water"}),
-        cl.GetTypeByPath({"lateral"}),
-        cl.GetTypeByPath({"cardinal"}),
     };
     if (base::IsExist(arrTypes, type))
       return true;
@@ -155,7 +157,6 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
     {
       static uint32_t const arrTypes[] = {
           cl.GetTypeByPath({"organic"}),
-          cl.GetTypeByPath({"recycling"}),
           cl.GetTypeByPath({"wheelchair"}),
       };
       if (base::IsExist(arrTypes, type))

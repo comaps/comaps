@@ -8,7 +8,6 @@
   android:paddingStart="@dimen/margin_base"
   android:paddingEnd="@dimen/margin_base"
   android:gravity="center_vertical"
-  android:background="?clickableBackground"
   android:orientation="horizontal">
 
   <com.google.android.material.imageview.ShapeableImageView

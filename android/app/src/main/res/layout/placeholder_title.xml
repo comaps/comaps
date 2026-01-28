@@ -6,6 +6,7 @@
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
   android:layout_marginBottom="@dimen/margin_half_plus"
-  android:textAppearance="@style/MwmTextAppearance.Title.Toolbar"
+  android:textSize="@dimen/text_size_headline"
+  android:fontFamily="@string/robotoMedium"
   android:gravity="center_horizontal"
   tools:text="Some long long long placeholder title"/>

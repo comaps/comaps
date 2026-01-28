@@ -119,7 +119,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     if (RoutingController.get().isNavigating())
     {
-      new MaterialAlertDialogBuilder(adapter.mActivity, R.style.MwmTheme_AlertDialog)
+      new MaterialAlertDialogBuilder(adapter.mActivity)
           .setTitle(R.string.downloader_delete_map)
           .setMessage(R.string.downloader_delete_map_while_routing_dialog)
           .setPositiveButton(R.string.ok, null)
@@ -133,7 +133,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       return;
     }
 
-    new MaterialAlertDialogBuilder(adapter.mActivity, R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(adapter.mActivity)
         .setTitle(R.string.downloader_delete_map)
         .setMessage(R.string.downloader_delete_map_dialog)
         .setNegativeButton(R.string.cancel, null)

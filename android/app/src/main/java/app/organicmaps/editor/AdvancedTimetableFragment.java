@@ -53,7 +53,6 @@ public class AdvancedTimetableFragment extends BaseMwmFragment implements View.O
   public void onResume()
   {
     super.onResume();
-    refreshTimetables();
   }
 
   private void initViews(View view)

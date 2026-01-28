@@ -1,4 +1,6 @@
 #include "editor/xml_feature.hpp"
+
+#include "editor/feature_type_to_osm.hpp"
 #include "editor/keys_to_remove.hpp"
 
 #include "indexer/classificator.hpp"
@@ -640,36 +642,16 @@ void XMLFeature::RemoveTag(string_view key)
 
 void XMLFeature::SetOSMTagsForType(uint32_t type)
 {
-  if (ftypes::IsRecyclingCentreChecker::Instance()(type))
-  {
-    SetTagValue("amenity", "recycling");
-    SetTagValue("recycling_type", "centre");
-  }
-  else if (ftypes::IsRecyclingContainerChecker::Instance()(type))
-  {
-    SetTagValue("amenity", "recycling");
-    SetTagValue("recycling_type", "container");
-  }
-  else if (ftypes::IsAddressChecker::Instance()(type))
+  if (ftypes::IsAddressChecker::Instance()(type))
   {
     // Addresses don't have a category tag
+    return;
   }
-  else
-  {
-    string const strType = classif().GetReadableObjectName(type);
-    strings::SimpleTokenizer iter(strType, "-");
-    string_view const k = *iter;
 
-    if (++iter)
-    {
-      // Main type is stored as "k=amenity v=restaurant"
-      SetTagValue(k, *iter);
-    }
-    else {
-      // Main type is stored as "k=building v=yes"
-      SetTagValue(k, kYes);
-    }
-  }
+  std::vector<OSMTag> const & osmTags = GetOSMTranslator().OsmTagsFromType(type);
+
+  for (auto const & osmTag : osmTags)
+    SetTagValue(osmTag.key, osmTag.value);
 }
 
 void XMLFeature::UpdateOSMTag(std::string_view key, std::string_view value)

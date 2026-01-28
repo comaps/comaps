@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Bokhylle";
 "type.amenity.recycling.centre" = "Resirkuleringssenter";
-"type.amenity.recycling" = "Gjenvinningsbeholder";
 "type.amenity.recycling.container" = "Gjenvinningsbeholder";
 "type.recycling.batteries" = "Batterier";
 "type.recycling.clothes" = "Gamle klær";
@@ -152,7 +151,7 @@
 "type.amenity.shelter" = "Ly";
 
 /* A weather shelter by the public transport stop. */
-"type.amenity.shelter.public_transport" = "Ly";
+"type.amenity.shelter.public_transport" = "Leskur";
 
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivuakkhytte";
@@ -875,7 +874,7 @@
 "type.power.plant.gas" = "Gassturbinkraftverk";
 "type.power.plant.hydro" = "Vannkraftverk";
 "type.power.plant.solar" = "Solkraftverk";
-"type.power.plant.wind" = "Vindkraftverk";
+"type.power.plant.wind" = "Vindkraftpark";
 "type.power.substation" = "Trafo";
 
 /* A tower or pylon carrying high voltage electricity cables. */
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Plattform";
 "type.railway" = "Jernbane";
 "type.railway.abandoned" = "Nedlagt jernbane";
-"type.railway.abandoned.bridge" = "Nedlagt jernbanebru";
-"type.railway.abandoned.tunnel" = "Nedlagt jernbanetunnel";
 "type.railway.construction" = "Jernbanebygging";
 "type.railway.crossing" = "Jernbaneovergang";
 "type.railway.disused" = "Ubenyttet jernbane";
@@ -1236,7 +1233,7 @@
 "type.shop.health_food" = "Helsekostbutikk";
 "type.shop.hearing_aids" = "Høreapparatbutikk";
 "type.shop.herbalist" = "Urtebutikk";
-"type.shop.hifi" = "HiFi lyd";
+"type.shop.hifi" = "HiFi-butikk";
 "type.shop.houseware" = "Husholdningsbutikk";
 "type.shop.jewelry" = "Gullsmed";
 "type.shop.kiosk" = "Kiosk";
@@ -1275,8 +1272,8 @@
 "type.shop.travel_agency" = "Reisebyrå";
 "type.shop.tyres" = "Dekkforretning";
 "type.shop.variety_store" = "Billigbutikk";
-"type.shop.video" = "Videobutikken";
-"type.shop.video_games" = "Videospillbutikken";
+"type.shop.video" = "Videobutikk";
+"type.shop.video_games" = "Videospillbutikk";
 "type.shop.wine" = "Alkoholutsalg";
 "type.shop.agrarian" = "Landbruksbutikk";
 "type.shop.antiques" = "Antikviteter";
@@ -1375,7 +1372,7 @@
 "type.tourism.hotel" = "Hotell";
 "type.tourism.information" = "Turistinformasjon";
 "type.tourism.information.board" = "Informasjonstavle";
-"type.tourism.information.guidepost" = "Guidepost";
+"type.tourism.information.guidepost" = "Turskilt";
 "type.tourism.information.map" = "Turistkart";
 "type.tourism.information.office" = "Turistkontor";
 "type.tourism.information.visitor_centre" = "Besøkssenter";
@@ -1521,10 +1518,9 @@
 "type.leisure.sports_centre.sport.field_hockey" = "Sportssenter";
 "type.leisure.sports_centre.sport.bowls" = "Sportssenter";
 "type.leisure.bandstand" = "Musikkpaviljong";
-"type.amenity.charging_station.motorcar.small" = "Billadingspunkt";
 "type.shop.lighting" = "Lampebutikk";
 "type.leisure.sports_centre.sport.swimming" = "Svømmesenter";
-"type.amenity.bench.backless" = "Benk uten rygg";
+"type.amenity.bench.backless" = "Uten rygg";
 "type.man_made.telescope.radio" = "Teleskop (Radio)";
 "type.social_facility.food_bank" = "Matsentral";
 "type.social_facility.soup_kitchen" = "Suppekjøkken";
@@ -1546,3 +1542,4 @@
 "type.entrance.entry" = "Inngang (bare)";
 "type.man_made.mast.communication" = "Kommunikasjonsmast";
 "type.shop.beauty.nails" = "Neglesalong";
+"type.man_made.telescope.optical" = "Teleskop (Optisk)";

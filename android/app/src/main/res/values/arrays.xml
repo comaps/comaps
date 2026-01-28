@@ -27,9 +27,9 @@
     <item>type2_combo</item>
     <item>nacs</item>
     <item>chademo</item>
-    <item>type1</item>
-    <item>type2_cable</item>
     <item>type2</item>
+    <item>type2_cable</item>
+    <item>type1</item>
     <item>schuko</item>
     <item>unknown</item>
   </string-array>

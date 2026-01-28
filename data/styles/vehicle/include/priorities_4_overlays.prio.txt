@@ -170,16 +170,27 @@ aeroway-aerodrome-international                     # icon z7- (also has caption
 place-town                                          # caption z8-
 === 3250
 
+amenity-charging_station-small                      # icon z15- (also has caption(optional) z16-, area z15-)
+=== 3210
+
 amenity-charging_station-motorcar                   # icon z14- (also has caption(optional) z14-, area z15-)
 amenity-fuel                                        # icon z12- (also has caption(optional) z12-, area z15-)
 === 3200
 
-amenity-charging_station-motorcar-small             # icon z16- (also has caption(optional) z16-, area z15-)
-=== 3190
-
-amenity-charging_station                            # icon z16- (also has caption(optional) z16-)
 amenity-vending_machine-fuel                        # icon z17- (also has caption(optional) z17-)
+=== 3153
+
+amenity-charging_station-motorcycle                 # icon z16- (also has caption(optional) z16-, area z16-)
+=== 3152
+
+amenity-charging_station-bicycle                    # icon z16- (also has caption(optional) z16-, area z16-)
+=== 3151
+
+amenity-charging_station                            # icon z16- (also has caption(optional) z16-, area z16-)
 === 3150
+
+amenity-charging_station-carless                    # icon z16- (also has caption(optional) z16-, area z16-)
+=== 3149
 
 railway-station-subway-moscow                       # icon z11-15 (also has caption(optional) z15)
 railway-station-subway-spb                          # icon z11-16 (also has caption(optional) z15-16)
@@ -220,6 +231,7 @@ railway-level_crossing                              # icon z17-
 === 2700
 
 amenity-car_wash                                    # icon z17- (also has caption(optional) z17-, area z17-)
+amenity-recycling-centre                            # icon z16- (also has caption(optional) z16-, area z15-)
 amenity-vehicle_inspection                          # icon z17- (also has area z17-)
 amenity-vending_machine-parking_tickets             # icon z17- (also has caption(optional) z17-)
 shop-car_parts                                      # icon z17-
@@ -528,9 +540,6 @@ natural-beach-gravel                                # caption z15- (also has are
 natural-beach-sand                                  # caption z15- (also has area z10-)
 === 900
 
-amenity-charging_station-bicycle                    # icon z16- (also has caption(optional) z16-)
-=== 850
-
 historic-boundary_stone                             # icon z16- (also has caption(optional) z16-)
 historic-gallows                                    # icon z16- (also has caption(optional) z16-)
 historic-pillory                                    # icon z16- (also has caption(optional) z16-)
@@ -784,16 +793,27 @@ entrance-emergency                                  # icon z19- (also has captio
 # aeroway-aerodrome-international                   # caption(optional) z10- (also has icon z7-, area z10-)
 # === -6700
 
+# amenity-charging_station-small                    # caption(optional) z16- (also has icon z15-, area z15-)
+# === -6790
+
 # amenity-charging_station-motorcar                 # caption(optional) z14- (also has icon z14-, area z15-)
 # amenity-fuel                                      # caption(optional) z12- (also has icon z12-, area z15-)
 # === -6800
 
-# amenity-charging_station-motorcar-small           # caption(optional) z16- (also has icon z16-, area z15-)
-# === -6810
-
-# amenity-charging_station                          # caption(optional) z16- (also has icon z16-)
 # amenity-vending_machine-fuel                      # caption(optional) z17- (also has icon z17-)
+# === -6847
+
+# amenity-charging_station-motorcycle               # caption(optional) z16- (also has icon z16-, area z16-)
+# === -6848
+
+# amenity-charging_station-bicycle                  # caption(optional) z16- (also has icon z16-, area z16-)
+# === -6849
+
+# amenity-charging_station                          # caption(optional) z16- (also has icon z16-, area z16-)
 # === -6850
+
+# amenity-charging_station-carless                  # caption(optional) z16- (also has icon z16-, area z16-)
+# === -6851
 
 # railway-station-subway-moscow                     # caption(optional) z15 (also has icon z11-15)
 # railway-station-subway-spb                        # caption(optional) z15-16 (also has icon z11-16)
@@ -820,6 +840,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # === -7250
 
 # amenity-car_wash                                  # caption(optional) z17- (also has icon z17-, area z17-)
+# amenity-recycling-centre                          # caption(optional) z16- (also has icon z16-, area z15-)
 # amenity-vending_machine-parking_tickets           # caption(optional) z17- (also has icon z17-)
 # shop-car_repair-tyres                             # caption(optional) z15- (also has icon z15-)
 # tourism-camp_site                                 # caption(optional) z18- (also has icon z18-)
@@ -1055,9 +1076,6 @@ entrance-emergency                                  # icon z19- (also has captio
 
 # amenity-hospital                                  # caption(optional) z15- (also has icon z15-)
 # === -9000
-
-# amenity-charging_station-bicycle                  # caption(optional) z16- (also has icon z16-)
-# === -9150
 
 # historic-boundary_stone                           # caption(optional) z16- (also has icon z16-)
 # historic-gallows                                  # caption(optional) z16- (also has icon z16-)

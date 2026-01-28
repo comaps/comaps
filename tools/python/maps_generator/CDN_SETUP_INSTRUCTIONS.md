@@ -22,12 +22,25 @@ vim /etc/nginx/nginx.conf
         access_log /var/log/nginx/access.log comaps;
 ```
 
+if using Apache, try this:
+
+```
+    LogFormat "0.0.0.0 %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\"" comaps
+    CustomLog ${APACHE_LOG_DIR}/access.log comaps
+```
+
 ### set up monitoring:
 apt install goaccess
-edit /etc/goaccess/goaccess.conf and uncomment time-format %H:%M:%S, date-format %Y-%m-%d, log-format COMBINED
+edit /etc/goaccess/goaccess.conf and uncomment:
+- time-format %H:%M:%S
+- date-format %d/%b/%Y
+- log-format COMBINED
+
 vim /etc/crontab
 
 `*/5 *   * * *   root    /usr/bin/goaccess /var/log/nginx/access.log -o /var/www/html/monitor.html`
+
+or Apache: `*/5 *   * * *   root    /usr/bin/goaccess /var/log/apache2/access.log -o /var/www/html/monitor.html`
 
 ### set up basic http pages/responses:
 cd /var/www/html/

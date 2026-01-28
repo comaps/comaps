@@ -125,7 +125,6 @@
     <string name="type.amenity.public_bookcase">Knižná búdka</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Zberné suroviny</string>
-    <string name="type.amenity.recycling">Recyklačný kontajner</string>
     <string name="type.amenity.recycling.container">Recyklačný kontajner</string>
     <string name="type.recycling.batteries">Batérie</string>
     <string name="type.recycling.clothes">Staré oblečenie</string>

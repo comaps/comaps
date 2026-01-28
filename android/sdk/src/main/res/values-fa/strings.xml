@@ -11,7 +11,7 @@
     <string name="category_wifi">وای‌فای</string>
     <string name="postal_code">کد پستی</string>
     <!-- Place Page title for long tap -->
-    <string name="core_placepage_unknown_place">خَجَکِ نقشه</string>
+    <string name="core_placepage_unknown_place">خَجَک نقشه</string>
     <!-- abbreviation for meters -->
     <string name="m">متر</string>
     <!-- abbreviation for kilometers -->

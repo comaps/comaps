@@ -86,8 +86,6 @@ done
 
 rm -rf "$DATA_PATH"/symbols/*/design/
 
-# The styles designer is not used at the moment.
-# If enabled then remove design symbols from bundled android assets in android/sdk/src/main/assets/symbols
-# for i in ${symbols_name[*]}; do
-#   cp -r "$DATA_PATH"/symbols/"${i}"/light/ "$DATA_PATH"/symbols/"${i}"/design/
-# done
+for i in ${symbols_name[*]}; do
+  cp -r "$DATA_PATH"/symbols/"${i}"/light/ "$DATA_PATH"/symbols/"${i}"/design/
+done

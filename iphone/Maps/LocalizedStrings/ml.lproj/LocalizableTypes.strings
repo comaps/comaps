@@ -18,7 +18,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.recycling.centre" = "Recycling Center";
 "type.recycling.paper" = "Paper";
-"type.amenity.recycling" = "Recycling Container";
 "type.recycling.clothes" = "Clothes";
 "type.recycling.plastic_bottles" = "Plastic Bottles";
 "type.recycling.scrap_metal" = "Scrap Metal";
@@ -220,7 +219,6 @@
 "type.power.substation" = "Substation";
 "type.power.pole" = "Power Pole";
 "type.power.plant.solar" = "Solar Power Plant";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular" = "Funicular";
@@ -494,7 +492,6 @@
 "type.leisure.firepit" = "Firepit";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.power.plant" = "Power Plant";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
 "type.amenity.townhall" = "Town Hall";
 "type.building.has_parts" = "Building";
 "type.man_made" = "Man Made";
@@ -561,7 +558,6 @@
 "type.barrier.chain" = "Chain";
 "type.emergency" = "Emergency";
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 "type.highway.primary.tunnel" = "Tunnel";
 "type.historic.anchor" = "Historic Anchor";

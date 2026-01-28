@@ -130,6 +130,11 @@ The recommended approach for resolving conflicts is as follows:
 
 Using these steps all existing translations can still be kept and rebased into the repo, without losing work. The important bit is that you need to ensure that all translations are in the Weblate-internal git repository before you rebase, so that they get into the _actual_ Codeberg repo. 
 
+### Add support of new language in Android app
+1. Make sure Weblate has generated `strings.xml` for your language in this directory: [android/app/src/main/res/values\*/strings.xml][android_git]
+2. Add the language in `localeFilters` list in [build.gradle](https://codeberg.org/comaps/comaps/src/commit/e156d21eee7debd13ce9ec775cdcb264a97aad47/android/app/build.gradle#L258) (It's necessary to add the language in this file to be sure app translations and library translations are integrated in the app).
+3. Add the language in [locales_config.xml](https://codeberg.org/comaps/comaps/src/branch/main/android/app/src/main/res/xml/locales_config.xml) (It's necessary to allow users to change app language in Android settings on most recent devices).
+
 [codeberg_translate]: https://translate.codeberg.org/projects/comaps/
 [contribute]: https://docs.weblate.org/en/latest/workflows.html
 [android_weblate]: https://translate.codeberg.org/projects/comaps/android/

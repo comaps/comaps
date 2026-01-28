@@ -63,16 +63,16 @@
 "add_new_set" = "Créer une nouvelle liste";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nom du groupe de signets";
+"bookmark_set_name" = "Nom de la liste";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Groupes de signets";
+"bookmark_sets" = "Listes de favoris";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Signets";
+"bookmarks" = "Lieux";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Signets et traces";
+"bookmarks_and_tracks" = "Favoris";
 
 /* Default bookmark list name */
 "core_my_places" = "Mes endroits";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Aménagements pour camping-car";
-"share_bookmarks_email_body" = "Bonjour !\n\nVous trouverez ci-joint mes signets de l’appli CoMaps. Veuillez les ouvrir si vous avez installé CoMaps. Si vous ne l’avez pas, téléchargez l’application pour votre appareil iOS ou Android en suivant ce lien : https://www.comaps.app/download/\n\nBon voyage avec CoMaps !";
+"share_bookmarks_email_body" = "Bonjour !\n\nVous trouverez ci-joint les lieux que j'ai enregistrés ; veuillez les ouvrir dans CoMaps. Si vous ne l'avez pas installé, vous pouvez la télécharger ici : https://www.comaps.app/download/\n\nBon voyage avec CoMaps !";
 
 /* message title of loading file */
-"load_kmz_title" = "Chargement des signets";
+"load_kmz_title" = "Chargement des favoris";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Les signets ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l’écran du Gestionnaire de signets.";
+"load_kmz_successful" = "Vos favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l'écran Gestionnaire de favoris.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Échec lors du chargement des signets. Le fichier pourrait être corrompu ou défectueux.";
+"load_kmz_failed" = "Échec du chargement des favoris. Le fichier est peut-être corrompu ou défectueux.";
 
 /* resource for context menu */
 "edit" = "Modifier";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Erreur d’envoi de courriel";
 
-/* Settings item title */
-"pref_calibration_title" = "Étalonnage de la boussole";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Appuyez à nouveau longuement sur la carte pour voir l’interface";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "La création d’un itinéraire nécessite que toutes les cartes de votre localisation vers votre destination soient téléchargées et actualisées.";
 
 /* bookmark button text */
-"bookmark" = "signet";
+"bookmark" = "lieu";
 "save" = "Enregistrer";
 "create" = "Créer";
 
@@ -676,14 +673,14 @@
 "placepage_more_button" = "Plus";
 "book_button" = "Réserver";
 "placepage_call_button" = "Appeler";
-"placepage_edit_bookmark_button" = "Modifier le signet";
-"placepage_bookmark_name_hint" = "Nom du signet";
+"placepage_edit_bookmark_button" = "Modifier le lieu enregistré";
+"placepage_bookmark_name_hint" = "Nom du lieu";
 "placepage_personal_notes_hint" = "Notes personnelles (texte ou html)";
-"placepage_delete_bookmark_button" = "Supprimer le signet";
+"placepage_delete_bookmark_button" = "Supprimer le lieu";
 "editor_edits_sent_message" = "Ta note sera envoyée à OpenStreetMap";
 "editor_comment_hint" = "Commentaire…";
 "editor_reset_edits_message" = "Abandonner toutes les modifications locales ?";
-"editor_reset_edits_button" = "Ignorer";
+"editor_reset_edits_button" = "Annuler les modifications";
 "editor_remove_place_message" = "Supprimer le lieu ajouté ?";
 "editor_remove_place_button" = "Supprimer";
 "editor_place_doesnt_exist" = "Ce lieu n’existe pas";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "Créer une nouvelle liste";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importer des signets et des parcours";
+"bookmarks_import" = "Importer les favoris";
 "downloader_hide_screen" = "Masquer l’écran";
 "downloader_percent" = "%@ (%@ de %@)";
 "downloader_process" = "Téléchargement de %@…";
@@ -999,7 +996,7 @@
 "button_layer_outdoor" = "Randonnée";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Exporter tous les signets et toutes les traces";
+"bookmarks_export" = "Exporter tous les favoris";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Changer de couleur";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "Continuer l’enregistrement";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Enregistrer dans les signets et traces ?";
+"track_recording_alert_title" = "Enregistrer dans les favoris ?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "L’itinéraire est vide - il n’y a rien à enregistrer";

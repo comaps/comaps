@@ -21,30 +21,30 @@
     <!-- View and button titles for accessibility, please also edit it in iphone/plist.txt -->
     <string name="search">Zoeken</string>
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
-    <string name="search_map">Zoeken op de kaart</string>
+    <string name="search_map">Zoeken op kaart</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">U heeft momenteel alle locatieservices voor dit apparaat of deze app uitgeschakeld. Schakel ze in bij Instellingen.</string>
+    <string name="location_is_disabled_long_text">U heeft momenteel alle locatiediensten voor dit apparaat of deze app uitgeschakeld. Schakel ze in bij Instellingen.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Beperkte nauwkeurigheid</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Voor nauwkeurige navigatie moet Nauwkeurige Locatie worden ingesteld bij Instellingen</string>
+    <string name="precise_location_is_disabled_long_text">Voor nauwkeurige navigatie moet Nauwkeurige Locatie worden ingesteld in de instellingen</string>
     <!-- View and button titles for accessibility -->
-    <string name="zoom_to_country">Weergeven op de kaart</string>
+    <string name="zoom_to_country">Weergeven op kaart</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
     <string name="country_status_download_failed">Downloaden is mislukt</string>
     <!-- Button text for the button under the country_status_download_failed message -->
     <string name="try_again">Opnieuw proberen</string>
     <string name="about_menu_title">Over CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_headline">Open project, gemaakt door de community</string>
+    <string name="about_headline">Open project gedreven door de community</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• Gebruiksvriendelijk en gestroomlijnd</string>
+    <string name="about_proposition_1">• Gebruiksvriendelijk en afgewerkt</string>
     <!-- Text in About screen -->
     <string name="about_proposition_2">• Privacygericht en vrij van advertenties</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, snel en compact</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">Volledig open source, non-profit, transparante besluitvorming en financiering.</string>
+    <string name="about_developed_by_enthusiasts">Volledige open source, non-profit, transparante besluitvorming en financiering.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">Locatie-instellingen</string>
     <string name="close">Sluiten</string>
@@ -55,7 +55,7 @@
     <!-- Used in DownloadResources startup screen -->
     <string name="not_enough_free_space_on_sdcard">Maak eerst ruimte vrij op de SD-kaart/USB-opslag om de app te gebruiken</string>
     <string name="download_resources">Laten we, voor de eerste start, de algemene wereldkaart downloaden. \nDeze gebruikt %s aan opslag.</string>
-    <string name="download_resources_continue">Ga naar de kaart</string>
+    <string name="download_resources_continue">Ga naar kaart</string>
     <string name="downloading_country_can_proceed">%1$s (%2$s) downloaden. U kunt nu \ndoorgaan naar de kaart.</string>
     <string name="download_country_ask">%1$s downloaden? (%2$s)</string>
     <string name="update_country_ask">%1$s bijwerken? (%2$s)</string>
@@ -66,13 +66,13 @@
     <!-- Show popup notification on top of the map when country download has failed. -->
     <string name="download_country_failed">%s download is mislukt</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">Nieuwe groep toevoegen</string>
+    <string name="add_new_set">Nieuwe lijst toevoegen</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Naam van bladwijzergroep</string>
+    <string name="bookmark_set_name">Naam van lijst</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Bladwijzers</string>
+    <string name="bookmarks">Plaatsen</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Bladwijzers en sporen</string>
+    <string name="bookmarks_and_tracks">Favorieten</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Naam</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -96,7 +96,7 @@
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
     <string name="wait_several_minutes">Dit kan enkele minuten duren. \nEven geduld…</string>
     <!-- Measurement units title in settings activity -->
-    <string name="measurement_units">Afstandseenheid</string>
+    <string name="measurement_units">Eenheid van afstand</string>
     <!-- Detailed description of Measurement Units settings button -->
     <string name="measurement_units_summary">Kies tussen mijlen en kilometers</string>
     <!-- SECTION: Search categories -->
@@ -143,23 +143,23 @@
     <!-- Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type -->
     <string name="category_water">Water</string>
     <!-- Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! -->
-    <string name="category_rv">Caravanfaciliteiten</string>
+    <string name="category_rv">Camperfaciliteiten</string>
     <!-- SECTION: Other translations -->
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notities</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps bladwijzers zijn met u gedeeld</string>
-    <string name="share_bookmarks_email_body">Hallo! \n \nBijgesloten zijn mijn bladwijzers uit de CoMaps app. Open ze als je CoMaps geïnstalleerd hebt. Of, als je dat niet hebt, download de app voor je iOS- of Android-apparaat door deze link te volgen: https://www.comaps.app/download/ \n \nGeniet van het reizen met CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Mijn CoMaps Favorieten</string>
+    <string name="share_bookmarks_email_body">Hallo! \n \nBijgevoegd zijn mijn favorieten; te openen in CoMaps. Als u dit niet geïnstalleerd heeft, dan kunt u het hier downloaden: https://www.comaps.app/download/ \n \nGeniet van het reizen met CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Bladwijzers laden</string>
+    <string name="load_kmz_title">Favorieten laden</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Bladwijzers succesvol geladen! U vindt ze op de kaart of op het scherm van de Bladwijzerbeheerder.</string>
+    <string name="load_kmz_successful">Favorieten succesvol geladen! U vindt ze op de kaart of op het scherm Favorietenbeheer.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Bladwijzers laden is mislukt. Het bestand is mogelijk beschadigd of defect.</string>
+    <string name="load_kmz_failed">Favorieten laden is mislukt. Het bestand is mogelijk beschadigd.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Het bestandstype wordt niet herkend door de app: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
-    <string name="failed_to_open_file">Bestand openen mislukt %1$s \n \n%2$s</string>
+    <string name="failed_to_open_file">Bestand openen is mislukt %1$s \n \n%2$s</string>
     <!-- resource for context menu -->
     <string name="edit">Bewerken</string>
     <!-- Warning message when doing search around current position -->
@@ -498,10 +498,10 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Meer</string>
-    <string name="placepage_edit_bookmark_button">Bladwijzer bewerken</string>
+    <string name="placepage_edit_bookmark_button">Opgeslagen plaats bewerken</string>
     <string name="placepage_personal_notes_hint">Persoonlijke aantekeningen (tekst of html)</string>
     <string name="editor_reset_edits_message">Alle lokale wijzigingen weggooien?</string>
-    <string name="editor_reset_edits_button">Gooi weg</string>
+    <string name="editor_reset_edits_button">Wijzigingen weggooien</string>
     <string name="editor_remove_place_message">Toegevoegde locatie verwijderen?</string>
     <string name="editor_remove_place_button">Verwijder</string>
     <string name="editor_place_doesnt_exist">Locatie bestaat niet</string>
@@ -563,17 +563,17 @@
     <string name="dialog_error_storage_message">Externe opslag is niet beschikbaar, wellicht is de SD-kaart verwijderd, beschadigd of is het bestandssysteem alleen-lezen. Gelieve dit te controleren en ons te contacteren via support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Slechte opslag emuleren</string>
     <string name="error_enter_correct_name">Voer een geldige naam in</string>
-    <string name="bookmark_lists">Lijsten</string>
+    <string name="bookmark_lists">Favoriete lijsten</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Verberg alles</string>
     <string name="bookmark_lists_show_all">Toon alles</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bladwijzer</item>
-        <item quantity="other">%d bladwijzers</item>
+        <item quantity="one">%d opgeslagen plaats</item>
+        <item quantity="other">%d opgeslagen plaatsen</item>
     </plurals>
     <string name="bookmarks_create_new_group">Maak een nieuwe lijst</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Bladwijzers en sporen importeren</string>
+    <string name="bookmarks_import">Favorieten importeren</string>
     <string name="bookmarks_error_message_share_general">Delen is onmogelijk wegens een toepassingsfout</string>
     <string name="bookmarks_error_title_share_empty">Deelfout</string>
     <string name="bookmarks_error_message_share_empty">Een lege lijst kan niet gedeeld worden</string>
@@ -602,7 +602,7 @@
     <string name="subway">Metro</string>
     <string name="layers_title">Kaartstijlen en -lagen</string>
     <string name="bookmarks_empty_list_title">Deze lijst is leeg</string>
-    <string name="bookmarks_empty_list_message">Om een bladwijzer toe te voegen, tikt u op een plaats op de kaart en vervolgens op het sterpictogram</string>
+    <string name="bookmarks_empty_list_message">Om een plaats op te slaan, tikt u op een plaats op de kaart en vervolgens op het sterpictogram</string>
     <string name="category_desc_more">…meer</string>
     <string name="export_file">Exporteer KMZ</string>
     <string name="export_file_gpx">Exporteer GPX</string>
@@ -655,7 +655,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sorteer…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sorteer bladwijzers</string>
+    <string name="sort_bookmarks">Favorieten sorteren</string>
     <!-- Android -->
     <string name="by_default">Standaard</string>
     <!-- Android -->
@@ -773,7 +773,7 @@
     <string name="browser_not_available">Webbrowser is niet beschikbaar</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Alle bladwijzers en sporen exporteren</string>
+    <string name="bookmarks_export">Alle plaatsen en sporen exporteren</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Instellingen spraaksynthesesysteem</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -805,7 +805,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Opname voortzetten</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Opslaan in bladwijzers en sporen?</string>
+    <string name="track_recording_alert_title">Opslaan in Favorieten?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Spoor is leeg - niets op te slaan</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -838,24 +838,24 @@
     <string name="pedestrian">Voetganger</string>
     <string name="ruler">Lineaal</string>
     <string name="about_help">Over &amp; help</string>
-    <string name="bookmark_color">Bladwijzer kleur</string>
+    <string name="bookmark_color">Kleur voor favoriet</string>
     <string name="backup_interval_every_day">Dagelijks</string>
     <string name="backup_interval_manual_only">Uit (alleen handmatig)</string>
-    <string name="pref_backup_title">Back-up van bladwijzers en sporen</string>
+    <string name="pref_backup_title">Back-up maken van favorieten</string>
     <string name="pref_backup_summary">Automatisch back-up maken naar een map op je apparaat</string>
-    <string name="pref_backup_now_title">Nu back-uppen</string>
-    <string name="pref_backup_now_summary">Maak onmiddellijk een back-up</string>
-    <string name="pref_backup_now_summary_progress">Bezig met het maken van back-up…</string>
-    <string name="pref_backup_now_summary_ok">Back-up succesvol voltooid</string>
-    <string name="pref_backup_now_summary_empty_lists">Geen bladwijzers en sporen voor een back-up</string>
+    <string name="pref_backup_now_title">Nu back-up maken</string>
+    <string name="pref_backup_now_summary">Onmiddellijk een back-up maken</string>
+    <string name="pref_backup_now_summary_progress">Bezig met back-up maken…</string>
+    <string name="pref_backup_now_summary_ok">Back-up met succes voltooid</string>
+    <string name="pref_backup_now_summary_empty_lists">Geen plaatsen en sporen voor een back-up</string>
     <string name="pref_backup_status_summary_success">Laatste succesvolle back-up</string>
     <string name="pref_backup_interval_title">Automatische back-up</string>
-    <string name="pref_backup_location_title">Back-up locatie</string>
-    <string name="pref_backup_now_summary_failed">Backup mislukt</string>
+    <string name="pref_backup_location_title">Back-uplocatie</string>
+    <string name="pref_backup_now_summary_failed">Backup is mislukt</string>
     <string name="pref_backup_history_title">Aantal back-ups om te bewaren</string>
     <string name="dialog_report_error_missing_folder">De geselecteerde back-uplocatie is niet beschikbaar of niet beschrijfbaar. Kies een andere locatie.</string>
     <string name="backup_interval_every_week">Wekelijks</string>
-    <string name="pref_backup_now_summary_folder_unavailable">De back-up map is niet beschikbaar</string>
+    <string name="pref_backup_now_summary_folder_unavailable">De back-upmap is niet beschikbaar</string>
     <string name="panoramax">Panoramax-afbeelding</string>
     <string name="pref_backup_location_summary_initial">Selecteer eerst een map en geef toestemming</string>
     <string name="pref_left_button_title">Linkerknop configuratie</string>
@@ -915,4 +915,11 @@
     <string name="place_page_app_too_old_description">Uw huidige kaartgegevens zijn erg oud. Update de CoMaps-app.</string>
     <string name="place_page_update_too_old_map">Kaart regio bijwerken</string>
     <string name="place_page_too_old_to_edit">Het bewerken van OpenStreetMap is uitgeschakeld omdat de kaartgegevens te oud zijn.</string>
+    <string name="advanced">Geavanceerd</string>
+    <string name="download_resources_custom_url_title">Aangepaste server voor kaarten</string>
+    <string name="download_resources_custom_url_message">Overschrijf de standaard kaartdownloadserver die wordt gebruikt voor kaartdownloads. Laat leeg om de standaardserver van CoMaps te gebruiken.</string>
+    <string name="download_resources_custom_url_summary_none">Niet ingesteld</string>
+    <string name="download_resources_custom_url_error_scheme">Voer een URL in beginnend met http:// of https://</string>
+    <string name="pref_maplanguage_local">Plaatselijke taal</string>
+    <string name="limit_map_language_alternatives_to_local">Gebruik alleen andere systeemtalen in hun regio</string>
 </resources>

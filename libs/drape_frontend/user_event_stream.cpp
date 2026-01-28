@@ -31,8 +31,8 @@ namespace df
 {
 namespace
 {
-uint64_t constexpr kDoubleTapPauseMs = 250;
-uint64_t constexpr kLongTouchMs = 500;
+uint64_t constexpr kDoubleTapPauseMs = 220;
+uint64_t constexpr kLongTouchMs = 700;
 uint64_t constexpr kKineticDelayMs = 500;
 
 float constexpr kForceTapThreshold = 0.75;

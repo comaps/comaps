@@ -62,11 +62,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Направи нову листу</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Назив листе маркера</string>
+    <string name="bookmark_set_name">Назив листе</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Маркери</string>
+    <string name="bookmarks">Места</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Маркери и путање</string>
+    <string name="bookmarks_and_tracks">Маркери</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Назив</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -142,8 +142,8 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Напомене</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps маркери су подељени са вама</string>
-    <string name="share_bookmarks_email_body">Здраво! \n \nУ прилогу су моји маркери; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!</string>
+    <string name="share_bookmarks_email_subject">CoMaps фаворити</string>
+    <string name="share_bookmarks_email_body">Здраво! \n \nУ прилогу су моји фаворити; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Учитавање маркера</string>
     <!-- Kmz file successful loading -->
@@ -492,9 +492,9 @@
     <string name="minute">мин</string>
     <string name="day">д</string>
     <string name="placepage_more_button">Више</string>
-    <string name="placepage_edit_bookmark_button">Измени маркер</string>
+    <string name="placepage_edit_bookmark_button">Измени место</string>
     <string name="editor_reset_edits_message">Брисање свих измена које нису послате?</string>
-    <string name="editor_reset_edits_button">Обриши</string>
+    <string name="editor_reset_edits_button">Одбаци промене</string>
     <string name="editor_remove_place_message">Брисање додатог места?</string>
     <string name="editor_remove_place_button">Обриши</string>
     <string name="editor_place_doesnt_exist">Место не постоји</string>
@@ -556,18 +556,18 @@
     <string name="dialog_error_storage_message">Екстерна меморија није доступна. SD картица је можда уклоњена, оштећена, или је фајл систем само за читање. Молим Вас, проверите Вашу SD картицу или нас контактирајте на support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Симулирај неисправну меморију</string>
     <string name="error_enter_correct_name">Молим Вас да унесете исправан назив</string>
-    <string name="bookmark_lists">Листе</string>
+    <string name="bookmark_lists">Листе фаворита</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Сакриј све</string>
     <string name="bookmark_lists_show_all">Прикажи све</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d маркер</item>
-        <item quantity="few">%d маркера</item>
-        <item quantity="other">%d маркера</item>
+        <item quantity="one">%d фаворит</item>
+        <item quantity="few">%d фаворита</item>
+        <item quantity="other">%d фаворита</item>
     </plurals>
     <string name="bookmarks_create_new_group">Креирај нову листу</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Увези маркере и путање</string>
+    <string name="bookmarks_import">Увези маркере</string>
     <string name="bookmarks_error_message_share_general">Дељење није могуће због грешке у апликацији</string>
     <string name="bookmarks_error_title_share_empty">Грешка приликом дељења</string>
     <string name="bookmarks_error_message_share_empty">Не може се поделити празна листа</string>
@@ -598,7 +598,7 @@
     <string name="subway">Метро</string>
     <string name="layers_title">Стилови мапе и слојеви</string>
     <string name="bookmarks_empty_list_title">Ова листа је празна</string>
-    <string name="bookmarks_empty_list_message">Да бисте додали маркер, кратко додирните место на мапи, а онда додирните иконицу са звездом</string>
+    <string name="bookmarks_empty_list_message">Да бисте додали место, кратко додирните место на мапи, а онда додирните иконицу са звездом</string>
     <string name="category_desc_more">…више</string>
     <string name="export_file">Експортуј KMZ</string>
     <string name="export_file_gpx">Експортуј GPX</string>
@@ -651,7 +651,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Сортирање…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Сортирање маркера</string>
+    <string name="sort_bookmarks">Сортирање фаворита</string>
     <!-- Android -->
     <string name="by_default">Подразумевано</string>
     <!-- Android -->
@@ -757,7 +757,7 @@
     <string name="browser_not_available">Веб читач није доступан</string>
     <string name="volume">Јачина звука</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Експортуј све маркере и путање</string>
+    <string name="bookmarks_export">Експортуј све места и путање</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Системска подешавања синтезе говора</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -789,7 +789,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Настави снимање</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Сачувати у маркерима и путањама?</string>
+    <string name="track_recording_alert_title">Сачувати у маркерима?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Путања је празна, нема шта да се сачува</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -834,7 +834,7 @@
     <string name="route_type">Тип руте</string>
     <string name="pedestrian">Пешак</string>
     <string name="ruler">Лењир</string>
-    <string name="bookmark_color">Колор маркера</string>
+    <string name="bookmark_color">Боја фаворита</string>
     <string name="vehicle">Возило</string>
     <string name="about_help">О програму и помоћ</string>
     <string name="panoramax">Panoramax Picture</string>
@@ -855,8 +855,8 @@
     <string name="dialog_report_error_with_logs">Молимо вас, пошаљите нам поруку о грешци:\n- \"Омогући вођење дневника\" у подешавањима\n- репродукујте проблем\n- на екрану \"О програму и помоћ\" кликните на дугме \"Пријави грешку\" и пошаљите на е-маил или чат\n- онемогући вођење дневника</string>
     <string name="dialog_report_error_missing_folder">Изабрана локација резервне копије није доступна за снимање. Молимо вас, одаберите друго место.</string>
     <string name="pref_backup_interval_title">Аутоматска резервна копија</string>
-    <string name="pref_backup_now_summary_empty_lists">Нема маркера и путања за израду резервне копије</string>
-    <string name="pref_backup_title">Чување маркера и путања</string>
+    <string name="pref_backup_now_summary_empty_lists">Нема места и путања за израду резервне копије</string>
+    <string name="pref_backup_title">Чување фаворита</string>
     <string name="closed_now">Затворено сада</string>
     <string name="open_now">Сада је отворено</string>
     <string name="at">на %s</string>
@@ -904,4 +904,21 @@
     <string name="editor_mark_business_vacant_title">Означи пословни простор као празан</string>
     <string name="editor_mark_business_vacant_description">Користите да бисте назначили да се фирма иселила и да је пословни простор празан и спреман да прими новог закупца.</string>
     <string name="editor_submit">Пошаљи</string>
+    <string name="place_page_map_too_old_title">Мапе су застареле</string>
+    <string name="place_page_map_too_old_description">Мапе су старе, преузмите нове.</string>
+    <string name="place_page_app_too_old_description">Мапе су веома старе, преузмите нову везију CoMaps апликације.</string>
+    <string name="place_page_update_too_old_map">Ажурирање регионалних мапа</string>
+    <string name="place_page_too_old_to_edit">Уређивање OpenStreetMap-а је онемогућено јер су подаци мапе сувише стари.</string>
+    <string name="prefs_speed_cameras_information">Упозорења о прекршајним камерама за брзину су онемогућена у земљама у којима су упозорења забрањена законом.</string>
+    <string name="power_management">Управљање напајањем</string>
+    <string name="navigation_start_tts_message">"Покретање навигације, језик гласовних инструкција: "</string>
+    <string name="navigation_start_tts_disabled_message">Гласовне инструкције онемогућене: ТТС мотор није доступан</string>
+    <string name="charge_socket_schuko">Шухо</string>
+    <string name="advanced">Напредно</string>
+    <string name="download_resources_custom_url_title">Сопствени сервер мапа</string>
+    <string name="download_resources_custom_url_message">Замени подразумевани сервер за преузимање мапа који се користи за преузимања мапа. Оставите празно да бисте користили CoMaps сервер.</string>
+    <string name="download_resources_custom_url_summary_none">Није постављено</string>
+    <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
+    <string name="pref_maplanguage_local">Локални језик</string>
+    <string name="limit_map_language_alternatives_to_local">Ограничите алтернативне језике на локалне</string>
 </resources>

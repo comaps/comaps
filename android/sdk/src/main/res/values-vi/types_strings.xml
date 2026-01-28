@@ -117,7 +117,6 @@
     <string name="type.amenity.public_bookcase">Kệ sách</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Trung tâm tái sinh</string>
-    <string name="type.amenity.recycling">Thùng rác</string>
     <string name="type.amenity.recycling.container">Thùng rác</string>
     <string name="type.recycling.batteries">Ắc quy</string>
     <string name="type.recycling.clothes">Quần áo cũ</string>

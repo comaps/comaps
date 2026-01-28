@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grillstelle";
 "type.amenity.bench" = "Sitzbank";
-"type.amenity.bench.backless" = "Sitzbank ohne Rückenlehne";
+"type.amenity.bench.backless" = "Ohne Rückenlehne";
 "type.amenity.bicycle_parking" = "Fahrradständer";
 "type.amenity.boat_rental" = "Bootsverleih";
 "type.amenity.bicycle_rental" = "Fahrradverleih";
@@ -43,9 +43,10 @@
 "type.leisure.adult_gaming_centre" = "Spielhalle für Erwachsene";
 "type.leisure.amusement_arcade" = "Spielhalle für Unterhaltungsspiele";
 "type.amenity.charging_station" = "Ladestation";
-"type.amenity.charging_station.bicycle" = "Fahrrad-Ladestation";
-"type.amenity.charging_station.motorcar" = "Kfz-Ladestation";
-"type.amenity.charging_station.motorcar.small" = "Kfz-Ladestation";
+"type.amenity.charging_station.motorcar" = "Autos";
+"type.amenity.charging_station.motorcycle" = "Motorräder";
+"type.amenity.charging_station.bicycle" = "Fahrräder";
+"type.amenity.charging_station.small" = "Begrenzte Kapazität";
 "type.amenity.childcare" = "Kindertagesstätte";
 "type.amenity.cinema" = "Kino";
 "type.leisure.bowling_alley" = "Bowlingbahn";
@@ -132,8 +133,7 @@
 "type.amenity.prison" = "Gefängnis";
 "type.amenity.pub" = "Kneipe";
 "type.amenity.public_bookcase" = "Bücherschrank";
-"type.amenity.recycling.centre" = "Recyclinghof";
-"type.amenity.recycling" = "Wertstoffcontainer";
+"type.amenity.recycling.centre" = "Recyclingzentrum";
 "type.amenity.recycling.container" = "Wertstoffcontainer";
 "type.recycling.batteries" = "Batterien";
 "type.recycling.clothes" = "Altkleider";
@@ -162,7 +162,7 @@
 "type.amenity.shelter.basic_hut" = "Biwakschachtel";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Lean-to Wetterschutz";
+"type.amenity.shelter.lean_to" = "Lean-to Schlafschutz";
 "type.amenity.public_bath" = "Öffentliches Bad";
 "type.amenity.shower" = "Dusche";
 "type.amenity.stripclub" = "Stripclub";
@@ -360,7 +360,9 @@
 "type.cuisine.vietnamese" = "Vietnamesisch";
 "type.emergency" = "Notfall";
 "type.emergency.access_point" = "Rettungspunkt";
+"type.emergency.access_point.address" = "Rettungsadresse";
 "type.emergency.assembly_point" = "Notfall-Sammelpunkt";
+"type.emergency.disaster_help_point" = "Notfall-Treffpunkt";
 "type.emergency.life_ring" = "Rettungsring";
 "type.emergency.defibrillator" = "Defibrillator";
 "type.emergency.fire_hydrant" = "Hydrant";
@@ -397,10 +399,10 @@
 "type.spherical_buoy.special_purpose" = "Kugelförmige Spezialboje";
 "type.lateral.port" = "Backbord";
 "type.lateral.starboard" = "Steuerbord";
-"type.cardinal.east" = "Ost";
-"type.cardinal.north" = "Nord";
-"type.cardinal.south" = "Süd";
-"type.cardinal.west" = "West";
+"type.cardinal.east" = "Osten";
+"type.cardinal.north" = "Norden";
+"type.cardinal.south" = "Süden";
+"type.cardinal.west" = "Westen";
 
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Bergrettungsstation";
@@ -466,13 +468,13 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Fußgängertunnel";
 "type.highway.ford" = "Furt";
-"type.highway.living_street" = "Spielstraße";
+"type.highway.living_street" = "Verkehrsberuhigter Bereich";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Brücke";
 
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.living_street.tunnel" = "Spielstraßentunnel";
+"type.highway.living_street.tunnel" = "Tunnel";
 "type.highway.motorway" = "Autobahn";
 
 /* These translations are used for all type.highway.*.bridge. */
@@ -537,7 +539,7 @@
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Wohnstraßentunnel";
 "type.highway.rest_area" = "Rastplatz";
-"type.highway.road" = "Straße";
+"type.highway.road" = "Landstraße";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Brücke";
@@ -547,20 +549,20 @@
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
-"type.highway.secondary" = "Straße";
+"type.highway.secondary" = "Überregionale Verbindungsstraße";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Brücke";
 
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.secondary.tunnel" = "Straßentunnel";
-"type.highway.secondary_link" = "Straße";
+"type.highway.secondary.tunnel" = "Tunnel";
+"type.highway.secondary_link" = "Überregionale Verbindungsstraßenauffahrt";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Brücke";
 
 /* These translations are used for all type.highway.*.tunnel. */
-"type.highway.secondary_link.tunnel" = "Straßentunnel";
+"type.highway.secondary_link.tunnel" = "Tunnel";
 "type.highway.service" = "Zufahrtsweg";
 "type.highway.service.area" = "Zufahrtsweg";
 
@@ -580,14 +582,14 @@
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
-"type.highway.tertiary" = "Straße";
+"type.highway.tertiary" = "Verbindungsstraße";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Brücke";
 
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Straßentunnel";
-"type.highway.tertiary_link" = "Straße";
+"type.highway.tertiary_link" = "Verbindungsstraßenauffahrt";
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Brücke";
@@ -629,15 +631,15 @@
 "type.highway.unclassified.tunnel" = "Straßentunnel";
 "type.area_highway.cycleway" = "Radweg";
 "type.area_highway.footway" = "Fußweg";
-"type.area_highway.living_street" = "Spielstraße";
+"type.area_highway.living_street" = "Verkehrsberuhigter Bereich";
 "type.area_highway.motorway" = "Autobahn";
 "type.area_highway.path" = "Pfad";
 "type.area_highway.pedestrian" = "Fußgängerzone";
 "type.area_highway.primary" = "Hauptstraße";
 "type.area_highway.residential" = "Wohnstraße";
-"type.area_highway.secondary" = "Straße";
+"type.area_highway.secondary" = "Landstraße";
 "type.area_highway.service" = "Zufahrtsweg";
-"type.area_highway.tertiary" = "Straße";
+"type.area_highway.tertiary" = "Verbindungsstraße";
 "type.area_highway.steps" = "Treppe";
 "type.area_highway.track" = "Forst-/Feldweg";
 "type.area_highway.trunk" = "Schnellstraße";
@@ -970,8 +972,6 @@
 "type.public_transport.platform" = "Plattform";
 "type.railway" = "Eisenbahn";
 "type.railway.abandoned" = "Ehemalige Eisenbahnstrecke";
-"type.railway.abandoned.bridge" = "Ehemalige Eisenbahnbrücke";
-"type.railway.abandoned.tunnel" = "Ehemaliger Eisenbahntunnel";
 "type.railway.construction" = "Eisenbahnstrecke im Bau";
 "type.railway.crossing" = "Bahnübergang";
 "type.railway.disused" = "Stillgelegte Bahnstrecke";
@@ -1589,5 +1589,13 @@
 "type.amenity.give_box" = "Spendenbox";
 "type.xmas.tree" = "Weihnachtsbaum";
 "type.natural.sand" = "Sand";
-"type.amenity.mobile_money_agent" = "Mobile Money Vertretung";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.hydrant" = "Beregnungshydrant";
+"type.railway.disused.bridge" = "Stillgelegte Eisenbahnbrücke";
+"type.railway.turntable" = "Eisenbahn-Drehscheibe";
+"type.tourism.information.tactile_map" = "Taktile Karte";
+"type.railway.miniature.bridge" = "Miniatur-Eisenbahnbrücke";
+"type.railway.miniature.tunnel" = "Miniatur-Eisenbahntunnel";
+"type.railway.disused.tunnel" = "Stillgelegter Eisenbahntunnel";
+"type.railway.miniature" = "Miniatureisenbahn";

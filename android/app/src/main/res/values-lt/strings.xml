@@ -66,9 +66,9 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Naujo sąrašo pridėjimas</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Žymių sąrašo pavadinimas</string>
+    <string name="bookmark_set_name">Sąrašo pavadinimas</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Žymės</string>
+    <string name="bookmarks">Vietos</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Pavadinimas</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -140,14 +140,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Pastabos</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Su jumis bendrinamas „CoMaps“ žymių sąrašas</string>
-    <string name="share_bookmarks_email_body">Labas! \n \nČia prisegtas mano žymių sąrašas iš „CoMaps“ programėlės. Jei jos neturi, gali ją parsisiųsti iš https://www.comaps.app/download/ \n \nSmagių kelionių su „CoMaps“!</string>
+    <string name="share_bookmarks_email_subject">Mano „CoMaps“ žymės</string>
+    <string name="share_bookmarks_email_body">Labas! \n \nČia prisegtas mano „CoMaps“ programėlės žymių failas. Jei jos neturi, gali ją parsisiųsti iš https://www.comaps.app/download/ \n \nSmagių kelionių su „CoMaps“!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Žymių sąrašas įkeliamas</string>
+    <string name="load_kmz_title">Žymės įkeliamos</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Žymių sąrašas įkeltas! Galite rasti jį žemėlapyje arba žymių tvarkytuvės ekrane.</string>
+    <string name="load_kmz_successful">Žymės įkeltos! Galite jas rasti žemėlapyje arba žymių tvarkytuvės ekrane.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Žymių sąrašo nepavyko įkelti. Gali būti, kad failas sugadintas.</string>
+    <string name="load_kmz_failed">Žymių įkelti nepavyko. Gali būti, kad failas sugadintas.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Programėlė neatpažįsta failo tipo: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -488,10 +488,10 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Išsamiau</string>
-    <string name="placepage_edit_bookmark_button">Taisyti žymę</string>
+    <string name="placepage_edit_bookmark_button">Taisyti Įsimintą vietą</string>
     <string name="placepage_personal_notes_hint">Asmeninės pastabos (tekstas arba HTML)</string>
     <string name="editor_reset_edits_message">Anuliuoti visus vietinius pakeitimus?</string>
-    <string name="editor_reset_edits_button">Anuliuoti</string>
+    <string name="editor_reset_edits_button">Atsisakyti pakeitimų</string>
     <string name="editor_remove_place_message">Šalinti pridėtą vietą?</string>
     <string name="editor_remove_place_button">Šalinti</string>
     <string name="editor_place_doesnt_exist">Ši vieta neegzistuoja</string>
@@ -553,13 +553,13 @@
     <string name="dialog_error_storage_message">Išorinė saugykla yra nepasiekiama. SD kortelė galimai yra pašalinta, pažeista, arba failų sistema joje yra nustatyta tik skaitymui. Patikrinkite SD kortelę arba susisiekite su mumis adresu support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emuliuoti blogą saugyklą</string>
     <string name="error_enter_correct_name">Įveskite teisingą pavadinimą</string>
-    <string name="bookmark_lists">Sąrašai</string>
+    <string name="bookmark_lists">Žymių sąrašai</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Nerodyti visų</string>
     <string name="bookmark_lists_show_all">Rodyti visus</string>
     <string name="bookmarks_create_new_group">Kurti naują sąrašą</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importuoti žymes ir trasas</string>
+    <string name="bookmarks_import">Importuoti žymes</string>
     <string name="bookmarks_error_message_share_general">Nepavyko bendrinti dėl programinės klaidos</string>
     <string name="bookmarks_error_title_share_empty">Klaida bendrinant</string>
     <string name="bookmarks_error_message_share_empty">Negalima bendrinti tuščio sąrašo</string>
@@ -580,7 +580,7 @@
     <string name="subway">Metro</string>
     <string name="layers_title">Žemėlapio stiliai ir sluoksniai</string>
     <string name="bookmarks_empty_list_title">Sąrašas tuščias</string>
-    <string name="bookmarks_empty_list_message">Jeigu norite pridėti žymę, bakstelėkite vietą žemėlapyje, o tada – žvaigždutės piktogramą</string>
+    <string name="bookmarks_empty_list_message">Jeigu norite pasižymėti, bakstelėkite ją žemėlapyje, o tada – bakstelėkite žvaigždutės piktogramą</string>
     <string name="category_desc_more">…daugiau</string>
     <string name="export_file">Eksportuoti KMZ</string>
     <string name="export_file_gpx">Eksportuoti GPX</string>
@@ -711,7 +711,7 @@
     <string name="browser_not_available">Saityno naršyklė nepasiekiama</string>
     <string name="volume">Garsumas</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksportuoti visas žymes ir trasas</string>
+    <string name="bookmarks_export">Eksportuoti pasižymėtas žymes ir trasas</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Šnekos sintezės sistemos nustatymai</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -743,7 +743,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Tęsti įrašymą</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Įrašyti į žymių ir trasų sąrašą?</string>
+    <string name="track_recording_alert_title">Pridėti žymę?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Trasa tuščia – nėra ką įrašyti</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -753,7 +753,7 @@
     <string name="uri_open_location_failed">Neįdiegta programėlė, galinti atverti vietą</string>
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Automatinė naviguojant</string>
-    <string name="bookmarks_and_tracks">Žymės ir trasos</string>
+    <string name="bookmarks_and_tracks">Žymės</string>
     <string name="location_settings">Vietos nustatymai</string>
     <string name="maps_storage_summary">Pasirinkite aplanką atsiųstiems žemėlapiams įrašyti</string>
     <string name="category_secondhand">Naudotos prekės</string>
@@ -780,9 +780,10 @@
     <string name="car_used_on_the_phone_screen">Dabar naudojatės „CoMaps“ telefono ekrane</string>
     <string name="car_used_on_the_car_screen">Dabar naudojatės „CoMaps“ automobilio ekrane</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d žymė</item>
-        <item quantity="few">%d žymės</item>
-        <item quantity="other">%d žymių</item>
+        <item quantity="one">%d pasižymėta vieta</item>
+        <item quantity="few">%d pasižymėtos vietos</item>
+        <item quantity="many">%d pasižymėtų vietų</item>
+        <item quantity="other">%d pasižymėtų vietų</item>
     </plurals>
     <string name="app_tip_01">Su jūsų parama ir palaikymu mes galime sukurti geriausius žemėlapius pasaulyje!</string>
     <string name="enable_keep_screen_on_description">Įgalinus šią parinktį, ekranas visada liks įjungtas, kol rodomas žemėlapis.</string>
@@ -804,21 +805,21 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="panoramax">Panoramax vaizdas</string>
-    <string name="saved">Išsaugota</string>
+    <string name="saved">Įrašyta</string>
     <string name="ruler">Liniuotė</string>
     <string name="pref_left_button_title">Kairiojo mygtuko funkcija</string>
-    <string name="pref_backup_now_summary_empty_lists">Neturite jokių žymių ar trasų atsarginei kopijai sudaryti</string>
+    <string name="pref_backup_now_summary_empty_lists">Nėra pasižymėtų vietų ar trasų atsarginei kopijai sudaryti</string>
     <string name="pref_backup_interval_title">Automatinis atsarginis kopijavimas</string>
     <string name="dialog_report_error_missing_folder">Pasirinktas atsarginių kopijų aplankas nepasiekiamas, bent jau rašymui. Pasirinkite kitą aplanką.</string>
     <string name="dialog_report_error_with_logs">Būsime dėkingi, jei atsiųsti klaidos pranešimą:\n - programos nustatymuose pažymėkite „Įgalinti derinimo žurnalą“\n - atkartokite problemą\n - „Žinyno ir pagalbos“ ekrane bakstelėkite mygtuką „Pranešti apie klaidą“ ir išsiųskite pranešimą el. paštu ar per pokalbių programėlę\n - išjunkite derinimo žurnalą</string>
     <string name="bicycle">Dviračiu</string>
-    <string name="pref_backup_title">Žymių ir trasų atsarginis kopijavimas</string>
+    <string name="pref_backup_title">Žymių atsarginis kopijavimas</string>
     <string name="editor_building_levels">Aukštų skaičius (skaičiuojant pirmą aukštą, neskaičiuojant stogo)</string>
     <string name="editor_level">Aukštas (0 reiškia pirmą aukštą)</string>
     <string name="error_enter_correct_level">Įveskite leistiną aukšto numerį</string>
     <string name="error_enter_correct_bluesky_page">Įveskite galiojantį „Bluesky“ paskyros vardą ar tinklalapio adresą</string>
     <string name="error_enter_correct_fediverse_page">Įveskite galiojantį „Mastodon“ paskyros vardą ar tinklalapio adresą</string>
-    <string name="pref_left_button_disable">Mygtukas nerodomas</string>
+    <string name="pref_left_button_disable">Mygtuko nerodyti</string>
     <string name="pref_backup_summary">Automatinis atsarginių kopijų rašymas į pasirinktą aplanką</string>
     <string name="pref_backup_now_title">Įrašyti dabar</string>
     <string name="pref_backup_now_summary_progress">Atsarginė kopija įrašoma…</string>
@@ -888,4 +889,18 @@
     <string name="power_management">Energijos naudojimas</string>
     <string name="charge_socket_schuko">Buitinis ES</string>
     <string name="list_description_empty">Paredaguokite sąrašą ir pridėkite aprašymą</string>
+    <string name="place_page_map_too_old_title">Žemėlapio duomenys pasenę</string>
+    <string name="place_page_map_too_old_description">Jūsų naudojami žemėlapio duomenys senstelėję, prašom atnaujinti žemėlapį.</string>
+    <string name="place_page_app_too_old_description">Jūsų naudojami žemėlapio duomenys stipriai pasenę, prašom atnaujinti „CoMaps“ programą.</string>
+    <string name="place_page_update_too_old_map">Atnaujinti regiono žemėlapį</string>
+    <string name="place_page_too_old_to_edit">„OpenStreetMap“ žemėlapio redagavimas negalimas, nes žemėlapio duomenys per seni.</string>
+    <string name="prefs_speed_cameras_information">Įspėjimai apie greičio matuoklius negalimi šalyse, kuriose tai draudžiama įstatymu.</string>
+    <string name="navigation_start_tts_message">"Pradedama navigacija, balso instrukcijų kalba: "</string>
+    <string name="navigation_start_tts_disabled_message">Balso instrukcijos išjungtos: šnekos sintezės sistema neprieinama</string>
+    <string name="advanced">Kita</string>
+    <string name="download_resources_custom_url_title">Pasirinktinis žemėlapių serveris</string>
+    <string name="download_resources_custom_url_message">Žemėlapiams parsisiųsti galite nurodyti kitą, nei numatytasis, serverį. Palikite lauką tuščią, jei norite naudoti numatytąjį „CoMaps“ serverį.</string>
+    <string name="download_resources_custom_url_summary_none">Nenurodytas</string>
+    <string name="download_resources_custom_url_error_scheme">Įveskite URL adresą, prasidedantį „http://“ arba „https://“</string>
+    <string name="pref_maplanguage_local">Vietos kalba</string>
 </resources>

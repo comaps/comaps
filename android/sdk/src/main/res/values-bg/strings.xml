@@ -34,4 +34,11 @@
     <string name="today">Днес</string>
     <string name="maps_storage_internal">Вътрешно частно хранилище</string>
     <string name="yesterday">Вчера</string>
+    <string name="week_ago">преди %s седмица</string>
+    <string name="days_ago">преди %s дни</string>
+    <string name="weeks_ago">преди %s седмици</string>
+    <string name="month_ago">преди %s месец</string>
+    <string name="months_ago">преди %s месеца</string>
+    <string name="year_ago">преди %s година</string>
+    <string name="years_ago">преди %s години</string>
 </resources>

@@ -129,7 +129,6 @@
 "type.amenity.pub" = "सराय";
 "type.amenity.public_bookcase" = "सार्वजनिक किताबों की अलमारी";
 "type.amenity.recycling.centre" = "रीसाइक्लिंग सेंटर";
-"type.amenity.recycling" = "रीसाइक्लिंग कंटेनर";
 "type.amenity.recycling.container" = "रीसाइक्लिंग कंटेनर";
 "type.recycling.batteries" = "Batteries";
 "type.recycling.clothes" = "Clothes";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "चौक";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "रेलवे प्लेटफार्म";
 "type.railway" = "रेल";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";

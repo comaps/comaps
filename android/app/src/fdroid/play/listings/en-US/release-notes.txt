@@ -1,8 +1,11 @@
-• OpenStreetMap data as of December 17
-• Make map download server configurable
-• Added info about outdated maps and an update button to the selected place info card
-• Avoid using parking aisles for routing
-• Changed shape of zoom buttons
-• Improved French search synonyms
-• OSM editor: check length limit for OSM tags in value validation
+• OpenStreetMap data as of January 22
+• Added subtle dark borders to roads
+• Display track's description when selected
+• Renamed "Bookmarks & Tracks" to "Favorites" and "Bookmarks" to "Places"
+• Added tactile information maps, railway turntables and emergency disaster help points
+• Updated looks of some app screens
+• Use native languages for world overview map
+• Remember location mode between sessions
+• Fixed routing crashing on some devices
+
 More details on codeberg.org/comaps/comaps/releases

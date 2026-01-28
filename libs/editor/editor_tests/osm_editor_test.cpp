@@ -406,7 +406,7 @@ void EditorTest::GetFeatureStatusTest()
   TEST_EQUAL(editor.GetFeatureStatus(emo.GetID()), FeatureStatus::Created, ());
 }
 
-void EditorTest::IsFeatureUploadedTest()
+void EditorTest::AreSomeFeatureChangesUploadedTest()
 {
   auto & editor = osm::Editor::Instance();
 
@@ -419,19 +419,25 @@ void EditorTest::IsFeatureUploadedTest()
   });
 
   ForEachCafeAtPoint(m_dataSource, m2::PointD(1.0, 1.0), [&editor](FeatureType & ft)
-  { TEST(!editor.IsFeatureUploaded(ft.GetID().m_mwmId, ft.GetID().m_index), ()); });
+  { TEST(!editor.AreSomeFeatureChangesUploaded(ft.GetID().m_mwmId, ft.GetID().m_index), ()); });
 
   osm::EditableMapObject emo;
   CreateCafeAtPoint({3.0, 3.0}, mwmId, emo);
 
-  TEST(!editor.IsFeatureUploaded(emo.GetID().m_mwmId, emo.GetID().m_index), ());
+  TEST(!editor.AreSomeFeatureChangesUploaded(emo.GetID().m_mwmId, emo.GetID().m_index), ());
+
+  // generate journal with uploaded changes
+  osm::EditJournal journal;
+  journal.AddTagChange("addr:housenumber", "", "42");
+  journal.Clear();
+  emo.SetJournal(std::move(journal));
 
   pugi::xml_document doc;
   GenerateUploadedFeature(mwmId, emo, doc);
   editor.m_storage->Save(doc);
   editor.LoadEdits();
 
-  TEST(editor.IsFeatureUploaded(emo.GetID().m_mwmId, emo.GetID().m_index), ());
+  TEST(editor.AreSomeFeatureChangesUploaded(emo.GetID().m_mwmId, emo.GetID().m_index), ());
 }
 
 void EditorTest::DeleteFeatureTest()
@@ -1309,9 +1315,9 @@ UNIT_CLASS_TEST(EditorTest, GetFeatureStatusTest)
   EditorTest::GetFeatureStatusTest();
 }
 
-UNIT_CLASS_TEST(EditorTest, IsFeatureUploadedTest)
+UNIT_CLASS_TEST(EditorTest, AreSomeFeatureChangesUploadedTest)
 {
-  EditorTest::IsFeatureUploadedTest();
+  EditorTest::AreSomeFeatureChangesUploadedTest();
 }
 
 UNIT_CLASS_TEST(EditorTest, DeleteFeatureTest)

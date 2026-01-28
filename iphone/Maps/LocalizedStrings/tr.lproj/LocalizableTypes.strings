@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Meyhane";
 "type.amenity.public_bookcase" = "Kitap Değişimi";
 "type.amenity.recycling.centre" = "Geri Dönüşüm Merkezi";
-"type.amenity.recycling" = "Atık Toplama Merkezi";
 "type.amenity.recycling.container" = "Atık Toplama Merkezi";
 "type.recycling.batteries" = "Piller";
 "type.recycling.clothes" = "Kıyafet";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Demiryolu";
 "type.railway.abandoned" = "Terk edilmiş demiryolu";
-"type.railway.abandoned.bridge" = "Terk edilmiş demiryolu";
-"type.railway.abandoned.tunnel" = "Terk Edilmiş Demiryolu";
 "type.railway.construction" = "Demiryolu İnşaatı";
 "type.railway.crossing" = "Demiryolu Geçişi";
 "type.railway.disused" = "Kullanılmayan demiryolu";
@@ -1462,7 +1459,7 @@
 
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Spor salonu";
-"type.amenity.studio" = "Stüdyo";
+"type.amenity.studio" = "Medya Stüdyosu";
 "type.sport.diving" = "Yüksek Dalış Alanı";
 "type.highway.ladder" = "Merdiven";
 "type.man_made.crane" = "Vinç";
@@ -1489,6 +1486,14 @@
 "type.power.portal" = "Elektrik Portalı";
 "type.building.guardhouse" = "Güvenlik Kulübesi";
 "type.shop.lighting" = "Aydınlatma dükkanı";
-"type.amenity.charging_station.motorcar.small" = "Araç Şarj Noktası";
 "type.amenity.bench.backless" = "Sırtı Açık Bank";
 "type.amenity.sailing_school" = "Denizcilik Okulu";
+"type.natural.tree" = "Ağaç";
+"type.xmas.tree" = "Yılbaşı Ağacı";
+"type.man_made.telescope" = "Teleskop";
+"type.man_made.telescope.optical" = "Teleskop (Optik)";
+"type.man_made.telescope.radio" = "Teleskop (Radyo)";
+"type.man_made.telescope.gamma" = "Teleskop (Gama)";
+"type.man_made.observatory" = "Gözlemevi";
+"type.emergency.life_ring" = "Can simidi";
+"type.emergency.access_point" = "Acil Durum Noktası";

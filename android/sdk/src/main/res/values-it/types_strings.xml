@@ -44,8 +44,8 @@
     <string name="type.leisure.adult_gaming_centre">Centro giochi per adulti</string>
     <string name="type.leisure.amusement_arcade">Sala giochi</string>
     <string name="type.amenity.charging_station">Stazione di ricarica</string>
-    <string name="type.amenity.charging_station.bicycle">Stazione di ricarica per biciclette</string>
-    <string name="type.amenity.charging_station.motorcar">Stazione di ricarica per autoveicoli</string>
+    <string name="type.amenity.charging_station.bicycle">Biciclette</string>
+    <string name="type.amenity.charging_station.motorcar">Automobili</string>
     <string name="type.amenity.childcare">Asilo</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.leisure.bowling_alley">Sala da bowling</string>
@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Biblioteca di strada</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centro di riciclaggio</string>
-    <string name="type.amenity.recycling">Contenitore per materiali riciclabili</string>
     <string name="type.amenity.recycling.container">Contenitore per materiali riciclabili</string>
     <string name="type.recycling.batteries">Batterie</string>
     <string name="type.recycling.clothes">Vestiti usati</string>
@@ -637,7 +636,7 @@
     <string name="type.leisure.slipway">Scivolo per navi</string>
     <string name="type.leisure.sports_centre">Centro sportivo</string>
     <string name="type.sport.climbing">Centro di arrampicata</string>
-    <string name="type.sport.yoga">Centro Yoga</string>
+    <string name="type.sport.yoga">Centro yoga</string>
     <string name="type.leisure.stadium">Stadio</string>
     <string name="type.leisure.swimming_pool">Piscina</string>
     <string name="type.leisure.swimming_pool.private">Piscina privata</string>
@@ -1199,7 +1198,7 @@
     <string name="type.sport.handball">Palla a mano</string>
     <string name="type.sport.multi">Sport vari</string>
     <!-- Used to tag a scuba diving site. -->
-    <string name="type.sport.scuba_diving">Immersioni in subacquea</string>
+    <string name="type.sport.scuba_diving">Immersioni subacquee</string>
     <string name="type.sport.shooting">Tiro</string>
     <string name="type.sport.skateboard">Skateboard</string>
     <string name="type.sport.skiing">Sciare</string>
@@ -1328,13 +1327,11 @@
     <string name="type.man_made.utility_pole">Palo di servizio</string>
     <string name="type.power.line.underground">Linea elettrica sotterranea</string>
     <string name="type.public_transport.platform">Banchina</string>
-    <string name="type.railway.abandoned.tunnel">Tunnel ferroviario abbandonato</string>
     <string name="type.railway.light_rail.tunnel">Tunnel metropolitana</string>
     <string name="type.internet_access">Internet</string>
     <string name="type.landuse.greenfield">Zona selvaggia</string>
     <string name="type.railway.light_rail.bridge">Ponte metropolitana</string>
     <string name="type.man_made.pipeline.overground">Condotto non interrato</string>
-    <string name="type.railway.abandoned.bridge">Ponte ferroviario abbandonato</string>
     <string name="type.landuse.greenhouse_horticulture">Serra</string>
     <string name="type.man_made.cairn">Tumulo</string>
     <string name="type.railway.funicular.tunnel">Galleria funicolare</string>
@@ -1399,7 +1396,6 @@
     <string name="type.power.portal">Portale elettrico</string>
     <string name="type.shop.lighting">Negozio di illuminazione</string>
     <string name="type.amenity.bench.backless">Panchina senza schienale</string>
-    <string name="type.amenity.charging_station.motorcar.small">Colonnina di ricarica</string>
     <string name="type.man_made.observatory">Osservatorio</string>
     <string name="type.cardinal.north">Nord</string>
     <string name="type.cardinal.south">Sud</string>
@@ -1437,4 +1433,19 @@
     <string name="type.leisure.sports_centre.sport.tennis">Centro sportivo</string>
     <string name="type.leisure.sports_centre.sport.volleyball">Centro sportivo</string>
     <string name="type.leisure.sports_centre.sport.yoga">Centro sportivo</string>
+    <string name="type.amenity.hydrant">Idrante per irrigazione</string>
+    <string name="type.amenity.boat_rental">Noleggio imbarcazioni</string>
+    <string name="type.man_made.telescope.radio">Radiotelescopio</string>
+    <string name="type.amenity.sailing_school">Scuola di navigazione</string>
+    <string name="type.emergency.life_ring">Salvagente</string>
+    <string name="type.entrance.emergency">Uscita di emergenza</string>
+    <string name="type.natural.sand">Sabbia</string>
+    <string name="type.natural.tree">Albero</string>
+    <string name="type.railway.disused.bridge">Ponte ferroviario in disuso</string>
+    <string name="type.railway.disused.tunnel">Tunnel ferroviario in disuso</string>
+    <string name="type.shop.telecommunication">Negozio di telecomunicazioni</string>
+    <string name="type.disusedbusiness">Negozio libero</string>
+    <string name="type.tourism.information.tactile_map">Mappa tattile</string>
+    <string name="type.social_facility.food_bank">Banco alimentare</string>
+    <string name="type.xmas.tree">Albero di Natale</string>
 </resources>

@@ -126,8 +126,15 @@ dependencies {
   implementation libs.androidx.recyclerview
   implementation libs.androidx.preference
   implementation libs.android.material
+  implementation libs.androidx.documentfile
 
   testImplementation libs.junit
+}
+
+android {
+  androidResources {
+    ignoreAssetsPatterns.add("!design")
+  }
 }
 
 // TODO: Running lint task triggers native build. Find a better solution.
@@ -146,7 +153,7 @@ project.afterEvaluate {
 
   final taskName = gradle.startParameter.taskNames
 
-  if (['assemble', 'bundle', 'compile', 'install', 'run'].any{taskName.any{task->task.startsWith(it)}}) {
+  if (['assemble', 'bundle', 'compile', 'install', 'lint', 'publish', 'run'].any{taskName.any{task->task.startsWith(it)}}) {
     exec {
       workingDir '../..'
 

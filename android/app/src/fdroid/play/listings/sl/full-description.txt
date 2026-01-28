@@ -19,13 +19,13 @@ Pridružite se skupnosti in pomagajte narediti najboljše zemljevidno orodje
 • Pešpoti in kolesarke poti
 • Kraji zanimanja, npr. restavracije, bencinske črpalke, hoteli, trgovine, znamenitosti in mnogo več
 • Iščite po imenu, hišnemu naslovu ali po vrsti
-• Usmerjanje z glasovnimi obvestili za hojo, kolesarjenje ali vožnjo avtomobila.
+• Usmerjanje z glasovnimi navodili za hojo, kolesarjenje ali vožnjo avtomobila.
 • Zaznamujte svoje najljubše kraje s preprostim dotikom
 • Wikipedijini članki brez povezave
 • Prometna plast podzemne železnice z usmerjanjem
 • Izvozite ali uvozite zaznamke in sledi v oblikah KML, KMZ, GPX
 • Temni prikaz za uporabo ponoči
-• Izboljšajtw podatke zemljevida za vse z uporabo vgrajenega urejevalnika
+• Izboljšajte podatke zemljevida za vse z uporabo vgrajenega urejevalnika
 
 <b>Svoboda je tu</b>
 Odkijte več o vašem potovanju, usmerjajte se po svetu s poudarkom na zasebnosti in skupnostnem delovanju!

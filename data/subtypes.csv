@@ -1,0 +1,10 @@
+Types;Related Subtypes
+amenity|charging_station;amenity|charging_station|motorcar,amenity|charging_station|motorcycle,amenity|charging_station|bicycle,amenity|charging_station|small,amenity|charging_station|carless
+amenity|bench;amenity|bench|backless
+buoy|lateral|port,spherical_buoy|lateral|port,beacon|lateral|port;lateral|port
+buoy|lateral|starboard,spherical_buoy|lateral|starboard,beacon|lateral|starboard;lateral|starboard
+buoy|cardinal|east,spherical_buoy|cardinal|east,beacon|cardinal|east;cardinal|east
+buoy|cardinal|west,spherical_buoy|cardinal|west,beacon|cardinal|west;cardinal|west
+buoy|cardinal|south,spherical_buoy|cardinal|south,beacon|cardinal|south;cardinal|south
+buoy|cardinal|north,spherical_buoy|cardinal|north,beacon|cardinal|north;cardinal|north
+amenity|recycling|centre,amenity|recycling|container;recycling|clothes,recycling|shoes,recycling|small_appliances,recycling|batteries,recycling|scrap_metal,recycling|green_waste,recycling|glass_bottles,recycling|plastic_bottles,recycling|cans,recycling|cartons,recycling|cardboard,recycling|paper,recycling|plastic

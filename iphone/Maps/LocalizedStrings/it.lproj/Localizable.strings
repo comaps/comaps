@@ -66,13 +66,13 @@
 "bookmark_set_name" = "Nome dell'elenco";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Elenchi di luoghi preferiti";
+"bookmark_sets" = "Elenco dei preferiti";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Luoghi preferiti";
+"bookmarks" = "Luoghi";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Luoghi preferiti e tracce";
+"bookmarks_and_tracks" = "Luoghi preferiti";
 
 /* Default bookmark list name */
 "core_my_places" = "I miei luoghi";
@@ -154,13 +154,13 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Struttura per camper";
-"share_bookmarks_email_body" = "Ciao!\n\nIn allegato ci sono i miei luoghi preferiti. Aprili se hai installato CoMaps. Oppure, se non ce l'hai, scarica l'app per iOS o Android seguendo questo link: https://www.comaps.app/\n\nDivertiti a viaggiare con CoMaps!";
+"share_bookmarks_email_body" = "Ciao!\n\nIn allegato ci sono i miei luoghi salvati; aprili con CoMaps. Se non hai installato l'applicazione puoi farlo da qui: https://www.comaps.app/download/\n\nDivertiti a viaggiare con CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Caricamento luoghi preferiti";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Luoghi preferiti caricati con successo! Puoi trovarli sulla mappa o nella schermata Gestione Luoghi preferiti.";
+"load_kmz_successful" = "Luoghi preferiti caricati con successo! Puoi trovarli sulla mappa o nella schermata di gestione dei luoghi preferiti.";
 
 /* Kml file loading failed */
 "load_kmz_failed" = "Caricamento dei luoghi preferiti fallito. Il file potrebbe essere corrotto o difettoso.";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Errore invio e-mail";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibrazione bussola";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Tocca di nuovo a lungo sulla mappa per visualizzare l'interfaccia";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "Per creare un percorso è necessario scaricare e aggiornare tutte le mappe dalla tua posizione alla tua destinazione.";
 
 /* bookmark button text */
-"bookmark" = "preferito";
+"bookmark" = "luogo";
 "save" = "Salva";
 "create" = "crea";
 
@@ -670,13 +667,13 @@
 "book_button" = "Prenota";
 "placepage_call_button" = "Chiama";
 "placepage_edit_bookmark_button" = "Modifica luogo preferito";
-"placepage_bookmark_name_hint" = "Nome luogo preferito";
+"placepage_bookmark_name_hint" = "Nome del luogo preferito";
 "placepage_personal_notes_hint" = "Note personali (testo o html)";
 "placepage_delete_bookmark_button" = "Elimina luogo preferito";
 "editor_edits_sent_message" = "La tua nota sarà inviata a OpenStreetMap";
 "editor_comment_hint" = "Commenta…";
 "editor_reset_edits_message" = "Cancellare tutte le modifiche locali?";
-"editor_reset_edits_button" = "Cancella";
+"editor_reset_edits_button" = "Scarta modifiche";
 "editor_remove_place_message" = "Eliminare il luogo aggiunto?";
 "editor_remove_place_button" = "Elimina";
 "editor_place_doesnt_exist" = "Il luogo non esiste";
@@ -1020,7 +1017,7 @@
 "icloud_disabled_title" = "iCloud è disabilitato";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Per utilizzare questa funzione, attiva iCloud nelle impostazioni del tuo dispositivo.";
+"icloud_disabled_message" = "Per utilizzare questa funzione, attiva iCloud per CoMaps nelle impostazioni del tuo account Apple.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Abilitazione";
@@ -1094,7 +1091,7 @@
 "pref_mapappearance_title" = "Aspetto della mappa";
 "pref_maplanguage_title" = "Lingua della mappa";
 "transliteration_title_disabled_summary" = "Disabilitato quando si usa la lingua locale sulla mappa";
-"pref_maplanguage_local" = "Lingua Locale";
+"pref_maplanguage_local" = "Lingua locale";
 "existence_confirmed_time_ago" = "Esistenza confermata %@";
 "hours_confirmed_time_ago" = "Confermato %@";
 "avoid_steps" = "Evita scale";

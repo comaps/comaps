@@ -237,6 +237,7 @@ public class EditorHostFragment
     for (LocalizedName name : sNames)
       languages.add(name.lang);
     args.putStringArrayList(LanguagesFragment.EXISTING_LOCALIZED_NAMES, languages);
+    args.putBoolean(LanguagesFragment.IS_MAP_LANGUAGE_SELECTION, false);
     editWithFragment(Mode.LANGUAGE, R.string.choose_language, args, LanguagesFragment.class, false);
   }
 
@@ -352,7 +353,7 @@ public class EditorHostFragment
 
   private void processNoFeatures()
   {
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.downloader_no_space_title)
         .setPositiveButton(R.string.ok, null)
         .show();
@@ -386,7 +387,7 @@ public class EditorHostFragment
 
   private void showNoobDialog()
   {
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_share_to_all_dialog_title)
         .setMessage(getString(R.string.editor_share_to_all_dialog_message_1) + " "
                     + getString(R.string.editor_share_to_all_dialog_message_2))

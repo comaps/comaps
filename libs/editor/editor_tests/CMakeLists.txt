@@ -5,6 +5,7 @@ set(SRC
   editor_config_test.cpp
   editor_notes_test.cpp
   feature_matcher_test.cpp
+  feature_type_to_osm_test.cpp
   match_by_geometry_test.cpp
   new_feature_categories_test.cpp
   opening_hours_ui_test.cpp

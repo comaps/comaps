@@ -70,6 +70,7 @@ node|z14-[natural=geyser],
 node|z16-[natural=beach],
 area|z14-[natural=bare_rock],
 node|z17-[natural=rock],
+node|z17-[natural=tree],
 {text: name;text-color: @poi_label;text-position: center;text-offset: 1;}
 
 node|z13-[natural=peak][!name],
@@ -206,7 +207,9 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
-node|z18-[natural=tree],
+node|z17-[natural=tree][name],
+{icon-image: tree-special-m.svg;}
+node|z18-[natural=tree][!name],
 {icon-image: tree-m.svg;}
 
 node|z18-[xmas:feature=tree],
@@ -766,7 +769,8 @@ node|z16-[tourism=information][information=board]
 {icon-image: board.svg;text-offset: 1;icon-min-distance: 10;}
 node|z16-[tourism=information][information=guidepost]
 {icon-image: guidepost.svg;text-offset: 1;icon-min-distance: 10;}
-node|z16-[tourism=information][information=map]
+node|z16-[tourism=information][information=map],
+node|z16-[tourism=information][information=tactile_map],
 {icon-image: map.svg;text-offset: 1;icon-min-distance: 10;}
 
 node|z15-[amenity=ranger_station],
@@ -1100,7 +1104,8 @@ node|z17-[amenity=fire_station],
 node|z18-[amenity=internet_cafe],
 node|z18-[emergency=defibrillator],
 node|z18-[emergency=access_point],
-node|z18-[emergency=assembly_point],
+node|z19-[emergency=assembly_point],
+node|z18-[emergency=disaster_help_point],
 node|z19-[emergency=life_ring],
 node|z18-[emergency=lifeguard],
 node|z18-[amenity=toilets],
@@ -1288,7 +1293,7 @@ node|z17-[leisure=fitness_station]
 node|z16-[leisure=sports_centre],
 {icon-image: sports_centre-m.svg;icon-min-distance: 9;}
 node|z17-[leisure=sports_hall]
-{icon-image: sports_centre-m.svg;icon-min-distance: 10;}
+{icon-image: pitch-m.svg;icon-min-distance: 10;}
 node|z16-[leisure=dance]
 {icon-image: dance-m.svg;icon-min-distance: 10;}
 node|z16-[leisure=fitness_centre]
@@ -1564,7 +1569,7 @@ node|z17-[man_made=communications_tower],
 
 node|z19-[power=portal],
 node|z19-[power=tower],
-node|z15-[man_made=flagpole],
+node|z17-[man_made=flagpole],
 node|z16-[man_made=mast],
 {icon-image: dot-m.svg;}
 
@@ -1708,9 +1713,16 @@ node|z18-[emergency=defibrillator],
 
 node|z18-[emergency=access_point],
 {icon-image: access_point-m.svg;font-size: 11;}
+node|z18-20[emergency=access_point][operator=helpbidea],
+{icon-image: none;}
+node|z18-19[emergency=access_point][operator=helpbidea],
+{text: none;}
 
-node|z18-[emergency=assembly_point],
+node|z19-[emergency=assembly_point],
 {icon-image: assembly_point-m.svg;font-size: 11;}
+
+node|z18-[emergency=disaster_help_point],
+{icon-image: disaster_help_point-m.svg;font-size: 11;}
 
 node|z19-[emergency=life_ring],
 {icon-image: lifebuoy-m.svg; font-size: 11;}
@@ -2398,18 +2410,28 @@ node|z17-[amenity=fuel],
 node|z18-[amenity=fuel],
 {font-size: 11;}
 
+node|z15-[amenity=charging_station][motorcar?],
+node|z16-[amenity=charging_station][motorcycle?],
+node|z16-[amenity=charging_station][bicycle?],
+node|z16-[amenity=charging_station][motorcar=not],
+node|z16-[amenity=charging_station],
+{icon-image: charging_station-small-m.svg;}
+
+node|z14[amenity=charging_station][motorcar?][capacity?],
+{icon-image: charging_station-s.svg;}
+node|z15-[amenity=charging_station][motorcar?][capacity?],
+{icon-image: charging_station-m.svg;}
+
+node|z14[amenity=charging_station][motorcar?][!capacity],
+node|z14[amenity=charging_station][motorcar?][capacity=1],
+node|z14[amenity=charging_station][motorcar?][capacity=2],
+{icon-image: none;}
 node|z15-[amenity=charging_station][motorcar?][!capacity],
 node|z15-[amenity=charging_station][motorcar?][capacity=1],
 node|z15-[amenity=charging_station][motorcar?][capacity=2],
-node|z16-[amenity=charging_station],
-{icon-image: charging-point-m.svg;}
+{icon-image: charging_station-small-m.svg;}
 
-node|z14[amenity=charging_station][motorcar?][capacity?],
-{icon-image: charging-station-s.svg;}
-node|z15-[amenity=charging_station][motorcar?][capacity?],
-{icon-image: charging-station-m.svg;}
-
-node|z14[amenity=charging_station][motorcar?][capacity?],
+node|z14[amenity=charging_station][motorcar?],
 {text-offset: 1;font-size: 10;icon-min-distance: 20;}
 node|z15[amenity=charging_station][motorcar?],
 {icon-min-distance: 20;}
@@ -2455,9 +2477,9 @@ node|z17-[amenity=parking],
 {icon-image: parking-m.svg;font-size: 11;icon-min-distance: 10}
 
 node|z16-[amenity=car_pooling],
-{icon-image: parking-pooling-s.svg;icon-min-distance: 5;}
+{icon-image: parking_pooling-s.svg;icon-min-distance: 5;}
 node|z17-[amenity=car_pooling],
-{icon-image: parking-pooling-m.svg;font-size: 11;icon-min-distance: 10}
+{icon-image: parking_pooling-m.svg;font-size: 11;icon-min-distance: 10}
 
 node|z16-[amenity=parking][location=underground],
 {icon-image:parking_underground-m.svg;}

@@ -129,7 +129,6 @@
     <string name="type.amenity.public_bookcase">כוננית ספרים ציבורית</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">מרכז מיחזור</string>
-    <string name="type.amenity.recycling">מיכל מיחזור</string>
     <string name="type.amenity.recycling.container">מיכל מיחזור</string>
     <string name="type.recycling.batteries">סוללות</string>
     <string name="type.recycling.clothes">בגדים</string>
@@ -433,7 +432,6 @@
     <string name="type.highway.pedestrian.area">אזור הולכי רגל</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">גשר הולכי רגל</string>
-
     <string name="type.highway.pedestrian.square">כיכר עירונית</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">מנהרה להולכי רגל</string>
@@ -802,8 +800,6 @@
     <string name="type.public_transport.platform">רציף תחבורה</string>
     <string name="type.railway">מסילת רכבת</string>
     <string name="type.railway.abandoned">מסילת רכבת נטושה</string>
-    <string name="type.railway.abandoned.bridge">גשר רכבת נטוש</string>
-    <string name="type.railway.abandoned.tunnel">מנהרת רכבת נטושה</string>
     <string name="type.railway.construction">מסילת רכבת בבניה</string>
     <string name="type.railway.crossing">מעבר חציית פסי רכבת</string>
     <string name="type.railway.disused">מסילת רכבת לא בשימוש</string>

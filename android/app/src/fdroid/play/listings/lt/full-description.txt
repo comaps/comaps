@@ -1,0 +1,32 @@
+Bendruomenės vystoma nemokama atvirojo kodo žemėlapių programa, pagrįsta „OpenStreetMap“ duomenimis ir sustiprinta įsipareigojimu užtikrinti skaidrumą, privatumą ir pelno nesiekimą. „CoMaps“ programa yra kilusi iš „Organic Maps“, o pastaroji – iš programos „Maps.ME“.
+
+Apie šio projekto kilmę, jos priežastis ir palaikomą kryptį galite paskaityti adresu <b><i>codeberg.org/comaps</i></b>.
+Prisijunkite prie bendruomenės ir padėkite sukurti geriausią žemėlapių programą
+• Naudokitės programa ir paskleiskite žinią apie ją
+• Teikite atsiliepimus ir praneškite apie problemas
+• Atnaujinkite žemėlapių duomenis programoje arba „OpenStreetMap“ svetainėje
+
+‣ <b>Skirta naudoti neprisijungus prie interneto</b>: planuokite maršrutus ir keliaukite užsienyje be mobiliojo ryšio, ieškokite kelionės taškų tolimuose žygiuose ir pan. Visos programos funkcijos yra pritaikytos veikti be interneto ryšio.
+‣ <b>Gerbia privatumą</b>: programėlė sukurta, teikiant prioritetą privatumui: neidentifikuoja žmonių, neseka ir nerenka asmeninės informacijos. Be reklamų.
+‣ <b>Paprasta ir išbaigta</b>: esminės, lengvai naudojamos funkcijos, kurios tiesiog veikia.
+‣ <b>Taupo bateriją ir vietą</b>: neišsekina baterijos kaip kitos navigacijos programos. Kompaktiški žemėlapiai tausoja vietą jūsų telefone.
+‣ <b>Nemokama ir kuriama bendruomenės</b>: paprasti žmonės – kaip jūs – padėjo sukurti šią programą, pildydami „OpenStreetMap“ žemėlapį, išbandydami ir pateikdami atsiliepimus apie funkcijas bei prisidėdami savo programavimo įgūdžiais ir pinigais.
+‣ <b>Atviras ir skaidrus sprendimų priėmimas ir finansai, ne pelno siekianti ir visiškai atviro kodo programa.</b>
+
+<b>Pagrindinės funkcijos</b>:
+• Atsisiunčiami išsamūs žemėlapiai su vietomis, kurių nėra „Google Maps“;
+• Žygių pėsčiomis veiksena su pažymėtais pėsčiųjų takais, stovyklavietėmis, vandens šaltiniais, kalnų viršūnėmis, reljefo linijomis ir kt.;
+• Pėsčiųjų ir dviračių takai;
+• Potencialūs kelionės taškai, kaip antai restoranai, degalinės, viešbučiai, parduotuvės, lankytinos vietos ir daugelis kitų;
+• Paieška pagal pavadinimą, adresą arba lankytinos vietos kategoriją;
+• Navigacija su balso instrukcijomis pėstiesiems, dviratininkams ir motorinio transporto vairuotojams;
+• Mėgstamų vietų įsiminimas vienu bakstelėjimu;
+• „Vikipedijos“ straipsniai, prieinami neprisijungus prie interneto;
+• Kelionių metro sluoksnis ir maršrutai;
+• Trasų įrašymas;
+• Žymių ir trasų eksportavimas ir importavimas KML, KMZ, GPX formatais;
+• Tamsaus žemėlapio veiksena, skirta naudoti naktį;
+• Galimybė papildyti žemėlapio duomenis visiems, naudojantis įtaisytuoju baziniu redaktoriumi.
+
+<b>Laisvė yra čia</b>
+Atraskite savo kelionę ir keliaukite po pasaulį, kuriame privatumas ir bendruomenė yra svarbiausia!

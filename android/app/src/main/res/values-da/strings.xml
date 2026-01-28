@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Tilføj en ny liste</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Indstil navn for bogmærkeliste</string>
+    <string name="bookmark_set_name">Listenavn</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Bogmærker</string>
+    <string name="bookmarks">Steder</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Bogmærker og spor</string>
+    <string name="bookmarks_and_tracks">Favoritter</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Navn</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -144,13 +144,13 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Noter</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps bogmærker er blevet delt med dig</string>
+    <string name="share_bookmarks_email_subject">Mine CoMaps-favoritter</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Indlæser bogmærker</string>
+    <string name="load_kmz_title">Indlæser favoritter</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Bogmærker er indlæst! Du kan finde dem på kortet eller på skærmen for bogmærkehåndtering.</string>
+    <string name="load_kmz_successful">Favoritter er indlæst! Du kan finde dem på kortet eller på skærmen for favorithåndtering.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Bogmærkerne kunne ikke indlæses. Filen kan være skadet eller defekt.</string>
+    <string name="load_kmz_failed">Favoritter kunne ikke indlæses. Filen kan være skadet eller defekt.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Filtypen genkendes ikke af appen: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -486,7 +486,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Mere</string>
-    <string name="placepage_edit_bookmark_button">Rediger bogmærke</string>
+    <string name="placepage_edit_bookmark_button">Rediger gemt sted</string>
     <string name="placepage_personal_notes_hint">Personlige notater (tekst eller html)</string>
     <string name="editor_reset_edits_message">Kassér alle lokale ændringer?</string>
     <string name="editor_reset_edits_button">Kassér ændringer</string>
@@ -543,17 +543,17 @@
     <string name="dialog_error_storage_message">Eksternt lager er ikke tilgængeligt. SD-kortet kan være blevet fjernet eller beskadiget, eller filsystemet er skrivebeskyttet. Kontroller dit SD-kort eller kontakt os på support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emulér beskadiget lager</string>
     <string name="error_enter_correct_name">Angiv et korrekt navn</string>
-    <string name="bookmark_lists">Lister</string>
+    <string name="bookmark_lists">Favoritlister</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Skjul alle</string>
     <string name="bookmark_lists_show_all">Vis alle</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bogmærke</item>
-        <item quantity="other">%d bogmærker</item>
+        <item quantity="one">%d gemt sted</item>
+        <item quantity="other">%d gemte steder</item>
     </plurals>
     <string name="bookmarks_create_new_group">Opret ny liste</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importer bogmærker og spor</string>
+    <string name="bookmarks_import">Importer favoritter</string>
     <string name="bookmarks_error_message_share_general">Ikke i stand til at dele på grund af en applikationsfejl</string>
     <string name="bookmarks_error_title_share_empty">Delingsfejl</string>
     <string name="bookmarks_error_message_share_empty">Kan ikke dele en tom liste</string>
@@ -582,7 +582,7 @@
     <string name="subway">Undergrundsbane</string>
     <string name="layers_title">Kortstile og -lag</string>
     <string name="bookmarks_empty_list_title">Listen er tom</string>
-    <string name="bookmarks_empty_list_message">For at tilføje et bogmærke, så tryk et sted på kort og så på stjerneikonet</string>
+    <string name="bookmarks_empty_list_message">For at gemme et sted, så tryk et sted på kortet og dernæst på stjerneikonet</string>
     <string name="category_desc_more">…mere</string>
     <string name="export_file">Eksporter KMZ</string>
     <string name="export_file_gpx">Eksporter GPX</string>
@@ -635,7 +635,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sorter…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sorter bogmærker</string>
+    <string name="sort_bookmarks">Sorter favoritter</string>
     <!-- Android -->
     <string name="by_default">Som standard</string>
     <!-- Android -->
@@ -736,7 +736,7 @@
     <string name="browser_not_available">Webbrowser er ikke tilgængelig</string>
     <string name="volume">Lydstyrke</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksporter alle bogmærker og spor</string>
+    <string name="bookmarks_export">Eksporter alle steder og spor</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Indstillinger for talesyntese-system</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -768,7 +768,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Fortsæt optagelse</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Gem i bogmærker og spor?</string>
+    <string name="track_recording_alert_title">Gem i favoritter?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Sporet er tomt - der er ikke noget at gemme</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -787,7 +787,7 @@
     <string name="error_enter_correct_facebook_page">Indtast en gyldig Facebook-webadresse, -konto eller -sidenavn</string>
     <string name="connection_failure">Forbindelsesfejl</string>
     <string name="error_enter_correct_twitter_page">Indtast et gyldigt Twitter-brugernavn eller en webadresse</string>
-    <string name="share_bookmarks_email_body">Hej! \n \nVedhæftet er mine bogmærker; åbn dem venligst i CoMaps. Hvis du ikke har den installeret, kan du downloade den her: https://www.comaps.app/download/\n \nGod rejse med CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hej! \n \nVedhæftet er mine favoritter; åbn dem i CoMaps. Hvis du ikke har den installeret, kan du downloade den her: https://www.comaps.app/download/\n \nGod rejse med CoMaps!</string>
     <string name="delete_place_empty_comment_error">Angiv begrundelsen for at slette stedet</string>
     <string name="disk_error_title">Diskfejl</string>
     <string name="error_enter_correct_instagram_page">Indtast et gyldigt Instagram-brugernavn eller en webadresse</string>
@@ -817,7 +817,7 @@
     <string name="error_enter_correct_bluesky_page">Indtast et gyldigt Bluesky-brugernavn eller en webadresse</string>
     <string name="editor_level">Etage (0 er stueetage)</string>
     <string name="pref_backup_now_summary_ok">Sikkerhedskopiering fuldført</string>
-    <string name="pref_backup_now_summary_empty_lists">Ingen bogmærker og spor at lave sikkerhedskopi af</string>
+    <string name="pref_backup_now_summary_empty_lists">Ingen steder og spor at lave sikkerhedskopi af</string>
     <string name="pref_backup_now_summary_failed">Sikkerhedskopiering mislykkedes</string>
     <string name="pref_backup_now_summary_folder_unavailable">Mappen til sikkerhedskopiering er ikke tilgængelig</string>
     <string name="pref_backup_status_summary_success">Sidste vellykkede sikkerhedskopiering</string>
@@ -832,7 +832,7 @@
     <string name="editor_building_levels">Etager (inkl. stueetage, ekskl. tag)</string>
     <string name="error_enter_correct_level">Indtast et gyldigt etagenummer</string>
     <string name="pref_left_button_title">Indstilling af venstre knap</string>
-    <string name="pref_backup_title">Sikkerhedskopi af bogmærker og spor</string>
+    <string name="pref_backup_title">Sikkerhedskopi af favoritter</string>
     <string name="pref_backup_now_title">Sikkerhedskopiér nu</string>
     <string name="pref_backup_now_summary">Opret en sikkerhedskopi straks</string>
     <string name="clear">Ryd</string>
@@ -841,7 +841,7 @@
     <string name="pedestrian">Fodgænger</string>
     <string name="bicycle">Cykel</string>
     <string name="ruler">Lineal</string>
-    <string name="bookmark_color">Bogmærkefarve</string>
+    <string name="bookmark_color">Favoritfarve</string>
     <string name="pref_backup_summary">Automatisk sikkerhedskopiering til en mappe på din enhed</string>
     <string name="pref_backup_now_summary_progress">Sikkerhedskopiering i gang…</string>
     <string name="pref_backup_location_title">Placering af sikkerhedskopi</string>
@@ -902,4 +902,10 @@
     <string name="place_page_update_too_old_map">Opdater kortregion</string>
     <string name="place_page_too_old_to_edit">Redigering af OpenStreetMap er deaktiveret, fordi kortdataene er for gamle.</string>
     <string name="navigation_start_tts_disabled_message">Stemmeinstruktioner deaktiveret: TTS-motor ikke tilgængelig</string>
+    <string name="advanced">Avanceret</string>
+    <string name="download_resources_custom_url_title">Brugerdefineret kortserver</string>
+    <string name="download_resources_custom_url_message">Tilsidesæt den som standard anvendte server til download af kort. Lad feltet være tomt for at bruge CoMaps\' standardserver.</string>
+    <string name="download_resources_custom_url_summary_none">Ikke indstillet</string>
+    <string name="download_resources_custom_url_error_scheme">Indtast en URL, der starter med http:// eller https://</string>
+    <string name="pref_maplanguage_local">Lokalt sprog</string>
 </resources>

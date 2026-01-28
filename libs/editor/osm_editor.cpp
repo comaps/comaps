@@ -279,10 +279,10 @@ FeatureStatus Editor::GetFeatureStatus(FeatureID const & fid) const
   return GetFeatureStatusImpl(*features, fid.m_mwmId, fid.m_index);
 }
 
-bool Editor::IsFeatureUploaded(MwmId const & mwmId, uint32_t index) const
+bool Editor::AreSomeFeatureChangesUploaded(MwmId const & mwmId, uint32_t index) const
 {
   auto const features = m_features.Get();
-  return IsFeatureUploadedImpl(*features, mwmId, index);
+  return AreSomeFeatureChangesUploadedImpl(*features, mwmId, index);
 }
 
 void Editor::DeleteFeature(FeatureID const & fid)
@@ -425,7 +425,7 @@ bool Editor::RollBackChanges(FeatureID const & fid)
 {
   CHECK_THREAD_CHECKER(MainThreadChecker, (""));
 
-  if (IsFeatureUploaded(fid.m_mwmId, fid.m_index))
+  if (AreSomeFeatureChangesUploaded(fid.m_mwmId, fid.m_index))
     return false;
 
   return RemoveFeature(fid);
@@ -982,7 +982,7 @@ void Editor::CreateNote(ms::LatLon const & latLon, FeatureID const & fid, featur
             "but was not found on the ground.\n";
     auto const features = m_features.Get();
     auto const isCreated = GetFeatureStatusImpl(*features, fid.m_mwmId, fid.m_index) == FeatureStatus::Created;
-    auto const createdAndUploaded = (isCreated && IsFeatureUploadedImpl(*features, fid.m_mwmId, fid.m_index));
+    auto const createdAndUploaded = (isCreated && AreSomeFeatureChangesUploadedImpl(*features, fid.m_mwmId, fid.m_index));
     CHECK(!isCreated || createdAndUploaded, ());
 
     if (createdAndUploaded)
@@ -1177,10 +1177,10 @@ FeatureStatus Editor::GetFeatureStatusImpl(FeaturesContainer const & features, M
   return featureInfo->m_status;
 }
 
-bool Editor::IsFeatureUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index)
+bool Editor::AreSomeFeatureChangesUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index)
 {
   auto const * info = GetFeatureTypeInfo(features, mwmId, index);
-  return info && info->m_uploadStatus == kUploaded;
+  return info && !info->m_object.GetJournal().GetJournalHistory().empty();
 }
 
 void Editor::UpdateXMLFeatureTags(editor::XMLFeature & feature, std::list<JournalEntry> const & journal,

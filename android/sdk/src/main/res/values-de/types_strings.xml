@@ -25,7 +25,7 @@
     <string name="type.amenity.bank">Bankfiliale</string>
     <string name="type.amenity.bbq">Grillstelle</string>
     <string name="type.amenity.bench">Sitzbank</string>
-    <string name="type.amenity.bench.backless">Sitzbank ohne Rückenlehne</string>
+    <string name="type.amenity.bench.backless">Ohne Rückenlehne</string>
     <string name="type.amenity.bicycle_parking">Fahrradständer</string>
     <string name="type.amenity.boat_rental">Bootsverleih</string>
     <string name="type.amenity.bicycle_rental">Fahrradverleih</string>
@@ -43,9 +43,10 @@
     <string name="type.leisure.adult_gaming_centre">Spielhalle für Erwachsene</string>
     <string name="type.leisure.amusement_arcade">Spielhalle für Unterhaltungsspiele</string>
     <string name="type.amenity.charging_station">Ladestation</string>
-    <string name="type.amenity.charging_station.bicycle">Fahrrad-Ladestation</string>
-    <string name="type.amenity.charging_station.motorcar">Kfz-Ladestation</string>
-    <string name="type.amenity.charging_station.motorcar.small">Kfz-Ladestation</string>
+    <string name="type.amenity.charging_station.bicycle">Fahrräder</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorräder</string>
+    <string name="type.amenity.charging_station.motorcar">Autos</string>
+    <string name="type.amenity.charging_station.small">Begrenzte Kapazität</string>
     <string name="type.amenity.childcare">Kindertagesstätte</string>
     <string name="type.amenity.cinema">Kino</string>
     <string name="type.leisure.bowling_alley">Bowlingbahn</string>
@@ -129,8 +130,7 @@
     <string name="type.amenity.pub">Kneipe</string>
     <string name="type.amenity.public_bookcase">Bücherschrank</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Recyclinghof</string>
-    <string name="type.amenity.recycling">Wertstoffcontainer</string>
+    <string name="type.amenity.recycling.centre">Recyclingzentrum</string>
     <string name="type.amenity.recycling.container">Wertstoffcontainer</string>
     <string name="type.recycling.batteries">Batterien</string>
     <string name="type.recycling.clothes">Altkleider</string>
@@ -154,7 +154,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Biwakschachtel</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Lean-to Wetterschutz</string>
+    <string name="type.amenity.shelter.lean_to">Lean-to Schlafschutz</string>
     <string name="type.amenity.public_bath">Öffentliches Bad</string>
     <string name="type.amenity.shower">Dusche</string>
     <string name="type.amenity.stripclub">Stripclub</string>
@@ -338,7 +338,9 @@
     <string name="type.cuisine.vietnamese">Vietnamesisch</string>
     <string name="type.emergency">Notfall</string>
     <string name="type.emergency.access_point">Rettungspunkt</string>
+    <string name="type.emergency.access_point.address">Rettungsadresse</string>
     <string name="type.emergency.assembly_point">Notfall-Sammelpunkt</string>
+    <string name="type.emergency.disaster_help_point">Notfall-Treffpunkt</string>
     <string name="type.emergency.life_ring">Rettungsring</string>
     <string name="type.emergency.defibrillator">Defibrillator</string>
     <string name="type.emergency.fire_hydrant">Hydrant</string>
@@ -374,10 +376,10 @@
     <string name="type.spherical_buoy.special_purpose">Kugelförmige Spezialboje</string>
     <string name="type.lateral.port">Backbord</string>
     <string name="type.lateral.starboard">Steuerbord</string>
-    <string name="type.cardinal.east">Ost</string>
-    <string name="type.cardinal.north">Nord</string>
-    <string name="type.cardinal.south">Süd</string>
-    <string name="type.cardinal.west">West</string>
+    <string name="type.cardinal.east">Osten</string>
+    <string name="type.cardinal.north">Norden</string>
+    <string name="type.cardinal.south">Süden</string>
+    <string name="type.cardinal.west">Westen</string>
     <!-- A mountain rescue base for search and rescue activities. -->
     <string name="type.emergency.mountain_rescue">Bergrettungsstation</string>
     <!-- This is for secondary entrances, for main entrances see type.entrance.main -->
@@ -432,11 +434,11 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.footway.tunnel">Fußgängertunnel</string>
     <string name="type.highway.ford">Furt</string>
-    <string name="type.highway.living_street">Spielstraße</string>
+    <string name="type.highway.living_street">Verkehrsberuhigter Bereich</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.living_street.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.living_street.tunnel">Spielstraßentunnel</string>
+    <string name="type.highway.living_street.tunnel">Tunnel</string>
     <string name="type.highway.motorway">Autobahn</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.motorway.bridge">Autobahnbrücke</string>
@@ -485,23 +487,23 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.residential.tunnel">Wohnstraßentunnel</string>
     <string name="type.highway.rest_area">Rastplatz</string>
-    <string name="type.highway.road">Straße</string>
+    <string name="type.highway.road">Landstraße</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.road.bridge">Brücke</string>
     <!-- A bridge structure outline. -->
     <string name="type.man_made.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.road.tunnel">Tunnel</string>
-    <string name="type.highway.secondary">Straße</string>
+    <string name="type.highway.secondary">Überregionale Verbindungsstraße</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.secondary.tunnel">Straßentunnel</string>
-    <string name="type.highway.secondary_link">Straße</string>
+    <string name="type.highway.secondary.tunnel">Tunnel</string>
+    <string name="type.highway.secondary_link">Überregionale Verbindungsstraßenauffahrt</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.secondary_link.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
-    <string name="type.highway.secondary_link.tunnel">Straßentunnel</string>
+    <string name="type.highway.secondary_link.tunnel">Tunnel</string>
     <string name="type.highway.service">Zufahrtsweg</string>
     <string name="type.highway.service.area">Zufahrtsweg</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
@@ -517,12 +519,12 @@
     <string name="type.highway.steps.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.steps.tunnel">Tunnel</string>
-    <string name="type.highway.tertiary">Straße</string>
+    <string name="type.highway.tertiary">Verbindungsstraße</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.tertiary.tunnel">Straßentunnel</string>
-    <string name="type.highway.tertiary_link">Straße</string>
+    <string name="type.highway.tertiary_link">Verbindungsstraßenauffahrt</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.tertiary_link.bridge">Brücke</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
@@ -554,15 +556,15 @@
     <string name="type.highway.unclassified.tunnel">Straßentunnel</string>
     <string name="type.area_highway.cycleway">Radweg</string>
     <string name="type.area_highway.footway">Fußweg</string>
-    <string name="type.area_highway.living_street">Spielstraße</string>
+    <string name="type.area_highway.living_street">Verkehrsberuhigter Bereich</string>
     <string name="type.area_highway.motorway">Autobahn</string>
     <string name="type.area_highway.path">Pfad</string>
     <string name="type.area_highway.pedestrian">Fußgängerzone</string>
     <string name="type.area_highway.primary">Hauptstraße</string>
     <string name="type.area_highway.residential">Wohnstraße</string>
-    <string name="type.area_highway.secondary">Straße</string>
+    <string name="type.area_highway.secondary">Landstraße</string>
     <string name="type.area_highway.service">Zufahrtsweg</string>
-    <string name="type.area_highway.tertiary">Straße</string>
+    <string name="type.area_highway.tertiary">Verbindungsstraße</string>
     <string name="type.area_highway.steps">Treppe</string>
     <string name="type.area_highway.track">Forst-/Feldweg</string>
     <string name="type.area_highway.trunk">Schnellstraße</string>
@@ -864,8 +866,6 @@
     <string name="type.public_transport">Öffentlicher Verkehr</string>
     <string name="type.railway">Eisenbahn</string>
     <string name="type.railway.abandoned">Ehemalige Eisenbahnstrecke</string>
-    <string name="type.railway.abandoned.bridge">Ehemalige Eisenbahnbrücke</string>
-    <string name="type.railway.abandoned.tunnel">Ehemaliger Eisenbahntunnel</string>
     <string name="type.railway.construction">Eisenbahnstrecke im Bau</string>
     <string name="type.railway.crossing">Bahnübergang</string>
     <string name="type.railway.disused">Stillgelegte Bahnstrecke</string>
@@ -1499,7 +1499,15 @@
     <string name="type.shop.beauty.day_spa">Tages-Spa</string>
     <string name="type.amenity.give_box">Spendenbox</string>
     <string name="type.xmas.tree">Weihnachtsbaum</string>
-    <string name="type.amenity.mobile_money_agent">Mobile Money Vertretung</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.amenity.food_sharing">Food Sharing</string>
     <string name="type.natural.sand">Sand</string>
+    <string name="type.amenity.hydrant">Beregnungshydrant</string>
+    <string name="type.railway.disused.tunnel">Stillgelegter Eisenbahntunnel</string>
+    <string name="type.railway.disused.bridge">Stillgelegte Eisenbahnbrücke</string>
+    <string name="type.railway.miniature.bridge">Miniatur-Eisenbahnbrücke</string>
+    <string name="type.railway.miniature.tunnel">Miniatur-Eisenbahntunnel</string>
+    <string name="type.railway.turntable">Eisenbahn-Drehscheibe</string>
+    <string name="type.tourism.information.tactile_map">Taktile Karte</string>
+    <string name="type.railway.miniature">Miniatureisenbahn</string>
 </resources>

@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Adicionar conjunto novo</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nome do conjunto de favoritos</string>
+    <string name="bookmark_set_name">Nome do Conjunto</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Favoritos</string>
+    <string name="bookmarks">Lugares</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Favoritos e trajetos</string>
+    <string name="bookmarks_and_tracks">Favoritos</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nome</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -144,10 +144,10 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notas</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Os favoritos do CoMaps foram partilhados consigo</string>
-    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo os meus favoritos da aplicação CoMaps. Por favor abra-os se tiver o CoMaps instalado. Caso não tenha, descarregue a aplicação para o seu dispositivo iOS ou Android com a hiperligação https://www.comaps.app/download/ \n \nDivirta-se a viajar com o CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Os meus Favoritos do CoMaps</string>
+    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo os meus favoritos; por favor abra-os com o CoMaps. Caso não tenha, descarregue a aplicação aqui: https://www.comaps.app/download/ \n \nDivirta-se a viajar com o CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">A carregar favoritos</string>
+    <string name="load_kmz_title">A Carregar Favoritos</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Os favoritos foram carregados com sucesso! Pode encontrá-los no mapa ou no ecrã de gestão dos favoritos.</string>
     <!-- Kml file loading failed -->
@@ -491,10 +491,10 @@
     <string name="minute">min</string>
     <string name="day">dia</string>
     <string name="placepage_more_button">Mais</string>
-    <string name="placepage_edit_bookmark_button">Editar favorito</string>
+    <string name="placepage_edit_bookmark_button">Editar Lugar Guardado</string>
     <string name="placepage_personal_notes_hint">Notas pessoais (texto ou html)</string>
     <string name="editor_reset_edits_message">Eliminar todas as alterações locais?</string>
-    <string name="editor_reset_edits_button">Eliminar</string>
+    <string name="editor_reset_edits_button">Descartar alterações</string>
     <string name="editor_remove_place_message">Eliminar o local adicionado?</string>
     <string name="editor_remove_place_button">Eliminar</string>
     <string name="editor_place_doesnt_exist">O local não existe</string>
@@ -549,7 +549,7 @@
     <string name="dialog_error_storage_message">O armazenamento externo não está disponível. Provavelmente porque o cartão SD foi removido, danificado ou o sistema de ficheiros é apenas para leitura. Verifique e contacte-nos através do email support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emular o armazenamento defeituoso</string>
     <string name="error_enter_correct_name">Introduza um nome correto</string>
-    <string name="bookmark_lists">Listas</string>
+    <string name="bookmark_lists">Listas de Favoritos</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Ocultar tudo</string>
     <string name="bookmark_lists_show_all">Mostrar tudo</string>
@@ -560,7 +560,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Criar nova lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importar favoritos e trajetos</string>
+    <string name="bookmarks_import">Importar Favoritos</string>
     <string name="bookmarks_error_message_share_general">Não foi possível partilhar devido a um erro da aplicação</string>
     <string name="bookmarks_error_title_share_empty">Erro ao partilhar</string>
     <string name="bookmarks_error_message_share_empty">Não é possível partilhar uma lista vazia</string>
@@ -748,7 +748,7 @@
     <string name="browser_not_available">O navegador de Internet não está disponível</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportar todos os favoritos e trajetos</string>
+    <string name="bookmarks_export">Exportar todos os Favoritos e Trajetos</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Definições do sistema de síntese de voz</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -780,7 +780,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuar gravação</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Guardar em Favoritos e Trajetos?</string>
+    <string name="track_recording_alert_title">Guardar nos Favoritos?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">O trajeto está vazio - não há nada para guardar</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -847,10 +847,10 @@
     <string name="backup_interval_every_day">Diariamente</string>
     <string name="backup_interval_every_week">Semanalmente</string>
     <string name="backup_interval_manual_only">Off (apenas manual)</string>
-    <string name="bookmark_color">Cor do marcador</string>
+    <string name="bookmark_color">Cor do Favorito</string>
     <string name="pref_backup_now_summary_ok">Backup completado com sucesso</string>
     <string name="pref_backup_location_summary_initial">Por favor selecione uma pasta primeiro e garanta permissão</string>
-    <string name="pref_backup_title">Backup dos marcadores e trajetos</string>
+    <string name="pref_backup_title">Backup dos Favoritos</string>
     <string name="dialog_report_error_missing_folder">A localização de backup selecionada não está disponível ou não permite escrita. Selecione outra localização, por favor.</string>
     <string name="dialog_report_error_with_logs">Por favor, envie-nos um reporte de erro:\n - \"Ativar o histórico\" nas definições\n - reproduza o problema\n - no ecrã de \"Acerca &amp; Ajuda\" pressione o botão para \"Reportar um problema\" e envie via email ou chat\n - desative o histórico</string>
     <string name="open_now">Aberto agora</string>
@@ -912,7 +912,8 @@
     <string name="advanced">Avançadas</string>
     <string name="download_resources_custom_url_title">Servidor de Mapa Personalizado</string>
     <string name="download_resources_custom_url_message">Substitui o servidor de download de mapas normal. Deixe em branco para usar o servidor do CoMaps padrão.</string>
-    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
     <string name="download_resources_custom_url_summary_none">Indefinido</string>
-    <string name="download_resources_custom_url_error_scheme">Por favor insira um URL inteiro começando com https:// e acabando com /</string>
+    <string name="download_resources_custom_url_error_scheme">Por favor, insira um URL começando com http:// ou https://</string>
+    <string name="pref_maplanguage_local">Idioma Local</string>
+    <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema na sua região</string>
 </resources>

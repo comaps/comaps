@@ -1,11 +1,11 @@
-Eine von der Community betriebene, kostenlose Open-Source Karten App, die auf OpenStreetMap Daten basiert. Transparent, datensparsam und nicht gewinnorientiert.
+Eine von der Community betriebene, kostenlose Open-Source-Karten-App, die auf OpenStreetMap-Daten basiert. Transparent, datensparsam und nicht gewinnorientiert.
 
 ‣ Einfach und ausgereift: Essenzielle, leicht zu bedienende Funktionen, die einfach funktionieren.
 ‣ Offline-orientiert: Plane und navigiere im Ausland ohne Mobilfunkverbindung, finde Wegpunkte auf abgelegenen Wanderungen usw. Alle Funktionen sind für den Offline-Einsatz konzipiert.
 ‣ Datenschutzfreundlich: Die App wurde mit Fokus auf Privatsphäre entwickelt – keine Personenidentifikation, kein Tracking, keine Erfassung persönlicher Daten, keine Werbung.
-‣ Spart Akku und Speicherplatz: Verbraucht nicht unnötig Akku wie andere Navi-Apps. Kompakte Karten sparen Speicherplatz auf deinem Gerät.
+‣ Spart Akku und Speicherplatz: Verbraucht nicht unnötig viel Akku wie andere Navi-Apps. Kompakte Karten sparen Speicherplatz auf deinem Gerät.
 ‣ Kostenlos und von der Community entwickelt: Menschen wie du haben geholfen, die App zu entwickeln – durch das Hinzufügen von Orten zu OpenStreetMap, Testen von neuen Funktionen, Softwareentwicklung oder Spenden.
-‣ Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open Source
+‣ Offen und transparent bei Entscheidungen und Finanzen, gemeinnützig und vollständig Open Source.
 
 Hauptfunktionen:
 • Detaillierte, herunterladbare Karten mit Orten, die bei Google Maps oft fehlen
@@ -13,16 +13,16 @@ Hauptfunktionen:
 • Geh- und Radwege
 • Orte wie Restaurants, Tankstellen, Hotels, Geschäfte, Sehenswürdigkeiten und viele mehr
 • Suche nach Namen, Adressen oder Kategorien
-• Navigation mit Sprachausgabe für Fußgänger, Radfahrer und Autos
+• Navigation mit Sprachausgabe für Zufußgehende, Radfahrende und Autofahrende
 • Lesezeichen mit einem einzigen Tippen speichern
 • iCloud Synchronisation für deine Lesezeichen und GPS Tracks
 • Offline verfügbare Wikipedia-Artikel
 • U- und S-Bahn-Netze
-• Aufzeichnen von GPS Tracks
+• Aufzeichnen von GPS-Tracks
 • Import und Export von Favoriten und Routen im KML-, KMZ- oder GPX-Format
 • Dunkler Modus für die Nutzung bei Nacht
 • Kartenbearbeitung direkt in der App mit einem einfachen Editor
 • Unterstützung für CarPlay
 
 Freiheit beginnt hier
-Entdecke deine Reise – navigiere in der Welt mit Datenschutz!
+Entdecke deine Reise, wobei Datenschutz und Gemeinschaft im Vordergrund stehen!

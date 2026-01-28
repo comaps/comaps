@@ -53,7 +53,7 @@ public class MenuBottomSheetFragment extends BottomSheetDialogFragment
   @Override
   public Dialog onCreateDialog(@Nullable Bundle savedInstanceState)
   {
-    return new BottomSheetDialog(requireContext(), getTheme()) {
+    return new BottomSheetDialog(requireContext(), R.style.MwmTheme_BottomSheetDialog) {
       @Override
       public void onAttachedToWindow()
       {

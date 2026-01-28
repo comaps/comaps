@@ -62,11 +62,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Adicionar novo conjunto</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nome do conjunto de favoritos</string>
+    <string name="bookmark_set_name">Nome do conjunto</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Favoritos</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Favoritos e trilhas</string>
+    <string name="bookmarks_and_tracks">Favoritos</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nome</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -448,7 +448,7 @@
     <string name="placepage_edit_bookmark_button">Editar favorito</string>
     <string name="placepage_personal_notes_hint">Anotações pessoais (texto ou html)</string>
     <string name="editor_reset_edits_message">Descartar todas as modificações locais?</string>
-    <string name="editor_reset_edits_button">Descartar</string>
+    <string name="editor_reset_edits_button">Descartar alterações</string>
     <string name="editor_remove_place_message">Remover local adicionado?</string>
     <string name="editor_remove_place_button">Remover</string>
     <string name="editor_place_doesnt_exist">O lugar não existe</string>
@@ -893,4 +893,11 @@
     <string name="prefs_speed_cameras_information">Alertas de radar fotográfico de velocidade estão desativados em países onde os alertas são proibidos pelas leis locais.</string>
     <string name="navigation_start_tts_message">"Iniciando navegação, idioma da instrução por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrução por voz desativada: nenhum motor de texto para voz disponível</string>
+    <string name="advanced">Avançadas</string>
+    <string name="download_resources_custom_url_title">Servidor de Mapas Personalizado</string>
+    <string name="download_resources_custom_url_message">Substitua o servidor padrão usado para baixar mapas. Deixe em branco para usar o servidor padrão do CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Não definido</string>
+    <string name="download_resources_custom_url_error_scheme">Insira uma URL começando com http:// ou https://</string>
+    <string name="pref_maplanguage_local">Linguagem Local</string>
+    <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema em sua região</string>
 </resources>

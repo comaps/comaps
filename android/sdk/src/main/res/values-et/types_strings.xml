@@ -44,8 +44,8 @@
     <string name="type.leisure.adult_gaming_centre">Hasartmängusaal</string>
     <string name="type.leisure.amusement_arcade">Videomängusaal</string>
     <string name="type.amenity.charging_station">Laadimisjaam</string>
-    <string name="type.amenity.charging_station.bicycle">Jalgratta laadimisjaam</string>
-    <string name="type.amenity.charging_station.motorcar">Autode laadimisjaam</string>
+    <string name="type.amenity.charging_station.bicycle">Jalgrattad</string>
+    <string name="type.amenity.charging_station.motorcar">Autod</string>
     <string name="type.amenity.childcare">Lastehoid</string>
     <string name="type.amenity.cinema">Kino</string>
     <string name="type.leisure.bowling_alley">Bowlingusaal</string>
@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Avalik raamaturiiul</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Jäätmejaam</string>
-    <string name="type.amenity.recycling">Taaskasutuskonteiner</string>
     <string name="type.amenity.recycling.container">Taaskasutuskonteiner</string>
     <string name="type.recycling.batteries">Patareid</string>
     <string name="type.recycling.clothes">Rõivad</string>
@@ -173,7 +172,7 @@
     <string name="type.amenity.vending_machine.food">Toiduautomaat</string>
     <string name="type.amenity.vending_machine.newspapers">Ajalehtede automaat</string>
     <string name="type.amenity.vending_machine.parking_tickets">Parkimispiletite automaat</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Piletiautomaat</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Ühistranspordi piletiautomaat</string>
     <string name="type.amenity.vending_machine.sweets">Maiustuste automaat</string>
     <string name="type.amenity.vending_machine.excrement_bags">Väljaheitekottide automaat</string>
     <string name="type.amenity.parcel_locker">Pakiautomaat</string>
@@ -805,8 +804,6 @@
     <string name="type.public_transport.platform">Ooteplatvorm</string>
     <string name="type.railway">Raudtee</string>
     <string name="type.railway.abandoned">Mahajäetud raudtee</string>
-    <string name="type.railway.abandoned.bridge">Mahajäetud sild</string>
-    <string name="type.railway.abandoned.tunnel">Mahajäetud raudteetunnel</string>
     <string name="type.railway.construction">Ehitusel raudtee</string>
     <string name="type.railway.crossing">Raudtee ülesõit</string>
     <string name="type.railway.disused">Kasutamata raudtee</string>
@@ -1398,8 +1395,7 @@
     <string name="type.power.portal">Õhuliini värava-tüüpi mast</string>
     <string name="type.office.security">Turvafirma kontor</string>
     <string name="type.shop.lighting">Lambipood</string>
-    <string name="type.amenity.bench.backless">Ilma seljatoeta pink</string>
-    <string name="type.amenity.charging_station.motorcar.small">Auto laadimispunkt</string>
+    <string name="type.amenity.bench.backless">Ilma seljatoeta</string>
     <string name="type.leisure.bandstand">Väike vabaõhulava</string>
     <string name="type.leisure.sports_centre.sport.multi">Spordikeskus</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Joogastuudio</string>
@@ -1495,4 +1491,21 @@
     <string name="type.man_made.mast.communication">Sidemast</string>
     <string name="type.shop.beauty.nails">Küünestuudio</string>
     <string name="type.amenity.hydrant">Kastmishüdrant</string>
+    <string name="type.lateral.port">Pakpoordis</string>
+    <string name="type.lateral.starboard">Tüürpoordis</string>
+    <string name="type.cardinal.east">Idas</string>
+    <string name="type.cardinal.north">Põhjas</string>
+    <string name="type.cardinal.south">Lõunas</string>
+    <string name="type.cardinal.west">Läänes</string>
+    <string name="type.railway.miniature">Väikeraudtee/pargiraudtee</string>
+    <string name="type.railway.miniature.bridge">Väikeraudtee/pargiraudtee sild</string>
+    <string name="type.railway.miniature.tunnel">Väikeraudtee/pargiraudtee tunnel</string>
+    <string name="type.railway.turntable">Raudtee pöördesild</string>
+    <string name="type.tourism.information.tactile_map">Kombatav kaart</string>
+    <string name="type.railway.disused.bridge">Kasutuselt eemaldatud raudteesild</string>
+    <string name="type.railway.disused.tunnel">Kasutuselt eemaldatud raudteetunnel</string>
+    <string name="type.amenity.charging_station.motorcycle">Mootorrattad</string>
+    <string name="type.amenity.charging_station.small">Väike laadimisjaam</string>
+    <string name="type.emergency.disaster_help_point">Katastroofiabi teenused</string>
+    <string name="type.emergency.access_point.address">Hädaolukorras asukohatuvastuspunkti aadress</string>
 </resources>

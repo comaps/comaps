@@ -52,6 +52,36 @@ void OsmElement::AddTag(std::string_view key, std::string_view value)
       return;
 
   m_tags.emplace_back(key, value);
+
+  // Determine if all of these keys are set,
+  // without having to repeatedly look them up in the tags list
+  if (key == "name")
+    m_setKeys |= NAME;
+  else if (key == "name:prefix")
+    m_setKeys |= NAME_PREFIX;
+  else if (key == "name:full")
+    m_setKeys |= NAME_FULL;
+  else if (key == "highway")
+    m_setKeys |= HIGHWAY;
+  else
+    return;  // Only run the following code if one of the above keys was added
+
+  // If a highway has a name, a full name, and a name prefix,
+  // and the full name is equal to the name prefix joined with a space before the name,
+  // then replace the name with the full name
+  // See https://codeberg.org/comaps/comaps/issues/3193
+  if (m_setKeys & NAME && m_setKeys & NAME_PREFIX && m_setKeys & NAME_FULL && m_setKeys & HIGHWAY)
+  {
+    std::string name = GetTag("name");
+    std::string namePrefix = GetTag("name:prefix");
+    std::string nameFull = GetTag("name:full");
+
+    if ((namePrefix + " " + name) == nameFull)
+      UpdateTag("name", nameFull);
+    else
+      LOG(LDEBUG, ("Highway name tags don't match. name:prefix:", namePrefix, "name:", name, "name:full:", nameFull,
+                   "in OSM Element:", m_id));
+  }
 }
 
 bool OsmElement::HasTag(std::string_view const & key) const

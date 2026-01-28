@@ -73,11 +73,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Add a New List</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Bookmark List Name</string>
+    <string name="bookmark_set_name">List Name</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Bookmarks</string>
+    <string name="bookmarks">Places</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Bookmarks and Tracks</string>
+    <string name="bookmarks_and_tracks">Favorites</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Name</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -156,18 +156,18 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps bookmarks were shared with you</string>
+    <string name="share_bookmarks_email_subject">My CoMaps Favorites</string>
     <string name="share_bookmarks_email_body">Hello!
 \n
-\nAttached are my bookmarks; please open them in CoMaps. If you don\'t have it installed you can download it here: https://www.comaps.app/download/
+\nAttached are my favorites; please open them in CoMaps. If you don\'t have it installed you can download it here: https://www.comaps.app/download/
 \n
 \nEnjoy travelling with CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Loading Bookmarks</string>
+    <string name="load_kmz_title">Loading Favorites</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Bookmarks loaded successfully! You can find them on the map or on the Bookmarks Manager screen.</string>
+    <string name="load_kmz_successful">Favorites loaded successfully! You can find them on the map or on the Favorites Manager screen.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Failed to load bookmarks. The file may be corrupted or defective.</string>
+    <string name="load_kmz_failed">Failed to load favorites. The file may be corrupted or defective.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">The file type is not recognized by the app:
 \n%1$s</string>
@@ -542,7 +542,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">More</string>
-    <string name="placepage_edit_bookmark_button">Edit Bookmark</string>
+    <string name="placepage_edit_bookmark_button">Edit Saved Place</string>
     <string name="placepage_personal_notes_hint">Personal notes (text or html)</string>
     <string name="editor_reset_edits_message">Discard all local changes?</string>
     <string name="editor_reset_edits_button">Discard changes</string>
@@ -636,17 +636,17 @@
     <string name="dialog_error_storage_message">External storage is not accessible. The SD card may have been removed, damaged, or the file system is read-only. Please, check your SD card or contact us at support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emulate bad storage</string>
     <string name="error_enter_correct_name">Please enter a correct name</string>
-    <string name="bookmark_lists">Lists</string>
+    <string name="bookmark_lists">Favorite Lists</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Hide all</string>
     <string name="bookmark_lists_show_all">Show all</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bookmark</item>
-        <item quantity="other">%d bookmarks</item>
+        <item quantity="one">%d saved place</item>
+        <item quantity="other">%d saved places</item>
     </plurals>
     <string name="bookmarks_create_new_group">Create a new list</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Import Bookmarks and Tracks</string>
+    <string name="bookmarks_import">Import Favorites</string>
     <string name="bookmarks_error_message_share_general">Unable to share due to an application error</string>
     <string name="bookmarks_error_title_share_empty">Sharing error</string>
     <string name="bookmarks_error_message_share_empty">Cannot share an empty list</string>
@@ -676,7 +676,7 @@
     <string name="subway">Subway</string>
     <string name="layers_title">Map Styles and Layers</string>
     <string name="bookmarks_empty_list_title">This list is empty</string>
-    <string name="bookmarks_empty_list_message">To add a bookmark, tap a place on the map and then tap the star icon</string>
+    <string name="bookmarks_empty_list_message">To save a place, tap a place on the map and then tap the star icon</string>
     <string name="category_desc_more">…more</string>
     <string name="export_file">Export KMZ</string>
     <string name="export_file_gpx">Export GPX</string>
@@ -731,7 +731,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sort…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sort bookmarks</string>
+    <string name="sort_bookmarks">Sort favorites</string>
     <!-- Android -->
     <string name="by_default">By default</string>
     <!-- Android -->
@@ -798,7 +798,7 @@
     <string name="enable_show_on_lock_screen">Show on the lock screen</string>
     <!-- Description in preferences -->
     <string name="enable_show_on_lock_screen_description">When enabled, the app will work on the lockscreen even when the device is locked.</string>
-    <!-- Current language of the map! -->
+    <!-- Current language of the map -->
     <string name="change_map_locale">Map language</string>
     <!-- Enable live traffic data via HTTP (title) -->
     <string name="traffic_http_enabled">Enable live traffic data</string>
@@ -818,6 +818,8 @@
     <string name="traffic_legacy_enabled">Use data from legacy TraFF applications</string>
     <!-- Enable traffic data from TraFF 0.7 apps (description) -->
     <string name="traffic_legacy_enabled_description">When enabled, the app will receive and process traffic data from legacy TraFF applications.</string>
+    <!-- Local language -->
+    <string name="pref_maplanguage_local">Local Language</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Map data from OpenStreetMap</string>
     <!-- Telegram group url for the "?" About page -->
@@ -830,7 +832,7 @@
     <string name="translated_om_site_url">https://comaps.app/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
-    <!-- A number of bookmarks and a number of tracks, separated by comma, like: 1 bookmark, 5 tracks -->
+    <!-- A number of bookmarks and a number of tracks, separated by comma, like: 1 saved place, 5 tracks -->
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <!-- App Tip #00 -->
     <string name="app_tip_00">Thank you for using our community-built maps!</string>
@@ -876,7 +878,7 @@
     <string name="browser_not_available">Web browser is not available</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Export all Bookmarks and Tracks</string>
+    <string name="bookmarks_export">Export all Places and Tracks</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Speech synthesis system settings</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -908,7 +910,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continue Recording</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Save into Bookmarks and Tracks?</string>
+    <string name="track_recording_alert_title">Save into Favorites?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Track is empty - nothing to save</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -922,13 +924,13 @@
     <string name="pref_left_button_disable">Disable</string>
 
     <!-- Settings "Backup" category: "Backup" title -->
-    <string name="pref_backup_title">Bookmarks and tracks backup</string>
+    <string name="pref_backup_title">Backup favorites</string>
     <string name="pref_backup_summary">Automatically backup to a folder on your device</string>
     <string name="pref_backup_now_title">Backup now</string>
     <string name="pref_backup_now_summary">Create a backup immediately</string>
     <string name="pref_backup_now_summary_progress">Backup in progress…</string>
     <string name="pref_backup_now_summary_ok">Backup completed successfully</string>
-    <string name="pref_backup_now_summary_empty_lists">No bookmarks and tracks to backup</string>
+    <string name="pref_backup_now_summary_empty_lists">No places and tracks to backup</string>
     <string name="pref_backup_now_summary_failed">Backup failed</string>
     <string name="pref_backup_now_summary_folder_unavailable">The backup folder is not available</string>
     <string name="pref_backup_status_summary_success">Last successful backup</string>
@@ -952,7 +954,7 @@
     <string name="pedestrian">Pedestrian</string>
     <string name="bicycle">Bicycle</string>
     <string name="ruler">Ruler</string>
-    <string name="bookmark_color">Bookmark color</string>
+    <string name="bookmark_color">Color for Favorite</string>
     <string name="about_help">About &amp; Help</string>
     <string name="open_now">Open now</string>
     <string name="closed_now">Closed now</string>
@@ -990,7 +992,8 @@
     <!-- Custom Download URL -->
     <string name="download_resources_custom_url_title">Custom Map Server</string>
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
-    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
     <string name="download_resources_custom_url_summary_none">Not set</string>
-    <string name="download_resources_custom_url_error_scheme">Please enter a full URL starting with https:// and ending with /</string>
+    <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
+    <!-- string name different as needs to match iOS -->
+    <string name="limit_map_language_alternatives_to_local">Only use other system languages in their region</string>
 </resources>

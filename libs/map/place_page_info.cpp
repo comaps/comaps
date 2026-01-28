@@ -135,10 +135,6 @@ std::string Info::FormatSubtitle(bool withTypes, bool withMainType) const
   for (auto const & cuisine : GetLocalizedCuisines())
     append(cuisine);
 
-  // Recycling types.
-  for (auto const & recycling : GetLocalizedRecyclingTypes())
-    append(recycling);
-
   // Airport IATA code.
   auto const iata = GetMetadata(feature::Metadata::FMD_AIRPORT_IATA);
   if (!iata.empty())

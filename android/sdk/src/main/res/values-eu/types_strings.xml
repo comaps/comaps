@@ -129,7 +129,6 @@
     <string name="type.amenity.public_bookcase">Liburu trukea</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Birziklapen zentroa</string>
-    <string name="type.amenity.recycling">Birziklatzeko edukiontzia</string>
     <string name="type.amenity.recycling.container">Birziklatzeko edukiontzia</string>
     <string name="type.recycling.batteries">Bateriak</string>
     <string name="type.recycling.clothes">Arropa</string>
@@ -1303,8 +1302,6 @@
     <string name="type.public_transport.platform">Plataforma</string>
     <string name="type.railway">Trenbidea</string>
     <string name="type.railway.abandoned">Utzitako trenbidea</string>
-    <string name="type.railway.abandoned.bridge">Utzitako trenbide zubia</string>
-    <string name="type.railway.abandoned.tunnel">Utzitako trenbide tunela</string>
     <string name="type.railway.crossing">Trenbide gurutzea</string>
     <string name="type.railway.disused">Erabilerarik gabeko trenbidea</string>
     <string name="type.railway.funicular.tunnel">Funikularreko tunela</string>
@@ -1356,5 +1353,4 @@
     <string name="type.man_made.telescope.radio">Teleskopioa (irratia)</string>
     <string name="type.man_made.telescope.gamma">Teleskopioa (gamma)</string>
     <string name="type.man_made.observatory">Behatokia</string>
-    <string name="type.amenity.charging_station.motorcar.small">Autoak kargatzeko puntua</string>
 </resources>

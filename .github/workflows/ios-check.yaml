@@ -35,7 +35,7 @@ jobs:
           xcodebuild -downloadPlatform iOS
 
       - name: Checkout sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Parallel submodules checkout
         shell: bash

@@ -64,6 +64,7 @@
   <color name="bg_cards">@android:color/white</color>
   <color name="bg_panel">@color/bg_window</color>
   <color name="bg_primary_dark">#37653F</color> <!-- secondary dark -->
+  <color name="bg_app">@android:color/white</color>
 
   <color name="bg_dialog_translucent">#BB000000</color>
   <color name="bg_text_translucent">#99FFFFFF</color>
@@ -123,7 +124,7 @@
   <color name="elevation_profile_dot_enabled">#FF9600</color>
   <color name="elevation_profile">@color/base_accent</color>
 
-  <color name="active_track_recording">#0057ff</color>
+  <color name="active_track_recording">#FFFF0000</color>
 
   <color name="material_calendar_surface_dark">#929292</color>
   <color name="notification_warning">#FFC22219</color>
@@ -132,5 +133,21 @@
   <color name="dl_done">#ebebeb</color>
   <color name="dl_download">#FF37653F</color>
   <color name="dl_update">#ffc30a</color>
+
+  <!-- Categories -->
+  <color name="foreground_color">#FFF</color>
+
+  <color name="amenity">#747E86</color>
+  <color name="entertainment">#EB785D</color>
+  <color name="food">#EC955E</color>
+  <color name="shop">#BE75A3</color>
+  <color name="cm_services">#AA96BC</color>
+  <color name="medical">#D85961</color>
+  <color name="hotel">#664E42</color>
+  <color name="luggagehero">#FB3207</color>
+  <color name="parking">#427BB8</color>
+  <color name="tourism">#9C6136</color>
+  <color name="transport">#2F6499</color>
+  <color name="water">#54A3B6</color>
 </resources>
 

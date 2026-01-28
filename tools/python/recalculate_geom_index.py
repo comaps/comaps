@@ -8,7 +8,7 @@ Uses generator_tool for index calculation. After all it runs designer_tool if ha
 import os
 import subprocess
 import sys
-from Queue import Queue, Empty
+from queue import Queue, Empty
 from threading import Thread
 
 WORKERS = 8
@@ -27,7 +27,7 @@ def FindAllMwms(data_path):
     return result
 
 def ProcessMwm(generator_tool, task, error_queue):
-    print "Processing ", task[0]
+    print("Processing ", task[0])
     try:
         subprocess.call((generator_tool, '--data_path={0}'.format(task[1]), '--output={0}'.format(task[0][:-4]), "--generate_index=true", "--intermediate_data_path=/tmp/"))
     except subprocess.CalledProcessError as e:
@@ -38,7 +38,7 @@ def parallel_worker(tasks, generator_tool, error_queue):
         try:
             task = tasks.get_nowait()
         except Empty:
-            print "Process done!"
+            print("Process done!")
             return
         ProcessMwm(generator_tool, task, error_queue)
         tasks.task_done()
@@ -46,7 +46,7 @@ def parallel_worker(tasks, generator_tool, error_queue):
 if __name__ == "__main__":
 
     if len(sys.argv) < 3:
-        print "{0} <resources_dir> <writable_dir> <generator_tool> [<designer_tool> <designer_params>]".format(sys.argv[0])
+        print("{0} <resources_dir> <writable_dir> <generator_tool> [<designer_tool> <designer_params>]".format(sys.argv[0]))
         exit(1)
 
     mwms = FindAllMwms(sys.argv[1])
@@ -63,14 +63,14 @@ if __name__ == "__main__":
         t.start()
 
     tasks.join()
-    print "Processing done."
+    print("Processing done.")
 
     if len(sys.argv) > 4:
-        print "Starting app"
+        print("Starting app")
         subprocess.Popen(sys.argv[4:])
 
     if not error_queue.qsize() == 0:
         while error_queue.qsize():
             error = error_queue.get()
-            print error
+            print(error)
         exit(1)

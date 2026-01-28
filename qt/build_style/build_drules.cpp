@@ -15,7 +15,7 @@
 
 namespace build_style
 {
-void BuildDrawingRulesImpl(QString const & mapcssFile, QString const & outputDir)
+void BuildDrawingRulesImpl(QString const & mapcssFile, QString const & outputDir, QString const & prioDir)
 {
   QString const outputTemplate = JoinPathQt({outputDir, "drules_proto_design"});
   QString const outputFile = outputTemplate + ".bin";
@@ -29,6 +29,21 @@ void BuildDrawingRulesImpl(QString const & mapcssFile, QString const & outputDir
   env.insert("PROTOBUF_EGG_PATH", GetProtobufEggPath());
 
   // Run the script
+#if defined(OMIM_OS_MAC)
+  (void)ExecProcess("python3",
+                    {
+                        GetExternalPath("libkomwm.py", "kothic/src", "../tools/kothic/src"),
+                        "-s",
+                        mapcssFile,
+                        "-o",
+                        outputTemplate,
+                        "-p",
+                        prioDir,
+                        "-x",
+                        "True",
+                    },
+                    &env);
+#else
   (void)ExecProcess("python",
                     {
                         GetExternalPath("libkomwm.py", "kothic/src", "../tools/kothic/src"),
@@ -36,21 +51,24 @@ void BuildDrawingRulesImpl(QString const & mapcssFile, QString const & outputDir
                         mapcssFile,
                         "-o",
                         outputTemplate,
+                        "-p",
+                        prioDir,
                         "-x",
                         "True",
                     },
                     &env);
+#endif
 
   // Ensure that generated file is not empty.
   if (QFile(outputFile).size() == 0)
     throw std::runtime_error("Drawing rules file has zero size");
 }
 
-void BuildDrawingRules(QString const & mapcssFile, QString const & outputDir)
+void BuildDrawingRules(QString const & mapcssFile, QString const & outputDir, QString const & prioDir)
 {
   CopyFromResources("mapcss-mapping.csv", outputDir);
   CopyFromResources("mapcss-dynamic.txt", outputDir);
-  BuildDrawingRulesImpl(mapcssFile, outputDir);
+  BuildDrawingRulesImpl(mapcssFile, outputDir, prioDir);
 }
 
 void ApplyDrawingRules(QString const & outputDir)

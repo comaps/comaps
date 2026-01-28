@@ -16,7 +16,7 @@
       android:layout_marginStart="@dimen/margin_base"
       android:layout_marginTop="@dimen/margin_base"
       android:text="@string/layers_title"
-      android:textAppearance="@style/TextAppearance.Headline6"
+      android:textAppearance="@style/MwmTextAppearance.Headline6"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
     <com.google.android.material.button.MaterialButton

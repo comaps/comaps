@@ -158,7 +158,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   [self configNavBar];
   auto const & fid = m_mapObject.GetID();
   self.featureStatus = osm::Editor::Instance().GetFeatureStatus(fid.m_mwmId, fid.m_index);
-  self.isFeatureUploaded = osm::Editor::Instance().IsFeatureUploaded(fid.m_mwmId, fid.m_index);
+  self.isFeatureUploaded = osm::Editor::Instance().AreSomeFeatureChangesUploaded(fid.m_mwmId, fid.m_index);
   m_newAdditionalLanguages.clear();
   if (self.isCreating)
   {
@@ -1089,7 +1089,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 - (void)tapOnButtonCell:(UITableViewCell *)cell
 {
   auto const & fid = m_mapObject.GetID();
-  self.isFeatureUploaded = osm::Editor::Instance().IsFeatureUploaded(fid.m_mwmId, fid.m_index);
+  self.isFeatureUploaded = osm::Editor::Instance().AreSomeFeatureChangesUploaded(fid.m_mwmId, fid.m_index);
   NSIndexPath * ip = [self.tableView indexPathForCell:cell];
   [self.tableView reloadRowsAtIndexPaths:@[ ip ] withRowAnimation:UITableViewRowAnimationFade];
 

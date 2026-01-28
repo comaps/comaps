@@ -22,6 +22,8 @@ namespace df
 {
 using TAnimationCreator = std::function<drape_ptr<Animation>(ref_ptr<Animation>)>;
 
+using TMyPositionModeChanged = std::function<void(location::EMyPositionMode, bool, bool)>;
+
 class DrapeNotifier;
 
 class MyPositionController
@@ -49,9 +51,10 @@ public:
 
   struct Params
   {
-    Params(location::EMyPositionMode initMode, double timeInBackground, Hints const & hints, bool isRoutingActive,
-           bool isAutozoomEnabled, location::TMyPositionModeChanged && fn)
+    Params(location::EMyPositionMode initMode, location::EMyPositionMode preferredRoutingMode, double timeInBackground,
+           Hints const & hints, bool isRoutingActive, bool isAutozoomEnabled, TMyPositionModeChanged && fn)
       : m_initMode(initMode)
+      , m_preferredRoutingMode(preferredRoutingMode)
       , m_timeInBackground(timeInBackground)
       , m_hints(hints)
       , m_isRoutingActive(isRoutingActive)
@@ -60,11 +63,12 @@ public:
     {}
 
     location::EMyPositionMode m_initMode;
+    location::EMyPositionMode m_preferredRoutingMode;
     double m_timeInBackground;
     Hints m_hints;
     bool m_isRoutingActive;
     bool m_isAutozoomEnabled;
-    location::TMyPositionModeChanged m_myPositionModeCallback;
+    TMyPositionModeChanged m_myPositionModeCallback;
   };
 
   MyPositionController(Params && params, ref_ptr<DrapeNotifier> notifier);
@@ -112,6 +116,7 @@ public:
   void NextMode(ScreenBase const & screen);
   void LoseLocation();
   location::EMyPositionMode GetCurrentMode() const { return m_mode; }
+  void StartPendingPositionMode();
 
   void OnEnterForeground(double backgroundTime);
   void OnEnterBackground();
@@ -134,6 +139,7 @@ public:
   void UpdateRoutingOffsetY(bool useDefault, int offsetY);
 
 private:
+  void ChangeMode(location::EMyPositionMode newMode, bool persist);
   void ChangeMode(location::EMyPositionMode newMode);
   void SetDirection(double bearing);
 
@@ -163,7 +169,8 @@ private:
 
   location::EMyPositionMode m_mode;
   location::EMyPositionMode m_desiredInitMode;
-  location::TMyPositionModeChanged m_modeChangeCallback;
+  location::EMyPositionMode m_preferredRoutingMode;
+  TMyPositionModeChanged m_modeChangeCallback;
   Hints m_hints;
 
   bool m_isInRouting = false;

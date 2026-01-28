@@ -54,7 +54,6 @@
     <string name="type.amenity.prison">Турма</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Прыём другсыравіны</string>
-    <string name="type.amenity.recycling">Кантэйнер для другаснай сыравіны</string>
     <string name="type.amenity.recycling.container">Кантэйнер для другаснай сыравіны</string>
     <string name="type.recycling.batteries">Батарэйкі</string>
     <string name="type.recycling.clothes">Адзенне</string>

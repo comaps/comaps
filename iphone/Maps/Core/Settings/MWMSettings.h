@@ -25,9 +25,6 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)zoomButtonsEnabled;
 + (void)setZoomButtonsEnabled:(BOOL)zoomButtonsEnabled;
 
-+ (BOOL)compassCalibrationEnabled;
-+ (void)setCompassCalibrationEnabled:(BOOL)compassCalibrationEnabled;
-
 + (MWMTheme)theme;
 + (void)setTheme:(MWMTheme)theme;
 
@@ -46,6 +43,9 @@ NS_SWIFT_NAME(SettingsBridge)
 + (NSDictionary<NSString *, NSString *> *)availableMapLanguages;
 + (NSString *)mapLanguageCode;
 + (void)setMapLanguageCode:(NSString *)mapLanguageCode;
+
++ (BOOL)mapLanguageLimitAlternativesToLocal;
++ (void)setMapLanguageLimitAlternativesToLocal:(BOOL)mapLanguageLimitAlternativesToLocal;
 
 + (BOOL)transliteration;
 + (void)setTransliteration:(BOOL)transliteration;

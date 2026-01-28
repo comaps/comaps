@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pohostinstvo";
 "type.amenity.public_bookcase" = "Knižná búdka";
 "type.amenity.recycling.centre" = "Zberné suroviny";
-"type.amenity.recycling" = "Recyklačný kontajner";
 "type.amenity.recycling.container" = "Recyklačný kontajner";
 "type.recycling.batteries" = "Batérie";
 "type.recycling.clothes" = "Staré oblečenie";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Most pre chodcov";
-
 "type.highway.pedestrian.square" = "Námestie";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Nástupište";
 "type.railway" = "Železnica";
 "type.railway.abandoned" = "Zrušená trať";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Železničné priecestie";
 "type.railway.disused" = "Nepoužívaná trať";

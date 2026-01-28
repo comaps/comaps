@@ -5,7 +5,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="?cardBackground">
+  android:background="?appBackground">
   <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +38,7 @@
         app:tint="?colorSecondary"/>
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/head_message"
-        style="@style/TextAppearance.Headline6"
+        style="@style/MwmTextAppearance.Headline6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_base"
@@ -48,7 +48,7 @@
         android:text="@string/download_map_title" />
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/download_message"
-        style="@style/TextAppearance.Body2"
+        style="@style/MwmTextAppearance.Body2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_base"

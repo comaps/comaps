@@ -1,16 +1,16 @@
 
 /* Button text (should be short) */
-"cancel" = "إلغاء";
+"cancel" = "ألغِ";
 
 /* Button which interrupts country download */
 "cancel_download" = "إلغاء التنزيل";
 
 /* Button which deletes downloaded country */
-"delete" = "حذف";
-"download_maps" = "تنزيل الخرائط";
+"delete" = "احذف";
+"download_maps" = "نزّل الخرائط";
 
 /* Settings/Downloader - info for country which started downloading */
-"downloading" = "جاري التنزيل…";
+"downloading" = "جارِ التنزيل…";
 
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "الكيلومترات";
@@ -25,7 +25,7 @@
 "core_my_position" = "موقعي";
 
 /* Update maps later button text */
-"later" = "ًلاحقا";
+"later" = "لاحقًا";
 
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "البحث";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "حدث خطأ في إرسال البريد الإلكتروني";
-
-/* Settings item title */
-"pref_calibration_title" = "معايرة البوصلة";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "اضغط مطولاً على الخريطة مرة أخرى لرؤية الواجهة";

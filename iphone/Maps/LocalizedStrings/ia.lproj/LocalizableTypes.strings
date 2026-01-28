@@ -48,7 +48,6 @@
 "type.highway.path.bicycle" = "Cycle & Foot Path";
 "type.highway.path.tunnel" = "Tunnel";
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 "type.highway.pedestrian.area" = "Pedestrian Area";
 "type.highway.pedestrian.tunnel" = "Pedestrian Tunnel";
@@ -285,7 +284,6 @@
 "type.place.city.capital.5" = "City";
 "type.power.plant" = "Power Plant";
 "type.shop.car" = "Car Dealership";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
 "type.railway.subway_entrance.dubai" = "Subway Entrance";
 "type.amenity.townhall" = "Town Hall";
 "type.building.has_parts" = "Building";
@@ -318,7 +316,6 @@
 "type.historic.memorial.statue" = "Statue";
 "type.craft.shoemaker" = "Shoe Repair";
 "type.railway.subway_entrance.madrid" = "Subway Entrance";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.attraction.big_wheel" = "Big Wheel";
 "type.landuse.commercial" = "Commercial Area";
 "type.cuisine.hotdog" = "Hotdog";
@@ -431,7 +428,6 @@
 "type.tourism.artwork.architecture" = "Architectural Artwork";
 "type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";
 "type.highway.secondary_link.tunnel" = "Tunnel";
-"type.amenity.recycling" = "Recycling Container";
 "type.shop.jewelry" = "Jewelry Store";
 "type.railway.subway_entrance.montreal" = "Subway Entrance";
 "type.highway.footway.bridge" = "Pedestrian Bridge";

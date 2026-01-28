@@ -236,7 +236,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Intercambio de libros";
 "type.amenity.recycling.centre" = "Centro de reciclaxe";
-"type.amenity.recycling" = "Contedora de reciclaxe";
 "type.amenity.recycling.container" = "Contedora de reciclaxe";
 "type.recycling.batteries" = "Baterías";
 "type.recycling.clothes" = "Roupa";
@@ -495,7 +494,6 @@
 "type.highway.pedestrian" = "Cale peonil";
 "type.highway.pedestrian.area" = "Zona peonil";
 "type.highway.pedestrian.bridge" = "Puente peonil";
-
 "type.highway.pedestrian.square" = "Praza";
 "type.highway.pedestrian.tunnel" = "Túnel peonil";
 "type.highway.primary" = "Estrada principal";
@@ -793,8 +791,6 @@
 "type.public_transport.platform" = "Plataforma";
 "type.railway" = "Vía férrea";
 "type.railway.abandoned" = "Vía férrea abandonada";
-"type.railway.abandoned.bridge" = "Puente ferroviario abandonado";
-"type.railway.abandoned.tunnel" = "Túnel ferroviario abandonado";
 "type.railway.construction" = "Vía férrea en construción";
 "type.railway.crossing" = "Paso a nivel";
 "type.railway.disused" = "Vía férrea en desuso";

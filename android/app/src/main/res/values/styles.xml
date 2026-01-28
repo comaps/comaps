@@ -143,14 +143,8 @@
     <item name="android:background">?colorPrimary</item>
     <item name="android:displayOptions">homeAsUp|showTitle</item>
     <item name="contentInsetStart">0dp</item>
-    <item name="android:titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title</item>
-    <item name="titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title</item>
+    <item name="titleTextColor">@color/text_light</item>
     <item name="buttonGravity">center_vertical</item>
-  </style>
-
-  <style name="MwmWidget.ToolbarStyle.Light">
-    <item name="android:titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title.Light</item>
-    <item name="titleTextAppearance">@style/MwmTextAppearance.Toolbar.Title.Light</item>
   </style>
 
   <style name="MwmWidget.ToolbarStyle.NoElevation">
@@ -164,29 +158,6 @@
     <item name="iconTint">@color/white_primary</item>
   </style>
 
-  <style name="MwmWidget.ToolbarTheme.Light" parent="MwmWidget.ToolbarTheme">
-    <item name="android:gravity">center_vertical</item>
-    <item name="colorAccent">@android:color/white</item>
-    <item name="colorSecondary">#FF32363A</item>
-  </style>
-
-  <style name="MwmWidget.ToolbarTheme.Transparent" parent="ThemeOverlay.Material3.Dark.ActionBar">
-    <item name="android:gravity">center_vertical</item>
-    <item name="colorAccent">@android:color/white</item>
-    <item name="colorSecondary">@android:color/white</item>
-    <item name="android:windowActionBarOverlay">true</item>
-    <item name="windowActionBarOverlay">true</item>
-  </style>
-
-  <style
-    name="MwmWidget.ToolbarTheme.DownButton"
-    parent="ThemeOverlay.Material3.Dark.ActionBar">
-    <item name="android:gravity">center_vertical</item>
-    <item name="colorAccent">@android:color/white</item>
-    <item name="colorSecondary">@android:color/white</item>
-    <item name="android:homeAsUpIndicator">@drawable/ic_expand_more</item>
-  </style>
-
   <style name="MwmWidget.ListView" parent="android:Widget.Material.ListView">
     <item name="android:fadingEdge">none</item>
     <item name="android:divider">@color/divider</item>
@@ -197,9 +168,7 @@
     <item name="android:cacheColorHint">@android:color/transparent</item>
   </style>
 
-  <style name="MwmWidget.TextView" parent="Widget.MaterialComponents.TextView">
-    <item name="android:background">@android:color/transparent</item>
-  </style>
+  <style name="MwmWidget.TextView" parent="Widget.MaterialComponents.TextView" />
 
   <style name="MwmWidget.TextView.Item">
     <item name="android:layout_width">match_parent</item>
@@ -270,10 +239,6 @@
     <item name="android:foreground">@drawable/shadow_top</item>
   </style>
 
-  <style name="MwmWidget.FrameLayout.BookmarkCategories">
-    <item name="android:background">?windowBackgroundForced</item>
-  </style>
-
   <style name="MwmWidget.Counter">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
@@ -287,13 +252,6 @@
     <item name="android:textColor">@color/text_light</item>
   </style>
 
-  <style name="MwmWidget.Tab">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">wrap_content</item>
-    <item name="android:textAppearance">@style/MwmTextAppearance.Body3</item>
-    <item name="android:gravity">center</item>
-  </style>
-
   <style name="MwmWidget.TabLayout" parent="Widget.Design.TabLayout">
     <item name="tabMaxWidth">0dp</item>
     <item name="tabTextAppearance">@style/MwmTextAppearance.Tab</item>
@@ -303,16 +261,6 @@
     <item name="tabIndicatorColor">@color/white_primary</item>
     <item name="tabRippleColor">@android:color/transparent</item>
     <item name="tabSelectedTextColor">@color/white_primary</item>
-  </style>
-
-  <style name="MwmWidget.Downloader.ToolbarButton">
-    <item name="android:layout_width">wrap_content</item>
-    <item name="android:layout_height">match_parent</item>
-    <item name="android:gravity">center</item>
-    <item name="android:layout_gravity">end|center_vertical</item>
-    <item name="android:background">?selectableItemBackgroundBorderless</item>
-    <item name="android:padding">@dimen/margin_half</item>
-    <item name="android:textAppearance">@style/MwmTextAppearance.Toolbar.Title.Button</item>
   </style>
 
   <style name="MwmWidget.MaterialCalendar.Theme.FullScreen.Dark"
@@ -325,26 +273,6 @@
     <item name="colorSurface">@color/material_calendar_surface_dark</item>
   </style>
 
-  <style name="TextAppearance" parent="MwmTextAppearance.Body3"/>
-
-  <style name="TextAppearance.Small" parent="MwmTextAppearance.Body4"/>
-
-  <style name="TextAppearance.Medium" parent="MwmTextAppearance.Body2"/>
-
-  <style name="TextAppearance.Large" parent="MwmTextAppearance.Body1">
-    <item name="android:textSize">@dimen/text_size_toolbar</item>
-  </style>
-
-  <style name="TextAppearance.Inverse" parent="MwmTextAppearance.Body3.Light"/>
-
-  <style name="TextAppearance.Small.Inverse" parent="MwmTextAppearance.Body4.Light"/>
-
-  <style name="TextAppearance.Medium.Inverse" parent="MwmTextAppearance.Body2.Light"/>
-
-  <style name="TextAppearance.Large.Inverse" parent="MwmTextAppearance.Body1.Light">
-    <item name="android:textSize">@dimen/text_size_toolbar</item>
-  </style>
-
   <style
     name="MwmTheme.BottomSheetDialog"
     parent="@style/ThemeOverlay.Material3.BottomSheetDialog">
@@ -355,13 +283,13 @@
   </style>
 
   <style name="MwmWidget.BottomSheetDialog" parent="Widget.Material3.BottomSheet.Modal">
-    <item name="backgroundTint">?cardBackground</item>
+    <item name="backgroundTint">?appBackground</item>
     <item name="elevationOverlayEnabled">false</item>
     <item name="shapeAppearance">@style/ShapeAppearance.Material3.LargeComponent</item>
   </style>
 
   <style name="MwmWidget.BottomSheet" parent="MwmWidget.BottomSheetDialog">
-    <item name="android:background">?cardBackground</item>
+    <item name="android:background">?appBackground</item>
     <item name="behavior_hideable">false</item>
   </style>
 
@@ -377,9 +305,6 @@
   <style name="MwmWidget.M3.Button" parent="Widget.Material3.Button">
     <item name="android:layout_width">wrap_content</item>
     <item name="android:layout_height">wrap_content</item>
-    <item name="android:textColor">?accentButtonTextColor</item>
-    <item name="backgroundTint">@null</item>
-    <item name="cornerRadius">20dp</item>
     <item name="android:textSize">16sp</item>
   </style>
 
@@ -389,13 +314,11 @@
 
   <style name="MwmWidget.M3.Button.Secondary" parent="@style/Widget.Material3.Button.OutlinedButton">
     <item name="android:textSize">16sp</item>
-    <item name="strokeColor">?colorSecondary</item>
     <item name="android:textColor">?colorSecondary</item>
   </style>
 
   <style name="MwmWidget.M3.FAB.Primary" parent="@style/Widget.Material3.FloatingActionButton.Primary">
     <item name="shapeAppearance">@style/ShapeAppearanceOverlay.Material3.FloatingActionButton</item>
-    <item name="rippleColor">@null</item>
     <item name="backgroundTint">?colorSecondary</item>
     <item name="tint">?android:textColorPrimaryInverse</item>
   </style>

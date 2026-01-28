@@ -162,11 +162,19 @@
 @path: #944A12;
 @path_expert: #523E33;
 @bridleway: #2B2827;
+@motorway1_border: #784606;
+@trunk1_border: #79511D;
+@primary1_border: #7C5E24;
+@primary2_border: #7C622F;
+@secondary0_border: #7F6730;
+@secondary1_border: #7F6B3C;
+@minor_road_border: #b2b2b2;
 
 /* 5.2 Bridges */
 
 @bridge_background: #2C2C1A;
 @bridge_casing: #505050;
+@bridge_minor_road_border: #393928;
 
 /* 5.3 Tunnels */
 

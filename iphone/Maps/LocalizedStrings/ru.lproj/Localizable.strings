@@ -72,7 +72,7 @@
 "bookmarks" = "Метки";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Метки и треки";
+"bookmarks_and_tracks" = "Избранное";
 
 /* Default bookmark list name */
 "core_my_places" = "Мои метки";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "Ошибка при отправлении письма";
-
-/* Settings item title */
-"pref_calibration_title" = "Калибровка компаса";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Долгое нажатие на карту вернет интерфейс обратно";
@@ -683,7 +680,7 @@
 "editor_edits_sent_message" = "Ваша заметка будет отправлена в OpenStreetMap";
 "editor_comment_hint" = "Коментарий…";
 "editor_reset_edits_message" = "Сбросить все локальные правки?";
-"editor_reset_edits_button" = "Сбросить";
+"editor_reset_edits_button" = "Отменить изменения";
 "editor_remove_place_message" = "Удалить добавленный вами объект?";
 "editor_remove_place_button" = "Удалить";
 "editor_place_doesnt_exist" = "Места не существует";
@@ -1027,7 +1024,7 @@
 "icloud_disabled_title" = "iCloud отключен";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Чтобы воспользоваться этой функцией, включите iCloud в настройках своего устройства.";
+"icloud_disabled_message" = "Чтобы воспользоваться этой функцией, включите iCloud для CoMaps в настройках вашей учетной записи Apple.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Включить";

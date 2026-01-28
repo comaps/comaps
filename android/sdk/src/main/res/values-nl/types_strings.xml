@@ -44,8 +44,8 @@
     <string name="type.leisure.adult_gaming_centre">Gamingcentrum voor volwassenen</string>
     <string name="type.leisure.amusement_arcade">Speelhal</string>
     <string name="type.amenity.charging_station">Oplaadstation</string>
-    <string name="type.amenity.charging_station.bicycle">Oplaadstation voor fietsen</string>
-    <string name="type.amenity.charging_station.motorcar">Oplaadstation voor auto\'s</string>
+    <string name="type.amenity.charging_station.bicycle">Fietsen</string>
+    <string name="type.amenity.charging_station.motorcar">Auto\'s</string>
     <string name="type.amenity.childcare">Crèche</string>
     <string name="type.amenity.cinema">Bioscoop</string>
     <string name="type.leisure.bowling_alley">Bowlingbaan</string>
@@ -129,8 +129,7 @@
     <string name="type.amenity.pub">Kroeg</string>
     <string name="type.amenity.public_bookcase">Boekenkast</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Milieustraat</string>
-    <string name="type.amenity.recycling">Recycling container</string>
+    <string name="type.amenity.recycling.centre">Recyclestation|Millieustraat</string>
     <string name="type.amenity.recycling.container">Recycling container</string>
     <string name="type.recycling.batteries">Batterijen</string>
     <string name="type.recycling.clothes">Oude kleding</string>
@@ -798,8 +797,6 @@
     <string name="type.public_transport.platform">Platform</string>
     <string name="type.railway">Spoorweg</string>
     <string name="type.railway.abandoned">Voormalig treinspoor</string>
-    <string name="type.railway.abandoned.bridge">Voormalige spoorbrug</string>
-    <string name="type.railway.abandoned.tunnel">Voormalige spoortunnel</string>
     <string name="type.railway.construction">Treinspoor in aanbouw</string>
     <string name="type.railway.crossing">Spoorwegovergang</string>
     <string name="type.railway.disused">Ongebruikt spoor</string>
@@ -1398,14 +1395,13 @@
     <string name="type.building.guardhouse">Beveiligingsloket</string>
     <string name="type.power.portal">Verdeelstation</string>
     <string name="type.shop.lighting">Verlichtingswinkel</string>
-    <string name="type.amenity.bench.backless">Bankje</string>
+    <string name="type.amenity.bench.backless">Zonder bankje</string>
     <string name="type.amenity.boat_rental">Bootverhuur</string>
     <string name="type.man_made.telescope">Telescoop</string>
     <string name="type.man_made.telescope.optical">Telescoop (optisch)</string>
     <string name="type.man_made.telescope.radio">Telescoop (radio)</string>
     <string name="type.man_made.telescope.gamma">Telescoop (gamma)</string>
     <string name="type.man_made.observatory">Observatorium</string>
-    <string name="type.amenity.charging_station.motorcar.small">Autolaadpunt</string>
     <string name="type.amenity.car_pooling">Carpool</string>
     <string name="type.emergency.life_ring">Reddingsboei</string>
     <string name="type.leisure.bandstand">Muziekpodium</string>
@@ -1501,4 +1497,15 @@
     <string name="type.amenity.food_sharing">Voedsel delen</string>
     <string name="type.amenity.give_box">Giftenkist</string>
     <string name="type.amenity.hydrant">Watertappunt|waterkraan</string>
+    <string name="type.railway.miniature">Miniatuur spoorweg</string>
+    <string name="type.railway.miniature.bridge">Miniatuur spoorbrug</string>
+    <string name="type.railway.miniature.tunnel">Miniatuur spoortunnel</string>
+    <string name="type.railway.turntable">Spoorweg-keerpunt</string>
+    <string name="type.tourism.information.tactile_map">Tactiele kaart</string>
+    <string name="type.railway.disused.bridge">Ongebruikte spoorbrug</string>
+    <string name="type.railway.disused.tunnel">Ongebruikte spoortunnel</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorfietsen</string>
+    <string name="type.amenity.charging_station.small">Beperkte capaciteit</string>
+    <string name="type.emergency.disaster_help_point">Noodhulppost</string>
+    <string name="type.emergency.access_point.address">Noodhulppost adres</string>
 </resources>

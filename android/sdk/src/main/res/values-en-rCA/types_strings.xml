@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="type.amenity.arts_centre">Arts Centre</string>
+    <string name="type.amenity.conference_centre">Conference Centre</string>
+    <string name="type.amenity.exhibition_centre">Exhibition Centre</string>
+    <string name="type.amenity.recycling.centre">Recycling Centre</string>
+    <string name="type.amenity.toilets">Washroom</string>
+    <string name="type.barrier.guard_rail">Guardrail</string>
+    <string name="type.highway.motorway">Freeway</string>
+    <string name="type.highway.motorway.bridge">Freeway Bridge</string>
+    <string name="type.highway.motorway.tunnel">Freeway Tunnel</string>
+    <string name="type.highway.motorway_link">Freeway Ramp</string>
+    <string name="type.leisure.sports_centre">Sports Centre</string>
+    <string name="type.shop.tyres">Tire Shop</string>
+    <string name="type.traffic_calming.bump">Road Bump</string>
+    <string name="type.traffic_calming.hump">Road Bump</string>
+</resources>

@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Agregar una lista nueva</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nombre de la lista de marcadores</string>
+    <string name="bookmark_set_name">Nombre de la lista</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Marcadores</string>
+    <string name="bookmarks">Lugares</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Marcadores y trazas</string>
+    <string name="bookmarks_and_tracks">Favoritos</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nombre</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -94,7 +94,7 @@
     <!-- Error moving map files from one storage to another -->
     <string name="move_maps_error">Error al mover los archivos de mapas</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
-    <string name="wait_several_minutes">Esto podría tardar varios minutos.\nAguarda…</string>
+    <string name="wait_several_minutes">Esto podría tardar varios minutos.\nPor favor, espera…</string>
     <!-- Measurement units title in settings activity -->
     <string name="measurement_units">Unidades de medida</string>
     <!-- Detailed description of Measurement Units settings button -->
@@ -103,11 +103,11 @@
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">Dónde comer</string>
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
-    <string name="category_food">Tienda de comestibles</string>
+    <string name="category_food">Provisiones</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
     <string name="category_transport">Transporte</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
-    <string name="category_fuel">Estación de Servicio</string>
+    <string name="category_fuel">Estación de servicio</string>
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
     <string name="category_parking">Aparcamiento</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notas</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Marcadores de CoMaps compartidos con usted</string>
-    <string name="share_bookmarks_email_body">¡Hola! \n\nAdjunto mis marcadores de la aplicación CoMaps. Por favor, ábralos si tiene instalado CoMaps. O, si no lo tiene, descargue la aplicación para su dispositivo iOS o Android siguiendo este enlace: https://www.comaps.app/es/download/ \n\n¡Disfrute viajando con CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Mis favoritos de CoMaps</string>
+    <string name="share_bookmarks_email_body">¡Hola! \n\nAdjunto mis favoritos. Por favor, ábrelos si tienes instalado CoMaps. O, si no lo tienes, descarga la aplicación para tu dispositivo iOS o Android siguiendo este enlace: https://www.comaps.app/es/download/ \n\n¡Disfruta viajando con CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Cargando marcadores</string>
+    <string name="load_kmz_title">Cargando favoritos</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">¡Los marcadores se han cargado con éxito! Puedes encontrarlos en el mapa o en la pantalla de Gestor de Marcadores.</string>
+    <string name="load_kmz_successful">¡Los favoritos se han cargado con éxito! Puedes encontrarlos en el mapa o en la pantalla de Gestor de Favoritos.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">No se pudieron cargar los marcadores. El archivo podría tener daños o defectos.</string>
+    <string name="load_kmz_failed">No se pudieron cargar los favoritos. El archivo podría tener daños o defectos.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">La aplicación no reconoce el tipo de archivo: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -169,7 +169,7 @@
     <!-- Alert message that downloading is in progress. -->
     <string name="downloading_is_active">La descarga del mapa está en curso</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
-    <string name="my_position_share_sms">¡Mira mi ubicación actual en CoMaps! %1$s o %2$s ¿No tiene mapas offline? Descárgalos aquí: https://www.comaps.app/es/download/</string>
+    <string name="my_position_share_sms">¡Mira mi ubicación actual en CoMaps! %1$s o %2$s ¿No tienes mapas offline? Descárgalos aquí: https://www.comaps.app/es/download/</string>
     <!-- Subject for emailed bookmark -->
     <string name="bookmark_share_email_subject">¡Mira mi marcador en el mapa de CoMaps!</string>
     <!-- Subject for emailed position -->
@@ -355,12 +355,12 @@
     <string name="dialog_routing_intermediate_not_determined">Por favor, ajuste la parada intermedia</string>
     <string name="dialog_routing_system_error">Error del sistema</string>
     <string name="dialog_routing_application_error">No se pudo crear la ruta debido a un error en la aplicación</string>
-    <string name="dialog_routing_try_again">Intenta nuevamente</string>
+    <string name="dialog_routing_try_again">Inténtalo de nuevo</string>
     <string name="not_now">Ahora no</string>
     <string name="dialog_routing_download_and_build_cross_route">¿Deseas descargar el mapa y crear una ruta mejor que abarque más de un mapa?</string>
     <string name="dialog_routing_download_cross_route">Descarga mapas adicionales para crear una ruta mejor que cruce los límites de este mapa.</string>
     <!-- SECTION: Strings for downloading map from search -->
-    <string name="search_without_internet_advertisement">Para empezar a buscar y crear rutas, descarga el mapa. Después de eso, ya no necesitarás una conexión a Internet.</string>
+    <string name="search_without_internet_advertisement">Para empezar a buscar y crear rutas, descarga el mapa. Después de eso, ya no necesitarás conexión a Internet.</string>
     <string name="search_select_map">Seleccionar mapa</string>
     <!-- «Show» context menu -->
     <string name="show">Mostrar</string>
@@ -392,7 +392,7 @@
     <string name="editor_time_delete">Eliminar horario</string>
     <!-- Text for allday switch. -->
     <string name="editor_time_allday">Todo el día (24 horas)</string>
-    <string name="editor_time_open">Abierto</string>
+    <string name="editor_time_open">Apertura</string>
     <string name="editor_time_close">Cierre</string>
     <string name="editor_time_add_closed">Añadir horas de pausa</string>
     <string name="editor_time_title">Horario de apertura</string>
@@ -504,8 +504,8 @@
     <string name="placepage_more_button">Más</string>
     <string name="placepage_edit_bookmark_button">Editar marcador</string>
     <string name="placepage_personal_notes_hint">Notas personales (texto o html)</string>
-    <string name="editor_reset_edits_message">¿Restablecer todos los cambios locales?</string>
-    <string name="editor_reset_edits_button">Restablecer</string>
+    <string name="editor_reset_edits_message">¿Descartar todos los cambios locales?</string>
+    <string name="editor_reset_edits_button">Descartar cambios</string>
     <string name="editor_remove_place_message">¿Eliminar el lugar añadido?</string>
     <string name="editor_remove_place_button">Eliminar</string>
     <string name="editor_place_doesnt_exist">El lugar no existe</string>
@@ -524,7 +524,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">¿Quieres enviarlo a todos los usuarios?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Cerciórate de que no has introducido ningún dato privado o personal.</string>
+    <string name="editor_share_to_all_dialog_message_1">Asegúrate de que no has introducido ningún dato privado o personal.</string>
     <string name="editor_share_to_all_dialog_message_2">Los editores de OpenStreetMap comprobarán los cambios y se pondrán en contacto contigo si tienen alguna pregunta.</string>
     <string name="navigation_stop_button">Detener</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -567,7 +567,7 @@
     <string name="dialog_error_storage_message">El almacenamiento externo no está disponible; puede que se haya quitado o dañado la tarjeta SD, o el sistema de archivos solo permite lectura. Por favor, compruébalo ó escríbenos a support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emular almacenamiento dañado</string>
     <string name="error_enter_correct_name">Por favor, introduce un nombre válido</string>
-    <string name="bookmark_lists">Listas</string>
+    <string name="bookmark_lists">Listas de favoritos</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Ocultar todo</string>
     <string name="bookmark_lists_show_all">Mostrar todo</string>
@@ -578,7 +578,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Crear nueva lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importar marcadores y trazas</string>
+    <string name="bookmarks_import">Importar favoritos</string>
     <string name="bookmarks_error_message_share_general">No se puede compartir debido a un error de la aplicación</string>
     <string name="bookmarks_error_title_share_empty">Error al compartir</string>
     <string name="bookmarks_error_message_share_empty">No se puede compartir una lista vacía</string>
@@ -603,13 +603,13 @@
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Privacidad</string>
-    <string name="privacy_policy">Normativa de privacidad</string>
+    <string name="privacy_policy">Política de privacidad</string>
     <string name="terms_of_use">Condiciones de uso</string>
     <string name="button_layer_traffic">Tráfico</string>
     <string name="subway">Metro</string>
     <string name="layers_title">Estilos y capas del mapa</string>
     <string name="bookmarks_empty_list_title">Esta lista está vacía</string>
-    <string name="bookmarks_empty_list_message">Para agregar un marcador, toca un lugar en el mapa y después toca el icono de la estrella</string>
+    <string name="bookmarks_empty_list_message">Para guardar un lugar, toca un lugar en el mapa y después toca el icono de la estrella</string>
     <string name="category_desc_more">…más</string>
     <string name="export_file">Exportar KMZ</string>
     <string name="export_file_gpx">Exportar GPX</string>
@@ -662,7 +662,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Ordenar…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Ordenar marcadores</string>
+    <string name="sort_bookmarks">Exportar favoritos</string>
     <!-- Android -->
     <string name="by_default">Por defecto</string>
     <!-- Android -->
@@ -814,7 +814,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuar grabación</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">¿Guardar en Marcadores y trayectos?</string>
+    <string name="track_recording_alert_title">¿Guardar en Favoritos?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">El trayecto está vacío; no hay nada que guardar</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -845,14 +845,14 @@
     <string name="about_help">Acerca de y Ayuda</string>
     <string name="clear">Limpiar</string>
     <string name="ruler">Regla</string>
-    <string name="bookmark_color">Color del marcador</string>
-    <string name="pref_backup_title">Copia de seguridad de marcadores y trayectos</string>
+    <string name="bookmark_color">Color del favorito</string>
+    <string name="pref_backup_title">Respaldar favoritos</string>
     <string name="pref_backup_summary">Copia de seguridad automática a una carpeta de tu dispositivo</string>
-    <string name="pref_backup_now_title">Realizar copia de seguridad ahora</string>
+    <string name="pref_backup_now_title">Crear respaldo ahora</string>
     <string name="pref_backup_now_summary">Crear copia de seguridad inmediatamente</string>
     <string name="pref_backup_now_summary_progress">Copia de seguridad en progreso…</string>
     <string name="pref_backup_now_summary_ok">Copia de seguridad completada con éxito</string>
-    <string name="pref_backup_now_summary_empty_lists">No hay marcadores ni trayectos para hacer una copia de seguridad</string>
+    <string name="pref_backup_now_summary_empty_lists">No hay marcadores ni trayectos para hacer un respaldo</string>
     <string name="pref_backup_now_summary_failed">Copia de seguridad fallida</string>
     <string name="pref_backup_now_summary_folder_unavailable">La carpeta de copia de seguridad no está disponible</string>
     <string name="pref_backup_location_summary_initial">Selecciona por favor primero una carpeta y concede permiso</string>
@@ -915,11 +915,17 @@
     <string name="editor_submit">Enviar</string>
     <string name="power_management">Gestión de energía</string>
     <string name="place_page_map_too_old_title">Datos del mapa anticuados</string>
-    <string name="place_page_map_too_old_description">Tus datos del mapa están muy anticuados, por favor actualiza el mapa.</string>
+    <string name="place_page_map_too_old_description">Tu mapa está muy desactualizado, por favor actualízalo.</string>
     <string name="place_page_app_too_old_description">Tus datos del mapa están muy anticuados, por favor actualiza la aplicación CoMaps.</string>
     <string name="place_page_update_too_old_map">Actualizar mapa de la región</string>
     <string name="place_page_too_old_to_edit">La edición de OpenStreetMap está deshabilitada porque los datos del mapa están muy anticuados.</string>
     <string name="prefs_speed_cameras_information">Las advertencias de radares de velocidad están deshabilitadas en países donde las alertas están prohibidas por ley.</string>
     <string name="navigation_start_tts_message">"Iniciando Navegación, idioma de las instrucciones por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrucciones por voz deshabilitadas: Motor de TTS no disponible</string>
+    <string name="advanced">Avanzado</string>
+    <string name="download_resources_custom_url_title">Servidor de mapas personalizado</string>
+    <string name="download_resources_custom_url_message">Sobreescribe el servidor de mapas por defecto. Déjalo en blanco para usar el servidor de CoMaps por defecto.</string>
+    <string name="download_resources_custom_url_summary_none">No establecido</string>
+    <string name="download_resources_custom_url_error_scheme">Por favor introduce un URL empezando con http:// o https://</string>
+    <string name="pref_maplanguage_local">Idioma local</string>
 </resources>

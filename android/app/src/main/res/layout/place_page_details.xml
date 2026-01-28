@@ -82,7 +82,7 @@
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/place_page_last_checked"
-    style="@style/TextAppearance.Caption"
+    style="@style/MwmTextAppearance.Caption"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/margin_half"

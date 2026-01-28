@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/frameLayout"
-        android:background="?cardBackground">
+        android:background="?colorSurfaceContainerLow"
+        android:layout_marginBottom="@dimen/margin_quarter">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/phones_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?cardBackground"
             android:scrollbars="vertical" />
 
     </FrameLayout>

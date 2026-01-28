@@ -37,4 +37,12 @@
     <string name="not_shared">私人</string>
     <string name="access_rules_author_only">線上編輯</string>
     <string name="today">今天</string>
+    <string name="yesterday">昨天</string>
+    <string name="days_ago">%s 天前</string>
+    <string name="week_ago">%s 週前</string>
+    <string name="weeks_ago">%s 週前</string>
+    <string name="month_ago">%s 個月前</string>
+    <string name="months_ago">%s 個月前</string>
+    <string name="year_ago">%s 年前</string>
+    <string name="years_ago">%s 年前</string>
 </resources>

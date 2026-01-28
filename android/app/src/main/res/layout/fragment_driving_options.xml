@@ -2,18 +2,11 @@
 <LinearLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
-  android:background="?cardBackground"
+  android:background="?appBackground"
   android:orientation="vertical"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
-  <com.google.android.material.appbar.MaterialToolbar
-    android:id="@+id/toolbar"
-    style="@style/MwmWidget.ToolbarStyle"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="end|center_vertical"
-    android:theme="@style/MwmWidget.ToolbarTheme">
-  </com.google.android.material.appbar.MaterialToolbar>
+  <include layout="@layout/toolbar_default"/>
   <LinearLayout
     android:layout_marginTop="@dimen/margin_half_double_plus"
     android:orientation="horizontal"

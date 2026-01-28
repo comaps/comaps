@@ -114,7 +114,6 @@
     <string name="type.amenity.public_bookcase">Bogbytteskab</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Genbrugsplads</string>
-    <string name="type.amenity.recycling">Genbrugscontainer</string>
     <string name="type.amenity.recycling.container">Genbrugscontainer</string>
     <string name="type.recycling.batteries">Batterier</string>
     <string name="type.recycling.clothes">Tekstil</string>
@@ -958,7 +957,7 @@
     <string name="type.shop.coffee">Kaffehandel</string>
     <string name="type.shop.computer">Computerforretning</string>
     <string name="type.shop.confectionery">Slikbutik</string>
-    <string name="type.shop.convenience">Døgnbutik</string>
+    <string name="type.shop.convenience">Nærbutik</string>
     <string name="type.shop.copyshop">Kopieringsbutik</string>
     <string name="type.shop.cosmetics">Kosmetiker</string>
     <string name="type.shop.curtain">Gardinhandel</string>
@@ -1281,8 +1280,6 @@
     <string name="type.railway.platform">Jernbaneperron</string>
     <string name="type.railway">Jernbane</string>
     <string name="type.railway.crossing">Jernbaneovergang</string>
-    <string name="type.railway.abandoned.bridge">Forladt jernbanebro</string>
-    <string name="type.railway.abandoned.tunnel">Forladt jernbanetunnel</string>
     <string name="type.railway.construction">Jernbanebyggeri</string>
     <string name="type.railway.disused">Ubenyttet jernbane</string>
     <string name="type.railway.funicular.bridge">Kabelbanebro</string>
@@ -1389,7 +1386,6 @@
     <string name="type.natural.wetland.reedbed">Rørskov</string>
     <string name="type.shop.lighting">Lysbutik</string>
     <string name="type.amenity.bench.backless">Bænk</string>
-    <string name="type.amenity.charging_station.motorcar.small">Ladestander til biler</string>
     <string name="type.leisure.sports_centre.sport.multi">Idrætscenter</string>
     <string name="type.leisure.sports_centre.sport.american_football">Idrætscenter</string>
     <string name="type.amenity.car_pooling">Samkørsel</string>
@@ -1463,4 +1459,5 @@
     <string name="type.entrance.house">Husdør</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Yogastudie</string>
     <string name="type.leisure.sports_centre.sport.climbing">Klatrehal</string>
+    <string name="type.aeroway.gate">Gate</string>
 </resources>

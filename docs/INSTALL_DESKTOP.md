@@ -68,6 +68,10 @@ and apply the [Ubuntu workarounds accordingly](#workarounds-for-older-ubuntu-ver
 
 ```bash
 sudo dnf install -y \
+    awk \
+    wget \
+    optipng \
+    git \
     clang \
     cmake \
     ninja-build \
@@ -80,8 +84,13 @@ sudo dnf install -y \
     qt6-qtpositioning \
     qt6-qtpositioning-devel \
     qt6-qtsvg-devel \
-    python3-protobuf \
-    sqlite-devel
+    python3-pip \
+    sqlite-devel \
+    libXrandr-devel \
+    libXinerama-devel \
+    libXcursor-devel \
+    libXi-devel
+pip3 install "protobuf<3.21" --break-system-packages
 ```
 
 #### Alpine
@@ -100,6 +109,21 @@ sudo apk add \
     samurai \
     py3-protobuf \
     sqlite-dev
+```
+
+#### Void
+
+```bash
+xbps-install -S \
+    wget \
+    optipng \
+    cmake \
+    ninja \
+    qt6-base-devel \
+    qt6-svg-devel \
+    qt6-position-devel \
+    python3-pip
+pip3 install "protobuf<3.21" --break-system-packages
 ```
 
 #### macOS
@@ -151,6 +175,11 @@ To build a desktop app:
 tools/unix/build_omim.sh -r desktop
 ```
 
+To build the "Designer" version of the desktop app, add the parameter `-t`:
+```bash
+tools/unix/build_omim.sh -r -t desktop
+```
+
 The output binary will go into `../omim-build-release`.
 
 Check `tools/unix/build_omim.sh -h` for more build options, e.g. to build a debug version.
@@ -179,6 +208,15 @@ _Linux:_
 
 ```bash
 ../omim-build-release/CoMaps
+```
+
+For running the "Designer" version instead, use the following command and
+optionally add the path to the style file to be loaded. If no path is provided,
+the application will ask for it by opening a file dialog on startup.
+
+
+```bash
+../omim-build-release/CoMaps.Designer optional/path/to/style.mapcss
 ```
 
 _macOS:_

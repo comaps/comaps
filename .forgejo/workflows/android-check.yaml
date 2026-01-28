@@ -17,36 +17,78 @@ on:
       - android/app/src/fdroid/**
       - android/app/src/google/**
       - iphone/**
-      - data/strings/**
+      - data/*-strings/**
       - docs/**
       - generator/**
       - packaging/**
-      - platform/*apple*
-      - platform/*_ios*
-      - platform/*_linux*
-      - platform/*_mac*
-      - platform/*qt*
-      - platform/*_win*
-      - pyhelpers/**
+      - libs/platform/*apple*
+      - libs/platform/*_ios*
+      - libs/platform/*_linux*
+      - libs/platform/*_mac*
+      - libs/platform/*qt*
+      - libs/platform/*_win*
+      - libs/pyhelpers/**
       - qt*/**
-      - skin_generator/**
       - tools/**
-      - track_generator/**
       - xcode/**
+
+env:
+  SUBMODULE_CACHE_PATHS: |
+    .git/modules
+    3party/CMake-MetalShaderSupport
+    3party/Vulkan-Headers
+    3party/boost
+    3party/expat
+    3party/fast_double_parser
+    3party/fast_obj
+    3party/freetype/freetype
+    3party/gflags
+    3party/glaze
+    3party/glfw
+    3party/glm
+    3party/googletest
+    3party/harfbuzz/harfbuzz
+    3party/icu/icu
+    3party/imgui/imgui
+    3party/jansson/jansson
+    3party/just_gtfs
+    3party/protobuf/protobuf
+    3party/pugixml/pugixml
+    3party/utfcpp
+    tools/kothic
+    tools/osmctools
 
 jobs:
   lint:
     name: Android Lint
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:ubuntu-standalone-zy-docker
+      options: --user root
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
 
-      - name: Parallel submodules checkout
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Lint
         shell: bash
@@ -56,6 +98,9 @@ jobs:
   android-check:
     name: Build Android Debug
     runs-on: ubuntu-latest
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:ubuntu-standalone-zy-docker
+      options: --user root
     strategy:
       fail-fast: false
       matrix:
@@ -71,23 +116,32 @@ jobs:
       cancel-in-progress: true
 
     steps:
-      - name: Install build tools and dependencies
-        shell: bash
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
-
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 200 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+        run: |
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-${{ matrix.flavor }}
 
@@ -97,14 +151,11 @@ jobs:
         env:
           CMAKE_C_COMPILER_LAUNCHER: ccache
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
-        run: |
-          cmake --version
-          ninja --version
-          ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
+        run: ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
       - name: Upload ${{ matrix.flavor }} apk
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.flavor }}
-          path: android/app/build/outputs/apk/**/OrganicMaps-*.apk
+          path: android/app/build/outputs/apk/**/*.apk
           if-no-files-found: error

@@ -4,7 +4,7 @@
   android:id="@+id/recycler"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="?windowBackgroundForced"
+  android:background="?colorSurfaceContainerLow"
   android:paddingStart="@dimen/margin_half"
   android:paddingEnd="@dimen/margin_half"
   android:scrollbars="vertical"/>

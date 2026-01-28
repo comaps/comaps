@@ -129,7 +129,6 @@
 "type.amenity.pub" = "פאב";
 "type.amenity.public_bookcase" = "כוננית ספרים ציבורית";
 "type.amenity.recycling.centre" = "מרכז מיחזור";
-"type.amenity.recycling" = "מיכל מיחזור";
 "type.amenity.recycling.container" = "מיכל מיחזור";
 "type.recycling.batteries" = "סוללות";
 "type.recycling.clothes" = "בגדים";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "גשר הולכי רגל";
-
 "type.highway.pedestrian.square" = "כיכר עירונית";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "רציף תחבורה";
 "type.railway" = "מסילת רכבת";
 "type.railway.abandoned" = "מסילת רכבת נטושה";
-"type.railway.abandoned.bridge" = "גשר רכבת נטוש";
-"type.railway.abandoned.tunnel" = "מנהרת רכבת נטושה";
 "type.railway.construction" = "מסילת רכבת בבניה";
 "type.railway.crossing" = "מעבר חציית פסי רכבת";
 "type.railway.disused" = "מסילת רכבת לא בשימוש";

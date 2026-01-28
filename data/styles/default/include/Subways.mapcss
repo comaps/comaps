@@ -44,6 +44,14 @@ node|z14-[railway=station][station=light_rail]::int_name,
 node|z14-[railway=station][station=monorail]::int_name,
 {text: int_name;text-offset: 1;font-size: 9;text-color: @label_dark;text-halo-radius: 1;text-halo-color: @label_halo_light;text-halo-opacity: 0.8;}
 
+node[railway=station][station=light_rail][!city],
+node[railway=station][station=light_rail][!city]::int_name,
+node[railway=station][station=monorail],
+node[railway=station][station=monorail]::int_name,
+node[railway=station][transport=subway][!city],
+node[railway=station][transport=subway][!city]::int_name,
+{text-color: @public_transport_label;}
+
 node|z15-[railway=station][transport=subway],
 node|z15-[railway=station][station=light_rail],
 node|z15-[railway=station][station=monorail],

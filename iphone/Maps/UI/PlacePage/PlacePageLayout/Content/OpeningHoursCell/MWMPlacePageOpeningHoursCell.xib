@@ -172,17 +172,30 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNU-1q-AiR">
                         <rect key="frame" x="0.0" y="127" width="320" height="122"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="122" id="Ifb-EB-LIb"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hYN-dO-J0e" userLabel="Editor Button">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="249"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="extendedToggleButtonTap" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BSf-KC-HgD"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fNU-1q-AiR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="08I-np-9jr"/>
+                    <constraint firstAttribute="trailing" secondItem="hYN-dO-J0e" secondAttribute="trailing" id="0Vo-1D-dPq"/>
                     <constraint firstAttribute="trailing" secondItem="fNU-1q-AiR" secondAttribute="trailing" id="2Hz-cA-KuN"/>
+                    <constraint firstItem="hYN-dO-J0e" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="GVQ-l4-vnQ"/>
                     <constraint firstItem="0kQ-hh-2Cy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="60" id="KwF-TF-PmH"/>
                     <constraint firstAttribute="trailing" secondItem="0kQ-hh-2Cy" secondAttribute="trailing" constant="32" id="RqH-0b-AyG"/>
+                    <constraint firstItem="hYN-dO-J0e" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Sav-rp-wo2"/>
                     <constraint firstItem="swk-um-XzG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="VsQ-qI-dIi"/>
+                    <constraint firstAttribute="bottom" secondItem="hYN-dO-J0e" secondAttribute="bottom" id="Xe1-4J-wRh"/>
                     <constraint firstItem="0kQ-hh-2Cy" firstAttribute="top" secondItem="swk-um-XzG" secondAttribute="bottom" id="Xrh-Vg-VYg"/>
                     <constraint firstItem="swk-um-XzG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="p14-Mi-kcR"/>
                     <constraint firstItem="fNU-1q-AiR" firstAttribute="top" secondItem="0kQ-hh-2Cy" secondAttribute="bottom" id="uKD-bb-yHT"/>
@@ -192,6 +205,7 @@
                     <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Background"/>
                 </userDefinedRuntimeAttributes>
             </tableViewCellContentView>
+            <gestureRecognizers/>
             <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="currentDay" destination="swk-um-XzG" id="CJG-LQ-Pu8"/>

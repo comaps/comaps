@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "S'ha produït un error en enviar el correu";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibratge de la brúixola";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Toqueu llargament el mapa de nou per veure la interfície";
 
@@ -677,7 +674,7 @@
 "editor_edits_sent_message" = "La vostra nota s'enviarà a OpenStreetMap";
 "editor_comment_hint" = "Comentari…";
 "editor_reset_edits_message" = "Voleu descartar tots els canvis locals?";
-"editor_reset_edits_button" = "Descarta";
+"editor_reset_edits_button" = "Descartar canvis";
 "editor_remove_place_message" = "Voleu suprimir el lloc afegit?";
 "editor_remove_place_button" = "Suprimeix";
 "editor_place_doesnt_exist" = "El lloc no existeix";
@@ -1090,7 +1087,7 @@
 "pref_mapappearance_title" = "Map Appearance";
 "pref_maplanguage_title" = "Map Language";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
-"pref_maplanguage_local" = "Local Language";
+"pref_maplanguage_local" = "Idioma Local";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
 "offline_explanation_title" = "Mapes sense Connexió";

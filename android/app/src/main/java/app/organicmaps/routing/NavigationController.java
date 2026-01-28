@@ -98,6 +98,11 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mSpeedLimit = topFrame.findViewById(R.id.nav_speed_limit);
     mCurrentSpeed = topFrame.findViewById(R.id.nav_current_speed);
 
+    View mTopbar = topFrame.findViewById(R.id.statutbar);
+    ViewCompat.setOnApplyWindowInsetsListener(mTopbar,(v, windowInsets) -> {
+        UiUtils.setViewNavigationTopInsetsMargin(v, windowInsets);
+        return windowInsets;
+    });
     // Show a blank view below the navbar to hide the menu content
     final View navigationBarBackground = mFrame.findViewById(R.id.nav_bottom_sheet_nav_bar);
     final View nextTurnContainer = mFrame.findViewById(R.id.nav_next_turn_container);

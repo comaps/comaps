@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Книгообмен</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Приём вторсырья</string>
-    <string name="type.amenity.recycling">Контейнер для вторсырья</string>
     <string name="type.amenity.recycling.container">Контейнер для вторсырья</string>
     <string name="type.recycling.batteries">Батарейки</string>
     <string name="type.recycling.clothes">Одежда</string>
@@ -817,8 +816,6 @@
     <string name="type.public_transport.platform">Платформа</string>
     <string name="type.railway">Ж/Д</string>
     <string name="type.railway.abandoned">Заброшенная железная дорога</string>
-    <string name="type.railway.abandoned.bridge">Заброшенный железнодорожный мост</string>
-    <string name="type.railway.abandoned.tunnel">Заброшенный железнодорожный туннель</string>
     <string name="type.railway.construction">Строящаяся железная дорога</string>
     <string name="type.railway.crossing">Пешеходный переход</string>
     <string name="type.railway.disused">Неиспользуемая железная дорога</string>
@@ -1405,7 +1402,6 @@
     <string name="type.man_made.telescope.radio">Телескоп (радио)</string>
     <string name="type.man_made.telescope.gamma">Телескоп (Гамма)</string>
     <string name="type.man_made.observatory">Обсерватория</string>
-    <string name="type.amenity.charging_station.motorcar.small">Пункт зарядки автомобиля</string>
     <string name="type.amenity.lounger">Шезлонг</string>
     <string name="type.amenity.car_pooling">Совместное использование авто</string>
     <string name="type.amenity.payment_centre">Платежный центр</string>
@@ -1452,4 +1448,6 @@
     <string name="type.amenity.give_box">Подарить коробку</string>
     <string name="type.amenity.bench.backless">Скамья без спинки</string>
     <string name="type.amenity.mobile_money_agent">Агент мобильных платежей</string>
+    <string name="type.amenity.sailing_school">Яхтенная школа</string>
+    <string name="type.amenity.flight_school">Лётное училище</string>
 </resources>

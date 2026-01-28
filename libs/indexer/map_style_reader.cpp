@@ -19,13 +19,13 @@ std::string const kSuffixOutdoorsDark = "_outdoors_dark";
 std::string const kStylesOverrideDir = "styles";
 
 #ifdef BUILD_DESIGNER
-std::string const kSuffixDesignTool = "_design";
+std::string const kSuffixDesignTool = "design";
 #endif  // BUILD_DESIGNER
 
 std::string GetStyleRulesSuffix(MapStyle mapStyle)
 {
 #ifdef BUILD_DESIGNER
-  return kSuffixDesignTool;
+  return "_" + kSuffixDesignTool;
 #else
   switch (mapStyle)
   {

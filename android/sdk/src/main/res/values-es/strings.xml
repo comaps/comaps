@@ -37,11 +37,11 @@
     <string name="gb">GB</string>
     <string name="today">Hoy</string>
     <string name="yesterday">Ayer</string>
-    <string name="days_ago">Hace %s días</string>
-    <string name="week_ago">Hace %s semana</string>
-    <string name="weeks_ago">Hace %s semanas</string>
-    <string name="month_ago">Hace %s mes</string>
-    <string name="months_ago">Hace %s meses</string>
-    <string name="year_ago">Hace %s año</string>
-    <string name="years_ago">Hace %s años</string>
+    <string name="days_ago">hace %s días</string>
+    <string name="week_ago">hace %s semana</string>
+    <string name="weeks_ago">hace %s semanas</string>
+    <string name="month_ago">hace %s mes</string>
+    <string name="months_ago">hace %s meses</string>
+    <string name="year_ago">hace %s año</string>
+    <string name="years_ago">hace %s años</string>
 </resources>

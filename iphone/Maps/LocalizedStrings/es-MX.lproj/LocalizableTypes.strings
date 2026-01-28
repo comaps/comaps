@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Intercambio de libros";
 "type.amenity.recycling.centre" = "Centro de reciclaje";
-"type.amenity.recycling" = "Contenedor de reciclaje";
 "type.amenity.recycling.container" = "Contenedor de reciclaje";
 "type.recycling.batteries" = "Baterías";
 "type.recycling.clothes" = "Ropa";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Plataforma";
 "type.railway" = "Vía férrea";
 "type.railway.abandoned" = "Vía férrea abandonada";
-"type.railway.abandoned.bridge" = "Puente ferroviario abandonado";
-"type.railway.abandoned.tunnel" = "Túnel ferroviario abandonado";
 "type.railway.construction" = "Vía férrea en construcción";
 "type.railway.crossing" = "Paso a nivel";
 "type.railway.disused" = "Vía férrea en desuso";

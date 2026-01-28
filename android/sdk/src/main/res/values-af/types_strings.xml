@@ -117,7 +117,6 @@
     <string name="type.amenity.public_bookcase">Boekekas</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Herwinningsentrum</string>
-    <string name="type.amenity.recycling">Herwinningshouer</string>
     <string name="type.amenity.recycling.container">Herwinningshouer</string>
     <string name="type.recycling.batteries">Batterye</string>
     <string name="type.recycling.clothes">Klere</string>
@@ -410,7 +409,6 @@
     <string name="type.highway.pedestrian.area">Voetgangergebied</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Voetgangerbrug</string>
-
     <string name="type.highway.pedestrian.square">Plein</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Voetgangertonnel</string>
@@ -770,8 +768,6 @@
     <string name="type.public_transport.platform">Platform</string>
     <string name="type.railway">Spoorweg</string>
     <string name="type.railway.abandoned">Verlate treinspoor</string>
-    <string name="type.railway.abandoned.bridge">Verlate treintonnel</string>
-    <string name="type.railway.abandoned.tunnel">Verlate treintonnel</string>
     <string name="type.railway.construction">Spoorweg in aanbou</string>
     <string name="type.railway.crossing">Spoorwegoorgang</string>
     <string name="type.railway.disused">Ongebruikte spoor</string>

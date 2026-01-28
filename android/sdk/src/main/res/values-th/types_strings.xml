@@ -118,7 +118,6 @@
     <string name="type.amenity.public_bookcase">ตู้หนังสือ สถานที่แลกเปลี่ยนหนังสือ</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">ศูนย์รีไซเคิล</string>
-    <string name="type.amenity.recycling">บรรจุภัณฑ์รีไซเคิล</string>
     <string name="type.amenity.recycling.container">บรรจุภัณฑ์รีไซเคิล</string>
     <string name="type.recycling.batteries">แบตเตอรี่</string>
     <string name="type.recycling.clothes">เสื้อผ้าเก่า</string>

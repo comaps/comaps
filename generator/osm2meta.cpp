@@ -104,8 +104,7 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_operator(std::string con
 {
   using namespace ftypes;
   auto const & t = m_params.m_types;
-  if (IsATMChecker::Instance()(t) || IsRecyclingCentreChecker::Instance()(t) ||
-      IsRecyclingContainerChecker::Instance()(t) || IsPostPoiChecker::Instance()(t) ||
+  if (IsATMChecker::Instance()(t) || IsRecyclingChecker::Instance()(t) || IsPostPoiChecker::Instance()(t) ||
       IsOperatorOthersPoiChecker::Instance()(t))
   {
     return v;

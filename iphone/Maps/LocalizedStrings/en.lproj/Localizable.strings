@@ -73,16 +73,16 @@
 "add_new_set" = "Add a New List";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Bookmark List Name";
+"bookmark_set_name" = "List Name";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Bookmark Lists";
+"bookmark_sets" = "Favorite Lists";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Bookmarks";
+"bookmarks" = "Places";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Bookmarks and Tracks";
+"bookmarks_and_tracks" = "Favorites";
 
 /* Default bookmark list name */
 "core_my_places" = "My Places";
@@ -172,16 +172,16 @@
 
 /********** Other translations **********/
 
-"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
+"share_bookmarks_email_body" = "Hello!\n\nAttached are my saved places; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Loading Bookmarks";
+"load_kmz_title" = "Loading Favorites";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Bookmarks loaded successfully! You can find them on the map or on the Bookmarks Manager screen.";
+"load_kmz_successful" = "Favorites loaded successfully! You can find them on the map or on the Favorites Manager screen.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Failed to load bookmarks. The file may be corrupted or defective.";
+"load_kmz_failed" = "Failed to load favorites. The file may be corrupted or defective.";
 
 /* resource for context menu */
 "edit" = "Edit";
@@ -363,9 +363,6 @@
 /* Alert title */
 "email_error_title" = "Error sending email";
 
-/* Settings item title */
-"pref_calibration_title" = "Compass calibration";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Long-tap on the map again to see the interface";
 
@@ -416,7 +413,7 @@
 "routing_requires_all_map" = "In order to create a route, we need to download and update all the maps from your location to your destination.";
 
 /* bookmark button text */
-"bookmark" = "bookmark";
+"bookmark" = "place";
 "save" = "Save";
 "create" = "create";
 
@@ -723,10 +720,10 @@
 "placepage_more_button" = "More";
 "book_button" = "Book";
 "placepage_call_button" = "Call";
-"placepage_edit_bookmark_button" = "Edit Bookmark";
-"placepage_bookmark_name_hint" = "Bookmark Name";
+"placepage_edit_bookmark_button" = "Edit Saved Place";
+"placepage_bookmark_name_hint" = "Place Name";
 "placepage_personal_notes_hint" = "Personal notes (text or html)";
-"placepage_delete_bookmark_button" = "Delete Bookmark";
+"placepage_delete_bookmark_button" = "Delete Place";
 "editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
 "editor_comment_hint" = "Comment…";
 "editor_reset_edits_message" = "Discard all local changes?";
@@ -793,6 +790,7 @@
 "traffic_data_unavailable" = "Traffic data is not available";
 "enable_logging" = "Enable logging";
 "log_file_size" = "Log file size: %@";
+"limit_map_language_alternatives_to_local" = "Only use other system languages in their region";
 "transliteration_title" = "Transliterate into Latin alphabet";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 
@@ -824,7 +822,7 @@
 "bookmarks_create_new_group" = "Create a new list";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Import Bookmarks and Tracks";
+"bookmarks_import" = "Import Favorites";
 "downloader_hide_screen" = "Hide Screen";
 "downloader_percent" = "%@ (%@ of %@)";
 "downloader_process" = "Downloading %@…";
@@ -1063,7 +1061,7 @@
 "button_layer_outdoor" = "Outdoors";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Export all Bookmarks and Tracks";
+"bookmarks_export" = "Export all Favorites";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Change Color";
@@ -1148,7 +1146,7 @@
 "continue_recording" = "Continue Recording";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Save into Bookmarks and Tracks?";
+"track_recording_alert_title" = "Save into Favorites?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";

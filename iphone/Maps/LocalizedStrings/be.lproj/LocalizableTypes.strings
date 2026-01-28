@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Book Exchange";
 "type.amenity.recycling.centre" = "Прыём другсыравіны";
-"type.amenity.recycling" = "Кантэйнер для другаснай сыравіны";
 "type.amenity.recycling.container" = "Кантэйнер для другаснай сыравіны";
 "type.recycling.batteries" = "Батарэйкі";
 "type.recycling.clothes" = "Адзенне";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Мост";
-
 "type.highway.pedestrian.square" = "Плошча";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";

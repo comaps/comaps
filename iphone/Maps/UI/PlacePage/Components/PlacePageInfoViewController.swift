@@ -43,8 +43,8 @@ final class InfoItemView: UIView {
     addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(onInfoLabelTap)))
     addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(onInfoLabelLongPress(_:))))
 
-    infoLabel.lineBreakMode = .byTruncatingTail
-    infoLabel.numberOfLines = 1
+    infoLabel.lineBreakMode = .byWordWrapping
+    infoLabel.numberOfLines = 0
     infoLabel.allowsDefaultTighteningForTruncation = true
     infoLabel.isUserInteractionEnabled = false
 
@@ -66,17 +66,17 @@ final class InfoItemView: UIView {
     accessoryButton.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      heightAnchor.constraint(equalToConstant: Constants.viewHeight),
+      heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.viewHeight),
 
       iconButton.leadingAnchor.constraint(equalTo: leadingAnchor),
       iconButton.centerYAnchor.constraint(equalTo: centerYAnchor),
       iconButton.widthAnchor.constraint(equalToConstant: Constants.iconButtonSize),
-      iconButton.topAnchor.constraint(equalTo: topAnchor),
-      iconButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+      iconButton.topAnchor.constraint(greaterThanOrEqualTo: topAnchor),
+      iconButton.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
 
       infoLabel.leadingAnchor.constraint(equalTo: iconButton.trailingAnchor),
-      infoLabel.topAnchor.constraint(equalTo: topAnchor),
-      infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+      infoLabel.topAnchor.constraint(equalTo: topAnchor, constant: Constants.infoLabelTopBottomSpacing),
+      infoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -Constants.infoLabelTopBottomSpacing),
       infoLabel.trailingAnchor.constraint(equalTo: accessoryButton.leadingAnchor),
 
       accessoryButton.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -458,11 +458,29 @@ class PlacePageInfoViewController: UIViewController {
     setupOpenWithAppView()
 
     if let checkDate = placePageInfoData.checkDate {
-      let checkDateFormatter = RelativeDateTimeFormatter()
-      checkDateFormatter.unitsStyle = .spellOut
-      checkDateFormatter.localizedString(for: checkDate, relativeTo: Date.now)
-      self.checkDateLabel.text = String(format: L("existence_confirmed_time_ago"),  checkDateFormatter.localizedString(for: checkDate, relativeTo: Date.now))
-        checkDateLabel.isHidden = false
+      let dateString: String
+        
+      // Check if the date is strictly "Today" or "Yesterday"
+      if Calendar.current.isDateInToday(checkDate) || Calendar.current.isDateInYesterday(checkDate) {
+        // Case 1: Today/Yesterday -> Use "today" / "yesterday"
+        // Can be replaced by Date.RelativeFormatStyle with iOS 18+
+        let checkDateFormatter = DateFormatter()
+        checkDateFormatter.dateStyle = .medium
+        checkDateFormatter.timeStyle = .none
+        checkDateFormatter.doesRelativeDateFormatting = true
+          
+        let rawString = checkDateFormatter.string(from: checkDate)
+        // Lowercase first letter: "Today" -> "today"
+        dateString = rawString.prefix(1).lowercased() + rawString.dropFirst()
+      } else {
+        // Case 2: Older -> Use "2 years ago"
+        let relativeCheckDateFormatter = RelativeDateTimeFormatter()
+        relativeCheckDateFormatter.unitsStyle = .spellOut
+        dateString = relativeCheckDateFormatter.localizedString(for: checkDate, relativeTo: Date())
+      }
+        
+      self.checkDateLabel.text = String(format: L("existence_confirmed_time_ago"), dateString)
+      checkDateLabel.isHidden = false
       NSLayoutConstraint.activate([checkDateLabelLayoutConstraint])
     } else {
       checkDateLabel.text = String()

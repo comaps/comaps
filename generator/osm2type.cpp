@@ -11,6 +11,7 @@
 #include "indexer/classificator.hpp"
 #include "indexer/feature_impl.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 
 #include "platform/platform.hpp"
 
@@ -269,6 +270,10 @@ public:
     ShuttleTrain,
     DisusedBusiness,
     Building,
+    ChargingStation,
+    SmallChargingStation,
+    MotorcarChargingStation,
+    CarlessChargingStation,
     Count
   };
 
@@ -310,6 +315,10 @@ public:
         {ShuttleTrain, {"route", "shuttle_train"}},
         {DisusedBusiness, {"disusedbusiness"}},
         {Building, {"building"}},
+        {ChargingStation, {"amenity", "charging_station"}},
+        {SmallChargingStation, {"amenity", "charging_station", "small"}},
+        {MotorcarChargingStation, {"amenity", "charging_station", "motorcar"}},
+        {CarlessChargingStation, {"amenity", "charging_station", "carless"}},
     };
 
     m_types.resize(static_cast<size_t>(Count));
@@ -351,14 +360,36 @@ private:
 // - both amenity-charging_station-motorcar and amenity-charging_station-bicycle are left;
 void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
 {
+  // Prevents types, that either have subtypes or are subtypes, from being removed
+  auto subtypes = ftypes::Subtypes::Instance();
+  auto const areSubtypeRelatedTypes = [subtypes](auto const & lhs, auto const & rhs)
+  {
+    return subtypes.IsTypeWithSubtypesOrSubtype(lhs) && subtypes.IsTypeWithSubtypesOrSubtype(rhs);
+  };
+  auto const isBetterBecauseOfSubtypeRelation = [subtypes](auto const & lhs, auto const & rhs) -> std::optional<bool>
+  {
+    bool const lhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(lhs);
+    bool const rhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(rhs);
+    if (lhsIsTypeWithSubtypesOrSubtype && !rhsIsTypeWithSubtypesOrSubtype)
+      return true;
+    else if (!lhsIsTypeWithSubtypesOrSubtype && rhsIsTypeWithSubtypesOrSubtype)
+      return false;
+
+    return subtypes.ComparisonResultBasedOnTypeRelation(lhs, rhs);
+  };
+
   auto const equalPrefix = [](auto const & lhs, auto const & rhs)
   {
     size_t const prefixSz = std::min(lhs.size(), rhs.size());
     return equal(lhs.begin(), lhs.begin() + std::min(size_t(2), prefixSz), rhs.begin());
   };
 
-  auto const isBetter = [&equalPrefix](auto const & lhs, auto const & rhs)
+  auto const isBetter = [&equalPrefix, &isBetterBecauseOfSubtypeRelation](auto const & lhs, auto const & rhs)
   {
+    std::optional<bool> const isBetterBecauseOfSubtypeRelationResult = isBetterBecauseOfSubtypeRelation(lhs, rhs);
+    if (isBetterBecauseOfSubtypeRelationResult.has_value())
+      return isBetterBecauseOfSubtypeRelationResult.value();
+
     if (equalPrefix(lhs, rhs))
     {
       // Longest type is better.
@@ -369,13 +400,14 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
     return lhs < rhs;
   };
 
-  auto const isEqual = [&equalPrefix](auto const & lhs, auto const & rhs)
+  // `true` means the second one will be removed, because being equal means it isn't unique and the first one is more important
+  auto const isEqual = [&equalPrefix, &areSubtypeRelatedTypes](auto const & lhs, auto const & rhs)
   {
     if (equalPrefix(lhs, rhs))
     {
-      // Keep longest type only, so return equal is true.
+      // Keep longest type only
       if (lhs.size() != rhs.size())
-        return true;
+        return !areSubtypeRelatedTypes(lhs, rhs);
 
       return lhs == rhs;
     }
@@ -1324,6 +1356,25 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
       });
 
       railwayDone = true;
+    }
+  }
+
+  // This is needed in the generator to work around charing stations, which are only implicitly marked as for cars
+  if (params.IsTypeExist(types.Get(CachedTypes::ChargingStation)))
+  {
+    uint32_t const motorcarChargingStation = types.Get(CachedTypes::MotorcarChargingStation);
+    uint32_t const carlessChargingStation = types.Get(CachedTypes::CarlessChargingStation);
+
+    if (!params.IsTypeExist(motorcarChargingStation) && !params.IsTypeExist(carlessChargingStation))
+      params.AddType(motorcarChargingStation);
+
+    if (params.IsTypeExist(carlessChargingStation))
+    {
+      params.PopExactType(carlessChargingStation);
+
+      uint32_t const smallChargingStation = types.Get(CachedTypes::SmallChargingStation);
+      if (params.IsTypeExist(smallChargingStation))
+        params.PopExactType(smallChargingStation);
     }
   }
 }

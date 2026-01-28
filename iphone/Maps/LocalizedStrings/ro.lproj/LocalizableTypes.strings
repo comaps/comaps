@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Bibliotecă";
 "type.amenity.recycling.centre" = "Centru de reciclare";
-"type.amenity.recycling" = "Containere pentru reciclare";
 "type.amenity.recycling.container" = "Containere pentru reciclare";
 "type.recycling.batteries" = "Baterii";
 "type.recycling.clothes" = "Haine vechi";
@@ -184,7 +183,7 @@
 "type.amenity.vehicle_inspection" = "Inspecția vehiculului";
 "type.amenity.vending_machine.fuel" = "Pompă de combustibil";
 "type.amenity.veterinary" = "Cabinet veterinar";
-"type.amenity.waste_basket" = "Pubelă";
+"type.amenity.waste_basket" = "Coș de gunoi";
 "type.amenity.waste_disposal" = "Gunoi";
 "type.amenity.waste_transfer_station" = "Stație de transfer a deșeurilor";
 "type.amenity.water_point" = "Punct de alimentare cu apă";
@@ -287,7 +286,7 @@
 "type.cuisine.cake" = "Tort";
 "type.cuisine.caribbean" = "Bucătărie caraibă";
 "type.cuisine.chicken" = "Pui";
-"type.cuisine.chinese" = "Bucătărie chineză";
+"type.cuisine.chinese" = "Bucătărie chinezească";
 "type.cuisine.coffee_shop" = "Cafenea";
 "type.cuisine.crepe" = "Clătite";
 "type.cuisine.croatian" = "Bucătărie croată";
@@ -350,7 +349,7 @@
 "type.cuisine.tapas" = "Tapas";
 "type.cuisine.tea" = "Ceai";
 "type.cuisine.thai" = "Bucătărie tailandeză";
-"type.cuisine.turkish" = "Bucătărie turcă";
+"type.cuisine.turkish" = "Bucătărie turcească";
 "type.cuisine.vegan" = "Bucătărie vegană";
 "type.cuisine.vegetarian" = "Bucătărie vegetariană";
 "type.cuisine.vietnamese" = "Bucătărie vietnameză";
@@ -370,7 +369,7 @@
 "type.entrance" = "Intrare";
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
-"type.entrance.main" = "Intrarea principala";
+"type.entrance.main" = "Intrarea principală";
 "type.entrance.exit" = "Ieșire";
 "type.fee.yes" = "Cu plată";
 "type.fee.no" = "Gratuit";
@@ -599,7 +598,7 @@
 "type.area_highway.trunk" = "Stradă";
 "type.area_highway.unclassified" = "Stradă";
 "type.historic" = "Obiect istoric";
-"type.historic.aircraft" = "Avioane istorice";
+"type.historic.aircraft" = "Avion istoric";
 "type.historic.anchor" = "Ancoră istorică";
 "type.historic.archaeological_site" = "Sit arheologic";
 "type.historic.battlefield" = "Câmpul de luptă";
@@ -681,7 +680,7 @@
 "type.landuse.military" = "Zonă Militară";
 "type.landuse.orchard" = "Livadă";
 "type.landuse.quarry" = "Carieră";
-"type.landuse.railway" = "Domeniul feroviar";
+"type.landuse.railway" = "Zonă feroviară";
 "type.landuse.recreation_ground" = "Teren de recreere";
 "type.landuse.reservoir" = "Lac de acumulare";
 "type.landuse.residential" = "Zonă Rezidențială";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Platformă";
 "type.railway" = "Cale ferată";
 "type.railway.abandoned" = "Linie moartă";
-"type.railway.abandoned.bridge" = "Pod de cale ferată abandonat";
-"type.railway.abandoned.tunnel" = "Tunel de cale ferată abandonat";
 "type.railway.construction" = "Construcții Feroviare";
 "type.railway.crossing" = "Trecere la nivel cu calea ferată";
 "type.railway.disused" = "Cale ferată abandonată";
@@ -1220,7 +1217,7 @@
 "type.shop.dry_cleaning" = "Curățătorie chimică";
 "type.shop.electronics" = "Magazin de Electronice";
 "type.shop.erotic" = "Magazin erotic";
-"type.shop.fabric" = "Magazin de țesături";
+"type.shop.fabric" = "Magazin de stofe";
 "type.shop.farm" = "Magazin alimentar la fermă";
 "type.shop.fashion_accessories" = "Acesorii de modă";
 "type.shop.florist" = "Florărie";
@@ -1485,7 +1482,7 @@
 "type.post_office.post_partner" = "Partener de publicare";
 "type.amenity.animal_shelter" = "Adăpost pentru Animale";
 "type.barrier.wicket_gate" = "Poartă secundară";
-"type.office.security" = "Biroul agenților de securitate";
+"type.office.security" = "Firmă de pază";
 "type.power.portal" = "Stație de distribuție";
 "type.building.guardhouse" = "Cabină de pază";
 "type.shop.lighting" = "Magazin de corpuri de iluminat";
@@ -1548,3 +1545,4 @@
 "type.social_facility.soup_kitchen" = "Cantină socială";
 "type.social_facility.food_bank" = "Bancă de alimente";
 "type.xmas.tree" = "Brad de Crăciun";
+"type.amenity.hydrant" = "Hidrant Irigații";

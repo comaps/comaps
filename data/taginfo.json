@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20251120T121118Z",
+    "data_updated": "20251228T203737Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -176,7 +176,7 @@
             "description": "amenity=car_pooling",
             "key": "amenity",
             "value": "car_pooling",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking-pooling-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/parking_pooling-m.svg"
         },
         {
             "description": "amenity=car_rental",
@@ -430,6 +430,12 @@
             "key": "amenity",
             "value": "hunting_stand",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hunting-tower-m.svg"
+        },
+        {
+            "description": "amenity=hydrant",
+            "key": "amenity",
+            "value": "hydrant",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hydrant-m.svg"
         },
         {
             "description": "amenity=ice_cream",

@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "E-poçt göndərmə xətası";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompas kalibrlənməsi";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "İnterfeysi görmək üçün yenidən xəritəyə uzun müddət toxunun";
 

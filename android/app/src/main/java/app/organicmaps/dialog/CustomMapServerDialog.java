@@ -42,7 +42,7 @@ public final class CustomMapServerDialog
     edit.setText(current);
 
     MaterialAlertDialogBuilder builder =
-        new MaterialAlertDialogBuilder(context, R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(context)
             .setTitle(R.string.download_resources_custom_url_title)
             .setMessage(R.string.download_resources_custom_url_message)
             .setView(dialogView)

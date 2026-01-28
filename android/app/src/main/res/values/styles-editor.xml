@@ -89,8 +89,16 @@
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_marginBottom">@dimen/margin_half</item>
-    <item name="cardBackgroundColor">?cardBackground</item>
+    <item name="cardBackgroundColor">?appBackground</item>
     <item name="android:padding">@dimen/margin_base</item>
     <item name="cardPreventCornerOverlap">false</item>
   </style>
+    <style name="MwmWidget.M3.CardView" parent="Widget.Material3.CardView.Elevated">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">@dimen/margin_half</item>
+        <item name="cardBackgroundColor">?appBackground</item>
+        <item name="android:padding">@dimen/margin_base</item>
+        <item name="cardPreventCornerOverlap">false</item>
+    </style>
 </resources>

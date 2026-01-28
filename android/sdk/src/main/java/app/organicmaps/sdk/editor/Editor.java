@@ -190,5 +190,5 @@ public final class Editor
 
   @FeatureStatus
   public static native int nativeGetMapObjectStatus();
-  public static native boolean nativeIsMapObjectUploaded();
+  public static native boolean nativeAreSomeFeatureChangesUploaded();
 }

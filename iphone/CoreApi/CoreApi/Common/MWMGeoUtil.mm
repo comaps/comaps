@@ -32,7 +32,7 @@
 */
 
 - (NSString*) valueAsString {
-  auto const outString = measurement_utils::ToStringPrecision(self.value, self.value >= 10.0 ? 0 : 1);
+  auto const outString = measurement_utils::ToStringPrecision(self.value, 0);
   return [NSString stringWithUTF8String:outString.c_str()];
 }
 

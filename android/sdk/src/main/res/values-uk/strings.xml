@@ -37,4 +37,5 @@
     <string name="not_shared">Особистий</string>
     <string name="access_rules_author_only">Редагується онлайн</string>
     <string name="today">Сьогодні</string>
+    <string name="yesterday">Вчора</string>
 </resources>

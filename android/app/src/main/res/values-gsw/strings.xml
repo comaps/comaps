@@ -151,9 +151,9 @@
     <string name="continue_button">Fortfahre</string>
     <string name="download_country_failed">%s Abelade fehlgschlage</string>
     <string name="add_new_set">Neui Lischte hinzuefüege</string>
-    <string name="bookmark_set_name">Name vo de Lesezeichelischte</string>
-    <string name="bookmarks">Lesezeiche</string>
-    <string name="bookmarks_and_tracks">Lesezeiche und Tracks</string>
+    <string name="bookmark_set_name">Name vo de Lischte</string>
+    <string name="bookmarks">Ort</string>
+    <string name="bookmarks_and_tracks">Favorite</string>
     <string name="name">Name</string>
     <string name="address">Adresse</string>
     <string name="list">Lischte</string>
@@ -186,10 +186,10 @@
     <string name="category_recycling">Recycling</string>
     <string name="category_rv">Iirichtige für Wohnmobil</string>
     <string name="description">Notize</string>
-    <string name="share_bookmarks_email_subject">CoMaps-Lesezeiche sind mit dir teilt worde</string>
-    <string name="load_kmz_title">Lesezeiche werded glade</string>
-    <string name="load_kmz_successful">Lesezeiche erfolgriich glade! Du chasch sie uf de Charte oder im Lesezeiche-Manager aazeige.</string>
-    <string name="load_kmz_failed">Lade vo de Lesezeiche fehlgschlage. D Datei chönnt beschädigt oder defekt sii.</string>
+    <string name="share_bookmarks_email_subject">Miini CoMaps-Favorite</string>
+    <string name="load_kmz_title">Favorite werded glade</string>
+    <string name="load_kmz_successful">Favorite erfolgriich glade! Du chasch sie uf de Charte oder im Favorite-Manager aazeige.</string>
+    <string name="load_kmz_failed">Lade vo de Favorite fehlgschlage. D Datei chönnt beschädigt oder defekt sii.</string>
     <string name="unknown_file_type">De Dateityp wird vo de App nöd erchennt: \n%1$s</string>
     <string name="failed_to_open_file">Datei het nöd chönne göffnet werde %1$s \n \n%2$s</string>
     <string name="edit">Bearbeite</string>
@@ -549,7 +549,7 @@
     <string name="bookmarks_error_message_share_empty">E leeri Lischte cha nöd teilt werde</string>
     <string name="bookmarks_error_message_empty_list_name">Bitte gib en Lischtename ii</string>
     <string name="unable_to_calc_alert_title">Route cha nöd berechnet werde</string>
-    <string name="share_bookmarks_email_body">Hallo! \n \nIm Ahang sind mini Lesezeiche; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/ \n \nViel Spass bim Reise mit CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hallo! \n \nIm Ahang sind mini Favorite; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/ \n \nViel Spass bim Reise mit CoMaps!</string>
     <string name="pink">Rosa</string>
     <string name="editor_other_info">Hiiwiis a Freiwilligi vo OpenStreetMap (optional)</string>
     <string name="editor_category_unsuitable_title">Kei passendi Kategorie gfunde?</string>

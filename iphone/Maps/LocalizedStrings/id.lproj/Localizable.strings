@@ -307,7 +307,7 @@
 "faq" = "Pertanyaan dan jawaban";
 
 /* Button in the main menu */
-"donate" = "Menyumbangkan";
+"donate" = "Donasi";
 
 /* Button in the main Help dialog */
 "copyright" = "Hak cipta";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "Gangguan pengiriman surel";
-
-/* Settings item title */
-"pref_calibration_title" = "Kalibrasi kompas";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Ketuk lama pada peta sekali lagi untuk melihat antarmuka";
@@ -559,7 +556,7 @@
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Pengunggahan terakhir";
 "thank_you" = "Terima kasih";
-"edit_place" = "Sunting tempat";
+"edit_place" = "Sunting Tempat";
 "place_name" = "Nama tempat";
 "add_language" = "Tambahkan bahasa";
 
@@ -688,7 +685,7 @@
 "error_enter_correct_web" = "Masukkan alamat web valid";
 "error_enter_correct_email" = "Masukkan surel valid";
 "refresh" = "Memperbarui";
-"placepage_add_place_button" = "Menambahkan tempat ke OpenStreetMap";
+"placepage_add_place_button" = "Tambahkan tempat ke OpenStreetMap";
 
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Apakah Anda ingin mengirimkannya ke semua pengguna?";
@@ -1066,7 +1063,7 @@
 "recover_all" = "Pulihkan Semua";
 
 /* Prompt to start recording a track. */
-"start_track_recording" = "Merekam jalur";
+"start_track_recording" = "Rekam Jalur";
 
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Hentikan perekaman jalur";
@@ -1084,12 +1081,13 @@
 "track_recording_toast_nothing_to_save" = "Jalur kosong - tidak ada yang bisa disimpan";
 "edit_track" = "Edit Jalur";
 "osm_profile_view_notes" = "Lihat catatan";
-"osm_profile_view_edit_history" = "Lihat riwayat suntingan";
+"osm_profile_view_edit_history" = "Lihat Riwayat Suntingan";
 "about_proposition_3" = "Transparent and not for profit";
 "about_headline" = "Open project powered by the community";
-"pref_mapappearance_title" = "Map Appearance";
+"pref_mapappearance_title" = "Tampilan Peta";
 "pref_maplanguage_title" = "Map Language";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 "pref_maplanguage_local" = "Local Language";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"offline_explanation_text" = "Peta perlu diunduh untuk melihat dan menavigasi area ini.\nUnduh peta untuk wilayah yang ingin Anda jelajahi.";

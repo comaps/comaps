@@ -24,6 +24,7 @@
 
 #include "indexer/drawing_rules.hpp"
 #include "indexer/scales.hpp"
+#include "indexer/classificator_loader.hpp"
 
 #include "geometry/any_rect2d.hpp"
 
@@ -421,6 +422,12 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     case ChangeMyPositionModeMessage::LoseLocation: m_myPositionController->LoseLocation(); break;
     default: ASSERT(false, ("Unknown change type:", static_cast<int>(msg->GetChangeType()))); break;
     }
+    break;
+  }
+
+  case Message::Type::StartPendingPositionMode:
+  {
+    m_myPositionController->StartPendingPositionMode();
     break;
   }
 
@@ -2370,7 +2377,7 @@ void FrontendRenderer::Routine::Do()
 
   m_renderer.CreateContext();
 
-#if defined(DEBUG) || defined(DEBUG_DRAPE_XCODE) || defined(SCENARIO_ENABLE)
+#if defined(BUILD_DESIGNER) || defined(DEBUG) || defined(DEBUG_DRAPE_XCODE) || defined(SCENARIO_ENABLE)
   gui::DrapeGui::Instance().GetScaleFpsHelper().SetVisible(true);
 #endif
 

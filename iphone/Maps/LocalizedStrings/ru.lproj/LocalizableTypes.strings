@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Паб";
 "type.amenity.public_bookcase" = "Книгообмен";
 "type.amenity.recycling.centre" = "Приём вторсырья";
-"type.amenity.recycling" = "Контейнер для вторсырья";
 "type.amenity.recycling.container" = "Контейнер для вторсырья";
 "type.recycling.batteries" = "Батарейки";
 "type.recycling.clothes" = "Одежда";
@@ -899,8 +898,6 @@
 "type.public_transport.platform" = "Платформа";
 "type.railway" = "Ж/Д";
 "type.railway.abandoned" = "Заброшенная железная дорога";
-"type.railway.abandoned.bridge" = "Заброшенный железнодорожный мост";
-"type.railway.abandoned.tunnel" = "Заброшенный железнодорожный туннель";
 "type.railway.construction" = "Строящаяся железная дорога";
 "type.railway.crossing" = "Пешеходный переход";
 "type.railway.disused" = "Неиспользуемая железная дорога";
@@ -1495,7 +1492,6 @@
 "type.man_made.telescope" = "Телескоп";
 "type.man_made.telescope.gamma" = "Телескоп (Гамма)";
 "type.amenity.boat_rental" = "Прокат лодок";
-"type.amenity.charging_station.motorcar.small" = "Пункт зарядки автомобиля";
 "type.amenity.lounger" = "Шезлонг";
 "type.amenity.car_pooling" = "Совместное использование авто";
 "type.amenity.payment_centre" = "Платежный центр";
@@ -1542,3 +1538,5 @@
 "type.amenity.give_box" = "Подарить коробку";
 "type.amenity.bench.backless" = "Скамья без спинки";
 "type.amenity.mobile_money_agent" = "Агент мобильных платежей";
+"type.amenity.sailing_school" = "Яхтенная школа";
+"type.amenity.flight_school" = "Лётное училище";

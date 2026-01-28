@@ -2,22 +2,22 @@
 <resources>
     <!-- SECTION: Strings -->
     <!-- Button text (should be short) -->
-    <string name="back">رجوع</string>
+    <string name="back">ارجع</string>
     <!-- Button text (should be short) -->
-    <string name="cancel">إلغاء</string>
+    <string name="cancel">ألغِ</string>
     <!-- Button which deletes downloaded country -->
-    <string name="delete">حذف</string>
-    <string name="download_maps">تنزيل الخرائط</string>
+    <string name="delete">احذف</string>
+    <string name="download_maps">نزّل الخرائط</string>
     <!-- Settings/Downloader - info for country when download fails -->
     <string name="download_has_failed">فشلت عملية التنزيل، انقر لإعادة المحاولة</string>
     <!-- Settings/Downloader - info for country which started downloading -->
-    <string name="downloading">جاري التنزيل…</string>
+    <string name="downloading">جارِ التنزيل…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
     <string name="kilometres">الكيلومترات</string>
     <!-- Choose measurement on first launch alert - choose imperial system button -->
     <string name="miles">الأميال</string>
     <!-- Update maps later button text -->
-    <string name="later">ًلاحقا</string>
+    <string name="later">لاحقًا</string>
     <!-- View and button titles for accessibility, please also edit it in iphone/plist.txt -->
     <string name="search">البحث</string>
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->

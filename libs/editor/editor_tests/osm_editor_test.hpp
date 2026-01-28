@@ -31,7 +31,7 @@ public:
   void SetIndexTest();
   void GetEditedFeatureStreetTest();
   void GetFeatureStatusTest();
-  void IsFeatureUploadedTest();
+  void AreSomeFeatureChangesUploadedTest();
   void DeleteFeatureTest();
   void ClearAllLocalEditsTest();
   void GetFeaturesByStatusTest();

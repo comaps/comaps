@@ -129,7 +129,6 @@
 "type.amenity.pub" = "酒馆";
 "type.amenity.public_bookcase" = "公共书架";
 "type.amenity.recycling.centre" = "资源回收设施";
-"type.amenity.recycling" = "回收容器";
 "type.amenity.recycling.container" = "回收容器";
 "type.recycling.batteries" = "电池";
 "type.recycling.clothes" = "旧衣物";
@@ -371,7 +370,7 @@
 
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "主要入口";
-"type.entrance.exit" = "出口";
+"type.entrance.exit" = "单向出口";
 "type.fee.yes" = "¥";
 "type.fee.no" = "免费";
 "type.healthcare.laboratory" = "医学实验室";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "公共交通站台";
 "type.railway" = "铁路要素";
 "type.railway.abandoned" = "铁路遗迹";
-"type.railway.abandoned.bridge" = "铁路桥遗迹";
-"type.railway.abandoned.tunnel" = "铁路隧道遗迹";
 "type.railway.construction" = "在建铁路";
 "type.railway.crossing" = "铁路道口";
 "type.railway.disused" = "废弃铁路";
@@ -1488,5 +1485,27 @@
 "type.office.security" = "保安室";
 "type.power.portal" = "能源站";
 "type.building.guardhouse" = "保安亭";
-"type.amenity.charging_station.motorcar.small" = "充电桩";
 "type.amenity.bench.backless" = "长凳";
+"type.entrance.emergency" = "应急出口";
+"type.amenity.boat_rental" = "船只租赁";
+"type.man_made.telescope" = "望远镜";
+"type.man_made.telescope.optical" = "光学望远镜";
+"type.man_made.telescope.radio" = "射电望远镜";
+"type.man_made.telescope.gamma" = "伽玛射线望远镜";
+"type.man_made.observatory" = "观测台";
+"type.amenity.car_pooling" = "拼车";
+"type.xmas.tree" = "圣诞树";
+"type.amenity.food_sharing" = "食物共享设施";
+"type.amenity.give_box" = "捐赠箱";
+"type.shop.beauty.nails" = "美甲店";
+"type.natural.tree" = "树";
+"type.natural.sand" = "沙子";
+"type.leisure.sports_centre.sport.volleyball" = "运动中心";
+"type.leisure.sports_centre.sport.swimming" = "游泳中心";
+"type.cardinal.south" = "南";
+"type.cardinal.east" = "东";
+"type.cardinal.west" = "西";
+"type.cardinal.north" = "北";
+"type.entrance.garage" = "车库入口";
+"type.entrance.entry" = "单向入口";
+"type.emergency.access_point" = "紧急连络点";

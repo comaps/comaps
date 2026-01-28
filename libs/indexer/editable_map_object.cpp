@@ -104,6 +104,24 @@ bool EditableMapObject::CanMarkPlaceAsDisused() const
       "amenity-cafe",
       "amenity-pub",
       "amenity-bar",
+      "amenity-ice_cream",
+      "amenity-pharmacy",
+      "amenity-post_office",
+      "amenity-bank",
+      "amenity-bureau_de_change",
+      "amenity-car_rental",
+      "amenity-motorcycle_rental",
+      "amenity-casino",
+      "amenity-gambling",
+      "amenity-internet_cafe",
+      "craft-confectionery",
+      "craft-electronics_repair",
+      "raft-shoemaker",
+      "craft-tailor",
+      "craft-key_cutter",
+      "craft-locksmith",
+      "office-estate_agent",
+      "office-insurance",
   };
 
   for (auto const & typePrefix : typePrefixes)
@@ -835,18 +853,17 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
   LOG(LDEBUG, ("Executing LogDiffInJournal"));
 
   // Name
-  for (StringUtf8Multilang::Lang language : StringUtf8Multilang::GetSupportedLanguages())
+  for (auto const & language : StringUtf8Multilang::GetSupportedLanguages())
   {
-    int8_t langCode = StringUtf8Multilang::GetLangIndex(language.m_code);
-    std::string_view new_name;
-    std::string_view old_name;
-    m_name.GetString(langCode, new_name);
-    unedited_emo.GetNameMultilang().GetString(langCode, old_name);
+    int8_t const langCode = StringUtf8Multilang::GetLangIndex(language.m_code);
+    std::string_view new_name, old_name;
+    UNUSED_VALUE(m_name.GetString(langCode, new_name));
+    UNUSED_VALUE(unedited_emo.GetNameMultilang().GetString(langCode, old_name));
 
     if (new_name != old_name)
     {
-      std::string osmLangName = StringUtf8Multilang::GetOSMTagByCode(langCode);
-      m_journal.AddTagChange(std::move(osmLangName), std::string(old_name), std::string(new_name));
+      m_journal.AddTagChange(StringUtf8Multilang::GetOSMTagByCode(langCode), std::string(old_name),
+                             std::string(new_name));
     }
   }
 

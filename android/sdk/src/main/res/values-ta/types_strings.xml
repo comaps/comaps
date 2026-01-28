@@ -57,7 +57,6 @@
     <string name="type.amenity.casino">கேசினோ</string>
     <string name="type.leisure.adult_gaming_centre">அகவை வந்தோர் கேமிங் நடுவண்</string>
     <string name="type.leisure.amusement_arcade">ஆர்கேட்</string>
-    <string name="type.amenity.charging_station.motorcar.small">கார் சார்சிங் பாயிண்ட்</string>
     <string name="type.amenity.childcare">நாற்றங்கால்</string>
     <string name="type.amenity.cinema">சினிமா</string>
     <string name="type.amenity.studio">மீடியா ச்டுடியோ</string>
@@ -147,7 +146,6 @@
     <string name="type.amenity.pub">பப்</string>
     <string name="type.amenity.public_bookcase">புத்தக பரிமாற்றம்</string>
     <string name="type.amenity.recycling.centre">மறுசுழற்சி நடுவண்</string>
-    <string name="type.amenity.recycling">மறுசுழற்சி கொள்கலன்</string>
     <string name="type.amenity.recycling.container">மறுசுழற்சி கொள்கலன்</string>
     <string name="type.recycling.batteries">பேட்டரிகள்</string>
     <string name="type.recycling.clothes">ஆடைகள்</string>
@@ -798,8 +796,6 @@
     <string name="type.public_transport.platform">மேடை</string>
     <string name="type.railway">ரயில்வே</string>
     <string name="type.railway.abandoned">கைவிடப்பட்ட ரயில்வே</string>
-    <string name="type.railway.abandoned.bridge">கைவிடப்பட்ட ரயில்வே பாலம்</string>
-    <string name="type.railway.abandoned.tunnel">கைவிடப்பட்ட ரயில்வே சுரங்கப்பாதை</string>
     <string name="type.railway.construction">ரயில்வே கட்டுமானம்</string>
     <string name="type.railway.crossing">ரயில்வே கடத்தல்</string>
     <string name="type.railway.disused">பயன்படுத்தப்படாத ரயில்வே</string>

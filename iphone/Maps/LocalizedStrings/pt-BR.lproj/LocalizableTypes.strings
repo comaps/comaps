@@ -42,7 +42,7 @@
 "type.leisure.amusement_arcade" = "Fliperama";
 "type.amenity.charging_station" = "Eletroposto";
 "type.amenity.charging_station.bicycle" = "Ponto de recarga de bicicletas";
-"type.amenity.charging_station.motorcar" = "Eletroposto";
+"type.amenity.charging_station.motorcar" = "Carros";
 "type.amenity.childcare" = "Creche";
 "type.amenity.cinema" = "Cinema";
 "type.leisure.bowling_alley" = "Pista de boliche";
@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Bar ou boteco";
 "type.amenity.public_bookcase" = "Biblioteca livre";
 "type.amenity.recycling.centre" = "Centro de reciclagem";
-"type.amenity.recycling" = "Contêiner de reciclagem";
 "type.amenity.recycling.container" = "Contêiner de reciclagem";
 "type.recycling.batteries" = "Baterias";
 "type.recycling.clothes" = "Roupas velhas";
@@ -889,8 +888,6 @@
 "type.public_transport.platform" = "Plataforma de transporte público";
 "type.railway" = "Ferrovia";
 "type.railway.abandoned" = "Ferrovia abandonada";
-"type.railway.abandoned.bridge" = "Ferrovia abandonada";
-"type.railway.abandoned.tunnel" = "Ferrovia abandonada";
 "type.railway.construction" = "Ferrovia em construção";
 "type.railway.crossing" = "Passagem pedestre";
 "type.railway.disused" = "Ferrovia em desuso";
@@ -1503,7 +1500,6 @@
 "type.leisure.sports_centre.sport.pelota" = "Centro esportivo";
 "type.leisure.sports_centre.sport.skiing" = "Centro esportivo";
 "type.leisure.sports_centre.sport.cricket" = "Centro esportivo";
-"type.amenity.charging_station.motorcar.small" = "Ponto de carregamento para carros";
 "type.leisure.sports_centre.sport.equestrian" = "Centro esportivo";
 "type.leisure.sports_centre.sport.volleyball" = "Centro esportivo";
 "type.leisure.sports_centre.sport.curling" = "Centro esportivo";
@@ -1523,7 +1519,7 @@
 "type.leisure.sports_centre.sport.scuba_diving" = "Centro esportivo";
 "type.leisure.sports_centre.sport.field_hockey" = "Centro esportivo";
 "type.leisure.sports_centre.sport.bowls" = "Centro esportivo";
-"type.amenity.bench.backless" = "Banco sem encosto";
+"type.amenity.bench.backless" = "Sem encosto";
 "type.leisure.bandstand" = "Coreto";
 "type.disusedbusiness" = "Estabelecimento vazio";
 "type.amenity.lounger" = "Espreguiçadeira";
@@ -1591,3 +1587,5 @@
 "type.buoy.lateral.port" = "Boia lateral";
 "type.man_made.mast.communication" = "Mastro de comunicações";
 "type.shop.beauty.nails" = "Manicure";
+"type.amenity.hydrant" = "Hidrante de irrigação";
+"type.amenity.charging_station.motorcycle" = "Motos";

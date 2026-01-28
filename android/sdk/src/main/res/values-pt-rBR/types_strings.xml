@@ -43,7 +43,7 @@
     <string name="type.leisure.amusement_arcade">Fliperama</string>
     <string name="type.amenity.charging_station">Eletroposto</string>
     <string name="type.amenity.charging_station.bicycle">Ponto de recarga de bicicletas</string>
-    <string name="type.amenity.charging_station.motorcar">Eletroposto</string>
+    <string name="type.amenity.charging_station.motorcar">Carros</string>
     <string name="type.amenity.childcare">Creche</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.leisure.bowling_alley">Pista de boliche</string>
@@ -110,7 +110,6 @@
     <string name="type.amenity.public_bookcase">Biblioteca livre</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centro de reciclagem</string>
-    <string name="type.amenity.recycling">Contêiner de reciclagem</string>
     <string name="type.amenity.recycling.container">Contêiner de reciclagem</string>
     <string name="type.recycling.batteries">Baterias</string>
     <string name="type.recycling.clothes">Roupas velhas</string>
@@ -645,8 +644,6 @@
     <string name="type.public_transport.platform">Plataforma de transporte público</string>
     <string name="type.railway">Ferrovia</string>
     <string name="type.railway.abandoned">Ferrovia abandonada</string>
-    <string name="type.railway.abandoned.bridge">Ferrovia abandonada</string>
-    <string name="type.railway.abandoned.tunnel">Ferrovia abandonada</string>
     <string name="type.railway.construction">Ferrovia em construção</string>
     <string name="type.railway.crossing">Passagem pedestre</string>
     <string name="type.railway.disused">Ferrovia em desuso</string>
@@ -1387,8 +1384,7 @@
     <string name="type.office.security">Escritório de segurança privada</string>
     <string name="type.power.portal">Portal de subestação</string>
     <string name="type.shop.lighting">Loja de iluminação</string>
-    <string name="type.amenity.bench.backless">Banco sem encosto</string>
-    <string name="type.amenity.charging_station.motorcar.small">Ponto de carregamento para carros</string>
+    <string name="type.amenity.bench.backless">Sem encosto</string>
     <string name="type.leisure.bandstand">Coreto</string>
     <string name="type.leisure.sports_centre.sport.multi">Centro esportivo</string>
     <string name="type.leisure.sports_centre.sport.american_football">Centro esportivo</string>
@@ -1489,4 +1485,6 @@
     <string name="type.buoy.lateral.port">Boia lateral</string>
     <string name="type.man_made.mast.communication">Mastro de comunicações</string>
     <string name="type.shop.beauty.nails">Manicure</string>
+    <string name="type.amenity.hydrant">Hidrante de irrigação</string>
+    <string name="type.amenity.charging_station.motorcycle">Motos</string>
 </resources>

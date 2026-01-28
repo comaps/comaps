@@ -97,7 +97,6 @@
     <string name="type.amenity.public_bookcase">सार्वजनिक किताबों की अलमारी</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">रीसाइक्लिंग सेंटर</string>
-    <string name="type.amenity.recycling">रीसाइक्लिंग कंटेनर</string>
     <string name="type.amenity.recycling.container">रीसाइक्लिंग कंटेनर</string>
     <string name="type.amenity.restaurant">रेस्तरां</string>
     <string name="type.amenity.sanitary_dump_station">सेनेटरी डंप स्टेशन</string>

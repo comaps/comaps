@@ -24,7 +24,6 @@
 "type.amenity.pub" = "Krá";
 "type.amenity.public_bookcase" = "Bókaskipti";
 "type.amenity.recycling.centre" = "Endurvinnslustöð";
-"type.amenity.recycling" = "Endurvinnslugámur";
 "type.amenity.recycling.container" = "Endurvinnslugámur";
 "type.recycling.batteries" = "Rafhlöður";
 "type.recycling.clothes" = "Fatnaður";
@@ -180,7 +179,6 @@
 "type.highway.path" = "Stígur";
 "type.highway.pedestrian.area" = "Svæði fyrir fótgangandi";
 "type.highway.pedestrian.bridge" = "Göngubrú";
-
 "type.highway.pedestrian.square" = "Torg";
 "type.highway.pedestrian.tunnel" = "Göng fyrir fótgangandi";
 "type.highway.track" = "Slóði";
@@ -298,7 +296,6 @@
 "type.landuse.forest.deciduous" = "Laufskógur";
 "type.landuse.forest.mixed" = "Blandaður skógur";
 "type.man_made.pipeline.overground" = "Leiðsla ofanjarðar";
-"type.railway.abandoned.tunnel" = "Aflögð járnbrautargöng";
 "type.railway.construction" = "Járnbraut í byggingu";
 "type.railway.monorail.tunnel" = "Einteinungsgöng";
 "type.railway.rail.tourism" = "Ferðamannalest";
@@ -367,7 +364,6 @@
 "type.power.minor_line" = "Minni raflína";
 "type.power.plant.gas" = "Gastúrbínuknúin aflstöð";
 "type.power.plant.hydro" = "Vatnsaflstöð";
-"type.railway.abandoned.bridge" = "Aflögð járnbrautarbrú";
 "type.railway.light_rail.bridge" = "Léttlestarbrú";
 "type.railway.light_rail.tunnel" = "Léttlestargöng";
 "type.railway.monorail.bridge" = "Einteinungsbrú";

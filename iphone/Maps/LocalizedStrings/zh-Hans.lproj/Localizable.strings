@@ -63,16 +63,16 @@
 "add_new_set" = "添加新的书签列表";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "书签列表名称";
+"bookmark_set_name" = "列表名称";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "书签列表";
+"bookmark_sets" = "收藏列表";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "书签";
+"bookmarks" = "地点";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "书签和轨迹";
+"bookmarks_and_tracks" = "收藏";
 
 /* Default bookmark list name */
 "core_my_places" = "我的地点";
@@ -144,7 +144,7 @@
 "category_police" = "警察局";
 
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
-"category_wifi" = "无线网络";
+"category_wifi" = "Wi-Fi";
 
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "回收";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "房车设施";
-"share_bookmarks_email_body" = "您好！\n\n附件是我的书签，请在 CoMaps 中打开。如果您没有安装 CoMaps，可以在这里下载: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
+"share_bookmarks_email_body" = "您好！\n\n附件是我保存的地点，请在 CoMaps 中打开。如果您没有安装 CoMaps，可以在这里下载：https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
 
 /* message title of loading file */
-"load_kmz_title" = "正在加载书签";
+"load_kmz_title" = "正在加载收藏";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "书签载入成功！您可以在地图或书签管理页面中找到它们。";
+"load_kmz_successful" = "收藏加载成功！您可以在地图或收藏管理页面中找到它们。";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "书签载入失败，文件可能已损坏或不完整。";
+"load_kmz_failed" = "无法加载收藏，文件可能已损坏或不完整。";
 
 /* resource for context menu */
 "edit" = "编辑";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "电子邮件发送失败";
 
-/* Settings item title */
-"pref_calibration_title" = "指南针校准";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "再次长按地图即可查看界面";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "规划路线需要下载并更新好所有从您的位置到目的地的地图。";
 
 /* bookmark button text */
-"bookmark" = "书签";
+"bookmark" = "地点";
 "save" = "保存";
 "create" = "创建";
 
@@ -633,10 +630,10 @@
 "editor_detailed_description_hint" = "详细备注";
 "editor_detailed_description" = "您建议的更改将发送至 OpenStreetMap 社区。说明无法在 CoMaps 编辑的详情。";
 "editor_more_about_osm" = "关于 OpenStreetMap 的更多信息";
-"editor_operator" = "操作员";
+"editor_operator" = "运营方";
 
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
-"operator" = "操作员: %@";
+"operator" = "运营方：%@";
 "editor_category_unsuitable_title" = "找不到合适的类别？";
 "editor_category_unsuitable_text" = "CoMaps 只允许添加简单的点类别，即无法添加城镇、道路、湖泊、建筑轮廓等类别。请直接向 <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> 添加此类类别。请查看我们的<a href=\"https://www.comaps.app/support/advanced-map-editing/\">指南</a>，了解详细的步骤说明。";
 "downloader_no_downloaded_maps_title" = "您尚未下载任何地图";
@@ -676,10 +673,10 @@
 "placepage_more_button" = "更多";
 "book_button" = "预定";
 "placepage_call_button" = "呼叫";
-"placepage_edit_bookmark_button" = "编辑书签";
-"placepage_bookmark_name_hint" = "书签名称";
+"placepage_edit_bookmark_button" = "编辑已保存的地点";
+"placepage_bookmark_name_hint" = "地点名称";
 "placepage_personal_notes_hint" = "个人注记（文字或 html）";
-"placepage_delete_bookmark_button" = "删除书签";
+"placepage_delete_bookmark_button" = "删除地点";
 "editor_edits_sent_message" = "您的说明将发送至 OpenStreetMap";
 "editor_comment_hint" = "备注…";
 "editor_reset_edits_message" = "舍弃所有本地更改？";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "创建新的列表";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "导入书签和轨迹";
+"bookmarks_import" = "导入收藏";
 "downloader_hide_screen" = "隱藏屏幕";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "正在下載 %@…";
@@ -999,7 +996,7 @@
 "button_layer_outdoor" = "徒步旅行";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "导出所有书签和轨迹";
+"bookmarks_export" = "导出所有收藏";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "更改颜色";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "继续录制";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "保存到书签和轨迹？";
+"track_recording_alert_title" = "保存到收藏？";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "轨迹为空 — 无内容可保存";
@@ -1106,3 +1103,4 @@
 "voice_explanation_before_version26" = "可以在系统设置中的 *辅助功能*、*朗读内容*、*声音*下选择更好的声音。";
 "voice_explanation" = "可以在系统设置中的 *辅助功能*、*阅读与朗读*、*声音*下选择更好的声音。";
 "avoid_paved" = "避开铺装道路";
+"limit_map_language_alternatives_to_local" = "仅使用所在区域的其他系统语言";

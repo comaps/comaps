@@ -9,7 +9,7 @@
     style="@style/MwmWidget.FrameLayout.Elevation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?windowBackgroundForced"
+    android:background="?colorSurfaceContainerLow"
     android:layout_above="@+id/tv__mode_switch"
     android:layout_below="@id/toolbar"/>
 
@@ -19,14 +19,13 @@
     android:layout_height="wrap_content"
     android:layout_alignTop="@+id/tv__mode_switch"
     android:layout_alignParentBottom="true"
-    android:background="?cardBackground"/>
+    android:background="?colorSurfaceContainerLow"/>
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/tv__mode_switch"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_alignParentBottom="true"
-    android:background="?clickableBackground"
     android:gravity="center_vertical"
     android:padding="@dimen/margin_base"
     android:text="@string/editor_time_advanced"
@@ -35,7 +34,7 @@
     android:textColor="?colorSecondary" />
 
   <include
-    layout="@layout/shadow_bottom"
+    layout="@layout/item_divider"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_above="@id/tv__mode_switch"/>

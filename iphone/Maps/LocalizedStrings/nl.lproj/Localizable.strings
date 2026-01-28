@@ -34,7 +34,7 @@
 "use_cellular_data" = "Ja";
 
 /* View and button titles for accessibility */
-"zoom_to_country" = "Weergeven op de kaart";
+"zoom_to_country" = "Weergeven op kaart";
 
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "Download kaart";
@@ -43,7 +43,7 @@
 "country_status_download_failed" = "Downloaden is mislukt";
 
 /* Text in About screen */
-"about_headline" = "Open project, gemaakt door de community";
+"about_headline" = "Open project gedreven door de community";
 
 /* Text in About screen */
 "about_proposition_1" = "Offline, snel en gebruiksvriendelijk";
@@ -60,19 +60,19 @@
 "continue_button" = "Doorgaan";
 
 /* "Add new bookmark list" dialog title */
-"add_new_set" = "Nieuwe groep toevoegen";
+"add_new_set" = "Nieuwe lijst toevoegen";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Naam van bladwijzergroep";
+"bookmark_set_name" = "Naam van lijst";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Bladwijzergroepen";
+"bookmark_sets" = "Favorietenlijsten";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Bladwijzers";
+"bookmarks" = "Plaatsen";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Bladwijzers en sporen";
+"bookmarks_and_tracks" = "Favorieten";
 
 /* Default bookmark list name */
 "core_my_places" = "Mijn plaatsen";
@@ -84,7 +84,7 @@
 "settings" = "Instellingen";
 
 /* Measurement units title in settings activity */
-"measurement_units" = "Afstandseenheid";
+"measurement_units" = "Eenheid van afstand";
 
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Waar iets gaan eten";
@@ -153,17 +153,17 @@
 "category_water" = "Water";
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
-"category_rv" = "Caravanfaciliteiten";
-"share_bookmarks_email_body" = "Hallo!\n\nBijgesloten zijn mijn bladwijzers uit de CoMaps app. Open ze als je CoMaps geïnstalleerd hebt. Of, als je dat niet hebt, download de app voor je iOS- of Android-apparaat door deze link te volgen: https://www.comaps.app/download/\n\nGeniet van het reizen met CoMaps!";
+"category_rv" = "Camperfaciliteiten";
+"share_bookmarks_email_body" = "Hallo!\n\nBijgevoegd zijn mijn opgeslagen plaatsen die je kunt openen in CoMaps. Heb je deze app nog niet geïnstalleerd dan kun je het hier downloaden: https://www.comaps.app/download/\n\nVeel plezier met reizen met CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Bladwijzers laden";
+"load_kmz_title" = "Favorieten laden";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Bladwijzers succesvol geladen! U vindt ze op de kaart of op het scherm van de Bladwijzerbeheerder.";
+"load_kmz_successful" = "Favorieten succesvol geladen! U vindt ze op de kaart of op het scherm Favorietenbeheer.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Bladwijzers laden is mislukt. Het bestand is mogelijk beschadigd of defect.";
+"load_kmz_failed" = "Favorieten laden is mislukt. Het bestand is mogelijk beschadigd.";
 
 /* resource for context menu */
 "edit" = "Bewerken";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "E-mail verzendfout";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompaskalibratie";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Tik nogmaals lang op de kaart om de interface te zien";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "Voor het creëren van een route is het nodig dat alle kaarten van uw locatie naar de bestemming gedownload en bijgewerkt zijn.";
 
 /* bookmark button text */
-"bookmark" = "markeer";
+"bookmark" = "plaats";
 "save" = "Opslaan";
 "create" = "aanmaken";
 
@@ -676,14 +673,14 @@
 "placepage_more_button" = "Meer";
 "book_button" = "Boek";
 "placepage_call_button" = "Bel";
-"placepage_edit_bookmark_button" = "Bladwijzer bewerken";
-"placepage_bookmark_name_hint" = "Bladwijzernaam";
+"placepage_edit_bookmark_button" = "Opgeslagen plaats bewerken";
+"placepage_bookmark_name_hint" = "Plaatsnaam";
 "placepage_personal_notes_hint" = "Persoonlijke aantekeningen (tekst of html)";
-"placepage_delete_bookmark_button" = "Verwijder bladwijzer";
+"placepage_delete_bookmark_button" = "Verwijder plaats";
 "editor_edits_sent_message" = "Je opmerking wordt verzonden naar OpenStreetMap";
 "editor_comment_hint" = "Reactie…";
 "editor_reset_edits_message" = "Alle lokale wijzigingen weggooien?";
-"editor_reset_edits_button" = "Gooi weg";
+"editor_reset_edits_button" = "Wijzigingen weggooien";
 "editor_remove_place_message" = "Toegevoegde locatie verwijderen?";
 "editor_remove_place_button" = "Verwijder";
 "editor_place_doesnt_exist" = "Locatie bestaat niet";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "Maak een nieuwe lijst";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Bladwijzers en sporen importeren";
+"bookmarks_import" = "Favorieten importeren";
 "downloader_hide_screen" = "Verberg scherm";
 "downloader_percent" = "%@ (%@ van %@)";
 "downloader_process" = "%@ downloaden…";
@@ -999,7 +996,7 @@
 "button_layer_outdoor" = "Wandelen";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Alle bladwijzers en sporen exporteren";
+"bookmarks_export" = "Alle Favorieten exporteren";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Verander kleur";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "Opname voortzetten";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Opslaan in bladwijzers en sporen?";
+"track_recording_alert_title" = "Opslaan in Favorieten?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Spoor is leeg - niets op te slaan";
@@ -1094,7 +1091,7 @@
 "pref_mapappearance_title" = "Kaart uiterlijk";
 "pref_maplanguage_title" = "Kaarttaal";
 "transliteration_title_disabled_summary" = "Uitgeschakeld wanneer altijd de lokale taal voor de kaart wordt gebruikt";
-"pref_maplanguage_local" = "Lokale Taal";
+"pref_maplanguage_local" = "Plaatselijke taal";
 "existence_confirmed_time_ago" = "Bestaan bevestigd %@";
 "hours_confirmed_time_ago" = "Bevestigd %@";
 "offline_explanation_title" = "Offline kaarten";
@@ -1106,3 +1103,4 @@
 "avoid_paved" = "Verharde wegen vermijden";
 "editor_place_doesnt_exist_description" = "Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community";
 "avoid_steps" = "Trappen vermijden";
+"limit_map_language_alternatives_to_local" = "Gebruik alleen andere systeemtalen in hun regio";

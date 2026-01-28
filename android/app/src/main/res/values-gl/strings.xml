@@ -31,7 +31,7 @@
     <string name="editor_time_from">De</string>
     <string name="daily">Diario</string>
     <string name="details">Detalles</string>
-    <string name="editor_reset_edits_button">Restablecer</string>
+    <string name="editor_reset_edits_button">Desbotar cambios</string>
     <string name="category_parking">Aparcamento</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
@@ -57,8 +57,8 @@
     <string name="editor_time_title">Horario de apertura</string>
     <string name="editor_zip_code">Código postal</string>
     <string name="editor_share_to_all_dialog_title">Quere envialo a todos os usuarios?</string>
-    <string name="editor_share_to_all_dialog_message_1">Comprobe que non escribeu ningún dato privado ou persoal</string>
-    <string name="editor_share_to_all_dialog_message_2">Os editores de OpenStreetMap comprobarán os cambios e poñeranse en contacto con vostede se teñen algunha pregunta</string>
+    <string name="editor_share_to_all_dialog_message_1">Comproba que non escribiches ningún dato privado ou persoal</string>
+    <string name="editor_share_to_all_dialog_message_2">Desde OpenStreetMap comprobarán os cambios e poñeranse en contacto contigo se teñen algunha pregunta.</string>
     <string name="navigation_stop_button">Deter</string>
     <string name="mobile_data_option_ask">Preguntar sempre</string>
     <string name="traffic_update_maps_text">Para mostrar os datos de tráfico, deben actualizarse os mapas</string>
@@ -489,7 +489,7 @@
     <string name="help">Axuda</string>
     <string name="downloader_downloaded_subtitle">Descargado</string>
     <string name="kilometers_per_hour">km/h</string>
-    <string name="create">crear</string>
+    <string name="create">Crear</string>
     <string name="brown">Marrón</string>
     <string name="no_available">Non</string>
     <string name="categories">Categorías</string>
@@ -639,4 +639,19 @@
     <string name="avoid_paved">Evitar estradas asfaltadas</string>
     <string name="editor_business_vacant_button">Dispoñible para empresas</string>
     <string name="editor_mark_business_vacant_title">Marcar como dispoñible para negocios</string>
+    <string name="place_page_map_too_old_title">Datos do mapa desactualizados</string>
+    <string name="place_page_map_too_old_description">Os datos do mapa son moi antigos, por favor actualiza o mapa.</string>
+    <string name="place_page_app_too_old_description">Os datos do mapa actual son moi antigos, actualiza a app CoMaps.</string>
+    <string name="place_page_update_too_old_map">Actualizar rexión do mapa</string>
+    <string name="place_page_too_old_to_edit">A edición de OpenStreetMap está desactivada porque o mapa é demasiado antigo.</string>
+    <string name="prefs_speed_cameras_information">Os avisos de radares están desactivados nos paises onde a lei local prohibe estas alertas.</string>
+    <string name="power_management">Xestión da enerxía</string>
+    <string name="navigation_start_tts_message">"Comezando a Navegación, idioma das instruccións por voz: "</string>
+    <string name="navigation_start_tts_disabled_message">Instruccións por voz desactivadas: non hai un motor TTS dispoñible</string>
+    <string name="charge_socket_schuko">Doméstico na UE</string>
+    <string name="advanced">Avanzado</string>
+    <string name="download_resources_custom_url_title">Servidor persoal do mapa</string>
+    <string name="download_resources_custom_url_message">Sobrescribe o servidor predefinido para descargar mapas. Deixar baleiro para usar o servidor por defecto de CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Sen establecer</string>
+    <string name="download_resources_custom_url_error_scheme">Escribe un URL que comece por http:// ou https://</string>
 </resources>

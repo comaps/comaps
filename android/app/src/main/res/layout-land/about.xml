@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?cardBackground"
+    android:background="?appBackground"
     android:clipToPadding="false"
     android:fadeScrollbars="false"
     android:fillViewport="true">
@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:text="@string/about_headline"
             android:textAlignment="center"
-            android:textAppearance="@style/MwmTextAppearance.Headline"
+            android:textAppearance="@style/MwmTextAppearance.Headline6"
             android:textColor="?android:textColorPrimary"
             app:layout_constraintTop_toTopOf="@id/version" />
         </LinearLayout>

@@ -2,8 +2,6 @@
 <resources>
   <style name="MwmTextAppearance" parent="android:TextAppearance.Material">
     <item name="android:fontFamily">@string/robotoRegular</item>
-    <!-- Force normal textStyle. Some devices (eg Lenovo P70), uses non-normal textStyle by default. -->
-    <item name="android:textStyle">normal</item>
   </style>
 
   <style name="MwmTextAppearance.Title">
@@ -13,17 +11,6 @@
 
   <style name="MwmTextAppearance.Title.Splash">
     <item name="android:textStyle">bold</item>
-  </style>
-
-  <style name="MwmTextAppearance.Title.Toolbar">
-    <item name="android:textSize">@dimen/text_size_toolbar</item>
-    <item name="android:fontFamily">@string/robotoMedium</item>
-  </style>
-
-  <style name="MwmTextAppearance.Headline">
-    <item name="android:textSize">@dimen/text_size_headline</item>
-    <item name="android:textColor">?android:textColorPrimary</item>
-    <item name="android:fontFamily">@string/robotoMedium</item>
   </style>
 
   <style name="MwmTextAppearance.Body1" parent="TextAppearance.MaterialComponents.Headline6">
@@ -111,20 +98,6 @@
     <item name="android:textColorHint">@color/text_light_hint</item>
   </style>
 
-  <style name="MwmTextAppearance.Toolbar.Title" parent="android:TextAppearance.Material.Widget.ActionBar.Title">
-    <item name="android:textSize">@dimen/text_size_toolbar</item>
-    <item name="android:textColor">@color/text_light</item>
-    <item name="android:textColorHint">@color/text_light_hint</item>
-  </style>
-
-  <style name="MwmTextAppearance.Toolbar.Title.Light">
-    <item name="android:textColor">@color/bg_cards</item>
-  </style>
-
-  <style name="MwmTextAppearance.Toolbar.Title.Button">
-    <item name="android:textSize">@dimen/text_size_body_3</item>
-  </style>
-
   <style name="MwmTextAppearance.NavMenu">
     <item name="android:textStyle">bold</item>
   </style>
@@ -185,94 +158,59 @@
     <item name="android:textColor">@color/white_secondary</item>
   </style>
 
-  <style name="TextAppearance.Headline1"
+  <style name="MwmTextAppearance.Headline1"
     parent="TextAppearance.Material3.DisplayLarge">
     <item name="fontFamily">@string/robotoLight</item>
     <item name="android:fontFamily">@string/robotoLight</item>
     <item name="android:textSize">96sp</item>
   </style>
 
-  <style name="TextAppearance.Headline2"
+  <style name="MwmTextAppearance.Headline2"
     parent="TextAppearance.Material3.DisplayLarge">
     <item name="fontFamily">@string/robotoRegular</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
     <item name="android:textSize">60sp</item>
   </style>
 
-  <style name="TextAppearance.Headline3"
+  <style name="MwmTextAppearance.Headline3"
     parent="TextAppearance.Material3.DisplayMedium">
     <item name="fontFamily">@string/robotoRegular</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
     <item name="android:textSize">48sp</item>
   </style>
 
-  <style name="TextAppearance.Headline4"
+  <style name="MwmTextAppearance.Headline4"
     parent="TextAppearance.Material3.HeadlineLarge">
     <item name="fontFamily">@string/robotoRegular</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
     <item name="android:textSize">34sp</item>
   </style>
 
-  <style name="TextAppearance.Headline5"
+  <style name="MwmTextAppearance.Headline5"
     parent="TextAppearance.Material3.HeadlineMedium">
     <item name="fontFamily">@string/robotoRegular</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
     <item name="android:textSize">24sp</item>
   </style>
 
-  <style name="TextAppearance.Headline6"
+  <style name="MwmTextAppearance.Headline6"
     parent="TextAppearance.Material3.HeadlineSmall">
     <item name="fontFamily">@string/robotoMedium</item>
     <item name="android:fontFamily">@string/robotoMedium</item>
     <item name="android:textSize">20sp</item>
   </style>
 
-  <style name="TextAppearance.Subtitle1"
+  <style name="MwmTextAppearance.Subtitle1"
     parent="TextAppearance.Material3.TitleMedium">
     <item name="fontFamily">@string/robotoRegular</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
     <item name="android:textSize">16sp</item>
   </style>
 
-  <style name="TextAppearance.Subtitle2"
+  <style name="MwmTextAppearance.Subtitle2"
     parent="TextAppearance.Material3.TitleSmall">
     <item name="fontFamily">@string/robotoMedium</item>
     <item name="android:fontFamily">@string/robotoMedium</item>
     <item name="android:textSize">14sp</item>
-  </style>
-
-  <style name="TextAppearance.Body1"
-    parent="TextAppearance.Material3.BodyLarge">
-    <item name="fontFamily">@string/robotoRegular</item>
-    <item name="android:fontFamily">@string/robotoRegular</item>
-    <item name="android:textSize">16sp</item>
-  </style>
-
-  <style name="TextAppearance.Body2"
-    parent="TextAppearance.Material3.BodyMedium">
-    <item name="fontFamily">@string/robotoRegular</item>
-    <item name="android:fontFamily">@string/robotoRegular</item>
-    <item name="android:textSize">14sp</item>
-  </style>
-
-  <style name="TextAppearance.Button"
-    parent="TextAppearance.MaterialComponents.Button">
-    <item name="fontFamily">@string/robotoMedium</item>
-    <item name="android:fontFamily">@string/robotoMedium</item>
-    <item name="android:textSize">14sp</item>
-  </style>
-
-  <style name="TextAppearance.Caption"
-    parent="TextAppearance.Material3.LabelMedium">
-    <item name="fontFamily">@string/robotoRegular</item>
-    <item name="android:fontFamily">@string/robotoRegular</item>
-    <item name="android:textSize">12sp</item>
-  </style>
-
-  <style name="TextAppearance.Overline"
-    parent="TextAppearance.MaterialComponents.Overline">
-    <item name="fontFamily">@string/robotoRegular</item>
-    <item name="android:fontFamily">@string/robotoRegular</item>
-    <item name="android:textSize">10sp</item>
   </style>
 </resources>

@@ -21,6 +21,14 @@ struct OsmElement
     Osm = 0x736F,       // "os"
   };
 
+  enum SetKeys
+  {
+    NAME = 0x1 << 0,
+    NAME_PREFIX = 0x1 << 1,
+    NAME_FULL = 0x1 << 2,
+    HIGHWAY = 0x1 << 3,
+  };
+
   struct Member
   {
     Member() = default;
@@ -126,6 +134,7 @@ struct OsmElement
   std::string GetTag(std::string const & key) const;
 
   EntityType m_type = EntityType::Unknown;
+  uint8_t m_setKeys = 0;
   uint64_t m_id = 0;
   double m_lon = 0;
   double m_lat = 0;

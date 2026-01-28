@@ -23,6 +23,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.bookmarks.data.Bookmark;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
+import app.organicmaps.sdk.bookmarks.data.Track;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
@@ -41,6 +42,7 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
   private PlacePageViewModel mViewModel;
 
   private Bookmark currentBookmark;
+  private Track currentTrack;
 
   @Nullable
   @Override
@@ -88,7 +90,15 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
 
   private void updateBookmarkDetails()
   {
-    final String notes = currentBookmark.getBookmarkDescription();
+      String notes = null;
+      if (currentBookmark != null)
+      {
+          notes = currentBookmark.getBookmarkDescription();
+      }
+      if (currentTrack != null)
+      {
+          notes = currentTrack.getTrackDescription();
+      }
     if (TextUtils.isEmpty(notes))
     {
       UiUtils.hide(mTvBookmarkNote);
@@ -120,8 +130,16 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
   public void onClick(View v)
   {
     final FragmentActivity activity = requireActivity();
-    EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(), currentBookmark.getBookmarkId(), activity,
-                                      getChildFragmentManager(), PlacePageBookmarkFragment.this);
+    if (currentBookmark != null)
+    {
+        EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(), currentBookmark.getBookmarkId(), activity,
+                getChildFragmentManager(), PlacePageBookmarkFragment.this);
+    }
+    else if (currentTrack != null)
+    {
+        EditBookmarkFragment.editBookmark(currentTrack.getCategoryId(), currentTrack.getTrackId(), activity,
+                getChildFragmentManager(), PlacePageBookmarkFragment.this);
+    }
   }
 
   @Override
@@ -150,6 +168,11 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
     if (mapObject != null && mapObject.isBookmark())
     {
       currentBookmark = (Bookmark) mapObject;
+      updateBookmarkDetails();
+    }
+    if (mapObject != null && mapObject.isTrack())
+    {
+      currentTrack = (Track) mapObject;
       updateBookmarkDetails();
     }
   }

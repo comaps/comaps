@@ -587,7 +587,6 @@
     <string name="type.amenity.police">Полиция</string>
     <string name="type.amenity.pub">Кръчма</string>
     <string name="type.amenity.public_bookcase">Книжен обмен</string>
-    <string name="type.amenity.recycling">Кофи за преработваем отпадък</string>
     <string name="type.amenity.recycling.container">Кофи за преработваем отпадък</string>
     <string name="type.recycling.clothes">Дрехи</string>
     <string name="type.recycling.glass_bottles">Стъклени бутилки</string>
@@ -977,8 +976,6 @@
     <string name="type.power.tower">Електрическа кула</string>
     <string name="type.power.pole">Електрически стълб</string>
     <string name="type.railway.abandoned">Изоставена железопътна линия</string>
-    <string name="type.railway.abandoned.bridge">Изоставен железопътен мост</string>
-    <string name="type.railway.abandoned.tunnel">Изоставен железопътен тунел</string>
     <string name="type.railway.construction">Строителство на железопътни линии</string>
     <string name="type.railway.crossing">Железопътен прелез</string>
     <string name="type.railway.disused">Неизползвана железопътна линия</string>
@@ -1376,4 +1373,5 @@
     <string name="type.amenity.animal_shelter">Приют за животни</string>
     <string name="type.internet_access">Интернет</string>
     <string name="type.internet_access.wlan">Интернет</string>
+    <string name="type.man_made.telescope">Телескоп</string>
 </resources>

@@ -115,7 +115,6 @@
     <string name="type.amenity.pub">میکده</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">مرکز بازیافت</string>
-    <string name="type.amenity.recycling">ظرف بازیافت</string>
     <string name="type.amenity.recycling.container">ظرف بازیافت</string>
     <string name="type.recycling.batteries">ﺎﻫ ﯼﺮﺗﺎﺑ</string>
     <string name="type.recycling.clothes">لباسهای قدیمی</string>
@@ -399,16 +398,16 @@
     <string name="type.historic.battlefield">میدان جنگ</string>
     <string name="type.historic.boundary_stone">نشانگر مرز</string>
     <string name="type.historic.cannon">توپ</string>
-    <string name="type.historic.castle">قلعه</string>
-    <string name="type.historic.castle.castrum">قلعه رومی</string>
-    <string name="type.historic.castle.defensive">قلعه</string>
+    <string name="type.historic.castle">کوشک</string>
+    <string name="type.historic.castle.castrum">کلاته رومی</string>
+    <string name="type.historic.castle.defensive">کوشک کوت</string>
     <string name="type.historic.castle.fortified_church">کلیسای مستحکم</string>
-    <string name="type.historic.castle.fortress">قلعه</string>
-    <string name="type.historic.castle.hillfort">تپه‌قلعه</string>
+    <string name="type.historic.castle.fortress">دژ</string>
+    <string name="type.historic.castle.hillfort">دژتپه</string>
     <string name="type.historic.castle.kremlin">کرملین</string>
     <string name="type.historic.castle.manor">خانه ارباب یا صاحب تیول</string>
     <string name="type.historic.castle.palace">کاخ</string>
-    <string name="type.historic.castle.shiro">قلعه ژاپنی</string>
+    <string name="type.historic.castle.shiro">کوشک ژاپنی</string>
     <string name="type.historic.castle.stately">گردشگری</string>
     <string name="type.historic.city_gate">دروازه شهر</string>
     <string name="type.historic.citywalls">دیوار شهر</string>

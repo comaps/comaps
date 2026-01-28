@@ -19,6 +19,7 @@ using namespace std::placeholders;
 namespace
 {
 std::string_view constexpr kLocationStateMode = "LastLocationStateMode";
+std::string_view constexpr kPreferredRoutingMode = "PreferredRoutingMode";
 std::string_view constexpr kLastEnterBackground = "LastEnterBackground";
 }  // namespace
 
@@ -39,15 +40,19 @@ DrapeEngine::DrapeEngine(Params && params)
   m_requestedTiles = make_unique_dp<RequestedTiles>();
 
   using namespace location;
-  EMyPositionMode mode = PendingPosition;
-  if (settings::Get(kLocationStateMode, mode) && mode == FollowAndRotate)
+  EMyPositionMode lastMode = PendingPosition;
+  if (settings::Get(kLocationStateMode, lastMode) && lastMode == FollowAndRotate)
   {
     // If the screen rect setting in follow and rotate mode is missing or invalid, it could cause
     // invalid animations, so the follow and rotate mode should be discarded.
     m2::AnyRectD rect;
     if (!(settings::Get("ScreenClipRect", rect) && df::GetWorldRect().IsRectInside(rect.GetGlobalRect())))
-      mode = Follow;
+      lastMode = Follow;
   }
+
+  EMyPositionMode preferredRoutingMode;
+  if (!settings::Get(kPreferredRoutingMode, preferredRoutingMode))
+    preferredRoutingMode = FollowAndRotate;
 
   if (!settings::Get(kLastEnterBackground, m_startBackgroundTime))
     m_startBackgroundTime = base::Timer::LocalTime();
@@ -65,9 +70,10 @@ DrapeEngine::DrapeEngine(Params && params)
   //  effects.push_back(PostprocessRenderer::Antialiasing);
   //}
 
-  MyPositionController::Params mpParams(mode, base::Timer::LocalTime() - m_startBackgroundTime, params.m_hints,
+  MyPositionController::Params mpParams(lastMode, preferredRoutingMode,
+                                        base::Timer::LocalTime() - m_startBackgroundTime, params.m_hints,
                                         params.m_isRoutingActive, params.m_isAutozoomEnabled,
-                                        std::bind(&DrapeEngine::MyPositionModeChanged, this, _1, _2));
+                                        std::bind(&DrapeEngine::MyPositionModeChanged, this, _1, _2, _3));
 
   FrontendRenderer::Params frParams(
       params.m_apiVersion, make_ref(m_threadCommutator), params.m_factory, make_ref(m_textureManager),
@@ -404,9 +410,11 @@ void DrapeEngine::ModelViewChanged(ScreenBase const & screen)
     m_modelViewChangedHandler(screen);
 }
 
-void DrapeEngine::MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive)
+void DrapeEngine::MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive, bool shouldPersistMode)
 {
   settings::Set(kLocationStateMode, mode);
+  if (shouldPersistMode && routingActive)
+    settings::Set(kPreferredRoutingMode, mode);
   if (m_myPositionModeChanged)
     m_myPositionModeChanged(mode, routingActive);
 }
@@ -455,6 +463,12 @@ void DrapeEngine::SwitchMyPositionNextMode()
   using Mode = ChangeMyPositionModeMessage::EChangeType;
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
                                   make_unique_dp<ChangeMyPositionModeMessage>(Mode::SwitchNextMode),
+                                  MessagePriority::Normal);
+}
+
+void DrapeEngine::StartPendingPositionMode()
+{
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<StartPendingPositionModeMessage>(),
                                   MessagePriority::Normal);
 }
 

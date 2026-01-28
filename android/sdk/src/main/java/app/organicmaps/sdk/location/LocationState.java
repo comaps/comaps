@@ -42,6 +42,7 @@ public final class LocationState
   public static native void nativeSwitchToNextMode();
   @Value
   private static native int nativeGetMode();
+  public static native void nativeStartPendingPositionMode();
 
   public static native void nativeSetListener(@NonNull ModeChangeListener listener);
   public static native void nativeRemoveListener();

@@ -6,7 +6,7 @@
   android:id="@+id/rl__bookmark_details"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:background="?cardBackground"
+  android:background="?appBackground"
   android:padding="@dimen/margin_half">
   <LinearLayout
     android:id="@+id/ll__bookmark_name"

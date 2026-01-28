@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">書架</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">回收中心</string>
-    <string name="type.amenity.recycling">回收箱</string>
     <string name="type.amenity.recycling.container">回收箱</string>
     <string name="type.recycling.batteries">電池</string>
     <string name="type.recycling.clothes">舊衣物</string>
@@ -430,7 +429,6 @@
     <string name="type.highway.pedestrian.area">路</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">橋</string>
-
     <string name="type.highway.pedestrian.square">廣場</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">隧道</string>
@@ -1330,8 +1328,6 @@
     <string name="type.public_transport">公共交通要素</string>
     <string name="type.public_transport.platform">公共交通月台</string>
     <string name="type.railway.abandoned">鐵路遺跡</string>
-    <string name="type.railway.abandoned.bridge">鐵路橋遺跡</string>
-    <string name="type.railway.abandoned.tunnel">鐵路隧道遺跡</string>
     <string name="type.railway.funicular.bridge">纜索鐵路橋軌道</string>
     <string name="type.railway.funicular.tunnel">纜索鐵路隧道軌道</string>
     <string name="type.railway.light_rail">輕軌軌道</string>

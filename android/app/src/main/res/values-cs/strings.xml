@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Přidat novou skupinu záložek</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Název záložky</string>
+    <string name="bookmark_set_name">Název seznamu</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Záložky</string>
+    <string name="bookmarks">Místa</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Záložky a stopy</string>
+    <string name="bookmarks_and_tracks">Oblíbené</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Název</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -144,13 +144,13 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Poznámky</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Sdílené záložky CoMaps</string>
+    <string name="share_bookmarks_email_subject">Má oblíbená místa z CoMaps</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Nahrávání záložek</string>
+    <string name="load_kmz_title">Načítání oblíbených</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Záložky byly úspěšně nahrány! Naleznete je na mapě nebo ve správci záložek.</string>
+    <string name="load_kmz_successful">Oblíbené byly úspěšně nahrány! Naleznete je na mapě nebo ve správci oblíbených.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Nahrávání záložek se nezdařilo. Soubor může být poškozený nebo vadný.</string>
+    <string name="load_kmz_failed">Nepodařilo se načíst oblíbená místa. Soubor může být poškozený nebo vadný.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Typ souboru není aplikací rozpoznán: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -490,10 +490,10 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Více</string>
-    <string name="placepage_edit_bookmark_button">Upravit záložku</string>
+    <string name="placepage_edit_bookmark_button">Upravit uložené místo</string>
     <string name="placepage_personal_notes_hint">Vlastní poznámka (text nebo HTML)</string>
     <string name="editor_reset_edits_message">Vymazat všechny místní změny?</string>
-    <string name="editor_reset_edits_button">Zahodit</string>
+    <string name="editor_reset_edits_button">Zahodit změny</string>
     <string name="editor_remove_place_message">Odstranit přidané místo?</string>
     <string name="editor_remove_place_button">Odstranit</string>
     <string name="editor_place_doesnt_exist">Místo neexistuje</string>
@@ -547,18 +547,19 @@
     <string name="dialog_error_storage_message">Externí úložiště není k dispozici, pravděpodobně byla vyjmuta nebo poškozena SD karta, nebo je systém souborů pouze pro čtení. Zkontrolujte to prosím a kontaktujte nás na support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emulovat špatné úložiště</string>
     <string name="error_enter_correct_name">Zadejte prosím správný název</string>
-    <string name="bookmark_lists">Seznamy</string>
+    <string name="bookmark_lists">Seznamy oblíbených</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Skrýt vše</string>
     <string name="bookmark_lists_show_all">Zobrazit vše</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d záložka</item>
-        <item quantity="few">%d záložky</item>
-        <item quantity="other">%d záložek</item>
+        <item quantity="one">%d uložené místo</item>
+        <item quantity="few">%d uložená místa</item>
+        <item quantity="many">%d uložených míst</item>
+        <item quantity="other">%d uložených míst</item>
     </plurals>
     <string name="bookmarks_create_new_group">Vytvořit nový seznam</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Import záložek a stop</string>
+    <string name="bookmarks_import">Importovat oblíbené</string>
     <string name="bookmarks_error_message_share_general">Nelze sdílet kvůli chybě aplikace</string>
     <string name="bookmarks_error_title_share_empty">Chyba sdílení</string>
     <string name="bookmarks_error_message_share_empty">Nelze sdílet s prázdným seznamem</string>
@@ -589,7 +590,7 @@
     <string name="subway">Metro</string>
     <string name="layers_title">Styly a vrstvy mapy</string>
     <string name="bookmarks_empty_list_title">Seznam je prázdný</string>
-    <string name="bookmarks_empty_list_message">Pro přidání nové značky klikněte na symbol hvězdičky na obrázku objektu</string>
+    <string name="bookmarks_empty_list_message">Pro uložení místa klepněte na místo na mapě a následně na ikonu hvězdy</string>
     <string name="category_desc_more">…ještě</string>
     <string name="export_file">Exportovat KMZ</string>
     <string name="export_file_gpx">Export GPX</string>
@@ -642,7 +643,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Třídit…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Třídit záložky</string>
+    <string name="sort_bookmarks">Třídit oblíbené</string>
     <!-- Android -->
     <string name="by_default">Podle výchozího stavu</string>
     <!-- Android -->
@@ -752,7 +753,7 @@
     <string name="browser_not_available">Webový prohlížeč není k dispozici</string>
     <string name="volume">Hlasitost</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Export všech záložek a stop</string>
+    <string name="bookmarks_export">Exportovat všechna místa a stopy</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Systémové nastavení syntézy řeči</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -784,7 +785,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Pokračovat v nahrávání</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Uložit do záložek a stop?</string>
+    <string name="track_recording_alert_title">Uložit do oblíbených?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Trasa je prázdná - není co ukládat</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -803,7 +804,7 @@
     <string name="error_enter_correct_instagram_page">Zadejte platné uživatelské jméno nebo webovou adresu Instagramu</string>
     <string name="error_enter_correct_twitter_page">Zadejte platné uživatelské jméno nebo webovou adresu Twitteru</string>
     <string name="maps_storage_free_size">%1$s z %2$s volných</string>
-    <string name="share_bookmarks_email_body">Ahoj! \n \nV příloze najdeš mé záložky; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/download/ \n \nUžij si cestování s CoMaps!</string>
+    <string name="share_bookmarks_email_body">Ahoj! \n \nV příloze najdeš má oblíbená místa; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/cs/download/\n \nUžij si cestování s CoMaps!</string>
     <string name="disk_error">Nepodařilo se vytvořit složku a přesunout soubory v interní paměti zařízení nebo na SD kartě</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="error_enter_correct_vk_page">Zadejte platné uživatelské jméno nebo webovou adresu VK</string>
@@ -833,16 +834,16 @@
     <string name="pedestrian">Pěší zóna</string>
     <string name="bicycle">Jízdní kolo</string>
     <string name="ruler">Pravítko</string>
-    <string name="bookmark_color">Barva záložky</string>
+    <string name="bookmark_color">Barva oblíbeného místa</string>
     <string name="clear">Vymazat</string>
     <string name="panoramax">Obrázek Panoramax</string>
     <string name="about_help">O aplikaci a nápověda</string>
     <string name="pref_backup_summary">Automaticky zálohovat do složky na vašem zařízení</string>
-    <string name="pref_backup_title">Záloha záložek a stop</string>
+    <string name="pref_backup_title">Zálohovat oblíbené</string>
     <string name="pref_backup_now_title">Zálohovat nyní</string>
     <string name="pref_backup_now_summary">Nyní vytvořit zálohu</string>
     <string name="pref_backup_now_summary_ok">Záloha úspěšně dokončena</string>
-    <string name="pref_backup_now_summary_empty_lists">Nemáte žádné záložky ani stopy k zálohování</string>
+    <string name="pref_backup_now_summary_empty_lists">Nemáte žádná místa ani stopy k zálohování</string>
     <string name="pref_backup_now_summary_progress">Zálohování…</string>
     <string name="pref_backup_now_summary_failed">Zálohování selhalo</string>
     <string name="pref_backup_now_summary_folder_unavailable">Složka pro zálohování není dostupná</string>
@@ -891,7 +892,7 @@
     <string name="avoid_paved">Vyhnout se zpevněným cestám</string>
     <string name="opens_at">Otevírá v %s</string>
     <string name="closes_at">Zavírá v %s</string>
-    <string name="opens_day_at">Otevírá %1$s v %2$s</string>
+    <string name="opens_day_at">Otevírá v %1$s v %2$s</string>
     <string name="closes_day_at">Zavírá %1$s v %2$s</string>
     <string name="editor_business_vacant_button">Podnik je volný</string>
     <string name="editor_mark_business_vacant_title">Označit podnik jako volný</string>
@@ -913,4 +914,11 @@
     <string name="place_page_update_too_old_map">Aktualizovat oblast mapy</string>
     <string name="place_page_too_old_to_edit">Úprava OpenStreetMap je zakázaná, protože mapová data jsou příliš stará.</string>
     <string name="navigation_start_tts_disabled_message">Hlasové pokyny vypnuty: služba TTS není dostupná</string>
+    <string name="download_resources_custom_url_title">Vlastní mapový server</string>
+    <string name="download_resources_custom_url_message">Přepsat výchozí server používaný ke stahování map. Nechte pole prázdné, pokud chcete použít výchozí server CoMaps.</string>
+    <string name="download_resources_custom_url_error_scheme">Zadejte prosím celou adresu URL začínající na http:// nebo https://</string>
+    <string name="advanced">Pokročilé</string>
+    <string name="download_resources_custom_url_summary_none">Není nastaveno</string>
+    <string name="pref_maplanguage_local">Místní jazyk</string>
+    <string name="limit_map_language_alternatives_to_local">Jiné systémové jazyky použít pouze v jejich oblasti</string>
 </resources>

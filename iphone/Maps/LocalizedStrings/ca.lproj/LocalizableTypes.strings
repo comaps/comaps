@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Taverna";
 "type.amenity.public_bookcase" = "Intercanvi de llibres";
 "type.amenity.recycling.centre" = "Centre de reciclatge";
-"type.amenity.recycling" = "Contenidor de reciclatge";
 "type.amenity.recycling.container" = "Contenidor de reciclatge";
 "type.recycling.batteries" = "Bateries";
 "type.recycling.clothes" = "Roba";
@@ -889,8 +888,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
@@ -1494,7 +1491,6 @@
 "type.man_made.telescope.radio" = "Telescopi (Ràdio)";
 "type.man_made.telescope.gamma" = "Telescopi (Gamma)";
 "type.man_made.observatory" = "Observatori";
-"type.amenity.charging_station.motorcar.small" = "Punt de Càrrega de Cotxes";
 "type.amenity.sailing_school" = "Escola de Navegació";
 "type.amenity.flight_school" = "Escola de Vol";
 "type.amenity.prep_school" = "Escola Preparatòria";

@@ -28,7 +28,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Barbecue Grill";
 "type.amenity.bench" = "Bench";
-"type.amenity.bench.backless" = "Backless Bench";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "Bicycle Parking";
 "type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
 "type.amenity.boat_rental" = "Boat Rental";
@@ -55,9 +55,10 @@
 "type.leisure.adult_gaming_centre" = "Adult Gaming Centre";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Charging Station";
-"type.amenity.charging_station.bicycle" = "Bicycle Charging Station";
-"type.amenity.charging_station.motorcar" = "Car Charging Station";
-"type.amenity.charging_station.motorcar.small" = "Car Charging Point";
+"type.amenity.charging_station.motorcar" = "Cars";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "Bicycles";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Nursery";
 "type.amenity.cinema" = "Cinema";
 "type.leisure.bowling_alley" = "Bowling Alley";
@@ -159,8 +160,7 @@
 
 /********** Types: Recycling **********/
 
-"type.amenity.recycling.centre" = "Recycling Center";
-"type.amenity.recycling" = "Recycling Container";
+"type.amenity.recycling.centre" = "Recycling Centre";
 "type.amenity.recycling.container" = "Recycling Container";
 "type.recycling.batteries" = "Batteries";
 "type.recycling.clothes" = "Clothes";
@@ -189,7 +189,7 @@
 "type.amenity.shelter.basic_hut" = "Bivouac Hut";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Lean-to Shelter";
+"type.amenity.shelter.lean_to" = "Lean-to Sleep Shelter";
 "type.amenity.public_bath" = "Public Bath";
 "type.amenity.shower" = "Shower";
 "type.amenity.stripclub" = "Stripclub";
@@ -208,7 +208,7 @@
 "type.amenity.vending_machine.food" = "Food Dispenser";
 "type.amenity.vending_machine.newspapers" = "Newspaper Dispenser";
 "type.amenity.vending_machine.parking_tickets" = "Parking Meter";
-"type.amenity.vending_machine.public_transport_tickets" = "Ticket Machine";
+"type.amenity.vending_machine.public_transport_tickets" = "Public Transport Ticket Machine";
 "type.amenity.vending_machine.sweets" = "Sweets Dispenser";
 "type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";
 "type.amenity.parcel_locker" = "Parcel Locker";
@@ -390,7 +390,9 @@
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
 "type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Emergency Assembly Point";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
 "type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Defibrillator";
 "type.emergency.fire_hydrant" = "Fire Hydrant";
@@ -1024,11 +1026,11 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "Funicular";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
@@ -1040,6 +1042,9 @@
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -1051,6 +1056,7 @@
 "type.railway.rail.highspeed" = "High-Speed Railway";
 "type.railway.rail.tourism" = "Touristic Railway";
 "type.railway.rail.main" = "Railway";
+"type.railway.turntable" = "Railway Turntable";
 
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Railway Branch";
@@ -1519,6 +1525,7 @@
 "type.tourism.information.board" = "Information Board";
 "type.tourism.information.guidepost" = "Guidepost";
 "type.tourism.information.map" = "Tourist Map";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Tourist Office";
 "type.tourism.information.visitor_centre" = "Visitor Centre";
 "type.amenity.ranger_station" = "Ranger Station";

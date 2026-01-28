@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Wymiana książek";
 "type.amenity.recycling.centre" = "Centrum przetwórstwa odpadów";
-"type.amenity.recycling" = "Pojemnik do recyklingu";
 "type.amenity.recycling.container" = "Pojemnik do recyklingu";
 "type.recycling.batteries" = "Baterie";
 "type.recycling.clothes" = "Stare ubrania";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Przystanek transportu publicznego";
 "type.railway" = "Kolej";
 "type.railway.abandoned" = "Opuszczona kolej";
-"type.railway.abandoned.bridge" = "Opuszczony most kolejowy";
-"type.railway.abandoned.tunnel" = "Opuszczony tunel kolejowy";
 "type.railway.construction" = "Tory kolejowe w budowie";
 "type.railway.crossing" = "Przejście przez tory";
 "type.railway.disused" = "Nieużywane tory kolejowe";
@@ -1503,7 +1500,6 @@
 "type.leisure.sports_centre.sport.pelota" = "Centrum sportowe";
 "type.leisure.sports_centre.sport.skiing" = "Centrum sportowe";
 "type.leisure.sports_centre.sport.cricket" = "Centrum sportowe";
-"type.amenity.charging_station.motorcar.small" = "Punkt ładowania samochodów";
 "type.leisure.sports_centre.sport.equestrian" = "Centrum sportowe";
 "type.leisure.sports_centre.sport.volleyball" = "Centrum sportowe";
 "type.leisure.sports_centre.sport.curling" = "Centrum sportowe";
@@ -1588,3 +1584,4 @@
 "type.cardinal.north" = "Północ";
 "type.cardinal.south" = "Południe";
 "type.cardinal.west" = "Zachód";
+"type.amenity.prep_school" = "Szkoła przygotowująca do egzaminów";

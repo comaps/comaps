@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grille de barbecue";
 "type.amenity.bench" = "Banc";
-"type.amenity.bicycle_parking" = "Parking à vélo";
+"type.amenity.bicycle_parking" = "Stationnement vélo";
 "type.amenity.bicycle_rental" = "Location de vélos";
 "type.amenity.bicycle_repair_station" = "Station de réparation de vélos";
 "type.amenity.biergarten" = "Biergarten";
@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Microbibliothèque";
 "type.amenity.recycling.centre" = "Centre de recyclage";
-"type.amenity.recycling" = "Conteneur de recyclage";
 "type.amenity.recycling.container" = "Conteneur de recyclage";
 "type.recycling.batteries" = "Batteries";
 "type.recycling.clothes" = "Vêtements usagés";
@@ -358,7 +357,7 @@
 "type.emergency.assembly_point" = "Point de rassemblement d’urgence";
 "type.emergency.defibrillator" = "Défibrillateur";
 "type.emergency.fire_hydrant" = "Point d’eau incendie";
-"type.amenity.hydrant" = "Borne d’puisage";
+"type.amenity.hydrant" = "Borne de puisage";
 "type.emergency.phone" = "Téléphone d’urgence";
 
 /* A place where a lifeguard is on duty. */
@@ -891,8 +890,6 @@
 "type.public_transport.platform" = "Quai de transport en commun";
 "type.railway" = "Chemin de fer";
 "type.railway.abandoned" = "Chemin de fer abandonné";
-"type.railway.abandoned.bridge" = "Chemin de fer abandonné";
-"type.railway.abandoned.tunnel" = "Chemin de fer abandonné";
 "type.railway.construction" = "Chemin de fer en construction";
 "type.railway.crossing" = "Passage à niveau pour piéton";
 "type.railway.disused" = "Chemin de fer désaffecté";
@@ -1326,7 +1323,7 @@
 "type.sport.multi" = "Sports multiples";
 
 /* Used to tag a scuba diving site. */
-"type.sport.scuba_diving" = "Site de plongée sous-marine";
+"type.sport.scuba_diving" = "Plongée sous-marine";
 "type.sport.shooting" = "Tir sportif";
 "type.sport.skateboard" = "Skateboard";
 "type.sport.skiing" = "Ski";
@@ -1490,7 +1487,6 @@
 "type.power.portal" = "Portique haute tension";
 "type.building.guardhouse" = "Guérite de sécurité";
 "type.shop.lighting" = "Boutique de luminaires";
-"type.amenity.charging_station.motorcar.small" = "Borne de recharge pour voiture";
 "type.amenity.bench.backless" = "Banc sans dossier";
 "type.leisure.bandstand" = "Kiosque à musique";
 "type.leisure.sports_centre.sport.soccer" = "Complexe sportif";
@@ -1578,8 +1574,8 @@
 "type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
 "type.lateral.port" = "Bâbord";
 "type.lateral.starboard" = "Tribord";
-"type.cardinal.east" = "Est";
-"type.cardinal.north" = "Nord";
+"type.cardinal.east" = "Est :";
+"type.cardinal.north" = "Nord :";
 "type.cardinal.south" = "Sud";
 "type.cardinal.west" = "Ouest";
 "type.entrance.house" = "Entrée de la maison";

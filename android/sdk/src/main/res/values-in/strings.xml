@@ -28,4 +28,13 @@
     <string name="not_shared">Pribadi</string>
     <string name="access_rules_author_only">Pengeditan online</string>
     <string name="today">Hari ini</string>
+    <string name="gb">GB</string>
+    <string name="yesterday">Kemarin</string>
+    <string name="days_ago">%s hari yang lalu</string>
+    <string name="week_ago">%s minggu yang lalu</string>
+    <string name="weeks_ago">%s minggu yang lalu</string>
+    <string name="month_ago">%s bulan yang lalu</string>
+    <string name="months_ago">%s bulan yang lalu</string>
+    <string name="year_ago">%s tahun yang lalu</string>
+    <string name="years_ago">%s tahun yang lalu</string>
 </resources>

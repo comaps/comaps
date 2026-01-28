@@ -128,7 +128,6 @@
     <string name="type.amenity.public_bookcase">Kirjahylly</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Kierrätyskeskus</string>
-    <string name="type.amenity.recycling">Kierrätysjäteastia</string>
     <string name="type.amenity.recycling.container">Kierrätysjäteastia</string>
     <string name="type.recycling.batteries">Paristot</string>
     <string name="type.recycling.clothes">Vaatteet</string>
@@ -1304,8 +1303,6 @@
     <string name="type.sport.diving">Korkeasukellus</string>
     <string name="type.power.line.underground">Maanalainen sähkölinja</string>
     <string name="type.railway">Rautatie</string>
-    <string name="type.railway.abandoned.bridge">Hylätty rautatiesilta</string>
-    <string name="type.railway.abandoned.tunnel">Hylätty rautatietunneli</string>
     <string name="type.railway.platform">Rautatielaituri</string>
     <string name="type.railway.subway.tunnel">Metrolinjan tunneli</string>
     <string name="type.railway.tram.tunnel">Raitiovaunulinjan tunneli</string>
@@ -1397,7 +1394,6 @@
     <string name="type.building.guardhouse">Vartijankoppi</string>
     <string name="type.power.portal">Sähköportaali</string>
     <string name="type.amenity.bench.backless">Selkänojaton penkki</string>
-    <string name="type.amenity.charging_station.motorcar.small">Auton latauspiste</string>
     <string name="type.amenity.boat_rental">Venevuokraus</string>
     <string name="type.man_made.telescope">Teleskooppi</string>
     <string name="type.man_made.telescope.optical">Teleskooppi (optinen)</string>
@@ -1450,4 +1446,14 @@
     <string name="type.natural.tree">Puu</string>
     <string name="type.shop.beauty.nails">Kynsistudio</string>
     <string name="type.xmas.tree">Joulukuusi</string>
+    <string name="type.social_facility.food_bank">Ruokapankki</string>
+    <string name="type.social_facility.soup_kitchen">Keittokeittiö</string>
+    <string name="type.disusedbusiness">Tyhjä liiketila</string>
+    <string name="type.shop.lighting">Valaistusliike</string>
+    <string name="type.shop.telecommunication">Puhelinliike</string>
+    <string name="type.shop.beauty.day_spa">Kylpylä</string>
+    <string name="type.man_made.mast.communication">Tietoliikennemasto</string>
+    <string name="type.leisure.bandstand">Esiintymislava</string>
+    <string name="type.leisure.indoor_play">Sisäleikkipuisto</string>
+    <string name="type.railway.disused.tunnel">Käytöstä poistettu rautatietunneli</string>
 </resources>

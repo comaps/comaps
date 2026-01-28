@@ -60,16 +60,16 @@
 "add_new_set" = "Tilføj en ny liste";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Indstil navn for bogmærkeliste";
+"bookmark_set_name" = "Listenavn";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Bogmærkelister";
+"bookmark_sets" = "Favoritlister";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Bogmærker";
+"bookmarks" = "Steder";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Bogmærker og spor";
+"bookmarks_and_tracks" = "Favoritter";
 
 /* Default bookmark list name */
 "core_my_places" = "Mine steder";
@@ -151,16 +151,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Autocamper-faciliteter";
-"share_bookmarks_email_body" = "Hej! \n\nVedhæftet er mine bogmærker; åbn dem venligst i CoMaps. Hvis du ikke har den installeret, kan du downloade den her: https://www.comaps.app/download/\n\nGod rejse med CoMaps!";
+"share_bookmarks_email_body" = "Hej! \n\nVedhæftet er mine favoritter; åbn dem i CoMaps. Hvis du ikke har den installeret, kan du downloade den her: https://www.comaps.app/download/\n\nGod rejse med CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Indlæser bogmærker";
+"load_kmz_title" = "Indlæser favoritter";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Bogmærker er indlæst! Du kan finde dem på kortet eller på skærmen for bogmærkehåndtering.";
+"load_kmz_successful" = "Favoritter er indlæst! Du kan finde dem på kortet eller på skærmen for favorithåndtering.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Bogmærkerne kunne ikke indlæses. Filen kan være skadet eller defekt.";
+"load_kmz_failed" = "Favoritter kunne ikke indlæses. Filen kan være skadet eller defekt.";
 
 /* resource for context menu */
 "edit" = "Rediger";
@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Mailforsendelsesfejl";
 
-/* Settings item title */
-"pref_calibration_title" = "Kalibrering af kompas";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Tryk længe på kortet igen for at se grænsefladen";
 
@@ -386,7 +383,7 @@
 "routing_requires_all_map" = "For at kunne oprette en rute skal vi downloade og opdatere alle kort fra din placering til din destination.";
 
 /* bookmark button text */
-"bookmark" = "bogmærke";
+"bookmark" = "sted";
 "save" = "Gem";
 "create" = "opret";
 
@@ -673,10 +670,10 @@
 "placepage_more_button" = "Mere";
 "book_button" = "Book";
 "placepage_call_button" = "Ring";
-"placepage_edit_bookmark_button" = "Rediger bogmærke";
-"placepage_bookmark_name_hint" = "Bogmærke";
+"placepage_edit_bookmark_button" = "Rediger gemt sted";
+"placepage_bookmark_name_hint" = "Navn på sted";
 "placepage_personal_notes_hint" = "Personlige notater (tekst eller html)";
-"placepage_delete_bookmark_button" = "Slet bogmærke";
+"placepage_delete_bookmark_button" = "Slet sted";
 "editor_edits_sent_message" = "Din note vil blive sendt til OpenStreetMap";
 "editor_comment_hint" = "Kommentar…";
 "editor_reset_edits_message" = "Kassér alle lokale ændringer?";
@@ -764,7 +761,7 @@
 "bookmarks_create_new_group" = "Opret ny liste";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importer bogmærker og spor";
+"bookmarks_import" = "Importer favoritter";
 "downloader_hide_screen" = "Skjul skærm";
 "downloader_percent" = "%@ (%@ af %@)";
 "downloader_process" = "Downloader %@…";
@@ -996,7 +993,7 @@
 "button_layer_outdoor" = "Vandring";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Eksporter alle bogmærker og spor";
+"bookmarks_export" = "Eksportér alle favoritter";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Skift farve";
@@ -1081,7 +1078,7 @@
 "continue_recording" = "Fortsæt optagelse";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Gem i bogmærker og spor?";
+"track_recording_alert_title" = "Gem i favoritter?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Sporet er tomt - der er ikke noget at gemme";

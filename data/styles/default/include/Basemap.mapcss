@@ -449,6 +449,7 @@ area|z13-[landuse=quarry],
 area|z13-[power=plant],
 area|z13-[power=substation],
 area|z13-[power=generator],
+area|z13-[man_made=wastewater_plant]
 {fill-opacity: 1; fill-color: @industrial;}
 
 area|z13-[landuse=construction],
@@ -558,8 +559,9 @@ area|z15-[amenity=marketplace],
 area|z15-[office=diplomatic],
 area|z15-[amenity=vehicle_inspection],
 area|z15-[amenity=car_wash],
-area|z15-[amenity=charging_station][motorcar?],
 area|z15-[amenity=fuel],
+area|z15-[amenity=charging_station][motorcar?],
+area|z16-[amenity=charging_station],
 area|z15-[amenity=motorcycle_parking],
 area|z15-[amenity=bicycle_parking],
 {fill-opacity: 1; fill-color: @general_area;}

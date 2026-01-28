@@ -459,6 +459,12 @@ private:
   EChangeType const m_changeType;
 };
 
+class StartPendingPositionModeMessage : public Message
+{
+public:
+  Type GetType() const override { return Type::StartPendingPositionMode; }
+};
+
 class CompassInfoMessage : public Message
 {
 public:

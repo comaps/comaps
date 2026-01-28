@@ -113,7 +113,7 @@ public class EditTextDialogFragment extends BaseMwmDialogFragment
       negativeButtonText = args.getString(ARG_NEGATIVE_BUTTON);
     }
 
-    AlertDialog editTextDialog = new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    AlertDialog editTextDialog = new MaterialAlertDialogBuilder(requireActivity())
                                      .setView(buildView())
                                      .setNegativeButton(negativeButtonText, null)
                                      .setPositiveButton(positiveButtonText, null)
@@ -152,7 +152,7 @@ public class EditTextDialogFragment extends BaseMwmDialogFragment
     if (mInputValidator != null)
     {
       final String maybeError = mInputValidator.validate(activity, input);
-      mEtInputLayout.getEditText().setError(maybeError);
+      mEtInputLayout.setError(maybeError);
       mEtInputLayout.requestFocus();
       return maybeError == null;
     }

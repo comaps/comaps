@@ -72,7 +72,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Мітки</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Мітки та маршрути</string>
+    <string name="bookmarks_and_tracks">Обране</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Iм\'я</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -834,4 +834,14 @@
     <string name="panoramax">Фото Panoramax</string>
     <string name="app_site_url">https://comaps.app/uk/</string>
     <string name="saved">Збережено</string>
+    <string name="opens_at">Відкриття о %@</string>
+    <string name="unknown_power_output">невідомо</string>
+    <string name="charge_socket_count">Кількість</string>
+    <string name="unknown_count">невідомо</string>
+    <string name="editor_submit">Надіслати</string>
+    <string name="pref_left_button_disable">Вимкнути</string>
+    <string name="clear">Очистити</string>
+    <string name="vehicle">Транспортний засіб</string>
+    <string name="bicycle">Велосипед</string>
+    <string name="backup_interval_every_day">Щоденно</string>
 </resources>

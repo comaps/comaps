@@ -17,7 +17,6 @@
     android:background="?selectableItemBackgroundBorderless"
     app:srcCompat="?homeAsUpIndicator"
     android:scaleType="center"
-    tools:src="@drawable/ic_expand_more"
     android:contentDescription="@string/back"/>
 
   <com.google.android.material.textfield.TextInputEditText

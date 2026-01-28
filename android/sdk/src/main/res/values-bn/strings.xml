@@ -9,6 +9,21 @@
     <string name="maps_storage_external">বহিরাগত শেয়ার্ড স্টোরেজ</string>
     <string name="category_wifi">ওয়াইফাই</string>
     <string name="maps_storage_shared">অভ্যন্তরীণ শেয়ার্ড স্টোরেজ</string>
-    <string name="postal_code">ডাক কোড</string>
+    <string name="postal_code">ডাক কোড|পিন কোড</string>
     <string name="today">আজকে</string>
+    <string name="km">কিমি</string>
+    <string name="yesterday">গতকাল</string>
+    <string name="days_ago">%s দিন আগে</string>
+    <string name="week_ago">%s সপ্তাহ আগে</string>
+    <string name="month_ago">%s মাস আগে</string>
+    <string name="year_ago">%s বছর আগে</string>
+    <string name="core_entrance">প্রবেশ</string>
+    <string name="core_placepage_unknown_place">মানচিত্র বিন্দু</string>
+    <string name="subway_data_unavailable">সাবওয়ে মানচিত্র অনুপলব্ধ</string>
+    <string name="core_exit">প্রস্থান</string>
+    <string name="weeks_ago">%s সপ্তাহ আগে</string>
+    <string name="months_ago">%s মাস আগে</string>
+    <string name="years_ago">%s বছর আগে</string>
+    <string name="m">মি</string>
+    <string name="ft">ফুট</string>
 </resources>

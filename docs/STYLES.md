@@ -67,19 +67,20 @@ preferably look for icons in [collections CoMaps uses already](../data/copyright
 2. If necessary merge similar tags in via `data/replaced_tags.txt`
 3. Define a priority for the new feature type in e.g. [`priorities_4_overlays.prio.txt`](../data/styles/default/include/priorities_4_overlays.prio.txt) and/or other priorities files
 4. Add a new icon (see [above](#how-to-add-a-new-icon)) and/or other styling (area, line..)
-5. If a new POI should be OSM-addable/editable then add it to `data/editor.config`
-6. Add the English string (and optionally translations e.g. for your native language) into iOS and Android type strings
-e strings
-7. Add search keywords into `data/categories.txt`
-8. Add new or fix current classifier tests at `generator/generator_tests/osm_type_tests.cpp` if you can
-9. [Test](#testing-your-changes) your changes
-10. Relax and wait for the next maps update :)
+5. If a new POI is a subtype or has subtypes, add it accordingly to `data/subtypes.csv`
+6. If a new POI should be OSM-addable/editable then add it to `data/editor.config`
+7. Add the English string (and optionally translations e.g. for your native language) into iOS (`iphone/Maps/LocalizedStrings/en.lproj/LocalizableTypes.strings`) and Android (`android/sdk/src/main/res/values/types_strings.xml`) type strings
+8. Add search keywords into `data/categories-strings/en.json/localize.json`
+9. Add new or fix current classifier tests at `generator/generator_tests/osm_type_tests.cpp` if you can
+10. [Test](#testing-your-changes) your changes
+11. Relax and wait for the next maps update :)
 
 ## Testing your changes
 
-The most convenient way is using [the desktop app](INSTALL.md#desktop-app).
-(there is a "Designer" version of it also, which facilitates development
-by rebuilding styles and symbols quickly, but it's broken as of now, please help fix it!)
+The most convenient way is using [the desktop app](INSTALL_DESKTOP.md#desktop-app).
+There is a "Designer" version of it also, which facilitates development
+by rebuilding styles and symbols quickly. See the guide referenced above to find
+details on how to build and execute it.
 
 To test on Android or iOS device either re-build the app or put
 the compiled style files (e.g. `drules_proto_default_light.bin`) into

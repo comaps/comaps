@@ -9,7 +9,7 @@
     <string name="delete">Изтриване</string>
     <string name="download_maps">Изтегляне на карти</string>
     <!-- Settings/Downloader - info for country when download fails -->
-    <string name="download_has_failed">Изтеглянето се провали. Натиснете, за да опитате отново.</string>
+    <string name="download_has_failed">Изтеглянето се провали, затиснете, за да опитате отново</string>
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">Теглене…</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
@@ -27,7 +27,7 @@
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Ограничена точност</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">За да осигурите точна навигация, активирайте функцията \"Точно местоположение\" в настройките.</string>
+    <string name="precise_location_is_disabled_long_text">За да осигурите точна навигация, активирайте функцията \"Точно местоположение\" в настройките</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Показване на картата</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -66,11 +66,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Добавяне на нова група</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Име на група</string>
+    <string name="bookmark_set_name">Име на списък</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Отметки</string>
+    <string name="bookmarks">Места</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Отметки и пътеки</string>
+    <string name="bookmarks_and_tracks">Любими</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Име</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->

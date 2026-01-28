@@ -15,7 +15,13 @@
     android:theme="@style/MwmWidget.ToolbarTheme">
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/save"
-      style="@style/MwmWidget.Downloader.ToolbarButton"
+      android:layout_width="wrap_content"
+      android:layout_height="match_parent"
+      android:gravity="center"
+      android:layout_gravity="end|center_vertical"
+      android:background="?selectableItemBackgroundBorderless"
+      android:textSize="@dimen/text_size_toolbar"
+      android:padding="@dimen/margin_half"
       android:text="@string/editor_report_problem_send_button"/>
   </com.google.android.material.appbar.MaterialToolbar>
 

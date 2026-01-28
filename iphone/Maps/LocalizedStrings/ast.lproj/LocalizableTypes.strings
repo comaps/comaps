@@ -412,7 +412,6 @@
 "type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.historic.cannon" = "Cannon";
 "type.shop.car" = "Car Dealership";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
 "type.railway.subway_entrance.dubai" = "Subway Entrance";
 "type.historic.boundary_stone" = "Boundary Stone";
 "type.cuisine.german" = "German";
@@ -453,7 +452,6 @@
 "type.historic.memorial.statue" = "Statue";
 "type.craft.shoemaker" = "Shoe Repair";
 "type.railway.subway_entrance.madrid" = "Subway Entrance";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.attraction.big_wheel" = "Big Wheel";
 "type.landuse.commercial" = "Commercial Area";
 "type.cuisine.hotdog" = "Hotdog";
@@ -540,7 +538,6 @@
 "type.tourism.artwork.architecture" = "Architectural Artwork";
 "type.leisure.common" = "Public Land";
 "type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";
-"type.amenity.recycling" = "Recycling Container";
 "type.shop.jewelry" = "Jewelry Store";
 "type.railway.subway_entrance.montreal" = "Subway Entrance";
 "type.amenity.courthouse" = "Courthouse";

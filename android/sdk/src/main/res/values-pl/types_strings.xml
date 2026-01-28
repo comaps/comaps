@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Wymiana książek</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centrum przetwórstwa odpadów</string>
-    <string name="type.amenity.recycling">Pojemnik do recyklingu</string>
     <string name="type.amenity.recycling.container">Pojemnik do recyklingu</string>
     <string name="type.recycling.batteries">Baterie</string>
     <string name="type.recycling.clothes">Stare ubrania</string>
@@ -1324,8 +1323,6 @@
     <string name="type.organic.yes">Organiczny</string>
     <string name="type.power.generator">Generator prądu</string>
     <string name="type.railway.abandoned">Opuszczona kolej</string>
-    <string name="type.railway.abandoned.bridge">Opuszczony most kolejowy</string>
-    <string name="type.railway.abandoned.tunnel">Opuszczony tunel kolejowy</string>
     <string name="type.railway.funicular.bridge">Most kolejki linowej</string>
     <string name="type.railway.funicular.tunnel">Tunel kolejki linowej</string>
     <string name="type.railway.light_rail">Kolej lekka</string>
@@ -1398,7 +1395,6 @@
     <string name="type.barrier.wicket_gate">Furtka</string>
     <string name="type.leisure.escape_game">Escape Room</string>
     <string name="type.amenity.bench.backless">Ławka bez oparcia</string>
-    <string name="type.amenity.charging_station.motorcar.small">Punkt ładowania samochodów</string>
     <string name="type.amenity.lounger">Leżak</string>
     <string name="type.leisure.bandstand">Muszla koncertowa</string>
     <string name="type.leisure.sports_centre.sport.multi">Centrum sportowe</string>
@@ -1497,4 +1493,5 @@
     <string name="type.cardinal.north">Północ</string>
     <string name="type.cardinal.south">Południe</string>
     <string name="type.cardinal.west">Zachód</string>
+    <string name="type.amenity.prep_school">Szkoła przygotowująca do egzaminów</string>
 </resources>

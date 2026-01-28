@@ -296,7 +296,7 @@ public class MapButtonsController extends Fragment
       mBadgeDrawable.setMaxCharacterCount(0);
       mBadgeDrawable.setHorizontalOffset(verticalOffset);
       mBadgeDrawable.setVerticalOffset(dpToPx(9, context));
-      mBadgeDrawable.setBackgroundColor(ContextCompat.getColor(context, R.color.base_accent));
+      mBadgeDrawable.setBackgroundColor(ContextCompat.getColor(context, R.color.active_track_recording));
       mBadgeDrawable.setVisible(enable);
       BadgeUtils.attachBadgeDrawable(mBadgeDrawable, menuButton);
     }

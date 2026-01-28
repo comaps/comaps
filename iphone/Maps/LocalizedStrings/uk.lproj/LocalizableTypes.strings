@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Паб";
 "type.amenity.public_bookcase" = "Книгообмін";
 "type.amenity.recycling.centre" = "Прийом вторсировини";
-"type.amenity.recycling" = "Контейнер для вторсировини";
 "type.amenity.recycling.container" = "Контейнер для вторсировини";
 "type.recycling.batteries" = "Батарейки";
 "type.recycling.clothes" = "Одяг";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Міст";
-
 "type.highway.pedestrian.square" = "Площа";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Платформа";
 "type.railway" = "Залізниця";
 "type.railway.abandoned" = "Закинута залізниця";
-"type.railway.abandoned.bridge" = "Закинутий залізничний міст";
-"type.railway.abandoned.tunnel" = "Закинутий залізничний тунель";
 "type.railway.construction" = "Будівництво залізниці";
 "type.railway.crossing" = "Пішохідний перехід";
 "type.railway.disused" = "Недійсна залізниця";
@@ -1485,7 +1481,43 @@
 "type.amenity.bicycle_parking.covered" = "Критий велосипедний паркінг";
 "type.post_office.post_partner" = "Поштовий партнер";
 "type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Animal Shelter";
+"type.amenity.animal_shelter" = "Притулок для тварин";
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.lateral.port" = "Порт";
+"type.cardinal.east" = "Схід";
+"type.cardinal.north" = "Північ";
+"type.cardinal.south" = "Південь";
+"type.cardinal.west" = "Захід";
+"type.natural.tree" = "Дерево";
+"type.natural.sand" = "Пісок";
+"type.man_made.telescope" = "Телескоп";
+"type.leisure.sports_centre.sport.basketball" = "Спортивний центр";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Спортивний центр";
+"type.leisure.sports_centre.sport.bowls" = "Спортивний центр";
+"type.leisure.sports_centre.sport.climbing" = "Спортивний центр";
+"type.leisure.sports_centre.sport.cricket" = "Спортивний центр";
+"type.leisure.sports_centre.sport.curling" = "Спортивний центр";
+"type.leisure.sports_centre.sport.equestrian" = "Спортивний центр";
+"type.leisure.sports_centre.sport.field_hockey" = "Спортивний центр";
+"type.leisure.sports_centre.sport.futsal" = "Спортивний центр";
+"type.leisure.sports_centre.sport.golf" = "Спортивний центр";
+"type.leisure.sports_centre.sport.gymnastics" = "Спортивний центр";
+"type.leisure.sports_centre.sport.handball" = "Спортивний центр";
+"type.leisure.sports_centre.sport.ice_hockey" = "Спортивний центр";
+"type.leisure.sports_centre.sport.padel" = "Спортивний центр";
+"type.leisure.sports_centre.sport.australian_football" = "Спортивний центр";
+"type.leisure.sports_centre.sport.badminton" = "Спортивний центр";
+"type.leisure.sports_centre.sport.baseball" = "Спортивний центр";
+"type.leisure.sports_centre.sport.pelota" = "Спортивний центр";
+"type.leisure.sports_centre.sport.scuba_diving" = "Спортивний центр";
+"type.leisure.sports_centre.sport.shooting" = "Спортивний центр";
+"type.leisure.sports_centre.sport.skateboard" = "Спортивний центр";
+"type.leisure.sports_centre.sport.skiing" = "Спортивний центр";
+"type.leisure.sports_centre.sport.soccer" = "Спортивний центр";
+"type.leisure.sports_centre.sport.table_tennis" = "Спортивний центр";
+"type.leisure.sports_centre.sport.tennis" = "Спортивний центр";
+"type.leisure.sports_centre.sport.volleyball" = "Спортивний центр";
+"type.leisure.sports_centre.sport.yoga" = "Спортивний центр";
+"type.leisure.fitness_centre.sport.yoga" = "Студія йоги";

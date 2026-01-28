@@ -215,4 +215,23 @@
     <string name="about_headline">Proyecto abierto impulsado por la comunidad</string>
     <string name="saved">Guardado</string>
     <string name="about_proposition_3">• No necesita conexión a internet, rápido y compacto</string>
+    <string name="downloading">Descargando…</string>
+    <string name="download_maps">Descargar Mapas</string>
+    <string name="kilometres">Kilómetros</string>
+    <string name="miles">Millas</string>
+    <string name="search">Buscar</string>
+    <string name="delete">Borrar</string>
+    <string name="download_has_failed">La descarga ha fallado, presiona para volver a intentarlo</string>
+    <string name="later">Más tarde</string>
+    <string name="search_map">Buscar en el mapa</string>
+    <string name="location_is_disabled_long_text">Actualmente tienes todos los Servicios de Localización desactivados para este dispositivo o aplicación. Por favor, actívalos en Ajustes.</string>
+    <string name="limited_accuracy">Precisión Limitada</string>
+    <string name="zoom_to_country">Mostrar en el mapa</string>
+    <string name="country_status_download_failed">La descarga ha fallado</string>
+    <string name="try_again">Inténtalo de nuevo</string>
+    <string name="about_menu_title">Acerca de CoMaps</string>
+    <string name="about_proposition_2">• Centrado en la privacidad y sin anuncios</string>
+    <string name="about_developed_by_enthusiasts">Totalmente de código abierto, sin fines de lucro, toma de decisiones y finanzas transparentes.</string>
+    <string name="close">Cerrar</string>
+    <string name="download">Descargar</string>
 </resources>

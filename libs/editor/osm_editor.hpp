@@ -125,7 +125,7 @@ public:
   FeatureStatus GetFeatureStatus(FeatureID const & fid) const;
 
   /// @returns true if a feature was uploaded to osm.
-  bool IsFeatureUploaded(MwmId const & mwmId, uint32_t index) const;
+  bool AreSomeFeatureChangesUploaded(MwmId const & mwmId, uint32_t index) const;
 
   /// Marks feature as "deleted" from MwM file.
   void DeleteFeature(FeatureID const & fid);
@@ -240,7 +240,7 @@ private:
 
   static FeatureStatus GetFeatureStatusImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
 
-  static bool IsFeatureUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
+  static bool AreSomeFeatureChangesUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
 
   static void UpdateXMLFeatureTags(editor::XMLFeature & feature, std::list<JournalEntry> const & journal,
                                    ChangesetWrapper & changeset);

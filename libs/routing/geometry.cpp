@@ -183,8 +183,15 @@ void RoadGeometry::Load(VehicleModelInterface const & vehicleModel, FeatureType 
 
   auto const & optionsClassfier = RoutingOptionsClassifier::Instance();
   for (uint32_t type : types)
+  {
     if (auto const it = optionsClassfier.Get(type))
+    {
+      if (*it == RoutingOptions::Road::Dirty && m_routingOptions.Has(RoutingOptions::Road::Paved))
+        continue;
+
       m_routingOptions.Add(*it);
+    }
+  }
 
   m_junctions.clear();
   m_junctions.reserve(count);

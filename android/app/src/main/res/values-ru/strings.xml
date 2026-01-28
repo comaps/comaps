@@ -72,7 +72,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Метки</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Метки и треки</string>
+    <string name="bookmarks_and_tracks">Избранное</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Название</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -507,7 +507,7 @@
     <string name="placepage_edit_bookmark_button">Редактировать метку</string>
     <string name="placepage_personal_notes_hint">Примечание (текст или html)</string>
     <string name="editor_reset_edits_message">Сбросить все локальные правки?</string>
-    <string name="editor_reset_edits_button">Сбросить</string>
+    <string name="editor_reset_edits_button">Отменить изменения</string>
     <string name="editor_remove_place_message">Удалить добавленный вами объект?</string>
     <string name="editor_remove_place_button">Удалить</string>
     <string name="editor_place_doesnt_exist">Места не существует</string>

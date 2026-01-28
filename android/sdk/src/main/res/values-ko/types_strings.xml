@@ -117,7 +117,6 @@
     <string name="type.amenity.public_bookcase">도서 교환</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">재활용센터</string>
-    <string name="type.amenity.recycling">재활용 쓰레기통</string>
     <string name="type.amenity.recycling.container">재활용 쓰레기통</string>
     <string name="type.recycling.batteries">배터리</string>
     <string name="type.recycling.clothes">낡은 옷</string>

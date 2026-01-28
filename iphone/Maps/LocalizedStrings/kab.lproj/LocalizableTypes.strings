@@ -146,8 +146,6 @@
 "type.piste_type.downhill.easy" = "Easy Downhill Ski Run";
 "type.piste_type.snow_park" = "Snow Park";
 "type.landuse.religious" = "Religious Land";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.funicular" = "Funicular";
@@ -871,7 +869,6 @@
 "type.emergency" = "Emergency";
 "type.cuisine.local" = "Local";
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 "type.cuisine.turkish" = "Turkish";
 "type.highway.primary.tunnel" = "Tunnel";
@@ -883,7 +880,6 @@
 "type.leisure.common" = "Public Land";
 "type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";
 "type.highway.secondary_link.tunnel" = "Tunnel";
-"type.amenity.recycling" = "Recycling Container";
 "type.recycling.cartons" = "Cartons";
 "type.railway.subway_entrance.montreal" = "Subway Entrance";
 "type.highway.footway.bridge" = "Pedestrian Bridge";

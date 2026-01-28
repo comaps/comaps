@@ -372,8 +372,6 @@
     <string name="type.power.pole">Poste eléctrico</string>
     <string name="type.man_made.utility_pole">Poste</string>
     <string name="type.power.tower">Torre eléctrica</string>
-    <string name="type.railway.abandoned.bridge">Puente ferroviario abandonado</string>
-    <string name="type.railway.abandoned.tunnel">Túnel ferroviario abandonado</string>
     <string name="type.railway.light_rail.bridge">Puente de tren ligero</string>
     <string name="type.railway.monorail.bridge">Puente de monorriel</string>
     <string name="type.railway.monorail.tunnel">Túnel de monorriel</string>

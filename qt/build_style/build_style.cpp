@@ -41,6 +41,7 @@ void BuildAndApply(QString const & mapcssFile)
 
   QDir const projectDir = QFileInfo(mapcssFile).absoluteDir();
   QString const styleDir = projectDir.absolutePath() + QDir::separator();
+  QString const prioDir = styleDir + ".." + QDir::separator() + "include";
   QString const outputDir = styleDir + "out" + QDir::separator();
 
   // Ensure output directory is clear
@@ -53,7 +54,7 @@ void BuildAndApply(QString const & mapcssFile)
   if (hasSymbols)
   {
     auto future = std::async(std::launch::async, BuildSkins, styleDir, outputDir);
-    BuildDrawingRules(mapcssFile, outputDir);
+    BuildDrawingRules(mapcssFile, outputDir, prioDir);
     future.get();  // may rethrow exception from the BuildSkin
 
     ApplyDrawingRules(outputDir);
@@ -61,7 +62,7 @@ void BuildAndApply(QString const & mapcssFile)
   }
   else
   {
-    BuildDrawingRules(mapcssFile, outputDir);
+    BuildDrawingRules(mapcssFile, outputDir, prioDir);
     ApplyDrawingRules(outputDir);
   }
 }
@@ -107,6 +108,16 @@ void RunRecalculationGeometryScript(QString const & mapcssFile)
   CopyFromResources("classificator.txt", geometryToolResourceDir);
   CopyFromResources("types.txt", geometryToolResourceDir);
 
+#if defined(OMIM_OS_MAC)
+  (void)ExecProcess("python3", {
+                                  GetRecalculateGeometryScriptPath(),
+                                  resourceDir,
+                                  writableDir,
+                                  generatorToolPath,
+                                  appPath,
+                                  mapcssFile,
+                              });
+#else
   (void)ExecProcess("python", {
                                   GetRecalculateGeometryScriptPath(),
                                   resourceDir,
@@ -115,6 +126,7 @@ void RunRecalculationGeometryScript(QString const & mapcssFile)
                                   appPath,
                                   mapcssFile,
                               });
+#endif
 }
 
 bool NeedRecalculate = false;

@@ -232,7 +232,6 @@
 "type.amenity.pub" = "Beiz";
 "type.amenity.public_bookcase" = "Büecherschrank";
 "type.amenity.recycling.centre" = "Recyclinghof";
-"type.amenity.recycling" = "Recyclingcontainer";
 "type.amenity.recycling.container" = "Recyclingcontainer";
 "type.recycling.batteries" = "Batterie";
 "type.recycling.clothes" = "Altchleider";
@@ -617,8 +616,8 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Bootsrampe";
 "type.leisure.sports_centre" = "Sportzentrum";
-"type.sport.climbing" = "Chlätterhalle";
-"type.sport.yoga" = "Yoga Studio";
+"type.sport.climbing" = "Chlättere";
+"type.sport.yoga" = "Yoga";
 "type.leisure.stadium" = "Stadion";
 "type.leisure.swimming_pool" = "Schwümmbecki";
 "type.leisure.swimming_pool.private" = "Schwümmbecki";
@@ -765,8 +764,6 @@
 "type.public_transport.platform" = "Plattform";
 "type.railway" = "Isebahn";
 "type.railway.abandoned" = "Ehemaligi Isebahnstrecki";
-"type.railway.abandoned.bridge" = "Ehemaligi Isebahnbrugg";
-"type.railway.abandoned.tunnel" = "Ehemalige Isebahntunnel";
 "type.railway.construction" = "Isebahnstrecki im Bau";
 "type.railway.crossing" = "Bahnübergang";
 "type.railway.disused" = "Stillgleiti Bahnstrecki";
@@ -1181,7 +1178,7 @@
 "type.sport.soccer" = "Fuessball";
 "type.sport.swimming" = "Schwümme";
 "type.sport.table_tennis" = "Tischtennis";
-"type.sport.tennis" = "Tennisplatz";
+"type.sport.tennis" = "Tennis";
 "type.sport.volleyball" = "Volleyball";
 "type.sport.10pin" = "Bowling";
 "type.sport.9pin" = "Chegle";
@@ -1310,7 +1307,6 @@
 "type.man_made.telescope.radio" = "Teleskop (Radio)";
 "type.man_made.telescope.gamma" = "Teleskop (Gamma)";
 "type.man_made.observatory" = "Observatorium";
-"type.amenity.charging_station.motorcar.small" = "Autoladestation";
 "type.amenity.sailing_school" = "Sägelschuel";
 "type.amenity.flight_school" = "Flugschuel";
 "type.amenity.prep_school" = "Nachhilfsschuel";
@@ -1333,3 +1329,10 @@
 "type.entrance.entry" = "(Nur) Iigang";
 "type.entrance.emergency" = "Notuusgang";
 "type.leisure.sports_centre.sport.multi" = "Sportzentrum";
+"type.amenity.hydrant" = "Berägnigshydrant";
+"type.cardinal.east" = "Oschte";
+"type.cardinal.north" = "Norde";
+"type.cardinal.south" = "Süüde";
+"type.cardinal.west" = "Weschte";
+"type.lateral.starboard" = "Schtüürbord";
+"type.lateral.port" = "Backbord";

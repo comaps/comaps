@@ -1,8 +1,0 @@
-• Données OpenStreetMap du 17 décembre
-• Serveur de téléchargement de cartes configurable
-• Ajout d'un message d'avertissement pour les cartes trop anciennes
-• Évitement des allées de parking dans les itinéraires
-• Mise à jour de l'apparence des boutons de zooms
-• Amélioration des synonymes de recherche en français
-• Editeur OSM: vérification de la taille limite des tags OSM
-Plus d'informations sur codeberg.org/comaps/comaps/releases

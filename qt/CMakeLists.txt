@@ -116,6 +116,7 @@ copy_resources(
   colors.txt
   copyright.html
   countries.txt
+  countries_meta.txt
   drules_proto_default_light.bin
   drules_proto_default_dark.bin
   drules_proto_outdoors_light.bin
@@ -125,8 +126,10 @@ copy_resources(
   editor.config
   packed_polygons.bin
   patterns.txt
+  subtypes.csv
   transit_colors.txt
   types.txt
+  mapcss-mapping.csv
   World.mwm
   WorldCoasts.mwm
 )

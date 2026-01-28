@@ -36,6 +36,10 @@ struct SettingsView: View {
     @State var selectedLanguageForMap: Settings.MapLanguage.ID? = nil
     
     
+    /// If the alternative languages for the app only should be used when they are the local native language
+    @State private var shouldLimitMapLanguageAlternativesToLocal: Bool = true
+    
+    
     /// If names should be transliterated to Latin
     @State private var shouldTransliterateToLatin: Bool = true
     
@@ -58,10 +62,6 @@ struct SettingsView: View {
     
     /// If the sync is possible
     @State private var isSyncPossible: Bool = true
-    
-    
-    /// If the compass should be calibrated
-    @State private var shouldCalibrateCompass: Bool = true
     
     
     /// The selected power saving mode
@@ -153,6 +153,20 @@ struct SettingsView: View {
                         Text("pref_maplanguage_title")
                     }
                     
+                    Toggle(isOn: $shouldLimitMapLanguageAlternativesToLocal) {
+                        VStack(alignment: .leading) {
+                            Text("limit_map_language_alternatives_to_local")
+                            
+                            if selectedLanguageForMap == "default" {
+                                Text("transliteration_title_disabled_summary")
+                                    .font(.footnote)
+                                    .foregroundStyle(.secondary)
+                            }
+                        }
+                    }
+                    .tint(.accent)
+                    .disabled(selectedLanguageForMap == "default")
+                    
                     Toggle(isOn: $shouldTransliterateToLatin) {
                         VStack(alignment: .leading) {
                             Text("transliteration_title")
@@ -238,9 +252,6 @@ struct SettingsView: View {
                         Text("pref_appearance_title")
                     }
                     
-                    Toggle("pref_calibration_title", isOn: $shouldCalibrateCompass)
-                        .tint(.accent)
-                    
                     Picker(selection: $selectedPowerSavingMode) {
                         ForEach(Settings.PowerSavingMode.allCases) { powerSavingMode in
                             Text(powerSavingMode.description)
@@ -296,11 +307,11 @@ struct SettingsView: View {
             hasAutomaticDownload = Settings.hasAutomaticDownload
             hasIncreasedFontsize = Settings.hasIncreasedFontsize
             selectedLanguageForMap = Settings.languageForMap
+            shouldLimitMapLanguageAlternativesToLocal = Settings.shouldLimitMapLanguageAlternativesToLocal
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
             selectedMapAppearance = Settings.mapAppearance
             selectedAppearance = Settings.appearance
             shouldSync = Settings.shouldSync
-            shouldCalibrateCompass = Settings.shouldCalibrateCompass
             selectedPowerSavingMode = Settings.powerSavingMode
             selectedMobileDataPolicy = Settings.mobileDataPolicy
             isLogging = Settings.isLogging
@@ -328,6 +339,9 @@ struct SettingsView: View {
                 Settings.languageForMap = changedSelectedLanguageForMap
             }
         }
+        .onChange(of: shouldLimitMapLanguageAlternativesToLocal) { changedShouldLimitMapLanguageAlternativesToLocal in
+            Settings.shouldLimitMapLanguageAlternativesToLocal = changedShouldLimitMapLanguageAlternativesToLocal
+        }
         .onChange(of: shouldTransliterateToLatin) { changedShouldTransliterateToLatin in
             Settings.shouldTransliterateToLatin = changedShouldTransliterateToLatin
         }
@@ -344,9 +358,6 @@ struct SettingsView: View {
             } else {
                 Settings.shouldSync = changedShouldSync
             }
-        }
-        .onChange(of: shouldCalibrateCompass) { changedShouldCalibrateCompass in
-            Settings.shouldCalibrateCompass = changedShouldCalibrateCompass
         }
         .onChange(of: selectedPowerSavingMode) { changedSelectedPowerSavingMode in
             Settings.powerSavingMode = changedSelectedPowerSavingMode

@@ -69,7 +69,7 @@
 "bookmarks" = "Мітки";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Мітки та маршрути";
+"bookmarks_and_tracks" = "Обране";
 
 /* Default bookmark list name */
 "core_my_places" = "Мої Мітки";
@@ -332,9 +332,6 @@
 
 /* Alert title */
 "email_error_title" = "Помилка при відправленні листа";
-
-/* Settings item title */
-"pref_calibration_title" = "Калібрування компаса";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Ще раз потримайте палець на карті, щоб побачити інтерфейс";

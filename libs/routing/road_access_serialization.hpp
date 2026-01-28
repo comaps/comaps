@@ -9,8 +9,6 @@
 
 #include "routing_common/num_mwm_id.hpp"
 
-#include "platform/platform.hpp"
-
 #include "coding/bit_streams.hpp"
 #include "coding/reader.hpp"
 #include "coding/varint.hpp"
@@ -460,7 +458,7 @@ private:
     positionsAccessConditional.clear();
 
     auto openingHoursDeserializer = GetOpeningHoursSerDesForRouting();
-    auto const size = ReadPrimitiveFromSource<size_t>(src);
+    auto const size = ReadPrimitiveFromSource<uint64_t>(src);
 
     positionsAccessConditional.reserve(size);
     uint32_t prevFeatureId = 0;

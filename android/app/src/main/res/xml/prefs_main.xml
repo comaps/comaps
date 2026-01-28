@@ -66,20 +66,28 @@
        android:persistent="false"
        android:order="7"/>
     <SwitchPreferenceCompat
+      android:key="@string/pref_set_only_use_syslangs_in_their_region"
+      android:title="@string/limit_map_language_alternatives_to_local"
+      app:singleLineTitle="false"
+      app:icon="@drawable/ic_translate"
+      android:defaultValue="false"
+      android:widgetLayout="@layout/preference_switch"
+      android:order="8"/>
+    <SwitchPreferenceCompat
       android:key="@string/pref_transliteration"
       android:title="@string/transliteration_title"
       app:singleLineTitle="false"
       app:icon="@drawable/ic_translate_indic"
       android:defaultValue="false"
       android:widgetLayout="@layout/preference_switch"
-      android:order="8"/>
+      android:order="9"/>
     <Preference
       android:key="@string/pref_storage"
       android:title="@string/maps_storage"
       app:icon="@drawable/ic_sd_card"
       app:singleLineTitle="false"
       android:summary="@string/maps_storage_summary"
-      android:order="9"/>
+      android:order="10"/>
     <Preference
        android:key="@string/pref_backup"
        android:title="@string/pref_backup_title"
@@ -87,7 +95,7 @@
        app:icon="@drawable/ic_settings_backup_restore"
        app:singleLineTitle="false"
        android:persistent="false"
-       android:order="10"/>
+       android:order="11"/>
     <SwitchPreferenceCompat
        android:key="@string/pref_enable_logging"
        android:title="@string/enable_logging"
@@ -96,7 +104,7 @@
        android:summary="@string/enable_logging_warning_message"
        android:defaultValue="false"
        android:widgetLayout="@layout/preference_switch"
-       android:order="11"/>
+       android:order="12"/>
     <SwitchPreferenceCompat
        android:key="@string/pref_emulate_bad_external_storage"
        android:title="@string/setting_emulate_bad_storage"
@@ -104,7 +112,7 @@
        android:defaultValue="false"
        app:isPreferenceVisible="false"
        android:widgetLayout="@layout/preference_switch"
-       android:order="12"/>
+       android:order="13"/>
   </androidx.preference.PreferenceCategory>
 
   <androidx.preference.PreferenceCategory

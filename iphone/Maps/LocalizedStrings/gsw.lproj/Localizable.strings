@@ -1,5 +1,5 @@
 "search" = "Suechi";
-"bookmarks_and_tracks" = "Lesezeiche und Tracks";
+"bookmarks_and_tracks" = "Favorite";
 "cancel_download" = "Abelade abbreche";
 "leave_a_review" = "Bewertig abgeh";
 "category_shopping" = "Shopping";
@@ -21,7 +21,6 @@
 "pref_tts_other_section_title" = "Wiiteri";
 "line" = "Line";
 "copyright" = "Copyright";
-"pref_calibration_title" = "Kompass-Kalibrierig";
 "downloader_available_maps" = "Verfüegbar";
 "long_tap_toast" = "Tipp nomal lang uf d Charte, zum s Interface zgseh";
 "downloader_update_all_button" = "Alli aktualisiere";
@@ -104,8 +103,8 @@
 "download" = "Abelade";
 "continue_button" = "Fortfahre";
 "add_new_set" = "Neui Lischte hinzuefüege";
-"bookmark_set_name" = "Name vo de Lesezeichelischte";
-"bookmarks" = "Lesezeiche";
+"bookmark_set_name" = "Name vo de Lischte";
+"bookmarks" = "Ort";
 "about_proposition_1" = "Offline, schnell und eifach z benutze";
 "about_proposition_2" = "Dateschutzorientiert und werbefrei";
 "about_proposition_3" = "Transparent und nöd gwünnorientiert";
@@ -133,9 +132,9 @@
 "category_wifi" = "WLAN";
 "category_water" = "Wasser";
 "category_rv" = "Iirichtige für Wohnmobil";
-"load_kmz_title" = "Lesezeiche werded glade";
-"load_kmz_successful" = "Lesezeiche erfolgriich glade! Du chasch sie uf de Charte oder im Lesezeiche-Manager aazeige.";
-"load_kmz_failed" = "Lade vo de Lesezeiche fehlgschlage. D Datei chönnt beschädigt oder defekt sii.";
+"load_kmz_title" = "Favorite werded glade";
+"load_kmz_successful" = "Favorite erfolgriich glade! Du chasch sie uf de Charte oder im Favorite-Manager aazeige.";
+"load_kmz_failed" = "Lade vo de Favorite fehlgschlage. D Datei chönnt beschädigt oder defekt sii.";
 "unknown_current_position" = "Din Standort het nonig chönne ermittlet werde";
 "bookmark_share_email_subject" = "Hey, lueg dir mini Stecknadle uf de CoMaps-Charte aa!";
 "my_position_share_email_subject" = "Hey, lueg dir min aktuelle Standort uf de CoMaps-Charte aa!";

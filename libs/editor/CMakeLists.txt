@@ -18,6 +18,8 @@ set(SRC
   edits_migration.hpp
   feature_matcher.cpp
   feature_matcher.hpp
+  feature_type_to_osm.cpp
+  feature_type_to_osm.hpp
   new_feature_categories.cpp
   new_feature_categories.hpp
   opening_hours_ui.cpp

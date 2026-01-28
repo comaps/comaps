@@ -1,11 +1,14 @@
-<androidx.constraintlayout.widget.ConstraintLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/MwmWidget.M3.Editor.CardView"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_item_oneline"
-    android:background="?clickableBackground"
-    android:layout_marginTop="@dimen/margin_half"
+    android:layout_margin="@dimen/margin_eighth"
+    android:layout_height="wrap_content">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/margin_half"
     android:paddingStart="@dimen/margin_half_plus"
     android:paddingEnd="@dimen/margin_half_plus">
 
@@ -25,7 +28,6 @@
         android:layout_marginStart="@dimen/margin_half"
         android:layout_marginEnd="@dimen/margin_half"
         android:layout_toStartOf="@id/delete_icon"
-        android:textColorHint="?android:textColorSecondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/delete_icon"
         app:layout_constraintStart_toEndOf="@+id/phone_icon"
@@ -41,7 +43,6 @@
     <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/delete_icon"
       style="@style/MwmWidget.Editor.MetadataIcon"
-      android:layout_marginStart="@dimen/margin_half"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"
@@ -49,3 +50,4 @@
       app:srcCompat="@drawable/ic_delete" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

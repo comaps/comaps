@@ -131,7 +131,6 @@
 "follow_us" = "Contacta con nós";
 "email_error_body" = "Non se configurou o cliente de correo electrónico. Configúreo ou @contáctar en %@";
 "email_error_title" = "Erro de envío de correo";
-"pref_calibration_title" = "Calibración do compás";
 "long_tap_toast" = "Volva pulsar prolongadamente sobre o mapa para ver a interface";
 "downloader_update_all_button" = "Actualizar todos";
 "downloader_downloaded_subtitle" = "Descargado";
@@ -326,7 +325,7 @@
 "editor_edits_sent_message" = "A súa nota enviarase a OpenStreetMap";
 "editor_comment_hint" = "Comentario…";
 "editor_reset_edits_message" = "Restablecer todos os cambios locais?";
-"editor_reset_edits_button" = "Restablecer";
+"editor_reset_edits_button" = "Desbotar cambios";
 "editor_remove_place_message" = "Eliminar o lugar engadido?";
 "editor_remove_place_button" = "Eliminar";
 "editor_place_doesnt_exist" = "O lugar non existe";
@@ -337,8 +336,8 @@
 "refresh" = "Actualizar";
 "placepage_add_place_button" = "Engadir lugar a OpenStreetMap";
 "editor_share_to_all_dialog_title" = "Quere envialo a todos os usuarios?";
-"editor_share_to_all_dialog_message_1" = "Confírmese de que non introduciu ningún dato privado ou persoal.";
-"editor_share_to_all_dialog_message_2" = "Os editores de OpenStreetMap comprobarán os cambios e poñeranse en contacto con vostede se teñen algunha pregunta.";
+"editor_share_to_all_dialog_message_1" = "Comproba que non escribiches ningún dato privado ou persoal";
+"editor_share_to_all_dialog_message_2" = "Desde OpenStreetMap comprobarán os cambios e poñeranse en contacto contigo se teñen algunha pregunta.";
 "recent_track_background_dialog_title" = "Quere deixar de gravar o traxecto recentemente percorrido?";
 "sharing_call_action_look" = "Comproba";
 "recent_track_background_dialog_message" = "CoMaps usa a súa localización en segundo plano para gravar a ruta recentemente percorrido.";

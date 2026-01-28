@@ -129,7 +129,6 @@
 "type.amenity.pub" = "ผับ";
 "type.amenity.public_bookcase" = "ตู้หนังสือ สถานที่แลกเปลี่ยนหนังสือ";
 "type.amenity.recycling.centre" = "ศูนย์รีไซเคิล";
-"type.amenity.recycling" = "บรรจุภัณฑ์รีไซเคิล";
 "type.amenity.recycling.container" = "บรรจุภัณฑ์รีไซเคิล";
 "type.recycling.batteries" = "แบตเตอรี่";
 "type.recycling.clothes" = "เสื้อผ้าเก่า";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "สะพาน";
-
 "type.highway.pedestrian.square" = "ช่องว่าง";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";

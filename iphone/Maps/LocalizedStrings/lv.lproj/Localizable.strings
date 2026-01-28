@@ -66,7 +66,7 @@
 "bookmarks" = "Grāmatzīmes";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Grāmatzīmes un ceļi";
+"bookmarks_and_tracks" = "Izlase";
 
 /* Default bookmark list name */
 "core_my_places" = "Manas vietas";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "Kļūda, nosūtot vēstuli";
-
-/* Settings item title */
-"pref_calibration_title" = "Kompasa kalibrēšana";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni";
@@ -672,12 +669,12 @@
 "placepage_call_button" = "Zvanīt";
 "placepage_edit_bookmark_button" = "Rediģēt grāmatzīmi";
 "placepage_bookmark_name_hint" = "Grāmatzīmes nosaukums";
-"placepage_personal_notes_hint" = "Personīgi pieraksti (teksts vai HTML)";
+"placepage_personal_notes_hint" = "Personīgas piezīmes (teksts vai HTML)";
 "placepage_delete_bookmark_button" = "Dzēst grāmatzīmi";
 "editor_edits_sent_message" = "Jūsu piezīmi nosūtīsim uz „OpenStreetMap“";
 "editor_comment_hint" = "Komentārs…";
-"editor_reset_edits_message" = "Vai izmest visas lokāli saglabātās izmaiņas?";
-"editor_reset_edits_button" = "Noraidīt";
+"editor_reset_edits_message" = "Vai atmest visas vietējās izmaiņas?";
+"editor_reset_edits_button" = "Atmest izmaiņas";
 "editor_remove_place_message" = "Vai dzēst pievienoto vietu?";
 "editor_remove_place_button" = "Dzēst";
 "editor_place_doesnt_exist" = "Vieta nepastāv";
@@ -691,11 +688,11 @@
 "placepage_add_place_button" = "Pievienot vietu „OpenStreetMap“";
 
 /* Displayed when saving some edits to the map to warn against publishing personal data */
-"editor_share_to_all_dialog_title" = "Vai vēlaties to nosūtīt visiem lietotājiem?";
+"editor_share_to_all_dialog_title" = "Vai nosūtīt to visiem lietotājiem?";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "Jāpārliecinās, ka neievadīji nekādus privātus vai personīgus datus.";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap redaktori pārbaudīs veiktās izmaiņas, un sazināsies ar Tevi, ja viņiem būs kādi jautājumi.";
+"editor_share_to_all_dialog_message_1" = "Jāpārliecinās, ka nav ievadīti nekādi privāti vai personīgi dati.";
+"editor_share_to_all_dialog_message_2" = "OpenStreetMap redaktori pārbaudīs veiktās izmaiņas un sazināsies ar Tevi, ja viņiem būs kādi jautājumi.";
 "navigation_stop_button" = "Apturēt";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -756,7 +753,7 @@
 "bookmark_lists" = "Saraksti";
 
 /* Do not display all bookmark lists on the map */
-"bookmark_lists_hide_all" = "Slēpt visus";
+"bookmark_lists_hide_all" = "Paslēpt visus";
 "bookmark_lists_show_all" = "Rādīt visus";
 "bookmarks_create_new_group" = "Izveidot jaunu sarakstu";
 
@@ -766,7 +763,7 @@
 "downloader_percent" = "%@ (%@ no %@)";
 "downloader_process" = "Lejupielādē %@…";
 "downloader_applying" = "Pielieto %@…";
-"bookmarks_error_message_share_general" = "Programmas kļūdas dēļ kopīgošana neizdevās";
+"bookmarks_error_message_share_general" = "Nav iespējams kopīgot lietotnes kļūdas dēļ";
 "bookmarks_error_title_share_empty" = "Kopīgošanas kļūda";
 "bookmarks_error_message_share_empty" = "Nav iespējams kopīgot tukšu sarakstu";
 "bookmarks_error_message_empty_list_name" = "Ierakstiet saraksta nosaukumu";
@@ -1000,7 +997,7 @@
 
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Karte";
-"drive_through" = "Caurbrauktuve caur";
+"drive_through" = "Caurbrauktuve";
 
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Saite uz ēdienkarti";
@@ -1009,37 +1006,37 @@
 "bugreport_alert_message" = "Vai vēlaties izstrādātājiem nosūtīt ziņojumu par kļūdu?\nMēs paļaujamies uz šiem ziņojumiem, jo „CoMaps“ automātiski nevāc nekādus datus par kļūdām. Jau iepriekš pateicamies par „CoMaps“ atbalstīšanu!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud sinhronizēšana (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_title" = "Ieslēgta „iCloud“ sinhronizācija";
+"enable_icloud_synchronization_title" = "Iespējot iCloud sinhronizēšanu";
 
 /* Message for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_message" = "„iCloud“ sinhronizācija šobrīd ir eksperimentāla iespēja, ko joprojām veidojam. Pirms tās izmantošanas izveidojiet grāmatzīmju un ceļu dublējumkopijas.";
+"enable_icloud_synchronization_message" = "iCloud sinhronizēšana šobrīd ir izstrādē esoša izmēģinājuma iespēja. Jānodrošina visu savu grāmatzīmju un ceļu rezerves kopiju izveidošana.";
 
 /* Title for the "iCloud Is Disabled" alert. */
-"icloud_disabled_title" = "„iCloud“ ir izslēgts";
+"icloud_disabled_title" = "iCloud ir atspējots";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Ja vēlaties izmantot šo funkciju, ierīces iestatījumos ieslēdziet „iCloud“.";
+"icloud_disabled_message" = "Lūgums iespējot iCloud Comaps sava Apple konta iestatījumos, lai izmantotu šo iespēju.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
-"enable" = "Ieslēgt";
+"enable" = "Iespējot";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
-"backup" = "Dublējumkopija";
+"backup" = "Rezerves kopija";
 
 /* Title for the "iCloud synchronization failure" alert. */
-"icloud_synchronization_error_alert_title" = "„iCloud“ sinhronizācijas kļūda";
+"icloud_synchronization_error_alert_title" = "iCloud sinhronizēšanas kļūda";
 
 /* iCloud error message: Failed to synchronize due to connection error */
-"icloud_synchronization_error_connection_error" = "Kļūda: sinhronizācija neizdevās savienojuma kļūdas dēļ";
+"icloud_synchronization_error_connection_error" = "Kļūda: sinhronizēšanas neizdevās savienojuma kļūdas dēļ";
 
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
-"icloud_synchronization_error_quota_exceeded" = "Kļūda: sinhronizācija neizdevās pārsniegtas „iCloud“ kvotas dēļ";
+"icloud_synchronization_error_quota_exceeded" = "Kļūda: sinhronizēšana neizdevās pārsniegta iCloud ierobežojuma dēļ";
 
 /* iCloud error message: iCloud is not available */
-"icloud_synchronization_error_cloud_is_unavailable" = "Kļūda: „iCloud“ nav pieejams";
+"icloud_synchronization_error_cloud_is_unavailable" = "Kļūda: iCloud nav pieejams";
 
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "Atvērt citā lietotnē";
@@ -1081,7 +1078,7 @@
 "track_recording_alert_title" = "Saglabāt ceļu grāmatzīmju sadaļā?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
-"track_recording_toast_nothing_to_save" = "Ceļš ir tukšs – nav ko saglabāt";
+"track_recording_toast_nothing_to_save" = "Ceļš ir tukšs – nav nekā saglabājama";
 "edit_track" = "Labot ceļu";
 "osm_profile_view_edit_history" = "Skatīt labojumu vēsturi";
 "osm_profile_view_notes" = "Skatīt piezīmes";

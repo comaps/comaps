@@ -63,16 +63,16 @@
 "add_new_set" = "Přidat novou skupinu záložek";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Název záložky";
+"bookmark_set_name" = "Název seznamu";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Skupiny záložek";
+"bookmark_sets" = "Seznamy oblíbených";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Záložky";
+"bookmarks" = "Místa";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Záložky a stopy";
+"bookmarks_and_tracks" = "Oblíbené";
 
 /* Default bookmark list name */
 "core_my_places" = "Moje místa";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Pro obytné vozy";
-"share_bookmarks_email_body" = "Ahoj!\n \nV příloze najdeš mé záložky; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/download/\n \nUžij si cestování s CoMaps!";
+"share_bookmarks_email_body" = "Ahoj!\n \nV příloze najdeš má uložená místa; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/cs/download/\n \nUžij si cestování s CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Nahrávání záložek";
+"load_kmz_title" = "Načítání oblíbených";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Záložky byly úspěšně nahrány! Naleznete je na mapě nebo ve správci záložek.";
+"load_kmz_successful" = "Oblíbené byly úspěšně nahrány! Naleznete je na mapě nebo ve správci oblíbených.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Nahrávání záložek se nezdařilo. Soubor může být poškozený nebo vadný.";
+"load_kmz_failed" = "Nepodařilo se načíst oblíbená místa. Soubor může být poškozený nebo vadný.";
 
 /* resource for context menu */
 "edit" = "Upravit";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Chyba při odesílání emailu";
 
-/* Settings item title */
-"pref_calibration_title" = "Kalibrace kompasu";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Dlouhým klepnutím na mapu znovu zobrazíte rozhraní";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "Naplánování trasy vyžaduje stažení a aktualizaci všech map z vašeho umístění do cílového umístění.";
 
 /* bookmark button text */
-"bookmark" = "uložit";
+"bookmark" = "místo";
 "save" = "Uložit";
 "create" = "vytvořit";
 
@@ -676,14 +673,14 @@
 "placepage_more_button" = "Více";
 "book_button" = "Rezervace";
 "placepage_call_button" = "Volat";
-"placepage_edit_bookmark_button" = "Upravit záložku";
-"placepage_bookmark_name_hint" = "Název záložky";
+"placepage_edit_bookmark_button" = "Upravit uložené místo";
+"placepage_bookmark_name_hint" = "Název místa";
 "placepage_personal_notes_hint" = "Vlastní poznámka (text nebo HTML)";
-"placepage_delete_bookmark_button" = "Smazat záložku";
+"placepage_delete_bookmark_button" = "Odstranit místo";
 "editor_edits_sent_message" = "Vaše poznámka bude odeslána do OpenStreetMap";
 "editor_comment_hint" = "Poznámka…";
 "editor_reset_edits_message" = "Vymazat všechny místní změny?";
-"editor_reset_edits_button" = "Zahodit";
+"editor_reset_edits_button" = "Zahodit změny";
 "editor_remove_place_message" = "Odstranit přidané místo?";
 "editor_remove_place_button" = "Odstranit";
 "editor_place_doesnt_exist" = "Místo neexistuje";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "Vytvořit nový seznam";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Import záložek a stop";
+"bookmarks_import" = "Importovat oblíbené";
 "downloader_hide_screen" = "Skrýt obrazovku";
 "downloader_percent" = "%@ (%@ z %@)";
 "downloader_process" = "Stahování %@…";
@@ -999,7 +996,7 @@
 "button_layer_outdoor" = "Pěší turistika";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Export všech záložek a stop";
+"bookmarks_export" = "Exportovat všechny oblíbené";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Změna barvy";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "Pokračovat v nahrávání";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Uložit do záložek a stop?";
+"track_recording_alert_title" = "Uložit do oblíbených?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Trasa je prázdná - není co ukládat";
@@ -1106,3 +1103,4 @@
 "voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
 "voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";
 "avoid_paved" = "Vyhnout se zpevněným cestám";
+"limit_map_language_alternatives_to_local" = "Jiné systémové jazyky použít pouze v jejich oblasti";

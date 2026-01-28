@@ -3,7 +3,7 @@
 "cancel" = "وازدن";
 
 /* Button which interrupts country download */
-"cancel_download" = "لغو دانلود";
+"cancel_download" = "وازدن بارگیری";
 
 /* Button which deletes downloaded country */
 "delete" = "سِتُردن";
@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "خطا در ارسال ایمیل";
 
-/* Settings item title */
-"pref_calibration_title" = "تنظیم کردن قطب نما";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "دوباره روی نقشه ضربه طولانی بزنید تا رابط کاربری را ببینید";
 
@@ -351,15 +348,15 @@
 
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "نقشه‌ها";
-"downloader_download_all_button" = "دانلود همه";
-"downloader_downloading" = "درحال دانلود:";
+"downloader_download_all_button" = "بارگیری همه";
+"downloader_downloading" = "بارگیری می‌شود:";
 "downloader_search_results" = "یافت شد";
 
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "بروزرسانی";
 
 /* Status of failed country in the list */
-"downloader_status_failed" = "ناموفق";
+"downloader_status_failed" = "ناکام بود";
 
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "برای حذف نقشه لطفا مسیر‌یابی را متوقف کنید.";
@@ -368,10 +365,10 @@
 "routing_failed_cross_mwm_building" = "تنها مسیر‌هایی می توانند ایجاد شوند که به طور کامل در یک نقشه از یک منطقه واحد قرار داشته باشند.";
 
 /* Context menu item for downloader. */
-"downloader_download_map" = "دانلود نقشه";
+"downloader_download_map" = "بارگیری نقشه";
 
 /* Item status in downloader. */
-"downloader_retry" = "تلاش مجدد";
+"downloader_retry" = "تلاش دوباره";
 
 /* Item in context menu. */
 "downloader_delete_map" = "حذف نقشه";
@@ -385,7 +382,7 @@
 /* bookmark button text */
 "bookmark" = "نشانه‌ها";
 "save" = "ذخیره";
-"create" = "ایجاد";
+"create" = "ساختن";
 
 /* red color */
 "red" = "قرمز";
@@ -415,13 +412,13 @@
 "deep_purple" = "ارغوانی سیر";
 
 /* light blue color */
-"light_blue" = "آبی کمرنگ";
+"light_blue" = "آبی کم‌رنگ";
 
 /* cyan color */
 "cyan" = "فیروزه‌ای";
 
 /* teal color */
-"teal" = "آبی سیر";
+"teal" = "سبز دودی";
 
 /* lime color */
 "lime" = "زرد لیمویی";
@@ -457,7 +454,7 @@
 "dialog_routing_select_closer_end" = "لطفا مقصد تعیین شده را نزدیک‌تر به جاده انتخاب نمایید.";
 "dialog_routing_change_intermediate" = "ناتوان در تعیین نقطه میانی.";
 "dialog_routing_intermediate_not_determined" = "لطفا نقطه میانی را تنظیم کنید.";
-"dialog_routing_system_error" = "خطای سیستم";
+"dialog_routing_system_error" = "ایرنگ سامانه";
 "dialog_routing_application_error" = "ناتوان در ایجاد مسیر به علت خطای برنامه.";
 "dialog_routing_try_again" = "لطفا دوباره تلاش کنید";
 "dialog_routing_download_and_build_cross_route" = "ایا مایل به دانلود نقشه و ایجاد مسیر‌های بهینه بیشتری که نقشه‌های بیشتری را پوشش میدهد هستید؟";
@@ -467,7 +464,7 @@
 "show" = "نمایش";
 
 /* «Hide» context menu */
-"hide" = "مخفی کردن";
+"hide" = "پنهان کردن";
 
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "برنامه ریزی مسیر ناموفق";
@@ -620,7 +617,7 @@
 "error_enter_correct_zip_code" = "یک کد‌ پستی معتبر وارد کنید";
 
 /* Place Page title for long tap */
-"core_placepage_unknown_place" = "خَجَکِ نقشه";
+"core_placepage_unknown_place" = "خَجَک نقشه";
 
 /* Title for OSM note section in the editor */
 "editor_other_info" = "توجه به داوطلبان OpenStreetMap (اختیاری)";

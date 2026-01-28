@@ -3,6 +3,7 @@
 #include "platform/platform.hpp"
 
 #include "base/file_name_utils.hpp"
+#include "base/logging.hpp"
 
 #include <QtCore/QCoreApplication>
 #include <QtCore/QDir>
@@ -17,11 +18,7 @@
 
 QString ExecProcess(QString const & program, std::initializer_list<QString> args, QProcessEnvironment const * env)
 {
-  // Quote all arguments.
   QStringList qargs(args);
-  for (auto i = qargs.begin(); i != qargs.end(); ++i)
-    *i = "\"" + *i + "\"";
-
   QProcess p;
   if (nullptr != env)
     p.setProcessEnvironment(*env);
@@ -43,8 +40,9 @@ QString ExecProcess(QString const & program, std::initializer_list<QString> args
   }
   if (!error.isEmpty())
   {
-    QString const msg = "STDERR with a zero exit code:\n" + program + " " + qargs.join(" ");
-    throw std::runtime_error(msg.toStdString());
+    QString msg = "STDERR with a zero exit code:\n" + program + " " + qargs.join(" ");
+    msg += "\nSTDERR:\n" + error;
+    LOG(LINFO, (msg.toStdString()));
   }
   return output;
 }
@@ -102,12 +100,13 @@ QString GetExternalPath(QString const & name, QString const & primaryPath, QStri
   // Special case for looking for in application folder.
   if (!QFileInfo::exists(path) && secondaryPath.isEmpty())
   {
-    std::string const appPath = QCoreApplication::applicationDirPath().toStdString();
+    QString appPath = QCoreApplication::applicationDirPath();
 
-    std::regex re("(/[^/]*\\.app)");
-    std::smatch m;
-    if (std::regex_search(appPath, m, re) && m.size() > 0)
-      path.fromStdString(base::JoinPath(m[0], name.toStdString()));
+#if defined(OMIM_OS_MAC)
+    path = JoinPathQt({appPath, "..", "..", "..", name});
+#elif defined(OMIM_OS_LINUX)
+    path = JoinPathQt({appPath, name});
+#endif
   }
   return path;
 }

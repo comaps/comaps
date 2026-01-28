@@ -25,7 +25,7 @@
     <string name="type.amenity.bank">Banque</string>
     <string name="type.amenity.bbq">Grille de barbecue</string>
     <string name="type.amenity.bench">Banc</string>
-    <string name="type.amenity.bicycle_parking">Parking à vélo</string>
+    <string name="type.amenity.bicycle_parking">Stationnement vélo</string>
     <string name="type.amenity.bicycle_rental">Location de vélos</string>
     <string name="type.amenity.bicycle_repair_station">Station de réparation de vélos</string>
     <string name="type.amenity.brothel">Maison close</string>
@@ -41,8 +41,8 @@
     <string name="type.leisure.adult_gaming_centre">Centre de jeux pour adultes</string>
     <string name="type.leisure.amusement_arcade">Salle de jeux d’arcade</string>
     <string name="type.amenity.charging_station">Borne de recharge</string>
-    <string name="type.amenity.charging_station.bicycle">Borne de recharge pour vélo</string>
-    <string name="type.amenity.charging_station.motorcar">Borne de recharge pour voiture</string>
+    <string name="type.amenity.charging_station.bicycle">Vélos</string>
+    <string name="type.amenity.charging_station.motorcar">Voitures</string>
     <string name="type.amenity.childcare">Garderie</string>
     <string name="type.amenity.cinema">Cinéma</string>
     <string name="type.leisure.bowling_alley">Salle de bowling</string>
@@ -124,7 +124,6 @@
     <string name="type.amenity.public_bookcase">Microbibliothèque</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centre de recyclage</string>
-    <string name="type.amenity.recycling">Conteneur de recyclage</string>
     <string name="type.amenity.recycling.container">Conteneur de recyclage</string>
     <string name="type.recycling.batteries">Batteries</string>
     <string name="type.recycling.clothes">Vêtements usagés</string>
@@ -337,7 +336,7 @@
     <string name="type.emergency.assembly_point">Point de rassemblement d’urgence</string>
     <string name="type.emergency.defibrillator">Défibrillateur</string>
     <string name="type.emergency.fire_hydrant">Point d’eau incendie</string>
-    <string name="type.amenity.hydrant">Borne d’puisage</string>
+    <string name="type.amenity.hydrant">Borne de puisage</string>
     <string name="type.emergency.phone">Téléphone d’urgence</string>
     <!-- A place where a lifeguard is on duty. -->
     <string name="type.emergency.lifeguard">Sauveteur</string>
@@ -773,8 +772,6 @@
     <string name="type.public_transport.platform">Quai de transport en commun</string>
     <string name="type.railway">Chemin de fer</string>
     <string name="type.railway.abandoned">Chemin de fer abandonné</string>
-    <string name="type.railway.abandoned.bridge">Chemin de fer abandonné</string>
-    <string name="type.railway.abandoned.tunnel">Chemin de fer abandonné</string>
     <string name="type.railway.construction">Chemin de fer en construction</string>
     <string name="type.railway.crossing">Passage à niveau pour piéton</string>
     <string name="type.railway.disused">Chemin de fer désaffecté</string>
@@ -1193,7 +1190,7 @@
     <string name="type.sport.handball">Handball</string>
     <string name="type.sport.multi">Sports multiples</string>
     <!-- Used to tag a scuba diving site. -->
-    <string name="type.sport.scuba_diving">Site de plongée sous-marine</string>
+    <string name="type.sport.scuba_diving">Plongée sous-marine</string>
     <string name="type.sport.shooting">Tir sportif</string>
     <string name="type.sport.skateboard">Skateboard</string>
     <string name="type.sport.skiing">Ski</string>
@@ -1326,7 +1323,7 @@
     <string name="type.railway.narrow_gauge.bridge">Pont ferroviaire à voie étroite</string>
     <string name="type.leisure.recreation_ground">Aire de jeux</string>
     <string name="type.amenity.place_of_worship.hindu">Temple hindou</string>
-    <string name="type.amenity.shelter.lean_to">Abri en appentis</string>
+    <string name="type.amenity.shelter.lean_to">Abri-lit en appentis</string>
     <string name="type.tourism.attraction.specified">Attraction</string>
     <string name="type.traffic_calming">Ralentisseur de vitesse</string>
     <string name="type.amenity.place_of_worship.buddhist">Temple bouddhiste</string>
@@ -1399,8 +1396,7 @@
     <string name="type.building.guardhouse">Guérite de sécurité</string>
     <string name="type.power.portal">Portique haute tension</string>
     <string name="type.shop.lighting">Boutique de luminaires</string>
-    <string name="type.amenity.bench.backless">Banc sans dossier</string>
-    <string name="type.amenity.charging_station.motorcar.small">Borne de recharge pour voiture</string>
+    <string name="type.amenity.bench.backless">Sans dossier</string>
     <string name="type.leisure.bandstand">Kiosque à musique</string>
     <string name="type.leisure.sports_centre.sport.multi">Complexe sportif</string>
     <string name="type.leisure.sports_centre.sport.american_football">Complexe sportif</string>
@@ -1487,8 +1483,8 @@
     <string name="type.spherical_buoy.special_purpose">Bouée sphérique, marque spéciale</string>
     <string name="type.lateral.port">Bâbord</string>
     <string name="type.lateral.starboard">Tribord</string>
-    <string name="type.cardinal.east">Est</string>
-    <string name="type.cardinal.north">Nord</string>
+    <string name="type.cardinal.east">Est :</string>
+    <string name="type.cardinal.north">Nord :</string>
     <string name="type.cardinal.south">Sud</string>
     <string name="type.cardinal.west">Ouest</string>
     <string name="type.entrance.house">Entrée de la maison</string>
@@ -1501,4 +1497,15 @@
     <string name="type.natural.sand">Sable</string>
     <string name="type.man_made.mast.communication">Antenne de télécommunications</string>
     <string name="type.shop.beauty.nails">Salon de manucure</string>
+    <string name="type.amenity.charging_station.motorcycle">Motos</string>
+    <string name="type.amenity.charging_station.small">Capacité limitée</string>
+    <string name="type.railway.disused.bridge">Pont de chemin de fer désaffecté</string>
+    <string name="type.railway.disused.tunnel">Tunnel de chemin de fer désaffecté</string>
+    <string name="type.railway.miniature.bridge">Pont de chemin de fer miniature</string>
+    <string name="type.railway.miniature.tunnel">Tunnel de chemin de fer miniature</string>
+    <string name="type.tourism.information.tactile_map">Carte tactile</string>
+    <string name="type.railway.miniature">Chemin de fer miniature</string>
+    <string name="type.railway.turntable">Rotonde de chemin de fer</string>
+    <string name="type.emergency.access_point.address">Adresse de secours en cas d\'urgence</string>
+    <string name="type.emergency.disaster_help_point">Point d\'assistance d\'urgence en cas de catastrophe</string>
 </resources>

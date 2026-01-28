@@ -464,7 +464,7 @@ public class PlacePageController
       mAlertDialog.show();
       return;
     }
-    mAlertDialog = new MaterialAlertDialogBuilder(requireContext(), R.style.MwmTheme_AlertDialog)
+    mAlertDialog = new MaterialAlertDialogBuilder(requireContext())
                        .setTitle(requireContext().getString(R.string.delete_track_dialog_title, mMapObject.getTitle()))
                        .setCancelable(true)
                        .setNegativeButton(R.string.cancel, null)

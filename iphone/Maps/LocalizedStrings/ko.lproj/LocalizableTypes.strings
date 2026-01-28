@@ -129,7 +129,6 @@
 "type.amenity.pub" = "술집";
 "type.amenity.public_bookcase" = "도서 교환";
 "type.amenity.recycling.centre" = "재활용센터";
-"type.amenity.recycling" = "재활용 쓰레기통";
 "type.amenity.recycling.container" = "재활용 쓰레기통";
 "type.recycling.batteries" = "배터리";
 "type.recycling.clothes" = "낡은 옷";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "다리";
-
 "type.highway.pedestrian.square" = "광장";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";

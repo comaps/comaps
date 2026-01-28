@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Feil ved sending av e-post";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompasskalibrering";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Trykk lenge på kartet igjen for å se grensesnittet";
 
@@ -738,7 +735,7 @@
 "transliteration_title" = "Omskrivning til latin";
 
 /* Subway exits for public transport marks on the map */
-"core_exit" = "Avslutt";
+"core_exit" = "Utgang";
 
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Bruk søk eller trykk på kartet for å legge til et startpunkt for ruten";
@@ -957,7 +954,7 @@
 "app_tip_01" = "Med dine donasjoner og støtte kan vi lage de beste kartene i verden!";
 
 /* App tip #02 */
-"app_tip_02" = "Liker du appen vår? Vennligst doner for å støtte utviklingen! Liker du det ikke ennå? Gi oss beskjed, så fikser vi det!";
+"app_tip_02" = "Liker du appen vår? Vennligst doner for å støtte utviklingen! Liker du den ikke ennå? La oss få vite hvorfor, så fikser vi det!";
 
 /* App tip #03 */
 "app_tip_03" = "Hvis du kjenner en programvareutvikler, kan du be ham eller henne implementere en funksjon du trenger.";
@@ -978,7 +975,7 @@
 "app_tip_08" = "Du kan enkelt fikse og forbedre kartdataene.";
 
 /* App tip #09 */
-"app_tip_09" = "Vårt hovedmål er å bygge raske, personvernfokuserte, brukervennlige kart som du vil elske.";
+"app_tip_09" = "Vårt hovedmål er å lage raske, personvernfokuserte, brukervennlige kart som du vil like.";
 
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Du bruker nå CoMaps på telefonskjermen";
@@ -1092,7 +1089,7 @@
 "pref_mapappearance_title" = "Kartets Utseende";
 "pref_maplanguage_title" = "Kart Språk";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
-"pref_maplanguage_local" = "Lokalt Språk";
+"pref_maplanguage_local" = "Lokalt språk";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
 "offline_explanation_text" = "Et kart må lastes ned for å vise og navigere i området.\nLast ned kartene for områdene du vil reise til.";

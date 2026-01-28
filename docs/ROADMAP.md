@@ -1,6 +1,3 @@
 # Roadmap
 
-## Milestones
-
-Milestones define when an issue, pull request, and/or roadmap item is to be completed. Issues are the what, milestones are the when. Development is complex therefore roadmap items can move between milestones depending on the remaining development and testing required to release a change.
-[View active milestones](https://codeberg.org/comaps/comaps/milestones).
+We do not have a formal roadmap, but we are working on a mission document to help understand our vision of the project. Also, we have an [App Priorities project](https://codeberg.org/comaps/comaps/projects/16883) on Codeberg to follow most important and asked features or changes.

@@ -22,9 +22,6 @@ public final class Constants
     public static final String LEMMY = "https://sopuli.xyz/c/CoMaps";
     public static final String BLUESKY = "https://bsky.app/profile/comaps.app";
     public static final String PIXELFED = "https://pixelfed.social/comaps";
-    public static final String FB_OM_COMMUNITY_HTTP = "https://www.facebook.com/profile.php?id=61575286559965";
-    public static final String FB_OM_COMMUNITY_NATIVE = "fb://profile/61575286559965";
-
     public static final String CODE_REPO = "https://codeberg.org/comaps/comaps";
 
     public static final String COPYRIGHT = "file:///android_asset/copyright.html";
@@ -34,13 +31,6 @@ public final class Constants
     public static final String OSM_REGISTER = "https://www.openstreetmap.org/user/new";
 
     private Url() {}
-  }
-
-  public static class Package
-  {
-    public static final String FB_PACKAGE = "com.facebook.katana";
-
-    private Package() {}
   }
 
   public static class Vendor

@@ -127,7 +127,6 @@
 "type.amenity.pub" = "Kocsma";
 "type.amenity.public_bookcase" = "Nyilvános könyvespolc";
 "type.amenity.recycling.centre" = "Hulladékudvar";
-"type.amenity.recycling" = "Szelektív hulladékgyűjtés";
 "type.amenity.recycling.container" = "Szelektív hulladékgyűjtő konténer";
 "type.recycling.batteries" = "Elem, akkumulátor";
 "type.recycling.clothes" = "Ruha";
@@ -880,8 +879,6 @@
 "type.public_transport.platform" = "Peron";
 "type.railway" = "Vasút";
 "type.railway.abandoned" = "Elhagyott vasútvonal";
-"type.railway.abandoned.bridge" = "Elhagyott vasúti híd";
-"type.railway.abandoned.tunnel" = "Elhagyott vasúti alagút";
 "type.railway.construction" = "Vasúti építési terület";
 "type.railway.crossing" = "Gyalogos vasúti átjáró";
 "type.railway.disused" = "Használaton kívüli vasútvonal";
@@ -1499,7 +1496,6 @@
 "type.leisure.sports_centre.sport.pelota" = "Sportközpont";
 "type.leisure.sports_centre.sport.skiing" = "Sportközpont";
 "type.leisure.sports_centre.sport.cricket" = "Sportközpont";
-"type.amenity.charging_station.motorcar.small" = "Elektromos töltőpont";
 "type.leisure.sports_centre.sport.equestrian" = "Sportközpont";
 "type.leisure.sports_centre.sport.volleyball" = "Sportközpont";
 "type.leisure.sports_centre.sport.curling" = "Sportközpont";

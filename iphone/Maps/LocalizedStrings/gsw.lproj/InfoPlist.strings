@@ -1,5 +1,5 @@
 "search" = "Suechi";
-"bookmarks_and_tracks" = "Lesezeiche und Tracks";
+"bookmarks_and_tracks" = "Favorite";
 "route" = "Route";
 "NSLocationAlwaysUsageDescription" = "S Bestimme vom aktuelle Standort im Hintergrund isch nötig, zum de volli Funktionsumfang vo de App chönne z gnüsse. Das wird defür gnutzt, zum de Route z folge und din scho zrugggleite Weg z speichere.";
 "NSLocationWhenInUseUsageDescription" = "D Aagab vom aktuelle Standort wird i de Optione bi de Verfolgig vonere Route und bim Speichere vo dim z letscht zrugggleite Weg gnutzt.";

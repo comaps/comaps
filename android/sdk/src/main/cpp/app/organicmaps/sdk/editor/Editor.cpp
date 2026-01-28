@@ -580,10 +580,10 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeGetMapObject
   return static_cast<jint>(osm::Editor::Instance().GetFeatureStatus(g_editableMapObject.GetID()));
 }
 
-JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeIsMapObjectUploaded(JNIEnv * env, jclass clazz)
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_editor_Editor_nativeAreSomeFeatureChangesUploaded(JNIEnv * env, jclass clazz)
 {
-  return osm::Editor::Instance().IsFeatureUploaded(g_editableMapObject.GetID().m_mwmId,
-                                                   g_editableMapObject.GetID().m_index);
+  return osm::Editor::Instance().AreSomeFeatureChangesUploaded(g_editableMapObject.GetID().m_mwmId,
+                                                               g_editableMapObject.GetID().m_index);
 }
 
 // static nativeMakeLocalizedName(String langCode, String name);

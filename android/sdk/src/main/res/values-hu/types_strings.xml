@@ -117,7 +117,6 @@
     <string name="type.amenity.public_bookcase">Nyilvános könyvespolc</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Hulladékudvar</string>
-    <string name="type.amenity.recycling">Szelektív hulladékgyűjtés</string>
     <string name="type.amenity.recycling.container">Szelektív hulladékgyűjtő konténer</string>
     <string name="type.recycling.batteries">Elem, akkumulátor</string>
     <string name="type.recycling.clothes">Ruha</string>
@@ -1290,8 +1289,6 @@
     <string name="type.public_transport.platform">Peron</string>
     <string name="type.railway">Vasút</string>
     <string name="type.railway.abandoned">Elhagyott vasútvonal</string>
-    <string name="type.railway.abandoned.bridge">Elhagyott vasúti híd</string>
-    <string name="type.railway.abandoned.tunnel">Elhagyott vasúti alagút</string>
     <string name="type.railway.construction">Vasúti építési terület</string>
     <string name="type.railway.crossing">Gyalogos vasúti átjáró</string>
     <string name="type.railway.disused">Használaton kívüli vasútvonal</string>
@@ -1430,7 +1427,6 @@
     <string name="type.leisure.sports_centre.sport.volleyball">Sportközpont</string>
     <string name="type.leisure.sports_centre.sport.yoga">Sportközpont</string>
     <string name="type.leisure.fitness_centre.sport.yoga">Jógastúdió</string>
-    <string name="type.amenity.charging_station.motorcar.small">Elektromos töltőpont</string>
     <string name="type.amenity.boat_rental">Hajóbérlés</string>
     <string name="type.man_made.telescope">Távcső</string>
     <string name="type.man_made.telescope.optical">Távcső (Optikai)</string>

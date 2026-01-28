@@ -1,7 +1,7 @@
 {
 "@category_recycling": "Reciclaje|Reciclaje de desechos|Eliminación de desechos|Materiales reciclables|Recogida separada de basura|Clasificación de desechos|Reutilización",
 "shop-houseware|@shop": "Enseres domésticos|Tienda de artículos para el hogar",
-"amenity-recycling-container|amenity-recycling|@category_recycling": "Contenedor de reciclaje",
+"amenity-recycling-container|@category_recycling": "Contenedor de reciclaje",
 "recycling-clothes|@category_recycling": "Ropa vieja|Reciclaje de cosas innecesarias|Ropa",
 "recycling-glass_bottles|@category_recycling": "Envase de vidrio",
 "recycling-paper|@category_recycling": "Desechos de papel|Papel",

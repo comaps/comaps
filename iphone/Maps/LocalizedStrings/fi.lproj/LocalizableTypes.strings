@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pubi";
 "type.amenity.public_bookcase" = "Kirjahylly";
 "type.amenity.recycling.centre" = "Kierrätyskeskus";
-"type.amenity.recycling" = "Kierrätysjäteastia";
 "type.amenity.recycling.container" = "Kierrätysjäteastia";
 "type.recycling.batteries" = "Paristot";
 "type.recycling.clothes" = "Vaatteet";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Joukkoliikenteen pysäkki/laituri";
 "type.railway" = "Rautatie";
 "type.railway.abandoned" = "Hylätty rautatie";
-"type.railway.abandoned.bridge" = "Hylätty rautatiesilta";
-"type.railway.abandoned.tunnel" = "Hylätty rautatietunneli";
 "type.railway.construction" = "Ratatyö";
 "type.railway.crossing" = "Raiteiden risteyskohta";
 "type.railway.disused" = "Käytöstä poistettu rautatie";
@@ -1488,7 +1485,6 @@
 "type.office.security" = "Vartijoiden toimisto";
 "type.power.portal" = "Sähköportaali";
 "type.building.guardhouse" = "Vartijankoppi";
-"type.amenity.charging_station.motorcar.small" = "Auton latauspiste";
 "type.amenity.bench.backless" = "Selkänojaton penkki";
 "type.amenity.boat_rental" = "Venevuokraus";
 "type.man_made.telescope" = "Teleskooppi";
@@ -1542,3 +1538,12 @@
 "type.natural.tree" = "Puu";
 "type.shop.beauty.nails" = "Kynsistudio";
 "type.xmas.tree" = "Joulukuusi";
+"type.social_facility.food_bank" = "Ruokapankki";
+"type.social_facility.soup_kitchen" = "Keittokeittiö";
+"type.disusedbusiness" = "Tyhjä liiketila";
+"type.shop.lighting" = "Valaistusliike";
+"type.shop.telecommunication" = "Puhelinliike";
+"type.shop.beauty.day_spa" = "Kylpylä";
+"type.man_made.mast.communication" = "Tietoliikennemasto";
+"type.leisure.bandstand" = "Esiintymislava";
+"type.leisure.indoor_play" = "Sisäleikkipuisto";

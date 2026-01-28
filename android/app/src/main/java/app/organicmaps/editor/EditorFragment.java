@@ -196,10 +196,8 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       {
         final Context context = mInputBuildingLevels.getContext();
         final boolean isValid = Editor.nativeIsLevelValid(s.toString());
-        UiUtils.setInputError(mInputBuildingLevels,
-                              isValid ? null
-                                      : context.getString(R.string.error_enter_correct_storey_number,
-                                                          Editor.nativeGetMaxEditableBuildingLevels()));
+        mInputBuildingLevels.setError(isValid ? null : context.getString(R.string.error_enter_correct_storey_number,
+                Editor.nativeGetMaxEditableBuildingLevels()));
       }
     });
 
@@ -495,7 +493,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       }
     });
 
-    return new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    return new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_socket)
         .setView(dialogView)
         .setPositiveButton(R.string.save,
@@ -948,7 +946,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
     mDisused.setVisibility(Editor.nativeCanMarkPlaceAsDisused() ? View.VISIBLE : View.GONE);
 
-    if (Editor.nativeIsMapObjectUploaded())
+    if (Editor.nativeAreSomeFeatureChangesUploaded())
     {
       mReset.setText(R.string.editor_place_doesnt_exist);
       return;
@@ -966,7 +964,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
   private void reset()
   {
-    if (Editor.nativeIsMapObjectUploaded())
+    if (Editor.nativeAreSomeFeatureChangesUploaded())
     {
       placeDoesntExist();
       return;
@@ -999,7 +997,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       message = R.string.editor_reset_edits_message;
     }
 
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(message)
         .setPositiveButton(title,
                            (dialog, which) -> {
@@ -1022,7 +1020,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
   private void placeDisused()
   {
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
       .setTitle(R.string.editor_mark_business_vacant_title)
       .setMessage(R.string.editor_mark_business_vacant_description)
       .setPositiveButton(R.string.editor_submit, (dlg, which) -> {

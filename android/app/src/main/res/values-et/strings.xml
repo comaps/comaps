@@ -62,11 +62,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Lisa uus loend</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Järjehoidjate loendi nimi</string>
+    <string name="bookmark_set_name">Loendi nimi</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Järjehoidjad</string>
+    <string name="bookmarks">Asukohad</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Järjehoidjad ja rajad</string>
+    <string name="bookmarks_and_tracks">Lemmikud</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nimi</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -142,14 +142,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Märkmed</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps järjehoidjaid jagati Sinuga</string>
-    <string name="share_bookmarks_email_body">Tere! \n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul on CoMaps paigaldatud. Või kui ei ole, laadi rakendus alla oma iOSi või Androidi seadmesse, järgides seda linki: https://www.comaps.app/download/ \n \nNaudi reisimist CoMapsiga!</string>
+    <string name="share_bookmarks_email_subject">Minu lemmikud CoMapsis</string>
+    <string name="share_bookmarks_email_body">Tere! \n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul CoMaps on nutiseadmesse paigaldatud. Või kui ei ole, laadi rakendus alla oma iOSi või Androidi seadmesse, järgides seda linki: https://www.comaps.app/download/ \n \nNaudi reisimist CoMapsiga!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Laadin järjehoidjaid</string>
+    <string name="load_kmz_title">Laadin lemmikuid</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Järjehoidjad edukalt laaditud! Leiad need kaardil või järjehoidjate halduri vaates.</string>
+    <string name="load_kmz_successful">Lemmikute laadimine õnnestus! Leiad need kaardilt või lemmikute halduri vaates.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Järjehoidjate laadimine ei õnnestunud. Fail võib olla vigane.</string>
+    <string name="load_kmz_failed">Lemmikute laadimine ei õnnestunud. Fail võib olla vigane.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Rakendus ei tunnista failitüüpi: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -494,7 +494,7 @@
     <string name="minute">min</string>
     <string name="day">p</string>
     <string name="placepage_more_button">Veel</string>
-    <string name="placepage_edit_bookmark_button">Muuda järjehoidjat</string>
+    <string name="placepage_edit_bookmark_button">Muuda salvestatud asukohta</string>
     <string name="placepage_personal_notes_hint">Isiklikud märkmed (tekst või html)</string>
     <string name="editor_reset_edits_message">Kas loobud kõigist kohalikest muudatustest?</string>
     <string name="editor_reset_edits_button">Loobu muudatustest</string>
@@ -559,17 +559,17 @@
     <string name="dialog_error_storage_message">Väline andmeruum pole juurdepääsetav. SD-kaart võib olla eemaldatud, kahjustatud või failisüsteem on kirjutuskaitstud. Palun kontrolli oma SD-kaarti või võta meiega ühendust aadressil support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Imiteeri vigast andmeruumi</string>
     <string name="error_enter_correct_name">Palun sisesta korrektne nimi</string>
-    <string name="bookmark_lists">Loendid</string>
+    <string name="bookmark_lists">Lemmikute loendid</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Peida kõik</string>
     <string name="bookmark_lists_show_all">Näita kõiki</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d järjehoidja</item>
-        <item quantity="other">%d järjehoidjat</item>
+        <item quantity="one">%d salvestatud asukoht</item>
+        <item quantity="other">%d salvestatud asukohta</item>
     </plurals>
     <string name="bookmarks_create_new_group">Loo uus loend</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Impordi järjehoidjaid ja radasid</string>
+    <string name="bookmarks_import">Impordi lemmikuid</string>
     <string name="bookmarks_error_message_share_general">Jagamine polnud võimalik rakenduse vea tõttu</string>
     <string name="bookmarks_error_title_share_empty">Viga jagamisel</string>
     <string name="bookmarks_error_message_share_empty">Tühja loendit ei saa jagada</string>
@@ -598,7 +598,7 @@
     <string name="subway">Metroo</string>
     <string name="layers_title">Kaardi stiilid ja kihid</string>
     <string name="bookmarks_empty_list_title">See loend on tühi</string>
-    <string name="bookmarks_empty_list_message">Järjehoidja lisamiseks puuduta kohta kaardil ja seejärel puuduta tähekese ikooni</string>
+    <string name="bookmarks_empty_list_message">ASukoha lisamiseks puuduta kohta kaardil ja seejärel puuduta tähekese ikooni</string>
     <string name="category_desc_more">…veel</string>
     <string name="export_file">Ekspordi KMZ-failina</string>
     <string name="export_file_gpx">Ekspordi GPX-failina</string>
@@ -651,7 +651,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Järjesta…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Järjesta järjehoidjaid</string>
+    <string name="sort_bookmarks">Järjesta lemmikuid</string>
     <!-- Android -->
     <string name="by_default">Vaikimisi</string>
     <!-- Android -->
@@ -765,7 +765,7 @@
     <string name="browser_not_available">Veebibrauser ei ole saadaval</string>
     <string name="volume">Helivaljus</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Ekspordi kõik järjehoidjad ja rajad</string>
+    <string name="bookmarks_export">Ekspordi kõik asukohad ja rajad</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Süsteemsed kõnesünteesi seadistused</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -797,7 +797,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Jätka salvestamist</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Kas salvestame järjehoidjatesse ja radadesse?</string>
+    <string name="track_recording_alert_title">Kas salvestame lemmikute loendisse?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Rada on tühi - ei ole midagi salvestada</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -834,16 +834,16 @@
     <string name="vehicle">Sõiduk</string>
     <string name="pedestrian">Jalakäija</string>
     <string name="ruler">Joonlaud</string>
-    <string name="bookmark_color">Järjehoidja värv</string>
+    <string name="bookmark_color">Lemmiku värv</string>
     <string name="panoramax">Panoramaxi pilt</string>
     <string name="about_help">Rakenduse teave ja abiteave</string>
-    <string name="pref_backup_title">Järjehoidjate ja radade varundus</string>
+    <string name="pref_backup_title">Lemmikute varundus</string>
     <string name="pref_backup_now_summary_ok">Varukoopia loomine õnnestus</string>
     <string name="pref_backup_summary">Varunda automaatselt sinu nutiseadmes asuvasse kausta</string>
     <string name="pref_backup_now_title">Varunda kohe</string>
     <string name="pref_backup_now_summary">Tee varukoopia kohe</string>
     <string name="pref_backup_now_summary_progress">Varundamine on töös…</string>
-    <string name="pref_backup_now_summary_empty_lists">Pole järjehoidjaid ega radu, mida varundada</string>
+    <string name="pref_backup_now_summary_empty_lists">Pole asukohti ega radu, mida varundada</string>
     <string name="pref_backup_now_summary_failed">Varundamine ei õnnestunud</string>
     <string name="backup_interval_manual_only">Pole kasutusel (vaid käsitsi varundus)</string>
     <string name="dialog_report_error_with_logs">Palun saada meile veateade, selleks:\n - Vali seadistustest „Lülita logimine sisse“\n - korda probleemi\n - Vaatest „Rakenduse teave ja abiteave“ klõpsi „Teata veast“ nuppu ja saada veateade e-kirjaga või vestluses\n - lülita logimine välja</string>
@@ -915,6 +915,6 @@
     <string name="advanced">Täiendavad seadistused</string>
     <string name="download_resources_custom_url_title">Sinu oma kaardiserver</string>
     <string name="download_resources_custom_url_message">Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.</string>
-    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
-    <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on https:// ja lõpus /</string>
+    <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on http:// või https://</string>
+    <string name="pref_maplanguage_local">Kohalik keel</string>
 </resources>

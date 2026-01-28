@@ -24,7 +24,6 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.WindowCompat;
@@ -196,7 +195,7 @@ public final class UiUtils
   public static void showHomeUpButton(MaterialToolbar toolbar)
   {
     toolbar.setNavigationIcon(
-        ThemeUtils.getResource(toolbar.getContext(), androidx.appcompat.R.attr.homeAsUpIndicator));
+        UiUtils.getStyledResourceId(toolbar.getContext(), androidx.appcompat.R.attr.homeAsUpIndicator));
   }
 
   // this method returns the total height of the display (in pixels) including notch and other touchable areas
@@ -209,15 +208,7 @@ public final class UiUtils
   }
   public static void setInputError(@NonNull TextInputLayout layout, @StringRes int error)
   {
-    setInputError(layout, error == 0 ? null : layout.getContext().getString(error));
-  }
-
-  public static void setInputError(@NonNull TextInputLayout layout, String error)
-  {
-    layout.getEditText().setError(error);
-    layout.getEditText().setTextColor(error == null
-                                          ? ThemeUtils.getColor(layout.getContext(), android.R.attr.textColorPrimary)
-                                          : ContextCompat.getColor(layout.getContext(), R.color.base_red));
+    layout.setError(error == 0 ? null : layout.getContext().getString(error));
   }
 
   public static void setFullscreen(@NonNull Activity activity, boolean fullscreen)
@@ -279,6 +270,14 @@ public final class UiUtils
   {
     final Insets systemInsets = windowInsets.getInsets(WindowInsetUtils.TYPE_SAFE_DRAWING);
     view.setPadding(systemInsets.left, systemInsets.top, systemInsets.right, view.getPaddingBottom());
+  }
+
+  public static void setViewNavigationTopInsetsMargin(View view, WindowInsetsCompat windowInsets)
+  {
+      final Insets systemInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+      ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+      lp.topMargin = systemInsets.top;
+      view.setLayoutParams(lp);
   }
 
   public static void setupNavigationIcon(@NonNull MaterialToolbar toolbar, @NonNull View.OnClickListener listener)

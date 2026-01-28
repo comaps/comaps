@@ -1,0 +1,10 @@
+• Datos OSM de 22/01
+• Se añaden bordes sutiles a carreteras
+• Se muestra la descripción de la ruta cuando se selecciona
+• Se cambia nombre de «Marcadores y rutas» a «Favoritos»
+• Se añaden mapas táctiles, plataformas giratorias ferroviarias y puntos de emergencia
+• Se actualizan aspectos de interfaz
+• Se utilizan idiomas nativos para el mapa general
+• Se corrige fallo de ruta en algunos dispositivos
+
+Más detalles en codeberg.org/comaps/comaps/releases

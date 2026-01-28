@@ -3,6 +3,7 @@
 #include "indexer/classificator.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 
 #include "base/assert.hpp"
 #include "base/macros.hpp"
@@ -91,16 +92,19 @@ public:
   /// @return Type score, less is better.
   uint8_t Score(uint32_t t) const
   {
+    if (IsIn(0, t))
+      return 1;
+
     ftype::TruncValue(t, 2);
+    if (IsIn(3, t))
+      return 4;
+
+    ftype::TruncValue(t, 1);
     if (IsIn(2, t))
       return 3;
 
-    ftype::TruncValue(t, 1);
     if (IsIn(1, t))
       return 2;
-
-    if (IsIn(0, t))
-      return 1;
 
     return 0;
   }
@@ -117,23 +121,26 @@ private:
   {
     // Fill types that will be taken into account last,
     // when we have many types for POI.
-    base::StringIL const types1[] = {
+    base::StringIL const types2[] = {
         // 1-arity
         {"building:part"}, {"hwtag"},   {"psurface"},  {"internet_access"}, {"organic"},
-        {"wheelchair"},    {"cuisine"}, {"recycling"}, {"area:highway"},    {"fee"},
+        {"wheelchair"},    {"cuisine"}, {"area:highway"},    {"fee"},
     };
 
     Classificator const & c = classif();
 
-    m_types[0].push_back(c.GetTypeByPath({"building"}));
+    for (auto const subtype : ftypes::Subtypes::Instance().AllSubtypes())
+      m_types[0].push_back(subtype);
 
-    m_types[1].reserve(std::size(types1));
-    for (auto const & type : types1)
-      m_types[1].push_back(c.GetTypeByPath(type));
+    m_types[1].push_back(c.GetTypeByPath({"building"}));
+
+    m_types[2].reserve(std::size(types2));
+    for (auto const & type : types2)
+      m_types[2].push_back(c.GetTypeByPath(type));
 
     // Put _most_ useless types here, that are not fit in the arity logic above.
     // This change is for generator, to eliminate "lit" type first when max types count exceeded.
-    m_types[2].push_back(c.GetTypeByPath({"hwtag", "lit"}));
+    m_types[3].push_back(c.GetTypeByPath({"hwtag", "lit"}));
 
     for (auto & v : m_types)
       std::sort(v.begin(), v.end());
@@ -141,7 +148,7 @@ private:
 
   bool IsIn(uint8_t idx, uint32_t t) const { return std::binary_search(m_types[idx].begin(), m_types[idx].end(), t); }
 
-  vector<uint32_t> m_types[3];
+  vector<uint32_t> m_types[4];
 };
 }  // namespace
 
@@ -191,9 +198,14 @@ void TypesHolder::SortBySpec()
   auto const getPriority = [&cl](uint32_t type) { return cl.GetObject(type)->GetMaxOverlaysPriority(); };
 
   auto const & checker = UselessTypesChecker::Instance();
+  auto const & subtypes = ftypes::Subtypes::Instance();
 
-  std::stable_sort(begin(), end(), [&checker, &getPriority](uint32_t t1, uint32_t t2)
+  std::stable_sort(begin(), end(), [&checker, &getPriority, &subtypes](uint32_t t1, uint32_t t2)
   {
+    std::optional<bool> const comparisonResultBasedOnTypeRelation = subtypes.ComparisonResultBasedOnTypeRelation(t1, t2);
+    if (comparisonResultBasedOnTypeRelation.has_value())
+      return comparisonResultBasedOnTypeRelation.value();
+      
     int const p1 = getPriority(t1);
     int const p2 = getPriority(t2);
     if (p1 != p2)

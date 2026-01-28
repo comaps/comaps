@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Barbecue Grill";
 "type.amenity.bench" = "Bench";
-"type.amenity.bench.backless" = "Backless Bench";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "Bicycle Parking";
 "type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "Bicycle Rental";
@@ -48,9 +48,10 @@
 "type.leisure.adult_gaming_centre" = "Adult Gaming Centre";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Charging Station";
-"type.amenity.charging_station.bicycle" = "Bicycle Charging Station";
-"type.amenity.charging_station.motorcar" = "Car Charging Station";
-"type.amenity.charging_station.motorcar.small" = "Car Charging Point";
+"type.amenity.charging_station.motorcar" = "Cars";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "Bicycles";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Nursery";
 "type.amenity.cinema" = "Cinema";
 "type.leisure.bowling_alley" = "Bowling Alley";
@@ -144,7 +145,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Book Exchange";
 "type.amenity.recycling.centre" = "Recycling Centre";
-"type.amenity.recycling" = "Recycling Container";
 "type.amenity.recycling.container" = "Recycling Container";
 "type.recycling.batteries" = "Batteries";
 "type.recycling.clothes" = "Clothes";
@@ -371,7 +371,9 @@
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
 "type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Emergency Assembly Point";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
 "type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Defibrillator";
 "type.emergency.fire_hydrant" = "Fire Hydrant";
@@ -520,7 +522,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -983,8 +984,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Railway";
 "type.railway.abandoned" = "Abandoned Railway";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
@@ -1403,6 +1402,7 @@
 "type.shop.watches" = "Watch Shop";
 "type.shop.wholesale" = "Wholesale Shop";
 "type.sport" = "Sport";
+"type.sport.multi" = "Various Sports";
 "type.sport.9pin" = "Bowling";
 "type.sport.10pin" = "Bowling";
 "type.sport.american_football" = "American Football";

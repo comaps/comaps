@@ -22,7 +22,7 @@
     android:layout_marginStart="@dimen/margin_base"
     android:maxLines="3"
     android:ellipsize="end"
-    android:textAppearance="@style/TextAppearance.Headline6"
+    android:textAppearance="@style/MwmTextAppearance.Headline6"
     tools:text="Title" />
 
   <androidx.recyclerview.widget.RecyclerView

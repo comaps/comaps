@@ -4,7 +4,7 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   style="@style/MwmWidget.Floating"
-  android:background="?cardBackground"
+  android:background="?appBackground"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
   <include layout="@layout/toolbar_with_search"/>
@@ -17,10 +17,12 @@
     style="@style/MwmWidget.Button.Primary"
     tools:text="@string/downloader_update_all_button"/>
 
-  <include
-    layout="@layout/recycler_default"
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?appBackground"
+    android:scrollbars="vertical"
     android:layout_below="@id/toolbar"
     android:layout_above="@id/action"/>
 

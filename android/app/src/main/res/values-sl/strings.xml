@@ -42,8 +42,8 @@
     <string name="continue_button">Nadaljuj</string>
     <string name="download_country_failed">Prenos za državo %s ni uspel</string>
     <string name="add_new_set">Dodaj nov seznam</string>
-    <string name="bookmark_set_name">Ime seznama zaznamkov</string>
-    <string name="bookmarks">Zaznamki</string>
+    <string name="bookmark_set_name">Ime seznama</string>
+    <string name="bookmarks">Kraji</string>
     <string name="name">Ime</string>
     <string name="address">Naslov</string>
     <string name="list">Seznam</string>
@@ -54,12 +54,12 @@
     <string name="maps_storage_free_size">%1$s prosto od %2$s</string>
     <string name="move_maps">Premaknem zemljevide?</string>
     <string name="move_maps_error">Napaka med premikanjem datotek zemljevidov</string>
-    <string name="wait_several_minutes">To lahko traja nekaj minut. \nProsimo, počakajte …</string>
+    <string name="wait_several_minutes">To lahko traja nekaj minut. \nPočakajte …</string>
     <string name="measurement_units">Merske enote</string>
     <string name="measurement_units_summary">Izberite med miljami in kilometri</string>
     <string name="category_eat">Kje jesti</string>
     <string name="category_food">Špecerija</string>
-    <string name="category_transport">Javni prevoz</string>
+    <string name="category_transport">Prevoz</string>
     <string name="category_fuel">Gorivo</string>
     <string name="category_parking">Parkiranje</string>
     <string name="category_shopping">Nakupovanje</string>
@@ -80,18 +80,18 @@
     <string name="category_water">Voda</string>
     <string name="category_rv">Prostori za avtodome</string>
     <string name="description">Pripis</string>
-    <string name="share_bookmarks_email_subject">Nekdo je z vami delil zaznamke CoMaps</string>
-    <string name="share_bookmarks_email_body">Živjo! \n \nV priponki so moji zaznamki. Prosim, odpri jih v aplikaciji CoMaps. Če je še nimaš nameščene, jo lahko preneseš tukaj: https://www.comaps.app/download/ \n \nUživaj v potovanju s CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Moji zaznamki na CoMaps</string>
+    <string name="share_bookmarks_email_body">Živjo! \n \nV priponki so moji zaznamki. Prosim, odpri jih v orodju CoMaps. Če ga še nisi namestil, ga lahko preneseš tukaj: https://www.comaps.app/download/ \n \nUživaj v potovanju s CoMaps!</string>
     <string name="load_kmz_title">Nalagam zaznamke</string>
     <string name="load_kmz_successful">Zaznamki so uspešno naloženi! Najdete jih lahko na zemljevidu ali v upravitelju zaznamkov.</string>
-    <string name="load_kmz_failed">Zaznamkov ni bilo mogoče naložiti. Datoteka je morda okvarjena.</string>
+    <string name="load_kmz_failed">Zaznamkov ni bilo mogoče naložiti. Datoteka je morda poškodovana ali okvarjena.</string>
     <string name="unknown_file_type">Aplikacija ne prepozna te vrste datoteke: \n%1$s</string>
     <string name="failed_to_open_file">Ni bilo mogoče odpreti datoteke %1$s \n \n%2$s</string>
     <string name="edit">Uredi</string>
     <string name="unknown_current_position">Vaša lokacija še ni znana</string>
     <string name="cant_change_this_setting">Žal so nastavitve shranjevanja zemljevidov trenutno onemogočene</string>
     <string name="downloading_is_active">Poteka prenašanje zemljevida</string>
-    <string name="bookmarks_and_tracks">Zaznamki in poti</string>
+    <string name="bookmarks_and_tracks">Priljubljeni</string>
     <string name="my_position_share_sms">Oglej si mojo trenutno lokacijo na CoMaps! %1$s ali %2$s Si brez zemljevidov? Prenesi jih tukaj: https://www.comaps.app/download/</string>
     <string name="bookmark_share_email_subject">Živjo, oglej si tale kraj na CoMaps!</string>
     <string name="my_position_share_email_subject">Živjo, poglej si mojo trenutno lokacijo na zemljevidu CoMaps!</string>
@@ -239,7 +239,7 @@
     <string name="editor_example_values">Primeri vrednosti</string>
     <string name="editor_correct_mistake">Popravi napako</string>
     <string name="editor_add_select_location">Izberi lokacijo</string>
-    <string name="editor_report_problem_desription_1">Prosimo, podrobno opišite težavo, da jo lahko skupnost OpenStreetMap odpravi.</string>
+    <string name="editor_report_problem_desription_1">Podrobno opišite težavo, da jo lahko skupnost OpenStreetMap odpravi.</string>
     <string name="editor_report_problem_desription_2">Ali pa jo popravite sami na https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Pošlji</string>
     <string name="editor_report_problem_title">Težava</string>
@@ -271,7 +271,7 @@
     <string name="social_media">Družbena omrežja</string>
     <string name="building">Stavba</string>
     <string name="add_street">Dodaj ulico</string>
-    <string name="empty_street_name_error">Prosimo, vnesite ime ulice</string>
+    <string name="empty_street_name_error">Vnesite ime ulice</string>
     <string name="choose_language">Izberite jezik</string>
     <string name="choose_street">Izberite ulico</string>
     <string name="cuisine">Kuhinja</string>
@@ -285,7 +285,7 @@
     <string name="downloader_search_field_hint">Najdi zemljevid</string>
     <string name="common_check_internet_connection_dialog">Preverite, da je vaša naprava povezana na internet</string>
     <string name="downloader_no_space_title">Ni dovolj prostora</string>
-    <string name="downloader_no_space_message">Prosimo, izbrišite vse nepotrebne podatke</string>
+    <string name="downloader_no_space_message">Izbrišite vse nepotrebne podatke</string>
     <string name="editor_login_error_dialog">Napaka pri prijavi</string>
     <string name="editor_profile_changes">Potrjene spremembe</string>
     <string name="editor_focus_map_on_location">Povlecite zemljevid tako, da bo križ na lokaciji kraja ali podjetja.</string>
@@ -308,7 +308,7 @@
     <string name="error_enter_correct_zip_code">Vnesite veljavno poštno številko</string>
     <string name="editor_other_info">Komentar za prostovoljce na OpenStreetMap (neobvezno)</string>
     <string name="editor_note_hint">Opišite napake na zemljevidu ali stvari, ki jih ni mogoče urediti prek CoMaps</string>
-    <string name="editor_about_osm">Vaša urejanja se naložijo v javno podatkovno bazo <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Prosimo, da ne dodajate osebnih ali avtorsko zaščitenih podatkov.</string>
+    <string name="editor_about_osm">Vaša urejanja se naložijo v javno podatkovno bazo <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>. Ne dodajajte osebnih ali avtorsko zaščitenih podatkov.</string>
     <string name="editor_more_about_osm">Več o OpenStreetMap</string>
     <string name="editor_osm_history">Vaša zgodovina urejanja</string>
     <string name="editor_osm_notes">Vaši komentarji za zemljevid</string>
@@ -328,7 +328,7 @@
     <string name="placepage_edit_bookmark_button">Uredi zaznamek</string>
     <string name="placepage_personal_notes_hint">Osebne opombe (golo besedilo ali HTML)</string>
     <string name="editor_reset_edits_message">Naj zavržem vse krajevne spremembe?</string>
-    <string name="editor_reset_edits_button">Zavrzi</string>
+    <string name="editor_reset_edits_button">Zavrzi spremembe</string>
     <string name="editor_remove_place_message">Naj izbrišem dodane kraje?</string>
     <string name="editor_remove_place_button">Izbriši</string>
     <string name="editor_place_doesnt_exist">Kraj ne obstaja</string>
@@ -365,7 +365,7 @@
     <string name="mobile_data_option_ask">Vedno vprašaj</string>
     <string name="traffic_update_maps_text">Za prikazovanje podatkov o prometu je treba posodobiti zemljevide</string>
     <string name="big_font">Povečajte velikost oznak na zemljevidu</string>
-    <string name="traffic_update_app">Prosimo, posodobite CoMaps</string>
+    <string name="traffic_update_app">Posodobite CoMaps</string>
     <string name="traffic_data_unavailable">Prometni podatki niso na voljo</string>
     <string name="enable_logging">Omogoči dnevniške zapise</string>
     <string name="feedback_general">Splošne povratne informacije</string>
@@ -384,7 +384,7 @@
     <string name="dialog_error_storage_message">Zunanja shramba ni dostopna. SD kartica je bila morda odstranjena, je poškodovana ali pa datotečni sistem ne podpira zapisovanja. Preverite svojo SD kartico ali stopite v stik z nami prek support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emuliraj pokvarjeno shrambo</string>
     <string name="error_enter_correct_name">Vnesite pravilno ime</string>
-    <string name="bookmark_lists">Seznami</string>
+    <string name="bookmark_lists">Seznam priljubljenih</string>
     <string name="bookmark_lists_hide_all">Skrij vse</string>
     <string name="bookmark_lists_show_all">Pokaži vse</string>
     <plurals name="bookmarks_places">
@@ -394,7 +394,7 @@
         <item quantity="other">%d zaznamkov</item>
     </plurals>
     <string name="bookmarks_create_new_group">Ustvarite nov seznam</string>
-    <string name="bookmarks_import">Uvozi zaznamke in poti</string>
+    <string name="bookmarks_import">Uvozi zaznamke</string>
     <string name="bookmarks_error_message_share_general">Ni bilo mogoče deliti zaradi aplikacijske napake</string>
     <string name="bookmarks_error_title_share_empty">Napaka pri deljenju</string>
     <string name="bookmarks_error_message_share_empty">Ni mogoče deliti praznega seznama</string>
@@ -412,7 +412,7 @@
         <item quantity="few">%d datoteke najdene. Po pretvorbi si jih lahko ogledate.</item>
         <item quantity="other">%d datotek najdenih. Po pretvorbi si jih lahko ogledate.</item>
     </plurals>
-    <string name="restore">Obnovi</string>
+    <string name="restore">Povrni</string>
     <plurals name="tracks">
         <item quantity="one">%d pot</item>
         <item quantity="two">%d poti</item>
@@ -448,7 +448,7 @@
     <string name="avoid_ferry">Brez trajektov</string>
     <string name="avoid_motorways">Brez avtocest</string>
     <string name="unable_to_calc_alert_title">Ne morem izračunati poti</string>
-    <string name="unable_to_calc_alert_subtitle">Ni bilo mogoče najti relacije. Mogoče so krive vaše zahteve za pot ali pa nepopolni podatki OpenStreetMap. Prosimo, spremenite možnosti relacije in poskusite ponovno.</string>
+    <string name="unable_to_calc_alert_subtitle">Ni bilo mogoče najti povezave. Mogoče so krive vaše zahteve za pot ali pa nepopolni podatki OpenStreetMapa. Spremenite možnosti iskanja povezave in poskusite ponovno.</string>
     <string name="define_to_avoid_btn">Definirajte, katerim cestam naj se izognemo</string>
     <string name="change_driving_options_btn">Možnosti relacije so omogočene</string>
     <string name="toll_road">Cesta s cestnino</string>
@@ -524,7 +524,7 @@
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_tip_00">Hvala, ker uporabljate naše javno narejene zemljevide!</string>
     <string name="app_tip_01">Z vašo podporo lahko ustvarimo najboljše zemljevide na svetu!</string>
-    <string name="app_tip_02">Ali vam je naša aplikacija všeč? Vabimo vas, da finančno podprete njen razvoj! Ali niste zadovoljni z njo? Prosimo, da nam sporočite, zakaj, in jo bomo popravili!</string>
+    <string name="app_tip_02">Ali vam je naša aplikacija všeč? Vabimo vas, da finančno podprete njen razvoj! Ali niste zadovoljni z njo? Prosimo, da nam sporočite zakaj, in jo bomo popravili!</string>
     <string name="app_tip_03">Če poznate kakega_o razvijalca_ko programske opreme, ga_jo lahko prosite, da implementira funkcionalnost, ki jo potrebujete.</string>
     <string name="app_tip_04">S kratkim pritiskom na zemljevid lahko izberete kateri koli element. Z dolgim pritiskom lahko skrijete ali pokažete vmesnik.</string>
     <string name="app_tip_05">Ali ste vedeli, da lahko na zemljevidu izberete svojo trenutno lokacijo?</string>
@@ -571,7 +571,7 @@
     <string name="stop_track_recording">Ustavi snemanje sledi</string>
     <string name="stop_without_saving">Ustavi brez shranjevanja</string>
     <string name="continue_recording">Nadaljuj snemanje</string>
-    <string name="track_recording_alert_title">Shrani med Zaznamke in sledi?</string>
+    <string name="track_recording_alert_title">Shrani med zaznamke?</string>
     <string name="track_recording_toast_nothing_to_save">Sled je prazna – ničesar ni za shraniti</string>
     <string name="error_no_file_manager_app">Pogovornega okna za izbiro mape ni mogoče prikazati, ker na vaši napravi ni nameščenega ustreznega orodja. Namestite upravitelja datotek in poskusite znova.</string>
     <string name="choose_color">Izberi barvo</string>
@@ -581,7 +581,7 @@
     <string name="zoom_in">Približaj</string>
     <string name="zoom_out">Oddalji</string>
     <string name="pref_left_button_title">Nastavitev levega gumba</string>
-    <string name="pref_backup_title">Varnostno kopiranje zaznamkov in sledi</string>
+    <string name="pref_backup_title">Varnostno kopiranje priljubljenih</string>
     <string name="pref_backup_summary">Samodejno varnostno kopiraj v mapo na vaši napravi</string>
     <string name="pref_backup_now_title">Ustvari varnostno kopijo zdaj</string>
     <string name="pref_left_button_disable">Onemogoči</string>
@@ -593,14 +593,14 @@
     <string name="pref_backup_now_summary_folder_unavailable">Mapa za varnostno kopijo ni na voljo</string>
     <string name="pref_backup_status_summary_success">Zadnje uspešno kopiranje</string>
     <string name="pref_backup_location_title">Mesto varnostne kopije</string>
-    <string name="pref_backup_location_summary_initial">Prosimo, najprej izberite mapo in podelite dovoljenja</string>
+    <string name="pref_backup_location_summary_initial">Najprej izberite mapo in dodelite dovoljenja</string>
     <string name="pref_backup_history_title">Število varnostnih kopij, ki jih je treba hraniti</string>
     <string name="pref_backup_interval_title">Samodejno varnostno kopiranje</string>
     <string name="backup_interval_manual_only">Izklopljeno (samo ročno)</string>
     <string name="dialog_report_error_missing_folder">Izbrano mesto za varnostno kopijo ni na voljo ali vanjo ni mogoče pisati. Izberite drugo mesto.</string>
     <string name="backup_interval_every_day">Dnevno</string>
     <string name="backup_interval_every_week">Tedensko</string>
-    <string name="dialog_report_error_with_logs">Prosimo, pošljite nam poročilo o napaki:\n - \"Omogoči beleženje\" v nastavitvah\n - poustvarite težavo\n - na zaslonu »O programu in Pomoč« pritisnite gumb »Prijavi napako« in jo pošljite po e-pošti ali klepetu\n - onemogoči beleženje</string>
+    <string name="dialog_report_error_with_logs">Pošljite nam poročilo o napaki:\n - \"Omogoči beleženje\" v nastavitvah\n - poustvarite težavo\n - na zaslonu »O programu in Pomoč« pritisnite gumb »Prijavi napako« in jo pošljite po e-pošti ali klepetu\n - onemogočite beleženje</string>
     <string name="route_type">Vrsta poti</string>
     <string name="vehicle">Vozilo</string>
     <string name="pedestrian">Za pešce</string>
@@ -646,8 +646,8 @@
     <string name="editor_mark_business_vacant_description">To uporabite, če se je podjetje izselilo in so prostori prazni in pripravljeni za novega zakupnika.</string>
     <string name="editor_submit">Potrdi</string>
     <string name="place_page_map_too_old_title">Podatki zemljevida so zastareli</string>
-    <string name="place_page_map_too_old_description">Vaši trenutni podatki zemljevida so zelo stari; prosimo, posodobite zemljevid.</string>
-    <string name="place_page_app_too_old_description">Vaši trenutni podatki zemljevida so zelo stari; prosimo, posodobite orodje CoMaps.</string>
+    <string name="place_page_map_too_old_description">Vaši trenutni podatki zemljevida so zelo stari, posodobite zemljevid.</string>
+    <string name="place_page_app_too_old_description">Vaši trenutni podatki zemljevida so zelo stari, posodobite orodje CoMaps.</string>
     <string name="place_page_update_too_old_map">Posodobi področje zemljevida</string>
     <string name="place_page_too_old_to_edit">Urejanje OpenStreetMap je onemogočeno, ker so podatki zemljevida prestari.</string>
     <string name="prefs_speed_cameras_information">Opozorila o merilnikih hitrosti so onemogočena v državah, kjer so prepovedana s tamkajšnjimi zakoni.</string>
@@ -657,4 +657,10 @@
     <string name="navigation_start_tts_disabled_message">Glasovni napotki so onemogočeni: ustvarjalec glasu (TTS) ni na voljo</string>
     <string name="charge_socket_schuko">standardna evropska vtičnica (Schuko)</string>
     <string name="list_description_empty">Uredite seznam, da dodate opis</string>
+    <string name="advanced">Napredno</string>
+    <string name="download_resources_custom_url_title">Strežnik zemljevida po meri</string>
+    <string name="download_resources_custom_url_message">Prepiši privzeti strežnik za prenos zemljevidov, ki se uporablja za prenos zemljevidov. Pustite prazno, če želite uporabiti privzeti strežnik CoMaps.</string>
+    <string name="download_resources_custom_url_summary_none">Ni nastavljeno</string>
+    <string name="download_resources_custom_url_error_scheme">Vnesite polni URL, ki se začne z http:// ali https://</string>
+    <string name="pref_maplanguage_local">Krajevni jezik</string>
 </resources>

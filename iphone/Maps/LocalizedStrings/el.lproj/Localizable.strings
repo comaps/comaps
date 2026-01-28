@@ -63,10 +63,10 @@
 "bookmark_sets" = "Λίστα αγαπημένων";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Αγαπημένα";
+"bookmarks" = "Σελιδοδείκτες";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Αγαπημένα και διαδρομές";
+"bookmarks_and_tracks" = "Σελιδοδείκτες και Ίχνη";
 
 /* Default bookmark list name */
 "core_my_places" = "Οι τοποθεσίες μου";
@@ -148,16 +148,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Για RV";
-"share_bookmarks_email_body" = "Γειa!\n\nΣου επισυνάπτω τα αγαπημένα μου. Παρακαλώ άνοιξέ τα με το CoMaps. Αν δεν το έχεις εγκαταστήσει, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/\n\nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!";
+"share_bookmarks_email_body" = "Γειά σου! \n \nΣου επισυνάπτω τα αγαπημένα μου. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n \nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Φορτώνονται τα αγαπημένα";
+"load_kmz_title" = "Φορτώνονται οι σελιδοδείκτες";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Τα αγαπημένα φορτώθηκαν με επιτυχία! Μπορείτε να τα βρείτε στο χάρτη ή στην οθόνη Διαχείρισης αγαπημένων.";
+"load_kmz_successful" = "Οι σελιδοδείκτες φορτώθηκαν με επιτυχία! Μπορείτε να τους βρείτε στο χάρτη ή στην οθόνη Διαχείρισης σελιδοδεικτών.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Η φόρτωση των αγαπημένων απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.";
+"load_kmz_failed" = "Η φόρτωση των σελιδοδεικτών απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.";
 
 /* resource for context menu */
 "edit" = "Επεξεργασία";
@@ -192,7 +192,7 @@
 "version: %@ (%@)\nmap data: %@" = "Έκδοση: %@ (%@)\nΔεδομένα χάρτη: %@";
 
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Διαδρομές";
+"tracks_title" = "Ίχνη";
 
 /* Length of track in cell that describes route */
 "length" = "Μήκος";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "Σφάλμα κατά την αποστολή του e-mail";
-
-/* Settings item title */
-"pref_calibration_title" = "Καλιμπράρισμα πυξίδας";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Πατήστε ξανά παρατεταμένα στο χάρτη για να δείτε το περιβάλλον εργασίας";
@@ -608,7 +605,7 @@
 "editor_sharing_title" = "Βελτίωσα τους χάρτες CoMaps";
 
 /* Downloaded 10 **of** 20 <- it is that "of" */
-"downloader_of" = "%1$d/%2$d";
+"downloader_of" = "%1$d από %2$d";
 "download_over_mobile_header" = "Να γίνει λήψη μέσω δικτύου κινητής τηλεφωνίας;";
 "download_over_mobile_message" = "Αυτό μπορεί να είναι πολύ ακριβό για μερικά πακέτα ή στην περίπτωση roaming.";
 "error_enter_correct_house_number" = "Εισαγάγετε έναν έγκυρο αριθμό κτιρίου";
@@ -634,7 +631,7 @@
 "editor_category_unsuitable_title" = "Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;";
 "editor_category_unsuitable_text" = "Οι CoMaps επιτρέπουν την προσθήκη απλών κατηγοριών σημείων μόνο, δηλαδή όχι πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Ελέγξτε τον <a href=\"https://www.comaps.app/support/advanced-map-editing/\">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.";
 "downloader_no_downloaded_maps_title" = "Δεν έχετε κατεβάσει χάρτες";
-"downloader_no_downloaded_maps_message" = "Κατεβάστε χάρτες για να αναζητήσετε μια τοποθεσία και να χρησιμοποιήσετε την πλοήγησης χωρίς σύνδεση.";
+"downloader_no_downloaded_maps_message" = "Κατεβάστε χάρτες για να κάνετε αναζήτηση και να πλοηγηθείτε χωρίς σύνδεση.";
 "current_location_unknown_error_title" = "Η τρέχουσα τοποθεσία είναι άγνωστη.";
 "current_location_unknown_error_message" = "Παρουσιάστηκε σφάλμα κατά την αναζήτηση της τοποθεσίας σας. Ελέγξτε αν η συσκευή σας λειτουργεί κανονικά και δοκιμάστε ξανά αργότερα.";
 "location_services_disabled_header" = "Οι υπηρεσίες εντοπισμού τοποθεσίας είναι απενεργοποιημένες";
@@ -663,21 +660,21 @@
 
 /* A unit of measure */
 "ft" = "πόδια";
-"miles_per_hour" = "mph";
-"hour" = "Ωρα";
-"minute" = "λπτ";
-"day" = "Μέρα";
+"miles_per_hour" = "μλ/ώ";
+"hour" = "ώ";
+"minute" = "λεπ";
+"day" = "μέρ";
 "placepage_more_button" = "Περισσότερα";
 "book_button" = "Κράτηση";
 "placepage_call_button" = "Κλήση";
-"placepage_edit_bookmark_button" = "Επεξεργασία αγαπημένου";
+"placepage_edit_bookmark_button" = "Επεξεργασία σελιδοδείκτη";
 "placepage_bookmark_name_hint" = "Όνομα αγαπημένου";
 "placepage_personal_notes_hint" = "Προσωπικές σημειώσεις (κείμενο ή html)";
 "placepage_delete_bookmark_button" = "Διαγραφή αγαπημένου";
 "editor_edits_sent_message" = "Η σημείωσή σας θα σταλεί στο OpenStreetMap";
 "editor_comment_hint" = "Σχόλιο…";
 "editor_reset_edits_message" = "Απόρριψη όλων των τοπικών αλλαγών;";
-"editor_reset_edits_button" = "Απόρριψη";
+"editor_reset_edits_button" = "Απόρριψη αλλαγών";
 "editor_remove_place_message" = "Διαγραφή της τοποθεσίας που προστέθηκε;";
 "editor_remove_place_button" = "Διαγραφή";
 "editor_place_doesnt_exist" = "Η τοποθεσία δεν υπάρχει";
@@ -696,7 +693,7 @@
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Βεβαιωθείτε ότι δεν έχετε εισάγει προσωπικά δεδομένα.";
 "editor_share_to_all_dialog_message_2" = "Οι συντάκτες του OpenStreetMap θα ελέγξουν τις αλλαγές και θα επικοινωνήσουν μαζί σας εάν έχουν απορίες.";
-"navigation_stop_button" = "τέλος";
+"navigation_stop_button" = "Τέλος";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Θέλετε να απενεργοποιήσετε την καταγραφή της πρόσφατης διαδρομής σας;";
@@ -715,7 +712,7 @@
 "mobile_data_dialog" = "Θέλετε να χρησιμοποιήσετε το δίκτυο κινητής τηλεφωνίας για να εμφανίσετε αναλυτικές πληροφορίες;";
 "mobile_data_option_always" = "Να χρησιμοποιείται πάντα";
 "mobile_data_option_today" = "Μόνο σήμερα";
-"mobile_data_option_not_today" = "Να Μην χρησιμοποιηθεί σήμερα";
+"mobile_data_option_not_today" = "Να μην χρησιμοποιηθεί σήμερα";
 "mobile_data" = "Ίντερνετ μέσω δικτύου κινητής";
 
 /* NOTE to translators: please synchronize your translation with the English one. */
@@ -761,7 +758,7 @@
 "bookmarks_create_new_group" = "Δημιουργία νέας λίστας";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Εισαγωγή σελιδοδεικτών και διαδρομών";
+"bookmarks_import" = "Εισαγωγή Σελιδοδεικτών και Ιχνών";
 "downloader_hide_screen" = "Απόκρυψη οθόνης";
 "downloader_percent" = "%@ (%@ από %@)";
 "downloader_process" = "Λήψη %@…";
@@ -791,7 +788,7 @@
 "hide_from_map" = "Απόκρυψη από τον χάρτη";
 "tags_loading_error_subtitle" = "Ένα σφάλμα συνέβη κατά το φόρτωμα των ετικετών, παρακαλώ ξαναπροσπαθήστε";
 "download_button" = "Λήψη";
-"speedcams_alert_title" = "Κάμερες Ταχύτητας";
+"speedcams_alert_title" = "Κάμερες ταχύτητας";
 "place_description_title" = "Περιγραφή μέρους";
 
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
@@ -803,9 +800,9 @@
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Να μην ειδοποιούμαι ποτέ";
 "power_managment_title" = "Λειτουργία εξοικονόμησης ενέργειας";
-"power_managment_description" = "Θα γίνεται προσπάθεια εξοικονόμησης ενέργειας εις βάρος κάποιον λειτουργιών.";
+"power_managment_description" = "Θα γίνεται προσπάθεια εξοικονόμησης ενέργειας εις βάρος κάποιων λειτουργιών.";
 "power_managment_setting_never" = "Ποτέ";
-"power_managment_setting_auto" = "Αυτόματα";
+"power_managment_setting_auto" = "Όταν η μπαταρία είναι χαμηλή";
 "power_managment_setting_manual_max" = "Πάντα";
 "enable_logging_warning_message" = "Αυτή η λειτουργία είναι ενεργοποιημένη για την καταγραφή ενεργειών για διαγνωστικούς σκοπούς. Αυτό βοηθά την ομάδα να εντοπίζει προβλήματα με την εφαρμογή. Να ενεργοποιείτε τη λειτουργία μόνο κατόπιν αιτήματος της υποστήριξης του CoMaps.";
 "driving_options_title" = "Ρυθμίσεις δρομολόγησης";
@@ -840,10 +837,10 @@
 "no" = "Όχι";
 
 /* E.g. "WiFi:Yes" */
-"yes_available" = "Ενεργ.";
+"yes_available" = "Ναι";
 
 /* E.g. "WiFi:No" */
-"no_available" = "Απενεργ.";
+"no_available" = "Όχι";
 
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Χωρητικότητα: %@";
@@ -863,7 +860,7 @@
 "not_all_shown_bookmarks_carplay" = "Δεν εμφανίζονται όλοι οι σελιδοδείκτες";
 "switch_to_phone_bookmarks_carplay" = "Μεταβείτε στο τηλέφωνο για να δείτε όλους τους σελιδοδείκτες";
 "ok" = "Οκ";
-"speedcams_alert_title_carplay_1" = "Κάμερες Ταχύτητας";
+"speedcams_alert_title_carplay_1" = "Κάμερες ταχύτητας";
 "speedcams_alert_title_carplay_2" = "Ειδοποιήσεις ταχύτητας";
 "download_map_carplay" = "Κάντε λήψη χαρτών στην εφαρμογή, στη συσκευή σας";
 "carplay_roundabout_exit" = "%@ έξοδος";
@@ -930,19 +927,19 @@
 "whats_new_auto_update_button_later" = "Χειροκίνητη ενημέρωση αργότερα";
 
 /* Delete track button on track edit screen */
-"placepage_delete_track_button" = "Διαγραφή διαδρομής";
+"placepage_delete_track_button" = "Διαγραφή ίχνους";
 
 /* The track deletion confirmaion alert message. */
-"placepage_delete_track_confirmation_alert_message" = "Είστε σίγουροι ότι θέλετε να διαγράψετε αυτό το κομμάτι;";
+"placepage_delete_track_confirmation_alert_message" = "Σίγουρα θέλετε να διαγράψετε αυτό το ίχνος;";
 
 /* Placeholder for track name input on track edit screen */
-"placepage_track_name_hint" = "Όνομα διαδρομής";
+"placepage_track_name_hint" = "Όνομα ίχνους";
 
 /* move track or bookmark from the list button text */
 "move" = "Μετακίνηση";
 
 /* edit track screen title */
-"track_title" = "Διαδρομή";
+"track_title" = "Ίχνος";
 
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/";
@@ -993,7 +990,7 @@
 "button_layer_outdoor" = "Πεζοπορία";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Εξαγωγή όλων των σελιδοδεικτών και των διαδρομών";
+"bookmarks_export" = "Εξαγωγή όλων των Σελιδοδεικτών και Ιχνών";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Αλλαγή χρώματος";
@@ -1009,7 +1006,7 @@
 "bugreport_alert_message" = "Θα θέλατε να στείλετε μια αναφορά σφάλματος στους προγραμματιστές;\nΒασιζόμαστε στους χρήστες μας, καθώς οι CoMaps δεν συλλέγουν αυτόματα καμία πληροφορία σφάλματος. Σας ευχαριστούμε εκ των προτέρων για την υποστήριξη των CoMaps!";
 
 /* Title for the iCloud syncronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "Συγχρονισμός iCloud (Beta)";
 
 /* Title for the "Enable iCloud Syncronization" alert. */
 "enable_icloud_synchronization_title" = "Ενεργοποίηση συγχρονισμού iCloud";
@@ -1021,7 +1018,7 @@
 "icloud_disabled_title" = "Το iCloud είναι απενεργοποιημένο";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "Ενεργοποιήστε το iCloud στις ρυθμίσεις της συσκευής σας για να χρησιμοποιήσετε αυτή τη λειτουργία.";
+"icloud_disabled_message" = "Ενεργοποιήστε το iCloud για το CoMaps στις ρυθμίσεις του Apple λογαριασμού σας για να χρησιμοποιήσετε αυτή τη λειτουργία.";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "Ενεργοποίηση";
@@ -1066,10 +1063,10 @@
 "recover_all" = "Ανάκτηση όλων";
 
 /* Prompt to start recording a track. */
-"start_track_recording" = "Εγγραφή διαδρομής";
+"start_track_recording" = "Εγγραφή ίχνους";
 
 /* Prompt for stopping a track recording. */
-"stop_track_recording" = "Σταματήστε την εγγραφή διαδρομής";
+"stop_track_recording" = "Σταματήστε την εγγραφή ίχνους";
 
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Σταματήστε χωρίς αποθήκευση";
@@ -1078,18 +1075,24 @@
 "continue_recording" = "Συνέχεια εγγραφής";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Αποθήκευση στα Αγαπημένα και Διαδρομές;";
+"track_recording_alert_title" = "Αποθήκευση στους Σελιδοδείκτες και Ίχνη;";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
-"track_recording_toast_nothing_to_save" = "Η διαδρομή είναι άδεια - δεν υπάρχει τίποτα να αποθηκεύσετε";
-"edit_track" = "Επεξεργασία διαδρομής";
+"track_recording_toast_nothing_to_save" = "Το ίχνος είναι άδειο - δεν υπάρχει τίποτα να αποθηκεύσετε";
+"edit_track" = "Επεξεργασία ίχνους";
 "osm_profile_view_notes" = "Προβολή σημειώσεων";
 "osm_profile_view_edit_history" = "Προβολή ιστορικού επεξεργασιών";
-"about_proposition_3" = "Transparent and not for profit";
-"about_headline" = "Open project powered by the community";
+"about_proposition_3" = "Διαφανές και μη κερδοσκοπικό";
+"about_headline" = "Ανοιχτό έργο με την υποστήριξη της κοινότητας";
 "pref_mapappearance_title" = "Εμφάνιση χάρτη";
 "pref_maplanguage_title" = "Γλώσσα χάρτη";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 "pref_maplanguage_local" = "Τοπική γλώσσα";
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"existence_confirmed_time_ago" = "Ύπαρξη επιβεβαιώθηκε %@";
+"hours_confirmed_time_ago" = "Επιβεβαιώθηκε %@";
+"offline_explanation_text" = "Χρειάζεται να ληφθεί ένας χάρτης για να δείτε και να πλοηγηθείτε την περιοχή.\nΚατεβάστε χάρτες για τις περιοχές που θέλετε να ταξιδέψετε.";
+"avoid_steps" = "Αποφυγή σκαλοπατιών";
+"avoid_paved" = "Αποφυγή στρωμένων δρόμων";
+"unknown" = "Άγνωστο";
+"voice" = "Φωνή";
+"offline_explanation_title" = "Χάρτες εκτός σύνδεσης";

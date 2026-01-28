@@ -161,8 +161,20 @@ build()
       done
     fi
   else
-    "$CMAKE" "$CMAKE_GENERATOR" "$OMIM_PATH" -DCMAKE_BUILD_TYPE="$CONF" -DBUILD_DESIGNER:BOOL=ON ${CMAKE_CONFIG:-}
-    $MAKE_COMMAND package
+    "$CMAKE" "$CMAKE_GENERATOR" "$OMIM_PATH" \
+      -DCMAKE_BUILD_TYPE="$CONF" \
+      -DBUILD_DESIGNER:BOOL=ON \
+      -DBUILD_STANDALONE:BOOL=$([ "$OPT_STANDALONE" == 1 ] && echo "ON" || echo "OFF") \
+      ${CMAKE_CONFIG:-}
+    echo ""
+    "$CMAKE" --build "$DIRNAME" --target generator_tool
+    "$CMAKE" --build "$DIRNAME" --target skin_generator_tool
+    $MAKE_COMMAND $OPT_TARGET
+    if [ -n "$OPT_TARGET" ] && [ -n "$OPT_LAUNCH_BINARY" ]; then
+      for target in $OPT_TARGET; do
+        "$DIRNAME/$target"
+      done
+    fi
   fi
   if [ -n "$OPT_COMPILE_DATABASE" ]; then
     cp "$DIRNAME/compile_commands.json" "$OMIM_PATH"

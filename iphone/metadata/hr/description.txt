@@ -1,0 +1,36 @@
+Besplatna aplikacija otvorenog koda koju vodi zajednica i temelji se na podacima OpenStreetMap-a, usmjerana transparentnosti, privatnosti i neprofitnosti. 
+
+Pridružite se otvorenoj zajednici i pomozite izraditi najbolju aplikaciju za karte
+• Koristite aplikaciju i proširite glas o njoj
+• Dajte povratne informacije i prijavite probleme
+• Ažurirajte podatke na karti u aplikaciji ili na web stranici OpenStreetMap-a
+
+<i>Vaše povratne informacije i recenzije s 5 zvjezdica najbolja su nam podrška!</i>
+
+‣ <b>Jednostavna i dotjerana</b>: aplikacija je trivijalna za korištenje i jednostavno radi.
+‣ <b>Fokusirana na Offline rad</b>: Planirajte i upravljajte svojim putovanjem u inozemstvo bez potrebe za mobilnom uslugom, tražite putne točke dok ste na udaljenom pješačenju itd. Sve funkcije aplikacije dizajnirane su za offline rad.
+‣ <b>Poštivanje privatnosti</b>: Aplikacija je dizajnirana imajući na umu privatnost - ne identificira ljude, ne prati i ne prikuplja osobne podatke. Bez reklama.
+‣ <b>Štedi vašu bateriju i prostor</b>: Ne troši bateriju kao druge navigacijske aplikacije. Kompaktne karte štede dragocjeni prostor na vašem telefonu.
+‣ <b>Otvorena i izrađena od strane zajednice</b>: Ljudi poput vas pomogli su izraditi aplikaciju dodavanjem lokacija na OpenStreetMap-u, testiranjem i davanjem povratnih informacija o aplikaciji te doprinoseći svojim razvojnim vještinama i novcem.
+‣ <b>Otvoreno i transparentno donošenje odluka i korištenja financija, Neprofitna i potpuno Otvorenog koda.</b>
+
+<b>Glavne značajke</b>:
+• Preuzimanje detaljnih karti s lokacijama koje nisu dostupne s Google kartama
+• Karte za izlete s istaknutim pješačkim stazama, kampovima, izvorima vode, planinskim vrhovima, konturnim linijama itd.
+• Pješačke i biciklističke staze
+• Točke interesa kao što su restorani, benzinske crpke, hoteli, trgovine, vidikovci i još mnogo toga
+• Pretražujte po nazivu ili adresi ili po kategoriji interesa
+• Navigacija s glasovnim najavama za hodanje, vožnju biciklom ili automobilom
+• Obilježite svoja omiljena mjesta jednim dodirom
+• Offline članci Wikipedije
+• Tranzitni sloj podzemne željeznice sa navigacijom
+• Snimanje GPS tragova
+• Izvoz i uvoz oznaka i staza u KML, KMZ, i GPX formatima
+• Tamni način rada za korištenje tijekom noći
+• Poboljšajte kartu za sve korisnike, koristeći osnovni ugrađeni uređivač karte
+• Android Auto podrška
+
+Prijavite probleme s aplikacijom, predložite ideje i pridružite se našoj zajednici na web stranici <b><i>comaps.app</i></b>.
+
+<b>Sloboda je ovdje</b>
+Otkrijte svoje putovanje, navigirajte svijetom s privatnošću i zajednicom na prvom mjestu!

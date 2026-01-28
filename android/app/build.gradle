@@ -254,18 +254,21 @@ android {
   androidResources {
     ignoreAssetsPattern = '!.svn:!.git:!.DS_Store:!*.scc:.*:<dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~'
     noCompress = ['txt', 'bin', 'html', 'png', 'json', 'mwm', 'ttf', 'sdf', 'ui', 'config', 'csv', 'spv', 'obj']
+    // Some languages not supported by Android require to be specified here to be applied
     localeFilters += [
+            "en",
             "af",
             "ar",
             "az",
             "be",
             "bg",
+            "bn",
             "ca",
             "cs",
             "da",
             "de",
             "el",
-            "en",
+            "en-rAU",
             "en-rGB",
             "es",
             "es-rMX",
@@ -275,28 +278,38 @@ android {
             "fi",
             "fr",
             "fr-rCA",
-            "iw",
+            "gl",
+            "gsw",
+            "he",
             "hi",
             "hu",
+            "id",
             "in",
+            "is",
             "it",
+            "iw",
             "ja",
+            "kw",
             "ko",
             "lt",
             "lv",
             "mr",
             "mt",
             "nb",
+            "nb-rNO",
             "nl",
             "pl",
             "pt",
             "pt-rBR",
             "ro",
             "ru",
+            "sl",
             "sk",
             "sr",
+            "b+sr+Latn",
             "sv",
             "sw",
+            "ta",
             "th",
             "tr",
             "uk",
@@ -351,6 +364,8 @@ dependencies {
   implementation libs.androidx.recyclerview
   implementation libs.androidx.work.runtime
   implementation libs.androidx.lifecycle.process
+  implementation libs.androidx.documentfile
+  // 1.13 Material library version doesn't render properly alpha properties on map buttons
   implementation libs.android.material
   // Fix for app/organicmaps/util/FileUploadWorker.java:14: error: cannot access ListenableFuture
   // https://github.com/organicmaps/organicmaps/issues/6106

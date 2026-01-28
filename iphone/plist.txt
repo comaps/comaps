@@ -40,7 +40,8 @@
   [bookmarks_and_tracks]
     tags = ios
     comment = Used in home screen quick actions.
-    en = Bookmarks and Tracks
+    en = Favorites
+    en-GB = Favourites
     ar = الإشارات المرجعية والمسارات
     az = Əlfəcinlər və qeydlər
     be = Закладкі i cцежкі

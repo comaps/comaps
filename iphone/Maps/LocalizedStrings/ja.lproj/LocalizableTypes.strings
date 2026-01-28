@@ -129,7 +129,6 @@
 "type.amenity.pub" = "バー";
 "type.amenity.public_bookcase" = "街角文庫";
 "type.amenity.recycling.centre" = "リサイクルセンター";
-"type.amenity.recycling" = "リサイクルボックス";
 "type.amenity.recycling.container" = "リサイクルボックス";
 "type.recycling.batteries" = "バッテリー";
 "type.recycling.clothes" = "古着";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "橋";
-
 "type.highway.pedestrian.square" = "広場";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "公共交通機関のプラットホーム";
 "type.railway" = "鉄道";
 "type.railway.abandoned" = "廃線";
-"type.railway.abandoned.bridge" = "廃線(橋)";
-"type.railway.abandoned.tunnel" = "廃線(トンネル)";
 "type.railway.construction" = "建設中の鉄道";
 "type.railway.crossing" = "歩行者専用踏切";
 "type.railway.disused" = "休止線";

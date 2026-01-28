@@ -184,3 +184,11 @@ E.g.,
 I(1) 0.11666 platform/string_storage_base.cpp:24 StringStorageBase(): Settings path: /Users/<user-name>/Library/Developer/CoreSimulator/Devices/EFE74BF2-2871-4364-A633-BC8F1BAB9DF3/data/Containers/Data/Application/252BDFA5-3E60-43A6-B09C-158BC55DC450/Documents/settings.ini
 ```
 In this folder the map file is in a YYMMDD subfolder
+
+## Changing Map Borders
+
+> TODO: this section is a work in progress and is probably missing parts.
+
+- Edit the various `data/borders/*.poly` files as needed, ideally sharing nodes between polygons to avoid gaps.
+  - These are Osmosis Polygon "osmpoly" files and there are multiple tools and editing options available: https://wiki.openstreetmap.org/wiki/Osmosis/Polygon_Filter_File_Format
+- Compile and run `generator_tool --generate_packed_borders` to generate `data/packed_polygons.bin` which is compiled into the app to define each "country" (MWM) name and perimeter.

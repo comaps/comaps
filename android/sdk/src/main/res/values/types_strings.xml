@@ -27,7 +27,7 @@
     <string name="type.amenity.bar">Bar</string>
     <string name="type.amenity.bbq">Barbecue Grill</string>
     <string name="type.amenity.bench">Bench</string>
-    <string name="type.amenity.bench.backless">Backless Bench</string>
+    <string name="type.amenity.bench.backless">Without Backrest</string>
     <string name="type.amenity.bicycle_parking">Bicycle Parking</string>
     <string name="type.amenity.bicycle_parking.covered">Covered Bicycle Parking</string>
     <string name="type.amenity.boat_rental">Boat Rental</string>
@@ -53,9 +53,10 @@
     <string name="type.leisure.adult_gaming_centre">Adult Gaming Centre</string>
     <string name="type.leisure.amusement_arcade">Arcade</string>
     <string name="type.amenity.charging_station">Charging Station</string>
-    <string name="type.amenity.charging_station.bicycle">Bicycle Charging Station</string>
-    <string name="type.amenity.charging_station.motorcar">Car Charging Station</string>
-    <string name="type.amenity.charging_station.motorcar.small">Car Charging Point</string>
+    <string name="type.amenity.charging_station.bicycle">Bicycles</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorcycles</string>
+    <string name="type.amenity.charging_station.motorcar">Cars</string>
+    <string name="type.amenity.charging_station.small">Limited Capacity</string>
     <string name="type.amenity.childcare">Nursery</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.amenity.studio">Media Studio</string>
@@ -153,8 +154,7 @@
     <string name="type.amenity.pub">Pub</string>
     <string name="type.amenity.public_bookcase">Book Exchange</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Recycling Center</string>
-    <string name="type.amenity.recycling">Recycling Container</string>
+    <string name="type.amenity.recycling.centre">Recycling Centre</string>
     <string name="type.amenity.recycling.container">Recycling Container</string>
     <string name="type.recycling.batteries">Batteries</string>
     <string name="type.recycling.clothes">Clothes</string>
@@ -179,7 +179,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Bivouac Hut</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Lean-to Shelter</string>
+    <string name="type.amenity.shelter.lean_to">Lean-to Sleep Shelter</string>
     <string name="type.amenity.public_bath">Public Bath</string>
     <string name="type.amenity.shower">Shower</string>
     <string name="type.amenity.stripclub">Stripclub</string>
@@ -198,7 +198,7 @@
     <string name="type.amenity.vending_machine.food">Food Dispenser</string>
     <string name="type.amenity.vending_machine.newspapers">Newspaper Dispenser</string>
     <string name="type.amenity.vending_machine.parking_tickets">Parking Meter</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Ticket Machine</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Public Transport Ticket Machine</string>
     <string name="type.amenity.vending_machine.sweets">Sweets Dispenser</string>
     <string name="type.amenity.vending_machine.excrement_bags">Excrement Bags Dispenser</string>
     <string name="type.amenity.parcel_locker">Parcel Locker</string>
@@ -375,7 +375,9 @@
     <string name="type.cuisine.vietnamese">Vietnamese</string>
     <string name="type.emergency">Emergency</string>
     <string name="type.emergency.access_point">Emergency Rescue Point</string>
+    <string name="type.emergency.access_point.address">Emergency Rescue Address</string>
     <string name="type.emergency.assembly_point">Emergency Assembly Point</string>
+    <string name="type.emergency.disaster_help_point">Emergency Disaster Help Point</string>
     <string name="type.emergency.life_ring">Lifebuoy</string>
     <string name="type.emergency.defibrillator">Defibrillator</string>
     <string name="type.emergency.fire_hydrant">Fire Hydrant</string>
@@ -931,11 +933,11 @@
     <string name="type.public_transport.platform">Platform</string>
     <string name="type.railway">Railway</string>
     <string name="type.railway.abandoned">Abandoned Railway</string>
-    <string name="type.railway.abandoned.bridge">Abandoned Railway Bridge</string>
-    <string name="type.railway.abandoned.tunnel">Abandoned Railway Tunnel</string>
     <string name="type.railway.construction">Railway Construction</string>
     <string name="type.railway.crossing">Railway Crossing</string>
     <string name="type.railway.disused">Disused Railway</string>
+    <string name="type.railway.disused.bridge">Disused Railway Bridge</string>
+    <string name="type.railway.disused.tunnel">Disused Railway Tunnel</string>
     <string name="type.railway.funicular">Funicular</string>
     <string name="type.railway.funicular.bridge">Funicular Bridge</string>
     <string name="type.railway.funicular.tunnel">Funicular Tunnel</string>
@@ -947,6 +949,9 @@
     <string name="type.railway.monorail">Monorail</string>
     <string name="type.railway.monorail.bridge">Monorail Bridge</string>
     <string name="type.railway.monorail.tunnel">Monorail Tunnel</string>
+    <string name="type.railway.miniature">Miniature Railway</string>
+    <string name="type.railway.miniature.bridge">Miniature Railway Bridge</string>
+    <string name="type.railway.miniature.tunnel">Miniature Railway Tunnel</string>
     <string name="type.railway.narrow_gauge">Narrow Gauge Rail</string>
     <string name="type.railway.narrow_gauge.bridge">Narrow Gauge Rail Bridge</string>
     <string name="type.railway.narrow_gauge.tunnel">Narrow Gauge Rail Tunnel</string>
@@ -958,6 +963,7 @@
     <string name="type.railway.rail.highspeed">High-Speed Railway</string>
     <string name="type.railway.rail.tourism">Touristic Railway</string>
     <string name="type.railway.rail.main">Railway</string>
+    <string name="type.railway.turntable">Railway Turntable</string>
     <!-- Includes ordinary railway=rail w/o more specific usage= and service= tags. -->
     <string name="type.railway.rail.branch">Railway Branch</string>
     <!-- Non-passenger utility tracks: industrial, military, test. -->
@@ -1421,6 +1427,7 @@
     <string name="type.tourism.information.board">Information Board</string>
     <string name="type.tourism.information.guidepost">Guidepost</string>
     <string name="type.tourism.information.map">Tourist Map</string>
+    <string name="type.tourism.information.tactile_map">Tactile Map</string>
     <string name="type.tourism.information.office">Tourist Office</string>
     <string name="type.tourism.information.visitor_centre">Visitor Centre</string>
     <string name="type.amenity.ranger_station">Ranger Station</string>

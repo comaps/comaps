@@ -44,8 +44,8 @@
     <string name="type.leisure.adult_gaming_centre">Centro de jogos para adultos</string>
     <string name="type.leisure.amusement_arcade">Salão de jogos</string>
     <string name="type.amenity.charging_station">Posto de carregamento elétrico</string>
-    <string name="type.amenity.charging_station.bicycle">Estação de carregamento de bicicletas</string>
-    <string name="type.amenity.charging_station.motorcar">Posto de carregamento de veículo elétrico</string>
+    <string name="type.amenity.charging_station.bicycle">Bicicletas</string>
+    <string name="type.amenity.charging_station.motorcar">Carros</string>
     <string name="type.amenity.childcare">Creche</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.leisure.bowling_alley">Pista de bowling</string>
@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">Biblioteca livre</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centro de reciclagem</string>
-    <string name="type.amenity.recycling">Contentor de reciclagem</string>
     <string name="type.amenity.recycling.container">Contentor de reciclagem</string>
     <string name="type.recycling.batteries">Baterias</string>
     <string name="type.recycling.clothes">Roupas velhas</string>
@@ -150,7 +149,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Cabana Básica</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Abrigo tipo telheiro</string>
+    <string name="type.amenity.shelter.lean_to">Abrigo tipo Telheiro</string>
     <string name="type.amenity.public_bath">Banho público</string>
     <string name="type.amenity.shower">Chuveiro</string>
     <string name="type.amenity.stripclub">Clube de striptease</string>
@@ -165,7 +164,7 @@
     <string name="type.amenity.vending_machine.cigarettes">Máquina de venda de cigarros</string>
     <string name="type.amenity.vending_machine.drinks">Máquina de venda de bebidas</string>
     <string name="type.amenity.vending_machine.parking_tickets">Máquina venda de bilhetes de estacionamento</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina venda de bilhetes de transporte público</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Máquina de Venda de Bilhetes de Transportes Públicos</string>
     <string name="type.amenity.parcel_locker">Cacifo</string>
     <string name="type.amenity.vehicle_inspection">Inspeção veicular</string>
     <string name="type.amenity.veterinary">Veterinário</string>
@@ -782,8 +781,6 @@
     <string name="type.public_transport.platform">Plataforma de transporte público</string>
     <string name="type.railway">Ferrovia</string>
     <string name="type.railway.abandoned">Ferrovia abandonada</string>
-    <string name="type.railway.abandoned.bridge">Ferrovia abandonada</string>
-    <string name="type.railway.abandoned.tunnel">Ferrovia abandonada</string>
     <string name="type.railway.construction">Ferrovia em construção</string>
     <string name="type.railway.crossing">Passagem pedestre</string>
     <string name="type.railway.disused">Ferrovia em desuso</string>
@@ -1399,8 +1396,7 @@
     <string name="type.building.guardhouse">Cabine de Segurança</string>
     <string name="type.power.portal">Portal de Energia</string>
     <string name="type.shop.lighting">Loja de Iluminação</string>
-    <string name="type.amenity.bench.backless">Banco sem Encosto</string>
-    <string name="type.amenity.charging_station.motorcar.small">Ponto de Carregamento de Carro</string>
+    <string name="type.amenity.bench.backless">Sem Encosto</string>
     <string name="type.leisure.bandstand">Coreto</string>
     <string name="type.leisure.sports_centre.sport.multi">Centro Desportivo</string>
     <string name="type.leisure.sports_centre.sport.american_football">Centro Desportivo</string>
@@ -1502,4 +1498,15 @@
     <string name="type.shop.beauty.nails">Salão de Unhas</string>
     <string name="type.xmas.tree">Árvore de Natal</string>
     <string name="type.amenity.hydrant">Boca de Rega</string>
+    <string name="type.amenity.charging_station.motorcycle">Motociclos</string>
+    <string name="type.amenity.charging_station.small">Capacidade Limitada</string>
+    <string name="type.railway.disused.bridge">Ponte Ferroviária Desativada</string>
+    <string name="type.railway.disused.tunnel">Túnel Ferroviário Desativada</string>
+    <string name="type.railway.miniature">Ferrovia em Miniatura</string>
+    <string name="type.railway.miniature.bridge">Ponte Ferroviária em Miniatura</string>
+    <string name="type.railway.miniature.tunnel">Túnel Ferroviário em Miniatura</string>
+    <string name="type.railway.turntable">Plataforma Giratória Ferroviária</string>
+    <string name="type.tourism.information.tactile_map">Mapa tátil</string>
+    <string name="type.emergency.access_point.address">Endereço de Resgate de Emergência</string>
+    <string name="type.emergency.disaster_help_point">Ponto de Ajuda de Emergências e Desastres</string>
 </resources>

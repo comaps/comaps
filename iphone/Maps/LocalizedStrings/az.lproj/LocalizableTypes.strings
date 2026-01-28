@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Kitab mübadiləsi";
 "type.amenity.recycling.centre" = "Təkrar Emal Mərkəzi";
-"type.amenity.recycling" = "Təkrar emal konteyneri";
 "type.amenity.recycling.container" = "Təkrar emal konteyneri";
 "type.recycling.batteries" = "Batareyalar";
 "type.recycling.clothes" = "Geyim";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Körpü";
-
 "type.highway.pedestrian.square" = "Kvadrat";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Platforma";
 "type.railway" = "Dəmir yolu";
 "type.railway.abandoned" = "Tərk edilmiş dəmir yolu";
-"type.railway.abandoned.bridge" = "Tərk edilmiş dəmir yolu";
-"type.railway.abandoned.tunnel" = "Tərk edilmiş dəmir yolu";
 "type.railway.construction" = "Dəmir yolu tikintisi";
 "type.railway.crossing" = "Dəmiryol kəsişməsi";
 "type.railway.disused" = "Istifadəsiz dəmir yolu";

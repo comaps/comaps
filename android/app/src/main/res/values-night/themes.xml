@@ -11,7 +11,7 @@
     <item name="android:textColorPrimary">@color/text_light</item>
     <item name="android:textColorPrimaryInverse">@color/text_dark</item>
     <item name="android:textColorSecondary">@color/text_light_subtitle</item>
-    <item name="android:windowBackground">?windowBackgroundForced</item>
+    <item name="android:windowBackground">?appBackground</item>
     <item name="android:colorPrimaryDark">@color/bg_primary_dark</item>
     <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
     <item name="android:fontFamily">@string/robotoRegular</item>
@@ -21,7 +21,7 @@
     <item name="android:statusBarColor">?colorPrimary</item>
     <item name="android:windowTranslucentNavigation">false</item>
 
-    <item name="alertDialogTheme">@style/MwmTheme.AlertDialog</item>
+    <item name="alertDialogTheme">@style/MwmTheme.M3.AlertDialog</item>
     <item name="windowBackgroundForced">@color/bg_window</item>
     <item name="cardBackground">@color/bg_cards</item>
     <item name="titleDialogTheme">@color/white_primary</item>
@@ -84,10 +84,10 @@
     <item name="transitRulerBackground">@color/white_4</item>
     <item name="transitStepDivider">@drawable/dot_divider</item>
     <item name="accentColorSelector">@color/accent_color_selector</item>
-    <item name="android:textAppearance">@style/TextAppearance</item>
-    <item name="android:textAppearanceSmall">@style/TextAppearance.Small</item>
-    <item name="android:textAppearanceMedium">@style/TextAppearance.Medium</item>
-    <item name="android:textAppearanceLarge">@style/TextAppearance.Large</item>
+    <item name="android:textAppearance">@style/MwmTextAppearance.Body3</item>
+    <item name="android:textAppearanceSmall">@style/MwmTextAppearance.Body4</item>
+    <item name="android:textAppearanceMedium">@style/MwmTextAppearance.Body2</item>
+    <item name="android:textAppearanceLarge">@style/MwmTextAppearance.Body1</item>
     <item name="drivingOptionsViewBg">@color/bg_primary_dark</item>
     <item name="elevationProfilePropertyBg">@drawable/bg_rounded_rect</item>
     <item name="elevationProfilePropIconTint">@color/white_secondary</item>
@@ -150,6 +150,8 @@
     <item name="colorSurfaceContainer">@color/md_theme_surfaceContainer</item>
     <item name="colorSurfaceContainerHigh">@color/md_theme_surfaceContainerHigh</item>
     <item name="colorSurfaceContainerHighest">@color/md_theme_surfaceContainerHighest</item>
+
+    <item name="appBackground">@color/bg_app</item>
   </style>
 
   <style name="MwmTheme" parent="MwmTheme.Base"/>

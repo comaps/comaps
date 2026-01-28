@@ -504,7 +504,7 @@
     <string name="placepage_edit_bookmark_button">Muokkaa kirjanmerkkiä</string>
     <string name="placepage_personal_notes_hint">Henkilökohtaiset merkinnät (teksti tai html)</string>
     <string name="editor_reset_edits_message">Nollataanko kaikki paikalliset muutokset?</string>
-    <string name="editor_reset_edits_button">Nollaa</string>
+    <string name="editor_reset_edits_button">Hylkää muutokset</string>
     <string name="editor_remove_place_message">Poistetaanko lisätty paikka?</string>
     <string name="editor_remove_place_button">Poista</string>
     <string name="editor_place_doesnt_exist">Paikkaa ei ole olemassa</string>
@@ -815,7 +815,7 @@
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Automaattinen navigointi</string>
     <string name="level_value_generic">Kerros: %s</string>
-    <string name="share_bookmarks_email_body">Hei! \n\nLiitteenä ovat kirjamerkkini; Avaa ne CoMaps -sovelluksessa. Mikäli sinulla ei ole vielä sovellusta asennettuna, voit ladata sen osoitteesta: https://www.comaps.app/download/ \n\nNauti matkustamisesta CoMaps:n kanssa!</string>
+    <string name="share_bookmarks_email_body">Hei!\n\nLiitteenä kirjanmerkkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!</string>
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/fi/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
@@ -911,4 +911,11 @@
     <string name="prefs_speed_cameras_information">Nopeuskameravaroitukset on poistettu käytöstä niissä maissa, missä varoitukset on kielletty lain nojalla.</string>
     <string name="power_management">Virranhallinta</string>
     <string name="navigation_start_tts_message">"Käynnistetään navigointi, ääniohjeistuksen kieli: "</string>
+    <string name="advanced">Lisäasetukset</string>
+    <string name="download_resources_custom_url_title">Mukautettu karttapalvelin</string>
+    <string name="download_resources_custom_url_summary_none">Ei asetettu</string>
+    <string name="download_resources_custom_url_error_scheme">Kirjoita täysi URL-osoite alkaeh https:// ja päättyen /</string>
+    <string name="download_resources_custom_url_message">Ohita karttalatausten oletuspalvelin. Jätä tyhjäksi käyttääksesi CoMapsin oletuspalvelinta.</string>
+    <string name="navigation_start_tts_disabled_message">Ääniohjeistukset pois käytöstä: TTS-moottori ei saatavilla</string>
+    <string name="charge_socket_schuko">EU</string>
 </resources>

@@ -35,8 +35,8 @@
     <string name="type.leisure.adult_gaming_centre">Spillsenter for voksne</string>
     <string name="type.leisure.amusement_arcade">Arcade</string>
     <string name="type.amenity.charging_station">Ladestasjon</string>
-    <string name="type.amenity.charging_station.bicycle">Ladestasjon for sykkel</string>
-    <string name="type.amenity.charging_station.motorcar">Ladestasjon for biler</string>
+    <string name="type.amenity.charging_station.bicycle">Sykler</string>
+    <string name="type.amenity.charging_station.motorcar">Biler</string>
     <string name="type.amenity.childcare">Daghjem</string>
     <string name="type.amenity.cinema">Kino</string>
     <string name="type.leisure.bowling_alley">Bowlinghall</string>
@@ -120,7 +120,6 @@
     <string name="type.amenity.public_bookcase">Bokhylle</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Resirkuleringssenter</string>
-    <string name="type.amenity.recycling">Gjenvinningsbeholder</string>
     <string name="type.amenity.recycling.container">Gjenvinningsbeholder</string>
     <string name="type.recycling.batteries">Batterier</string>
     <string name="type.recycling.clothes">Gamle klær</string>
@@ -134,7 +133,7 @@
     <!-- Weather shelter (including sun shelters and natural rock shelters). -->
     <string name="type.amenity.shelter">Ly</string>
     <!-- A weather shelter by the public transport stop. -->
-    <string name="type.amenity.shelter.public_transport">Ly</string>
+    <string name="type.amenity.shelter.public_transport">Leskur</string>
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Bivuakkhytte</string>
     <string name="type.amenity.public_bath">Offentlig bad</string>
@@ -150,7 +149,7 @@
     <string name="type.amenity.vending_machine.cigarettes">Sigarettautomat</string>
     <string name="type.amenity.vending_machine.drinks">Drikkeautomat</string>
     <string name="type.amenity.vending_machine.parking_tickets">Parkeringsautomat</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Billettmaskin for offentlig transport</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Billettautomat for offentlig transport</string>
     <string name="type.amenity.vehicle_inspection">Inspeksjon av kjøretøy</string>
     <string name="type.amenity.veterinary">Veterinær</string>
     <string name="type.amenity.waste_basket">Søppelbøtte</string>
@@ -689,7 +688,7 @@
     <string name="type.power.plant.gas">Gassturbinkraftverk</string>
     <string name="type.power.plant.hydro">Vannkraftverk</string>
     <string name="type.power.plant.solar">Solkraftverk</string>
-    <string name="type.power.plant.wind">Vindkraftverk</string>
+    <string name="type.power.plant.wind">Vindkraftpark</string>
     <string name="type.power.substation">Trafo</string>
     <!-- A tower or pylon carrying high voltage electricity cables. -->
     <string name="type.power.tower">Strømmast</string>
@@ -1011,7 +1010,7 @@
     <string name="type.shop.health_food">Helsekostbutikk</string>
     <string name="type.shop.hearing_aids">Høreapparatbutikk</string>
     <string name="type.shop.herbalist">Urtebutikk</string>
-    <string name="type.shop.hifi">HiFi lyd</string>
+    <string name="type.shop.hifi">HiFi-butikk</string>
     <string name="type.shop.houseware">Husholdningsbutikk</string>
     <string name="type.shop.jewelry">Gullsmed</string>
     <string name="type.shop.kiosk">Kiosk</string>
@@ -1050,8 +1049,8 @@
     <string name="type.shop.travel_agency">Reisebyrå</string>
     <string name="type.shop.tyres">Dekkforretning</string>
     <string name="type.shop.variety_store">Billigbutikk</string>
-    <string name="type.shop.video">Videobutikken</string>
-    <string name="type.shop.video_games">Videospillbutikken</string>
+    <string name="type.shop.video">Videobutikk</string>
+    <string name="type.shop.video_games">Videospillbutikk</string>
     <string name="type.shop.wine">Alkoholutsalg</string>
     <string name="type.shop.agrarian">Landbruksbutikk</string>
     <string name="type.shop.antiques">Antikviteter</string>
@@ -1144,7 +1143,7 @@
     <string name="type.tourism.hotel">Hotell</string>
     <string name="type.tourism.information">Turistinformasjon</string>
     <string name="type.tourism.information.board">Informasjonstavle</string>
-    <string name="type.tourism.information.guidepost">Guidepost</string>
+    <string name="type.tourism.information.guidepost">Turskilt</string>
     <string name="type.tourism.information.map">Turistkart</string>
     <string name="type.tourism.information.office">Turistkontor</string>
     <string name="type.tourism.information.visitor_centre">Besøkssenter</string>
@@ -1319,7 +1318,6 @@
     <string name="type.leisure.fitness_centre.sport.yoga">Yogastudio</string>
     <string name="type.leisure.bandstand">Musikkpaviljong</string>
     <string name="type.cuisine.bubble_tea">Boblete</string>
-    <string name="type.amenity.charging_station.motorcar.small">Billadingspunkt</string>
     <string name="type.amenity.studio">Mediastudio</string>
     <string name="type.aerialway.magic_carpet">Teppeheis</string>
     <string name="type.barrier.ditch">Grøft</string>
@@ -1331,12 +1329,10 @@
     <string name="type.aerialway.platter">Tallerkentrekk</string>
     <string name="type.aerialway.j.bar">Skitrekk (J-krok)</string>
     <string name="type.aerialway.t.bar">Skitrekk (T-krok)</string>
-    <string name="type.railway.abandoned.tunnel">Nedlagt jernbanetunnel</string>
-    <string name="type.railway.abandoned.bridge">Nedlagt jernbanebru</string>
     <string name="type.railway.abandoned">Nedlagt jernbane</string>
     <string name="type.shop.lighting">Lampebutikk</string>
     <string name="type.leisure.sports_centre.sport.swimming">Svømmesenter</string>
-    <string name="type.amenity.bench.backless">Benk uten rygg</string>
+    <string name="type.amenity.bench.backless">Uten rygg</string>
     <string name="type.waterway.dam">Demning</string>
     <string name="type.tourism.museum">Museum</string>
     <string name="type.barrier.chain">Kjetting</string>
@@ -1391,4 +1387,10 @@
     <string name="type.man_made.works">Fabrikk</string>
     <string name="type.man_made.mast.communication">Kommunikasjonsmast</string>
     <string name="type.man_made.wastewater_plant">Avløpsrenseanlegg</string>
+    <string name="type.tourism.information.tactile_map">Berøringskart</string>
+    <string name="type.man_made.telescope.optical">Teleskop (Optisk)</string>
+    <string name="type.amenity.charging_station.small">Begrenset kapasitet</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorsykler</string>
+    <string name="type.railway.disused.tunnel">Ubenyttet jernbanetunnel</string>
+    <string name="type.railway.disused.bridge">Ubenyttet jernbanebru</string>
 </resources>

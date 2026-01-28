@@ -428,8 +428,9 @@ public class PlacePageView extends Fragment
 
   private void updateBookmarkView()
   {
+   boolean enabled = mMapObject.isBookmark() || mMapObject.isTrack();
     updateViewFragment(PlacePageBookmarkFragment.class, BOOKMARK_FRAGMENT_TAG, R.id.place_page_bookmark_fragment,
-                       mMapObject.isBookmark());
+                       enabled);
   }
 
   private void updateTrackView()

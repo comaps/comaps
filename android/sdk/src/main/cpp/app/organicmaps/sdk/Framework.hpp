@@ -169,6 +169,7 @@ public:
   void SetMyPositionModeListener(location::TMyPositionModeChanged const & fn);
   location::EMyPositionMode GetMyPositionMode() const;
   void SwitchMyPositionNextMode();
+  void StartPendingPositionMode();
 
   void SetTrafficStateListener(TrafficManager::TrafficStateChangedFn const & fn);
   void SetTransitSchemeListener(TransitReadManager::TransitStateChangedFn const & fn);

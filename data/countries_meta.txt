@@ -1,4 +1,10 @@
 {
+"World": {
+ "languages": []
+},
+"WorldCoasts": {
+ "languages": []
+},
 "Abkhazia": {
  "languages": ["ab", "ru"]
 },

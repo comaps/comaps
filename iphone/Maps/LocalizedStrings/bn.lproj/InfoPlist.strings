@@ -1,5 +1,5 @@
 "route" = "Route";
-"NSLocationAlwaysUsageDescription" = "Detecting location in the background is necessary to fully enjoy the functionality of the app. It is used for navigation and saving your recently traveled track।";
+"NSLocationAlwaysUsageDescription" = "অ্যাপের কার্যকারিতা সম্পূর্ণরূপে উপভোগ করতে ব্যাকগ্রাউন্ড অবস্থান সনাক্তকরণ প্রয়োজন। এটি নেভিগেশন এবং আপনার সম্প্রতি ভ্রমণ করা ট্র্যাক সংরক্ষণের জন্য ব্যবহৃত হয়।";
 "NSLocationWhenInUseUsageDescription" = "Determining your location is necessary for navigation and for saving your recently traveled track।";
 "search" = "খুঁজুন";
 "bookmarks_and_tracks" = "বুকমার্ক ও ট্র্যাকসমূহ";

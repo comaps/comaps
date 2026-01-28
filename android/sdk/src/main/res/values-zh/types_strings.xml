@@ -131,7 +131,6 @@
     <string name="type.amenity.public_bookcase">公共书架</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">资源回收设施</string>
-    <string name="type.amenity.recycling">回收容器</string>
     <string name="type.amenity.recycling.container">回收容器</string>
     <string name="type.recycling.batteries">电池</string>
     <string name="type.recycling.clothes">旧衣物</string>
@@ -355,7 +354,7 @@
     <string name="type.entrance">入口</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">主要入口</string>
-    <string name="type.entrance.exit">出口</string>
+    <string name="type.entrance.exit">单向出口</string>
     <string name="type.fee.yes">¥</string>
     <string name="type.fee.no">免费</string>
     <string name="type.healthcare.laboratory">医学实验室</string>
@@ -794,8 +793,6 @@
     <string name="type.public_transport.platform">公共交通站台</string>
     <string name="type.railway">铁路要素</string>
     <string name="type.railway.abandoned">铁路遗迹</string>
-    <string name="type.railway.abandoned.bridge">铁路桥遗迹</string>
-    <string name="type.railway.abandoned.tunnel">铁路隧道遗迹</string>
     <string name="type.railway.construction">在建铁路</string>
     <string name="type.railway.disused">废弃铁路</string>
     <string name="type.railway.funicular">缆车</string>
@@ -1395,9 +1392,36 @@
     <string name="type.post_office.post_partner">邮政合作点</string>
     <string name="type.barrier.wicket_gate">旁门</string>
     <string name="type.amenity.animal_shelter">动物收容所</string>
-    <string name="type.amenity.bench.backless">长凳</string>
-    <string name="type.amenity.charging_station.motorcar.small">充电桩</string>
+    <string name="type.amenity.bench.backless">无靠背长凳</string>
     <string name="type.office.security">保安室</string>
     <string name="type.building.guardhouse">保安亭</string>
     <string name="type.power.portal">能源站</string>
+    <string name="type.entrance.emergency">应急出口</string>
+    <string name="type.amenity.boat_rental">船只租赁</string>
+    <string name="type.man_made.telescope">望远镜</string>
+    <string name="type.man_made.telescope.optical">光学望远镜</string>
+    <string name="type.man_made.telescope.radio">射电望远镜</string>
+    <string name="type.man_made.telescope.gamma">伽玛射线望远镜</string>
+    <string name="type.man_made.observatory">观测台</string>
+    <string name="type.amenity.charging_station.motorcycle">摩托车</string>
+    <string name="type.amenity.car_pooling">拼车</string>
+    <string name="type.xmas.tree">圣诞树</string>
+    <string name="type.amenity.food_sharing">食物共享设施</string>
+    <string name="type.amenity.give_box">捐赠箱</string>
+    <string name="type.shop.beauty.nails">美甲店</string>
+    <string name="type.railway.turntable">铁路转车盘</string>
+    <string name="type.railway.disused.tunnel">废弃铁路隧道</string>
+    <string name="type.railway.miniature">小火车轨道</string>
+    <string name="type.railway.disused.bridge">废弃铁路桥</string>
+    <string name="type.natural.tree">树</string>
+    <string name="type.natural.sand">沙子</string>
+    <string name="type.leisure.sports_centre.sport.volleyball">运动中心</string>
+    <string name="type.leisure.sports_centre.sport.swimming">游泳中心</string>
+    <string name="type.cardinal.south">南</string>
+    <string name="type.cardinal.east">东</string>
+    <string name="type.cardinal.west">西</string>
+    <string name="type.cardinal.north">北</string>
+    <string name="type.entrance.garage">车库入口</string>
+    <string name="type.entrance.entry">单向入口</string>
+    <string name="type.emergency.access_point">紧急连络点</string>
 </resources>

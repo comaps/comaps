@@ -33,9 +33,14 @@ amenity-parking-street_side-private                 # area z15- (also has icon z
 === 160
 
 amenity-car_wash                                    # area z17- (also has icon z17-, caption(optional) z17-)
+amenity-charging_station                            # area z16- (also has icon z16-, caption(optional) z16-)
+amenity-charging_station-bicycle                    # area z16- (also has icon z16-, caption(optional) z16-)
+amenity-charging_station-carless                    # area z16- (also has icon z16-, caption(optional) z16-)
 amenity-charging_station-motorcar                   # area z15- (also has icon z14-, caption(optional) z14-)
-amenity-charging_station-motorcar-small             # area z15- (also has icon z16-, caption(optional) z16-)
+amenity-charging_station-motorcycle                 # area z16- (also has icon z16-, caption(optional) z16-)
+amenity-charging_station-small                      # area z15- (also has icon z15-, caption(optional) z16-)
 amenity-fuel                                        # area z15- (also has icon z12-, caption(optional) z12-)
+amenity-recycling-centre                            # area z15- (also has icon z16-, caption(optional) z16-)
 amenity-vehicle_inspection                          # area z17- (also has icon z17-)
 highway-rest_area                                   # area z13- (also has icon z14-, caption(optional) z14-)
 highway-services                                    # area z13- (also has icon z12-, caption(optional) z13-)
@@ -110,6 +115,7 @@ landuse-industrial-mine                             # area z15-
 landuse-landfill                                    # area z15- (also has caption z15-)
 landuse-quarry                                      # area z15- (also has caption z15-)
 landuse-railway                                     # area z15- (also has caption z15-)
+man_made-wastewater_plant                           # area z15-
 man_made-works                                      # area z15-
 power-generator                                     # area z15-
 power-generator-gas                                 # area z15-

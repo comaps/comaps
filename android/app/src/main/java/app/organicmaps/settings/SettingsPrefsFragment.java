@@ -1,6 +1,7 @@
 package app.organicmaps.settings;
 
 import static app.organicmaps.leftbutton.LeftButtonsHolder.DISABLE_BUTTON_CODE;
+import static app.organicmaps.sdk.editor.data.Language.DEFAULT_LANG_CODE;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
@@ -81,6 +82,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initTrafficHttpUrlPrefsCallbacks();
     initTrafficAppsPrefs();
     initTrafficLegacyEnabledPrefsCallbacks();
+    initOnlyUseSysLangsInTheirRegionCallbacks();
     init3dModePrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
@@ -153,8 +155,13 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
   private void updateMapLanguageCodeSummary()
   {
     final Preference pref = getPreference(getString(R.string.pref_map_locale));
-    Locale locale = new Locale(MapLanguageCode.getMapLanguageCode());
-    pref.setSummary(locale.getDisplayLanguage());
+    String mapLanguageCode = MapLanguageCode.getMapLanguageCode();
+    if (mapLanguageCode.equals(DEFAULT_LANG_CODE)) {
+      pref.setSummary(R.string.pref_maplanguage_local);
+    } else {
+      Locale locale = new Locale(mapLanguageCode);
+      pref.setSummary(locale.getDisplayLanguage());
+    }
   }
 
   private void updateTrafficHttpUrlSummary()
@@ -267,6 +274,20 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
       final boolean newVal = (Boolean) newValue;
       if (oldVal != newVal)
         Config.setLargeFontsSize(newVal);
+
+      return true;
+    });
+  }
+
+  private void initOnlyUseSysLangsInTheirRegionCallbacks()
+  {
+    final Preference pref = getPreference(getString(R.string.pref_set_only_use_syslangs_in_their_region));
+    ((TwoStatePreference) pref).setChecked(Config.isOnlyUseSysLangsInTheirRegion());
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final boolean oldVal = Config.isOnlyUseSysLangsInTheirRegion();
+      final boolean newVal = (Boolean) newValue;
+      if (oldVal != newVal)
+        Config.setOnlyUseSysLangsInTheirRegion(newVal);
 
       return true;
     });
@@ -634,7 +655,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     pref.setOnPreferenceClickListener(preference -> {
       if (MapManager.nativeIsDownloading())
       {
-        new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+        new MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.downloading_is_active)
             .setMessage(R.string.cant_change_this_setting)
             .setPositiveButton(R.string.ok, null)

@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Kroeg";
 "type.amenity.public_bookcase" = "Boekekas";
 "type.amenity.recycling.centre" = "Herwinningsentrum";
-"type.amenity.recycling" = "Herwinningshouer";
 "type.amenity.recycling.container" = "Herwinningshouer";
 "type.recycling.batteries" = "Batterye";
 "type.recycling.clothes" = "Klere";
@@ -465,7 +464,6 @@
 
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Voetgangerbrug";
-
 "type.highway.pedestrian.square" = "Plein";
 
 /* These translations are used for all type.highway.*.tunnel. */
@@ -891,8 +889,6 @@
 "type.public_transport.platform" = "Platform";
 "type.railway" = "Spoorweg";
 "type.railway.abandoned" = "Verlate treinspoor";
-"type.railway.abandoned.bridge" = "Verlate treintonnel";
-"type.railway.abandoned.tunnel" = "Verlate treintonnel";
 "type.railway.construction" = "Spoorweg in aanbou";
 "type.railway.crossing" = "Spoorwegoorgang";
 "type.railway.disused" = "Ongebruikte spoor";

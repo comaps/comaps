@@ -12,7 +12,7 @@
   android:paddingBottom="@dimen/margin_half_plus">
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/text_message"
-    style="@style/TextAppearance.Headline6"
+    style="@style/MwmTextAppearance.Headline6"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentStart="true"

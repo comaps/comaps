@@ -1,0 +1,1 @@
+comaps,kort,open street maps,osm,rejse,vandre,cykel,køre,offline,privat,navigation,gps

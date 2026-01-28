@@ -32,10 +32,9 @@ data/types.txt*
 data/visibility.txt*
 data/colors.txt*
 data/patterns.txt*
-# TODO: designer is not used at the moment
-# data/symbols/*/design/
-# data/colors_design.txt
-# data/patterns_design.txt
+data/symbols/*/design/
+data/colors_design.txt
+data/patterns_design.txt
 
 # Auto-generated from data/categories-strings/* by tools/unix/generate_categories.sh
 data/categories.txt

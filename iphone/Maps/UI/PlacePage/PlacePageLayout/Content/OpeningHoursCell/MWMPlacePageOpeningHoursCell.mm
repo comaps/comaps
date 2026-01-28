@@ -260,6 +260,14 @@ WeekDayView getWeekDayView()
   });
 }
 
+- (IBAction)extendedToggleButtonTap
+{
+  id<MWMPlacePageOpeningHoursCellProtocol> delegate = self.delegate;
+  if (delegate.isEditor) {
+    [delegate setOpeningHoursCellExpanded:!delegate.openingHoursCellExpanded];
+  }
+}
+
 #pragma mark - Properties
 
 - (BOOL)isExpanded

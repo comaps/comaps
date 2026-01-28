@@ -415,8 +415,14 @@
         android:name="app.organicmaps.settings.SettingsActivity"
         android:configChanges="orientation|screenLayout|screenSize"
         android:screenOrientation="fullUser"
+        android:exported="true"
         android:label="@string/settings"
-        android:parentActivityName="app.organicmaps.MwmActivity" />
+        android:parentActivityName="app.organicmaps.MwmActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.APPLICATION_PREFERENCES"/>
+            <category android:name="android.intent.category.DEFAULT"/>
+        </intent-filter>
+    </activity>
 
     <activity
         android:name="app.organicmaps.help.HelpActivity"

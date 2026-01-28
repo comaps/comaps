@@ -121,7 +121,7 @@
 "historic-wayside_shrine": "Oratoire",
 "leisure-dog_park": "Parc canin|Espace sans laisse",
 "leisure-garden": "2Jardin",
-"amenity-bench|amenity-bench-backless": "Banc",
+"amenity-bench": "Banc",
 "amenity-bicycle_rental": "Location de vélos|vélo|bicyclette|3location",
 "amenity-bicycle_repair_station": "Réparation de vélos|vélo|bicyclette|réparation",
 "amenity-car_sharing": "Station d'autopartage|auto-partage",
@@ -167,7 +167,7 @@
 "amenity-vehicle_inspection": "Inspection de véhicule|Contrôle technique",
 "amenity-waste_disposal": "Déchets|poubelle|déchet",
 "amenity-recycling-centre|@category_recycling": "Centre de recyclage|Déchetterie|Déchèterie",
-"amenity-recycling-container|amenity-recycling|@category_recycling": "Conteneur de recyclage|PAVE|Point d'apport volontaire",
+"amenity-recycling-container|@category_recycling": "Conteneur de recyclage|PAVE|Point d'apport volontaire",
 "recycling-batteries|@category_recycling": "Batteries",
 "recycling-clothes|@category_recycling": "Vêtements usagés",
 "recycling-glass_bottles|@category_recycling": "Verre|bouteille|bocaux",
@@ -486,7 +486,7 @@
 "amenity-love_hotel": "Hôtel de passe|Hôtel de sexe|Hôtel pour adultes",
 "healthcare-sample_collection": "Prélèvement d'échantillons",
 "recycling-cardboard|@category_recycling": "5Recyclage de carton|Déchets de carton|Carton",
-"amenity-charging_station-motorcar|amenity-charging_station-motorcar-small|@charging_station": "Chargeur automobile|Chargeur de voiture|Chargeur",
+"amenity-charging_station-motorcar|@charging_station": "Chargeur automobile|Chargeur de voiture|Chargeur",
 "shop-lighting|@shop": "4Lumières|Luminaires|4Lampes",
 "office-security": "Bureau de sécurité",
 "building-guardhouse": "Garde|poste de sécurité|poste de gardiennage",
@@ -494,5 +494,7 @@
 "shop-money_lender": "Prêteur d'argent",
 "attraction-amusement_ride|attraction-carousel|attraction-roller_coaster|attraction-maze|attraction-historic|attraction-big_wheel|attraction-bumper_car|@category_children": "Attraction|Labyrinthe",
 "amenity-animal_shelter": "Refuge pour animaux|Refuge Animalier",
-"amenity-vending_machine-fuel|@category_fuel": "Pompe à gaz"
+"amenity-vending_machine-fuel|@category_fuel": "Pompe à gaz",
+"natural-peak|@mountain": "Sommet",
+"shop-cannabis|@shop": "Cannabis"
 }

@@ -112,7 +112,6 @@
     <string name="type.amenity.pub">पब</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">भंगार केंद्र</string>
-    <string name="type.amenity.recycling">रीसायकलिंग कंटेनर</string>
     <string name="type.amenity.recycling.container">रीसायकलिंग कंटेनर</string>
     <string name="type.recycling.batteries">घरगुती बॅटरी</string>
     <string name="type.recycling.clothes">कपडे</string>

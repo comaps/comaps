@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		271DC2172EC60C0C00442D94 /* keys_to_remove.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */; };
+		27FDBF1B2EEEFC3F0045621D /* feature_type_to_osm_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27FDBF1A2EEEFC3F0045621D /* feature_type_to_osm_test.cpp */; };
+		27FDBF1E2EEEFC5A0045621D /* feature_type_to_osm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27FDBF1D2EEEFC5A0045621D /* feature_type_to_osm.cpp */; };
+		27FDBF1F2EEEFC5A0045621D /* feature_type_to_osm.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27FDBF1C2EEEFC5A0045621D /* feature_type_to_osm.hpp */; };
 		340C20DE1C3E4DFD00111D22 /* osm_auth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340C20DC1C3E4DFD00111D22 /* osm_auth.cpp */; };
 		340C20DF1C3E4DFD00111D22 /* osm_auth.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 340C20DD1C3E4DFD00111D22 /* osm_auth.hpp */; };
 		340DC8291C4E71E500EAA2CC /* changeset_wrapper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 340DC8271C4E71E500EAA2CC /* changeset_wrapper.cpp */; };
@@ -77,6 +80,10 @@
 /* Begin PBXFileReference section */
 		270C9C212E16AABF00ABA688 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = module.modulemap; path = ../../libs/editor/module.modulemap; sourceTree = SOURCE_ROOT; };
 		271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = keys_to_remove.hpp; sourceTree = "<group>"; };
+		27998A9E2EEEFE09001EAFD0 /* mapcss-mapping.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mapcss-mapping.csv"; path = "../../data/mapcss-mapping.csv"; sourceTree = SOURCE_ROOT; };
+		27FDBF1A2EEEFC3F0045621D /* feature_type_to_osm_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_type_to_osm_test.cpp; sourceTree = "<group>"; };
+		27FDBF1C2EEEFC5A0045621D /* feature_type_to_osm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_type_to_osm.hpp; sourceTree = "<group>"; };
+		27FDBF1D2EEEFC5A0045621D /* feature_type_to_osm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_type_to_osm.cpp; sourceTree = "<group>"; };
 		340C20DC1C3E4DFD00111D22 /* osm_auth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = osm_auth.cpp; sourceTree = "<group>"; };
 		340C20DD1C3E4DFD00111D22 /* osm_auth.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = osm_auth.hpp; sourceTree = "<group>"; };
 		340DC8271C4E71E500EAA2CC /* changeset_wrapper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = changeset_wrapper.cpp; sourceTree = "<group>"; };
@@ -199,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				3496AC041DC204B700C5DDBA /* editor.config */,
+				27998A9E2EEEFE09001EAFD0 /* mapcss-mapping.csv */,
 				270C9C212E16AABF00ABA688 /* module.modulemap */,
 				34F5586E1DBF49B200A4FC11 /* common-debug.xcconfig */,
 				34F5586F1DBF49B200A4FC11 /* common-release.xcconfig */,
@@ -242,6 +250,8 @@
 				6715560420BEC331002BA3B4 /* edits_migration.hpp */,
 				3D052486200F62ED00F24998 /* feature_matcher.cpp */,
 				3D052485200F62ED00F24998 /* feature_matcher.hpp */,
+				27FDBF1D2EEEFC5A0045621D /* feature_type_to_osm.cpp */,
+				27FDBF1C2EEEFC5A0045621D /* feature_type_to_osm.hpp */,
 				271DC2162EC60C0C00442D94 /* keys_to_remove.hpp */,
 				6715565220BF0F86002BA3B4 /* new_feature_categories.cpp */,
 				6715565320BF0F87002BA3B4 /* new_feature_categories.hpp */,
@@ -270,6 +280,7 @@
 				3496ABD21DC2034900C5DDBA /* editor_config_test.cpp */,
 				3496ABD31DC2034900C5DDBA /* editor_notes_test.cpp */,
 				3D052489200F630000F24998 /* feature_matcher_test.cpp */,
+				27FDBF1A2EEEFC3F0045621D /* feature_type_to_osm_test.cpp */,
 				3D05248A200F630000F24998 /* match_by_geometry_test.cpp */,
 				6715560920BEF0A4002BA3B4 /* new_feature_categories_test.cpp */,
 				3496ABD41DC2034900C5DDBA /* opening_hours_ui_test.cpp */,
@@ -338,6 +349,7 @@
 				34527C521C89B1770015050E /* editor_config.hpp in Headers */,
 				675B562820D2706000A521D2 /* editable_feature_source.hpp in Headers */,
 				6715565520BF0F87002BA3B4 /* new_feature_categories.hpp in Headers */,
+				27FDBF1F2EEEFC5A0045621D /* feature_type_to_osm.hpp in Headers */,
 				6715560820BEC332002BA3B4 /* edits_migration.hpp in Headers */,
 				3D052487200F62EE00F24998 /* feature_matcher.hpp in Headers */,
 				271DC2172EC60C0C00442D94 /* keys_to_remove.hpp in Headers */,
@@ -470,6 +482,7 @@
 				340C20DE1C3E4DFD00111D22 /* osm_auth.cpp in Sources */,
 				6715560720BEC332002BA3B4 /* osm_editor.cpp in Sources */,
 				3D052488200F62EE00F24998 /* feature_matcher.cpp in Sources */,
+				27FDBF1E2EEEFC5A0045621D /* feature_type_to_osm.cpp in Sources */,
 				3D489BEF1D4F67E10052AA38 /* editor_storage.cpp in Sources */,
 				3411387A1C15AE42002E3B3E /* ui2oh.cpp in Sources */,
 				340DC8291C4E71E500EAA2CC /* changeset_wrapper.cpp in Sources */,
@@ -488,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3496ABE11DC2035800C5DDBA /* config_loader_test.cpp in Sources */,
+				27FDBF1B2EEEFC3F0045621D /* feature_type_to_osm_test.cpp in Sources */,
 				671555E820BDC5D3002BA3B4 /* osm_editor_test.cpp in Sources */,
 				3496ABE21DC2035800C5DDBA /* editor_config_test.cpp in Sources */,
 				FACB76B826B89DF700810C9C /* feature_matcher_test.cpp in Sources */,

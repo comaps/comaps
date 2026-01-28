@@ -110,7 +110,6 @@
     <string name="type.amenity.public_bookcase">Bibliotecă</string>
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centru de reciclare</string>
-    <string name="type.amenity.recycling">Containere pentru reciclare</string>
     <string name="type.amenity.recycling.container">Containere pentru reciclare</string>
     <string name="type.recycling.batteries">Baterii</string>
     <string name="type.recycling.clothes">Haine vechi</string>
@@ -142,7 +141,7 @@
     <string name="type.amenity.vending_machine.public_transport_tickets">Automat de vânzare a biletelor pentru transportul public</string>
     <string name="type.amenity.vehicle_inspection">Inspecția vehiculului</string>
     <string name="type.amenity.veterinary">Cabinet veterinar</string>
-    <string name="type.amenity.waste_basket">Pubelă</string>
+    <string name="type.amenity.waste_basket">Coș de gunoi</string>
     <string name="type.amenity.waste_disposal">Gunoi</string>
     <string name="type.amenity.water_point">Punct de alimentare cu apă</string>
     <string name="type.amenity.water_point.drinking_water_no">Punct de alimentare cu apă</string>
@@ -222,7 +221,7 @@
     <string name="type.cuisine.cake">Tort</string>
     <string name="type.cuisine.caribbean">Bucătărie caraibă</string>
     <string name="type.cuisine.chicken">Pui</string>
-    <string name="type.cuisine.chinese">Bucătărie chineză</string>
+    <string name="type.cuisine.chinese">Bucătărie chinezească</string>
     <string name="type.cuisine.coffee_shop">Cafenea</string>
     <string name="type.cuisine.crepe">Clătite</string>
     <string name="type.cuisine.croatian">Bucătărie croată</string>
@@ -285,7 +284,7 @@
     <string name="type.cuisine.tapas">Tapas</string>
     <string name="type.cuisine.tea">Ceai</string>
     <string name="type.cuisine.thai">Bucătărie tailandeză</string>
-    <string name="type.cuisine.turkish">Bucătărie turcă</string>
+    <string name="type.cuisine.turkish">Bucătărie turcească</string>
     <string name="type.cuisine.vegan">Bucătărie vegană</string>
     <string name="type.cuisine.vegetarian">Bucătărie vegetariană</string>
     <string name="type.cuisine.vietnamese">Bucătărie vietnameză</string>
@@ -300,7 +299,7 @@
     <!-- This is for secondary entrances, for main entrances see type.entrance.main -->
     <string name="type.entrance">Intrare</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
-    <string name="type.entrance.main">Intrarea principala</string>
+    <string name="type.entrance.main">Intrarea principală</string>
     <string name="type.entrance.exit">Ieșire</string>
     <string name="type.fee.no">Gratuit</string>
     <string name="type.healthcare.laboratory">Laborator medical</string>
@@ -473,7 +472,7 @@
     <string name="type.area_highway.unclassified">Stradă</string>
     <!-- SECTION: Types: Historic -->
     <string name="type.historic">Obiect istoric</string>
-    <string name="type.historic.aircraft">Avioane istorice</string>
+    <string name="type.historic.aircraft">Avion istoric</string>
     <string name="type.historic.anchor">Ancoră istorică</string>
     <string name="type.historic.archaeological_site">Sit arheologic</string>
     <string name="type.historic.battlefield">Câmpul de luptă</string>
@@ -529,7 +528,7 @@
     <string name="type.landuse.forest.mixed">Pădure</string>
     <string name="type.landuse.grass">Iarbă</string>
     <string name="type.landuse.landfill">Groapă de gunoi</string>
-    <string name="type.landuse.railway">Domeniul feroviar</string>
+    <string name="type.landuse.railway">Zonă feroviară</string>
     <string name="type.landuse.reservoir">Lac de acumulare</string>
     <string name="type.leisure.dog_park">Parc pentru câini</string>
     <string name="type.leisure.fitness_centre">Centru fitness</string>
@@ -975,7 +974,7 @@
     <string name="type.shop.dry_cleaning">Curățătorie chimică</string>
     <string name="type.shop.electronics">Magazin de Electronice</string>
     <string name="type.shop.erotic">Magazin erotic</string>
-    <string name="type.shop.fabric">Magazin de țesături</string>
+    <string name="type.shop.fabric">Magazin de stofe</string>
     <string name="type.shop.farm">Magazin alimentar la fermă</string>
     <string name="type.shop.fashion_accessories">Acesorii de modă</string>
     <string name="type.shop.florist">Florărie</string>
@@ -1184,7 +1183,7 @@
     <string name="type.amenity.bicycle_repair_station">Stație Reparații Biciclete</string>
     <string name="type.amenity.car_sharing">Car Sharing</string>
     <string name="type.amenity.dentist">Dentist</string>
-    <string name="type.office.security">Biroul agenților de securitate</string>
+    <string name="type.office.security">Firmă de pază</string>
     <string name="type.building.guardhouse">Cabină de pază</string>
     <string name="type.power.portal">Stație de distribuție</string>
     <string name="type.amenity.food_court">Food Court</string>
@@ -1303,8 +1302,6 @@
     <string name="type.power.pole">Stâlp de electricitate</string>
     <string name="type.public_transport.platform">Platformă</string>
     <string name="type.railway.abandoned">Linie moartă</string>
-    <string name="type.railway.abandoned.bridge">Pod de cale ferată abandonat</string>
-    <string name="type.railway.abandoned.tunnel">Tunel de cale ferată abandonat</string>
     <string name="type.railway.construction">Construcții Feroviare</string>
     <string name="type.railway.crossing">Trecere la nivel cu calea ferată</string>
     <string name="type.railway.disused">Cale ferată abandonată</string>
@@ -1454,4 +1451,5 @@
     <string name="type.social_facility.soup_kitchen">Cantină socială</string>
     <string name="type.social_facility.food_bank">Bancă de alimente</string>
     <string name="type.xmas.tree">Brad de Crăciun</string>
+    <string name="type.amenity.hydrant">Hidrant Irigații</string>
 </resources>

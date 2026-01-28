@@ -2,4 +2,5 @@
 <resources>
     <string name="postal_code">Postcode</string>
     <string name="subway_data_unavailable">Metro map is unavailable</string>
+    <string name="mb">MB</string>
 </resources>

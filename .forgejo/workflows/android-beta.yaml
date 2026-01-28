@@ -14,22 +14,22 @@ on:
       - LICENSE
       - NOTICE
       - README.md
+      - android/app/src/fdroid/**
+      - android/app/src/google/**
       - iphone/**
-      - data/strings/**
+      - data/*-strings/**
       - docs/**
       - generator/**
       - packaging/**
-      - platform/*apple*
-      - platform/*_ios*
-      - platform/*_linux* 
-      - platform/*_mac* 
-      - platform/*qt* 
-      - platform/*_win* 
-      - pyhelpers/**
+      - libs/platform/*apple*
+      - libs/platform/*_ios*
+      - libs/platform/*_linux*
+      - libs/platform/*_mac*
+      - libs/platform/*qt*
+      - libs/platform/*_win*
+      - libs/pyhelpers/**
       - qt*/**
-      - skin_generator/**
       - tools/**
-      - track_generator/**
       - xcode/**
 
 jobs:

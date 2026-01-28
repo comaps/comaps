@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Legg til en ny liste</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Bokmerkelistenavn</string>
+    <string name="bookmark_set_name">Listenavn</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Bokmerker</string>
+    <string name="bookmarks">Steder</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Bokmerker og spor</string>
+    <string name="bookmarks_and_tracks">Favoritter</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Navn</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Merknader</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Delte CoMaps-bokmerker</string>
-    <string name="share_bookmarks_email_body">Hei! \n \nVedlagt er mine bokmerker; åpne dem i CoMaps. Har du ikke installert appen kan du laste ned her: https://www.comaps.app/download/ \n \nGod reise med CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Mine CoMaps-favoritter</string>
+    <string name="share_bookmarks_email_body">Hei! \n \nVedlagt er mine favoritter; åpne dem i CoMaps. Har du ikke installert appen kan du laste ned her: https://www.comaps.app/download/ \n \nGod reise med CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Laster inn bokmerker</string>
+    <string name="load_kmz_title">Laster inn favoritter</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Bokmerkene ble lastet inn! Du finner dem på kartet eller på skjermen Bokmerkehåndtering.</string>
+    <string name="load_kmz_successful">Favoritter ble lastet inn! Du finner dem på kartet eller på skjermen Favoritthåndtering.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Mislyktes i å laste inn bokmerker. Filen kan være skadet eller defekt.</string>
+    <string name="load_kmz_failed">Mislyktes i å laste inn favoritter. Filen kan være skadet eller defekt.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Filtypen gjenkjennes ikke av appen: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -500,7 +500,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Mer</string>
-    <string name="placepage_edit_bookmark_button">Rediger bokmerke</string>
+    <string name="placepage_edit_bookmark_button">Rediger lagret sted</string>
     <string name="placepage_personal_notes_hint">Personlige notater (tekst eller html)</string>
     <string name="editor_reset_edits_message">Forkaste alle lokale endringer?</string>
     <string name="editor_reset_edits_button">Forkast endringer</string>
@@ -565,17 +565,17 @@
     <string name="dialog_error_storage_message">Ekstern lagring er ikke tilgjengelig. Sannsynligvis er SD-kortet fjernet eller skadet eller så er filsystemet skrivebeskyttet. Undersøk og kontakt oss på support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emulere skadet lagring</string>
     <string name="error_enter_correct_name">Skriv inn korrekt navn</string>
-    <string name="bookmark_lists">Lister</string>
+    <string name="bookmark_lists">Favorittlister</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Skjul alle</string>
     <string name="bookmark_lists_show_all">Vis alle</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bokmerke</item>
-        <item quantity="other">%d bokmerker</item>
+        <item quantity="one">%d lagret sted</item>
+        <item quantity="other">%d lagrede steder</item>
     </plurals>
     <string name="bookmarks_create_new_group">Opprett ny liste</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importer bokmerker og spor</string>
+    <string name="bookmarks_import">Importer favoritter</string>
     <string name="bookmarks_error_message_share_general">Kan ikke dele på grunn av en programfeil</string>
     <string name="bookmarks_error_title_share_empty">Delingsfeil</string>
     <string name="bookmarks_error_message_share_empty">Kan ikke dele en tom liste</string>
@@ -604,7 +604,7 @@
     <string name="subway">T-bane</string>
     <string name="layers_title">Kartstiler og -lag</string>
     <string name="bookmarks_empty_list_title">Denne listen er tom</string>
-    <string name="bookmarks_empty_list_message">For å legge til et bokmerke, trykk et sted på kartet og trykk så stjerneikonet</string>
+    <string name="bookmarks_empty_list_message">For å lagre et sted, trykk et sted på kartet og trykk så stjerneikonet</string>
     <string name="category_desc_more">…mer</string>
     <string name="export_file">Eksporter KMZ</string>
     <string name="export_file_gpx">Eksporter GPX</string>
@@ -657,7 +657,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sorter…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sorter bokmerker</string>
+    <string name="sort_bookmarks">Sorter favoritter</string>
     <!-- Android -->
     <string name="by_default">Som standard</string>
     <!-- Android -->
@@ -724,7 +724,7 @@
     <!-- Description in preferences -->
     <string name="enable_show_on_lock_screen_description">Når dette er aktivert, fungerer appen på låseskjermen selv når enheten er låst.</string>
     <!-- Current language of the map! -->
-    <string name="change_map_locale">Kart-språk</string>
+    <string name="change_map_locale">Kartspråk</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Kartdata fra OpenStreetMap</string>
     <!-- App Tip #00 -->
@@ -732,7 +732,7 @@
     <!-- App tip #01 -->
     <string name="app_tip_01">Med dine donasjoner og støtte kan vi lage de beste kartene i verden!</string>
     <!-- App tip #02 -->
-    <string name="app_tip_02">Liker du appen vår? Vennligst doner for å støtte utviklingen! Liker du det ikke ennå? Gi oss beskjed, så fikser vi det!</string>
+    <string name="app_tip_02">Liker du appen vår? Vennligst doner for å støtte utviklingen! Liker du den ikke ennå? La oss få vite hvorfor, så fikser vi det!</string>
     <!-- App tip #03 -->
     <string name="app_tip_03">Hvis du kjenner en programvareutvikler, kan du be ham eller henne implementere en funksjon du trenger.</string>
     <!-- App tip #04 -->
@@ -746,7 +746,7 @@
     <!-- App tip #08 -->
     <string name="app_tip_08">Du kan enkelt fikse og forbedre kartdataene.</string>
     <!-- App tip #09 -->
-    <string name="app_tip_09">Vårt hovedmål er å bygge raske, personvernfokuserte, brukervennlige kart som du vil elske.</string>
+    <string name="app_tip_09">Vårt hovedmål er å lage raske, personvernfokuserte, brukervennlige kart som du vil like.</string>
     <!-- Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen -->
     <string name="car_used_on_the_phone_screen">Du bruker nå CoMaps på telefonskjermen</string>
     <!-- Text on the phone placeholder screen that maps are displayed on the car screen -->
@@ -771,7 +771,7 @@
     <string name="browser_not_available">Nettleser er ikke tilgjengelig</string>
     <string name="volume">Volum</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksporter alle bokmerker og spor</string>
+    <string name="bookmarks_export">Eksporter alle steder og spor</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Systeminnstillinger for talesyntese</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -803,7 +803,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Fortsett opptak</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Lagre i bokmerker og spor?</string>
+    <string name="track_recording_alert_title">Lagre i favoritter?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Sporet er tomt - ingenting å lagre</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -832,7 +832,7 @@
     <string name="pref_backup_interval_title">Automatisk sikkerhetskopiering</string>
     <string name="backup_interval_manual_only">Av (kun manuelt)</string>
     <string name="delete_track_dialog_title">Slette %s?</string>
-    <string name="bookmark_color">Bokmerkefarge</string>
+    <string name="bookmark_color">Farge for favoritt</string>
     <string name="about_help">Om &amp; Hjelp</string>
     <string name="open_now">Åpen nå</string>
     <string name="read_in_wikipedia">Wikipedia</string>
@@ -851,11 +851,11 @@
     <string name="at">kl. %s</string>
     <string name="pref_tts_no_system_tts_short">Ingen tekst-til-tale-motor funnet, sjekk appinnstillingene</string>
     <string name="pref_left_button_title">Venstreknappoppsett</string>
-    <string name="pref_backup_title">Sikkerhetskopi av bokmerker og spor</string>
+    <string name="pref_backup_title">Sikkerhetskopier favoritter</string>
     <string name="pref_backup_summary">Automatisk sikkerhetskopiering til en mappe på enheten din</string>
     <string name="pref_backup_now_summary">Opprett en sikkerhetskopi med en gang</string>
     <string name="pref_backup_now_summary_ok">Sikkerhetskopiering fullført</string>
-    <string name="pref_backup_now_summary_empty_lists">Ingen bokmerker og spor å sikkerhetskopiere</string>
+    <string name="pref_backup_now_summary_empty_lists">Ingen steder og spor å sikkerhetskopiere</string>
     <string name="pref_backup_now_summary_folder_unavailable">Sikkerhetskopimappen er ikke tilgjengelig</string>
     <string name="pref_backup_status_summary_success">Siste vellykkede sikkerhetskopiering</string>
     <string name="pref_backup_location_summary_initial">Velg en mappe først og gi tillatelse</string>
@@ -908,8 +908,8 @@
     <string name="osm_note_toast">Notatet vil bli sendt til OpenStreetMap</string>
     <string name="advanced">Avansert</string>
     <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
-    <string name="download_resources_custom_url_error_scheme">Angi en fullstendig nettadresse som starter med https:// og slutter med /</string>
-    <string name="download_resources_custom_url_hint">https://cdn-fi-1.comaps.app/</string>
+    <string name="download_resources_custom_url_error_scheme">Angi en nettadresse som starter med http:// eller https://</string>
     <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
     <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
+    <string name="pref_maplanguage_local">Lokalt språk</string>
 </resources>

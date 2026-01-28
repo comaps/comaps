@@ -63,7 +63,7 @@
 "add_new_set" = "Adicionar novo conjunto";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nome do conjunto de favoritos";
+"bookmark_set_name" = "Nome do conjunto";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Conjuntos de favoritos";
@@ -72,7 +72,7 @@
 "bookmarks" = "Favoritos";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Favoritos e trilhas";
+"bookmarks_and_tracks" = "Favoritos";
 
 /* Default bookmark list name */
 "core_my_places" = "Meus locais";
@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Para trailers";
-"share_bookmarks_email_body" = "Olá!\n\nSegue em anexo meus favoritos do app CoMaps. Se tiver instalado o CoMaps, pode abri-los agora. Caso não tenha, baixe o app para o seu dispositivo iOS ou Android via o link https://www.comaps.app/download/\n\nDisfrute viajar com o CoMaps!";
+"share_bookmarks_email_body" = "Olá!\n\nEm anexo estão os locais que salvei; por favor, abra-os no CoMaps. Caso não o tenha instalado, você pode baixá-lo aqui: https://www.comaps.app/download/\n\nDesfrute de suas viagens com a CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Carregando favoritos";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "Erro no envio de email";
-
-/* Settings item title */
-"pref_calibration_title" = "Calibração da bússola";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Dê um toque longo no mapa novamente para ver a interface";
@@ -683,7 +680,7 @@
 "editor_edits_sent_message" = "A sua nota será enviada ao OpenStreetMap";
 "editor_comment_hint" = "Comentar…";
 "editor_reset_edits_message" = "Descartar todas as modificações locais?";
-"editor_reset_edits_button" = "Descartar";
+"editor_reset_edits_button" = "Descartar alterações";
 "editor_remove_place_message" = "Remover local adicionado?";
 "editor_remove_place_button" = "Remover";
 "editor_place_doesnt_exist" = "O lugar não existe";
@@ -1106,3 +1103,4 @@
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Leitura e Fala*, *Vozes*.";
 "avoid_paved" = "Evitar vias pavimentadas";
+"limit_map_language_alternatives_to_local" = "Utilizar apenas outros idiomas do sistema em sua região";

@@ -1,1 +1,1 @@
-comaps,karti,open street maps,osm,planinarenje,biciklo,auto,offline,privatnost,navigacija,gps
+comaps,karte,open street maps,osm,putovanje,hike,bicikla,auto,offline,privatnost,navigacija,gps

@@ -394,7 +394,6 @@
 "dialog_routing_rebuild_from_current_location_carplay" = "The route will be rebuilt from your current location";
 "popular_place" = "Popular";
 "address" = "Address";
-"pref_calibration_title" = "Compass calibration";
 "elevation_profile_max_elevation" = "Max. elevation";
 "mobile_data_option_today" = "Only Today";
 "editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";

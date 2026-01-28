@@ -157,6 +157,7 @@ public:
   void SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
                   location::RouteMatchingInfo const & routeInfo);
   void SwitchMyPositionNextMode();
+  void StartPendingPositionMode();
   void LoseLocation();
   void StopLocationFollow();
 
@@ -250,7 +251,7 @@ private:
   void AddUserEvent(drape_ptr<UserEvent> && e);
   void PostUserEvent(drape_ptr<UserEvent> && e);
   void ModelViewChanged(ScreenBase const & screen);
-  void MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive);
+  void MyPositionModeChanged(location::EMyPositionMode mode, bool routingActive, bool shouldPersistMode);
   void TapEvent(TapInfo const & tapInfo);
   void UserPositionChanged(m2::PointD const & position, bool hasPosition);
 

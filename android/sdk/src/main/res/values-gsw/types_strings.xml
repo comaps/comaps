@@ -131,7 +131,6 @@
     <string name="type.amenity.pub">Beiz</string>
     <string name="type.amenity.public_bookcase">Büecherschrank</string>
     <string name="type.amenity.recycling.centre">Recyclinghof</string>
-    <string name="type.amenity.recycling">Recyclingcontainer</string>
     <string name="type.amenity.recycling.container">Recyclingcontainer</string>
     <string name="type.recycling.batteries">Batterie</string>
     <string name="type.recycling.clothes">Altchleider</string>
@@ -530,8 +529,8 @@
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.slipway">Bootsrampe</string>
     <string name="type.leisure.sports_centre">Sportzentrum</string>
-    <string name="type.sport.climbing">Chlätterhalle</string>
-    <string name="type.sport.yoga">Yoga Studio</string>
+    <string name="type.sport.climbing">Chlättere</string>
+    <string name="type.sport.yoga">Yoga</string>
     <string name="type.leisure.stadium">Stadion</string>
     <string name="type.leisure.swimming_pool.private">Schwümmbecki</string>
     <string name="type.leisure.track">Laufbahn</string>
@@ -669,7 +668,6 @@
     <string name="type.public_transport.platform">Plattform</string>
     <string name="type.railway">Isebahn</string>
     <string name="type.railway.abandoned">Ehemaligi Isebahnstrecki</string>
-    <string name="type.railway.abandoned.bridge">Ehemaligi Isebahnbrugg</string>
     <string name="type.railway.construction">Isebahnstrecki im Bau</string>
     <string name="type.railway.crossing">Bahnübergang</string>
     <string name="type.railway.disused">Stillgleiti Bahnstrecki</string>
@@ -835,7 +833,6 @@
     <string name="type.natural.shingle">Chieselstei</string>
     <string name="type.natural.vineyard">Wiiberg</string>
     <string name="type.place.quarter">Stadtviertel</string>
-    <string name="type.railway.abandoned.tunnel">Ehemalige Isebahntunnel</string>
     <string name="type.railway.rail.highspeed">Höchgschwindigkeitsisebahn</string>
     <string name="type.area_highway.primary">Hauptstrass</string>
     <string name="type.man_made.cross">Chrüz</string>
@@ -1311,7 +1308,6 @@
     <string name="type.man_made.telescope.radio">Teleskop (Radio)</string>
     <string name="type.man_made.telescope.gamma">Teleskop (Gamma)</string>
     <string name="type.man_made.observatory">Observatorium</string>
-    <string name="type.amenity.charging_station.motorcar.small">Autoladestation</string>
     <string name="type.amenity.sailing_school">Sägelschuel</string>
     <string name="type.amenity.flight_school">Flugschuel</string>
     <string name="type.amenity.prep_school">Nachhilfsschuel</string>
@@ -1334,4 +1330,11 @@
     <string name="type.entrance.entry">(Nur) Iigang</string>
     <string name="type.entrance.emergency">Notuusgang</string>
     <string name="type.leisure.sports_centre.sport.multi">Sportzentrum</string>
+    <string name="type.amenity.hydrant">Berägnigshydrant</string>
+    <string name="type.cardinal.east">Oschte</string>
+    <string name="type.cardinal.north">Norde</string>
+    <string name="type.cardinal.south">Süüde</string>
+    <string name="type.cardinal.west">Weschte</string>
+    <string name="type.lateral.starboard">Schtüürbord</string>
+    <string name="type.lateral.port">Backbord</string>
 </resources>

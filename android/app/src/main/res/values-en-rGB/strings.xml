@@ -19,8 +19,8 @@
     <string name="editor_zip_code">Postcode</string>
     <string name="error_enter_correct_zip_code">Enter a valid postcode</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bookmark</item>
-        <item quantity="other">%d bookmarks</item>
+        <item quantity="one">%d place</item>
+        <item quantity="other">%d places</item>
     </plurals>
     <plurals name="bookmarks_detect_message">
         <item quantity="one">%d file was found. You can see it after conversion.</item>

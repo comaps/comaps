@@ -76,7 +76,6 @@
 "type.amenity.public_bath" = "Public Bath";
 "type.recycling.paper" = "Paper";
 "type.amenity.shower" = "Shower";
-"type.amenity.recycling" = "Recycling Container";
 "type.recycling.cartons" = "Cartons";
 "type.amenity.shelter.public_transport" = "Shelter";
 "type.recycling.cans" = "Cans";
@@ -496,7 +495,6 @@
 "type.railway.station.subway.guangzhou" = "Subway Station";
 "type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.shop.car" = "Car Dealership";
-"type.railway.abandoned.bridge" = "Abandoned Railway Bridge";
 "type.piste_type.skitour" = "Skitour Trail";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
 "type.highway.motorway_link" = "Motorway Ramp";
@@ -519,7 +517,6 @@
 "type.railway.station.subway.changchun" = "Subway Station";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
 "type.tourism.information.map" = "Tourist Map";
-"type.railway.abandoned.tunnel" = "Abandoned Railway Tunnel";
 "type.shop.kiosk" = "Kiosk";
 "type.railway.station.subway.rio" = "Subway Station";
 "type.man_made.water_tower" = "Water Tower";
@@ -577,7 +574,6 @@
 "type.railway.station.subway.buenos_aires" = "Subway Station";
 "type.shop.greengrocer" = "Greengrocer";
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
-
 "type.highway.pedestrian.square" = "Square";
 "type.cuisine.turkish" = "Turkish";
 "type.highway.primary.tunnel" = "Tunnel";

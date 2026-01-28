@@ -72,6 +72,8 @@ set(SRC
   feature_impl.hpp
   feature_meta.cpp
   feature_meta.hpp
+  feature_region_locator.cpp
+  feature_region_locator.hpp
   feature_processor.hpp
   feature_source.cpp
   feature_source.hpp
@@ -88,6 +90,8 @@ set(SRC
   ftraits.hpp
   ftypes_matcher.cpp
   ftypes_matcher.hpp
+  ftypes_subtypes.cpp
+  ftypes_subtypes.hpp
   house_to_street_iface.hpp
   index_builder.cpp
   index_builder.hpp

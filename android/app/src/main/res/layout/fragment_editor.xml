@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clipToPadding="false"
+    android:background="?colorSurfaceContainerLow"
     tools:context=".editor.EditorActivity">
   <LinearLayout
       android:layout_width="match_parent"
@@ -430,7 +431,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="@dimen/margin_quarter"
-        app:backgroundTint="?cardBackground"
         android:textColor="@color/base_red"
         app:strokeColor="@color/base_red"
         android:text="@string/editor_business_vacant_button"/>
@@ -441,7 +441,6 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="@dimen/margin_base"
-        app:backgroundTint="?cardBackground"
         android:textColor="@color/base_red"
         app:strokeColor="@color/base_red"
         tools:text="Reset my changes"/>

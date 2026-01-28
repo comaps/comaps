@@ -6,12 +6,10 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.XmlRes;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import app.organicmaps.R;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.ScrollableContentInsetsListener;
 
@@ -44,7 +42,6 @@ abstract class BaseXmlSettingsFragment extends PreferenceFragmentCompat
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
   {
     super.onViewCreated(view, savedInstanceState);
-    view.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_cards));
     RecyclerView recyclerView = getListView();
     ViewCompat.setOnApplyWindowInsetsListener(recyclerView, new ScrollableContentInsetsListener(recyclerView));
   }

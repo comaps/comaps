@@ -8,6 +8,7 @@
 
   <!-- margins -->
   <dimen name="margin_eighth">2dp</dimen>
+  <dimen name="margin_eighth_plus">3dp</dimen>
   <dimen name="margin_quarter">4dp</dimen>
   <dimen name="margin_quarter_plus">6dp</dimen>
   <dimen name="margin_half">8dp</dimen>

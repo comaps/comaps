@@ -155,7 +155,7 @@ public class FeatureCategoryFragment
   // Duplicate of showNoobDialog()
   private void showNoteConfirmationDialog(double lat, double lon, String noteText)
   {
-    new MaterialAlertDialogBuilder(requireActivity(), R.style.MwmTheme_AlertDialog)
+    new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_share_to_all_dialog_title)
         .setMessage(getString(R.string.editor_share_to_all_dialog_message_1) + " "
                     + getString(R.string.editor_share_to_all_dialog_message_2))

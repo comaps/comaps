@@ -57,6 +57,8 @@ TagMapping const kMotorCarTagMapping = {
     {OsmElement::Tag("motorcar", "private"), RoadAccess::Type::Private},
     {OsmElement::Tag("motorcar", "destination"), RoadAccess::Type::Destination},
     {OsmElement::Tag("motorcar", "permit"), RoadAccess::Type::Permit},
+    {OsmElement::Tag("service", "parking_aisle"), RoadAccess::Type::Destination},
+    {OsmElement::Tag("amenity", "parking_entrance"), RoadAccess::Type::Destination},
 };
 
 TagMapping const kMotorVehicleTagMapping = {
@@ -134,8 +136,6 @@ TagMapping const kDefaultTagMapping = {
     {OsmElement::Tag("access", "agricultural"), RoadAccess::Type::Private},
     {OsmElement::Tag("access", "forestry"), RoadAccess::Type::Private},
     {OsmElement::Tag("locked", "yes"), RoadAccess::Type::Locked},
-    {OsmElement::Tag("service", "parking_aisle"), RoadAccess::Type::Private},
-    {OsmElement::Tag("amenity", "parking_entrance"), RoadAccess::Type::Private},
 };
 
 // Removed secondary, tertiary from car list. Example https://www.openstreetmap.org/node/8169922700

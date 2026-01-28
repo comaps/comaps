@@ -85,10 +85,28 @@ class OpeningHoursViewController: UIViewController {
         }
 
         if let checkDate = self.openingHoursCheckDate, self.expanded {
-          let checkDateFormatter = RelativeDateTimeFormatter()
-          checkDateFormatter.unitsStyle = .spellOut
-          checkDateFormatter.localizedString(for: checkDate, relativeTo: Date.now)
-          self.checkDateLabel.text = String(format: L("hours_confirmed_time_ago"),  checkDateFormatter.localizedString(for: checkDate, relativeTo: Date.now))
+          let dateString: String
+                
+          // Check if the date is strictly "Today" or "Yesterday"
+          if Calendar.current.isDateInToday(checkDate) || Calendar.current.isDateInYesterday(checkDate) {
+            // Case 1: Today/Yesterday -> Use "today" / "yesterday"
+            // Can be replaced by Date.RelativeFormatStyle with iOS 18+
+            let checkDateFormatter = DateFormatter()
+            checkDateFormatter.dateStyle = .medium
+            checkDateFormatter.timeStyle = .none
+            checkDateFormatter.doesRelativeDateFormatting = true
+          
+            let rawString = checkDateFormatter.string(from: checkDate)
+            // Lowercase first letter: "Today" -> "today"
+            dateString = rawString.prefix(1).lowercased() + rawString.dropFirst()
+          } else {
+            // Case 2: Older -> Use "2 years ago"
+            let relativeCheckDateFormatter = RelativeDateTimeFormatter()
+            relativeCheckDateFormatter.unitsStyle = .spellOut
+            dateString = relativeCheckDateFormatter.localizedString(for: checkDate, relativeTo: Date())
+          }
+
+          self.checkDateLabel.text = String(format: L("hours_confirmed_time_ago"), dateString)
 
           NSLayoutConstraint.activate([self.checkDateLabelTopLayoutConstraint])
           NSLayoutConstraint.activate([self.checkDateLabelBottomLayoutConstraint])

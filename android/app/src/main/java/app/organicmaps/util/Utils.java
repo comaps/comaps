@@ -184,20 +184,6 @@ public class Utils
     }
   }
 
-  public static void showFacebookPage(Activity activity)
-  {
-    try
-    {
-      // Exception is thrown if we don't have installed Facebook application.
-      getPackageInfo(activity.getPackageManager(), Constants.Package.FB_PACKAGE, 0);
-      activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.Url.FB_OM_COMMUNITY_NATIVE)));
-    }
-    catch (final Exception e)
-    {
-      activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Constants.Url.FB_OM_COMMUNITY_HTTP)));
-    }
-  }
-
   public static void openUrl(@NonNull Context context, @Nullable String url)
   {
     if (TextUtils.isEmpty(url))

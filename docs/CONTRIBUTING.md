@@ -4,7 +4,6 @@ Thank you for your interest in contributing to CoMaps!
 
 ## How Can I Contribute?
 
-- [Donate](https://opencollective.com/comaps/donate)
 - [Submit a bug report or a feature request](#bug-reports-and-feature-requests)
 
 There are things to do for everyone:
@@ -15,6 +14,8 @@ There are things to do for everyone:
 - [Submitting your work](#submitting-your-changes)
 
 If you'd like to help in any other way or if there are any related questions - please [contact us](https://codeberg.org/comaps#keep-connected).
+
+If none of those ways of contributing seem to be a good fit, and you'd like to help out in another way, you could also [donate](https://www.comaps.app/donate/)
 
 ### Bug Reports and Feature Requests
 
@@ -47,13 +48,11 @@ Check the [map styling instructions](STYLES.md) and work on adding new map featu
 Please follow instructions in [INSTALL.md](INSTALL.md) to set up your development environment.
 You will find a list of issues for new contributors [here](https://codeberg.org/comaps/comaps/issues?labels=393881) to help you get started with simple tasks.
 
-**We do not assign issues to first-time contributors.** Any such request notifies our contributors and the development team, and creates unnecessary noise that distracts us from the work. Just make a PR - and it will be reviewed.
-
 Sometimes it's better to discuss and confirm your vision of the fix or implementation before working on an issue. Our main focus is on simplicity and convenience for everyone, not only for geeks.
 
 Please [learn how to use `git rebase`](https://git-scm.com/book/en/v2/Git-Branching-Rebasing) (or rebase via any git tool with a graphical interface, e.g. [Fork for Mac](https://git-fork.com/) is quite good) to amend your commits in the PR and maintain a clean logical commit history for your changes/branches.
 
-We strive to help onboard new developers but we don't always have enough time to guide newcomers step-by-step and explain everything in detail. For that reason we might ask you to read lots of the documentation and study the existing code.
+We strive to help onboard new developers, but we don't always have enough time to guide newcomers step-by-step and explain everything in detail. So please make sure your changes follow these different guidelines when submitting a pull request:
 
 - [Pull Request Guide](PR_GUIDE.md).
 - [Directories structure](STRUCTURE.md)
@@ -71,7 +70,6 @@ Please help us:
 - reproducing and triaging reported bugs
 - [testing upcoming features and bug fixes for Android, iOS and desktop versions](TESTING.md)
 - keeping [issues](https://codeberg.org/comaps/comaps/issues) in order (check for duplicates, organize, assign labels, link related issues, etc.)
-- composing nice user-centric release notes and news items
 - etc.
 
 You can also contribute in [other ways](https://codeberg.org/comaps/Governance/src/branch/main/contribute.md).

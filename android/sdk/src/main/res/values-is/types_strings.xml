@@ -35,7 +35,6 @@
     <string name="type.amenity.pub">Krá</string>
     <string name="type.amenity.public_bookcase">Bókaskipti</string>
     <string name="type.amenity.recycling.centre">Endurvinnslustöð</string>
-    <string name="type.amenity.recycling">Endurvinnslugámur</string>
     <string name="type.recycling.plastic_bottles">Plastflöskur</string>
     <string name="type.recycling.scrap_metal">Brotajárn</string>
     <string name="type.amenity.school">Skóli</string>
@@ -1018,7 +1017,6 @@
     <string name="type.highway.footway.bridge">Göngubrú</string>
     <string name="type.highway.footway.tunnel">Göng fyrir fótgangandi</string>
     <string name="type.highway.pedestrian.bridge">Göngubrú</string>
-
     <string name="type.highway.pedestrian.square">Torg</string>
     <string name="type.historic">Sögulegur hlutur</string>
     <string name="type.historic.stone">Sögulegur steinn</string>
@@ -1080,7 +1078,6 @@
     <string name="type.historic.castle.manor">Herragarður</string>
     <string name="type.power.generator.solar">Sólaraflgjafi</string>
     <string name="type.power.generator.wind">Vindaflgjafi</string>
-    <string name="type.railway.abandoned.tunnel">Aflögð járnbrautargöng</string>
     <string name="type.railway.construction">Járnbraut í byggingu</string>
     <string name="type.railway.rail.tourism">Ferðamannalest</string>
     <string name="type.shop.car_repair">Bílaviðgerðir</string>
@@ -1152,7 +1149,6 @@
     <string name="type.power.minor_line">Minni raflína</string>
     <string name="type.power.plant.gas">Gastúrbínuknúin aflstöð</string>
     <string name="type.power.plant.hydro">Vatnsaflstöð</string>
-    <string name="type.railway.abandoned.bridge">Aflögð járnbrautarbrú</string>
     <string name="type.railway.light_rail.bridge">Léttlestarbrú</string>
     <string name="type.railway.light_rail.tunnel">Léttlestargöng</string>
     <string name="type.railway.monorail.bridge">Einteinungsbrú</string>

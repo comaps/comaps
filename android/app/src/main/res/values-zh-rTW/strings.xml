@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">新增新的書籤列表</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">書籤列表名稱</string>
+    <string name="bookmark_set_name">列表名稱</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">書籤</string>
+    <string name="bookmarks">地點</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">書籤和軌跡</string>
+    <string name="bookmarks_and_tracks">最愛</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">名稱</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">註釋</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">已與您分享 CoMaps 書籤</string>
-    <string name="share_bookmarks_email_body">您好！\n\n附件是我的書籤，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！</string>
+    <string name="share_bookmarks_email_subject">我的 CoMaps 最愛</string>
+    <string name="share_bookmarks_email_body">您好！\n\n附件是我的最愛，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">正在載入書籤</string>
+    <string name="load_kmz_title">正在載入最愛</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">書籤載入成功！ 您可以在地圖或書籤管理畫面中找到它們。</string>
+    <string name="load_kmz_successful">最愛載入成功！ 您可以在地圖或最愛管理畫面中找到它們。</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">書籤載入失敗，檔案可能已損壞或不完整。</string>
+    <string name="load_kmz_failed">最愛載入失敗，檔案可能已損壞或不完整。</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">應用程式無法識別該文件類型：\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -221,7 +221,7 @@
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">語音語言</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">測試語音指令（TTS，文字轉語音系統）</string>
+    <string name="pref_tts_test_voice_title">測試語音指令</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
     <string name="pref_tts_playing_test_voice">如果您現在聽不到聲音，請檢查音量或系統文字轉語音系統的設定</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
@@ -248,7 +248,7 @@
     <!-- Button in the main menu -->
     <string name="donate">捐助我們</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">支持本專案</string>
+    <string name="how_to_support_us">志工與改進 CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">版權</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -483,7 +483,7 @@
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">最多可編輯 %d 層的建築</string>
     <string name="editor_zip_code">郵遞區號</string>
-    <string name="error_enter_correct_zip_code">輸入正確的郵遞區號</string>
+    <string name="error_enter_correct_zip_code">輸入有效的郵遞區號</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">OpenStreetMap 志工注意事項（可選）</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -508,10 +508,10 @@
     <string name="minute">分鐘</string>
     <string name="day">天</string>
     <string name="placepage_more_button">更多</string>
-    <string name="placepage_edit_bookmark_button">編輯書籤</string>
+    <string name="placepage_edit_bookmark_button">編輯已儲存地點</string>
     <string name="placepage_personal_notes_hint">個人備註（文字或 html）</string>
     <string name="editor_reset_edits_message">重設所有本機變更？</string>
-    <string name="editor_reset_edits_button">重設</string>
+    <string name="editor_reset_edits_button">放棄更動</string>
     <string name="editor_remove_place_message">移除已新增的地點？</string>
     <string name="editor_remove_place_button">移除</string>
     <string name="editor_place_doesnt_exist">該地點不存在</string>
@@ -530,8 +530,8 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">您想要發送給所有使用者嗎？</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">確保您沒有輸入任何個人資料</string>
-    <string name="editor_share_to_all_dialog_message_2">OpenStreetMap 編輯人員將檢查更改並在有任何問題時與您聯繫</string>
+    <string name="editor_share_to_all_dialog_message_1">確保您沒有輸入任何隱私或是個人資料。</string>
+    <string name="editor_share_to_all_dialog_message_2">開放街圖編輯將檢查更改並在有任何問題時與您聯繫。</string>
     <string name="navigation_stop_button">停止</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">記錄軌跡</string>
@@ -573,16 +573,16 @@
     <string name="dialog_error_storage_message">外部儲存空間不可用，很可能是因為 SD 卡已移除、毀損，或檔案系統處於唯讀狀態。請進行檢查，然後透過 support@comaps.app 聯絡我們</string>
     <string name="setting_emulate_bad_storage">模擬不良儲存空間</string>
     <string name="error_enter_correct_name">請輸入正確的名稱</string>
-    <string name="bookmark_lists">列表</string>
+    <string name="bookmark_lists">最愛列表</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">全部隱藏</string>
     <string name="bookmark_lists_show_all">全部顯示</string>
     <plurals name="bookmarks_places">
-        <item quantity="other">%d 個書籤</item>
+        <item quantity="other">%d 個地點</item>
     </plurals>
     <string name="bookmarks_create_new_group">創建新的列表</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">導入書籤和軌跡</string>
+    <string name="bookmarks_import">匯入最愛</string>
     <string name="bookmarks_error_message_share_general">由於應用程式出錯，導致無法分享</string>
     <string name="bookmarks_error_title_share_empty">無法分享</string>
     <string name="bookmarks_error_message_share_empty">無法分享空列表</string>
@@ -609,7 +609,7 @@
     <string name="subway">捷運</string>
     <string name="layers_title">地圖樣式和圖層</string>
     <string name="bookmarks_empty_list_title">該列表為空</string>
-    <string name="bookmarks_empty_list_message">要增加新書籤，請點擊對象卡片中的星型圖標</string>
+    <string name="bookmarks_empty_list_message">要增加地點，請對著該地點點一下，然後按星型圖示</string>
     <string name="category_desc_more">…更多</string>
     <string name="export_file">導出為 KMZ</string>
     <string name="export_file_gpx">導出為 GPX</string>
@@ -662,7 +662,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">排序…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">分類排序</string>
+    <string name="sort_bookmarks">最愛排序</string>
     <!-- Android -->
     <string name="by_default">使用默認值</string>
     <!-- Android -->
@@ -780,7 +780,7 @@
     <string name="browser_not_available">網路瀏覽器不可用</string>
     <string name="volume">音量</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">匯出所有書籤和軌跡</string>
+    <string name="bookmarks_export">匯出所有地點和軌跡</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">文字轉語音系統設定</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -812,7 +812,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">繼續錄製</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">儲存到書籤和軌跡？</string>
+    <string name="track_recording_alert_title">儲存到最愛？</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">軌跡為空 - 沒有可保存的內容</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -838,11 +838,11 @@
     <string name="vehicle">車輛</string>
     <string name="pedestrian">行人</string>
     <string name="ruler">標尺</string>
-    <string name="bookmark_color">書籤顏色</string>
+    <string name="bookmark_color">最愛顏色</string>
     <string name="route_type">路線類型</string>
     <string name="bicycle">自行車</string>
     <string name="clear">清除</string>
-    <string name="pref_backup_title">書籤和軌跡備份</string>
+    <string name="pref_backup_title">備份最愛</string>
     <string name="panoramax">Panoramax 圖片</string>
     <string name="pref_backup_location_title">備份位置</string>
     <string name="closed_now">現已打烊</string>
@@ -857,7 +857,7 @@
     <string name="pref_backup_now_summary">立即建立備份</string>
     <string name="pref_backup_now_summary_progress">備份中…</string>
     <string name="pref_backup_now_summary_ok">成功建立備份</string>
-    <string name="pref_backup_now_summary_empty_lists">沒有書籤與軌跡需要備份</string>
+    <string name="pref_backup_now_summary_empty_lists">沒有地點與軌跡需要備份</string>
     <string name="pref_backup_now_summary_failed">備份失敗</string>
     <string name="pref_backup_now_summary_folder_unavailable">備份資料夾並不能用</string>
     <string name="pref_backup_status_summary_success">最後成功的備份</string>
@@ -866,4 +866,62 @@
     <string name="backup_interval_every_week">每週</string>
     <string name="backup_interval_manual_only">關閉 (只有手動)</string>
     <string name="at">在 %s</string>
+    <string name="opens_at">在 %s 開啟</string>
+    <string name="closes_at">在 %s 關閉</string>
+    <string name="opens_day_at">在 %1$s 與 %2$s 開啟</string>
+    <string name="closes_day_at">在 %1$s 與%2$s 關閉</string>
+    <plurals name="minutes_short">
+        <item quantity="other">%d 分鐘</item>
+    </plurals>
+    <string name="hours_confirmed_time_ago">確認 %s</string>
+    <string name="existence_confirmed_time_ago">離開確認 %s</string>
+    <string name="editor_place_doesnt_exist_description">描述現地是什麼，然後傳送錯誤註解到開放街圖社群</string>
+    <string name="editor_business_vacant_button">商家已經撤離</string>
+    <string name="editor_mark_business_vacant_title">標示商家已撤離</string>
+    <string name="editor_mark_business_vacant_description">使用這功能表示商家搬遷，該店面等待招租。</string>
+    <string name="editor_submit">提交</string>
+    <string name="place_page_map_too_old_title">地圖資料已過時</string>
+    <string name="place_page_map_too_old_description">你目前的地圖資料非常舊，請更新地圖。</string>
+    <string name="place_page_app_too_old_description">你目前的地圖資滿斗相當舊，請更新 CoMaps app。</string>
+    <string name="place_page_update_too_old_map">更新地圖區域</string>
+    <string name="place_page_too_old_to_edit">目前因為地圖資料太舊而關閉開放街圖編輯功能。</string>
+    <string name="osm_note_hint">或是，其他的作為為留下註解讓開放街圖社群能夠新增或是修正這邊該地點。</string>
+    <string name="osm_note_toast">註解會傳送至開放街圖</string>
+    <string name="prefs_speed_cameras_information">有些國家法律規定不能使用測速照相警告，因此關閉。</string>
+    <string name="power_management">電源管理</string>
+    <string name="avoid_steps">避免階梯</string>
+    <string name="avoid_paved">避免有舖面的道路</string>
+    <string name="pref_maplanguage_local">本地語言</string>
+    <string name="share_track">分享軌跡</string>
+    <string name="delete_track_dialog_title">刪除 %s 嗎？</string>
+    <string name="pref_tts_no_system_tts_short">找不到文字轉語言引擎，請檢查 app 設定</string>
+    <string name="navigation_start_tts_message">"開始導航，語音指道的語言是： "</string>
+    <string name="navigation_start_tts_disabled_message">語音指引關閉：沒有 TTS 引擎</string>
+    <string name="unknown_power_output">未知</string>
+    <string name="charge_socket_type2">類型2 (沒有線)</string>
+    <string name="charge_socket_type2_cable">類型2 (有線)</string>
+    <string name="charge_socket_type2_combo">類型2混合</string>
+    <string name="charge_socket_type1">類型1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="charge_socket_schuko">歐盟國內</string>
+    <string name="unknown_socket_type">未知的接口</string>
+    <string name="edit_socket_info_tooltip">建新新接口或是編輯既有的。</string>
+    <string name="charging_station_available_sockets">可用的接口</string>
+    <string name="charge_socket_unknown_other">其他或是未知</string>
+    <string name="charge_socket_count">計算</string>
+    <string name="charge_socket_power">瓦數 (kW)</string>
+    <string name="editor_socket">編輯接口</string>
+    <string name="unknown_count">未知</string>
+    <string name="error_value_must_be_positive">值必須是正的</string>
+    <string name="error_invalid_number">無效的數字</string>
+    <string name="offline_explanation_title">離線地圖</string>
+    <string name="offline_explanation_text">需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。</string>
+    <string name="list_description_empty">編輯清單來增加描述</string>
+    <string name="advanced">進階</string>
+    <string name="download_resources_custom_url_title">客制地圖伺服器</string>
+    <string name="download_resources_custom_url_message">覆寫下載地圖資料的預設地圖下載伺服器。留空則表示使用 CoMaps 預設伺服器。</string>
+    <string name="download_resources_custom_url_summary_none">還沒設定</string>
+    <string name="download_resources_custom_url_error_scheme">請輸入 http:// 或是 https:// 開頭的網址</string>
+    <string name="limit_map_language_alternatives_to_local">只有在他們的區域使用其他系統語言</string>
 </resources>

@@ -31,6 +31,7 @@ There are some other files not mentioned here.
 ### Map features / classificator
 
 - `mapcss-mapping.csv` - mapping between OSM tags and CoMaps types.
+- `subtypes.csv` - declaring CoMaps types as having subtypes or being one.
 - `replaced_tags.txt` - merging similar OSM tags.
 - `mixed_tags.txt` - pedestrian streets of high popularity.
 

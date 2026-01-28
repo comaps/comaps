@@ -129,7 +129,6 @@
 "type.amenity.pub" = "Taberna";
 "type.amenity.public_bookcase" = "Liburu trukea";
 "type.amenity.recycling.centre" = "Birziklapen zentroa";
-"type.amenity.recycling" = "Birziklatzeko edukiontzia";
 "type.amenity.recycling.container" = "Birziklatzeko edukiontzia";
 "type.recycling.batteries" = "Bateriak";
 "type.recycling.clothes" = "Arropa";
@@ -890,8 +889,6 @@
 "type.public_transport.platform" = "Plataforma";
 "type.railway" = "Trenbidea";
 "type.railway.abandoned" = "Utzitako trenbidea";
-"type.railway.abandoned.bridge" = "Utzitako trenbide zubia";
-"type.railway.abandoned.tunnel" = "Utzitako trenbide tunela";
 "type.railway.construction" = "Trenbidea eraikuntzan";
 "type.railway.crossing" = "Trenbide gurutzea";
 "type.railway.disused" = "Erabilerarik gabeko trenbidea";
@@ -1494,4 +1491,3 @@
 "type.man_made.telescope.radio" = "Teleskopioa (irratia)";
 "type.man_made.telescope.gamma" = "Teleskopioa (gamma)";
 "type.man_made.observatory" = "Behatokia";
-"type.amenity.charging_station.motorcar.small" = "Autoak kargatzeko puntua";

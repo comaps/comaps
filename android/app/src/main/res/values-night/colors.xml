@@ -15,6 +15,7 @@
   <color name="bg_cards">#FF3C4044</color>
   <color name="bg_panel">@color/bg_window</color>
   <color name="bg_primary_dark">#FF588157</color>
+  <color name="bg_app">#10140F</color>
 
   <color name="bg_menu">#CC2D3237</color>
 
@@ -41,4 +42,20 @@
   <!-- Downloader -->
   <color name="dl_done">#54575b</color>
   <color name="dl_download">#ffe68c</color>
+
+  <!-- Categories -->
+  <color name="foreground_color">#000</color>
+
+  <color name="amenity">#51585E</color>
+  <color name="entertainment">#802D19</color>
+  <color name="food">#8C491C</color>
+  <color name="shop">#6B425C</color>
+  <color name="cm_services">#574469</color>
+  <color name="medical">#983E44</color>
+  <color name="hotel">#614A43</color>
+  <color name="luggagehero">#851F03</color>
+  <color name="parking">#20607C</color>
+  <color name="tourism">#6E4426</color>
+  <color name="transport">#2F6499</color>
+  <color name="water">#0A6074</color>
 </resources>
