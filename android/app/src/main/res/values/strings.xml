@@ -813,7 +813,7 @@
     <!-- Status message indicating that no TraFF 0.8 apps are installed -->
     <string name="traffic_apps_not_available">No apps installed</string>
     <!-- Status message indicating that no TraFF 0.8 apps are currently selected -->
-    <string name="traffic_apps_none_selected">No apps salected</string>
+    <string name="traffic_apps_none_selected">No apps selected</string>
     <!-- Enable traffic data from TraFF 0.7 apps (title) -->
     <string name="traffic_legacy_enabled">Use data from legacy TraFF applications</string>
     <!-- Enable traffic data from TraFF 0.7 apps (description) -->
