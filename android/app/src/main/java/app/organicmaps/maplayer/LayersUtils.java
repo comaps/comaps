@@ -12,6 +12,7 @@ public class LayersUtils
     availableLayers.add(Mode.OUTDOORS);
     availableLayers.add(Mode.ISOLINES);
     availableLayers.add(Mode.SUBWAY);
+    availableLayers.add(Mode.PANORAMAX);
     return availableLayers;
   }
 }

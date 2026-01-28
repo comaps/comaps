@@ -52,6 +52,10 @@ public class LayerBottomSheetItem
             drawableResId = R.drawable.ic_layers_traffic;
             yield R.string.button_layer_traffic;
         }
+        case PANORAMAX -> {
+            drawableResId = R.drawable.ic_layers_panoramax;
+            yield R.string.button_layer_panoramax;
+        }
     };
       return new LayerBottomSheetItem(drawableResId, buttonTextResource, mode, layerItemClickListener);
   }

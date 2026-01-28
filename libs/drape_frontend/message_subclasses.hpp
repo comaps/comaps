@@ -1105,6 +1105,19 @@ private:
   bool m_isEnabled = false;
 };
 
+class EnablePanoramaxMessage : public Message
+{
+public:
+  explicit EnablePanoramaxMessage(bool isEnabled) : m_isEnabled(isEnabled) {}
+
+  Type GetType() const override { return Type::EnablePanoramax; }
+
+  bool IsEnabled() const { return m_isEnabled; }
+
+private:
+  bool m_isEnabled = false;
+};
+
 class EnableTransitSchemeMessage : public Message
 {
 public:

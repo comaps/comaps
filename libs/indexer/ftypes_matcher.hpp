@@ -284,6 +284,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsIsolineChecker);
 };
 
+class IsPanoramaxChecker : public BaseChecker
+{
+  IsPanoramaxChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsPanoramaxChecker);
+};
+
 class IsPisteChecker : public BaseChecker
 {
   IsPisteChecker();

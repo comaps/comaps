@@ -430,6 +430,11 @@ IsIsolineChecker::IsIsolineChecker() : BaseChecker(1 /* level */)
   m_types.push_back(classif().GetTypeByPath({"isoline"}));
 }
 
+IsPanoramaxChecker::IsPanoramaxChecker() : BaseChecker(1 /* level */)
+{
+  m_types.push_back(classif().GetTypeByPath({"panoramax"}));
+}
+
 IsPisteChecker::IsPisteChecker() : BaseChecker(1 /* level */)
 {
   m_types.push_back(classif().GetTypeByPath({"piste:type"}));

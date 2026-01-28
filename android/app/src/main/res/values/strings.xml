@@ -855,6 +855,8 @@
     <string name="aa_grant_permissions">Grant Permissions</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
     <string name="button_layer_outdoor">Outdoors</string>
+    <!-- Panoramax street-level imagery layer name in the Styles and Layers dialog -->
+    <string name="button_layer_panoramax">Street Images</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
     <string name="browser_not_available">Web browser is not available</string>
     <string name="volume">Volume</string>

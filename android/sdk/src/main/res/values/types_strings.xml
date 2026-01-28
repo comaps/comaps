@@ -907,6 +907,8 @@
     <string name="type.place.suburb">Suburb</string>
     <string name="type.place.town">Town</string>
     <string name="type.place.village">Village</string>
+    <string name="type.panoramax">Panoramax</string>
+    <string name="type.panoramax.image">Street-Level Image</string>
     <string name="type.power">Power</string>
     <string name="type.power.generator">Power Generator</string>
     <string name="type.power.generator.solar">Solar Generator</string>

@@ -406,6 +406,7 @@ void RuleDrawer::operator()(FeatureType & f)
 
   feature::TypesHolder const types(f);
   if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||
+      (!m_context->PanoramaxEnabled() && ftypes::IsPanoramaxChecker::Instance()(types)) ||
       (!m_context->Is3dBuildingsEnabled() && ftypes::IsBuildingPartChecker::Instance()(types) &&
        !ftypes::IsBuildingChecker::Instance()(types)))
     return;

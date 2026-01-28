@@ -102,6 +102,7 @@ public:
     NotifyRenderThread,
     NotifyGraphicsReady,
     EnableIsolines,
+    EnablePanoramax,
     OnEnterBackground,
     Arrow3dRecache,
     VisualScaleChanged,

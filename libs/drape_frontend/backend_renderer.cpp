@@ -33,7 +33,8 @@ BackendRenderer::BackendRenderer(Params && params)
   : BaseRenderer(ThreadsCommutator::ResourceUploadThread, params)
   , m_model(params.m_model)
   , m_readManager(make_unique_dp<ReadManager>(params.m_commutator, m_model, params.m_allow3dBuildings,
-                                              params.m_trafficEnabled, params.m_isolinesEnabled))
+                                              params.m_trafficEnabled, params.m_isolinesEnabled,
+                                              params.m_panoramaxEnabled))
   , m_transitBuilder(
         make_unique_dp<TransitSchemeBuilder>(std::bind(&BackendRenderer::FlushTransitRenderData, this, _1)))
   , m_trafficGenerator(make_unique_dp<TrafficGenerator>(std::bind(&BackendRenderer::FlushTrafficRenderData, this, _1)))
@@ -532,6 +533,15 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     ref_ptr<EnableIsolinesMessage> msg = message;
     m_readManager->SetIsolinesEnabled(msg->IsEnabled());
     m_commutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<EnableIsolinesMessage>(msg->IsEnabled()),
+                              MessagePriority::Normal);
+    break;
+  }
+
+  case Message::Type::EnablePanoramax:
+  {
+    ref_ptr<EnablePanoramaxMessage> msg = message;
+    m_readManager->SetPanoramaxEnabled(msg->IsEnabled());
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<EnablePanoramaxMessage>(msg->IsEnabled()),
                               MessagePriority::Normal);
     break;
   }

@@ -734,6 +734,9 @@ public:
   bool LoadOutdoorsEnabled();
   void SaveOutdoorsEnabled(bool enabled);
 
+  bool LoadPanoramaxEnabled();
+  void SavePanoramaxEnabled(bool enabled);
+
   dp::ApiVersion LoadPreferredGraphicsAPI();
   void SavePreferredGraphicsAPI(dp::ApiVersion apiVersion);
 

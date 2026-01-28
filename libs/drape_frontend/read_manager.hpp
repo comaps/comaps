@@ -33,7 +33,7 @@ class ReadManager
 {
 public:
   ReadManager(ref_ptr<ThreadsCommutator> commutator, MapDataProvider & model, bool allow3dBuildings,
-              bool trafficEnabled, bool isolinesEnabled);
+              bool trafficEnabled, bool isolinesEnabled, bool panoramaxEnabled);
 
   void Start();
   void Stop();
@@ -52,6 +52,7 @@ public:
 
   void SetTrafficEnabled(bool trafficEnabled);
   void SetIsolinesEnabled(bool isolinesEnabled);
+  void SetPanoramaxEnabled(bool panoramaxEnabled);
 
   void SetCustomFeatures(CustomFeatures && ids);
   std::vector<FeatureID> GetCustomFeaturesArray() const;
@@ -82,6 +83,7 @@ private:
   bool m_allow3dBuildings;
   bool m_trafficEnabled;
   bool m_isolinesEnabled;
+  bool m_panoramaxEnabled;
   bool m_modeChanged;
   int8_t m_mapLangIndex;
 

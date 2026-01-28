@@ -55,9 +55,10 @@ public:
     Params(dp::ApiVersion apiVersion, ref_ptr<dp::GraphicsContextFactory> factory, dp::Viewport const & viewport,
            MapDataProvider const & model, Hints const & hints, double vs, double fontsScaleFactor,
            gui::TWidgetsInitInfo && info, location::TMyPositionModeChanged && myPositionModeChanged,
-           bool allow3dBuildings, bool trafficEnabled, bool isolinesEnabled, bool blockTapEvents,
-           bool showChoosePositionMark, std::vector<m2::TriangleD> && boundAreaTriangles, bool isRoutingActive,
-           bool isAutozoomEnabled, bool simplifiedTrafficColors, std::optional<Arrow3dCustomDecl> arrow3dCustomDecl,
+           bool allow3dBuildings, bool trafficEnabled, bool isolinesEnabled, bool panoramaxEnabled,
+           bool blockTapEvents, bool showChoosePositionMark, std::vector<m2::TriangleD> && boundAreaTriangles,
+           bool isRoutingActive, bool isAutozoomEnabled, bool simplifiedTrafficColors,
+           std::optional<Arrow3dCustomDecl> arrow3dCustomDecl,
            OverlaysShowStatsCallback && overlaysShowStatsCallback,
            OnGraphicsContextInitialized && onGraphicsContextInitialized,
            dp::RenderInjectionHandler && renderInjectionHandler)
@@ -73,6 +74,7 @@ public:
       , m_allow3dBuildings(allow3dBuildings)
       , m_trafficEnabled(trafficEnabled)
       , m_isolinesEnabled(isolinesEnabled)
+      , m_panoramaxEnabled(panoramaxEnabled)
       , m_blockTapEvents(blockTapEvents)
       , m_showChoosePositionMark(showChoosePositionMark)
       , m_boundAreaTriangles(std::move(boundAreaTriangles))
@@ -98,6 +100,7 @@ public:
     bool m_allow3dBuildings;
     bool m_trafficEnabled;
     bool m_isolinesEnabled;
+    bool m_panoramaxEnabled;
     bool m_blockTapEvents;
     bool m_showChoosePositionMark;
     std::vector<m2::TriangleD> m_boundAreaTriangles;
@@ -214,6 +217,7 @@ public:
   void ClearAllTransitSchemeCache();
 
   void EnableIsolines(bool enable);
+  void EnablePanoramax(bool enable);
 
   void SetFontScaleFactor(double scaleFactor);
 

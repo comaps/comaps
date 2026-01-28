@@ -616,6 +616,8 @@ highway-unclassified-bridge                         # pathtext z13- (also has li
 highway-unclassified-tunnel                         # pathtext z13- (also has line z11-, line(casing) z16-)
 === 3100
 
+panoramax-image                                     # icon z16-
+
 amenity-water_point                                 # icon z12- (also has caption(optional) z14-)
 highway-raceway                                     # pathtext z16- (also has line z14-)
 historic-aircraft                                   # icon z16- (also has caption(optional) z16-)
@@ -1403,9 +1405,6 @@ leisure-park-no-access                              # icon z14- (also has captio
 leisure-park-private                                # icon z14- (also has caption(optional) z14-, area z10-)
 leisure-swimming_pool-private                       # icon z17- (also has caption(optional) z17-, area z13-)
 === 100
-
-panoramax-image                                     # icon z16-
-=== 50
 
 #
 # All automatic optional captions priorities are below 0.

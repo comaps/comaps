@@ -80,7 +80,7 @@ DrapeEngine::DrapeEngine(Params && params)
   BackendRenderer::Params brParams(params.m_apiVersion, frParams.m_commutator, frParams.m_oglContextFactory,
                                    frParams.m_texMng, params.m_model, params.m_model.UpdateCurrentCountryFn(),
                                    make_ref(m_requestedTiles), params.m_allow3dBuildings, params.m_trafficEnabled,
-                                   params.m_isolinesEnabled, params.m_simplifiedTrafficColors,
+                                   params.m_isolinesEnabled, params.m_panoramaxEnabled, params.m_simplifiedTrafficColors,
                                    std::move(params.m_arrow3dCustomDecl), params.m_onGraphicsContextInitialized);
 
   m_backend = make_unique_dp<BackendRenderer>(std::move(brParams));
@@ -767,6 +767,12 @@ void DrapeEngine::EnableIsolines(bool enable)
 {
   m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
                                   make_unique_dp<EnableIsolinesMessage>(enable), MessagePriority::Normal);
+}
+
+void DrapeEngine::EnablePanoramax(bool enable)
+{
+  m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                                  make_unique_dp<EnablePanoramaxMessage>(enable), MessagePriority::Normal);
 }
 
 void DrapeEngine::SetFontScaleFactor(double scaleFactor)

@@ -298,6 +298,10 @@ public class Framework
 
   public static native boolean nativeIsOutdoorsLayerEnabled();
 
+  public static native void nativeSetPanoramaxLayerEnabled(boolean enabled);
+
+  public static native boolean nativeIsPanoramaxLayerEnabled();
+
   @NonNull
   public static native MapObject nativeDeleteBookmarkFromMapObject();
 

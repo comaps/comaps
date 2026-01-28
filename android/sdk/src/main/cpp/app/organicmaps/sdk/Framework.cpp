@@ -1564,6 +1564,17 @@ JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsOutdoorsLa
   return static_cast<jboolean>(frm()->LoadOutdoorsEnabled());
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetPanoramaxLayerEnabled(JNIEnv * env, jclass,
+                                                                                        jboolean enabled)
+{
+  frm()->SavePanoramaxEnabled(enabled);
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsPanoramaxLayerEnabled(JNIEnv * env, jclass)
+{
+  return static_cast<jboolean>(frm()->LoadPanoramaxEnabled());
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSaveSettingSchemeEnabled(JNIEnv * env, jclass,
                                                                                          jboolean enabled)
 {

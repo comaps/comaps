@@ -96,6 +96,7 @@ std::string_view constexpr kTrafficEnabledKey = "TrafficEnabled";
 std::string_view constexpr kTransitSchemeEnabledKey = "TransitSchemeEnabled";
 std::string_view constexpr kIsolinesEnabledKey = "IsolinesEnabled";
 std::string_view constexpr kOutdoorsEnabledKey = "OutdoorsEnabled";
+std::string_view constexpr kPanoramaxEnabledKey = "PanoramaxEnabled";
 std::string_view constexpr kTrafficSimplifiedColorsKey = "TrafficSimplifiedColors";
 std::string_view constexpr kLargeFontsSize = "LargeFontsSize";
 std::string_view constexpr kTranslitMode = "TransliterationMode";
@@ -1484,6 +1485,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
 
   auto const trafficEnabled = m_trafficManager.IsEnabled();
   auto const isolinesEnabled = m_isolinesManager.IsEnabled();
+  auto const panoramaxEnabled = LoadPanoramaxEnabled();
 
   auto const simplifiedTrafficColors = m_trafficManager.HasSimplifiedColorScheme();
   auto const fontsScaleFactor = LoadLargeFontsSize() ? kLargeFontsScaleFactor : 1.0;
@@ -1493,7 +1495,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
       df::MapDataProvider(std::move(idReadFn), std::move(featureReadFn), std::move(isCountryLoadedByNameFn),
                           std::move(updateCurrentCountryFn)),
       params.m_hints, params.m_visualScale, fontsScaleFactor, std::move(params.m_widgetsInitInfo),
-      std::move(myPositionModeChangedFn), allow3dBuildings, trafficEnabled, isolinesEnabled,
+      std::move(myPositionModeChangedFn), allow3dBuildings, trafficEnabled, isolinesEnabled, panoramaxEnabled,
       params.m_isChoosePositionMode, params.m_isChoosePositionMode, GetSelectedFeatureTriangles(),
       m_routingManager.IsRoutingActive() && m_routingManager.IsRoutingFollowing(), isAutozoomEnabled,
       simplifiedTrafficColors, std::nullopt /* arrow3dCustomDecl */, std::move(overlaysShowStatsFn),
@@ -2548,6 +2550,21 @@ bool Framework::LoadOutdoorsEnabled()
 void Framework::SaveOutdoorsEnabled(bool enabled)
 {
   settings::Set(kOutdoorsEnabledKey, enabled);
+}
+
+bool Framework::LoadPanoramaxEnabled()
+{
+  bool enabled;
+  if (!settings::Get(kPanoramaxEnabledKey, enabled))
+    enabled = true;  // Default to enabled
+  return enabled;
+}
+
+void Framework::SavePanoramaxEnabled(bool enabled)
+{
+  settings::Set(kPanoramaxEnabledKey, enabled);
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->EnablePanoramax(enabled);
 }
 
 void Framework::EnableChoosePositionMode(bool enable, bool enableBounds, m2::PointD const * optionalPosition)

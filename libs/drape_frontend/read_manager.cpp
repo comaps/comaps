@@ -32,13 +32,14 @@ bool ReadManager::LessByTileInfo::operator()(std::shared_ptr<TileInfo> const & l
 }
 
 ReadManager::ReadManager(ref_ptr<ThreadsCommutator> commutator, MapDataProvider & model, bool allow3dBuildings,
-                         bool trafficEnabled, bool isolinesEnabled)
+                         bool trafficEnabled, bool isolinesEnabled, bool panoramaxEnabled)
   : m_commutator(commutator)
   , m_model(model)
   , m_have3dBuildings(false)
   , m_allow3dBuildings(allow3dBuildings)
   , m_trafficEnabled(trafficEnabled)
   , m_isolinesEnabled(isolinesEnabled)
+  , m_panoramaxEnabled(panoramaxEnabled)
   , m_modeChanged(false)
   , m_mapLangIndex(StringUtf8Multilang::kDefaultCode)
   , m_tasksPool(64, ReadMWMTaskFactory(m_model))
@@ -214,7 +215,7 @@ void ReadManager::PushTaskBackForTileKey(TileKey const & tileKey, ref_ptr<dp::Te
   auto context = make_unique_dp<EngineContext>(TileKey(tileKey, m_generationCounter, m_userMarksGenerationCounter),
                                                m_commutator, texMng, metalineMng, m_customFeaturesContext,
                                                m_have3dBuildings && m_allow3dBuildings, m_trafficEnabled,
-                                               m_isolinesEnabled, m_mapLangIndex);
+                                               m_isolinesEnabled, m_panoramaxEnabled, m_mapLangIndex);
   std::shared_ptr<TileInfo> tileInfo = std::make_shared<TileInfo>(std::move(context));
   m_tileInfos.insert(tileInfo);
 
@@ -323,6 +324,15 @@ void ReadManager::SetIsolinesEnabled(bool isolinesEnabled)
   {
     m_modeChanged = true;
     m_isolinesEnabled = isolinesEnabled;
+  }
+}
+
+void ReadManager::SetPanoramaxEnabled(bool panoramaxEnabled)
+{
+  if (m_panoramaxEnabled != panoramaxEnabled)
+  {
+    m_modeChanged = true;
+    m_panoramaxEnabled = panoramaxEnabled;
   }
 }
 

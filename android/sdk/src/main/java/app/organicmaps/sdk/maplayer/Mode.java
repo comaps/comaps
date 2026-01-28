@@ -63,6 +63,19 @@ public enum Mode
       // TODO: ThemeSwitcher is outside sdk package. Properly fix dependencies
       // ThemeSwitcher.INSTANCE.restart(true);
     }
+  },
+  PANORAMAX {
+    @Override
+    public boolean isEnabled(@NonNull Context context)
+    {
+      return Framework.nativeIsPanoramaxLayerEnabled();
+    }
+
+    @Override
+    public void setEnabled(@NonNull Context context, boolean isEnabled)
+    {
+      Framework.nativeSetPanoramaxLayerEnabled(isEnabled);
+    }
   };
 
   public abstract boolean isEnabled(@NonNull Context context);

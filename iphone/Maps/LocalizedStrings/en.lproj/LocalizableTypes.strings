@@ -997,6 +997,8 @@
 "type.place.suburb" = "Suburb";
 "type.place.town" = "Town";
 "type.place.village" = "Village";
+"type.panoramax" = "Panoramax";
+"type.panoramax.image" = "Street-Level Image";
 "type.power" = "Power";
 "type.power.generator" = "Power Generator";
 "type.power.generator.solar" = "Solar Generator";
