@@ -82,7 +82,8 @@ public class Factory
         return false;
 
       // Check if this is an MWM file
-      if (!isMwmFile(activity, uri))
+      String fileName = StorageUtils.getFileNameFromUri(activity.getContentResolver(), uri);
+      if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
         return false;
 
       // Import the MWM file on a background thread
@@ -116,40 +117,6 @@ public class Factory
       });
 
       return true;
-    }
-
-    private boolean isMwmFile(@NonNull MwmActivity activity, @NonNull Uri uri)
-    {
-      String fileName = null;
-
-      // Try to get filename from content resolver
-      if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()))
-      {
-        try (android.database.Cursor cursor = activity.getContentResolver().query(
-            uri, new String[]{android.provider.OpenableColumns.DISPLAY_NAME}, null, null, null))
-        {
-          if (cursor != null && cursor.moveToFirst())
-          {
-            int nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME);
-            if (nameIndex >= 0)
-              fileName = cursor.getString(nameIndex);
-          }
-        }
-        catch (Exception ignored) {}
-      }
-
-      // Fallback to URI path
-      if (fileName == null)
-      {
-        String path = uri.getPath();
-        if (path != null)
-        {
-          int lastSlash = path.lastIndexOf('/');
-          fileName = lastSlash >= 0 ? path.substring(lastSlash + 1) : path;
-        }
-      }
-
-      return fileName != null && fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION);
     }
   }
 

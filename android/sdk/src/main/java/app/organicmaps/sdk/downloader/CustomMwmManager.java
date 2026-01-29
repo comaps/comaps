@@ -78,16 +78,13 @@ public class CustomMwmManager
   @Nullable
   public static String getTodayCustomMapsDir(@NonNull Context context)
   {
+    //TODO: Ideally the MWM creation date would be baked into the file, not assumed
     String customMapsDir = getCustomMapsDir(context);
     String today = DATE_FORMAT.format(new Date());
     String todayDir = StorageUtils.addTrailingSeparator(customMapsDir) + today;
 
-    File dir = new File(todayDir);
-    if (!dir.exists() && !dir.mkdirs())
-    {
-      Logger.e(TAG, "Failed to create custom maps directory: " + todayDir);
+    if (!StorageUtils.createDirectory(todayDir))
       return null;
-    }
 
     return todayDir;
   }
@@ -103,7 +100,8 @@ public class CustomMwmManager
   @NonNull
   public static ImportResult importMwmFile(@NonNull Context context, @NonNull Uri uri)
   {
-    String fileName = getFileNameFromUri(context, uri);
+    ContentResolver resolver = context.getContentResolver();
+    String fileName = StorageUtils.getFileNameFromUri(resolver, uri);
     if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
     {
       Logger.e(TAG, "Invalid file name or not an MWM file: " + fileName);
@@ -121,7 +119,6 @@ public class CustomMwmManager
 
     try
     {
-      ContentResolver resolver = context.getContentResolver();
       if (!StorageUtils.copyFile(resolver, uri, destFile))
       {
         Logger.e(TAG, "Failed to copy MWM file");
@@ -136,48 +133,6 @@ public class CustomMwmManager
       Logger.e(TAG, "IOException while importing MWM file", e);
       return ImportResult.ERROR_IO;
     }
-  }
-
-  /**
-   * Gets the file name from a content URI.
-   */
-  @Nullable
-  private static String getFileNameFromUri(@NonNull Context context, @NonNull Uri uri)
-  {
-    String fileName = null;
-
-    if (ContentResolver.SCHEME_CONTENT.equals(uri.getScheme()))
-    {
-      try (android.database.Cursor cursor = context.getContentResolver().query(
-          uri, new String[]{android.provider.OpenableColumns.DISPLAY_NAME}, null, null, null))
-      {
-        if (cursor != null && cursor.moveToFirst())
-        {
-          int nameIndex = cursor.getColumnIndex(android.provider.OpenableColumns.DISPLAY_NAME);
-          if (nameIndex >= 0)
-          {
-            fileName = cursor.getString(nameIndex);
-          }
-        }
-      }
-      catch (Exception e)
-      {
-        Logger.e(TAG, "Failed to get file name from URI", e);
-      }
-    }
-
-    if (fileName == null)
-    {
-      // Try to get from path
-      String path = uri.getPath();
-      if (path != null)
-      {
-        int lastSlash = path.lastIndexOf('/');
-        fileName = lastSlash >= 0 ? path.substring(lastSlash + 1) : path;
-      }
-    }
-
-    return fileName;
   }
 
   /**
@@ -301,10 +256,11 @@ public class CustomMwmManager
 
   /**
    * Deletes a custom MWM file.
+   * @param context Application context
    * @param file The CustomMwmFile to delete
    * @return true if deletion was successful
    */
-  public static boolean deleteCustomMwmFile(@NonNull CustomMwmFile file)
+  public static boolean deleteCustomMwmFile(@NonNull Context context, @NonNull CustomMwmFile file)
   {
     File f = new File(file.path);
     boolean deleted = f.delete();
@@ -312,20 +268,9 @@ public class CustomMwmManager
     if (deleted)
     {
       Logger.i(TAG, "Deleted custom MWM file: " + file.path);
-
       // Clean up empty version directories
-      File parentDir = f.getParentFile();
-      if (parentDir != null)
-      {
-        String[] remaining = parentDir.list();
-        if (remaining != null && remaining.length == 0)
-        {
-          if (parentDir.delete())
-          {
-            Logger.i(TAG, "Deleted empty version directory: " + parentDir.getPath());
-          }
-        }
-      }
+      File customMapsDir = new File(getCustomMapsDir(context));
+      StorageUtils.removeEmptyDirectories(customMapsDir);
     }
     else
     {

@@ -368,6 +368,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     private final MaterialTextView mSubtitle;
     private final MaterialTextView mFoundName;
     private final MaterialTextView mSize;
+    private final MaterialTextView mVersion;
 
     private void processClick(boolean clickOnStatus)
     {
@@ -430,6 +431,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       mSubtitle = frame.findViewById(R.id.subtitle);
       mFoundName = frame.findViewById(R.id.found_name);
       mSize = frame.findViewById(R.id.size);
+      mVersion = frame.findViewById(R.id.version);
 
       frame.setOnClickListener(v -> {
         if (mItem.isExpandable())
@@ -474,16 +476,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       {
         mName.setText(mItem.name);
         if (!mItem.isExpandable())
-        {
-          // Show version info for downloaded maps (in "My Maps" mode)
-          String subtitle = mItem.description;
-          if (mMyMapsMode && mItem.present && mItem.localVersion > 0)
-          {
-            String versionStr = formatVersion(mItem.localVersion);
-            subtitle = TextUtils.isEmpty(subtitle) ? "v" + versionStr : subtitle + " • v" + versionStr;
-          }
-          UiUtils.setTextAndHideIfEmpty(mSubtitle, subtitle);
-        }
+          UiUtils.setTextAndHideIfEmpty(mSubtitle, mItem.description);
       }
 
       if (mItem.isExpandable())
@@ -498,6 +491,18 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
       long size = getMapDisplaySize();
       mSize.setText(StringUtils.getFileSizeString(mFragment.requireContext(), size));
+
+      // Show map date for downloaded maps in "My Maps" mode
+      if (mMyMapsMode && mItem.present && mItem.localVersion > 0 && !mItem.isExpandable())
+      {
+        mVersion.setText(StringUtils.formatMwmVersion(mItem.localVersion));
+        mVersion.setVisibility(View.VISIBLE);
+      }
+      else
+      {
+        mVersion.setVisibility(View.GONE);
+      }
+
       mStatusIcon.update(mItem);
     }
 
@@ -520,20 +525,6 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       return size;
     }
 
-    /**
-     * Formats a version number (YYMMDD) into a readable date string (YY.MM.DD).
-     */
-    private String formatVersion(long version)
-    {
-      if (version <= 0)
-        return "";
-      String v = String.valueOf(version);
-      // Pad with leading zeros if needed
-      while (v.length() < 6)
-        v = "0" + v;
-      // Format as YY.MM.DD
-      return v.substring(0, 2) + "." + v.substring(2, 4) + "." + v.substring(4, 6);
-    }
   }
 
   static class HeaderViewHolder extends BaseInnerViewHolder<String>
