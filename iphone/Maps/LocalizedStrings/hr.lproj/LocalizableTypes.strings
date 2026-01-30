@@ -1297,7 +1297,7 @@
 "type.office.security" = "Ured zaštitara";
 "type.power.portal" = "Portalni stup (elektroenergetski)";
 "type.building.guardhouse" = "Zaštitarska kabina";
-"type.amenity.bench.backless" = "Klupa bez naslona";
+"type.amenity.bench.backless" = "Bez naslona";
 "type.amenity.boat_rental" = "Najam brodova";
 "type.man_made.telescope" = "Teleskop";
 "type.man_made.telescope.optical" = "Teleskop (optički)";

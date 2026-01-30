@@ -76,13 +76,15 @@ UNIT_TEST(NormalizeAndSimplifyString_WithOurTambourines)
   */
   string const arr[] = {
       "ÜbërÅłłęšß",
-      "uberallesss",  // Basic test case.
+      "uberållesss",  // Basic test case. Scandinavian å preserved.
       "Iiİı",
       "iiii",  // Famous turkish "I" letter bug.
       "ЙЁйёШКИЙй",
       "иеиешкиии",  // Better handling of Russian й letter.
       "ØøÆæŒœ",
-      "ooaeaeoeoe",  // Dansk
+      "øøææoeoe",  // Scandinavian: ø, æ preserved; French Œ→oe
+      "æøå",
+      "æøå",  // Scandinavian letters.
       "バス",
       "ハス",
       "âàáạăốợồôểềệếỉđưựứửýĂÂĐÊÔƠƯ",
@@ -101,10 +103,11 @@ UNIT_TEST(NormalizeAndSimplifyString_WithOurTambourines)
 
 UNIT_TEST(NormalizeAndSimplifyString_Contains)
 {
-  constexpr char const * kTestStr = "ØøÆæŒœ Ўвага!";
+  constexpr char const * kTestStr = "ØøÆæŒœÅå Ўвага!";
   TEST(ContainsNormalized(kTestStr, ""), ());
   TEST(!ContainsNormalized("", "z"), ());
-  TEST(ContainsNormalized(kTestStr, "ooae"), ());
+  TEST(ContainsNormalized(kTestStr, "øæ"), ());
+  TEST(ContainsNormalized(kTestStr, "åå"), ("Failed for Åå"));
   TEST(ContainsNormalized(kTestStr, " у"), ());
   TEST(ContainsNormalized(kTestStr, "Ў"), ());
   TEST(ContainsNormalized(kTestStr, "ўв"), ());

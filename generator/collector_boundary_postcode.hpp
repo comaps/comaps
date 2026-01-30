@@ -2,7 +2,8 @@
 
 #include "generator/collector_interface.hpp"
 #include "generator/feature_maker.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include <memory>
 #include <string>

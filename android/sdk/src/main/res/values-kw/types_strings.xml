@@ -864,7 +864,7 @@
     <string name="type.aerialway.station">Gorsav Hyns Ayrel</string>
     <string name="type.aeroway">Isframweyth Ayrel</string>
     <string name="type.aeroway.taxiway">Hyns Ayrennow</string>
-    <string name="type.amenity.bench.backless">Bynk heb Keyn</string>
+    <string name="type.amenity.bench.backless">Heb Keyn</string>
     <string name="type.amenity.car_sharing">Kevrennewgh Karr</string>
     <string name="type.man_made.telescope.optical">Pellweler (Optek)</string>
     <string name="type.man_made.telescope.gamma">Pellweler (Gamma)</string>
@@ -1412,4 +1412,6 @@
     <string name="type.amenity.charging_station.small">Dalghuster Strothys</string>
     <string name="type.railway.disused.bridge">Pons Hyns Horn Andevnydhys</string>
     <string name="type.railway.disused.tunnel">Kowfordh Hyns Horn Andevnydhys</string>
+    <string name="type.emergency.access_point.address">Trigva Sawyans Goredhom</string>
+    <string name="type.emergency.disaster_help_point">Poynt Gweres Goredhom</string>
 </resources>

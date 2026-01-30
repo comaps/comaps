@@ -119,10 +119,10 @@
     <string name="type.amenity.prison">Fengsel</string>
     <string name="type.amenity.public_bookcase">Bokhylle</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Resirkuleringssenter</string>
+    <string name="type.amenity.recycling.centre">Gjenvinningsstasjon</string>
     <string name="type.amenity.recycling.container">Gjenvinningsbeholder</string>
     <string name="type.recycling.batteries">Batterier</string>
-    <string name="type.recycling.clothes">Gamle klær</string>
+    <string name="type.recycling.clothes">Klær</string>
     <string name="type.recycling.glass_bottles">Glassemballasje</string>
     <string name="type.recycling.paper">Papiravfall</string>
     <string name="type.recycling.plastic">Plastavfall</string>
@@ -688,7 +688,7 @@
     <string name="type.power.plant.gas">Gassturbinkraftverk</string>
     <string name="type.power.plant.hydro">Vannkraftverk</string>
     <string name="type.power.plant.solar">Solkraftverk</string>
-    <string name="type.power.plant.wind">Vindkraftverk</string>
+    <string name="type.power.plant.wind">Vindkraftpark</string>
     <string name="type.power.substation">Trafo</string>
     <!-- A tower or pylon carrying high voltage electricity cables. -->
     <string name="type.power.tower">Strømmast</string>
@@ -1332,7 +1332,7 @@
     <string name="type.railway.abandoned">Nedlagt jernbane</string>
     <string name="type.shop.lighting">Lampebutikk</string>
     <string name="type.leisure.sports_centre.sport.swimming">Svømmesenter</string>
-    <string name="type.amenity.bench.backless">Benk uten rygg</string>
+    <string name="type.amenity.bench.backless">Uten rygg</string>
     <string name="type.waterway.dam">Demning</string>
     <string name="type.tourism.museum">Museum</string>
     <string name="type.barrier.chain">Kjetting</string>

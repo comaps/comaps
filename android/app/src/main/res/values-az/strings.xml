@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">Xəritəni silin</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Xəritəni yeniləyin</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Play Məkan Xidmətləri</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Bluetooth, WiFi və ya mobil şəbəkə vasitəsilə təxmini yerinizi tez müəyyənləşdirin</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Marşrut boyunca bütün xəritələri endirin</string>
     <!-- Text for routing error dialog -->

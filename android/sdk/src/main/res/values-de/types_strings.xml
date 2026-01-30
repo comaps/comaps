@@ -130,7 +130,7 @@
     <string name="type.amenity.pub">Kneipe</string>
     <string name="type.amenity.public_bookcase">Bücherschrank</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Recyclinghof</string>
+    <string name="type.amenity.recycling.centre">Recyclingzentrum</string>
     <string name="type.amenity.recycling.container">Wertstoffcontainer</string>
     <string name="type.recycling.batteries">Batterien</string>
     <string name="type.recycling.clothes">Altkleider</string>
@@ -154,7 +154,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Biwakschachtel</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Lean-to Schlafunterstand</string>
+    <string name="type.amenity.shelter.lean_to">Lean-to Schlafschutz</string>
     <string name="type.amenity.public_bath">Öffentliches Bad</string>
     <string name="type.amenity.shower">Dusche</string>
     <string name="type.amenity.stripclub">Stripclub</string>

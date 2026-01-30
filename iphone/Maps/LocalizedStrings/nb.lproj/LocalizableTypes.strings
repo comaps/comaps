@@ -128,10 +128,10 @@
 "type.amenity.prison" = "Fengsel";
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Bokhylle";
-"type.amenity.recycling.centre" = "Resirkuleringssenter";
+"type.amenity.recycling.centre" = "Gjenvinningsstasjon";
 "type.amenity.recycling.container" = "Gjenvinningsbeholder";
 "type.recycling.batteries" = "Batterier";
-"type.recycling.clothes" = "Gamle klær";
+"type.recycling.clothes" = "Klær";
 "type.recycling.glass_bottles" = "Glassemballasje";
 "type.recycling.paper" = "Papiravfall";
 "type.recycling.plastic" = "Plastavfall";
@@ -874,7 +874,7 @@
 "type.power.plant.gas" = "Gassturbinkraftverk";
 "type.power.plant.hydro" = "Vannkraftverk";
 "type.power.plant.solar" = "Solkraftverk";
-"type.power.plant.wind" = "Vindkraftverk";
+"type.power.plant.wind" = "Vindkraftpark";
 "type.power.substation" = "Trafo";
 
 /* A tower or pylon carrying high voltage electricity cables. */
@@ -1520,7 +1520,7 @@
 "type.leisure.bandstand" = "Musikkpaviljong";
 "type.shop.lighting" = "Lampebutikk";
 "type.leisure.sports_centre.sport.swimming" = "Svømmesenter";
-"type.amenity.bench.backless" = "Benk uten rygg";
+"type.amenity.bench.backless" = "Uten rygg";
 "type.man_made.telescope.radio" = "Teleskop (Radio)";
 "type.social_facility.food_bank" = "Matsentral";
 "type.social_facility.soup_kitchen" = "Suppekjøkken";

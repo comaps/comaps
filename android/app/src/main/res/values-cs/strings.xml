@@ -148,7 +148,7 @@
     <!-- message title of loading file -->
     <string name="load_kmz_title">Načítání oblíbených</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Oblíbená místa byla úspěšně nahrána! Naleznete je na mapě nebo ve správci oblíbených.</string>
+    <string name="load_kmz_successful">Oblíbené byly úspěšně nahrány! Naleznete je na mapě nebo ve správci oblíbených.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Nepodařilo se načíst oblíbená místa. Soubor může být poškozený nebo vadný.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -275,12 +275,6 @@
     <string name="downloader_delete_map">Smazat mapu</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Aktualizovat mapu</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Služba Google Fused Location</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Proprietární služba, která kombinuje GPS, Wi-Fi, mobilní sítě apod. pro přesnější zjištění vaší polohy. Může se připojit k serverům Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Stahovat mapy podél cesty</string>
     <!-- Text for routing error dialog -->
@@ -804,7 +798,7 @@
     <string name="error_enter_correct_instagram_page">Zadejte platné uživatelské jméno nebo webovou adresu Instagramu</string>
     <string name="error_enter_correct_twitter_page">Zadejte platné uživatelské jméno nebo webovou adresu Twitteru</string>
     <string name="maps_storage_free_size">%1$s z %2$s volných</string>
-    <string name="share_bookmarks_email_body">Ahoj! \n \nV příloze najdeš má oblíbená místa; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/download/ \n \nUžij si cestování s CoMaps!</string>
+    <string name="share_bookmarks_email_body">Ahoj! \n \nV příloze najdeš má oblíbená místa; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/cs/download/\n \nUžij si cestování s CoMaps!</string>
     <string name="disk_error">Nepodařilo se vytvořit složku a přesunout soubory v interní paměti zařízení nebo na SD kartě</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="error_enter_correct_vk_page">Zadejte platné uživatelské jméno nebo webovou adresu VK</string>
@@ -920,4 +914,5 @@
     <string name="advanced">Pokročilé</string>
     <string name="download_resources_custom_url_summary_none">Není nastaveno</string>
     <string name="pref_maplanguage_local">Místní jazyk</string>
+    <string name="limit_map_language_alternatives_to_local">Jiné systémové jazyky použít pouze v jejich oblasti</string>
 </resources>

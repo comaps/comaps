@@ -1,7 +1,8 @@
 #include "testing/testing.hpp"
 
 #include "generator/node_mixer.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include <sstream>
 

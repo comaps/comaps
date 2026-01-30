@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.provider.DocumentsContract;
+import android.provider.OpenableColumns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.FileProvider;
@@ -197,6 +198,50 @@ public class StorageUtils
       }
     }
   }
+
+  /**
+   * Extracts the file name from a content or file URI.
+   * @param resolver content resolver
+   * @param uri the URI to extract the file name from
+   * @return the file name, or null if it could not be determined
+   */
+  @Nullable
+  public static String getFileNameFromUri(@NonNull ContentResolver resolver, @NonNull Uri uri)
+  {
+    String fileName = null;
+    final String scheme = uri.getScheme();
+
+    if (ContentResolver.SCHEME_CONTENT.equals(scheme))
+    {
+      try (Cursor cursor = resolver.query(uri, new String[]{OpenableColumns.DISPLAY_NAME}, null, null, null))
+      {
+        if (cursor != null && cursor.moveToFirst())
+        {
+          final int columnIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
+          if (columnIndex >= 0)
+            fileName = cursor.getString(columnIndex);
+        }
+      }
+      catch (Exception e)
+      {
+        Logger.e(TAG, "Failed to get file name from content URI", e);
+      }
+    }
+
+    if (fileName == null)
+    {
+      // Fall back to extracting from the path
+      String path = uri.getPath();
+      if (path != null)
+      {
+        int lastSlash = path.lastIndexOf('/');
+        fileName = lastSlash >= 0 ? path.substring(lastSlash + 1) : path;
+      }
+    }
+
+    return fileName;
+  }
+
   /**
    * Recursively lists all movable files in the directory.
    */

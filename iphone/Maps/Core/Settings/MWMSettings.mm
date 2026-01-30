@@ -12,7 +12,6 @@ namespace
 {
 char const * kAutoDownloadEnabledKey = "AutoDownloadEnabled";
 char const * kZoomButtonsEnabledKey = "ZoomButtonsEnabled";
-char const * kCompassCalibrationEnabledKey = "CompassCalibrationEnabled";
 char const * kMapLanguageCode = "MapLanguageCode";
 char const * kRoutingDisclaimerApprovedKey = "IsDisclaimerApproved";
 
@@ -114,18 +113,6 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 {
   settings::Set(kZoomButtonsEnabledKey, static_cast<bool>(zoomButtonsEnabled));
   [MWMMapViewControlsManager manager].zoomHidden = !zoomButtonsEnabled;
-}
-
-+ (BOOL)compassCalibrationEnabled
-{
-  bool enabled = true;
-  UNUSED_VALUE(settings::Get(kCompassCalibrationEnabledKey, enabled));
-  return enabled;
-}
-
-+ (void)setCompassCalibrationEnabled:(BOOL)compassCalibrationEnabled
-{
-  settings::Set(kCompassCalibrationEnabledKey, static_cast<bool>(compassCalibrationEnabled));
 }
 
 + (MWMTheme)theme
@@ -232,6 +219,20 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
   } else {
     f.SetMapLanguageCode(std::string([mapLanguageCode UTF8String]));
   }
+}
+
++ (BOOL)mapLanguageLimitAlternativesToLocal
+{
+  bool enabled = true;
+  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, enabled));
+  return enabled;
+}
+
++ (void)setMapLanguageLimitAlternativesToLocal:(BOOL)mapLanguageLimitAlternativesToLocal
+{
+  settings::Set(settings::kMapLanguageLimitAlternativesToLocal, static_cast<bool>(mapLanguageLimitAlternativesToLocal));
+  auto & f = GetFramework();
+  f.InvalidateRect(f.GetCurrentViewport());
 }
 
 + (BOOL)transliteration { return GetFramework().LoadTransliteration(); }

@@ -4,13 +4,13 @@
 "type.amenity.bank" = "ব্যাঙ্ক";
 "type.amenity" = "Amenity";
 "type.amenity.bench" = "বেঞ্চ";
-"type.amenity.arts_centre" = "Arts Center";
+"type.amenity.arts_centre" = "শিল্পকলা কেন্দ্র";
 "type.amenity.atm" = "এটিএম";
 "type.amenity.bureau_de_change" = "Currency Exchange";
 "type.amenity.bicycle_rental" = "সাইকেল ভাড়া";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.car_wash" = "Car Wash";
-"type.amenity.bus_station" = "বাস স্টেশন";
+"type.amenity.bus_station" = "বাস স্টেশন|বাস স্ট্যান্ড";
 "type.amenity.car_sharing" = "Car Sharing";
 "type.amenity.car_rental" = "গাড়ি ভাড়া";
 "type.amenity.motorcycle_rental" = "মোটরসাইকেল ভাড়া";
@@ -986,7 +986,7 @@
 "type.railway.subway_entrance.algiers" = "Subway Entrance";
 "type.historic.castle.castrum" = "Roman Fort";
 "type.amenity.water_point.drinking_water_no" = "Water Tank Refill Point";
-"type.aeroway.gate" = "Gate";
+"type.aeroway.gate" = "গেট";
 "type.tourism.artwork.architecture" = "Architectural Artwork";
 "type.leisure.common" = "Public Land";
 "type.amenity.vending_machine.excrement_bags" = "Excrement Bags Dispenser";

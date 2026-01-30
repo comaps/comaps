@@ -69,7 +69,7 @@
 "bookmarks" = "Markagailuak";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Markagailuak eta arrastoak";
+"bookmarks_and_tracks" = "Gogokoak";
 
 /* Default bookmark list name */
 "core_my_places" = "Nire tokiak";
@@ -332,9 +332,6 @@
 
 /* Alert title */
 "email_error_title" = "Errore bat mezua bidaltzean";
-
-/* Settings item title */
-"pref_calibration_title" = "Iparrorratzaren kalibrazioa";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Sakatu luze berriro mapan interfazea ikusteko";

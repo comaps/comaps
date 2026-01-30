@@ -7,24 +7,16 @@
   android:layout_height="wrap_content"
   android:visibility="gone"
   tools:visibility="visible">
-  <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:background="?menuBackground"
-    android:padding="@dimen/margin_base"
-    android:clipToPadding="false"
-    android:clipChildren="false"
-    android:layout_gravity="center"
-    android:gravity="center">
     <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:background="@drawable/onmap_downloader_background"
+      android:padding="@dimen/margin_base"
       android:orientation="vertical"
       android:clipToPadding="false"
       android:clipChildren="false"
-      android:gravity="center"
-      tools:ignore="UselessParent">
+      android:layout_gravity="center"
+      android:gravity="center">
       <LinearLayout
           android:id="@+id/offline_explanation"
           android:layout_width="match_parent"
@@ -43,6 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/margin_eighth"
             android:gravity="center_horizontal"
+            android:layout_gravity="center"
             android:textStyle="normal"
             android:textAppearance="@style/MwmTextAppearance.Body1"
             android:text="@string/offline_explanation_text"/>
@@ -101,5 +94,4 @@
           tools:visibility="visible"/>
       </FrameLayout>
     </LinearLayout>
-  </LinearLayout>
 </ScrollView>

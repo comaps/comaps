@@ -66,7 +66,7 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Δημιουργία νέας λίστας</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Όνομα λίστας αγαπημένων</string>
+    <string name="bookmark_set_name">Όνομα λίστας</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Μέρη</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
@@ -82,7 +82,7 @@
     <!-- Header of settings activity where user defines storage path -->
     <string name="maps_storage">Αποθήκευση χαρτών σε</string>
     <!-- Detailed description of Maps Storage settings button -->
-    <string name="maps_storage_summary">Επιλέξτε την τοποθεσία λήψης των χαρτών.</string>
+    <string name="maps_storage_summary">Επιλέξτε τον φάκελο για τη λήψη των χαρτών</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
     <string name="maps_storage_downloaded">Κατεβασμένοι Χάρτες</string>
     <!-- Free space out of total storage size in Maps Storage settings, e.g. "300 MB free of 2 GB" -->
@@ -221,7 +221,7 @@
     <!-- Settings «Route» category: «Test Voice Directions» title -->
     <string name="pref_tts_test_voice_title">Δοκιμή φωνητικών οδηγιών</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Ελέγξτε την ένταση ήχου ή τις ρυθμίσεις του συστήματος text-to-speech αν δεν ακούτε τη φωνή τώρα.</string>
+    <string name="pref_tts_playing_test_voice">Ελέγξτε την ένταση ήχου ή τις ρυθμίσεις συστήματος Κείμενο-Σε-Ομιλία αν δεν ακούτε τη φωνή τώρα</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Δεν είναι διαθέσιμη</string>
     <string name="pref_map_auto_zoom">Αυτόματη μεγέθυνση</string>
@@ -244,7 +244,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Δωρεά</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Στηρίξτε αυτό το πρότζεκτ</string>
+    <string name="how_to_support_us">Γίνετε εθελοντής και βελτιώστε το CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Πνευματικά δικαιώματα</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">Διαγραφή χάρτη</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Ενημέρωση χάρτη</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Υπηρεσίες τοποθεσίας Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Προσδιορίστε γρήγορα την κατά προσέγγιση τοποθεσία σας μέσω Bluetooth, WiFi ή δικτύου κινητής τηλεφωνίας</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Κατέβασμα όλων των χαρτών για ολόκληρο το μήκος της διαδρομής σας</string>
     <!-- Text for routing error dialog -->
@@ -496,7 +490,7 @@
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">χμ/ω</string>
     <string name="placepage_more_button">Περισσότερα</string>
-    <string name="placepage_edit_bookmark_button">Επεξεργασία αγαπημένων μερών</string>
+    <string name="placepage_edit_bookmark_button">Επεξεργασία Αποθηκευμένου Μέρους</string>
     <string name="placepage_personal_notes_hint">Προσωπικές σημειώσεις (κείμενο ή html)</string>
     <string name="editor_reset_edits_message">Απόρριψη όλων των τοπικών αλλαγών;</string>
     <string name="editor_reset_edits_button">Απόρριψη αλλαγών</string>
@@ -533,7 +527,7 @@
     <string name="mobile_data_option_not_today">Να μην χρησιμοποιηθεί σήμερα</string>
     <string name="mobile_data">Ίντερνετ μέσω δικτύου κινητής</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Απαιτείται πρόσβαση στο ίντερνετ μέσω δικτύου κινητής για την εμφάνιση αναλυτικών πληροφοριών για τις τοποθεσίες, όπως φωτογραφίες, τιμές και κριτικές.</string>
+    <string name="mobile_data_description">Απαιτείται πρόσβαση στο διαδίκτυο μέσω δικτύου κινητής για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών</string>
     <string name="mobile_data_option_never">Να μην χρησιμοποιείται ποτέ</string>
     <string name="mobile_data_option_ask">Να γίνεται πάντα ερώτηση</string>
     <string name="traffic_update_maps_text">Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες</string>
@@ -843,7 +837,7 @@
     <string name="avoid_paved">Αποφυγή στρωμένων δρόμων</string>
     <string name="unknown_power_output">άγνωστο</string>
     <string name="unknown_count">άγνωστο</string>
-    <string name="advanced">Προχωρημένο</string>
+    <string name="advanced">Προχωρημένες</string>
     <string name="charge_socket_count">Πλήθος</string>
     <string name="ruler">Χάρακας</string>
     <string name="clear">Εκκαθάριση</string>
@@ -870,4 +864,17 @@
     <string name="error_enter_correct_fediverse_page">Εισάγετε ένα έγκυρο όνομα χρήστη ή διεύθυνση Mastodon</string>
     <string name="error_enter_correct_bluesky_page">Εισάγετε ένα έγκυρο όνομα χρήστη ή διεύθυνση Bluesky</string>
     <string name="power_management">Διαχείριση ενέργειας</string>
+    <string name="download_resources_custom_url_error_scheme">Παρακαλούμε είσαγετε ένα URL που να ξεκινά με http:// ή https://</string>
+    <string name="error_value_must_be_positive">Η τιμή πρέπει να είναι θετική</string>
+    <string name="error_invalid_number">Άκυρος αριθμός</string>
+    <string name="offline_explanation_title">Χάρτες εκτός σύνδεσης</string>
+    <string name="list_description_empty">Επεξεργαστείτε τη λίστα για να προσθέσετε περιγραφή</string>
+    <string name="download_resources_custom_url_summary_none">Δεν έχει οριστεί</string>
+    <string name="download_resources_custom_url_title">Προσαρμοσμένος διακομιστής χάρτη</string>
+    <string name="download_resources_custom_url_message">Παρακάμπτει τον προεπιλεγμένο διακομιστή λήψης χάρτη για τις λήψεις χαρτών. Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο διακομιστή του CoMaps.</string>
+    <string name="limit_map_language_alternatives_to_local">Να χρησιμοποιούνται μόνο άλλες γλώσσες του συστήματος για την περιοχή τους</string>
+    <string name="navigation_start_tts_message">"Εκκίνηση Πλοήγησης, γλώσσα φωνητικών οδηγιών: "</string>
+    <string name="navigation_start_tts_disabled_message">Φωνητικές οδηγίες απενεργοποιημένες: δεν υπάρχει διαθέσιμη μηχανή TTS</string>
+    <string name="pref_tts_no_system_tts_short">Δεν βρέθηκε μηχανή κείμενο-σε-ομιλία, ελέγξτε τις ρυθμίσεις της εφαρμογής</string>
+    <string name="pref_left_button_title">Ρύθμιση αριστερού κουμπιού</string>
 </resources>

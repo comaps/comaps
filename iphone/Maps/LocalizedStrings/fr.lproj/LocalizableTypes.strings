@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grille de barbecue";
 "type.amenity.bench" = "Banc";
-"type.amenity.bicycle_parking" = "Parking à vélo";
+"type.amenity.bicycle_parking" = "Stationnement vélo";
 "type.amenity.bicycle_rental" = "Location de vélos";
 "type.amenity.bicycle_repair_station" = "Station de réparation de vélos";
 "type.amenity.biergarten" = "Biergarten";

@@ -31,6 +31,7 @@ node|z15-[natural=hot_spring],
 node|z12-[natural=geyser],
 node|z14-[natural=beach],
 area|z13-[natural=bare_rock][name],
+node|z16-[natural=tree],
 {text: name;text-color: @poi_label;text-position: center;text-offset: 1;font-size: 10;}
 node|z11-[natural=peak][!name],
 area|z13-[natural=bare_rock][!name],
@@ -147,6 +148,11 @@ node|z15-[man_made=water_tap][drinking_water=not],
 node|z15-[man_made=water_well][drinking_water=not],
 node|z15-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
+
+node|z16-[natural=tree][name],
+{icon-image: tree-special-m.svg;}
+node|z18-[natural=tree][!name],
+{icon-image: tree-m.svg;}
 
 
 /* 3.5 Ferry terminal & seamarks */

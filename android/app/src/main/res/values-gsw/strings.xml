@@ -73,8 +73,8 @@
     <string name="error_enter_correct_name">Bitte gib en korrekte Name ii</string>
     <string name="bookmark_lists_hide_all">Alli uusblende</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d Lesezeiche</item>
-        <item quantity="other">%d Lesezeiche</item>
+        <item quantity="one">%d gspeicherte Ort</item>
+        <item quantity="other">%d gspeicherti Ört</item>
     </plurals>
     <plurals name="bookmarks_detect_message">
         <item quantity="one">%d Datei isch gfunde worde. Du gsehsch sie nach de Konvertierig.</item>
@@ -93,13 +93,13 @@
     <string name="pref_tts_no_system_tts">D Iistellige für d Sprachsynthese sind nöd gfunde worde. Bisch du sicher, dass dis Grät sie unterstützt?</string>
     <string name="error_no_file_manager_app">S Dialogfeld zur Ordneruuswahl cha nöd aazeigt werde, will kei geigneti App uf dim Grät installiert isch. Bitte installier e Dateimanager-App und versuechs nomal.</string>
     <string name="pref_backup_now_summary_ok">Sicherig erfolgriich abgschlosse</string>
-    <string name="pref_backup_now_summary_empty_lists">Kei Lesezeiche und Tracks zum Sichere</string>
+    <string name="pref_backup_now_summary_empty_lists">Kei Ört und Tracks für es Backup vorhande</string>
     <string name="pref_backup_now_summary_folder_unavailable">De Sicherigsordner isch nöd verfüegbar</string>
     <string name="about_help">Über &amp; Hilf</string>
     <string name="setting_emulate_bad_storage">Fehlerhafe Speicher emuliere</string>
     <string name="bookmarks_create_new_group">Neui Lischte erstelle</string>
     <string name="layers_title">Chartestil und Ebene</string>
-    <string name="bookmarks_empty_list_message">Zum Hinzuefüege vo emne Lesezeiche tipp i de Charte uf de Ort und denn unde uf s Sternli</string>
+    <string name="bookmarks_empty_list_message">Zum en Ort z speichere, tipp eifach uf en Ort uf de Charte und denn uf s Sternsymbol</string>
     <string name="category_desc_more">…meh</string>
     <string name="place_description_title">Ortsbeschriibig</string>
     <string name="avoid_ferry">Fähre miide</string>
@@ -119,7 +119,7 @@
     <string name="pedestrian">Fuessgänger</string>
     <string name="bicycle">Velo</string>
     <string name="ruler">Lineal</string>
-    <string name="bookmark_color">Lesezeichefarb</string>
+    <string name="bookmark_color">Farb für Favorite</string>
     <string name="week_ago_sorttype">Vor einere Wuche</string>
     <string name="near_me_sorttype">I minere Nöchi</string>
     <string name="mountains">Berge</string>
@@ -136,7 +136,7 @@
     <string name="maps_storage_free_size">%1$s frei vo %2$s</string>
     <string name="shops">Ladegschäft</string>
     <string name="disk_error">Ordner cha nöd erstellt und d Dateie chönd nöd uf de Grätespeicher oder d SD-Charte verschobe werde</string>
-    <string name="track_recording_alert_title">I Lesezeiche und Tracks speichere?</string>
+    <string name="track_recording_alert_title">I d Favorite speichere?</string>
     <string name="pref_backup_summary">Sicher automatisch in en Ordner uf dim Grät</string>
     <string name="unsupported_phone">S Programm bruucht OpenGL, zum funktioniere. Leider wird dis Grät nöd unterstützt.</string>
     <string name="download">Abelade</string>
@@ -151,9 +151,9 @@
     <string name="continue_button">Fortfahre</string>
     <string name="download_country_failed">%s Abelade fehlgschlage</string>
     <string name="add_new_set">Neui Lischte hinzuefüege</string>
-    <string name="bookmark_set_name">Name vo de Lesezeichelischte</string>
-    <string name="bookmarks">Lesezeiche</string>
-    <string name="bookmarks_and_tracks">Lesezeiche und Tracks</string>
+    <string name="bookmark_set_name">Name vo de Lischte</string>
+    <string name="bookmarks">Ört</string>
+    <string name="bookmarks_and_tracks">Favorite</string>
     <string name="name">Name</string>
     <string name="address">Adresse</string>
     <string name="list">Lischte</string>
@@ -186,10 +186,10 @@
     <string name="category_recycling">Recycling</string>
     <string name="category_rv">Iirichtige für Wohnmobil</string>
     <string name="description">Notize</string>
-    <string name="share_bookmarks_email_subject">CoMaps-Lesezeiche sind mit dir teilt worde</string>
-    <string name="load_kmz_title">Lesezeiche werded glade</string>
-    <string name="load_kmz_successful">Lesezeiche erfolgriich glade! Du chasch sie uf de Charte oder im Lesezeiche-Manager aazeige.</string>
-    <string name="load_kmz_failed">Lade vo de Lesezeiche fehlgschlage. D Datei chönnt beschädigt oder defekt sii.</string>
+    <string name="share_bookmarks_email_subject">Miini CoMaps-Favorite</string>
+    <string name="load_kmz_title">Favorite werded glade</string>
+    <string name="load_kmz_successful">Favorite erfolgriich glade! Du chasch sie uf de Charte oder im Favorite-Manager aazeige.</string>
+    <string name="load_kmz_failed">Lade vo de Favorite fehlgschlage. D Datei chönnt beschädigt oder defekt sii.</string>
     <string name="unknown_file_type">De Dateityp wird vo de App nöd erchennt: \n%1$s</string>
     <string name="failed_to_open_file">Datei het nöd chönne göffnet werde %1$s \n \n%2$s</string>
     <string name="edit">Bearbeite</string>
@@ -258,8 +258,6 @@
     <string name="downloader_retry">Wiederhole</string>
     <string name="downloader_delete_map">Charte lösche</string>
     <string name="downloader_update_map">Charte aktualisiere</string>
-    <string name="google_play_services">Google Fused-Standortdienst</string>
-    <string name="pref_use_google_play">En proprietäre Dienst, wo GPS, Wi-Fi, Mobilfunknetz etc. kombiniert, zum de Standort genauer z bestimme. Er cha sich mit Google-Server verbinde.</string>
     <string name="routing_download_maps_along">Charte entlang de Route abelade</string>
     <string name="routing_requires_all_map">Zum Erstelle vonere Route müend alli Charte vo dim Standort bis zum Ziel abeglade und aktualisiert worde sii.</string>
     <string name="routing_not_enough_space">Nöd gnueg Speicherplatz</string>
@@ -397,9 +395,9 @@
     <string name="hour">h</string>
     <string name="minute">min</string>
     <string name="day">d</string>
-    <string name="placepage_edit_bookmark_button">Lesezeiche bearbeite</string>
+    <string name="placepage_edit_bookmark_button">Gspeicherte Ort bearbeite</string>
     <string name="placepage_personal_notes_hint">Persönlichi Notize (Text oder HTML)</string>
-    <string name="editor_reset_edits_button">Verwerfe</string>
+    <string name="editor_reset_edits_button">Änderige verwerfe</string>
     <string name="editor_remove_place_message">Hinzuegfüegts Objekt lösche?</string>
     <string name="editor_remove_place_button">Lösche</string>
     <string name="editor_place_doesnt_exist">De Ort existiert nöd</string>
@@ -434,7 +432,7 @@
     <string name="planning_route_manage_route">Route verwalte</string>
     <string name="button_plan">Plane</string>
     <string name="dialog_error_storage_title">Problem mit em Zuegriff uf de Speicher</string>
-    <string name="bookmark_lists">Lischtene</string>
+    <string name="bookmark_lists">Favoritelischtene</string>
     <string name="bookmarks_error_message_share_general">Teile weg emne Aawendigsfehler nöd möglich</string>
     <string name="bookmarks_error_title_share_empty">Fehler bim Teile</string>
     <string name="bookmarks_new_list_hint">Neui Lischte</string>
@@ -507,7 +505,7 @@
     <string name="button_layer_outdoor">Wandere</string>
     <string name="browser_not_available">Webbrowser isch nöd verfüegbar</string>
     <string name="volume">Luutstärchi</string>
-    <string name="bookmarks_export">Alli Lesezeiche und Tracks exportiere</string>
+    <string name="bookmarks_export">Alli Ört und Tracks exportiere</string>
     <string name="pref_tts_open_system_settings">Iistellige vom Sprachsynthesesystem</string>
     <string name="drive_through">Drive-trough</string>
     <string name="clear_the_search">Lösch d Suechi</string>
@@ -526,7 +524,7 @@
     <string name="choose_color">Farb uuswähle</string>
     <string name="edit_track">Track bearbeite</string>
     <string name="pref_left_button_disable">Deaktiviere</string>
-    <string name="pref_backup_title">Sicherig vo Lesezeiche und Tracks</string>
+    <string name="pref_backup_title">Favorite sichere</string>
     <string name="pref_backup_now_title">Jetzt sichere</string>
     <string name="pref_backup_history_title">Aazahl z speichernde Sicherige</string>
     <string name="backup_interval_every_week">Wüchentlich</string>
@@ -545,11 +543,11 @@
     <string name="traffic_data_unavailable">Verchehrsdate sind nöd verfüegbar</string>
     <string name="saved">Gspeicheret</string>
     <string name="bookmark_lists_show_all">Alli aazeige</string>
-    <string name="bookmarks_import">Lesezeiche und Tracks importiere</string>
+    <string name="bookmarks_import">Favorite importiere</string>
     <string name="bookmarks_error_message_share_empty">E leeri Lischte cha nöd teilt werde</string>
     <string name="bookmarks_error_message_empty_list_name">Bitte gib en Lischtename ii</string>
     <string name="unable_to_calc_alert_title">Route cha nöd berechnet werde</string>
-    <string name="share_bookmarks_email_body">Hallo! \n \nIm Ahang sind mini Lesezeiche; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/ \n \nViel Spass bim Reise mit CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hallo! \n \nIm Ahang sind mini Favorite; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/ \n \nViel Spass bim Reise mit CoMaps!</string>
     <string name="pink">Rosa</string>
     <string name="editor_other_info">Hiiwiis a Freiwilligi vo OpenStreetMap (optional)</string>
     <string name="editor_category_unsuitable_title">Kei passendi Kategorie gfunde?</string>
@@ -592,7 +590,7 @@
     <string name="avoid_motorways">Autobahne miide</string>
     <string name="toll_road">Mautstrass</string>
     <string name="ok">OK</string>
-    <string name="sort_bookmarks">Lesezeiche sortiere</string>
+    <string name="sort_bookmarks">Favorite sortiere</string>
     <string name="translated_om_site_url">https://comaps.app/gsw/</string>
     <string name="open_now">Jetzt offe</string>
     <string name="closed_now">Jetzt zue</string>
@@ -641,4 +639,19 @@
     <string name="edit_socket_info_tooltip">Neui Aschlüss erstelle oder existierendi bearbeite.</string>
     <string name="charging_station_available_sockets">Verfüegbari Aschlüss</string>
     <string name="power_management">Energiemanagement</string>
+    <string name="place_page_map_too_old_title">Chartedate veraltet</string>
+    <string name="place_page_map_too_old_description">Die aktuelle Chartedate sind sehr alt, bitte aktualisier d Charte.</string>
+    <string name="place_page_app_too_old_description">Die aktuelle Chartedate sind sehr alt, bitte aktualisier d CoMaps-App.</string>
+    <string name="place_page_update_too_old_map">Charteregion aktualisiere</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap-Bearbeitig isch deaktiviert, will d Chartedate z alt sind.</string>
+    <string name="prefs_speed_cameras_information">Blitzerwarnige sind i Länder deaktiviert, wo Warnige dur lokali Gsetz verbote sind.</string>
+    <string name="pref_maplanguage_local">Lokali Spraach</string>
+    <string name="navigation_start_tts_message">"Navigation wird gstartet, Spraach vo de Spraachaasage: "</string>
+    <string name="navigation_start_tts_disabled_message">Spraachaasage deaktiviert: TTS-Engine nöd verfüegbar</string>
+    <string name="advanced">Fortgschritte</string>
+    <string name="download_resources_custom_url_title">Benutzerdefinierte Charteserver</string>
+    <string name="download_resources_custom_url_message">Standardserver für Chartedownloads überschriibe. Leer laa, zum de CoMaps-Standardserver z bruuche.</string>
+    <string name="download_resources_custom_url_summary_none">Nöd konfiguriert</string>
+    <string name="download_resources_custom_url_error_scheme">Bitte e vollständigi URL iigeh, wo mit https:// oder http:// aafangt</string>
+    <string name="limit_map_language_alternatives_to_local">Nutz anderi Systemspraachene nur i dere Region</string>
 </resources>

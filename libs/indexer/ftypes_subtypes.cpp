@@ -3,7 +3,6 @@
 #include "base/assert.hpp"
 #include "coding/csv_reader.hpp"
 #include "coding/reader_streambuf.hpp"
-#include "indexer/classificator.hpp"
 #include "platform/platform.hpp"
 #include "defines.hpp"
 

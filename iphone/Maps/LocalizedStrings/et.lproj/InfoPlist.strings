@@ -3,13 +3,13 @@
 "search" = "Otsi";
 
 /* Used in home screen quick actions. */
-"bookmarks_and_tracks" = "Järjehoidjad ja rajad";
+"bookmarks_and_tracks" = "Lemmikud";
 
 /* Used in home screen quick actions. */
 "route" = "Marsruut";
 
 /* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
-"NSLocationAlwaysUsageDescription" = "Rakenduse funktsionaalsuse täielikuks nautimiseks on vaja asukoha tuvastamist taustal. Seda kasutatakse navigeerimiseks ja hiljuti reisitud tee salvestamiseks.";
+"NSLocationAlwaysUsageDescription" = "Rakenduse funktsionaalsuse täielikuks nautimiseks on vaja asukoha tuvastamist taustal. Seda kasutatakse tee juhatamiseks ja hiljuti reisitud raja salvestamiseks.";
 
 /* Needed to explain why we require access to GPS coordinates when the app is active. */
-"NSLocationWhenInUseUsageDescription" = "Teie asukoha määramine on vajalik navigeerimiseks ja hiljuti reisitud raja salvestamiseks.";
+"NSLocationWhenInUseUsageDescription" = "Sinu asukoha määramine on vajalik tee juhatamiseks ja hiljuti reisitud raja salvestamiseks.";

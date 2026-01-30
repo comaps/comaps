@@ -266,12 +266,6 @@
     <string name="downloader_delete_map">Šalinti žemėlapį</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Naujinti žemėlapį</string>
-    <!-- Preference title -->
-    <string name="google_play_services">„Google“ jungtinė vietos nustatymo paslauga</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Nuosavybinė paslauga, nustatanti jūsų vietą remdamasi GPS, belaidžio ryšio, mobiliųjų tinklų ir kitais duomenimis. Gali jungtis prie „Google“ serverių.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Atsiųsti visus žemėlapius, į kuriuos patenka jūsų maršrutas</string>
     <!-- Text for routing error dialog -->

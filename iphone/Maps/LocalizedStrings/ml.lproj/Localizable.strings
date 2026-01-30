@@ -69,7 +69,6 @@
 "report_incorrect_map_bug" = "Report or fix incorrect map data";
 "downloader_near_me_subtitle" = "Near me";
 "email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
-"pref_calibration_title" = "Compass calibration";
 "volunteer" = "Volunteer";
 "downloader_available_maps" = "Available";
 "long_tap_toast" = "Long-tap on the map again to see the interface";

@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">מחק מפה</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">עדכן מפה</string>
-    <!-- Preference title -->
-    <string name="google_play_services">שירותי מיקום של Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">קבע במהירות את המיקום המשוער שלך באמצעות Bluetooth, WiFi או רשת סלולרית</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">הורד את כל המפות במסלול שלך</string>
     <!-- Text for routing error dialog -->

@@ -68,7 +68,7 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Adicionar conjunto novo</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nome da Lista</string>
+    <string name="bookmark_set_name">Nome do Conjunto</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Lugares</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
@@ -147,11 +147,11 @@
     <string name="share_bookmarks_email_subject">Os meus Favoritos do CoMaps</string>
     <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo os meus favoritos; por favor abra-os com o CoMaps. Caso não tenha, descarregue a aplicação aqui: https://www.comaps.app/download/ \n \nDivirta-se a viajar com o CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Carregando Favoritos</string>
+    <string name="load_kmz_title">A Carregar Favoritos</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Os favoritos foram carregados com sucesso! Pode encontrá-los no mapa ou no ecrã de gestão dos favoritos.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Impossível carregar favoritos. O ficheiro pode estar corrompido ou com defeito.</string>
+    <string name="load_kmz_failed">Surgiu uma falha ao enviar os favoritos. O ficheiro pode estar corrompido ou com defeito.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">O tipo de ficheiro não é reconhecido pela aplicação: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -276,12 +276,6 @@
     <string name="downloader_delete_map">Eliminar mapa</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Atualizar mapa</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Serviços de localização fundidos da Google</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Um serviço proprietário que combina GPS, Wi-Fi, Dados moveis etc. para determinar a tua localização com maior exatidão. Pode conectar-se aos Servidores da Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Descarregar todos os mapas ao longo do trajeto</string>
     <!-- Text for routing error dialog -->
@@ -491,7 +485,7 @@
     <string name="minute">min</string>
     <string name="day">dia</string>
     <string name="placepage_more_button">Mais</string>
-    <string name="placepage_edit_bookmark_button">Editar favorito</string>
+    <string name="placepage_edit_bookmark_button">Editar Lugar Guardado</string>
     <string name="placepage_personal_notes_hint">Notas pessoais (texto ou html)</string>
     <string name="editor_reset_edits_message">Eliminar todas as alterações locais?</string>
     <string name="editor_reset_edits_button">Descartar alterações</string>
@@ -560,7 +554,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Criar nova lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importar favoritos</string>
+    <string name="bookmarks_import">Importar Favoritos</string>
     <string name="bookmarks_error_message_share_general">Não foi possível partilhar devido a um erro da aplicação</string>
     <string name="bookmarks_error_title_share_empty">Erro ao partilhar</string>
     <string name="bookmarks_error_message_share_empty">Não é possível partilhar uma lista vazia</string>
@@ -915,4 +909,5 @@
     <string name="download_resources_custom_url_summary_none">Indefinido</string>
     <string name="download_resources_custom_url_error_scheme">Por favor, insira um URL começando com http:// ou https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
+    <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema na sua região</string>
 </resources>

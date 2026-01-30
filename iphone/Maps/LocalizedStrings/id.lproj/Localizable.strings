@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "Gangguan pengiriman surel";
 
-/* Settings item title */
-"pref_calibration_title" = "Kalibrasi kompas";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Ketuk lama pada peta sekali lagi untuk melihat antarmuka";
 

@@ -2,7 +2,8 @@
 
 #include "generator/feature_builder.hpp"
 #include "generator/intermediate_elements.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 using namespace feature;
 

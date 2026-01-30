@@ -34,6 +34,7 @@ public:
     MapShapesRecache,
     MapShapes,
     ChangeMyPositionMode,
+    StartPendingPositionMode,
     CompassInfo,
     GpsInfo,
     SelectObject,

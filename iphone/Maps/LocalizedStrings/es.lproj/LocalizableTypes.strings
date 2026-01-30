@@ -859,7 +859,7 @@
 
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Suburbio";
-"type.place.town" = "Pueblo";
+"type.place.town" = "Pueblo o ciudad";
 "type.place.village" = "Pueblo";
 "type.power" = "Energía";
 "type.power.generator" = "Generador";
@@ -1479,7 +1479,7 @@
 "type.leisure.escape_game" = "Sala de Escape";
 "type.post_office.post_partner" = "Asociado de Correo";
 "type.amenity.luggage_locker" = "Consigna de equipaje";
-"type.amenity.ranger_station" = "Estación de guardabosques";
+"type.amenity.ranger_station" = "Estación de guardaparque";
 "type.amenity.bicycle_parking.covered" = "Parking de bici cubierto";
 "type.amenity.animal_shelter" = "Refugio de animales";
 "type.barrier.wicket_gate" = "Portillo";

@@ -269,12 +269,6 @@
     <string name="downloader_delete_map">ลบแผนที่</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">อัปเดตแผนที่</string>
-    <!-- Preference title -->
-    <string name="google_play_services">บริการตำแหน่งของ Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">ระบุตำแหน่งโดยประมาณของคุณอย่างรวดเร็วโดยใช้บลูทูธ WiFi หรือเครือข่ายมือถือ</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">ดาวน์โหลดแผนที่ตามเส้นทาง</string>
     <!-- Text for routing error dialog -->

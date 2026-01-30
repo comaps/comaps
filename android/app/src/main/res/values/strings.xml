@@ -303,10 +303,6 @@
     <string name="downloader_delete_map">Delete Map</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Update Map</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused Location Service</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">A proprietary service that combines GPS, Wi-Fi, cellular networks etc. to determine your location more accurately. It may connect to Google servers.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Download all of the maps along your route</string>
     <!-- Text for routing error dialog -->
@@ -977,6 +973,10 @@
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use CoMaps default server.</string>
     <string name="download_resources_custom_url_summary_none">Not set</string>
     <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
+    <!-- string name different as needs to match iOS -->
+    <string name="limit_map_language_alternatives_to_local">Only use other system languages in their region</string>
+    <string name="fused_location_info">CoMaps relies on the system\'s Fused Location provider (typically Google Play Services), which may share your location with Google. Use a privacy-preserving Android OS to avoid this.</string>
+    <string name="fused_location_service">Fused Location Service</string>
     <!-- Custom MWM file import messages -->
     <string name="custom_mwm_import_success">Custom map imported successfully. Restart the app to load it.</string>
     <string name="custom_mwm_import_invalid">Invalid MWM file. Please select a valid map file.</string>

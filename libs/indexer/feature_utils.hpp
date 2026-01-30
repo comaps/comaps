@@ -137,7 +137,7 @@ std::string const GetReadableAddress(std::string const & address);
 // int8_t GetNameForSearchOnBooking(RegionData const & regionData, StringUtf8Multilang const & src, std::string & name);
 
 /// Returns preferred name when only the device language is available.
-bool GetPreferredName(StringUtf8Multilang const & src, int8_t deviceLang, std::string_view & out);
+bool GetPreferredName(StringUtf8Multilang const & src, std::string_view & out);
 
 /// Returns priority list of language codes for feature description,
 /// the priority is the following:
@@ -148,6 +148,9 @@ bool GetPreferredName(StringUtf8Multilang const & src, int8_t deviceLang, std::s
 /// - english language code;
 /// - default language code;
 std::vector<int8_t> GetDescriptionLangPriority(RegionData const & regionData);
+
+// Returns vector of subtypes localized by platform.
+std::vector<std::string> GetLocalizedSubtypes(TypesHolder const & types);
 
 // Returns vector of cuisines readable names from classificator.
 std::vector<std::string> GetCuisines(TypesHolder const & types);

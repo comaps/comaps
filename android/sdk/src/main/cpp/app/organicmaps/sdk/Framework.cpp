@@ -696,6 +696,12 @@ void Framework::SwitchMyPositionNextMode()
   m_work.SwitchMyPositionNextMode();
 }
 
+void Framework::StartPendingPositionMode()
+{
+  ASSERT(IsDrapeEngineCreated(), ());
+  m_work.StartPendingPositionMode();
+}
+
 void Framework::SetupWidget(gui::EWidget widget, float x, float y, dp::Anchor anchor)
 {
   m_guiPositions[widget] = gui::Position(m2::PointF(x, y), anchor);

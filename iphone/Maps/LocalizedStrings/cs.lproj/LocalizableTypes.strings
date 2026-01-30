@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Herní centrum pro dospělé";
 "type.leisure.amusement_arcade" = "Pasáž";
 "type.amenity.charging_station" = "Nabíjecí stanice";
-"type.amenity.charging_station.bicycle" = "Nabíjecí stanice pro jízdní kola";
-"type.amenity.charging_station.motorcar" = "Nabíjecí stanice pro automobily";
+"type.amenity.charging_station.bicycle" = "Jízdní kola";
+"type.amenity.charging_station.motorcar" = "Auta";
 "type.amenity.childcare" = "Jesle";
 "type.amenity.cinema" = "Kino";
 "type.leisure.bowling_alley" = "Bowlingová dráha";
@@ -157,7 +157,7 @@
 "type.amenity.shelter.basic_hut" = "Bivakovací chata";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Otevřený přístřešek";
+"type.amenity.shelter.lean_to" = "Otevřený spací přístřešek";
 "type.amenity.public_bath" = "Veřejné lázně";
 "type.amenity.shower" = "Sprcha";
 "type.amenity.stripclub" = "Stripklub";
@@ -176,7 +176,7 @@
 "type.amenity.vending_machine.food" = "Automat na jídlo";
 "type.amenity.vending_machine.newspapers" = "Automat na noviny";
 "type.amenity.vending_machine.parking_tickets" = "Parkovací automat";
-"type.amenity.vending_machine.public_transport_tickets" = "Automat na jízdenky";
+"type.amenity.vending_machine.public_transport_tickets" = "Automat na jízdenky veřejné dopravy";
 "type.amenity.vending_machine.sweets" = "Automat na sladkosti";
 "type.amenity.vending_machine.excrement_bags" = "Sáčky na výkaly";
 "type.amenity.parcel_locker" = "Schránka na balíky";
@@ -1486,7 +1486,7 @@
 "type.power.portal" = "Portál el. vedení";
 "type.building.guardhouse" = "Vrátnice";
 "type.shop.lighting" = "Obchod s osvětlením";
-"type.amenity.bench.backless" = "Lavička bez opěradla";
+"type.amenity.bench.backless" = "Bez opěradla";
 "type.leisure.sports_centre.sport.soccer" = "Sportovní centrum";
 "type.leisure.sports_centre.sport.athletics" = "Sportovní centrum";
 "type.leisure.sports_centre.sport.padel" = "Sportovní centrum";
@@ -1588,3 +1588,14 @@
 "type.xmas.tree" = "Vánoční strom";
 "type.man_made.mast.communication" = "Komunikační stožár";
 "type.amenity.hydrant" = "Hydrant na zavlažování";
+"type.amenity.charging_station.small" = "Omezená kapacita";
+"type.amenity.charging_station.motorcycle" = "Motocykly";
+"type.railway.disused.bridge" = "Nepoužívaný železniční most";
+"type.railway.turntable" = "Železniční točna";
+"type.tourism.information.tactile_map" = "Haptická mapa";
+"type.railway.miniature.bridge" = "Most miniaturní železnice";
+"type.emergency.disaster_help_point" = "Nouzové centrum pomoci při katastrofách";
+"type.emergency.access_point.address" = "Adresa pro nouzové záchranné služby";
+"type.railway.miniature.tunnel" = "Tunel miniaturní železnice";
+"type.railway.disused.tunnel" = "Nepoužívaný železniční tunel";
+"type.railway.miniature" = "Miniaturní železnice";

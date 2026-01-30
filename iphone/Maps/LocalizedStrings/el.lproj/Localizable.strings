@@ -57,19 +57,19 @@
 "add_new_set" = "Δημιουργία νέας λίστας";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Όνομα λίστας αγαπημένων";
+"bookmark_set_name" = "Όνομα λίστας";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Λίστα αγαπημένων";
+"bookmark_sets" = "Λίστες αγαπημένων";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Σελιδοδείκτες";
+"bookmarks" = "Μέρη";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Σελιδοδείκτες και Ίχνη";
+"bookmarks_and_tracks" = "Αγαπημένα";
 
 /* Default bookmark list name */
-"core_my_places" = "Οι τοποθεσίες μου";
+"core_my_places" = "Τα μέρη μου";
 
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Διεύθυνση";
@@ -148,16 +148,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Για RV";
-"share_bookmarks_email_body" = "Γειά σου! \n \nΣου επισυνάπτω τα αγαπημένα μου. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n \nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!";
+"share_bookmarks_email_body" = "Γειά σου! \n\nΣου επισυνάπτω τα αποθηκευμένα μου μέρη. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n\nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Φορτώνονται οι σελιδοδείκτες";
+"load_kmz_title" = "Φορτώνονται τα Αγαπημένα";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Οι σελιδοδείκτες φορτώθηκαν με επιτυχία! Μπορείτε να τους βρείτε στο χάρτη ή στην οθόνη Διαχείρισης σελιδοδεικτών.";
+"load_kmz_successful" = "Τα αγαπημένα φορτώθηκαν με επιτυχία! Μπορείτε να τα βρείτε στο χάρτη ή στην οθόνη Διαχείρισης αγαπημένων.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Η φόρτωση των σελιδοδεικτών απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.";
+"load_kmz_failed" = "Η φόρτωση των αγαπημένων απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.";
 
 /* resource for context menu */
 "edit" = "Επεξεργασία";
@@ -319,7 +319,7 @@
 "report_incorrect_map_bug" = "Αναφορά ή διόρθωση λανθασμένων δεδομένων χάρτη";
 
 /* Button in the About screen */
-"volunteer" = "Γίνετε εθελοντής";
+"volunteer" = "Γίνετε εθελοντής και βελτιώστε το CoMaps";
 
 /* "Social media" section header in the About screen */
 "follow_us" = "Συνδεθείτε μαζί μας";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "Σφάλμα κατά την αποστολή του e-mail";
-
-/* Settings item title */
-"pref_calibration_title" = "Καλιμπράρισμα πυξίδας";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Πατήστε ξανά παρατεταμένα στο χάρτη για να δείτε το περιβάλλον εργασίας";
@@ -383,7 +380,7 @@
 "routing_requires_all_map" = "Για να φτιάξετε μια διαδρομή, πρέπει πρώτα να γίνει λήψη και ενημέρωση όλων των χαρτών από τη θέση σας μέχρι τον προορισμό σας.";
 
 /* bookmark button text */
-"bookmark" = "αγαπημένο";
+"bookmark" = "μέρος";
 "save" = "Αποθήκευση";
 "create" = "δημιουργήστε";
 
@@ -670,10 +667,10 @@
 "placepage_more_button" = "Περισσότερα";
 "book_button" = "Κράτηση";
 "placepage_call_button" = "Κλήση";
-"placepage_edit_bookmark_button" = "Επεξεργασία σελιδοδείκτη";
-"placepage_bookmark_name_hint" = "Όνομα αγαπημένου";
+"placepage_edit_bookmark_button" = "Επεξεργασία Αποθηκευμένου Μέρους";
+"placepage_bookmark_name_hint" = "Όνομα Μέρους";
 "placepage_personal_notes_hint" = "Προσωπικές σημειώσεις (κείμενο ή html)";
-"placepage_delete_bookmark_button" = "Διαγραφή αγαπημένου";
+"placepage_delete_bookmark_button" = "Διαγραφή Μέρους";
 "editor_edits_sent_message" = "Η σημείωσή σας θα σταλεί στο OpenStreetMap";
 "editor_comment_hint" = "Σχόλιο…";
 "editor_reset_edits_message" = "Απόρριψη όλων των τοπικών αλλαγών;";
@@ -719,7 +716,7 @@
 "mobile_data" = "Ίντερνετ μέσω δικτύου κινητής";
 
 /* NOTE to translators: please synchronize your translation with the English one. */
-"mobile_data_description" = "Απαιτείται πρόσβαση στο ίντερνετ μέσω δικτύου κινητής για την εμφάνιση αναλυτικών πληροφοριών για τις τοποθεσίες, όπως φωτογραφίες, τιμές και κριτικές.";
+"mobile_data_description" = "Απαιτείται πρόσβαση στο διαδίκτυο μέσω δικτύου κινητής για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών.";
 "mobile_data_option_never" = "Να μην χρησιμοποιείται ποτέ";
 "mobile_data_option_ask" = "Να γίνεται πάντα ερώτηση";
 "traffic_update_maps_text" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες.";
@@ -761,7 +758,7 @@
 "bookmarks_create_new_group" = "Δημιουργία νέας λίστας";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Εισαγωγή Σελιδοδεικτών και Ιχνών";
+"bookmarks_import" = "Εισαγωγή Αγαπημένων";
 "downloader_hide_screen" = "Απόκρυψη οθόνης";
 "downloader_percent" = "%@ (%@ από %@)";
 "downloader_process" = "Λήψη %@…";
@@ -993,7 +990,7 @@
 "button_layer_outdoor" = "Πεζοπορία";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Εξαγωγή όλων των Σελιδοδεικτών και Ιχνών";
+"bookmarks_export" = "Εξαγωγή όλων των Αγαπημένων";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Αλλαγή χρώματος";
@@ -1078,7 +1075,7 @@
 "continue_recording" = "Συνέχεια εγγραφής";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Αποθήκευση στους Σελιδοδείκτες και Ίχνη;";
+"track_recording_alert_title" = "Αποθήκευση στα Αγαπημένα;";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Το ίχνος είναι άδειο - δεν υπάρχει τίποτα να αποθηκεύσετε";
@@ -1089,7 +1086,7 @@
 "about_headline" = "Ανοιχτό έργο με την υποστήριξη της κοινότητας";
 "pref_mapappearance_title" = "Εμφάνιση χάρτη";
 "pref_maplanguage_title" = "Γλώσσα χάρτη";
-"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
+"transliteration_title_disabled_summary" = "Απενεργοποιημένο όταν πάντα χρησιμοποιείται η τοπική γλώσσα για τον χάρτη";
 "pref_maplanguage_local" = "Τοπική γλώσσα";
 "existence_confirmed_time_ago" = "Ύπαρξη επιβεβαιώθηκε %@";
 "hours_confirmed_time_ago" = "Επιβεβαιώθηκε %@";
@@ -1098,3 +1095,5 @@
 "avoid_paved" = "Αποφυγή στρωμένων δρόμων";
 "unknown" = "Άγνωστο";
 "voice" = "Φωνή";
+"offline_explanation_title" = "Χάρτες εκτός σύνδεσης";
+"limit_map_language_alternatives_to_local" = "Να χρησιμοποιούνται μόνο άλλες γλώσσες του συστήματος για την περιοχή τους";

@@ -352,9 +352,6 @@
 /* Alert title */
 "email_error_title" = "Error sending email";
 
-/* Settings item title */
-"pref_calibration_title" = "Compass calibration";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Long-tap on the map again to see the interface";
 
@@ -766,6 +763,7 @@
 "traffic_data_unavailable" = "Traffic data is not available";
 "enable_logging" = "Enable logging";
 "log_file_size" = "Log file size: %@";
+"limit_map_language_alternatives_to_local" = "Only use other system languages in their region";
 "transliteration_title" = "Transliterate into Latin alphabet";
 "transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 

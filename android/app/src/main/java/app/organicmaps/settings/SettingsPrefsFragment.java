@@ -31,7 +31,6 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.editor.OsmOAuth;
 import app.organicmaps.sdk.editor.data.Language;
-import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.search.SearchRecents;
 import app.organicmaps.sdk.settings.MapLanguageCode;
@@ -69,6 +68,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initAutoDownloadPrefsCallbacks();
     initLargeFontSizePrefsCallbacks();
     initTransliterationPrefsCallbacks();
+    initOnlyUseSysLangsInTheirRegionCallbacks();
     init3dModePrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
@@ -76,7 +76,6 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initEmulationBadStorage();
     initUseMobileDataPrefsCallbacks();
     initPowerManagementPrefsCallbacks();
-    initPlayServicesPrefsCallbacks();
     initSearchPrivacyPrefsCallbacks();
     initScreenSleepEnabledPrefsCallbacks();
     initShowOnLockScreenPrefsCallbacks();
@@ -223,6 +222,20 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     });
   }
 
+  private void initOnlyUseSysLangsInTheirRegionCallbacks()
+  {
+    final Preference pref = getPreference(getString(R.string.pref_set_only_use_syslangs_in_their_region));
+    ((TwoStatePreference) pref).setChecked(Config.isOnlyUseSysLangsInTheirRegion());
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final boolean oldVal = Config.isOnlyUseSysLangsInTheirRegion();
+      final boolean newVal = (Boolean) newValue;
+      if (oldVal != newVal)
+        Config.setOnlyUseSysLangsInTheirRegion(newVal);
+
+      return true;
+    });
+  }
+
   private void initTransliterationPrefsCallbacks()
   {
     final Preference pref = getPreference(getString(R.string.pref_transliteration));
@@ -312,42 +325,6 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
       Framework.nativeSetAutoZoomEnabled((boolean) newValue);
       return true;
     });
-  }
-
-  private void initPlayServicesPrefsCallbacks()
-  {
-    final Preference pref = findPreference(getString(R.string.pref_play_services));
-    if (pref == null)
-      return;
-
-    if (!MwmApplication.from(requireContext())
-             .getLocationProviderFactory()
-             .isGoogleLocationAvailable(requireActivity().getApplicationContext()))
-      removePreference(getString(R.string.pref_privacy), pref);
-    else
-    {
-      ((TwoStatePreference) pref).setChecked(Config.useGoogleServices());
-      pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-        @SuppressLint("MissingPermission")
-        @Override
-        public boolean onPreferenceChange(@NonNull Preference preference, Object newValue)
-        {
-          final LocationHelper locationHelper = MwmApplication.from(requireContext()).getLocationHelper();
-          boolean oldVal = Config.useGoogleServices();
-          boolean newVal = (Boolean) newValue;
-          if (oldVal != newVal)
-          {
-            Config.setUseGoogleService(newVal);
-            if (locationHelper.isActive())
-            {
-              locationHelper.stop();
-              locationHelper.start();
-            }
-          }
-          return true;
-        }
-      });
-    }
   }
 
   private void initSearchPrivacyPrefsCallbacks()

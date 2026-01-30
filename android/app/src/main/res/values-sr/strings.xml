@@ -66,7 +66,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Места</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Фаворити</string>
+    <string name="bookmarks_and_tracks">Маркери</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Назив</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -145,11 +145,11 @@
     <string name="share_bookmarks_email_subject">CoMaps фаворити</string>
     <string name="share_bookmarks_email_body">Здраво! \n \nУ прилогу су моји фаворити; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Учитавање фаворита</string>
+    <string name="load_kmz_title">Учитавање маркера</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Фаворити су успешно учитани! Можете их проначи на мапи помоћу Менаџера фаворита.</string>
+    <string name="load_kmz_successful">Маркери су успешно учитани! Можете их проначи на мапи помоћу Менаџера маркера.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Неуспешно учитавање фаворита. Могуће да је фајл оштећен или неисправан.</string>
+    <string name="load_kmz_failed">Неуспешно учитавање маркера. Могуће да је фајл оштећен или неисправан.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Апликација не препознаје ову врсту фајла: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -274,12 +274,6 @@
     <string name="downloader_delete_map">Обриши мапу</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Ажурирај мапу</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused локацијски сервис</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Услуга локације која комбинује GPS, Wi-Fi, мобилну мрежу и друге податке како би се локација открила што је прецизније. Такође се можете повезати са Google серверима.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Преузми све мапе које се налазе на рути</string>
     <!-- Text for routing error dialog -->
@@ -492,7 +486,7 @@
     <string name="minute">мин</string>
     <string name="day">д</string>
     <string name="placepage_more_button">Више</string>
-    <string name="placepage_edit_bookmark_button">Измени снимљено место</string>
+    <string name="placepage_edit_bookmark_button">Измени место</string>
     <string name="editor_reset_edits_message">Брисање свих измена које нису послате?</string>
     <string name="editor_reset_edits_button">Одбаци промене</string>
     <string name="editor_remove_place_message">Брисање додатог места?</string>
@@ -567,7 +561,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Креирај нову листу</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Увези фаворите</string>
+    <string name="bookmarks_import">Увези маркере</string>
     <string name="bookmarks_error_message_share_general">Дељење није могуће због грешке у апликацији</string>
     <string name="bookmarks_error_title_share_empty">Грешка приликом дељења</string>
     <string name="bookmarks_error_message_share_empty">Не може се поделити празна листа</string>
@@ -789,7 +783,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Настави снимање</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Сачувати у фаворитима?</string>
+    <string name="track_recording_alert_title">Сачувати у маркерима?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Путања је празна, нема шта да се сачува</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -920,4 +914,5 @@
     <string name="download_resources_custom_url_summary_none">Није постављено</string>
     <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <string name="pref_maplanguage_local">Локални језик</string>
+    <string name="limit_map_language_alternatives_to_local">Ограничите алтернативне језике на локалне</string>
 </resources>

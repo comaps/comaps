@@ -385,7 +385,6 @@
     <string name="pref_tts_street_names_title">Tilkynna götuheiti</string>
     <string name="pref_tts_test_voice_title">Prófa raddleiðsögn (TTS, texti-í-tal)</string>
     <string name="pref_map_auto_zoom">Sjálfvirkur aðdráttur</string>
-    <string name="google_play_services">Google Play staðsetningarþjónustur</string>
     <string name="dialog_routing_change_start">Aðlaga upphafsstað</string>
     <string name="dialog_routing_change_end">Aðlaga áfangastað</string>
     <string name="dialog_routing_intermediate_not_determined">Aðlagaðu milliáfangann þinn.</string>
@@ -427,7 +426,6 @@
     <string name="load_kmz_successful">Tókst að hlaða inn bókamerkjum! Þú getur skoðað þau á landakortinu eða í bókamerkjasafninu.</string>
     <string name="my_position_share_sms">Skoðaðu núverandi staðsetninguna mína á CoMaps landakortinu! %1$s eða %2$s Ertu ekki með ónettengd kort? Sæktu þau hér: https://www.comaps.app/download/</string>
     <string name="my_position_share_email_subject">Hæ, skoðaðu núverandi staðsetninguna mína á CoMaps landakortinu!</string>
-    <string name="pref_use_google_play">Ákvarðaðu í skyndi staðsetninguna þína með Bluetooth, WiFi eða farsímaneti</string>
     <string name="mobile_data_description">Farsímagagnatenging er nauðsynleg fyrir tilkynningar um uppfærslur á korti og til að senda inn breytingar.</string>
     <string name="category_post">Póstur</string>
     <string name="unknown_file_type">Forritið þekkti ekki skráategundina: \n%1$s</string>

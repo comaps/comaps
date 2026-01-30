@@ -1,11 +1,11 @@
 #include "addresses_collector.hpp"
 
 #include "generator/feature_builder.hpp"
-#include "generator/osm_element.hpp"
 
 #include "search/house_numbers_matcher.hpp"
 
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "coding/read_write_utils.hpp"
 

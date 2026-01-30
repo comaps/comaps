@@ -1,9 +1,0 @@
-• Données OpenStreetMap du 6 janvier
-• Éditeur : support des types de POI avec plus d’un tag OSM, par exemple types d’œuvres d’art sculptures, peintures..
-• Rendu des rails pour trains miniatures et des stations d'épuration
-• Utilisation des pop-ups Material 3 et d'un fond plus sombre en thème sombre
-• Suppression des limites de vitesse fictives sur les bretelles de routes
-• Correction des instructions de navigation sur les appareils avec des encoches
-• Appui long moins sensible (en mode plein écran)
-
-Plus de détails sur codeberg.org/comaps/comaps/releases

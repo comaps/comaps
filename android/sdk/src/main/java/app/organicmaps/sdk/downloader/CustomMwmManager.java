@@ -78,6 +78,7 @@ public class CustomMwmManager
   @Nullable
   public static String getTodayCustomMapsDir(@NonNull Context context)
   {
+    //TODO: Ideally the MWM creation date would be baked into the file, not assumed
     String customMapsDir = getCustomMapsDir(context);
     String today = DATE_FORMAT.format(new Date());
     String todayDir = StorageUtils.addTrailingSeparator(customMapsDir) + today;

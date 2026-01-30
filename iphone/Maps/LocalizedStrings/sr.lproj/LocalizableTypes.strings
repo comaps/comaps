@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Центар за игру одраслих";
 "type.leisure.amusement_arcade" = "Играоница за одрасле";
 "type.amenity.charging_station" = "Станица за пуњење ЕВ";
-"type.amenity.charging_station.bicycle" = "Stanica za punjenje bicikala";
-"type.amenity.charging_station.motorcar" = "Stanica za punjenje automobila";
+"type.amenity.charging_station.bicycle" = "Бицикли";
+"type.amenity.charging_station.motorcar" = "Аутомобили";
 "type.amenity.childcare" = "Јаслице";
 "type.amenity.cinema" = "Биоскоп";
 "type.leisure.bowling_alley" = "Куглана";
@@ -157,7 +157,7 @@
 "type.amenity.shelter.basic_hut" = "Преноћиште / Бивак";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Склониште типа шупе";
+"type.amenity.shelter.lean_to" = "Настрешница за спавање";
 "type.amenity.public_bath" = "Јавно купатило";
 "type.amenity.shower" = "Туш";
 "type.amenity.stripclub" = "Стриптиз клуб";
@@ -196,7 +196,7 @@
 "type.barrier.chain" = "Ланац";
 "type.barrier.city_wall" = "Градски зид / Бедем";
 "type.barrier.cycle_barrier" = "Баријера за бицикле";
-"type.waterway.ditch" = "Канал за дренажу";
+"type.waterway.ditch" = "Јарак за дренажу";
 "type.natural.water.moat" = "Шанац";
 "type.natural.water.wastewater" = "Отпадна вода";
 "type.barrier.entrance" = "Улаз";
@@ -1376,7 +1376,7 @@
 "type.tourism.information.map" = "Turistička mapa";
 "type.tourism.information.office" = "Turistički biro";
 "type.tourism.information.visitor_centre" = "Центар за посетиоце";
-"type.tourism.motel" = "Motel";
+"type.tourism.motel" = "Мотел";
 "type.tourism.museum" = "Muzej";
 "type.tourism.picnic_site" = "Piknik";
 "type.leisure.resort" = "Resort hotel";
@@ -1390,26 +1390,26 @@
 "type.traffic_calming" = "Pešački prelaz";
 "type.traffic_calming.bump" = "Ležeći policajac (grba)";
 "type.traffic_calming.hump" = "Ležeći policajac";
-"type.waterway" = "Vodeni tok";
+"type.waterway" = "Водени ток";
 "type.waterway.canal" = "Канал";
-"type.waterway.canal.tunnel" = "Тунел у каналу";
-"type.waterway.fish_pass" = "Riblji put";
+"type.waterway.canal.tunnel" = "Тунел канала";
+"type.waterway.fish_pass" = "Рибљи пут";
 "type.waterway.dam" = "Брана";
 "type.barrier.ditch" = "Jarak";
 "type.natural.water.ditch" = "Канал";
-"type.waterway.ditch.tunnel" = "Канал";
-"type.waterway.dock" = "Prevodnica";
-"type.waterway.drain" = "Канал";
+"type.waterway.ditch.tunnel" = "Тунел јарка";
+"type.waterway.dock" = "Пристаниште";
+"type.waterway.drain" = "Одвод";
 "type.natural.water.drain" = "Канал";
-"type.waterway.drain.tunnel" = "Канал";
+"type.waterway.drain.tunnel" = "Тунел одвода";
 "type.waterway.lock_gate" = "Бродска преводница";
-"type.waterway.river" = "Reka";
-"type.waterway.river.tunnel" = "Reka";
-"type.waterway.stream" = "Potok";
-"type.waterway.stream.ephemeral" = "Povremeni potok";
-"type.waterway.stream.intermittent" = "Povremeni potok";
-"type.waterway.stream.tunnel" = "Potok";
-"type.waterway.waterfall" = "Vodopad";
+"type.waterway.river" = "Река";
+"type.waterway.river.tunnel" = "Тунел реке";
+"type.waterway.stream" = "Поток";
+"type.waterway.stream.ephemeral" = "Бујични / повремени ток";
+"type.waterway.stream.intermittent" = "Сезонски / повремени ток";
+"type.waterway.stream.tunnel" = "Тунел потока";
+"type.waterway.waterfall" = "Водопад";
 "type.waterway.weir" = "Брана";
 "type.wheelchair" = "Pristup invalidskim kolicima";
 "type.wheelchair.limited" = "Limitirani pristup invalidskim kolicima";
@@ -1444,9 +1444,9 @@
 "type.shop.auction" = "Аукција";
 "type.shop.collector" = "Kolekcionarstvo";
 "type.self_service.yes" = "Доступно самопослужење";
-"type.self_service.only" = "Samoposluživanje";
+"type.self_service.only" = "Искључиво самопослуживање";
 "type.self_service.partially" = "Делимично самопослуживање";
-"type.self_service.no" = "Nema samoposluživanja";
+"type.self_service.no" = "Без самопослуживања";
 
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Socijalna ustanova";
@@ -1477,7 +1477,7 @@
 "type.railway.station.subway.qingdao" = "Metro stanica";
 "type.leisure.escape_game" = "Soba za bekstvo (Escape Room)";
 "type.amenity.luggage_locker" = "Ормар за пртљаг";
-"type.amenity.ranger_station" = "Stanica za rendžer";
+"type.amenity.ranger_station" = "Ренџерска станица";
 "type.amenity.bicycle_parking.covered" = "Покривени паркинг за бицикле";
 "type.post_office.post_partner" = "Поштански партнер";
 "type.barrier.wicket_gate" = "Вратница";
@@ -1588,3 +1588,14 @@
 "type.shop.beauty.nails" = "Salon za nokte";
 "type.man_made.mast.communication" = "Антенски стуб";
 "type.amenity.hydrant" = "Хидрант за наводњавање";
+"type.amenity.charging_station.small" = "Ограничен капацитет";
+"type.amenity.charging_station.motorcycle" = "Мотоцикли";
+"type.railway.disused.bridge" = "Напуштени железнички мост";
+"type.railway.miniature.bridge" = "Минијатурни железнички мост";
+"type.emergency.disaster_help_point" = "Тачка за помоћ у случају катастрофе";
+"type.emergency.access_point.address" = "Адреса службе хитне помоћи";
+"type.railway.miniature.tunnel" = "Минијатурни железнички тунел";
+"type.railway.disused.tunnel" = "Напуштени железнички тунел";
+"type.railway.miniature" = "Минијатурни пруга";
+"type.railway.turntable" = "Железничка окретница";
+"type.tourism.information.tactile_map" = "Тактилна мапа";

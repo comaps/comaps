@@ -269,12 +269,6 @@
     <string name="downloader_delete_map">Hapus Peta</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Perbarui Peta</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Layanan Lokasi Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Layanan berpemilik (proprietary) yang memadukan GPS, Wi-Fi, jaringan seluler, dsb. untuk menentukan lokasi Anda dengan lebih akurat. Layanan ini mungkin terhubung ke server Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Unduh peta bersama rute</string>
     <!-- Text for routing error dialog -->

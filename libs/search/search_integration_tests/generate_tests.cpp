@@ -5,12 +5,12 @@
 
 #include "generator/feature_builder.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 
 #include "indexer/classificator.hpp"
 #include "indexer/data_source.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/local_country_file.hpp"
 

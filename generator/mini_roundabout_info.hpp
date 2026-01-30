@@ -1,6 +1,6 @@
 #pragma once
 
-#include "generator/osm_element.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "coding/read_write_utils.hpp"
 #include "coding/reader.hpp"

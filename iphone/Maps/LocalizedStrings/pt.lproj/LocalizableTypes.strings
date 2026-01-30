@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Centro de jogos para adultos";
 "type.leisure.amusement_arcade" = "Salão de jogos";
 "type.amenity.charging_station" = "Posto de carregamento elétrico";
-"type.amenity.charging_station.bicycle" = "Estação de carregamento de bicicletas";
-"type.amenity.charging_station.motorcar" = "Posto de carregamento de veículo elétrico";
+"type.amenity.charging_station.bicycle" = "Bicicletas";
+"type.amenity.charging_station.motorcar" = "Carros";
 "type.amenity.childcare" = "Creche";
 "type.amenity.cinema" = "Cinema";
 "type.leisure.bowling_alley" = "Pista de bowling";
@@ -157,7 +157,7 @@
 "type.amenity.shelter.basic_hut" = "Cabana Básica";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Abrigo tipo telheiro";
+"type.amenity.shelter.lean_to" = "Abrigo tipo Telheiro";
 "type.amenity.public_bath" = "Banho público";
 "type.amenity.shower" = "Chuveiro";
 "type.amenity.stripclub" = "Clube de striptease";
@@ -176,7 +176,7 @@
 "type.amenity.vending_machine.food" = "Distribuidor de alimentos";
 "type.amenity.vending_machine.newspapers" = "Distribuidor de jornais";
 "type.amenity.vending_machine.parking_tickets" = "Máquina venda de bilhetes de estacionamento";
-"type.amenity.vending_machine.public_transport_tickets" = "Máquina venda de bilhetes de transporte público";
+"type.amenity.vending_machine.public_transport_tickets" = "Máquina de Venda de Bilhetes de Transportes Públicos";
 "type.amenity.vending_machine.sweets" = "Dispensador de doces";
 "type.amenity.vending_machine.excrement_bags" = "Dispensador de sacos de excrementos";
 "type.amenity.parcel_locker" = "Cacifo";
@@ -1519,7 +1519,7 @@
 "type.leisure.sports_centre.sport.scuba_diving" = "Centro Desportivo";
 "type.leisure.sports_centre.sport.field_hockey" = "Centro Desportivo";
 "type.leisure.sports_centre.sport.bowls" = "Centro Desportivo";
-"type.amenity.bench.backless" = "Banco sem Encosto";
+"type.amenity.bench.backless" = "Sem Encosto";
 "type.leisure.bandstand" = "Coreto";
 "type.emergency.access_point" = "Ponto de Resgate de Emergência";
 "type.emergency.life_ring" = "Salva-vidas";
@@ -1588,3 +1588,14 @@
 "type.shop.beauty.nails" = "Salão de Unhas";
 "type.xmas.tree" = "Árvore de Natal";
 "type.amenity.hydrant" = "Boca de Rega";
+"type.amenity.charging_station.small" = "Capacidade Limitada";
+"type.amenity.charging_station.motorcycle" = "Motociclos";
+"type.railway.disused.bridge" = "Ponte Ferroviária Desativada";
+"type.railway.turntable" = "Plataforma Giratória Ferroviária";
+"type.tourism.information.tactile_map" = "Mapa tátil";
+"type.railway.miniature.bridge" = "Ponte Ferroviária em Miniatura";
+"type.emergency.disaster_help_point" = "Ponto de Ajuda de Emergências e Desastres";
+"type.emergency.access_point.address" = "Endereço de Resgate de Emergência";
+"type.railway.miniature.tunnel" = "Túnel Ferroviário em Miniatura";
+"type.railway.disused.tunnel" = "Túnel Ferroviário Desativada";
+"type.railway.miniature" = "Ferrovia em Miniatura";

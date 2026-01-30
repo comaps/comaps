@@ -45,7 +45,7 @@
     <string name="type.leisure.amusement_arcade">Salão de jogos</string>
     <string name="type.amenity.charging_station">Posto de carregamento elétrico</string>
     <string name="type.amenity.charging_station.bicycle">Bicicletas</string>
-    <string name="type.amenity.charging_station.motorcar">Automóveis</string>
+    <string name="type.amenity.charging_station.motorcar">Carros</string>
     <string name="type.amenity.childcare">Creche</string>
     <string name="type.amenity.cinema">Cinema</string>
     <string name="type.leisure.bowling_alley">Pista de bowling</string>

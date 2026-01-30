@@ -230,10 +230,8 @@
     <string name="downloader_download_all_button">Descargar todos</string>
     <string name="downloader_downloading">Descargando:</string>
     <string name="downloader_delete_map_while_routing_dialog">Para eliminar o mapa, deteña a navegación</string>
-    <string name="pref_use_google_play">Un servizo propietario que combina GPS, Wi-Fi, redes móbiles etc. para determinar a túa localización de xeito máis preciso. Podería conectarse aos servidores de Google.</string>
     <string name="routing_failed_cross_mwm_building">Só se poden crear rutas que estean totalmente contidas nun mapa dunha soa rexión.</string>
     <string name="downloader_download_map">Descargar mapa</string>
-    <string name="google_play_services">Google Fused Location Service</string>
     <string name="routing_download_maps_along">Descargue todos os mapas do seu roteiro</string>
     <string name="routing_requires_all_map">Para crear unha ruta é necesario descargar e actualizar todos os mapas desde a súa localización ao seu destino.</string>
     <string name="routing_not_enough_space">Non hai suficiente espazo</string>

@@ -63,16 +63,16 @@
 "add_new_set" = "新增新的書籤列表";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "書籤列表名稱";
+"bookmark_set_name" = "列表名稱";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "書籤列表";
+"bookmark_sets" = "最愛列表";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "書籤";
+"bookmarks" = "地點";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "書籤和軌跡";
+"bookmarks_and_tracks" = "最愛";
 
 /* Default bookmark list name */
 "core_my_places" = "我的地點";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "露營車設施";
-"share_bookmarks_email_body" = "您好！\n\n附件是我的書籤，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
+"share_bookmarks_email_body" = "您好！\n\n附件是我儲存的地點，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
 
 /* message title of loading file */
-"load_kmz_title" = "正在載入書籤";
+"load_kmz_title" = "正在載入最愛";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "書籤載入成功！ 您可以在地圖或書籤管理畫面中找到它們。";
+"load_kmz_successful" = "最愛載入成功！ 您可以在地圖或最愛管理畫面中找到它們。";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "書籤載入失敗，檔案可能已損壞或不完整。";
+"load_kmz_failed" = "最愛載入失敗，檔案可能已損壞或不完整。";
 
 /* resource for context menu */
 "edit" = "編輯";
@@ -253,7 +253,7 @@
 "pref_tts_language_title" = "語音語言";
 
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "測試語音指令（TTS，文字轉語音系統）";
+"pref_tts_test_voice_title" = "測試語音指令";
 
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "其他";
@@ -325,7 +325,7 @@
 "report_incorrect_map_bug" = "回報或修復不正確的地圖數據";
 
 /* Button in the About screen */
-"volunteer" = "志願者";
+"volunteer" = "志工與改進 CoMaps";
 
 /* "Social media" section header in the About screen */
 "follow_us" = "聯絡我們";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "電子郵件發送失敗";
-
-/* Settings item title */
-"pref_calibration_title" = "校正指南針";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "再次長按地圖即可查看介面";
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "規劃路線需要下載並更新好所有從您的位置到目的地的地圖。";
 
 /* bookmark button text */
-"bookmark" = "書籤";
+"bookmark" = "地點";
 "save" = "儲存";
 "create" = "建立";
 
@@ -622,7 +619,7 @@
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "最多可編輯 %d 層的建築";
 "editor_zip_code" = "郵遞區號";
-"error_enter_correct_zip_code" = "輸入正確的郵遞區號";
+"error_enter_correct_zip_code" = "輸入有效的郵遞區號";
 
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "地圖點";
@@ -675,14 +672,14 @@
 "placepage_more_button" = "更多";
 "book_button" = "預定";
 "placepage_call_button" = "呼叫";
-"placepage_edit_bookmark_button" = "編輯書籤";
-"placepage_bookmark_name_hint" = "書籤名稱";
+"placepage_edit_bookmark_button" = "編輯已儲存地點";
+"placepage_bookmark_name_hint" = "地點名稱";
 "placepage_personal_notes_hint" = "個人備註（文字或 html）";
-"placepage_delete_bookmark_button" = "刪除書籤";
+"placepage_delete_bookmark_button" = "刪除地點";
 "editor_edits_sent_message" = "您的註解將發送至 OpenStreetMap";
 "editor_comment_hint" = "備註…";
 "editor_reset_edits_message" = "重設所有本機變更？";
-"editor_reset_edits_button" = "重設";
+"editor_reset_edits_button" = "放棄更動";
 "editor_remove_place_message" = "移除已新增的地點？";
 "editor_remove_place_button" = "移除";
 "editor_place_doesnt_exist" = "該地點不存在";
@@ -699,8 +696,8 @@
 "editor_share_to_all_dialog_title" = "您想要發送給所有使用者嗎？";
 
 /* Dialog before publishing the modifications to the public map. */
-"editor_share_to_all_dialog_message_1" = "確保您沒有輸入任何個人資料。";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap 編輯人員將檢查更改並在有任何問題時與您聯繫。";
+"editor_share_to_all_dialog_message_1" = "確保您沒有輸入任何隱私或是個人資料。";
+"editor_share_to_all_dialog_message_2" = "開放街圖編輯將檢查更改並在有任何問題時與您聯繫。";
 "navigation_stop_button" = "停止";
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
@@ -766,7 +763,7 @@
 "bookmarks_create_new_group" = "創建新的列表";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "導入書籤和軌跡";
+"bookmarks_import" = "匯入最愛";
 "downloader_hide_screen" = "隱藏畫面";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "正在下載 %@…";
@@ -998,7 +995,7 @@
 "button_layer_outdoor" = "徒步旅行";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "匯出所有書籤和軌跡";
+"bookmarks_export" = "匯出所有最愛";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "更改顏色";
@@ -1026,7 +1023,7 @@
 "icloud_disabled_title" = "iCloud 已停用";
 
 /* Message for the "iCloud is Disabled" alert. */
-"icloud_disabled_message" = "請在您的裝置設定中啟用 iCloud 以使用此功能。";
+"icloud_disabled_message" = "請在您的 Apple 帳號設定中為 CoMaps 啟用 iCloud 以使用此功能。";
 
 /* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
 "enable" = "啟用";
@@ -1083,7 +1080,7 @@
 "continue_recording" = "繼續錄製";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "儲存到書籤和軌跡？";
+"track_recording_alert_title" = "儲存到最愛？";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "軌跡為空 - 沒有可保存的內容";
@@ -1094,6 +1091,16 @@
 "pref_mapappearance_title" = "地圖樣貌";
 "pref_maplanguage_title" = "地圖語言";
 "transliteration_title_disabled_summary" = "當在地圖總是使用在地語言時不啟用";
-"pref_maplanguage_local" = "在地語言";
-"hours_confirmed_time_ago" = "Confirmed %@";
-"existence_confirmed_time_ago" = "Existence confirmed %@";
+"pref_maplanguage_local" = "本地語言";
+"hours_confirmed_time_ago" = "已確認 %@";
+"existence_confirmed_time_ago" = "存在確認 %@";
+"editor_place_doesnt_exist_description" = "描述現地是什麼，然後傳送錯誤註解到開放街圖社群";
+"avoid_steps" = "避免階梯";
+"avoid_paved" = "避免有舖面的道路";
+"offline_explanation_title" = "離線地圖";
+"offline_explanation_text" = "需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。";
+"voice" = "聲音";
+"limit_map_language_alternatives_to_local" = "只有在他們的區域使用其他系統語言";
+"voice_explanation" = "在系統設定「協助工具」，「TalkBack」，「設定」選擇比較好的聲音。";
+"voice_explanation_before_version26" = "在系統設定「協助工具」，「說話內容」，「聲音」選擇比較好的聲音。";
+"unknown" = "未知";

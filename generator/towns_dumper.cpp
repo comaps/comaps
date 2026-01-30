@@ -1,6 +1,6 @@
 #include "towns_dumper.hpp"
 
-#include "generator/osm_element.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/tree4d.hpp"

@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">Suprimeix el mapa</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Actualitza el mapa</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Servei d\'ubicació de Google Fused</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Un servei de propietat que combina GPS, Wi-Fi, xarxes mòbils, etc. per a determinar la teva ubicació amb més precisió. Pot ser que es connecti als serveis de Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Baixeu tots els mapes de la ruta</string>
     <!-- Text for routing error dialog -->
@@ -926,4 +920,5 @@
     <string name="download_resources_custom_url_summary_none">No establert</string>
     <string name="download_resources_custom_url_error_scheme">Per favor introdueix una URL que comence amb http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
+    <string name="limit_map_language_alternatives_to_local">Fes servir altres idiomes del sistema només en la seua regió</string>
 </resources>

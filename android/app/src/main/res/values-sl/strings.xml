@@ -155,7 +155,6 @@
     <string name="downloader_retry">Poskusi znova</string>
     <string name="downloader_delete_map">Izbriši zemljevid</string>
     <string name="downloader_update_map">Posodobi zemljevid</string>
-    <string name="pref_use_google_play">Lastniška storitev, ki s pomočjo več tehnologij, kot so GPS, Wi-Fi, mobilno omrežje itd., natančneje določi vašo lokacijo. Morda zahteva povezavo na Googlove strežnike.</string>
     <string name="routing_download_maps_along">Prenesite vse zemljevide, čez katere gre vaša relacija</string>
     <string name="routing_requires_all_map">Preden lahko ustvarite relacijo, morate prenesti in posodobiti vse zemljevide med vašo lokacijo in končnim ciljem.</string>
     <string name="routing_not_enough_space">Ni dovolj prostora</string>
@@ -536,7 +535,6 @@
     <string name="error_invalid_number">Neveljavno število</string>
     <string name="offline_explanation_title">Zemljevidi brez povezave</string>
     <string name="offline_explanation_text">Zemljevid morate prenesti, da siga lahko ogledujete in se po njem usmerjate.\nPrenesite zemljevide za območja, kjer nameravate potovati.</string>
-    <string name="google_play_services">Googleova združena lokacijska storitev</string>
     <string name="create">Ustvari</string>
     <string name="editor_place_doesnt_exist_description">Opišite, kako to mesto izgleda sedaj, da pošljete obvestilo skupnosti OpenStreetMap</string>
     <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z aplikacijami (Google Play, Galaxy Store, App Gallery, FDroid). \nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor. \nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>

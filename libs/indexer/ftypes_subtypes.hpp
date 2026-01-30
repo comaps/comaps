@@ -1,5 +1,7 @@
 #pragma once
 
+#include "indexer/classificator.hpp"
+
 #include <cstdint>
 #include <map>
 #include <optional>
@@ -17,6 +19,24 @@ class Subtypes
 public:
   /// Static instance
   static Subtypes const & Instance();
+
+  /**
+   * Lists all types with subtypes
+   * @return All types with subtypes
+   */
+  unordered_set<uint32_t> AllTypesWithSubtypes() const
+  {
+    return m_types;
+  }
+
+  /**
+   * Lists all subtypes
+   * @return All subtypes
+   */
+  unordered_set<uint32_t> AllSubtypes() const
+  {
+    return m_subtypes;
+  }
 
   /**
    * Checks if the given type is a type with subtypes or a subtype
@@ -69,15 +89,17 @@ public:
    * @param secondType The type to compare
    * @return `true` if the first type is a subtype but the second one isn't, `false` if it is the other way around
    */
-  optional<bool> ComaprisonResultBasedOnTypeRelation(uint32_t const firstType, uint32_t const secondType) const
+  optional<bool> ComparisonResultBasedOnTypeRelation(uint32_t const firstType, uint32_t const secondType) const
   {
+    bool const firstTypeIsTypeWithSubtypes = IsTypeWithSubtypes(firstType);
     bool const firstTypeIsSubtype = IsSubtype(firstType);
+    bool const secondTypeIsTypeWithSubtypes = IsTypeWithSubtypes(secondType);
     bool const secondTypeIsSubtype = IsSubtype(secondType);
-    if (!firstTypeIsSubtype && !secondTypeIsSubtype)
+    if ((!firstTypeIsTypeWithSubtypes && !firstTypeIsSubtype) || (!secondTypeIsTypeWithSubtypes && !secondTypeIsSubtype) || (firstTypeIsTypeWithSubtypes && secondTypeIsTypeWithSubtypes))
       return {};
-    else if (firstTypeIsSubtype && !secondTypeIsSubtype)
+    else if (firstTypeIsSubtype && secondTypeIsTypeWithSubtypes)
       return false;
-    else if (!firstTypeIsSubtype && secondTypeIsSubtype)
+    else if (firstTypeIsTypeWithSubtypes && secondTypeIsSubtype)
       return true;
 
     // If they got to here, both are subtypes. So use the order of the subtypes for the comparison.
@@ -98,10 +120,27 @@ public:
    * @param typePath The type path to check
    * @return `true` if it is a type with subtypes or a subtype, otherwise `false`
    */
-  bool IsPathOfTypeWithSubtypesOrSubtype(vector<string> const typePath) const
+  bool IsTypeWithSubtypesOrSubtype(vector<string> const typePath) const
   {
     return ranges::find(m_typesAndSubtypesPaths.begin(), m_typesAndSubtypesPaths.end(), typePath) !=
            m_typesAndSubtypesPaths.end();
+  }
+
+  /**
+   * Compares to given types based on their type relation
+   * @param firstTypePath The first type to compare
+   * @param secondTypePath The type to compare
+   * @return `true` if the first type is a subtype but the second one isn't, `false` if it is the other way around
+   */
+  optional<bool> ComparisonResultBasedOnTypeRelation(vector<string> const firstTypePath, vector<string> const secondTypePath) const
+  {
+    auto const & classificator = classif();
+    uint32_t const firstType = classificator.GetTypeByPathSafe(vector<string_view>(firstTypePath.begin(), firstTypePath.end()));
+    uint32_t const secondType = classificator.GetTypeByPathSafe(vector<string_view>(secondTypePath.begin(), secondTypePath.end()));
+    if (firstType != IndexAndTypeMapping::INVALID_TYPE && secondType != IndexAndTypeMapping::INVALID_TYPE)
+      return ComparisonResultBasedOnTypeRelation(firstType, secondType);
+
+    return {};
   }
 
 private:

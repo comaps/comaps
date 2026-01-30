@@ -57,16 +57,16 @@
 "add_new_set" = "Adaugă o listă nouă";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Denumirea listei";
+"bookmark_set_name" = "Nume listă";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Liste cu locuri preferate";
+"bookmark_sets" = "Liste favorite";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Locuri preferate";
+"bookmarks" = "Locuri";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Locuri preferate și trasee";
+"bookmarks_and_tracks" = "Favorite";
 
 /* Default bookmark list name */
 "core_my_places" = "Locurile mele";
@@ -154,10 +154,10 @@
 "load_kmz_title" = "Se încarcă locurile preferate";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Locuri preferate”.";
+"load_kmz_successful" = "Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Favortite”.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Încărcarea locurilor preferate a eșuat. Fișierul poate fi defect.";
+"load_kmz_failed" = "Încărcarea locurilor favorite a eșuat. Fișierul poate fi defect.";
 
 /* resource for context menu */
 "edit" = "Modifică";
@@ -329,9 +329,6 @@
 
 /* Alert title */
 "email_error_title" = "Eroare de trimitere e-mail";
-
-/* Settings item title */
-"pref_calibration_title" = "Calibrare busolă";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Atingeți lung pe hartă din nou pentru a vedea interfața";
@@ -1096,6 +1093,6 @@
 "avoid_paved" = "Evitați drumurile asfaltate sau pavate";
 "editor_place_doesnt_exist_description" = "Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap";
 "avoid_steps" = "Evitați treptele";
-"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și si să nevighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
+"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și si să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
 "offline_explanation_title" = "Hărti Offline";
 "voice" = "Voce";

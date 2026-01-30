@@ -1,7 +1,7 @@
 "translated_om_site_url" = "https://www.comaps.app/";
-"close" = "বন্ধ";
-"zoom_to_country" = "ম্যাপে দেখান";
-"country_status_download_failed" = "ডাউনলোড ব্যর্থ হল";
+"close" = "বন্ধ করুন";
+"zoom_to_country" = "মানচিত্রে দেখান";
+"country_status_download_failed" = "ডাউনলোড ব্যর্থ হয়েছে";
 "download" = "ডাউনলোড";
 "wikimedia_commons" = "উইকিমিডিয়া কমন্স";
 "panoramax_picture" = "Panoramax ছবি";
@@ -71,7 +71,7 @@
 "category_water" = "জল";
 "category_rv" = "আর ভি সুযোগ-সুবিধা";
 "category_recycling" = "রিসাইক্লিং";
-"load_kmz_failed" = "বুকমার্কগুলি লোড করা যায়নি। ফাইলটি সম্ভবত নষ্ট বা অব্যবহারযোগ্য হতে পারে।";
+"load_kmz_failed" = "প্রিয় তালিকা লোড করা যায়নি। ফাইলটি সম্ভবত নষ্ট বা অব্যবহারযোগ্য হতে পারে।";
 "prefs_group_route" = "নেভিগেশন";
 "info" = "Info";
 "pref_appearance_title" = "Appearance";
@@ -99,7 +99,6 @@
 "pref_map_3d_buildings_disabled_summary" = "3D বিল্ডিং দেখানো পাওয়ার সাশ্রয় মোডে বন্ধ হয়ে যায়";
 "pref_map_3d_buildings_title" = "3D বিল্ডিং";
 "email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
-"pref_calibration_title" = "Compass calibration";
 "disabled" = "Disabled";
 "donate" = "দান করুন";
 "volunteer" = "Volunteer";
@@ -119,7 +118,7 @@
 "osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world।";
 "osm_more_about" = "More about OpenStreetMap";
 "osm_profile" = "OpenStreetMap profile";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) is a community project to build a free and open map. It's the main source of map data in CoMaps and works similar to Wikipedia. You can add or edit places and they become available to millions of users all over the World.\nJoin the community and help to make a better map for everyone!";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) হল একটি সাম্প্রদায়িক প্রকল্প যা একটি মুক্ত ও উন্মুক্ত মানচিত্র তৈরি করে। এটি CoMaps-এ মানচিত্র তথ্যের প্রধান উৎস এবং উইকিপিডিয়ার মতোই কাজ করে। আপনি স্থান যোগ বা সম্পাদনা করতে পারেন এবং সেগুলো সারা বিশ্বের লক্ষ লক্ষ ব্যবহারকারীর জন্য উপলব্ধ হয়ে ওঠে।\nসম্প্রদায়ে যোগ দিন এবং সবার জন্য একটি আরও ভালো মানচিত্র তৈরি করতে সাহায্য করুন!";
 "osm_profile_register_promt" = "Don't have an OpenStreetMap account?";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
 "current_location_unknown_error_message" = "An error occurred while determining your location. Check that your device is working properly and try again later।";
@@ -233,7 +232,7 @@
 "editor_share_to_all_dialog_message_2" = "OpenStreetMap editors will check the changes and contact you if they have any questions।";
 "terms_of_use" = "Terms of use";
 "day_off" = "বন্ধ";
-"about_headline" = "উন্মুক্ত প্রকল্প, তার সমাজ দ্বারা চলিত";
+"about_headline" = "সম্প্রদায়ের দ্বারা পরিচালিত উন্মুক্ত প্রকল্প";
 "downloader_delete_map_dialog" = "All of your map edits will be deleted with the map।";
 "app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need।";
 "category_parking" = "পার্কিং";
@@ -328,7 +327,7 @@
 "planning_route_manage_route" = "Manage Route";
 "place_name" = "Place Name";
 "navigation_stop_button" = "Stop";
-"load_kmz_successful" = "বুকমার্কগুলি লোড করা হয়ে গেছে! আপনি এগুলি মানচিত্রে অথবা বুকমার্ক পরিচালক স্ক্রিনে দেখতে পারেন।";
+"load_kmz_successful" = "প্রিয় তালিকা সফলভাবে লোড হয়েছে! আপনি সেগুলো মানচিত্রে অথবা প্রিয় ব্যবস্থাপক স্ক্রিনে দেখতে পারবেন।";
 "power_managment_setting_manual_max" = "Always";
 "icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
 "please_note" = "Please note";
@@ -384,7 +383,7 @@
 "near_me_sorttype" = "Near me";
 "pref_tts_speedcams_auto" = "Warn if speeding";
 "details" = "বিস্তারিত";
-"privacy_policy" = "Privacy policy";
+"privacy_policy" = "গোপনীয়তা নীতি";
 "editor_default_language_hint" = "স্থানীয় ভাষায় যেমন লেখা আছে";
 "search_not_found" = "Oops, no results found।";
 "editor_add_select_location" = "অবস্থান বেছে নিন";
@@ -464,7 +463,7 @@
 "migration_no_space_message" = "To download, you need more space. Please delete any unnecessary data।";
 "downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline।";
 "search_history_text" = "View your recent searches।";
-"location_services_disabled_on_device_2" = "2. Select Privacy";
+"location_services_disabled_on_device_2" = "২. গোপনীয়তা বাছুন";
 "bookmarks_error_title_list_name_too_long" = "This name is too long";
 "sort_type" = "Sort by type";
 "cuisine" = "রন্ধনপ্রণালী";
@@ -552,7 +551,7 @@
 "sort_default" = "Sort by default";
 "big_font" = "Increase size for map labels";
 "search_not_found_query" = "আপনি যে অঞ্চলটি খুঁজছেন সেটি ডাউনলোড করুন অথবা কাছাকাছি একটি শহর বা গ্রামের নাম যোগ করার চেষ্টা করুন।";
-"load_kmz_title" = "বুকমার্কগুলি লোড করা হচ্ছে";
+"load_kmz_title" = "প্রিয় তালিকা লোড করা হচ্ছে";
 "button_layer_isolines" = "Contour Lines";
 "later" = "পরে";
 "button_plan" = "Plan";
@@ -560,8 +559,8 @@
 "continue_recording" = "Continue Recording";
 "bookmarks_error_message_share_general" = "Unable to share due to an application error";
 "map" = "মানচিত্র";
-"bookmarks" = "বুকমার্কসমূহ";
-"bookmarks_and_tracks" = "বুকমার্ক ও ট্র্যাকসমূহ";
+"bookmarks" = "স্থান";
+"bookmarks_and_tracks" = "প্রিয় তালিকা";
 "downloader_downloaded_subtitle" = "ডাউনলোড করা";
 "traffic_data_unavailable" = "Traffic data is not available";
 "today" = "আজকে";

@@ -26,4 +26,5 @@
     <string name="years_ago">%s বছর আগে</string>
     <string name="m">মি</string>
     <string name="ft">ফুট</string>
+    <string name="access_rules_author_only">অনলাইন সম্পাদনা</string>
 </resources>

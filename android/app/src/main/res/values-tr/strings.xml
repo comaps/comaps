@@ -280,10 +280,6 @@
     <string name="downloader_delete_map">Haritayı Sil</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Haritayı Güncelle</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google\'a Dayalı Konum Hizmetleri</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">GPS, Wi-Fi, mobile veri vs. aracılığıyla konumunuzu daha doğru saptayan özel mülkiyet bir servis. Google sunucularına bağlanabilir.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Rota üzerindeki tüm haritaları indir</string>
     <!-- Text for routing error dialog -->

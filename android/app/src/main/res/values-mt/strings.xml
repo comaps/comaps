@@ -494,7 +494,6 @@
     <string name="dialog_routing_disclaimer_recommendations">— Ir-rotot issuġġeriti għandhom jinftiehmu biss bħala rakkomandazzjonijiet;</string>
     <string name="dialog_routing_disclaimer_borders">— Oqgħod attent bir-rotot fiż-żoni tal-fruntiera: ir-rotot maħluqa mill-app tagħna xi kultant jistgħu jaqsmu l-fruntieri tal-pajjiż f ’postijiet mhux awtorizzati.</string>
     <string name="dialog_routing_check_gps">Iċċekkja s-sinjal tal-GPS</string>
-    <string name="pref_use_google_play">Servizz proprjetarju li jikkombina GPS, Wi-Fi, netwerks ċellulari eċċ. biex jiddetermina l-lokazzjoni tiegħek b\'mod aktar preċiż. Jaf jikkonnettja mas-servers tal-Google.</string>
     <string name="dialog_routing_disclaimer_priority">— Il-kundizzjonijiet tat-toroq, il-liġijiet tat-traffiku, u s-sinjali tat-toroq dejjem jieħdu preċedenza fuq il-ħjiel tan-navigazzjoni;</string>
     <string name="day_off_today">Magħluq illum</string>
     <string name="yellow">Isfar</string>
@@ -635,7 +634,6 @@
     <string name="app_site_url">https://comaps.app/</string>
     <string name="saved">Salvat</string>
     <string name="about_headline">Proġett miftuħ u imsaħħaħ mill-komunità</string>
-    <string name="google_play_services">Servizz ta\' Lokazzjoni Google Fused</string>
     <string name="hours_confirmed_time_ago">Ikkonfermat %s</string>
     <string name="existence_confirmed_time_ago">Ikkonfermata l-eżistenza %s</string>
 </resources>

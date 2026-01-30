@@ -1,5 +1,5 @@
-"NSLocationAlwaysUsageDescription" = "Detecting location in the background is necessary to fully enjoy the functionality of the app. It is used for navigation and saving your recently traveled track.";
-"NSLocationWhenInUseUsageDescription" = "Determining your location is necessary for navigation and for saving your recently traveled track.";
+"NSLocationAlwaysUsageDescription" = "Korištenje lokacije u pozadini je potrebno da uživaš cijelu funkcionalnost ove aplikacije. Korišteno je za navigaciju i spremanje vaše nedavno putovano putove.";
+"NSLocationWhenInUseUsageDescription" = "Aplikacija mora pronači lokaciju zato što je potrebno za navigaciju i spremanje vaša nedavna putovanja.";
 "search" = "Traži";
 "route" = "Ruta";
-"bookmarks_and_tracks" = "Oznake i Rute";
+"bookmarks_and_tracks" = "Omiljeni";

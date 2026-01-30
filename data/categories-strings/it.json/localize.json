@@ -19,7 +19,7 @@
 "@category_recycling": "Riciclo|Utilizzazione dei rifiuti|Ritiro dei materiali riciclabili|Separazione dei rifiuti|Raccolta differenziata|Riutilizzo",
 "amenity-bureau_de_change": "3Cambio valute|valuta|soldi",
 "amenity-bar|amenity-pub|@category_eat|@category_nightlife": "2Bar|2birra|pub|mangiare|Taverna",
-"amenity-cafe|@category_eat": "3Caffè|3ristorante|pasto|mangiare",
+"amenity-cafe|@category_eat": "3Caffè|3Ristorante|2Pasto|3Mangiare|2Bar",
 "amenity-fast_food|@category_eat": "4Fast food|takeaway|caffè|ristorante|pasto|mangiare",
 "amenity-restaurant|@category_eat": "3Ristorante|3caffè|mangiare",
 "amenity-fuel|@category_fuel": "3Stazione di rifornimento",

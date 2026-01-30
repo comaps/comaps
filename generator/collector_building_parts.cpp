@@ -4,9 +4,9 @@
 #include "generator/gen_mwm_info.hpp"
 #include "generator/intermediate_data.hpp"
 #include "generator/intermediate_elements.hpp"
-#include "generator/osm_element.hpp"
 
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "coding/file_reader.hpp"
 #include "coding/internal/file_data.hpp"

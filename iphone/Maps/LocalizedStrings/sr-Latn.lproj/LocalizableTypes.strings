@@ -1,1 +1,4 @@
-
+"type.amenity.recycling.centre" = "Centar za reciklažu";
+"type.amenity.bench.backless" = "Klupa bez naslona";
+"type.addr_interpolation" = "Adresa/Blok";
+"type.addr_interpolation.even" = "Adresa/Blok";

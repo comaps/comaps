@@ -4,10 +4,10 @@ Redya ma a-dro resons rag an ragdres hag y tu yn <b><i>codeberg.org/comaps</i></
 Omjunya an kemeneth ena ha gweres gul an app mappys gwella
 • Devnydhya an app ha kevrenna y'n
 • Dasliva ha derivas kudynnow
-• Nowedhi data mappa yn an app po war an gwasiva OpenStreetMap
+• Nowedhi data mappa y'n app po war an gwasiva OpenStreetMap
 
 ‣ <b>Fogellys war dhywarlinen</b>: Devisya ha viajya dha viaj tramor neb res rag gonis kellgowser, hwilas leow ha war unn gwandrans pell, h.e. Oll nasyow app yw desinys dhe oberi dhywarlinen.
-‣ <b>Ow Gul Revrons dhe Privetter</b>: An app yw desinys gans privetter yn brys - na aswon tus, na helerghi, ha na kuntel kudhlow personel. Heb argemynnow.
+‣ <b>Ow Gul Revrons dhe Privetter</b>: An app yw desinys gans privetter yn brys - na aswon tus, na helerghi, ha na kuntel kedhlow personel. Heb argemynnow.
 ‣ <b>Sempel ha Polsys</b>: nasyow es may oberi poran.
 ‣ <b>Sawya dha Batri hag Efander</b>: Na gwakhe dha batri haval dhe appys navigacyon aral. Mappys kesstrothys sawya efander precyous war dha kellgowser.
 ‣ <b>Rydh ha Byldys gans an Kemeneth</b>: Tus haval dhe ty gwerys byldya an app gans owth addya leos dhe OpenStreetMap, ow previ ha dasliva a-dro nasyow hag ow kevri aga sleynethow hag arghans i.

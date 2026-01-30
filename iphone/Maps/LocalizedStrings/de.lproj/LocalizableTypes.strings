@@ -133,7 +133,7 @@
 "type.amenity.prison" = "Gefängnis";
 "type.amenity.pub" = "Kneipe";
 "type.amenity.public_bookcase" = "Bücherschrank";
-"type.amenity.recycling.centre" = "Recyclinghof";
+"type.amenity.recycling.centre" = "Recyclingzentrum";
 "type.amenity.recycling.container" = "Wertstoffcontainer";
 "type.recycling.batteries" = "Batterien";
 "type.recycling.clothes" = "Altkleider";
@@ -162,7 +162,7 @@
 "type.amenity.shelter.basic_hut" = "Biwakschachtel";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Lean-to Wetterschutz";
+"type.amenity.shelter.lean_to" = "Lean-to Schlafschutz";
 "type.amenity.public_bath" = "Öffentliches Bad";
 "type.amenity.shower" = "Dusche";
 "type.amenity.stripclub" = "Stripclub";
@@ -181,7 +181,7 @@
 "type.amenity.vending_machine.food" = "Essensautomat";
 "type.amenity.vending_machine.newspapers" = "Zeitungsautomat";
 "type.amenity.vending_machine.parking_tickets" = "Parkautomat";
-"type.amenity.vending_machine.public_transport_tickets" = "5Fahrkartenautomat|4Ticketautomat|U+1F3AB|U+1F39F|U+1F9FE";
+"type.amenity.vending_machine.public_transport_tickets" = "Fahrkartenautomat";
 "type.amenity.vending_machine.sweets" = "Süßigkeitenautomat";
 "type.amenity.vending_machine.excrement_bags" = "Hundekotbeutelspender";
 "type.amenity.parcel_locker" = "Paketstation";
@@ -1592,3 +1592,10 @@
 "type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.food_sharing" = "Food Sharing";
 "type.amenity.hydrant" = "Beregnungshydrant";
+"type.railway.disused.bridge" = "Stillgelegte Eisenbahnbrücke";
+"type.railway.turntable" = "Eisenbahn-Drehscheibe";
+"type.tourism.information.tactile_map" = "Taktile Karte";
+"type.railway.miniature.bridge" = "Miniatur-Eisenbahnbrücke";
+"type.railway.miniature.tunnel" = "Miniatur-Eisenbahntunnel";
+"type.railway.disused.tunnel" = "Stillgelegter Eisenbahntunnel";
+"type.railway.miniature" = "Miniatureisenbahn";

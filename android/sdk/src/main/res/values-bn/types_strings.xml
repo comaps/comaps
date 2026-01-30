@@ -85,7 +85,7 @@
     <string name="type.shop.bag">ব্যাগের দোকান</string>
     <string name="type.man_made.water_tower">জলের ট্যাঙ্ক</string>
     <string name="type.amenity.bench">বেঞ্চ</string>
-    <string name="type.amenity.bus_station">বাস স্টেশন</string>
+    <string name="type.amenity.bus_station">বাস স্টেশন|বাস স্ট্যান্ড</string>
     <string name="type.amenity.courthouse">আদালত|কোর্ট</string>
     <string name="type.amenity.dentist">দাঁতের ডাক্তার</string>
     <string name="type.amenity.doctors">ডাক্তার|4চিকিৎসক</string>
@@ -234,4 +234,6 @@
     <string name="type.building_part">বিল্ডিং</string>
     <string name="type.cuisine.spanish">স্পেনীয়</string>
     <string name="type.cuisine.vietnamese">ভিয়েতনামীয়</string>
+    <string name="type.aeroway.gate">গেট</string>
+    <string name="type.amenity.arts_centre">শিল্পকলা কেন্দ্র</string>
 </resources>

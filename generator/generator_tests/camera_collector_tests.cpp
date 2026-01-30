@@ -6,7 +6,6 @@
 #include "generator/generate_info.hpp"
 #include "generator/intermediate_data.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_source.hpp"
 #include "generator/processor_factory.hpp"
 #include "generator/raw_generator.hpp"
@@ -15,6 +14,7 @@
 #include "indexer/classificator_loader.hpp"
 #include "indexer/map_style.hpp"
 #include "indexer/map_style_reader.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 #include "platform/platform_tests_support/scoped_dir.hpp"

@@ -271,12 +271,6 @@
     <string name="downloader_delete_map">Slet kort</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Opdater kort</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused Placeringstjenester</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">En proprietær tjeneste, der kombinerer GPS, Wi-Fi, mobilnetværk osv. for at bestemme din placering mere præcist. Den kan oprette forbindelse til Googles servere.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Download alle kort langs din rute</string>
     <!-- Text for routing error dialog -->

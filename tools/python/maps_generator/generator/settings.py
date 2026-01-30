@@ -138,6 +138,7 @@ OSM_TOOL_UPDATE = "osmupdate"
 OSM_TOOLS_CC = "cc"
 OSM_TOOLS_CC_FLAGS = [
     "-O3",
+    "-std=gnu17",
 ]
 
 # Planet and coasts:

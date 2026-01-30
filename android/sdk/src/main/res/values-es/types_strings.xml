@@ -784,7 +784,7 @@
     <string name="type.place.state.USA">Estado</string>
     <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
     <string name="type.place.suburb">Suburbio</string>
-    <string name="type.place.town">Pueblo</string>
+    <string name="type.place.town">Pueblo o ciudad</string>
     <string name="type.place.village">Pueblo</string>
     <string name="type.power">Energía</string>
     <string name="type.power.generator">Generador</string>
@@ -1381,7 +1381,7 @@
     <string name="type.post_office.post_partner">Asociado de Correo</string>
     <string name="type.natural.wetland.tidalflat">Llanura mareal</string>
     <string name="type.natural.wetland.swamp">Pantano</string>
-    <string name="type.amenity.ranger_station">Estación de guardabosques</string>
+    <string name="type.amenity.ranger_station">Estación de guardaparque</string>
     <string name="type.amenity.luggage_locker">Consigna de equipaje</string>
     <string name="type.natural.wetland.mangrove">Manglares</string>
     <string name="type.landuse.religious">Terrenos religiosos</string>

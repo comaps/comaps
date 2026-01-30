@@ -6,8 +6,8 @@
 "cancel_download" = "Cancelar descarga";
 
 /* Button which deletes downloaded country */
-"delete" = "Eliminar";
-"download_maps" = "Descargar mapas";
+"delete" = "Borrar";
+"download_maps" = "Descargar Mapas";
 
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Descargando…";
@@ -25,7 +25,7 @@
 "core_my_position" = "Mi posición";
 
 /* Update maps later button text */
-"later" = "Luego";
+"later" = "Más tarde";
 
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Buscar";
@@ -40,7 +40,7 @@
 "country_status_download_without_size" = "Descargar mapa";
 
 /* Message to display at the center of the screen when the country download has failed */
-"country_status_download_failed" = "Error durante la descarga";
+"country_status_download_failed" = "La descarga ha fallado";
 
 /* Text in About screen */
 "about_headline" = "Proyecto abierto impulsado por la comunidad";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "Error de envío de correo";
-
-/* Settings item title */
-"pref_calibration_title" = "Calibración de la brújula";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vuelve a pulsar prolongadamente sobre el mapa para ver la interfaz";

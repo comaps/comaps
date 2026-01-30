@@ -180,7 +180,7 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">OpenStreetMap-data: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Rutter</string>
+    <string name="tracks_title">Spår</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Längd</string>
     <string name="share_my_location">Dela min plats</string>
@@ -269,12 +269,6 @@
     <string name="downloader_delete_map">Radera karta</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Uppdatera karta</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Play platstjänster</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">En proprietär tjänst som kombinerar GPS, Wi-Fi, mobilnätverk, etc. för att fastställa din position mer exakt. Den kan ansluta till Googles servrar.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Ladda ned kartor längs vägen</string>
     <!-- Text for routing error dialog -->
@@ -482,7 +476,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Mer</string>
-    <string name="placepage_edit_bookmark_button">Redigera bokmärke</string>
+    <string name="placepage_edit_bookmark_button">Redigera sparad plats</string>
     <string name="placepage_personal_notes_hint">Personlig anteckning (text eller html)</string>
     <string name="editor_reset_edits_message">Återställ alla lokala ändringar?</string>
     <string name="editor_reset_edits_button">Återställ</string>
@@ -545,12 +539,12 @@
     <string name="bookmark_lists_hide_all">Dölj alla</string>
     <string name="bookmark_lists_show_all">Visa alla</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d bokmärke</item>
-        <item quantity="other">%d bokmärken</item>
+        <item quantity="one">%d sparad plats</item>
+        <item quantity="other">%d sparade platser</item>
     </plurals>
     <string name="bookmarks_create_new_group">Skapa ny lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importera bokmärken och spår</string>
+    <string name="bookmarks_import">Importera favoriter</string>
     <string name="bookmarks_error_message_share_general">Kunde inte delas på grund av ett applikationsfel</string>
     <string name="bookmarks_error_title_share_empty">Delningsfel</string>
     <string name="bookmarks_error_message_share_empty">Kan inte dela en tom lista</string>
@@ -579,7 +573,7 @@
     <string name="subway">Tunnelbana</string>
     <string name="layers_title">Kartstilar och lager</string>
     <string name="bookmarks_empty_list_title">Listan är tom</string>
-    <string name="bookmarks_empty_list_message">För att lägga till bokmärken, tryck på kartan och sedan på stjärnikonen</string>
+    <string name="bookmarks_empty_list_message">För att spara en plats, tryck på kartan och sedan på stjärnikonen</string>
     <string name="category_desc_more">…mer</string>
     <string name="export_file">Exportera KMZ</string>
     <string name="export_file_gpx">Exportera GPX</string>
@@ -632,7 +626,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sortera…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sortera bokmärken</string>
+    <string name="sort_bookmarks">Sortera favoriter</string>
     <!-- Android -->
     <string name="by_default">Som standard</string>
     <!-- Android -->
@@ -733,7 +727,7 @@
     <string name="browser_not_available">Webbläsaren är inte tillgänglig</string>
     <string name="volume">Volym</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportera alla bokmärken och spår</string>
+    <string name="bookmarks_export">Exportera alla platser och spår</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Inställningar för talsyntes</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -765,7 +759,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Fortsätt spela in</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Spara inspelning i bokmärken och rutter?</string>
+    <string name="track_recording_alert_title">Spara inspelning i favoriter?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Spåret är tomt - inget att spara</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -805,8 +799,8 @@
     <string name="app_site_url">https://comaps.app/sv/</string>
     <string name="saved">Sparad</string>
     <string name="pref_left_button_title">Inställning för vänster knapp</string>
-    <string name="pref_backup_title">Säkerhetskopiering av bokmärken och spår</string>
-    <string name="pref_backup_now_summary_empty_lists">Inga bokmärken eller spår att säkerhetskopiera</string>
+    <string name="pref_backup_title">Säkerhetskopiering av favoriter</string>
+    <string name="pref_backup_now_summary_empty_lists">Inga platser eller spår att säkerhetskopiera</string>
     <string name="dialog_report_error_missing_folder">Den valda platsen för säkerhetskopiering är inte tillgänglig eller skrivbar. Vänligen välj en annan plats.</string>
     <string name="pref_backup_now_title">Säkerhetskopiera nu</string>
     <string name="pref_left_button_disable">Inaktivera</string>
@@ -851,4 +845,12 @@
     <string name="pedestrian">Gående</string>
     <string name="error_enter_correct_line_page">Ange en giltig webbadress</string>
     <string name="move_maps_error">Kunde inte flytta kartfiler</string>
+    <string name="opens_at">Öppnar kl. %s</string>
+    <string name="closes_at">Stänger kl. %s</string>
+    <string name="opens_day_at">Öppnar på %1$s kl. %2$s</string>
+    <string name="closes_day_at">Stänger på %1$s kl. %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
+    </plurals>
 </resources>

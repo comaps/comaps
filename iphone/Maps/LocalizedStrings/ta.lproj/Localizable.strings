@@ -9,7 +9,7 @@
 "cancel" = "ரத்துசெய்";
 "download_maps" = "வரைபடத்தைப் பதிவிறக்கவும்";
 "search" = "தேடல்";
-"bookmarks_and_tracks" = "புக்மார்க்குகள் மற்றும் தடங்கள்";
+"bookmarks_and_tracks" = "பிடித்தவை";
 "close" = "மூடு";
 "add_new_set" = "புதிய பட்டியலைச் சேர்க்கவும்";
 "bookmark_sets" = "புத்தகக்குறி பட்டியல்கள்";
@@ -26,9 +26,9 @@
 "country_status_download_without_size" = "வரைபடத்தைப் பதிவிறக்கு";
 "settings" = "அமைப்புகள்";
 "continue_button" = "தொடர்";
-"bookmark_set_name" = "புத்தகக்குறி பட்டியல் பெயர்";
+"bookmark_set_name" = "பட்டியல் பெயர்";
 "later" = "பிறகு";
-"bookmarks" = "புக்மார்க்குகள்";
+"bookmarks" = "இடங்கள்";
 "core_my_position" = "எனது நிலை";
 "share_my_location" = "எனது இருப்பிடத்தைப் பகிரவும்";
 "category_toilet" = "கழிப்பறை";
@@ -53,7 +53,7 @@
 "category_recycling" = "மறுசுழற்சி";
 "fediverse" = "மாச்டோடன்";
 "version: %@ (%@)\nmap data: %@" = "பதிப்பு: %@ (%@) \nவரைபடத் தரவு: %@";
-"load_kmz_failed" = "புக்மார்க்குகளை ஏற்றுவதில் தோல்வி. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.";
+"load_kmz_failed" = "பிடித்தவைகளை ஏற்ற முடியவில்லை. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.";
 "pref_tts_other_section_title" = "மற்றொன்று";
 "website" = "இணையதளம்";
 "pref_appearance_dark" = "இருள்";
@@ -81,7 +81,7 @@
 "pref_tts_title" = "குரல் வழிமுறைகள்";
 "version" = "CoMaps பதிப்பு: %@";
 "pref_appearance_light" = "ஒளி";
-"load_kmz_successful" = "புக்மார்க்குகள் வெற்றிகரமாக ஏற்றப்பட்டன! வரைபடத்தில் அல்லது புக்மார்க்ச் மேலாளர் திரையில் அவற்றைக் காணலாம்.";
+"load_kmz_successful" = "பிடித்தவை வெற்றிகரமாக ஏற்றப்பட்டன! நீங்கள் அவற்றை வரைபடத்தில் அல்லது பிடித்தவை மேலாளர் திரையில் காணலாம்.";
 "faq" = "அடிக்கடி கேட்கப்படும் கேள்விகள்";
 "category_food" = "மளிகை பொருட்கள்";
 "bookmark_share_email_subject" = "ஏய், CoMaps இல் எனது பின்னை பாருங்கள்!";
@@ -122,7 +122,7 @@
 "social_pixelfed" = "Pixelfed";
 "facebook" = "Facebook";
 "length" = "நீளம்";
-"load_kmz_title" = "புக்மார்க்குகளை ஏற்றுகிறது";
+"load_kmz_title" = "பிடித்தவைகளை ஏற்றுகிறது";
 "version %@ (%@)" = "பதிப்பு %@ (%@)";
 "done" = "முடிந்தது";
 "pref_left_button_type" = "இடது முதன்மையான பொத்தான்";
@@ -149,7 +149,7 @@
 "voice" = "குரல்";
 "export_file" = "ஏற்றுமதி KMZ";
 "downloader_delete_map_while_routing_dialog" = "வரைபடத்தை நீக்க, வழிசெலுத்தலை நிறுத்தவும்.";
-"editor_reset_edits_button" = "கைவிடு";
+"editor_reset_edits_button" = "மாற்றங்களை நிராகரிக்கவும்";
 "power_managment_setting_never" = "ஒருபோதும்";
 "downloader_hide_screen" = "திரையை மறை";
 "downloader_process" = "பதிவிறக்குகிறது %@…";
@@ -195,7 +195,7 @@
 "hour" = "ம";
 "dialog_routing_error_location_not_found" = "வழியை உருவாக்க முடியவில்லை. தற்போதைய சிபிஎச் ஒருங்கிணைப்புகளை அடையாளம் காண முடியவில்லை.";
 "location_services_disabled_2" = "2. இருப்பிடத்தைத் தட்டவும்";
-"bookmarks_import" = "புக்மார்க்குகள் மற்றும் தடங்களை இறக்குமதி செய்யவும்";
+"bookmarks_import" = "பிடித்தவைகளை இறக்குமதி வெற்றி";
 "opens_tomorrow_at" = "நாளை %@க்கு திறக்கப்படும்";
 "closes_in" = "%@ இல் மூடப்படும்";
 "gray" = "சாம்பல்";
@@ -312,7 +312,6 @@
 "downloader_delete_map" = "வரைபடத்தை நீக்கு";
 "popular_place" = "பிரபலமானது";
 "routing_add_finish_point" = "இலக்கு புள்ளியைச் சேர்க்க, தேடலைப் பயன்படுத்தவும் அல்லது வரைபடத்தில் தட்டவும்";
-"pref_calibration_title" = "திசைகாட்டி அளவுத்திருத்தம்";
 "mobile_data_option_today" = "இன்று மட்டும்";
 "editor_done_dialog_1" = "உலக வரைபடத்தை மாற்றிவிட்டீர்கள்! அதை நீங்களே வைத்துக் கொள்ளாதீர்கள்; உங்கள் நண்பர்களிடம் சொல்லி அதை ஒன்றாக திருத்தவும்.";
 "button_convert" = "மாற்றவும்";
@@ -351,7 +350,7 @@
 "log_file_size" = "பதிவு கோப்பு அளவு: %@";
 "bookmarks_create_new_group" = "புதிய பட்டியலை உருவாக்கவும்";
 "editor_add_select_category_all_subtitle" = "அனைத்து வகைகள்";
-"placepage_edit_bookmark_button" = "புக்மார்க்கைத் திருத்து";
+"placepage_edit_bookmark_button" = "சேமித்த இடத்தைத் திருத்தவும்";
 "error_enter_correct_phone" = "சரியான தொலைபேசி எண்ணை உள்ளிடவும்";
 "dialog_routing_start_not_determined" = "பாதை உருவாக்கப்படவில்லை. தொடக்கப் புள்ளியைக் கண்டறிய முடியவில்லை.";
 "osm_profile_view_edit_history" = "திருத்த வரலாற்றைக் காண்க";
@@ -455,7 +454,7 @@
 "trip_start" = "போகலாம்";
 "trip_finished" = "நீங்கள் வந்துவிட்டீர்கள்!";
 "icloud_disabled_message" = "இந்தப் பண்பைப் பயன்படுத்த, உங்கள் கருவியின் அமைப்புகளில் ஐமுகிலை இயக்கு.";
-"track_recording_alert_title" = "புக்மார்க்குகள் மற்றும் தடங்களில் சேமிக்கவா?";
+"track_recording_alert_title" = "பிடித்தவைகளில் சேமிக்கவா?";
 "downloader_loading_ios" = "பதிவிறக்குகிறது";
 "speedcams_alert_title_carplay_1" = "விரைவு";
 "app_tip_05" = "வரைபடத்தில் உங்கள் தற்போதைய இருப்பிடத்தைத் தேர்ந்தெடுக்க முடியும் என்பது உங்களுக்குத் தெரியுமா?";
@@ -598,3 +597,4 @@
 "map" = "வரைபடம்";
 "open_in_app" = "மற்றொரு பயன்பாட்டில் திறக்கவும்";
 "yes_available" = "ஆம்";
+"limit_map_language_alternatives_to_local" = "தங்கள் பிராந்தியத்தில் உள்ள பிற கணினி மொழிகளை மட்டுமே பயன்படுத்தவும்";

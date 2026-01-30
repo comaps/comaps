@@ -153,7 +153,7 @@
     <string name="type.barrier.entrance">入口</string>
     <string name="type.barrier.kissing_gate">窄門</string>
     <string name="type.amenity.car_sharing">共享汽車</string>
-    <string name="type.amenity.charging_station.motorcar">汽車充電站</string>
+    <string name="type.amenity.charging_station.motorcar">汽車</string>
     <string name="type.aerialway.gondola">纜車</string>
     <string name="type.aerialway.mixed_lift">混合纜車</string>
     <string name="type.aerialway.station">纜車站</string>
@@ -182,7 +182,7 @@
     <string name="type.amenity.gambling">賭間</string>
     <string name="type.leisure.adult_gaming_centre">成人娛樂中心</string>
     <string name="type.amenity.charging_station">充電站</string>
-    <string name="type.amenity.charging_station.bicycle">單車充電站</string>
+    <string name="type.amenity.charging_station.bicycle">單車</string>
     <string name="type.amenity.childcare">托兒所</string>
     <string name="type.amenity.cinema">電影院</string>
     <string name="type.amenity.college">學院</string>
@@ -474,4 +474,19 @@
     <string name="type.railway.station.subway.rotterdam">地鐵站</string>
     <string name="type.shop.wholesale">批發店</string>
     <string name="type.shop.coffee">咖啡零售商</string>
+    <string name="type.amenity.bench.backless">沒有靠背</string>
+    <string name="type.amenity.boat_rental">船隻租賃</string>
+    <string name="type.man_made.telescope">天文望遠鏡</string>
+    <string name="type.man_made.telescope.optical">天文望遠鏡 (光學)</string>
+    <string name="type.man_made.telescope.radio">天文望遠鏡 (無線電)</string>
+    <string name="type.man_made.telescope.gamma">天文望遠鏡 (伽瑪射線)</string>
+    <string name="type.man_made.observatory">天文台</string>
+    <string name="type.amenity.charging_station.motorcycle">機車</string>
+    <string name="type.amenity.charging_station.small">容量有限</string>
+    <string name="type.amenity.sailing_school">划船學校</string>
+    <string name="type.amenity.flight_school">飛行學校</string>
+    <string name="type.amenity.prep_school">家教學校</string>
+    <string name="type.office.security">警衛辦公室</string>
+    <string name="type.building.guardhouse">警衛哨</string>
+    <string name="type.power.portal">電力門架</string>
 </resources>

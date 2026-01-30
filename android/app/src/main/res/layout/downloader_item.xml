@@ -18,15 +18,34 @@
     android:layout_marginEnd="@dimen/margin_base"
     android:layout_centerVertical="true"/>
 
-  <com.google.android.material.textview.MaterialTextView
-    android:id="@+id/size"
+  <LinearLayout
+    android:id="@+id/size_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_alignParentEnd="true"
     android:layout_centerVertical="true"
-    android:textAppearance="@style/MwmTextAppearance.Body3"
-    tools:text="5000 MB"
-    tools:background="#80008000"/>
+    android:orientation="vertical"
+    android:gravity="end">
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/size"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MwmTextAppearance.Body3"
+      tools:text="5000 MB"
+      tools:background="#80008000"/>
+
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/version"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textAppearance="@style/MwmTextAppearance.Body4"
+      android:visibility="gone"
+      tools:text="12/31/25"
+      tools:visibility="visible"
+      tools:background="#80800080"/>
+
+  </LinearLayout>
 
   <LinearLayout
     android:layout_width="match_parent"
@@ -36,7 +55,7 @@
     android:orientation="vertical"
     android:layout_centerVertical="true"
     android:layout_toEndOf="@id/downloader_status_frame"
-    android:layout_toStartOf="@id/size">
+    android:layout_toStartOf="@id/size_container">
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/found_name"
       android:layout_width="match_parent"

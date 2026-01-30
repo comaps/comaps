@@ -1,9 +1,11 @@
-• OpenStreetMap data as of January 6
-• Editor: add POI types with more than one OSM tag, e.g. artwork subtypes sculptures, paintings..; more POI types could be marked as vacant/disused
-• Added miniature railways and wastewater treatment plants
-• Use Material 3 dialogs and darker background in dark mode
-• Removed fictional speed limits for link roads
-• Fixed camera cutout offset in navigation
-• Less sensitive long tap (full-screen mode)
+• OpenStreetMap data as of January 22
+• Added subtle dark borders to roads
+• Display track's description when selected
+• Renamed "Bookmarks & Tracks" to "Favorites" and "Bookmarks" to "Places"
+• Added tactile information maps, railway turntables and emergency disaster help points
+• Updated looks of some app screens
+• Use native languages for world overview map
+• Remember location mode between sessions
+• Fixed routing crashing on some devices
 
 More details on codeberg.org/comaps/comaps/releases

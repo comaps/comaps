@@ -72,7 +72,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Kirjanmerkit</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Kirjanmerkit ja reitit</string>
+    <string name="bookmarks_and_tracks">Suosikit</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nimi</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -148,7 +148,7 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Muistiinpanot</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Jaetut CoMaps-kirjanmerkit</string>
+    <string name="share_bookmarks_email_subject">CoMaps Suosikkini</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Ladataan kirjanmerkkejä</string>
     <!-- Kmz file successful loading -->
@@ -281,12 +281,6 @@
     <string name="downloader_delete_map">Poista kartta</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Päivitä kartta</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused Sijaintipalvelu</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Suljetun lähdekoodin palvelu, joka yhdistää GPS:n, Wi-Fi:n ja mobiiliverkot yms. löytääksesi sijaintisi tarkemmin. Se voi ottaa yhteyttä Googlen palvelimiin.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Lataa karttoja matkalla</string>
     <!-- Text for routing error dialog -->

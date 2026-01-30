@@ -2,7 +2,8 @@
 
 #include "generator/filter_elements.hpp"
 #include "generator/generator_tests/common.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform_tests_support/scoped_file.hpp"
 

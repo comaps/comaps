@@ -60,16 +60,16 @@
 "add_new_set" = "Направи нову листу";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Назив листе маркера";
+"bookmark_set_name" = "Назив листе";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Листе маркера";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Маркери";
+"bookmarks" = "Места";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Маркери и путање";
+"bookmarks_and_tracks" = "Маркери";
 
 /* Default bookmark list name */
 "core_my_places" = "Моја места";
@@ -151,7 +151,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "За кампер возила";
-"share_bookmarks_email_body" = "Здраво!\n\nУ прилогу су моји маркери; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/\n\nУживај у путовању са CoMaps-ом!";
+"share_bookmarks_email_body" = "Здраво!\n\nУ прилогу су моја места; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/\n\nУживај у путовању са CoMaps-ом!";
 
 /* message title of loading file */
 "load_kmz_title" = "Учитавање маркера";
@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Грешка приликом слања email-а";
 
-/* Settings item title */
-"pref_calibration_title" = "Калибрација компаса";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Додирните дуго мапу да бисте поново видели интерфејс";
 
@@ -386,7 +383,7 @@
 "routing_requires_all_map" = "Да би рута могла да се креира, потребно је да преузимање и ажурирање свих мапа између ваше локације и вашег одредишта.";
 
 /* bookmark button text */
-"bookmark" = "маркер";
+"bookmark" = "место";
 "save" = "Сачувај";
 "create" = "креирај";
 
@@ -673,10 +670,10 @@
 "placepage_more_button" = "Више";
 "book_button" = "Резервиши";
 "placepage_call_button" = "Позови";
-"placepage_edit_bookmark_button" = "Измени маркер";
-"placepage_bookmark_name_hint" = "Назив маркера";
+"placepage_edit_bookmark_button" = "Измени место";
+"placepage_bookmark_name_hint" = "Назив места";
 "placepage_personal_notes_hint" = "Личне белешке (текст или хтмл)";
-"placepage_delete_bookmark_button" = "Обриши маркер";
+"placepage_delete_bookmark_button" = "Обриши место";
 "editor_edits_sent_message" = "Ваша напомена ће бити послана на OpenStreetMap";
 "editor_comment_hint" = "Коментар…";
 "editor_reset_edits_message" = "Брисање свих измена које нису послате?";
@@ -764,7 +761,7 @@
 "bookmarks_create_new_group" = "Креирај нову листу";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Увези маркере и путање";
+"bookmarks_import" = "Увези маркере";
 "downloader_hide_screen" = "Сакриј екран";
 "downloader_percent" = "%@ (%@ од %@)";
 "downloader_process" = "Преузимам %@…";
@@ -996,7 +993,7 @@
 "button_layer_outdoor" = "На отвореном";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Експортуј све маркере и путање";
+"bookmarks_export" = "Извези све маркере";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Промени боју";
@@ -1081,7 +1078,7 @@
 "continue_recording" = "Настави снимање";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Сачувати у маркерима и путањама?";
+"track_recording_alert_title" = "Сачувати у маркерима?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Путања је празна, нема шта да се сачува";
@@ -1104,3 +1101,4 @@
 "voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Гласовни садржај*, *Гласови*.";
 "voice_explanation" = "Можете изабрати бољи глас у *Приступачност*, *Читање и говор*, *Гласови*.";
 "avoid_paved" = "Избегавај асфалтиране путеве";
+"limit_map_language_alternatives_to_local" = "Ограничите алтернативне језике на локалне";

@@ -274,12 +274,6 @@
     <string name="downloader_delete_map">Выдаліць карту</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Абнавіць карту</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Службы месцазнаходжання Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Хуткае вызначэнне прыблізнага месцазнаходжання з дапамогай Bluetooth, WiFi або мабільнай сеткі</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Спампаваць усе карты на вашым маршруце</string>
     <!-- Text for routing error dialog -->

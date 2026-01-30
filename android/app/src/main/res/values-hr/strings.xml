@@ -13,7 +13,7 @@
     <string name="search_map">Pretraži kartu</string>
     <string name="limited_accuracy">Ograničena preciznost</string>
     <string name="zoom_to_country">Prikaži na karti</string>
-    <string name="country_status_download_failed">Preuzimanje neuspješno</string>
+    <string name="country_status_download_failed">Preuzimanje nije uspjelo</string>
     <string name="try_again">Pokušaj ponovo</string>
     <string name="about_proposition_2">• Usmjereno na privatnost i bez oglasa</string>
     <string name="close">Zatvori</string>
@@ -147,7 +147,7 @@
     <string name="add_new_set">Dodaj novu Listu</string>
     <string name="bookmark_set_name">Naziv liste</string>
     <string name="bookmarks">Mjesta</string>
-    <string name="bookmarks_and_tracks">Favoriti</string>
+    <string name="bookmarks_and_tracks">Omiljeni</string>
     <string name="maps_storage">Spremi karte u</string>
     <string name="maps_storage_summary">Odaberite mapu u koju želite spremiti karte</string>
     <string name="maps_storage_downloaded">Preuzete karte</string>
@@ -455,8 +455,6 @@
     <string name="ok">OK</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D zgrade su onemogućene u načinu rada za uštedu energije</string>
     <string name="downloader_queued">U redu čekanja</string>
-    <string name="google_play_services">Googleov objedinjeni servis za određivanje lokacije</string>
-    <string name="pref_use_google_play">Vlasnički servis koji kombinira GPS, Wi‑Fi i mobilne mreže radi preciznijeg određivanja lokacije. Može se povezivati s Googleovim poslužiteljima.</string>
     <string name="routing_download_maps_along">Preuzmite sve karte duž svoje rute</string>
     <string name="routing_requires_all_map">Kako bismo izradili rutu, moramo preuzeti i ažurirati sve karte od vaše lokacije do odredišta.</string>
     <string name="routing_not_enough_space">Nema dovoljno prostora</string>

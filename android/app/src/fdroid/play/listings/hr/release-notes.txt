@@ -1,7 +1,0 @@
-• OpenStreetMap podaci od 6. siječnja
-• Uređivač: dodane točake interesa s više od jedne OSM oznake, npr. podtipovi umjetnina kao skulpture, slike...; više točaka interesa se sada može označiti kao upražnjene/napuštene
-• Dodane minijaturne željeznice i postrojenja za pročišćavanje otpadnih voda
-• Korištenje Material 3 dijaloga i tamnije pozadine u tamnom načinu rada
-• Uklonjena su izmišljena ograničenja brzine za spojne ceste
-
-Više detalja na codeberg.org/comaps/comaps/releases

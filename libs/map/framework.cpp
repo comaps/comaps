@@ -197,6 +197,12 @@ void Framework::SwitchMyPositionNextMode()
     m_drapeEngine->SwitchMyPositionNextMode();
 }
 
+void Framework::StartPendingPositionMode()
+{
+  if (m_drapeEngine != nullptr)
+    m_drapeEngine->StartPendingPositionMode();
+}
+
 void Framework::SetMyPositionModeListener(TMyPositionModeChanged && fn)
 {
   m_myPositionListener = std::move(fn);

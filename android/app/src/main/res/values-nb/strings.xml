@@ -282,12 +282,6 @@
     <string name="downloader_delete_map">Slett kart</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Oppdater kart</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused-posisjonstjeneste</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Produsenteid tjeneste som kombinerer GPS, Wi-Fi, mobilnettverk etc. for å bestemme posisjonen din mer nøyaktig. Den kan koble til Google-servere.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Last ned alle kartene langs ruten din</string>
     <!-- Text for routing error dialog -->
@@ -912,4 +906,5 @@
     <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
     <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
     <string name="pref_maplanguage_local">Lokalt språk</string>
+    <string name="limit_map_language_alternatives_to_local">Bruk andre systemspråk kun i deres region</string>
 </resources>

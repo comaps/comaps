@@ -1,9 +1,10 @@
-• Datos OSM a 06/01
-• Editor: se añaden tipos de POI con más de una etiqueta, ej. esculturas, pinturas...; se podrán marcar más tipos como en desuso
-• Se añaden ferrocarriles mini y plantas de tratamiento de aguas
-• Se utilizan diálogos Material 3 y fondo más oscuro en el modo oscuro
-• Se eliminan límites de velocidad ficticios para enlaces
-• Se corrige desplazamiento en la navegación
-• Toque largo menos sensible (en pantalla completa)
+• Datos OSM de 22/01
+• Se añaden bordes sutiles a carreteras
+• Se muestra la descripción de la ruta cuando se selecciona
+• Se cambia nombre de «Marcadores y rutas» a «Favoritos»
+• Se añaden mapas táctiles, plataformas giratorias ferroviarias y puntos de emergencia
+• Se actualizan aspectos de interfaz
+• Se utilizan idiomas nativos para el mapa general
+• Se corrige fallo de ruta en algunos dispositivos
 
 Más detalles en codeberg.org/comaps/comaps/releases

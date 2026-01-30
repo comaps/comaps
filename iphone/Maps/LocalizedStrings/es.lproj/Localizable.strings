@@ -63,16 +63,16 @@
 "add_new_set" = "Agregar una lista nueva";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nombre de la lista de marcadores";
+"bookmark_set_name" = "Nombre de la lista";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Lista de marcadores";
+"bookmark_sets" = "Lista de favoritos";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Marcadores";
+"bookmarks" = "Lugares";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Marcadores y trazas";
+"bookmarks_and_tracks" = "Favoritos";
 
 /* Default bookmark list name */
 "core_my_places" = "Mis lugares";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Instalaciones para autocaravanas";
-"share_bookmarks_email_body" = "¡Hola!\n\nAdjunto mis marcadores; ábrelos en CoMaps. Si no lo tienes instalado, puedes descargarlo aquí: https://www.comaps.app/es/download/\n\n¡Disfruta viajando con CoMaps!";
+"share_bookmarks_email_body" = "¡Hola!\n\nAdjunto mis favoritos; ábrelos en CoMaps. Si no lo tienes instalado, puedes descargarlo aquí: https://www.comaps.app/es/download/\n\n¡Disfruta viajando con CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Cargando marcadores";
+"load_kmz_title" = "Cargando favoritos";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "¡Los marcadores se han cargado con éxito! Puedes encontrarlos en el mapa o en la pantalla de Gestor de Marcadores.";
+"load_kmz_successful" = "¡Los favoritos se han cargado con éxito! Puedes encontrarlos en el mapa o en el gestor de favoritos.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "No se pudieron cargar los marcadores. El archivo podría tener daños o defectos.";
+"load_kmz_failed" = "No se pudieron cargar los favoritos. El archivo podría tener daños o defectos.";
 
 /* resource for context menu */
 "edit" = "Editar";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Error de envío de correo";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibración de la brújula";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vuelva a pulsar prolongadamente sobre el mapa para ver la interfaz";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "Para crear una ruta es necesario descargar y actualizar todos los mapas desde su ubicación a su destino.";
 
 /* bookmark button text */
-"bookmark" = "marcador";
+"bookmark" = "favorito";
 "save" = "Guardar";
 "create" = "crear";
 
@@ -676,10 +673,10 @@
 "placepage_more_button" = "Más";
 "book_button" = "Reservar";
 "placepage_call_button" = "Llamar";
-"placepage_edit_bookmark_button" = "Editar marcador";
-"placepage_bookmark_name_hint" = "Nombre del marcador";
+"placepage_edit_bookmark_button" = "Editar favorito";
+"placepage_bookmark_name_hint" = "Nombre del favorito";
 "placepage_personal_notes_hint" = "Notas personales (texto o html)";
-"placepage_delete_bookmark_button" = "Eliminar marcador";
+"placepage_delete_bookmark_button" = "Eliminar favorito";
 "editor_edits_sent_message" = "Su nota se enviará a OpenStreetMap";
 "editor_comment_hint" = "Comentario…";
 "editor_reset_edits_message" = "¿Descartar todos los cambios locales?";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "Crear nueva lista";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importar marcadores y trazas";
+"bookmarks_import" = "Importar favoritos y trazas";
 "downloader_hide_screen" = "Ocultar pantalla";
 "downloader_percent" = "%@ (%@ de %@)";
 "downloader_process" = "Descargando %@…";
@@ -999,7 +996,7 @@
 "button_layer_outdoor" = "Senderismo";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Exportar todos los marcadores y trazas";
+"bookmarks_export" = "Exportar todos los favoritos y trazas";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Cambiar color";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "Continuar grabación";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "¿Guardar en Marcadores y trayectos?";
+"track_recording_alert_title" = "¿Guardar en Favoritos?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "El trayecto está vacío; no hay nada que guardar";
@@ -1106,3 +1103,4 @@
 "unknown" = "Desconocido";
 "voice_explanation" = "Es posible elegir una mejor voz en el la configuración del sistema bajo *Accesibilidad*, *Contenido leído*, *Voces*.";
 "voice_explanation_before_version26" = "Es posible elegir ana mejor voz en el la configuración del sistema bajo *Accesibilidad*, *Contenido leído*, *Voces*.";
+"limit_map_language_alternatives_to_local" = "Usar otros idiomas del sistema solo en sus regiones";

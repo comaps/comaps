@@ -284,12 +284,6 @@
     <string name="downloader_delete_map">删除地图</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">更新地图</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google 一体化位置信息服务</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">结合了 GPS、Wi-Fi、移动网络等的专有服务，能更准确地确定您的位置。它可能会连接到 Google 服务器。</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">下载路线上的所有地图</string>
     <!-- Text for routing error dialog -->
@@ -923,4 +917,5 @@
     <string name="download_resources_custom_url_title">自定义地图服务器</string>
     <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>
     <string name="pref_maplanguage_local">本地语言</string>
+    <string name="limit_map_language_alternatives_to_local">仅使用所在区域的其他系统语言</string>
 </resources>

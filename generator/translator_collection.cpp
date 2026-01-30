@@ -1,6 +1,6 @@
 #include "generator/translator_collection.hpp"
 
-#include "generator/osm_element.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "base/stl_helpers.hpp"
 

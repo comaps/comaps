@@ -1,6 +1,7 @@
 #pragma once
 #include "generator/intermediate_data.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "geometry/mercator.hpp"
 

@@ -1334,7 +1334,7 @@
 "type.sport.10pin" = "Μπόουλινγκ";
 "type.sport.9pin" = "Μπόουλινγκ";
 "type.sport.padel" = "Πάντελ";
-"type.sport.futsal" = "Futsal";
+"type.sport.futsal" = "Ποδόσφαιρο σάλας";
 "type.sport.ice_hockey" = "Χόκεϊ στον παγο";
 "type.sport.field_hockey" = "Χόκεϊ επί χόρτου";
 "type.sport.badminton" = "Αντιπτέριση";
@@ -1530,6 +1530,8 @@
 "type.leisure.sports_centre.sport.volleyball" = "Αθλητικό κέντρο";
 "type.leisure.sports_centre.sport.yoga" = "Αθλητικό κέντρο";
 "type.leisure.fitness_centre.sport.yoga" = "Στούντιο γιόγκα";
-"type.amenity.bench.backless" = "Παγκάκι χωρίς πλάτη";
+"type.amenity.bench.backless" = "Χωρίς πλάτη";
 "type.amenity.boat_rental" = "Ενοικίαση σκαφών";
 "type.amenity.flight_school" = "Σχολή πιλότων";
+"type.amenity.sailing_school" = "Σχολή ιστιοπλοΐας";
+"type.amenity.prep_school" = "Φροντιστήριο";

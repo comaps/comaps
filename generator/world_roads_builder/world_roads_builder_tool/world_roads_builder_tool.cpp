@@ -1,10 +1,11 @@
 #include "generator/affiliation.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_source.hpp"
 #include "generator/world_roads_builder/world_roads_builder.hpp"
 
 #include "storage/routing_helpers.hpp"
 #include "storage/storage.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 

@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Hasartmängusaal";
 "type.leisure.amusement_arcade" = "Videomängusaal";
 "type.amenity.charging_station" = "Laadimisjaam";
-"type.amenity.charging_station.bicycle" = "Jalgratta laadimisjaam";
-"type.amenity.charging_station.motorcar" = "Autode laadimisjaam";
+"type.amenity.charging_station.bicycle" = "Jalgrattad";
+"type.amenity.charging_station.motorcar" = "Autod";
 "type.amenity.childcare" = "Lastehoid";
 "type.amenity.cinema" = "Kino";
 "type.leisure.bowling_alley" = "Bowlingusaal";
@@ -176,7 +176,7 @@
 "type.amenity.vending_machine.food" = "Toiduautomaat";
 "type.amenity.vending_machine.newspapers" = "Ajalehtede automaat";
 "type.amenity.vending_machine.parking_tickets" = "Parkimispiletite automaat";
-"type.amenity.vending_machine.public_transport_tickets" = "Piletiautomaat";
+"type.amenity.vending_machine.public_transport_tickets" = "Ühistranspordi piletiautomaat";
 "type.amenity.vending_machine.sweets" = "Maiustuste automaat";
 "type.amenity.vending_machine.excrement_bags" = "Väljaheitekottide automaat";
 "type.amenity.parcel_locker" = "Pakiautomaat";
@@ -1486,7 +1486,7 @@
 "type.power.portal" = "Õhuliini värava-tüüpi mast";
 "type.building.guardhouse" = "Valvuriputka";
 "type.shop.lighting" = "Lambipood";
-"type.amenity.bench.backless" = "Ilma seljatoeta pink";
+"type.amenity.bench.backless" = "Ilma seljatoeta";
 "type.leisure.fitness_centre.sport.yoga" = "Joogastuudio";
 "type.leisure.sports_centre.sport.table_tennis" = "Lauatennisekeskus";
 "type.leisure.sports_centre.sport.american_football" = "Spordikeskus";
@@ -1588,3 +1588,14 @@
 "type.cardinal.north" = "Põhjas";
 "type.cardinal.south" = "Lõunas";
 "type.cardinal.west" = "Läänes";
+"type.amenity.charging_station.small" = "Väike laadimisjaam";
+"type.amenity.charging_station.motorcycle" = "Mootorrattad";
+"type.railway.disused.bridge" = "Kasutuselt eemaldatud raudteesild";
+"type.railway.turntable" = "Raudtee pöördesild";
+"type.tourism.information.tactile_map" = "Kombatav kaart";
+"type.railway.miniature.bridge" = "Väikeraudtee/pargiraudtee sild";
+"type.emergency.disaster_help_point" = "Katastroofiabi teenused";
+"type.emergency.access_point.address" = "Hädaolukorras asukohatuvastuspunkti aadress";
+"type.railway.miniature.tunnel" = "Väikeraudtee/pargiraudtee tunnel";
+"type.railway.disused.tunnel" = "Kasutuselt eemaldatud raudteetunnel";
+"type.railway.miniature" = "Väikeraudtee/pargiraudtee";

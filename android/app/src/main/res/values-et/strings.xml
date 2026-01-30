@@ -274,12 +274,6 @@
     <string name="downloader_delete_map">Kustuta kaart</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Uuenda kaarti</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused Location Service (eri sisendeid ühendav asukohatuvastus)</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Asukohateenus, mis kombineerib GPS-i, WiFi, mobiilivõrgu ja muid andmeid asukoha tuvastamiseks võimalikult täpselt. Võib ka ühenduda Google\'i serveritega.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Laadi alla kõik kaardid oma teekonnal</string>
     <!-- Text for routing error dialog -->
@@ -797,7 +791,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Jätka salvestamist</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Kas salvestame lemmikute alla?</string>
+    <string name="track_recording_alert_title">Kas salvestame lemmikute loendisse?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Rada on tühi - ei ole midagi salvestada</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -917,4 +911,5 @@
     <string name="download_resources_custom_url_message">Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.</string>
     <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on http:// või https://</string>
     <string name="pref_maplanguage_local">Kohalik keel</string>
+    <string name="limit_map_language_alternatives_to_local">Kasuta vaid oma piirkonna süsteemi keeli</string>
 </resources>

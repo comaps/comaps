@@ -130,7 +130,7 @@
     <string name="type.amenity.pub">Taverna</string>
     <string name="type.amenity.public_bookcase">Biblioteca di strada</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Centro di riciclaggio</string>
+    <string name="type.amenity.recycling.centre">Centro per il riciclaggio</string>
     <string name="type.amenity.recycling.container">Contenitore per materiali riciclabili</string>
     <string name="type.recycling.batteries">Batterie</string>
     <string name="type.recycling.clothes">Vestiti usati</string>
@@ -636,7 +636,7 @@
     <string name="type.leisure.slipway">Scivolo per navi</string>
     <string name="type.leisure.sports_centre">Centro sportivo</string>
     <string name="type.sport.climbing">Centro di arrampicata</string>
-    <string name="type.sport.yoga">Centro Yoga</string>
+    <string name="type.sport.yoga">Centro yoga</string>
     <string name="type.leisure.stadium">Stadio</string>
     <string name="type.leisure.swimming_pool">Piscina</string>
     <string name="type.leisure.swimming_pool.private">Piscina privata</string>
@@ -1198,7 +1198,7 @@
     <string name="type.sport.handball">Palla a mano</string>
     <string name="type.sport.multi">Sport vari</string>
     <!-- Used to tag a scuba diving site. -->
-    <string name="type.sport.scuba_diving">Immersioni in subacquea</string>
+    <string name="type.sport.scuba_diving">Immersioni subacquee</string>
     <string name="type.sport.shooting">Tiro</string>
     <string name="type.sport.skateboard">Skateboard</string>
     <string name="type.sport.skiing">Sciare</string>
@@ -1434,4 +1434,18 @@
     <string name="type.leisure.sports_centre.sport.volleyball">Centro sportivo</string>
     <string name="type.leisure.sports_centre.sport.yoga">Centro sportivo</string>
     <string name="type.amenity.hydrant">Idrante per irrigazione</string>
+    <string name="type.amenity.boat_rental">Noleggio imbarcazioni</string>
+    <string name="type.man_made.telescope.radio">Radiotelescopio</string>
+    <string name="type.amenity.sailing_school">Scuola di navigazione</string>
+    <string name="type.emergency.life_ring">Salvagente</string>
+    <string name="type.entrance.emergency">Uscita di emergenza</string>
+    <string name="type.natural.sand">Sabbia</string>
+    <string name="type.natural.tree">Albero</string>
+    <string name="type.railway.disused.bridge">Ponte ferroviario in disuso</string>
+    <string name="type.railway.disused.tunnel">Tunnel ferroviario in disuso</string>
+    <string name="type.shop.telecommunication">Negozio di telecomunicazioni</string>
+    <string name="type.disusedbusiness">Negozio libero</string>
+    <string name="type.tourism.information.tactile_map">Mappa tattile</string>
+    <string name="type.social_facility.food_bank">Banco alimentare</string>
+    <string name="type.xmas.tree">Albero di Natale</string>
 </resources>

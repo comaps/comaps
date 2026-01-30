@@ -1,11 +1,11 @@
 #include "generator/collector_routing_city_boundaries.hpp"
 
 #include "generator/intermediate_data.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_element_helpers.hpp"
 
 #include "indexer/feature_algo.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "geometry/mercator.hpp"
 

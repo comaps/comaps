@@ -66,13 +66,13 @@
 "bookmark_set_name" = "Kirjanmerkkivalikoiman nimi";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Kirjanmerkkivalikoimat";
+"bookmark_sets" = "Suosikkiluettelot";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Kirjanmerkit";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Kirjanmerkit ja reitit";
+"bookmarks_and_tracks" = "Suosikit";
 
 /* Default bookmark list name */
 "core_my_places" = "Paikkani";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "Virhe lähetettäessä viestiä";
-
-/* Settings item title */
-"pref_calibration_title" = "Kompassin kalibrointi";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Paina karttaa pitkään uudelleen nähdäksesi käyttöliittymän";

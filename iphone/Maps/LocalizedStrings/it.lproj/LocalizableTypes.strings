@@ -128,7 +128,7 @@
 "type.amenity.prison" = "Prigione";
 "type.amenity.pub" = "Taverna";
 "type.amenity.public_bookcase" = "Biblioteca di strada";
-"type.amenity.recycling.centre" = "Centro di riciclaggio";
+"type.amenity.recycling.centre" = "Centro per il riciclaggio";
 "type.amenity.recycling.container" = "Contenitore per materiali riciclabili";
 "type.recycling.batteries" = "Batterie";
 "type.recycling.clothes" = "Vestiti usati";
@@ -714,7 +714,7 @@
 "type.leisure.slipway" = "Scivolo per navi";
 "type.leisure.sports_centre" = "Centro sportivo";
 "type.sport.climbing" = "Centro di arrampicata";
-"type.sport.yoga" = "Centro Yoga";
+"type.sport.yoga" = "Centro yoga";
 "type.leisure.stadium" = "Stadio";
 "type.leisure.swimming_pool" = "Piscina";
 "type.leisure.swimming_pool.private" = "Piscina privata";
@@ -1320,7 +1320,7 @@
 "type.sport.multi" = "Sport vari";
 
 /* Used to tag a scuba diving site. */
-"type.sport.scuba_diving" = "Immersioni in subacquea";
+"type.sport.scuba_diving" = "Immersioni subacquee";
 "type.sport.shooting" = "Tiro";
 "type.sport.skateboard" = "Skateboard";
 "type.sport.skiing" = "Sciare";
@@ -1525,3 +1525,17 @@
 "type.leisure.sports_centre.sport.volleyball" = "Centro sportivo";
 "type.leisure.sports_centre.sport.yoga" = "Centro sportivo";
 "type.amenity.hydrant" = "Idrante per irrigazione";
+"type.railway.disused.bridge" = "Ponte ferroviario in disuso";
+"type.tourism.information.tactile_map" = "Mappa tattile";
+"type.railway.disused.tunnel" = "Tunnel ferroviario in disuso";
+"type.amenity.boat_rental" = "Noleggio imbarcazioni";
+"type.man_made.telescope.radio" = "Radiotelescopio";
+"type.amenity.sailing_school" = "Scuola di navigazione";
+"type.emergency.life_ring" = "Salvagente";
+"type.entrance.emergency" = "Uscita di emergenza";
+"type.natural.sand" = "Sabbia";
+"type.natural.tree" = "Albero";
+"type.shop.telecommunication" = "Negozio di telecomunicazioni";
+"type.disusedbusiness" = "Negozio libero";
+"type.social_facility.food_bank" = "Banco alimentare";
+"type.xmas.tree" = "Albero di Natale";

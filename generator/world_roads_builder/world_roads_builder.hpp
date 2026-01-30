@@ -1,10 +1,11 @@
 #pragma once
 
 #include "generator/affiliation.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_source.hpp"
 
 #include "routing/cross_border_graph.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 

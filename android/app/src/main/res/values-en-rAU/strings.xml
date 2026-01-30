@@ -121,8 +121,6 @@
     <string name="downloader_retry">Retry</string>
     <string name="downloader_delete_map">Delete Map</string>
     <string name="downloader_update_map">Update Map</string>
-    <string name="google_play_services">Google Fused Location Service</string>
-    <string name="pref_use_google_play">A proprietary service that combines GPS, WiFi, cellular networks etc. to determine your location more accurately. It may connect to Google servers.</string>
     <string name="routing_requires_all_map">In order to create a route, we need to download and update all the maps from your location to your destination.</string>
     <string name="routing_not_enough_space">Not enough space</string>
     <string name="enable_location_services">Please enable Location Services</string>

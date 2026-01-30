@@ -131,7 +131,6 @@
 "follow_us" = "Contacta con nós";
 "email_error_body" = "Non se configurou o cliente de correo electrónico. Configúreo ou @contáctar en %@";
 "email_error_title" = "Erro de envío de correo";
-"pref_calibration_title" = "Calibración do compás";
 "long_tap_toast" = "Volva pulsar prolongadamente sobre o mapa para ver a interface";
 "downloader_update_all_button" = "Actualizar todos";
 "downloader_downloaded_subtitle" = "Descargado";

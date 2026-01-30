@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "S'ha produït un error en enviar el correu";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibratge de la brúixola";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Toqueu llargament el mapa de nou per veure la interfície";
 
@@ -1098,3 +1095,4 @@
 "editor_place_doesnt_exist_description" = "Descriu com és el lloc ara mateix per enviar una nota d'error a la comunitat d'OpenStreetMap";
 "avoid_steps" = "Evita escales";
 "avoid_paved" = "Evita carreteres asfaltades";
+"limit_map_language_alternatives_to_local" = "Fes servir altres idiomes del sistema només en la seua regió";

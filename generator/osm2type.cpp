@@ -1,7 +1,6 @@
 #include "generator/osm2type.hpp"
 
 #include "generator/osm2meta.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_element_helpers.hpp"
 #include "generator/utils.hpp"
 
@@ -12,6 +11,7 @@
 #include "indexer/feature_impl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 
@@ -362,9 +362,20 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
 {
   // Prevents types, that either have subtypes or are subtypes, from being removed
   auto subtypes = ftypes::Subtypes::Instance();
-  auto const hasSubtypeRelatedTypes = [subtypes](auto const & lhs, auto const & rhs)
+  auto const areSubtypeRelatedTypes = [subtypes](auto const & lhs, auto const & rhs)
   {
-    return subtypes.IsPathOfTypeWithSubtypesOrSubtype(lhs) || subtypes.IsPathOfTypeWithSubtypesOrSubtype(rhs);
+    return subtypes.IsTypeWithSubtypesOrSubtype(lhs) && subtypes.IsTypeWithSubtypesOrSubtype(rhs);
+  };
+  auto const isBetterBecauseOfSubtypeRelation = [subtypes](auto const & lhs, auto const & rhs) -> std::optional<bool>
+  {
+    bool const lhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(lhs);
+    bool const rhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(rhs);
+    if (lhsIsTypeWithSubtypesOrSubtype && !rhsIsTypeWithSubtypesOrSubtype)
+      return true;
+    else if (!lhsIsTypeWithSubtypesOrSubtype && rhsIsTypeWithSubtypesOrSubtype)
+      return false;
+
+    return subtypes.ComparisonResultBasedOnTypeRelation(lhs, rhs);
   };
 
   auto const equalPrefix = [](auto const & lhs, auto const & rhs)
@@ -373,8 +384,12 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
     return equal(lhs.begin(), lhs.begin() + std::min(size_t(2), prefixSz), rhs.begin());
   };
 
-  auto const isBetter = [&equalPrefix](auto const & lhs, auto const & rhs)
+  auto const isBetter = [&equalPrefix, &isBetterBecauseOfSubtypeRelation](auto const & lhs, auto const & rhs)
   {
+    std::optional<bool> const isBetterBecauseOfSubtypeRelationResult = isBetterBecauseOfSubtypeRelation(lhs, rhs);
+    if (isBetterBecauseOfSubtypeRelationResult.has_value())
+      return isBetterBecauseOfSubtypeRelationResult.value();
+
     if (equalPrefix(lhs, rhs))
     {
       // Longest type is better.
@@ -385,17 +400,14 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
     return lhs < rhs;
   };
 
-  // `true` means it will be deleted, because being equal means it isn't unique
-  auto const isEqual = [&equalPrefix, &hasSubtypeRelatedTypes](auto const & lhs, auto const & rhs)
+  // `true` means the second one will be removed, because being equal means it isn't unique and the first one is more important
+  auto const isEqual = [&equalPrefix, &areSubtypeRelatedTypes](auto const & lhs, auto const & rhs)
   {
-    if (hasSubtypeRelatedTypes(lhs, rhs))
-      return false;
-    
     if (equalPrefix(lhs, rhs))
     {
-      // Keep longest type only, so return equal is true.
+      // Keep longest type only
       if (lhs.size() != rhs.size())
-        return true;
+        return !areSubtypeRelatedTypes(lhs, rhs);
 
       return lhs == rhs;
     }

@@ -1,13 +1,23 @@
-name: process_subways
+name: compare_subways
 on:
   workflow_dispatch: # Manual trigger
+    inputs:
+      subways-branch:
+        description: 'Check out a different subways repo branch?'
+        required: true
+        type: string
+        default: master
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: '0 0 * * *'
 
 env:
-  PLANET: /home/planet/planet/planet.o5m
-  TMPDIR: /tmp
+  #PLANET: /home/planet/planet/planet-latest.pbf
+  #TMPDIR: /tmp
   HTML_DIR: "/mnt/4tbexternal/osm-planet/subway/validator"
-  DUMP: "$HTML_DIR"
-  SKIP_PLANET_UPDATE: "1"
+  #DUMP: "$HTML_DIR"
+  #SKIP_PLANET_UPDATE: "1"
+  SPREADSHEET_ID: "1SEW1-NiNOnA2qDwievcxYV1FOaQl1mb1fdeyqAxHu3k"
   DEBIAN_FRONTEND: nonnteractive
   TZ: Etc/UTC
 
@@ -22,20 +32,69 @@ jobs:
       volumes:
         - /mnt/4tbexternal:/mnt/4tbexternal
     concurrency:
-      group: ${{ github.workflow }}-process-subways-${{ github.event.pull_request.number || github.ref }}
+      group: ${{ github.workflow }}-compare-subways-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
       - uses: actions/cache@v4
         with:
           path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
+          key: cache-${{ github.run_id }}-${{ github.run_attempt }}}
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          cd ~
+          git clone --depth 1 -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+          # --recurse-submodules --shallow-submodules
       - name: Checkout subways repo
         shell: bash
         run: |
           cd ~
-          git clone --depth 1 --single-branch https://codeberg.org/comaps/subways.git
+          git clone --depth 1 -b ${{ inputs.subways-branch }} --single-branch https://codeberg.org/comaps/subways.git
+
+  update-planet-pbf:
+    name: Update PBF Planet
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-compare-subways-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Download Planet File if Absent
+        shell: bash
+        # TODO: replace wget2 with curl -Z
+        run: |
+          if [ ! -d /home/planet/planet/ ]; then
+          mkdir -p /home/planet/planet/
+          fi
+          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
+          cd /home/planet/planet/
+          wget2 --verbose --progress=bar --continue https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf
+          else
+          echo "planet-latest.osm.pbf was found, raw download not required."
+          fi
+      - name: Update PBF Planet
+        shell: bash
+        run: |
+          cd /home/planet/planet/
+          rm -f planet-latest-new.osm.pbf
+          pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -v --size 16384
+          mv planet-latest-new.osm.pbf planet-latest.osm.pbf
+      - name: Notify Zulip
+        run: |
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=PBF planet update is done!'
 
   update-planet-o5m:
+    if: false
     name: Update O5M Planet
     runs-on: mapfilemaker
     container:
@@ -44,7 +103,7 @@ jobs:
         - /mnt/4tbexternal/:/mnt/4tbexternal/
         - /mnt/4tbexternal/osm-planet:/home/planet
     concurrency:
-      group: ${{ github.workflow }}-process-subways-${{ github.event.pull_request.number || github.ref }}
+      group: ${{ github.workflow }}-compare-subways-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
       - name: Check for O5M Planet File
@@ -82,9 +141,8 @@ jobs:
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=O5M planet update is done!'
 
-  update-subways:
-    if: inputs.run-subways
-    name: Update Subways
+  compare-subways:
+    name: Compare Subways
     runs-on: mapfilemaker
     needs:
       - clone-repos
@@ -94,31 +152,19 @@ jobs:
         - /mnt/4tbexternal/:/mnt/4tbexternal/
         - /mnt/4tbexternal/osm-planet:/home/planet
     concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      group: ${{ github.workflow }}-compare-subways-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
       - uses: actions/cache@v4
         with:
           path: "~"
           key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Update Subways
+      - name: Compare Subways
         shell: bash
         run: |
           cd ~/comaps/
           cp tools/unix/maps/settings.sh.prod tools/unix/maps/settings.sh
           ./tools/unix/maps/generate_subways.sh
-      - name: Compare with VK validation
-        shell: bash
-        run: |
-          cd ~/subways
-          if [ -f "$HTML_DIR/index.html" ]; then
-            echo "Comparing local validation with VK's validation..."
-            python3 ./scripts/compare_html_validation.py "$HTML_DIR/index.html" \
-              --vk-url "https://maps.vk.com/osm/tools/subways/latest/index.html"
-          else
-            echo "Local index.html not found at $HTML_DIR/index.html"
-            exit 1
-          fi
       - name: Notify Zulip
         run: |
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \
@@ -127,3 +173,47 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=Subways are done!'
+      - name: Compare with VK validation
+        shell: bash
+        run: |
+          set -e
+          cd ~/subways
+          if [ -f "$HTML_DIR/cities.txt" ]; then
+            echo "Comparing local validation with VK's validation..."
+            python3 ./scripts/compare_html_validation.py "$HTML_DIR/cities.txt" \
+              --remote-url "https://maps.vk.com/osm/tools/subways/latest/cities.txt"
+          else
+            echo "Local cities.txt not found at $HTML_DIR/cities.txt"
+            exit 1
+          fi
+      - name: Compare Google Sheets Data
+        shell: bash
+        run: |
+          set -e
+
+          # Download the Google Sheets data
+          GOOGLE_SHEETS_URL="https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/export?format=csv"
+          echo "Downloading Google Sheets data from: $GOOGLE_SHEETS_URL"
+          curl -sL "$GOOGLE_SHEETS_URL" -o /tmp/google_sheets.csv
+
+          # Normalize line endings to avoid spurious diffs
+          sed 's/\r$//' source_data/Rapid.csv > /tmp/local_normalized.csv
+          sed 's/\r$//' /tmp/google_sheets.csv > /tmp/google_normalized.csv
+
+          # Generate unified diff
+          echo ""
+          echo "Differences between local Rapid.csv and Google Sheets:"
+          echo ""
+
+          if diff -u /tmp/local_normalized.csv /tmp/google_normalized.csv > /tmp/full_diff.txt; then
+            echo "No differences found! Local Rapid.csv is in sync with Google Sheets."
+            exit 0
+          else
+            cat /tmp/full_diff.txt
+
+            echo ""
+            echo "The above diff can be saved as a patch and applied with:"
+            echo "  patch source_data/Rapid.csv < patch-file"
+            echo "or by manually reviewing and applying the changes."
+            exit 1
+          fi

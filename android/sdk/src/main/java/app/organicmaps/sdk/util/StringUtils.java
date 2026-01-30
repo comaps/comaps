@@ -91,6 +91,42 @@ public class StringUtils
  == Character.DIRECTIONALITY_RIGHT_TO_LEFT;
   }
 
+  /**
+   * Formats an MWM version number (YYMMDD) into a locale-friendly short date string.
+   * Examples: "12/31/25" (US), "31/12/25" (UK/EU), "25/12/31" (Japan)
+   *
+   * @param version version in YYMMDD format (e.g., 251231 for Dec 31, 2025)
+   * @return formatted date string in locale's short format, or empty string if version is invalid
+   */
+  @NonNull
+  public static String formatMwmVersion(long version)
+  {
+    if (version <= 0)
+      return "";
+    try
+    {
+      String v = String.valueOf(version);
+      // Pad with leading zeros if needed (e.g., 10101 -> 010101)
+      while (v.length() < 6)
+        v = "0" + v;
+
+      int year = Integer.parseInt(v.substring(0, 2));
+      int month = Integer.parseInt(v.substring(2, 4));
+      int day = Integer.parseInt(v.substring(4, 6));
+
+      // Convert 2-digit year to full year (00-99 -> 2000-2099)
+      java.util.Calendar cal = java.util.Calendar.getInstance();
+      cal.set(2000 + year, month - 1, day);
+
+      java.text.DateFormat df = java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT);
+      return df.format(cal.getTime());
+    }
+    catch (Exception e)
+    {
+      return "";
+    }
+  }
+
   @NonNull
   public static String toLowerCase(@NonNull String string)
   {

@@ -81,10 +81,12 @@ public:
 
   MwmTypeT GetType() const;
 
+  // Switch to following simplified code after this pull request has been included in one release:
+  // feature::RegionData GetRegionData() const { return m_data; }
   feature::RegionData GetRegionData() const {
     auto regionData = m_data;
     if (GetType() == MwmTypeT::WORLD || GetType() == MwmTypeT::COASTS) {
-      regionData.SetLanguages({"int_name","en","default"});
+      regionData.SetLanguages({});
     }
     return regionData;
   }

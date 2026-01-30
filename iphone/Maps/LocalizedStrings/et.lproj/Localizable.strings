@@ -60,16 +60,16 @@
 "add_new_set" = "Lisa uus loend";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Järjehoidjate loendi nimi";
+"bookmark_set_name" = "Loendi nimi";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Järjehoidjate loetelud";
+"bookmark_sets" = "Lemmikute loendid";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Järjehoidjad";
+"bookmarks" = "Asukohad";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Järjehoidjad ja rajad";
+"bookmarks_and_tracks" = "Lemmikud";
 
 /* Default bookmark list name */
 "core_my_places" = "Minu kohad";
@@ -151,16 +151,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Haagiselamud";
-"share_bookmarks_email_body" = "Tere!\n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul on CoMaps paigaldatud. Või kui ei ole, laadi rakendus alla oma iOS või Android seadmesse, järgides seda linki: https:omaps.appget?kmz\n\nNaudi reisimist CoMapsiga!";
+"share_bookmarks_email_body" = "Tere!\n\nManuses on minu salvestatud asukohad rakendusest CoMaps. Kui Sul on CoMaps nutiseadmesse paigaldatud, siis saad neid kohe vaadata. Või kui ei ole, laadi rakendus alla oma iOS või Android seadmesse, järgides seda linki: https:omaps.appget?kmz\n\nNaudi reisimist CoMapsiga!";
 
 /* message title of loading file */
-"load_kmz_title" = "Laadin järjehoidjaid";
+"load_kmz_title" = "Laadin lemmikuid";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Järjehoidjad edukalt laaditud! Leiad need kaardil või järjehoidjate halduri vaates.";
+"load_kmz_successful" = "Lemmikute laadimine õnnestus! Leiad need kaardilt või lemmikute halduri vaates.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Järjehoidjate laadimine ei õnnestunud. Fail võib olla vigane.";
+"load_kmz_failed" = "Lemmikute laadimine ei õnnestunud. Fail võib olla vigane.";
 
 /* resource for context menu */
 "edit" = "Muuda";
@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Viga teate saatmisel";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompassi kalibreerimine";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Kasutajaliidese nägemiseks vajuta kaarti pikalt";
 
@@ -386,7 +383,7 @@
 "routing_requires_all_map" = "Teekonna koostamiseks on meil vaja alla laadida ja värskendada kõiki sinu lähte- ja sihtkoha vahele jäävaid kaarte.";
 
 /* bookmark button text */
-"bookmark" = "järjehoidja";
+"bookmark" = "asukoht";
 "save" = "Salvesta";
 "create" = "loo";
 
@@ -674,10 +671,10 @@
 "placepage_more_button" = "Veel";
 "book_button" = "Reserveeri";
 "placepage_call_button" = "Helista";
-"placepage_edit_bookmark_button" = "Muuda järjehoidjat";
-"placepage_bookmark_name_hint" = "Järjehoidja nimi";
+"placepage_edit_bookmark_button" = "Muuda salvestatud asukohta";
+"placepage_bookmark_name_hint" = "Asukoha nimi";
 "placepage_personal_notes_hint" = "Isiklikud märkmed (tekst või html)";
-"placepage_delete_bookmark_button" = "Kustuta järjehoidja";
+"placepage_delete_bookmark_button" = "Kustuta asukoht";
 "editor_edits_sent_message" = "Sinu märkus saadetakse OpenStreetMapile";
 "editor_comment_hint" = "Kommenteeri…";
 "editor_reset_edits_message" = "Kas loobud kõigist kohalikest muudatustest?";
@@ -765,7 +762,7 @@
 "bookmarks_create_new_group" = "Loo uus loend";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Impordi järjehoidjaid ja radasid";
+"bookmarks_import" = "Impordi lemmikuid";
 "downloader_hide_screen" = "Peida vaade";
 "downloader_percent" = "%@ (%@ / %@)";
 "downloader_process" = "Allalaadimisel %@…";
@@ -997,7 +994,7 @@
 "button_layer_outdoor" = "Matkamine";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Ekspordi kõik järjehoidjad ja rajad";
+"bookmarks_export" = "Ekspordi kõik lemmikud";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Muuda värvi";
@@ -1082,7 +1079,7 @@
 "continue_recording" = "Jätka salvestamist";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Kas salvestame järjehoidjatesse ja radadesse?";
+"track_recording_alert_title" = "Kas salvestame lemmikute loendisse?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Rada on tühi - ei ole midagi salvestada";
@@ -1104,3 +1101,4 @@
 "voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Räägitav sisu* → *Hääled*.";
 "voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Lugemine ja rääkimine* → *Hääled*.";
 "avoid_paved" = "Väldi sillutatud teid";
+"limit_map_language_alternatives_to_local" = "Kasuta vaid oma piirkonna süsteemi keeli";

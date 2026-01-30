@@ -275,12 +275,6 @@
     <string name="downloader_delete_map">Térkép törlése</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Térkép frissítése</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused helymeghatározási szolgáltatás</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Egy saját fejlesztésű szolgáltatás, amely GPS, Wi-Fi, mobilhálózatok stb. segítségével pontosabban határozza meg a felhasználó tartózkodási helyét. Kapcsolatba léphet a Google kiszolgálóival.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Összes térkép letöltése az útvonal mentén</string>
     <!-- Text for routing error dialog -->

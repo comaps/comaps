@@ -152,8 +152,6 @@
     <string name="downloader_retry">Pokušaj ponovo</string>
     <string name="downloader_delete_map">Obriši mapu</string>
     <string name="downloader_update_map">Ažuriraj mapu</string>
-    <string name="google_play_services">Google Fused lokacijski servis</string>
-    <string name="pref_use_google_play">Usluga lokacije koja kombinuje GPS, Wi-Fi, mobilnu mrežu i druge podatke kako bi se lokacija otkrila što je preciznije. Takođe se možete povezati sa Google serverima.</string>
     <string name="routing_download_maps_along">Preuzmi sve mape koje se nalaze na ruti</string>
     <string name="routing_requires_all_map">Da bi ruta mogla da se kreira, potrebno je da preuzimanje i ažuriranje svih mapa između vaše lokacije i vašeg odredišta.</string>
     <string name="routing_not_enough_space">Nema dovoljno prostora</string>

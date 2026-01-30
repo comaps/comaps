@@ -167,13 +167,13 @@ import AVFoundation
     }
     
     
-    /// If the compass should be calibrated
-    @objc static var shouldCalibrateCompass: Bool {
+    /// If the alternative languages for the app only should be used when they are the local native language
+    static var shouldLimitMapLanguageAlternativesToLocal: Bool {
         get {
-            return SettingsBridge.compassCalibrationEnabled()
+            return SettingsBridge.mapLanguageLimitAlternativesToLocal()
         }
         set {
-            SettingsBridge.setCompassCalibrationEnabled(newValue)
+            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue)
         }
     }
     
@@ -186,7 +186,7 @@ import AVFoundation
                 return mapAppearance
             }
             
-            return .auto
+            return .light
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: userDefaultsKeyMapAppearance)

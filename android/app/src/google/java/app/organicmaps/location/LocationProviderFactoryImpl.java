@@ -21,14 +21,14 @@ public class LocationProviderFactoryImpl implements LocationProviderFactory
 
   public BaseLocationProvider getProvider(@NonNull Context context, @NonNull BaseLocationProvider.Listener listener)
   {
-    if (isGoogleLocationAvailable(context) && Config.useGoogleServices())
+    if (isGoogleLocationAvailable(context))
     {
-      Logger.d(TAG, "Use google provider.");
+      Logger.d(TAG, "Using fused location provider");
       return new GoogleFusedLocationProvider(context, listener);
     }
     else
     {
-      Logger.d(TAG, "Use native provider");
+      Logger.d(TAG, "Using native location provider");
       return new AndroidNativeProvider(context, listener);
     }
   }

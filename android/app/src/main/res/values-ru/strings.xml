@@ -72,7 +72,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Метки</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Метки и треки</string>
+    <string name="bookmarks_and_tracks">Избранное</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Название</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -282,12 +282,6 @@
     <string name="downloader_delete_map">Удалить карту</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Обновить карту</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Службы определения местоположения в Google Fused</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Проприетарный сервис, объединяющий GPS, Wi-Fi, мобильные сети и т. д., для определения местоположения с большей точностью. Он может подключатся к серверам Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Загрузите все карты по пути следования</string>
     <!-- Text for routing error dialog -->

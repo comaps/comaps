@@ -195,7 +195,7 @@ static NSString *const kDefaultAlertNibName = @"MWMDefaultAlert";
 
 + (instancetype)disabledLocationAlert {
   MWMVoidBlock action = ^{
-    GetFramework().SwitchMyPositionNextMode();
+    GetFramework().StartPendingPositionMode();
   };
   return [self defaultAlertWithTitle:L(@"dialog_routing_location_turn_on")
                              message:L(@"dialog_routing_location_unknown_turn_on")

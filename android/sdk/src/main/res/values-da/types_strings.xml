@@ -24,13 +24,13 @@
     <string name="type.amenity.motorcycle_rental">Motorcykeludlejning</string>
     <string name="type.amenity.car_sharing">Delebiler</string>
     <string name="type.amenity.car_wash">Bilvask</string>
-    <string name="type.amenity.casino">Spillehal</string>
-    <string name="type.amenity.gambling">Gambling</string>
+    <string name="type.amenity.casino">Casino</string>
+    <string name="type.amenity.gambling">Spil</string>
     <string name="type.leisure.adult_gaming_centre">Spillehal for voksne</string>
     <string name="type.leisure.amusement_arcade">Arkadespil</string>
     <string name="type.amenity.charging_station">Ladestation</string>
-    <string name="type.amenity.charging_station.bicycle">Ladestation til elcykler</string>
-    <string name="type.amenity.charging_station.motorcar">Ladestation til elbiler</string>
+    <string name="type.amenity.charging_station.bicycle">Elcykler</string>
+    <string name="type.amenity.charging_station.motorcar">Biler</string>
     <string name="type.amenity.childcare">Vuggestue</string>
     <string name="type.amenity.cinema">Biograf</string>
     <string name="type.leisure.bowling_alley">Bowlinghal</string>
@@ -106,7 +106,7 @@
     <string name="type.amenity.place_of_worship.muslim">Moske</string>
     <string name="type.amenity.place_of_worship.shinto">Shinto-tempel</string>
     <string name="type.amenity.place_of_worship.taoist">Taoistisk tempel</string>
-    <string name="type.amenity.police">Politi</string>
+    <string name="type.amenity.police">Politistation</string>
     <string name="type.amenity.post_box">Postkasse</string>
     <string name="type.amenity.post_office">Posthus</string>
     <string name="type.amenity.prison">Fængsel</string>
@@ -218,7 +218,7 @@
     <string name="type.cuisine.caribbean">Caribisk</string>
     <string name="type.cuisine.chicken">Kylling</string>
     <string name="type.cuisine.chinese">Kinesisk</string>
-    <string name="type.cuisine.coffee_shop">Kaffe</string>
+    <string name="type.cuisine.coffee_shop">Kaffebar</string>
     <string name="type.cuisine.crepe">Crepes</string>
     <string name="type.cuisine.croatian">Kroatisk</string>
     <string name="type.cuisine.curry">Karryretter</string>
@@ -544,8 +544,8 @@
     <string name="type.leisure.playground">Legeplads</string>
     <string name="type.leisure.sauna">Sauna</string>
     <string name="type.leisure.sports_centre">Idrætscenter</string>
-    <string name="type.sport.climbing">Klatrecenter</string>
-    <string name="type.sport.yoga">Yoga center</string>
+    <string name="type.sport.climbing">Klatring</string>
+    <string name="type.sport.yoga">Yoga</string>
     <string name="type.leisure.swimming_pool">Svømmebassin</string>
     <string name="type.leisure.swimming_pool.private">Svømmebassin</string>
     <string name="type.leisure.water_park">Vandpark</string>
@@ -554,9 +554,9 @@
     <string name="type.man_made.surveillance">Overvågningskamera</string>
     <string name="type.man_made.tower">Tårn</string>
     <!-- A huge telecommunications tower. Often a local monument or a landmark. -->
-    <string name="type.man_made.communications_tower">Kommunikationstårn</string>
+    <string name="type.man_made.communications_tower">TV-tårn</string>
     <!-- A regular telecommunications tower / mast. -->
-    <string name="type.man_made.tower.communication">Kommunikationstårn</string>
+    <string name="type.man_made.tower.communication">Antennetårn</string>
     <!-- A deep hole drilled into the earth to extract oil or gas. -->
     <string name="type.man_made.petroleum_well">Olie- eller gasbrønd</string>
     <!-- A tower/mast constructed to burn off excess gas. -->
@@ -569,19 +569,19 @@
     <string name="type.man_made.windmill">Vindmølle</string>
     <string name="type.natural">Natur</string>
     <!-- A rocky land cover. -->
-    <string name="type.natural.bare_rock">Blottet klippe</string>
+    <string name="type.natural.bare_rock">Klippelandskab</string>
     <!-- A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. -->
     <string name="type.natural.shingle">Småsten</string>
     <!-- A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. -->
     <string name="type.natural.scree">Stenet skrænt</string>
     <string name="type.natural.bay">Bugt</string>
     <string name="type.natural.beach">Strand</string>
-    <string name="type.natural.beach.sand">Sandet strand</string>
-    <string name="type.natural.beach.gravel">Grus Strand</string>
-    <string name="type.natural.cape">Tange</string>
+    <string name="type.natural.beach.sand">Sandstrand</string>
+    <string name="type.natural.beach.gravel">Grusstrand</string>
+    <string name="type.natural.cape">Landtange</string>
     <string name="type.natural.cave_entrance">Hule</string>
     <string name="type.natural.cliff">Klippe</string>
-    <string name="type.natural.earth_bank">Jordbanken</string>
+    <string name="type.natural.earth_bank">Jordskrænt</string>
     <string name="type.man_made.embankment">Vold</string>
     <string name="type.natural.coastline">Kyst</string>
     <string name="type.natural.desert">Ørken</string>
@@ -591,10 +591,10 @@
     <string name="type.natural.heath">Hede</string>
     <string name="type.natural.hot_spring">Varm kilde</string>
     <string name="type.natural.water.lake">Sø</string>
-    <string name="type.natural.water.lock">Låsekammer</string>
+    <string name="type.natural.water.lock">Slusekammer</string>
     <string name="type.natural.water.pond">Dam</string>
     <string name="type.natural.water.reservoir">Reservoir</string>
-    <string name="type.natural.water.basin">Vandbassin</string>
+    <string name="type.natural.water.basin">Bassin</string>
     <string name="type.natural.water.river">Flod</string>
     <string name="type.natural.land">Land</string>
     <string name="type.natural.meadow">Eng</string>
@@ -614,18 +614,18 @@
     <string name="type.natural.wetland.bog">Mose</string>
     <string name="type.natural.wetland.marsh">Marsk</string>
     <string name="type.office">Kontor</string>
-    <string name="type.office.company">Selskabskontor</string>
+    <string name="type.office.company">Firmakontor</string>
     <string name="type.office.estate_agent">Ejendomsmægler</string>
     <string name="type.office.government">Regeringskontor</string>
     <string name="type.office.insurance">Forsikringskontor</string>
     <string name="type.office.lawyer">Advokatkontor</string>
     <string name="type.office.ngo">NGO-kontor</string>
-    <string name="type.office.telecommunication">Mobiloperatør</string>
+    <string name="type.office.telecommunication">Telekommunikationsfirma</string>
     <string name="type.place.city">By</string>
     <string name="type.place.city.capital">Kapital</string>
     <string name="type.place.city.capital.10">By</string>
     <string name="type.place.city.capital.11">By</string>
-    <string name="type.place.city.capital.2">Kapital</string>
+    <string name="type.place.city.capital.2">Hovedstad</string>
     <string name="type.place.city.capital.3">By</string>
     <string name="type.place.city.capital.4">By</string>
     <string name="type.place.city.capital.5">By</string>
@@ -646,10 +646,10 @@
     <string name="type.place.quarter">Kvarter</string>
     <!-- Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) -->
     <string name="type.place.neighbourhood">Nabolag</string>
-    <string name="type.place.ocean">Verdenshave</string>
+    <string name="type.place.ocean">Ocean</string>
     <string name="type.place.region">Region</string>
     <string name="type.place.sea">Hav</string>
-    <string name="type.place.square">Torv</string>
+    <string name="type.place.square">Plads</string>
     <string name="type.place.state">Stat</string>
     <string name="type.place.state.USA">Stat</string>
     <!-- Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) -->
@@ -658,7 +658,7 @@
     <string name="type.place.village">Landsby</string>
     <string name="type.power.generator.solar">Solar generator</string>
     <string name="type.power.generator.wind">Vindgenerator</string>
-    <string name="type.power.generator.gas">Gasturbine kraftværk</string>
+    <string name="type.power.generator.gas">Gasturbine</string>
     <string name="type.power.generator.hydro">Vandkraftværk</string>
     <string name="type.power.plant">Kraftværk</string>
     <string name="type.power.plant.coal">Kulkraftværk</string>
@@ -668,8 +668,8 @@
     <string name="type.power.plant.wind">Vindkraftværk</string>
     <string name="type.power.substation">Transformerstation</string>
     <!-- A tower or pylon carrying high voltage electricity cables. -->
-    <string name="type.power.tower">El-pol</string>
-    <string name="type.railway.funicular">Funicular</string>
+    <string name="type.power.tower">Elpylon</string>
+    <string name="type.railway.funicular">Kabelbane</string>
     <string name="type.railway.halt">Togstation</string>
     <string name="type.railway.level_crossing">Jernbaneoverskæring</string>
     <string name="type.railway.monorail">Enskinnebane</string>
@@ -1027,7 +1027,7 @@
     <string name="type.shop.antiques">Antikvitetsbutik</string>
     <string name="type.shop.appliance">Hvidevareforretning</string>
     <!-- maybe change to Art Gallery for en-US when supported -->
-    <string name="type.shop.art">Kunstbutik</string>
+    <string name="type.shop.art">Kunsthandler</string>
     <string name="type.shop.baby_goods">Børnebutik</string>
     <string name="type.shop.bag">Taskebutik</string>
     <string name="type.shop.bed">Sengebutik</string>
@@ -1042,7 +1042,7 @@
     <string name="type.shop.lottery">Lottobutik</string>
     <string name="type.shop.medical_supply">Medicinaludstyrsforhandler</string>
     <string name="type.shop.nutrition_supplements">Kosttilskudsbutik</string>
-    <string name="type.shop.paint">Malerbutik</string>
+    <string name="type.shop.paint">Malingbutik</string>
     <string name="type.shop.perfumery">Parfumeri</string>
     <string name="type.shop.sewing">Sybutik</string>
     <string name="type.shop.storage_rental">Lagerudlejning</string>
@@ -1066,17 +1066,17 @@
     <string name="type.sport.handball">Håndbold</string>
     <string name="type.sport.multi">Forskellige sportsgrene</string>
     <!-- Used to tag a scuba diving site. -->
-    <string name="type.sport.scuba_diving">Scuba dykning</string>
+    <string name="type.sport.scuba_diving">Dykning</string>
     <string name="type.sport.shooting">Skydning</string>
     <string name="type.sport.skateboard">Skateboarding</string>
-    <string name="type.sport.skiing">Stå på ski</string>
+    <string name="type.sport.skiing">Ski</string>
     <string name="type.sport.soccer">Fodbold</string>
     <string name="type.sport.swimming">Svømning</string>
     <string name="type.sport.table_tennis">Bordtennis</string>
     <string name="type.sport.tennis">Tennisbane</string>
     <string name="type.sport.volleyball">Volleyball</string>
     <string name="type.sport.10pin">Bowling</string>
-    <string name="type.sport.9pin">Bowling</string>
+    <string name="type.sport.9pin">Kejler</string>
     <string name="type.sport.padel">Padel</string>
     <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.ice_hockey">Ishockey</string>
@@ -1088,10 +1088,10 @@
     <string name="type.tourism.alpine_hut">Bjerghytte</string>
     <string name="type.tourism.apartment">Ferielejlighed</string>
     <string name="type.tourism.artwork">Kunstværk</string>
-    <string name="type.tourism.artwork.architecture">Kunstværk</string>
+    <string name="type.tourism.artwork.architecture">Arkitektur</string>
     <string name="type.tourism.artwork.painting">Kunstværk</string>
-    <string name="type.tourism.artwork.sculpture">Kunstværk</string>
-    <string name="type.tourism.artwork.statue">Kunstværk</string>
+    <string name="type.tourism.artwork.sculpture">Skulptur</string>
+    <string name="type.tourism.artwork.statue">Statue</string>
     <string name="type.tourism.attraction">Attraktioner</string>
     <string name="type.attraction.amusement_ride">Forlystelse</string>
     <string name="type.attraction.animal">Indhegning til dyr</string>
@@ -1103,8 +1103,8 @@
     <string name="type.tourism.attraction.specified">Attraktioner</string>
     <string name="type.tourism.caravan_site">Autocamperplads</string>
     <!-- A rentable countryside vacation house. -->
-    <string name="type.tourism.chalet">Feriehus</string>
-    <string name="type.tourism.gallery">Kunstgalleri</string>
+    <string name="type.tourism.chalet">Feriehytte</string>
+    <string name="type.tourism.gallery">Galleri</string>
     <string name="type.tourism.guest_house">Gæstehus</string>
     <string name="type.tourism.information">Turistinformation</string>
     <string name="type.tourism.information.board">Informationstavle</string>
@@ -1112,19 +1112,19 @@
     <string name="type.tourism.information.map">Turistkort</string>
     <string name="type.tourism.information.office">Turistkontor</string>
     <string name="type.tourism.information.visitor_centre">Besøgscenter</string>
-    <string name="type.tourism.picnic_site">Picnic</string>
+    <string name="type.tourism.picnic_site">Madpakkested</string>
     <string name="type.tourism.theme_park">Forlystelsespark</string>
     <string name="type.tourism.viewpoint">Udsigtspunkt</string>
     <!-- Typically more basic, not staffed and free (compared to alpine_hut). -->
     <string name="type.tourism.wilderness_hut">Vildmarkshytte</string>
-    <string name="type.tourism.zoo.petting">Petting Zoo</string>
+    <string name="type.tourism.zoo.petting">Kælezoo</string>
     <string name="type.waterway.canal">Kanal</string>
     <string name="type.waterway.canal.tunnel">Kanal</string>
     <string name="type.waterway.fish_pass">Fiskestige</string>
     <string name="type.natural.water.ditch">Afvandingsgrøft</string>
     <string name="type.waterway.ditch.tunnel">Kulvert</string>
-    <string name="type.waterway.drain.tunnel">Kulvert</string>
-    <string name="type.waterway.lock_gate">Låseport</string>
+    <string name="type.waterway.drain.tunnel">Underføring</string>
+    <string name="type.waterway.lock_gate">Sluseport</string>
     <string name="type.waterway.river">Flod</string>
     <string name="type.waterway.river.tunnel">Flod</string>
     <string name="type.waterway.stream">Flod</string>
@@ -1132,9 +1132,9 @@
     <string name="type.waterway.stream.intermittent">Flod</string>
     <string name="type.waterway.stream.tunnel">Flod</string>
     <string name="type.waterway.waterfall">Vandfald</string>
-    <string name="type.wheelchair.limited">Begrænset tilgængelighed for kørestol</string>
-    <string name="type.wheelchair.no">Ingen tilgængelighed for kørestol</string>
-    <string name="type.wheelchair.yes">Fuld tilgængelighed for kørestol</string>
+    <string name="type.wheelchair.limited">Begrænset kørestolstilgængelighed</string>
+    <string name="type.wheelchair.no">Ingen kørestolstilgængelighed</string>
+    <string name="type.wheelchair.yes">Fuld kørestolstilgængelighed</string>
     <string name="type.piste_type.snow_park">Snepark</string>
     <string name="type.piste_type.hike">Vandresti i sne</string>
     <string name="type.piste_type.connection">Pisteforbindelse</string>
@@ -1183,7 +1183,7 @@
     <string name="type.aeroway">Luftrumsinfrastruktur</string>
     <string name="type.aerialway.gondola">Gondol</string>
     <string name="type.recycling.cans">Dåser</string>
-    <string name="type.amenity.sanitary_dump_station">Tømning af kemisk toilet</string>
+    <string name="type.amenity.sanitary_dump_station">Bortskaffelse af sanitæraffald</string>
     <string name="type.amenity.shelter">Ly</string>
     <string name="type.amenity.shelter.public_transport">Læskur</string>
     <string name="type.amenity.shelter.lean_to">Shelter</string>
@@ -1309,7 +1309,7 @@
     <string name="type.shop.bookmaker">Væddemålsagent</string>
     <string name="type.shop.caravan">Autocamperforhandler</string>
     <string name="type.shop.kiosk">Kiosk</string>
-    <string name="type.sport.bowls">Bowls</string>
+    <string name="type.sport.bowls">Kugler</string>
     <string name="type.sport.cricket">Cricket</string>
     <string name="type.tourism">Turisme</string>
     <string name="type.attraction.bumper_car">Radiobil</string>
@@ -1319,7 +1319,7 @@
     <string name="type.tourism.hotel">Hotel</string>
     <string name="type.tourism.motel">Motel</string>
     <string name="type.tourism.museum">Museum</string>
-    <string name="type.leisure.resort">Ferieområde</string>
+    <string name="type.leisure.resort">Feriecenter</string>
     <string name="type.tourism.zoo">Zoologisk have</string>
     <string name="type.traffic_calming">Trafiksanering</string>
     <string name="type.traffic_calming.hump">Vejbump</string>
@@ -1358,7 +1358,7 @@
     <string name="type.leisure.firepit">Bålplads</string>
     <string name="type.man_made.crane">Kran</string>
     <string name="type.barrier.guard_rail">Autoværn</string>
-    <string name="type.amenity.studio">Medie-studio</string>
+    <string name="type.amenity.studio">Medie-studie</string>
     <string name="type.power.generator">Strømgenerator</string>
     <string name="type.power">Strøm</string>
     <string name="type.power.line.underground">Underjordisk strømledning</string>
@@ -1370,10 +1370,10 @@
     <string name="type.post_office.post_partner">Pakkeshop</string>
     <string name="type.natural.wetland.swamp">Sump</string>
     <string name="type.amenity.luggage_locker">Bagageskab</string>
-    <string name="type.natural.wetland.saltmarsh">Strandeng</string>
-    <string name="type.natural.wetland.saltmarsh.tidal">Tidevandspåvirket strandeng</string>
+    <string name="type.natural.wetland.saltmarsh">Forland</string>
+    <string name="type.natural.wetland.saltmarsh.tidal">Vade</string>
     <string name="type.natural.wetland.mangrove">Mangrove</string>
-    <string name="type.natural.wetland.tidalflat">Tidevandsflade</string>
+    <string name="type.natural.wetland.tidalflat">Vade</string>
     <string name="type.man_made.utility_pole">Lygtepæl</string>
     <string name="type.leisure.escape_game">Escape Room</string>
     <string name="type.landuse.religious">Religiøs jord</string>
@@ -1385,7 +1385,7 @@
     <string name="type.barrier.wicket_gate">Portlåge</string>
     <string name="type.natural.wetland.reedbed">Rørskov</string>
     <string name="type.shop.lighting">Lysbutik</string>
-    <string name="type.amenity.bench.backless">Bænk</string>
+    <string name="type.amenity.bench.backless">Uden ryglæn</string>
     <string name="type.leisure.sports_centre.sport.multi">Idrætscenter</string>
     <string name="type.leisure.sports_centre.sport.american_football">Idrætscenter</string>
     <string name="type.amenity.car_pooling">Samkørsel</string>
@@ -1410,7 +1410,7 @@
     <string name="type.leisure.sports_centre.sport.swimming">Svømmehal</string>
     <string name="type.social_facility.food_bank">Fødevarebank</string>
     <string name="type.social_facility.soup_kitchen">Suppekøkken</string>
-    <string name="type.amenity.food_sharing">Fødevarerdeling</string>
+    <string name="type.amenity.food_sharing">Fødevarepulje</string>
     <string name="type.amenity.give_box">Bytteboks</string>
     <string name="type.amenity.sailing_school">Sejlerskole</string>
     <string name="type.amenity.flight_school">Flyveskole</string>
@@ -1460,4 +1460,27 @@
     <string name="type.leisure.fitness_centre.sport.yoga">Yogastudie</string>
     <string name="type.leisure.sports_centre.sport.climbing">Klatrehal</string>
     <string name="type.aeroway.gate">Gate</string>
+    <string name="type.amenity.charging_station.small">Begrænset kapacitet</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorcykler</string>
+    <string name="type.emergency.access_point.address">Redningspunkt</string>
+    <string name="type.emergency.disaster_help_point">Nødhjælpspunkt ved katastrofe</string>
+    <string name="type.amenity.hydrant">Kunstvandingshane</string>
+    <string name="type.leisure.sports_centre.sport.padel">Padelcenter</string>
+    <string name="type.man_made.mast.communication">Antennemast</string>
+    <string name="type.natural.wetland.fen">Lavmose</string>
+    <string name="type.railway.miniature">Mini-jernbane</string>
+    <string name="type.railway.miniature.bridge">Mini-jerbanebro</string>
+    <string name="type.railway.miniature.tunnel">Mini-jerbanetunnel</string>
+    <string name="type.railway.turntable">Drejeskive</string>
+    <string name="type.xmas.tree">Juletræ</string>
+    <string name="type.natural.sand">Sand</string>
+    <string name="type.natural.tree">Træ</string>
+    <string name="type.tourism.information.tactile_map">Taktilt kort</string>
+    <string name="type.amenity.ranger_station">Vagtstation</string>
+    <string name="type.sport.diving">Udspring</string>
+    <string name="type.amenity.prep_school">Forberedende skole</string>
+    <string name="type.railway.disused.bridge">Forladt jernbanebro</string>
+    <string name="type.railway.disused.tunnel">Forladt jernbanetunnel</string>
+    <string name="type.shop.beauty.nails">Neglesalon</string>
+    <string name="type.shop.beauty.day_spa">Spabad</string>
 </resources>

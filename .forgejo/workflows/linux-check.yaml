@@ -15,15 +15,15 @@ on:
       - README.md
       - android/**
       - iphone/**
-      - data/strings/**
+      - data/*-strings/**
       - docs/**
       - packaging/**
-      - platform/*apple*
-      - platform/*_android*
-      - platform/*_ios*
-      - platform/*_mac*
-      - platform/*_win*
-      - pyhelpers/**
+      - libs/platform/*apple*
+      - libs/platform/*_android*
+      - libs/platform/*_ios*
+      - libs/platform/*_mac*
+      - libs/platform/*_win*
+      - libs/pyhelpers/**
       - tools/**
       - '!tools/python/test_server/**'
       - xcode/**

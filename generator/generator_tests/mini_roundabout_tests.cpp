@@ -1,7 +1,8 @@
 #include "testing/testing.hpp"
 
 #include "generator/mini_roundabout_transformer.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "coding/point_coding.hpp"
 

@@ -154,7 +154,7 @@
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">Преноћиште / Бивак</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
-    <string name="type.amenity.shelter.lean_to">Склониште типа отворене шупе</string>
+    <string name="type.amenity.shelter.lean_to">Настрешница за спавање</string>
     <string name="type.amenity.public_bath">Јавно купатило</string>
     <string name="type.amenity.shower">Туш</string>
     <string name="type.amenity.stripclub">Стриптиз клуб</string>
@@ -193,7 +193,7 @@
     <string name="type.barrier.chain">Ланац</string>
     <string name="type.barrier.city_wall">Градски зид / Бедем</string>
     <string name="type.barrier.cycle_barrier">Баријера за бицикле</string>
-    <string name="type.waterway.ditch">Канал за дренажу</string>
+    <string name="type.waterway.ditch">Јарак за дренажу</string>
     <string name="type.natural.water.moat">Шанац</string>
     <string name="type.natural.water.wastewater">Отпадна вода</string>
     <string name="type.barrier.entrance">Улаз</string>
@@ -1270,7 +1270,7 @@
     <string name="type.tourism.information.map">Turistička mapa</string>
     <string name="type.tourism.information.office">Turistički biro</string>
     <string name="type.tourism.information.visitor_centre">Центар за посетиоце</string>
-    <string name="type.tourism.motel">Motel</string>
+    <string name="type.tourism.motel">Мотел</string>
     <string name="type.tourism.museum">Muzej</string>
     <string name="type.tourism.picnic_site">Piknik</string>
     <string name="type.leisure.resort">Resort hotel</string>
@@ -1283,26 +1283,26 @@
     <string name="type.traffic_calming">Pešački prelaz</string>
     <string name="type.traffic_calming.bump">Ležeći policajac (grba)</string>
     <string name="type.traffic_calming.hump">Ležeći policajac</string>
-    <string name="type.waterway">Vodeni tok</string>
+    <string name="type.waterway">Водени ток</string>
     <string name="type.waterway.canal">Канал</string>
-    <string name="type.waterway.canal.tunnel">Тунел у каналу</string>
-    <string name="type.waterway.fish_pass">Riblji put</string>
+    <string name="type.waterway.canal.tunnel">Тунел канала</string>
+    <string name="type.waterway.fish_pass">Рибљи пут</string>
     <string name="type.waterway.dam">Брана</string>
     <string name="type.barrier.ditch">Jarak</string>
     <string name="type.natural.water.ditch">Канал</string>
-    <string name="type.waterway.ditch.tunnel">Канал</string>
-    <string name="type.waterway.dock">Prevodnica</string>
-    <string name="type.waterway.drain">Канал</string>
+    <string name="type.waterway.ditch.tunnel">Тунел јарка</string>
+    <string name="type.waterway.dock">Пристаниште</string>
+    <string name="type.waterway.drain">Одвод</string>
     <string name="type.natural.water.drain">Канал</string>
-    <string name="type.waterway.drain.tunnel">Канал</string>
+    <string name="type.waterway.drain.tunnel">Тунел одвода</string>
     <string name="type.waterway.lock_gate">Бродска преводница</string>
-    <string name="type.waterway.river">Reka</string>
-    <string name="type.waterway.river.tunnel">Reka</string>
-    <string name="type.waterway.stream">Potok</string>
-    <string name="type.waterway.stream.ephemeral">Povremeni potok</string>
-    <string name="type.waterway.stream.intermittent">Povremeni potok</string>
-    <string name="type.waterway.stream.tunnel">Potok</string>
-    <string name="type.waterway.waterfall">Vodopad</string>
+    <string name="type.waterway.river">Река</string>
+    <string name="type.waterway.river.tunnel">Тунел реке</string>
+    <string name="type.waterway.stream">Поток</string>
+    <string name="type.waterway.stream.ephemeral">Бујични / повремени ток</string>
+    <string name="type.waterway.stream.intermittent">Сезонски / повремени ток</string>
+    <string name="type.waterway.stream.tunnel">Тунел потока</string>
+    <string name="type.waterway.waterfall">Водопад</string>
     <string name="type.waterway.weir">Брана</string>
     <string name="type.wheelchair">Pristup invalidskim kolicima</string>
     <string name="type.wheelchair.limited">Limitirani pristup invalidskim kolicima</string>
@@ -1337,9 +1337,9 @@
     <string name="type.shop.auction">Аукција</string>
     <string name="type.shop.collector">Kolekcionarstvo</string>
     <string name="type.self_service.yes">Доступно самопослужење</string>
-    <string name="type.self_service.only">Samoposluživanje</string>
+    <string name="type.self_service.only">Искључиво самопослуживање</string>
     <string name="type.self_service.partially">Делимично самопослуживање</string>
-    <string name="type.self_service.no">Nema samoposluživanja</string>
+    <string name="type.self_service.no">Без самопослуживања</string>
     <!-- https://wiki.openstreetmap.org/wiki/Key:social_facility -->
     <string name="type.amenity.social_facility">Socijalna ustanova</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance -->
@@ -1387,7 +1387,7 @@
     <string name="type.amenity.luggage_locker">Ормар за пртљаг</string>
     <string name="type.post_office.post_partner">Поштански партнер</string>
     <string name="type.amenity.bicycle_parking.covered">Покривени паркинг за бицикле</string>
-    <string name="type.amenity.ranger_station">Stanica za rendžer</string>
+    <string name="type.amenity.ranger_station">Ренџерска станица</string>
     <string name="type.leisure.escape_game">Soba za bekstvo (Escape Room)</string>
     <string name="type.barrier.wicket_gate">Вратница</string>
     <string name="type.amenity.animal_shelter">Азил за животиње</string>
@@ -1498,14 +1498,14 @@
     <string name="type.man_made.mast.communication">Антенски стуб</string>
     <string name="type.amenity.hydrant">Хидрант за наводњавање</string>
     <string name="type.railway.miniature">Минијатурни пруга</string>
-    <string name="type.railway.miniature.bridge">Мост минијатурне пруге</string>
-    <string name="type.railway.miniature.tunnel">Тунел минијатурне пруге</string>
+    <string name="type.railway.miniature.bridge">Минијатурни железнички мост</string>
+    <string name="type.railway.miniature.tunnel">Минијатурни железнички тунел</string>
     <string name="type.railway.turntable">Железничка окретница</string>
     <string name="type.tourism.information.tactile_map">Тактилна мапа</string>
     <string name="type.railway.disused.bridge">Напуштени железнички мост</string>
     <string name="type.railway.disused.tunnel">Напуштени железнички тунел</string>
     <string name="type.amenity.charging_station.motorcycle">Мотоцикли</string>
     <string name="type.amenity.charging_station.small">Ограничен капацитет</string>
-    <string name="type.emergency.disaster_help_point">Тачка за помоћ у хитним случајевима</string>
-    <string name="type.emergency.access_point.address">Адреса за хитно спашавање</string>
+    <string name="type.emergency.disaster_help_point">Тачка за помоћ у случају катастрофе</string>
+    <string name="type.emergency.access_point.address">Адреса службе хитне помоћи</string>
 </resources>

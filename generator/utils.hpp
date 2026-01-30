@@ -1,12 +1,12 @@
 #pragma once
 
 #include "generator/gen_mwm_info.hpp"
-#include "generator/osm_element.hpp"
 
 #include "search/cbv.hpp"
 
 #include "indexer/data_source.hpp"
 #include "indexer/mwm_set.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/local_country_file.hpp"
 

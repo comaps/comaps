@@ -648,10 +648,10 @@ void XMLFeature::SetOSMTagsForType(uint32_t type)
     return;
   }
 
-  std::vector<OSMTag> const & osmTags = GetOSMTranslator().OsmTagsFromType(type);
+  std::vector<OsmElement::Tag> const & osmTags = GetOSMTranslator().OsmTagsFromType(type);
 
   for (auto const & osmTag : osmTags)
-    SetTagValue(osmTag.key, osmTag.value);
+    SetTagValue(osmTag.m_key, osmTag.m_value);
 }
 
 void XMLFeature::UpdateOSMTag(std::string_view key, std::string_view value)

@@ -2,8 +2,9 @@
 
 #include "generator/intermediate_data.hpp"
 #include "generator/intermediate_elements.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/towns_dumper.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "geometry/mercator.hpp"
 

@@ -151,11 +151,11 @@
     <string name="share_bookmarks_email_subject">Mes favoris CoMaps.</string>
     <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, téléchargez l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Chargement des Favoris</string>
+    <string name="load_kmz_title">Chargement des favoris</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Les favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l’écran du Gestionnaire des Favoris.</string>
+    <string name="load_kmz_successful">Vos favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l\'écran Gestionnaire de favoris.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Erreur lors du chargement des Favoris. Le fichier pourrait être corrompu ou défectueux.</string>
+    <string name="load_kmz_failed">Échec du chargement des favoris. Le fichier est peut-être corrompu ou défectueux.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Le type de fichier n’est pas reconnu par l’appli :\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -282,12 +282,6 @@
     <string name="downloader_delete_map">Supprimer carte</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Mettre à jour carte</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Service de localisation Google Fused</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Un service propriétaire qui combine GPS, Wi-Fi, réseaux cellulaires… pour déterminer votre position plus précisément. Il peut se connecter aux serveurs Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Téléchargez toutes les cartes le long de votre itinéraire</string>
     <!-- Text for routing error dialog -->
@@ -503,7 +497,7 @@
     <string name="minute">min</string>
     <string name="day">j</string>
     <string name="placepage_more_button">Plus</string>
-    <string name="placepage_edit_bookmark_button">Modifier l\'emplacement enregistré</string>
+    <string name="placepage_edit_bookmark_button">Modifier le lieu enregistré</string>
     <string name="placepage_personal_notes_hint">Notes personnelles (texte ou html)</string>
     <string name="editor_reset_edits_message">Abandonner toutes les modifications locales ?</string>
     <string name="editor_reset_edits_button">Annuler les modifications</string>
@@ -578,7 +572,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Créer une nouvelle liste</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importer des favoris</string>
+    <string name="bookmarks_import">Importer les favoris</string>
     <string name="bookmarks_error_message_share_general">Impossible de partager en raison d’une erreur d’application</string>
     <string name="bookmarks_error_title_share_empty">Erreur de partage</string>
     <string name="bookmarks_error_message_share_empty">Impossible de partager une liste vide</string>
@@ -812,7 +806,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuer l’enregistrement</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Enregistrer dans les favoris ?</string>
+    <string name="track_recording_alert_title">Enregistrer dans les favoris ?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">L’itinéraire est vide - il n’y a rien à enregistrer</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -927,4 +921,5 @@
     <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="pref_maplanguage_local">Langue locale</string>
+    <string name="limit_map_language_alternatives_to_local">N\'utilisez que les autres langues système de leur région.</string>
 </resources>

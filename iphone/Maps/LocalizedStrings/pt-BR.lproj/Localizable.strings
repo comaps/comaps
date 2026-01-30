@@ -63,16 +63,16 @@
 "add_new_set" = "Adicionar novo conjunto";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nome do conjunto de favoritos";
+"bookmark_set_name" = "Nome do conjunto";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Conjuntos de favoritos";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Favoritos";
+"bookmarks" = "Lugares";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Favoritos e trilhas";
+"bookmarks_and_tracks" = "Favoritos";
 
 /* Default bookmark list name */
 "core_my_places" = "Meus locais";
@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Para trailers";
-"share_bookmarks_email_body" = "Olá!\n\nSegue em anexo meus favoritos do app CoMaps. Se tiver instalado o CoMaps, pode abri-los agora. Caso não tenha, baixe o app para o seu dispositivo iOS ou Android via o link https://www.comaps.app/download/\n\nDisfrute viajar com o CoMaps!";
+"share_bookmarks_email_body" = "Olá!\n\nEm anexo estão os locais que salvei; por favor, abra-os no CoMaps. Caso não o tenha instalado, você pode baixá-lo aqui: https://www.comaps.app/download/\n\nDesfrute de suas viagens com a CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Carregando favoritos";
@@ -163,7 +163,7 @@
 "load_kmz_successful" = "Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou na tela de gestão dos favoritos.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Falha no envio dos favoritos. O arquivo pode estar corrompido ou com defeito.";
+"load_kmz_failed" = "Falha ao carregar dos favoritos. O arquivo pode estar corrompido ou com defeito.";
 
 /* resource for context menu */
 "edit" = "Editar";
@@ -335,9 +335,6 @@
 
 /* Alert title */
 "email_error_title" = "Erro no envio de email";
-
-/* Settings item title */
-"pref_calibration_title" = "Calibração da bússola";
 
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Dê um toque longo no mapa novamente para ver a interface";
@@ -676,7 +673,7 @@
 "placepage_more_button" = "Mais";
 "book_button" = "Reservar";
 "placepage_call_button" = "Ligar";
-"placepage_edit_bookmark_button" = "Editar favorito";
+"placepage_edit_bookmark_button" = "Editar lugar salvo";
 "placepage_bookmark_name_hint" = "Nome do favorito";
 "placepage_personal_notes_hint" = "Anotações pessoais (texto ou html)";
 "placepage_delete_bookmark_button" = "Apagar favorito";
@@ -767,7 +764,7 @@
 "bookmarks_create_new_group" = "Criar nova lista";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importar favoritos e trilhas";
+"bookmarks_import" = "Importar favoritos";
 "downloader_hide_screen" = "Ocultar tela";
 "downloader_percent" = "%@ (%@ de %@)";
 "downloader_process" = "Baixando %@…";
@@ -1084,7 +1081,7 @@
 "continue_recording" = "Continuar gravação";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Salvar em Favoritos e Trilhas?";
+"track_recording_alert_title" = "Salvar em favoritos?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "A trilha está vazia - não há nada para salvar";
@@ -1106,3 +1103,4 @@
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Leitura e Fala*, *Vozes*.";
 "avoid_paved" = "Evitar vias pavimentadas";
+"limit_map_language_alternatives_to_local" = "Utilizar apenas outros idiomas do sistema em sua região";

@@ -151,11 +151,11 @@
     <string name="share_bookmarks_email_subject">Meine CoMaps-Favoriten</string>
     <string name="share_bookmarks_email_body">Hallo! \n \nIm Anhang sind meine Lesezeichen aus der CoMaps-App. Du kannst sie in CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen. \n \nViel Spaß beim Navigieren mit CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Favoriten laden</string>
+    <string name="load_kmz_title">Favoriten werden geladen</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Lesezeichen erfolgreich geladen! Du kannst diese auf deiner Karte oder im Lesezeichen-Manager anzeigen lassen.</string>
+    <string name="load_kmz_successful">Favoriten erfolgreich geladen! Du kannst diese nun auf deiner Karte oder im Favoriten-Manager anzeigen lassen.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Laden der Lesezeichen fehlgeschlagen. Die Datei könnte beschädigt oder defekt sein.</string>
+    <string name="load_kmz_failed">Laden der Favoriten fehlgeschlagen. Die Datei könnte beschädigt oder defekt sein.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Der Dateityp wird von der App nicht erkannt: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">Karte löschen</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Karte aktualisieren</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google-Standortverknüpfungsdienst</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Ein proprietärer Dienst, der GPS, Wi-Fi, Mobilfunknetzwerke etc. kombiniert, um den Standort genauer zu bestimmen. Er kann sich mit Google-Servern verbinden.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Karten entlang der Route herunterladen</string>
     <!-- Text for routing error dialog -->
@@ -499,7 +493,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Mehr</string>
-    <string name="placepage_edit_bookmark_button">Gespeicherten Ort bearbeiten</string>
+    <string name="placepage_edit_bookmark_button">Bearbeite den gespeicherten Ort</string>
     <string name="placepage_personal_notes_hint">Persönliche Notizen (Text oder html)</string>
     <string name="editor_reset_edits_message">Alle lokalen Änderungen verwerfen?</string>
     <string name="editor_reset_edits_button">Änderungen verwerfen</string>
@@ -806,7 +800,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Aufnahme fortsetzen</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Zu Favoriten hinzufügen?</string>
+    <string name="track_recording_alert_title">In Favoriten speichern?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Route ist leer - nichts zu speichern</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -921,4 +915,5 @@
     <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
     <string name="download_resources_custom_url_error_scheme">Bitte eine vollständige URL eingeben, die mit https:// oder http:// anfängt</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
+    <string name="limit_map_language_alternatives_to_local">Verwende andere Systemsprachen nur in deren Region</string>
 </resources>

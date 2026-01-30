@@ -57,16 +57,16 @@
 "add_new_set" = "Pievienot jaunu sarakstu";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Grāmatzīmju saraksta nosaukums";
+"bookmark_set_name" = "Saraksta nosaukums";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Grāmatzīmju saraksti";
+"bookmark_sets" = "Izlases saraksti";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Grāmatzīmes";
+"bookmarks" = "Vietas";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Grāmatzīmes un ceļi";
+"bookmarks_and_tracks" = "Izlase";
 
 /* Default bookmark list name */
 "core_my_places" = "Manas vietas";
@@ -148,16 +148,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Dzīvojamo auto labierīcības";
-"share_bookmarks_email_body" = "Sveiki!\n\nPielikumā ir grāmatzīmes. Lūdzu, atveriet tās „CoMaps“ lietotnē. Ja Jums tā nav instalēta, instalējiet to te: https://www.comaps.app/download/\n\nBaudiet ceļošanu ar „Oranic Maps“!";
+"share_bookmarks_email_body" = "Sveiciens! \n \nPielikumā ir mana izlase. Lūgums atvērt to lietotnē “CoMaps”. Ja tā nav uzstādīta, to var iegūt šeit: https://www.comaps.app/download/ \n \nIzbaudi ceļošanu ar “CoMaps”!";
 
 /* message title of loading file */
-"load_kmz_title" = "Ielādē grāmatzīmes";
+"load_kmz_title" = "Ielādē izlasi";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Grāmatzīmes ir ielādētas! Tās varat atrast kartē un grāmatzīmju pārvaldīšanas ekrānā.";
+"load_kmz_successful" = "Izlase sekmīgi ielādēta. To var atrast kartē vai izlases pārvaldīšanas skatā.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Grāmatzīmes ielādēt neizdevās. Iespējams, datne ir bojāta.";
+"load_kmz_failed" = "Neizdevās ielādēt izlasi. Datne var būt bojāta.";
 
 /* resource for context menu */
 "edit" = "Labot";
@@ -199,7 +199,7 @@
 "share_my_location" = "Kopīgot manu atrašanās vietu";
 "prefs_group_route" = "Navigācija";
 "pref_zoom_title" = "Tālummaiņas pogas";
-"pref_left_button_type" = "Left Main Button";
+"pref_left_button_type" = "Kreisā galvenā poga";
 
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Izskats";
@@ -211,7 +211,7 @@
 "pref_appearance_dark" = "Tumšs";
 
 /* Generic «Disabled» string */
-"disabled" = "Disabled";
+"disabled" = "Atspējots";
 
 /* Generic «Off» string */
 "off" = "Izslēgts";
@@ -235,7 +235,7 @@
 "pref_tts_title" = "Balss instrukcijas";
 
 /* Settings «Route» category: «Tts enable» title */
-"pref_tts_enable_title" = "Enable Voice Instructions";
+"pref_tts_enable_title" = "Iespējot balss norādes";
 
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Izrunāt ielu nosaukumus";
@@ -330,9 +330,6 @@
 /* Alert title */
 "email_error_title" = "Kļūda, nosūtot vēstuli";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompasa kalibrēšana";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni";
 
@@ -383,7 +380,7 @@
 "routing_requires_all_map" = "Lai izveidotu maršrutu, lejupielādējiet un atjauniniet visas kartes no jūsu atrašanās vietas līdz galamērķim.";
 
 /* bookmark button text */
-"bookmark" = "grāmatzīme";
+"bookmark" = "vieta";
 "save" = "Saglabāt";
 "create" = "izveidot";
 
@@ -670,10 +667,10 @@
 "placepage_more_button" = "Vairāk";
 "book_button" = "Rezervēt";
 "placepage_call_button" = "Zvanīt";
-"placepage_edit_bookmark_button" = "Rediģēt grāmatzīmi";
-"placepage_bookmark_name_hint" = "Grāmatzīmes nosaukums";
+"placepage_edit_bookmark_button" = "Labot saglabāto vietu";
+"placepage_bookmark_name_hint" = "Vietas nosaukums";
 "placepage_personal_notes_hint" = "Personīgas piezīmes (teksts vai HTML)";
-"placepage_delete_bookmark_button" = "Dzēst grāmatzīmi";
+"placepage_delete_bookmark_button" = "Izdzēst vietu";
 "editor_edits_sent_message" = "Jūsu piezīmi nosūtīsim uz „OpenStreetMap“";
 "editor_comment_hint" = "Komentārs…";
 "editor_reset_edits_message" = "Vai atmest visas vietējās izmaiņas?";
@@ -761,7 +758,7 @@
 "bookmarks_create_new_group" = "Izveidot jaunu sarakstu";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importēt grāmatzīmes un ceļus";
+"bookmarks_import" = "Ievietot izlasi";
 "downloader_hide_screen" = "Slēpt ekrānu";
 "downloader_percent" = "%@ (%@ no %@)";
 "downloader_process" = "Lejupielādē %@…";
@@ -993,7 +990,7 @@
 "button_layer_outdoor" = "Aktīvā atpūta";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Izgūt visus ceļus un grāmatzīmes";
+"bookmarks_export" = "Izgūt visu izlasi";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Mainīt krāsu";
@@ -1078,7 +1075,7 @@
 "continue_recording" = "Turpināt ierakstīt";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Saglabāt ceļu grāmatzīmju sadaļā?";
+"track_recording_alert_title" = "Pievienot izlasei?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Ceļš ir tukšs – nav nekā saglabājama";
@@ -1102,3 +1099,4 @@
 "voice_explanation_before_version26" = "Sistēmas iestatījumos ir iespējams izvēlēties labāku balsi: *Piekļūstamība*, *Runātais saturs*, *Balsis*.";
 "voice_explanation" = "Sistēmas iestatījumos ir iespējams izvēlēties labāku balsi: *Piekļūstamība*, *Lasīt un runāt*, *Balsis*.";
 "avoid_paved" = "Izvairīties no ceļiem ar cietu mākslīgo segumu";
+"limit_map_language_alternatives_to_local" = "Izmantot tikai citas sistēmas valodas to apvidū";

@@ -185,7 +185,7 @@
 "amenity-school": "3Schule|Schulgebäude",
 "amenity-shelter": "5Unterstand|Wetterschutz|Schutzhütte",
 "amenity-shelter-basic_hut": "3Biwakschachtel|4Schutzhütte|5Schlafunterkunft|3Notunterkunft|3Biwak|U+1F634|U+1F4A4|U+1F6D6|U+1F6CF|U+1F6CC",
-"amenity-shelter-lean_to": "3Lean-to Schlafunterstand|Lean-to|3A-Frame Shelter|4Wetterschutz|4Schutzhütte|U+1F6D6",
+"amenity-shelter-lean_to": "3Lean-to Schlafunterstand|3Lean-to|3A-Frame Shelter|4Wetterschutz|4Schutzhütte|U+1F6D6",
 "amenity-stripclub": "5Stripclub|5Striptease|5Strip Club|4Tabledance|5Striplokal|5Strip Lokal|5Striptease|5Nachtklub|5Stripklub|5Nachtclub|U+1F46F|U+1F459|U+1F460|U+1F51E",
 "amenity-telephone": "2Telefon|Fernsprecher",
 "@category_toilet": "3Toilette|WC|3Klosett|Pissoir|Null-Null|00",
@@ -224,7 +224,7 @@
 "leisure-stadium": "4Stadion|5Sport|4Olympiastadion|5Sportanlage|5Sportstadion|5Sportkomplex|5Sporthalle|3Arena|U+26BD|U+26BE|U+1F3BE|U+1F3C0|U+1F3C8|U+1F4AA|U+1F3C9|U+1F3DF",
 "leisure-playground|@category_children": "Spielplatz",
 "leisure-sports_centre|leisure-sports_centre-sport-american_football|leisure-sports_centre-sport-archery|leisure-sports_centre-sport-athletics|leisure-sports_centre-sport-australian_football|leisure-sports_centre-sport-badminton|leisure-sports_centre-sport-baseball|leisure-sports_centre-sport-basketball|leisure-sports_centre-sport-beachvolleyball|leisure-sports_centre-sport-bowls|leisure-sports_centre-sport-climbing|leisure-sports_centre-sport-cricket|leisure-sports_centre-sport-curling|leisure-sports_centre-sport-equestrian|leisure-sports_centre-sport-field_hockey|leisure-sports_centre-sport-futsal|leisure-sports_centre-sport-golf|leisure-sports_centre-sport-gymnastics|leisure-sports_centre-sport-handball|leisure-sports_centre-sport-ice_hockey|leisure-sports_centre-sport-multi|leisure-sports_centre-sport-padel|leisure-sports_centre-sport-pelota|leisure-sports_centre-sport-scuba_diving|leisure-sports_centre-sport-shooting|leisure-sports_centre-sport-skateboard|leisure-sports_centre-sport-skiing|leisure-sports_centre-sport-soccer|leisure-sports_centre-sport-table_tennis|leisure-sports_centre-sport-tennis|leisure-sports_centre-sport-volleyball|leisure-sports_centre-sport-yoga": "4Sportzentrum|4Sport|4Fitness-Zentrum|4Fitness-Center|4Sportkomplex|5Sportforum|5Sporthalle|4Sportanlage|U+26BD|U+26BE|U+1F3BE|U+1F4AA|U+1F3C8|U+1F3C0|U+1F3C9",
-"leisure-sports_centre-sport-swimming": "4Schwimmbad|Freibad|Hallenbad|Schwimmhalle",
+"leisure-sports_centre-sport-swimming": "4Schwimmbad|4Freibad|4Hallenbad|4Schwimmhalle",
 "leisure-fitness_centre-sport-yoga": "Yoga-Studio",
 "leisure-golf_course": "3Golfplatz|2Golf|3Golfanlage|U+26F3|U+1F3CC",
 "leisure-miniature_golf": "4Minigolf|5Miniaturgolf|4Golf|3Pitch und Putt|4Mini Golf |4Mini-Golf|U+26F3|U+1F3CC",
@@ -330,7 +330,7 @@
 "shop-tyres|@shop": "4Reifenhändler|4Autoreifen|4Reifen|4Reifenwechsel|U+1F6DE",
 "amenity-car_wash": "4Autowaschanlage|Autowäsche",
 "amenity-veterinary": "4Tierarzt|4Tierärztin|4Tierarztpraxis|4Tierpraxis|4Tierdoktor|5Hundearzt|5Katzenarzt|4Haustiere|U+2695",
-"@charging_station": "4Ladestation|aufladen",
+"@charging_station": "4Ladestation|4aufladen",
 "amenity-charging_station-bicycle|@charging_station": "5Fahrradladestation|Fahrrad aufladen|E-Bike aufladen|Fahrrad laden|E-Bike laden",
 "amenity-charging_station-motorcycle|@charging_station": "6Motorradladestation|Motorrad aufladen|Motorrad laden",
 "amenity-charging_station-motorcar|@charging_station": "4Autoladestation|5Autoladegerät|Auto aufladen|Auto laden",
@@ -535,5 +535,6 @@
 "social_facility-food_bank": "3Tafel|5Lebensmitteltafel|3Essen",
 "amenity-food_sharing": "3Food Sharing|3Essen|3Essensspende",
 "amenity-give_box": "Spendenbox|spenden",
-"amenity-hydrant": "5Hydrant|5Wasserhydrant|4Nutzwasser|4Bewässerungshydrant|4Reinigungshydrant|4Zapfstelle"
+"amenity-hydrant": "5Hydrant|5Wasserhydrant|4Nutzwasser|4Bewässerungshydrant|4Reinigungshydrant|4Zapfstelle",
+"tourism-information-tactile_map": "3Taktile-Karte|3Karte|4Sehbehinderung|3Barrierefreiheit|5Information"
 }

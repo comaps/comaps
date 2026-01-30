@@ -34,7 +34,7 @@ void DumpPointDVector(std::vector<m2::PointD> const & points, FileWriter & write
 std::vector<m2::PointD> LoadPointDVector(ReaderSource<FileReader> & src)
 {
   std::vector<m2::PointD> points;
-  auto const n = ReadPrimitiveFromSource<size_t>(src);
+  auto const n = ReadPrimitiveFromSource<uint64_t>(src);
   points.reserve(n);
   for (size_t i = 0; i < n; ++i)
   {
@@ -160,7 +160,7 @@ void RoutesBuilder::Result::Dump(Result const & result, std::string const & file
 
   RoutesBuilder::Params::Dump(result.m_params, writer);
 
-  size_t const routesNumber = result.m_routes.size();
+  uint64_t const routesNumber = result.m_routes.size();
   writer.Write(&routesNumber, sizeof(routesNumber));
   for (auto const & route : result.m_routes)
     RoutesBuilder::Route::Dump(route, writer);
@@ -178,7 +178,7 @@ RoutesBuilder::Result RoutesBuilder::Result::Load(std::string const & filePath)
   result.m_buildTimeSeconds = ReadPrimitiveFromSource<double>(src);
   result.m_params = RoutesBuilder::Params::Load(src);
 
-  auto const routesNumber = ReadPrimitiveFromSource<size_t>(src);
+  auto const routesNumber = ReadPrimitiveFromSource<uint64_t>(src);
   result.m_routes.resize(routesNumber);
   for (size_t i = 0; i < routesNumber; ++i)
     result.m_routes[i] = RoutesBuilder::Route::Load(src);

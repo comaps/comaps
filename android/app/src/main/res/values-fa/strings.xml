@@ -259,12 +259,6 @@
     <string name="downloader_delete_map">حذف نقشه</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">بروزرسانی نقشه</string>
-    <!-- Preference title -->
-    <string name="google_play_services">خدمات مکان Google Play</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">یک سرویس اختصاصی که GPS، Wi-Fi، شبکه های سلولی و غیره را ترکیب می کند تا مکان شما را دقیق تر مشخص کند. ممکن است به سرورهای گوگل متصل شود.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">دانلود تمامی نقشه‌ها در طول مسیر‌تان</string>
     <!-- Text for routing error dialog -->

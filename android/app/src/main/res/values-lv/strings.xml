@@ -280,12 +280,6 @@
     <string name="downloader_delete_map">Dzēst karti</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Atjaunināt karti</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Google Fused atrašanās vietu pakalpojums</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Īpašniecisks pakalpojums, kas apvieno GPS, Wi-Fi, mobilo sakaru tīklus u.c., lai pareizāk noteiktu atrašanās vietu. Tas var savienoties ar Google serveriem.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Lejupielādēt visas maršruta kartes</string>
     <!-- Text for routing error dialog -->
@@ -883,4 +877,9 @@
     <string name="pref_backup_now_summary_progress">Notiek rezerves kopēšana…</string>
     <string name="pedestrian">Kājāmgājēju</string>
     <string name="bicycle">Divriteņu</string>
+    <string name="ruler">Lineāls</string>
+    <string name="bookmark_color">Izlases vienumu krāsa</string>
+    <string name="about_help">Par un palīdzība</string>
+    <string name="open_now">Šobrīd atvērts</string>
+    <string name="limit_map_language_alternatives_to_local">Izmantot tikai citas sistēmas valodas to apvidū</string>
 </resources>

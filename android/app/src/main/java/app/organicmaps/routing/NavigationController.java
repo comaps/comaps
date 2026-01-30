@@ -107,7 +107,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     final View navigationBarBackground = mFrame.findViewById(R.id.nav_bottom_sheet_nav_bar);
     final View nextTurnContainer = mFrame.findViewById(R.id.nav_next_turn_container);
     ViewCompat.setOnApplyWindowInsetsListener(mStreetFrame, (v, windowInsets) -> {
-      UiUtils.setViewInsetsPaddingNoBottom(v, windowInsets);
+      UiUtils.setViewInsetsPaddingNoTopNoBottom(v, windowInsets);
 
       final Insets safeDrawingInsets = windowInsets.getInsets(WindowInsetUtils.TYPE_SAFE_DRAWING);
       nextTurnContainer.setPadding(safeDrawingInsets.left, nextTurnContainer.getPaddingTop(),

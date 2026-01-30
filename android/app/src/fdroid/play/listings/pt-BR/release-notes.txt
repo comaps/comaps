@@ -1,9 +1,0 @@
-• Dados OSM de 6/1
-• Editor: adição de POIs com mais de uma etiqueta OSM, por exemplo esculturas e pinturas; mais tipos de POI podem ser marcados como vagos/desativados
-• Adição de ferrovias em miniatura e ETEs
-• Uso de diálogos Material 3 e fundo mais escuro no modo escuro
-• Remoção de limites de velocidade fictícios para vias de ligação
-• Correção de recorte da câmera na navegação
-• Toque longo menos sensível (modo tela cheia)
-
-Mais detalhes em codeberg.org/comaps/comaps/releases

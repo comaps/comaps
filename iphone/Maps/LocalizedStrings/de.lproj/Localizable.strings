@@ -63,16 +63,16 @@
 "add_new_set" = "Neue Liste erstellen";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Name der Lesezeichenliste";
+"bookmark_set_name" = "Name der Liste";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Lesezeichensammlung";
+"bookmark_sets" = "Favoritenlisten";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Lesezeichen";
+"bookmarks" = "Orte";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Lesezeichen und Tracks";
+"bookmarks_and_tracks" = "Favoriten";
 
 /* Default bookmark list name */
 "core_my_places" = "Meine Orte";
@@ -154,16 +154,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Einrichtungen für Wohnmobile";
-"share_bookmarks_email_body" = "Hallo!\n\nIm Anhang sind meine Lesezeichen aus der CoMaps-App. Du kannst sie mit CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen.\n\nViel Spaß beim Navigieren mit CoMaps!";
+"share_bookmarks_email_body" = "Hallo! \n \nIm Anhang sind meine Lesezeichen aus der CoMaps-App. Du kannst sie in CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen. \n \nViel Spaß beim Navigieren mit CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Lesezeichen werden geladen";
+"load_kmz_title" = "Favoriten werden geladen";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Lesezeichen erfolgreich geladen! Du kannst dieses nun auf deiner Karte oder im Lesezeichen-Manager anzeigen lassen.";
+"load_kmz_successful" = "Favoriten erfolgreich geladen! Du kannst diese nun auf deiner Karte oder im Favoriten-Manager anzeigen lassen.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Laden der Lesezeichen fehlgeschlagen. Die Datei könnte beschädigt oder defekt sein.";
+"load_kmz_failed" = "Laden der Favoriten fehlgeschlagen. Die Datei könnte beschädigt oder defekt sein.";
 
 /* resource for context menu */
 "edit" = "Bearbeiten";
@@ -336,9 +336,6 @@
 /* Alert title */
 "email_error_title" = "Fehler beim E-Mail-Versand";
 
-/* Settings item title */
-"pref_calibration_title" = "Kompass-Kalibrierung";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Tippe erneut lange auf die Karte, um die Benutzeroberfläche wiederzusehen";
 
@@ -389,7 +386,7 @@
 "routing_requires_all_map" = "Zum Erstellen einer Route müssen alle Karten von deinem Standort bis zum Ziel heruntergeladen und aktualisiert worden sein.";
 
 /* bookmark button text */
-"bookmark" = "Lesezeichen";
+"bookmark" = "Ort";
 "save" = "Speichern";
 "create" = "erstellen";
 
@@ -678,10 +675,10 @@
 "placepage_more_button" = "Mehr";
 "book_button" = "Buchen";
 "placepage_call_button" = "Anrufen";
-"placepage_edit_bookmark_button" = "Lesezeichen bearbeiten";
-"placepage_bookmark_name_hint" = "Name des Lesezeichens";
+"placepage_edit_bookmark_button" = "Bearbeite den gespeicherten Ort";
+"placepage_bookmark_name_hint" = "Name des Ortes";
 "placepage_personal_notes_hint" = "Persönliche Notizen (Text oder html)";
-"placepage_delete_bookmark_button" = "Lesezeichen löschen";
+"placepage_delete_bookmark_button" = "Ort löschen";
 "editor_edits_sent_message" = "Ihre Notiz wird an OpenStreetMap gesendet";
 "editor_comment_hint" = "Kommentar…";
 "editor_reset_edits_message" = "Alle lokalen Korrekturen verwerfen?";
@@ -769,7 +766,7 @@
 "bookmarks_create_new_group" = "Neue Liste erstellen";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Lesezeichen und Tracks importieren";
+"bookmarks_import" = "Favoriten importieren";
 "downloader_hide_screen" = "Bildschirm ausblenden";
 "downloader_percent" = "%@ (%@ von %@)";
 "downloader_process" = "%@ heruntergeladen…";
@@ -1003,7 +1000,7 @@
 "button_layer_outdoor" = "Wandern";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Alle Lesezeichen und Tracks exportieren";
+"bookmarks_export" = "Alle Favoriten exportieren";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Farbe ändern";
@@ -1088,13 +1085,14 @@
 "continue_recording" = "Aufnahme fortsetzen";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "In Lesezeichen und Tracks speichern?";
+"track_recording_alert_title" = "In Favoriten speichern?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Route ist leer - nichts zu speichern";
 "edit_track" = "Track bearbeiten";
 "pref_mapappearance_title" = "Kartendarstellung";
 "pref_maplanguage_title" = "Karten-Sprache";
+"limit_map_language_alternatives_to_local" = "Verwende andere Systemsprachen nur in deren Region";
 "transliteration_title_disabled_summary" = "Bei der Nutzung der lokalen Sprache für die Karte ausgeschaltet";
 "pref_maplanguage_local" = "Lokale Sprache";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";

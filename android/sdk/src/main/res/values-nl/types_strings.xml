@@ -129,7 +129,7 @@
     <string name="type.amenity.pub">Kroeg</string>
     <string name="type.amenity.public_bookcase">Boekenkast</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Milieustraat</string>
+    <string name="type.amenity.recycling.centre">Recyclestation|Millieustraat</string>
     <string name="type.amenity.recycling.container">Recycling container</string>
     <string name="type.recycling.batteries">Batterijen</string>
     <string name="type.recycling.clothes">Oude kleding</string>
@@ -1497,15 +1497,15 @@
     <string name="type.amenity.food_sharing">Voedsel delen</string>
     <string name="type.amenity.give_box">Giftenkist</string>
     <string name="type.amenity.hydrant">Watertappunt|waterkraan</string>
-    <string name="type.railway.miniature">Miniatuurspoorweg</string>
-    <string name="type.railway.miniature.bridge">Miniatuurspoorbrug</string>
-    <string name="type.railway.miniature.tunnel">Miniatuurspoortunnel</string>
-    <string name="type.railway.turntable">Spoorwegdraaischijf</string>
-    <string name="type.tourism.information.tactile_map">Reliëfkaart</string>
-    <string name="type.railway.disused.bridge">Niet meer gebruikte spoorbrug</string>
-    <string name="type.railway.disused.tunnel">Niet meer gebruikte spoortunnel</string>
+    <string name="type.railway.miniature">Miniatuur spoorweg</string>
+    <string name="type.railway.miniature.bridge">Miniatuur spoorbrug</string>
+    <string name="type.railway.miniature.tunnel">Miniatuur spoortunnel</string>
+    <string name="type.railway.turntable">Spoorweg-keerpunt</string>
+    <string name="type.tourism.information.tactile_map">Tactiele kaart</string>
+    <string name="type.railway.disused.bridge">Ongebruikte spoorbrug</string>
+    <string name="type.railway.disused.tunnel">Ongebruikte spoortunnel</string>
     <string name="type.amenity.charging_station.motorcycle">Motorfietsen</string>
     <string name="type.amenity.charging_station.small">Beperkte capaciteit</string>
-    <string name="type.emergency.disaster_help_point">Hulppunt voor noodrampen</string>
-    <string name="type.emergency.access_point.address">Noodreddingsadres</string>
+    <string name="type.emergency.disaster_help_point">Noodhulppost</string>
+    <string name="type.emergency.access_point.address">Noodhulppost adres</string>
 </resources>

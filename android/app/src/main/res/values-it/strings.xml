@@ -70,9 +70,9 @@
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
     <string name="bookmark_set_name">Nome dell\'elenco</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Luoghi preferiti</string>
+    <string name="bookmarks">Luoghi</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Preferiti</string>
+    <string name="bookmarks_and_tracks">Luoghi preferiti</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nome</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -145,11 +145,11 @@
     <string name="description">Informazioni</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">I miei luoghi preferiti su CoMaps</string>
-    <string name="share_bookmarks_email_body">Ciao!\n\nIn allegato ci sono i miei luoghi preferiti. Aprili se hai installato CoMaps. Oppure, se non ce l\'hai, scarica l\'app per iOS o Android seguendo questo link: https://www.comaps.app/\n\nDivertiti a viaggiare con CoMaps!</string>
+    <string name="share_bookmarks_email_body">Ciao!\n\nIn allegato ci sono i miei luoghi preferiti; aprili con CoMaps. Se non hai installato l\'applicazione puoi farlo da qui: https://www.comaps.app/download/\n\nDivertiti a viaggiare con CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Caricamento luoghi preferiti</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Luoghi preferiti caricati con successo! Puoi trovarli sulla mappa o nella schermata Gestione Luoghi preferiti.</string>
+    <string name="load_kmz_successful">Luoghi preferiti caricati con successo! Puoi trovarli sulla mappa o nella schermata di gestione dei luoghi preferiti.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Caricamento dei luoghi preferiti fallito. Il file potrebbe essere corrotto o difettoso.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -276,12 +276,6 @@
     <string name="downloader_delete_map">Elimina mappa</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Aggiorna mappa</string>
-    <!-- Preference title -->
-    <string name="google_play_services">Servizi di localizzazione Google Fused</string>
-    <!-- Preference text -->
-    <string name="pref_use_google_play">Servizio proprietario che combina GPS, Wi-Fi, rete telefonica ed altro per determinare la tua positione con maggiore accuratezza. Potrebbe connettersi ai server di Google.</string>
-    <!-- Preference title -->
-    <!-- Preference description -->
     <!-- Text for routing error dialog -->
     <string name="routing_download_maps_along">Scarica le mappe lungo il percorso</string>
     <!-- Text for routing error dialog -->
@@ -560,7 +554,7 @@
     <string name="dialog_error_storage_message">Memoria esterna non disponibile. Probabilmente la scheda SD è stata rimossa, danneggiata o il file system è di sola lettura. Controlla la tua scheda SD o contattaci a support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Simula memoria danneggiata</string>
     <string name="error_enter_correct_name">Inserire un nome corretto</string>
-    <string name="bookmark_lists">Elenchi</string>
+    <string name="bookmark_lists">Elenco dei preferiti</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Nascondi tutto</string>
     <string name="bookmark_lists_show_all">Mostra tutto</string>
@@ -602,7 +596,7 @@
     <string name="subway">Metropolitana</string>
     <string name="layers_title">Stili e livelli della mappa</string>
     <string name="bookmarks_empty_list_title">Questo elenco è vuoto</string>
-    <string name="bookmarks_empty_list_message">Per aggiungere un luogo preferito, tocca un punto sulla mappa e poi tocca l\'icona a forma di stella</string>
+    <string name="bookmarks_empty_list_message">Per salvare un luogo preferito, tocca un punto sulla mappa e poi l\'icona a forma di stella</string>
     <string name="category_desc_more">…altro</string>
     <string name="export_file">Esporta KMZ</string>
     <string name="export_file_gpx">Esporta GPX</string>
@@ -803,7 +797,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continua a registrare</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Salvare in Preferiti?</string>
+    <string name="track_recording_alert_title">Salvare in Luoghi preferiti e tracce?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">La traccia è vuota - non c\'è nulla da salvare</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -906,9 +900,12 @@
     <string name="navigation_start_tts_disabled_message">Istruzioni vocali disabilitate: TTS non disponibile</string>
     <string name="prefs_speed_cameras_information">Gli avvisi di Autovelox sono disabilitati dove proibito dalla legge locale.</string>
     <string name="navigation_start_tts_message">"Inizio Navigazione, lingua per istruzioni vocali: "</string>
-    <string name="download_resources_custom_url_error_scheme">Aggiungere un URL che inizia con https:// e finisce con /</string>
+    <string name="download_resources_custom_url_error_scheme">Inserisci un URL che inizia con http:// o https://</string>
     <string name="download_resources_custom_url_summary_none">Non impostato</string>
     <string name="download_resources_custom_url_message">Sovrascrivi il server da cui scaricare le mappe. Lascia vuoto per usare i server default di CoMaps.</string>
     <string name="download_resources_custom_url_title">Server mappe personalizzato</string>
     <string name="advanced">Avanzate</string>
+    <string name="opens_at">Apre alle %s</string>
+    <string name="closes_at">Chiude alle %s</string>
+    <string name="pref_maplanguage_local">Lingua locale</string>
 </resources>

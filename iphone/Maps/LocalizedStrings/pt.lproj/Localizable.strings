@@ -60,16 +60,16 @@
 "add_new_set" = "Adicionar conjunto novo";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nome do conjunto de favoritos";
+"bookmark_set_name" = "Nome do Conjunto";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Conjuntos de favoritos";
+"bookmark_sets" = "Conjuntos de Favoritos";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Favoritos";
+"bookmarks" = "Lugares";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Favoritos e trajetos";
+"bookmarks_and_tracks" = "Favoritos";
 
 /* Default bookmark list name */
 "core_my_places" = "Os meus locais";
@@ -154,7 +154,7 @@
 "share_bookmarks_email_body" = "Olá!\n\nSegue em anexo os meus favoritos da aplicação CoMaps. Por favor abra-os se tiver o CoMaps instalado. Caso não tenha, descarregue a aplicação para o seu dispositivo iOS ou Android com a hiperligação https://www.comaps.app/download/\n\nDivirta-se a viajar com o CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "A carregar favoritos";
+"load_kmz_title" = "A Carregar Favoritos";
 
 /* Kmz file successful loading */
 "load_kmz_successful" = "Os favoritos foram carregados com sucesso! Pode encontrá-los no mapa ou no ecrã de gestão dos favoritos.";
@@ -333,9 +333,6 @@
 /* Alert title */
 "email_error_title" = "Erro ao enviar o email";
 
-/* Settings item title */
-"pref_calibration_title" = "Calibração da bússola";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Dê um toque longo no mapa novamente para ver a interface";
 
@@ -386,7 +383,7 @@
 "routing_requires_all_map" = "É necessário descarregar e atualizar todos os mapas entre a sua localização e o destino para criar um trajeto.";
 
 /* bookmark button text */
-"bookmark" = "favorito";
+"bookmark" = "lugar";
 "save" = "Guardar";
 "create" = "criar";
 
@@ -673,10 +670,10 @@
 "placepage_more_button" = "Mais";
 "book_button" = "Reservas";
 "placepage_call_button" = "Telefonar";
-"placepage_edit_bookmark_button" = "Editar favorito";
-"placepage_bookmark_name_hint" = "Nome do favorito";
+"placepage_edit_bookmark_button" = "Editar Lugar Guardado";
+"placepage_bookmark_name_hint" = "Nome do Lugar";
 "placepage_personal_notes_hint" = "Notas pessoais (texto ou html)";
-"placepage_delete_bookmark_button" = "Eliminar favorito";
+"placepage_delete_bookmark_button" = "Eliminar Lugar";
 "editor_edits_sent_message" = "A sua nota será enviada ao OpenStreetMap";
 "editor_comment_hint" = "Comentário…";
 "editor_reset_edits_message" = "Eliminar todas as alterações locais?";
@@ -764,7 +761,7 @@
 "bookmarks_create_new_group" = "Criar nova lista";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importar favoritos e trajetos";
+"bookmarks_import" = "Importar Favoritos";
 "downloader_hide_screen" = "Ocultar ecrã";
 "downloader_percent" = "%@ (%@ de %@)";
 "downloader_process" = "A transferir %@…";
@@ -996,7 +993,7 @@
 "button_layer_outdoor" = "Caminhadas";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Exportar todos os favoritos e trajetos";
+"bookmarks_export" = "Exportar todos os Favoritos";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Alterar cor";
@@ -1081,7 +1078,7 @@
 "continue_recording" = "Continuar gravação";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Guardar em Favoritos e Trajetos?";
+"track_recording_alert_title" = "Guardar nos Favoritos?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "O trajeto está vazio - não há nada para guardar";
@@ -1104,3 +1101,4 @@
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas definições do sistema sob *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas definições do sistema sob *Acessibilidade*, *Ler & Falar*, *Vozes*.";
 "avoid_paved" = "Evitar rotas pavimentadas";
+"limit_map_language_alternatives_to_local" = "Utilizar apenas outros idiomas do sistema na sua região";

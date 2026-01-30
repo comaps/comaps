@@ -367,6 +367,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     private final MaterialTextView mSubtitle;
     private final MaterialTextView mFoundName;
     private final MaterialTextView mSize;
+    private final MaterialTextView mVersion;
 
     private void processClick(boolean clickOnStatus)
     {
@@ -429,6 +430,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       mSubtitle = frame.findViewById(R.id.subtitle);
       mFoundName = frame.findViewById(R.id.found_name);
       mSize = frame.findViewById(R.id.size);
+      mVersion = frame.findViewById(R.id.version);
 
       frame.setOnClickListener(v -> {
         if (mItem.isExpandable())
@@ -497,6 +499,18 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
       long size = getMapDisplaySize();
       mSize.setText(StringUtils.getFileSizeString(mFragment.requireContext(), size));
+
+      // Show map date for downloaded maps in "My Maps" mode
+      if (mMyMapsMode && mItem.present && mItem.localVersion > 0 && !mItem.isExpandable())
+      {
+        mVersion.setText(StringUtils.formatMwmVersion(mItem.localVersion));
+        mVersion.setVisibility(View.VISIBLE);
+      }
+      else
+      {
+        mVersion.setVisibility(View.GONE);
+      }
+
       mStatusIcon.update(mItem);
     }
 
