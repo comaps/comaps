@@ -2556,7 +2556,7 @@ bool Framework::LoadPanoramaxEnabled()
 {
   bool enabled;
   if (!settings::Get(kPanoramaxEnabledKey, enabled))
-    enabled = true;  // Default to enabled
+    enabled = true;  // Panoramax enabled by default
   return enabled;
 }
 

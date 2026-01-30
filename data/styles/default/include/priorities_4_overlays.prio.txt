@@ -637,6 +637,9 @@ man_made-windmill                                   # icon z16- (also has captio
 isoline-step_100                                    # pathtext z14- (also has line z12-)
 === 3020
 
+panoramax-image                                     # icon z14-
+=== 3010
+
 aerialway-cable_car                                 # pathtext z15- (also has line z12-, line::dash z12-)
 aerialway-chair_lift                                # pathtext z15- (also has line z13-, line::dash z13-)
 aerialway-drag_lift                                 # pathtext z15- (also has line z13-, line::dash z13-)

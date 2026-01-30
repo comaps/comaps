@@ -26,8 +26,8 @@ class EngineContext
 public:
   EngineContext(TileKey tileKey, ref_ptr<ThreadsCommutator> commutator, ref_ptr<dp::TextureManager> texMng,
                 ref_ptr<MetalineManager> metalineMng, CustomFeaturesContextWeakPtr customFeaturesContext,
-                bool is3dBuildingsEnabled, bool isTrafficEnabled, bool isolinesEnabled,
-                bool panoramaxEnabled, int8_t mapLangIndex);
+                bool is3dBuildingsEnabled, bool isTrafficEnabled, bool isolinesEnabled, bool panoramaxEnabled,
+                int8_t mapLangIndex);
 
   TileKey const & GetTileKey() const { return m_tileKey; }
   bool Is3dBuildingsEnabled() const { return m_3dBuildingsEnabled; }
