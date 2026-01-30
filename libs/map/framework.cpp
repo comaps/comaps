@@ -3305,6 +3305,10 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
   int panoramaxFeatures = 0;
   int panoramaxWithId = 0;
 
+  // Use scale 16 which is where panoramax-image features are visible (z14-z16)
+  // GetDrawTileScale(rect) returns too high a scale for small rects
+  auto const scale = 16;
+
   m_featuresFetcher.GetDataSource().ForEachInRect([&](FeatureType & ft)
   {
     ++totalFeatures;
@@ -3325,12 +3329,12 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
       }
     }
     return base::ControlFlow::Continue;
-  }, rect, df::GetDrawTileScale(rect));
+  }, rect, scale);
 
   auto const ll = mercator::ToLatLon(center);
   LOG(LINFO, ("CheckPanoramaxImagery: lat=", ll.m_lat, "lon=", ll.m_lon,
-              "totalFeatures=", totalFeatures, "panoramaxFeatures=", panoramaxFeatures,
-              "panoramaxWithId=", panoramaxWithId));
+              "scale=", scale, "totalFeatures=", totalFeatures,
+              "panoramaxFeatures=", panoramaxFeatures, "panoramaxWithId=", panoramaxWithId));
 
   if (hasPanoramax)
   {
