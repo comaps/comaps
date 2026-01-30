@@ -42,6 +42,15 @@
 		27AF18562E1DB63000CD41E2 /* PowerSavingMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AF18552E1DB62F00CD41E2 /* PowerSavingMode.swift */; };
 		27AF18582E1DB63A00CD41E2 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AF18572E1DB63900CD41E2 /* Appearance.swift */; };
 		27AF185A2E1DB64500CD41E2 /* AnnouncingSpeedTrapsWhileVoiceRouting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AF18592E1DB64400CD41E2 /* AnnouncingSpeedTrapsWhileVoiceRouting.swift */; };
+		27E947DA2F2E3A0C00C51E47 /* PieShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E947D72F2E3A0700C51E47 /* PieShape.swift */; };
+		27E947DC2F2E3A2400C51E47 /* DonutProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E947DB2F2E3A2000C51E47 /* DonutProgressStyle.swift */; };
+		27F12A452F2CC88D00D1F1FC /* Regional Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A422F2CC88300D1F1FC /* Regional Manager.swift */; };
+		27F12A472F2CC89A00D1F1FC /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A462F2CC89600D1F1FC /* Region.swift */; };
+		27F12A492F2CCB6B00D1F1FC /* RegionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A482F2CCB5600D1F1FC /* RegionsView.swift */; };
+		27F12A4B2F2CCB7500D1F1FC /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A4A2F2CCB7100D1F1FC /* RegionView.swift */; };
+		27F12A4D2F2CCE3900D1F1FC /* Grouping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A4C2F2CCE3300D1F1FC /* Grouping.swift */; };
+		27F12A4F2F2D0B3200D1F1FC /* DownloadedRegionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A4E2F2D0B2500D1F1FC /* DownloadedRegionsView.swift */; };
+		27F12A512F2D0B3C00D1F1FC /* DownloadRegionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F12A502F2D0B3600D1F1FC /* DownloadRegionsView.swift */; };
 		27FDBF212EEEFC830045621D /* mapcss-mapping.csv in Resources */ = {isa = PBXBuildFile; fileRef = 27FDBF202EEEFC830045621D /* mapcss-mapping.csv */; };
 		3304306D21D4EAFB00317CA3 /* SearchCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3304306C21D4EAFB00317CA3 /* SearchCategoryCell.swift */; };
 		33046832219C57180041F3A8 /* CategorySettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33046831219C57180041F3A8 /* CategorySettingsViewController.swift */; };
@@ -794,6 +803,15 @@
 		27AF18552E1DB62F00CD41E2 /* PowerSavingMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerSavingMode.swift; sourceTree = "<group>"; };
 		27AF18572E1DB63900CD41E2 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
 		27AF18592E1DB64400CD41E2 /* AnnouncingSpeedTrapsWhileVoiceRouting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncingSpeedTrapsWhileVoiceRouting.swift; sourceTree = "<group>"; };
+		27E947D72F2E3A0700C51E47 /* PieShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieShape.swift; sourceTree = "<group>"; };
+		27E947DB2F2E3A2000C51E47 /* DonutProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutProgressStyle.swift; sourceTree = "<group>"; };
+		27F12A422F2CC88300D1F1FC /* Regional Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Regional Manager.swift"; sourceTree = "<group>"; };
+		27F12A462F2CC89600D1F1FC /* Region.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		27F12A482F2CCB5600D1F1FC /* RegionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsView.swift; sourceTree = "<group>"; };
+		27F12A4A2F2CCB7100D1F1FC /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
+		27F12A4C2F2CCE3300D1F1FC /* Grouping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grouping.swift; sourceTree = "<group>"; };
+		27F12A4E2F2D0B2500D1F1FC /* DownloadedRegionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadedRegionsView.swift; sourceTree = "<group>"; };
+		27F12A502F2D0B3600D1F1FC /* DownloadRegionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadRegionsView.swift; sourceTree = "<group>"; };
 		27FDBF202EEEFC830045621D /* mapcss-mapping.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = "mapcss-mapping.csv"; path = "../../data/mapcss-mapping.csv"; sourceTree = SOURCE_ROOT; };
 		28A0AB4B0D9B1048005BE974 /* Maps_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = Maps_Prefix.pch; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		29B97316FDCFA39411CA2CEA /* main.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; indentWidth = 2; path = main.mm; sourceTree = "<group>"; tabWidth = 2; };
@@ -1928,6 +1946,9 @@
 			isa = PBXGroup;
 			children = (
 				279367552E1BE16300AA5C3D /* Settings.swift */,
+				27F12A422F2CC88300D1F1FC /* Regional Manager.swift */,
+				27F12A462F2CC89600D1F1FC /* Region.swift */,
+				27F12A4C2F2CCE3300D1F1FC /* Grouping.swift */,
 				27AF185B2E1DB64B00CD41E2 /* Settings Types */,
 				270C9C252E16AB6300ABA688 /* Profile.swift */,
 				EDFDFB472B7139670013A44C /* Social Media.swift */,
@@ -3589,6 +3610,12 @@
 		F6E2FBFB1E097B9F0083EBEC /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				27F12A482F2CCB5600D1F1FC /* RegionsView.swift */,
+				27F12A4E2F2D0B2500D1F1FC /* DownloadedRegionsView.swift */,
+				27F12A502F2D0B3600D1F1FC /* DownloadRegionsView.swift */,
+				27F12A4A2F2CCB7100D1F1FC /* RegionView.swift */,
+				27E947D72F2E3A0700C51E47 /* PieShape.swift */,
+				27E947DB2F2E3A2000C51E47 /* DonutProgressStyle.swift */,
 				27768FDA2E20199A0086784A /* Routing */,
 				ED9857022C4ECFFC00694F6C /* MailComposer */,
 				ED43B8B92C12061600D07BAA /* DocumentPicker */,
@@ -4359,6 +4386,7 @@
 				ED914ABE2D351FF800973C45 /* UILabel+SetFontStyle.swift in Sources */,
 				34845DB71E166084003D55B9 /* Common.swift in Sources */,
 				47F4F21323A6EC420022FD56 /* DownloadMapsViewController.swift in Sources */,
+				27F12A4B2F2CCB7500D1F1FC /* RegionView.swift in Sources */,
 				99A906F623FA9C010005872B /* InsetsLabelRenderer.swift in Sources */,
 				99012853244732DB00C72B10 /* BottomTabBarInteractor.swift in Sources */,
 				6741A9A31BF340DE002C974C /* main.mm in Sources */,
@@ -4491,6 +4519,7 @@
 				3463BA671DE81DB90082417F /* MWMTrafficButtonViewController.mm in Sources */,
 				ED79A5D52BDF8D6100952D1F /* SynchronizationError.swift in Sources */,
 				993DF10323F6BDB100AC231A /* MainTheme.swift in Sources */,
+				27F12A472F2CC89A00D1F1FC /* Region.swift in Sources */,
 				EDC4E34D2C5D1BEF009286A2 /* RecentlyDeletedTableViewCell.swift in Sources */,
 				34AB66051FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm in Sources */,
 				993DF12A23F6BDB100AC231A /* Style.swift in Sources */,
@@ -4571,6 +4600,7 @@
 				34AB66171FC5AA320078E451 /* MWMiPhoneRoutePreview.m in Sources */,
 				99A906EA23F6F7030005872B /* PlacePageInfoViewController.swift in Sources */,
 				993DF11723F6BDB100AC231A /* UINavigationBarRenderer.swift in Sources */,
+				27F12A4F2F2D0B3200D1F1FC /* DownloadedRegionsView.swift in Sources */,
 				6741A9E71BF340DE002C974C /* MWMCircularProgressView.m in Sources */,
 				34AC8FDB1EFC07FE00E7F910 /* UILabel+NumberOfVisibleLines.swift in Sources */,
 				ED79A5AD2BD7BA0F00952D1F /* UIApplication+LoadingOverlay.swift in Sources */,
@@ -4639,12 +4669,14 @@
 				3454D7C21E07F045004AF2AD /* NSString+Categories.m in Sources */,
 				ED2D74662D1435A600660FBF /* LiveActivityManager.swift in Sources */,
 				34E7761F1F14DB48003040B3 /* PlacePageArea.swift in Sources */,
+				27F12A4D2F2CCE3900D1F1FC /* Grouping.swift in Sources */,
 				ED79A5D82BDF8D6100952D1F /* LocalDirectoryMonitor.swift in Sources */,
 				27697F852E255B6500FBD913 /* EmbeddedSafariViewCoordinator.swift in Sources */,
 				EDC4E34B2C5D1BEF009286A2 /* RecentlyDeletedCategoriesViewController.swift in Sources */,
 				4728F69322CF89A400E00028 /* GradientView.swift in Sources */,
 				F6381BF61CD12045004CA943 /* LocaleTranslator.mm in Sources */,
 				9917D17F2397B1D600A7E06E /* IPadModalPresentationController.swift in Sources */,
+				27E947DC2F2E3A2400C51E47 /* DonutProgressStyle.swift in Sources */,
 				3444DFCD1F1760B900E73099 /* WidgetsArea.swift in Sources */,
 				34D3B03C1E389D05004100F9 /* MWMEditorSwitchTableViewCell.m in Sources */,
 				EDCA7CDF2D317DF9003366CE /* StyleSheet.swift in Sources */,
@@ -4755,6 +4787,7 @@
 				993DF10523F6BDB100AC231A /* UINavigationItem+StyleStyle.swift in Sources */,
 				4726254921C27D4B00C7BAAD /* PlacePageDescriptionViewController.swift in Sources */,
 				039371B62C5B68CD00708377 /* UIFont+monospaced.swift in Sources */,
+				27F12A452F2CC88D00D1F1FC /* Regional Manager.swift in Sources */,
 				340475711E081A4600C92850 /* MWMSettings.mm in Sources */,
 				33046832219C57180041F3A8 /* CategorySettingsViewController.swift in Sources */,
 				3404756E1E081A4600C92850 /* MWMSearch.mm in Sources */,
@@ -4781,18 +4814,21 @@
 				993DF10C23F6BDB100AC231A /* MWMTableViewCellRenderer.swift in Sources */,
 				27697F922E257EED00FBD913 /* ApoutOpenStreetMapView.swift in Sources */,
 				3457C4261F680F1900028233 /* String+BoundingRect.swift in Sources */,
+				27E947DA2F2E3A0C00C51E47 /* PieShape.swift in Sources */,
 				34EF94291C05A6F30050B714 /* MWMSegue.m in Sources */,
 				47E3C7312111F4C2008B3B27 /* CoverVerticalPresentationAnimator.swift in Sources */,
 				99E2B0122368A8C700FFABC5 /* MWMCategory+PlacesCountTitle.swift in Sources */,
 				F6D67CDC2062B9C00032FD38 /* BCCreateCategoryAlert.swift in Sources */,
 				F6E2FE2B1E097BA00083EBEC /* MWMStreetEditorEditTableViewCell.m in Sources */,
 				34AB66891FC5AA330078E451 /* NavigationControlView.swift in Sources */,
+				27F12A512F2D0B3C00D1F1FC /* DownloadRegionsView.swift in Sources */,
 				479EE94A2292FB03009DEBA6 /* ActivityIndicator.swift in Sources */,
 				27697F872E255B8500FBD913 /* EmbeddedSafariViewContent.swift in Sources */,
 				ED3EAC202B03C88100220A4A /* BottomTabBarButton.swift in Sources */,
 				47B9065321C7FA400079C85E /* MWMImageCache.m in Sources */,
 				F6FEA82E1C58F108007223CC /* MWMButton.m in Sources */,
 				34B924431DC8A29C0008D971 /* MWMMailViewController.m in Sources */,
+				27F12A492F2CCB6B00D1F1FC /* RegionsView.swift in Sources */,
 				340475651E081A4600C92850 /* MWMRouter.mm in Sources */,
 				47E3C72F2111F472008B3B27 /* CoverVerticalModalTransitioning.swift in Sources */,
 				34E776101F14B165003040B3 /* VisibleArea.swift in Sources */,

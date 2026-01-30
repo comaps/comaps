@@ -14,7 +14,7 @@ extension Settings {
 
 
 
-// MARK: - Comparable
+// MARK: - Equatable
 extension Settings.Language {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id

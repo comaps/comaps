@@ -20,6 +20,15 @@ import UIKit
 
 
 
+/// Class for using the SwiftUI `DownloadedRegionsView` in the interface builder
+class RegionsBridgeController: UIHostingController<DownloadedRegionsView> {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder, rootView: DownloadedRegionsView())
+    }
+}
+
+
+
 /// Class for using the SwiftUI `AboutView` in the interface builder
 class AboutBridgeController: UIHostingController<AboutView> {
     required init?(coder aDecoder: NSCoder) {

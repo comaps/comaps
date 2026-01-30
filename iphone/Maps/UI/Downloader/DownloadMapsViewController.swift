@@ -216,10 +216,10 @@ class DownloadMapsViewController: MWMViewController {
       }
     case .downloaded:
       let isUpdate = parentAttributes.totalUpdateSizeBytes > 0
-      let size = isUpdate ? parentAttributes.totalUpdateSizeBytes : parentAttributes.downloadingSize
+            let size = isUpdate ? Double(parentAttributes.totalUpdateSizeBytes) : parentAttributes.downloadingSize
       if error {
         downloadAllView.state = dataSource.isRoot ? .none : .error
-        downloadAllView.downloadSize = parentAttributes.downloadingSize
+          downloadAllView.downloadSize = UInt64(parentAttributes.downloadingSize)
       } else if downloading && dataSource is DownloadedMapsDataSource {
         downloadAllView.state = .dowloading
         if dataSource.isRoot {
@@ -229,7 +229,7 @@ class DownloadMapsViewController: MWMViewController {
       } else if isUpdate {
         downloadAllView.state = .ready
         downloadAllView.style = .update
-        downloadAllView.downloadSize = size
+          downloadAllView.downloadSize = UInt64(size)
       }
     @unknown default:
       fatalError()

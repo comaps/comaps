@@ -71,7 +71,9 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
     _downloadingMwmCount = attributes.m_downloadingMwmCounter - attributes.m_localMwmCounter;
     _totalSize = attributes.m_mwmSize;
     _downloadedSize = attributes.m_localMwmSize;
-    _downloadingSize = attributes.m_downloadingMwmSize - attributes.m_localMwmSize;
+    double progressCurrent = attributes.m_downloadingProgress.m_bytesDownloaded;
+    double progressGoal = attributes.m_downloadingProgress.m_bytesTotal;
+    _downloadingSize = progressGoal > 0 ? (progressCurrent/progressGoal) : 0;
     _nodeName = @(attributes.m_nodeLocalName.c_str());
     _nodeDescription = @(attributes.m_nodeLocalDescription.c_str());
     _nodeStatus = convertStatus(attributes.m_status);
