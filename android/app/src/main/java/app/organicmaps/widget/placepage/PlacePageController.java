@@ -511,6 +511,11 @@ public class PlacePageController
       intent.setData(android.net.Uri.parse(url));
       startActivity(intent);
     }
+    else
+    {
+      android.widget.Toast.makeText(requireContext(),
+          "No Panoramax imagery found within 50m", android.widget.Toast.LENGTH_SHORT).show();
+    }
   }
 
   private void onRouteFromBtnClicked()

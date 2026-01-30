@@ -693,6 +693,7 @@ void Framework::FillNotMatchedPlaceInfo(place_page::Info & info, m2::PointD cons
     info.SetCustomName(customTitle);
   info.SetCanEditOrAdd(CanEditMapForPosition(mercator));
   info.SetMercator(mercator);
+  CheckPanoramaxImagery(info);
 }
 
 void Framework::FillPostcodeInfo(string const & postcode, m2::PointD const & mercator, place_page::Info & info) const
@@ -770,6 +771,7 @@ void Framework::FillMyPositionInfo(place_page::Info & info, place_page::BuildInf
     info.SetRouteMarkType(routingMark->GetRoutePointType());
     info.SetIntermediateIndex(routingMark->GetIntermediateIndex());
   }
+  CheckPanoramaxImagery(info);
 }
 
 void Framework::FillRouteMarkInfo(RouteMarkPoint const & rmp, place_page::Info & info) const
@@ -3299,27 +3301,45 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
   bool hasPanoramax = false;
   std::string panoramaxImageId;
   std::string panoramaxUrl;
+  int totalFeatures = 0;
+  int panoramaxFeatures = 0;
+  int panoramaxWithId = 0;
 
   m_featuresFetcher.GetDataSource().ForEachInRect([&](FeatureType & ft)
   {
+    ++totalFeatures;
     feature::TypesHolder types(ft);
     if (types.Has(panoramaxType))
     {
+      ++panoramaxFeatures;
       auto const imageId = ft.GetMetadata(feature::Metadata::FMD_PANORAMAX);
       if (!imageId.empty())
       {
-        hasPanoramax = true;
-        panoramaxImageId = std::string(imageId);
-        panoramaxUrl = "https://panoramax.openstreetmap.fr/#focus=pic:" + panoramaxImageId;
-        return base::ControlFlow::Break;  // Found one, stop searching
+        ++panoramaxWithId;
+        if (!hasPanoramax)  // Take the first one found
+        {
+          hasPanoramax = true;
+          panoramaxImageId = std::string(imageId);
+          panoramaxUrl = "https://panoramax.openstreetmap.fr/#focus=pic:" + panoramaxImageId;
+        }
       }
     }
     return base::ControlFlow::Continue;
   }, rect, df::GetDrawTileScale(rect));
 
+  auto const ll = mercator::ToLatLon(center);
+  LOG(LINFO, ("CheckPanoramaxImagery: lat=", ll.m_lat, "lon=", ll.m_lon,
+              "totalFeatures=", totalFeatures, "panoramaxFeatures=", panoramaxFeatures,
+              "panoramaxWithId=", panoramaxWithId));
+
   if (hasPanoramax)
   {
     info.SetPanoramax(true, std::move(panoramaxImageId), std::move(panoramaxUrl));
+  }
+  else
+  {
+    // Set debug info to show "no imagery" on place page
+    info.SetPanoramax(true, "none", "");
   }
 }
 
