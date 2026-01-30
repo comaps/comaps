@@ -76,6 +76,9 @@ place-village                                       # caption z11-
 
 amenity-ferry_terminal                              # icon z11- (also has caption(optional) z16-)
 railway-station                                     # icon z12- (also has caption(optional) z12-)
+=== 6850
+
+panoramax-image                                     # icon z14-
 === 6800
 
 highway-motorway                                    # pathtext z10- (also has shield::shield z10-, line z6-, line::border z14-)
@@ -616,8 +619,6 @@ highway-unclassified-bridge                         # pathtext z13- (also has li
 highway-unclassified-tunnel                         # pathtext z13- (also has line z11-, line::border z13-, line(casing) z16-)
 === 3100
 
-panoramax-image                                     # icon z16-
-
 amenity-water_point                                 # icon z12- (also has caption(optional) z14-)
 highway-raceway                                     # pathtext z16- (also has line z14-)
 historic-aircraft                                   # icon z16- (also has caption(optional) z16-)
@@ -635,9 +636,6 @@ man_made-windmill                                   # icon z16- (also has captio
 === 3050
 
 isoline-step_100                                    # pathtext z13- (also has line z11-)
-=== 3020
-
-panoramax-image                                     # icon z14-
 === 3010
 
 aerialway-cable_car                                 # pathtext z15- (also has line z12-, line::dash z12-)
