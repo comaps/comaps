@@ -490,7 +490,7 @@ jobs:
       volumes:
         - /mnt/4tbexternal/:/mnt/4tbexternal/
         - /mnt/4tbexternal/osm-planet:/home/planet
-        - /root/keys:~/keys
+        - /root/keys:/root/keys
       options: --ulimit nofile=262144:262144
     concurrency:
       group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
