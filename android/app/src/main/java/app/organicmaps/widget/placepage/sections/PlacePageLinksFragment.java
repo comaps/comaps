@@ -79,11 +79,20 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
       case FMD_WEBSITE -> mMapObject.getWebsiteUrl(false /* strip */, Metadata.MetadataType.FMD_WEBSITE);
       case FMD_WEBSITE_MENU -> mMapObject.getWebsiteUrl(false /* strip */, Metadata.MetadataType.FMD_WEBSITE_MENU);
       case FMD_CONTACT_FACEBOOK, FMD_CONTACT_INSTAGRAM, FMD_CONTACT_TWITTER, FMD_CONTACT_FEDIVERSE, FMD_CONTACT_BLUESKY,
-          FMD_CONTACT_VK, FMD_CONTACT_LINE, FMD_PANORAMAX ->
+          FMD_CONTACT_VK, FMD_CONTACT_LINE ->
       {
         if (TextUtils.isEmpty(mMapObject.getMetadata(type)))
           yield "";
         yield Framework.nativeGetPoiContactUrl(type.toInt());
+      }
+      case FMD_PANORAMAX ->
+      {
+        // Use POI metadata URL if available, otherwise use nearby imagery URL
+        if (!TextUtils.isEmpty(mMapObject.getMetadata(type)))
+          yield Framework.nativeGetPoiContactUrl(type.toInt());
+        if (Framework.nativeHasPanoramax())
+          yield Framework.nativeGetPanoramaxUrl();
+        yield "";
       }
       default -> mMapObject.getMetadata(type);
     };
@@ -235,8 +244,10 @@ public class PlacePageLinksFragment extends Fragment implements Observer<MapObje
     final String line = mMapObject.getMetadata(Metadata.MetadataType.FMD_CONTACT_LINE);
     refreshMetadataOrHide(line, mLinePage, mTvLinePage);
 
+    // Show Panoramax link if POI has imagery metadata OR if nearby imagery was found
     final String panoramax = mMapObject.getMetadata(Metadata.MetadataType.FMD_PANORAMAX);
-    final String panoramaxTitle = TextUtils.isEmpty(panoramax) ? "" : getResources().getString(R.string.panoramax);
+    final boolean hasNearbyImagery = Framework.nativeHasPanoramax();
+    final String panoramaxTitle = (TextUtils.isEmpty(panoramax) && !hasNearbyImagery) ? "" : getResources().getString(R.string.panoramax);
     refreshMetadataOrHide(panoramaxTitle, mPanoramax, mTvPanoramax);
   }
 

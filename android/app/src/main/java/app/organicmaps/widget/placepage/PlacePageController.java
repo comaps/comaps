@@ -37,7 +37,6 @@ import app.organicmaps.sdk.settings.RoadType;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
-import app.organicmaps.util.Utils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -429,7 +428,6 @@ public class PlacePageController
     case ROUTE_AVOID_TOLL -> onAvoidTollBtnClicked();
     case ROUTE_AVOID_UNPAVED -> onAvoidUnpavedBtnClicked();
     case ROUTE_AVOID_FERRY -> onAvoidFerryBtnClicked();
-    case PANORAMAX -> onPanoramaxBtnClicked();
     }
   }
 
@@ -499,15 +497,6 @@ public class PlacePageController
         .putExtra(Const.EXTRA_ZOOM_LEVEL, Framework.nativeGetDrawScale());
     requireActivity().setResult(Activity.RESULT_OK, result);
     requireActivity().finish();
-  }
-
-  private void onPanoramaxBtnClicked()
-  {
-    if (mMapObject == null)
-      return;
-    String url = Framework.nativeGetPanoramaxUrl();
-    if (!TextUtils.isEmpty(url))
-      Utils.openUrl(requireContext(), url);
   }
 
   private void onRouteFromBtnClicked()
@@ -649,9 +638,6 @@ public class PlacePageController
                                              : PlacePageButtons.ButtonType.BOOKMARK_SAVE);
       }
 
-      // Add Panoramax button if imagery is available
-      if (Framework.nativeHasPanoramax())
-        buttons.add(PlacePageButtons.ButtonType.PANORAMAX);
     }
     mViewModel.setCurrentButtons(buttons);
   }
