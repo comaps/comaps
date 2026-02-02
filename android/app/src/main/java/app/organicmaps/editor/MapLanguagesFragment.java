@@ -22,14 +22,15 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
-public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
+public class MapLanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
+    implements LanguagesAdapter.OnLanguageSelectedListener
 {
   final static String EXISTING_LOCALIZED_NAMES = "ExistingLocalizedNames";
   final static String IS_MAP_LANGUAGE_SELECTION = "IsMapLanguageSelection";
 
   public interface Listener
   {
-    void onLanguageSelected(Language language);
+    void onMapLanguageSelected(Language language);
   }
 
   private Listener mListener;
@@ -91,7 +92,7 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
       languages.add(0, autoLanguage);
     }
 
-    return new LanguagesAdapter(this, languages.toArray(new Language[languages.size()]));
+    return new LanguagesAdapter(this, languages.toArray(new Language[languages.size()]), null);
   }
 
   public void setListener(Listener listener)
@@ -99,12 +100,13 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
     this.mListener = listener;
   }
 
-  protected void onLanguageSelected(Language language)
+  @Override
+  public void onLanguageSelected(Language language)
   {
     Fragment parent = getParentFragment();
     if (parent instanceof Listener)
-      ((Listener) parent).onLanguageSelected(language);
+      ((Listener) parent).onMapLanguageSelected(language);
     if (mListener != null)
-      mListener.onLanguageSelected(language);
+      mListener.onMapLanguageSelected(language);
   }
 }

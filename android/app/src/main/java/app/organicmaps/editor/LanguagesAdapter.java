@@ -1,23 +1,36 @@
 package app.organicmaps.editor;
 
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
 import app.organicmaps.R;
 import app.organicmaps.sdk.editor.data.Language;
+
 import com.google.android.material.textview.MaterialTextView;
 
 public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Holder>
 {
-  private final Language[] mLanguages;
-  private final LanguagesFragment mFragment;
-
-  public LanguagesAdapter(@NonNull LanguagesFragment host, @NonNull Language[] languages)
+  public interface OnLanguageSelectedListener
   {
-    mFragment = host;
+    void onLanguageSelected(Language language);
+  }
+
+  @NonNull private final Language[] mLanguages;
+  @NonNull private final OnLanguageSelectedListener mListener;
+  @Nullable private final Language mPreselectedLanguage;
+
+  public LanguagesAdapter(@NonNull OnLanguageSelectedListener listener, @NonNull Language[] languages,
+                          @Nullable Language preselectedLanguage)
+  {
+    mListener = listener;
     mLanguages = languages;
+    mPreselectedLanguage = preselectedLanguage;
   }
 
   @Override
@@ -46,12 +59,15 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Hold
     {
       super(itemView);
       name = (MaterialTextView) itemView;
-      itemView.setOnClickListener(v -> mFragment.onLanguageSelected(mLanguages[getBindingAdapterPosition()]));
+      itemView.setOnClickListener(v -> mListener.onLanguageSelected(mLanguages[getBindingAdapterPosition()]));
     }
 
     public void bind(int position)
     {
-      name.setText(mLanguages[position].name);
+      Language language = mLanguages[position];
+      name.setText(language.name);
+      boolean isSelected = mPreselectedLanguage != null && mPreselectedLanguage.code.equals(language.code);
+      name.setTypeface(null, isSelected ? Typeface.BOLD : Typeface.NORMAL);
     }
   }
 }

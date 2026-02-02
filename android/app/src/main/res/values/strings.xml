@@ -724,6 +724,7 @@
     <string name="sort_bookmarks">Sort favorites</string>
     <!-- Android -->
     <string name="by_default">By default</string>
+    <string name="setting_value_system_default">System default</string>
     <!-- Android -->
     <string name="by_type">By type</string>
     <!-- Android -->

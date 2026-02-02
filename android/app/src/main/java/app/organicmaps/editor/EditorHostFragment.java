@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditorHostFragment
-    extends BaseMwmToolbarFragment implements View.OnClickListener, LanguagesFragment.Listener
+    extends BaseMwmToolbarFragment implements View.OnClickListener, MapLanguagesFragment.Listener
 {
   private boolean mIsNewObject;
   @Nullable
@@ -236,9 +236,9 @@ public class EditorHostFragment
     ArrayList<String> languages = new ArrayList<>(sNames.size());
     for (LocalizedName name : sNames)
       languages.add(name.lang);
-    args.putStringArrayList(LanguagesFragment.EXISTING_LOCALIZED_NAMES, languages);
-    args.putBoolean(LanguagesFragment.IS_MAP_LANGUAGE_SELECTION, false);
-    editWithFragment(Mode.LANGUAGE, R.string.choose_language, args, LanguagesFragment.class, false);
+    args.putStringArrayList(MapLanguagesFragment.EXISTING_LOCALIZED_NAMES, languages);
+    args.putBoolean(MapLanguagesFragment.IS_MAP_LANGUAGE_SELECTION, false);
+    editWithFragment(Mode.LANGUAGE, R.string.choose_language, args, MapLanguagesFragment.class, false);
   }
 
   private void editWithFragment(Mode newMode, @StringRes int toolbarTitle, @Nullable Bundle args,
@@ -419,7 +419,7 @@ public class EditorHostFragment
   }
 
   @Override
-  public void onLanguageSelected(Language lang)
+  public void onMapLanguageSelected(Language lang)
   {
     String name = "";
     addName(Editor.nativeMakeLocalizedName(lang.code, name));
