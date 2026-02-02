@@ -37,6 +37,7 @@ import app.organicmaps.sdk.settings.RoadType;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
+import app.organicmaps.util.Utils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
@@ -506,16 +507,7 @@ public class PlacePageController
       return;
     String url = Framework.nativeGetPanoramaxUrl();
     if (!TextUtils.isEmpty(url))
-    {
-      Intent intent = new Intent(Intent.ACTION_VIEW);
-      intent.setData(android.net.Uri.parse(url));
-      startActivity(intent);
-    }
-    else
-    {
-      android.widget.Toast.makeText(requireContext(),
-          "No Panoramax imagery found within 50m", android.widget.Toast.LENGTH_SHORT).show();
-    }
+      Utils.openUrl(requireContext(), url);
   }
 
   private void onRouteFromBtnClicked()

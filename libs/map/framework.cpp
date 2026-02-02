@@ -3298,12 +3298,7 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
 
   auto const panoramaxType = classif().GetTypeByPath({"panoramax", "image"});
 
-  bool hasPanoramax = false;
   std::string panoramaxImageId;
-  std::string panoramaxUrl;
-  int totalFeatures = 0;
-  int panoramaxFeatures = 0;
-  int panoramaxWithId = 0;
 
   // Use scale 16 which is where panoramax-image features are visible (z14-z16)
   // GetDrawTileScale(rect) returns too high a scale for small rects
@@ -3311,39 +3306,24 @@ void Framework::CheckPanoramaxImagery(place_page::Info & info) const
 
   m_featuresFetcher.GetDataSource().ForEachInRect([&](FeatureType & ft)
   {
-    ++totalFeatures;
     feature::TypesHolder types(ft);
     if (types.Has(panoramaxType))
     {
-      ++panoramaxFeatures;
       auto const imageId = ft.GetMetadata(feature::Metadata::FMD_PANORAMAX);
       if (!imageId.empty())
       {
-        ++panoramaxWithId;
-        if (!hasPanoramax)  // Take the first one found
-        {
-          hasPanoramax = true;
-          panoramaxImageId = std::string(imageId);
-          panoramaxUrl = "https://panoramax.openstreetmap.fr/#focus=pic:" + panoramaxImageId;
-        }
+        panoramaxImageId = std::string(imageId);
+        return base::ControlFlow::Break;  // Found one, stop searching
       }
     }
     return base::ControlFlow::Continue;
   }, rect, scale);
 
-  auto const ll = mercator::ToLatLon(center);
-  LOG(LINFO, ("CheckPanoramaxImagery: lat=", ll.m_lat, "lon=", ll.m_lon,
-              "scale=", scale, "totalFeatures=", totalFeatures,
-              "panoramaxFeatures=", panoramaxFeatures, "panoramaxWithId=", panoramaxWithId));
-
-  if (hasPanoramax)
+  if (!panoramaxImageId.empty())
   {
+    // Use the same URL format as validate_and_format_contacts.cpp kUrlPanoramax
+    std::string panoramaxUrl = "https://api.panoramax.xyz/?pic=" + panoramaxImageId;
     info.SetPanoramax(true, std::move(panoramaxImageId), std::move(panoramaxUrl));
-  }
-  else
-  {
-    // Set debug info to show "no imagery" on place page
-    info.SetPanoramax(true, "none", "");
   }
 }
 
