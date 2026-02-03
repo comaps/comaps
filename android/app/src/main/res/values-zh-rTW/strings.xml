@@ -918,6 +918,4 @@
     <string name="download_resources_custom_url_summary_none">還沒設定</string>
     <string name="download_resources_custom_url_error_scheme">請輸入 http:// 或是 https:// 開頭的網址</string>
     <string name="limit_map_language_alternatives_to_local">只有在他們的區域使用其他系統語言</string>
-    <string name="fused_location_info">CoMaps 依靠系統的混合位置提供者 (特別是 Google Play 服務)，有可能會與 Google 分享你的位置。請使用隱私保護的 Android 作業系統來避免這類問題。</string>
-    <string name="fused_location_service">混合位置服務</string>
 </resources>

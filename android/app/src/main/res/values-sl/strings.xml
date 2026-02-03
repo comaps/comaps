@@ -662,6 +662,4 @@
     <string name="download_resources_custom_url_error_scheme">Vnesite polni URL, ki se začne z http:// ali https://</string>
     <string name="pref_maplanguage_local">Krajevni jezik</string>
     <string name="limit_map_language_alternatives_to_local">Druge sistemske jezike uporabljaj le v njihovem območju</string>
-    <string name="fused_location_info">CoMaps se zanaša na sistemskega ponudnika zlitega določanja položaja (običajno storitev Google Play), ki lahko deli vaš položaj z Googlom. Uporabljajte Android OS z ohranjanjem zasebnosti, da se temu izognete.</string>
-    <string name="fused_location_service">Storitve zlitega določanja položaja</string>
 </resources>

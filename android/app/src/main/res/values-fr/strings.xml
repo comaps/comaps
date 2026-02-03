@@ -922,7 +922,5 @@
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="pref_maplanguage_local">Langue locale</string>
     <string name="limit_map_language_alternatives_to_local">N\'utilisez que les autres langues système de leur région.</string>
-    <string name="fused_location_info">CoMaps s\'appuie sur le fournisseur de localisation fusionnée du système (généralement Google Play Services), qui peut partager votre position avec Google. Utilisez un système d\'exploitation Android préservant la confidentialité pour éviter cela.</string>
-    <string name="fused_location_service">Service de localisation fusionné</string>
     <string name="pref_speedlimit_title">Afficher les limites de vitesse</string>
 </resources>

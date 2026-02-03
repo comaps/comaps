@@ -915,6 +915,4 @@
     <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <string name="pref_maplanguage_local">Локални језик</string>
     <string name="limit_map_language_alternatives_to_local">Ограничите алтернативне језике на локалне</string>
-    <string name="fused_location_info">CoMaps се ослања на системског добављача Fused Location provider (обично Google Play Services), који може да дели вашу локацију са Google. Користите Андроид ОС који чува приватност да бисте ово избегли.</string>
-    <string name="fused_location_service">Fused Location Service</string>
 </resources>

@@ -912,6 +912,4 @@
     <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on http:// või https://</string>
     <string name="pref_maplanguage_local">Kohalik keel</string>
     <string name="limit_map_language_alternatives_to_local">Kasuta vaid oma piirkonna süsteemi keeli</string>
-    <string name="fused_location_service">Kombineeritud asukohateenus</string>
-    <string name="fused_location_info">CoMaps kasutab süsteemi kombineeritud asukohateenust (tavaliselt on see Google Play Services), mis võivad jagada sinu asukohta Google\'iga. Seda saad vältida, kui kasutad mõnda privaatsuskeskset Androidi varianti.</string>
 </resources>

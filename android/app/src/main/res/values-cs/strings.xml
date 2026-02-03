@@ -915,6 +915,4 @@
     <string name="download_resources_custom_url_summary_none">Není nastaveno</string>
     <string name="pref_maplanguage_local">Místní jazyk</string>
     <string name="limit_map_language_alternatives_to_local">Jiné systémové jazyky použít pouze v jejich oblasti</string>
-    <string name="fused_location_info">CoMaps používá systémového poskytovatele Fused Location (obvykle Služby Google Play), který může sdílet vaši polohu se společností Google. Pro zamezení tomuto použijte systém Android, který chrání vaše soukromí.</string>
-    <string name="fused_location_service">Služba Fused Location</string>
 </resources>

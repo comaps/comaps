@@ -910,6 +910,4 @@
     <string name="download_resources_custom_url_error_scheme">Por favor, insira um URL começando com http:// ou https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
     <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema na sua região</string>
-    <string name="fused_location_info">CoMaps depende do fornecedor de Fused Location do sistema (tipicamente Google Play Services), que poderá partilhar a sua localização com a Google. Use um sistema operativo Android com privacidade para evitar isto.</string>
-    <string name="fused_location_service">Serviço de Fused Location</string>
 </resources>

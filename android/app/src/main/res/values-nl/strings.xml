@@ -916,6 +916,4 @@
     <string name="download_resources_custom_url_error_scheme">Voer een URL in beginnend met http:// of https://</string>
     <string name="pref_maplanguage_local">Plaatselijke taal</string>
     <string name="limit_map_language_alternatives_to_local">Gebruik alleen andere systeemtalen in hun regio</string>
-    <string name="fused_location_info">CoMaps vertrouwt op de Fused Location-provider van het systeem (meestal Google Play Services), die uw locatie met Google kan delen. Gebruik een privacy-respecterend Android OS om dit te voorkomen.</string>
-    <string name="fused_location_service">Fused Location Service</string>
 </resources>

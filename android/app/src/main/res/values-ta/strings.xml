@@ -654,6 +654,4 @@
     <string name="download_resources_custom_url_summary_none">அமைக்கப்படவில்லை</string>
     <string name="download_resources_custom_url_error_scheme">http:// அல்லது https:// உடன் தொடங்கும் முகவரி ஐ உள்ளிடவும்</string>
     <string name="limit_map_language_alternatives_to_local">தங்கள் பிராந்தியத்தில் உள்ள பிற கணினி மொழிகளை மட்டுமே பயன்படுத்தவும்</string>
-    <string name="fused_location_info">CoMaps ஆனது சிஸ்டத்தின் ஃப்யூஸ்டு லொகேஷன் வழங்குநரைச் சார்ந்துள்ளது (பொதுவாக Google Play சேவைகள்), இது உங்கள் இருப்பிடத்தை Google உடன் பகிரலாம். இதைத் தவிர்க்க, தனியுரிமையைப் பாதுகாக்கும் Android OS ஐப் பயன்படுத்தவும்.</string>
-    <string name="fused_location_service">இணைந்த இருப்பிட சேவை</string>
 </resources>

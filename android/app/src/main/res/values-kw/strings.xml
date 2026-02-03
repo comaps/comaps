@@ -670,6 +670,4 @@
     <string name="download_resources_custom_url_error_scheme">Mar pleg, ynworra unn URL may ow dalleth gans http:// po https://</string>
     <string name="pref_maplanguage_local">Yeth Leel</string>
     <string name="limit_map_language_alternatives_to_local">Devnydhya hepken yethow system aral yn aga pow i</string>
-    <string name="fused_location_info">CoMaps fydhya war\'n provier system GPS Kesunys (dell yw usys Gonisyow Google Play), may kevrenna martesen dha tyller gans Google. Devnydhya SO Android rag goheles hemma.</string>
-    <string name="fused_location_service">Gonis GPS Kesunys</string>
 </resources>

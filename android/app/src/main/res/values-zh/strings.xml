@@ -918,6 +918,6 @@
     <string name="download_resources_custom_url_message">覆盖用于地图下载的默认地图下载服务器。留空则使用 CoMaps 默认服务器。</string>
     <string name="pref_maplanguage_local">本地语言</string>
     <string name="limit_map_language_alternatives_to_local">仅使用所在区域的其他系统语言</string>
-    <string name="fused_location_service">一体化位置信息服务</string>
-    <string name="fused_location_info">CoMaps 依赖于系统的一体化位置信息提供程序（通常是 Google Play 服务），该服务可能会与 Google 分享您的位置信息。如需避免此情况，请使用注重隐私保护的 Android 操作系统。</string>
+    <string name="location_privacy">位置隐私</string>
+    <string name="location_privacy_info">应用会从您的操作系统位置信息服务接收位置数据，该服务可能会将您的位置信息共享给 Google 和/或您的设备供应商。如需避免这种情况，可以使用注重隐私保护的 Android 操作系统。</string>
 </resources>
