@@ -61,6 +61,11 @@ on:
         required: false
         default: false
         type: boolean
+      debug-signing-paths:
+        description: 'Debug signing paths only (skip map generation)?'
+        required: false
+        default: false
+        type: boolean
 #      reset:
 #        description: 'Reset part of the system?'
 #        required: false
@@ -523,6 +528,38 @@ jobs:
         shell: bash
         run: |
           shopt -s nullglob
+          echo "=== DEBUG: Key signing diagnostics ==="
+          echo "Current user: $(whoami)"
+          echo "Home directory (~): $HOME"
+          echo "Expanded ~/keys: $(eval echo ~/keys)"
+          echo ""
+          echo "Contents of ~ (home):"
+          ls -la ~ 2>&1 || echo "ERROR: Cannot list ~"
+          echo ""
+          echo "Contents of \$HOME ($HOME):"
+          ls -la $HOME 2>&1 || echo "ERROR: Cannot list \$HOME"
+          echo ""
+          echo "Contents of /root:"
+          ls -la /root 2>&1 || echo "ERROR: Cannot list /root"
+          echo ""
+          echo "Contents of /home:"
+          ls -la /home 2>&1 || echo "ERROR: Cannot list /home"
+          echo ""
+          echo "Checking /root/keys (container mount target):"
+          ls -la /root/keys 2>&1 || echo "ERROR: /root/keys does not exist or not accessible"
+          echo ""
+          echo "Checking ~/keys:"
+          ls -la ~/keys 2>&1 || echo "ERROR: ~/keys does not exist or not accessible"
+          echo ""
+          echo "Checking $HOME/keys:"
+          ls -la $HOME/keys 2>&1 || echo "ERROR: \$HOME/keys does not exist or not accessible"
+          echo ""
+          echo "Looking for any .pem files:"
+          find /root -name "*.pem" 2>/dev/null || echo "No .pem files found in /root"
+          find $HOME -name "*.pem" 2>/dev/null || echo "No .pem files found in \$HOME"
+          find /home -name "*.pem" 2>/dev/null || echo "No .pem files found in /home"
+          echo "=== END DEBUG ==="
+          echo ""
           buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
           builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
           cd /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
@@ -539,6 +576,56 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=Generator is done!'
+
+  debug-signing-paths:
+    if: inputs.debug-signing-paths
+    name: Debug Signing Paths
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /root/keys:/root/keys
+      options: --ulimit nofile=262144:262144
+    steps:
+      - name: Debug signing paths
+        shell: bash
+        run: |
+          echo "=== DEBUG: Key signing path diagnostics ==="
+          echo "Current user: $(whoami)"
+          echo "Home directory (~): $HOME"
+          echo "Expanded ~/keys: $(eval echo ~/keys)"
+          echo ""
+          echo "Contents of ~ (home):"
+          ls -la ~ 2>&1 || echo "ERROR: Cannot list ~"
+          echo ""
+          echo "Contents of \$HOME ($HOME):"
+          ls -la $HOME 2>&1 || echo "ERROR: Cannot list \$HOME"
+          echo ""
+          echo "Contents of /root:"
+          ls -la /root 2>&1 || echo "ERROR: Cannot list /root"
+          echo ""
+          echo "Contents of /home:"
+          ls -la /home 2>&1 || echo "ERROR: Cannot list /home"
+          echo ""
+          echo "Checking /root/keys (container mount target):"
+          ls -la /root/keys 2>&1 || echo "ERROR: /root/keys does not exist or not accessible"
+          echo ""
+          echo "Checking ~/keys:"
+          ls -la ~/keys 2>&1 || echo "ERROR: ~/keys does not exist or not accessible"
+          echo ""
+          echo "Checking \$HOME/keys:"
+          ls -la $HOME/keys 2>&1 || echo "ERROR: \$HOME/keys does not exist or not accessible"
+          echo ""
+          echo "Looking for any .pem files:"
+          find /root -name "*.pem" 2>/dev/null || echo "No .pem files found in /root"
+          find $HOME -name "*.pem" 2>/dev/null || echo "No .pem files found in \$HOME"
+          find /home -name "*.pem" 2>/dev/null || echo "No .pem files found in /home"
+          echo ""
+          echo "Mount points:"
+          mount | grep -E "(keys|root|home)" || echo "No relevant mounts found"
+          echo ""
+          echo "=== END DEBUG ==="
 
   upload-maps:
     if: inputs.run-upload
