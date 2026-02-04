@@ -189,7 +189,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
   parsed->m_currentVersion =
       LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
-                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
+                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_min_compat_app_version);
 
   int64_t const newVersion = parsed->m_currentVersion;
   if (newVersion <= m_currentVersion || newVersion <= 0)
@@ -307,13 +307,23 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     CountryNameSynonyms synonyms;
     MwmTopCityGeoIds topCities;
     MwmTopCountryGeoIds topCountries;
+    int64_t min_compat_app_version = -1;
 
     int64_t const parsedVersion =
-        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
-    LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
+        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, min_compat_app_version);
+    LOG(LDEBUG, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "minimum compatible app version=", min_compat_app_version));
 
     if (parsedVersion <= 0)
       return false;
+
+    auto const currentAppVersion = GetPlatform().IntVersion();
+
+    if (min_compat_app_version > 0 && min_compat_app_version > currentAppVersion)
+    {
+      // The new countries.txt is not compatible with this app version. 
+      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. mcav=", min_compat_app_version, "app=", currentAppVersion));
+      return false;
+    }
 
     auto buf = std::make_shared<std::string>(std::move(buffer));
 
@@ -386,7 +396,7 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
+                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_min_compat_app_version);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);
@@ -1267,7 +1277,7 @@ void Storage::RunCountriesCheckAsync()
       std::shared_ptr<Storage> storage(new Storage(7 /* dummy */));
       storage->m_currentVersion =
           LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_affiliations, storage->m_countryNameSynonyms,
-                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds);
+                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds, storage->m_min_compat_app_version);
       if (storage->m_currentVersion > 0)
       {
         LOG(LDEBUG, ("Apply new version", storage->m_currentVersion, dataVersion));

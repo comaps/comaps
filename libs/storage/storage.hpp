@@ -268,6 +268,8 @@ private:
   Affiliations m_affiliations;
   CountryNameSynonyms m_countryNameSynonyms;
 
+  int64_t m_min_compat_app_version = -1;
+
   /// @todo This containers are empty for now, but probably will be used in future.
   /// @{
   MwmTopCityGeoIds m_mwmTopCityGeoIds;

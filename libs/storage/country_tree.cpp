@@ -389,16 +389,20 @@ bool LoadCountriesImpl(string const & jsonBuffer, StoreInterface & store)
 
 int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countries, Affiliations & affiliations,
                                 CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                                MwmTopCountryGeoIds & mwmTopCountryGeoIds)
+                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, int64_t & min_compat_app_version)
 {
   countries.Clear();
   affiliations.clear();
 
   int64_t version = -1;
+  min_compat_app_version = -1;
   try
   {
     base::Json root(jsonBuffer.c_str());
     FromJSONObject(root.get(), "v", version);
+    FromJSONObject(root.get(), "mcav", min_compat_app_version);
+    
+    LOG(LDEBUG, ("COUNTRIES(LoadCountriesFromBuffer): data version (v)=", version, "min compat app version (mcav)=", min_compat_app_version));
 
     StoreCountries store(countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds, mwmTopCountryGeoIds);
     if (!LoadCountriesImpl(jsonBuffer, store))
@@ -431,6 +435,8 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
 {
   string json;
   int64_t version = -1;
+  int64_t mcavR = -1;
+  int64_t mcavW = -1;
 
   // Choose the latest version from "resource" or "writable":
   // w > r in case of autoupdates
@@ -442,7 +448,7 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
   {
     reader->ReadAsString(json);
     version = LoadCountriesFromBuffer(json, countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds,
-                                      mwmTopCountryGeoIds);
+                                      mwmTopCountryGeoIds, mcavR);
   }
 
   reader = GetReaderImpl(pl, path, "w");
@@ -455,7 +461,16 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
     MwmTopCountryGeoIds newCountryIds;
 
     reader->ReadAsString(json);
-    int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds);
+    int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, mcavW);
+
+    auto const currentAppVersion = pl.IntVersion();
+
+    if (mcavW > 0 && mcavW > currentAppVersion)
+    {
+      // The new countries.txt is not compatible with this app version. 
+      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. mcavW=", mcavW, "app=", currentAppVersion));
+      return version;
+    }
 
     if (newVersion > version)
     {
