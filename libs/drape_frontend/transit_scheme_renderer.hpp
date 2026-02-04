@@ -33,6 +33,9 @@ public:
   void RenderTransit(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng, ScreenBase const & screen,
                      ref_ptr<PostprocessRenderer> postprocessRenderer, FrameValues const & frameValues,
                      ref_ptr<DebugRectRenderer> debugRectRenderer);
+  void RenderTransitText(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng, ScreenBase const & screen,
+                     ref_ptr<PostprocessRenderer> postprocessRenderer, FrameValues const & frameValues,
+                     ref_ptr<DebugRectRenderer> debugRectRenderer);
 
   void CollectOverlays(ref_ptr<dp::OverlayTree> tree, ScreenBase const & modelView);
 

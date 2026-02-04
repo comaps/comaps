@@ -188,6 +188,7 @@ private:
   void RenderUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId);
   void RenderNonDisplaceableUserMarksLayer(ScreenBase const & modelView, DepthLayer layerId);
   void RenderTransitSchemeLayer(ScreenBase const & modelView);
+  void RenderTransitSchemeLayerText(ScreenBase const & modelView);
   void RenderTrafficLayer(ScreenBase const & modelView);
   void RenderRouteLayer(ScreenBase const & modelView);
   void RenderTransitBackground();

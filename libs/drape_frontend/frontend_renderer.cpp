@@ -1450,6 +1450,9 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
       RenderNonDisplaceableUserMarksLayer(modelView, DepthLayer::SearchMarkLayer);
     }
 
+    if (!HasRouteData())
+      RenderTransitSchemeLayerText(modelView);
+
     m_drapeApiRenderer->Render(m_context, make_ref(m_gpuProgramManager), modelView, m_frameValues);
 
     for (auto const & arrow : m_overlayTree->GetDisplacementInfo())
@@ -1583,6 +1586,21 @@ void FrontendRenderer::RenderTransitSchemeLayer(ScreenBase const & modelView)
                                            make_ref(m_debugRectRenderer));
   }
 }
+
+void FrontendRenderer::RenderTransitSchemeLayerText(ScreenBase const & modelView)
+{
+  TRACE_SECTION("[drape] RenderTransitSchemeLayerText");
+  CHECK(m_context != nullptr, ());
+  if (m_transitSchemeEnabled && m_transitSchemeRenderer->IsSchemeVisible(GetCurrentZoom()))
+  {
+    DEBUG_LABEL(m_context, "Transit Scheme Text");
+    m_context->Clear(dp::ClearBits::DepthBit, dp::kClearBitsStoreAll);
+    m_transitSchemeRenderer->RenderTransitText(m_context, make_ref(m_gpuProgramManager), modelView,
+                                           make_ref(m_postprocessRenderer), m_frameValues,
+                                           make_ref(m_debugRectRenderer));
+  }
+}
+
 
 void FrontendRenderer::RenderTrafficLayer(ScreenBase const & modelView)
 {

@@ -137,12 +137,18 @@ void TransitSchemeRenderer::RenderTransit(ref_ptr<dp::GraphicsContext> context, 
   RenderLinesCaps(context, mng, screen, frameValues, pixelHalfWidth);
   RenderLines(context, mng, screen, frameValues, pixelHalfWidth);
   RenderMarkers(context, mng, screen, frameValues, pixelHalfWidth);
+  // Render only for debug purpose.
+  // RenderStubs(context, mng, screen, frameValues, debugRectRenderer);
+}
+
+void TransitSchemeRenderer::RenderTransitText(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng,
+                                          ScreenBase const & screen, ref_ptr<PostprocessRenderer> postprocessRenderer,
+                                          FrameValues const & frameValues, ref_ptr<DebugRectRenderer> debugRectRenderer)
+{
   {
     StencilWriterGuard guard(postprocessRenderer, context);
     RenderText(context, mng, screen, frameValues, debugRectRenderer);
   }
-  // Render only for debug purpose.
-  // RenderStubs(context, mng, screen, frameValues, debugRectRenderer);
 }
 
 void TransitSchemeRenderer::CollectOverlays(ref_ptr<dp::OverlayTree> tree, ScreenBase const & modelView)
