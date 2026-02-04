@@ -3,7 +3,7 @@
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
-#include "storage/countries_txt_signature.hpp"
+#include "private.h"
 #include "storage/downloader.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
@@ -123,8 +123,8 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
 
 namespace
 {
-std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
-std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.sig";
+std::string const kCountriesLatestRelativeUrl = COUNTRIES_MAPS_RELATIVE_URL MIN_COMPAT_APP_V "/" COUNTRIES_FILE;
+std::string const kCountriesLatestSigRelativeUrl = COUNTRIES_MAPS_RELATIVE_URL MIN_COMPAT_APP_V "/" COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION;
 
 std::string_view constexpr kCountriesTxtLastCheckSuccessKey = "CountriesTxtLastCheckSuccess";
 uint64_t constexpr kCountriesTxtCheckIntervalSeconds = 48ull * 3600ull;
@@ -156,7 +156,7 @@ bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 {
   auto & pl = GetPlatform();
   std::string const finalPath = base::JoinPath(pl.WritableDir(), COUNTRIES_FILE);
-  std::string const tmpPath = finalPath + ".tmp";
+  std::string const tmpPath = finalPath + EXTENSION_TMP;
 
   try
   {
@@ -189,7 +189,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
   parsed->m_currentVersion =
       LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
-                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
+                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_minCompatibleAppVersion);
 
   int64_t const newVersion = parsed->m_currentVersion;
   if (newVersion <= m_currentVersion || newVersion <= 0)
@@ -307,13 +307,23 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     CountryNameSynonyms synonyms;
     MwmTopCityGeoIds topCities;
     MwmTopCountryGeoIds topCountries;
+    int64_t minCompatibleAppVersion = -1;
 
     int64_t const parsedVersion =
-        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
-    LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
+        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, minCompatibleAppVersion);
+    LOG(LDEBUG, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "minCompatibleAppVersion=", minCompatibleAppVersion));
 
     if (parsedVersion <= 0)
       return false;
+
+    auto const currentAppVersion = GetPlatform().IntVersion();
+
+    if (minCompatibleAppVersion > 0 && minCompatibleAppVersion > currentAppVersion)
+    {
+      // The new countries.txt is not compatible with this app version. 
+      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. minCompatibleAppVersion=", minCompatibleAppVersion, "currentAppVersion=", currentAppVersion));
+      return false;
+    }
 
     auto buf = std::make_shared<std::string>(std::move(buffer));
 
@@ -386,7 +396,7 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
+                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_minCompatibleAppVersion);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);
@@ -1267,7 +1277,7 @@ void Storage::RunCountriesCheckAsync()
       std::shared_ptr<Storage> storage(new Storage(7 /* dummy */));
       storage->m_currentVersion =
           LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_affiliations, storage->m_countryNameSynonyms,
-                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds);
+                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds, storage->m_minCompatibleAppVersion);
       if (storage->m_currentVersion > 0)
       {
         LOG(LDEBUG, ("Apply new version", storage->m_currentVersion, dataVersion));

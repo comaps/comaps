@@ -74,6 +74,8 @@ auto constexpr TMP_OFFSETS_EXT = OFFSET_EXT EXTENSION_TMP;
 #define GEOM_INDEX_TMP_EXT ".geomidx.tmp"
 
 #define COUNTRIES_FILE "countries.txt"
+#define COUNTRIES_SIGNATURE_EXTENSION ".sig"
+#define COUNTRIES_MAPS_RELATIVE_URL "maps/"
 #define SERVER_DATAVERSION_FILE "data_version.json"
 #define COUNTRIES_ROOT "Countries"
 
