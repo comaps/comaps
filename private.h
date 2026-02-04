@@ -14,3 +14,6 @@
 
 // The app is compatible with maps belonging to the following or earlier map series:
 #define MAP_SERIES "2026.04.05"
+
+// The public key for verifying countries.txt signature: libs/storage/countries_txt_signature.hpp
+// Note: It cannot be moved here because it would break the iOS build.

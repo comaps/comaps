@@ -3,6 +3,7 @@
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
+#include "private.h"
 #include "storage/countries_txt_signature.hpp"
 #include "storage/downloader.hpp"
 #include "storage/map_files_downloader.hpp"
@@ -122,15 +123,15 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
 }
 
 namespace
-{
-std::string const kCountriesLatestRelativeUrl = "maps/latest/countries.txt";
-std::string const kCountriesLatestSigRelativeUrl = "maps/latest/countries.txt.sig";
+{ //pastk: no need, dl from map version url
+std::string const kCountriesLatestRelativeUrl = MAPS_BASE_URL "/" MAP_SERIES "/" COUNTRIES_FILE;
+std::string const kCountriesLatestSigRelativeUrl = MAPS_BASE_URL "/" MAP_SERIES "/" COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION;
 
 bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 {
   auto & pl = GetPlatform();
   std::string const finalPath = base::JoinPath(pl.WritableDir(), COUNTRIES_FILE);
-  std::string const tmpPath = finalPath + ".tmp";
+  std::string const tmpPath = finalPath + EXTENSION_TMP;
 
   try
   {
@@ -163,7 +164,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
   parsed->m_currentVersion =
       LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
-                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds);
+                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_mapSeries);
 
   int64_t const newVersion = parsed->m_currentVersion;
   if (newVersion <= m_currentVersion || newVersion <= 0)
@@ -257,7 +258,7 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
 
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
-  LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
+  LOG(LINFO, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
 
   // Use MapFilesDownloader so we respect custom server / metaserver selection.
   m_downloader->DownloadAsString(kCountriesLatestRelativeUrl, [this](std::string const & buffer)
@@ -275,13 +276,24 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     CountryNameSynonyms synonyms;
     MwmTopCityGeoIds topCities;
     MwmTopCountryGeoIds topCountries;
+    int64_t mapSeries = -1;
 
     int64_t const parsedVersion =
-        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries);
-    LOG(LDEBUG, ("COUNTRIES: parsed version=", parsedVersion, "current=", m_currentVersion));
+        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
+    LOG(LINFO, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "mapSeries=", mapSeries));
 
     if (parsedVersion <= 0)
       return false;
+
+    auto const currentAppVersion = GetPlatform().IntVersion();
+
+    //pastk: again don't compare with app
+    if (mapSeries > 0 && mapSeries > currentAppVersion)
+    {
+      // The new countries.txt is not compatible with this app version.
+      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. mapSeries=", mapSeries, "currentAppVersion=", currentAppVersion));
+      return false;
+    }
 
     auto buf = std::make_shared<std::string>(std::move(buffer));
 
@@ -340,7 +352,7 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
   m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
 
-  LOG(LDEBUG, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
+  LOG(LINFO, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
 
   // Fetch, persist, and apply.
   RunCountriesCheckAsyncSaveOnly();
@@ -353,7 +365,7 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
+                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_mapSeries);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);
@@ -1234,7 +1246,7 @@ void Storage::RunCountriesCheckAsync()
       std::shared_ptr<Storage> storage(new Storage(7 /* dummy */));
       storage->m_currentVersion =
           LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_affiliations, storage->m_countryNameSynonyms,
-                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds);
+                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds, storage->m_mapSeries);
       if (storage->m_currentVersion > 0)
       {
         LOG(LDEBUG, ("Apply new version", storage->m_currentVersion, dataVersion));
