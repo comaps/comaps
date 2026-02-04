@@ -1419,6 +1419,9 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
       }
     }
 
+    if (!HasRouteData())
+      RenderTransitSchemeLayer(modelView);
+
     {
       StencilWriterGuard guard(make_ref(m_postprocessRenderer), m_context);
       RenderOverlayLayer(modelView);
@@ -1438,9 +1441,6 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
 
     if (hasTransitRouteData)
       RenderRouteLayer(modelView);
-
-    if (!HasRouteData())
-      RenderTransitSchemeLayer(modelView);
 
     {
       StencilWriterGuard guard(make_ref(m_postprocessRenderer), m_context);
