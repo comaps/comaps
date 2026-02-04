@@ -356,6 +356,7 @@ boundary-administrative-4                           # line z5-
 man_made-cutline                                    # line z15-
 === 60
 
+panoramax-sequence                                  # line z14-
 barrier-ditch                                       # line z17-
 building                                            # area z15- (also has caption z18-)
 building-garage                                     # area z15- (also has caption z18-)

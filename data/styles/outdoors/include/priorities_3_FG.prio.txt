@@ -574,6 +574,7 @@ isoline-step_1000                                   # line z10- (also has pathte
 isoline-step_50                                     # line z13- (also has pathtext z15-)
 isoline-step_500                                    # line z10- (also has pathtext z11-)
 isoline-zero                                        # line z15- (also has pathtext z15-)
+panoramax-sequence                                  # line z14-
 === 50
 
 man_made-breakwater                                 # line z14- and area z12- (also has caption z17-)

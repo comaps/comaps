@@ -9,14 +9,18 @@ The script streams the large geoparquet file (20GB+) using DuckDB to avoid
 loading everything into memory, performs a spatial join with country polygons,
 and writes compact binary files for each country.
 
-Binary Format:
+Binary Format (version 2):
   Header:
-    uint32 version (=1)
+    uint32 version (=2)
     uint64 point_count
-  Data (repeated point_count times):
-    double lat (8 bytes)
-    double lon (8 bytes)
-    string image_id (length-prefixed: uint32 length + bytes)
+    uint64 sequence_count
+  Sequences (repeated sequence_count times):
+    string sequence_id (length-prefixed: uint32 length + bytes)
+    uint64 point_count_in_sequence
+    Points (repeated point_count_in_sequence times, ordered by datetime):
+      double lat (8 bytes)
+      double lon (8 bytes)
+      string image_id (length-prefixed: uint32 length + bytes)
 """
 
 import argparse
@@ -198,41 +202,59 @@ class RegionFinder:
         return None
 
 
-def write_binary_file(output_path: Path, points: List[Tuple[float, float, str]]):
+def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, float, str]]]):
     """
-    Write panoramax points to binary file.
+    Write panoramax sequences to binary file.
 
-    Format:
+    Format (version 2):
       Header:
-        uint32 version = 1
-        uint64 point_count
-      Data:
-        For each point:
-          double lat
-          double lon
-          uint32 image_id_length
-          bytes image_id
+        uint32 version = 2
+        uint64 total_point_count
+        uint64 sequence_count
+      Sequences:
+        For each sequence:
+          uint32 sequence_id_length
+          bytes sequence_id
+          uint64 point_count_in_sequence
+          For each point:
+            double lat
+            double lon
+            uint32 image_id_length
+            bytes image_id
     """
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
+    total_points = sum(len(pts) for pts in sequences.values())
+    sequence_count = len(sequences)
+
     with open(output_path, 'wb') as f:
         # Write header
-        version = 1
-        point_count = len(points)
+        version = 2
         f.write(struct.pack('<I', version))  # uint32 version
-        f.write(struct.pack('<Q', point_count))  # uint64 point_count
+        f.write(struct.pack('<Q', total_points))  # uint64 total_point_count
+        f.write(struct.pack('<Q', sequence_count))  # uint64 sequence_count
 
-        # Write points
-        for lat, lon, image_id in points:
-            f.write(struct.pack('<d', lat))  # double lat
-            f.write(struct.pack('<d', lon))  # double lon
+        # Write sequences
+        for sequence_id, points in sequences.items():
+            # Write sequence_id as length-prefixed string
+            sequence_id_bytes = sequence_id.encode('utf-8')
+            f.write(struct.pack('<I', len(sequence_id_bytes)))  # uint32 length
+            f.write(sequence_id_bytes)  # bytes
 
-            # Write image_id as length-prefixed string
-            image_id_bytes = image_id.encode('utf-8')
-            f.write(struct.pack('<I', len(image_id_bytes)))  # uint32 length
-            f.write(image_id_bytes)  # bytes
+            # Write point count in this sequence
+            f.write(struct.pack('<Q', len(points)))  # uint64 point_count
 
-    logger.info(f"Wrote {point_count} points to {output_path}")
+            # Write points (already sorted by datetime)
+            for lat, lon, image_id in points:
+                f.write(struct.pack('<d', lat))  # double lat
+                f.write(struct.pack('<d', lon))  # double lon
+
+                # Write image_id as length-prefixed string
+                image_id_bytes = image_id.encode('utf-8')
+                f.write(struct.pack('<I', len(image_id_bytes)))  # uint32 length
+                f.write(image_id_bytes)  # bytes
+
+    logger.info(f"Wrote {total_points} points in {sequence_count} sequences to {output_path}")
 
 
 def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: Path, batch_size: int = 100000):
@@ -241,6 +263,7 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
 
     Uses DuckDB to stream the large parquet file without loading it entirely into memory.
     Uses .poly files from borders_dir to categorize points into regions.
+    Points are grouped by sequence (collection) and sorted by datetime within each sequence.
     """
     # Load region polygons and build spatial index
     regions = load_country_polygons(borders_dir)
@@ -271,24 +294,62 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
     # First, inspect the schema to understand the columns
     try:
         schema_result = conn.execute(f"DESCRIBE SELECT * FROM read_parquet('{parquet_url}') LIMIT 0").fetchall()
-        logger.info(f"Parquet schema: {[col[0] for col in schema_result]}")
+        columns = [col[0] for col in schema_result]
+        logger.info(f"Parquet schema: {columns}")
+
+        # Check if collection and datetime fields exist
+        has_collection = 'collection' in columns
+        has_datetime = 'datetime' in columns
+        logger.info(f"Has collection field: {has_collection}, Has datetime field: {has_datetime}")
     except Exception as e:
         logger.warning(f"Could not read schema: {e}")
+        has_collection = False
+        has_datetime = False
 
-    # Dictionary to accumulate points per country
-    country_points: Dict[str, List[Tuple[float, float, str]]] = defaultdict(list)
+    # Dictionary to accumulate sequences per country
+    # Structure: {country: {sequence_id: [(lat, lon, image_id, datetime), ...]}}
+    country_sequences: Dict[str, Dict[str, List[Tuple[float, float, str, str]]]] = defaultdict(lambda: defaultdict(list))
 
     # Stream the parquet file in batches
     # Geoparquet stores geometry as GEOMETRY type
     # Use DuckDB spatial functions to extract lat/lon
-    query = f"""
-        SELECT
-            ST_Y(geometry) as lat,
-            ST_X(geometry) as lon,
-            id as image_id
-        FROM read_parquet('{parquet_url}')
-        WHERE geometry IS NOT NULL
-    """
+    # Also extract collection (sequence_id) and datetime for ordering
+    if has_collection and has_datetime:
+        query = f"""
+            SELECT
+                ST_Y(geometry) as lat,
+                ST_X(geometry) as lon,
+                id as image_id,
+                collection as sequence_id,
+                datetime
+            FROM read_parquet('{parquet_url}')
+            WHERE geometry IS NOT NULL
+            ORDER BY collection, datetime
+        """
+    elif has_collection:
+        query = f"""
+            SELECT
+                ST_Y(geometry) as lat,
+                ST_X(geometry) as lon,
+                id as image_id,
+                collection as sequence_id,
+                NULL as datetime
+            FROM read_parquet('{parquet_url}')
+            WHERE geometry IS NOT NULL
+            ORDER BY collection
+        """
+    else:
+        # Fallback: no sequence info, use image_id as sequence_id (single-point sequences)
+        query = f"""
+            SELECT
+                ST_Y(geometry) as lat,
+                ST_X(geometry) as lon,
+                id as image_id,
+                id as sequence_id,
+                NULL as datetime
+            FROM read_parquet('{parquet_url}')
+            WHERE geometry IS NOT NULL
+        """
 
     try:
         result = conn.execute(query)
@@ -308,32 +369,38 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
             logger.info(f"Processing batch {batch_count}: {batch_size_actual} points (total: {total_points})")
 
             for row in batch:
-                lat, lon, image_id = row
+                lat, lon, image_id, sequence_id, datetime_val = row
 
                 # Find which region this point belongs to
                 region = region_finder.find_region(lat, lon)
 
                 # Only add points that fall within a defined region
-                if region:
-                    country_points[region].append((lat, lon, str(image_id)))
+                if region and sequence_id:
+                    country_sequences[region][str(sequence_id)].append(
+                        (lat, lon, str(image_id), str(datetime_val) if datetime_val else "")
+                    )
 
-            # Periodically write to disk to avoid memory issues
+            # Log progress
             if batch_count % 10 == 0:
-                for country, points in country_points.items():
-                    if len(points) > 100000:  # Write if accumulated > 100k points
-                        output_file = output_dir / f"{country}.panoramax"
-                        # Append mode for incremental writing
-                        # TODO: Implement append mode or accumulate all then write once
-                        logger.info(f"Country {country} has {len(points)} points accumulated")
+                total_sequences = sum(len(seqs) for seqs in country_sequences.values())
+                logger.info(f"Accumulated {total_sequences} sequences across {len(country_sequences)} countries")
 
         logger.info(f"Finished processing {total_points} total points")
-        logger.info(f"Countries found: {list(country_points.keys())}")
+        logger.info(f"Countries found: {list(country_sequences.keys())}")
 
         # Write final output files
-        for country, points in country_points.items():
-            if points:
+        for country, sequences in country_sequences.items():
+            if sequences:
+                # Sort points within each sequence by datetime (already mostly sorted from query)
+                sorted_sequences: Dict[str, List[Tuple[float, float, str]]] = {}
+                for seq_id, points in sequences.items():
+                    # Sort by datetime (4th element), then remove datetime from output
+                    sorted_points = sorted(points, key=lambda p: p[3])
+                    # Keep only lat, lon, image_id for output
+                    sorted_sequences[seq_id] = [(p[0], p[1], p[2]) for p in sorted_points]
+
                 output_file = output_dir / f"{country}.panoramax"
-                write_binary_file(output_file, points)
+                write_binary_file(output_file, sorted_sequences)
 
     except Exception as e:
         logger.error(f"Error processing parquet: {e}")

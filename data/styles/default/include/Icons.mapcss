@@ -35,6 +35,10 @@ Declare _before_ all concrete POIs to avoid styles overrides.
 node|z16-[panoramax=image],
 {icon-image: panoramax-m.svg; icon-min-distance: 8;}
 
+/* Panoramax sequence lines connecting images in a series */
+line|z14-[panoramax=sequence]
+{color: #8B5CF6; opacity: 0.7; width: 1.5;}
+
 node|z18-[tourism],
 node|z18-[office],
 node|z18-[craft],
