@@ -870,3 +870,13 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+
+/* To indicate the number of disabled spaces in a parking*/
+"capacity_disabled" = "Number of spaces for disabled: %@";
+"capacity_disabled_yes" = "Accessible spaces for disabled";
+"capacity_disabled_no" = "No spaces for disabled";
+
+/* To indicate the number of charging spaces in a parking*/
+"capacity_charging" = "Number of electric vehicle parking spaces: %@";
+"capacity_charging_yes" = "Presence of parking spaces for electric vehicles";
+"capacity_charging_no" = "No spaces for electric vehicles";

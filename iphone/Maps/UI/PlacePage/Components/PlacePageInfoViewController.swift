@@ -68,6 +68,8 @@ class PlacePageInfoViewController: UIViewController {
   private var driveThroughView: InfoItemView?
   private var networkView: InfoItemView?
   private var populationView: InfoItemView?
+  private var capacityDisabledView: InfoItemView?
+  private var capacityChargingView: InfoItemView?
 
   weak var placePageInfoData: PlacePageInfoData!
   weak var delegate: PlacePageInfoViewControllerDelegate?
@@ -209,6 +211,14 @@ class PlacePageInfoViewController: UIViewController {
 
     if let wheelchair = placePageInfoData.wheelchair {
       wheelchairView = createInfoItem(wheelchair, icon: UIImage(systemName: "figure.roll"))
+    }
+	
+    if let capacityDisabled = placePageInfoData.capacityDisabled {
+      capacityDisabledView = createInfoItem(capacityDisabled, icon: UIImage(named: "ic_placepage_wheelchair"))
+    }
+	
+    if let capacityCharging = placePageInfoData.capacityCharging {
+      capacityChargingView = createInfoItem(capacityCharging, icon: UIImage(named: "ic_placepage__charging"))
     }
 
     if let selfService = placePageInfoData.selfService {
