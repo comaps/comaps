@@ -81,6 +81,10 @@ _WORK_PATH = _HOME_PATH
 TMPDIR = os.path.join(_HOME_PATH, "tmp")
 MAIN_OUT_PATH = os.path.join(_WORK_PATH, "generation")
 CACHE_PATH = ""
+# Minimum compatible app version for country data (0 = compatible with all versions).
+# Set to the date (YYMMDD) of the first app release that supports a non-backwards-compatible
+# data change, e.g. 260131.
+MCAV = 0
 
 # Developer section:
 BUILD_PATH = os.path.join(_WORK_PATH, "omim-build-relwithdebinfo")
@@ -190,6 +194,9 @@ def init(default_settings_path: AnyStr):
     TMPDIR = cfg.get_opt_path("Main", "TMPDIR", TMPDIR)
     MAIN_OUT_PATH = cfg.get_opt_path("Main", "MAIN_OUT_PATH", MAIN_OUT_PATH)
     CACHE_PATH = cfg.get_opt_path("Main", "CACHE_PATH", CACHE_PATH)
+
+    global MCAV
+    MCAV = int(cfg.get_opt("Main", "MCAV", MCAV))
 
     # Developer section:
     global BUILD_PATH

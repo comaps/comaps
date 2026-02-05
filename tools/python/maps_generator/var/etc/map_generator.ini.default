@@ -14,6 +14,10 @@ MAIN_OUT_PATH: ${Developer:OMIM_PATH}/../maps_build
 # Path for storing caches for nodes, ways, relations.
 # If it's not set then caches are stored inside the directory of the current build.
 # CACHE_PATH: ${Main:MAIN_OUT_PATH}/cache
+# Minimum compatible app version for country data (0 = compatible with all versions).
+# Set to the date (YYMMDD) of the first app release that supports a non-backwards-compatible
+# data change, e.g. 260131.
+MCAV: 0
 
 
 [Generator tool]
