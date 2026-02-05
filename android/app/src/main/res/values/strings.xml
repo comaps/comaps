@@ -1019,6 +1019,13 @@
     <string name="not_following_route">Not following route</string>
     <!-- Should match TTS string with the same id, eg. data/sound-strings/en.json/localize.json -->
     <string name="route_recalculating">Recalculating the route…</string>
+    <string name="rebuilding_route">Rebuilding route…</string>
+    <string name="capacity_disabled">Number of spaces for disabled: %s</string>
+    <string name="capacity_disabled_yes">Accessible spaces for disabled</string>
+    <string name="capacity_disabled_no">No spaces for disabled</string>
+    <string name="capacity_charging">Number of electric vehicle parking spaces: %s</string>
+    <string name="capacity_charging_yes">Presence of parking spaces for electric vehicles</string>
+    <string name="capacity_charging_no">No spaces for electric vehicles</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
     <string name="pref_keyboard_typing_history_title">Keyboard incognito mode</string>
