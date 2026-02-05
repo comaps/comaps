@@ -57,12 +57,12 @@ public final class HttpClient
 {
   private static final String TAG = HttpClient.class.getSimpleName();
 
-  // TODO(AlexZ): tune for larger files
-  private final static int STREAM_BUFFER_SIZE = 1024 * 64;
+  // TODO: Tune for large file sizes
+  private static final int STREAM_BUFFER_SIZE = 1024 * 64;
 
   private static OkHttpClient client = new OkHttpClient();
 
-  public static Params run(@NonNull final Params p) throws IOException, NullPointerException
+  public static Params run(@NonNull final Params p) throws IOException
   {
     if (TextUtils.isEmpty(p.httpMethod))
       throw new IllegalArgumentException("Please set valid HTTP method for request at Params.httpMethod field.");
@@ -71,9 +71,6 @@ public final class HttpClient
 
     try
     {
-      // NullPointerException, MalformedUrlException, IOException
-      // Redirects from http to https or vice versa are not supported by Android implementation.
-
       Request.Builder requestBuilder = new Request.Builder()
           .url(p.url)
           .cacheControl(
@@ -112,9 +109,11 @@ public final class HttpClient
           requestBuilder = requestBuilder.method(p.httpMethod, RequestBody.create(p.data, MediaType.parse("application/octet-stream")));
           Logger.d(TAG, "Sent " + p.httpMethod + " with content of size " + p.data.length);
         }
-        else
+        else if (!TextUtils.isEmpty(p.inputFilePath))
         {
           File file = new File(p.inputFilePath);
+          if (!file.exists())
+            throw new IOException("Input file does not exist: " + p.inputFilePath);
           requestBuilder = requestBuilder.method(p.httpMethod, RequestBody.create(file, MediaType.parse("application/octet-stream")));
           Logger.d(TAG, "Sent " + p.httpMethod + " with file of size " + file.length());
         }
@@ -130,7 +129,10 @@ public final class HttpClient
             + response.header("Content-Encoding") + ", for request = " + Utils.makeUrlSafe(p.url));
 
         if (p.httpResponseCode >= 300 && p.httpResponseCode < 400)
-          p.receivedUrl = request.header("Location");
+        {
+          String location = response.header("Location");
+          p.receivedUrl = location != null ? location : response.request().url().toString();
+        }
         else
           p.receivedUrl = response.request().url().toString();
 
@@ -146,38 +148,37 @@ public final class HttpClient
         else
         {
           List<String> cookies = response.headers("Set-Cookie");
-          p.headers.add(new KeyValue("Set-Cookie", TextUtils.join(", ", cookies)));
+          if (!cookies.isEmpty())
+            p.headers.add(new KeyValue("Set-Cookie", TextUtils.join(", ", cookies)));
         }
 
-        OutputStream ostream;
-        if (!TextUtils.isEmpty(p.outputFilePath))
-          ostream = new BufferedOutputStream(new FileOutputStream(p.outputFilePath), STREAM_BUFFER_SIZE);
-        else
-          ostream = new ByteArrayOutputStream(STREAM_BUFFER_SIZE);
-        // TODO(AlexZ): Add HTTP resume support in the future for partially downloaded files
-        final InputStream istream = response.body().byteStream();
-        final byte[] buffer = new byte[STREAM_BUFFER_SIZE];
-        // gzip encoding is transparently enabled and we can't use Content-Length for
-        // body reading if server has gzipped it.
-        int bytesRead;
-        while ((bytesRead = istream.read(buffer, 0, STREAM_BUFFER_SIZE)) > 0)
+        // TODO: Add HTTP resume support in the future for partially downloaded files
+        try (
+            InputStream istream = response.body().byteStream();
+            OutputStream ostream = !TextUtils.isEmpty(p.outputFilePath) ? new BufferedOutputStream(new FileOutputStream(p.outputFilePath), STREAM_BUFFER_SIZE) : new ByteArrayOutputStream(STREAM_BUFFER_SIZE)
+        )
         {
-          // Read everything if Content-Length is not known in advance.
-          ostream.write(buffer, 0, bytesRead);
+          final byte[] buffer = new byte[STREAM_BUFFER_SIZE];
+          // gzip encoding is transparently enabled and we can't use Content-Length for
+          // body reading if server has gzipped it.
+          int bytesRead;
+          while ((bytesRead = istream.read(buffer, 0, STREAM_BUFFER_SIZE)) > 0)
+          {
+            // Read everything if Content-Length is not known in advance.
+            ostream.write(buffer, 0, bytesRead);
+          }
+          if (ostream instanceof ByteArrayOutputStream)
+            p.data = ((ByteArrayOutputStream) ostream).toByteArray();
         }
-        istream.close(); // IOException
-        ostream.close(); // IOException
-        if (ostream instanceof ByteArrayOutputStream)
-          p.data = ((ByteArrayOutputStream) ostream).toByteArray();
-
       }
-      catch (IOException ex)
-      {
-        // Exception here means that there is no body in the response.
-      }
+    } catch (IOException | NullPointerException | IllegalArgumentException e)
+    {
+      Logger.e(TAG, "Request failed", e);
+      throw e;
     } catch (Exception e)
     {
-      Logger.d(TAG, Arrays.toString(e.getStackTrace()));
+      Logger.e(TAG, "Unexpected error", e);
+      throw new IOException("Unexpected error during request", e);
     }
     return p;
   }

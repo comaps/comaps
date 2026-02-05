@@ -1,7 +1,9 @@
 package app.organicmaps.sdk.downloader;
 
 import android.os.AsyncTask;
+
 import androidx.annotation.Keep;
+
 import app.organicmaps.sdk.util.Constants;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.sdk.util.Utils;
@@ -12,6 +14,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -81,7 +84,6 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
         mDownloadedBytes += data[0].length;
       else
       {
-        // Cancel downloading and notify about error.
         cancel(false);
         nativeOnFinish(mHttpCallbackID, WRITE_EXCEPTION, mBeg, mEnd);
       }
@@ -116,6 +118,12 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
   @Override
   protected Integer doInBackground(Void... p)
   {
+    if (mUrl == null || mUrl.isEmpty())
+    {
+      Logger.e(TAG, "URL is null or empty");
+      return INVALID_URL;
+    }
+
     OkHttpClient client = new OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
         .readTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
@@ -156,33 +164,32 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
         if (err == HttpURLConnection.HTTP_NOT_FOUND)
           return err;
 
-       final boolean isChunk = !(mBeg == 0 && mEnd < 0);
+        final boolean isChunk = !(mBeg == 0 && mEnd < 0);
         if ((isChunk && err != HttpURLConnection.HTTP_PARTIAL) || (!isChunk && err != HttpURLConnection.HTTP_OK))
         {
-          // we've set error code so client should be notified about the error
-          Logger.w(TAG, "Error for " + mUrl + ": Server replied with code " + err
-              + ", aborting download. Headers: " + request.headers());
+          Logger.w(TAG, "Error for " + mUrl + ": Server replied with code " + err + ", aborting download. Headers: " + request.headers());
           return INCONSISTENT_FILE_SIZE;
-        }
-
-        // Check for content size - are we downloading requested file or some router's garbage?
-        if (mExpectedFileSize > 0)
-        {
-          long contentLength = parseContentRange(response.header("Content-Range"));
-          if (contentLength < 0)
-            contentLength = response.body().contentLength();
-
-          if (contentLength != mExpectedFileSize)
-          {
-            // we've set error code so client should be notified about the error
-            Logger.w(TAG, "Error for " + mUrl + ": Invalid file size received (" + contentLength + ") while expecting " + mExpectedFileSize + ". Aborting download.");
-            return INCONSISTENT_FILE_SIZE;
-          }
-          // @TODO Else display received web page to user - router is redirecting us to some page ?
         }
 
         try (ResponseBody responseBody = response.body())
         {
+
+          // Check for content size - are we downloading requested file or some router's garbage?
+          if (mExpectedFileSize > 0)
+          {
+            long contentLength = parseContentRange(response.header("Content-Range"));
+            if (contentLength < 0)
+              contentLength = responseBody.contentLength();
+
+            if (contentLength != mExpectedFileSize)
+            {
+              Logger.w(TAG, "Error for " + mUrl + ": Invalid file size received (" + contentLength + ") while expecting " + mExpectedFileSize + ". Aborting download.");
+              return INCONSISTENT_FILE_SIZE;
+            }
+            // @TODO Else display received web page to user - router is redirecting us to some page ?
+          }
+
+
           try (InputStream stream = responseBody.byteStream())
           {
             return downloadFromStream(stream);
@@ -193,6 +200,10 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
     catch (final IOException ex)
     {
       Logger.d(TAG, "IOException in doInBackground for URL: " + mUrl, ex);
+      return IO_EXCEPTION;
+    } catch (final Exception ex)
+    {
+      Logger.e(TAG, "Unexpected exception in doInBackground for URL: " + mUrl, ex);
       return IO_EXCEPTION;
     }
   }
@@ -209,11 +220,15 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
       try
       {
         ret = downloadFromStreamImpl(stream, size * Constants.KB);
-        break;
+        if (ret != IO_EXCEPTION)
+          break;
       }
       catch (final IOException ex)
       {
         Logger.e(TAG, "IOException in downloadFromStream for buffer size: " + size, ex);
+      } catch (final Exception ex)
+      {
+        Logger.e(TAG, "Unexpected exception in downloadFromStream for buffer size: " + size, ex);
       }
     }
 
@@ -229,19 +244,28 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
     final byte[] tempBuf = new byte[bufferSize];
 
     int readBytes;
-    while ((readBytes = stream.read(tempBuf)) > 0)
+    try
     {
-      if (isCancelled())
-        return CANCELLED;
+      while ((readBytes = stream.read(tempBuf)) > 0)
+      {
+        if (isCancelled())
+          return CANCELLED;
 
-      final byte[] chunk = new byte[readBytes];
-      System.arraycopy(tempBuf, 0, chunk, 0, readBytes);
-
-      publishProgress(chunk);
+        final byte[] chunk = new byte[readBytes];
+        System.arraycopy(tempBuf, 0, chunk, 0, readBytes);
+        publishProgress(chunk);
+      }
+    } catch (final IOException ex)
+    {
+      Logger.e(TAG, "IOException in downloadFromStreamImpl", ex);
+      throw ex;
+    } catch (final Exception ex)
+    {
+      Logger.e(TAG, "Unexpected exception in downloadFromStreamImpl", ex);
+      throw new IOException("Unexpected exception", ex);
     }
 
-    // -1 - means the end of the stream (success), else - some error occurred
-    return (readBytes == -1 ? HttpURLConnection.HTTP_OK : IO_EXCEPTION);
+    return HttpURLConnection.HTTP_OK;
   }
 
   private static native boolean nativeOnWrite(long httpCallbackID, long beg, byte[] data, long size);
