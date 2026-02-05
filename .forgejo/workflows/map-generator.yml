@@ -81,6 +81,7 @@ env:
   MWMTEST: ${{ inputs.map-generator-test }}
   MWMCONTINUE: ${{ inputs.map-generator-continue }}
   # MWMCOUNTRIES: ${{ inputs.map-generator-countries }}
+  MWMCOUNTRIES: US_Oregon_Portland
   DEBIAN_FRONTEND: noninteractive
   TZ: Etc/UTC
 
