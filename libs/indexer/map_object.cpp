@@ -265,6 +265,15 @@ std::string MapObject::GetRooms() const
 {
   return std::string(m_metadata.Get(MetadataID::FMD_ROOMS));
 }
+std::string MapObject::GetCapacityDisabled() const
+{
+  return std::string(m_metadata.Get(MetadataID::FMD_CAPACITY_DISABLED));
+}
+
+std::string MapObject::GetCapacityCharging() const
+{
+  return std::string(m_metadata.Get(MetadataID::FMD_CAPACITY_CHARGING));
+}
 
 std::string MapObject::GetPopulation() const
 {
