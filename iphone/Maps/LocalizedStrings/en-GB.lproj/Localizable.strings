@@ -878,3 +878,13 @@
 "downloader_check_updates_error" = "Error checking for updates";
 "editor_add_select_category_recent_subtitle" = "Recently Used";
 "oh_unknown" = "Opening hours unknown";
+
+/* To indicate the number of disabled spaces in a parking*/
+"capacity_disabled" = "Number of spaces for disabled: %@";
+"capacity_disabled_yes" = "Accessible spaces for disabled";
+"capacity_disabled_no" = "No spaces for disabled";
+
+/* To indicate the number of charging spaces in a parking*/
+"capacity_charging" = "Number of electric vehicle parking spaces: %@";
+"capacity_charging_yes" = "Presence of parking spaces for electric vehicles";
+"capacity_charging_no" = "No spaces for electric vehicles";
