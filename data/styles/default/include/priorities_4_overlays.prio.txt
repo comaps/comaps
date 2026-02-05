@@ -78,7 +78,8 @@ amenity-ferry_terminal                              # icon z11- (also has captio
 railway-station                                     # icon z12- (also has caption(optional) z12-)
 === 6850
 
-panoramax-image                                     # icon z14-
+panoramax-image                                     # icon z16-
+panoramax-panorama                                  # icon z16-
 === 6800
 
 highway-motorway                                    # pathtext z10- (also has shield::shield z10-, line z6-, line::border z14-)

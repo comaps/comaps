@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.1" viewBox="0 0 18 18" width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+  <title>panoramax-360-m</title>
+  <g id="panoramax-360-m" fill-rule="evenodd">
+    <circle cx="9" cy="9" fill="#000" opacity=".6" r="9"/>
+    <circle cx="9" cy="9" fill="#8B5CF6" r="8.25"/>
+    <!-- 360 degree ring indicator -->
+    <circle cx="9" cy="9" fill="none" stroke="#FFF" stroke-width="1.5" r="6" stroke-dasharray="2,1"/>
+    <!-- Sphere/globe icon for 360 -->
+    <circle cx="9" cy="9" fill="#FFF" r="3.5"/>
+    <ellipse cx="9" cy="9" fill="none" stroke="#8B5CF6" stroke-width="0.75" rx="3.5" ry="1.5"/>
+    <path d="M9 5.5v7" stroke="#8B5CF6" stroke-width="0.75" fill="none"/>
+  </g>
+</svg>

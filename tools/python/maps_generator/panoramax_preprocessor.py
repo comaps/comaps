@@ -9,9 +9,9 @@ The script streams the large geoparquet file (20GB+) using DuckDB to avoid
 loading everything into memory, performs a spatial join with country polygons,
 and writes compact binary files for each country.
 
-Binary Format (version 2):
+Binary Format (version 3):
   Header:
-    uint32 version (=2)
+    uint32 version (=3)
     uint64 point_count
     uint64 sequence_count
   Sequences (repeated sequence_count times):
@@ -21,6 +21,8 @@ Binary Format (version 2):
       double lat (8 bytes)
       double lon (8 bytes)
       string image_id (length-prefixed: uint32 length + bytes)
+      int16 azimuth (-1 for null, 0-359 for camera heading direction)
+      int16 field_of_view (-1 for null, otherwise FOV in degrees; 360 = spherical)
 """
 
 import argparse
@@ -202,13 +204,13 @@ class RegionFinder:
         return None
 
 
-def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, float, str]]]):
+def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, float, str, int, int]]]):
     """
     Write panoramax sequences to binary file.
 
-    Format (version 2):
+    Format (version 3):
       Header:
-        uint32 version = 2
+        uint32 version = 3
         uint64 total_point_count
         uint64 sequence_count
       Sequences:
@@ -221,6 +223,8 @@ def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, 
             double lon
             uint32 image_id_length
             bytes image_id
+            int16 azimuth (-1 for null, 0-359 for camera heading)
+            int16 field_of_view (-1 for null, otherwise FOV degrees)
     """
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -229,7 +233,7 @@ def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, 
 
     with open(output_path, 'wb') as f:
         # Write header
-        version = 2
+        version = 3
         f.write(struct.pack('<I', version))  # uint32 version
         f.write(struct.pack('<Q', total_points))  # uint64 total_point_count
         f.write(struct.pack('<Q', sequence_count))  # uint64 sequence_count
@@ -245,7 +249,7 @@ def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, 
             f.write(struct.pack('<Q', len(points)))  # uint64 point_count
 
             # Write points (already sorted by datetime)
-            for lat, lon, image_id in points:
+            for lat, lon, image_id, azimuth, fov in points:
                 f.write(struct.pack('<d', lat))  # double lat
                 f.write(struct.pack('<d', lon))  # double lon
 
@@ -253,6 +257,10 @@ def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, 
                 image_id_bytes = image_id.encode('utf-8')
                 f.write(struct.pack('<I', len(image_id_bytes)))  # uint32 length
                 f.write(image_id_bytes)  # bytes
+
+                # Write azimuth and field_of_view as int16 (-1 for null)
+                f.write(struct.pack('<h', azimuth if azimuth is not None else -1))
+                f.write(struct.pack('<h', fov if fov is not None else -1))
 
     logger.info(f"Wrote {total_points} points in {sequence_count} sequences to {output_path}")
 
@@ -297,23 +305,31 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
         columns = [col[0] for col in schema_result]
         logger.info(f"Parquet schema: {columns}")
 
-        # Check if collection and datetime fields exist
+        # Check if key fields exist
         has_collection = 'collection' in columns
         has_datetime = 'datetime' in columns
-        logger.info(f"Has collection field: {has_collection}, Has datetime field: {has_datetime}")
+        has_azimuth = 'view:azimuth' in columns
+        has_interior_orientation = 'pers:interior_orientation' in columns
+        logger.info(f"Has collection: {has_collection}, datetime: {has_datetime}, azimuth: {has_azimuth}, interior_orientation: {has_interior_orientation}")
     except Exception as e:
         logger.warning(f"Could not read schema: {e}")
         has_collection = False
         has_datetime = False
+        has_azimuth = False
+        has_interior_orientation = False
 
     # Dictionary to accumulate sequences per country
-    # Structure: {country: {sequence_id: [(lat, lon, image_id, datetime), ...]}}
-    country_sequences: Dict[str, Dict[str, List[Tuple[float, float, str, str]]]] = defaultdict(lambda: defaultdict(list))
+    # Structure: {country: {sequence_id: [(lat, lon, image_id, datetime, azimuth, fov), ...]}}
+    country_sequences: Dict[str, Dict[str, List[Tuple[float, float, str, str, int, int]]]] = defaultdict(lambda: defaultdict(list))
+
+    # Build azimuth and FOV column expressions
+    azimuth_col = '"view:azimuth"' if has_azimuth else 'NULL'
+    fov_col = '"pers:interior_orientation".field_of_view' if has_interior_orientation else 'NULL'
 
     # Stream the parquet file in batches
     # Geoparquet stores geometry as GEOMETRY type
     # Use DuckDB spatial functions to extract lat/lon
-    # Also extract collection (sequence_id) and datetime for ordering
+    # Also extract collection (sequence_id), datetime, azimuth, and field_of_view
     if has_collection and has_datetime:
         query = f"""
             SELECT
@@ -321,7 +337,9 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
                 ST_X(geometry) as lon,
                 id as image_id,
                 collection as sequence_id,
-                datetime
+                datetime,
+                {azimuth_col} as azimuth,
+                {fov_col} as fov
             FROM read_parquet('{parquet_url}')
             WHERE geometry IS NOT NULL
             ORDER BY collection, datetime
@@ -333,7 +351,9 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
                 ST_X(geometry) as lon,
                 id as image_id,
                 collection as sequence_id,
-                NULL as datetime
+                NULL as datetime,
+                {azimuth_col} as azimuth,
+                {fov_col} as fov
             FROM read_parquet('{parquet_url}')
             WHERE geometry IS NOT NULL
             ORDER BY collection
@@ -346,7 +366,9 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
                 ST_X(geometry) as lon,
                 id as image_id,
                 id as sequence_id,
-                NULL as datetime
+                NULL as datetime,
+                {azimuth_col} as azimuth,
+                {fov_col} as fov
             FROM read_parquet('{parquet_url}')
             WHERE geometry IS NOT NULL
         """
@@ -369,15 +391,18 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
             logger.info(f"Processing batch {batch_count}: {batch_size_actual} points (total: {total_points})")
 
             for row in batch:
-                lat, lon, image_id, sequence_id, datetime_val = row
+                lat, lon, image_id, sequence_id, datetime_val, azimuth, fov = row
 
                 # Find which region this point belongs to
                 region = region_finder.find_region(lat, lon)
 
                 # Only add points that fall within a defined region
                 if region and sequence_id:
+                    # Convert azimuth and fov to int (or None)
+                    azimuth_int = int(azimuth) if azimuth is not None else None
+                    fov_int = int(fov) if fov is not None else None
                     country_sequences[region][str(sequence_id)].append(
-                        (lat, lon, str(image_id), str(datetime_val) if datetime_val else "")
+                        (lat, lon, str(image_id), str(datetime_val) if datetime_val else "", azimuth_int, fov_int)
                     )
 
             # Log progress
@@ -392,12 +417,12 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
         for country, sequences in country_sequences.items():
             if sequences:
                 # Sort points within each sequence by datetime (already mostly sorted from query)
-                sorted_sequences: Dict[str, List[Tuple[float, float, str]]] = {}
+                sorted_sequences: Dict[str, List[Tuple[float, float, str, int, int]]] = {}
                 for seq_id, points in sequences.items():
-                    # Sort by datetime (4th element), then remove datetime from output
+                    # Sort by datetime (4th element), then keep lat, lon, image_id, azimuth, fov
                     sorted_points = sorted(points, key=lambda p: p[3])
-                    # Keep only lat, lon, image_id for output
-                    sorted_sequences[seq_id] = [(p[0], p[1], p[2]) for p in sorted_points]
+                    # Output: (lat, lon, image_id, azimuth, fov) - remove datetime
+                    sorted_sequences[seq_id] = [(p[0], p[1], p[2], p[4], p[5]) for p in sorted_points]
 
                 output_file = output_dir / f"{country}.panoramax"
                 write_binary_file(output_file, sorted_sequences)

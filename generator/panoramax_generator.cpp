@@ -21,7 +21,12 @@ namespace
 {
 std::string_view const kPanoramax = "panoramax";
 std::string_view const kImage = "image";
+std::string_view const kPanorama = "panorama";
 std::string_view const kSequence = "sequence";
+
+// Field of view threshold to distinguish 360° panoramas from flat images
+// Images with FOV >= 300 are considered spherical panoramas
+int16_t constexpr kPanoramaFovThreshold = 300;
 
 std::string GetPanoramaxFilePath(std::string const & countryName, std::string const & panoramaxDir)
 {
@@ -33,6 +38,8 @@ struct PanoramaxPoint
   double lat;
   double lon;
   std::string imageId;
+  int16_t azimuth;      // -1 for null, 0-359 for camera heading direction
+  int16_t fieldOfView;  // -1 for null, otherwise FOV in degrees (360 = spherical)
 };
 
 struct PanoramaxSequence
@@ -61,7 +68,7 @@ bool ReadString(std::ifstream & file, std::string & str)
   return !file.fail();
 }
 
-// Load version 1 format (flat list of points, no sequences)
+// Load version 1 format (flat list of points, no sequences, no azimuth/fov)
 bool LoadPanoramaxPointsV1(std::ifstream & file, uint64_t pointCount, std::vector<PanoramaxSequence> & sequences)
 {
   // In V1, each point is its own sequence (no grouping)
@@ -70,6 +77,8 @@ bool LoadPanoramaxPointsV1(std::ifstream & file, uint64_t pointCount, std::vecto
   for (uint64_t i = 0; i < pointCount; ++i)
   {
     PanoramaxPoint point;
+    point.azimuth = -1;      // Not available in V1
+    point.fieldOfView = -1;  // Not available in V1
 
     file.read(reinterpret_cast<char*>(&point.lat), sizeof(point.lat));
     file.read(reinterpret_cast<char*>(&point.lon), sizeof(point.lon));
@@ -91,8 +100,60 @@ bool LoadPanoramaxPointsV1(std::ifstream & file, uint64_t pointCount, std::vecto
   return true;
 }
 
-// Load version 2 format (points grouped by sequence)
+// Load version 2 format (points grouped by sequence, no azimuth/fov)
 bool LoadPanoramaxPointsV2(std::ifstream & file, uint64_t sequenceCount, std::vector<PanoramaxSequence> & sequences)
+{
+  sequences.reserve(static_cast<size_t>(sequenceCount));
+
+  for (uint64_t s = 0; s < sequenceCount; ++s)
+  {
+    PanoramaxSequence seq;
+
+    // Read sequence_id
+    if (!ReadString(file, seq.sequenceId))
+    {
+      LOG(LERROR, ("Error reading sequence_id", s));
+      return false;
+    }
+
+    // Read point count in this sequence
+    uint64_t pointCount;
+    file.read(reinterpret_cast<char*>(&pointCount), sizeof(pointCount));
+    if (file.fail())
+    {
+      LOG(LERROR, ("Error reading point count for sequence", s));
+      return false;
+    }
+
+    seq.points.reserve(static_cast<size_t>(pointCount));
+
+    // Read points
+    for (uint64_t p = 0; p < pointCount; ++p)
+    {
+      PanoramaxPoint point;
+      point.azimuth = -1;      // Not available in V2
+      point.fieldOfView = -1;  // Not available in V2
+
+      file.read(reinterpret_cast<char*>(&point.lat), sizeof(point.lat));
+      file.read(reinterpret_cast<char*>(&point.lon), sizeof(point.lon));
+
+      if (!ReadString(file, point.imageId))
+      {
+        LOG(LERROR, ("Error reading image_id for sequence", s, "point", p));
+        return false;
+      }
+
+      seq.points.push_back(std::move(point));
+    }
+
+    sequences.push_back(std::move(seq));
+  }
+
+  return true;
+}
+
+// Load version 3 format (points grouped by sequence, with azimuth and field_of_view)
+bool LoadPanoramaxPointsV3(std::ifstream & file, uint64_t sequenceCount, std::vector<PanoramaxSequence> & sequences)
 {
   sequences.reserve(static_cast<size_t>(sequenceCount));
 
@@ -129,6 +190,16 @@ bool LoadPanoramaxPointsV2(std::ifstream & file, uint64_t sequenceCount, std::ve
       if (!ReadString(file, point.imageId))
       {
         LOG(LERROR, ("Error reading image_id for sequence", s, "point", p));
+        return false;
+      }
+
+      // Read azimuth and field_of_view (int16)
+      file.read(reinterpret_cast<char*>(&point.azimuth), sizeof(point.azimuth));
+      file.read(reinterpret_cast<char*>(&point.fieldOfView), sizeof(point.fieldOfView));
+
+      if (file.fail())
+      {
+        LOG(LERROR, ("Error reading azimuth/fov for sequence", s, "point", p));
         return false;
       }
 
@@ -174,6 +245,16 @@ bool LoadPanoramaxData(std::string const & filePath, std::vector<PanoramaxSequen
       LOG(LINFO, ("Loading panoramax v2 file with", totalPointCount, "points in", sequenceCount, "sequences"));
       return LoadPanoramaxPointsV2(file, sequenceCount, sequences);
     }
+    else if (version == 3)
+    {
+      // V3 format: version (4) + total_point_count (8) + sequence_count (8) + sequences with azimuth/fov
+      uint64_t totalPointCount;
+      uint64_t sequenceCount;
+      file.read(reinterpret_cast<char*>(&totalPointCount), sizeof(totalPointCount));
+      file.read(reinterpret_cast<char*>(&sequenceCount), sizeof(sequenceCount));
+      LOG(LINFO, ("Loading panoramax v3 file with", totalPointCount, "points in", sequenceCount, "sequences"));
+      return LoadPanoramaxPointsV3(file, sequenceCount, sequences);
+    }
     else
     {
       LOG(LERROR, ("Unsupported panoramax file version", version));
@@ -192,7 +273,8 @@ PanoramaxFeaturesGenerator::PanoramaxFeaturesGenerator(std::string const & panor
   : m_panoramaxDir(panoramaxDir)
 {
   Classificator const & c = classif();
-  m_panoramaxType = c.GetTypeByPath({kPanoramax, kImage});
+  m_imageType = c.GetTypeByPath({kPanoramax, kImage});
+  m_panoramaType = c.GetTypeByPath({kPanoramax, kPanorama});
   m_sequenceType = c.GetTypeByPath({kPanoramax, kSequence});
 }
 
@@ -216,6 +298,8 @@ void PanoramaxFeaturesGenerator::GeneratePanoramax(std::string const & countryNa
 
   LOG(LINFO, ("Generating panoramax features for", countryName, ":", totalPoints, "points in", sequences.size(), "sequences"));
 
+  size_t panoramaCount = 0;
+
   for (auto const & seq : sequences)
   {
     // Generate point features for each image
@@ -227,13 +311,22 @@ void PanoramaxFeaturesGenerator::GeneratePanoramax(std::string const & countryNa
       m2::PointD const mercatorPoint = mercator::FromLatLon(point.lat, point.lon);
       fb.SetCenter(mercatorPoint);
 
-      // Add classificator type
-      fb.AddType(m_panoramaxType);
+      // Choose type based on field of view: 360° panorama vs flat image
+      bool const isPanorama = point.fieldOfView >= kPanoramaFovThreshold;
+      fb.AddType(isPanorama ? m_panoramaType : m_imageType);
+      if (isPanorama)
+        ++panoramaCount;
 
       // Add metadata with image ID
       if (!point.imageId.empty())
       {
         fb.GetMetadata().Set(feature::Metadata::FMD_PANORAMAX, point.imageId);
+      }
+
+      // Add azimuth metadata if available (0-359 degrees)
+      if (point.azimuth >= 0 && point.azimuth < 360)
+      {
+        fb.GetMetadata().Set(feature::Metadata::FMD_PANORAMAX_AZIMUTH, std::to_string(point.azimuth));
       }
 
       fn(std::move(fb));
@@ -263,6 +356,6 @@ void PanoramaxFeaturesGenerator::GeneratePanoramax(std::string const & countryNa
     }
   }
 
-  LOG(LINFO, ("Generated", lineFeatures, "panoramax sequence lines for", countryName));
+  LOG(LINFO, ("Generated", lineFeatures, "sequence lines and", panoramaCount, "360° panoramas for", countryName));
 }
 }  // namespace generator

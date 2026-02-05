@@ -16,7 +16,8 @@
 highway-speed_camera                                # icon z13-
 === 4400
 
-panoramax-image                                     # icon z14-
+panoramax-image                                     # icon z16-
+panoramax-panorama                                  # icon z16-
 === 4380
 
 highway-motorway::shield                            # shield::shield z10- (also has pathtext z10-, line z6-, line(casing) z14-)

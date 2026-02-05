@@ -19,7 +19,8 @@ public:
 
 private:
   std::string m_panoramaxDir;
-  uint32_t m_panoramaxType;   // Classificator type for panoramax|image
-  uint32_t m_sequenceType;    // Classificator type for panoramax|sequence (line)
+  uint32_t m_imageType;     // Classificator type for panoramax|image (flat photos)
+  uint32_t m_panoramaType;  // Classificator type for panoramax|panorama (360° spherical)
+  uint32_t m_sequenceType;  // Classificator type for panoramax|sequence (line)
 };
 }  // namespace generator

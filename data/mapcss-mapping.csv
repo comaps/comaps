@@ -1761,4 +1761,5 @@ building|guardhouse;[building=guardhouse],[amenity=security_booth],[amenity=chec
 office|security;1631;
 shop|lighting;1632;
 panoramax|image;1633;
-panoramax|sequence;1634;
+panoramax|panorama;1634;
+panoramax|sequence;1635;
