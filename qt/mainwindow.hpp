@@ -60,6 +60,7 @@ class MainWindow
     TRANSIT = 0,  // Metro scheme
     ISOLINES,
     OUTDOORS,
+    PANORAMAX,
   };
   PopupMenuHolder * m_layers = nullptr;
   PopupMenuHolder * m_routing = nullptr;

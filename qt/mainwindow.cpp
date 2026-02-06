@@ -298,6 +298,10 @@ void MainWindow::CreateNavigationBar()
                         std::bind(&MainWindow::OnLayerEnabled, this, LayerType::OUTDOORS), true);
     m_layers->setChecked(LayerType::OUTDOORS, m_pDrawWidget->GetFramework().LoadOutdoorsEnabled());
 
+    m_layers->addAction(QIcon(":/navig64/panoramax.png"), tr("Street Images"),
+                        std::bind(&MainWindow::OnLayerEnabled, this, LayerType::PANORAMAX), true);
+    m_layers->setChecked(LayerType::PANORAMAX, m_pDrawWidget->GetFramework().LoadPanoramaxEnabled());
+
     pToolBar->addWidget(m_layers->create());
     m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
 
@@ -880,6 +884,9 @@ void MainWindow::SetLayerEnabled(LayerType type, bool enable)
       m_pDrawWidget->SetMapStyleToOutdoors();
     else
       m_pDrawWidget->SetMapStyleToDefault();
+    break;
+  case LayerType::PANORAMAX:
+    frm.SavePanoramaxEnabled(enable);
     break;
   }
 }

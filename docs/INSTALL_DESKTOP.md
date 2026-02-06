@@ -149,6 +149,16 @@ To run Linux GUI apps, you'll need to [install a driver](https://learn.microsoft
 
 Once a GPU driver is installed and you have [built the app](#building-1) you should be able to [run](#running) it without any additional steps.
 
+##### Troubleshooting WSL Display Issues
+
+If the app window appears invisible or fails to render after the initial dialogs, you may need to force software rendering:
+
+```bash
+LIBGL_ALWAYS_SOFTWARE=1 ../omim-build-release/CoMaps
+```
+
+This uses Mesa's llvmpipe software renderer instead of hardware acceleration, which can resolve OpenGL compatibility issues with WSLg.
+
 #### Windows 10 (WSL)
 
 For Windows 10 you should do these steps (taken from [here](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242), check this blog post if you have any problems):
@@ -170,7 +180,23 @@ Running X Server is also required to run `generate_symbols.sh` script when you c
 
 ### Building
 
-To build a desktop app:
+#### Quick Build (Recommended)
+
+For a fast iterative development workflow:
+
+```bash
+# Configure (only needed once or after CMakeLists changes)
+./configure.sh
+
+# Build
+ninja -C build -j4 CoMaps
+```
+
+The output binary will be at `build/CoMaps`.
+
+#### Full Build Script
+
+To build a desktop app using the full build script:
 ```bash
 tools/unix/build_omim.sh -r desktop
 ```
@@ -200,13 +226,17 @@ tools/unix/build_omim.sh -d help
 
 ### Running
 
-The generated binaries appear in `../omim-build-<buildtype>`.
+The generated binaries appear in `../omim-build-<buildtype>` (when using the full build script) or `build/` (when using the quick build method).
 
 A desktop app binary is `CoMaps`. To run e.g. a release version:
 
 _Linux:_
 
 ```bash
+# If using quick build method
+./build/CoMaps
+
+# If using full build script
 ../omim-build-release/CoMaps
 ```
 

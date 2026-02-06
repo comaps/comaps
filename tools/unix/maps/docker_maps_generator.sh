@@ -52,6 +52,7 @@ fi
 
 cd ~/comaps/tools/python
 echo "<$(date +%T)> Generating maps (extra args: $GENARGS)..."
-/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" $GENARGS
+# TODO: Remove --without_countries="World*" once world map generation is stable/fast enough
+/tmp/venv/bin/python -m maps_generator --skip="MwmDiffs" --without_countries="World*" $GENARGS
 
 echo "<$(date +%T)> DONE"

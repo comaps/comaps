@@ -34,6 +34,7 @@
         <file>guides.png</file>
         <file>settings-routing.png</file>
         <file>borders_selection.png</file>
+        <file>panoramax.png</file>
     </qresource>
     <qresource prefix="/ui">
         <file>logo.png</file>

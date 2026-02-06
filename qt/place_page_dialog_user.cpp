@@ -259,12 +259,13 @@ PlacePageDialogUser::PlacePageDialogUser(QWidget * parent, place_page::Info cons
       data->addWidget(value, row++, 1);
     }
 
-    if (auto panoramax = info.GetMetadata(feature::Metadata::EType::FMD_PANORAMAX); !panoramax.empty())
+    // Show Panoramax link if POI has imagery metadata OR if nearby imagery was found
+    if (info.HasPanoramax())
     {
-      data->addWidget(new QLabel("Panoramax Picture"), row, 0);
+      data->addWidget(new QLabel("Panoramax"), row, 0);
 
       QLabel * value = new QLabel(QString::fromStdString(
-          "<a href='https://api.panoramax.xyz/?pic=" + std::string(panoramax) + "'>Panoramax Image</a>"));
+          "<a href='" + info.GetPanoramaxUrl() + "'>Street-level imagery</a>"));
       value->setOpenExternalLinks(true);
       value->setTextInteractionFlags(Qt::TextBrowserInteraction);
 

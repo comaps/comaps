@@ -16,8 +16,8 @@
 highway-speed_camera                                # icon z13-
 === 4400
 
-panoramax-image                                     # icon z16-
-panoramax-panorama                                  # icon z16-
+panoramax-image                                     # WARNING: no style defined (the type will be not included into map data)
+panoramax-panorama                                  # WARNING: no style defined (the type will be not included into map data)
 === 4380
 
 highway-motorway::shield                            # shield::shield z10- (also has pathtext z10-, line z6-, line(casing) z14-)
@@ -827,7 +827,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # === -6950
 
 # railway-station                                   # caption(optional) z13- (also has icon z12-)
-# === -7000
+# === -7010
 
 # railway-station-funicular                         # caption(optional) z13- (also has icon z12-)
 # railway-station-light_rail                        # caption(optional) z15- (also has icon z13-)

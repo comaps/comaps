@@ -1425,7 +1425,7 @@ leisure-swimming_pool-private                       # icon z17- (also has captio
 
 # amenity-ferry_terminal                            # caption(optional) z16- (also has icon z11-)
 # railway-station                                   # caption(optional) z12- (also has icon z12-)
-# === -3200
+# === -3150
 
 # boundary-national_park                            # caption(optional) z11-17 (also has icon z10-17, line z10-, area z10-17)
 # boundary-protected_area                           # caption(optional) z11-17 (also has icon z10-17)

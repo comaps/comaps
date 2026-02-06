@@ -136,9 +136,13 @@ def parse_poly_file(poly_path: Path) -> MultiPolygon:
         return MultiPolygon(polygons)
 
 
-def load_country_polygons(borders_dir: Path) -> Dict[str, MultiPolygon]:
+def load_country_polygons(borders_dir: Path, regions_filter: set = None) -> Dict[str, MultiPolygon]:
     """
-    Load all .poly files from the borders directory.
+    Load .poly files from the borders directory.
+
+    Args:
+        borders_dir: Path to directory containing .poly files.
+        regions_filter: Optional set of region names to load. If None, all regions are loaded.
 
     Returns a dict mapping region name (without .poly extension) to MultiPolygon.
     """
@@ -146,6 +150,10 @@ def load_country_polygons(borders_dir: Path) -> Dict[str, MultiPolygon]:
 
     poly_files = list(borders_dir.glob("*.poly"))
     logger.info(f"Found {len(poly_files)} .poly files")
+
+    if regions_filter:
+        poly_files = [f for f in poly_files if f.stem in regions_filter]
+        logger.info(f"Filtered to {len(poly_files)} .poly files matching regions filter")
 
     polygons = {}
 
@@ -265,16 +273,19 @@ def write_binary_file(output_path: Path, sequences: Dict[str, List[Tuple[float, 
     logger.info(f"Wrote {total_points} points in {sequence_count} sequences to {output_path}")
 
 
-def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: Path, batch_size: int = 100000):
+def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: Path, batch_size: int = 100000, regions_filter: set = None):
     """
     Stream the Panoramax parquet file and write per-country binary files.
 
     Uses DuckDB to stream the large parquet file without loading it entirely into memory.
     Uses .poly files from borders_dir to categorize points into regions.
     Points are grouped by sequence (collection) and sorted by datetime within each sequence.
+
+    Args:
+        regions_filter: Optional set of region names to process. If None, all regions are processed.
     """
     # Load region polygons and build spatial index
-    regions = load_country_polygons(borders_dir)
+    regions = load_country_polygons(borders_dir, regions_filter)
     if not regions:
         logger.error("No regions loaded - cannot process panoramax data")
         return
@@ -398,9 +409,32 @@ def process_parquet_streaming(parquet_url: str, output_dir: Path, borders_dir: P
 
                 # Only add points that fall within a defined region
                 if region and sequence_id:
-                    # Convert azimuth and fov to int (or None)
-                    azimuth_int = int(azimuth) if azimuth is not None else None
-                    fov_int = int(fov) if fov is not None else None
+                    # Convert azimuth and fov to int, validating range for int16
+                    # Azimuth should be 0-359, fov should be reasonable (up to 360 for spherical)
+                    azimuth_int = None
+                    if azimuth is not None:
+                        try:
+                            val = int(azimuth)
+                            # Normalize to 0-359 range
+                            if 0 <= val < 32768:
+                                azimuth_int = val % 360
+                            else:
+                                logger.warning(f"Invalid azimuth {val} for image {image_id} (out of range), setting to null")
+                        except (ValueError, OverflowError) as e:
+                            logger.warning(f"Invalid azimuth '{azimuth}' for image {image_id}: {e}, setting to null")
+
+                    fov_int = None
+                    if fov is not None:
+                        try:
+                            val = int(fov)
+                            # FOV should be positive and fit in int16
+                            if 0 < val <= 360:
+                                fov_int = val
+                            else:
+                                logger.warning(f"Invalid FOV {val} for image {image_id} (out of range 1-360), setting to null")
+                        except (ValueError, OverflowError) as e:
+                            logger.warning(f"Invalid FOV '{fov}' for image {image_id}: {e}, setting to null")
+
                     country_sequences[region][str(sequence_id)].append(
                         (lat, lon, str(image_id), str(datetime_val) if datetime_val else "", azimuth_int, fov_int)
                     )
@@ -469,6 +503,14 @@ def main():
         help='Number of rows to process per batch (default: 100000)'
     )
 
+    parser.add_argument(
+        '--regions',
+        type=str,
+        default=None,
+        help='Comma-separated list of region names to process (e.g., "US_Oregon_Portland,Costa Rica,France_Ile-de-France_Paris"). '
+             'If not specified, all regions are processed.'
+    )
+
     args = parser.parse_args()
 
     logger.info("Panoramax Preprocessor starting")
@@ -476,6 +518,12 @@ def main():
     logger.info(f"Output directory: {args.output}")
     logger.info(f"Borders directory: {args.borders_dir}")
     logger.info(f"Batch size: {args.batch_size}")
+
+    # Parse regions filter
+    regions_filter = None
+    if args.regions:
+        regions_filter = set(r.strip() for r in args.regions.split(','))
+        logger.info(f"Filtering to regions: {regions_filter}")
 
     # Verify borders directory exists
     if not args.borders_dir.exists():
@@ -486,7 +534,7 @@ def main():
     args.output.mkdir(parents=True, exist_ok=True)
 
     # Process the parquet file
-    process_parquet_streaming(args.input, args.output, args.borders_dir, args.batch_size)
+    process_parquet_streaming(args.input, args.output, args.borders_dir, args.batch_size, regions_filter)
 
     logger.info("Panoramax preprocessing complete!")
 

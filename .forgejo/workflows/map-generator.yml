@@ -351,10 +351,12 @@ jobs:
 
           if [ "$SHOULD_PROCESS" = "true" ]; then
             echo "Processing panoramax data to per-country files..."
+            # TODO: Remove --regions filter to process all regions
             python3 tools/python/maps_generator/panoramax_preprocessor.py \
               --input /home/planet/panoramax/panoramax.parquet \
               --output /home/planet/panoramax/countries \
-              --borders-dir ~/comaps/data/borders
+              --borders-dir ~/comaps/data/borders \
+              --regions US_Oregon_Portland
 
             # Mark when processing completed (persists in /home/planet for timestamp comparison)
             touch /home/planet/panoramax/countries/.last_processed
@@ -367,8 +369,9 @@ jobs:
         run: |
           NUMPANO=$(ls -1 /home/planet/panoramax/countries/*.panoramax 2>/dev/null | wc -l)
           echo "Found $NUMPANO panoramax country files"
-          if [ $NUMPANO -lt 5 ]; then
-            echo "ERROR: Did generation fail? Expected at least 5 country files"
+          # TODO: Change back to 5 when processing all regions
+          if [ $NUMPANO -lt 1 ]; then
+            echo "ERROR: Did generation fail? Expected at least 1 country file"
             exit 1
           fi
       - name: Notify Zulip
