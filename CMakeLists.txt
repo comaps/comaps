@@ -13,7 +13,7 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 set(CMAKE_VISIBILITY_INLINES_HIDDEN ON)
 
 # Disable build-id generation to make builds reproducible.
-if (NOT APPLE)
+if (NOT APPLE AND NOT MSVC)
   add_link_options("LINKER:--build-id=none")
 endif()
 
@@ -112,7 +112,9 @@ else()
 endif()
 
 if (${CMAKE_BUILD_TYPE} STREQUAL "RelWithDebInfo")
-  add_compile_options(-fno-omit-frame-pointer)
+  if (NOT MSVC)
+    add_compile_options(-fno-omit-frame-pointer)
+  endif()
 endif()
 
 message(STATUS "Build type: " ${CMAKE_BUILD_TYPE})
@@ -234,7 +236,7 @@ if (PLATFORM_DESKTOP)
   if (NOT SKIP_QT_GUI)
     add_subdirectory(qt)
   endif()
-  if (GENERATOR_TOOL)
+  if (GENERATOR_TOOL AND NOT MSVC)
     add_compile_options(-march=native -mtune=native)
     message(STATUS "target CPU optimizations enabled, produced binaries will NOT work on a different CPU")
   endif()

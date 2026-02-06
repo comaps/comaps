@@ -1,7 +1,12 @@
 # Tests read files from a data directory.
 if (NOT SKIP_TESTS)
   if (NOT IS_DIRECTORY ${CMAKE_BINARY_DIR}/data AND NOT IS_SYMLINK ${CMAKE_BINARY_DIR}/data)
-    file(CREATE_LINK ${OMIM_ROOT}/data ${CMAKE_BINARY_DIR}/data SYMBOLIC)
+    if (PLATFORM_WIN)
+      # Symbolic links require admin/developer mode on Windows; use a junction instead.
+      execute_process(COMMAND cmd /c mklink /J "${CMAKE_BINARY_DIR}/data" "${OMIM_ROOT}/data")
+    else()
+      file(CREATE_LINK ${OMIM_ROOT}/data ${CMAKE_BINARY_DIR}/data SYMBOLIC)
+    endif()
   endif()
 endif()
 
