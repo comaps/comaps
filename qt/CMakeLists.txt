@@ -112,14 +112,10 @@ set(BUNDLE_FOLDER ${CMAKE_BINARY_DIR}/${BUNDLE_NAME}.app)
 set(RESOURCES_FOLDER ${BUNDLE_FOLDER}/Contents/Resources)
 set(DATA_DIR ${OMIM_ROOT}/data)
 
-execute_process(
-    COMMAND mkdir -p ${RESOURCES_FOLDER}
-)
+file(MAKE_DIRECTORY ${RESOURCES_FOLDER})
 function(copy_resources)
   foreach(file ${ARGN})
-    execute_process(
-      COMMAND cp -r ${DATA_DIR}/${file} ${RESOURCES_FOLDER}
-    )
+    file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
   endforeach()
 endfunction()
 
@@ -190,13 +186,9 @@ endif()
 
 if (PLATFORM_MAC)
   if (BUILD_DESIGNER)
-    execute_process(
-        COMMAND cp ${PROJECT_SOURCE_DIR}/res/mac/designer.icns ${RESOURCES_FOLDER}
-    )
+    file(COPY ${PROJECT_SOURCE_DIR}/res/mac/designer.icns DESTINATION ${RESOURCES_FOLDER})
   else ()
-    execute_process(
-        COMMAND cp ${PROJECT_SOURCE_DIR}/res/mac/mac.icns ${RESOURCES_FOLDER}
-    )
+    file(COPY ${PROJECT_SOURCE_DIR}/res/mac/mac.icns DESTINATION ${RESOURCES_FOLDER})
   endif ()
 endif()
 
@@ -225,17 +217,15 @@ if (PLATFORM_WIN)
 endif()
 
 if (BUILD_DESIGNER)
-  execute_process(
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/mdpi/light/ ${OMIM_ROOT}/data/symbols/mdpi/design/
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/hdpi/light/ ${OMIM_ROOT}/data/symbols/hdpi/design/
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/xhdpi/light/ ${OMIM_ROOT}/data/symbols/xhdpi/design/
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/xxhdpi/light/ ${OMIM_ROOT}/data/symbols/xxhdpi/design/
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/6plus/light/ ${OMIM_ROOT}/data/symbols/6plus/design/
-    COMMAND cp -rf ${OMIM_ROOT}/data/symbols/xxxhdpi/light/ ${OMIM_ROOT}/data/symbols/xxxhdpi/design/
-    COMMAND cp -f ${OMIM_ROOT}/data/drules_proto_default_light.bin ${OMIM_ROOT}/data/drules_proto_default_design.bin
-    COMMAND cp -f ${OMIM_ROOT}/data/colors.txt ${OMIM_ROOT}/data/colors_design.txt
-    COMMAND cp -f ${OMIM_ROOT}/data/patterns.txt ${OMIM_ROOT}/data/patterns_design.txt
-  )
+  file(COPY ${OMIM_ROOT}/data/symbols/mdpi/light/ DESTINATION ${OMIM_ROOT}/data/symbols/mdpi/design/)
+  file(COPY ${OMIM_ROOT}/data/symbols/hdpi/light/ DESTINATION ${OMIM_ROOT}/data/symbols/hdpi/design/)
+  file(COPY ${OMIM_ROOT}/data/symbols/xhdpi/light/ DESTINATION ${OMIM_ROOT}/data/symbols/xhdpi/design/)
+  file(COPY ${OMIM_ROOT}/data/symbols/xxhdpi/light/ DESTINATION ${OMIM_ROOT}/data/symbols/xxhdpi/design/)
+  file(COPY ${OMIM_ROOT}/data/symbols/6plus/light/ DESTINATION ${OMIM_ROOT}/data/symbols/6plus/design/)
+  file(COPY ${OMIM_ROOT}/data/symbols/xxxhdpi/light/ DESTINATION ${OMIM_ROOT}/data/symbols/xxxhdpi/design/)
+  file(COPY_FILE ${OMIM_ROOT}/data/drules_proto_default_light.bin ${OMIM_ROOT}/data/drules_proto_default_design.bin)
+  file(COPY_FILE ${OMIM_ROOT}/data/colors.txt ${OMIM_ROOT}/data/colors_design.txt)
+  file(COPY_FILE ${OMIM_ROOT}/data/patterns.txt ${OMIM_ROOT}/data/patterns_design.txt)
 
   copy_resources(
     colors_design.txt
@@ -251,14 +241,12 @@ if (BUILD_DESIGNER)
     symbols/6plus/design
   )
 
-  execute_process(
-    COMMAND cp ${OMIM_ROOT}/tools/python/recalculate_geom_index.py ${RESOURCES_FOLDER}
-    COMMAND cp ${OMIM_ROOT}/tools/python/generate_styles_override.py ${RESOURCES_FOLDER}
-    COMMAND cp -rf ${OMIM_ROOT}/tools/kothic ${RESOURCES_FOLDER}/kothic/
-    COMMAND cp -f ${OMIM_ROOT}/tools/python/stylesheet/drules_info.py ${RESOURCES_FOLDER}/kothic/src/
-    COMMAND cp -rf ${OMIM_ROOT}/tools/python/stylesheet/ ${RESOURCES_FOLDER}/kothic/src/
-    COMMAND cp -f ${OMIM_ROOT}/3party/protobuf/protobuf-3.3.0-py2.7.egg ${RESOURCES_FOLDER}/kothic/
-  )
+  file(COPY ${OMIM_ROOT}/tools/python/recalculate_geom_index.py DESTINATION ${RESOURCES_FOLDER})
+  file(COPY ${OMIM_ROOT}/tools/python/generate_styles_override.py DESTINATION ${RESOURCES_FOLDER})
+  file(COPY ${OMIM_ROOT}/tools/kothic DESTINATION ${RESOURCES_FOLDER})
+  file(COPY ${OMIM_ROOT}/tools/python/stylesheet/drules_info.py DESTINATION ${RESOURCES_FOLDER}/kothic/src/)
+  file(COPY ${OMIM_ROOT}/tools/python/stylesheet/ DESTINATION ${RESOURCES_FOLDER}/kothic/src/)
+  file(COPY ${OMIM_ROOT}/3party/protobuf/protobuf-3.3.0-py2.7.egg DESTINATION ${RESOURCES_FOLDER}/kothic/)
 
   # Generate DMG
   install(DIRECTORY ${DATA_DIR}/styles DESTINATION .)
