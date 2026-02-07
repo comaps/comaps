@@ -187,7 +187,10 @@ if (WITH_SYSTEM_PROVIDED_3PARTY)
   find_package(utf8cpp REQUIRED)
 endif()
 
-find_package(ZLIB REQUIRED)
+# On Windows, zlib is built from bundled source in 3party/zlib.
+if (NOT PLATFORM_WIN)
+  find_package(ZLIB REQUIRED)
+endif()
 
 # Include 3party dependencies.
 add_subdirectory(3party)
