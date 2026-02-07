@@ -50,6 +50,11 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
     add_subdirectory(harfbuzz)
   endif()
 
+  # Windows doesn't have a system zlib; build it from bundled source.
+  if (PLATFORM_WIN)
+    add_subdirectory(zlib)
+  endif()
+
   add_library(utf8cpp INTERFACE)
   add_library(utf8cpp::utf8cpp ALIAS utf8cpp)
   target_include_directories(utf8cpp INTERFACE "${OMIM_ROOT}/3party/utfcpp/source")
