@@ -196,6 +196,7 @@ class PlacePageInfoViewController: UIViewController {
   private var outdoorSeatingView: InfoItemView?
   private var driveThroughView: InfoItemView?
   private var networkView: InfoItemView?
+  private var populationView: InfoItemView?
 
   weak var placePageInfoData: PlacePageInfoData!
   weak var delegate: PlacePageInfoViewControllerDelegate?
@@ -256,6 +257,10 @@ class PlacePageInfoViewController: UIViewController {
 
     if let network = placePageInfoData.network {
       networkView = createInfoItem(network, icon: UIImage(named: "ic_placepage_network"))
+    }
+	
+    if let population = placePageInfoData.population {
+      populationView = createInfoItem(population, icon: UIImage(named: "ic_placepage_population"))
     }
 
     if let website = placePageInfoData.website {
