@@ -198,6 +198,8 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_CHARGE_SOCKETS;
   else if (k == "rooms")
     outType = Metadata::FMD_ROOMS;
+  else if (k == "population")
+    outType = Metadata::FMD_POPULATION;
   else
     return false;
 
@@ -326,6 +328,7 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_NETWORK: return "network";
   case Metadata::FMD_CHARGE_SOCKETS: CHECK(false, ("FMD_CHARGE_SOCKETS is a compound attribute."));
   case Metadata::FMD_ROOMS: return "rooms";
+  case Metadata::FMD_POPULATION: return "population";
   case Metadata::FMD_COUNT: CHECK(false, ("FMD_COUNT can not be used as a type."));
   };
 
