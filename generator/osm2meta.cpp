@@ -366,6 +366,11 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_charge(std::string v)
   return v;
 }
 
+std::string MetadataTagProcessorImpl::ValidateAndFormat_population(std::string v)
+{
+	return v;
+}
+
 std::string MetadataTagProcessorImpl::ValidateAndFormat_airport_iata(std::string const & v) const
 {
   if (!ftypes::IsAirportChecker::Instance()(m_params.m_types))
@@ -651,6 +656,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_OUTDOOR_SEATING: valid = ValidateAndFormat_outdoor_seating(v); break;
   case Metadata::FMD_NETWORK: valid = ValidateAndFormat_operator(v); break;
   case Metadata::FMD_CHARGE_SOCKETS: m_chargeSockets.AggregateChargeSocketKey(k, v); break;
+  case Metadata::FMD_POPULATION: valid = ValidateAndFormat_population(v); break; 
 
   // Metadata types we do not get from OSM.
   case Metadata::FMD_CUISINE:

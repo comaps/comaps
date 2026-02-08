@@ -91,6 +91,7 @@ public:
   int GetStars() const;
   std::string GetCapacity() const;
   std::string GetRooms() const;
+  std::string GetPopulation() const;
 
   /// @returns true if feature has ATM type.
   bool HasAtm() const;

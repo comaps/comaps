@@ -127,6 +127,7 @@ public:
     FMD_CHARGE_SOCKETS = 56,
     FMD_ROOMS = 57,
     FMD_CHARGE = 58,
+    FMD_POPULATION = 59,
     FMD_COUNT
   };
 
