@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *selfService;
 @property(nonatomic, readonly, nullable) NSString *outdoorSeating;
 @property(nonatomic, readonly, nullable) NSString *network;
+@property(nonatomic, readonly, nullable) NSString *population;
 
 - (NSDate * _Nullable)getMostRecentCheckDate;
 
