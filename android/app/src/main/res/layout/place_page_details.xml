@@ -30,6 +30,8 @@
 
     <include layout="@layout/place_page_placename"/>
 
+    <include layout="@layout/place_page_population"/>
+
     <androidx.fragment.app.FragmentContainerView
       android:id="@+id/place_page_opening_hours_fragment"
       android:layout_width="match_parent"

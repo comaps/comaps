@@ -154,6 +154,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvOutdoorSeating;
   private View mEntrance;
   private MaterialTextView mTvEntrance;
+  private View mPopulation;
+  private MaterialTextView mTvPopulation;
   private MaterialTextView mTvLastChecked;
   private View mEditPlace;
   private View mAddPlace;
@@ -330,6 +332,8 @@ public class PlacePageView extends Fragment
     mEntrance = mFrame.findViewById(R.id.ll__place_entrance);
     mTvEntrance = mEntrance.findViewById(R.id.tv__place_entrance);
     mTvLastChecked = mFrame.findViewById(R.id.place_page_last_checked);
+    mPopulation = mFrame.findViewById(R.id.ll__place_population);
+    mTvPopulation = mFrame.findViewById(R.id.tv__place_population);
     mEditPlace = mFrame.findViewById(R.id.ll__place_editor);
     mAddPlace = mFrame.findViewById(R.id.ll__place_add);
     mMapTooOld = mFrame.findViewById(R.id.cv__map_too_old);
@@ -347,6 +351,7 @@ public class PlacePageView extends Fragment
     mDriveThrough.setOnLongClickListener(this);
     mSelfService.setOnLongClickListener(this);
     mOutdoorSeating.setOnLongClickListener(this);
+    mPopulation.setOnLongClickListener(this);
 
     mDownloaderIcon = new DownloaderStatusIcon(mPreview.findViewById(R.id.downloader_status_frame));
 
@@ -705,6 +710,8 @@ public class PlacePageView extends Fragment
     final String outdoorSeating = mMapObject.getMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING);
     refreshMetadataOrHide(outdoorSeating.equals("yes") ? getString(R.string.outdoor_seating) : "", mOutdoorSeating,
                           mTvOutdoorSeating);
+    final String population = "%,d".format(mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION)).replace(',', ' ');
+      refreshMetadataOrHide(!TextUtils.isEmpty(population) ? getString(R.string.population, population) : "", mPopulation, mTvPopulation);
 
     final String lastChecked = mMapObject.getMetadata(Metadata.MetadataType.FMD_CHECK_DATE);
     if (!lastChecked.isEmpty())
@@ -1096,6 +1103,8 @@ public class PlacePageView extends Fragment
       items.add(mTvDriveThrough.getText().toString());
     else if (id == R.id.ll__place_outdoor_seating)
       items.add(mTvOutdoorSeating.getText().toString());
+    else if (id == R.id.ll__place_population)
+        items.add(mTvPopulation.getText().toString());
 
     final Context context = requireContext();
     if (items.size() == 1)
