@@ -1130,3 +1130,6 @@
 
 /* Title of the interface section in settings */
 "interface" = "Interface";
+
+/* To indicate the population of a city, a place ... */
+"population" = "Population: %@";

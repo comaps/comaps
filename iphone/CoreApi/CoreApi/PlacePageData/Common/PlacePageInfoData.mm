@@ -137,6 +137,8 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
             _outdoorSeating = NSLocalizedString(@"outdoor_seating", nil);
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
+        //TODO: Add space after each 3 digits
+        case MetadataID::FMD_POPULATION: _population = [NSString stringWithFormat:NSLocalizedString(@"population", nil), ToNSString(value)]; break;
         default:
           break;
       }
