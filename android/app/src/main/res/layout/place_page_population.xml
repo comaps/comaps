@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll__place_population"
+    style="@style/PlacePageItemFrame"
+    tools:background="#4000FFFF"
+    android:orientation="horizontal"
+    android:visibility="visible">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv__place_population"
+        style="@style/PlacePageMetadataIcon"
+        app:srcCompat="@drawable/ic_groups" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv__place_population"
+        android:textAlignment="viewStart"
+        android:textDirection="ltr"
+        style="@style/PlacePageMetadataText"
+        tools:text="Population: 2 148 271"/>
+</LinearLayout>

@@ -981,4 +981,5 @@
     <string name="location_privacy">Location Privacy</string>
     <string name="pref_speedlimit_title">Show speed limits</string>
     <string name="rooms">%s rooms</string>
+    <string name="population">Population: %s</string>
 </resources>
