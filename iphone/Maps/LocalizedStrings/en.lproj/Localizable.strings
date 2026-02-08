@@ -1148,3 +1148,6 @@
 
 /* To indicate the number of rooms in hotel, hospital ... */
 "rooms" = "%@ rooms";
+
+/* To indicate the population of a city, a place ... */
+"population" = "Population: %@";
