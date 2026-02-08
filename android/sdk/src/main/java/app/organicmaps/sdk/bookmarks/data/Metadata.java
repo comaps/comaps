@@ -75,6 +75,7 @@ public class Metadata implements Parcelable
     FMD_BRANCH(55),
     FMD_CHARGE_SOCKETS(56),
     FMD_ROOMS(57);
+    FMD_POPULATION(58);
     private final int mMetaType;
 
     MetadataType(int metadataType)

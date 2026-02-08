@@ -991,4 +991,5 @@
     <string name="route_finished">Route finished</string>
     <string name="not_following_route">Not following route</string>
     <string name="rebuilding_route">Rebuilding route…</string>
+    <string name="population">Population: %s</string>
 </resources>
