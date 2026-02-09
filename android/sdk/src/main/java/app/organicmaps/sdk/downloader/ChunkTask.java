@@ -124,9 +124,9 @@ class ChunkTask extends AsyncTask<Void, byte[], Integer>
       return INVALID_URL;
     }
 
-    OkHttpClient client = new OkHttpClient.Builder()
+    OkHttpClient client = Android7RootCertificateWorkaround.applyFixIfNeeded(new OkHttpClient.Builder()
         .connectTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
-        .readTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS)
+        .readTimeout(TIMEOUT_IN_SECONDS, TimeUnit.SECONDS))
         .build();
 
     try

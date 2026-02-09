@@ -2,17 +2,20 @@ package app.organicmaps.sdk.downloader;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+
 import app.organicmaps.sdk.R;
 import app.organicmaps.sdk.util.log.Logger;
+import okhttp3.OkHttpClient;
+
 import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.security.KeyStore;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
-import javax.net.ssl.HttpsURLConnection;
+
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 
 // Fix missing root certificates for HTTPS connections on Android 7 and below:
 // https://community.letsencrypt.org/t/letsencrypt-certificates-fails-on-android-phones-running-android-7-or-older/205686
@@ -23,13 +26,17 @@ public class Android7RootCertificateWorkaround
 
   @TargetApi(24)
   private static SSLSocketFactory mSslSocketFactory;
+  private static X509TrustManager mTrustManager;
 
-  public static void applyFixIfNeeded(HttpURLConnection connection)
+  public static OkHttpClient.Builder applyFixIfNeeded(OkHttpClient.Builder builder)
   {
-    // Deliberately not checking for null to have an exception from setSSLSocketFactory.
-    if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.N
-        && connection.getURL().getProtocol().equals("https"))
-      ((HttpsURLConnection) connection).setSSLSocketFactory(mSslSocketFactory);
+    if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.N)
+      return builder;
+
+    if (mSslSocketFactory != null && mTrustManager != null)
+      builder.sslSocketFactory(mSslSocketFactory, mTrustManager);
+
+    return builder;
   }
 
   public static void initializeIfNeeded(Context context)
@@ -37,8 +44,7 @@ public class Android7RootCertificateWorkaround
     if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.N)
       return;
 
-    final int[] certificates = new int[] {R.raw.isrgrootx1, R.raw.globalsignr4, R.raw.gtsrootr1,
-                                          R.raw.gtsrootr2,  R.raw.gtsrootr3,    R.raw.gtsrootr4};
+    final int[] certificates = new int[]{R.raw.isrgrootx1, R.raw.globalsignr4, R.raw.gtsrootr1, R.raw.gtsrootr2, R.raw.gtsrootr3, R.raw.gtsrootr4};
 
     try
     {
@@ -62,8 +68,8 @@ public class Android7RootCertificateWorkaround
       final SSLContext sslContext = SSLContext.getInstance("TLS");
       sslContext.init(null, tmf.getTrustManagers(), null);
       mSslSocketFactory = sslContext.getSocketFactory();
-    }
-    catch (Exception e)
+      mTrustManager = (X509TrustManager) tmf.getTrustManagers()[0];
+    } catch (Exception e)
     {
       e.printStackTrace();
       Logger.e(TAG, "Failed to load certificates: " + e.getMessage());

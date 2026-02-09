@@ -24,11 +24,14 @@
 
 package app.organicmaps.sdk.util;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.text.TextUtils;
 
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 
+import app.organicmaps.sdk.downloader.Android7RootCertificateWorkaround;
 import app.organicmaps.sdk.util.log.Logger;
 import okhttp3.CacheControl;
 import okhttp3.MediaType;
@@ -60,7 +63,7 @@ public final class HttpClient
   // TODO: Tune for large file sizes
   private static final int STREAM_BUFFER_SIZE = 1024 * 64;
 
-  private static OkHttpClient client = new OkHttpClient();
+  private static OkHttpClient client = Android7RootCertificateWorkaround.applyFixIfNeeded(new OkHttpClient.Builder()).build();
 
   public static Params run(@NonNull final Params p) throws IOException
   {
