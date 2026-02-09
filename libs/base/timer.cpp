@@ -131,7 +131,7 @@ time_t StringToTimestamp(std::string const & s)
   // Fractional second values are dropped, as POSIX time_t doesn't hold them.
   if (signOrDotOrZ == '.')
   {
-    while (ss >> signOrDotOrZ && std::isdigit(signOrDotOrZ))
+    while (ss >> signOrDotOrZ && std::isdigit(static_cast<unsigned char>(signOrDotOrZ)))
     {}
 
     if (ss.fail())

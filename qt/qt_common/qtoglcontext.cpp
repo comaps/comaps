@@ -7,6 +7,7 @@
 
 #include "drape/gl_functions.hpp"
 
+#include <QOpenGLContext>
 #include <memory>
 
 namespace qt
@@ -19,7 +20,16 @@ QtRenderOGLContext::QtRenderOGLContext(QOpenGLContext * rootContext, QOffscreenS
   , m_isContextAvailable(false)
 {
   m_ctx->setFormat(rootContext->format());
+#if defined(OMIM_OS_WINDOWS)
+  // On Windows, share with the global share context (from AA_ShareOpenGLContexts set before
+  // QApplication) instead of the root context. The root context is current on the main thread,
+  // causing wglShareLists to fail with "resource in use". The global share context is not
+  // current on any thread, so sharing succeeds.
+  auto * globalCtx = QOpenGLContext::globalShareContext();
+  m_ctx->setShareContext(globalCtx ? globalCtx : rootContext);
+#else
   m_ctx->setShareContext(rootContext);
+#endif
   m_ctx->create();
   CHECK(m_ctx->isValid(), ());
 }
@@ -116,7 +126,12 @@ QtUploadOGLContext::QtUploadOGLContext(QOpenGLContext * rootContext, QOffscreenS
   , m_ctx(std::make_unique<QOpenGLContext>())
 {
   m_ctx->setFormat(rootContext->format());
+#if defined(OMIM_OS_WINDOWS)
+  auto * globalCtx = QOpenGLContext::globalShareContext();
+  m_ctx->setShareContext(globalCtx ? globalCtx : rootContext);
+#else
   m_ctx->setShareContext(rootContext);
+#endif
   m_ctx->create();
   CHECK(m_ctx->isValid(), ());
 }

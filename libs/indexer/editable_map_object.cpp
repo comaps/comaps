@@ -574,10 +574,10 @@ bool EditableMapObject::ValidatePhoneList(string const & phone)
     string const symbols = "+-() ";
     for (; curr != last; ++curr)
     {
-      if (!isdigit(*curr) && find(symbols.begin(), symbols.end(), *curr) == symbols.end())
+      if (!isdigit(static_cast<unsigned char>(*curr)) && find(symbols.begin(), symbols.end(), *curr) == symbols.end())
         return false;
 
-      if (isdigit(*curr))
+      if (isdigit(static_cast<unsigned char>(*curr)))
         ++digitsCount;
     }
 

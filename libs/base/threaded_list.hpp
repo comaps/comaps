@@ -76,7 +76,7 @@ public:
   {
     std::unique_lock lock(m_condLock);
 
-    if (WaitNonEmpty(lock))
+    if (WaitNonEmptyOrCancel(lock))
       return T();
 
     T res = m_list.back();

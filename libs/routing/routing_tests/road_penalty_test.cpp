@@ -4,6 +4,7 @@
 #include "routing/road_point.hpp"
 #include "routing/vehicle_mask.hpp"
 
+#include <bit>
 #include <optional>
 #include <utility>
 
@@ -104,7 +105,7 @@ UNIT_TEST(RoadPenalty_VehicleMask)
   multiMask |= (1 << 2);  // Car
 
   // Verify multiple bits are set
-  TEST_EQUAL(__builtin_popcount(multiMask), 3, ());
+  TEST_EQUAL(std::popcount(multiMask), 3, ());
 }
 
 // Test default time penalties

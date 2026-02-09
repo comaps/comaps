@@ -23,9 +23,23 @@
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QMessageBox>
 
+#include <cstdlib>
 #include <sstream>
 
 #include <gflags/gflags.h>
+
+#ifdef _WIN32
+inline int setenv(const char *name, const char *value, int overwrite)
+{
+  if (!overwrite)
+  {
+    size_t sz = 0;
+    if (getenv_s(&sz, nullptr, 0, name) == 0 && sz > 0)
+      return 0;
+  }
+  return _putenv_s(name, value);
+}
+#endif
 
 DEFINE_string(data_path, "", "Path to data directory.");
 DEFINE_string(log_abort_level, base::ToString(base::GetDefaultLogAbortLevel()),
@@ -137,6 +151,14 @@ int main(int argc, char * argv[])
   InitializeFinalize mainGuard;
   UNUSED_VALUE(mainGuard);
 
+#if defined(OMIM_OS_WINDOWS)
+  // On Windows, must set surface format and enable shared contexts before QApplication
+  // so Qt creates a global share context with the correct format. Without this,
+  // worker thread GL contexts fail to share with the root context (wglShareLists fails).
+  QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
+  qt::common::SetDefaultSurfaceFormat(QString("windows"));
+#endif
+
   QApplication app(argc, argv);
   app.setDesktopFileName("app.comaps.comaps");
   platform.SetupMeasurementSystem();
@@ -208,7 +230,9 @@ int main(int argc, char * argv[])
         screenshotParams->m_dpiScale = FLAGS_dpi_scale;
     }
 
+#if !defined(OMIM_OS_WINDOWS)
     qt::common::SetDefaultSurfaceFormat(QApplication::platformName());
+#endif
 
     FrameworkParams frameworkParams;
 

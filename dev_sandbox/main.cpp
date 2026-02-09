@@ -22,7 +22,22 @@
 #include <string_view>
 #include <vector>
 
+#include <cstdlib>
+
 #include <gflags/gflags.h>
+
+#ifdef _WIN32
+inline int setenv(const char *name, const char *value, int overwrite)
+{
+  if (!overwrite)
+  {
+    size_t sz = 0;
+    if (getenv_s(&sz, nullptr, 0, name) == 0 && sz > 0)
+      return 0;
+  }
+  return _putenv_s(name, value);
+}
+#endif
 
 #if defined(OMIM_OS_WINDOWS)
 #define GLFW_EXPOSE_NATIVE_WIN32

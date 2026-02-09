@@ -11,6 +11,10 @@
 
 #include <cstdint>
 
+#ifdef FindResource
+#undef FindResource
+#endif
+
 namespace dp
 {
 class Texture

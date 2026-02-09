@@ -1,5 +1,6 @@
 # TODO: Check if enabling it provides benefits.
 set(FT_DISABLE_HARFBUZZ ON)
+set(SKIP_INSTALL_ALL ON)
 
 add_subdirectory(freetype)
 

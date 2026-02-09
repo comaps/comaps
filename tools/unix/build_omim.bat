@@ -219,8 +219,17 @@ if not defined OPT_NJOBS set "OPT_NJOBS=%NUMBER_OF_PROCESSORS%"
 REM ============================================================
 REM 8. Paths
 REM ============================================================
-set "OMIM_PATH=%~dp0\..\.."
-for %%I in ("%OMIM_PATH%") do set "OMIM_PATH=%%~fI"
+REM Resolve source directory.
+REM When called via wrapper, %~dp0 may return the caller's directory (repo root).
+REM When called directly from tools\unix\, %~dp0 is the script directory.
+set "OMIM_PATH=%~dp0"
+if "!OMIM_PATH:~-1!"=="\" set "OMIM_PATH=!OMIM_PATH:~0,-1!"
+if not exist "!OMIM_PATH!\CMakeLists.txt" (
+  pushd "!OMIM_PATH!\..\.."
+  set "OMIM_PATH=!CD!"
+  popd
+)
+echo Source directory: !OMIM_PATH!
 
 REM ============================================================
 REM 9. Build
@@ -261,18 +270,19 @@ if not exist "!BUILD_DIR!" mkdir "!BUILD_DIR!"
 pushd "!BUILD_DIR!"
 
 REM Auto-clean if cached compiler doesn't match (e.g. switching from Clang to MSVC).
-if exist CMakeCache.txt (
-  findstr /R /C:"CMAKE_C_COMPILER:.*=.*[/\\]cl\.exe" CMakeCache.txt >nul 2>&1
-  if errorlevel 1 (
-    echo Compiler mismatch in cache, full clean required...
-    popd
-    rmdir /s /q "!BUILD_DIR!"
-    mkdir "!BUILD_DIR!"
-    pushd "!BUILD_DIR!"
-  )
-)
+if not exist CMakeCache.txt goto :compiler_ok
+findstr /C:"=cl" CMakeCache.txt >nul 2>&1
+if not errorlevel 1 goto :compiler_ok
+echo Compiler mismatch in cache, full clean required...
+popd
+rmdir /s /q "!BUILD_DIR!"
+mkdir "!BUILD_DIR!"
+pushd "!BUILD_DIR!"
+:compiler_ok
 
 echo Configuring with CMake...
+echo   Source: "!OMIM_PATH!"
+echo   Build:  "!BUILD_DIR!"
 cmake "!OMIM_PATH!" ^
   -G "!GENERATOR!" ^
   -DCMAKE_BUILD_TYPE=!CONF! ^

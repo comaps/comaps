@@ -76,7 +76,7 @@ static_assert(base::HasUniqueElements(kOrderedPredefinedColors), "All values mus
  * kOrderedPredefinedColors[kColorIndexMap[base::E2I(PredefinedColor::Red)]] == PredefinedColor::Red
  * @endcode
  */
-std::array constexpr kColorIndexMap = [] consteval
+std::array constexpr kColorIndexMap = []() constexpr
 {
   std::array<int, static_cast<std::size_t>(PredefinedColor::Count)> map{};
   for (std::size_t i = 0; i < kOrderedPredefinedColors.size(); ++i)
