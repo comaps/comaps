@@ -83,8 +83,11 @@ public final class HttpClient
                   .build()
           );
 
-      for (KeyValue header : (KeyValue[]) p.getHeaders())
+      for (Object obj : p.getHeaders()) {
+        KeyValue header = (KeyValue) obj;
         requestBuilder = requestBuilder.header(header.getKey(), header.getValue());
+      }
+
 
       client = client.newBuilder()
           .followRedirects(p.followRedirects)
