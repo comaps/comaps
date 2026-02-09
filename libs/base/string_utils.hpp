@@ -458,7 +458,7 @@ template <typename T, typename = std::enable_if_t<std::is_signed<T>::value && si
 long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoi64(start, &stop, base);
+  return _strtoi64(start, stop, base);
 #else
   return std::strtoll(start, stop, base);
 #endif
@@ -469,7 +469,7 @@ template <typename T,
 unsigned long long IntConverter(char const * start, char ** stop, int base)
 {
 #ifdef OMIM_OS_WINDOWS_NATIVE
-  return _strtoui64(start, &stop, base);
+  return _strtoui64(start, stop, base);
 #else
   return std::strtoull(start, stop, base);
 #endif

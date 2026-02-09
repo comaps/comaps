@@ -8,6 +8,12 @@
 #include <cstdint>
 #include <functional>
 
+// Windows <windows.h> defines FindResource as a macro (FindResourceW with UNICODE).
+// This must be undefined to avoid breaking the method name.
+#ifdef FindResource
+#undef FindResource
+#endif
+
 namespace dp
 {
 class FramebufferTexture : public Texture

@@ -7,6 +7,7 @@
 
 #undef min
 #undef max
+#undef FindResource
 // #undef far
 // #undef near
 

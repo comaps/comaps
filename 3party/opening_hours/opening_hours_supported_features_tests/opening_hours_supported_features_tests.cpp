@@ -1,5 +1,6 @@
 #include "parse_opening_hours.hpp"
 #include "rules_evaluation.hpp"
+#include "strptime_compat.hpp"
 
 #define BOOST_TEST_MODULE OpeningHoursSupportedFeatures
 

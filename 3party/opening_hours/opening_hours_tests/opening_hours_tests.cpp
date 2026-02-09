@@ -25,6 +25,7 @@
 #include "parse_opening_hours.hpp"
 #include "rules_evaluation.hpp"
 #include "rules_evaluation_private.hpp"
+#include "strptime_compat.hpp"
 
 #include <ctime>
 #include <iostream>

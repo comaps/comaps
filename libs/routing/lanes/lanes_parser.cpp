@@ -69,8 +69,8 @@ LanesInfo ParseLanes(std::string_view lanesString)
       for (auto && laneWay : laneInfo | std::views::split(';'))
       {
         auto way = LaneWay::None;
-        auto && laneWayProcessed = laneWay | std::views::filter([](char const c) { return !std::isspace(c); }) |
-                                   std::views::transform([](char const c) { return std::tolower(c); });
+        auto && laneWayProcessed = laneWay | std::views::filter([](char const c) { return !std::isspace(static_cast<unsigned char>(c)); }) |
+                                   std::views::transform([](char const c) { return std::tolower(static_cast<unsigned char>(c)); });
         if (!ParseSingleLane(laneWayProcessed, way))
           return {};
         lane.laneWays.Add(way);

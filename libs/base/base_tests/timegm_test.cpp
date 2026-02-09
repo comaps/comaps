@@ -2,6 +2,7 @@
 
 #include <ctime>
 
+#include "base/posix_compat.hpp"
 #include "base/timegm.hpp"
 
 UNIT_TEST(TimegmTest)

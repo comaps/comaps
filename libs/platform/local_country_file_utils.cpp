@@ -289,7 +289,7 @@ bool ParseVersion(string const & s, int64_t & version)
   int64_t v = 0;
   for (char const c : s)
   {
-    if (!isdigit(c))
+    if (!isdigit(static_cast<unsigned char>(c)))
       return false;
     v = v * 10 + c - '0';
   }

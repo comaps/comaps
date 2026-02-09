@@ -32,7 +32,13 @@ auto GetNextDayAtNight(int32_t startTimeZoneUTC)
   std::tm * nextDayDate = std::localtime(&nextDay);
 
   long constexpr kSecondsInHour = 3600;
+#ifdef _WIN32
+  long timezone_seconds = 0;
+  _get_timezone(&timezone_seconds);
+  int const curUTCOffset = static_cast<int>(-timezone_seconds / kSecondsInHour);
+#else
   int const curUTCOffset = static_cast<int>(nextDayDate->tm_gmtoff / kSecondsInHour);
+#endif
 
   nextDayDate->tm_sec = 0;
   nextDayDate->tm_min = 0;
