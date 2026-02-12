@@ -17,5 +17,5 @@
         android:id="@+id/tv__place_capacity_disabled"
         android:textAlignment="viewStart"
         style="@style/PlacePageMetadataText"
-        tools:text="Capacity disabled" />
+        tools:text="@string/capacity_disabled" />
 </LinearLayout>
