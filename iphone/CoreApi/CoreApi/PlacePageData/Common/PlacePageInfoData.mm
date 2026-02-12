@@ -142,6 +142,18 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
         case MetadataID::FMD_ROOMS: _rooms = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"rooms", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
         case MetadataID::FMD_CHARGE: _charge = ToNSString(value); break;
         case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;
+		case MetadataID::FMD_CAPACITY_DISABLED:
+		  if (value = "yes")
+			  _capacityDisabled = NSLocalizedString(@"capacity_disabled_yes", nil);
+		  if (value = "no")
+			  _capacityDisabled = NSLocalizedString(@"capacity_disabled_no", nil);
+		  break;
+		case MetadataID::FMD_CAPACITY_CHARGING:
+		  if (value = "yes")
+			  _capacityCharging = NSLocalizedString(@"capacity_charging_yes", nil);
+		  if (value = "no")
+			  _capacityCharging = NSLocalizedString(@"capacity_charging_no", nil);
+		  break;
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
             _driveThrough = NSLocalizedString(@"drive_through", nil);

@@ -718,7 +718,7 @@ public class PlacePageView extends Fragment
 
     final String capacityDisabled =
               getLocalizedFeatureType(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_DISABLED));
-      refreshMetadataOrHide(switch (capacityDisabled){
+      refreshMetadataOrHide(switch (capacityDisabled) {
           case "yes" -> getString(R.string.capacity_disabled_yes);
           case "no" -> getString(R.string.capacity_disabled_no);
           default -> getString(R.string.capacity_disabled, capacityDisabled);
@@ -726,7 +726,7 @@ public class PlacePageView extends Fragment
 
       final String capacityCharging =
               getLocalizedFeatureType(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_CHARGING));
-      refreshMetadataOrHide(switch (capacityCharging){
+      refreshMetadataOrHide(switch (capacityCharging) {
           case "yes" -> getString(R.string.capacity_disabled_yes);
           case "no" -> getString(R.string.capacity_disabled_no);
           default -> getString(R.string.capacity_disabled, capacityCharging);

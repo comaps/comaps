@@ -1020,12 +1020,6 @@
     <!-- Should match TTS string with the same id, eg. data/sound-strings/en.json/localize.json -->
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="rebuilding_route">Rebuilding route…</string>
-    <string name="capacity_disabled">Number of spaces for disabled: %s</string>
-    <string name="capacity_disabled_yes">Accessible spaces for disabled</string>
-    <string name="capacity_disabled_no">No spaces for disabled</string>
-    <string name="capacity_charging">Number of electric vehicle parking spaces: %s</string>
-    <string name="capacity_charging_yes">Presence of parking spaces for electric vehicles</string>
-    <string name="capacity_charging_no">No spaces for electric vehicles</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
     <string name="pref_keyboard_typing_history_title">Keyboard incognito mode</string>
@@ -1035,4 +1029,10 @@
     <string name="pref_aa_support_summary_no">The app has not been installed from Google Play, you can\'t use it in your car. Press the setting to get more details on our FAQ.</string>
     <!-- Editor section title that shows recently used categories (types of objects) when adding a place on the map -->
     <string name="editor_add_select_category_recent_subtitle">Recently Used</string>
+    <string name="capacity_disabled">Number of disabled parking spaces: %s</string>
+    <string name="capacity_disabled_yes">Has disabled parking spaces</string>
+    <string name="capacity_disabled_no">No disabled parking spaces</string>
+    <string name="capacity_charging">Spaces with chargers: %s</string>
+    <string name="capacity_charging_yes">Has spaces reserved for electric vehicles</string>
+    <string name="capacity_charging_no">No spaces reserved for electric vehicles</string>
 </resources>

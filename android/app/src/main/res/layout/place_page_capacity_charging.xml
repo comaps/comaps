@@ -17,5 +17,5 @@
         android:id="@+id/tv__place_capacity_charging"
         android:textAlignment="viewStart"
         style="@style/PlacePageMetadataText"
-        tools:text="Capacity charging" />
+        tools:text="@string/capacity_charging" />
 </LinearLayout>
