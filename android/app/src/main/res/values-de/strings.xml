@@ -9,7 +9,7 @@
     <string name="delete">Löschen</string>
     <string name="download_maps">Karten herunterladen</string>
     <!-- Settings/Downloader - info for country when download fails -->
-    <string name="download_has_failed">Das Herunterladen ist fehlgeschlagen – antippen für einen erneuten Versuch</string>
+    <string name="download_has_failed">Herunterladen fehlgeschlagen – tippen für erneuten Versuch</string>
     <!-- Settings/Downloader - info for country which started downloading -->
     <string name="downloading">Wird heruntergeladen …</string>
     <!-- Choose measurement on first launch alert - choose metric system button -->
@@ -48,7 +48,7 @@
     <!-- The button that opens system location settings -->
     <string name="location_settings">Standorteinstellungen</string>
     <string name="close">Schließen</string>
-    <string name="unsupported_phone">Das Programm benötigt OpenGL, um zu funktionieren. Leider wird Ihr Gerät nicht unterstützt.</string>
+    <string name="unsupported_phone">Das Programm benötigt OpenGL um zu funktionieren. Leider wird dein Gerät nicht unterstützt.</string>
     <string name="download">Herunterladen</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable">Bitte USB-Kabel entfernen oder Speicherkarte einsetzen, um CoMaps zu verwenden</string>
@@ -66,7 +66,7 @@
     <!-- Show popup notification on top of the map when country download has failed. -->
     <string name="download_country_failed">Herunterladen von %s ist fehlgeschlagen</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">Neue Liste erstellen</string>
+    <string name="add_new_set">Neue Liste hinzufügen</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
     <string name="bookmark_set_name">Name der Liste</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
@@ -460,7 +460,7 @@
     <string name="editor_edit_place_category_title">Kategorie</string>
     <string name="detailed_problem_description">Detaillierte Beschreibung des Problems</string>
     <string name="editor_report_problem_other_title">Ein anderes Problem</string>
-    <string name="message_invalid_feature_position">Ein Objekt kann hier nicht positioniert werden</string>
+    <string name="message_invalid_feature_position">Kein Objekt kann hier positioniert werden</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
     <string name="osm_presentation">Von der Community erstellte OpenStreetMap-Daten (Stand: %s). Erfahre mehr darüber, wie du die Karte bearbeiten und aktualisieren kannst unter OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
@@ -468,7 +468,7 @@
     <string name="login_to_make_edits_visible">Erstelle ein Konto bei OpenStreetMap oder melde dich dort an, um deine Kartenbearbeitungen weltweit zu veröffentlichen</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d von %2$d</string>
-    <string name="download_over_mobile_header">Über eine Mobilfunknetzverbindung herunterladen?</string>
+    <string name="download_over_mobile_header">Über eine Mobilfunkverbindung herunterladen?</string>
     <string name="download_over_mobile_message">Das könnte je nach Tarif oder beim Roaming sehr teuer werden</string>
     <string name="error_enter_correct_house_number">Gültige Hausnummer eingeben</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
@@ -482,14 +482,14 @@
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Deine Bearbeitungen werden in die öffentliche <a href="https://wiki.openstreetmap.org/wiki/DE:Über_OSM">OpenStreetMap</a> Datenbank hochgeladen. Bitte trage keine privaten oder urheberrechtlich geschützten Informationen ein.</string>
     <string name="editor_more_about_osm">Mehr Informationen über OpenStreetMap</string>
-    <string name="editor_osm_history">Ihr Bearbeitungsverlauf</string>
-    <string name="editor_osm_notes">Ihre Hinweise zu den Kartendaten</string>
+    <string name="editor_osm_history">Dein Bearbeitungsverlauf</string>
+    <string name="editor_osm_notes">Deine Hinweise zu den Kartendaten</string>
     <string name="editor_operator">Betreiber</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Betreiber: %s</string>
     <string name="editor_category_unsuitable_title">Keine passende Kategorie gefunden?</string>
     <string name="editor_category_unsuitable_text">Mit CoMaps kannst du nur einfache Punktkategorien hinzufügen, dass bedeutet keine Städte, Straßen, Seen, Gebäudeumrisse etc. Bitte füge solche Kategorien direkt bei <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> hinzu. In unserem <a href="https://www.comaps.app/support/advanced-map-editing/">Leitfaden (auf Englisch)</a> findest du eine detaillierte Schritt-für-Schritt Anleitung.</string>
-    <string name="downloader_no_downloaded_maps_title">Keine Karten heruntergeladen</string>
+    <string name="downloader_no_downloaded_maps_title">Du hast keine Karten heruntergeladen</string>
     <string name="downloader_no_downloaded_maps_message">Lade Karten für die Offline-Suche und Navigation herunter</string>
     <string name="current_location_unknown_error_title">Aktueller Standort ist unbekannt</string>
     <!-- abbreviation for kilometers per hour -->
@@ -522,7 +522,7 @@
     <string name="editor_share_to_all_dialog_title">An alle Nutzer*innen senden?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
     <string name="editor_share_to_all_dialog_message_1">Stelle sicher, dass du keine privaten oder persönlichen Daten eingegeben hast.</string>
-    <string name="editor_share_to_all_dialog_message_2">Freiwillige von OpenStreetMap werden die Änderungen prüfen und sich bei Fragen mit Ihnen in Verbindung setzen.</string>
+    <string name="editor_share_to_all_dialog_message_2">Freiwillige von OpenStreetMap werden die Änderungen möglicherweise prüfen und sich bei Fragen mit dir in Verbindung setzen.</string>
     <string name="navigation_stop_button">Beenden</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Strecke wird aufgezeichnet</string>
@@ -560,7 +560,7 @@
     <string name="button_plan">Planen</string>
     <string name="placepage_remove_stop">Stopp entfernen</string>
     <string name="placepage_add_stop">Stopp hinzufügen</string>
-    <string name="dialog_error_storage_title">Problem mit dem Zugriff auf den Speicher</string>
+    <string name="dialog_error_storage_title">Problem mit dem Speicherzugriff</string>
     <string name="dialog_error_storage_message">Der externe Speicher ist nicht verfügbar, möglicherweise wurde die SD-Karte entfernt oder sie ist beschädigt oder das Dateisystem ist schreibgeschützt. Bitte überprüfe das oder kontaktiere uns unter support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Fehlerhaften Speicher emulieren</string>
     <string name="error_enter_correct_name">Bitte gebe deinen korrekten Namen ein</string>
@@ -578,7 +578,7 @@
     <string name="bookmarks_error_message_share_general">Teilen wegen eines Anwendungsfehlers nicht möglich</string>
     <string name="bookmarks_error_title_share_empty">Fehler beim Teilen</string>
     <string name="bookmarks_error_message_share_empty">Eine leere Liste kann nicht geteilt werden</string>
-    <string name="bookmarks_error_title_empty_list_name">Der Name darf nicht leer sein</string>
+    <string name="bookmarks_error_title_empty_list_name">Es muss ein Name vergeben werden</string>
     <string name="bookmarks_error_message_empty_list_name">Bitte gebe den Listennamen ein</string>
     <string name="bookmarks_new_list_hint">Neue Liste</string>
     <string name="bookmarks_error_title_list_name_already_taken">Dieser Name wird bereits verwendet</string>
@@ -611,7 +611,7 @@
     <string name="speedcams_alert_title">Blitzer</string>
     <string name="place_description_title">Ortsbeschreibung</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
-    <string name="notification_channel_downloader">Laden von Karten</string>
+    <string name="notification_channel_downloader">Karten-Downloader</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
     <string name="pref_tts_speedcams_auto">Warnen bei Geschwindigkeitsübertretung</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
@@ -619,7 +619,7 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Niemals warnen</string>
     <string name="power_managment_title">Stromsparmodus</string>
-    <string name="power_managment_description">Versuche den Stromverbrauch durch Verzicht auf einige Funktionen zu reduzieren</string>
+    <string name="power_managment_description">Versuche den Stromverbrauch durch Deaktivierung einiger Funktionen zu reduzieren</string>
     <string name="power_managment_setting_never">Niemals</string>
     <string name="power_managment_setting_auto">Bei niedrigem Akkustand</string>
     <string name="power_managment_setting_manual_max">Immer</string>
@@ -684,7 +684,7 @@
     <string name="hotels">Hotels</string>
     <string name="buildings">Gebäude</string>
     <string name="money">Geld</string>
-    <string name="shops">Ladengeschäfte</string>
+    <string name="shops">Geschäfte</string>
     <string name="parkings">Parkplätze</string>
     <string name="fuel_places">Tankstellen</string>
     <string name="medicine">Medizin</string>
@@ -694,9 +694,9 @@
     <string name="transit_not_found">Die U-Bahn-Navigation ist in dieser Region noch nicht verfügbar</string>
     <string name="dialog_pedestrian_route_is_long_header">Keine U-Bahn-Route gefunden</string>
     <string name="dialog_pedestrian_route_is_long_message">Wähle einen Start- oder Endpunkt näher an einer U-Bahn-Station</string>
-    <string name="button_layer_isolines">Höhenlinien</string>
+    <string name="button_layer_isolines">Höhelinien</string>
     <string name="isolines_activation_error_dialog">Um die Höhenlinien nutzen zu können, aktualisiere die Karte des betreffenden Gebiets oder lade diese herunter</string>
-    <string name="isolines_location_error_dialog">Topographieebene ist für dieses Gebiet noch nicht verfügbar</string>
+    <string name="isolines_location_error_dialog">Höhenlinien sind für dieses Gebiet noch nicht verfügbar</string>
     <string name="elevation_profile_ascent">Bergauf</string>
     <string name="elevation_profile_descent">Bergab</string>
     <string name="elevation_profile_min_elevation">Min. Höhe</string>
@@ -721,7 +721,7 @@
     <!-- A preference title; keep short! -->
     <string name="enable_show_on_lock_screen">Auf dem Sperrbildschirm anzeigen</string>
     <!-- Description in preferences -->
-    <string name="enable_show_on_lock_screen_description">Wenn aktiviert, muss das Gerät nicht jedes Mal entsperrt werden, wenn die App ausgeführt wird.</string>
+    <string name="enable_show_on_lock_screen_description">Wenn aktiviert, muss das Gerät nicht jedes Mal entsperrt werden, sofern die App ausgeführt wird.</string>
     <!-- Current language of the map! -->
     <string name="change_map_locale">Karten-Sprache</string>
     <!-- OpenStreetMap text on splash screen -->
@@ -733,7 +733,7 @@
     <!-- App Tip #00 -->
     <string name="app_tip_00">Danke, dass du unsere von der Community erstellten Karten benutzt!</string>
     <!-- App tip #01 -->
-    <string name="app_tip_01">Mit Ihren Spenden und Ihrer Unterstützung können wir die besten Karten der Welt erstellen!</string>
+    <string name="app_tip_01">Mit deinen Spenden und deiner Unterstützung können wir die besten Karten der Welt erstellen!</string>
     <!-- App tip #02 -->
     <string name="app_tip_02">Gefällt dir unsere App? Bitte spende, um die Entwicklung zu unterstützen! Gefällt sie dir noch nicht? Bitte lass uns wissen warum und wir werden das Problem beheben!</string>
     <!-- App tip #03 -->
@@ -757,11 +757,11 @@
     <!-- Displayed on the phone screen. Android Auto connected -->
     <string name="aa_connected_title">Du bist mit Android Auto verbunden</string>
     <!-- Displayed on the phone screen. Button to display maps on the phone screen instead of a car -->
-    <string name="car_continue_on_the_phone">Weiter am Telefon</string>
+    <string name="car_continue_on_the_phone">Fortsetzen am Telefon</string>
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">Zum Autobildschirm</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">CoMaps benötigt Zugriff auf den Standort. Wenn es sicher ist, überprüfe die Benachrichtigung auf deinem Telefon.</string>
+    <string name="aa_location_permissions_request">CoMaps benötigt Zugriff auf den Standort. Sofern es sicher ist, überprüfe die Benachrichtigung auf deinem Telefon.</string>
     <!-- Notification title for permission request from AA. -->
     <string name="aa_request_permission_notification">Diese App braucht deine Erlaubnis</string>
     <!-- The text in the activity for location permission request. -->
@@ -776,9 +776,9 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Alle Orte und Tracks exportieren</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Einstellungen des Sprachsynthesesystems</string>
+    <string name="pref_tts_open_system_settings">Sprachsynthesesystem-Einstellungen (TTS)</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Die Einstellungen für die Sprachsynthese wurden nicht gefunden. Bist du sicher, dass dein Endgerät sie unterstützt?</string>
+    <string name="pref_tts_no_system_tts">Die Einstellungen für die Sprachsynthese wurden nicht gefunden. Bist du sicher, dass sie dein Endgerät unterstützt?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Lösche die Suche</string>
     <string name="zoom_in">Vergrößern</string>
@@ -796,11 +796,11 @@
     <!-- To indicate if restaurant or other place has outdoor seating -->
     <string name="outdoor_seating">Sitzplätze im Freien</string>
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
-    <string name="power_save_dialog_summary">Für eine möglichst genaue Navigation empfehlen wir, den Energiesparmodus in den Akku-Einstellungen des Telefons zu deaktivieren.</string>
+    <string name="power_save_dialog_summary">Für eine möglichst genaue Navigation empfehlen wir den Energiesparmodus in den Akku-Einstellungen des Telefons zu deaktivieren.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">Strecke aufzeichnen</string>
+    <string name="start_track_recording">Track aufnehmen</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">Streckenaufzeichnung stoppen</string>
+    <string name="stop_track_recording">Aufnahme des Tracks stoppen</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="stop_without_saving">Ohne Speichern beenden</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
@@ -808,7 +808,7 @@
     <!-- Title for the alert when saving a track recording. -->
     <string name="track_recording_alert_title">In Favoriten speichern?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
-    <string name="track_recording_toast_nothing_to_save">Route ist leer - nichts zu speichern</string>
+    <string name="track_recording_toast_nothing_to_save">Route ist leer – nichts zu speichern</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
     <string name="error_no_file_manager_app">Das Dialogfeld zur Ordnerauswahl kann nicht angezeigt werden, da keine geeignete App auf deinem Endgerät installiert ist. Bitte installiere eine Dateimanager-App und versuche es erneut.</string>
     <string name="choose_color">Farbe auswählen</string>
@@ -837,39 +837,39 @@
     <string name="bicycle">Fahrrad</string>
     <string name="ruler">Lineal</string>
     <string name="route_type">Routentyp</string>
-    <string name="pedestrian">Fußgänger</string>
+    <string name="pedestrian">Zu Fuß</string>
     <string name="bookmark_color">Farbe für Favoriten</string>
     <string name="about_help">Über &amp; Hilfe</string>
     <string name="panoramax">Panoramax-Bild</string>
     <string name="pref_backup_summary">Backup automatisch in einem Ordner auf deinem Gerät erstellen</string>
-    <string name="pref_backup_now_summary">Backup sofort erstellen</string>
-    <string name="pref_backup_now_summary_ok">Backup erfolgreich abgeschlossen</string>
+    <string name="pref_backup_now_summary">Sicherung sofort erstellen</string>
+    <string name="pref_backup_now_summary_ok">Sicherung erfolgreich abgeschlossen</string>
     <string name="pref_backup_now_summary_empty_lists">Keine Orte und Tracks für ein Backup vorhanden</string>
-    <string name="pref_backup_now_summary_failed">Backup fehlgeschlagen</string>
-    <string name="pref_backup_now_summary_folder_unavailable">Der Backup-Ordner ist nicht verfügbar</string>
+    <string name="pref_backup_now_summary_failed">Sicherung fehlgeschlagen</string>
+    <string name="pref_backup_now_summary_folder_unavailable">Der Sicherungs-Ordner ist nicht verfügbar</string>
     <string name="pref_backup_location_summary_initial">Bitte wähle zuerst einen Ordner und erteile die Berechtigung</string>
-    <string name="pref_backup_history_title">Anzahl zu speichernder Backups</string>
-    <string name="pref_backup_interval_title">Automatisches Backup</string>
+    <string name="pref_backup_history_title">Anzahl zu speichernder Sicherungen</string>
+    <string name="pref_backup_interval_title">Automatische Sicherung</string>
     <string name="backup_interval_every_day">Täglich</string>
     <string name="backup_interval_manual_only">Aus (nur manuell)</string>
     <string name="pref_backup_title">Favoriten sichern</string>
-    <string name="pref_backup_status_summary_success">Letztes erfolgreiches Backup</string>
+    <string name="pref_backup_status_summary_success">Letzte erfolgreiche Sicherung</string>
     <string name="dialog_report_error_with_logs">Bitte sende uns einen Fehlerbericht:\n - in den Einstellungen \"Protokollierung aktivieren\"\n - das Problem reproduzieren\n - im Bildschirm \"Über &amp; Hilfe\" drücke den \"App-Fehler melden\"-Knopf und sende via E-Mail oder Chat\n - die Protokollierung deaktivieren</string>
-    <string name="dialog_report_error_missing_folder">Der ausgewählte Backup-Ort ist nicht verfügbar oder beschreibbar. Bitte wähle einen anderen Ort.</string>
-    <string name="pref_backup_now_title">Backup jetzt erstellen</string>
-    <string name="pref_backup_location_title">Ort für Backup</string>
+    <string name="dialog_report_error_missing_folder">Der ausgewählte Sicherungs-Ort ist nicht verfügbar oder beschreibbar. Bitte wähle einen anderen Ort.</string>
+    <string name="pref_backup_now_title">Sicherung jetzt erstellen</string>
+    <string name="pref_backup_location_title">Ort für Sicherung</string>
     <string name="backup_interval_every_week">Wöchentlich</string>
-    <string name="pref_backup_now_summary_progress">Backup wird durchgeführt…</string>
+    <string name="pref_backup_now_summary_progress">Sicherung wird durchgeführt…</string>
     <string name="open_now">Jetzt geöffnet</string>
     <string name="at">um %s</string>
     <string name="closed_now">Jetzt geschlossen</string>
-    <string name="osm_note_hint">Oder hinterlasse alternativ einen Hinweis für die OpenStreetMap Community, sodass jemand anders einen Ort hinzufügen oder korrigieren kann.</string>
-    <string name="osm_note_toast">Ein Hinweis wird zu OpenStreetMap geschickt</string>
+    <string name="osm_note_hint">Oder hinterlasse alternativ einen Hinweis für die OpenStreetMap-Community, sodass jemand anderes einen Ort hinzufügen oder korrigieren kann.</string>
+    <string name="osm_note_toast">Ein Hinweis wird an OpenStreetMap gesendet</string>
     <string name="share_track">Strecke teilen</string>
     <string name="delete_track_dialog_title">%s löschen?</string>
     <string name="existence_confirmed_time_ago">Existenz bestätigt %s</string>
     <string name="hours_confirmed_time_ago">Bestätigt %s</string>
-    <string name="pref_tts_no_system_tts_short">Kein Text-zu-Sprache-Modul gefunden, überprüfe die App-Einstellungen</string>
+    <string name="pref_tts_no_system_tts_short">Kein Text-zu-Sprache-Modul (TTS) gefunden, überprüfe die App-Einstellungen</string>
     <string name="avoid_steps">Treppen vermeiden</string>
     <string name="editor_place_doesnt_exist_description">Beschreibe wie der Ort jetzt aussieht, um eine Fehlermeldung an die OpenStreetMap Community zu senden</string>
     <string name="offline_explanation_title">Offline-Karten</string>
@@ -921,5 +921,8 @@
     <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
     <string name="download_resources_custom_url_error_scheme">Bitte eine vollständige URL eingeben, die mit https:// oder http:// anfängt</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
-    <string name="limit_map_language_alternatives_to_local">Verwende andere Systemsprachen nur in deiner Region</string>
+    <string name="limit_map_language_alternatives_to_local">Weitere Systemsprachen nur in deren jeweiligen Region verwenden</string>
+    <string name="location_privacy_info">Apps erhalten Standortdaten von deinem Standortdienst des Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
+    <string name="location_privacy">Standort-Datenschutz</string>
+    <string name="pref_speedlimit_title">Zeige Geschwindigkeitsbegrenzungen an</string>
 </resources>

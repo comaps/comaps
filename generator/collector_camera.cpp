@@ -3,13 +3,13 @@
 #include "generator/feature_builder.hpp"
 #include "generator/intermediate_data.hpp"
 #include "generator/maxspeeds_parser.hpp"
-#include "generator/osm_element.hpp"
 
 #include "routing/routing_helpers.hpp"
 
 #include "routing_common/maxspeed_conversion.hpp"
 
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/measurement_utils.hpp"
 #include "platform/platform.hpp"

@@ -12,6 +12,12 @@ jobs:
     name: Check app metadata
     runs-on: ubuntu-latest
     steps:
+      - name: event
+        run: |
+          cat <<'EOF'
+          ${{ toJSON(github) }}
+          EOF
+    
       - name: Checkout
         uses: actions/checkout@v4
         with:

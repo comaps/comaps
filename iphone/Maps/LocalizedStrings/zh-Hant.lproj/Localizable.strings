@@ -1100,7 +1100,6 @@
 "offline_explanation_title" = "離線地圖";
 "offline_explanation_text" = "需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。";
 "voice" = "聲音";
-"limit_map_language_alternatives_to_local" = "只有在他們的區域使用其他系統語言";
 "voice_explanation" = "在系統設定「協助工具」，「TalkBack」，「設定」選擇比較好的聲音。";
 "voice_explanation_before_version26" = "在系統設定「協助工具」，「說話內容」，「聲音」選擇比較好的聲音。";
 "unknown" = "未知";

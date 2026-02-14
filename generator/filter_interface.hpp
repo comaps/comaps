@@ -1,7 +1,8 @@
 #pragma once
 
 #include "generator/feature_builder.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include <memory>
 

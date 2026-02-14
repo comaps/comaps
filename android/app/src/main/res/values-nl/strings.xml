@@ -153,7 +153,7 @@
     <!-- message title of loading file -->
     <string name="load_kmz_title">Favorieten laden</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Favorieten succesvol geladen! U vindt ze op de kaart of op het scherm Favorietenbeheer.</string>
+    <string name="load_kmz_successful">Favorieten met succes geladen! Je vindt ze op de kaart of op het scherm Favorietenbeheer.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Favorieten laden is mislukt. Het bestand is mogelijk beschadigd.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -283,11 +283,11 @@
     <!-- Preference title -->
     <string name="google_play_services">Google Fused-locatieservices</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Een propriëtaire dienst die GPS, Wi-Fi, mobiele netwerken, enzovoort combineert om je locatie nauwkeuriger te bepalen. Het kan verbinding maken met Google-servers.</string>
+    <string name="pref_use_google_play">Een propriëtaire dienst die GPS, Wi-Fi, mobiele netwerken, enz. combineert om de locatie nauwkeuriger te bepalen. Het kan verbinding maken met Google-servers.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
-    <string name="routing_download_maps_along">Download kaarten op de route</string>
+    <string name="routing_download_maps_along">Alle kaarten op de route downloaden</string>
     <!-- Text for routing error dialog -->
     <string name="routing_requires_all_map">Voor het creëren van een route is het nodig dat alle kaarten van uw locatie naar de bestemming gedownload en bijgewerkt zijn.</string>
     <!-- Text for routing error dialog -->
@@ -922,4 +922,7 @@
     <string name="download_resources_custom_url_error_scheme">Voer een URL in beginnend met http:// of https://</string>
     <string name="pref_maplanguage_local">Plaatselijke taal</string>
     <string name="limit_map_language_alternatives_to_local">Gebruik alleen andere systeemtalen in hun regio</string>
+    <string name="location_privacy_info">Apps ontvangen locatiegegevens van uw OS-locatieservice die deze kunnen delen met Google en/of de leverancier van uw apparaat. Gebruik een privacyrespecterend Android OS om dit te voorkomen.</string>
+    <string name="location_privacy">Privacy van locatie</string>
+    <string name="pref_speedlimit_title">Snelheidslimieten tonen</string>
 </resources>

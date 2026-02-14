@@ -117,7 +117,7 @@
 				BuildIndependentTargetsInParallel = YES;
 				DefaultBuildSystemTypeForWorkspace = Latest;
 				LastSwiftUpdateCheck = 1330;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					71407E78294CB3E800FBD9A4 = {
 						CreatedOnToolsVersion = 13.3;

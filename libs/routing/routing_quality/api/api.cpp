@@ -70,7 +70,7 @@ Route Route::Load(ReaderSource<FileReader> & src)
   route.m_eta = ReadPrimitiveFromSource<double>(src);
   route.m_distance = ReadPrimitiveFromSource<double>(src);
 
-  auto const n = ReadPrimitiveFromSource<size_t>(src);
+  auto const n = ReadPrimitiveFromSource<uint64_t>(src);
   route.m_waypoints.resize(n);
   ms::LatLon latlon;
   for (size_t i = 0; i < n; ++i)
@@ -110,7 +110,7 @@ Response Response::Load(std::string const & filepath)
   response.m_code = static_cast<ResultCode>(ReadPrimitiveFromSource<int>(src));
   response.m_params = Params::Load(src);
 
-  auto const n = ReadPrimitiveFromSource<size_t>(src);
+  auto const n = ReadPrimitiveFromSource<uint64_t>(src);
   response.m_routes.resize(n);
   for (size_t i = 0; i < n; ++i)
     response.m_routes[i] = Route::Load(src);

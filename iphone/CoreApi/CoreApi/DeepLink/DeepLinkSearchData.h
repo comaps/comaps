@@ -9,6 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) double centerLat;
 @property(nonatomic, readonly) double centerLon;
 @property(nonatomic, readonly) BOOL isSearchOnMap;
+@property(nonatomic, readonly) BOOL selectFirstResult;
 
 - (instancetype)init;
 - (BOOL)hasValidCenterLatLon;

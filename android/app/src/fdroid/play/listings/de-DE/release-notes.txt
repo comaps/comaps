@@ -1,10 +1,10 @@
-• OpenStreetMap-Daten vom 22. Januar
-• Ränder zu Straßen hinzugefügt
-• Zeige Beschreibung wenn eine Strecke ausgewählt ist
-• „Lesezeichen & Strecken” in „Favoriten” und „Lesezeichen” in „Orte” umbenannt
-• Neue POI: Haptische Informationskarten, Eisenbahn-Drehscheiben und Notfall-Hilfspunkte
-• Einige App-Bildschirme aktualisiert
-• Verwendung der Landessprachen auf Weltkarte
-• Behebt Routing-Abstürze auf einigen Geräten
+• OpenStreetMap-Daten vom 7. Februar
+• „Geschwindigkeitsbeschränkung anzeigen“ hinzugefügt
+• 3D-Gebäude in Android Auto ausgeblendet
+• Schiffstankbunker hinzugefügt
+• Favoriten und Such-Icons werden über den U-Bahn-Linien dargestellt
+• Hausnummern werden später angezeigt
+• Skandinavische Buchstaben æøå in der Suche verwendbar
+• OSM-Editor: Bei Überprüfung von POI-Existenz wird automatisch das Überprüfungsdatum hinzugefügt
 
-Details unter codeberg.org/comaps/comaps/releases
+Mehr Infos unter comaps.app/latest

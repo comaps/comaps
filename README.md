@@ -51,6 +51,9 @@ A community-led free & open source maps app based on [OpenStreetMap](https://www
   <a href="https://f-droid.org/en/packages/app.comaps.fdroid/">
     <img src="docs/badges/fdroid.png" alt="F-Droid" width="160"/>
   </a>
+  <a href="https://flathub.org/apps/app.comaps.comaps">
+    <img src="docs/badges/flathub.png" alt="Flathub" width="160"/>
+  </a>
   <a href="https://apt.izzysoft.de/fdroid/index/apk/app.comaps">
     <img src="docs/badges/izzyondroid.png" alt="Obtainium" width="160"/>
   </a>
@@ -170,3 +173,6 @@ app.comaps
 
 Licensed under the Apache License 2.0.  
 See [LICENSE](LICENSE), [NOTICE](NOTICE), and [data/copyright.html](data/copyright.html). 
+
+Our project is completely free and open source software. It had been reviewed by "[is it really FOSS?](https://isitreallyfoss.com/projects/comaps/)" and is listed as 100% FOSS, [see what that means](https://isitreallyfoss.com/about/categorisation/)
+

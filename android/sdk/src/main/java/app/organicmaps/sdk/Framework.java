@@ -280,6 +280,8 @@ public class Framework
 
   public static native void nativeSet3dMode(boolean allow3d, boolean allow3dBuildings);
 
+  public static native void nativeSetCarScreenMode(boolean enabled);
+
   public static native boolean nativeGetAutoZoomEnabled();
 
   public static native void nativeSetAutoZoomEnabled(boolean enabled);

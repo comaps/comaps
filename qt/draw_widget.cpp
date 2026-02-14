@@ -115,7 +115,7 @@ DrawWidget::DrawWidget(Framework & framework, std::unique_ptr<ScreenshotParams> 
     if (RoutingSettings::TurnsEnabled())
       m_turnsVisualizer.Visualize(routingManager, drapeApi);
 
-    auto const routerType = routingManager.GetLastUsedRouter();
+    auto const routerType = routing::GetLastUsedRouter();
     if (routerType == routing::RouterType::Pedestrian || routerType == routing::RouterType::Bicycle)
     {
       RoutingManager::DistanceAltitude da;

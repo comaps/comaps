@@ -175,7 +175,7 @@ final class SearchOnMapViewController: UIViewController {
     searchResultsView.translatesAutoresizingMaskIntoConstraints = false
 
     NSLayoutConstraint.activate([
-      contentView.topAnchor.constraint(equalTo: availableAreaView.topAnchor),
+      contentView.topAnchor.constraint(equalTo: availableAreaView.safeAreaLayoutGuide.topAnchor),
       contentView.leadingAnchor.constraint(equalTo: availableAreaView.leadingAnchor),
       contentView.trailingAnchor.constraint(equalTo: availableAreaView.trailingAnchor),
       contentView.bottomAnchor.constraint(equalTo: availableAreaView.bottomAnchor),

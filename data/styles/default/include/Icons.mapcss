@@ -1982,6 +1982,7 @@ node|z18-[shop=funeral_directors],
 node|z18-[shop=collector],
 node|z18-[shop=wholesale],
 node|z18-[shop=tobacco],
+node|z16-[waterway=fuel],
 {text: name; text-color: @poi_label; text-offset: 1; font-size: 10;}
 
 node|z14[shop=mall],
@@ -2540,6 +2541,9 @@ node|z17-[amenity=motorcycle_parking],
 
 node|z18-[amenity=parking_space][parking_space=disabled],
 {icon-image: parking-disabled-m.svg;}
+
+node|z16-[waterway=fuel],
+{icon-image: marina_fuel_station-m.svg;}
 
 /* 8. Colored Labels */
 

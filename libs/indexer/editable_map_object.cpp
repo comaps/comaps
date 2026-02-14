@@ -17,6 +17,8 @@
 #include <cmath>
 #include <regex>
 #include <sstream>
+#include <ctime>
+#include <iomanip>
 
 namespace osm
 {
@@ -41,6 +43,14 @@ bool ExtractName(StringUtf8Multilang const & names, int8_t const langCode, vecto
   result.emplace_back(langCode, name);
 
   return true;
+}
+std::string GetCurrentDate()
+{
+  auto const t = std::time(nullptr);
+  auto const tm = *std::localtime(&t);
+  std::ostringstream oss;
+  oss << std::put_time(&tm, "%Y-%m-%d");
+  return oss.str();
 }
 }  // namespace
 
@@ -851,6 +861,9 @@ void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
 void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
 {
   LOG(LDEBUG, ("Executing LogDiffInJournal"));
+  
+  // Capture the initial size of the journal to detect if changes occur later
+  auto const initialJournalSize = m_journal.GetJournal().size();
 
   // Name
   for (auto const & language : StringUtf8Multilang::GetSupportedLanguages())
@@ -940,6 +953,39 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
     std::string key, old_value, new_value;
     std::tie(key, old_value, new_value) = kvdiff;
     m_journal.AddTagChange(key, old_value, new_value);
+  }
+  
+  // check_date logic
+  // Check if any changes were detected (Journal grew)
+  if (m_journal.GetJournal().size() > initialJournalSize)
+  {
+    // Auto-fill check_date only if other changes exist
+    if (ftypes::IsCheckDateChecker::Instance()(GetTypes()))
+    {
+      std::string const currentDate = GetCurrentDate();
+
+      // Update check_date
+      std::string_view const oldCheckDate = unedited_emo.GetMetadata(feature::Metadata::FMD_CHECK_DATE);
+      if (oldCheckDate != currentDate)
+      {
+        SetMetadata(feature::Metadata::FMD_CHECK_DATE, currentDate);
+        m_journal.AddTagChange("check_date", std::string(oldCheckDate), currentDate);
+      }
+
+      // Update check_date:opening_hours if Opening Hours changed
+      std::string_view const newOH = GetMetadata(feature::Metadata::FMD_OPEN_HOURS);
+      std::string_view const oldOH = unedited_emo.GetMetadata(feature::Metadata::FMD_OPEN_HOURS);
+
+      if (!newOH.empty() && newOH != oldOH)
+      {
+        std::string_view const oldOHDate = unedited_emo.GetMetadata(feature::Metadata::FMD_CHECK_DATE_OPEN_HOURS);
+        if (oldOHDate != currentDate)
+        {
+          SetMetadata(feature::Metadata::FMD_CHECK_DATE_OPEN_HOURS, currentDate);
+          m_journal.AddTagChange("check_date:opening_hours", std::string(oldOHDate), currentDate);
+        }
+      }
+    }
   }
 }
 

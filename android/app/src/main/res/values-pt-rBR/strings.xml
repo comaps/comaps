@@ -60,11 +60,11 @@
     <!-- Show popup notification on top of the map when country download has failed. -->
     <string name="download_country_failed">O download de %s falhou</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">Adicionar novo conjunto</string>
+    <string name="add_new_set">Adicionar nova lista</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nome do conjunto</string>
+    <string name="bookmark_set_name">Nome da lista</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Favoritos</string>
+    <string name="bookmarks">Lugares</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Favoritos</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -142,14 +142,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Anotações</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Favoritos do CoMaps foram compartilhados com você</string>
-    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo meus favoritos do app CoMaps. Se tiver instalado o CoMaps, pode abri-los agora. Caso não tenha, baixe o app para o seu dispositivo iOS ou Android via o link https://www.comaps.app/download/ \n \nDisfrute viajar com o CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Meus favoritos do CoMaps</string>
+    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo meus favoritos; por favor, abra-os no CoMaps. Caso não o tenha instalado, você pode baixá-lo aqui: https://www.comaps.app/download/ \n \nDesfrute de suas viagens com a CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Carregando favoritos</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou na tela de gestão dos favoritos.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Falha no envio dos favoritos. O arquivo pode estar corrompido ou com defeito.</string>
+    <string name="load_kmz_failed">Falha ao carregar favoritos. O arquivo pode estar corrompido ou com defeito.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">O tipo de arquivo não é reconhecido pelo aplicativo: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -409,7 +409,7 @@
     <string name="editor_profile_changes">Alterações verificadas</string>
     <string name="editor_edit_place_title">Edição</string>
     <string name="editor_add_place_title">Adicionando</string>
-    <string name="editor_edit_place_name_hint">Nome do lugar</string>
+    <string name="editor_edit_place_name_hint">Nome do local</string>
     <string name="editor_edit_place_category_title">Categoria</string>
     <string name="detailed_problem_description">Descrição detalhada do problema</string>
     <string name="editor_report_problem_other_title">Um problema diferente</string>
@@ -445,13 +445,13 @@
     <string name="minute">min</string>
     <string name="day">dia</string>
     <string name="placepage_more_button">Mais</string>
-    <string name="placepage_edit_bookmark_button">Editar favorito</string>
+    <string name="placepage_edit_bookmark_button">Editar lugar salvo</string>
     <string name="placepage_personal_notes_hint">Anotações pessoais (texto ou html)</string>
     <string name="editor_reset_edits_message">Descartar todas as modificações locais?</string>
     <string name="editor_reset_edits_button">Descartar alterações</string>
     <string name="editor_remove_place_message">Remover local adicionado?</string>
     <string name="editor_remove_place_button">Remover</string>
-    <string name="editor_place_doesnt_exist">O lugar não existe</string>
+    <string name="editor_place_doesnt_exist">O local não existe</string>
     <!-- Error message for "Place doesn't exist" dialog when comment is empty -->
     <string name="delete_place_empty_comment_error">Por favor, explica o motivo pelo qual você está retirando o local</string>
     <!-- Phone number error message -->
@@ -503,18 +503,18 @@
     <string name="dialog_error_storage_message">O armazenamento externo não está disponível, é provável que o cartão SD tenha sido removido, danificado ou o sistema de arquivo seja apenas para leitura. Verifique e entre em contato conosco em support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emular memória ruim</string>
     <string name="error_enter_correct_name">Por favor, digite um nome correto</string>
-    <string name="bookmark_lists">Listas</string>
+    <string name="bookmark_lists">Lista de favoritos</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Ocultar tudo</string>
     <string name="bookmark_lists_show_all">Exibir tudo</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d favorito</item>
-        <item quantity="many">%d favoritos</item>
-        <item quantity="other">%d favoritos</item>
+        <item quantity="one">%d lugar salvo</item>
+        <item quantity="many">%d de lugares salvos</item>
+        <item quantity="other">%d lugares salvos</item>
     </plurals>
     <string name="bookmarks_create_new_group">Criar nova lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importar favoritos e trilhas</string>
+    <string name="bookmarks_import">Importar favoritos</string>
     <string name="bookmarks_error_message_share_general">Impossível compartilhar devido a um erro do aplicativo</string>
     <string name="bookmarks_error_title_share_empty">Erro de compartilhamento</string>
     <string name="bookmarks_error_message_share_empty">Impossível compartilhar uma lista vazia</string>
@@ -542,11 +542,11 @@
     <string name="button_layer_traffic">Tráfego</string>
     <string name="subway">Metrô</string>
     <string name="bookmarks_empty_list_title">Esta lista está vazia</string>
-    <string name="bookmarks_empty_list_message">Para adicionar um favorito, toque no mapa e então toque no ícone de estrela</string>
+    <string name="bookmarks_empty_list_message">Para salvar um lugar, toque no mapa e então toque no ícone de estrela</string>
     <string name="category_desc_more">…mais</string>
     <string name="delete_list">Deletar lista</string>
     <string name="speedcams_alert_title">Câmeras de trânsito</string>
-    <string name="place_description_title">Descrição do lugar</string>
+    <string name="place_description_title">Descrição do local</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Downloader do mapa</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
@@ -587,7 +587,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Ordenar…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Ordenar favoritos</string>
+    <string name="sort_bookmarks">Ordenar os favoritos</string>
     <!-- Android -->
     <string name="by_default">Por padrão</string>
     <!-- Android -->
@@ -697,7 +697,7 @@
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
     <string name="browser_not_available">O navegador da Web não está disponível</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportar todos os favoritos e trilhas</string>
+    <string name="bookmarks_export">Exportar todos os lugares e trilhas</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Configurações do sistema de síntese de fala</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -723,7 +723,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuar gravação</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Salvar em Favoritos e Trilhas?</string>
+    <string name="track_recording_alert_title">Salvar em favoritos?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">A trilha está vazia - não há nada para salvar</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -817,13 +817,13 @@
     <string name="ruler">Régua</string>
     <string name="bookmark_color">Cor do favorito</string>
     <string name="about_help">Sobre &amp; Ajuda</string>
-    <string name="pref_backup_title">Backup dos favoritos e trajetos</string>
+    <string name="pref_backup_title">Backup dos favoritos</string>
     <string name="pref_backup_summary">Fazer backup automático para uma pasta no seu dispositivo</string>
     <string name="pref_backup_now_title">Fazer backup agora</string>
     <string name="pref_backup_now_summary">Criar um backup imediatamente</string>
     <string name="pref_backup_now_summary_progress">Backup em andamento…</string>
     <string name="pref_backup_now_summary_ok">Backup completado com sucesso</string>
-    <string name="pref_backup_now_summary_empty_lists">Sem favoritos ou trajetos para fazer backup</string>
+    <string name="pref_backup_now_summary_empty_lists">Sem lugares ou trajetos para fazer backup</string>
     <string name="pref_backup_now_summary_failed">Backup falhou</string>
     <string name="pref_backup_now_summary_folder_unavailable">A pasta de backup está indisponível</string>
     <string name="pref_backup_status_summary_success">Último backup com sucesso</string>
@@ -900,4 +900,7 @@
     <string name="download_resources_custom_url_error_scheme">Insira uma URL começando com http:// ou https://</string>
     <string name="pref_maplanguage_local">Linguagem Local</string>
     <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema em sua região</string>
+    <string name="location_privacy_info">Os aplicativos usam dados de localização do serviço de localização, que podem compartilhar sua localização com o Google e/ou com o fabricante do seu dispositivo. Use um sistema Android que preserve a sua privacidade para evitar isso.</string>
+    <string name="location_privacy">Privacidade da localização</string>
+    <string name="pref_speedlimit_title">Mostrar limites de velocidade</string>
 </resources>

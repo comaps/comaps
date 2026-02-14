@@ -1101,4 +1101,6 @@
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas definições do sistema sob *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas definições do sistema sob *Acessibilidade*, *Ler & Falar*, *Vozes*.";
 "avoid_paved" = "Evitar rotas pavimentadas";
-"limit_map_language_alternatives_to_local" = "Utilizar apenas outros idiomas do sistema na sua região";
+"pref_alt_map_lang_handling_local_only" = "Preferir e apenas usar quando nativo";
+"pref_alt_map_lang_handling" = "Idiomas do Mapa Alternativos";
+"pref_alt_map_lang_handling_system_order" = "Usar na ordem do sistema";

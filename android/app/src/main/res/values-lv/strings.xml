@@ -883,4 +883,12 @@
     <string name="pref_backup_now_summary_progress">Notiek rezerves kopēšana…</string>
     <string name="pedestrian">Kājāmgājēju</string>
     <string name="bicycle">Divriteņu</string>
+    <string name="ruler">Lineāls</string>
+    <string name="bookmark_color">Izlases vienumu krāsa</string>
+    <string name="about_help">Par un palīdzība</string>
+    <string name="open_now">Šobrīd atvērts</string>
+    <string name="limit_map_language_alternatives_to_local">Izmantot tikai citas sistēmas valodas to apvidū</string>
+    <string name="pref_speedlimit_title">Rādīt ātruma ierobežojumus</string>
+    <string name="location_privacy">Atrašanās vietas privātums</string>
+    <string name="location_privacy_info">Lietotnes saņem atrašanās vietas datus no operētājsistēmas atrašanās vietu pakalpojuma, kas var kopīgot atrašanās vietu ar Google un/vai ierīces ražotāju. Ieteicams izmantot privātumu aizsargājošu Android operētājsistēmu, lai no tā izvairītos.</string>
 </resources>

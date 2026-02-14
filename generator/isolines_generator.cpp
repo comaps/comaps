@@ -18,10 +18,9 @@ std::string_view const kTypeZero = "zero";
 
 std::string GetIsolineName(int altitude, int step, int minAltitude, int maxAltitude)
 {
-  if (step > 10 || abs(altitude) % kNamedAltStep == 0 || maxAltitude - minAltitude <= kNamedAltRange)
-    return strings::to_string(altitude);
-  return "";
+  return strings::to_string(altitude);
 }
+
 }  // namespace
 
 IsolineFeaturesGenerator::IsolineFeaturesGenerator(std::string const & isolinesDir) : m_isolinesDir(isolinesDir)

@@ -50,6 +50,13 @@ bool FromString<string>(string const & strIn, string & strOut)
   return true;
 }
 
+template <>
+bool FromString<std::string_view>(string const & strIn, std::string_view & strOut)
+{
+  strOut = strIn;
+  return true;
+}
+
 namespace impl
 {
 template <class T, size_t N>

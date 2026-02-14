@@ -196,19 +196,9 @@ UniString NormalizeAndSimplifyString(std::string_view s)
     // unicode-compliant implementation of MakeLowerCase converts 'İ'
     // to 'i' + 0x0307.
     case 0x0130: c = 'i'; break;
-    // Some Danish-specific hacks.
-    case 0x00d8:  // Ø
-    case 0x00f8:  // ø
-      c = 'o';
-      break;
     case 0x0152:  // Œ
     case 0x0153:  // œ
       c = 'o';
-      uniString.insert(uniString.begin() + (i++) + 1, 'e');
-      break;
-    case 0x00c6:  // Æ
-    case 0x00e6:  // æ
-      c = 'a';
       uniString.insert(uniString.begin() + (i++) + 1, 'e');
       break;
     case 0x2018:  // ‘

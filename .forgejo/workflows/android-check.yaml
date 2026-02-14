@@ -104,9 +104,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flavor: [WebDebug, FdroidDebug]
+        flavor: [FdroidBeta, FdroidDebug]
         include:
-          - flavor: WebDebug
+          - flavor: FdroidBeta
             arch: arm64
           - flavor: FdroidDebug
             arch: arm32

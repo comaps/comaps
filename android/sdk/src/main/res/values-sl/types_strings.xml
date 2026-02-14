@@ -166,7 +166,7 @@
     <string name="type.amenity.courthouse">Sodišče</string>
     <string name="type.office.diplomatic">Veleposlaništvo</string>
     <string name="type.office.security">Pisarna varnostnikov</string>
-    <string name="type.building.guardhouse">Stražarnica</string>
+    <string name="type.building.guardhouse">Vratarnica</string>
     <string name="type.power.portal">Portal daljnovoda</string>
     <string name="type.amenity.fountain">Vodomet</string>
     <string name="type.amenity.fuel">Bencinska postaja</string>
@@ -308,7 +308,7 @@
     <string name="type.cuisine.filipino">Filipinska kuhinja</string>
     <string name="type.amenity.prep_school">Inštrukcije</string>
     <string name="type.amenity.mobile_money_agent">Posrednik mobilnega denarja</string>
-    <string name="type.amenity.recycling.centre">Zbirno mesto za ločene odpadke</string>
+    <string name="type.amenity.recycling.centre">Mesto za ločeno zbiranje odpadkov</string>
     <string name="type.amenity.recycling.container">Zabojnik za ločene odpadke</string>
     <string name="type.amenity.shelter.public_transport">Zavetje</string>
     <string name="type.amenity.vending_machine.public_transport_tickets">Avtomat za vozovnice javnega prometa</string>
@@ -806,8 +806,8 @@
     <string name="type.power.plant.coal">Elektrarna na premog</string>
     <string name="type.power.plant.gas">Plinska turbinska elektrarna</string>
     <string name="type.power.plant.solar">Sončna elektrarna</string>
-    <string name="type.amenity.charging_station.motorcycle">Motorna kolesa</string>
-    <string name="type.amenity.charging_station.small">Omejena kapaciteta</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorji</string>
+    <string name="type.amenity.charging_station.small">Omejena velikost</string>
     <string name="type.landuse.greenfield">Nezazidano zemljišče</string>
     <string name="type.leisure.sports_centre">Športno središče</string>
     <string name="type.leisure.sports_centre.sport.multi">Športno središče</string>
@@ -904,8 +904,8 @@
     <string name="type.railway.construction">Železnica v gradnji</string>
     <string name="type.railway.crossing">Železniški prehod za pešce</string>
     <string name="type.railway.disused">Neuporabljana železnica</string>
-    <string name="type.railway.disused.bridge">Neuporabljan železniški most</string>
-    <string name="type.railway.disused.tunnel">Neuporabljan železniški predor</string>
+    <string name="type.railway.disused.bridge">Opuščen železniški most</string>
+    <string name="type.railway.disused.tunnel">Opuščen železniški predor</string>
     <string name="type.railway.funicular">Vzpenjača</string>
     <string name="type.railway.funicular.bridge">Most vzpenjače</string>
     <string name="type.railway.funicular.tunnel">Predor vzpenjače</string>
@@ -930,7 +930,7 @@
     <string name="type.railway.rail.highspeed">Visokohitrostna železnica</string>
     <string name="type.railway.rail.tourism">Turistična železnica</string>
     <string name="type.railway.rail.main">Železnica</string>
-    <string name="type.railway.turntable">Vrtljiva plošča za vlake</string>
+    <string name="type.railway.turntable">Sučna železniška ploščad</string>
     <string name="type.railway.rail.branch">Stranska veja železnice</string>
     <string name="type.railway.rail.utility">Industrijska železnica</string>
     <string name="type.railway.rail.spur">Industrijska veja železnice</string>
@@ -1073,7 +1073,7 @@
     <string name="type.railway.station.subway.wuhan">Postaja podzemne železnice</string>
     <string name="type.railway.station.subway.yerevan">Postaja podzemne železnice</string>
     <string name="type.railway.station.subway.yokohama">Postaja podzemne železnice</string>
-    <string name="type.railway.subway">Podzemna železnica</string>
+    <string name="type.railway.subway">Povezava podzemne železnice</string>
     <string name="type.railway.subway.bridge">Most podzemne železnice</string>
     <string name="type.railway.subway.tunnel">Predor podzemne železnice</string>
     <string name="type.railway.subway_entrance">Vhod v podzemno železnico</string>
@@ -1289,7 +1289,7 @@
     <string name="type.waterway.dock">Pristaniški dok</string>
     <string name="type.waterway.drain">Odvodni jarek</string>
     <string name="type.natural.water.drain">Odtočni jarek</string>
-    <string name="type.emergency.disaster_help_point">Točka za pomoč ob nesrečah</string>
+    <string name="type.emergency.disaster_help_point">Točka za pomoč v sili v primeru katastrofe</string>
     <string name="type.leisure.hackerspace">Hackerspace</string>
     <string name="type.natural.wetland.mangrove">Mangrove</string>
     <string name="type.shop.farm">Prodajalna domačih pridelkov</string>
@@ -1332,7 +1332,7 @@
     <string name="type.aerialway.j.bar">Sidra</string>
     <string name="type.aerialway.magic_carpet">Tekoči trak</string>
     <string name="type.aerialway.platter">Krožniki</string>
-    <string name="type.emergency.access_point.address">Naslov za reševanja v sili</string>
+    <string name="type.emergency.access_point.address">Naslov za reševanje v sili</string>
     <string name="type.natural.water.lock">Zaporna komora</string>
     <string name="type.shop.doityourself">Trgovina za dom in vrt</string>
     <string name="type.shop.houseware">Gospodinjska trgovina</string>
@@ -1373,7 +1373,7 @@
     <string name="type.tourism.chalet">Počitniška hišica</string>
     <string name="type.tourism.gallery">Umetnostna galerija</string>
     <string name="type.tourism.guest_house">Gostišče</string>
-    <string name="type.tourism.information.tactile_map">Zemljevid za slepe in slabovidne</string>
+    <string name="type.tourism.information.tactile_map">Talne oznake za slabovidne</string>
     <string name="type.tourism.zoo.petting">Otroški živalski vrt</string>
     <string name="type.waterway.lock_gate">Plovna zapornica</string>
     <string name="type.aerialway.rope_tow">Vrvna vlečnica</string>
@@ -1414,4 +1414,5 @@
     <string name="type.amenity.dojo">Dojo (vadbeni prostor borilnih veščin)</string>
     <string name="type.leisure.sports_hall">Športna dvorana</string>
     <string name="type.xmas.tree">Božično drevo</string>
+    <string name="type.waterway.fuel">Pristan za gorivo</string>
 </resources>

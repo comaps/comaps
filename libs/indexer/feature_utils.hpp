@@ -46,6 +46,8 @@ enum class InterpolType : uint8_t
 class TypesHolder;
 class RegionData;
 
+std::vector<int8_t> PrioritizedLanguages(std::optional<feature::RegionData> const & regionData = {});
+
 /// Get viewport scale to show given feature. Used in search.
 int GetFeatureViewportScale(TypesHolder const & types);
 

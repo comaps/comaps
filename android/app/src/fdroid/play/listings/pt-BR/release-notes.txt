@@ -1,0 +1,10 @@
+• Dados OSM de 7/02
+• Configuração "Mostrar limites de velocidade"
+• Desativação de edifícios 3D na navegação do Android Auto
+• Adição de postos de abastecimento de marinas
+• Exibição de ícones de favoritos e de pesquisa acima das linhas de metrô
+• Exibição de números de casas posteriormente
+• Habilitação de busca por letras escandinavas æøå
+• Editor do OSM: atualização automática da última data quando a existência do Ponto de Interesse for verificada
+
+Mais detalhes em comaps.app/latest

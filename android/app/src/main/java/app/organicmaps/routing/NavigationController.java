@@ -1,7 +1,10 @@
 package app.organicmaps.routing;
 
+import static androidx.core.content.ContextCompat.getString;
 import static app.organicmaps.sdk.util.Utils.dimen;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.maplayer.MapButtonsViewModel;
@@ -58,6 +62,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private final NavMenu mNavMenu;
   View.OnClickListener mOnSettingsClickListener;
+  private final SharedPreferences mSharedPreferences;
 
   private void addWindowsInsets(@NonNull View topFrame)
   {
@@ -72,6 +77,8 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
   public NavigationController(AppCompatActivity activity, View.OnClickListener onSettingsClickListener,
                               NavMenu.OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
+    mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
+    boolean mSpeedLimitEnabled = mSharedPreferences.getBoolean(getString(activity, R.string.pref_speedlimit), true);
     mMapButtonsViewModel = new ViewModelProvider(activity).get(MapButtonsViewModel.class);
 
     mFrame = activity.findViewById(R.id.navigation_frame);
@@ -98,6 +105,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mSpeedLimit = topFrame.findViewById(R.id.nav_speed_limit);
     mCurrentSpeed = topFrame.findViewById(R.id.nav_current_speed);
 
+    UiUtils.showIf(mSpeedLimitEnabled, mSpeedLimit);
     View mTopbar = topFrame.findViewById(R.id.statutbar);
     ViewCompat.setOnApplyWindowInsetsListener(mTopbar,(v, windowInsets) -> {
         UiUtils.setViewNavigationTopInsetsMargin(v, windowInsets);
@@ -107,7 +115,7 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     final View navigationBarBackground = mFrame.findViewById(R.id.nav_bottom_sheet_nav_bar);
     final View nextTurnContainer = mFrame.findViewById(R.id.nav_next_turn_container);
     ViewCompat.setOnApplyWindowInsetsListener(mStreetFrame, (v, windowInsets) -> {
-      UiUtils.setViewInsetsPaddingNoBottom(v, windowInsets);
+      UiUtils.setViewInsetsPaddingNoTopNoBottom(v, windowInsets);
 
       final Insets safeDrawingInsets = windowInsets.getInsets(WindowInsetUtils.TYPE_SAFE_DRAWING);
       nextTurnContainer.setPadding(safeDrawingInsets.left, nextTurnContainer.getPaddingTop(),
@@ -205,9 +213,10 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mNavMenu.collapseNavBottomSheet();
   }
 
-  public void refresh()
+  public void refresh(Context context)
   {
     mNavMenu.refreshTts();
+    UiUtils.showIf(mSharedPreferences.getBoolean(getString(context, R.string.pref_speedlimit), true), mSpeedLimit);
   }
 
   @Override

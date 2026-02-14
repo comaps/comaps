@@ -10,6 +10,8 @@ jobs:
   validate-appstream:
     name: Validate appstream metadata xml
     runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/flathub/flatpak-builder-lint:latest
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -17,20 +19,9 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             packaging/app.comaps.comaps.metainfo.xml
-
-      - name: Install appstream validator and flatpak Builder
-        shell: bash
-        run: |
-          sudo apt update -y
-          sudo apt install -y \
-              flatpak
-          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-          sudo flatpak install -y org.flatpak.Builder
-
-      - name: Lint appstream data with flatpak Builder
-        shell: bash
-        run: flatpak run --command=flatpak-builder-lint org.flatpak.Builder appstream packaging/app.comaps.comaps.metainfo.xml
+  
+      - name: Lint appstream data with Flatpak Builder
+        run: flatpak-builder-lint appstream packaging/app.comaps.comaps.metainfo.xml
 
       - name: Run appstreamcli in pedantic mode
-        shell: bash
-        run: flatpak run --command=appstreamcli org.flatpak.Builder validate --pedantic packaging/app.comaps.comaps.metainfo.xml
+        run: appstreamcli validate --pedantic packaging/app.comaps.comaps.metainfo.xml

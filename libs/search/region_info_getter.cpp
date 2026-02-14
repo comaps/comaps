@@ -101,14 +101,16 @@ string RegionInfoGetter::GetLocalizedFullName(storage::CountryId const & id) con
 
 string RegionInfoGetter::GetLocalizedCountryName(storage::CountryId const & id) const
 {
-  if (!m_nameGetter)
+  auto nameGetter = platform::GetTextByIdFactoryForRegion(platform::TextSource::Countries, id);
+
+  if (!nameGetter)
     return {};
 
-  auto shortName = (*m_nameGetter)(id + " Short");
+  auto shortName = (*nameGetter)(id + " Short");
   if (!shortName.empty())
     return shortName;
 
-  auto officialName = (*m_nameGetter)(id);
+  auto officialName = (*nameGetter)(id);
   if (!officialName.empty())
     return officialName;
 

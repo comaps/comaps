@@ -12,4 +12,4 @@
 "NSLocationAlwaysUsageDescription" = "A detecção da localização em segundo plano é necessária para aproveitar ao máximo a funcionalidade do aplicativo. Ela é usada para navegação e para salvar o último trajeto percorrido.";
 
 /* Needed to explain why we require access to GPS coordinates when the app is active. */
-"NSLocationWhenInUseUsageDescription" = "O acesso à sua localização é necessária para navegação e para salvar o último trajeto percorrido.";
+"NSLocationWhenInUseUsageDescription" = "O acesso à sua localização é necessário para navegação e para salvar sua trilha recente.";

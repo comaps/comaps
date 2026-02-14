@@ -20,6 +20,7 @@
 		272F1F3B2E0EE0A300FA52EF /* NoExistingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F1F3A2E0EE09500FA52EF /* NoExistingProfileView.swift */; };
 		272F1F3D2E0EE0C800FA52EF /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F1F3C2E0EE0C400FA52EF /* ProfileView.swift */; };
 		272F1F462E0EEF9400FA52EF /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F1F452E0EEF8B00FA52EF /* SafariView.swift */; };
+		2744A9912F23D86D00E7D02C /* AlternativeMapLanguageHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744A98E2F23D86B00E7D02C /* AlternativeMapLanguageHandling.swift */; };
 		2747205A2E439FBA00C516DF /* libtraffxml.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 274720592E439FBA00C516DF /* libtraffxml.a */; };
 		2752B6CA2E31197500887CC4 /* MapLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752B6C92E31197000887CC4 /* MapLanguage.swift */; };
 		2752B6CE2E3121D900887CC4 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2752B6CD2E3121D800887CC4 /* Language.swift */; };
@@ -773,6 +774,7 @@
 		272F1F3A2E0EE09500FA52EF /* NoExistingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoExistingProfileView.swift; sourceTree = "<group>"; };
 		272F1F3C2E0EE0C400FA52EF /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		272F1F452E0EEF8B00FA52EF /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		2744A98E2F23D86B00E7D02C /* AlternativeMapLanguageHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeMapLanguageHandling.swift; sourceTree = "<group>"; };
 		274720592E439FBA00C516DF /* libtraffxml.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtraffxml.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2752B6C92E31197000887CC4 /* MapLanguage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapLanguage.swift; sourceTree = "<group>"; };
 		2752B6CD2E3121D800887CC4 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
@@ -1971,6 +1973,7 @@
 			children = (
 				2752B6CD2E3121D800887CC4 /* Language.swift */,
 				2752B6C92E31197000887CC4 /* MapLanguage.swift */,
+				2744A98E2F23D86B00E7D02C /* AlternativeMapLanguageHandling.swift */,
 				27AF184F2E1DB61500CD41E2 /* VoiceRoutingLanguage.swift */,
 				27768FDF2E201BE60086784A /* LeftButtonType.swift */,
 				27AF18512E1DB61F00CD41E2 /* DistanceUnit.swift */,
@@ -4064,7 +4067,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				DefaultBuildSystemTypeForWorkspace = Latest;
-				LastUpgradeCheck = 2600;
+				LastUpgradeCheck = 2620;
 				ORGANIZATIONNAME = CoMaps;
 				TargetAttributes = {
 					6741A93D1BF340DE002C974C = {
@@ -4404,6 +4407,7 @@
 				34F742321E0834F400AC1FD6 /* UIViewController+Navigation.m in Sources */,
 				340475811E081B3300C92850 /* iosOGLContextFactory.mm in Sources */,
 				99F3EB0623F418A200C713F8 /* PlacePagePresenter.swift in Sources */,
+				2744A9912F23D86D00E7D02C /* AlternativeMapLanguageHandling.swift in Sources */,
 				AA1C7E3E269A2DD600BAADF2 /* EditTrackViewController.swift in Sources */,
 				34AB66561FC5AA330078E451 /* TransportTransitPedestrian.swift in Sources */,
 				993DF0C823F6BD0600AC231A /* ElevationDetailsViewController.swift in Sources */,

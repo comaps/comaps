@@ -91,7 +91,7 @@
     switch urlType {
     case .route:
       if let adapter = DeepLinkRouteStrategyAdapter(url) {
-        MWMRouter.buildApiRoute(with: adapter.type, start: adapter.p1, finish: adapter.p2)
+        MWMRouter.buildApiRoute(with: adapter.type, start: adapter.pStart, intermediatePoint: adapter.pIntermediate, finish: adapter.pFinish)
         MapsAppDelegate.theApp().showMap()
         return true
       }
@@ -113,7 +113,7 @@
           sd.onViewportChanged(kSearchInViewportZoom)
         }
       }
-      let searchQuery = SearchQuery(sd.query, locale: sd.locale, source: .deeplink)
+      let searchQuery = SearchQuery(sd.query, locale: sd.locale, source: .deeplink, autoSelectFirstResult: sd.selectFirstResult)
       if (sd.isSearchOnMap) {
         MWMMapViewControlsManager.manager()?.search(onMap: searchQuery)
       } else {

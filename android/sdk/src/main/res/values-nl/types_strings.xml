@@ -1395,7 +1395,7 @@
     <string name="type.building.guardhouse">Beveiligingsloket</string>
     <string name="type.power.portal">Verdeelstation</string>
     <string name="type.shop.lighting">Verlichtingswinkel</string>
-    <string name="type.amenity.bench.backless">Zonder bankje</string>
+    <string name="type.amenity.bench.backless">Zonder rugleuning</string>
     <string name="type.amenity.boat_rental">Bootverhuur</string>
     <string name="type.man_made.telescope">Telescoop</string>
     <string name="type.man_made.telescope.optical">Telescoop (optisch)</string>
@@ -1508,4 +1508,5 @@
     <string name="type.amenity.charging_station.small">Beperkte capaciteit</string>
     <string name="type.emergency.disaster_help_point">Noodhulppost</string>
     <string name="type.emergency.access_point.address">Noodhulppost adres</string>
+    <string name="type.waterway.fuel">Brandstofsteiger</string>
 </resources>

@@ -163,7 +163,7 @@
     <string name="type.amenity.vending_machine.food">Distributeur d’aliments</string>
     <string name="type.amenity.vending_machine.newspapers">Distributeur de journaux</string>
     <string name="type.amenity.vending_machine.parking_tickets">Horodateur</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Distributeur de billets de transport en commun</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Distributeur automatique de tickets de transport en commun</string>
     <string name="type.amenity.vending_machine.sweets">Distributeur de bonbons</string>
     <string name="type.amenity.vending_machine.excrement_bags">Distributeur de sacs à excréments</string>
     <string name="type.amenity.parcel_locker">Consigne automatique pour colis</string>
@@ -1323,7 +1323,7 @@
     <string name="type.railway.narrow_gauge.bridge">Pont ferroviaire à voie étroite</string>
     <string name="type.leisure.recreation_ground">Aire de jeux</string>
     <string name="type.amenity.place_of_worship.hindu">Temple hindou</string>
-    <string name="type.amenity.shelter.lean_to">Abri-lit en appentis</string>
+    <string name="type.amenity.shelter.lean_to">Abri-lit adossé</string>
     <string name="type.tourism.attraction.specified">Attraction</string>
     <string name="type.traffic_calming">Ralentisseur de vitesse</string>
     <string name="type.amenity.place_of_worship.buddhist">Temple bouddhiste</string>
@@ -1499,13 +1499,14 @@
     <string name="type.shop.beauty.nails">Salon de manucure</string>
     <string name="type.amenity.charging_station.motorcycle">Motos</string>
     <string name="type.amenity.charging_station.small">Capacité limitée</string>
-    <string name="type.railway.disused.bridge">Pont de chemin de fer désaffecté</string>
-    <string name="type.railway.disused.tunnel">Tunnel de chemin de fer désaffecté</string>
-    <string name="type.railway.miniature.bridge">Pont de chemin de fer miniature</string>
-    <string name="type.railway.miniature.tunnel">Tunnel de chemin de fer miniature</string>
+    <string name="type.railway.disused.bridge">Pont ferroviaire désaffecté</string>
+    <string name="type.railway.disused.tunnel">Tunnel ferroviaire désaffecté</string>
+    <string name="type.railway.miniature.bridge">Pont ferroviaire miniature</string>
+    <string name="type.railway.miniature.tunnel">Tunnel ferroviaire miniature</string>
     <string name="type.tourism.information.tactile_map">Carte tactile</string>
     <string name="type.railway.miniature">Chemin de fer miniature</string>
-    <string name="type.railway.turntable">Rotonde de chemin de fer</string>
-    <string name="type.emergency.access_point.address">Adresse de secours en cas d\'urgence</string>
-    <string name="type.emergency.disaster_help_point">Point d\'assistance d\'urgence en cas de catastrophe</string>
+    <string name="type.railway.turntable">Plateau tournant ferroviaire</string>
+    <string name="type.emergency.access_point.address">Adresse pour les secours d\'urgence</string>
+    <string name="type.emergency.disaster_help_point">Point d\'aide d\'urgence en cas de catastrophe</string>
+    <string name="type.waterway.fuel">Quai de ravitaillement en carburant</string>
 </resources>

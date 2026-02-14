@@ -5,7 +5,7 @@
 // Keys that should be removed when a place in OSM is replaced, copied from
 // https://github.com/mnalis/StreetComplete-taginfo-categorize/blob/master/sc_to_remove.txt
 
-// Changes to the list: don't remove 'wheelchair' and addresses in the 'contact:' style
+// Changes to the list: don't remove 'wheelchair' and addresses in the 'contact:' style; do not re-add 'check_date'.
 
 inline constexpr std::string_view kKeysToRemove[] = {
     "shop_?[1-9]?(:.*)?", "craft_?[1-9]?", "amenity_?[1-9]?", "club_?[1-9]?", "old_amenity",
@@ -22,7 +22,7 @@ inline constexpr std::string_view kKeysToRemove[] = {
     "stationery", "sensory_friendly(:.*)?", "street_vendor", "sells(:.*)?", "safety_equipment",
     // obsoleted information
     "(demolished|abandoned|disused)(:(?!bui).+)?", "was:.*", "not:.*", "damage", "created_by",
-    "check_date", "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey",
+    "opening_date", "last_checked", "checked_exists:date", "pharmacy_survey",
     "old_ref", "update", "import_uuid", "review", "fixme:atp",
     // classifications / links to external databases
     "fhrs:.*", "old_fhrs:.*", "fvst:.*", "ncat", "nat_ref", "gnis:.*", "winkelnummer",

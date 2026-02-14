@@ -3,9 +3,9 @@
 #include "generator/generator_tests/common.hpp"
 #include "generator/metalines_builder.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 
 #include "indexer/classificator_loader.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

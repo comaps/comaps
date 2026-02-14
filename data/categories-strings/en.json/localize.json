@@ -298,6 +298,7 @@
 "natural-water-reservoir|landuse-reservoir|@waterbody": "5Reservoir",
 "waterway-river|waterway-stream|natural-water-river": "River|stream|creek|brook",
 "waterway-canal": "Canal",
+"waterway-fuel": "Marina Fuel Dock|Gas Dock|Fuel Pier",
 "shop-car_repair": "3Car Repair Workshop|4service station|auto|garage|4mechanic|4Repair car|U+1F527",
 "tourism-camp_site|@category_hotel": "4Camping|campsite|campground|4Tent spot|U+26FA",
 "tourism-caravan_site|@category_rv||@category_hotel": "2RV Park|4Caravan Site|RV site|U+1F69A|U+26FA|U+1F69B",

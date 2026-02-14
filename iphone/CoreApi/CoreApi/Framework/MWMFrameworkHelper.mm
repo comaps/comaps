@@ -241,4 +241,8 @@
   return [[ElevationProfileData alloc] initWithElevationInfo:GetFramework().GetTrackRecordingElevationInfo()];
 }
 
++ (void)setCarScreenMode:(BOOL)enabled {
+  GetFramework().SetCarScreenMode(enabled);
+}
+
 @end

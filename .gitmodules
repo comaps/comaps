@@ -17,7 +17,7 @@
   ignore = dirty
 [submodule "3party/just_gtfs"]
   path = 3party/just_gtfs
-  url = https://github.com/organicmaps/just_gtfs.git
+  url = https://codeberg.org/comaps/just_gtfs.git
   branch = for-usage-as-submodule
 [submodule "3party/expat"]
   path = 3party/expat

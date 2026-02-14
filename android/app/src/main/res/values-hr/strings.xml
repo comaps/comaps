@@ -13,7 +13,7 @@
     <string name="search_map">Pretraži kartu</string>
     <string name="limited_accuracy">Ograničena preciznost</string>
     <string name="zoom_to_country">Prikaži na karti</string>
-    <string name="country_status_download_failed">Preuzimanje neuspješno</string>
+    <string name="country_status_download_failed">Preuzimanje nije uspjelo</string>
     <string name="try_again">Pokušaj ponovo</string>
     <string name="about_proposition_2">• Usmjereno na privatnost i bez oglasa</string>
     <string name="close">Zatvori</string>
@@ -147,7 +147,7 @@
     <string name="add_new_set">Dodaj novu Listu</string>
     <string name="bookmark_set_name">Naziv liste</string>
     <string name="bookmarks">Mjesta</string>
-    <string name="bookmarks_and_tracks">Favoriti</string>
+    <string name="bookmarks_and_tracks">Omiljeni</string>
     <string name="maps_storage">Spremi karte u</string>
     <string name="maps_storage_summary">Odaberite mapu u koju želite spremiti karte</string>
     <string name="maps_storage_downloaded">Preuzete karte</string>

@@ -60,22 +60,22 @@
 "continue_button" = "Continuar";
 
 /* "Add new bookmark list" dialog title */
-"add_new_set" = "Adicionar novo conjunto";
+"add_new_set" = "Adicionar nova lista";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nome do conjunto";
+"bookmark_set_name" = "Nome da lista";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Conjuntos de favoritos";
+"bookmark_sets" = "Listas de favoritos";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Favoritos";
+"bookmarks" = "Lugares";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Favoritos";
 
 /* Default bookmark list name */
-"core_my_places" = "Meus locais";
+"core_my_places" = "Meus lugares";
 
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Endereço";
@@ -154,7 +154,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Para trailers";
-"share_bookmarks_email_body" = "Olá!\n\nEm anexo estão os locais que salvei; por favor, abra-os no CoMaps. Caso não o tenha instalado, você pode baixá-lo aqui: https://www.comaps.app/download/\n\nDesfrute de suas viagens com a CoMaps!";
+"share_bookmarks_email_body" = "Olá!\n\nEm anexo estão os lugares que salvei; por favor, abra-os no CoMaps. Caso não o tenha instalado, você pode baixá-lo aqui: https://www.comaps.app/download/\n\nDesfrute de suas viagens com a CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Carregando favoritos";
@@ -163,7 +163,7 @@
 "load_kmz_successful" = "Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou na tela de gestão dos favoritos.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Falha no envio dos favoritos. O arquivo pode estar corrompido ou com defeito.";
+"load_kmz_failed" = "Falha ao carregar favoritos. O arquivo pode estar corrompido ou com defeito.";
 
 /* resource for context menu */
 "edit" = "Editar";
@@ -386,7 +386,7 @@
 "routing_requires_all_map" = "Para criar uma rota é necessário baixar e atualizar todos os mapas desde sua localização atual até o destino.";
 
 /* bookmark button text */
-"bookmark" = "favorito";
+"bookmark" = "lugar";
 "save" = "Salvar";
 "create" = "criar";
 
@@ -597,12 +597,12 @@
 "editor_add_select_category_all_subtitle" = "Todas as categorias";
 "editor_edit_place_title" = "Edição";
 "editor_add_place_title" = "Adicionando";
-"editor_edit_place_name_hint" = "Nome do lugar";
+"editor_edit_place_name_hint" = "Nome do local";
 
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Como escrito na língua local";
 "editor_edit_place_category_title" = "Categoria";
-"whatsnew_editor_message_1" = "Adicione novos lugares ao mapa e edite os já existentes diretamente no aplicativo.";
+"whatsnew_editor_message_1" = "Adicione novos locais ao mapa e edite os já existentes diretamente no aplicativo.";
 "dialog_incorrect_feature_position" = "Mudar local";
 "message_invalid_feature_position" = "Nenhum objeto pode ser posicionado aqui";
 
@@ -673,17 +673,17 @@
 "placepage_more_button" = "Mais";
 "book_button" = "Reservar";
 "placepage_call_button" = "Ligar";
-"placepage_edit_bookmark_button" = "Editar favorito";
-"placepage_bookmark_name_hint" = "Nome do favorito";
+"placepage_edit_bookmark_button" = "Editar lugar salvo";
+"placepage_bookmark_name_hint" = "Nome do lugar";
 "placepage_personal_notes_hint" = "Anotações pessoais (texto ou html)";
-"placepage_delete_bookmark_button" = "Apagar favorito";
+"placepage_delete_bookmark_button" = "Apagar lugar";
 "editor_edits_sent_message" = "A sua nota será enviada ao OpenStreetMap";
 "editor_comment_hint" = "Comentar…";
 "editor_reset_edits_message" = "Descartar todas as modificações locais?";
 "editor_reset_edits_button" = "Descartar alterações";
 "editor_remove_place_message" = "Remover local adicionado?";
 "editor_remove_place_button" = "Remover";
-"editor_place_doesnt_exist" = "O lugar não existe";
+"editor_place_doesnt_exist" = "O local não existe";
 "text_more_button" = "…mais";
 
 /* Phone number error message */
@@ -764,7 +764,7 @@
 "bookmarks_create_new_group" = "Criar nova lista";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importar favoritos e trilhas";
+"bookmarks_import" = "Importar favoritos";
 "downloader_hide_screen" = "Ocultar tela";
 "downloader_percent" = "%@ (%@ de %@)";
 "downloader_process" = "Baixando %@…";
@@ -795,7 +795,7 @@
 "tags_loading_error_subtitle" = "Ocorreu um erro enquanto carregava as etiquetas, por favor, tente novamente";
 "download_button" = "Baixar";
 "speedcams_alert_title" = "Câmeras de trânsito";
-"place_description_title" = "Descrição do lugar";
+"place_description_title" = "Descrição do local";
 
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Avisar se exceder limite de velocidade";
@@ -863,7 +863,7 @@
 "dialog_routing_system_error_carplay" = "Ocorreu um erro. Por favor, reinicie o aplicativo";
 "dialog_routing_rebuild_from_current_location_carplay" = "A rota sera retraçada a partir de sua localização atual";
 "dialog_routing_rebuild_for_vehicle_carplay" = "A rota será alterada para uma de automóvel";
-"not_all_shown_bookmarks_carplay" = "Nem todos os marcadores são exibidos";
+"not_all_shown_bookmarks_carplay" = "Nem todos os favoritos são exibidos";
 "switch_to_phone_bookmarks_carplay" = "Mudar para o telefone para ver todos os favoritos";
 "ok" = "Tudo bem";
 "speedcams_alert_title_carplay_1" = "Radares";
@@ -996,7 +996,7 @@
 "button_layer_outdoor" = "Ar livre";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Exportar todos os favoritos e trilhas";
+"bookmarks_export" = "Exportar todos os favoritos";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Alterar cor";
@@ -1081,7 +1081,7 @@
 "continue_recording" = "Continuar gravação";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Salvar em Favoritos e Trilhas?";
+"track_recording_alert_title" = "Salvar em favoritos?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "A trilha está vazia - não há nada para salvar";
@@ -1103,4 +1103,6 @@
 "voice_explanation_before_version26" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Conteúdo Falado*, *Vozes*.";
 "voice_explanation" = "É possível escolher uma voz melhor nas configurações do sistema em *Acessibilidade*, *Leitura e Fala*, *Vozes*.";
 "avoid_paved" = "Evitar vias pavimentadas";
-"limit_map_language_alternatives_to_local" = "Utilizar apenas outros idiomas do sistema em sua região";
+"pref_alt_map_lang_handling_local_only" = "Preferir e apenas usar quando nativo";
+"pref_alt_map_lang_handling" = "Idiomas do mapa alternativos";
+"pref_alt_map_lang_handling_system_order" = "Usar na ordem do sistema";

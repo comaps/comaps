@@ -660,9 +660,9 @@ node|z17-[building]::int_name,
   Housenumbers and main captions are displaced independently (e.g. a housenumber will stay if a building name is displaced),
   but are bound to icons (e.g. a housenumber will disappear if a parent icon is displaced).
 */
-node|z16-[addr:housenumber][addr:street],
+node|z17-[addr:housenumber][addr:street],
 {text: name; text-color: @housenumber; text-position: center;}
-node|z16-[addr:housenumber][addr:street]::int_name,
+node|z17-[addr:housenumber][addr:street]::int_name,
 {text: int_name; text-color: @housenumber; text-position: center;}
 
 node|z18-[entrance=main],

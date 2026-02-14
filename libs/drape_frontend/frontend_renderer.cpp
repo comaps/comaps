@@ -1446,6 +1446,9 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
     if (hasTransitRouteData)
       RenderRouteLayer(modelView);
 
+    if (!HasRouteData())
+      RenderTransitSchemeLayer(modelView);
+
     {
       StencilWriterGuard guard(make_ref(m_postprocessRenderer), m_context);
       RenderUserMarksLayer(modelView, DepthLayer::UserMarkLayer);
@@ -1453,9 +1456,6 @@ void FrontendRenderer::RenderScene(ScreenBase const & modelView, bool activeFram
       RenderUserMarksLayer(modelView, DepthLayer::RoutingMarkLayer);
       RenderNonDisplaceableUserMarksLayer(modelView, DepthLayer::SearchMarkLayer);
     }
-
-    if (!HasRouteData())
-      RenderTransitSchemeLayer(modelView);
 
     m_drapeApiRenderer->Render(m_context, make_ref(m_gpuProgramManager), modelView, m_frameValues);
 

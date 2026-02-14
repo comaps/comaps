@@ -4,6 +4,29 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - .gitignore
+      - .github/**
+      - '!.github/workflows/ios-check.yaml'  # Run check on self change
+      - '**/*_tests/**'
+      - CONTRIBUTORS
+      - LICENSE
+      - NOTICE
+      - README.md
+      - android/**
+      - data/*-strings/**
+      - docs/**
+      - generator/**
+      - iphone/metadata/**
+      - packaging/**
+      - libs/platform/*_android*
+      - libs/platform/*_linux*
+      - libs/platform/*_mac*
+      - libs/platform/*qt*
+      - libs/platform/*_win*
+      - libs/pyhelpers/**
+      - qt*/**
+      - tools/**
 
 jobs:
   ios-check:

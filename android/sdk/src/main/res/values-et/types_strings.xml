@@ -1508,4 +1508,5 @@
     <string name="type.amenity.charging_station.small">Väike laadimisjaam</string>
     <string name="type.emergency.disaster_help_point">Katastroofiabi teenused</string>
     <string name="type.emergency.access_point.address">Hädaolukorras asukohatuvastuspunkti aadress</string>
+    <string name="type.waterway.fuel">Väikelaevade tankla</string>
 </resources>

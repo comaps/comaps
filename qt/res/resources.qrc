@@ -37,6 +37,7 @@
     </qresource>
     <qresource prefix="/ui">
         <file>logo.png</file>
+        <file>designer.png</file>
         <file>busy.png</file>
         <file>x.png</file>
     </qresource>

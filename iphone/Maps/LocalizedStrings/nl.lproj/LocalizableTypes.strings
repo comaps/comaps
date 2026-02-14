@@ -1486,7 +1486,7 @@
 "type.power.portal" = "Verdeelstation";
 "type.building.guardhouse" = "Beveiligingsloket";
 "type.shop.lighting" = "Verlichtingswinkel";
-"type.amenity.bench.backless" = "Zonder Rugleuning";
+"type.amenity.bench.backless" = "Zonder rugleuning";
 "type.amenity.boat_rental" = "Bootverhuur";
 "type.man_made.telescope" = "Telescoop";
 "type.man_made.telescope.optical" = "Telescoop (optisch)";
@@ -1599,3 +1599,4 @@
 "type.railway.miniature.tunnel" = "Miniatuur spoortunnel";
 "type.railway.disused.tunnel" = "Ongebruikte spoortunnel";
 "type.railway.miniature" = "Miniatuur spoorweg";
+"type.waterway.fuel" = "Brandstofsteiger";

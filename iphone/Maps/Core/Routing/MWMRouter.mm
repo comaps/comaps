@@ -255,16 +255,21 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 
 + (void)buildApiRouteWithType:(MWMRouterType)type
                    startPoint:(MWMRoutePoint *)startPoint
+            intermediatePoint:(MWMRoutePoint *)intermediatePoint
                   finishPoint:(MWMRoutePoint *)finishPoint {
-  if (!startPoint || !finishPoint)
+  if (!startPoint && !finishPoint)
     return;
 
   [MWMRouter setType:type];
 
   auto router = [MWMRouter router];
   router.isAPICall = YES;
-  [self addPoint:startPoint];
-  [self addPoint:finishPoint];
+  if (startPoint)
+    [self addPoint:startPoint];
+  if (intermediatePoint)
+    [self addPoint:intermediatePoint];
+  if (finishPoint)
+    [self addPoint:finishPoint];
   router.isAPICall = NO;
 
   [self rebuildWithBestRouter:NO];

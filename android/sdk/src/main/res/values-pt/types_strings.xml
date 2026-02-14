@@ -1509,4 +1509,5 @@
     <string name="type.tourism.information.tactile_map">Mapa tátil</string>
     <string name="type.emergency.access_point.address">Endereço de Resgate de Emergência</string>
     <string name="type.emergency.disaster_help_point">Ponto de Ajuda de Emergências e Desastres</string>
+    <string name="type.waterway.fuel">Doca de Combustível Marinha</string>
 </resources>

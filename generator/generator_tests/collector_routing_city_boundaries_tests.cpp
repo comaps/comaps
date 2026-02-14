@@ -3,8 +3,9 @@
 #include "generator/collector_routing_city_boundaries.hpp"
 #include "generator/generator_tests/common.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/routing_city_boundaries_processor.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "geometry/area_on_earth.hpp"
 #include "geometry/mercator.hpp"

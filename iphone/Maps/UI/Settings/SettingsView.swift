@@ -36,8 +36,8 @@ struct SettingsView: View {
     @State var selectedLanguageForMap: Settings.MapLanguage.ID? = nil
     
     
-    /// If the alternative languages for the app only should be used when they are the local native language
-    @State private var shouldLimitMapLanguageAlternativesToLocal: Bool = true
+    /// The selected way to handle alternatve map languages
+    @State private var alternativeMapLanguageHandling: Settings.AlternativeMapLanguageHandling = .localOnly
     
     
     /// If names should be transliterated to Latin
@@ -153,9 +153,13 @@ struct SettingsView: View {
                         Text("pref_maplanguage_title")
                     }
                     
-                    Toggle(isOn: $shouldLimitMapLanguageAlternativesToLocal) {
+                    Picker(selection: $alternativeMapLanguageHandling) {
+                        ForEach(Settings.AlternativeMapLanguageHandling.allCases) { alternativeMapLanguageHandling in
+                            Text(alternativeMapLanguageHandling.description)
+                        }
+                    } label: {
                         VStack(alignment: .leading) {
-                            Text("limit_map_language_alternatives_to_local")
+                            Text("pref_alt_map_lang_handling")
                             
                             if selectedLanguageForMap == "default" {
                                 Text("transliteration_title_disabled_summary")
@@ -164,7 +168,6 @@ struct SettingsView: View {
                             }
                         }
                     }
-                    .tint(.accent)
                     .disabled(selectedLanguageForMap == "default")
                     
                     Toggle(isOn: $shouldTransliterateToLatin) {
@@ -307,7 +310,7 @@ struct SettingsView: View {
             hasAutomaticDownload = Settings.hasAutomaticDownload
             hasIncreasedFontsize = Settings.hasIncreasedFontsize
             selectedLanguageForMap = Settings.languageForMap
-            shouldLimitMapLanguageAlternativesToLocal = Settings.shouldLimitMapLanguageAlternativesToLocal
+            alternativeMapLanguageHandling = Settings.alternativeMapLanguageHandling
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
             selectedMapAppearance = Settings.mapAppearance
             selectedAppearance = Settings.appearance
@@ -339,8 +342,8 @@ struct SettingsView: View {
                 Settings.languageForMap = changedSelectedLanguageForMap
             }
         }
-        .onChange(of: shouldLimitMapLanguageAlternativesToLocal) { changedShouldLimitMapLanguageAlternativesToLocal in
-            Settings.shouldLimitMapLanguageAlternativesToLocal = changedShouldLimitMapLanguageAlternativesToLocal
+        .onChange(of: alternativeMapLanguageHandling) { changedAlternativeMapLanguageHandling in
+            Settings.alternativeMapLanguageHandling = changedAlternativeMapLanguageHandling
         }
         .onChange(of: shouldTransliterateToLatin) { changedShouldTransliterateToLatin in
             Settings.shouldTransliterateToLatin = changedShouldTransliterateToLatin

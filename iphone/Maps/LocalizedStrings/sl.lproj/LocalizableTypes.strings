@@ -12,7 +12,7 @@
 "type.amenity.parking_space" = "Parkirni prostor";
 "type.recycling.plastic_bottles" = "Plastenke";
 "type.amenity.gambling" = "Igre na srečo";
-"type.amenity.charging_station.bicycle" = "Polnilna postaja za kolesa";
+"type.amenity.charging_station.bicycle" = "Kolesa";
 "type.amenity.place_of_worship.taoist" = "Taoistično svetišče";
 "type.recycling.paper" = "Papir";
 "type.aerialway.drag_lift" = "Vlečnica";
@@ -77,7 +77,7 @@
 "type.aeroway.taxiway" = "Dovoz do vzletno-pristajalne steze";
 "type.recycling.cardboard" = "Lepenka";
 "type.amenity.parking.underground.private" = "Zasebna podzemna garaža";
-"type.amenity.charging_station.motorcar" = "Polnilna postaja za avtomobile";
+"type.amenity.charging_station.motorcar" = "Avtomobili";
 "type.aeroway.aerodrome.international" = "Mednarodno letališče";
 "type.recycling.plastic" = "Plastika";
 "type.amenity.bicycle_repair_station" = "Popravljalnica koles";
@@ -85,7 +85,7 @@
 "type.aeroway.helipad" = "helikoptersko pristajališče";
 "type.aerialway.chair_lift" = "Sedežnica";
 "type.amenity.driving_school" = "Šola vožnje";
-"type.amenity.bench.backless" = "Klop brez naslonjala";
+"type.amenity.bench.backless" = "Brez naslonjala";
 "type.sport.australian_football" = "Avstralski nogomet";
 "type.sport.american_football" = "Ameriški nogomet";
 "type.sport.basketball" = "Košarka";
@@ -165,7 +165,7 @@
 "type.amenity.courthouse" = "Sodišče";
 "type.office.diplomatic" = "Veleposlaništvo";
 "type.office.security" = "Pisarna varnostnikov";
-"type.building.guardhouse" = "Stražarnica";
+"type.building.guardhouse" = "Vratarnica";
 "type.power.portal" = "Portal daljnovoda";
 "type.amenity.fountain" = "Vodomet";
 "type.amenity.fuel" = "Bencinska postaja";
@@ -251,7 +251,7 @@
 "type.recycling.cartons" = "Kartoni";
 "type.amenity.school" = "Šola";
 "type.amenity.shelter" = "Zavetje";
-"type.amenity.shelter.lean_to" = "Izpostavljen nadstrešek";
+"type.amenity.shelter.lean_to" = "Izpostavljeno zavetje";
 "type.amenity.water_point.drinking_water_no" = "Polnilna postaja rezervoarja z vodo";
 "type.barrier" = "Ovira";
 "type.barrier.yes" = "Ovira";
@@ -307,10 +307,10 @@
 "type.cuisine.filipino" = "Filipinska kuhinja";
 "type.amenity.prep_school" = "Inštrukcije";
 "type.amenity.mobile_money_agent" = "Posrednik mobilnega denarja";
-"type.amenity.recycling.centre" = "Zbirno mesto za ločene odpadke";
+"type.amenity.recycling.centre" = "Mesto za ločeno zbiranje odpadkov";
 "type.amenity.recycling.container" = "Zabojnik za ločene odpadke";
 "type.amenity.shelter.public_transport" = "Zavetje";
-"type.amenity.vending_machine.public_transport_tickets" = "Avtomat za vozovnice";
+"type.amenity.vending_machine.public_transport_tickets" = "Avtomat za vozovnice javnega prometa";
 "type.barrier.wicket_gate" = "Osebna vratca";
 "type.amenity.sanitary_dump_station" = "Postaja za praznjenje zbiralnih rezervoarjev";
 "type.amenity.shelter.basic_hut" = "Bivak";
@@ -1063,7 +1063,7 @@
 "type.railway.station.subway.wuhan" = "Postaja podzemne železnice";
 "type.railway.station.subway.yerevan" = "Postaja podzemne železnice";
 "type.railway.station.subway.yokohama" = "Postaja podzemne železnice";
-"type.railway.subway" = "Podzemna železnica";
+"type.railway.subway" = "Povezava podzemne železnice";
 "type.railway.subway.bridge" = "Most podzemne železnice";
 "type.railway.subway.tunnel" = "Predor podzemne železnice";
 "type.railway.subway_entrance" = "Vhod v podzemno železnico";
@@ -1402,3 +1402,15 @@
 "type.xmas.tree" = "Božično drevo";
 "type.landuse.field" = "Polje";
 "type.leisure.sports_centre" = "Športno središče";
+"type.amenity.charging_station.motorcycle" = "Motorji";
+"type.amenity.charging_station.small" = "Omejena velikost";
+"type.emergency.access_point.address" = "Naslov za reševanje v sili";
+"type.emergency.disaster_help_point" = "Točka za pomoč v sili v primeru katastrofe";
+"type.railway.disused.bridge" = "Opuščen železniški most";
+"type.railway.disused.tunnel" = "Opuščen železniški predor";
+"type.railway.miniature" = "Miniaturna železnica";
+"type.railway.miniature.bridge" = "Most miniaturne železnice";
+"type.railway.miniature.tunnel" = "Predor miniaturne železnice";
+"type.railway.turntable" = "Sučna železniška ploščad";
+"type.tourism.information.tactile_map" = "Talne oznake za slabovidne";
+"type.waterway.fuel" = "Pristan za gorivo";

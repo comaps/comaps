@@ -4,6 +4,8 @@
 
 #include "indexer/map_style.hpp"
 
+#include "map/routing_manager.hpp"
+
 extern "C"
 {
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Router_nativeSet(JNIEnv *, jclass, jint routerType)
@@ -29,7 +31,7 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Router_nativeGet(JNIEnv *, jclas
 
 JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Router_nativeGetLastUsed(JNIEnv *, jclass)
 {
-  return static_cast<jint>(frm()->GetRoutingManager().GetLastUsedRouter());
+  return static_cast<jint>(routing::GetLastUsedRouter());
 }
 
 JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Router_nativeGetBest(JNIEnv *, jclass, jdouble srcLat, jdouble srcLon,

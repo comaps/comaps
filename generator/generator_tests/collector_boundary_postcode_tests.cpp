@@ -4,7 +4,8 @@
 
 #include "generator/collector_boundary_postcode.hpp"
 #include "generator/generator_tests/common.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

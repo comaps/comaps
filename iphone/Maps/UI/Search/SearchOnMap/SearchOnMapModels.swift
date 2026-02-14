@@ -3,11 +3,13 @@ final class SearchQuery: NSObject {
   let text: String
   let locale: String
   let source: SearchTextSource
+  let autoSelectFirstResult: Bool
 
-  init(_ text: String, locale: String? = nil, source: SearchTextSource) {
+  init(_ text: String, locale: String? = nil, source: SearchTextSource, autoSelectFirstResult: Bool = false) {
     self.text = text
     self.locale = locale ?? AppInfo.shared().languageId
     self.source = source
+    self.autoSelectFirstResult = autoSelectFirstResult
   }
 }
 

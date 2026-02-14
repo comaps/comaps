@@ -723,11 +723,9 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
 
     // Show dialog
     customUrlPref.setOnPreferenceClickListener(preference -> {
-      CustomMapServerDialog.show(requireContext(), url -> {
-        preference.setSummary(url.isEmpty()
-            ? getString(R.string.download_resources_custom_url_summary_none)
-            : url);
-      });
+      CustomMapServerDialog.show(requireContext(), url -> preference.setSummary(url.isEmpty()
+          ? getString(R.string.download_resources_custom_url_summary_none)
+          : url));
       return true;
     });
   }

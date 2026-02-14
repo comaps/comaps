@@ -1599,3 +1599,4 @@
 "type.railway.miniature.tunnel" = "Väikeraudtee/pargiraudtee tunnel";
 "type.railway.disused.tunnel" = "Kasutuselt eemaldatud raudteetunnel";
 "type.railway.miniature" = "Väikeraudtee/pargiraudtee";
+"type.waterway.fuel" = "Väikelaevade tankla";

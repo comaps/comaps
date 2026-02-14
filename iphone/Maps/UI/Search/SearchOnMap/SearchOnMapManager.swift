@@ -62,6 +62,7 @@ final class SearchOnMapManager: NSObject {
   }
 
   func searchText(_ searchText: SearchQuery) {
+    interactor?.autoSelectFirstResult = searchText.autoSelectFirstResult
     interactor?.handle(.didSelect(searchText))
   }
 

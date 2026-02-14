@@ -1,5 +1,5 @@
-import Combine
 import AVFoundation
+import Combine
 
 /// The settings
 @objc class Settings: NSObject {
@@ -167,13 +167,13 @@ import AVFoundation
     }
     
     
-    /// If the alternative languages for the app only should be used when they are the local native language
-    static var shouldLimitMapLanguageAlternativesToLocal: Bool {
+    /// The current way to handle alternatve map languages
+    static var alternativeMapLanguageHandling: AlternativeMapLanguageHandling {
         get {
-            return SettingsBridge.mapLanguageLimitAlternativesToLocal()
+            return (SettingsBridge.mapLanguageLimitAlternativesToLocal() ? AlternativeMapLanguageHandling.localOnly : AlternativeMapLanguageHandling.systemOrder)
         }
         set {
-            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue)
+            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue == AlternativeMapLanguageHandling.localOnly)
         }
     }
     

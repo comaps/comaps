@@ -41,6 +41,7 @@ public:
         return &p.second;
     return nullptr;
   }
+  std::vector<Param> const & GetParams() const { return m_params; }
 
 private:
   bool Parse(std::string const & url);

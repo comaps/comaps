@@ -28,7 +28,7 @@
     <string name="type.amenity.bar">Bar</string>
     <string name="type.amenity.bbq">Roštilj</string>
     <string name="type.amenity.bench">Klupa</string>
-    <string name="type.amenity.bench.backless">Klupa bez naslona</string>
+    <string name="type.amenity.bench.backless">Bez naslona</string>
     <string name="type.amenity.bicycle_parking">Parkiralište za bicikle</string>
     <string name="type.amenity.bicycle_parking.covered">Natkriveno parkiralište za bicikle</string>
     <string name="type.amenity.boat_rental">Najam brodova</string>

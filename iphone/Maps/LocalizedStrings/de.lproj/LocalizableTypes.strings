@@ -360,7 +360,7 @@
 "type.cuisine.vietnamese" = "Vietnamesisch";
 "type.emergency" = "Notfall";
 "type.emergency.access_point" = "Rettungspunkt";
-"type.emergency.access_point.address" = "Rettungsadresse";
+"type.emergency.access_point.address" = "Notfallrettungsadresse";
 "type.emergency.assembly_point" = "Notfall-Sammelpunkt";
 "type.emergency.disaster_help_point" = "Notfall-Treffpunkt";
 "type.emergency.life_ring" = "Rettungsring";
@@ -377,8 +377,8 @@
 "type.beacon.isolated_danger" = "Einzelgefahrenbake";
 "type.beacon.lateral.port" = "Lateralbake";
 "type.beacon.lateral.starboard" = "Lateralbake";
-"type.beacon.safe_water" = "Mittefahrwasserbarke";
-"type.beacon.special_purpose" = "Spezialbake";
+"type.beacon.safe_water" = "Mittefahrwasserbake";
+"type.beacon.special_purpose" = "Sonderzeichen-Bake";
 "type.buoy.cardinal.east" = "Kardinalboje";
 "type.buoy.cardinal.north" = "Kardinalboje";
 "type.buoy.cardinal.south" = "Kardinalboje";
@@ -387,7 +387,7 @@
 "type.buoy.lateral.port" = "Lateralboje";
 "type.buoy.lateral.starboard" = "Lateralboje";
 "type.buoy.safe_water" = "Mittefahrwasserboje";
-"type.buoy.special_purpose" = "Spezialboje";
+"type.buoy.special_purpose" = "Sonderzeichen-Boje";
 "type.spherical_buoy.cardinal.east" = "Kugelförmige Kardinalboje";
 "type.spherical_buoy.cardinal.north" = "Kugelförmige Kardinalboje";
 "type.spherical_buoy.cardinal.south" = "Kugelförmige Kardinalboje";
@@ -396,7 +396,7 @@
 "type.spherical_buoy.lateral.port" = "Kugelförmige Lateralboje";
 "type.spherical_buoy.lateral.starboard" = "Kugelförmige Lateralboje";
 "type.spherical_buoy.safe_water" = "Kugelförmige Mittefahrwasserboje";
-"type.spherical_buoy.special_purpose" = "Kugelförmige Spezialboje";
+"type.spherical_buoy.special_purpose" = "Kugelförmige Sonderzeichen-Boje";
 "type.lateral.port" = "Backbord";
 "type.lateral.starboard" = "Steuerbord";
 "type.cardinal.east" = "Osten";
@@ -414,9 +414,9 @@
 "type.entrance.main" = "Haupteingang";
 "type.entrance.house" = "Hauseingang";
 "type.entrance.garage" = "Garageneingang";
-"type.entrance.service" = "Serviceeingang";
-"type.entrance.entry" = "(Nur) Eingang";
-"type.entrance.exit" = "(Nur) Ausgang";
+"type.entrance.service" = "Service-Eingang";
+"type.entrance.entry" = "Eingang (ausschließlich)";
+"type.entrance.exit" = "Ausgang (ausschließlich)";
 "type.entrance.emergency" = "Notausgang";
 "type.fee.yes" = "$";
 "type.fee.no" = "Kostenlos";
@@ -1144,7 +1144,7 @@
 "type.railway.station.subway.wuhan" = "U-Bahn-Station";
 "type.railway.station.subway.yerevan" = "U-Bahn-Station";
 "type.railway.station.subway.yokohama" = "U-Bahn-Station";
-"type.railway.subway" = "U-Bahn";
+"type.railway.subway" = "U-Bahn-Linie";
 "type.railway.subway.bridge" = "U-Bahn-Brücke";
 "type.railway.subway.tunnel" = "U-Bahn-Tunnel";
 "type.railway.subway_entrance" = "U-Bahn-Eingang";
@@ -1599,3 +1599,4 @@
 "type.railway.miniature.tunnel" = "Miniatur-Eisenbahntunnel";
 "type.railway.disused.tunnel" = "Stillgelegter Eisenbahntunnel";
 "type.railway.miniature" = "Miniatureisenbahn";
+"type.waterway.fuel" = "Bunkerstation";

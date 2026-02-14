@@ -272,6 +272,12 @@ public final class UiUtils
     view.setPadding(systemInsets.left, systemInsets.top, systemInsets.right, view.getPaddingBottom());
   }
 
+  public static void setViewInsetsPaddingNoTopNoBottom(View view, WindowInsetsCompat windowInsets)
+  {
+    final Insets systemInsets = windowInsets.getInsets(WindowInsetUtils.TYPE_SAFE_DRAWING);
+    view.setPadding(systemInsets.left, view.getPaddingTop(), systemInsets.right, view.getPaddingBottom());
+  }
+
   public static void setViewNavigationTopInsetsMargin(View view, WindowInsetsCompat windowInsets)
   {
       final Insets systemInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());

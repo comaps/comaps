@@ -1599,3 +1599,4 @@
 "type.railway.miniature.tunnel" = "Tunel miniaturní železnice";
 "type.railway.disused.tunnel" = "Nepoužívaný železniční tunel";
 "type.railway.miniature" = "Miniaturní železnice";
+"type.waterway.fuel" = "Přístavní čerpací stanice";

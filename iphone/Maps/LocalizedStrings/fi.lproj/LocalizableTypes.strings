@@ -1547,3 +1547,6 @@
 "type.man_made.mast.communication" = "Tietoliikennemasto";
 "type.leisure.bandstand" = "Esiintymislava";
 "type.leisure.indoor_play" = "Sisäleikkipuisto";
+"type.amenity.charging_station.small" = "Rajallinen kapasiteetti";
+"type.amenity.prep_school" = "Valmennuskoulu";
+"type.amenity.lounger" = "Aurinkotuoli";

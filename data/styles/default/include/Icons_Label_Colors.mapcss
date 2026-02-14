@@ -30,6 +30,7 @@ node[shop=tattoo],
 node[shop=trade],
 node[shop=tyres],
 node[shop=wholesale],
+node[waterway=fuel],
 {text-color: @industry_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
 
 node[craft=photographer],

@@ -4,9 +4,9 @@
     <string name="mb">МБ</string>
     <string name="gb">ГБ</string>
     <!-- A text for current gps location point/arrow selected on the map -->
-    <string name="core_my_position">Моє місцезнаходження</string>
+    <string name="core_my_position">Моє розташування</string>
     <!-- Default bookmark list name -->
-    <string name="core_my_places">Мої Мітки</string>
+    <string name="core_my_places">Мої мітки</string>
     <!-- Internal storage type in Maps Storage settings (not accessible by the user) -->
     <string name="maps_storage_internal">Внутрішнє приватне сховище</string>
     <!-- Shared storage type in Maps Storage settings (a primary storage usually) -->

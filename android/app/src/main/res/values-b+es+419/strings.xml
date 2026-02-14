@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="minutes_short">
+        <item quantity="one">%d min</item>
+        <item quantity="many">%d min</item>
+        <item quantity="other"></item>
+    </plurals>
+</resources>

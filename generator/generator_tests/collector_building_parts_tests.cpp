@@ -5,7 +5,8 @@
 #include "generator/gen_mwm_info.hpp"
 #include "generator/generator_tests_support/test_with_classificator.hpp"
 #include "generator/intermediate_data.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "indexer/classificator.hpp"
 

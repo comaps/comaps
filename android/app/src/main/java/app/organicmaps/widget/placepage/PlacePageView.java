@@ -715,12 +715,8 @@ public class PlacePageView extends Fragment
           // map editing is disabled because the map is too old
           mTvEditPlace.setEnabled(true);
           mTvAddPlace.setEnabled(true);
-          mTvEditPlace.setOnClickListener((v) -> {
-            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
-          });
-          mTvAddPlace.setOnClickListener((v) -> {
-            Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit);
-          });
+          mTvEditPlace.setOnClickListener((v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
+          mTvAddPlace.setOnClickListener((v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
 
           CountryItem map = CountryItem.fill(countryId);
 

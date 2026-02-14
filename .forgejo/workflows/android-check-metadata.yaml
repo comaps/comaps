@@ -3,7 +3,7 @@ on:
   workflow_dispatch: # Manual trigger
   pull_request:
     paths:
-      - .github/workflows/android-check-metadata.yaml  # Run check on self change
+      - .forgejo/workflows/android-check-metadata.yaml  # Run check on self change
       - android/app/src/fdroid/**
       - android/app/src/google/**
       - tools/python/check_store_metadata.py

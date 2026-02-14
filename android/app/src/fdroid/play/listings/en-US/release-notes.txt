@@ -1,11 +1,10 @@
-• OpenStreetMap data as of January 22
-• Added subtle dark borders to roads
-• Display track's description when selected
-• Renamed "Bookmarks & Tracks" to "Favorites" and "Bookmarks" to "Places"
-• Added tactile information maps, railway turntables and emergency disaster help points
-• Updated looks of some app screens
-• Use native languages for world overview map
-• Remember location mode between sessions
-• Fixed routing crashing on some devices
+• OpenStreetMap data as of February 7
+• Added "Show speed limits" navigation setting
+• Disabled 3D buildings in Android Auto navigation mode
+• Added marina fuel docks
+• Show favorites and search icons above subway lines
+• Show house numbers later
+• Enabled searching for Scandinavian letters æøå
+• OSM editor: automatically update last date when POI existence was checked
 
-More details on codeberg.org/comaps/comaps/releases
+More details on comaps.app/latest

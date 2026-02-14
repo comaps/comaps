@@ -194,4 +194,5 @@
     <string name="type.recycling.paper">Papīrs</string>
     <string name="type.recycling.plastic">Plastmasa</string>
     <string name="type.recycling.plastic_bottles">Plastmasas pudeles</string>
+    <string name="type.amenity.ranger_station">Kārtībnieka birojs</string>
 </resources>

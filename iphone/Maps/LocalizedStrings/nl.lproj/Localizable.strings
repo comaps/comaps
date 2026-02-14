@@ -66,7 +66,7 @@
 "bookmark_set_name" = "Naam van lijst";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Favorietenlijsten";
+"bookmark_sets" = "Favoriete lijsten";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Plaatsen";
@@ -154,13 +154,13 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Camperfaciliteiten";
-"share_bookmarks_email_body" = "Hallo!\n\nBijgevoegd zijn mijn opgeslagen plaatsen die je kunt openen in CoMaps. Heb je deze app nog niet geïnstalleerd dan kun je het hier downloaden: https://www.comaps.app/download/\n\nVeel plezier met reizen met CoMaps!";
+"share_bookmarks_email_body" = "Hallo! \n \nBijgevoegd zijn mijn favorieten; te openen in CoMaps. Als je dit niet geïnstalleerd hebt, dan kun je het hier downloaden: https://www.comaps.app/download/ \n \nGeniet van het reizen met CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Favorieten laden";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Favorieten succesvol geladen! U vindt ze op de kaart of op het scherm Favorietenbeheer.";
+"load_kmz_successful" = "Favorieten met succes geladen! Je vindt ze op de kaart of op het scherm Favorietenbeheer.";
 
 /* Kml file loading failed */
 "load_kmz_failed" = "Favorieten laden is mislukt. Het bestand is mogelijk beschadigd.";
@@ -380,7 +380,7 @@
 "downloader_delete_map" = "Kaart verwijderen";
 
 /* Text for routing error dialog */
-"routing_download_maps_along" = "Download kaarten op de route";
+"routing_download_maps_along" = "Alle kaarten op de route downloaden";
 
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Voor het creëren van een route is het nodig dat alle kaarten van uw locatie naar de bestemming gedownload en bijgewerkt zijn.";
@@ -1103,4 +1103,6 @@
 "avoid_paved" = "Verharde wegen vermijden";
 "editor_place_doesnt_exist_description" = "Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community";
 "avoid_steps" = "Trappen vermijden";
-"limit_map_language_alternatives_to_local" = "Gebruik alleen andere systeemtalen in hun regio";
+"pref_alt_map_lang_handling" = "Alternatieve kaarttalen";
+"pref_alt_map_lang_handling_local_only" = "Gebruik lokale taal indien beschikbaar";
+"pref_alt_map_lang_handling_system_order" = "Gebruik in systeemvolgorde";

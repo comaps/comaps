@@ -3,10 +3,11 @@
 #include "generator/final_processor_utils.hpp"
 #include "generator/intermediate_data.hpp"
 #include "generator/intermediate_elements.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/restriction_collector.hpp"
 
 #include "routing/restrictions_serialization.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

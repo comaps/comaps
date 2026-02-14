@@ -7,7 +7,6 @@
 #include "generator/maxspeeds_builder.hpp"
 #include "generator/maxspeeds_collector.hpp"
 #include "generator/maxspeeds_parser.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/restriction_generator.hpp"
 #include "generator/routing_helpers.hpp"
 
@@ -23,6 +22,7 @@
 #include "indexer/feature.hpp"
 #include "indexer/feature_processor.hpp"
 #include "indexer/mwm_set.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/local_country_file.hpp"
 #include "platform/measurement_utils.hpp"

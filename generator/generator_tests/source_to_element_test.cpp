@@ -1,8 +1,9 @@
 #include "testing/testing.hpp"
 
 #include "generator/generator_tests/source_data.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_source.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "coding/parse_xml.hpp"
 

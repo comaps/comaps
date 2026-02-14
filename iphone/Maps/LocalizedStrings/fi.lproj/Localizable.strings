@@ -66,13 +66,13 @@
 "bookmark_set_name" = "Kirjanmerkkivalikoiman nimi";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Kirjanmerkkivalikoimat";
+"bookmark_sets" = "Suosikkiluettelot";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Kirjanmerkit";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Kirjanmerkit ja reitit";
+"bookmarks_and_tracks" = "Suosikit";
 
 /* Default bookmark list name */
 "core_my_places" = "Paikkani";

@@ -192,7 +192,7 @@
 "version: %@ (%@)\nmap data: %@" = "Version: %@ (%@)\nKartdata: %@";
 
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Rutter";
+"tracks_title" = "Spår";
 
 /* Length of track in cell that describes route */
 "length" = "Längd";
@@ -667,7 +667,7 @@
 "placepage_more_button" = "Mer";
 "book_button" = "Boka";
 "placepage_call_button" = "Ring";
-"placepage_edit_bookmark_button" = "Redigera bokmärke";
+"placepage_edit_bookmark_button" = "Redigera sparad plats";
 "placepage_bookmark_name_hint" = "Bokmärkesnamn";
 "placepage_personal_notes_hint" = "Personlig anteckning (text eller html)";
 "placepage_delete_bookmark_button" = "Radera bokmärke";
@@ -758,7 +758,7 @@
 "bookmarks_create_new_group" = "Skapa ny lista";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importera bokmärken och spår";
+"bookmarks_import" = "Importera favoriter";
 "downloader_hide_screen" = "Dölj skärm";
 "downloader_percent" = "%@ (%@ av %@)";
 "downloader_process" = "Ladda ned %@…";
@@ -1075,7 +1075,7 @@
 "continue_recording" = "Fortsätt spela in";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Spara inspelning i bokmärken och rutter?";
+"track_recording_alert_title" = "Spara inspelning i favoriter?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Spåret är tomt - inget att spara";

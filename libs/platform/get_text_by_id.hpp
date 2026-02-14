@@ -48,6 +48,7 @@ private:
 /// there are only two possibities:
 /// * a factory returns a valid instance
 /// * a factory returns nullptr
+TGetTextByIdPtr GetTextByIdFactoryForRegion(TextSource textSource, std::string const regionId);
 TGetTextByIdPtr GetTextByIdFactory(TextSource textSource, std::string const & localeName);
 TGetTextByIdPtr ForTestingGetTextByIdFactory(std::string const & jsonBuffer, std::string const & localeName);
 

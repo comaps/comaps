@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20251228T203737Z",
+    "data_updated": "20260125T125935Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -206,68 +206,102 @@
             "description": "amenity=charging_station",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + bicycle?=*",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + bicycle?=*",
+            "key": "bicycle?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=no",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcar=no",
+            "key": "motorcar",
+            "value": "no",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=*",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=*",
             "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=1",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=1",
             "key": "capacity",
             "value": "1",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=1",
             "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=2",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=2",
             "key": "capacity",
             "value": "2",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity=2",
             "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-point-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity?=*",
             "key": "amenity",
             "value": "charging_station",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity?=*",
             "key": "capacity?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
         },
         {
             "description": "amenity=charging_station + motorcar?=* + capacity?=*",
             "key": "motorcar?",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging-station-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcycle?=*",
+            "key": "amenity",
+            "value": "charging_station",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
+        },
+        {
+            "description": "amenity=charging_station + motorcycle?=*",
+            "key": "motorcycle?",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/charging_station-small-m.svg"
         },
         {
             "description": "amenity=childcare",
@@ -1530,6 +1564,16 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/access_point-m.svg"
         },
         {
+            "description": "emergency=access_point + operator=helpbidea",
+            "key": "emergency",
+            "value": "access_point"
+        },
+        {
+            "description": "emergency=access_point + operator=helpbidea",
+            "key": "operator",
+            "value": "helpbidea"
+        },
+        {
             "description": "emergency=assembly_point",
             "key": "emergency",
             "value": "assembly_point",
@@ -1540,6 +1584,12 @@
             "key": "emergency",
             "value": "defibrillator",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/defibrillator-m.svg"
+        },
+        {
+            "description": "emergency=disaster_help_point",
+            "key": "emergency",
+            "value": "disaster_help_point",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/disaster_help_point-m.svg"
         },
         {
             "description": "emergency=fire_hydrant",
@@ -2642,7 +2692,7 @@
             "description": "leisure=sports_hall",
             "key": "leisure",
             "value": "sports_hall",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/sports_centre-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pitch-m.svg"
         },
         {
             "description": "leisure=stadium",
@@ -2955,6 +3005,17 @@
             "key": "natural",
             "value": "tree",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-m.svg"
+        },
+        {
+            "description": "natural=tree + name=*",
+            "key": "name",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-special-m.svg"
+        },
+        {
+            "description": "natural=tree + name=*",
+            "key": "natural",
+            "value": "tree",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-special-m.svg"
         },
         {
             "description": "natural=volcano",
@@ -4891,6 +4952,18 @@
             "key": "tourism",
             "value": "information",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/information-office-m.svg"
+        },
+        {
+            "description": "tourism=information + information=tactile_map",
+            "key": "information",
+            "value": "tactile_map",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/map.svg"
+        },
+        {
+            "description": "tourism=information + information=tactile_map",
+            "key": "tourism",
+            "value": "information",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/map.svg"
         },
         {
             "description": "tourism=information + information=visitor_centre",

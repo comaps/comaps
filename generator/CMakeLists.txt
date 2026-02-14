@@ -140,8 +140,6 @@ set(SRC
   osm2meta.hpp
   osm2type.cpp
   osm2type.hpp
-  osm_element.cpp
-  osm_element.hpp
   osm_element_helpers.cpp
   osm_element_helpers.hpp
   osm_o5m_source.hpp

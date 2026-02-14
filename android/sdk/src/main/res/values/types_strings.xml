@@ -1465,6 +1465,7 @@
     <string name="type.waterway.stream.tunnel">Stream</string>
     <string name="type.waterway.waterfall">Waterfall</string>
     <string name="type.waterway.weir">Weir</string>
+	<string name="type.waterway.fuel">Marina Fuel Dock</string>
     <string name="type.wheelchair">Wheelchair</string>
     <string name="type.wheelchair.limited">Limited Wheelchair Access</string>
     <string name="type.wheelchair.no">No Wheelchair Access</string>

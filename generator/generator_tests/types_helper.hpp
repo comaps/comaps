@@ -1,9 +1,8 @@
 #pragma once
 
-#include "generator/osm_element.hpp"
-
 #include "indexer/classificator.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "base/stl_helpers.hpp"
 

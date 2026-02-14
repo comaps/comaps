@@ -22,7 +22,6 @@ UNIT_TEST(ClimbPenalty_ZeroTangent)
 
   for (auto const & purpose : kPurposes)
   {
-    TEST_EQUAL(GetCarClimbPenalty(purpose, zeroTangent, kAlt), 1.0, ());
     TEST_EQUAL(GetBicycleClimbPenalty(purpose, zeroTangent, kAlt), 1.0, ());
     TEST_EQUAL(GetPedestrianClimbPenalty(purpose, zeroTangent, kAlt), 1.0, ());
   }
@@ -40,18 +39,6 @@ UNIT_TEST(ClimbPenalty_DescentLessThenAscent)
     double const ascPenaltyBicycle = GetBicycleClimbPenalty(purpose, kTan, kAlt);
     double const descPenaltyBicycle = GetBicycleClimbPenalty(purpose, -kTan, kAlt);
     TEST_LESS(descPenaltyBicycle, ascPenaltyBicycle, ());
-  }
-}
-
-// Descent penalty for cars must be equal to the ascent penalty.
-UNIT_TEST(ClimbPenalty_DescentEqualsAscent)
-{
-  for (auto const & purpose : kPurposes)
-  {
-    double const ascPenaltyCar = GetCarClimbPenalty(purpose, kTan, kAlt);
-    double const descPenaltyCar = GetCarClimbPenalty(purpose, -kTan, kAlt);
-    TEST_EQUAL(ascPenaltyCar, 1.0, ());
-    TEST_EQUAL(descPenaltyCar, 1.0, ());
   }
 }
 
@@ -73,7 +60,6 @@ UNIT_TEST(ClimbPenalty_HighAboveSeaLevel)
     double const penalty2500Bicyclce = GetBicycleClimbPenalty(purpose, kTan, 2500);
 
     TEST_GREATER_OR_EQUAL(penalty2500Bicyclce, 6.0, ());
-    TEST_ALMOST_EQUAL_ABS(GetCarClimbPenalty(purpose, kTan, 2500), 1.0, kAccuracyEps, ());
   }
 }
 }  // namespace

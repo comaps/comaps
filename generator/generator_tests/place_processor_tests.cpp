@@ -5,10 +5,10 @@
 #include "generator/feature_maker_base.hpp"
 #include "generator/generator_tests/common.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/place_processor.hpp"
 
 #include "indexer/classificator_loader.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "geometry/point2d.hpp"
 

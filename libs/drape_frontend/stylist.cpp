@@ -87,7 +87,7 @@ void CaptionDescription::Init(FeatureType & f, int8_t deviceLang, int zoomLevel,
 
   // TODO(pastk) : its better to determine housenumbers minZoom once upon drules load and cache it,
   // but it'd mean a lot of housenumbers-specific logic in otherwise generic RulesHolder..
-  uint8_t constexpr kHousenumbersMinZoom = 16;
+  uint8_t constexpr kHousenumbersMinZoom = 17;
   if (geomType != feature::GeomType::Line && zoomLevel >= kHousenumbersMinZoom &&
       (auxCaptionExists || m_mainText.empty()))
   {

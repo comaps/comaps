@@ -36,6 +36,7 @@
           android:maxWidth="212dp"
           android:layout_marginBottom="@dimen/margin_eighth"
           android:gravity="center_horizontal"
+          android:layout_gravity="center"
           android:textStyle="normal"
           android:textAppearance="@style/MwmTextAppearance.Body1"
           android:text="@string/offline_explanation_text"/>

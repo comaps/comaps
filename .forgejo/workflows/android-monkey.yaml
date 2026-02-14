@@ -38,8 +38,8 @@ jobs:
       - name: Install build tools and dependencies
         shell: bash
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
+          apt-get update -y
+          apt-get install -y ninja-build
 
       - name: Install Google SDK
         uses: google-github-actions/setup-gcloud@v0
@@ -82,7 +82,7 @@ jobs:
         run: |
           gcloud auth activate-service-account --key-file android/app/firebase-test-lab.json
           gcloud config set project omapsapp
-          gcloud firebase test android run --app ./android/app/build/outputs/apk/google/beta/OrganicMaps-*-google-beta.apk \
+          gcloud firebase test android run --app ./android/app/build/outputs/apk/google/beta/CoMaps-*-google-beta.apk \
             --device model=husky,version=34 \
             --device model=tangorpro,version=33,orientation=landscape \
             --device model=bluejay,version=32 \

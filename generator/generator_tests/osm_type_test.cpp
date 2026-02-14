@@ -3,7 +3,6 @@
 #include "generator/generator_tests/types_helper.hpp"
 #include "generator/generator_tests_support/test_with_classificator.hpp"
 #include "generator/osm2type.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/tag_admixer.hpp"
 
 #include "routing_common/bicycle_model.hpp"
@@ -12,6 +11,7 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature_data.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

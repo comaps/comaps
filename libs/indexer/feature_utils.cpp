@@ -134,50 +134,6 @@ int8_t DefaultLanguageFromRegionData(feature::RegionData const & regionData, vec
   return StrUtf8::kDefaultCode;
 }
 
-vector<int8_t> PrioritizedLanguages(optional<feature::RegionData> const & regionData = {})
-{
-  bool limitAlternativesToLocal = true;
-  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, limitAlternativesToLocal));
-
-  vector<int8_t> prioritizedLangs = {};
-
-  vector<int8_t> const langs = languages::GetPreferredLangIndexes();
-
-  int8_t defaultLang = StrUtf8::kUnsupportedLanguageCode;
-  if (regionData.has_value())
-    defaultLang = DefaultLanguageFromRegionData(regionData.value(), langs);
-
-  for (auto const lang : langs)
-  {
-    if (!limitAlternativesToLocal &&
-        find(prioritizedLangs.begin(), prioritizedLangs.end(), lang) == prioritizedLangs.end())
-      prioritizedLangs.push_back(lang);
-
-    if (defaultLang != StrUtf8::kUnsupportedLanguageCode && defaultLang == lang)
-      prioritizedLangs.push_back(StrUtf8::kDefaultCode);
-
-    if (!limitAlternativesToLocal)
-    {
-      auto const similarLangs = GetSimilarLanguages(lang);
-      prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
-    }
-  }
-
-  if (limitAlternativesToLocal)
-  {
-    auto lang = langs.front();
-    prioritizedLangs.push_back(lang);
-    auto const similarLangs = GetSimilarLanguages(lang);
-    prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
-  }
-
-  prioritizedLangs.push_back(StrUtf8::kInternationalCode);
-  prioritizedLangs.push_back(StrUtf8::kEnglishCode);
-  prioritizedLangs.push_back(StrUtf8::kDefaultCode);
-
-  return prioritizedLangs;
-}
-
 void GetReadableNameImpl(NameParamsIn const & in, bool preferDefault, NameParamsOut & out)
 {
   auto const langPriority = PrioritizedLanguages(in.regionData);
@@ -346,6 +302,50 @@ static constexpr std::string_view kStarSymbol = "★";
 static constexpr std::string_view kMountainSymbol = "▲";
 static constexpr std::string_view kDrinkingWaterYes = "🚰";
 static constexpr std::string_view kDrinkingWaterNo = "🚱";
+
+vector<int8_t> PrioritizedLanguages(optional<feature::RegionData> const & regionData)
+{
+  bool limitAlternativesToLocal = true;
+  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, limitAlternativesToLocal));
+
+  vector<int8_t> prioritizedLangs = {};
+
+  vector<int8_t> const langs = languages::GetPreferredLangIndexes();
+
+  int8_t defaultLang = StrUtf8::kUnsupportedLanguageCode;
+  if (regionData.has_value())
+    defaultLang = DefaultLanguageFromRegionData(regionData.value(), langs);
+
+  for (auto const lang : langs)
+  {
+    if (!limitAlternativesToLocal &&
+        find(prioritizedLangs.begin(), prioritizedLangs.end(), lang) == prioritizedLangs.end())
+      prioritizedLangs.push_back(lang);
+
+    if (defaultLang != StrUtf8::kUnsupportedLanguageCode && defaultLang == lang)
+      prioritizedLangs.push_back(StrUtf8::kDefaultCode);
+
+    if (!limitAlternativesToLocal)
+    {
+      auto const similarLangs = GetSimilarLanguages(lang);
+      prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
+    }
+  }
+
+  if (limitAlternativesToLocal)
+  {
+    auto lang = langs.front();
+    prioritizedLangs.push_back(lang);
+    auto const similarLangs = GetSimilarLanguages(lang);
+    prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
+  }
+
+  prioritizedLangs.push_back(StrUtf8::kInternationalCode);
+  prioritizedLangs.push_back(StrUtf8::kEnglishCode);
+  prioritizedLangs.push_back(StrUtf8::kDefaultCode);
+
+  return prioritizedLangs;
+}
 
 NameParamsIn::NameParamsIn(StringUtf8Multilang const & src_, RegionData const & regionData_,
                            std::string_view deviceLang_, bool allowTranslit_)

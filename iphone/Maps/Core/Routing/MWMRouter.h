@@ -57,6 +57,7 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 + (void)buildToPoint:(MWMRoutePoint *)finish bestRouter:(BOOL)bestRouter;
 + (void)buildApiRouteWithType:(MWMRouterType)type
                    startPoint:(MWMRoutePoint *)startPoint
+            intermediatePoint:(MWMRoutePoint *)intermediatePoint
                   finishPoint:(MWMRoutePoint *)finishPoint;
 + (void)rebuildWithBestRouter:(BOOL)bestRouter;
 

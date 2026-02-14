@@ -1193,7 +1193,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mOnmapDownloader != null)
       mOnmapDownloader.onResume();
 
-    mNavigationController.refresh();
+    mNavigationController.refresh(getApplicationContext());
     refreshLightStatusBar();
 
     MwmApplication.from(this).getSensorHelper().addListener(this);

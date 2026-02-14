@@ -2,12 +2,13 @@
 
 #include "generator/feature_builder.hpp"
 #include "generator/intermediate_data.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/routing_helpers.hpp"
 
 #include "routing/road_penalty_serialization.hpp"
 #include "routing/routing_helpers.hpp"
 #include "routing/vehicle_mask.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "coding/file_reader.hpp"
 #include "coding/file_writer.hpp"

@@ -2,9 +2,10 @@
 
 #include "generator/feature_builder.hpp"
 #include "generator/final_processor_utils.hpp"
-#include "generator/osm_element.hpp"
 
 #include "routing/routing_helpers.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

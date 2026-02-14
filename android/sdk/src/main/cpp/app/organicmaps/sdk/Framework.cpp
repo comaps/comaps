@@ -1496,6 +1496,12 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSet3dMode(JNIEnv
   g_framework->Set3dMode(allow3d, allow3dBuildings);
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCarScreenMode(JNIEnv * env, jclass, jboolean enabled)
+{
+  if (g_framework)
+    frm()->SetCarScreenMode(static_cast<bool>(enabled));
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeGet3dMode(JNIEnv * env, jclass, jobject result)
 {
   bool enabled;

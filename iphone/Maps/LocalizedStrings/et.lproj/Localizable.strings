@@ -1101,4 +1101,6 @@
 "voice_explanation_before_version26" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Räägitav sisu* → *Hääled*.";
 "voice_explanation" = "Süsteemi seadistustest saad valida parema hääle: *Hõlbustus* → *Lugemine ja rääkimine* → *Hääled*.";
 "avoid_paved" = "Väldi sillutatud teid";
-"limit_map_language_alternatives_to_local" = "Piirdu keelte alternatiivide puhul kohalike keeltega";
+"pref_alt_map_lang_handling_local_only" = "Eelista ja kasuta vaid kohalikku keelt";
+"pref_alt_map_lang_handling" = "Alternatiivsed kaardikeeled";
+"pref_alt_map_lang_handling_system_order" = "Kasuta süsteemi järjestuses";

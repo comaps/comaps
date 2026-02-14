@@ -1553,6 +1553,7 @@
 "type.waterway.ditch.tunnel" = "Culvert";
 "type.waterway.dock" = "Waterway Dock";
 "type.waterway.drain" = "Drain";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "Culvert";
 "type.waterway.lock_gate" = "Lock Gate";

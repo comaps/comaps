@@ -15,6 +15,7 @@
     _centerLat = center.m_lat;
     _centerLon = center.m_lon;
     _isSearchOnMap = request.m_isSearchOnMap;
+    _selectFirstResult = request.m_selectFirstResult;
   }
   return self;
 }

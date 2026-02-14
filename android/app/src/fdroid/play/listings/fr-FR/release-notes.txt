@@ -1,0 +1,9 @@
+• Données OpenStreetMap du 7 février
+• Ajout d'une option d'affichage des limites de vitesse
+• Désactivation de la vue 3D en mode navigation sur Android Auto
+• Ajout des quais de carburants
+• Affichage des favoris et résultats de recherche au-dessus des lignes de métro
+• Réduction de la visibilité des numéros d'adresses
+• Editeur OSM: mise à jour automatique de la date de dernière vérification du lieu
+
+Plus de détails sur comaps.app/latest

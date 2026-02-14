@@ -253,20 +253,4 @@ double GetPedestrianClimbPenalty(EdgeEstimator::Purpose purpose, double tangent,
  */
 double GetBicycleClimbPenalty(EdgeEstimator::Purpose purpose, double tangent, geometry::Altitude altitudeM);
 
-/**
- * @brief Calculates the climb penalty for cars.
- *
- * The climb penalty is a factor which can be multiplied with the cost of an edge which goes uphill
- * or downhill. The factor for no penalty is 1, i.e. the cost of the edge is not changed.
- *
- * The climb penalty may depend on the mode of transportation, the ascent or descent, as well as the
- * altitude (allowing for different penalties at greater altitudes).
- *
- * @param purpose The purpose for which the result is to be used.
- * @param tangent The tangent of the ascent or descent (10% would be 0.1 for ascent, -0.1 for descent).
- * @param altitudeM The altitude in meters.
- * @return The climb penalty, as a factor.
- */
-double GetCarClimbPenalty(EdgeEstimator::Purpose purpose, double tangent, geometry::Altitude altitudeM);
-
 }  // namespace routing

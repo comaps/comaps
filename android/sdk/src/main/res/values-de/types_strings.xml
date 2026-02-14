@@ -338,7 +338,7 @@
     <string name="type.cuisine.vietnamese">Vietnamesisch</string>
     <string name="type.emergency">Notfall</string>
     <string name="type.emergency.access_point">Rettungspunkt</string>
-    <string name="type.emergency.access_point.address">Rettungsadresse</string>
+    <string name="type.emergency.access_point.address">Notfallrettungsadresse</string>
     <string name="type.emergency.assembly_point">Notfall-Sammelpunkt</string>
     <string name="type.emergency.disaster_help_point">Notfall-Treffpunkt</string>
     <string name="type.emergency.life_ring">Rettungsring</string>
@@ -354,8 +354,8 @@
     <string name="type.beacon.isolated_danger">Einzelgefahrenbake</string>
     <string name="type.beacon.lateral.port">Lateralbake</string>
     <string name="type.beacon.lateral.starboard">Lateralbake</string>
-    <string name="type.beacon.safe_water">Mittefahrwasserbarke</string>
-    <string name="type.beacon.special_purpose">Spezialbake</string>
+    <string name="type.beacon.safe_water">Mittefahrwasserbake</string>
+    <string name="type.beacon.special_purpose">Sonderzeichen-Bake</string>
     <string name="type.buoy.cardinal.east">Kardinalboje</string>
     <string name="type.buoy.cardinal.north">Kardinalboje</string>
     <string name="type.buoy.cardinal.south">Kardinalboje</string>
@@ -364,7 +364,7 @@
     <string name="type.buoy.lateral.port">Lateralboje</string>
     <string name="type.buoy.lateral.starboard">Lateralboje</string>
     <string name="type.buoy.safe_water">Mittefahrwasserboje</string>
-    <string name="type.buoy.special_purpose">Spezialboje</string>
+    <string name="type.buoy.special_purpose">Sonderzeichen-Boje</string>
     <string name="type.spherical_buoy.cardinal.east">Kugelförmige Kardinalboje</string>
     <string name="type.spherical_buoy.cardinal.north">Kugelförmige Kardinalboje</string>
     <string name="type.spherical_buoy.cardinal.south">Kugelförmige Kardinalboje</string>
@@ -373,7 +373,7 @@
     <string name="type.spherical_buoy.lateral.port">Kugelförmige Lateralboje</string>
     <string name="type.spherical_buoy.lateral.starboard">Kugelförmige Lateralboje</string>
     <string name="type.spherical_buoy.safe_water">Kugelförmige Mittefahrwasserboje</string>
-    <string name="type.spherical_buoy.special_purpose">Kugelförmige Spezialboje</string>
+    <string name="type.spherical_buoy.special_purpose">Kugelförmige Sonderzeichen-Boje</string>
     <string name="type.lateral.port">Backbord</string>
     <string name="type.lateral.starboard">Steuerbord</string>
     <string name="type.cardinal.east">Osten</string>
@@ -388,9 +388,9 @@
     <string name="type.entrance.main">Haupteingang</string>
     <string name="type.entrance.house">Hauseingang</string>
     <string name="type.entrance.garage">Garageneingang</string>
-    <string name="type.entrance.service">Serviceeingang</string>
-    <string name="type.entrance.entry">(Nur) Eingang</string>
-    <string name="type.entrance.exit">(Nur) Ausgang</string>
+    <string name="type.entrance.service">Service-Eingang</string>
+    <string name="type.entrance.entry">Eingang (ausschließlich)</string>
+    <string name="type.entrance.exit">Ausgang (ausschließlich)</string>
     <string name="type.entrance.emergency">Notausgang</string>
     <string name="type.fee.no">Kostenlos</string>
     <string name="type.healthcare.laboratory">Medizinisches Labor</string>
@@ -1035,7 +1035,7 @@
     <string name="type.railway.station.subway.wuhan">U-Bahn-Station</string>
     <string name="type.railway.station.subway.yerevan">U-Bahn-Station</string>
     <string name="type.railway.station.subway.yokohama">U-Bahn-Station</string>
-    <string name="type.railway.subway">U-Bahn</string>
+    <string name="type.railway.subway">U-Bahn-Linie</string>
     <string name="type.railway.subway.bridge">U-Bahn-Brücke</string>
     <string name="type.railway.subway.tunnel">U-Bahn-Tunnel</string>
     <string name="type.railway.subway_entrance">U-Bahn-Eingang</string>
@@ -1510,4 +1510,5 @@
     <string name="type.railway.turntable">Eisenbahn-Drehscheibe</string>
     <string name="type.tourism.information.tactile_map">Taktile Karte</string>
     <string name="type.railway.miniature">Miniatureisenbahn</string>
+    <string name="type.waterway.fuel">Bunkerstation</string>
 </resources>

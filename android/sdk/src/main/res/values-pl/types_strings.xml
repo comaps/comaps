@@ -44,8 +44,8 @@
     <string name="type.leisure.adult_gaming_centre">Centrum gier dla dorosłych</string>
     <string name="type.leisure.amusement_arcade">Arkada</string>
     <string name="type.amenity.charging_station">Stacja ładowania</string>
-    <string name="type.amenity.charging_station.bicycle">Stacja ładowania rowerów</string>
-    <string name="type.amenity.charging_station.motorcar">Stacja ładowania samochodów</string>
+    <string name="type.amenity.charging_station.bicycle">Rowery</string>
+    <string name="type.amenity.charging_station.motorcar">Samochody</string>
     <string name="type.amenity.childcare">Opieka nad dziećmi</string>
     <string name="type.amenity.cinema">Kino</string>
     <string name="type.leisure.bowling_alley">Kręgielnia</string>
@@ -1494,4 +1494,15 @@
     <string name="type.cardinal.south">Południe</string>
     <string name="type.cardinal.west">Zachód</string>
     <string name="type.amenity.prep_school">Szkoła przygotowująca do egzaminów</string>
+    <string name="type.amenity.charging_station.motorcycle">Motocykle</string>
+    <string name="type.amenity.charging_station.small">Ograniczona liczba miejsc</string>
+    <string name="type.amenity.hydrant">Hydrant irygacyjny</string>
+    <string name="type.railway.disused.bridge">Nieużywany most kolejowy</string>
+    <string name="type.railway.disused.tunnel">Nieużywany tunel kolejowy</string>
+    <string name="type.railway.miniature">Minikolejka</string>
+    <string name="type.railway.miniature.bridge">Most minikolejki</string>
+    <string name="type.railway.miniature.tunnel">Tunel minikolejki</string>
+    <string name="type.railway.turntable">Obrotnica kolejowa</string>
+    <string name="type.tourism.information.tactile_map">Mapa dla niewidomych</string>
+    <string name="type.waterway.fuel">Stacji paliw dla łodzi motorowych</string>
 </resources>

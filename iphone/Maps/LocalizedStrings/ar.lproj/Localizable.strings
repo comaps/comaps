@@ -34,7 +34,7 @@
 "use_cellular_data" = "نعم";
 
 /* View and button titles for accessibility */
-"zoom_to_country" = "عرض على الخريطة";
+"zoom_to_country" = "أظهِر على الخريطة";
 
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "تنزيل الخريطة";
@@ -48,13 +48,13 @@
 /* Text in About screen */
 "about_proposition_2" = "مُركّز على الخصوصية وخالٍ من الإعلانات";
 "close" = "إغلاق";
-"download" = "تنزيل";
+"download" = "نزّل";
 
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "استمرار";
 
 /* "Add new bookmark list" dialog title */
-"add_new_set" = "إضافة قائمة جديدة";
+"add_new_set" = "أضف قائمة جديدة";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "اسم قائمة الإشارات المرجعية";
@@ -160,7 +160,7 @@
 "load_kmz_failed" = "فشلت عملية تحميل الإشارات المرجعية. قد يكون الملف تالف أو غير صالح.";
 
 /* resource for context menu */
-"edit" = "تعديل";
+"edit" = "عدِّل";
 
 /* Warning message when doing search around current position */
 "unknown_current_position" = "لم يتم تحديد موقعك بعد.";
@@ -229,7 +229,7 @@
 "pref_map_3d_buildings_title" = "مباني ثلاثية الأبعاد";
 
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
-"pref_map_3d_buildings_disabled_summary" = "يتم إيقاف تشغيل المباني ثلاثية الأبعاد في وضع توفير الطاقة";
+"pref_map_3d_buildings_disabled_summary" = "تشغيل المباني ثلاثية الأبعاد مُعطّلة في وضع توفير الطاقة";
 
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "تعليمات صوتية";
@@ -241,7 +241,7 @@
 "pref_tts_street_names_title" = "أعلن أسماء الشوارع";
 
 /* Settings «Route» category: «Tts announce street names» description */
-"pref_tts_street_names_description" = "عند التمكين ، سيتم نطق اسم الشارع أو المخرج الذي سيتم تشغيله بصوت عالٍ.";
+"pref_tts_street_names_description" = "عند التفعيل، سيتم النطق باسم الشارع أو المخرج الذي يجب الانعطاف إليه بصوت عالٍ.";
 
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "لغة الصوت";
@@ -253,7 +253,7 @@
 "pref_tts_other_section_title" = "آخر";
 "pref_map_auto_zoom" = "تكبير تلقائي";
 "placepage_distance" = "المسافة";
-"search_show_on_map" = "مشاهدة على الخريطة";
+"search_show_on_map" = "اعرض على الخريطة";
 
 /* Text in menu */
 "website" = "الموقع الإلكتروني";
@@ -313,7 +313,7 @@
 "copyright" = "حقوق النشر";
 
 /* Text in menu + Button in the main Help dialog */
-"report_a_bug" = "الإبلاغ عن خطأ";
+"report_a_bug" = "بلِّغ عن علة";
 
 /* Button in the About screen */
 "report_incorrect_map_bug" = "الإبلاغ عن بيانات الخريطة غير الصحيحة أو إصلاحها";
@@ -334,10 +334,10 @@
 "long_tap_toast" = "اضغط مطولاً على الخريطة مرة أخرى لرؤية الواجهة";
 
 /* Update all button text */
-"downloader_update_all_button" = "تحديث الكل";
+"downloader_update_all_button" = "حدِّث الكل";
 
 /* Downloaded maps list header */
-"downloader_downloaded_subtitle" = "التي تم تنزيلها";
+"downloader_downloaded_subtitle" = "مُنزلة";
 
 /* Downloaded maps category */
 "downloader_available_maps" = "متوفر";
@@ -371,13 +371,13 @@
 "downloader_retry" = "المحاولة مجدداً";
 
 /* Item in context menu. */
-"downloader_delete_map" = "حذف الخريطة";
+"downloader_delete_map" = "احذف الخريطة";
 
 /* Text for routing error dialog */
-"routing_download_maps_along" = "تنزيل الخرائط على طول طريقك";
+"routing_download_maps_along" = "نزّل جميع الخرائط على طول مسارك";
 
 /* Text for routing error dialog */
-"routing_requires_all_map" = "من أجل تعيين الطريق، نحتاج إلى تنزيل أو تحديث جميع الخرائط التي تغطي المنطقة من موقعك إلى وجهتك";
+"routing_requires_all_map" = "لإنشاء مسار، نحتاج إلى تنزيل وتحديث جميع الخرائط من موقعك إلى وجهتك.";
 
 /* bookmark button text */
 "bookmark" = "إشارة مرجعية";
@@ -432,16 +432,16 @@
 /* blue gray color */
 "blue_gray" = "رمادي أزرق";
 "dialog_routing_disclaimer_title" = "عند اتباع المسار، يُرجى الانتباه إلى ما يلي:";
-"dialog_routing_disclaimer_priority" = "— إن ظروف الطريق وقوانين وإشارات المرور لها الأولوية على المشورة الملاحية دائماً;";
+"dialog_routing_disclaimer_priority" = "— ظروف الطريق وقوانين المرور وإشارات الطريق لها الأولوية دائمًا على تلميحات الملاحة؛";
 "dialog_routing_disclaimer_precision" = "— قد تكون الخريطة غير دقيقة وقد لا يكون المسار المقترح هو المسار الأمثل دائمًا للوصول إلى الوجهة.;";
 "dialog_routing_disclaimer_recommendations" = "— يجب التعامل مع المسارات المقترحة كتوصيات فقط;";
-"dialog_routing_disclaimer_borders" = "— تحذير بشأن المسارات في المناطق الحدودية: المسارات التي تم إنشاؤها بواسطة تطبيقنا قد تعبر أحياناً حدود الدول في أماكن غير مصرح بها;";
+"dialog_routing_disclaimer_borders" = "— توخ الحذر مع المسارات في المناطق الحدودية: قد تعبر المسارات التي ينشئها تطبيقنا حدود الدول أحيانًا في أماكن غير مصرح بها.";
 "dialog_routing_disclaimer_beware" = "يجب أن تظل يقظًا وآمنًا على الطريق!";
 "dialog_routing_check_gps" = "تحقق من إشارة نظام تحديد الموقع الجغرافي";
-"dialog_routing_error_location_not_found" = "تعذر إنشاء مسار. لم نستطع تحديد الإحداثيات الجغرافية الحالية.";
-"dialog_routing_location_turn_wifi" = "الرجاء التحقق من إشارة نظام تحديد الموقع. إن تفعيل الWi-Fi سيحسب دقة الموقع.";
-"dialog_routing_location_turn_on" = "تفعيل خدمات الموقع الجغرافي";
-"dialog_routing_location_unknown_turn_on" = "لم نستطع تحديد الإحداثيات الجغرافية الحالي. قم بتفعيل خدمات الموقع الجغرافي لحساب الطريق المناسب";
+"dialog_routing_error_location_not_found" = "تعذر إنشاء المسار. لم يمكن التعرف على إحداثيات GPS الحالية.";
+"dialog_routing_location_turn_wifi" = "يُرجى التحقق من إشارة الـ GPS. تفعيل الـ Wi-Fi سيحسن دقة تحديد موقعك.";
+"dialog_routing_location_turn_on" = "فعِّل خدمات الموقع";
+"dialog_routing_location_unknown_turn_on" = "تعذر تحديد إحداثيات GPS الحالية. يُرجى تفعيل خدمات الموقع لحساب المسار.";
 "dialog_routing_download_files" = "تنزيل الملفات المطلوبة";
 "dialog_routing_download_and_update_all" = "قم بتنزيل وتحديث كافة الخرائط ومعلومات التوجيه على طول الطريق المتوقع لحساب المسار.";
 "dialog_routing_unable_locate_route" = "تعذر إيجاد المسار";
@@ -461,10 +461,10 @@
 "dialog_routing_download_cross_route" = "تنزيل خرائط إضافية لإنشاء مسار أفضل يعبر حافة هذه الخريطة.";
 
 /* «Show» context menu */
-"show" = "عرض";
+"show" = "اعرض";
 
 /* «Hide» context menu */
-"hide" = "إخفاء";
+"hide" = "أخفِ";
 
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "فشل في تخطيط المسار";
@@ -491,24 +491,24 @@
 "wikimedia_commons" = "ويكيميديا كومنز";
 "p2p_your_location" = "موقعك";
 "p2p_start" = "ابدأ";
-"p2p_from_here" = "الطريق من هنا";
-"p2p_to_here" = "الطريق إلى";
+"p2p_from_here" = "مسار من";
+"p2p_to_here" = "المسار إلى";
 "p2p_only_from_current" = "تتوفر الملاحة من خلال موقعك الحالي فقط.";
 "p2p_reroute_from_current" = "هل ترغب في أن نرسم مسار لك من موقعك الحالي؟";
-"editor_time_add" = "إضافة جدول";
-"editor_time_delete" = "حذف جدول";
+"editor_time_add" = "أضف جدول";
+"editor_time_delete" = "احذف جدول";
 
 /* Text for allday switch. */
 "editor_time_allday" = "طوال اليوم (٢٤ ساعة)";
 "editor_time_open" = "مفتوح";
 "editor_time_close" = "مغلق";
-"editor_time_add_closed" = "إضافة ساعات راحة";
+"editor_time_add_closed" = "أضف ساعات راحة";
 "editor_time_title" = "ساعات العمل";
 "editor_time_advanced" = "الوضع المتقدم";
 "editor_time_simple" = "الوضع البسيط";
 "editor_hours_closed" = "ساعات الراحة";
 "editor_example_values" = "أمثلة على القيم";
-"editor_add_select_location" = "اختر الموقع";
+"editor_add_select_location" = "حدّد الموقع";
 "editor_done_dialog_1" = "لقد ساهمت بتحسين خريطة العالم. لا تخفي ذلك! أخبر أصدقائك، وحسنوها معاً.";
 "share_with_friends" = "شارك مع الأصدقاء";
 "editor_report_problem_send_button" = "إرسال";
@@ -555,16 +555,16 @@
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "آخر تعديل";
 "thank_you" = "شكراً لك";
-"edit_place" = "تعديل المكان";
+"edit_place" = "عدِّل المكان";
 "place_name" = "اسم المكان";
-"add_language" = "إضافة لغة";
+"add_language" = "أضف لغة";
 
 /* Editable House Number text field (in address block). */
 "house_number" = "رقم المنزل";
 "details" = "التفاصيل";
 
 /* Text field to enter non-existing street name, below list of known streets around */
-"add_street" = "إضافة شارع";
+"add_street" = "أضف شارع";
 "choose_language" = "اختر اللغة";
 "choose_street" = "اختر الشارع";
 "postal_code" = "الرمز البريدي";
@@ -577,19 +577,19 @@
 "level" = "طابق";
 "please_note" = "يرجى العلم أنه،";
 "downloader_delete_map_dialog" = "سيتم حذف جميع التغييرات بالخريطة بالإضافة إلى حذف الخريطة نفسها.";
-"downloader_update_maps" = "تحديث الخرائط";
+"downloader_update_maps" = "حدِّث الخرائط";
 "downloader_search_field_hint" = "ابحث عن خريطة";
 "migration_download_error_dialog" = "خطأ بالتنزيل";
 "common_check_internet_connection_dialog" = "يرجى التحقق من الإعدادات والتأكد من اتصال جهازك بالإنترنت.";
 "downloader_no_space_title" = "لا تتوفر مساحة كافية";
-"downloader_no_space_message" = "من فضلك، قم بإزالة البيانات غير الضرورية";
+"downloader_no_space_message" = "الرجاء حذف البيانات غير الضرورية";
 "editor_profile_changes" = "التعديلات التي تم التحقق منها";
 "editor_focus_map_on_location" = "اسحب الخريطة لوضع الصليب في موقع المكان أو النشاط التجاري.";
 "editor_add_select_category" = "اختر الفئة";
 "editor_add_select_category_popular_subtitle" = "رائج";
 "editor_add_select_category_all_subtitle" = "جميع الفئات";
-"editor_edit_place_title" = "يتم التعديل";
-"editor_add_place_title" = "يتم الإضافة";
+"editor_edit_place_title" = "التعديل";
+"editor_add_place_title" = "الإضافة";
 "editor_edit_place_name_hint" = "اسم المكان";
 
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
@@ -666,7 +666,7 @@
 "placepage_more_button" = "المزيد";
 "book_button" = "حجز";
 "placepage_call_button" = "اتصال";
-"placepage_edit_bookmark_button" = "تحرير العلامة المرجعية";
+"placepage_edit_bookmark_button" = "عدِّل المكان المحفوظ";
 "placepage_bookmark_name_hint" = "اسم العلامة المرجعية";
 "placepage_personal_notes_hint" = "ملاحظات شخصية (نص أو html)";
 "placepage_delete_bookmark_button" = "حذف العلامة المرجعية";
@@ -674,8 +674,8 @@
 "editor_comment_hint" = "تعليق…";
 "editor_reset_edits_message" = "هل تريد مسح كافة التغييرات المحلية؟";
 "editor_reset_edits_button" = "مسح";
-"editor_remove_place_message" = "إزالة مكان الذي تمت إضافته؟";
-"editor_remove_place_button" = "إزالة";
+"editor_remove_place_message" = "حذف المكان المُضاف؟";
+"editor_remove_place_button" = "احذف";
 "editor_place_doesnt_exist" = "المكان غير موجود";
 "text_more_button" = "…المزيد";
 
@@ -704,12 +704,12 @@
 "general_settings" = "الإعدادات العامة";
 
 /* For the first routing */
-"accept" = "قبول";
+"accept" = "اقبل";
 
 /* For the first routing */
 "decline" = "رفض";
 "mobile_data_dialog" = "استخدام بيانات الجوال لإظهار المعلومات التفصيلية؟";
-"mobile_data_option_always" = "استخدام دائمًا";
+"mobile_data_option_always" = "استخدم دائمًا";
 "mobile_data_option_today" = "اليوم فقط";
 "mobile_data_option_not_today" = "عدم الاستخدام اليوم";
 "mobile_data" = "بيانات الجوال";
@@ -726,7 +726,7 @@
 
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "البيانات المرورية غير متاحة";
-"enable_logging" = "تفعيل التسجيل";
+"enable_logging" = "فعِّل التسجيل";
 "log_file_size" = "حجم ملف السجل: %@";
 "transliteration_title" = "كتابة جميع الاسماء بالحروف اللاتينية بشكل حرفي";
 
@@ -734,15 +734,15 @@
 "core_exit" = "خروج";
 
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
-"routing_add_start_point" = "استخدام البحث أو النقر على الخريطة لإضافة نقطة بداية الطريق";
+"routing_add_start_point" = "استخدم البحث أو النقر على الخريطة لإضافة نقطة بداية مسار";
 
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
-"routing_add_finish_point" = "استخدام البحث أو النقر على الخريطة لإضافة نقطة وجهة";
+"routing_add_finish_point" = "استخدم البحث أو النقر على الخريطة لإضافة نقطة وجهة";
 "planning_route_manage_route" = "إدارة المسار";
 "button_plan" = "خطة";
-"placepage_remove_stop" = "إزالة نقطة توقف";
+"placepage_remove_stop" = "أزِل نقطة توقف";
 "planning_route_remove_title" = "اسحب هنا للإزالة";
-"placepage_add_stop" = "إضافة نقطة توقف";
+"placepage_add_stop" = "أضف نقطة توقف";
 "start_from_my_position" = "بدء من";
 
 /* Title for button when a route was saved. */
@@ -752,9 +752,9 @@
 "bookmark_lists" = "قوائم";
 
 /* Do not display all bookmark lists on the map */
-"bookmark_lists_hide_all" = "إخفاء الكل";
-"bookmark_lists_show_all" = "إظهار الكل";
-"bookmarks_create_new_group" = "إنشاء قائمة جديدة";
+"bookmark_lists_hide_all" = "أخفِ الكل";
+"bookmark_lists_show_all" = "أظهِر الكل";
+"bookmarks_create_new_group" = "أنشئ قائمة جديدة";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "استيراد الإشارات المرجعية والمسارات";
@@ -783,7 +783,7 @@
 "popular_place" = "رائج";
 "export_file" = "تصدير KMZ";
 "export_file_gpx" = "تصدير GPX";
-"delete_list" = "حذف القائمة";
+"delete_list" = "احذف القائمة";
 "hide_from_map" = "إخفاء من الخريطة";
 "tags_loading_error_subtitle" = "حدث خطأ أثناء تحميل العلامات ، يرجى المحاولة مرة أخرى";
 "download_button" = "تنزيل";
@@ -803,7 +803,7 @@
 "power_managment_setting_never" = "أبدًا";
 "power_managment_setting_auto" = "تلقائي";
 "power_managment_setting_manual_max" = "توفير الطاقة الأقصى";
-"enable_logging_warning_message" = "هذا الخيار يقوم ببدأ تسجيل سجلات التطبيق لإغراض التشخيصة. يمكن أن يكون مفيدًا لفريق الدعم الخاص بنا لحل المشاكل التي تواجهكم داخل التطبيق. قم بتفعيل هذا الخيار بشكل مؤقت فقط في حالة طلب الدعم من CoMaps.";
+"enable_logging_warning_message" = "فعِّل هذا الخيار مؤقتًا لتسجيل وإرسال سجلات تشخيصية مفصلة حول مشكلتك إلينا يدويًا باستخدام \"بلِّغ عن علة\" في مربع حوار المساعدة. قد تتضمن السجلات معلومات الموقع.";
 "driving_options_title" = "خيارات رسم المسار";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
@@ -815,10 +815,10 @@
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_ferry" = "تجنب استخدام العبّارات";
 "avoid_motorways" = "تجنب الطريق السريع";
-"unable_to_calc_alert_title" = "لا يمكن حساب الطريق";
-"unable_to_calc_alert_subtitle" = "نأسف، لم نعثر على الطريق ربما بسبب الخيارات التي قمت بتحديدها. يرجى تغيير الإعدادات والمحاولة مجددًا";
+"unable_to_calc_alert_title" = "تعذر حساب المسار";
+"unable_to_calc_alert_subtitle" = "لم يتم العثور على مسار. قد يكون هذا بسبب خيارات توجيهك أو بيانات OpenStreetMap غير المكتملة. يُرجى تغيير خيارات توجيهك وإعادة المحاولة.";
 "define_to_avoid_btn" = "حدد الطرق التي يجب تجنبها";
-"change_driving_options_btn" = "تم تفعيل خيارات رسم الطريق";
+"change_driving_options_btn" = "فُعِّل خيارات التوجيه";
 "toll_road" = "طريق برسوم مرور";
 "unpaved_road" = "طريق غير معبد";
 "ferry_crossing" = "استخدام عبّارة";
@@ -1078,7 +1078,7 @@
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "المسار فارغ - لا يوجد شيء للحفظ";
-"edit_track" = "تعديل المسار";
+"edit_track" = "عدِّل المسار";
 "osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) هو مشروع مجتمعي لبناء خريطة مجانية ومفتوحة. إنه المصدر الرئيسي لبيانات الخرائط في CoMaps ويعمل على غرار ويكيبيديا. يمكنك إضافة الأماكن أو تعديلها وتصبح متاحة لملايين المستخدمين في جميع أنحاء العالم.\nنضم إلى المجتمع وساعد في إنشاء خريطة أفضل للجميع!";
 "osm_profile_view_edit_history" = "عرض سجل مساهمات";
 "osm_profile_view_notes" = "عرض ملاحظات";

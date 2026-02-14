@@ -60,16 +60,16 @@
 "add_new_set" = "Dodaj nowy zestaw";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Nazwa zestawu zakładek";
+"bookmark_set_name" = "Nazwa listy";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Zestawy zakładek";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Zakładki";
+"bookmarks" = "Miejsca";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Zakładki i trasy";
+"bookmarks_and_tracks" = "Ulubione";
 
 /* Default bookmark list name */
 "core_my_places" = "Moje miejsca";
@@ -154,13 +154,13 @@
 "share_bookmarks_email_body" = "Cześć!\n\nZałączam moje zakładki z aplikacji CoMaps. Proszę otwórz je jeżeli masz zaintalowane CoMaps. Jeżeli nie masz, możesz pobrać ją tutaj: https://www.comaps.app/download/\n\nMiłego podróżowania z CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Wczytywanie zakładek";
+"load_kmz_title" = "Wczytywanie Ulubionych";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Wczytano zakładki! Można odnaleźć je na mapie lub na ekranie menedżera zakładek.";
+"load_kmz_successful" = "Wczytano ulubione miejsca! Można odnaleźć je na mapie lub na ekranie menedżera ulubionych.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Nieudane wczytywanie zakładek. Plik może być uszkodzony lub posiadać defekty.";
+"load_kmz_failed" = "Nieudane wczytywanie ulubionych miejsc. Plik może być uszkodzony lub posiadać defekty.";
 
 /* resource for context menu */
 "edit" = "Edytuj";
@@ -670,14 +670,14 @@
 "placepage_more_button" = "Więcej";
 "book_button" = "Zarezerwuj";
 "placepage_call_button" = "Zadzwoń";
-"placepage_edit_bookmark_button" = "Edytuj zakładkę";
+"placepage_edit_bookmark_button" = "Edytuj zapisane miejsce";
 "placepage_bookmark_name_hint" = "Nazwa zakładki";
 "placepage_personal_notes_hint" = "Notatki osobiste (tekst lub html)";
 "placepage_delete_bookmark_button" = "Usuń zakładkę";
 "editor_edits_sent_message" = "Twoja notatka zostanie wysłana do OpenStreetMap";
 "editor_comment_hint" = "Komentarz…";
 "editor_reset_edits_message" = "Usunąć wszystkie lokalne zmiany?";
-"editor_reset_edits_button" = "Usuń";
+"editor_reset_edits_button" = "Porzuć zmiany";
 "editor_remove_place_message" = "Usunąć dodane miejsce?";
 "editor_remove_place_button" = "Usuń";
 "editor_place_doesnt_exist" = "Takie miejsce nie istnieje";
@@ -761,7 +761,7 @@
 "bookmarks_create_new_group" = "Utwórz nową listę";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importuj zakładki i trasy";
+"bookmarks_import" = "Importuj ulubione";
 "downloader_hide_screen" = "Ukryj ekran";
 "downloader_percent" = "%@ (%@ z %@)";
 "downloader_process" = "Pobieranie %@…";
@@ -1078,7 +1078,7 @@
 "continue_recording" = "Kontynuuj nagrywanie";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Zapisać nagranie w zakładkach i trasach?";
+"track_recording_alert_title" = "Zapisać nagranie w ulubionych?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Trasa jest pusta - nic do zapisania";

@@ -38,12 +38,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: beta
     steps:
-      - name: Install build tools and dependencies
-        shell: bash
-        run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
-
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
@@ -72,8 +66,6 @@ jobs:
         shell: bash
         working-directory: android
         run: |
-          cmake --version
-          ninja --version
           ./gradlew -Pfirebase assembleGoogleBeta uploadCrashlyticsSymbolFileGoogleBeta uploadCrashlyticsMappingFileGoogleBeta
 
       - name: Upload beta apk to App Distribution

@@ -44,7 +44,7 @@
     <!-- Text in About screen -->
     <string name="about_developed_by_enthusiasts">Complet open source, fără scop lucrativ, decizii și finanțare transparente.</string>
     <!-- The button that opens system location settings -->
-    <string name="location_settings">Setări de locație</string>
+    <string name="location_settings">Setări locație</string>
     <string name="close">Închide</string>
     <string name="unsupported_phone">Această aplicație necesită accelerarea hardware OpenGL. Din păcate, dispozitivul tău nu este compatibil.</string>
     <string name="download">Descarcă</string>
@@ -149,13 +149,13 @@
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Favortite”.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Încărcarea locurilor favorite a eșuat. Fișierul poate fi defect.</string>
+    <string name="load_kmz_failed">Încărcarea locurilor favorite a eșuat. Fișierul poate fi corupt.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Tipul de fișier nu este recunoscut de aplicație: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
     <string name="failed_to_open_file">Nu a reușit să deschidă fișierul %1$s \n \n%2$s</string>
     <!-- resource for context menu -->
-    <string name="edit">Modifică</string>
+    <string name="edit">Editează</string>
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Poziția ta nu a fost stabilită încă</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
@@ -410,7 +410,7 @@
     <string name="opens_in">Deschide în %s</string>
     <string name="closes_in">Închide în %s</string>
     <string name="closed">Închis</string>
-    <string name="edit_opening_hours">Modifică orele de funcționare</string>
+    <string name="edit_opening_hours">Editează programul de funcționare</string>
     <string name="no_osm_account">Nu ai un cont OpenStreetMap?</string>
     <string name="register_at_openstreetmap">Înregistrați-vă la OpenStreetMap</string>
     <string name="login">Autentificare</string>
@@ -495,7 +495,7 @@
     <string name="day">z</string>
     <string name="placepage_more_button">Mai mult</string>
     <string name="placepage_edit_bookmark_button">Modifică locul preferat</string>
-    <string name="placepage_personal_notes_hint">Însemnări personale (text sau html)</string>
+    <string name="placepage_personal_notes_hint">Notițe personale (text sau html)</string>
     <string name="editor_reset_edits_message">Ștergi toate modificările locale?</string>
     <string name="editor_reset_edits_button">Renunță la modificări</string>
     <string name="editor_remove_place_message">Elimini locul adăugat?</string>
@@ -517,7 +517,7 @@
     <string name="editor_share_to_all_dialog_title">Vrei să-l trimiți tuturor utilizatorilor?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
     <string name="editor_share_to_all_dialog_message_1">Asigură-te că nu ai introdus niciun fel de date personale</string>
-    <string name="editor_share_to_all_dialog_message_2">Editorii OpenStreetMap vor verifica modificările și vor lua legătura cu dvs. dacă au întrebări</string>
+    <string name="editor_share_to_all_dialog_message_2">Editorii OpenStreetMap vor verifica modificările și vor lua legătura cu dvs. dacă au întrebări.</string>
     <string name="navigation_stop_button">Oprește</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Înregistrarea traseului</string>
@@ -594,7 +594,7 @@
         <item quantity="other">%d trasee</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
-    <string name="privacy">Intimitate</string>
+    <string name="privacy">Confidențialitate</string>
     <string name="privacy_policy">Confidențialitate</string>
     <string name="terms_of_use">Termeni de utilizare</string>
     <string name="button_layer_traffic">Trafic</string>
@@ -603,7 +603,7 @@
     <string name="bookmarks_empty_list_title">Lista este goală</string>
     <string name="bookmarks_empty_list_message">Pentru a adăuga un loc preferat, ține apăsat un loc pe hartă și după aceea atinge simbolul în formă de stea</string>
     <string name="category_desc_more">…mai mult</string>
-    <string name="export_file">Exportă KMZ</string>
+    <string name="export_file">Exportați KMZ</string>
     <string name="export_file_gpx">Exportați GPX</string>
     <string name="delete_list">Șterge lista</string>
     <string name="speedcams_alert_title">Radare</string>
@@ -631,7 +631,7 @@
     <string name="avoid_ferry">Evitați trecerile cu bac</string>
     <string name="avoid_motorways">Evitați autostrăzile</string>
     <string name="unable_to_calc_alert_title">Nu poate fi creat un traseu</string>
-    <string name="unable_to_calc_alert_subtitle">Din păcate, nu putem elabora un traseu cu opțiunile alese. Modifică-le și încearcă din nou.</string>
+    <string name="unable_to_calc_alert_subtitle">Din păcate, nu putem elabora un traseu cu opțiunile alese. Modificați-le și încearcați din nou.</string>
     <string name="define_to_avoid_btn">Stabilește drumurile de evitat</string>
     <string name="change_driving_options_btn">Opțiuni de ocolire activate</string>
     <string name="toll_road">Drum cu plată</string>
@@ -903,4 +903,6 @@
     <string name="download_resources_custom_url_title">Server hărți custom</string>
     <string name="download_resources_custom_url_message">Înlocuiți serverul prestabilit folosit pentru descărcarea hărților. Lăsați liber pentru serverul prestabilit.</string>
     <string name="advanced">Avansate</string>
+    <string name="limit_map_language_alternatives_to_local">Folosește celelalte limbi de sistem doar în regiunile lor</string>
+    <string name="pref_speedlimit_title">Afișează limita de viteză</string>
 </resources>

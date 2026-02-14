@@ -917,4 +917,8 @@
     <string name="download_resources_custom_url_message">Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.</string>
     <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on http:// või https://</string>
     <string name="pref_maplanguage_local">Kohalik keel</string>
+    <string name="limit_map_language_alternatives_to_local">Kasuta vaid oma piirkonna süsteemi keeli</string>
+    <string name="location_privacy_info">Rakendused saavad asukohaandmed sinu operatsioonisüsteemi asukohateenuselt, mis võib jagada sinu asukohta Google\'i ja/või seadme valmistajaga. Selle vältimiseks kasuta mõnda privaatsusega arvestavat Androidi versiooni.</string>
+    <string name="location_privacy">Asuukohaandmete privaatsus</string>
+    <string name="pref_speedlimit_title">Näita kiiruspiiranguid</string>
 </resources>

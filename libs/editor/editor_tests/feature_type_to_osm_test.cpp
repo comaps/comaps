@@ -20,10 +20,10 @@ UNIT_TEST(simpleType)
   translator.LoadFromStream(s);
 
   uint32_t type = classif().GetTypeByReadableObjectName("amenity-restaurant");
-  std::vector<OSMTag> result = translator.OsmTagsFromType(type);
+  std::vector<OsmElement::Tag> result = translator.OsmTagsFromType(type);
   TEST_EQUAL(result.size(), 1, ());
-  TEST_EQUAL(result[0].key, "amenity", ());
-  TEST_EQUAL(result[0].value, "restaurant", ());
+  TEST_EQUAL(result[0].m_key, "amenity", ());
+  TEST_EQUAL(result[0].m_value, "restaurant", ());
 }
 
 UNIT_TEST(simpleTypeWithTags)
@@ -40,24 +40,24 @@ UNIT_TEST(simpleTypeWithTags)
   translator.LoadFromStream(s);
 
   uint32_t buildingType = classif().GetTypeByReadableObjectName("building");
-  std::vector<OSMTag> buildingResult = translator.OsmTagsFromType(buildingType);
+  std::vector<OsmElement::Tag> buildingResult = translator.OsmTagsFromType(buildingType);
   TEST_EQUAL(buildingResult.size(), 1, ());
-  TEST_EQUAL(buildingResult[0].key, "building", ());
-  TEST_EQUAL(buildingResult[0].value, "yes", ());
+  TEST_EQUAL(buildingResult[0].m_key, "building", ());
+  TEST_EQUAL(buildingResult[0].m_value, "yes", ());
 
   uint32_t schoolType = classif().GetTypeByReadableObjectName("amenity-school");
-  std::vector<OSMTag> schoolResult = translator.OsmTagsFromType(schoolType);
+  std::vector<OsmElement::Tag> schoolResult = translator.OsmTagsFromType(schoolType);
   TEST_EQUAL(schoolResult.size(), 1, ());
-  TEST_EQUAL(schoolResult[0].key, "amenity", ());
-  TEST_EQUAL(schoolResult[0].value, "school", ());
+  TEST_EQUAL(schoolResult[0].m_key, "amenity", ());
+  TEST_EQUAL(schoolResult[0].m_value, "school", ());
 
   uint32_t doctorType = classif().GetTypeByReadableObjectName("amenity-doctors");
-  std::vector<OSMTag> doctorResult = translator.OsmTagsFromType(doctorType);
+  std::vector<OsmElement::Tag> doctorResult = translator.OsmTagsFromType(doctorType);
   TEST_EQUAL(doctorResult.size(), 2, ());
-  TEST_EQUAL(doctorResult[0].key, "amenity", ());
-  TEST_EQUAL(doctorResult[0].value, "doctors", ());
-  TEST_EQUAL(doctorResult[1].key, "healthcare", ());
-  TEST_EQUAL(doctorResult[1].value, "doctor", ());
+  TEST_EQUAL(doctorResult[0].m_key, "amenity", ());
+  TEST_EQUAL(doctorResult[0].m_value, "doctors", ());
+  TEST_EQUAL(doctorResult[1].m_key, "healthcare", ());
+  TEST_EQUAL(doctorResult[1].m_value, "doctor", ());
 }
 
 UNIT_TEST(complexType)
@@ -79,30 +79,30 @@ UNIT_TEST(complexType)
   translator.LoadFromStream(s);
 
   uint32_t officeType = classif().GetTypeByReadableObjectName("tourism-information-office");
-  std::vector<OSMTag> officeResult = translator.OsmTagsFromType(officeType);
+  std::vector<OsmElement::Tag> officeResult = translator.OsmTagsFromType(officeType);
   TEST_EQUAL(officeResult.size(), 2, ());
-  TEST_EQUAL(officeResult[0].key, "tourism", ());
-  TEST_EQUAL(officeResult[0].value, "information", ());
-  TEST_EQUAL(officeResult[1].key, "information", ());
-  TEST_EQUAL(officeResult[1].value, "office", ());
+  TEST_EQUAL(officeResult[0].m_key, "tourism", ());
+  TEST_EQUAL(officeResult[0].m_value, "information", ());
+  TEST_EQUAL(officeResult[1].m_key, "information", ());
+  TEST_EQUAL(officeResult[1].m_value, "office", ());
 
   uint32_t fortressType = classif().GetTypeByReadableObjectName("historic-castle-fortress");
-  std::vector<OSMTag> fortressResult = translator.OsmTagsFromType(fortressType);
+  std::vector<OsmElement::Tag> fortressResult = translator.OsmTagsFromType(fortressType);
   TEST_EQUAL(fortressResult.size(), 2, ());
-  TEST_EQUAL(fortressResult[0].key, "historic", ());
-  TEST_EQUAL(fortressResult[0].value, "castle", ());
-  TEST_EQUAL(fortressResult[1].key, "castle_type", ());
-  TEST_EQUAL(fortressResult[1].value, "fortress", ());
+  TEST_EQUAL(fortressResult[0].m_key, "historic", ());
+  TEST_EQUAL(fortressResult[0].m_value, "castle", ());
+  TEST_EQUAL(fortressResult[1].m_key, "castle_type", ());
+  TEST_EQUAL(fortressResult[1].m_value, "fortress", ());
 
   uint32_t mormonType = classif().GetTypeByReadableObjectName("amenity-place_of_worship-christian-mormon");
-  std::vector<OSMTag> mormonResult = translator.OsmTagsFromType(mormonType);
+  std::vector<OsmElement::Tag> mormonResult = translator.OsmTagsFromType(mormonType);
   TEST_EQUAL(mormonResult.size(), 3, ());
-  TEST_EQUAL(mormonResult[0].key, "amenity", ());
-  TEST_EQUAL(mormonResult[0].value, "place_of_worship", ());
-  TEST_EQUAL(mormonResult[1].key, "religion", ());
-  TEST_EQUAL(mormonResult[1].value, "christian", ());
-  TEST_EQUAL(mormonResult[2].key, "denomination", ());
-  TEST_EQUAL(mormonResult[2].value, "mormon", ());
+  TEST_EQUAL(mormonResult[0].m_key, "amenity", ());
+  TEST_EQUAL(mormonResult[0].m_value, "place_of_worship", ());
+  TEST_EQUAL(mormonResult[1].m_key, "religion", ());
+  TEST_EQUAL(mormonResult[1].m_value, "christian", ());
+  TEST_EQUAL(mormonResult[2].m_key, "denomination", ());
+  TEST_EQUAL(mormonResult[2].m_value, "mormon", ());
 }
 
 UNIT_TEST(mandatorySelector)
@@ -120,32 +120,32 @@ UNIT_TEST(mandatorySelector)
   translator.LoadFromStream(s);
 
   uint32_t parkingType = classif().GetTypeByReadableObjectName("amenity-parking-fee");
-  std::vector<OSMTag> parkingResult = translator.OsmTagsFromType(parkingType);
+  std::vector<OsmElement::Tag> parkingResult = translator.OsmTagsFromType(parkingType);
   TEST_EQUAL(parkingResult.size(), 2, ());
-  TEST_EQUAL(parkingResult[0].key, "amenity", ());
-  TEST_EQUAL(parkingResult[0].value, "parking", ());
-  TEST_EQUAL(parkingResult[1].key, "fee", ());
-  TEST_EQUAL(parkingResult[1].value, "yes", ());
+  TEST_EQUAL(parkingResult[0].m_key, "amenity", ());
+  TEST_EQUAL(parkingResult[0].m_value, "parking", ());
+  TEST_EQUAL(parkingResult[1].m_key, "fee", ());
+  TEST_EQUAL(parkingResult[1].m_value, "yes", ());
 
   uint32_t trackType = classif().GetTypeByReadableObjectName("highway-track-bridge");
-  std::vector<OSMTag> trackResult = translator.OsmTagsFromType(trackType);
+  std::vector<OsmElement::Tag> trackResult = translator.OsmTagsFromType(trackType);
   TEST_EQUAL(trackResult.size(), 2, ());
-  TEST_EQUAL(trackResult[0].key, "highway", ());
-  TEST_EQUAL(trackResult[0].value, "track", ());
-  TEST_EQUAL(trackResult[1].key, "bridge", ());
-  TEST_EQUAL(trackResult[1].value, "yes", ());
+  TEST_EQUAL(trackResult[0].m_key, "highway", ());
+  TEST_EQUAL(trackResult[0].m_value, "track", ());
+  TEST_EQUAL(trackResult[1].m_key, "bridge", ());
+  TEST_EQUAL(trackResult[1].m_value, "yes", ());
 
   uint32_t shopType = classif().GetTypeByReadableObjectName("shop");
-  std::vector<OSMTag> shopResult = translator.OsmTagsFromType(shopType);
+  std::vector<OsmElement::Tag> shopResult = translator.OsmTagsFromType(shopType);
   TEST_EQUAL(shopResult.size(), 1, ());
-  TEST_EQUAL(shopResult[0].key, "shop", ());
-  TEST_EQUAL(shopResult[0].value, "yes", ());
+  TEST_EQUAL(shopResult[0].m_key, "shop", ());
+  TEST_EQUAL(shopResult[0].m_value, "yes", ());
 
   uint32_t disusedType = classif().GetTypeByReadableObjectName("disusedbusiness");
-  std::vector<OSMTag> disusedResult = translator.OsmTagsFromType(disusedType);
+  std::vector<OsmElement::Tag> disusedResult = translator.OsmTagsFromType(disusedType);
   TEST_EQUAL(disusedResult.size(), 1, ());
-  TEST_EQUAL(disusedResult[0].key, "disused:shop", ());
-  TEST_EQUAL(disusedResult[0].value, "yes", ());
+  TEST_EQUAL(disusedResult[0].m_key, "disused:shop", ());
+  TEST_EQUAL(disusedResult[0].m_value, "yes", ());
 }
 
 UNIT_TEST(forbiddenSelector)
@@ -161,18 +161,18 @@ UNIT_TEST(forbiddenSelector)
   translator.LoadFromStream(s);
 
   uint32_t loungerType = classif().GetTypeByReadableObjectName("amenity-lounger");
-  std::vector<OSMTag> loungerResult = translator.OsmTagsFromType(loungerType);
+  std::vector<OsmElement::Tag> loungerResult = translator.OsmTagsFromType(loungerType);
   TEST_EQUAL(loungerResult.size(), 1, ());
-  TEST_EQUAL(loungerResult[0].key, "amenity", ());
-  TEST_EQUAL(loungerResult[0].value, "lounger", ());
+  TEST_EQUAL(loungerResult[0].m_key, "amenity", ());
+  TEST_EQUAL(loungerResult[0].m_value, "lounger", ());
 
   uint32_t chargingType = classif().GetTypeByReadableObjectName("amenity-charging_station-motorcar-small");
-  std::vector<OSMTag> chargingResult = translator.OsmTagsFromType(chargingType);
+  std::vector<OsmElement::Tag> chargingResult = translator.OsmTagsFromType(chargingType);
   TEST_EQUAL(chargingResult.size(), 2, ());
-  TEST_EQUAL(chargingResult[0].key, "amenity", ());
-  TEST_EQUAL(chargingResult[0].value, "charging_station", ());
-  TEST_EQUAL(chargingResult[1].key, "motorcar", ());
-  TEST_EQUAL(chargingResult[1].value, "yes", ());
+  TEST_EQUAL(chargingResult[0].m_key, "amenity", ());
+  TEST_EQUAL(chargingResult[0].m_value, "charging_station", ());
+  TEST_EQUAL(chargingResult[1].m_key, "motorcar", ());
+  TEST_EQUAL(chargingResult[1].m_value, "yes", ());
 }
 
 UNIT_TEST(ignoreComments)
@@ -209,16 +209,16 @@ UNIT_TEST(testWithRealFile)
   classificator::Load();
 
   uint32_t restaurantType = classif().GetTypeByReadableObjectName("amenity-restaurant");
-  std::vector<OSMTag> restaurantResult = GetOSMTranslator().OsmTagsFromType(restaurantType);
+  std::vector<OsmElement::Tag> restaurantResult = GetOSMTranslator().OsmTagsFromType(restaurantType);
   TEST_EQUAL(restaurantResult.size(), 1, ());
-  TEST_EQUAL(restaurantResult[0].key, "amenity", ());
-  TEST_EQUAL(restaurantResult[0].value, "restaurant", ());
+  TEST_EQUAL(restaurantResult[0].m_key, "amenity", ());
+  TEST_EQUAL(restaurantResult[0].m_value, "restaurant", ());
 
   uint32_t officeType = classif().GetTypeByReadableObjectName("tourism-information-office");
-  std::vector<OSMTag> officeResult = GetOSMTranslator().OsmTagsFromType(officeType);
+  std::vector<OsmElement::Tag> officeResult = GetOSMTranslator().OsmTagsFromType(officeType);
   TEST_EQUAL(officeResult.size(), 2, ());
-  TEST_EQUAL(officeResult[0].key, "tourism", ());
-  TEST_EQUAL(officeResult[0].value, "information", ());
-  TEST_EQUAL(officeResult[1].key, "information", ());
-  TEST_EQUAL(officeResult[1].value, "office", ());
+  TEST_EQUAL(officeResult[0].m_key, "tourism", ());
+  TEST_EQUAL(officeResult[0].m_value, "information", ());
+  TEST_EQUAL(officeResult[1].m_key, "information", ());
+  TEST_EQUAL(officeResult[1].m_value, "office", ());
 }

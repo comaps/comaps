@@ -1,8 +1,7 @@
 #include "generator/relation_tags.hpp"
 
-#include "generator/osm_element.hpp"
-
 #include "indexer/classificator.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "base/string_utils.hpp"
 

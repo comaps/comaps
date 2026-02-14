@@ -1456,4 +1456,7 @@
     <string name="type.leisure.bandstand">Esiintymislava</string>
     <string name="type.leisure.indoor_play">Sisäleikkipuisto</string>
     <string name="type.railway.disused.tunnel">Käytöstä poistettu rautatietunneli</string>
+    <string name="type.amenity.charging_station.small">Rajallinen kapasiteetti</string>
+    <string name="type.amenity.prep_school">Valmennuskoulu</string>
+    <string name="type.amenity.lounger">Aurinkotuoli</string>
 </resources>

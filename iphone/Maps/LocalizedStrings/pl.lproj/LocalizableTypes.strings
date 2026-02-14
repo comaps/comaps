@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Centrum gier dla dorosłych";
 "type.leisure.amusement_arcade" = "Arkada";
 "type.amenity.charging_station" = "Stacja ładowania";
-"type.amenity.charging_station.bicycle" = "Stacja ładowania rowerów";
-"type.amenity.charging_station.motorcar" = "Stacja ładowania samochodów";
+"type.amenity.charging_station.bicycle" = "Rowery";
+"type.amenity.charging_station.motorcar" = "Samochody";
 "type.amenity.childcare" = "Opieka nad dziećmi";
 "type.amenity.cinema" = "Kino";
 "type.leisure.bowling_alley" = "Kręgielnia";
@@ -1585,3 +1585,14 @@
 "type.cardinal.south" = "Południe";
 "type.cardinal.west" = "Zachód";
 "type.amenity.prep_school" = "Szkoła przygotowująca do egzaminów";
+"type.waterway.fuel" = "Stacji paliw dla łodzi motorowych";
+"type.amenity.charging_station.motorcycle" = "Motocykle";
+"type.amenity.charging_station.small" = "Ograniczona liczba miejsc";
+"type.amenity.hydrant" = "Hydrant irygacyjny";
+"type.railway.disused.bridge" = "Nieużywany most kolejowy";
+"type.railway.disused.tunnel" = "Nieużywany tunel kolejowy";
+"type.railway.miniature" = "Minikolejka";
+"type.railway.miniature.bridge" = "Most minikolejki";
+"type.railway.miniature.tunnel" = "Tunel minikolejki";
+"type.railway.turntable" = "Obrotnica kolejowa";
+"type.tourism.information.tactile_map" = "Mapa dla niewidomych";

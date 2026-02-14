@@ -71,8 +71,8 @@ jobs:
       - name: Install build tools and dependencies
         shell: bash
         run: |
-          sudo apt-get update -y
-          sudo apt-get install -y ninja-build
+          apt-get update -y
+          apt-get install -y cmake ninja-build
 
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -146,16 +146,16 @@ jobs:
         if: ${{ matrix.flavor == 'web' }}
         shell: bash
         run: |
-          (cd ./android/app/build/outputs/apk/web/release/ && sha256sum OrganicMaps-${{ needs.tag.outputs.code }}-web-release.apk > OrganicMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum)
+          (cd ./android/app/build/outputs/apk/web/release/ && sha256sum CoMaps-${{ needs.tag.outputs.code }}-web-release.apk > CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum)
           {
             cat ${{ env.RELEASE_NOTES }}
             echo ""
-            echo "See [a detailed announce](https://organicmaps.app/news/) on our website when app updates are published in all stores."
-            echo "You can get automatic app updates from Codeberg [using Obtainium](https://codeberg.org/comaps/comaps/wiki/Installing-Organic-Maps-from-GitHub-using-Obtainium)."
+            echo "See [a detailed announce](https://comaps.app/news/) on our website when app updates are published in all stores."
+            echo "You can get automatic app updates from Codeberg [using Obtainium](https://apps.obtainium.imranr.dev/redirect?r=obtainium://add/https://codeberg.org/comaps/comaps)."
             echo ""
             echo "sha256sum:"
             echo -e '\n```'
-            tr -d '\n' < ./android/app/build/outputs/apk/web/release/OrganicMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
+            tr -d '\n' < ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
             echo -e '\n```'
           } > ${{ runner.temp }}/release-notes.txt
 
@@ -170,6 +170,6 @@ jobs:
           discussion_category_name: 'Announcements'
           prerelease: true
           files: |
-            ./android/app/build/outputs/apk/web/release/OrganicMaps-${{ needs.tag.outputs.code }}-web-release.apk
-            ./android/app/build/outputs/apk/web/release/OrganicMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
+            ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk
+            ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
           fail_on_unmatched_files: true

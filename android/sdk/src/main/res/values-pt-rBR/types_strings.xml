@@ -42,7 +42,7 @@
     <string name="type.leisure.adult_gaming_centre">Centro de jogos para adultos</string>
     <string name="type.leisure.amusement_arcade">Fliperama</string>
     <string name="type.amenity.charging_station">Eletroposto</string>
-    <string name="type.amenity.charging_station.bicycle">Ponto de recarga de bicicletas</string>
+    <string name="type.amenity.charging_station.bicycle">Bicicletas</string>
     <string name="type.amenity.charging_station.motorcar">Carros</string>
     <string name="type.amenity.childcare">Creche</string>
     <string name="type.amenity.cinema">Cinema</string>
@@ -1487,4 +1487,15 @@
     <string name="type.shop.beauty.nails">Manicure</string>
     <string name="type.amenity.hydrant">Hidrante de irrigação</string>
     <string name="type.amenity.charging_station.motorcycle">Motos</string>
+    <string name="type.emergency.access_point.address">Endereço de resgate de emergência</string>
+    <string name="type.emergency.disaster_help_point">Ponto de ajuda de emergências e desastres</string>
+    <string name="type.railway.disused.bridge">Ponte ferroviária desativada</string>
+    <string name="type.railway.disused.tunnel">Túnel ferroviário desativado</string>
+    <string name="type.railway.miniature">Ferrovia em miniatura</string>
+    <string name="type.railway.miniature.bridge">Ponte ferroviária em miniatura</string>
+    <string name="type.railway.miniature.tunnel">Túnel ferroviário em miniatura</string>
+    <string name="type.railway.turntable">Plataforma giratória ferroviária</string>
+    <string name="type.tourism.information.tactile_map">Mapa tátil</string>
+    <string name="type.amenity.charging_station.small">Capacidade limitada</string>
+    <string name="type.waterway.fuel">Posto de combustível da marina</string>
 </resources>

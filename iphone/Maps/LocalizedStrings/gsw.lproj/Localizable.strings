@@ -5,7 +5,7 @@
 "category_shopping" = "Shopping";
 "later" = "Spöter";
 "zoom_to_country" = "Uf de Charte azeige";
-"bookmark_sets" = "Lesezeichelischte";
+"bookmark_sets" = "Favoritelischtene";
 "category_bank" = "Bank";
 "edit" = "Bearbeite";
 "info" = "Info";
@@ -57,7 +57,7 @@
 "mobile_data" = "Mobils Internet";
 "button_layer_outdoor" = "Wandere";
 "miles_per_hour" = "mph";
-"placepage_edit_bookmark_button" = "Lesezeiche bearbeite";
+"placepage_edit_bookmark_button" = "Gspeicherte Ort bearbeite";
 "report_a_bug" = "App-Fehler melde";
 "report_incorrect_map_bug" = "Falschi Chartedate melde oder korrigiere";
 "volunteer" = "Freiwillig helfe und CoMaps verbessere";
@@ -65,7 +65,7 @@
 "email_error_body" = "De Email-Client isch nonig iigrichtet worde. Konfigurier ihn bitte oder nutz en anderi Möglichkeit oder kontaktier eus under %@";
 "email_error_title" = "Fehler bim Email-Versand";
 "downloader_search_results" = "Gfunde";
-"bookmark" = "Lesezeiche";
+"bookmark" = "Ort";
 "dialog_routing_download_files" = "Erforderlichi Dateie abelade";
 "dialog_routing_download_and_update_all" = "Lad alli Charte- und Routeinformatione für de planti Weg abe oder aktualisier sie, zum d Route z berechne.";
 "dialog_routing_change_start" = "Startpunkt aapasse";
@@ -90,7 +90,7 @@
 "wikimedia_commons" = "Wikimedia Commons";
 "about_headline" = "Offnigs Projekt, vo de Gmeinschaft entwicklet";
 "operator" = "Betriiber: %@";
-"share_bookmarks_email_body" = "Hallo!\n\nIm Ahang sind mini Lesezeiche; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/\n\nViel Spass bim Reise mit CoMaps!";
+"share_bookmarks_email_body" = "Hoi!\n\nIm Ahang sind mini gspeicherte Ört; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/\n\nViel Spass bim Reise mit CoMaps!";
 "cancel" = "Abbräche";
 "delete" = "Lösche";
 "download_maps" = "Charte abelade";
@@ -104,7 +104,7 @@
 "continue_button" = "Fortfahre";
 "add_new_set" = "Neui Lischte hinzuefüege";
 "bookmark_set_name" = "Name vo de Lischte";
-"bookmarks" = "Ort";
+"bookmarks" = "Ört";
 "about_proposition_1" = "Offline, schnell und eifach z benutze";
 "about_proposition_2" = "Dateschutzorientiert und werbefrei";
 "about_proposition_3" = "Transparent und nöd gwünnorientiert";
@@ -286,7 +286,7 @@
 "placepage_personal_notes_hint" = "Persönlichi Notize (Text oder HTML)";
 "editor_comment_hint" = "Kommentar…";
 "editor_reset_edits_message" = "Alli lokale Änderige verwerfe?";
-"editor_reset_edits_button" = "Verwerfe";
+"editor_reset_edits_button" = "Änderige verwerfe";
 "editor_remove_place_message" = "Hinzuegfüegts Objekt lösche?";
 "editor_remove_place_button" = "Lösche";
 "editor_place_doesnt_exist" = "De Ort existiert nöd";
@@ -325,7 +325,7 @@
 "bookmark_lists_hide_all" = "Alli uusblende";
 "bookmark_lists_show_all" = "Alli aazeige";
 "bookmarks_create_new_group" = "Neui Lischte erstelle";
-"bookmarks_import" = "Lesezeiche und Tracks importiere";
+"bookmarks_import" = "Favorite importiere";
 "bookmarks_error_message_share_general" = "Teile weg emne Aawendigsfehler nöd möglich";
 "bookmarks_error_title_share_empty" = "Fehler bim Teile";
 "bookmarks_error_message_share_empty" = "E leeri Lischte cha nöd teilt werde";
@@ -417,7 +417,7 @@
 "car_used_on_the_car_screen" = "Du verwendsch jetzt CoMaps uf em Bildschirm vom Auto";
 "car_continue_on_the_phone" = "Wiiter am Telefon";
 "car_continue_in_the_car" = "Zum Autobildschirm";
-"bookmarks_export" = "Alli Lesezeiche und Tracks exportiere";
+"bookmarks_export" = "Alli Favorite exportiere";
 "drive_through" = "Drive-trough";
 "website_menu" = "Link zur Spiischarte";
 "open_in_app" = "Inere andere App öffne";
@@ -428,7 +428,7 @@
 "stop_track_recording" = "Streckeuufzeichnig stoppe";
 "stop_without_saving" = "Ohni Speichere beende";
 "continue_recording" = "Uufnahm fortsetze";
-"track_recording_alert_title" = "I Lesezeiche und Tracks speichere?";
+"track_recording_alert_title" = "I d Favorite speichere?";
 "track_recording_toast_nothing_to_save" = "Route isch leer – nüt z speichere";
 "edit_track" = "Track bearbeite";
 "use_cellular_data" = "Ja";
@@ -480,8 +480,8 @@
 "location_services_disabled_on_device_additional_message" = "Oder nutz CoMaps wiiterhin ohni Standort";
 "book_button" = "Bueche";
 "placepage_call_button" = "Aalüüte";
-"placepage_bookmark_name_hint" = "Name vom Lesezeiche";
-"placepage_delete_bookmark_button" = "Lesezeiche lösche";
+"placepage_bookmark_name_hint" = "Name vom Ort";
+"placepage_delete_bookmark_button" = "Ort lösche";
 "editor_edits_sent_message" = "Dini Notiz wird a OpenStreetMap gschickt";
 "text_more_button" = "…meh";
 "refresh" = "Aktualisiere";
@@ -550,7 +550,7 @@
 "enable_icloud_synchronization_title" = "Aktivier d iCloud-Synchronisierig";
 "enable_icloud_synchronization_message" = "D iCloud-Synchronisierig isch en experimentelli Funktion, wo no entwicklet wird. Stell sicher, dass du e Sicherigskopie vo all dine Lesezeiche und Tracks erstellt hesch.";
 "icloud_disabled_title" = "iCloud isch deaktiviert";
-"icloud_disabled_message" = "Bitte aktivier iCloud i de Iistellige vo dim Grät, zum die Funktion z nutze.";
+"icloud_disabled_message" = "Bitte aktivier iCloud für CoMaps i de Iistellige vo dim Apple-Konto, zum die Funktion chönne nutze.";
 "bookmarks_recently_deleted" = "Chürzlich glöschti Lischte";
 "delete_all" = "Alli lösche";
 "recover" = "Wiederherstelle";
@@ -567,7 +567,7 @@
 "map" = "Charte";
 "saved" = "Gspeicheret";
 "pref_tts_title" = "Sprachfüehrig";
-"icloud_sync" = "iCloud Synchronisierig (Beta)";
+"icloud_sync" = "iCloud-Synchronisierig (Beta)";
 "pref_left_button_type" = "Lingge Hauptbutton";
 "disabled" = "Deaktiviert";
 "copy_to_clipboard" = "I d Zwüscheablag kopiere";
@@ -597,3 +597,6 @@
 "voice_explanation" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* e besseri Stimm uuszwähle.";
 "voice_explanation_before_version26" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* e besseri Stimm uuszwähle.";
 "unknown" = "Unbekantt";
+"pref_alt_map_lang_handling_local_only" = "Bevorzuge und nur nutze, wenns die lokali Spraach isch";
+"pref_alt_map_lang_handling" = "Alternativi Charte-Spraache";
+"pref_alt_map_lang_handling_system_order" = "I de Systemreihefolg nutze";

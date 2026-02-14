@@ -68,11 +68,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Dodaj nowy zestaw</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Nazwa zestawu zakładek</string>
+    <string name="bookmark_set_name">Nazwa listy</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Zakładki</string>
+    <string name="bookmarks">Miejsca</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Zakładki i trasy</string>
+    <string name="bookmarks_and_tracks">Ulubione</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nazwa</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Notatki</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Udostępnione zakładki z CoMaps</string>
-    <string name="share_bookmarks_email_body">Cześć! \n \nZałączam moje zakładki z aplikacji CoMaps. Proszę otwórz je jeżeli masz zaintalowane CoMaps. Lub, jeżeli nie masz, pobierz aplikację na swoje urządzenie iOS/Android za pomocą tego linka: https://www.comaps.app/download/ \n \nMiłego podróżowania z CoMaps!</string>
+    <string name="share_bookmarks_email_subject">Moje ulubione miejsca z CoMaps</string>
+    <string name="share_bookmarks_email_body">Cześć! \n \nZałączam moje ulubione miejsca - otworzysz je w aplikacji CoMaps. Jeżeli nie masz tej aplikacji, możesz ją pobrać tutaj: https://www.comaps.app/download/ \n \nMiłego podróżowania z CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Wczytywanie zakładek</string>
+    <string name="load_kmz_title">Wczytywanie Ulubionych</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Wczytano zakładki! Można odnaleźć je na mapie lub na ekranie menedżera zakładek.</string>
+    <string name="load_kmz_successful">Wczytano ulubione miejsca! Można odnaleźć je na mapie lub na ekranie menedżera ulubionych.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Nieudane wczytywanie zakładek. Plik może być uszkodzony lub posiadać defekty.</string>
+    <string name="load_kmz_failed">Nieudane wczytywanie ulubionych miejsc. Plik może być uszkodzony lub posiadać defekty.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Typ pliku nie jest rozpoznawany przez aplikację: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -502,10 +502,10 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Więcej</string>
-    <string name="placepage_edit_bookmark_button">Edytuj zakładkę</string>
+    <string name="placepage_edit_bookmark_button">Edytuj zapisane miejsce</string>
     <string name="placepage_personal_notes_hint">Notatki osobiste (tekst lub html)</string>
     <string name="editor_reset_edits_message">Usunąć wszystkie lokalne zmiany?</string>
-    <string name="editor_reset_edits_button">Usuń</string>
+    <string name="editor_reset_edits_button">Porzuć zmiany</string>
     <string name="editor_remove_place_message">Usunąć dodane miejsce?</string>
     <string name="editor_remove_place_button">Usuń</string>
     <string name="editor_place_doesnt_exist">Takie miejsce nie istnieje</string>
@@ -566,19 +566,19 @@
     <string name="dialog_error_storage_message">Zewnętrzny nośnik pamięci masowej jest niedostępny. Prawdopodobnie usunięto lub uszkodzono kartę SD bądź jej system plików służy tylko do odczytu. Zweryfikuj to i skontaktuj się z nami pod adresem support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Emuluj wadliwą pamięć masową</string>
     <string name="error_enter_correct_name">Wprowadź poprawną nazwę</string>
-    <string name="bookmark_lists">Listy</string>
+    <string name="bookmark_lists">Listy ulubionych</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Ukryj wszystkie</string>
     <string name="bookmark_lists_show_all">Pokaż wszystkie</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d zakładka</item>
-        <item quantity="few">%d zakładki</item>
-        <item quantity="many">%d zakładek</item>
-        <item quantity="other">%d zakładek</item>
+        <item quantity="one">%d zapisane miejsce</item>
+        <item quantity="few">%d zapisane miejsca</item>
+        <item quantity="many">%d zapisanych miejsc</item>
+        <item quantity="other">%d zapisanych miejsc</item>
     </plurals>
     <string name="bookmarks_create_new_group">Utwórz nową listę</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Importuj zakładki i trasy</string>
+    <string name="bookmarks_import">Importuj ulubione</string>
     <string name="bookmarks_error_message_share_general">Nie można udostępnić z powodu błędu aplikacji</string>
     <string name="bookmarks_error_title_share_empty">Błąd udostępniania</string>
     <string name="bookmarks_error_message_share_empty">Nie można udostępnić pustej listy</string>
@@ -611,7 +611,7 @@
     <string name="subway">Metro</string>
     <string name="layers_title">Style i warstwy mapy</string>
     <string name="bookmarks_empty_list_title">Lista jest pusta</string>
-    <string name="bookmarks_empty_list_message">Aby dodać zakładkę, stuknij miejsce na mapie, a następnie ikonę gwiazdki</string>
+    <string name="bookmarks_empty_list_message">Aby zapisać miejsce, stuknij miejsce na mapie, a następnie ikonę gwiazdki</string>
     <string name="category_desc_more">…więcej</string>
     <string name="export_file">Eksportuj KMZ</string>
     <string name="export_file_gpx">Eksport GPX</string>
@@ -664,7 +664,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sortuj…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sortuj znaczniki</string>
+    <string name="sort_bookmarks">Sortuj ulubione</string>
     <!-- Android -->
     <string name="by_default">Domyślnie</string>
     <!-- Android -->
@@ -782,7 +782,7 @@
     <string name="browser_not_available">Przeglądarka internetowa jest niedostępna</string>
     <string name="volume">Głośność</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksportuj wszystkie zakładki i ścieżki</string>
+    <string name="bookmarks_export">Eksportuj wszystkie ulubione i ścieżki</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Ustawienia systemu syntezy mowy</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -814,7 +814,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Kontynuuj nagrywanie</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Zapisać nagranie w zakładkach i trasach?</string>
+    <string name="track_recording_alert_title">Zapisać nagranie w ulubionych?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Trasa jest pusta - nic do zapisania</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -838,7 +838,7 @@
     <string name="vehicle">Pojazd</string>
     <string name="bicycle">Rower</string>
     <string name="clear">Wyczyść</string>
-    <string name="bookmark_color">Kolor zakładki</string>
+    <string name="bookmark_color">Kolor ulubionego miejsca</string>
     <string name="route_type">Typ trasy</string>
     <string name="backup_interval_every_day">Codziennie</string>
     <string name="backup_interval_every_week">Co tydzień</string>
@@ -853,11 +853,11 @@
     <string name="error_enter_correct_fediverse_page">Wprowadź poprawną nazwę użytkownika Mastodon lub adres internetowy</string>
     <string name="error_enter_correct_bluesky_page">Wprowadź poprawną nazwę użytkownika Bluesky lub adres internetowy</string>
     <string name="pref_left_button_title">Konfiguracja lewego przycisku</string>
-    <string name="pref_backup_title">Kopia zapasowa zakładek i tras</string>
+    <string name="pref_backup_title">Kopia zapasowa ulubionych</string>
     <string name="pref_backup_summary">Automatycznie twórz kopię zapasową do folderu na urządzeniu</string>
     <string name="pref_backup_now_summary">Utwórz kopię zapasową natychmiast</string>
     <string name="pref_backup_now_summary_ok">Kopia zapasowa została pomyślnie utworzona</string>
-    <string name="pref_backup_now_summary_empty_lists">Brak zakładek i tras do wykonania kopii zapasowej</string>
+    <string name="pref_backup_now_summary_empty_lists">Brak zapisanych miejsc i tras do wykonania kopii zapasowej</string>
     <string name="pref_backup_now_summary_folder_unavailable">Folder kopii zapasowej jest niedostępny</string>
     <string name="pref_backup_status_summary_success">Ostatnia pomyślna kopia zapasowa</string>
     <string name="pref_backup_location_title">Lokalizacja kopii zapasowej</string>
@@ -921,7 +921,7 @@
     <string name="download_resources_custom_url_title">Własny serwer map</string>
     <string name="download_resources_custom_url_message">Zastąp domyślny serwer pobierania map. Zostaw puste, by użyć domyślnego serwera CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">Nieustawiony</string>
-    <string name="download_resources_custom_url_error_scheme">Proszę wprowadzić pełny URL zaczynający się od https:// i kończący na /</string>
+    <string name="download_resources_custom_url_error_scheme">Proszę wprowadzić URL zaczynający się od http:// lub https://</string>
     <string name="editor_business_vacant_button">Lokal jest pusty</string>
     <string name="editor_mark_business_vacant_title">Oznacz lokal jako pusty</string>
     <string name="place_page_map_too_old_title">Dane mapy nieaktualne</string>
@@ -930,4 +930,7 @@
     <string name="place_page_update_too_old_map">Zaktualizuj region mapy</string>
     <string name="place_page_too_old_to_edit">Edytowanie OpenStreetMap jest wyłączone, ponieważ dane mapy są zbyt stare.</string>
     <string name="advanced">Zaawansowane</string>
+    <string name="pref_maplanguage_local">Język lokalny</string>
+    <string name="limit_map_language_alternatives_to_local">Używaj innych języków systemowych tylko w ich regionach</string>
+    <string name="pref_speedlimit_title">Pokazuj ograniczenia prędkości</string>
 </resources>

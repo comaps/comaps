@@ -1,10 +1,10 @@
-• Datos OSM de 22/01
-• Se añaden bordes sutiles a carreteras
-• Se muestra la descripción de la ruta cuando se selecciona
-• Se cambia nombre de «Marcadores y rutas» a «Favoritos»
-• Se añaden mapas táctiles, plataformas giratorias ferroviarias y puntos de emergencia
-• Se actualizan aspectos de interfaz
-• Se utilizan idiomas nativos para el mapa general
-• Se corrige fallo de ruta en algunos dispositivos
+- Datos de OpenStreetMap al 7 de febrero
+- Añadida opción “Mostrar límites de velocidad” en navegación
+- Desactivados edificios 3D en Android Auto
+- Añadidos puntos de repostaje en marinas
+- Los favoritos e iconos ahora se muestran sobre las líneas de metro
+- Los números de vivienda se muestran más tarde
+- Búsqueda habilitada para æ, ø y å
+- Editor OSM: actualiza automáticamente la fecha de verificación del POI
 
-Más detalles en codeberg.org/comaps/comaps/releases
+Más detalles comaps.app/latest

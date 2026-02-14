@@ -5,7 +5,13 @@
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 
+#include "coding/string_utf8_multilang.hpp"
+
 #include "cppjansson/cppjansson.hpp"
+
+#include "indexer/feature_meta.hpp"
+#include "indexer/feature_region_locator.hpp"
+#include "indexer/feature_utils.hpp"
 
 #include <algorithm>
 
@@ -15,7 +21,8 @@ using std::string;
 
 namespace
 {
-string const kDefaultLanguage = "en";
+string const kDefaultLanguage = "default";
+string const kEnglishLanguage = "en";
 
 string GetTextSourceString(platform::TextSource textSource)
 {
@@ -57,14 +64,39 @@ TGetTextByIdPtr GetTextById::Create(string const & jsonBuffer, string const & lo
   return result;
 }
 
+TGetTextByIdPtr GetTextByIdFactoryForRegion(TextSource textSource, string const regionId)
+{
+  auto regionData = feature::RegionData();
+  regionData.SetLanguages(feature::RegionLocator::Instance().GetLocalLanguages(regionId));
+
+  string jsonBuffer;
+  for (auto const lang : feature::PrioritizedLanguages(regionData))
+  {
+    std::string const language = std::string(StringUtf8Multilang::GetLangByCode(lang));
+    if (language == kDefaultLanguage)
+    {
+      for (auto const & defaultLanguage : feature::RegionLocator::Instance().GetLocalLanguages(regionId))
+        if (GetJsonBuffer(textSource, defaultLanguage, jsonBuffer))
+          return GetTextById::Create(jsonBuffer, defaultLanguage);
+    }
+    else if (GetJsonBuffer(textSource, language, jsonBuffer))
+    {
+      return GetTextById::Create(jsonBuffer, language);
+    }
+  }
+
+  ASSERT(false, ("Can't find translation for region. (Region ID:", regionId, ")"));
+  return nullptr;
+}
+
 TGetTextByIdPtr GetTextByIdFactory(TextSource textSource, string const & localeName)
 {
   string jsonBuffer;
   if (GetJsonBuffer(textSource, localeName, jsonBuffer))
     return GetTextById::Create(jsonBuffer, localeName);
 
-  if (GetJsonBuffer(textSource, kDefaultLanguage, jsonBuffer))
-    return GetTextById::Create(jsonBuffer, kDefaultLanguage);
+  if (GetJsonBuffer(textSource, kEnglishLanguage, jsonBuffer))
+    return GetTextById::Create(jsonBuffer, kEnglishLanguage);
 
   ASSERT(false, ("Can't find translate for default language. (Lang:", localeName, ")"));
   return nullptr;

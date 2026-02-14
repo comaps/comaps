@@ -10,27 +10,24 @@ on:
       - .forgejo/**
       - '!.forgejo/workflows/ios-check.yaml'  # Run check on self change
       - '**/*_tests/**'
-      - '**/CMakeLists.txt'
       - CONTRIBUTORS
       - LICENSE
       - NOTICE
       - README.md
       - android/**
-      - data/strings/**
+      - data/*-strings/**
       - docs/**
       - generator/**
       - iphone/metadata/**
       - packaging/**
-      - platform/*_android*
-      - platform/*_linux*
-      - platform/*_mac*
-      - platform/*qt*
-      - platform/*_win*
-      - pyhelpers/**
+      - libs/platform/*_android*
+      - libs/platform/*_linux*
+      - libs/platform/*_mac*
+      - libs/platform/*qt*
+      - libs/platform/*_win*
+      - libs/pyhelpers/**
       - qt*/**
-      - skin_generator/**
       - tools/**
-      - track_generator/**
 
 jobs:
   ios-check:

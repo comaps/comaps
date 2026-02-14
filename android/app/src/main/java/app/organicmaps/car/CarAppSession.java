@@ -114,6 +114,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   public void onCreate(@NonNull LifecycleOwner owner)
   {
     Logger.d(TAG);
+    Framework.nativeSetCarScreenMode(true);
     mSensorsManager = new CarSensorsManager(getCarContext());
     mDisplayManager = MwmApplication.from(getCarContext()).getDisplayManager();
     mDisplayManager.addListener(DisplayType.Car, this);
@@ -159,6 +160,7 @@ public final class CarAppSession extends Session implements DefaultLifecycleObse
   public void onDestroy(@NonNull LifecycleOwner owner)
   {
     mDisplayManager.removeListener(DisplayType.Car);
+    Framework.nativeSetCarScreenMode(false);
   }
 
   private void init()

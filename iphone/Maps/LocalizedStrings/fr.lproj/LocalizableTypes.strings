@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Centre de jeux pour adultes";
 "type.leisure.amusement_arcade" = "Salle de jeux d’arcade";
 "type.amenity.charging_station" = "Borne de recharge";
-"type.amenity.charging_station.bicycle" = "Borne de recharge pour vélo";
-"type.amenity.charging_station.motorcar" = "Borne de recharge pour voiture";
+"type.amenity.charging_station.bicycle" = "Vélos";
+"type.amenity.charging_station.motorcar" = "Voitures";
 "type.amenity.childcare" = "Garderie";
 "type.amenity.cinema" = "Cinéma";
 "type.leisure.bowling_alley" = "Salle de bowling";
@@ -157,7 +157,7 @@
 "type.amenity.shelter.basic_hut" = "Cabane de Bivouac";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Abri en appentis";
+"type.amenity.shelter.lean_to" = "Abri-lit adossé";
 "type.amenity.public_bath" = "Bain public";
 "type.amenity.shower" = "Douche";
 "type.amenity.stripclub" = "Club de strip-tease";
@@ -176,7 +176,7 @@
 "type.amenity.vending_machine.food" = "Distributeur d’aliments";
 "type.amenity.vending_machine.newspapers" = "Distributeur de journaux";
 "type.amenity.vending_machine.parking_tickets" = "Horodateur";
-"type.amenity.vending_machine.public_transport_tickets" = "Distributeur de billets de transport en commun";
+"type.amenity.vending_machine.public_transport_tickets" = "Distributeur automatique de tickets de transport en commun";
 "type.amenity.vending_machine.sweets" = "Distributeur de bonbons";
 "type.amenity.vending_machine.excrement_bags" = "Distributeur de sacs à excréments";
 "type.amenity.parcel_locker" = "Consigne automatique pour colis";
@@ -1487,7 +1487,7 @@
 "type.power.portal" = "Portique haute tension";
 "type.building.guardhouse" = "Guérite de sécurité";
 "type.shop.lighting" = "Boutique de luminaires";
-"type.amenity.bench.backless" = "Banc sans dossier";
+"type.amenity.bench.backless" = "Sans dossier";
 "type.leisure.bandstand" = "Kiosque à musique";
 "type.leisure.sports_centre.sport.soccer" = "Complexe sportif";
 "type.leisure.sports_centre.sport.athletics" = "Complexe sportif";
@@ -1588,3 +1588,15 @@
 "type.natural.tree" = "Arbre";
 "type.man_made.mast.communication" = "Antenne de télécommunications";
 "type.shop.beauty.nails" = "Salon de manucure";
+"type.amenity.charging_station.small" = "Capacité limitée";
+"type.amenity.charging_station.motorcycle" = "Motos";
+"type.railway.disused.bridge" = "Pont ferroviaire désaffecté";
+"type.railway.turntable" = "Plateau tournant ferroviaire";
+"type.tourism.information.tactile_map" = "Carte tactile";
+"type.railway.miniature.bridge" = "Pont ferroviaire miniature";
+"type.emergency.disaster_help_point" = "Point d'aide d'urgence en cas de catastrophe";
+"type.emergency.access_point.address" = "Adresse pour les secours d'urgence";
+"type.railway.miniature.tunnel" = "Tunnel ferroviaire miniature";
+"type.railway.disused.tunnel" = "Tunnel ferroviaire désaffecté";
+"type.railway.miniature" = "Chemin de fer miniature";
+"type.waterway.fuel" = "Quai de ravitaillement en carburant";

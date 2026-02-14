@@ -1,7 +1,6 @@
 #include "generator/osm2type.hpp"
 
 #include "generator/osm2meta.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/osm_element_helpers.hpp"
 #include "generator/utils.hpp"
 
@@ -12,6 +11,7 @@
 #include "indexer/feature_impl.hpp"
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/ftypes_subtypes.hpp"
+#include "indexer/osm_element.hpp"
 
 #include "platform/platform.hpp"
 

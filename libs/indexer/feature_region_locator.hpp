@@ -16,16 +16,14 @@ namespace feature
   public:
     /// Static instance
     static RegionLocator const & Instance();
-    
+
     /**
-     * Find the local languages codes for a given point
-     * @param point The point to check
+     * Find the local languages codes for a region id
+     * @param regionId The region id to check
      * @return The local language codes
      */
-    vector<string> GetLocalLanguages(m2::PointD const point) const
+    vector<string> GetLocalLanguages(string const regionId) const
     {
-      auto const regionId = m_infoGetter->GetRegionCountryId(point);
-
       vector<string> regionIdParts;
       for (auto const regionIdPart : strings::Tokenize(regionId, "_")) {
         regionIdParts.push_back(string(regionIdPart));
@@ -41,6 +39,16 @@ namespace feature
         regionIdParts.pop_back();
       }
       return languages;
+    }
+
+    /**
+     * Find the local languages codes for a given point
+     * @param point The point to check
+     * @return The local language codes
+     */
+    vector<string> GetLocalLanguages(m2::PointD const point) const
+    {
+      return GetLocalLanguages(m_infoGetter->GetRegionCountryId(point));
     }
 
   private:

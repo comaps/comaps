@@ -912,4 +912,8 @@
     <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
     <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
     <string name="pref_maplanguage_local">Lokalt språk</string>
+    <string name="limit_map_language_alternatives_to_local">Bruk andre systemspråk kun i deres region</string>
+    <string name="location_privacy_info">Apper mottar posisjonsdata fra operativsystemets posisjonstjeneste, som kan dele posisjonen din med Google og/eller leverandøren av enheten din. Bruk et Android-operativsystem som ivaretar personvernet for å unngå dette.</string>
+    <string name="location_privacy">Posisjonspersonvern</string>
+    <string name="pref_speedlimit_title">Vis fartsgrenser</string>
 </resources>

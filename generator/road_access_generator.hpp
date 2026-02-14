@@ -2,11 +2,12 @@
 
 #include "generator/collector_interface.hpp"
 #include "generator/feature_builder.hpp"
-#include "generator/osm_element.hpp"
 #include "generator/way_nodes_mapper.hpp"
 
 #include "routing/road_access.hpp"
 #include "routing/vehicle_mask.hpp"
+
+#include "indexer/osm_element.hpp"
 
 #include <array>
 #include <map>

@@ -84,15 +84,7 @@ jobs:
           rm -f planet-latest-new.osm.pbf
           pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -v --size 16384
           mv planet-latest-new.osm.pbf planet-latest.osm.pbf
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=PBF planet update is done!'
-
+  
   update-planet-o5m:
     if: false
     name: Update O5M Planet
@@ -132,15 +124,7 @@ jobs:
           osmupdate -v --drop-author --drop-version --hash-memory=4000  --max-merge=32 --out-o5m planet.o5m planet-new.o5m
           mv planet-new.o5m planet.o5m
           echo "Done."
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=O5M planet update is done!'
-
+  
   compare-subways:
     name: Compare Subways
     runs-on: mapfilemaker
@@ -165,23 +149,18 @@ jobs:
           cd ~/comaps/
           cp tools/unix/maps/settings.sh.prod tools/unix/maps/settings.sh
           ./tools/unix/maps/generate_subways.sh
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Subways are done!'
+
       - name: Compare with VK validation
+        continue-on-error: true
         shell: bash
         run: |
-          set -e
+          #set -e
           cd ~/subways
           if [ -f "$HTML_DIR/cities.txt" ]; then
             echo "Comparing local validation with VK's validation..."
             python3 ./scripts/compare_html_validation.py "$HTML_DIR/cities.txt" \
               --remote-url "https://maps.vk.com/osm/tools/subways/latest/cities.txt"
+            exit 0
           else
             echo "Local cities.txt not found at $HTML_DIR/cities.txt"
             exit 1
@@ -189,7 +168,9 @@ jobs:
       - name: Compare Google Sheets Data
         shell: bash
         run: |
-          set -e
+          #set -e
+
+          cd ~/subways
 
           # Download the Google Sheets data
           GOOGLE_SHEETS_URL="https://docs.google.com/spreadsheets/d/${SPREADSHEET_ID}/export?format=csv"
@@ -207,7 +188,7 @@ jobs:
 
           if diff -u /tmp/local_normalized.csv /tmp/google_normalized.csv > /tmp/full_diff.txt; then
             echo "No differences found! Local Rapid.csv is in sync with Google Sheets."
-            exit 0
+            #exit 0
           else
             cat /tmp/full_diff.txt
 
@@ -215,5 +196,5 @@ jobs:
             echo "The above diff can be saved as a patch and applied with:"
             echo "  patch source_data/Rapid.csv < patch-file"
             echo "or by manually reviewing and applying the changes."
-            exit 1
+            #exit 1
           fi

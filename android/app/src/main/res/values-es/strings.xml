@@ -502,7 +502,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Más</string>
-    <string name="placepage_edit_bookmark_button">Editar marcador</string>
+    <string name="placepage_edit_bookmark_button">Editar favorito</string>
     <string name="placepage_personal_notes_hint">Notas personales (texto o html)</string>
     <string name="editor_reset_edits_message">¿Descartar todos los cambios locales?</string>
     <string name="editor_reset_edits_button">Descartar cambios</string>
@@ -572,9 +572,9 @@
     <string name="bookmark_lists_hide_all">Ocultar todo</string>
     <string name="bookmark_lists_show_all">Mostrar todo</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d marcador</item>
-        <item quantity="many">%d marcadores</item>
-        <item quantity="other">%d marcadores</item>
+        <item quantity="one">%d favorito</item>
+        <item quantity="many">%d favoritos</item>
+        <item quantity="other">%d favoritos</item>
     </plurals>
     <string name="bookmarks_create_new_group">Crear nueva lista</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
@@ -782,7 +782,7 @@
     <string name="browser_not_available">El navegador web no está disponible</string>
     <string name="volume">Volumen</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportar todos los marcadores y trazas</string>
+    <string name="bookmarks_export">Exportar todos los favoritos y trazas</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Configuración de síntesis de voz del sistema</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -922,10 +922,11 @@
     <string name="prefs_speed_cameras_information">Las advertencias de radares de velocidad están deshabilitadas en países donde las alertas están prohibidas por ley.</string>
     <string name="navigation_start_tts_message">"Iniciando Navegación, idioma de las instrucciones por voz: "</string>
     <string name="navigation_start_tts_disabled_message">Instrucciones por voz deshabilitadas: Motor de TTS no disponible</string>
-    <string name="advanced">Avanzado</string>
+    <string name="advanced">Opciones avanzadas</string>
     <string name="download_resources_custom_url_title">Servidor de mapas personalizado</string>
     <string name="download_resources_custom_url_message">Sobreescribe el servidor de mapas por defecto. Déjalo en blanco para usar el servidor de CoMaps por defecto.</string>
     <string name="download_resources_custom_url_summary_none">No establecido</string>
     <string name="download_resources_custom_url_error_scheme">Por favor introduce un URL empezando con http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma local</string>
+    <string name="limit_map_language_alternatives_to_local">Usar otros idiomas del sistema solo en sus regiones</string>
 </resources>

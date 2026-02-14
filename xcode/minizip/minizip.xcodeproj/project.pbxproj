@@ -135,7 +135,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				DefaultBuildSystemTypeForWorkspace = Latest;
-				LastUpgradeCheck = 1610;
+				LastUpgradeCheck = 2620;
 				TargetAttributes = {
 					474017F523F5B2CE00A93C81 = {
 						CreatedOnToolsVersion = 11.3;

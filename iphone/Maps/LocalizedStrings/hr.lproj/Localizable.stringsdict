@@ -25,5 +25,25 @@
 			<string>%d fajlova pronađeno. Možeš ih vidjeti nakon konverzije.</string>
 		</dict>
 	</dict>
+	<key>tracks</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>tracks</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>Nula</string>
+			<key>one</key>
+			<string>Jedan</string>
+			<key>few</key>
+			<string>Nekoliko</string>
+			<key>other</key>
+			<string>Ostalo</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

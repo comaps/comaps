@@ -160,11 +160,6 @@ double GetBicycleClimbPenalty(EdgeEstimator::Purpose purpose, double tangent, ge
   return factor;
 }
 
-double GetCarClimbPenalty(EdgeEstimator::Purpose, double, geometry::Altitude)
-{
-  return 1.0;
-}
-
 // EdgeEstimator -----------------------------------------------------------------------------------
 EdgeEstimator::EdgeEstimator(VehicleType vehicleType, double maxWeightSpeedKMpH, SpeedKMpH const & offroadSpeedKMpH,
                              DataSource * /*dataSourcePtr*/, std::shared_ptr<NumMwmIds> /*numMwmIds*/)

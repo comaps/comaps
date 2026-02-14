@@ -128,10 +128,10 @@
 "type.amenity.prison" = "Fengsel";
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Bokhylle";
-"type.amenity.recycling.centre" = "Resirkuleringssenter";
+"type.amenity.recycling.centre" = "Gjenvinningsstasjon";
 "type.amenity.recycling.container" = "Gjenvinningsbeholder";
 "type.recycling.batteries" = "Batterier";
-"type.recycling.clothes" = "Gamle klær";
+"type.recycling.clothes" = "Klær";
 "type.recycling.glass_bottles" = "Glassemballasje";
 "type.recycling.paper" = "Papiravfall";
 "type.recycling.plastic" = "Plastavfall";

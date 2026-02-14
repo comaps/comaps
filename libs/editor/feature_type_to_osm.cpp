@@ -64,19 +64,19 @@ void TypeToOSMTranslator::LoadFromStream(std::istream & s)
       // Derive OSM tags from type name
       ASSERT(featureTypeTokens.size() <= 2, ("OSM tags can not be inferred from name:", line));
 
-      OSMTag osmTag;
+      OsmElement::Tag osmTag;
 
       // e.g. "amenity-restaurant"
       if (featureTypeTokens.size() >= 2)
       {
-        osmTag.key = featureTypeTokens[0];
-        osmTag.value = featureTypeTokens[1];
+        osmTag.m_key = featureTypeTokens[0];
+        osmTag.m_value = featureTypeTokens[1];
       }
       // e.g. "building"
       else if (featureTypeTokens.size() == 1)
       {
-        osmTag.key = featureTypeTokens[0];
-        osmTag.value = "yes";
+        osmTag.m_key = featureTypeTokens[0];
+        osmTag.m_value = "yes";
       }
 
       m_storage.insert({type, {osmTag}});
@@ -95,7 +95,7 @@ void TypeToOSMTranslator::LoadFromStream(std::istream & s)
       std::string_view const osmTagList = osmTagTokens[0];
 
       // Process OSM tag list (e.g. "[tourism=information][information=office]")
-      std::vector<OSMTag> osmTags;
+      std::vector<OsmElement::Tag> osmTags;
       size_t pos = 0;
 
       while ((pos = osmTagList.find('[', pos)) != std::string::npos)
@@ -120,13 +120,13 @@ void TypeToOSMTranslator::LoadFromStream(std::istream & s)
         if (equalSign != std::string::npos)
         {
           // Tags in key=value format
-          OSMTag osmTag;
-          osmTag.key = keyValuePair.substr(0, equalSign);
-          osmTag.value = keyValuePair.substr(equalSign + 1);
+          OsmElement::Tag osmTag;
+          osmTag.m_key = keyValuePair.substr(0, equalSign);
+          osmTag.m_value = keyValuePair.substr(equalSign + 1);
 
           // mapcss-mapping.csv uses 'not' instead of 'no' as a workaround for the rendering engine
-          if (osmTag.value == "not")
-            osmTag.value = "no";
+          if (osmTag.m_value == "not")
+            osmTag.m_value = "no";
 
           osmTags.push_back(osmTag);
         }
@@ -140,9 +140,9 @@ void TypeToOSMTranslator::LoadFromStream(std::istream & s)
           if (keyValuePair.back() == '?')
             keyValuePair.remove_suffix(1);
 
-          OSMTag osmTag;
-          osmTag.key = keyValuePair;
-          osmTag.value = "yes";
+          OsmElement::Tag osmTag;
+          osmTag.m_key = keyValuePair;
+          osmTag.m_value = "yes";
 
           osmTags.push_back(osmTag);
         }
@@ -157,7 +157,7 @@ void TypeToOSMTranslator::LoadFromStream(std::istream & s)
   }
 }
 
-std::vector<OSMTag> const & TypeToOSMTranslator::OsmTagsFromType(uint32_t type) const
+std::vector<OsmElement::Tag> const & TypeToOSMTranslator::OsmTagsFromType(uint32_t type) const
 {
   auto it = m_storage.find(type);
 

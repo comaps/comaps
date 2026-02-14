@@ -1103,4 +1103,6 @@
 "voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
 "voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";
 "avoid_paved" = "Vyhnout se zpevněným cestám";
-"limit_map_language_alternatives_to_local" = "Jiné systémové jazyky použít pouze v jejich oblasti";
+"pref_alt_map_lang_handling_local_only" = "Preferovat a používat pouze tam, kde je to přirozené";
+"pref_alt_map_lang_handling" = "Alternativní jazyky mapy";
+"pref_alt_map_lang_handling_system_order" = "Použít v systémovém pořadí";

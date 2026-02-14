@@ -921,4 +921,7 @@
     <string name="download_resources_custom_url_summary_none">Není nastaveno</string>
     <string name="pref_maplanguage_local">Místní jazyk</string>
     <string name="limit_map_language_alternatives_to_local">Jiné systémové jazyky použít pouze v jejich oblasti</string>
+    <string name="location_privacy_info">Aplikace získávají data o poloze z polohové služby vašeho systému, která může sdílet vaši polohu se společností Google a/nebo výrobcem vašeho zařízení. Tomu se můžete vyhnout použitím systému Android chránícího soukromí.</string>
+    <string name="location_privacy">Soukromí polohy</string>
+    <string name="pref_speedlimit_title">Zobrazit omezení rychlosti</string>
 </resources>

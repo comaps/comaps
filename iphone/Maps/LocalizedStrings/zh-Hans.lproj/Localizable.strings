@@ -1103,4 +1103,6 @@
 "voice_explanation_before_version26" = "可以在系统设置中的 *辅助功能*、*朗读内容*、*声音*下选择更好的声音。";
 "voice_explanation" = "可以在系统设置中的 *辅助功能*、*阅读与朗读*、*声音*下选择更好的声音。";
 "avoid_paved" = "避开铺装道路";
-"limit_map_language_alternatives_to_local" = "仅使用所在区域的其他系统语言";
+"pref_alt_map_lang_handling" = "备选地图语言";
+"pref_alt_map_lang_handling_system_order" = "按系统顺序使用";
+"pref_alt_map_lang_handling_local_only" = "优先使用并仅在使用本地语言时使用";

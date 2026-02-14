@@ -50,7 +50,7 @@
     <string name="type.amenity.fast_food">Fast food</string>
     <string name="type.amenity.ferry_terminal">Feribot</string>
     <string name="type.amenity.fire_station">Unitate de pompieri</string>
-    <string name="type.amenity.fountain">Fântână</string>
+    <string name="type.amenity.fountain">Fântână arteziană</string>
     <string name="type.amenity.fuel">Benzinărie</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.amenity.grave_yard">Cimitir</string>
@@ -570,7 +570,7 @@
     <string name="type.man_made.water_tap">Robinet cu apă</string>
     <string name="type.man_made.water_tap.drinking_water_no">Robinet cu apă</string>
     <string name="type.man_made.water_tower">Turn de apă</string>
-    <string name="type.man_made.water_well">Puț de apă</string>
+    <string name="type.man_made.water_well">Fântână de apă</string>
     <string name="type.man_made.water_well.drinking_water_no">Puț de apă</string>
     <string name="type.man_made.windmill">Moară de vânt</string>
     <string name="type.military.bunker">Buncăr</string>

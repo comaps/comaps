@@ -1477,7 +1477,7 @@
 "type.amenity.love_hotel" = "Love Hotel";
 "type.leisure.escape_game" = "Escape Room";
 "type.amenity.luggage_locker" = "Bagāžas glabātava";
-"type.amenity.ranger_station" = "Ranger Station";
+"type.amenity.ranger_station" = "Kārtībnieka birojs";
 "type.amenity.bicycle_parking.covered" = "Divriteņu novietne ar jumtu";
 "type.post_office.post_partner" = "Post Partner";
 "type.barrier.wicket_gate" = "Wicket gate";
@@ -1542,3 +1542,5 @@
 "type.lateral.port" = "Osta";
 "type.amenity.charging_station.small" = "Ierobežots vietu skaits";
 "type.amenity.charging_station.motorcycle" = "Motocikli";
+"type.railway.disused.bridge" = "Neizmantots dzelzceļa tilts";
+"type.railway.disused.tunnel" = "Neizmantots dzelzceļa tunelis";

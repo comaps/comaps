@@ -41,7 +41,7 @@
 "type.leisure.adult_gaming_centre" = "Centro de jogos para adultos";
 "type.leisure.amusement_arcade" = "Fliperama";
 "type.amenity.charging_station" = "Eletroposto";
-"type.amenity.charging_station.bicycle" = "Ponto de recarga de bicicletas";
+"type.amenity.charging_station.bicycle" = "Bicicletas";
 "type.amenity.charging_station.motorcar" = "Carros";
 "type.amenity.childcare" = "Creche";
 "type.amenity.cinema" = "Cinema";
@@ -1589,3 +1589,14 @@
 "type.shop.beauty.nails" = "Manicure";
 "type.amenity.hydrant" = "Hidrante de irrigação";
 "type.amenity.charging_station.motorcycle" = "Motos";
+"type.amenity.charging_station.small" = "Capacidade limitada";
+"type.railway.disused.bridge" = "Ponte ferroviária desativada";
+"type.railway.turntable" = "Plataforma giratória ferroviária";
+"type.tourism.information.tactile_map" = "Mapa tátil";
+"type.railway.miniature.bridge" = "Ponte ferroviária em miniatura";
+"type.emergency.disaster_help_point" = "Ponto de ajuda de emergências e desastres";
+"type.emergency.access_point.address" = "Endereço de resgate de emergência";
+"type.railway.miniature.tunnel" = "Túnel ferroviário em miniatura";
+"type.railway.disused.tunnel" = "Túnel ferroviário desativado";
+"type.railway.miniature" = "Ferrovia em miniatura";
+"type.waterway.fuel" = "Posto de combustível da marina";

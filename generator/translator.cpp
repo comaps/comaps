@@ -2,7 +2,8 @@
 
 #include "generator/collector_collection.hpp"
 #include "generator/filter_collection.hpp"
-#include "generator/osm_element.hpp"
+
+#include "indexer/osm_element.hpp"
 
 namespace generator
 {

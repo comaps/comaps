@@ -49,9 +49,6 @@ public class RoutingPlanController extends ToolbarController
   @NonNull
   private final WheelProgressView mProgressRuler;
 
-  //  @NonNull
-  //  private final WheelProgressView mProgressTaxi;
-
   @NonNull
   private final RoutingBottomMenuController mRoutingBottomMenuController;
 
@@ -241,11 +238,6 @@ public class RoutingPlanController extends ToolbarController
         mRouterTypes.check(R.id.pedestrian);
         yield mProgressPedestrian;
       }
-      // case Taxi:
-      //     {
-      //       mRouterTypes.check(R.id.taxi);
-      //       progressView = mProgressTaxi;
-      //     }
       case Transit ->
       {
         mRouterTypes.check(R.id.transit);
