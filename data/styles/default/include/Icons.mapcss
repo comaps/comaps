@@ -1532,7 +1532,9 @@ node|z13-14[man_made=lighthouse],
 node|z15-[man_made=lighthouse],
 {icon-image: lighthouse-m.svg;}
 
-node|z16-[barrier=toll_booth],
+node|z13-14[barrier=toll_booth],
+{icon-image: toll_booth-s.svg;}
+node|z15-[barrier=toll_booth],
 {icon-image: toll_booth-m.svg;}
 
 node|z14[barrier=border_control],
