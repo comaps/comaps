@@ -1434,6 +1434,10 @@ void GetNameAndType(OsmElement * p, FeatureBuilderParams & params, TypesFilterFn
     uint64_t const population = generator::osm_element::GetPopulation(v);
     if (population != 0)
       params.rank = feature::PopulationToRank(population);
+      // Store raw value as metadata for display on the place page.
+      // Must be done here because TagProcessor::Call() clears the tag after this
+      // lambda returns, so it never reaches MetadataTagProcessor (Stage 6).
+      params.GetMetadata().Set(feature::Metadata::FMD_POPULATION, v);
   }},
       {"ref", "*",
        [&params](string & k, string & v)

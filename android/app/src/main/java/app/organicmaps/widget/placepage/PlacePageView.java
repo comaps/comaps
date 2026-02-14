@@ -81,6 +81,9 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -710,8 +713,18 @@ public class PlacePageView extends Fragment
     final String outdoorSeating = mMapObject.getMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING);
     refreshMetadataOrHide(outdoorSeating.equals("yes") ? getString(R.string.outdoor_seating) : "", mOutdoorSeating,
                           mTvOutdoorSeating);
-    final String population = "%,d".format(mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION)).replace(',', ' ');
-      refreshMetadataOrHide(!TextUtils.isEmpty(population) ? getString(R.string.population, population) : "", mPopulation, mTvPopulation);
+    DecimalFormat populationFormat = new DecimalFormat("#,###");
+    populationFormat.setGroupingUsed(true);
+    populationFormat.setGroupingSize(3);
+    populationFormat.setDecimalFormatSymbols(new DecimalFormatSymbols() {{
+      setGroupingSeparator(' ');
+    }});
+    final String population = mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION);
+    if (!population.isEmpty()) {
+      final long populationValue = Long.parseLong(population);
+      final int plurals = (!(populationValue > 1)) ? 2 : 1;
+      refreshMetadataOrHide(!TextUtils.isEmpty(population) ? getContext().getResources().getQuantityString(R.plurals.population, plurals, population) : "", mPopulation, mTvPopulation);
+    }
 
     final String lastChecked = mMapObject.getMetadata(Metadata.MetadataType.FMD_CHECK_DATE);
     if (!lastChecked.isEmpty())
