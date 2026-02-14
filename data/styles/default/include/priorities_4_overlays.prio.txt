@@ -111,9 +111,6 @@ natural-water-lake                                  # caption z10- (also has are
 natural-water-reservoir                             # caption z10- (also has area z1-)
 === 6650
 
-barrier-toll_booth                                  # icon z16- (also has caption(optional) z16-)
-=== 6600
-
 historic-ruins                                      # icon z17- (also has caption(optional) z17-)
 === 6551
 
@@ -383,6 +380,7 @@ amenity-fuel                                        # icon z14- (also has captio
 waterway-fuel                                       # icon z16- (also has caption(optional) z16-)
 === 4270
 
+barrier-toll_booth                                  # icon z13- (also has caption(optional) z16-)
 highway-services                                    # icon z14- (also has caption(optional) z14-, area z13-)
 === 4250
 
@@ -1445,9 +1443,6 @@ natural-tree                                        # icon z17- (also has captio
 # leisure-nature_reserve                            # caption(optional) z12-17 (also has icon z11-17, caption z18-, area z10-17)
 # === -3300
 
-# barrier-toll_booth                                # caption(optional) z16- (also has icon z16-)
-# === -3400
-
 # historic-ruins                                    # caption(optional) z17- (also has icon z17-)
 # === -3449
 
@@ -1673,6 +1668,7 @@ natural-tree                                        # icon z17- (also has captio
 # waterway-fuel                                     # caption(optional) z16- (also has icon z16-)
 # === -5730
 
+# barrier-toll_booth                                # caption(optional) z16- (also has icon z13-)
 # highway-services                                  # caption(optional) z14- (also has icon z14-, area z13-)
 # === -5750
 
