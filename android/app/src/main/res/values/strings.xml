@@ -991,5 +991,8 @@
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
-    <string name="population">Population: %s</string>
+    <plurals name="population">
+        <item quantity="one">%d resident</item>
+        <item quantity="other">%d residents</item>
+    </plurals>
 </resources>

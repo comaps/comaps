@@ -1162,5 +1162,5 @@
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
 
-/* To indicate the population of a city, a place ... */
-"population" = "Population: %@";
+/* To indicate the population of a city, a place etc. Only translate the "residents" phrase and only with the plural form.  */
+"population" = "^[%lld residents](inflect: true)";

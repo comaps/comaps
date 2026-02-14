@@ -261,7 +261,7 @@ class PlacePageInfoViewController: UIViewController {
     }
 	
     if let population = placePageInfoData.population {
-      populationView = createInfoItem(population, icon: UIImage(named: "ic_placepage_population"))
+      populationView = createInfoItem(population, icon: UIImage(systemName: "person.3.fill"))
     }
 
     if let website = placePageInfoData.website {

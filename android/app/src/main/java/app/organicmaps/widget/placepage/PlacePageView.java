@@ -81,6 +81,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -710,8 +711,8 @@ public class PlacePageView extends Fragment
     final String outdoorSeating = mMapObject.getMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING);
     refreshMetadataOrHide(outdoorSeating.equals("yes") ? getString(R.string.outdoor_seating) : "", mOutdoorSeating,
                           mTvOutdoorSeating);
-    final String population = "%,d".format(mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION)).replace(',', ' ');
-      refreshMetadataOrHide(!TextUtils.isEmpty(population) ? getString(R.string.population, population) : "", mPopulation, mTvPopulation);
+    final String population = mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION);
+      refreshMetadataOrHide(!TextUtils.isEmpty(population) ? population: "", mPopulation, mTvPopulation);
 
     final String lastChecked = mMapObject.getMetadata(Metadata.MetadataType.FMD_CHECK_DATE);
     if (!lastChecked.isEmpty())
