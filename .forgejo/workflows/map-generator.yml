@@ -102,58 +102,11 @@ jobs:
         with:
           path: "~"
           key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Checkout main repo
-        shell: bash
-        run: |
-          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
-          cd ~
-          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
       - name: Checkout wikiparser repo
         shell: bash
         run: |
           cd ~
           git clone --depth 1 --single-branch https://codeberg.org/comaps/wikiparser.git
-      - name: Checkout subways repo
-        shell: bash
-        run: |
-          cd ~
-          git clone --depth 1 --single-branch https://codeberg.org/comaps/subways.git
-
-  copy-coasts:
-    # if: inputs.run-copy-coasts
-    name: Copy Previously Generated Coasts
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: Copy Coasts
-        shell: bash
-        run: |
-          echo "WorldCoasts available:"
-          ls -al /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.*
-
-          if [ -f /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom ]; then
-
-          echo "Before:"
-          ls -al /home/planet/latest_coasts*
-          # TODO: don't copy coasts from test generations
-          cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom /home/planet/latest_coasts.geom
-          cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.rawgeom /home/planet/latest_coasts.rawgeom
-
-          echo "After:"
-          ls -al /home/planet/latest_coasts*
-
-          else
-
-          echo "No WorldCoasts found."
-
-          fi
 
   update-isolines:
     if: inputs.run-isolines
@@ -294,8 +247,6 @@ jobs:
     if: inputs.run-subways
     name: Update Subways
     runs-on: mapfilemaker
-    needs:
-      - clone-repos
     container:
       image: codeberg.org/comaps/maps_generator:f6d53d54f794
       volumes:
@@ -309,6 +260,17 @@ jobs:
         with:
           path: "~"
           key: cache-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME (NO submodules)"
+          cd ~
+          git clone --depth 1 -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+      - name: Checkout subways repo
+        shell: bash
+        run: |
+          cd ~
+          git clone --depth 1 --single-branch https://codeberg.org/comaps/subways.git
       - name: Update Subways
         shell: bash
         run: |
@@ -536,7 +498,7 @@ jobs:
 
           echo "$COUNTRIES_PUB_KEY" > ~/keys/countries_ed25519_pk.pem
           echo "$COUNTRIES_SECRET_KEY" > ~/keys/countries_ed25519_sk.pem
-      
+
           buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
           builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
           cd /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
