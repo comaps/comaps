@@ -359,9 +359,9 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_rooms(std::string const 
   return v;
 }
 
-std::string MetadataTagProcessorImpl::ValidateAndFormat_population(std::string v)
+std::string MetadataTagProcessorImpl::ValidateAndFormat_population(std::string const & v)
 {
-	return v;
+  return v;
 }
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_airport_iata(std::string const & v) const
