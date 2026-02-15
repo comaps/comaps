@@ -9,6 +9,8 @@
 
 #include <map>
 
+#include "3party/ankerl/unordered_dense.h"
+
 namespace routing
 {
 // Main purpose is to take and hold MwmHandle-s here (readers and caches).
@@ -18,8 +20,7 @@ class MwmDataSource
 {
   DataSource & m_dataSource;
   std::shared_ptr<NumMwmIds> m_numMwmIDs;
-  // TODO(x7z4w): fix GetHandleSafe below to not depend on stable references (MwmSet::MwmHandle is being returned by pointer), then use ankerl::unordered_dense here.
-  std::unordered_map<NumMwmId, MwmSet::MwmHandle> m_handles;
+  ankerl::unordered_dense::map<NumMwmId, MwmSet::MwmHandle> m_handles;
 
   // Used for FeaturesRoadGraph in openlr only.
   std::map<MwmSet::MwmId, MwmSet::MwmHandle> m_handles2;
