@@ -28,10 +28,9 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace generator::hierarchy
 {

@@ -32,8 +32,7 @@ import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.textview.MaterialTextView;
 
 public class PlacePageBookmarkFragment extends Fragment implements View.OnClickListener, View.OnLongClickListener,
-                                                                   Observer<MapObject>,
-                                                                   EditBookmarkFragment.EditBookmarkListener
+                                                                   Observer<MapObject>, EditBookmarkFragment.EditBookmarkListener
 {
   private View mFrame;
   private MaterialTextView mTvBookmarkNote;
@@ -91,15 +90,15 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
 
   private void updateBookmarkDetails()
   {
-    String notes = null;
-    if (currentBookmark != null)
-    {
-      notes = currentBookmark.getBookmarkDescription();
-    }
-    if (currentTrack != null)
-    {
-      notes = currentTrack.getTrackDescription();
-    }
+      String notes = null;
+      if (currentBookmark != null)
+      {
+          notes = currentBookmark.getBookmarkDescription();
+      }
+      if (currentTrack != null)
+      {
+          notes = currentTrack.getTrackDescription();
+      }
     if (TextUtils.isEmpty(notes))
     {
       UiUtils.hide(mTvBookmarkNote);
@@ -133,13 +132,13 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
     final FragmentActivity activity = requireActivity();
     if (currentBookmark != null)
     {
-      EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(), currentBookmark.getBookmarkId(), activity,
-                                        getChildFragmentManager(), PlacePageBookmarkFragment.this);
+        EditBookmarkFragment.editBookmark(currentBookmark.getCategoryId(), currentBookmark.getBookmarkId(), activity,
+                getChildFragmentManager(), PlacePageBookmarkFragment.this);
     }
     else if (currentTrack != null)
     {
-      EditBookmarkFragment.editBookmark(currentTrack.getCategoryId(), currentTrack.getTrackId(), activity,
-                                        getChildFragmentManager(), PlacePageBookmarkFragment.this);
+        EditBookmarkFragment.editBookmark(currentTrack.getCategoryId(), currentTrack.getTrackId(), activity,
+                getChildFragmentManager(), PlacePageBookmarkFragment.this);
     }
   }
 

@@ -12,6 +12,9 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.material.textview.MaterialTextView;
+
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
@@ -26,7 +29,6 @@ import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.RoutingToolbarButton;
 import app.organicmaps.widget.ToolbarController;
 import app.organicmaps.widget.WheelProgressView;
-import com.google.android.material.textview.MaterialTextView;
 
 public class RoutingPlanController extends ToolbarController
 {
@@ -254,7 +256,7 @@ public class RoutingPlanController extends ToolbarController
       default -> throw new IllegalArgumentException("unknown router: " + router);
     };
 
-    RoutingToolbarButton button = mRouterTypes.findViewById(mRouterTypes.getCheckedRadioButtonId());
+        RoutingToolbarButton button = mRouterTypes.findViewById(mRouterTypes.getCheckedRadioButtonId());
     button.progress();
 
     updateProgressLabels();

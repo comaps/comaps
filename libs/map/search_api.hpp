@@ -20,9 +20,8 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
 
@@ -122,7 +121,7 @@ public:
   // This method must be used to enable or disable indexing all current and future
   // bookmarks belonging to |groupId|.
   void EnableIndexingOfBookmarkGroup(kml::MarkGroupId const & groupId, bool enable);
-  ankerl::unordered_dense::set<kml::MarkGroupId> const & GetIndexableGroups() const;
+  std::unordered_set<kml::MarkGroupId> const & GetIndexableGroups() const;
 
   // Returns the bookmarks search to its default, pre-launch state.
   // This includes dropping all bookmark data for created bookmarks (efficiently
@@ -176,5 +175,5 @@ private:
   // Same as the one in bookmarks::Processor. Duplicated here because
   // it is easier than obtaining the information about a group asynchronously
   // from |m_engine|.
-  ankerl::unordered_dense::set<kml::MarkGroupId> m_indexableGroups;
+  std::unordered_set<kml::MarkGroupId> m_indexableGroups;
 };

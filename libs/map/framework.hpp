@@ -587,7 +587,10 @@ public:
   }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw) { return m_parsedMapApi.ParseGeoNav(raw); }
+  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw)
+  {
+    return m_parsedMapApi.ParseGeoNav(raw);
+  }
 #endif
 
   struct ParsedRoutingData
@@ -774,12 +777,12 @@ public:
   // PowerManager::Subscriber override.
   void OnPowerFacilityChanged(power_management::Facility const facility, bool enabled) override;
   void OnPowerSchemeChanged(power_management::Scheme const actualScheme) override;
-
+  
 public:
   /// Call this from iOS/Android when CarPlay/AA session starts/ends
   void SetCarScreenMode(bool enabled);
   bool m_isCarScreenMode = false;
-
+  
 private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;

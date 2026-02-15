@@ -14,8 +14,7 @@ using namespace ftypes;
 
 bool IsHighway(HighwayClass hwClass, bool isLink)
 {
-  return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) &&
-         !isLink;
+  return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) && !isLink;
 }
 
 bool IsSmallRoad(HighwayClass hwClass)

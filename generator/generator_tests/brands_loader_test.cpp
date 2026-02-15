@@ -7,8 +7,7 @@
 #include "base/geo_object_id.hpp"
 
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace brands_loader_test
 {
@@ -51,7 +50,7 @@ UNIT_TEST(LoadBrands)
   ScopedFile const brandsFile("brands.json", kBrandsJson);
   ScopedFile const translationsFile("translations.json", kBrandTranslationsJson);
 
-  ankerl::unordered_dense::map<GeoObjectId, std::string> brands;
+  std::unordered_map<GeoObjectId, std::string> brands;
   TEST(LoadBrands(brandsFile.GetFullPath(), translationsFile.GetFullPath(), brands), ());
   TEST_EQUAL(brands[GeoObjectId(GeoObjectId::Type::ObsoleteOsmNode, 2132500347)], "mcdonalds", ());
   TEST_EQUAL(brands[GeoObjectId(GeoObjectId::Type::ObsoleteOsmWay, 440527172)], "mcdonalds", ());

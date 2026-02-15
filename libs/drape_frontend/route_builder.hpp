@@ -10,9 +10,8 @@
 #include "geometry/polyline2d.hpp"
 
 #include <functional>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -49,6 +48,6 @@ private:
     m2::PolylineD m_polyline;
     double m_baseDepthIndex = 0.0;
   };
-  ankerl::unordered_dense::map<dp::DrapeID, RouteCacheData> m_routeCache;
+  std::unordered_map<dp::DrapeID, RouteCacheData> m_routeCache;
 };
 }  // namespace df

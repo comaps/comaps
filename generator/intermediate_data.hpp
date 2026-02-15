@@ -19,9 +19,8 @@
 #include <memory>
 #include <string>
 #include <type_traits>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 // Classes for reading and writing any data in file with map of offsets for
 // fast searching in memory by some key.
@@ -142,7 +141,7 @@ public:
 
   private:
     std::unique_ptr<PointStorageReaderInterface> m_storageReader;
-    ankerl::unordered_dense::map<std::string, IndexFileReader> m_fileReaders;
+    std::unordered_map<std::string, IndexFileReader> m_fileReaders;
   };
 
   // It's thread-safe method.
@@ -153,7 +152,7 @@ public:
 
 private:
   std::mutex m_mutex;
-  ankerl::unordered_dense::map<std::string, AllocatedObjects> m_objects;
+  std::unordered_map<std::string, AllocatedObjects> m_objects;
 };
 
 class OSMElementCacheReader : public OSMElementCacheReaderInterface

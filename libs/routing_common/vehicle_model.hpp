@@ -12,9 +12,8 @@
 #include <memory>
 #include <optional>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 class Classificator;
 class FeatureType;
@@ -357,7 +356,7 @@ protected:
   explicit VehicleModelFactory(CountryParentNameGetterFn const & countryParentNameGetterFn);
   std::string GetParent(std::string const & country) const;
 
-  ankerl::unordered_dense::map<std::string, std::shared_ptr<VehicleModelInterface>> m_models;
+  std::unordered_map<std::string, std::shared_ptr<VehicleModelInterface>> m_models;
   CountryParentNameGetterFn m_countryParentNameGetterFn;
 };
 

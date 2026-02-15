@@ -22,9 +22,8 @@
 
 #include <memory>
 #include <optional>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -43,7 +42,7 @@ public:
   template <typename VertexType>
   using Parents = typename AStarGraph<VertexType, void, void>::Parents;
 
-  using Restrictions = ankerl::unordered_dense::map<uint32_t, std::vector<std::vector<uint32_t>>>;
+  using Restrictions = std::unordered_map<uint32_t, std::vector<std::vector<uint32_t>>>;
 
   using SegmentEdgeListT = SmallList<SegmentEdge>;
   using JointEdgeListT = SmallList<JointEdge>;
@@ -204,7 +203,7 @@ private:
   //
   // If m_noUTurnRestrictions.count(featureId) == 0, that means, that there are no any
   // no_u_turn restriction at the feature with id = featureId.
-  ankerl::unordered_dense::map<uint32_t, UTurnEnding> m_noUTurnRestrictions;
+  std::unordered_map<uint32_t, UTurnEnding> m_noUTurnRestrictions;
   RoadAccess m_roadAccess;
   RoadPenalty m_roadPenalty;
   RoutingOptions m_avoidRoutingOptions;

@@ -21,8 +21,6 @@
 #include <string>
 #include <type_traits>
 
-#include "3party/ankerl/unordered_dense.h"
-
 using namespace search;
 using namespace std;
 
@@ -325,7 +323,7 @@ void SearchAPI::EnableIndexingOfBookmarkGroup(kml::MarkGroupId const & groupId, 
   m_engine.EnableIndexingOfBookmarkGroup(KmlGroupIdToSearchGroupId(groupId), enable);
 }
 
-ankerl::unordered_dense::set<kml::MarkGroupId> const & SearchAPI::GetIndexableGroups() const
+unordered_set<kml::MarkGroupId> const & SearchAPI::GetIndexableGroups() const
 {
   return m_indexableGroups;
 }

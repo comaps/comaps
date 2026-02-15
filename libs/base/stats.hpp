@@ -5,9 +5,8 @@
 #include <queue>
 #include <sstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace base
 {
@@ -80,7 +79,7 @@ public:
 template <class Key>
 class TopStatsCounter
 {
-  ankerl::unordered_dense::map<Key, size_t> m_data;
+  std::unordered_map<Key, size_t> m_data;
 
 public:
   void Add(Key const & key) { ++m_data[key]; }
@@ -89,7 +88,7 @@ public:
   {
     ASSERT(count > 0, ());
 
-    using PtrT = typename ankerl::unordered_dense::map<Key, size_t>::value_type const *;
+    using PtrT = std::pair<Key const, size_t> const *;
     struct GreaterNumber
     {
       bool operator()(PtrT l, PtrT r) const { return l->second > r->second; }

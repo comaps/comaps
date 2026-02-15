@@ -22,9 +22,9 @@
 #include "drape/support_manager.hpp"
 #include "drape/utils/projection.hpp"
 
-#include "indexer/classificator_loader.hpp"
 #include "indexer/drawing_rules.hpp"
 #include "indexer/scales.hpp"
+#include "indexer/classificator_loader.hpp"
 
 #include "geometry/any_rect2d.hpp"
 
@@ -1832,8 +1832,8 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
 
   BeginUpdateOverlayTree(modelView);
 
-  for (auto const layerId : {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer,
-                             DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
+  for (auto const layerId :
+       {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
   {
     RenderLayer & overlay = m_layers[static_cast<size_t>(layerId)];
     overlay.Sort(make_ref(m_overlayTree));
@@ -2523,9 +2523,7 @@ void FrontendRenderer::UpdateScene(ScreenBase const & modelView)
     uint32_t constexpr kMaxGenerationRange = 5;
     TileKey const & key = group->GetTileKey();
 
-    return ((GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer ||
-             GetDepthLayer(group->GetState()) == DepthLayer::OverlayUnderBuildingLayer) &&
-            key.m_zoomLevel > GetCurrentZoom()) ||
+    return ((GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer || GetDepthLayer(group->GetState()) == DepthLayer::OverlayUnderBuildingLayer) && key.m_zoomLevel > GetCurrentZoom()) ||
            (m_maxGeneration - key.m_generation > kMaxGenerationRange) ||
            (group->IsUserMark() && (m_maxUserMarksGeneration - key.m_userMarksGeneration > kMaxGenerationRange));
   };

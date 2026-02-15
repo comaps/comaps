@@ -200,9 +200,8 @@ struct StopOnShape
   size_t m_index = 0;
 };
 
-std::optional<size_t> GetStopIndex(
-    ankerl::unordered_dense::map<transit::TransitId, std::vector<size_t>> const & stopIndexes, transit::TransitId id,
-    size_t fromIndex, transit::Direction direction)
+std::optional<size_t> GetStopIndex(std::unordered_map<transit::TransitId, std::vector<size_t>> const & stopIndexes,
+                                   transit::TransitId id, size_t fromIndex, transit::Direction direction)
 {
   auto it = stopIndexes.find(id);
   CHECK(it != stopIndexes.end(), (id));
@@ -219,7 +218,7 @@ std::optional<size_t> GetStopIndex(
 }
 
 std::optional<std::pair<StopOnShape, StopOnShape>> GetStopPairOnShape(
-    ankerl::unordered_dense::map<transit::TransitId, std::vector<size_t>> const & stopIndexes,
+    std::unordered_map<transit::TransitId, std::vector<size_t>> const & stopIndexes,
     transit::StopsOnLines const & stopsOnLines, size_t index, size_t fromIndex, transit::Direction direction)
 {
   auto const & stopIds = stopsOnLines.m_stopSeq;
@@ -265,7 +264,7 @@ Link::Link(transit::TransitId lineId, transit::TransitId shapeId, size_t shapeSi
 namespace transit
 {
 // Static fields.
-ankerl::unordered_dense::set<std::string> WorldFeed::m_agencyHashes;
+std::unordered_set<std::string> WorldFeed::m_agencyHashes;
 
 EdgeTransferId::EdgeTransferId(TransitId fromStopId, TransitId toStopId)
   : m_fromStopId(fromStopId)
@@ -567,7 +566,7 @@ bool WorldFeed::FillStopsEdges()
   std::sort(allStopTimes.begin(), allStopTimes.end(),
             [](gtfs::StopTime const & t1, gtfs::StopTime const & t2) { return t1.trip_id < t2.trip_id; });
 
-  std::vector<ankerl::unordered_dense::map<TransitId, LineData>::iterator> linesForRemoval;
+  std::vector<std::unordered_map<TransitId, LineData>::iterator> linesForRemoval;
 
   for (auto it = m_lines.m_data.begin(); it != m_lines.m_data.end(); ++it)
   {
@@ -645,7 +644,7 @@ bool WorldFeed::FillStopsEdges()
 
 bool WorldFeed::FillLinesAndShapes()
 {
-  ankerl::unordered_dense::map<gtfs::Id, gtfs::Shape> shapes;
+  std::unordered_map<gtfs::Id, gtfs::Shape> shapes;
   for (auto const & shape : m_feed.get_shapes())
     shapes[shape.shape_id].emplace_back(shape);
 
@@ -654,7 +653,7 @@ bool WorldFeed::FillLinesAndShapes()
 
   auto const getShape = [&shapes](gtfs::Id const & gtfsShapeId) -> gtfs::Shape const & { return shapes[gtfsShapeId]; };
 
-  ankerl::unordered_dense::map<gtfs::Id, gtfs::StopTimes> stopTimes;
+  std::unordered_map<gtfs::Id, gtfs::StopTimes> stopTimes;
   for (auto const & stop_time : m_feed.get_stop_times())
     stopTimes[stop_time.trip_id].emplace_back(stop_time);
 
@@ -744,7 +743,7 @@ void WorldFeed::ModifyLinesAndShapes()
   IdSet shapesForRemoval;
 
   // Shape id matching to the line id linked to this shape id.
-  ankerl::unordered_dense::map<TransitId, TransitId> matchingCache;
+  std::unordered_map<TransitId, TransitId> matchingCache;
 
   for (size_t i = 1; i < links.size(); ++i)
   {
@@ -864,7 +863,7 @@ void WorldFeed::FillLinesSchedule()
 
 std::optional<Direction> WorldFeed::ProjectStopsToShape(
     ShapesIter & itShape, StopsOnLines const & stopsOnLines,
-    ankerl::unordered_dense::map<TransitId, std::vector<size_t>> & stopsToIndexes)
+    std::unordered_map<TransitId, std::vector<size_t>> & stopsToIndexes)
 {
   IdList const & stopIds = stopsOnLines.m_stopSeq;
   TransitId const shapeId = itShape->first;
@@ -935,10 +934,10 @@ std::optional<Direction> WorldFeed::ProjectStopsToShape(
   return {};
 }
 
-ankerl::unordered_dense::map<TransitId, std::vector<StopsOnLines>> WorldFeed::GetStopsForShapeMatching()
+std::unordered_map<TransitId, std::vector<StopsOnLines>> WorldFeed::GetStopsForShapeMatching()
 {
   // Shape id and list of stop sequences matched to the corresponding lines.
-  ankerl::unordered_dense::map<TransitId, std::vector<StopsOnLines>> stopsOnShapes;
+  std::unordered_map<TransitId, std::vector<StopsOnLines>> stopsOnShapes;
 
   // We build lists of stops relevant to corresponding shapes. There could be multiple different
   // stops lists linked to the same shape.
@@ -983,7 +982,7 @@ std::pair<size_t, size_t> WorldFeed::ModifyShapes()
     auto itShape = m_shapes.m_data.find(shapeId);
     CHECK(itShape != m_shapes.m_data.end(), (shapeId));
 
-    ankerl::unordered_dense::map<TransitId, std::vector<size_t>> stopToShapeIndex;
+    std::unordered_map<TransitId, std::vector<size_t>> stopToShapeIndex;
 
     for (auto & stopsOnLines : stopsLists)
     {
@@ -1125,7 +1124,7 @@ void WorldFeed::FillTransfers()
 
 void WorldFeed::FillGates()
 {
-  ankerl::unordered_dense::map<std::string, std::vector<GateData>> parentToGates;
+  std::unordered_map<std::string, std::vector<GateData>> parentToGates;
   for (auto const & stop : m_feed.get_stops())
   {
     if (stop.location_type == gtfs::StopLocationType::EntranceExit && !stop.parent_station.empty())
@@ -1194,11 +1193,11 @@ bool WorldFeed::SpeedExceedsMaxVal(EdgeId const & edgeId, EdgeData const & edgeD
   return speedExceedsMaxVal;
 }
 
-bool WorldFeed::ClearFeedByLineIds(ankerl::unordered_dense::set<TransitId> const & corruptedLineIds)
+bool WorldFeed::ClearFeedByLineIds(std::unordered_set<TransitId> const & corruptedLineIds)
 {
-  ankerl::unordered_dense::set<TransitId> corruptedRouteIds;
-  ankerl::unordered_dense::set<TransitId> corruptedShapeIds;
-  ankerl::unordered_dense::set<TransitId> corruptedNetworkIds;
+  std::unordered_set<TransitId> corruptedRouteIds;
+  std::unordered_set<TransitId> corruptedShapeIds;
+  std::unordered_set<TransitId> corruptedNetworkIds;
 
   for (auto lineId : corruptedLineIds)
   {
@@ -1227,7 +1226,7 @@ bool WorldFeed::ClearFeedByLineIds(ankerl::unordered_dense::set<TransitId> const
   DeleteAllEntriesByIds(m_networks.m_data, corruptedNetworkIds);
   DeleteAllEntriesByIds(m_lines.m_data, corruptedLineIds);
 
-  ankerl::unordered_dense::set<TransitId> corruptedStopIds;
+  std::unordered_set<TransitId> corruptedStopIds;
 
   // We fill |corruptedStopIds| and delete corresponding edges from |m_edges|.
   for (auto it = m_edges.m_data.begin(); it != m_edges.m_data.end();)
@@ -1299,7 +1298,7 @@ bool WorldFeed::ClearFeedByLineIds(ankerl::unordered_dense::set<TransitId> const
 
 bool WorldFeed::UpdateEdgeWeights()
 {
-  ankerl::unordered_dense::set<TransitId> corruptedLineIds;
+  std::unordered_set<TransitId> corruptedLineIds;
 
   for (auto & [edgeId, edgeData] : m_edges.m_data)
   {
@@ -1450,8 +1449,7 @@ void Routes::Write(IdSet const & ids, std::ofstream & stream) const
   }
 }
 
-void Lines::Write(ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> const & ids,
-                  std::ofstream & stream) const
+void Lines::Write(std::unordered_map<TransitId, LineSegmentInRegion> const & ids, std::ofstream & stream) const
 {
   for (auto const & [lineId, data] : ids)
   {
@@ -1470,7 +1468,7 @@ void Lines::Write(ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> c
   }
 }
 
-void LinesMetadata::Write(ankerl::unordered_dense::map<TransitId, LineSegmentInRegion> const & linesInRegion,
+void LinesMetadata::Write(std::unordered_map<TransitId, LineSegmentInRegion> const & linesInRegion,
                           std::ofstream & stream) const
 {
   for (auto const & [lineId, lineData] : linesInRegion)

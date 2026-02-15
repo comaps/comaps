@@ -105,8 +105,7 @@ public class EditBookmarkFragment extends BaseMwmDialogFragment implements View.
   public EditBookmarkFragment() {}
 
   @Override
-  public void onCreate(@Nullable Bundle savedInstanceState)
-  {
+  public void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setStyle(DialogFragment.STYLE_NORMAL, R.style.MwmTheme_FullScreenDialog);
   }
@@ -185,9 +184,10 @@ public class EditBookmarkFragment extends BaseMwmDialogFragment implements View.
   {
     super.onStart();
     Dialog dialog = getDialog();
-    if (dialog != null)
-    {
-      dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+    if (dialog != null) {
+      dialog.getWindow().setLayout(
+              ViewGroup.LayoutParams.MATCH_PARENT,
+              ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
     // Focus name and show keyboard for "Unknown Place" bookmarks

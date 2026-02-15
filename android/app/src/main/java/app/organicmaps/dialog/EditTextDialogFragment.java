@@ -125,8 +125,7 @@ public class EditTextDialogFragment extends BaseMwmDialogFragment
 
       positiveButton.setOnClickListener(view -> {
         final String result = mEtInput.getText().toString();
-        if (validateInput(requireActivity(), result))
-        {
+        if (validateInput(requireActivity(), result)) {
           processInput(result);
           editTextDialog.dismiss();
         }

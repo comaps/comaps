@@ -123,8 +123,8 @@ private:
     // when we have many types for POI.
     base::StringIL const types2[] = {
         // 1-arity
-        {"building:part"}, {"hwtag"},        {"psurface"}, {"internet_access"}, {"organic"}, {"wheelchair"},
-        {"cuisine"},       {"area:highway"}, {"fee"},
+        {"building:part"}, {"hwtag"},   {"psurface"},  {"internet_access"}, {"organic"},
+        {"wheelchair"},    {"cuisine"}, {"area:highway"},    {"fee"},
     };
 
     Classificator const & c = classif();
@@ -202,11 +202,10 @@ void TypesHolder::SortBySpec()
 
   std::stable_sort(begin(), end(), [&checker, &getPriority, &subtypes](uint32_t t1, uint32_t t2)
   {
-    std::optional<bool> const comparisonResultBasedOnTypeRelation =
-        subtypes.ComparisonResultBasedOnTypeRelation(t1, t2);
+    std::optional<bool> const comparisonResultBasedOnTypeRelation = subtypes.ComparisonResultBasedOnTypeRelation(t1, t2);
     if (comparisonResultBasedOnTypeRelation.has_value())
       return comparisonResultBasedOnTypeRelation.value();
-
+      
     int const p1 = getPriority(t1);
     int const p2 = getPriority(t2);
     if (p1 != p2)

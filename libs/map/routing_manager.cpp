@@ -942,9 +942,9 @@ void RoutingManager::SetPointsFollowingMode(bool enabled)
 
 void RoutingManager::RemovePassedPoints()
 {
-  ASSERT(m_bmManager != nullptr, ());
-  RoutePointsLayout routePoints(*m_bmManager);
-  routePoints.RemovePassedPoints();
+    ASSERT(m_bmManager != nullptr, ());
+    RoutePointsLayout routePoints(*m_bmManager);
+    routePoints.RemovePassedPoints();
 }
 
 void RoutingManager::ReorderIntermediatePoints()

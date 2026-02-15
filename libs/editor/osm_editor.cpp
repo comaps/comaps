@@ -583,8 +583,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
   }
 
   std::unique_lock<std::mutex> uploadingEditsLock(m_uploadingEditsMutex, std::defer_lock);
-  if (!uploadingEditsLock.try_lock())
-  {
+  if (!uploadingEditsLock.try_lock()) {
     // Do not run more than one uploading task at a time.
     LOG(LDEBUG, ("OSM edits upload is already running"));
     return;
@@ -631,7 +630,8 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
             ASSERT(createEntry.journalEntryType == JournalEntryType::ObjectCreated,
                    ("First item should have type ObjectCreated"));
             ObjCreateData const & objCreateData = std::get<ObjCreateData>(createEntry.data);
-            XMLFeature feature = editor::TypeToXML(objCreateData.type, objCreateData.geomType, objCreateData.mercator);
+            XMLFeature feature =
+                editor::TypeToXML(objCreateData.type, objCreateData.geomType, objCreateData.mercator);
 
             // Check if place already exists
             bool mergeSameLocation = false;
@@ -982,8 +982,7 @@ void Editor::CreateNote(ms::LatLon const & latLon, FeatureID const & fid, featur
             "but was not found on the ground.\n";
     auto const features = m_features.Get();
     auto const isCreated = GetFeatureStatusImpl(*features, fid.m_mwmId, fid.m_index) == FeatureStatus::Created;
-    auto const createdAndUploaded =
-        (isCreated && AreSomeFeatureChangesUploadedImpl(*features, fid.m_mwmId, fid.m_index));
+    auto const createdAndUploaded = (isCreated && AreSomeFeatureChangesUploadedImpl(*features, fid.m_mwmId, fid.m_index));
     CHECK(!isCreated || createdAndUploaded, ());
 
     if (createdAndUploaded)

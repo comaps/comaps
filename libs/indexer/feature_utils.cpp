@@ -17,9 +17,8 @@
 
 #include "base/control_flow.hpp"
 
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -91,7 +90,7 @@ bool GetBestName(StrUtf8 const & src, vector<int8_t> const & priorityList, strin
 
 vector<int8_t> GetSimilarLanguages(int8_t lang)
 {
-  static ankerl::unordered_dense::map<int8_t, vector<int8_t>> const kSimilarLanguages = {
+  static unordered_map<int8_t, vector<int8_t>> const kSimilarLanguages = {
       {GetIndex("be"), {GetIndex("ru")}},
       {GetIndex("ja"), {GetIndex("ja_kana"), GetIndex("ja_rm")}},
       {GetIndex("ko"), {GetIndex("ko_rm")}},

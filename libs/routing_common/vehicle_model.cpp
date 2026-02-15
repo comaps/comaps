@@ -7,8 +7,7 @@
 
 #include <algorithm>
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace routing
 {
@@ -386,9 +385,9 @@ string DebugPrint(HighwayType type)
 void FromString(std::string_view s, HighwayType & highwayType)
 {
   // Build reverse lookup from DebugPrint function
-  static ankerl::unordered_dense::map<std::string, HighwayType> const stringToEnum = []()
+  static std::unordered_map<std::string, HighwayType> const stringToEnum = []()
   {
-    ankerl::unordered_dense::map<std::string, HighwayType> map;
+    std::unordered_map<std::string, HighwayType> map;
 
     // All possible HighwayType values
     constexpr HighwayType allTypes[] = {

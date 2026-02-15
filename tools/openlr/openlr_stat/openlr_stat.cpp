@@ -25,11 +25,10 @@
 #include <cstring>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include <boost/regex.hpp>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #include <gflags/gflags.h>
 #include <pugixml.hpp>
@@ -192,7 +191,7 @@ std::vector<LinearSegment> LoadSegments(pugi::xml_document & document)
 void WriteAssessmentFile(std::string const fileName, pugi::xml_document const & doc,
                          std::vector<DecodedPath> const & paths)
 {
-  ankerl::unordered_dense::map<uint32_t, pugi::xml_node> xmlSegments;
+  std::unordered_map<uint32_t, pugi::xml_node> xmlSegments;
   for (auto const & xpathNode : doc.select_nodes("//reportSegments"))
   {
     auto const xmlSegment = xpathNode.node();

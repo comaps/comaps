@@ -10,7 +10,8 @@
 #include "search/search_params.hpp"
 #include "search/utils.hpp"
 
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
+#include <unordered_set>
 
 namespace base
 {
@@ -89,16 +90,16 @@ private:
   base::Cancellable const & m_cancellable;
 
   Index m_index;
-  ankerl::unordered_dense::map<Id, DocVec> m_docs;
+  std::unordered_map<Id, DocVec> m_docs;
 
   bool m_indexDescriptions = false;
-  ankerl::unordered_dense::set<GroupId> m_indexableGroups;
+  std::unordered_set<GroupId> m_indexableGroups;
 
   // Currently a bookmark can belong to at most one group
   // but in the future it is possible for a single bookmark to be
   // attached to multiple groups.
-  ankerl::unordered_dense::map<Id, GroupId> m_idToGroup;
-  ankerl::unordered_dense::map<GroupId, ankerl::unordered_dense::set<Id>> m_bookmarksInGroup;
+  std::unordered_map<Id, GroupId> m_idToGroup;
+  std::unordered_map<GroupId, std::unordered_set<Id>> m_bookmarksInGroup;
 };
 }  // namespace bookmarks
 }  // namespace search

@@ -8,8 +8,7 @@
 #include "base/stl_helpers.hpp"
 
 #include <deque>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace search
 {
@@ -20,7 +19,7 @@ FeaturesLayerPathFinder::Mode FeaturesLayerPathFinder::m_mode = MODE_AUTO;
 
 namespace
 {
-using ParentGraph = deque<ankerl::unordered_dense::map<uint32_t, uint32_t>>;
+using ParentGraph = deque<unordered_map<uint32_t, uint32_t>>;
 
 // This function tries to estimate amount of work needed to perform an
 // intersection pass on a sequence of layers.

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
@@ -15,6 +16,9 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceManager;
 import androidx.preference.TwoStatePreference;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.dialog.CustomMapServerDialog;
@@ -39,7 +43,7 @@ import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.sdk.util.log.LogsManager;
 import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -139,12 +143,9 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
   {
     final Preference pref = getPreference(getString(R.string.pref_map_locale));
     String mapLanguageCode = MapLanguageCode.getMapLanguageCode();
-    if (mapLanguageCode.equals(DEFAULT_LANG_CODE))
-    {
+    if (mapLanguageCode.equals(DEFAULT_LANG_CODE)) {
       pref.setSummary(R.string.pref_maplanguage_local);
-    }
-    else
-    {
+    } else {
       Locale locale = new Locale(mapLanguageCode);
       pref.setSummary(locale.getDisplayLanguage());
     }
@@ -573,19 +574,18 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     String normalizedUrl = Framework.normalizeServerUrl(current);
 
     // Initial summary
-    customUrlPref.setSummary(normalizedUrl.isEmpty() ? getString(R.string.download_resources_custom_url_summary_none)
-                                                     : normalizedUrl);
+    customUrlPref.setSummary(normalizedUrl.isEmpty()
+        ? getString(R.string.download_resources_custom_url_summary_none)
+        : normalizedUrl);
 
     // Sync native
     Framework.applyCustomMapDownloadUrl(requireContext(), normalizedUrl);
 
     // Show dialog
     customUrlPref.setOnPreferenceClickListener(preference -> {
-      CustomMapServerDialog.show(
-          requireContext(),
-          url
-          -> preference.setSummary(url.isEmpty() ? getString(R.string.download_resources_custom_url_summary_none)
-                                                 : url));
+      CustomMapServerDialog.show(requireContext(), url -> preference.setSummary(url.isEmpty()
+          ? getString(R.string.download_resources_custom_url_summary_none)
+          : url));
       return true;
     });
   }

@@ -11,9 +11,8 @@
 #include <cstring>
 #include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #include "cppjansson/cppjansson.hpp"
 
@@ -22,7 +21,7 @@ namespace transit
 namespace experimental
 {
 using OsmIdToFeatureIdsMap = std::map<base::GeoObjectId, std::vector<FeatureId>>;
-using EdgeIdToFeatureId = ankerl::unordered_dense::map<EdgeId, uint32_t, EdgeIdHasher>;
+using EdgeIdToFeatureId = std::unordered_map<EdgeId, uint32_t, EdgeIdHasher>;
 // Functions for parsing one line of line-by-line json and creating corresponding item in container.
 void Read(base::Json const & obj, std::vector<Network> & networks);
 void Read(base::Json const & obj, std::vector<Route> & routes);

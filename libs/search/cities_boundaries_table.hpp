@@ -7,9 +7,8 @@
 #include "geometry/rect2d.hpp"
 
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
 
@@ -75,7 +74,7 @@ public:
 private:
   DataSource const & m_dataSource;
   MwmSet::MwmId m_mwmId;
-  ankerl::unordered_dense::map<uint32_t, std::vector<indexer::CityBoundary>> m_table;
+  std::unordered_map<uint32_t, std::vector<indexer::CityBoundary>> m_table;
   double m_eps = 0.0;
 };
 

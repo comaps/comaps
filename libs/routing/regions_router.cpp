@@ -134,7 +134,7 @@ void RegionsRouter::Do()
   }
 }
 
-ankerl::unordered_dense::set<std::string> const & RegionsRouter::GetMwmNames() const
+std::unordered_set<std::string> const & RegionsRouter::GetMwmNames() const
 {
   return m_mwmNames;
 }

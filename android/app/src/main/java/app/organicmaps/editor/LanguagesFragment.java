@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.core.os.ConfigurationCompat;
 import androidx.core.os.LocaleListCompat;
 import androidx.fragment.app.Fragment;
+
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
 import app.organicmaps.sdk.editor.Editor;
@@ -38,7 +39,8 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
   protected LanguagesAdapter createAdapter()
   {
     Bundle args = getArguments();
-    boolean isMapLanguageSelection = args != null ? args.getBoolean(IS_MAP_LANGUAGE_SELECTION) : true;
+    boolean isMapLanguageSelection =
+        args != null ? args.getBoolean(IS_MAP_LANGUAGE_SELECTION) : true;
     Set<String> existingLanguages =
         args != null ? new HashSet<>(args.getStringArrayList(EXISTING_LOCALIZED_NAMES)) : new HashSet<>();
 
@@ -79,8 +81,7 @@ public class LanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
 
     languages.addAll(0, systemLanguages.stream().filter(Objects::nonNull).toList());
 
-    if (isMapLanguageSelection)
-    {
+    if (isMapLanguageSelection) {
       String localLanguageLabel = getString(R.string.pref_maplanguage_local);
       Language localLanguage = new Language(DEFAULT_LANG_CODE, localLanguageLabel);
       languages.add(0, localLanguage);

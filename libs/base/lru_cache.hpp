@@ -5,8 +5,7 @@
 #include <cstddef>
 #include <functional>
 #include <map>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 /// \brief Implementation of cache with least recently used replacement policy.
 template <typename Key, typename Value>
@@ -165,10 +164,10 @@ private:
   private:
     size_t m_age = 0;
     std::map<size_t, Key> m_ageToKey;
-    ankerl::unordered_dense::map<Key, size_t> m_keyToAge;
+    std::unordered_map<Key, size_t> m_keyToAge;
   };
 
   size_t const m_maxCacheSize;
-  ankerl::unordered_dense::map<Key, Value> m_cache;
+  std::unordered_map<Key, Value> m_cache;
   KeyAge m_keyAge;
 };

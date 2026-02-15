@@ -43,6 +43,7 @@
 #include <fstream>
 #include <memory>
 #include <thread>
+#include <unordered_map>
 #include <vector>
 
 namespace indexer
@@ -494,8 +495,7 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
 
       if (!street.empty())
       {
-        auto const streets =
-            search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, kStreetRadiusM, true);
+        auto const streets = search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, kStreetRadiusM, true);
         streetId = MatchObjectByName(street, streets, [](std::string_view name)
         { return search::GetStreetNameAsKey(name, false /* ignoreStreetSynonyms */); });
 

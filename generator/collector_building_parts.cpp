@@ -19,9 +19,8 @@
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace
 {

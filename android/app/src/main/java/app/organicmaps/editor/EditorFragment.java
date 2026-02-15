@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.GridLayout;
+
 import androidx.annotation.CallSuper;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
@@ -195,9 +196,8 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       {
         final Context context = mInputBuildingLevels.getContext();
         final boolean isValid = Editor.nativeIsLevelValid(s.toString());
-        mInputBuildingLevels.setError(isValid ? null
-                                              : context.getString(R.string.error_enter_correct_storey_number,
-                                                                  Editor.nativeGetMaxEditableBuildingLevels()));
+        mInputBuildingLevels.setError(isValid ? null : context.getString(R.string.error_enter_correct_storey_number,
+                Editor.nativeGetMaxEditableBuildingLevels()));
       }
     });
 
@@ -396,7 +396,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     List<String> SOCKET_TYPES = Arrays.stream(getResources().getStringArray(R.array.charge_socket_types)).toList();
     for (String socketType : SOCKET_TYPES)
     {
-      ChargeSocketDescriptor socket = new ChargeSocketDescriptor(socketType, 0, 0);
+      ChargeSocketDescriptor socket = new ChargeSocketDescriptor(socketType,0,0);
 
       MaterialButton btn = (MaterialButton) inflater.inflate(R.layout.button_socket_type, typeBtns, false);
 
@@ -404,16 +404,16 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
       // load SVG icon converted into VectorDrawable in res/drawable
       @SuppressLint("DiscouragedApi")
-      int resIconId = getResources().getIdentifier("ic_charge_socket_" + socket.visualType(), "drawable",
-                                                   requireContext().getPackageName());
+      int resIconId =
+          getResources().getIdentifier("ic_charge_socket_" + socket.visualType(), "drawable", requireContext().getPackageName());
       if (resIconId != 0)
       {
         btn.setIcon(getResources().getDrawable(resIconId));
       }
 
       @SuppressLint("DiscouragedApi")
-      int resTypeId = getResources().getIdentifier("charge_socket_" + socket.visualType(), "string",
-                                                   requireContext().getPackageName());
+      int resTypeId =
+          getResources().getIdentifier("charge_socket_" + socket.visualType(), "string", requireContext().getPackageName());
       if (resTypeId != 0)
       {
         btn.setText(getResources().getString(resTypeId));
@@ -461,16 +461,13 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     // Add a TextWatcher to validate on text change
     countView.addTextChangedListener(new TextWatcher() {
       @Override
-      public void beforeTextChanged(CharSequence s, int start, int count, int after)
-      {}
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
       @Override
-      public void onTextChanged(CharSequence s, int start, int before, int count)
-      {}
+      public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
       @Override
-      public void afterTextChanged(Editable s)
-      {
+      public void afterTextChanged(Editable s) {
         validatePositiveField(s.toString(), countInputLayout);
       }
     });
@@ -485,16 +482,13 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     // Add a TextWatcher to validate on text change
     powerView.addTextChangedListener(new TextWatcher() {
       @Override
-      public void beforeTextChanged(CharSequence s, int start, int count, int after)
-      {}
+      public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
       @Override
-      public void onTextChanged(CharSequence s, int start, int before, int count)
-      {}
+      public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
       @Override
-      public void afterTextChanged(Editable s)
-      {
+      public void afterTextChanged(Editable s) {
         validatePositiveField(s.toString(), powerInputLayout);
       }
     });
@@ -502,82 +496,74 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     return new MaterialAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_socket)
         .setView(dialogView)
-        .setPositiveButton(
-            R.string.save,
-            (dialog, which) -> {
-              String socketType = "";
-              for (MaterialButton b : buttonList)
-              {
-                if (b.isChecked())
-                {
-                  socketType = b.getTag(R.id.socket_type).toString();
-                  break;
-                }
-              }
+        .setPositiveButton(R.string.save,
+                (dialog, which) -> {
+                  String socketType = "";
+                  for (MaterialButton b : buttonList)
+                  {
+                    if (b.isChecked())
+                    {
+                      socketType = b.getTag(R.id.socket_type).toString();
+                      break;
+                    }
+                  }
 
-              int countValue = 0; // 0 means 'unknown count'
-              try
-              {
-                countValue = Integer.parseInt(countView.getText().toString());
-              }
-              catch (NumberFormatException ignored)
-              {
-                Logger.w(CHARGE_SOCKETS_TAG, "Invalid count value for socket:" + countView.getText().toString());
-              }
+                  int countValue = 0; // 0 means 'unknown count'
+                  try
+                  {
+                    countValue = Integer.parseInt(countView.getText().toString());
+                  }
+                  catch (NumberFormatException ignored)
+                  {
+                    Logger.w(CHARGE_SOCKETS_TAG, "Invalid count value for socket:" + countView.getText().toString());
+                  }
 
-              if (countValue < 0)
-              {
-                countValue = 0;
-                Logger.w(CHARGE_SOCKETS_TAG, "Invalid count value for socket:" + countView.getText().toString());
-              }
+                  if (countValue < 0)
+                  {
+                    countValue = 0;
+                    Logger.w(CHARGE_SOCKETS_TAG, "Invalid count value for socket:" + countView.getText().toString());
+                  }
 
-              double powerValue = 0; // 0 means 'unknown power'
-              try
-              {
-                powerValue = Double.parseDouble(powerView.getText().toString());
-              }
-              catch (NumberFormatException ignored)
-              {
-                Logger.w(CHARGE_SOCKETS_TAG, "Invalid power value for socket:" + powerView.getText().toString());
-              }
+                  double powerValue = 0; // 0 means 'unknown power'
+                  try
+                  {
+                    powerValue = Double.parseDouble(powerView.getText().toString());
+                  }
+                  catch (NumberFormatException ignored)
+                  {
+                    Logger.w(CHARGE_SOCKETS_TAG, "Invalid power value for socket:" + powerView.getText().toString());
+                  }
 
-              if (powerValue < 0)
-              {
-                powerValue = 0;
-                Logger.w(CHARGE_SOCKETS_TAG, "Invalid power value for socket:" + powerView.getText().toString());
-              }
+                  if (powerValue < 0)
+                  {
+                    powerValue = 0;
+                    Logger.w(CHARGE_SOCKETS_TAG, "Invalid power value for socket:" + powerView.getText().toString());
+                  }
 
-              ChargeSocketDescriptor socket = new ChargeSocketDescriptor(socketType, countValue, powerValue);
+                  ChargeSocketDescriptor socket =
+                          new ChargeSocketDescriptor(socketType, countValue, powerValue);
 
-              updateChargeSockets(socketIndex, socket);
-            })
+                  updateChargeSockets(socketIndex, socket);
+                })
         .setNegativeButton(R.string.cancel, (dialog, which) -> dialog.dismiss());
   }
 
   // Helper method for validation logic
-  private boolean validatePositiveField(String text, TextInputLayout layout)
-  {
-    if (text.isEmpty())
-    {
+  private boolean validatePositiveField(String text, TextInputLayout layout) {
+    if (text.isEmpty()) {
       layout.setError(null); // No error if empty (assuming 0 is the default)
       return true;
     }
-    try
-    {
+    try {
       double value = Double.parseDouble(text);
-      if (value < 0)
-      {
+      if (value < 0) {
         layout.setError(getString(R.string.error_value_must_be_positive));
         return false;
+      } else {
+          layout.setError(null);
+          return true;
       }
-      else
-      {
-        layout.setError(null);
-        return true;
-      }
-    }
-    catch (NumberFormatException e)
-    {
+    } catch (NumberFormatException e) {
       layout.setError(getString(R.string.error_invalid_number));
       return false;
     }
@@ -597,8 +583,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     {
       sockets[socketIndex] = socket;
     }
-    else
-    {
+    else {
       List<ChargeSocketDescriptor> list = new ArrayList<>(Arrays.asList(sockets));
       list.add(socket);
       sockets = list.toArray(new ChargeSocketDescriptor[0]);
@@ -616,8 +601,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     GridLayout socketsGrid = mChargeSockets.findViewById(R.id.socket_grid_editor);
     socketsGrid.removeAllViews();
 
-    for (int i = 0; i < sockets.length; i++)
-    {
+    for (int i = 0; i < sockets.length; i++) {
       final int currentIndex = i;
       ChargeSocketDescriptor socket = sockets[i];
 
@@ -628,30 +612,27 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       MaterialTextView power = itemView.findViewById(R.id.socket_power);
       MaterialTextView count = itemView.findViewById(R.id.socket_count);
 
+
       // load SVG icon converted into VectorDrawable in res/drawable
       @SuppressLint("DiscouragedApi")
       int resIconId = getResources().getIdentifier("ic_charge_socket_" + socket.visualType(), "drawable",
-                                                   requireContext().getPackageName());
-      if (resIconId != 0)
-      {
+              requireContext().getPackageName());
+      if (resIconId != 0) {
         icon.setImageResource(resIconId);
       }
 
       @SuppressLint("DiscouragedApi")
-      int resTypeId = getResources().getIdentifier("charge_socket_" + socket.visualType(), "string",
-                                                   requireContext().getPackageName());
-      if (resTypeId != 0)
-      {
+      int resTypeId =
+              getResources().getIdentifier("charge_socket_" + socket.visualType(), "string", requireContext().getPackageName());
+      if (resTypeId != 0) {
         type.setText(resTypeId);
       }
 
-      if (socket.power() != 0)
-      {
+      if (socket.power() != 0) {
         DecimalFormat df = new DecimalFormat("#.##");
         power.setText(getString(R.string.kw_label, df.format(socket.power())));
       }
-      else if (socket.ignorePower())
-      {
+      else if (socket.ignorePower()) {
         power.setVisibility(INVISIBLE);
       }
 
@@ -660,8 +641,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
         count.setText(getString(R.string.count_label, socket.count()));
       }
 
-      itemView.setOnClickListener(
-          v -> buildChargeSocketDialog(currentIndex, socket.type(), socket.count(), socket.power()).show());
+      itemView.setOnClickListener(v -> buildChargeSocketDialog(currentIndex, socket.type(), socket.count(), socket.power()).show());
       socketsGrid.addView(itemView);
     }
 
@@ -807,8 +787,9 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
     View lineContactBlock =
         initBlock(view, Metadata.MetadataType.FMD_CONTACT_LINE, R.id.block_line, R.drawable.ic_line_white,
                   R.string.editor_line_social_network, InputType.TYPE_TEXT_VARIATION_URI);
-    View blueskyContactBlock = initBlock(view, Metadata.MetadataType.FMD_CONTACT_BLUESKY, R.id.block_bluesky,
-                                         R.drawable.ic_bluesky, R.string.bluesky, InputType.TYPE_TEXT_VARIATION_URI);
+    View blueskyContactBlock =
+        initBlock(view, Metadata.MetadataType.FMD_CONTACT_BLUESKY, R.id.block_bluesky, R.drawable.ic_bluesky,
+                  R.string.bluesky, InputType.TYPE_TEXT_VARIATION_URI);
     View operatorBlock = initBlock(view, Metadata.MetadataType.FMD_OPERATOR, R.id.block_operator,
                                    R.drawable.ic_operator, R.string.editor_operator, 0);
 
@@ -1040,15 +1021,14 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
   private void placeDisused()
   {
     new MaterialAlertDialogBuilder(requireActivity())
-        .setTitle(R.string.editor_mark_business_vacant_title)
-        .setMessage(R.string.editor_mark_business_vacant_description)
-        .setPositiveButton(R.string.editor_submit,
-                           (dlg, which) -> {
-                             Editor.nativeMarkPlaceAsDisused();
-                             mParent.processEditedFeatures();
-                           })
-        .setNegativeButton(android.R.string.cancel, null)
-        .show();
+      .setTitle(R.string.editor_mark_business_vacant_title)
+      .setMessage(R.string.editor_mark_business_vacant_description)
+      .setPositiveButton(R.string.editor_submit, (dlg, which) -> {
+        Editor.nativeMarkPlaceAsDisused();
+        mParent.processEditedFeatures();
+      })
+      .setNegativeButton(android.R.string.cancel, null)
+      .show();
   }
 
   private void commitPlaceDoesntExists(@NonNull String text)

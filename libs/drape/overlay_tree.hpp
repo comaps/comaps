@@ -10,9 +10,8 @@
 
 #include <array>
 #include <memory>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -53,7 +52,7 @@ class OverlayTree : public m4::Tree<ref_ptr<OverlayHandle>, detail::OverlayTrait
   using TBase = m4::Tree<ref_ptr<OverlayHandle>, detail::OverlayTraits>;
 
 public:
-  using HandlesCache = ankerl::unordered_dense::set<ref_ptr<OverlayHandle>, detail::OverlayHasher>;
+  using HandlesCache = std::unordered_set<ref_ptr<OverlayHandle>, detail::OverlayHasher>;
 
   explicit OverlayTree(double visualScale);
 
