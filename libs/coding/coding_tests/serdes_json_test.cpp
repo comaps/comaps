@@ -12,9 +12,8 @@
 #include <limits>
 #include <map>
 #include <memory>
+#include <unordered_set>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 using namespace std;
 
@@ -172,7 +171,7 @@ struct ArrayTypes
   deque<uint32_t> m_dequeValue;
   vector<uint32_t> m_vectorValue;
   map<uint32_t, uint32_t> m_mapValue;
-  ankerl::unordered_dense::set<uint32_t> m_unorderedSetValue;
+  unordered_set<uint32_t> m_unorderedSetValue;
 };
 }  // namespace
 
@@ -225,7 +224,7 @@ UNIT_TEST(SerdesJsonTest)
       hash<string> m_hasher;
     };
 
-    ankerl::unordered_dense::set<pair<string, string>, Hasher> testValue = {{"ab", "ab"}, {"ef", "ef"}, {"cd", "cd"}};
+    unordered_set<pair<string, string>, Hasher> testValue = {{"ab", "ab"}, {"ef", "ef"}, {"cd", "cd"}};
     TEST(TestSerDes(testValue), ());
   }
 

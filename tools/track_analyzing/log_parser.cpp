@@ -17,8 +17,7 @@
 #include <cstdint>
 #include <fstream>
 #include <regex>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 using namespace std;
 using namespace track_analyzing;
@@ -85,7 +84,7 @@ private:
   }
 
   shared_ptr<m4::Tree<routing::NumMwmId>> m_mwmTree;
-  ankerl::unordered_dense::map<routing::NumMwmId, vector<m2::RegionD>> m_borders;
+  unordered_map<routing::NumMwmId, vector<m2::RegionD>> m_borders;
 };
 }  // namespace
 
@@ -117,7 +116,7 @@ void LogParser::ParseUserTracks(string const & logFile, UserToTrack & userToTrac
     MYTHROW(MessageException, ("Can't open file", logFile, "to parse tracks"));
 
   std::regex const base_regex(R"(.*(DataV0|CurrentData)\s+aloha_id\s*:\s*(\S+)\s+.*\|(\w+)\|)");
-  ankerl::unordered_dense::set<string> usersWithOldVersion;
+  std::unordered_set<string> usersWithOldVersion;
   uint64_t linesCount = 0;
   size_t pointsCount = 0;
 

@@ -23,6 +23,7 @@ import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.widget.recycler.RecyclerClickListener;
 import app.organicmaps.widget.recycler.RecyclerLongClickListener;
+
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -457,12 +458,10 @@ public class Holders
 
       String formattedDesc = desc.replace("\n", "<br>");
       Spanned spannedDesc = Utils.fromHtml(formattedDesc);
-      if (!TextUtils.isEmpty(spannedDesc))
-      {
+      if (!TextUtils.isEmpty(spannedDesc)) {
         mDescText.setText(spannedDesc);
       }
-      else
-      {
+      else {
         mDescText.setText(R.string.list_description_empty);
       }
     }

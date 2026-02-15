@@ -7,9 +7,8 @@
 #include <map>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -33,7 +32,7 @@ public:
   }
 };
 
-using LocalizableString = ankerl::unordered_dense::map<int8_t, std::string>;
+using LocalizableString = std::unordered_map<int8_t, std::string>;
 using LocalizableStringSubIndex = std::map<int8_t, uint32_t>;
 using LocalizableStringIndex = std::vector<LocalizableStringSubIndex>;
 using Properties = std::map<std::string, std::string>;

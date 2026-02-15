@@ -18,8 +18,7 @@
 #include <cctype>
 #include <memory>
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 #include <boost/regex.hpp>
 

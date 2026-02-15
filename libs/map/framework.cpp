@@ -175,13 +175,13 @@ void Framework::OnLocationUpdate(GpsInfo const & info)
 #endif
 
   m_routingManager.OnLocationUpdate(rInfo);
-
+  
   bool const isRoutingActive = m_routingManager.IsRoutingActive();
-
+    
   if (m_wasRoutingActive != isRoutingActive)
   {
     m_wasRoutingActive = isRoutingActive;
-
+      
     /// State changed (Started OR Stopped) -> Refresh 3D Buildings
     Refresh3dMode();
   }
@@ -3150,8 +3150,8 @@ void Framework::CreateNote(osm::MapObject const & mapObject, osm::Editor::NotePr
     latLon = mapObject.GetLatLon();
   }
 
-  osm::Editor::Instance().CreateNote(latLon, mapObject.GetID(), mapObject.GetTypes(), mapObject.GetDefaultName(), type,
-                                     note);
+  osm::Editor::Instance().CreateNote(latLon, mapObject.GetID(), mapObject.GetTypes(),
+                                     mapObject.GetDefaultName(), type, note);
   if (type == osm::Editor::NoteProblemType::PlaceDoesNotExist)
     DeactivateMapSelection();
 }
@@ -3351,7 +3351,7 @@ void Framework::Refresh3dMode()
 {
   bool allow3d = true;
   bool allow3dBuildings = true;
-
+  
   /// Load User Preferences and apply logic
   Load3dMode(allow3d, allow3dBuildings);
   Allow3dMode(allow3d, allow3dBuildings);

@@ -5,14 +5,13 @@
 
 #include <cctype>
 #include <limits>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace generator
 {
 using measurement_utils::Units;
 
-static ankerl::unordered_dense::map<std::string, routing::SpeedInUnits> const kRoadCategoryToSpeed = {
+static std::unordered_map<std::string, routing::SpeedInUnits> const kRoadCategoryToSpeed = {
     {"AR:motorway", {130, Units::Metric}},
     {"AR:rural", {110, Units::Metric}},
     {"AR:urban", {40, Units::Metric}},
@@ -109,8 +108,8 @@ static ankerl::unordered_dense::map<std::string, routing::SpeedInUnits> const kR
     {"FR:urban", {50, Units::Metric}},
     {"FR:zone30", {30, Units::Metric}},
     {"FR:living_street", {20, Units::Metric}},
-    {"GB:motorway", {70, Units::Imperial}},  // 70 mph = 112.65408 kmph
-    {"GB:nsl_dual", {70, Units::Imperial}},  // 70 mph = 112.65408 kmph
+    {"GB:motorway", {70, Units::Imperial}},    // 70 mph = 112.65408 kmph
+    {"GB:nsl_dual", {70, Units::Imperial}},    // 70 mph = 112.65408 kmph
     {"GB:nsl_restricted", {30, Units::Imperial}},
     {"GB:nsl_single", {60, Units::Imperial}},  // 60 mph = 96.56064 kmph
     {"GB-WLS:nsl_restricted", {20, Units::Imperial}},
@@ -169,7 +168,7 @@ static ankerl::unordered_dense::map<std::string, routing::SpeedInUnits> const kR
     {"PH:rural", {80, Units::Metric}},
     {"PH:urban", {40, Units::Metric}},
     {"PL:motorway", {140, Units::Metric}},
-    {"PL:trunk", {100, Units::Metric}},
+	{"PL:trunk", {100, Units::Metric}},
     {"PL:rural", {90, Units::Metric}},
     {"PL:urban", {50, Units::Metric}},
     {"PL:living_street", {20, Units::Metric}},

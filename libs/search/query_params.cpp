@@ -4,8 +4,7 @@
 #include "search/token_range.hpp"
 
 #include <sstream>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace search
 {
@@ -16,7 +15,7 @@ namespace
 // All synonyms should be lowercase.
 
 /// @todo These should check the map language and use only the corresponding translation.
-ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
+unordered_map<string, vector<string>> const kSynonyms = {
     /// @todo Should process synonyms with errors like "blvrd" -> "blvd".
     /// @see HouseOnStreetSynonymsWithMisprints test.
     {"10a", {"décima"}},
@@ -105,8 +104,7 @@ ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
     {"ahi", {"ambohi"}},
     {"aire", {"aire", "aires"}},
     {"akh", {"allgemeines krankenhaus"}},
-    {"al",
-     {"alejach", "aleją", "alley", "alei", "alue", "aleja", "alameda", "alle", "aleea", "aleje", "allee", "alėja"}},
+    {"al", {"alejach", "aleją", "alley", "alei", "alue", "aleja", "alameda", "alle", "aleea", "aleje", "allee", "alėja"}},
     {"alam", {"alameda"}},
     {"alea", {"aleea"}},
     {"ale", {"aleea"}},

@@ -15,10 +15,10 @@
 
 #include <algorithm>
 #include <cmath>
-#include <ctime>
-#include <iomanip>
 #include <regex>
 #include <sstream>
+#include <ctime>
+#include <iomanip>
 
 namespace osm
 {
@@ -641,15 +641,14 @@ bool EditableMapObject::ValidateLevel(string const & level)
     {
       auto constexpr kMinBuildingLevel = -9;
       double valueDouble;
-      return strings::to_double(s, valueDouble) && valueDouble > kMinBuildingLevel &&
-             valueDouble <= kMaximumLevelsEditableByUsers;
+      return strings::to_double(s, valueDouble) && valueDouble > kMinBuildingLevel && valueDouble <= kMaximumLevelsEditableByUsers;
     };
 
     // Check for simple value (e.g. "42")
     if (!isValidNumber(value))
     {
       // Check for range (e.g. "-3-12")
-      size_t rangeSymbol = value.find('-', 1);  // skip first as it could be a negative sign
+      size_t rangeSymbol = value.find('-', 1); // skip first as it could be a negative sign
       if (rangeSymbol == std::string::npos)
         return false;
 
@@ -862,7 +861,7 @@ void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
 void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
 {
   LOG(LDEBUG, ("Executing LogDiffInJournal"));
-
+  
   // Capture the initial size of the journal to detect if changes occur later
   auto const initialJournalSize = m_journal.GetJournal().size();
 
@@ -955,7 +954,7 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
     std::tie(key, old_value, new_value) = kvdiff;
     m_journal.AddTagChange(key, old_value, new_value);
   }
-
+  
   // check_date logic
   // Check if any changes were detected (Journal grew)
   if (m_journal.GetJournal().size() > initialJournalSize)
@@ -1014,10 +1013,16 @@ void EditableMapObject::ApplyBusinessReplacement(uint32_t new_type)
   // Metadata
   feature::Metadata new_metadata;
 
-  constexpr MetadataID metadataToKeep[] = {MetadataID::FMD_WHEELCHAIR,      MetadataID::FMD_POSTCODE,
-                                           MetadataID::FMD_LEVEL,           MetadataID::FMD_ELE,
-                                           MetadataID::FMD_HEIGHT,          MetadataID::FMD_MIN_HEIGHT,
-                                           MetadataID::FMD_BUILDING_LEVELS, MetadataID::FMD_BUILDING_MIN_LEVEL};
+  constexpr MetadataID metadataToKeep[] = {
+      MetadataID::FMD_WHEELCHAIR,
+      MetadataID::FMD_POSTCODE,
+      MetadataID::FMD_LEVEL,
+      MetadataID::FMD_ELE,
+      MetadataID::FMD_HEIGHT,
+      MetadataID::FMD_MIN_HEIGHT,
+      MetadataID::FMD_BUILDING_LEVELS,
+      MetadataID::FMD_BUILDING_MIN_LEVEL
+  };
 
   for (MetadataID const & metadataID : metadataToKeep)
     new_metadata.Set(metadataID, std::string(m_metadata.Get(metadataID)));

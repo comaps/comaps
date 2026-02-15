@@ -16,8 +16,6 @@
 
 #include <google/protobuf/text_format.h>
 
-#include "3party/ankerl/unordered_dense.h"
-
 namespace drule
 {
 using namespace std;
@@ -347,7 +345,7 @@ void RulesHolder::InitBackgroundColors(ContainerProto const & cont)
   uint32_t bgColorDefault = DEFAULT_BG_COLOR;
 
   // Background colors specified for scales
-  ankerl::unordered_dense::map<int, uint32_t> bgColorForScale;
+  unordered_map<int, uint32_t> bgColorForScale;
 
   // Find the "natural-land" classification element
   for (int i = 0; i < cont.cont_size(); ++i)

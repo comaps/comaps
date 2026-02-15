@@ -7,10 +7,9 @@
 
 #include "base/thread.hpp"
 
+#include <unordered_set>
 #include <utility>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -26,7 +25,7 @@ public:
 
   void Do() override;
 
-  ankerl::unordered_dense::set<std::string> const & GetMwmNames() const;
+  std::unordered_set<std::string> const & GetMwmNames() const;
 
 private:
   template <typename Vertex, typename Edge, typename Weight>
@@ -43,7 +42,7 @@ private:
   std::shared_ptr<NumMwmIds> m_numMwmIds;
   DataSource & m_dataSource;
   Checkpoints const m_checkpoints;
-  ankerl::unordered_dense::set<std::string> m_mwmNames;
+  std::unordered_set<std::string> m_mwmNames;
 
   RouterDelegate const & m_delegate;
 };

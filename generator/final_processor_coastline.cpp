@@ -42,7 +42,6 @@ void CoastlineFinalProcessor::Process()
     totalPolygons += fb.GetPolygonsCount();
   }
 
-  LOG(LINFO,
-      ("Total coastline features:", totalFeatures, "total polygons:", totalPolygons, "total points:", totalPoints));
+  LOG(LINFO, ("Total coastline features:", totalFeatures, "total polygons:", totalPolygons, "total points:", totalPoints));
 }
 }  // namespace generator

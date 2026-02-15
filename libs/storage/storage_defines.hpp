@@ -10,10 +10,9 @@
 #include <memory>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <utility>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace storage
 {
@@ -23,12 +22,12 @@ using CountriesVec = std::vector<CountryId>;
 using LocalFilePtr = std::shared_ptr<platform::LocalCountryFile>;
 using OldMwmMapping = std::map<CountryId, CountriesSet>;
 /// Map from key affiliation words into CountryIds.
-using Affiliations = ankerl::unordered_dense::map<std::string, std::vector<CountryId>>;
+using Affiliations = std::unordered_map<std::string, std::vector<CountryId>>;
 /// Map from country name synonyms and old names into CountryId.
-using CountryNameSynonyms = ankerl::unordered_dense::map<std::string, CountryId>;
+using CountryNameSynonyms = std::unordered_map<std::string, CountryId>;
 /// Map from CountryId into city GeoObject id.
-using MwmTopCityGeoIds = ankerl::unordered_dense::map<CountryId, base::GeoObjectId>;
-using MwmTopCountryGeoIds = ankerl::unordered_dense::map<CountryId, std::vector<base::GeoObjectId>>;
+using MwmTopCityGeoIds = std::unordered_map<CountryId, base::GeoObjectId>;
+using MwmTopCountryGeoIds = std::unordered_map<CountryId, std::vector<base::GeoObjectId>>;
 
 extern storage::CountryId const kInvalidCountryId;
 

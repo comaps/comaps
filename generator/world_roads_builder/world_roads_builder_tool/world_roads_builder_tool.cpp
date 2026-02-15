@@ -18,9 +18,8 @@
 #include <memory>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 #include <gflags/gflags.h>
 
@@ -56,7 +55,7 @@ int main(int argc, char ** argv)
   storage::Storage storage;
   std::shared_ptr<NumMwmIds> numMwmIds = CreateNumMwmIds(storage);
 
-  ankerl::unordered_dense::map<std::string, NumMwmId> regionsToIds;
+  std::unordered_map<std::string, NumMwmId> regionsToIds;
 
   numMwmIds->ForEachId([&regionsToIds, &numMwmIds](NumMwmId id)
   {

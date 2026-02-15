@@ -8,8 +8,7 @@
 #include "base/macros.hpp"
 
 #include <initializer_list>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_map>
 
 namespace mwm_set_test
 {
@@ -19,7 +18,7 @@ using platform::CountryFile;
 using platform::LocalCountryFile;
 using tests::TestMwmSet;
 
-using MwmsInfo = ankerl::unordered_dense::map<string, shared_ptr<MwmInfo>>;
+using MwmsInfo = unordered_map<string, shared_ptr<MwmInfo>>;
 
 void GetMwmsInfo(MwmSet const & mwmSet, MwmsInfo & mwmsInfo)
 {

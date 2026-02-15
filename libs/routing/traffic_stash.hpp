@@ -12,9 +12,8 @@
 #include "base/assert.hpp"
 
 #include <memory>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -53,6 +52,6 @@ private:
 
   traffic::TrafficCache const & m_source;
   std::shared_ptr<NumMwmIds> m_numMwmIds;
-  ankerl::unordered_dense::map<NumMwmId, std::shared_ptr<traffic::TrafficInfo::Coloring const>> m_mwmToTraffic;
+  std::unordered_map<NumMwmId, std::shared_ptr<traffic::TrafficInfo::Coloring const>> m_mwmToTraffic;
 };
 }  // namespace routing

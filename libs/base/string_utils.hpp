@@ -118,8 +118,10 @@ size_t CountChar(Utf8 const & utf8)
   size_t codePoints = 0;
 
   for (auto const c : utf8)
+  {
     if ((c & 0xC0) != 0x80)
       ++codePoints;
+  }
 
   return codePoints;
 }
@@ -173,7 +175,7 @@ bool IsASCIILatin(UniChar c);
 
 /// Escape characters not allowed in XML
 template <typename T>
-std::string EscapeForXML(T const & in)
+std::string EscapeForXML(const T & in)
 {
   std::string result;
   result.reserve(in.size());
@@ -182,12 +184,12 @@ std::string EscapeForXML(T const & in)
   {
     switch (c)
     {
-    case '&': result.append("&amp;"); break;
-    case '<': result.append("&lt;"); break;
-    case '>': result.append("&gt;"); break;
-    case '"': result.append("&quot;"); break;
-    case '\'': result.append("&apos;"); break;
-    default: result.append(1, c); break;
+      case '&':  result.append("&amp;");  break;
+      case '<':  result.append("&lt;");   break;
+      case '>':  result.append("&gt;");   break;
+      case '"':  result.append("&quot;"); break;
+      case '\'': result.append("&apos;"); break;
+      default:   result.append(1, c);     break;
     }
   }
 

@@ -17,8 +17,7 @@
 #include <functional>
 #include <map>
 #include <string>
-
-#include "3party/ankerl/unordered_dense.h"
+#include <unordered_set>
 
 class FeatureType;
 
@@ -70,7 +69,7 @@ private:
   ref_ptr<EngineContext> m_context;
   CustomFeaturesContextPtr m_customFeaturesContext;
   int8_t m_deviceLang;
-  ankerl::unordered_dense::set<m2::Spline const *> m_usedMetalines;
+  std::unordered_set<m2::Spline const *> m_usedMetalines;
 
   m2::RectD m_globalRect;
   double m_currentScaleGtoP;

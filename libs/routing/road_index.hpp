@@ -7,10 +7,9 @@
 
 #include <algorithm>
 #include <cstdint>
+#include <unordered_map>
 #include <utility>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -159,6 +158,6 @@ public:
 
 private:
   // Map from feature id to RoadJointIds.
-  ankerl::unordered_dense::map<uint32_t, RoadJointIds> m_roads;
+  std::unordered_map<uint32_t, RoadJointIds> m_roads;
 };
 }  // namespace routing

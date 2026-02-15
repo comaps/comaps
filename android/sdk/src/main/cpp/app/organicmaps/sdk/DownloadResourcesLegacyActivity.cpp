@@ -182,7 +182,8 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_
   g_currentRequest.reset();
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_nativeResetMetaConfig(JNIEnv *, jclass)
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_DownloadResourcesLegacyActivity_nativeResetMetaConfig(JNIEnv *,
+                                                                                                      jclass)
 {
   auto & downloader = LegacyDownloader();
   if (downloader)

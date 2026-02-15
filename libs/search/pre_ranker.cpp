@@ -19,15 +19,13 @@
 #include <iterator>
 #include <random>
 
-#include "3party/ankerl/unordered_dense.h"
-
 namespace search
 {
 using namespace std;
 
 namespace
 {
-void SweepNearbyResults(m2::PointD const & eps, ankerl::unordered_dense::set<FeatureID> const & prevEmit,
+void SweepNearbyResults(m2::PointD const & eps, unordered_set<FeatureID> const & prevEmit,
                         vector<PreRankerResult> & results)
 {
   m2::NearbyPointsSweeper sweeper(eps.x, eps.y);
@@ -205,7 +203,7 @@ void PreRanker::Filter()
 
   std::vector<size_t> indices(m_results.size());
   std::generate(indices.begin(), indices.end(), [n = 0]() mutable { return n++; });
-  ankerl::unordered_dense::set<size_t> filtered;
+  std::unordered_set<size_t> filtered;
 
   auto const iBeg = indices.begin();
   auto const iMiddle = iBeg + BatchSize();

@@ -7,9 +7,8 @@
 #include <cstdint>
 #include <optional>
 #include <string>
+#include <unordered_map>
 #include <utility>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace storage
 {
@@ -77,6 +76,6 @@ private:
     std::optional<TaskInfo> m_taskInfo;
   };
 
-  ankerl::unordered_dense::map<CountryId, TaskData> m_queue;
+  std::unordered_map<CountryId, TaskData> m_queue;
 };
 }  // namespace storage
