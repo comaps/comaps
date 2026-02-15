@@ -127,7 +127,7 @@ void RenderBucket::SetFeatureMinZoom(int minZoom)
 void RenderBucket::RenderDebug(ref_ptr<GraphicsContext> context, ScreenBase const & screen,
                                ref_ptr<DebugRenderer> debugRectRenderer) const
 {
-  ASSERT(!debugRectRenderer || !debugRectRenderer->IsEnabled() || m_overlay.empty(), (debugRectRenderer, debugRectRenderer->IsEnabled(), m_overlay.empty()));
+  ASSERT(!debugRectRenderer || !debugRectRenderer->IsEnabled() || m_overlay.empty(), (debugRectRenderer, debugRectRenderer->IsEnabled(), m_overlay.empty()))
 
   for (auto const & handle : m_overlay)
   {
