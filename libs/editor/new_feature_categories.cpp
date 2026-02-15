@@ -20,7 +20,6 @@ NewFeatureCategories::NewFeatureCategories(editor::EditorConfig const & config)
     }
     m_types.emplace_back(clType);
   }
-  m_addedLangs.reserve(CategoriesHolder::kLocaleMapping.size() + 1);
 }
 
 NewFeatureCategories::NewFeatureCategories(NewFeatureCategories && other) noexcept
@@ -38,14 +37,14 @@ void NewFeatureCategories::AddLanguage(std::string lang)
     lang = "en";
     langCode = CategoriesHolder::kEnglishCode;
   }
-  if (m_addedLangs.contains(langCode))
+  if (m_addedLangs.Contains(langCode))
     return;
 
   auto const & c = classif();
   for (auto const & type : m_types)
     m_index.AddCategoryByTypeAndLang(c.GetTypeByReadableObjectName(type), langCode);
 
-  m_addedLangs.insert(langCode);
+  m_addedLangs.Insert(langCode);
 }
 
 NewFeatureCategories::TypeNames NewFeatureCategories::Search(std::string const & query) const

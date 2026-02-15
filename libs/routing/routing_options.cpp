@@ -75,18 +75,19 @@ RoutingOptionsClassifier::RoutingOptionsClassifier()
       {{"psurface", "paved_good"}, RoutingOptions::Road::Paved},
       {{"psurface", "paved_bad"}, RoutingOptions::Road::Paved}};
 
-  m_data.reserve(std::size(types));
+  m_data.Reserve(std::size(types));
   for (auto const & data : types)
-    m_data.insert({c.GetTypeByPath(data.first), data.second});
+    m_data.Insert(c.GetTypeByPath(data.first), data.second);
+  m_data.FinishBuilding();
 }
 
 optional<RoutingOptions::Road> RoutingOptionsClassifier::Get(uint32_t type) const
 {
   ftype::TruncValue(type, 2);  // in case of highway-motorway-bridge
 
-  auto const it = m_data.find(type);
-  if (it != m_data.cend())
-    return it->second;
+  auto const * res = m_data.Find(type);
+  if (res)
+    return *res;
   return {};
 }
 

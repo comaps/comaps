@@ -6,11 +6,10 @@
 #include "indexer/categories_index.hpp"
 
 #include "base/macros.hpp"
+#include "base/small_set.hpp"
 
 #include <string>
 #include <vector>
-
-#include "3party/ankerl/unordered_dense.h"
 
 namespace osm
 {
@@ -44,7 +43,7 @@ public:
   TypeNames const & GetAllCreatableTypeNames() const { return m_types; }
 
 private:
-  using Langs = ankerl::unordered_dense::set<int8_t>;
+  using Langs = base::SmallSet<CategoriesHolder::kLocaleMapping.size() + 1>;
 
   indexer::CategoriesIndex m_index;
   Langs m_addedLangs;

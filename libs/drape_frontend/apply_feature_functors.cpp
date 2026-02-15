@@ -28,6 +28,7 @@
 #include "drape/utils/projection.hpp"
 
 #include "base/logging.hpp"
+#include "base/small_map.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>
@@ -35,8 +36,6 @@
 #include <limits>
 #include <map>
 #include <mutex>
-
-#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace df
 {
@@ -272,7 +271,7 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
 {
   using ftypes::RoadShieldType;
 
-  static ska::flat_hash_map<RoadShieldType, df::ColorConstant> const kColors = {
+  static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
       {RoadShieldType::Generic_White, kRoadShieldWhiteBackgroundColor},
       {RoadShieldType::Generic_Green, kRoadShieldGreenBackgroundColor},
       {RoadShieldType::Generic_Blue, kRoadShieldBlueBackgroundColor},
@@ -295,9 +294,8 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
       {RoadShieldType::Generic_Pill_Orange_Bordered, kRoadShieldOrangeBackgroundColor},
       {RoadShieldType::UK_Highway, kRoadShieldGreenBackgroundColor}};
 
-  auto const it = kColors.find(shield.m_type);
-  if (it != kColors.cend())
-    return df::GetColorConstant(it->second);
+  if (auto const * cl = kColors.Find(shield.m_type); cl)
+    return df::GetColorConstant(*cl);
 
   return baseColor;
 }
@@ -306,7 +304,7 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
 {
   using ftypes::RoadShieldType;
 
-  static ska::flat_hash_map<RoadShieldType, df::ColorConstant> const kColors = {
+  static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
       {RoadShieldType::Generic_White, kRoadShieldBlackTextColor},
       {RoadShieldType::Generic_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Generic_Blue, kRoadShieldWhiteTextColor},
@@ -338,9 +336,8 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
 
-  auto const it = kColors.find(shield.m_type);
-  if (it != kColors.cend())
-    return df::GetColorConstant(it->second);
+  if (auto const * cl = kColors.Find(shield.m_type); cl)
+    return df::GetColorConstant(*cl);
 
   return baseColor;
 }
