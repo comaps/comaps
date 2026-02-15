@@ -3,14 +3,17 @@ package app.organicmaps.sdk.bookmarks.data;
 import android.net.Uri;
 import android.os.Parcel;
 import android.text.TextUtils;
+
 import androidx.annotation.IntDef;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.os.ParcelCompat;
+
 import app.organicmaps.sdk.routing.RoutePointInfo;
 import app.organicmaps.sdk.search.Popularity;
 import app.organicmaps.sdk.widget.placepage.PlacePageData;
+
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -320,7 +323,26 @@ public class MapObject implements PlacePageData
 
   public boolean hasAtm()
   {
-    return mRawTypes.contains("amenity-atm");
+    return mRawTypes != null && mRawTypes.contains("amenity-atm");
+  }
+
+  public boolean hasPublicTransport()
+  {
+    if (mRawTypes == null)
+    {
+      return false;
+    }
+    return mRawTypes.stream().anyMatch(type ->
+        type.contains("public_transport") ||
+            type.contains("bus_stop") ||
+            type.contains("bus_station") ||
+            type.contains("tram_stop") ||
+            type.contains("tram_station") ||
+            type.contains("railway-station") ||
+            type.contains("railway-platform") ||
+            type.contains("railway-halt") ||
+            type.contains("ferry_terminal")
+    );
   }
   public String getOrganic()
   {
