@@ -4,7 +4,7 @@
 
 #include "indexer/feature_data.hpp"
 
-#include <boost/container_hash/hash.hpp>
+#include "base/small_map.hpp"
 
 #include <functional>
 #include <initializer_list>
@@ -15,7 +15,6 @@
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
-#include "3party/skarupke/flat_hash_map.hpp"
 
 class Classificator;
 class FeatureType;
@@ -61,8 +60,8 @@ enum class HighwayType : uint16_t
   RouteShuttleTrain = 1054,
 };
 
-using HighwayBasedFactors = ska::flat_hash_map<HighwayType, InOutCityFactor, boost::hash<HighwayType>>;
-using HighwayBasedSpeeds = ska::flat_hash_map<HighwayType, InOutCitySpeedKMpH, boost::hash<HighwayType>>;
+using HighwayBasedFactors = base::SmallMap<HighwayType, InOutCityFactor>;
+using HighwayBasedSpeeds = base::SmallMap<HighwayType, InOutCitySpeedKMpH>;
 
 /// \brief Params for calculation of an approximate speed on a feature.
 struct SpeedParams
@@ -331,13 +330,13 @@ private:
   uint32_t m_onewayType;
 
   // HW type -> allow pass through.
-  ska::flat_hash_map<uint32_t, bool, boost::hash<uint32_t>> m_roadTypes;
+  base::SmallMap<uint32_t, bool> m_roadTypes;
   // Mapping surface types psurface={paved_good/paved_bad/unpaved_good/unpaved_bad} to surface speed factors.
-  ska::flat_hash_map<uint32_t, SpeedFactor, boost::hash<uint32_t>> m_surfaceFactors;
+  base::SmallMapBase<uint32_t, SpeedFactor> m_surfaceFactors;
   SpeedFactor m_minSurfaceFactorForMaxspeed;
 
   /// @todo Do we really need a separate map here or can merge with the m_roadTypes map?
-  ska::flat_hash_map<uint32_t, InOutCitySpeedKMpH, boost::hash<uint32_t>> m_addRoadTypes;
+  base::SmallMapBase<uint32_t, InOutCitySpeedKMpH> m_addRoadTypes;
 };
 
 class VehicleModelFactory : public VehicleModelFactoryInterface

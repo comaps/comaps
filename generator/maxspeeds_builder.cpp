@@ -422,7 +422,9 @@ public:
         auto const s = m_avgSpeeds[ind][type].m_speed;
         if (s > 0)
           return s;
-        return kHighwayBasedSpeeds.at(type).GetSpeed(inCity).m_weight;
+        auto const * p = kHighwayBasedSpeeds.Find(type);
+        CHECK(p, ());
+        return p->GetSpeed(inCity).m_weight;
       };
 
       // These speeds: Primary, Secondary, Tertiary, Residential have the biggest routing quality impact.

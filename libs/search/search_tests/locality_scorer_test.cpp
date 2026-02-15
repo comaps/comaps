@@ -22,7 +22,6 @@
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
-#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace locality_scorer_test
 {
