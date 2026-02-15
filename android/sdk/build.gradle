@@ -1,7 +1,9 @@
 import org.gradle.nativeplatform.platform.internal.DefaultNativePlatform
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
   id 'com.android.library'
+  id "org.openapi.generator" version "7.19.0"
 }
 
 android {
@@ -118,6 +120,14 @@ android {
     disable 'InsecureBaseConfiguration'
     abortOnError = true
   }
+
+  sourceSets {
+    main {
+      java {
+        srcDirs += file("$buildDir/generated/openapi/src/main/java")
+      }
+    }
+  }
 }
 
 dependencies {
@@ -133,6 +143,14 @@ dependencies {
   implementation libs.android.material
   implementation libs.androidx.documentfile
   implementation libs.androidx.customview
+
+  implementation libs.gson
+  implementation libs.jakarta.annotation.api
+  implementation libs.jakarta.validation.api
+  implementation libs.okhttp
+  implementation libs.logging.interceptor
+  implementation libs.gson.fire
+  implementation libs.google.guava
 
   testImplementation libs.junit
 }
@@ -180,6 +198,41 @@ project.afterEvaluate {
   }
 }
 
+tasks.named('openApiGenerate', GenerateTask) {
+  generatorName = "java"
+  inputSpec = "$rootDir/sdk/motis_openapi.yaml"
+  outputDir = "$buildDir/generated/openapi"
+  apiPackage = "app.organicmaps.sdk.motis.api"
+  modelPackage = "app.organicmaps.sdk.motis.model"
+  invokerPackage = "app.organicmaps.sdk.motis.invoker"
+  configOptions = [
+      "library": "okhttp-gson",
+      "dateLibrary": "java8",
+      "useBeanValidation": "false",
+      "java8": "true",
+      "parcelableModel": "false",
+      "generateSupportingFiles": "false",
+      "hideGenerationTimestamp": "true",
+      "useJakartaEe": "true",
+      "useGson": "true",
+      "disallowAdditionalPropertiesIfNotPresent": "false",
+      "generateBuilders": "true",
+      "useSingleRequestParameter": "static",
+      "sortParamsByRequiredFlag": "true",
+      "asyncNative": "true",
+  ]
+  // Declare inputs and outputs for incremental builds
+  inputs.file file("$rootDir/sdk/motis_openapi.yaml")
+  outputs.dir file("$buildDir/generated/openapi")
+}
+
 tasks.withType(JavaCompile).configureEach {
   options.compilerArgs << '-Xlint:unchecked' << '-Xlint:deprecation'
+  dependsOn tasks.named('openApiGenerate')
+}
+
+tasks.configureEach { task ->
+  if (task.name == "extractDebugAnnotations") {
+    task.dependsOn tasks.named("openApiGenerate")
+  }
 }

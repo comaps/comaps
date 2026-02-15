@@ -1,9 +1,26 @@
 [versions]
 androidGradlePlugin = "8.13.2"
 androidxCarApp = "1.7.0"
+gson = "2.13.2"
+gsonfire = "1.8.5"
+gsonfireGsonFire = "1.9.0"
+gsonfireVersion = "1.8.0"
+jakartaAnnotationApi = "3.0.0"
+jakartaValidationApi = "3.1.1"
+lombok = "1.18.42"
+okhttp = "4.12.0"
 
 [libraries]
 android-tools = { module = "com.android.tools.build:gradle", version.ref = "androidGradlePlugin" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+gson-fire = { module = "io.gsonfire:gson-fire", version.ref = "gsonfireGsonFire" }
+gsonfire = { module = "com.googlecode.gsonfire:gsonfire", version.ref = "gsonfire" }
+gsonfire-v180 = { module = "com.googlecode.gsonfire:gsonfire", version.ref = "gsonfireVersion" }
+jakarta-annotation-api = { module = "jakarta.annotation:jakarta.annotation-api", version.ref = "jakartaAnnotationApi" }
+jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api", version.ref = "jakartaValidationApi" }
+logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
+lombok = { module = "org.projectlombok:lombok", version.ref = "lombok" }
+okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 triplet-play-publisher = { module = "com.github.triplet.gradle:play-publisher", version = "3.13.0" }
 huawei-publish = { module = "ru.cian:huawei-publish-gradle-plugin", version = "1.4.2" }
 android-tools-desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }

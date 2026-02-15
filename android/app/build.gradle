@@ -375,6 +375,9 @@ dependencies {
   implementation libs.google.guava
   implementation libs.appdevnext.androidchart
 
+  implementation libs.okhttp
+  implementation libs.logging.interceptor
+
   // Test Dependencies
   androidTestImplementation libs.androidx.test.junit
   testImplementation libs.junit
