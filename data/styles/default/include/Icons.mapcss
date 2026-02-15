@@ -208,7 +208,7 @@ node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
 line|z18-[natural=tree_row],
-{color: @wood;width: 3;}
+{color: @woods; width: 3;}
 line|z19-[natural=tree_row],
 {width: 4;}
 
