@@ -127,6 +127,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
 
     if (isEmptyTT)
     {
+      resetWeeklyViewState();
       // 'opening_hours' tag wasn't parsed either because it's empty or wrong format.
       if (!ohStr.isEmpty())
       {
@@ -142,6 +143,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
       UiUtils.show(mFrame);
       if (timetables[0].isFullWeek())
       {
+        resetWeeklyViewState();
         final Timetable tt = timetables[0];
         if (tt.isFullday)
         {
@@ -176,6 +178,17 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
           public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept)
           {}
         });
+        if (isOhExpanded)
+        {
+          mFullWeekOpeningHours.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
+                                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
+          int newHeight = mFullWeekOpeningHours.getMeasuredHeight();
+          mFullWeekOpeningHours.getLayoutParams().height = newHeight;
+          mFullWeekOpeningHours.requestLayout();
+        }
+        UiUtils.show(dropDownIcon);
+        mOhContainer.setOnClickListener((v) -> expandOpeningHours());
+
         // Show today's open time + non-business time.
         boolean containsCurrentWeekday = false;
         final int currentDay = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
@@ -235,6 +248,8 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     va.addUpdateListener(animation -> {
       mFullWeekOpeningHours.getLayoutParams().height = (int) animation.getAnimatedValue();
       mFullWeekOpeningHours.requestLayout();
+      if (mFrame.getParent() instanceof View)
+        ((View) mFrame.getParent()).requestLayout();
     });
     va.start();
   }
@@ -258,5 +273,13 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   {
     if (mapObject != null)
       refreshOpeningHours(mapObject);
+  }
+  private void resetWeeklyViewState()
+  {
+    isOhExpanded = false;
+    UiUtils.hide(mFullWeekOpeningHours);
+    UiUtils.hide(dropDownIcon);
+    dropDownIcon.setRotation(0f);
+    mOhContainer.setOnClickListener(null);
   }
 }
