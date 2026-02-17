@@ -286,10 +286,10 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
   if (IsCountriesTxtCheckThrottled())
   {
     LOG(LDEBUG, ("COUNTRIES: check throttled (recent successful check)"));
-    return;
+    // return;
   }
 
-  LOG(LDEBUG, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
+  LOG(LINFO, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
 
   // Use MapFilesDownloader so we respect custom server / metaserver selection.
   m_downloader->DownloadAsString(kCountriesLatestRelativeUrl, [this](std::string const & buffer)
@@ -311,7 +311,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
     int64_t const parsedVersion =
         LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, minCompatibleAppVersion);
-    LOG(LDEBUG, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "minCompatibleAppVersion=", minCompatibleAppVersion));
+    LOG(LINFO, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "minCompatibleAppVersion=", minCompatibleAppVersion));
 
     if (parsedVersion <= 0)
       return false;
@@ -320,7 +320,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
     if (minCompatibleAppVersion > 0 && minCompatibleAppVersion > currentAppVersion)
     {
-      // The new countries.txt is not compatible with this app version. 
+      // The new countries.txt is not compatible with this app version.
       LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. minCompatibleAppVersion=", minCompatibleAppVersion, "currentAppVersion=", currentAppVersion));
       return false;
     }
@@ -383,7 +383,7 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
   m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
 
-  LOG(LDEBUG, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
+  LOG(LINFO, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
 
   // Fetch, persist, and apply.
   RunCountriesCheckAsyncSaveOnly();
