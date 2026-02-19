@@ -260,9 +260,7 @@ void CountryTree::Find(CountryId const & key, NodesBufferT & found) const
   if (IsEmpty())
     return;
 
-  if (key == m_countryTree->Value().Name())
-    found.push_back(m_countryTree.get());
-
+  // Root is already in m_countryTreeMap (inserted by AddAtDepth), no special-case needed.
   auto const range = m_countryTreeMap.equal_range(key);
   for (auto it = range.first; it != range.second; ++it)
     found.push_back(it->second);
@@ -273,11 +271,8 @@ CountryTree::Node const * CountryTree::FindFirst(CountryId const & key) const
   if (IsEmpty())
     return nullptr;
 
-  NodesBufferT found;
-  Find(key, found);
-  if (found.empty())
-    return nullptr;
-  return found[0];
+  auto const it = m_countryTreeMap.find(key);
+  return it != m_countryTreeMap.end() ? it->second : nullptr;
 }
 
 CountryTree::Node const * CountryTree::FindFirstLeaf(CountryId const & key) const
@@ -354,12 +349,11 @@ MwmSubtreeAttrs LoadGroupImpl(size_t depth, json_t * node, CountryId const & par
   return make_pair(mwmCounter, mwmSize);
 }
 
-bool LoadCountriesImpl(string const & jsonBuffer, StoreInterface & store)
+bool LoadCountriesImpl(json_t * root, StoreInterface & store)
 {
   try
   {
-    base::Json root(jsonBuffer.c_str());
-    LoadGroupImpl(0 /* depth */, root.get(), kInvalidCountryId, store);
+    LoadGroupImpl(0 /* depth */, root, kInvalidCountryId, store);
     return true;
   }
   catch (base::Json::Exception const & e)
@@ -386,7 +380,7 @@ int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countri
     LOG(LDEBUG, ("COUNTRIES: loaded and parsed map version", version, "mapSeries", mapSeries));
 
     StoreCountries store(countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds, mwmTopCountryGeoIds);
-    if (!LoadCountriesImpl(jsonBuffer, store))
+    if (!LoadCountriesImpl(root.get(), store))
       return -1;
   }
   catch (base::Json::Exception const & e)
