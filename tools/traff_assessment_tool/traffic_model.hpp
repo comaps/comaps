@@ -124,6 +124,7 @@ private:
 
   Framework & m_framework;
   DataSource const & m_dataSource;
+  df::DrapeApi & m_drapeApi;
   TrafficPanel * m_trafficPanel = nullptr;
 #ifdef openlr_obsolete
   std::vector<SegmentCorrespondence> m_segments;

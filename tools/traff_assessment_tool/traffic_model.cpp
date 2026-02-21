@@ -24,6 +24,8 @@ constexpr static dp::Color kColorAt(0x1a5ec1ff);
 constexpr static dp::Color kColorVia(0xf19721ff);
 constexpr static dp::Color kColorNotVia(0x8c5678ff);
 constexpr static dp::Color kColorTo(0xe42300ff);
+constexpr static dp::Color kColorDecoded(0x4070ffff);
+constexpr static std::string const kDecodedLineId = "decodedPath";
 
 namespace
 {
@@ -330,6 +332,7 @@ TrafficModel::TrafficModel(Framework & framework,
   , m_dataSource(framework.GetDataSource())
   , m_drawerDelegate(std::make_unique<TrafficDrawerDelegate>(framework))
   , m_pointsDelegate(std::make_unique<PointsControllerDelegate>(framework))
+  , m_drapeApi(m_framework.GetDrapeApi())
 {
   framework.GetTrafficManager().SetTrafficUpdateCallbackFn([this, &framework](bool final) {
     /*
@@ -353,6 +356,7 @@ TrafficModel::TrafficModel(Framework & framework,
       auto editSession = m_framework.GetBookmarkManager().GetEditSession();
       editSession.ClearGroup(UserMark::Type::COLORED);
       editSession.SetIsVisible(UserMark::Type::COLORED, false);
+      m_drapeApi.Clear();
 
       // restore status bar
       if (final)
@@ -479,6 +483,7 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
 
   auto editSession = m_framework.GetBookmarkManager().GetEditSession();
   editSession.ClearGroup(UserMark::Type::COLORED);
+  m_drapeApi.Clear();
 
   if (static_cast<size_t>(row) >= m_messages.size())
   {
@@ -511,6 +516,33 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
       auto mark = editSession.CreateUserMark<ColoredMarkPoint>(point);
       mark->SetColor(color);
     }
+
+  if (message->m_location.value().m_from && message->m_location.value().m_to) {
+    for (auto & [mwmId, coloring] : message->m_decoded) {
+      FeaturesLoaderGuard g(m_dataSource, mwmId);
+      for (auto & [rsid, sg]: coloring) {
+        /*
+         * Not the most efficient way: even if we get multiple segments of the same feature (which
+         * is typically the case), we fetch the feature from scratch for each segment, parse its
+         * geometry, retrieve two points from it and add one line per segment.
+         * It would be more efficient to group by feature, determine its segment range, then fetch
+         * the feature, parse its geometries, retrieve all points in range and add one line for the
+         * entire set of points.
+         * However, since we do this for just one TraFF message at a time, performance is less of a
+         * concern here, and implementing the above improvements would make the code more complex.
+         */
+        auto f = g.GetOriginalFeatureByIndex(rsid.m_fid);
+        f->ParseGeometry(FeatureType::BEST_GEOMETRY);
+        std::vector<m2::PointD> points = {
+            f->GetPoint(rsid.m_idx),
+            f->GetPoint(rsid.m_idx + 1)
+        };
+        m_drapeApi.AddLine(
+            kDecodedLineId + ", " + DebugPrint(mwmId) + ", " + DebugPrint(rsid),
+            df::DrapeApiLineData(points, kColorDecoded).Width(3.0f));
+      }
+    }
+  }
 
   if (rect.IsValid())
   {
