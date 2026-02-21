@@ -517,30 +517,28 @@ void TrafficModel::OnItemSelected(QItemSelection const & selected, QItemSelectio
       mark->SetColor(color);
     }
 
-  if (message->m_location.value().m_from && message->m_location.value().m_to) {
-    for (auto & [mwmId, coloring] : message->m_decoded) {
-      FeaturesLoaderGuard g(m_dataSource, mwmId);
-      for (auto & [rsid, sg]: coloring) {
-        /*
-         * Not the most efficient way: even if we get multiple segments of the same feature (which
-         * is typically the case), we fetch the feature from scratch for each segment, parse its
-         * geometry, retrieve two points from it and add one line per segment.
-         * It would be more efficient to group by feature, determine its segment range, then fetch
-         * the feature, parse its geometries, retrieve all points in range and add one line for the
-         * entire set of points.
-         * However, since we do this for just one TraFF message at a time, performance is less of a
-         * concern here, and implementing the above improvements would make the code more complex.
-         */
-        auto f = g.GetOriginalFeatureByIndex(rsid.m_fid);
-        f->ParseGeometry(FeatureType::BEST_GEOMETRY);
-        std::vector<m2::PointD> points = {
-            f->GetPoint(rsid.m_idx),
-            f->GetPoint(rsid.m_idx + 1)
-        };
-        m_drapeApi.AddLine(
-            kDecodedLineId + ", " + DebugPrint(mwmId) + ", " + DebugPrint(rsid),
-            df::DrapeApiLineData(points, kColorDecoded).Width(3.0f));
-      }
+  for (auto & [mwmId, coloring] : message->m_decoded) {
+    FeaturesLoaderGuard g(m_dataSource, mwmId);
+    for (auto & [rsid, sg]: coloring) {
+      /*
+       * Not the most efficient way: even if we get multiple segments of the same feature (which
+       * is typically the case), we fetch the feature from scratch for each segment, parse its
+       * geometry, retrieve two points from it and add one line per segment.
+       * It would be more efficient to group by feature, determine its segment range, then fetch
+       * the feature, parse its geometries, retrieve all points in range and add one line for the
+       * entire set of points.
+       * However, since we do this for just one TraFF message at a time, performance is less of a
+       * concern here, and implementing the above improvements would make the code more complex.
+       */
+      auto f = g.GetOriginalFeatureByIndex(rsid.m_fid);
+      f->ParseGeometry(FeatureType::BEST_GEOMETRY);
+      std::vector<m2::PointD> points = {
+          f->GetPoint(rsid.m_idx),
+          f->GetPoint(rsid.m_idx + 1)
+      };
+      m_drapeApi.AddLine(
+          kDecodedLineId + ", " + DebugPrint(mwmId) + ", " + DebugPrint(rsid),
+          df::DrapeApiLineData(points, kColorDecoded).Width(3.0f));
     }
   }
 
