@@ -17,7 +17,10 @@ AbsentRegionsFinder::AbsentRegionsFinder(CountryFileGetterFn const & countryFile
 
 void AbsentRegionsFinder::GenerateAbsentRegions(Checkpoints const & checkpoints, RouterDelegate const & delegate)
 {
-  m_regions.clear();
+  {
+    std::lock_guard<std::mutex> lock(m_mutex);
+    m_regions.clear();
+  }
 
   if (m_routerThread)
   {
@@ -55,15 +58,19 @@ void AbsentRegionsFinder::GetAllRegions(std::set<std::string> & countries)
   {
     m_routerThread->Join();
 
-    for (auto const & mwmName : m_routerThread->GetRoutineAs<RegionsRouter>()->GetMwmNames())
     {
-      if (!mwmName.empty())
-        m_regions.emplace(mwmName);
+      std::lock_guard<std::mutex> lock(m_mutex);
+      for (auto const & mwmName : m_routerThread->GetRoutineAs<RegionsRouter>()->GetMwmNames())
+      {
+        if (!mwmName.empty())
+          m_regions.emplace(mwmName);
+      }
     }
 
     m_routerThread.reset();
   }
 
+  std::lock_guard<std::mutex> lock(m_mutex);
   countries = m_regions;
 }
 
