@@ -67,9 +67,10 @@ private:
   std::unique_ptr<threads::Thread> m_routerThread;
 
   /**
-   * @brief Mutex for access to `m_regions`.
+   * @brief Mutex for access to member variables.
    *
-   * Threads which access `m_regions` must lock this mutex while doing so.
+   * Methods which access any of the non-`const` class member variables must lock this mutex while
+   * doing so.
    */
   std::mutex m_mutex;
 
