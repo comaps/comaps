@@ -2,12 +2,16 @@ package app.organicmaps.widget.placepage.sections;
 
 import static app.organicmaps.editor.data.TimeFormatUtils.formatWeekdaysRange;
 
+import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.core.widget.TextViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
+import app.organicmaps.editor.data.TimeFormatUtils;
 import app.organicmaps.sdk.editor.data.Timetable;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
@@ -20,11 +24,6 @@ public class PlaceOpeningHoursAdapter extends RecyclerView.Adapter<PlaceOpeningH
   private List<WeekScheduleData> mWeekSchedule = Collections.emptyList();
 
   public PlaceOpeningHoursAdapter() {}
-
-  public PlaceOpeningHoursAdapter(Timetable[] timetables, int firstDayOfWeek)
-  {
-    setTimetables(timetables, firstDayOfWeek);
-  }
 
   public void setTimetables(Timetable[] timetables, int firstDayOfWeek)
   {
@@ -101,47 +100,21 @@ public class PlaceOpeningHoursAdapter extends RecyclerView.Adapter<PlaceOpeningH
       return;
 
     final WeekScheduleData schedule = mWeekSchedule.get(position);
+    final Resources res = holder.itemView.getResources();
 
     if (schedule.isClosed)
     {
       holder.setWeekdays(formatWeekdaysRange(schedule.startWeekDay, schedule.endWeekDay));
-      holder.setOpenTime(holder.itemView.getResources().getString(R.string.day_off));
+      holder.setShifts(new String[] {res.getString(R.string.day_off)});
       return;
     }
 
     final Timetable tt = schedule.timetable;
     holder.setWeekdays(formatWeekdaysRange(schedule.startWeekDay, schedule.endWeekDay));
     if (tt.isFullday)
-    {
-      holder.setOpenTime(holder.itemView.getResources().getString(R.string.editor_time_allday));
-    }
+      holder.setShifts(new String[] {res.getString(R.string.editor_time_allday)});
     else
-    {
-      if (tt.closedTimespans == null)
-        return;
-
-      if (tt.closedTimespans.length == 0)
-      {
-        holder.setOpenTime(tt.workingTimespan.toWideString());
-      }
-      else
-      {
-        StringBuilder openings = new StringBuilder();
-        openings.append(tt.workingTimespan.start).append(" – ").append(tt.closedTimespans[0].start);
-
-        for (int i = 0; i < tt.closedTimespans.length - 1; i++)
-        {
-          openings.append("\n").append(tt.closedTimespans[i].end).append(" – ").append(tt.closedTimespans[i + 1].start);
-        }
-
-        openings.append("\n")
-            .append(tt.closedTimespans[tt.closedTimespans.length - 1].end)
-            .append(" – ")
-            .append(tt.workingTimespan.end);
-
-        holder.setOpenTime(openings.toString());
-      }
-    }
+      holder.setShifts(TimeFormatUtils.getShiftStrings(tt));
   }
 
   @Override
@@ -169,13 +142,13 @@ public class PlaceOpeningHoursAdapter extends RecyclerView.Adapter<PlaceOpeningH
   public static class ViewHolder extends RecyclerView.ViewHolder
   {
     private final MaterialTextView mWeekdays;
-    private final MaterialTextView mOpenTime;
+    private final LinearLayout mShiftsLayout;
 
     public ViewHolder(@NonNull View itemView)
     {
       super(itemView);
       mWeekdays = itemView.findViewById(R.id.tv__opening_hours_weekdays);
-      mOpenTime = itemView.findViewById(R.id.tv__opening_hours_time);
+      mShiftsLayout = itemView.findViewById(R.id.ll__opening_hours_shifts);
       itemView.setVisibility(View.VISIBLE);
     }
 
@@ -184,9 +157,17 @@ public class PlaceOpeningHoursAdapter extends RecyclerView.Adapter<PlaceOpeningH
       mWeekdays.setText(weekdays);
     }
 
-    public void setOpenTime(String openTime)
+    public void setShifts(String[] shifts)
     {
-      mOpenTime.setText(openTime);
+      mShiftsLayout.removeAllViews();
+      for (String shift : shifts)
+      {
+        MaterialTextView tv = new MaterialTextView(itemView.getContext());
+        tv.setText(shift);
+        TextViewCompat.setTextAppearance(tv, R.style.MwmTextAppearance_Body3);
+        tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+        mShiftsLayout.addView(tv);
+      }
     }
   }
 }

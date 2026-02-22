@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
@@ -99,7 +100,7 @@ public class TimeFormatUtils
       else if (tt.closedTimespans == null || tt.closedTimespans.length == 0)
         ssb.append(dailyStr).append("\n").append(tt.workingTimespan.toWideString());
       else
-        ssb.append(dailyStr).append("\n").append(getOpeningHours(tt));
+        ssb.append(dailyStr).append("\n").append(TextUtils.join("\n", getShiftStrings(tt)));
 
       ssb.setSpan(new StyleSpan(Typeface.BOLD), 0, dailyStr.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       return ssb;
@@ -110,13 +111,11 @@ public class TimeFormatUtils
     // Sat HH:MM - HH:MM"
     SpannableStringBuilder weekSchedule = new SpannableStringBuilder();
     boolean firstRow = true;
-    int currentOffset = 0;
     for (Timetable tt : timetables)
     {
       if (!firstRow)
       {
         weekSchedule.append('\n');
-        currentOffset += 1;
       }
 
       final String weekdays = formatWeekdays(tt);
@@ -125,21 +124,21 @@ public class TimeFormatUtils
       {
         openTime = resources.getString(R.string.editor_time_allday);
       }
-      else if (tt.closedTimespans.length == 0)
+      else if (tt.closedTimespans == null || tt.closedTimespans.length == 0)
       {
         openTime = tt.workingTimespan.toWideString();
       }
       else
       {
-        openTime = getOpeningHours(tt);
+        openTime = TextUtils.join("\n", getShiftStrings(tt));
       }
 
-      int weekdaysStart = currentOffset;
-      int weekdaysEnd = currentOffset + weekdays.length();
+      int weekdaysStart = weekSchedule.length();
+      weekSchedule.append(weekdays);
+      int weekdaysEnd = weekSchedule.length();
 
-      weekSchedule.append(weekdays).append(' ').append('\n').append(openTime);
+      weekSchedule.append('\n').append(openTime);
 
-      currentOffset += weekdays.length() + 2 + openTime.length();
       weekSchedule.setSpan(new StyleSpan(Typeface.BOLD), weekdaysStart, weekdaysEnd, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
       firstRow = false;
@@ -147,22 +146,16 @@ public class TimeFormatUtils
 
     return weekSchedule;
   }
-
-  public static String getOpeningHours(Timetable tt)
+  public static String[] getShiftStrings(Timetable tt)
   {
-    StringBuilder openings = new StringBuilder();
-    openings.append(tt.workingTimespan.start).append(" – ").append(tt.closedTimespans[0].start);
-
+    if (tt.closedTimespans == null || tt.closedTimespans.length == 0)
+      return new String[] {tt.workingTimespan.toWideString()};
+    String[] shifts = new String[tt.closedTimespans.length + 1];
+    shifts[0] = tt.workingTimespan.start + "—" + tt.closedTimespans[0].start;
     for (int i = 0; i < tt.closedTimespans.length - 1; i++)
-    {
-      openings.append("\n").append(tt.closedTimespans[i].end).append(" – ").append(tt.closedTimespans[i + 1].start);
-    }
-
-    openings.append("\n")
-        .append(tt.closedTimespans[tt.closedTimespans.length - 1].end)
-        .append(" – ")
-        .append(tt.workingTimespan.end);
-
-    return openings.toString();
+      shifts[i + 1] = tt.closedTimespans[i].end + "—" + tt.closedTimespans[i + 1].start;
+    shifts[tt.closedTimespans.length] =
+        tt.closedTimespans[tt.closedTimespans.length - 1].end + "—" + tt.workingTimespan.end;
+    return shifts;
   }
 }
