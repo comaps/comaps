@@ -15,7 +15,6 @@
 #include "openlr/openlr_model.hpp"
 #endif
 
-#include "routing/async_router.hpp"
 #include "routing/checkpoints.hpp"
 #include "routing/edge_estimator.hpp"
 #include "routing/maxspeeds.hpp"
