@@ -188,7 +188,7 @@
     <string name="dialog_routing_location_turn_wifi">Preverite svoj signal GPS. Vaš položaj se bo dalo natančneje določiti, če omogočite Wi-Fi.</string>
     <string name="dialog_routing_location_unknown_turn_on">Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun povezave morate vklopiti položajne storitve.</string>
     <string name="dialog_routing_unable_locate_route">Poti ni bilo mogoče najti</string>
-    <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti relacije</string>
+    <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti poti</string>
     <string name="dialog_routing_change_start_or_end">Prilagodite svoje izhodišče ali cilj.</string>
     <string name="dialog_routing_change_start">Prilagodi izhodišče</string>
     <string name="dialog_routing_start_not_determined">Pot ni bila ustvarjena. Ni mogoče najti izhodišča.</string>
@@ -199,7 +199,7 @@
     <string name="dialog_routing_change_intermediate">Ne morem najti vmesne točke</string>
     <string name="dialog_routing_intermediate_not_determined">Prilagodite vmesno točko</string>
     <string name="dialog_routing_system_error">Sistemska napaka</string>
-    <string name="dialog_routing_application_error">Zaradi aplikacijske napake ne morem ustvariti relacije</string>
+    <string name="dialog_routing_application_error">Zaradi napake v orodju ne morem ustvariti poti</string>
     <string name="dialog_routing_try_again">Poskusite znova</string>
     <string name="not_now">Ne zdaj</string>
     <string name="dialog_routing_download_and_build_cross_route">Bi želeli prenesti zemljevid za boljši izračun najugodnejše poti, ki vodi čez več kot en zemljevid?</string>
@@ -281,7 +281,7 @@
     <string name="level_value_generic">Nadstropje: %s</string>
     <string name="downloader_delete_map_dialog">Z zemljevidom bodo izbrisana tudi vsa vaša urejanja</string>
     <string name="downloader_update_maps">Posodobi zemljevide</string>
-    <string name="downloader_mwm_migration_dialog">Relacijo ustvarite tako, da posodobite vse zemljevide in ponovno začrtate relacijo.</string>
+    <string name="downloader_mwm_migration_dialog">Da ustvarite pot, morate posodobiti vse zemljevide in ponovno načrtovati pot.</string>
     <string name="downloader_search_field_hint">Najdi zemljevid</string>
     <string name="common_check_internet_connection_dialog">Preverite, da je vaša naprava povezana s spletom</string>
     <string name="downloader_no_space_title">Ni dovolj prostora</string>
@@ -675,4 +675,11 @@
     <string name="route_finished">Pot je končana</string>
     <string name="not_following_route">Ne sledite poti</string>
     <string name="rebuilding_route">Ponovna izdelava poti …</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne uporabljaj alternativ</string>
+    <string name="pref_alt_map_lang_handling">Alternativni jeziki zemljevida</string>
+    <string name="pref_alt_map_lang_handling_system_order">Uporabi v sistemskem vrstne redu</string>
+    <string name="pref_alt_map_lang_handling_local_only">Uporabljaj prednostno in samo kjer je domače</string>
+    <string name="pref_openexternallinks_title">Samodejno odpri zunanje povezave</string>
+    <string name="pref_openexternallinks_summary">Privzeto odpri zunanje povezave v CoMaps</string>
 </resources>

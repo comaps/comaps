@@ -356,7 +356,7 @@
     <string name="type.entrance">Вхід</string>
     <!-- This is for main/primary entrances, for secondary entrances see type.entrance -->
     <string name="type.entrance.main">Головний вхід</string>
-    <string name="type.entrance.exit">Виходьте.</string>
+    <string name="type.entrance.exit">Вихід (лише)</string>
     <string name="type.fee.no">Безкоштовно</string>
     <string name="type.healthcare.laboratory">Медична лабораторія</string>
     <string name="type.healthcare.physiotherapist">Фізіотерапевт</string>
@@ -1479,4 +1479,16 @@
     <string name="type.power.portal">Портальна опора</string>
     <string name="type.barrier.wicket_gate">Хвіртка</string>
     <string name="type.emergency.access_point">Пункт швидкої допомоги</string>
+    <string name="type.amenity.community_centre.youth_centre">Молодіжний центр</string>
+    <string name="type.entrance.house">Вхід у будинок</string>
+    <string name="type.entrance.garage">Вхід у гараж</string>
+    <string name="type.entrance.service">Вхід у сервіс</string>
+    <string name="type.entrance.entry">Вхід (лише)</string>
+    <string name="type.entrance.emergency">Аварійний вихід</string>
+    <string name="type.leisure.bandstand">Естрада</string>
+    <string name="type.leisure.indoor_play">Дитячий ігровий центр</string>
+    <string name="type.leisure.sports_centre.sport.multi">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.american_football">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.archery">Спортивний центр</string>
+    <string name="type.leisure.sports_centre.sport.athletics">Спортивний центр</string>
 </resources>

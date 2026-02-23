@@ -538,5 +538,6 @@
 "amenity-give_box": "Spendenbox|spenden",
 "amenity-hydrant": "5Hydrant|5Wasserhydrant|4Nutzwasser|4Bewässerungshydrant|4Reinigungshydrant|4Zapfstelle",
 "tourism-information-tactile_map": "3Taktile-Karte|3Karte|4Sehbehinderung|3Barrierefreiheit|5Information",
-"waterway-fuel": "3Bunkerstation|4Schiffstankstelle"
+"waterway-fuel": "3Bunkerstation|4Schiffstankstelle",
+"barrier-toll_booth": "4Mautstelle|4Mautstation"
 }

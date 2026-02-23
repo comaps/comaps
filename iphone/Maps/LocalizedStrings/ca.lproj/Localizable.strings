@@ -1095,4 +1095,7 @@
 "editor_place_doesnt_exist_description" = "Descriu com és el lloc ara mateix per enviar una nota d'error a la comunitat d'OpenStreetMap";
 "avoid_steps" = "Evita escales";
 "avoid_paved" = "Evita carreteres asfaltades";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_ignore_alternatives" = "No facis servir alternatives";
+"pref_alt_map_lang_handling_local_only" = "Prefereix i fes servir només en ser nadiu";
+"pref_alt_map_lang_handling" = "Idiomes de Mapa Alternatius";
+"pref_alt_map_lang_handling_system_order" = "Fes servir en l'ordre del sistema";

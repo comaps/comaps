@@ -925,4 +925,10 @@
     <string name="route_needs_rebuild">Rute må beregnes på nytt</string>
     <string name="route_finished">Rute fullført</string>
     <string name="not_following_route">Følger ikke rute</string>
+    <string name="pref_alt_map_lang_handling_local_only">Foretrekk og bruk kun hvor det er lokalt språk</string>
+    <string name="pref_alt_map_lang_handling">Alternative kartspråk</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ikke bruk alternativer</string>
+    <string name="pref_alt_map_lang_handling_system_order">Bruk i systemrekkefølge</string>
+    <string name="pref_openexternallinks_title">Åpne tredje-parts lenker automatisk</string>
+    <string name="pref_openexternallinks_summary">Åpne tredje-parts lenker i CoMaps som standard</string>
 </resources>

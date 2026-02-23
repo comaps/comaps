@@ -597,8 +597,8 @@
 "delete_all" = "Izbriši vse";
 "recover" = "Obnovi";
 "recover_all" = "Obnovi vse";
-"pref_alt_map_lang_handling_local_only" = "Prednostno uporabljaj le kjer je lokalen";
-"pref_alt_map_lang_handling" = "Drugi jeziki zemljevida";
-"pref_alt_map_lang_handling_system_order" = "Uporabi vrstni red sistema";
+"pref_alt_map_lang_handling_local_only" = "Uporabljaj prednostno in samo kjer je domače";
+"pref_alt_map_lang_handling" = "Alternativni jeziki zemljevida";
+"pref_alt_map_lang_handling_system_order" = "Uporabi v sistemskem vrstne redu";
 "rooms" = "%@ sob";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Ne uporabljaj alternativ";
