@@ -680,15 +680,13 @@ barrier|guard_rail;552;
 amenity|studio;553;
 amenity|love_hotel;554;
 deprecated:highway|footway|demanding_alpine_hiking:04.2024;[highway=footway][sac_scale=demanding_alpine_hiking];x;name;int_name;555;highway|path|expert
-# sac_scale hiking level . [highway=path] was added to avoid "WARNING: no style defined"
-# also added [highway=footway] even if it would be very funny to find a footway marked as "difficult_mountain"
-sac_scale|strolling;[highway=path][sac_scale=strolling],[highway=footway][sac_scale=strolling];;name;int_name;556;
-sac_scale|hiking;[highway=path][sac_scale=hiking],[highway=footway][sac_scale=hiking];;name;int_name;557;
-sac_scale|mountain;[highway=path][sac_scale=mountain_hiking],[highway=footway][sac_scale=mountain_hiking];;name;int_name;558;
-sac_scale|demanding_mountain;[highway=path][sac_scale=demanding_mountain_hiking],[highway=footway][sac_scale=demanding_mountain_hiking];;name;int_name;559;
-sac_scale|alpine;[highway=path][sac_scale=alpine_hiking],[highway=footway][sac_scale=alpine_hiking];;name;int_name;560;
-sac_scale|demanding_alpine;[highway=path][sac_scale=demanding_alpine_hiking],[highway=footway][sac_scale=demanding_alpine_hiking];;name;int_name;561;
-sac_scale|difficult_alpine;[highway=path][sac_scale=difficult_alpine_hiking],[highway=footway][sac_scale=difficult_alpine_hiking];;name;int_name;562;
+deprecated:sac_scale|strolling:02.2026;[highway=path][sac_scale=strolling],[highway=footway][sac_scale=strolling];x;;;556;
+deprecated:sac_scale|hiking:02.2026;[highway=path][sac_scale=hiking],[highway=footway][sac_scale=hiking];x;;;557;
+deprecated:sac_scale|mountain:02.2026;[highway=path][sac_scale=mountain_hiking],[highway=footway][sac_scale=mountain_hiking];x;;;558;
+deprecated:sac_scale|demanding_mountain:02.2026;[highway=path][sac_scale=demanding_mountain_hiking],[highway=footway][sac_scale=demanding_mountain_hiking];x;;;559;
+deprecated:sac_scale|alpine:02.2026;[highway=path][sac_scale=alpine_hiking],[highway=footway][sac_scale=alpine_hiking];x;;;560;
+deprecated:sac_scale|demanding_alpine:02.2026;[highway=path][sac_scale=demanding_alpine_hiking],[highway=footway][sac_scale=demanding_alpine_hiking];x;;;561;
+deprecated:sac_scale|difficult_alpine:02.2026;[highway=path][sac_scale=difficult_alpine_hiking],[highway=footway][sac_scale=difficult_alpine_hiking];x;;;562;
 deprecated|deprecated;563;x
 natural|lake;564;natural|water|lake
 power|plant;565;

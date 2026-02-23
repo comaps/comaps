@@ -735,15 +735,6 @@ highway-path-horse                                  # pathtext z15- (also has li
 highway-path-tunnel                                 # pathtext z15- (also has line z15-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2820
 
-sac_scale-alpine                                    # pathtext z15- (also has line z15-)
-sac_scale-demanding_alpine                          # pathtext z15- (also has line z15-)
-sac_scale-demanding_mountain                        # pathtext z15- (also has line z15-)
-sac_scale-difficult_alpine                          # pathtext z15- (also has line z15-)
-sac_scale-hiking                                    # pathtext z15- (also has line z15-)
-sac_scale-mountain                                  # pathtext z15- (also has line z15-)
-sac_scale-strolling                                 # pathtext z15- (also has line z15-)
-=== 2815
-
 highway-steps                                       # pathtext z16- (also has line z15-, line::border z15-)
 highway-steps-bridge                                # pathtext z16- (also has line z15-, line::border z15-, line::bridgeblack z17-, line::bridgewhite z15-)
 highway-steps-tunnel                                # pathtext z16- (also has line z15-, line::border z15-, line::tunnelBackground z17-, line::tunnelCasing z17-)
