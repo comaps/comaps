@@ -21,9 +21,9 @@ export SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1
 
 echo "<$(date +%T)> Compiling tools..."
 cd ~/comaps
-./tools/unix/build_omim.sh -p ~ -R generator_tool
-./tools/unix/build_omim.sh -p ~ -R world_roads_builder_tool
-./tools/unix/build_omim.sh -p ~ -R mwm_diff_tool
+./tools/unix/build_omim.sh -p ~ -d generator_tool
+./tools/unix/build_omim.sh -p ~ -d world_roads_builder_tool
+./tools/unix/build_omim.sh -p ~ -d mwm_diff_tool
 cd tools/python/maps_generator
 python3 -m venv /tmp/venv
 /tmp/venv/bin/pip3 install -r requirements_dev.txt

@@ -2,7 +2,7 @@
 # Path to the `comaps` source code repository:
 OMIM_PATH: ~/comaps
 # A path with the generator_tool binary:
-BUILD_PATH: ~/omim-build-relwithdebinfo
+BUILD_PATH: ~/omim-build-debug
 
 
 [Main]
@@ -20,7 +20,7 @@ MAIN_OUT_PATH: /mnt/4tbexternal/osm-maps
 # Path to the data/ folder in the repository:
 USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
-THREADS_COUNT_FEATURES_STAGE: 52
+THREADS_COUNT_FEATURES_STAGE: 1
 # Do not change it. This is determined automatically.
 NODE_STORAGE: mem
 
