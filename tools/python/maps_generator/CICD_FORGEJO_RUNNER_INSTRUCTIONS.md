@@ -152,3 +152,8 @@ container:
     " linux:host",
     " dind:host"
 ```
+
+## Maintenance
+
+- A script is provided at .forgejo for reporting on and cleaning runner caches.
+- A crontab like `15 *    * * *   root    docker volume prune` is recommended also.
