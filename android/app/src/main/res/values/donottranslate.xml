@@ -49,6 +49,8 @@
   <string name="pref_speedlimit" translatable="false">pref_speedlimit</string>
   <string name="pref_open_external_links" translatable="false">pref_external_links</string>
   <string name="pref_nav_menu_final_destination" translatable="false">pref_nav_menu_final_destination</string>
+  <string name="pref_settings_interface" translatable="false">InterfaceSettings</string>
+  <string name="pref_settings_map" translatable="false">Map</string>
 
   <string name="notification_ticker_ltr" translatable="false">%1$s: %2$s</string>
   <string name="notification_ticker_rtl" translatable="false">%2$s :%1$s</string>
