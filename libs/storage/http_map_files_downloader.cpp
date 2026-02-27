@@ -6,11 +6,12 @@
 #include "platform/downloader_defines.hpp"
 #include "platform/http_request.hpp"
 
-#include <algorithm>
 #include <functional>
 
 using namespace std::placeholders;
 
+namespace storage
+{
 namespace
 {
 class ErrorHttpRequest : public downloader::HttpRequest
@@ -28,8 +29,6 @@ private:
 };
 }  // anonymous namespace
 
-namespace storage
-{
 HttpMapFilesDownloader::~HttpMapFilesDownloader()
 {
   CHECK_THREAD_CHECKER(m_checker, ());
