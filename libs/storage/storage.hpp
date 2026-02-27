@@ -29,9 +29,8 @@
 #include <functional>
 #include <list>
 #include <memory>
-#include <set>
 #include <string>
-#include <utility>
+#include <unordered_map>
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
@@ -295,23 +294,9 @@ private:
 
   CountryNameGetter m_countryNameGetter;
 
-  /**
-   * @brief Mapping from countryId to the list of names of
-   * geographical objects (such as countries) that encompass this countryId.
-   * @note Affiliations are inherited from ancestors of the countryId in country tree.
-   * Initialized with data of countries.txt (field "affiliations").
-   * Once filled, they are not changed.
-   */
-  Affiliations m_affiliations;
-  CountryNameSynonyms m_countryNameSynonyms;
-
   std::string m_mapSeries = "";
 
-  /// @todo This containers are empty for now, but probably will be used in future.
-  /// @{
-  MwmTopCityGeoIds m_mwmTopCityGeoIds;
-  MwmTopCountryGeoIds m_mwmTopCountryGeoIds;
-  /// @}
+  CountriesInfo m_countriesInfo;
 
   ThreadChecker m_threadChecker;
 
