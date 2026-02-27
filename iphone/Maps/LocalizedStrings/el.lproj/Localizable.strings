@@ -337,10 +337,10 @@
 "downloader_update_all_button" = "Ενημέρωση όλων";
 
 /* Downloaded maps list header */
-"downloader_downloaded_subtitle" = "Κατεβασμένα";
+"downloader_downloaded_subtitle" = "Κατεβασμένοι";
 
 /* Downloaded maps category */
-"downloader_available_maps" = "Διαθέσιμα";
+"downloader_available_maps" = "Διαθέσιμοι";
 
 /* Country queued for download */
 "downloader_queued" = "Στην ουρά";
@@ -359,7 +359,7 @@
 "downloader_status_failed" = "Απέτυχε";
 
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
-"downloader_delete_map_while_routing_dialog" = "Για να διαγράψετε το χάρτη, σταματήστε την πλοήγηση.";
+"downloader_delete_map_while_routing_dialog" = "Για να διαγράψετε χάρτη, σταματήστε την πλοήγηση.";
 
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Μπορούν να δημιουργηθούν μόνο διαδρομές που περιέχονται πλήρως μέσα σε ένα χάρτη σε μια ενιαία περιοχή.";
@@ -629,18 +629,18 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Χειριστής: %@";
 "editor_category_unsuitable_title" = "Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;";
-"editor_category_unsuitable_text" = "Οι CoMaps επιτρέπουν την προσθήκη απλών κατηγοριών σημείων μόνο, δηλαδή όχι πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Ελέγξτε τον <a href=\"https://www.comaps.app/support/advanced-map-editing/\">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.";
+"editor_category_unsuitable_text" = "Το CoMaps επιτρέπει την προσθήκη κατηγοριών απλών σημείων μόνο, δηλαδή όχι την προσθήκη πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Ελέγξτε τον <a href=\"https://www.comaps.app/support/advanced-map-editing/\">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.";
 "downloader_no_downloaded_maps_title" = "Δεν έχετε κατεβάσει χάρτες";
 "downloader_no_downloaded_maps_message" = "Κατεβάστε χάρτες για να κάνετε αναζήτηση και να πλοηγηθείτε χωρίς σύνδεση.";
 "current_location_unknown_error_title" = "Η τρέχουσα τοποθεσία είναι άγνωστη.";
 "current_location_unknown_error_message" = "Παρουσιάστηκε σφάλμα κατά την αναζήτηση της τοποθεσίας σας. Ελέγξτε αν η συσκευή σας λειτουργεί κανονικά και δοκιμάστε ξανά αργότερα.";
 "location_services_disabled_header" = "Οι υπηρεσίες εντοπισμού τοποθεσίας είναι απενεργοποιημένες";
 "location_services_disabled_message" = "Ενεργοποιήστε την υπηρεσία γεωεντοπισμού στις ρυθμίσεις της συσκευής";
-"location_services_disabled_1" = "1. Ανοίξτε τις ρυθμίσεις";
-"location_services_disabled_2" = "2. Πατήστε τοποθεσία";
+"location_services_disabled_1" = "1. Ανοίξτε τις Ρυθμίσεις";
+"location_services_disabled_2" = "2. Πατήστε Τοποθεσία";
 
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
-"location_services_disabled_3" = "3. Επιλέξτε «Ενώ χρησιμοποιείτε η εφαρμογή»";
+"location_services_disabled_3" = "3. Επιλέξτε «Κατά τη χρήση της εφαρμογής»";
 "location_services_disabled_on_device_2" = "2. Επιλέξτε Απόρρητο";
 "location_services_disabled_on_device_3" = "3. Επιλέξτε Υπηρεσίες τοποθεσίας";
 "location_services_disabled_on_device_4" = "4. Ενεργοποιήστε τις Υπηρεσίες τοποθεσίας";
@@ -727,7 +727,7 @@
 
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Οι πληροφορίες για την κίνηση δεν είναι διαθέσιμες";
-"enable_logging" = "Ενεργοποίηση δυνατότητας καταγραφής";
+"enable_logging" = "Ενεργοποίηση αρχείου καταγραφής";
 "log_file_size" = "Μέγεθος αρχείου καταγραφής: %@";
 "transliteration_title" = "Μεταγραφή στο λατινικό αλφάβητο";
 
@@ -1102,3 +1102,5 @@
 "pref_alt_map_lang_handling_local_only" = "Προτίμηση και χρήση μόνο όπου είναι τοπική";
 "pref_alt_map_lang_handling" = "Εναλλακτικές γλώσσες χάρτη";
 "pref_alt_map_lang_handling_system_order" = "Χρήση με σειρά συστήματος";
+"rooms" = "%@ δωμάτια";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

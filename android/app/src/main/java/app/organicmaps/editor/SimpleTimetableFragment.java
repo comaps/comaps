@@ -9,8 +9,8 @@ import androidx.annotation.Nullable;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
 
-public class SimpleTimetableFragment extends BaseMwmRecyclerFragment<SimpleTimetableAdapter>
-    implements TimetableProvider
+public class SimpleTimetableFragment
+    extends BaseMwmRecyclerFragment<SimpleTimetableAdapter> implements TimetableProvider
 {
   private SimpleTimetableAdapter mAdapter;
   @Nullable

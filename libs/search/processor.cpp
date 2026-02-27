@@ -29,10 +29,6 @@
 #include "indexer/search_delimiters.hpp"
 #include "indexer/search_string_utils.hpp"
 
-#include "platform/preferred_languages.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
@@ -158,10 +154,10 @@ Processor::Processor(DataSource const & dataSource, CategoriesHolder const & cat
 {
   // Current and input langs are to be set later.
   m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_EN_AND_INTERNATIONAL,
-                                {StringUtf8Multilang::kInternationalCode, StringUtf8Multilang::kEnglishCode});
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_DEFAULT, {StringUtf8Multilang::kDefaultCode});
+                                {localisation::kInternationalNameIndex, localisation::kEnglishLanguageIndex});
+  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_DEFAULT, {localisation::kDefaultNameIndex});
   m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_ALT_AND_OLD,
-                                {StringUtf8Multilang::kAltNameCode, StringUtf8Multilang::kOldNameCode});
+                                {localisation::kAlternativeNameIndex, localisation::kOldNameIndex});
 
   for (auto const & country : m_infoGetter.GetCountries())
     m_countriesTrie.Add(country.m_countryId, true);
@@ -188,10 +184,10 @@ void Processor::SetPreferredLocale(string const & locale)
 
   LOG(LINFO, ("New preferred locale:", locale));
 
-  int8_t const code = StringUtf8Multilang::GetLangIndex(languages::Normalize(locale));
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, feature::GetSimilar(code));
+  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
 
-  m_currentLocaleCode = CategoriesHolder::MapLocaleToInteger(locale);
+  m_currentLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 
   // Default initialization.
   // If you want to reset input language, call SetInputLocale before search.
@@ -204,10 +200,10 @@ void Processor::SetInputLocale(string const & locale)
   if (locale.empty())
     return;
 
-  int8_t const code = StringUtf8Multilang::GetLangIndex(languages::Normalize(locale));
-  LOG(LDEBUG, ("New input locale:", locale, "; locale code:", int(code)));
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_INPUT, feature::GetSimilar(code));
-  m_inputLocaleCode = CategoriesHolder::MapLocaleToInteger(locale);
+  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+  LOG(LDEBUG, ("New input locale:", locale, "; locale code:", int(languageIndex)));
+  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  m_inputLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 }
 
 void Processor::SetQuery(string const & query, bool categorialRequest /* = false */)
@@ -495,11 +491,11 @@ Locales Processor::GetCategoryLocales() const
   Locales result;
 
   // Prepare array of processing locales. English locale is always present for category matching.
-  result.Insert(static_cast<uint64_t>(enLocaleCode));
-  if (m_currentLocaleCode != -1)
-    result.Insert(static_cast<uint64_t>(m_currentLocaleCode));
-  if (m_inputLocaleCode != -1)
-    result.Insert(static_cast<uint64_t>(m_inputLocaleCode));
+  result.insert(static_cast<uint64_t>(enLocaleCode));
+  if (m_currentLanguageIndex != -1)
+    result.insert(static_cast<uint64_t>(m_currentLanguageIndex));
+  if (m_inputLanguageIndex != -1)
+    result.insert(static_cast<uint64_t>(m_inputLanguageIndex));
 
   return result;
 }
@@ -829,7 +825,7 @@ void Processor::InitParams(QueryParams & params) const
   for (size_t i = 0; i < params.GetNumTokens(); ++i)
     base::SortUnique(params.GetTypeIndices(i));
 
-  m_keywordsScorer.ForEachLanguage([&params](int8_t lang) { params.GetLangs().Insert(static_cast<uint64_t>(lang)); });
+  m_keywordsScorer.ForEachLanguage([&params](int8_t lang) { params.GetLangs().insert(static_cast<uint64_t>(lang)); });
 }
 
 void Processor::InitGeocoder(Geocoder::Params & geocoderParams, SearchParams const & searchParams)

@@ -1299,3 +1299,4 @@
 "type.office.security" = "Security Guards Office";
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

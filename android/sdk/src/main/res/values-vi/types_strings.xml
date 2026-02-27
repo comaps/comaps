@@ -376,7 +376,6 @@
     <string name="type.highway.pedestrian.area">Phố</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Cầu</string>
-
     <string name="type.highway.pedestrian.square">Quảng trường</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Đường hầm</string>

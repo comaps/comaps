@@ -60,7 +60,7 @@ public:
       auto ft = loader.GetFeatureByIndex(index);
       TEST(ft, (index));
 
-      string_view const name = ft->GetName(StringUtf8Multilang::kEnglishCode);
+      string_view const name = ft->GetName(localisation::kEnglishLanguageIndex);
       TEST(!name.empty(), (index));
       names.push_back(std::string(name));
     }

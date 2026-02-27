@@ -65,8 +65,7 @@ public:
   void operator()(FeatureType & f, uint32_t)
   {
     ++m_totalCount;
-    auto const primary = f.GetReadableName();
-    if (!primary.empty())
+    if (f.GetTranslatedName().m_primary.has_value())
       ++m_namesCount;
 
     m_currFeatureTypes.clear();
@@ -149,7 +148,7 @@ void Print(int8_t langCode, TokensContainerT::mapped_type const & container)
   // do not display prefixes with low occurrences
   if (v[0].second.first > MIN_OCCURRENCE)
   {
-    cout << "Language code: " << StringUtf8Multilang::GetLangByCode(langCode) << endl;
+    cout << "Language code: " << localisation::ConvertLanguageIndexToLanguageCode(langCode) << endl;
 
     for (auto const & el : v)
     {
@@ -192,17 +191,17 @@ void DumpSearchTokens(string const & fPath, size_t maxTokensToShow)
 
 void DumpFeatureNames(string const & fPath, string const & lang)
 {
-  int8_t const langIndex = StringUtf8Multilang::GetLangIndex(lang);
+  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(lang);
 
   feature::ForEachFeature(fPath, [&](FeatureType & f, uint32_t)
   {
-    f.ForEachName([&](int8_t langCode, std::string_view name)
+    f.ForEachName([&](localisation::LanguageIndex someLanguageIndex, std::string_view name)
     {
       CHECK(!name.empty(), ("Feature name is empty"));
 
-      if (langIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
-        cout << StringUtf8Multilang::GetLangByCode(langCode) << ' ' << name << endl;
-      else if (langCode == langIndex)
+      if (languageIndex == localisation::kUnsupportedLanguageIndex)
+        cout << localisation::ConvertLanguageIndexToLanguageCode(someLanguageIndex) << ' ' << name << endl;
+      else if (someLanguageIndex == languageIndex)
         cout << name << endl;
     });
   });

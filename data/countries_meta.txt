@@ -321,7 +321,7 @@
 },
 "India": {
  "driving": "l",
- "languages": ["hi", "mr", "en", "gu", "ta", "te", "bn", "as", "ml", "pa"]
+ "languages": ["en", "hi", "mr", "gu", "ta", "te", "bn", "as", "ml", "pa"]
 },
 "India_Kerala": {
  "driving": "l",
@@ -329,35 +329,35 @@
 },
 "India_Rajasthan": {
  "driving": "l",
- "languages": ["hi"]
+ "languages": ["en", "hi"]
 },
 "India_Tamil Nadu": {
  "driving": "l",
- "languages": ["ta"]
+ "languages": ["en", "ta"]
 },
 "India_Haryana": {
  "driving": "l",
- "languages": ["hi"]
+ "languages": ["en", "hi"]
 },
 "India_Maharashtra": {
  "driving": "l",
- "languages": ["mr"]
+ "languages": ["en", "mr"]
 },
 "India_Delhi": {
  "driving": "l",
- "languages": ["hi", "ur", "en", "pa"]
+ "languages": ["en", "hi", "ur", "en", "pa"]
 },
 "India_Uttar Pradesh": {
  "driving": "l",
- "languages": ["hi", "ur"]
+ "languages": ["en", "hi", "ur"]
 },
 "India_Chhattisgarh": {
  "driving": "l",
- "languages": ["hi"]
+ "languages": ["en", "hi"]
 },
 "India_Punjab": {
  "driving": "l",
- "languages": ["pa"]
+ "languages": ["en", "pa"]
 },
 "Indonesia": {
  "driving": "l",

@@ -34,6 +34,7 @@ node[waterway=fuel],
 {text-color: @industry_label;text-halo-radius: 0.1;text-halo-opacity: 0.7;text-halo-color: @label_halo_light;}
 
 node[craft=photographer],
+node[craft=shoemaker],
 node[craft=tailor],
 node[craft=winery],
 {text-color: @shop_label}
@@ -93,6 +94,7 @@ node[leisure=resort],
 node[tourism=alpine_hut],
 node[tourism=apartment],
 node[tourism=camp_site],
+node[tourism=caravan_site],
 node[tourism=chalet],
 node[tourism=guest_house],
 node[tourism=hostel],

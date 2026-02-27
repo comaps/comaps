@@ -19,8 +19,7 @@ OAuthScope = "read_prefs"
 
 # Dev enviroment
 osmHost = "master.apis.dev.openstreetmap.org"
-OAuthClientId = "uB0deHjh_W86CRUHfvWlisCC1ZIHkdLoKxz1qkuIrrM"
-OAuthClientSecret = "xQE7suO-jmzmels19k-m8FQ8gHnkdWuLLVqfW6FIj44"
+OAuthClientId = "Tj8yyx3FWy_N5wz6sUTAXTM6YBAiwVgM7sRLrLix2u8"
 OAuthRedirectUri = "cm://oauth2/osm/callback"
 OAuthResponseType = "code"
 OAuthScope = "read_prefs write_api write_notes"
@@ -37,7 +36,7 @@ def FetchSessionId():
     cookies = SimpleCookie()
     cookies.load(res.headers['Set-Cookie'])
 
-    authToken = FindAuthenticityToken(res.read().decode("utf-8"))
+    authToken = FindAuthenticityToken("/login", res.read().decode("utf-8"))
 
     if authToken is None:
         raise Exception("Can't find 'authenticity_token'")
@@ -116,7 +115,7 @@ def FetchRequestToken(cookies):
         return oauthCode
     else:
         respBody = res.read().decode("utf-8")
-        authToken = FindAuthenticityToken(respBody)
+        authToken = FindAuthenticityToken("/oauth2/authorize", respBody)
         if not authToken:
             print(res.status)
             print(res.headers)
@@ -169,7 +168,6 @@ def FinishAuthorization(code):
         "redirect_uri": OAuthRedirectUri,
         "scope": OAuthScope,
         "client_id": OAuthClientId,
-        "client_secret": OAuthClientSecret
     })
 
     headers = { 'content-type': "application/x-www-form-urlencoded" }
@@ -187,14 +185,15 @@ def FinishAuthorization(code):
     return res.read().decode("utf-8")
 
 
-def FindAuthenticityToken(htmlCode):
-    # search for <input name="authenticity_token" value="...">
-    regex = re.compile(r"\<input\b.+?\bname=\"authenticity_token\".+?\bvalue=\"(.+?)\"")
-    m = regex.search(htmlCode)
-    if m:
-        return m.group(1)
+def FindAuthenticityToken(formAction, htmlCode):
+    # search for <form action="(...)" ... <input name="authenticity_token" value="(...)">
+    regex = re.compile(r'action="(.+?)".*?name="authenticity_token" value="(.+?)"')
+    matches = regex.findall(htmlCode)
 
-    return None
+    for action, token in matches:
+        if action == formAction:
+            return token
+
 
 def FindOauthCode(redirectUri):
     query = urllib.parse.urlparse(redirectUri).query

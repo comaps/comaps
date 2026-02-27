@@ -28,7 +28,7 @@
     android:layout_toStartOf="@id/more"
     android:layout_toEndOf="@id/checkbox"
     android:ellipsize="middle"
-    android:singleLine="true"
+    android:maxLines="2"
     android:textAlignment="viewStart"
     android:textAppearance="@style/MwmTextAppearance.Body1"
     tools:text="Bookmark name looooooooooooooooooongasdasdasd" />
@@ -47,7 +47,7 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center_vertical"
       android:ellipsize="end"
-      android:singleLine="true"
+      android:maxLines="1"
       android:textAppearance="@style/MwmTextAppearance.Body3"
       tools:text="42000000" />
   </LinearLayout>

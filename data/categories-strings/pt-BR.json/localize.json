@@ -19,8 +19,8 @@
 "@category_recycling": "Reciclagem|Utilização de resíduos|Recicláveis|Coleta de seletiva|Separação de lixo|Reuso",
 "amenity-bureau_de_change": "3Casa de câmbio|3troca|dinheiro",
 "amenity-bar|amenity-pub|@category_eat|@category_nightlife": "2Drinqueria|bar|pub|boteco|cerveja|drink|beber|alimentação",
-"amenity-cafe|@category_eat": "3Café|3cafeteria|3restaurante|alimentação",
-"amenity-fast_food|@category_eat": "4Lanchonete|fast-food|3alimentação",
+"amenity-cafe|@category_eat": "3Café|3cafeteria",
+"amenity-fast_food|@category_eat": "4Lanchonete|fast-food|3alimentação|comida|restaurante|podrão|4lanche",
 "amenity-restaurant|@category_eat": "3Restaurante|3comida|3alimentação",
 "amenity-fuel|@category_fuel": "3Posto de combustível|3gasolina",
 "@shop": "2Loja|Compras",
@@ -323,7 +323,7 @@
 "amenity-payment_terminal": "Terminal de pagamento",
 "amenity-shower": "Chuveiro",
 "emergency-defibrillator": "4Desfibrilador",
-"emergency-fire_hydrant": "4Hidrante",
+"emergency-fire_hydrant": "Hidrante",
 "emergency-lifeguard": "Salva-vidas|Guarda-vidas|Nadador-salvador|Socorrista",
 "emergency-mountain_rescue": "4Resgate de montanha de emergência",
 "leisure-fitness_station": "Estação de fitness",
@@ -411,5 +411,6 @@
 "historic-fort|@category_tourism": "Fortaleza",
 "historic-battlefield": "Campo de batalha",
 "sport-padel": "Pádel",
-"sport-volleyball": "Vôlei|Voleibol|Volleyball"
+"sport-volleyball": "Vôlei|Voleibol|Volleyball",
+"amenity-hydrant": "Hidrante de irrigação"
 }

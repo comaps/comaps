@@ -22,11 +22,10 @@
     android:clipChildren="false">
     <com.google.android.material.imageview.ShapeableImageView
       android:id="@+id/floating_triangle"
-      android:layout_width="@dimen/margin_half"
-      android:layout_height="@dimen/margin_half"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
       android:elevation="@dimen/margin_eighth"
       android:layout_centerVertical="true"
-      app:tint="@android:color/white"
       app:srcCompat="?elevationProfileFloatingTriangle" />
     <RelativeLayout
       android:id="@+id/floating_text_container"
@@ -55,7 +54,7 @@
         android:layout_toEndOf="@+id/distance_icon"
         android:ellipsize="end"
         android:maxWidth="@dimen/dialog_min_height"
-        android:singleLine="true"
+        android:maxLines="1"
         android:textSize="@dimen/margin_half_plus_eight"
         tools:text="10 km" />
       <LinearLayout
@@ -79,7 +78,7 @@
           tools:text="900 m"
           android:layout_marginStart="@dimen/margin_quarter"
           android:ellipsize="end"
-          android:singleLine="true"
+          android:maxLines="1"
           android:textSize="@dimen/margin_half_plus_eight" />
       </LinearLayout>
     </RelativeLayout>

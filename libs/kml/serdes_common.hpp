@@ -9,7 +9,7 @@
 
 namespace kml
 {
-auto constexpr kDefaultLang = StringUtf8Multilang::kDefaultCode;
+auto constexpr kDefaultLang = localisation::kDefaultNameIndex;
 auto constexpr kDefaultTrackWidth = 5.0;
 auto constexpr kDefaultTrackColor = 0x006ec7ff;
 

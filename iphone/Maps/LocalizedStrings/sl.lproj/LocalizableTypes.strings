@@ -645,7 +645,7 @@
 "type.junction.circular" = "Krožišče";
 "type.junction.roundabout" = "Krožišče";
 "type.landuse" = "Uporaba zemljišča";
-"type.landuse.allotments" = "Vrtne parcele";
+"type.landuse.allotments" = "Vrtičkarska zemljišča";
 "type.landuse.basin" = "Vodni zadrževalnik";
 "type.landuse.brownfield" = "Zapuščeno industrijsko območje";
 "type.landuse.cemetery" = "Pokopališče";
@@ -1414,3 +1414,4 @@
 "type.railway.turntable" = "Sučna železniška ploščad";
 "type.tourism.information.tactile_map" = "Talne oznake za slabovidne";
 "type.waterway.fuel" = "Pristan za gorivo";
+"type.amenity.community_centre.youth_centre" = "Mladinski center";

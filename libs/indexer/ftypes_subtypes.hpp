@@ -24,19 +24,13 @@ public:
    * Lists all types with subtypes
    * @return All types with subtypes
    */
-  unordered_set<uint32_t> AllTypesWithSubtypes() const
-  {
-    return m_types;
-  }
+  unordered_set<uint32_t> AllTypesWithSubtypes() const { return m_types; }
 
   /**
    * Lists all subtypes
    * @return All subtypes
    */
-  unordered_set<uint32_t> AllSubtypes() const
-  {
-    return m_subtypes;
-  }
+  unordered_set<uint32_t> AllSubtypes() const { return m_subtypes; }
 
   /**
    * Checks if the given type is a type with subtypes or a subtype
@@ -95,7 +89,9 @@ public:
     bool const firstTypeIsSubtype = IsSubtype(firstType);
     bool const secondTypeIsTypeWithSubtypes = IsTypeWithSubtypes(secondType);
     bool const secondTypeIsSubtype = IsSubtype(secondType);
-    if ((!firstTypeIsTypeWithSubtypes && !firstTypeIsSubtype) || (!secondTypeIsTypeWithSubtypes && !secondTypeIsSubtype) || (firstTypeIsTypeWithSubtypes && secondTypeIsTypeWithSubtypes))
+    if ((!firstTypeIsTypeWithSubtypes && !firstTypeIsSubtype) ||
+        (!secondTypeIsTypeWithSubtypes && !secondTypeIsSubtype) ||
+        (firstTypeIsTypeWithSubtypes && secondTypeIsTypeWithSubtypes))
       return {};
     else if (firstTypeIsSubtype && secondTypeIsTypeWithSubtypes)
       return false;
@@ -132,11 +128,14 @@ public:
    * @param secondTypePath The type to compare
    * @return `true` if the first type is a subtype but the second one isn't, `false` if it is the other way around
    */
-  optional<bool> ComparisonResultBasedOnTypeRelation(vector<string> const firstTypePath, vector<string> const secondTypePath) const
+  optional<bool> ComparisonResultBasedOnTypeRelation(vector<string> const firstTypePath,
+                                                     vector<string> const secondTypePath) const
   {
     auto const & classificator = classif();
-    uint32_t const firstType = classificator.GetTypeByPathSafe(vector<string_view>(firstTypePath.begin(), firstTypePath.end()));
-    uint32_t const secondType = classificator.GetTypeByPathSafe(vector<string_view>(secondTypePath.begin(), secondTypePath.end()));
+    uint32_t const firstType =
+        classificator.GetTypeByPathSafe(vector<string_view>(firstTypePath.begin(), firstTypePath.end()));
+    uint32_t const secondType =
+        classificator.GetTypeByPathSafe(vector<string_view>(secondTypePath.begin(), secondTypePath.end()));
     if (firstType != IndexAndTypeMapping::INVALID_TYPE && secondType != IndexAndTypeMapping::INVALID_TYPE)
       return ComparisonResultBasedOnTypeRelation(firstType, secondType);
 

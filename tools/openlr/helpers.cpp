@@ -49,11 +49,13 @@ optional<Score> GetFrcScore(Graph::Edge const & e, FunctionalRoadClass functiona
   switch (functionalRoadClass)
   {
   case FunctionalRoadClass::FRC0:
-    return hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk ? optional<Score>(kMaxScoreForFrc) : nullopt;
+    return hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk ? optional<Score>(kMaxScoreForFrc)
+                                                                               : nullopt;
 
   case FunctionalRoadClass::FRC1:
-    return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary) ? optional<Score>(kMaxScoreForFrc)
-                                                                                : nullopt;
+    return (hwClass == HighwayClass::Motorway || hwClass == HighwayClass::Trunk || hwClass == HighwayClass::Primary)
+             ? optional<Score>(kMaxScoreForFrc)
+             : nullopt;
 
   case FunctionalRoadClass::FRC2:
   case FunctionalRoadClass::FRC3:

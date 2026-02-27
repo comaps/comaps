@@ -79,7 +79,31 @@
     </screenshot>
   </screenshots>
 
-  <releases>
+ <releases>
+    <release version="2026.02.23" date="2026-02-23">
+     <url type="details">https://comaps.app/latest/</url>
+     <description>
+       <ul>
+	 <li>OpenStreetMap data as of February 21</li>
+	 <li>Added Croatian, Italian, Dutch and Polish Wikipedia articles</li>
+	 <li>Added tree rows and youth centres</li>
+	 <li>Fixed transliteration not working</li>
+       </ul>
+     </description>
+   </release>
+   <release version="2026.02.09-4" date="2026-02-09">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.02.09-4</url>
+     <description>
+       <ul>
+	 <li>OpenStreetMap data as of February 7</li>
+	 <li>Added marina fuel docks</li>
+	 <li>Show favorites and search icons above subway lines</li>
+	 <li>Show house numbers later</li>
+	 <li>Enabled searching for Scandinavian letters æøå</li>
+	 <li>OSM editor: automatically update last date when POI existence was checked</li>
+       </ul>
+     </description>
+   </release>
    <release version="2026.01.29-2" date="2026-01-29">
      <description>
        <p>CoMaps is now on Linux!</p>

@@ -69,10 +69,32 @@ so that both (e.g. Russian) searches for "вино" and "магазин вина
 For longer nouns (6 letters or longer) this is not necessary, because error correction
 can fix 1 or 2 letters, e.g `Мебель`
 
-Searcing for "магазин мебели" will also match the category name (1 letter difference).
+Searching for "магазин мебели" will also match the category name (1 letter difference).
 
-Exact treshold may be different for different languages. For Serbian, error correction
+Exact threshold may be different for different languages. For Serbian, error correction
 kicks in only for 8-letter or longer words.
+
+### TTS translations
+
+#### Format string
+You will notice a string called `dist_direction_onto_street`. This string dictates the order for TTS announcements when Announce Street Names is turned on. Here is what each set of numbers and symbols means:
+* `%1$s`: the distance until the turn ("in 100 metres")
+* `%2$s`: the turn to make ("turn right")
+* `%3$s`: the word "onto" (except if the instruction is to take an exit).
+* `%4$s`: the street to turn onto ("Northeast Airport Way")
+* `%5$s`: another verb before the distance (some languages need this, but not all will use it).
+
+With the example parts shown, a format string of `%1$s %2$s %3$s %4$s` would literally result in "In 100 metres turn right onto Northeast Airport Way." However, with a format string of `%1$s %4$s %3$s %2$s` (like in Hindi/Tamil), that would literally result in "In 100 metres Northeast Airport Way onto turn right".
+
+#### Offline testing
+Should you need to test/make your changes offline (like to use the emulator/a device to check your translation), here is what should be done:
+1. Create a clone/branch of the code.
+2. If a such file doesn't exist, create `data/sound-strings/[language code].json/localize.json`. Replace [language code] with the two letter code for your language (e.g. `ta` for Tamil).
+3. If the file exists, make any necessary changes that are not updated with your translations.
+4. Open the file `libs/platform/languages.hpp`.
+5. Find the line that starts with `std::array<std::pair<std::string_view, std::string_view`. Increase the number in the line by 1.
+6. If you are not doing a dialect of a language (like "es" instead of "es-MX"), find the last bracketed item, like `{"ta", "தமிழ்"},`. Create a new line with `{"[language_code]", "[language name in language]},`. Otherwise, double check on how to implement the dialect.
+7. Save the file, then build the app on Android Studio. When the app opens, go to the TTS settings and select the language you just added. *Note: if this doesn't work, you may need to select your desired language in your system TTS settings*.
 
 ## Machine Translation
 

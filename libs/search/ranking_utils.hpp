@@ -306,7 +306,7 @@ NameScores GetNameScores(TokensVector & tokens, uint8_t lang, Slice const & slic
         if (matchedLength > 0 && isFullScore())
         {
           nameScore = NameScore::FIRST_MATCH;
-          isAltOrOldName = StringUtf8Multilang::IsAltOrOldName(lang);
+          isAltOrOldName = localisation::IsAlternativeOrOldName(lang);
         }
         else
         {
@@ -319,7 +319,7 @@ NameScores GetNameScores(TokensVector & tokens, uint8_t lang, Slice const & slic
         // Update the match quality
         totalErrorsMade += errorsMade;
         matchedLength += slice.Get(i).GetOriginal().size();
-        isAltOrOldName = StringUtf8Multilang::IsAltOrOldName(lang);
+        isAltOrOldName = localisation::IsAlternativeOrOldName(lang);
 
         iToken = tIdx;
         iSlice = i;

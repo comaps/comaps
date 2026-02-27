@@ -1,9 +1,9 @@
-• Données OpenStreetMap du 7 février
-• Ajout d'une option d'affichage des limites de vitesse
-• Désactivation de la vue 3D en mode navigation sur Android Auto
-• Ajout des quais de carburants
-• Affichage des favoris et résultats de recherche au-dessus des lignes de métro
-• Réduction de la visibilité des numéros d'adresses
-• Editeur OSM: mise à jour automatique de la date de dernière vérification du lieu
+• Données OpenStreetMap du 21 février
+• Amélioration de l'affichage des horaires d'ouverture
+• Affichage des descriptions et du tag rooms sur les POI
+• Ajout des articles Wikipédia en Croate, Italien, Néerlandais et Polonais
+• Affichage des rangées d'arbres et des centres jeunesse
+• Correction de la translitération et amélioration des options de langues
+• Affichage d'un indicateur de reroutage dans la navigation
 
 Plus de détails sur comaps.app/latest

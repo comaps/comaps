@@ -2,13 +2,16 @@
 
 #include "geometry/point_with_altitude.hpp"
 
+#include "base/localisation.hpp"
+
 #include <chrono>
 #include <limits>
 #include <map>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -32,7 +35,7 @@ public:
   }
 };
 
-using LocalizableString = std::unordered_map<int8_t, std::string>;
+using LocalizableString = ankerl::unordered_dense::map<int8_t, std::string>;
 using LocalizableStringSubIndex = std::map<int8_t, uint32_t>;
 using LocalizableStringIndex = std::vector<LocalizableStringSubIndex>;
 using Properties = std::map<std::string, std::string>;
@@ -116,10 +119,8 @@ bool IsEqual(std::vector<T> const & lhs, std::vector<T> const & rhs)
 }
 
 struct BookmarkData;
-std::string GetPreferredBookmarkName(BookmarkData const & bmData, std::string_view languageOrig);
-std::string GetPreferredBookmarkStr(LocalizableString const & name, std::string const & languageNorm);
-std::string GetPreferredBookmarkStr(LocalizableString const & name, feature::RegionData const & regionData,
-                                    std::string const & languageNorm);
+std::string GetPreferredBookmarkNameForKml(BookmarkData const & bmData);
+std::string GetPreferredBookmarkStrForKml(LocalizableString const & name, std::vector<localisation::LanguageIndex> const languageIndexes);
 std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types);
 
 #define DECLARE_COLLECTABLE(IndexType, ...)            \

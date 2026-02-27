@@ -1599,3 +1599,5 @@
 "type.railway.miniature" = "Минијатурни пруга";
 "type.railway.turntable" = "Железничка окретница";
 "type.tourism.information.tactile_map" = "Тактилна мапа";
+"type.waterway.fuel" = "Бензинска пумпа за пловила";
+"type.amenity.community_centre.youth_centre" = "Омладински центар";

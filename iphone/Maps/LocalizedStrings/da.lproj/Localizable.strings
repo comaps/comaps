@@ -542,7 +542,7 @@
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Da:Om_OpenStreetMap";
 
 /* OpenStreetMap Profile */
-"osm_profile" = "OpenStreetMap profil";
+"osm_profile" = "OpenStreetMap-profil";
 "osm_profile_promt" = "Opret en OpenStreetMap-konto eller log ind for at offentliggøre dine kortredigeringer til hele verden.";
 "osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) er et fællesskabsprojekt til opbygning af et gratis og åbent kort. Det er hovedkilden til kortdata i CoMaps og fungerer på samme måde som Wikipedia. Du kan tilføje eller redigere steder, og de bliver tilgængelige for millioner af brugere over hele verden.\nSlut dig til fællesskabet og vær med til at skabe et bedre kort for alle!";
 "osm_profile_login" = "Log ind på OpenStreetMap-konto";
@@ -772,7 +772,7 @@
 "bookmarks_error_message_empty_list_name" = "Indtast venligst listenavnet";
 "bookmarks_error_title_list_name_already_taken" = "Dette navn er allerede taget";
 "bookmarks_error_title_list_name_too_long" = "Dette navn er for langt";
-"profile" = "OpenStreetMap profil";
+"profile" = "OpenStreetMap-profil";
 "bookmarks_detect_title" = "Nye filer registreret";
 "button_convert" = "Konvertere";
 "bookmarks_convert_error_title" = "Fejl";
@@ -1091,7 +1091,7 @@
 "transliteration_title_disabled_summary" = "Deaktiveret, når det lokale sprog altid bruges til kortet";
 "pref_maplanguage_local" = "Lokalt sprog";
 "hours_confirmed_time_ago" = "Bekræftet %@";
-"existence_confirmed_time_ago" = "Eksistens bekræftet %@";
+"existence_confirmed_time_ago" = "Eksistens bekræftet for %@";
 "avoid_steps" = "Undgå trapper";
 "editor_place_doesnt_exist_description" = "Beskriv, hvordan stedet ser ud nu, for at sende en fejlnote til OpenStreetMap-fællesskabet";
 "offline_explanation_text" = "Der skal downloades et kort for at kunne se og navigere i området.\nDownload kort over de områder, du ønsker at rejse i.";
@@ -1104,3 +1104,5 @@
 "pref_alt_map_lang_handling_local_only" = "Foretræk og brug kun, hvor det er oprindeligt";
 "pref_alt_map_lang_handling" = "Alternative kortsprog";
 "pref_alt_map_lang_handling_system_order" = "Brug i systemrækkefølge";
+"rooms" = "%@ værelser";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

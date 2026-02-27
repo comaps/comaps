@@ -1414,3 +1414,4 @@
 "type.spherical_buoy.safe_water" = "Chugelförmigi Mittefahrwasserboje";
 "type.spherical_buoy.special_purpose" = "Chugelförmigi Spezialboje";
 "type.waterway.fuel" = "Bunkerstation";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

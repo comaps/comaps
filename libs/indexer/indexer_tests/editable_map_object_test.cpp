@@ -18,7 +18,7 @@ using osm::EditableMapObject;
 
 int8_t GetLangCode(char const * ch)
 {
-  return StringUtf8Multilang::GetLangIndex(ch);
+  return localisation::ConvertLanguageCodeToLanguageIndex(ch);
 }
 
 struct ExpectedName

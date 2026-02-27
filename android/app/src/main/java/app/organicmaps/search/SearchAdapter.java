@@ -10,14 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.search.SearchResult;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
+import com.google.android.material.textview.MaterialTextView;
 
 class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHolder>
 {
@@ -152,7 +150,8 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
     {
       final Resources resources = mSearchFragment.getResources();
 
-      if (result.description.openNow != SearchResult.OPEN_NOW_YES && result.description.openNow != SearchResult.OPEN_NOW_NO)
+      if (result.description.openNow != SearchResult.OPEN_NOW_YES
+          && result.description.openNow != SearchResult.OPEN_NOW_NO)
       {
         // Hide if unknown opening hours state
         UiUtils.hide(mOpen);
@@ -169,15 +168,18 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
       {
         final String minsToChangeStr = resources.getQuantityString(
             R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
-        final String nextChangeFormatted = resources.getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
+        final String nextChangeFormatted =
+            resources.getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
 
         UiUtils.setTextAndShow(mOpen, nextChangeFormatted);
         mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), R.color.base_yellow));
       }
       else
       {
-        UiUtils.setTextAndShow(mOpen, isOpen ? resources.getString(R.string.editor_time_open) : resources.getString(R.string.closed));
-        mOpen.setTextColor(ContextCompat.getColor(mSearchFragment.getContext(), isOpen ? R.color.base_green : R.color.base_red));
+        UiUtils.setTextAndShow(
+            mOpen, isOpen ? resources.getString(R.string.editor_time_open) : resources.getString(R.string.closed));
+        mOpen.setTextColor(
+            ContextCompat.getColor(mSearchFragment.getContext(), isOpen ? R.color.base_green : R.color.base_red));
       }
     }
 

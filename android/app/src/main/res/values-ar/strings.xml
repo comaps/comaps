@@ -42,7 +42,7 @@
     <!-- Text in About screen -->
     <string name="about_proposition_3">• غير متصل بالإنترنت، سريع وصغير الحجم</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">تطبيق مفتوح المصدر الذي أنشأه المتحمسون والمتطوعون.</string>
+    <string name="about_developed_by_enthusiasts">مفتوح المصدر بالكامل، غير هادف للربح، ويتميز بالشفافية في اتخاذ القرارات والشؤون المالية.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">إعدادات الموقع</string>
     <string name="close">إغلاق</string>
@@ -66,11 +66,11 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">أضف قائمة جديدة</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">اسم قائمة الإشارات المرجعية</string>
+    <string name="bookmark_set_name">اسم القائمة</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">الإشارات المرجعية</string>
+    <string name="bookmarks">الاماكن</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">الإشارات المرجعية والمسارات</string>
+    <string name="bookmarks_and_tracks">المفضلات</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">الاسم</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -146,14 +146,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">ملاحظات</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">تم مشاركة إشارات CoMaps المرجعية معك</string>
+    <string name="share_bookmarks_email_subject">مفضلاتي على CoMaps</string>
     <string name="share_bookmarks_email_body">مرحبًا!\n\nالمرفقات هي مفضلاتي؛ يرجى فتحها في CoMaps. إذا لم يكن لديكه مثبتًا، يمكنك تنزيله من هنا: https://www.comaps.app/download/\n\nاستمتع بالسفر مع CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">يتم تحميل الإشارات المرجعية</string>
+    <string name="load_kmz_title">يحمل المفضلات</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">تم تحميل الإشارات المرجعية بنجاح! يمكنك العثور عليها على الخريطة أو على شاشة إدارة الإشارات المرجعية.</string>
+    <string name="load_kmz_successful">تم تحميل المفضلة بنجاح! يمكنك العثور عليها على الخريطة أو في شاشة مدير المفضلة.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">فشلت عملية تحميل الإشارات المرجعية. قد يكون الملف تالف أو غير صالح.</string>
+    <string name="load_kmz_failed">فشل تحميل المفضلة. قد يكون الملف تالفًا أو معيبًا.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">لم يتعرف التطبيق على نوع الملف: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -219,9 +219,9 @@
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">لغة الصوت</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">اختبار الاتجاهات الصوتية (TTS، تحويل النص إلى كلام)</string>
+    <string name="pref_tts_test_voice_title">اختبر الاتجاهات الصوتية</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">تحقق من مستوى الصوت أو إعدادات تحويل النص إلى كلام في النظام إذا كنت لا تسمع الصوت الآن.</string>
+    <string name="pref_tts_playing_test_voice">تحقق من مستوى الصوت أو إعدادات تحويل النص إلى كلام في النظام إذا كنت لا تسمع الصوت الآن</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">غير متاح</string>
     <string name="pref_map_auto_zoom">تكبير تلقائي</string>
@@ -244,7 +244,7 @@
     <!-- Button in the main menu -->
     <string name="donate">تبرع</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">دعم المشروع</string>
+    <string name="how_to_support_us">تطوع وساهم في تحسين CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">حقوق النشر</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -269,7 +269,7 @@
     <string name="downloader_download_all_button">تنزيل الكل</string>
     <string name="downloader_downloading">يتم التنزيل:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">لحذف الخريطة، يُرجى إيقاف الملاحة</string>
+    <string name="downloader_delete_map_while_routing_dialog">لحذف الخريطة، يُرجى إيقاف الملاحة أولاً</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">يمكن فقط إنشاء المسارات التي توجد بشكل كامل ضمن خريطة دولة واحدة.</string>
     <!-- Context menu item for downloader. -->
@@ -342,11 +342,11 @@
     <string name="dialog_routing_select_closer_start">يُرجى تحديد نقطة بدء أكثر قربًا للطريق.</string>
     <string name="dialog_routing_change_end">تعديل الوجهة</string>
     <string name="dialog_routing_end_not_determined">لم يتم إنشاء المسار. تعذر تحديد موقع الوجهة.</string>
-    <string name="dialog_routing_select_closer_end">يُرجى تحديد نقطة وجهة تقع أكثر قربًا من الطريق.</string>
-    <string name="dialog_routing_change_intermediate">تعذر تحديد مكان النقطة الوسيطة.</string>
-    <string name="dialog_routing_intermediate_not_determined">الرجاء ضبط النقطة الوسيطة الخاصة بك.</string>
+    <string name="dialog_routing_select_closer_end">يُرجى تحديد نقطة وجهة تقع أكثر قربًا من الطريق</string>
+    <string name="dialog_routing_change_intermediate">تعذر تحديد مكان النقطة الوسيطة</string>
+    <string name="dialog_routing_intermediate_not_determined">يُرجى ضبط النقطة وسيطك</string>
     <string name="dialog_routing_system_error">خطأ في النظام</string>
-    <string name="dialog_routing_application_error">تعذر إنشاء مسار نتيجة وجود خطأ في التطبيق.</string>
+    <string name="dialog_routing_application_error">تعذر إنشاء مسار نتيجة وجود خطأ في التطبيق</string>
     <string name="dialog_routing_try_again">الرجاء إعادة المحاولة</string>
     <string name="not_now">ليس الآن</string>
     <string name="dialog_routing_download_and_build_cross_route">هل ترغب في تنزيل الخريطة وإنشاء مسار أفضل يمتد عبر أكثر من خريطة؟</string>
@@ -360,11 +360,11 @@
     <string name="hide">أخفِ</string>
     <string name="categories">التصنيفات</string>
     <string name="history">سجل البحث</string>
-    <string name="search_not_found">المعذرة، لم أعثر على أية نتائج.</string>
+    <string name="search_not_found">المعذرة، لم أعثر على أية نتائج</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">قم بتنزيل المنطقة التي تبحث فيها أو حاول إضافة اسم بلدة/قرية قريبة.</string>
     <string name="search_history_title">سجل البحث</string>
-    <string name="search_history_text">عرض عمليات البحث الأخيرة.</string>
+    <string name="search_history_text">اعرض عمليات البحث الأخيرة</string>
     <string name="clear_search">مسح سجل البحث</string>
     <!-- Place Page link to Wikipedia article (if map object has it). -->
     <string name="read_in_wikipedia">ويكيبيديا</string>
@@ -372,7 +372,7 @@
     <string name="p2p_start">ابدأ</string>
     <string name="p2p_from_here">مسار من</string>
     <string name="p2p_to_here">المسار إلى</string>
-    <string name="p2p_only_from_current">تتوفر الملاحة من خلال موقعك الحالي فقط.</string>
+    <string name="p2p_only_from_current">تتوفر الملاحة من خلال موقعك الحالي فقط</string>
     <string name="p2p_reroute_from_current">هل ترغب في أن نرسم مسار لك من موقعك الحالي؟</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">التالي</string>
@@ -838,5 +838,12 @@
     <string name="editor_socket">عدِّل المقبس</string>
     <string name="edit_socket_info_tooltip">أنشئ مقابس جديدة أو عدِّل المقابس الموجودة.</string>
     <string name="pref_backup_now_summary">أنشئ نُسخة احتياطية فورًا</string>
-    <string name="limit_map_language_alternatives_to_local">استخدم لغات النظام الأخرى فقط في منطقتها</string>
+    <string name="about_headline">مشروع مفتوح مدعوم من المجتمع</string>
+    <string name="mb_downloaded">%1$d م.بايت / %2$d م.بايت</string>
+    <string name="google_play_services">خدمة جوجل المدمجة لتحديد الموقع</string>
+    <string name="pref_use_google_play">خدمة محتكرة تجمع بين نظام تحديد المواقع العالمي (GPS) وشبكات الواي فاي والشبكات الخلوية وغيرها لتحديد موقعك بدقة أكبر. وقد تتصل هذه الخدمة بخوادم جوجل.</string>
+    <string name="opens_at">يفتح في %s</string>
+    <string name="closes_at">يغلق في %s</string>
+    <string name="opens_day_at">يفتح على %1$s في %2$s</string>
+    <string name="closes_day_at">يغلق على %1$s في %2$s</string>
 </resources>

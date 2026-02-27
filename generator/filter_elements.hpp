@@ -39,10 +39,9 @@
 #include <functional>
 #include <list>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
 #include "cppjansson/cppjansson.hpp"
 
 namespace generator
@@ -62,7 +61,7 @@ public:
 private:
   static bool IsMatch(Tags const & elementTags, Tags const & tags);
 
-  std::unordered_set<uint64_t> m_skippedIds;
+  ankerl::unordered_dense::set<uint64_t> m_skippedIds;
   std::unordered_multimap<std::string, std::reference_wrapper<Tags const>> m_skippedTags;
   std::list<Tags> m_rulesStorage;
 };

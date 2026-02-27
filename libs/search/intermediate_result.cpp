@@ -165,7 +165,7 @@ RankerResult::RankerResult(FeatureType & ft, m2::PointD const & center, string d
 }
 
 RankerResult::RankerResult(FeatureType & ft, std::string const & fileName)
-  : RankerResult(ft, feature::GetCenter(ft, FeatureType::WORST_GEOMETRY), std::string(ft.GetReadableName()), fileName)
+  : RankerResult(ft, feature::GetCenter(ft, FeatureType::WORST_GEOMETRY), ft.GetTranslatedName().m_primary.value(), fileName)
 {}
 
 RankerResult::RankerResult(double lat, double lon)
@@ -251,7 +251,7 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
   std::string brand{ft.GetMetadata(feature::Metadata::FMD_BRAND)};
   if (!brand.empty())
   {
-    brand = platform::GetLocalizedBrandName(brand);
+    brand = localisation::TranslatedBrand(brand);
 
     if (name.find(brand) != std::string::npos)
       brand.clear();

@@ -54,6 +54,8 @@
 
     <include layout="@layout/place_page_capacity" />
 
+    <include layout="@layout/place_page_rooms" />
+
     <include layout="@layout/place_page_wheelchair" />
 
     <include layout="@layout/place_page_wifi"/>

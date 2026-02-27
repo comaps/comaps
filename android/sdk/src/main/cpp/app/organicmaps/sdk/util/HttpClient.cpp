@@ -35,7 +35,8 @@ SOFTWARE.
 
 #include <iterator>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 DECLARE_EXCEPTION(JniException, RootException);
 
@@ -151,7 +152,7 @@ public:
   }
 
 private:
-  std::unordered_map<std::string, jfieldID> m_fieldIds;
+  ankerl::unordered_dense::map<std::string, jfieldID> m_fieldIds;
 };
 }  // namespace
 

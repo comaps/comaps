@@ -20,8 +20,9 @@
 #include <map>
 #include <string>
 #include <type_traits>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "3party/opening_hours/opening_hours.hpp"
 
@@ -159,7 +160,7 @@ public:
   }
 
   template <class K, class V, class H>
-  void operator()(std::unordered_map<K, V, H> const & container, char const * /* name */ = nullptr)
+  void operator()(ankerl::unordered_dense::map<K, V, H> const & container, char const * /* name */ = nullptr)
   {
     WriteVarUint(m_sink, static_cast<uint64_t>(container.size()));
     for (auto const & [key, val] : container)
@@ -341,7 +342,7 @@ public:
   }
 
   template <class K, class V, class H>
-  void operator()(std::unordered_map<K, V, H> & container, char const * /* name */ = nullptr)
+  void operator()(ankerl::unordered_dense::map<K, V, H> & container, char const * /* name */ = nullptr)
   {
     auto const size = static_cast<size_t>(ReadVarUint<uint64_t>(m_source));
     for (size_t i = 0; i < size; ++i)

@@ -9,6 +9,50 @@ import app.organicmaps.sdk.util.Distance;
 @SuppressWarnings("unused")
 public final class RoutingInfo
 {
+  public enum RoutingSessionState
+  {
+    // Same values as in enum class SessionState in "libs/routing/routing_callbacks.hpp".
+    NoValidRoute(0),
+    RouteBuilding(1),
+    RouteNotStarted(2),
+    OnRoute(3),
+    RouteNeedsRebuild(4),
+    RouteFinished(5),
+    RouteNoFollowing(6),
+    RouteRebuilding(7);
+
+    final int mState;
+
+    RoutingSessionState(int state)
+    {
+      mState = state;
+    }
+
+    public static RoutingSessionState fromIntValue(int value)
+    {
+      return switch (value)
+      {
+        case 1 -> RouteBuilding;
+        case 2 -> RouteNotStarted;
+        case 3 -> OnRoute;
+        case 4 -> RouteNeedsRebuild;
+        case 5 -> RouteFinished;
+        case 6 -> RouteNoFollowing;
+        case 7 -> RouteRebuilding;
+        default -> NoValidRoute;
+      };
+    }
+
+    public static boolean isNavigable(RoutingSessionState state)
+    {
+      return switch (state)
+      {
+        case RouteNotStarted, OnRoute, RouteFinished -> true;
+        default -> false;
+      };
+    }
+  }
+
   // Target (end point of route).
   public final Distance distToTarget;
   // Next turn.
@@ -35,12 +79,14 @@ public final class RoutingInfo
   public final double speedLimitMps;
   private final boolean speedCamLimitExceeded;
   private final boolean shouldPlayWarningSignal;
+  // Routing session state.
+  public final RoutingSessionState routingSessionState;
 
   private RoutingInfo(Distance distToTarget, Distance distToTurn, String currentStreet, String nextStreet,
                       String nextNextStreet, double completionPercent, int vehicleTurnOrdinal,
                       int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum, int totalTime,
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
-                      boolean shouldPlayWarningSignal)
+                      boolean shouldPlayWarningSignal, int routingSessionState)
   {
     this.distToTarget = distToTarget;
     this.distToTurn = distToTurn;
@@ -57,6 +103,7 @@ public final class RoutingInfo
     this.speedLimitMps = speedLimitMps;
     this.speedCamLimitExceeded = speedLimitExceeded;
     this.shouldPlayWarningSignal = shouldPlayWarningSignal;
+    this.routingSessionState = RoutingSessionState.fromIntValue(routingSessionState);
   }
 
   public boolean isSpeedCamLimitExceeded()

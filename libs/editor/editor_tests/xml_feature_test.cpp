@@ -88,9 +88,9 @@ UNIT_TEST(XMLFeature_UintLang)
   feature.SetCenter(mercator::FromLatLon(55.79, 37.47));
   feature.SetModificationTime(base::StringToTimestamp("2015-11-27T21:13:32Z"));
 
-  feature.SetName(StringUtf8Multilang::kDefaultCode, "Gorki Park");
-  feature.SetName(StringUtf8Multilang::GetLangIndex("ru"), "Парк Горького");
-  feature.SetName(StringUtf8Multilang::kInternationalCode, "Gorky Park");
+  feature.SetName(localisation::kDefaultNameIndex, "Gorki Park");
+  feature.SetName(localisation::ConvertLanguageCodeToLanguageIndex("ru"), "Парк Горького");
+  feature.SetName(localisation::kInternationalNameIndex, "Gorky Park");
   std::stringstream sstr;
   feature.Save(sstr);
 
@@ -105,9 +105,9 @@ UNIT_TEST(XMLFeature_UintLang)
   TEST_EQUAL(sstr.str(), expectedString, ());
 
   XMLFeature f2(expectedString);
-  TEST_EQUAL(f2.GetName(StringUtf8Multilang::kDefaultCode), "Gorki Park", ());
-  TEST_EQUAL(f2.GetName(StringUtf8Multilang::GetLangIndex("ru")), "Парк Горького", ());
-  TEST_EQUAL(f2.GetName(StringUtf8Multilang::kInternationalCode), "Gorky Park", ());
+  TEST_EQUAL(f2.GetName(localisation::kDefaultNameIndex), "Gorki Park", ());
+  TEST_EQUAL(f2.GetName(localisation::ConvertLanguageCodeToLanguageIndex("ru")), "Парк Горького", ());
+  TEST_EQUAL(f2.GetName(localisation::kInternationalNameIndex), "Gorky Park", ());
 
   TEST_EQUAL(f2.GetName(), "Gorki Park", ());
   TEST_EQUAL(f2.GetName("default"), "Gorki Park", ());

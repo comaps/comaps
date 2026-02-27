@@ -31,7 +31,8 @@ UNIT_TEST(simpleTypeWithTags)
   std::string data =
       "building;[building];;addr:housenumber;name;1;\n"
       "amenity|school;[amenity=school],[education=school];;name;int_name;36;\n"
-      "amenity|doctors;[amenity=doctors][healthcare=doctor],[amenity=doctors],[healthcare=doctor];;name;int_name;207;\n";
+      "amenity|doctors;[amenity=doctors][healthcare=doctor],[amenity=doctors],[healthcare=doctor];;name;int_name;207;"
+      "\n";
 
   classificator::Load();
 
@@ -70,7 +71,8 @@ UNIT_TEST(complexType)
       "tourism|information|office;[tourism=information][information=office];;name;int_name;313;\n"
       "historic|castle|fortress;[historic=castle][castle_type=fortress],[historic=fortress];;name;int_name;1144;\n"
       "#comment\n"
-      "amenity|place_of_worship|christian|mormon;[amenity=place_of_worship][religion=christian][denomination=mormon];;name;int_name;1572;\n";
+      "amenity|place_of_worship|christian|mormon;[amenity=place_of_worship][religion=christian][denomination=mormon];;"
+      "name;int_name;1572;\n";
 
   classificator::Load();
 
@@ -111,7 +113,8 @@ UNIT_TEST(mandatorySelector)
       "amenity|parking|fee;[amenity=parking][fee];;name;int_name;125;\n"
       "highway|track|bridge;[highway=track][bridge?];;name;int_name;193;\n"
       "shop;[shop?];;name;int_name;943;\n"
-      "disusedbusiness;[disused:shop?],[disused:amenity=restaurant],[disused:amenity=fast_food],[disused:amenity=cafe],[disused:amenity=pub],[disused:amenity=bar];;;;1237;\n";
+      "disusedbusiness;[disused:shop?],[disused:amenity=restaurant],[disused:amenity=fast_food],[disused:amenity=cafe],"
+      "[disused:amenity=pub],[disused:amenity=bar];;;;1237;\n";
 
   classificator::Load();
 
@@ -152,7 +155,8 @@ UNIT_TEST(forbiddenSelector)
 {
   std::string data =
       "amenity|lounger;[amenity=lounger][!seasonal];;name;int_name;153;\n"
-      "amenity|charging_station|motorcar|small;[amenity=charging_station][motorcar?][!capacity],[amenity=charging_station][motorcar?][capacity=1],[amenity=charging_station][motorcar?][capacity=2];;name;int_name;201;\n";
+      "amenity|charging_station|motorcar|small;[amenity=charging_station][motorcar?][!capacity],[amenity=charging_"
+      "station][motorcar?][capacity=1],[amenity=charging_station][motorcar?][capacity=2];;name;int_name;201;\n";
 
   classificator::Load();
 

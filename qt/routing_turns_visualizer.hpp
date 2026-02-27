@@ -10,7 +10,8 @@
 #include "geometry/point2d.hpp"
 
 #include <string>
-#include <unordered_set>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace qt
 {
@@ -28,6 +29,6 @@ private:
   static std::string GetId(routing::turns::TurnItem const & turn);
 
   // Turn ids for rendering on the map and erasing by drape.
-  std::unordered_set<std::string> m_turnIds;
+  ankerl::unordered_dense::set<std::string> m_turnIds;
 };
 }  // namespace qt

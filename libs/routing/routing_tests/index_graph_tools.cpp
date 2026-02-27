@@ -12,7 +12,7 @@
 #include "base/assert.hpp"
 #include "base/math.hpp"
 
-#include <unordered_map>
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing_test
 {
@@ -21,7 +21,7 @@ using namespace std;
 double constexpr kEpsilon = 1e-6;
 
 template <typename Graph>
-Graph & GetGraph(unordered_map<NumMwmId, unique_ptr<Graph>> const & graphs, NumMwmId mwmId)
+Graph & GetGraph(ankerl::unordered_dense::map<NumMwmId, unique_ptr<Graph>> const & graphs, NumMwmId mwmId)
 {
   auto it = graphs.find(mwmId);
   CHECK(it != graphs.end(), ("Not found graph for mwm", mwmId));
@@ -29,7 +29,8 @@ Graph & GetGraph(unordered_map<NumMwmId, unique_ptr<Graph>> const & graphs, NumM
 }
 
 template <typename Graph>
-void AddGraph(unordered_map<NumMwmId, unique_ptr<Graph>> & graphs, NumMwmId mwmId, unique_ptr<Graph> graph)
+void AddGraph(ankerl::unordered_dense::map<NumMwmId, unique_ptr<Graph>> & graphs, NumMwmId mwmId,
+              unique_ptr<Graph> graph)
 {
   auto it = graphs.find(mwmId);
   CHECK(it == graphs.end(), ("Already contains graph for mwm", mwmId));

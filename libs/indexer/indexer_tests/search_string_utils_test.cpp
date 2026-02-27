@@ -83,8 +83,8 @@ UNIT_TEST(NormalizeAndSimplifyString_WithOurTambourines)
       "иеиешкиии",  // Better handling of Russian й letter.
       "ØøÆæŒœ",
       "øøææoeoe",  // Scandinavian: ø, æ preserved; French Œ→oe
-      "æøå",
-      "æøå",  // Scandinavian letters.
+      "æøåäö",
+      "æøåäö",  // Scandinavian letters.
       "バス",
       "ハス",
       "âàáạăốợồôểềệếỉđưựứửýĂÂĐÊÔƠƯ",

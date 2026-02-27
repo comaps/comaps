@@ -41,11 +41,11 @@ UNIT_TEST(LoadBrands)
 
   {
     Names expectedNames;
-    expectedNames.emplace("McDonald's", StringUtf8Multilang::GetLangIndex("en"));
-    expectedNames.emplace("Mc Donalds", StringUtf8Multilang::GetLangIndex("en"));
-    expectedNames.emplace("МакДональд'с", StringUtf8Multilang::GetLangIndex("ru"));
-    expectedNames.emplace("Мак Доналдс", StringUtf8Multilang::GetLangIndex("ru"));
-    expectedNames.emplace("Макдональдз", StringUtf8Multilang::GetLangIndex("uk"));
+    expectedNames.emplace("McDonald's", localisation::ConvertLanguageCodeToLanguageIndex("en"));
+    expectedNames.emplace("Mc Donalds", localisation::ConvertLanguageCodeToLanguageIndex("en"));
+    expectedNames.emplace("МакДональд'с", localisation::ConvertLanguageCodeToLanguageIndex("ru"));
+    expectedNames.emplace("Мак Доналдс", localisation::ConvertLanguageCodeToLanguageIndex("ru"));
+    expectedNames.emplace("Макдональдз", localisation::ConvertLanguageCodeToLanguageIndex("uk"));
 
     Names names;
     holder.ForEachNameByKey("mcdonalds", [&names](BrandsHolder::Brand::Name const & name) { names.insert(name); });
@@ -54,9 +54,9 @@ UNIT_TEST(LoadBrands)
 
   {
     Names expectedNames;
-    expectedNames.emplace("Subway", StringUtf8Multilang::GetLangIndex("en"));
-    expectedNames.emplace("Сабвэй", StringUtf8Multilang::GetLangIndex("ru"));
-    expectedNames.emplace("Сабвей", StringUtf8Multilang::GetLangIndex("ru"));
+    expectedNames.emplace("Subway", localisation::ConvertLanguageCodeToLanguageIndex("en"));
+    expectedNames.emplace("Сабвэй", localisation::ConvertLanguageCodeToLanguageIndex("ru"));
+    expectedNames.emplace("Сабвей", localisation::ConvertLanguageCodeToLanguageIndex("ru"));
 
     Names names;
     holder.ForEachNameByKey("subway", [&names](BrandsHolder::Brand::Name const & name) { names.insert(name); });

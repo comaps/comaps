@@ -24,7 +24,7 @@ string CityFinder::GetCityName(m2::PointD const & p, int8_t lang)
 string CityFinder::GetCityReadableName(m2::PointD const & p)
 {
   string_view city;
-  m_finder.GetLocality(p, [&](LocalityItem const & item) { item.GetReadableName(city); });
+  m_finder.GetLocality(p, [&](LocalityItem const & item) { city = item.GetReadableName(); });
 
   // Return string, because m_finder.GetLocality() is not persistent.
   return std::string(city);

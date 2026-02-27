@@ -1091,3 +1091,4 @@
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
 "offline_explanation_text" = "Peta perlu diunduh untuk melihat dan menavigasi area ini.\nUnduh peta untuk wilayah yang ingin Anda jelajahi.";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

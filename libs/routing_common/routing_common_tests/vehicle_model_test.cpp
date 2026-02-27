@@ -146,9 +146,9 @@ UNIT_CLASS_TEST(VehicleModelStub, MaxSpeed)
 UNIT_CLASS_TEST(VehicleModelTest, Speed)
 {
   {
-    CheckSpeed({secondaryBridge}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
-    CheckSpeed({secondaryTunnel}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
-    CheckSpeed({secondary}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
+    CheckSpeed({secondaryBridge}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
+    CheckSpeed({secondaryTunnel}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
+    CheckSpeed({secondary}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
   }
 
   CheckSpeed({classif().GetTypeByPath({"highway", "trunk"})},
@@ -162,16 +162,16 @@ UNIT_CLASS_TEST(VehicleModelTest, Speed_MultiTypes)
 {
   uint32_t const typeHighway = classif().GetTypeByPath({"highway"});
 
-  CheckSpeed({secondaryTunnel, secondary}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
-  CheckSpeed({secondaryTunnel, typeHighway}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
-  CheckSpeed({typeHighway, secondaryTunnel}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
+  CheckSpeed({secondaryTunnel, secondary}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
+  CheckSpeed({secondaryTunnel, typeHighway}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
+  CheckSpeed({typeHighway, secondaryTunnel}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
 }
 
 UNIT_CLASS_TEST(VehicleModelTest, OneWay)
 {
-  CheckSpeed({secondaryBridge, oneway}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
+  CheckSpeed({secondaryBridge, oneway}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
   CheckOneWay({secondaryBridge, oneway}, true);
-  CheckSpeed({oneway, secondaryBridge}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
+  CheckSpeed({oneway, secondaryBridge}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
   CheckOneWay({oneway, secondaryBridge}, true);
 
   CheckOneWay({oneway}, true);
@@ -180,8 +180,8 @@ UNIT_CLASS_TEST(VehicleModelTest, OneWay)
 UNIT_CLASS_TEST(VehicleModelTest, DifferentSpeeds)
 {
   // What is the purpose of this artificial test with several highway types? To show that order is important?
-  CheckSpeed({secondary, primary}, kDefaultSpeeds.Get(HighwayType::HighwaySecondary));
-  CheckSpeed({oneway, primary, secondary}, kDefaultSpeeds.Get(HighwayType::HighwayPrimary));
+  CheckSpeed({secondary, primary}, kDefaultSpeeds.at(HighwayType::HighwaySecondary));
+  CheckSpeed({oneway, primary, secondary}, kDefaultSpeeds.at(HighwayType::HighwayPrimary));
   CheckOneWay({primary, oneway, secondary}, true);
 }
 
@@ -453,13 +453,13 @@ UNIT_TEST(VehicleModel_CarModelValidation)
 
   for (auto const hwType : carRoadTypes)
   {
-    auto const * factor = kHighwayBasedFactors.Find(hwType);
-    TEST(factor, (hwType));
-    TEST(factor->IsValid(), (hwType, *factor));
+    auto const factor = kHighwayBasedFactors.find(hwType);
+    TEST(factor == kHighwayBasedFactors.cend(), (hwType));
+    TEST(factor->second.IsValid(), (hwType, factor->second));
 
-    auto const * speed = kHighwayBasedSpeeds.Find(hwType);
-    TEST(speed, (hwType));
-    TEST(speed->IsValid(), (hwType, *speed));
+    auto const speed = kHighwayBasedSpeeds.find(hwType);
+    TEST(speed == kHighwayBasedSpeeds.cend(), (hwType));
+    TEST(speed->second.IsValid(), (hwType, speed->second));
   }
 }
 

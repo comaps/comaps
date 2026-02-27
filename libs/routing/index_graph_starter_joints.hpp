@@ -10,13 +10,13 @@
 
 #include "base/assert.hpp"
 
-#include "3party/skarupke/bytell_hash_map.hpp"  // needed despite of IDE warning
-
 #include <algorithm>
 #include <map>
 #include <optional>
 #include <queue>
 #include <vector>
+
+#include "3party/skarupke/bytell_hash_map.hpp"  // needed despite of IDE warning
 
 namespace routing
 {

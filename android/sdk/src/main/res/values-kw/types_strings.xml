@@ -1190,7 +1190,7 @@
     <string name="type.shop.mall">Kresen-Brenassa</string>
     <string name="type.shop.beauty.day_spa">Spa</string>
     <string name="type.shop.massage">Leuvdoser</string>
-    <string name="type.shop.mobile_phone">Gwerthji Kellgowser</string>
+    <string name="type.shop.mobile_phone">Gwerthji Klapkodh</string>
     <string name="type.shop.money_lender">Lendyer Mona</string>
     <string name="type.shop.motorcycle">Gwerthji Jynn Diwros</string>
     <string name="type.shop.motorcycle_repair">Jynner Jynn Diwros</string>
@@ -1415,4 +1415,5 @@
     <string name="type.emergency.access_point.address">Trigva Sawyans Goredhom</string>
     <string name="type.emergency.disaster_help_point">Poynt Gweres Goredhom</string>
     <string name="type.waterway.fuel">Kay Petrol Porth</string>
+    <string name="type.amenity.community_centre.youth_centre">Kresen Yowynkneth</string>
 </resources>

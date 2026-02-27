@@ -322,20 +322,21 @@ IsWayChecker::IsWayChecker()
       {"unclassified", Minors},
   };
 
-  m_ranks.Reserve(std::size(types));
+  m_ranks.reserve(std::size(types));
   for (auto const & e : types)
   {
     uint32_t const type = c.GetTypeByPath({"highway", e.first});
     m_types.push_back(type);
-    m_ranks.Insert(type, e.second);
+    m_ranks.insert({type, e.second});
   }
 }
 
 IsWayChecker::SearchRank IsWayChecker::GetSearchRank(uint32_t type) const
 {
   ftype::TruncValue(type, 2);
-  if (auto const * res = m_ranks.Find(type))
-    return *res;
+  auto const it = m_ranks.find(type);
+  if (it != m_ranks.cend())
+    return it->second;
   return Default;
 }
 
@@ -423,6 +424,7 @@ IsUnderBuildingChecker::IsUnderBuildingChecker()
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"natural", "tree"}));
+  m_types.push_back(c.GetTypeByPath({"natural", "tree_row"}));
 }
 
 IsIsolineChecker::IsIsolineChecker() : BaseChecker(1 /* level */)

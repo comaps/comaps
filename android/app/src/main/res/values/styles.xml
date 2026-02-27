@@ -188,7 +188,7 @@
     <item name="android:paddingEnd">@dimen/margin_base_plus</item>
     <item name="android:gravity">center_vertical</item>
     <item name="android:textAppearance">@style/MwmTextAppearance.Body2</item>
-    <item name="android:singleLine">true</item>
+    <item name="android:maxLines">1</item>
     <item name="android:background">?clickableBackground</item>
     <item name="android:drawablePadding">@dimen/margin_base_plus</item>
   </style>
@@ -207,7 +207,7 @@
 
   <style name="MwmWidget.TextView.PlanDetail.Number">
     <item name="android:textSize">@dimen/text_size_routing_number</item>
-    <item name="android:singleLine">true</item>
+    <item name="android:maxLines">1</item>
   </style>
 
   <style name="MwmWidget.TextView.PlanDetail.Number.Time">

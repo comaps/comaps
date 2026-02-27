@@ -10,7 +10,6 @@ import android.content.Intent;
 import android.os.Build;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.StringRes;
 import androidx.core.app.NotificationChannelCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -18,7 +17,6 @@ import androidx.core.content.ContextCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.R;
 import app.organicmaps.sdk.downloader.MapManager;
-import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.sdk.util.log.Logger;
 import java.util.Objects;
 
@@ -61,9 +59,8 @@ public class DownloaderNotifier
       return;
     }
 
-    final String title = mContext.getString(R.string.app_name);
     final String countryName = MapManager.nativeGetName(countryId);
-    final String content = mContext.getString(R.string.download_country_failed, countryName);
+    final String title = mContext.getString(R.string.download_country_failed, countryName);
 
     final Notification notification = new NotificationCompat.Builder(mContext, CHANNEL_ID)
                                           .setAutoCancel(true)
@@ -72,9 +69,8 @@ public class DownloaderNotifier
                                           .setSmallIcon(R.drawable.ic_logo_small)
                                           .setColor(ContextCompat.getColor(mContext, R.color.notification))
                                           .setContentTitle(title)
-                                          .setContentText(content)
                                           .setShowWhen(true)
-                                          .setTicker(getTicker(mContext, title, content))
+                                          .setTicker(title)
                                           .setContentIntent(getNotificationPendingIntent(countryId))
                                           .setOnlyAlertOnce(true)
                                           .build();
@@ -86,10 +82,10 @@ public class DownloaderNotifier
 
   public void notifyProgress()
   {
-    notifyProgress(null, 0, 0);
+    notifyProgress(null, 0, 0, 0, 0);
   }
 
-  public void notifyProgress(@Nullable String countryId, int maxProgress, int progress)
+  public void notifyProgress(@Nullable String countryId, int maxProgress, int progress, int numRegions, int numSubregions)
   {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
         && ContextCompat.checkSelfPermission(mContext, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
@@ -98,23 +94,35 @@ public class DownloaderNotifier
       return;
     }
 
+    // countries do not get notifications
+    if (numSubregions > 1) {
+      return;
+    }
+
     NotificationManagerCompat.from(mContext).notify(NOTIFICATION_ID,
-                                                    buildProgressNotification(countryId, maxProgress, progress));
+                                                    buildProgressNotification(countryId, maxProgress, progress, numRegions));
   }
 
   @NonNull
   public Notification buildProgressNotification()
   {
-    return buildProgressNotification(null, 0, 0);
+    return buildProgressNotification(null, 0, 0, 0);
   }
 
   @NonNull
-  public Notification buildProgressNotification(@Nullable String countryId, int maxProgress, int progress)
+  public Notification buildProgressNotification(@Nullable String countryId, int maxProgress, int progress, int numRegions)
   {
     var builder = getNotificationBuilder(countryId);
-    ///  @todo Doesn't work properly .. Bad input sizes?
-    // builder.setProgress(maxProgress, progress, maxProgress == 0);
-    builder.setProgress(maxProgress, progress, true);
+
+    builder.setProgress(maxProgress, progress, false);
+
+    final String countryName = countryId != null ? MapManager.nativeGetName(countryId) : "";
+
+    if(numRegions > 0){
+      builder.setContentTitle(mContext.getString(R.string.downloader_downloading) + " " + countryName);
+      builder.setContentText(mContext.getString(R.string.mb_downloaded, progress, maxProgress));
+    }
+
     return builder.build();
   }
 
@@ -124,7 +132,6 @@ public class DownloaderNotifier
     if (mProgressNotificationBuilder == null || !Objects.equals(countryId, mNotificationCountryId))
     {
       mNotificationCountryId = countryId;
-      final String countryName = countryId != null ? MapManager.nativeGetName(countryId) : "";
 
       mProgressNotificationBuilder =
           new NotificationCompat.Builder(mContext, CHANNEL_ID)
@@ -133,9 +140,7 @@ public class DownloaderNotifier
               .setSmallIcon(R.drawable.ic_logo_small)
               .setColor(ContextCompat.getColor(mContext, R.color.notification))
               .setShowWhen(true)
-              .setContentTitle(mContext.getString(R.string.app_name))
               .setContentIntent(getNotificationPendingIntent(countryId))
-              .setContentText(mContext.getString(R.string.downloader_downloading) + " " + countryName)
               .setSound(null);
     }
     return mProgressNotificationBuilder;
@@ -150,13 +155,5 @@ public class DownloaderNotifier
     final Intent contentIntent = MwmActivity.createShowMapIntent(mContext, countryId);
     contentIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     return PendingIntent.getActivity(mContext, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT | FLAG_IMMUTABLE);
-  }
-
-  @NonNull
-  private static CharSequence getTicker(@NonNull Context context, @NonNull String title, @NonNull String content)
-  {
-    @StringRes
-    final int templateResId = StringUtils.isRtl() ? R.string.notification_ticker_rtl : R.string.notification_ticker_ltr;
-    return context.getString(templateResId, title, content);
   }
 }

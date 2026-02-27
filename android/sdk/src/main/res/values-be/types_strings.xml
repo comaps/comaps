@@ -210,7 +210,6 @@
     <string name="type.highway.path.tunnel">Тунэль</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Мост</string>
-
     <string name="type.highway.pedestrian.square">Плошча</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Тунэль</string>

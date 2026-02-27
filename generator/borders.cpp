@@ -262,7 +262,7 @@ CountryPolygonsCollection const & GetOrCreateCountryPolygonsTree(std::string con
 {
   /// @todo Are there many different paths with polygons, that we have to store map?
   static std::mutex mutex;
-  static std::unordered_map<std::string, CountryPolygonsCollection> countriesMap;
+  static ankerl::unordered_dense::map<std::string, CountryPolygonsCollection> countriesMap;
 
   std::lock_guard<std::mutex> lock(mutex);
   auto const it = countriesMap.find(baseDir);

@@ -1543,3 +1543,4 @@
 "type.man_made.mast.communication" = "Kommunikasjonsmast";
 "type.shop.beauty.nails" = "Neglesalong";
 "type.man_made.telescope.optical" = "Teleskop (Optisk)";
+"type.amenity.community_centre.youth_centre" = "Ungdomssenter";

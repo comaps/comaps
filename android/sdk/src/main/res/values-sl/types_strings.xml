@@ -646,7 +646,7 @@
     <string name="type.junction.circular">Krožišče</string>
     <string name="type.junction.roundabout">Krožišče</string>
     <string name="type.landuse">Uporaba zemljišča</string>
-    <string name="type.landuse.allotments">Vrtne parcele</string>
+    <string name="type.landuse.allotments">Vrtičkarska zemljišča</string>
     <string name="type.landuse.basin">Vodni zadrževalnik</string>
     <string name="type.landuse.brownfield">Zapuščeno industrijsko območje</string>
     <string name="type.landuse.cemetery">Pokopališče</string>
@@ -1415,4 +1415,5 @@
     <string name="type.leisure.sports_hall">Športna dvorana</string>
     <string name="type.xmas.tree">Božično drevo</string>
     <string name="type.waterway.fuel">Pristan za gorivo</string>
+    <string name="type.amenity.community_centre.youth_centre">Mladinski center</string>
 </resources>

@@ -12,25 +12,10 @@
 #include <algorithm>
 #include <sstream>
 #include <tuple>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "cppjansson/cppjansson.hpp"
-
-namespace
-{
-// GetRussianName returns a Russian feature name if it's possible.
-// Otherwise, GetRussianName function returns a name that GetReadableName returns.
-std::string GetRussianName(StringUtf8Multilang const & str)
-{
-  feature::NameParamsOut out;
-  feature::GetReadableName({str, {} /* regionData */, "ru", false /* allowTranslit */}, out);
-  std::string result(out.primary);
-
-  for (auto const & ch : {';', '\n', '\t'})
-    std::replace(std::begin(result), std::end(result), ch, ',');
-  return result;
-}
-}  // namespace
 
 namespace generator
 {
@@ -81,11 +66,6 @@ uint32_t GetMainType(FeatureParams::Types const & types)
   auto const & buildingPartChecker = ftypes::IsBuildingPartChecker::Instance();
   it = base::FindIf(types, buildingPartChecker);
   return it != std::cend(types) ? *it : ftype::GetEmptyValue();
-}
-
-std::string GetName(StringUtf8Multilang const & str)
-{
-  return GetRussianName(str);
 }
 
 std::string HierarchyEntryToCsvString(HierarchyEntry const & entry, char delim)
@@ -140,7 +120,7 @@ HierarchyEntry HierarchyEntryFromCsvRow(coding::CSVReader::Row const & row)
 
 tree_node::types::Ptrs<HierarchyEntry> LoadHierachy(std::string const & filename)
 {
-  std::unordered_map<CompositeId, tree_node::types::Ptr<HierarchyEntry>> nodes;
+  ankerl::unordered_dense::map<CompositeId, tree_node::types::Ptr<HierarchyEntry>> nodes;
   for (auto const & row : coding::CSVRunner(coding::CSVReader(filename, false /* hasHeader */, kCsvDelimiter)))
   {
     auto entry = HierarchyEntryFromCsvRow(row);

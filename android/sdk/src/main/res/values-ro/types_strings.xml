@@ -1382,7 +1382,7 @@
     <string name="type.tourism.motel">Motel</string>
     <string name="type.tourism.hotel">Hotel</string>
     <string name="type.shop.supermarket">Supermarket</string>
-    <string name="type.amenity.bench.backless">Bancă fără spătar</string>
+    <string name="type.amenity.bench.backless">fără spătar</string>
     <string name="type.amenity.doctors">Doctor</string>
     <string name="type.amenity.restaurant">Restaurant</string>
     <string name="type.highway.services">Spațiu Servicii</string>

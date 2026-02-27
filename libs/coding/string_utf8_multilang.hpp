@@ -6,6 +6,7 @@
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 #include "base/control_flow.hpp"
+#include "base/localisation.hpp"
 
 #include <string>
 #include <string_view>
@@ -52,51 +53,13 @@ void ReadNonEmpty(TSource & src, std::string & s)
 class StringUtf8Multilang
 {
 public:
-  struct Lang
-  {
-    /// OSM language code (e.g. for name:en it's "en" part).
-    std::string_view m_code;
-    /// Native language name.
-    std::string_view m_name;
-    /// Transliterators to latin ids.
-    std::vector<std::string_view> m_transliteratorsIds;
-  };
-
-  static int8_t constexpr kUnsupportedLanguageCode = -1;
-  static int8_t constexpr kDefaultCode = 0;
-  static int8_t constexpr kEnglishCode = 1;
-  static int8_t constexpr kInternationalCode = 7;
-  static int8_t constexpr kAltNameCode = 53;
-  static int8_t constexpr kOldNameCode = 55;
-  /// How many languages we support on indexing stage. See full list in cpp file.
-  /// TODO(AlexZ): Review and replace invalid languages by valid ones.
-  static int8_t constexpr kMaxSupportedLanguages = 64;
   // 6 bits language code mask. The language code is encoded with 6 bits that are prepended with
   // "10".
   static int8_t constexpr kLangCodeMask = 0x3F;
-  static_assert(kMaxSupportedLanguages == kLangCodeMask + 1);
-  static std::string_view constexpr kReservedLang = "reserved";
+  static_assert(localisation::kMaxSupportedLanguages == kLangCodeMask + 1);
 
-  using Languages = buffer_vector<Lang, kMaxSupportedLanguages>;
-
-  static Languages const & GetSupportedLanguages(bool includeServiceLangs = true);
-
-  static bool IsServiceLang(std::string_view lang);
-
-  // These names require separate search/street processing.
-  static bool IsAltOrOldName(int8_t langCode) { return langCode == kAltNameCode || langCode == kOldNameCode; }
-
-  /// @returns kUnsupportedLanguageCode if language is not recognized.
-  static int8_t GetLangIndex(std::string_view lang);
-  /// @returns empty string if langCode is invalid.
-  static std::string_view GetLangByCode(int8_t langCode);
-  /// @returns empty string if langCode is invalid.
-  static std::string_view GetLangNameByCode(int8_t langCode);
-  /// @returns nullptr if langCode is invalid.
-  static std::vector<std::string_view> const * GetTransliteratorsIdsByCode(int8_t langCode);
-
-  static std::string GetOSMTagByCode(uint8_t const langCode);
-  static uint8_t GetCodeByOSMTag(std::string const & name);
+  static std::string GetOSMTagByCode(localisation::LanguageIndex const languageIndex);
+  static localisation::LanguageIndex GetCodeByOSMTag(std::string const & name);
 
   inline bool operator==(StringUtf8Multilang const & rhs) const { return m_s == rhs.m_s; }
   inline bool operator!=(StringUtf8Multilang const & rhs) const { return !(*this == rhs); }
@@ -106,21 +69,21 @@ public:
 
   // This method complexity is O(||utf8s||) when adding a new name and O(||m_s|| + ||utf8s||) when
   // replacing an existing name.
-  void AddString(int8_t lang, std::string_view utf8s);
-  void AddString(std::string_view lang, std::string_view utf8s)
+  void AddString(localisation::LanguageIndex const languageIndex, std::string_view utf8s);
+  void AddString(localisation::LanguageCode const languageCode, std::string_view utf8s)
   {
-    int8_t const l = GetLangIndex(lang);
-    if (l != kUnsupportedLanguageCode)
-      AddString(l, utf8s);
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    if (languageIndex != localisation::kUnsupportedLanguageIndex)
+      AddString(languageIndex, utf8s);
   }
 
   // This method complexity is O(||m_s||).
-  void RemoveString(int8_t lang);
-  void RemoveString(std::string_view lang)
+  void RemoveString(localisation::LanguageIndex const languageIndex);
+  void RemoveString(localisation::LanguageCode const languageCode)
   {
-    int8_t const l = GetLangIndex(lang);
-    if (l != kUnsupportedLanguageCode)
-      RemoveString(l);
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    if (languageIndex != localisation::kUnsupportedLanguageIndex)
+      RemoveString(languageIndex);
   }
 
   // Calls |fn| for each pair of |lang| and |utf8s| stored in this multilang string.
@@ -133,9 +96,9 @@ public:
     while (i < sz)
     {
       size_t const next = GetNextIndex(i);
-      int8_t const code = m_s[i] & kLangCodeMask;
-      if (GetLangByCode(code) != kReservedLang &&
-          wrapper(code, std::string_view(m_s).substr(i + 1, next - i - 1)) == base::ControlFlow::Break)
+      localisation::LanguageIndex const languageIndex = m_s[i] & kLangCodeMask;
+      if (localisation::ConvertLanguageIndexToLanguageCode(languageIndex) != localisation::kReservedLanguageCode &&
+          wrapper(languageIndex, std::string_view(m_s).substr(i + 1, next - i - 1)) == base::ControlFlow::Break)
       {
         break;
       }
@@ -172,17 +135,42 @@ public:
   }
   */
 
-  bool GetString(int8_t lang, std::string_view & utf8s) const;
-  bool GetString(std::string_view const lang, std::string_view & utf8s) const
+  template <typename String>
+  bool GetString(localisation::LanguageIndex const languageIndex, String & utf8s) const
   {
-    int8_t const l = GetLangIndex(lang);
-    if (l >= 0)
-      return GetString(l, utf8s);
+    if (!localisation::IsSupportedLanguageIndex(languageIndex))
+      return false;
+
+    size_t i = 0;
+    size_t const sz = m_s.size();
+
+    while (i < sz)
+    {
+      size_t const next = GetNextIndex(i);
+
+      if ((m_s[i] & kLangCodeMask) == languageIndex)
+      {
+        ++i;
+        utf8s = {m_s.c_str() + i, next - i};
+        return true;
+      }
+
+      i = next;
+    }
+
+    return false;
+  }
+  template <typename String>
+  bool GetString(localisation::LanguageCode const languageCode, String & utf8s) const
+  {
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    if (languageIndex >= 0)
+      return GetString(languageIndex, utf8s);
     else
       return false;
   }
 
-  bool HasString(int8_t lang) const;
+  bool HasString(localisation::LanguageIndex const languageIndex) const;
 
   int8_t FindString(std::string const & utf8s) const;
   size_t CountLangs() const;

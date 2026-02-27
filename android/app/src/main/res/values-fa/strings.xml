@@ -256,7 +256,7 @@
     <!-- Item status in downloader. -->
     <string name="downloader_retry">تلاش دوباره</string>
     <!-- Item in context menu. -->
-    <string name="downloader_delete_map">حذف نقشه</string>
+    <string name="downloader_delete_map">ستردن نقشه</string>
     <!-- Item in context menu. -->
     <string name="downloader_update_map">بروزرسانی نقشه</string>
     <!-- Preference title -->
@@ -344,7 +344,7 @@
     <!-- «Hide» context menu -->
     <string name="hide">پنهان کردن</string>
     <string name="categories">دسته‌بندی‌ها</string>
-    <string name="history">تاریخچه</string>
+    <string name="history">پیشینه</string>
     <string name="search_not_found">متاسفانه چیزی پیدا نشد</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">منطقه ای را که در آن جستجو می کنید دانلود کنید یا نام شهر/ روستای اطراف را اضافه کنید.</string>
@@ -366,9 +366,9 @@
     <!-- Tab title in the Edit Opening Hours time picker -->
     <string name="editor_time_to">الی</string>
     <string name="editor_time_add">اضافه کردن برنامه ریزی</string>
-    <string name="editor_time_delete">حذف کردن برنامه ریزی</string>
+    <string name="editor_time_delete">ستردن برنامه‌ریزی</string>
     <!-- Text for allday switch. -->
-    <string name="editor_time_allday">شبانه روزی (24 ساعته)</string>
+    <string name="editor_time_allday">شبانه‌روزی (۲۴ ساعته)</string>
     <string name="editor_time_open">باز</string>
     <string name="editor_time_close">بسته</string>
     <string name="editor_time_add_closed">اضافه کردن ساعات غیر کاری</string>
@@ -381,12 +381,12 @@
     <string name="editor_add_select_location">مکان را انتخاب کنید</string>
     <string name="editor_report_problem_desription_1">لطفا مشکلتان را با جزئیات توضیح دهید بطوری که انجمن OpenStreetMap بتوانند آن را برطرف کنند.</string>
     <string name="editor_report_problem_desription_2">یا خودتان آن را انجام دهید در وبسایت https://www.openstreetmap.org/</string>
-    <string name="editor_report_problem_send_button">ارسال</string>
+    <string name="editor_report_problem_send_button">فرستادن</string>
     <string name="editor_report_problem_title">مشکل</string>
     <string name="editor_report_problem_no_place_title">مکان وجود ندارد</string>
     <string name="editor_report_problem_under_construction_title">به علت تعمیرات بسته است</string>
     <string name="editor_report_problem_duplicate_place_title">مکان تکراری</string>
-    <string name="autodownload">دانلود خودکار</string>
+    <string name="autodownload">بارگیری خودکار نقشه‌ها</string>
     <!-- Place Page opening hours text -->
     <string name="daily">روزانه</string>
     <string name="twentyfour_seven">شبانه روزی</string>
@@ -423,9 +423,9 @@
     <string name="downloader_update_maps">بروزرسانی نقشه‌ها</string>
     <string name="downloader_mwm_migration_dialog">برای ایجاد مسیر شما نیازمند بروزرسانی تمامی نقشه‌ها هستید سپس می توانید دوباره مسیرتان را برنامه ریزی کنید.</string>
     <string name="downloader_search_field_hint">یافتن نقشه</string>
-    <string name="common_check_internet_connection_dialog">لطفا تنظیمات خود را بازبینی کنید و مطمئن شوید که ابزار شما به اینترنت متصل است</string>
+    <string name="common_check_internet_connection_dialog">لطفا تنظیمات خود را بازبینی کنید و اُستیگان شوید که ابزار شما به اینترنت متصل است</string>
     <string name="downloader_no_space_title">فظای کافی موجود نیست</string>
-    <string name="downloader_no_space_message">لطفا داده‌های غیر ضروری را از دستگاه خود حذف کنید</string>
+    <string name="downloader_no_space_message">لطفا داده‌های غیر ضروری را از دستگاه خود بستردانید</string>
     <string name="editor_login_error_dialog">خطای ورود</string>
     <string name="editor_profile_changes">تغییرات تایید شد</string>
     <string name="editor_focus_map_on_location">نقشه را بکشید تا صلیب را در محل مکان یا کسب و کار قرار دهید.</string>
@@ -480,18 +480,18 @@
     <string name="placepage_personal_notes_hint">یادداشت های شخصی (متن یا html)</string>
     <string name="editor_reset_edits_message">آیا تغییرات محلی را نادیده می گیرید؟</string>
     <string name="editor_reset_edits_button">نادیده گرفتن</string>
-    <string name="editor_remove_place_message">آیا مکان ثبت شده حذف شود؟</string>
-    <string name="editor_remove_place_button">حذف</string>
+    <string name="editor_remove_place_message">آیا گیاگ ثبت شده سترده شود؟</string>
+    <string name="editor_remove_place_button">ستردن</string>
     <string name="editor_place_doesnt_exist">مکان وجود ندارد</string>
     <!-- Phone number error message -->
     <string name="error_enter_correct_phone">شماره تلفن معتبری وارد نمایید</string>
     <string name="error_enter_correct_web">ادرس وب معتبری وارد نمایید</string>
     <string name="error_enter_correct_email">ایمیل معتبری وارد نمایید</string>
-    <string name="placepage_add_place_button">مکان را به OpenStreetMap اضافه کنید</string>
+    <string name="placepage_add_place_button">گیاگ را به OpenStreetMap بیافزایید</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">آیا می خواهید آن را برای دیگر کاربران ارسال کنید؟</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">مطمئن شوید که هیچ اطلاعات شخصی وارد نکرده باشد</string>
+    <string name="editor_share_to_all_dialog_message_1">اُستیگان شوید که هیچ اطلاعات شخصی وارد نکرده باشد</string>
     <string name="editor_share_to_all_dialog_message_2">ویرایشگران OpenStreetMap ﺗﻐﯿﯿﺮﺍﺕ ﺭﺍ ﺑﺮﺭﺳﯽ ﮐﺮﺩﻩ ﻭ ﺩﺭ ﺻﻮﺭﺕ ﺩﺍﺷﺘﻦ ﻫﺮﮔﻮﻧﻪ ﺳﻮﺍﻝ ﺑﺎ ﺷﻤﺎ ﺗﻤﺎﺱ ﺧﻮﺍﻫﻨﺪ ﮔﺮﻓﺖ</string>
     <string name="navigation_stop_button">توقف</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -499,12 +499,12 @@
     <!-- For the first routing -->
     <string name="accept">موافقم</string>
     <!-- For the first routing -->
-    <string name="decline">کاهش</string>
-    <string name="mobile_data_dialog">از دیتای موبایل برای نمایش اطلاعات بیشتر استفاده شود؟</string>
+    <string name="decline">رد کردن</string>
+    <string name="mobile_data_dialog">از داده گوشی برای نمایش اطلاعات بیشتر استفاده شود؟</string>
     <string name="mobile_data_option_always">همیشه استفاده کن</string>
-    <string name="mobile_data_option_today">فقط امروز</string>
+    <string name="mobile_data_option_today">تنها امروز</string>
     <string name="mobile_data_option_not_today">امروز نه</string>
-    <string name="mobile_data">دیتای موبایل</string>
+    <string name="mobile_data">داده گوشی</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
     <string name="mobile_data_description">برای نمایش جزئیات مکان مانند تصاویر قیمت‌ها و بازخورد‌ها به اینترنت همراه نیاز است</string>
     <string name="mobile_data_option_never">هرگز</string>
@@ -528,7 +528,7 @@
     <string name="routing_add_finish_point">برای افزودن نقطه مقصد، از جستجو استفاده کنید یا روی نقشه ضربه بزنید</string>
     <string name="planning_route_manage_route">مدیریت مسیر</string>
     <string name="button_plan">برنامه</string>
-    <string name="placepage_remove_stop">توقف را حذف کنید</string>
+    <string name="placepage_remove_stop">توقف را بستردانید</string>
     <string name="placepage_add_stop">اضافه کردن توقف</string>
     <string name="dialog_error_storage_title">مشکل دسترسی به ذخیره‌سازی</string>
     <string name="dialog_error_storage_message">ذخیره سازی خارجی در دسترس نیست کارت SD ممکن است برداشته شده باشد، آسیب دیده باشد یا سیستم فایل فقط خواندنی باشد. لطفا کارت SD خود را بررسی کنید یا با ما در support@comaps.app تماس بگیرید</string>
@@ -577,7 +577,7 @@
     <string name="category_desc_more">بیشتر…</string>
     <string name="export_file">صادرات KMZ</string>
     <string name="export_file_gpx">صادرات GPX</string>
-    <string name="delete_list">حذف لیست</string>
+    <string name="delete_list">ستردن پهرست</string>
     <string name="speedcams_alert_title">دوربین‌های سرعت</string>
     <string name="place_description_title">توضیحات محل</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
@@ -732,7 +732,7 @@
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">تنظیمات سنتز گفتار سیستم</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">تنظیمات Speech Synthesis پیدا نشد، آیا مطمئن هستید که دستگاه شما از آن پشتیبانی می کند؟</string>
+    <string name="pref_tts_no_system_tts">تنظیمات Speech Synthesis پیدا نشد، آیا اُستیگان هستید که دستگاه شما از آن پشتیبانی می کند؟</string>
     <string name="drive_through">رانندگی از طریق</string>
     <string name="clear_the_search">جستجو را پاک کنید</string>
     <string name="zoom_in">بزرگ‌نمایی</string>

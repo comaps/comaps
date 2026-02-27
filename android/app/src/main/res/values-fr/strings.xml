@@ -236,7 +236,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Nouvelles</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Suggestions</string>
+    <string name="feedback">Avis</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Évaluer l’appli</string>
     <!-- Text in menu -->
@@ -271,7 +271,7 @@
     <string name="downloader_download_all_button">Tout télécharger</string>
     <string name="downloader_downloading">Téléchargement en cours :</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Veuillez arrêter la navigation pour supprimer la carte</string>
+    <string name="downloader_delete_map_while_routing_dialog">Pour supprimer la carte, veuillez d\'abord arrêter la navigation</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Les itinéraires ne peuvent être créés que s’ils sont entièrement contenus dans la carte d’une seule région.</string>
     <!-- Context menu item for downloader. -->
@@ -473,10 +473,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d de %2$d</string>
     <string name="download_over_mobile_header">Télécharger avec une connexion réseau cellulaire ?</string>
-    <string name="download_over_mobile_message">Cela pourrait coûter cher avec certains abonnements ou si vous êtes en déplacement</string>
+    <string name="download_over_mobile_message">Cela peut s\'avérer très coûteux avec certains forfaits de données mobiles, surtout si vous êtes en itinérance.</string>
     <string name="error_enter_correct_house_number">Saisir un numéro de bâtiment valide</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Le nombre d’étages ne doit pas dépasser %d</string>
+    <string name="error_enter_correct_storey_number">Le nombre d’étages ne doit pas être supérieur à %d</string>
     <string name="editor_zip_code">Code postal</string>
     <string name="error_enter_correct_zip_code">Saisissez un code postal valide</string>
     <!-- Title for OSM note section in the editor -->
@@ -492,7 +492,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Opérateur : %s</string>
     <string name="editor_category_unsuitable_title">Vous ne trouvez pas de catégorie appropriée ?</string>
-    <string name="editor_category_unsuitable_text">CoMaps ne permet d’ajouter que des catégories de points simples, c’est-à-dire pas de villes, de routes, de lacs, de contours de bâtiments, etc. Merci d’ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ne peut ajouter que des catégories de points simples, il ne peut pas ajouter de villes, de routes, de lacs, de contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consultez notre <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> pour obtenir des instructions détaillées étape par étape.</string>
     <string name="downloader_no_downloaded_maps_title">Vous n’avez téléchargé aucune carte</string>
     <string name="downloader_no_downloaded_maps_message">Télécharger des cartes pour rechercher un lieu et utiliser la navigation hors ligne</string>
     <string name="current_location_unknown_error_title">L’emplacement actuel est inconnu</string>
@@ -525,7 +525,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Souhaitez-vous l’envoyer à tous les utilisateurs ?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Assurez-vous de ne pas avoir saisi de données personnelles.</string>
+    <string name="editor_share_to_all_dialog_message_1">Assurez-vous de n\'avoir fourni aucune donnée personnelle.</string>
     <string name="editor_share_to_all_dialog_message_2">Les contributeurs OpenStreetMap vérifieront vos modifications et vous contacteront s’ils ont des questions.</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Enregistreur de traces</string>
@@ -550,10 +550,10 @@
     <string name="enable_logging">Activer la journalisation</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback général</string>
-    <string name="prefs_languages_information">Nous utilisons le système TTS pour les instructions vocales. De nombreux appareils Android utilisent Google TTS, vous pouvez le télécharger ou le mettre à jour depuis Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Pour certaines langues, il vous faudra installer un autre logiciel de synthèse vocale ou un pack de langue supplémentaire depuis l’app store (Google Play, Galaxy Store, App Gallery, FDroid). \nOuvrez les paramètres de votre appareil → Langue et saisie → Reconnaissance vocale → Saisie vocale. \nIci, vous pouvez gérer les paramètres pour la synthèse vocale (par exemple, télécharger un pack de langue pour une utilisation en mode hors ligne) et sélectionner un autre moteur de saisie vocale.</string>
+    <string name="prefs_languages_information">Nous utilisons le système TTS pour les instructions vocales. De nombreux appareils Android utilisent Google TTS, que vous pouvez télécharger ou mettre à jour depuis le Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts).</string>
+    <string name="prefs_languages_information_off">Pour certaines langues, vous devrez installer un synthétiseur vocal ou un pack linguistique supplémentaire à partir d\'une boutique d\'applications (Google Play, Galaxy Store, App Gallery, F-Droid).\n\nOuvrez les paramètres de votre appareil → Langue et saisie → Parole → Sortie texte-parole.\n\nVous pouvez ici gérer les paramètres de synthèse vocale (par exemple, télécharger un pack linguistique pour une utilisation hors ligne) et sélectionner un autre moteur de synthèse texte-parole.</string>
     <string name="prefs_languages_information_off_link">Pour plus d’informations, veuillez consulter ce guide</string>
-    <string name="transliteration_title">Translittéré en alphabet latin</string>
+    <string name="transliteration_title">Translittérer en alphabet latin</string>
     <string name="learn_more">En savoir plus</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">Utilisez la recherche ou tapez sur la carte pour ajouter un point de départ d’itinéraire</string>
@@ -732,7 +732,7 @@
     <string name="change_map_locale">Langue de la carte</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Données cartographiques d’OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/fr/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/FR:À_propos_d’OpenStreetMap</string>
@@ -812,7 +812,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continuer l’enregistrement</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Enregistrer dans les favoris ?</string>
+    <string name="track_recording_alert_title">Enregistrer en tant que Favori ?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">L’itinéraire est vide - il n’y a rien à enregistrer</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -927,8 +927,23 @@
     <string name="download_resources_custom_url_error_scheme">Veuillez saisir une URL complète commençant par http:// ou https://</string>
     <string name="download_resources_custom_url_message">Serveur pour télécharger les cartes. Laissez vide pour utiliser le serveur par défaut CoMaps.</string>
     <string name="pref_maplanguage_local">Langue locale</string>
-    <string name="limit_map_language_alternatives_to_local">N\'utilisez que les autres langues système de leur région.</string>
     <string name="pref_speedlimit_title">Afficher les limites de vitesse</string>
     <string name="location_privacy_info">Les applications reçoivent des données de localisation provenant du service de localisation de votre système d\'exploitation, qui peut partager votre position avec Google et/ou le fabricant de votre appareil. Pour éviter cela, utilisez un système d\'exploitation Android préservant la confidentialité.</string>
     <string name="location_privacy">Confidentialité relative à la localisation</string>
+    <string name="rooms">%s pièces</string>
+    <string name="mb_downloaded">%1$d Mo / %2$d Mo</string>
+    <string name="invalid_route">Itinéraire invalide</string>
+    <string name="building_route">Construction de l\'itinéraire…</string>
+    <string name="route_not_started">Itinéraire non commencé</string>
+    <string name="on_route">En route</string>
+    <string name="route_needs_rebuild">L\'itinéraire doit être refait</string>
+    <string name="route_finished">Itinéraire terminé</string>
+    <string name="not_following_route">N\'emprunte pas l\'itinéraire</string>
+    <string name="rebuilding_route">Réorganisation de l\'itinéraire…</string>
+    <string name="pref_openexternallinks_title">Ouvrir automatiquement les liens tiers</string>
+    <string name="pref_openexternallinks_summary">Ouvrir les liens tiers dans CoMaps par défaut</string>
+    <string name="pref_alt_map_lang_handling">Langues alternatives pour les cartes</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">N\'utilisez pas d\'alternatives</string>
+    <string name="pref_alt_map_lang_handling_system_order">Utilisation dans l\'ordre du système</string>
+    <string name="pref_alt_map_lang_handling_local_only">Privilégiez et utilisez uniquement lorsque le langage natif est utilisé.</string>
 </resources>

@@ -1506,4 +1506,5 @@
     <string name="type.emergency.disaster_help_point">Nouzové centrum pomoci při katastrofách</string>
     <string name="type.emergency.access_point.address">Adresa pro nouzové záchranné služby</string>
     <string name="type.waterway.fuel">Přístavní čerpací stanice</string>
+    <string name="type.amenity.community_centre.youth_centre">Centrum mládeže</string>
 </resources>

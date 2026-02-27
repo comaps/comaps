@@ -92,7 +92,7 @@ public:
 
 private:
   // Value is an index in m_data vector.
-  std::unordered_map<IDType, uint64_t> m_id2index;
+  ankerl::unordered_dense::map<IDType, uint64_t> m_id2index;
   std::vector<Locality> m_data;
 };
 
@@ -107,10 +107,10 @@ public:
   void Save(std::string const & fileName);
 
 private:
-  std::unordered_map<IDType, Locality> m_id2loc;
-  using IDsSetT = std::unordered_set<IDType>;
-  std::unordered_map<IDType, IDsSetT> m_node2rel;
-  std::unordered_map<std::string, IDsSetT> m_name2rel;
+  ankerl::unordered_dense::map<IDType, Locality> m_id2loc;
+  using IDsSetT = ankerl::unordered_dense::set<IDType>;
+  ankerl::unordered_dense::map<IDType, IDsSetT> m_node2rel;
+  ankerl::unordered_dense::map<std::string, IDsSetT> m_name2rel;
 };
 
 class RoutingCityBoundariesCollector : public CollectorInterface

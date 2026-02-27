@@ -1,9 +1,9 @@
 Brezplačno in odprtokodno zemljevidno orodje, ki ga vodi skupnost, temelji na podatkih OpenStreetMap in je okrepljena s predanostjo transparentnosti, zasebnosti in nepridobitnosti. CoMaps je izpeljanka OrganicMaps, ta pa je izpeljanka Maps.ME.
 
-Preberite si o razlogih za ta projekt in njegovi usmerjenosti na <b><i>codeberg.org/comaps</i></b>.
+Preberite si o razlogih za ta projekt in njegovi naravnanosti na <b><i>codeberg.org/comaps</i></b>.
 Pridružite se skupnosti in pomagajte narediti najboljše zemljevidno orodje
 • Uporabljajte orodje in širite glas o njem
-• Dajajte povratne informacije in poročajte o napakah
+• Delite povratne informacije in poročajte o napakah
 • Posodabljajte podatke zemljevida v tem orodju ali na spletni strani OpenStreetMap
 
 ‣ <b>Osredotočeno na uporabo brez povezave</b>: Načrtujte in se usmerjajte na vašem potovanju v tujini vrez potrebe po mobilnih podatkih, iščite vmesne točke potovanja ko ste na daljšem pohodu ipd. Vse zmogljivosti orodja so zasnovane za delo brez povezave.

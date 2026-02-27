@@ -28,6 +28,7 @@ public class StoragePathManager
   private static final String TAG = StoragePathManager.class.getSimpleName();
   private static final String DATA_FILE_EXT = Framework.nativeGetDataFileExt();
   private static final String[] MOVABLE_EXTS = Framework.nativeGetMovableFilesExts();
+  private static final int THREEHUNDRED_MB = 300000000;
   public static final FilenameFilter MOVABLE_FILES_FILTER = (dir, filename) ->
   {
     for (String ext : MOVABLE_EXTS)
@@ -47,8 +48,11 @@ public class StoragePathManager
   private final Context mContext;
 
   public final List<StorageItem> mStorages = new ArrayList<>();
+  public final List<StorageItem> mRemovableStorages = new ArrayList<>();
+  public final List<StorageItem> mNonremovableStorages = new ArrayList<>();
   public int mCurrentStorageIndex = -1;
   private StorageItem mInternalStorage = null;
+  private StorageItem mExternalStorage = null;
 
   public StoragePathManager(@NonNull Context context)
   {
@@ -228,10 +232,16 @@ public class StoragePathManager
 
     StorageItem storage = new StorageItem(path, freeSize, totalSize, label, isReadonly);
     mStorages.add(storage);
+    if (isRemovable)
+      mRemovableStorages.add(storage);
+    else
+      mNonremovableStorages.add(storage);
     if (isCurrent)
       mCurrentStorageIndex = mStorages.size() - 1;
     if (isInternal)
       mInternalStorage = storage;
+    else if (!isRemovable)
+      mExternalStorage = storage;
     Logger.i(TAG, "Accepted " + commentedPath);
   }
 
@@ -281,20 +291,31 @@ public class StoragePathManager
   }
 
   /**
-   * Get a writable non-internal storage with the most free space.
-   * Returns an internal storage if no other options are suitable.
+   * Returns the fastest shared writable storage with enough free space.
    */
   public StorageItem getDefaultStorage()
   {
     StorageItem res = null;
-    for (StorageItem storage : mStorages)
-    {
-      if ((res == null || res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly
-          && !storage.equals(mInternalStorage))
-        res = storage;
-    }
 
-    return res != null ? res : mInternalStorage;
+    for (StorageItem storage : mNonremovableStorages)
+      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly)
+        res = storage;
+
+    if (res != null)
+      return res;
+
+    for (StorageItem storage : mRemovableStorages)
+      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly)
+        res = storage;
+
+    if (res != null)
+      return res;
+
+    for (StorageItem storage : mStorages)
+      if ((res == null || res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly)
+        res = storage;
+
+    return res != null ? res : (mExternalStorage != null ? mExternalStorage : mInternalStorage);
   }
 
   /**

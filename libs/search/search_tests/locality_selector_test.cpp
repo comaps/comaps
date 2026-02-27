@@ -16,7 +16,7 @@ namespace
 StringUtf8Multilang ToMultilang(string const & name)
 {
   StringUtf8Multilang s;
-  s.AddString(StringUtf8Multilang::kEnglishCode, name);
+  s.AddString(localisation::kEnglishLanguageIndex, name);
   return s;
 }
 
@@ -47,7 +47,7 @@ MatchedCity GetMatchedCity(m2::PointD const & point, vector<City> const & cities
   FeatureID id;
   selector.WithBestLocality([&](LocalityItem const & item)
   {
-    item.GetName(StringUtf8Multilang::kEnglishCode, name);
+    item.GetName(localisation::kEnglishLanguageIndex, name);
     id = item.m_id;
   });
 

@@ -7,8 +7,9 @@
 #include "geometry/point2d.hpp"
 
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -51,7 +52,7 @@ private:
   std::vector<MiniRoundaboutInfo> const & m_roundabouts;
   double const m_radiusMercator = 0.0;
   feature::AffiliationInterface const * m_affiliation = nullptr;
-  std::unordered_map<base::GeoObjectId, feature::FeatureBuilder> m_roads;
+  ankerl::unordered_dense::map<base::GeoObjectId, feature::FeatureBuilder> m_roads;
   // Skip 2 bytes to satisfy base::GeoObjectId constraints.
   uint64_t m_newWayId = 1ULL << (63 - 16);
   bool m_leftHandTraffic = false;

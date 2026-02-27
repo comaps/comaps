@@ -6,6 +6,7 @@
 #include "geometry/point2d.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 
 #include "std/target_os.hpp"
 
@@ -80,8 +81,10 @@ struct TitleDecl
 {
   dp::FontDecl m_primaryTextFont;
   std::string m_primaryText;
+  localisation::LanguageIndex m_primaryTextLanguageIndex = localisation::kUnsupportedLanguageIndex;
   dp::FontDecl m_secondaryTextFont;
   std::string m_secondaryText;
+  localisation::LanguageIndex m_secondaryTextLanguageIndex = localisation::kUnsupportedLanguageIndex;
   dp::Anchor m_anchor = dp::Anchor::Center;
   bool m_forceNoWrap = false;
   m2::PointF m_primaryOffset = m2::PointF(0.0f, 0.0f);

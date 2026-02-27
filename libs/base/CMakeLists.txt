@@ -42,6 +42,10 @@ set(SRC
   levenshtein_dfa.hpp
   limited_priority_queue.hpp
   linked_map.hpp
+  localisation.cpp
+  localisation.hpp
+  localisation_translation.cpp
+  localisation_translation.hpp
   logging.cpp
   logging.hpp
   lower_case.cpp
@@ -65,8 +69,6 @@ set(SRC
   set_operations.hpp
   shared_buffer_manager.cpp
   shared_buffer_manager.hpp
-  small_map.hpp
-  small_set.hpp
   src_point.cpp
   src_point.hpp
   stats.hpp

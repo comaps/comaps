@@ -270,7 +270,7 @@ UNIT_CLASS_TEST(TestWithClassificator, FBuilder_HouseName)
 
   TEST(fb.PreSerializeAndRemoveUselessNamesForIntermediate(), ());
   TEST(fb.IsValid(), ());
-  TEST_EQUAL(fb.GetName(StringUtf8Multilang::kDefaultCode), "St. Nicholas Lodge", ());
+  TEST_EQUAL(fb.GetName(localisation::kDefaultNameIndex), "St. Nicholas Lodge", ());
   TEST(fb.GetParams().house.IsEmpty(), ());
 }
 
@@ -315,8 +315,8 @@ UNIT_CLASS_TEST(TestWithClassificator, FBuilder_SerializeAccuratelyForIntermedia
 
 UNIT_CLASS_TEST(TestWithClassificator, FBuilder_RemoveUselessAltName)
 {
-  auto const kDefault = StringUtf8Multilang::kDefaultCode;
-  auto const kAltName = StringUtf8Multilang::GetLangIndex("alt_name");
+  auto const kDefault = localisation::kDefaultNameIndex;
+  auto const kAltName = localisation::kAlternativeNameIndex;
 
   {
     FeatureBuilderParams params;
@@ -361,7 +361,7 @@ UNIT_CLASS_TEST(TestWithClassificator, FBuilder_RemoveUselessAltName)
     fb.SetCenter(m2::PointD(0.0, 0.0));
 
     TEST(!fb.GetName(kDefault).empty(), ());
-    TEST(!fb.GetName(StringUtf8Multilang::GetLangIndex("alt_name")).empty(), ());
+    TEST(!fb.GetName(localisation::kAlternativeNameIndex).empty(), ());
 
     fb.RemoveUselessNames();
 

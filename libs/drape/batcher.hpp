@@ -68,7 +68,13 @@ public:
 
   void SetBatcherHash(uint64_t batcherHash);
 
-  void SetFeatureMinZoom(int minZoom);
+  inline void SetFeatureMinZoom(int minZoom)
+  {
+    m_featureMinZoom = minZoom;
+
+    for (auto const & bucket : m_buckets)
+      bucket.second->SetFeatureMinZoom(m_featureMinZoom);
+  }
 
 private:
   template <typename TBatcher, typename... TArgs>

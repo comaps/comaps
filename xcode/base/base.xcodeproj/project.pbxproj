@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27C232382F30ADE400983110 /* localisation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27C232372F30ADE400983110 /* localisation.hpp */; };
+		27C232392F30ADE400983110 /* localisation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27C232362F30ADE400983110 /* localisation.cpp */; };
+		27C2323B2F30C0B200983110 /* localisation_translation.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27C2323A2F30C08C00983110 /* localisation_translation.hpp */; };
+		27C2323D2F30C0BF00983110 /* localisation_translation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27C2323C2F30C0BB00983110 /* localisation_translation.cpp */; };
 		3446C6711DDCA96300146687 /* dfa_helpers.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3446C66C1DDCA96300146687 /* dfa_helpers.hpp */; };
 		3446C6721DDCA96300146687 /* levenshtein_dfa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3446C66D1DDCA96300146687 /* levenshtein_dfa.cpp */; };
 		3446C6731DDCA96300146687 /* levenshtein_dfa.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 3446C66E1DDCA96300146687 /* levenshtein_dfa.hpp */; };
@@ -155,6 +159,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27C232362F30ADE400983110 /* localisation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = localisation.cpp; sourceTree = "<group>"; };
+		27C232372F30ADE400983110 /* localisation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = localisation.hpp; sourceTree = "<group>"; };
+		27C2323A2F30C08C00983110 /* localisation_translation.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = localisation_translation.hpp; sourceTree = "<group>"; };
+		27C2323C2F30C0BB00983110 /* localisation_translation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = localisation_translation.cpp; sourceTree = "<group>"; };
 		3446C66C1DDCA96300146687 /* dfa_helpers.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = dfa_helpers.hpp; sourceTree = "<group>"; };
 		3446C66D1DDCA96300146687 /* levenshtein_dfa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = levenshtein_dfa.cpp; sourceTree = "<group>"; };
 		3446C66E1DDCA96300146687 /* levenshtein_dfa.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = levenshtein_dfa.hpp; sourceTree = "<group>"; };
@@ -437,6 +445,10 @@
 				3446C66D1DDCA96300146687 /* levenshtein_dfa.cpp */,
 				675341991A3F57E400A0A8C3 /* limited_priority_queue.hpp */,
 				3D08987824810A0B00837783 /* linked_map.hpp */,
+				27C232372F30ADE400983110 /* localisation.hpp */,
+				27C232362F30ADE400983110 /* localisation.cpp */,
+				27C2323A2F30C08C00983110 /* localisation_translation.hpp */,
+				27C2323C2F30C0BB00983110 /* localisation_translation.cpp */,
 				6753419B1A3F57E400A0A8C3 /* logging.hpp */,
 				6753419A1A3F57E400A0A8C3 /* logging.cpp */,
 				6753419C1A3F57E400A0A8C3 /* lower_case.cpp */,
@@ -523,6 +535,7 @@
 				675341CF1A3F57E400A0A8C3 /* bits.hpp in Headers */,
 				672DD4C71E0425600078E13C /* ref_counted.hpp in Headers */,
 				675341D11A3F57E400A0A8C3 /* cache.hpp in Headers */,
+				27C232382F30ADE400983110 /* localisation.hpp in Headers */,
 				675341E31A3F57E400A0A8C3 /* math.hpp in Headers */,
 				3446C6731DDCA96300146687 /* levenshtein_dfa.hpp in Headers */,
 				56B1A0751E69DE4D00395022 /* random.hpp in Headers */,
@@ -585,6 +598,7 @@
 				564BB445206E89ED00BDD211 /* fifo_cache.hpp in Headers */,
 				672DD4C31E0425600078E13C /* mem_trie.hpp in Headers */,
 				672DD4C61E0425600078E13C /* range_iterator.hpp in Headers */,
+				27C2323B2F30C0B200983110 /* localisation_translation.hpp in Headers */,
 				3917FA58211E009700937DF4 /* geo_object_id.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -734,6 +748,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACB634A3274D65F000F91940 /* math.cpp in Sources */,
+				27C232392F30ADE400983110 /* localisation.cpp in Sources */,
 				3446C6741DDCA96300146687 /* uni_string_dfa.cpp in Sources */,
 				3446C6721DDCA96300146687 /* levenshtein_dfa.cpp in Sources */,
 				390F1C0E2294298E00EA58E3 /* file_name_utils.cpp in Sources */,
@@ -749,6 +764,7 @@
 				3901B745235F02B3006ABD43 /* cancellable.cpp in Sources */,
 				675341F91A3F57E400A0A8C3 /* src_point.cpp in Sources */,
 				675342031A3F57E400A0A8C3 /* strings_bundle.cpp in Sources */,
+				27C2323D2F30C0BF00983110 /* localisation_translation.cpp in Sources */,
 				675341CD1A3F57E400A0A8C3 /* base.cpp in Sources */,
 				675342011A3F57E400A0A8C3 /* string_utils.cpp in Sources */,
 				674A7E2E1C0DB03D003D48E1 /* timegm.cpp in Sources */,

@@ -190,6 +190,7 @@ class PlacePageInfoViewController: UIViewController {
   private var coordinatesView: InfoItemView?
   private var openWithAppView: InfoItemView?
   private var capacityView: InfoItemView?
+  private var roomsView: InfoItemView?
   private var wheelchairView: InfoItemView?
   private var selfServiceView: InfoItemView?
   private var outdoorSeatingView: InfoItemView?
@@ -320,6 +321,10 @@ class PlacePageInfoViewController: UIViewController {
 
     if let capacity = placePageInfoData.capacity {
       capacityView = createInfoItem(capacity, icon: UIImage(named: "ic_placepage_capacity"))
+    }
+	
+    if let rooms = placePageInfoData.rooms {
+      roomsView = createInfoItem(rooms, icon: UIImage(named: "ic_placepage_rooms"))
     }
 
     if let wheelchair = placePageInfoData.wheelchair {

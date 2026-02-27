@@ -2,22 +2,21 @@
 
 #include "platform/platform.hpp"
 
-#include "base/file_name_utils.hpp"
-#include "base/logging.hpp"
-
-#include "coding/string_utf8_multilang.hpp"
-
 #include "cppjansson/cppjansson.hpp"
 
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_region_locator.hpp"
 #include "indexer/feature_utils.hpp"
 
+#include "base/file_name_utils.hpp"
+#include "base/logging.hpp"
+
 #include <algorithm>
 
 namespace platform
 {
 using std::string;
+using namespace localisation;
 
 namespace
 {
@@ -66,22 +65,19 @@ TGetTextByIdPtr GetTextById::Create(string const & jsonBuffer, string const & lo
 
 TGetTextByIdPtr GetTextByIdFactoryForRegion(TextSource textSource, string const regionId)
 {
-  auto regionData = feature::RegionData();
-  regionData.SetLanguages(feature::RegionLocator::Instance().GetLocalLanguages(regionId));
-
   string jsonBuffer;
-  for (auto const lang : feature::PrioritizedLanguages(regionData))
+  for (LanguageIndex const languageIndex : PrioritizedMapLanguageIndexes(feature::RegionLocator::Instance().GetLocalLanguageIndexes(regionId)))
   {
-    std::string const language = std::string(StringUtf8Multilang::GetLangByCode(lang));
-    if (language == kDefaultLanguage)
+    LanguageCode const languageCode = ConvertLanguageIndexToLanguageCode(languageIndex);
+    if (languageIndex == kDefaultNameIndex)
     {
-      for (auto const & defaultLanguage : feature::RegionLocator::Instance().GetLocalLanguages(regionId))
-        if (GetJsonBuffer(textSource, defaultLanguage, jsonBuffer))
-          return GetTextById::Create(jsonBuffer, defaultLanguage);
+      for (auto const & localLanguageCode : feature::RegionLocator::Instance().GetLocalLanguageCodes(regionId))
+        if (GetJsonBuffer(textSource, localLanguageCode, jsonBuffer))
+          return GetTextById::Create(jsonBuffer, localLanguageCode);
     }
-    else if (GetJsonBuffer(textSource, language, jsonBuffer))
+    else if (GetJsonBuffer(textSource, languageCode, jsonBuffer))
     {
-      return GetTextById::Create(jsonBuffer, language);
+      return GetTextById::Create(jsonBuffer, languageCode);
     }
   }
 

@@ -1,9 +1,9 @@
 package app.organicmaps.widget.placepage;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import app.organicmaps.sdk.util.StringUtils;
 import com.github.mikephil.charting.charts.BarLineChartBase;
-import androidx.annotation.Nullable;
 import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 

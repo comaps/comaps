@@ -10,6 +10,8 @@
 
 #include "private.h"
 
+#include <boost/regex.hpp>
+
 namespace osm
 {
 using platform::HttpClient;
@@ -17,21 +19,24 @@ using std::string;
 
 constexpr char const * kApiVersion = "/api/0.6";
 
-namespace
-{
 
-string FindAuthenticityToken(string const & body)
+string FindAuthenticityToken(string const & action, string body)
 {
-  auto pos = body.find("name=\"authenticity_token\"");
-  if (pos == string::npos)
-    return {};
-  string const kValue = "value=\"";
-  auto start = body.find(kValue, pos);
-  if (start == string::npos)
-    return {};
-  start += kValue.length();
-  auto const end = body.find('"', start);
-  return end == string::npos ? string() : body.substr(start, end - start);
+  static boost::regex const kActionAndTokenRE(R"~(action="(.+?)".*?name="authenticity_token" value="(.+?)")~");
+
+  // Regex doesn't support multiline matches. Need to remove all line endings from the body.
+  std::erase_if(body, [](char c) { return c == '\n' || c == '\r'; });
+
+  auto const begin = boost::sregex_iterator{body.begin(), body.end(), kActionAndTokenRE};
+  auto const end = boost::sregex_iterator{};
+
+  for (auto it = begin; it != end; ++it)
+  {
+    auto const match = *it;
+    if (match.size() == 3 && match[1] == action)
+      return match[2];
+  }
+  MYTHROW(OsmOAuth::AuthenticityTokenNotFound, ("authenticity_token for action", action, "was not found in", body));
 }
 
 // Parse URL in format "{OSM_OAUTH2_REDIRECT_URI}?code=XXXX". Extract code value
@@ -46,10 +51,10 @@ string FindOauthCode(string const & redirectUri)
   return *oauth2code;
 }
 
-string FindAccessToken(string const & body)
+string FindAccessToken(string const & json)
 {
   // Extract access_token from JSON in format {"access_token":"...", "token_type":"Bearer", "scope":"read_prefs"}
-  base::Json const root(body.c_str());
+  base::Json const root(json.c_str());
 
   if (json_is_object(root.get()))
   {
@@ -72,7 +77,6 @@ string BuildPostRequest(std::initializer_list<std::pair<string, string>> const &
   }
   return result;
 }
-}  // namespace
 
 // static
 bool OsmOAuth::IsValid(string const & ks)
@@ -149,7 +153,7 @@ OsmOAuth::SessionID OsmOAuth::FetchSessionId(string const & subUrl, string const
   if (request.ErrorCode() != HTTP::OK)
     MYTHROW(FetchSessionIdError, (DebugPrint(request)));
 
-  SessionID sid = {request.CombinedCookies(), FindAuthenticityToken(request.ServerResponse())};
+  SessionID sid = {request.CombinedCookies(), FindAuthenticityToken("/login", request.ServerResponse())};
   if (sid.m_cookies.empty() || sid.m_authenticityToken.empty())
     MYTHROW(FetchSessionIdError, ("Cookies and/or token are empty for request", DebugPrint(request)));
   return sid;
@@ -270,7 +274,7 @@ string OsmOAuth::FetchRequestToken(SessionID const & sid) const
       MYTHROW(FetchRequestTokenServerError, (DebugPrint(request)));
 
     // Throws std::runtime_error.
-    string const authenticityToken = FindAuthenticityToken(request.ServerResponse());
+    string const authenticityToken = FindAuthenticityToken("/oauth2/authorize", request.ServerResponse());
 
     // Accept OAuth2 request from server
     return SendAuthRequest(authenticityToken, sid);

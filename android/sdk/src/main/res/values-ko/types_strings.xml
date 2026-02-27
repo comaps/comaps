@@ -376,7 +376,6 @@
     <string name="type.highway.pedestrian.area">거리</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">다리</string>
-
     <string name="type.highway.pedestrian.square">광장</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">터널</string>

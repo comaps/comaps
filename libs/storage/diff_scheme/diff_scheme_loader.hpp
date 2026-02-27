@@ -5,7 +5,8 @@
 
 #include <cstdint>
 #include <functional>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace storage
 {
@@ -13,7 +14,7 @@ namespace diffs
 {
 struct LocalMapsInfo final
 {
-  using NameVersionMap = std::unordered_map<storage::CountryId, uint64_t>;
+  using NameVersionMap = ankerl::unordered_dense::map<storage::CountryId, uint64_t>;
 
   uint64_t m_currentDataVersion = 0;
   NameVersionMap m_localMaps;

@@ -33,7 +33,6 @@ set(SRC
   regexp_test.cpp
   rolling_hash_test.cpp
   scope_guard_test.cpp
-  small_set_test.cpp
   stl_helpers_tests.cpp
   string_utils_test.cpp
   suffix_array_tests.cpp

@@ -73,7 +73,8 @@ public class Metadata implements Parcelable
     FMD_CHECK_DATE(53),
     FMD_CHECK_DATE_OPEN_HOURS(54),
     FMD_BRANCH(55),
-    FMD_CHARGE_SOCKETS(56);
+    FMD_CHARGE_SOCKETS(56),
+    FMD_ROOMS(57);
     private final int mMetaType;
 
     MetadataType(int metadataType)
@@ -82,7 +83,7 @@ public class Metadata implements Parcelable
     }
 
     @NonNull
-    public static MetadataType fromInt(@IntRange(from = 1, to = 56) int metaType)
+    public static MetadataType fromInt(@IntRange(from = 1, to = 57) int metaType)
     {
       for (MetadataType type : values())
         if (type.mMetaType == metaType)

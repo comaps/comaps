@@ -18,12 +18,10 @@ import app.organicmaps.editor.data.TimeFormatUtils;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.bookmarks.data.Metadata;
 import app.organicmaps.sdk.editor.OpeningHours;
-import app.organicmaps.sdk.editor.data.Timespan;
 import app.organicmaps.sdk.editor.data.Timetable;
 import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
-import app.organicmaps.util.Utils;
 import app.organicmaps.widget.placepage.PlacePageUtils;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.textview.MaterialTextView;
@@ -35,7 +33,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   private View mFrame;
   private MaterialTextView mTodayLabel;
   private MaterialTextView mTodayOpenTime;
-  private MaterialTextView mTodayNonBusinessTime;
   private RecyclerView mFullWeekOpeningHours;
   private MaterialTextView mLastCheckedDate;
   private PlaceOpeningHoursAdapter mOpeningHoursAdapter;
@@ -58,7 +55,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     mFrame = view;
     mTodayLabel = view.findViewById(R.id.oh_today_label);
     mTodayOpenTime = view.findViewById(R.id.oh_today_open_time);
-    mTodayNonBusinessTime = view.findViewById(R.id.oh_nonbusiness_time);
     mFullWeekOpeningHours = view.findViewById(R.id.rw__full_opening_hours);
     mLastCheckedDate = view.findViewById(R.id.oh_check_date);
     mOpeningHoursAdapter = new PlaceOpeningHoursAdapter();
@@ -75,16 +71,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     }
     else
       UiUtils.hide(checkDateView);
-  }
-
-  private void refreshTodayNonBusinessTime(Timespan[] closedTimespans)
-  {
-    final String hoursClosedLabel = getResources().getString(R.string.editor_hours_closed);
-    if (closedTimespans == null || closedTimespans.length == 0)
-      UiUtils.clearTextAndHide(mTodayNonBusinessTime);
-    else
-      UiUtils.setTextAndShow(mTodayNonBusinessTime,
-                             TimeFormatUtils.formatNonBusinessTime(closedTimespans, hoursClosedLabel));
   }
 
   private void refreshTodayOpeningHours(String label, String openTime, @ColorInt int color)
@@ -111,7 +97,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     final Timetable[] timetables = OpeningHours.nativeTimetablesFromString(ohStr);
     mFrame.setOnLongClickListener((v) -> {
       PlacePageUtils.copyToClipboard(requireContext(), mFrame,
-                                     TimeFormatUtils.formatTimetables(getResources(), ohStr, timetables));
+                                     TimeFormatUtils.formatTimetables(getResources(), ohStr, timetables).toString());
       return true;
     });
 
@@ -128,7 +114,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
       {
         UiUtils.show(mFrame);
         refreshTodayOpeningHours(ohStr, color);
-        UiUtils.hide(mTodayNonBusinessTime);
         UiUtils.hide(mFullWeekOpeningHours);
       }
       else
@@ -143,19 +128,25 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         if (tt.isFullday)
         {
           refreshTodayOpeningHours(resources.getString(R.string.twentyfour_seven), color);
-          UiUtils.clearTextAndHide(mTodayNonBusinessTime);
-          UiUtils.hide(mTodayNonBusinessTime);
         }
         else
         {
-          refreshTodayOpeningHours(resources.getString(R.string.daily), tt.workingTimespan.toWideString(), color);
-          refreshTodayNonBusinessTime(tt.closedTimespans);
+          if (tt.closedTimespans.length == 0)
+          {
+            refreshTodayOpeningHours(resources.getString(R.string.daily), tt.workingTimespan.toWideString(), color);
+          }
+          else
+          {
+            String openings = TimeFormatUtils.getOpeningHours(tt);
+
+            refreshTodayOpeningHours(resources.getString(R.string.daily), openings, color);
+          }
         }
         UiUtils.hide(mFullWeekOpeningHours);
       }
       else
       {
-        // Show whole week time table.
+        // Show whole week timetable.
         int firstDayOfWeek = Calendar.getInstance(Locale.getDefault()).getFirstDayOfWeek();
         mOpeningHoursAdapter.setTimetables(timetables, firstDayOfWeek);
         UiUtils.show(mFullWeekOpeningHours);
@@ -172,15 +163,17 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
 
             if (tt.isFullday)
             {
-              String allDay = resources.getString(R.string.editor_time_allday);
-              openTime = Utils.unCapitalize(allDay);
+              openTime = resources.getString(R.string.editor_time_allday);
+            }
+            else if (tt.closedTimespans.length == 0)
+            {
+              openTime = tt.workingTimespan.toWideString();
             }
             else
-              openTime = tt.workingTimespan.toWideString();
-
+            {
+              openTime = TimeFormatUtils.getOpeningHours(tt);
+            }
             refreshTodayOpeningHours(resources.getString(app.organicmaps.sdk.R.string.today), openTime, color);
-            refreshTodayNonBusinessTime(tt.closedTimespans);
-
             break;
           }
         }
@@ -190,7 +183,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         {
           refreshTodayOpeningHours(resources.getString(R.string.day_off_today),
                                    ContextCompat.getColor(requireContext(), R.color.base_red));
-          UiUtils.hide(mTodayNonBusinessTime);
         }
       }
     }

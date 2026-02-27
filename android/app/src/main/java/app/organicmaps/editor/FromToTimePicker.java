@@ -2,19 +2,16 @@ package app.organicmaps.editor;
 
 import android.content.res.Configuration;
 import android.content.res.Resources;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
-
-import com.google.android.material.timepicker.MaterialTimePicker;
-import com.google.android.material.timepicker.TimeFormat;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.editor.data.HoursMinutes;
 import app.organicmaps.sdk.util.DateUtils;
+import com.google.android.material.timepicker.MaterialTimePicker;
+import com.google.android.material.timepicker.TimeFormat;
 
 public class FromToTimePicker
 {
@@ -32,18 +29,11 @@ public class FromToTimePicker
   private boolean mIsFromTimePicked;
   private int mInputMode;
 
-  public static void pickTime(@NonNull Fragment fragment,
-                              @NonNull FromToTimePicker.OnPickListener listener,
-                              @NonNull HoursMinutes fromTime,
-                              @NonNull HoursMinutes toTime,
-                              int id,
+  public static void pickTime(@NonNull Fragment fragment, @NonNull FromToTimePicker.OnPickListener listener,
+                              @NonNull HoursMinutes fromTime, @NonNull HoursMinutes toTime, int id,
                               boolean startWithToTime)
   {
-    FromToTimePicker timePicker = new FromToTimePicker(fragment,
-                                                       listener,
-                                                       fromTime,
-                                                       toTime,
-                                                       id);
+    FromToTimePicker timePicker = new FromToTimePicker(fragment, listener, fromTime, toTime, id);
 
     if (startWithToTime)
       timePicker.showToTimePicker();
@@ -51,11 +41,8 @@ public class FromToTimePicker
       timePicker.showFromTimePicker();
   }
 
-  private FromToTimePicker(@NonNull Fragment fragment,
-                           @NonNull FromToTimePicker.OnPickListener listener,
-                           @NonNull HoursMinutes fromTime,
-                           @NonNull HoursMinutes toTime,
-                           int id)
+  private FromToTimePicker(@NonNull Fragment fragment, @NonNull FromToTimePicker.OnPickListener listener,
+                           @NonNull HoursMinutes fromTime, @NonNull HoursMinutes toTime, int id)
   {
     mActivity = fragment.requireActivity();
     mFragmentManager = fragment.getChildFragmentManager();
@@ -100,15 +87,12 @@ public class FromToTimePicker
 
   private MaterialTimePicker buildFromTimePicker()
   {
-    MaterialTimePicker timePicker = buildTimePicker(mFromTime,
-                                                    mResources.getString(R.string.editor_time_from),
-                                                    mResources.getString(R.string.next_button),
-                                                    null);
+    MaterialTimePicker timePicker = buildTimePicker(mFromTime, mResources.getString(R.string.editor_time_from),
+                                                    mResources.getString(R.string.next_button), null);
 
     timePicker.addOnNegativeButtonClickListener(view -> finishTimePicking(false));
 
-    timePicker.addOnPositiveButtonClickListener(view ->
-    {
+    timePicker.addOnPositiveButtonClickListener(view -> {
       mIsFromTimePicked = true;
       saveState(timePicker, true);
       mFromTimePicker = null;
@@ -122,13 +106,10 @@ public class FromToTimePicker
 
   private MaterialTimePicker buildToTimePicker()
   {
-    MaterialTimePicker timePicker = buildTimePicker(mToTime,
-                                                    mResources.getString(R.string.editor_time_to),
-                                                    null,
+    MaterialTimePicker timePicker = buildTimePicker(mToTime, mResources.getString(R.string.editor_time_to), null,
                                                     mResources.getString(R.string.back));
 
-    timePicker.addOnNegativeButtonClickListener(view ->
-    {
+    timePicker.addOnNegativeButtonClickListener(view -> {
       saveState(timePicker, false);
       mToTimePicker = null;
       if (mIsFromTimePicked)
@@ -137,8 +118,7 @@ public class FromToTimePicker
         finishTimePicking(false);
     });
 
-    timePicker.addOnPositiveButtonClickListener(view ->
-    {
+    timePicker.addOnPositiveButtonClickListener(view -> {
       saveState(timePicker, false);
       finishTimePicking(true);
     });
@@ -149,18 +129,18 @@ public class FromToTimePicker
   }
 
   @NonNull
-  private MaterialTimePicker buildTimePicker(@NonNull HoursMinutes time,
-                                             @NonNull String title,
+  private MaterialTimePicker buildTimePicker(@NonNull HoursMinutes time, @NonNull String title,
                                              @Nullable String positiveButtonTextOverride,
                                              @Nullable String negativeButtonTextOverride)
   {
-    MaterialTimePicker.Builder builder = new MaterialTimePicker.Builder()
-                                             .setTitleText(title)
-                                             .setTimeFormat(mIs24HourFormat ? TimeFormat.CLOCK_24H : TimeFormat.CLOCK_12H)
-                                             .setInputMode(mInputMode)
-                                             .setTheme(R.style.MwmTheme_MaterialTimePicker)
-                                             .setHour((int) time.hours)
-                                             .setMinute((int) time.minutes);
+    MaterialTimePicker.Builder builder =
+        new MaterialTimePicker.Builder()
+            .setTitleText(title)
+            .setTimeFormat(mIs24HourFormat ? TimeFormat.CLOCK_24H : TimeFormat.CLOCK_12H)
+            .setInputMode(mInputMode)
+            .setTheme(R.style.MwmTheme_MaterialTimePicker)
+            .setHour((int) time.hours)
+            .setMinute((int) time.minutes);
 
     if (positiveButtonTextOverride != null)
       builder.setPositiveButtonText(positiveButtonTextOverride);

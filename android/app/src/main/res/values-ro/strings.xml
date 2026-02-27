@@ -142,10 +142,10 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Detalii</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Îți trimit locurile mele preferate din CoMaps</string>
+    <string name="share_bookmarks_email_subject">Locurile mele preferate din CoMaps</string>
     <string name="share_bookmarks_email_body">Bună!\n\nAtașate sunt marcajele mele; te rog să le deschizi în CoMaps. Dacă nu îl ai instalat, îl poți descărca de aici: https://www.comaps.app/download/\n\nSă călătorești plăcut cu CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Se încarcă locurile preferate</string>
+    <string name="load_kmz_title">Se încarcă locurile preferatel</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Favortite”.</string>
     <!-- Kml file loading failed -->
@@ -263,7 +263,7 @@
     <string name="downloader_download_all_button">Descarcă tot</string>
     <string name="downloader_downloading">Se descarcă:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Pentru a șterge harta, oprește navigarea</string>
+    <string name="downloader_delete_map_while_routing_dialog">Pentru a șterge harta, opriți navigarea</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Pot fi create numai trasee cuprinse de harta unei singure regiuni.</string>
     <!-- Context menu item for downloader. -->
@@ -878,7 +878,7 @@
     <string name="editor_submit">Trimite</string>
     <string name="avoid_paved">Evitați drumurile asfaltate sau pavate</string>
     <string name="avoid_steps">Evitați treptele</string>
-    <string name="offline_explanation_text">O hartă trebuie descărcată ca să vezi și si să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.</string>
+    <string name="offline_explanation_text">O hartă trebuie descărcată ca să vezi și să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.</string>
     <string name="offline_explanation_title">Hărti Offline</string>
     <string name="unknown_power_output">necunoscut</string>
     <string name="power_management">Economisire energie</string>
@@ -903,6 +903,5 @@
     <string name="download_resources_custom_url_title">Server hărți custom</string>
     <string name="download_resources_custom_url_message">Înlocuiți serverul prestabilit folosit pentru descărcarea hărților. Lăsați liber pentru serverul prestabilit.</string>
     <string name="advanced">Avansate</string>
-    <string name="limit_map_language_alternatives_to_local">Folosește celelalte limbi de sistem doar în regiunile lor</string>
     <string name="pref_speedlimit_title">Afișează limita de viteză</string>
 </resources>

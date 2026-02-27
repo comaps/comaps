@@ -1,8 +1,9 @@
 extension Settings {
     /// How to handle alternative map languages
-    enum AlternativeMapLanguageHandling: String, Codable, CaseIterable, Identifiable {
-        case systemOrder = "SystemOrder"
-        case localOnly = "LocalOnly"
+    enum AlternativeMapLanguageHandling: Int, Codable, CaseIterable, Identifiable {
+        case ignoreAlternatives = 0
+        case systemOrder = 1
+        case localOnly = 2
         
         
         
@@ -15,6 +16,8 @@ extension Settings {
         /// The description text
         var description: String {
             switch self {
+                case .ignoreAlternatives:
+                    return String(localized: "pref_alt_map_lang_handling_ignore_alternatives")
                 case .systemOrder:
                     return String(localized: "pref_alt_map_lang_handling_system_order")
                 case .localOnly:

@@ -16,7 +16,7 @@ namespace vulkan
 class VulkanGpuProgram : public GpuProgram
 {
 public:
-  using TextureBindings = std::unordered_map<std::string, int8_t>;
+  using TextureBindings = ankerl::unordered_dense::map<std::string, int8_t>;
 
   VulkanGpuProgram(std::string const & programName, VkPipelineShaderStageCreateInfo const & vertexShader,
                    VkPipelineShaderStageCreateInfo const & fragmentShader, VkDescriptorSetLayout descriptorSetLayout,

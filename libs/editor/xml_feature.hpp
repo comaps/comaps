@@ -109,7 +109,7 @@ public:
   }
 
   std::string GetName(std::string_view lang) const;
-  std::string GetName(uint8_t const langCode = StringUtf8Multilang::kDefaultCode) const;
+  std::string GetName(uint8_t const langCode = localisation::kDefaultNameIndex) const;
 
   template <typename Fn>
   void ForEachName(Fn && func) const

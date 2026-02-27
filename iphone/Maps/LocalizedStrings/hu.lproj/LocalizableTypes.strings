@@ -1524,3 +1524,4 @@
 "type.man_made.telescope.gamma" = "Távcső (Gamma)";
 "type.man_made.observatory" = "Csillagvizsgáló";
 "type.entrance.emergency" = "Vészkijárat";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

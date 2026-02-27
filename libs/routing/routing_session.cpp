@@ -149,7 +149,7 @@ void RoutingSession::RebuildRouteOnTrafficUpdate()
     case SessionState::RouteRebuilding: startPoint = m_checkpoints.GetPointFrom(); break;
 
     case SessionState::OnRoute:
-    case SessionState::RouteNeedRebuild: break;
+    case SessionState::RouteNeedsRebuild: break;
     }
 
     // Cancel current route building.
@@ -177,7 +177,7 @@ bool RoutingSession::IsNavigable() const
 bool RoutingSession::IsBuilt() const
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
-  return (IsNavigable() || m_state == SessionState::RouteNeedRebuild);
+  return (IsNavigable() || m_state == SessionState::RouteNeedsRebuild);
 }
 
 bool RoutingSession::IsBuilding() const
@@ -301,7 +301,7 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
     return m_state;
   }
 
-  if (m_state != SessionState::RouteNeedRebuild && m_state != SessionState::RouteRebuilding)
+  if (m_state != SessionState::RouteNeedsRebuild && m_state != SessionState::RouteRebuilding)
   {
     // Distance from the last known projection on route
     // (check if we are moving far from the last known projection).
@@ -321,7 +321,7 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
     if (m_moveAwayCounter > kOnRouteMissedCount)
     {
       m_passedDistanceOnRouteMeters += m_route->GetCurrentDistanceFromBeginMeters();
-      SetState(SessionState::RouteNeedRebuild);
+      SetState(SessionState::RouteNeedsRebuild);
     }
   }
 
@@ -397,8 +397,9 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
 
   if (!m_route->IsValid())
   {
-    // nothing should be displayed on the screen about turns if these lines are executed
+    // Nothing should be displayed on the screen about turns if these lines are executed.
     info = FollowingInfo();
+    info.m_routingSessionState = m_state;
     return;
   }
 
@@ -407,6 +408,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     info = FollowingInfo();
     info.m_distToTarget = platform::Distance::CreateFormatted(m_route->GetTotalDistanceMeters());
     info.m_time = static_cast<int>(std::max(kMinimumETASec, m_route->GetCurrentTimeToEndSec()));
+    info.m_routingSessionState = m_state;
     return;
   }
 
@@ -438,7 +440,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
 
   info.m_completionPercent = GetCompletionPercent();
 
-  // Lane information
+  // Lane information.
   info.m_lanes.clear();
   if (distanceToTurnMeters < kShowLanesMinDistInMeters || m_route->GetCurrentTimeToNearestTurnSec() < 60.0)
     info.m_lanes = turn.m_lanes;
@@ -446,6 +448,9 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   // Pedestrian info.
   info.m_pedestrianTurn =
       (distanceToTurnMeters < kShowPedestrianTurnInMeters) ? turn.m_pedestrianTurn : turns::PedestrianDirection::None;
+
+  // Routing session state.
+  info.m_routingSessionState = m_state;
 }
 
 double RoutingSession::GetCompletionPercent() const
@@ -888,7 +893,7 @@ std::string DebugPrint(SessionState state)
   case SessionState::RouteBuilding: return "RouteBuilding";
   case SessionState::RouteNotStarted: return "RouteNotStarted";
   case SessionState::OnRoute: return "OnRoute";
-  case SessionState::RouteNeedRebuild: return "RouteNeedRebuild";
+  case SessionState::RouteNeedsRebuild: return "RouteNeedsRebuild";
   case SessionState::RouteFinished: return "RouteFinished";
   case SessionState::RouteNoFollowing: return "RouteNoFollowing";
   case SessionState::RouteRebuilding: return "RouteRebuilding";

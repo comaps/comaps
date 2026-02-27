@@ -359,7 +359,7 @@
 "downloader_status_failed" = "ناکام بود";
 
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
-"downloader_delete_map_while_routing_dialog" = "برای حذف نقشه لطفا مسیر‌یابی را متوقف کنید.";
+"downloader_delete_map_while_routing_dialog" = "برای سِتُردن نقشه لطفا مسیر‌یابی را بایستانید.";
 
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "تنها مسیر‌هایی می توانند ایجاد شوند که به طور کامل در یک نقشه از یک منطقه واحد قرار داشته باشند.";
@@ -371,7 +371,7 @@
 "downloader_retry" = "تلاش دوباره";
 
 /* Item in context menu. */
-"downloader_delete_map" = "حذف نقشه";
+"downloader_delete_map" = "ستردن نقشه";
 
 /* Text for routing error dialog */
 "routing_download_maps_along" = "دانلود تمامی نقشه‌ها در طول مسیر‌تان";
@@ -475,7 +475,7 @@
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
 "categories" = "دسته‌بندی‌ها";
-"history" = "تاریخچه";
+"history" = "پیشینه";
 "search_not_found" = "متأسفانه چیزی پیدا نشد.";
 
 /* The message when user did not find anything in the search. */
@@ -496,10 +496,10 @@
 "p2p_only_from_current" = "مسیر‌یابی فقط از موقعیت کنونی شما قابل انجام است.";
 "p2p_reroute_from_current" = "آیا می خواهید یک مسیر را از موقعیت فعلیتان برنامه ریزی کنیم؟";
 "editor_time_add" = "اضافه کردن برنامه ریزی";
-"editor_time_delete" = "حذف کردن برنامه ریزی";
+"editor_time_delete" = "ستردن برنامه‌ریزی";
 
 /* Text for allday switch. */
-"editor_time_allday" = "شبانه روزی (24 ساعته)";
+"editor_time_allday" = "شبانه‌روزی (۲۴ ساعته)";
 "editor_time_open" = "باز";
 "editor_time_close" = "بسته";
 "editor_time_add_closed" = "اضافه کردن ساعات غیر کاری";
@@ -510,9 +510,9 @@
 "editor_example_values" = "مقادیر پیش فرض";
 "editor_add_select_location" = "مکان را انتخاب کنید";
 "editor_done_dialog_1" = "شما نقشه جهان را تغییر دادید.این افتخار را پیش خود نگه ندارید!به دوستانتان درموردش بگویید و با یکدیگر ویرایش کنید.";
-"share_with_friends" = "اشتراک گذاری با دوستان";
-"editor_report_problem_send_button" = "ارسال";
-"autodownload" = "دانلود خودکار";
+"share_with_friends" = "همرسانی به دوستان";
+"editor_report_problem_send_button" = "فرستادن";
+"autodownload" = "بارگیری خودکار نقشه‌ها";
 
 /* Place Page opening hours text */
 "closed_now" = "اکنون تعطیل است";
@@ -545,13 +545,13 @@
 "osm_profile_login" = "ورود به حساب کاربری OpenStreetMap";
 "osm_profile_reauthorize_promt" = "اتصال حساب کاربری OpenStreetMap از این برنامه قطع شد";
 "osm_profile_reauthorize" = "اتصال مجدد به OpenStreetMap";
-"osm_profile_remove_promt" = "اگر نمی‌توانید یا نمی‌خواهید حساب کاربری خود را دوباره متصل کنید، می‌توانید آن را از این برنامه حذف کنید";
-"osm_profile_remove" = "حذف حافظه حساب کاربری OpenStreetMap از این برنامه";
+"osm_profile_remove_promt" = "اگر نمی‌توانید یا نمی‌خواهید حساب کاربری خود را دوباره متصل کنید، می‌توانید آن را از این برنامه بستردانید";
+"osm_profile_remove" = "ستردن حافظه حساب کاربری OpenStreetMap از این برنامه";
 "osm_profile_register_promt" = "آیا حساب OpenStreetMap ندارید؟";
 "osm_profile_register" = "ثبت نام در OpenStreetMap";
 "osm_profile_verfied_changes" = "تغییرات تایید شد";
 "osm_profile_logout" = "خروج از حساب کاربری OpenStreetMap";
-"osm_profile_delete" = "حذف حساب کاربری OpenStreetMap";
+"osm_profile_delete" = "ستردن حساب کاربری OpenStreetMap";
 
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "اخرین بروزرسانی";
@@ -577,13 +577,13 @@
 "phone" = "تلفن";
 "level" = "طبقه";
 "please_note" = "لطفا توجه داشته باشد";
-"downloader_delete_map_dialog" = "تمام ویرایش‌های که بر روی نقشه انجام داده اید به همراه نقشه حذف شد.";
+"downloader_delete_map_dialog" = "همه‌ی ویرایش‌هایی که بر روی نقشه انجام داده‌اید به همراه نقشه سترده خواهند شد.";
 "downloader_update_maps" = "بروزرسانی نقشه‌ها";
 "downloader_search_field_hint" = "یافتن نقشه";
 "migration_download_error_dialog" = "خطا در دانلود";
 "common_check_internet_connection_dialog" = "لطفا تنظیمات خود را بازبینی کنید و مطمئن شوید که ابزار شما به اینترنت متصل است.";
 "downloader_no_space_title" = "فظای کافی موجود نیست";
-"downloader_no_space_message" = "لطفا داده‌های غیر ضروری را از دستگاه خود حذف کنید";
+"downloader_no_space_message" = "لطفا داده‌های غیر ضروری را از دستگاه خود بستردانید";
 "editor_profile_changes" = "تغییرات تایید شد";
 "editor_focus_map_on_location" = "نقشه را بکشید تا صلیب را در محل مکان یا کسب و کار قرار دهید.";
 "editor_add_select_category" = "انتخاب دسته بندی";
@@ -601,7 +601,7 @@
 "message_invalid_feature_position" = "نمی توان شی ای در این مکان باشد";
 
 /* Error dialog no space */
-"migration_no_space_message" = "برای دانلود، شما نیازمند فضای ذخیره سازی بیشتری هستید.لطفا داده‌های غیر ضروری خود را حذف کنید.";
+"migration_no_space_message" = "برای بارگیری، شما نیازمند فضای ذخیره سازی بیشتری هستید.لطفا داده‌های غیر ضروری را بستردانید.";
 "editor_sharing_title" = "من نقشه‌های CoMaps را بهبود بخشیدم";
 
 /* Downloaded 10 **of** 20 <- it is that "of" */
@@ -665,18 +665,18 @@
 "minute" = "دقیقه";
 "day" = "روز";
 "placepage_more_button" = "بیشتر";
-"book_button" = "رزرو";
+"book_button" = "پستا کردن";
 "placepage_call_button" = "تماس";
 "placepage_edit_bookmark_button" = "ویرایش نشانه‌ها";
 "placepage_bookmark_name_hint" = "نام نشانه‌ها";
 "placepage_personal_notes_hint" = "یادداشت های شخصی (متن یا html)";
-"placepage_delete_bookmark_button" = "حذف نشانه";
+"placepage_delete_bookmark_button" = "ستردن نشانگ";
 "editor_edits_sent_message" = "یادداشت شما به OpenStreetMap ارسال خواهد شد";
-"editor_comment_hint" = "اظهار نظر";
+"editor_comment_hint" = "دیدگاه";
 "editor_reset_edits_message" = "آیا تغییرات محلی را نادیده می گیرید؟";
 "editor_reset_edits_button" = "نادیده گرفتن";
-"editor_remove_place_message" = "آیا مکان ثبت شده حذف شود؟";
-"editor_remove_place_button" = "حذف";
+"editor_remove_place_message" = "آیا گیاگ ثبت شده سترده شود؟";
+"editor_remove_place_button" = "ستردن";
 "editor_place_doesnt_exist" = "مکان وجود ندارد";
 "text_more_button" = "بیشتر…";
 
@@ -685,7 +685,7 @@
 "error_enter_correct_web" = "ادرس وب معتبری وارد نمایید";
 "error_enter_correct_email" = "ایمیل معتبری وارد نمایید";
 "refresh" = "بروزرسانی";
-"placepage_add_place_button" = "مکان را به OpenStreetMap اضافه کنید";
+"placepage_add_place_button" = "گیاگ را به OpenStreetMap بیافزایید";
 
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "آیا می خواهید آن را برای دیگر کاربران ارسال کنید؟";
@@ -697,23 +697,23 @@
 
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "غیرفعال‌سازی ذخیره مسیر اخیرا طی شده";
-"off_recent_track_background_button" = "غیرفعال";
+"off_recent_track_background_button" = "ناکارا کردن";
 
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "بررسی کنید";
 "recent_track_background_dialog_message" = "CoMaps از اطلاعات موقعیت مکانی شما در پس ضمینه برای ذخیره مسیر‌هایی که اخیرا سفر کرده اید استفاده می کند.";
-"general_settings" = "تنظیمات عمومی";
+"general_settings" = "پیکربندی‌های فراگیر";
 
 /* For the first routing */
 "accept" = "موافقم";
 
 /* For the first routing */
-"decline" = "کاهش";
-"mobile_data_dialog" = "از دیتای موبایل برای نمایش اطلاعات بیشتر استفاده شود؟";
+"decline" = "رد کردن";
+"mobile_data_dialog" = "از داده گوشی برای نمایش اطلاعات بیشتر استفاده شود؟";
 "mobile_data_option_always" = "همیشه استفاده کن";
-"mobile_data_option_today" = "فقط امروز";
+"mobile_data_option_today" = "تنها امروز";
 "mobile_data_option_not_today" = "امروز نه";
-"mobile_data" = "دیتای موبایل";
+"mobile_data" = "داده گوشی";
 
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "برای نمایش جزئیات مکان مانند تصاویر قیمت‌ها و بازخورد‌ها به اینترنت همراه نیاز است.";
@@ -741,8 +741,8 @@
 "routing_add_finish_point" = "برای افزودن نقطه مقصد، از جستجو استفاده کنید یا روی نقشه ضربه بزنید";
 "planning_route_manage_route" = "مدیریت مسیر";
 "button_plan" = "برنامه";
-"placepage_remove_stop" = "توقف را حذف کنید";
-"planning_route_remove_title" = "برای حذف اینجا بکشید";
+"placepage_remove_stop" = "توقف را بستردانید";
+"planning_route_remove_title" = "برای ستردن به اینجا بکشید";
 "placepage_add_stop" = "اضافه کردن توقف";
 "start_from_my_position" = "شروع از";
 
@@ -784,7 +784,7 @@
 "popular_place" = "مشهور";
 "export_file" = "صادرات KMZ";
 "export_file_gpx" = "صادرات GPX";
-"delete_list" = "حذف لیست";
+"delete_list" = "ستردن پهرست";
 "hide_from_map" = "پنهان کردن از نقشه";
 "tags_loading_error_subtitle" = "هنگام بارگذاری برچسب خطایی رخ داد، لطفا دوباره امتحان کنید";
 "download_button" = "دانلود";
@@ -930,7 +930,7 @@
 "placepage_delete_track_button" = "Delete Track";
 
 /* The track deletion confirmaion alert message. */
-"placepage_delete_track_confirmation_alert_message" = "آیا مطمئن هستید که می خواهید این آهنگ را حذف کنید؟";
+"placepage_delete_track_confirmation_alert_message" = "آیا آستیگان هستید که می‌خواهید این قطغه را بستردانید؟";
 
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Track Name";
@@ -1048,13 +1048,13 @@
 "outdoor_seating" = "نشستن در فضای باز";
 
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
-"bookmarks_recently_deleted" = "لیست های اخیرا حذف شده";
+"bookmarks_recently_deleted" = "لیست های اخیرا سترده شده";
 
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "پاک کردن";
 
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
-"delete_all" = "حذف همه";
+"delete_all" = "ستردن همه";
 
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "بازیابی";
@@ -1090,3 +1090,5 @@
 "pref_maplanguage_local" = "زبان محلی";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"voice" = "صدا";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

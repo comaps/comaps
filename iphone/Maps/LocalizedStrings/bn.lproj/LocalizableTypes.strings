@@ -16,7 +16,7 @@
 "type.amenity.motorcycle_rental" = "মোটরসাইকেল ভাড়া";
 "type.amenity.cafe" = "Cafe";
 "type.amenity.gambling" = "Gambling";
-"type.amenity.charging_station.bicycle" = "Bicycle Charging Station";
+"type.amenity.charging_station.bicycle" = "সাইকেল";
 "type.amenity.courthouse" = "আদালত|কোর্ট";
 "type.amenity.language_school" = "Language School";
 "type.office.diplomatic" = "দূতাবাস";
@@ -53,9 +53,9 @@
 "type.emergency.fire_hydrant" = "Fire Hydrant";
 "type.emergency.phone" = "Emergency Phone";
 "type.emergency.lifeguard" = "Lifeguard";
-"type.entrance" = "Entrance";
+"type.entrance" = "প্রবেশদ্বার";
 "type.healthcare.laboratory" = "Medical Laboratory";
-"type.highway" = "Highway";
+"type.highway" = "হাইওয়ে";
 "type.historic.memorial.plaque" = "Commemorative Plaque";
 "type.historic.memorial.sculpture" = "Sculpture";
 "type.historic.memorial.statue" = "Statue";
@@ -298,7 +298,7 @@
 "type.railway.subway_entrance.yerevan" = "Subway Entrance";
 "type.office.insurance" = "Insurance Office";
 "type.railway.station.subway.kyoto" = "Subway Station";
-"type.craft.tailor" = "Tailor";
+"type.craft.tailor" = "দর্জি";
 "type.amenity.place_of_worship" = "Place of Worship";
 "type.amenity.prison" = "কারাগার";
 "type.historic.city_gate" = "City Gate";
@@ -417,7 +417,7 @@
 "type.railway.disused" = "Disused Railway";
 "type.man_made.pipeline" = "Pipeline";
 "type.highway.motorway" = "Motorway";
-"type.entrance.main" = "Main Entrance";
+"type.entrance.main" = "মুখ্য প্রবেশদ্বার";
 "type.emergency.mountain_rescue" = "Mountain Rescue Station";
 "type.railway.rail" = "Railway";
 "type.amenity.brothel" = "Brothel";
@@ -493,7 +493,7 @@
 "type.cuisine.grill" = "Grill";
 "type.railway.station.subway.budapest" = "Subway Station";
 "type.highway.unclassified.area" = "Minor Road";
-"type.waterway.ditch.tunnel" = "Culvert";
+"type.waterway.ditch.tunnel" = "ক্যালভার্ট";
 "type.railway.subway_entrance.nagoya" = "Subway Entrance";
 "type.highway.track.area" = "Track";
 "type.railway.subway.bridge" = "Subway Line Bridge";
@@ -511,7 +511,7 @@
 "type.amenity.community_centre" = "Community Centre";
 "type.highway.service.driveway" = "Driveway";
 "type.office.telecommunication" = "Telecom Company";
-"type.highway.steps" = "Stairs";
+"type.highway.steps" = "সিঁড়ি";
 "type.shop.hairdresser" = "Hairdresser";
 "type.cuisine.international" = "আন্তর্জাতিক";
 "type.railway.subway_entrance.kharkiv" = "Subway Entrance";
@@ -539,7 +539,7 @@
 "type.railway.subway_entrance.santo_domingo" = "Subway Entrance";
 "type.place.city.capital.7" = "City";
 "type.railway.monorail.bridge" = "Monorail Bridge";
-"type.cuisine.african" = "African";
+"type.cuisine.african" = "আফ্রিকান";
 "type.historic.aircraft" = "Historic Aircraft";
 "type.boundary.protected_area" = "সংরক্ষিত এলাকা";
 "type.highway.traffic_signals" = "Traffic Lights";
@@ -565,7 +565,7 @@
 "type.amenity.theatre" = "থিয়েটার";
 "type.sport.baseball" = "Baseball";
 "type.recycling.batteries" = "ব্যাটারি";
-"type.fee.yes" = "$";
+"type.fee.yes" = "₹";
 "type.highway.secondary.tunnel" = "Tunnel";
 "type.junction" = "Junction";
 "type.historic.castle.stately" = "Stately Castle";
@@ -610,7 +610,7 @@
 "type.railway.subway_entrance.dalian" = "Subway Entrance";
 "type.place.continent" = "মহাদেশ";
 "type.landuse.plant_nursery" = "Plant Nursery";
-"type.amenity.charging_station.motorcar" = "Car Charging Station";
+"type.amenity.charging_station.motorcar" = "গাড়ি";
 "type.man_made.works" = "Industrial Works";
 "type.cuisine.diner" = "Diner";
 "type.railway.subway_entrance.paris" = "Subway Entrance";
@@ -623,7 +623,7 @@
 "type.highway.road" = "Road";
 "type.natural" = "প্রকৃতি";
 "type.natural.saddle" = "Mountain Saddle";
-"type.highway.elevator" = "Elevator";
+"type.highway.elevator" = "লিফ্ট";
 "type.natural.beach" = "Beach";
 "type.leisure.dance" = "Dance Hall";
 "type.emergency.defibrillator" = "Defibrillator";
@@ -652,7 +652,7 @@
 "type.leisure.water_park" = "Water Park";
 "type.aerialway.mixed_lift" = "Mixed Lift";
 "type.cuisine.argentinian" = "Argentinian";
-"type.amenity.clinic" = "Clinic";
+"type.amenity.clinic" = "ক্লিনিক";
 "type.railway.station.subway.ekb" = "Subway Station";
 "type.natural.hot_spring" = "Hot Spring";
 "type.recycling.plastic" = "প্লাস্টিক";
@@ -702,7 +702,7 @@
 "type.craft.locksmith" = "Locksmith";
 "type.aerialway.chair_lift" = "Chair Lift";
 "type.piste_type.snow_park" = "Snow Park";
-"type.building.warehouse" = "Warehouse";
+"type.building.warehouse" = "গুদাম";
 "type.cuisine.regional" = "আঞ্চলিক";
 "type.shop.gas" = "Gas Store";
 "type.railway.station.subway.shanghai" = "Subway Station";
@@ -744,7 +744,7 @@
 "type.cuisine.coffee_shop" = "কফি";
 "type.cuisine.crepe" = "Crepe";
 "type.cuisine.croatian" = "ক্রোয়েসীয়";
-"type.cuisine.curry" = "Curry";
+"type.cuisine.curry" = "কারী";
 "type.cuisine.deli" = "Deli";
 "type.cuisine.filipino" = "Filipino";
 "type.cuisine.fine_dining" = "Fine Dining";
@@ -845,7 +845,7 @@
 "type.highway.trunk.tunnel" = "Tunnel";
 "type.railway.station.subway.guangzhou" = "Subway Station";
 "type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.historic.cannon" = "Cannon";
+"type.historic.cannon" = "কামান";
 "type.place.city.capital.5" = "City";
 "type.power.plant" = "Power Plant";
 "type.shop.car" = "Car Dealership";
@@ -1028,7 +1028,7 @@
 "type.recycling.scrap_metal" = "Scrap Metal";
 "type.highway.secondary" = "Secondary Road";
 "type.piste_type.nordic" = "Nordic Ski Trail";
-"type.highway.bridleway.tunnel" = "Tunnel";
+"type.highway.bridleway.tunnel" = "সুরঙ্গ";
 "type.sport.curling" = "Curling";
 "type.aerialway.station" = "Aerialway Station";
 "type.highway.tertiary_link" = "Tertiary Road Ramp";
@@ -1079,7 +1079,7 @@
 "type.cuisine.polish" = "Polish";
 "type.railway.station.subway.stockholm" = "Subway Station";
 "type.highway.busway.bridge" = "Bridge";
-"type.highway.ladder" = "Ladder";
+"type.highway.ladder" = "মই";
 "type.boundary.protected_area.6" = "সংরক্ষিত এলাকা";
 "type.shop.dairy" = "Dairy Shop";
 "type.wheelchair" = "Wheelchair";
@@ -1120,7 +1120,7 @@
 "type.railway.station.subway.bengalore" = "Subway Station";
 "type.landuse.orchard" = "Orchard";
 "type.piste_type.downhill.area" = "Downhill Ski Run";
-"type.highway.bridleway.bridge" = "Bridge";
+"type.highway.bridleway.bridge" = "সেতু";
 "type.waterway.waterfall" = "ঝর্ণা";
 "type.landuse.landfill" = "Landfill";
 "type.sport" = "ক্রীড়া|স্পোর্টস";
@@ -1177,7 +1177,7 @@
 "type.railway.subway_entrance.saopaulo" = "Subway Entrance";
 "type.building.train_station" = "Station Building";
 "type.highway.cycleway" = "Cycle Path";
-"type.cuisine.vegetarian" = "Vegetarian";
+"type.cuisine.vegetarian" = "শাকাহারী";
 "type.cuisine.malaysian" = "Malaysian";
 "type.amenity.parking.street_side.private" = "ব্যক্তিগত সড়ক-পার্শ্ববর্তী পার্কিং";
 "type.shop.beverages" = "Beverages";
@@ -1209,7 +1209,7 @@
 "type.railway.subway_entrance.guangzhou" = "Subway Entrance";
 "type.railway.station.subway.kiev" = "Subway Station";
 "type.highway.path.horse" = "Bridle Path";
-"type.craft.caterer" = "Caterer";
+"type.craft.caterer" = "কেটারার";
 "type.highway.cycleway.tunnel" = "Tunnel";
 "type.railway.station.subway.glasgow" = "Subway Station";
 "type.railway.subway_entrance.dnepro" = "Subway Entrance";
@@ -1221,7 +1221,7 @@
 "type.shop.kitchen" = "Kitchen Store";
 "type.amenity.parking.fee" = "পার্কিং";
 "type.amenity.kindergarten" = "কিন্ডারগার্টেন";
-"type.highway.bus_stop" = "Bus Stop";
+"type.highway.bus_stop" = "বাস স্টপ";
 "type.railway.station.subway.hiroshima" = "Subway Station";
 "type.railway.subway_entrance.samara" = "Subway Entrance";
 "type.highway.unclassified.bridge" = "Bridge";
@@ -1277,7 +1277,7 @@
 "type.shop.sewing" = "Sewing Supplies Shop";
 "type.cuisine.donut" = "Donut";
 "type.railway.subway_entrance.shenzhen" = "Subway Entrance";
-"type.historic.castle.palace" = "Palace";
+"type.historic.castle.palace" = "প্রাসাদ";
 "type.railway.station" = "Train Station";
 "type.railway.subway_entrance.sendai" = "Subway Entrance";
 "type.craft.gardener" = "মালী";
@@ -1307,3 +1307,11 @@
 "type.man_made.telescope.radio" = "দূরবিক্ষণ (রেডিও রশ্মি)";
 "type.man_made.telescope.gamma" = "দূরবিক্ষণ (গামা রশ্মি)";
 "type.man_made.observatory" = "পর্যবেক্ষণাগার";
+"type.amenity.charging_station.motorcycle" = "মোটরসাইকেল";
+"type.amenity.prep_school" = "টিউশন";
+"type.cardinal.east" = "পূর্ব";
+"type.cardinal.north" = "উত্তর";
+"type.cardinal.south" = "দক্ষিণ";
+"type.cardinal.west" = "পশ্চিম";
+"type.entrance.house" = "গৃহ প্রবেশদ্বার";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

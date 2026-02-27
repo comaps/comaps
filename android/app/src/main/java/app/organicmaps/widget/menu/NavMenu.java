@@ -6,13 +6,16 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import app.organicmaps.R;
 import app.organicmaps.sdk.routing.RoutingInfo;
+import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
 import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.DateUtils;
+import app.organicmaps.sdk.util.Distance;
 import app.organicmaps.util.Graphics;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
 import java.time.LocalTime;
@@ -26,15 +29,20 @@ public class NavMenu
   private final View mHeaderFrame;
 
   private final ShapeableImageView mTts;
+  private final View mEtaViewContainer;
   private final MaterialTextView mEtaValue;
   private final MaterialTextView mEtaAmPm;
+  private final View mTimeValuesContainer;
   private final MaterialTextView mTimeHourValue;
   private final MaterialTextView mTimeHourUnits;
   private final MaterialTextView mTimeMinuteValue;
   private final MaterialTextView mTimeMinuteUnits;
+  private final View mDistanceViewContainer;
   private final MaterialTextView mDistanceValue;
   private final MaterialTextView mDistanceUnits;
   private final LinearProgressIndicator mRouteProgress;
+  private final MaterialTextView mRoutingState;
+  private final CircularProgressIndicator mRebuildingRouteProgressBar;
 
   private final AppCompatActivity mActivity;
   private final NavMenuListener mNavMenuListener;
@@ -85,18 +93,23 @@ public class NavMenu
       }
     });
 
-    // Bottom frame
+    // Bottom frame.
+    mEtaViewContainer = bottomFrame.findViewById(R.id.eta_view_container);
     mEtaValue = bottomFrame.findViewById(R.id.eta_value);
     mEtaAmPm = bottomFrame.findViewById(R.id.eta_am_pm);
+    mTimeValuesContainer = bottomFrame.findViewById(R.id.time_values_container);
     mTimeHourValue = bottomFrame.findViewById(R.id.time_hour_value);
     mTimeHourUnits = bottomFrame.findViewById(R.id.time_hour_dimen);
     mTimeMinuteValue = bottomFrame.findViewById(R.id.time_minute_value);
     mTimeMinuteUnits = bottomFrame.findViewById(R.id.time_minute_dimen);
+    mDistanceViewContainer = bottomFrame.findViewById(R.id.distance_view_container);
     mDistanceValue = bottomFrame.findViewById(R.id.distance_value);
     mDistanceUnits = bottomFrame.findViewById(R.id.distance_dimen);
     mRouteProgress = bottomFrame.findViewById(R.id.navigation_progress);
+    mRoutingState = bottomFrame.findViewById(R.id.routing_state);
+    mRebuildingRouteProgressBar = bottomFrame.findViewById(R.id.rebuilding_route_progress_bar);
 
-    // Bottom frame buttons
+    // Bottom frame buttons.
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
     mSettings.setOnClickListener(v -> onSettingsClicked());
     mTts = bottomFrame.findViewById(R.id.tts_volume);
@@ -215,14 +228,80 @@ public class NavMenu
     mEtaAmPm.setText(etaAmPmText);
   }
 
+  private void updateDistance(Distance distToTarget)
+  {
+    mDistanceValue.setText(distToTarget.mDistanceStr);
+    UiUtils.setTextAndShow(mDistanceUnits,
+                           distToTarget.getUnitsStr(mActivity.getApplicationContext()));
+  }
+
+  private void updateRouteProgress(double completionPercent)
+  {
+    // Start progress at 1% according to M3 guidelines.
+    final int progress = (completionPercent < 1) ? 1 : (int) completionPercent;
+    mRouteProgress.setProgressCompat(progress, true);
+  }
+
+  private void updateRoutingSessionState(RoutingSessionState routingSessionState)
+  {
+    // Show and update route state.
+    UiUtils.setTextAndShow(mRoutingState, mActivity.getString(
+      switch (routingSessionState)
+      {
+        case NoValidRoute -> R.string.invalid_route;
+        case RouteBuilding -> R.string.building_route;
+        case RouteNotStarted -> R.string.route_not_started;
+        case OnRoute -> R.string.on_route;
+        case RouteNeedsRebuild -> R.string.route_needs_rebuild;
+        case RouteFinished -> R.string.route_finished;
+        case RouteNoFollowing -> R.string.not_following_route;
+        case RouteRebuilding -> R.string.rebuilding_route;
+      }));
+  }
+
   public void update(@NonNull RoutingInfo info)
   {
-    updateTime(info.totalTimeInSeconds);
-    mDistanceValue.setText(info.distToTarget.mDistanceStr);
-    mDistanceUnits.setText(info.distToTarget.getUnitsStr(mActivity.getApplicationContext()));
-    // Start progress at 1% according to M3 guidelines
-    final int completionPercent = (info.completionPercent < 1) ? 1 : (int) info.completionPercent;
-    mRouteProgress.setProgressCompat(completionPercent, true);
+    // Hide/show & update controls based on routing session state.
+    if (RoutingSessionState.isNavigable(info.routingSessionState))
+    {
+      // Show & update time info.
+      UiUtils.show(mTimeValuesContainer);
+      UiUtils.show(mEtaViewContainer);
+      updateTime(info.totalTimeInSeconds);
+
+      // Show & update distance info.
+      UiUtils.show(mDistanceViewContainer);
+      updateDistance(info.distToTarget);
+
+      // Show & update route progress bar.
+      UiUtils.show(mRouteProgress);
+      updateRouteProgress(info.completionPercent);
+
+      // Hide rebuilding route circular progress bar.
+      UiUtils.hide(mRebuildingRouteProgressBar);
+
+      // Hide routing session state message.
+      mRoutingState.setText("");
+      UiUtils.invisible(mRoutingState);
+    }
+    else
+    {
+      // Hide time info.
+      UiUtils.hide(mTimeValuesContainer);
+      UiUtils.hide(mEtaViewContainer);
+
+      // Hide distance info.
+      UiUtils.hide(mDistanceViewContainer);
+
+      // Hide route progress bar.
+      UiUtils.invisible(mRouteProgress);
+
+      // Show rebuilding route circular progress bar.
+      UiUtils.show(mRebuildingRouteProgressBar);
+
+      // Update routing session state message.
+      updateRoutingSessionState(info.routingSessionState);
+    }
   }
 
   public interface NavMenuListener

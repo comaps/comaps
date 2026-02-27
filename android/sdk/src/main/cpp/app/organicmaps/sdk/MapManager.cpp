@@ -18,7 +18,6 @@
 
 #include <functional>
 #include <memory>
-#include <unordered_map>
 #include <vector>
 
 namespace
@@ -53,7 +52,7 @@ struct TBatchedData
 jobject g_countryChangedListener = nullptr;
 
 DECLARE_THREAD_CHECKER(g_batchingThreadChecker);
-std::unordered_map<jobject, std::vector<TBatchedData>> g_batchedCallbackData;
+ankerl::unordered_dense::map<jobject, std::vector<TBatchedData>> g_batchedCallbackData;
 bool g_isBatched;
 
 storage::Storage & GetStorage()
@@ -589,8 +588,9 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeG
 }
 
 // static native boolean nativeIsMapTooOldToEdit(String countryId);
-JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeIsMapTooOldToEdit(JNIEnv *env, jclass clazz,
-                                                                                            jstring country_id)
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeIsMapTooOldToEdit(JNIEnv * env,
+                                                                                                  jclass clazz,
+                                                                                                  jstring country_id)
 {
   return GetStorage().IsMapTooOldToEdit(jni::ToNativeString(env, country_id));
 }

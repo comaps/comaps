@@ -15,8 +15,6 @@
 
 #include "indexer/string_slice.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/rect2d.hpp"
 
 #include "base/cancellable.hpp"
@@ -157,8 +155,8 @@ protected:
   bool m_lastUpdate = false;
 
   // Suggestions language code, not the same as we use in mwm data
-  int8_t m_inputLocaleCode = StringUtf8Multilang::kUnsupportedLanguageCode;
-  int8_t m_currentLocaleCode = StringUtf8Multilang::kUnsupportedLanguageCode;
+  localisation::LanguageIndex m_inputLanguageIndex = localisation::kUnsupportedLanguageIndex;
+  localisation::LanguageIndex m_currentLanguageIndex = localisation::kUnsupportedLanguageIndex;
 
   DataSource const & m_dataSource;
 

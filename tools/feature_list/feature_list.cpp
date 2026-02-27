@@ -77,7 +77,7 @@ m2::PointD FindCenter(FeatureType & f)
   return closest.GetBest();
 }
 
-size_t const kLangCount = StringUtf8Multilang::GetSupportedLanguages().size();
+size_t const kLangCount = localisation::GetSupportedLanguages().size();
 
 string GetReadableType(FeatureType & f)
 {
@@ -213,11 +213,11 @@ public:
 
     string_view city;
     m_finder.GetLocality(center, [&city](search::LocalityItem const & item)
-    { item.GetSpecifiedOrDefaultName(StringUtf8Multilang::kDefaultCode, city); });
+    { item.GetSpecifiedOrDefaultName(localisation::kDefaultNameIndex, city); });
 
     string const & mwmName = f.GetID().GetMwmName();
 
-    string name(f.GetName(StringUtf8Multilang::kDefaultCode));
+    string name(f.GetName(localisation::kDefaultNameIndex));
     if (name.empty())
     {
       name = f.GetReadableName();
@@ -350,7 +350,7 @@ void PrintHeader()
                             "panoramax"};
   // Append all supported name languages in order.
   for (uint8_t idx = 1; idx < kLangCount; idx++)
-    columns.push_back("name_" + string(StringUtf8Multilang::GetLangByCode(idx)));
+    columns.push_back("name_" + string(localisation::ConvertLanguageIndexToLanguageCode(idx)));
   PrintAsCSV(columns, ';', cout);
 }
 

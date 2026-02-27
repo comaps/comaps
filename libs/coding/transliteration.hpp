@@ -7,6 +7,8 @@
 #include <mutex>
 #include <string>
 
+#include "base/localisation.hpp"
+
 // From ICU library, either 3party/icu or from the system's package.
 #include <unicode/uversion.h>
 
@@ -33,6 +35,7 @@ public:
   // Transliterates |sv| with transliterators set for |langCode| in StringUtf8Multilang
   // if mode is set to Enabled.
   bool Transliterate(std::string_view sv, int8_t langCode, std::string & out) const;
+  std::string Transliterate(localisation::LanguageIndex const languageIndex, std::string const name) const;
 
   // Transliterates |str| with |transliteratorId|, ignores mode.
   bool TransliterateForce(std::string const & str, std::string const & transliteratorId, std::string & out) const;
@@ -42,10 +45,10 @@ private:
 
   Transliteration();
 
-  bool Transliterate(std::string_view transID, icu::UnicodeString & ustr) const;
+  bool Transliterate(localisation::TransliteratorId const transliteratorId, icu::UnicodeString & ustr) const;
 
   std::mutex m_initializationMutex;
   std::atomic<bool> m_inited;
   std::atomic<Mode> m_mode;
-  std::map<std::string_view, std::unique_ptr<TransliteratorInfo>> m_transliterators;
+  std::map<std::string, std::unique_ptr<TransliteratorInfo>> m_transliterators;
 };

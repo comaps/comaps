@@ -599,7 +599,7 @@ void SearchMarks::SetUnavailable(SearchMarkPoint & mark, std::string const & rea
     m_unavailable.insert_or_assign(mark.GetFeatureID(), reasonKey);
   }
   mark.SetAvailable(false);
-  mark.SetReason(platform::GetLocalizedString(reasonKey));
+  mark.SetReason(localisation::TranslatedInterfaceText(reasonKey));
 }
 
 void SearchMarks::SetUnavailable(std::vector<FeatureID> const & features,

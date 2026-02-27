@@ -138,7 +138,7 @@ void BordersData::Init(std::string const & bordersDir)
 
   // key - coordinates
   // value - {border idx, point idx}
-  std::unordered_map<int64_t, std::vector<std::pair<size_t, size_t>>> index;
+  ankerl::unordered_dense::map<int64_t, std::vector<std::pair<size_t, size_t>>> index;
 
   std::vector<std::string> files;
   Platform::GetFilesByExt(bordersDir, kBorderExtension, files);

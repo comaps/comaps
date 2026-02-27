@@ -2,6 +2,7 @@
 #include "kml/types.hpp"
 
 #include "indexer/classificator.hpp"
+#include "indexer/feature_region_locator.hpp"
 #include "indexer/feature_utils.hpp"
 
 #include "platform/localization.hpp"
@@ -21,7 +22,7 @@ bool IsEqual(geometry::PointWithAltitude const & lhs, geometry::PointWithAltitud
   return AlmostEqualAbs(lhs, rhs, kMwmPointAccuracy);
 }
 
-std::string GetPreferredBookmarkStr(LocalizableString const & name, std::string const & languageNorm)
+std::string GetPreferredBookmarkStrForKml(LocalizableString const & name, std::vector<localisation::LanguageIndex> const languageIndexes)
 {
   if (name.size() == 1)
     return name.begin()->second;
@@ -31,27 +32,11 @@ std::string GetPreferredBookmarkStr(LocalizableString const & name, std::string 
   for (auto const & pair : name)
     nameMultilang.AddString(pair.first, pair.second);
 
-  std::string_view preferredName;
-  if (feature::GetPreferredName(nameMultilang, preferredName))
-    return std::string(preferredName);
+  std::optional<std::string> translatedName = localisation::TranslatedFeatureName(nameMultilang, languageIndexes).m_primary;
+  if (translatedName.has_value())
+    return translatedName.value();
 
   return {};
-}
-
-std::string GetPreferredBookmarkStr(LocalizableString const & name, feature::RegionData const & regionData,
-                                    std::string const & languageNorm)
-{
-  if (name.size() == 1)
-    return name.begin()->second;
-
-  /// @todo Complicated logic here when transforming LocalizableString -> StringUtf8Multilang to call GetPreferredName.
-  StringUtf8Multilang nameMultilang;
-  for (auto const & pair : name)
-    nameMultilang.AddString(pair.first, pair.second);
-
-  feature::NameParamsOut out;
-  feature::GetReadableName({nameMultilang, regionData, languageNorm, false /* allowTranslit */}, out);
-  return std::string(out.primary);
 }
 
 std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types)
@@ -62,15 +47,15 @@ std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types)
   auto const & c = classif();
   auto const type = c.GetTypeForIndex(types.front());
 
-  return platform::GetLocalizedTypeName(c.GetReadableObjectName(type));
+  return localisation::TranslatedFeatureType(c.GetReadableObjectName(type));
 }
 
-std::string GetPreferredBookmarkName(BookmarkData const & bmData, std::string_view languageOrig)
+std::string GetPreferredBookmarkNameForKml(BookmarkData const & bmData)
 {
-  auto const languageNorm = languages::Normalize(languageOrig);
-  std::string name = GetPreferredBookmarkStr(bmData.m_customName, languageNorm);
+  std::vector<localisation::LanguageIndex> languageIndexes = feature::RegionLocator::Instance().GetLocalLanguageIndexes(bmData.m_point);
+  std::string name = GetPreferredBookmarkStrForKml(bmData.m_customName, languageIndexes);
   if (name.empty())
-    name = GetPreferredBookmarkStr(bmData.m_name, languageNorm);
+    name = GetPreferredBookmarkStrForKml(bmData.m_name, languageIndexes);
   if (name.empty())
     name = GetLocalizedFeatureType(bmData.m_featureTypes);
   return name;

@@ -1413,3 +1413,4 @@
 "type.railway.miniature.tunnel" = "சிறிய சித்திரம் தொடர்வண்டி சுரங்கப்பாதை";
 "type.railway.turntable" = "தொடர்வண்டி திரும்புமேசை";
 "type.tourism.information.tactile_map" = "தொட்டுணரக்கூடிய வரைபடம்";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

@@ -17,13 +17,14 @@
 
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace collector_boundary_postcode_tests
 {
 using generator::tests_support::TestWithClassificator;
-using std::string, std::vector, std::unordered_map;
+using std::string, std::vector;
 
 static string const kDumpFileName = "dump.bin";
 
@@ -32,7 +33,7 @@ static string const kDumpFileName = "dump.bin";
 // 3--4--5
 // |  |  |
 // 6--7--8
-unordered_map<uint64_t, m2::PointD> const kNodes = {
+ankerl::unordered_dense::map<uint64_t, m2::PointD> const kNodes = {
     {0, m2::PointD{-1.0, 1.0}},  {1, m2::PointD{0.0, 1.0}},  {2, m2::PointD{1.0, 1.0}},
     {3, m2::PointD{-1.0, 0.0}},  {4, m2::PointD{0.0, 0.0}},  {5, m2::PointD{1.0, 0.0}},
     {6, m2::PointD{-1.0, -1.0}}, {7, m2::PointD{0.0, -1.0}}, {8, m2::PointD{1.0, -1.0}}};
@@ -42,10 +43,10 @@ vector<uint64_t> const kPolygon2 = {6, 3, 4, 7, 6};
 vector<uint64_t> const kPolygon3 = {8, 7, 4, 5, 8};
 vector<uint64_t> const kPolygon4 = {0, 1, 4, 4, 0};
 
-unordered_map<uint64_t, WayElement> const kWays = {{1, WayElement{1, kPolygon1}},
-                                                   {2, WayElement{2, kPolygon2}},
-                                                   {3, WayElement{3, kPolygon3}},
-                                                   {4, WayElement{4, kPolygon4}}};
+ankerl::unordered_dense::map<uint64_t, WayElement> const kWays = {{1, WayElement{1, kPolygon1}},
+                                                                  {2, WayElement{2, kPolygon2}},
+                                                                  {3, WayElement{3, kPolygon3}},
+                                                                  {4, WayElement{4, kPolygon4}}};
 
 class IntermediateDataReaderTest : public generator::cache::IntermediateDataReaderInterface
 {
@@ -83,12 +84,12 @@ auto const postcodeAreaRelation2 = MakePostcodeAreaRelation(2 /* id */, "127002"
 auto const postcodeAreaRelation3 = MakePostcodeAreaRelation(3 /* id */, "127003" /* postcode */, 3 /* wayId */);
 auto const postcodeAreaRelation4 = MakePostcodeAreaRelation(4 /* id */, "127004" /* postcode */, 4 /* wayId */);
 
-unordered_map<string, vector<m2::PointD>> Read(string const & dumpFilename)
+ankerl::unordered_dense::map<string, vector<m2::PointD>> Read(string const & dumpFilename)
 {
   FileReader reader(dumpFilename);
   ReaderSource<FileReader> src(reader);
 
-  unordered_map<string, vector<m2::PointD>> result;
+  ankerl::unordered_dense::map<string, vector<m2::PointD>> result;
   while (src.Size() > 0)
   {
     string postcode;
@@ -101,7 +102,7 @@ unordered_map<string, vector<m2::PointD>> Read(string const & dumpFilename)
   return result;
 }
 
-bool CheckPostcodeExists(unordered_map<string, vector<m2::PointD>> const & data, string const & postcode,
+bool CheckPostcodeExists(ankerl::unordered_dense::map<string, vector<m2::PointD>> const & data, string const & postcode,
                          vector<m2::PointD> const & geometry)
 {
   auto const it = data.find(postcode);

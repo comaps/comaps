@@ -130,7 +130,8 @@ void QuerySaver::Deserialize(string const & data)
   {
     Length localeLength = ReadPrimitiveFromSource<Length>(reader);
     vector<char> locale(localeLength);
-    if (locale.size() > 0) {
+    if (locale.size() > 0)
+    {
       reader.Read(&locale[0], localeLength);
       Length stringLength = ReadPrimitiveFromSource<Length>(reader);
       vector<char> str(stringLength);

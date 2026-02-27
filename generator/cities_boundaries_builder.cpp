@@ -16,8 +16,9 @@
 #include "base/logging.hpp"
 
 #include <memory>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "defines.hpp"
 
@@ -60,7 +61,7 @@ bool BuildCitiesBoundaries(string const & dataPath, BoundariesTable & table, Map
 
 bool BuildCitiesBoundaries(string const & dataPath, OsmIdToBoundariesTable & table)
 {
-  std::unordered_map<uint32_t, base::GeoObjectId> mapping;
+  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> mapping;
   if (!ParseFeatureIdToOsmIdMapping(dataPath + OSM2FEATURE_FILE_EXTENSION, mapping))
   {
     LOG(LERROR, ("Can't parse feature id to osm id mapping."));
@@ -71,7 +72,7 @@ bool BuildCitiesBoundaries(string const & dataPath, OsmIdToBoundariesTable & tab
 
 bool BuildCitiesBoundariesForTesting(string const & dataPath, TestIdToBoundariesTable & table)
 {
-  std::unordered_map<uint32_t, uint64_t> mapping;
+  ankerl::unordered_dense::map<uint32_t, uint64_t> mapping;
   if (!ParseFeatureIdToTestIdMapping(dataPath, mapping))
   {
     LOG(LERROR, ("Can't parse feature id to test id mapping."));

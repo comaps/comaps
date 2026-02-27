@@ -41,7 +41,7 @@ struct SettingsView: View {
     
     
     /// If names should be transliterated to Latin
-    @State private var shouldTransliterateToLatin: Bool = true
+    @State private var shouldTransliterateToLatin: Bool = false
     
     
     /// The selected map appearance
@@ -171,18 +171,9 @@ struct SettingsView: View {
                     .disabled(selectedLanguageForMap == "default")
                     
                     Toggle(isOn: $shouldTransliterateToLatin) {
-                        VStack(alignment: .leading) {
-                            Text("transliteration_title")
-                            
-                            if selectedLanguageForMap == "default" {
-                                Text("transliteration_title_disabled_summary")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
+                        Text("transliteration_title")
                     }
                     .tint(.accent)
-                    .disabled(selectedLanguageForMap == "default")
                     
                     Picker(selection: $selectedMapAppearance) {
                         ForEach(Settings.Appearance.allCases) { mapAppearance in

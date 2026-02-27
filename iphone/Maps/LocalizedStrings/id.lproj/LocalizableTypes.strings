@@ -1489,3 +1489,4 @@
 "type.man_made.telescope.optical" = "Teleskop Optik";
 "type.man_made.telescope.radio" = "Teleskop Radio";
 "type.man_made.observatory" = "Observatorium";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

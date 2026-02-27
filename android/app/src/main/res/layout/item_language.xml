@@ -7,5 +7,5 @@
   android:layout_weight="1"
   android:background="?clickableBackground"
   android:padding="@dimen/margin_base"
-  android:singleLine="true"
+  android:maxLines="1"
   android:textAppearance="@style/MwmTextAppearance.Body1"/>

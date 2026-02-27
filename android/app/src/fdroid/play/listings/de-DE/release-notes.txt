@@ -1,10 +1,9 @@
-• OpenStreetMap-Daten vom 7. Februar
-• „Geschwindigkeitsbeschränkung anzeigen“ hinzugefügt
-• 3D-Gebäude in Android Auto ausgeblendet
-• Schiffstankbunker hinzugefügt
-• Favoriten und Such-Icons werden über den U-Bahn-Linien dargestellt
-• Hausnummern werden später angezeigt
-• Skandinavische Buchstaben æøå in der Suche verwendbar
-• OSM-Editor: Bei Überprüfung von POI-Existenz wird automatisch das Überprüfungsdatum hinzugefügt
+• OpenStreetMap-Daten vom 21. Februar
+• Anzeige der Öffnungszeiten in Schichten, statt außerhalb der Geschäftszeiten.
+• Zeigt OSM-Beschreibungen und Anzahl von Räumen bei ausgewählten POIs
+• Kroatische, italienische, niederländische und polnische Wikipedia-Artikel hinzugefügt
+• Baumreihen und Jugendzentren hinzugefügt
+• Transliterations-Fehler behoben
+• Verbesserte Alternative-Karten-Sprachen-Einstellung
 
-Mehr Infos unter comaps.app/latest
+Mehr Details auf comaps.app/latest

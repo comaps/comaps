@@ -464,10 +464,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d/%2$d</string>
     <string name="download_over_mobile_header">Kas laadime alla mobiilivõrgu kaudu?</string>
-    <string name="download_over_mobile_message">See võib mõningate lepingute või andmerändluse korral olla märgatavalt kallim</string>
+    <string name="download_over_mobile_message">See võib mõningate lepingute, eriti andmerändluse korral olla märgatavalt kallim.</string>
     <string name="error_enter_correct_house_number">Sisesta kehtiv majanumber</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Korruste arv ei või olla üle %d</string>
+    <string name="error_enter_correct_storey_number">Korruste arv ei või olla suurem, kui %d</string>
     <string name="editor_zip_code">Postiindeks</string>
     <string name="error_enter_correct_zip_code">Sisesta korrektne postiindeks</string>
     <!-- Title for OSM note section in the editor -->
@@ -917,8 +917,23 @@
     <string name="download_resources_custom_url_message">Kui tahad kasutada oma kaardiserverit, siis lisa ta siia. CoMapsi vaikimisi serveri kasutamiseks jäta tühjaks.</string>
     <string name="download_resources_custom_url_error_scheme">Palun sisesta täismahuline võrguaadress, mille alguses on http:// või https://</string>
     <string name="pref_maplanguage_local">Kohalik keel</string>
-    <string name="limit_map_language_alternatives_to_local">Kasuta vaid oma piirkonna süsteemi keeli</string>
     <string name="location_privacy_info">Rakendused saavad asukohaandmed sinu operatsioonisüsteemi asukohateenuselt, mis võib jagada sinu asukohta Google\'i ja/või seadme valmistajaga. Selle vältimiseks kasuta mõnda privaatsusega arvestavat Androidi versiooni.</string>
     <string name="location_privacy">Asuukohaandmete privaatsus</string>
     <string name="pref_speedlimit_title">Näita kiiruspiiranguid</string>
+    <string name="rooms">%s tuba</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="invalid_route">Vigane teekond/marsruut</string>
+    <string name="building_route">Koostan teekonda…</string>
+    <string name="route_not_started">Teekond pole veel alanud</string>
+    <string name="on_route">Teel</string>
+    <string name="route_needs_rebuild">Teekond vajab uuesti koostamist</string>
+    <string name="route_finished">Teekond on lõppenud</string>
+    <string name="not_following_route">Sa ei järgi teekonda</string>
+    <string name="rebuilding_route">Teekond on uuesti koostamisel…</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ära kasuta alternatiive</string>
+    <string name="pref_alt_map_lang_handling_local_only">Eelista ja kasuta vaid kohalikku keelt</string>
+    <string name="pref_alt_map_lang_handling">Alternatiivsed kaardikeeled</string>
+    <string name="pref_alt_map_lang_handling_system_order">Kasuta süsteemi järjestuses</string>
+    <string name="pref_openexternallinks_title">Ava kolmandate osapoolte lingid automaatselt</string>
+    <string name="pref_openexternallinks_summary">Ava Comapsis leiduvad kolmandate osapoolte lingid vaikimisi</string>
 </resources>

@@ -7,6 +7,7 @@
 #include "geometry/rect2d.hpp"
 
 #include "base/buffer_vector.hpp"
+#include "base/localisation_translation.hpp"
 #include "base/macros.hpp"
 
 #include <array>
@@ -175,14 +176,10 @@ public:
   std::string DebugString();
 
   std::string const & GetHouseNumber();
+  
+  std::vector<localisation::LanguageIndex> GetLanguages();
 
-  /// @name Get names for feature.
-  //@{
-  void GetPreferredNames(bool allowTranslit, int8_t deviceLang, feature::NameParamsOut & out);
-
-  /// Get one most suitable name for user.
-  std::string_view GetReadableName();
-  void GetReadableName(bool allowTranslit, int8_t deviceLang, feature::NameParamsOut & out);
+  localisation::NameTranslation GetTranslatedName();
 
   std::string_view GetName(int8_t lang);
   //@}

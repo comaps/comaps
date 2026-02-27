@@ -279,7 +279,8 @@ dp::TGlyphs TextLayout::GetGlyphs() const
 }
 
 StraightTextLayout::StraightTextLayout(std::string const & text, float fontSize, ref_ptr<dp::TextureManager> textures,
-                                       dp::Anchor anchor, bool forceNoWrap)
+                                       dp::Anchor anchor, bool forceNoWrap,
+                                       localisation::LanguageIndex const textLanguageIndex)
 {
   /*
    * TODO Temporary workaround: If the string contains newlines, replace them with whitespaces.
@@ -292,7 +293,7 @@ StraightTextLayout::StraightTextLayout(std::string const & text, float fontSize,
   ASSERT_EQUAL(std::string::npos, stext.find('\n'), ("Multiline text is not expected", stext));
 
   m_textSizeRatio = fontSize * static_cast<float>(VisualParams::Instance().GetFontScale()) / dp::kBaseFontSizePixels;
-  m_shapedGlyphs = textures->ShapeSingleTextLine(dp::kBaseFontSizePixels, stext, &m_glyphRegions);
+  m_shapedGlyphs = textures->ShapeSingleTextLine(dp::kBaseFontSizePixels, stext, &m_glyphRegions, textLanguageIndex);
 
   // TODO(AB): Use ICU's BreakIterator to split text properly in different languages without spaces.
   // TODO(AB): Implement SplitText for RTL languages.
@@ -383,7 +384,8 @@ void StraightTextLayout::CacheDynamicGeometry(glsl::vec2 const & pixelOffset,
 }
 
 PathTextLayout::PathTextLayout(m2::PointD const & tileCenter, std::string const & text, float fontSize,
-                               ref_ptr<dp::TextureManager> textureManager)
+                               ref_ptr<dp::TextureManager> textureManager,
+                               localisation::LanguageIndex const textLanguageIndex)
   : m_tileCenter(tileCenter)
 {
   /*
@@ -400,7 +402,8 @@ PathTextLayout::PathTextLayout(m2::PointD const & tileCenter, std::string const 
   m_textSizeRatio = fontSize * fontScale / dp::kBaseFontSizePixels;
 
   // TODO(AB): StraightTextLayout used a logic to split a longer string into two strings.
-  m_shapedGlyphs = textureManager->ShapeSingleTextLine(dp::kBaseFontSizePixels, stext, &m_glyphRegions);
+  m_shapedGlyphs =
+      textureManager->ShapeSingleTextLine(dp::kBaseFontSizePixels, stext, &m_glyphRegions, textLanguageIndex);
 }
 
 void PathTextLayout::CacheStaticGeometry(dp::TextureManager::ColorRegion const & colorRegion,

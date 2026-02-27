@@ -635,7 +635,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Exploitant: %@";
 "editor_category_unsuitable_title" = "Kun je geen geschikte categorie vinden?";
-"editor_category_unsuitable_text" = "Met CoMaps kun je alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enzovoort. Voeg zulke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Bekijk onze <a href=\"https://www.comaps.app/support/advanced-map-editing/\">gids</a> voor gedetailleerde stap voor stap instructies.";
+"editor_category_unsuitable_text" = "CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Lees onze <a href=\"https://www.comaps.app/support/advanced-map-editing/\">handleiding</a> voor gedetailleerde stap voor stap instructies.";
 "downloader_no_downloaded_maps_title" = "U hebt geen kaarten gedownload";
 "downloader_no_downloaded_maps_message" = "Download kaarten om een locatie te zoeken en offline te navigeren.";
 "current_location_unknown_error_title" = "Huidige locatie is onbekend.";
@@ -814,17 +814,17 @@
 "driving_options_title" = "Route-instellingen";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_tolls" = "Vermijd tolwegen";
+"avoid_tolls" = "Tolwegen vermijden";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_unpaved" = "Vermijd onverharde wegen";
+"avoid_unpaved" = "Onverharde wegen vermijden";
 
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
-"avoid_ferry" = "Vermijd veerboten";
-"avoid_motorways" = "Vermijd snelwegen";
+"avoid_ferry" = "Veerboten verbinden";
+"avoid_motorways" = "Snelwegen vermijden";
 "unable_to_calc_alert_title" = "Kan route niet berekenen";
 "unable_to_calc_alert_subtitle" = "Helaas konden we geen route berekenen. Dit kan komen door uw gekozen opties of door incomplete OpenStreetMap-data. Wijzig de instellingen en probeer het opnieuw.";
-"define_to_avoid_btn" = "Configureer wegen om te vermijden";
+"define_to_avoid_btn" = "Te vermijden wegen instellen";
 "change_driving_options_btn" = "Route-instellingen ingeschakeld";
 "toll_road" = "Tolweg";
 "unpaved_road" = "Onverharde weg";
@@ -1104,5 +1104,7 @@
 "editor_place_doesnt_exist_description" = "Beschrijf hoe de plaats er nu uitziet om een foutbericht te sturen naar de OpenStreetMap-community";
 "avoid_steps" = "Trappen vermijden";
 "pref_alt_map_lang_handling" = "Alternatieve kaarttalen";
-"pref_alt_map_lang_handling_local_only" = "Gebruik lokale taal indien beschikbaar";
+"pref_alt_map_lang_handling_local_only" = "Voorkeur voor oorspronkelijk";
 "pref_alt_map_lang_handling_system_order" = "Gebruik in systeemvolgorde";
+"rooms" = "%@ kamers";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Geen alternatieven gebruiken";

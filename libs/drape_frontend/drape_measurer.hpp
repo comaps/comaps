@@ -15,8 +15,9 @@
 #include <memory>
 #include <mutex>
 #include <numeric>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace df
 {
@@ -183,7 +184,7 @@ private:
   uint32_t m_minFPS = std::numeric_limits<uint32_t>::max();
   double m_totalFPS = 0.0;
   uint32_t m_totalFPSCount = 0;
-  std::unordered_map<uint32_t, uint32_t> m_fpsDistribution;
+  ankerl::unordered_dense::map<uint32_t, uint32_t> m_fpsDistribution;
 
   std::chrono::time_point<std::chrono::steady_clock> m_startImmediateRenderingTime;
   uint32_t m_immediateRenderingMinFps = std::numeric_limits<uint32_t>::max();

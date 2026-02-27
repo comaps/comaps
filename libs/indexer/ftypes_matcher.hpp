@@ -3,12 +3,15 @@
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_utils.hpp"
 
-#include "base/small_map.hpp"
 #include "base/stl_helpers.hpp"
+
+#include <boost/container_hash/hash.hpp>
 
 #include <functional>
 #include <string>
 #include <vector>
+
+#include "3party/skarupke/flat_hash_map.hpp"
 
 #define DECLARE_CHECKER_INSTANCE(CheckerType) \
   static CheckerType const & Instance()       \
@@ -181,7 +184,7 @@ public:
   SearchRank GetSearchRank(uint32_t type) const;
 
 private:
-  base::SmallMap<uint32_t, SearchRank> m_ranks;
+  ska::flat_hash_map<uint32_t, SearchRank, boost::hash<uint32_t>> m_ranks;
 };
 
 class IsStreetOrSquareChecker : public BaseChecker

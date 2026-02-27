@@ -363,9 +363,7 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
   // Prevents types, that either have subtypes or are subtypes, from being removed
   auto subtypes = ftypes::Subtypes::Instance();
   auto const areSubtypeRelatedTypes = [subtypes](auto const & lhs, auto const & rhs)
-  {
-    return subtypes.IsTypeWithSubtypesOrSubtype(lhs) && subtypes.IsTypeWithSubtypesOrSubtype(rhs);
-  };
+  { return subtypes.IsTypeWithSubtypesOrSubtype(lhs) && subtypes.IsTypeWithSubtypesOrSubtype(rhs); };
   auto const isBetterBecauseOfSubtypeRelation = [subtypes](auto const & lhs, auto const & rhs) -> std::optional<bool>
   {
     bool const lhsIsTypeWithSubtypesOrSubtype = subtypes.IsTypeWithSubtypesOrSubtype(lhs);
@@ -400,7 +398,8 @@ void LeaveLongestTypes(std::vector<generator::TypeStrings> & matchedTypes)
     return lhs < rhs;
   };
 
-  // `true` means the second one will be removed, because being equal means it isn't unique and the first one is more important
+  // `true` means the second one will be removed, because being equal means it isn't unique and the first one is more
+  // important
   auto const isEqual = [&equalPrefix, &areSubtypeRelatedTypes](auto const & lhs, auto const & rhs)
   {
     if (equalPrefix(lhs, rhs))
@@ -1120,8 +1119,8 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
       for (uint32_t type : params.m_types)
       {
         ftype::TruncValue(type, 1);
-        if (type != types.Get(CachedTypes::WheelchairAny) && type != types.Get(CachedTypes::InternetAny)
-            && type != types.Get(CachedTypes::DisusedBusiness) && type != types.Get(CachedTypes::Building))
+        if (type != types.Get(CachedTypes::WheelchairAny) && type != types.Get(CachedTypes::InternetAny) &&
+            type != types.Get(CachedTypes::DisusedBusiness) && type != types.Get(CachedTypes::Building))
         {
           hasPoiType = true;
           break;

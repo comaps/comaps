@@ -10,8 +10,8 @@
 #include <boost/uuid/detail/sha1.hpp>
 
 #include <algorithm>
-#include <vector>
 #include <bit>
+#include <vector>
 
 namespace coding
 {

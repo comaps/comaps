@@ -10,6 +10,7 @@
 #include "drape/texture_of_colors.hpp"
 #include "drape/tm_read_resources.hpp"
 
+#include "base/localisation.hpp"
 #include "base/math.hpp"
 
 #include <algorithm>
@@ -344,7 +345,7 @@ void TextureManager::Init(ref_ptr<dp::GraphicsContext> context, Params const & p
   m_maxGlypsCount = static_cast<uint32_t>(ceil(kGlyphAreaCoverage * textureSquare / averageGlyphSquare));
 
   std::string_view constexpr kSpace{" "};
-  m_spaceGlyph = m_glyphManager->ShapeText(kSpace, dp::kBaseFontSizePixels).m_glyphs.front().m_key;
+  m_spaceGlyph = m_glyphManager->ShapeText(kSpace, dp::kBaseFontSizePixels, m_mapLang).m_glyphs.front().m_key;
 
   LOG(LDEBUG, ("Glyphs texture size =", kGlyphsTextureSize, "with max glyphs count =", m_maxGlypsCount));
 
@@ -480,17 +481,27 @@ void TextureManager::GetColorRegion(Color const & color, ColorRegion & region)
   GetRegionBase(make_ref(m_colorTexture), region, ColorKey(color));
 }
 
-text::TextMetrics TextureManager::ShapeSingleTextLine(float fontPixelHeight, std::string_view utf8,
-                                                      TGlyphsBuffer * glyphRegions)  // TODO(AB): Better name?
+text::TextMetrics TextureManager::ShapeSingleTextLine(
+    float fontPixelHeight, std::string_view utf8, TGlyphsBuffer * glyphRegions,
+    localisation::LanguageIndex const textLanguageIndex)  // TODO(AB): Better name?
 {
   ASSERT(!utf8.empty(), ());
   std::vector<ref_ptr<Texture::ResourceInfo>> resourcesInfo;
   bool hasNewResources = false;
+  hb_language_t lang;
+
+  if (textLanguageIndex == localisation::kUnsupportedLanguageIndex)
+    lang = m_mapLang;
+  else
+  {
+    localisation::LanguageCode const languageCode = localisation::ConvertLanguageIndexToLanguageCode(textLanguageIndex);
+    lang = hb_language_from_string(languageCode.data(), static_cast<int>(languageCode.size()));
+  }
 
   // TODO(AB): Is this mutex too slow?
   std::lock_guard lock(m_calcGlyphsMutex);
 
-  auto textMetrics = m_glyphManager->ShapeText(utf8, fontPixelHeight);
+  auto textMetrics = m_glyphManager->ShapeText(utf8, fontPixelHeight, lang);
 
   auto const & glyphs = textMetrics.m_glyphs;
 
@@ -540,7 +551,8 @@ text::TextMetrics TextureManager::ShapeSingleTextLine(float fontPixelHeight, std
 
 TextureManager::TShapedTextLines TextureManager::ShapeMultilineText(float fontPixelHeight, std::string_view utf8,
                                                                     char const * delimiters,
-                                                                    TMultilineGlyphsBuffer & multilineGlyphRegions)
+                                                                    TMultilineGlyphsBuffer & multilineGlyphRegions,
+                                                                    localisation::LanguageIndex const textLanguageIndex)
 {
   TShapedTextLines textLines;
   strings::Tokenize(utf8, delimiters, [&](std::string_view line)
@@ -550,7 +562,8 @@ TextureManager::TShapedTextLines TextureManager::ShapeMultilineText(float fontPi
 
     multilineGlyphRegions.emplace_back();
 
-    textLines.emplace_back(ShapeSingleTextLine(fontPixelHeight, line, &multilineGlyphRegions.back()));
+    textLines.emplace_back(
+        ShapeSingleTextLine(fontPixelHeight, line, &multilineGlyphRegions.back(), textLanguageIndex));
   });
 
   return textLines;
@@ -559,12 +572,6 @@ TextureManager::TShapedTextLines TextureManager::ShapeMultilineText(float fontPi
 GlyphFontAndId TextureManager::GetSpaceGlyph() const
 {
   return m_spaceGlyph;
-}
-
-bool TextureManager::AreGlyphsReady(TGlyphs const & glyphs) const
-{
-  CHECK(m_isInitialized, ());
-  return m_glyphManager->AreGlyphsReady(glyphs);
 }
 
 ref_ptr<Texture> TextureManager::GetSymbolsTexture() const

@@ -265,7 +265,7 @@
     <string name="downloader_download_all_button">Scarica tutte</string>
     <string name="downloader_downloading">Sto scaricando:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Per eliminare la mappa interrompi la navigazione</string>
+    <string name="downloader_delete_map_while_routing_dialog">Per eliminare la mappa, interrompi la navigazione</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Si possono creare solo percorsi che siano completamente contenuti nella mappa di una singola regione.</string>
     <!-- Context menu item for downloader. -->
@@ -485,7 +485,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Gestore: %s</string>
     <string name="editor_category_unsuitable_title">Non riesci a trovare una categoria adatta?</string>
-    <string name="editor_category_unsuitable_text">CoMaps consente di aggiungere solo punti semplici, escludendo p.es. città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulta la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guida</a> per istruzioni dettagliate.</string>
+    <string name="editor_category_unsuitable_text">CoMaps consente di aggiungere solo punti semplici, quindi escludendo città, strade, laghi, planimetria edifici ecc. È possibile aggiungere tali categorie direttamente su <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulta la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guida</a> per istruzioni dettagliate.</string>
     <string name="downloader_no_downloaded_maps_title">Non hai scaricato mappe</string>
     <string name="downloader_no_downloaded_maps_message">Scarica delle mappe per trovare luoghi e navigare offline</string>
     <string name="current_location_unknown_error_title">Posizione attuale sconosciuta</string>
@@ -543,7 +543,7 @@
     <string name="enable_logging">Abilita il logging</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback generale</string>
-    <string name="prefs_languages_information">Usiamo il TTS di sistema per le istruzioni vocali. Molti dispositivi Android utilizzano Google TTS, lo puoi scaricare o aggiornare da Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information">Usiamo il TTS di sistema per le istruzioni vocali. Molti dispositivi Android utilizzano Google TTS, lo puoi scaricare o aggiornare dal Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">Per alcune lingue, sarà necessario installare un altro sintetizzatore vocale o un language pack aggiuntivo dall\'app store (Google Play, Galaxy Store, App Gallery, FDroid). \nApri le impostazioni del tuo dispositivo → Lingua e inserimento → Da testo a voce → Motore sintesi vocale. \nQui puoi gestire le impostazioni di sintesi vocale (ad esempio, scaricare una lingua per l\'utilizzo offline) e selezionare un altro motore di sintesi vocale.</string>
     <string name="prefs_languages_information_off_link">Per maggiori informazioni, consulta questa guida</string>
     <string name="transliteration_title">Traslittera in caratteri latini</string>
@@ -723,7 +723,7 @@
     <string name="splash_subtitle">Dati della mappa da OpenStreetMap</string>
     <!-- A link to the TTS FAQ -->
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/it/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/IT:About_OpenStreetMap</string>
@@ -864,7 +864,7 @@
     <string name="open_now">Aperto adesso</string>
     <string name="closed_now">Ora chiuso</string>
     <string name="at">alle %s</string>
-    <string name="osm_note_hint">In alternativa lascia una nota per la community di OpenStreetMap, così un altro utente potrà aggiungere o sistemare questo posto.</string>
+    <string name="osm_note_hint">In alternativa lascia una nota per la comunità di OpenStreetMap, così un altro utente potrà aggiungere o sistemare questo posto.</string>
     <string name="osm_note_toast">La nota verrà mandata a OpenStreetMap</string>
     <string name="hours_confirmed_time_ago">Confermato %s</string>
     <string name="existence_confirmed_time_ago">Esistenza confermata %s</string>
@@ -914,4 +914,5 @@
     <string name="opens_at">Apre alle %s</string>
     <string name="closes_at">Chiude alle %s</string>
     <string name="pref_maplanguage_local">Lingua locale</string>
+    <string name="rooms">%s stanze</string>
 </resources>

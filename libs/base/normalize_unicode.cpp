@@ -231,7 +231,6 @@ void NormalizeInplace(UniString & s)
           case 0xc1: w(r, 491, 1); break;
           case 0xc2: w(r, 491, 1); break;
           case 0xc3: w(r, 491, 1); break;
-          case 0xc4: w(r, 491, 1); break;
           case 0xc7: w(r, 358, 1); break;
           case 0xc8: w(r, 921, 1); break;
           case 0xc9: w(r, 921, 1); break;
@@ -246,7 +245,6 @@ void NormalizeInplace(UniString & s)
           case 0xd3: w(r, 1125, 1); break;
           case 0xd4: w(r, 1125, 1); break;
           case 0xd5: w(r, 1125, 1); break;
-          case 0xd6: w(r, 1125, 1); break;
           case 0xd9: w(r, 1143, 1); break;
           case 0xda: w(r, 1143, 1); break;
           case 0xdb: w(r, 1143, 1); break;
@@ -256,7 +254,6 @@ void NormalizeInplace(UniString & s)
           case 0xe1: w(r, 40, 1); break;
           case 0xe2: w(r, 40, 1); break;
           case 0xe3: w(r, 40, 1); break;
-          case 0xe4: w(r, 40, 1); break;
           case 0xe7: w(r, 331, 1); break;
           case 0xe8: w(r, 518, 1); break;
           case 0xe9: w(r, 518, 1); break;
@@ -271,7 +268,6 @@ void NormalizeInplace(UniString & s)
           case 0xf3: w(r, 480, 1); break;
           case 0xf4: w(r, 480, 1); break;
           case 0xf5: w(r, 480, 1); break;
-          case 0xf6: w(r, 480, 1); break;
           case 0xf9: w(r, 967, 1); break;
           case 0xfa: w(r, 967, 1); break;
           case 0xfb: w(r, 967, 1); break;

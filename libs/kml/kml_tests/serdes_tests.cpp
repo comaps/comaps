@@ -41,8 +41,8 @@ std::string FormatBytesFromBuffer(std::vector<uint8_t> const & buffer)
   return ss.str();
 }
 
-auto const kDefaultLang = StringUtf8Multilang::kDefaultCode;
-auto const kEnLang = StringUtf8Multilang::kEnglishCode;
+auto const kDefaultLang = localisation::kDefaultNameIndex;
+auto const kEnLang = localisation::kEnglishLanguageIndex;
 auto const kRuLang = static_cast<int8_t>(8);
 
 kml::FileData GenerateKmlFileData()

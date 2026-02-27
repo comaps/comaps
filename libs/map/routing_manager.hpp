@@ -41,7 +41,7 @@ namespace routing
 {
 class NumMwmIds;
 RouterType GetLastUsedRouter();
-}
+}  // namespace routing
 
 class DataSource;
 

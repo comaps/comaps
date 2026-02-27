@@ -280,10 +280,10 @@ public final class UiUtils
 
   public static void setViewNavigationTopInsetsMargin(View view, WindowInsetsCompat windowInsets)
   {
-      final Insets systemInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
-      ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-      lp.topMargin = systemInsets.top;
-      view.setLayoutParams(lp);
+    final Insets systemInsets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+    ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+    lp.topMargin = systemInsets.top;
+    view.setLayoutParams(lp);
   }
 
   public static void setupNavigationIcon(@NonNull MaterialToolbar toolbar, @NonNull View.OnClickListener listener)

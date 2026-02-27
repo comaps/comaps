@@ -33,7 +33,6 @@ done
 
 if [ ! -f "libs/indexer/localized_types_map.cpp" ]; then
   STRINGS_NOT_GENERATED=1
-  break
 fi
 
 ############################# PROCESS OPTIONS ################################

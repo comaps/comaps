@@ -69,7 +69,7 @@ def main():
         print(f"Directory not found: {base_dir}")
         sys.exit(1)
 
-    all_data = collect_all_keys(base_dir)
+    all_data = dict(sorted(collect_all_keys(base_dir).items()))
     write_category_file(all_data, output_file)
 
 

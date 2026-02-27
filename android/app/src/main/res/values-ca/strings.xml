@@ -269,7 +269,7 @@
     <string name="downloader_download_all_button">Baixa-ho tot</string>
     <string name="downloader_downloading">Baixant:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Per a suprimir el mapa, atureu la navegació</string>
+    <string name="downloader_delete_map_while_routing_dialog">Per a suprimir un mapa, atureu la navegació primer</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Només es poden crear rutes que pertanyin totalment al mapa d\'una sola regió.</string>
     <!-- Context menu item for downloader. -->
@@ -469,10 +469,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d/%2$d</string>
     <string name="download_over_mobile_header">Voleu baixar-ho a través d’una connexió de xarxa mòbil?</string>
-    <string name="download_over_mobile_message">Podria ser força car amb algunes tarifes o amb itinerància de dades</string>
+    <string name="download_over_mobile_message">Podria ser força car amb algunes tarifes, especialment amb itinerància de dades</string>
     <string name="error_enter_correct_house_number">Introduïu un número d’edifici vàlid</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">El nombre de plantes no pot excedir de %d</string>
+    <string name="error_enter_correct_storey_number">El nombre de plantes no pot ser superior a %d</string>
     <string name="editor_zip_code">Codi Postal</string>
     <string name="error_enter_correct_zip_code">Introduïu un codi postal vàlid</string>
     <!-- Title for OSM note section in the editor -->
@@ -488,7 +488,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operador: %s</string>
     <string name="editor_category_unsuitable_title">No trobeu una categoria adequada?</string>
-    <string name="editor_category_unsuitable_text">CoMaps només permet afegir categories de punts simples, això vol dir que no hi ha ciutats, carreteres, llacs, contorns d\'edificis, etc. Si us plau, afegiu aquestes categories directament a <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulteu la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> per obtenir instruccions detallades pas a pas.</string>
+    <string name="editor_category_unsuitable_text">CoMaps només permet afegir categories de punts simples, no pot afegir ciutats, carreteres, llacs, contorns d\'edificis, etc. Si us plau, afegiu aquestes categories directament a <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulteu la nostra <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> per obtenir instruccions detallades pas a pas.</string>
     <string name="downloader_no_downloaded_maps_title">No heu baixat cap mapa</string>
     <string name="downloader_no_downloaded_maps_message">Baixeu mapes per a cercar una ubicació i usar la navegació sense connexió</string>
     <string name="current_location_unknown_error_title">Es desconeix la ubicació actual</string>
@@ -521,7 +521,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Voleu enviar-ho a tots els usuaris?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Assegureu-vos que no heu introduït cap dada personal.</string>
+    <string name="editor_share_to_all_dialog_message_1">Assegureu-vos que no heu introduït cap dada privada o personal.</string>
     <string name="editor_share_to_all_dialog_message_2">Els editors d\'OpenStreetMap revisaran els canvis. Et contactaran si tenen cap pregunta.</string>
     <string name="navigation_stop_button">Atura</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -547,8 +547,8 @@
     <string name="enable_logging">Activa el registre</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Opinió general</string>
-    <string name="prefs_languages_information">Usem el sistema de síntesi de veu per a les instruccions de veu. Molts aparells Android use el motor de síntesi de veu de Google, podeu baixar o actualitzar-lo des del Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Per a algunes llengües, haureu d\'instal·lar un sintetizador de veu o un paquet de llengua addicional des de la botiga d\'apliacions (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid). \nObriu la configuració de l\'aparell → Idioma i entrada → Veu → Sortidda de text a veu. \nAquí podeu gestionar la configuració de la síntesi de veu (per exemple, baixar un paquet de llengua per a ús sense connexió) i triar un altre motor de síntesi de veu.</string>
+    <string name="prefs_languages_information">Fem servir el sistema de síntesi de veu per a les instruccions de veu. Molts aparells Android empren motor de síntesi de veu de Google, podeu baixar o actualitzar-lo des del Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Per a algunes llengües, haureu d\'instal·lar un sintetitzador de veu o un paquet de llengua addicional des de la botiga d\'aplicacions (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid). \nObriu la configuració del dispositiu → Idioma i entrada → Veu → Sortida de text a veu. \nAquí podeu gestionar la configuració de la síntesi de veu (per exemple, baixar un paquet de llengua per a ús sense connexió) i triar un altre motor de síntesi de veu.</string>
     <string name="prefs_languages_information_off_link">Per a més informació, vegeu aquesta guia</string>
     <string name="transliteration_title">Transliteració a l’alfabet llatí</string>
     <string name="learn_more">Més informació</string>
@@ -869,7 +869,7 @@
     <string name="dialog_report_error_with_logs">Si us plau, envia\'ns un informe d\'error:\n - \"Activa el registre\" a la configuració\n - reprodueix el problema\n - a la pantalla \"Quant a i Ajuda\" prem el botó \"Informa d’un error\" i envia-ho via email o xat\n - desactiva el registre</string>
     <string name="hours_confirmed_time_ago">Confirmat %s</string>
     <string name="existence_confirmed_time_ago">Existència confirmada %s</string>
-    <string name="osm_note_hint">O, alternativament, deixeu una nota a la comunitat OpenStreetMap de manera que algú pugui afegir o arreglar un lloc aquí.</string>
+    <string name="osm_note_hint">O també podeu deixar una nota a la comunitat OpenStreetMap de manera que algú pugui afegir o arreglar un lloc aquí.</string>
     <string name="osm_note_toast">La nota s\'enviarà a OpenStreetMap</string>
     <string name="share_track">Compartir el Track</string>
     <string name="delete_track_dialog_title">Voleu eliminar %s?</string>
@@ -926,5 +926,17 @@
     <string name="download_resources_custom_url_summary_none">No establert</string>
     <string name="download_resources_custom_url_error_scheme">Per favor introdueix una URL que comence amb http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
-    <string name="limit_map_language_alternatives_to_local">Fes servir altres idiomes del sistema només en la seua regió</string>
+    <string name="location_privacy_info">Les aplicacions reben informació d\'ubicació del servei de localització del sistema, que pot compartir la teva ubicació amb Google i/o el proveïdor del teu dispositiu. Fes servir un SO Android respectuós amb la privacitat per evitar-ho.</string>
+    <string name="location_privacy">Privacitat de Localització</string>
+    <string name="pref_speedlimit_title">Mostra límits de velocitat</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="rooms">%s habitacions</string>
+    <string name="invalid_route">Ruta invàlida</string>
+    <string name="building_route">Construint ruta…</string>
+    <string name="route_not_started">Ruta no iniciada</string>
+    <string name="on_route">En ruta</string>
+    <string name="route_needs_rebuild">La ruta requereix reconstrucció</string>
+    <string name="route_finished">Ruta finalitzada</string>
+    <string name="not_following_route">No s\'està seguint la ruta</string>
+    <string name="rebuilding_route">Reconstruint ruta…</string>
 </resources>

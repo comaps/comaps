@@ -133,7 +133,7 @@ template <typename T>
 std::vector<std::string> GetHonestAffiliations(T && t, IndexSharedPtr const & index)
 {
   std::vector<std::string> affiliations;
-  std::unordered_set<borders::CountryPolygons const *> countires;
+  ankerl::unordered_dense::set<borders::CountryPolygons const *> countires;
   ForEachPoint(t, [&](auto const & point)
   {
     std::vector<CountriesFilesIndexAffiliation::Value> values;
@@ -196,7 +196,7 @@ CountriesFilesIndexAffiliation::CountriesFilesIndexAffiliation(std::string const
   : CountriesFilesAffiliation(borderPath, haveBordersForWholeWorld)
 {
   static std::mutex cacheMutex;
-  static std::unordered_map<std::string, std::shared_ptr<Tree>> cache;
+  static ankerl::unordered_dense::map<std::string, std::shared_ptr<Tree>> cache;
   auto const key = borderPath + std::to_string(haveBordersForWholeWorld);
 
   std::lock_guard<std::mutex> lock(cacheMutex);
@@ -228,7 +228,7 @@ std::vector<std::string> CountriesFilesIndexAffiliation::GetAffiliations(m2::Poi
 std::shared_ptr<CountriesFilesIndexAffiliation::Tree> CountriesFilesIndexAffiliation::BuildIndex(
     std::vector<m2::RectD> const & net)
 {
-  std::unordered_map<borders::CountryPolygons const *, std::vector<m2::RectD>> countriesRects;
+  ankerl::unordered_dense::map<borders::CountryPolygons const *, std::vector<m2::RectD>> countriesRects;
   std::mutex countriesRectsMutex;
   std::vector<Value> treeCells;
   std::mutex treeCellsMutex;

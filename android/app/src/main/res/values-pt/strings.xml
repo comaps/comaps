@@ -265,7 +265,7 @@
     <string name="downloader_download_all_button">Descarregar tudo</string>
     <string name="downloader_downloading">A descarregar:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Para eliminar o mapa, por favor pare a navegação</string>
+    <string name="downloader_delete_map_while_routing_dialog">Para eliminar um mapa, por favor pare a navegação primeiro</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Só podem ser criados trajetos que estejam completamente contidos num único mapa.</string>
     <!-- Context menu item for downloader. -->
@@ -461,7 +461,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d de %2$d</string>
     <string name="download_over_mobile_header">Descarregar utilizando uma conexão de rede de telemóveis?</string>
-    <string name="download_over_mobile_message">Isto pode ser muito caro com alguns planos ou em roaming</string>
+    <string name="download_over_mobile_message">Isto pode ser muito caro com alguns planos, especialmente se usar roaming.</string>
     <string name="error_enter_correct_house_number">Introduza um número de endereço correto</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">O número de pisos não pode ser maior que %d</string>
@@ -480,7 +480,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operador: %s</string>
     <string name="editor_category_unsuitable_title">Não encontra uma categoria adequada?</string>
-    <string name="editor_category_unsuitable_text">O CoMaps permite-lhe adicionar apenas categorias de pontos simples, ou seja, nada de cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente ao <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulte o nosso <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> para instruções detalhadas passo a passo.</string>
+    <string name="editor_category_unsuitable_text">O CoMaps apenas consegue adicionar apenas categorias de pontos simples, não consegue adicionar cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente ao <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulte o nosso <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> para instruções detalhadas passo a passo.</string>
     <string name="downloader_no_downloaded_maps_title">Não descarregou quaisquer mapas</string>
     <string name="downloader_no_downloaded_maps_message">Descarregar mapas para encontrar a localização e navegar offline</string>
     <string name="current_location_unknown_error_title">A localização atual é desconhecida</string>
@@ -533,9 +533,9 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Opinão geral</string>
     <string name="prefs_languages_information">Utilizamos o sistema TTS para as instruções de voz. Muitos dispositivos Android usam o Google TTS, pode transferir ou atualizá-lo a partir do Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Para alguns idiomas, precisará de instalar outro sintetizador de voz ou um pacote de idiomas adicional a partir da loja de aplicações (Google Play, Galaxy Store, App Gallery, FDroid). \nAbra as Configurações do seu dispositivo → Idioma e entrada → Voz → Saída de texto para voz. \nAqui pode gerir as configurações de síntese de voz (por exemplo, transferir um pacote de idioma para poder utilizá-lo sem estar ligado à Internet) ou selecionar outro motor de texto para voz.</string>
+    <string name="prefs_languages_information_off">Para alguns idiomas, precisará de instalar outro sintetizador de voz ou um pacote de idiomas adicional a partir de uma loja de aplicações (Google Play, Galaxy Store, App Gallery, F-Droid). \nAbra as Configurações do seu dispositivo → Idioma e entrada → Voz → Saída de texto para voz. \nAqui pode gerir as configurações de síntese de voz (por exemplo, pode transferir um pacote de idioma para poder utilizá-lo sem estar ligado à Internet) ou selecionar outro motor de texto para voz.</string>
     <string name="prefs_languages_information_off_link">Para obter mais informações, consulte este guia</string>
-    <string name="transliteration_title">Transliteração para o latim</string>
+    <string name="transliteration_title">Transliteração para o alfabeto Latim</string>
     <string name="learn_more">Saber mais</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">Use a busca ou toque no mapa para adicionar um ponto de partida do percurso</string>
@@ -915,8 +915,17 @@
     <string name="download_resources_custom_url_summary_none">Indefinido</string>
     <string name="download_resources_custom_url_error_scheme">Por favor, insira um URL começando com http:// ou https://</string>
     <string name="pref_maplanguage_local">Idioma Local</string>
-    <string name="limit_map_language_alternatives_to_local">Utilizar apenas outros idiomas do sistema na sua região</string>
     <string name="location_privacy_info">Aplicações usam dados de localização do serviço de localização, que podem partilhar a sua localização com a Google e/ou a marca do seu dispositivo. Use um Android OS que proteja privacidade para evitar isto.</string>
     <string name="location_privacy">Privacidade da Localização</string>
     <string name="pref_speedlimit_title">Mostrar limites de velocidade</string>
+    <string name="rooms">%s salas</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="invalid_route">Rota inválida</string>
+    <string name="building_route">Calculando a rota…</string>
+    <string name="route_not_started">Rota não iniciada</string>
+    <string name="on_route">Em rota</string>
+    <string name="route_needs_rebuild">Rota precisa de ser recalculada</string>
+    <string name="route_finished">Rota terminada</string>
+    <string name="not_following_route">Não está seguindo a rota</string>
+    <string name="rebuilding_route">Recalculando a rota…</string>
 </resources>

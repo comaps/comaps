@@ -271,7 +271,7 @@
     <string name="downloader_download_all_button">Last ned alle</string>
     <string name="downloader_downloading">Laster ned:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Stans navigeringen for å slette kartet</string>
+    <string name="downloader_delete_map_while_routing_dialog">Stopp navigeringen først for å slette et kart</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Det kan bare opprettes ruter som passer fullstendig innenfor ett enkelt kart.</string>
     <!-- Context menu item for downloader. -->
@@ -470,7 +470,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d av %2$d</string>
     <string name="download_over_mobile_header">Last ned med mobildata?</string>
-    <string name="download_over_mobile_message">Dette kan være veldig dyrt med enkelte abonnementer eller ved roaming</string>
+    <string name="download_over_mobile_message">Dette kan være veldig dyrt med enkelte abonnementer, spesielt ved roaming.</string>
     <string name="error_enter_correct_house_number">Skriv riktig husnummer</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Antallet etasjer må ikke overstige %d</string>
@@ -489,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operatør: %s</string>
     <string name="editor_category_unsuitable_title">Finner du ikke en passende kategori?</string>
-    <string name="editor_category_unsuitable_text">CoMaps tillater kun å legge til enkle punktkategorier, det vil si ingen byer, veier, innsjøer, bygningsomriss osv. Vennligst legg til slike kategorier direkte til <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sjekk vår <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerte trinnvise instruksjoner.</string>
+    <string name="editor_category_unsuitable_text">CoMaps kan kun legge til enkle punktkategorier, CoMaps kan ikke legge til byer, veier, innsjøer, bygningsomriss osv. Vennligst legg til slike kategorier direkte til <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sjekk vår <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerte trinnvise instruksjoner.</string>
     <string name="downloader_no_downloaded_maps_title">Du har ikke lastet ned noen kart</string>
     <string name="downloader_no_downloaded_maps_message">Last ned kart for å søke og navigere frakoblet</string>
     <string name="current_location_unknown_error_title">Gjeldende posisjon er ukjent</string>
@@ -548,10 +548,10 @@
     <string name="enable_logging">Aktiver loggføring</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Generell tilbakemelding</string>
-    <string name="prefs_languages_information">Vi bruker system-TTS for taleveiledning. Mange Android-enheter bruker Google TTS, du kan laste ned eller oppdatere via Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">For enkelte språk er det nødvendig å installere en annen talesyntese eller en ekstra språkpakke fra appbutikken (Google Play, Galaxy Store, App Gallery, FDroid). \nGå til enhetens innstillinger → Språk og input → Tale → Tekst til tale output. \nHer kan du administrere innstillingene for talesyntese (for eksempel laste ned språkpakke for offline bruk) og velge en annen tekst-til-tale-motor.</string>
+    <string name="prefs_languages_information">Vi bruker system-TTS for taleveiledning. Mange Android-enheter bruker Google TTS, du kan laste ned eller oppdatere via Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">For enkelte språk er det nødvendig å installere en talesyntese eller en ekstra språkpakke fra en appbutikk (Google Play, Galaxy Store, App Gallery, F-Droid). \nÅpne enhetens innstillinger og finn funksjonen \'Tekst til tale\'. \nHer kan du håndtere innstillingene for talesyntese, for eksempel laste ned en språkpakke for offline bruk og velge en annen tekst-til-tale-motor.</string>
     <string name="prefs_languages_information_off_link">Les denne veiledningen for mer informasjon</string>
-    <string name="transliteration_title">Omskrivning til latin</string>
+    <string name="transliteration_title">Transliterer til det latinske alfabetet</string>
     <string name="learn_more">Finn ut mer</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">Bruk søk eller trykk på kartet for å legge til et startpunkt for ruten</string>
@@ -904,7 +904,7 @@
     <string name="place_page_app_too_old_description">Gjeldende kartdata er gamle, oppdater CoMaps-appen.</string>
     <string name="place_page_update_too_old_map">Oppdater kartregion</string>
     <string name="place_page_too_old_to_edit">OpenStreetMap-redigering er deaktivert fordi kartdataene er for gamle.</string>
-    <string name="osm_note_hint">Alternativt, så kan du legge til et notat i OpenStreetMap, slik at noen andre kan redigere eller legge til stedet.</string>
+    <string name="osm_note_hint">Alternativt, kan du legge til et notat i OpenStreetMap, slik at noen andre her kan legge til eller korrigere et sted.</string>
     <string name="osm_note_toast">Notatet vil bli sendt til OpenStreetMap</string>
     <string name="advanced">Avansert</string>
     <string name="download_resources_custom_url_summary_none">Ikke angitt</string>
@@ -912,8 +912,17 @@
     <string name="download_resources_custom_url_message">Overstyr standardserveren som brukes til nedlasting av kart. La det stå tomt for å bruke CoMaps standardserver.</string>
     <string name="download_resources_custom_url_title">Tilpasset kartserver</string>
     <string name="pref_maplanguage_local">Lokalt språk</string>
-    <string name="limit_map_language_alternatives_to_local">Bruk andre systemspråk kun i deres region</string>
     <string name="location_privacy_info">Apper mottar posisjonsdata fra operativsystemets posisjonstjeneste, som kan dele posisjonen din med Google og/eller leverandøren av enheten din. Bruk et Android-operativsystem som ivaretar personvernet for å unngå dette.</string>
     <string name="location_privacy">Posisjonspersonvern</string>
     <string name="pref_speedlimit_title">Vis fartsgrenser</string>
+    <string name="rooms">%s rom</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="rebuilding_route">Beregner rute på nytt…</string>
+    <string name="invalid_route">Ugyldig rute</string>
+    <string name="building_route">Beregner rute…</string>
+    <string name="route_not_started">Rute ikke startet</string>
+    <string name="on_route">Underveis</string>
+    <string name="route_needs_rebuild">Rute må beregnes på nytt</string>
+    <string name="route_finished">Rute fullført</string>
+    <string name="not_following_route">Følger ikke rute</string>
 </resources>

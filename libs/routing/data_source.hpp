@@ -8,7 +8,6 @@
 #include "base/lru_cache.hpp"
 
 #include <map>
-#include <unordered_map>
 
 namespace routing
 {
@@ -19,6 +18,7 @@ class MwmDataSource
 {
   DataSource & m_dataSource;
   std::shared_ptr<NumMwmIds> m_numMwmIDs;
+  // TODO(x7z4w): fix GetHandleSafe below to not depend on stable references (MwmSet::MwmHandle is being returned by pointer), then use ankerl::unordered_dense here.
   std::unordered_map<NumMwmId, MwmSet::MwmHandle> m_handles;
 
   // Used for FeaturesRoadGraph in openlr only.

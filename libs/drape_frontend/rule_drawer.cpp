@@ -230,7 +230,7 @@ bool RuleDrawer::CheckCoastlines(FeatureType & f)
 {
   if (m_zoomLevel > scales::GetUpperWorldScale() && f.GetID().m_mwmId.GetInfo()->GetType() == MwmInfo::COASTS)
   {
-    std::string_view const name = f.GetName(StringUtf8Multilang::kDefaultCode);
+    std::string_view const name = f.GetName(localisation::kDefaultNameIndex);
     if (!name.empty())
     {
       strings::SimpleTokenizer iter(name, ";");
@@ -363,7 +363,9 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
       df::RoadClass m_roadClass;
     };
     static Checker const checkers[] = {
-        {{HighwayClass::Motorway, HighwayClass::Trunk, HighwayClass::Primary}, kRoadClass0ZoomLevel, df::RoadClass::Class0},
+        {{HighwayClass::Motorway, HighwayClass::Trunk, HighwayClass::Primary},
+         kRoadClass0ZoomLevel,
+         df::RoadClass::Class0},
         {{HighwayClass::Secondary, HighwayClass::Tertiary}, kRoadClass1ZoomLevel, df::RoadClass::Class1},
         {{HighwayClass::LivingStreet, HighwayClass::Service, HighwayClass::ServiceMinor},
          kRoadClass2ZoomLevel,

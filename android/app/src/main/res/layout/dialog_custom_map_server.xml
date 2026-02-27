@@ -17,6 +17,5 @@
       android:id="@+id/edit_custom_map_server"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textUri"
-      android:singleLine="true" />
+      android:inputType="textUri" />
 </com.google.android.material.textfield.TextInputLayout>

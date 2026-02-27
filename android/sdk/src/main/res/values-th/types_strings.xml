@@ -378,7 +378,6 @@
     <string name="type.highway.pedestrian.area">ถนน</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">สะพาน</string>
-
     <string name="type.highway.pedestrian.square">ช่องว่าง</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">อุโมงค์</string>

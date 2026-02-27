@@ -4,7 +4,8 @@
 
 You need a Linux or a MacOS machine to build a desktop version of CoMaps. [Windows](#windows) users can use the [WSL](https://learn.microsoft.com/en-us/windows/wsl/) (Windows Subsystem for Linux) and follow ["Linux or Mac"](#linux-or-mac) steps described below.
 
-### Linux or MacOS
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Linux or MacOS</span></summary>
 
 Ensure that you have at least 20GB of free space.
 
@@ -132,8 +133,11 @@ pip3 install "protobuf<3.21" --break-system-packages
 brew install cmake ninja qt@6
 pip3 install "protobuf<3.21"
 ```
+</details>
 
-### Windows
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
+
 
 We haven't compiled CoMaps on Windows *natively* in a long time, somes adaptations is required to support Windows.
 You'll need to have python3, cmake, ninja, and QT6 in the PATH, and Visual Studio 2022 or Visual Studio 2022 Build Tools installed. Use [Visual Studio Developer Command Prompt](https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) or generate Visual Studio project files with CMake to build the project.
@@ -167,6 +171,7 @@ Now when you want to run the desktop app you just need to first launch the X Ser
 
 Running X Server is also required to run `generate_symbols.sh` script when you change icons for [styles](STYLES.md)
 
+</details>
 
 ### Building
 
@@ -204,11 +209,16 @@ The generated binaries appear in `../omim-build-<buildtype>`.
 
 A desktop app binary is `CoMaps`. To run e.g. a release version:
 
-_Linux:_
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">Linux</span></summary>
 
 ```bash
 ../omim-build-release/CoMaps
 ```
+</details>
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">macOS</span></summary>
 
 For running the "Designer" version instead, use the following command and
 optionally add the path to the style file to be loaded. If no path is provided,
@@ -219,11 +229,10 @@ the application will ask for it by opening a file dialog on startup.
 ../omim-build-release/CoMaps.Designer optional/path/to/style.mapcss
 ```
 
-_macOS:_
-
 ```bash
 ../omim-build-release/CoMaps.app/Contents/MacOS/CoMaps
 ```
+</details>
 
 ### Testing
 
@@ -253,16 +262,15 @@ Some tests are known to be broken and disabled on CI.
 
 ### Test Coverage
 
-To generate a test coverage report you'll need [gcovr](https://gcovr.com) and gcov tools installed.
+To generate a test coverage report you'll need [gcovr](https://gcovr.com) and gcov tools installed:
+
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">Linux</span></summary>
 
 Installing gcovr on Linux:
 ```bash
 pip3 install gcovr
-```
-
-Installing gcovr on MacOS:
-```bash
-brew install gcovr
 ```
 
 Installing gcov on Linux:
@@ -274,6 +282,18 @@ sudo apt-get install cpp
 sudo apt-get install llvm
 ```
 
+
+</details>
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">MacOS</span></summary>
+
+
+Installing gcovr on MacOS:
+```bash
+brew install gcovr
+```
+
 Installing gcov on MacOS:
 ```bash
 # If you're using AppleClang compiler it should already be installed
@@ -282,7 +302,12 @@ Installing gcov on MacOS:
 brew install llvm
 ```
 
-Steps to generate coverage report:
+
+</details>
+
+
+
+#### Steps to generate coverage report:
 
 1. Configure cmake with `-DCOVERAGE_REPORT=ON` flag:
    ```bash

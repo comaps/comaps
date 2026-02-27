@@ -86,7 +86,7 @@ void AddressEnricher::AddSrc(feature::FeatureBuilder && fb)
     }
 
     std::string_view name;
-    if (params.name.GetString(StringUtf8Multilang::kDefaultCode, name))
+    if (params.name.GetString(localisation::kDefaultNameIndex, name))
       CHECK(!name.empty(), (osmID));
     else if (params.ref.empty())
       return;
@@ -272,7 +272,7 @@ AddressEnricher::FoundT AddressEnricher::Match(Entry & e) const
 
       // Take 'ref' if 'name' is empty, like here: https://www.openstreetmap.org/way/902910704
       std::string_view name;
-      if (params.name.GetString(StringUtf8Multilang::kDefaultCode, name))
+      if (params.name.GetString(localisation::kDefaultNameIndex, name))
         streetName = name;
       else if (!params.ref.empty())
         streetName = params.ref;

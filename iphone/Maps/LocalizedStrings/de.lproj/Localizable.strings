@@ -102,7 +102,7 @@
 "category_parking" = "Parkplätze";
 
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
-"category_shopping" = "Shopping";
+"category_shopping" = "Einkaufen";
 
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Second-hand";
@@ -198,7 +198,7 @@
 "version: %@ (%@)\nmap data: %@" = "Version: %@ (%@)\nKartendaten: %@";
 
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Tracks";
+"tracks_title" = "Routen";
 
 /* Length of track in cell that describes route */
 "length" = "Länge";
@@ -909,7 +909,7 @@
 "transit_not_found" = "Die U-Bahn-Navigation ist in dieser Region noch nicht verfügbar";
 "dialog_pedestrian_route_is_long_header" = "Keine U-Bahn-Route gefunden";
 "dialog_pedestrian_route_is_long_message" = "Wähle einen Start- oder Endpunkt näher an einer U-Bahn-Station";
-"button_layer_isolines" = "Höhelinien";
+"button_layer_isolines" = "Höhenlinien";
 "isolines_activation_error_dialog" = "Um die Höhenlinien nutzen zu können, aktualisiere die Karte des betreffenden Gebiets oder lade diese herunter";
 "isolines_location_error_dialog" = "Höhenlinien sind für dieses Gebiet noch nicht verfügbar";
 "elevation_profile_diff_level" = "Schwierigkeitsgrad";
@@ -1092,9 +1092,10 @@
 "edit_track" = "Track bearbeiten";
 "pref_mapappearance_title" = "Kartendarstellung";
 "pref_maplanguage_title" = "Karten-Sprache";
-"pref_alt_map_lang_handling" = "Alternative Karten-Sprachen";
-"pref_alt_map_lang_handling_system_order" = "In Systemreihenfolge verwenden";
-"pref_alt_map_lang_handling_local_only" = "Bevorzugen und nur verwenden, wenn es lokale Sprache ist";
+"pref_alt_map_lang_handling" = "Alternative Kartensprachen";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Verwende keine Alternativen";
+"pref_alt_map_lang_handling_system_order" = "Systemreihenfolge verwenden";
+"pref_alt_map_lang_handling_local_only" = "Bevorzugen und nur verwenden, wo es lokale Sprache ist";
 "transliteration_title_disabled_summary" = "Deaktiviert, wenn für die Karte immer die lokale Sprache verwendet wird";
 "pref_maplanguage_local" = "Lokale Sprache";
 "existence_confirmed_time_ago" = "Existenz bestätigt %@";
@@ -1106,3 +1107,6 @@
 "unknown" = "Unbekannt";
 "voice_explanation_before_version26" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* auszuwählen.";
 "voice_explanation" = "Es ist möglich in den Systemeinstellungen eine bessere Stimme unter *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* auszuwählen.";
+
+/* To indicate the number of rooms in hotel, hospital ... */
+"rooms" = "%@ Räume";

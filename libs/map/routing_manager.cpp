@@ -942,9 +942,9 @@ void RoutingManager::SetPointsFollowingMode(bool enabled)
 
 void RoutingManager::RemovePassedPoints()
 {
-    ASSERT(m_bmManager != nullptr, ());
-    RoutePointsLayout routePoints(*m_bmManager);
-    routePoints.RemovePassedPoints();
+  ASSERT(m_bmManager != nullptr, ());
+  RoutePointsLayout routePoints(*m_bmManager);
+  routePoints.RemovePassedPoints();
 }
 
 void RoutingManager::ReorderIntermediatePoints()
@@ -1122,7 +1122,7 @@ void RoutingManager::CheckLocationForRouting(location::GpsInfo const & info)
     return;
 
   SessionState const state = m_routingSession.OnLocationPositionChanged(info);
-  if (state == SessionState::RouteNeedRebuild)
+  if (state == SessionState::RouteNeedsRebuild)
   {
     m_routingSession.RebuildRoute(
         mercator::FromLatLon(info.m_latitude, info.m_longitude), [this](Route const & route, RouterResultCode code)

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mb">MB</string>
+    <string name="gb">GB</string>
+    <string name="core_my_position">ನನ್ನ ಸ್ಥಾನ</string>
+    <string name="core_my_places">ನನ್ನ ಸ್ಥಳಗಳು</string>
+    <string name="maps_storage_internal">ಆಂತರಿಕ ಖಾಸಗಿ ಸಂಗ್ರಹಣೆ</string>
+    <string name="maps_storage_shared">ಆಂತರಿಕ ಹಂಚಿಕೆಯ ಸಂಗ್ರಹಣೆ</string>
+    <string name="maps_storage_removable">SD ಕಾರ್ಡ್</string>
+    <string name="maps_storage_external">ಬಾಹ್ಯ ಹಂಚಿಕೆಯ ಸಂಗ್ರಹಣೆ</string>
+    <string name="category_wifi">WiFi</string>
+    <string name="postal_code">ಅಂಚೆ ಕೋಡ್</string>
+    <string name="core_placepage_unknown_place">ಮ್ಯಾಪ್ ಪಾಯಿಂಟ್</string>
+    <string name="m">m</string>
+    <string name="km">km</string>
+    <string name="mi">mi</string>
+    <string name="ft">ft</string>
+    <string name="core_exit">ಹೊರಗೆ</string>
+    <string name="core_entrance">ಪ್ರವೇಶದ್ವಾರ</string>
+    <string name="subway_data_unavailable">ಸಬ್‌ವೇ ನಕ್ಷೆ ಲಭ್ಯವಿಲ್ಲ</string>
+    <string name="public_access">ಸಾರ್ವಜನಿಕ ಪ್ರವೇಶ</string>
+    <string name="limited_access">ಸೀಮಿತ ಪ್ರವೇಶ</string>
+    <string name="not_shared">ಸ್ವಂತ</string>
+    <string name="access_rules_author_only">ಆನ್‌ಲೈನ್ ಸಂಪಾದನೆ</string>
+    <string name="today">ಇಂದು</string>
+    <string name="yesterday">ನಿನ್ನೆ</string>
+    <string name="days_ago">%s ದಿನಗಳ ಹಿಂದೆ</string>
+    <string name="week_ago">%s ವಾರದ ಹಿಂದೆ</string>
+    <string name="weeks_ago">%s ವಾರಗಳ ಹಿಂದೆ</string>
+    <string name="month_ago">%s ತಿಂಗಳುಗಳು ಹಿಂದೆ</string>
+    <string name="months_ago">%s ತಿಂಗಳ ಹಿಂದೆ</string>
+    <string name="year_ago">%s ವರ್ಷದ ಹಿಂದೆ</string>
+    <string name="years_ago">%s ವರ್ಷಗಳ ಹಿಂದೆ</string>
+</resources>

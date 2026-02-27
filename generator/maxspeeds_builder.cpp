@@ -89,7 +89,7 @@ class MaxspeedsMwmCollector
   static int constexpr kSpeedsCount = MaxspeedsSerializer::DEFAULT_SPEEDS_COUNT;
   static int constexpr kOutsideCityIdx = 0;
   // 0 - outside a city; 1 - inside a city.
-  std::unordered_map<HighwayType, AvgInfo> m_avgSpeeds[kSpeedsCount];
+  ankerl::unordered_dense::map<HighwayType, AvgInfo> m_avgSpeeds[kSpeedsCount];
 
   base::GeoObjectId GetOsmID(uint32_t fid) const
   {
@@ -139,7 +139,7 @@ public:
     };
     auto const GetHighwayType = [&](uint32_t fid) { return GetRoad(fid).GetHighwayType(); };
 
-    //auto const & converter = GetMaxspeedConverter();
+    // auto const & converter = GetMaxspeedConverter();
     using HwTypeT = std::optional<routing::HighwayType>;
     auto const CalculateSpeed = [&](uint32_t parentFID, Maxspeed const & s,
                                     HwTypeT hwType) -> std::optional<SpeedInUnits>
@@ -151,9 +151,9 @@ public:
       // Set speed as-is from parent link.
       if (parentHwType == hwType)
         return {{s.GetForward(), s.GetUnits()}};
-      /* Commenting this part out as an attempt to solve displayed (and inexistent) max speed in highway links (https://codeberg.org/comaps/comaps/issues/1000)
-      using routing::HighwayType;
-      if ((*parentHwType == HighwayType::HighwayMotorway && hwType == HighwayType::HighwayMotorwayLink) ||
+      /* Commenting this part out as an attempt to solve displayed (and inexistent) max speed in highway links
+      (https://codeberg.org/comaps/comaps/issues/1000) using routing::HighwayType; if ((*parentHwType ==
+      HighwayType::HighwayMotorway && hwType == HighwayType::HighwayMotorwayLink) ||
           (*parentHwType == HighwayType::HighwayTrunk && hwType == HighwayType::HighwayTrunkLink) ||
           (*parentHwType == HighwayType::HighwayPrimary && hwType == HighwayType::HighwayPrimaryLink) ||
           (*parentHwType == HighwayType::HighwaySecondary && hwType == HighwayType::HighwaySecondaryLink) ||
@@ -213,7 +213,7 @@ public:
           if (direction)
             seg = GetOpposite(seg);
 
-          std::unordered_set<uint32_t> reviewed;
+          ankerl::unordered_dense::set<uint32_t> reviewed;
           do
           {
             LOG_MAX_SPEED(("Input seg =", seg));
@@ -422,9 +422,7 @@ public:
         auto const s = m_avgSpeeds[ind][type].m_speed;
         if (s > 0)
           return s;
-        auto const * p = kHighwayBasedSpeeds.Find(type);
-        CHECK(p, ());
-        return p->GetSpeed(inCity).m_weight;
+        return kHighwayBasedSpeeds.at(type).GetSpeed(inCity).m_weight;
       };
 
       // These speeds: Primary, Secondary, Tertiary, Residential have the biggest routing quality impact.

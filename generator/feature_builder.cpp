@@ -214,21 +214,19 @@ bool FeatureBuilder::PreSerialize()
             ftypes::IsEntranceChecker::Instance()(types) || ftypes::IsAerowayGateChecker::Instance()(types) ||
             ftypes::IsPlatformChecker::Instance()(types))))
       {
-        m_params.name.AddString(StringUtf8Multilang::kDefaultCode, m_params.ref);
+        m_params.name.AddString(localisation::kDefaultNameIndex, m_params.ref);
       }
       else if (!m_params.name.IsEmpty() && ftypes::IsRailwaySubwayEntranceChecker::Instance()(types))
       {
         StringUtf8Multilang nameWithRef;
         m_params.name.ForEach([&nameWithRef, this](int8_t code, std::string_view name)
-        {
-          nameWithRef.AddString(code, std::string(name) + " (" + m_params.ref + ")");
-        });
+        { nameWithRef.AddString(code, std::string(name) + " (" + m_params.ref + ")"); });
         m_params.name = std::move(nameWithRef);
       }
       else if (ftypes::IsEmergencyAccessPointChecker::Instance()(types))
       {
         m_params.name.Clear();
-        m_params.name.AddString(StringUtf8Multilang::kDefaultCode, m_params.ref);
+        m_params.name.AddString(localisation::kDefaultNameIndex, m_params.ref);
       }
 
       m_params.ref.clear();
@@ -254,7 +252,7 @@ bool FeatureBuilder::PreSerialize()
     {
       auto const & types = GetTypes();
       if (m_params.name.IsEmpty() && (ftypes::IsPlatformChecker::Instance()(types)))
-        m_params.name.AddString(StringUtf8Multilang::kDefaultCode, m_params.ref);
+        m_params.name.AddString(localisation::kDefaultNameIndex, m_params.ref);
 
       m_params.ref.clear();
     }
@@ -323,11 +321,11 @@ void FeatureBuilder::RemoveUselessNames()
 
     // Skip the alt_name which is equal to the default name.
     std::string_view name, altName;
-    if (m_params.name.GetString(StringUtf8Multilang::kAltNameCode, altName) &&
-        m_params.name.GetString(StringUtf8Multilang::kDefaultCode, name) &&
+    if (m_params.name.GetString(localisation::kAlternativeNameIndex, altName) &&
+        m_params.name.GetString(localisation::kDefaultNameIndex, name) &&
         search::NormalizeAndSimplifyString(altName) == search::NormalizeAndSimplifyString(name))
     {
-      m_params.name.RemoveString(StringUtf8Multilang::kAltNameCode);
+      m_params.name.RemoveString(localisation::kAlternativeNameIndex);
     }
   }
 }

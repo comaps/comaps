@@ -35,6 +35,7 @@ struct FrameValues
   glsl::mat4 m_projection;
   glsl::mat4 m_pivotTransform;
   float m_zScale = 1.0f;
+  double m_frameTime = 0.0;
 
   template <typename ParamsType>
   void SetTo(ParamsType & params) const
@@ -42,11 +43,13 @@ struct FrameValues
     SetProjection(params);
     SetPivotTransform(params);
     SetZScale(params);
+    SetFrameTime(params);
   }
 
 private:
   DECLARE_SETTER(SetProjection, m_projection)
   DECLARE_SETTER(SetPivotTransform, m_pivotTransform)
   DECLARE_SETTER(SetZScale, m_zScale)
+  DECLARE_SETTER(SetFrameTime, m_frameTime)
 };
 }  // namespace df

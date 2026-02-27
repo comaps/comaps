@@ -62,7 +62,7 @@
 "type.amenity.music_school" = "Escola de música";
 "type.amenity.language_school" = "Escola de idiomas";
 "type.office.diplomatic" = "Embaixada ou consulado";
-"type.amenity.fast_food" = "Fast food";
+"type.amenity.fast_food" = "Lanchonete";
 "type.amenity.ferry_terminal" = "Estação de barcas";
 "type.amenity.fire_station" = "Posto de bombeiros";
 "type.amenity.food_court" = "Praça de alimentação";
@@ -1600,3 +1600,4 @@
 "type.railway.disused.tunnel" = "Túnel ferroviário desativado";
 "type.railway.miniature" = "Ferrovia em miniatura";
 "type.waterway.fuel" = "Posto de combustível da marina";
+"type.amenity.community_centre.youth_centre" = "Centro juvenil";

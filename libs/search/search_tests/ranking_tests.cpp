@@ -32,7 +32,7 @@ NameScores GetScore(string const & name, string const & query)
 
   params.Init(query, tokens, !query.empty() && !delims(strings::LastUniChar(query)));
 
-  return GetNameScores(name, StringUtf8Multilang::kDefaultCode, TokenSlice(params, {0, tokens.size()}));
+  return GetNameScores(name, localisation::kDefaultNameIndex, TokenSlice(params, {0, tokens.size()}));
 }
 
 void AssignRankingInfo(NameScores const & scores, RankingInfo & info, size_t totalLength)

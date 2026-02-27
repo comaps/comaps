@@ -22,8 +22,8 @@ namespace
 bool GetGroupCountryIdFromFeature(storage::Storage const & storage, FeatureType & ft, std::string & name)
 {
   auto const & synonyms = storage.GetCountryNameSynonyms();
-  int8_t const langIndices[] = {StringUtf8Multilang::kEnglishCode, StringUtf8Multilang::kDefaultCode,
-                                StringUtf8Multilang::kInternationalCode};
+  int8_t const langIndices[] = {localisation::kEnglishLanguageIndex, localisation::kDefaultNameIndex,
+                                localisation::kInternationalNameIndex};
 
   for (auto const langIndex : langIndices)
   {

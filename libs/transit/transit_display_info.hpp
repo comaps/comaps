@@ -38,7 +38,8 @@ using TransitLinesInfoPT = std::map<::transit::TransitId, ::transit::experimenta
 using TransitLinesMetadataInfoPT = std::map<::transit::TransitId, ::transit::experimental::LineMetadata>;
 using TransitRoutesInfoPT = std::map<::transit::TransitId, ::transit::experimental::Route>;
 using TransitNetworksInfoPT = std::map<::transit::TransitId, ::transit::experimental::Network>;
-using TransitEdgesInfoPT = std::unordered_map<::transit::EdgeId, ::transit::EdgeData, ::transit::EdgeIdHasher>;
+using TransitEdgesInfoPT =
+    ankerl::unordered_dense::map<::transit::EdgeId, ::transit::EdgeData, ::transit::EdgeIdHasher>;
 struct TransitDisplayInfo
 {
   ::transit::TransitVersion m_transitVersion;

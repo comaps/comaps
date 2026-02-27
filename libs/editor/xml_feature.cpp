@@ -218,10 +218,10 @@ std::vector<m2::PointD> XMLFeature::GetGeometry() const
 
 string XMLFeature::GetName(std::string_view lang) const
 {
-  ASSERT_EQUAL(kDefaultLang, StringUtf8Multilang::GetLangByCode(StringUtf8Multilang::kDefaultCode), ());
-  ASSERT_EQUAL(kIntlLang, StringUtf8Multilang::GetLangByCode(StringUtf8Multilang::kInternationalCode), ());
-  ASSERT_EQUAL(kAltLang, StringUtf8Multilang::GetLangByCode(StringUtf8Multilang::kAltNameCode), ());
-  ASSERT_EQUAL(kOldLang, StringUtf8Multilang::GetLangByCode(StringUtf8Multilang::kOldNameCode), ());
+  ASSERT_EQUAL(kDefaultLang, localisation::ConvertLanguageIndexToLanguageCode(localisation::kDefaultNameIndex), ());
+  ASSERT_EQUAL(kIntlLang, localisation::ConvertLanguageIndexToLanguageCode(localisation::kInternationalNameIndex), ());
+  ASSERT_EQUAL(kAltLang, localisation::ConvertLanguageIndexToLanguageCode(localisation::kAlternativeNameIndex), ());
+  ASSERT_EQUAL(kOldLang, localisation::ConvertLanguageIndexToLanguageCode(localisation::kOldNameIndex), ());
   if (lang == kIntlLang)
     return GetTagValue(kIntlName);
   if (lang == kAltLang)
@@ -236,7 +236,7 @@ string XMLFeature::GetName(std::string_view lang) const
 
 string XMLFeature::GetName(uint8_t const langCode) const
 {
-  return GetName(StringUtf8Multilang::GetLangByCode(langCode));
+  return GetName(localisation::ConvertLanguageIndexToLanguageCode(langCode));
 }
 
 void XMLFeature::SetName(string_view name)
@@ -260,7 +260,7 @@ void XMLFeature::SetName(string_view lang, string_view name)
 
 void XMLFeature::SetName(uint8_t const langCode, string_view name)
 {
-  SetName(StringUtf8Multilang::GetLangByCode(langCode), name);
+  SetName(localisation::ConvertLanguageIndexToLanguageCode(langCode), name);
 }
 
 string XMLFeature::GetHouse() const
@@ -829,10 +829,7 @@ XMLFeature ToXML(osm::EditableMapObject const & object, bool serializeType)
     toFeature.SetCuisine(cuisineStr);
   }
 
-  object.ForEachMetadataItem([&toFeature](string_view tag, string_view value)
-  {
-      toFeature.SetTagValue(tag, value);
-  });
+  object.ForEachMetadataItem([&toFeature](string_view tag, string_view value) { toFeature.SetTagValue(tag, value); });
 
   return toFeature;
 }

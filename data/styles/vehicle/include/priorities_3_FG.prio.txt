@@ -245,6 +245,15 @@ highway-service-parking_aisle                       # line z14- (also has pathte
 highway-service-tunnel                              # line z14- (also has pathtext z16-)
 === 140
 
+sac_scale-alpine                                    # line z17-
+sac_scale-demanding_alpine                          # line z17-
+sac_scale-demanding_mountain                        # line z17-
+sac_scale-difficult_alpine                          # line z17-
+sac_scale-hiking                                    # line z17-
+sac_scale-mountain                                  # line z17-
+sac_scale-strolling                                 # line z17-
+=== 135
+
 highway-bridleway                                   # line z18-
 highway-bridleway-bridge                            # line z18-
 highway-cycleway                                    # line z18-

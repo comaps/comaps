@@ -117,7 +117,7 @@ void BuildPopularPlacesFromDescriptions(std::string const & mwmFile)
   descriptions::Deserializer deserializer;
 
   std::vector<int8_t> langPriority;
-  langPriority.push_back(StringUtf8Multilang::kEnglishCode);
+  langPriority.push_back(localisation::kEnglishLanguageIndex);
 
   BuildPopularPlacesImpl(mwmFile, [&](FeatureType &, uint32_t featureId)
   {
@@ -144,7 +144,7 @@ void BuildPopularPlacesFromWikiDump(std::string const & mwmFile, std::string con
     if (data.m_ftIndex == featureId)
     {
       for (auto const & [lang, idx] : data.m_strIndices)
-        if (lang == StringUtf8Multilang::kEnglishCode)
+        if (lang == localisation::kEnglishLanguageIndex)
           return CalcRank(collector.m_collection.m_strings[idx]);
     }
 
@@ -155,7 +155,7 @@ void BuildPopularPlacesFromWikiDump(std::string const & mwmFile, std::string con
 PopularPlaces const & GetOrLoadPopularPlaces(std::string const & filename)
 {
   static std::mutex m;
-  static std::unordered_map<std::string, PopularPlaces> placesStorage;
+  static ankerl::unordered_dense::map<std::string, PopularPlaces> placesStorage;
 
   std::lock_guard<std::mutex> lock(m);
   auto const it = placesStorage.find(filename);

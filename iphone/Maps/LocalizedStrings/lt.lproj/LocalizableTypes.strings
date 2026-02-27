@@ -36,8 +36,8 @@
 "type.leisure.adult_gaming_centre" = "Lošimo automatų salonas";
 "type.leisure.amusement_arcade" = "Žaidimo automatų salonas";
 "type.amenity.charging_station" = "Krovimo stotelė";
-"type.amenity.charging_station.bicycle" = "Elektrinių dviračių krovimo stotelė";
-"type.amenity.charging_station.motorcar" = "Elektromobilių krovimo stotelė";
+"type.amenity.charging_station.bicycle" = "Dviračiams";
+"type.amenity.charging_station.motorcar" = "Automobiliams";
 "type.amenity.childcare" = "Lopšelis";
 "type.amenity.cinema" = "Kino teatras";
 "type.leisure.bowling_alley" = "Boulingo klubas";
@@ -151,7 +151,7 @@
 "type.amenity.shelter.basic_hut" = "Bivako namelis";
 
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
-"type.amenity.shelter.lean_to" = "Pastogė";
+"type.amenity.shelter.lean_to" = "Pastogė nakvynei";
 "type.amenity.public_bath" = "Viešoji vonia";
 "type.amenity.shower" = "Dušas";
 "type.amenity.stripclub" = "Striptizo klubas";
@@ -1461,7 +1461,7 @@
 "type.office.security" = "Saugos tarnyba";
 "type.power.portal" = "Portalinė atrama";
 "type.building.guardhouse" = "Apsaugos postas";
-"type.amenity.bench.backless" = "Suolas be atramos";
+"type.amenity.bench.backless" = "Be atramos";
 "type.amenity.boat_rental" = "Valčių nuoma";
 "type.man_made.telescope" = "Teleskopas";
 "type.man_made.telescope.optical" = "Teleskopas (optinis)";
@@ -1588,3 +1588,16 @@
 "type.piste_type.nordic" = "Slidinėjimo kroso trasa";
 "type.piste_type.sled" = "Rogučių trasa";
 "type.piste_type.sled.area" = "Rogučių trasa";
+"type.waterway.fuel" = "Mažųjų laivų degalinė";
+"type.amenity.charging_station.motorcycle" = "Motociklams";
+"type.amenity.charging_station.small" = "Ribotas vietų skaičius";
+"type.emergency.access_point.address" = "Evakuacijos adresas";
+"type.emergency.disaster_help_point" = "Pagalbos stichinių nelaimių atvejais punktas";
+"type.railway.disused.bridge" = "Apleistas geležinkelio tiltas";
+"type.railway.disused.tunnel" = "Apleistas geležinkelio tunelis";
+"type.railway.miniature" = "Mažasis geležinkelis";
+"type.railway.miniature.bridge" = "Mažojo geležinkelio tiltas";
+"type.railway.miniature.tunnel" = "Mažojo geležinkelio tunelis";
+"type.railway.turntable" = "Grįžratis";
+"type.tourism.information.tactile_map" = "Taktilinis planas";
+"type.amenity.community_centre.youth_centre" = "Jaunimo centras";

@@ -89,7 +89,7 @@ void cleanupAdditionalLanguages(std::vector<osm::LocalizedName> const & names,
   base::EraseIf(newAdditionalLanguages, [&names](NSInteger x)
                 {
                   auto it = find_if(names.begin(), names.end(),
-                                    [x](osm::LocalizedName const & name) { return name.m_code == x; });
+                                    [x](osm::LocalizedName const & name) { return name.m_languageIndex == x; });
                   return it != names.end();
                 });
 }
@@ -470,7 +470,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     auto const readableType = classif().GetReadableObjectName(*(types.begin()));
     MWMEditorCategoryCell * cCell = static_cast<MWMEditorCategoryCell *>(cell);
     [cCell configureWithDelegate:self
-                     detailTitle:@(platform::GetLocalizedTypeName(readableType).c_str())
+                     detailTitle:@(localisation::TranslatedFeatureType(readableType).c_str())
                       isCreating:self.isCreating];
     break;
   }
@@ -554,9 +554,9 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     if (indexPath.row < localizedNames.size())
     {
       osm::LocalizedName const & name = localizedNames[indexPath.row];
-      NSString * langName = indexPath.row == StringUtf8Multilang::kDefaultCode ? L(@"editor_default_language_hint") : ToNSString(name.m_langName);
+      NSString * langName = indexPath.row == localisation::kDefaultNameIndex ? L(@"editor_default_language_hint") : ToNSString(name.m_languageName);
       [tCell configWithDelegate:self
-                       langCode:name.m_code
+                       langCode:name.m_languageIndex
                        langName:langName
                            name:@(name.m_name.c_str())
                    errorMessage:L(@"error_enter_correct_name")
@@ -570,14 +570,14 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 
       std::string name;
       // Default name can be changed in advanced mode.
-      if (langCode == StringUtf8Multilang::kDefaultCode)
+      if (langCode == localisation::kDefaultNameIndex)
       {
         name = m_mapObject.GetDefaultName();
       }
 
       [tCell configWithDelegate:self
                        langCode:langCode
-                       langName:ToNSString(StringUtf8Multilang::GetLangNameByCode(langCode))
+                       langName:ToNSString(localisation::GetLanguageNameByLanguageIndex(langCode))
                            name:@(name.c_str())
                    errorMessage:L(@"error_enter_correct_name")
                         isValid:isValid

@@ -635,7 +635,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operador: %@";
 "editor_category_unsuitable_title" = "Não encontra uma categoria adequada?";
-"editor_category_unsuitable_text" = "O CoMaps permite que você adicione apenas categorias de pontos simples, o que significa que não há cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente no <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consulte nosso <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guia</a> para obter instruções detalhadas passo a passo.";
+"editor_category_unsuitable_text" = "O CoMaps permite que você adicione apenas categorias de pontos simples, o que significa que não consegue adicionar cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente no <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consulte nosso <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guia</a> para obter instruções detalhadas passo a passo.";
 "downloader_no_downloaded_maps_title" = "Você não baixou nenhum mapa";
 "downloader_no_downloaded_maps_message" = "Baixe mapas para pesquisar locais e usar navegação offline.";
 "current_location_unknown_error_title" = "A localização atual é desconhecida.";
@@ -1106,3 +1106,5 @@
 "pref_alt_map_lang_handling_local_only" = "Preferir e apenas usar quando nativo";
 "pref_alt_map_lang_handling" = "Idiomas do mapa alternativos";
 "pref_alt_map_lang_handling_system_order" = "Usar na ordem do sistema";
+"rooms" = "%@ salas";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

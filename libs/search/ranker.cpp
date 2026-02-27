@@ -37,7 +37,7 @@ namespace
 template <typename Slice>
 void UpdateNameScores(string_view name, uint8_t lang, Slice const & slice, NameScores & bestScores)
 {
-  if (StringUtf8Multilang::IsAltOrOldName(lang))
+  if (localisation::IsAlternativeOrOldName(lang))
     strings::Tokenize(name, ";", [&](string_view n) { bestScores.UpdateIfBetter(GetNameScores(n, lang, slice)); });
   else
     bestScores.UpdateIfBetter(GetNameScores(name, lang, slice));
@@ -146,7 +146,7 @@ NameScores GetNameScores(FeatureType & ft, Geocoder::Params const & params, Toke
       }
     };
 
-    if (StringUtf8Multilang::IsAltOrOldName(lang))
+    if (localisation::IsAlternativeOrOldName(lang))
       strings::Tokenize(name, ";", [&updateScore](string_view n) { updateScore(n); });
     else
       updateScore(name);
@@ -167,19 +167,19 @@ NameScores GetNameScores(FeatureType & ft, Geocoder::Params const & params, Toke
       }
     }
     else
-      UpdateNameScores(ft.GetHouseNumber(), StringUtf8Multilang::kDefaultCode, sliceNoCategories, bestScores);
+      UpdateNameScores(ft.GetHouseNumber(), localisation::kDefaultNameIndex, sliceNoCategories, bestScores);
   }
 
   if (ftypes::IsAirportChecker::Instance()(ft))
   {
     auto const iata = ft.GetMetadata(feature::Metadata::FMD_AIRPORT_IATA);
     if (!iata.empty())
-      UpdateNameScores(iata, StringUtf8Multilang::kDefaultCode, sliceNoCategories, bestScores);
+      UpdateNameScores(iata, localisation::kDefaultNameIndex, sliceNoCategories, bestScores);
   }
 
   auto const op = ft.GetMetadata(feature::Metadata::FMD_OPERATOR);
   if (!op.empty())
-    UpdateNameScores(op, StringUtf8Multilang::kDefaultCode, sliceNoCategories, bestScores);
+    UpdateNameScores(op, localisation::kDefaultNameIndex, sliceNoCategories, bestScores);
 
   auto const brand = ft.GetMetadata(feature::Metadata::FMD_BRAND);
   if (!brand.empty())
@@ -190,7 +190,7 @@ NameScores GetNameScores(FeatureType & ft, Geocoder::Params const & params, Toke
 
   if (type == Model::TYPE_STREET)
     for (auto const & shield : ftypes::GetRoadShieldsNames(ft))
-      UpdateNameScores(shield, StringUtf8Multilang::kDefaultCode, sliceNoCategories, bestScores);
+      UpdateNameScores(shield, localisation::kDefaultNameIndex, sliceNoCategories, bestScores);
 
   return bestScores;
 }
@@ -448,7 +448,7 @@ private:
     {
       std::string_view brand = (*ft).GetMetadata(feature::Metadata::FMD_BRAND);
       if (!brand.empty())
-        name = platform::GetLocalizedBrandName(std::string{brand});
+        name = localisation::TranslatedBrand(std::string{brand});
     }
 
     // Insert exact address (street and house number) instead of empty result name.
@@ -732,11 +732,12 @@ Result Ranker::MakeResult(RankerResult const & rankerResult, bool needAddress, b
   case RankerResult::Type::Building:
     res.FromFeature(rankerResult.GetID(), rankerResult.GetBestType(),
                     rankerResult.GetBestType(&m_params.m_preferredTypes), rankerResult.m_details);
-    
+
     // Extract branch metadata if available
     if (rankerResult.GetID().IsValid())
     {
-      m_dataSource.ReadFeature([&](FeatureType & ft) {
+      m_dataSource.ReadFeature([&](FeatureType & ft)
+      {
         auto const branch = ft.GetMetadata(feature::Metadata::FMD_BRANCH);
         if (!branch.empty())
           res.SetBranch(std::string(branch));
@@ -752,8 +753,8 @@ Result Ranker::MakeResult(RankerResult const & rankerResult, bool needAddress, b
   {
     m_localities.GetLocality(res.GetFeatureCenter(), [&](LocalityItem const & item)
     {
-      string_view city;
-      if (item.GetReadableName(city))
+      std::string const city = item.GetReadableName();
+      if (!city.empty())
         res.PrependCity(city);
     });
   }
@@ -916,45 +917,46 @@ void Ranker::MakeRankerResults()
 
 void Ranker::GetBestMatchName(FeatureType & f, string & name) const
 {
-  int8_t bestLang = StringUtf8Multilang::kUnsupportedLanguageCode;
+  localisation::LanguageIndex bestLanguageIndex = localisation::kUnsupportedLanguageIndex;
   KeywordLangMatcher::Score bestScore;
-  auto updateScore = [&](int8_t lang, string_view s, bool force)
+  auto updateScore = [&](localisation::LanguageIndex languageIndex, string_view s, bool force)
   {
     // Ignore name for categorial requests.
-    auto const score = m_keywordsScorer.CalcScore(lang, m_params.m_categorialRequest ? "" : s);
+    auto const score = m_keywordsScorer.CalcScore(languageIndex, m_params.m_categorialRequest ? "" : s);
     if (force ? bestScore <= score : bestScore < score)
     {
       bestScore = score;
       name = s;
-      bestLang = lang;
+      bestLanguageIndex = languageIndex;
     }
   };
 
   auto bestNameFinder = [&](int8_t lang, string_view s)
   {
-    if (StringUtf8Multilang::IsAltOrOldName(lang))
+    if (localisation::IsAlternativeOrOldName(lang))
       strings::Tokenize(s, ";", [lang, &updateScore](std::string_view n) { updateScore(lang, n, true /* force */); });
     else
       updateScore(lang, s, true /* force */);
 
     // Default name should be written in the regional language.
-    if (lang == StringUtf8Multilang::kDefaultCode)
+    if (lang == localisation::kDefaultNameIndex)
     {
       auto const mwmInfo = f.GetID().m_mwmId.GetInfo();
-      vector<int8_t> mwmLangCodes;
-      mwmInfo->GetRegionData().GetLanguages(mwmLangCodes);
-      for (auto const l : mwmLangCodes)
-        updateScore(l, s, false /* force */);
+      if (mwmInfo)
+      {
+        for (auto const l : mwmInfo->GetRegionData().GetLanguages())
+          updateScore(l, s, false /* force */);
+      }
     }
   };
   UNUSED_VALUE(f.ForEachName(bestNameFinder));
 
-  if (StringUtf8Multilang::IsAltOrOldName(bestLang))
+  if (localisation::IsAlternativeOrOldName(bestLanguageIndex))
   {
-    string_view const readableName = f.GetReadableName();
+    optional<std::string> const readableName = f.GetTranslatedName().m_primary;
     // Do nothing if alt/old name is the only name we have.
-    if (readableName != name && !readableName.empty())
-      name = std::string(readableName) + " (" + name + ")";
+    if (readableName.has_value() && readableName.value() != name)
+      name = readableName.value() + " (" + name + ")";
   }
 }
 

@@ -14,6 +14,8 @@
 
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
+
 namespace search
 {
 using namespace std;
@@ -58,7 +60,8 @@ class LocalitiesLoader
 {
 public:
   LocalitiesLoader(MwmContext const & ctx, CitiesBoundariesTable const & boundaries, Filter const & filter,
-                   LocalityFinder::Holder & holder, map<MwmSet::MwmId, unordered_set<uint32_t>> & loadedIds)
+                   LocalityFinder::Holder & holder,
+                   map<MwmSet::MwmId, ankerl::unordered_dense::set<uint32_t>> & loadedIds)
     : m_ctx(ctx)
     , m_boundaries(boundaries)
     , m_filter(filter)
@@ -111,7 +114,7 @@ private:
   Filter const & m_filter;
 
   LocalityFinder::Holder & m_holder;
-  unordered_set<uint32_t> & m_loadedIds;
+  ankerl::unordered_dense::set<uint32_t> & m_loadedIds;
 };
 
 int GetVillagesScale()

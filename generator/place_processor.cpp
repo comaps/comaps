@@ -68,7 +68,7 @@ bool IsWorsePlace(FeaturePlace const & left, FeaturePlace const & right)
   { return static_cast<double>(rank) / static_cast<double>(std::numeric_limits<uint8_t>::max()); };
 
   auto const normalizeLangsCount = [](uint8_t langsCount)
-  { return static_cast<double>(langsCount) / static_cast<double>(StringUtf8Multilang::kMaxSupportedLanguages); };
+  { return static_cast<double>(langsCount) / static_cast<double>(localisation::kMaxSupportedLanguages); };
 
   auto const normalizeArea = [](double area)
   {
@@ -271,12 +271,12 @@ FeaturePlace PlaceProcessor::CreatePlace(feature::FeatureBuilder && fb) const
 void PlaceProcessor::Add(FeatureBuilder && fb)
 {
   // Get name as key to find place clusters.
-  auto name = fb.GetName(StringUtf8Multilang::kDefaultCode);
+  auto name = fb.GetName(localisation::kDefaultNameIndex);
   auto const id = fb.GetMostGenericOsmId();
 
   if (name.empty())
   {
-    name = fb.GetName(StringUtf8Multilang::kEnglishCode);
+    name = fb.GetName(localisation::kEnglishLanguageIndex);
     if (name.empty())
     {
       LOG(LWARNING, (m_logTag, "Place with empty name", id));

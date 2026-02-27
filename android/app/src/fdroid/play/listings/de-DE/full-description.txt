@@ -23,7 +23,7 @@ Werde Teil der Community und hilf mit, die beste Karten-App zu entwickeln
 • Lesezeichen mit einem einzigen Tippen speichern
 • Offline verfügbare Wikipedia-Artikel
 • U- und S-Bahn-Netze
-• Aufzeichnen von GPS-Tracks
+• Aufzeichnen von GPS-Routen
 • Import und Export von Favoriten und Routen im KML-, KMZ- oder GPX-Format
 • Dunkler Modus für die Nutzung bei Nacht
 • Kartenbearbeitung direkt in der App mit einem einfachen Editor

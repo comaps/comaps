@@ -54,6 +54,7 @@
 #include "geometry/rect2d.hpp"
 #include "geometry/screenbase.hpp"
 
+#include "base/localisation_translation.hpp"
 #include "base/macros.hpp"
 #include "base/strings_bundle.hpp"
 
@@ -642,10 +643,7 @@ public:
   }
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw)
-  {
-    return m_parsedMapApi.ParseGeoNav(raw);
-  }
+  url_scheme::ParsedMapApi::UrlType ParseGeoNav(std::string const & raw) { return m_parsedMapApi.ParseGeoNav(raw); }
 #endif
 
   struct ParsedRoutingData
@@ -702,7 +700,7 @@ private:
   void FillBookmarkInfo(Bookmark const & bmk, place_page::Info & info) const;
   void FillTrackInfo(Track const & track, m2::PointD const & trackPoint, place_page::Info & info) const;
   void SetPlacePageLocation(place_page::Info & info);
-  void FillDescription(FeatureType & ft, place_page::Info & info) const;
+  void FillDescriptions(FeatureType & ft, place_page::Info & info) const;
 
 public:
   search::ReverseGeocoder::Address GetAddressAtPoint(m2::PointD const & pt) const;
@@ -763,9 +761,11 @@ private:
   void ApplyMapLanguageCode(std::string const & langCode);
 
 public:
-  static std::string GetMapLanguageCode();
-  void SetMapLanguageCode(std::string const & langCode);
-  void ResetMapLanguageCode();
+  std::optional<localisation::LanguageCode> GetCustomMapLanguageCode();
+  void SetCustomMapLanguageCode(std::optional<localisation::LanguageCode> const languageCode = {});
+  void RefreshMapLanguage();
+  localisation::AlternativeMapLanguageHandling GetAlternativeMapLanguageHandling();
+  void SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling = localisation::AlternativeMapLanguageHandling::LocalOnly);
 
   void SetLargeFontsSize(bool isLargeSize);
   bool LoadLargeFontsSize();
@@ -840,12 +840,12 @@ public:
   // PowerManager::Subscriber override.
   void OnPowerFacilityChanged(power_management::Facility const facility, bool enabled) override;
   void OnPowerSchemeChanged(power_management::Scheme const actualScheme) override;
-  
+
 public:
   /// Call this from iOS/Android when CarPlay/AA session starts/ends
   void SetCarScreenMode(bool enabled);
   bool m_isCarScreenMode = false;
-  
+
 private:
   void Refresh3dMode();
   bool m_wasRoutingActive = false;

@@ -1448,4 +1448,5 @@
     <string name="type.tourism.information.tactile_map">Mappa tattile</string>
     <string name="type.social_facility.food_bank">Banco alimentare</string>
     <string name="type.xmas.tree">Albero di Natale</string>
+    <string name="type.amenity.community_centre.youth_centre">Centro della Gioventù</string>
 </resources>

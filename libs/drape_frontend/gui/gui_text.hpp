@@ -11,11 +11,12 @@
 
 #include <functional>
 #include <string>
-#include <unordered_set>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace gui
 {
-using TAlphabet = std::unordered_set<strings::UniChar>;
+using TAlphabet = ankerl::unordered_dense::set<strings::UniChar>;
 
 class StaticLabel
 {

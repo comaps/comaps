@@ -67,7 +67,7 @@ public:
     {
       std::string_view result;
       m_finder.GetLocality(mercator::FromLatLon(input[i]), [&](search::LocalityItem const & item)
-      { item.GetSpecifiedOrDefaultName(StringUtf8Multilang::kEnglishCode, result); });
+      { item.GetSpecifiedOrDefaultName(localisation::kEnglishLanguageIndex, result); });
       TEST_EQUAL(result, results[i], ());
     }
   }

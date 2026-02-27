@@ -1,0 +1,10 @@
+• OpenStreetMap-gegevens per 21 februari
+• Openingstijden weergeven in ploegen in plaats van buiten kantooruren
+• OSM-beschrijvingen en aantal kamers weergeven voor geselecteerde POI's
+• Kroatische, Italiaanse, Nederlandse en Poolse Wikipedia-artikelen toegevoegd
+• Boomrijen en jeugdcentra toegevoegd
+• Transliteratie werkt nu correct
+• Instelling voor alternatieve kaarttalen verbeterd
+• Een nieuwe Android 12+-instelling om osm.org- en geo2me-links te openen
+
+Meer details op comaps.app/latest

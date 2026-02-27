@@ -1508,4 +1508,6 @@
     <string name="type.amenity.charging_station.small">Ограничен капацитет</string>
     <string name="type.emergency.disaster_help_point">Тачка за помоћ у случају катастрофе</string>
     <string name="type.emergency.access_point.address">Адреса службе хитне помоћи</string>
+    <string name="type.waterway.fuel">Бензинска пумпа за пловила</string>
+    <string name="type.amenity.community_centre.youth_centre">Омладински центар</string>
 </resources>

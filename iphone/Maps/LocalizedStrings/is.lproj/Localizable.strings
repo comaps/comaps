@@ -33,7 +33,7 @@
 "cuisine" = "Cuisine";
 "editor_zip_code" = "ZIP Code";
 "editor_operator" = "Operator";
-"leave_a_review" = "Leave a Review";
+"leave_a_review" = "Skrifa umsögn";
 "news" = "News";
 "line" = "Line";
 "rate_the_app" = "Rate the app";
@@ -257,7 +257,7 @@
 "app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need.";
 "downloader_search_results" = "Found";
 "category_parking" = "Parking";
-"downloading" = "Downloading…";
+"downloading" = "Vistar…";
 "category_children" = "Family holiday";
 "dialog_routing_unable_locate_route_carplay" = "Unable to build a route. Please specify other route points";
 "sort_name" = "Sort by name";
@@ -326,10 +326,10 @@
 "unpaved_road" = "Unpaved road";
 "whats_new_auto_update_button_later" = "Manually update later";
 "app_tip_06" = "You can help to translate our app into your language.";
-"delete" = "Delete";
+"delete" = "Eyða";
 "search_in_the_list" = "Search in the list";
 "elevation_profile_ascent" = "Ascent";
-"zoom_to_country" = "Show on the map";
+"zoom_to_country" = "Sýna á korti";
 "downloader_near_me_subtitle" = "Near me";
 "dialog_routing_change_start_or_end" = "Please adjust your starting point or destination.";
 "version" = "CoMaps version: %@";
@@ -374,7 +374,7 @@
 "dialog_routing_end_not_determined" = "Route was not created. Unable to locate the destination.";
 "closed_now" = "Closed now";
 "dialog_routing_download_and_update_all" = "Download or update all maps along the projected path to calculate a route.";
-"miles" = "Miles";
+"miles" = "Mílur";
 "deep_purple" = "Deep Purple";
 "measurement_units" = "Measurement units";
 "orange" = "Orange";
@@ -417,7 +417,7 @@
 "cyan" = "Cyan";
 "teal" = "Teal";
 "level" = "Floor";
-"use_cellular_data" = "Yes";
+"use_cellular_data" = "Já";
 "day_off_today" = "Closed today";
 "osm_profile_register" = "Register at OpenStreetMap";
 "location_services_disabled_on_device_3" = "3. Select Location Services";
@@ -439,7 +439,7 @@
 "dialog_routing_download_and_build_cross_route" = "Would you like to download the map and create a more optimal route spanning more than one map?";
 "dialog_routing_disclaimer_beware" = "Please stay alert and safe on the roads!";
 "bookmarks_create_new_group" = "Create a new list";
-"search" = "Search";
+"search" = "Leita";
 "ft" = "ft";
 "placepage_edit_bookmark_button" = "Edit Bookmark";
 "error_enter_correct_phone" = "Enter a valid phone number";
@@ -456,7 +456,7 @@
 "downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline.";
 "location_services_disabled_on_device_2" = "2. Select Privacy";
 "bookmarks_error_title_list_name_too_long" = "This name is too long";
-"country_status_download_without_size" = "Download Map";
+"country_status_download_without_size" = "Vista kort";
 "pref_tts_speedcams_never" = "Never warn";
 "delete_all" = "Delete All";
 "outdoor_seating" = "Outdoor seating";
@@ -474,7 +474,7 @@
 "clear_search" = "Clear Search History";
 "downloader_download_all_button" = "Download All";
 "category_tourism" = "Sights";
-"download_maps" = "Download Maps";
+"download_maps" = "Vista kort";
 "editor_comment_hint" = "Comment…";
 "editor_share_to_all_dialog_message_1" = "Make sure you did not enter any private or personal data.";
 "dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
@@ -532,14 +532,14 @@
 "search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
 "load_kmz_title" = "Loading Bookmarks";
 "button_layer_isolines" = "Contour Lines";
-"later" = "Later";
+"later" = "Seinna";
 "button_plan" = "Plan";
 "purple" = "Purple";
 "continue_recording" = "Continue Recording";
 "bookmarks_error_message_share_general" = "Unable to share due to an application error";
 "map" = "Map";
 "bookmarks" = "Bookmarks";
-"bookmarks_and_tracks" = "Bookmarks and Tracks";
+"bookmarks_and_tracks" = "Uppáhalds";
 "downloader_downloaded_subtitle" = "Downloaded";
 "blue" = "Blue";
 "traffic_data_unavailable" = "Traffic data is not available";
@@ -554,7 +554,7 @@
 "open_in_app" = "Open in Another App";
 "done" = "Done";
 "minute" = "min";
-"core_my_position" = "My Position";
+"core_my_position" = "Mín staðsetning";
 "traffic_update_maps_text" = "To display traffic data, maps must be updated.";
 "bookmark_lists_show_all" = "Show all";
 "routing_requires_all_map" = "In order to create a route, we need to download and update all the maps from your location to your destination.";
@@ -562,8 +562,8 @@
 "yes_available" = "Yes";
 "search_show_on_map" = "View on map";
 "website" = "Website";
-"cancel_download" = "Cancel Download";
-"cancel" = "Cancel";
+"cancel_download" = "Hætta við niðurhal";
+"cancel" = "Hætta";
 "category_toilet" = "Toilet";
 "close" = "Close";
 "add_new_set" = "Add a New List";
@@ -588,3 +588,4 @@
 "pref_maplanguage_local" = "Local Language";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

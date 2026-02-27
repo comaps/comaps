@@ -5,11 +5,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.R;
 import app.organicmaps.adapter.OnItemClickListener;
+import com.google.android.material.textview.MaterialTextView;
 
 class LayerHolder extends RecyclerView.ViewHolder
 {

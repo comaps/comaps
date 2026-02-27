@@ -301,14 +301,14 @@ UNIT_TEST(Bad_Base64)
 
 UNIT_TEST(OtherPrefixes)
 {
-  TestSuccess("http://comaps.app/Byqqqqqqqq/Name", 45, 0, 4.25, "Name");
-  TestSuccess("https://comaps.app/Byqqqqqqqq/Name", 45, 0, 4.25, "Name");
-  TestFailure("http://comapz.app/Byqqqqqqqq/Name");
-  TestSuccess("http://comaps.app/AwAAAAAAAA/Super%5fPoi", 0, 0, 4, "Super Poi");
-  TestSuccess("https://comaps.app/AwAAAAAAAA/Super%5fPoi", 0, 0, 4, "Super Poi");
-  TestFailure("https://comapz.app/AwAAAAAAAA/Super%5fPoi");
+  TestSuccess("http://comaps.at/Byqqqqqqqq/Name", 45, 0, 4.25, "Name");
+  TestSuccess("https://comaps.at/Byqqqqqqqq/Name", 45, 0, 4.25, "Name");
+  TestFailure("http://comapz.at/Byqqqqqqqq/Name");
+  TestSuccess("http://comaps.at/AwAAAAAAAA/Super%5fPoi", 0, 0, 4, "Super Poi");
+  TestSuccess("https://comaps.at/AwAAAAAAAA/Super%5fPoi", 0, 0, 4, "Super Poi");
+  TestFailure("https://comapz.at/AwAAAAAAAA/Super%5fPoi");
 
-  TestSuccess("https://comaps.app/Byqqqqqqqq", 45, 0, 4.25, "");
-  TestFailure("https://comaps.app/Byqqqqqqq");
+  TestSuccess("https://comaps.at/Byqqqqqqqq", 45, 0, 4.25, "");
+  TestFailure("https://comaps.at/Byqqqqqqq");
 }
 }  // namespace ge0

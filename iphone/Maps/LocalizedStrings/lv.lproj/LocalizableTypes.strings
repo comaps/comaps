@@ -1544,3 +1544,4 @@
 "type.amenity.charging_station.motorcycle" = "Motocikli";
 "type.railway.disused.bridge" = "Neizmantots dzelzceļa tilts";
 "type.railway.disused.tunnel" = "Neizmantots dzelzceļa tunelis";
+"type.amenity.community_centre.youth_centre" = "Jauniešu centrs";

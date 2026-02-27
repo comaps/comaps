@@ -349,15 +349,15 @@ void RoutePointsLayout::SetFollowingMode(bool enabled)
 
 void RoutePointsLayout::RemovePassedPoints()
 {
-    // Prevent recalculation of markIds at every iteration, since we are removing elements
-    auto markIds = m_manager.GetUserMarkIds(UserMark::Type::ROUTING);
-    for (auto markId : markIds) {
-        auto * mark = m_editSession.GetMarkForEdit<RouteMarkPoint>(markId);
-        if (mark && mark->IsPassed() && mark->GetRoutePointType() == RouteMarkType::Intermediate)
-            m_editSession.DeleteUserMark(mark->GetId());
-    }
+  // Prevent recalculation of markIds at every iteration, since we are removing elements
+  auto markIds = m_manager.GetUserMarkIds(UserMark::Type::ROUTING);
+  for (auto markId : markIds)
+  {
+    auto * mark = m_editSession.GetMarkForEdit<RouteMarkPoint>(markId);
+    if (mark && mark->IsPassed() && mark->GetRoutePointType() == RouteMarkType::Intermediate)
+      m_editSession.DeleteUserMark(mark->GetId());
+  }
 }
-
 
 RouteMarkPoint const * RoutePointsLayout::GetRoutePoint(RouteMarkType type, size_t intermediateIndex) const
 {
@@ -685,9 +685,9 @@ std::string RoadWarningMark::GetLocalizedRoadWarningType(RoadWarningMarkType typ
   switch (type)
   {
     using enum RoadWarningMarkType;
-  case Toll: return platform::GetLocalizedString("toll_road");
-  case Ferry: return platform::GetLocalizedString("ferry_crossing");
-  case Dirty: return platform::GetLocalizedString("unpaved_road");
+  case Toll: return localisation::TranslatedInterfaceText("toll_road");
+  case Ferry: return localisation::TranslatedInterfaceText("ferry_crossing");
+  case Dirty: return localisation::TranslatedInterfaceText("unpaved_road");
   case Count: CHECK(false, ("Invalid road warning mark type", type)); break;
   }
   return {};

@@ -71,7 +71,7 @@ enum class SessionState
   /**
    * User has left the route.
    */
-  RouteNeedRebuild,
+  RouteNeedsRebuild,
 
   /**
    * Destination point has been reached but the session isn’t closed yet.

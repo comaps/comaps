@@ -19,8 +19,10 @@
 #include <map>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
+#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace locality_scorer_test
 {
@@ -134,10 +136,10 @@ public:
 
 protected:
   QueryParams m_params;
-  unordered_map<uint32_t, vector<string>> m_names;
-  unordered_map<uint32_t, uint8_t> m_ranks;
-  unordered_map<uint32_t, m2::PointD> m_centers;
-  map<m2::PointD, bool> m_belongsToMatchedRegion;
+  ankerl::unordered_dense::map<uint32_t, vector<string>> m_names;
+  ankerl::unordered_dense::map<uint32_t, uint8_t> m_ranks;
+  ankerl::unordered_dense::map<uint32_t, m2::PointD> m_centers;
+  ska::flat_hash_map<m2::PointD, bool> m_belongsToMatchedRegion;
   LocalityScorer m_scorer;
 
   base::MemTrie<UniString, base::VectorValues<uint32_t>> m_searchIndex;

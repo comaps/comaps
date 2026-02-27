@@ -3,8 +3,9 @@
 #include "indexer/osm_element.hpp"
 
 #include <cstdint>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace editor
 {
@@ -21,10 +22,10 @@ public:
   void LoadFromStream(std::istream & s);
   std::vector<OsmElement::Tag> const & OsmTagsFromType(uint32_t type) const;
 
-  std::unordered_map<uint32_t, std::vector<OsmElement::Tag>> const & GetStorage() const { return m_storage; }
+  ankerl::unordered_dense::map<uint32_t, std::vector<OsmElement::Tag>> const & GetStorage() const { return m_storage; }
 
 private:
-  std::unordered_map<uint32_t, std::vector<OsmElement::Tag>> m_storage;
+  ankerl::unordered_dense::map<uint32_t, std::vector<OsmElement::Tag>> m_storage;
 };
 
 TypeToOSMTranslator const & GetOSMTranslator();

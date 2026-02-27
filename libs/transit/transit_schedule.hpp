@@ -10,9 +10,10 @@
 #include <ctime>
 #include <map>
 #include <tuple>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include "3party/just_gtfs/just_gtfs.h"
 
@@ -205,8 +206,8 @@ private:
   std::map<TimeInterval, Frequency> m_intervals;
 };
 
-using DatesIntervals = std::unordered_map<DatesInterval, FrequencyIntervals, DatesIntervalHasher>;
-using DatesExceptions = std::unordered_map<DateException, FrequencyIntervals, DateExceptionHasher>;
+using DatesIntervals = ankerl::unordered_dense::map<DatesInterval, FrequencyIntervals, DatesIntervalHasher>;
+using DatesExceptions = ankerl::unordered_dense::map<DateException, FrequencyIntervals, DateExceptionHasher>;
 
 // Line schedule with line service days (as DatesInterval ranges) and exceptions in service days
 // (as DateException items). For each date there are frequency intervals (time ranges with headway

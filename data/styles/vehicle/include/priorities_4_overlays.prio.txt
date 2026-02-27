@@ -514,6 +514,7 @@ tourism-attraction                                  # icon z15- (also has captio
 === 1200
 
 amenity-community_centre                            # icon z16- (also has caption(optional) z16-)
+amenity-community_centre-youth_centre               # icon z16- (also has caption(optional) z16-)
 tourism-artwork                                     # icon z18- (also has caption(optional) z18-)
 tourism-artwork-architecture                        # icon z18- (also has caption(optional) z18-)
 tourism-artwork-painting                            # icon z18- (also has caption(optional) z18-)
@@ -1060,6 +1061,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # === -8800
 
 # amenity-community_centre                          # caption(optional) z16- (also has icon z16-)
+# amenity-community_centre-youth_centre             # caption(optional) z16- (also has icon z16-)
 # tourism-artwork                                   # caption(optional) z18- (also has icon z18-)
 # tourism-artwork-architecture                      # caption(optional) z18- (also has icon z18-)
 # tourism-artwork-painting                          # caption(optional) z18- (also has icon z18-)

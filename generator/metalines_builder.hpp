@@ -12,8 +12,9 @@
 #include <map>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -71,7 +72,7 @@ public:
   static OutputData Merge(InputData const & data);
 
 private:
-  using Buffer = std::unordered_map<uint64_t, LinePtr>;
+  using Buffer = ankerl::unordered_dense::map<uint64_t, LinePtr>;
 
   static bool TryMerge(LinePtr const & lineString, Buffer & buffer);
   static bool TryMergeOne(LinePtr const & lineString, Buffer & buffer);

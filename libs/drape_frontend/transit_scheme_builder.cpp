@@ -211,7 +211,8 @@ void PlaceTitles(std::vector<TitleInfo> & titles, float textSize, ref_ptr<dp::Te
   size_t summaryRowsCount = 0;
   for (auto & name : titles)
   {
-    StraightTextLayout layout(name.m_text, textSize, textures, dp::Left, false /* forceNoWrap */);
+    StraightTextLayout layout(name.m_text, textSize, textures, dp::Left, false /* forceNoWrap */,
+                              localisation::kUnsupportedLanguageIndex);
     name.m_pixelSize = layout.GetPixelSize() + m2::PointF(4.0f * vs, 4.0f * vs);
     name.m_rowsCount = layout.GetRowsCount();
     summaryRowsCount += layout.GetRowsCount();
@@ -654,7 +655,7 @@ void TransitSchemeBuilder::CollectShapesPT(TransitDisplayInfo const & transitDis
   CHECK_EQUAL(transitDisplayInfo.m_transitVersion, ::transit::TransitVersion::AllPublicTransport, ());
 
   float curDepth = kBaseLineDepth;
-  std::unordered_map<std::string, float> routeColorToDepth;
+  ankerl::unordered_dense::map<std::string, float> routeColorToDepth;
 
   for (auto const & [lineId, metaData] : transitDisplayInfo.m_linesMetadataPT)
   {

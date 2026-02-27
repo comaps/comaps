@@ -255,7 +255,7 @@
     <string name="downloader_download_all_button">Atsiųsti viską</string>
     <string name="downloader_downloading">Atsiunčiama:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Jeigu norite pašalinti žemėlapį, sustabdykite navigaciją</string>
+    <string name="downloader_delete_map_while_routing_dialog">Jeigu norite pašalinti žemėlapį, pirma sustabdykite navigaciją</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Maršrutai gali būti sukurti tik tuomet, kai jie yra vieno regiono žemėlapio ribose.</string>
     <!-- Context menu item for downloader. -->
@@ -458,7 +458,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d iš %2$d</string>
     <string name="download_over_mobile_header">Atsisiųsti naudojant mobilųjį ryšį?</string>
-    <string name="download_over_mobile_message">Tai gali būti itin brangu, naudojantis kai kuriais planais ar tarptinkliniu ryšiu</string>
+    <string name="download_over_mobile_message">Tai gali būti itin brangu, naudojantis kai kuriais mobiliųjų duomenų ir/ar tarptinklinio ryšio planais.</string>
     <string name="error_enter_correct_house_number">Įveskite leistiną pastato numerį</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Aukštų skaičius negali viršyti %d</string>
@@ -477,7 +477,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operatorius: %s</string>
     <string name="editor_category_unsuitable_title">Nerandate tinkamos kategorijos?</string>
-    <string name="editor_category_unsuitable_text">„CoMaps“ leidžia pridėti tik paprastų kategorijas taškus – jokių miestų, kelių, ežerų, pastatų kontūrų ir pan. šia programėle pridėti negalima. Šių kategorijų objektus pridėkite naudodamiesi <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> svetaine. Žvilgtelėkite į mūsų <a href="https://www.comaps.app/support/advanced-map-editing/">vadovą</a>, kuriame rasite išsamias pažingsnines instrukcijas.</string>
+    <string name="editor_category_unsuitable_text">„CoMaps“ suteikia galimybę pridėti tik paprastų kategorijų taškus, tačiau ne miestų, kelių, ežerų, pastatų kontūrus ar pan. Šių kategorijų objektus pridėkite naudodamiesi <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> svetaine. Žvilgtelėkite į mūsų <a href="https://www.comaps.app/support/advanced-map-editing/">vadovą</a>, kuriame rasite išsamias pažingsnines instrukcijas.</string>
     <string name="downloader_no_downloaded_maps_title">Nesate atsiuntę jokių žemėlapių</string>
     <string name="downloader_no_downloaded_maps_message">Atsiųskite žemėlapius, kad galėtumėte ieškoti vietų ir keliauti neprisijungę prie tinklo</string>
     <string name="current_location_unknown_error_title">Dabartinė vieta nežinoma</string>
@@ -488,7 +488,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Išsamiau</string>
-    <string name="placepage_edit_bookmark_button">Taisyti Įsimintą vietą</string>
+    <string name="placepage_edit_bookmark_button">Taisyti įsimintą vietą</string>
     <string name="placepage_personal_notes_hint">Asmeninės pastabos (tekstas arba HTML)</string>
     <string name="editor_reset_edits_message">Anuliuoti visus vietinius pakeitimus?</string>
     <string name="editor_reset_edits_button">Atsisakyti pakeitimų</string>
@@ -536,8 +536,8 @@
     <string name="enable_logging">Įgalinti derinimo žurnalą</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Bendro pobūdžio atsiliepimas</string>
-    <string name="prefs_languages_information">Balso instrukcijoms naudojame sistemos šnekos sintezatorių. Dauguma „Android“ įrenginių naudoja „Google“ šnekos sintezatorių, kurį galite atsisiųsti ar atnaujinti iš „Google Play“ parduotuvės (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Kai kurioms kalboms gali tekti įdiegti papildomą šnekos sintezatorių ar kalbos paketą iš programėlių parduotuvės („Google Play“, „Galaxy Store“, „AppGallery“, „FDroid“). \nAtverkite įrenginio nustatymus → Kalbos ir įvestis → Kalba → Teksto į kalbą išvestis. \nČia galite tvarkyti šnekos sintezatoriaus nustatymus (pavyzdžiui, atsisiųsti kalbos paketą naudojimui neprisijungus) ar pasirinkti kitą šnekos sintezės modulį.</string>
+    <string name="prefs_languages_information">Balso instrukcijoms naudojame sistemos šnekos sintezatorių. Dauguma „Android“ įrenginių naudoja „Google“ šnekos sintezatorių, kurį galite atsisiųsti ar atnaujinti iš „Google Play Store“ parduotuvės (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Kai kurioms kalboms gali tekti įdiegti papildomą šnekos sintezatorių ar kalbos paketą iš programėlių parduotuvės („Google Play“, „Galaxy Store“, „AppGallery“, „F-Droid“). \nAtverkite įrenginio nustatymus → Kalbos ir įvestis → Kalba → Teksto į kalbą išvestis. \nČia galite tvarkyti šnekos sintezatoriaus nustatymus (pavyzdžiui, atsisiųsti kalbos paketą naudojimui neprisijungus) ar pasirinkti kitą šnekos sintezės modulį.</string>
     <string name="prefs_languages_information_off_link">Jei norite išsamesnės informacijos, žvilgtelėkite į šią instrukciją</string>
     <string name="transliteration_title">Transliteruoti užrašus lotyniškais rašmenimis</string>
     <string name="learn_more">Išsamesnė informacija</string>
@@ -753,7 +753,7 @@
     <string name="uri_open_location_failed">Neįdiegta programėlė, galinti atverti vietą</string>
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Automatinė naviguojant</string>
-    <string name="bookmarks_and_tracks">Žymės</string>
+    <string name="bookmarks_and_tracks">Parankiniai</string>
     <string name="location_settings">Vietos nustatymai</string>
     <string name="maps_storage_summary">Pasirinkite aplanką atsiųstiems žemėlapiams įrašyti</string>
     <string name="category_secondhand">Naudotos prekės</string>
@@ -903,4 +903,8 @@
     <string name="download_resources_custom_url_summary_none">Nenurodytas</string>
     <string name="download_resources_custom_url_error_scheme">Įveskite URL adresą, prasidedantį „http://“ arba „https://“</string>
     <string name="pref_maplanguage_local">Vietos kalba</string>
+    <string name="location_privacy_info">Programos vietovės duomenis gauna iš jūsų įrenginio operacinės sistemos vietovės tarnybos, kuri šiuos duomenis gali taip pat bendrinti su „Google“ ir/ar jūsų įrenginio gamintoju. Jei norite to išvengti, naudokitės privatumą saugančia „Android“ operacinės sistemos atmaina.</string>
+    <string name="location_privacy">Vietovės duomenų privatumas</string>
+    <string name="pref_speedlimit_title">Rodyti greičio ribojimus</string>
+    <string name="rooms">%s kamb.</string>
 </resources>

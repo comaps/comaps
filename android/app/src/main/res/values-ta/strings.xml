@@ -655,5 +655,4 @@
     <string name="download_resources_custom_url_message">வரைபடப் பதிவிறக்கங்களுக்குப் பயன்படுத்தப்படும் இயல்புநிலை வரைபடப் பதிவிறக்க சேவையகத்தை மேலெழுதவும். CoMaps இயல்புநிலை சேவையகத்தைப் பயன்படுத்த, காலியாக விடவும்.</string>
     <string name="download_resources_custom_url_summary_none">அமைக்கப்படவில்லை</string>
     <string name="download_resources_custom_url_error_scheme">http:// அல்லது https:// உடன் தொடங்கும் முகவரி ஐ உள்ளிடவும்</string>
-    <string name="limit_map_language_alternatives_to_local">தங்கள் பிராந்தியத்தில் உள்ள பிற கணினி மொழிகளை மட்டுமே பயன்படுத்தவும்</string>
 </resources>

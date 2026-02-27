@@ -1,10 +1,10 @@
-• Dados OSM de 7/02
-• Configuração "Mostrar limites de velocidade"
-• Desativação de edifícios 3D na navegação do Android Auto
-• Adição de postos de abastecimento de marinas
-• Exibição de ícones de favoritos e de pesquisa acima das linhas de metrô
-• Exibição de números de casas posteriormente
-• Habilitação de busca por letras escandinavas æøå
-• Editor do OSM: atualização automática da última data quando a existência do Ponto de Interesse for verificada
+• Dados OSM de 21/02
+• Exibição do horário de funcionamento em turnos
+• Exibição de descrições do OSM e número de salas
+• Adição de fileiras de árvores e centros para jovens
+• Correção do problema com a transliteração
+• Melhoria na configuração de Idiomas Alternativos do Mapa
+• Nova configuração para Android 12+ que permite abrir links do osm.org e do geo2me
+• Exibição de um indicador de rota alternativa no painel de navegação
 
 Mais detalhes em comaps.app/latest

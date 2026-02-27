@@ -240,7 +240,8 @@ private:
 
   static FeatureStatus GetFeatureStatusImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
 
-  static bool AreSomeFeatureChangesUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId, uint32_t index);
+  static bool AreSomeFeatureChangesUploadedImpl(FeaturesContainer const & features, MwmId const & mwmId,
+                                                uint32_t index);
 
   static void UpdateXMLFeatureTags(editor::XMLFeature & feature, std::list<JournalEntry> const & journal,
                                    ChangesetWrapper & changeset);

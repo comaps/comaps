@@ -17,6 +17,7 @@
 #include "geometry/mercator.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation_translation.hpp"
 
 #include "3party/open-location-code/openlocationcode.h"
 
@@ -38,17 +39,12 @@ void Info::SetFromFeatureType(FeatureType & ft)
   MapObject::SetFromFeatureType(ft);
   m_hasMetadata = true;
 
-  feature::NameParamsOut out;
-  auto const mwmInfo = GetID().m_mwmId.GetInfo();
-  if (mwmInfo)
-  {
-    feature::GetPreferredNames(
-        {m_name, mwmInfo->GetRegionData(), languages::GetCurrentMapLanguage(), true /* allowTranslit */}, out);
-  }
+  localisation::NameTranslation nameTranslation = ft.GetTranslatedName();
 
   bool emptyTitle = false;
 
-  m_primaryFeatureName = out.GetPrimary();
+  if (nameTranslation.m_primary.has_value())
+    m_primaryFeatureName = nameTranslation.m_primary.value();
   m_uiAddress = feature::GetReadableAddress(m_address);
 
   if (IsBookmark())
@@ -59,8 +55,8 @@ void Info::SetFromFeatureType(FeatureType & ft)
 
     if (!m_customName.empty())
       secondaryTitle = m_customName;
-    else if (!out.secondary.empty())
-      secondaryTitle = out.secondary;
+    else if (nameTranslation.m_secondary.has_value())
+      secondaryTitle = nameTranslation.m_secondary.value();
     else
       secondaryTitle = m_primaryFeatureName;
 
@@ -70,7 +66,8 @@ void Info::SetFromFeatureType(FeatureType & ft)
   else if (!m_primaryFeatureName.empty())
   {
     m_uiTitle = m_primaryFeatureName;
-    m_uiSecondaryTitle = out.secondary;
+    if (nameTranslation.m_secondary.has_value())
+      m_uiSecondaryTitle = nameTranslation.m_secondary.value();
   }
   else if (IsBuilding())
   {
@@ -161,7 +158,7 @@ std::string Info::FormatSubtitle(bool withTypes, bool withMainType) const
   {
     /// @todo May not work as expected because we store raw value from OSM,
     /// while current localizations assume to have some string ids (like "mcdonalds").
-    auto const locBrand = platform::GetLocalizedBrandName(std::string(brand));
+    auto const locBrand = localisation::TranslatedBrand(std::string(brand));
 
     // Do not duplicate for commonly used titles like McDonald's, Starbucks, etc.
     if (m_uiTitle.find(locBrand) == std::string::npos && m_uiSecondaryTitle.find(locBrand) == std::string::npos)

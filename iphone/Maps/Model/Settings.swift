@@ -170,10 +170,10 @@ import Combine
     /// The current way to handle alternatve map languages
     static var alternativeMapLanguageHandling: AlternativeMapLanguageHandling {
         get {
-            return (SettingsBridge.mapLanguageLimitAlternativesToLocal() ? AlternativeMapLanguageHandling.localOnly : AlternativeMapLanguageHandling.systemOrder)
+            return AlternativeMapLanguageHandling(rawValue: Int(SettingsBridge.alternativeMapLanguageHandling())) ?? AlternativeMapLanguageHandling.localOnly
         }
         set {
-            SettingsBridge.setMapLanguageLimitAlternativesToLocal(newValue == AlternativeMapLanguageHandling.localOnly)
+            SettingsBridge.setAlternativeMapLanguageHandling(Int32(newValue.rawValue))
         }
     }
     

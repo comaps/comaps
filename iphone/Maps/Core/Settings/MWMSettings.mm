@@ -12,7 +12,6 @@ namespace
 {
 char const * kAutoDownloadEnabledKey = "AutoDownloadEnabled";
 char const * kZoomButtonsEnabledKey = "ZoomButtonsEnabled";
-char const * kMapLanguageCode = "MapLanguageCode";
 char const * kRoutingDisclaimerApprovedKey = "IsDisclaimerApproved";
 
 // TODO(igrechuhin): Remove outdated kUDAutoNightModeOff
@@ -227,19 +226,18 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 + (NSDictionary<NSString *, NSString *> *)availableMapLanguages;
 {
   NSMutableDictionary<NSString *, NSString *> *availableLanguages = [[NSMutableDictionary alloc] init];
-  auto const & v = StringUtf8Multilang::GetSupportedLanguages(false);
-  for (auto i: v) {
-    [availableLanguages setObject:@(std::string(i.m_name).c_str()) forKey:@(std::string(i.m_code).c_str())];
+  auto const & languages = localisation::GetSupportedLanguages(false);
+  for (auto language : languages) {
+    [availableLanguages setObject:@(std::string(language.m_name).c_str()) forKey:@(std::string(language.m_languageCode).c_str())];
   }
   return availableLanguages;
 }
 
 + (NSString *)mapLanguageCode;
 {
-  std::string mapLanguageCode;
-  bool hasMapLanguageCode = settings::Get(kMapLanguageCode, mapLanguageCode);
-  if (hasMapLanguageCode) {
-    return @(mapLanguageCode.c_str());
+  std::optional<localisation::LanguageCode> hasMapLanguageCode = GetFramework().GetCustomMapLanguageCode();
+  if (hasMapLanguageCode.has_value()) {
+    return @(hasMapLanguageCode.value().c_str());
   }
 
   return @"auto";
@@ -249,27 +247,24 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 {
   auto &f = GetFramework();
   if ([mapLanguageCode isEqual: @"auto"]) {
-    f.ResetMapLanguageCode();
+    f.SetCustomMapLanguageCode();
   } else {
-    f.SetMapLanguageCode(std::string([mapLanguageCode UTF8String]));
+    f.SetCustomMapLanguageCode(std::string([mapLanguageCode UTF8String]));
   }
 }
 
-+ (BOOL)mapLanguageLimitAlternativesToLocal
-{
-  bool enabled = true;
-  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, enabled));
-  return enabled;
++ (int)alternativeMapLanguageHandling {
+  return GetFramework().GetAlternativeMapLanguageHandling();
 }
 
-+ (void)setMapLanguageLimitAlternativesToLocal:(BOOL)mapLanguageLimitAlternativesToLocal
++ (void)setAlternativeMapLanguageHandling:(int)alternativeMapLanguageHandling
 {
-  settings::Set(settings::kMapLanguageLimitAlternativesToLocal, static_cast<bool>(mapLanguageLimitAlternativesToLocal));
-  auto & f = GetFramework();
-  f.InvalidateRect(f.GetCurrentViewport());
+  GetFramework().SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(alternativeMapLanguageHandling));
 }
 
-+ (BOOL)transliteration { return GetFramework().LoadTransliteration(); }
++ (BOOL)transliteration {
+  return GetFramework().LoadTransliteration();
+}
 + (void)setTransliteration:(BOOL)transliteration
 {
   bool const isTransliteration = static_cast<bool>(transliteration);

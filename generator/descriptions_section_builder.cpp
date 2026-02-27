@@ -78,7 +78,7 @@ std::string DescriptionsCollectionBuilderStat::LangStatisticsToString() const
     if (m_langsStat[code] == 0)
       continue;
 
-    stream << StringUtf8Multilang::GetLangByCode(static_cast<int8_t>(code)) << ":" << m_langsStat[code] << " ";
+    stream << localisation::ConvertLanguageIndexToLanguageCode(static_cast<int8_t>(code)) << ":" << m_langsStat[code] << " ";
   }
 
   return stream.str();
@@ -167,10 +167,10 @@ size_t DescriptionsCollector::FindPageAndFill(std::string const & path, descript
   for (auto const & filename : filelist)
   {
     auto const lang = base::FilenameWithoutExt(filename);
-    auto const code = StringUtf8Multilang::GetLangIndex(lang);
-    if (code == StringUtf8Multilang::kUnsupportedLanguageCode)
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(lang);
+    if (languageIndex == localisation::kUnsupportedLanguageIndex)
     {
-      LOG(LWARNING, (lang, "is an unsupported language."));
+      LOG(LWARNING, (languageIndex, "is an unsupported language."));
       continue;
     }
 
@@ -194,8 +194,8 @@ size_t DescriptionsCollector::FindPageAndFill(std::string const & path, descript
       size += sz;
     }
 
-    m_stat.IncCode(code);
-    meta.emplace_back(code, res.first->second);
+    m_stat.IncCode(languageIndex);
+    meta.emplace_back(languageIndex, res.first->second);
   }
 
   return size;

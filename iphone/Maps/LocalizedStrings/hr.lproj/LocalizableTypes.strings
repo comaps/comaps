@@ -1312,3 +1312,4 @@
 "type.amenity.mobile_money_agent" = "Agent za mobilno plaćanje";
 "type.amenity.car_pooling" = "Zajednička vožnja automobilom";
 "type.amenity.payment_centre" = "Centar za plaćanja";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

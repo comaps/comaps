@@ -57,7 +57,7 @@ void PathSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Bat
   if (buffer.empty())
     return;
 
-  auto state = CreateRenderState(gpu::Program::PathSymbol, DepthLayer::GeometryLayer);
+  auto state = CreateRenderState(gpu::Program::PathSymbol, m_params.m_depthLayer);
   state.SetColorTexture(region.GetTexture());
   state.SetDepthTestEnabled(m_params.m_depthTestEnabled);
   state.SetTextureIndex(region.GetTextureIndex());

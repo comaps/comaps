@@ -57,16 +57,16 @@
 "add_new_set" = "أضف قائمة جديدة";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "اسم قائمة الإشارات المرجعية";
+"bookmark_set_name" = "اسم القائمة";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "قائمة الإشارات المرجعية";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "الإشارات المرجعية";
+"bookmarks" = "الاماكن";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "الإشارات المرجعية والمسارات";
+"bookmarks_and_tracks" = "المفضلات";
 
 /* Default bookmark list name */
 "core_my_places" = "أماكني";
@@ -151,13 +151,13 @@
 "share_bookmarks_email_body" = "مرحباً! ْ\n\n تم إرفاق إشاراتي المرجعية من تطبيق CoMaps. الرجاء فتحهم إذا لديك تطبيق CoMaps مثبتاً. أو، إذا لم يكن مثبتاً، قم بتنزيل التطبيق لنظام iOS أو أندرويد من خلال الضغط على هذا الرابط: https://www.comaps.app/download/ \n\nاستمتع بالسفر مع CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "يتم تحميل الإشارات المرجعية";
+"load_kmz_title" = "يحمل المفضلات";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "تم تحميل الإشارات المرجعية بنجاح! يمكنك العثور عليها على الخريطة أو على شاشة إدارة الإشارات المرجعية.";
+"load_kmz_successful" = "تم تحميل المفضلة بنجاح! يمكنك العثور عليها على الخريطة أو في شاشة مدير المفضلة.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "فشلت عملية تحميل الإشارات المرجعية. قد يكون الملف تالف أو غير صالح.";
+"load_kmz_failed" = "فشل تحميل المفضلة. قد يكون الملف تالفًا أو معيبًا.";
 
 /* resource for context menu */
 "edit" = "عدِّل";
@@ -247,7 +247,7 @@
 "pref_tts_language_title" = "لغة الصوت";
 
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "اختبار الاتجاهات الصوتية (TTS، تحويل النص إلى كلام)";
+"pref_tts_test_voice_title" = "اختبر الاتجاهات الصوتية";
 
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "آخر";
@@ -1082,7 +1082,7 @@
 "osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) هو مشروع مجتمعي لبناء خريطة مجانية ومفتوحة. إنه المصدر الرئيسي لبيانات الخرائط في CoMaps ويعمل على غرار ويكيبيديا. يمكنك إضافة الأماكن أو تعديلها وتصبح متاحة لملايين المستخدمين في جميع أنحاء العالم.\nنضم إلى المجتمع وساعد في إنشاء خريطة أفضل للجميع!";
 "osm_profile_view_edit_history" = "عرض سجل مساهمات";
 "osm_profile_view_notes" = "عرض ملاحظات";
-"about_headline" = "Open project powered by the community";
+"about_headline" = "مشروع مفتوح مدعوم من المجتمع";
 "about_proposition_3" = "Transparent and not for profit";
 "pref_mapappearance_title" = "Map Appearance";
 "pref_maplanguage_title" = "Map Language";
@@ -1090,3 +1090,4 @@
 "pref_maplanguage_local" = "Local Language";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

@@ -41,8 +41,8 @@
 "type.leisure.adult_gaming_centre" = "Centro de juegos para adultos";
 "type.leisure.amusement_arcade" = "Sala de juegos arcade";
 "type.amenity.charging_station" = "Estación de carga";
-"type.amenity.charging_station.bicycle" = "Estación de carga de bicicletas";
-"type.amenity.charging_station.motorcar" = "Estación de carga de automóviles";
+"type.amenity.charging_station.bicycle" = "Bicicletas";
+"type.amenity.charging_station.motorcar" = "Automóviles";
 "type.amenity.childcare" = "Guardería";
 "type.amenity.cinema" = "Cine";
 "type.leisure.bowling_alley" = "Bolera";
@@ -128,7 +128,7 @@
 "type.amenity.prison" = "Prisión";
 "type.amenity.pub" = "Taberna";
 "type.amenity.public_bookcase" = "Intercambio de libros";
-"type.amenity.recycling.centre" = "Centro de reciclaje";
+"type.amenity.recycling.centre" = "Centro de Reciclaje";
 "type.amenity.recycling.container" = "Contenedor de reciclaje";
 "type.recycling.batteries" = "Baterías";
 "type.recycling.clothes" = "Ropa";
@@ -176,7 +176,7 @@
 "type.amenity.vending_machine.food" = "Expendedora de comida";
 "type.amenity.vending_machine.newspapers" = "Expendedora de periódicos";
 "type.amenity.vending_machine.parking_tickets" = "Parquímetro";
-"type.amenity.vending_machine.public_transport_tickets" = "Máquina expendedora de billetes de transporte público";
+"type.amenity.vending_machine.public_transport_tickets" = "Expendedora de billetes de transporte público";
 "type.amenity.vending_machine.sweets" = "Expendedora de dulces";
 "type.amenity.vending_machine.excrement_bags" = "Dispensador de bolsas para excrementos";
 "type.amenity.parcel_locker" = "Taquilla de paquetes";
@@ -1520,7 +1520,7 @@
 "type.leisure.sports_centre.sport.scuba_diving" = "Centro deportivo";
 "type.leisure.sports_centre.sport.field_hockey" = "Centro deportivo";
 "type.leisure.sports_centre.sport.bowls" = "Centro deportivo";
-"type.amenity.bench.backless" = "Banco sin respaldo";
+"type.amenity.bench.backless" = "Sin respaldo";
 "type.leisure.bandstand" = "Templete";
 "type.disusedbusiness" = "Local comercial vacante";
 "type.amenity.lounger" = "Tumbona";
@@ -1588,3 +1588,16 @@
 "type.xmas.tree" = "Árbol de Navidad";
 "type.man_made.mast.communication" = "Mástil de telecomunicaciones";
 "type.shop.beauty.nails" = "Salón de manicura";
+"type.amenity.charging_station.motorcycle" = "Motocicletas";
+"type.amenity.charging_station.small" = "Capacidad limitada";
+"type.waterway.fuel" = "Gasolinera marina";
+"type.railway.miniature.tunnel" = "Túnel de ferrocarril miniatura";
+"type.railway.turntable" = "Plataforma giratoria ferroviaria";
+"type.tourism.information.tactile_map" = "Mapa táctil";
+"type.amenity.community_centre.youth_centre" = "Centro juvenil";
+"type.emergency.disaster_help_point" = "Punto de ayuda para emergencias y desastres";
+"type.emergency.access_point.address" = "Dirección de Punto de Emergencia";
+"type.railway.disused.bridge" = "Puente ferroviario en desuso";
+"type.railway.disused.tunnel" = "Túnel ferroviario en desuso";
+"type.railway.miniature" = "Ferrocarril miniatura";
+"type.railway.miniature.bridge" = "Puente de ferrocarril miniatura";

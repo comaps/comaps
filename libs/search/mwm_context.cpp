@@ -31,13 +31,14 @@ MwmContext::MwmContext(MwmSet::MwmHandle handle, MwmType type) : MwmContext(std:
 
 std::unique_ptr<FeatureType> MwmContext::GetFeature(uint32_t index, bool ignoreEditedStatus) const
 {
-  if (ignoreEditedStatus) {
+  if (ignoreEditedStatus)
+  {
     auto ft = m_vector.GetByIndex(index);
     CHECK(ft, ());
     ft->SetID(FeatureID(GetId(), index));
     return ft;
   }
-  
+
   std::unique_ptr<FeatureType> ft;
   switch (GetEditedStatus(index))
   {

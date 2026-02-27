@@ -1,6 +1,6 @@
 #include "routing/mwm_hierarchy_handler.hpp"
 
-#include <unordered_set>
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -11,7 +11,7 @@ namespace
 // passport and other types of border control at their mutual borders.
 inline size_t constexpr kCrossCountryPenaltyS = 60 * 60 * 2;
 
-using CountrySetT = std::unordered_set<std::string_view>;
+using CountrySetT = ankerl::unordered_dense::set<std::string_view>;
 
 // The Eurasian Economic Union (EAEU) list of countries.
 CountrySetT kEAEU = {"Armenia", "Belarus", "Kazakhstan", "Kyrgyzstan", "Russian Federation"};

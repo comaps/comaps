@@ -1353,4 +1353,24 @@
     <string name="type.man_made.telescope.radio">Teleskopioa (irratia)</string>
     <string name="type.man_made.telescope.gamma">Teleskopioa (gamma)</string>
     <string name="type.man_made.observatory">Behatokia</string>
+    <string name="type.office.security">Segurtasun zaindarien bulegoa</string>
+    <string name="type.building.guardhouse">Segurtasun kabina</string>
+    <string name="type.amenity.charging_station.motorcycle">Motozikletak</string>
+    <string name="type.amenity.car_pooling">Auto partekatuak</string>
+    <string name="type.emergency.access_point">Larrialdietako salbamendu puntua</string>
+    <string name="type.emergency.access_point.address">Larrialdietako salbamendu helbidea</string>
+    <string name="type.emergency.disaster_help_point">Larrialdietako hondamendien laguntza puntua</string>
+    <string name="type.amenity.hydrant">Ureztatzeko hidrantea</string>
+    <string name="type.buoy.cardinal.west">Buia kardinala</string>
+    <string name="type.spherical_buoy.cardinal.east">Buia kardinal esferikoa</string>
+    <string name="type.spherical_buoy.cardinal.north">Buia kardinal esferikoa</string>
+    <string name="type.spherical_buoy.cardinal.south">Buia kardinal esferikoa</string>
+    <string name="type.spherical_buoy.cardinal.west">Buia kardinal esferikoa</string>
+    <string name="type.cardinal.east">Ekialdea</string>
+    <string name="type.cardinal.north">Iparra</string>
+    <string name="type.cardinal.south">Hegoa</string>
+    <string name="type.cardinal.west">Mendebala</string>
+    <string name="type.entrance.entry">Sarrera(bakarrik)</string>
+    <string name="type.entrance.emergency">Larrialdi irteera</string>
+    <string name="type.xmas.tree">Gabonetako zuhaitza</string>
 </resources>

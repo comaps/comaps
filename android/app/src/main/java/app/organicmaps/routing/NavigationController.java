@@ -107,9 +107,9 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
     UiUtils.showIf(mSpeedLimitEnabled, mSpeedLimit);
     View mTopbar = topFrame.findViewById(R.id.statutbar);
-    ViewCompat.setOnApplyWindowInsetsListener(mTopbar,(v, windowInsets) -> {
-        UiUtils.setViewNavigationTopInsetsMargin(v, windowInsets);
-        return windowInsets;
+    ViewCompat.setOnApplyWindowInsetsListener(mTopbar, (v, windowInsets) -> {
+      UiUtils.setViewNavigationTopInsetsMargin(v, windowInsets);
+      return windowInsets;
     });
     // Show a blank view below the navbar to hide the menu content
     final View navigationBarBackground = mFrame.findViewById(R.id.nav_bottom_sheet_nav_bar);

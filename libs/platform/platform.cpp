@@ -152,8 +152,8 @@ std::string Platform::ReadPathForFile(std::string const & file, std::string sear
 
 void Platform::SetCustomMapServerUrl(std::string & url)
 {
-    strings::Trim(url);
-    m_customMapServerUrl = std::move(url);
+  strings::Trim(url);
+  m_customMapServerUrl = std::move(url);
 }
 
 std::string const & Platform::CustomMapServerUrl() const

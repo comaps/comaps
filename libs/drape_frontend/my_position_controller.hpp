@@ -167,9 +167,15 @@ private:
 
   ref_ptr<DrapeNotifier> m_notifier;
 
+  /// @brief The current position mode
   location::EMyPositionMode m_mode;
+  /// @brief The desired mode to switch to when the location is resolved
   location::EMyPositionMode m_desiredInitMode;
+  /// @brief The user preferred mode when routing
   location::EMyPositionMode m_preferredRoutingMode;
+  /// @brief The last follow mode used
+  location::EMyPositionMode m_lastFollowMode;
+
   TMyPositionModeChanged m_modeChangeCallback;
   Hints m_hints;
 

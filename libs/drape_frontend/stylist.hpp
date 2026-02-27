@@ -6,6 +6,7 @@
 #include "indexer/road_shields_parser.hpp"
 
 #include "base/buffer_vector.hpp"
+#include "base/localisation.hpp"
 
 #include <functional>
 #include <string>
@@ -44,6 +45,9 @@ struct CaptionDescription
 
   bool IsNameExists() const { return !m_mainText.empty(); }
   bool IsHouseNumberExists() const { return !m_houseNumberText.empty(); }
+
+  localisation::LanguageIndex m_mainTextLanguageIndex;
+  localisation::LanguageIndex m_auxTextLanguageIndex;
 
 private:
   std::string m_mainText;

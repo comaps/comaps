@@ -61,6 +61,7 @@ private:
   m2::PointF m_position;
   float m_azimuth;
   float m_accuracy;
+  float m_interpolatedAccuracy;
   bool m_showAzimuth;
   bool m_isRoutingMode;
 

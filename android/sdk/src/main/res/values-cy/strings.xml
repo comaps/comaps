@@ -19,4 +19,13 @@
     <string name="limited_access">Mynediad cyfyngedig</string>
     <string name="access_rules_author_only">Golygu ar-lein</string>
     <string name="today">Heddiw</string>
+    <string name="yesterday">Ddoe</string>
+    <string name="maps_storage_internal">Storfa breifat fewnol</string>
+    <string name="maps_storage_shared">Storfa fewnol a rennir</string>
+    <string name="days_ago">%s diwrnod yn ôl</string>
+    <string name="week_ago">%s wythnos yn ôl</string>
+    <string name="weeks_ago">%s wythnos yn ôl</string>
+    <string name="month_ago">%s mis yn ôl</string>
+    <string name="months_ago">%s mis yn ôl</string>
+    <string name="year_ago">%s blwyddyn yn ôl</string>
 </resources>

@@ -76,13 +76,13 @@ char const * g_strings[] = {
 // ./clusterize-tag-values.lisp house-number path-to-taginfo-db.db > numbers.txt
 // tail -n +2 numbers.txt  | head -78 | sed 's/^.*) \(.*\) \[.*$/"\1"/g;s/[ -/]//g;s/$/,/' |
 // sort | uniq
-array<string_view, 48> constexpr g_patterns = {"BL", "BLN", "BLNSL", "BN", "BNL", "BNSL", "L", "LL", "LN", "LNL", "LNLN", "LNN",
-                                   "N", "NBL", "NBLN", "NBN", "NBNBN", "NBNL", "NL", "NLBN", "NLL", "NLLN", "NLN",
-                                   "NLNL", "NLS", "NLSN", "NN", "NNBN", "NNL", "NNLN", "NNN", "NNS", "NS", "NSN", "NSS",
-                                   "S", "SL", "SLL", "SLN", "SN", "SNBNSS", "SNL", "SNN", "SS", "SSN", "SSS", "SSSS",
+array<string_view, 48> constexpr g_patterns = {
+    "BL", "BLN", "BLNSL", "BN", "BNL", "BNSL", "L", "LL", "LN", "LNL", "LNLN", "LNN", "N", "NBL", "NBLN", "NBN",
+    "NBNBN", "NBNL", "NL", "NLBN", "NLL", "NLLN", "NLN", "NLNL", "NLS", "NLSN", "NN", "NNBN", "NNL", "NNLN", "NNN",
+    "NNS", "NS", "NSN", "NSS", "S", "SL", "SLL", "SLN", "SN", "SNBNSS", "SNL", "SNN", "SS", "SSN", "SSS", "SSSS",
 
-                                   // List of exceptions
-                                   "NNBNL"};
+    // List of exceptions
+    "NNBNL"};
 
 // List of patterns which look like house numbers more than other patterns. Constructed by hand.
 array<string_view, 4> constexpr g_patternsStrict = {"N", "NBN", "NBL", "NL"};

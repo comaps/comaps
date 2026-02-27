@@ -8,8 +8,9 @@
 #include <algorithm>
 #include <array>
 #include <cctype>
-#include <unordered_map>
 #include <utility>
+
+#include "3party/ankerl/unordered_dense.h"
 
 /*
  * TODO : why all this parsing happens in the run-time? The most of it should be moved to the generator.
@@ -43,7 +44,7 @@ std::array<std::string, 13> const kModifiers = {{"alt", "alternate", "bus", "bus
                                                  "connector", "loop", "scenic", "spur", "temporary", "toll", "truck"}};
 
 // Shields based on a network tag in a route=road relation.
-std::unordered_map<std::string, RoadShieldType> const kRoadNetworkShields = {
+ankerl::unordered_dense::map<std::string, RoadShieldType> const kRoadNetworkShields = {
     // International road networks.
     {"e-road", RoadShieldType::Generic_Green},  // E 105
     {"asianhighway", RoadShieldType::Hidden},   // AH8. Blue, but usually not posted.
@@ -127,7 +128,7 @@ public:
   RoadShieldsSetT GetRoadShields() const
   {
     RoadShieldsSetT result, defaultShields;
-    
+
     uint8_t index = 0;
     strings::Tokenize(m_baseRoadNumber, ";", [&](std::string_view rawText)
     {
@@ -291,7 +292,12 @@ public:
   struct Entry
   {
     Entry() = default;
-    Entry(std::string_view name, RoadShieldType type, bool isRedundant = false, bool shouldTrimName = false) : m_name(name), m_type(type), m_isRedundant(isRedundant), m_shouldTrimName(shouldTrimName) {}
+    Entry(std::string_view name, RoadShieldType type, bool isRedundant = false, bool shouldTrimName = false)
+      : m_name(name)
+      , m_type(type)
+      , m_isRedundant(isRedundant)
+      , m_shouldTrimName(shouldTrimName)
+    {}
 
     std::string_view m_name;
     RoadShieldType m_type = RoadShieldType::Default;
@@ -328,11 +334,10 @@ public:
           strings::ReplaceFirst(name, std::string{p.m_name}, "");
           strings::Trim(name);
         }
-        if (index != 1 && p.m_isRedundant) {
+        if (index != 1 && p.m_isRedundant)
           type = RoadShieldType::Hidden;
-        } else {
+        else
           type = p.m_type;
-        }
         idx = i;
       }
     }
@@ -352,7 +357,14 @@ public:
   struct Entry
   {
     Entry() = default;
-    Entry(std::string_view name, HighwayClass highwayClass, RoadShieldType type, bool isRedundant = false, bool shouldTrimName = false) : m_name(name), m_type(type), m_highwayClass(highwayClass), m_isRedundant(isRedundant), m_shouldTrimName(shouldTrimName) {}
+    Entry(std::string_view name, HighwayClass highwayClass, RoadShieldType type, bool isRedundant = false,
+          bool shouldTrimName = false)
+      : m_name(name)
+      , m_type(type)
+      , m_highwayClass(highwayClass)
+      , m_isRedundant(isRedundant)
+      , m_shouldTrimName(shouldTrimName)
+    {}
 
     std::string_view m_name;
     RoadShieldType m_type = RoadShieldType::Default;
@@ -364,18 +376,19 @@ public:
 
   using ShieldTypes = buffer_vector<Entry, 8>;
 
-  HighwayClassRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass, ShieldTypes && types, RoadShieldType defaultType = RoadShieldType::Default)
-  : RoadShieldParser(baseRoadNumber)
-  , m_highwayClass(highwayClass)
-  , m_types(std::move(types))
-  , m_defaultType(defaultType)
+  HighwayClassRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass, ShieldTypes && types,
+                               RoadShieldType defaultType = RoadShieldType::Default)
+    : RoadShieldParser(baseRoadNumber)
+    , m_highwayClass(highwayClass)
+    , m_types(std::move(types))
+    , m_defaultType(defaultType)
   {}
-  
+
   RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
   {
     if (rawText.size() > kMaxRoadShieldBytesSize)
       return RoadShield();
-    
+
     if (index == 1)
     {
       for (auto const & p : m_types)
@@ -392,13 +405,15 @@ public:
         }
       }
     }
-    
+
     SimpleRoadShieldParser::ShieldTypes simpleShieldTypes = {};
     for (auto const & p : m_types)
     {
-      simpleShieldTypes.push_back(SimpleRoadShieldParser::Entry(p.m_name, p.m_type, p.m_isRedundant, p.m_shouldTrimName));
+      simpleShieldTypes.push_back(
+          SimpleRoadShieldParser::Entry(p.m_name, p.m_type, p.m_isRedundant, p.m_shouldTrimName));
     }
-    return SimpleRoadShieldParser(m_baseRoadNumber, std::move(simpleShieldTypes), m_defaultType).ParseRoadShield(rawText, index);
+    return SimpleRoadShieldParser(m_baseRoadNumber, std::move(simpleShieldTypes), m_defaultType)
+        .ParseRoadShield(rawText, index);
   }
 
 private:
@@ -566,8 +581,8 @@ class TurkeyRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
   explicit TurkeyRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {{"O", RoadShieldType::Highway_Hexagon_Turkey},
-                                              {"D", RoadShieldType::Generic_Blue}})
+    : SimpleRoadShieldParser(baseRoadNumber,
+                             {{"O", RoadShieldType::Highway_Hexagon_Turkey}, {"D", RoadShieldType::Generic_Blue}})
   {}
 };
 
@@ -575,7 +590,7 @@ class HungaryRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
   explicit HungaryRoadShieldParser(std::string const & baseRoadNumber)
-  : SimpleRoadShieldParser(baseRoadNumber, {{"M", RoadShieldType::Hungary_Blue}}, RoadShieldType::Hungary_Green)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"M", RoadShieldType::Hungary_Blue}}, RoadShieldType::Hungary_Green)
   {}
 };
 
@@ -796,14 +811,14 @@ class CyprusRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
   explicit CyprusRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {// North Cyprus.
+    : SimpleRoadShieldParser(baseRoadNumber, {                                                  // North Cyprus.
                                               {"D.", RoadShieldType::Generic_Blue},             // White font.
                                               {"GM.", RoadShieldType::Generic_White_Bordered},  // Blue font.
                                               {"GZ.", RoadShieldType::Generic_White_Bordered},  // Blue font.
                                               {"GR.", RoadShieldType::Generic_White_Bordered},  // Blue font.
                                               {"LF.", RoadShieldType::Generic_White_Bordered},  // Blue font.
                                               {"İK.", RoadShieldType::Generic_White_Bordered},  // Blue font.
-                                              // South Cyprus.
+                                                                                                // South Cyprus.
                                               {"A", RoadShieldType::Generic_Green},             // Yellow font. Hexagon.
                                               {"B", RoadShieldType::Generic_Blue},              // Yellow font.
                                               {"E", RoadShieldType::Generic_Blue},              // Yellow font.
@@ -863,7 +878,7 @@ RoadShieldsSetT GetRoadShields(FeatureType & f)
   auto const & highwayClass = ftypes::GetHighwayClass(feature::TypesHolder(f));
   if (highwayClass == HighwayClass::Undefined)
     return {};
-  
+
   // Find out country name.
   std::string mwmName = f.GetID().GetMwmName();
   ASSERT(!mwmName.empty(), (f.GetID()));
@@ -875,7 +890,8 @@ RoadShieldsSetT GetRoadShields(FeatureType & f)
   return GetRoadShields(mwmName, ref, highwayClass);
 }
 
-RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & roadNumber, HighwayClass const & highwayClass)
+RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & roadNumber,
+                               HighwayClass const & highwayClass)
 {
   if (mwmName == "US")
     return USRoadShieldParser(roadNumber).GetRoadShields();

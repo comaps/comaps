@@ -83,7 +83,7 @@ bool Result::IsSameType(uint32_t type) const
 
 std::string GetLocalizedTypeName(uint32_t type)
 {
-  return platform::GetLocalizedTypeName(classif().GetReadableObjectName(type));
+  return localisation::TranslatedFeatureType(classif().GetReadableObjectName(type));
 }
 
 std::string Result::GetLocalizedFeatureType() const
@@ -91,7 +91,7 @@ std::string Result::GetLocalizedFeatureType() const
   switch (m_resultType)
   {
   case Type::Feature: return GetLocalizedTypeName(m_mainType);
-  case Type::Postcode: return platform::GetLocalizedString("postal_code");
+  case Type::Postcode: return localisation::TranslatedInterfaceText("postal_code");
   default: return {};
   }
 }

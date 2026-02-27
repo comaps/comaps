@@ -273,7 +273,8 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     RecyclerView mResults = mResultsFrame.findViewById(R.id.recycler);
     setRecyclerScrollListener(mResults);
     mResultsPlaceholder = mResultsFrame.findViewById(R.id.placeholder);
-    mResultsPlaceholder.setContent(R.string.search_not_found, R.string.search_not_found_query, R.drawable.ic_search_fail);
+    mResultsPlaceholder.setContent(R.string.search_not_found, R.string.search_not_found_query,
+                                   R.drawable.ic_search_fail);
     mSearchAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver()
 
                                                {

@@ -37,14 +37,12 @@ struct EditableProperties
 
 struct LocalizedName
 {
-  LocalizedName(int8_t code, std::string_view name);
-  LocalizedName(std::string const & langCode, std::string const & name);
+  LocalizedName(localisation::LanguageIndex languageIndex, std::string name);
+  LocalizedName(localisation::LanguageCode const & languageCode, std::string const & name);
 
-  /// m_code, m_lang and m_langName are defined in StringUtf8Multilang.
-  int8_t const m_code;
-  /// Non-owning pointers to internal static char const * array.
-  std::string_view const m_lang;
-  std::string_view const m_langName;
+  localisation::LanguageIndex const m_languageIndex;
+  localisation::LanguageCode const m_languageCode;
+  std::string const m_languageName;
   std::string const m_name;
 };
 
@@ -155,11 +153,11 @@ private:
 
 public:
   /// Check whether langCode can be used as default name.
-  static bool CanUseAsDefaultName(int8_t const langCode, std::vector<int8_t> const & nativeMwmLanguages);
+  static bool CanUseAsDefaultName(localisation::LanguageIndex const languageIndex, std::vector<localisation::LanguageIndex> const & mwmLanguageIndexes);
 
   /// See comment for NamesDataSource class.
   static NamesDataSource GetNamesDataSource(StringUtf8Multilang const & source,
-                                            std::vector<int8_t> const & nativeMwmLanguages, int8_t const userLanguage);
+                                            std::vector<localisation::LanguageIndex> const & nativeMwmLanguages);
 
   /// Compares editable fields connected with feature ignoring street.
   friend bool AreObjectsEqualIgnoringStreet(EditableMapObject const & lhs, EditableMapObject const & rhs);

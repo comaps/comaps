@@ -24,8 +24,8 @@ std::string GetCurrentMapTwine();
 /// langs like Danish (da) are not supported in the core too, but used as a locale.
 std::string Normalize(std::string_view lang);
 std::string GetCurrentNorm();
-std::string GetCurrentMapLanguage();
-std::vector<int8_t> GetPreferredLangIndexes();
+
+std::vector<std::string> GetSystemPreferredLanguageCodes();
 
 buffer_vector<std::string, 4> const & GetSystemPreferred();
 }  // namespace languages

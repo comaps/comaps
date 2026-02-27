@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="type.addr_interpolation">ವಿಳಾಸ/ಬ್ಲಾಕ್</string>
+    <string name="type.addr_interpolation.even">ವಿಳಾಸ/ಬ್ಲಾಕ್</string>
+    <string name="type.addr_interpolation.odd">ವಿಳಾಸ/ಬ್ಲಾಕ್</string>
+    <string name="type.aerialway">ವೈಮಾನಿಕ ಮಾರ್ಗ</string>
+    <string name="type.aerialway.cable_car">ಕೇಬಲ್ ಕಾರ್</string>
+    <string name="type.aerialway.chair_lift">ಕುರ್ಚಿ ಲಿಫ್ಟ್</string>
+    <string name="type.aerialway.mixed_lift">ಬಗೆಬಗೆಯ ಲಿಫ್ಟ್</string>
+    <string name="type.aeroway">ವಾಯುಪ್ರದೇಶದ ಮೂಲಸೌಕರ್ಯ</string>
+    <string name="type.aeroway.aerodrome">ವಿಮಾನ ನಿಲ್ದಾಣ</string>
+    <string name="type.aeroway.aerodrome.international">ಅಂತರರಾಷ್ಟ್ರೀಯ ವಿಮಾನ ನಿಲ್ದಾಣ</string>
+    <string name="type.aeroway.helipad">ಹೆಲಿಪ್ಯಾಡ್</string>
+    <string name="type.aeroway.runway">ರನ್‌ವೇ</string>
+    <string name="type.aeroway.taxiway">ಟ್ಯಾಕ್ಸಿವೇ</string>
+</resources>

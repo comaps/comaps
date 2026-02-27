@@ -109,7 +109,7 @@ public:
   void UploadResources(ref_ptr<dp::GraphicsContext> context, ref_ptr<Texture> texture);
 
 private:
-  // std::unordered_map can be better here
+  // ankerl::unordered_dense::map can be better here
   typedef std::map<StipplePenKey, StipplePenResourceInfo> TResourceMapping;
   typedef std::pair<m2::RectU, StipplePenRasterizator> TPendingNode;
   typedef std::vector<TPendingNode> TPendingNodes;

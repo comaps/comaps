@@ -24,7 +24,7 @@
       android:layout_marginTop="@dimen/margin_base"
       android:layout_marginEnd="@dimen/bookmark_collection_item_end_margin"
       android:ellipsize="middle"
-      android:singleLine="true"
+      android:maxLines="2"
       android:textAppearance="@style/MwmTextAppearance.Body1"
       tools:text="Bookmark name looooooooooooooooooongasdasdasd" />
     <com.google.android.material.textview.MaterialTextView
@@ -35,7 +35,7 @@
       android:layout_marginEnd="@dimen/bookmark_collection_item_end_margin"
       android:layout_marginBottom="@dimen/margin_half_plus"
       android:ellipsize="end"
-      android:singleLine="true"
+      android:maxLines="1"
       android:textColor="?android:textColorSecondary"
       style="@style/MwmTextAppearance.Body2"
       tools:text="42000000" />

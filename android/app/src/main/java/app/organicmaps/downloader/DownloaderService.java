@@ -18,12 +18,17 @@ import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.util.log.Logger;
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class DownloaderService extends Service implements MapManager.StorageCallback
 {
   private static final String TAG = DownloaderService.class.getSimpleName();
 
   private final DownloaderNotifier mNotifier = new DownloaderNotifier(this);
   private int mSubscriptionSlot;
+  private final Map<String, Long> downloadByteTotals = new LinkedHashMap<>();
 
   @Override
   public void onCreate()
@@ -106,7 +111,28 @@ public class DownloaderService extends Service implements MapManager.StorageCall
       return;
     }
 
-    mNotifier.notifyProgress(countryId, (int) bytesTotal, (int) bytesDownloaded);
+    // check whether it is a region or country
+    // if it is a region, do not notify
+    // this is because the countries and regions are downloaded concurrently
+    // which caused visual bugs on the notification
+    CountryItem item = new CountryItem(countryId);
+    MapManager.nativeGetAttributes(item);
+    int numSubregions = item.childCount;
+    if (numSubregions > 1)
+    {
+      return;
+    }
+
+    downloadByteTotals.put(countryId, bytesTotal);
+
+    List<String> countryIdList = new ArrayList<>(downloadByteTotals.keySet());
+    int numberOfCountryIds = countryIdList.size();
+
+    // convert bytes to megabytes
+    int megabytesTotal = (int) (bytesTotal / 1024 / 1024);
+    int megabytesDownloaded = (int) (bytesDownloaded / 1024 / 1024);
+
+    mNotifier.notifyProgress(countryId, megabytesTotal, megabytesDownloaded, numberOfCountryIds, numSubregions);
   }
 
   @Override

@@ -27,4 +27,8 @@
     <string name="m">মি</string>
     <string name="ft">ফুট</string>
     <string name="access_rules_author_only">অনলাইন সম্পাদনা</string>
+    <string name="not_shared">ব্যক্তিগত</string>
+    <string name="mi">মাইল</string>
+    <string name="limited_access">সীমিত প্রবেশাধিকার</string>
+    <string name="public_access">সার্বজনীন প্রবেশাধিকার</string>
 </resources>

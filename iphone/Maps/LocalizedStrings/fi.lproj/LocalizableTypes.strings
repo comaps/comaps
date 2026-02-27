@@ -1550,3 +1550,5 @@
 "type.amenity.charging_station.small" = "Rajallinen kapasiteetti";
 "type.amenity.prep_school" = "Valmennuskoulu";
 "type.amenity.lounger" = "Aurinkotuoli";
+"type.amenity.community_centre.youth_centre" = "Nuorisokeskus";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";

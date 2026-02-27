@@ -9,9 +9,10 @@
 #include <cstdint>
 #include <optional>
 #include <string>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QDialog>
@@ -49,7 +50,7 @@ private slots:
 
 private:
   // CountryId to its ranking position and matched string (assuming no duplicates).
-  using Filter = std::unordered_map<storage::CountryId, std::pair<size_t, std::string>>;
+  using Filter = ankerl::unordered_dense::map<storage::CountryId, std::pair<size_t, std::string>>;
 
   void RefillTree();
   void StartSearchInDownloader();

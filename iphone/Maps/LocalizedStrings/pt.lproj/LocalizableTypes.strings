@@ -1600,3 +1600,4 @@
 "type.railway.disused.tunnel" = "Túnel Ferroviário Desativada";
 "type.railway.miniature" = "Ferrovia em Miniatura";
 "type.waterway.fuel" = "Doca de Combustível Marinha";
+"type.amenity.community_centre.youth_centre" = "Centro Juvenil";

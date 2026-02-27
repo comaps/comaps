@@ -199,6 +199,9 @@ endif()
 # Fix for #include <boost/regex.hpp>
 include_directories("${OMIM_ROOT}/3party/boost")
 
+# without this, cmake might ignore the Python Virtual Environment when defined 
+set(Python3_FIND_VIRTUALENV FIRST)
+
 # Used in qt/ and shaders/
 find_package(Python3 REQUIRED COMPONENTS Interpreter)
 

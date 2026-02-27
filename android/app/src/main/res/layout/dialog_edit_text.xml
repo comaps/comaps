@@ -22,10 +22,9 @@
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textMultiLine"
+      android:inputType="text"
       android:gravity="top"
       android:padding="@dimen/margin_half_double_plus"
-      android:maxLength="100"
-      android:singleLine="true" />
+      android:maxLength="100" />
   </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

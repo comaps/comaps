@@ -125,7 +125,7 @@ void PrintGeometryAndAltitude(std::string const & countryID, ms::LatLon const & 
     LOG(LINFO, (geomSS.str()));
 
     auto const & altitudes = features.m_altitudes->GetAltitudes(ft.GetID().m_index, pointsCount);
-    LOG(LINFO, (ft.GetName(StringUtf8Multilang::kDefaultCode), altitudes));
+    LOG(LINFO, (ft.GetName(localisation::kDefaultNameIndex), altitudes));
 
   }, rect, scales::GetUpperScale());
 }

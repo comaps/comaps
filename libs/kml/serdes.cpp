@@ -169,7 +169,7 @@ void SaveLocalizableString(Writer & writer, LocalizableString const & str, std::
   writer << indent << "<mwm:" << tagName << ">\n";
   for (auto const & s : str)
   {
-    writer << indent << kIndent2 << "<mwm:lang code=\"" << StringUtf8Multilang::GetLangByCode(s.first) << "\">";
+    writer << indent << kIndent2 << "<mwm:lang code=\"" << localisation::ConvertLanguageIndexToLanguageCode(s.first) << "\">";
     SaveStringWithCDATA(writer, s.second);
     writer << "</mwm:lang>\n";
   }
@@ -282,7 +282,7 @@ void SaveCategoryExtendedData(Writer & writer, CategoryData const & categoryData
   std::vector<std::string_view> languageCodes;
   languageCodes.reserve(categoryData.m_languageCodes.size());
   for (auto const & lang : categoryData.m_languageCodes)
-    if (auto const str = StringUtf8Multilang::GetLangByCode(lang); !str.empty())
+    if (auto const str = localisation::ConvertLanguageIndexToLanguageCode(lang); !str.empty())
       languageCodes.push_back(str);
 
   SaveStringsArray(writer, languageCodes, "languageCodes", indent);
@@ -401,8 +401,7 @@ void SaveBookmarkData(Writer & writer, BookmarkData const & bookmarkData)
 {
   writer << kIndent2 << "<Placemark>\n";
   writer << kIndent4 << "<name>";
-  auto const defaultLang = StringUtf8Multilang::GetLangByCode(kDefaultLangCode);
-  SaveStringWithCDATA(writer, GetPreferredBookmarkName(bookmarkData, defaultLang));
+  SaveStringWithCDATA(writer, GetPreferredBookmarkNameForKml(bookmarkData));
   writer << "</name>\n";
 
   if (auto const description = GetDefaultLanguage(bookmarkData.m_description))
@@ -654,7 +653,7 @@ void KmlWriter::Write(FileData const & fileData)
 KmlParser::KmlParser(FileData & data)
   : m_data(data)
   , m_categoryData(&m_data.m_categoryData)
-  , m_attrCode(StringUtf8Multilang::kUnsupportedLanguageCode)
+  , m_attrCode(localisation::kUnsupportedLanguageIndex)
 {
   ResetPoint();
 }
@@ -868,7 +867,7 @@ void KmlParser::AddAttr(std::string attr, std::string value)
 
   if (attr == "code")
   {
-    m_attrCode = StringUtf8Multilang::GetLangIndex(value);
+    m_attrCode = localisation::ConvertLanguageCodeToLanguageIndex(value);
   }
   else if (attr == "id")
   {
@@ -1156,7 +1155,7 @@ void KmlParser::CharData(std::string & value)
         m_categoryData->m_description[m_attrCode] = value;
       else if (prevTag == "mwm:annotation" && m_attrCode >= 0)
         m_categoryData->m_annotation[m_attrCode] = value;
-      m_attrCode = StringUtf8Multilang::kUnsupportedLanguageCode;
+      m_attrCode = localisation::kUnsupportedLanguageIndex;
     }
     else if (((pppTag == kDocument && ppTag == kExtendedData) ||
               (ppppTag == kDocument && pppTag == kExtendedData && ppTag == kCompilation)) &&
@@ -1172,9 +1171,9 @@ void KmlParser::CharData(std::string & value)
       }
       else if (prevTag == "mwm:languageCodes")
       {
-        auto const lang = StringUtf8Multilang::GetLangIndex(value);
-        if (lang != StringUtf8Multilang::kUnsupportedLanguageCode)
-          m_categoryData->m_languageCodes.push_back(lang);
+        localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(value);
+        if (languageIndex != localisation::kUnsupportedLanguageIndex)
+          m_categoryData->m_languageCodes.push_back(languageIndex);
       }
       else if (prevTag == "mwm:properties" && !m_attrKey.empty())
       {
@@ -1360,7 +1359,7 @@ void KmlParser::CharData(std::string & value)
             m_description[m_attrCode] = value;
           else if (prevTag == "mwm:customName" && m_attrCode >= 0)
             m_customName[m_attrCode] = value;
-          m_attrCode = StringUtf8Multilang::kUnsupportedLanguageCode;
+          m_attrCode = localisation::kUnsupportedLanguageIndex;
         }
         else if (currTag == "mwm:value")
         {

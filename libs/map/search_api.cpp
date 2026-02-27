@@ -21,6 +21,8 @@
 #include <string>
 #include <type_traits>
 
+#include "3party/ankerl/unordered_dense.h"
+
 using namespace search;
 using namespace std;
 
@@ -79,7 +81,7 @@ void AppendBookmarkIdDocs(vector<BookmarkInfo> const & marks, vector<BookmarkIdD
 
   auto const locale = languages::GetCurrentOrig();
   for (auto const & mark : marks)
-    result.emplace_back(KmlMarkIdToSearchBookmarkId(mark.m_bookmarkId), bookmarks::Doc(mark.m_bookmarkData, locale));
+    result.emplace_back(KmlMarkIdToSearchBookmarkId(mark.m_bookmarkId), bookmarks::Doc(mark.m_bookmarkData));
 }
 
 void AppendBookmarkIds(vector<kml::MarkId> const & marks, vector<bookmarks::Id> & result)
@@ -323,7 +325,7 @@ void SearchAPI::EnableIndexingOfBookmarkGroup(kml::MarkGroupId const & groupId, 
   m_engine.EnableIndexingOfBookmarkGroup(KmlGroupIdToSearchGroupId(groupId), enable);
 }
 
-unordered_set<kml::MarkGroupId> const & SearchAPI::GetIndexableGroups() const
+ankerl::unordered_dense::set<kml::MarkGroupId> const & SearchAPI::GetIndexableGroups() const
 {
   return m_indexableGroups;
 }

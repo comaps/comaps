@@ -21,17 +21,54 @@ Clone the repository including all submodules (see [Special cases options](#spec
 
 Follow the instructions for your OS, and afterwards the repository is prepared to build a CoMaps app!
 
-### Linux
+## Setting up to your OS of development
+
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Linux</span></summary>
+
 Clone the repository
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
-Install required packages (Ubuntu/Debian):
+### Install required packages for your specific Linux distro
+
+
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">Ubuntu/Debian</span></summary>
+
 ```bash
 sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-pip ninja-build
+
+```
+</details>
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">Arch Linux</span></summary>
+
+```bash
+sudo pacman -S base-devel cmake qt6-base qt6-svg qt6-positioning icu freetype2 harfbuzz harfbuzz-utils libxrandr libxinerama libxcursor libxi ninja python-pip optipng
+```
+
+</details>
+
+<details>
+  <summary><span style="font-size: 1em; font-weight: bold;">Fedora</span></summary>
+
+```bash
+sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning icu harfbuzz freetype libXrandr libXinerama libXcursor libXi optipng python3-pip ninja-build
+```
+
+</details>
+
+```bash
 pip install "protobuf<3.21" --break-system-packages
 ```
+
+Note: If the system can't find `pip`, try `pip3` instead
+
+### Configure running bash script
 
 Go into the cloned repository and configure it for development:
 ```bash
@@ -41,7 +78,11 @@ cd comaps
 
 If you plan to publish the app privately in stores check [special options](#special-cases-options).
 
-### Windows
+</details>
+
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
+  
 You need to have [Git for Windows](https://git-scm.com/download/win) installed and Git bash available in the PATH.
 
 It's necessary to enable symlink support:
@@ -69,7 +110,11 @@ For _Windows 10_:  You should be able to build the project by following either o
 **Setup 2: Using Visual Studio Developer Command Prompt**
 Install the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) (make sure to choose the latest MSVC x64/x86 build tool and Windows 10/11 SDK as individual components while installing Visual Studio).
 
-### macOS
+</details>
+
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
+
 Install required build dependencies and Xcode
 1. Install Xcode Command Line Tools
 2. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
@@ -93,8 +138,10 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
 cd comaps
 ./configure.sh
 ```
+</details>
 
-### Special cases options
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Special cases options</span></summary> 
 
 If you're only doing a one-off build or your internet bandwidth or disk space is limited, add following options to the `git clone` command:
 
@@ -114,7 +161,11 @@ It'll seamlessly replace the squashed first "Organic Maps sources as of 02.04.20
 The `om-historic.git` repo is ~1Gb only as various historic blobs, bundled 3rd-party deps, etc. were removed from it.
 If you really need them (e.g. to build a very old app version) then refer to full organicmaps.git repo please.
 
-## Android app
+</details>
+
+## Develop for:
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Android app</span></summary> 
 
 ### Preparing
 
@@ -199,19 +250,26 @@ To enable logging in case of crashes, after installing a debug version, run:
 ```bash
 adb shell pm grant app.organicmaps.debug android.permission.READ_LOGS
 ```
+</details>
 
-
-### Android Auto Development
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Android Auto</span></summary>
 
 Android Auto can be developed and tested without having a physical device by using [Desktop Head Unit (DHU)](https://developer.android.com/training/cars/testing/dhu). Go to Android Studio > Tools -> SDK Manager -> SDK Tools and enable "Android Auto Desktop Head Unit".
 
 [Android Auto App](https://play.google.com/store/apps/details?id=com.google.android.projection.gearhead) is required for Auto functionality. The app should be installed from Google Play before connecting a phone to the Desktop Head Unit or a real car. Android Auto doesn't work on phones without Google Play Services.
 
-To run Android Auto, connect the phone using USB cable and run the Desktop Head Unit with `--usb` flag:
+To run Android Auto, connect the phone using USB cable and run the Desktop Head Unit with the `--usb` flag:
 
 ```
-~/Library/Android/sdk/extras/google/auto/desktop-head-unit --usb
+[Android SDK path]/extras/google/auto/desktop-head-unit --usb
 ```
+Where `[Android SDK path]` is the path of the Android SDK on your system.
+The default location is:
+  - Windows: %USERPROFILE%\Android\Sdk
+  - MacOS: ~/Library/Android/sdk
+  - Linux ~/Android/Sdk
+
 
 ```
 [REDACTED]
@@ -349,8 +407,10 @@ Example of command line for running system tracing:
 ```
 ./record_android_trace -a app.organicmaps.debug -o trace_file.perfetto-trace -t 30s -b 64mb sched freq idle am wm gfx view binder_driver hal dalvik camera input res memory
 ```
+</details>
 
-## iOS app
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">iOS app</span></summary>
 
 ### Preparing
 
@@ -401,7 +461,11 @@ Select "CoMaps" product scheme.
 
 Compile and run the project ("Product" → "Run").
 
-### CarPlay
+</details>
+
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">CarPlay</span></summary>
+
 To test CarPlay, simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
 
 ### Spoofing GPS
@@ -411,9 +475,15 @@ To select an Apple predetermined track or specific custom location, choose "Feat
 
 To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.py <path to your gpx>` which is a wrapper for `xcrun simctl location`. Default values are 60 km/h and 0.1s update intervals, but can be customized
 
-## Desktop app
+</details>
+
+<details>
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Desktop developer app</span></summary> 
 
 See [install_desktop](INSTALL_DESKTOP.md) to install and build Desktop app for Linux and Mac OS
+
+</details>
+
 
 ## Map data and styles
 See readme for the [map generator](MAPS.md) and [styles](STYLES.md) if you need to customize the map files and styles.

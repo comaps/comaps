@@ -1103,3 +1103,8 @@
 "voice_explanation" = "在系統設定「協助工具」，「TalkBack」，「設定」選擇比較好的聲音。";
 "voice_explanation_before_version26" = "在系統設定「協助工具」，「說話內容」，「聲音」選擇比較好的聲音。";
 "unknown" = "未知";
+"pref_alt_map_lang_handling_local_only" = "偏好而且只在原生使用";
+"pref_alt_map_lang_handling" = "其他地圖語言";
+"pref_alt_map_lang_handling_system_order" = "在系統命令中使用";
+"rooms" = "%@ 房間";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

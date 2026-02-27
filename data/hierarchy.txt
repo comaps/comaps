@@ -274,30 +274,31 @@ Finland;Q33;fi;fi,sv
  Finland_Southern Finland_Helsinki;Q188752-Q1757
  Finland_Southern Finland_Lappeenranta;Q188752-Q181854
 France;Q142;fr;fr
- France_Alsace;Q1142
-  France_Alsace_Bas-Rhin;Q12717
-  France_Alsace_Haut-Rhin;Q12722
- France_Aquitaine;Q1179
-  France_Aquitaine_Dordogne;Q3357
-  France_Aquitaine_Gironde;Q12526
-  France_Aquitaine_Landes;Q12563
-  France_Aquitaine_Lot-et-Garonne;Q12578
-  France_Aquitaine_Pyrenees-Atlantiques;Q12703
- France_Auvergne;Q1152
+ France_Auvergne-Rhone-Alpes;Q18338206
   France_Auvergne_Allier;Q3113
   France_Auvergne_Cantal;Q3259
   France_Auvergne_Haute-Loire;Q12572
   France_Auvergne_Puy-de-Dome;Q12694
+  France_Rhone-Alpes_Ain;Q3083
+  France_Rhone-Alpes_Ardeche;Q3148
+  France_Rhone-Alpes_Drome;Q3364
+  France_Rhone-Alpes_Isere;Q12559
+  France_Rhone-Alpes_Haute-Savoie;Q12751
+  France_Rhone-Alpes_Loire;Q12569
+  France_Rhone-Alpes_Rhone;Q46130
+  France_Rhone-Alpes_Savoie;Q12745
+ France_Bourgogne-Franche-Comte;Q18578267
+  France_Burgundy_Cote-dOr;Q3342
+  France_Burgundy_Nievre;Q12657
+  France_Burgundy_Saone-et-Loire;Q12736
+  France_Burgundy_Yonne;Q12816
+  France_Free County_North;Q16394-North
+  France_Free County_South;Q16394-South
  France_Brittany;Q12130
   France_Brittany_Cotes-dArmor;Q3349
   France_Brittany_Finistere;Q3389
   France_Brittany_Ille-et-Vilaine;Q12549
   France_Brittany_Morbihan;Q12642
- France_Burgundy;Q1173
-  France_Burgundy_Cote-dOr;Q3342
-  France_Burgundy_Nievre;Q12657
-  France_Burgundy_Saone-et-Loire;Q12736
-  France_Burgundy_Yonne;Q12816
  France_Centre-Val de Loire;Q13947
   France_Centre-Val de Loire_Cher;Q3286
   France_Centre-Val de Loire_Eure-et-Loir;Q3377
@@ -305,11 +306,23 @@ France;Q142;fr;fr
   France_Centre-Val de Loire_Indre-et-Loire;Q12556
   France_Centre-Val de Loire_Loir-et-Cher;Q12564
   France_Centre-Val de Loire_Loiret;Q12574
- France_Champagne-Ardenne;Q14103
  France_Corsica;Q14112
- France_Free County_North;Q16394-North
- France_Free County_South;Q16394-South
  France_French Guiana;Q3769;;fr
+ France_Grand_Est;Q18677983
+  France_Alsace_Bas-Rhin;Q12717
+  France_Alsace_Haut-Rhin;Q12722
+  France_Champagne-Ardenne;Q14103
+  France_Lorraine_Meurthe-et-Moselle;Q12626
+  France_Lorraine_Meuse;Q12631
+  France_Lorraine_Moselle;Q12652
+  France_Lorraine_Vosges;Q3105
+ France_Hauts-de-France;Q18677767
+  France_Picardy_Aisne;Q3093
+  France_Picardy_Oise;Q12675
+  France_Picardy_Somme;Q12770
+  France_Nord-Pas-de-Calais_Nord;Q12661
+  France_Nord-Pas-de-Calais_Lille;Q648
+  France_Nord-Pas-de-Calais_Pas-de-Calais;Q12689
  France_Ile-de-France;Q13917
   France_Ile-de-France_Essonne;Q3368
   France_Ile-de-France_Hauts-de-Seine;Q12543
@@ -319,23 +332,29 @@ France;Q142;fr;fr
   France_Ile-de-France_Val-dOise;Q12784
   France_Ile-de-France_Val-de-Marne;Q12788
   France_Ile-de-France_Yvelines;Q12820
- France_Languedoc-Roussillon;Q17005
+ France_New Caledonia;Q33788
+ France_Normandy;Q18677875
+  France_Lower Normandy_Calvados;Q3249
+  France_Lower Normandy_Manche;Q12589
+  France_Lower Normandy_Orne;Q12679
+  France_Upper Normandy;Q16961
+ France_Nouvelle-Aquitaine;Q18678082
+  France_Aquitaine_Dordogne;Q3357
+  France_Aquitaine_Gironde;Q12526
+  France_Aquitaine_Landes;Q12563
+  France_Aquitaine_Lot-et-Garonne;Q12578
+  France_Aquitaine_Pyrenees-Atlantiques;Q12703
+  France_Limousin;Q1190
+  France_Poitou-Charentes_Deux-Sevres;Q12765
+  France_Poitou-Charentes_Charente;Q3266
+  France_Poitou-Charentes_Charente-Maritime;Q3278
+  France_Poitou-Charentes_Vienne;Q12804
+ France_Occitania;Q18678265
   France_Languedoc-Roussillon_Aude;Q3207
   France_Languedoc-Roussillon_Gard;Q12515
   France_Languedoc-Roussillon_Herault;Q12545
   France_Languedoc-Roussillon_Lozere;Q12580
   France_Languedoc-Roussillon_Pyrenees-Orientales;Q12709
- France_Limousin;Q1190
- France_Lorraine;Q1137
-  France_Lorraine_Meurthe-et-Moselle;Q12626
-  France_Lorraine_Meuse;Q12631
-  France_Lorraine_Moselle;Q12652
-  France_Lorraine_Vosges;Q3105
- France_Lower Normandy;Q16954
-  France_Lower Normandy_Calvados;Q3249
-  France_Lower Normandy_Manche;Q12589
-  France_Lower Normandy_Orne;Q12679
- France_Midi-Pyrenees;Q16393
   France_Midi-Pyrenees_Ariege;Q3184
   France_Midi-Pyrenees_Aveyron;Q3216
   France_Midi-Pyrenees_Gers;Q12517
@@ -344,11 +363,6 @@ France;Q142;fr;fr
   France_Midi-Pyrenees_Lot;Q12576
   France_Midi-Pyrenees_Tarn;Q12772
   France_Midi-Pyrenees_Tarn-et-Garonne;Q12779
- France_New Caledonia;Q33788
- France_Nord-Pas-de-Calais;Q16987
-  France_Nord-Pas-de-Calais_Nord;Q12661
-  France_Nord-Pas-de-Calais_Lille;Q648
-  France_Nord-Pas-de-Calais_Pas-de-Calais;Q12689
  France_Pays de la Loire;Q16994
   France_Pays de la Loire_Loire-Atlantique_Nantes;Q3068-Q12191
   France_Pays de la Loire_Loire-Atlantique_Saint-Nazaire;Q3068-Q152027
@@ -356,15 +370,6 @@ France;Q142;fr;fr
   France_Pays de la Loire_Mayenne;Q12620
   France_Pays de la Loire_Sarthe;Q12740
   France_Pays de la Loire_Vendee;Q12798
- France_Picardy;Q13950
-  France_Picardy_Aisne;Q3093
-  France_Picardy_Oise;Q12675
-  France_Picardy_Somme;Q12770
- France_Poitou-Charentes;Q17009
-  France_Poitou-Charentes_Charente;Q3266
-  France_Poitou-Charentes_Charente-Maritime;Q3278
-  France_Poitou-Charentes_Deux-Sevres;Q12765
-  France_Poitou-Charentes_Vienne;Q12804
  France_Provence-Alpes-Cote dAzur;Q15104
   France_Provence-Alpes-Cote dAzur_Alpes-de-Haute-Provence;Q3131
   France_Provence-Alpes-Cote dAzur_Bouches-du-Rhone;Q3240
@@ -372,17 +377,7 @@ France;Q142;fr;fr
   France_Provence-Alpes-Cote dAzur_Maritime Alps;Q3139
   France_Provence-Alpes-Cote dAzur_Var;Q12789
   France_Provence-Alpes-Cote dAzur_Vaucluse;Q12792
- France_Rhone-Alpes;Q463
-  France_Rhone-Alpes_Ain;Q3083
-  France_Rhone-Alpes_Ardeche;Q3148
-  France_Rhone-Alpes_Drome;Q3364
-  France_Rhone-Alpes_Haute-Savoie;Q12751
-  France_Rhone-Alpes_Isere;Q12559
-  France_Rhone-Alpes_Loire;Q12569
-  France_Rhone-Alpes_Rhone;Q46130
-  France_Rhone-Alpes_Savoie;Q12745
  France_Southern Islands;Q129003
- France_Upper Normandy;Q16961
  French Polynesia;Q30971;;fr
  Wallis and Futuna;Q35555
 Gabon;Q1000;ga;fr

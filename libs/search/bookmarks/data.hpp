@@ -4,8 +4,7 @@
 
 #include "kml/types.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
+#include "base/localisation_translation.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 
@@ -22,8 +21,8 @@ class Data
 public:
   Data() = default;
 
-  Data(kml::BookmarkData const & bookmarkData, std::string const & locale)
-    : m_names(ExtractIndexableNames(bookmarkData, locale))
+  Data(kml::BookmarkData const & bookmarkData)
+    : m_names(ExtractIndexableNames(bookmarkData))
     , m_description(kml::GetDefaultStr(bookmarkData.m_description))
   {}
 
@@ -35,7 +34,7 @@ public:
       // Note that the Default Language here is not the same as in the kml library.
       // Bookmark search by locale is not supported so every name is stored
       // in the default branch of the search trie.
-      fn(StringUtf8Multilang::kDefaultCode, token);
+      fn(localisation::kDefaultNameIndex, token);
     };
 
     for (auto const & name : m_names)
@@ -45,7 +44,7 @@ public:
   template <typename Fn>
   void ForEachDescriptionToken(Fn && fn) const
   {
-    auto withDefaultLang = [&](strings::UniString const & token) { fn(StringUtf8Multilang::kDefaultCode, token); };
+    auto withDefaultLang = [&](strings::UniString const & token) { fn(localisation::kDefaultNameIndex, token); };
 
     ForEachNormalizedToken(m_description, withDefaultLang);
   }
@@ -54,13 +53,12 @@ public:
   std::string const & GetDescription() const { return m_description; }
 
 private:
-  std::vector<std::string> ExtractIndexableNames(kml::BookmarkData const & bookmarkData, std::string const & locale)
+  std::vector<std::string> ExtractIndexableNames(kml::BookmarkData const & bookmarkData)
   {
     std::vector<std::string> names;
 
     // Same as GetPreferredBookmarkName from the map library. Duplicated here to avoid dependency.
-    names.emplace_back(kml::GetPreferredBookmarkName(bookmarkData, locale));
-    names.emplace_back(kml::GetPreferredBookmarkStr(bookmarkData.m_name, locale));
+    names.emplace_back(kml::GetPreferredBookmarkNameForKml(bookmarkData));
 
     // todo(@m) Platform's API does not allow to use |locale| here.
     names.emplace_back(kml::GetLocalizedFeatureType(bookmarkData.m_featureTypes));

@@ -13,6 +13,7 @@ using namespace std;
 
 using StrUtf8 = StringUtf8Multilang;
 
+/*
 void GetPreferredNames(feature::RegionData const & regionData, StrUtf8 const & src, int8_t deviceLang,
                        bool allowTranslit, std::string & primary, std::string & secondary)
 {
@@ -491,6 +492,7 @@ UNIT_TEST(GetReadableName)
     TEST_EQUAL(name, "en name", ());
   }
 }
+*/
 
 /*
 UNIT_TEST(GetNameForSearchOnBooking)

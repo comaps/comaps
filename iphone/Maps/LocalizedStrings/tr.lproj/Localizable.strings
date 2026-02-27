@@ -1099,3 +1099,4 @@
 "avoid_steps" = "Merdivenlerden kaçın";
 "editor_place_doesnt_exist_description" = "OpeenStreetMap topluluğuna bir hata notu göndermek için şimdi mekanın nasıl gözüktüğünü tarif et";
 "avoid_paved" = "Asfalt yollardan kaçın";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

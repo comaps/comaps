@@ -1459,4 +1459,6 @@
     <string name="type.amenity.charging_station.small">Rajallinen kapasiteetti</string>
     <string name="type.amenity.prep_school">Valmennuskoulu</string>
     <string name="type.amenity.lounger">Aurinkotuoli</string>
+    <string name="type.amenity.community_centre.youth_centre">Nuorisokeskus</string>
+    <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
 </resources>

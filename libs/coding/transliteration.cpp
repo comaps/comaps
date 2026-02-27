@@ -1,7 +1,5 @@
 #include "coding/transliteration.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -59,11 +57,11 @@ void Transliteration::Init(std::string const & icuDataDir)
   UNUSED_VALUE(icuDataDir);
 #endif
 
-  for (auto const & lang : StringUtf8Multilang::GetSupportedLanguages())
+  for (localisation::Language const & language : localisation::GetSupportedLanguages())
   {
-    for (auto const & t : lang.m_transliteratorsIds)
-      if (m_transliterators.count(t) == 0)
-        m_transliterators.emplace(t, std::make_unique<TransliteratorInfo>());
+    for (localisation::TransliteratorId const & transliteratorId : language.m_transliteratorsIds)
+      if (m_transliterators.count(transliteratorId) == 0)
+        m_transliterators.emplace(transliteratorId, std::make_unique<TransliteratorInfo>());
   }
 
   // We need "Hiragana-Katakana" for strings normalization, not for latin transliteration.
@@ -77,15 +75,15 @@ void Transliteration::SetMode(Mode mode)
   m_mode = mode;
 }
 
-bool Transliteration::Transliterate(std::string_view transID, icu::UnicodeString & ustr) const
+bool Transliteration::Transliterate(localisation::TransliteratorId const transliteratorId, icu::UnicodeString & ustr) const
 {
   CHECK(m_inited, ());
-  ASSERT(!transID.empty(), ());
+  ASSERT(!transliteratorId.empty(), ());
 
-  auto it = m_transliterators.find(transID);
+  auto it = m_transliterators.find(transliteratorId);
   if (it == m_transliterators.end())
   {
-    LOG(LWARNING, ("Unknown transliterator:", transID));
+    LOG(LWARNING, ("Unknown transliterator:", transliteratorId));
     return false;
   }
 
@@ -96,13 +94,13 @@ bool Transliteration::Transliterate(std::string_view transID, icu::UnicodeString
     {
       UErrorCode status = U_ZERO_ERROR;
       // Append remove diacritic rule.
-      auto const withDiacritic = std::string{transID}.append(";NFD;[\u02B9-\u02D3\u0301-\u0358\u00B7\u0027]Remove;NFC");
+      auto const withDiacritic = std::string{transliteratorId}.append(";NFD;[\u02B9-\u02D3\u0301-\u0358\u00B7\u0027]Remove;NFC");
       icu::UnicodeString const uTransID(withDiacritic.c_str());
 
       it->second->m_transliterator.reset(icu::Transliterator::createInstance(uTransID, UTRANS_FORWARD, status));
 
       if (it->second->m_transliterator == nullptr)
-        LOG(LWARNING, ("Cannot create transliterator:", transID, "ICU error =", status));
+        LOG(LWARNING, ("Cannot create transliterator:", transliteratorId, "ICU error =", status));
 
       it->second->m_initialized = true;
     }
@@ -136,12 +134,12 @@ bool Transliteration::Transliterate(std::string_view sv, int8_t langCode, std::s
   if (sv.empty() || strings::IsASCIIString(sv))
     return false;
 
-  auto const * transliteratorsIds = StringUtf8Multilang::GetTransliteratorsIdsByCode(langCode);
-  if (transliteratorsIds == nullptr || transliteratorsIds->empty())
+  auto const transliteratorsIds = localisation::GetTransliteratorsIdsByLanguageIndex(langCode);
+  if (transliteratorsIds.empty())
     return false;
 
   icu::UnicodeString ustr(sv.data(), static_cast<int32_t>(sv.size()));
-  for (auto const & id : *transliteratorsIds)
+  for (auto const & id : transliteratorsIds)
     Transliterate(id, ustr);
 
   if (ustr.isEmpty())
@@ -149,4 +147,29 @@ bool Transliteration::Transliterate(std::string_view sv, int8_t langCode, std::s
 
   ustr.toUTF8String(out);
   return true;
+}
+
+std::string Transliteration::Transliterate(localisation::LanguageIndex const languageIndex, std::string const name) const
+{
+  CHECK(m_inited, ());
+  if (m_mode != Mode::Enabled)
+    return name;
+
+  if (name.empty() || strings::IsASCIIString(name))
+    return name;
+
+  auto const transliteratorsIds = localisation::GetTransliteratorsIdsByLanguageIndex(languageIndex);
+  if (transliteratorsIds.empty())
+    return name;
+
+  icu::UnicodeString ustr(name.data(), static_cast<int32_t>(name.size()));
+  for (auto const & id : transliteratorsIds)
+    Transliterate(id, ustr);
+
+  if (ustr.isEmpty())
+    return name;
+
+  std::string transliteratedName = "";
+  ustr.toUTF8String(transliteratedName);
+  return transliteratedName;
 }

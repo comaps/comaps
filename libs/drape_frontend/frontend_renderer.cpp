@@ -22,9 +22,9 @@
 #include "drape/support_manager.hpp"
 #include "drape/utils/projection.hpp"
 
+#include "indexer/classificator_loader.hpp"
 #include "indexer/drawing_rules.hpp"
 #include "indexer/scales.hpp"
-#include "indexer/classificator_loader.hpp"
 
 #include "geometry/any_rect2d.hpp"
 
@@ -38,14 +38,7 @@
 #include "std/target_os.hpp"
 
 #include <algorithm>
-#include <array>
-#include <chrono>
 #include <cmath>
-#include <functional>
-#include <limits>
-#include <memory>
-#include <thread>
-#include <utility>
 
 namespace df
 {
@@ -155,7 +148,7 @@ FrontendRenderer::FrontendRenderer(Params && params)
   , m_blockTapEvents(params.m_blockTapEvents)
   , m_choosePositionMode(false)
   , m_screenshotMode(params.m_myPositionParams.m_hints.m_screenshotMode)
-  , m_mapLangIndex(StringUtf8Multilang::kDefaultCode)
+  , m_mapLangIndex(localisation::kDefaultNameIndex)
   , m_viewport(params.m_viewport)
   , m_modelViewChangedHandler(std::move(params.m_modelViewChangedHandler))
   , m_tapEventInfoHandler(std::move(params.m_tapEventHandler))
@@ -1564,7 +1557,10 @@ void FrontendRenderer::RenderOverlayUnderBuildingLayer(ScreenBase const & modelV
   RenderLayer & overlay = m_layers[static_cast<size_t>(DepthLayer::OverlayUnderBuildingLayer)];
   BuildOverlayTree(modelView);
   for (drape_ptr<RenderGroup> & group : overlay.m_renderGroups)
+  {
+    group->SetOverlayVisibility(true);
     RenderSingleGroup(m_context, modelView, make_ref(group));
+  }
 }
 
 bool FrontendRenderer::HasTransitRouteData() const
@@ -1817,6 +1813,7 @@ void FrontendRenderer::RenderFrame()
   }
 
   m_frameData.m_frameTime = m_frameData.m_timer.ElapsedSeconds();
+  m_frameValues.m_frameTime = m_frameData.m_frameTime;
   scaleFpsHelper.SetFrameTime(m_frameData.m_frameTime,
                               m_frameData.m_inactiveFramesCounter + 1 < FrameData::kMaxInactiveFrames);
 
@@ -1834,8 +1831,9 @@ void FrontendRenderer::BuildOverlayTree(ScreenBase const & modelView)
     return;
 
   BeginUpdateOverlayTree(modelView);
-  for (auto const layerId :
-       {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer, DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
+
+  for (auto const layerId : {DepthLayer::OverlayUnderBuildingLayer, DepthLayer::OverlayLayer,
+                             DepthLayer::RoutingBottomMarkLayer, DepthLayer::RoutingMarkLayer})
   {
     RenderLayer & overlay = m_layers[static_cast<size_t>(layerId)];
     overlay.Sort(make_ref(m_overlayTree));
@@ -2525,7 +2523,9 @@ void FrontendRenderer::UpdateScene(ScreenBase const & modelView)
     uint32_t constexpr kMaxGenerationRange = 5;
     TileKey const & key = group->GetTileKey();
 
-    return ((GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer || GetDepthLayer(group->GetState()) == DepthLayer::OverlayUnderBuildingLayer) && key.m_zoomLevel > GetCurrentZoom()) ||
+    return ((GetDepthLayer(group->GetState()) == DepthLayer::OverlayLayer ||
+             GetDepthLayer(group->GetState()) == DepthLayer::OverlayUnderBuildingLayer) &&
+            key.m_zoomLevel > GetCurrentZoom()) ||
            (m_maxGeneration - key.m_generation > kMaxGenerationRange) ||
            (group->IsUserMark() && (m_maxUserMarksGeneration - key.m_userMarksGeneration > kMaxGenerationRange));
   };

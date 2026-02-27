@@ -4,15 +4,16 @@
 
 #include <cstddef>
 #include <string>
-#include <unordered_map>
 #include <utility>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
 template <class Key, class Value>
 class Cache
 {
-  std::unordered_map<Key, Value> m_map;
+  ankerl::unordered_dense::map<Key, Value> m_map;
 
   /// query statistics
   size_t m_accesses;

@@ -14,8 +14,9 @@
 #include <array>
 #include <cstdint>
 #include <functional>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -92,7 +93,7 @@ public:
   };
 
 private:
-  std::unordered_map<uint64_t, Entry> m_nodes;
+  ankerl::unordered_dense::map<uint64_t, Entry> m_nodes;
 
   static m2::PointU EncodePoint(ms::LatLon ll)
   {
@@ -134,7 +135,7 @@ public:
 template <class T>
 class WaysMapper
 {
-  std::unordered_map<uint64_t, T> m_ways;
+  ankerl::unordered_dense::map<uint64_t, T> m_ways;
 
 public:
   void Add(uint64_t id, T t) { CHECK(m_ways.emplace(id, std::move(t)).second, ()); }

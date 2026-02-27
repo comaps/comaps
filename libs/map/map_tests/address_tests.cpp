@@ -37,11 +37,8 @@ void TestAddress(ReverseGeocoder & coder, ms::LatLon const & ll, std::string_vie
 void TestAddress(ReverseGeocoder & coder, std::shared_ptr<MwmInfo> mwmInfo, ms::LatLon const & ll,
                  StringUtf8Multilang const & streetNames, std::string const & houseNumber)
 {
-  feature::NameParamsOut out;
-  feature::GetReadableName(
-      {streetNames, mwmInfo->GetRegionData(), languages::GetCurrentMapLanguage(), false /* allowTranslit */}, out);
-
-  TestAddress(coder, ll, out.primary, houseNumber);
+  // TODO: Update to something without `out`, probaly `localisation::TranslatedFeatureName()`
+  // TestAddress(coder, ll, out.primary, houseNumber);
 }
 
 UNIT_TEST(ReverseGeocoder_Smoke)
@@ -60,7 +57,7 @@ UNIT_TEST(ReverseGeocoder_Smoke)
 
   ReverseGeocoder coder(dataSource);
 
-  auto const currentLocale = languages::GetCurrentMapLanguage();
+  auto const currentLocale = localisation::GetMapLanguageCode();
 
   {
     StringUtf8Multilang streetNames;

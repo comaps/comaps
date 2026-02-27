@@ -145,7 +145,7 @@ public:
 
   FeatureBuilderParams const & GetParams() const { return m_params; }
   FeatureBuilderParams & GetParams() { return m_params; }
-  std::string_view GetName(int8_t lang = StringUtf8Multilang::kDefaultCode) const;
+  std::string_view GetName(int8_t lang = localisation::kDefaultNameIndex) const;
   StringUtf8Multilang const & GetMultilangName() const { return m_params.name; }
   uint8_t GetRank() const { return m_params.rank; }
 

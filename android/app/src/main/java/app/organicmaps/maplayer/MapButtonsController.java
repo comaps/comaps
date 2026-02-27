@@ -395,7 +395,7 @@ public class MapButtonsController extends Fragment
             0;
             // Allow offset tolerance for zoom buttons
         };
-            showButton(getViewTopOffset(translation, button) >= toleranceOffset, entry.getKey());
+        showButton(getViewTopOffset(translation, button) >= toleranceOffset, entry.getKey());
       }
     }
   }

@@ -92,12 +92,20 @@ public:
   using TMultilineGlyphsBuffer = buffer_vector<TGlyphsBuffer, 4>;
 
   using TShapedTextLines = buffer_vector<text::TextMetrics, 4>;
-  text::TextMetrics ShapeSingleTextLine(float fontPixelHeight, std::string_view utf8, TGlyphsBuffer * glyphRegions);
-  TShapedTextLines ShapeMultilineText(float fontPixelHeight, std::string_view utf8, char const * delimiters,
-                                      TMultilineGlyphsBuffer & multilineGlyphRegions);
+  text::TextMetrics ShapeSingleTextLine(
+      float fontPixelHeight, std::string_view utf8, TGlyphsBuffer * glyphRegions,
+      localisation::LanguageIndex const textLanguageIndex = localisation::kUnsupportedLanguageIndex);
+  TShapedTextLines ShapeMultilineText(
+      float fontPixelHeight, std::string_view utf8, char const * delimiters,
+      TMultilineGlyphsBuffer & multilineGlyphRegions,
+      localisation::LanguageIndex const textLanguageIndex = localisation::kUnsupportedLanguageIndex);
 
   // This method must be called only on Frontend renderer's thread.
-  bool AreGlyphsReady(TGlyphs const & glyphs) const;
+  inline bool AreGlyphsReady(TGlyphs const & glyphs) const
+  {
+    CHECK(m_isInitialized, ());
+    return m_glyphManager->AreGlyphsReady(glyphs);
+  }
 
   GlyphFontAndId GetSpaceGlyph() const;
 
@@ -212,5 +220,8 @@ private:
 
   // TODO(AB): Make a more robust use of BreakIterator to split strings and get rid of this space glyph.
   GlyphFontAndId m_spaceGlyph;
+
+  localisation::LanguageCode const languageCode = localisation::GetMapLanguageCode();
+  hb_language_t const m_mapLang = hb_language_from_string(languageCode.data(), static_cast<int>(languageCode.size()));
 };
 }  // namespace dp

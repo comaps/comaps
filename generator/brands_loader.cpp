@@ -15,10 +15,12 @@
 #include <utility>
 #include <vector>
 
+#include "3party/ankerl/unordered_dense.h"
+
 namespace generator
 {
 using base::GeoObjectId;
-using std::pair, std::string, std::unordered_map, std::vector;
+using std::pair, std::string, ankerl::unordered_dense::map, std::vector;
 
 DECLARE_EXCEPTION(ParsingError, RootException);
 
@@ -42,7 +44,7 @@ static void ParseFeatureToBrand(json_t * root, string const & field, GeoObjectId
   }
 }
 
-void ParseTranslations(json_t * root, std::set<string> const & keys, unordered_map<uint32_t, string> & idToKey)
+void ParseTranslations(json_t * root, std::set<string> const & keys, map<uint32_t, string> & idToKey)
 {
   string const empty;
   auto getKey = [&](string & translation) -> string const &
@@ -81,8 +83,7 @@ void ParseTranslations(json_t * root, std::set<string> const & keys, unordered_m
   }
 }
 
-bool LoadBrands(string const & brandsFilename, string const & translationsFilename,
-                unordered_map<GeoObjectId, string> & brands)
+bool LoadBrands(string const & brandsFilename, string const & translationsFilename, map<GeoObjectId, string> & brands)
 {
   string jsonBuffer;
   try
@@ -126,7 +127,7 @@ bool LoadBrands(string const & brandsFilename, string const & translationsFilena
     return false;
   }
 
-  unordered_map<uint32_t, string> idToKey;
+  map<uint32_t, string> idToKey;
   try
   {
     base::Json root(jsonBuffer.c_str());

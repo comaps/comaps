@@ -3,3 +3,4 @@
 "type.aerialway" = "Aerovojo";
 "type.aerialway.cable_car" = "Funicularo";
 "type.aeroway.gate" = "Pordego";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

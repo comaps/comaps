@@ -111,7 +111,7 @@
 "sort_date" = "Sort by date";
 "copied_to_clipboard" = "Copied to clipboard: %@";
 "info" = "Info";
-"about_proposition_3" = "Transparent and not for profit";
+"about_proposition_3" = "Transparento i ne za novce.";
 "pref_map_3d_title" = "Pogled iz perspektive";
 "pref_map_3d_buildings_title" = "3D zgrade";
 "social_mastodon" = "Mastodon";
@@ -593,3 +593,4 @@
 "pref_map_3d_buildings_disabled_summary" = "3D zgrade su onemogućene u načinu rada za uštedu energije";
 "offline_explanation_title" = "Izvanmrežne karte";
 "offline_explanation_text" = "Za prikaz i navigaciju područjem potrebno je preuzeti kartu.\nPreuzmite karte za područja u koja želite putovati.";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

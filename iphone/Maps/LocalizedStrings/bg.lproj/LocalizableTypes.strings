@@ -1486,3 +1486,4 @@
 "type.power.portal" = "Power Portal";
 "type.building.guardhouse" = "Security Booth";
 "type.man_made.telescope" = "Телескоп";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

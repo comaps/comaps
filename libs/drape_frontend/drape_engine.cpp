@@ -10,7 +10,7 @@
 
 #include "platform/settings.hpp"
 
-#include <unordered_map>
+#include "3party/ankerl/unordered_dense.h"
 
 namespace df
 {
@@ -246,7 +246,7 @@ void DrapeEngine::UpdateUserMarks(UserMarksProvider * provider, bool firstTime)
   auto justCreatedIdCollection = make_unique_dp<IDCollections>();
   auto removedIdCollection = make_unique_dp<IDCollections>();
 
-  std::unordered_map<kml::MarkGroupId, drape_ptr<IDCollections>> groupsVisibleIds;
+  ankerl::unordered_dense::map<kml::MarkGroupId, drape_ptr<IDCollections>> groupsVisibleIds;
 
   auto const groupFilter = [&](kml::MarkGroupId groupId)
   { return provider->IsGroupVisible(groupId) && (provider->GetBecameVisibleGroupIds().count(groupId) == 0); };

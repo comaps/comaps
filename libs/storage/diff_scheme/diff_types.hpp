@@ -4,7 +4,8 @@
 
 #include <cstdint>
 #include <string>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace storage
 {
@@ -26,6 +27,6 @@ struct DiffInfo final
   bool m_isApplied = false;
 };
 
-using NameDiffInfoMap = std::unordered_map<storage::CountryId, DiffInfo>;
+using NameDiffInfoMap = ankerl::unordered_dense::map<storage::CountryId, DiffInfo>;
 }  // namespace diffs
 }  // namespace storage

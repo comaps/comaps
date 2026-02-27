@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
@@ -616,6 +617,13 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
   private void processData()
   {
+    // avoid repetition
+    final Map<String, CountryItem> uniqueItems = new LinkedHashMap<>();
+    for (CountryItem ci : mItems)
+      uniqueItems.putIfAbsent(ci.id, ci);
+    mItems.clear();
+    mItems.addAll(uniqueItems.values());
+
     if (!mSearchResultsMode)
       Collections.sort(mItems);
 

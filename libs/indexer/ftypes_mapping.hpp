@@ -4,10 +4,10 @@
 #include "indexer/feature_data.hpp"
 
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace ftypes
 {
@@ -56,8 +56,8 @@ private:
 };
 
 template <typename Key, typename Value>
-using HashMapMatcher = Matcher<std::unordered_map<Key, Value>>;
+using HashMapMatcher = Matcher<ankerl::unordered_dense::map<Key, Value>>;
 
 template <typename Key>
-using HashSetMatcher = Matcher<std::unordered_set<Key>>;
+using HashSetMatcher = Matcher<ankerl::unordered_dense::set<Key>>;
 }  // namespace ftypes

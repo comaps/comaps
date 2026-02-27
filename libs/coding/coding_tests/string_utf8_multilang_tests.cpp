@@ -6,14 +6,13 @@
 
 #include <utf8.h>
 
-#include <cstddef>
 #include <string>
 #include <vector>
 
+namespace string_utf8_multilang_tests
+{
 using namespace std;
 
-namespace
-{
 struct lang_string
 {
   char const * m_lang;
@@ -51,7 +50,6 @@ void TestMultilangString(lang_string const * arr, size_t count)
   string_view test;
   TEST(!s.GetString("xxx", test), ());
 }
-}  // namespace
 
 UNIT_TEST(MultilangString_Smoke)
 {
@@ -70,7 +68,7 @@ UNIT_TEST(MultilangString_ForEach)
     size_t index = 0;
     s.ForEach([&index](char lang, string_view utf8s)
     {
-      TEST_EQUAL(lang, StringUtf8Multilang::GetLangIndex(gArr[index].m_lang), ());
+      TEST_EQUAL(lang, localisation::ConvertLanguageCodeToLanguageIndex(gArr[index].m_lang), ());
       TEST_EQUAL(utf8s, gArr[index].m_str, ());
       ++index;
     });
@@ -123,14 +121,14 @@ UNIT_TEST(MultilangString_Unique)
 UNIT_TEST(MultilangString_LangNames)
 {
   // It is important to compare the contents of the strings, and not just pointers
-  TEST_EQUAL(string("Беларуская"), StringUtf8Multilang::GetLangNameByCode(StringUtf8Multilang::GetLangIndex("be")), ());
+  TEST_EQUAL(string("Беларуская"), localisation::GetLanguageNameByLanguageIndex(localisation::ConvertLanguageCodeToLanguageIndex("be")), ());
 
-  auto const & langs = StringUtf8Multilang::GetSupportedLanguages();
+  auto const & languages = localisation::GetSupportedLanguages();
   // Using size_t workaround, because our logging/testing macroses do not support passing POD types
   // by value, only by reference. And our constant is a constexpr.
-  TEST_LESS_OR_EQUAL(langs.size(), static_cast<size_t>(StringUtf8Multilang::kMaxSupportedLanguages), ());
-  auto const international = StringUtf8Multilang::GetLangIndex("int_name");
-  TEST_EQUAL(langs[international].m_code, string("int_name"), ());
+  TEST_LESS_OR_EQUAL(languages.size(), static_cast<size_t>(localisation::kMaxSupportedLanguages), ());
+  auto const international = localisation::ConvertLanguageCodeToLanguageIndex("int_name");
+  TEST_EQUAL(languages[international].m_languageCode, string("int_name"), ());
 }
 
 UNIT_TEST(MultilangString_HasString)
@@ -252,12 +250,32 @@ UNIT_TEST(MultilangString_RemoveString)
 UNIT_TEST(MultilangString_Buffers)
 {
   StringUtf8Multilang s;
-  s.AddString(StringUtf8Multilang::kInternationalCode, "blabla");
+  s.AddString(localisation::kInternationalNameIndex, "blabla");
 
   StringUtf8Multilang const ss = StringUtf8Multilang::FromBuffer(std::string(s.GetBuffer()));
 
   std::string_view test;
   TEST_EQUAL(ss.CountLangs(), 1, ());
-  TEST(ss.GetString(StringUtf8Multilang::kInternationalCode, test), ());
+  TEST(ss.GetString(localisation::kInternationalNameIndex, test), ());
   TEST_EQUAL(test, "blabla", ());
 }
+
+UNIT_TEST(MultilangString_GetBest)
+{
+  StringUtf8Multilang s;
+  s.AddString("ru", "ру_строка");
+  s.AddString("en", "en_string");
+  s.AddString("default", "default");
+
+  auto res = s.GetBestString(
+      {StringUtf8Multilang::kAltNameCode, StringUtf8Multilang::kDefaultCode, StringUtf8Multilang::kEnglishCode});
+  TEST_EQUAL(res, "default", ());
+
+  res = s.GetBestString({StringUtf8Multilang::kAltNameCode});
+  TEST(res.empty(), ());
+
+  res = s.GetFirstString();
+  TEST_EQUAL(res, "ру_строка", ());
+}
+
+}  // namespace string_utf8_multilang_tests

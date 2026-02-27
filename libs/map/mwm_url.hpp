@@ -4,7 +4,7 @@
 #include "geometry/point2d.hpp"
 
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-//#include "map/everywhere_search_params.hpp"
+// #include "map/everywhere_search_params.hpp"
 #include "map/routing_mark.hpp"
 #endif
 

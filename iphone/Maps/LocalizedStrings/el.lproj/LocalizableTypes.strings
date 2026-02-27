@@ -645,7 +645,7 @@
 "type.historic.wreck" = "Ναυάγιο";
 "type.internet_access" = "Ίντερνετ";
 "type.internet_access.wlan" = "Ίντερνετ";
-"type.junction" = "Junction";
+"type.junction" = "Διασταύρωση";
 "type.junction.circular" = "Κυκλικός κόμβος";
 "type.junction.roundabout" = "Κυκλικός κόμβος";
 "type.landuse" = "Χρήσης γης";
@@ -658,7 +658,7 @@
 
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Νεκροταφείο";
-"type.landuse.religious" = "Religious Land";
+"type.landuse.religious" = "Θρησκευτική γη";
 "type.landuse.commercial" = "Commercial Area";
 "type.landuse.construction" = "Construction Area";
 "type.landuse.education" = "Educational Facility";
@@ -700,7 +700,7 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Ice Rink";
-"type.leisure.marina" = "Marina";
+"type.leisure.marina" = "Μαρίνα";
 "type.leisure.nature_reserve" = "Φυσικό απόθεμα";
 "type.leisure.outdoor_seating" = "Καθίσματα εξωτερικού χώρου";
 "type.leisure.park" = "Πάρκο";
@@ -759,9 +759,9 @@
 "type.man_made.water_well.drinking_water_no" = "Πηγάδι νερού";
 "type.man_made.windmill" = "Ανεμόμυλος";
 "type.man_made.works" = "Industrial Works";
-"type.military" = "Military";
+"type.military" = "Στρατιωτικό";
 "type.military.bunker" = "Στρατιωτική αποθήκη";
-"type.mountain_pass" = "Mountain Pass";
+"type.mountain_pass" = "Ορεινό πέρασμα";
 "type.natural" = "Φύση";
 
 /* A rocky land cover. */
@@ -811,7 +811,7 @@
 "type.natural.wetland" = "Υγρότοπος";
 "type.natural.wetland.bog" = "Βάλτος";
 "type.natural.wetland.marsh" = "Έλος";
-"type.noexit" = "Dead End";
+"type.noexit" = "Αδιέξοδο";
 "type.office" = "Γραφείο";
 "type.office.company" = "Γραφείο επιχείρησης";
 "type.office.estate_agent" = "Κτηματομεσίτης";
@@ -820,8 +820,8 @@
 "type.office.lawyer" = "Δικηγόρος";
 "type.office.ngo" = "Γραφείο ΜΚΟ";
 "type.office.telecommunication" = "Εταιρεία κινητής τηλεφωνίας";
-"type.organic.only" = "Organic";
-"type.organic.yes" = "Organic";
+"type.organic.only" = "Οργανικό";
+"type.organic.yes" = "Οργανικό";
 "type.place.city" = "Πόλη";
 "type.place.city.capital" = "Πρωτεύουσα";
 "type.place.city.capital.10" = "Πόλη";
@@ -885,18 +885,18 @@
 
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Πόλος κοινής ωφέλειας";
-"type.public_transport" = "Public Transport";
-"type.public_transport.platform" = "Platform";
-"type.railway" = "Railway";
-"type.railway.abandoned" = "Abandoned Railway";
-"type.railway.construction" = "Railway Construction";
-"type.railway.crossing" = "Railway Crossing";
+"type.public_transport" = "Δημόσια συγκοινωνία";
+"type.public_transport.platform" = "Πλατφόρμα";
+"type.railway" = "Σιδηρόδρομος";
+"type.railway.abandoned" = "Εγκαταλελειμμένος σιδηρόδρομος";
+"type.railway.construction" = "Σιδηρόδρομος υπό κατασκευή";
+"type.railway.crossing" = "Σιδηροδρομική διάβαση";
 "type.railway.disused" = "Disused Railway";
 "type.railway.funicular" = "Τελεφερίκ";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
 "type.railway.halt" = "Σιδηροδρομική στάση";
-"type.railway.level_crossing" = "Σιδηροδρομική διάβαση";
+"type.railway.level_crossing" = "Ισόπεδη διάβαση";
 "type.railway.light_rail" = "Light Rail";
 "type.railway.light_rail.bridge" = "Light Rail Bridge";
 "type.railway.light_rail.tunnel" = "Light Rail Tunnel";
@@ -1394,7 +1394,7 @@
 "type.waterway.canal" = "Κανάλι";
 "type.waterway.canal.tunnel" = "Κανάλι";
 "type.waterway.fish_pass" = "Σκάλα ψαριών";
-"type.waterway.dam" = "Dam";
+"type.waterway.dam" = "Φράγμα";
 "type.barrier.ditch" = "Ditch";
 "type.natural.water.ditch" = "Αποστραγγιστική Τάφρο";
 "type.waterway.ditch.tunnel" = "Υπόγειος οχετός";
@@ -1535,3 +1535,14 @@
 "type.amenity.flight_school" = "Σχολή πιλότων";
 "type.amenity.sailing_school" = "Σχολή ιστιοπλοΐας";
 "type.amenity.prep_school" = "Φροντιστήριο";
+"type.amenity.community_centre.youth_centre" = "Κέντρο νεότητας";
+"type.man_made.telescope" = "Τηλεσκόπιο";
+"type.man_made.telescope.optical" = "Οπτικό τηλεσκόπιο";
+"type.man_made.telescope.radio" = "Ραδιοτηλεσκόπιο";
+"type.man_made.telescope.gamma" = "Τηλεσκόπιο ακτίνων γάμμα";
+"type.man_made.observatory" = "Αστεροσκοπείο";
+"type.amenity.charging_station.motorcycle" = "Μοτοσυκλέτες";
+"type.amenity.charging_station.small" = "Περιορισμένη χωρητικότητα";
+"type.natural.sand" = "Άμμος";
+"type.natural.tree" = "Δέντρο";
+"type.shop.telecommunication" = "Κατάστημα τηλεπικοινωνιών";

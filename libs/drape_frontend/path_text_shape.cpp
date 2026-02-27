@@ -39,7 +39,7 @@ bool PathTextShape::CalculateLayout(ref_ptr<dp::TextureManager> textures)
   auto layout = make_unique_dp<PathTextLayout>(
       m_params.m_tileCenter,
       m_params.m_auxText.empty() ? m_params.m_mainText : m_params.m_mainText + kSpaces + m_params.m_auxText,
-      m_params.m_textFont.m_size, textures);
+      m_params.m_textFont.m_size, textures, m_params.m_mainTextLanguageIndex);
 
   if (0 == layout->GetGlyphCount())
   {

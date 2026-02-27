@@ -33,7 +33,7 @@ JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_location_LocationState_nativeGet
 
 //  public static void nativeStartFindingPosition();
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_location_LocationState_nativeStartPendingPositionMode(JNIEnv * env,
-                                                                                              jclass clazz)
+                                                                                                      jclass clazz)
 {
   ASSERT(g_framework, ());
   g_framework->StartPendingPositionMode();

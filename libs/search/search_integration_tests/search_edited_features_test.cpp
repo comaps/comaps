@@ -39,7 +39,7 @@ UNIT_CLASS_TEST(SearchEditedFeaturesTest, Smoke)
     TEST(ResultsMatch("Drunken", Rules{}), ());
 
     EditFeature(cafeId, [](osm::EditableMapObject & emo)
-    { emo.SetName("The Drunken Clam", StringUtf8Multilang::kEnglishCode); });
+    { emo.SetName("The Drunken Clam", localisation::kEnglishLanguageIndex); });
 
     TEST(ResultsMatch("Eat ", rules), ());
     TEST(ResultsMatch("cafe Bar", rules), ());

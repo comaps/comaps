@@ -7,6 +7,8 @@
 #include <string>
 #include <vector>
 
+#include "3party/harfbuzz/harfbuzz/src/hb.h"
+
 namespace dp
 {
 struct UnicodeBlock;
@@ -73,7 +75,7 @@ public:
   int GetFontIndex(strings::UniChar unicodePoint);
   int GetFontIndex(std::u16string_view sv);
 
-  text::TextMetrics ShapeText(std::string_view utf8, int fontPixelHeight);
+  text::TextMetrics ShapeText(std::string_view utf8, int fontPixelHeight, hb_language_t const textLang);
 
   GlyphImage GetGlyphImage(GlyphFontAndId key, int pixelHeight, bool sdf) const;
 

@@ -15,10 +15,12 @@
 #include "coding/string_utf8_multilang.hpp"
 #include "coding/transliteration.hpp"
 
+#include "base/localisation_translation.hpp"
 #include "base/control_flow.hpp"
 
-#include <unordered_map>
 #include <utility>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace feature
 {
@@ -26,132 +28,6 @@ using namespace std;
 
 namespace
 {
-using StrUtf8 = StringUtf8Multilang;
-
-int8_t GetIndex(string const & lang)
-{
-  return StrUtf8::GetLangIndex(lang);
-}
-
-void GetMwmLangName(feature::RegionData const & regionData, StrUtf8 const & src, string_view & out)
-{
-  vector<int8_t> mwmLangCodes;
-  regionData.GetLanguages(mwmLangCodes);
-
-  for (auto const code : mwmLangCodes)
-    if (src.GetString(code, out))
-      return;
-}
-
-bool GetTransliteratedName(RegionData const & regionData, StrUtf8 const & src, string & out)
-{
-  vector<int8_t> mwmLangCodes;
-  regionData.GetLanguages(mwmLangCodes);
-
-  auto const & translator = Transliteration::Instance();
-
-  string_view srcName;
-  for (auto const code : mwmLangCodes)
-    if (src.GetString(code, srcName) && translator.Transliterate(srcName, code, out))
-      return true;
-
-  // If default name is available, interpret it as a name for the first mwm language.
-  if (!mwmLangCodes.empty() && src.GetString(StrUtf8::kDefaultCode, srcName))
-    return translator.Transliterate(srcName, mwmLangCodes[0], out);
-
-  return false;
-}
-
-bool GetBestName(StrUtf8 const & src, vector<int8_t> const & priorityList, string_view & out)
-{
-  size_t bestIndex = priorityList.size();
-
-  src.ForEach([&](int8_t code, string_view name)
-  {
-    if (bestIndex == 0)
-      return base::ControlFlow::Break;
-
-    size_t const idx = std::distance(priorityList.begin(), find(priorityList.begin(), priorityList.end(), code));
-    if (bestIndex > idx)
-    {
-      bestIndex = idx;
-      out = name;
-    }
-
-    return base::ControlFlow::Continue;
-  });
-
-  // There are many "junk" names in Arabian island.
-  if (bestIndex < priorityList.size() && priorityList[bestIndex] == StrUtf8::kInternationalCode)
-    out = out.substr(0, out.find_first_of(','));
-
-  return bestIndex < priorityList.size();
-}
-
-vector<int8_t> GetSimilarLanguages(int8_t lang)
-{
-  static unordered_map<int8_t, vector<int8_t>> const kSimilarLanguages = {
-      {GetIndex("be"), {GetIndex("ru")}},
-      {GetIndex("ja"), {GetIndex("ja_kana"), GetIndex("ja_rm")}},
-      {GetIndex("ko"), {GetIndex("ko_rm")}},
-      {GetIndex("zh"), {GetIndex("zh_pinyin")}}};
-
-  auto const it = kSimilarLanguages.find(lang);
-  if (it != kSimilarLanguages.cend())
-    return it->second;
-
-  return {};
-}
-
-bool IsNativeLang(feature::RegionData const & regionData, int8_t deviceLang)
-{
-  if (regionData.HasLanguage(deviceLang))
-    return true;
-
-  for (auto const lang : languages::GetPreferredLangIndexes())
-    if (regionData.HasLanguage(lang))
-      return true;
-
-  for (auto const lang : GetSimilarLanguages(deviceLang))
-    if (regionData.HasLanguage(lang))
-      return true;
-
-  return false;
-}
-
-int8_t DefaultLanguageFromRegionData(feature::RegionData const & regionData, vector<int8_t> const & langs)
-{
-  for (auto const lang : langs)
-  {
-    if (regionData.HasLanguage(lang))
-      return lang;
-
-    for (auto const similarLang : GetSimilarLanguages(lang))
-      if (regionData.HasLanguage(similarLang))
-        return similarLang;
-  }
-
-  return StrUtf8::kDefaultCode;
-}
-
-void GetReadableNameImpl(NameParamsIn const & in, bool preferDefault, NameParamsOut & out)
-{
-  auto const langPriority = PrioritizedLanguages(in.regionData);
-
-  if (GetBestName(in.src, langPriority, out.primary))
-    return;
-
-  if (in.allowTranslit && GetTransliteratedName(in.regionData, in.src, out.transliterated))
-    return;
-
-  if (!preferDefault)
-  {
-    if (GetBestName(in.src, {StrUtf8::kDefaultCode}, out.primary))
-      return;
-  }
-
-  GetMwmLangName(in.regionData, in.src, out.primary);
-}
 
 // Filters types with |checker|, returns vector of raw type second components.
 // For example for types {"cuisine-sushi", "cuisine-pizza", "cuisine-seafood"} vector
@@ -177,7 +53,7 @@ vector<string> GetLocalizedTypes(ftypes::BaseChecker const & checker, TypesHolde
   vector<string> localized;
   for (auto const t : types)
     if (checker(t))
-      localized.push_back(platform::GetLocalizedTypeName(c.GetReadableObjectName(t)));
+      localized.push_back(localisation::TranslatedFeatureType(c.GetReadableObjectName(t)));
   return localized;
 }
 
@@ -303,113 +179,9 @@ static constexpr std::string_view kMountainSymbol = "▲";
 static constexpr std::string_view kDrinkingWaterYes = "🚰";
 static constexpr std::string_view kDrinkingWaterNo = "🚱";
 
-vector<int8_t> PrioritizedLanguages(optional<feature::RegionData> const & regionData)
-{
-  bool limitAlternativesToLocal = true;
-  UNUSED_VALUE(settings::Get(settings::kMapLanguageLimitAlternativesToLocal, limitAlternativesToLocal));
-
-  vector<int8_t> prioritizedLangs = {};
-
-  vector<int8_t> const langs = languages::GetPreferredLangIndexes();
-
-  int8_t defaultLang = StrUtf8::kUnsupportedLanguageCode;
-  if (regionData.has_value())
-    defaultLang = DefaultLanguageFromRegionData(regionData.value(), langs);
-
-  for (auto const lang : langs)
-  {
-    if (!limitAlternativesToLocal &&
-        find(prioritizedLangs.begin(), prioritizedLangs.end(), lang) == prioritizedLangs.end())
-      prioritizedLangs.push_back(lang);
-
-    if (defaultLang != StrUtf8::kUnsupportedLanguageCode && defaultLang == lang)
-      prioritizedLangs.push_back(StrUtf8::kDefaultCode);
-
-    if (!limitAlternativesToLocal)
-    {
-      auto const similarLangs = GetSimilarLanguages(lang);
-      prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
-    }
-  }
-
-  if (limitAlternativesToLocal)
-  {
-    auto lang = langs.front();
-    prioritizedLangs.push_back(lang);
-    auto const similarLangs = GetSimilarLanguages(lang);
-    prioritizedLangs.insert(prioritizedLangs.cend(), similarLangs.cbegin(), similarLangs.cend());
-  }
-
-  prioritizedLangs.push_back(StrUtf8::kInternationalCode);
-  prioritizedLangs.push_back(StrUtf8::kEnglishCode);
-  prioritizedLangs.push_back(StrUtf8::kDefaultCode);
-
-  return prioritizedLangs;
-}
-
-NameParamsIn::NameParamsIn(StringUtf8Multilang const & src_, RegionData const & regionData_,
-                           std::string_view deviceLang_, bool allowTranslit_)
-  : NameParamsIn(src_, regionData_, StringUtf8Multilang::GetLangIndex(deviceLang_), allowTranslit_)
-{}
-
-bool NameParamsIn::IsNativeOrSimilarLang() const
-{
-  return IsNativeLang(regionData, deviceLang);
-}
-
 int GetFeatureViewportScale(TypesHolder const & types)
 {
   return GetFeatureEstimator().GetViewportScale(types);
-}
-
-vector<int8_t> GetSimilar(int8_t lang)
-{
-  vector<int8_t> langs = {lang};
-
-  auto const similarLangs = GetSimilarLanguages(lang);
-  langs.insert(langs.cend(), similarLangs.cbegin(), similarLangs.cend());
-  return langs;
-}
-
-void GetPreferredNames(NameParamsIn const & in, NameParamsOut & out)
-{
-  out.Clear();
-
-  if (in.src.IsEmpty())
-    return;
-
-  // When the language of the user is equal to one of the languages of the MWM
-  // (or similar languages) only single name scheme is used.
-  if (in.IsNativeOrSimilarLang())
-    return GetReadableNameImpl(in, true /* preferDefault */, out);
-
-  auto const primaryCodes = PrioritizedLanguages(in.regionData);
-
-  if (!GetBestName(in.src, primaryCodes, out.primary) && in.allowTranslit)
-    GetTransliteratedName(in.regionData, in.src, out.transliterated);
-
-  vector<int8_t> secondaryCodes = {StrUtf8::kDefaultCode, StrUtf8::kInternationalCode};
-
-  vector<int8_t> mwmLangCodes;
-  in.regionData.GetLanguages(mwmLangCodes);
-  secondaryCodes.insert(secondaryCodes.end(), mwmLangCodes.begin(), mwmLangCodes.end());
-
-  secondaryCodes.push_back(StrUtf8::kEnglishCode);
-
-  GetBestName(in.src, secondaryCodes, out.secondary);
-
-  if (out.primary.empty())
-    out.primary.swap(out.secondary);
-  else if (!out.secondary.empty() && out.primary.find(out.secondary) != string::npos)
-    out.secondary = {};
-}
-
-void GetReadableName(NameParamsIn const & in, NameParamsOut & out)
-{
-  out.Clear();
-
-  if (!in.src.IsEmpty())
-    GetReadableNameImpl(in, in.IsNativeOrSimilarLang(), out);
 }
 
 string const GetReadableAddress(string const & address)
@@ -428,8 +200,8 @@ string const GetReadableAddress(string const & address)
 /*
 int8_t GetNameForSearchOnBooking(RegionData const & regionData, StringUtf8Multilang const & src, string & name)
 {
-  if (src.GetString(StringUtf8Multilang::kDefaultCode, name))
-    return StringUtf8Multilang::kDefaultCode;
+  if (src.GetString(localisation::kDefaultNameIndex, name))
+    return localisation::kDefaultNameIndex;
 
   vector<int8_t> mwmLangs;
   regionData.GetLanguages(mwmLangs);
@@ -440,23 +212,13 @@ int8_t GetNameForSearchOnBooking(RegionData const & regionData, StringUtf8Multil
       return mwmLang;
   }
 
-  if (src.GetString(StringUtf8Multilang::kEnglishCode, name))
-    return StringUtf8Multilang::kEnglishCode;
+  if (src.GetString(localisation::kEnglishLanguageIndex, name))
+    return localisation::kEnglishLanguageIndex;
 
   name.clear();
-  return StringUtf8Multilang::kUnsupportedLanguageCode;
+  return localisation::kUnsupportedLanguageIndex;
 }
 */
-
-bool GetPreferredName(StringUtf8Multilang const & src, string_view & out)
-{
-  return GetBestName(src, PrioritizedLanguages(), out);
-}
-
-vector<int8_t> GetDescriptionLangPriority(RegionData const & regionData)
-{
-  return PrioritizedLanguages(regionData);
-}
 
 vector<string> GetLocalizedSubtypes(TypesHolder const & types)
 {
@@ -465,7 +227,7 @@ vector<string> GetLocalizedSubtypes(TypesHolder const & types)
   vector<string> localizedSubtypes;
   for (auto const & type : types)
     if (subtypes.IsSubtype(type))
-      localizedSubtypes.push_back(platform::GetLocalizedTypeName(classificator.GetReadableObjectName(type)));
+      localizedSubtypes.push_back(localisation::TranslatedFeatureType(classificator.GetReadableObjectName(type)));
   return localizedSubtypes;
 }
 

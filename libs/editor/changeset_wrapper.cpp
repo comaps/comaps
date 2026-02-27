@@ -32,8 +32,8 @@ bool OsmFeatureHasTags(pugi::xml_node const & osmFt)
 
 std::string_view constexpr kVowels = "aeiouy";
 
-std::string_view constexpr kMainTags[] = {"amenity", "shop",     "tourism",  "historic", "craft",      "emergency",
-                                          "barrier", "highway",  "office",   "leisure",  "waterway",   "natural",
+std::string_view constexpr kMainTags[] = {"amenity", "shop",     "tourism",  "historic",   "craft",     "emergency",
+                                          "barrier", "highway",  "office",   "leisure",    "waterway",  "natural",
                                           "place",   "entrance", "man_made", "healthcare", "attraction"};
 
 std::string GetTypeForFeature(editor::XMLFeature const & node)

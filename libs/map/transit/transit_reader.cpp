@@ -158,7 +158,9 @@ void ReadTransitTask::Do()
   {
     auto & featureInfo = m_transitInfo->m_features[ft.GetID()];
 
-    featureInfo.m_title = ft.GetReadableName();
+    optional<string> name = ft.GetTranslatedName().m_primary;
+    if (name.has_value())
+      featureInfo.m_title = name.value();
 
     if (featureInfo.m_isGate)
     {

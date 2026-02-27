@@ -196,7 +196,7 @@ void Bookmark::SetColor(kml::PredefinedColor color)
 
 std::string Bookmark::GetPreferredName() const
 {
-  return GetPreferredBookmarkName(m_data);
+  return GetPreferredBookmarkNameForKml(m_data);
 }
 
 kml::LocalizableString Bookmark::GetName() const

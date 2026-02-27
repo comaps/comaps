@@ -2,15 +2,13 @@ package app.organicmaps.sdk.util;
 
 import android.content.Context;
 import android.content.res.Resources;
-
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
+import app.organicmaps.sdk.R;
 import java.text.DateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
-
-import app.organicmaps.sdk.R;
 
 public final class DateUtils
 {
@@ -44,7 +42,7 @@ public final class DateUtils
     if (days == 1)
       return resources.getString(R.string.yesterday).toLowerCase();
     if (days < 7)
-      return  resources.getString(R.string.days_ago, Integer.toString(days));
+      return resources.getString(R.string.days_ago, Integer.toString(days));
     if (days < 30)
       return resources.getString(days < 14 ? R.string.week_ago : R.string.weeks_ago, Integer.toString(days / 7));
     if (days < 365)

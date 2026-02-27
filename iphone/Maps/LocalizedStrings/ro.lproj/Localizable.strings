@@ -151,7 +151,7 @@
 "share_bookmarks_email_body" = "Salut!\n\nAm atașat marcajele mele; te rog să le deschizi în CoMaps. Dacă nu o ai instalată, o poți descărca de aici: https://www.comaps.app/download/\n\nBucură-te de călătorii cu CoMaps!";
 
 /* message title of loading file */
-"load_kmz_title" = "Se încarcă locurile preferate";
+"load_kmz_title" = "Se încarcă locurile preferatel";
 
 /* Kmz file successful loading */
 "load_kmz_successful" = "Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Favortite”.";
@@ -1093,6 +1093,7 @@
 "avoid_paved" = "Evitați drumurile asfaltate sau pavate";
 "editor_place_doesnt_exist_description" = "Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap";
 "avoid_steps" = "Evitați treptele";
-"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și si să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
+"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
 "offline_explanation_title" = "Hărti Offline";
 "voice" = "Voce";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

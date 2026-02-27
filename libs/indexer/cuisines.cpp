@@ -24,7 +24,7 @@ Cuisines::Cuisines()
       ->ForEachObject([this](ClassifObject const & o)
   {
     auto const & name = o.GetName();
-    m_allCuisines.emplace_back(name, platform::GetLocalizedTypeName("cuisine-" + name));
+    m_allCuisines.emplace_back(name, localisation::TranslatedFeatureType("cuisine-" + name));
   });
 
   sort(m_allCuisines.begin(), m_allCuisines.end(),

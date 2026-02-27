@@ -27,7 +27,7 @@
     <string name="decline">Gwrthod</string>
     <string name="button_layer_outdoor">Awyr agored</string>
     <string name="cancel">Canslo</string>
-    <string name="teal">Gwyrddlas Tywyll</string>
+    <string name="teal">Gwyrddlas</string>
     <string name="editor_time_close">Ar gau</string>
     <string name="subway">Tanlwybr</string>
     <string name="downloader_retry">Ailgeisio</string>
@@ -75,7 +75,7 @@
     <string name="downloader_queued">Wedi\'u ciwio</string>
     <string name="downloader_downloading">Wrthi\'n lawrlwytho:</string>
     <string name="save">Cadw</string>
-    <string name="create">creu</string>
+    <string name="create">Creu</string>
     <string name="red">Coch</string>
     <string name="yellow">Melyn</string>
     <string name="blue">Glas</string>
@@ -96,7 +96,7 @@
     <string name="editor_time_from">O</string>
     <string name="editor_time_to">I</string>
     <string name="editor_time_open">Ar agor</string>
-    <string name="editor_report_problem_title">Mater</string>
+    <string name="editor_report_problem_title">Problem</string>
     <string name="daily">Dyddiol</string>
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off">Ar gau</string>
@@ -114,7 +114,7 @@
     <string name="minute">min</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Rhagor</string>
-    <string name="editor_reset_edits_button">Dileu</string>
+    <string name="editor_reset_edits_button">Canslo newidiadau</string>
     <string name="editor_remove_place_button">Dileu</string>
     <string name="navigation_stop_button">Stopio</string>
     <string name="accept">Derbyn</string>
@@ -169,7 +169,7 @@
     <string name="category_secondhand">Ail Law</string>
     <string name="category_children">Gwyliau teulu</string>
     <string name="category_rv">Cyfleusterau Carafan</string>
-    <string name="load_kmz_title">Wrthi\'n llwytho Nodau Tudalen</string>
+    <string name="load_kmz_title">Wrthi\'n llwytho Ffefrynnau</string>
     <string name="prefs_group_general">Gosodiadau cyffredinol</string>
     <string name="pref_zoom_title">Botymau chwyddo</string>
     <string name="pref_map_style_title">Modd Nos</string>
@@ -222,7 +222,7 @@
     <string name="editor_login_error_dialog">Gwall mewngofnodi</string>
     <string name="editor_profile_changes">Newidiadau wedi\'u Dilysu</string>
     <string name="editor_report_problem_other_title">Problem arall</string>
-    <string name="editor_zip_code">Cod ZIP</string>
+    <string name="editor_zip_code">Cod Post</string>
     <string name="operator">Gweithredwr: %s</string>
     <string name="placepage_edit_bookmark_button">Golygu Nod Tudalen</string>
     <string name="mobile_data_option_always">Defnyddio Bob Amser</string>
@@ -263,9 +263,9 @@
     <string name="download">Lawrlwytho</string>
     <string name="continue_button">Parhau</string>
     <string name="add_new_set">Ychwanegu Rhestr Newydd</string>
-    <string name="bookmarks">Nodau Tudalen</string>
-    <string name="bookmark_set_name">Enw Rhestr Nod Tudalen</string>
-    <string name="bookmarks_and_tracks">Nodau Tudalen ac Olion</string>
+    <string name="bookmarks">Lleoedd</string>
+    <string name="bookmark_set_name">Enw Rhestr</string>
+    <string name="bookmarks_and_tracks">Ffefrynnau</string>
     <string name="category_eat">Ble i fwyta</string>
     <string name="share_my_location">Rhannu Fy Lleoliad</string>
     <string name="faq">Cwestiynau Cyffredin</string>
@@ -279,4 +279,29 @@
     <string name="about_help">Ynghylch a Help</string>
     <string name="open_now">Ar agor nawr</string>
     <string name="closed_now">Ar gau nawr</string>
+    <string name="name">Enw</string>
+    <string name="pause">Seibio</string>
+    <string name="offline_explanation_title">Mapiau All-lein</string>
+    <string name="offline_explanation_text">Mae angen lawrlwytho map i weld a phori\'r ardal.\nLawrlwythwch fapiau ar gyfer ardaloedd rydych am deithio iddynt.</string>
+    <string name="autodownload">Lawrlwytho mapiau yn awtomatig</string>
+    <string name="placepage_add_stop">Ychwanegu Stop</string>
+    <string name="bookmarks_import">Mewnforio Ffefrynnau</string>
+    <string name="avoid_tolls">Osgoi tollau</string>
+    <string name="avoid_motorways">Osgoi traffyrdd</string>
+    <string name="near_me_sorttype">Gerllaw</string>
+    <string name="fuel_places">Gorsafoedd Petrol</string>
+    <string name="religious_places">Mannau addoli</string>
+    <string name="website_menu">Dolen i\'r Fwydlen</string>
+    <string name="outdoor_seating">Seddi awyr agored</string>
+    <string name="start_track_recording">Recordio Ôl</string>
+    <string name="continue_recording">Parhau i Recordio</string>
+    <string name="edit_track">Golygu Ôl</string>
+    <string name="avoid_steps">Osgoi grisiau</string>
+    <string name="pref_tts_street_names_title">Cyhoeddi Enwau Strydoedd</string>
+    <string name="pref_tts_test_voice_title">Profi Cyfarwyddiadau Llais</string>
+    <string name="search_show_on_map">Gweld ar y map</string>
+    <string name="rate_the_app">Sgorio\'r ap</string>
+    <string name="dialog_routing_location_turn_on">Galluogi gwasanaethau lleoli</string>
+    <string name="dialog_routing_change_start">Newid man cychwyn</string>
+    <string name="dialog_routing_try_again">Ceisiwch eto</string>
 </resources>

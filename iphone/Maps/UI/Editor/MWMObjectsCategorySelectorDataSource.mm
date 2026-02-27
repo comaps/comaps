@@ -41,7 +41,7 @@ std::string locale()
 {
   m_categoriesList.clear();
   for (auto const & type : types)
-    m_categoriesList.emplace_back(platform::GetLocalizedTypeName(type), type);
+    m_categoriesList.emplace_back(localisation::TranslatedFeatureType(type), type);
 
   std::sort(m_categoriesList.begin(), m_categoriesList.end());
 }

@@ -31,7 +31,7 @@ public final class RoutingHelpers
       default -> Distance.UNIT_METERS;
     };
 
-        return Distance.create(distance.mDistance, displayUnit);
+    return Distance.create(distance.mDistance, displayUnit);
   }
 
   @NonNull
@@ -52,7 +52,7 @@ public final class RoutingHelpers
       default -> LaneDirection.SHAPE_UNKNOWN;
     };
 
-        return LaneDirection.create(shape, isRecommended);
+    return LaneDirection.create(shape, isRecommended);
   }
 
   @NonNull
@@ -77,7 +77,7 @@ public final class RoutingHelpers
       case EXIT_HIGHWAY_TO_LEFT -> Maneuver.TYPE_OFF_RAMP_SLIGHT_LEFT;
       case EXIT_HIGHWAY_TO_RIGHT -> Maneuver.TYPE_OFF_RAMP_SLIGHT_RIGHT;
     };
-        final Maneuver.Builder builder = new Maneuver.Builder(maneuverType);
+    final Maneuver.Builder builder = new Maneuver.Builder(maneuverType);
     if (maneuverType == Maneuver.TYPE_ROUNDABOUT_ENTER_AND_EXIT_CCW)
       builder.setRoundaboutExitNumber(roundaboutExitNum > 0 ? roundaboutExitNum : 1);
     builder.setIcon(new CarIcon.Builder(createManeuverIcon(context, carDirection, roundaboutExitNum)).build());
@@ -85,7 +85,8 @@ public final class RoutingHelpers
   }
 
   @NonNull
-  private static IconCompat createManeuverIcon(@NonNull final CarContext context, @NonNull CarDirection carDirection, int roundaboutExitNum)
+  private static IconCompat createManeuverIcon(@NonNull final CarContext context, @NonNull CarDirection carDirection,
+                                               int roundaboutExitNum)
   {
     if (!CarDirection.isRoundAbout(carDirection) || roundaboutExitNum == 0)
     {

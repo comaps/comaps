@@ -16,6 +16,7 @@
 #pragma clang diagnostic ignored "-Wunused-private-field"
 #endif
 
+#include "3party/ankerl/unordered_dense.h"
 #include "3party/succinct/elias_fano.hpp"
 #include "3party/succinct/rs_bit_vector.hpp"
 
@@ -28,7 +29,6 @@
 #include <functional>
 #include <memory>
 #include <type_traits>
-#include <unordered_map>
 #include <vector>
 
 // A data structure that allows storing a map from small 32-bit integers (the main use
@@ -227,7 +227,7 @@ private:
 
   ReadBlockCallback m_readBlockCallback;
 
-  std::unordered_map<uint32_t, std::vector<Value>> m_cache;
+  ankerl::unordered_dense::map<uint32_t, std::vector<Value>> m_cache;
 };
 
 template <typename Value>

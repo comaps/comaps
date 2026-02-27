@@ -264,7 +264,7 @@
     <string name="downloader_download_all_button">Stáhnout vše</string>
     <string name="downloader_downloading">Probíhá stahování:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Chcete-li odstranit mapu, zastavte prosím navigaci</string>
+    <string name="downloader_delete_map_while_routing_dialog">Chcete-li odstranit mapu, nejprve zastavte navigaci</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Lze vytvářet jen takové trasy, které se nachází na území jediné mapy.</string>
     <!-- Context menu item for downloader. -->
@@ -460,10 +460,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d z %2$d</string>
     <string name="download_over_mobile_header">Stáhnout pomocí připojení přes mobilní síť?</string>
-    <string name="download_over_mobile_message">Toto by mohlo být s některými tarify nebo roamingem výrazně dražší</string>
+    <string name="download_over_mobile_message">Toto může být s některými mobilními tarify velmi drahé, obzvláště, pokud jste v zahraničí.</string>
     <string name="error_enter_correct_house_number">Zadejte správné číslo domu</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Opravte počet poschodí, max. %d</string>
+    <string name="error_enter_correct_storey_number">Počet pater nesmí být větší než %d</string>
     <string name="editor_zip_code">PSČ</string>
     <string name="error_enter_correct_zip_code">Zadejte správné poštovní směrovací číslo</string>
     <!-- Title for OSM note section in the editor -->
@@ -479,7 +479,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Provozovatel: %s</string>
     <string name="editor_category_unsuitable_title">Nemůžete najít vhodnou kategorii?</string>
-    <string name="editor_category_unsuitable_text">CoMaps umožňují přidávat pouze jednoduché kategorie bodů, tedy žádná města, silnice, jezera, obrysy budov atd. Takové kategorie prosím přidávejte přímo na <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Podrobné pokyny krok za krokem najdete v našem <a href="https://www.comaps.app/support/advanced-map-editing/">průvodci</a>.</string>
+    <string name="editor_category_unsuitable_text">CoMaps dokáží přidat pouze jednoduché kategorie bodů, nedokáží přidat města, silnice, jezera, obrysy budov atd. Takové kategorie prosím přidávejte přímo na <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Podrobné pokyny krok za krokem najdete v našem <a href="https://www.comaps.app/support/advanced-map-editing/">průvodci</a>.</string>
     <string name="downloader_no_downloaded_maps_title">Nemáte stažené žádné mapy</string>
     <string name="downloader_no_downloaded_maps_message">Stáhněte si mapy a hledejte cestu a její cíl, i když jste offline</string>
     <string name="current_location_unknown_error_title">Aktuální poloha je neznámá</string>
@@ -530,8 +530,8 @@
     <string name="enable_logging">Povolit protokolování</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Všeobecné připomínky</string>
-    <string name="prefs_languages_information">Pro hlasové pokyny používáme systémovou službu TTS. Mnoho zařízení se systémem Android používá Google TTS, můžete si jej stáhnout nebo aktualizovat na Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">U některých jazyků je třeba nainstalovat jiný hlasový syntetizátor nebo další jazykové sady z obchodu s aplikacemi (Google Play, Galaxy Store, App Gallery, FDroid). \nOtevřete nastavení vašeho zařízení → Jazyky a zadávání → Hlasové zadávání → Převod textu na řeč. \nZde můžete spravovat nastavení pro syntézu řeči (například stáhnout jazykový balíček pro použití offline) a vybrat jiný modul převodu textu na řeč.</string>
+    <string name="prefs_languages_information">Pro hlasové pokyny používáme systémovou službu TTS. Mnoho zařízení se systémem Android používá Google TTS, můžete si jej stáhnout nebo aktualizovat v Obchodě Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">U některých jazyků je třeba nainstalovat jiný hlasový syntetizátor nebo další jazykové sady z obchodu s aplikacemi (Google Play, Galaxy Store, App Gallery, F-Droid). \nOtevřete nastavení vašeho zařízení → Jazyky a zadávání → Hlasové zadávání → Převod textu na řeč. \nZde můžete spravovat nastavení pro syntézu řeči (například stáhnout jazykový balíček pro použití offline) a vybrat jiný modul převodu textu na řeč.</string>
     <string name="prefs_languages_information_off_link">Více informací najdete v tomto návodu</string>
     <string name="transliteration_title">Přepis do latinky</string>
     <string name="learn_more">Zjistit více</string>
@@ -705,7 +705,7 @@
     <string name="change_map_locale">Jazyk mapy</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Mapová data z OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/cs/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Cs:Co_je_OpenStreetMap</string>
@@ -827,7 +827,7 @@
     <string name="pref_left_button_disable">Zakázat</string>
     <string name="pref_left_button_title">Nastavení levého tlačítka</string>
     <string name="error_enter_correct_level">Zadejte platné číslo podlaží</string>
-    <string name="editor_building_levels">Podlaží (vč. přízemí, bez střechy)</string>
+    <string name="editor_building_levels">Patra (vč. přízemí, bez střechy)</string>
     <string name="editor_level">Podlaží (0 je přízemí)</string>
     <string name="route_type">Typ trasy</string>
     <string name="vehicle">Vozidlo</string>
@@ -920,8 +920,23 @@
     <string name="advanced">Pokročilé</string>
     <string name="download_resources_custom_url_summary_none">Není nastaveno</string>
     <string name="pref_maplanguage_local">Místní jazyk</string>
-    <string name="limit_map_language_alternatives_to_local">Jiné systémové jazyky použít pouze v jejich oblasti</string>
     <string name="location_privacy_info">Aplikace získávají data o poloze z polohové služby vašeho systému, která může sdílet vaši polohu se společností Google a/nebo výrobcem vašeho zařízení. Tomu se můžete vyhnout použitím systému Android chránícího soukromí.</string>
     <string name="location_privacy">Soukromí polohy</string>
     <string name="pref_speedlimit_title">Zobrazit omezení rychlosti</string>
+    <string name="rooms">%s místností</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="invalid_route">Neplatná trasa</string>
+    <string name="building_route">Sestavování trasy…</string>
+    <string name="route_not_started">Trasa není sdílena</string>
+    <string name="on_route">Na trase</string>
+    <string name="route_needs_rebuild">Trasu je potřeba přepočítat</string>
+    <string name="route_finished">Trasa dokončena</string>
+    <string name="not_following_route">Nenásledujete trasu</string>
+    <string name="rebuilding_route">Přepočítávání trasy…</string>
+    <string name="pref_alt_map_lang_handling">Alternativní jazyky mapy</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Nepoužívat alternativy</string>
+    <string name="pref_alt_map_lang_handling_system_order">Použít v systémovém pořadí</string>
+    <string name="pref_alt_map_lang_handling_local_only">Preferovat a používat pouze tam, kde je to přirozené</string>
+    <string name="pref_openexternallinks_title">Automaticky otevírat odkazy třetích stran</string>
+    <string name="pref_openexternallinks_summary">Ve výchozím nastavení otevírat odkazy třetích stran v aplikaci CoMap</string>
 </resources>

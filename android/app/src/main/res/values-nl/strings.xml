@@ -234,7 +234,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Nieuws</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Feedback</string>
+    <string name="feedback">Reacties</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Beoordeel de app</string>
     <!-- Text in menu -->
@@ -269,7 +269,7 @@
     <string name="downloader_download_all_button">Alles downloaden</string>
     <string name="downloader_downloading">Downloaden:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Stop de navigatie om de kaart te verwijderen</string>
+    <string name="downloader_delete_map_while_routing_dialog">Stop eerst de navigatie alvorens de kaart te verwijderen</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Alleen routes die volledig in één kaart passen, kunnen gecreëerd worden.</string>
     <!-- Context menu item for downloader. -->
@@ -468,10 +468,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d van %2$d</string>
     <string name="download_over_mobile_header">Downloaden via mobiele internetverbinding?</string>
-    <string name="download_over_mobile_message">Met sommige abonnementen of bij roaming kan dit behoorlijk duur zijn</string>
+    <string name="download_over_mobile_message">Met sommige mobiele dataplannen kan dit erg duur zijn, vooral bij roaming.</string>
     <string name="error_enter_correct_house_number">Voer een geldig huisnummer in</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Het gebouw mag niet meer dan %d verdiepingen hebben</string>
+    <string name="error_enter_correct_storey_number">Het aantal verdiepingen mag niet groter zijn dan %d</string>
     <string name="editor_zip_code">Postcode</string>
     <string name="error_enter_correct_zip_code">Voer een geldige postcode in</string>
     <!-- Title for OSM note section in the editor -->
@@ -487,7 +487,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Exploitant: %s</string>
     <string name="editor_category_unsuitable_title">Kun je geen geschikte categorie vinden?</string>
-    <string name="editor_category_unsuitable_text">Met CoMaps kun je alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enzovoort. Voeg zulke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Bekijk onze <a href="https://www.comaps.app/support/advanced-map-editing/">gids</a> voor gedetailleerde stap voor stap instructies.</string>
+    <string name="editor_category_unsuitable_text">CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lees onze <a href="https://www.comaps.app/support/advanced-map-editing/">handleiding</a> voor gedetailleerde stap voor stap instructies.</string>
     <string name="downloader_no_downloaded_maps_title">U hebt geen kaarten gedownload</string>
     <string name="downloader_no_downloaded_maps_message">Download kaarten om een locatie te zoeken en offline te navigeren</string>
     <string name="current_location_unknown_error_title">Huidige locatie is onbekend</string>
@@ -546,8 +546,8 @@
     <string name="enable_logging">Logboekregistratie inschakelen</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Algemene feedback</string>
-    <string name="prefs_languages_information">We gebruiken het TTS-systeem voor gesproken instructies. Vele Android toestellen gebruiken Google TTS, u kunt het downloaden of bijwerken in Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Voor sommige talen dient u een andere spraaksynthesesoftware of een aanvullende taalpakket te installeren van de app store (Google Play, Galaxy Store, App Gallery, FDroid). \nOpen de instellingen van uw toestel → Taal en invoer → Spraak → Uitvoer voor tekst-naar-spraak. \nHier kunt u instellingen voor spraaksynthese beheren (bijvoorbeeld taalpakket downloaden voor offline gebruik) en een andere tekst-naar-spraak processor selecteren.</string>
+    <string name="prefs_languages_information">We gebruiken het TTS-systeem voor gesproken instructies. Vele Android toestellen gebruiken Google TTS, u kunt het downloaden of bijwerken in de Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Voor sommige talen dient u een andere spraaksynthesesoftware of een aanvullende taalpakket te installeren van een app store (Google Play, Galaxy Store, App Gallery, F-Droid). \nOpen de instellingen van uw toestel → Taal en invoer → Spraak → Uitvoer voor tekst-naar-spraak. \nHier kunt u de instellingen voor spraaksynthese beheren (bijvoorbeeld een taalpakket downloaden voor offline gebruik) en een andere tekst-naar-spraak processor selecteren.</string>
     <string name="prefs_languages_information_off_link">Gelieve deze handleiding te lezen voor meer informatie</string>
     <string name="transliteration_title">Transliteratie in het Latijnse alfabet</string>
     <string name="learn_more">Meer informatie</string>
@@ -625,15 +625,15 @@
     <string name="enable_logging_warning_message">Deze optie is ingeschakeld voor logboekregistraties voor diagnostische doeleinden. Het helpt bij het identificeren van problemen met de applicatie. Schakel de optie alleen in op verzoek van CoMaps-ondersteuning.</string>
     <string name="driving_options_title">Route-instellingen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_tolls">Vermijd tolwegen</string>
+    <string name="avoid_tolls">Tolwegen vermijden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_unpaved">Vermijd onverharde wegen</string>
+    <string name="avoid_unpaved">Onverharde wegen vermijden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_ferry">Vermijd veerboten</string>
-    <string name="avoid_motorways">Vermijd snelwegen</string>
+    <string name="avoid_ferry">Veerboten verbinden</string>
+    <string name="avoid_motorways">Snelwegen vermijden</string>
     <string name="unable_to_calc_alert_title">Kan route niet berekenen</string>
     <string name="unable_to_calc_alert_subtitle">Helaas konden we geen route berekenen. Dit kan komen door uw gekozen opties of door incomplete OpenStreetMap-data. Wijzig de instellingen en probeer het opnieuw.</string>
-    <string name="define_to_avoid_btn">Configureer wegen om te vermijden</string>
+    <string name="define_to_avoid_btn">Te vermijden wegen instellen</string>
     <string name="change_driving_options_btn">Route-instellingen ingeschakeld</string>
     <string name="toll_road">Tolweg</string>
     <string name="unpaved_road">Onverharde weg</string>
@@ -725,7 +725,7 @@
     <string name="change_map_locale">Kaarttaal</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Kaartgegevens van OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/nl/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/NL:Wat_is_OpenStreetMap%3F</string>
@@ -805,7 +805,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Opname voortzetten</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Opslaan in Favorieten?</string>
+    <string name="track_recording_alert_title">Opslaan naar Favorieten?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Spoor is leeg - niets op te slaan</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -864,7 +864,7 @@
     <string name="at">om %s</string>
     <string name="dialog_report_error_with_logs">Stuur ons een foutenrapport:\n - stel \"Logboek inschakelen\" in bij de Instellingen\n - reproduceer het probleem\n - druk in het scherm \"Over &amp; Hulp\" op de knop \"Meld een fout\" en verzend via e-mail of chat\n - logboek uitschakelen</string>
     <string name="osm_note_toast">Opmerking wordt verzonden naar OpenStreetMap</string>
-    <string name="osm_note_hint">Of laat een opmerking achter bij de OpenStreetMap-gemeenschap, zodat iemand anders hier een plaats kan toevoegen of verbeteren.</string>
+    <string name="osm_note_hint">Of laat een opmerking achter voor de OpenStreetMap-gemeenschap, zodat iemand anders hier een plaats kan toevoegen of verbeteren.</string>
     <string name="share_track">Spoor delen</string>
     <string name="delete_track_dialog_title">%s verwijderen?</string>
     <string name="existence_confirmed_time_ago">Bestaan bevestigd %s</string>
@@ -921,8 +921,23 @@
     <string name="download_resources_custom_url_summary_none">Niet ingesteld</string>
     <string name="download_resources_custom_url_error_scheme">Voer een URL in beginnend met http:// of https://</string>
     <string name="pref_maplanguage_local">Plaatselijke taal</string>
-    <string name="limit_map_language_alternatives_to_local">Gebruik alleen andere systeemtalen in hun regio</string>
     <string name="location_privacy_info">Apps ontvangen locatiegegevens van uw OS-locatieservice die deze kunnen delen met Google en/of de leverancier van uw apparaat. Gebruik een privacyrespecterend Android OS om dit te voorkomen.</string>
     <string name="location_privacy">Privacy van locatie</string>
     <string name="pref_speedlimit_title">Snelheidslimieten tonen</string>
+    <string name="rooms">%s kamers</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="invalid_route">Ongeldige route</string>
+    <string name="building_route">Route berekenen…</string>
+    <string name="route_not_started">Route is niet gestart</string>
+    <string name="on_route">Onderweg</string>
+    <string name="route_needs_rebuild">Route moet worden herberekenend</string>
+    <string name="route_finished">Route voltooid</string>
+    <string name="not_following_route">Afwijking van route</string>
+    <string name="rebuilding_route">Route opnieuw berekenen…</string>
+    <string name="pref_openexternallinks_title">Links van derden automatisch openen</string>
+    <string name="pref_openexternallinks_summary">Links van derden automatisch in CoMaps openen</string>
+    <string name="pref_alt_map_lang_handling">Alternatieve kaarttalen</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Geen alternatieven gebruiken</string>
+    <string name="pref_alt_map_lang_handling_system_order">Gebruik in systeemvolgorde</string>
+    <string name="pref_alt_map_lang_handling_local_only">Voorkeur voor oorspronkelijk</string>
 </resources>

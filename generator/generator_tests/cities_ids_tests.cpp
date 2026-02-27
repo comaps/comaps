@@ -57,7 +57,7 @@ UNIT_CLASS_TEST(CitiesIdsTest, BuildCitiesIds)
   indexer::FeatureIdToGeoObjectIdTwoWay twoWayMap(GetDataSource());
   TEST(twoWayMap.Load(), ());
 
-  std::unordered_map<uint32_t, uint64_t> originalMapping;
+  ankerl::unordered_dense::map<uint32_t, uint64_t> originalMapping;
   CHECK(ParseFeatureIdToTestIdMapping(worldMwmPath, originalMapping), ());
 
   {

@@ -18,7 +18,6 @@ import android.location.Location;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
@@ -26,13 +25,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.core.view.ViewCompat;
-
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.checkbox.MaterialCheckBox;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-import com.google.android.material.progressindicator.LinearProgressIndicator;
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.base.BaseMwmFragmentActivity;
 import app.organicmaps.dialog.CustomMapServerDialog;
 import app.organicmaps.downloader.MapManagerHelper;
@@ -47,7 +39,11 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
-
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.progressindicator.LinearProgressIndicator;
+import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 import java.util.Objects;
 
@@ -259,7 +255,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
 
       mProgress.setMax(bytes);
       // Start progress at 1% according to M3 guidelines
-      mProgress.setProgressCompat(bytes/100, true);
+      mProgress.setProgressCompat(bytes / 100, true);
     }
     else
       finishFilesDownload(bytes);
@@ -275,9 +271,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mChbDownloadCountry = findViewById(R.id.chb_download_country);
     mBtnAdvanced = findViewById(R.id.btn_advanced);
 
-    mBtnAdvanced.setOnClickListener(v -> CustomMapServerDialog.show(this, url -> {
-      prepareFilesDownload(false);
-    }));
+    mBtnAdvanced.setOnClickListener(v -> CustomMapServerDialog.show(this, url -> { prepareFilesDownload(false); }));
     mBtnAdvanced.setEnabled(true);
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
@@ -392,7 +386,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
         mTvMessage.setText(getString(R.string.downloading_country_can_proceed, item.name, fileSizeString));
         mProgress.setMax((int) item.totalSize);
         // Start progress at 1% according to M3 guidelines
-        mProgress.setProgressCompat((int) (item.totalSize/100), true);
+        mProgress.setProgressCompat((int) (item.totalSize / 100), true);
 
         mCountryDownloadListenerSlot = MapManager.nativeSubscribe(mCountryDownloadListener);
         MapManagerHelper.startDownload(mCurrentCountry);
@@ -444,21 +438,18 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       default -> throw new AssertionError("Unexpected result code = " + result);
     };
 
-        mAlertDialog = new MaterialAlertDialogBuilder(this)
-                           .setTitle(titleId)
-                           .setMessage(messageId)
-                           .setCancelable(true)
-                           .setOnCancelListener((dialog) -> setAction(RESUME))
-                           .setPositiveButton(R.string.try_again,
-                                              (dialog, which) -> {
-                                                setAction(TRY_AGAIN);
-                                                onTryAgainClicked();
-                                              })
-                           .setNegativeButton(R.string.cancel,
-                                              (dialog, which) -> {
-                                                setAction(RESUME);
-                                              })
-                           .setOnDismissListener(dialog -> mAlertDialog = null)
-                           .show();
+    mAlertDialog = new MaterialAlertDialogBuilder(this)
+                       .setTitle(titleId)
+                       .setMessage(messageId)
+                       .setCancelable(true)
+                       .setOnCancelListener((dialog) -> setAction(RESUME))
+                       .setPositiveButton(R.string.try_again,
+                                          (dialog, which) -> {
+                                            setAction(TRY_AGAIN);
+                                            onTryAgainClicked();
+                                          })
+                       .setNegativeButton(R.string.cancel, (dialog, which) -> { setAction(RESUME); })
+                       .setOnDismissListener(dialog -> mAlertDialog = null)
+                       .show();
   }
 }

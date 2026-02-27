@@ -219,7 +219,7 @@
     <string name="error_enter_correct_fediverse_page">Ynworra unn hanow usyer Mastodon bo trigva gwiasva ewn</string>
     <string name="error_enter_correct_bluesky_page">Ynworra unn hanow usyer Bluesky bo trigva gwiasva ewn</string>
     <string name="placepage_add_place_button">Addya Le dhe OpenStreetMap</string>
-    <string name="osm_note_hint">Bo, yn tereylys, skrifa unn noten dhe kemeneth OpenStreetMap, ha orth nebonan yll addya bo ewnhe unn le omma.</string>
+    <string name="osm_note_hint">Bo, yn tereylys, skrifa unn noten rag an kemeneth OpenStreetMap, ha orth nebonan yll addya bo ewnhe unn le omma.</string>
     <string name="osm_note_toast">Noten a vydh danvon dhe OpenStreetMap</string>
     <string name="editor_share_to_all_dialog_title">A vynn\'ta mos danvon dhe oll usyoryon?</string>
     <string name="navigation_stop_button">Hedhi</string>
@@ -422,15 +422,15 @@
     <string name="pref_map_auto_zoom">Brashe yn awtomatek</string>
     <string name="placepage_distance">Pellder</string>
     <string name="how_to_support_us">Bodhegi ha gwellhe CoMaps</string>
-    <string name="compass_calibration_recommended">Gwellhe tu seth gans ow gwaya an kellgowser yn unn gwayans niver eth dhe selya an mornaswydh.</string>
-    <string name="compass_calibration_required">Gwaya an kellgowser yn unn gwayans niver eth dhe selya an mornaswydh ha ewna an tu seth war an mappa.</string>
+    <string name="compass_calibration_recommended">Gwellhe tu seth gans ow gwaya an klapkodh yn unn gwayans niver eth dhe selya an mornaswydh.</string>
+    <string name="compass_calibration_required">Gwaya an klapkodh yn unn gwayans niver eth dhe selya an mornaswydh ha ewna an tu seth war an mappa.</string>
     <string name="long_tap_toast">Tava hir war an mappa arta dhe gweles an ynterfas</string>
     <string name="downloader_downloaded_subtitle">Iskargys</string>
     <string name="downloader_queued">Lostys</string>
     <string name="downloader_downloading">Owth Iskarga:</string>
-    <string name="downloader_delete_map_while_routing_dialog">Dhe dilea mappa, hedhi navygacyon, mar pleg</string>
+    <string name="downloader_delete_map_while_routing_dialog">Rag dilea mappa, astel navygacyon dherag, mar pleg</string>
     <string name="routing_failed_cross_mwm_building">Kerdhow gallos gul yw kontaynys yn leun a-berth yn unn mappa a unn pow hepken.</string>
-    <string name="pref_use_google_play">Unn gonis perghenogel may kesunya GPS, Wi-fi, rosweythyow kellgowser h.e. rag determya dhe tyller yn kewar. Y re junya dhe servellow Google.</string>
+    <string name="pref_use_google_play">Unn gonis perghenogel may kesunya GPS, Wi-fi, rosweythyow klapkodh h.e. rag determya dhe tyller yn kewar. Y re junya dhe servellow Google.</string>
     <string name="routing_download_maps_along">Iskarga oll mappys a-hys gas kerdh</string>
     <string name="routing_requires_all_map">Rag gul unn kerdh, ni res iskarga ha nowedhi oll mappys a gas tyller dhe gas penn an fordh.</string>
     <string name="save">Sawya</string>
@@ -506,12 +506,12 @@
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) yw unn ragdres kemeneth dhe byldya unn mappa rydh ha apert. Yth yw an devedhyans chif a data mappa yn CoMaps ha oberi haval dhe Wikipedya. Ty gallos addya po golegi leow ha i bos kavadow dhe milvilyow usyoryon dres oll an bys.\nOmjunya an kemeneth ha gweres gul unn mappa gwell rag keniver!</string>
     <string name="login_to_make_edits_visible">Gul unn akont OpenStreetMap po omgelmi dhe dyllo gas chanjyow dhe\'n bys</string>
     <string name="downloader_of">%1$d a %2$d</string>
-    <string name="download_over_mobile_message">Y re bos kostek meur lowr war nebes towlow po a tramor</string>
+    <string name="download_over_mobile_message">Y a yll bos kostek fest war nebes towlow po a tramor.</string>
     <string name="error_enter_correct_storey_number">An niver a leuryow res na eksedya %d</string>
     <string name="editor_note_hint">Deskrifa errors war an mappa po pyth may na golegys yn CoMaps</string>
     <string name="editor_about_osm">Gas chanjyow yw ughkargys dhe\'n sel dherivadow <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> poblek. Mar pleg, addya kedhlow privedh po gwirbryntys vyth.</string>
     <string name="editor_category_unsuitable_title">Na gallos kavos unn klass fytti?</string>
-    <string name="editor_category_unsuitable_text">CoMaps alowa ty addya klassys sempel hepken, rag henna trevow, fordhow, lynnyn, drehevyansow, h.e. vyth. Mar pleg, addya a\'n par na klassys dhe <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Checkya agan <a href="https://www.openstreetmap.org">kowethlyver</a> rag danvonadow kamm ha kamm manylys.</string>
+    <string name="editor_category_unsuitable_text">CoMaps a yll addya klassys poynt sempel hepken, ny yllir addya trevow, fordhow, lynnyn, drehevyansow, h.e. Mar pleg, addya klassys a\'n par na dhe <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Checkya agan <a href="https://www.comaps.app/support/advanced-map-editing/">gid</a> rag danvonadow manylys.</string>
     <string name="downloader_no_downloaded_maps_title">Ty na iskargys neb mappys</string>
     <string name="downloader_no_downloaded_maps_message">Iskarga mappys dhe hwilas ha viajya dhywarlinen</string>
     <string name="current_location_unknown_error_title">Tyller a\'n jydh yw ankoth</string>
@@ -523,24 +523,24 @@
     <string name="place_page_app_too_old_description">Gas data mappa a\'n jydh yw pur koth, nowedhi an app CoMaps.</string>
     <string name="place_page_update_too_old_map">Nowedhi pow mappa</string>
     <string name="place_page_too_old_to_edit">Ow golegi OpenStreetMap yw ungallosegi dre reson an data mappa yw re koth.</string>
-    <string name="editor_share_to_all_dialog_message_1">Surhe ty na ynworra neb kedhlow privedh po personel.</string>
+    <string name="editor_share_to_all_dialog_message_1">Surhe ty na ynworrys neb kedhlow privedh po personel.</string>
     <string name="editor_share_to_all_dialog_message_2">Pennskriforyon OpenStreetMap a wra checkya an chanjyow ha kestava ty a i kavos neb kwestyons.</string>
-    <string name="mobile_data_dialog">Devnydhya junyans kellgowser dhe diskwedhes kedhlow manylys?</string>
+    <string name="mobile_data_dialog">Devnydhya junyans klapkodh dhe diskwedhes kedhlow manylys?</string>
     <string name="mobile_data_option_always">Devnydhya Pub Prys</string>
     <string name="mobile_data_option_not_today">Na Devnydhya Hedhyw</string>
-    <string name="mobile_data">Junyans Kellgowser</string>
-    <string name="mobile_data_description">Junyans kellgowser yw res rag messajys nowedhyans mappa hag owth ughkarga chanjyow</string>
+    <string name="mobile_data">Junyans Klapkodh</string>
+    <string name="mobile_data_description">Junyans klapkodh yw res rag messajys nowedhyans mappa hag owth ughkarga chanjyow</string>
     <string name="mobile_data_option_never">Devnydhya Bynner</string>
     <string name="mobile_data_option_ask">Govyn Pub Prys</string>
     <string name="traffic_update_maps_text">Rag diskwedhes data daromdak, mappys res bos nowedhys</string>
     <string name="big_font">Moghhe braster a labelyow mappa</string>
     <string name="traffic_data_unavailable">Data daromdak ankavadow</string>
     <string name="enable_logging">Gallosegi kovadhow</string>
-    <string name="prefs_languages_information">Ni devnydhya lev system rag danvonadow a dros. Lies devisyow Android devnydhya TTS Google, ty gallos iskarga po nowedhi y yn Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Rag nebes yethow, ty res lea unn synthesyer kows po unn fardel yeth keworransel yn an gwerthji appys (Google Play, Galaxy Store, App Gallery, FDroid). \nYgeri gas settyansyow devis → Yeth ha ynworrans → Areth → Eskorrans tekst dhe areth. \nTy gallos dyghtya omma settyansow rag synthesyans kows (rag ensampel, iskarga fardel yeth dhe devnydh dhywarlinen) ha dewis jynn tekst-dhe-areth aral.</string>
+    <string name="prefs_languages_information">Ni devnydhya lev system rag danvonadow a dros. Lies devisyow Android devnydhya TTS Google, ty gallos iskarga po nowedhi yth dhyworth Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Rag nebes yethow, ty res lea unn synthesyer kows po unn fardel yeth keworransel yn gwerthji appys (Google Play, Galaxy Store, App Gallery, FDroid). \nYgeri gas settyansyow devis → Yeth ha ynworrans → Areth → Eskorrans tekst dhe areth. \nTy gallos dyghtya omma an settyansow rag synthesyans kows (rag ensampel, rag iskarga fardel yeth dhe devnydh dhywarlinen) ha dewis jynn tekst-dhe-areth aral.</string>
     <string name="prefs_languages_information_off_link">Rag moy kedhlow checkya an kowethlyver ma</string>
     <string name="prefs_speed_cameras_information">Gwarnyans kamera tooth yw marow yn broyow le may gwarnyansow yw difennys erbynn lagha leel.</string>
-    <string name="transliteration_title">Treylya yn lytherennans Latin</string>
+    <string name="transliteration_title">Treylya y\'n lytherennans Latin</string>
     <string name="routing_add_start_point">Devnydhya hwithrans po tava war an mappa rag addya unn tyller dalleth</string>
     <string name="routing_add_finish_point">Devnydhya hwithrans po tava war an mappa rag addya unn penn an fordh</string>
     <string name="planning_route_manage_route">Dyghtya Kerdh</string>
@@ -619,22 +619,22 @@
     <string name="app_tip_07">Agan app yw gul gans nebes diwysygyon ha an kemeneth.</string>
     <string name="app_tip_08">Ty gallos ewnhe ha gwellhe yn es an data map.</string>
     <string name="app_tip_09">Agan amkan chif yw byldya mappys uskis, privedh, ha es may ty a wra kara.</string>
-    <string name="car_used_on_the_phone_screen">Ty ow devnydhya lemmyn CoMaps war an skrin kellgowser</string>
+    <string name="car_used_on_the_phone_screen">Ty ow devnydhya lemmyn CoMaps war an skrin klapkodh</string>
     <string name="car_used_on_the_car_screen">Ty ow devnydhya lemmyn CoMaps war an skrin karr</string>
-    <string name="car_continue_on_the_phone">Pesya war an kellgowser</string>
+    <string name="car_continue_on_the_phone">Pesya war an klapkodh</string>
     <string name="car_continue_in_the_car">Dhe an skrin karr</string>
-    <string name="aa_location_permissions_request">CoMaps res hedhas GPS. Pan y yw saw, checkya an messach war gas kellgowser.</string>
+    <string name="aa_location_permissions_request">CoMaps res hedhas GPS. Pan y yw saw, checkya an messach war gas klapkodh.</string>
     <string name="aa_request_permission_notification">An app ma res gas gront</string>
     <string name="aa_request_permission_activity_text">CoMaps yn Android Auto res grontys GPS rag oberyans effeythus</string>
     <string name="pref_tts_open_system_settings">Settyansow system tekst-dhe-areth</string>
     <string name="pref_tts_no_system_tts">Settyansow tekst-dhe-areth na kavosys, Os ta sur gas devis skoodhya y?</string>
     <string name="drive_through">Drivya-dredh</string>
     <string name="self_service">Omgonis</string>
-    <string name="power_save_dialog_summary">Rag navygacyon moggha, ni komendya owth ungallosegi fordh batri yn settyansow kellgowser batri.</string>
+    <string name="power_save_dialog_summary">Rag navygacyon moggha, ni komendya owth ungallosegi fordh batri yn settyansow klapkodh batri.</string>
     <string name="stop_track_recording">Finsya Rekordyans Lergh</string>
     <string name="stop_without_saving">Hedhi Rekordyans Lergh</string>
     <string name="continue_recording">Pesya Rekordya</string>
-    <string name="track_recording_alert_title">Sawya yn Drudhow?</string>
+    <string name="track_recording_alert_title">Sawya dhe Drudhow?</string>
     <string name="track_recording_toast_nothing_to_save">Lergh yw gwag - mann rag sawyans</string>
     <string name="error_no_file_manager_app">Anabel dhe diskwedhes fenester dewis restrenva dre reson app fytti vyth yw leys war gas devis. Mar pleg, lea unn dyghtyer restrennow hag assaya arta.</string>
     <string name="uri_open_location_failed">App leys vyth may gallos ygeri an tyller</string>
@@ -671,8 +671,8 @@
     <string name="download_resources_custom_url_summary_none">Anavleythys</string>
     <string name="download_resources_custom_url_error_scheme">Mar pleg, ynworra unn URL may ow dalleth gans http:// po https://</string>
     <string name="pref_maplanguage_local">Yeth Leel</string>
-    <string name="limit_map_language_alternatives_to_local">Devnydhya hepken yethow system aral yn aga pow i</string>
     <string name="location_privacy_info">Appys degemeres data GPS dyworth dha gonis GPS system, may kevrenna martesen dha tyller gans Google ha/po dha gwerther devis. Devnydhya unn system oberyans Android privedh rag goheles hemma.</string>
     <string name="location_privacy">Privetter GPS</string>
     <string name="pref_speedlimit_title">Diskwedhes finwethow tooth</string>
+    <string name="rooms">%s roumys</string>
 </resources>

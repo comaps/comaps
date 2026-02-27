@@ -38,7 +38,6 @@ namespace hierarchy
 static char const kCsvDelimiter = ';';
 
 uint32_t GetMainType(FeatureParams::Types const & types);
-std::string GetName(StringUtf8Multilang const & str);
 
 coding::CSVReader::Row HierarchyEntryToCsvRow(HierarchyEntry const & entry);
 HierarchyEntry HierarchyEntryFromCsvRow(coding::CSVReader::Row const & row);

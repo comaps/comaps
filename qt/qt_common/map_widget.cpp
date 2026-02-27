@@ -343,7 +343,9 @@ void MapWidget::ShowInfoPopup(QMouseEvent * e, m2::PointD const & pt)
     addStringFn(concat);
 
     // Name
-    addStringFn(std::string(ft.GetReadableName()));
+    localisation::NameTranslation translatedName = ft.GetTranslatedName();
+    if (translatedName.m_primary.has_value())
+      addStringFn(translatedName.m_primary.value());
 
     // Address
     auto const info = GetFeatureAddressInfo(m_framework, ft);

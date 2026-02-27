@@ -362,7 +362,7 @@
 "downloader_delete_map_while_routing_dialog" = "Lai dzēstu karti, apturiet navigāciju.";
 
 /* PointsInDifferentMWM */
-"routing_failed_cross_mwm_building" = "Maršrutus var izveidot, ja atrodas vienas reģiona kartes robežās.";
+"routing_failed_cross_mwm_building" = "Maršrutus var izveidot tikai tad, ja tie atrodas viena apgabala kartes robežās.";
 
 /* Context menu item for downloader. */
 "downloader_download_map" = "Lejupielādēt karti";
@@ -608,7 +608,7 @@
 "downloader_of" = "%1$d no %2$d";
 "download_over_mobile_header" = "Vai lejupielādēt arī mobilajā tīklā?";
 "download_over_mobile_message" = "Ja lietojat ierobežotus datus vai viesabonēšanu, tas var izmaksāt dārgi.";
-"error_enter_correct_house_number" = "Ierakstiet derīgu ēkas numuru";
+"error_enter_correct_house_number" = "Jāievada derīgs ēkas numurs";
 "editor_storey_number" = "Stāvu skaits (maks. %d)";
 
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
@@ -1101,3 +1101,4 @@
 "avoid_paved" = "Izvairīties no ceļiem ar cietu mākslīgo segumu";
 "pref_alt_map_lang_handling" = "Kartes papildu valodas";
 "pref_alt_map_lang_handling_system_order" = "Izmantot sistēmas secībā";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

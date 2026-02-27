@@ -53,6 +53,7 @@
     <string name="type.amenity.clinic">Klinik</string>
     <string name="type.amenity.college">Bildungseinrichtung</string>
     <string name="type.amenity.community_centre">Gemeinschaftszentrum</string>
+    <string name="type.amenity.community_centre.youth_centre">Jugendzentrum</string>
     <string name="type.amenity.compressed_air">Druckluft</string>
     <string name="type.amenity.conference_centre">Konferenzzentrum</string>
     <string name="type.amenity.courthouse">Gericht</string>
@@ -130,7 +131,7 @@
     <string name="type.amenity.pub">Kneipe</string>
     <string name="type.amenity.public_bookcase">Bücherschrank</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Recyclingzentrum</string>
+    <string name="type.amenity.recycling.centre">Recyclinghof</string>
     <string name="type.amenity.recycling.container">Wertstoffcontainer</string>
     <string name="type.recycling.batteries">Batterien</string>
     <string name="type.recycling.clothes">Altkleider</string>

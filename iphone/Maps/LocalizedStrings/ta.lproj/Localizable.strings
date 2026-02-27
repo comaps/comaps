@@ -597,3 +597,4 @@
 "map" = "வரைபடம்";
 "open_in_app" = "மற்றொரு பயன்பாட்டில் திறக்கவும்";
 "yes_available" = "ஆம்";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

@@ -1,10 +1,11 @@
-• OpenStreetMap data as of February 7
-• Added "Show speed limits" navigation setting
-• Disabled 3D buildings in Android Auto navigation mode
-• Added marina fuel docks
-• Show favorites and search icons above subway lines
-• Show house numbers later
-• Enabled searching for Scandinavian letters æøå
-• OSM editor: automatically update last date when POI existence was checked
+• OpenStreetMap data as of February 21
+• Display opening hours in shifts instead of non-business hours
+• Show OSM descriptions and number of rooms for selected POIs
+• Added Croatian, Italian, Dutch and Polish Wikipedia articles
+• Added tree rows and youth centres
+• Fixed transliteration not working
+• Improved Alternative Map Languages setting
+• A new Android 12+ setting to open osm.org and geo2me links
+• Display a rerouting indicator in navigation panel
 
 More details on comaps.app/latest

@@ -1502,3 +1502,4 @@
 "type.leisure.sports_centre.sport.ice_hockey" = "Ishall";
 "type.leisure.sports_centre.sport.climbing" = "Klätterhall";
 "type.leisure.sports_centre.sport.multi" = "Idrottscentrum";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

@@ -271,7 +271,7 @@
     <string name="downloader_download_all_button">Descargar todos</string>
     <string name="downloader_downloading">Descargando:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Para eliminar el mapa, detenga la navegación</string>
+    <string name="downloader_delete_map_while_routing_dialog">Para eliminar un mapa, detenga la navegación primero</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Sólo se pueden crear rutas que estén totalmente contenidas en un mapa de una sola región.</string>
     <!-- Context menu item for downloader. -->
@@ -472,7 +472,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d de %2$d</string>
     <string name="download_over_mobile_header">¿Descargar con conexión de red móvil?</string>
-    <string name="download_over_mobile_message">Podría ser muy caro con ciertos planes o con itinerancia de datos</string>
+    <string name="download_over_mobile_message">Podría ser muy caro con ciertos planes, especialmente con itinerancia de datos.</string>
     <string name="error_enter_correct_house_number">Introducir el número de domicilio correcto</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">El número de niveles no debe superar %d</string>
@@ -551,7 +551,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Opinión general</string>
     <string name="prefs_languages_information">Utilizamos el sistema TTS para las instrucciones de voz. Muchos dispositivos de Android usan Google TTS. Puede descargar o actualizarlo desde Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Para algunos idiomas, debe instalar otro sintetizador de voz o un paquete de idioma adicional desde la tienda de aplicaciones (Google Play, Galaxy Store, App Gallery, FDroid).\nAbra los Ajustes de su dispositivo → Idioma y entrada de texto → Voz → Opciones texto a voz.\nAquí puede administrar la configuración de síntesis de voz (por ejemplo, descargar un paquete de idioma para poder usarlo sin conexión) o seleccionar otro motor de texto a voz.</string>
+    <string name="prefs_languages_information_off">Para algunos idiomas, debes instalar otro sintetizador de voz o un paquete de idioma adicional desde la tienda de aplicaciones (Google Play, Galaxy Store, App Gallery, FDroid).\nAbre los Ajustes de su dispositivo → Idioma y entrada de texto → Voz → Opciones texto a voz.\nAquí puedes administrar la configuración de síntesis de voz (por ejemplo, descargar un paquete de idioma para poder usarlo sin conexión) o seleccionar otro motor de texto a voz.</string>
     <string name="prefs_languages_information_off_link">Para obtener más información, consulta esta guía</string>
     <string name="transliteration_title">Transliteración al alfabeto latino</string>
     <string name="learn_more">Conocer más</string>
@@ -734,7 +734,7 @@
     <string name="splash_subtitle">Datos cartográficos de OpenStreetMap</string>
     <!-- A link to the TTS FAQ -->
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/es/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/ES:Acerca_de_OpenStreetMap</string>
@@ -928,5 +928,23 @@
     <string name="download_resources_custom_url_summary_none">No establecido</string>
     <string name="download_resources_custom_url_error_scheme">Por favor introduce un URL empezando con http:// o https://</string>
     <string name="pref_maplanguage_local">Idioma local</string>
-    <string name="limit_map_language_alternatives_to_local">Usar otros idiomas del sistema solo en sus regiones</string>
+    <string name="rooms">%s habitaciones</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_speedlimit_title">Mostrar límites de velocidad</string>
+    <string name="building_route">Calculando ruta…</string>
+    <string name="route_not_started">Ruta no iniciada</string>
+    <string name="on_route">En ruta</string>
+    <string name="route_needs_rebuild">La ruta necesita ser recalculada</string>
+    <string name="route_finished">Ruta finalizada</string>
+    <string name="not_following_route">No siguiendo la ruta</string>
+    <string name="rebuilding_route">Recalculando la ruta…</string>
+    <string name="location_privacy_info">Las aplicaciones reciben datos de ubicación del servicio de ubicación de tu sistema operativo, que podría compartir tu ubicación con Google y/o el proveedor de tu dispositivo. Para evitar esto, usa un sistema operativo Android que proteja tu privacidad.</string>
+    <string name="location_privacy">Privacidad de ubicación</string>
+    <string name="invalid_route">Menú de navegación: Cadenas del estado de la ruta</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">No usar alternativas</string>
+    <string name="pref_alt_map_lang_handling">Idiomas del mapa alternativos</string>
+    <string name="pref_alt_map_lang_handling_system_order">Usar según el orden del sistema</string>
+    <string name="pref_alt_map_lang_handling_local_only">Preferir y solo usar cuando nativo</string>
+    <string name="pref_openexternallinks_title">Abir enlaces de terceros automáticamente</string>
+    <string name="pref_openexternallinks_summary">Abir enlaces de terceros en CoMaps por defecto</string>
 </resources>

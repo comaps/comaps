@@ -7,15 +7,11 @@
 
 namespace
 {
-using CountrySetT = std::unordered_set<std::string_view>;
+using CountrySetT = ankerl::unordered_dense::set<std::string_view>;
 
 // List of country names where mwm should be generated without speed cameras.
 CountrySetT kSpeedCamerasProhibitedCountries = {
-    "Germany",
-    "Macedonia",
-    "Switzerland",
-    "Turkey",
-    "Bosnia and Herzegovina",
+    "Germany", "Macedonia", "Switzerland", "Turkey", "Bosnia and Herzegovina",
 };
 
 // List of country names where an end user should be warned about speed cameras.

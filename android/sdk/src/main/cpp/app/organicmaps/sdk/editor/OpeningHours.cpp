@@ -320,7 +320,7 @@ JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_editor_OpeningHours_nativeCur
   jclass ohStateClass = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/editor/OhState");
   jclass ruleStateClass = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/editor/OhState$State");
 
-  static std::unordered_map<RuleState, char const *> const ruleState = {
+  static ankerl::unordered_dense::map<RuleState, char const *> const ruleState = {
       {RuleState::Open, "Open"}, {RuleState::Closed, "Closed"}, {RuleState::Unknown, "Unknown"}};
 
   jfieldID stateField =

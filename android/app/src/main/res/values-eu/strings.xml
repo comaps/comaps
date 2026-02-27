@@ -236,7 +236,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Albisteak</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Iruzkinak</string>
+    <string name="feedback">Eritzia</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Baloratu aplikazioa</string>
     <!-- Text in menu -->
@@ -727,7 +727,7 @@
     <string name="change_map_locale">Maparen hizkuntza</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">OpenStreetMap-eko mapa-datuak</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/eu/</string>
     <!-- App Tip #00 -->
     <string name="app_tip_00">Eskerrik asko gure komunitateak eraikitako mapak erabiltzeagatik!</string>
@@ -869,4 +869,25 @@
     <string name="closes_day_at">%1$s ean %2$s etan itxiko da</string>
     <string name="editor_place_doesnt_exist_description">Deskribatu nolakoa den lekua orain OpenStreetMap komunitateari errore-ohar bat bidaltzeko.</string>
     <string name="offline_explanation_title">Lineaz kanpoko mapak</string>
+    <string name="editor_mark_business_vacant_description">Erabili hau negozioa mugitu bada eta espazioa hutsik eta maizter berri baterako prest badago.</string>
+    <string name="place_page_map_too_old_title">Maparen datuak zaharkituta</string>
+    <string name="place_page_map_too_old_description">Zure egungo maparen datuak oso zaharrak dira, eguneratu mapa.</string>
+    <string name="place_page_app_too_old_description">Zure egungo maparen datuak oso zaharrak dira, eguneratu CoMaps aplikazioa.</string>
+    <string name="place_page_update_too_old_map">Eguneratu eskualdeko mapa</string>
+    <string name="place_page_too_old_to_edit">OpenStreetMap edizioa desgaituta dago maparen datuak zaharregiak direlako.</string>
+    <string name="osm_note_hint">Edo, bestela, utzi ohar bat OpenStreetMap komunitatearentzat, beste norbaitek hemen toki bat gehitu edo konpondu dezan.</string>
+    <string name="osm_note_toast">Oharra OpenStreetMap-era bidaliko da</string>
+    <string name="prefs_speed_cameras_information">Abiadura kameraren abisuak desgaituta daude tokiko legediak alertak debekatuta dituen herrialdeetan.</string>
+    <string name="delete_track_dialog_title">Ezabatu %s?</string>
+    <string name="pref_tts_no_system_tts_short">Ez da testu-hizketarako motorrik aurkitu, egiaztatu aplikazioaren ezarpenak</string>
+    <string name="navigation_start_tts_message">"Nabigazioa abiarazten, ahots bidezko argibideen hizkuntza: "</string>
+    <string name="navigation_start_tts_disabled_message">Ahots-argibideak desgaituta: TTS motorra ez dago erabilgarri</string>
+    <string name="unknown_power_output">ezezaguna</string>
+    <string name="error_value_must_be_positive">Balioa positiboa izan behar du</string>
+    <string name="list_description_empty">Editatu zerrenda deskribapen bat gehitzeko</string>
+    <string name="download_resources_custom_url_message">Gainidatzi erabiltzen den mapa deskargatzeko zerbitzari lehenetsia. Utzi hutsik CoMaps zerbitzari lehenetsia erabiltzeko.</string>
+    <string name="download_resources_custom_url_summary_none">Ezarri gabe</string>
+    <string name="download_resources_custom_url_error_scheme">Sartu http:// edo https://-rekin hasten den URL bat</string>
+    <string name="pref_speedlimit_title">Erakutsi abiadura mugak</string>
+    <string name="on_route">Bidean</string>
 </resources>

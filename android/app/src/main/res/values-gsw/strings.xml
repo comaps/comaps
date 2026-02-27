@@ -655,7 +655,6 @@
     <string name="download_resources_custom_url_message">Standardserver für Chartedownloads überschriibe. Leer laa, zum de CoMaps-Standardserver z bruuche.</string>
     <string name="download_resources_custom_url_summary_none">Nöd konfiguriert</string>
     <string name="download_resources_custom_url_error_scheme">Bitte e vollständigi URL iigeh, wo mit https:// oder http:// aafangt</string>
-    <string name="limit_map_language_alternatives_to_local">Nutz anderi Systemspraachene nur i dere Region</string>
     <string name="location_privacy_info">Apps bechömed Standortdate vo dim Standortdienst vom Betriebssystem, wo din Standort möglicherwiis a Google und/oder din Grätehersteller wiitergit. Nutz es dateschutzkonforms Android-Betriebssystem, zum das vermiide.</string>
     <string name="location_privacy">Standort-Dateschutz</string>
     <string name="pref_speedlimit_title">Zeig Tempolimits aa</string>

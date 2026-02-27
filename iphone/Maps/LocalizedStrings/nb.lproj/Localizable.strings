@@ -1097,3 +1097,4 @@
 "avoid_steps" = "Unngå trapper";
 "editor_place_doesnt_exist_description" = "Beskriv hvordan stedet ser ut nå for å sende en feilmelding til OpenStreetMap-fellesskapet";
 "avoid_paved" = "Unngå asfalterte veier";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

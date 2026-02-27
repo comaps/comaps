@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260125T125935Z",
+    "data_updated": "20260209T180320Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -5030,6 +5030,12 @@
             "key": "zoo",
             "value": "petting_zoo",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/petting_zoo-m.svg"
+        },
+        {
+            "description": "waterway=fuel",
+            "key": "waterway",
+            "value": "fuel",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/marina_fuel_station-m.svg"
         },
         {
             "description": "waterway=waterfall",

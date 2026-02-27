@@ -98,7 +98,8 @@ std::unique_ptr<FeatureType> FeatureGetter::GetFeatureByIndex(uint32_t index) co
   return m_guard->GetFeatureByIndex(index);
 }
 
-bool ParseFeatureIdToOsmIdMapping(std::string const & path, std::unordered_map<uint32_t, base::GeoObjectId> & mapping)
+bool ParseFeatureIdToOsmIdMapping(std::string const & path,
+                                  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> & mapping)
 {
   return ForEachOsmId2FeatureId(path, [&](auto const & compositeId, auto featureId)
   {
@@ -107,7 +108,7 @@ bool ParseFeatureIdToOsmIdMapping(std::string const & path, std::unordered_map<u
   });
 }
 
-bool ParseFeatureIdToTestIdMapping(std::string const & path, std::unordered_map<uint32_t, uint64_t> & mapping)
+bool ParseFeatureIdToTestIdMapping(std::string const & path, ankerl::unordered_dense::map<uint32_t, uint64_t> & mapping)
 {
   bool success = true;
   feature::ForEachFeature(path, [&](FeatureType & feature, uint32_t fid)

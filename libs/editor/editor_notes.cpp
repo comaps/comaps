@@ -156,7 +156,8 @@ void Notes::CreateNote(ms::LatLon const & latLon, std::string const & text)
 void Notes::Upload(osm::OsmOAuth const & auth)
 {
   std::unique_lock<std::mutex> uploadingNotesLock(m_uploadingNotesMutex, std::defer_lock);
-  if (!uploadingNotesLock.try_lock()) {
+  if (!uploadingNotesLock.try_lock())
+  {
     // Do not run more than one uploading task at a time.
     LOG(LDEBUG, ("OSM notes upload is already running"));
     return;

@@ -45,8 +45,8 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
   //  public MapObject(@NonNull FeatureId featureId, @MapObjectType int mapObjectType, String title,
   //                   @Nullable String secondaryTitle, String subtitle, String address,
   //                   double lat, double lon, String apiId, @Nullable RoutePointInfo routePointInfo,
-  //                   @OpeningMode int openingMode, @NonNull Popularity popularity, @NonNull String description,
-  //                   int roadWarningType, @Nullable String[] rawTypes)
+  //                   @OpeningMode int openingMode, @NonNull Popularity popularity, @NonNull String wikiArticle,
+  //                   @NonNull String osmDescription, int roadWarningType, @Nullable String[] rawTypes)
   static jmethodID const ctorId =
       jni::GetConstructorID(env, g_mapObjectClazz,
                             "("
@@ -61,7 +61,8 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
                             "Lapp/organicmaps/sdk/routing/RoutePointInfo;"    // routePointInfo
                             "I"                                               // openingMode
                             "Lapp/organicmaps/sdk/search/Popularity;"         // popularity
-                            "Ljava/lang/String;"                              // description
+                            "Ljava/lang/String;"                              // wikiArticle
+                            "Ljava/lang/String;"                              // osmDescription
                             "I"                                               // roadWarnType
                             "[Ljava/lang/String;"                             // rawTypes
                             ")V");
@@ -79,10 +80,11 @@ jobject CreateMapObject(JNIEnv * env, place_page::Info const & info, int mapObje
   jni::TScopedLocalRef jAddress(env, jni::ToJavaString(env, info.GetSecondarySubtitle()));
   jni::TScopedLocalRef jApiId(env, jni::ToJavaString(env, parseApi ? info.GetApiUrl() : ""));
   jni::TScopedLocalRef jWikiDescription(env, jni::ToJavaString(env, info.GetWikiDescription()));
-  jobject mapObject = env->NewObject(g_mapObjectClazz, ctorId, jFeatureId.get(), mapObjectType, jTitle.get(),
-                                     jSecondaryTitle.get(), jSubtitle.get(), jAddress.get(), lat, lon, jApiId.get(),
-                                     routingPointInfo, static_cast<jint>(info.GetOpeningMode()), popularity,
-                                     jWikiDescription.get(), static_cast<jint>(info.GetRoadType()), jrawTypes);
+  jni::TScopedLocalRef jOsmDescription(env, jni::ToJavaString(env, info.GetOSMDescription()));
+  jobject mapObject = env->NewObject(
+      g_mapObjectClazz, ctorId, jFeatureId.get(), mapObjectType, jTitle.get(), jSecondaryTitle.get(), jSubtitle.get(),
+      jAddress.get(), lat, lon, jApiId.get(), routingPointInfo, static_cast<jint>(info.GetOpeningMode()), popularity,
+      jWikiDescription.get(), jOsmDescription.get(), static_cast<jint>(info.GetRoadType()), jrawTypes);
 
   if (parseMeta)
     InjectMetadata(env, g_mapObjectClazz, mapObject, info);
@@ -97,7 +99,7 @@ jobject CreateTrack(JNIEnv * env, place_page::Info const & info, jni::TScopedLoc
                             "(Lapp/organicmaps/sdk/bookmarks/data/FeatureId;JJLjava/lang/String;"
                             "Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;"
                             "Lapp/organicmaps/sdk/routing/RoutePointInfo;"
-                            "ILapp/organicmaps/sdk/search/Popularity;Ljava/lang/String;"
+                            "ILapp/organicmaps/sdk/search/Popularity;Ljava/lang/String;Ljava/lang/String;"
                             "[Ljava/lang/String;ILapp/organicmaps/sdk/util/Distance;DD)V");
   static jmethodID const featureCtorId = jni::GetConstructorID(env, g_featureIdClazz, "(Ljava/lang/String;JI)V");
 
@@ -114,12 +116,13 @@ jobject CreateTrack(JNIEnv * env, place_page::Info const & info, jni::TScopedLoc
   jni::TScopedLocalRef jSubtitle(env, jni::ToJavaString(env, info.GetSubtitle()));
   jni::TScopedLocalRef jAddress(env, jni::ToJavaString(env, info.GetSecondarySubtitle()));
   jni::TScopedLocalRef jWikiDescription(env, jni::ToJavaString(env, info.GetWikiDescription()));
-  jobject mapObject =
-      env->NewObject(g_trackClazz, ctorId, jFeatureId.get(), static_cast<jlong>(categoryId),
-                     static_cast<jlong>(trackId), jTitle.get(), jSecondaryTitle.get(), jSubtitle.get(), jAddress.get(),
-                     routingPointInfo.get(), info.GetOpeningMode(), popularity, jWikiDescription.get(), jrawTypes.get(),
-                     androidColor, ToJavaDistance(env, platform::Distance::CreateFormatted(track->GetLengthMeters())),
-                     static_cast<jdouble>(ll.m_lat), static_cast<jdouble>(ll.m_lon));
+  jni::TScopedLocalRef jOsmDescription(env, jni::ToJavaString(env, info.GetOSMDescription()));
+  jobject mapObject = env->NewObject(g_trackClazz, ctorId, jFeatureId.get(), static_cast<jlong>(categoryId),
+                                     static_cast<jlong>(trackId), jTitle.get(), jSecondaryTitle.get(), jSubtitle.get(),
+                                     jAddress.get(), routingPointInfo.get(), info.GetOpeningMode(), popularity,
+                                     jWikiDescription.get(), jOsmDescription.get(), jrawTypes.get(), androidColor,
+                                     ToJavaDistance(env, platform::Distance::CreateFormatted(track->GetLengthMeters())),
+                                     static_cast<jdouble>(ll.m_lat), static_cast<jdouble>(ll.m_lon));
 
   if (info.HasMetadata())
     InjectMetadata(env, g_mapObjectClazz, mapObject, info);
@@ -132,14 +135,14 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
   // public Bookmark(@NonNull FeatureId featureId, @IntRange(from = 0) long categoryId,
   //                 @IntRange(from = 0) long bookmarkId, String title, @Nullable String secondaryTitle,
   //                 @Nullable String subtitle, @Nullable String address, @Nullable RoutePointInfo routePointInfo,
-  //                 @OpeningMode int openingMode, @NonNull Popularity popularity, @NonNull String description,
-  //                 @Nullable String[] rawTypes)
+  //                 @OpeningMode int openingMode, @NonNull Popularity popularity, @NonNull String wikiArticle,
+  //                 @NonNull String osmDescription, @Nullable String[] rawTypes)
   static jmethodID const ctorId =
       jni::GetConstructorID(env, g_bookmarkClazz,
                             "(Lapp/organicmaps/sdk/bookmarks/data/FeatureId;JJLjava/lang/String;"
                             "Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;"
                             "Lapp/organicmaps/sdk/routing/RoutePointInfo;"
-                            "ILapp/organicmaps/sdk/search/Popularity;Ljava/lang/String;"
+                            "ILapp/organicmaps/sdk/search/Popularity;Ljava/lang/String;Ljava/lang/String;"
                             "[Ljava/lang/String;)V");
   static jmethodID const featureCtorId = jni::GetConstructorID(env, g_featureIdClazz, "(Ljava/lang/String;JI)V");
 
@@ -153,10 +156,11 @@ jobject CreateBookmark(JNIEnv * env, place_page::Info const & info, jni::TScoped
   jni::TScopedLocalRef jSubtitle(env, jni::ToJavaStringWithSupplementalCharsFix(env, info.GetSubtitle()));
   jni::TScopedLocalRef jAddress(env, jni::ToJavaString(env, info.GetSecondarySubtitle()));
   jni::TScopedLocalRef jWikiDescription(env, jni::ToJavaString(env, info.GetWikiDescription()));
+  jni::TScopedLocalRef jOsmDescription(env, jni::ToJavaString(env, info.GetOSMDescription()));
   jobject mapObject = env->NewObject(g_bookmarkClazz, ctorId, jFeatureId.get(), static_cast<jlong>(categoryId),
                                      static_cast<jlong>(bookmarkId), jTitle.get(), jSecondaryTitle.get(),
                                      jSubtitle.get(), jAddress.get(), routingPointInfo.get(), info.GetOpeningMode(),
-                                     popularity, jWikiDescription.get(), jrawTypes.get());
+                                     popularity, jWikiDescription.get(), jOsmDescription.get(), jrawTypes.get());
 
   if (info.HasMetadata())
     InjectMetadata(env, g_mapObjectClazz, mapObject, info);

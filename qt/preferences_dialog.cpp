@@ -113,45 +113,70 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     // So we ensure that it returns false here.
     mapLanguageComboBox->setStyleSheet("QComboBox { combobox-popup: 0; }");
     mapLanguageComboBox->setMaxVisibleItems(10);
-    StringUtf8Multilang::Languages const & supportedLanguages =
-        StringUtf8Multilang::GetSupportedLanguages(/* includeServiceLangs */ false);
+    std::vector<localisation::Language> const supportedLanguages = localisation::GetSupportedLanguages(/* includeServiceLangs */ false);
 
     // Create a vector of pairs (name, index) and sort by name
     std::vector<std::pair<std::string, size_t>> languageNameIndexPairs;
     for (size_t i = 0; i < supportedLanguages.size(); ++i)
-    {
       languageNameIndexPairs.emplace_back(std::string(supportedLanguages[i].m_name), i);
-    }
-    std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(),
-              [](auto const & a, auto const & b) { return a.first < b.first; });
+    std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(), [](auto const & a, auto const & b) { return a.first < b.first; });
 
     QStringList languagesList = QStringList();
     std::vector<size_t> sortedIndices;
-    languagesList << QString::fromStdString("Local Language");
+    languagesList << QString::fromStdString("Auto");
     sortedIndices.push_back(0);
+    languagesList << QString::fromStdString("Local Language");
+    sortedIndices.push_back(1);
     for (auto const & pair : languageNameIndexPairs)
     {
       languagesList << QString::fromStdString(pair.first);
-      sortedIndices.push_back(pair.second);
+      sortedIndices.push_back(pair.second + 2);
     }
-
     mapLanguageComboBox->addItems(languagesList);
-    std::string const & mapLanguageCode = framework.GetMapLanguageCode();
-    int8_t languageIndex = StringUtf8Multilang::GetLangIndex(mapLanguageCode);
-    if (languageIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
-      languageIndex = StringUtf8Multilang::kDefaultCode;
 
-    mapLanguageComboBox->setCurrentText(
-        QString::fromStdString(std::string(StringUtf8Multilang::GetLangNameByCode(languageIndex))));
-    connect(mapLanguageComboBox, &QComboBox::activated, [&framework, &supportedLanguages, sortedIndices](int index)
-    {
+    std::optional<std::string> const mapLanguageCode = framework.GetCustomMapLanguageCode();
+    int8_t languageIndex = localisation::kUnsupportedLanguageIndex;
+    if (mapLanguageCode.has_value())
+      languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(mapLanguageCode.value());
+    if (languageIndex == localisation::kUnsupportedLanguageIndex)
+      mapLanguageComboBox->setCurrentText(QString::fromStdString("Auto"));
+    else if (languageIndex == localisation::kDefaultNameIndex)
+      mapLanguageComboBox->setCurrentText(QString::fromStdString("Local Language"));
+    else
+      mapLanguageComboBox->setCurrentText(QString::fromStdString(localisation::GetLanguageNameByLanguageIndex(languageIndex)));
+
+    connect(mapLanguageComboBox, &QComboBox::currentIndexChanged, [&framework, sortedIndices, supportedLanguages](int index) {
       if (index == 0)
-      {
-        framework.SetMapLanguageCode("default");
-        return;
-      }
-      auto const & mapLanguageCode = std::string(supportedLanguages[sortedIndices[index]].m_code);
-      framework.SetMapLanguageCode(mapLanguageCode);
+        framework.SetCustomMapLanguageCode();
+      else if (index == 1)
+        framework.SetCustomMapLanguageCode("default");
+      else
+        framework.SetCustomMapLanguageCode(supportedLanguages[sortedIndices[index] - 2].m_languageCode);
+    });
+  }
+
+  QLabel * alternativeMapLanguageHandlingLabel = new QLabel("Alternative Map Language");
+  QComboBox * alternativeMapLanguageHandlingComboBox = new QComboBox();
+  {
+    // The property maxVisibleItems is ignored for non-editable comboboxes in styles that
+    // return true for `QStyle::SH_ComboBox_Popup such as the Mac style or the Gtk+ Style.
+    // So we ensure that it returns false here.
+    alternativeMapLanguageHandlingComboBox->setStyleSheet("QComboBox { combobox-popup: 0; }");
+    alternativeMapLanguageHandlingComboBox->setMaxVisibleItems(3);
+
+    QStringList languagesList = QStringList();
+    std::vector<size_t> sortedIndices;
+    languagesList << QString::fromStdString("Don't use alternatives");
+    sortedIndices.push_back(0);
+    languagesList << QString::fromStdString("Use in system order");
+    sortedIndices.push_back(1);
+    languagesList << QString::fromStdString("Prefer and only use where native");
+    sortedIndices.push_back(1);
+    alternativeMapLanguageHandlingComboBox->addItems(languagesList);
+
+    alternativeMapLanguageHandlingComboBox->setCurrentText(languagesList.at(framework.GetAlternativeMapLanguageHandling()));
+    connect(alternativeMapLanguageHandlingComboBox, &QComboBox::currentIndexChanged, [&framework, languagesList](int index) {
+      framework.SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(index));
     });
   }
 
@@ -242,6 +267,8 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
   finalLayout->addWidget(developerModeCheckBox);
   finalLayout->addWidget(mapLanguageLabel);
   finalLayout->addWidget(mapLanguageComboBox);
+  finalLayout->addWidget(alternativeMapLanguageHandlingLabel);
+  finalLayout->addWidget(alternativeMapLanguageHandlingComboBox);
   finalLayout->addWidget(nightModeRadioBox);
 #ifdef BUILD_DESIGNER
   finalLayout->addWidget(indexRegenCheckBox);

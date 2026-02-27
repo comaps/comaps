@@ -23,8 +23,9 @@
 
 #include <map>
 #include <memory>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing_test
 {
@@ -124,7 +125,7 @@ public:
   void AddGraph(NumMwmId mwmId, std::unique_ptr<IndexGraph> graph);
 
 private:
-  std::unordered_map<NumMwmId, std::unique_ptr<IndexGraph>> m_graphs;
+  ankerl::unordered_dense::map<NumMwmId, std::unique_ptr<IndexGraph>> m_graphs;
 };
 
 class TestTransitGraphLoader : public TransitGraphLoader
@@ -139,7 +140,7 @@ public:
   void AddGraph(NumMwmId mwmId, std::unique_ptr<TransitGraph> graph);
 
 private:
-  std::unordered_map<NumMwmId, std::unique_ptr<TransitGraph>> m_graphs;
+  ankerl::unordered_dense::map<NumMwmId, std::unique_ptr<TransitGraph>> m_graphs;
 };
 
 // An estimator that uses the information from the supported |segmentWeights| map

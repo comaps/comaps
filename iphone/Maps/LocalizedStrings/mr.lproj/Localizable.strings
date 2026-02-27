@@ -1088,3 +1088,4 @@
 "pref_maplanguage_local" = "Local Language";
 "hours_confirmed_time_ago" = "Confirmed %@";
 "existence_confirmed_time_ago" = "Existence confirmed %@";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

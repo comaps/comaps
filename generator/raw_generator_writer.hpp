@@ -6,8 +6,9 @@
 #include <memory>
 #include <string>
 #include <thread>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -29,6 +30,6 @@ private:
   std::thread m_thread;
   std::shared_ptr<FeatureProcessorQueue> m_queue;
   std::string m_path;
-  std::unordered_map<std::string, std::unique_ptr<FileWriter>> m_writers;
+  ankerl::unordered_dense::map<std::string, std::unique_ptr<FileWriter>> m_writers;
 };
 }  // namespace generator

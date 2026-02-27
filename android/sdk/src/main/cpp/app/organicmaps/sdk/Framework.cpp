@@ -451,12 +451,12 @@ void Framework::Get3dMode(bool & allow3d, bool & allow3dBuildings)
 
 void Framework::SetMapLanguageCode(std::string const & languageCode)
 {
-  m_work.SetMapLanguageCode(languageCode);
+  m_work.SetCustomMapLanguageCode(languageCode);
 }
 
 std::string Framework::GetMapLanguageCode()
 {
-  return m_work.GetMapLanguageCode();
+  return m_work.GetCustomMapLanguageCode().value_or("auto");
 }
 
 void Framework::SetChoosePositionMode(ChoosePositionMode mode, bool isBusiness, m2::PointD const * optionalPosition)
@@ -1517,20 +1517,16 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeGet3dMode(JNIEnv
   env->SetBooleanField(result, buildingsField, buildings);
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCustomMapDownloadUrl(JNIEnv * env, jclass, 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetCustomMapDownloadUrl(JNIEnv * env, jclass,
                                                                                         jstring url)
 {
   std::string nativeUrl = jni::ToNativeString(env, url);
   GetPlatform().SetCustomMapServerUrl(nativeUrl);
 
   if (g_framework)
-  {
     frm()->GetStorage().ResetMapDownloadMetaConfig();
-  }
   else
-  {
     LOG(LINFO, ("nativeSetCustomMapDownloadUrl: framework not created yet, skipping ResetMapDownloadMetaConfig"));
-  }
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetAutoZoomEnabled(JNIEnv * env, jclass,

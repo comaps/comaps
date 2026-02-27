@@ -86,9 +86,9 @@ void Framework::VisualizeCityBoundariesInRect(m2::RectD const & rect)
     auto ft = loader.GetFeatureByIndex(fid);
     if (ft)
     {
-      auto name = ft->GetName(StringUtf8Multilang::kEnglishCode);
+      auto name = ft->GetName(localisation::kEnglishLanguageIndex);
       if (name.empty())
-        name = ft->GetName(StringUtf8Multilang::kDefaultCode);
+        name = ft->GetName(localisation::kDefaultNameIndex);
       id.append(", name:").append(name);
     }
 

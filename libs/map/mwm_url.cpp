@@ -8,11 +8,11 @@
 #include "map/bookmark_manager.hpp"
 #include "map/framework.hpp"
 #if defined(OMIM_OS_MAC) || defined(OMIM_OS_IPHONE)
-//#include "map/everywhere_search_params.hpp"
+// #include "map/everywhere_search_params.hpp"
 #include "map/routing_manager.hpp"
 #include "map/routing_mark.hpp"
 
-//#include "search/result.hpp"
+// #include "search/result.hpp"
 #endif
 
 #include "ge0/geo_url_parser.hpp"
@@ -300,7 +300,7 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw)
   {
     auto const source = url.GetParamValue("source");
     auto const destination = url.GetParamValue("destination");
-    
+
     if (source)
       SetRouteMark(*source, RouteMarkType::Start);
 
@@ -311,7 +311,7 @@ ParsedMapApi::UrlType ParsedMapApi::ParseGeoNav(std::string const & raw)
 
     if (destination)
       SetRouteMark(*destination, RouteMarkType::Finish);
-    
+
     if (destination)
     {
       m_routingType = routing::ToString(routing::GetLastUsedRouter());

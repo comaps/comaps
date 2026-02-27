@@ -66,7 +66,7 @@
 "bookmarks" = "Bokmärken";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Bokmärken och rutter";
+"bookmarks_and_tracks" = "Favoriter";
 
 /* Default bookmark list name */
 "core_my_places" = "Mina Platser";
@@ -1093,3 +1093,5 @@
 "avoid_steps" = "Undvik trappor";
 "avoid_paved" = "Undvik asfalterade vägar";
 "offline_explanation_title" = "Offlinekartor";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"editor_place_doesnt_exist_description" = "Beskriv hur platsen ser ut nu för att skicka en felanmälan till OpenStreetMaps community";

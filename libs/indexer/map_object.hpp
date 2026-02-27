@@ -90,6 +90,7 @@ public:
   feature::Internet GetInternet() const;
   int GetStars() const;
   std::string GetCapacity() const;
+  std::string GetRooms() const;
 
   /// @returns true if feature has ATM type.
   bool HasAtm() const;

@@ -464,7 +464,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d од %2$d</string>
     <string name="download_over_mobile_header">Преузимање преко мобилне мреже?</string>
-    <string name="download_over_mobile_message">Ово може бити значајно скупље у оквиру одређених пакета или у ромингу</string>
+    <string name="download_over_mobile_message">Ово може бити веома скупо због мобилног преноса података, посебно ако сте у ромингу.</string>
     <string name="error_enter_correct_house_number">Унесте исправан кућни број</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Број спратова не сме да прелази %d</string>
@@ -481,7 +481,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Оператор: %s</string>
     <string name="editor_category_unsuitable_title">Не можете да пронађете одговарајућу категорију?</string>
-    <string name="editor_category_unsuitable_text">CoMaps омогућава додавање једноставних категорија за тачке на мапи, што искључује градове, путеве, језера, тлоцрте зграда, итд. Молимо Вас да такве категорије додате директно на <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Прочитајте наше <a href="https://www.comaps.app/support/advanced-map-editing/">упутство</a> за детаљне инструкције, корак-по-корак.</string>
+    <string name="editor_category_unsuitable_text">CoMaps омогућава додавање једноставних категорија за тачке на мапи, што искључује градове, путеве, језера, тлоцрте зграда, итд. Молимо Вас да такве категорије додате директно на <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Прочитајте наше <a href="https://www.comaps.app/support/advanced-map-editing/">упутство</a> за детаљне инструкције, корак по корак.</string>
     <string name="downloader_no_downloaded_maps_title">Нисте преузели ни једну мапу</string>
     <string name="downloader_no_downloaded_maps_message">Преузмите мапе да бисте претраживали и користили навигацију без интернета</string>
     <string name="current_location_unknown_error_title">Тренутна локација није позната</string>
@@ -920,5 +920,23 @@
     <string name="download_resources_custom_url_summary_none">Није постављено</string>
     <string name="download_resources_custom_url_error_scheme">Унесите пуну УРЛ адресу која почиње са https:// и која се завршава са /</string>
     <string name="pref_maplanguage_local">Локални језик</string>
-    <string name="limit_map_language_alternatives_to_local">Ограничите алтернативне језике на локалне</string>
+    <string name="location_privacy_info">Апликације добијају податке о локацији од услуге локације вашег ОС-а, која може да дели вашу локацију са Гугл-ом и/или продавцем вашег уређаја. Користите Андроид ОС који чува приватност да бисте ово избегли.</string>
+    <string name="location_privacy">Локацијска приватност</string>
+    <string name="pref_speedlimit_title">Прикажи ограничења брзине</string>
+    <string name="rooms">%s собе</string>
+    <string name="invalid_route">Непостојећа рута</string>
+    <string name="building_route">Израчунавање руте…</string>
+    <string name="route_not_started">Рута није стартовала</string>
+    <string name="on_route">На рути</string>
+    <string name="route_needs_rebuild">Поновно прерачунавање руте</string>
+    <string name="route_finished">Крај руте</string>
+    <string name="not_following_route">Не пратите руту</string>
+    <string name="rebuilding_route">Прерачунаванје руте…</string>
+    <string name="mb_downloaded">%1$d МБ / %2$d МБ</string>
+    <string name="pref_alt_map_lang_handling">Алтернативни језици мапе</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Не користите алтернативе</string>
+    <string name="pref_alt_map_lang_handling_system_order">Користите системски редослед</string>
+    <string name="pref_alt_map_lang_handling_local_only">Преферирају и користе само тамо где матерњи</string>
+    <string name="pref_openexternallinks_title">Аутоматски отворите линкове независних произвођача</string>
+    <string name="pref_openexternallinks_summary">Отворите линкове независних произвођача у CoMaps-у по дефаулту</string>
 </resources>

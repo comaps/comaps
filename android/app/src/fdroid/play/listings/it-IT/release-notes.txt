@@ -1,0 +1,9 @@
+• Dati OpenStreetMap aggiornati al 21 febbraio
+• Miglioramento della visualizzazione degli orari di apertura
+• Mostra le descrizioni OSM e il numero di camere per alcuni POI
+• Aggiunta degli articoli di Wikipedia in croato, italiano, olandese e polacco
+• Aggiunte file di alberi e centri giovanili
+• Correzione della traslitterazione e miglioramento delle opzioni linguistiche
+• Aggiunto indicatore di ricalcolo del percorso durante la navigazione
+
+Maggiori dettagli su comaps.app/latest

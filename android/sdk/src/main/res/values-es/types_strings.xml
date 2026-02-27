@@ -130,7 +130,7 @@
     <string name="type.amenity.pub">Taberna</string>
     <string name="type.amenity.public_bookcase">Intercambio de libros</string>
     <!-- SECTION: Types: Recycling -->
-    <string name="type.amenity.recycling.centre">Centro de reciclaje</string>
+    <string name="type.amenity.recycling.centre">Centro de Reciclaje</string>
     <string name="type.amenity.recycling.container">Contenedor de reciclaje</string>
     <string name="type.recycling.batteries">Baterías</string>
     <string name="type.recycling.clothes">Ropa</string>
@@ -1509,4 +1509,6 @@
     <string name="type.tourism.information.tactile_map">Mapa táctil</string>
     <string name="type.emergency.disaster_help_point">Punto de ayuda para emergencias y desastres</string>
     <string name="type.emergency.access_point.address">Dirección de Punto de Emergencia</string>
+    <string name="type.waterway.fuel">Gasolinera marina</string>
+    <string name="type.amenity.community_centre.youth_centre">Centro juvenil</string>
 </resources>

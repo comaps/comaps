@@ -234,7 +234,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Jaunumi</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Atsauksmes</string>
+    <string name="feedback">Atgriezeniskā saite</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Novērtējiet lietotni</string>
     <!-- Text in menu -->
@@ -271,7 +271,7 @@
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
     <string name="downloader_delete_map_while_routing_dialog">Lai izdzēstu karti, lūgums apturēt navigāciju</string>
     <!-- PointsInDifferentMWM -->
-    <string name="routing_failed_cross_mwm_building">Maršrutus var izveidot, ja atrodas vienas reģiona kartes robežās.</string>
+    <string name="routing_failed_cross_mwm_building">Maršrutus var izveidot tikai tad, ja tie atrodas viena apgabala kartes robežās.</string>
     <!-- Context menu item for downloader. -->
     <string name="downloader_download_map">Lejupielādēt karti</string>
     <!-- Item status in downloader. -->
@@ -472,8 +472,8 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d no %2$d</string>
     <string name="download_over_mobile_header">Vai lejupielādēt arī mobilajā tīklā?</string>
-    <string name="download_over_mobile_message">Tas varētu būt samērā dārgi ar dažiem plāniem vai viesabonēšanā</string>
-    <string name="error_enter_correct_house_number">Ierakstiet derīgu ēkas numuru</string>
+    <string name="download_over_mobile_message">Tas var būt ļoti dārgi ar dažiem mobilo datu plāniem, jo īpaši viesabonēšanas laikā.</string>
+    <string name="error_enter_correct_house_number">Jāievada derīgs ēkas numurs</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Stāvu skaits nedrīkst pārsniegt %d</string>
     <string name="editor_zip_code">Pasta indekss</string>
@@ -485,7 +485,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operators: %s</string>
     <string name="editor_category_unsuitable_title">Vai neatrodat atbilstošu kategoriju?</string>
-    <string name="editor_category_unsuitable_text">„CoMaps“ ļauj pievienot tikai vienkāršu punktu kategorijas, proti, nevarat pievienot pilsētas, ceļus, ezerus, ēku aprises u.tml. Šādas kategorijas lūdzam pievienot tiešā veidā <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lai uzzinātu, kā to izdarīt, sekojiet norādēm <a href="https://www.comaps.app/support/advanced-map-editing/">rokasgrāmatā</a>.</string>
+    <string name="editor_category_unsuitable_text">CoMaps ļauj pievienot tikai vienkāršu punktu kategorijas, tā nevar pievienot pilsētas, ceļus, ezerus, ēku aprises utt.. Šādas kategorijas lūdzam pievienot tiešā veidā <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lai uzzinātu, kā to izdarīt, jāseko norādēm <a href="https://www.comaps.app/support/advanced-map-editing/">rokasgrāmatā</a>.</string>
     <string name="downloader_no_downloaded_maps_title">Ierīcē nav lejupielādētu karšu</string>
     <string name="downloader_no_downloaded_maps_message">Lejupielādē kartes, lai meklētu un saņemtu pārvietošanās norādes bezsaistē</string>
     <string name="current_location_unknown_error_title">Pašreizējā atrašanās vieta nav zināma</string>
@@ -544,8 +544,8 @@
     <string name="enable_logging">Ieslēgt žurnalēšanu</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Vispārīgas atsauksmes</string>
-    <string name="prefs_languages_information">Balss norādēm lietotne izmanto teksta pārveides runā sistēmu (TTS). Daudzas „Android“ ierīces izmanto „Google TTS“, ko varat lejupielādēt un atjaunināt „Google Play“ veikalā (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Dažām valodām nepieciešams instalēt runas sintezatoru vai papildu valodas paku, kas parasti atrodama lietotņu veikalā („Google Play“, „Galaxy Store“, „App Gallery“, „FDroid“). \nAtveriet ierīces iestatījumus → Valoda un ievade → Runa → Teksta pārveide runā. \nTe varat pārvaldīt runas sintēzes iestatījumus (piemēram, lejupielādēt valodas paku lietošanai nesaistē, kā arī varat nomainīt dzini teksta pārvēršanai runā.</string>
+    <string name="prefs_languages_information">Balss norādēm lietotne izmanto teksta pārveides runā sistēmu (TTS). Daudzas Android ierīces izmanto Google TTS, ko var lejupielādēt un atjaunināt Google Play veikalā (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Dažām valodām nepieciešams uzstādīt runas atveidotāju vai papildu valodas paku, kas atrodama lietotņu veikalā (Google Play, Galaxy Store, App Gallery, F-Droid). \nJāatver ierīces iestatījumi → Valoda un ievade → Runa → Teksta pārveide runā. \nŠeit var pārvaldīt runas atveidošanas iestatījumus (piemēram, lejupielādēt valodas paku lietošanai bezsaistē, kā arī var nomainīt teksta pārvēršanas runā dzinēju.</string>
     <string name="prefs_languages_information_off_link">Lai iegūtu vairāk informācijas, lūgums ieskatīties šajās norādēs</string>
     <string name="transliteration_title">Transliterācija uz latīņu alfabētu</string>
     <string name="learn_more">Uzzināt vairāk</string>
@@ -887,8 +887,16 @@
     <string name="bookmark_color">Izlases vienumu krāsa</string>
     <string name="about_help">Par un palīdzība</string>
     <string name="open_now">Šobrīd atvērts</string>
-    <string name="limit_map_language_alternatives_to_local">Izmantot tikai citas sistēmas valodas to apvidū</string>
     <string name="pref_speedlimit_title">Rādīt ātruma ierobežojumus</string>
     <string name="location_privacy">Atrašanās vietas privātums</string>
     <string name="location_privacy_info">Lietotnes saņem atrašanās vietas datus no operētājsistēmas atrašanās vietu pakalpojuma, kas var kopīgot atrašanās vietu ar Google un/vai ierīces ražotāju. Ieteicams izmantot privātumu aizsargājošu Android operētājsistēmu, lai no tā izvairītos.</string>
+    <string name="editor_building_levels">Stāvi (ieskaitot pamata stāvu, neieskaitot jumtu)</string>
+    <string name="invalid_route">Nederīgs maršruts</string>
+    <string name="building_route">Izveido maršrutu…</string>
+    <string name="route_not_started">Maršruts nav uzsākts</string>
+    <string name="on_route">Maršrutā</string>
+    <string name="route_needs_rebuild">Maršrutam ir nepieciešama izveidošana no jauna</string>
+    <string name="route_finished">Maršruts pabeigts</string>
+    <string name="not_following_route">Neseko maršrutam</string>
+    <string name="rebuilding_route">Izveido maršrutu no jauna…</string>
 </resources>

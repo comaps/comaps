@@ -541,7 +541,7 @@
 /* OpenStreetMap */
 "osm_mapdata" = "Karttatiedot OpenStreetMapista";
 "osm_mapdata_explanation %@" = "Yhteisön luomat karttadata *%@*:sta alkaen. Lisätietoja kartan muokkaamisesta ja päivittämisestä osoitteessa [OpenStreetMap.org](https://openstreetmap.org).";
-"osm_more_about" = "Lisätietoja OpenStreetMap:sta";
+"osm_more_about" = "Lisätietoja OpenStreetMapista";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
 
 /* OpenStreetMap Profile */
@@ -629,7 +629,7 @@
 "editor_other_info" = "Huomautus OpenStreetMapin vapaaehtoisille (valinnainen)";
 "editor_detailed_description_hint" = "Yksityiskohtainen kommentti";
 "editor_detailed_description" = "Ehdottamasi muutokset lähetetään OpenStreetMap-yhteisöön. Kuvaa tiedot, joita ei voi muokata CoMaps:ssä.";
-"editor_more_about_osm" = "Lisätietoja OpenStreetMap:sta";
+"editor_more_about_osm" = "Lisätietoja OpenStreetMapista";
 "editor_operator" = "Operaattori";
 
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
@@ -1102,3 +1102,4 @@
 "unknown" = "Tuntematon";
 "voice_explanation" = "Voit valita paremman äänen järjestelmäasetuksista kohdasta *Helppokäyttöisyys*, *Lue ja Puhu*, *Äänet*.";
 "avoid_paved" = "Vältä päällystettyjä teitä";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

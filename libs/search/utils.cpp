@@ -20,7 +20,7 @@ std::vector<uint32_t> GetCategoryTypes(std::string const & name, std::string con
 
   int8_t const code = CategoriesHolder::MapLocaleToInteger(locale);
   Locales locales;
-  locales.Insert(static_cast<uint64_t>(code));
+  locales.insert(static_cast<uint64_t>(code));
 
   auto const tokens = NormalizeAndTokenizeString(name);
 

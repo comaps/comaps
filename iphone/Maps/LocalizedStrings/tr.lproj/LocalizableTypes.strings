@@ -1497,3 +1497,4 @@
 "type.man_made.observatory" = "Gözlemevi";
 "type.emergency.life_ring" = "Can simidi";
 "type.emergency.access_point" = "Acil Durum Noktası";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

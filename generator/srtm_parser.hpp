@@ -10,9 +10,10 @@
 
 #include <cstdint>
 #include <string>
-#include <unordered_map>
 #include <utility>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -91,7 +92,7 @@ private:
     }
   };
 
-  using MapT = std::unordered_map<SrtmTile::LatLonKey, SrtmTile, Hash>;
+  using MapT = ankerl::unordered_dense::map<SrtmTile::LatLonKey, SrtmTile, Hash>;
   MapT m_tiles;
 
   DISALLOW_COPY(SrtmTileManager);

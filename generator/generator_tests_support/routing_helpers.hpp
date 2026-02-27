@@ -8,8 +8,9 @@
 #include <cstdint>
 #include <memory>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -42,7 +43,7 @@ public:
   void SetPassThroughAllowed(uint32_t featureId, bool passThroughAllowed);
 
 private:
-  std::unordered_map<uint32_t, RoadGeometry> m_roads;
+  ankerl::unordered_dense::map<uint32_t, RoadGeometry> m_roads;
 };
 
 std::shared_ptr<EdgeEstimator> CreateEstimatorForCar(traffic::TrafficCache const & trafficCache);

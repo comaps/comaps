@@ -861,7 +861,7 @@
 "type.place.village" = "Landsby";
 "type.power" = "Strøm";
 "type.power.generator" = "Strømgenerator";
-"type.power.generator.solar" = "Solar generator";
+"type.power.generator.solar" = "Solgenerator";
 "type.power.generator.wind" = "Vindgenerator";
 "type.power.generator.gas" = "Gasturbine";
 "type.power.generator.hydro" = "Vandkraftværk";
@@ -1328,7 +1328,7 @@
 "type.sport.soccer" = "Fodbold";
 "type.sport.swimming" = "Svømning";
 "type.sport.table_tennis" = "Bordtennis";
-"type.sport.tennis" = "Tennisbane";
+"type.sport.tennis" = "Tennis";
 "type.sport.volleyball" = "Volleyball";
 "type.sport.10pin" = "Bowling";
 "type.sport.9pin" = "Kejler";
@@ -1579,3 +1579,8 @@
 "type.amenity.prep_school" = "Forberedende skole";
 "type.shop.beauty.nails" = "Neglesalon";
 "type.shop.beauty.day_spa" = "Spabad";
+"type.amenity.community_centre.youth_centre" = "Ungdomscenter";
+"type.leisure.sports_centre.sport.australian_football" = "Sportscenter";
+"type.leisure.sports_centre.sport.bowls" = "Sportscenter";
+"type.leisure.sports_centre.sport.cricket" = "Sportscenter";
+"type.waterway.fuel" = "Marina brændstofkaj";

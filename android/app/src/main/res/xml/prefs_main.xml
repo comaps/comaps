@@ -65,13 +65,13 @@
        app:singleLineTitle="false"
        android:persistent="false"
        android:order="7"/>
-    <SwitchPreferenceCompat
-      android:key="@string/pref_set_only_use_syslangs_in_their_region"
-      android:title="@string/limit_map_language_alternatives_to_local"
+    <ListPreference
+      android:key="@string/pref_alt_map_lang_handling_key"
+      android:title="@string/pref_alt_map_lang_handling"
       app:singleLineTitle="false"
-      app:icon="@drawable/ic_translate"
-      android:defaultValue="false"
-      android:widgetLayout="@layout/preference_switch"
+      android:defaultValue="2"
+      android:entries="@array/pref_alt_map_lang_handling_options"
+      android:entryValues="@array/pref_alt_map_lang_handling_options_values"
       android:order="8"/>
     <SwitchPreferenceCompat
       android:key="@string/pref_transliteration"
@@ -113,6 +113,14 @@
        app:isPreferenceVisible="false"
        android:widgetLayout="@layout/preference_switch"
        android:order="13"/>
+    <Preference
+      android:key="@string/pref_open_external_links"
+      android:persistent="false"
+      android:title="@string/pref_openexternallinks_title"
+      android:summary="@string/pref_openexternallinks_summary"
+      app:icon="@drawable/open_in_new"
+      android:order="14"
+      app:isPreferenceVisible="false"/>
   </androidx.preference.PreferenceCategory>
 
   <androidx.preference.PreferenceCategory

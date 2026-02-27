@@ -42,8 +42,8 @@ UNIT_TEST(CountriesNamesTest)
   base::Cancellable const cancellable;
   search::CategoriesCache cache(ftypes::IsLocalityChecker::Instance(), cancellable);
 
-  int8_t const langIndices[] = {StringUtf8Multilang::kEnglishCode, StringUtf8Multilang::kDefaultCode,
-                                StringUtf8Multilang::kInternationalCode};
+  int8_t const langIndices[] = {localisation::kEnglishLanguageIndex, localisation::kDefaultNameIndex,
+                                localisation::kInternationalNameIndex};
 
   set<string> const kIgnoreList = {
       "Northern Cyprus",

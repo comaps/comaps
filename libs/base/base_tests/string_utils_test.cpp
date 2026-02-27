@@ -7,11 +7,11 @@
 #include <cmath>
 #include <fstream>
 #include <limits>
+#include <sstream>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
-#include <sstream>
+#include "3party/ankerl/unordered_dense.h"
 
 /// internal function in base
 namespace strings
@@ -28,7 +28,7 @@ UNIT_TEST(LowerUniChar)
   TEST(file.is_open(), (kFile));
 
   size_t fCount = 0, cCount = 0;
-  std::unordered_map<strings::UniChar, strings::UniString> m;
+  ankerl::unordered_dense::map<strings::UniChar, strings::UniString> m;
   std::string line;
   while (file.good())
   {

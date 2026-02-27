@@ -34,7 +34,7 @@
     <string name="country_status_download_failed">Lataus epäonnistui</string>
     <!-- Button text for the button under the country_status_download_failed message -->
     <string name="try_again">Yritä uudelleen</string>
-    <string name="about_menu_title">Tietoa CoMaps:stä</string>
+    <string name="about_menu_title">Tietoa CoMapsista</string>
     <!-- Text in About screen -->
     <string name="about_headline">Avoin projekti yhteisön toteuttamana</string>
     <!-- Text in About screen -->
@@ -245,7 +245,7 @@
     <!-- Button in the main menu -->
     <string name="donate">Lahjoita</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Auta ja paranna CoMapsiä</string>
+    <string name="how_to_support_us">Auta ja paranna CoMapsia</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Tekijänoikeudet</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -282,7 +282,7 @@
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Päivitä kartta</string>
     <!-- Preference title -->
-    <string name="google_play_services">Google Fused Sijaintipalvelu</string>
+    <string name="google_play_services">Google Fused -sijaintipalvelu</string>
     <!-- Preference text -->
     <string name="pref_use_google_play">Suljetun lähdekoodin palvelu, joka yhdistää GPS:n, Wi-Fi:n ja mobiiliverkot yms. löytääksesi sijaintisi tarkemmin. Se voi ottaa yhteyttä Googlen palvelimiin.</string>
     <!-- Preference title -->
@@ -483,7 +483,7 @@
     <string name="editor_note_hint">Kuvaile kartassa olevia virheitä tai asioita, joita ei voi muokata CoMapsilla</string>
     <!-- Information about OSM at the top of the editing page -->
     <string name="editor_about_osm">Muokkauksesi ladataan julkiseen <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>-tietokantaan. Älä lisää henkilökohtaisia tai tekijänoikeudella suojattuja tietoja.</string>
-    <string name="editor_more_about_osm">Lisätietoja OpenStreetMap:sta</string>
+    <string name="editor_more_about_osm">Lisätietoja OpenStreetMapista</string>
     <string name="editor_osm_history">Muokkaushistoriasi</string>
     <string name="editor_osm_notes">Karttatietosi muistiinpanot</string>
     <string name="editor_operator">Operaattori</string>
@@ -918,4 +918,5 @@
     <string name="download_resources_custom_url_message">Ohita karttalatausten oletuspalvelin. Jätä tyhjäksi käyttääksesi CoMapsin oletuspalvelinta.</string>
     <string name="navigation_start_tts_disabled_message">Ääniohjeistukset pois käytöstä: TTS-moottori ei saatavilla</string>
     <string name="charge_socket_schuko">EU</string>
+    <string name="pref_speedlimit_title">Näytä nopeusrajoitukset</string>
 </resources>

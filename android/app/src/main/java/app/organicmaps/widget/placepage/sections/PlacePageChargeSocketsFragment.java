@@ -13,15 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.ChargeSocketDescriptor;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.textview.MaterialTextView;
 import java.text.DecimalFormat;
 
 public class PlacePageChargeSocketsFragment extends Fragment implements Observer<MapObject>
@@ -96,8 +94,8 @@ public class PlacePageChargeSocketsFragment extends Fragment implements Observer
       }
 
       @SuppressLint("DiscouragedApi")
-      int resTypeId =
-          getResources().getIdentifier("charge_socket_" + socket.visualType(), "string", requireContext().getPackageName());
+      int resTypeId = getResources().getIdentifier("charge_socket_" + socket.visualType(), "string",
+                                                   requireContext().getPackageName());
       if (resTypeId != 0)
       {
         type.setText(resTypeId);
@@ -108,7 +106,8 @@ public class PlacePageChargeSocketsFragment extends Fragment implements Observer
         DecimalFormat df = new DecimalFormat("#.##");
         power.setText(getString(R.string.kw_label, df.format(socket.power())));
       }
-      else if (socket.ignorePower()) {
+      else if (socket.ignorePower())
+      {
         power.setVisibility(INVISIBLE);
       }
 

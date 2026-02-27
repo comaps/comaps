@@ -236,7 +236,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Wiadomości</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Opinia</string>
+    <string name="feedback">Informacja zwrotna</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Oceń aplikację</string>
     <!-- Text in menu -->
@@ -271,7 +271,7 @@
     <string name="downloader_download_all_button">Pobierz wszystkie</string>
     <string name="downloader_downloading">Pobieranie:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Aby usunąć mapę, zatrzymaj nawigację.</string>
+    <string name="downloader_delete_map_while_routing_dialog">Aby usunąć mapę, najpierw zatrzymaj nawigację.</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Trasy można tworzyć tylko pod warunkiem, że zawarte będą w ramach pojedynczej mapy.</string>
     <!-- Context menu item for downloader. -->
@@ -449,7 +449,7 @@
     <string name="downloader_update_maps">Aktualizuj mapy</string>
     <string name="downloader_mwm_migration_dialog">Aby utworzyć trasę, należy zaktualizować wszystkie mapy, a następnie ponownie zaplanować trasę.</string>
     <string name="downloader_search_field_hint">Znajdź mapę</string>
-    <string name="common_check_internet_connection_dialog">Sprawdź swoje ustawienia i upewnij się, że urządzenie ma połączenie z Internetem.</string>
+    <string name="common_check_internet_connection_dialog">Sprawdź swoje ustawienia i upewnij się, że urządzenie ma połączenie z internetem.</string>
     <string name="downloader_no_space_title">Brak wolnego miejsca</string>
     <string name="downloader_no_space_message">Usuń niepotrzebne dane</string>
     <string name="editor_login_error_dialog">Błąd logowania.</string>
@@ -472,7 +472,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d z %2$d</string>
     <string name="download_over_mobile_header">Czy pobrać, używając połączenia z siecią komórkową?</string>
-    <string name="download_over_mobile_message">Może to być kosztowne przy niektórych planach taryfowych lub w roamingu.</string>
+    <string name="download_over_mobile_message">Może to być kosztowne przy niektórych planach taryfowych, zwłaszcza w roamingu.</string>
     <string name="error_enter_correct_house_number">Wprowadź poprawny numer domu</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Liczba kondygnacji nie może przekraczać %d</string>
@@ -493,7 +493,7 @@
     <string name="editor_category_unsuitable_title">Nie możesz znaleźć odpowiedniej kategorii?</string>
     <string name="editor_category_unsuitable_text">CoMaps pozwala na dodawanie tylko prostych kategorii punktów, co oznacza brak miast, dróg, jezior, obrysów budynków itp. Dodaj takie kategorie bezpośrednio do <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sprawdź nasz <a href="https://www.comaps.app/support/advanced-map-editing/">przewodnik</a>, aby uzyskać szczegółowe instrukcje krok po kroku.</string>
     <string name="downloader_no_downloaded_maps_title">Nie pobrano żadnych map</string>
-    <string name="downloader_no_downloaded_maps_message">Aby znajdować miejsca i nawigować bez połączenia z internetem, musisz pobrać mapy.</string>
+    <string name="downloader_no_downloaded_maps_message">Pobierz mapy, aby wyszukiwać miejsca i nawigować bez połączenia z internetem</string>
     <string name="current_location_unknown_error_title">Aktualna lokalizacja jest nieznana.</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
@@ -524,7 +524,7 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Czy chcesz wysłać je wszystkim użytkownikom?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Upewnij się, że nie podałeś osobistych danych.</string>
+    <string name="editor_share_to_all_dialog_message_1">Upewnij się, że nie podałeś żadnych danych osobistych.</string>
     <string name="editor_share_to_all_dialog_message_2">Redaktorzy OpenStreetMap sprawdzą zmiany i skontaktują się z Tobą, jeśli będą mieli jakiekolwiek pytania.</string>
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Rejestrowanie trasy</string>
@@ -541,7 +541,7 @@
     <string name="mobile_data_description">Dane mobilne są wymagane do powiadomień o aktualizacji map i wysyłania edycji</string>
     <string name="mobile_data_option_never">Nigdy nie stosuj</string>
     <string name="mobile_data_option_ask">Zawsze pytaj</string>
-    <string name="traffic_update_maps_text">Aby wyświetlić dane o ruchu, muszą zostać zaktualizowane mapy.</string>
+    <string name="traffic_update_maps_text">Aby wyświetlić dane o ruchu, mapy muszą zostać zaktualizowane.</string>
     <string name="big_font">Powiększ rozmiar czcionki na mapie</string>
     <string name="traffic_update_app">Zaktualizuj CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
@@ -550,7 +550,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Ogólne uwagi</string>
     <string name="prefs_languages_information">Stosujemy system TTS dla komend głosowych. Stosuje go wiele urządzeń z systemem Android, można go pobrać lub zaktualizować z Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Dla niektórych języków konieczne będzie zainstalowanie syntezatora mowy lub dodatkowego pakietu językowego ze sklepu z aplikacjami (Google Play, Galaxy Store, App Gallery, FDroid). \nOtwórz ustawienia urządzenia → Język i wprowadzanie → Mowa → Wysyłanie tekstu na mowę. \nTutaj możesz zarządzać ustawieniami syntezy mowy (na przykład pobrać pakiet językowy do użytku offline) oraz wybrać inny silnik tekst-na-mowę.</string>
+    <string name="prefs_languages_information_off">Dla niektórych języków konieczne będzie zainstalowanie syntezatora mowy lub dodatkowego pakietu językowego ze sklepu z aplikacjami (Google Play, Galaxy Store, App Gallery, F-Droid). \nOtwórz ustawienia urządzenia → Język i wprowadzanie → Mowa → Wysyłanie tekstu na mowę. \nTutaj możesz zarządzać ustawieniami syntezy mowy (na przykład pobrać pakiet językowy do użytku offline) oraz wybrać inny silnik zamiany tekstu na mowę.</string>
     <string name="prefs_languages_information_off_link">Aby uzyskać więcej informacji, spójrz na ten poradnik.</string>
     <string name="transliteration_title">Transkrypcja na alfabet łaciński</string>
     <string name="learn_more">Dowiedz się więcej</string>
@@ -734,7 +734,7 @@
     <string name="change_map_locale">Język mapy</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Dane mapy z OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/pl/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Pl:Wstęp</string>
@@ -782,7 +782,7 @@
     <string name="browser_not_available">Przeglądarka internetowa jest niedostępna</string>
     <string name="volume">Głośność</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksportuj wszystkie ulubione i ścieżki</string>
+    <string name="bookmarks_export">Eksportuj wszystkie miejsca i trasy</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Ustawienia systemu syntezy mowy</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -931,6 +931,9 @@
     <string name="place_page_too_old_to_edit">Edytowanie OpenStreetMap jest wyłączone, ponieważ dane mapy są zbyt stare.</string>
     <string name="advanced">Zaawansowane</string>
     <string name="pref_maplanguage_local">Język lokalny</string>
-    <string name="limit_map_language_alternatives_to_local">Używaj innych języków systemowych tylko w ich regionach</string>
     <string name="pref_speedlimit_title">Pokazuj ograniczenia prędkości</string>
+    <string name="location_privacy_info">Aplikacje otrzymują dane dotyczące lokalizacji z usługi lokalizacyjnej systemu operacyjnego, która może udostępniać Twoją lokalizację firmie Google i/lub producentowi urządzenia. Aby tego uniknąć, używaj systemu operacyjnego zapewniającego ochronę prywatności.</string>
+    <string name="location_privacy">Lokalizacja Prywatność</string>
+    <string name="rooms">%s pokoje</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
 </resources>

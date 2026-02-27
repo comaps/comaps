@@ -1569,3 +1569,4 @@
 "type.spherical_buoy.special_purpose" = "Сферичний буй особливого призначення";
 "type.lateral.starboard" = "Борт";
 "type.emergency.access_point" = "Пункт швидкої допомоги";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

@@ -52,10 +52,10 @@ def convert_to_localized_types_cpp(input_file, output_file):
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write('#pragma once\n\n')
         f.write('#include <string>\n')
-        f.write('#include <unordered_map>\n\n')
+        f.write('#include "3party/ankerl/unordered_dense.h"\n\n')
         f.write('// This file is generated automatically. Do not edit.\n')
         f.write('// See: tools/python/generate_desktop_ui_strings.py\n')
-        f.write('using Type2LocalizedType = std::unordered_map<std::string, std::string>;\n')
+        f.write('using Type2LocalizedType = ankerl::unordered_dense::map<std::string, std::string>;\n')
         f.write('const Type2LocalizedType g_type2localizedType = {\n')
         for i, (key, value) in enumerate(entries):
             comma = ',' if i < len(entries) - 1 else ''

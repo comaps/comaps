@@ -401,7 +401,7 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   // In routing not-follow -> follow-and-rotate, otherwise not-follow -> follow.
   if (m_mode == location::NotFollow)
   {
-    if (IsRotationAvailable() && m_isInRouting && m_preferredRoutingMode == location::FollowAndRotate)
+    if (IsRotationAvailable() && m_lastFollowMode == location::FollowAndRotate)
       ChangeMode(location::FollowAndRotate, true);
     else
       ChangeMode(location::Follow, true);
@@ -702,7 +702,10 @@ bool MyPositionController::IsWaitingForLocation() const
 void MyPositionController::StopLocationFollow()
 {
   if (m_mode == location::Follow || m_mode == location::FollowAndRotate)
+  {
+    m_lastFollowMode = m_mode;
     ChangeMode(location::NotFollow);
+  }
   m_desiredInitMode = location::NotFollow;
 
   ResetRoutingNotFollowTimer();

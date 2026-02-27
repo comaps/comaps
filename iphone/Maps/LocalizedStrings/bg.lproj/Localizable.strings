@@ -1090,3 +1090,4 @@
 "pref_maplanguage_local" = "Локален Език";
 "existence_confirmed_time_ago" = "Наличие потвърдено%@";
 "hours_confirmed_time_ago" = "Потвърдено %@";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

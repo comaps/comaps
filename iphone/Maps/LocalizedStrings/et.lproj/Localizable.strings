@@ -1104,3 +1104,5 @@
 "pref_alt_map_lang_handling_local_only" = "Eelista ja kasuta vaid kohalikku keelt";
 "pref_alt_map_lang_handling" = "Alternatiivsed kaardikeeled";
 "pref_alt_map_lang_handling_system_order" = "Kasuta süsteemi järjestuses";
+"rooms" = "%@ tuba";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Ära kasuta alternatiive";

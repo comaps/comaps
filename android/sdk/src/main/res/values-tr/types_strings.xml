@@ -1405,4 +1405,5 @@
     <string name="type.man_made.observatory">Gözlemevi</string>
     <string name="type.emergency.life_ring">Can simidi</string>
     <string name="type.emergency.access_point">Acil Durum Noktası</string>
+    <string name="type.leisure.hackerspace">Hackerspace</string>
 </resources>

@@ -1,0 +1,10 @@
+• OpenStreetMap podaci na dan 21. veljače
+• Prikaz radnog vremena u smjenama umjesto radnog vremena s pauzama
+• Prikaz OSM opisa i broja soba za odabrane POI-e
+• Dodani članci s Wikipedije na hrvatskom, talijanskom, nizozemskom i poljskom jeziku
+• Dodani drvoredi i centri za mlade
+• Ispravljena pogreška s transliteracijom
+• Poboljšana postavka Alternativni jezici karte
+• Nova postavka za Android 12+ za otvaranje osm.org i geo2me poveznica
+
+Više detalja na comaps.app/latest

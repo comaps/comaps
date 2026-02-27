@@ -600,3 +600,4 @@
 "pref_alt_map_lang_handling_local_only" = "Bevorzuge und nur nutze, wenns die lokali Spraach isch";
 "pref_alt_map_lang_handling" = "Alternativi Charte-Spraache";
 "pref_alt_map_lang_handling_system_order" = "I de Systemreihefolg nutze";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

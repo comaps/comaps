@@ -771,6 +771,7 @@
 "enable_logging" = "Enable logging";
 "log_file_size" = "Log file size: %@";
 "pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
 "pref_alt_map_lang_handling_system_order" = "Use in system order";
 "pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
 "transliteration_title" = "Transliterate into Latin alphabet";
@@ -1128,3 +1129,6 @@
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";
 "edit_track" = "Edit Track";
+
+/* To indicate the number of rooms in hotel, hospital ... */
+"rooms" = "%@ rooms";

@@ -2,6 +2,7 @@
 
 #include "storage/country_decl.hpp"
 
+#include "base/localisation_translation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -101,19 +102,6 @@ string RegionInfoGetter::GetLocalizedFullName(storage::CountryId const & id) con
 
 string RegionInfoGetter::GetLocalizedCountryName(storage::CountryId const & id) const
 {
-  auto nameGetter = platform::GetTextByIdFactoryForRegion(platform::TextSource::Countries, id);
-
-  if (!nameGetter)
-    return {};
-
-  auto shortName = (*nameGetter)(id + " Short");
-  if (!shortName.empty())
-    return shortName;
-
-  auto officialName = (*nameGetter)(id);
-  if (!officialName.empty())
-    return officialName;
-
-  return {};
+  return localisation::TranslatedRegionName(id);
 }
 }  // namespace search

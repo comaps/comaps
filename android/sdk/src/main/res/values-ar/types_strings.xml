@@ -430,7 +430,6 @@
     <string name="type.highway.pedestrian.area">شارع للمشاة</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">جسر</string>
-
     <string name="type.highway.pedestrian.square">ميدان</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">نفق</string>

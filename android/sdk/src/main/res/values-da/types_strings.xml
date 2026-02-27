@@ -656,7 +656,7 @@
     <string name="type.place.suburb">Forstad</string>
     <string name="type.place.town">By</string>
     <string name="type.place.village">Landsby</string>
-    <string name="type.power.generator.solar">Solar generator</string>
+    <string name="type.power.generator.solar">Solgenerator</string>
     <string name="type.power.generator.wind">Vindgenerator</string>
     <string name="type.power.generator.gas">Gasturbine</string>
     <string name="type.power.generator.hydro">Vandkraftværk</string>
@@ -1483,4 +1483,9 @@
     <string name="type.railway.disused.tunnel">Forladt jernbanetunnel</string>
     <string name="type.shop.beauty.nails">Neglesalon</string>
     <string name="type.shop.beauty.day_spa">Spabad</string>
+    <string name="type.amenity.community_centre.youth_centre">Ungdomscenter</string>
+    <string name="type.leisure.sports_centre.sport.australian_football">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.bowls">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.cricket">Sportscenter</string>
+    <string name="type.waterway.fuel">Marina brændstofkaj</string>
 </resources>

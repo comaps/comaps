@@ -1572,3 +1572,4 @@
 "type.leisure.sports_centre.sport.skiing" = "Pista d'esquí";
 "type.leisure.sports_centre.sport.multi" = "Pavelló poliesportiu";
 "type.leisure.sports_centre.sport.bowls" = "Pavelló poliesportiu";
+"type.amenity.community_centre.youth_centre" = "Centre Juvenil";

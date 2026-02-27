@@ -207,6 +207,11 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
+line|z18-[natural=tree_row],
+{color: @woods;width: 6;}
+line|z19-[natural=tree_row],
+{width: 6.5;}
+
 node|z17-[natural=tree][name],
 {icon-image: tree-special-m.svg;}
 node|z18-[natural=tree][!name],

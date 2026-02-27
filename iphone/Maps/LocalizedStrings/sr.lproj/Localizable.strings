@@ -1101,3 +1101,8 @@
 "voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Гласовни садржај*, *Гласови*.";
 "voice_explanation" = "Можете изабрати бољи глас у *Приступачност*, *Читање и говор*, *Гласови*.";
 "avoid_paved" = "Избегавај асфалтиране путеве";
+"pref_alt_map_lang_handling_local_only" = "Преферирају и користе само тамо где матерњи";
+"pref_alt_map_lang_handling" = "Алтернативни језици мапе";
+"pref_alt_map_lang_handling_system_order" = "Користите системски редослед";
+"rooms" = "%@ собе";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Не користите алтернативе";

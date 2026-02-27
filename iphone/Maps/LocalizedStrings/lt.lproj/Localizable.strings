@@ -60,16 +60,16 @@
 "add_new_set" = "Naujo sąrašo pridėjimas";
 
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Žymių sąrašo pavadinimas";
+"bookmark_set_name" = "Sąrašo pavadinimas";
 
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Žymių sąrašai";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Žymės";
+"bookmarks" = "Vietos";
 
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Žymės ir trasos";
+"bookmarks_and_tracks" = "Parankiniai";
 
 /* Default bookmark list name */
 "core_my_places" = "Mano vietos";
@@ -151,16 +151,16 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Kemperių aptarnavimas";
-"share_bookmarks_email_body" = "Labas! \n \nČia prisegtas mano žymių sąrašas iš „CoMaps“ programėlės. Jei jos neturi, gali ją parsisiųsti iš https://www.comaps.app/download/ \n \nSmagių kelionių su „CoMaps“!";
+"share_bookmarks_email_body" = "Labas! \n \nČia prisegtas mano „CoMaps“ programėlės žymių failas. Jei jos neturi, gali ją parsisiųsti iš https://www.comaps.app/download/ \n \nSmagių kelionių su „CoMaps“!";
 
 /* message title of loading file */
-"load_kmz_title" = "Žymių sąrašas įkeliamas";
+"load_kmz_title" = "Žymės įkeliamos";
 
 /* Kmz file successful loading */
-"load_kmz_successful" = "Žymių sąrašas įkeltas! Galite rasti jį žemėlapyje arba žymių tvarkytuvės ekrane.";
+"load_kmz_successful" = "Žymės įkeltos! Galite jas rasti žemėlapyje arba žymių tvarkytuvės ekrane.";
 
 /* Kml file loading failed */
-"load_kmz_failed" = "Žymių sąrašo nepavyko įkelti. Gali būti, kad failas sugadintas.";
+"load_kmz_failed" = "Žymių įkelti nepavyko. Gali būti, kad failas sugadintas.";
 
 /* resource for context menu */
 "edit" = "Taisyti";
@@ -632,7 +632,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operatorius: %@";
 "editor_category_unsuitable_title" = "Nerandate tinkamos kategorijos?";
-"editor_category_unsuitable_text" = "„CoMaps“ leidžia pridėti tik paprastų kategorijas taškus – jokių miestų, kelių, ežerų, pastatų kontūrų ir pan. šia programėle pridėti negalima. Šių kategorijų objektus pridėkite naudodamiesi <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> svetaine. Žvilgtelėkite į mūsų <a href=\"https://www.comaps.app/support/advanced-map-editing/\">vadovą</a>, kuriame rasite išsamias pažingsnines instrukcijas.";
+"editor_category_unsuitable_text" = "„CoMaps“ suteikia galimybę pridėti tik paprastų kategorijų taškus, tačiau ne miestų, kelių, ežerų, pastatų kontūrus ar pan. Šių kategorijų objektus pridėkite naudodamiesi <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> svetaine. Žvilgtelėkite į mūsų <a href=\"https://www.comaps.app/support/advanced-map-editing/\">vadovą</a>, kuriame rasite išsamias pažingsnines instrukcijas.";
 "downloader_no_downloaded_maps_title" = "Nesate atsiuntę jokių žemėlapių";
 "downloader_no_downloaded_maps_message" = "Atsiųskite žemėlapius, kad galėtumėte ieškoti vietų ir keliauti neprisijungę prie tinklo.";
 "current_location_unknown_error_title" = "Dabartinė vieta nežinoma.";
@@ -670,10 +670,10 @@
 "placepage_more_button" = "Išsamiau";
 "book_button" = "Užsakyti";
 "placepage_call_button" = "Skambinti";
-"placepage_edit_bookmark_button" = "Taisyti žymę";
-"placepage_bookmark_name_hint" = "Žymės pavadinimas";
+"placepage_edit_bookmark_button" = "Taisyti įsimintą vietą";
+"placepage_bookmark_name_hint" = "Vietos pavadinimas";
 "placepage_personal_notes_hint" = "Asmeninės pastabos (tekstas arba HTML)";
-"placepage_delete_bookmark_button" = "Naikinti žymę";
+"placepage_delete_bookmark_button" = "Šalinti įsimintą vietą";
 "editor_edits_sent_message" = "Jūsų pastaba bus nusiųsta į „OpenStreetMap“";
 "editor_comment_hint" = "Komentaras…";
 "editor_reset_edits_message" = "Anuliuoti visus vietinius pakeitimus?";
@@ -761,7 +761,7 @@
 "bookmarks_create_new_group" = "Kurti naują sąrašą";
 
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Importuoti žymes ir trasas";
+"bookmarks_import" = "Importuoti žymes";
 "downloader_hide_screen" = "Slėpti ekraną";
 "downloader_percent" = "%@ (%@ iš %@)";
 "downloader_process" = "Atsiunčiama %@…";
@@ -993,7 +993,7 @@
 "button_layer_outdoor" = "Žygiai pėsčiomis";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Eksportuoti visas žymes ir trasas";
+"bookmarks_export" = "Eksportuoti visas žymes";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Keisti spalvą";
@@ -1078,7 +1078,7 @@
 "continue_recording" = "Tęsti įrašymą";
 
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Įrašyti į žymių ir trasų sąrašą?";
+"track_recording_alert_title" = "Pridėti žymę?";
 
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Trasa tuščia – nėra ką įrašyti";
@@ -1101,3 +1101,8 @@
 "voice_explanation_before_version26" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Perskaitomas tekstas*, *Balsai*.";
 "voice_explanation" = "Tinkamesnį balsą galima pasirinkti įrenginio nustatymuose, pasirinkus *Prieinamumas*, *Skaitymas ir ištarimas*, *Balsai*.";
 "avoid_paved" = "Vengti grįstų kelių";
+"pref_alt_map_lang_handling_local_only" = "Teikti pirmenybę vietinėms";
+"pref_alt_map_lang_handling" = "Alternatyvios žemėlapio kalbos";
+"pref_alt_map_lang_handling_system_order" = "Naudoti sistemoje nurodyta tvarka";
+"rooms" = "%@ kamb.";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

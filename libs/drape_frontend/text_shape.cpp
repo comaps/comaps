@@ -229,7 +229,7 @@ void TextShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> 
 
   ASSERT(!titleDecl.m_primaryText.empty(), ());
   StraightTextLayout primaryLayout(titleDecl.m_primaryText, titleDecl.m_primaryTextFont.m_size, textures,
-                                   titleDecl.m_anchor, titleDecl.m_forceNoWrap);
+                                   titleDecl.m_anchor, titleDecl.m_forceNoWrap, titleDecl.m_primaryTextLanguageIndex);
 
   if (m_params.m_limitedText)
   {
@@ -237,7 +237,7 @@ void TextShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> 
     {
       float const newFontSize = titleDecl.m_primaryTextFont.m_size * m_params.m_limits.y / y;
       primaryLayout = StraightTextLayout(titleDecl.m_primaryText, newFontSize, textures, titleDecl.m_anchor,
-                                         titleDecl.m_forceNoWrap);
+                                         titleDecl.m_forceNoWrap, titleDecl.m_primaryTextLanguageIndex);
     }
   }
 
@@ -250,8 +250,9 @@ void TextShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> 
   }
   else
   {
-    StraightTextLayout secondaryLayout{titleDecl.m_secondaryText, titleDecl.m_secondaryTextFont.m_size, textures,
-                                       titleDecl.m_anchor, titleDecl.m_forceNoWrap};
+    StraightTextLayout secondaryLayout{
+        titleDecl.m_secondaryText, titleDecl.m_secondaryTextFont.m_size,  textures, titleDecl.m_anchor,
+        titleDecl.m_forceNoWrap,   titleDecl.m_secondaryTextLanguageIndex};
 
     if (secondaryLayout.GetGlyphCount() > 0)
     {

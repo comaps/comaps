@@ -123,8 +123,8 @@ private:
     // when we have many types for POI.
     base::StringIL const types2[] = {
         // 1-arity
-        {"building:part"}, {"hwtag"},   {"psurface"},  {"internet_access"}, {"organic"},
-        {"wheelchair"},    {"cuisine"}, {"area:highway"},    {"fee"},
+        {"building:part"}, {"hwtag"},        {"psurface"}, {"internet_access"}, {"organic"}, {"wheelchair"},
+        {"cuisine"},       {"area:highway"}, {"fee"},
     };
 
     Classificator const & c = classif();
@@ -202,10 +202,11 @@ void TypesHolder::SortBySpec()
 
   std::stable_sort(begin(), end(), [&checker, &getPriority, &subtypes](uint32_t t1, uint32_t t2)
   {
-    std::optional<bool> const comparisonResultBasedOnTypeRelation = subtypes.ComparisonResultBasedOnTypeRelation(t1, t2);
+    std::optional<bool> const comparisonResultBasedOnTypeRelation =
+        subtypes.ComparisonResultBasedOnTypeRelation(t1, t2);
     if (comparisonResultBasedOnTypeRelation.has_value())
       return comparisonResultBasedOnTypeRelation.value();
-      
+
     int const p1 = getPriority(t1);
     int const p2 = getPriority(t2);
     if (p1 != p2)
@@ -242,10 +243,10 @@ void FeatureParamsBase::MakeZero()
 bool FeatureParamsBase::SetDefaultNameIfEmpty(std::string const & s)
 {
   std::string_view existing;
-  if (name.GetString(StringUtf8Multilang::kDefaultCode, existing))
+  if (name.GetString(localisation::kDefaultNameIndex, existing))
     return existing == s;
 
-  name.AddString(StringUtf8Multilang::kDefaultCode, s);
+  name.AddString(localisation::kDefaultNameIndex, s);
   return true;
 }
 
@@ -298,7 +299,7 @@ bool FeatureParams::AddName(string_view lang, string_view s)
     return false;
 
   // The "default" new name will replace the old one if any (e.g. from SetHouseNumberAndHouseName call).
-  name.AddString(lang, s);
+  name.AddString(string{lang}, s);
   return true;
 }
 
@@ -317,7 +318,7 @@ char const * FeatureParams::kHNLogTag = "HNLog";
 
 void FeatureParams::SetHouseNumberAndHouseName(std::string houseNumber, std::string houseName)
 {
-  if (IsDummyName(houseName) || name.FindString(houseName) != StringUtf8Multilang::kUnsupportedLanguageCode)
+  if (IsDummyName(houseName) || name.FindString(houseName) != localisation::kUnsupportedLanguageIndex)
     houseName.clear();
 
   if (houseName.empty() && houseNumber.empty())

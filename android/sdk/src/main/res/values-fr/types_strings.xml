@@ -1509,4 +1509,5 @@
     <string name="type.emergency.access_point.address">Adresse pour les secours d\'urgence</string>
     <string name="type.emergency.disaster_help_point">Point d\'aide d\'urgence en cas de catastrophe</string>
     <string name="type.waterway.fuel">Quai de ravitaillement en carburant</string>
+    <string name="type.amenity.community_centre.youth_centre">Centre de jeunesse</string>
 </resources>

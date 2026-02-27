@@ -53,6 +53,7 @@ MyPosition::MyPosition(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Texture
   : m_position(m2::PointF::Zero())
   , m_azimuth(0.0f)
   , m_accuracy(0.0f)
+  , m_interpolatedAccuracy(0.0f)
   , m_showAzimuth(false)
   , m_isRoutingMode(false)
 {
@@ -102,7 +103,12 @@ void MyPosition::SetPositionObsolete(bool obsolete)
 void MyPosition::RenderAccuracy(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng,
                                 ScreenBase const & screen, int zoomLevel, FrameValues const & frameValues)
 {
-  m2::PointD accuracyPoint(m_position.x + m_accuracy, m_position.y);
+  double constexpr kAccuracyConvergeSpeed = 6.0;
+  // exponential smoothing of scale
+  double const interpolationFactor = 1.0 - std::exp(-kAccuracyConvergeSpeed * frameValues.m_frameTime);
+  m_interpolatedAccuracy += static_cast<float>((m_accuracy - m_interpolatedAccuracy) * interpolationFactor);
+
+  m2::PointD accuracyPoint(m_position.x + m_interpolatedAccuracy, m_position.y);
   auto const pixelAccuracy =
       static_cast<float>((screen.GtoP(accuracyPoint) - screen.GtoP(m2::PointD(m_position))).Length());
 
@@ -147,7 +153,7 @@ void MyPosition::RenderMyPosition(ref_ptr<dp::GraphicsContext> context, ref_ptr<
 
 void MyPosition::CacheAccuracySector(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::TextureManager> mng)
 {
-  size_t constexpr kTriangleCount = 40;
+  size_t constexpr kTriangleCount = 96;
   size_t constexpr kVertexCount = 3 * kTriangleCount;
   auto const etalonSector = static_cast<float>(2.0 * math::pi / kTriangleCount);
 

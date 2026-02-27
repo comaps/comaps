@@ -9,8 +9,9 @@
 #include <cstdint>
 #include <functional>
 #include <string>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace openlr
 {
@@ -35,7 +36,7 @@ public:
     bool Matches(LinearSegment const & segment) const;
 
   private:
-    std::unordered_set<uint32_t> m_ids;
+    ankerl::unordered_dense::set<uint32_t> m_ids;
     bool m_idsSet;
     bool const m_multipointsOnly;
   };

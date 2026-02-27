@@ -136,8 +136,8 @@
     <string name="type.leisure.adult_gaming_centre">Lošimo automatų salonas</string>
     <string name="type.leisure.amusement_arcade">Žaidimo automatų salonas</string>
     <string name="type.amenity.charging_station">Krovimo stotelė</string>
-    <string name="type.amenity.charging_station.bicycle">Elektriniams dviračiams</string>
-    <string name="type.amenity.charging_station.motorcar">Elektromobiliams</string>
+    <string name="type.amenity.charging_station.bicycle">Dviračiams</string>
+    <string name="type.amenity.charging_station.motorcar">Automobiliams</string>
     <string name="type.amenity.childcare">Lopšelis</string>
     <string name="type.amenity.cinema">Kino teatras</string>
     <string name="type.leisure.bowling_alley">Boulingo klubas</string>
@@ -244,7 +244,7 @@
     <string name="type.amenity.school">Mokykla</string>
     <string name="type.amenity.shelter">Priedanga</string>
     <string name="type.amenity.shelter.public_transport">Viešojo transporto stotelės paviljonas</string>
-    <string name="type.amenity.shelter.lean_to">Pastogė</string>
+    <string name="type.amenity.shelter.lean_to">Pastogė nakvynei</string>
     <string name="type.amenity.public_bath">Viešoji vonia</string>
     <string name="type.amenity.shower">Dušas</string>
     <string name="type.amenity.stripclub">Striptizo klubas</string>
@@ -1429,11 +1429,13 @@
     <string name="type.railway.miniature.bridge">Mažojo geležinkelio tiltas</string>
     <string name="type.railway.miniature.tunnel">Mažojo geležinkelio tunelis</string>
     <string name="type.railway.turntable">Grįžratis</string>
-    <string name="type.tourism.information.tactile_map">Taktilinis žemėlapis</string>
+    <string name="type.tourism.information.tactile_map">Taktilinis planas</string>
     <string name="type.railway.disused.bridge">Apleistas geležinkelio tiltas</string>
     <string name="type.railway.disused.tunnel">Apleistas geležinkelio tunelis</string>
     <string name="type.amenity.charging_station.motorcycle">Motociklams</string>
-    <string name="type.amenity.charging_station.small">Ribota galia</string>
+    <string name="type.amenity.charging_station.small">Ribotas vietų skaičius</string>
     <string name="type.emergency.access_point.address">Evakuacijos adresas</string>
     <string name="type.emergency.disaster_help_point">Pagalbos stichinių nelaimių atvejais punktas</string>
+    <string name="type.waterway.fuel">Mažųjų laivų degalinė</string>
+    <string name="type.amenity.community_centre.youth_centre">Jaunimo centras</string>
 </resources>

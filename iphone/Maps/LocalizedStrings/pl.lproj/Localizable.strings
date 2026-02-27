@@ -63,7 +63,7 @@
 "bookmark_set_name" = "Nazwa listy";
 
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Zestawy zakładek";
+"bookmark_sets" = "Listy ulubionych";
 
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Miejsca";
@@ -151,7 +151,7 @@
 
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Kamper";
-"share_bookmarks_email_body" = "Cześć!\n\nZałączam moje zakładki z aplikacji CoMaps. Proszę otwórz je jeżeli masz zaintalowane CoMaps. Jeżeli nie masz, możesz pobrać ją tutaj: https://www.comaps.app/download/\n\nMiłego podróżowania z CoMaps!";
+"share_bookmarks_email_body" = "Cześć!\n\nZałączam moje ulubione miejsca - otworzysz je w aplikacji CoMaps. Jeżeli nie masz tej aplikacji, możesz ją pobrać tutaj: https://www.comaps.app/download/\n\nMiłego podróżowania z CoMaps!";
 
 /* message title of loading file */
 "load_kmz_title" = "Wczytywanie Ulubionych";
@@ -671,9 +671,9 @@
 "book_button" = "Zarezerwuj";
 "placepage_call_button" = "Zadzwoń";
 "placepage_edit_bookmark_button" = "Edytuj zapisane miejsce";
-"placepage_bookmark_name_hint" = "Nazwa zakładki";
+"placepage_bookmark_name_hint" = "Nazwa miejsca";
 "placepage_personal_notes_hint" = "Notatki osobiste (tekst lub html)";
-"placepage_delete_bookmark_button" = "Usuń zakładkę";
+"placepage_delete_bookmark_button" = "Usuń miejsce";
 "editor_edits_sent_message" = "Twoja notatka zostanie wysłana do OpenStreetMap";
 "editor_comment_hint" = "Komentarz…";
 "editor_reset_edits_message" = "Usunąć wszystkie lokalne zmiany?";
@@ -993,7 +993,7 @@
 "button_layer_outdoor" = "Turystyka piesza";
 
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Eksportuj wszystkie zakładki i ścieżki";
+"bookmarks_export" = "Eksportuj wszystkie ulubione";
 
 /* Text for the editing the Track's color button. */
 "change_color" = "Zmień kolor";
@@ -1101,3 +1101,7 @@
 "voice_explanation_before_version26" = "Istnieje możliwość wybrania lepszego głosu w ustawieniach systemowych w sekcji „Dostępność” > „Zawartość mówiona” > „Głosy”.";
 "voice_explanation" = "Istnieje możliwość wybrania lepszego głosu w ustawieniach systemowych w sekcji „Dostępność” > „Czytaj i mów” > „Głosy”.";
 "avoid_paved" = "Unikaj dróg utwardzonych";
+"pref_alt_map_lang_handling" = "Alternatywne języki mapy";
+"pref_alt_map_lang_handling_system_order" = "W kolejności systemowej";
+"pref_alt_map_lang_handling_local_only" = "Preferuj natywny język miejsca";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

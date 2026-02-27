@@ -260,7 +260,7 @@
     <!-- Cancel all button text -->
     <string name="downloader_cancel_all">Ακύρωση όλων</string>
     <!-- Downloaded maps list header -->
-    <string name="downloader_downloaded_subtitle">Κατεβασμένα</string>
+    <string name="downloader_downloaded_subtitle">Κατεβασμένοι</string>
     <!-- Country queued for download -->
     <string name="downloader_queued">Στην ουρά</string>
     <string name="downloader_near_me_subtitle">Κοντά μου</string>
@@ -269,7 +269,7 @@
     <string name="downloader_download_all_button">Λήψη όλων</string>
     <string name="downloader_downloading">Γίνεται λήψη:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Για να διαγράψετε το χάρτη, σταματήστε την πλοήγηση</string>
+    <string name="downloader_delete_map_while_routing_dialog">Για να διαγράψετε έναν χάρτη, σταματήστε πρώτα την πλοήγηση</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Μπορούν να δημιουργηθούν μόνο διαδρομές που περιέχονται πλήρως μέσα σε ένα χάρτη σε μια ενιαία περιοχή.</string>
     <!-- Context menu item for downloader. -->
@@ -489,7 +489,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Χειριστής: %s</string>
     <string name="editor_category_unsuitable_title">Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;</string>
-    <string name="editor_category_unsuitable_text">Οι CoMaps επιτρέπουν την προσθήκη απλών κατηγοριών σημείων μόνο, δηλαδή όχι πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ελέγξτε τον <a href="https://www.comaps.app/support/advanced-map-editing/">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.</string>
+    <string name="editor_category_unsuitable_text">Το CoMaps έχει τη δυνατότητα προσθήκης κατηγοριών απλών σημείων μόνο, δεν έχει τη δυνατότητα για προσθήκη πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ελέγξτε τον <a href="https://www.comaps.app/support/advanced-map-editing/">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.</string>
     <string name="downloader_no_downloaded_maps_title">Δεν έχετε κατεβάσει χάρτες</string>
     <string name="downloader_no_downloaded_maps_message">Κατεβάστε χάρτες για να κάνετε αναζήτηση και να πλοηγηθείτε χωρίς σύνδεση</string>
     <string name="current_location_unknown_error_title">Η τρέχουσα τοποθεσία είναι άγνωστη</string>
@@ -541,9 +541,9 @@
     <string name="traffic_update_app">Κάντε ενημέρωση του CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Οι πληροφορίες για την κίνηση δεν είναι διαθέσιμες</string>
-    <string name="enable_logging">Ενεργοποίηση δυνατότητας καταγραφής</string>
+    <string name="enable_logging">Ενεργοποίηση αρχείου καταγραφής</string>
     <!-- Settings: "Send general feedback" button -->
-    <string name="feedback_general">Αποστολή γνώμης</string>
+    <string name="feedback_general">Αποστολή σχολίων</string>
     <string name="prefs_languages_information">Χρησιμοποιούμε το σύστημα TTS για τις φωνητικές οδηγίες. Αρκετές συσκευές Android χρησιμοποιούν το Google TTS, μπορείτε να το κατεβάσετε ή να το ενημερώσετε από το Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">Για μερικές γλώσσες θα χρειαστεί να εγκαταστήσετε συνθεσάιζερ ομιλίας ή κάποιο συμπληρωματικό πακέτο γλώσσας από το app store (Google Play, Galaxy Store, App Gallery, FDroid). \nΑνοίξτε τις Ρυθμίσεις της συσκευής σας → Γλώσσα και εισαγωγή → Ομιλία → Μετατροπή κειμένου σε ομιλία. \nΕδώ μπορείτε να διαχειριστείτε τις ρυθμίσεις της σύνθεσης ομιλίας (για παράδειγμα, μπορείτε να κατεβάσετε πακέτο γλώσσας για χρήση εκτός σύνδεσης) και να επιλέξετε άλλη μηχανή μετατροπής κειμένου σε ομιλία.</string>
     <string name="prefs_languages_information_off_link">Για περισσότερες πληροφορίες δείτε αυτό τον οδηγό</string>
@@ -878,7 +878,6 @@
     <string name="download_resources_custom_url_summary_none">Δεν έχει οριστεί</string>
     <string name="download_resources_custom_url_title">Προσαρμοσμένος διακομιστής χάρτη</string>
     <string name="download_resources_custom_url_message">Παρακάμπτει τον προεπιλεγμένο διακομιστή λήψης χάρτη για τις λήψεις χαρτών. Αφήστε το κενό για να χρησιμοποιήσετε τον προεπιλεγμένο διακομιστή του CoMaps.</string>
-    <string name="limit_map_language_alternatives_to_local">Να χρησιμοποιούνται μόνο άλλες γλώσσες του συστήματος για την περιοχή τους</string>
     <string name="navigation_start_tts_message">"Εκκίνηση Πλοήγησης, γλώσσα φωνητικών οδηγιών: "</string>
     <string name="navigation_start_tts_disabled_message">Φωνητικές οδηγίες απενεργοποιημένες: δεν υπάρχει διαθέσιμη μηχανή TTS</string>
     <string name="pref_tts_no_system_tts_short">Δεν βρέθηκε μηχανή κείμενο-σε-ομιλία, ελέγξτε τις ρυθμίσεις της εφαρμογής</string>
@@ -888,4 +887,29 @@
     <string name="editor_mark_business_vacant_description">Χρησιμοποιήστε αυτό αν η επιχείρηση έχει μετακομίσει και ο χώρος είναι άδειος και έτοιμος για νέο ενοικιαστή.</string>
     <string name="place_page_map_too_old_description">Τα τρέχοντα δεδομένα χάρτη σας είναι πολύ παλιά, παρακαλούμε ενημερώστε τον χάρτη.</string>
     <string name="place_page_map_too_old_title">Παλιά δεδομένα χάρτη</string>
+    <string name="rooms">%s δωμάτια</string>
+    <string name="location_privacy">Απόρρητο Τοποθεσίας</string>
+    <string name="pref_speedlimit_title">Εμφάνιση ορίων ταχύτητας</string>
+    <string name="location_privacy_info">Οι εφαρμογές λαμβάνουν δεδομένα τοποθεσίας από την υπηρεσία τοποθεσίας του λειτουργικού σας, η οποία ίσως κοινοποιεί την τοποθεσία σας με την Google και/ή τον προμηθευτή της συσκευής σας. Χρησιμοποιήστε ένα λειτουργικό Android με διατήρηση απορρήτου ώστε να το αποφύγετε αυτό.</string>
+    <string name="pref_maplanguage_local">Τοπική γλώσσα</string>
+    <string name="pref_backup_title">Αντίγραφο ασφαλείας αγαπημένων</string>
+    <string name="pref_backup_summary">Αυτόματο αντίγραφο ασφαλείας σε έναν φάκελο στη συσκευή σας</string>
+    <string name="pref_backup_now_title">Αντίγραφο ασφαλείας τώρα</string>
+    <string name="pref_backup_now_summary">Δημιουργία αντιγράφου ασφαλείας άμεσα</string>
+    <string name="pref_backup_now_summary_progress">Αντίγραφο ασφαλείας σε εξέλιξη…</string>
+    <string name="pref_backup_now_summary_ok">Επιτυχής ολοκλήρωση αντιγράφου ασφαλείας</string>
+    <string name="pref_backup_now_summary_empty_lists">Κανένα μέρος ή ίχνος για αντίγραφο ασφαλείας</string>
+    <string name="pref_backup_now_summary_failed">Αποτυχία αντιγράφου ασφαλείας</string>
+    <string name="pref_backup_now_summary_folder_unavailable">Ο φάκελος αντιγράφου ασφαλείας δεν είναι διαθέσιμος</string>
+    <string name="pref_backup_status_summary_success">Τελευταίο επιτυχές αντίγραφο ασφαλείας</string>
+    <string name="pref_backup_location_title">Τοποθεσία αντιγράφου ασφαλείας</string>
+    <string name="pref_backup_history_title">Αριθμός αντιγράφων ασφαλείας για διατήρηση</string>
+    <string name="pref_backup_interval_title">Αυτόματο αντίγραφο ασφαλείας</string>
+    <string name="backup_interval_every_day">Καθημερινά</string>
+    <string name="backup_interval_every_week">Εβδομαδιαία</string>
+    <string name="backup_interval_manual_only">Κλειστό (χειροκίνητα μόνο)</string>
+    <string name="dialog_report_error_missing_folder">Η επιλεγμένη τοποθεσία αντιγράφου ασφαλείας δεν είναι διαθέσιμη ή εγγράψιμη. Παρακαλούμε επιλέξτε μια διαφορετική τοποθεσία.</string>
+    <string name="prefs_speed_cameras_information">Οι προειδοποιήσεις καμερών ταχύτητας είναι απενεργοποιημένες σε χώρες όπου ειδοποιήσεις απαγορεύονται από τοπική νομοθεσία.</string>
+    <string name="pref_backup_location_summary_initial">Παρακαλούμε επιλέξτε έναν φάκελο πρώτα και παραχωρήστε άδεια</string>
+    <string name="dialog_report_error_with_logs">Παρακαλούμε στείλτε μας μια αναφορά σφάλματος:\n - \"Ενεργοποίηση αρχείου καταγραφής\" στις ρυθμίσεις\n - κάντε αναπαραγωγή του προβλήματος\n - στην οθόνη \"Σχετικά &amp; Βοήθεια\" πατήστε το κουμπί \"Αναφορά σφάλματος\" και στείλτε μέσω email ή συνομιλία\n - απενεργοποιήστε την καταγραφή</string>
 </resources>

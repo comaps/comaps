@@ -30,7 +30,6 @@
     android:imeOptions="actionSearch|flagNoExtractUi"
     android:inputType="text"
     android:padding="@dimen/margin_half_plus"
-    android:singleLine="true"
     android:textCursorDrawable="@drawable/cursor_drawable" />
 
   <com.google.android.material.progressindicator.CircularProgressIndicator

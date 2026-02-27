@@ -2,3 +2,4 @@
 "type.amenity.bench.backless" = "Klupa bez naslona";
 "type.addr_interpolation" = "Adresa/Blok";
 "type.addr_interpolation.even" = "Adresa/Blok";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

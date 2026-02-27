@@ -53,6 +53,7 @@
 "type.amenity.clinic" = "Klinik";
 "type.amenity.college" = "Bildungseinrichtung";
 "type.amenity.community_centre" = "Gemeinschaftszentrum";
+"type.amenity.community_centre.youth_centre" = "Jugendzentrum";
 "type.amenity.compressed_air" = "Druckluft";
 "type.amenity.conference_centre" = "Konferenzzentrum";
 "type.amenity.courthouse" = "Gericht";
@@ -133,7 +134,7 @@
 "type.amenity.prison" = "Gefängnis";
 "type.amenity.pub" = "Kneipe";
 "type.amenity.public_bookcase" = "Bücherschrank";
-"type.amenity.recycling.centre" = "Recyclingzentrum";
+"type.amenity.recycling.centre" = "Recyclinghof";
 "type.amenity.recycling.container" = "Wertstoffcontainer";
 "type.recycling.batteries" = "Batterien";
 "type.recycling.clothes" = "Altkleider";

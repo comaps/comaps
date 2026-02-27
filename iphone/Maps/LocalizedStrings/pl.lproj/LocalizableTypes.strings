@@ -1596,3 +1596,5 @@
 "type.railway.miniature.tunnel" = "Tunel minikolejki";
 "type.railway.turntable" = "Obrotnica kolejowa";
 "type.tourism.information.tactile_map" = "Mapa dla niewidomych";
+"type.leisure.indoor_play" = "Sala zabaw dla dzieci";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

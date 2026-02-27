@@ -33,8 +33,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/margin_half_double_plus"
         android:textAlignment="viewStart"
-        android:inputType="textCapSentences"
-        android:singleLine="true" />
+        android:inputType="textCapSentences" />
     </com.google.android.material.textfield.TextInputLayout>
   </LinearLayout>
   <RelativeLayout

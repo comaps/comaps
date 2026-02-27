@@ -11,6 +11,7 @@
 #include "geometry/any_rect2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "base/localisation_translation.hpp"
 #include "base/math.hpp"
 
 #include <iostream>
@@ -21,8 +22,6 @@ namespace settings
 using std::string;
 
 std::string_view kMeasurementUnits = "Units";
-std::string_view kMapLanguageCode = "MapLanguageCode";
-std::string_view kMapLanguageLimitAlternativesToLocal = "MapLanguageLimitAlternativesToLocal";
 std::string_view kDeveloperMode = "DeveloperMode";
 std::string_view kDonateUrl = "DonateUrl";
 std::string_view kNY = "NY";
@@ -358,6 +357,33 @@ bool FromString<Transliteration::Mode>(string const & s, Transliteration::Mode &
     mode = Transliteration::Mode::Enabled;
   else if (s == "Disabled")
     mode = Transliteration::Mode::Disabled;
+  else
+    return false;
+
+  return true;
+}
+
+template <>
+string ToString<localisation::AlternativeMapLanguageHandling>(localisation::AlternativeMapLanguageHandling const & alternativeMapLanguageHandling)
+{
+  switch (alternativeMapLanguageHandling)
+  {
+  case localisation::AlternativeMapLanguageHandling::IgnoreAlternatives: return "off";
+  case localisation::AlternativeMapLanguageHandling::SystemOrder: return "false";
+  case localisation::AlternativeMapLanguageHandling::LocalOnly: return "true";
+  }
+  UNREACHABLE();
+}
+
+template <>
+bool FromString<localisation::AlternativeMapLanguageHandling>(string const & s, localisation::AlternativeMapLanguageHandling & mode)
+{
+  if (s == "true")
+    mode = localisation::AlternativeMapLanguageHandling::LocalOnly;
+  else if (s == "false")
+    mode = localisation::AlternativeMapLanguageHandling::SystemOrder;
+  else if (s == "off")
+    mode = localisation::AlternativeMapLanguageHandling::IgnoreAlternatives;
   else
     return false;
 

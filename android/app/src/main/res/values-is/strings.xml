@@ -89,14 +89,14 @@
     <string name="miles">Mílur</string>
     <string name="delete">Eyða</string>
     <string name="later">Seinna</string>
-    <string name="downloading">Sæki…</string>
+    <string name="downloading">Vistar…</string>
     <string name="kilometres">Kílómetrar</string>
     <string name="close">Loka</string>
     <string name="download">Sækja</string>
     <string name="pause">Bið</string>
     <string name="continue_button">Halda áfram</string>
     <string name="back">Til baka</string>
-    <string name="cancel">Hætta við</string>
+    <string name="cancel">Hætta</string>
     <string name="search">Leita</string>
     <string name="measurement_units">Mælieiningar</string>
     <string name="category_transport">Samgöngur</string>
@@ -263,7 +263,7 @@
     <string name="decline">Hafna</string>
     <string name="mobile_data_option_never">Aldrei nota</string>
     <string name="mobile_data_option_ask">Alltaf spyrja</string>
-    <string name="download_maps">Sækja landakort</string>
+    <string name="download_maps">Vista kort</string>
     <string name="download_has_failed">Mistókst að sækja. Ýttu til að reyna aftur.</string>
     <string name="search_map">Leita á korti</string>
     <string name="try_again">Reyndu aftur</string>
@@ -289,7 +289,7 @@
     <string name="view_menu">Skoða valmynd</string>
     <string name="self_service">Sjálfsafgreiðsla</string>
     <string name="limited_accuracy">Takmörkuð nákvæmni</string>
-    <string name="zoom_to_country">Birta á kortinu</string>
+    <string name="zoom_to_country">Sýna á korti</string>
     <string name="country_status_download_failed">Mistókst að sækja</string>
     <string name="pref_tts_speedcams_auto">Áminna ef farið er of hratt</string>
     <string name="pref_tts_speedcams_always">Alltaf aðvara</string>
@@ -330,7 +330,7 @@
     <string name="error_enter_correct_email">Settu inn gilt tölvupóstfang</string>
     <string name="placepage_add_place_button">Bæta stað í OpenStreetMap</string>
     <string name="download_country_failed">Mistókst að sækja %s</string>
-    <string name="bookmarks_and_tracks">Bókamerki og ferlar</string>
+    <string name="bookmarks_and_tracks">Uppáhalds</string>
     <string name="maps_storage_summary">Veldu möppu til að vista kort inn í.</string>
     <string name="maps_storage_free_size">%1$s laust af %2$s</string>
     <string name="wait_several_minutes">Þetta gæti tekið nokkrar mínútur.\nHinkraðu við.…</string>

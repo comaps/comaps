@@ -19,8 +19,9 @@
 #include <array>
 #include <functional>
 #include <map>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace dp
 {
@@ -150,7 +151,7 @@ struct TrafficCircleStaticVertex
   TTexCoord m_colorTexCoord;
 };
 
-using TrafficTexCoords = std::unordered_map<size_t, glsl::vec2>;
+using TrafficTexCoords = ankerl::unordered_dense::map<size_t, glsl::vec2>;
 
 class TrafficGenerator final
 {

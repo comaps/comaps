@@ -168,7 +168,6 @@
     <string name="type.highway.path.tunnel">Mtaro</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Daraja</string>
-
     <string name="type.highway.pedestrian.square">Nafasi</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Mtaro</string>

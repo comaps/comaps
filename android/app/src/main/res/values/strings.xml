@@ -292,8 +292,9 @@
     <string name="downloader_status_maps">Maps</string>
     <string name="downloader_download_all_button">Download All</string>
     <string name="downloader_downloading">Downloading:</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">To delete map, please stop navigation</string>
+    <string name="downloader_delete_map_while_routing_dialog">To delete a map, please stop navigation first</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Routes can only be created that are fully contained within a map of a single region.</string>
     <!-- Context menu item for downloader. -->
@@ -511,11 +512,11 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d of %2$d</string>
     <string name="download_over_mobile_header">Download over a cellular network connection?</string>
-    <string name="download_over_mobile_message">This could be considerably expensive with some plans or if roaming</string>
+    <string name="download_over_mobile_message">This can be very expensive on some mobile data plans, especially if you\'re roaming.</string>
     <string name="error_enter_correct_house_number">Enter a valid building number</string>
     <string name="editor_building_levels">Floors (inc. ground floor, excl. roof)</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">The number of floors must non exceed %d</string>
+    <string name="error_enter_correct_storey_number">The number of floors must not exceed %d</string>
     <string name="editor_zip_code">Postal Code</string>
     <string name="error_enter_correct_zip_code">Enter a valid postal code</string>
     <!-- Title for OSM note section in the editor -->
@@ -531,7 +532,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operator: %s</string>
     <string name="editor_category_unsuitable_title">Can\'t find a suitable category?</string>
-    <string name="editor_category_unsuitable_text">CoMaps allows to add simple point categories only, that means no towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Check our <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detailed step by step instructions.</string>
+    <string name="editor_category_unsuitable_text">CoMaps is only able to add simple point categories, it isn\'t able to add towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Check our <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detailed step by step instructions.</string>
     <string name="downloader_no_downloaded_maps_title">You haven\'t downloaded any maps</string>
     <string name="downloader_no_downloaded_maps_message">Download maps to search and navigate offline</string>
     <string name="current_location_unknown_error_title">Current location is unknown</string>
@@ -584,12 +585,12 @@
     <string name="place_page_update_too_old_map">Update map region</string>
     <!-- Toast shown after pressing add place / edit OpenStreetMap when editing is disabled -->
     <string name="place_page_too_old_to_edit">OpenStreetMap editing is disabled because the map data is too old.</string>
-    <string name="osm_note_hint">Or, alternatively, leave a note to OpenStreetMap community so that someone else can add or fix a place here.</string>
+    <string name="osm_note_hint">Or, alternatively, leave a note for the OpenStreetMap community so that someone else can add or fix a place here.</string>
     <string name="osm_note_toast">Note will be sent to OpenStreetMap</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Do you want to send it to all users?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Make sure you did not enter any private or personal data.</string>
+    <string name="editor_share_to_all_dialog_message_1">Make sure you haven\'t entered any private or personal data.</string>
     <string name="editor_share_to_all_dialog_message_2">OpenStreetMap editors will check the changes and contact you if they have any questions.</string>
     <string name="navigation_stop_button">Stop</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -615,13 +616,13 @@
     <string name="enable_logging">Enable logging</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">General Feedback</string>
-    <string name="prefs_languages_information">We use system TTS for voice instructions. Many Android devices use Google TTS, you can download or update it from Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">For some languages, you will need to install a speech synthesizer or an additional language pack from the app store (Google Play, Galaxy Store, App Gallery, FDroid).
+    <string name="prefs_languages_information">We use system TTS for voice instructions. Many Android devices use Google TTS, you can download or update it from the Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">For some languages, you will need to install a speech synthesizer or an additional language pack from an app store (Google Play, Galaxy Store, App Gallery, F-Droid).
 \nOpen your device\'s settings → Language and input → Speech → Text to speech output.
-\nHere you can manage settings for speech synthesis (for example, download language pack for offline use) and select another text-to-speech engine.</string>
+\nHere you can manage the settings for speech synthesis (for example, to download language a pack for offline use) and select a different text-to-speech engine.</string>
     <string name="prefs_languages_information_off_link">For more information please check this guide</string>
     <string name="prefs_speed_cameras_information">Speed camera warnings are disabled in countries where alerts are prohibited by local law.</string>
-    <string name="transliteration_title">Transliterate into Latin alphabet</string>
+    <string name="transliteration_title">Transliterate into the Latin alphabet</string>
     <string name="learn_more">Learn more</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">Use search or tap on the map to add a route starting point</string>
@@ -828,7 +829,7 @@
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <!-- A link to the TTS FAQ -->
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
@@ -910,7 +911,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Continue Recording</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Save into Favorites?</string>
+    <string name="track_recording_alert_title">Save to Favorites?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Track is empty - nothing to save</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -995,8 +996,23 @@
     <string name="download_resources_custom_url_summary_none">Not set</string>
     <string name="download_resources_custom_url_error_scheme">Please enter a URL starting with http:// or https://</string>
     <!-- string name different as needs to match iOS -->
-    <string name="limit_map_language_alternatives_to_local">Only use other system languages in their region</string>
+    <string name="pref_alt_map_lang_handling">Alternative Map Languages</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Don\'t use alternatives</string>
+    <string name="pref_alt_map_lang_handling_system_order">Use in system order</string>
+    <string name="pref_alt_map_lang_handling_local_only">Prefer and only use where native</string>
     <string name="location_privacy_info">Apps receive location data from your OS location service, which may share your location with Google and/or your device vendor. Use a privacy-preserving Android OS to avoid this.</string>
     <string name="location_privacy">Location Privacy</string>
     <string name="pref_speedlimit_title">Show speed limits</string>
+    <string name="rooms">%s rooms</string>
+    <!-- NavMenu: Route state strings -->
+    <string name="invalid_route">Invalid route</string>
+    <string name="building_route">Building route…</string>
+    <string name="route_not_started">Route not started</string>
+    <string name="on_route">On route</string>
+    <string name="route_needs_rebuild">Route needs rebuilding</string>
+    <string name="route_finished">Route finished</string>
+    <string name="not_following_route">Not following route</string>
+    <string name="rebuilding_route">Rebuilding route…</string>
+    <string name="pref_openexternallinks_title">Automatically open third-party links</string>
+    <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
 </resources>

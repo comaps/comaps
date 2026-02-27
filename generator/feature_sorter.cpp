@@ -253,8 +253,8 @@ public:
     /// @todo Probably, we should store and index OSM's short_name tag.
     if (indexer::SynonymsHolder::CanApply(fb.GetTypes()))
     {
-      int8_t const langs[] = {StringUtf8Multilang::kDefaultCode, StringUtf8Multilang::kEnglishCode,
-                              StringUtf8Multilang::kInternationalCode};
+      int8_t const langs[] = {localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex,
+                              localisation::kInternationalNameIndex};
 
       bool added = false;
       for (int8_t lang : langs)
@@ -265,11 +265,11 @@ public:
           if (added)
             return;
 
-          auto oldName = fb.GetName(StringUtf8Multilang::kAltNameCode);
+          auto oldName = fb.GetName(localisation::kAlternativeNameIndex);
           if (!oldName.empty())
             LOG(LWARNING, ("Replace", oldName, "with", synonym, "for", fb.GetMostGenericOsmId()));
 
-          fb.SetName(StringUtf8Multilang::kAltNameCode, synonym);
+          fb.SetName(localisation::kAlternativeNameIndex, synonym);
           added = true;
         });
 

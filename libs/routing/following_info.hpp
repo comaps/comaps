@@ -3,6 +3,7 @@
 #include "platform/distance.hpp"
 
 #include "routing/lanes/lane_info.hpp"
+#include "routing/routing_callbacks.hpp"
 #include "routing/turns.hpp"
 
 #include <algorithm>
@@ -22,6 +23,7 @@ public:
     , m_time(0)
     , m_completionPercent(0)
     , m_pedestrianTurn(turns::PedestrianDirection::None)
+    , m_routingSessionState(routing::SessionState::NoValidRoute)
   {}
 
   bool IsValid() const { return m_distToTarget.IsValid(); }
@@ -63,5 +65,8 @@ public:
   // Current speed limit in meters per second.
   // If no info about speed limit then m_speedLimitMps < 0.
   double m_speedLimitMps = -1.0;
+
+  // Routing state.
+  SessionState m_routingSessionState;
 };
 }  // namespace routing

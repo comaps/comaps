@@ -6,8 +6,6 @@
 #include "drape/overlay_tree.hpp"
 #include "drape/vertex_array_buffer.hpp"
 
-#include "base/stl_helpers.hpp"
-
 namespace dp
 {
 RenderBucket::RenderBucket(drape_ptr<VertexArrayBuffer> && buffer) : m_buffer(std::move(buffer)) {}
@@ -129,8 +127,7 @@ void RenderBucket::SetFeatureMinZoom(int minZoom)
 void RenderBucket::RenderDebug(ref_ptr<GraphicsContext> context, ScreenBase const & screen,
                                ref_ptr<DebugRenderer> debugRectRenderer) const
 {
-  if (!debugRectRenderer || !debugRectRenderer->IsEnabled() || m_overlay.empty())
-    return;
+  ASSERT(!debugRectRenderer || !debugRectRenderer->IsEnabled() || m_overlay.empty(), (debugRectRenderer, debugRectRenderer->IsEnabled(), m_overlay.empty()));
 
   for (auto const & handle : m_overlay)
   {

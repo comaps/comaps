@@ -19,6 +19,7 @@
 #include "coding/zip_reader.hpp"
 
 #include "base/file_name_utils.hpp"
+#include "base/localisation.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
@@ -708,14 +709,15 @@ void SaveFeatureTypes(feature::TypesHolder const & types, kml::BookmarkData & bm
 
 std::string GetPreferredBookmarkStr(kml::LocalizableString const & name)
 {
-  auto const mapLanguageNorm = languages::Normalize(languages::GetCurrentMapLanguage());
-  return kml::GetPreferredBookmarkStr(name, mapLanguageNorm);
+  return kml::GetPreferredBookmarkStrForKml(name, localisation::GetMapLanguageIndexes());
 }
 
 std::string GetPreferredBookmarkStr(kml::LocalizableString const & name, feature::RegionData const & regionData)
 {
-  auto const mapLanguageNorm = languages::Normalize(languages::GetCurrentMapLanguage());
-  return kml::GetPreferredBookmarkStr(name, regionData, mapLanguageNorm);
+  if (regionData.IsWorldLevel())
+    GetPreferredBookmarkStr(name);
+
+  return kml::GetPreferredBookmarkStrForKml(name, regionData.GetLanguages());
 }
 
 std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types)
@@ -728,23 +730,23 @@ std::string GetLocalizedBookmarkBaseType(BookmarkBaseType type)
   switch (type)
   {
   case BookmarkBaseType::None: return {};
-  case BookmarkBaseType::Hotel: return platform::GetLocalizedString("hotels");
-  case BookmarkBaseType::Animals: return platform::GetLocalizedString("animals");
-  case BookmarkBaseType::Building: return platform::GetLocalizedString("buildings");
-  case BookmarkBaseType::Entertainment: return platform::GetLocalizedString("entertainment");
-  case BookmarkBaseType::Exchange: return platform::GetLocalizedString("money");
-  case BookmarkBaseType::Food: return platform::GetLocalizedString("food_places");
-  case BookmarkBaseType::Gas: return platform::GetLocalizedString("fuel_places");
-  case BookmarkBaseType::Medicine: return platform::GetLocalizedString("medicine");
-  case BookmarkBaseType::Mountain: return platform::GetLocalizedString("mountains");
-  case BookmarkBaseType::Museum: return platform::GetLocalizedString("museums");
-  case BookmarkBaseType::Park: return platform::GetLocalizedString("parks");
-  case BookmarkBaseType::Parking: return platform::GetLocalizedString("parkings");
-  case BookmarkBaseType::ReligiousPlace: return platform::GetLocalizedString("religious_places");
-  case BookmarkBaseType::Shop: return platform::GetLocalizedString("shops");
-  case BookmarkBaseType::Sights: return platform::GetLocalizedString("tourist_places");
-  case BookmarkBaseType::Swim: return platform::GetLocalizedString("swim_places");
-  case BookmarkBaseType::Water: return platform::GetLocalizedString("water");
+  case BookmarkBaseType::Hotel: return localisation::TranslatedInterfaceText("hotels");
+  case BookmarkBaseType::Animals: return localisation::TranslatedInterfaceText("animals");
+  case BookmarkBaseType::Building: return localisation::TranslatedInterfaceText("buildings");
+  case BookmarkBaseType::Entertainment: return localisation::TranslatedInterfaceText("entertainment");
+  case BookmarkBaseType::Exchange: return localisation::TranslatedInterfaceText("money");
+  case BookmarkBaseType::Food: return localisation::TranslatedInterfaceText("food_places");
+  case BookmarkBaseType::Gas: return localisation::TranslatedInterfaceText("fuel_places");
+  case BookmarkBaseType::Medicine: return localisation::TranslatedInterfaceText("medicine");
+  case BookmarkBaseType::Mountain: return localisation::TranslatedInterfaceText("mountains");
+  case BookmarkBaseType::Museum: return localisation::TranslatedInterfaceText("museums");
+  case BookmarkBaseType::Park: return localisation::TranslatedInterfaceText("parks");
+  case BookmarkBaseType::Parking: return localisation::TranslatedInterfaceText("parkings");
+  case BookmarkBaseType::ReligiousPlace: return localisation::TranslatedInterfaceText("religious_places");
+  case BookmarkBaseType::Shop: return localisation::TranslatedInterfaceText("shops");
+  case BookmarkBaseType::Sights: return localisation::TranslatedInterfaceText("tourist_places");
+  case BookmarkBaseType::Swim: return localisation::TranslatedInterfaceText("swim_places");
+  case BookmarkBaseType::Water: return localisation::TranslatedInterfaceText("water");
   case BookmarkBaseType::Count: CHECK(false, ("Invalid bookmark base type")); return {};
   }
   UNREACHABLE();
@@ -752,7 +754,7 @@ std::string GetLocalizedBookmarkBaseType(BookmarkBaseType type)
 
 std::string GetPreferredBookmarkName(kml::BookmarkData const & bmData)
 {
-  return kml::GetPreferredBookmarkName(bmData, languages::GetCurrentMapLanguage());
+  return kml::GetPreferredBookmarkNameForKml(bmData);
 }
 
 void ExpandRectForPreview(m2::RectD & rect)

@@ -405,8 +405,7 @@ jobs:
               [ -e "$file" ] || continue
 
               # Get file size in MB and modification time in days
-              size_mb=$(stat -f%z "$file" 2>/dev/null | awk '{print int($1/1024/1024)}' || stat -c%s "$file" | awk
-           '{print int($1/1024/1024)}')
+              size_mb=$(stat -f%z "$file" 2>/dev/null | awk '{print int($1/1024/1024)}' || stat -c%s "$file" | awk '{print int($1/1024/1024)}')
               days_old=$(find "$file" -mtime -7 | wc -l)
 
               # Verify conditions

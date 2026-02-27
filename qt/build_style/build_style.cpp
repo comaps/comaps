@@ -110,13 +110,13 @@ void RunRecalculationGeometryScript(QString const & mapcssFile)
 
 #if defined(OMIM_OS_MAC)
   (void)ExecProcess("python3", {
-                                  GetRecalculateGeometryScriptPath(),
-                                  resourceDir,
-                                  writableDir,
-                                  generatorToolPath,
-                                  appPath,
-                                  mapcssFile,
-                              });
+                                   GetRecalculateGeometryScriptPath(),
+                                   resourceDir,
+                                   writableDir,
+                                   generatorToolPath,
+                                   appPath,
+                                   mapcssFile,
+                               });
 #else
   (void)ExecProcess("python", {
                                   GetRecalculateGeometryScriptPath(),

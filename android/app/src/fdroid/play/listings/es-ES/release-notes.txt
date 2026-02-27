@@ -1,10 +1,9 @@
-- Datos de OpenStreetMap al 7 de febrero
-- Añadida opción “Mostrar límites de velocidad” en navegación
-- Desactivados edificios 3D en Android Auto
-- Añadidos puntos de repostaje en marinas
-- Los favoritos e iconos ahora se muestran sobre las líneas de metro
-- Los números de vivienda se muestran más tarde
-- Búsqueda habilitada para æ, ø y å
-- Editor OSM: actualiza automáticamente la fecha de verificación del POI
+• Datos de OSM a 21 de febrero
+• Visualización de horarios apertura por turnos, en lugar de fuera del horario laboral
+• Visualización de descripciones de OSM y nº de habitaciones para PDI seleccionados
+• Añadidos artículos Wikipedia en croata, italiano, neerlandés y polaco
+• Añadidas filas de árboles y centros juveniles
+• Corregido problema con transliteración
+• Mejorada configuración de idiomas alternativos del mapa
 
-Más detalles comaps.app/latest
+Más información en comaps.app/latest

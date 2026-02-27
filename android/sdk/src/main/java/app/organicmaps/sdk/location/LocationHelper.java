@@ -9,7 +9,6 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Handler;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -17,9 +16,6 @@ import androidx.annotation.UiThread;
 import androidx.core.content.ContextCompat;
 import androidx.core.location.GnssStatusCompat;
 import androidx.core.location.LocationManagerCompat;
-
-import org.chromium.base.ObserverList;
-
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Map;
 import app.organicmaps.sdk.bookmarks.data.FeatureId;
@@ -29,8 +25,8 @@ import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.NetworkPolicy;
 import app.organicmaps.sdk.util.log.Logger;
-
 import java.util.HashMap;
+import org.chromium.base.ObserverList;
 
 public class LocationHelper implements BaseLocationProvider.Listener
 {
@@ -198,7 +194,6 @@ public class LocationHelper implements BaseLocationProvider.Listener
   @Override
   public void onLocationChanged(@NonNull Location location)
   {
-
     if (!isActive())
     {
       Logger.w(TAG, "Provider is not active");

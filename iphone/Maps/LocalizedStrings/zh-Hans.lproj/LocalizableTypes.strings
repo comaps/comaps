@@ -1561,3 +1561,4 @@
 "type.leisure.sports_centre.sport.pelota" = "运动中心";
 "type.leisure.sports_centre.sport.scuba_diving" = "运动中心";
 "type.leisure.sports_centre.sport.multi" = "运动中心";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

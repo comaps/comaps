@@ -11,15 +11,16 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
   static jclass const klass = jni::GetGlobalClassRef(env, "app/organicmaps/sdk/routing/RoutingInfo");
   // Java signature : RoutingInfo(Distance distToTarget, Distance distToTurn,
   //                              String currentStreet, String nextStreet, String nextNextStreet,
-  //                              double completionPercent, int vehicleTurnOrdinal, int
-  //                              vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum,
-  //                              int totalTime, LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
-  //                              boolean shouldPlayWarningSignal)
+  //                              double completionPercent, int vehicleTurnOrdinal,
+  //                              int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum,
+  //                              int totalTime, LaneInfo[] lanes, double speedLimitMps,
+  //                              boolean speedLimitExceeded, boolean shouldPlayWarningSignal,
+  //                              int routingSessionState)
   static jmethodID const ctorRouteInfoID =
       jni::GetConstructorID(env, klass,
                             "(Lapp/organicmaps/sdk/util/Distance;Lapp/organicmaps/sdk/util/Distance;"
                             "Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DIIIII"
-                            "[Lapp/organicmaps/sdk/routing/LaneInfo;DZZ)V");
+                            "[Lapp/organicmaps/sdk/routing/LaneInfo;DZZI)V");
 
   jobjectArray jLanes = CreateLanesInfo(env, info.m_lanes);
 
@@ -30,7 +31,8 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
       jni::ToJavaString(env, info.m_currentStreetName), jni::ToJavaString(env, info.m_nextStreetName),
       jni::ToJavaString(env, info.m_nextNextStreetName), info.m_completionPercent, info.m_turn, info.m_nextTurn,
       info.m_pedestrianTurn, info.m_exitNum, info.m_time, jLanes, info.m_speedLimitMps,
-      static_cast<jboolean>(isSpeedCamLimitExceeded), static_cast<jboolean>(shouldPlaySignal));
+      static_cast<jboolean>(isSpeedCamLimitExceeded), static_cast<jboolean>(shouldPlaySignal),
+      static_cast<jint>(info.m_routingSessionState));
   ASSERT(result, (jni::DescribeException()));
   return result;
 }

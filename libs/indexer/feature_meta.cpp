@@ -196,6 +196,8 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_NETWORK;
   else if (k.starts_with("socket:"))
     outType = Metadata::FMD_CHARGE_SOCKETS;
+  else if (k == "rooms")
+    outType = Metadata::FMD_ROOMS;
   else
     return false;
 
@@ -221,38 +223,57 @@ bool RegionData::IsWorldLevel() const
   return Get(RegionData::Type::RD_LANGUAGES).empty();
 }
 
-void RegionData::SetLanguages(vector<string> const & codes)
+void RegionData::SetLanguages(vector<localisation::LanguageIndex> const & languageIndexes)
 {
   string value;
-  for (string const & code : codes)
+  for (localisation::LanguageIndex const & languageIndex : languageIndexes)
   {
-    int8_t const lang = StringUtf8Multilang::GetLangIndex(code);
-    if (lang != StringUtf8Multilang::kUnsupportedLanguageCode)
-      value.push_back(lang);
+    if (languageIndex != localisation::kUnsupportedLanguageIndex)
+      value.push_back(languageIndex);
   }
   MetadataBase::Set(RegionData::Type::RD_LANGUAGES, value);
 }
 
-void RegionData::GetLanguages(vector<int8_t> & langs) const
+void RegionData::SetLanguages(vector<localisation::LanguageCode> const & languageCodes)
 {
-  for (auto const lang : Get(RegionData::Type::RD_LANGUAGES))
-    langs.push_back(lang);
+  string value;
+  for (localisation::LanguageCode const & languageCode : languageCodes)
+  {
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    if (languageIndex != localisation::kUnsupportedLanguageIndex)
+      value.push_back(languageIndex);
+  }
+  MetadataBase::Set(RegionData::Type::RD_LANGUAGES, value);
 }
 
-bool RegionData::HasLanguage(int8_t const lang) const
+void RegionData::GetLanguages(vector<localisation::LanguageIndex> & languageIndexes) const
 {
-  for (auto const lng : Get(RegionData::Type::RD_LANGUAGES))
-    if (lng == lang)
+  for (auto const languageIndex : Get(RegionData::Type::RD_LANGUAGES))
+    languageIndexes.push_back(languageIndex);
+}
+
+vector<localisation::LanguageIndex> RegionData::GetLanguages() const
+{
+  vector<localisation::LanguageIndex> languageIndexes;
+  for (auto const languageIndex : Get(RegionData::Type::RD_LANGUAGES))
+    languageIndexes.push_back(languageIndex);
+  return languageIndexes;
+}
+
+bool RegionData::HasLanguage(localisation::LanguageIndex const languageIndex) const
+{
+  for (auto const existingLanguageIndex : Get(RegionData::Type::RD_LANGUAGES))
+    if (existingLanguageIndex == languageIndex)
       return true;
   return false;
 }
 
-bool RegionData::IsSingleLanguage(int8_t const lang) const
+bool RegionData::IsSingleLanguage(localisation::LanguageIndex const languageIndex) const
 {
   auto const value = Get(RegionData::Type::RD_LANGUAGES);
   if (value.size() != 1)
     return false;
-  return value.front() == lang;
+  return value.front() == languageIndex;
 }
 
 void RegionData::AddPublicHoliday(int8_t month, int8_t offset)
@@ -323,6 +344,7 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_OUTDOOR_SEATING: return "outdoor_seating";
   case Metadata::FMD_NETWORK: return "network";
   case Metadata::FMD_CHARGE_SOCKETS: CHECK(false, ("FMD_CHARGE_SOCKETS is a compound attribute."));
+  case Metadata::FMD_ROOMS: return "rooms";
   case Metadata::FMD_COUNT: CHECK(false, ("FMD_COUNT can not be used as a type."));
   };
 

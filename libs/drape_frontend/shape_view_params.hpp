@@ -2,6 +2,8 @@
 
 #include "drape_frontend/render_state_extension.hpp"
 
+#include "base/localisation.hpp"
+
 #include "drape/color.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/stipple_pen_resource.hpp"
@@ -105,6 +107,8 @@ struct PathTextViewParams : CommonOverlayViewParams
   dp::FontDecl m_textFont;
   std::string m_mainText;
   std::string m_auxText;
+  localisation::LanguageIndex m_mainTextLanguageIndex;
+  localisation::LanguageIndex m_auxTextLanguageIndex;
   double m_baseGtoPScale = 1.0;
 };
 

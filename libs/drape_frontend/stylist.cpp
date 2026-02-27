@@ -45,30 +45,31 @@ bool IsHatchingTerritoryChecker::IsMatched(uint32_t type) const
 void CaptionDescription::Init(FeatureType & f, int8_t deviceLang, int zoomLevel, feature::GeomType geomType,
                               bool auxCaptionExists)
 {
-  feature::NameParamsOut out;
   // TODO(pastk) : remove forced secondary text for all lines and set it via styles for major roads and rivers only.
   // ATM even minor paths/streams/etc use secondary which makes their pathtexts take much more space.
+  localisation::NameTranslation translatedName = f.GetTranslatedName();
+  if (translatedName.m_primary.has_value())
+  {
+    m_mainText = translatedName.m_primary.value();
+    m_mainTextLanguageIndex = translatedName.m_primaryLikelyLanguageIndexForRendering;
+  }
   if (zoomLevel > scales::GetUpperWorldScale() && (auxCaptionExists || geomType == feature::GeomType::Line))
   {
-    // Get both primary and secondary/aux names.
-    f.GetPreferredNames(true /* allowTranslit */, deviceLang, out);
-    m_auxText = out.secondary;
+    if (translatedName.m_secondary.has_value())
+    {
+      m_auxText = translatedName.m_secondary.value();
+      m_auxTextLanguageIndex = translatedName.m_secondaryLikelyLanguageIndexForRendering;
+    }
   }
-  else
+  if (ftypes::IsPublicTransportStopChecker::Instance()(feature::TypesHolder(f)))
   {
-    // Returns primary name only.
-    f.GetReadableName(true /* allowTranslit */, deviceLang, out);
-  }
-  m_mainText = out.GetPrimary();
-  
-  if (ftypes::IsPublicTransportStopChecker::Instance()(feature::TypesHolder(f))) {
     auto const lRef = f.GetMetadata(feature::Metadata::FMD_LOCAL_REF);
-    if (!m_mainText.empty() && !lRef.empty()) {
+    if (!m_mainText.empty() && !lRef.empty())
+    {
       //m_mainText.append(" (").append(lRef).append(")");
       m_auxText = lRef;
     }
   }
-  
   ASSERT(m_auxText.empty() || !m_mainText.empty(), ("auxText without mainText"));
 
   uint8_t constexpr kLongCaptionsMaxZoom = 4;

@@ -12,7 +12,7 @@ RegionAddressGetter::RegionAddressGetter(DataSource const & dataSource, storage:
   , m_infoGetter(infoGetter)
 {
   m_nameGetter.LoadCountriesTree();
-  m_nameGetter.SetLocale(languages::GetCurrentMapLanguage());
+  m_nameGetter.SetLocale(localisation::GetMapLanguageCode());
 }
 
 ReverseGeocoder::RegionAddress RegionAddressGetter::GetNearbyRegionAddress(m2::PointD const & center)

@@ -111,7 +111,7 @@
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
     <string name="category_parking">Parkplätze</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
-    <string name="category_shopping">Shopping</string>
+    <string name="category_shopping">Einkaufen</string>
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
     <string name="category_secondhand">Second-hand</string>
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
@@ -187,7 +187,7 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">OpenStreetMap-Daten: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Tracks</string>
+    <string name="tracks_title">Routen</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Länge</string>
     <string name="share_my_location">Meinen Standort teilen</string>
@@ -269,7 +269,7 @@
     <string name="downloader_download_all_button">Alle herunterladen</string>
     <string name="downloader_downloading">Wird heruntergeladen:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Zum Löschen der Karte bitte die Navigation unterbrechen</string>
+    <string name="downloader_delete_map_while_routing_dialog">Zum Löschen einer Karte, bitte zuerst die Navigation unterbrechen</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Es können nur Routen erstellt werden, die vollständig in einer einzigen Karte enthalten sind.</string>
     <!-- Context menu item for downloader. -->
@@ -281,9 +281,9 @@
     <!-- Item in context menu. -->
     <string name="downloader_update_map">Karte aktualisieren</string>
     <!-- Preference title -->
-    <string name="google_play_services">Google’s verknüpfter Ortungsdienst</string>
+    <string name="google_play_services">Google\'s kombinierte Standortbestimmung</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Ein proprietärer Dienst, der GPS, Wi-Fi, Mobilfunknetzwerke etc. kombiniert, um den Standort genauer zu bestimmen. Er kann sich mit Google-Servern verbinden.</string>
+    <string name="pref_use_google_play">Ein urheberrechtlich geschützter Dienst, der GPS, Wi-Fi, Mobilfunknetzwerke etc. kombiniert, um den Standort genauer zu bestimmen. Der Dienst kann sich mit Google-Servern verbinden.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
@@ -469,10 +469,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d von %2$d</string>
     <string name="download_over_mobile_header">Über eine Mobilfunkverbindung herunterladen?</string>
-    <string name="download_over_mobile_message">Das könnte je nach Tarif oder beim Roaming sehr teuer werden</string>
+    <string name="download_over_mobile_message">Das kann teuer werden je nach Mobiltarif, besonders beim Roaming.</string>
     <string name="error_enter_correct_house_number">Gültige Hausnummer eingeben</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Das Gebäude kann nicht mehr als %d Etagen haben</string>
+    <string name="error_enter_correct_storey_number">Die Anzahl der Etagen darf nicht %d überschreiten</string>
     <string name="editor_zip_code">Postleitzahl</string>
     <string name="error_enter_correct_zip_code">Gebe eine gültige Postleitzahl ein</string>
     <!-- Title for OSM note section in the editor -->
@@ -525,7 +525,7 @@
     <string name="editor_share_to_all_dialog_message_2">Freiwillige von OpenStreetMap werden die Änderungen möglicherweise prüfen und sich bei Fragen mit dir in Verbindung setzen.</string>
     <string name="navigation_stop_button">Beenden</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">Strecke wird aufgezeichnet</string>
+    <string name="track_recording">Route wird aufgezeichnet</string>
     <!-- For the first routing -->
     <string name="accept">Annehmen</string>
     <!-- For the first routing -->
@@ -592,8 +592,8 @@
     </plurals>
     <string name="restore">Wiederherstellen</string>
     <plurals name="tracks">
-        <item quantity="one">%d Track</item>
-        <item quantity="other">%d Tracks</item>
+        <item quantity="one">%d Route</item>
+        <item quantity="other">%d Routen</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Privatsphäre</string>
@@ -694,7 +694,7 @@
     <string name="transit_not_found">Die U-Bahn-Navigation ist in dieser Region noch nicht verfügbar</string>
     <string name="dialog_pedestrian_route_is_long_header">Keine U-Bahn-Route gefunden</string>
     <string name="dialog_pedestrian_route_is_long_message">Wähle einen Start- oder Endpunkt näher an einer U-Bahn-Station</string>
-    <string name="button_layer_isolines">Höhelinien</string>
+    <string name="button_layer_isolines">Höhenlinien</string>
     <string name="isolines_activation_error_dialog">Um die Höhenlinien nutzen zu können, aktualisiere die Karte des betreffenden Gebiets oder lade diese herunter</string>
     <string name="isolines_location_error_dialog">Höhenlinien sind für dieses Gebiet noch nicht verfügbar</string>
     <string name="elevation_profile_ascent">Bergauf</string>
@@ -726,7 +726,7 @@
     <string name="change_map_locale">Karten-Sprache</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Kartendaten von OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/de/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/DE:Über_OSM</string>
@@ -921,8 +921,23 @@
     <string name="download_resources_custom_url_message">Standardserver für Kartendownloads überschreiben. Leer lassen, um den CoMaps-Standardserver zu nutzen.</string>
     <string name="download_resources_custom_url_error_scheme">Bitte eine vollständige URL eingeben, die mit https:// oder http:// anfängt</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
-    <string name="limit_map_language_alternatives_to_local">Weitere Systemsprachen nur in deren jeweiligen Region verwenden</string>
     <string name="location_privacy_info">Apps erhalten Standortdaten von deinem Standortdienst des Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
     <string name="location_privacy">Standort-Datenschutz</string>
     <string name="pref_speedlimit_title">Zeige Geschwindigkeitsbegrenzungen an</string>
+    <string name="rooms">%s Räume</string>
+    <string name="invalid_route">Ungültige Route</string>
+    <string name="building_route">Route erstellen…</string>
+    <string name="route_not_started">Route nicht gestartet</string>
+    <string name="on_route">Unterwegs</string>
+    <string name="route_needs_rebuild">Route muss neu berechnet werden</string>
+    <string name="route_finished">Route beendet</string>
+    <string name="not_following_route">Folgt nicht der Route</string>
+    <string name="rebuilding_route">Route wird neu berechnet…</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_openexternallinks_title">Links Dritter automatisch öffnen</string>
+    <string name="pref_openexternallinks_summary">Links Dritter standardmäßig in CoMaps öffnen</string>
+    <string name="pref_alt_map_lang_handling">Alternative Kartensprachen</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Verwende keine Alternativen</string>
+    <string name="pref_alt_map_lang_handling_system_order">Systemreihenfolge verwenden</string>
+    <string name="pref_alt_map_lang_handling_local_only">Bevorzugen und nur verwenden, wo es lokale Sprache ist</string>
 </resources>

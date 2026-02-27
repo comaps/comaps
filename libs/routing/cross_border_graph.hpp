@@ -20,8 +20,9 @@
 #include <memory>
 #include <set>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -46,8 +47,8 @@ struct CrossBorderSegment
   double m_weight = 0.0;
 };
 
-using CrossBorderSegments = std::unordered_map<RegionSegmentId, CrossBorderSegment>;
-using MwmIdToSegmentIds = std::unordered_map<NumMwmId, std::vector<RegionSegmentId>>;
+using CrossBorderSegments = ankerl::unordered_dense::map<RegionSegmentId, CrossBorderSegment>;
+using MwmIdToSegmentIds = ankerl::unordered_dense::map<NumMwmId, std::vector<RegionSegmentId>>;
 
 struct CrossBorderGraph
 {

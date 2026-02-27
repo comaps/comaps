@@ -57,21 +57,21 @@ FeatureInfoDialog::FeatureInfoDialog(QWidget * parent, osm::MapObject const & ma
   }
 
   {
-    int8_t const localeCode = StringUtf8Multilang::GetLangIndex(locale);
-    vector<int8_t> codes = {{StringUtf8Multilang::kDefaultCode, StringUtf8Multilang::kEnglishCode}};
-    if (localeCode != StringUtf8Multilang::kUnsupportedLanguageCode &&
-        ::find(codes.begin(), codes.end(), localeCode) == codes.end())
+    LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+    vector<LanguageIndex> languageIndexes = {{localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex}};
+    if (localeCode != localisation::kUnsupportedLanguageIndex &&
+        ::find(languageIndexes.begin(), languageIndexes.end(), localeCode) == languageIndexes.end())
     {
-      codes.push_back(localeCode);
+        languageIndexes.push_back(localeCode);
     }
 
-    for (auto const & code : codes)
+    for (auto const & code : languageIndexes)
     {
       string_view name;
       if (!mapObject.GetNameMultilang().GetString(code, name))
         continue;
 
-      auto const lang = StringUtf8Multilang::GetLangByCode(code);
+      auto const lang = localisation::ConvertLanguageCodeToLanguageIndex(code);
       CHECK(!lang.empty(), ("Can't find lang by code:", code));
       auto * label = new QLabel(QString::fromStdString(std::string{lang} + ":"));
       auto * content = MakeSelectableLabel(std::string{name});

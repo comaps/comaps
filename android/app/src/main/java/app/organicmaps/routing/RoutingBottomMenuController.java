@@ -43,7 +43,6 @@ import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.widget.recycler.DotDividerItemDecoration;
 import app.organicmaps.widget.recycler.MultilineLayoutManager;
-
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
@@ -123,9 +122,9 @@ final class RoutingBottomMenuController implements View.OnClickListener
                                       @NonNull View timeElevationLine, @NonNull View transitFrame,
                                       @NonNull MaterialTextView error, @NonNull MaterialButton start,
                                       @NonNull ShapeableImageView altitudeChart, @NonNull MaterialTextView time,
-                                      @NonNull MaterialTextView altitudeDifference, @NonNull MaterialTextView timeVehicle,
-                                      @Nullable MaterialTextView arrival, @NonNull View actionFrame,
-                                      @Nullable RoutingBottomMenuListener listener)
+                                      @NonNull MaterialTextView altitudeDifference,
+                                      @NonNull MaterialTextView timeVehicle, @Nullable MaterialTextView arrival,
+                                      @NonNull View actionFrame, @Nullable RoutingBottomMenuListener listener)
   {
     mContext = context;
     mAltitudeChartFrame = altitudeChartFrame;

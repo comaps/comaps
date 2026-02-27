@@ -565,35 +565,13 @@ std::string GetCurrentNorm()
   return Normalize(GetCurrentOrig());
 }
 
-std::string GetCurrentMapLanguage()
-{
-  std::string languageCode;
-  if (!settings::Get(settings::kMapLanguageCode, languageCode) || languageCode.empty())
-  {
-    for (auto const & systemLanguage : GetSystemPreferred())
-    {
-      auto normalizedLang = Normalize(systemLanguage);
-      if (StringUtf8Multilang::GetLangIndex(normalizedLang) != StringUtf8Multilang::kUnsupportedLanguageCode)
-        return normalizedLang;
-    }
-    return std::string(StringUtf8Multilang::GetLangByCode(StringUtf8Multilang::kDefaultCode));
-  }
-  return languageCode;
-}
-
-std::vector<int8_t> GetPreferredLangIndexes()
-{
-  std::vector<int8_t> langs = {};
-
-  auto const mapLang = StringUtf8Multilang::GetLangIndex(languages::GetCurrentMapLanguage());
-  if (mapLang != StringUtf8Multilang::kUnsupportedLanguageCode)
-    langs.push_back(mapLang);
+std::vector<std::string> GetSystemPreferredLanguageCodes() {
+  std::vector<std::string> langs = {};
 
   for (auto const & systemLanguage : GetSystemPreferred())
   {
-    auto normalizedLang = Normalize(systemLanguage);
-    int8_t lang = StringUtf8Multilang::GetLangIndex(normalizedLang);
-    if (lang != StringUtf8Multilang::kUnsupportedLanguageCode && find(langs.begin(), langs.end(), lang) == langs.end())
+    auto lang = systemLanguage;
+    if (find(langs.begin(), langs.end(), lang) == langs.end())
       langs.push_back(lang);
   }
   return langs;
@@ -626,7 +604,7 @@ std::string GetCurrentTwine()
 
 std::string GetCurrentMapTwine()
 {
-  return GetTwine(GetCurrentMapLanguage());
+  return GetTwine(localisation::GetMapLanguageCode());
 }
 
 }  // namespace languages

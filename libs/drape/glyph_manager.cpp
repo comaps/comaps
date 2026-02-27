@@ -5,7 +5,6 @@
 #include "drape/harfbuzz_shaping.hpp"
 
 #include "platform/platform.hpp"
-#include "platform/preferred_languages.hpp"
 
 #include "coding/hex.hpp"
 #include "coding/reader.hpp"
@@ -206,9 +205,9 @@ FreetypeError constexpr g_FT_Errors[] =
 
     static void Close(FT_Stream) {}
 
-    void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
+    inline void MarkGlyphReady(uint16_t glyphId) { m_readyGlyphs.emplace(glyphId); }
 
-    bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
+    inline bool IsGlyphReady(uint16_t glyphId) const { return m_readyGlyphs.find(glyphId) != m_readyGlyphs.end(); }
 
     std::string GetName() const { return std::string(m_fontFace->family_name) + ':' + m_fontFace->style_name; }
 
@@ -258,7 +257,7 @@ FreetypeError constexpr g_FT_Errors[] =
     FT_StreamRec_ m_stream;
     FT_Face m_fontFace;
 
-    std::set<uint16_t> m_readyGlyphs;
+    ankerl::unordered_dense::set<uint16_t> m_readyGlyphs;
 
     hb_font_t * m_harfbuzzFont{nullptr};
   };
@@ -329,17 +328,13 @@ FreetypeError constexpr g_FT_Errors[] =
     TUniBlockIter m_lastUsedBlock;
     std::vector<std::unique_ptr<Font>> m_fonts;
 
-    std::string const lang = languages::GetCurrentOrig();
-    hb_language_t const m_language = hb_language_from_string(lang.data(), static_cast<int>(lang.size()));
-
-    // Required to use std::string_view as a search key for std::unordered_map::find().
+    // Required to use std::string_view as a search key for ankerl::unordered_dense::map::find().
     struct StringHash : public std::hash<std::string_view>
     {
       using is_transparent = void;
     };
 
-    // TODO(AB): Compare performance with std::map.
-    std::unordered_map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
+    ankerl::unordered_dense::map<std::string, text::TextMetrics, StringHash, std::equal_to<>> m_textMetricsCache;
     hb_buffer_t * m_harfbuzzBuffer;
   };
 
@@ -568,7 +563,7 @@ FreetypeError constexpr g_FT_Errors[] =
   }
 
   // This method is NOT multithreading-safe.
-  text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHeight)
+  text::TextMetrics GlyphManager::ShapeText(std::string_view utf8, int fontPixelHeight, hb_language_t const textLang)
   {
 #ifdef DEBUG
     static int const fontSize = fontPixelHeight;
@@ -597,8 +592,7 @@ FreetypeError constexpr g_FT_Errors[] =
                           static_cast<int>(text.size()), substring.m_start, substring.m_length);
       hb_buffer_set_direction(m_impl->m_harfbuzzBuffer, substring.m_direction);
       hb_buffer_set_script(m_impl->m_harfbuzzBuffer, substring.m_script);
-      // TODO: This property is static, is it possible to set it only once?
-      hb_buffer_set_language(m_impl->m_harfbuzzBuffer, m_impl->m_language);
+      hb_buffer_set_language(m_impl->m_harfbuzzBuffer, textLang);
 
       auto u32CharacterIter{text.begin() + substring.m_start};
       auto const end{u32CharacterIter + substring.m_length};

@@ -28,7 +28,6 @@
 #include "drape/utils/projection.hpp"
 
 #include "base/logging.hpp"
-#include "base/small_map.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>
@@ -36,6 +35,8 @@
 #include <limits>
 #include <map>
 #include <mutex>
+
+#include "3party/skarupke/flat_hash_map.hpp"
 
 namespace df
 {
@@ -196,7 +197,15 @@ m2::PointF GetOffset(int offsetX, int offsetY)
 
 bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue || shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||  shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey || shield.m_type == ftypes::RoadShieldType::US_Interstate || shield.m_type == ftypes::RoadShieldType::US_Highway || shield.m_type == ftypes::RoadShieldType::Italy_Autostrada || shield.m_type == ftypes::RoadShieldType::Hungary_Green || shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
+  return shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Green ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||
+         shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey ||
+         shield.m_type == ftypes::RoadShieldType::US_Interstate ||
+         shield.m_type == ftypes::RoadShieldType::US_Highway ||
+         shield.m_type == ftypes::RoadShieldType::Italy_Autostrada ||
+         shield.m_type == ftypes::RoadShieldType::Hungary_Green ||
+         shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
 }
 
 std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fontScale)
@@ -232,8 +241,7 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
 
 bool IsColoredRoadShield(ftypes::RoadShield const & shield)
 {
-  return shield.m_type == ftypes::RoadShieldType::Default ||
-         shield.m_type == ftypes::RoadShieldType::Generic_White ||
+  return shield.m_type == ftypes::RoadShieldType::Default || shield.m_type == ftypes::RoadShieldType::Generic_White ||
          shield.m_type == ftypes::RoadShieldType::Generic_Green ||
          shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
          shield.m_type == ftypes::RoadShieldType::Generic_Red ||
@@ -264,7 +272,7 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
 {
   using ftypes::RoadShieldType;
 
-  static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
+  static ska::flat_hash_map<RoadShieldType, df::ColorConstant> const kColors = {
       {RoadShieldType::Generic_White, kRoadShieldWhiteBackgroundColor},
       {RoadShieldType::Generic_Green, kRoadShieldGreenBackgroundColor},
       {RoadShieldType::Generic_Blue, kRoadShieldBlueBackgroundColor},
@@ -287,8 +295,9 @@ dp::Color GetRoadShieldColor(dp::Color const & baseColor, ftypes::RoadShield con
       {RoadShieldType::Generic_Pill_Orange_Bordered, kRoadShieldOrangeBackgroundColor},
       {RoadShieldType::UK_Highway, kRoadShieldGreenBackgroundColor}};
 
-  if (auto const * cl = kColors.Find(shield.m_type); cl)
-    return df::GetColorConstant(*cl);
+  auto const it = kColors.find(shield.m_type);
+  if (it != kColors.cend())
+    return df::GetColorConstant(it->second);
 
   return baseColor;
 }
@@ -297,7 +306,7 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
 {
   using ftypes::RoadShieldType;
 
-  static base::SmallMapBase<ftypes::RoadShieldType, df::ColorConstant> kColors = {
+  static ska::flat_hash_map<RoadShieldType, df::ColorConstant> const kColors = {
       {RoadShieldType::Generic_White, kRoadShieldBlackTextColor},
       {RoadShieldType::Generic_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Generic_Blue, kRoadShieldWhiteTextColor},
@@ -329,19 +338,24 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
 
-  if (auto const * cl = kColors.Find(shield.m_type); cl)
-    return df::GetColorConstant(*cl);
+  auto const it = kColors.find(shield.m_type);
+  if (it != kColors.cend())
+    return df::GetColorConstant(it->second);
 
   return baseColor;
 }
 
 float GetRoadShieldOutlineWidth(float baseWidth, ftypes::RoadShield const & shield)
 {
-  if (shield.m_type == ftypes::RoadShieldType::Generic_White || shield.m_type == ftypes::RoadShieldType::Generic_Green ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Red ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Orange || shield.m_type == ftypes::RoadShieldType::Generic_Pill_White || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue || shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
-      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange || shield.m_type == ftypes::RoadShieldType::UK_Highway)
+  if (shield.m_type == ftypes::RoadShieldType::Generic_White ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Green || shield.m_type == ftypes::RoadShieldType::Generic_Blue ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Red || shield.m_type == ftypes::RoadShieldType::Generic_Orange ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_White ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Green ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Blue ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Red ||
+      shield.m_type == ftypes::RoadShieldType::Generic_Pill_Orange ||
+      shield.m_type == ftypes::RoadShieldType::UK_Highway)
     return 0.0f;
 
   return baseWidth;
@@ -551,8 +565,12 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
     CaptionDefProto const * auxRule = captionRule->has_secondary() ? &captionRule->secondary() : nullptr;
 
     params.m_titleDecl.m_primaryText = m_captions.GetMainText();
+    params.m_titleDecl.m_primaryTextLanguageIndex = m_captions.m_mainTextLanguageIndex;
     if (auxRule)
+    {
       params.m_titleDecl.m_secondaryText = m_captions.GetAuxText();
+      params.m_titleDecl.m_secondaryTextLanguageIndex = m_captions.m_auxTextLanguageIndex;
+    }
     ASSERT(!params.m_titleDecl.m_primaryText.empty(), ());
 
     ExtractCaptionParams(capRule, auxRule, params);
@@ -920,13 +938,23 @@ void ApplyLineFeatureGeometry::ProcessRule(LineRuleProto const & lineRule)
     PathSymProto const & symRule = lineRule.pathsym();
     PathSymbolViewParams params;
     params.m_tileCenter = m_tileRect.Center();
-    params.m_depth = depth;
     params.m_rank = m_f.GetRank();
     params.m_symbolName = symRule.name();
     double const mainScale = df::VisualParams::Instance().GetVisualScale();
     params.m_offset = static_cast<float>(symRule.offset() * mainScale);
     params.m_step = static_cast<float>(symRule.step() * mainScale);
     params.m_baseGtoPScale = m_currentScaleGtoP;
+    if (ftypes::IsUnderBuildingChecker::Instance()(m_f))
+    {
+      params.m_depth = PriorityToDepth(lineRule.priority(), drule::symbol, 0);
+      params.m_depthLayer = DepthLayer::OverlayUnderBuildingLayer;
+      params.m_depthTestEnabled = false;
+    }
+    else
+    {
+      params.m_depth = depth;
+      params.m_depthLayer = DepthLayer::GeometryLayer;
+    }
 
     for (auto const & spline : m_clippedSplines)
       m_insertShape(make_unique_dp<PathSymbolShape>(spline, params));
@@ -1129,7 +1157,9 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
     params.m_depthTestEnabled = false;
     params.m_depth = m_captionDepth;
     params.m_mainText = m_captions.GetMainText();
+    params.m_mainTextLanguageIndex = m_captions.m_mainTextLanguageIndex;
     params.m_auxText = m_captions.GetAuxText();
+    params.m_auxTextLanguageIndex = m_captions.m_auxTextLanguageIndex;
     params.m_textFont = fontDecl;
     params.m_baseGtoPScale = m_currentScaleGtoP;
 

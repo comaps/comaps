@@ -31,7 +31,6 @@ import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
@@ -139,6 +138,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvAtm;
   private View mCapacity;
   private MaterialTextView mTvCapacity;
+  private View mRooms;
+  private MaterialTextView mTvRooms;
   private View mWheelchair;
   private MaterialTextView mTvWheelchair;
   private View mDriveThrough;
@@ -159,6 +160,8 @@ public class PlacePageView extends Fragment
   private ShapeableImageView mColorIcon;
   private MaterialTextView mTvCategory;
   private MaterialButton mEditBookmark;
+  private View mOsmDescriptionContainer;
+  private MaterialTextView mTvOsmDescription;
 
   // Data
   private CoordinatesFormat mCoordsFormat = CoordinatesFormat.LatLonDecimal;
@@ -276,6 +279,10 @@ public class PlacePageView extends Fragment
     mTvCategory.setOnClickListener(this);
     mEditBookmark.setOnClickListener(this);
 
+    mOsmDescriptionContainer = mFrame.findViewById(R.id.osm_description_container);
+    mTvOsmDescription = mFrame.findViewById(R.id.tv__osm_description);
+    mTvOsmDescription.setOnLongClickListener(this);
+
     MaterialButton shareButton = mPreview.findViewById(R.id.share_button);
     shareButton.setOnClickListener(this::shareClickListener);
 
@@ -306,6 +313,8 @@ public class PlacePageView extends Fragment
     mTvAtm = mFrame.findViewById(R.id.tv__place_atm);
     mCapacity = mFrame.findViewById(R.id.ll__place_capacity);
     mTvCapacity = mFrame.findViewById(R.id.tv__place_capacity);
+    mRooms = mFrame.findViewById(R.id.ll__place_rooms);
+    mTvRooms = mFrame.findViewById(R.id.tv__place_rooms);
     mWheelchair = mFrame.findViewById(R.id.ll__place_wheelchair);
     mTvWheelchair = mFrame.findViewById(R.id.tv__place_wheelchair);
     mDriveThrough = mFrame.findViewById(R.id.ll__place_drive_through);
@@ -328,6 +337,7 @@ public class PlacePageView extends Fragment
     mLevel.setOnLongClickListener(this);
     mAtm.setOnLongClickListener(this);
     mCapacity.setOnLongClickListener(this);
+    mRooms.setOnLongClickListener(this);
     mWheelchair.setOnLongClickListener(this);
     mDriveThrough.setOnLongClickListener(this);
     mSelfService.setOnLongClickListener(this);
@@ -428,7 +438,7 @@ public class PlacePageView extends Fragment
 
   private void updateBookmarkView()
   {
-   boolean enabled = mMapObject.isBookmark() || mMapObject.isTrack();
+    boolean enabled = mMapObject.isBookmark() || mMapObject.isTrack();
     updateViewFragment(PlacePageBookmarkFragment.class, BOOKMARK_FRAGMENT_TAG, R.id.place_page_bookmark_fragment,
                        enabled);
   }
@@ -442,8 +452,8 @@ public class PlacePageView extends Fragment
   private boolean hasWikipediaEntry()
   {
     final String wikipediaLink = mMapObject.getMetadata(Metadata.MetadataType.FMD_WIKIPEDIA);
-    final String description = mMapObject.getDescription();
-    return !TextUtils.isEmpty(wikipediaLink) || !TextUtils.isEmpty(description);
+    final String wikiArticle = mMapObject.getWikiArticle();
+    return !TextUtils.isEmpty(wikipediaLink) || !TextUtils.isEmpty(wikiArticle);
   }
 
   private void updateWikipediaView()
@@ -480,7 +490,17 @@ public class PlacePageView extends Fragment
       mToolbar.setTitle(mMapObject.getTitle());
     setTextAndColorizeSubtitle();
     UiUtils.setTextAndHideIfEmpty(mTvAddress, mMapObject.getAddress());
+
     refreshCategoryPreview();
+
+    final String osmDescription = mMapObject.getOsmDescription();
+    if (osmDescription.isEmpty())
+      mOsmDescriptionContainer.setVisibility(GONE);
+    else
+    {
+      mTvOsmDescription.setText(osmDescription);
+      mOsmDescriptionContainer.setVisibility(VISIBLE);
+    }
   }
 
   void refreshCategoryPreview()
@@ -656,6 +676,9 @@ public class PlacePageView extends Fragment
     final String cap = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY);
     refreshMetadataOrHide(!TextUtils.isEmpty(cap) ? getString(R.string.capacity, cap) : "", mCapacity, mTvCapacity);
 
+    final String rooms = mMapObject.getMetadata(Metadata.MetadataType.FMD_ROOMS);
+    refreshMetadataOrHide(!TextUtils.isEmpty(rooms) ? getString(R.string.rooms, rooms) : "", mRooms, mTvRooms);
+
     refreshMetadataOrHide(mMapObject.hasAtm() ? getString(app.organicmaps.sdk.R.string.type_amenity_atm) : "", mAtm,
                           mTvAtm);
 
@@ -715,8 +738,10 @@ public class PlacePageView extends Fragment
           // map editing is disabled because the map is too old
           mTvEditPlace.setEnabled(true);
           mTvAddPlace.setEnabled(true);
-          mTvEditPlace.setOnClickListener((v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
-          mTvAddPlace.setOnClickListener((v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
+          mTvEditPlace.setOnClickListener(
+              (v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
+          mTvAddPlace.setOnClickListener(
+              (v) -> Utils.showSnackbar(v.getContext(), v.getRootView(), R.string.place_page_too_old_to_edit));
 
           CountryItem map = CountryItem.fill(countryId);
 
@@ -761,9 +786,7 @@ public class PlacePageView extends Fragment
       mTvAddPlace.setTextColor(editButtonColor);
       mTvEditPlace.setStrokeColor(ColorStateList.valueOf(editButtonColor));
       mTvAddPlace.setStrokeColor(ColorStateList.valueOf(editButtonColor));
-      UiUtils.showIf(
-          UiUtils.isVisible(mEditPlace) || UiUtils.isVisible(mAddPlace),
-          mEditTopSpace);
+      UiUtils.showIf(UiUtils.isVisible(mEditPlace) || UiUtils.isVisible(mAddPlace), mEditTopSpace);
     }
     updateLinksView();
     updateOpeningHoursView();
@@ -864,10 +887,9 @@ public class PlacePageView extends Fragment
     }
 
     // Get colours
-    final ForegroundColorSpan colorGreen =
-      new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_green));
+    final ForegroundColorSpan colorGreen = new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_green));
     final ForegroundColorSpan colorYellow =
-      new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_yellow));
+        new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_yellow));
     final ForegroundColorSpan colorRed = new ForegroundColorSpan(ContextCompat.getColor(context, R.color.base_red));
 
     // Get next state info
@@ -893,13 +915,12 @@ public class PlacePageView extends Fragment
         if (nextStateTime > 0 && nextStateTime < Long.MAX_VALUE / 2)
         {
           // NOTE: Timezone is currently device timezone. TODO: use feature-specific timezone.
-          nextChangeLocal = ZonedDateTime.ofInstant(
-              Instant.ofEpochSecond(nextStateTime), ZoneId.systemDefault()
-          );
+          nextChangeLocal = ZonedDateTime.ofInstant(Instant.ofEpochSecond(nextStateTime), ZoneId.systemDefault());
           hasFiniteNextChange = true;
         }
       }
-      catch (Throwable ignored) {}
+      catch (Throwable ignored)
+      {}
     }
 
     if (!hasFiniteNextChange) // No valid next change
@@ -914,7 +935,7 @@ public class PlacePageView extends Fragment
     }
 
     String localizedTimeString = OpenStateTextFormatter.formatHoursMinutes(
-      nextChangeLocal.getHour(), nextChangeLocal.getMinute(), DateUtils.is24HourFormat(context));
+        nextChangeLocal.getHour(), nextChangeLocal.getMinute(), DateUtils.is24HourFormat(context));
 
     final boolean shortHorizonClosing = isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_CLOSE_MIN;
     final boolean shortHorizonOpening = !isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_OPEN_MIN;
@@ -922,12 +943,12 @@ public class PlacePageView extends Fragment
     if (shortHorizonClosing || shortHorizonOpening) // POI Opens/Closes in 60 mins • at 18:00
     {
       final String minsToChangeStr = getResources().getQuantityString(
-        R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
+          R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
       final String nextChangeFormatted = getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
 
       openStateString.append(nextChangeFormatted, colorYellow, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        .append(" • ") // Add spacer
-        .append(getString(R.string.at, localizedTimeString));
+          .append(" • ") // Add spacer
+          .append(getString(R.string.at, localizedTimeString));
     }
     else
     {
@@ -937,18 +958,16 @@ public class PlacePageView extends Fragment
       final String closesDayAtStr = getString(R.string.closes_day_at); // "Closes %1$s at %2$s"
 
       final boolean isToday =
-        OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, ZonedDateTime.now(nextChangeLocal.getZone()));
+          OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, ZonedDateTime.now(nextChangeLocal.getZone()));
       // Full weekday name per design feedback.
-      final String dayName =
-        nextChangeLocal.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
+      final String dayName = nextChangeLocal.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
 
       if (isOpen) // > 60 minutes OR negative (safety). Show “Open now • Closes at 18:00”
       {
         openStateString.append(getString(R.string.open_now), colorGreen, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        final String atLabel =
-          OpenStateTextFormatter.buildAtLabel(false, isToday, dayName, localizedTimeString,
-            opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+        final String atLabel = OpenStateTextFormatter.buildAtLabel(
+            false, isToday, dayName, localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
 
         if (!TextUtils.isEmpty(atLabel))
           openStateString.append(" • ").append(atLabel);
@@ -957,9 +976,8 @@ public class PlacePageView extends Fragment
       {
         openStateString.append(getString(R.string.closed_now), colorRed, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        final String atLabel =
-          OpenStateTextFormatter.buildAtLabel(true, isToday, dayName, localizedTimeString,
-            opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+        final String atLabel = OpenStateTextFormatter.buildAtLabel(
+            true, isToday, dayName, localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
 
         if (!TextUtils.isEmpty(atLabel))
           openStateString.append(" • ").append(atLabel);
@@ -1031,6 +1049,8 @@ public class PlacePageView extends Fragment
       items.add(mTvSecondaryTitle.getText().toString());
     else if (id == R.id.tv__address)
       items.add(mTvAddress.getText().toString());
+    else if (id == R.id.tv__osm_description)
+      items.add(mTvOsmDescription.getText().toString());
     else if (id == R.id.ll__place_latlon)
     {
       final double lat = mMapObject.getLat();
@@ -1058,6 +1078,8 @@ public class PlacePageView extends Fragment
       items.add(mTvAtm.getText().toString());
     else if (id == R.id.ll__place_capacity)
       items.add(mTvCapacity.getText().toString());
+    else if (id == R.id.ll__place_rooms)
+      items.add(mTvRooms.getText().toString());
     else if (id == R.id.ll__place_wheelchair)
       items.add(mTvWheelchair.getText().toString());
     else if (id == R.id.ll__place_drive_through)

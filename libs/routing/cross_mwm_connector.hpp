@@ -12,8 +12,9 @@
 #include "base/buffer_vector.hpp"
 
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace routing
 {
@@ -280,7 +281,7 @@ private:
   };
   std::vector<KeyTransitionT> m_transitions;
 
-  using MwmID2FeatureIDMapT = std::unordered_map<CrossMwmId, uint32_t, connector::HashKey>;
+  using MwmID2FeatureIDMapT = ankerl::unordered_dense::map<CrossMwmId, uint32_t, connector::HashKey>;
   MwmID2FeatureIDMapT m_crossMwmIdToFeatureId;
 
   // Weight is the time required for the route to pass edge, measured in seconds rounded upwards.

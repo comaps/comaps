@@ -339,7 +339,6 @@
     <string name="type.highway.pedestrian.area">पादचारी झोन</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">पादचारी पूल</string>
-
     <string name="type.highway.pedestrian.square">चौरस</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">पादचारी बोगदा</string>

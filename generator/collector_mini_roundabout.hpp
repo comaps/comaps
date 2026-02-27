@@ -4,8 +4,7 @@
 #include "generator/mini_roundabout_info.hpp"
 #include "generator/way_nodes_mapper.hpp"
 
-#include <unordered_map>
-#include <unordered_set>
+#include "3party/ankerl/unordered_dense.h"
 
 namespace generator
 {
@@ -39,7 +38,7 @@ private:
   IDRInterfacePtr m_cache;
 
   WaysIDHolder m_roads;
-  std::unordered_map<uint64_t, MiniRoundaboutInfo> m_miniRoundabouts;
-  std::unordered_set<uint64_t> m_miniRoundaboutsExceptions;
+  ankerl::unordered_dense::map<uint64_t, MiniRoundaboutInfo> m_miniRoundabouts;
+  ankerl::unordered_dense::set<uint64_t> m_miniRoundaboutsExceptions;
 };
 }  // namespace generator

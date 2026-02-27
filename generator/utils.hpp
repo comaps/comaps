@@ -21,8 +21,9 @@
 #include <cstdint>
 #include <fstream>
 #include <string>
-#include <unordered_map>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 #define MAIN_WITH_ERROR_HANDLING(func)             \
   int main(int argc, char ** argv)                 \
@@ -87,8 +88,10 @@ bool ForEachOsmId2FeatureId(std::string const & path, ToDo && toDo)
   return true;
 }
 
-bool ParseFeatureIdToOsmIdMapping(std::string const & path, std::unordered_map<uint32_t, base::GeoObjectId> & mapping);
-bool ParseFeatureIdToTestIdMapping(std::string const & path, std::unordered_map<uint32_t, uint64_t> & mapping);
+bool ParseFeatureIdToOsmIdMapping(std::string const & path,
+                                  ankerl::unordered_dense::map<uint32_t, base::GeoObjectId> & mapping);
+bool ParseFeatureIdToTestIdMapping(std::string const & path,
+                                   ankerl::unordered_dense::map<uint32_t, uint64_t> & mapping);
 
 search::CBV GetLocalities(std::string const & dataPath);
 

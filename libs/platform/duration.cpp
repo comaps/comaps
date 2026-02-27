@@ -1,5 +1,6 @@
 #include "duration.hpp"
 
+#include "base/localisation_translation.hpp"
 #include "base/stl_helpers.hpp"
 
 /// @todo(KK): move the formatting code from the platform namespace
@@ -103,9 +104,9 @@ std::string Duration::GetUnitsString(Units unit)
 {
   switch (unit)
   {
-  case Units::Minutes: return platform::GetLocalizedString("minute");
-  case Units::Hours: return platform::GetLocalizedString("hour");
-  case Units::Days: return platform::GetLocalizedString("day");
+  case Units::Minutes: return localisation::TranslatedInterfaceText("minute");
+  case Units::Hours: return localisation::TranslatedInterfaceText("hour");
+  case Units::Days: return localisation::TranslatedInterfaceText("day");
   default: UNREACHABLE();
   }
 }

@@ -19,7 +19,6 @@
       style="@style/MwmWidget.Editor.FieldLayout.EditText"
       android:inputType="textCapSentences"
       android:padding="@dimen/margin_base"
-      android:singleLine="true"
       android:textAlignment="viewStart" />
   </com.google.android.material.textfield.TextInputLayout>
   <com.google.android.material.imageview.ShapeableImageView

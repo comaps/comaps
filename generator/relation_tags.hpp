@@ -66,7 +66,7 @@ class RelationTagsWay : public RelationTagsBase
 {
 private:
   using Base = RelationTagsBase;
-  using NameKeys = std::unordered_set<std::string>;
+  using NameKeys = ankerl::unordered_dense::set<std::string>;
 
   bool IsAcceptBoundary(RelationElement const & e) const;
 

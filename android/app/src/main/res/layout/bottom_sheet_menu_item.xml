@@ -26,7 +26,7 @@
     android:paddingStart="@dimen/margin_base"
     android:paddingEnd="@dimen/margin_base"
     android:gravity="center_vertical"
-    android:singleLine="true"
+    android:maxLines="1"
     tools:text="Menu Item" />
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/bottom_sheet_menu_item_badge"

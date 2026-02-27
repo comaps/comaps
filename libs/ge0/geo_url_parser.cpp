@@ -21,7 +21,8 @@ double constexpr kEps = 1e-10;
 //    maximal zoom levels.
 double constexpr kMaxZoom = 20.0;
 
-bool MatchLatLonZoom(string const & s, boost::regex const & re, size_t lati, size_t loni, size_t zoomi, GeoURLInfo & info)
+bool MatchLatLonZoom(string const & s, boost::regex const & re, size_t lati, size_t loni, size_t zoomi,
+                     GeoURLInfo & info)
 {
   boost::smatch m;
   if (!boost::regex_search(s, m, re) || m.size() != 4)
@@ -146,7 +147,10 @@ int LatLonParser::GetCoordinatesPriority(string const & token)
   return -1;
 }
 
-GeoParser::GeoParser() : m_latlonRe(boost::regex(R"(([+-]?\d+(?:\.\d+)?), *([+-]?\d+(?:\.\d+)?)(:?, *([+-]?\d+(?:\.\d+)?))?)")), m_zoomRe(boost::regex(kFloatIntScale)) {}
+GeoParser::GeoParser()
+  : m_latlonRe(boost::regex(R"(([+-]?\d+(?:\.\d+)?), *([+-]?\d+(?:\.\d+)?)(:?, *([+-]?\d+(?:\.\d+)?))?)"))
+  , m_zoomRe(boost::regex(kFloatIntScale))
+{}
 
 bool GeoParser::Parse(std::string const & raw, GeoURLInfo & info) const
 {

@@ -10,7 +10,6 @@ import androidx.fragment.app.DialogFragment;
 
 public class BaseMwmDialogFragment extends DialogFragment
 {
-
   protected int getStyle()
   {
     return STYLE_NORMAL;

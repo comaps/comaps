@@ -260,7 +260,7 @@ public:
 
 private:
   FileReader m_fileReader;
-  std::unordered_map<uint64_t, LatLon> m_map;
+  ankerl::unordered_dense::map<uint64_t, LatLon> m_map;
 };
 
 class MapFilePointStorageWriter : public PointStorageWriterBase
@@ -390,7 +390,7 @@ IntermediateDataObjectsCache::AllocatedObjects & IntermediateDataObjectsCache::G
 void IntermediateDataObjectsCache::Clear()
 {
   std::lock_guard lock(m_mutex);
-  std::unordered_map<string, AllocatedObjects>().swap(m_objects);
+  ankerl::unordered_dense::map<string, AllocatedObjects>().swap(m_objects);
 }
 
 IntermediateDataObjectsCache::AllocatedObjects::AllocatedObjects(feature::GenerateInfo::NodeStorageType type,

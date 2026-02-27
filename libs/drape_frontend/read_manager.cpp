@@ -40,7 +40,7 @@ ReadManager::ReadManager(ref_ptr<ThreadsCommutator> commutator, MapDataProvider 
   , m_trafficEnabled(trafficEnabled)
   , m_isolinesEnabled(isolinesEnabled)
   , m_modeChanged(false)
-  , m_mapLangIndex(StringUtf8Multilang::kDefaultCode)
+  , m_mapLangIndex(localisation::kDefaultNameIndex)
   , m_tasksPool(64, ReadMWMTaskFactory(m_model))
   , m_counter(0)
   , m_generationCounter(0)

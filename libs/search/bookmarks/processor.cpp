@@ -25,7 +25,7 @@ struct DocVecWrapper
   void ForEachToken(Fn && fn) const
   {
     for (size_t i = 0; i < m_dv.GetNumTokens(); ++i)
-      fn(StringUtf8Multilang::kDefaultCode, m_dv.GetToken(i));
+      fn(localisation::kDefaultNameIndex, m_dv.GetToken(i));
   }
 
   DocVec const & m_dv;
@@ -261,7 +261,7 @@ void Processor::Finish(bool cancelled)
 
 uint64_t Processor::GetNumDocs(strings::UniString const & token, bool isPrefix) const
 {
-  return base::asserted_cast<uint64_t>(m_index.GetNumDocs(StringUtf8Multilang::kDefaultCode, token, isPrefix));
+  return base::asserted_cast<uint64_t>(m_index.GetNumDocs(localisation::kDefaultNameIndex, token, isPrefix));
 }
 
 QueryVec Processor::GetQueryVec(IdfMap & idfs, QueryParams const & params) const

@@ -12,8 +12,9 @@
 #include <limits>
 #include <optional>
 #include <set>
-#include <unordered_set>
 #include <vector>
+
+#include "3party/ankerl/unordered_dense.h"
 
 class DataSource;
 
@@ -162,8 +163,8 @@ private:
   /// search session. They're used for filtering of current search, because we need to give more priority
   /// to results that were on map previously, to avoid result's annoying blinking/flickering on map.
   /// @{
-  std::unordered_set<FeatureID> m_currEmit;
-  std::unordered_set<FeatureID> m_prevEmit;
+  ankerl::unordered_dense::set<FeatureID> m_currEmit;
+  ankerl::unordered_dense::set<FeatureID> m_prevEmit;
   /// @}
 
   unsigned m_rndSeed;

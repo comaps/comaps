@@ -85,7 +85,7 @@ feature::TypesHolder const & MapObject::GetTypes() const
 string_view MapObject::GetDefaultName() const
 {
   string_view name;
-  UNUSED_VALUE(m_name.GetString(StringUtf8Multilang::kDefaultCode, name));
+  UNUSED_VALUE(m_name.GetString(localisation::kDefaultNameIndex, name));
   return name;
 }
 
@@ -110,7 +110,7 @@ std::string MapObject::GetLocalizedType() const
   feature::TypesHolder copy(m_types);
   copy.SortBySpec();
 
-  return platform::GetLocalizedTypeName(classif().GetReadableObjectName(copy.GetBestType()));
+  return localisation::TranslatedFeatureType(classif().GetReadableObjectName(copy.GetBestType()));
 }
 
 std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
@@ -150,7 +150,7 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
     else
       oss << feature::kFieldsSeparator;
 
-    oss << platform::GetLocalizedTypeName(classif().GetReadableObjectName(type));
+    oss << localisation::TranslatedFeatureType(classif().GetReadableObjectName(type));
   }
 
   return oss.str();
@@ -243,6 +243,11 @@ int MapObject::GetStars() const
 std::string MapObject::GetCapacity() const
 {
   return std::string(m_metadata.Get(MetadataID::FMD_CAPACITY));
+}
+
+std::string MapObject::GetRooms() const
+{
+  return std::string(m_metadata.Get(MetadataID::FMD_ROOMS));
 }
 
 bool MapObject::IsPointType() const

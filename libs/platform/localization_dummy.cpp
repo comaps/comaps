@@ -1,6 +1,6 @@
 #include <ctime>
-#include "platform/localization.hpp"
 #include "indexer/localized_types_map.cpp"
+#include "platform/localization.hpp"
 
 namespace platform
 {

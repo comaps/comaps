@@ -793,49 +793,32 @@ void FeatureType::ParseGeometryAndTriangles(int scale)
   ParseTriangles(scale);
 }
 
-void FeatureType::GetPreferredNames(bool allowTranslit, int8_t deviceLang, feature::NameParamsOut & out)
+std::vector<localisation::LanguageIndex> FeatureType::GetLanguages()
 {
-  if (!HasName())
-    return;
-
   auto const & mwmInfo = m_id.m_mwmId.GetInfo();
   if (!mwmInfo)
-    return;
-
-  ParseCommon();
-
-  feature::GetPreferredNames({GetNames(), mwmInfo->GetRegionData(), deviceLang, allowTranslit}, out);
-}
-
-string_view FeatureType::GetReadableName()
-{
-  feature::NameParamsOut out;
-  GetReadableName(false /* allowTranslit */, StringUtf8Multilang::GetLangIndex(languages::GetCurrentMapLanguage()),
-                  out);
-  return out.primary;
-}
-
-void FeatureType::GetReadableName(bool allowTranslit, int8_t deviceLang, feature::NameParamsOut & out)
-{
-  if (!HasName())
-    return;
-
-  auto const & mwmInfo = m_id.m_mwmId.GetInfo();
-  if (!mwmInfo)
-    return;
-
-  ParseCommon();
+    return {};
 
   auto regionData = mwmInfo->GetRegionData();
   if (regionData.IsWorldLevel())
   {
     if (GetGeomType() == feature::GeomType::Point)
-      regionData.SetLanguages(RegionLocator::Instance().GetLocalLanguages(GetCenter()));
+      regionData.SetLanguages(RegionLocator::Instance().GetLocalLanguageIndexes(GetCenter()));
     else
-      regionData.SetLanguages({"int_name", "en", "default"});
+      regionData.SetLanguages({localisation::kInternationalNameIndex, localisation::kEnglishLanguageIndex, localisation::kDefaultNameIndex});
   }
 
-  feature::GetReadableName({GetNames(), regionData, deviceLang, allowTranslit}, out);
+  return regionData.GetLanguages();
+}
+
+localisation::NameTranslation FeatureType::GetTranslatedName()
+{
+  if (!HasName())
+    return {};
+
+  ParseCommon();
+
+  return localisation::TranslatedFeatureName(GetNames(), GetLanguages());
 }
 
 string const & FeatureType::GetHouseNumber()

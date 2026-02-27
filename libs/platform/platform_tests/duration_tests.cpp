@@ -48,7 +48,7 @@ Locale GetLocale(std::string const & language)
 }
 /*
  Localized string cannot be retrieved from the app target bundle during the tests execution
- and the platform::GetLocalizedString will return the same string as the input ("minute", "hour" etc).
+ and the localisation::TranslatedInterfaceText will return the same string as the input ("minute", "hour" etc).
  This is why the expectation strings are not explicit.
  */
 

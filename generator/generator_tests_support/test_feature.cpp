@@ -308,7 +308,7 @@ std::pair<TestPOI, FeatureID> TestPOI::AddWithEditor(osm::Editor & editor, MwmSe
   editor.CreatePoint(classif().GetTypeByPath({"shop", "bakery"}), pt, mwmId, emo);
 
   StringUtf8Multilang names;
-  names.AddString(StringUtf8Multilang::GetLangIndex("en"), enName);
+  names.AddString(localisation::ConvertLanguageCodeToLanguageIndex("en"), enName);
   emo.SetName(names);
   emo.SetTestId(poi.GetId());
 

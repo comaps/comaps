@@ -4,7 +4,8 @@
 #include "search/token_range.hpp"
 
 #include <sstream>
-#include <unordered_map>
+
+#include "3party/ankerl/unordered_dense.h"
 
 namespace search
 {
@@ -15,7 +16,7 @@ namespace
 // All synonyms should be lowercase.
 
 /// @todo These should check the map language and use only the corresponding translation.
-unordered_map<string, vector<string>> const kSynonyms = {
+ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
     /// @todo Should process synonyms with errors like "blvrd" -> "blvd".
     /// @see HouseOnStreetSynonymsWithMisprints test.
     {"10a", {"décima"}},
@@ -104,7 +105,8 @@ unordered_map<string, vector<string>> const kSynonyms = {
     {"ahi", {"ambohi"}},
     {"aire", {"aire", "aires"}},
     {"akh", {"allgemeines krankenhaus"}},
-    {"al", {"alejach", "aleją", "alley", "alei", "alue", "aleja", "alameda", "alle", "aleea", "aleje", "allee", "alėja"}},
+    {"al",
+     {"alejach", "aleją", "alley", "alei", "alue", "aleja", "alameda", "alle", "aleea", "aleje", "allee", "alėja"}},
     {"alam", {"alameda"}},
     {"alea", {"aleea"}},
     {"ale", {"aleea"}},
@@ -1569,7 +1571,7 @@ void QueryParams::Clear()
   m_hasPrefix = false;
   m_isCommonToken.clear();
   m_typeIndices.clear();
-  m_langs.Clear();
+  m_langs.clear();
 }
 
 bool QueryParams::IsCategorySynonym(size_t i) const
@@ -1664,7 +1666,7 @@ string DebugPrint(QueryParams const & params)
   ostringstream os;
   os << boolalpha << "QueryParams "
      << "{ m_tokens: " << ::DebugPrint(params.m_tokens) << ", m_prefixToken: " << DebugPrint(params.m_prefixToken)
-     << ", m_typeIndices: " << ::DebugPrint(params.m_typeIndices) << ", m_langs: " << DebugPrint(params.m_langs)
+     << ", m_typeIndices: " << ::DebugPrint(params.m_typeIndices) << ", m_langs: " << ::DebugPrint(params.m_langs)
      << ", m_isCommonToken: " << ::DebugPrint(params.m_isCommonToken) << " }";
   return os.str();
 }

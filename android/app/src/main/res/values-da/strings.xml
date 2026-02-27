@@ -260,7 +260,7 @@
     <string name="downloader_download_all_button">Download alle</string>
     <string name="downloader_downloading">Downloader:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">For at slette kortet skal du stoppe navigeringen</string>
+    <string name="downloader_delete_map_while_routing_dialog">For at slette et kort skal navigationen først stoppes</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Der kan kun oprettes ruter, der er fuldt ud indeholdt i et kort over en enkelt region.</string>
     <!-- Context menu item for downloader. -->
@@ -456,10 +456,10 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d af %2$d</string>
     <string name="download_over_mobile_header">Download ved brug af mobilnetværksforbindelse?</string>
-    <string name="download_over_mobile_message">Dette kan være meget dyrt med nogle abonnementer eller ved roaming</string>
+    <string name="download_over_mobile_message">Dette kan være meget dyrt med nogle mobilabonnementer, især ved roaming.</string>
     <string name="error_enter_correct_house_number">Indtast et gyldigt bygningsnummer</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Antallet af etager må ikke overstige %d etager</string>
+    <string name="error_enter_correct_storey_number">Antallet af etager må ikke overstige %d</string>
     <string name="editor_zip_code">Postnummer</string>
     <string name="error_enter_correct_zip_code">Indtast et gyldigt postnummer</string>
     <!-- Title for OSM note section in the editor -->
@@ -475,7 +475,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operatør: %s</string>
     <string name="editor_category_unsuitable_title">Kan du ikke finde en passende kategori?</string>
-    <string name="editor_category_unsuitable_text">CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids osv. Tilføj sådanne kategorier direkte til <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Se vores <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerede trin for trin-instruktioner.</string>
+    <string name="editor_category_unsuitable_text">CoMaps giver kun mulighed for at tilføje simple punktkategorier, dvs. ingen byer, veje, søer, bygningsomrids osv. Tilføj sådanne kategorier direkte på <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Se vores <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detaljerede trin for trin-instruktioner.</string>
     <string name="downloader_no_downloaded_maps_title">Du har ikke downloadet nogen kort</string>
     <string name="downloader_no_downloaded_maps_message">Download kort for at søge og navigere offline</string>
     <string name="current_location_unknown_error_title">Aktuel placering er ukendt</string>
@@ -526,8 +526,8 @@
     <string name="enable_logging">Aktiver logføring</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Generel feedback</string>
-    <string name="prefs_languages_information">Vi bruger systemets TTS til stemmevejledning. Mange Android-enheder bruger Google TTS, du kan hente eller opdatere det via Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">For nogle sprog skal du installere en anden talesyntese eller en yderligere sprogpakke fra appbutiken (Google Play, Galaxy Store, App Gallery, FDroid). \nÅbn enhedens indstillinger → Sprog og input → Tale → Tekst til tale. \nHer kan du administrere indstillingerne for talesyntese (f.eks. downloade en sprogpakke til brug offline) og vælge et andet tekst-til-tale program.</string>
+    <string name="prefs_languages_information">Vi bruger systemets TTS til stemmevejledning. Mange Android-enheder bruger Google TTS, du kan hente eller opdatere det via Google Play Butik (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Nogle sprog kræver, at du installerer en talesyntese eller et ekstra sprogpakke fra en app-butik (Google Play, Galaxy Store, App Gallery, F-Droid). \nÅbn din enheds indstillinger → Sprog og input → Tale → Tekst til tale. \nHer kan du administrere indstillingerne for talesyntese (f.eks. downloade en sprogpakke til offline brug) og vælge et andet tekst-til-tale-program.</string>
     <string name="prefs_languages_information_off_link">Se denne vejledning for flere oplysninger</string>
     <string name="transliteration_title">Translitterer til det latinske alfabet</string>
     <string name="learn_more">Flere oplysninger</string>
@@ -564,7 +564,7 @@
     <string name="bookmarks_error_message_list_name_already_taken">Vælg venligst et andet navn</string>
     <string name="please_wait">Vent venligst…</string>
     <string name="phone_number">Telefonnummer</string>
-    <string name="profile">OpenStreetMap profil</string>
+    <string name="profile">OpenStreetMap-profil</string>
     <plurals name="bookmarks_detect_message">
         <item quantity="one">%d fil blev fundet. Du vil se den efter konvertering.</item>
         <item quantity="other">%d filer blev fundet. Du vil se dem efter konvertering.</item>
@@ -853,9 +853,9 @@
     <string name="share_track">Del spor</string>
     <string name="delete_track_dialog_title">Slet %s?</string>
     <string name="pref_tts_no_system_tts_short">Der blev ikke fundet nogen tekst-til-tale-motor. Kontrollér appens indstillinger</string>
-    <string name="osm_note_hint">Du kan også efterlade en bemærkning til OpenStreetMap-fællesskabet, så en anden kan tilføje eller rette stedet her.</string>
+    <string name="osm_note_hint">Alternativt kan du efterlade en bemærkning til OpenStreetMap-fællesskabet, så en anden kan tilføje eller rette et sted her.</string>
     <string name="osm_note_toast">Bemærkning vil blive sendt til OpenStreetMap</string>
-    <string name="existence_confirmed_time_ago">Eksistens bekræftet %s</string>
+    <string name="existence_confirmed_time_ago">Eksistens bekræftet for %s</string>
     <string name="hours_confirmed_time_ago">Bekræftet %s</string>
     <string name="editor_place_doesnt_exist_description">Beskriv, hvordan stedet ser ud nu, for at sende en fejlnote til OpenStreetMap-fællesskabet</string>
     <string name="avoid_steps">Undgå trapper</string>
@@ -908,8 +908,19 @@
     <string name="download_resources_custom_url_summary_none">Ikke indstillet</string>
     <string name="download_resources_custom_url_error_scheme">Indtast en URL, der starter med http:// eller https://</string>
     <string name="pref_maplanguage_local">Lokalt sprog</string>
-    <string name="limit_map_language_alternatives_to_local">Brug kun andre systemsprog i deres region</string>
     <string name="location_privacy_info">Apps modtager placeringsdata fra din OS-placeringstjeneste, som muligvis deler din placering med Google og/eller din enhedsleverandør. Brug et Android-operativsystem, der beskytter dit privatliv, for at undgå dette.</string>
     <string name="location_privacy">Placeringsbeskyttelse</string>
     <string name="pref_speedlimit_title">Vis hastighedsgrænser</string>
+    <string name="rooms">%s værelser</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="invalid_route">Ugyldig rute</string>
+    <string name="building_route">Bygger rute…</string>
+    <string name="route_not_started">Rute ikke startet</string>
+    <string name="on_route">På rute</string>
+    <string name="route_needs_rebuild">Rute skal genopbygges</string>
+    <string name="route_finished">Rute færdig</string>
+    <string name="not_following_route">Følger ikke rute</string>
+    <string name="rebuilding_route">Genopbygger rute…</string>
+    <string name="pref_openexternallinks_title">Åbn automatisk links fra tredjeparter</string>
+    <string name="pref_openexternallinks_summary">Åbn som standard links fra tredjeparter i CoMaps</string>
 </resources>

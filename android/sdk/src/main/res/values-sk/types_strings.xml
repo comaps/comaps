@@ -424,7 +424,6 @@
     <string name="type.highway.pedestrian.area">Pešia zóna</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.pedestrian.bridge">Most pre chodcov</string>
-
     <string name="type.highway.pedestrian.square">Námestie</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.pedestrian.tunnel">Tunel pre chodcov</string>

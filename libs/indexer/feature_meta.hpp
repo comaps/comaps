@@ -125,6 +125,7 @@ public:
     FMD_CHECK_DATE_OPEN_HOURS = 54,
     FMD_BRANCH = 55,
     FMD_CHARGE_SOCKETS = 56,
+    FMD_ROOMS = 57,
     FMD_COUNT
   };
 
@@ -226,7 +227,9 @@ public:
 
   bool IsWorldLevel() const;
   void SetLanguages(std::vector<std::string> const & codes);
+  void SetLanguages(std::vector<int8_t> const & codes);
   void GetLanguages(std::vector<int8_t> & langs) const;
+  std::vector<int8_t> GetLanguages() const;
   bool HasLanguage(int8_t const lang) const;
   bool IsSingleLanguage(int8_t const lang) const;
 

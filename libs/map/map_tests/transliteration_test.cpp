@@ -11,7 +11,7 @@ void TestTransliteration(Transliteration const & translit, std::string const & l
                          std::string const & expected)
 {
   std::string out;
-  translit.Transliterate(original, StringUtf8Multilang::GetLangIndex(locale), out);
+  translit.Transliterate(original, localisation::ConvertLanguageCodeToLanguageIndex(locale), out);
   TEST_EQUAL(expected, out, ());
 }
 }  // namespace

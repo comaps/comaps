@@ -21,14 +21,14 @@
     <string name="about_headline">Odprt projekt, ki ga vzdržuje skupnost</string>
     <string name="about_proposition_1">• Enostaven za uporabo in domišljen</string>
     <string name="about_proposition_2">• Osredotočen na zasebnost in brez oglasov</string>
-    <string name="about_proposition_3">• Ne potrebuje internetne povezave, je hiter in priročen</string>
+    <string name="about_proposition_3">• Ne potrebuje spletne povezave, je hitro in priročno</string>
     <string name="about_developed_by_enthusiasts">Je popolnoma odprtokoden in nepridobiten, vse odločanje in upravljanje s financami je transparentno.</string>
     <string name="location_settings">Nastavitve položaja</string>
     <string name="close">Zapri</string>
     <string name="unsupported_phone">Aplikacija potrebuje strojno pospešeni OpenGL. Na žalost vaša naprava ni podprta.</string>
     <string name="download">Prenesi</string>
     <string name="dialog_routing_location_turn_on">Omogoči položajne storitve</string>
-    <string name="download_over_mobile_message">To je lahko precej drago z nekaterimi mobilnimi naročninami ali če gostujete v tujem omrežju</string>
+    <string name="download_over_mobile_message">To je lahko precej drago z nekaterimi mobilnimi naročninami ali če gostujete v tujem mobilnem omrežju.</string>
     <string name="error_enter_correct_house_number">Vnesite veljavno številko stavbe</string>
     <string name="app_site_url">https://comaps.app/</string>
     <string name="disconnect_usb_cable">Pred uporabo CoMaps iztaknite kabel USB ali vstavite spominsko kartico</string>
@@ -130,7 +130,7 @@
     <string name="website">Spletišče</string>
     <string name="news">Novice</string>
     <string name="panoramax">Fotografija Panoramax</string>
-    <string name="feedback">Povratne informacije</string>
+    <string name="feedback">Povratno mnenje</string>
     <string name="rate_the_app">Ocenite aplikacijo</string>
     <string name="help">Pomoč</string>
     <string name="faq">Pogosta vprašanja</string>
@@ -149,14 +149,14 @@
     <string name="downloader_status_maps">Zemljevidi</string>
     <string name="downloader_download_all_button">Prenesi vse</string>
     <string name="downloader_downloading">Prenašam:</string>
-    <string name="downloader_delete_map_while_routing_dialog">Preden izbrišete zemljevid, ustavite navigacijo</string>
-    <string name="routing_failed_cross_mwm_building">Lahko ustvarite samo relacije, ki so vsebovane v zemljevidu enega območja.</string>
+    <string name="downloader_delete_map_while_routing_dialog">Preden izbrišete zemljevid, ustavite potno usmerjanje</string>
+    <string name="routing_failed_cross_mwm_building">Lahko ustvarite samo poti, ki so vsebovane v zemljevidu sklenjenega območja.</string>
     <string name="downloader_download_map">Prenesite zemljevid</string>
     <string name="downloader_retry">Poskusi znova</string>
     <string name="downloader_delete_map">Izbriši zemljevid</string>
     <string name="downloader_update_map">Posodobi zemljevid</string>
     <string name="pref_use_google_play">Lastniška storitev, ki s pomočjo več tehnologij, kot so GPS, Wi-Fi, mobilno omrežje itd., natančneje določi vašo lokacijo. Morda zahteva povezavo na Googlove strežnike.</string>
-    <string name="routing_download_maps_along">Prenesite vse zemljevide, čez katere gre vaša relacija</string>
+    <string name="routing_download_maps_along">Prenesite vse zemljevide, čez katere gre vaša pot</string>
     <string name="routing_requires_all_map">Preden lahko ustvarite povezavo, morate prenesti in posodobiti vse zemljevide med vašim trenutnim položajem in končnim ciljem.</string>
     <string name="routing_not_enough_space">Ni dovolj prostora</string>
     <string name="enable_location_services">Omogočite položajne storitve</string>
@@ -177,24 +177,24 @@
     <string name="deep_orange">Temno oranžna</string>
     <string name="gray">Siva</string>
     <string name="blue_gray">Modrosiva</string>
-    <string name="dialog_routing_disclaimer_title">Ko potujete po relaciji, imejte v mislih, da:</string>
+    <string name="dialog_routing_disclaimer_title">Ko potujete po načrtovani povezavi, imejte v mislih:</string>
     <string name="dialog_routing_disclaimer_priority">— imajo stanje na cesti, cestnoprometni predpisi in prometni znaki vedno prednost pred navigacijskimi predlogi;</string>
     <string name="dialog_routing_disclaimer_precision">— je lahko zemljevid nenatančen in predlagana pot ni vedno najbolj optimalna;</string>
-    <string name="dialog_routing_disclaimer_recommendations">— so predlagane relacije zgolj in samo priporočila;</string>
+    <string name="dialog_routing_disclaimer_recommendations">- predlagane poti so zgolj in samo priporočila;</string>
     <string name="dialog_routing_disclaimer_borders">— morate biti previdni ob mejah: poti, ki jih začrta naša aplikacija, lahko včasih peljejo čez državne meje na nedovoljenih krajih.</string>
     <string name="dialog_routing_disclaimer_beware">Na cesti bodite pozorni in poskrbite za varnost!</string>
     <string name="dialog_routing_check_gps">Preveri signal GPS</string>
-    <string name="dialog_routing_error_location_not_found">Relacije ni bilo mogoče ustvariti. Ne morem določiti trenutnih koordinat GPS.</string>
+    <string name="dialog_routing_error_location_not_found">Poti ni bilo mogoče ustvariti. Trenutni položaj GPS je nedoločljiv.</string>
     <string name="dialog_routing_location_turn_wifi">Preverite svoj signal GPS. Vaš položaj se bo dalo natančneje določiti, če omogočite Wi-Fi.</string>
     <string name="dialog_routing_location_unknown_turn_on">Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun povezave morate vklopiti položajne storitve.</string>
-    <string name="dialog_routing_unable_locate_route">Ni bilo mogoče najti relacije</string>
+    <string name="dialog_routing_unable_locate_route">Poti ni bilo mogoče najti</string>
     <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti relacije</string>
     <string name="dialog_routing_change_start_or_end">Prilagodite svoje izhodišče ali cilj.</string>
     <string name="dialog_routing_change_start">Prilagodi izhodišče</string>
-    <string name="dialog_routing_start_not_determined">Relacija ni bila ustvarjena. Ne morem najti izhodišča.</string>
+    <string name="dialog_routing_start_not_determined">Pot ni bila ustvarjena. Ni mogoče najti izhodišča.</string>
     <string name="dialog_routing_select_closer_start">Izberite izhodišče, ki je bližje cesti.</string>
     <string name="dialog_routing_change_end">Prilagodi cilj</string>
-    <string name="dialog_routing_end_not_determined">Relacija ni bila ustvarjena. Ne morem najti cilja.</string>
+    <string name="dialog_routing_end_not_determined">Pot ni bila ustvarjena. Ni bilo mogoče najti cilja.</string>
     <string name="dialog_routing_select_closer_end">Izberite ciljno točko, ki je bližje cesti</string>
     <string name="dialog_routing_change_intermediate">Ne morem najti vmesne točke</string>
     <string name="dialog_routing_intermediate_not_determined">Prilagodite vmesno točko</string>
@@ -202,9 +202,9 @@
     <string name="dialog_routing_application_error">Zaradi aplikacijske napake ne morem ustvariti relacije</string>
     <string name="dialog_routing_try_again">Poskusite znova</string>
     <string name="not_now">Ne zdaj</string>
-    <string name="dialog_routing_download_and_build_cross_route">Bi želeli prenesti zemljevid, da izračunam ugodnejšo relacijo, ki vodi čez več kot en zemljevid?</string>
-    <string name="dialog_routing_download_cross_route">Prenesite dodatne zemljevide, da ustvarite boljšo relacijo, ki vodi izven tega zemljevida.</string>
-    <string name="search_without_internet_advertisement">Preden začnete iskati in ustvarjati potne povezave, prenesite ustrezne zemljevide. Po tem spletne povezave ne boste več potrebovali.</string>
+    <string name="dialog_routing_download_and_build_cross_route">Bi želeli prenesti zemljevid za boljši izračun najugodnejše poti, ki vodi čez več kot en zemljevid?</string>
+    <string name="dialog_routing_download_cross_route">Za boljši izračun poti, ki vodi izven tega zemljevida, prenesite dodatne zemljevide.</string>
+    <string name="search_without_internet_advertisement">Preden začnete z iskanjem in ustvarjanjem potnih povezav, prenesite ustrezne zemljevide. Potem spletne povezave ne boste več potrebovali.</string>
     <string name="search_select_map">Izberi zemljevid</string>
     <string name="show">Pokaži</string>
     <string name="hide">Skrij</string>
@@ -219,8 +219,8 @@
     <string name="wikimedia_commons">Wikimedijina zbirka</string>
     <string name="p2p_your_location">Vaš trenutni položaj</string>
     <string name="p2p_start">Začetek</string>
-    <string name="p2p_from_here">Relacija iz</string>
-    <string name="p2p_to_here">Relacija v</string>
+    <string name="p2p_from_here">Pot od</string>
+    <string name="p2p_to_here">Pot do</string>
     <string name="p2p_only_from_current">Potno usmerjanje je mogoče le z vašega trenutnega položaja</string>
     <string name="p2p_reroute_from_current">Ali želite načrtovati pot z vašega trenutnega položaja?</string>
     <string name="next_button">Naprej</string>
@@ -283,7 +283,7 @@
     <string name="downloader_update_maps">Posodobi zemljevide</string>
     <string name="downloader_mwm_migration_dialog">Relacijo ustvarite tako, da posodobite vse zemljevide in ponovno začrtate relacijo.</string>
     <string name="downloader_search_field_hint">Najdi zemljevid</string>
-    <string name="common_check_internet_connection_dialog">Preverite, da je vaša naprava povezana na internet</string>
+    <string name="common_check_internet_connection_dialog">Preverite, da je vaša naprava povezana s spletom</string>
     <string name="downloader_no_space_title">Ni dovolj prostora</string>
     <string name="downloader_no_space_message">Izbrišite vse nepotrebne podatke</string>
     <string name="editor_login_error_dialog">Napaka pri prijavi</string>
@@ -315,9 +315,9 @@
     <string name="operator">Izvajalec: %s</string>
     <string name="editor_operator">Izvajalec</string>
     <string name="editor_category_unsuitable_title">Ne najdete primerne kategorije?</string>
-    <string name="editor_category_unsuitable_text">CoMaps dovoljuje dodajanje preprostih točkovnih kategorij, ne pa mest, cest, jezer, obrisov stavb itd. Tovrstne kategorije dodajte neposredno na <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Natančna navodila si preberite v <a href="https://www.comaps.app/support/advanced-map-editing/">vodiču</a>.</string>
+    <string name="editor_category_unsuitable_text">CoMaps omogoča zgolj dodajanje preprostih točkovnih kategorij, ne pa mest, cest, jezer, obrisov stavb itd. Tovrstne kategorije dodajte neposredno na <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Natančna navodila si preberite v <a href="https://www.comaps.app/support/advanced-map-editing/">vodiču</a>.</string>
     <string name="downloader_no_downloaded_maps_title">Prenesli niste nobenih zemljevidov</string>
-    <string name="downloader_no_downloaded_maps_message">Prenesite zemljevide, da jih lahko uporabite tudi brez internetne povezave</string>
+    <string name="downloader_no_downloaded_maps_message">Prenesite zemljevide, da jih lahko uporabite tudi brez spletne povezave</string>
     <string name="current_location_unknown_error_title">Trenutni položaj ni znan</string>
     <string name="kilometers_per_hour">km/h</string>
     <string name="miles_per_hour">milj/h</string>
@@ -346,21 +346,21 @@
     <string name="error_enter_correct_fediverse_page">Vnesite veljavno uporabniško ime ali naslov za Mastodon</string>
     <string name="error_enter_correct_bluesky_page">Vnesite veljavno uporabniško ime ali naslov za Bluesky</string>
     <string name="placepage_add_place_button">Dodaj kraj na OpenStreetMap</string>
-    <string name="osm_note_hint">Ali pa pusti sporočilo skupnosti OpenStreetMap, da bo nekdo drug dodal ali popravil ta kraj.</string>
+    <string name="osm_note_hint">Ali pa pustite opombo skupnosti OpenStreetMap, da bo nekdo drug dodal ali popravil ta kraj.</string>
     <string name="osm_note_toast">Sporočilo bo poslano na OpenStreetMap</string>
     <string name="editor_share_to_all_dialog_title">Ali to želite poslati vsem uporabnikom?</string>
-    <string name="editor_share_to_all_dialog_message_1">Poskrbite, da niste vnesli nobenih zasebnih ali osebnih podatkov</string>
+    <string name="editor_share_to_all_dialog_message_1">Prepričajte se, da niste vnesli nobenih zasebnih podatkov.</string>
     <string name="editor_share_to_all_dialog_message_2">Uredniki na OpenStreetMap bodo preverili spremembe in stopili v stik z vami, če kaj ne bo jasno.</string>
     <string name="navigation_stop_button">Ustavi</string>
     <string name="track_recording">Snemam pot</string>
     <string name="accept">Potrdi</string>
     <string name="decline">Zavrni</string>
-    <string name="mobile_data_dialog">Naj pridobim podrobne informacije prek mobilnega interneta?</string>
+    <string name="mobile_data_dialog">Naj pridobim podrobne podatke prek mobilnega omrežja?</string>
     <string name="mobile_data_option_always">Vedno uporabi</string>
     <string name="mobile_data_option_today">Samo danes</string>
     <string name="mobile_data_option_not_today">Ne uporabi danes</string>
-    <string name="mobile_data">Mobilni internet</string>
-    <string name="mobile_data_description">Mobilni internet je potreben za obvestila o posodobitvah zemljevidov in za objavljanje urejanj</string>
+    <string name="mobile_data">Mobilno omrežje</string>
+    <string name="mobile_data_description">Mobilno omrežje je potrebno za obvestila o posodobitvah zemljevidov in za objavljanje urejanj</string>
     <string name="mobile_data_option_never">Nikoli ne uporabi</string>
     <string name="mobile_data_option_ask">Vedno vprašaj</string>
     <string name="traffic_update_maps_text">Za prikazovanje podatkov o prometu je treba posodobiti zemljevide</string>
@@ -369,13 +369,13 @@
     <string name="traffic_data_unavailable">Prometni podatki niso na voljo</string>
     <string name="enable_logging">Omogoči dnevniške zapise</string>
     <string name="feedback_general">Splošne povratne informacije</string>
-    <string name="prefs_languages_information">Za govorne napotke uporabljamo sistemski TTS. Mnoge naprave s sistemom Android uporabljajo Googlov TTS, ki ga lahko prenesete ali posodobite prek storitve Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information">Za glasovne napotke uporabljamo sistemski TTS. Mnoge naprave s sistemom Android uporabljajo Googlov TTS, ki ga lahko prenesete ali posodobite prek storitve Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off_link">Več informacij najdete v tem vodiču</string>
     <string name="transliteration_title">Prečrkuj v latinico</string>
     <string name="learn_more">Več o tem</string>
-    <string name="routing_add_start_point">Uporabite iskanje ali pritisnite točko na zemljevidu, da dodate izhodišče relacije</string>
+    <string name="routing_add_start_point">Za dodajanje izhodišča poti uporabite iskalno vrstico ali izberite točko na zemljevidu</string>
     <string name="routing_add_finish_point">Uporabite iskanje ali pritisnite točko na zemljevidu, da dodate cilj</string>
-    <string name="planning_route_manage_route">Upravljaj relacijo</string>
+    <string name="planning_route_manage_route">Uredi načrt poti</string>
     <string name="button_plan">Načrtuj</string>
     <string name="placepage_remove_stop">Odstrani postanek</string>
     <string name="placepage_add_stop">Dodaj postanek</string>
@@ -394,7 +394,7 @@
         <item quantity="other">%d zaznamkov</item>
     </plurals>
     <string name="bookmarks_create_new_group">Ustvari nov seznam</string>
-    <string name="bookmarks_import">Uvozi zaznamke in poti</string>
+    <string name="bookmarks_import">Uvozi zaznamke</string>
     <string name="bookmarks_error_message_share_general">Ni bilo mogoče deliti zaradi aplikacijske napake</string>
     <string name="bookmarks_error_title_share_empty">Napaka pri deljenju</string>
     <string name="bookmarks_error_message_share_empty">Ni mogoče deliti praznega seznama</string>
@@ -493,7 +493,7 @@
     <string name="religious_places">Verski kraji</string>
     <string name="select_list">Izberi seznam</string>
     <string name="transit_not_found">V tem območju navigacija s podzemno železnico še ni na voljo</string>
-    <string name="dialog_pedestrian_route_is_long_header">Ne najdem relacije s podzemno železnico</string>
+    <string name="dialog_pedestrian_route_is_long_header">Poti s podzemno železnico ni bilo mogoče najti</string>
     <string name="dialog_pedestrian_route_is_long_message">Izberite začetno ali končno točko, ki je bližje postaji podzemne železnice</string>
     <string name="button_layer_isolines">Plastnice</string>
     <string name="isolines_activation_error_dialog">Plastnice lahko omogočite šele, ko prenesete kartografske podatke za to območje</string>
@@ -539,7 +539,7 @@
     <string name="google_play_services">Googleova združena lokacijska storitev</string>
     <string name="create">Ustvari</string>
     <string name="editor_place_doesnt_exist_description">Opišite, kako to mesto izgleda sedaj, da pošljete obvestilo skupnosti OpenStreetMap</string>
-    <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z aplikacijami (Google Play, Galaxy Store, App Gallery, FDroid). \nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor. \nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>
+    <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z orodji (Google Play, Galaxy Store, App Gallery, FDroid).\nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor.\nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>
     <string name="category_desc_more">… več</string>
     <string name="avoid_steps">Izogni se stopnicam</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
@@ -571,7 +571,7 @@
     <string name="stop_track_recording">Ustavi snemanje sledi</string>
     <string name="stop_without_saving">Ustavi brez shranjevanja</string>
     <string name="continue_recording">Nadaljuj snemanje</string>
-    <string name="track_recording_alert_title">Želite shraniti med zaznamke in sledi?</string>
+    <string name="track_recording_alert_title">Želite shraniti med Priljubljene?</string>
     <string name="track_recording_toast_nothing_to_save">Sled je prazna – ničesar ni za shraniti</string>
     <string name="error_no_file_manager_app">Pogovornega okna za izbiro mape ni mogoče prikazati, ker na vaši napravi ni nameščenega ustreznega orodja. Namestite upravitelja datotek in poskusite znova.</string>
     <string name="choose_color">Izberi barvo</string>
@@ -663,8 +663,16 @@
     <string name="download_resources_custom_url_summary_none">Ni nastavljeno</string>
     <string name="download_resources_custom_url_error_scheme">Vnesite polni URL, ki se začne z http:// ali https://</string>
     <string name="pref_maplanguage_local">Krajevni jezik</string>
-    <string name="limit_map_language_alternatives_to_local">Druge sistemske jezike uporabljaj le v njihovem območju</string>
     <string name="location_privacy_info">Orodja prejemajo podatke o trenutnem položaju od položajnih storitev vašega operacijskega sistema, ki lahko vaš položaj deli z Googlom in/ali proizvajalcem vaše naprave. Da se temu izognete, uporabljajte tak operacijski sistem Android, ki varuje zasebnost.</string>
     <string name="location_privacy">Zasebnost položaja</string>
     <string name="pref_speedlimit_title">Pokaži hitrostne omejitve</string>
+    <string name="rooms">%s sob</string>
+    <string name="invalid_route">Neveljavna potna povezava</string>
+    <string name="building_route">Iskanje potne povezave …</string>
+    <string name="route_not_started">Potna povzava ni začeta</string>
+    <string name="on_route">Na potni povezavi</string>
+    <string name="route_needs_rebuild">Potrebna je ponovna izdelava potne povezave</string>
+    <string name="route_finished">Pot je končana</string>
+    <string name="not_following_route">Ne sledite poti</string>
+    <string name="rebuilding_route">Ponovna izdelava poti …</string>
 </resources>

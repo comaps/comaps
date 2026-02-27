@@ -273,7 +273,7 @@
     <string name="downloader_download_all_button">下載全部</string>
     <string name="downloader_downloading">正在下載：</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">要刪除地圖，請停止導航</string>
+    <string name="downloader_delete_map_while_routing_dialog">要刪除地圖，請先停止導航</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">路線只能完全處在同一地圖裡時才能被規劃。</string>
     <!-- Context menu item for downloader. -->
@@ -478,7 +478,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d / %2$d</string>
     <string name="download_over_mobile_header">用行動數據連線下載嗎？</string>
-    <string name="download_over_mobile_message">如果您使用行動數據或漫遊來進行下載，將可能導致額外的費用</string>
+    <string name="download_over_mobile_message">行動數據可能在某些方案下很昂貴，特別是漫遊的情形。</string>
     <string name="error_enter_correct_house_number">輸入正確的門牌號碼</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">最多可編輯 %d 層的建築</string>
@@ -732,7 +732,7 @@
     <string name="change_map_locale">地圖語言</string>
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">地圖資料來自 OpenStreetMap</string>
-    <!-- Translated CoMaps site, add new translations here: https://github.com/organicmaps/organicmaps.github.io/tree/master/content -->
+    <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/zh-Hant/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Zh-hant:關於OpenStreetMap</string>
@@ -919,9 +919,21 @@
     <string name="offline_explanation_text">需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。</string>
     <string name="list_description_empty">編輯清單來增加描述</string>
     <string name="advanced">進階</string>
-    <string name="download_resources_custom_url_title">客制地圖伺服器</string>
+    <string name="download_resources_custom_url_title">自訂地圖伺服器</string>
     <string name="download_resources_custom_url_message">覆寫下載地圖資料的預設地圖下載伺服器。留空則表示使用 CoMaps 預設伺服器。</string>
     <string name="download_resources_custom_url_summary_none">還沒設定</string>
     <string name="download_resources_custom_url_error_scheme">請輸入 http:// 或是 https:// 開頭的網址</string>
-    <string name="limit_map_language_alternatives_to_local">只有在他們的區域使用其他系統語言</string>
+    <string name="building_route">建構導航…</string>
+    <string name="route_not_started">還沒有開始導航</string>
+    <string name="on_route">在路徑上</string>
+    <string name="route_needs_rebuild">需要重新建構路徑</string>
+    <string name="route_finished">已經完成導航</string>
+    <string name="not_following_route">並沒有遵循導航路線</string>
+    <string name="rebuilding_route">重新建構導航…</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="location_privacy_info">App 從您的作業系統位置服務取得位置資料，也許會與 Google 與/或您的裝置生產商分享您的位置，請使用保護隱私的 Anrdoi 作業系統來避免此一問題。</string>
+    <string name="location_privacy">位置隱私</string>
+    <string name="pref_speedlimit_title">顯示速限</string>
+    <string name="rooms">%s 房間</string>
+    <string name="invalid_route">無效的導航</string>
 </resources>

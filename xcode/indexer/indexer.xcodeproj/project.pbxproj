@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2711868B2F194FF000FD7FF3 /* feature_region_locator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 2711868A2F194FCF00FD7FF3 /* feature_region_locator.hpp */; };
-		2711868D2F194FF600FD7FF3 /* feature_region_locator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2711868C2F194FF400FD7FF3 /* feature_region_locator.cpp */; };
 		272CA4462F126795005A3F5B /* ftypes_subtypes.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */; };
 		272CA4472F126795005A3F5B /* ftypes_subtypes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 272CA4452F126795005A3F5B /* ftypes_subtypes.cpp */; };
 		272CA44D2F12723B005A3F5B /* subtypes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 272CA44C2F12723B005A3F5B /* subtypes.csv */; };
+		27A5B4492F2F8BE200918687 /* feature_region_locator.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27A5B4472F2F8BE200918687 /* feature_region_locator.hpp */; };
+		27A5B44A2F2F8BE200918687 /* feature_region_locator.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27A5B4482F2F8BE200918687 /* feature_region_locator.cpp */; };
 		27BCD5272E93E625002C50F0 /* feature_charge_sockets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27BCD5262E93E625002C50F0 /* feature_charge_sockets.cpp */; };
 		27BCD5282E93E625002C50F0 /* feature_charge_sockets.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 27BCD5252E93E625002C50F0 /* feature_charge_sockets.hpp */; };
 		27BCD52A2E93E670002C50F0 /* feature_charge_sockets_test.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 27BCD5292E93E670002C50F0 /* feature_charge_sockets_test.cpp */; };
@@ -235,11 +235,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2711868A2F194FCF00FD7FF3 /* feature_region_locator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_region_locator.hpp; sourceTree = "<group>"; };
-		2711868C2F194FF400FD7FF3 /* feature_region_locator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_region_locator.cpp; sourceTree = "<group>"; };
 		272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ftypes_subtypes.hpp; sourceTree = "<group>"; };
 		272CA4452F126795005A3F5B /* ftypes_subtypes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ftypes_subtypes.cpp; sourceTree = "<group>"; };
 		272CA44C2F12723B005A3F5B /* subtypes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = subtypes.csv; path = ../../data/subtypes.csv; sourceTree = "<group>"; };
+		27A5B4472F2F8BE200918687 /* feature_region_locator.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_region_locator.hpp; sourceTree = "<group>"; };
+		27A5B4482F2F8BE200918687 /* feature_region_locator.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_region_locator.cpp; sourceTree = "<group>"; };
 		27BCD5252E93E625002C50F0 /* feature_charge_sockets.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = feature_charge_sockets.hpp; sourceTree = "<group>"; };
 		27BCD5262E93E625002C50F0 /* feature_charge_sockets.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_charge_sockets.cpp; sourceTree = "<group>"; };
 		27BCD5292E93E670002C50F0 /* feature_charge_sockets_test.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = feature_charge_sockets_test.cpp; sourceTree = "<group>"; };
@@ -681,8 +681,8 @@
 				675340C71A3F540F00A0A8C3 /* feature_impl.hpp */,
 				6726C1CF1A49DAAC005EEA39 /* feature_meta.cpp */,
 				6726C1D01A49DAAC005EEA39 /* feature_meta.hpp */,
-				2711868C2F194FF400FD7FF3 /* feature_region_locator.cpp */,
-				2711868A2F194FCF00FD7FF3 /* feature_region_locator.hpp */,
+				27A5B4472F2F8BE200918687 /* feature_region_locator.hpp */,
+				27A5B4482F2F8BE200918687 /* feature_region_locator.cpp */,
 				675340CC1A3F540F00A0A8C3 /* feature_processor.hpp */,
 				675B562120D25C9800A521D2 /* feature_source.cpp */,
 				675B562220D25C9800A521D2 /* feature_source.hpp */,
@@ -800,7 +800,6 @@
 				6753414C1A3F540F00A0A8C3 /* tree_structure.hpp in Headers */,
 				F6DF5F311CD0FD9A00A87154 /* categories_index.hpp in Headers */,
 				40662D32236059BF006A124D /* tree_node.hpp in Headers */,
-				2711868B2F194FF000FD7FF3 /* feature_region_locator.hpp in Headers */,
 				347F337D1C454242009758CC /* succinct_trie_builder.hpp in Headers */,
 				675341381A3F540F00A0A8C3 /* mwm_set.hpp in Headers */,
 				456E1B181F90E5B7009C32E1 /* cities_boundaries_serdes.hpp in Headers */,
@@ -823,6 +822,7 @@
 				6753413F1A3F540F00A0A8C3 /* scale_index.hpp in Headers */,
 				6753410E1A3F540F00A0A8C3 /* drawing_rules.hpp in Headers */,
 				FA7F9B84273F32680093EA08 /* validate_and_format_contacts.hpp in Headers */,
+				27A5B4492F2F8BE200918687 /* feature_region_locator.hpp in Headers */,
 				670C615C1AB0691900C38A8C /* features_offsets_table.hpp in Headers */,
 				6758AED41BB4413000C26E27 /* drules_selector.hpp in Headers */,
 				6753412F1A3F540F00A0A8C3 /* index_builder.hpp in Headers */,
@@ -1021,6 +1021,7 @@
 				34664CF61D49FEC1003D7096 /* centers_table.cpp in Sources */,
 				3D12E3D72111B4BE0015A9A9 /* caching_rank_table_loader.cpp in Sources */,
 				6753414D1A3F540F00A0A8C3 /* types_mapping.cpp in Sources */,
+				27A5B44A2F2F8BE200918687 /* feature_region_locator.cpp in Sources */,
 				34583BC71C88552100F94664 /* cuisines.cpp in Sources */,
 				675341121A3F540F00A0A8C3 /* feature_algo.cpp in Sources */,
 				675341211A3F540F00A0A8C3 /* feature_utils.cpp in Sources */,
@@ -1048,7 +1049,6 @@
 				272CA4472F126795005A3F5B /* ftypes_subtypes.cpp in Sources */,
 				BBB7060F23E46E0100A7F29A /* isolines_info.cpp in Sources */,
 				408FE47724FEB95600F5D06D /* metadata_serdes.cpp in Sources */,
-				2711868D2F194FF600FD7FF3 /* feature_region_locator.cpp in Sources */,
 				34583BCB1C88552100F94664 /* map_object.cpp in Sources */,
 				675B562320D25C9800A521D2 /* feature_source.cpp in Sources */,
 				6753412E1A3F540F00A0A8C3 /* index_builder.cpp in Sources */,

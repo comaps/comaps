@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bookmarks_places</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@ಬೆಲೆ@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>ಶೂನ್ಯ ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು</string>
+			<key>one</key>
+			<string>%d ಬುಕ್‌ಮಾರ್ಕ್</string>
+			<key>other</key>
+			<string>%d ಬುಕ್‌ಮಾರ್ಕ್‌ಗಳು</string>
+		</dict>
+	</dict>
+	<key>bookmarks_detect_message</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@ಬೆಲೆ@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>one</key>
+			<string>%d ಫೈಲ್ ಕಂಡುಬಂದಿದೆ. ಪರಿವರ್ತನೆಯ ನಂತರ ನೀವು ಅದನ್ನು ನೋಡಬಹುದು.</string>
+			<key>other</key>
+			<string>%d ಫೈಲ್‌ಗಳು ಕಂಡುಬಂದಿವೆ. ಪರಿವರ್ತನೆಯ ನಂತರ ನೀವು ಅದನ್ನು ನೋಡಬಹುದು.</string>
+		</dict>
+	</dict>
+	<key>tracks</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@ಬೆಲೆ@</string>
+		<key>value</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>d</string>
+			<key>zero</key>
+			<string>ಸೊನ್ನೆ</string>
+			<key>one</key>
+			<string>%d ಟ್ರ್ಯಾಕ್</string>
+			<key>other</key>
+			<string>%d ಟ್ರ್ಯಾಕ್‌ಗಳು</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

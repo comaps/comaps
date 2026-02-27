@@ -34,7 +34,7 @@ std::array<UniString, 11> const kAllowedMisprints = {
 
 static std::pair<UniString, UniString> const kPreprocessReplacements[] = {
     {MakeUniString("a. d."), MakeUniString("auf an den der")},
-    {MakeUniString("a.d."), MakeUniString("auf an den der")}, // hacks to handle "(auf/an) (den/der)" in German
+    {MakeUniString("a.d."), MakeUniString("auf an den der")},  // hacks to handle "(auf/an) (den/der)" in German
     {MakeUniString("arm. gen"), MakeUniString("armádneho generála")},
     {MakeUniString("atr'"), MakeUniString("ambohitr'")},
     {MakeUniString("a. v."), MakeUniString("asociación vecinal")},

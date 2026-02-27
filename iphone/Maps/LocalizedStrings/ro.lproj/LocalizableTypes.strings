@@ -1486,7 +1486,7 @@
 "type.power.portal" = "Stație de distribuție";
 "type.building.guardhouse" = "Cabină de pază";
 "type.shop.lighting" = "Magazin de corpuri de iluminat";
-"type.amenity.bench.backless" = "Bancă fără spătar";
+"type.amenity.bench.backless" = "fără spătar";
 "type.disusedbusiness" = "Magazin vacant";
 "type.amenity.boat_rental" = "Închiriere Bărci";
 "type.man_made.telescope" = "Telescop";
@@ -1546,3 +1546,4 @@
 "type.social_facility.food_bank" = "Bancă de alimente";
 "type.xmas.tree" = "Brad de Crăciun";
 "type.amenity.hydrant" = "Hidrant Irigații";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";

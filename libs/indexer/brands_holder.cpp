@@ -44,7 +44,7 @@ BrandsHolder::BrandsHolder(std::unique_ptr<Reader> && reader)
 void BrandsHolder::ForEachNameByKeyAndLang(std::string const & key, std::string const & lang,
                                            std::function<void(std::string const &)> const & toDo) const
 {
-  int8_t const locale = StringUtf8Multilang::GetLangIndex(lang);
+  int8_t const locale = localisation::ConvertLanguageCodeToLanguageIndex(lang);
   ForEachNameByKey(key, [&](Brand::Name const & name)
   {
     if (name.m_locale == locale)
@@ -98,11 +98,11 @@ void BrandsHolder::LoadFromStream(std::istream & s)
         continue;
       }
 
-      int8_t const langCode = StringUtf8Multilang::GetLangIndex(*iter);
-      CHECK_NOT_EQUAL(langCode, StringUtf8Multilang::kUnsupportedLanguageCode, ());
+      localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(std::string{*iter});
+      CHECK_NOT_EQUAL(languageIndex, localisation::kUnsupportedLanguageIndex, ());
 
       while (++iter)
-        brand.m_synonyms.emplace_back(*iter, langCode);
+        brand.m_synonyms.emplace_back(*iter, languageIndex);
     }
   }
 
@@ -127,7 +127,7 @@ void BrandsHolder::AddBrand(Brand & brand, std::string const & key)
 std::string DebugPrint(BrandsHolder::Brand::Name const & name)
 {
   std::ostringstream out;
-  out << "BrandName[" << StringUtf8Multilang::GetLangByCode(name.m_locale) << ", " << name.m_name << "]";
+  out << "BrandName[" << localisation::ConvertLanguageIndexToLanguageCode(name.m_locale) << ", " << name.m_name << "]";
   return out.str();
 }
 

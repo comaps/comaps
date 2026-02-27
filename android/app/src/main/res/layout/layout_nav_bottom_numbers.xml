@@ -29,7 +29,7 @@
       android:includeFontPadding="false"
       android:lines="1"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number"
-      tools:text="99:99" />
+      tools:text="99:99"/>
 
     <!-- ETA AM/PM -->
     <com.google.android.material.textview.MaterialTextView
@@ -40,13 +40,22 @@
       android:lines="1"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
       tools:background="#20FF0000"
-      tools:text="AM/PM" />
+      tools:text="AM/PM"/>
+
   </LinearLayout>
 
   <Space
     android:layout_width="0dp"
     android:layout_height="match_parent"
     android:layout_weight="1.25"/>
+
+  <!-- Rebuilding route progress bar -->
+  <com.google.android.material.progressindicator.CircularProgressIndicator
+    android:id="@+id/rebuilding_route_progress_bar"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="12dp"
+    android:indeterminate="true"/>
 
   <!-- Time -->
   <LinearLayout
@@ -55,13 +64,11 @@
     android:orientation="vertical"
     android:gravity="center"
     android:minWidth="@dimen/nav_numbers_side_min_width">
-
     <LinearLayout
       android:id="@+id/time_values_container"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       tools:background="#20FF0000">
-
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_hour_value"
         android:layout_width="wrap_content"
@@ -70,7 +77,6 @@
         android:lines="1"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time"
         tools:text="999" />
-
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_hour_dimen"
         android:layout_width="wrap_content"
@@ -80,7 +86,6 @@
         android:lines="1"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time.Dimension"
         tools:text="h" />
-
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_minute_value"
         android:layout_width="wrap_content"
@@ -90,7 +95,6 @@
         android:textAlignment="center"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time"
         tools:text="99" />
-
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_minute_dimen"
         android:layout_width="wrap_content"
@@ -102,7 +106,7 @@
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
-      android:id="@+id/disused_text_view"
+      android:id="@+id/routing_state"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:includeFontPadding="false"
@@ -119,6 +123,7 @@
 
   <!-- Distance -->
   <LinearLayout
+    android:id="@+id/distance_view_container"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical"

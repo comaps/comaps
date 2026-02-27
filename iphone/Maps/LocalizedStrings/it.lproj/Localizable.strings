@@ -1101,3 +1101,4 @@
 "voice" = "Voce";
 "unknown" = "Sconosciuto";
 "avoid_paved" = "Evita le strade asfaltate";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";

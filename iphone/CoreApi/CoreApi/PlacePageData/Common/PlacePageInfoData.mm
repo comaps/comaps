@@ -17,7 +17,7 @@ using namespace osm;
 
 /// Get localized metadata value string when string format is "type.feature.value".
 NSString * GetLocalizedMetadataValueString(MapObject::MetadataID metaID, std::string const & value) {
-  return ToNSString(platform::GetLocalizedTypeName(feature::ToString(metaID) + "." + value));
+  return ToNSString(localisation::TranslatedFeatureType(feature::ToString(metaID) + "." + value));
 }
 
 /// Parse date string in YYYY-MM-DD format to NSDate
@@ -123,7 +123,8 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
           break;
         case MetadataID::FMD_LEVEL: _level = ToNSString(value); break;
         case MetadataID::FMD_CAPACITY: _capacity = [NSString stringWithFormat:NSLocalizedString(@"capacity", nil), ToNSString(value)]; break;
-        case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(platform::GetLocalizedTypeName(value)); break;
+        case MetadataID::FMD_ROOMS: _rooms = [NSString stringWithFormat:NSLocalizedString(@"rooms", nil), ToNSString(value)]; break;
+        case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
             _driveThrough = NSLocalizedString(@"drive_through", nil);

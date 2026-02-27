@@ -2,7 +2,9 @@ package app.organicmaps.settings;
 
 import static app.organicmaps.leftbutton.LeftButtonsHolder.DISABLE_BUTTON_CODE;
 import static app.organicmaps.sdk.editor.data.Language.DEFAULT_LANG_CODE;
+import static app.organicmaps.sdk.editor.data.Language.AUTO_LANG_CODE;
 
+import android.util.Log;
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,9 +12,11 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -23,9 +27,6 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceManager;
 import androidx.preference.TwoStatePreference;
-
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.dialog.CustomMapServerDialog;
@@ -51,7 +52,7 @@ import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.sdk.util.log.LogsManager;
 import app.organicmaps.util.ThemeSwitcher;
 import app.organicmaps.util.Utils;
-
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -82,7 +83,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initTrafficHttpUrlPrefsCallbacks();
     initTrafficAppsPrefs();
     initTrafficLegacyEnabledPrefsCallbacks();
-    initOnlyUseSysLangsInTheirRegionCallbacks();
+    initAlternativeMapLanguageHandlingCallbacks();
     init3dModePrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
@@ -96,6 +97,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     initShowOnLockScreenPrefsCallbacks();
     initLeftButtonPrefs();
     initCustomMapDownloadUrlPrefsCallbacks();
+    initOpenExternalLinksPrefsCallback();
   }
 
   private void initLeftButtonPrefs()
@@ -156,9 +158,16 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
   {
     final Preference pref = getPreference(getString(R.string.pref_map_locale));
     String mapLanguageCode = MapLanguageCode.getMapLanguageCode();
-    if (mapLanguageCode.equals(DEFAULT_LANG_CODE)) {
+    if (mapLanguageCode.equals(AUTO_LANG_CODE))
+    {
+      pref.setSummary(R.string.auto);
+    }
+    else if (mapLanguageCode.equals(DEFAULT_LANG_CODE))
+    {
       pref.setSummary(R.string.pref_maplanguage_local);
-    } else {
+    }
+    else
+    {
       Locale locale = new Locale(mapLanguageCode);
       pref.setSummary(locale.getDisplayLanguage());
     }
@@ -260,6 +269,12 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
       {
         getSettingsActivity().stackFragment(BackupSettingsFragment.class, getString(R.string.pref_backup_title), null);
       }
+      else if (key.equals(getString(R.string.pref_open_external_links)))
+      {
+        final Intent intent = new Intent(Settings.ACTION_APP_OPEN_BY_DEFAULT_SETTINGS);
+        intent.setData(Uri.fromParts("package", requireContext().getPackageName(), null));
+        startActivity(intent);
+      }
     }
     return super.onPreferenceTreeClick(preference);
   }
@@ -279,16 +294,16 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     });
   }
 
-  private void initOnlyUseSysLangsInTheirRegionCallbacks()
+  private void initAlternativeMapLanguageHandlingCallbacks()
   {
-    final Preference pref = getPreference(getString(R.string.pref_set_only_use_syslangs_in_their_region));
-    ((TwoStatePreference) pref).setChecked(Config.isOnlyUseSysLangsInTheirRegion());
-    pref.setOnPreferenceChangeListener((preference, newValue) -> {
-      final boolean oldVal = Config.isOnlyUseSysLangsInTheirRegion();
-      final boolean newVal = (Boolean) newValue;
-      if (oldVal != newVal)
-        Config.setOnlyUseSysLangsInTheirRegion(newVal);
+    final ListPreference pref = getPreference(getString(R.string.pref_alt_map_lang_handling_key));
 
+    pref.setValue(String.valueOf(Config.getAlternativeMapLanguageHandling()));
+    pref.setSummary(pref.getEntry());
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final int alternativeMapLanguageHandling = Integer.parseInt((String) newValue);
+      Config.setAlternativeMapLanguageHandling(alternativeMapLanguageHandling);
+      preference.setSummary(pref.getEntries()[alternativeMapLanguageHandling]);
       return true;
     });
   }
@@ -714,20 +729,27 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     String normalizedUrl = Framework.normalizeServerUrl(current);
 
     // Initial summary
-    customUrlPref.setSummary(normalizedUrl.isEmpty()
-        ? getString(R.string.download_resources_custom_url_summary_none)
-        : normalizedUrl);
+    customUrlPref.setSummary(normalizedUrl.isEmpty() ? getString(R.string.download_resources_custom_url_summary_none)
+                                                     : normalizedUrl);
 
     // Sync native
     Framework.applyCustomMapDownloadUrl(requireContext(), normalizedUrl);
 
     // Show dialog
     customUrlPref.setOnPreferenceClickListener(preference -> {
-      CustomMapServerDialog.show(requireContext(), url -> preference.setSummary(url.isEmpty()
-          ? getString(R.string.download_resources_custom_url_summary_none)
-          : url));
+      CustomMapServerDialog.show(
+          requireContext(),
+          url
+          -> preference.setSummary(url.isEmpty() ? getString(R.string.download_resources_custom_url_summary_none)
+                                                 : url));
       return true;
     });
+  }
+
+  private void initOpenExternalLinksPrefsCallback()
+  {
+    Preference openExternalLinksPref = getPreference(getString(R.string.pref_open_external_links));
+    openExternalLinksPref.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S);
   }
 
   private void removePreference(@NonNull String categoryKey, @NonNull Preference preference)

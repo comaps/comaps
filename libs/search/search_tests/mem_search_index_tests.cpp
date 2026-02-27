@@ -29,7 +29,7 @@ using Id = uint64_t;
 class Doc
 {
 public:
-  Doc(string const & text, string const & lang) : m_lang(StringUtf8Multilang::GetLangIndex(lang))
+  Doc(string const & text, string const & lang) : m_lang(localisation::ConvertLanguageCodeToLanguageIndex(lang))
   {
     m_tokens = NormalizeAndTokenizeString(text);
   }
@@ -64,7 +64,7 @@ public:
     {
       SearchTrieRequest<UniStringDFA> request;
       request.m_names.emplace_back(token);
-      request.m_langs.insert(StringUtf8Multilang::GetLangIndex(lang));
+      request.m_langs.insert(localisation::ConvertLanguageCodeToLanguageIndex(lang));
 
       vector<Id> curr;
       MatchFeaturesInTrie(request, m_index.GetRootIterator(), [](Id const & /* id */) { return true; } /* filter */,
