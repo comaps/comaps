@@ -499,8 +499,7 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
 {
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
-  m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_mapSeries);
+  m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_countriesInfo, m_mapSeries);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);
@@ -979,8 +978,7 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
 {
   if (m_countries.IsEmpty())
   {
-    m_currentVersion = LoadCountriesFromFile(pathToCountriesFile, m_countries, m_affiliations, m_countryNameSynonyms,
-                                             m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
+    m_currentVersion = LoadCountriesFromFile(pathToCountriesFile, m_countries, m_countriesInfo);
     LOG(LINFO, ("Loaded countries list for map version:", m_currentVersion));
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
@@ -1098,9 +1096,9 @@ void Storage::OnDownloadFinished(QueuedCountry const & queuedCountry, DownloadSt
       // Verify map checksum.
       if (coding::SHA1::CalculateBase64(path) != sha1)
       {
-        LOG(LERROR, ("SHA check error for", path));
         base::DeleteFileX(path);
         status = DownloadStatus::FailedSHA;
+        LOG(LERROR, ("SHA check error for", path));
       }
 
       GetPlatform().RunTask(Platform::Thread::Gui, [fn = std::move(fn), status]()
@@ -1400,8 +1398,7 @@ void Storage::RunCountriesCheckAsync()
 
       std::shared_ptr<Storage> storage(new Storage(7 /* dummy */));
       storage->m_currentVersion =
-          LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_affiliations, storage->m_countryNameSynonyms,
-                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds, storage->m_mapSeries);
+          LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_countriesInfo, storage->m_mapSeries);
       if (storage->m_currentVersion > 0)
       {
         LOG(LDEBUG, ("Apply new version", storage->m_currentVersion, dataVersion));
@@ -2220,12 +2217,12 @@ bool Storage::GetUpdateInfo(CountryId const & countryId, UpdateInfo & updateInfo
 /// @{
 Affiliations const * Storage::GetAffiliations() const
 {
-  return &m_affiliations;
+  return &m_countriesInfo.m_affiliations;
 }
 
 CountryNameSynonyms const & Storage::GetCountryNameSynonyms() const
 {
-  return m_countryNameSynonyms;
+  return m_countriesInfo.m_countryNameSynonyms;
 }
 /// @}
 
