@@ -415,24 +415,34 @@ void Framework::ResumeSurfaceRendering()
   LOG(LINFO, ("Resume surface rendering."));
 }
 
-void Framework::SetMapStyle(MapStyle mapStyle)
+void Framework::SwitchToMapAppearance(MapAppearance mapAppearance)
 {
-  m_work.SetMapStyle(mapStyle);
+  m_work.SwitchToMapAppearance(mapAppearance);
 }
 
-void Framework::MarkMapStyle(MapStyle mapStyle)
+MapAppearance Framework::CurrentMapAppearance()
 {
-  // In case of Vulkan rendering we don't recreate geometry and textures data, so
-  // we need use SetMapStyle instead of MarkMapStyle in all cases.
-  if (m_vulkanContextFactory)
-    m_work.SetMapStyle(mapStyle);
-  else
-    m_work.MarkMapStyle(mapStyle);
+  return m_work.CurrentMapAppearance();
 }
 
-MapStyle Framework::GetMapStyle() const
+void Framework::SwitchToMapMode(MapMode mapMode)
 {
-  return m_work.GetMapStyle();
+  m_work.SwitchToMapMode(mapMode);
+}
+
+MapMode Framework::CurrentMapMode()
+{
+  return m_work.CurrentMapMode();
+}
+
+void Framework::SwitchToUsingVehicleStyle(bool enabled)
+{
+  m_work.SwitchToUsingVehicleStyle(enabled);
+}
+
+bool Framework::IsUsingVehicleStyle()
+{
+  return m_work.IsUsingVehicleStyle();
 }
 
 void Framework::Save3dMode(bool allow3d, bool allow3dBuildings)
@@ -663,19 +673,17 @@ void Framework::SetIsolinesListener(IsolinesManager::IsolinesStateChangedFn cons
 
 bool Framework::IsTrafficEnabled()
 {
-  return m_work.GetTrafficManager().IsEnabled();
+  return NativeFramework()->DrivingMapModeHasTraffic();
 }
 
 void Framework::EnableTraffic()
 {
-  m_work.GetTrafficManager().SetEnabled(true);
-  NativeFramework()->SaveTrafficEnabled(true);
+  NativeFramework()->DrivingMapModeSetTraffic(true);
 }
 
 void Framework::DisableTraffic()
 {
-  m_work.GetTrafficManager().SetEnabled(false);
-  NativeFramework()->SaveTrafficEnabled(false);
+  NativeFramework()->DrivingMapModeSetTraffic(false);
 }
 
 void Framework::SetMyPositionModeListener(location::TMyPositionModeChanged const & fn)
@@ -1569,42 +1577,51 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetAutoZoomEnabl
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetTransitSchemeEnabled(JNIEnv * env, jclass,
                                                                                         jboolean enabled)
 {
-  frm()->GetTransitManager().EnableTransitSchemeMode(static_cast<bool>(enabled));
+  if (enabled)
+  {
+    frm()->SwitchToMapMode(MapMode::PublicTransport);
+  }
+  else {
+    frm()->SwitchToMapMode(MapMode::Walking);
+  }
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsTransitSchemeEnabled(JNIEnv * env, jclass)
 {
-  return static_cast<jboolean>(frm()->LoadTransitSchemeEnabled());
+  return static_cast<jboolean>(frm()->CurrentMapMode() == MapMode::PublicTransport);
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetIsolinesLayerEnabled(JNIEnv * env, jclass,
                                                                                         jboolean enabled)
 {
-  auto const isolinesEnabled = static_cast<bool>(enabled);
-  frm()->GetIsolinesManager().SetEnabled(isolinesEnabled);
-  frm()->SaveIsolinesEnabled(isolinesEnabled);
+  frm()->SetContourLinesLayer(static_cast<bool>(enabled));
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsIsolinesLayerEnabled(JNIEnv * env, jclass)
 {
-  return static_cast<jboolean>(frm()->LoadIsolinesEnabled());
+  return static_cast<jboolean>(frm()->HasContourLinesLayer());
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetOutdoorsLayerEnabled(JNIEnv * env, jclass,
                                                                                         jboolean enabled)
 {
-  frm()->SaveOutdoorsEnabled(enabled);
+  frm()->SetOutdoorLayer(static_cast<bool>(enabled));
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsOutdoorsLayerEnabled(JNIEnv * env, jclass)
 {
-  return static_cast<jboolean>(frm()->LoadOutdoorsEnabled());
+  return static_cast<jboolean>(frm()->HasOutdoorLayer());
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSaveSettingSchemeEnabled(JNIEnv * env, jclass,
-                                                                                         jboolean enabled)
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSwitchToUsingVehicleStyle(JNIEnv * env, jclass,
+                                                                                        jboolean enabled)
 {
-  frm()->SaveTransitSchemeEnabled(static_cast<bool>(enabled));
+  frm()->SwitchToUsingVehicleStyle(static_cast<bool>(enabled));
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsUsingVehicleStyle(JNIEnv * env, jclass)
+{
+  return static_cast<jboolean>(frm()->IsUsingVehicleStyle());
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeGetAutoZoomEnabled(JNIEnv *, jclass)
