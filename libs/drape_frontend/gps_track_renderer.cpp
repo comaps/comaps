@@ -156,7 +156,7 @@ dp::Color GpsTrackRenderer::CalculatePointColor(size_t pointIndex, m2::PointD co
   double startAlpha = kMinDayAlpha;
   double endAlpha = kMaxDayAlpha;
   auto const style = GetStyleReader().GetCurrentStyle();
-  if (style == MapStyle::MapStyleDefaultDark)
+  if (MapStyleIsDark(style))
   {
     startAlpha = kMinNightAlpha;
     endAlpha = kMaxNightAlpha;

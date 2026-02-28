@@ -27,6 +27,7 @@
 
 namespace dp
 {
+// Used to load misc dpi-independent symbols from data/symbols/default
 std::string const StaticTexture::kDefaultResource = "default";
 
 namespace
