@@ -994,4 +994,7 @@
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
+    <string name="organic_yes">Organic products</string>
+    <string name="organic_no">No organic products</string>
+    <string name="organic_only">Organic products only</string>
 </resources>
