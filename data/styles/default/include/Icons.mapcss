@@ -22,7 +22,6 @@
  6.1 Craft
 7.CAR
  7.1 Parking
-8. COLORED LABELS
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
@@ -2583,7 +2582,3 @@ node|z18-[amenity=parking_space][parking_space=disabled],
 
 node|z16-[waterway=fuel],
 {icon-image: marina_fuel_station-m.svg;}
-
-/* 8. Colored Labels */
-
-@import("../../default/include/Icons_Label_Colors.mapcss");

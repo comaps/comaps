@@ -135,7 +135,7 @@ place-country                                       # caption z3-
 === 3700
 
 place-city-capital-2                                # icon z4- (also has caption(mandatory) z4-)
-# place-city-capital-2                              # caption(mandatory) z4- (also has icon z4-)
+place-city-capital-2                                # caption(mandatory) z4- (also has icon z4-)
 === 3650
 
 place-city-capital-3                                # caption z4-
@@ -1281,9 +1281,9 @@ entrance-house                                      # icon z19- (also has captio
 # === -9990
 
 amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
-# amenity-loading_dock                              # caption(optional) z19- (also has icon z19-)
+amenity-loading_dock                                # caption(optional) z19- (also has icon z19-)
 # entrance-garage                                   # caption(optional) z19- (also has icon z19-)
 # entrance-house                                    # caption(optional) z19- (also has icon z19-)
 entrance-service                                    # icon z19- (also has caption(optional) z19-)
-# entrance-service                                  # caption(optional) z19- (also has icon z19-)
+entrance-service                                    # caption(optional) z19- (also has icon z19-)
 === -10000
