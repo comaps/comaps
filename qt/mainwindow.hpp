@@ -1,6 +1,7 @@
 #pragma once
 #include "qt/selection.hpp"
 
+#include "map/framework.hpp"
 #include "map/routing_mark.hpp"
 
 #include "storage/storage_defines.hpp"
@@ -53,14 +54,10 @@ class MainWindow
   QAction * m_pSearchAction = nullptr;
   QAction * m_rulerAction = nullptr;
 
-  enum LayerType : uint8_t
-  {
-    /// @todo Uncomment when we will integrate a traffic provider.
-    // TRAFFIC = 0,
-    TRANSIT = 0,  // Metro scheme
-    ISOLINES,
-    OUTDOORS,
-  };
+  PopupMenuHolder * m_walkingMapMode = nullptr;
+  PopupMenuHolder * m_cyclingMapMode = nullptr;
+  PopupMenuHolder * m_drivingMapMode = nullptr;
+  PopupMenuHolder * m_publicTransportMapMode = nullptr;
   PopupMenuHolder * m_layers = nullptr;
   PopupMenuHolder * m_routing = nullptr;
   PopupMenuHolder * m_selection = nullptr;
@@ -98,7 +95,7 @@ protected:
   void CreateSearchBarAndPanel();
   void CreateCountryStatusControls();
 
-  void SetLayerEnabled(LayerType type, bool enable);
+  void SetMapMode(MapMode mapMode);
 
 #if defined(OMIM_OS_WINDOWS)
   /// to handle menu messages
@@ -130,7 +127,15 @@ protected Q_SLOTS:
   void OnSwitchMwmsBordersSelectionMode();
   void OnClearSelection();
 
-  void OnLayerEnabled(LayerType layer);
+  void OnMapModeChange(MapMode const mapMode);
+  void OnWalkingMapModeOptionChange(int8_t const index);
+  void OnCyclingMapModeOptionChange(int8_t const index);
+  void OnDrivingMapModeOptionChange(int8_t const index);
+  void OnPublicTransportMapModeOptionChange(int8_t const index);
+
+  void OnLayersOutdoorChange(int8_t const index);
+  void OnLayersContourLinesChange(int8_t const index);
+  void OnLayers3dBuildingsChange(int8_t const index);
 
   void OnRulerEnabled();
 

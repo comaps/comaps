@@ -57,8 +57,6 @@ public:
 
   Framework & GetFramework() { return m_framework; }
 
-  void SetMapStyle(MapStyle mapStyle);
-
   void SetRuler(bool enabled);
 
   RouteMarkType GetRoutePointAddMode() const { return m_routePointAddMode; }
@@ -70,7 +68,6 @@ public:
   void RefreshDrawingRules();
   void SetMapStyleToDefault();
   void SetMapStyleToVehicle();
-  void SetMapStyleToOutdoors();
 
 protected:
   /// @name Overriden from MapWidget.
