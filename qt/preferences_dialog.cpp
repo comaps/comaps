@@ -181,30 +181,29 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     });
   }
 
-  QButtonGroup * nightModeGroup = new QButtonGroup(this);
-  QGroupBox * nightModeRadioBox = new QGroupBox("Night Mode");
+  QButtonGroup * mapAppearanceGroup = new QButtonGroup(this);
+  QGroupBox * mapAppearanceRadioBox = new QGroupBox("Map Appearance");
   {
     using namespace style_utils;
     QHBoxLayout * layout = new QHBoxLayout();
 
-    QRadioButton * radioButton = new QRadioButton("Off");
+    QRadioButton * radioButton = new QRadioButton("Light");
     layout->addWidget(radioButton);
-    nightModeGroup->addButton(radioButton, static_cast<int>(NightMode::Off));
+    mapAppearanceGroup->addButton(radioButton, static_cast<int>(MapAppearance::Light));
 
-    radioButton = new QRadioButton("On");
+    radioButton = new QRadioButton("Dark");
     layout->addWidget(radioButton);
-    nightModeGroup->addButton(radioButton, static_cast<int>(NightMode::On));
+    mapAppearanceGroup->addButton(radioButton, static_cast<int>(MapAppearance::Dark));
 
-    nightModeRadioBox->setLayout(layout);
+    mapAppearanceRadioBox->setLayout(layout);
 
-    int const btn = MapStyleIsDark(framework.GetMapStyle()) ? 1 : 0;
-    nightModeGroup->button(btn)->setChecked(true);
+    int const btn = framework.CurrentMapAppearance() == MapAppearance::Light ? 0 : 1;
+    mapAppearanceGroup->button(btn)->setChecked(true);
 
     void (QButtonGroup::*buttonClicked)(int) = &QButtonGroup::idClicked;
-    connect(nightModeGroup, buttonClicked, [&framework](int i)
+    connect(mapAppearanceGroup, buttonClicked, [&framework](int i)
     {
-      auto const currStyle = framework.GetMapStyle();
-      framework.SetMapStyle((i == 0) ? GetLightMapStyleVariant(currStyle) : GetDarkMapStyleVariant(currStyle));
+      framework.SwitchToMapAppearance(i == 0 ? MapAppearance::Light : MapAppearance::Dark);
     });
   }
 
@@ -241,7 +240,7 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
   finalLayout->addWidget(mapLanguageComboBox);
   finalLayout->addWidget(alternativeMapLanguageHandlingLabel);
   finalLayout->addWidget(alternativeMapLanguageHandlingComboBox);
-  finalLayout->addWidget(nightModeRadioBox);
+  finalLayout->addWidget(mapAppearanceRadioBox);
 #ifdef BUILD_DESIGNER
   finalLayout->addWidget(indexRegenCheckBox);
 #endif
