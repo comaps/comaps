@@ -20,7 +20,6 @@ public class SubwayManager
       return;
 
     Framework.nativeSetTransitSchemeEnabled(isEnabled);
-    Framework.nativeSaveSettingSchemeEnabled(isEnabled);
   }
 
   static public boolean isEnabled()
