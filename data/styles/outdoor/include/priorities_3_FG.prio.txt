@@ -1,0 +1,14 @@
+power-minor_line
+=== 350
+
+power-minor_line::dash
+=== 340
+
+piste:type-downhill-advanced-area
+piste:type-downhill-area
+piste:type-downhill-easy-area
+piste:type-downhill-expert-area
+piste:type-downhill-intermediate-area
+piste:type-downhill-novice-area
+piste:type-sled-area
+=== 15

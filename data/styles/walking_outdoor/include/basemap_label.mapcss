@@ -1,0 +1,3 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/basemap_label.mapcss");
+@import("../../outdoor/include/basemap_label.mapcss");

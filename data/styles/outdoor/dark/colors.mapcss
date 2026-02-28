@@ -1,0 +1,12 @@
+@railway_dark: #434343;
+
+@tertiary: #616060;
+@residential: #5D5D5D;
+
+@motorway1_border: #A66108;
+@trunk1_border: #A66F28;
+@primary1_border: #A17A2F;
+@primary2_border: #AB8132;
+@secondary0_border: #9E803C;
+@secondary1_border: #A9893F;
+@minor_road_border: #000000;
