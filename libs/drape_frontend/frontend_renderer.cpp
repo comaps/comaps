@@ -1016,14 +1016,15 @@ void FrontendRenderer::UpdateAll()
 {
 #ifdef BUILD_DESIGNER
   classificator::Load();
-#endif  // BUILD_DESIGNER
-
-  // Clear all graphics.
+  
   for (RenderLayer & layer : m_layers)
   {
     layer.m_renderGroups.clear();
     layer.m_isDirty = false;
   }
+#endif  // BUILD_DESIGNER
+
+  m_overlayTree->InvalidateOnNextFrame();
 
   // Must be recreated on map style changing.
   CHECK(m_context != nullptr, ());

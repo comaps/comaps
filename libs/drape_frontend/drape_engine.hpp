@@ -250,6 +250,7 @@ public:
 
   void ShowDebugInfo(bool shown);
 
+  double GetVisualScale();
   void UpdateVisualScale(double vs, bool needStopRendering);
   void UpdateMyPositionRoutingOffset(bool useDefault, int offsetY);
 
