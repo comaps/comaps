@@ -116,7 +116,7 @@ void MapWidget::CreateEngine()
   p.m_visualScale = static_cast<float>(m_ratio);
   p.m_hints.m_screenshotMode = m_screenshotMode;
 
-  m_skin.reset(new gui::Skin(gui::ResolveGuiSkinFile("default"), m_ratio));
+  m_skin.reset(new gui::Skin(gui::ResolveGuiSkinFile("walking"), m_ratio));
   m_skin->Resize(p.m_surfaceWidth, p.m_surfaceHeight);
   m_skin->ForEach([&p](gui::EWidget widget, gui::Position const & pos) { p.m_widgetsInitInfo[widget] = pos; });
 
