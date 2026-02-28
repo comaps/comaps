@@ -37,7 +37,8 @@ set(SRC
   app/organicmaps/sdk/routing/TransitRouteInfo.hpp
   app/organicmaps/sdk/routing/TransitStepInfo.hpp
   app/organicmaps/sdk/ChoosePositionMode.cpp
-  app/organicmaps/sdk/MapStyle.cpp
+  app/organicmaps/sdk/MapMode.cpp
+  app/organicmaps/sdk/MapAppearance.cpp
   app/organicmaps/sdk/OrganicMaps.cpp
   app/organicmaps/sdk/Router.cpp
   app/organicmaps/sdk/core/jni_helper.cpp
