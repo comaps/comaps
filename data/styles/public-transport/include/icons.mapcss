@@ -1,0 +1,7 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/icons.mapcss");
+
+/* 3.4 Bus Station */
+
+node|z14[highway=bus_stop],
+{icon-image: bus-xvs.svg;icon-min-distance: 1;}

@@ -1,0 +1,25 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/basemap.mapcss");
+
+
+/* Buildings */
+
+area|z14[building],
+area|z14[waterway=dam],
+{fill-opacity: 0.3;}
+
+area|z15[building],
+area|z15[waterway=dam],
+{fill-opacity: 0.4;}
+
+area|z14-15[aeroway=terminal],
+area|z16[building],
+area|z16[building:part],
+area|z16[waterway=dam],
+{fill-opacity: 0.5; casing-opacity: 0.7;}
+
+area|z16-[aeroway=terminal],
+area|z17-[building],
+area|z17-[building:part],
+area|z17-[waterway=dam],
+{fill-opacity: 0.5;}

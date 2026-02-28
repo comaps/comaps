@@ -1,0 +1,12 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/transit_systems.mapcss");
+
+
+/*only render captions from z16*/
+node|z1-14[railway=station][transport=subway],
+node|z1-14[railway=station][station=light_rail],
+{text: none;}
+
+node|z1-14[railway=station][transport=subway]::int_name,
+node|z1-14[railway=station][station=light_rail]::int_name,
+{text: none;}
