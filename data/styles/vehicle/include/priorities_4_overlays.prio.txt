@@ -135,7 +135,7 @@ place-country                                       # caption z3-
 === 3700
 
 place-city-capital-2                                # icon z4- (also has caption(mandatory) z4-)
-# place-city-capital-2                              # caption(mandatory) z4- (also has icon z4-)
+place-city-capital-2                                # caption(mandatory) z4- (also has icon z4-)
 === 3650
 
 place-city-capital-3                                # caption z4-
@@ -280,7 +280,7 @@ boundary-protected_area-6                           # icon z12- (also has captio
 leisure-nature_reserve                              # icon z12- (also has caption(optional) z12-, area z10-)
 === 2500
 
-historic-ruins                                      # icon z17- (also has caption(optional) z17-)
+historic-ruins                                      # icon z17- and caption z17- (also has caption(optional) z17-)
 === 2451
 
 historic-castle                                     # icon z12- (also has caption(optional) z15-)
@@ -527,7 +527,7 @@ amenity-cafe                                        # icon z15- (also has captio
 amenity-theatre                                     # icon z15- (also has caption(optional) z15-)
 === 1100
 
-amenity-university                                  # icon z15- (also has caption(optional) z15-)
+amenity-university                                  # icon z15- and caption z15- (also has caption(optional) z15-)
 === 1050
 
 amenity-hospital                                    # icon z15- (also has caption(optional) z15-)
@@ -872,7 +872,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # leisure-nature_reserve                            # caption(optional) z12- (also has icon z12-, area z10-)
 # === -7500
 
-# historic-ruins                                    # caption(optional) z17- (also has icon z17-)
+# historic-ruins                                    # caption(optional) z17- (also has icon z17-, caption z17-)
 # === -7549
 
 # historic-castle                                   # caption(optional) z15- (also has icon z12-)
@@ -1073,7 +1073,7 @@ entrance-emergency                                  # icon z19- (also has captio
 # amenity-theatre                                   # caption(optional) z15- (also has icon z15-)
 # === -8900
 
-# amenity-university                                # caption(optional) z15- (also has icon z15-)
+# amenity-university                                # caption(optional) z15- (also has icon z15-, caption z15-)
 # === -8950
 
 # amenity-hospital                                  # caption(optional) z15- (also has icon z15-)
@@ -1281,9 +1281,9 @@ entrance-house                                      # icon z19- (also has captio
 # === -9990
 
 amenity-loading_dock                                # icon z19- (also has caption(optional) z19-)
-# amenity-loading_dock                              # caption(optional) z19- (also has icon z19-)
+amenity-loading_dock                                # caption(optional) z19- (also has icon z19-)
 # entrance-garage                                   # caption(optional) z19- (also has icon z19-)
 # entrance-house                                    # caption(optional) z19- (also has icon z19-)
 entrance-service                                    # icon z19- (also has caption(optional) z19-)
-# entrance-service                                  # caption(optional) z19- (also has icon z19-)
+entrance-service                                    # caption(optional) z19- (also has icon z19-)
 === -10000
