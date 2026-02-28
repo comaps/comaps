@@ -1,0 +1,3 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/light/colors.mapcss");
+@import("../../outdoor/light/colors.mapcss");

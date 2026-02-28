@@ -1,0 +1,302 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/ways.mapcss");
+@import("../../outdoor/include/ways.mapcss");
+
+/* Its not unusual for trails to be tagged as footways, e.g. in UK */
+line|z11-[highway=footway],
+line|z12-[highway=ladder],
+line|z12-[highway=steps],
+{color: @footway; opacity: 1;}
+
+line|z11-[highway=path],
+{color: @path; opacity: 1;}
+
+line|z11-[highway=path][_path_grade=expert],
+{color: @path_expert; opacity: 1;}
+
+line|z12-[piste:type=hike],
+{color: @piste; opacity: 0.7;}
+
+line|z11-[highway=bridleway],
+{color: @path; opacity: 1;}
+
+line|z11-[highway=cycleway],
+line|z13-[highway=footway][bicycle=designated]::cycleline,
+line|z12-[highway=path][bicycle=designated]::cycleline,
+{color: @cycleway; opacity: 1;}
+
+line|z11[highway=track],
+{width: 1.1; dashes: 6,2.5; opacity: 0.6;}
+line|z12[highway=track],
+{width: 1.3; dashes: 6,2.5; opacity: 0.7;}
+line|z13[highway=track],
+{width: 1.6; dashes: 7,3;}
+line|z14[highway=track],
+{width: 2; dashes: 7,3;}
+line|z15[highway=track],
+{width: 2.5; dashes: 9,3.5;}
+line|z16[highway=track],
+{width: 3.2; dashes: 9,3.5;}
+line|z17[highway=track],
+{width: 4; dashes: 12,4;}
+line|z18-[highway=track],
+{width: 5; dashes: 12,4;}
+
+line|z11[highway=footway],
+{width: 1; dashes: 3.5,2;}
+line|z11[highway=path],
+{width: 1; dashes: 3.5,2; opacity: 0.6;}
+line|z12[highway=footway],
+/* Make steps on z12-14 look same as footways, z15- follows main style */
+line|z12[highway=ladder],
+line|z12[highway=steps],
+{width: 1.1; dashes: 3.5,2;}
+line|z12[highway=path],
+line|z12[piste:type=hike],
+{width: 1.1; dashes: 3.5,2; opacity: 0.7;}
+line|z13[highway=path],
+line|z13[piste:type=hike],
+line|z13[highway=footway],
+line|z13[highway=ladder],
+line|z13[highway=steps],
+{width: 1.3; dashes: 4,2.5;}
+line|z14[highway=path],
+line|z14[piste:type=hike],
+line|z14[highway=footway],
+line|z14[highway=ladder],
+line|z14[highway=steps],
+{width: 1.6; dashes: 4,2.5;}
+
+/* steps and ladder from z15 are set in default style */
+
+line|z15[highway=path],
+line|z15[piste:type=hike],
+line|z15[highway=footway],
+{width: 2; dashes: 6,3.5;}
+line|z16[highway=path],
+line|z16[piste:type=hike],
+line|z16[highway=footway],
+{width: 2.6; dashes: 6,3.5;}
+line|z17[highway=path],
+line|z17[piste:type=hike],
+line|z17[highway=footway],
+{width: 3.3; dashes: 8,4.5;}
+line|z18-[highway=path],
+line|z18-[piste:type=hike],
+line|z18-[highway=footway],
+{width: 4; dashes: 8,4.5;}
+
+line|z13-[highway=path][bicycle=designated],
+line|z13-[highway=footway][bicycle=designated],
+{opacity: 0.8;}
+
+line|z12[highway=path][bicycle=designated],
+{width: 1.1; dashes: 3.5,2.5; opacity: 0.7;}
+line|z13[highway=path][bicycle=designated],
+{width: 1.3; dashes: 4,3;}
+line|z14[highway=path][bicycle=designated],
+{width: 1.6; dashes: 4,3;}
+line|z15[highway=path][bicycle=designated],
+{width: 2; dashes: 6,4.5;}
+line|z16[highway=path][bicycle=designated],
+{width: 2.6; dashes: 6,4.5; opacity: 0.9;}
+line|z17[highway=path][bicycle=designated],
+{width: 3.3; dashes: 8,6; opacity: 1;}
+line|z18-[highway=path][bicycle=designated],
+{width: 4; dashes: 8,6; opacity: 1;}
+
+line|z12[highway=footway][bicycle=designated],
+{width: 1.1; dashes: 2,6; opacity: 0.7;}
+line|z13[highway=footway][bicycle=designated],
+{width: 1.3; dashes: 3,7;}
+line|z14[highway=footway][bicycle=designated],
+{width: 1.6; dashes: 4,8;}
+line|z15[highway=footway][bicycle=designated],
+{width: 2; dashes: 6,9;}
+line|z16[highway=footway][bicycle=designated],
+{width: 2.6; dashes: 8,10; opacity: 0.9;}
+line|z17[highway=footway][bicycle=designated],
+{width: 3.3; dashes: 10,11; opacity: 1;}
+line|z18[highway=footway][bicycle=designated],
+{width: 4; dashes:  15,15; opacity: 1;}
+line|z19-[highway=footway][bicycle=designated],
+{width: 4; dashes: 20,20; opacity: 1;}
+
+line|z11[highway=path][_path_grade=difficult],
+line|z11[highway=path][_path_grade=expert],
+{width: 1; dashes: 1,2; opacity: 0.7;}
+line|z12[highway=path][_path_grade=difficult],
+line|z12[highway=path][_path_grade=expert],
+{width: 1.1; dashes: 1,2; opacity: 0.8;}
+
+line|z13[highway=path][_path_grade=difficult],
+{width: 1.3; dashes: 1.5,2.5;}
+line|z14[highway=path][_path_grade=difficult],
+{width: 1.6; dashes: 1.5,2.5;}
+line|z15[highway=path][_path_grade=difficult],
+{width: 2; dashes: 2.5,4;}
+line|z16[highway=path][_path_grade=difficult],
+{width: 2.6; dashes: 2.5,4;}
+line|z17[highway=path][_path_grade=difficult],
+{width: 3.3; dashes: 3.6,5;}
+line|z18-[highway=path][_path_grade=difficult],
+{width: 4; dashes: 3.6,5;}
+
+line|z13[highway=path][_path_grade=expert],
+{width: 1.3; dashes: 1.4,5;}
+line|z14[highway=path][_path_grade=expert],
+{width: 1.6; dashes: 1.4,5;}
+line|z15[highway=path][_path_grade=expert],
+{width: 2; dashes: 2.3,9;}
+line|z16[highway=path][_path_grade=expert],
+{width: 2.6; dashes: 2.3,9;}
+line|z17[highway=path][_path_grade=expert],
+{width: 3.3; dashes: 3.5,11;}
+line|z18-[highway=path][_path_grade=expert],
+{width: 4; dashes: 3.5,11;}
+
+/*
+Don't display sidewalks till z13 (like highway=service).
+"Rožňava" foot routes are very common with highway-footway-sidewalk
+*/
+line|z11-12[highway=footway][footway=sidewalk],
+/* Don't display pedestrian crossings till z16. */
+line|z11-15[highway=footway][footway=crossing],
+{width: 0;}
+
+line|z11[highway=bridleway],
+{width: 1; dashes: 6,1; opacity: 0.6;}
+line|z12[highway=bridleway],
+{width: 1.1; dashes: 6,1; opacity: 0.7;}
+line|z13[highway=bridleway],
+{width: 1.3; dashes: 7,1.2;}
+line|z14[highway=bridleway],
+{width: 1.6; dashes: 7,1.2;}
+line|z15[highway=bridleway],
+{width: 2; dashes: 9,1.7;}
+line|z16[highway=bridleway],
+{width: 2.6; dashes: 9,1.7;}
+line|z17[highway=bridleway],
+{width: 3.3; dashes: 12,2.2;}
+line|z18-[highway=bridleway],
+{width: 4; dashes: 12,2.2;}
+
+line|z11[highway=cycleway],
+{width: 0.9; opacity: 0.7;}
+line|z12[highway=cycleway],
+{width: 1.1; opacity: 0.7;}
+line|z13[highway=cycleway],
+{width: 1.3; opacity: 0.8;}
+line|z14[highway=cycleway],
+{width: 1.6;}
+line|z15[highway=cycleway],
+{width: 2;}
+line|z16[highway=cycleway],
+{width: 2.6;}
+line|z17[highway=cycleway],
+{width: 3.3;}
+line|z18-[highway=cycleway],
+{width: 4;}
+
+line|z12-[highway=path][bicycle=designated]::cycleline,
+{width: 0.5; opacity: 1;}
+line|z13[highway=path][bicycle=designated]::cycleline,
+{width: 0.6;}
+line|z14[highway=path][bicycle=designated]::cycleline,
+{width: 0.8;}
+line|z15[highway=path][bicycle=designated]::cycleline,
+{width: 1;}
+line|z16[highway=path][bicycle=designated]::cycleline,
+{width: 1.3;}
+line|z17[highway=path][bicycle=designated]::cycleline,
+{width: 1.6;}
+line|z18-[highway=path][bicycle=designated]::cycleline,
+{width: 2;}
+
+line|z13-[highway=footway][bicycle=designated]::cycleline,
+{opacity: 1;}
+line|z13[highway=footway][bicycle=designated]::cycleline,
+{width: 0.5;}
+line|z14[highway=footway][bicycle=designated]::cycleline,
+{width: 0.6;}
+line|z15[highway=footway][bicycle=designated]::cycleline,
+{width: 0.7;}
+line|z16[highway=footway][bicycle=designated]::cycleline,
+{width: 0.8;}
+line|z17[highway=footway][bicycle=designated]::cycleline,
+{width: 1.1;}
+line|z18[highway=footway][bicycle=designated]::cycleline,
+{width: 1.4;}
+line|z19-[highway=footway][bicycle=designated]::cycleline,
+{width: 2.0;}
+
+
+
+
+/* Ski pistes */
+
+line|z12-[piste:type=nordic],
+line|z12-[piste:type=skitour],
+line|z15-[piste:type=connection],
+{color: @piste; opacity: 0.8;}
+
+line|z12[piste:type=nordic],
+line|z12-[piste:type=skitour],
+{width: 0.8; opacity: 0.6;}
+line|z13[piste:type=nordic],
+line|z13[piste:type=skitour],
+{width: 1; opacity: 0.7;}
+line|z14[piste:type=nordic],
+line|z14[piste:type=skitour],
+{width: 1.2;}
+line|z15[piste:type=nordic],
+line|z15[piste:type=skitour],
+line|z15[piste:type=connection],
+{width: 1.4;}
+line|z16[piste:type=nordic],
+line|z16[piste:type=skitour],
+line|z16[piste:type=connection],
+{width: 1.6;}
+line|z17[piste:type=nordic],
+line|z17[piste:type=skitour],
+line|z17[piste:type=connection],
+{width: 1.9;}
+line|z18-[piste:type=nordic],
+line|z18-[piste:type=skitour],
+line|z18-[piste:type=connection],
+{width: 2.3;}
+
+
+line|z12-[piste:type=downhill],
+line|z12-[piste:type=sled],
+{color: @piste; opacity: 0.3;}
+
+line|z12-[piste:type=downhill][piste:difficulty=novice]
+{color: @piste_novice; opacity: 0.5;}
+line|z12-[piste:type=downhill][piste:difficulty=easy]
+{color: @piste_easy;}
+line|z12-[piste:type=downhill][piste:difficulty=intermediate]
+{color: @piste_intermediate;}
+line|z12-[piste:type=downhill][piste:difficulty=advanced]
+{color: @piste_advanced;}
+line|z12-[piste:type=downhill][piste:difficulty=expert],
+{color: @piste_expert;}
+line|z12-[piste:type=downhill][piste:difficulty=freeride],
+{color: @piste_freeride;}
+
+line|z12[piste:type=sled],
+line|z12[piste:type=downhill],
+{width: 1; opacity: 0.4;}
+line|z13-14[piste:type=sled],
+line|z13-14[piste:type=downhill],
+{width: 1.4;}
+line|z15-16[piste:type=sled],
+line|z15-16[piste:type=downhill],
+{width: 2.2;}
+line|z17-[piste:type=sled],
+line|z17-[piste:type=downhill],
+{width: 3.2;}
+
+area|z12-[piste:type=downhill][area],
+area|z12-[piste:type=sled][area],
+{width: 0;}

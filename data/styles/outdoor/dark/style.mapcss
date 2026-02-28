@@ -6,4 +6,3 @@
 @import("../include/icons.mapcss");
 @import("../include/icons_label_colors.mapcss");
 @import("../include/transit_systems.mapcss");
-@import("../../walking/dark/dynamic_colors.mapcss");

@@ -1,0 +1,17 @@
+@cycleway: #534DEB; /* slightly darker than in main */
+
+@pedestrian: #FFFFFF; /* slightly lighter than in main */
+@footway: #FFFFFF; /* slightly lighter than in main */
+
+@construction: #ABAB9A;
+
+@railway: #818071;
+@railway_dark: #767566;
+@railway_dash: #F5F5F5;
+
+@motorway1_border: #673A00;
+@trunk1_border: #805419;
+@primary1_border: #806021;
+@primary2_border: #75581F;
+@secondary0_border: #80682D;
+@secondary1_border: #755F2A;

@@ -1,0 +1,3 @@
+/* Keep here changes of the base map style file only. */
+@import("../../cycling/include/ways.mapcss");
+@import("../../outdoor/include/ways.mapcss");
