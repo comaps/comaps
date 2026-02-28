@@ -1132,4 +1132,4 @@
 "interface" = "Interface";
 
 /* To indicate the population of a city, a place ... */
-"population" = "Population: %@";
+"population" = "%@ residents";
