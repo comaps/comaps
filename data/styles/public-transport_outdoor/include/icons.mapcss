@@ -1,0 +1,3 @@
+/* Keep here changes of the base map style file only. */
+@import("../../public-transport/include/icons.mapcss");
+@import("../../outdoor/include/icons.mapcss");

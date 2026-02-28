@@ -1,0 +1,3 @@
+/* Keep here changes of the base map style file only. */
+@import("../../cycling/dark/colors.mapcss");
+@import("../../outdoor/dark/colors.mapcss");

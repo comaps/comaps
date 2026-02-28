@@ -1,0 +1,23 @@
+/* Keep here changes of the base map style file only. */
+@import("../../driving/include/ways.mapcss");
+@import("../../outdoor/include/ways.mapcss");
+
+/* Make all roads more contrast */
+line|z6[highway=trunk],
+line|z6[highway=motorway],
+{opacity: 0.7;}
+line|z7-[highway=trunk],
+line|z7-[highway=motorway],
+line|z10-[highway=motorway_link],
+line|z10-[highway=trunk_link],
+line|z8-[highway=primary],
+line|z11-[highway=primary_link],
+line|z10-[highway=secondary],
+line|z13-[highway=secondary_link],
+line|z12-[highway=residential],
+line|z11-[highway=tertiary],
+line|z14-[highway=tertiary_link],
+line|z11-[highway=unclassified],
+line|z12-[highway=road],
+line|z12-[highway=living_street],
+{opacity: 1;}

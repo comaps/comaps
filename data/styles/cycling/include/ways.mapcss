@@ -1,0 +1,52 @@
+/* Keep here changes of the base map style file only. */
+@import("../../walking/include/ways.mapcss");
+
+line|z12-[highway=cycleway],
+line|z13-[highway=path][bicycle=designated]::cycleline,
+line|z14-[highway=footway][bicycle=designated]::cycleline,
+{color: @cycleway;}
+
+line|z12[highway=cycleway]
+{width: 1.9;}
+line|z13[highway=cycleway]
+{width: 2.0;}
+line|z14[highway=cycleway],
+{width: 2.2;}
+line|z15[highway=cycleway],
+{width: 2.5;}
+line|z16[highway=cycleway],
+{width: 3;}
+line|z17[highway=cycleway],
+{width: 3.4;}
+line|z18[highway=cycleway],
+{width: 4.2;}
+line|z19-[highway=cycleway],
+{width: 5.2;}
+
+line|z13[highway=path][bicycle=designated]::cycleline,
+{width: 1.4;}
+line|z14[highway=path][bicycle=designated]::cycleline,
+{width: 1.5;}
+line|z15[highway=path][bicycle=designated]::cycleline,
+{width: 1.6;}
+line|z16[highway=path][bicycle=designated]::cycleline,
+{width: 2.2;}
+line|z17[highway=path][bicycle=designated]::cycleline,
+{width: 2;}
+line|z18[highway=path][bicycle=designated]::cycleline,
+{width: 2.4;}
+line|z19-[highway=path][bicycle=designated]::cycleline,
+{width: 2.8;}
+
+line|z14[highway=footway][bicycle=designated]::cycleline,
+{width: 1.6;}
+line|z15[highway=footway][bicycle=designated]::cycleline,
+{width: 1.7;}
+line|z16[highway=footway][bicycle=designated]::cycleline,
+{width: 1.8;}
+line|z17[highway=footway][bicycle=designated]::cycleline,
+{width: 2.1;}
+line|z18[highway=footway][bicycle=designated]::cycleline,
+{width: 2.4;}
+line|z19-[highway=footway][bicycle=designated]::cycleline,
+{width: 3.0;}
