@@ -12,8 +12,6 @@ For more information, please see the source code at [`Framework::ParseSearchQuer
 
 - `?dark` or `mapstyle:dark`: Enable night mode for the map view only. You may need to change the zoom level to reload the view.
 - `?light` or `mapstyle:light`: Enable light mode for the map view only. You may need to change the zoom level to reload the view.
-- `?odark` or `mapstyle:outdoors_dark`: Same as `?dark`, but using the outdoor variant.
-- `?olight` or `mapstyle:outdoors_light`: Same as `?light`, but using the outdoor variant.
 - `?vdark` or `mapstyle:vdark`: Same as `?dark`, but using the vehicle variant.
 - `?vlight` or `mapstyle:vlight`: Same as `?light`, but using the vehicle variant.
 
@@ -21,13 +19,6 @@ For more information, please see the source code at [`Framework::ParseSearchQuer
 
 - `?aa` or `effect:antialiasing`: Enable antialiasing.
 - `?no-aa` or `effect:no-antialiasing`: Disable antialiasing.
-
-### Map layers
-
-- `?scheme`: Enable the subway layer.
-- `?no-scheme`: Disable the subway layer.
-- `?isolines`: Enable the isolines layer.
-- `?no-isolines`: Disable the isolines layer.
 
 ### 3D mode (for the Qt desktop app only)
 - `?3d`: Enable 3D (perspective) mode.

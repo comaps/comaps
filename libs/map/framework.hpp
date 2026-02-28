@@ -121,6 +121,20 @@ struct FrameworkParams
   FrameworkParams(bool enableDiffs) : m_enableDiffs(enableDiffs) {}
 };
 
+enum MapAppearance : int8_t
+{
+  Light = 0,
+  Dark = 1,
+};
+
+enum MapMode : int8_t
+{
+  Walking = 0,
+  Cycling = 1,
+  Driving = 2,
+  PublicTransport = 3,
+};
+
 class Framework
   : public PositionProvider
   , public SearchAPI::Delegate
@@ -235,6 +249,67 @@ protected:
 public:
   explicit Framework(FrameworkParams const & params = {}, bool loadMaps = true);
   virtual ~Framework() override;
+
+  /// Switch the map appearance to the given one
+  void SwitchToMapAppearance(MapAppearance const mapAppearance);
+
+  /// Get the current map appearance
+  MapAppearance CurrentMapAppearance();
+
+  /// Switch the map mode to the given one
+  void SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRefresh = false);
+
+  /// Get the current map mode
+  MapMode CurrentMapMode();
+
+private:
+  /// If the current map mode has traffic
+  bool CurrentMapModeHasTraffic();
+
+  /// If the current map mode has transit lines
+  bool CurrentMapModeHasTransitLines();
+
+public:
+  /// If the driving map mode has traffic
+  bool DrivingMapModeHasTraffic();
+
+  /// If the driving map mode has traffic
+  void DrivingMapModeSetTraffic(bool const hasTraffic);
+
+  /// If the public transport map mode has transit lines
+  bool PublicTransportMapModeHasTransitLines();
+
+  /// Set if the public transport map mode has transit lines
+  void PublicTransportMapModeSetTransitLines(bool const hasTransitLines);
+
+private:
+  /// Refresh after a possible map mode change
+  void RefreshForMapMode();
+
+public:
+  /// If the map is optimised for outdoors
+  bool HasOutdoorLayer();
+  
+  /// Set if the map is optimised for outdoors
+  void SetOutdoorLayer(bool const hasOutdoorLayer);
+
+  /// If the map has contour lines
+  bool HasContourLinesLayer();
+  
+  /// Set if the map has contour lines
+  void SetContourLinesLayer(bool const hasContourLinesLayer);
+
+  /// Set if the map has 3D buildings
+  bool HasBuildings3d();
+
+  /// Set if the map has 3D buildings
+  void SetBuildings3d(bool const hasBuildings3d);
+  
+  /// If the vehicle style is being used
+  bool IsUsingVehicleStyle();
+
+  /// Set i the vehicle style is being used
+  void SwitchToUsingVehicleStyle(bool const shouldUseVehicleStyle);
 
   df::DrapeApi & GetDrapeApi() { return m_drapeApi; }
 
@@ -435,6 +510,7 @@ public:
   void OnRecoverSurface(int width, int height, bool recreateContextDependentResources);
   void OnDestroySurface();
 
+  double GetVisualScale();
   void UpdateVisualScale(double vs);
 
   /// Sets the distance between the bottom edge of the arrow and the bottom edge of the visible viewport
@@ -467,10 +543,6 @@ public:
   /// callback from the `SetTrackRecordingUpdateHandler`.
   static ElevationInfo const & GetTrackRecordingElevationInfo();
 
-  void SetMapStyle(MapStyle mapStyle);
-  void MarkMapStyle(MapStyle mapStyle);
-  MapStyle GetMapStyle() const;
-
   void SetupMeasurementSystem();
 
   void SetWidgetLayout(gui::TWidgetsLayoutInfo && layout);
@@ -480,6 +552,10 @@ public:
 private:
   void InitCountryInfoGetter();
   void InitSearchAPI(size_t numThreads);
+  
+  void SetMapStyle(MapStyle mapStyle);
+  void MarkMapStyle(MapStyle mapStyle);
+  MapStyle GetMapStyle() const;
 
   bool m_connectToGpsTrack;  // need to connect to tracker when Drape is being constructed
 
@@ -726,28 +802,16 @@ public:
   bool LoadAutoZoom();
   void AllowAutoZoom(bool allowAutoZoom);
   void SaveAutoZoom(bool allowAutoZoom);
-
+  
+  // Direct access to managers only for legacy Android listener support. So please dont use directly anymore!
   TrafficManager & GetTrafficManager();
-
   TransitReadManager & GetTransitManager();
-
   IsolinesManager & GetIsolinesManager();
   IsolinesManager const & GetIsolinesManager() const;
 
-  bool LoadTrafficEnabled();
-  void SaveTrafficEnabled(bool trafficEnabled);
-
   bool LoadTrafficSimplifiedColors();
   void SaveTrafficSimplifiedColors(bool simplified);
-
-  bool LoadTransitSchemeEnabled();
-  void SaveTransitSchemeEnabled(bool enabled);
-
-  bool LoadIsolinesEnabled();
-  void SaveIsolinesEnabled(bool enabled);
-
-  bool LoadOutdoorsEnabled();
-  void SaveOutdoorsEnabled(bool enabled);
+  void SetTrafficSimplifiedColors(bool simplified);
 
   dp::ApiVersion LoadPreferredGraphicsAPI();
   void SavePreferredGraphicsAPI(dp::ApiVersion apiVersion);
@@ -781,6 +845,9 @@ private:
 
 public:
   power_management::PowerManager & GetPowerManager() { return m_powerManager; }
+
+  std::function<void()> m_runOnPowerManagerChangesFn;
+  void RunOnPowerManagerChanges(std::function<void()> fn);
 
   // PowerManager::Subscriber override.
   void OnPowerFacilityChanged(power_management::Facility const facility, bool enabled) override;

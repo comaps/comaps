@@ -17,7 +17,7 @@ DRULES_NOT_GENERATED=
 SYMBOLS_NOT_GENERATED=
 STRINGS_NOT_GENERATED=
 
-DRULES_FILES=(drules_proto.bin drules_proto_default_dark.bin drules_proto_default_light.bin drules_proto_outdoors_dark.bin drules_proto_outdoors_light.bin drules_proto_vehicle_dark.bin drules_proto_vehicle_light.bin classificator.txt types.txt visibility.txt colors.txt patterns.txt)
+DRULES_FILES=(drules_proto.bin drules_proto_walking_light.bin drules_proto_walking_outdoor_light.bin drules_proto_walking_dark.bin drules_proto_walking_outdoor_dark.bin drules_proto_cycling_light.bin drules_proto_cycling_outdoor_light.bin drules_proto_cycling_dark.bin drules_proto_cycling_outdoor_dark.bin drules_proto_driving_light.bin drules_proto_driving_outdoor_light.bin drules_proto_driving_dark.bin drules_proto_driving_outdoor_dark.bin drules_proto_public-transport_light.bin drules_proto_public-transport_outdoor_light.bin drules_proto_public-transport_dark.bin drules_proto_public-transport_outdoor_dark.bin drules_proto_vehicle_light.bin drules_proto_vehicle_dark.bin classificator.txt types.txt visibility.txt colors.txt patterns.txt)
 SYMBOLS_FILES=(xhdpi/light/symbols.png xhdpi/light/symbols.sdf xhdpi/dark/symbols.png xhdpi/dark/symbols.sdf mdpi/light/symbols.png mdpi/light/symbols.sdf mdpi/dark/symbols.png mdpi/dark/symbols.sdf 6plus/light/symbols.png 6plus/light/symbols.sdf 6plus/dark/symbols.png 6plus/dark/symbols.sdf xxxhdpi/light/symbols.png xxxhdpi/light/symbols.sdf xxxhdpi/dark/symbols.png xxxhdpi/dark/symbols.sdf hdpi/light/symbols.png hdpi/light/symbols.sdf hdpi/dark/symbols.png hdpi/dark/symbols.sdf xxhdpi/light/symbols.png xxhdpi/light/symbols.sdf xxhdpi/dark/symbols.png xxhdpi/dark/symbols.sdf)
 
 for f in ${DRULES_FILES[*]}; do
