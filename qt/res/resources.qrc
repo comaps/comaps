@@ -28,9 +28,16 @@
         <file>phonepack.png</file>
         <file>bookmark.png</file>
         <file>ruler.png</file>
+        <file>mode_walking.png</file>
+        <file>mode_walking_selected.png</file>
+        <file>mode_cycling.png</file>
+        <file>mode_cycling_selected.png</file>
+        <file>mode_driving.png</file>
+        <file>mode_driving_selected.png</file>
+        <file>mode_public-transport.png</file>
+        <file>mode_public-transport_selected.png</file>
+        <file>mode_options_transitlines.png</file>
         <file>layers.png</file>
-        <file>subway.png</file>
-        <file>isolines.png</file>
         <file>guides.png</file>
         <file>settings-routing.png</file>
         <file>borders_selection.png</file>
