@@ -116,12 +116,15 @@ std::unique_ptr<threads::IRoutine> BackendRenderer::CreateRoutine()
   return std::make_unique<Routine>(*this);
 }
 
-void BackendRenderer::RecacheGui(gui::TWidgetsInitInfo const & initInfo, bool needResetOldGui)
+void BackendRenderer::RecacheGui(gui::TWidgetsInitInfo const & initInfo, bool needResetOldGui, bool notify)
 {
   CHECK(m_context != nullptr, ());
   drape_ptr<gui::LayerRenderer> layerRenderer = m_guiCacher.RecacheWidgets(m_context, initInfo, m_texMng);
-  drape_ptr<Message> outputMsg = make_unique_dp<GuiLayerRecachedMessage>(std::move(layerRenderer), needResetOldGui);
-  m_commutator->PostMessage(ThreadsCommutator::RenderThread, std::move(outputMsg), MessagePriority::Normal);
+  if (notify)
+  {
+    drape_ptr<Message> outputMsg = make_unique_dp<GuiLayerRecachedMessage>(std::move(layerRenderer), needResetOldGui);
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread, std::move(outputMsg), MessagePriority::Normal);
+  }
 }
 
 #ifdef RENDER_DEBUG_INFO_LABELS
@@ -371,7 +374,7 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     CHECK(m_context != nullptr, ());
     m_texMng->OnSwitchMapStyle(m_context);
     RecacheMapShapes();
-    RecacheGui(m_lastWidgetsInfo, false /* needResetOldGui */);
+    RecacheGui(m_lastWidgetsInfo, false /* needResetOldGui */, false /* notify */);
 #ifdef RENDER_DEBUG_INFO_LABELS
     RecacheDebugLabels();
 #endif

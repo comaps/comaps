@@ -103,8 +103,22 @@ copy_resources(
   classificator.txt
   colors.txt
   countries.txt
-  drules_proto_default_light.bin
-  drules_proto_default_dark.bin
+  drules_proto_walking_light.bin
+  drules_proto_walking_outdoor_light.bin
+  drules_proto_walking_dark.bin
+  drules_proto_walking_outdoor_dark.bin
+  drules_proto_cycling_light.bin
+  drules_proto_cycling_outdoor_light.bin
+  drules_proto_cycling_dark.bin
+  drules_proto_cycling_outdoor_dark.bin
+  drules_proto_driving_light.bin
+  drules_proto_driving_outdoor_light.bin
+  drules_proto_driving_dark.bin
+  drules_proto_driving_outdoor_dark.bin
+  drules_proto_public-transport_light.bin
+  drules_proto_public-transport_outdoor_light.bin
+  drules_proto_public-transport_dark.bin
+  drules_proto_public-transport_outdoor_dark.bin
   drules_proto_vehicle_light.bin
   drules_proto_vehicle_dark.bin
   editor.config

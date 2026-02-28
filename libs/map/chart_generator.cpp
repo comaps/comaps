@@ -52,36 +52,19 @@ struct BlendAdaptor
 
 agg::rgba8 GetLineColor(MapStyle mapStyle)
 {
-  switch (mapStyle)
-  {
-  case MapStyleCount: LOG(LERROR, ("Wrong map style param."));  // fallthrough
-  case MapStyleDefaultDark:
-  case MapStyleVehicleDark:
-  case MapStyleOutdoorsDark: return agg::rgba8(124, 188, 123, 255);
-  case MapStyleDefaultLight:
-  case MapStyleVehicleLight:
-  case MapStyleOutdoorsLight:
-  case MapStyleMerged: return agg::rgba8(55, 101, 63, 255);
-  }
+  if (MapStyleIsDark(mapStyle))
+    return agg::rgba8(124, 188, 123, 255);
+  else
+    return agg::rgba8(55, 101, 63, 255);
   UNREACHABLE();
 }
 
 agg::rgba8 GetCurveColor(MapStyle mapStyle)
 {
-  switch (mapStyle)
-  {
-  case MapStyleCount:
-    LOG(LERROR, ("Wrong map style param."));
-    [[fallthrough]];
-    // No need break or return here.
-  case MapStyleDefaultDark:
-  case MapStyleVehicleDark:
-  case MapStyleOutdoorsDark: return agg::rgba8(124, 188, 123, 20);
-  case MapStyleDefaultLight:
-  case MapStyleVehicleLight:
-  case MapStyleOutdoorsLight:
-  case MapStyleMerged: return agg::rgba8(88, 129, 87, 25);
-  }
+  if (MapStyleIsDark(mapStyle))
+    return agg::rgba8(124, 188, 123, 20);
+  else
+    return agg::rgba8(88, 129, 87, 25);
   UNREACHABLE();
 }
 }  // namespace

@@ -123,6 +123,7 @@ public:
 
   bool GetTransitDisplayInfo(TransitDisplayInfos & transitDisplayInfos);
 
+  bool IsTransitSchemeModeEnabled();
   void EnableTransitSchemeMode(bool enable);
   void BlockTransitSchemeMode(bool isBlocked);
   void UpdateViewport(ScreenBase const & screen);
