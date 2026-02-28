@@ -269,6 +269,11 @@ std::string MapObject::GetPopulation() const
   return std::string(m_metadata.Get(MetadataID::FMD_POPULATION));
 }
 
+std::string MapObject::GetOrganic() const
+{
+  return std::string(m_metadata.Get(MetadataID::FMD_ORGANIC));
+}
+
 bool MapObject::IsPointType() const
 {
   return m_geomType == feature::GeomType::Point;
