@@ -201,7 +201,7 @@ bool SearchPanel::TryTrafficSimplifiedColorsCmd(std::string const & str)
     return false;
 
   bool const isSimplified = simplifiedMode;
-  GetFramework().GetTrafficManager().SetSimplifiedColorScheme(isSimplified);
+  GetFramework().SetTrafficSimplifiedColors(isSimplified);
   GetFramework().SaveTrafficSimplifiedColors(isSimplified);
 
   return true;
