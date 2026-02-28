@@ -47,6 +47,7 @@ struct MetadataTagProcessorImpl
   static std::string ValidateAndFormat_self_service(std::string v);
   static std::string ValidateAndFormat_outdoor_seating(std::string v);
   // Population tag had been already processed in generator/osm2type.cpp::GetNameAndType()
+  static std::string ValidateAndFormat_organic(std::string v);
 
 protected:
   // stores information about charge sockets in charging stations.

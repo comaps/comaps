@@ -92,6 +92,7 @@ public:
   std::string GetCapacity() const;
   std::string GetRooms() const;
   std::string GetPopulation() const;
+  std::string GetOrganic() const;
 
   /// @returns true if feature has ATM type.
   bool HasAtm() const;
