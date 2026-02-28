@@ -216,6 +216,10 @@ MainWindow::MainWindow(Framework & framework, std::unique_ptr<ScreenshotParams> 
   m_pDrawWidget->UpdateAfterSettingsChanged();
 
   RoutingSettings::LoadSession(m_pDrawWidget->GetFramework());
+
+#ifndef BUILD_DESIGNER
+  SetMapMode(m_pDrawWidget->GetFramework().CurrentMapMode());
+#endif  // BUILD_DESIGNER
 }
 
 #if defined(OMIM_OS_WINDOWS)
@@ -277,31 +281,47 @@ void MainWindow::CreateNavigationBar()
   }
 
   {
-    using namespace std::placeholders;
+#ifndef BUILD_DESIGNER
+    m_walkingMapMode = new PopupMenuHolder(this);
+    m_walkingMapMode->setDefaultAction(QIcon(":/navig64/mode_walking.png"), tr("Walking"), std::bind(&MainWindow::OnMapModeChange, this, MapMode::Walking));
+    pToolBar->addWidget(m_walkingMapMode->create());
+    m_walkingMapMode->setMainIcon(QIcon(":/navig64/mode_walking.png"));
 
-    m_layers = new PopupMenuHolder(this);
+    m_cyclingMapMode = new PopupMenuHolder(this);
+    m_cyclingMapMode->setDefaultAction(QIcon(":/navig64/mode_cycling.png"), tr("Cycling"), std::bind(&MainWindow::OnMapModeChange, this, MapMode::Cycling));
+    pToolBar->addWidget(m_cyclingMapMode->create());
+    m_cyclingMapMode->setMainIcon(QIcon(":/navig64/mode_cycling.png"));
 
-    /// @todo Uncomment when we will integrate a traffic provider.
-    // m_layers->addAction(QIcon(":/navig64/traffic.png"), tr("Traffic"),
-    //                     std::bind(&MainWindow::OnLayerEnabled, this, LayerType::TRAFFIC), true);
-    // m_layers->setChecked(LayerType::TRAFFIC, m_pDrawWidget->GetFramework().LoadTrafficEnabled());
+    m_drivingMapMode = new PopupMenuHolder(this);
+    m_drivingMapMode->setDefaultAction(QIcon(":/navig64/mode_driving.png"), tr("Driving"), std::bind(&MainWindow::OnMapModeChange, this, MapMode::Driving));
+    pToolBar->addWidget(m_drivingMapMode->create());
+    m_drivingMapMode->setMainIcon(QIcon(":/navig64/mode_driving.png"));
 
-    m_layers->addAction(QIcon(":/navig64/subway.png"), tr("Public transport"),
-                        std::bind(&MainWindow::OnLayerEnabled, this, LayerType::TRANSIT), true);
-    m_layers->setChecked(LayerType::TRANSIT, m_pDrawWidget->GetFramework().LoadTransitSchemeEnabled());
+    m_publicTransportMapMode = new PopupMenuHolder(this);
+    m_publicTransportMapMode->setDefaultAction(QIcon(":/navig64/mode_public-transport.png"), tr("Public Transport"), std::bind(&MainWindow::OnMapModeChange, this, MapMode::PublicTransport));
+    m_publicTransportMapMode->addAction(QIcon(":/navig64/mode_options_transitlines.png"), tr("Show Transit Lines"), std::bind(&MainWindow::OnPublicTransportMapModeOptionChange, this, 0), true);
+    m_publicTransportMapMode->setChecked(0, m_pDrawWidget->GetFramework().PublicTransportMapModeHasTransitLines());
+    pToolBar->addWidget(m_publicTransportMapMode->create());
+    m_publicTransportMapMode->setMainIcon(QIcon(":/navig64/mode_public-transport.png"));
 
-    m_layers->addAction(QIcon(":/navig64/isolines.png"), tr("Isolines"),
-                        std::bind(&MainWindow::OnLayerEnabled, this, LayerType::ISOLINES), true);
-    m_layers->setChecked(LayerType::ISOLINES, m_pDrawWidget->GetFramework().LoadIsolinesEnabled());
+      pToolBar->addSeparator();
+      
+      m_layers = new PopupMenuHolder(this);
+      
+      m_layers->addAction(QIcon(":/navig64/layers.png"), tr("Outdoor"), std::bind(&MainWindow::OnLayersOutdoorChange, this, 0), true);
+      m_layers->setChecked(0, m_pDrawWidget->GetFramework().HasOutdoorLayer());
+      
+      m_layers->addAction(QIcon(":/navig64/layers.png"), tr("ContourLines"), std::bind(&MainWindow::OnLayersContourLinesChange, this, 0), true);
+      m_layers->setChecked(1, m_pDrawWidget->GetFramework().HasContourLinesLayer());
+      
+      m_layers->addAction(QIcon(":/navig64/layers.png"), tr("3D buildings"), std::bind(&MainWindow::OnLayers3dBuildingsChange, this, 0), true);
+      m_layers->setChecked(2, m_pDrawWidget->GetFramework().HasBuildings3d());
+      
+      pToolBar->addWidget(m_layers->create());
+      m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
 
-    m_layers->addAction(QIcon(":/navig64/isolines.png"), tr("Outdoors"),
-                        std::bind(&MainWindow::OnLayerEnabled, this, LayerType::OUTDOORS), true);
-    m_layers->setChecked(LayerType::OUTDOORS, m_pDrawWidget->GetFramework().LoadOutdoorsEnabled());
-
-    pToolBar->addWidget(m_layers->create());
-    m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
-
-    pToolBar->addSeparator();
+      pToolBar->addSeparator();
+#endif  // NOT BUILD_DESIGNER
 
     pToolBar->addAction(QIcon(":/navig64/bookmark.png"),
                         tr("Show bookmarks and tracks; use ALT + RMB to add a bookmark"), this,
@@ -862,37 +882,76 @@ void MainWindow::OnCancelDownloadClicked()
   GetFramework().GetStorage().CancelDownloadNode(m_lastCountry);
 }
 
-void MainWindow::SetLayerEnabled(LayerType type, bool enable)
+void MainWindow::SetMapMode(MapMode const mapMode)
 {
   auto & frm = m_pDrawWidget->GetFramework();
-  switch (type)
-  {
-  // @todo Uncomment when we will integrate a traffic provider.
-  // case LayerType::TRAFFIC:
-  //   frm.GetTrafficManager().SetEnabled(enable);
-  //   frm.SaveTrafficEnabled(enable);
-  //   break;
-  case LayerType::TRANSIT:
-    frm.GetTransitManager().EnableTransitSchemeMode(enable);
-    frm.SaveTransitSchemeEnabled(enable);
-    break;
-  case LayerType::ISOLINES:
-    frm.GetIsolinesManager().SetEnabled(enable);
-    frm.SaveIsolinesEnabled(enable);
-    break;
-  case LayerType::OUTDOORS:
-    frm.SaveOutdoorsEnabled(enable);
-    if (enable)
-      m_pDrawWidget->SetMapStyleToOutdoors();
-    else
-      m_pDrawWidget->SetMapStyleToDefault();
-    break;
-  }
+  frm.SwitchToMapMode(mapMode);
+
+#ifndef BUILD_DESIGNER
+  if (MapMode::Walking == mapMode)
+    m_walkingMapMode->setMainIcon(QIcon(":/navig64/mode_walking_selected.png"));
+  else
+    m_walkingMapMode->setMainIcon(QIcon(":/navig64/mode_walking.png"));
+
+  if (MapMode::Cycling == mapMode)
+    m_cyclingMapMode->setMainIcon(QIcon(":/navig64/mode_cycling_selected.png"));
+  else
+    m_cyclingMapMode->setMainIcon(QIcon(":/navig64/mode_cycling.png"));
+
+  if (MapMode::Driving == mapMode)
+    m_drivingMapMode->setMainIcon(QIcon(":/navig64/mode_driving_selected.png"));
+  else
+    m_drivingMapMode->setMainIcon(QIcon(":/navig64/mode_driving.png"));
+
+  if (MapMode::PublicTransport == mapMode)
+    m_publicTransportMapMode->setMainIcon(QIcon(":/navig64/mode_public-transport_selected.png"));
+  else
+    m_publicTransportMapMode->setMainIcon(QIcon(":/navig64/mode_public-transport.png"));
+#endif  // BUILD_DESIGNER
 }
 
-void MainWindow::OnLayerEnabled(LayerType layer)
+void MainWindow::OnMapModeChange(MapMode const mapMode)
 {
-  SetLayerEnabled(layer, m_layers->isChecked(layer));
+  SetMapMode(mapMode);
+}
+
+void MainWindow::OnWalkingMapModeOptionChange(int8_t const index)
+{
+    // Do nothing (yet)
+}
+
+void MainWindow::OnCyclingMapModeOptionChange(int8_t const index)
+{
+    // Do nothing (yet)
+}
+
+void MainWindow::OnDrivingMapModeOptionChange(int8_t const index)
+{
+    // Do nothing (yet)
+}
+
+void MainWindow::OnPublicTransportMapModeOptionChange(int8_t const index)
+{
+    auto & frm = m_pDrawWidget->GetFramework();
+    frm.PublicTransportMapModeSetTransitLines(m_publicTransportMapMode->isChecked(0));
+}
+
+void MainWindow::OnLayersOutdoorChange(int8_t const index)
+{
+    auto & frm = m_pDrawWidget->GetFramework();
+    frm.SetOutdoorLayer(m_layers->isChecked(0));
+}
+
+void MainWindow::OnLayersContourLinesChange(int8_t const index)
+{
+    auto & frm = m_pDrawWidget->GetFramework();
+    frm.SetContourLinesLayer(m_layers->isChecked(1));
+}
+
+void MainWindow::OnLayers3dBuildingsChange(int8_t const index)
+{
+    auto & frm = m_pDrawWidget->GetFramework();
+    frm.SetBuildings3d(m_layers->isChecked(2));
 }
 
 void MainWindow::OnRulerEnabled()
