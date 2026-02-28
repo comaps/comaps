@@ -8,7 +8,7 @@ import androidx.annotation.StringRes;
 import androidx.annotation.UiThread;
 import androidx.car.app.CarContext;
 import app.organicmaps.R;
-import app.organicmaps.sdk.MapStyle;
+import app.organicmaps.sdk.MapAppearance;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.Config;
 
@@ -60,14 +60,14 @@ public final class ThemeUtils
     final ThemeMode newThemeMode =
         oldThemeMode == ThemeMode.AUTO ? (context.isDarkMode() ? ThemeMode.NIGHT : ThemeMode.LIGHT) : oldThemeMode;
 
-    MapStyle newMapStyle;
+    MapAppearance newMapAppearance;
     if (newThemeMode == ThemeMode.NIGHT)
-      newMapStyle = RoutingController.get().isVehicleNavigation() ? MapStyle.VehicleDark : MapStyle.Dark;
+      newMapAppearance = MapAppearance.Dark;
     else
-      newMapStyle = RoutingController.get().isVehicleNavigation() ? MapStyle.VehicleClear : MapStyle.Clear;
+      newMapAppearance = MapAppearance.Light;
 
-    if (MapStyle.get() != newMapStyle)
-      MapStyle.set(newMapStyle);
+    if (MapAppearance.get() != newMapAppearance)
+      MapAppearance.set(newMapAppearance);
   }
 
   public static boolean isNightMode(@NonNull CarContext context)
