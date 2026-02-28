@@ -29,7 +29,7 @@ cmake --build "$BUILD_DIR" --target "$BINARY_NAME"
 
 
 # Helper function to build skin
-# Parameter $1 - style type (default)
+# Parameter $1 - style type (walking)
 # Parameter $2 - style name (light, dark, ...)
 # Parameter $3 - resource name (mdpi, hdpi, ...)
 # Parameter $4 - symbol size
@@ -65,19 +65,19 @@ rm -rf "$DATA_PATH"/symbols/*/*/symbols.*
 
 # Build styles
 
-BuildSkin default dark  mdpi    18 dark  symbols
-BuildSkin default dark  hdpi    27 dark  symbols
-BuildSkin default dark  xhdpi   36 dark  symbols
-BuildSkin default dark  6plus   43 dark  symbols
-BuildSkin default dark  xxhdpi  54 dark  symbols
-BuildSkin default dark  xxxhdpi 64 dark  symbols
+BuildSkin walking dark  mdpi    18 dark  symbols
+BuildSkin walking dark  hdpi    27 dark  symbols
+BuildSkin walking dark  xhdpi   36 dark  symbols
+BuildSkin walking dark  6plus   43 dark  symbols
+BuildSkin walking dark  xxhdpi  54 dark  symbols
+BuildSkin walking dark  xxxhdpi 64 dark  symbols
 
-BuildSkin default light mdpi    18 light symbols
-BuildSkin default light hdpi    27 light symbols
-BuildSkin default light xhdpi   36 light symbols
-BuildSkin default light 6plus   43 light symbols
-BuildSkin default light xxhdpi  54 light symbols
-BuildSkin default light xxxhdpi 64 light symbols
+BuildSkin walking light mdpi    18 light symbols
+BuildSkin walking light hdpi    27 light symbols
+BuildSkin walking light xhdpi   36 light symbols
+BuildSkin walking light 6plus   43 light symbols
+BuildSkin walking light xxhdpi  54 light symbols
+BuildSkin walking light xxxhdpi 64 light symbols
 
 for i in ${symbols_name[*]}; do
   optipng -zc9 -zm8 -zs0 -f0 "$DATA_PATH"/symbols/"${i}"/light/symbols.png
