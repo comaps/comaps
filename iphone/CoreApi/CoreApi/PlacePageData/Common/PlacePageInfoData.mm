@@ -154,7 +154,14 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
         case MetadataID::FMD_POPULATION: _population = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"population", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
-
+		case MetadataID::FMD_ORGANIC:
+			if (value == "yes")
+               _organic = NSLocalizedString(@"organic_yes", nil);
+			else if (value == "no")
+				_organic = NSLocalizedString(@"organic_no", nil);
+			else if (value == "only")
+				_organic = NSLocalizedString(@"organic_only", nil);
+          break;
         default:
           break;
       }

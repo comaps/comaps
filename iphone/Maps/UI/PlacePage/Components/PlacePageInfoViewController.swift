@@ -183,6 +183,7 @@ class PlacePageInfoViewController: UIViewController {
   private var blueskyView: InfoItemView?
   private var panoramaxView: InfoItemView?
   private var cuisineView: InfoItemView?
+  private var organicView: InfoItemView?
   private var operatorView: InfoItemView?
   private var wifiView: InfoItemView?
   private var atmView: InfoItemView?
@@ -233,6 +234,10 @@ class PlacePageInfoViewController: UIViewController {
 
     if let cuisine = placePageInfoData.cuisine {
       cuisineView = createInfoItem(cuisine, icon: UIImage(systemName: "fork.knife"))
+    }
+	
+	if let organic = placePageInfoData.organic {
+      cuisineView = createInfoItem(organic, icon: UIImage(named: "ic_placepage_organic"))
     }
 
     /// @todo Entrance is missing compared with Android. It's shown in title, but anyway ..
