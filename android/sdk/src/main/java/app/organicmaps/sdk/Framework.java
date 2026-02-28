@@ -299,6 +299,10 @@ public class Framework
 
   public static native boolean nativeIsOutdoorsLayerEnabled();
 
+  public static native void nativeSwitchToUsingVehicleStyle(boolean enabled);
+
+  public static native boolean nativeIsUsingVehicleStyle();
+
   @NonNull
   public static native MapObject nativeDeleteBookmarkFromMapObject();
 
