@@ -1,0 +1,6 @@
+power-line
+=== 1000
+
+man_made-utility_pole
+power-pole
+=== 230
