@@ -135,10 +135,22 @@ set(DATA_FILES
   copyright.html
   countries.txt
   countries_meta.txt
-  drules_proto_default_light.bin
-  drules_proto_default_dark.bin
-  drules_proto_outdoors_light.bin
-  drules_proto_outdoors_dark.bin
+  drules_proto_walking_light.bin
+  drules_proto_walking_outdoor_light.bin
+  drules_proto_walking_dark.bin
+  drules_proto_walking_outdoor_dark.bin
+  drules_proto_cycling_light.bin
+  drules_proto_cycling_outdoor_light.bin
+  drules_proto_cycling_dark.bin
+  drules_proto_cycling_outdoor_dark.bin
+  drules_proto_driving_light.bin
+  drules_proto_driving_outdoor_light.bin
+  drules_proto_driving_dark.bin
+  drules_proto_driving_outdoor_dark.bin
+  drules_proto_public-transport_light.bin
+  drules_proto_public-transport_outdoor_light.bin
+  drules_proto_public-transport_dark.bin
+  drules_proto_public-transport_outdoor_dark.bin
   drules_proto_vehicle_light.bin
   drules_proto_vehicle_dark.bin
   editor.config
@@ -232,14 +244,14 @@ if (BUILD_DESIGNER)
     COMMAND cp -rf ${OMIM_ROOT}/data/symbols/xxhdpi/light/ ${OMIM_ROOT}/data/symbols/xxhdpi/design/
     COMMAND cp -rf ${OMIM_ROOT}/data/symbols/6plus/light/ ${OMIM_ROOT}/data/symbols/6plus/design/
     COMMAND cp -rf ${OMIM_ROOT}/data/symbols/xxxhdpi/light/ ${OMIM_ROOT}/data/symbols/xxxhdpi/design/
-    COMMAND cp -f ${OMIM_ROOT}/data/drules_proto_default_light.bin ${OMIM_ROOT}/data/drules_proto_default_design.bin
+    COMMAND cp -f ${OMIM_ROOT}/data/drules_proto_walking_light.bin ${OMIM_ROOT}/data/drules_proto_walking_design.bin
     COMMAND cp -f ${OMIM_ROOT}/data/colors.txt ${OMIM_ROOT}/data/colors_design.txt
     COMMAND cp -f ${OMIM_ROOT}/data/patterns.txt ${OMIM_ROOT}/data/patterns_design.txt
   )
 
   copy_resources(
     colors_design.txt
-    drules_proto_default_design.bin
+    drules_proto_walking_design.bin
     mapcss-dynamic.txt
     mapcss-mapping.csv
     patterns_design.txt
