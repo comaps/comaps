@@ -920,6 +920,11 @@ drape_ptr<UserLineRenderParams> DrapeEngine::GenerateLineRenderInfo(UserLineMark
   return renderInfo;
 }
 
+double DrapeEngine::GetVisualScale()
+{
+  return VisualParams::Instance().GetVisualScale();
+}
+
 void DrapeEngine::UpdateVisualScale(double vs, bool needStopRendering)
 {
   if (needStopRendering)
