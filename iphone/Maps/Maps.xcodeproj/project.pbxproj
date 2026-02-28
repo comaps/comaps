@@ -15,6 +15,7 @@
 		271186872F19467400FD7FF3 /* countries_meta.txt in Resources */ = {isa = PBXBuildFile; fileRef = 271186862F19467400FD7FF3 /* countries_meta.txt */; };
 		27176A862E65B0150015F25F /* Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 27176A852E65B0150015F25F /* Icon.icon */; };
 		27176A8A2E65B01B0015F25F /* Debug Icon.icon in Resources */ = {isa = PBXBuildFile; fileRef = 27176A892E65B01B0015F25F /* Debug Icon.icon */; };
+		271DC5192F532C73006399DA /* RegionsUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271DC5162F532C68006399DA /* RegionsUpdater.swift */; };
 		272CA4492F127221005A3F5B /* subtypes.csv in Resources */ = {isa = PBXBuildFile; fileRef = 272CA4482F127221005A3F5B /* subtypes.csv */; };
 		272F1F392E0EE09000FA52EF /* ExistingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F1F382E0EE08A00FA52EF /* ExistingProfileView.swift */; };
 		272F1F3B2E0EE0A300FA52EF /* NoExistingProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272F1F3A2E0EE09500FA52EF /* NoExistingProfileView.swift */; };
@@ -768,6 +769,7 @@
 		271186862F19467400FD7FF3 /* countries_meta.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = countries_meta.txt; path = ../../data/countries_meta.txt; sourceTree = SOURCE_ROOT; };
 		27176A852E65B0150015F25F /* Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = Icon.icon; sourceTree = "<group>"; };
 		27176A892E65B01B0015F25F /* Debug Icon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = "Debug Icon.icon"; sourceTree = "<group>"; };
+		271DC5162F532C68006399DA /* RegionsUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionsUpdater.swift; sourceTree = "<group>"; };
 		272CA4482F127221005A3F5B /* subtypes.csv */ = {isa = PBXFileReference; lastKnownFileType = text; name = subtypes.csv; path = ../../data/subtypes.csv; sourceTree = SOURCE_ROOT; };
 		272F1F382E0EE08A00FA52EF /* ExistingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExistingProfileView.swift; sourceTree = "<group>"; };
 		272F1F3A2E0EE09500FA52EF /* NoExistingProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoExistingProfileView.swift; sourceTree = "<group>"; };
@@ -1933,6 +1935,7 @@
 				27AF185B2E1DB64B00CD41E2 /* Settings Types */,
 				270C9C252E16AB6300ABA688 /* Profile.swift */,
 				EDFDFB472B7139670013A44C /* Social Media.swift */,
+				271DC5162F532C68006399DA /* RegionsUpdater.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -4678,6 +4681,7 @@
 				993DF12923F6BDB100AC231A /* ThemeManager.swift in Sources */,
 				EDE8EAEB2C2DBB99002777F5 /* OpenInApplication.swift in Sources */,
 				337F98A621D37B7400C8AC27 /* SearchTabViewController.swift in Sources */,
+				271DC5192F532C73006399DA /* RegionsUpdater.swift in Sources */,
 				3404755F1E081A4600C92850 /* MWMLocationPredictor.mm in Sources */,
 				993DF11523F6BDB100AC231A /* UISearchBarRenderer.swift in Sources */,
 				F6E2FE041E097BA00083EBEC /* MWMOpeningHoursDaysSelectorTableViewCell.mm in Sources */,

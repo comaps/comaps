@@ -11,6 +11,10 @@
 		1669C8412A30DCD200530AD1 /* distance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1669C83E2A30DCD200530AD1 /* distance.cpp */; };
 		1669C8422A30DCD200530AD1 /* distance.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 1669C83F2A30DCD200530AD1 /* distance.hpp */; };
 		168EFCC22A30EB7400F71EE8 /* distance_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 168EFCC12A30EB7400F71EE8 /* distance_tests.cpp */; };
+		271DC5132F532C2C006399DA /* ed25519_apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 271DC5102F532C2C006399DA /* ed25519_apple.mm */; };
+		271DC5152F532C2C006399DA /* ed25519.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 271DC50F2F532C2C006399DA /* ed25519.hpp */; };
+		271DC51B2F532F8D006399DA /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271DC51A2F532F8D006399DA /* Bridge.swift */; };
+		271DC51D2F533023006399DA /* platform-Bridging-Header.h in Headers */ = {isa = PBXBuildFile; fileRef = 271DC51C2F533021006399DA /* platform-Bridging-Header.h */; };
 		333A416F21C3E13B00AF26F6 /* http_session_manager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 333A416D21C3E13A00AF26F6 /* http_session_manager.mm */; };
 		333A417021C3E13B00AF26F6 /* http_session_manager.h in Headers */ = {isa = PBXBuildFile; fileRef = 333A416E21C3E13B00AF26F6 /* http_session_manager.h */; };
 		34C624BD1DABCCD100510300 /* socket_apple.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34C624BB1DABCCD100510300 /* socket_apple.mm */; };
@@ -140,6 +144,10 @@
 		1669C83E2A30DCD200530AD1 /* distance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = distance.cpp; sourceTree = "<group>"; };
 		1669C83F2A30DCD200530AD1 /* distance.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = distance.hpp; sourceTree = "<group>"; };
 		168EFCC12A30EB7400F71EE8 /* distance_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = distance_tests.cpp; sourceTree = "<group>"; };
+		271DC50F2F532C2C006399DA /* ed25519.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ed25519.hpp; sourceTree = "<group>"; };
+		271DC5102F532C2C006399DA /* ed25519_apple.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ed25519_apple.mm; sourceTree = "<group>"; };
+		271DC51A2F532F8D006399DA /* Bridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Bridge.swift; path = ../../libs/platform/apple/Bridge.swift; sourceTree = "<group>"; };
+		271DC51C2F533021006399DA /* platform-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "platform-Bridging-Header.h"; sourceTree = "<group>"; };
 		333A416D21C3E13A00AF26F6 /* http_session_manager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = http_session_manager.mm; sourceTree = "<group>"; };
 		333A416E21C3E13B00AF26F6 /* http_session_manager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http_session_manager.h; sourceTree = "<group>"; };
 		344D8A2E204945D000CF532F /* platform_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = platform_ios.h; sourceTree = "<group>"; };
@@ -301,6 +309,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		271DC5122F532C2C006399DA /* crypto */ = {
+			isa = PBXGroup;
+			children = (
+				271DC50F2F532C2C006399DA /* ed25519.hpp */,
+				271DC5102F532C2C006399DA /* ed25519_apple.mm */,
+			);
+			path = crypto;
+			sourceTree = "<group>";
+		};
 		3496AB6F1DC1F5AB00C5DDBA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +377,8 @@
 			children = (
 				34F558331DBF273C00A4FC11 /* common-debug.xcconfig */,
 				34F558341DBF273C00A4FC11 /* common-release.xcconfig */,
+				271DC51A2F532F8D006399DA /* Bridge.swift */,
+				271DC51C2F533021006399DA /* platform-Bridging-Header.h */,
 				6753437A1A3F5CF500A0A8C3 /* platform */,
 				675340DE1C58C405002CF0D9 /* platform_tests */,
 				675340E41C58C43A002CF0D9 /* platform_tests_support */,
@@ -395,6 +414,7 @@
 				674125001B4C00CC00A3E828 /* country_defines.cpp */,
 				674125031B4C00CC00A3E828 /* country_file.hpp */,
 				674125021B4C00CC00A3E828 /* country_file.cpp */,
+				271DC5122F532C2C006399DA /* crypto */,
 				1669C83F2A30DCD200530AD1 /* distance.hpp */,
 				1669C83E2A30DCD200530AD1 /* distance.cpp */,
 				3DF528EA238BFFC1000ED0D5 /* downloader_defines.hpp */,
@@ -514,6 +534,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				271DC51D2F533023006399DA /* platform-Bridging-Header.h in Headers */,
 				675343B71A3F5D5A00A0A8C3 /* http_request.hpp in Headers */,
 				6741250B1B4C00CC00A3E828 /* country_file.hpp in Headers */,
 				675343B81A3F5D5A00A0A8C3 /* http_thread_apple.h in Headers */,
@@ -548,6 +569,7 @@
 				D5B191CF2386C7E4009CD0D6 /* http_uploader_background.hpp in Headers */,
 				1669C8422A30DCD200530AD1 /* distance.hpp in Headers */,
 				3DE8B98F1DEC3115000E6083 /* network_policy.hpp in Headers */,
+				271DC5152F532C2C006399DA /* ed25519.hpp in Headers */,
 				675343CF1A3F5D5A00A0A8C3 /* preferred_languages.hpp in Headers */,
 				3D30587D1D8320E4004AC712 /* http_client.hpp in Headers */,
 				333A417021C3E13B00AF26F6 /* http_session_manager.h in Headers */,
@@ -693,6 +715,7 @@
 				67AB92DC1B7B3D7300AB5194 /* mwm_version.cpp in Sources */,
 				67A2526B1BB40E520063F8A8 /* platform_mac.mm in Sources */,
 				3D15ACE1214A707900F725D5 /* localization.mm in Sources */,
+				271DC5132F532C2C006399DA /* ed25519_apple.mm in Sources */,
 				D50B2297238591570056820A /* http_payload.cpp in Sources */,
 				6741250A1B4C00CC00A3E828 /* country_file.cpp in Sources */,
 				4564FA7F2094978D0043CCFB /* remote_file.cpp in Sources */,
@@ -728,6 +751,7 @@
 				675343B91A3F5D5A00A0A8C3 /* http_thread_apple.mm in Sources */,
 				3DFACF312432421C00A29A94 /* background_downloader_ios.mm in Sources */,
 				1669C8402A30DCD200530AD1 /* distance.cpp in Sources */,
+				271DC51B2F532F8D006399DA /* Bridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
