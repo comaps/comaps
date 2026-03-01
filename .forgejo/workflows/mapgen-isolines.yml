@@ -37,9 +37,11 @@ jobs:
         # TODO: we only need to update these if our SRTM or countries change
         run: |
           echo "Backing up previous version ..."
-          mv -f /home/planet/isolines{,-bak}
+          cd /home/planet
+          rm -rf isolines-bak
+          mv -fT isolines{,-bak}
+          mkdir isolines
           echo "Processing ..."
-          mkdir /home/planet/isolines/
           cd ~/comaps/
           ~/omim-build-relwithdebinfo/topography_generator_tool \
           --profiles_path=./data/conf/isolines/isolines-profiles.json \
@@ -47,7 +49,8 @@ jobs:
           --tiles_isolines_out_dir=/home/planet/isolines/tmp-tiles/ \
           --countries_isolines_out_dir=/home/planet/isolines/ \
           --data_dir=./data/ \
-          --srtm_path=/home/planet/SRTM-patched-europe/
+          --srtm_path=/home/planet/SRTM-patched-europe/ \
+          --threads=56
           # Delete temp files
           rm -rf /home/planet/isolines/tmp-tiles/
           echo "DONE"
