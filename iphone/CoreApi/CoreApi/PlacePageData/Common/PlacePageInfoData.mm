@@ -153,7 +153,8 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
             _outdoorSeating = NSLocalizedString(@"outdoor_seating", nil);
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
-        case MetadataID::FMD_POPULATION: _population = [NSString stringWithFormat:NSLocalizedString(@"population", nil), FormatIntegerString(ToNSString(value))]; break;
+        case MetadataID::FMD_POPULATION: _population = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"population", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
+
         default:
           break;
       }
