@@ -651,7 +651,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_OUTDOOR_SEATING: valid = ValidateAndFormat_outdoor_seating(v); break;
   case Metadata::FMD_NETWORK: valid = ValidateAndFormat_operator(v); break;
   case Metadata::FMD_CHARGE_SOCKETS: m_chargeSockets.AggregateChargeSocketKey(k, v); break;
-  // Population tag is already processed in an earlier stage
+  // Population tag had been already processed in generator/osm2type.cpp::GetNameAndType()
 
   // Metadata types we do not get from OSM.
   case Metadata::FMD_CUISINE:
