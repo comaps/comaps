@@ -45,6 +45,14 @@ public:
   static uint32_t PrepareToMatch(uint32_t type, uint8_t level);
 };
 
+class IsNeverMainTypeChecker : public BaseChecker
+{
+  IsNeverMainTypeChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsNeverMainTypeChecker);
+};
+
 class IsPeakChecker : public BaseChecker
 {
   IsPeakChecker();

@@ -2,6 +2,7 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
@@ -177,6 +178,19 @@ bool BaseChecker::operator()(vector<uint32_t> const & types) const
       return true;
 
   return false;
+}
+
+IsNeverMainTypeChecker::IsNeverMainTypeChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"hwtag"}));
+  m_types.push_back(c.GetTypeByPath({"psurface"}));
+  m_types.push_back(c.GetTypeByPath({"fee"}));
+  m_types.push_back(c.GetTypeByPath({"organic"}));
+  m_types.push_back(c.GetTypeByPath({"wheelchair"}));
+  m_types.push_back(c.GetTypeByPath({"building", "has_parts"}));
+  for (auto const subtype : ftypes::Subtypes::Instance().AllSubtypes())
+    m_types.push_back(subtype);
 }
 
 IsPeakChecker::IsPeakChecker()
