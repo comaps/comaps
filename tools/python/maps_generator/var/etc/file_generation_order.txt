@@ -23,6 +23,10 @@ US_California_Santa_Clara_Palo Alto	25497.451963
 India_Bihar	24766.67302
 Thailand_Central	24579.716019
 WorldCoasts	24300.517981
+World	21593.377504
+France_Ile-de-France_Paris	6221.188363
+France_Ile-de-France_Seine-Saint-Denis	3137.038158
+France_Ile-de-France_Val-dOise	1632.566852
 Germany_Free State of Bavaria_Swabia	24255.430699
 Australia_Melbourne	23981.254444000002
 Myanmar	23177.078456
@@ -31,7 +35,6 @@ Netherlands_South Holland_Den Haag	22300.856854
 India_Tamil Nadu	22276.531648
 Hungary_Northern Great Plain	22165.666699999998
 India_Rajasthan	22002.106136
-World	21593.377504
 Netherlands_South Holland_Rotterdam	21521.548074000002
 Canada_Quebek_Montreal	21126.237462999998
 US_Texas_Dallas	21003.205005
@@ -213,7 +216,6 @@ Denmark_Capital Region of Denmark	6258.541567
 Poland_Kuyavian-Pomeranian Voivodeship	6251.891928
 US_Pennsylvania_Scranton	6242.894848
 Germany_Lower Saxony_Hannover	6223.720201
-France_Ile-de-France_Paris	6221.188363
 France_Poitou-Charentes_Charente-Maritime	6180.580983
 Switzerland_Eastern	6140.135943
 Spain_Community of Madrid	6083.947632
@@ -406,7 +408,6 @@ Poland_Opole Voivodeship	3203.526076
 Slovakia_Region of Zilina	3199.927491
 Austria_Upper Austria_Wels	3186.0673020000004
 France_Ile-de-France_Essonne	3182.941167
-France_Ile-de-France_Seine-Saint-Denis	3137.038158
 Niger	3105.5220670000003
 Spain_Galicia_South	3100.875747
 France_Ile-de-France_Val-de-Marne	3097.656917
@@ -616,7 +617,6 @@ Mexico_East	1667.416111
 US_California_Chico	1663.671232
 Austria_Tyrol	1655.277393
 France_Centre-Val de Loire_Eure-et-Loir	1640.858712
-France_Ile-de-France_Val-dOise	1632.566852
 Russia_Kirov Oblast	1625.593627
 Japan_Tohoku_Miyagi	1625.493663
 Argentina_Patagonia	1623.9349309999998
