@@ -16,14 +16,12 @@
 #include <set>
 #include <vector>
 
-#include "3party/ankerl/unordered_dense.h"
-
 namespace
 {
 struct MetalineData
 {
   std::vector<FeatureID> m_features;
-  ankerl::unordered_dense::set<FeatureID> m_reversed;
+  std::set<FeatureID> m_reversed;
 };
 
 std::vector<MetalineData> ReadMetalinesFromFile(MwmSet::MwmId const & mwmId)
@@ -60,13 +58,12 @@ std::vector<MetalineData> ReadMetalinesFromFile(MwmSet::MwmId const & mwmId)
   }
 }
 
-ankerl::unordered_dense::map<FeatureID, std::vector<m2::PointD>> ReadPoints(df::MapDataProvider & model,
-                                                                            MetalineData const & metaline)
+std::map<FeatureID, std::vector<m2::PointD>> ReadPoints(df::MapDataProvider & model, MetalineData const & metaline)
 {
   auto features = metaline.m_features;
   std::sort(features.begin(), features.end());
 
-  ankerl::unordered_dense::map<FeatureID, std::vector<m2::PointD>> result;
+  std::map<FeatureID, std::vector<m2::PointD>> result;
   model.ReadFeatures([&metaline, &result](FeatureType & ft)
   {
     ft.ParseGeometry(FeatureType::BEST_GEOMETRY);
@@ -92,7 +89,7 @@ ankerl::unordered_dense::map<FeatureID, std::vector<m2::PointD>> ReadPoints(df::
   return result;
 }
 
-std::vector<m2::PointD> MergePoints(ankerl::unordered_dense::map<FeatureID, std::vector<m2::PointD>> && points,
+std::vector<m2::PointD> MergePoints(std::map<FeatureID, std::vector<m2::PointD>> && points,
                                     std::vector<FeatureID> const & featuresOrder)
 {
   if (points.size() == 1)
@@ -167,10 +164,8 @@ bool ReadMetalineTask::UpdateCache(MetalineCache & cache)
   if (m_metalines.empty())
     return false;
 
-  // Merge maps
-  auto data = std::move(m_metalines).extract();
-  cache.insert(std::make_move_iterator(data.begin()), std::make_move_iterator(data.end()));
-
+  cache.merge(m_metalines);
+  m_metalines.clear();
   return true;
 }
 
