@@ -90,11 +90,10 @@ public:
   {
   public:
     virtual void OnRouteFollow(routing::RouterType type) = 0;
-    virtual void RegisterCountryFilesOnRoute(std::shared_ptr<routing::NumMwmIds> ptr) const = 0;
-
     virtual ~Delegate() = default;
   };
 
+  /// @todo Refactor and replace with the single interface of multiple function-members.
   struct Callbacks
   {
     using DataSourceGetterFn = std::function<DataSource &()>;
@@ -139,6 +138,8 @@ public:
 
   RoutingManager(Callbacks && callbacks, Delegate & delegate);
   ~RoutingManager();
+
+  void Init(std::shared_ptr<routing::NumMwmIds> ptr);
 
   void SetBookmarkManager(BookmarkManager * bmManager);
   void SetTransitManager(TransitReadManager * transitManager);
@@ -251,7 +252,6 @@ public:
   bool CouldAddIntermediatePoint() const;
   bool IsMyPosition(RouteMarkType type, size_t intermediateIndex = 0);
 
-  void SetRouterImpl(routing::RouterType type);
   void RemoveRoute(bool deactivateFollowing);
 
   void CheckLocationForRouting(location::GpsInfo const & info);
@@ -339,6 +339,8 @@ public:
   }
 
 private:
+  void SetRouterImpl(routing::RouterType type);
+
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);
 
@@ -415,6 +417,9 @@ private:
   std::map<uint32_t, RoutePointsTransaction> m_routePointsTransactions;
   std::chrono::steady_clock::time_point m_loadRoutePointsTimestamp;
   std::map<std::string, m2::PointF> m_transitSymbolSizes;
+
+  std::shared_ptr<routing::NumMwmIds> m_numMwmIDs;
+  std::shared_ptr<m4::Tree<routing::NumMwmId>> m_numMwmTree;
 
   TransitReadManager * m_transitReadManager = nullptr;
 

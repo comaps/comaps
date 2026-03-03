@@ -147,11 +147,6 @@ void RegionsRouter::Do()
   }
 }
 
-ankerl::unordered_dense::set<std::string> const & RegionsRouter::GetMwmNames() const
-{
-  return m_mwmNames;
-}
-
 std::pair<m2::PointD, std::string> RegionsRouter::GetCheckpointRegion(size_t index) const
 {
   m2::PointD const & point = m_checkpoints.GetPoint(index);
