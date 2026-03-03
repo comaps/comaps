@@ -1233,7 +1233,7 @@ traffic_calming|bump;1102;
 traffic_calming|hump;1103;
 shop|car_parts;1104;
 attraction;[attraction];;name;int_name;1105;
-deprecated|deprecated;1106;x
+highway|stop;1106;
 shop|water;1107;
 amenity|hydrant;1108;
 amenity|public_bookcase;1109;

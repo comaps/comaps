@@ -139,6 +139,11 @@ bool TypeAlwaysExists(uint32_t type, GeomType geomType = GeomType::Undefined)
   if (ftypes::Subtypes::Instance().IsTypeWithSubtypesOrSubtype(type))
     return true;
 
+  uint32_t const highwayStop = cl.GetTypeByPath({"highway", "stop"});
+  if (highwayStop == type) {
+    return true;
+  }
+  
   uint8_t const typeLevel = ftype::GetLevel(type);
   ftype::TruncValue(type, 1);
 
