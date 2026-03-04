@@ -249,8 +249,6 @@
     <string name="compass_calibration_recommended">Pusulayı kalibre etmek için telefonu sekiz şeklinde hareket ettirerek ok yönünü iyileştirin.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Pusulayı kalibre etmek ve haritadaki ok yönünü düzeltmek için telefonu sekiz şeklinde hareket ettirin.</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Seçenekleri görmek için haritaya tekrar basılı tutun</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Tümünü Güncelle</string>
     <!-- Cancel all button text -->

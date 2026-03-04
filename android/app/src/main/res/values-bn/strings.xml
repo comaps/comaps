@@ -143,7 +143,6 @@
     <string name="report_a_bug">বাগ রিপোর্ট করুন</string>
     <string name="compass_calibration_recommended">কম্পাসটি ক্যালিব্রেট করার জন্য ফোনটিকে ইংরেজিতে আট চিহ্নে গতিতে নাড়িয়ে তীরের দিক উন্নত করুন।</string>
     <string name="compass_calibration_required">কম্পাসটি ক্যালিব্রেট করার জন্য ফোনটিকে ইংরেজিতে আট চিহ্নে গতিতে নাড়িয়ে মানচিত্রে তীরের দিক উন্নত করুন।</string>
-    <string name="long_tap_toast">ইন্টারফেসটি দেখতে আবার মানচিত্রে দীর্ঘক্ষণ টিপুন</string>
     <string name="downloader_update_all_button">সব আপডেট করুন</string>
     <string name="downloader_cancel_all">সব বাতিল করুন</string>
     <string name="downloader_downloaded_subtitle">ডাউনলোড করা</string>

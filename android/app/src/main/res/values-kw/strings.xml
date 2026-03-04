@@ -421,7 +421,6 @@
     <string name="how_to_support_us">Bodhegi ha gwellhe CoMaps</string>
     <string name="compass_calibration_recommended">Gwellhe tu seth gans ow gwaya an klapkodh yn unn gwayans niver eth dhe selya an mornaswydh.</string>
     <string name="compass_calibration_required">Gwaya an klapkodh yn unn gwayans niver eth dhe selya an mornaswydh ha ewna an tu seth war an mappa.</string>
-    <string name="long_tap_toast">Tava hir war an mappa arta dhe gweles an ynterfas</string>
     <string name="downloader_downloaded_subtitle">Iskargys</string>
     <string name="downloader_queued">Lostys</string>
     <string name="downloader_downloading">Owth Iskarga:</string>

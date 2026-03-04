@@ -241,7 +241,6 @@
     <string name="report_a_bug">App-Fehler melde</string>
     <string name="compass_calibration_recommended">Verbesser d Pfiilrichtig, indem du s Telefon inere Achterbewegig bewegsch, zum de Kompass z kalibriere.</string>
     <string name="compass_calibration_required">Beweg s Telefon inere Achterbewegig, zum de Kompass z kalibriere und d Pfiilrichtig uf de Charte festzlege.</string>
-    <string name="long_tap_toast">Tipp nomal lang uf d Charte, zum s Interface zgseh</string>
     <string name="downloader_update_all_button">Alli aktualisiere</string>
     <string name="downloader_cancel_all">Alli abbreche</string>
     <string name="downloader_downloaded_subtitle">Abeglade</string>

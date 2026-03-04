@@ -253,8 +253,6 @@
     <string name="compass_calibration_recommended">通过以 8 字形移动手机来改善箭头方向，以校准罗盘。</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">通过以 8 字形移动手机以校准罗盘，并在地图上固定箭头方向。</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">再次长按地图即可查看界面</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">更新全部</string>
     <!-- Cancel all button text -->

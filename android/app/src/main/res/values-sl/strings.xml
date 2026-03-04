@@ -138,7 +138,6 @@
     <string name="report_a_bug">Prijavite napako</string>
     <string name="compass_calibration_recommended">Če usmeritev puščic ni dovolj dobra, lahko umerite kompas na napravi tako, da jo premikate v obliki osmice.</string>
     <string name="compass_calibration_required">Popravite usmerjenost puščice na zemljevidu tako, da napravo premikate v obliki osmice. S tem boste umerili kompas.</string>
-    <string name="long_tap_toast">Spet za dlje časa pritisnite na zemljevid, da se prikaže vmesnik</string>
     <string name="downloader_update_all_button">Posodobi vse</string>
     <string name="downloader_cancel_all">Prekliči vse</string>
     <string name="downloader_downloaded_subtitle">Preneseni zemljevidi</string>

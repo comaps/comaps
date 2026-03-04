@@ -135,7 +135,6 @@
     <string name="report_a_bug">Prijavite problem</string>
     <string name="compass_calibration_recommended">Poboljšajte smer strelice tako što ćete pomerati telefon u putanji osmice kao biste kalibrisali kompas.</string>
     <string name="compass_calibration_required">Pomerajte telefon u putanji osmice kako biste kalibrisali kompas i popravili smer strelice na mapi.</string>
-    <string name="long_tap_toast">Dodirnite dugo mapu da biste ponovo videli interfejs</string>
     <string name="downloader_update_all_button">Ažuriraj sve</string>
     <string name="downloader_cancel_all">Odustani od svih</string>
     <string name="downloader_downloaded_subtitle">Preuzeto</string>

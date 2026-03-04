@@ -243,8 +243,6 @@
     <string name="compass_calibration_recommended">Kompassi kalibreerimiseks paranda noole suunda liigutades telefoni kaheksa-kujulise liigutusega.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Kompassi kalibreerimiseks ja noole suuna parandamisekskaardil liiguta telefoni kaheksa-kujulise liigutusega.</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Kasutajaliidese nägemiseks vajuta kaarti pikalt</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Uuenda kõik</string>
     <!-- Cancel all button text -->

@@ -742,7 +742,6 @@
     <string name="how_to_support_us">Voluntarie-se e melhore o CoMaps</string>
     <string name="google_play_services">Serviço de localização integrada do Google</string>
     <string name="editor_time_title">Horário de funcionamento</string>
-    <string name="long_tap_toast">Dê um toque longo no mapa novamente para ver a interface</string>
     <string name="editor_time_add">Adicionar horário</string>
     <string name="editor_time_open">Aberto</string>
     <string name="editor_time_close">Fechado</string>

@@ -249,8 +249,6 @@
     <string name="compass_calibration_recommended">Verbessere die Pfeilrichtung, indem du das Smartphone so bewegst, als würdest du eine acht (8) in der Luft nachzeichnen, um den Kompass zu kalibrieren.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Bewege das Smartphone so, als wenn du damit eine acht (8) in der Luft zeichnen würdest, um den Kompass zu kalibrieren und die Pfeilrichtung auf der Karte festzulegen.</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Tippe erneut lange auf die Karte, um die Benutzeroberfläche wiederzusehen</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Alle Karten aktualisieren</string>
     <!-- Cancel all button text -->

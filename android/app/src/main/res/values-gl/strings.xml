@@ -221,7 +221,6 @@
     <string name="report_a_bug">Informar dun fallo</string>
     <string name="compass_calibration_recommended">Mellore a dirección da frecha movendo o teléfono en forma de oito para calibrar o compás.</string>
     <string name="compass_calibration_required">Mova o teléfono en forma de oito para calibrar o compás e fixar a dirección da frecha no mapa.</string>
-    <string name="long_tap_toast">Volva pulsar prolongadamente sobre o mapa para ver a interface</string>
     <string name="downloader_cancel_all">Cancelar todo</string>
     <string name="downloader_near_me_subtitle">Preto de min</string>
     <string name="downloader_download_all_button">Descargar todos</string>

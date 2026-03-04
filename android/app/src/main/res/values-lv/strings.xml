@@ -249,8 +249,6 @@
     <string name="compass_calibration_recommended">Uzlabojiet bultiņas virzienu, pārvietojot tālruni astoņniekā, kas kalibrēs kompasu.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Pārvietojot tālruni astoņniekā, lai kalibrētu kompasu un labotu bultas virzienu kartē.</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Vēlreiz piespiediet un paturiet uz kartes, lai redzētu saskarni</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Atjaunināt visus</string>
     <!-- Cancel all button text -->

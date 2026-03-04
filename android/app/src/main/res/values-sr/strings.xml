@@ -243,8 +243,6 @@
     <string name="compass_calibration_recommended">Побољшајте смер стрелице тако што ћете померати телефон у путањи осмице као бисте калибрисали компас.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">Померајте телефон у путањи осмице како бисте калибрисали компас и поправили смер стрелице на мапи.</string>
-    <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Додирните дуго мапу да бисте поново видели интерфејс</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Ажурирај све</string>
     <!-- Cancel all button text -->

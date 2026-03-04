@@ -243,7 +243,6 @@
     <string name="how_to_support_us">Volontiraj i poboljšaj CoMaps</string>
     <string name="compass_calibration_recommended">Poboljšajte preciznost pokazivača smjera gibanja kruženjem telefona u obliku osmice kako biste kalibrirali kompas.</string>
     <string name="compass_calibration_required">Pomičite telefon u obliku figure osmice kako biste kalibrirali kompas i popravili strelicu indikatora smjera na karti.</string>
-    <string name="long_tap_toast">Ponovno dugo dodirnite kartu da biste prikazali sučelje</string>
     <string name="downloader_update_all_button">Ažuriraj sve</string>
     <string name="downloader_cancel_all">Otkaži sve</string>
     <string name="downloader_near_me_subtitle">U mojoj blizini</string>

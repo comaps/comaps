@@ -409,7 +409,6 @@
     <string name="download_resources">Áður en þú byrjar skaltu sækja heims-yfirlitskortið yfir á tækið þitt. \nÞað mun nota %s af tiltæku minni.</string>
     <string name="load_kmz_failed">Mistókst að hlaða inn bókamerkjum. Skráin gæti verið skemmd eða gölluð.</string>
     <string name="unknown_current_position">Ekki er enn búið að ákvarða staðsetninguna þína</string>
-    <string name="long_tap_toast">Ýttu á kortið og haltu til að sjá viðmótið</string>
     <string name="search_history_text">Skoðaðu nýlegar leitir þínar.</string>
     <string name="editor_time_add_closed">Bæta við ekki-opnunartímum</string>
     <string name="editor_time_title">Opnunartímar</string>
