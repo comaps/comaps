@@ -1,4 +1,5 @@
 #import "MapsAppDelegate.h"
+#import "SceneDelegate.h"
 
 #import "EAGLView.h"
 #import "MWMCoreRouterType.h"
@@ -21,8 +22,6 @@
 
 #import <CoreApi/Framework.h>
 #import <CoreApi/MWMFrameworkHelper.h>
-
-#include "map/gps_tracker.hpp"
 
 #include "platform/background_downloader_ios.h"
 #include "platform/http_thread_apple.h"
@@ -107,7 +106,7 @@ void InitLocalizedStrings() {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   [NSUserDefaults.standardUserDefaults setBool:false forKey:@"IsSearchPresented"];
   [NSUserDefaults.standardUserDefaults setDouble:0 forKey:@"SearchAdjustment"];
-  
+
   NSLog(@"application:didFinishLaunchingWithOptions: %@", launchOptions);
 
   [HttpThreadImpl setDownloadIndicatorProtocol:self];
@@ -126,18 +125,18 @@ void InitLocalizedStrings() {
 
   if (![MapsAppDelegate isTestsEnvironment])
     [[iCloudSynchronizaionManager shared] start];
-  
-  [[DeepLinkHandler shared] applicationDidFinishLaunching:launchOptions];
-  // application:openUrl:options is called later for deep links if YES is returned.
+
   return YES;
 }
 
-- (void)application:(UIApplication *)application
-  performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem
-             completionHandler:(void (^)(BOOL))completionHandler {
-  [self.mapViewController performAction:shortcutItem.type];
-  completionHandler(YES);
+- (UISceneConfiguration *)application:(UIApplication *)application
+  configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
+                                 options:(UISceneConnectionOptions *)options {
+  return [[UISceneConfiguration alloc] initWithName:@"Default Configuration"
+                                        sessionRole:connectingSceneSession.role];
 }
+
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions {}
 
 - (void)runBackgroundTasks:(NSArray<BackgroundFetchTask *> *_Nonnull)tasks
          completionHandler:(void (^_Nullable)(UIBackgroundFetchResult))completionHandler {
@@ -155,12 +154,12 @@ void InitLocalizedStrings() {
   DeleteFramework();
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-  LOG(LINFO, ("applicationDidEnterBackground - begin"));
-  [DeepLinkHandler.shared reset];
+- (void)handleDidEnterBackground {
+  LOG(LINFO, ("handleDidEnterBackground - begin"));
   if (m_activeDownloadsCounter) {
-    m_backgroundTask = [application beginBackgroundTaskWithExpirationHandler:^{
-      [application endBackgroundTask:self->m_backgroundTask];
+    UIApplication * app = UIApplication.sharedApplication;
+    m_backgroundTask = [app beginBackgroundTaskWithExpirationHandler:^{
+      [app endBackgroundTask:self->m_backgroundTask];
       self->m_backgroundTask = UIBackgroundTaskInvalid;
     }];
   }
@@ -169,66 +168,7 @@ void InitLocalizedStrings() {
   [self runBackgroundTasks:tasks completionHandler:nil];
 
   [MWMRouter saveRouteIfNeeded];
-  LOG(LINFO, ("applicationDidEnterBackground - end"));
-}
-
-- (void)applicationWillResignActive:(UIApplication *)application {
-  LOG(LINFO, ("applicationWillResignActive - begin"));
-  [self.mapViewController onGetFocus:NO];
-  auto &f = GetFramework();
-  // On some devices we have to free all belong-to-graphics memory
-  // because of new OpenGL driver powered by Metal.
-  if ([AppInfo sharedInfo].openGLDriver == MWMOpenGLDriverMetalPre103) {
-    f.SetRenderingDisabled(true);
-    f.OnDestroySurface();
-  } else {
-    f.SetRenderingDisabled(false);
-  }
-  [MWMLocationManager applicationWillResignActive];
-  f.EnterBackground();
-  LOG(LINFO, ("applicationWillResignActive - end"));
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-  LOG(LINFO, ("applicationWillEnterForeground - begin"));
-  if (!GpsTracker::Instance().IsEnabled())
-    return;
-
-  MWMViewController *topVc =
-    static_cast<MWMViewController *>(self.mapViewController.navigationController.topViewController);
-  if (![topVc isKindOfClass:[MWMViewController class]])
-    return;
-
-  if ([MWMSettings isTrackWarningAlertShown])
-    return;
-
-  [topVc.alertController presentTrackWarningAlertWithCancelBlock:^{
-    GpsTracker::Instance().SetEnabled(false);
-  }];
-
-  [MWMSettings setTrackWarningAlertShown:YES];
-  LOG(LINFO, ("applicationWillEnterForeground - end"));
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-  LOG(LINFO, ("applicationDidBecomeActive - begin"));
-
-  auto & f = GetFramework();
-  f.EnterForeground();
-  [self.mapViewController onGetFocus:YES];
-  f.SetRenderingEnabled();
-  // On some devices we have to free all belong-to-graphics memory
-  // because of new OpenGL driver powered by Metal.
-  if ([AppInfo sharedInfo].openGLDriver == MWMOpenGLDriverMetalPre103) {
-    CGSize const objcSize = self.mapViewController.mapView.pixelSize;
-    f.OnRecoverSurface(static_cast<int>(objcSize.width), static_cast<int>(objcSize.height),
-                       true /* recreateContextDependentResources */);
-  }
-  [MWMLocationManager applicationDidBecomeActive];
-  [MWMSearch addCategoriesToSpotlight];
-  [MWMKeyboard applicationDidBecomeActive];
-  [MWMTextToSpeech applicationDidBecomeActive];
-  LOG(LINFO, ("applicationDidBecomeActive - end"));
+  LOG(LINFO, ("handleDidEnterBackground - end"));
 }
 
 // TODO: Drape enabling and iCloud sync are skipped during the test run due to the app crashing in teardown. This is a temporary solution. Drape should be properly disabled instead of merely skipping the enabling process.
@@ -237,25 +177,6 @@ void InitLocalizedStrings() {
   NSArray<NSString *> * launchArguments = [processInfo arguments];
   BOOL isTests = [launchArguments containsObject:@"-IsTests"];
   return isTests;
-}
-
-- (BOOL)application:(UIApplication *)application
-  continueUserActivity:(NSUserActivity *)userActivity
-    restorationHandler:(void (^)(NSArray<id<UIUserActivityRestoring>> *_Nullable))restorationHandler {
-  if ([userActivity.activityType isEqualToString:CSSearchableItemActionType]) {
-    NSString *searchStringKey = userActivity.userInfo[CSSearchableItemActivityIdentifier];
-    NSString *searchString = L(searchStringKey);
-    if (searchString) {
-      [self searchText:searchString];
-      return YES;
-    }
-  } else if ([userActivity.activityType isEqualToString:NSUserActivityTypeBrowsingWeb] &&
-             userActivity.webpageURL != nil) {
-    LOG(LINFO, ("application:continueUserActivity:restorationHandler: %@", userActivity.webpageURL));
-    return [DeepLinkHandler.shared applicationDidReceiveUniversalLink:userActivity.webpageURL];
-  }
-
-  return NO;
 }
 
 - (void)disableDownloadIndicator {
@@ -289,15 +210,9 @@ void InitLocalizedStrings() {
   textField.keyboardAppearance = [UIColor isNightMode] ? UIKeyboardAppearanceDark : UIKeyboardAppearanceDefault;
 }
 
-- (BOOL)application:(UIApplication *)app
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-  NSLog(@"application:openURL: %@ options: %@", url, options);
-  return [DeepLinkHandler.shared applicationDidOpenUrl:url];
-}
-
 - (void)showMap {
-  [(UINavigationController *)self.window.rootViewController popToRootViewControllerAnimated:YES];
+  UIWindow * window = [self activeSceneDelegate].window;
+  [(UINavigationController *)window.rootViewController popToRootViewControllerAnimated:YES];
 }
 
 - (void)updateApplicationIconBadgeNumber {
@@ -335,8 +250,21 @@ void InitLocalizedStrings() {
 
 #pragma mark - Properties
 
+- (SceneDelegate *)activeSceneDelegate {
+  for (UIScene * scene in UIApplication.sharedApplication.connectedScenes) {
+    if ([scene.delegate isKindOfClass:[SceneDelegate class]])
+      return (SceneDelegate *)scene.delegate;
+  }
+  return nil;
+}
+
+- (UIWindow *)window {
+  return [self activeSceneDelegate].window;
+}
+
 - (MapViewController *)mapViewController {
-  for (id vc in [(UINavigationController *)self.window.rootViewController viewControllers]) {
+  UIWindow * window = [self activeSceneDelegate].window;
+  for (id vc in [(UINavigationController *)window.rootViewController viewControllers]) {
     if ([vc isKindOfClass:[MapViewController class]])
       return vc;
   }
