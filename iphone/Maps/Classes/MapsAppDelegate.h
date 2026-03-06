@@ -12,8 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
   UIBackgroundTaskIdentifier m_backgroundTask;
 }
 
-@property(nonatomic) UIWindow * window;
-
+@property(nonatomic, readonly) UIWindow * window;
 @property(nonatomic, readonly) MWMCarPlayService *carplayService API_AVAILABLE(ios(12.0));
 @property(nonatomic, readonly) MapViewController * mapViewController;
 @property(nonatomic, readonly) BOOL isDrapeEngineCreated;
@@ -29,6 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)disableDownloadIndicator;
 - (void)enableDownloadIndicator;
 
+- (void)handleDidEnterBackground;
+- (void)searchText:(NSString *)searchString;
 - (void)showMap;
 
 - (NSUInteger)badgeNumber;
