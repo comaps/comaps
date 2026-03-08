@@ -1,24 +1,17 @@
 #include "storage/country_tree_helpers.hpp"
-
 #include "storage/country.hpp"
 
 #include "base/assert.hpp"
-#include "base/logging.hpp"
-
-#include <utility>
-#include <vector>
 
 namespace storage
 {
 CountryId GetTopmostParentFor(CountryTree const & countries, CountryId const & countryId)
 {
+  ASSERT(!countryId.empty(), ());
+
   CountryTree::NodesBufferT nodes;
   countries.Find(countryId, nodes);
-  if (nodes.empty())
-  {
-    LOG(LWARNING, ("CountryId =", countryId, "not found in countries."));
-    return {};
-  }
+  CHECK(!nodes.empty(), (countryId));
 
   if (nodes.size() > 1)
   {
