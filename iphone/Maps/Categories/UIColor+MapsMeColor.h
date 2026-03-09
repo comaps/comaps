@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (UIColor *)speedLimitLightGray;
 + (UIColor *)speedLimitDarkGray;
 + (UIColor *)carplayPlaceholderBackground;
++ (UIColor *)iconOpaqueGrayTint;
 
 + (UIColor *)colorWithName:(NSString *)colorName;
 + (UIColor *)colorFromHexString:(NSString *)hexString;

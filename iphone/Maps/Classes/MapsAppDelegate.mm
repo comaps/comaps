@@ -105,6 +105,9 @@ void InitLocalizedStrings() {
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  [NSUserDefaults.standardUserDefaults setBool:false forKey:@"IsSearchPresented"];
+  [NSUserDefaults.standardUserDefaults setDouble:0 forKey:@"SearchAdjustment"];
+  
   NSLog(@"application:didFinishLaunchingWithOptions: %@", launchOptions);
 
   [HttpThreadImpl setDownloadIndicatorProtocol:self];
@@ -303,7 +306,6 @@ void InitLocalizedStrings() {
   // Delay init because BottomTabBarViewController.controller is null here.
   dispatch_async(dispatch_get_main_queue(), ^{
     [UIApplication.sharedApplication setApplicationIconBadgeNumber:number];
-    BottomTabBarViewController.controller.isApplicationBadgeHidden = (number == 0);
   });
 }
 

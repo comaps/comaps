@@ -55,6 +55,7 @@ BOOL defaultOrientation(CGSize const &size) {
 
 @property(weak, nonatomic) IBOutlet UIView *streetNameView;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *streetNameTopOffsetConstraint;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *streetNameTrailingOffsetConstraint;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *streetNameViewHideOffset;
 @property(weak, nonatomic) IBOutlet UILabel *streetNameLabel;
 @property(weak, nonatomic) IBOutlet UIView *turnsView;
@@ -220,7 +221,7 @@ BOOL defaultOrientation(CGSize const &size) {
 }
 
 - (void)layoutSearch {
-  BOOL const defaultView = defaultOrientation(self.availableArea.size);
+  BOOL const defaultView = !UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation);
   CGFloat alpha = 0;
   CGFloat searchButtonsSideSize = 0;
   self.searchButtonsViewWidth.constant = 0;
@@ -232,6 +233,10 @@ BOOL defaultOrientation(CGSize const &size) {
       defaultView ? kSearchButtonsViewWidthPortrait : kSearchButtonsViewWidthLandscape;
     self.searchButtonsViewHeight.constant =
       defaultView ? kSearchButtonsViewHeightPortrait : kSearchButtonsViewHeightLandscape;
+    self.searchButtonsView.layer.cornerRadius = (!UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) ? kSearchButtonsViewHeightPortrait : kSearchButtonsViewHeightLandscape) / 2;
+    if (@available(iOS 13.0, *)) {
+      self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
+    }
   }
   for (UIButton *searchButton in self.searchButtons)
     searchButton.alpha = alpha;
@@ -341,11 +346,12 @@ BOOL defaultOrientation(CGSize const &size) {
   self.topConstraint.active = YES;
   self.leftConstraint = [self.leadingAnchor constraintEqualToAnchor:ov.leadingAnchor];
   self.leftConstraint.active = YES;
-  self.widthConstraint = [self.widthAnchor constraintEqualToConstant:ov.frame.size.width];
+  self.widthConstraint = [self.widthAnchor constraintEqualToConstant:ov.frame.size.width/2];
   self.widthConstraint.active = YES;
   self.heightConstraint = [self.heightAnchor constraintEqualToConstant:ov.frame.size.height];
   self.heightConstraint.active = YES;
   self.streetNameTopOffsetConstraint.constant = self.additionalStreetNameTopOffset;
+  self.streetNameTrailingOffsetConstraint.constant = (-1 * ov.frame.size.width/2) - 100;
 }
 
 // Additional spacing for devices with a small top safe area (such as SE or when the device is in landscape mode).
@@ -364,19 +370,20 @@ BOOL defaultOrientation(CGSize const &size) {
     [self animateConstraintsWithAnimations:^{
       self.topConstraint.constant = availableArea.origin.y;
       self.leftConstraint.constant = availableArea.origin.x + kViewControlsOffsetToBounds;
-      self.widthConstraint.constant = availableArea.size.width - kViewControlsOffsetToBounds;
+      self.widthConstraint.constant = availableArea.size.width/2 - kViewControlsOffsetToBounds;
       self.heightConstraint.constant = availableArea.size.height;
 
       [self layoutSearch];
       self.turnsTopOffset.constant = availableArea.origin.y > 0 ? kShiftedTurnsTopOffset : kBaseTurnsTopOffset;
       self.searchButtonsView.layer.cornerRadius =
-        (defaultOrientation(availableArea.size) ? kSearchButtonsViewHeightPortrait
+        (!UIDeviceOrientationIsLandscape([UIDevice currentDevice].orientation) ? kSearchButtonsViewHeightPortrait
                                                 : kSearchButtonsViewHeightLandscape) /
         2;
       if (@available(iOS 13.0, *)) {
         self.searchButtonsView.layer.cornerCurve = kCACornerCurveContinuous;
       }
       self.streetNameTopOffsetConstraint.constant = self.additionalStreetNameTopOffset;
+      self.streetNameTrailingOffsetConstraint.constant = (-availableArea.size.width/2) -100;
     }];
   });
 }
@@ -405,10 +412,7 @@ BOOL defaultOrientation(CGSize const &size) {
   SEL const collapseSelector = @selector(collapseSearchOnTimer);
   [NSObject cancelPreviousPerformRequestsWithTarget:self selector:collapseSelector object:self];
   if (self.searchState == NavigationSearchState::Maximized) {
-    [self.superview bringSubviewToFront:self];
     [self performSelector:collapseSelector withObject:self afterDelay:kCollapseSearchTimeout];
-  } else {
-    [self.superview sendSubviewToBack:self];
   }
 }
 
@@ -481,7 +485,7 @@ BOOL defaultOrientation(CGSize const &size) {
     NSAssert(sv != nil, @"Superview can't be nil");
     if ([sv.subviews containsObject:self])
       return;
-    [sv insertSubview:self atIndex:0];
+    [sv insertSubview:self aboveSubview:[MapViewController sharedController].mainView];
     [self configLayout];
   }
   [UIView animateWithDuration:kDefaultAnimationDuration
