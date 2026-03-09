@@ -73,9 +73,9 @@
   return MWMAvailableAreaAffectDirectionsLeft;
 }
 
-#pragma mark - AvailableArea / TrafficButtonArea
+#pragma mark - AvailableArea / ModeButtonArea
 
-- (MWMAvailableAreaAffectDirections)trafficButtonAreaAffectDirections
+- (MWMAvailableAreaAffectDirections)modeButtonAreaAffectDirections
 {
   return MWMAvailableAreaAffectDirectionsLeft;
 }

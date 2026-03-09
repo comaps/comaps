@@ -826,4 +826,11 @@ extension CarPlayService {
     alert.userInfo = [CPConstants.TemplateKey.alert: CPConstants.TemplateType.restoreRoute]
     presentAlert(alert, animated: true)
   }
+
+  @objc func windowHeight() -> CGFloat {
+    if let window {
+      return window.height
+    }
+    return 0
+  }
 }

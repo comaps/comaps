@@ -53,10 +53,12 @@ final class ModalPresentationStepsController {
     case .began:
       initialTranslationY = presentedView.frame.origin.y
     case .changed:
-      let newY = max(max(initialTranslationY + translation.y, 0), maxAvailableFrame.origin.y)
-      currentFrame.origin.y = newY
-      presentedView.frame = currentFrame
-      didUpdateHandler?(.didUpdateFrame(currentFrame))
+      if abs(translation.y) > 30 {
+        let newY = max(max(initialTranslationY + translation.y, 0), maxAvailableFrame.origin.y)
+        currentFrame.origin.y = newY
+        presentedView.frame = currentFrame
+        didUpdateHandler?(.didUpdateFrame(currentFrame))
+      }
     case .ended:
       let nextStep: ModalPresentationStep
       if velocity.y > Constants.fastSwipeDownVelocity {

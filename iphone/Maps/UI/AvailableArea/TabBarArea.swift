@@ -16,10 +16,6 @@ final class TabBarArea: AvailableArea {
     let directions = ov.tabBarAreaAffectDirections
     addConstraints(otherView: ov, directions: directions)
   }
-
-  override func notifyObserver() {
-    BottomTabBarViewController.updateAvailableArea(areaFrame)
-  }
 }
 
 extension UIView {
