@@ -189,7 +189,11 @@ public:
       m_fps = helper.GetFps();
       m_isPaused = helper.IsPaused();
       std::stringstream ss;
+#if defined(OMIM_OS_IPHONE)
+      ss << "Level " << m_scale << " | " << m_fps<< " FPS";
+#else
       ss << m_apiLabel << ": Scale: " << m_scale << " / FPS: " << m_fps;
+#endif
       if (m_isPaused)
         ss << " (PAUSED)";
       SetContent(ss.str());

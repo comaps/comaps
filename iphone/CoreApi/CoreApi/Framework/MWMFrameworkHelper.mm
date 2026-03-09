@@ -31,34 +31,43 @@
 + (void)setTheme:(MWMTheme)theme {
   auto &f = GetFramework();
 
-  auto const style = f.GetMapStyle();
-  auto const isOutdoor = ^BOOL(MapStyle style) {
-    switch (style) {
-      case MapStyleOutdoorsLight:
-      case MapStyleOutdoorsDark:
-        return YES;
-      default:
-        return NO;
-    }
-  }(style);
-  auto const newStyle = ^MapStyle(MWMTheme theme) {
+  auto const mapAppearance = f.CurrentMapAppearance();
+  auto const newMapAppearance = ^MapAppearance(MWMTheme theme) {
     switch (theme) {
       case MWMThemeDay:
-        return isOutdoor ? MapStyleOutdoorsLight : MapStyleDefaultLight;
+        return MapAppearance::Light;
       case MWMThemeVehicleDay:
-        return MapStyleVehicleLight;
+        return MapAppearance::Light;
       case MWMThemeNight:
-        return isOutdoor ? MapStyleOutdoorsDark : MapStyleDefaultDark;
+        return MapAppearance::Dark;
       case MWMThemeVehicleNight:
-        return MapStyleVehicleDark;
+        return MapAppearance::Dark;
       case MWMThemeAuto:
         NSAssert(NO, @"Invalid theme");
-        return MapStyleDefaultLight;
+        return MapAppearance::Light;
     }
   }(theme);
+  if (mapAppearance != newMapAppearance)
+    f.SwitchToMapAppearance(newMapAppearance);
 
-  if (style != newStyle)
-    f.SetMapStyle(newStyle);
+  auto const isUsingVehicleStyle = f.IsUsingVehicleStyle();
+  auto const newIsUsingVehicleStyle = ^bool(MWMTheme theme) {
+    switch (theme) {
+      case MWMThemeDay:
+        return false;
+      case MWMThemeVehicleDay:
+        return true;
+      case MWMThemeNight:
+        return false;
+      case MWMThemeVehicleNight:
+        return true;
+      case MWMThemeAuto:
+        NSAssert(NO, @"Invalid theme");
+        return false;
+    }
+  }(theme);
+  if (isUsingVehicleStyle != newIsUsingVehicleStyle)
+    f.SwitchToUsingVehicleStyle(newIsUsingVehicleStyle);
 }
 
 + (MWMDayTime)daytimeAtLocation:(CLLocation *)location {

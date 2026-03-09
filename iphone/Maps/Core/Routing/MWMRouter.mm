@@ -171,6 +171,16 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   if (type == self.type)
     return;
 
+  if (type == MWMRouterTypePublicTransport) {
+    [MapControls setModeRawValue:ModePublicTransport];
+  } else if (type == MWMRouterTypeVehicle) {
+    [MapControls setModeRawValue:ModeDriving];
+  } else if (type == MWMRouterTypeBicycle) {
+    [MapControls setModeRawValue:ModeCycling];
+  } else if (type == MWMRouterTypePedestrian) {
+    [MapControls setModeRawValue:ModeWalking];
+  }
+
   [self doStop:NO];
   GetFramework().GetRoutingManager().SetRouter(coreRouterType(type));
 }
