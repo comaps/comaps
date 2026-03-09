@@ -7,8 +7,7 @@
 - (void)setupWidgets:(Framework::DrapeCreationParams &)p;
 
 - (void)resize:(CGSize)size;
-- (void)updateAvailableArea:(CGRect)frame;
-- (void)updateLayout:(CGRect)frame;
-- (void)updateLayoutForAvailableArea;
+- (void)updateLayout;
+- (void)updatePaddingForTop:(CGFloat)top bottom:(CGFloat)bottom leading:(CGFloat)leading trailing:(CGFloat)trailing;
 
 @end

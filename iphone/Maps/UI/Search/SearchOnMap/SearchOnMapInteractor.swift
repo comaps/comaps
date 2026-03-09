@@ -145,6 +145,8 @@ final class SearchOnMapInteractor: NSObject {
     routingTooltipSearch = .none
     isUpdatesDisabled = true
     searchManager.clear()
+    UserDefaults.standard.set(false, forKey: "IsSearchPresented")
+    UserDefaults.standard.set(0, forKey: "SearchAdjustment")
     return .close
   }
 
