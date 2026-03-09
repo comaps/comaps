@@ -180,7 +180,7 @@ bool BaseChecker::operator()(vector<uint32_t> const & types) const
   return false;
 }
 
-IsNeverMainTypeChecker::IsNeverMainTypeChecker()
+IsNeverTitleOneLevelTypeChecker::IsNeverTitleOneLevelTypeChecker() : ftypes::BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"hwtag"}));
@@ -188,9 +188,12 @@ IsNeverMainTypeChecker::IsNeverMainTypeChecker()
   m_types.push_back(c.GetTypeByPath({"fee"}));
   m_types.push_back(c.GetTypeByPath({"organic"}));
   m_types.push_back(c.GetTypeByPath({"wheelchair"}));
+}
+
+IsNeverTitleTwoLevelTypeChecker::IsNeverTitleTwoLevelTypeChecker() : ftypes::BaseChecker(3 /* level */)
+{
+  Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"building", "has_parts"}));
-  for (auto const subtype : ftypes::Subtypes::Instance().AllSubtypes())
-    m_types.push_back(subtype);
 }
 
 IsPeakChecker::IsPeakChecker()

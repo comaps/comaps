@@ -45,12 +45,33 @@ public:
   static uint32_t PrepareToMatch(uint32_t type, uint8_t level);
 };
 
-class IsNeverMainTypeChecker : public BaseChecker
+class IsNeverTitleOneLevelTypeChecker : public ftypes::BaseChecker
 {
-  IsNeverMainTypeChecker();
-
 public:
-  DECLARE_CHECKER_INSTANCE(IsNeverMainTypeChecker);
+  IsNeverTitleOneLevelTypeChecker();
+};
+
+class IsNeverTitleTwoLevelTypeChecker : public ftypes::BaseChecker
+{
+public:
+  IsNeverTitleTwoLevelTypeChecker();
+};
+
+class IsNeverTitleTypeChecker
+{
+public:
+  DECLARE_CHECKER_INSTANCE(IsNeverTitleTypeChecker);
+
+  bool operator()(FeatureType & ft) const { return m_oneLevel(ft) || m_twoLevel(ft); }
+  template <class T>
+  bool operator()(T const & t) const
+  {
+    return m_oneLevel(t) || m_twoLevel(t);
+  }
+
+private:
+  IsNeverTitleOneLevelTypeChecker const m_oneLevel;
+  IsNeverTitleTwoLevelTypeChecker const m_twoLevel;
 };
 
 class IsPeakChecker : public BaseChecker
