@@ -119,43 +119,33 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
   feature::TypesHolder copy(m_types);
   copy.SortBySpec();
 
-  auto const & isPoi = ftypes::IsPoiChecker::Instance();
-  auto const & isNeverMainTypeChecker = ftypes::IsNeverMainTypeChecker::Instance();
-  auto const & isTourismAttraction = ftypes::IsTourismAttractionChecker::Instance();
+  auto const & isNeverTitleTypeChecker = ftypes::IsNeverTitleTypeChecker::Instance();
   auto const & subtypes = ftypes::Subtypes::Instance();
   auto const & amenityChecker = ftypes::IsAmenityChecker::Instance();
 
   std::ostringstream oss;
   bool isMainType = true;
-  // The tourist attraction type can get added to features as main type for which their original main type usually only would be shown, if it is the main type, because it is no POI according to the POI checker. They also should be shown though, if the main type is tourist attraction.
-  bool isOnlyTypeTouristAttraction = false;
   bool isFirst = true;
   for (auto const type : copy)
   {
-    if (isMainType)
+    if (isMainType && !withMainType)
     {
-      isOnlyTypeTouristAttraction = isTourismAttraction(type);
-      if (!withMainType)
-      {
-        isMainType = false;
-        continue;
-      }
+      isMainType = false;
+      continue;
     }
     
-    // Ignore types that never should be main types
-    if ((isMainType || isOnlyTypeTouristAttraction) && isNeverMainTypeChecker(type))
+    // Ignore types that never should be title types
+    if (isNeverTitleTypeChecker(type))
       continue;
 
-    // Ignore types that are neither POI or known subtypes
-    if (!isMainType && !isOnlyTypeTouristAttraction && !isPoi(type) && !subtypes.IsTypeWithSubtypesOrSubtype(type))
+    // Ignore types for the main type, that are known subtypes
+    if (isMainType && subtypes.IsSubtype(type))
       continue;
 
-    // Ignore general amenity
-    if (!isMainType && !isOnlyTypeTouristAttraction && amenityChecker.GetType() == type)
+    // Ignore general amenity and types that never should be other title types
+    if (!isMainType && amenityChecker.GetType() == type)
       continue;
 
-    if (!isMainType)
-      isOnlyTypeTouristAttraction = false;
     isMainType = false;
 
     // Add fields separator between types
