@@ -12,6 +12,12 @@ static NSString * const kSelectedPattern = @"%@_selected_%@";
   [self setDefaultImages];
 }
 
+- (void)setBackgroundImageName:(NSString *)backgroundImageName
+{
+  _backgroundImageName = backgroundImageName;
+  [self setDefaultBackgroundImages];
+}
+
 // This method is overridden by MWMButtonRenderer.swift
 //- (void)applyTheme
 //{
@@ -34,6 +40,10 @@ static NSString * const kSelectedPattern = @"%@_selected_%@";
       [self setDefaultImages];
       self.imageView.image = [self imageForState:self.state];
     }
+    if (self.backgroundImageName)
+    {
+      [self setDefaultBackgroundImages];
+    }
     return;
   }
   if (self.state == UIControlStateNormal)
@@ -50,6 +60,14 @@ static NSString * const kSelectedPattern = @"%@_selected_%@";
   [self setImage:[UIImage imageNamed:[NSString stringWithFormat:kDefaultPattern, self.imageName, postfix]] forState:UIControlStateNormal];
   [self setImage:[UIImage imageNamed:[NSString stringWithFormat:kHighlightedPattern, self.imageName, postfix]] forState:UIControlStateHighlighted];
   [self setImage:[UIImage imageNamed:[NSString stringWithFormat:kSelectedPattern, self.imageName, postfix]] forState:UIControlStateSelected];
+}
+
+- (void)setDefaultBackgroundImages
+{
+  NSString * postfix = [UIColor isNightMode] ? @"dark" : @"light";
+  [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:kDefaultPattern, self.imageName, postfix]] forState:UIControlStateNormal];
+  [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:kHighlightedPattern, self.imageName, postfix]] forState:UIControlStateHighlighted];
+  [self setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:kSelectedPattern, self.imageName, postfix]] forState:UIControlStateSelected];
 }
 
 - (void)setHighlighted:(BOOL)highlighted

@@ -9,7 +9,7 @@
 @class SearchOnMapManager;
 @class SideButtonsArea;
 @class WidgetsArea;
-@class TrafficButtonArea;
+@class ModeButtonArea;
 @class PlacePageArea;
 
 @protocol MWMLocationModeListener;
@@ -28,9 +28,7 @@
 
 - (void)performAction:(NSString *_Nonnull)action;
 
-- (void)openMenu;
 - (void)openSettings;
-- (void)openAbout;
 - (void)openMapsDownloader:(MWMMapDownloaderMode)mode;
 - (void)openEditor;
 - (void)openBookmarkEditor;
@@ -54,12 +52,13 @@
 
 @property(nonatomic) MWMMyPositionMode currentPositionMode;
 @property(strong, nonatomic) IBOutlet EAGLView * _Nonnull mapView;
+@property(strong, nonatomic) IBOutlet UIView * _Nonnull mainView;
 @property(strong, nonatomic) IBOutlet UIView * _Nonnull controlsView;
 @property(nonatomic) UIView * _Nonnull searchContainer;
 
 @property (weak, nonatomic) IBOutlet SideButtonsArea * sideButtonsArea;
 @property (weak, nonatomic) IBOutlet WidgetsArea * widgetsArea;
-@property (weak, nonatomic) IBOutlet TrafficButtonArea * trafficButtonArea;
+@property (weak, nonatomic) IBOutlet ModeButtonArea * modeButtonArea;
 @property (weak, nonatomic) IBOutlet PlacePageArea * placePageArea;
 
 @end
