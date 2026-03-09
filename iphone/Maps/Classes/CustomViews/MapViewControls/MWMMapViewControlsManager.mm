@@ -5,8 +5,6 @@
 #import "MWMNetworkPolicy+UI.h"
 #import "MWMPlacePageManager.h"
 #import "MWMPlacePageProtocol.h"
-#import "MWMSideButtons.h"
-#import "MWMTrafficButtonViewController.h"
 #import "MWMMapWidgetsHelper.h"
 #import "MapViewController.h"
 #import "MapsAppDelegate.h"
@@ -26,10 +24,8 @@ namespace {
 NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 }  // namespace
 
-@interface MWMMapViewControlsManager () <BottomMenuDelegate>
+@interface MWMMapViewControlsManager ()
 
-@property(nonatomic) MWMSideButtons * sideButtons;
-@property(nonatomic) MWMTrafficButtonViewController * trafficButton;
 @property(nonatomic) UIButton * promoButton;
 @property(nonatomic) UIViewController * menuController;
 @property(nonatomic) id<MWMPlacePageProtocol> placePageManager;
@@ -57,11 +53,7 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
     return nil;
   self.ownerController = controller;
   self.hidden = NO;
-  self.sideButtonsHidden = NO;
-  self.trafficButtonHidden = NO;
   self.isDirectionViewHidden = YES;
-  self.menuState = MWMBottomMenuStateInactive;
-  self.menuRestoreState = MWMBottomMenuStateInactive;
   self.isAddingPlace = NO;
   self.searchManager = controller.searchManager;
   return self;
@@ -70,29 +62,15 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 - (UIStatusBarStyle)preferredStatusBarStyle {
   BOOL const isNavigationUnderStatusBar = self.navigationManager.state != MWMNavigationDashboardStateHidden &&
                                           self.navigationManager.state != MWMNavigationDashboardStateNavigation;
-  BOOL const isMenuViewUnderStatusBar = self.menuState == MWMBottomMenuStateActive;
   BOOL const isDirectionViewUnderStatusBar = !self.isDirectionViewHidden;
   BOOL const isAddPlaceUnderStatusBar =
     [self.ownerController.view hasSubviewWithViewClass:[MWMAddPlaceNavigationBar class]];
   BOOL const isNightMode = [UIColor isNightMode];
   BOOL const isSomethingUnderStatusBar = isNavigationUnderStatusBar ||
-                                         isDirectionViewUnderStatusBar || isMenuViewUnderStatusBar ||
+                                         isDirectionViewUnderStatusBar ||
                                          isAddPlaceUnderStatusBar;
 
   return isSomethingUnderStatusBar || isNightMode ? UIStatusBarStyleLightContent : UIStatusBarStyleDefault;
-}
-
-#pragma mark - Layout
-
-- (UIView *)anchorView {
-  return self.tabBarController.view;
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-  [self.trafficButton viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [self.trackRecordingButton viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [self.tabBarController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 #pragma mark - MWMPlacePageViewManager
@@ -120,8 +98,10 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 
 - (void)didFinishAddingPlace {
   self.isAddingPlace = NO;
-  self.trafficButtonHidden = NO;
-  self.menuState = MWMBottomMenuStateInactive;
+
+  if (![MWMRouter isRoutingActive])
+    MapControls.areMapControlsHidden = false;
+  MapControls.areMapZoomButtonsHidden = false;
 }
 
 - (void)addPlace {
@@ -133,8 +113,9 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 
   self.isAddingPlace = YES;
   [self.searchManager close];
-  self.menuState = MWMBottomMenuStateHidden;
-  self.trafficButtonHidden = YES;
+
+  MapControls.areMapControlsHidden = true;
+  MapControls.areMapZoomButtonsHidden = true;
 
   [ownerController dismissPlacePage];
 
@@ -190,47 +171,19 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 
 - (void)onRouteStart {
   self.hidden = NO;
-  self.sideButtons.zoomHidden = self.zoomHidden;
-  self.sideButtonsHidden = NO;
+  MapControls.areMapControlsHidden = true;
   self.disableStandbyOnRouteFollowing = YES;
-  self.trafficButtonHidden = YES;
   [self.navigationManager onRouteStart];
   self.promoButton.hidden = YES;
 }
 
 - (void)onRouteStop {
-  self.sideButtons.zoomHidden = self.zoomHidden;
   [self.navigationManager onRouteStop];
   self.disableStandbyOnRouteFollowing = NO;
-  self.trafficButtonHidden = NO;
   self.promoButton.hidden = YES;
 }
 
 #pragma mark - Properties
-
-- (MWMSideButtons *)sideButtons {
-  if (!_sideButtons)
-    _sideButtons = [[MWMSideButtons alloc] initWithParentView:self.ownerController.controlsView];
-  return _sideButtons;
-}
-
-- (MWMTrafficButtonViewController *)trafficButton {
-  if (!_trafficButton)
-    _trafficButton = [[MWMTrafficButtonViewController alloc] init];
-  return _trafficButton;
-}
-
-- (BottomTabBarViewController *)tabBarController {
-  if (!_tabBarController) {
-    MapViewController * ownerController = _ownerController;
-    _tabBarController = [BottomTabBarBuilder buildWithMapViewController:ownerController controlsManager:self];
-    [ownerController addChildViewController:_tabBarController];
-    UIView * tabBarViewSuperView = ownerController.controlsView;
-    [tabBarViewSuperView addSubview:_tabBarController.view];
-  }
-
-  return _tabBarController;
-}
 
 - (id<MWMPlacePageProtocol>)placePageManager {
   if (!_placePageManager)
@@ -240,89 +193,19 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
 
 - (MWMNavigationDashboardManager *)navigationManager {
   if (!_navigationManager)
-    _navigationManager = [[MWMNavigationDashboardManager alloc] initWithParentView:self.ownerController.controlsView];
+    _navigationManager = [[MWMNavigationDashboardManager alloc] initWithParentView:self.ownerController.mainView];
   return _navigationManager;
 }
 
-@synthesize menuState = _menuState;
-
 - (void)setHidden:(BOOL)hidden {
+  MapControls.areMapControlsHidden = hidden;
+  MapControls.areMapZoomButtonsHidden = hidden;
+
   if (_hidden == hidden)
     return;
   // Do not hide the controls view during the place adding process.
   if (!_isAddingPlace)
     _hidden = hidden;
-  self.sideButtonsHidden = _sideButtonsHidden;
-  self.trafficButtonHidden = _trafficButtonHidden;
-  self.menuState = hidden ? MWMBottomMenuStateHidden : MWMBottomMenuStateInactive;
-}
-
-- (void)setZoomHidden:(BOOL)zoomHidden {
-  _zoomHidden = zoomHidden;
-  self.sideButtons.zoomHidden = zoomHidden;
-}
-
-- (void)setSideButtonsHidden:(BOOL)sideButtonsHidden {
-  _sideButtonsHidden = sideButtonsHidden;
-  self.sideButtons.hidden = self.hidden || sideButtonsHidden;
-}
-
-- (void)setTrafficButtonHidden:(BOOL)trafficButtonHidden {
-  BOOL const isNavigation = self.navigationManager.state == MWMNavigationDashboardStateNavigation;
-  _trafficButtonHidden = isNavigation || trafficButtonHidden;
-  self.trafficButton.hidden = self.hidden || _trafficButtonHidden;
-}
-
-- (void)setTrackRecordingButtonState:(TrackRecordingButtonState)state {
-  if (!_trackRecordingButton) {
-    _trackRecordingButton = [[TrackRecordingButtonViewController alloc] init];
-  }
-  [self.trackRecordingButton setState:state completion:^{
-    [MWMMapWidgetsHelper updateLayoutForAvailableArea];
-  }];
-  if (state == TrackRecordingButtonStateClosed)
-    _trackRecordingButton = nil;
-}
-
-- (void)setMenuState:(MWMBottomMenuState)menuState {
-  _menuState = menuState;
-  MapViewController * ownerController = _ownerController;
-  switch (_menuState) {
-    case MWMBottomMenuStateActive:
-      _tabBarController.isHidden = NO;
-      if (_menuController == nil) {
-        _menuController = [BottomMenuBuilder buildMenuWithMapViewController:ownerController
-                                                            controlsManager:self
-                                                                   delegate:self];
-        [ownerController presentViewController:_menuController animated:YES completion:nil];
-      }
-      break;
-    case MWMBottomMenuStateLayers:
-      _tabBarController.isHidden = NO;
-      if (_menuController == nil) {
-        _menuController = [BottomMenuBuilder buildLayersWithMapViewController:ownerController
-                                                              controlsManager:self
-                                                                     delegate:self];
-        [ownerController presentViewController:_menuController animated:YES completion:nil];
-      }
-      break;
-    case MWMBottomMenuStateInactive:
-      _tabBarController.isHidden = NO;
-      if (_menuController != nil) {
-        [_menuController dismissViewControllerAnimated:YES completion:nil];
-        _menuController = nil;
-      }
-      break;
-    case MWMBottomMenuStateHidden:
-      _tabBarController.isHidden = YES;
-      if (_menuController != nil) {
-        [_menuController dismissViewControllerAnimated:YES completion:nil];
-        _menuController = nil;
-      }
-      break;
-    default:
-      break;
-  }
 }
 
 #pragma mark - MWMFeatureHolder

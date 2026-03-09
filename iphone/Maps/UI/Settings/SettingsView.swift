@@ -28,8 +28,8 @@ struct SettingsView: View {
     @State private var selectedAppearance: Settings.Appearance = .auto
     
     
-    /// The selected left button type
-    @State private var selectedLeftButtonType: Settings.LeftButtonType = .help
+    /// The selected custom button type
+    @State private var selectedCustomButtonKind: MapCustomButton.Kind = .information
     
     
     /// If zoom buttons should be displayed
@@ -42,10 +42,6 @@ struct SettingsView: View {
     
     /// If an increased font size should be used for map labels
     @State private var hasIncreasedFontsize: Bool = false
-    
-    
-    /// If 3D buildings should be displayed
-    @State private var has3dBuildings: Bool = true
     
     
     /// The selected language for the map
@@ -147,12 +143,12 @@ struct SettingsView: View {
                         Text("pref_appearance_title")
                     }
                     
-                    Picker(selection: $selectedLeftButtonType) {
-                        ForEach(Settings.LeftButtonType.allCases) { leftButtonType in
-                            Text(leftButtonType.description)
+                    Picker(selection: $selectedCustomButtonKind) {
+                        ForEach(MapCustomButton.Kind.allCases) { customButtonKind in
+                            Text(customButtonKind.description)
                         }
                     } label: {
-                        Text("pref_left_button_type")
+                        Text("pref_custom_button_type")
                     }
                     
                     Toggle("pref_zoom_title", isOn: $hasZoomButtons)
@@ -177,20 +173,6 @@ struct SettingsView: View {
                     
                     Toggle("big_font", isOn: $hasIncreasedFontsize)
                         .tint(.accent)
-                    
-                    Toggle(isOn: $has3dBuildings) {
-                        VStack(alignment: .leading) {
-                            Text("pref_map_3d_buildings_title")
-                            
-                            if selectedPowerSavingMode == .maximum {
-                                Text("pref_map_3d_buildings_disabled_summary")
-                                    .font(.footnote)
-                                    .foregroundStyle(.secondary)
-                            }
-                        }
-                    }
-                    .tint(.accent)
-                    .disabled(selectedPowerSavingMode == .maximum)
                     
                     Picker(selection: $selectedLanguageForMap) {
                         ForEach(Settings.availableLanguagesForMap) { languageForMap in
@@ -251,7 +233,6 @@ struct SettingsView: View {
                                 Image(systemName: "icloud")
                                 
                                 Text("icloud_sync")
-                                    .lineLimit(1)
                             }
                             
                             if !isSyncPossible {
@@ -343,11 +324,10 @@ struct SettingsView: View {
             selectedPowerSavingMode = Settings.powerSavingMode
             selectedDistanceUnit = Settings.distanceUnit
             selectedAppearance = Settings.appearance
-            selectedLeftButtonType = Settings.leftButtonType
+            selectedCustomButtonKind = Settings.customButtonKind
             hasZoomButtons = Settings.hasZoomButtons
             selectedMapAppearance = Settings.mapAppearance
             hasIncreasedFontsize = Settings.hasIncreasedFontsize
-            has3dBuildings = Settings.has3dBuildings
             selectedLanguageForMap = Settings.languageForMap
             alternativeMapLanguageHandling = Settings.alternativeMapLanguageHandling
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
@@ -369,8 +349,8 @@ struct SettingsView: View {
         .onChange(of: selectedAppearance) { changedSelectedAppearance in
             Settings.appearance = changedSelectedAppearance
         }
-        .onChange(of: selectedLeftButtonType) { changedSelectedLeftButtonType in
-            Settings.leftButtonType = changedSelectedLeftButtonType
+        .onChange(of: selectedCustomButtonKind) { changedSelectedCustomButtonKind in
+            Settings.customButtonKind = changedSelectedCustomButtonKind
         }
         .onChange(of: hasZoomButtons) { changedHasZoomButtons in
             Settings.hasZoomButtons = changedHasZoomButtons
@@ -380,9 +360,6 @@ struct SettingsView: View {
         }
         .onChange(of: hasIncreasedFontsize) { changedHasIncreasedFontsize in
             Settings.hasIncreasedFontsize = changedHasIncreasedFontsize
-        }
-        .onChange(of: has3dBuildings) { changedHas3dBuildings in
-            Settings.has3dBuildings = changedHas3dBuildings
         }
         .onChange(of: selectedLanguageForMap) { changedSelectedLanguageForMap in
             if let changedSelectedLanguageForMap {

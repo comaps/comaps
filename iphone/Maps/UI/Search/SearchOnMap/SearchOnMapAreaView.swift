@@ -3,7 +3,7 @@ final class SearchOnMapAreaView: UIView {
     alternative(iPhone: .bottom, iPad: [])
   }
 
-  override var trafficButtonAreaAffectDirections: MWMAvailableAreaAffectDirections {
+  override var modeButtonAreaAffectDirections: MWMAvailableAreaAffectDirections {
     alternative(iPhone: .bottom, iPad: [])
   }
 }

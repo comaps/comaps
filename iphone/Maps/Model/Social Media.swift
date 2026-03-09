@@ -17,7 +17,7 @@ enum SocialMedia: CaseIterable, Identifiable {
     static let emailAddress: String = "ios@comaps.app"
     
     
-    //// The id
+    /// The id
     var id: Self { self }
     
     

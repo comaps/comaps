@@ -8,10 +8,6 @@ final class TrackRecordingButtonArea: AvailableArea {
     let directions = ov.trackRecordingButtonAreaAffectDirections
     addConstraints(otherView: ov, directions: directions)
   }
-
-  override func notifyObserver() {
-    TrackRecordingButtonViewController.updateAvailableArea(areaFrame)
-  }
 }
 
 extension UIView {
