@@ -4,6 +4,7 @@
 "cancel_download" = "Cancel Download";
 /* Button which deletes downloaded country */
 "delete" = "Delete";
+"discard" = "Discard";
 "download_maps" = "Download Maps";
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Downloading…";
@@ -143,7 +144,7 @@
 "share_my_location" = "Share My Location";
 "prefs_group_route" = "Navigation";
 "pref_zoom_title" = "Zoom buttons";
-"pref_left_button_type" = "Left Main Button";
+"pref_custom_button_type" = "Customisable Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Map Language";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +167,6 @@
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspective view";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D buildings";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D buildings are disabled in power saving mode";
 /* Settings «Route» category: «Tts enabled» title */
@@ -407,6 +406,7 @@
 "closed" = "Closed";
 "add_opening_hours" = "Add opening hours";
 /* OpenStreetMap */
+"osm" = "OpenStreetMap";
 "osm_mapdata" = "Map data from OpenStreetMap";
 "osm_mapdata_explanation %@" = "Community-created map data as of *%@*. Learn more about how to edit and update the map at [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "More about OpenStreetMap";
@@ -625,8 +625,6 @@
 "restore" = "Restore";
 "privacy_policy" = "Privacy policy";
 "terms_of_use" = "Terms of use";
-"button_layer_subway" = "Metro";
-"layers_title" = "Map Styles and Layers";
 "subway_data_unavailable" = "Metro map is unavailable";
 "title_error_downloading_bookmarks" = "An error occurred";
 "popular_place" = "Popular";
@@ -735,7 +733,6 @@
 "transit_not_found" = "Metro navigation in this region is not available yet";
 "dialog_pedestrian_route_is_long_header" = "No metro route found";
 "dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a metro station";
-"button_layer_isolines" = "Contour Lines";
 "isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
 "isolines_location_error_dialog" = "Contour lines are not yet available in this area";
 "elevation_profile_diff_level" = "Difficulty level";
@@ -797,8 +794,44 @@
 "car_continue_on_the_phone" = "Continue on the phone";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "To the car screen";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Outdoors";
+/* Usually invisible title for the mode picker */
+"mode" = "Mode";
+/* Label for the walking mode */
+"mode_walking" = "Walking";
+/* Label for the cycling mode */
+"mode_cycling" = "Cycling";
+/* Label for the driving mode */
+"mode_driving" = "Driving";
+/* Label for the public transport mode */
+"mode_public-transport" = "Public Transport";
+/* Label for the toggle to show the traffic in the driving mode */
+"mode_option_traffic" = "Show Traffic";
+/* Label for the toggle to show the transit lines in the public transport mode */
+"mode_option_transitlines" = "Show Transit Lines";
+/* Placeholder for modes, which don't have options yet */
+"mode_option_comingsoon" = "Options coming soon";
+/* Usually invisible title for the layer button */
+"layers" = "Layers";
+/* Usually invisible label for the contour lines layer */
+"layers_option_contour-lines" = "Contour Lines";
+/* Usually invisible label for the outdoor layer */
+"layers_option_outdoor" = "Outdoor";
+/* Usually invisible label for the buildings 3D layer */
+"layers_option_buildings-3d" = "3D Buildings";
+/* Alert explaining why the layer is disabled */
+"layers_power-saving" = "This layer is currently automatically disabled due to your power saving mode setting";
+/* Usually invisible label for the position mode button when the location hasn't been determined or isn't being followed */
+"postionmode_locate" = "Find own location";
+/* Usually invisible label for the position mode button when the location is still being determined */
+"postionmode_locating" = "Finding own location...";
+/* Usually invisible label for the position mode button when the location is being followed and the map rotated towards North */
+"postionmode_following" = "Following location with map roated towards North";
+/* Usually invisible label for the position mode button when the location is being followed and the map rotated towards the traveling direction */
+"postionmode_following-and-rotated" = "Following location with map roated towards traveling direction";
+/* Usually invisible title for the zoom in button */
+"zoom_in" = "Zoom in";
+/* Usually invisible title for the zoom out button */
+"zoom_out" = "Zoom out";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Export all Favourites";
 /* Text for the editing the Track's color button. */
@@ -848,10 +881,10 @@
 "recover" = "Recover";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recover All";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Record Track";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Stop Track Recording";
+/* Title to start recording a track. */
+"record_track" = "Record Track";
+/* Title shown while track recording. */
+"recording_track" = "Recording Track";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Stop Without Saving";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */

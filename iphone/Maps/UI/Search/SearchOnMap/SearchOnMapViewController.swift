@@ -64,7 +64,7 @@ final class SearchOnMapViewController: UIViewController {
 
     let affectedAreaViews = [
       mapViewController.sideButtonsArea,
-      mapViewController.trafficButtonArea,
+      mapViewController.modeButtonArea,
     ]
     affectedAreaViews.forEach { $0?.addAffectingView(availableAreaView) }
   }
@@ -166,7 +166,7 @@ final class SearchOnMapViewController: UIViewController {
       dimView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     view.addSubview(availableAreaView)
-    availableAreaView.addSubview(contentView)
+    view.addSubview(contentView)
     contentView.addSubview(searchResultsView)
     contentView.addSubview(headerView)
 
@@ -174,21 +174,39 @@ final class SearchOnMapViewController: UIViewController {
     headerView.translatesAutoresizingMaskIntoConstraints = false
     searchResultsView.translatesAutoresizingMaskIntoConstraints = false
 
-    NSLayoutConstraint.activate([
-      contentView.topAnchor.constraint(equalTo: availableAreaView.safeAreaLayoutGuide.topAnchor),
-      contentView.leadingAnchor.constraint(equalTo: availableAreaView.leadingAnchor),
-      contentView.trailingAnchor.constraint(equalTo: availableAreaView.trailingAnchor),
-      contentView.bottomAnchor.constraint(equalTo: availableAreaView.bottomAnchor),
-
-      headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
-      headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-
-      searchResultsView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-      searchResultsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      searchResultsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      searchResultsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-    ])
+    if isiPad {
+      NSLayoutConstraint.activate([
+        contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+        contentView.leadingAnchor.constraint(equalTo: availableAreaView.leadingAnchor),
+        contentView.trailingAnchor.constraint(equalTo: availableAreaView.trailingAnchor),
+        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        
+        headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+        headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        
+        searchResultsView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+        searchResultsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        searchResultsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        searchResultsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      ])
+    } else {
+      NSLayoutConstraint.activate([
+        contentView.topAnchor.constraint(equalTo: availableAreaView.topAnchor),
+        contentView.leadingAnchor.constraint(equalTo: availableAreaView.leadingAnchor),
+        contentView.trailingAnchor.constraint(equalTo: availableAreaView.trailingAnchor),
+        contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        
+        headerView.topAnchor.constraint(equalTo: contentView.topAnchor),
+        headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        
+        searchResultsView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+        searchResultsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+        searchResultsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+        searchResultsView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      ])
+    }
 
     layoutResultsView()
     layoutHistoryAndCategoryTabView()
@@ -205,7 +223,7 @@ final class SearchOnMapViewController: UIViewController {
       resultsTableView.topAnchor.constraint(equalTo: searchResultsView.topAnchor),
       resultsTableView.leadingAnchor.constraint(equalTo: searchResultsView.leadingAnchor),
       resultsTableView.trailingAnchor.constraint(equalTo: searchResultsView.trailingAnchor),
-      resultsTableView.bottomAnchor.constraint(equalTo: searchResultsView.bottomAnchor)
+      resultsTableView.bottomAnchor.constraint(equalTo: searchResultsView.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 
@@ -217,7 +235,7 @@ final class SearchOnMapViewController: UIViewController {
       historyAndCategoryTabViewController.view.topAnchor.constraint(equalTo: searchResultsView.topAnchor),
       historyAndCategoryTabViewController.view.leadingAnchor.constraint(equalTo: searchResultsView.leadingAnchor),
       historyAndCategoryTabViewController.view.trailingAnchor.constraint(equalTo: searchResultsView.trailingAnchor),
-      historyAndCategoryTabViewController.view.bottomAnchor.constraint(equalTo: searchResultsView.bottomAnchor)
+      historyAndCategoryTabViewController.view.bottomAnchor.constraint(equalTo: searchResultsView.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 
@@ -228,7 +246,7 @@ final class SearchOnMapViewController: UIViewController {
       searchNoResultsView.topAnchor.constraint(equalTo: searchResultsView.topAnchor),
       searchNoResultsView.leadingAnchor.constraint(equalTo: searchResultsView.leadingAnchor),
       searchNoResultsView.trailingAnchor.constraint(equalTo: searchResultsView.trailingAnchor),
-      searchNoResultsView.bottomAnchor.constraint(equalTo: searchResultsView.bottomAnchor)
+      searchNoResultsView.bottomAnchor.constraint(equalTo: searchResultsView.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 
@@ -239,7 +257,7 @@ final class SearchOnMapViewController: UIViewController {
       searchingActivityView.leadingAnchor.constraint(equalTo: searchResultsView.leadingAnchor),
       searchingActivityView.trailingAnchor.constraint(equalTo: searchResultsView.trailingAnchor),
       searchingActivityView.topAnchor.constraint(equalTo: searchResultsView.topAnchor),
-      searchingActivityView.bottomAnchor.constraint(equalTo: searchResultsView.bottomAnchor)
+      searchingActivityView.bottomAnchor.constraint(equalTo: searchResultsView.safeAreaLayoutGuide.bottomAnchor)
     ])
   }
 

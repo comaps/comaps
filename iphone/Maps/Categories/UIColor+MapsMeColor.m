@@ -176,4 +176,9 @@ static BOOL isNightMode = NO;
 + (UIColor *)speedLimitDarkGray {
   return [UIColor colorWithRed:scaled(51) green:scaled(51) blue:scaled(50) alpha:alpha100];
 }
+
++ (UIColor *)iconOpaqueGrayTint
+{
+  return StyleManager.shared.theme.colors.iconOpaqueGrayTint;
+}
 @end

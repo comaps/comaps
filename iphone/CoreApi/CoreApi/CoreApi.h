@@ -19,7 +19,6 @@ FOUNDATION_EXPORT const unsigned char CoreApiVersionString[];
 #import <CoreApi/MWMFrameworkHelper.h>
 #import <CoreApi/MWMGeoUtil.h>
 #import <CoreApi/MWMMapNodeAttributes.h>
-#import <CoreApi/MWMMapOverlayManager.h>
 #import <CoreApi/MWMMapSearchResult.h>
 #import <CoreApi/MWMMapUpdateInfo.h>
 #import <CoreApi/MWMNetworkPolicy.h>

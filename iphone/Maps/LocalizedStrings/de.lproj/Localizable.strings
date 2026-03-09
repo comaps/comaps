@@ -4,6 +4,7 @@
 "cancel_download" = "Download abbrechen";
 /* Button which deletes downloaded country */
 "delete" = "Löschen";
+"discard" = "Verwerfen";
 "download_maps" = "Karten herunterladen";
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Wird heruntergeladen …";
@@ -143,7 +144,7 @@
 "share_my_location" = "Meinen Standort teilen";
 "prefs_group_route" = "Navigation";
 "pref_zoom_title" = "Zoom-Tasten";
-"pref_left_button_type" = "Linker Hauptbutton";
+"pref_custom_button_type" = "Anpassbarer Button";
 /* Settings «Map» category: «Map Language» title */
 "pref_maplanguage_title" = "Karten-Sprache";
 /* Settings «Map» category: «Map Language» local value */
@@ -166,8 +167,6 @@
 "auto" = "Auto";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektivische Ansicht";
-/* Settings «Map» category: «3D buildings» title */
-"pref_map_3d_buildings_title" = "3D-Gebäude";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-Gebäude werden im Energiesparmodus ausgeschaltet";
 /* Settings «Route» category: «Tts enabled» title */
@@ -407,6 +406,7 @@
 "closed" = "Geschlossen";
 "add_opening_hours" = "Öffnungszeiten hinzufügen";
 /* OpenStreetMap */
+"osm" = "OpenStreetMap";
 "osm_mapdata" = "Kartendaten von OpenStreetMap";
 "osm_mapdata_explanation %@" = "Von der Community erstellte Kartendaten vom *%@*. Erfahre mehr darüber, wie du die Karte bearbeiten und aktualisieren kannst unter [OpenStreetMap.org](https://wiki.openstreetmap.org/wiki/DE:Map_Making_Overview).";
 "osm_more_about" = "Mehr Infos über OpenStreetMap";
@@ -625,9 +625,7 @@
 "restore" = "Wiederherstellen";
 "privacy_policy" = "Datenschutzerklärung";
 "terms_of_use" = "Nutzungsbedingungen";
-"button_layer_subway" = "U-Bahn";
-"layers_title" = "Kartenstile und Ebenen";
-"subway_data_unavailable" = "Die U-Bahn-Karte steht nicht zur Verfügung";
+"subway_data_unavailable" = "Subway map is unavailable";
 "title_error_downloading_bookmarks" = "Es ist ein Fehler aufgetreten";
 "popular_place" = "Beliebt";
 "export_file" = "KMZ exportieren";
@@ -735,7 +733,6 @@
 "transit_not_found" = "Die U-Bahn-Navigation ist in dieser Region noch nicht verfügbar";
 "dialog_pedestrian_route_is_long_header" = "Keine U-Bahn-Route gefunden";
 "dialog_pedestrian_route_is_long_message" = "Wähle einen Start- oder Endpunkt näher an einer U-Bahn-Station";
-"button_layer_isolines" = "Höhenlinien";
 "isolines_activation_error_dialog" = "Um die Höhenlinien nutzen zu können, aktualisiere die Karte des betreffenden Gebiets oder lade diese herunter";
 "isolines_location_error_dialog" = "Höhenlinien sind für dieses Gebiet noch nicht verfügbar";
 "elevation_profile_diff_level" = "Schwierigkeitsgrad";
@@ -797,8 +794,44 @@
 "car_continue_on_the_phone" = "Fortsetzen am Telefon";
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Zum Autobildschirm";
-/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
-"button_layer_outdoor" = "Wandern";
+/* Usually invisible title for the mode picker */
+"mode" = "Modus";
+/* Label for the walking mode */
+"mode_walking" = "Gehen";
+/* Label for the cycling mode */
+"mode_cycling" = "Radfahren";
+/* Label for the driving mode */
+"mode_driving" = "Fahren";
+/* Label for the public transport mode */
+"mode_public-transport" = "Öffentlicher Verkehr";
+/* Label for the toggle to show the traffic in the driving mode */
+"mode_option_traffic" = "Verkehr anzeigen";
+/* Label for the toggle to show the transit lines in the public transport mode */
+"mode_option_transitlines" = "Verkehrslinien anzeigen";
+/* Placeholder for modes, which don't have options yet */
+"mode_option_comingsoon" = "Optionen bald verfügbar";
+/* Usually invisible title for the layer button */
+"layers" = "Ebenen";
+/* Usually invisible label for the contour lines layer */
+"layers_option_contour-lines" = "Höhenlinien";
+/* Usually invisible label for the outdoor layer */
+"layers_option_outdoor" = "Outdoor";
+/* Usually invisible label for the buildings 3D layer */
+"layers_option_buildings-3d" = "3D Gebäude";
+/* Alert explaining why the layer is disabled */
+"layers_power-saving" = "Diese Ebene ist momentan wegen deiner Stromsparmodus-Einstellung deaktiviert";
+/* Usually invisible label for the position mode button when the location hasn't been determined or isn't being followed */
+"postionmode_locate" = "Eigenen Standort finden";
+/* Usually invisible label for the position mode button when the location is still being determined */
+"postionmode_locating" = "Eigenen Standort finden...";
+/* Usually invisible label for the position mode button when the location is being followed and the map rotated towards North */
+"postionmode_following" = "Standort mit nach Norden gedrehter Karte folgen";
+/* Usually invisible label for the position mode button when the location is being followed and the map rotated towards the traveling direction */
+"postionmode_following-and-rotated" = "Standort mit in Reiserichtung gedrehter Karte folgen";
+/* Usually invisible title for the zoom in button */
+"zoom_in" = "Reinzoomen";
+/* Usually invisible title for the zoom out button */
+"zoom_out" = "Rauszoomen";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Alle Favoriten exportieren";
 /* Text for the editing the Track's color button. */
@@ -815,7 +848,7 @@
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Aktiviere die iCloud-Synchronisierung";
 /* Message for the "Enable iCloud Synchronization" alert. */
-"enable_icloud_synchronization_message" = "Die iCloud-Synchronisierung ist eine experimentelle Funktion, die noch entwickelt wird. Vergewissere dich, dass du eine Sicherungskopie all deiner Favoriten erstellt hast.";
+"enable_icloud_synchronization_message" = "Die iCloud-Synchronisierung ist eine experimentelle Funktion, die noch entwickelt wird. Vergewissere dich, dass du eine Sicherungskopie all deiner Lesezeichen und Tracks erstellt hast.";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud ist deaktiviert";
 /* Message for the "iCloud is Disabled" alert. */
@@ -848,10 +881,10 @@
 "recover" = "Wiederherstellen";
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Alles wiederherstellen";
-/* Prompt to start recording a track. */
-"start_track_recording" = "Track aufnehmen";
-/* Prompt for stopping a track recording. */
-"stop_track_recording" = "Aufnahme des Tracks stoppen";
+/* Title to start recording a track. */
+"record_track" = "Track aufnehmen";
+/* Title shown while track recording. */
+"recording_track" = "Trackaufnahme";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Ohne Speichern beenden";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */

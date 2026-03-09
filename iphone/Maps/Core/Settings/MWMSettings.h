@@ -1,9 +1,6 @@
 NS_SWIFT_NAME(SettingsBridge)
 @interface MWMSettings : NSObject
 
-+ (BOOL)buildings3dViewEnabled;
-+ (void)setBuildings3dViewEnabled:(BOOL)buildings3dViewEnabled;
-
 + (BOOL)perspectiveViewEnabled;
 + (void)setPerspectiveViewEnabled:(BOOL)perspectiveViewEnabled;
 
@@ -22,6 +19,7 @@ NS_SWIFT_NAME(SettingsBridge)
 + (MWMTheme)theme;
 + (void)setTheme:(MWMTheme)theme;
 
++ (bool)powerManagementBuildings3d;
 + (NSInteger)powerManagement;
 + (void)setPowerManagement:(NSInteger)powerManagement;
 

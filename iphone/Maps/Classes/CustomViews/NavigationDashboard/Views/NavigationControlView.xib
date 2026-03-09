@@ -310,6 +310,14 @@
                         <constraint firstAttribute="trailing" secondItem="mtt-q0-SUx" secondAttribute="trailing" constant="20" id="huM-XX-MM9"/>
                     </constraints>
                 </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-uq-kT3">
+                    <rect key="frame" x="252" y="-68" width="52" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="iVY-gg-b7Y"/>
+                        <constraint firstAttribute="height" constant="52" id="j4C-h9-eqw"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ghU-PK-XSf"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,11 +328,17 @@
                 <constraint firstItem="ghU-PK-XSf" firstAttribute="top" secondItem="jBZ-WO-Nz7" secondAttribute="top" id="CxJ-e3-177"/>
                 <constraint firstItem="u7O-n6-ZXy" firstAttribute="top" secondItem="9fq-65-qd9" secondAttribute="top" id="Qaw-S4-hJf"/>
                 <constraint firstAttribute="bottom" secondItem="CMT-MI-d8X" secondAttribute="bottom" id="QmH-op-EWM"/>
+                <constraint firstItem="ghU-PK-XSf" firstAttribute="trailing" secondItem="dh1-uq-kT3" secondAttribute="trailing" constant="16" id="QvN-oG-RDP">
+                    <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="CMT-MI-d8X" firstAttribute="top" secondItem="u7O-n6-ZXy" secondAttribute="bottom" id="SaY-tH-rNS"/>
                 <constraint firstAttribute="trailing" secondItem="CMT-MI-d8X" secondAttribute="trailing" id="Y3v-mx-s41"/>
                 <constraint firstItem="u7O-n6-ZXy" firstAttribute="leading" secondItem="9fq-65-qd9" secondAttribute="leading" id="myS-vi-80i"/>
                 <constraint firstItem="CMT-MI-d8X" firstAttribute="leading" secondItem="9fq-65-qd9" secondAttribute="leading" id="rEB-5o-z8o"/>
                 <constraint firstItem="jBZ-WO-Nz7" firstAttribute="bottom" secondItem="ghU-PK-XSf" secondAttribute="bottom" constant="100" id="wrU-Qn-62D"/>
+                <constraint firstAttribute="top" secondItem="dh1-uq-kT3" secondAttribute="bottom" constant="16" id="yBO-Ax-9f9">
+                    <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                </constraint>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -336,6 +350,7 @@
                 <outlet property="distanceWithLegendLabel" destination="fxK-Ae-ebd" id="qhH-AB-nFm"/>
                 <outlet property="extendButton" destination="XwA-oz-M3Q" id="76Y-Qw-uPC"/>
                 <outlet property="extendedView" destination="CMT-MI-d8X" id="1OK-Ps-fL4"/>
+                <outlet property="mapPositionButton" destination="dh1-uq-kT3" id="flq-sb-Wz9"/>
                 <outlet property="progressView" destination="Q0w-Me-x4p" id="efq-ve-QAZ"/>
                 <outlet property="routingProgress" destination="vxl-iA-p8N" id="gw7-Pn-5m7"/>
                 <outlet property="speedBackground" destination="QLk-JN-wfO" id="aYN-db-Xaa"/>
