@@ -121,8 +121,7 @@
       }
       return true
     case .menu:
-      MapsAppDelegate.theApp().mapViewController.openMenu()
-      return true
+      return false
     case .settings:
       MapsAppDelegate.theApp().mapViewController.openSettings()
       return true

@@ -14,6 +14,8 @@ static CGFloat const kDrivingOptionsHeight = 48;
 
 @property(nonatomic) BOOL isVisible;
 @property(nonatomic) BOOL actualVisibilityValue;
+@property(strong, nonatomic) IBOutlet UIView * mapPositionButton;
+@property(strong, nonatomic) IBOutlet UIView * mapPositionButtonPT;
 @property(weak, nonatomic) IBOutlet UIButton * backButton;
 @property(weak, nonatomic) IBOutlet UIView * bicycle;
 @property(weak, nonatomic) IBOutlet UIView * contentView;
@@ -40,6 +42,26 @@ static CGFloat const kDrivingOptionsHeight = 48;
   [self.backButton matchInterfaceOrientation];
   self.drivingOptionHeightConstraint.constant = -kDrivingOptionsHeight;
   [self applyContentViewShadow];
+  
+  UIViewController * controller = BridgeControllers.mapPositionButton;
+  [_mapPositionButton addSubview:controller.view];
+  controller.view.translatesAutoresizingMaskIntoConstraints = false;
+  [NSLayoutConstraint activateConstraints: @[
+    [controller.view.topAnchor constraintEqualToAnchor: _mapPositionButton.topAnchor],
+    [controller.view.leadingAnchor constraintEqualToAnchor: _mapPositionButton.leadingAnchor],
+    [controller.view.trailingAnchor constraintEqualToAnchor: _mapPositionButton.safeAreaLayoutGuide.trailingAnchor],
+    [controller.view.bottomAnchor constraintEqualToAnchor: _mapPositionButton.bottomAnchor],
+  ]];
+  
+  UIViewController * controllerPT = BridgeControllers.mapPositionButton;
+  [_mapPositionButtonPT addSubview:controllerPT.view];
+  controllerPT.view.translatesAutoresizingMaskIntoConstraints = false;
+  [NSLayoutConstraint activateConstraints: @[
+    [controllerPT.view.topAnchor constraintEqualToAnchor: _mapPositionButtonPT.topAnchor],
+    [controllerPT.view.leadingAnchor constraintEqualToAnchor: _mapPositionButtonPT.leadingAnchor],
+    [controllerPT.view.trailingAnchor constraintEqualToAnchor: _mapPositionButtonPT.safeAreaLayoutGuide.trailingAnchor],
+    [controllerPT.view.bottomAnchor constraintEqualToAnchor: _mapPositionButtonPT.bottomAnchor],
+  ]];
 }
 
 - (void)applyContentViewShadow {

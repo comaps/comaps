@@ -229,8 +229,8 @@
                 <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMT-MI-d8X">
                     <rect key="frame" x="0.0" y="52" width="320" height="64"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="right" misplaced="YES" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="udk-ZC-Gz0">
-                            <rect key="frame" x="48.666666666666657" y="0.0" width="142.33333333333331" height="64"/>
+                        <stackView opaque="NO" contentMode="right" distribution="equalCentering" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="udk-ZC-Gz0">
+                            <rect key="frame" x="108" y="0.0" width="88" height="64"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bfb-5v-iWA" userLabel="TTS Button" customClass="MWMButton">
                                     <rect key="frame" x="0.0" y="20" width="57" height="24"/>
@@ -257,21 +257,6 @@
                                     </userDefinedRuntimeAttributes>
                                     <connections>
                                         <action selector="settingsButtonAction" destination="-1" eventType="touchUpInside" id="m7v-S7-aqm"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btn-track-rec" userLabel="Track Recording" customClass="MWMButton">
-                                    <rect key="frame" x="98.333333333333343" y="19.333333333333329" width="44" height="25.333333333333329"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="44" id="cns-trk-wid"/>
-                                    </constraints>
-                                    <state key="normal" image="record.circle" catalog="system">
-                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="22" weight="regular"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="MWMBlack"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="trackRecordingAction" destination="9fq-65-qd9" eventType="touchUpInside" id="act-track-rec"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -310,6 +295,14 @@
                         <constraint firstAttribute="trailing" secondItem="mtt-q0-SUx" secondAttribute="trailing" constant="20" id="huM-XX-MM9"/>
                     </constraints>
                 </view>
+                <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dh1-uq-kT3">
+                    <rect key="frame" x="252" y="-68" width="52" height="52"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="52" id="iVY-gg-b7Y"/>
+                        <constraint firstAttribute="height" constant="52" id="j4C-h9-eqw"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="ghU-PK-XSf"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
@@ -320,11 +313,17 @@
                 <constraint firstItem="ghU-PK-XSf" firstAttribute="top" secondItem="jBZ-WO-Nz7" secondAttribute="top" id="CxJ-e3-177"/>
                 <constraint firstItem="u7O-n6-ZXy" firstAttribute="top" secondItem="9fq-65-qd9" secondAttribute="top" id="Qaw-S4-hJf"/>
                 <constraint firstAttribute="bottom" secondItem="CMT-MI-d8X" secondAttribute="bottom" id="QmH-op-EWM"/>
+                <constraint firstItem="ghU-PK-XSf" firstAttribute="trailing" secondItem="dh1-uq-kT3" secondAttribute="trailing" constant="16" id="QvN-oG-RDP">
+                    <variation key="heightClass=compact-widthClass=compact" constant="0.0"/>
+                </constraint>
                 <constraint firstItem="CMT-MI-d8X" firstAttribute="top" secondItem="u7O-n6-ZXy" secondAttribute="bottom" id="SaY-tH-rNS"/>
                 <constraint firstAttribute="trailing" secondItem="CMT-MI-d8X" secondAttribute="trailing" id="Y3v-mx-s41"/>
                 <constraint firstItem="u7O-n6-ZXy" firstAttribute="leading" secondItem="9fq-65-qd9" secondAttribute="leading" id="myS-vi-80i"/>
                 <constraint firstItem="CMT-MI-d8X" firstAttribute="leading" secondItem="9fq-65-qd9" secondAttribute="leading" id="rEB-5o-z8o"/>
                 <constraint firstItem="jBZ-WO-Nz7" firstAttribute="bottom" secondItem="ghU-PK-XSf" secondAttribute="bottom" constant="100" id="wrU-Qn-62D"/>
+                <constraint firstAttribute="top" secondItem="dh1-uq-kT3" secondAttribute="bottom" constant="16" id="yBO-Ax-9f9">
+                    <variation key="heightClass=compact-widthClass=compact" constant="8"/>
+                </constraint>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
@@ -336,6 +335,7 @@
                 <outlet property="distanceWithLegendLabel" destination="fxK-Ae-ebd" id="qhH-AB-nFm"/>
                 <outlet property="extendButton" destination="XwA-oz-M3Q" id="76Y-Qw-uPC"/>
                 <outlet property="extendedView" destination="CMT-MI-d8X" id="1OK-Ps-fL4"/>
+                <outlet property="mapPositionButton" destination="dh1-uq-kT3" id="flq-sb-Wz9"/>
                 <outlet property="progressView" destination="Q0w-Me-x4p" id="efq-ve-QAZ"/>
                 <outlet property="routingProgress" destination="vxl-iA-p8N" id="gw7-Pn-5m7"/>
                 <outlet property="speedBackground" destination="QLk-JN-wfO" id="aYN-db-Xaa"/>
@@ -344,7 +344,6 @@
                 <outlet property="speedWithLegendLabel" destination="LY7-dx-CtV" id="tK9-Em-ztB"/>
                 <outlet property="timeLabel" destination="wEc-R2-1Tv" id="cfd-vS-d1G"/>
                 <outlet property="timePageControl" destination="ppd-rW-dYo" id="U1U-6U-JjR"/>
-                <outlet property="trackRecordingButton" destination="btn-track-rec" id="out-track-rec"/>
                 <outlet property="ttsButton" destination="Bfb-5v-iWA" id="GMb-ft-G6X"/>
             </connections>
             <point key="canvasLocation" x="30.534351145038165" y="50"/>
@@ -353,7 +352,6 @@
     <resources>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="ic_menu" width="48" height="48"/>
-        <image name="record.circle" catalog="system" width="128" height="123"/>
         <image name="speaker.slash" catalog="system" width="115" height="128"/>
         <image name="speaker.wave.2" catalog="system" width="128" height="88"/>
     </resources>

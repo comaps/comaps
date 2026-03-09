@@ -10,6 +10,7 @@
 
 #import <CoreApi/CoreApi.h>
 
+#import "MapControls.h"
 #import "DeepLinkRouteStrategyAdapter.h"
 #import "EAGLView.h"
 #import "FirstSession.h"
@@ -17,7 +18,6 @@
 #import "MWMActivityViewController.h"
 #import "MWMAlertViewController.h"
 #import "MWMAvailableAreaAffectDirection.h"
-#import "MWMBottomMenuState.h"
 #import "MWMButtonCell.h"
 #import "MWMCarPlaySearchResultObject.h"
 #import "MWMCarPlaySearchService.h"
@@ -54,7 +54,6 @@
 #import "MWMRoutingOptions.h"
 #import "MWMSearchNoResults.h"
 #import "MWMSettings.h"
-#import "MWMSideButtons.h"
 #import "MWMSpeedCameraManagerMode.h"
 #import "MWMStorage+UI.h"
 #import "MWMTableViewCell.h"
@@ -62,7 +61,6 @@
 #import "MWMTextToSpeech.h"
 #import "MWMTextToSpeechObserver.h"
 #import "MWMTextView.h"
-#import "MWMTrafficButtonViewController.h"
 #import "MWMViewController.h"
 #import "MapViewController.h"
 #import "MapsAppDelegate.h"

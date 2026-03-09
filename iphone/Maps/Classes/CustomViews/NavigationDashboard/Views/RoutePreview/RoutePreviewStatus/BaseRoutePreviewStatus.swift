@@ -85,6 +85,10 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     }
   }
 
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+   return CGRectContainsPoint(self.bounds, point) || CGRectContainsPoint(CGRect(x: self.bounds.origin.x+self.bounds.size.width-68, y: self.bounds.origin.x-68, width: 68, height: self.bounds.size.height + 68), point);
+  }
+
   private func addView() {
     guard superview != ownerView else { return }
     ownerView.addSubview(self)

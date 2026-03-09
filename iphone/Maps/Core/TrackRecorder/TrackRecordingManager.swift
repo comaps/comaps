@@ -112,6 +112,18 @@ final class TrackRecordingManager: NSObject {
     recordingState == .active
   }
 
+  @objc
+  func start(mapViewController: MapViewController) {
+    start { result in
+      switch result {
+        case .success:
+          mapViewController.showTrackRecordingPlacePage();
+        case .failure:
+          break
+       }
+    }
+  }
+
   func start(completion: ((StartTrackRecordingResult) -> Void)? = nil) {
     do {
       switch recordingState {
@@ -228,6 +240,7 @@ extension TrackRecordingManager: TrackRecordingObservable {
 
   @objc
   private func notifyObservers() {
+    NotificationCenter.default.post(name: MapControls.changeTrackRecordingNotificationName, object: nil)
     observations.removeAll { $0.observer == nil }
     observations.forEach {
       $0.recordingStateDidChangeHandler?(recordingState, trackRecordingInfo, { self.trackRecordingElevationProfileData })

@@ -69,6 +69,12 @@ final class SearchOnMapPresenter {
       viewModel.isTyping = true
       viewModel.contentState = .historyAndCategory
       viewModel.presentationStep = .fullScreen
+      UserDefaults.standard.set(true, forKey: "IsSearchPresented")
+      if UIDevice.current.userInterfaceIdiom == .pad {
+        UserDefaults.standard.set(360, forKey: "SearchAdjustment")
+      } else {
+        UserDefaults.standard.set(0, forKey: "SearchAdjustment")
+      }
     case .showResults(var searchResults, let isSearchCompleted):
       if (viewModel.skipSuggestions) {
         searchResults.skipSuggestions()

@@ -13,8 +13,5 @@ extension UISwitch {
 class UISwitchRenderer: UIViewRenderer {
   class func render(_ control: UISwitch, style: Style) {
     super.render(control, style: style)
-    if let onTintColor = style.onTintColor {
-      control.onTintColor = onTintColor
-    }
   }
 }

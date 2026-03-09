@@ -1,5 +1,7 @@
 @objc(MWMNavigationControlView)
-final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapOverlayManagerObserver {
+final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver {
+    
+  @IBOutlet private weak var mapPositionButton: UIView!
   @IBOutlet private weak var distanceLabel: UILabel!
   @IBOutlet private weak var distanceLegendLabel: UILabel!
   @IBOutlet private weak var distanceWithLegendLabel: UILabel!
@@ -26,8 +28,6 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       onTTSStatusUpdated()
     }
   }
-    
-  @IBOutlet private weak var trackRecordingButton: UIButton!
 
   private lazy var dimBackground: DimBackground = {
     DimBackground(mainView: self, tapAction: { [weak self] in
@@ -96,10 +96,6 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       self.removeFromSuperview()
     })
   }
-    
-  deinit {
-    TrackRecordingManager.shared.removeObserver(self)
-  }
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -107,11 +103,20 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
     updateLegendSize()
 
     MWMTextToSpeech.add(self)
-    MapOverlayManager.add(self)
+      
+    let controller = BridgeControllers.mapPositionButton()
+    mapPositionButton.addSubview(controller.view)
+    controller.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      controller.view.topAnchor.constraint(equalTo: mapPositionButton.topAnchor),
+      controller.view.leadingAnchor.constraint(equalTo: mapPositionButton.leadingAnchor),
+      controller.view.trailingAnchor.constraint(equalTo: mapPositionButton.safeAreaLayoutGuide.trailingAnchor),
+      controller.view.bottomAnchor.constraint(equalTo: mapPositionButton.bottomAnchor),
+    ])
+  }
 
-    TrackRecordingManager.shared.addObserver(self) { [weak self] state, _, _ in
-      self?.trackRecordingButton.isHidden = (state == .active)
-    }
+  override func point(inside point: CGPoint, with event: UIEvent?) -> Bool {
+      return CGRectContainsPoint(self.bounds, point) || CGRectContainsPoint(CGRect(x: self.bounds.origin.x+self.bounds.size.width-68, y: self.bounds.origin.x-68, width: 68, height: self.bounds.size.height + 68), point);
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -213,27 +218,9 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
   @IBAction
   private func extendAction() {
     isExtended = !isExtended
+    mapPositionButton.isHidden = isExtended
     refreshDiminishTimer()
   }
-  
-  @IBAction
-    private func trackRecordingAction() {
-      let manager = TrackRecordingManager.shared
-        
-      if manager.recordingState != .active {
-        manager.start { [weak self] result in
-          switch result {
-          case .success:
-            MapViewController.shared()?.controlsManager.setTrackRecordingButtonState(.visible)
-              
-            self?.diminish()
-              
-          case .failure:
-            self?.refreshDiminishTimer()
-          }
-        }
-      }
-    }
 
   private func morphExtendButton() {
     guard let imageView = extendButton.imageView else { return }

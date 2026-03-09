@@ -38,8 +38,6 @@ namespace {
 NSString *const kDownloaderSegue = @"Map2MapDownloaderSegue";
 NSString *const kEditorSegue = @"Map2EditorSegue";
 NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
-NSString *const kSettingsSegue = @"Map2Settings";
-NSString *const kAboutSegue = @"Map2About";
 }  // namespace
 
 @interface NSValueWrapper : NSObject
@@ -110,7 +108,7 @@ NSString *const kAboutSegue = @"Map2About";
 @end
 
 @implementation MapViewController
-@synthesize mapView, controlsView;
+@synthesize mapView, mainView, controlsView;
 
 + (MapViewController *)sharedController {
   return [MapsAppDelegate theApp].mapViewController;
@@ -122,7 +120,6 @@ NSString *const kAboutSegue = @"Map2About";
   if (self.searchManager.isSearching)
     [self.searchManager setPlaceOnMapSelected:YES];
 
-  self.controlsManager.trafficButtonHidden = YES;
   if (self.placePageVC != nil) {
     [PlacePageBuilder update:self.placePageVC with:data];
     return;
@@ -160,13 +157,18 @@ NSString *const kAboutSegue = @"Map2About";
   self.placePageWidthConstraint = [self.placePageContainer.widthAnchor constraintEqualToConstant:kPlacePageCompactWidth];
   self.placePageTrailingConstraint = [self.placePageContainer.trailingAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.trailingAnchor];
 
-  NSLayoutConstraint * topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
-
+  NSLayoutConstraint * topConstraint;
   NSLayoutConstraint * bottomConstraint;
   if (IPAD)
-    bottomConstraint = [self.placePageContainer.bottomAnchor constraintLessThanOrEqualToAnchor:self.view.bottomAnchor];
+  {
+    topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor constant: 60];
+    bottomConstraint = [self.placePageContainer.bottomAnchor constraintLessThanOrEqualToAnchor:self.view.safeAreaLayoutGuide.bottomAnchor constant: -60];
+  }
   else
+  {
+    topConstraint = [self.placePageContainer.topAnchor constraintEqualToAnchor:self.view.safeAreaLayoutGuide.topAnchor];
     bottomConstraint = [self.placePageContainer.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor];
+  }
 
   [NSLayoutConstraint activateConstraints:@[
     self.placePageLeadingConstraint,
@@ -219,7 +221,6 @@ NSString *const kAboutSegue = @"Map2About";
   if (self.placePageVC != nil) {
     [self hideRegularPlacePage];
   }
-  self.controlsManager.trafficButtonHidden = NO;
 }
 
 - (void)onMapObjectDeselected {
@@ -229,9 +230,6 @@ NSString *const kAboutSegue = @"Map2About";
   BOOL const isNavigationDashboardHidden = [MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden;
   if (isSearching)
     [self.searchManager setPlaceOnMapSelected:!isNavigationDashboardHidden];
-  // Always show the controls during the navigation or planning mode.
-  if (!isNavigationDashboardHidden)
-    self.controlsManager.hidden = NO;
 }
 
 - (void)onSwitchFullScreen {
@@ -348,7 +346,6 @@ NSString *const kAboutSegue = @"Map2About";
        withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
   [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
   [self.alertController viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-  [self.controlsManager viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
 }
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
@@ -375,8 +372,8 @@ NSString *const kAboutSegue = @"Map2About";
 - (void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
 
-  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden)
-    self.controlsManager.menuState = self.controlsManager.menuRestoreState;
+  if (![MWMRouter isRoutingActive])
+    MapControls.areMapControlsHidden = false;
 
   [self updateStatusBarStyle];
   GetFramework().SetRenderingEnabled();
@@ -421,8 +418,8 @@ NSString *const kAboutSegue = @"Map2About";
         MWMMyPositionModeNotFollowNoPosition : MWMMyPositionModePendingPosition];
   }
 
-  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden)
-    self.controlsManager.menuState = self.controlsManager.menuRestoreState;
+  if (![MWMRouter isRoutingActive])
+    MapControls.areMapControlsHidden = false;
 
   if (self.trackRecordingManager.isActive)
     [self showTrackRecordingPlacePage];
@@ -503,8 +500,8 @@ NSString *const kAboutSegue = @"Map2About";
 - (void)viewWillDisappear:(BOOL)animated {
   [super viewWillDisappear:animated];
 
-  if ([MWMNavigationDashboardManager sharedManager].state == MWMNavigationDashboardStateHidden)
-    self.controlsManager.menuRestoreState = self.controlsManager.menuState;
+  MapControls.areMapControlsHidden = true;
+  
   GetFramework().SetRenderingDisabled(false);
 }
 
@@ -547,6 +544,11 @@ NSString *const kAboutSegue = @"Map2About";
     // May be better solution would be multiobservers support in the C++ core.
     [self processMyPositionStateModeEvent:location_helpers::mwmMyPositionMode(mode)];
   });
+  
+  auto runOnPowerManagerChangesFn = [&]() {
+    [NSNotificationCenter.defaultCenter postNotificationName:Settings.changePowerSavingAdjustmentsNotificationName object:nil];
+  };
+  f.RunOnPowerManagerChanges(runOnPowerManagerChangesFn);
 
   self.userTouchesAction = UserTouchesActionNone;
   [[MWMBookmarksManager sharedManager] addObserver:self];
@@ -557,6 +559,51 @@ NSString *const kAboutSegue = @"Map2About";
     if (!Profile.isExisting || Profile.needsReauthorization) {
       [self checkAuthorization];
     }
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentSearchNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (self.searchManager.isSearching)
+        [self.searchManager close];
+      else
+        [self.searchManager startSearchingWithIsRouting:NO];
+    });
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentFavouritesNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.bookmarksCoordinator open];
+    });
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentAddPlaceNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self.controlsManager addPlace];
+    });
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentRecordTrackNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (self.trackRecordingManager.isActive)
+        [self showTrackRecordingPlacePage];
+      else
+        [self.trackRecordingManager startWithMapViewController: self];
+    });
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentShareLocationNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      if (MWMLocationManager.lastLocation == nil)
+        [self presentViewController:[UIAlertController unknownCurrentPosition] animated:true completion:nil];
+      else
+        [[MWMActivityViewController shareControllerForMyPosition:MWMLocationManager.lastLocation.coordinate] presentInParentViewController: self anchorView: self.mainView];
+    });
+  }];
+  
+  [NSNotificationCenter.defaultCenter addObserverForName:MapControls.presentMapDownloadsNotificationName object:nil queue:nil usingBlock:^(NSNotification * _Nonnull notification) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+      [self openMapsDownloader:MWMMapDownloaderModeDownloaded];
+    });
   }];
 }
 
@@ -574,16 +621,8 @@ NSString *const kAboutSegue = @"Map2About";
 }
 
 #pragma mark - Open controllers
-- (void)openMenu {
-  [self.controlsManager.tabBarController onMenuButtonPressed:self];
-}
-
 - (void)openSettings {
-  [self performSegueWithIdentifier:kSettingsSegue sender:nil];
-}
-
-- (void)openAbout {
-  [self performSegueWithIdentifier:kAboutSegue sender:nil];
+  [NSNotificationCenter.defaultCenter postNotificationName:MapControls.presentSettingsNotificationName object:nil];
 }
 
 - (void)openMapsDownloader:(MWMMapDownloaderMode)mode {
@@ -614,7 +653,6 @@ NSString *const kAboutSegue = @"Map2About";
 - (void)processMyPositionStateModeEvent:(MWMMyPositionMode)mode {
   self.currentPositionMode = mode;
   [MWMLocationManager setMyPositionMode:mode];
-  [[MWMSideButtons buttons] processMyPositionStateModeEvent:mode];
   NSArray<id<MWMLocationModeListener>> *objects = self.listeners.allObjects;
   for (id<MWMLocationModeListener> object in objects) {
     [object processMyPositionStateModeEvent:mode];
@@ -636,6 +674,7 @@ NSString *const kAboutSegue = @"Map2About";
       self.disableStandbyOnLocationStateMode = YES;
       break;
   }
+  [NSNotificationCenter.defaultCenter postNotificationName:MapControls.switchPositionModeNotificationName object:nil];
 }
 
 #pragma mark - MWMFrameworkDrapeObserver
@@ -782,6 +821,7 @@ NSString *const kAboutSegue = @"Map2About";
   [[self.mapView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor] setActive:YES];
   [[self.mapView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor] setActive:YES];
   [[self.mapView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor] setActive:YES];
+  self.mainView.hidden = NO;
   self.controlsView.hidden = NO;
   [MWMFrameworkHelper setVisibleViewport:self.view.bounds scaleFactor:self.view.contentScaleFactor];
 }
@@ -794,6 +834,9 @@ NSString *const kAboutSegue = @"Map2About";
   [[MapsAppDelegate theApp] showMap];
   [self loadViewIfNeeded];
   [self.mapView removeFromSuperview];
+  if (!self.mainView.isHidden) {
+    self.mainView.hidden = YES;
+  }
   if (!self.controlsView.isHidden) {
     self.controlsView.hidden = YES;
   }
@@ -863,7 +906,6 @@ NSString *const kAboutSegue = @"Map2About";
   }
   PlacePageData * placePageData = [[PlacePageData alloc] initWithTrackInfo:self.trackRecordingManager.trackRecordingInfo
                                                              elevationInfo:self.trackRecordingManager.trackRecordingElevationProfileData];
-  [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateHidden];
   [self showOrUpdatePlacePage:placePageData];
   [self startObservingTrackRecordingUpdatesForPlacePageData:placePageData];
 }
@@ -879,12 +921,10 @@ NSString *const kAboutSegue = @"Map2About";
     switch (state) {
       case TrackRecordingStateInactive:
         [self stopObservingTrackRecordingUpdates];
-        [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateClosed];
         break;
       case TrackRecordingStateActive:
         if (UIApplication.sharedApplication.applicationState != UIApplicationStateActive)
           return;
-        [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateHidden];
         [placePageData updateWithTrackInfo:trackInfo
                              elevationInfo:elevationData()];
         break;
@@ -894,8 +934,6 @@ NSString *const kAboutSegue = @"Map2About";
 
 - (void)stopObservingTrackRecordingUpdates {
   [self.trackRecordingManager removeObserver:self];
-  if (self.trackRecordingManager.isActive)
-    [self.controlsManager setTrackRecordingButtonState:TrackRecordingButtonStateVisible];
 }
 
 // MARK: - Handle macOS trackpad gestures

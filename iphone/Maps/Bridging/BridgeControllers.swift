@@ -10,6 +10,17 @@ import UIKit
         return profileBridgeController
     }
     
+    
+    /// The `MapPositionButton` for presentation in an alert
+    @objc static func mapPositionButton() -> UIViewController {
+        let mapPositionButtonBridgeController = UIHostingController(rootView: MapPositionButton())
+        mapPositionButtonBridgeController.view.isUserInteractionEnabled = true
+        mapPositionButtonBridgeController.view.isOpaque = false
+        mapPositionButtonBridgeController.view.backgroundColor = .clear
+        return mapPositionButtonBridgeController
+    }
+    
+    
     /// The `RoutingOptionsView` for presentation in an alert
     @objc static func routingOptions() -> UIViewController {
         let routinOptionsBridgeController = UIHostingController(rootView: RoutingOptionsView())
@@ -20,28 +31,11 @@ import UIKit
 
 
 
-/// Class for using the SwiftUI `AboutView` in the interface builder
-class AboutBridgeController: UIHostingController<AboutView> {
+/// Class for using the SwiftUI `MainView` in the interface builder
+class MainBridgeController: UIHostingController<MainView> {
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: AboutView())
-    }
-}
-
-
-
-/// Class for using the SwiftUI `SettingsView` in the interface builder
-class SettingsBridgeController: UIHostingController<SettingsView> {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: SettingsView())
-    }
-}
-
-
-
-/// Class for using the SwiftUI `ProfileView` in the interface builder
-class ProfileBridgeController: UIHostingController<ProfileView> {
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder, rootView: ProfileView())
-        self.view.tintColor = .toolbarAccent
+        super.init(coder: aDecoder, rootView: MainView())
+        view.isOpaque = false
+        view.backgroundColor = .clear
     }
 }

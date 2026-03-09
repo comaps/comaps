@@ -32,6 +32,8 @@ using namespace storage;
 - (void)closePlacePage { GetFramework().DeactivateMapSelection(); }
 
 - (void)routeFrom:(PlacePageData *)data {
+  [self setRouterByMode];
+
   MWMRoutePoint *point = [self routePoint:data withType:MWMRoutePointTypeStart intermediateIndex:0];
   [MWMRouter buildFromPoint:point bestRouter:YES];
   [self closePlacePage];
@@ -45,9 +47,7 @@ using namespace storage;
   [MWMSearch clear];
   [[[MapViewController sharedController] searchManager] close];
 
-  if ([MWMMapOverlayManager transitEnabled]) {
-    [MWMRouter setType:MWMRouterTypePublicTransport];
-  }
+  [self setRouterByMode];
 
   MWMRoutePoint *point = [self routePoint:data withType:MWMRoutePointTypeFinish intermediateIndex:0];
   [MWMRouter buildToPoint:point bestRouter:YES];
@@ -55,12 +55,16 @@ using namespace storage;
 }
 
 - (void)routeAddStop:(PlacePageData *)data {
+  [self setRouterByMode];
+  
   MWMRoutePoint *point = [self routePoint:data withType:MWMRoutePointTypeIntermediate intermediateIndex:0];
   [MWMRouter addPointAndRebuild:point];
   [self closePlacePage];
 }
 
 - (void)routeRemoveStop:(PlacePageData *)data {
+  [self setRouterByMode];
+  
   MWMRoutePoint *point = nil;
   auto const intermediateIndex = GetFramework().GetCurrentPlacePageInfo().GetIntermediateIndex();
   switch (GetFramework().GetCurrentPlacePageInfo().GetRouteMarkType()) {
@@ -143,6 +147,20 @@ using namespace storage;
                                      subtitle:subtitle
                                          type:type
                             intermediateIndex:intermediateIndex];
+}
+
+- (void)setRouterByMode {
+  if ([MWMRouter type] != MWMRouterTypeRuler) {
+    if ([MapControls modeRawValue] == ModePublicTransport) {
+      [MWMRouter setType:MWMRouterTypePublicTransport];
+    } else if ([MapControls modeRawValue] == ModeDriving) {
+      [MWMRouter setType:MWMRouterTypeVehicle];
+    } else if ([MapControls modeRawValue] == ModeCycling) {
+      [MWMRouter setType:MWMRouterTypeBicycle];
+    } else if ([MapControls modeRawValue] == ModeWalking) {
+      [MWMRouter setType:MWMRouterTypePedestrian];
+    }
+  }
 }
 
 - (void)editPlace
