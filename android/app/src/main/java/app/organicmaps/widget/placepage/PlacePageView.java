@@ -689,7 +689,6 @@ public class PlacePageView extends Fragment
       case "yes" -> getString(R.string.organic_yes);
       case "no" -> getString(R.string.organic_no);
       case "only" -> getString(R.string.organic_only);
-      default -> throw new IllegalStateException("Unexpected value: " + organic);
       }, mOrganic, mTvOrganic);
     refreshWiFi();
     refreshMetadataOrHide(mMapObject.getMetadata(Metadata.MetadataType.FMD_FLATS), mEntrance, mTvEntrance);
