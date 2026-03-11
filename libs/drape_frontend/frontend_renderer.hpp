@@ -169,6 +169,7 @@ public:
   location::EMyPositionMode GetMyPositionMode() const { return m_myPositionController->GetCurrentMode(); }
 
   void OnEnterBackground();
+  void ForceMapStyleRerendering();
 
 protected:
   void AcceptMessage(ref_ptr<Message> message) override;
@@ -438,6 +439,8 @@ private:
   bool m_firstTilesReady = false;
   bool m_firstLaunchAnimationTriggered = false;
   bool m_firstLaunchAnimationInterrupted = false;
+  
+  bool m_forceMapStyleRerendering = false;
 
 #if defined(OMIM_OS_DESKTOP)
   GraphicsReadyHandler m_graphicsReadyFn;

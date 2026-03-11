@@ -1831,11 +1831,11 @@ void Framework::MarkMapStyle(MapStyle mapStyle)
   GetStyleReader().SetCurrentStyle(mapStyle);
 }
 
-void Framework::SetMapStyle(MapStyle mapStyle)
+void Framework::SetMapStyle(MapStyle mapStyle, bool const forceRerendering)
 {
   MarkMapStyle(mapStyle);
   if (m_drapeEngine != nullptr)
-    m_drapeEngine->UpdateMapStyle();
+    m_drapeEngine->UpdateMapStyle(forceRerendering);
   InvalidateUserMarks();
   UpdateMinBuildingsTapZoom();
 }
@@ -2594,7 +2594,7 @@ void Framework::SwitchToMapAppearance(MapAppearance const mapAppearance)
   else
     mapStyle = GetLightMapStyleVariant(mapStyle);
   
-  SetMapStyle(mapStyle);
+  SetMapStyle(mapStyle, true);
 }
 
 MapAppearance Framework::CurrentMapAppearance()
