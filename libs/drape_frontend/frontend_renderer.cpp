@@ -1018,7 +1018,7 @@ void FrontendRenderer::UpdateAll()
 {
 #ifdef BUILD_DESIGNER
   classificator::Load();
-  
+
   for (RenderLayer & layer : m_layers)
   {
     layer.m_renderGroups.clear();
@@ -1026,7 +1026,20 @@ void FrontendRenderer::UpdateAll()
   }
 #endif  // BUILD_DESIGNER
 
-  m_overlayTree->InvalidateOnNextFrame();
+  if (m_forceMapStyleRerendering)
+  {
+    for (RenderLayer & layer : m_layers)
+    {
+      layer.m_renderGroups.clear();
+      layer.m_isDirty = false;
+    }
+  }
+  else
+  {
+    RemoveRenderGroupsLater([](drape_ptr<RenderGroup> const & group) {
+      return true;
+    });
+  }
 
   // Must be recreated on map style changing.
   CHECK(m_context != nullptr, ());
@@ -1046,10 +1059,12 @@ void FrontendRenderer::UpdateAll()
   // Notify backend renderer and wait for completion.
   {
     BaseBlockingMessage::Blocker blocker;
-    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread, make_unique_dp<MessageT>(blocker, std::move(f)),
+    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread, make_unique_dp<MessageT>(blocker, std::move(f), m_forceMapStyleRerendering),
                               MessagePriority::Normal);
     blocker.Wait();
   }
+
+  m_forceMapStyleRerendering = false;
 
   UpdateContextDependentResources();
 }
@@ -2516,6 +2531,11 @@ void FrontendRenderer::ChangeModelView(double autoScale, m2::PointD const & user
 void FrontendRenderer::OnEnterBackground()
 {
   m_myPositionController->OnEnterBackground();
+}
+
+void FrontendRenderer::ForceMapStyleRerendering()
+{
+  m_forceMapStyleRerendering = true;
 }
 
 ScreenBase const & FrontendRenderer::ProcessEvents(bool & modelViewChanged, bool & viewportChanged,

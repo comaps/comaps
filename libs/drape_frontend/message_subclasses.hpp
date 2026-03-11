@@ -771,12 +771,15 @@ class SwitchMapStyleMessage : public BaseBlockingMessage
 public:
   using FilterMessagesHandler = std::function<void()>;
 
-  SwitchMapStyleMessage(Blocker & blocker, FilterMessagesHandler && filterMessagesHandler)
+  SwitchMapStyleMessage(Blocker & blocker, FilterMessagesHandler && filterMessagesHandler, bool forceMapStyleRerendering)
     : BaseBlockingMessage(blocker)
     , m_filterMessagesHandler(std::move(filterMessagesHandler))
+    , m_forceMapStyleRerendering(forceMapStyleRerendering)
   {}
 
   Type GetType() const override { return Type::SwitchMapStyle; }
+
+  bool ShouldForceMapStyleRerendering() const { return m_forceMapStyleRerendering; }
 
   void FilterDependentMessages()
   {
@@ -786,6 +789,7 @@ public:
 
 private:
   FilterMessagesHandler m_filterMessagesHandler;
+  bool m_forceMapStyleRerendering;
 };
 
 class VisualScaleChangedMessage : public SwitchMapStyleMessage

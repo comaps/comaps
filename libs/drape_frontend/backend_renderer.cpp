@@ -374,7 +374,7 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     CHECK(m_context != nullptr, ());
     m_texMng->OnSwitchMapStyle(m_context);
     RecacheMapShapes();
-    RecacheGui(m_lastWidgetsInfo, false /* needResetOldGui */, false /* notify */);
+    RecacheGui(m_lastWidgetsInfo, false /* needResetOldGui */, msg->ShouldForceMapStyleRerendering() /* notify */);
 #ifdef RENDER_DEBUG_INFO_LABELS
     RecacheDebugLabels();
 #endif
