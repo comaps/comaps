@@ -124,6 +124,7 @@ public:
     OverlaysShowStatsCallback m_overlaysShowStatsCallback;
     OnGraphicsContextInitialized m_onGraphicsContextInitialized;
     dp::RenderInjectionHandler m_renderInjectionHandler;
+    bool m_forceMapStyleRerendering;
   };
 
   DrapeEngine(Params && params);
@@ -167,7 +168,7 @@ public:
   void SetRenderingEnabled(ref_ptr<dp::GraphicsContextFactory> contextFactory = nullptr);
   void SetRenderingDisabled(bool const destroySurface);
   void InvalidateRect(m2::RectD const & rect);
-  void UpdateMapStyle();
+  void UpdateMapStyle(bool const forceRerendering = false);
 
   void SetCompassInfo(location::CompassInfo const & info);
   void SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
