@@ -125,6 +125,7 @@ public:
     OverlaysShowStatsCallback m_overlaysShowStatsCallback;
     OnGraphicsContextInitialized m_onGraphicsContextInitialized;
     dp::RenderInjectionHandler m_renderInjectionHandler;
+    bool m_forceMapStyleRerendering;
   };
 
   DrapeEngine(Params && params);
@@ -172,7 +173,7 @@ public:
   void AccessibilityDataHandler(dp::AccessibilityData * data);
   void SetAccessibilityPresenter(std::optional<drape_ptr<dp::AccessibilityPresenter>> && presenter);
   std::optional<ref_ptr<dp::AccessibilityPresenter>> GetAccessibilityPresenter() const;
-  void UpdateMapStyle();
+  void UpdateMapStyle(bool const forceRerendering = false);
 
   void SetCompassInfo(location::CompassInfo const & info);
   void SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
