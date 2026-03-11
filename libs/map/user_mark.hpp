@@ -34,6 +34,7 @@ public:
     RoadWarningFirstDirty,
     RoadWarningFirstToll,
     RoadWarningFirstFerry,
+    TrafficLight,
   };
 
   enum Type : uint32_t
@@ -51,6 +52,7 @@ public:
     TRACK_SELECTION,
     DEBUG_MARK,  // Plain "DEBUG" results in a name collision.
     COLORED,
+    TRAFFIC_LIGHT,
     USER_MARK_TYPES_COUNT,
     USER_MARK_TYPES_COUNT_MAX = 1000,
   };

@@ -609,6 +609,19 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
     FillSpeedCameraMarkInfo(*static_cast<SpeedCameraMark const *>(mark), outInfo);
     break;
   }
+      
+  case UserMark::Type::TRAFFIC_LIGHT:
+  {
+    auto const * tlMark = static_cast<TrafficLightMark const *>(mark);
+    if (tlMark->GetFeatureID().IsValid())
+    {
+      FillFeatureInfo(tlMark->GetFeatureID(), outInfo);
+      outInfo.SetSelectedObject(df::SelectionShape::OBJECT_POI);
+      return;
+    }
+    break;
+  }
+      
   default: CHECK(false, ("Unexpected user mark type", mark->GetMarkType()));
   }
 
