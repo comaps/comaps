@@ -127,8 +127,6 @@ node|z17-[railway=halt]::int_name,
 
 /* 3.2 Road Icons */
 
-node|z15-[highway=traffic_signals],
-{icon-image: traffic_signals.svg}
 
 /* 3.3 Tram Station */
 
