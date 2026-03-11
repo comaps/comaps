@@ -35,6 +35,8 @@ float constexpr kSpeedCameraOutlineWidth = 2.0f;
 
 int constexpr kMinSpeedCameraZoom = 13;
 int constexpr kMinSpeedCameraTitleZoom = 13;
+int constexpr kMinTrafficLightZoom = 15;
+
 }  // namespace
 
 RouteMarkPoint::RouteMarkPoint(m2::PointD const & ptOrg) : UserMark(ptOrg, Type::ROUTING)
@@ -621,6 +623,27 @@ dp::Anchor SpeedCameraMark::GetAnchor() const
   return dp::Center;
 }
 
+TrafficLightMark::TrafficLightMark(m2::PointD const & ptOrg) : UserMark(ptOrg, Type::TRAFFIC_LIGHT)
+{
+  m_symbolNames.insert(std::make_pair(kMinTrafficLightZoom, "traffic_signals"));
+  m_symbolNames.insert(std::make_pair(17, "traffic_signals-l"));
+}
+
+drape_ptr<df::UserPointMark::SymbolNameZoomInfo> TrafficLightMark::GetSymbolNames() const
+{
+  return make_unique_dp<SymbolNameZoomInfo>(m_symbolNames);
+}
+
+int TrafficLightMark::GetMinZoom() const
+{
+  return kMinTrafficLightZoom;
+}
+
+dp::Anchor TrafficLightMark::GetAnchor() const
+{
+  return dp::Center;
+}
+
 RoadWarningMark::RoadWarningMark(m2::PointD const & ptOrg) : UserMark(ptOrg, Type::ROAD_WARNING) {}
 
 uint16_t RoadWarningMark::GetPriority() const
@@ -661,6 +684,12 @@ void RoadWarningMark::SetDistance(std::string const & distance)
 {
   SetDirty();
   m_distance = distance;
+}
+
+void TrafficLightMark::SetFeatureId(FeatureID const & featureId)
+{
+  SetDirty();
+  m_featureId = featureId;
 }
 
 drape_ptr<df::UserPointMark::SymbolNameZoomInfo> RoadWarningMark::GetSymbolNames() const

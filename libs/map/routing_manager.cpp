@@ -20,8 +20,10 @@
 #include "routing_common/num_mwm_id.hpp"
 
 #include "indexer/map_style_reader.hpp"
+#include "indexer/feature_algo.hpp"
 
 #include "platform/country_file.hpp"
+#include "indexer/classificator.hpp"
 #include "platform/platform.hpp"
 #include "platform/socket.hpp"
 
@@ -29,6 +31,7 @@
 #include "geometry/simplification.hpp"
 
 #include "coding/file_reader.hpp"
+#include "geometry/parametrized_segment.hpp"
 #include "coding/file_writer.hpp"
 
 #include "base/scope_guard.hpp"
@@ -545,6 +548,7 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
       auto es = m_bmManager->GetEditSession();
       es.ClearGroup(UserMark::Type::TRANSIT);
       es.ClearGroup(UserMark::Type::SPEED_CAM);
+      es.ClearGroup(UserMark::Type::TRAFFIC_LIGHT);
       es.ClearGroup(UserMark::Type::ROAD_WARNING);
     }
     if (deactivateFollowing)
@@ -575,6 +579,75 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
     m_drapeSubroutes.clear();
     m_transitRouteInfo = TransitRouteInfo();
   }
+}
+
+void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segments,
+                                               m2::PointD const & startPt,
+                                               uint32_t featureType,
+                                               vector<std::pair<m2::PointD, FeatureID>> & outFeatures)
+{
+  ASSERT(!segments.empty(), ());
+  ASSERT_NOT_EQUAL(featureType, Classificator::INVALID_TYPE, ());
+
+  double constexpr kSearchRadiusM = 3.0; //radius (in meters)
+  double const kSearchRadiusMercator = mercator::MetersToMercator(kSearchRadiusM);
+  double const kChunkSizeMercator = mercator::MetersToMercator(2000.0);
+
+  auto & dataSource = m_callbacks.m_dataSourceGetter();
+
+  auto processChunk = [&](m2::RectD const & r)
+  {
+    m2::RectD queryRect = r;
+    queryRect.Inflate(kSearchRadiusMercator, kSearchRadiusMercator);
+
+    dataSource.ForEachInRect([&](FeatureType & ft) {
+      if (ft.GetGeomType() != feature::GeomType::Point)
+        return;
+
+      feature::TypesHolder types(ft);
+      // Does this feature match the type we passed in?
+      if (!types.Has(featureType))
+        return;
+
+      m2::PointD const pt = feature::GetCenter(ft);
+
+      double minSqDist = numeric_limits<double>::max();
+      m2::PointD prev = startPt;
+      for (auto const & s : segments)
+      {
+        m2::PointD const curr = s.GetJunction().GetPoint();
+        m2::ParametrizedSegment<m2::PointD> seg(prev, curr);
+        minSqDist = min(minSqDist, seg.SquaredDistanceToPoint(pt));
+        
+        // Performance break
+        if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
+          break;
+
+        prev = curr;
+      }
+
+      if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
+        outFeatures.emplace_back(pt, ft.GetID());
+    }, queryRect, scales::GetUpperScale());
+  };
+
+  m2::RectD currentRect;
+  currentRect.Add(startPt);
+
+  for (auto const & s : segments)
+  {
+    currentRect.Add(s.GetJunction().GetPoint());
+    if (currentRect.SizeX() > kChunkSizeMercator || currentRect.SizeY() > kChunkSizeMercator)
+    {
+      processChunk(currentRect);
+      currentRect = m2::RectD();
+      currentRect.Add(s.GetJunction().GetPoint());
+    }
+  }
+  if (currentRect.IsValid())
+    processChunk(currentRect);
+
+  base::SortUnique(outFeatures);
 }
 
 void RoutingManager::CollectRoadWarnings(vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
@@ -644,6 +717,27 @@ void RoutingManager::CreateRoadWarningMarks(RoadWarningsCollection && roadWarnin
   });
 }
 
+void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt, vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
+{
+  uint32_t const type = classif().GetTypeByPathSafe({"highway", "traffic_signals"});
+  CollectFeaturesAlongRoute(segments, startPt, type, trafficLights);
+}
+
+void RoutingManager::CreateTrafficLightMarks(vector<std::pair<m2::PointD, FeatureID>> && trafficLights)
+{
+  ASSERT(!trafficLights.empty(), ());
+
+  GetPlatform().RunTask(Platform::Thread::Gui, [this, trafficLights = std::move(trafficLights)]()
+  {
+    auto es = m_bmManager->GetEditSession();
+    for (auto const & item : trafficLights)
+    {
+      auto mark = es.CreateUserMark<TrafficLightMark>(item.first);
+      mark->SetFeatureId(item.second);
+    }
+  });
+}
+
 bool RoutingManager::InsertRoute(Route const & route)
 {
   if (!m_drapeEngine)
@@ -658,6 +752,7 @@ bool RoutingManager::InsertRoute(Route const & route)
   { return m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(numMwmIds->GetFile(numMwmId)); };
 
   RoadWarningsCollection roadWarnings;
+  vector<std::pair<m2::PointD, FeatureID>> trafficLights;
 
   bool const isTransitRoute = (m_currentRouterType == RouterType::Transit);
   shared_ptr<TransitRouteDisplay> transitRouteDisplay;
@@ -720,6 +815,7 @@ bool RoutingManager::InsertRoute(Route const & route)
     }
 
     CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
+    CollectTrafficLights(segments, startPt, trafficLights);
 
     auto const subrouteId =
         m_drapeEngine.SafeCallWithResult(&df::DrapeEngine::AddSubroute, df::SubrouteConstPtr(subroute.release()));
@@ -744,6 +840,9 @@ bool RoutingManager::InsertRoute(Route const & route)
   bool const hasWarnings = !roadWarnings.empty();
   if (hasWarnings && m_currentRouterType == RouterType::Vehicle)
     CreateRoadWarningMarks(std::move(roadWarnings));
+
+  if (!trafficLights.empty() && m_currentRouterType == RouterType::Vehicle)
+    CreateTrafficLightMarks(std::move(trafficLights));
 
   return hasWarnings;
 }
