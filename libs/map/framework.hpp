@@ -553,7 +553,7 @@ private:
   void InitCountryInfoGetter();
   void InitSearchAPI(size_t numThreads);
   
-  void SetMapStyle(MapStyle mapStyle);
+  void SetMapStyle(MapStyle mapStyle, bool const forceRerendering = false);
   void MarkMapStyle(MapStyle mapStyle);
   MapStyle GetMapStyle() const;
 
