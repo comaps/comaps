@@ -748,9 +748,6 @@ post_office-post_partner                            # icon z18- (also has captio
 shop-motorcycle                                     # icon z17-
 === 200
 
-highway-traffic_signals                             # icon z15-
-=== 175
-
 building-address                                    # caption z18-
 landuse-landfill                                    # caption z15- (also has area z15-)
 landuse-quarry                                      # caption z15- (also has area z15-)
