@@ -199,6 +199,25 @@ private:
   dp::TitleDecl m_titleDecl;
 };
 
+class TrafficLightMark : public UserMark
+{
+public:
+  explicit TrafficLightMark(m2::PointD const & ptOrg);
+
+  bool SymbolIsPOI() const override { return false; }
+  df::DepthLayer GetDepthLayer() const override { return df::DepthLayer::RoutingMarkLayer; }
+  uint16_t GetPriority() const override { return static_cast<uint16_t>(Priority::TrafficLight); }
+  df::SpecialDisplacement GetDisplacement() const override { return df::SpecialDisplacement::SpecialModeUserMark; }
+
+  drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
+
+  int GetMinZoom() const override;
+  dp::Anchor GetAnchor() const override;
+
+private:
+  SymbolNameZoomInfo m_symbolNames;
+};
+
 enum class RoadWarningMarkType : uint8_t
 {
   // Do not change the order, it uses in platforms.
