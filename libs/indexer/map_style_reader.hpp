@@ -14,6 +14,7 @@ public:
 
   void SetCurrentStyle(MapStyle mapStyle);
   MapStyle GetCurrentStyle() const;
+  MapStyle GetLoadingStyle() const;
   bool IsCarNavigationStyle() const;
 
   ReaderPtr<Reader> GetDrawingRulesReader() const;
@@ -23,6 +24,7 @@ public:
 
 private:
   std::atomic<MapStyle> m_mapStyle;
+  std::atomic<MapStyle> m_loadingMapStyle;
 };
 
 extern StyleReader & GetStyleReader();
