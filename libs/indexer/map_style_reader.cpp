@@ -7,6 +7,8 @@
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 
+#include "indexer/classificator_loader.hpp"
+
 namespace
 {
 std::string const kSuffixLight = "light";
@@ -111,12 +113,20 @@ StyleReader::StyleReader() : m_mapStyle(kDefaultMapStyle) {}
 
 void StyleReader::SetCurrentStyle(MapStyle mapStyle)
 {
+  m_loadingMapStyle = mapStyle;
+  classificator::Load();
   m_mapStyle = mapStyle;
+  classificator::Cleanup();
 }
 
 MapStyle StyleReader::GetCurrentStyle() const
 {
   return m_mapStyle;
+}
+
+MapStyle StyleReader::GetLoadingStyle() const
+{
+  return m_loadingMapStyle;
 }
 
 bool StyleReader::IsCarNavigationStyle() const
@@ -126,7 +136,7 @@ bool StyleReader::IsCarNavigationStyle() const
 
 ReaderPtr<Reader> StyleReader::GetDrawingRulesReader() const
 {
-  std::string rulesFile = std::string("drules_proto") + GetStyleRulesSuffix(GetCurrentStyle()) + ".bin";
+  std::string rulesFile = std::string("drules_proto") + GetStyleRulesSuffix(GetLoadingStyle()) + ".bin";
 
   auto overriddenRulesFile = base::JoinPath(GetPlatform().WritableDir(), kStylesOverrideDir, rulesFile);
   if (Platform::IsFileExistsByFullPath(overriddenRulesFile))
