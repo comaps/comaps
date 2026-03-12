@@ -1,7 +1,4 @@
 #include "indexer/classificator.hpp"
-
-#include "indexer/map_style.hpp"
-#include "indexer/map_style_reader.hpp"
 #include "indexer/tree_structure.hpp"
 
 #include "base/assert.hpp"
@@ -118,10 +115,9 @@ ClassifObject const * ClassifObject::GetObject(size_t i) const
 // Classificator implementation
 /////////////////////////////////////////////////////////////////////////////////////////
 
-Classificator & classif()
+Classificator & classif(MapStyle const mapStyle)
 {
   static Classificator c[MapStyleCount];
-  MapStyle const mapStyle = GetStyleReader().GetCurrentStyle();
   return c[mapStyle];
 }
 
