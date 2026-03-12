@@ -2,8 +2,10 @@
 
 #include "indexer/drawing_rule_def.hpp"
 #include "indexer/drules_selector.hpp"
+#include "indexer/map_style_reader.hpp"
 
 #include "base/base.hpp"
+#include "base/buffer_vector.hpp"
 
 #include "std/target_os.hpp"
 
@@ -76,11 +78,11 @@ public:
     for (auto const dRule : m_dRules)
       toDo(dRule);
   }
+  void Clean();
 
 private:
   void InitBackgroundColors(ContainerProto const & cp);
   void InitColors(ContainerProto const & cp);
-  void Clean();
 
   /// background color for scales in range [0...scales::UPPER_STYLE_SCALE]
   std::vector<uint32_t> m_bgColors;
@@ -91,4 +93,5 @@ private:
 RulesHolder & rules();
 
 void LoadRules();
+void CleanupRules();
 }  // namespace drule
