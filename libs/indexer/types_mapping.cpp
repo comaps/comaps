@@ -14,7 +14,7 @@ void IndexAndTypeMapping::Clear()
 
 void IndexAndTypeMapping::Load(istream & s)
 {
-  Classificator const & c = classif();
+  Classificator const & c = classif(GetStyleReader().GetLoadingStyle());
 
   string line;
   vector<string_view> path;
