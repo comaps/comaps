@@ -18,7 +18,7 @@ namespace
 {
 void ReadCommon(std::unique_ptr<Reader> classificator, std::unique_ptr<Reader> types)
 {
-  Classificator & c = classif();
+  Classificator & c = classif(GetStyleReader().GetLoadingStyle());
   c.Clear();
 
   {
@@ -46,25 +46,27 @@ void Load()
   LOG(LDEBUG, ("Reading of classificator started"));
 
   Platform & p = GetPlatform();
+  
+  ReadCommon(p.GetReader("classificator.txt"), p.GetReader("types.txt"));
+  
+  drule::LoadRules();
 
-  MapStyle const originMapStyle = GetStyleReader().GetCurrentStyle();
+  LOG(LDEBUG, ("Reading of classificator finished"));
+}
 
+void Cleanup()
+{
+  MapStyle const currentMapStyle = GetStyleReader().GetCurrentStyle();
   for (size_t i = 0; i < MapStyleCount; ++i)
   {
     auto const mapStyle = static_cast<MapStyle>(i);
-    // Read the merged style only if it was requested.
-    if (mapStyle != MapStyleMerged || originMapStyle == MapStyleMerged)
-    {
-      GetStyleReader().SetCurrentStyle(mapStyle);
-      ReadCommon(p.GetReader("classificator.txt"), p.GetReader("types.txt"));
-
-      drule::LoadRules();
+    if (currentMapStyle != mapStyle) {
+      Classificator & c = classif(mapStyle);
+      c.Clear();
     }
   }
-
-  GetStyleReader().SetCurrentStyle(originMapStyle);
-
-  LOG(LDEBUG, ("Reading of classificator finished"));
+  
+  drule::CleanupRules();
 }
 
 void LoadTypes(std::string const & classificatorFileStr, std::string const & typesFileStr)
