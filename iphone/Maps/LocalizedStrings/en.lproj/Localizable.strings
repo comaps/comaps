@@ -875,4 +875,4 @@
 /* To indicate no availability of organic products on a place */
 "organic_no" = "No organic products";
 /* To indicate only availability of organic products on a place */
-"organic_only" = "Organic products only"
+"organic_only" = "Organic products only";

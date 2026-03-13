@@ -236,7 +236,7 @@ class PlacePageInfoViewController: UIViewController {
     }
 	
 	if let organic = placePageInfoData.organic {
-      cuisineView = createInfoItem(organic, icon: UIImage(named: "ic_placepage_organic"))
+      organicView = createInfoItem(organic, icon: UIImage(systemName: "leaf.fill"))
     }
 
     /// @todo Entrance is missing compared with Android. It's shown in title, but anyway ..
