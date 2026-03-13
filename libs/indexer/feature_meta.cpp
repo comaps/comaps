@@ -210,6 +210,8 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_CHARGE;
   else if (k == "population")
     outType = Metadata::FMD_POPULATION;
+  else if (k == "organic")
+    outType = Metadata::FMD_ORGANIC;
   else
     return false;
 
