@@ -105,9 +105,10 @@ jobs:
             #downloading all languages can also trigger rate limits or fail as well. needs work.
             #also: a failure to download means a failure to build, and could result in no wiki descriptions etc.
             echo "Downloading ..."
+            # Optionally override which languages to download:
+            # export LANGUAGES="ar cs de en es fr hr it ko nl pl pt ru th tr uk"
             ./download.sh /home/planet/wikipedia/dumps
             echo "DONE"
-            ls -al /home/planet/wikipedia/dumps/*
             curl -X POST https://comaps.zulipchat.com/api/v1/messages \
               -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
               --data-urlencode type=stream \
@@ -116,8 +117,9 @@ jobs:
               --data-urlencode 'content=Downloaded Wikipedia dumps updates.'
           else
             echo "SKIPPING download as Wikimedia limits users to 15 snapshot requests per month."
-            ls -lh /home/planet/wikipedia/dumps/
+
           fi
+          ls -lah /home/planet/wikipedia/dumps/*
 
       - name: Check that dumps are present, not too old and not super tiny
         shell: bash
