@@ -428,6 +428,13 @@ class Env:
         self.paths = PathProvider(self.build_path, self.build_name, self.mwm_version)
 
         Version.write(self.build_path, self.planet_version)
+
+        self.min_compat_app_v = self.get_min_compat_app_v()
+        if self.min_compat_app_v:
+            logger.info(f"Minimum compatible app version: {self.min_compat_app_v}")
+        else:
+            logger.warning("Minimum compatible app version is not set!")
+
         self.setup_borders()
         self.setup_osm2ft()
 
@@ -563,6 +570,21 @@ class Env:
         logger.info(f"osmctools are not found, building from the sources into {path}...")
         os.makedirs(path, exist_ok=True)
         return build_osmtools(settings.OSM_TOOLS_SRC_PATH)
+
+    @staticmethod
+    def get_min_compat_app_v() -> AnyStr:
+        # the line format is
+        #define MIN_COMPAT_APP_V "2026.02.09-4"
+        try:
+            with open(os.path.join(settings.OMIM_PATH, 'private.h'), 'r') as f:
+                lines = f.readlines()
+                for line in lines:
+                    if "MIN_COMPAT_APP_V" in line:
+                        return line.split('"')[1]
+        except Exception as e:
+            logger.error(f"Error parsing private.h for MIN_COMPAT_APP_V: {e}")
+        return ''
+
 
     def setup_borders(self):
         temp_borders = self.paths.generation_borders_path
