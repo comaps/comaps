@@ -2,9 +2,6 @@
 
 #include "editor/editor_config.hpp"
 
-#include "indexer/categories_holder.hpp"
-#include "indexer/categories_index.hpp"
-
 #include "base/macros.hpp"
 
 #include <string>
@@ -29,14 +26,10 @@ public:
 
   // Adds all known synonyms in language |lang| for all categories that
   // can be applied to a newly added feature.
-  // If one language is added more than once, all the calls except for the
-  // first one are ignored.
-  // If |lang| is not supported, "en" is used.
-  void AddLanguage(std::string lang);
+  void AddLanguage(std::string const & lang);
 
-  // Returns names (in language |queryLang|) and types of categories that have a synonym containing
+  // Returns names and types of categories that have a synonym containing
   // the substring |query| (in any language that was added before).
-  // If |lang| is not supported, "en" is used.
   // The returned list is sorted.
   TypeNames Search(std::string const & query) const;
 
@@ -44,11 +37,15 @@ public:
   TypeNames const & GetAllCreatableTypeNames() const { return m_types; }
 
 private:
-  using Langs = ankerl::unordered_dense::set<int8_t>;
+  struct CategoryData
+  {
+    TypeName m_typeName;
+    std::vector<std::string> m_synonyms;
+  };
 
-  indexer::CategoriesIndex m_index;
-  Langs m_addedLangs;
   TypeNames m_types;
+  std::vector<CategoryData> m_categoriesData;
+  ankerl::unordered_dense::set<std::string> m_baseLangs;
 
   DISALLOW_COPY(NewFeatureCategories);
 };

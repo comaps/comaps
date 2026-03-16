@@ -2,6 +2,13 @@
 
 #include "indexer/categories_holder.hpp"
 #include "indexer/classificator.hpp"
+#include "indexer/search_string_utils.hpp"
+
+#include "platform/localization.hpp"
+#include "platform/platform.hpp"
+
+#include "base/logging.hpp"
+#include "base/string_utils.hpp"
 
 #include <algorithm>
 
@@ -9,7 +16,7 @@ namespace osm
 {
 NewFeatureCategories::NewFeatureCategories(editor::EditorConfig const & config)
 {
-  Classificator const & c = classif();
+  auto const & c = classif();
   for (auto const & clType : config.GetTypesThatCanBeAdded())
   {
     uint32_t const type = c.GetTypeByReadableObjectName(clType);
@@ -20,44 +27,118 @@ NewFeatureCategories::NewFeatureCategories(editor::EditorConfig const & config)
     }
     m_types.emplace_back(clType);
   }
-  m_addedLangs.reserve(CategoriesHolder::kLocaleMapping.size() + 1);
 }
 
 NewFeatureCategories::NewFeatureCategories(NewFeatureCategories && other) noexcept
-  : m_index(std::move(other.m_index))
-  , m_types(std::move(other.m_types))
+  : m_types(std::move(other.m_types))
+  , m_categoriesData(std::move(other.m_categoriesData))
+  , m_baseLangs(std::move(other.m_baseLangs))
 {
-  // Do not move m_addedLangs, see Framework::GetEditorCategories() usage.
 }
 
-void NewFeatureCategories::AddLanguage(std::string lang)
+void NewFeatureCategories::AddLanguage(std::string const & lang)
 {
-  auto langCode = CategoriesHolder::MapLocaleToInteger(lang);
-  if (langCode == CategoriesHolder::kUnsupportedLocaleCode)
-  {
-    lang = "en";
-    langCode = CategoriesHolder::kEnglishCode;
-  }
-  if (m_addedLangs.contains(langCode))
-    return;
+  std::string lowerLang = lang;
+  strings::AsciiToLower(lowerLang);
+  std::replace(lowerLang.begin(), lowerLang.end(), '_', '-');
+
+  // Extract base language (e.g., "en-AU" -> "en") to load dialect variations together
+  std::string const baseLang = lowerLang.substr(0, lowerLang.find('-'));
+
+  bool anyAdded = false;
+  if (m_baseLangs.insert(baseLang).second)
+    anyAdded = true;
+
+  // Always ensure English serves as a fallback.
+  if (m_baseLangs.insert("en").second)
+    anyAdded = true;
+
+  if (!anyAdded)
+    return; // This language group was already processed
+
+  m_categoriesData.clear();
+  m_categoriesData.reserve(m_types.size());
 
   auto const & c = classif();
-  for (auto const & type : m_types)
-    m_index.AddCategoryByTypeAndLang(c.GetTypeByReadableObjectName(type), langCode);
+  auto const & holder = GetDefaultCategories();
 
-  m_addedLangs.insert(langCode);
+  for (auto const & typeName : m_types)
+  {
+    uint32_t const type = c.GetTypeByReadableObjectName(typeName);
+    if (type == 0)
+      continue;
+
+    CategoryData data;
+    data.m_typeName = typeName;
+
+    auto const addSynonym = [&data](std::string const & s)
+    {
+      auto norm = strings::ToUtf8(search::NormalizeAndSimplifyString(s));
+      if (!norm.empty())
+        data.m_synonyms.push_back(std::move(norm));
+    };
+
+    // 1. Add primary localized name (from types_strings.txt via platform)
+    addSynonym(platform::GetLocalizedTypeName(typeName));
+
+    // 2. Add all dialect variants efficiently via existing CategoriesHolder mappings
+    holder.ForEachNameByType(type, [&](auto const & name) {
+      // name.m_locale comes safely from CategoriesHolder's internal mapping.
+      std::string l(CategoriesHolder::MapIntegerToLocale(name.m_locale));
+      strings::AsciiToLower(l);
+      
+      // Match the base language (e.g., if locale is "pt-br", nameBase is "pt")
+      std::string const nameBase = l.substr(0, l.find('-'));
+      if (m_baseLangs.contains(nameBase))
+        addSynonym(name.m_name);
+    });
+
+    // Strip out duplicate normalized strings to maximize search performance
+    std::sort(data.m_synonyms.begin(), data.m_synonyms.end());
+    data.m_synonyms.erase(std::unique(data.m_synonyms.begin(), data.m_synonyms.end()), data.m_synonyms.end());
+
+    m_categoriesData.push_back(std::move(data));
+  }
 }
 
 NewFeatureCategories::TypeNames NewFeatureCategories::Search(std::string const & query) const
 {
-  std::vector<uint32_t> resultTypes;
-  m_index.GetAssociatedTypes(query, resultTypes);
+  if (query.empty())
+    return {};
 
-  auto const & c = classif();
-  NewFeatureCategories::TypeNames result(resultTypes.size());
-  for (size_t i = 0; i < result.size(); ++i)
-    result[i] = c.GetReadableObjectName(resultTypes[i]);
+  std::vector<std::string> tokens;
+  search::ForEachNormalizedToken(query, [&](strings::UniString const & token) {
+    tokens.push_back(strings::ToUtf8(token));
+  });
 
+  if (tokens.empty())
+    return {};
+
+  TypeNames result;
+
+  for (auto const & data : m_categoriesData)
+  {
+    for (auto const & syn : data.m_synonyms)
+    {
+      bool allTokensFound = true;
+      for (auto const & token : tokens)
+      {
+        if (syn.find(token) == std::string::npos)
+        {
+          allTokensFound = false;
+          break;
+        }
+      }
+      
+      if (allTokensFound)
+      {
+        result.push_back(data.m_typeName);
+        break;
+      }
+    }
+  }
+
+  std::sort(result.begin(), result.end());
   return result;
 }
 
