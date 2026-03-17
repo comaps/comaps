@@ -52,15 +52,15 @@ enum AlternativeMapLanguageHandling : uint8_t
 struct Translation
 {
   string m_translation = {};
-  LanguageIndex m_likelyLanguageIndexForRendering = kUnsupportedLanguageIndex;
+  LanguageIndex m_likelyLanguageIndex = kUnsupportedLanguageIndex;
 };
 
 struct NameTranslation
 {
   optional<string> m_primary = {};
-  LanguageIndex m_primaryLikelyLanguageIndexForRendering = kUnsupportedLanguageIndex;
+  LanguageIndex m_primaryLikelyLanguageIndex = kUnsupportedLanguageIndex;
   optional<string> m_secondary = {};
-  LanguageIndex m_secondaryLikelyLanguageIndexForRendering = kUnsupportedLanguageIndex;
+  LanguageIndex m_secondaryLikelyLanguageIndex = kUnsupportedLanguageIndex;
 };
 
 // Order is important. Any reordering breaks backward compatibility.
