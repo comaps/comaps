@@ -156,7 +156,6 @@ vector<LanguageIndex> PrioritizedMapLanguageIndexes(vector<LanguageIndex> const 
   }
 
   prioritizedMapLanguageIndexes.push_back(kInternationalNameIndex);
-  prioritizedMapLanguageIndexes.push_back(kEnglishLanguageIndex);
   prioritizedMapLanguageIndexes.push_back(kDefaultNameIndex);
 
   return prioritizedMapLanguageIndexes;
