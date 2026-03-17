@@ -27,7 +27,7 @@ namespace ftypes
 namespace
 {
 
-uint32_t constexpr kMaxRoadShieldBytesSize = 8;
+uint32_t constexpr kMaxRoadShieldBytesSize = 16;
 
 std::array<std::string, 2> const kFederalCode = {{"US", "FSR"}};
 
