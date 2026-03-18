@@ -683,12 +683,12 @@ public class PlacePageView extends Fragment
     /// @todo I don't like it when we take all data from mapObject, but for cuisines, we should
     /// go into JNI Framework and rely on some "active object".
     refreshMetadataOrHide(Framework.nativeGetActiveObjectFormattedCuisine(), mCuisine, mTvCuisine);
-    final String organic =
-            getLocalizedFeatureType(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_ORGANIC));
+    final String organic = mMapObject.getMetadata(Metadata.MetadataType.FMD_ORGANIC);
     refreshMetadataOrHide(switch (organic) {
       case "yes" -> getString(R.string.organic_yes);
       case "no" -> getString(R.string.organic_no);
       case "only" -> getString(R.string.organic_only);
+      default -> "";
       }, mOrganic, mTvOrganic);
     refreshWiFi();
     refreshMetadataOrHide(mMapObject.getMetadata(Metadata.MetadataType.FMD_FLATS), mEntrance, mTvEntrance);
