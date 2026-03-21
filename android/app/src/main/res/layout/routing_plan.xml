@@ -155,8 +155,8 @@
       android:minHeight="@dimen/height_block_base">
         <com.google.android.material.imageview.ShapeableImageView
           android:id="@+id/driving_options_btn_img"
-          android:layout_width="@dimen/margin_base_plus"
-          android:layout_height="@dimen/margin_base_plus"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
           android:layout_gravity="center"
           android:layout_marginEnd="@dimen/margin_half_plus_eight"
           app:srcCompat="@drawable/ic_error_white" />

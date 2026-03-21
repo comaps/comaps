@@ -95,17 +95,12 @@ public class RoutingController
       mLastMissingMaps = missingMaps;
       mContainsCachedResult = true;
 
-      if (mLastResultCode == ResultCodes.NO_ERROR || resultCode == ResultCodes.NEED_MORE_MAPS)
-      {
-        onBuiltRoute();
-      }
-      else if (mLastResultCode == ResultCodes.HAS_WARNINGS)
+      if (mLastResultCode == ResultCodes.NO_ERROR || resultCode == ResultCodes.NEED_MORE_MAPS || mLastResultCode == ResultCodes.HAS_WARNINGS)
       {
         onBuiltRoute();
         if (mContainer != null)
           mContainer.onDrivingOptionsWarning();
       }
-
       processRoutingEvent();
     }
   };

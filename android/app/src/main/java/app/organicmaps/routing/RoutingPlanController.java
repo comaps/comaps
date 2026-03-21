@@ -307,12 +307,19 @@ public class RoutingPlanController extends ToolbarController
 
   public void showDrivingOptionView()
   {
-    mDrivingOptionsBtnContainer.addOnLayoutChangeListener(mDriverOptionsLayoutListener);
-    UiUtils.show(mDrivingOptionsBtnContainer);
-    boolean hasAnyOptions = RoutingOptions.hasAnyOptions() && !isRulerType();
-    UiUtils.showIf(hasAnyOptions, mDrivingOptionsImage);
-    MaterialTextView title = mDrivingOptionsBtnContainer.findViewById(R.id.driving_options_btn_title);
-    title.setText(hasAnyOptions ? R.string.change_driving_options_btn : R.string.define_to_avoid_btn);
+    if (!isRulerType() && !isTransitType())
+    {
+      mDrivingOptionsBtnContainer.addOnLayoutChangeListener(mDriverOptionsLayoutListener);
+      UiUtils.show(mDrivingOptionsBtnContainer);
+      boolean hasAnyOptions = RoutingOptions.hasAnyOptions();
+      UiUtils.showIf(hasAnyOptions, mDrivingOptionsImage);
+      MaterialTextView title = mDrivingOptionsBtnContainer.findViewById(R.id.driving_options_btn_title);
+      title.setText(hasAnyOptions ? R.string.change_driving_options_btn : R.string.define_to_avoid_btn);
+    }
+    else
+    {
+      hideDrivingOptionsView();
+    }
   }
 
   public void hideDrivingOptionsView()
