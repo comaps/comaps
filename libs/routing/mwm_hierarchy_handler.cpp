@@ -1,5 +1,7 @@
 #include "routing/mwm_hierarchy_handler.hpp"
 
+#include "base/logging.hpp"
+
 #include "3party/ankerl/unordered_dense.h"
 
 namespace routing
@@ -9,7 +11,10 @@ namespace
 // Time penalty in seconds for crossing the country border.
 // We add no penalty for crossing borders of the countries that have officially abolished
 // passport and other types of border control at their mutual borders.
-inline size_t constexpr kCrossCountryPenaltyS = 60 * 60 * 2;
+inline size_t constexpr kCrossCountryPenaltyS = 1200;
+
+// Hard penalty for "avoid border crossing" modes. Effectively infinite for any normal route.
+inline size_t constexpr kHardAvoidBorderPenaltyS = 3600 * 1000;
 
 using CountrySetT = ankerl::unordered_dense::set<std::string_view>;
 
@@ -57,10 +62,15 @@ std::string GetCountryByMwmName(std::string const & mwmName, CountryParentNameGe
   return country;
 }
 
-MwmHierarchyHandler::MwmHierarchyHandler(std::shared_ptr<NumMwmIds> numMwmIds, CountryParentNameGetterFn parentGetterFn)
+MwmHierarchyHandler::MwmHierarchyHandler(std::shared_ptr<NumMwmIds> numMwmIds, CountryParentNameGetterFn parentGetterFn,
+                                         BorderAvoidanceSettings borderSettings)
   : m_numMwmIds(std::move(numMwmIds))
   , m_countryParentNameGetterFn(std::move(parentGetterFn))
-{}
+  , m_borderSettings(std::move(borderSettings))
+{
+  LOG(LINFO, ("MwmHierarchyHandler created with border avoidance mode:", ToString(m_borderSettings.GetMode()),
+              "countries:", m_borderSettings.GetAvoidedCountries().size()));
+}
 
 std::string MwmHierarchyHandler::GetMwmName(NumMwmId mwmId) const
 {
@@ -82,6 +92,23 @@ std::string const & MwmHierarchyHandler::GetParentCountryCached(NumMwmId mwmId)
     it->second = GetParentCountry(mwmId);
 
   return it->second;
+}
+
+bool MwmHierarchyHandler::IsHardAvoidedBorder(std::string const & country1, std::string const & country2) const
+{
+  if (m_borderSettings.GetMode() == BorderAvoidance::Any)
+    return true;
+
+  if (m_borderSettings.GetMode() == BorderAvoidance::Specific)
+  {
+    auto const & avoided = m_borderSettings.GetAvoidedCountries();
+    bool const c1Avoided = !country1.empty() && avoided.contains(country1);
+    bool const c2Avoided = !country2.empty() && avoided.contains(country2);
+    if (c1Avoided || c2Avoided)
+      return true;
+  }
+
+  return false;
 }
 
 bool MwmHierarchyHandler::HasCrossBorderPenalty(NumMwmId mwmId1, NumMwmId mwmId2)
@@ -120,8 +147,31 @@ bool MwmHierarchyHandler::HasCrossBorderPenalty(NumMwmId mwmId1, NumMwmId mwmId2
 
 RouteWeight MwmHierarchyHandler::GetCrossBorderPenalty(NumMwmId mwmId1, NumMwmId mwmId2)
 {
+  if (mwmId1 == mwmId2)
+    return RouteWeight(0.0);
+
+  std::string const country1 = GetParentCountryCached(mwmId1);
+  std::string const country2 = GetParentCountryCached(mwmId2);
+
+  if (IsHardAvoidedBorder(country1, country2))
+  {
+    LOG(LINFO, ("Hard border penalty applied:", GetMwmName(mwmId1), "(", country1, ") ->", GetMwmName(mwmId2), "(",
+                country2, ") mode:", ToString(m_borderSettings.GetMode())));
+    return RouteWeight(kHardAvoidBorderPenaltyS);
+  }
+
   if (HasCrossBorderPenalty(mwmId1, mwmId2))
+  {
+    if (m_borderSettings.GetMode() == BorderAvoidance::NonInternal)
+    {
+      LOG(LINFO, ("Hard border penalty (non-internal):", GetMwmName(mwmId1), "(", country1, ") ->", GetMwmName(mwmId2),
+                  "(", country2, ")"));
+      return RouteWeight(kHardAvoidBorderPenaltyS);
+    }
+    LOG(LINFO, ("Soft border penalty applied:", GetMwmName(mwmId1), "(", country1, ") ->", GetMwmName(mwmId2), "(",
+                country2, ") mode:", ToString(m_borderSettings.GetMode())));
     return RouteWeight(kCrossCountryPenaltyS);
+  }
 
   return RouteWeight(0.0);
 }

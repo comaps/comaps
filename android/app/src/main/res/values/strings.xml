@@ -697,6 +697,16 @@
     <string name="avoid_motorways">Avoid freeways</string>
     <string name="avoid_steps">Avoid stairs</string>
     <string name="avoid_paved">Avoid paved roads</string>
+    <string name="avoid_border_crossing">Border crossing</string>
+    <string name="border_avoidance_none">Allow</string>
+    <string name="border_avoidance_any">Avoid</string>
+    <string name="border_avoidance_non_internal">Only internal open borders</string>
+    <string name="border_avoidance_specific">Avoid specific countries</string>
+    <string name="border_avoidance_select_countries">Select countries</string>
+    <plurals name="border_avoidance_selected_count">
+        <item quantity="one">%d country selected</item>
+        <item quantity="other">%d countries selected</item>
+    </plurals>
     <string name="unable_to_calc_alert_title">Unable to calculate route</string>
     <string name="unable_to_calc_alert_subtitle">A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry.</string>
     <string name="define_to_avoid_btn">Define roads to avoid</string>

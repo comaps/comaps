@@ -6,12 +6,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmToolbarFragment;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
+import app.organicmaps.sdk.settings.BorderAvoidanceMode;
 import app.organicmaps.sdk.settings.RoadType;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import java.util.ArrayList;
@@ -26,6 +29,10 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
   public static final String BUNDLE_ROAD_TYPES = "road_types";
   @NonNull
   private Set<RoadType> mRoadTypes = Collections.emptySet();
+  @NonNull
+  private BorderAvoidanceMode mInitialBorderMode = BorderAvoidanceMode.None;
+  @NonNull
+  private Set<String> mInitialBorderCountries = Collections.emptySet();
 
   @Nullable
   @Override
@@ -37,6 +44,8 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
     mRoadTypes = savedInstanceState != null && savedInstanceState.containsKey(BUNDLE_ROAD_TYPES)
                    ? makeRouteTypes(savedInstanceState)
                    : RoutingOptions.getActiveRoadTypes();
+    mInitialBorderMode = RoutingOptions.getBorderAvoidanceMode();
+    mInitialBorderCountries = RoutingOptions.getAvoidedBorderCountries();
     return root;
   }
 
@@ -67,7 +76,13 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
   private boolean areSettingsNotChanged()
   {
     Set<RoadType> lastActiveRoadTypes = RoutingOptions.getActiveRoadTypes();
-    return mRoadTypes.equals(lastActiveRoadTypes);
+    if (!mRoadTypes.equals(lastActiveRoadTypes))
+      return false;
+    if (mInitialBorderMode != RoutingOptions.getBorderAvoidanceMode())
+      return false;
+    if (!mInitialBorderCountries.equals(RoutingOptions.getAvoidedBorderCountries()))
+      return false;
+    return true;
   }
 
   @Override
@@ -120,6 +135,109 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
     pavedBtn.setEnabled(!RoutingOptions.hasOption(RoadType.Dirty) || RoutingOptions.hasOption(RoadType.Paved));
     CompoundButton.OnCheckedChangeListener pavedBtnListener = new ToggleRoutingOptionListener(RoadType.Paved, root);
     pavedBtn.setOnCheckedChangeListener(pavedBtnListener);
+
+    View borderRow = root.findViewById(R.id.avoid_border_crossing_row);
+    TextView borderSummary = root.findViewById(R.id.avoid_border_crossing_summary);
+    updateBorderAvoidanceSummary(borderSummary);
+    borderRow.setOnClickListener(v -> showBorderAvoidanceDialog(borderSummary));
+  }
+
+  private void updateBorderAvoidanceSummary(@NonNull TextView summaryView)
+  {
+    BorderAvoidanceMode mode = RoutingOptions.getBorderAvoidanceMode();
+    switch (mode)
+    {
+    case Any: summaryView.setText(R.string.border_avoidance_any); break;
+    case NonInternal: summaryView.setText(R.string.border_avoidance_non_internal); break;
+    case Specific:
+      int count = RoutingOptions.getAvoidedBorderCountries().size();
+      if (count > 0)
+        summaryView.setText(getResources().getQuantityString(R.plurals.border_avoidance_selected_count, count, count));
+      else
+        summaryView.setText(R.string.border_avoidance_specific);
+      break;
+    case None:
+    default: summaryView.setText(R.string.border_avoidance_none); break;
+    }
+  }
+
+  private void showBorderAvoidanceDialog(@NonNull TextView summaryView)
+  {
+    BorderAvoidanceMode currentMode = RoutingOptions.getBorderAvoidanceMode();
+    final BorderAvoidanceMode[] selectedMode = {currentMode};
+
+    CharSequence[] items = {getString(R.string.border_avoidance_none), getString(R.string.border_avoidance_any),
+                            getString(R.string.border_avoidance_non_internal),
+                            getString(R.string.border_avoidance_specific)};
+    int checkedItem = currentMode.ordinal();
+
+    AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity())
+                                      .setTitle(R.string.avoid_border_crossing)
+                                      .setSingleChoiceItems(items, checkedItem, (dialog, which) -> {
+                                        selectedMode[0] = BorderAvoidanceMode.values()[which];
+                                        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setEnabled(selectedMode[0] == BorderAvoidanceMode.Specific);
+                                      });
+
+    builder.setNeutralButton(R.string.border_avoidance_select_countries, null);
+    builder.setPositiveButton(android.R.string.ok, (dialog, which) -> {
+      RoutingOptions.setBorderAvoidanceMode(selectedMode[0]);
+      updateBorderAvoidanceSummary(summaryView);
+      RoutingController.get().rebuildLastRoute();
+    });
+    builder.setNegativeButton(android.R.string.cancel, null);
+
+    AlertDialog dialog = builder.create();
+    dialog.show();
+
+    dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setEnabled(currentMode == BorderAvoidanceMode.Specific);
+    dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
+      if (selectedMode[0] != BorderAvoidanceMode.Specific)
+        selectedMode[0] = BorderAvoidanceMode.Specific;
+      RoutingOptions.setBorderAvoidanceMode(selectedMode[0]);
+      dialog.dismiss();
+      showBorderCountriesPicker(summaryView);
+    });
+  }
+
+  private void showBorderCountriesPicker(@NonNull TextView summaryView)
+  {
+    Set<String> allCountries = RoutingOptions.getTopLevelCountries();
+    if (allCountries.isEmpty())
+    {
+      new AlertDialog.Builder(requireActivity())
+          .setTitle(R.string.border_avoidance_select_countries)
+          .setMessage("No countries available. Countries list will be available after downloading map data.")
+          .setPositiveButton(android.R.string.ok, null)
+          .show();
+      return;
+    }
+
+    Set<String> selectedCountries = RoutingOptions.getAvoidedBorderCountries();
+
+    String[] countryArray = allCountries.toArray(new String[0]);
+    java.util.Arrays.sort(countryArray);
+    boolean[] checkedItems = new boolean[countryArray.length];
+    for (int i = 0; i < countryArray.length; i++)
+      checkedItems[i] = selectedCountries.contains(countryArray[i]);
+
+    new AlertDialog.Builder(requireActivity())
+        .setTitle(R.string.border_avoidance_select_countries)
+        .setMultiChoiceItems(countryArray, checkedItems,
+                             (dialog, which, isChecked) -> { checkedItems[which] = isChecked; })
+        .setPositiveButton(android.R.string.ok,
+                           (dialog, which) -> {
+                             Set<String> newSelection = new HashSet<>();
+                             for (int i = 0; i < countryArray.length; i++)
+                             {
+                               if (checkedItems[i])
+                                 newSelection.add(countryArray[i]);
+                             }
+                             RoutingOptions.setAvoidedBorderCountries(newSelection);
+                             updateBorderAvoidanceSummary(summaryView);
+                             RoutingController.get().rebuildLastRoute();
+                           })
+        .setNegativeButton(android.R.string.cancel, null)
+        .show();
   }
 
   private static class ToggleRoutingOptionListener implements CompoundButton.OnCheckedChangeListener

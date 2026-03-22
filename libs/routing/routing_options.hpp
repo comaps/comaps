@@ -4,9 +4,11 @@
 #include <string>
 #include <type_traits>
 #include <utility>
+#include <vector>
 
-#include "boost/container_hash/hash.hpp"
+#include "3party/ankerl/unordered_dense.h"
 #include "3party/skarupke/flat_hash_map.hpp"
+#include "boost/container_hash/hash.hpp"
 
 namespace routing
 {
@@ -42,6 +44,44 @@ public:
 
 private:
   RoadType m_options = 0;
+};
+
+/// Border crossing avoidance mode for routing.
+enum class BorderAvoidance : uint8_t
+{
+  None = 0,         /// Normal routing with soft penalty for non-internal border.
+  Any = 1,          /// Avoid all border crossings.
+  NonInternal = 2,  /// Avoid non-Schengen/EAEU borders.
+  Specific = 3      /// Avoid crossing into specific countries.
+};
+
+std::string ToString(BorderAvoidance mode);
+BorderAvoidance BorderAvoidanceFromString(std::string const & str);
+std::string DebugPrint(BorderAvoidance mode);
+
+/// Border crossing avoidance settings: mode + list of avoided country IDs.
+class BorderAvoidanceSettings
+{
+public:
+  BorderAvoidanceSettings() = default;
+
+  static BorderAvoidanceSettings LoadFromSettings();
+  void SaveToSettings() const;
+
+  BorderAvoidance GetMode() const { return m_mode; }
+  void SetMode(BorderAvoidance mode) { m_mode = mode; }
+
+  ankerl::unordered_dense::set<std::string> const & GetAvoidedCountries() const { return m_avoidedCountries; }
+  void SetAvoidedCountries(ankerl::unordered_dense::set<std::string> countries)
+  {
+    m_avoidedCountries = std::move(countries);
+  }
+
+  bool IsEmpty() const { return m_mode == BorderAvoidance::None && m_avoidedCountries.empty(); }
+
+private:
+  BorderAvoidance m_mode = BorderAvoidance::None;
+  ankerl::unordered_dense::set<std::string> m_avoidedCountries;
 };
 
 class RoutingOptionsClassifier

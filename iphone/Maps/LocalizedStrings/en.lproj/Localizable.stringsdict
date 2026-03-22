@@ -84,5 +84,21 @@
 			<string>%lld room</string>
 		</dict>
 	</dict>
+	<key>border_avoidance_selected_count</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld country selected</string>
+			<key>other</key>
+			<string>%lld countries selected</string>
+		</dict>
+	</dict>
 </dict>
 </plist>

@@ -6,6 +6,7 @@
 
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
+#include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
 #include <sstream>
@@ -17,6 +18,82 @@ using namespace std;
 // RoutingOptions -------------------------------------------------------------------------------------
 
 std::string_view constexpr kAvoidRoutingOptionSettingsForCar = "avoid_routing_options_car";
+
+// BorderAvoidanceSettings ---------------------------------------------------------------------------
+
+std::string_view constexpr kBorderAvoidanceModeSettings = "border_avoidance_mode";
+std::string_view constexpr kBorderAvoidanceCountriesSettings = "border_avoidance_countries";
+
+string ToString(BorderAvoidance mode)
+{
+  switch (mode)
+  {
+  case BorderAvoidance::None: return "none";
+  case BorderAvoidance::Any: return "any";
+  case BorderAvoidance::NonInternal: return "non_internal";
+  case BorderAvoidance::Specific: return "specific";
+  }
+  UNREACHABLE();
+}
+
+BorderAvoidance BorderAvoidanceFromString(string const & str)
+{
+  if (str == "any")
+    return BorderAvoidance::Any;
+  if (str == "non_internal")
+    return BorderAvoidance::NonInternal;
+  if (str == "specific")
+    return BorderAvoidance::Specific;
+  return BorderAvoidance::None;
+}
+
+std::string DebugPrint(BorderAvoidance mode)
+{
+  return ToString(mode);
+}
+
+// static
+BorderAvoidanceSettings BorderAvoidanceSettings::LoadFromSettings()
+{
+  BorderAvoidanceSettings result;
+
+  string modeStr;
+  if (settings::Get(kBorderAvoidanceModeSettings, modeStr))
+    result.m_mode = BorderAvoidanceFromString(modeStr);
+
+  string countriesCsv;
+  if (settings::Get(kBorderAvoidanceCountriesSettings, countriesCsv) && !countriesCsv.empty())
+  {
+    strings::Tokenize(countriesCsv, ",", [&](std::string_view token)
+    {
+      if (!token.empty())
+        result.m_avoidedCountries.emplace(token);
+    });
+  }
+
+  return result;
+}
+
+void BorderAvoidanceSettings::SaveToSettings() const
+{
+  settings::Set(kBorderAvoidanceModeSettings, ToString(m_mode));
+
+  if (m_avoidedCountries.empty())
+  {
+    settings::Delete(kBorderAvoidanceCountriesSettings);
+  }
+  else
+  {
+    std::string csv;
+    for (auto const & country : m_avoidedCountries)
+    {
+      if (!csv.empty())
+        csv += ',';
+      csv += country;
+    }
+    settings::Set(kBorderAvoidanceCountriesSettings, csv);
+  }
+}
 
 // static
 RoutingOptions RoutingOptions::LoadCarOptionsFromSettings()
@@ -80,7 +157,7 @@ RoutingOptionsClassifier::RoutingOptionsClassifier()
     m_data.insert({c.GetTypeByPath(data.first), data.second});
 }
 
-optional<RoutingOptions::Road> RoutingOptionsClassifier::Get(uint32_t type) const
+std::optional<RoutingOptions::Road> RoutingOptionsClassifier::Get(uint32_t type) const
 {
   ftype::TruncValue(type, 2);  // in case of highway-motorway-bridge
 
