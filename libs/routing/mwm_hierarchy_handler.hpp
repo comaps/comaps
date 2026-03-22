@@ -2,6 +2,7 @@
 
 #include "routing/route_weight.hpp"
 #include "routing/router.hpp"
+#include "routing/routing_options.hpp"
 
 #include "routing_common/num_mwm_id.hpp"
 
@@ -20,7 +21,8 @@ public:
   // Used in tests only.
   MwmHierarchyHandler() = default;
   // Used in IndexRouter.
-  MwmHierarchyHandler(std::shared_ptr<NumMwmIds> numMwmIds, CountryParentNameGetterFn countryParentNameGetterFn);
+  MwmHierarchyHandler(std::shared_ptr<NumMwmIds> numMwmIds, CountryParentNameGetterFn countryParentNameGetterFn,
+                      BorderAvoidanceSettings borderSettings = {});
 
   bool HasCrossBorderPenalty(NumMwmId mwmId1, NumMwmId mwmId2);
   RouteWeight GetCrossBorderPenalty(NumMwmId mwmId1, NumMwmId mwmId2);
@@ -31,8 +33,12 @@ private:
   std::string GetParentCountry(NumMwmId mwmId) const;
   std::string const & GetParentCountryCached(NumMwmId mwmId);
 
+  /// Returns true if the border between two countries should have a hard (near-infinite) penalty.
+  bool IsHardAvoidedBorder(std::string const & country1, std::string const & country2) const;
+
   std::shared_ptr<NumMwmIds> m_numMwmIds;
   CountryParentNameGetterFn m_countryParentNameGetterFn;
+  BorderAvoidanceSettings m_borderSettings;
 
   using MwmToCountry = ankerl::unordered_dense::map<NumMwmId, std::string>;
   MwmToCountry m_mwmCountriesCache;

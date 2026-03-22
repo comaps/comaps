@@ -18,6 +18,7 @@ final class SettingsTemplateBuilder {
             createMotorwayButton(options: options),
             createFerryButton(options: options),
             createStepsButton(options: options),
+            createBorderCrossingButton(options: options),
             createSpeedcamButton()]
   }
   
@@ -138,6 +139,51 @@ final class SettingsTemplateBuilder {
     return stepsButton
   }
   
+  private class func createBorderCrossingButton(options: RoutingOptions) -> CPGridButton {
+    let currentMode = options.borderAvoidanceMode
+    var iconName = "globe.europe.africa"
+    if currentMode != .none {
+      iconName = "globe.europe.africa.fill"
+    }
+    let configuration = UIImage.SymbolConfiguration(textStyle: .title1)
+    var image = UIImage(systemName: iconName, withConfiguration: configuration)!
+    if #unavailable(iOS 26) {
+      image = image.withTintColor(.white, renderingMode: .alwaysTemplate)
+      image = UIImage(data: image.pngData()!)!.withRenderingMode(.alwaysTemplate)
+    }
+
+    let title: String
+    switch currentMode {
+    case .any:
+      title = L("border_avoidance_any")
+    case .nonInternal:
+      title = L("border_avoidance_non_internal")
+    case .specific:
+      title = L("border_avoidance_specific")
+    case .none, _:
+      title = L("avoid_border_crossing")
+    }
+
+    let borderButton = CPGridButton(titleVariants: [title], image: image) { _ in
+      let next: MWMBorderAvoidanceMode
+      switch options.borderAvoidanceMode {
+      case .none:
+        next = .nonInternal
+      case .nonInternal:
+        next = .any
+      case .any:
+        next = .specific
+      case .specific, _:
+        next = .none
+      }
+      options.borderAvoidanceMode = next
+      options.save()
+      CarPlayService.shared.updateRouteAfterChangingSettings()
+      CarPlayService.shared.popTemplate(animated: true)
+    }
+    return borderButton
+  }
+
   private class func createSpeedcamButton() -> CPGridButton {
     var speedcamIconName = "speedcamera"
     let isSpeedCamActivated = CarPlayService.shared.isSpeedCamActivated

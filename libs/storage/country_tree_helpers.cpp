@@ -1,7 +1,10 @@
 #include "storage/country_tree_helpers.hpp"
 
+#include "defines.hpp"
+
 #include "base/logging.hpp"
 
+#include <algorithm>
 #include <utility>
 #include <vector>
 
@@ -57,5 +60,21 @@ std::optional<CountryTree> LoadCountriesFromFile(std::string const & path)
     return {};
 
   return std::optional<CountryTree>(std::move(countries));
+}
+
+std::vector<CountryId> GetTopLevelCountries(CountryTree const & countries)
+{
+  std::vector<CountryId> result;
+  auto const & root = countries.GetRoot();
+  root.ForEachChild([&](CountryTree::Node const & child)
+  {
+    auto const & name = child.Value().Name();
+    if (name == WORLD_FILE_NAME || name == WORLD_COASTS_FILE_NAME)
+      return;
+    result.push_back(name);
+  });
+
+  std::sort(result.begin(), result.end());
+  return result;
 }
 }  // namespace storage

@@ -31,7 +31,11 @@ struct RoutingOptionsView: View {
     /// If steps should be avoided during routing
     @State var shouldAvoidStepsWhileRouting: Bool = false
     
-    
+    /// Border crossing avoidance mode
+    @State var borderAvoidanceMode: MWMBorderAvoidanceMode = .none
+
+
+
     /// The actual view
     var body: some View {
         NavigationView {
@@ -98,6 +102,22 @@ struct RoutingOptionsView: View {
                         }
                     }
                     .tint(.accent)
+
+                    NavigationLink {
+                        BorderAvoidanceView(mode: $borderAvoidanceMode)
+                    } label: {
+                        HStack {
+                            Label {
+                                Text("avoid_border_crossing")
+                            } icon: {
+                                Image(systemName: "globe")
+                                    .foregroundStyle(.secondary)
+                            }
+                            Spacer()
+                            Text(borderAvoidanceModeLabel)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
                 }
             }
             .navigationTitle(String(localized: "driving_options_title"))
@@ -129,6 +149,7 @@ struct RoutingOptionsView: View {
             shouldAvoidFerriesWhileRouting = Settings.shouldAvoidFerriesWhileRouting
             shouldAvoidMotorwaysWhileRouting = Settings.shouldAvoidMotorwaysWhileRouting
             shouldAvoidStepsWhileRouting = Settings.shouldAvoidStepsWhileRouting
+            borderAvoidanceMode = Settings.borderAvoidanceMode
         }
         .onChange(of: shouldAvoidTollRoadsWhileRouting) { changedShouldAvoidTollRoadsWhileRouting in
             Settings.shouldAvoidTollRoadsWhileRouting = changedShouldAvoidTollRoadsWhileRouting
@@ -154,6 +175,131 @@ struct RoutingOptionsView: View {
         .onChange(of: shouldAvoidStepsWhileRouting) { changedShouldAvoidStepsWhileRouting in
             Settings.shouldAvoidStepsWhileRouting = changedShouldAvoidStepsWhileRouting
         }
+        .onChange(of: borderAvoidanceMode) { newMode in
+            Settings.borderAvoidanceMode = newMode
+        }
         .accentColor(.toolbarAccent)
+    }
+
+    private var borderAvoidanceModeLabel: String {
+        switch borderAvoidanceMode {
+        case .any:
+            return String(localized: "border_avoidance_any")
+        case .nonInternal:
+            return String(localized: "border_avoidance_non_internal")
+        case .specific:
+            let count = Settings.avoidedBorderCountries.count
+            if count > 0 {
+                return String(format: L("border_avoidance_selected_count"), count)
+            }
+            return String(localized: "border_avoidance_specific")
+        case .none, _:
+            return String(localized: "border_avoidance_none")
+        }
+    }
+}
+
+/// View for selecting border avoidance mode
+struct BorderAvoidanceView: View {
+    @Binding var mode: MWMBorderAvoidanceMode
+    @State private var selectedMode: MWMBorderAvoidanceMode = .none
+
+    var body: some View {
+        List {
+            Section {
+                ForEach([MWMBorderAvoidanceMode.none, .any, .nonInternal, .specific], id: \.self) { option in
+                    Button {
+                        selectedMode = option
+                        mode = option
+                    } label: {
+                        HStack {
+                            Text(labelForMode(option))
+                            Spacer()
+                            if selectedMode == option {
+                                Image(systemName: "checkmark")
+                                    .foregroundStyle(.accent)
+                            }
+                        }
+                    }
+                    .foregroundStyle(.primary)
+                }
+            }
+
+            if selectedMode == .specific {
+                NavigationLink {
+                    BorderCountriesView()
+                } label: {
+                    Text("border_avoidance_select_countries")
+                }
+            }
+        }
+        .navigationTitle(String(localized: "avoid_border_crossing"))
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            selectedMode = mode
+        }
+    }
+
+    private func labelForMode(_ mode: MWMBorderAvoidanceMode) -> String {
+        switch mode {
+        case .any:
+            return String(localized: "border_avoidance_any")
+        case .nonInternal:
+            return String(localized: "border_avoidance_non_internal")
+        case .specific:
+            return String(localized: "border_avoidance_specific")
+        case .none, _:
+            return String(localized: "border_avoidance_none")
+        }
+    }
+}
+
+/// View for selecting specific countries to avoid crossing
+struct BorderCountriesView: View {
+    @State private var countries: [String] = []
+    @State private var selectedCountries: Set<String> = []
+    @State private var searchText: String = ""
+
+    var filteredCountries: [String] {
+        if searchText.isEmpty {
+            return countries
+        }
+        return countries.filter { $0.localizedCaseInsensitiveContains(searchText) }
+    }
+
+    var body: some View {
+        List {
+            ForEach(filteredCountries, id: \.self) { country in
+                Button {
+                    if selectedCountries.contains(country) {
+                        selectedCountries.remove(country)
+                    } else {
+                        selectedCountries.insert(country)
+                    }
+                    Settings.avoidedBorderCountries = selectedCountries
+                } label: {
+                    HStack {
+                        Text(country)
+                        Spacer()
+                        if selectedCountries.contains(country) {
+                            Image(systemName: "checkmark")
+                                .foregroundStyle(.accent)
+                        }
+                    }
+                }
+                .foregroundStyle(.primary)
+            }
+        }
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always))
+        .navigationTitle(String(localized: "border_avoidance_select_countries"))
+        .navigationBarTitleDisplayMode(.inline)
+        .onAppear {
+            selectedCountries = Settings.avoidedBorderCountries
+            loadCountries()
+        }
+    }
+
+    private func loadCountries() {
+        countries = RoutingOptions().topLevelCountries.sorted()
     }
 }

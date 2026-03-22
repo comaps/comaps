@@ -776,7 +776,8 @@ RouterResultCode IndexRouter::CalculateSubrouteLeapsOnlyMode(Checkpoints const &
   std::vector<RouteWeight> candidateMidWeights;
 
   {
-    LeapsGraph leapsGraph(starter, MwmHierarchyHandler(m_numMwmIds, m_countryParentNameGetterFn));
+    LeapsGraph leapsGraph(starter, MwmHierarchyHandler(m_numMwmIds, m_countryParentNameGetterFn,
+                                                       BorderAvoidanceSettings::LoadFromSettings()));
 
     AStarSubProgress leapsProgress(mercator::ToLatLon(checkpoints.GetPoint(subrouteIdx)),
                                    mercator::ToLatLon(checkpoints.GetPoint(subrouteIdx + 1)), kLeapsStageContribution);
@@ -1069,6 +1070,10 @@ unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
   // routingOptions.Add(RoutingOptions::Road::Motorway);
   LOG(LINFO, ("Avoid next roads:", routingOptions));
 
+  auto const borderSettings = BorderAvoidanceSettings::LoadFromSettings();
+  LOG(LINFO, ("Border avoidance mode:", ToString(borderSettings.GetMode()),
+              "countries:", borderSettings.GetAvoidedCountries().size()));
+
   auto crossMwmGraph = make_unique<CrossMwmGraph>(
       m_numMwmIds, m_numMwmTree, m_vehicleType == VehicleType::Transit ? VehicleType::Pedestrian : m_vehicleType,
       m_countryRectFn, m_dataSource);
@@ -1079,9 +1084,9 @@ unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
 
   if (m_vehicleType != VehicleType::Transit)
   {
-    auto graph =
-        make_unique<SingleVehicleWorldGraph>(std::move(crossMwmGraph), std::move(indexGraphLoader), m_estimator,
-                                             MwmHierarchyHandler(m_numMwmIds, m_countryParentNameGetterFn));
+    auto graph = make_unique<SingleVehicleWorldGraph>(
+        std::move(crossMwmGraph), std::move(indexGraphLoader), m_estimator,
+        MwmHierarchyHandler(m_numMwmIds, m_countryParentNameGetterFn, borderSettings));
     graph->SetRoutingOptions(routingOptions);
     return graph;
   }

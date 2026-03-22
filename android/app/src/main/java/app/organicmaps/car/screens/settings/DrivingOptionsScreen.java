@@ -18,6 +18,7 @@ import app.organicmaps.car.screens.base.BaseMapScreen;
 import app.organicmaps.car.util.Toggle;
 import app.organicmaps.car.util.UiHelpers;
 import app.organicmaps.sdk.routing.RoutingOptions;
+import app.organicmaps.sdk.settings.BorderAvoidanceMode;
 import app.organicmaps.sdk.settings.RoadType;
 import java.util.HashMap;
 import java.util.Map;
@@ -37,6 +38,8 @@ public class DrivingOptionsScreen extends BaseMapScreen
 
   @NonNull
   private final Map<RoadType, Boolean> mInitialDrivingOptionsState = new HashMap<>();
+  @NonNull
+  private BorderAvoidanceMode mInitialBorderMode = BorderAvoidanceMode.None;
 
   public DrivingOptionsScreen(@NonNull CarContext carContext, @NonNull Renderer surfaceRenderer)
   {
@@ -59,15 +62,20 @@ public class DrivingOptionsScreen extends BaseMapScreen
   public void onStop(@NonNull LifecycleOwner owner)
   {
     super.onStop(owner);
+    boolean changed = false;
     for (final DrivingOption drivingOption : mDrivingOptions)
     {
       if (Boolean.TRUE.equals(mInitialDrivingOptionsState.get(drivingOption.roadType))
           != RoutingOptions.hasOption(drivingOption.roadType))
       {
-        setResult(DRIVING_OPTIONS_RESULT_CHANGED);
-        return;
+        changed = true;
+        break;
       }
     }
+    if (!changed && mInitialBorderMode != RoutingOptions.getBorderAvoidanceMode())
+      changed = true;
+    if (changed)
+      setResult(DRIVING_OPTIONS_RESULT_CHANGED);
   }
 
   @NonNull
@@ -85,6 +93,7 @@ public class DrivingOptionsScreen extends BaseMapScreen
     final ItemList.Builder builder = new ItemList.Builder();
     for (final DrivingOption drivingOption : mDrivingOptions)
       builder.addItem(createDrivingOptionsToggle(drivingOption.roadType, drivingOption.text));
+    builder.addItem(createBorderAvoidanceRow());
     return new ListTemplate.Builder().setHeader(createHeader()).setSingleList(builder.build()).build();
   }
 
@@ -102,9 +111,46 @@ public class DrivingOptionsScreen extends BaseMapScreen
     return Toggle.create(getCarContext(), title, listener, RoutingOptions.hasOption(roadType));
   }
 
+  @NonNull
+  private Row createBorderAvoidanceRow()
+  {
+    final BorderAvoidanceMode currentMode = RoutingOptions.getBorderAvoidanceMode();
+    final Row.Builder builder = new Row.Builder();
+    builder.setTitle(getCarContext().getString(R.string.avoid_border_crossing));
+    builder.addText(getBorderAvoidanceModeLabel(currentMode));
+    builder.setOnClickListener(() -> {
+      final BorderAvoidanceMode next;
+      switch (currentMode)
+      {
+      case None: next = BorderAvoidanceMode.NonInternal; break;
+      case NonInternal: next = BorderAvoidanceMode.Any; break;
+      case Any: next = BorderAvoidanceMode.Specific; break;
+      case Specific:
+      default: next = BorderAvoidanceMode.None; break;
+      }
+      RoutingOptions.setBorderAvoidanceMode(next);
+      invalidate();
+    });
+    return builder.build();
+  }
+
+  @NonNull
+  private String getBorderAvoidanceModeLabel(@NonNull BorderAvoidanceMode mode)
+  {
+    switch (mode)
+    {
+    case Any: return getCarContext().getString(R.string.border_avoidance_any);
+    case NonInternal: return getCarContext().getString(R.string.border_avoidance_non_internal);
+    case Specific: return getCarContext().getString(R.string.border_avoidance_specific);
+    case None:
+    default: return getCarContext().getString(R.string.border_avoidance_none);
+    }
+  }
+
   private void initDrivingOptionsState()
   {
     for (final DrivingOption drivingOption : mDrivingOptions)
       mInitialDrivingOptionsState.put(drivingOption.roadType, RoutingOptions.hasOption(drivingOption.roadType));
+    mInitialBorderMode = RoutingOptions.getBorderAvoidanceMode();
   }
 }
