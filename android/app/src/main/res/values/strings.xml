@@ -756,6 +756,7 @@
     <string name="moreyear_ago_sorttype">More than a year ago</string>
     <string name="near_me_sorttype">Near me</string>
     <string name="others_sorttype">Others</string>
+    <string name="editor_add_select_category_all_subtitle">All Categories</string>
 
     <!-- SECTION: Bookmark types used for sorting -->
     <string name="food_places">Food</string>
@@ -1018,4 +1019,11 @@
     <string name="pref_aa_support_summary_yes">The app has been installed from Google Play, you can use it in your car.</string>
     <string name="pref_aa_support_summary_no">The app has not been installed from Google Play, you can\'t use it in your car. Press the setting to get more details on our FAQ.</string>
 
+    <!-- SECTION: gps strings -->
+    <!-- Login to OSM button text -->
+    <string name="login_osm_credentials">Login with password</string>
+    <!-- Login to OSM button text -->
+    <string name="login_osm_browser">Login using Browser</string>
+    <!-- Editor section title that shows recently used categories (types of objects) when adding a place on the map -->
+    <string name="editor_add_select_category_recent_subtitle">Recently Used</string>
 </resources>
