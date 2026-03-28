@@ -30,7 +30,7 @@ USER_RESOURCE_PATH: ${Developer:OMIM_PATH}/data
 # Features stage only parallelism level. Set to 0 for auto detection.
 THREADS_COUNT_FEATURES_STAGE: 52
 # Do not change it. This is determined automatically.
-NODE_STORAGE: mem
+NODE_STORAGE: map
 
 
 [Osm tools]
@@ -57,7 +57,7 @@ LOG_FILE_PATH: ${Main:MAIN_OUT_PATH}/generation.log
 # Here and further, its possible to specify either an URL (to be downloaded automatically)
 # or a local file path like file:///path/to/file.
 # A sample URL to download a latest OSM dump for North Macedonia:
-PLANET_URL: file:///home/planet/planet/planet.o5m
+PLANET_URL: file:///home/planet/planet/georgia-latest.o5m
 # Location of the md5 checksum of the planet file:
 PLANET_MD5_URL: ${External:PLANET_URL}.md5
 # A base url to the latest_coasts.geom and latest_coasts.rawgeom files.
