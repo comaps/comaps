@@ -7,6 +7,7 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
@@ -40,8 +41,8 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   private MaterialTextView mLastCheckedDate;
   private PlaceOpeningHoursAdapter mOpeningHoursAdapter;
   private LinearLayout mTodayShiftsLayout;
-  private View dropDownIcon;
-  private boolean isOhExpanded;
+  private View mDropDownIcon;
+  private boolean mIsOhExpanded;
 
   private PlacePageViewModel mViewModel;
 
@@ -65,10 +66,46 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     mLastCheckedDate = view.findViewById(R.id.oh_check_date);
     mOpeningHoursAdapter = new PlaceOpeningHoursAdapter();
     mFullWeekOpeningHours.setAdapter(mOpeningHoursAdapter);
-    dropDownIcon = view.findViewById(R.id.dropdown_icon);
+    mDropDownIcon = view.findViewById(R.id.dropdown_icon);
     mFullWeekOpeningHours.getLayoutParams().height = 0;
-    UiUtils.hide(dropDownIcon);
-    isOhExpanded = false;
+    UiUtils.hide(mDropDownIcon);
+    mIsOhExpanded = false;
+    mFullWeekOpeningHours.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
+      private int mTouchSlop = 0;
+      private float mDownX, mDownY;
+      private boolean mIsScrolling;
+      @Override
+      public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e)
+      {
+        switch (e.getAction())
+        {
+        case MotionEvent.ACTION_DOWN:
+          mTouchSlop = ViewConfiguration.get(rv.getContext()).getScaledTouchSlop();
+          mDownX = e.getX();
+          mDownY = e.getY();
+          mIsScrolling = false;
+          break;
+        case MotionEvent.ACTION_MOVE:
+          if (Math.abs(e.getX() - mDownX) > mTouchSlop || Math.abs(e.getY() - mDownY) > mTouchSlop)
+            mIsScrolling = true;
+          break;
+        case MotionEvent.ACTION_UP:
+          if (!mIsScrolling)
+          {
+            expandOpeningHours();
+            return true;
+          }
+          break;
+        }
+        return false;
+      }
+      @Override
+      public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e)
+      {}
+      @Override
+      public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept)
+      {}
+    });
   }
 
   private static void setOrHideLastCheckedDate(MapObject mapObject, Resources resources, MaterialTextView checkDateView)
@@ -160,25 +197,10 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         // Show whole week timetable.
         int firstDayOfWeek = Calendar.getInstance(Locale.getDefault()).getFirstDayOfWeek();
         mOpeningHoursAdapter.setTimetables(timetables, firstDayOfWeek);
-        final View iconView = mFrame.findViewById(R.id.dropdown_icon);
-        UiUtils.show(iconView);
+        UiUtils.show(mDropDownIcon);
         mFrame.setOnClickListener((v) -> expandOpeningHours());
-        mFullWeekOpeningHours.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-          @Override
-          public boolean onInterceptTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e)
-          {
-            if (e.getAction() == MotionEvent.ACTION_UP)
-              expandOpeningHours();
-            return false;
-          }
-          @Override
-          public void onTouchEvent(@NonNull RecyclerView rv, @NonNull MotionEvent e)
-          {}
-          @Override
-          public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept)
-          {}
-        });
-        if (isOhExpanded)
+
+        if (mIsOhExpanded)
         {
           mFullWeekOpeningHours.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
                                         View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
@@ -186,8 +208,6 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
           mFullWeekOpeningHours.getLayoutParams().height = newHeight;
           mFullWeekOpeningHours.requestLayout();
         }
-        UiUtils.show(dropDownIcon);
-        mOhContainer.setOnClickListener((v) -> expandOpeningHours());
 
         // Show today's open time + non-business time.
         boolean containsCurrentWeekday = false;
@@ -225,22 +245,22 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   private void expandOpeningHours()
   {
     int targetHeight, startHeight;
-    if (!isOhExpanded)
+    if (!mIsOhExpanded)
     {
       UiUtils.show(mFullWeekOpeningHours);
       startHeight = 0;
       mFullWeekOpeningHours.measure(View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
                                     View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
       targetHeight = mFullWeekOpeningHours.getMeasuredHeight();
-      dropDownIcon.animate().rotation(-180f).setDuration(200).start();
-      isOhExpanded = true;
+      mDropDownIcon.animate().rotation(-180f).setDuration(200).start();
+      mIsOhExpanded = true;
     }
     else
     {
       startHeight = mFullWeekOpeningHours.getMeasuredHeight();
       targetHeight = 0;
-      dropDownIcon.animate().rotation(0f).setDuration(200).start();
-      isOhExpanded = false;
+      mDropDownIcon.animate().rotation(0f).setDuration(200).start();
+      mIsOhExpanded = false;
     }
     mFullWeekOpeningHours.getLayoutParams().height = startHeight;
     final ValueAnimator va = ValueAnimator.ofInt(startHeight, targetHeight);
@@ -276,10 +296,10 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
   }
   private void resetWeeklyViewState()
   {
-    isOhExpanded = false;
+    mIsOhExpanded = false;
     UiUtils.hide(mFullWeekOpeningHours);
-    UiUtils.hide(dropDownIcon);
-    dropDownIcon.setRotation(0f);
-    mOhContainer.setOnClickListener(null);
+    UiUtils.hide(mDropDownIcon);
+    mDropDownIcon.setRotation(0f);
+    mFrame.setOnClickListener(null);
   }
 }

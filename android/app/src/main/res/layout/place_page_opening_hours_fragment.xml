@@ -46,17 +46,21 @@
     android:layout_marginTop="6dp"
     android:layout_marginStart="@dimen/margin_base"
     app:layout_constraintStart_toEndOf="@id/oh_today_label"
-    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/dropdown_icon"
     app:layout_constraintTop_toTopOf="parent"/>
 
-  <ImageView
+  <com.google.android.material.imageview.ShapeableImageView
+    android:contentDescription="@null"
     android:id="@+id/dropdown_icon"
     android:layout_width="30dp"
     android:layout_height="30dp"
-    android:layout_alignParentEnd="true"
-    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
     android:layout_marginEnd="@dimen/neg_margin_quarter"
-    app:srcCompat="@drawable/ic_down"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="@id/oh_header_barrier"
+    app:srcCompat="@drawable/ic_expand_more"
+    android:visibility="gone"
     app:tint="?iconTint"
     tools:visibility="visible" />
 
