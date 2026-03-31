@@ -1020,6 +1020,7 @@ node|z17-[amenity=social_facility],
 node|z17-[social_facility=food_bank],
 node|z17-[social_facility=soup_kitchen],
 node|z17-[amenity=animal_shelter],
+node|z17-[amenity=stage],
 node|z17-[amenity=kindergarten],
 node|z17-[amenity=childcare],
 node|z16-[amenity=school],
@@ -1220,6 +1221,11 @@ node|z18-[amenity=veterinary],
 node|z17-[amenity=animal_shelter],
 {icon-image: animal_shelter-m.svg;}
 node|z18-[amenity=animal_shelter],
+{font-size: 11;}
+
+node|z17-[amenity=stage],
+{icon-image: stage-m.svg;}
+node|z18-[amenity=stage],
 {font-size: 11;}
 
 node|z16-[amenity=pharmacy],
