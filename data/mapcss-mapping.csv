@@ -340,7 +340,7 @@ waterway|drain|tunnel;[waterway=drain][tunnel?];;name;int_name;230;
 landuse|cemetery|christian;[landuse=cemetery][religion=christian];;name;int_name;231;
 highway|cycleway|tunnel;[highway=cycleway][tunnel?];;name;int_name;232;
 amenity|parking|permissive;[amenity=parking][access=permissive];;name;int_name;233;
-deprecated:boundary|administrative|5:04.2024;[boundary=administrative][admin_level=5];x;name;int_name;234;
+amenity|stage;234;
 highway|unclassified|tunnel;[highway=unclassified][tunnel?];;name;int_name;235;
 amenity|recycling|centre;[amenity=recycling][recycling_type=centre];;name;int_name;236;
 deprecated:amenity|recycling:01.2026;237;amenity|recycling|container

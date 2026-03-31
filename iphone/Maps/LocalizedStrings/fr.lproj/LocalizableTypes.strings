@@ -694,6 +694,7 @@
 "type.landuse.plant_nursery" = "Pépinière";
 "type.leisure" = "Loisir";
 "type.leisure.bandstand" = "Kiosque à musique";
+"type.amenity.stage" = "Scène";
 "type.leisure.common" = "Terrain public";
 "type.leisure.dog_park" = "Parc canin";
 "type.leisure.escape_game" = "Escape room";
