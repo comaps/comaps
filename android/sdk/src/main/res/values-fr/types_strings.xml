@@ -1390,6 +1390,7 @@
     <string name="type.amenity.ranger_station">Poste de garde forestier</string>
     <string name="type.leisure.escape_game">Escape room</string>
     <string name="type.amenity.animal_shelter">Abri pour animaux</string>
+    <string name="type.amenity.stage">Scène</string>
     <string name="type.barrier.wicket_gate">Portillon</string>
     <string name="type.office.security">Bureau des agents de sécurité</string>
     <string name="type.building.guardhouse">Guérite de sécurité</string>
