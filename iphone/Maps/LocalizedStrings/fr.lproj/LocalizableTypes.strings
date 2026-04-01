@@ -1515,3 +1515,4 @@
 "type.leisure.sports_centre.sport.boules" = "Centre Sportif";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre Sportif";
+"type.amenity.stage" = "Scène";
