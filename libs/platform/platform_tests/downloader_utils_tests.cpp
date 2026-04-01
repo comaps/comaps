@@ -39,8 +39,8 @@ UNIT_TEST(Downloader_GetFilePathByUrl)
     TEST_EQUAL(path, resultPath, ());
   }
 
-  TEST_EQUAL(downloader::GetFilePathByUrl("/maps/220314/Belarus_Brest Region.mwm"),
-             base::JoinPath(GetPlatform().WritableDir(), "220314/Belarus_Brest Region.mwm.ready"), ());
+  TEST_EQUAL(downloader::GetFilePathByUrl("/maps/2026.04.01/260401/Belarus_Brest Region.mwm"),
+             base::JoinPath(GetPlatform().WritableDir(), "260401/Belarus_Brest Region.mwm.ready"), ());
 }
 
 UNIT_TEST(Downloader_IsUrlSupported)
@@ -52,24 +52,26 @@ UNIT_TEST(Downloader_IsUrlSupported)
   int64_t diffVersion = 0;
 
   auto url = downloader::GetFileDownloadUrl(fileName, dataVersion, diffVersion);
-  TEST(downloader::IsUrlSupported(url), ());
-  TEST(downloader::IsUrlSupported("maps/991215/Luna.mwm"), ());
-  TEST(downloader::IsUrlSupported("maps/0/Luna.mwm"), ());
-  TEST(!downloader::IsUrlSupported("maps/x/Luna.mwm"), ());
-  TEST(!downloader::IsUrlSupported("macarena/0/Luna.mwm"), ());
+  TEST(downloader::IsUrlSupported(url), (url));
+  TEST(downloader::IsUrlSupported("maps/2026.04.01/991215/Luna.mwm"), ());
+  TEST(downloader::IsUrlSupported("maps/x/0/Luna.mwm"), ());
+  TEST(!downloader::IsUrlSupported("maps/991215/Luna.mwm"), ());
+  TEST(!downloader::IsUrlSupported("maps/2026.04.01/x/Luna.mwm"), ());
+  TEST(!downloader::IsUrlSupported("macarena/2026.04.01/0/Luna.mwm"), ());
   TEST(!downloader::IsUrlSupported("/hack/maps/0/Luna.mwm"), ());
-  TEST(!downloader::IsUrlSupported("0/Luna.mwm"), ());
-  TEST(!downloader::IsUrlSupported("maps/0/Luna"), ());
-  TEST(!downloader::IsUrlSupported("0/Luna.mwm"), ());
+  TEST(!downloader::IsUrlSupported("2026.04.01/0/Luna.mwm"), ());
+  TEST(!downloader::IsUrlSupported("maps/2026.04.01/0/Luna"), ());
+  TEST(!downloader::IsUrlSupported("2026.04.01/0/Luna.mwm"), ());
   TEST(!downloader::IsUrlSupported("Luna.mwm"), ());
   TEST(!downloader::IsUrlSupported("Luna"), ());
 
   fileName = platform::GetFileName(mwmName, MapFileType::Diff);
   diffVersion = version::FOR_TESTING_MWM1;
   url = downloader::GetFileDownloadUrl(fileName, dataVersion, diffVersion);
-  TEST(downloader::IsUrlSupported(url), ());
-  TEST(downloader::IsUrlSupported("diffs/991215/991215/Luna.mwmdiff"), ());
-  TEST(downloader::IsUrlSupported("diffs/0/0/Luna.mwmdiff"), ());
+  TEST(downloader::IsUrlSupported(url), (url));
+  TEST(downloader::IsUrlSupported("diffs/2026.04.01/991215/991215/Luna.mwmdiff"), ());
+  TEST(downloader::IsUrlSupported("diffs/2026.04.01/0/0/Luna.mwmdiff"), ());
+  TEST(!downloader::IsUrlSupported("diffs/0/0/Luna.mwmdiff"), ());
   TEST(!downloader::IsUrlSupported("diffs/x/0/Luna.mwmdiff"), ());
   TEST(!downloader::IsUrlSupported("diffs/0/x/Luna.mwmdiff"), ());
   TEST(!downloader::IsUrlSupported("diffs/x/x/Luna.mwmdiff"), ());
