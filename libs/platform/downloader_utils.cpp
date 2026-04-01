@@ -10,9 +10,11 @@
 
 #include "std/target_os.hpp"
 
+#include "private.h"
+
 namespace
 {
-std::string const kMapsPath = "maps";
+/// @todo(pastk): review diffs dirs structure and move inside maps folder.
 std::string const kDiffsPath = "diffs";
 }  // namespace
 
@@ -22,9 +24,9 @@ namespace downloader
 std::string GetFileDownloadUrl(std::string const & fileName, int64_t dataVersion, uint64_t diffVersion /* = 0 */)
 {
   if (diffVersion == 0)
-    return url::Join(kMapsPath, strings::to_string(dataVersion), url::UrlEncode(fileName));
+    return url::Join(MAPS_BASE_URL, MIN_COMPAT_APP_V, strings::to_string(dataVersion), url::UrlEncode(fileName));
 
-  return url::Join(kDiffsPath, strings::to_string(dataVersion), strings::to_string(diffVersion),
+  return url::Join(kDiffsPath, MIN_COMPAT_APP_V, strings::to_string(dataVersion), strings::to_string(diffVersion),
                    url::UrlEncode(fileName));
 }
 
@@ -34,23 +36,23 @@ bool IsUrlSupported(std::string const & url)
   if (urlComponents.empty())
     return false;
 
-  if (urlComponents[0] != kMapsPath && urlComponents[0] != kDiffsPath)
+  if (urlComponents[0] != MAPS_BASE_URL && urlComponents[0] != kDiffsPath)
     return false;
 
-  if (urlComponents[0] == kMapsPath && urlComponents.size() != 3)
+  if (urlComponents[0] == MAPS_BASE_URL && urlComponents.size() != 4)
     return false;
 
-  if (urlComponents[0] == kDiffsPath && urlComponents.size() != 4)
+  if (urlComponents[0] == kDiffsPath && urlComponents.size() != 5)
     return false;
 
   uint64_t dataVersion = 0;
-  if (!strings::to_uint(urlComponents[1], dataVersion))
+  if (!strings::to_uint(urlComponents[2], dataVersion))
     return false;
 
   if (urlComponents[0] == kDiffsPath)
   {
     uint64_t diffVersion = 0;
-    if (!strings::to_uint(urlComponents[2], diffVersion))
+    if (!strings::to_uint(urlComponents[3], diffVersion))
       return false;
   }
 
@@ -62,11 +64,11 @@ bool IsUrlSupported(std::string const & url)
 std::string GetFilePathByUrl(std::string const & url)
 {
   auto const urlComponents = strings::Tokenize(url, "/");
-  CHECK_GREATER(urlComponents.size(), 2, (urlComponents));
-  CHECK_LESS(urlComponents.size(), 5, (urlComponents));
+  CHECK_GREATER(urlComponents.size(), 3, (urlComponents));
+  CHECK_LESS(urlComponents.size(), 6, (urlComponents));
 
   uint64_t dataVersion = 0;
-  CHECK(strings::to_uint(urlComponents[1], dataVersion), ());
+  CHECK(strings::to_uint(urlComponents[2], dataVersion), ());
 
   std::string mwmFile = url::UrlDecode(urlComponents.back());
   // remove extension
