@@ -94,18 +94,19 @@ void HttpThread::OnHeadersReceived()
       if (numElements && contentRange.at(numElements - 1).toLongLong() != m_expectedSize)
       {
         LOG(LWARNING, ("Http request to", m_reply->url().toEncoded().constData(),
-                       "aborted - invalid Content-Range:", contentRange.at(numElements - 1).toLongLong()));
+                       "aborted - invalid Content-Range:", contentRange.at(numElements - 1).toLongLong(),
+                       ", expected", m_expectedSize));
         m_reply->abort();
       }
     }
     else if (m_reply->hasRawHeader("Content-Length"))
     {
       QByteArray const header = m_reply->rawHeader("Content-Length");
-      int64_t const expSize = header.toLongLong();
-      if (expSize != m_expectedSize)
+      int64_t const repliedSize = header.toLongLong();
+      if (repliedSize != m_expectedSize)
       {
         LOG(LWARNING, ("Http request to", m_reply->url().toEncoded().constData(),
-                       "aborted - invalid Content-Length:", m_reply->rawHeader("Content-Length").toLongLong()));
+                       "aborted - invalid Content-Length:", repliedSize, ", expected", m_expectedSize));
         m_reply->abort();
       }
     }
