@@ -5,7 +5,10 @@
 
 namespace downloader
 {
+// Build an url to download a map file from.
 std::string GetFileDownloadUrl(std::string const & fileName, int64_t dataVersion, uint64_t diffVersion = 0);
+
+// Used in tests:
 bool IsUrlSupported(std::string const & url);
 std::string GetFilePathByUrl(std::string const & url);
 }  // namespace downloader
