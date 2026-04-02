@@ -30,37 +30,6 @@ std::string GetFileDownloadUrl(std::string const & fileName, int64_t dataVersion
                    url::UrlEncode(fileName));
 }
 
-bool IsUrlSupported(std::string const & url)
-{
-  auto const urlComponents = strings::Tokenize(url, "/");
-  if (urlComponents.empty())
-    return false;
-
-  if (urlComponents[0] != MAPS_BASE_URL && urlComponents[0] != kDiffsPath)
-    return false;
-
-  if (urlComponents[0] == MAPS_BASE_URL && urlComponents.size() != 4)
-    return false;
-
-  if (urlComponents[0] == kDiffsPath && urlComponents.size() != 5)
-    return false;
-
-  uint64_t dataVersion = 0;
-  if (!strings::to_uint(urlComponents[2], dataVersion))
-    return false;
-
-  if (urlComponents[0] == kDiffsPath)
-  {
-    uint64_t diffVersion = 0;
-    if (!strings::to_uint(urlComponents[3], diffVersion))
-      return false;
-  }
-
-  size_t count = 0;
-  strings::Tokenize(url::UrlDecode(urlComponents.back()), ".", [&count](std::string_view) { ++count; });
-  return count == 2;
-}
-
 std::string GetFilePathByUrl(std::string const & url)
 {
   auto const urlComponents = strings::Tokenize(url, "/");
