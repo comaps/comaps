@@ -52,6 +52,7 @@ line|z13-14[highway=service][service=busway],
 line|z13-14[highway=service][service=driveway],
 line|z13-15[highway=service][service=parking_aisle],
 {width: 0;}
+/*
 line|z15[highway=service][service=busway],
 line|z15[highway=service][service=driveway],
 {width: 1.2;}
@@ -71,6 +72,7 @@ line|z19-[highway=service][service=busway],
 line|z19-[highway=service][service=driveway],
 line|z19-[highway=service][service=parking_aisle],
 {width: 4;}
+*/
 
 line|z11-[highway=construction],
 line|z11-[highway=proposed]
@@ -329,13 +331,15 @@ line|z11-[highway=unclassified]::border,
 line|z12-[highway=residential]::border,
 line|z12-[highway=road]::border,
 line|z12-[highway=living_street]::border,
-line|z14-[highway=pedestrian]::border,
-line|z14-[highway=ford]::border,
+/* TODO line|z14-[highway=pedestrian]::border,
+line|z14-[highway=ford]::border, */
 line|z13-[highway=service]::border,
-line|z11-[highway=footway]::border,
-line|z15-[highway=ladder]::border,
-line|z15-[highway=steps]::border,
+/* TODO line|z15-[highway=ladder]::border,
+line|z15-[highway=steps]::border, */
 {color: @minor_road_border; opacity: 0.6;}
+
+line|z11-[highway=footway]::border,
+{color: @minor_road_border; opacity: 0.3;}
 
 /* TODO: see below, migrate to casing-width */
 line|z11-[highway=unclassified]::border,
@@ -344,7 +348,7 @@ line|z11-[highway=unclassified]::border,
 line|z13-[highway=service][service=busway]::border,
 line|z13-[highway=service][service=parking_aisle]::border,
 line|z13-[highway=service][service=driveway]::border,
-{color: @minor_road_border; opacity: 0.4;}
+{color: @minor_road_border; opacity: 0.3;}
 
 /* TODO */
 line|z11-[highway=tertiary][bridge?]::border,
@@ -362,7 +366,7 @@ line|z15-[highway=steps][bridge?]::border,
 {color: @bridge_minor_road_border; opacity: 1; linecap: butt}
 
 /* Width is like the original road, but increased by 1. >>2
-   ??? pastk Then set everything smaller or equal 2 to 0.
+   ??? Then set everything smaller or equal 2 to 0.
    Finally subtract 1 from everything <= 3 or 0.5 from everything <= 4.
 */
 
@@ -526,25 +530,18 @@ line|z19-[highway=service],
 {width: 5.2;}
 */
 line|z13[highway=service]::border,
-line|z13[highway=service][service=busway]::border,
 {width: 1.8;}
 line|z14[highway=service]::border,
-line|z14[highway=service][service=busway]::border,
 {width: 2.7;}
 line|z15[highway=service]::border,
-line|z15[highway=service][service=busway]::border,
 {width: 3.3;}
 line|z16[highway=service]::border,
-line|z16[highway=service][service=busway]::border,
 {width: 4.5;}
 line|z17[highway=service]::border,
-line|z17[highway=service][service=busway]::border,
 {width: 5.3;}
 line|z18[highway=service]::border,
-line|z18[highway=service][service=busway]::border,
 {width: 6.2;}
 line|z19-[highway=service]::border,
-line|z19-[highway=service][service=busway]::border,
 {width: 7.2;}
 
 /*
@@ -578,6 +575,7 @@ line|z13-14[highway=service][service=busway]::border,
 line|z13-14[highway=service][service=driveway]::border,
 line|z13-15[highway=service][service=parking_aisle]::border,
 {width: 0;}
+/*
 line|z15[highway=service][service=busway]::border,
 line|z15[highway=service][service=driveway]::border,
 {width: 1.7;}
@@ -597,6 +595,7 @@ line|z19-[highway=service][service=busway]::border,
 line|z19-[highway=service][service=driveway]::border,
 line|z19-[highway=service][service=parking_aisle]::border,
 {width: 5;}
+*/
 
 /*
 line|z11[highway=footway],
