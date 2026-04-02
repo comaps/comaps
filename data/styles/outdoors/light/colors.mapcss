@@ -44,3 +44,12 @@
 @railway: #818071;
 @railway_dark: #767566;
 @railway_dash: #F5F5F5;
+
+/* TODO */
+@motorway1_border: #982A00;
+@trunk1_border: #9A3F1B;
+@primary1_border: #A1692A;
+@primary2_border: #A16F3E;
+@secondary0_border: #A67A51;
+@secondary1_border: #A68068;
+@minor_road_border: #000000;

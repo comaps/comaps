@@ -323,6 +323,75 @@ line|z19-[highway=footway][bicycle=designated]::cycleline,
 {width: 2.0;}
 
 
+/* 8.10 Major road borders */
+
+line|z10-[highway=motorway]::border,
+line|z10-[highway=motorway_link]::border,
+{casing-color: @motorway1_border; casing-opacity: 0.8;}
+
+line|z10-[highway=trunk]::border,
+line|z10-[highway=trunk_link]::border,
+{casing-color: @trunk1_border; casing-opacity: 0.8;}
+
+line|z10-13[highway=primary]::border,
+line|z11-14[highway=primary_link]::border,
+{casing-color: @primary1_border; casing-opacity: 0.7;}
+line|z14-[highway=primary]::border,
+line|z15-[highway=primary_link]::border,
+{casing-color: @primary2_border; casing-opacity: 0.7;}
+
+line|z10-13[highway=secondary]::border,
+line|z13-14[highway=secondary_link]::border,
+{casing-color: @secondary0_border; casing-opacity: 0.7;}
+line|z14-[highway=secondary]::border,
+line|z15-[highway=secondary_link]::border,
+{casing-color: @secondary1_border; casing-opacity: 0.7;}
+
+/* Width is like the original road, but increased by 2.
+   Finally subtract 1 from everything <= 3 or 0.5 from everything <= 4.
+*/
+
+/* TODO: adjust motorway widths z10-z13 */
+line|z10-[highway=motorway]::border,
+{casing-width: 1;}
+
+line|z10-[highway=trunk]::border,
+{casing-width: 1;}
+
+line|z10[highway=motorway_link]::border,
+line|z10[highway=trunk_link]::border,
+{casing-width: 0.5;}
+line|z11-14[highway=motorway_link]::border,
+line|z11-14[highway=trunk_link]::border,
+{casing-width: 0.7;}
+line|z15-[highway=motorway_link]::border,
+line|z15-[highway=trunk_link]::border,
+{casing-width: 1;}
+
+
+line|z10-12[highway=primary]::border,
+{casing-width: 0.7;}
+line|z13-[highway=primary]::border,
+{casing-width: 1;}
+
+line|z11-12[highway=primary_link]::border,
+{casing-width: 0.5;}
+line|z13-15[highway=primary_link]::border,
+{casing-width: 0.7;}
+line|z16-[highway=primary_link]::border,
+{casing-width: 1;}
+
+line|z10-13[highway=secondary]::border,
+{casing-width: 0.7;}
+line|z14-[highway=secondary]::border,
+{casing-width: 1;}
+
+line|z13-15[highway=secondary_link]::border,
+{casing-width: 0.7;}
+line|z16-[highway=secondary_link]::border,
+{casing-width: 1;}
+
+
 /* 8.11 Minor road borders */
 
 line|z11-[highway=tertiary]::border,
