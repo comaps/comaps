@@ -49,11 +49,11 @@ line|z19-[highway=service],
 
 /* Reset back to the main style. */
 line|z13-14[highway=service][service=busway],
-line|z13-14[highway=service][service=parking_aisle],
-line|z13-15[highway=service][service=driveway],
+line|z13-14[highway=service][service=driveway],
+line|z13-15[highway=service][service=parking_aisle],
 {width: 0;}
 line|z15[highway=service][service=busway],
-line|z15[highway=service][service=parking_aisle],
+line|z15[highway=service][service=driveway],
 {width: 1.2;}
 line|z16[highway=service][service=busway],
 line|z16[highway=service][service=driveway],
@@ -330,6 +330,11 @@ line|z13-[highway=service]::border,
 line|z15-[highway=footway]::border,
 line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
+{color: @minor_road_border; opacity: 0.6}
+
+line|z13-[highway=service][service=busway]::border,
+line|z13-[highway=service][service=parking_aisle]::border,
+line|z13-[highway=service][service=driveway]::border,
 {color: @minor_road_border; opacity: 0.4;}
 
 /* TODO */
@@ -474,27 +479,56 @@ line|z19-[highway=service]::border,
 line|z19-[highway=service][service=busway]::border,
 {width: 7.2;}
 
+/*
+line|z13-14[highway=service][service=busway],
+line|z13-14[highway=service][service=driveway],
+line|z13-15[highway=service][service=parking_aisle],
+{width: 0;}
+line|z15[highway=service][service=busway],
+line|z15[highway=service][service=driveway],
+{width: 1.2;}
+line|z16[highway=service][service=busway],
+line|z16[highway=service][service=driveway],
+line|z16[highway=service][service=parking_aisle],
+{width: 1.6;}
+line|z17[highway=service][service=busway],
+line|z17[highway=service][service=driveway],
+line|z17[highway=service][service=parking_aisle],
+{width: 2;}
+line|z18[highway=service][service=busway],
+line|z18[highway=service][service=driveway],
+line|z18[highway=service][service=parking_aisle],
+{width: 3;}
+line|z19-[highway=service][service=busway],
+line|z19-[highway=service][service=driveway],
+line|z19-[highway=service][service=parking_aisle],
+{width: 4;}
+*/
+
 /* Reset back to the main style. */
 line|z13-14[highway=service][service=busway]::border,
+line|z13-14[highway=service][service=driveway]::border,
 line|z13-15[highway=service][service=parking_aisle]::border,
-line|z13-15[highway=service][service=driveway]::border,
 {width: 0;}
-line|z15[highway=service][service=parking_aisle]::border,
 line|z15[highway=service][service=busway]::border,
+line|z15[highway=service][service=driveway]::border,
 {width: 1.7;}
-line|z16[highway=service][service=parking_aisle]::border,
 line|z16[highway=service][service=busway]::border,
+line|z16[highway=service][service=driveway]::border,
+line|z16[highway=service][service=parking_aisle]::border,
 {width: 2.1;}
-line|z17[highway=service][service=parking_aisle]::border,
 line|z17[highway=service][service=busway]::border,
+line|z17[highway=service][service=driveway]::border,
+line|z17[highway=service][service=parking_aisle]::border,
 {width: 3;}
-line|z18[highway=service][service=parking_aisle]::border,
 line|z18[highway=service][service=busway]::border,
+line|z18[highway=service][service=driveway]::border,
+line|z18[highway=service][service=parking_aisle]::border,
 {width: 4;}
-line|z19-[highway=service][service=parking_aisle]::border,
 line|z19-[highway=service][service=busway]::border,
+line|z19-[highway=service][service=driveway]::border,
+line|z19-[highway=service][service=parking_aisle]::border,
 {width: 5;}
-
 
 
 /* Ski pistes */
