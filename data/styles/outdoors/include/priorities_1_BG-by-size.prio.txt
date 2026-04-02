@@ -118,7 +118,7 @@ tourism-information-office                          # area z15- (also has icon z
 tourism-information-visitor_centre                  # area z13- (also has icon z13-, caption(optional) z14-)
 === 170
 
-highway-footway-area                                # area z14- (also has line z11-, line::border z15-, pathtext z13-)
+highway-footway-area                                # area z14- (also has line z11-, line::border z11-, pathtext z13-)
 leisure-track-area                                  # area z15- (also has caption z16-)
 === 160
 

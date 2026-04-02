@@ -1288,6 +1288,10 @@ line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
 {color: @minor_road_border; opacity: 0.1;}
 
+/* TODO: see below, migrate to casing-width */
+line|z13-[highway=unclassified]::border,
+{casing-color: @minor_road_border; casing-opacity: 0.1;}
+
 line|z11-[highway=tertiary][bridge?]::border,
 line|z14-[highway=tertiary_link][bridge?]::border,
 line|z13-[highway=unclassified][bridge?]::border,
@@ -1336,8 +1340,10 @@ line|z18[highway=tertiary_link]::border,
 line|z19-[highway=tertiary_link]::border,
 {width: 9.2;}
 
+/* TODO: migrate all borders to casing-width */
 line|z13[highway=unclassified]::border,
-{width: 1.9;}
+{casing-width: 0.25;}
+/* instead of {width: 1.9;}*/
 line|z14[highway=unclassified]::border,
 {width: 3.3;}
 line|z15[highway=unclassified]::border,
