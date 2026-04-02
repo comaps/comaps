@@ -435,7 +435,6 @@ line|z15-[highway=steps][bridge?]::border,
 {color: @bridge_minor_road_border; opacity: 1; linecap: butt}
 
 /* Width is like the original road, but increased by 1. >>2
-   ??? Then set everything smaller or equal 2 to 0.
    Finally subtract 1 from everything <= 3 or 0.5 from everything <= 4.
 */
 

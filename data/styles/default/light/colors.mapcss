@@ -173,7 +173,8 @@
 
 @bridge_background: #FCF1DE;
 @bridge_casing: #E1D4BE;
-@bridge_minor_road_border: #E3D9C8;
+/* TODO */
+@bridge_minor_road_border: #A09080;
 
 /* 5.3 Tunnels */
 
