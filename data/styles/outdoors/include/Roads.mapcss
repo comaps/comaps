@@ -42,8 +42,10 @@ line|z16[highway=service],
 {width: 2.5;}
 line|z17[highway=service],
 {width: 3.3;}
-line|z18-[highway=service],
+line|z18[highway=service],
 {width: 4.2;}
+line|z19-[highway=service],
+{width: 5.2;}
 
 /* Reset back to the main style. */
 line|z13-14[highway=service][service=busway],
@@ -312,6 +314,187 @@ line|z18[highway=footway][bicycle=designated]::cycleline,
 {width: 1.4;}
 line|z19-[highway=footway][bicycle=designated]::cycleline,
 {width: 2.0;}
+
+
+/* 8.11 Minor road borders */
+
+line|z11-[highway=tertiary]::border,
+line|z14-[highway=tertiary_link]::border,
+line|z11-[highway=unclassified]::border,
+line|z12-[highway=residential]::border,
+line|z14-[highway=road]::border,
+line|z14-[highway=living_street]::border,
+line|z14-[highway=pedestrian]::border,
+line|z14-[highway=ford]::border,
+line|z13-[highway=service]::border,
+line|z15-[highway=footway]::border,
+line|z15-[highway=ladder]::border,
+line|z15-[highway=steps]::border,
+{color: @minor_road_border; opacity: 0.4;}
+
+/* TODO */
+line|z11-[highway=tertiary][bridge?]::border,
+line|z14-[highway=tertiary_link][bridge?]::border,
+line|z13-[highway=unclassified][bridge?]::border,
+line|z14-[highway=residential][bridge?]::border,
+line|z14-[highway=road][bridge?]::border,
+line|z14-[highway=living_street][bridge?]::border,
+line|z14-[highway=pedestrian][bridge?]::border,
+line|z15-[highway=service][bridge?]::border,
+line|z15-[highway=service][service=busway][bridge?]::border,
+line|z15-[highway=busway][bridge?]::border,
+line|z15-[highway=footway][bridge?]::border,
+line|z15-[highway=steps][bridge?]::border,
+{color: @bridge_minor_road_border; opacity: 1; linecap: butt}
+
+/* Width is like the original road, but increased by 1. >>2
+   ??? pastk Then set everything smaller or equal 2 to 0.
+   Finally subtract 1 from everything <= 3 or 0.5 from everything <= 4.
+*/
+
+line|z11[highway=tertiary]::border,
+{width: 2.7;}
+line|z12[highway=tertiary]::border,
+{width: 3.1;}
+line|z13[highway=tertiary]::border,
+{width: 3.3;}
+line|z14[highway=tertiary]::border,
+{width: 4.7;}
+line|z15[highway=tertiary]::border,
+{width: 5.8;}
+line|z16[highway=tertiary]::border,
+{width: 7;}
+line|z17[highway=tertiary]::border,
+{width: 8.6;}
+line|z18[highway=tertiary]::border,
+{width: 11.4;}
+line|z19-[highway=tertiary]::border,
+{width: 13.6;}
+
+line|z14[highway=tertiary_link]::border,
+{width: 3.3;}
+line|z15[highway=tertiary_link]::border,
+{width: 4.5;}
+line|z16[highway=tertiary_link]::border,
+{width: 5.2;}
+line|z17[highway=tertiary_link]::border,
+{width: 6.7;}
+line|z18[highway=tertiary_link]::border,
+{width: 8.4;}
+line|z19-[highway=tertiary_link]::border,
+{width: 10.2;}
+
+line|z11[highway=unclassified]::border,
+{width: 1.6;}
+line|z12[highway=unclassified]::border,
+{width: 2.0;}
+line|z13[highway=unclassified]::border,
+{width: 2.9;}
+line|z14[highway=unclassified]::border,
+{width: 4.3;}
+line|z15[highway=unclassified]::border,
+{width: 5.2;}
+line|z16[highway=unclassified]::border,
+{width: 6.2;}
+line|z17[highway=unclassified]::border,
+{width: 8;}
+line|z18[highway=unclassified]::border,
+{width: 10;}
+line|z19-[highway=unclassified]::border,
+{width: 12;}
+
+line|z12[highway=residential]::border,
+line|z12[highway=road]::border,
+line|z12[highway=living_street]::border,
+{width: 1.7;}
+line|z13[highway=residential]::border,
+line|z13[highway=road]::border,
+line|z13[highway=living_street]::border,
+{width: 2;}
+line|z14[highway=residential]::border,
+line|z14[highway=road]::border,
+line|z14[highway=living_street]::border,
+{width: 3.1;}
+line|z15[highway=residential]::border,
+line|z15[highway=road]::border,
+line|z15[highway=living_street]::border,
+{width: 4.4;}
+line|z16[highway=residential]::border,
+line|z16[highway=road]::border,
+line|z16[highway=living_street]::border,
+{width: 5.2;}
+line|z17[highway=residential]::border,
+line|z17[highway=road]::border,
+line|z17[highway=living_street]::border,
+{width: 6.7;}
+line|z18[highway=residential]::border,
+line|z18[highway=road]::border,
+line|z18[highway=living_street]::border,
+{width: 8.4;}
+line|z19-[highway=residential]::border,
+line|z19-[highway=road]::border,
+line|z19-[highway=living_street]::border,
+{width: 10.2;}
+
+/*
+line|z13[highway=service],
+{width: 0.8;}
+line|z14[highway=service],
+{width: 1.2;}
+line|z15[highway=service],
+{width: 1.8;}
+line|z16[highway=service],
+{width: 2.5;}
+line|z17[highway=service],
+{width: 3.3;}
+line|z18[highway=service],
+{width: 4.2;}
+line|z19-[highway=service],
+{width: 5.2;}
+*/
+line|z13[highway=service]::border,
+line|z13[highway=service][service=busway]::border,
+{width: 1.8;}
+line|z14[highway=service]::border,
+line|z14[highway=service][service=busway]::border,
+{width: 2.7;}
+line|z15[highway=service]::border,
+line|z15[highway=service][service=busway]::border,
+{width: 3.3;}
+line|z16[highway=service]::border,
+line|z16[highway=service][service=busway]::border,
+{width: 4.5;}
+line|z17[highway=service]::border,
+line|z17[highway=service][service=busway]::border,
+{width: 5.3;}
+line|z18[highway=service]::border,
+line|z18[highway=service][service=busway]::border,
+{width: 6.2;}
+line|z19-[highway=service]::border,
+line|z19-[highway=service][service=busway]::border,
+{width: 7.2;}
+
+/* Reset back to the main style. */
+line|z13-14[highway=service][service=busway]::border,
+line|z13-15[highway=service][service=parking_aisle]::border,
+line|z13-15[highway=service][service=driveway]::border,
+{width: 0;}
+line|z15[highway=service][service=parking_aisle]::border,
+line|z15[highway=service][service=busway]::border,
+{width: 1.7;}
+line|z16[highway=service][service=parking_aisle]::border,
+line|z16[highway=service][service=busway]::border,
+{width: 2.1;}
+line|z17[highway=service][service=parking_aisle]::border,
+line|z17[highway=service][service=busway]::border,
+{width: 3;}
+line|z18[highway=service][service=parking_aisle]::border,
+line|z18[highway=service][service=busway]::border,
+{width: 4;}
+line|z19-[highway=service][service=parking_aisle]::border,
+line|z19-[highway=service][service=busway]::border,
+{width: 5;}
+
 
 
 /* Ski pistes */
