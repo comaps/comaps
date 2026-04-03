@@ -48,8 +48,8 @@
 /* TODO */
 @motorway1_border: #982A00;
 @trunk1_border: #9A3F1B;
-@primary1_border: #A1692A;
-@primary2_border: #A16F3E;
-@secondary0_border: #A67A51;
-@secondary1_border: #A68068;
+@primary1_border: #A16025;
+@primary2_border: #A16538;
+@secondary0_border: #9A0849;
+@secondary1_border: #9A0A60;
 @minor_road_border: #000000;

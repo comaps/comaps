@@ -335,17 +335,17 @@ line|z10-[highway=trunk_link]::border,
 
 line|z10-13[highway=primary]::border,
 line|z11-14[highway=primary_link]::border,
-{casing-color: @primary1_border; casing-opacity: 0.7;}
+{casing-color: @primary1_border; casing-opacity: 1;}
 line|z14-[highway=primary]::border,
 line|z15-[highway=primary_link]::border,
-{casing-color: @primary2_border; casing-opacity: 0.7;}
+{casing-color: @primary2_border; casing-opacity: 1;}
 
 line|z10-13[highway=secondary]::border,
 line|z13-14[highway=secondary_link]::border,
-{casing-color: @secondary0_border; casing-opacity: 0.7;}
+{casing-color: @secondary0_border; casing-opacity: 1;}
 line|z14-[highway=secondary]::border,
 line|z15-[highway=secondary_link]::border,
-{casing-color: @secondary1_border; casing-opacity: 0.7;}
+{casing-color: @secondary1_border; casing-opacity: 1;}
 
 /* Width is like the original road, but increased by 2.
    Finally subtract 1 from everything <= 3 or 0.5 from everything <= 4.
