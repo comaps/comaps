@@ -175,7 +175,6 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
                                       .setTitle(R.string.avoid_border_crossing)
                                       .setSingleChoiceItems(items, checkedItem, (dialog, which) -> {
                                         selectedMode[0] = BorderAvoidanceMode.values()[which];
-                                        dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setEnabled(selectedMode[0] == BorderAvoidanceMode.Specific);
                                       });
 
     builder.setNeutralButton(R.string.border_avoidance_select_countries, null);
@@ -189,7 +188,6 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
     AlertDialog dialog = builder.create();
     dialog.show();
 
-    dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setEnabled(currentMode == BorderAvoidanceMode.Specific);
     dialog.getButton(AlertDialog.BUTTON_NEUTRAL).setOnClickListener(v -> {
       if (selectedMode[0] != BorderAvoidanceMode.Specific)
         selectedMode[0] = BorderAvoidanceMode.Specific;
