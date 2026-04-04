@@ -106,7 +106,7 @@
   <color name="button_red_text">#FFFFFFFF</color>
 
   <!-- Routing-->
-  <color name="bg_routing_progress">#1F000000</color>
+  <color name="bg_routing_progress">#FFE0E0E0</color>
   <color name="routing_button_tint">#FFFFFFFF</color>
   <color name="routing_button_activated_tint">@color/bg_statusbar</color>
   <color name="routing_button_pressed_tint">#80FFFFFF</color>

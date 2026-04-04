@@ -191,6 +191,11 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mMapButtonsViewModel.setTopButtonsMarginTop(margin);
   }
 
+  public void setIntermediateStopsProgress(double[] intermediateStopsProgress)
+  {
+    mNavMenu.setIntermediateStopsProgress(intermediateStopsProgress);
+  }
+
   public void show(boolean show)
   {
     if (show && !UiUtils.isVisible(mFrame))
