@@ -363,6 +363,7 @@ public:
   bool IsValid() const { return m_poly.IsValid(); }
 
   double GetTotalDistanceMeters() const;
+  double GetDistanceFromBeginToSegmentMeters(size_t segIdx) const;
   double GetCurrentDistanceFromBeginMeters() const;
   double GetCurrentDistanceToEndMeters() const;
   double GetCurrentDistanceToSegmentMeters(size_t segIdx) const;
