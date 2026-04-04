@@ -1462,6 +1462,11 @@ JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRoute
   return CreateRouteMarkDataArray(env, frm()->GetRoutingManager().GetRoutePoints());
 }
 
+JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetIntermediateStopsProgress(JNIEnv * env, jclass)
+{
+  return CreateIntermediateStopsProgressArray(env, frm()->GetRoutingManager());
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeMoveRoutePoint(JNIEnv * env, jclass, jint currentIndex,
                                                                                jint targetIndex)
 {

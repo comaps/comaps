@@ -255,6 +255,8 @@ public class Framework
   @NonNull
   public static native RouteMarkData[] nativeGetRoutePoints();
 
+  public static native double[] nativeGetIntermediateStopsProgress();
+
   public static native void nativeMoveRoutePoint(int currentIndex, int targetIndex);
 
   @NonNull
