@@ -77,7 +77,7 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
       break;
 
     case Finish: // Destination point.
-      iconId = R.drawable.route_point_finish;
+      iconId = R.drawable.route_finish;
       break;
 
     default: // Unknown route type.
