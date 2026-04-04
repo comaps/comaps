@@ -41,3 +41,11 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
   ASSERT(result, (jni::DescribeException()));
   return result;
 }
+
+jdoubleArray CreateIntermediateStopsProgressArray(JNIEnv * env, RoutingManager & rm)
+{
+  std::vector<double> progress = rm.GetIntermediateStopsProgress();
+  jdoubleArray jProgress = env->NewDoubleArray(progress.size());
+  env->SetDoubleArrayRegion(jProgress, 0, progress.size(), progress.data());
+  return jProgress;
+}
