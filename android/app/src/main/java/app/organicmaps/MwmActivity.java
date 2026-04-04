@@ -1654,6 +1654,13 @@ public class MwmActivity extends BaseMwmFragmentActivity
   }
 
   @Override
+  public void setIntermediateStopsProgress()
+  {
+    double[] intermediateStopsProgress = Framework.nativeGetIntermediateStopsProgress();
+    mNavigationController.setIntermediateStopsProgress(intermediateStopsProgress);
+  }
+
+  @Override
   public void onStartRouteBuilding()
   {
     if (mRoutingPlanInplaceController == null)
