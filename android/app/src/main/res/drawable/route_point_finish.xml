@@ -1,0 +1,21 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item>
+    <vector
+      android:width="28dp"
+      android:height="28dp"
+      android:viewportWidth="28"
+      android:viewportHeight="28">
+      <path
+        android:pathData="M14,13m-11,0a11,11 0,1 1,22 0a11,11 0,1 1,-22 0"
+        android:strokeWidth="2"
+        android:fillColor="#FF37653F"
+        android:strokeColor="#fff"/>
+    </vector>
+  </item>
+  <item
+    android:width="14dp"
+    android:height="14dp"
+    android:gravity="center"
+    android:drawable="@drawable/ic_then_finish">
+  </item>
+</layer-list>
