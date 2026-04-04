@@ -106,7 +106,7 @@ jobs:
             #also: a failure to download means a failure to build, and could result in no wiki descriptions etc.
             echo "Downloading ..."
             # Optionally override which languages to download:
-            # export LANGUAGES="ar cs de en es fr hr it ko nl pl pt ru th tr uk"
+            export LANGUAGES="ru"
             ./download.sh /home/planet/wikipedia/dumps
             echo "DONE"
             curl -X POST https://comaps.zulipchat.com/api/v1/messages \
