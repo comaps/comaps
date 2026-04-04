@@ -503,6 +503,26 @@ double RoutingSession::GetCompletionPercent() const
   return percent;
 }
 
+std::vector<double> RoutingSession::GetIntermediateStopsProgress() const
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+  ASSERT(m_route, ());
+
+  double totalRouteDistance = m_route->GetTotalDistanceMeters();
+
+  std::vector<double> progressArray;
+
+  for (size_t i = 0; i < (m_route->GetSubrouteCount() - 1); i++)
+  {
+    size_t subrouteEndSegmentIdx = m_route->GetSubrouteAttrs(i).GetEndSegmentIdx();
+    double distanceToSubrouteEndSegment =
+      m_route->GetDistanceFromBeginToSegmentMeters(subrouteEndSegmentIdx);
+    progressArray.push_back(distanceToSubrouteEndSegment * 100.0 / totalRouteDistance);
+  }
+
+  return progressArray;
+}
+
 void RoutingSession::PassCheckpoints()
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());

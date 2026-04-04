@@ -58,6 +58,14 @@ double Route::GetTotalDistanceMeters() const
   return m_poly.GetTotalDistanceMeters();
 }
 
+double Route::GetDistanceFromBeginToSegmentMeters(size_t segIdx) const
+{
+  if (!IsValid())
+    return 0.0;
+
+  return m_routeSegments[segIdx].GetDistFromBeginningMeters();
+}
+
 double Route::GetCurrentDistanceFromBeginMeters() const
 {
   if (!IsValid())

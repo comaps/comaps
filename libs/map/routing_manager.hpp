@@ -303,6 +303,11 @@ public:
 
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
+  std::vector<double> GetIntermediateStopsProgress() const
+  {
+    return m_routingSession.GetIntermediateStopsProgress();
+  }
+
 private:
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);
