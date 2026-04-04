@@ -138,11 +138,15 @@ jobs:
           fi
       - name: Notify Zulip
         run: |
-          MSG="Subways are updated!"
+          RUN_URL="$FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          MSG="Subways are updated! [View run]($RUN_URL)"
           if [ -f "/tmp/validator_out.txt" ]; then
           MSG="$MSG $(cat /tmp/validator_out.txt)"
           fi
-          
+          if [ -f "/tmp/subway_restored_cities.txt" ]; then
+          MSG="$MSG :warning: $(cat /tmp/subway_restored_cities.txt)"
+          fi
+
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \
             -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
             --data-urlencode type=stream \

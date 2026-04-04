@@ -30,6 +30,12 @@ export DUMP="$SUBWAYS_VALIDATOR_PATH"
 export GEOJSON="$SUBWAYS_VALIDATOR_PATH"
 export DUMP_CITY_LIST="$SUBWAYS_VALIDATOR_PATH/cities.txt"
 
+# Back up the last successful subway.json before overwriting it.
+SUBWAY_LAST_GOOD="${MAPSME}.last_good"
+if [ -f "$MAPSME" ]; then
+  cp "$MAPSME" "$SUBWAY_LAST_GOOD"
+fi
+
 # cd to subways repo so relative paths work in the script
 PREVDIR=$(pwd)
 cd "$SUBWAYS_REPO_PATH"
@@ -44,6 +50,15 @@ TRANSIT_TOOL_PATH="$REPO_PATH/tools/python/transit"
 SUBWAYS_GRAPH_FILE="$SUBWAYS_PATH/subways.transit.json"
 
 activate_venv_at_path "$TRANSIT_TOOL_PATH"
+
+# Restore any cities that the validator excluded (marked bad) using the backup.
+if [ -f "$SUBWAY_LAST_GOOD" ]; then
+  SUBWAY_MERGED="${MAPSME}.merged"
+  "$PYTHON" "$TRANSIT_TOOL_PATH/merge_subway_fallback.py" \
+    "$MAPSME" "$SUBWAY_LAST_GOOD" "$SUBWAY_MERGED" 2>&1 | tee -a "$SUBWAYS_LOG"
+  mv "$SUBWAY_MERGED" "$MAPSME"
+fi
+
 "$PYTHON" "$TRANSIT_TOOL_PATH/transit_graph_generator.py" "$MAPSME" "$SUBWAYS_GRAPH_FILE" 2>&1 | tee -a "$SUBWAYS_LOG"
 deactivate
 
