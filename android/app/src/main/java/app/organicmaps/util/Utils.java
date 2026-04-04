@@ -52,6 +52,7 @@ import com.google.android.material.snackbar.Snackbar;
 import java.lang.ref.WeakReference;
 import java.time.LocalTime;
 import java.util.Objects;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
 @Keep
@@ -507,6 +508,14 @@ public class Utils
     return Objects.equals(sourceInstaller, googlePlayID);
   }
 
+  /**
+   * Function to detect whether the current app layout is RTL (Right-To-Left).
+   */
+  public static boolean isRtlLayoutDirection()
+  {
+    return TextUtils.getLayoutDirectionFromLocale(Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL;
+  }
+
   public static String getContactAddress(Context context, Uri contactUri)
   {
     String[] typeData = {ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS};
@@ -518,6 +527,7 @@ public class Utils
     }
     return null;
   }
+
   public static Intent openContactPicker()
   {
     return new Intent(Intent.ACTION_PICK).setType(ContactsContract.CommonDataKinds.StructuredPostal.CONTENT_TYPE);

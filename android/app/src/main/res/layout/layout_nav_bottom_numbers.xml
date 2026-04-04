@@ -61,7 +61,7 @@
         android:id="@+id/eta_icon"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        app:srcCompat="@drawable/route_point_finish"/>
+        app:srcCompat="@drawable/route_finish"/>
 
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/eta_destination"

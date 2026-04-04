@@ -57,6 +57,7 @@ public class RoutingController
      * @param progress progress to be displayed.
      * */
     default void updateBuildProgress(@IntRange(from = 0, to = 100) int progress, Router router) {}
+    default void refreshNavigationController() {}
     default void onStartRouteBuilding() {}
   }
 
@@ -94,6 +95,11 @@ public class RoutingController
       mLastResultCode = resultCode;
       mLastMissingMaps = missingMaps;
       mContainsCachedResult = true;
+
+      // Refresh navigation controller to update intermediate stops
+      // of progress bar in navigation panel.
+      if (mContainer != null)
+        mContainer.refreshNavigationController();
 
       if (mLastResultCode == ResultCodes.NO_ERROR || resultCode == ResultCodes.NEED_MORE_MAPS)
       {
