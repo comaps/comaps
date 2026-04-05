@@ -2,36 +2,62 @@ name: Linux Check
 on:
   workflow_dispatch: # Manual trigger
   push:
+    paths: &paths
+      - 3party/**
+      - configure.sh
+      - cmake/**
+      - '!cmake/windows/**'
+      - CMakeLists.txt
+      - defines.hpp
+      - .forgejo/workflows/linux-check.yaml  # Run check on self change
+      - libs/**
+      - '!**/*_tests/**'
+      - '!libs/platform/*apple*'
+      - '!libs/platform/*_ios*'
+      - '!libs/platform/*_linux*'
+      - '!libs/platform/*_mac*'
+      - '!libs/platform/*_win*'
+      - '!libs/pyhelpers/**'
+      - private.h
+      - qt/**
+      - generator/**
+      - tools/unix/build_omim.sh
+      - tools/unix/run_tests.sh
     branches:
       - main
   pull_request:
-    paths-ignore:
-      - .gitignore
-      - .github/**
-      - '!.github/workflows/linux-check.yaml'  # Run check on self change
-      - CONTRIBUTORS
-      - LICENSE
-      - NOTICE
-      - README.md
-      - android/**
-      - iphone/**
-      - data/*-strings/**
-      - docs/**
-      - packaging/**
-      - libs/platform/*apple*
-      - libs/platform/*_android*
-      - libs/platform/*_ios*
-      - libs/platform/*_mac*
-      - libs/platform/*_win*
-      - libs/pyhelpers/**
-      - tools/**
-      - '!tools/python/test_server/**'
-      - xcode/**
+    paths: *paths
+
+env:
+  SUBMODULE_CACHE_PATHS: |
+    .git/modules
+    3party/CMake-MetalShaderSupport
+    3party/Vulkan-Headers
+    3party/boost
+    3party/expat
+    3party/fast_double_parser
+    3party/fast_obj
+    3party/freetype/freetype
+    3party/gflags
+    3party/glaze
+    3party/glfw
+    3party/glm
+    3party/googletest
+    3party/harfbuzz/harfbuzz
+    3party/icu/icu
+    3party/imgui/imgui
+    3party/jansson/jansson
+    3party/just_gtfs
+    3party/protobuf/protobuf
+    3party/pugixml/pugixml
+    3party/utfcpp
+    tools/kothic
+    tools/osmctools
 
 jobs:
   linux-no-unity:
     name: Linux no unity build
-    runs-on: ubuntu-latest
+    runs-on: comaps-android
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:
       group: ${{ github.workflow }}-no-unity-${{ github.event.pull_request.number || github.ref }}
@@ -43,59 +69,51 @@ jobs:
         with:
           fetch-depth: 100 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
-        shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
 
-      - name: Install build tools and dependencies
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
         run: |
-          apt update -y
-          apt install -y \
-              ninja-build \
-              cmake \
-              libgl1-mesa-dev \
-              libglvnd-dev \
-              libharfbuzz-dev \
-              libxrandr-dev \
-              libxinerama-dev \
-              libxcursor-dev \
-              libxi-dev \
-              qt6-base-dev \
-              libqt6svg6-dev \
-              qt6-positioning-dev \
-              libqt6positioning6-plugins \
-              libqt6positioning6
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-no-unity
 
-      - name: CMake
-        shell: bash
-        env:
-          CC: clang-18
-          CXX: clang++-18
-          CMAKE_C_COMPILER_LAUNCHER: ccache
-          CMAKE_CXX_COMPILER_LAUNCHER: ccache
-        # -g1 should slightly reduce build time.
-        run: |
-          cmake . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug \
-            -DCMAKE_CXX_FLAGS=-g1 -DCMAKE_UNITY_BUILD=OFF
-
       - name: Compile
         shell: bash
-        working-directory: build
-        run: ninja
+        env:
+          CC: clang
+          CXX: clang++
+          CMAKE_C_COMPILER_LAUNCHER: ccache
+          CMAKE_CXX_COMPILER_LAUNCHER: ccache
+          SKIP_MAP_DOWNLOAD: 1
+          # -g1 should slightly reduce build time.
+          CMAKE_C_FLAGS: -g1
+          CMAKE_CXX_FLAGS: -g1
+          CMAKE_CONFIG: -DCMAKE_UNITY_BUILD=OFF
+        run: ./tools/unix/build_omim.sh -d
 
   linux-matrix:
     name: Linux builds and tests
-    runs-on: ubuntu-latest
+    runs-on: comaps-android
     strategy:
       fail-fast: false
       matrix:
-        compiler: [{ CXX: g++-14, CC: gcc-14 }, { CXX: clang++-18, CC: clang-18 }]
+        compiler: [{ CXX: g++, CC: gcc }, { CXX: clang++, CC: clang }]
         CMAKE_BUILD_TYPE: [Debug, RelWithDebInfo]
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:
@@ -105,64 +123,48 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 100 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
-        shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
 
-      - name: Install build tools and dependencies
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
         run: |
-          apt update -y
-          apt install -y \
-              ninja-build \
-              libgl1-mesa-dev \
-              libglvnd-dev \
-              libharfbuzz-dev \
-              libxrandr-dev \
-              libxinerama-dev \
-              libxcursor-dev \
-              libxi-dev \
-              qt6-base-dev \
-              libqt6svg6-dev \
-              qt6-positioning-dev \
-              libqt6positioning6-plugins \
-              libqt6positioning6
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-unity-${{ matrix.compiler.CC }}-${{ matrix.CMAKE_BUILD_TYPE }}
 
-      - name: Configure repository
-        shell: bash
-        env:
-          SKIP_MAP_DOWNLOAD: 1
-          SKIP_GENERATE_SYMBOLS: 1
-          SKIP_GENERATE_DRULES: 1
-        run: ./configure.sh
-
-      - name: CMake
+      - name: Compile
         shell: bash
         env:
           CC: ${{ matrix.compiler.CC }}
           CXX: ${{ matrix.compiler.CXX }}
           CMAKE_C_COMPILER_LAUNCHER: ccache
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
-        # -g1 should slightly reduce build time.
-        run: |
-          echo "Building ${{ matrix.CMAKE_BUILD_TYPE }}"
-          cmake . -B build -G Ninja -DCMAKE_BUILD_TYPE=${{ matrix.CMAKE_BUILD_TYPE }} \
-            -DCMAKE_C_FLAGS=-g1 -DCMAKE_CXX_FLAGS=-g1
-
-      - name: Compile
-        shell: bash
-        working-directory: build
-        run: ninja
+          SKIP_MAP_DOWNLOAD: 1
+          # -g1 should slightly reduce build time.
+          CMAKE_C_FLAGS: -g1
+          CMAKE_CXX_FLAGS: -g1
+        run: ./tools/unix/build_omim.sh -d
 
       - name: Tests
         shell: bash
-        working-directory: build
         env:
           QT_QPA_PLATFORM: "offscreen"
           # generator_integration_tests - https://github.com/organicmaps/organicmaps/issues/225
@@ -182,4 +184,4 @@ jobs:
           locale-gen ru_RU
           locale-gen ru_RU.UTF-8
           update-locale
-          ctest -L "omim-test" -E "$CTEST_EXCLUDE_REGEX" --output-on-failure
+          ./tools/unix/run_tests.sh -b ../omim-build-debug -e "$CTEST_EXCLUDE_REGEX" -s full

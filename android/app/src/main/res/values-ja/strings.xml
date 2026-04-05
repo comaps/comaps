@@ -170,12 +170,8 @@
     <string name="downloading_is_active">ダウンロード中です。</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">CoMaps で私の現在地が見れます！%1$s または %2$s オフラインマップはまだインストールしていないですか？ここからダウンロード： https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">CoMapsでピン情報を確認！</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">CoMapsで現在地を確認！</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">私の現在地はここ: %1$s \n \nリンクをクリックすると詳細がマップに表示されます。 \n \n%2$s \n \n%3$s</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">共有</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -404,13 +400,7 @@
     <string name="editor_example_values">値の例</string>
     <string name="editor_correct_mistake">間違いの訂正</string>
     <string name="editor_add_select_location">場所を選択</string>
-    <string name="editor_report_problem_desription_1">OpenStreetMapコミュニティがエラーを修正できるように、問題の詳細を説明してください。</string>
-    <string name="editor_report_problem_desription_2">または、このURLでご自身で修正してください https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">送信</string>
-    <string name="editor_report_problem_title">問題</string>
-    <string name="editor_report_problem_no_place_title">この場所は存在しません</string>
-    <string name="editor_report_problem_under_construction_title">メンテナンスのため使えません</string>
-    <string name="editor_report_problem_duplicate_place_title">重複している場所</string>
     <string name="autodownload">自動ダウンロード</string>
     <!-- Place Page opening hours text -->
     <string name="daily">毎日</string>

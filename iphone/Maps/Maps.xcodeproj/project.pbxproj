@@ -207,7 +207,6 @@
 		34F742321E0834F400AC1FD6 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34F742301E0834F400AC1FD6 /* UIViewController+Navigation.m */; };
 		34FE5A6F1F18F30F00BCA729 /* TrafficButtonArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE5A6D1F18F30F00BCA729 /* TrafficButtonArea.swift */; };
 		3D15ACEE2155117000F725D5 /* MWMObjectsCategorySelectorDataSource.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3D15ACED2155117000F725D5 /* MWMObjectsCategorySelectorDataSource.mm */; };
-		408645FC21495EB1000A4A1D /* categories_cuisines.txt in Resources */ = {isa = PBXBuildFile; fileRef = 408645FB21495EB1000A4A1D /* categories_cuisines.txt */; };
 		44360A0D2A7D34990016F412 /* TransportRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44360A0C2A7D34990016F412 /* TransportRuler.swift */; };
 		44360A112A7D35440016F412 /* TransportRuler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 44360A102A7D35440016F412 /* TransportRuler.xib */; };
 		4554B6EC1E55F0EF0084017F /* drules_proto_vehicle_light.bin in Resources */ = {isa = PBXBuildFile; fileRef = 4554B6E81E55F02B0084017F /* drules_proto_vehicle_light.bin */; };
@@ -410,7 +409,7 @@
 		999FC12B23ABB4B800B0E6F9 /* FontStyleSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999FC12A23ABB4B800B0E6F9 /* FontStyleSheet.swift */; };
 		99A614E423CDD1D900D8D8D0 /* UIButton+RuntimeAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 99A614E323CDD1D900D8D8D0 /* UIButton+RuntimeAttributes.m */; };
 		99A906DE23F6F7030005872B /* PlacePageEditBookmarkOrTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906CD23F6F7010005872B /* PlacePageEditBookmarkOrTrackViewController.swift */; };
-		99A906E123F6F7030005872B /* PlacePageButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906D023F6F7020005872B /* PlacePageButtonsViewController.swift */; };
+		99A906E123F6F7030005872B /* PlacePageOSMContributionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906D023F6F7020005872B /* PlacePageOSMContributionViewController.swift */; };
 		99A906E523F6F7030005872B /* ActionBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906D423F6F7020005872B /* ActionBarViewController.swift */; };
 		99A906E623F6F7030005872B /* OpeningHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906D523F6F7020005872B /* OpeningHoursViewController.swift */; };
 		99A906E923F6F7030005872B /* WikiDescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A906D823F6F7030005872B /* WikiDescriptionViewController.swift */; };
@@ -1119,7 +1118,6 @@
 		34FE5A6D1F18F30F00BCA729 /* TrafficButtonArea.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrafficButtonArea.swift; sourceTree = "<group>"; };
 		3D15ACED2155117000F725D5 /* MWMObjectsCategorySelectorDataSource.mm */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMObjectsCategorySelectorDataSource.mm; sourceTree = "<group>"; tabWidth = 2; };
 		3D15ACEF2155118800F725D5 /* MWMObjectsCategorySelectorDataSource.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMObjectsCategorySelectorDataSource.h; sourceTree = "<group>"; tabWidth = 2; };
-		408645FB21495EB1000A4A1D /* categories_cuisines.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = categories_cuisines.txt; path = ../../data/categories_cuisines.txt; sourceTree = "<group>"; };
 		44360A0C2A7D34990016F412 /* TransportRuler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportRuler.swift; sourceTree = "<group>"; };
 		44360A102A7D35440016F412 /* TransportRuler.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransportRuler.xib; sourceTree = "<group>"; };
 		451950391B7A3E070085DA05 /* patterns.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = patterns.txt; path = ../../data/patterns.txt; sourceTree = "<group>"; };
@@ -1312,7 +1310,7 @@
 		99A614E223CDD1D900D8D8D0 /* UIButton+RuntimeAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "UIButton+RuntimeAttributes.h"; sourceTree = "<group>"; tabWidth = 2; };
 		99A614E323CDD1D900D8D8D0 /* UIButton+RuntimeAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RuntimeAttributes.m"; sourceTree = "<group>"; tabWidth = 2; };
 		99A906CD23F6F7010005872B /* PlacePageEditBookmarkOrTrackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacePageEditBookmarkOrTrackViewController.swift; sourceTree = "<group>"; };
-		99A906D023F6F7020005872B /* PlacePageButtonsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacePageButtonsViewController.swift; sourceTree = "<group>"; };
+		99A906D023F6F7020005872B /* PlacePageOSMContributionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlacePageOSMContributionViewController.swift; sourceTree = "<group>"; };
 		99A906D423F6F7020005872B /* ActionBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionBarViewController.swift; sourceTree = "<group>"; };
 		99A906D523F6F7020005872B /* OpeningHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningHoursViewController.swift; sourceTree = "<group>"; };
 		99A906D823F6F7030005872B /* WikiDescriptionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WikiDescriptionViewController.swift; sourceTree = "<group>"; };
@@ -3059,7 +3057,7 @@
 				99A906D423F6F7020005872B /* ActionBarViewController.swift */,
 				99A906D523F6F7020005872B /* OpeningHoursViewController.swift */,
 				99A906CD23F6F7010005872B /* PlacePageEditBookmarkOrTrackViewController.swift */,
-				99A906D023F6F7020005872B /* PlacePageButtonsViewController.swift */,
+				99A906D023F6F7020005872B /* PlacePageOSMContributionViewController.swift */,
 				99A906D923F6F7030005872B /* PlacePageInfoViewController.swift */,
 				99A906DC23F6F7030005872B /* PlacePagePreviewViewController.swift */,
 				99A906D823F6F7030005872B /* WikiDescriptionViewController.swift */,
@@ -3944,7 +3942,6 @@
 				165953732CB1D83700CFED7C /* fonts */,
 				165953932CB44B3B00CFED7C /* symbols */,
 				47AEF83F2231249E00D20538 /* categories_brands.txt */,
-				408645FB21495EB1000A4A1D /* categories_cuisines.txt */,
 				FAAFD696139D9BE2000AE70C /* categories.txt */,
 				EE026F0511D6AC0D00645242 /* classificator.txt */,
 				452FCA3A1B6A3DF7007019AB /* colors.txt */,
@@ -4288,7 +4285,6 @@
 				34AB665C1FC5AA330078E451 /* TransportTransitIntermediatePoint.xib in Resources */,
 				F6E2FEE81E097BA00083EBEC /* MWMSearchNoResults.xib in Resources */,
 				34AB660E1FC5AA320078E451 /* NavigationControlView.xib in Resources */,
-				408645FC21495EB1000A4A1D /* categories_cuisines.txt in Resources */,
 				F6E2FF391E097BA00083EBEC /* MWMSearchSuggestionCell.xib in Resources */,
 				34AB66231FC5AA330078E451 /* MWMiPadRoutePreview.xib in Resources */,
 				BB25B1A71FB32767007276FA /* transit_colors.txt in Resources */,
@@ -4661,7 +4657,7 @@
 				996D108A24E3DBF2002DD0E2 /* BookmarksCoordinator.swift in Sources */,
 				3454D7CE1E07F045004AF2AD /* UIFont+MapsMeFonts.m in Sources */,
 				2765D1D02E13F9C20005CA2B /* BridgeControllers.swift in Sources */,
-				99A906E123F6F7030005872B /* PlacePageButtonsViewController.swift in Sources */,
+				99A906E123F6F7030005872B /* PlacePageOSMContributionViewController.swift in Sources */,
 				998927382449E60200260CE2 /* BottomMenuPresenter.swift in Sources */,
 				27697F832E254AA100FBD913 /* EmbeddedSafariView.swift in Sources */,
 				F6E2FE821E097BA00083EBEC /* MWMPlacePageOpeningHoursDayView.m in Sources */,

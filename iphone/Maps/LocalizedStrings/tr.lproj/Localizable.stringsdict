@@ -5,55 +5,87 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Yer imi yok</string>
 			<key>one</key>
-			<string>%d yer imi</string>
+			<string>%lld yer imi</string>
 			<key>other</key>
-			<string>%d yer imleri</string>
+			<string>%lld yer imleri</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>0 dosya bulundu. Dönüştürmeden sonra görebilirsiniz.</string>
 			<key>one</key>
-			<string>%d dosya bulundu. Dönüştürmeden sonra görebilirsiniz.</string>
+			<string>%lld dosya bulundu. Dönüştürmeden sonra görebilirsiniz.</string>
 			<key>other</key>
-			<string>%d dosya bulundu. Dönüştürmeden sonra görebilirsiniz.</string>
+			<string>%lld dosya bulundu. Dönüştürmeden sonra görebilirsiniz.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>0 iz</string>
 			<key>one</key>
-			<string>%d iz</string>
+			<string>%lld iz</string>
 			<key>other</key>
-			<string>%d iz</string>
+			<string>%lld iz</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
 		</dict>
 	</dict>
 </dict>

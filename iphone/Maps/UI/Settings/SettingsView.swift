@@ -8,28 +8,44 @@ struct SettingsView: View {
     @Environment(\.dismiss) private var dismiss
     
     
+    /// If automatic map downloads should be enabled
+    @State private var hasAutomaticDownload: Bool = true
+    
+    
+    /// The selected mobile data policy
+    @State private var selectedMobileDataPolicy: Settings.MobileDataPolicy = .always
+    
+    
+    /// The selected power saving mode
+    @State private var selectedPowerSavingMode: Settings.PowerSavingMode = .never
+    
+    
     /// The selected distance unit
     @State private var selectedDistanceUnit: Settings.DistanceUnit = .metric
     
     
-    /// If zoom buttons should be displayed
-    @State private var hasZoomButtons: Bool = true
+    /// The selected appearance
+    @State private var selectedAppearance: Settings.Appearance = .auto
     
     
     /// The selected left button type
     @State private var selectedLeftButtonType: Settings.LeftButtonType = .help
     
     
-    /// If 3D buildings should be displayed
-    @State private var has3dBuildings: Bool = true
+    /// If zoom buttons should be displayed
+    @State private var hasZoomButtons: Bool = true
     
     
-    /// If automatic map downloads should be enabled
-    @State private var hasAutomaticDownload: Bool = true
+    /// The selected map appearance
+    @State private var selectedMapAppearance: Settings.Appearance = .auto
     
     
     /// If an increased font size should be used for map labels
     @State private var hasIncreasedFontsize: Bool = false
+    
+    
+    /// If 3D buildings should be displayed
+    @State private var has3dBuildings: Bool = true
     
     
     /// The selected language for the map
@@ -44,14 +60,6 @@ struct SettingsView: View {
     @State private var shouldTransliterateToLatin: Bool = false
     
     
-    /// The selected map appearance
-    @State private var selectedMapAppearance: Settings.Appearance = .auto
-    
-    
-    /// The selected appearance
-    @State private var selectedAppearance: Settings.Appearance = .auto
-    
-    
     /// If the bookmarks should be synced via iCloud
     @State private var shouldSync: Bool = false
     
@@ -62,14 +70,6 @@ struct SettingsView: View {
     
     /// If the sync is possible
     @State private var isSyncPossible: Bool = true
-    
-    
-    /// The selected power saving mode
-    @State private var selectedPowerSavingMode: Settings.PowerSavingMode = .never
-    
-    
-    /// The selected mobile data policy
-    @State private var selectedMobileDataPolicy: Settings.MobileDataPolicy = .always
     
     
     /// If our custom logging is enabled
@@ -85,6 +85,8 @@ struct SettingsView: View {
                         ProfileView()
                     } label: {
                         HStack {
+                            Image(systemName: "person.fill")
+                            
                             Text("osm_profile")
                                 .lineLimit(1)
                                 .layoutPriority(2)
@@ -101,6 +103,25 @@ struct SettingsView: View {
                 }
                 
                 Section {
+                    Toggle("autodownload", isOn: $hasAutomaticDownload)
+                        .tint(.accent)
+                    
+                    Picker(selection: $selectedMobileDataPolicy) {
+                        ForEach(Settings.MobileDataPolicy.allCases) { mobileDataPolicy in
+                            Text(mobileDataPolicy.description)
+                        }
+                    } label: {
+                        Text("mobile_data")
+                    }
+                    
+                    Picker(selection: $selectedPowerSavingMode) {
+                        ForEach(Settings.PowerSavingMode.allCases) { powerSavingMode in
+                            Text(powerSavingMode.description)
+                        }
+                    } label: {
+                        Text("power_managment_title")
+                    }
+                    
                     Picker(selection: $selectedDistanceUnit) {
                         ForEach(Settings.DistanceUnit.allCases) { distanceUnit in
                             Text(distanceUnit.description)
@@ -108,9 +129,23 @@ struct SettingsView: View {
                     } label: {
                         Text("measurement_units")
                     }
-                    
-                    Toggle("pref_zoom_title", isOn: $hasZoomButtons)
-                        .tint(.accent)
+                } header: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "gearshape.2")
+                            .imageScale(.small)
+                        
+                        Text("general")
+                    }
+                }
+                
+                Section {
+                    Picker(selection: $selectedAppearance) {
+                        ForEach(Settings.Appearance.allCases) { appearance in
+                            Text(appearance.description)
+                        }
+                    } label: {
+                        Text("pref_appearance_title")
+                    }
                     
                     Picker(selection: $selectedLeftButtonType) {
                         ForEach(Settings.LeftButtonType.allCases) { leftButtonType in
@@ -119,6 +154,29 @@ struct SettingsView: View {
                     } label: {
                         Text("pref_left_button_type")
                     }
+                    
+                    Toggle("pref_zoom_title", isOn: $hasZoomButtons)
+                        .tint(.accent)
+                } header: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "slider.horizontal.below.rectangle")
+                            .imageScale(.small)
+                        
+                        Text("interface")
+                    }
+                }
+                
+                Section {
+                    Picker(selection: $selectedMapAppearance) {
+                        ForEach(Settings.Appearance.allCases) { mapAppearance in
+                            Text(mapAppearance.description)
+                        }
+                    } label: {
+                        Text("pref_mapappearance_title")
+                    }
+                    
+                    Toggle("big_font", isOn: $hasIncreasedFontsize)
+                        .tint(.accent)
                     
                     Toggle(isOn: $has3dBuildings) {
                         VStack(alignment: .leading) {
@@ -133,12 +191,6 @@ struct SettingsView: View {
                     }
                     .tint(.accent)
                     .disabled(selectedPowerSavingMode == .maximum)
-                    
-                    Toggle("autodownload", isOn: $hasAutomaticDownload)
-                        .tint(.accent)
-                    
-                    Toggle("big_font", isOn: $hasIncreasedFontsize)
-                        .tint(.accent)
                     
                     Picker(selection: $selectedLanguageForMap) {
                         ForEach(Settings.availableLanguagesForMap) { languageForMap in
@@ -174,24 +226,33 @@ struct SettingsView: View {
                         Text("transliteration_title")
                     }
                     .tint(.accent)
-                    
-                    Picker(selection: $selectedMapAppearance) {
-                        ForEach(Settings.Appearance.allCases) { mapAppearance in
-                            Text(mapAppearance.description)
-                        }
-                    } label: {
-                        Text("pref_mapappearance_title")
+                } header: {
+                    HStack(spacing: 4) {
+                        Image(systemName: "map")
+                            .imageScale(.small)
+                        
+                        Text("map")
                     }
                 }
                 
-                NavigationLink("prefs_group_route") {
-                    SettingsNavigationView()
+                NavigationLink(destination: SettingsNavigationView()) {
+                    HStack {
+                        Image(systemName: "arrow.up.right.diamond")
+                        
+                        Text("prefs_group_route")
+                            .lineLimit(1)
+                    }
                 }
                 
                 Section {
                     Toggle(isOn: $shouldSync) {
                         VStack(alignment: .leading) {
-                            Text("icloud_sync")
+                            HStack {
+                                Image(systemName: "icloud")
+                                
+                                Text("icloud_sync")
+                                    .lineLimit(1)
+                            }
                             
                             if !isSyncPossible {
                                 Text("icloud_disabled_message")
@@ -238,32 +299,6 @@ struct SettingsView: View {
                 }
                 
                 Section {
-                    Picker(selection: $selectedAppearance) {
-                        ForEach(Settings.Appearance.allCases) { appearance in
-                            Text(appearance.description)
-                        }
-                    } label: {
-                        Text("pref_appearance_title")
-                    }
-                    
-                    Picker(selection: $selectedPowerSavingMode) {
-                        ForEach(Settings.PowerSavingMode.allCases) { powerSavingMode in
-                            Text(powerSavingMode.description)
-                        }
-                    } label: {
-                        Text("power_managment_title")
-                    }
-                    
-                    Picker(selection: $selectedMobileDataPolicy) {
-                        ForEach(Settings.MobileDataPolicy.allCases) { mobileDataPolicy in
-                            Text(mobileDataPolicy.description)
-                        }
-                    } label: {
-                        Text("mobile_data")
-                    }
-                }
-                
-                Section {
                     Toggle(isOn: $isLogging) {
                         VStack(alignment: .leading) {
                             Text("enable_logging")
@@ -284,49 +319,70 @@ struct SettingsView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("close")
+                    if #available(iOS 26, *) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Label("close", systemImage: "xmark")
+                        }
+                        .buttonStyle(.glassProminent)
+                    } else {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("close")
+                        }
                     }
                 }
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())
         .onAppear {
-            selectedDistanceUnit = Settings.distanceUnit
-            hasZoomButtons = Settings.hasZoomButtons
-            selectedLeftButtonType = Settings.leftButtonType
-            has3dBuildings = Settings.has3dBuildings
             hasAutomaticDownload = Settings.hasAutomaticDownload
+            selectedMobileDataPolicy = Settings.mobileDataPolicy
+            selectedPowerSavingMode = Settings.powerSavingMode
+            selectedDistanceUnit = Settings.distanceUnit
+            selectedAppearance = Settings.appearance
+            selectedLeftButtonType = Settings.leftButtonType
+            hasZoomButtons = Settings.hasZoomButtons
+            selectedMapAppearance = Settings.mapAppearance
             hasIncreasedFontsize = Settings.hasIncreasedFontsize
+            has3dBuildings = Settings.has3dBuildings
             selectedLanguageForMap = Settings.languageForMap
             alternativeMapLanguageHandling = Settings.alternativeMapLanguageHandling
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
-            selectedMapAppearance = Settings.mapAppearance
-            selectedAppearance = Settings.appearance
             shouldSync = Settings.shouldSync
-            selectedPowerSavingMode = Settings.powerSavingMode
-            selectedMobileDataPolicy = Settings.mobileDataPolicy
             isLogging = Settings.isLogging
-        }
-        .onChange(of: selectedDistanceUnit) { changedSelectedDistanceUnit in
-            Settings.distanceUnit = changedSelectedDistanceUnit
-        }
-        .onChange(of: hasZoomButtons) { changedHasZoomButtons in
-            Settings.hasZoomButtons = changedHasZoomButtons
-        }
-        .onChange(of: selectedLeftButtonType) { changedSelectedLeftButtonType in
-            Settings.leftButtonType = changedSelectedLeftButtonType
-        }
-        .onChange(of: has3dBuildings) { changedHas3dBuildings in
-            Settings.has3dBuildings = changedHas3dBuildings
         }
         .onChange(of: hasAutomaticDownload) { changedHasAutomaticDownload in
             Settings.hasAutomaticDownload = changedHasAutomaticDownload
         }
+        .onChange(of: selectedMobileDataPolicy) { changedSelectedMobileDataPolicy in
+            Settings.mobileDataPolicy = changedSelectedMobileDataPolicy
+        }
+        .onChange(of: selectedPowerSavingMode) { changedSelectedPowerSavingMode in
+            Settings.powerSavingMode = changedSelectedPowerSavingMode
+        }
+        .onChange(of: selectedDistanceUnit) { changedSelectedDistanceUnit in
+            Settings.distanceUnit = changedSelectedDistanceUnit
+        }
+        .onChange(of: selectedAppearance) { changedSelectedAppearance in
+            Settings.appearance = changedSelectedAppearance
+        }
+        .onChange(of: selectedLeftButtonType) { changedSelectedLeftButtonType in
+            Settings.leftButtonType = changedSelectedLeftButtonType
+        }
+        .onChange(of: hasZoomButtons) { changedHasZoomButtons in
+            Settings.hasZoomButtons = changedHasZoomButtons
+        }
+        .onChange(of: selectedMapAppearance) { changedSelectedMapAppearance in
+            Settings.mapAppearance = changedSelectedMapAppearance
+        }
         .onChange(of: hasIncreasedFontsize) { changedHasIncreasedFontsize in
             Settings.hasIncreasedFontsize = changedHasIncreasedFontsize
+        }
+        .onChange(of: has3dBuildings) { changedHas3dBuildings in
+            Settings.has3dBuildings = changedHas3dBuildings
         }
         .onChange(of: selectedLanguageForMap) { changedSelectedLanguageForMap in
             if let changedSelectedLanguageForMap {
@@ -339,12 +395,6 @@ struct SettingsView: View {
         .onChange(of: shouldTransliterateToLatin) { changedShouldTransliterateToLatin in
             Settings.shouldTransliterateToLatin = changedShouldTransliterateToLatin
         }
-        .onChange(of: selectedMapAppearance) { changedSelectedMapAppearance in
-            Settings.mapAppearance = changedSelectedMapAppearance
-        }
-        .onChange(of: selectedAppearance) { changedSelectedAppearance in
-            Settings.appearance = changedSelectedAppearance
-        }
         .onChange(of: shouldSync) { changedShouldSync in
             if changedShouldSync, !Settings.hasShownSyncBetaAlert {
                 showSyncBetaAlert = true
@@ -352,12 +402,6 @@ struct SettingsView: View {
             } else {
                 Settings.shouldSync = changedShouldSync
             }
-        }
-        .onChange(of: selectedPowerSavingMode) { changedSelectedPowerSavingMode in
-            Settings.powerSavingMode = changedSelectedPowerSavingMode
-        }
-        .onChange(of: selectedMobileDataPolicy) { changedSelectedMobileDataPolicy in
-            Settings.mobileDataPolicy = changedSelectedMobileDataPolicy
         }
         .onChange(of: isLogging) { changedIsLogging in
             Settings.isLogging = changedIsLogging

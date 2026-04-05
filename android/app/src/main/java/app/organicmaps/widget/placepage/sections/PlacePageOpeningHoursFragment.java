@@ -2,9 +2,11 @@ package app.organicmaps.widget.placepage.sections;
 
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,11 +34,10 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
 {
   private View mFrame;
   private MaterialTextView mTodayLabel;
-  private MaterialTextView mTodayOpenTime;
   private RecyclerView mFullWeekOpeningHours;
   private MaterialTextView mLastCheckedDate;
   private PlaceOpeningHoursAdapter mOpeningHoursAdapter;
-
+  private LinearLayout mTodayShiftsLayout;
   private PlacePageViewModel mViewModel;
 
   @Nullable
@@ -54,7 +55,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
     super.onViewCreated(view, savedInstanceState);
     mFrame = view;
     mTodayLabel = view.findViewById(R.id.oh_today_label);
-    mTodayOpenTime = view.findViewById(R.id.oh_today_open_time);
+    mTodayShiftsLayout = view.findViewById(R.id.oh_today_shifts);
     mFullWeekOpeningHours = view.findViewById(R.id.rw__full_opening_hours);
     mLastCheckedDate = view.findViewById(R.id.oh_check_date);
     mOpeningHoursAdapter = new PlaceOpeningHoursAdapter();
@@ -73,22 +74,30 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
       UiUtils.hide(checkDateView);
   }
 
-  private void refreshTodayOpeningHours(String label, String openTime, @ColorInt int color)
+  private void refreshTodayOpeningHours(String label, String[] shifts, @ColorInt int color)
   {
     UiUtils.setTextAndShow(mTodayLabel, label);
-    UiUtils.setTextAndShow(mTodayOpenTime, openTime);
-
     mTodayLabel.setTextColor(color);
-    mTodayOpenTime.setTextColor(color);
+    mTodayShiftsLayout.removeAllViews();
+    mTodayShiftsLayout.setVisibility(View.VISIBLE);
+    for (String shift : shifts)
+    {
+      MaterialTextView tv = new MaterialTextView(requireContext());
+      tv.setText(shift);
+      tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTodayLabel.getTextSize());
+      tv.setTypeface(mTodayLabel.getTypeface());
+      tv.setTextColor(color);
+      tv.setTextAlignment(View.TEXT_ALIGNMENT_VIEW_END);
+      mTodayShiftsLayout.addView(tv);
+    }
   }
 
   private void refreshTodayOpeningHours(String label, @ColorInt int color)
   {
     UiUtils.setTextAndShow(mTodayLabel, label);
-    UiUtils.hide(mTodayOpenTime);
-
     mTodayLabel.setTextColor(color);
-    mTodayOpenTime.setTextColor(color);
+    mTodayShiftsLayout.removeAllViews();
+    mTodayShiftsLayout.setVisibility(View.GONE);
   }
 
   private void refreshOpeningHours(MapObject mapObject)
@@ -131,16 +140,7 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         }
         else
         {
-          if (tt.closedTimespans.length == 0)
-          {
-            refreshTodayOpeningHours(resources.getString(R.string.daily), tt.workingTimespan.toWideString(), color);
-          }
-          else
-          {
-            String openings = TimeFormatUtils.getOpeningHours(tt);
-
-            refreshTodayOpeningHours(resources.getString(R.string.daily), openings, color);
-          }
+          refreshTodayOpeningHours(resources.getString(R.string.daily), TimeFormatUtils.getShiftStrings(tt), color);
         }
         UiUtils.hide(mFullWeekOpeningHours);
       }
@@ -159,21 +159,17 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
           if (tt.containsWeekday(currentDay))
           {
             containsCurrentWeekday = true;
-            String openTime;
+            String[] shifts;
 
             if (tt.isFullday)
             {
-              openTime = resources.getString(R.string.editor_time_allday);
-            }
-            else if (tt.closedTimespans.length == 0)
-            {
-              openTime = tt.workingTimespan.toWideString();
+              shifts = new String[] {resources.getString(R.string.editor_time_allday)};
             }
             else
             {
-              openTime = TimeFormatUtils.getOpeningHours(tt);
+              shifts = TimeFormatUtils.getShiftStrings(tt);
             }
-            refreshTodayOpeningHours(resources.getString(app.organicmaps.sdk.R.string.today), openTime, color);
+            refreshTodayOpeningHours(resources.getString(app.organicmaps.sdk.R.string.today), shifts, color);
             break;
           }
         }

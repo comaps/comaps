@@ -96,7 +96,6 @@
     <string name="editor_time_from">O</string>
     <string name="editor_time_to">I</string>
     <string name="editor_time_open">Ar agor</string>
-    <string name="editor_report_problem_title">Problem</string>
     <string name="daily">Dyddiol</string>
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off">Ar gau</string>
@@ -208,7 +207,6 @@
     <string name="editor_example_values">Gwerthoedd Enghreifftiol</string>
     <string name="editor_correct_mistake">Cywiro gwall</string>
     <string name="editor_add_select_location">Dewis Lleoliad</string>
-    <string name="editor_report_problem_duplicate_place_title">Lleoliad dyblyg</string>
     <string name="day_off_today">Ar gau heddiw</string>
     <string name="logout">Allgofnodi</string>
     <string name="edit_place">Golygu Lle</string>
@@ -304,4 +302,13 @@
     <string name="dialog_routing_location_turn_on">Galluogi gwasanaethau lleoli</string>
     <string name="dialog_routing_change_start">Newid man cychwyn</string>
     <string name="dialog_routing_try_again">Ceisiwch eto</string>
+    <string name="about_proposition_3">• All-lein, cyflym a chryno</string>
+    <string name="download_resources_continue">Mynd i\'r Map</string>
+    <string name="download_country_ask">Lawrlwytho %1$s? (%2$s)</string>
+    <string name="update_country_ask">Diweddaru %1$s? (%2$s)</string>
+    <string name="maps_storage">Cadw mapiau yn</string>
+    <string name="move_maps_error">Gwall wrth symud ffeiliau map</string>
+    <string name="wait_several_minutes">Gall hyn gymryd ychydig funudau. \nArhoswch…</string>
+    <string name="measurement_units_summary">Dewis rhwng milltiroedd a chilomedrau</string>
+    <string name="share_bookmarks_email_subject">Fy Ffefrynnau CoMaps</string>
 </resources>

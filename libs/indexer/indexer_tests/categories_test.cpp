@@ -125,11 +125,6 @@ UNIT_TEST(CategoriesHolder_LoadDefault)
   auto const & categoriesHolder = GetDefaultCategories();
   categoriesHolder.ForEachCategory(count);
   TEST_GREATER(counter, 0, ());
-
-  counter = 0;
-  auto const & cuisineCategoriesHolder = GetDefaultCuisineCategories();
-  cuisineCategoriesHolder.ForEachCategory(count);
-  TEST_GREATER(counter, 0, ());
 }
 
 UNIT_TEST(CategoriesHolder_ForEach)

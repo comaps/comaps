@@ -149,7 +149,7 @@
     <string name="description">Notizen</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Meine CoMaps-Favoriten</string>
-    <string name="share_bookmarks_email_body">Hallo! \n \nIm Anhang sind meine Lesezeichen aus der CoMaps-App. Du kannst sie in CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen. \n \nViel Spaß beim Navigieren mit CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hallo! \n \nIm Anhang sind meine Favoriten aus der CoMaps-App. Du kannst sie in CoMaps öffnen. Wenn du die App nicht installiert hast, kannst du sie unter https://www.comaps.app/de/download/ herunterladen. \n \nViel Spaß beim Navigieren mit CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Favoriten werden geladen</string>
     <!-- Kmz file successful loading -->
@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Die Karte wird jetzt heruntergeladen</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Sieh dir meinen aktuellen Standort auf CoMaps an! %1$s oder %2$s Du hast CoMaps nicht installiert? Lade die App hier herunter: https://www.comaps.app/de/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hey, sieh dir mein Lesezeichen in der CoMaps-App an!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hey, sieh dir meinen aktuellen Standort auf der CoMaps-Karte an!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hi, \n \nich bin gerade hier: %1$s. Klicke den Link %2$s oder %3$s, um den Ort auf der Karte anzuzeigen. \n \nVielen Dank.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Teilen</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -398,13 +394,7 @@
     <string name="editor_example_values">Beispielwerte</string>
     <string name="editor_correct_mistake">Fehler korrigieren</string>
     <string name="editor_add_select_location">Standort auswählen</string>
-    <string name="editor_report_problem_desription_1">Bitte beschreibe das Problem detailliert, damit die OpenStreetMap-Community den Fehler korrigieren kann.</string>
-    <string name="editor_report_problem_desription_2">Oder korrigiere es selbst auf https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Senden</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">Dieser Ort existiert nicht</string>
-    <string name="editor_report_problem_under_construction_title">Wegen Bauarbeiten geschlossen</string>
-    <string name="editor_report_problem_duplicate_place_title">Doppelt vorhanderer Ort</string>
     <string name="autodownload">Automatisch herunterladen</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Täglich</string>
@@ -774,7 +764,7 @@
     <string name="browser_not_available">Webbrowser ist nicht verfügbar</string>
     <string name="volume">Lautstärke</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Alle Orte und Tracks exportieren</string>
+    <string name="bookmarks_export">Alle Favoriten exportieren</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Sprachsynthesesystem-Einstellungen (TTS)</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -844,7 +834,7 @@
     <string name="pref_backup_summary">Backup automatisch in einem Ordner auf deinem Gerät erstellen</string>
     <string name="pref_backup_now_summary">Sicherung sofort erstellen</string>
     <string name="pref_backup_now_summary_ok">Sicherung erfolgreich abgeschlossen</string>
-    <string name="pref_backup_now_summary_empty_lists">Keine Orte und Tracks für ein Backup vorhanden</string>
+    <string name="pref_backup_now_summary_empty_lists">Keine Favoriten für ein Backup vorhanden</string>
     <string name="pref_backup_now_summary_failed">Sicherung fehlgeschlagen</string>
     <string name="pref_backup_now_summary_folder_unavailable">Der Sicherungs-Ordner ist nicht verfügbar</string>
     <string name="pref_backup_location_summary_initial">Bitte wähle zuerst einen Ordner und erteile die Berechtigung</string>
@@ -898,8 +888,8 @@
     <string name="opens_day_at">Öffnet am %1$s um %2$s</string>
     <string name="closes_day_at">Schließt am %1$s um %2$s</string>
     <plurals name="minutes_short">
-        <item quantity="one">(%d min)</item>
-        <item quantity="other">(%d min)</item>
+        <item quantity="one">%d min</item>
+        <item quantity="other">%d min</item>
     </plurals>
     <string name="editor_business_vacant_button">Geschäft steht leer</string>
     <string name="editor_mark_business_vacant_title">Geschäft auf leerstehend setzen</string>
@@ -932,7 +922,6 @@
     <string name="route_needs_rebuild">Route muss neu berechnet werden</string>
     <string name="route_finished">Route beendet</string>
     <string name="not_following_route">Folgt nicht der Route</string>
-    <string name="rebuilding_route">Route wird neu berechnet…</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
     <string name="pref_openexternallinks_title">Links Dritter automatisch öffnen</string>
     <string name="pref_openexternallinks_summary">Links Dritter standardmäßig in CoMaps öffnen</string>
@@ -940,4 +929,11 @@
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Verwende keine Alternativen</string>
     <string name="pref_alt_map_lang_handling_system_order">Systemreihenfolge verwenden</string>
     <string name="pref_alt_map_lang_handling_local_only">Bevorzugen und nur verwenden, wo es lokale Sprache ist</string>
+    <string name="bookmark_share_email_subject">Klick einfach auf diesen Link %1$s oder kopiere die Koordinaten %2$s in deine Karten-App, um den Standort zu sehen.</string>
+    <string name="my_position_share_email">Klick einfach auf diesen Link %1$s oder kopiere diese Koordinaten %2$s in deine Karten-App, um meinen Standort zu sehen.</string>
+    <string name="destination">Ziel</string>
+    <string name="stop">Stopp</string>
+    <string name="route_recalculating">Neuberechnung der Route…</string>
+    <string name="charge_socket_type1_combo">Typ 1 Combo</string>
+    <string name="population">Einwohner: %s</string>
 </resources>

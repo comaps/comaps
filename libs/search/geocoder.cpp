@@ -328,8 +328,6 @@ Geocoder::Geocoder(DataSource const & dataSource, storage::CountryInfoGetter con
   , m_suburbsCache(cancellable)
   , m_localitiesCaches(localitiesCaches)
   , m_hotelsCache(cancellable)
-  , m_foodCache(cancellable)
-  , m_cuisineFilter(m_foodCache)
   , m_cancellable(cancellable)
   , m_citiesBoundaries(citiesBoundaries)
   , m_pivotRectsCache(kPivotRectsCacheSize, m_cancellable, kMaxViewportRadiusM)
@@ -430,8 +428,6 @@ void Geocoder::ClearCaches()
   m_matchersCache.clear();
   m_streetsCache.Clear();
   m_hotelsCache.Clear();
-  m_foodCache.Clear();
-  m_cuisineFilter.ClearCaches();
   m_postcodePointsCache.Clear();
   m_postcodes.Clear();
 }
@@ -657,8 +653,6 @@ void Geocoder::InitBaseContext(BaseContext & ctx)
       ctx.m_features[i] = retrieval.RetrieveAddressFeatures(m_tokenRequests[i]);
     }
   }
-
-  ctx.m_cuisineFilter = m_cuisineFilter.MakeScopedFilter(*m_context, m_params.m_cuisineTypes);
 }
 
 void Geocoder::InitLayer(Model::Type type, TokenRange const & tokenRange, FeaturesLayer & layer)
@@ -1789,9 +1783,6 @@ void Geocoder::EmitResult(BaseContext & ctx, FeatureID const & id, Model::Type t
   // relevant). The least matched fraction for found relevant result is 0.241935, for found vital
   // result is 0.269231.
   if (matchedFraction <= 0.1)
-    return;
-
-  if (ctx.m_cuisineFilter && !ctx.m_cuisineFilter->Matches(id))
     return;
 
   if (m_params.m_tracer)

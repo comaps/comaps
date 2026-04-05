@@ -335,7 +335,6 @@
     <string name="type.cuisine.international">International</string>
     <string name="type.cuisine.irish">Irish</string>
     <string name="type.cuisine.italian">Italian</string>
-    <string name="type.cuisine.italian_pizza">Italian, Pizza</string>
     <string name="type.cuisine.japanese">Japanese</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Korean</string>
@@ -738,12 +737,14 @@
     <string name="type.leisure.sports_centre.sport.baseball">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.basketball">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.beachvolleyball">Sports Centre</string>
+    <string name="type.leisure.sports_centre.sport.boules">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.bowls">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.climbing">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.cricket">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.curling">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.equestrian">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.field_hockey">Sports Centre</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.futsal">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.golf">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.gymnastics">Sports Centre</string>
@@ -1330,6 +1331,7 @@
     <string name="type.shop.agrarian">Agricultural Shop</string>
     <string name="type.shop.antiques">Antiques Shop</string>
     <string name="type.shop.appliance">Appliance Shop</string>
+    <string name="type.shop.water">Water Shop</string>
     <!-- maybe change to Art Gallery for en-US when supported -->
     <string name="type.shop.art">Artwork Shop</string>
     <string name="type.shop.baby_goods">Baby Goods Shop</string>
@@ -1368,6 +1370,7 @@
     <string name="type.sport.baseball">Baseball</string>
     <string name="type.sport.basketball">Basketball</string>
     <string name="type.sport.beachvolleyball">Beach Volleyball</string>
+    <string name="type.sport.boules">Boules</string>
     <string name="type.sport.bowls">Bowls</string>
     <string name="type.sport.chess">Chess</string>
     <string name="type.sport.climbing">Climbing</string>
@@ -1377,6 +1380,7 @@
     <string name="type.sport.diving">High Diving</string>
     <string name="type.sport.equestrian">Equestrian Sports</string>
     <string name="type.sport.field_hockey">Field Hockey</string>
+    <string name="type.sport.four_square">Four Square</string>    
     <string name="type.sport.futsal">Futsal</string>
     <string name="type.sport.golf">Golf</string>
     <string name="type.sport.gymnastics">Gymnastics</string>
@@ -1405,13 +1409,14 @@
     <string name="type.tourism.artwork.painting">Painting</string>
     <string name="type.tourism.artwork.sculpture">Sculpture</string>
     <string name="type.tourism.artwork.statue">Statue</string>
-    <string name="type.tourism.attraction">Attraction</string>
+    <string name="type.tourism.attraction">Tourist Attraction</string>
+    <string name="type.attraction">Attraction</string>
     <string name="type.attraction.amusement_ride">Amusement Ride</string>
     <string name="type.attraction.animal">Animal Enclosure</string>
     <string name="type.attraction.bumper_car">Bumper Car</string>
     <string name="type.attraction.big_wheel">Big Wheel</string>
     <string name="type.attraction.carousel">Carousel</string>
-    <string name="type.attraction.historic">Historic attraction</string>
+    <string name="type.attraction.historic">Historic Attraction</string>
     <string name="type.attraction.maze">Maze</string>
     <string name="type.attraction.roller_coaster">Roller Coaster</string>
     <string name="type.attraction.water_slide">Water Slide</string>

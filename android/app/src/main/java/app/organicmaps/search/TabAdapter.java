@@ -2,22 +2,21 @@ package app.organicmaps.search;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.SparseArray;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.Graphics;
 import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 import java.util.ArrayList;
 import java.util.List;
 
-class TabAdapter extends FragmentPagerAdapter
+class TabAdapter extends FragmentStateAdapter
 {
   enum Tab
   {
@@ -58,82 +57,26 @@ class TabAdapter extends FragmentPagerAdapter
     void onTabSelected(@NonNull Tab tab);
   }
 
-  private class PageChangedListener extends TabLayout.TabLayoutOnPageChangeListener
-  {
-    PageChangedListener(TabLayout tabs)
-    {
-      super(tabs);
-    }
-
-    @Override
-    public void onPageSelected(int position)
-    {
-      super.onPageSelected(position);
-      if (mTabSelectedListener != null)
-        mTabSelectedListener.onTabSelected(Tab.values()[position]);
-    }
-  }
-
-  private static class OnTabSelectedListenerForViewPager extends TabLayout.ViewPagerOnTabSelectedListener
-  {
-    @NonNull
-    private final Context mContext;
-
-    OnTabSelectedListenerForViewPager(ViewPager viewPager)
-    {
-      super(viewPager);
-      mContext = viewPager.getContext();
-    }
-
-    @Override
-    public void onTabSelected(TabLayout.Tab tab)
-    {
-      SharedPreferences.Editor editor = MwmApplication.prefs(mContext).edit();
-      editor.putInt(Config.KEY_PREF_LAST_SEARCHED_TAB, tab.getPosition());
-      editor.apply();
-      super.onTabSelected(tab);
-      Graphics.tint(mContext, tab.getIcon(), com.google.android.material.R.attr.colorSecondary);
-    }
-
-    @Override
-    public void onTabUnselected(TabLayout.Tab tab)
-    {
-      super.onTabUnselected(tab);
-      Graphics.tint(mContext, tab.getIcon());
-    }
-  }
-
-  private final ViewPager mPager;
-  private final List<Class<? extends Fragment>> mClasses = new ArrayList<>();
-  private final SparseArray<Fragment> mFragments = new SparseArray<>();
+  private final ViewPager2 mPager;
+  private final List<Tab> mTabs_list = new ArrayList<>();
+  private final Context mContext;
   private OnTabSelectedListener mTabSelectedListener;
   private final TabLayout mTabs;
-  TabAdapter(FragmentManager fragmentManager, ViewPager pager, TabLayout tabs)
+  private final Fragment mFragment;
+  TabAdapter(@NonNull Fragment fragment, ViewPager2 pager, TabLayout tabs)
   {
-    super(fragmentManager);
+    super(fragment);
+    this.mFragment = fragment;
+    this.mPager = pager;
+    this.mContext = pager.getContext();
     this.mTabs = tabs;
     for (Tab tab : Tab.values())
     {
-      if (tab == tab.HISTORY && !Config.isSearchHistoryEnabled())
+      if (tab == Tab.HISTORY && !Config.isSearchHistoryEnabled())
         continue;
-      mClasses.add(tab.getFragmentClass());
-    }
-    final List<Fragment> fragments = fragmentManager.getFragments();
-    if (fragments != null)
-    {
-      // Recollect already attached fragments
-      for (Fragment f : fragments)
-      {
-        if (f == null)
-          continue;
-
-        final int idx = mClasses.indexOf(f.getClass());
-        if (idx > -1)
-          mFragments.put(idx, f);
-      }
+      mTabs_list.add(tab);
     }
 
-    mPager = pager;
     mPager.setAdapter(this);
     if (mTabs.getVisibility() != View.GONE)
       attachTo(tabs);
@@ -141,19 +84,35 @@ class TabAdapter extends FragmentPagerAdapter
 
   private void attachTo(TabLayout tabs)
   {
-    for (Tab tab : Tab.values())
-    {
-      TabLayout.Tab t = tabs.newTab();
-      t.setText(tab.getTitleRes());
-      tabs.addTab(t, false);
-    }
+    new TabLayoutMediator(tabs, mPager, (tab, position) ->
+      tab.setText(mTabs_list.get(position).getTitleRes())).attach();
 
-    ViewPager.OnPageChangeListener listener = new PageChangedListener(tabs);
-    mPager.addOnPageChangeListener(listener);
-    tabs.addOnTabSelectedListener(new OnTabSelectedListenerForViewPager(mPager));
+    tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+      @Override
+      public void onTabSelected(TabLayout.Tab tab)
+      {
+        SharedPreferences.Editor editor = MwmApplication.prefs(mContext).edit();
+        editor.putInt(Config.KEY_PREF_LAST_SEARCHED_TAB, tab.getPosition());
+        editor.apply();
+        if (tab.getIcon() != null)
+          Graphics.tint(mContext, tab.getIcon(), com.google.android.material.R.attr.colorSecondary);
+        if (mTabSelectedListener != null)
+          mTabSelectedListener.onTabSelected(mTabs_list.get(tab.getPosition()));
+      }
+      @Override
+      public void onTabUnselected(TabLayout.Tab tab)
+      {
+        if (tab.getIcon() != null)
+          Graphics.tint(mContext, tab.getIcon());
+      }
+      @Override
+      public void onTabReselected(TabLayout.Tab tab)
+      {}
+    });
+
     SharedPreferences preferences = MwmApplication.prefs(mPager.getContext());
     int lastSelectedTabPosition = preferences.getInt(Config.KEY_PREF_LAST_SEARCHED_TAB, 0);
-    listener.onPageSelected(lastSelectedTabPosition);
+    mPager.setCurrentItem(lastSelectedTabPosition, false);
   }
 
   void setTabSelectedListener(OnTabSelectedListener listener)
@@ -161,30 +120,17 @@ class TabAdapter extends FragmentPagerAdapter
     mTabSelectedListener = listener;
   }
 
+  @NonNull
   @Override
-  public Fragment getItem(int position)
+  public Fragment createFragment(int position)
   {
-    Fragment res = mFragments.get(position);
-    if (res == null || res.getClass() != mClasses.get(position))
-    {
-      // noinspection TryWithIdenticalCatches
-      try
-      {
-        res = mClasses.get(position).newInstance();
-        mFragments.put(position, res);
-      }
-      catch (InstantiationException ignored)
-      {}
-      catch (IllegalAccessException ignored)
-      {}
-    }
-
-    return res;
+    return mFragment.getChildFragmentManager().getFragmentFactory().instantiate(mContext.getClassLoader(),
+                                                   mTabs_list.get(position).getFragmentClass().getName());
   }
 
   @Override
-  public int getCount()
+  public int getItemCount()
   {
-    return mClasses.size();
+    return mTabs_list.size();
   }
 }

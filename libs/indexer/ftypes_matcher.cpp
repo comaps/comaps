@@ -2,6 +2,7 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"
@@ -177,6 +178,19 @@ bool BaseChecker::operator()(vector<uint32_t> const & types) const
       return true;
 
   return false;
+}
+
+IsNeverMainTypeChecker::IsNeverMainTypeChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"hwtag"}));
+  m_types.push_back(c.GetTypeByPath({"psurface"}));
+  m_types.push_back(c.GetTypeByPath({"fee"}));
+  m_types.push_back(c.GetTypeByPath({"organic"}));
+  m_types.push_back(c.GetTypeByPath({"wheelchair"}));
+  m_types.push_back(c.GetTypeByPath({"building", "has_parts"}));
+  for (auto const subtype : ftypes::Subtypes::Instance().AllSubtypes())
+    m_types.push_back(subtype);
 }
 
 IsPeakChecker::IsPeakChecker()
@@ -442,8 +456,7 @@ OneLevelPOIChecker::OneLevelPOIChecker() : ftypes::BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
 
-  for (auto const * path : {"amenity", "craft", "emergency", "healthcare", "historic", "leisure", "mountain_pass",
-                            "office", "railway", "shop", "sport", "tourism"})
+  for (auto const * path : {"amenity", "attraction", "craft", "emergency", "healthcare", "historic", "leisure", "mountain_pass", "office", "railway", "shop", "sport", "tourism"})
     m_types.push_back(c.GetTypeByPath({path}));
 }
 
@@ -496,7 +509,13 @@ IsCheckDateChecker::IsCheckDateChecker() : BaseChecker(1 /* level */)
     m_types.push_back(c.GetTypeByPath({path}));
 }
 
-AttractionsChecker::AttractionsChecker() : BaseChecker(2 /* level */)
+IsTourismAttractionChecker::IsTourismAttractionChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"tourism", "attraction"}));
+}
+
+IsPartOfTourismAttractionsChecker::IsPartOfTourismAttractionsChecker() : BaseChecker(2 /* level */)
 {
   base::StringIL const primaryAttractionTypes[] = {
       {"amenity", "arts_centre"},
@@ -571,7 +590,7 @@ AttractionsChecker::AttractionsChecker() : BaseChecker(2 /* level */)
   sort(m_types.begin() + m_additionalTypesStart, m_types.end());
 }
 
-uint32_t AttractionsChecker::GetBestType(FeatureParams::Types const & types) const
+uint32_t IsPartOfTourismAttractionsChecker::GetBestType(FeatureParams::Types const & types) const
 {
   auto additionalType = ftype::GetEmptyValue();
   auto const itAdditional = m_types.begin() + m_additionalTypesStart;
@@ -690,6 +709,12 @@ IsEatChecker::IsEatChecker()
 //   return IsEatChecker::Type::Count;
 // }
 
+IsDisusedBusiness::IsDisusedBusiness() : BaseChecker(1 /* level */)
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"disusedbusiness"}));
+}
+
 IsCuisineChecker::IsCuisineChecker() : BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
@@ -735,6 +760,53 @@ IsChristmasChecker::IsChristmasChecker()
 {
   Classificator const & c = classif();
   m_types.push_back(c.GetTypeByPath({"xmas", "tree"}));
+}
+
+IsNationalCuisineChecker::IsNationalCuisineChecker()
+{
+  Classificator const & c = classif();
+  m_types.push_back(c.GetTypeByPath({"cuisine", "vietnamese"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "turkish"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "thai"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "spanish"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "russian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "portuguese"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "polish"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "peruvian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "persian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "oriental"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "moroccan"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "mexican"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "mediterranean"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "malaysian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "malagasy"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "lebanese"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "lao"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "korean"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "japanese"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "italian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "irish"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "indonesian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "indian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "hungarian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "greek"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "german"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "georgian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "french"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "filipino"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "ethiopian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "croatian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "chinese"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "caribbean"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "brazilian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "bavarian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "balkan"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "asian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "austrian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "argentinian"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "arab"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "american"}));
+  m_types.push_back(c.GetTypeByPath({"cuisine", "african"}));
 }
 
 IsMotorwayJunctionChecker::IsMotorwayJunctionChecker()

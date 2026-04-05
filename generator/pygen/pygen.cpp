@@ -20,6 +20,7 @@
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
+#include "base/localisation.hpp"
 #include "base/logging.hpp"
 
 #include "pyhelpers/module_version.hpp"
@@ -79,7 +80,7 @@ public:
   {
     bp::dict mnames;
     auto const & name = m_feature->GetNames();
-    name.ForEach([&](auto code, auto && str) { mnames[StringUtf8Multilang::GetLangByCode(code)] = str; });
+    name.ForEach([&](auto code, auto && str) { mnames[localisation::GetLanguageNameByLanguageIndex(code)] = str; });
 
     return mnames;
   }

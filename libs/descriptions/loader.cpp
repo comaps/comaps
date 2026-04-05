@@ -8,7 +8,7 @@
 
 namespace descriptions
 {
-std::string Loader::GetWikiDescription(FeatureID const & featureId, std::vector<int8_t> const & langPriority)
+std::string Loader::GetWikiDescription(FeatureID const & featureId, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
 {
   auto const handle = m_dataSource.GetMwmHandleById(featureId.m_mwmId);
 
@@ -31,6 +31,6 @@ std::string Loader::GetWikiDescription(FeatureID const & featureId, std::vector<
   auto readerPtr = value.m_cont.GetReader(DESCRIPTIONS_FILE_TAG);
 
   std::lock_guard<std::mutex> lock(entry->m_mutex);
-  return entry->m_deserializer.Deserialize(*readerPtr.GetPtr(), featureId.m_index, langPriority);
+  return entry->m_deserializer.Deserialize(*readerPtr.GetPtr(), featureId.m_index, prioritizedLanguageIndexes);
 }
 }  // namespace descriptions

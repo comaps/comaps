@@ -1,266 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "وازدن";
-
 /* Button which interrupts country download */
 "cancel_download" = "وازدن بارگیری";
-
 /* Button which deletes downloaded country */
 "delete" = "سِتُردن";
 "download_maps" = "بارگیری نقشه‌ها";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "بارگیری می‌شود…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Offline Maps";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "کیلومتر";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "نظر خود را بیان کنید";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "مایل";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "ایستار من";
-
 /* Update maps later button text */
 "later" = "بعدًا";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "جستجو";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "بله";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "نمایش بر روی نقشه";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "دانلود نقشه";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "بارگیری ناکام بود";
-
+/* Text in About screen */
+"about_headline" = "پروژه‌ای باز نیرو گرفته از انجمن";
 /* Text in About screen */
 "about_proposition_1" = "آفلاین، سریع و آسان برای استفاده";
-
 /* Text in About screen */
 "about_proposition_2" = "متمرکز بر حریم خصوصی و بدون تبلیغات";
+/* Text in About screen */
+"about_proposition_3" = "شفاف و نه برای سود";
 "close" = "بستن";
 "download" = "بارگیری";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "ادامه";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "افزودن پهرستی نو";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "نام پهرست نشانگ‌ها";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Bookmark Lists";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "نشانگ‌ها";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "نشانه‌ها و مسیر ها";
-
 /* Default bookmark list name */
 "core_my_places" = "گیاگ‌های من";
-
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "نشانی";
-
 /* Settings button in system menu */
 "settings" = "تنظیمات";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "یکا‌ی اندازه‌گیری";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "کجا غذا بخوریم";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "عطاری";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "حمل و نقل";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "سوخت";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "پارکینگ";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "خرید";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "دست دوم";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "هتل";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "منظره";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "سرگرمی";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "خود‌پرداز";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "تفریحات شبانه";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "تعطیلات خانوادگی";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "بانک";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "داروخانه";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "بیمارستان";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "توالت";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "صندوق پست";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "پلیس";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "وای‌فای";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "بازیافت";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "آب";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "RV برای";
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
-
 /* message title of loading file */
 "load_kmz_title" = "بارگذاری نشانگ‌ها";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "نشانه‌ها با موفقیت بارگذاری شد!شما می توانید آنها را در نقشه یا بخش مدیریت نشانه‌ها بیابید.";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "بارگذاری نشانه‌ها با شکست مواجه شد.ممکن است فایل آسیب دیده یا معیوب باشد.";
-
 /* resource for context menu */
 "edit" = "ویرایش";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "مکان شما هنوز مشخص نشده است";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Hey, check out my pin in CoMaps!";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Hey, check out my current location on the CoMaps map!";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "ایمیل";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "رونوشت در بریده‌دان";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "کپی در کلیپ‌برد: %@";
-
 /* place preview title */
 "info" = "اطلاعات";
-
 /* Used for bookmark editing */
 "done" = "انجام شد";
-
 /* Prints version number in About dialog */
 "version" = "نسخه CoMaps: %@";
 "version %@ (%@)" = "نسخه %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "نسخه: %@ (%@)\nداده‌های نقشه: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "مسیر";
-
 /* Length of track in cell that describes route */
 "length" = "طول";
 "share_my_location" = "به اشتراک گذاری موقعیت مکانی من";
 "prefs_group_route" = "مسیریابی";
 "pref_zoom_title" = "دکمه‌های بزرگنمایی";
 "pref_left_button_type" = "Left Main Button";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "زبان نقشه";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "زبان محلی";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "ظاهر نقشه";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "ظاهری";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "نور";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "تاریک";
-
 /* Generic «Disabled» string */
 "disabled" = "Disabled";
-
 /* Generic «Off» string */
 "off" = "خاموش";
-
 /* Generic «On» string */
 "on" = "روشن";
-
 /* Generic «Auto» string */
 "auto" = "خودکار";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "نمای چشم انداز";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "ساختمان‌های سه بعدی";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "ساختمان های سه بعدی در حالت صرفه جویی در مصرف برق خاموش می شوند";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "دستور العمل صوتی";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Enable Voice Instructions";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "نام خیابان ها را اعلام کنید";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "وقتی فعال باشد، نام خیابان یا خروجی که باید به آن بپیچید با صدای بلند گفته می شود.";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "زبان صوت";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "تست دستورالعمل های صوتی";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "بیشتر";
 "pref_map_auto_zoom" = "بزرگنمایی خودکار";
 "placepage_distance" = "مسافت";
 "search_show_on_map" = "مشاهده بر روی نقشه";
-
 /* Text in menu */
 "website" = "وب سایت";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "اخبار";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "ماستودون";
@@ -269,166 +199,114 @@
 "social_bluesky" = "بلواسکای";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "ایمیل";
-
 /* Text in the editor */
 "fediverse" = "ماستودون";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X (Twitter)";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "بلواسکای";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "تصویر Panoramax";
-
 /* Text in menu */
 "rate_the_app" = "امتیاز به این اپلیکیشن";
-
 /* Text in menu */
 "help" = "کمک";
-
 /* Button in the main Help dialog */
 "faq" = "پرسش‌های زیاد پرسیده شده";
-
 /* Button in the main menu */
 "donate" = "حمایت مالی";
-
 /* Button in the main Help dialog */
 "copyright" = "حق نشر و کپی رایت";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "گزارش خطا";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "داده های نقشه نادرست را گزارش یا اصلاح کنید";
-
 /* Button in the About screen */
 "volunteer" = "داوطلب شدن";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "ارتباط با ما";
-
 /* Alert text */
 "email_error_body" = "کلاینت ایمیل شما پیکربندی نشده است.لطفا آن را پیکربندی کنید یا از طریق دیگر با ما تماس بگیرید %@";
-
 /* Alert title */
 "email_error_title" = "خطا در ارسال ایمیل";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "دوباره روی نقشه ضربه طولانی بزنید تا رابط کاربری را ببینید";
-
 /* Update all button text */
 "downloader_update_all_button" = "آپدیت همه";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "دانلود شده";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "موجود";
-
 /* Country queued for download */
 "downloader_queued" = "صف";
 "downloader_near_me_subtitle" = "نزدیک من";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "نقشه‌ها";
 "downloader_download_all_button" = "بارگیری همه";
 "downloader_downloading" = "بارگیری می‌شود:";
 "downloader_search_results" = "یافت شد";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "بروزرسانی";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "ناکام بود";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "برای سِتُردن نقشه لطفا مسیر‌یابی را بایستانید.";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "تنها مسیر‌هایی می توانند ایجاد شوند که به طور کامل در یک نقشه از یک منطقه واحد قرار داشته باشند.";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "بارگیری نقشه";
-
 /* Item status in downloader. */
 "downloader_retry" = "تلاش دوباره";
-
 /* Item in context menu. */
 "downloader_delete_map" = "ستردن نقشه";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "دانلود تمامی نقشه‌ها در طول مسیر‌تان";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "به منظور ایجاد مسیر ما نیاز داریم تا تمامی نقشه‌های شما از مبدا تا مقصد را بروزرسانی کنیم.";
-
 /* bookmark button text */
 "bookmark" = "نشانه‌ها";
 "save" = "ذخیره";
 "create" = "ساختن";
-
 /* red color */
 "red" = "قرمز";
-
 /* yellow color */
 "yellow" = "زرد";
-
 /* blue color */
 "blue" = "آبی";
-
 /* green color */
 "green" = "سبز";
-
 /* purple color */
 "purple" = "بنفش";
-
 /* orange color */
 "orange" = "نارنجی";
-
 /* brown color */
 "brown" = "قهوای";
-
 /* pink color */
 "pink" = "صورتی";
-
 /* deep purple color */
 "deep_purple" = "ارغوانی سیر";
-
 /* light blue color */
 "light_blue" = "آبی کم‌رنگ";
-
 /* cyan color */
 "cyan" = "فیروزه‌ای";
-
 /* teal color */
 "teal" = "سبز دودی";
-
 /* lime color */
 "lime" = "زرد لیمویی";
-
 /* deep orange color */
 "deep_orange" = "نارنجی سیر";
-
 /* gray color */
 "gray" = "خاکستری";
-
 /* blue gray color */
 "blue_gray" = "خاکستری کبود";
 "dialog_routing_disclaimer_title" = "زمانی که مسیری را دنبال می کنید لطفا به یاد داشته باشید:";
@@ -459,34 +337,26 @@
 "dialog_routing_try_again" = "لطفا دوباره تلاش کنید";
 "dialog_routing_download_and_build_cross_route" = "ایا مایل به دانلود نقشه و ایجاد مسیر‌های بهینه بیشتری که نقشه‌های بیشتری را پوشش میدهد هستید؟";
 "dialog_routing_download_cross_route" = "دانلود نقشه‌های اضافی برای ایجاد مسیری بهتر که حاشیه‌های این نقشه را رد می کند.";
-
 /* «Show» context menu */
 "show" = "نمایش";
-
 /* «Hide» context menu */
 "hide" = "پنهان کردن";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "برنامه ریزی مسیر ناموفق";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "ورود به: %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
 "categories" = "دسته‌بندی‌ها";
 "history" = "پیشینه";
 "search_not_found" = "متأسفانه چیزی پیدا نشد.";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "منطقه ای را که در آن جستجو می کنید دانلود کنید یا نام شهر/ روستای اطراف را اضافه کنید.";
 "search_history_title" = "سوابق جستجو";
 "search_history_text" = "مشاهده جستجو‌های اخیر.";
 "clear_search" = "پاک کردن سابقه جستجوها";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "ویکی پدیا";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "ویکی‌انبار";
 "p2p_your_location" = "موقعیت شما";
@@ -497,7 +367,6 @@
 "p2p_reroute_from_current" = "آیا می خواهید یک مسیر را از موقعیت فعلیتان برنامه ریزی کنیم؟";
 "editor_time_add" = "اضافه کردن برنامه ریزی";
 "editor_time_delete" = "ستردن برنامه‌ریزی";
-
 /* Text for allday switch. */
 "editor_time_allday" = "شبانه‌روزی (۲۴ ساعته)";
 "editor_time_open" = "باز";
@@ -513,10 +382,16 @@
 "share_with_friends" = "همرسانی به دوستان";
 "editor_report_problem_send_button" = "فرستادن";
 "autodownload" = "بارگیری خودکار نقشه‌ها";
-
+/* Voice */
+"voice" = "صدا";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Unknown";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Existence confirmed %@";
+"hours_confirmed_time_ago" = "Confirmed %@";
 /* Place Page opening hours text */
 "closed_now" = "اکنون تعطیل است";
-
 /* Place Page opening hours text */
 "daily" = "روزانه";
 "twentyfour_seven" = "شبانه روزی";
@@ -531,13 +406,11 @@
 "closes_in" = "Closes in %@";
 "closed" = "تعطیل";
 "add_opening_hours" = "اضافه کردن ساعت بازگشایی";
-
 /* OpenStreetMap */
 "osm_mapdata" = "داده‌های نقشه از OpenStreetMap";
 "osm_mapdata_explanation %@" = "داده های نقشه ایجاد شده توسط انجمن از *%@*. درباره نحوه ویرایش و به روز رسانی نقشه در [OpenStreetMap.org](https://openstreetmap.org) بیشتر بیاموزید.";
 "osm_more_about" = "در مورد OpenStreetMap بیشتر بدانید";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Fa:About_OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "OpenStreetMap نمایه";
 "osm_profile_promt" = "یک حساب OpenStreetMap ایجاد کنید یا وارد شوید تا ویرایش های نقشه خود را در جهان منتشر کنید.";
@@ -550,20 +423,19 @@
 "osm_profile_register_promt" = "آیا حساب OpenStreetMap ندارید؟";
 "osm_profile_register" = "ثبت نام در OpenStreetMap";
 "osm_profile_verfied_changes" = "تغییرات تایید شد";
+"osm_profile_view_edit_history" = "مشاهده تاریخچه ویرایش‌ها";
+"osm_profile_view_notes" = "مشاهده یادداشت‌ها";
 "osm_profile_logout" = "خروج از حساب کاربری OpenStreetMap";
 "osm_profile_delete" = "ستردن حساب کاربری OpenStreetMap";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "اخرین بروزرسانی";
 "thank_you" = "متشکریم";
 "edit_place" = "ویرایش مکان";
 "place_name" = "نام مکان";
 "add_language" = "افزودن یک زبان";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "شماره ساختمان";
 "details" = "جزئیات";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "اضافه کردن خیابان";
 "choose_language" = "انتخاب یک زبان";
@@ -571,7 +443,6 @@
 "postal_code" = "کد پستی";
 "cuisine" = "غذا‌خوری";
 "select_cuisine" = "انتخاب غذاخوری";
-
 /* login text field */
 "email_or_username" = "ایمیل یا نام کاربری";
 "phone" = "تلفن";
@@ -592,40 +463,33 @@
 "editor_edit_place_title" = "درحال ویرایش";
 "editor_add_place_title" = "درحال افزودن";
 "editor_edit_place_name_hint" = "نام مکان";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "همانطور که به زبان محلی نوشته شده است";
 "editor_edit_place_category_title" = "دسته بندی";
 "whatsnew_editor_message_1" = "اضافه کردن مکان به نقشه و ویرایش آن مستقیما از طریق این اپلیکیشن.";
 "dialog_incorrect_feature_position" = "تغییر موقعیت";
 "message_invalid_feature_position" = "نمی توان شی ای در این مکان باشد";
-
 /* Error dialog no space */
 "migration_no_space_message" = "برای بارگیری، شما نیازمند فضای ذخیره سازی بیشتری هستید.لطفا داده‌های غیر ضروری را بستردانید.";
 "editor_sharing_title" = "من نقشه‌های CoMaps را بهبود بخشیدم";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d از %2$d";
 "download_over_mobile_header" = "دانلود بر روی یک شبکه دیتای موبایل؟";
 "download_over_mobile_message" = "این کار می تواند برای شما در بعضی طرح‌ها و یا حالت رومینگ هزینه اضافی در بر داشته باشد.";
 "error_enter_correct_house_number" = "وارد کردن شماره ساختمان معتبر";
 "editor_storey_number" = "تعداد طبقات ( حداکثر %d )";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "تعداد طبقات نباید بیش از %d باشد";
 "editor_zip_code" = "کد پستی";
 "error_enter_correct_zip_code" = "یک کد‌ پستی معتبر وارد کنید";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "خَجَک نقشه";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "توجه به داوطلبان OpenStreetMap (اختیاری)";
 "editor_detailed_description_hint" = "اظهار نظر بیشتر";
 "editor_detailed_description" = "شما یک سری تغییرات در نقشه را برای انجمن OpenStreetMap ارسال کردید.جزئیات اضافی را که نتوانستید در CoMaps ویرایش کنید را برایشان بنویسید.";
 "editor_more_about_osm" = "در مورد OpenStreetMap بیشتر بدانید";
 "editor_operator" = "اپراتور";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "اپراتور: %@";
 "editor_category_unsuitable_title" = "آیا نمی توانید یک دسته بندی مناسب پیدا کنید؟";
@@ -638,26 +502,20 @@
 "location_services_disabled_message" = "سرویس موقعیت مکانی خود را در بخش تنظیمات فعال کنید";
 "location_services_disabled_1" = "1. بازکردن تنظیمات";
 "location_services_disabled_2" = "2. Tap Location";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. Select While Using the App";
 "location_services_disabled_on_device_2" = "2. Privacy را انتخاب کنید";
 "location_services_disabled_on_device_3" = "3. Location Services را انتخاب کنید";
 "location_services_disabled_on_device_4" = "4. Location Services را روشن کنید";
 "location_services_disabled_on_device_additional_message" = "یا به استفاده از CoMaps بدون موقعیت مکانی ادامه دهید";
-
 /* abbreviation for meters */
 "m" = "متر";
-
 /* abbreviation for kilometers */
 "km" = "کیلومتر";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "کیلومتربرساعت (km/h)";
-
 /* abbreviation for mile(s) */
 "mi" = "مایل";
-
 /* A unit of measure */
 "ft" = "پای";
 "miles_per_hour" = "مایل بر ساعت (mph)";
@@ -678,35 +536,29 @@
 "editor_remove_place_message" = "آیا گیاگ ثبت شده سترده شود؟";
 "editor_remove_place_button" = "ستردن";
 "editor_place_doesnt_exist" = "مکان وجود ندارد";
+"editor_place_doesnt_exist_description" = "Describe what the place looks like now to send an error note to the OpenStreetMap community";
 "text_more_button" = "بیشتر…";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "شماره تلفن معتبری وارد نمایید";
 "error_enter_correct_web" = "ادرس وب معتبری وارد نمایید";
 "error_enter_correct_email" = "ایمیل معتبری وارد نمایید";
 "refresh" = "بروزرسانی";
 "placepage_add_place_button" = "گیاگ را به OpenStreetMap بیافزایید";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "آیا می خواهید آن را برای دیگر کاربران ارسال کنید؟";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "مطمئن شوید که هیچ اطلاعات شخصی وارد نکرده باشد.";
 "editor_share_to_all_dialog_message_2" = "ویرایشگران OpenStreetMap ﺗﻐﯿﯿﺮﺍﺕ ﺭﺍ ﺑﺮﺭﺳﯽ ﮐﺮﺩﻩ ﻭ ﺩﺭ ﺻﻮﺭﺕ ﺩﺍﺷﺘﻦ ﻫﺮﮔﻮﻧﻪ ﺳﻮﺍﻝ ﺑﺎ ﺷﻤﺎ ﺗﻤﺎﺱ ﺧﻮﺍﻫﻨﺪ ﮔﺮﻓﺖ.";
 "navigation_stop_button" = "توقف";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "غیرفعال‌سازی ذخیره مسیر اخیرا طی شده";
 "off_recent_track_background_button" = "ناکارا کردن";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "بررسی کنید";
 "recent_track_background_dialog_message" = "CoMaps از اطلاعات موقعیت مکانی شما در پس ضمینه برای ذخیره مسیر‌هایی که اخیرا سفر کرده اید استفاده می کند.";
 "general_settings" = "پیکربندی‌های فراگیر";
-
 /* For the first routing */
 "accept" = "موافقم";
-
 /* For the first routing */
 "decline" = "رد کردن";
 "mobile_data_dialog" = "از داده گوشی برای نمایش اطلاعات بیشتر استفاده شود؟";
@@ -714,29 +566,28 @@
 "mobile_data_option_today" = "تنها امروز";
 "mobile_data_option_not_today" = "امروز نه";
 "mobile_data" = "داده گوشی";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "برای نمایش جزئیات مکان مانند تصاویر قیمت‌ها و بازخورد‌ها به اینترنت همراه نیاز است.";
 "mobile_data_option_never" = "هرگز";
 "mobile_data_option_ask" = "همیشه بپرس";
 "traffic_update_maps_text" = "برای نمایش ترافیک، نقشه می بایستی بروزرسانی شود.";
 "big_font" = "افزایش اندازه متن بر روی نقشه";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "برای نمایش ترافیک باید اپلیکیشن را بروزرسانی کنید.";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "اطلاعات ترافیکی موجود نیست";
 "enable_logging" = "ورود به سیستم را فعال کنید";
 "log_file_size" = "اندازه فایل گزارش: %@";
+"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "Use in system order";
+"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
 "transliteration_title" = "ترجمه به لاتین";
-
+"transliteration_title_disabled_summary" = "زمانی که همیشه از زبان محلی برای نقشه استفاده می کنید غیرفعال است";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "اوزیدن";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "برای افزودن نقطه شروع مسیر، از جستجو استفاده کنید یا روی نقشه ضربه بزنید";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "برای افزودن نقطه مقصد، از جستجو استفاده کنید یا روی نقشه ضربه بزنید";
 "planning_route_manage_route" = "مدیریت مسیر";
@@ -745,18 +596,15 @@
 "planning_route_remove_title" = "برای ستردن به اینجا بکشید";
 "placepage_add_stop" = "اضافه کردن توقف";
 "start_from_my_position" = "شروع از";
-
 /* Title for button when a route was saved. */
 "saved" = "ذخیره شد";
 "core_entrance" = "آدین";
 "error_enter_correct_name" = "لطفا نام صحیح را وارد کنید";
 "bookmark_lists" = "لیست‌ها";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "پنهان کردن همه";
 "bookmark_lists_show_all" = "نمایش همه";
 "bookmarks_create_new_group" = "ایجاد لیست جدید";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "وارد کردن نشانک ها و آهنگ ها";
 "downloader_hide_screen" = "پنهان کردن صفحه";
@@ -790,13 +638,10 @@
 "download_button" = "دانلود";
 "speedcams_alert_title" = "دوربین‌های سرعت";
 "place_description_title" = "توضیحات محل";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "هشدار در مورد سرعت غیر مجاز";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "همیشه هشدار دهد";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "هرگز هشدار ندهد";
 "power_managment_title" = "حالت ذخیره انرژی";
@@ -806,14 +651,13 @@
 "power_managment_setting_manual_max" = "حداکثر ذخیره انرژی";
 "enable_logging_warning_message" = "این گزینه ثبت گزارش را برای اهداف تشخیصی فعال می‌کند. برای کارکنان بخش پشتیبانی که مشکلات برنامه را عیب یابی می‌کنند، مفید باشد. این گزینه را تنها در صورت درخواست پشتیبانی CoMaps فعال کنید.";
 "driving_options_title" = "گزینه‌های رانندگی";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "از جاده های عوارضی خودداری کنید";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "اجتناب از جاده‌های آسفالت نشده";
-
+"avoid_paved" = "Avoid paved roads";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Avoid stairs";
 "avoid_ferry" = "اجتناب از گذرگاه‌های کشتی";
 "avoid_motorways" = "از بزرگراه دوری کنید";
 "unable_to_calc_alert_title" = "امکان محاسبه مسیر نیست";
@@ -829,22 +673,16 @@
 "search_results" = "نتایج جستجو";
 "then_turn" = "سپس";
 "redirect_route_alert" = "آیا می خواهید مسیر را دوباره ایجاد کنید?";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "بله";
-
 /* A generic "No" button in dialogs */
 "no" = "خیر";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "بلی";
-
 /* E.g. "WiFi:No" */
 "no_available" = "خیر";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "ظرفیت: %@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "شبکه: %@";
 "trip_finished" = "شما به مقصد رسیدید!";
@@ -864,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "هشدارهای سرعت";
 "download_map_carplay" = "لطفا نقشه‌ها را در نرم افزار CoMaps روی دستگاه خود دانلود کنید";
 "carplay_roundabout_exit" = "خروجی %@";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "مرتب سازی…";
-
 /* iOS */
 "sort_default" = "مرتب سازی بر اساس پیش فرض";
 "sort_type" = "مرتب سازی بر اساس نوع";
@@ -913,182 +749,124 @@
 "isolines_toast_zooms_1_10" = "برای بررسی خطوط تراز زوم کنید";
 "downloader_updating_ios" = "در حال بروزرسانی";
 "downloader_loading_ios" = "در حال دانلود";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "نقشه‌های دانلود شده خود را به روز کنید";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "بروزرسانی نقشه‌ها اطلاعات مربوط به اشیا را به روز نگه می دارد";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "بروزرسانی (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "بعدا به صورت دستی به روزرسانی کنید";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Delete Track";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "آیا آستیگان هستید که می‌خواهید این قطغه را بستردانید؟";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Track Name";
-
 /* move track or bookmark from the list button text */
 "move" = "Move";
-
 /* edit track screen title */
 "track_title" = "مسیر";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app";
-
 /* App Tip #00 */
 "app_tip_00" = "از شما برای استفاده از نقشه های ساخته شده توسط جامعه سپاسگزاریم!";
-
 /* App tip #01 */
 "app_tip_01" = "با کمک های مالی و حمایت شما، ما می توانیم بهترین نقشه های جهان را ایجاد کنیم!";
-
 /* App tip #02 */
 "app_tip_02" = "آیا برنامه ما را دوست دارید؟ لطفا برای حمایت از توسعه کمک مالی کنید! هنوز آن را دوست ندارید؟ لطفا به ما اطلاع دهید، و ما آن را تعمیر خواهیم کرد!";
-
 /* App tip #03 */
 "app_tip_03" = "اگر یک توسعه‌دهنده نرم‌افزار را می‌شناسید، می‌توانید از او بخواهید ویژگی مورد نیاز خود را پیاده‌سازی کند.";
-
 /* App tip #04 */
 "app_tip_04" = "برای انتخاب هر چیزی روی هر نقطه از نقشه ضربه بزنید. برای مخفی کردن و نشان دادن رابط، ضربه طولانی بزنید.";
-
 /* App tip #05 */
 "app_tip_05" = "آیا می دانید که می توانید مکان فعلی خود را روی نقشه انتخاب کنید؟";
-
 /* App tip #06 */
 "app_tip_06" = "شما می توانید به ترجمه برنامه ما به زبان خود کمک کنید.";
-
 /* App tip #07 */
 "app_tip_07" = "برنامه ما توسط تعدادی از علاقه مندان و جامعه توسعه یافته است.";
-
 /* App tip #08 */
 "app_tip_08" = "شما به راحتی می توانید داده های نقشه را اصلاح و بهبود دهید.";
-
 /* App tip #09 */
 "app_tip_09" = "هدف اصلی ما ساختن نقشه هایی سریع، متمرکز بر حریم خصوصی و با کاربری آسان است که شما عاشق آن خواهید شد.";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "اکنون در حال استفاده از CoMaps در صفحه گوشی هستید";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "اکنون از CoMaps در صفحه ماشین استفاده می کنید";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "با تلفن ادامه دهید";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "به صفحه ماشین";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "پیاده روی";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "صادر کردن همه نشان‌ها و مسیرها";
-
 /* Text for the editing the Track's color button. */
 "change_color" = "تغییر رنگ";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "نقشه";
 "drive_through" = "رانندگی از طریق";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "لینک منو";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "آیا می خواهید یک گزارش اشکال برای توسعه دهندگان ارسال کنید؟\nما به کاربران خود تکیه می کنیم زیرا CoMaps هیچ گونه اطلاعات خطا را به طور خودکار جمع آوری نمی کند. پیشاپیش از شما برای حمایت از CoMaps سپاسگزاریم!";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "iCloud Syncronization (Beta)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "همگام سازی iCloud را فعال کنید";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
+/* Message for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_message" = "همگام سازی iCloud یک ویژگی آزمایشی در دست توسعه است. مطمئن شوید که از تمام نشانک ها و آهنگ های خود یک نسخه پشتیبان تهیه کرده اید.";
-
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud غیرفعال است";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "لطفاً iCloud را در تنظیمات دستگاه خود فعال کنید تا از این ویژگی استفاده کنید.";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "فعال کردن";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "پشتیبان گیری";
-
 /* Title for the "iCloud synchronization failure" alert. */
 "icloud_synchronization_error_alert_title" = "همگام سازی iCloud شکست خورده است";
-
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "خطا: به دلیل خطای اتصال همگام سازی نشد";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "خطا: به دلیل فراتر رفتن از سهمیه iCloud، همگام سازی انجام نشد";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "خطا: iCloud در دسترس نیست";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "در یک برنامه دیگر باز کنید";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "سلف سرویس";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "نشستن در فضای باز";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "لیست های اخیرا سترده شده";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "پاک کردن";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "ستردن همه";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "بازیابی";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "بازیابی همه";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "ضبط مسیر";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "توقف ضبط مسیر";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "توقف بدون ذخیره";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "ادامه ضبط";
-
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "ذخیره‌سازی در نشانه‌ها و مسیر؟";
-
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "مسیر خالی است - چیزی برای ذخیره کردن وجود ندارد";
 "edit_track" = "ویرایش مسیر";
-"osm_profile_view_notes" = "مشاهده یادداشت‌ها";
-"osm_profile_view_edit_history" = "مشاهده تاریخچه ویرایش‌ها";
-"about_headline" = "پروژه‌ای باز نیرو گرفته از انجمن";
-"about_proposition_3" = "شفاف و نه برای سود";
-"pref_mapappearance_title" = "ظاهر نقشه";
-"pref_maplanguage_title" = "زبان نقشه";
-"transliteration_title_disabled_summary" = "زمانی که همیشه از زبان محلی برای نقشه استفاده می کنید غیرفعال است";
-"pref_maplanguage_local" = "زبان محلی";
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
-"voice" = "صدا";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

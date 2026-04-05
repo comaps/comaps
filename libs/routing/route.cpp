@@ -72,6 +72,17 @@ double Route::GetCurrentDistanceToEndMeters() const
   return m_poly.GetDistanceToEndMeters();
 }
 
+double Route::GetCurrentDistanceToSegmentMeters(size_t segIdx) const
+{
+  if (!IsValid())
+    return 0.0;
+
+  double const endDistance = m_routeSegments[segIdx].GetDistFromBeginningMeters();
+  double const passedDistance = GetCurrentDistanceFromBeginMeters();
+
+  return endDistance - passedDistance;
+}
+
 double Route::GetMercatorDistanceFromBegin() const
 {
   auto const & curIter = m_poly.GetCurrentIter();

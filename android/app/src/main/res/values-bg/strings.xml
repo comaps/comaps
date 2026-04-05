@@ -163,12 +163,8 @@
     <string name="downloading_is_active">Изтеглянето на картата вече е в ход.</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Хей, виж текущото ми местоположение в CoMaps! %1$s или %2$s</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Хей, виж какво съм отбелязал в CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Хей, виж текущото ми местоположение на картата в CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Здравей, \n \nСега съм тук: %1$s. Натисни върху тази връзка %2$s или тази %3$s, за да видиш мястото на картата. \n \nБлагодаря.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Споделяне</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -374,13 +370,7 @@
     <string name="editor_example_values">Примерни стойности</string>
     <string name="editor_correct_mistake">Поправяне на грешка</string>
     <string name="editor_add_select_location">Изберете местоположение</string>
-    <string name="editor_report_problem_desription_1">Моля, опишете подробно проблема, за да може общността на OpenStreetMap да отстрани грешката.</string>
-    <string name="editor_report_problem_desription_2">Или го направете сами на https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Изпращане</string>
-    <string name="editor_report_problem_title">Проблем</string>
-    <string name="editor_report_problem_no_place_title">Мястото не съществува</string>
-    <string name="editor_report_problem_under_construction_title">Затворено за ремонт</string>
-    <string name="editor_report_problem_duplicate_place_title">Дубликат</string>
     <string name="autodownload">Автоматично изтегляне</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Ежедневно</string>

@@ -5,6 +5,7 @@
 
 #include "indexer/classificator.hpp"
 #include "indexer/feature_utils.hpp"
+#include "indexer/ftypes_subtypes.hpp"
 
 #include "platform/localization.hpp"
 
@@ -113,7 +114,7 @@ std::string Result::GetFeatureDescription() const
   if (m_str.empty())
     res.clear();
 
-  if (m_mainType != m_matchedType && m_matchedType != 0)
+  if (m_mainType != m_matchedType && m_matchedType != 0 && !ftypes::Subtypes::Instance().IsSubtype(m_matchedType))
     append(GetLocalizedTypeName(m_matchedType));
 
   if (!GetDescription().empty())

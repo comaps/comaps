@@ -164,12 +164,8 @@
     <string name="cant_change_this_setting">На жаль, налады сховішча карты зараз адключаны.</string>
     <!-- Alert message that downloading is in progress. -->
     <string name="my_position_share_sms">Гэй, глядзі дзе я зараз на карце CoMaps! %1$s або %2$s Няма афлайн-карт? Спампуй тут: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Гэй, глядзі маю метку на CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Гэй, глядзі дзе я зараз на мапе CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Прывітанне, \n \nЯ зараз тут: %1$s. Перайдзі па гэтай %2$s або гэтай %3$s спасылцы, каб убачыць месца на мапе. \n \nДзякуй.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Абагуліць</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -394,13 +390,7 @@
     <string name="editor_example_values">Прыклады значэнняў</string>
     <string name="editor_correct_mistake">Выправіць памылку</string>
     <string name="editor_add_select_location">Выберыце месца</string>
-    <string name="editor_report_problem_desription_1">Калі ласка, падрабязна апішыце праблему, каб супольнасць OpenStreetMap магла выправіць памылку.</string>
-    <string name="editor_report_problem_desription_2">Або зрабіце гэта самі на https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Адправіць</string>
-    <string name="editor_report_problem_title">Праблема</string>
-    <string name="editor_report_problem_no_place_title">Месца не існуе</string>
-    <string name="editor_report_problem_under_construction_title">Закрыта на рамонт</string>
-    <string name="editor_report_problem_duplicate_place_title">Месца паўтараецца</string>
     <string name="autodownload">Аўтаматычнае спампоўванне</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Штодзённа</string>

@@ -437,7 +437,7 @@
 "Greece_Decentralized Administration of Epirus - Western Macedonia":"Эпир и западная Македония",
 "Greece_Decentralized Administration of Macedonia and Thrace":"Македония и Фракия",
 "Greece_Decentralized Administration of Thessaly - Central Greece":"Фессалия и Центральная Греция",
-"Greece_Decentralized Administration of West Greece":"Пелопоннес",
+"Greece_Decentralized Administration of West Greece":"Пелопоннес, Западная Греция и Ионические острова",
 "Greenland":"Гренландия",
 "Grenada":"Гренада",
 "Guadeloupe":"Гваделупа",
@@ -2540,5 +2540,15 @@
 "Spain_Castile and Leon_West Short":"Кастилия и Леон",
 "Spain_Galicia_North Short":"Галисия",
 "Spain_Galicia_South Short":"Галисия",
-"Switzerland_Espace Mittelland_East Short":"Центральная Швейцария"
+"Switzerland_Espace Mittelland_East Short":"Центральная Швейцария",
+"France_Auvergne-Rhone-Alpes":"Овернь-Рона-Альпы",
+"France_Bourgogne-Franche-Comte":"Бургундия-Франш-Конте",
+"France_Normandy":"Нормандия",
+"France_Occitania":"Окситания",
+"Germany_Brandenburg":"Бранденбург",
+"Germany_Rhineland-Palatinate":"Рейнланд-Пфальц",
+"Germany_Saxony":"Саксония",
+"France_Grand_Est":"Гранд Эст",
+"France_Hauts-de-France":"О-де-Франс",
+"France_Nouvelle-Aquitaine":"Новая Аквитания"
 }

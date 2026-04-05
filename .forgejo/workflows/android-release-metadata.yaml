@@ -5,7 +5,7 @@ on:
 jobs:
   android-release-metadata:
     name: Upload Google Play metadata
-    runs-on: ubuntu-latest
+    runs-on: comaps-android
     environment: production
     steps:
       - name: Checkout

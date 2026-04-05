@@ -72,7 +72,7 @@ extension SearchTabViewController: SearchCategoriesViewControllerDelegate {
                                 didSelect category: String) {
     let preferredLang = AppInfo.shared().languageId
     let supportedBySearchLang = MWMSearchFrameworkHelper.isLanguageSupported(preferredLang) ? preferredLang : "en"
-    let searchText = L(category, languageCode: supportedBySearchLang) + " "
+    let searchText = L(category, languageCode: supportedBySearchLang)
     let query = SearchQuery(searchText, locale: supportedBySearchLang, source: .category)
     delegate?.searchTabController(self, didSearch: query)
   }
@@ -81,7 +81,7 @@ extension SearchTabViewController: SearchCategoriesViewControllerDelegate {
 extension SearchTabViewController: SearchHistoryViewControllerDelegate {
   func searchHistoryViewController(_ viewController: SearchHistoryViewController,
                                    didSelect query: String) {
-    let query = SearchQuery(query.trimmingCharacters(in: .whitespacesAndNewlines) + " ", source: .history)
+    let query = SearchQuery(query.trimmingCharacters(in: .whitespacesAndNewlines), source: .history)
     delegate?.searchTabController(self, didSearch: query)
   }
 }

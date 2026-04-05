@@ -147,7 +147,7 @@
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Els meus preferits de CoMaps</string>
-    <string name="share_bookmarks_email_body">Hola! \n \nAdjunto els meus marcadors de l\'aplicació CoMaps. Obriu-los si teniu l\'CoMaps instal·lat. O, si no teniu l\'aplicació, baixeu-la per al vostre dispositiu iOS o Android seguint aquest enllaç: https://www.comaps.app/download/ \n \nGaudiu viatjant amb l\'CoMaps!</string>
+    <string name="share_bookmarks_email_body">Hola! \n \nAdjunto els meus marcadors de l\'aplicació CoMaps. Obriu-los si teniu l\'CoMaps instal·lat. O, si no teniu l\'aplicació, baixeu-la per al vostre dispositiu iOS o Android seguint aquest enllaç: https://www.comaps.app/download/ \n \nGaudiu viatjant amb CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Carregant Preferits</string>
     <!-- Kmz file successful loading -->
@@ -168,12 +168,8 @@
     <string name="downloading_is_active">La baixada del mapa és en curs</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Mira la meva ubicació en l\'CoMaps! %1$s o %2$s No teniu mapes sense connexió? Baixeu-los aquí: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Ep, mireu el meu marcador a l\'CoMaps!</string>
     <!-- Subject for emailed position -->
-    <string name="my_position_share_email_subject">Ep, mireu la meva ubicació actual en el mapa de l\'CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hola, \n \nSoc aquí: %1$s. Feu clic en aquest enllaç %2$s o en aquest altre %3$s per a veure el lloc en el mapa. \n \nGràcies.</string>
+    <string name="my_position_share_email_subject">Ep, mireu la meva ubicació actual en el mapa del CoMaps!</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Comparteix</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -400,13 +396,7 @@
     <string name="editor_example_values">Valors d\'exemple</string>
     <string name="editor_correct_mistake">Corregeix un error</string>
     <string name="editor_add_select_location">Seleccioneu Ubicació</string>
-    <string name="editor_report_problem_desription_1">Descriviu el problema detalladament perquè la comunitat d\'OpenStreetMap pugui corregir l\'error.</string>
-    <string name="editor_report_problem_desription_2">O feu-ho vós mateix a https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Envia</string>
-    <string name="editor_report_problem_title">Problema</string>
-    <string name="editor_report_problem_no_place_title">El lloc no existeix</string>
-    <string name="editor_report_problem_under_construction_title">Tancat per manteniment</string>
-    <string name="editor_report_problem_duplicate_place_title">Lloc duplicat</string>
     <string name="autodownload">Baixada automàtica</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Diari</string>
@@ -777,7 +767,7 @@
     <string name="browser_not_available">El navegador web no està disponible</string>
     <string name="volume">Volum</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exporta tots els llocs i recorreguts</string>
+    <string name="bookmarks_export">Exporta tots els preferits</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Paràmetres de la síntesi de veu del sistema</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -839,11 +829,11 @@
     <string name="pref_left_button_disable">Desactivar</string>
     <string name="editor_level">Pis (0 és la planta baixa)</string>
     <string name="error_enter_correct_bluesky_page">Introdueix un nom d\'usuari o una adreça web de Bluesky vàlids</string>
-    <string name="pref_backup_title">Còpia de seguretat de preferits</string>
+    <string name="pref_backup_title">Còpia de seguretat dels preferits</string>
     <string name="pref_left_button_title">Configuració del botó esquerre</string>
     <string name="pref_backup_summary">Còpia de seguretat automàtica a un directori del teu dispositiu</string>
     <string name="pref_backup_now_summary_ok">Còpia de seguretat completada amb èxit</string>
-    <string name="pref_backup_now_summary_empty_lists">No hi ha llocs o recorreguts per a fer una còpia de seguretat</string>
+    <string name="pref_backup_now_summary_empty_lists">No hi ha preferits per a fer una còpia de seguretat</string>
     <string name="pref_backup_now_summary_failed">Còpia de seguretat fallida</string>
     <string name="pref_backup_now_summary_folder_unavailable">El directori de la còpia de seguretat no està disponible</string>
     <string name="pref_backup_status_summary_success">Última còpia de seguretat amb èxit</string>
@@ -886,7 +876,7 @@
     <string name="unknown_count">desconegut</string>
     <string name="error_value_must_be_positive">El valor ha de ser positiu</string>
     <string name="error_invalid_number">Número invàlid</string>
-    <string name="offline_explanation_text">Un mapa ha de ser desconegut per a veure i navegar l\'àrea.\nDescarrega mapes per a àrees on vulgues viatjar.</string>
+    <string name="offline_explanation_text">S\'ha de descarregar un mapa per a veure i navegar aquesta àrea.\nDescarregueu mapes per a àrees on vulgueu viatjar.</string>
     <string name="list_description_empty">Edita la llista per afegir una descripció</string>
     <string name="opens_at">Obre a %s</string>
     <string name="closes_at">Tanca a %s</string>
@@ -938,5 +928,17 @@
     <string name="route_needs_rebuild">La ruta requereix reconstrucció</string>
     <string name="route_finished">Ruta finalitzada</string>
     <string name="not_following_route">No s\'està seguint la ruta</string>
-    <string name="rebuilding_route">Reconstruint ruta…</string>
+    <string name="pref_alt_map_lang_handling_local_only">Prefereix i fes servir només en ser nadiu</string>
+    <string name="pref_alt_map_lang_handling">Idiomes de Mapa Alternatius</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">No facis servir alternatives</string>
+    <string name="pref_alt_map_lang_handling_system_order">Fes servir en l\'ordre del sistema</string>
+    <string name="pref_openexternallinks_title">Obre enllaços de tercers automàticament</string>
+    <string name="pref_openexternallinks_summary">Obre enllaços de tercers amb CoMaps per defecte</string>
+    <string name="my_position_share_email">Seguiu aquest enllaç %1$s o pegueu aquestes coordenades %2$s als vostres mapes per a veure la meua ubicació.</string>
+    <string name="bookmark_share_email_subject">Seguiu aquest enllaç %1$s o enganxeu aquestes coordenades %2$s a la teva aplicació de mapes per a veure aquesta ubicació.</string>
+    <string name="stop">Parada</string>
+    <string name="population">Població: %s</string>
+    <string name="charge_socket_type1_combo">Combo Tipus 1</string>
+    <string name="destination">Destinació</string>
+    <string name="route_recalculating">Recalculant ruta…</string>
 </resources>

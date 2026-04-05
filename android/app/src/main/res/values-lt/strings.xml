@@ -162,12 +162,8 @@
     <string name="downloading_is_active">Vyksta žemėlapio atsiuntimas</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Pažiūrėk, kur dabar esu „CoMaps“ autonominių žemėlapių programėlėje! %1$s arba %2$s . Neturi jos? Atsisiųsk čia: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Labas, pažvelk, ką aš pasižymėjau „CoMaps“ žemėlapyje!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Žvilgtelk, kur dabar esu, „CoMaps“ žemėlapyje!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Labas, \n\nŠiuo metu esu čia: %1$s. Spustelėk čia: %2$s, arba čia: %3$s, kad pamatytum šią vietą žemėlapyje. \n \nAčiū.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Bendrinti</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -388,13 +384,7 @@
     <string name="editor_example_values">Reikšmių pavyzdžiai</string>
     <string name="editor_correct_mistake">Taisyti klaidą</string>
     <string name="editor_add_select_location">Pasirinkite vietą</string>
-    <string name="editor_report_problem_desription_1">Išsamiai aprašykite problemą, kad „OpenStreetMap“ bendruomenę galėtų ištaisyti klaidą.</string>
-    <string name="editor_report_problem_desription_2">Arba atlikite tai patys svetainėje https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Siųsti</string>
-    <string name="editor_report_problem_title">Problema</string>
-    <string name="editor_report_problem_no_place_title">Vieta neegzistuoja</string>
-    <string name="editor_report_problem_under_construction_title">Uždaryta remontui</string>
-    <string name="editor_report_problem_duplicate_place_title">Vieta dubliuojasi</string>
     <string name="autodownload">Automatiškai atsiųsti žemėlapius</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Kasdien</string>

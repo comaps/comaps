@@ -35,12 +35,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *atm;
 @property(nonatomic, readonly, nullable) NSString *capacity;
 @property(nonatomic, readonly, nullable) NSString *rooms;
+@property(nonatomic, readonly, nullable) NSString *charge;
 @property(nonatomic, readonly, nullable) NSString *wheelchair;
 @property(nonatomic, readonly, nullable) NSString *driveThrough;
 @property(nonatomic, readonly, nullable) NSString *websiteMenu;
 @property(nonatomic, readonly, nullable) NSString *selfService;
 @property(nonatomic, readonly, nullable) NSString *outdoorSeating;
 @property(nonatomic, readonly, nullable) NSString *network;
+@property(nonatomic, readonly, nullable) NSString *population;
 
 - (NSDate * _Nullable)getMostRecentCheckDate;
 

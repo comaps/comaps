@@ -261,7 +261,7 @@
     <string name="type.cuisine.austrian">Österreichisch</string>
     <string name="type.cuisine.bagel">Bagel</string>
     <string name="type.cuisine.balkan">Balkanisch</string>
-    <string name="type.cuisine.barbecue">Grill</string>
+    <string name="type.cuisine.barbecue">Barbecue</string>
     <string name="type.cuisine.bavarian">Bayerisch</string>
     <string name="type.cuisine.beef_bowl">Gyūdon</string>
     <string name="type.cuisine.brazilian">Brasilianisch</string>
@@ -298,7 +298,6 @@
     <string name="type.cuisine.international">International</string>
     <string name="type.cuisine.irish">Irisch</string>
     <string name="type.cuisine.italian">Italienisch</string>
-    <string name="type.cuisine.italian_pizza">Italienische Pizza</string>
     <string name="type.cuisine.japanese">Japanisch</string>
     <string name="type.cuisine.kebab">Kebap</string>
     <string name="type.cuisine.korean">Koreanisch</string>
@@ -1329,16 +1328,17 @@
     <string name="type.tourism.artwork.sculpture">Skulptur</string>
     <string name="type.tourism.artwork.statue">Statue</string>
     <string name="type.tourism.attraction">Sehenswürdigkeit</string>
+    <string name="type.attraction">Attraktion</string>
     <string name="type.attraction.amusement_ride">Fahrgeschäft</string>
     <string name="type.attraction.animal">Tiergehege</string>
     <string name="type.attraction.bumper_car">Autoscooter</string>
     <string name="type.attraction.big_wheel">Riesenrad</string>
     <string name="type.attraction.carousel">Karussell</string>
-    <string name="type.attraction.historic">Historische Attraktion</string>
+    <string name="type.attraction.historic">Historischer Lernort</string>
     <string name="type.attraction.maze">Labyrinth</string>
     <string name="type.attraction.roller_coaster">Achterbahn</string>
     <string name="type.attraction.water_slide">Wasserrutsche</string>
-    <string name="type.tourism.attraction.specified">Sehenswürdigkeit</string>
+    <string name="type.tourism.attraction.specified">Besondere Attraktion</string>
     <string name="type.tourism.camp_site">Campingplatz</string>
     <string name="type.tourism.caravan_site">Wohnmobilstellplatz</string>
     <!-- A rentable countryside vacation house. -->
@@ -1512,4 +1512,9 @@
     <string name="type.tourism.information.tactile_map">Taktile Karte</string>
     <string name="type.railway.miniature">Miniatureisenbahn</string>
     <string name="type.waterway.fuel">Bunkerstation</string>
+    <string name="type.shop.water">Trinkwassergeschäft</string>
+    <string name="type.leisure.sports_centre.sport.boules">Sportzentrum</string>
+    <string name="type.sport.boules">Boule</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Sportzentrum</string>
 </resources>

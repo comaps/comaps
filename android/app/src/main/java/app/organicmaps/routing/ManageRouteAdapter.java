@@ -115,6 +115,7 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     UiUtils.showIf(subtitle != null && !subtitle.isEmpty(), holder.mTextViewSubtitle);
 
     // Show 'Delete' icon button only if we have intermediate stops.
+    UiUtils.showIf(mRoutePoints.size() > 2, holder.mViewDivider);
     UiUtils.showIf(mRoutePoints.size() > 2, holder.mImageViewDelete);
 
     // Detection of touch events on holder view.
@@ -241,6 +242,11 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     public final MaterialTextView mTextViewSubtitle;
 
     @NonNull
+    public final ShapeableImageView mImageViewSwap;
+    @NonNull
+    public final View mViewDivider;
+
+    @NonNull
     public final ShapeableImageView mImageViewDelete;
 
     ManageRouteViewHolder(@NonNull View itemView)
@@ -250,6 +256,8 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
       mImageViewIcon = itemView.findViewById(R.id.type_icon);
       mTextViewTitle = itemView.findViewById(R.id.title);
       mTextViewSubtitle = itemView.findViewById(R.id.subtitle);
+      mImageViewSwap = itemView.findViewById(R.id.reorder_icon);
+      mViewDivider = itemView.findViewById(R.id.divider);
       mImageViewDelete = itemView.findViewById(R.id.delete_icon);
     }
   }

@@ -1,0 +1,175 @@
+name: mapgen-wikipedia
+on:
+  workflow_dispatch: # Manual trigger
+    inputs:
+      skip-planet-pbf:
+        description: 'Skip OSM planet update?'
+        required: true
+        default: false
+        type: boolean
+      wikiparser-branch:
+        description: 'Check out a different wikiparser repo branch?'
+        required: true
+        type: string
+        default: main
+      wiki-download:
+        description: 'Download updated Wikipedia dumps?'
+        required: true
+        default: true
+        type: boolean
+      force-download:
+        description: 'Force download despite Wikimedia monthly limit?'
+        required: true
+        default: false
+        type: boolean
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+  TZ: Etc/UTC
+  WIKIMEDIA_USERNAME: ${{ secrets.WIKIMEDIA_USERNAME }}
+  WIKIMEDIA_PASSWORD: ${{ secrets.WIKIMEDIA_PASSWORD }}
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
+
+jobs:
+  update-planet-pbf:
+    if: ${{ ! inputs.skip-planet-pbf }}
+    name: Update OSM PBF Planet
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-mapgen-subways-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Download Planet File if Absent
+        shell: bash
+        # TODO: replace wget2 with curl -Z
+        run: |
+          if [ ! -d /home/planet/planet/ ]; then
+          mkdir -p /home/planet/planet/
+          fi
+          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
+          cd /home/planet/planet/
+          wget2 --verbose --progress=bar --continue https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf
+          else
+          echo "planet-latest.osm.pbf was found, raw download not required."
+          fi
+      - name: Update PBF Planet
+        shell: bash
+        run: |
+          cd /home/planet/planet/
+          rm -f planet-latest-new.osm.pbf
+          pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -v --size 16384
+          mv planet-latest-new.osm.pbf planet-latest.osm.pbf
+          echo "DONE"
+
+  wiki-update:
+    name: Update Wikipedia
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout wikiparser repo
+        shell: bash
+        run: |
+          cd ~
+          git clone --depth 1 -b ${{ inputs.wikiparser-branch || 'main' }} --single-branch https://codeberg.org/comaps/wikiparser.git
+
+      - name: Download Wikipedia dumps from Enterprise API
+        if: inputs.wiki-download
+        shell: bash
+        run: |
+          mkdir -p /home/planet/wikipedia/dumps
+          datediff() {
+            d1=$(date -d "$1" +%s)
+            d2=$(date -d "$2" +%s)
+            echo $(( (d1 - d2) / 86400 ))
+          }
+          RECENTDUMPDATE=$(find /home/planet/wikipedia/dumps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 |  cut -d/ -f6)
+          TODAY=$(date +%Y%m%d)
+          DATEDIFF=$(datediff $TODAY $RECENTDUMPDATE)
+          echo "The most recent downloaded wiki dump is from $RECENTDUMPDATE, $DATEDIFF days ago."
+          if [[ $DATEDIFF -gt 30 || "${{ inputs.force-download }}" == "true" ]]; then
+            cd ~/wikiparser
+            #todo: curl in download.sh can fail when rate limited and even save error messages to the output. need to validate.
+            #downloading all languages can also trigger rate limits or fail as well. needs work.
+            #also: a failure to download means a failure to build, and could result in no wiki descriptions etc.
+            echo "Downloading ..."
+            # Optionally override which languages to download:
+            # export LANGUAGES="ar cs de en es fr hr it ko nl pl pt ru th tr uk"
+            ./download.sh /home/planet/wikipedia/dumps
+            echo "DONE"
+            curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+              -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+              --data-urlencode type=stream \
+              --data-urlencode 'to="DevOps"' \
+              --data-urlencode topic=codeberg-bot \
+              --data-urlencode 'content=Downloaded Wikipedia dumps updates.'
+          else
+            echo "SKIPPING download as Wikimedia limits users to 15 snapshot requests per month."
+
+          fi
+          ls -lah /home/planet/wikipedia/dumps/*
+
+      - name: Check that dumps are present, not too old and not super tiny
+        shell: bash
+        run: |
+          FAILCHECK=0
+          mkdir -p /home/planet/wikipedia/dumps
+          # Check all .tar.gz files in /home/planet/wikipedia/dumps/latest/
+          for file in /home/planet/wikipedia/dumps/latest/*.tar.gz; do
+              # Check if file exists (handles case where glob doesn't match)
+              [ -e "$file" ] || continue
+              # Get file size in MB and modification time in days
+              size_mb=$(stat -f%z "$file" 2>/dev/null | awk '{print int($1/1024/1024)}' || stat -c%s "$file" | awk '{print int($1/1024/1024)}')
+              # TODO: allow 3 months old dumps; make more strict once updates are streamlined?
+              days_old=$(find "$file" -mtime -90 | wc -l)
+              # Verify conditions
+              if [ "$size_mb" -lt 100 ]; then
+                  echo "FAIL: $file is only ${size_mb}MB (< 100MB)"
+                  FAILCHECK=1
+              elif [ "$days_old" -eq 0 ]; then
+                  echo "FAIL: $file is older than 90 days"
+                  ls -al $file
+                  FAILCHECK=1
+              else
+                  echo "PASS: $file (${size_mb}MB, modified within 90 days)"
+              fi
+          done
+          exit $FAILCHECK
+
+      - name: Check for planet file
+        shell: bash
+        run: |
+          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
+          echo "ERROR: No file at /home/planet/planet/planet-latest.osm.pbf"
+          ls -lh /home/planet/planet/
+          exit 1
+          fi
+
+      - name: Process Wikipedia articles
+        shell: bash
+        run: |
+          echo "Running ..."
+          mkdir -p /home/planet/wikipedia/build
+          cd ~/wikiparser
+          ./run.sh /home/planet/wikipedia/build \
+          /home/planet/planet/planet-latest.osm.pbf \
+          /home/planet/wikipedia/dumps/latest/*.tar.gz
+          echo "DONE"
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=Wikipedia articles are updated!'

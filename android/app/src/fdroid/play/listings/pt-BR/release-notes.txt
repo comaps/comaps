@@ -1,10 +1,8 @@
-• Dados OSM de 21/02
-• Exibição do horário de funcionamento em turnos
-• Exibição de descrições do OSM e número de salas
-• Adição de fileiras de árvores e centros para jovens
-• Correção do problema com a transliteração
-• Melhoria na configuração de Idiomas Alternativos do Mapa
-• Nova configuração para Android 12+ que permite abrir links do osm.org e do geo2me
-• Exibição de um indicador de rota alternativa no painel de navegação
+• Dados OSM de 21/03
+• Adicionados os seguintes esportes: four square e bocha
+• Adicionados artigos da Wikipédia em tcheco, tailandês, turco e ucraniano
+• Impedimento da exibição de nomes secundários, por exemplo, para ruas em regiões multilíngues
+• Indicadores de progresso aprimorados com animação mais fluida
+• Suporte para definições de velocidade máxima para mais tipos de vias em diferentes países
 
 Mais detalhes em comaps.app/latest

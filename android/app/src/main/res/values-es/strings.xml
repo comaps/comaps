@@ -149,13 +149,13 @@
     <string name="description">Notas</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Mis favoritos de CoMaps</string>
-    <string name="share_bookmarks_email_body">¡Hola! \n\nAdjunto mis favoritos. Por favor, ábrelos si tienes instalado CoMaps. O, si no lo tienes, descarga la aplicación para tu dispositivo iOS o Android siguiendo este enlace: https://www.comaps.app/es/download/ \n\n¡Disfruta viajando con CoMaps!</string>
+    <string name="share_bookmarks_email_body">¡Hola! \n\nAdjunto mis Favoritos. Por favor, ábrelos si tienes instalado CoMaps. O, si no lo tienes, descarga la aplicación para tu dispositivo iOS o Android siguiendo este enlace: https://www.comaps.app/es/download/ \n\n¡Disfruta viajando con CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Cargando favoritos</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">¡Los favoritos se han cargado con éxito! Puedes encontrarlos en el mapa o en la pantalla de Gestor de Favoritos.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">No se pudieron cargar los favoritos. El archivo podría tener daños o defectos.</string>
+    <string name="load_kmz_failed">No se pudieron cargar los Favoritos. El archivo podría tener daños o defectos.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">La aplicación no reconoce el tipo de archivo: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -170,12 +170,8 @@
     <string name="downloading_is_active">La descarga del mapa está en curso</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">¡Mira mi ubicación actual en CoMaps! %1$s o %2$s ¿No tienes mapas offline? Descárgalos aquí: https://www.comaps.app/es/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">¡Mira mi marcador en el mapa de CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">¡Mira mi ubicación actual en el mapa en CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hola: \n \nAhora estoy aquí: %1$s. Haz clic en este enlace %2$s o este %3$s para verlo en el mapa. \n \nGracias.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Compartir</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -402,13 +398,7 @@
     <string name="editor_example_values">Valores de ejemplo</string>
     <string name="editor_correct_mistake">Corregir error</string>
     <string name="editor_add_select_location">Selecciona la ubicación</string>
-    <string name="editor_report_problem_desription_1">Por favor, describe el problema en detalle para que la comunidad de OpenStreetMap pueda corregir el error.</string>
-    <string name="editor_report_problem_desription_2">O hazlo tú mismo en https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Enviar</string>
-    <string name="editor_report_problem_title">Problema</string>
-    <string name="editor_report_problem_no_place_title">Este lugar no existe</string>
-    <string name="editor_report_problem_under_construction_title">Сerrado por mantenimiento</string>
-    <string name="editor_report_problem_duplicate_place_title">Lugar duplicado</string>
     <string name="autodownload">Descarga automática</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Diariamente</string>
@@ -662,7 +652,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Ordenar…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Exportar favoritos</string>
+    <string name="sort_bookmarks">Ordenar Favoritos</string>
     <!-- Android -->
     <string name="by_default">Por defecto</string>
     <!-- Android -->
@@ -782,7 +772,7 @@
     <string name="browser_not_available">El navegador web no está disponible</string>
     <string name="volume">Volumen</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportar todos los favoritos y trazas</string>
+    <string name="bookmarks_export">Exportar todos los Favoritos</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Configuración de síntesis de voz del sistema</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -846,13 +836,13 @@
     <string name="clear">Limpiar</string>
     <string name="ruler">Regla</string>
     <string name="bookmark_color">Color del favorito</string>
-    <string name="pref_backup_title">Respaldar favoritos</string>
+    <string name="pref_backup_title">Respaldar Favoritos</string>
     <string name="pref_backup_summary">Copia de seguridad automática a una carpeta de tu dispositivo</string>
     <string name="pref_backup_now_title">Crear respaldo ahora</string>
     <string name="pref_backup_now_summary">Crear copia de seguridad inmediatamente</string>
     <string name="pref_backup_now_summary_progress">Copia de seguridad en progreso…</string>
     <string name="pref_backup_now_summary_ok">Copia de seguridad completada con éxito</string>
-    <string name="pref_backup_now_summary_empty_lists">No hay marcadores ni trayectos para hacer un respaldo</string>
+    <string name="pref_backup_now_summary_empty_lists">No hay favoritos para hacer un respaldo</string>
     <string name="pref_backup_now_summary_failed">Copia de seguridad fallida</string>
     <string name="pref_backup_now_summary_folder_unavailable">La carpeta de copia de seguridad no está disponible</string>
     <string name="pref_backup_location_summary_initial">Selecciona por favor primero una carpeta y concede permiso</string>
@@ -937,14 +927,20 @@
     <string name="route_needs_rebuild">La ruta necesita ser recalculada</string>
     <string name="route_finished">Ruta finalizada</string>
     <string name="not_following_route">No siguiendo la ruta</string>
-    <string name="rebuilding_route">Recalculando la ruta…</string>
     <string name="location_privacy_info">Las aplicaciones reciben datos de ubicación del servicio de ubicación de tu sistema operativo, que podría compartir tu ubicación con Google y/o el proveedor de tu dispositivo. Para evitar esto, usa un sistema operativo Android que proteja tu privacidad.</string>
     <string name="location_privacy">Privacidad de ubicación</string>
-    <string name="invalid_route">Menú de navegación: Cadenas del estado de la ruta</string>
+    <string name="invalid_route">Ruta no válida</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">No usar alternativas</string>
     <string name="pref_alt_map_lang_handling">Idiomas del mapa alternativos</string>
-    <string name="pref_alt_map_lang_handling_system_order">Usar según el orden del sistema</string>
-    <string name="pref_alt_map_lang_handling_local_only">Preferir y solo usar cuando nativo</string>
+    <string name="pref_alt_map_lang_handling_system_order">Usar según orden del sistema</string>
+    <string name="pref_alt_map_lang_handling_local_only">Dar preferencia y utilizar únicamente cuando sea el idioma local</string>
     <string name="pref_openexternallinks_title">Abir enlaces de terceros automáticamente</string>
     <string name="pref_openexternallinks_summary">Abir enlaces de terceros en CoMaps por defecto</string>
+    <string name="stop">Parada</string>
+    <string name="destination">Destino</string>
+    <string name="route_recalculating">Recalculando la ruta…</string>
+    <string name="bookmark_share_email_subject">Sigue este enlace %1$s o pega estas coordenadas %2$s en tu aplicación de mapas para ver esta ubicación.</string>
+    <string name="my_position_share_email">Sigue este enlace %1$s o pega estas coordenadas %2$s en tu aplicación de mapas para ver mi ubicación.</string>
+    <string name="charge_socket_type1_combo">Tipo 1 combo</string>
+    <string name="population">Población: %s</string>
 </resources>

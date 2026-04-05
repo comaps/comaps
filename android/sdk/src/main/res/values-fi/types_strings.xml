@@ -171,7 +171,7 @@
     <string name="type.amenity.vending_machine.food">Ruoka-automaatti</string>
     <string name="type.amenity.vending_machine.newspapers">Sanomalehtiautomaatti</string>
     <string name="type.amenity.vending_machine.parking_tickets">Pysäköintimaksuautomaatti</string>
-    <string name="type.amenity.vending_machine.public_transport_tickets">Julkisen liikenteen lippuautomaatti</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Joukkoliikenteen lippuautomaatti</string>
     <string name="type.amenity.vending_machine.sweets">Makeisautomaatti</string>
     <string name="type.amenity.parcel_locker">Pakettilokero</string>
     <string name="type.amenity.vehicle_inspection">Ajoneuvon tarkastus</string>
@@ -298,7 +298,6 @@
     <string name="type.cuisine.international">Kansainvälinen keittiö</string>
     <string name="type.cuisine.irish">Irlantilainen keittiö</string>
     <string name="type.cuisine.italian">Italialainen keittiö</string>
-    <string name="type.cuisine.italian_pizza">Italialainen, pizza</string>
     <string name="type.cuisine.japanese">Japanilainen keittiö</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Korealainen keittiö</string>
@@ -1461,4 +1460,5 @@
     <string name="type.amenity.lounger">Aurinkotuoli</string>
     <string name="type.amenity.community_centre.youth_centre">Nuorisokeskus</string>
     <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
+    <string name="type.shop.water">Vesimyymälä</string>
 </resources>

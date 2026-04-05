@@ -5,59 +5,91 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>one</key>
-			<string>%d إشارة مرجعية</string>
+			<string>%lld إشارة مرجعية</string>
 			<key>two</key>
-			<string>%d إشارتان مرجعيتان</string>
+			<string>%lld إشارتان مرجعيتان</string>
 			<key>few</key>
-			<string>%d إشارات مرجعية</string>
+			<string>%lld إشارات مرجعية</string>
 			<key>many</key>
-			<string>%d إشارةً مرجعيةً</string>
+			<string>%lld إشارةً مرجعيةً</string>
 			<key>other</key>
-			<string>%d إشارةً مرجعيةً</string>
+			<string>%lld إشارةً مرجعيةً</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>one</key>
-			<string>تم العثور على %d ملف. يمكنك رؤيته بعد التحويل.</string>
+			<string>تم العثور على %lld ملف. يمكنك رؤيته بعد التحويل.</string>
 			<key>two</key>
-			<string>تم العثور على %d ملفين. يمكنك رؤيتهما بعد التحويل.</string>
+			<string>تم العثور على %lld ملفين. يمكنك رؤيتهما بعد التحويل.</string>
 			<key>few</key>
-			<string>تم العثور على %d ملفات. يمكنك رؤيتها بعد التحويل.</string>
+			<string>تم العثور على %lld ملفات. يمكنك رؤيتها بعد التحويل.</string>
 			<key>many</key>
-			<string>تم العثور على %d ملفًا. يمكنك رؤيتها بعد التحويل.</string>
+			<string>تم العثور على %lld ملفًا. يمكنك رؤيتها بعد التحويل.</string>
 			<key>other</key>
-			<string>تم العثور على %d ملفًا. يمكنك رؤيتها بعد التحويل.</string>
+			<string>تم العثور على %lld ملفًا. يمكنك رؤيتها بعد التحويل.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>other</key>
-			<string>%d المسارات</string>
+			<string>%lld المسارات</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
 		</dict>
 	</dict>
 </dict>

@@ -61,6 +61,7 @@ ignoreUnsavedEdits:(BOOL)force
 - (NSString *)getRootId;
 - (NSString *)nameForCountry:(NSString *)countryId;
 - (nullable NSArray<NSString *> *)nearbyAvailableCountries:(CLLocationCoordinate2D)location;
+- (nullable NSString *)countryForViewportCenter;
 - (MWMMapUpdateInfo *)updateInfoWithParent:(nullable NSString *)countryId;
 
 @end

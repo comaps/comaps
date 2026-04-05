@@ -6,6 +6,7 @@
 #include "platform/settings.hpp"
 
 #include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/math.hpp"
 
@@ -61,27 +62,59 @@ GpsTrackFilter::GpsTrackFilter()
 void GpsTrackFilter::Process(std::vector<location::GpsInfo> const & inPoints,
                              std::vector<location::GpsInfo> & outPoints)
 {
+  LOG(LDEBUG, ("GpsTrackFilter: Processing", inPoints.size(), "input points"));
+
   outPoints.reserve(inPoints.size());
 
   if (m_minAccuracy == 0)
   {
     // Debugging trick to turn off filtering
+    LOG(LDEBUG, ("GpsTrackFilter: Filtering disabled (m_minAccuracy = 0)"));
     outPoints.insert(outPoints.end(), inPoints.begin(), inPoints.end());
     return;
   }
 
   for (location::GpsInfo const & currInfo : inPoints)
   {
+    LOG(LDEBUG, ("GpsTrackFilter: Examining point - timestamp:", currInfo.m_timestamp, "lat:", currInfo.m_latitude,
+                 "lon:", currInfo.m_longitude, "acc:", currInfo.m_horizontalAccuracy));
+
     // Do not accept points from the predictor
     if (currInfo.m_source == location::EPredictor)
+    {
+      LOG(LDEBUG, ("GpsTrackFilter: Skipped predictor point"));
       continue;
+    }
 
     // Skip any function without speed
     if (!currInfo.HasSpeed())
-      continue;
-
-    if (m_countAcceptedInfo < 2 || currInfo.m_timestamp < GetLastAcceptedInfo().m_timestamp)
     {
+      LOG(LDEBUG, ("GpsTrackFilter: Skipped point without speed"));
+      continue;
+    }
+
+    if (m_countLastInfo > 0)
+    {
+      // Skip duplicate points (to prevent direction of (0,0)
+      auto const & last = GetLastInfo();
+      if (currInfo.m_latitude == last.m_latitude && currInfo.m_longitude == last.m_longitude)
+      {
+        LOG(LDEBUG, ("GpsTrackFilter: Skipped duplicate point"));
+        return;
+      }
+    }
+
+    if (m_countAcceptedInfo < 2)
+    {
+      LOG(LDEBUG, ("GpsTrackFilter: Auto-accepted (insufficient history)"));
+      AddLastInfo(currInfo);
+      AddLastAcceptedInfo(currInfo);
+      continue;
+    }
+
+    if (currInfo.m_timestamp < GetLastAcceptedInfo().m_timestamp)
+    {
+      LOG(LDEBUG, ("GpsTrackFilter: Auto-accepted (older timestamp)"));
       AddLastInfo(currInfo);
       AddLastAcceptedInfo(currInfo);
       continue;
@@ -99,38 +132,55 @@ void GpsTrackFilter::Process(std::vector<location::GpsInfo> const & inPoints,
       double const cosine = m2::DotProduct(predictionDirection, realDirection);
 
       // Acceptable angle must be from 0 to 45 or from 0 to -45.
-      // Acceptable distance must be not great than 2x than predicted, otherwise it is jump.
+      // Acceptable distance must be not greater than 2x than predicted, otherwise it is jump.
       if (cosine >= kCosine45degrees && realDistance <= std::max(kClosePointDistanceMeters, 2. * predictionDistance))
       {
         outPoints.emplace_back(currInfo);
         AddLastAcceptedInfo(currInfo);
+        LOG(LDEBUG, ("GpsTrackFilter: Added point to output"));
+      }
+      else
+      {
+        LOG(LDEBUG, ("GpsTrackFilter: Rejected by direction check"));
       }
     }
 
     AddLastInfo(currInfo);
   }
+
+  LOG(LDEBUG, ("GpsTrackFilter: Output", outPoints.size(), "points"));
 }
 
 bool GpsTrackFilter::IsGoodPoint(location::GpsInfo const & info) const
 {
-  // Filter by point accuracy
-  if (info.m_horizontalAccuracy > m_minAccuracy)
-    return false;
-
   auto const & lastInfo = GetLastInfo();
   auto const & lastAcceptedInfo = GetLastAcceptedInfo();
+
+  // Filter by point accuracy
+  if (info.m_horizontalAccuracy > m_minAccuracy)
+  {
+    LOG(LDEBUG, ("GpsTrackFilter: Rejected - accuracy too low:", info.m_horizontalAccuracy, ">", m_minAccuracy));
+    return false;
+  }
 
   // Distance in meters between last accepted and current point is, meters:
   double const distanceFromLastAccepted = GetDistance(lastAcceptedInfo, info);
 
   // Filter point by close distance
   if (distanceFromLastAccepted < kClosePointDistanceMeters)
+  {
+    LOG(LDEBUG, ("GpsTrackFilter: Rejected - too close to last accepted:", distanceFromLastAccepted, "<",
+                 kClosePointDistanceMeters));
     return false;
+  }
 
   // Filter point if accuracy areas are intersected
   if (distanceFromLastAccepted < lastAcceptedInfo.m_horizontalAccuracy &&
       info.m_horizontalAccuracy > 0.5 * lastAcceptedInfo.m_horizontalAccuracy)
+  {
+    LOG(LDEBUG, ("GpsTrackFilter: Rejected - accuracy areas intersected"));
     return false;
+  }
 
   // Distance in meters between last and current point is, meters:
   double const distanceFromLast = GetDistance(lastInfo, info);
@@ -138,7 +188,11 @@ bool GpsTrackFilter::IsGoodPoint(location::GpsInfo const & info) const
   // Time spend to move from the last point to the current point, sec:
   double const timeFromLast = info.m_timestamp - lastInfo.m_timestamp;
   if (timeFromLast <= 0.0)
+  {
+    LOG(LDEBUG, ("GpsTrackFilter: Rejected - zero or negative time difference:", timeFromLast,
+                 "current:", info.m_timestamp, "last:", lastInfo.m_timestamp));
     return false;
+  }
 
   // Speed to move from the last point to the current point
   double const speedFromLast = distanceFromLast / timeFromLast;
@@ -146,8 +200,14 @@ bool GpsTrackFilter::IsGoodPoint(location::GpsInfo const & info) const
   // Filter by acceleration: skip point if it jumps too far in short time
   double const accelerationFromLast = (speedFromLast - lastInfo.m_speed) / timeFromLast;
   if (accelerationFromLast > kMaxAcceptableAcceleration)
+  {
+    LOG(LDEBUG, ("GpsTrackFilter: Rejected - too high acceleration:", accelerationFromLast, ">",
+                 kMaxAcceptableAcceleration, "speed:", speedFromLast, "time:", timeFromLast));
     return false;
+  }
 
+  LOG(LDEBUG, ("GpsTrackFilter: Accepted point - time:", timeFromLast, "dist:", distanceFromLast,
+               "speed:", speedFromLast, "accel:", accelerationFromLast));
   return true;
 }
 

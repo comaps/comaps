@@ -1,5 +1,10 @@
-"route" = "Route";
-"NSLocationAlwaysUsageDescription" = "অ্যাপের কার্যকারিতা সম্পূর্ণরূপে উপভোগ করতে ব্যাকগ্রাউন্ড অবস্থান সনাক্তকরণ প্রয়োজন। এটি নেভিগেশন এবং আপনার সম্প্রতি ভ্রমণ করা ট্র্যাক সংরক্ষণের জন্য ব্যবহৃত হয়।";
-"NSLocationWhenInUseUsageDescription" = "Determining your location is necessary for navigation and for saving your recently traveled track।";
+/* Used in home screen quick actions. */
 "search" = "খুঁজুন";
+/* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "প্রিয় তালিকা";
+/* Used in home screen quick actions. */
+"route" = "Route";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
+"NSLocationAlwaysUsageDescription" = "অ্যাপের কার্যকারিতা সম্পূর্ণরূপে উপভোগ করতে ব্যাকগ্রাউন্ড অবস্থান সনাক্তকরণ প্রয়োজন। এটি নেভিগেশন এবং আপনার সম্প্রতি ভ্রমণ করা ট্র্যাক সংরক্ষণের জন্য ব্যবহৃত হয়।";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
+"NSLocationWhenInUseUsageDescription" = "Determining your location is necessary for navigation and for saving your recently traveled track।";

@@ -51,14 +51,14 @@ void CaptionDescription::Init(FeatureType & f, int8_t deviceLang, int zoomLevel,
   if (translatedName.m_primary.has_value())
   {
     m_mainText = translatedName.m_primary.value();
-    m_mainTextLanguageIndex = translatedName.m_primaryLikelyLanguageIndexForRendering;
+    m_mainTextLanguageIndex = translatedName.m_primaryLikelyLanguageIndex;
   }
   if (zoomLevel > scales::GetUpperWorldScale() && (auxCaptionExists || geomType == feature::GeomType::Line))
   {
     if (translatedName.m_secondary.has_value())
     {
       m_auxText = translatedName.m_secondary.value();
-      m_auxTextLanguageIndex = translatedName.m_secondaryLikelyLanguageIndexForRendering;
+      m_auxTextLanguageIndex = translatedName.m_secondaryLikelyLanguageIndex;
     }
   }
   if (ftypes::IsPublicTransportStopChecker::Instance()(feature::TypesHolder(f)))

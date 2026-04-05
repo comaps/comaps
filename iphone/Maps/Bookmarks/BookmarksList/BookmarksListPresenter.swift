@@ -1,12 +1,8 @@
-protocol BookmarksListDelegate: AnyObject {
-  func bookmarksListDidDeleteGroup()
-}
-
 final class BookmarksListPresenter {
   private unowned let view: IBookmarksListView
   private let router: IBookmarksListRouter
   private var interactor: IBookmarksListInteractor
-  private weak var delegate: BookmarksListDelegate?
+  private weak var delegate: UIViewController?
   private var bookmarkGroup: BookmarkGroup
 
   private enum EditableItem {
@@ -17,7 +13,7 @@ final class BookmarksListPresenter {
 
   init(view: IBookmarksListView,
        router: IBookmarksListRouter,
-       delegate: BookmarksListDelegate?,
+       delegate: UIViewController?,
        interactor: IBookmarksListInteractor) {
     self.view = view
     self.router = router
@@ -178,7 +174,6 @@ final class BookmarksListPresenter {
                                            enabled: interactor.canDeleteGroup(),
                                            action: { [weak self] in
                                             self?.interactor.deleteBookmarksGroup()
-                                            self?.delegate?.bookmarksListDidDeleteGroup()
                                            }))
     view.showMenu(moreItems, from: .more)
   }

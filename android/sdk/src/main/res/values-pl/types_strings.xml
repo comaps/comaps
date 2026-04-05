@@ -303,7 +303,6 @@
     <string name="type.cuisine.international">Kuchnia międzynarodowa</string>
     <string name="type.cuisine.irish">Kuchnia irlandzka</string>
     <string name="type.cuisine.italian">Kuchnia włoska</string>
-    <string name="type.cuisine.italian_pizza">Kuchnia włoska, pizza</string>
     <string name="type.cuisine.japanese">Kuchnia japońska</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Kuchnia koreańska</string>
@@ -1505,4 +1504,8 @@
     <string name="type.railway.turntable">Obrotnica kolejowa</string>
     <string name="type.tourism.information.tactile_map">Mapa dla niewidomych</string>
     <string name="type.waterway.fuel">Stacji paliw dla łodzi motorowych</string>
+    <string name="type.shop.water">Sklep z wodą pitną</string>
+    <string name="type.attraction">Atrakcja</string>
+    <string name="type.amenity.community_centre.youth_centre">Centrum młodzieżowe</string>
+    <string name="type.emergency.disaster_help_point">Punkt pomocy dla ofiar klęski żywiołowej</string>
 </resources>

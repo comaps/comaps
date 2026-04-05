@@ -18,18 +18,6 @@
     <!-- SECTION: Strings for downloading map from search -->
     <string name="editor_zip_code">Postcode</string>
     <string name="error_enter_correct_zip_code">Enter a valid postcode</string>
-    <plurals name="bookmarks_places">
-        <item quantity="one">%d place</item>
-        <item quantity="other">%d places</item>
-    </plurals>
-    <plurals name="bookmarks_detect_message">
-        <item quantity="one">%d file was found. You can see it after conversion.</item>
-        <item quantity="other">%d files were found. You can see them after conversion.</item>
-    </plurals>
-    <plurals name="tracks">
-        <item quantity="one">%d track</item>
-        <item quantity="other">%d tracks</item>
-    </plurals>
     <string name="subway">Metro</string>
     <string name="avoid_motorways">Avoid motorways</string>
     <!-- SECTION: Bookmark types used for sorting -->
@@ -37,24 +25,37 @@
     <string name="transit_not_found">Metro navigation in this region is not available yet</string>
     <string name="dialog_pedestrian_route_is_long_header">No metro route found</string>
     <string name="dialog_pedestrian_route_is_long_message">Please choose a start or end point closer to a metro station</string>
-    <string name="editor_category_unsuitable_text">CoMaps allows adding simple point categories only, which means no towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Check our <a href="https://www.comaps.app/support/advanced-map-editing/">guide</a> for detailed step-by-step instructions.</string>
-    <string name="downloader_no_space_message">Please delete any unnecessary data</string>
-    <string name="login_osm">Login to OpenStreetMap</string>
-    <string name="dialog_routing_location_turn_on">Enable location services</string>
+    <string name="bookmarks_and_tracks">Favourites</string>
+    <string name="share_bookmarks_email_subject">My CoMaps Favourites</string>
+    <string name="share_bookmarks_email_body">Hello! \n \nAttached are my Favourites, please open them in CoMaps. If you don\'t have it installed you can download it here: https://www.comaps.app/download/ \n \nEnjoy travelling with CoMaps!</string>
+    <string name="load_kmz_title">Loading Favourites</string>
+    <string name="load_kmz_successful">Favourites loaded successfully! You can find them on the map or on the Favourites Manager screen.</string>
+    <string name="load_kmz_failed">Failed to load Favourites. The file may be corrupted or defective.</string>
+    <string name="bookmark_lists">Favourite Lists</string>
+    <string name="bookmarks_import">Import Favourites</string>
+    <string name="sort_bookmarks">Sort Favourites</string>
+    <string name="bookmarks_export">Export all Favourites</string>
+    <string name="track_recording_alert_title">Save to Favourites?</string>
+    <string name="pref_backup_title">Backup Favourites</string>
+    <string name="pref_backup_now_summary_empty_lists">No Favourites to backup</string>
+    <string name="bookmark_color">Colour for Favourite</string>
+    <string name="choose_color">Choose Colour</string>
+    <string name="category_atm">Cash Machine</string>
+    <string name="app_tip_09">Our main goal is to build fast, privacy-focussed, easy-to-use maps that you will love.</string>
+    <string name="location_is_disabled_long_text">You currently have all Location Services for this device or application disabled. Please enable them in Settings.</string>
+    <string name="limited_accuracy">Limited Accuracy</string>
+    <string name="about_menu_title">About CoMaps</string>
+    <string name="about_proposition_1">• Easy to use and polished</string>
+    <string name="about_developed_by_enthusiasts">Fully open source, not for profit, transparent decision-making and finances.</string>
+    <string name="unsupported_phone">The app requires hardware accelerated OpenGL. Unfortunately, your device is not supported.</string>
+    <string name="not_enough_free_space_on_sdcard">Please free up some space on the SD card/USB storage first in order to use the app</string>
+    <string name="download_resources">Before you start using the app, please download the world overview map to your device. \nIt will use %s of storage.</string>
+    <string name="download_resources_continue">Go to Map</string>
+    <string name="downloading_country_can_proceed">Downloading %1$s (%2$s). You can now \nproceed to the map.</string>
+    <string name="download_country_ask">Download %1$s? (%2$s)</string>
+    <string name="search">Search</string>
+    <string name="app_site_url">https://comaps.app/</string>
     <string name="back">Back</string>
-    <string name="download_has_failed">Download has failed. Tap to try again.</string>
-    <string name="downloading">Downloading…</string>
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
-    <string name="download_maps">Download Maps</string>
-    <string name="telegram_url">https://t.me/CoMapsApp/</string>
-    <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
-    <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="panoramax">Panoramax Picture</string>
-    <string name="app_site_url">https://comaps.app/</string>
-    <string name="about_proposition_3">• Offline, fast and compact</string>
-    <string name="pref_tts_test_voice_title">Test Voice Directions</string>
-    <string name="search">Search</string>
 </resources>

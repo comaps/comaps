@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260209T180320Z",
+    "data_updated": "20260311T165121Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -1245,10 +1245,9 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/drinking-water-no-m.svg"
         },
         {
-            "description": "attraction=amusement_ride",
+            "description": "attraction=*",
             "key": "attraction",
-            "value": "amusement_ride",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/attraction-m.svg"
         },
         {
             "description": "attraction=animal",
@@ -1257,40 +1256,16 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/animal-m.svg"
         },
         {
-            "description": "attraction=big_wheel",
-            "key": "attraction",
-            "value": "big_wheel",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
-        },
-        {
-            "description": "attraction=bumper_car",
-            "key": "attraction",
-            "value": "bumper_car",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
-        },
-        {
-            "description": "attraction=carousel",
-            "key": "attraction",
-            "value": "carousel",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
-        },
-        {
             "description": "attraction=historic",
             "key": "attraction",
             "value": "historic",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/historic_attraction-m.svg"
         },
         {
-            "description": "attraction=maze",
+            "description": "attraction=water_slide",
             "key": "attraction",
-            "value": "maze",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
-        },
-        {
-            "description": "attraction=roller_coaster",
-            "key": "attraction",
-            "value": "roller_coaster",
-            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/playground-m.svg"
+            "value": "water_slide",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/water_slide-m.svg"
         },
         {
             "description": "barrier=block",
@@ -3018,6 +2993,11 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-special-m.svg"
         },
         {
+            "description": "natural=tree_row",
+            "key": "natural",
+            "value": "tree_row"
+        },
+        {
             "description": "natural=volcano",
             "key": "natural",
             "value": "volcano",
@@ -4571,6 +4551,12 @@
             "key": "shop",
             "value": "video_games",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/video-games-m.svg"
+        },
+        {
+            "description": "shop=water",
+            "key": "shop",
+            "value": "water",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/shop-water-m.svg"
         },
         {
             "description": "shop=wholesale",

@@ -24,11 +24,15 @@
 "type.amenity.bar" = "Taberna";
 "type.amenity.bbq" = "Barbakoa parrilla";
 "type.amenity.bench" = "Bankua";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "Bizikleta aparkalekua";
+"type.amenity.bicycle_parking.covered" = "Txirrinduen aparkaleku estalia";
+"type.amenity.boat_rental" = "Itsasontzien alokairua";
 "type.amenity.bicycle_rental" = "Bizikleta alokairua";
 "type.amenity.bicycle_repair_station" = "Bizikleta konponketa gunea";
 "type.amenity.biergarten" = "Biergartena";
 "type.amenity.brothel" = "Bordela";
+"type.amenity.love_hotel" = "Maitasun hotela";
 "type.amenity.bureau_de_change" = "Moneta-trukea";
 "type.amenity.bus_station" = "Autobus geltokia";
 "type.amenity.cafe" = "Kafetegia";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Motorren alokairua";
 "type.amenity.car_sharing" = "Auto partekatzea";
 "type.amenity.car_wash" = "Kotxe garbiketa";
+"type.man_made.telescope" = "Teleskopioa";
+"type.man_made.telescope.optical" = "Teleskopioa (optikoa)";
+"type.man_made.telescope.radio" = "Teleskopioa (irratia)";
+"type.man_made.telescope.gamma" = "Teleskopioa (gamma)";
+"type.man_made.observatory" = "Behatokia";
 "type.amenity.casino" = "Kasinoa";
 "type.amenity.gambling" = "Jokoa";
+"type.amenity.studio" = "Apartamentua";
 "type.leisure.adult_gaming_centre" = "Helduen Joko Zentroa";
 "type.leisure.amusement_arcade" = "Bideo-joko aretoa";
 "type.amenity.charging_station" = "Kargatzeko geltokia";
-"type.amenity.charging_station.bicycle" = "Bizikletak kargatzeko geltokia";
 "type.amenity.charging_station.motorcar" = "Autoak kargatzeko geltokia";
+"type.amenity.charging_station.motorcycle" = "Motozikletak";
+"type.amenity.charging_station.bicycle" = "Bizikletak kargatzeko geltokia";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Haurtzaindegia";
 "type.amenity.cinema" = "Filmak";
 "type.leisure.bowling_alley" = "Bolatokia";
 "type.amenity.clinic" = "Klinika";
 "type.amenity.college" = "Unibertsitatea";
 "type.amenity.community_centre" = "Gizarte-etxea";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Aire konprimitua";
 "type.amenity.conference_centre" = "Biltzar jauregia";
 "type.amenity.courthouse" = "Auzitegia";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Erakusketa Zentroa";
 "type.amenity.money_transfer" = "Diru transferentzia";
 "type.amenity.music_school" = "Musika Eskola";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Hizkuntza Eskola";
 "type.office.diplomatic" = "Enbaxada";
+"type.office.security" = "Segurtasun zaindarien bulegoa";
+"type.building.guardhouse" = "Segurtasun kabina";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Janari azkarra";
 "type.amenity.ferry_terminal" = "Ferry-a";
 "type.amenity.fire_station" = "Suhiltzaileen parkea";
 "type.amenity.food_court" = "Jantokia";
 "type.amenity.fountain" = "Iturria";
 "type.amenity.fuel" = "Gasolindegia";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Hilerria";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Kristau-hilerria";
 "type.amenity.hospital" = "Ospitalea";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "Haurtzaindegia";
 "type.amenity.library" = "Liburutegia";
 "type.amenity.loading_dock" = "Kargatzeko kaia";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Ekipaje-kontsigna";
 "type.amenity.marketplace" = "Merkatua";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motoentzako aparkalekua";
 "type.amenity.nightclub" = "Diskoteka";
 "type.amenity.nursing_home" = "Zaharren egoitza";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "Aparkaleku";
 "type.amenity.parking_space.underground" = "Aparkaleku";
 "type.amenity.parking_space.disabled" = "Ezinduentzako aparkalekua";
+"type.amenity.car_pooling" = "Auto partekatuak";
 "type.amenity.payment_terminal" = "Ordainketa terminala";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "Botika";
 "type.amenity.place_of_worship" = "Kultu lekua";
 "type.amenity.place_of_worship.buddhist" = "Tenplu budista";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "Polizia";
 "type.amenity.post_box" = "Postontzia";
 "type.amenity.post_office" = "Posta bulegoa";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "Espetxea";
 "type.amenity.pub" = "Taberna";
 "type.amenity.public_bookcase" = "Liburu trukea";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "Jatetxea";
 "type.amenity.sanitary_dump_station" = "Ur-beltzen hustuketa gunea";
 "type.amenity.school" = "Eskola";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Aterpea";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Aterpea";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac Borda";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Babesleku irekia";
 "type.amenity.public_bath" = "Bainu Publikoa";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Ibilgailuen Ikuskapena";
 "type.amenity.vending_machine.fuel" = "Erregai-ponpa";
 "type.amenity.veterinary" = "Albaitaritzako klinika";
+"type.amenity.animal_shelter" = "Animalien babeslekua";
 "type.amenity.waste_basket" = "Paper-ontzia";
 "type.amenity.waste_disposal" = "Zaborrontzia";
 "type.amenity.waste_transfer_station" = "Hondakinen transferentzia-gunea";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Hondakin-urak";
 "type.barrier.entrance" = "Sarrera";
 "type.barrier.fence" = "Hesia";
+"type.barrier.guard_rail" = "Baranda";
 "type.barrier.gate" = "Ate";
 "type.barrier.hedge" = "Estaldura";
 "type.barrier.kissing_gate" = "Ate";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Euste-horma";
 "type.barrier.stile" = "Urratsa";
 "type.barrier.turnstile" = "Tornuska";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "Hesia";
 "type.barrier.toll_booth" = "Bidesaria";
 "type.barrier.wall" = "Horma";
 "type.boundary" = "Muga";
 "type.boundary.administrative" = "Muga administratiboa";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "Herrialdeko muga";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Eskualdeko muga";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Eskualdeko muga";
 "type.boundary.national_park" = "Parke Nazionala";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Babestutako Eremua";
 "type.boundary.protected_area.6" = "Babestutako Eremua";
 "type.building" = "Eraikina";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Helbidea";
 "type.building.has_parts" = "Eraikina";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Lorezaina";
 "type.craft.grinding_mill" = "Artezteko errota";
 "type.craft.handicraft" = "Eskulangintza";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Aire girotua";
 "type.craft.key_cutter" = "Giltza kopiak";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "Nazioarteko sukaldea";
 "type.cuisine.irish" = "Irlandar sukaldaritza";
 "type.cuisine.italian" = "Italiako sukaldaritza";
-"type.cuisine.italian_pizza" = "Italiar sukaldaritza, pizza";
 "type.cuisine.japanese" = "Japoniako sukaldaritza";
 "type.cuisine.kebab" = "Kebabak";
 "type.cuisine.korean" = "Koreako sukaldaritza";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "Sukaldaritza begetarianoa";
 "type.cuisine.vietnamese" = "Vietnamgo sukaldaritza";
 "type.emergency" = "Larrialdiak";
+"type.emergency.access_point" = "Larrialdietako salbamendu puntua";
+"type.emergency.access_point.address" = "Larrialdietako salbamendu helbidea";
 "type.emergency.assembly_point" = "Larrialdietako Batzar Puntua";
+"type.emergency.disaster_help_point" = "Larrialdietako hondamendien laguntza puntua";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Desfibriladorea";
 "type.emergency.fire_hydrant" = "Suteen hidrantea";
+"type.amenity.hydrant" = "Ureztatzeko hidrantea";
 "type.emergency.phone" = "Larrialdi zenbakia";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Soroslea";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Buia kardinala";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Buia kardinal esferikoa";
+"type.spherical_buoy.cardinal.north" = "Buia kardinal esferikoa";
+"type.spherical_buoy.cardinal.south" = "Buia kardinal esferikoa";
+"type.spherical_buoy.cardinal.west" = "Buia kardinal esferikoa";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "Ekialdea";
+"type.cardinal.north" = "Iparra";
+"type.cardinal.south" = "Hegoa";
+"type.cardinal.west" = "Mendebala";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Mendiko erreskate estazioa";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Sarrera";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Sarrera Nagusia";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Sarrera(bakarrik)";
 "type.entrance.exit" = "Irten";
+"type.entrance.emergency" = "Larrialdi irteera";
 "type.fee.yes" = "€";
 "type.fee.no" = "Doan";
 "type.healthcare.laboratory" = "Medikuntza laborategia";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "Logopedia";
 "type.highway" = "Errepidea";
 "type.highway.bridleway" = "Zaldi-bidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Zubia";
 "type.highway.bridleway.permissive" = "Zaldi-bidea";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunela";
 "type.highway.busway" = "Autobusentzat errepidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunela";
 "type.highway.bus_stop" = "Autobus geltokia";
 "type.highway.construction" = "Eraikitzen ari diren errepidea";
 "type.highway.cycleway" = "Bidegorri edo bizikleta-bidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Zubia";
 "type.highway.cycleway.permissive" = "Bizikletabidea";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunela";
 "type.highway.elevator" = "Igogailua";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "Espaloia";
 "type.highway.footway.crossing" = "Oinezkoen pasabidea";
 "type.highway.footway.area" = "Bidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Oinezkoen tunela";
 "type.highway.ford" = "Ibia";
 "type.highway.living_street" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunela";
 "type.highway.motorway" = "Autobidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Autobideko zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Autobideko tunela";
 "type.highway.motorway_junction" = "Autobideko irteera";
 "type.highway.motorway_link" = "Autobiderako sarrera bidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunela";
 "type.highway.path" = "Bidea";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Ibilbide zaila edo gaizki ikusten da";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Oso bide zaila edo bereiztezina";
 "type.highway.path.bicycle" = "Bidea";
 "type.highway.footway.bicycle" = "Bidea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Zubia";
 "type.highway.path.horse" = "Bidea";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunela";
 "type.highway.pedestrian" = "Oinezkoen kalea";
 "type.highway.pedestrian.area" = "Oinezkoen eremua";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Oinezkoen zubia";
 "type.highway.pedestrian.square" = "Plaza";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Oinezkoen tunela";
 "type.highway.primary" = "Errepide nagusia";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunel";
 "type.highway.primary_link" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunel";
 "type.highway.raceway" = "Zirkuitua";
 "type.highway.residential" = "Kalea";
 "type.highway.residential.area" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunel";
 "type.highway.rest_area" = "Atseden gunea";
 "type.highway.road" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Zubia";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunel";
 "type.highway.secondary" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunel";
 "type.highway.secondary_link" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunel";
 "type.highway.service" = "Kalea";
 "type.highway.service.area" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Zubia";
 "type.highway.service.driveway" = "Kalea";
 "type.highway.service.parking_aisle" = "Kalea";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunel";
 "type.highway.services" = "Zerbitzugunea";
 "type.highway.speed_camera" = "Abiadura kamera";
 "type.highway.steps" = "Bidea";
-
+"type.highway.ladder" = "Eskailera";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunel";
 "type.highway.tertiary" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunel";
 "type.highway.tertiary_link" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunel";
 "type.highway.track" = "Arrastoa";
 "type.highway.track.area" = "Arrastoa";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Zubia";
 "type.highway.track.grade1" = "Arrastoa";
 "type.highway.track.no.access" = "Arrastoa";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunel";
 "type.highway.traffic_signals" = "Semaforoak";
 "type.highway.trunk" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunel";
 "type.highway.trunk_link" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunel";
 "type.highway.unclassified" = "Kalea";
 "type.highway.unclassified.area" = "Kalea";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Zubia";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunel";
 "type.area_highway.cycleway" = "Bizikletabidea";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "Turismoa";
 "type.historic.tank" = "Depositu historikoa";
 "type.historic.tomb" = "Hilobia";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Gurutze";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Bideko gurutze";
 "type.historic.wayside_shrine" = "Bide bazterreko baseliza";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Baratze komunitatea";
 "type.landuse.basin" = "Arroa";
 "type.landuse.brownfield" = "Industrialde ohia";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Hilerria";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Hilerria";
 "type.landuse.religious" = "Eremu erlijiosoa";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Gatzaga";
 "type.landuse.village_green" = "Hiri-belardia";
 "type.landuse.vineyard" = "Mahastia";
+"type.landuse.plant_nursery" = "Landare haztegia";
 "type.leisure" = "Aisia";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "Lurzoru publikoa";
 "type.leisure.dog_park" = "Txakur parkea";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "Fitness zentroa";
 "type.leisure.fitness_station" = "Gimnasioa";
 "type.leisure.dance" = "Dantza-aretoa";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolfa";
 "type.leisure.hackerspace" = "Hacklab";
 "type.leisure.ice_rink" = "Izotz-pista";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Kirol-portua";
 "type.leisure.nature_reserve" = "Erreserbatutako lurraldea";
 "type.leisure.outdoor_seating" = "Kanpoko eserlekuak";
+"type.leisure.firepit" = "Su-ontzi";
 "type.leisure.park" = "Parkea";
 "type.leisure.park.no.access" = "Parkea";
 "type.leisure.park.permissive" = "Parkea";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Arrapala";
 "type.leisure.sports_centre" = "Kiroldegia";
-"type.sport.climbing" = "Eskalada zentroa";
-"type.sport.yoga" = "Yoga zentroa";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "Estadioa";
 "type.leisure.swimming_pool" = "Igerilekua";
 "type.leisure.swimming_pool.private" = "Igerilekua";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Andel";
 "type.man_made.surveillance" = "Zaintza Kamera";
 "type.man_made.tower" = "Dorrea";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Komunikazio Dorrea";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Komunikazio Dorrea";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Petrolio edo gas putzua";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gas zuzia|Gas sugarra";
+"type.man_made.crane" = "Garabia";
 "type.man_made.wastewater_plant" = "Hondakin urak araztegia";
 "type.man_made.water_tap" = "Ura hartzea";
 "type.man_made.water_tap.drinking_water_no" = "Ura hartzea";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "Bunkerra";
 "type.mountain_pass" = "Mendatea";
 "type.natural" = "Natura";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Harkaitz biluzi";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Harri koskor";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Srika";
 "type.natural.bay" = "Badia";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "Lubeta";
 "type.natural.coastline" = "Itsasertz";
 "type.natural.desert" = "Basamortua";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "Geyserra";
 "type.natural.glacier" = "Glaziarra";
 "type.natural.grassland" = "Belartza";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "Udaberria";
 "type.natural.spring.drinking_water_no" = "Udaberria";
 "type.natural.strait" = "Estua";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "Zuhaitz ilara";
 "type.natural.vineyard" = "Mahasti";
 "type.natural.volcano" = "Sumendi";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "Lur paduratsua";
 "type.natural.wetland.bog" = "Zohikaztegi";
 "type.natural.wetland.marsh" = "Padura";
+"type.natural.wetland.saltmarsh" = "Gatz-padura";
+"type.natural.wetland.saltmarsh.tidal" = "Mareako gatz-padura";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Irteerarik gabeko bidea";
 "type.office" = "Bulegoa";
 "type.office.company" = "Bulegoa";
@@ -843,10 +887,8 @@
 "type.place.islet" = "Uhartea";
 "type.place.isolated_dwelling" = "Etxebizitza Isolatua";
 "type.place.locality" = "Kokapena";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Auzoa";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Barrutia";
 "type.place.ocean" = "Ozeanoa";
@@ -855,7 +897,6 @@
 "type.place.square" = "Plaza";
 "type.place.state" = "Baldintza";
 "type.place.state.USA" = "Baldintza";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Auzoa";
 "type.place.town" = "Herria";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "Eguzki-zentrala";
 "type.power.plant.wind" = "Zentral eolikoa";
 "type.power.substation" = "Azpiestazioa";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Zutabe elektrikoa";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Elektrizitate zutoina";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Garraio publikoa";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Trenbidea eraikuntzan";
 "type.railway.crossing" = "Trenbide gurutzea";
 "type.railway.disused" = "Erabilerarik gabeko trenbidea";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "Funikularra";
 "type.railway.funicular.bridge" = "Funikularreko zubia";
 "type.railway.funicular.tunnel" = "Funikularreko tunela";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "Tren monoraila";
 "type.railway.monorail.bridge" = "Monorrail zubia";
 "type.railway.monorail.tunnel" = "Monorrail tunela";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Zabalera estuko trenbidea";
 "type.railway.narrow_gauge.bridge" = "Zabalera estuko trenbide-zubia";
 "type.railway.narrow_gauge.tunnel" = "Zabalera estuko trenbide tunela";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "Abiadura handiko trena";
 "type.railway.rail.tourism" = "Tren turistikoa";
 "type.railway.rail.main" = "Trenbidea";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Bigarren mailako trenbidea";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Erabilgarritasun trena";
 "type.railway.rail.spur" = "Trenbide-spur";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Zerbitzuko trenbidea";
 "type.railway.rail.bridge" = "Trenbide zubia";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Metroa";
 "type.railway.station.subway.philadelphia" = "Metroa";
 "type.railway.station.subway.pyongyang" = "Metroa";
+"type.railway.station.subway.qingdao" = "Metro geltokia";
 "type.railway.station.subway.rennes" = "Metroa";
 "type.railway.station.subway.rio" = "Metroa";
 "type.railway.station.subway.roma" = "Metroa";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "Okindegia";
 "type.shop.bathroom_furnishing" = "Bainugelako altzariak";
 "type.shop.beauty" = "Apaindegia";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "Edariak";
 "type.shop.bicycle" = "Bizikleta denda";
 "type.shop.bookmaker" = "Apustu etxea";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "Sukalde-denda";
 "type.shop.laundry" = "Garbitegia";
 "type.shop.mall" = "Merkataritza-gune";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "Masaje gela";
 "type.shop.mobile_phone" = "Mugikorra";
 "type.shop.money_lender" = "Diru emailea";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "Supermerkatua";
 "type.shop.tattoo" = "Tatuajeak";
 "type.shop.tea" = "Te-denda";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Sarreren salmenta";
 "type.shop.toys" = "Jostailu denda";
 "type.shop.travel_agency" = "Bidai agentzia";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "Nekazaritza denda";
 "type.shop.antiques" = "Antigoalekoak";
 "type.shop.appliance" = "Etxetresna elektrikoen denda";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Arte denda";
 "type.shop.baby_goods" = "Haurrentzako denda";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "Lanbideen hornidurak";
 "type.shop.watches" = "Erlojuak";
 "type.shop.wholesale" = "Handizkako denda";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "Kirola";
+"type.sport.multi" = "Hainbat kirol";
+"type.sport.9pin" = "Bowlinga";
+"type.sport.10pin" = "Bowlinga";
 "type.sport.american_football" = "Futbola";
 "type.sport.archery" = "Arku-tiroa";
 "type.sport.athletics" = "Atletismoa";
 "type.sport.australian_football" = "Australiako futbol araua";
+"type.sport.badminton" = "Badmintona";
 "type.sport.baseball" = "Beisbol";
 "type.sport.basketball" = "Saskibaloia";
 "type.sport.beachvolleyball" = "Hondartza-bolei";
 "type.sport.bowls" = "Bowls";
 "type.sport.chess" = "Xake";
+"type.sport.climbing" = "Eskalada zentroa";
 "type.sport.cricket" = "Kilkerra";
 "type.sport.curling" = "Curlinga";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "Zaldi-lasterketa";
+"type.sport.field_hockey" = "Belar hockey";
+"type.sport.futsal" = "Areto-futbola";
 "type.sport.golf" = "Golfa";
 "type.sport.gymnastics" = "Gimnasia";
 "type.sport.handball" = "Eskubaloia";
-"type.sport.multi" = "Hainbat kirol";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Izotz hockey";
+"type.sport.padel" = "Padela";
+"type.sport.pelota" = "Euskal pilota";
 "type.sport.scuba_diving" = "Urpekaritza";
 "type.sport.shooting" = "Tiroketa";
 "type.sport.skateboard" = "Skateboardinga";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "Mahai-tenis";
 "type.sport.tennis" = "Tenis kantxa";
 "type.sport.volleyball" = "Boleibol";
-"type.sport.10pin" = "Bowlinga";
-"type.sport.9pin" = "Bowlinga";
-"type.sport.padel" = "Padela";
-"type.sport.futsal" = "Areto-futbola";
-"type.sport.ice_hockey" = "Izotz hockey";
-"type.sport.field_hockey" = "Belar hockey";
-"type.sport.badminton" = "Badmintona";
-"type.sport.pelota" = "Euskal pilota";
+"type.sport.yoga" = "Yoga zentroa";
 "type.tourism" = "Turismoa";
 "type.tourism.aquarium" = "Aquariuma";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Mendiko ostatua";
 "type.tourism.apartment" = "Oporretako apartamentua";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Artelanak";
 "type.tourism.artwork.statue" = "Artelanak";
 "type.tourism.attraction" = "Erakarpen turistikoa";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Jolas Ibilaldia";
 "type.attraction.animal" = "Animalien itxitura";
 "type.attraction.bumper_car" = "Autotxokeak";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Erakarpen turistikoa";
 "type.tourism.camp_site" = "Kanpalekua";
 "type.tourism.caravan_site" = "Karabana gunea";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Oporretako Etxea";
 "type.tourism.gallery" = "Turismoa";
@@ -1374,14 +1421,16 @@
 "type.tourism.information.board" = "Informazio taula";
 "type.tourism.information.guidepost" = "Gida postua";
 "type.tourism.information.map" = "Mapa turistikoa";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Turismo bulegoa";
 "type.tourism.information.visitor_centre" = "Bisitarien Zentroa";
+"type.amenity.ranger_station" = "Ranger Station";
+"type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museoa";
 "type.tourism.picnic_site" = "Piknika";
 "type.leisure.resort" = "Oporleku";
 "type.tourism.theme_park" = "Parke tematiko";
 "type.tourism.viewpoint" = "Begiratokia";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Kabina";
 "type.tourism.zoo" = "Zoo";
@@ -1399,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Zuloa";
 "type.waterway.dock" = "Ibaibideko kaia";
 "type.waterway.drain" = "Estolda";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "Zuloa";
 "type.waterway.lock_gate" = "Atea";
@@ -1446,67 +1496,20 @@
 "type.self_service.only" = "Autozerbitzua soilik";
 "type.self_service.partially" = "Autozerbitzu partziala";
 "type.self_service.no" = "Autozerbitzurik ez";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Gizarte-ekipamendua";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Larrialdietarako Sarrera";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojoa";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Kiroldegia";
-"type.landuse.plant_nursery" = "Landare haztegia";
-"type.leisure.firepit" = "Su-ontzi";
-"type.amenity.studio" = "Apartamentua";
-"type.barrier.guard_rail" = "Baranda";
-"type.highway.ladder" = "Eskailera";
-"type.man_made.crane" = "Garabia";
-"type.amenity.love_hotel" = "Maitasun hotela";
-"type.tourism.motel" = "Motel";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.sport.diving" = "High Diving";
-"type.natural.wetland.swamp" = "Swamp";
-"type.natural.wetland.saltmarsh" = "Gatz-padura";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Mareako gatz-padura";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.railway.station.subway.qingdao" = "Metro geltokia";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Ekipaje-kontsigna";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Txirrinduen aparkaleku estalia";
-"type.post_office.post_partner" = "Post Partner";
-"type.amenity.animal_shelter" = "Animalien babeslekua";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.office.security" = "Segurtasun zaindarien bulegoa";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Segurtasun kabina";
-"type.amenity.boat_rental" = "Itsasontzien alokairua";
-"type.man_made.telescope" = "Teleskopioa";
-"type.man_made.telescope.optical" = "Teleskopioa (optikoa)";
-"type.man_made.telescope.radio" = "Teleskopioa (irratia)";
-"type.man_made.telescope.gamma" = "Teleskopioa (gamma)";
-"type.man_made.observatory" = "Behatokia";
-"type.amenity.charging_station.motorcycle" = "Motozikletak";
-"type.amenity.car_pooling" = "Auto partekatuak";
-"type.emergency.access_point" = "Larrialdietako salbamendu puntua";
-"type.emergency.access_point.address" = "Larrialdietako salbamendu helbidea";
-"type.emergency.disaster_help_point" = "Larrialdietako hondamendien laguntza puntua";
-"type.amenity.hydrant" = "Ureztatzeko hidrantea";
-"type.buoy.cardinal.west" = "Buia kardinala";
-"type.spherical_buoy.cardinal.east" = "Buia kardinal esferikoa";
-"type.spherical_buoy.cardinal.north" = "Buia kardinal esferikoa";
-"type.spherical_buoy.cardinal.south" = "Buia kardinal esferikoa";
-"type.spherical_buoy.cardinal.west" = "Buia kardinal esferikoa";
-"type.cardinal.east" = "Ekialdea";
-"type.cardinal.north" = "Iparra";
-"type.cardinal.south" = "Hegoa";
-"type.cardinal.west" = "Mendebala";
-"type.entrance.entry" = "Sarrera(bakarrik)";
-"type.entrance.emergency" = "Larrialdi irteera";
 "type.xmas.tree" = "Gabonetako zuhaitza";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

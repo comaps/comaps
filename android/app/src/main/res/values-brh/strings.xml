@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="cancel">آخه</string>
+    <string name="kilometres">کلومیٹر</string>
+    <string name="miles">میل</string>
+    <string name="about_menu_title">CoMaps نا باروٹ</string>
+    <string name="app_site_url">https://comaps.app/</string>
+    <string name="back">پدی</string>
+    <string name="delete">ڈلیٹ</string>
+    <string name="download_maps">نکشہ ڈاونلوڈ کر</string>
+    <string name="download_has_failed">ڈاون لوڈ مننگ کتو، پدا وار اس خل</string>
+    <string name="downloading">ڈاون لوڈ مرسہ اے…</string>
+    <string name="later">پین وخت اس</string>
+    <string name="search">پٹ</string>
+    <string name="search_map">نکشہ ٹی پٹ</string>
+    <string name="zoom_to_country">نکشہ ٹی نشان ایت</string>
+    <string name="country_status_download_failed">ڈاونلوڈ مننگ کتو</string>
+    <string name="try_again">پدا وار اس خل</string>
+    <string name="route_finished">کسر پورہ مس</string>
+    <string name="on_route">کسر اٹ</string>
+    <string name="unknown_count">نامعلوم</string>
+    <string name="offline_explanation_title">آفائن نکشہ</string>
+    <string name="pref_speedlimit_title">رفتار نا ہد نشاد ایت</string>
+    <string name="rooms">%s کمرہغاک</string>
 </resources>

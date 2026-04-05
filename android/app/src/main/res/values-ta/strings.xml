@@ -50,7 +50,6 @@
     <string name="load_kmz_failed">பிடித்தவைகளை ஏற்ற முடியவில்லை. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.</string>
     <string name="edit">தொகு</string>
     <string name="unknown_current_position">உங்கள் இருப்பிடம் இன்னும் தீர்மானிக்கப்படவில்லை</string>
-    <string name="bookmark_share_email_subject">ஏய், CoMaps இல் எனது பின்னை பாருங்கள்!</string>
     <string name="my_position_share_email_subject">ஏய், CoMaps வரைபடத்தில் எனது தற்போதைய இருப்பிடத்தைப் பாருங்கள்!</string>
     <string name="email">மின்னஞ்சல்</string>
     <string name="done">முடிந்தது</string>
@@ -193,20 +192,20 @@
     <string name="downloader_of">%1$d / %2$d</string>
     <string name="download_over_mobile_header">செல்லுலார் பிணையம் இணைப்பு மூலம் பதிவிறக்கவா?</string>
     <string name="error_enter_correct_house_number">சரியான கட்டிட எண்ணை உள்ளிடவும்</string>
-    <string name="error_enter_correct_storey_number">மாடிகளின் எண்ணிக்கை %d ஐ விட அதிகமாக இருக்கக்கூடாது</string>
+    <string name="error_enter_correct_storey_number">மாடிகளின் எண்ணிக்கை %d ஐ விட அதிகமாக இருக்கக் கூடாது</string>
     <string name="editor_zip_code">குறியீடு</string>
     <string name="error_enter_correct_zip_code">சரியான அஞ்சல் குறியீட்டை உள்ளிடவும்</string>
     <string name="editor_other_info">OpenStreetMap தன்னார்வலர்களுக்கான குறிப்பு (விரும்பினால்)</string>
     <string name="editor_more_about_osm">OpenStreetMap பற்றி மேலும்</string>
     <string name="editor_operator">செயற்குறி</string>
     <string name="editor_category_unsuitable_title">பொருத்தமான வகையைக் கண்டுபிடிக்க முடியவில்லையா?</string>
-    <string name="editor_category_unsuitable_text">CoMaps எளிய புள்ளி வகைகளை மட்டும் சேர்க்க அனுமதிக்கிறது, அதாவது நகரங்கள், சாலைகள், ஏரிகள், கட்டிட அவுட்லைன்கள் போன்றவை இல்லை. அத்தகைய வகைகளை நேரடியாக <a href="https://www.openstreetmap.org">OpenStreetMap.org</a> இல் சேர்க்கவும். விரிவான படிப்படியான வழிமுறைகளுக்கு எங்கள் <a href="https://www.comaps.app/support/advanced-map-editing/">வழிகாட்டியைப்</a> பார்க்கவும்.</string>
+    <string name="editor_category_unsuitable_text">இணைவரைபடங்கள் எளிய புள்ளி வகைகளை மட்டும் சேர்க்க அனுமதிக்கிறது, அதாவது நகரங்கள், சாலைகள், ஏரிகள், கட்டிட அவுட்லைன்கள் போன்றவை இல்லை. அத்தகைய வகைகளை நேரடியாக <a href="https://www.openstreetmap.org">திறந்ததெருவரைபடம்.நிறுவன</a> இல் சேர்க்கவும். விரிவான படிப்படியான வழிமுறைகளுக்கு எங்கள் <a href="https://www.comaps.app/support/advanced-map-editing/">வழிகாட்டியைப்</a> பார்.</string>
     <string name="downloader_no_downloaded_maps_title">நீங்கள் எந்த வரைபடத்தையும் பதிவிறக்கம் செய்யவில்லை</string>
     <string name="kilometers_per_hour">கிமீ/ம</string>
     <string name="miles_per_hour">மை/ம</string>
-    <string name="hour">ம</string>
-    <string name="minute">மணித்துளி</string>
-    <string name="day">டி</string>
+    <string name="hour">ம.</string>
+    <string name="minute">நி.</string>
+    <string name="day">நா.</string>
     <string name="placepage_more_button">மேலும்</string>
     <string name="placepage_edit_bookmark_button">சேமித்த இடத்தைத் திருத்தவும்</string>
     <string name="placepage_personal_notes_hint">தனிப்பட்ட குறிப்புகள் (உரை அல்லது html)</string>
@@ -397,7 +396,6 @@
     <string name="cant_change_this_setting">மன்னிக்கவும், வரைபட சேமிப்பக அமைப்புகள் தற்போது முடக்கப்பட்டுள்ளன</string>
     <string name="downloading_is_active">வரைபடப் பதிவிறக்கம் இப்போது செயலில் உள்ளது</string>
     <string name="my_position_share_sms">CoMaps இல் எனது தற்போதைய இருப்பிடத்தைப் பார்க்கவும்! %1$s அல்லது %2$s இணைப்பில்லாத வரைபடங்கள் இல்லையா? இங்கே பதிவிறக்கவும்: https://www.comaps.app/download/</string>
-    <string name="my_position_share_email">வணக்கம், \n\nநான் இப்போது இங்கே இருக்கிறேன்: %1$s. வரைபடத்தில் இடத்தைப் பார்க்க, இந்த இணைப்பை %2$s அல்லது இந்த %3$sஐக் சொடுக்கு செய்யவும். \n\nநன்றி.</string>
     <string name="share">பகிர்</string>
     <string name="copied_to_clipboard">இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது: %s</string>
     <string name="data_version">OpenStreetMap தரவு: %s</string>
@@ -415,7 +413,7 @@
     <string name="compass_calibration_recommended">திசைகாட்டியை அளவீடு செய்ய, எண்-எட்டு இயக்கத்தில் தொலைபேசியை நகர்த்துவதன் மூலம் அம்புக்குறியின் திசையை மேம்படுத்தவும்.</string>
     <string name="compass_calibration_required">திசைகாட்டியை அளவீடு செய்ய மற்றும் வரைபடத்தில் அம்புக்குறியின் திசையை சரிசெய்ய, எண்-எட்டு இயக்கத்தில் தொலைபேசியை நகர்த்தவும்.</string>
     <string name="downloader_cancel_all">அனைத்தையும் நீக்கறல்</string>
-    <string name="downloader_delete_map_while_routing_dialog">வரைபடத்தை நீக்க, வழிசெலுத்தலை நிறுத்தவும்</string>
+    <string name="downloader_delete_map_while_routing_dialog">வரைபடத்தை நீக்க, வழிசெலுத்தலை நிறுத்து</string>
     <string name="downloader_update_map">வரைபடத்தைப் புதுப்பிக்கவும்</string>
     <string name="google_play_services">கூகுள் இணைந்த இருப்பிடச் பணி</string>
     <string name="pref_use_google_play">GPS, Wi-Fi, செல்லுலார் நெட்வொர்க்குகள் போன்றவற்றை ஒருங்கிணைத்து உங்கள் இருப்பிடத்தை மிகவும் துல்லியமாகத் தீர்மானிக்கும் தனியுரிமைச் பணி. இது Google சேவையகங்களுடன் இணைக்கப்படலாம்.</string>
@@ -436,12 +434,6 @@
     <string name="editor_time_from">இருந்து</string>
     <string name="editor_time_to">பெறுநர்</string>
     <string name="editor_correct_mistake">சரியான தவறு</string>
-    <string name="editor_report_problem_desription_1">சிக்கலை விரிவாக விவரிக்கவும், இதனால் OpenStreetMap சமூகம் அதை சரிசெய்ய முடியும்.</string>
-    <string name="editor_report_problem_desription_2">அல்லது https://www.openstreetmap.org/ இல் நீங்களே செய்யுங்கள்</string>
-    <string name="editor_report_problem_title">சிக்கல்</string>
-    <string name="editor_report_problem_no_place_title">இந்த இடம் இல்லை</string>
-    <string name="editor_report_problem_under_construction_title">பராமரிப்புக்காக மூடப்பட்டுள்ளது</string>
-    <string name="editor_report_problem_duplicate_place_title">நகல் இடம்</string>
     <string name="opens_in">%s இல் திறக்கப்படும்</string>
     <string name="closes_in">%s இல் மூடப்படும்</string>
     <string name="opens_at">%s இல் திறக்கப்படும்</string>
@@ -476,7 +468,7 @@
     <string name="osm_presentation">%s இன் சமூகத்தால் உருவாக்கப்பட்ட OpenStreetMap தரவு. OpenStreetMap.org இல் வரைபடத்தை எவ்வாறு திருத்துவது மற்றும் புதுப்பிப்பது என்பது பற்றி மேலும் அறிக</string>
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) என்பது ஒரு இலவச மற்றும் திறந்த வரைபடத்தை உருவாக்குவதற்கான ஒரு சமூக திட்டமாகும். CoMaps இல் உள்ள வரைபடத் தரவின் முக்கிய சான்று இது மற்றும் விக்கிபீடியாவைப் போலவே செயல்படுகிறது. நீங்கள் இடங்களைச் சேர்க்கலாம் அல்லது திருத்தலாம் மற்றும் அவை உலகம் முழுவதும் உள்ள மில்லியன் கணக்கான பயனர்களுக்குக் கிடைக்கும். \nசமூகத்தில் சேர்ந்து அனைவருக்கும் சிறந்த வரைபடத்தை உருவாக்க உதவுங்கள்!</string>
     <string name="login_to_make_edits_visible">திறந்ததெருவரைபட கணக்கை உருவாக்க அல்லது உங்கள் வரைபட திருத்தங்களை உலகிற்கு வெளியிட உள்நுழை</string>
-    <string name="download_over_mobile_message">சில திட்டங்கள் அல்லது உலாவும்போது இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்</string>
+    <string name="download_over_mobile_message">சில திட்டங்கள் அல்லது உலாவும்போது இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்.</string>
     <string name="editor_building_levels">மாடிகள் (இன்க். தரை தளம், கூரை தவிர)</string>
     <string name="editor_note_hint">வரைபடத்தில் உள்ள பிழைகள் அல்லது CoMaps மூலம் திருத்த முடியாத விசயங்களை விவரிக்கவும்</string>
     <string name="editor_about_osm">உங்கள் திருத்தங்கள் பொது <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> தரவுத்தளத்தில் பதிவேற்றப்படும். தயவுசெய்து தனிப்பட்ட அல்லது பதிப்புரிமை பெற்ற தகவலைச் சேர்க்க வேண்டாம்.</string>
@@ -495,16 +487,16 @@
     <string name="error_enter_correct_line_page">சரியான வரி அடையாளம் அல்லது இணைய முகவரியை உள்ளிடவும்</string>
     <string name="error_enter_correct_fediverse_page">சரியான Mastodon பயனர்பெயர் அல்லது இணைய முகவரியை உள்ளிடவும்</string>
     <string name="error_enter_correct_bluesky_page">சரியான Bluesky பயனர்பெயர் அல்லது இணைய முகவரியை உள்ளிடவும்</string>
-    <string name="osm_note_hint">அல்லது, இதற்கு மாற்றாக, OpenStreetMap சமூகத்திற்கு ஒரு குறிப்பை விடுங்கள், இதன் மூலம் வேறு யாராவது ஒரு இடத்தைச் சேர்க்கலாம் அல்லது சரிசெய்யலாம்.</string>
+    <string name="osm_note_hint">அல்லது, இதற்கு மாற்றாக, திறந்ததெருவரைபட சமூகத்திற்கு ஒரு குறிப்பை விடுங்கள், இதன் மூலம் வேறு யாராவது ஒரு இடத்தைச் சேர்க்கலாம் அல்லது சரிசெய்யலாம்.</string>
     <string name="osm_note_toast">குறிப்பு OpenStreetMap க்கு அனுப்பப்படும்</string>
-    <string name="editor_share_to_all_dialog_message_1">உங்கள் தனிப்பட்ட தரவு எதையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்து.</string>
+    <string name="editor_share_to_all_dialog_message_1">நீங்கள் எந்தத் தனிப்பட்ட அல்லது தனிப்பட்ட தரவையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்து.</string>
     <string name="editor_share_to_all_dialog_message_2">திறந்ததெருவரைபடம் திருத்திகள் மாற்றங்களைச் சரிபார்த்து, அவர்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உங்களைத் தொடர்புகொள்வார்கள்.</string>
     <string name="track_recording">தடத்தை பதிவு செய்தல்</string>
     <string name="mobile_data_description">வரைபட புதுப்பிப்பு அறிவிப்புகள் மற்றும் திருத்தங்களைப் பதிவேற்ற கைபேசி இணையம் தேவை</string>
     <string name="traffic_update_maps_text">போக்குவரத்து தரவைக் காட்ட, வரைபடங்கள் புதுப்பிக்கப்பட வேண்டும்</string>
     <string name="traffic_update_app">CoMaps ஐப் புதுப்பிக்கவும்</string>
     <string name="feedback_general">பொதுவான கருத்து</string>
-    <string name="prefs_languages_information">குரல் வழிமுறைகளுக்கு TTS சிச்டத்தைப் பயன்படுத்துகிறோம். பல ஆண்ட்ராய்டு சாதனங்கள் Google TTS ஐப் பயன்படுத்துகின்றன, நீங்கள் அதை Google Play இலிருந்து பதிவிறக்கம் செய்யலாம் அல்லது புதுப்பிக்கலாம் (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information">குரல் வழிமுறைகளுக்கு எழுத்து-உரை அமைப்பைப் பயன்படுத்துகிறோம். பல ஆண்ட்ராய்டு சாதனங்கள் கூகிள் எழுத்து-உரையைப் பயன்படுத்துகின்றன, நீங்கள் அதைக் கூகிள் இயக்கு கடையிலிருந்து பதிவிறக்கம் செய்யலாம் அல்லது புதுப்பிக்கலாம் (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">சில மொழிகளுக்கு, ஆப் ச்டோரில் (Google Play, விண்மீன் மண்டலம்/விண்மீன் கூட்டம்/விண்மீன் திரள் Store, பயன்பாடு Gallery, FDroid) ச்பீச் சின்தசைசர் அல்லது கூடுதல் மொழி பேக்கை நிறுவ வேண்டும். \nஉங்கள் சாதனத்தின் அமைப்புகளைத் திறக்கவும் → மொழி மற்றும் உள்ளீடு → பேச்சு → உரையிலிருந்து பேச்சு வெளியீடு. \nபேச்சு தொகுப்புக்கான அமைப்புகளை இங்கே நீங்கள் நிர்வகிக்கலாம் (உதாரணமாக, இணைப்பில்லாத பயன்பாட்டிற்கான மொழிப் பேக்கைப் பதிவிறக்கவும்) மற்றும் மற்றொரு உரை-க்கு-பேச்சு இயந்திரத்தைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="prefs_languages_information_off_link">மேலும் தகவலுக்கு, இந்த வழிகாட்டியைப் பார்க்கவும்</string>
     <string name="learn_more">மேலும் அறிக</string>
@@ -623,7 +615,7 @@
     <string name="charge_socket_type2_combo">வகை 2 சேர்க்கை</string>
     <string name="charge_socket_type1">வகை 1</string>
     <string name="charge_socket_nacs">NACS</string>
-    <string name="charge_socket_chademo">சேட்மோ</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="unknown_socket_type">தெரியாத சாக்கெட்</string>
     <string name="edit_socket_info_tooltip">புதிய சாக்கெட்டுகளை உருவாக்கவும் அல்லது ஏற்கனவே உள்ளவற்றைத் திருத்தவும்.</string>
     <string name="charging_station_available_sockets">கிடைக்கும் சாக்கெட்டுகள்</string>
@@ -655,4 +647,9 @@
     <string name="download_resources_custom_url_message">வரைபடப் பதிவிறக்கங்களுக்குப் பயன்படுத்தப்படும் இயல்புநிலை வரைபடப் பதிவிறக்க சேவையகத்தை மேலெழுதவும். CoMaps இயல்புநிலை சேவையகத்தைப் பயன்படுத்த, காலியாக விடவும்.</string>
     <string name="download_resources_custom_url_summary_none">அமைக்கப்படவில்லை</string>
     <string name="download_resources_custom_url_error_scheme">http:// அல்லது https:// உடன் தொடங்கும் முகவரி ஐ உள்ளிடவும்</string>
+    <string name="pref_alt_map_lang_handling">மாற்று வரைபட மொழிகள்</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">மாற்று வழிகளைப் பயன்படுத்த வேண்டாம்</string>
+    <string name="pref_alt_map_lang_handling_system_order">கணினி வரிசையில் பயன்படுத்து</string>
+    <string name="pref_alt_map_lang_handling_local_only">பூர்வீகமாக இருக்கும் இடத்தில் மட்டுமே பயன்படுத்து</string>
+    <string name="mb_downloaded">%1$d மெபை / %2$d மெபை</string>
 </resources>

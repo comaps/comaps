@@ -4,14 +4,14 @@
 <dict>
 	<key>tracks</key>
 	<dict>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>other</key>
-			<string>%d tracks?</string>
+			<string>%lld tracks?</string>
 		</dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>tracks</string>
@@ -25,18 +25,18 @@
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
 		<string>bookmarks_places</string>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Zero marcatores</string>
 			<key>one</key>
-			<string>%d marcator</string>
+			<string>%lld marcator</string>
 			<key>other</key>
-			<string>%d marcatores</string>
+			<string>%lld marcatores</string>
 		</dict>
 	</dict>
 </dict>

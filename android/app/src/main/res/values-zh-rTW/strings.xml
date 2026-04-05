@@ -170,12 +170,8 @@
     <string name="downloading_is_active">地圖下載進行中</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">嘿，在 CoMaps 查看我的目前的位置吧！請打開 %1$s 或 %2$s 鏈接，還沒安裝離線地圖？在此下載: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">嘿，看看我在 CoMaps 上標記的圖釘吧！</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">嗨，到 CoMaps 查看我目前的位置！</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">嗨，\n\n我現在在這：%1$s。點擊此連結 %2$s 或此連結 %3$s 來查看在地圖上的位置。\n\n謝謝。</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">分享</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -406,13 +402,7 @@
     <string name="editor_example_values">範例值</string>
     <string name="editor_correct_mistake">修正錯誤</string>
     <string name="editor_add_select_location">選擇位置</string>
-    <string name="editor_report_problem_desription_1">請詳細描述此問題以便 OpenStreetMap 社群能夠修復此錯誤。</string>
-    <string name="editor_report_problem_desription_2">或者在 https://www.openstreetmap.org/ 上親自修復此錯誤</string>
     <string name="editor_report_problem_send_button">傳送</string>
-    <string name="editor_report_problem_title">問題</string>
-    <string name="editor_report_problem_no_place_title">該地點不存在</string>
-    <string name="editor_report_problem_under_construction_title">因維護而關閉</string>
-    <string name="editor_report_problem_duplicate_place_title">重複的地點</string>
     <string name="autodownload">自動下載</string>
     <!-- Place Page opening hours text -->
     <string name="daily">每天</string>
@@ -929,7 +919,6 @@
     <string name="route_needs_rebuild">需要重新建構路徑</string>
     <string name="route_finished">已經完成導航</string>
     <string name="not_following_route">並沒有遵循導航路線</string>
-    <string name="rebuilding_route">重新建構導航…</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
     <string name="location_privacy_info">App 從您的作業系統位置服務取得位置資料，也許會與 Google 與/或您的裝置生產商分享您的位置，請使用保護隱私的 Anrdoi 作業系統來避免此一問題。</string>
     <string name="location_privacy">位置隱私</string>

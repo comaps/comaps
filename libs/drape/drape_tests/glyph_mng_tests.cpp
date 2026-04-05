@@ -6,6 +6,7 @@
 #include "drape/glyph_manager.hpp"
 #include "drape/harfbuzz_shaping.hpp"
 
+#include "base/localisation.hpp"
 #include "base/file_name_utils.hpp"
 
 #include "qt_tstfrm/test_main_loop.hpp"
@@ -81,7 +82,9 @@ public:
     QPainter painter(device);
     painter.fillRect(QRectF(0.0, 0.0, device->width(), device->height()), Qt::white);
 
-    auto const shapedText = m_mng->ShapeText(m_utf8, m_fontPixelSize);
+    localisation::LanguageCode const languageCode = "en";
+    hb_language_t lang = hb_language_from_string(languageCode.data(), static_cast<int>(languageCode.size()));
+    auto const shapedText = m_mng->ShapeText(m_utf8, m_fontPixelSize, lang);
 
     std::cout << "Total width: " << shapedText.m_lineWidthInPixels << '\n';
     std::cout << "Max height: " << shapedText.m_maxLineHeightInPixels << '\n';

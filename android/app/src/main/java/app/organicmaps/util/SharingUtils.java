@@ -23,6 +23,7 @@ import app.organicmaps.sdk.bookmarks.data.BookmarkInfo;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.util.StorageUtils;
 import app.organicmaps.sdk.util.log.Logger;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -117,14 +118,12 @@ public class SharingUtils
     Intent intent = new Intent(Intent.ACTION_SEND);
     intent.setType(TEXT_MIME_TYPE);
 
-    final String subject = context.getString(R.string.share);
-    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-
     final String geoUrl =
-        Framework.nativeGetGeoUri(loc.getLatitude(), loc.getLongitude(), Framework.nativeGetDrawScale(), "");
+        Framework.nativeGetGeoUri(loc.getLatitude(), loc.getLongitude(), Framework.nativeGetDrawScale(), "")
+            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(loc.getLatitude(), loc.getLongitude(), Framework.nativeGetDrawScale(), "");
-    final String text = geoUrl + "\n" + httpUrl;
+    final String text = context.getString(R.string.my_position_share_email, httpUrl, geoUrl);
     intent.putExtra(Intent.EXTRA_TEXT, text);
 
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.share)));
@@ -135,15 +134,14 @@ public class SharingUtils
     Intent intent = new Intent(Intent.ACTION_SEND);
     intent.setType(TEXT_MIME_TYPE);
 
-    final String subject = object.isMyPosition() ? context.getString(R.string.my_position_share_email_subject)
-                                                 : context.getString(R.string.bookmark_share_email_subject);
-    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-
     final String geoUrl =
-        Framework.nativeGetGeoUri(object.getLat(), object.getLon(), object.getScale(), object.getName());
+        Framework.nativeGetGeoUri(object.getLat(), object.getLon(), object.getScale(), object.getName())
+            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(object.getLat(), object.getLon(), object.getScale(), object.getName());
-    final String text = geoUrl + "\n" + httpUrl;
+
+    final String text = object.isMyPosition() ? context.getString(R.string.my_position_share_email, httpUrl, geoUrl)
+        : context.getString(R.string.bookmark_share_email_subject, httpUrl, geoUrl);
     intent.putExtra(Intent.EXTRA_TEXT, text);
 
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.share)));
@@ -155,23 +153,18 @@ public class SharingUtils
     intent.setType(TEXT_MIME_TYPE);
 
     final String subject = context.getString(R.string.bookmark_share_email_subject);
-    intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-
     final String geoUrl =
-        Framework.nativeGetGe0Url(bookmark.getLat(), bookmark.getLon(), bookmark.getScale(), bookmark.getName());
+        Framework.nativeGetGeoUri(bookmark.getLat(), bookmark.getLon(), bookmark.getScale(), bookmark.getName())
+            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(bookmark.getLat(), bookmark.getLon(), bookmark.getScale(), bookmark.getName());
     StringBuilder text = new StringBuilder();
-    text.append(bookmark.getName());
+    text.append(context.getString(R.string.bookmark_share_email_subject, httpUrl, geoUrl));
     if (!TextUtils.isEmpty(bookmark.getAddress()))
     {
       text.append(UiUtils.NEW_STRING_DELIMITER);
       text.append(bookmark.getAddress());
     }
-    text.append(UiUtils.NEW_STRING_DELIMITER);
-    text.append(geoUrl);
-    text.append(UiUtils.NEW_STRING_DELIMITER);
-    text.append(httpUrl);
     intent.putExtra(Intent.EXTRA_TEXT, text.toString());
 
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.share)));

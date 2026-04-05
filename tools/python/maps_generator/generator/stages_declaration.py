@@ -375,6 +375,7 @@ class StageCountriesTxt(Stage):
             env.paths.hierarchy_path,
             env.paths.mwm_path,
             env.paths.mwm_version,
+            env.min_compat_app_v,
         )
         if env.production:
             inject_promo_ids(

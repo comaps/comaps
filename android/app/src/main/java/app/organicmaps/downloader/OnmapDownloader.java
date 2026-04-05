@@ -143,6 +143,8 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
         boolean hasParent = !CountryItem.isRoot(mCurrentCountry.topmostParentId);
 
         UiUtils.showIf(progress || enqueued, mProgress);
+        if (!UiUtils.isVisible(mProgress))
+          mProgress.reset();
         UiUtils.showIf(!progress && !enqueued, mButton);
         UiUtils.showIf(hasParent, mParent);
 
@@ -219,6 +221,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
 
       MapManager.nativeCancel(mCurrentCountry.id);
       setAutodownloadLocked(true);
+      mProgress.reset();
     });
     mButton.setOnClickListener(
         v -> MapManagerHelper.warnOn3g(mActivity, mCurrentCountry == null ? null : mCurrentCountry.id, () -> {

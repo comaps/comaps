@@ -136,18 +136,19 @@ copy_resources(
   WorldCoasts.mwm
 )
 
-install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/bin/)
-install(DIRECTORY ${OMIM_ROOT}/data DESTINATION ${CMAKE_INSTALL_PREFIX}/share/comaps/)
+include(GNUInstallDirs)
+install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(DIRECTORY ${OMIM_ROOT}/data DESTINATION ${CMAKE_INSTALL_DATADIR}/comaps)
 
 if (PLATFORM_LINUX)
-  install(FILES ${OMIM_ROOT}/packaging/app.comaps.comaps.metainfo.xml DESTINATION ${CMAKE_INSTALL_PREFIX}/share/metainfo/)
-  install(FILES ${OMIM_ROOT}/qt/res/linux/app.comaps.comaps.desktop DESTINATION ${CMAKE_INSTALL_PREFIX}/share/applications/)
+  install(FILES ${OMIM_ROOT}/packaging/app.comaps.comaps.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo/)
+  install(FILES ${OMIM_ROOT}/qt/res/linux/app.comaps.comaps.desktop DESTINATION ${CMAKE_INSTALL_DATADIR}/applications/)
   if (BUILD_DESIGNER)
-    install(FILES ${OMIM_ROOT}/qt/res/designer.png DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/512x512/apps/ RENAME comaps.png)
-    install(FILES ${OMIM_ROOT}/qt/res/designer-scalable.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps/ RENAME comaps.svg)
+    install(FILES ${OMIM_ROOT}/qt/res/designer.png DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/512x512/apps/ RENAME comaps.png)
+    install(FILES ${OMIM_ROOT}/qt/res/designer-scalable.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps/ RENAME comaps.svg)
   else()
-    install(FILES ${OMIM_ROOT}/qt/res/logo.png DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/512x512/apps/ RENAME comaps.png)
-    install(FILES ${OMIM_ROOT}/qt/res/logo-scalable.svg DESTINATION ${CMAKE_INSTALL_PREFIX}/share/icons/hicolor/scalable/apps/ RENAME comaps.svg)
+    install(FILES ${OMIM_ROOT}/qt/res/logo.png DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/512x512/apps/ RENAME comaps.png)
+    install(FILES ${OMIM_ROOT}/qt/res/logo-scalable.svg DESTINATION ${CMAKE_INSTALL_DATADIR}/icons/hicolor/scalable/apps/ RENAME comaps.svg)
   endif()
 endif()
 

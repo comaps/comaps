@@ -5,61 +5,93 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Sem Marcadores</string>
 			<key>one</key>
-			<string>%d Marcadores</string>
+			<string>%lld Marcadores</string>
 			<key>many</key>
-			<string>%d Marcadores</string>
+			<string>%lld Marcadores</string>
 			<key>other</key>
-			<string>%d Marcadores</string>
+			<string>%lld Marcadores</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Nehum arquivo foi encontrado.</string>
 			<key>one</key>
 			<string>Um arquivo encontrado. Você Pode vê-lo depois da conversão.</string>
 			<key>many</key>
-			<string>%d arquivos encontrados. Você Pode vê-los depois da conversão.</string>
+			<string>%lld arquivos encontrados. Você Pode vê-los depois da conversão.</string>
 			<key>other</key>
-			<string>%d arquivos encontrados. Pode vê-los depois da conversão.</string>
+			<string>%lld arquivos encontrados. Pode vê-los depois da conversão.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Não há caminho</string>
 			<key>one</key>
-			<string>Há %d Caminho</string>
+			<string>Há %lld Caminho</string>
 			<key>many</key>
-			<string>Há %d Caminhos</string>
+			<string>Há %lld Caminhos</string>
 			<key>other</key>
-			<string>Há %d Caminhos</string>
+			<string>Há %lld Caminhos</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
 		</dict>
 	</dict>
 </dict>

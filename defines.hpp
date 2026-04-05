@@ -87,7 +87,6 @@ auto constexpr TMP_OFFSETS_EXT = OFFSET_EXT EXTENSION_TMP;
 #define PRODUCTS_SETTINGS_FILE_NAME "products_settings.json"
 
 #define SEARCH_CATEGORIES_FILE_NAME "categories.txt"
-#define SEARCH_CUISINE_CATEGORIES_FILE_NAME "categories_cuisines.txt"
 #define SEARCH_BRAND_CATEGORIES_FILE_NAME "categories_brands.txt"
 
 #define PACKED_POLYGONS_INFO_TAG "info"

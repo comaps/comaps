@@ -108,6 +108,13 @@ vector<LanguageIndex> PrioritizedMapLanguageIndexes(vector<LanguageIndex> const 
   vector<LanguageIndex> prioritizedMapLanguageIndexes = {};
   vector<LanguageIndex> const mapLanguageIndexes = GetMapLanguageIndexes();
 
+  if (!mapLanguageIndexes.empty() && mapLanguageIndexes.front() == kDefaultNameIndex)
+  {
+    prioritizedMapLanguageIndexes.push_back(kDefaultNameIndex);
+    for (LanguageIndex const regionalLanguageIndex : regionalLanguageIndexes)
+      prioritizedMapLanguageIndexes.push_back(regionalLanguageIndex);
+  }
+  
   LanguageIndex defaultLang = kUnsupportedLanguageIndex;
   if (!regionalLanguageIndexes.empty())
     defaultLang = MatchingRegionalLanguageIndex(regionalLanguageIndexes, mapLanguageIndexes);
@@ -124,7 +131,8 @@ vector<LanguageIndex> PrioritizedMapLanguageIndexes(vector<LanguageIndex> const 
 
       if (defaultLang != kUnsupportedLanguageIndex && defaultLang == mapLanguageIndex)
       {
-        prioritizedMapLanguageIndexes.push_back(defaultLang);
+        if (mapLanguageIndex != kDefaultNameIndex)
+          prioritizedMapLanguageIndexes.push_back(defaultLang);
         prioritizedMapLanguageIndexes.push_back(kDefaultNameIndex);
       }
 

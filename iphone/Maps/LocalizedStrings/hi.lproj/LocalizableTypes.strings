@@ -24,11 +24,15 @@
 "type.amenity.bar" = "मधुशाला";
 "type.amenity.bbq" = "बारबेक्यू";
 "type.amenity.bench" = "बेंच";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "साइकिल पार्किंग";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "साइकिल किराए के लिए";
 "type.amenity.bicycle_repair_station" = "साइकिल मरम्मत स्टेशन";
 "type.amenity.biergarten" = "मदिरा उद्यान";
 "type.amenity.brothel" = "वेश्यालय";
+"type.amenity.love_hotel" = "Love Hotel";
 "type.amenity.bureau_de_change" = "विनिमय कार्यालय";
 "type.amenity.bus_station" = "बस स्टेशन";
 "type.amenity.cafe" = "कॉफ़ीख़ाना";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "मटरसइकल करय";
 "type.amenity.car_sharing" = "गाड़ी साँझा";
 "type.amenity.car_wash" = "कार धुलाई";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "कैसीनो";
 "type.amenity.gambling" = "Gambling";
+"type.amenity.studio" = "Studio";
 "type.leisure.adult_gaming_centre" = "Adult Gaming Centre";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "चार्जिंग स्टेशन";
-"type.amenity.charging_station.bicycle" = "Bicycle Charging Station";
 "type.amenity.charging_station.motorcar" = "Car Charging Station";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "Bicycle Charging Station";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "शिशु देखभाल";
 "type.amenity.cinema" = "सिनेमा-घर";
 "type.leisure.bowling_alley" = "बोलिंग ऐली";
 "type.amenity.clinic" = "चिकित्सालय";
 "type.amenity.college" = "महाविद्यालय";
 "type.amenity.community_centre" = "सामुदायिक केंद्र";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Compressed Air";
 "type.amenity.conference_centre" = "Conference Center";
 "type.amenity.courthouse" = "न्यायालय";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Exhibition Center";
 "type.amenity.money_transfer" = "Money Transfer";
 "type.amenity.music_school" = "संगीत विद्यालय";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "भाषा का स्कूल";
 "type.office.diplomatic" = "दूतावास";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "फास्ट फूड";
 "type.amenity.ferry_terminal" = "नौका टर्मिनल";
 "type.amenity.fire_station" = "दमकल केंद्र";
 "type.amenity.food_court" = "फूड कोर्ट";
 "type.amenity.fountain" = "झरना";
 "type.amenity.fuel" = "पेट्रोल पंप";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "क़ब्रिस्तान";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "ईसाई कब्रिस्तान";
 "type.amenity.hospital" = "चिकित्सालय";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "किंडरगार्टन";
 "type.amenity.library" = "पुस्तकालय";
 "type.amenity.loading_dock" = "Loading Dock";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "बाजार";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "मोटरसाइकिल पार्किंग";
 "type.amenity.nightclub" = "नाइट क्लब";
 "type.amenity.nursing_home" = "नर्सिंग होम";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "पार्किंग की जगह";
 "type.amenity.parking_space.underground" = "पार्किंग की जगह";
 "type.amenity.parking_space.disabled" = "दिव्यांग पार्किंग स्थान";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "भुगतान टर्मिनल";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "दवाखाना";
 "type.amenity.place_of_worship" = "उपासनास्थल";
 "type.amenity.place_of_worship.buddhist" = "बौद्ध मंदिर";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "थाना";
 "type.amenity.post_box" = "पोस्ट बॉक्स";
 "type.amenity.post_office" = "डाकघर";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "कारागार";
 "type.amenity.pub" = "सराय";
 "type.amenity.public_bookcase" = "सार्वजनिक किताबों की अलमारी";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "रेस्तरां";
 "type.amenity.sanitary_dump_station" = "सेनेटरी डंप स्टेशन";
 "type.amenity.school" = "विद्यालय";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "आश्रय";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "आश्रय";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "द्विवार्षिक झोपड़ी";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
 "type.amenity.public_bath" = "Public Bath";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Vehicle Inspection";
 "type.amenity.vending_machine.fuel" = "ईंधन डिस्पेंसर";
 "type.amenity.veterinary" = "पशु चिकित्सक";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "कूडेदान";
 "type.amenity.waste_disposal" = "कचरे के डिब्बे";
 "type.amenity.waste_transfer_station" = "कचरा स्थानांतरण स्टेशन";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Wastewater";
 "type.barrier.entrance" = "Entrance";
 "type.barrier.fence" = "Fence";
+"type.barrier.guard_rail" = "Guard Rail";
 "type.barrier.gate" = "Gate";
 "type.barrier.hedge" = "Hedge";
 "type.barrier.kissing_gate" = "Gate";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Retaining Wall";
 "type.barrier.stile" = "Stile";
 "type.barrier.turnstile" = "Turnstile";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "Swing Gate";
 "type.barrier.toll_booth" = "Toll Booth";
 "type.barrier.wall" = "दीवार";
 "type.boundary" = "Boundary";
 "type.boundary.administrative" = "Administrative Boundary";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "National Border";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regional Boundary";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
 "type.boundary.national_park" = "National Park";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Protected Area";
 "type.boundary.protected_area.6" = "Protected Area";
 "type.building" = "भवन";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "पता";
 "type.building.has_parts" = "भवन";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Gardener";
 "type.craft.grinding_mill" = "Grinding Mill";
 "type.craft.handicraft" = "हस्तशिल्प";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "तापन, संवातन तथा वातानुकूलन";
 "type.craft.key_cutter" = "Key Cutting";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "अंतरराष्ट्रीय व्यंजन";
 "type.cuisine.irish" = "आयरिश व्यंजन";
 "type.cuisine.italian" = "इतालवी व्यंजन";
-"type.cuisine.italian_pizza" = "पिज़्ज़ा";
 "type.cuisine.japanese" = "जापानी भोजन";
 "type.cuisine.kebab" = "कबाब";
 "type.cuisine.korean" = "कोरियाई व्यंजन";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "शाकाहारी";
 "type.cuisine.vietnamese" = "वियतनामी व्यंजन";
 "type.emergency" = "Emergency";
+"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Emergency Assembly Point";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "डीफ़िब्रिलिएटर";
 "type.emergency.fire_hydrant" = "फ़ायर हाइड्रेंट";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "आपातकालीन फ़ोन";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "जीवन रक्षक";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "पर्वत बचाव स्टेशन";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "प्रवेश द्वार";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Main Entrance";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Exit";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "Free";
 "type.healthcare.laboratory" = "प्रयोगशाला";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "वाक उपचार";
 "type.highway" = "राजमार्ग";
 "type.highway.bridleway" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Bridge";
 "type.highway.bridleway.permissive" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunnel";
 "type.highway.busway" = "Dedicated Bus Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "बस स्टॉप";
 "type.highway.construction" = "निर्माणाधीन सड़क";
 "type.highway.cycleway" = "साइकिल मार्ग";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bridge";
 "type.highway.cycleway.permissive" = "साइकिल मार्ग";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunnel";
 "type.highway.elevator" = "उत्थापक";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "फ़ुटपाथ";
 "type.highway.footway.crossing" = "पैदल पार पथ";
 "type.highway.footway.area" = "पैदलपथ";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Pedestrian Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Pedestrian Tunnel";
 "type.highway.ford" = "Ford";
 "type.highway.living_street" = "Living Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunnel";
 "type.highway.motorway" = "राजमार्ग";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Motorway Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Motorway Tunnel";
 "type.highway.motorway_junction" = "राजमार्ग निकास";
 "type.highway.motorway_link" = "फ्रीवे प्रवेश";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunnel";
 "type.highway.path" = "पथ";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "कठिन या ख़राब दिखाई देने वाला मार्ग";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "बहुत कठिन या अप्रभेद्य पथ";
 "type.highway.path.bicycle" = "पथ";
 "type.highway.footway.bicycle" = "पथ";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Bridge";
 "type.highway.path.horse" = "पथ";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunnel";
 "type.highway.pedestrian" = "पैदल यात्रीयों की सड़क";
 "type.highway.pedestrian.area" = "पैदल यात्रीयों की सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Pedestrian Bridge";
 "type.highway.pedestrian.square" = "चौक";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Pedestrian Tunnel";
 "type.highway.primary" = "प्राथमिक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunnel";
 "type.highway.primary_link" = "प्राथमिक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunnel";
 "type.highway.raceway" = "दौड़ का मैदान";
 "type.highway.residential" = "Residential Street";
 "type.highway.residential.area" = "Residential Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
 "type.highway.rest_area" = "बाकी क्षेत्र";
 "type.highway.road" = "सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Bridge";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
 "type.highway.secondary" = "माध्यमिक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunnel";
 "type.highway.secondary_link" = "माध्यमिक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunnel";
 "type.highway.service" = "सर्विस रोड";
 "type.highway.service.area" = "सर्विस रोड";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Bridge";
 "type.highway.service.driveway" = "सर्विस रोड";
 "type.highway.service.parking_aisle" = "सर्विस रोड";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunnel";
 "type.highway.services" = "Service Area";
 "type.highway.speed_camera" = "तेज़ गति कैमेरा";
 "type.highway.steps" = "Stairs";
-
+"type.highway.ladder" = "Ladder";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
 "type.highway.tertiary" = "तृतीयक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunnel";
 "type.highway.tertiary_link" = "तृतीयक सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunnel";
 "type.highway.track" = "सड़क";
 "type.highway.track.area" = "सड़क";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Bridge";
 "type.highway.track.grade1" = "सड़क";
 "type.highway.track.no.access" = "सड़क";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunnel";
 "type.highway.traffic_signals" = "ट्रैफिक लाइट";
 "type.highway.trunk" = "प्रधान मार्ग";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunnel";
 "type.highway.trunk_link" = "प्रधान मार्ग";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunnel";
 "type.highway.unclassified" = "Minor Road";
 "type.highway.unclassified.area" = "Minor Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunnel";
 "type.area_highway.cycleway" = "साइकिल मार्ग";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "जलयान";
 "type.historic.tank" = "Historic Tank";
 "type.historic.tomb" = "मकबरे";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "क्रॉस";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Wayside Cross";
 "type.historic.wayside_shrine" = "रास्ते का तीर्थ";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Allotments";
 "type.landuse.basin" = "Basin";
 "type.landuse.brownfield" = "Brownfield";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "क़ब्रिस्तान";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "ईसाई कब्रिस्तान";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Salt Pond";
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "Vineyard";
+"type.landuse.plant_nursery" = "Plant Nursery";
 "type.leisure" = "अवकाश";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "Public Land";
 "type.leisure.dog_park" = "श्वान पार्क";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "फिटनेस सेंटर";
 "type.leisure.fitness_station" = "फिटनेस स्टेशन";
 "type.leisure.dance" = "Dance Hall";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "हैकर्सस्पेस";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "मरीना";
 "type.leisure.nature_reserve" = "संरक्षित प्रकृतिक्षेत्र";
 "type.leisure.outdoor_seating" = "Outdoor Seating";
+"type.leisure.firepit" = "Firepit";
 "type.leisure.park" = "उद्यान";
 "type.leisure.park.no.access" = "उद्यान";
 "type.leisure.park.permissive" = "उद्यान";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "सॉना";
 "type.leisure.slipway" = "Slipway";
 "type.leisure.sports_centre" = "Sports Center";
-"type.sport.climbing" = "Climbing Centre";
-"type.sport.yoga" = "योग";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "क्रीडांगन";
 "type.leisure.swimming_pool" = "Swimming Pool";
 "type.leisure.swimming_pool.private" = "Swimming Pool";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Storage Tank";
 "type.man_made.surveillance" = "Surveillance Camera";
 "type.man_made.tower" = "बुर्ज";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Communications Tower";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Communications Tower";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "तेल या गैस कुआं";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "गैस फ्लेयर";
+"type.man_made.crane" = "Crane";
 "type.man_made.wastewater_plant" = "अपशिष्ट जलोपचार";
 "type.man_made.water_tap" = "पानी का नल";
 "type.man_made.water_tap.drinking_water_no" = "पानी का नल";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "दर्रा";
 "type.natural" = "प्रकृति";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Bare Rock";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "कंकड़";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "रोड़ी";
 "type.natural.bay" = "खाड़ी";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "Embankment";
 "type.natural.coastline" = "सागरतट";
 "type.natural.desert" = "मरुस्थल";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "प्राकृतिक गरम पानी का झरना";
 "type.natural.glacier" = "हिमानी";
 "type.natural.grassland" = "घासभूमि";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "पानी का चश्मा";
 "type.natural.spring.drinking_water_no" = "पानी का चश्मा";
 "type.natural.strait" = "जलसंधि";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "Tree Row";
 "type.natural.vineyard" = "द्राक्षाक्षेत्र";
 "type.natural.volcano" = "ज्वालामुखी";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "आर्द्रभूमि";
 "type.natural.wetland.bog" = "Bog";
 "type.natural.wetland.marsh" = "कच्छभूमि";
+"type.natural.wetland.saltmarsh" = "Salt Marsh";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Dead End";
 "type.office" = "कार्यालय";
 "type.office.company" = "कंपनी कार्यालय";
@@ -843,10 +887,8 @@
 "type.place.islet" = "द्वीपिका";
 "type.place.isolated_dwelling" = "Isolated Dwelling";
 "type.place.locality" = "Locality";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "मुहल्ला";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "अड़ोस-पड़ोस";
 "type.place.ocean" = "महासागर";
@@ -855,7 +897,6 @@
 "type.place.square" = "चौक";
 "type.place.state" = "राज्य";
 "type.place.state.USA" = "State";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "उपनगर";
 "type.place.town" = "Town";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "Solar Power Plant";
 "type.power.plant.wind" = "Wind Power Plant";
 "type.power.substation" = "विद्युत उपकेंद्र";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "संचरण स्तम्भ";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Public Transport";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "रज्जुरेल";
 "type.railway.funicular.bridge" = "रज्जुरेल";
 "type.railway.funicular.tunnel" = "रज्जुरेल";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "एकरेल";
 "type.railway.monorail.bridge" = "एकरेल";
 "type.railway.monorail.tunnel" = "एकरेल";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "छोटी रेल लाइन";
 "type.railway.narrow_gauge.bridge" = "छोटी रेल लाइन";
 "type.railway.narrow_gauge.tunnel" = "छोटी रेल लाइन";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "High-Speed Railway";
 "type.railway.rail.tourism" = "Touristic Railway";
 "type.railway.rail.main" = "Railway";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Railway Branch";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Utility Railway";
 "type.railway.rail.spur" = "Railway Spur";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Service Rail Track";
 "type.railway.rail.bridge" = "Railway Bridge";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Subway Station";
 "type.railway.station.subway.philadelphia" = "Subway Station";
 "type.railway.station.subway.pyongyang" = "Subway Station";
+"type.railway.station.subway.qingdao" = "Subway Station";
 "type.railway.station.subway.rennes" = "Subway Station";
 "type.railway.station.subway.rio" = "Subway Station";
 "type.railway.station.subway.roma" = "Subway Station";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "बेकरी";
 "type.shop.bathroom_furnishing" = "Bathroom Furnishings";
 "type.shop.beauty" = "ब्यूटी सैलून";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "पेय पदार्थ";
 "type.shop.bicycle" = "साइकल की दुकान";
 "type.shop.bookmaker" = "सट्टा लगाने की जगह";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "रसोई की दुकान";
 "type.shop.laundry" = "धोबी की दुकान";
 "type.shop.mall" = "शॉपिंग मॉल";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "मालिश घर";
 "type.shop.mobile_phone" = "सेल फोन की दुकान";
 "type.shop.money_lender" = "हवलदार";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "सुपरमार्केट";
 "type.shop.tattoo" = "टैटू पार्लर";
 "type.shop.tea" = "चाय की दुकान";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "टिकट की दुकान";
 "type.shop.toys" = "खिलौनों की दुकान";
 "type.shop.travel_agency" = "यात्रा एजेंसी";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "Agricultural Shop";
 "type.shop.antiques" = "प्राचीन वस्तुओं की दुकान";
 "type.shop.appliance" = "Appliance Shop";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "कला की दुकान";
 "type.shop.baby_goods" = "बच्चों के सामान की दुकान";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "व्यापार की आपूर्ति";
 "type.shop.watches" = "घड़ियाँ";
 "type.shop.wholesale" = "थोक सामान की दुकान";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "खेल";
+"type.sport.multi" = "Various Sports";
+"type.sport.9pin" = "Bowling";
+"type.sport.10pin" = "Bowling";
 "type.sport.american_football" = "अमेरिकी फ़ुटबॉल";
 "type.sport.archery" = "धनुर्विद्या";
 "type.sport.athletics" = "एथलेटिक्स";
 "type.sport.australian_football" = "ऑस्ट्रेलियाई फ़ुटबॉल";
+"type.sport.badminton" = "बैडमिंटन";
 "type.sport.baseball" = "बेसबॉल";
 "type.sport.basketball" = "बास्केटबॉल";
 "type.sport.beachvolleyball" = "बीच वॉलीबॉल";
 "type.sport.bowls" = "बाउल्स";
 "type.sport.chess" = "शतरंज";
+"type.sport.climbing" = "Climbing Centre";
 "type.sport.cricket" = "क्रिकेट";
 "type.sport.curling" = "Curling";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "Equestrian Sports";
+"type.sport.field_hockey" = "मैदानी हॉकी";
+"type.sport.futsal" = "Futsal";
 "type.sport.golf" = "गॉल्फ़";
 "type.sport.gymnastics" = "जिम्नास्टिक्स";
 "type.sport.handball" = "हैंडबॉल";
-"type.sport.multi" = "Various Sports";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "आइस हॉकी";
+"type.sport.padel" = "Padel";
+"type.sport.pelota" = "Basque Pelota";
 "type.sport.scuba_diving" = "Scuba Diving Site";
 "type.sport.shooting" = "निशानेबाजी";
 "type.sport.skateboard" = "Skateboarding";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "टेबल टेनिस";
 "type.sport.tennis" = "टेनिस";
 "type.sport.volleyball" = "वालीबॉल";
-"type.sport.10pin" = "Bowling";
-"type.sport.9pin" = "Bowling";
-"type.sport.padel" = "Padel";
-"type.sport.futsal" = "Futsal";
-"type.sport.ice_hockey" = "आइस हॉकी";
-"type.sport.field_hockey" = "मैदानी हॉकी";
-"type.sport.badminton" = "बैडमिंटन";
-"type.sport.pelota" = "Basque Pelota";
+"type.sport.yoga" = "योग";
 "type.tourism" = "पर्यटन";
 "type.tourism.aquarium" = "Aquarium";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "माउंटेन लॉज";
 "type.tourism.apartment" = "अवकाश अपार्टमेंट";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Sculpture";
 "type.tourism.artwork.statue" = "प्रतिमा";
 "type.tourism.attraction" = "पर्यटन स्थल";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "मनोरंजन की सवारी";
 "type.attraction.animal" = "पशु बाड़ा";
 "type.attraction.bumper_car" = "Bumper Car";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "पर्यटन स्थल";
 "type.tourism.camp_site" = "Campground";
 "type.tourism.caravan_site" = "कारवां स्थल";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "हॉलिडे कॉटेज";
 "type.tourism.gallery" = "आर्ट गैलरी";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "Information Board";
 "type.tourism.information.guidepost" = "Guidepost";
 "type.tourism.information.map" = "Tourist Map";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Tourist Office";
 "type.tourism.information.visitor_centre" = "Visitor Centre";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "मोटेल";
 "type.tourism.museum" = "संग्रहालय";
 "type.tourism.picnic_site" = "पिकनिक स्थल";
 "type.leisure.resort" = "Resort";
 "type.tourism.theme_park" = "Theme Park";
 "type.tourism.viewpoint" = "दृष्टिकोण";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Wilderness Hut";
 "type.tourism.zoo" = "चिड़ियाघर";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Culvert";
 "type.waterway.dock" = "गोदी";
 "type.waterway.drain" = "Drain";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "Culvert";
 "type.waterway.lock_gate" = "Lock Gate";
@@ -1447,42 +1496,20 @@
 "type.self_service.only" = "केवल स्व-सेवा";
 "type.self_service.partially" = "आंशिक स्व-सेवा";
 "type.self_service.no" = "कोई स्व-सेवा नहीं";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "सामाजिक सुविधा";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "आपातकालीन वार्ड प्रवेश द्वार";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "डोजो";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "खेल हॉल";
-"type.amenity.studio" = "Studio";
-"type.amenity.love_hotel" = "Love Hotel";
-"type.highway.ladder" = "Ladder";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.leisure.firepit" = "Firepit";
-"type.sport.diving" = "High Diving";
-"type.natural.wetland.swamp" = "Swamp";
-"type.man_made.crane" = "Crane";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.barrier.guard_rail" = "Guard Rail";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.railway.station.subway.qingdao" = "Subway Station";
-"type.landuse.plant_nursery" = "Plant Nursery";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.post_office.post_partner" = "Post Partner";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.xmas.tree" = "Christmas Tree";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

@@ -1,15 +1,10 @@
-
 /* Used in home screen quick actions. */
 "search" = "جستجو";
-
 /* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "نشانه‌ها و مسیر ها";
-
 /* Used in home screen quick actions. */
 "route" = "مسیر";
-
 /* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
 "NSLocationAlwaysUsageDescription" = "تشخیص گیاگ در پس‌زمینه برای لذت بردن کامل از کارکرد برنامه ضروری است. برای ناوبری و ذخیره مسیرهای اخیر سفر شده شما بکار گرفته می‌شود.";
-
 /* Needed to explain why we require access to GPS coordinates when the app is active. */
 "NSLocationWhenInUseUsageDescription" = "تعیین موقعیت مکانی شما برای ناوبری و ذخیره مسیرهای اخیر سفر شده ضروری است.";

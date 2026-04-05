@@ -17,14 +17,14 @@ Join the community there and help make the best maps app
 • Downloadable detailed maps with places which are not available with Google Maps
 • Outdoor mode with highlighted hiking trails, campsites, water sources, peaks, contour lines, etc
 • Walking paths and cycleways
-• Points of interest like restaurants, gas stations, hotels, shops, sightseeing and many more
+• Points of interest like restaurants, petrol stations, hotels, shops, sightseeings and many more
 • Search by name or an address or by point of interest category
 • Navigation with voice announcements for walking, cycling, or driving
-• Bookmark your favorite places with a single tap
+• Bookmark your favourite places with a single tap
 • Offline Wikipedia articles
-• Subway transit layer and directions
+• Metro transit layer and directions
 • Track recording
-• Export and import bookmarks and tracks in KML, KMZ, GPX formats
+• Export and import bookmarks and tracks in GPX , KML and KMZ formats
 • A dark mode to use during the night
 • Improve map data for everyone using a basic built-in editor
 

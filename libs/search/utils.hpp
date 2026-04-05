@@ -4,6 +4,7 @@
 #include "search/feature_offset_match.hpp"
 #include "search/token_slice.hpp"
 
+#include "indexer/classificator.hpp"
 #include "indexer/categories_holder.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/search_string_utils.hpp"

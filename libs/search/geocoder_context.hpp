@@ -1,7 +1,6 @@
 #pragma once
 
 #include "search/cbv.hpp"
-#include "search/cuisine_filter.hpp"
 #include "search/features_layer.hpp"
 #include "search/geocoder_locality.hpp"
 #include "search/model.hpp"
@@ -78,8 +77,6 @@ struct BaseContext
   // The total number of results emitted using this
   // context in all branches of the search.
   size_t m_numEmitted = 0;
-
-  std::unique_ptr<cuisine_filter::CuisineFilter::ScopedFilter> m_cuisineFilter;
 };
 
 std::string DebugPrint(BaseContext::TokenType type);

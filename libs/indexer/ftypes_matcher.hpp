@@ -45,6 +45,14 @@ public:
   static uint32_t PrepareToMatch(uint32_t type, uint8_t level);
 };
 
+class IsNeverMainTypeChecker : public BaseChecker
+{
+  IsNeverMainTypeChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsNeverMainTypeChecker);
+};
+
 class IsPeakChecker : public BaseChecker
 {
   IsPeakChecker();
@@ -350,14 +358,22 @@ public:
   uint32_t GetType() const { return m_types[0]; }
 };
 
-class AttractionsChecker : public BaseChecker
+class IsTourismAttractionChecker : public BaseChecker
+{
+  IsTourismAttractionChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsTourismAttractionChecker);
+};
+
+class IsPartOfTourismAttractionsChecker : public BaseChecker
 {
   size_t m_additionalTypesStart;
 
-  AttractionsChecker();
+  IsPartOfTourismAttractionsChecker();
 
 public:
-  DECLARE_CHECKER_INSTANCE(AttractionsChecker);
+  DECLARE_CHECKER_INSTANCE(IsPartOfTourismAttractionsChecker);
 
   // Used in generator.
   uint32_t GetBestType(FeatureParams::Types const & types) const;
@@ -454,6 +470,14 @@ private:
   //  std::array<uint32_t, base::Underlying(Type::Count)> m_eat2clType;
 };
 
+class IsDisusedBusiness : public BaseChecker
+{
+  IsDisusedBusiness();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsDisusedBusiness);
+};
+
 class IsCuisineChecker : public BaseChecker
 {
   IsCuisineChecker();
@@ -508,6 +532,14 @@ class IsChristmasChecker : public BaseChecker
 
 public:
   DECLARE_CHECKER_INSTANCE(IsChristmasChecker);
+};
+
+class IsNationalCuisineChecker : public BaseChecker
+{
+  IsNationalCuisineChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsNationalCuisineChecker);
 };
 
 class IsMotorwayJunctionChecker : public BaseChecker

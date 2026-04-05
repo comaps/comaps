@@ -1,5 +1,10 @@
-"NSLocationAlwaysUsageDescription" = "Korištenje lokacije u pozadini je potrebno da uživaš cijelu funkcionalnost ove aplikacije. Korišteno je za navigaciju i spremanje vaše nedavno putovano putove.";
-"NSLocationWhenInUseUsageDescription" = "Aplikacija mora pronači lokaciju zato što je potrebno za navigaciju i spremanje vaša nedavna putovanja.";
+/* Used in home screen quick actions. */
 "search" = "Traži";
-"route" = "Ruta";
+/* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "Omiljeni";
+/* Used in home screen quick actions. */
+"route" = "Ruta";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
+"NSLocationAlwaysUsageDescription" = "Korištenje lokacije u pozadini je potrebno da uživaš cijelu funkcionalnost ove aplikacije. Korišteno je za navigaciju i spremanje vaše nedavno putovano putove.";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
+"NSLocationWhenInUseUsageDescription" = "Aplikacija mora pronači lokaciju zato što je potrebno za navigaciju i spremanje vaša nedavna putovanja.";

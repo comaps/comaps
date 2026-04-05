@@ -1,600 +1,872 @@
-"cancel_download" = "பதிவிறக்கத்தை நீக்கறல்";
-"leave_a_review" = "ஒரு மதிப்பாய்வை விடு";
-"kilometres" = "கிலோமீட்டர்கள்";
-"downloading" = "பதிவிறக்குகிறது…";
-"offline_explanation_text" = "அந்தப் பகுதியைப் பார்க்கவும் வழிசெலுத்தவும் ஒரு வரைபடம் பதிவிறக்கம் செய்யப்பட வேண்டும். \nநீங்கள் பயணிக்க விரும்பும் பகுதிகளுக்கான வரைபடங்களைப் பதிவிறக்கவும்.";
-"offline_explanation_title" = "இணைப்பில்லாத வரைபடங்கள்";
-"delete" = "நீக்கு";
-"miles" = "மைல்கள்";
+/* Button text (should be short) */
 "cancel" = "ரத்துசெய்";
+/* Button which interrupts country download */
+"cancel_download" = "பதிவிறக்கத்தை நீக்கறல்";
+/* Button which deletes downloaded country */
+"delete" = "நீக்கு";
 "download_maps" = "வரைபடத்தைப் பதிவிறக்கவும்";
-"search" = "தேடல்";
-"bookmarks_and_tracks" = "பிடித்தவை";
-"close" = "மூடு";
-"add_new_set" = "புதிய பட்டியலைச் சேர்க்கவும்";
-"bookmark_sets" = "பிடித்த பட்டியல்கள்";
-"about_headline" = "சமூகத்தால் இயக்கப்படும் திறந்த திட்டம்";
-"about_proposition_2" = "தனியுரிமையை மையமாகக் கொண்டது மற்றும் விளம்பரங்கள் இல்லாதது";
-"about_proposition_3" = "வெளிப்படையானது மற்றும் லாபத்திற்காக அல்ல";
-"country_status_download_failed" = "பதிவிறக்கம் தோல்வியடைந்தது";
-"about_proposition_1" = "இணைப்பில்லாத, வேகமான மற்றும் பயன்படுத்த எளிதானது";
-"zoom_to_country" = "வரைபடத்தில் காட்டு";
-"core_my_places" = "எனது இடங்கள்";
-"download" = "பதிவிறக்கு";
-"address" = "முகவரி";
-"use_cellular_data" = "ஆம்";
-"country_status_download_without_size" = "வரைபடத்தைப் பதிவிறக்கு";
-"settings" = "அமைப்புகள்";
-"continue_button" = "தொடர்";
-"bookmark_set_name" = "பட்டியல் பெயர்";
-"later" = "பிறகு";
-"bookmarks" = "இடங்கள்";
+/* Settings/Downloader - info for country which started downloading */
+"downloading" = "பதிவிறக்குகிறது…";
+/* Title of offline maps explanation */
+"offline_explanation_title" = "இணைப்பில்லாத வரைபடங்கள்";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "அந்தப் பகுதியைப் பார்க்கவும் வழிசெலுத்தவும் ஒரு வரைபடம் பதிவிறக்கம் செய்யப்பட வேண்டும். \nநீங்கள் பயணிக்க விரும்பும் பகுதிகளுக்கான வரைபடங்களைப் பதிவிறக்கவும்.";
+/* Choose measurement on first launch alert - choose metric system button */
+"kilometres" = "கிலோமீட்டர்கள்";
+/* Leave Review dialog - Review button */
+"leave_a_review" = "ஒரு மதிப்பாய்வை விடு";
+/* Choose measurement on first launch alert - choose imperial system button */
+"miles" = "மைல்கள்";
+/* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "எனது நிலை";
-"share_my_location" = "எனது இருப்பிடத்தைப் பகிரவும்";
-"category_toilet" = "கழிப்பறை";
-"pref_maplanguage_title" = "வரைபட மொழி";
-"social_codeberg" = "கோட்பெர்க்";
-"instagram" = "Instagram";
-"social_matrix" = "அணி";
-"copy_to_clipboard" = "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்";
-"my_position_share_email_subject" = "ஏய், CoMaps வரைபடத்தில் எனது தற்போதைய இருப்பிடத்தைப் பாருங்கள்!";
-"category_shopping" = "சாப்பிங்";
-"vk" = "வி.கே";
-"copied_to_clipboard" = "இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது: %@";
-"placepage_distance" = "தூரம்";
-"follow_us" = "எங்களுடன் இணையுங்கள்";
-"rate_the_app" = "பயன்பாட்டை மதிப்பிடு";
-"category_post" = "இடுகை";
-"pref_tts_street_names_title" = "தெரு பெயர்களை அறிவிக்கவும்";
-"category_eat" = "எங்கே சாப்பிடுவது";
-"category_water" = "தண்ணீர்";
-"category_rv" = "RV வசதிகள்";
-"panoramax" = "பனோரமாக்ச்";
-"category_recycling" = "மறுசுழற்சி";
-"fediverse" = "மாச்டோடன்";
-"version: %@ (%@)\nmap data: %@" = "பதிப்பு: %@ (%@) \nவரைபடத் தரவு: %@";
-"load_kmz_failed" = "பிடித்தவைகளை ஏற்ற முடியவில்லை. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.";
-"pref_tts_other_section_title" = "மற்றொன்று";
-"website" = "இணையதளம்";
-"pref_appearance_dark" = "இருள்";
-"category_parking" = "பார்க்கிங்";
-"prefs_group_route" = "வானோடல்";
-"category_children" = "குடும்ப விடுமுறை";
-"line" = "வரி";
-"news" = "செய்தி";
-"info" = "தகவல்";
-"pref_appearance_title" = "தோற்றம்";
-"unknown_current_position" = "உங்கள் இருப்பிடம் இன்னும் தீர்மானிக்கப்படவில்லை";
-"on" = "மேல்";
-"email" = "மின்னஞ்சல்";
-"edit" = "தொகு";
-"twitter" = "ஃச் (ட்விட்டர்)";
-"category_bank" = "வைப்பகம்";
-"search_show_on_map" = "வரைபடத்தில் பார்க்கவும்";
-"category_transport" = "போக்குவரத்து";
-"off" = "அணை";
-"help" = "உதவி";
-"report_incorrect_map_bug" = "தவறான வரைபடத் தரவைப் புகாரளிக்கவும் அல்லது சரிசெய்யவும்";
-"category_nightlife" = "இரவு வாழ்க்கை";
-"pref_zoom_title" = "பெரிதாக்கு பொத்தான்கள்";
-"pref_map_3d_title" = "முன்னோக்கு பார்வை";
-"pref_tts_title" = "குரல் வழிமுறைகள்";
-"version" = "CoMaps பதிப்பு: %@";
-"pref_appearance_light" = "ஒளி";
-"load_kmz_successful" = "பிடித்தவை வெற்றிகரமாக ஏற்றப்பட்டன! நீங்கள் அவற்றை வரைபடத்தில் அல்லது பிடித்தவை மேலாளர் திரையில் காணலாம்.";
-"faq" = "அடிக்கடி கேட்கப்படும் கேள்விகள்";
-"category_food" = "மளிகை பொருட்கள்";
-"bookmark_share_email_subject" = "ஏய், CoMaps இல் எனது பின்னை பாருங்கள்!";
-"pref_map_3d_buildings_disabled_summary" = "மின் சேமிப்பு பயன்முறையில் 3D கட்டிடங்கள் முடக்கப்பட்டுள்ளன";
-"pref_map_3d_buildings_title" = "3டி கட்டிடங்கள்";
-"category_pharmacy" = "மருந்தகம்";
-"category_secondhand" = "இரண்டாவது கை";
-"category_police" = "காவல்";
-"category_atm" = "ஏடிஎம்";
-"pref_mapappearance_title" = "வரைபடம் தோற்றம்";
-"pref_tts_street_names_description" = "இயக்கப்பட்டால், தெருவின் பெயர் அல்லது வெளியேறும் இடம் உரக்கப் பேசப்படும்.";
-"pref_maplanguage_local" = "உள்ளக மொழி";
+/* Update maps later button text */
+"later" = "பிறகு";
+/* View and button titles for accessibility, please also edit it in iphone/plist.txt */
+"search" = "தேடல்";
+/* Settings/Downloader - 3G download warning dialog confirm button */
+"use_cellular_data" = "ஆம்";
+/* View and button titles for accessibility */
+"zoom_to_country" = "வரைபடத்தில் காட்டு";
+/* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
+"country_status_download_without_size" = "வரைபடத்தைப் பதிவிறக்கு";
+/* Message to display at the center of the screen when the country download has failed */
+"country_status_download_failed" = "பதிவிறக்கம் தோல்வியடைந்தது";
+/* Text in About screen */
+"about_headline" = "சமூகத்தால் இயக்கப்படும் திறந்த திட்டம்";
+/* Text in About screen */
+"about_proposition_1" = "இணைப்பில்லாத, வேகமான மற்றும் பயன்படுத்த எளிதானது";
+/* Text in About screen */
+"about_proposition_2" = "தனியுரிமையை மையமாகக் கொண்டது மற்றும் விளம்பரங்கள் இல்லாதது";
+/* Text in About screen */
+"about_proposition_3" = "வெளிப்படையானது மற்றும் லாபத்திற்காக அல்ல";
+"close" = "மூடு";
+"download" = "பதிவிறக்கு";
+/* REMOVE THIS STRING AFTER REFACTORING */
+"continue_button" = "தொடர்";
+/* "Add new bookmark list" dialog title */
+"add_new_set" = "புதிய பட்டியலைச் சேர்க்கவும்";
+/* Add Bookmark list dialog - hint when the list name is empty */
+"bookmark_set_name" = "பட்டியல் பெயர்";
+/* "Bookmark Lists" dialog title */
+"bookmark_sets" = "பிடித்த பட்டியல்கள்";
+/* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
+"bookmarks" = "இடங்கள்";
+/* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
+"bookmarks_and_tracks" = "பிடித்தவை";
+/* Default bookmark list name */
+"core_my_places" = "எனது இடங்கள்";
+/* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
+"address" = "முகவரி";
+/* Settings button in system menu */
+"settings" = "அமைப்புகள்";
+/* Measurement units title in settings activity */
 "measurement_units" = "அளவீட்டு அலகுகள்";
-"pref_tts_test_voice_title" = "குரல் வழிகளை சோதிக்கவும்";
-"social_email" = "மின்னஞ்சல்";
-"category_wifi" = "வைஃபை";
-"category_hospital" = "மருத்துவமனை";
-"social_lemmy" = "லெம்மி";
-"panoramax_picture" = "Panoramax படம்";
-"social_mastodon" = "மாச்டோடன்";
-"bluesky" = "ப்ளூச்கி";
-"category_entertainment" = "பொழுதுபோக்கு";
-"share_bookmarks_email_body" = "வணக்கம்! \n\nநான் சேமித்தவை இணைக்கப்பட்டுள்ளன; அவற்றை CoMaps இல் திறக்கவும். நீங்கள் அதை நிறுவவில்லை என்றால், அதை இங்கே பதிவிறக்கம் செய்யலாம்: https://www.comaps.app/download/ \n\nCoMaps மூலம் பயணம் செய்து மகிழுங்கள்!";
-"disabled" = "முடக்கப்பட்டது";
-"pref_map_auto_zoom" = "ஆட்டோ சூம்";
-"pref_tts_language_title" = "குரல் மொழி";
-"auto" = "தானி";
-"social_bluesky" = "ப்ளூச்கி";
-"donate" = "நன்கொடை";
-"volunteer" = "தன்னார்வத் தொண்டு மற்றும் CoMaps ஐ மேம்படுத்தவும்";
-"category_tourism" = "காட்சிகள்";
-"category_hotel" = "ஓட்டல்";
-"tracks_title" = "தடங்கள்";
-"pref_tts_enable_title" = "குரல் வழிமுறைகளை இயக்கவும்";
-"report_a_bug" = "பிழையைப் புகாரளி";
-"copyright" = "பதிப்புரிமை";
+/* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
+"category_eat" = "எங்கே சாப்பிடுவது";
+/* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
+"category_food" = "மளிகை பொருட்கள்";
+/* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
+"category_transport" = "போக்குவரத்து";
+/* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "வளிமம்";
-"social_pixelfed" = "புள்ளிஊட்டி";
-"facebook" = "Facebook";
-"length" = "நீளம்";
+/* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
+"category_parking" = "பார்க்கிங்";
+/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
+"category_shopping" = "சாப்பிங்";
+/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
+"category_secondhand" = "இரண்டாவது கை";
+/* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
+"category_hotel" = "ஓட்டல்";
+/* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
+"category_tourism" = "காட்சிகள்";
+/* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
+"category_entertainment" = "பொழுதுபோக்கு";
+/* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
+"category_atm" = "ஏடிஎம்";
+/* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
+"category_nightlife" = "இரவு வாழ்க்கை";
+/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
+"category_children" = "குடும்ப விடுமுறை";
+/* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
+"category_bank" = "வைப்பகம்";
+/* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
+"category_pharmacy" = "மருந்தகம்";
+/* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
+"category_hospital" = "மருத்துவமனை";
+/* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
+"category_toilet" = "கழிப்பறை";
+/* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
+"category_post" = "இடுகை";
+/* Search category for police; any changes should be duplicated in categories.txt @category_police! */
+"category_police" = "காவல்";
+/* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
+"category_wifi" = "வைஃபை";
+/* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
+"category_recycling" = "மறுசுழற்சி";
+/* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
+"category_water" = "தண்ணீர்";
+/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
+"category_rv" = "RV வசதிகள்";
+"share_bookmarks_email_body" = "வணக்கம்! \n\nநான் சேமித்தவை இணைக்கப்பட்டுள்ளன; அவற்றை CoMaps இல் திறக்கவும். நீங்கள் அதை நிறுவவில்லை என்றால், அதை இங்கே பதிவிறக்கம் செய்யலாம்: https://www.comaps.app/download/ \n\nCoMaps மூலம் பயணம் செய்து மகிழுங்கள்!";
+/* message title of loading file */
 "load_kmz_title" = "பிடித்தவைகளை ஏற்றுகிறது";
-"version %@ (%@)" = "பதிப்பு %@ (%@)";
+/* Kmz file successful loading */
+"load_kmz_successful" = "பிடித்தவை வெற்றிகரமாக ஏற்றப்பட்டன! நீங்கள் அவற்றை வரைபடத்தில் அல்லது பிடித்தவை மேலாளர் திரையில் காணலாம்.";
+/* Kml file loading failed */
+"load_kmz_failed" = "பிடித்தவைகளை ஏற்ற முடியவில்லை. கோப்பு சிதைந்திருக்கலாம் அல்லது குறைபாடுடையதாக இருக்கலாம்.";
+/* resource for context menu */
+"edit" = "தொகு";
+/* Warning message when doing search around current position */
+"unknown_current_position" = "உங்கள் இருப்பிடம் இன்னும் தீர்மானிக்கப்படவில்லை";
+/* Subject for emailed bookmark */
+"bookmark_share_email_subject" = "ஏய், CoMaps இல் எனது பின்னை பாருங்கள்!";
+/* Subject for emailed position */
+"my_position_share_email_subject" = "ஏய், CoMaps வரைபடத்தில் எனது தற்போதைய இருப்பிடத்தைப் பாருங்கள்!";
+/* Share by email button text, also used in editor and About. */
+"email" = "மின்னஞ்சல்";
+/* Text for message to copy something */
+"copy_to_clipboard" = "இடைநிலைப்பலகைக்கு நகலெடுக்கவும்";
+/* Text for message when used successfully copied something */
+"copied_to_clipboard" = "இடைநிலைப்பலகைக்கு நகலெடுக்கப்பட்டது: %@";
+/* place preview title */
+"info" = "தகவல்";
+/* Used for bookmark editing */
 "done" = "முடிந்தது";
+/* Prints version number in About dialog */
+"version" = "CoMaps பதிப்பு: %@";
+"version %@ (%@)" = "பதிப்பு %@ (%@)";
+"version: %@ (%@)\nmap data: %@" = "பதிப்பு: %@ (%@) \nவரைபடத் தரவு: %@";
+/* Title for tracks category in bookmarks manager */
+"tracks_title" = "தடங்கள்";
+/* Length of track in cell that describes route */
+"length" = "நீளம்";
+"share_my_location" = "எனது இருப்பிடத்தைப் பகிரவும்";
+"prefs_group_route" = "வானோடல்";
+"pref_zoom_title" = "பெரிதாக்கு பொத்தான்கள்";
 "pref_left_button_type" = "இடது முதன்மையான பொத்தான்";
-"m" = "மீ";
-"mi" = "மை";
-"ft" = "அடி";
-"km" = "கி.மீ";
-"today" = "இன்று";
-"editor_category_unsuitable_text" = "CoMaps எளிய புள்ளி வகைகளை மட்டும் சேர்க்க அனுமதிக்கிறது, அதாவது நகரங்கள், சாலைகள், ஏரிகள், கட்டிட அவுட்லைன்கள் போன்றவை இல்லை. அத்தகைய வகைகளை நேரடியாக <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> இல் சேர்க்கவும். விரிவான படிப்படியான வழிமுறைகளுக்கு எங்கள் <a href=\"https://www.comaps.app/support/advanced-map-editing/\">வழிகாட்டியைப்</a> பார்க்கவும்.";
-"dialog_routing_location_turn_on" = "இருப்பிட சேவைகளை இயக்கவும்";
-"closes_at" = "%@ இல் மூடப்படும்";
-"downloader_no_space_message" = "தேவையற்ற தரவுகளை நீக்கவும்";
-"dialog_routing_select_closer_end" = "சாலைக்கு அருகாமையில் உள்ள இலக்கைத் தேர்ந்தெடுக்கவும்.";
-"editor_more_about_osm" = "OpenStreetMap பற்றி மேலும்";
-"tags_loading_error_subtitle" = "குறிச்சொற்களை ஏற்றும்போது பிழை ஏற்பட்டது, மீண்டும் முயற்சிக்கவும்";
-"dialog_routing_application_error" = "பயன்பாட்டுப் பிழையின் காரணமாக வழியை உருவாக்க முடியவில்லை.";
-"categories" = "வகைகள்";
-"editor_storey_number" = "மாடிகளின் எண்ணிக்கை (அதிகபட்சம் %d)";
-"p2p_from_here" = "இருந்து வழி";
-"save" = "சேமி";
-"editor_profile_changes" = "சரிபார்க்கப்பட்ட மாற்றங்கள்";
-"opens_at" = "%@ இல் திறக்கும்";
-"routing_add_start_point" = "பாதையின் தொடக்கப் புள்ளியைச் சேர்க்க, தேடலைப் பயன்படுத்தவும் அல்லது வரைபடத்தில் தட்டவும்";
-"voice" = "குரல்";
-"export_file" = "ஏற்றுமதி KMZ";
-"downloader_delete_map_while_routing_dialog" = "வரைபடத்தை நீக்க, வழிசெலுத்தலை நிறுத்தவும்.";
-"editor_reset_edits_button" = "மாற்றங்களை நிராகரிக்கவும்";
-"power_managment_setting_never" = "ஒருபோதும்";
-"downloader_hide_screen" = "திரையை மறை";
-"downloader_process" = "பதிவிறக்குகிறது %@…";
-"dialog_routing_disclaimer_priority" = "- வழிசெலுத்தல் குறிப்புகளை விட சாலை நிலைமைகள், போக்குவரத்து சட்டங்கள் மற்றும் சாலை அடையாளங்கள் எப்போதும் முன்னுரிமை பெறுகின்றன;";
-"pref_tts_speedcams_always" = "எப்போதும் எச்சரிக்கவும்";
-"hide_from_map" = "வரைபடத்திலிருந்து மறை";
-"core_entrance" = "நுழைவாயில்";
-"operator" = "ஆபரேட்டர்: %@";
-"opens_in" = "%@ இல் திறக்கும்";
-"dialog_routing_check_gps" = "சிபிஎச் சிக்னலைச் சரிபார்க்கவும்";
-"dialog_routing_download_cross_route" = "இந்த வரைபடத்தின் எல்லைகளைக் கடக்கும் சிறந்த வழியை உருவாக்க கூடுதல் வரைபடங்களைப் பதிவிறக்கவும்.";
-"osm_profile_verfied_changes" = "சரிபார்க்கப்பட்ட மாற்றங்கள்";
-"dialog_routing_location_turn_wifi" = "உங்கள் சிபிஎச் சிக்னலைச் சரிபார்க்கவும். வைஃபையை இயக்குவது உங்கள் இருப்பிடத் துல்லியத்தை மேம்படுத்தும்.";
-"placepage_personal_notes_hint" = "தனிப்பட்ட குறிப்புகள் (உரை அல்லது html)";
-"placepage_add_place_button" = "OpenStreetMap இல் இடத்தைச் சேர்க்கவும்";
-"osm_mapdata" = "OpenStreetMap இலிருந்து வரைபடத் தரவு";
-"downloader_status_maps" = "வரைபடங்கள்";
-"enable_logging" = "பதிவு செய்வதை இயக்கு";
-"osm_profile_promt" = "OpenStreetMap கணக்கை உருவாக்கவும் அல்லது உங்கள் வரைபட திருத்தங்களை உலகிற்கு வெளியிட உள்நுழையவும்.";
-"mobile_data" = "மொபைல் இணையம்";
-"downloader_retry" = "மீண்டும் முயல்";
-"editor_time_title" = "வணிக நேரம்";
-"editor_other_info" = "OpenStreetMap தன்னார்வலர்களுக்கான குறிப்பு (விரும்பினால்)";
-"brown" = "பழுப்பு";
-"downloader_search_field_hint" = "வரைபடத்தைக் கண்டுபிடி";
-"dialog_routing_disclaimer_precision" = "— வரைபடம் துல்லியமற்றதாக இருக்கலாம், மேலும் பரிந்துரைக்கப்பட்ட பாதை எப்போதும் இலக்கை அடைய மிகவும் உகந்த வழியாக இருக்காது;";
-"delete_list" = "பட்டியலை நீக்கு";
-"osm_more_about" = "OpenStreetMap பற்றி மேலும்";
-"error_enter_correct_zip_code" = "சரியான அஞ்சல் குறியீட்டை உள்ளிடவும்";
-"editor_detailed_description" = "நீங்கள் பரிந்துரைக்கும் வரைபட மாற்றங்கள் OpenStreetMap சமூகத்திற்கு அனுப்பப்படும். CoMaps இல் திருத்த முடியாத கூடுதல் விவரங்களை விவரிக்கவும்.";
-"bookmarks_convert_error_title" = "பிழை";
-"select_cuisine" = "சமையலைத் தேர்ந்தெடுக்கவும்";
-"editor_share_to_all_dialog_message_2" = "திறந்ததெருவரைபடம் திருத்திகள் மாற்றங்களைச் சரிபார்த்து, அவர்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உங்களைத் தொடர்புகொள்வார்கள்.";
-"terms_of_use" = "பயன்பாட்டு விதிமுறைகள்";
-"day_off" = "மூடப்பட்டது";
-"downloader_delete_map_dialog" = "உங்கள் வரைபடத் திருத்தங்கள் அனைத்தும் வரைபடத்துடன் நீக்கப்படும்.";
-"downloader_search_results" = "கண்டுபிடிக்கப்பட்டது";
-"saved" = "சேமிக்கப்பட்டது";
-"editor_time_delete" = "அட்டவணையை நீக்கு";
-"p2p_start" = "தொடங்கு";
-"create" = "உருவாக்கு";
-"core_exit" = "வெளியேறு";
-"hour" = "ம";
-"dialog_routing_error_location_not_found" = "வழியை உருவாக்க முடியவில்லை. தற்போதைய சிபிஎச் ஒருங்கிணைப்புகளை அடையாளம் காண முடியவில்லை.";
-"location_services_disabled_2" = "2. இருப்பிடத்தைத் தட்டவும்";
-"bookmarks_import" = "பிடித்தவைகளை இறக்குமதி வெற்றி";
-"opens_tomorrow_at" = "நாளை %@க்கு திறக்கப்படும்";
-"closes_in" = "%@ இல் மூடப்படும்";
-"gray" = "சாம்பல்";
-"downloader_downloading" = "பதிவிறக்குகிறது:";
-"unknown" = "தெரியவில்லை";
-"p2p_reroute_from_current" = "உங்கள் தற்போதைய இருப்பிடத்திலிருந்து ஒரு வழியைத் திட்டமிட விரும்புகிறீர்களா?";
-"pink" = "இளஞ்சிவப்பு";
-"dialog_routing_change_intermediate" = "இடைநிலைப் புள்ளியைக் கண்டறிய முடியவில்லை.";
-"downloader_status_outdated" = "புதுப்பிப்பு";
-"button_layer_subway" = "சுரங்கப்பாதை";
-"transliteration_title_disabled_summary" = "வரைபடத்திற்கு உள்ளக மொழியை எப்போதும் பயன்படுத்தும் போது முடக்கப்படும்";
-"whatsnew_editor_message_1" = "வரைபடத்தில் புதிய இடங்களைச் சேர்க்கவும், ஏற்கனவே உள்ளவற்றை நேரடியாக பயன்பாட்டிலிருந்து திருத்தவும்.";
-"osm_profile" = "OpenStreetMap சுயவிவரம்";
-"bookmark_lists_hide_all" = "அனைத்தையும் மறை";
-"editor_sharing_title" = "நான் CoMaps வரைபடங்களை மேம்படுத்தினேன்";
-"routing_download_maps_along" = "உங்கள் பாதையில் உள்ள அனைத்து வரைபடங்களையும் பதிவிறக்கவும்";
-"routing_planning_error" = "பாதை திட்டமிடல் தோல்வியடைந்தது";
-"downloader_update_all_button" = "அனைத்தையும் புதுப்பிக்கவும்";
-"restore" = "மீட்டமை";
-"downloader_applying" = "%@ விண்ணப்பிக்கிறது…";
-"routing_arrive" = "%@ இல் வருகை";
-"current_location_unknown_error_message" = "உங்கள் இருப்பிடத்தைக் கண்டறியும் போது பிழை ஏற்பட்டது. உங்கள் சாதனம் சரியாக இயங்குகிறதா எனச் சரிபார்த்து, பிறகு முயற்சிக்கவும்.";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) என்பது ஒரு இலவச மற்றும் திறந்த வரைபடத்தை உருவாக்குவதற்கான ஒரு சமூக திட்டமாகும். CoMaps இல் உள்ள வரைபடத் தரவின் முக்கிய சான்று இது மற்றும் விக்கிபீடியாவைப் போலவே செயல்படுகிறது. நீங்கள் இடங்களைச் சேர்க்கலாம் அல்லது திருத்தலாம் மற்றும் அவை உலகம் முழுவதும் உள்ள மில்லியன் கணக்கான பயனர்களுக்குக் கிடைக்கும். \nசமூகத்தில் சேர்ந்து அனைவருக்கும் சிறந்த வரைபடத்தை உருவாக்க உதவுங்கள்!";
-"power_managment_title" = "ஆற்றல் சேமிப்பு முறை";
-"opens_dayoftheweek_at" = "%2$@ இல் %1$@ திறக்கும்";
-"mobile_data_dialog" = "விரிவான தகவலைக் காட்ட மொபைல் இணையத்தைப் பயன்படுத்தவா?";
-"planning_route_remove_title" = "அகற்ற இங்கே இழுக்கவும்";
-"p2p_your_location" = "உங்கள் இருப்பிடம்";
-"text_more_button" = "…மேலும்";
-"downloader_of" = "%1$d / %2$d";
-"mobile_data_option_ask" = "எப்பொழுதும் கேள்";
-"download_over_mobile_message" = "சில திட்டங்கள் அல்லது ரோமிங்கில் இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்.";
-"email_error_title" = "மின்னஞ்சல் அனுப்புவதில் பிழை";
-"add_language" = "ஒரு மொழியைச் சேர்க்கவும்";
-"common_check_internet_connection_dialog" = "உங்கள் சாதனம் இணையத்துடன் இணைக்கப்பட்டுள்ளதை உறுதிசெய்யவும்.";
-"location_services_disabled_on_device_additional_message" = "அல்லது இருப்பிடம் இல்லாமல் CoMaps ஐப் பயன்படுத்துவதைத் தொடரவும்";
-"recent_track_background_dialog_message" = "CoMaps நீங்கள் அண்மைக் காலத்தில் பயணித்த வழியைப் பதிவுசெய்ய பின்னணியில் உங்கள் இருப்பிடத்தைப் பயன்படுத்துகிறது.";
-"current_location_unknown_error_title" = "தற்போதைய இடம் தெரியவில்லை.";
-"editor_time_advanced" = "மேம்பட்ட பயன்முறை";
-"add_street" = "ஒரு தெருவைச் சேர்க்கவும்";
-"share_with_friends" = "நண்பர்களுடன் பகிருங்கள்";
-"last_upload" = "கடைசியாக பதிவேற்றம்";
-"osm_profile_register_promt" = "OpenStreetMap கணக்கு இல்லையா?";
-"title_error_downloading_bookmarks" = "பிழை ஏற்பட்டது";
-"editor_example_values" = "எடுத்துக்காட்டு மதிப்புகள்";
-"message_invalid_feature_position" = "எந்தப் பொருளையும் இங்கு வைக்க முடியாது";
-"mobile_data_option_always" = "எப்போதும் பயன்படுத்தவும்";
-"off_recent_track_background_button" = "முடக்கு";
-"dialog_routing_disclaimer_borders" = "— எல்லை மண்டலங்களில் உள்ள வழிகளில் எச்சரிக்கையாக இருங்கள்: எங்கள் ஆப்ச் உருவாக்கிய வழிகள் சில நேரங்களில் அங்கீகரிக்கப்படாத இடங்களில் நாட்டின் எல்லைகளைக் கடக்கலாம்.";
-"phone" = "தொலைபேசி";
-"decline" = "நிராகரி";
-"downloader_no_downloaded_maps_title" = "நீங்கள் எந்த வரைபடத்தையும் பதிவிறக்கம் செய்யவில்லை";
-"p2p_only_from_current" = "உங்களின் தற்போதைய இருப்பிடத்திலிருந்து மட்டுமே வழிசெலுத்தல் கிடைக்கும்.";
-"downloader_near_me_subtitle" = "என் அருகில்";
-"dialog_routing_change_start_or_end" = "உங்கள் தொடக்கப் புள்ளி அல்லது சேருமிடத்தைச் சரிசெய்யவும்.";
-"export_file_gpx" = "GPX ஐ ஏற்றுமதி செய்யவும்";
-"add_opening_hours" = "திறக்கும் நேரத்தைச் சேர்க்கவும்";
-"general_settings" = "பொது அமைப்புகள்";
-"bookmarks_error_title_share_empty" = "பகிர்வதில் பிழை";
-"dialog_routing_change_end" = "இலக்கை சரிசெய்யவும்";
-"planning_route_manage_route" = "வழியை நிர்வகிக்கவும்";
-"place_name" = "இடப் பெயர்";
-"navigation_stop_button" = "நிறுத்து";
-"power_managment_setting_manual_max" = "எப்போதும்";
-"osm_profile_delete" = "OpenStreetMap கணக்கை நீக்கவும்";
-"please_note" = "தயவுசெய்து கவனிக்கவும்";
-"bookmarks_detect_title" = "புதிய கோப்புகள் கண்டறியப்பட்டன";
-"migration_download_error_dialog" = "பதிவிறக்க பிழை";
-"choose_street" = "ஒரு தெருவைத் தேர்ந்தெடுக்கவும்";
-"p2p_to_here" = "செல்லும் பாதை";
-"editor_operator" = "செயற்குறி";
-"dialog_routing_intermediate_not_determined" = "உங்கள் இடைநிலைப் புள்ளியைச் சரிசெய்யவும்.";
-"bookmark_lists" = "பட்டியல்கள்";
-"read_in_wikipedia" = "விக்கிபீடியா";
-"editor_edits_sent_message" = "உங்கள் குறிப்பு OpenStreetMap க்கு அனுப்பப்படும்";
-"download_button" = "பதிவிறக்கம்";
-"downloader_no_space_title" = "போதுமான இடம் இல்லை";
-"kilometers_per_hour" = "கிமீ/ம";
-"editor_report_problem_send_button" = "அனுப்பு";
-"editor_remove_place_button" = "நீக்கு";
-"dialog_routing_disclaimer_recommendations" = "- பரிந்துரைக்கப்பட்ட வழிகள் பரிந்துரைகளாக மட்டுமே புரிந்து கொள்ளப்பட வேண்டும்;";
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "வரைபட மொழி";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "உள்ளக மொழி";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "வரைபடம் தோற்றம்";
+/* Settings «Map» category: «Appearance» title */
+"pref_appearance_title" = "தோற்றம்";
+/* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_light" = "ஒளி";
+/* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_dark" = "இருள்";
+/* Generic «Disabled» string */
+"disabled" = "முடக்கப்பட்டது";
+/* Generic «Off» string */
+"off" = "அணை";
+/* Generic «On» string */
+"on" = "மேல்";
+/* Generic «Auto» string */
+"auto" = "தானி";
+/* Settings «Map» category: «Perspective view» title */
+"pref_map_3d_title" = "முன்னோக்கு பார்வை";
+/* Settings «Map» category: «3D buildings» title */
+"pref_map_3d_buildings_title" = "3டி கட்டிடங்கள்";
+/* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
+"pref_map_3d_buildings_disabled_summary" = "மின் சேமிப்பு பயன்முறையில் 3D கட்டிடங்கள் முடக்கப்பட்டுள்ளன";
+/* Settings «Route» category: «Tts enabled» title */
+"pref_tts_title" = "குரல் வழிமுறைகள்";
+/* Settings «Route» category: «Tts enable» title */
+"pref_tts_enable_title" = "குரல் வழிமுறைகளை இயக்கவும்";
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "தெரு பெயர்களை அறிவிக்கவும்";
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "இயக்கப்பட்டால், தெருவின் பெயர் அல்லது வெளியேறும் இடம் உரக்கப் பேசப்படும்.";
+/* Settings «Route» category: «Tts language» title */
+"pref_tts_language_title" = "குரல் மொழி";
+/* Settings «Route» category: «Test Voice Directions» title */
+"pref_tts_test_voice_title" = "குரல் வழிகளை சோதிக்கவும்";
+/* Title for "Other" section in TTS settings. */
+"pref_tts_other_section_title" = "மற்றொன்று";
+"pref_map_auto_zoom" = "ஆட்டோ சூம்";
+"placepage_distance" = "தூரம்";
+"search_show_on_map" = "வரைபடத்தில் பார்க்கவும்";
+/* Text in menu */
+"website" = "இணையதளம்";
+/* Text in About menu, opens CoMaps news website */
+"news" = "செய்தி";
+/* Text in the about screen */
+"social_codeberg" = "கோட்பெர்க்";
+"social_mastodon" = "மாச்டோடன்";
+"social_lemmy" = "லெம்மி";
+"social_matrix" = "அணி";
+"social_bluesky" = "ப்ளூச்கி";
+"social_pixelfed" = "புள்ளிஊட்டி";
+"social_email" = "மின்னஞ்சல்";
+/* Text in the editor */
+"fediverse" = "மாச்டோடன்";
+/* Text in menu */
+"facebook" = "Facebook";
+/* Text in menu */
+"twitter" = "ஃச் (ட்விட்டர்)";
+/* Text in menu */
+"instagram" = "Instagram";
+/* Text in the editor */
+"vk" = "வி.கே";
+/* Text in the editor */
+"line" = "வரி";
+/* Text in the editor */
+"bluesky" = "ப்ளூச்கி";
+/* Text in menu */
+"panoramax" = "பனோரமாக்ச்";
+/* Text in menu */
+"panoramax_picture" = "Panoramax படம்";
+/* Text in menu */
+"rate_the_app" = "பயன்பாட்டை மதிப்பிடு";
+/* Text in menu */
+"help" = "உதவி";
+/* Button in the main Help dialog */
+"faq" = "அடிக்கடி கேட்கப்படும் கேள்விகள்";
+/* Button in the main menu */
+"donate" = "நன்கொடை";
+/* Button in the main Help dialog */
+"copyright" = "பதிப்புரிமை";
+/* Text in menu + Button in the main Help dialog */
+"report_a_bug" = "பிழையைப் புகாரளி";
+/* Button in the About screen */
+"report_incorrect_map_bug" = "தவறான வரைபடத் தரவைப் புகாரளிக்கவும் அல்லது சரிசெய்யவும்";
+/* Button in the About screen */
+"volunteer" = "தன்னார்வத் தொண்டு மற்றும் CoMaps ஐ மேம்படுத்தவும்";
+/* "Social media" section header in the About screen */
+"follow_us" = "எங்களுடன் இணையுங்கள்";
+/* Alert text */
 "email_error_body" = "மின்னஞ்சல் கிளையன்ட் அமைக்கப்படவில்லை. தயவுசெய்து அதை உள்ளமைக்கவும் அல்லது எங்களை %@ இல் தொடர்பு கொள்ளவும்";
-"editor_time_allday" = "நாள் முழுவதும் (24 மணிநேரம்)";
-"downloader_download_map" = "வரைபடத்தைப் பதிவிறக்கவும்";
-"deep_orange" = "ஆழமான ஆரஞ்சு";
-"editor_share_to_all_dialog_title" = "எல்லா பயனர்களுக்கும் அனுப்ப விரும்புகிறீர்களா?";
-"mobile_data_description" = "வரைபட புதுப்பிப்பு அறிவிப்புகள் மற்றும் திருத்தங்களை பதிவேற்ற மொபைல் இணையம் தேவை.";
-"daily" = "நாள்தோறும்";
-"editor_hours_closed" = "வணிகம் அல்லாத நேரம்";
-"mobile_data_option_not_today" = "இன்று பயன்படுத்த வேண்டாம்";
-"downloader_update_maps" = "வரைபடத்தைப் புதுப்பிக்கவும்";
-"dialog_routing_end_not_determined" = "பாதை உருவாக்கப்படவில்லை. சேருமிடத்தைக் கண்டறிய முடியவில்லை.";
-"closed_now" = "இப்போது மூடப்பட்டுள்ளது";
-"dialog_routing_download_and_update_all" = "ஒரு வழியைக் கணக்கிட, திட்டமிடப்பட்ட பாதையில் உள்ள அனைத்து வரைபடங்களையும் பதிவிறக்கவும் அல்லது புதுப்பிக்கவும்.";
-"deep_purple" = "அடர் ஊதா";
-"error_enter_correct_storey_number" = "மாடிகளின் எண்ணிக்கை %d ஐ விட அதிகமாக இருக்கக்கூடாது";
-"download_over_mobile_header" = "செல்லுலார் பிணையம் இணைப்பு மூலம் பதிவிறக்கவா?";
-"orange" = "ஆரஞ்சு";
-"error_enter_correct_web" = "சரியான இணைய முகவரியை உள்ளிடவும்";
-"bookmark" = "இடம்";
-"editor_edit_place_title" = "திருத்துதல்";
-"editor_place_doesnt_exist" = "இடம் இல்லை";
-"subway_data_unavailable" = "சுரங்கப்பாதை வரைபடம் கிடைக்கவில்லை";
-"green" = "பச்சை";
-"pref_tts_speedcams_auto" = "வேகமாக சென்றால் எச்சரிக்கவும்";
-"details" = "விவரங்கள்";
-"yellow" = "மஞ்சள்";
-"privacy_policy" = "தனியுரிமைக் கொள்கை";
-"editor_default_language_hint" = "அச் it is written in the local மொழி";
-"search_not_found" = "அச்சச்சோ, முடிவுகள் எதுவும் கிடைக்கவில்லை.";
-"editor_add_select_location" = "இருப்பிடத்தைத் தேர்ந்தெடுக்கவும்";
-"downloader_queued" = "வரிசையில் நிற்கிறது";
-"light_blue" = "வெளிர் நீலம்";
-"downloader_delete_map" = "வரைபடத்தை நீக்கு";
-"popular_place" = "பிரபலமானது";
-"routing_add_finish_point" = "இலக்கு புள்ளியைச் சேர்க்க, தேடலைப் பயன்படுத்தவும் அல்லது வரைபடத்தில் தட்டவும்";
-"mobile_data_option_today" = "இன்று மட்டும்";
-"editor_done_dialog_1" = "உலக வரைபடத்தை மாற்றிவிட்டீர்கள்! அதை நீங்களே வைத்துக் கொள்ளாதீர்கள்; உங்கள் நண்பர்களிடம் சொல்லி அதை ஒன்றாக திருத்தவும்.";
-"button_convert" = "மாற்றவும்";
-"voice_explanation_before_version26" = "*அணுகல்தன்மை*, *பேசப்பட்ட உள்ளடக்கம்*, *குரல்* ஆகியவற்றின் கீழ் கட்டமைப்பு அமைப்புகளில் சிறந்த குரலைத் தேர்வுசெய்ய முடியும்.";
-"red" = "சிவப்பு";
-"hide" = "மறை";
-"editor_detailed_description_hint" = "விரிவான கருத்து";
-"dialog_routing_select_closer_start" = "சாலைக்கு அருகில் ஒரு தொடக்கப் புள்ளியைத் தேர்ந்தெடுக்கவும்.";
-"lime" = "சுண்ணாம்பு";
-"cyan" = "சியான்";
-"teal" = "டீல்";
-"level" = "மாடி";
-"refresh" = "புதுப்பிப்பு";
-"day_off_today" = "இன்று மூடப்பட்டது";
-"location_services_disabled_3" = "3. பயன்பாட்டைப் பயன்படுத்தும் போது தேர்ந்தெடுக்கவும்";
-"osm_profile_register" = "OpenStreetMap இல் பதிவு செய்யவும்";
-"location_services_disabled_on_device_3" = "3. இருப்பிட சேவைகளைத் தேர்ந்தெடுக்கவும்";
-"miles_per_hour" = "மை/ம";
-"history" = "வரலாறு";
-"osm_profile_remove_promt" = "உங்கள் கணக்கை மீண்டும் இணைக்க முடியவில்லை அல்லது விரும்பவில்லை என்றால், இந்தப் பயன்பாட்டிலிருந்து அதை அகற்றலாம்";
-"closed" = "மூடப்பட்டது";
-"editor_time_close" = "மூடப்பட்டது";
-"editor_time_add" = "அட்டவணையைச் சேர்க்கவும்";
-"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
-"editor_edit_place_category_title" = "வகையினம்";
-"bookmarks_error_title_list_name_already_taken" = "இந்த பெயர் ஏற்கனவே எடுக்கப்பட்டது";
-"placepage_add_stop" = "நிறுத்தத்தைச் சேர்க்கவும்";
-"autodownload" = "வரைபடங்களைத் தானாகப் பதிவிறக்கவும்";
-"osm_mapdata_explanation %@" = "*%@* வரை சமூகத்தால் உருவாக்கப்பட்ட வரைபடத் தரவு. [OpenStreetMap.org](https://openstreetmap.org) இல் வரைபடத்தை எவ்வாறு திருத்துவது மற்றும் புதுப்பிப்பது என்பது பற்றி மேலும் அறிக.";
-"osm_profile_login" = "OpenStreetMap இல் உள்நுழைக";
-"dialog_incorrect_feature_position" = "இடத்தை மாற்றவும்";
-"downloader_status_failed" = "தோல்வியடைந்தது";
-"dialog_routing_system_error" = "கணினி பிழை";
-"dialog_routing_download_and_build_cross_route" = "வரைபடத்தைப் பதிவிறக்கம் செய்து, ஒன்றுக்கும் மேற்பட்ட வரைபடத்தில் மிகவும் உகந்த வழியை உருவாக்க விரும்புகிறீர்களா?";
-"dialog_routing_disclaimer_beware" = "சாலைகளில் எச்சரிக்கையாகவும் பாதுகாப்பாகவும் இருங்கள்!";
-"log_file_size" = "பதிவு கோப்பு அளவு: %@";
-"bookmarks_create_new_group" = "புதிய பட்டியலை உருவாக்கவும்";
-"editor_add_select_category_all_subtitle" = "அனைத்து வகைகள்";
-"placepage_edit_bookmark_button" = "சேமித்த இடத்தைத் திருத்தவும்";
-"error_enter_correct_phone" = "சரியான தொலைபேசி எண்ணை உள்ளிடவும்";
-"dialog_routing_start_not_determined" = "பாதை உருவாக்கப்படவில்லை. தொடக்கப் புள்ளியைக் கண்டறிய முடியவில்லை.";
-"osm_profile_view_edit_history" = "திருத்த வரலாற்றைக் காண்க";
-"downloader_percent" = "%@ (%@ இல் %@)";
-"dialog_routing_download_and_update_maps" = "பாதையைக் கணக்கிட, திட்டமிடப்பட்ட பாதையில் உள்ள அனைத்து வரைபடத்தையும் பதிவிறக்கி புதுப்பிக்கவும்.";
-"placepage_bookmark_name_hint" = "இடப் பெயர்";
-"power_managment_description" = "சில செயல்பாடுகளின் இழப்பில் மின் பயன்பாட்டைக் குறைக்க முயற்சிக்கவும்.";
-"error_enter_correct_name" = "சரியான பெயரை உள்ளிடவும்";
-"dialog_routing_download_files" = "தேவையான கோப்புகளைப் பதிவிறக்கவும்";
-"migration_no_space_message" = "பதிவிறக்க, உங்களுக்கு அதிக இடம் தேவை. தேவையற்ற தரவுகளை நீக்கவும்.";
-"downloader_no_downloaded_maps_message" = "ஆஃப்லைனில் தேட மற்றும் செல்ல வரைபடங்களைப் பதிவிறக்கவும்.";
-"search_history_text" = "உங்கள் அண்மைக் கால தேடல்களைக் காண்க.";
-"location_services_disabled_on_device_2" = "2. தனியுரிமையைத் தேர்ந்தெடுக்கவும்";
-"dialog_routing_unable_locate_route" = "வழியைக் கண்டறிய முடியவில்லை";
-"bookmarks_error_title_list_name_too_long" = "இந்தப் பெயர் மிக நீளமானது";
-"cuisine" = "சமையல்";
-"editor_zip_code" = "குறியீடு";
-"pref_tts_speedcams_never" = "எச்சரிக்க வேண்டாம்";
-"osm_profile_view_notes" = "குறிப்புகளைக் காண்க";
-"twentyfour_seven" = "24/7";
-"place_description_title" = "இட விளக்கம்";
-"editor_add_select_category_popular_subtitle" = "பிரபலமானது";
-"editor_time_add_closed" = "வணிகம் அல்லாத நேரத்தைச் சேர்க்கவும்";
-"placepage_remove_stop" = "நிறுத்தத்தை அகற்று";
-"core_placepage_unknown_place" = "வரைபட புள்ளி";
-"dialog_routing_try_again" = "மீண்டும் முயற்சிக்கவும்";
-"sharing_call_action_look" = "பாருங்கள்";
-"clear_search" = "தேடல் வரலாற்றை அழிக்கவும்";
-"downloader_download_all_button" = "அனைத்தையும் பதிவிறக்கவும்";
-"editor_comment_hint" = "கருத்து…";
-"editor_share_to_all_dialog_message_1" = "உங்கள் தனிப்பட்ட தரவு எதையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்து.";
-"location_services_disabled_message" = "சாதன அமைப்புகளில் புவிஇருப்பிடத்திற்கான அணுகலை இயக்கவும்";
-"edit_place" = "இடத்தைத் திருத்து";
-"downloader_available_maps" = "கிடைக்கும்";
-"existence_confirmed_time_ago" = "இருப்பு உறுதிப்படுத்தப்பட்டது %@";
-"editor_category_unsuitable_title" = "பொருத்தமான வகையைக் கண்டுபிடிக்க முடியவில்லையா?";
-"location_services_disabled_on_device_4" = "4. இருப்பிடச் சேவைகளை இயக்கவும்";
-"layers_title" = "வரைபட நடைகள் மற்றும் அடுக்குகள்";
-"postal_code" = "குறியீடு";
-"location_services_disabled_1" = "1. அமைப்புகளைத் திறக்கவும்";
-"osm_profile_reauthorize_promt" = "இந்த பயன்பாட்டிலிருந்து OpenStreetMap கணக்கு துண்டிக்கப்பட்டது";
-"power_managment_setting_auto" = "பேட்டரி குறைவாக இருக்கும்போது";
-"search_history_title" = "தேடல் வரலாறு";
-"house_number" = "கட்டிட எண்";
-"show" = "காட்டு";
-"dialog_routing_location_unknown_turn_on" = "தற்போதைய சிபிஎச் ஆயத்தொலைவுகளைக் கண்டறிய முடியவில்லை. வழியைக் கணக்கிட, இருப்பிடச் சேவைகளை இயக்கவும்.";
-"dialog_routing_disclaimer_title" = "வழியைப் பின்தொடரும் போது, தயவுசெய்து நினைவில் கொள்ளுங்கள்:";
-"location_services_disabled_header" = "இருப்பிடச் சேவைகள் முடக்கப்பட்டுள்ளன";
-"editor_place_doesnt_exist_description" = "OpenStreetMap சமூகத்திற்கு பிழைக் குறிப்பை அனுப்ப, அந்த இடம் இப்போது எப்படி இருக்கிறது என்பதை விவரிக்கவும்";
+/* Alert title */
+"email_error_title" = "மின்னஞ்சல் அனுப்புவதில் பிழை";
+/* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "இடைமுகத்தைப் பார்க்க மீண்டும் வரைபடத்தில் நீண்ட நேரம் தட்டவும்";
-"bookmarks_error_message_empty_list_name" = "பட்டியல் பெயரை உள்ளிடவும்";
-"start_from_my_position" = "இருந்து தொடங்குங்கள்";
-"routing_failed_cross_mwm_building" = "ஒரு பகுதியின் வரைபடத்தில் முழுமையாகக் கொண்டிருக்கும் வழிகளை மட்டுமே உருவாக்க முடியும்.";
-"email_or_username" = "மின்னஞ்சல் அல்லது பயனர் பெயர்";
-"editor_focus_map_on_location" = "இடம் அல்லது வணிகத்தின் இடத்தில் சிலுவையை வைக்க வரைபடத்தை இழுக்கவும்.";
-"error_enter_correct_email" = "சரியான மின்னஞ்சலை உள்ளிடவும்";
-"placepage_delete_bookmark_button" = "இடத்தை நீக்கு";
-"hours_confirmed_time_ago" = "%@ உறுதிப்படுத்தப்பட்டது";
-"placepage_call_button" = "அழைக்கவும்";
-"book_button" = "நூல்";
-"error_enter_correct_house_number" = "சரியான கட்டிட எண்ணை உள்ளிடவும்";
-"choose_language" = "ஒரு மொழியை தேர்வு செய்யவும்";
-"editor_edit_place_name_hint" = "இடத்தின் பெயர்";
-"accept" = "ஏற்றுக்கொள்";
-"dialog_routing_change_start" = "தொடக்க புள்ளியை சரிசெய்யவும்";
-"editor_remove_place_message" = "சேர்க்கப்பட்ட இடத்தை நீக்கவா?";
-"blue_gray" = "நீல சாம்பல்";
-"wikimedia_commons" = "விக்கிமீடியா காமன்ச்";
-"editor_reset_edits_message" = "அனைத்து உள்ளக மாற்றங்களையும் நிராகரிக்கவா?";
-"traffic_update_app_message" = "ட்ராஃபிக் தரவைக் காட்ட, பயன்பாடு புதுப்பிக்கப்பட வேண்டும்.";
-"editor_add_place_title" = "சேர்த்தல்";
-"day" = "டி";
-"bookmarks_error_message_share_empty" = "வெற்று பட்டியலைப் பகிர முடியாது";
-"osm_profile_remove" = "OpenStreetMap கணக்கை அகற்று";
-"big_font" = "வரைபட லேபிள்களுக்கான அளவை அதிகரிக்கவும்";
-"search_not_found_query" = "நீங்கள் தேடும் பகுதியைப் பதிவிறக்கவும் அல்லது அருகிலுள்ள நகரம்/கிராமத்தின் பெயரைச் சேர்க்க முயற்சிக்கவும்.";
-"voice_explanation" = "*அணுகல்தன்மை*, *படிக்க & பேசு*, *குரல்* ஆகியவற்றின் கீழ் கட்டமைப்பு அமைப்புகளில் சிறந்த குரலைத் தேர்வுசெய்ய முடியும்.";
-"button_plan" = "திட்டம்";
-"purple" = "ஊதா";
-"bookmarks_error_message_share_general" = "பயன்பாட்டுப் பிழை காரணமாகப் பகிர முடியவில்லை";
+/* Update all button text */
+"downloader_update_all_button" = "அனைத்தையும் புதுப்பிக்கவும்";
+/* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "பதிவிறக்கப்பட்டது";
-"blue" = "நீலம்";
-"traffic_data_unavailable" = "போக்குவரத்து தரவு கிடைக்கவில்லை";
-"mobile_data_option_never" = "ஒருபோதும் பயன்படுத்த வேண்டாம்";
-"editor_time_open" = "திற";
-"bookmarks_convert_error_message" = "சில கோப்புகள் மாற்றப்படவில்லை.";
-"profile" = "OpenStreetMap சுயவிவரம்";
-"transliteration_title" = "லத்தீன் எழுத்துக்களில் ஒலிபெயர்ப்பு";
-"editor_time_simple" = "எளிய முறை";
-"editor_add_select_category" = "வகையைத் தேர்ந்தெடு";
-"speedcams_alert_title" = "வேக கேமராக்கள்";
-"recent_track_background_dialog_title" = "நீங்கள் அண்மைக் காலத்தில் பயணித்த பாதையின் பதிவை முடக்கவா?";
-"placepage_more_button" = "மேலும்";
-"osm_profile_logout" = "OpenStreetMap கணக்கிலிருந்து வெளியேறவும்";
-"minute" = "மணித்துளி";
-"traffic_update_maps_text" = "ட்ராஃபிக் தரவைக் காட்ட, வரைபடங்கள் புதுப்பிக்கப்பட வேண்டும்.";
-"bookmark_lists_show_all" = "அனைத்தையும் காட்டு";
+/* Downloaded maps category */
+"downloader_available_maps" = "கிடைக்கும்";
+/* Country queued for download */
+"downloader_queued" = "வரிசையில் நிற்கிறது";
+"downloader_near_me_subtitle" = "என் அருகில்";
+/* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
+"downloader_status_maps" = "வரைபடங்கள்";
+"downloader_download_all_button" = "அனைத்தையும் பதிவிறக்கவும்";
+"downloader_downloading" = "பதிவிறக்குகிறது:";
+"downloader_search_results" = "கண்டுபிடிக்கப்பட்டது";
+/* Status of outdated country in the list */
+"downloader_status_outdated" = "புதுப்பிப்பு";
+/* Status of failed country in the list */
+"downloader_status_failed" = "தோல்வியடைந்தது";
+/* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
+"downloader_delete_map_while_routing_dialog" = "வரைபடத்தை நீக்க, வழிசெலுத்தலை நிறுத்தவும்.";
+/* PointsInDifferentMWM */
+"routing_failed_cross_mwm_building" = "ஒரு பகுதியின் வரைபடத்தில் முழுமையாகக் கொண்டிருக்கும் வழிகளை மட்டுமே உருவாக்க முடியும்.";
+/* Context menu item for downloader. */
+"downloader_download_map" = "வரைபடத்தைப் பதிவிறக்கவும்";
+/* Item status in downloader. */
+"downloader_retry" = "மீண்டும் முயல்";
+/* Item in context menu. */
+"downloader_delete_map" = "வரைபடத்தை நீக்கு";
+/* Text for routing error dialog */
+"routing_download_maps_along" = "உங்கள் பாதையில் உள்ள அனைத்து வரைபடங்களையும் பதிவிறக்கவும்";
+/* Text for routing error dialog */
 "routing_requires_all_map" = "வழியை உருவாக்க, உங்கள் இருப்பிடத்திலிருந்து நீங்கள் சேருமிடத்திற்கு அனைத்து வரைபடங்களையும் பதிவிறக்கம் செய்து புதுப்பிக்க வேண்டும்.";
-"thank_you" = "நன்றி";
+/* bookmark button text */
+"bookmark" = "இடம்";
+"save" = "சேமி";
+"create" = "உருவாக்கு";
+/* red color */
+"red" = "சிவப்பு";
+/* yellow color */
+"yellow" = "மஞ்சள்";
+/* blue color */
+"blue" = "நீலம்";
+/* green color */
+"green" = "பச்சை";
+/* purple color */
+"purple" = "ஊதா";
+/* orange color */
+"orange" = "ஆரஞ்சு";
+/* brown color */
+"brown" = "பழுப்பு";
+/* pink color */
+"pink" = "இளஞ்சிவப்பு";
+/* deep purple color */
+"deep_purple" = "அடர் ஊதா";
+/* light blue color */
+"light_blue" = "வெளிர் நீலம்";
+/* cyan color */
+"cyan" = "சியான்";
+/* teal color */
+"teal" = "டீல்";
+/* lime color */
+"lime" = "சுண்ணாம்பு";
+/* deep orange color */
+"deep_orange" = "ஆழமான ஆரஞ்சு";
+/* gray color */
+"gray" = "சாம்பல்";
+/* blue gray color */
+"blue_gray" = "நீல சாம்பல்";
+"dialog_routing_disclaimer_title" = "வழியைப் பின்தொடரும் போது, தயவுசெய்து நினைவில் கொள்ளுங்கள்:";
+"dialog_routing_disclaimer_priority" = "- வழிசெலுத்தல் குறிப்புகளை விட சாலை நிலைமைகள், போக்குவரத்து சட்டங்கள் மற்றும் சாலை அடையாளங்கள் எப்போதும் முன்னுரிமை பெறுகின்றன;";
+"dialog_routing_disclaimer_precision" = "— வரைபடம் துல்லியமற்றதாக இருக்கலாம், மேலும் பரிந்துரைக்கப்பட்ட பாதை எப்போதும் இலக்கை அடைய மிகவும் உகந்த வழியாக இருக்காது;";
+"dialog_routing_disclaimer_recommendations" = "- பரிந்துரைக்கப்பட்ட வழிகள் பரிந்துரைகளாக மட்டுமே புரிந்து கொள்ளப்பட வேண்டும்;";
+"dialog_routing_disclaimer_borders" = "— எல்லை மண்டலங்களில் உள்ள வழிகளில் எச்சரிக்கையாக இருங்கள்: எங்கள் ஆப்ச் உருவாக்கிய வழிகள் சில நேரங்களில் அங்கீகரிக்கப்படாத இடங்களில் நாட்டின் எல்லைகளைக் கடக்கலாம்.";
+"dialog_routing_disclaimer_beware" = "சாலைகளில் எச்சரிக்கையாகவும் பாதுகாப்பாகவும் இருங்கள்!";
+"dialog_routing_check_gps" = "சிபிஎச் சிக்னலைச் சரிபார்க்கவும்";
+"dialog_routing_error_location_not_found" = "வழியை உருவாக்க முடியவில்லை. தற்போதைய சிபிஎச் ஒருங்கிணைப்புகளை அடையாளம் காண முடியவில்லை.";
+"dialog_routing_location_turn_wifi" = "உங்கள் சிபிஎச் சிக்னலைச் சரிபார்க்கவும். வைஃபையை இயக்குவது உங்கள் இருப்பிடத் துல்லியத்தை மேம்படுத்தும்.";
+"dialog_routing_location_turn_on" = "இருப்பிட சேவைகளை இயக்கவும்";
+"dialog_routing_location_unknown_turn_on" = "தற்போதைய சிபிஎச் ஆயத்தொலைவுகளைக் கண்டறிய முடியவில்லை. வழியைக் கணக்கிட, இருப்பிடச் சேவைகளை இயக்கவும்.";
+"dialog_routing_download_files" = "தேவையான கோப்புகளைப் பதிவிறக்கவும்";
+"dialog_routing_download_and_update_all" = "ஒரு வழியைக் கணக்கிட, திட்டமிடப்பட்ட பாதையில் உள்ள அனைத்து வரைபடங்களையும் பதிவிறக்கவும் அல்லது புதுப்பிக்கவும்.";
+"dialog_routing_unable_locate_route" = "வழியைக் கண்டறிய முடியவில்லை";
+"dialog_routing_change_start_or_end" = "உங்கள் தொடக்கப் புள்ளி அல்லது சேருமிடத்தைச் சரிசெய்யவும்.";
+"dialog_routing_change_start" = "தொடக்க புள்ளியை சரிசெய்யவும்";
+"dialog_routing_start_not_determined" = "பாதை உருவாக்கப்படவில்லை. தொடக்கப் புள்ளியைக் கண்டறிய முடியவில்லை.";
+"dialog_routing_select_closer_start" = "சாலைக்கு அருகில் ஒரு தொடக்கப் புள்ளியைத் தேர்ந்தெடுக்கவும்.";
+"dialog_routing_change_end" = "இலக்கை சரிசெய்யவும்";
+"dialog_routing_end_not_determined" = "பாதை உருவாக்கப்படவில்லை. சேருமிடத்தைக் கண்டறிய முடியவில்லை.";
+"dialog_routing_select_closer_end" = "சாலைக்கு அருகாமையில் உள்ள இலக்கைத் தேர்ந்தெடுக்கவும்.";
+"dialog_routing_change_intermediate" = "இடைநிலைப் புள்ளியைக் கண்டறிய முடியவில்லை.";
+"dialog_routing_intermediate_not_determined" = "உங்கள் இடைநிலைப் புள்ளியைச் சரிசெய்யவும்.";
+"dialog_routing_system_error" = "கணினி பிழை";
+"dialog_routing_application_error" = "பயன்பாட்டுப் பிழையின் காரணமாக வழியை உருவாக்க முடியவில்லை.";
+"dialog_routing_try_again" = "மீண்டும் முயற்சிக்கவும்";
+"dialog_routing_download_and_build_cross_route" = "வரைபடத்தைப் பதிவிறக்கம் செய்து, ஒன்றுக்கும் மேற்பட்ட வரைபடத்தில் மிகவும் உகந்த வழியை உருவாக்க விரும்புகிறீர்களா?";
+"dialog_routing_download_cross_route" = "இந்த வரைபடத்தின் எல்லைகளைக் கடக்கும் சிறந்த வழியை உருவாக்க கூடுதல் வரைபடங்களைப் பதிவிறக்கவும்.";
+/* «Show» context menu */
+"show" = "காட்டு";
+/* «Hide» context menu */
+"hide" = "மறை";
+/* Failed planning route message in navigation view */
+"routing_planning_error" = "பாதை திட்டமிடல் தோல்வியடைந்தது";
+/* Arrive routing message in navigation view */
+"routing_arrive" = "%@ இல் வருகை";
+/* Text for routing::RouterResultCode::FileTooOld dialog. */
+"dialog_routing_download_and_update_maps" = "பாதையைக் கணக்கிட, திட்டமிடப்பட்ட பாதையில் உள்ள அனைத்து வரைபடத்தையும் பதிவிறக்கி புதுப்பிக்கவும்.";
+"categories" = "வகைகள்";
+"history" = "வரலாறு";
+"search_not_found" = "அச்சச்சோ, முடிவுகள் எதுவும் கிடைக்கவில்லை.";
+/* The message when user did not find anything in the search. */
+"search_not_found_query" = "நீங்கள் தேடும் பகுதியைப் பதிவிறக்கவும் அல்லது அருகிலுள்ள நகரம்/கிராமத்தின் பெயரைச் சேர்க்க முயற்சிக்கவும்.";
+"search_history_title" = "தேடல் வரலாறு";
+"search_history_text" = "உங்கள் அண்மைக் கால தேடல்களைக் காண்க.";
+"clear_search" = "தேடல் வரலாற்றை அழிக்கவும்";
+/* Place Page link to Wikipedia article (if map object has it). */
+"read_in_wikipedia" = "விக்கிபீடியா";
+/* Place Page link to Wikimedia Commons. */
+"wikimedia_commons" = "விக்கிமீடியா காமன்ச்";
+"p2p_your_location" = "உங்கள் இருப்பிடம்";
+"p2p_start" = "தொடங்கு";
+"p2p_from_here" = "இருந்து வழி";
+"p2p_to_here" = "செல்லும் பாதை";
+"p2p_only_from_current" = "உங்களின் தற்போதைய இருப்பிடத்திலிருந்து மட்டுமே வழிசெலுத்தல் கிடைக்கும்.";
+"p2p_reroute_from_current" = "உங்கள் தற்போதைய இருப்பிடத்திலிருந்து ஒரு வழியைத் திட்டமிட விரும்புகிறீர்களா?";
+"editor_time_add" = "அட்டவணையைச் சேர்க்கவும்";
+"editor_time_delete" = "அட்டவணையை நீக்கு";
+/* Text for allday switch. */
+"editor_time_allday" = "நாள் முழுவதும் (24 மணிநேரம்)";
+"editor_time_open" = "திற";
+"editor_time_close" = "மூடப்பட்டது";
+"editor_time_add_closed" = "வணிகம் அல்லாத நேரத்தைச் சேர்க்கவும்";
+"editor_time_title" = "வணிக நேரம்";
+"editor_time_advanced" = "மேம்பட்ட பயன்முறை";
+"editor_time_simple" = "எளிய முறை";
+"editor_hours_closed" = "வணிகம் அல்லாத நேரம்";
+"editor_example_values" = "எடுத்துக்காட்டு மதிப்புகள்";
+"editor_add_select_location" = "இருப்பிடத்தைத் தேர்ந்தெடுக்கவும்";
+"editor_done_dialog_1" = "உலக வரைபடத்தை மாற்றிவிட்டீர்கள்! அதை நீங்களே வைத்துக் கொள்ளாதீர்கள்; உங்கள் நண்பர்களிடம் சொல்லி அதை ஒன்றாக திருத்தவும்.";
+"share_with_friends" = "நண்பர்களுடன் பகிருங்கள்";
+"editor_report_problem_send_button" = "அனுப்பு";
+"autodownload" = "வரைபடங்களைத் தானாகப் பதிவிறக்கவும்";
+/* Voice */
+"voice" = "குரல்";
+"voice_explanation" = "*அணுகல்தன்மை*, *படிக்க & பேசு*, *குரல்* ஆகியவற்றின் கீழ் கட்டமைப்பு அமைப்புகளில் சிறந்த குரலைத் தேர்வுசெய்ய முடியும்.";
+"voice_explanation_before_version26" = "*அணுகல்தன்மை*, *பேசப்பட்ட உள்ளடக்கம்*, *குரல்* ஆகியவற்றின் கீழ் கட்டமைப்பு அமைப்புகளில் சிறந்த குரலைத் தேர்வுசெய்ய முடியும்.";
+"unknown" = "தெரியவில்லை";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "இருப்பு உறுதிப்படுத்தப்பட்டது %@";
+"hours_confirmed_time_ago" = "%@ உறுதிப்படுத்தப்பட்டது";
+/* Place Page opening hours text */
+"closed_now" = "இப்போது மூடப்பட்டுள்ளது";
+/* Place Page opening hours text */
+"daily" = "நாள்தோறும்";
+"twentyfour_seven" = "24/7";
+"day_off_today" = "இன்று மூடப்பட்டது";
+"day_off" = "மூடப்பட்டது";
+"today" = "இன்று";
+"opens_tomorrow_at" = "நாளை %@க்கு திறக்கப்படும்";
+"opens_dayoftheweek_at" = "%2$@ இல் %1$@ திறக்கும்";
+"opens_at" = "%@ இல் திறக்கும்";
+"opens_in" = "%@ இல் திறக்கும்";
+"closes_at" = "%@ இல் மூடப்படும்";
+"closes_in" = "%@ இல் மூடப்படும்";
+"closed" = "மூடப்பட்டது";
+"add_opening_hours" = "திறக்கும் நேரத்தைச் சேர்க்கவும்";
+/* OpenStreetMap */
+"osm_mapdata" = "OpenStreetMap இலிருந்து வரைபடத் தரவு";
+"osm_mapdata_explanation %@" = "*%@* வரை சமூகத்தால் உருவாக்கப்பட்ட வரைபடத் தரவு. [OpenStreetMap.org](https://openstreetmap.org) இல் வரைபடத்தை எவ்வாறு திருத்துவது மற்றும் புதுப்பிப்பது என்பது பற்றி மேலும் அறிக.";
+"osm_more_about" = "OpenStreetMap பற்றி மேலும்";
+"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+/* OpenStreetMap Profile */
+"osm_profile" = "OpenStreetMap சுயவிவரம்";
+"osm_profile_promt" = "OpenStreetMap கணக்கை உருவாக்கவும் அல்லது உங்கள் வரைபட திருத்தங்களை உலகிற்கு வெளியிட உள்நுழையவும்.";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) என்பது ஒரு இலவச மற்றும் திறந்த வரைபடத்தை உருவாக்குவதற்கான ஒரு சமூக திட்டமாகும். CoMaps இல் உள்ள வரைபடத் தரவின் முக்கிய சான்று இது மற்றும் விக்கிபீடியாவைப் போலவே செயல்படுகிறது. நீங்கள் இடங்களைச் சேர்க்கலாம் அல்லது திருத்தலாம் மற்றும் அவை உலகம் முழுவதும் உள்ள மில்லியன் கணக்கான பயனர்களுக்குக் கிடைக்கும். \nசமூகத்தில் சேர்ந்து அனைவருக்கும் சிறந்த வரைபடத்தை உருவாக்க உதவுங்கள்!";
+"osm_profile_login" = "OpenStreetMap இல் உள்நுழைக";
+"osm_profile_reauthorize_promt" = "இந்த பயன்பாட்டிலிருந்து OpenStreetMap கணக்கு துண்டிக்கப்பட்டது";
 "osm_profile_reauthorize" = "OpenStreetMap உடன் மீண்டும் இணைக்கவும்";
-"trip_start" = "போகலாம்";
-"trip_finished" = "நீங்கள் வந்துவிட்டீர்கள்!";
-"icloud_disabled_message" = "இந்தப் பண்பைப் பயன்படுத்த, உங்கள் கருவியின் அமைப்புகளில் ஐமுகிலை இயக்கு.";
-"track_recording_alert_title" = "பிடித்தவைகளில் சேமிக்கவா?";
-"downloader_loading_ios" = "பதிவிறக்குகிறது";
-"speedcams_alert_title_carplay_1" = "விரைவு";
-"app_tip_05" = "வரைபடத்தில் உங்கள் தற்போதைய இருப்பிடத்தைத் தேர்ந்தெடுக்க முடியும் என்பது உங்களுக்குத் தெரியுமா?";
-"whats_new_auto_update_button_size" = "புதுப்பி (%@)";
-"button_layer_outdoor" = "வெளியில்";
-"money" = "பணம்";
-"start_track_recording" = "பதிவு தடம்";
-"dialog_routing_change_end_carplay" = "நீங்கள் சேருமிடத்திற்கான வழியைக் கண்டுபிடிக்க முடியவில்லை. மற்றொரு முடிவுப் புள்ளியைத் தேர்வு செய்யவும்";
-"avoid_tolls" = "சுங்கச்சாவடிகளைத் தவிர்க்கவும்";
-"self_service" = "தன்வய பணி";
-"track_title" = "மின்தடம்";
-"car_continue_on_the_phone" = "தொலைபேசியில் தொடரவும்";
-"isolines_activation_error_dialog" = "விளிம்பு கோடுகளைச் செயல்படுத்த, இந்தப் பகுதிக்கான வரைபடத் தரவைப் பதிவிறக்க வேண்டும்";
-"icloud_synchronization_error_alert_title" = "iCloud ஒத்திசைவு தோல்வி";
-"shops" = "கடைகள்";
-"isolines_location_error_dialog" = "இந்த பகுதியில் இன்னும் விளிம்பு கோடுகள் கிடைக்கவில்லை";
-"bookmarks_recently_deleted" = "அண்மைக் காலத்தில் நீக்கப்பட்ட பட்டியல்கள்";
-"move" = "நகர்த்தவும்";
-"elevation_profile_diff_level_moderate" = "மிதமான";
-"transit_not_found" = "இந்தப் பகுதியில் சுரங்கப்பாதை வழிசெலுத்தல் இன்னும் கிடைக்கவில்லை";
-"carplay_roundabout_exit" = "%@ வெளியேறு";
-"food_places" = "உணவு";
-"app_tip_03" = "உங்களுக்கு ஒரு மென்பொருள் உருவாக்குநரைத் தெரிந்திருந்தால், உங்களுக்குத் தேவையான அம்சத்தை செயல்படுத்தும்படி அவரிடம் அல்லது அவளிடம் கேட்கலாம்.";
-"avoid_motorways" = "தனிவழிப்பாதைகளைத் தவிர்க்கவும்";
-"parks" = "பூங்காக்கள்";
-"dialog_routing_unable_locate_route_carplay" = "பாதை அமைக்க முடியவில்லை. மற்ற வழிப் புள்ளிகளைக் குறிப்பிடவும்";
-"sort_name" = "பெயரால் வரிசைப்படுத்தவும்";
-"no" = "இல்லை";
-"clear" = "தெளிவு";
-"app_tip_09" = "நீங்கள் விரும்பும் வேகமான, தனியுரிமையை மையமாகக் கொண்ட, பயன்படுத்த எளிதான வரைபடங்களை உருவாக்குவதே எங்கள் முக்கிய குறிக்கோள்.";
-"app_tip_08" = "வரைபடத் தரவை நீங்கள் எளிதாகச் சரிசெய்து மேம்படுத்தலாம்.";
-"stop_without_saving" = "சேமிக்காமல் நிறுத்து";
-"bugreport_alert_message" = "டெவலப்பர்களுக்கு பிழை அறிக்கையை அனுப்ப விரும்புகிறீர்களா? \nCoMaps எந்தப் பிழைத் தகவலையும் தானாகச் சேகரிக்காது என்பதால் நாங்கள் எங்கள் பயனர்களை நம்பியுள்ளோம். CoMaps ஐ ஆதரித்ததற்கு முன்கூட்டியே நன்றி!";
-"car_continue_in_the_car" = "கார் திரைக்கு";
-"dialog_routing_change_start_carplay" = "உங்கள் தற்போதைய இருப்பிடத்திலிருந்து வழியை உருவாக்க முடியவில்லை";
-"dialog_routing_check_gps_carplay" = "சிபிஎச் சிக்னல் இல்லை. தயவுசெய்து திறந்த பகுதிக்கு செல்லவும்";
-"drive_through" = "டிரைவ்-த்ரூ";
-"moremonth_ago_sorttype" = "ஒரு மாதத்திற்கும் மேலாக";
-"enable_icloud_synchronization_message" = "iCloud ஒத்திசைவு வளர்ச்சியில் உள்ள ஒரு சோதனை அம்சமாகும். உங்களின் அனைத்து புக்மார்க்குகள் மற்றும் டிராக்குகளின் காப்புப்பிரதியை உருவாக்கியுள்ளீர்கள் என்பதை உறுதிப்படுத்தவும்.";
-"unable_to_calc_alert_subtitle" = "ஒரு வழியைக் கண்டுபிடிக்க முடியவில்லை. இது உங்கள் ரூட்டிங் விருப்பங்கள் அல்லது முழுமையடையாத OpenStreetMap தரவு காரணமாக இருக்கலாம். உங்கள் ரூட்டிங் விருப்பங்களை மாற்றி மீண்டும் முயற்சிக்கவும்.";
-"medicine" = "மருந்து";
-"download_map_carplay" = "உங்கள் மொபைல் சாதனத்தில் உள்ள பயன்பாட்டில் வரைபடங்களைப் பதிவிறக்கவும்";
-"stop_track_recording" = "ட்ராக் ரெக்கார்டிங்கை நிறுத்துங்கள்";
-"follow_my_position" = "மீண்டும் மையப்படுத்து";
-"ferry_crossing" = "படகு கடப்பு";
-"others_sorttype" = "மற்றவை";
-"car_used_on_the_car_screen" = "நீங்கள் இப்போது கார் திரையில் CoMaps ஐப் பயன்படுத்துகிறீர்கள்";
-"parkings" = "பார்க்கிங்";
-"yes" = "ஆம்";
-"app_tip_07" = "எங்கள் பயன்பாடு சில ஆர்வலர்கள் மற்றும் சமூகத்தால் உருவாக்கப்பட்டது.";
-"dialog_routing_download_files_carplay" = "வழியை உருவாக்க, உங்கள் சாதனத்தில் விடுபட்ட வரைபடங்களைப் பதிவிறக்கவும்";
-"avoid_steps" = "படிக்கட்டுகளைத் தவிர்க்கவும்";
-"placepage_delete_track_confirmation_alert_message" = "இந்த டிராக்கை நிச்சயமாக நீக்க வேண்டுமா?";
-"dialog_pedestrian_route_is_long_header" = "சுரங்கப்பாதை பாதை இல்லை";
-"unpaved_road" = "செப்பனிடப்படாத சாலை";
-"whats_new_auto_update_button_later" = "பின்னர் கைமுறையாக புதுப்பிக்கவும்";
-"app_tip_06" = "எங்கள் பயன்பாட்டை உங்கள் மொழியில் மொழிபெயர்க்க நீங்கள் உதவலாம்.";
-"search_in_the_list" = "பட்டியலில் தேடவும்";
-"elevation_profile_ascent" = "ஏற்றம்";
-"animals" = "விலங்குகள்";
-"ok" = "சரி";
-"bookmarks_export" = "அனைத்து பிடித்வைகளையும் ஏற்றுமதி செய்";
-"icloud_synchronization_error_cloud_is_unavailable" = "பிழை: iCloud கிடைக்கவில்லை";
-"enable_icloud_synchronization_title" = "ஐமுகில் ஒத்திசைவை இயக்கு";
-"placepage_track_name_hint" = "ட்ராக் பெயர்";
-"speedcams_alert_title_carplay_2" = "வேக எச்சரிக்கைகள்";
-"isolines_toast_zooms_1_10" = "ஐசோலைன்களை ஆராய பெரிதாக்கவும்";
-"elevation_profile_descent" = "இறக்கம்";
-"avoid_paved" = "நடைபாதை சாலைகளைத் தவிர்க்கவும்";
-"translated_om_site_url" = "https://www.comaps.app/";
-"backup" = "காப்புப்பிரதி";
-"edit_track" = "தடத்தை திருத்து";
-"track_recording_toast_nothing_to_save" = "ட்ராக் காலியாக உள்ளது - சேமிக்க எதுவும் இல்லை";
-"hotels" = "ஓட்டல்கள்";
-"unable_to_calc_alert_title" = "வழியைக் கணக்கிட முடியவில்லை";
-"network" = "நெட்வொர்க்: %@";
-"elevation_profile_diff_level_easy" = "எளிதானது";
-"elevation_profile_diff_level" = "தொல்லை நிலை";
-"near_me_sorttype" = "என் அருகில்";
-"change_driving_options_btn" = "ரூட்டிங் விருப்பங்கள் இயக்கப்பட்டன";
-"car_used_on_the_phone_screen" = "நீங்கள் இப்போது ஃபோன் திரையில் CoMaps ஐப் பயன்படுத்துகிறீர்கள்";
-"redirect_route_alert" = "பாதையை மீண்டும் உருவாக்க விரும்புகிறீர்களா?";
+"osm_profile_remove_promt" = "உங்கள் கணக்கை மீண்டும் இணைக்க முடியவில்லை அல்லது விரும்பவில்லை என்றால், இந்தப் பயன்பாட்டிலிருந்து அதை அகற்றலாம்";
+"osm_profile_remove" = "OpenStreetMap கணக்கை அகற்று";
+"osm_profile_register_promt" = "OpenStreetMap கணக்கு இல்லையா?";
+"osm_profile_register" = "OpenStreetMap இல் பதிவு செய்யவும்";
+"osm_profile_verfied_changes" = "சரிபார்க்கப்பட்ட மாற்றங்கள்";
+"osm_profile_view_edit_history" = "திருத்த வரலாற்றைக் காண்க";
+"osm_profile_view_notes" = "குறிப்புகளைக் காண்க";
+"osm_profile_logout" = "OpenStreetMap கணக்கிலிருந்து வெளியேறவும்";
+"osm_profile_delete" = "OpenStreetMap கணக்கை நீக்கவும்";
+/* Information text: "Last upload 11.01.2016" */
+"last_upload" = "கடைசியாக பதிவேற்றம்";
+"thank_you" = "நன்றி";
+"edit_place" = "இடத்தைத் திருத்து";
+"place_name" = "இடப் பெயர்";
+"add_language" = "ஒரு மொழியைச் சேர்க்கவும்";
+/* Editable House Number text field (in address block). */
+"house_number" = "கட்டிட எண்";
+"details" = "விவரங்கள்";
+/* Text field to enter non-existing street name, below list of known streets around */
+"add_street" = "ஒரு தெருவைச் சேர்க்கவும்";
+"choose_language" = "ஒரு மொழியை தேர்வு செய்யவும்";
+"choose_street" = "ஒரு தெருவைத் தேர்ந்தெடுக்கவும்";
+"postal_code" = "குறியீடு";
+"cuisine" = "சமையல்";
+"select_cuisine" = "சமையலைத் தேர்ந்தெடுக்கவும்";
+/* login text field */
+"email_or_username" = "மின்னஞ்சல் அல்லது பயனர் பெயர்";
+"phone" = "தொலைபேசி";
+"level" = "மாடி";
+"please_note" = "தயவுசெய்து கவனிக்கவும்";
+"downloader_delete_map_dialog" = "உங்கள் வரைபடத் திருத்தங்கள் அனைத்தும் வரைபடத்துடன் நீக்கப்படும்.";
+"downloader_update_maps" = "வரைபடத்தைப் புதுப்பிக்கவும்";
+"downloader_search_field_hint" = "வரைபடத்தைக் கண்டுபிடி";
+"migration_download_error_dialog" = "பதிவிறக்க பிழை";
+"common_check_internet_connection_dialog" = "உங்கள் சாதனம் இணையத்துடன் இணைக்கப்பட்டுள்ளதை உறுதிசெய்யவும்.";
+"downloader_no_space_title" = "போதுமான இடம் இல்லை";
+"downloader_no_space_message" = "தேவையற்ற தரவுகளை நீக்கவும்";
+"editor_profile_changes" = "சரிபார்க்கப்பட்ட மாற்றங்கள்";
+"editor_focus_map_on_location" = "இடம் அல்லது வணிகத்தின் இடத்தில் சிலுவையை வைக்க வரைபடத்தை இழுக்கவும்.";
+"editor_add_select_category" = "வகையைத் தேர்ந்தெடு";
+"editor_add_select_category_popular_subtitle" = "பிரபலமானது";
+"editor_add_select_category_all_subtitle" = "அனைத்து வகைகள்";
+"editor_edit_place_title" = "திருத்துதல்";
+"editor_add_place_title" = "சேர்த்தல்";
+"editor_edit_place_name_hint" = "இடத்தின் பெயர்";
+/* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
+"editor_default_language_hint" = "அச் it is written in the local மொழி";
+"editor_edit_place_category_title" = "வகையினம்";
+"whatsnew_editor_message_1" = "வரைபடத்தில் புதிய இடங்களைச் சேர்க்கவும், ஏற்கனவே உள்ளவற்றை நேரடியாக பயன்பாட்டிலிருந்து திருத்தவும்.";
+"dialog_incorrect_feature_position" = "இடத்தை மாற்றவும்";
+"message_invalid_feature_position" = "எந்தப் பொருளையும் இங்கு வைக்க முடியாது";
+/* Error dialog no space */
+"migration_no_space_message" = "பதிவிறக்க, உங்களுக்கு அதிக இடம் தேவை. தேவையற்ற தரவுகளை நீக்கவும்.";
+"editor_sharing_title" = "நான் CoMaps வரைபடங்களை மேம்படுத்தினேன்";
+/* Downloaded 10 **of** 20 <- it is that "of" */
+"downloader_of" = "%1$d / %2$d";
+"download_over_mobile_header" = "செல்லுலார் பிணையம் இணைப்பு மூலம் பதிவிறக்கவா?";
+"download_over_mobile_message" = "சில திட்டங்கள் அல்லது ரோமிங்கில் இது கணிசமாக விலை உயர்ந்ததாக இருக்கலாம்.";
+"error_enter_correct_house_number" = "சரியான கட்டிட எண்ணை உள்ளிடவும்";
+"editor_storey_number" = "மாடிகளின் எண்ணிக்கை (அதிகபட்சம் %d)";
+/* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
+"error_enter_correct_storey_number" = "மாடிகளின் எண்ணிக்கை %d ஐ விட அதிகமாக இருக்கக்கூடாது";
+"editor_zip_code" = "குறியீடு";
+"error_enter_correct_zip_code" = "சரியான அஞ்சல் குறியீட்டை உள்ளிடவும்";
+/* Place Page title for long tap */
+"core_placepage_unknown_place" = "வரைபட புள்ளி";
+/* Title for OSM note section in the editor */
+"editor_other_info" = "OpenStreetMap தன்னார்வலர்களுக்கான குறிப்பு (விரும்பினால்)";
+"editor_detailed_description_hint" = "விரிவான கருத்து";
+"editor_detailed_description" = "நீங்கள் பரிந்துரைக்கும் வரைபட மாற்றங்கள் OpenStreetMap சமூகத்திற்கு அனுப்பப்படும். CoMaps இல் திருத்த முடியாத கூடுதல் விவரங்களை விவரிக்கவும்.";
+"editor_more_about_osm" = "OpenStreetMap பற்றி மேலும்";
+"editor_operator" = "செயற்குறி";
+/* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
+"operator" = "ஆபரேட்டர்: %@";
+"editor_category_unsuitable_title" = "பொருத்தமான வகையைக் கண்டுபிடிக்க முடியவில்லையா?";
+"editor_category_unsuitable_text" = "CoMaps எளிய புள்ளி வகைகளை மட்டும் சேர்க்க அனுமதிக்கிறது, அதாவது நகரங்கள், சாலைகள், ஏரிகள், கட்டிட அவுட்லைன்கள் போன்றவை இல்லை. அத்தகைய வகைகளை நேரடியாக <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> இல் சேர்க்கவும். விரிவான படிப்படியான வழிமுறைகளுக்கு எங்கள் <a href=\"https://www.comaps.app/support/advanced-map-editing/\">வழிகாட்டியைப்</a> பார்க்கவும்.";
+"downloader_no_downloaded_maps_title" = "நீங்கள் எந்த வரைபடத்தையும் பதிவிறக்கம் செய்யவில்லை";
+"downloader_no_downloaded_maps_message" = "ஆஃப்லைனில் தேட மற்றும் செல்ல வரைபடங்களைப் பதிவிறக்கவும்.";
+"current_location_unknown_error_title" = "தற்போதைய இடம் தெரியவில்லை.";
+"current_location_unknown_error_message" = "உங்கள் இருப்பிடத்தைக் கண்டறியும் போது பிழை ஏற்பட்டது. உங்கள் சாதனம் சரியாக இயங்குகிறதா எனச் சரிபார்த்து, பிறகு முயற்சிக்கவும்.";
+"location_services_disabled_header" = "இருப்பிடச் சேவைகள் முடக்கப்பட்டுள்ளன";
+"location_services_disabled_message" = "சாதன அமைப்புகளில் புவிஇருப்பிடத்திற்கான அணுகலை இயக்கவும்";
+"location_services_disabled_1" = "1. அமைப்புகளைத் திறக்கவும்";
+"location_services_disabled_2" = "2. இருப்பிடத்தைத் தட்டவும்";
+/* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
+"location_services_disabled_3" = "3. பயன்பாட்டைப் பயன்படுத்தும் போது தேர்ந்தெடுக்கவும்";
+"location_services_disabled_on_device_2" = "2. தனியுரிமையைத் தேர்ந்தெடுக்கவும்";
+"location_services_disabled_on_device_3" = "3. இருப்பிட சேவைகளைத் தேர்ந்தெடுக்கவும்";
+"location_services_disabled_on_device_4" = "4. இருப்பிடச் சேவைகளை இயக்கவும்";
+"location_services_disabled_on_device_additional_message" = "அல்லது இருப்பிடம் இல்லாமல் CoMaps ஐப் பயன்படுத்துவதைத் தொடரவும்";
+/* abbreviation for meters */
+"m" = "மீ";
+/* abbreviation for kilometers */
+"km" = "கி.மீ";
+/* abbreviation for kilometers per hour */
+"kilometers_per_hour" = "கிமீ/ம";
+/* abbreviation for mile(s) */
+"mi" = "மை";
+/* A unit of measure */
+"ft" = "அடி";
+"miles_per_hour" = "மை/ம";
+"hour" = "ம.";
+"minute" = "நி.";
+"day" = "நா.";
+"placepage_more_button" = "மேலும்";
+"book_button" = "நூல்";
+"placepage_call_button" = "அழைக்கவும்";
+"placepage_edit_bookmark_button" = "சேமித்த இடத்தைத் திருத்தவும்";
+"placepage_bookmark_name_hint" = "இடப் பெயர்";
+"placepage_personal_notes_hint" = "தனிப்பட்ட குறிப்புகள் (உரை அல்லது html)";
+"placepage_delete_bookmark_button" = "இடத்தை நீக்கு";
+"editor_edits_sent_message" = "உங்கள் குறிப்பு OpenStreetMap க்கு அனுப்பப்படும்";
+"editor_comment_hint" = "கருத்து…";
+"editor_reset_edits_message" = "அனைத்து உள்ளக மாற்றங்களையும் நிராகரிக்கவா?";
+"editor_reset_edits_button" = "மாற்றங்களை நிராகரிக்கவும்";
+"editor_remove_place_message" = "சேர்க்கப்பட்ட இடத்தை நீக்கவா?";
+"editor_remove_place_button" = "நீக்கு";
+"editor_place_doesnt_exist" = "இடம் இல்லை";
+"editor_place_doesnt_exist_description" = "OpenStreetMap சமூகத்திற்கு பிழைக் குறிப்பை அனுப்ப, அந்த இடம் இப்போது எப்படி இருக்கிறது என்பதை விவரிக்கவும்";
+"text_more_button" = "…மேலும்";
+/* Phone number error message */
+"error_enter_correct_phone" = "சரியான தொலைபேசி எண்ணை உள்ளிடவும்";
+"error_enter_correct_web" = "சரியான இணைய முகவரியை உள்ளிடவும்";
+"error_enter_correct_email" = "சரியான மின்னஞ்சலை உள்ளிடவும்";
+"refresh" = "புதுப்பிப்பு";
+"placepage_add_place_button" = "OpenStreetMap இல் இடத்தைச் சேர்க்கவும்";
+/* Displayed when saving some edits to the map to warn against publishing personal data */
+"editor_share_to_all_dialog_title" = "எல்லா பயனர்களுக்கும் அனுப்ப விரும்புகிறீர்களா?";
+/* Dialog before publishing the modifications to the public map. */
+"editor_share_to_all_dialog_message_1" = "உங்கள் தனிப்பட்ட தரவு எதையும் உள்ளிடவில்லை என்பதை உறுதிப்படுத்து.";
+"editor_share_to_all_dialog_message_2" = "திறந்ததெருவரைபடம் திருத்திகள் மாற்றங்களைச் சரிபார்த்து, அவர்களுக்கு ஏதேனும் கேள்விகள் இருந்தால் உங்களைத் தொடர்புகொள்வார்கள்.";
+"navigation_stop_button" = "நிறுத்து";
+/* iOS dialog for the case when recent track recording is on and the app comes back from background */
+"recent_track_background_dialog_title" = "நீங்கள் அண்மைக் காலத்தில் பயணித்த பாதையின் பதிவை முடக்கவா?";
+"off_recent_track_background_button" = "முடக்கு";
+/* For sharing via SMS and so on */
+"sharing_call_action_look" = "பாருங்கள்";
+"recent_track_background_dialog_message" = "CoMaps நீங்கள் அண்மைக் காலத்தில் பயணித்த வழியைப் பதிவுசெய்ய பின்னணியில் உங்கள் இருப்பிடத்தைப் பயன்படுத்துகிறது.";
+"general_settings" = "பொது அமைப்புகள்";
+/* For the first routing */
+"accept" = "ஏற்றுக்கொள்";
+/* For the first routing */
+"decline" = "நிராகரி";
+"mobile_data_dialog" = "விரிவான தகவலைக் காட்ட மொபைல் இணையத்தைப் பயன்படுத்தவா?";
+"mobile_data_option_always" = "எப்போதும் பயன்படுத்தவும்";
+"mobile_data_option_today" = "இன்று மட்டும்";
+"mobile_data_option_not_today" = "இன்று பயன்படுத்த வேண்டாம்";
+"mobile_data" = "மொபைல் இணையம்";
+/* NOTE to translators: please synchronize your translation with the English one. */
+"mobile_data_description" = "வரைபட புதுப்பிப்பு அறிவிப்புகள் மற்றும் திருத்தங்களை பதிவேற்ற மொபைல் இணையம் தேவை.";
+"mobile_data_option_never" = "ஒருபோதும் பயன்படுத்த வேண்டாம்";
+"mobile_data_option_ask" = "எப்பொழுதும் கேள்";
+"traffic_update_maps_text" = "ட்ராஃபிக் தரவைக் காட்ட, வரைபடங்கள் புதுப்பிக்கப்பட வேண்டும்.";
+"big_font" = "வரைபட லேபிள்களுக்கான அளவை அதிகரிக்கவும்";
+/* "traffic" as in road congestion */
+"traffic_update_app_message" = "ட்ராஃபிக் தரவைக் காட்ட, பயன்பாடு புதுப்பிக்கப்பட வேண்டும்.";
+/* "traffic" as in "road congestion" */
+"traffic_data_unavailable" = "போக்குவரத்து தரவு கிடைக்கவில்லை";
+"enable_logging" = "பதிவு செய்வதை இயக்கு";
+"log_file_size" = "பதிவு கோப்பு அளவு: %@";
+"pref_alt_map_lang_handling" = "மாற்று வரைபட மொழிகள்";
+"pref_alt_map_lang_handling_ignore_alternatives" = "மாற்று வழிகளைப் பயன்படுத்த வேண்டாம்";
+"pref_alt_map_lang_handling_system_order" = "கணினி வரிசையில் பயன்படுத்து";
+"pref_alt_map_lang_handling_local_only" = "பூர்வீகமாக இருக்கும் இடத்தில் மட்டுமே பயன்படுத்து";
+"transliteration_title" = "லத்தீன் எழுத்துக்களில் ஒலிபெயர்ப்பு";
+"transliteration_title_disabled_summary" = "வரைபடத்திற்கு உள்ளக மொழியை எப்போதும் பயன்படுத்தும் போது முடக்கப்படும்";
+/* Subway exits for public transport marks on the map */
+"core_exit" = "வெளியேறு";
+/* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
+"routing_add_start_point" = "பாதையின் தொடக்கப் புள்ளியைச் சேர்க்க, தேடலைப் பயன்படுத்தவும் அல்லது வரைபடத்தில் தட்டவும்";
+/* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
+"routing_add_finish_point" = "இலக்கு புள்ளியைச் சேர்க்க, தேடலைப் பயன்படுத்தவும் அல்லது வரைபடத்தில் தட்டவும்";
+"planning_route_manage_route" = "வழியை நிர்வகிக்கவும்";
+"button_plan" = "திட்டம்";
+"placepage_remove_stop" = "நிறுத்தத்தை அகற்று";
+"planning_route_remove_title" = "அகற்ற இங்கே இழுக்கவும்";
+"placepage_add_stop" = "நிறுத்தத்தைச் சேர்க்கவும்";
+"start_from_my_position" = "இருந்து தொடங்குங்கள்";
+/* Title for button when a route was saved. */
+"saved" = "சேமிக்கப்பட்டது";
+"core_entrance" = "நுழைவாயில்";
+"error_enter_correct_name" = "சரியான பெயரை உள்ளிடவும்";
+"bookmark_lists" = "பட்டியல்கள்";
+/* Do not display all bookmark lists on the map */
+"bookmark_lists_hide_all" = "அனைத்தையும் மறை";
+"bookmark_lists_show_all" = "அனைத்தையும் காட்டு";
+"bookmarks_create_new_group" = "புதிய பட்டியலை உருவாக்கவும்";
+/* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
+"bookmarks_import" = "பிடித்தவைகளை இறக்குமதி வெற்றி";
+"downloader_hide_screen" = "திரையை மறை";
+"downloader_percent" = "%@ (%@ இல் %@)";
+"downloader_process" = "பதிவிறக்குகிறது %@…";
+"downloader_applying" = "%@ விண்ணப்பிக்கிறது…";
+"bookmarks_error_message_share_general" = "பயன்பாட்டுப் பிழை காரணமாகப் பகிர முடியவில்லை";
+"bookmarks_error_title_share_empty" = "பகிர்வதில் பிழை";
+"bookmarks_error_message_share_empty" = "வெற்று பட்டியலைப் பகிர முடியாது";
+"bookmarks_error_message_empty_list_name" = "பட்டியல் பெயரை உள்ளிடவும்";
+"bookmarks_error_title_list_name_already_taken" = "இந்த பெயர் ஏற்கனவே எடுக்கப்பட்டது";
+"bookmarks_error_title_list_name_too_long" = "இந்தப் பெயர் மிக நீளமானது";
+"profile" = "OpenStreetMap சுயவிவரம்";
+"bookmarks_detect_title" = "புதிய கோப்புகள் கண்டறியப்பட்டன";
+"button_convert" = "மாற்றவும்";
+"bookmarks_convert_error_title" = "பிழை";
+"bookmarks_convert_error_message" = "சில கோப்புகள் மாற்றப்படவில்லை.";
+"restore" = "மீட்டமை";
+"privacy_policy" = "தனியுரிமைக் கொள்கை";
+"terms_of_use" = "பயன்பாட்டு விதிமுறைகள்";
+"button_layer_subway" = "சுரங்கப்பாதை";
+"layers_title" = "வரைபட நடைகள் மற்றும் அடுக்குகள்";
+"subway_data_unavailable" = "சுரங்கப்பாதை வரைபடம் கிடைக்கவில்லை";
+"title_error_downloading_bookmarks" = "பிழை ஏற்பட்டது";
+"popular_place" = "பிரபலமானது";
+"export_file" = "ஏற்றுமதி KMZ";
+"export_file_gpx" = "GPX ஐ ஏற்றுமதி செய்யவும்";
+"delete_list" = "பட்டியலை நீக்கு";
+"hide_from_map" = "வரைபடத்திலிருந்து மறை";
+"tags_loading_error_subtitle" = "குறிச்சொற்களை ஏற்றும்போது பிழை ஏற்பட்டது, மீண்டும் முயற்சிக்கவும்";
+"download_button" = "பதிவிறக்கம்";
+"speedcams_alert_title" = "வேக கேமராக்கள்";
+"place_description_title" = "இட விளக்கம்";
+/* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
+"pref_tts_speedcams_auto" = "வேகமாக சென்றால் எச்சரிக்கவும்";
+/* Speed camera settings menu option - Always warn (about speedcams) */
+"pref_tts_speedcams_always" = "எப்போதும் எச்சரிக்கவும்";
+/* Speed camera settings menu option - Never warn (about speedcams) */
+"pref_tts_speedcams_never" = "எச்சரிக்க வேண்டாம்";
+"power_managment_title" = "ஆற்றல் சேமிப்பு முறை";
+"power_managment_description" = "சில செயல்பாடுகளின் இழப்பில் மின் பயன்பாட்டைக் குறைக்க முயற்சிக்கவும்.";
+"power_managment_setting_never" = "ஒருபோதும்";
+"power_managment_setting_auto" = "பேட்டரி குறைவாக இருக்கும்போது";
+"power_managment_setting_manual_max" = "எப்போதும்";
 "enable_logging_warning_message" = "உதவி உரையாடலில் \"பிழையைப் புகாரளி\" என்பதைப் பயன்படுத்தி, உங்கள் சிக்கலைப் பற்றிய விரிவான கண்டறியும் பதிவுகளைப் பதிவுசெய்து கைமுறையாக எங்களுக்கு அனுப்ப இந்த விருப்பத்தை தற்காலிகமாக இயக்கவும். பதிவுகளில் இருப்பிடத் செய்தி இருக்கலாம்.";
-"dialog_routing_rebuild_from_current_location_carplay" = "உங்கள் தற்போதைய இடத்திலிருந்து பாதை மீண்டும் கட்டமைக்கப்படும்";
-"elevation_profile_max_elevation" = "அதிகபட்சம். உயரம்";
-"icloud_synchronization_error_quota_exceeded" = "பிழை: iCloud ஒதுக்கீட்டை மீறியதால் ஒத்திசைக்க முடியவில்லை";
-"icloud_sync" = "ஐமுகில் ஒத்திசைவு (ஆவண்ணா)";
-"dialog_routing_rebuild_for_vehicle_carplay" = "பாதை ஆட்டோமொபைலாக மாற்றப்படும்";
-"week_ago_sorttype" = "ஒரு வாரம் முன்பு";
 "driving_options_title" = "ரூட்டிங் விருப்பங்கள்";
-"switch_to_phone_bookmarks_carplay" = "எல்லா புக்மார்க்குகளையும் பார்க்க மொபைலுக்கு மாறவும்";
-"website_menu" = "பட்டியல் இணைப்பு";
-"app_tip_02" = "எங்கள் பயன்பாட்டை விரும்புகிறீர்களா? வளர்ச்சிக்கு ஆதரவளிக்க நன்கொடை வழங்குங்கள்! இன்னும் பிடிக்கவில்லையா? ஏன் என்று எங்களுக்குத் தெரியப்படுத்துங்கள், நாங்கள் அதை சரிசெய்வோம்!";
-"pick_destination" = "இலக்கு";
-"capacity" = "திறன்: %@";
-"keyboard_availability_alert" = "வண்டி ஓட்டும்போது விசைப்பலகை கிடைக்காது";
-"whats_new_auto_update_message" = "வரைபடங்களைப் புதுப்பிப்பது, பொருட்களைப் பற்றிய தகவல்களைப் புதுப்பித்த நிலையில் வைத்திருக்கும்";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_tolls" = "சுங்கச்சாவடிகளைத் தவிர்க்கவும்";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "செப்பனிடப்படாத சாலைகளைத் தவிர்க்கவும்";
-"app_tip_04" = "எதையும் தேர்ந்தெடுக்க வரைபடத்தில் எங்கும் தட்டவும். இடைமுகத்தை மறைக்க மற்றும் காட்ட ஒரு நீண்ட தட்டு பயன்படுத்தப்படுகிறது.";
-"enable" = "இயக்கு";
-"then_turn" = "பின்பு";
-"mountains" = "மலைகள்";
-"app_tip_01" = "உங்கள் நன்கொடைகள் மற்றும் ஆதரவுடன், உலகில் சிறந்த வரைபடங்களை உருவாக்க முடியும்!";
-"buildings" = "கட்டிடங்கள்";
-"month_ago_sorttype" = "ஒரு மாதம் முன்பு";
-"museums" = "அருங்காட்சியகங்கள்";
-"sort" = "வரிசைப்படுத்து…";
-"dialog_routing_system_error_carplay" = "பிழை ஏற்பட்டது. பயன்பாட்டை மறுதொடக்கம் செய்யவும்";
-"downloader_updating_ios" = "புதுப்பிக்கிறது";
-"icloud_disabled_title" = "iCloud முடக்கப்பட்டுள்ளது";
-"sort_type" = "வகை மூலம் வரிசைப்படுத்தவும்";
-"delete_all" = "அனைத்தையும் நீக்கு";
-"outdoor_seating" = "வெளிப்புற இருக்கை";
-"swim_places" = "நீந்தவும்";
-"search_results" = "தேடல் முடிவுகள்";
-"elevation_profile_diff_level_hard" = "கடினமான";
-"no_available" = "இல்லை";
-"fuel_places" = "எரிவாயு நிலையங்கள்";
-"dialog_pedestrian_route_is_long_message" = "சுரங்கப்பாதை நிலையத்திற்கு அருகில் உள்ள தொடக்க அல்லது முடிவுப் புள்ளியைத் தேர்வு செய்யவும்";
+"avoid_paved" = "நடைபாதை சாலைகளைத் தவிர்க்கவும்";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "படிக்கட்டுகளைத் தவிர்க்கவும்";
 "avoid_ferry" = "படகுகளைத் தவிர்க்கவும்";
-"elevation_profile_min_elevation" = "குறைந்தபட்சம் உயரம்";
-"whats_new_auto_update_title" = "பதிவிறக்கம் செய்யப்பட்ட வரைபடங்களைப் புதுப்பிக்கவும்";
-"recover" = "மீட்கவும்";
-"placepage_delete_track_button" = "தடத்தை நீக்கு";
-"tourist_places" = "காட்சிகள்";
+"avoid_motorways" = "தனிவழிப்பாதைகளைத் தவிர்க்கவும்";
+"unable_to_calc_alert_title" = "வழியைக் கணக்கிட முடியவில்லை";
+"unable_to_calc_alert_subtitle" = "ஒரு வழியைக் கண்டுபிடிக்க முடியவில்லை. இது உங்கள் ரூட்டிங் விருப்பங்கள் அல்லது முழுமையடையாத OpenStreetMap தரவு காரணமாக இருக்கலாம். உங்கள் ரூட்டிங் விருப்பங்களை மாற்றி மீண்டும் முயற்சிக்கவும்.";
 "define_to_avoid_btn" = "தவிர்க்க வேண்டிய சாலைகளை வரையறுக்கவும்";
+"change_driving_options_btn" = "ரூட்டிங் விருப்பங்கள் இயக்கப்பட்டன";
 "toll_road" = "சுங்கச்சாலை";
-"not_all_shown_bookmarks_carplay" = "எல்லா புக்மார்க்குகளும் காட்டப்படவில்லை";
-"icloud_synchronization_error_connection_error" = "பிழை: இணைப்பு பிழை காரணமாக ஒத்திசைக்க முடியவில்லை";
-"sort_distance" = "தூரத்தின்படி வரிசைப்படுத்தவும்";
-"recover_all" = "அனைத்தையும் மீட்டெடுக்கவும்";
-"moreyear_ago_sorttype" = "ஒரு வருடத்திற்கு முன்பு";
-"religious_places" = "மத இடங்கள்";
-"sort_date" = "தேதி வாரியாக வரிசைப்படுத்தவும்";
-"app_tip_00" = "எங்கள் சமூகத்தால் உருவாக்கப்பட்ட வரைபடங்களைப் பயன்படுத்தியதற்கு நன்றி!";
-"sort_default" = "முன்னிருப்பாக வரிசைப்படுத்தவும்";
-"button_layer_isolines" = "விளிம்பு கோடுகள்";
-"change_color" = "நிறத்தை மாற்றவும்";
-"continue_recording" = "பதிவைத் தொடரவும்";
-"map" = "வரைபடம்";
-"open_in_app" = "மற்றொரு பயன்பாட்டில் திறக்கவும்";
+"unpaved_road" = "செப்பனிடப்படாத சாலை";
+"ferry_crossing" = "படகு கடப்பு";
+"trip_start" = "போகலாம்";
+"pick_destination" = "இலக்கு";
+"follow_my_position" = "மீண்டும் மையப்படுத்து";
+"search_results" = "தேடல் முடிவுகள்";
+"then_turn" = "பின்பு";
+"redirect_route_alert" = "பாதையை மீண்டும் உருவாக்க விரும்புகிறீர்களா?";
+/* A generic "Yes" button in dialogs */
+"yes" = "ஆம்";
+/* A generic "No" button in dialogs */
+"no" = "இல்லை";
+/* E.g. "WiFi:Yes" */
 "yes_available" = "ஆம்";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* E.g. "WiFi:No" */
+"no_available" = "இல்லை";
+/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
+"capacity" = "திறன்: %@";
+/* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
+"network" = "நெட்வொர்க்: %@";
+"trip_finished" = "நீங்கள் வந்துவிட்டீர்கள்!";
+"keyboard_availability_alert" = "வண்டி ஓட்டும்போது விசைப்பலகை கிடைக்காது";
+"dialog_routing_change_start_carplay" = "உங்கள் தற்போதைய இருப்பிடத்திலிருந்து வழியை உருவாக்க முடியவில்லை";
+"dialog_routing_change_end_carplay" = "நீங்கள் சேருமிடத்திற்கான வழியைக் கண்டுபிடிக்க முடியவில்லை. மற்றொரு முடிவுப் புள்ளியைத் தேர்வு செய்யவும்";
+"dialog_routing_check_gps_carplay" = "சிபிஎச் சிக்னல் இல்லை. தயவுசெய்து திறந்த பகுதிக்கு செல்லவும்";
+"dialog_routing_unable_locate_route_carplay" = "பாதை அமைக்க முடியவில்லை. மற்ற வழிப் புள்ளிகளைக் குறிப்பிடவும்";
+"dialog_routing_download_files_carplay" = "வழியை உருவாக்க, உங்கள் சாதனத்தில் விடுபட்ட வரைபடங்களைப் பதிவிறக்கவும்";
+"dialog_routing_system_error_carplay" = "பிழை ஏற்பட்டது. பயன்பாட்டை மறுதொடக்கம் செய்யவும்";
+"dialog_routing_rebuild_from_current_location_carplay" = "உங்கள் தற்போதைய இடத்திலிருந்து பாதை மீண்டும் கட்டமைக்கப்படும்";
+"dialog_routing_rebuild_for_vehicle_carplay" = "பாதை ஆட்டோமொபைலாக மாற்றப்படும்";
+"not_all_shown_bookmarks_carplay" = "எல்லா புக்மார்க்குகளும் காட்டப்படவில்லை";
+"switch_to_phone_bookmarks_carplay" = "எல்லா புக்மார்க்குகளையும் பார்க்க மொபைலுக்கு மாறவும்";
+"ok" = "சரி";
+"speedcams_alert_title_carplay_1" = "விரைவு";
+"speedcams_alert_title_carplay_2" = "வேக எச்சரிக்கைகள்";
+"download_map_carplay" = "உங்கள் மொபைல் சாதனத்தில் உள்ள பயன்பாட்டில் வரைபடங்களைப் பதிவிறக்கவும்";
+"carplay_roundabout_exit" = "%@ வெளியேறு";
+/* max. 10 symbols, both iOS and Android */
+"sort" = "வரிசைப்படுத்து…";
+/* iOS */
+"sort_default" = "முன்னிருப்பாக வரிசைப்படுத்தவும்";
+"sort_type" = "வகை மூலம் வரிசைப்படுத்தவும்";
+"sort_distance" = "தூரத்தின்படி வரிசைப்படுத்தவும்";
+"sort_date" = "தேதி வாரியாக வரிசைப்படுத்தவும்";
+"sort_name" = "பெயரால் வரிசைப்படுத்தவும்";
+"week_ago_sorttype" = "ஒரு வாரம் முன்பு";
+"month_ago_sorttype" = "ஒரு மாதம் முன்பு";
+"moremonth_ago_sorttype" = "ஒரு மாதத்திற்கும் மேலாக";
+"moreyear_ago_sorttype" = "ஒரு வருடத்திற்கு முன்பு";
+"near_me_sorttype" = "என் அருகில்";
+"others_sorttype" = "மற்றவை";
+"food_places" = "உணவு";
+"tourist_places" = "காட்சிகள்";
+"museums" = "அருங்காட்சியகங்கள்";
+"parks" = "பூங்காக்கள்";
+"swim_places" = "நீந்தவும்";
+"mountains" = "மலைகள்";
+"animals" = "விலங்குகள்";
+"hotels" = "ஓட்டல்கள்";
+"buildings" = "கட்டிடங்கள்";
+"money" = "பணம்";
+"shops" = "கடைகள்";
+"parkings" = "பார்க்கிங்";
+"fuel_places" = "எரிவாயு நிலையங்கள்";
+"medicine" = "மருந்து";
+"search_in_the_list" = "பட்டியலில் தேடவும்";
+"religious_places" = "மத இடங்கள்";
+"transit_not_found" = "இந்தப் பகுதியில் சுரங்கப்பாதை வழிசெலுத்தல் இன்னும் கிடைக்கவில்லை";
+"dialog_pedestrian_route_is_long_header" = "சுரங்கப்பாதை பாதை இல்லை";
+"dialog_pedestrian_route_is_long_message" = "சுரங்கப்பாதை நிலையத்திற்கு அருகில் உள்ள தொடக்க அல்லது முடிவுப் புள்ளியைத் தேர்வு செய்யவும்";
+"button_layer_isolines" = "விளிம்பு கோடுகள்";
+"isolines_activation_error_dialog" = "விளிம்பு கோடுகளைச் செயல்படுத்த, இந்தப் பகுதிக்கான வரைபடத் தரவைப் பதிவிறக்க வேண்டும்";
+"isolines_location_error_dialog" = "இந்த பகுதியில் இன்னும் விளிம்பு கோடுகள் கிடைக்கவில்லை";
+"elevation_profile_diff_level" = "தொல்லை நிலை";
+"elevation_profile_diff_level_easy" = "எளிதானது";
+"elevation_profile_diff_level_moderate" = "மிதமான";
+"elevation_profile_diff_level_hard" = "கடினமான";
+"elevation_profile_ascent" = "ஏற்றம்";
+"elevation_profile_descent" = "இறக்கம்";
+"elevation_profile_min_elevation" = "குறைந்தபட்சம் உயரம்";
+"elevation_profile_max_elevation" = "அதிகபட்சம். உயரம்";
+"isolines_toast_zooms_1_10" = "ஐசோலைன்களை ஆராய பெரிதாக்கவும்";
+"downloader_updating_ios" = "புதுப்பிக்கிறது";
+"downloader_loading_ios" = "பதிவிறக்குகிறது";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_title" = "பதிவிறக்கம் செய்யப்பட்ட வரைபடங்களைப் புதுப்பிக்கவும்";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_message" = "வரைபடங்களைப் புதுப்பிப்பது, பொருட்களைப் பற்றிய தகவல்களைப் புதுப்பித்த நிலையில் வைத்திருக்கும்";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_size" = "புதுப்பி (%@)";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_later" = "பின்னர் கைமுறையாக புதுப்பிக்கவும்";
+/* Delete track button on track edit screen */
+"placepage_delete_track_button" = "தடத்தை நீக்கு";
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "இந்த டிராக்கை நிச்சயமாக நீக்க வேண்டுமா?";
+/* Placeholder for track name input on track edit screen */
+"placepage_track_name_hint" = "ட்ராக் பெயர்";
+/* move track or bookmark from the list button text */
+"move" = "நகர்த்தவும்";
+/* edit track screen title */
+"track_title" = "மின்தடம்";
+/* Translated CoMaps site */
+"translated_om_site_url" = "https://www.comaps.app/";
+/* App Tip #00 */
+"app_tip_00" = "எங்கள் சமூகத்தால் உருவாக்கப்பட்ட வரைபடங்களைப் பயன்படுத்தியதற்கு நன்றி!";
+/* App tip #01 */
+"app_tip_01" = "உங்கள் நன்கொடைகள் மற்றும் ஆதரவுடன், உலகில் சிறந்த வரைபடங்களை உருவாக்க முடியும்!";
+/* App tip #02 */
+"app_tip_02" = "எங்கள் பயன்பாட்டை விரும்புகிறீர்களா? வளர்ச்சிக்கு ஆதரவளிக்க நன்கொடை வழங்குங்கள்! இன்னும் பிடிக்கவில்லையா? ஏன் என்று எங்களுக்குத் தெரியப்படுத்துங்கள், நாங்கள் அதை சரிசெய்வோம்!";
+/* App tip #03 */
+"app_tip_03" = "உங்களுக்கு ஒரு மென்பொருள் உருவாக்குநரைத் தெரிந்திருந்தால், உங்களுக்குத் தேவையான அம்சத்தை செயல்படுத்தும்படி அவரிடம் அல்லது அவளிடம் கேட்கலாம்.";
+/* App tip #04 */
+"app_tip_04" = "எதையும் தேர்ந்தெடுக்க வரைபடத்தில் எங்கும் தட்டவும். இடைமுகத்தை மறைக்க மற்றும் காட்ட ஒரு நீண்ட தட்டு பயன்படுத்தப்படுகிறது.";
+/* App tip #05 */
+"app_tip_05" = "வரைபடத்தில் உங்கள் தற்போதைய இருப்பிடத்தைத் தேர்ந்தெடுக்க முடியும் என்பது உங்களுக்குத் தெரியுமா?";
+/* App tip #06 */
+"app_tip_06" = "எங்கள் பயன்பாட்டை உங்கள் மொழியில் மொழிபெயர்க்க நீங்கள் உதவலாம்.";
+/* App tip #07 */
+"app_tip_07" = "எங்கள் பயன்பாடு சில ஆர்வலர்கள் மற்றும் சமூகத்தால் உருவாக்கப்பட்டது.";
+/* App tip #08 */
+"app_tip_08" = "வரைபடத் தரவை நீங்கள் எளிதாகச் சரிசெய்து மேம்படுத்தலாம்.";
+/* App tip #09 */
+"app_tip_09" = "நீங்கள் விரும்பும் வேகமான, தனியுரிமையை மையமாகக் கொண்ட, பயன்படுத்த எளிதான வரைபடங்களை உருவாக்குவதே எங்கள் முக்கிய குறிக்கோள்.";
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "நீங்கள் இப்போது ஃபோன் திரையில் CoMaps ஐப் பயன்படுத்துகிறீர்கள்";
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "நீங்கள் இப்போது கார் திரையில் CoMaps ஐப் பயன்படுத்துகிறீர்கள்";
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "தொலைபேசியில் தொடரவும்";
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "கார் திரைக்கு";
+/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
+"button_layer_outdoor" = "வெளியில்";
+/* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
+"bookmarks_export" = "அனைத்து பிடித்வைகளையும் ஏற்றுமதி செய்";
+/* Text for the editing the Track's color button. */
+"change_color" = "நிறத்தை மாற்றவும்";
+/* Main screen title "Map" displayed in the navigation back button's menu. */
+"map" = "வரைபடம்";
+"drive_through" = "டிரைவ்-த்ரூ";
+/* Restaurant or other food place's menu URL field in the Editor */
+"website_menu" = "பட்டியல் இணைப்பு";
+/* Message for the bug report alert. */
+"bugreport_alert_message" = "டெவலப்பர்களுக்கு பிழை அறிக்கையை அனுப்ப விரும்புகிறீர்களா? \nCoMaps எந்தப் பிழைத் தகவலையும் தானாகச் சேகரிக்காது என்பதால் நாங்கள் எங்கள் பயனர்களை நம்பியுள்ளோம். CoMaps ஐ ஆதரித்ததற்கு முன்கூட்டியே நன்றி!";
+/* Title for the iCloud synchronization setting */
+"icloud_sync" = "ஐமுகில் ஒத்திசைவு (ஆவண்ணா)";
+/* Title for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_title" = "ஐமுகில் ஒத்திசைவை இயக்கு";
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "iCloud ஒத்திசைவு வளர்ச்சியில் உள்ள ஒரு சோதனை அம்சமாகும். உங்களின் அனைத்து புக்மார்க்குகள் மற்றும் டிராக்குகளின் காப்புப்பிரதியை உருவாக்கியுள்ளீர்கள் என்பதை உறுதிப்படுத்தவும்.";
+/* Title for the "iCloud Is Disabled" alert. */
+"icloud_disabled_title" = "iCloud முடக்கப்பட்டுள்ளது";
+/* Message for the "iCloud is Disabled" alert. */
+"icloud_disabled_message" = "இந்தப் பண்பைப் பயன்படுத்த, உங்கள் கருவியின் அமைப்புகளில் ஐமுகிலை இயக்கு.";
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
+"enable" = "இயக்கு";
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
+"backup" = "காப்புப்பிரதி";
+/* Title for the "iCloud synchronization failure" alert. */
+"icloud_synchronization_error_alert_title" = "iCloud ஒத்திசைவு தோல்வி";
+/* iCloud error message: Failed to synchronize due to connection error */
+"icloud_synchronization_error_connection_error" = "பிழை: இணைப்பு பிழை காரணமாக ஒத்திசைக்க முடியவில்லை";
+/* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
+"icloud_synchronization_error_quota_exceeded" = "பிழை: iCloud ஒதுக்கீட்டை மீறியதால் ஒத்திசைக்க முடியவில்லை";
+/* iCloud error message: iCloud is not available */
+"icloud_synchronization_error_cloud_is_unavailable" = "பிழை: iCloud கிடைக்கவில்லை";
+/* Title for the "Open in Another App" button on the PlacePage. */
+"open_in_app" = "மற்றொரு பயன்பாட்டில் திறக்கவும்";
+/* To indicate if the place proposed self service... */
+"self_service" = "தன்வய பணி";
+/* To indicate if restaurant or other place has outdoor seating */
+"outdoor_seating" = "வெளிப்புற இருக்கை";
+/* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
+"bookmarks_recently_deleted" = "அண்மைக் காலத்தில் நீக்கப்பட்ட பட்டியல்கள்";
+/* Title for the "Clear" button on the Recently Deleted Lists screen. */
+"clear" = "தெளிவு";
+/* Title for the "Delete All" button on the Recently Deleted Lists screen. */
+"delete_all" = "அனைத்தையும் நீக்கு";
+/* Title for the "Recover" button on the Recently Deleted Lists screen. */
+"recover" = "மீட்கவும்";
+/* Title for the "Recover All" button on the Recently Deleted Lists screen. */
+"recover_all" = "அனைத்தையும் மீட்டெடுக்கவும்";
+/* Prompt to start recording a track. */
+"start_track_recording" = "பதிவு தடம்";
+/* Prompt for stopping a track recording. */
+"stop_track_recording" = "ட்ராக் ரெக்கார்டிங்கை நிறுத்துங்கள்";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"stop_without_saving" = "சேமிக்காமல் நிறுத்து";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"continue_recording" = "பதிவைத் தொடரவும்";
+/* Title for the alert when saving a track recording. */
+"track_recording_alert_title" = "பிடித்தவைகளில் சேமிக்கவா?";
+/* Message for the toast when saving the track recording is finished but nothing to save. */
+"track_recording_toast_nothing_to_save" = "ட்ராக் காலியாக உள்ளது - சேமிக்க எதுவும் இல்லை";
+"edit_track" = "தடத்தை திருத்து";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

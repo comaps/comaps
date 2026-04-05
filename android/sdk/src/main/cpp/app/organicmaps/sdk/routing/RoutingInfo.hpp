@@ -15,12 +15,14 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
   //                              int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum,
   //                              int totalTime, LaneInfo[] lanes, double speedLimitMps,
   //                              boolean speedLimitExceeded, boolean shouldPlayWarningSignal,
-  //                              int routingSessionState)
+  //                              int routingSessionState, int indexOfNextStop,
+  //                              Distance distToNextStop, int timeToNextStop)
   static jmethodID const ctorRouteInfoID =
       jni::GetConstructorID(env, klass,
                             "(Lapp/organicmaps/sdk/util/Distance;Lapp/organicmaps/sdk/util/Distance;"
                             "Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;DIIIII"
-                            "[Lapp/organicmaps/sdk/routing/LaneInfo;DZZI)V");
+                            "[Lapp/organicmaps/sdk/routing/LaneInfo;DZZII"
+                            "Lapp/organicmaps/sdk/util/Distance;I)V");
 
   jobjectArray jLanes = CreateLanesInfo(env, info.m_lanes);
 
@@ -32,7 +34,8 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
       jni::ToJavaString(env, info.m_nextNextStreetName), info.m_completionPercent, info.m_turn, info.m_nextTurn,
       info.m_pedestrianTurn, info.m_exitNum, info.m_time, jLanes, info.m_speedLimitMps,
       static_cast<jboolean>(isSpeedCamLimitExceeded), static_cast<jboolean>(shouldPlaySignal),
-      static_cast<jint>(info.m_routingSessionState));
+      static_cast<jint>(info.m_routingSessionState), info.m_indexOfNextStop,
+      ToJavaDistance(env, info.m_distToNextStop), static_cast<jint>(info.m_timeToNextStop));
   ASSERT(result, (jni::DescribeException()));
   return result;
 }

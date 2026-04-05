@@ -166,12 +166,8 @@
     <string name="downloading_is_active">मानचित्र डाउनलोड अभी प्रगति पर है.</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">CoMaps में मेरा वर्तमान स्थान देखें! %1$s या %2$s के पास ऑफ़लाइन मानचित्र नहीं हैं? यहां डाउनलोड करें: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">अरे, CoMaps में मेरा पिन देखें!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">अरे, CoMaps मानचित्र पर मेरा वर्तमान स्थान देखें!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">नमस्ते, \n \nमैं अब यहाँ हूँ: %1$s. इस लिंक पर क्लिक करें %2$s या यह लिंक %3$s मानचित्र पर स्थान देखने के लिए \n \nधन्यवाद.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">साझा करें</string>
     <!-- Share by email button text, also used in editor and About. -->

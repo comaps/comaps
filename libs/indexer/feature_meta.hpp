@@ -126,6 +126,8 @@ public:
     FMD_BRANCH = 55,
     FMD_CHARGE_SOCKETS = 56,
     FMD_ROOMS = 57,
+    FMD_CHARGE = 58,
+    FMD_POPULATION = 59,
     FMD_COUNT
   };
 
@@ -150,7 +152,8 @@ public:
 
   static std::string ToWikiURL(std::string v);
   std::string GetWikiURL() const;
-  static std::string ToWikimediaCommonsURL(std::string const & v);
+  static std::string ToWikimediaCommonsURL(std::string v);
+  static void EncodeWikiURL(int startIndex, std::string & url);
 
   void ClearPOIAttribs();
 };

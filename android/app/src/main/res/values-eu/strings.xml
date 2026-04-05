@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Mapak deskargatzen ari dira</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Ikusi nire uneko kokapena CoMaps-en! %1$s edo %2$s Ez al duzu lineaz kanpoko maparik? Deskargatu hemendik: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Begiratu nire markagailua CoMaps mapan!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Ikusi nire uneko kokapena CoMaps mapan!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Kaixo: \n \nOrain hemen nago: %1$s. Egin klik esteka honetan %2$s edo %3$s honetan mapan ikusteko. \n \nEskerrik asko.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Partekatu</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -400,13 +396,7 @@
     <string name="editor_example_values">Adibide balioak</string>
     <string name="editor_correct_mistake">Konpondu akatsa</string>
     <string name="editor_add_select_location">Hautatu kokapena</string>
-    <string name="editor_report_problem_desription_1">Mesedez, deskribatu arazoa xehetasunez, OpenStreetMap komunitateak akatsa konpondu dezan.</string>
-    <string name="editor_report_problem_desription_2">Edo zuk zeuk egin hemen https://www.openstreetmap.org/ helbidean</string>
     <string name="editor_report_problem_send_button">Bidali</string>
-    <string name="editor_report_problem_title">Arazoa</string>
-    <string name="editor_report_problem_no_place_title">Tokia ez da existitzen</string>
-    <string name="editor_report_problem_under_construction_title">Mantentze lanetarako itxita</string>
-    <string name="editor_report_problem_duplicate_place_title">Toki bikoiztua</string>
     <string name="autodownload">Deskarga automatikoa</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Egunero</string>

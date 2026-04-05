@@ -5,68 +5,112 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Brez zaznamkov</string>
 			<key>one</key>
-			<string>%d zaznamek</string>
+			<string>%lld zaznamek</string>
 			<key>two</key>
-			<string>%d zaznamka</string>
+			<string>%lld zaznamka</string>
 			<key>few</key>
-			<string>%d zaznamki</string>
+			<string>%lld zaznamki</string>
 			<key>other</key>
-			<string>%d zaznamki</string>
+			<string>%lld zaznamki</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>Najdenih ni bilo %d datotek. Ogledate si jih lahko po pretvorbi.</string>
+			<string>Najdenih ni bilo %lld datotek. Ogledate si jih lahko po pretvorbi.</string>
 			<key>one</key>
-			<string>Najdena je bila %d datoteka. Ogledate si jo lahko po pretvorbi.</string>
+			<string>Najdena je bila %lld datoteka. Ogledate si jo lahko po pretvorbi.</string>
 			<key>two</key>
-			<string>Najdeni sta bili %d datoteki. Ogledate si ju lahko po pretvorbi.</string>
+			<string>Najdeni sta bili %lld datoteki. Ogledate si ju lahko po pretvorbi.</string>
 			<key>few</key>
-			<string>Najdene so bile %d datoteke. Ogledate si jih lahko po pretvorbi.</string>
+			<string>Najdene so bile %lld datoteke. Ogledate si jih lahko po pretvorbi.</string>
 			<key>other</key>
-			<string>Najdenih je bilo %d datotek. Ogledate si jih lahko po pretvorbi.</string>
+			<string>Najdenih je bilo %lld datotek. Ogledate si jih lahko po pretvorbi.</string>
 		</dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>tracks</key>
 	<dict>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d sledi</string>
+			<string>%lld sledi</string>
 			<key>one</key>
-			<string>%d sled</string>
+			<string>%lld sled</string>
 			<key>two</key>
-			<string>%d sledi</string>
+			<string>%lld sledi</string>
 			<key>few</key>
-			<string>%d sledi</string>
+			<string>%lld sledi</string>
 			<key>other</key>
-			<string>%d sledi</string>
+			<string>%lld sledi</string>
 		</dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
+		<string>%#@nevertranslate@</string>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Brez prebivalcev</string>
+			<key>one</key>
+			<string>%lld prebivalec</string>
+			<key>two</key>
+			<string>%lld prebivalca</string>
+			<key>few</key>
+			<string>%lld prebivalci</string>
+			<key>other</key>
+			<string>%lld prebivalcev</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Brez sob</string>
+			<key>one</key>
+			<string>%lld soba</string>
+			<key>two</key>
+			<string>%lld sobi</string>
+			<key>few</key>
+			<string>%lld sobe</string>
+			<key>other</key>
+			<string>%lld sob</string>
+		</dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
 	</dict>
 </dict>
 </plist>

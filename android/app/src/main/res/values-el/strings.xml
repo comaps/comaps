@@ -36,7 +36,7 @@
     <string name="try_again">Δοκιμάστε ξανά</string>
     <string name="about_menu_title">Σχετικά με το CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• Χωρίς διαφημίσεις, χωρίς tracking, χωρίς συλλογή δεδομένων</string>
+    <string name="about_proposition_1">• Εύκολο στη χρήση και προσεγμένο</string>
     <!-- Text in About screen -->
     <string name="about_proposition_2">• Δεν εξαντλεί τη μπαταρία, λειτουργεί εκτός σύνδεσης</string>
     <!-- Text in About screen -->
@@ -147,13 +147,13 @@
     <string name="description">Σημειώσεις</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Τα Αγαπημένα μου στο CoMaps</string>
-    <string name="share_bookmarks_email_body">Γειά σου! \n \nΣου επισυνάπτω τα αγαπημένα μου. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n \nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!</string>
+    <string name="share_bookmarks_email_body">Γειά σου! \n \nΣου επισυνάπτω τα Αγαπημένα μου. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n \nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Φορτώνονται τα Αγαπημένα</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Τα αγαπημένα φορτώθηκαν με επιτυχία! Μπορείτε να τα βρείτε στο χάρτη ή στην οθόνη Διαχείρισης αγαπημένων.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Η φόρτωση των αγαπημένων απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.</string>
+    <string name="load_kmz_failed">Η φόρτωση των Αγαπημένων απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Ο τύπος αρχείου δεν αναγνωρίζεται από την εφαρμογή: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -168,12 +168,8 @@
     <string name="downloading_is_active">Η λήψη χάρτη βρίσκεται σε εξέλιξη</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Δες την τρέχουσα τοποθεσία μου στο CoMaps! %1$s ή %2$s Αν δεν έχεις τους χάρτες εκτός σύνδεσης, μπορείς να τους κατεβάσεις εδώ: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Γεια, δες τις τοποθεσίες που έχω καρφιτσώσει στο CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Γεια, δες την τρέχουσα τοποθεσία μου στο χάρτη του CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Γεια, \n \nΑυτή τη στιγμή είμαι εδώ: %1$s. Κάνε κλικ σε αυτό το σύνδεσμο %2$s ή σε αυτόν %3$s για να δεις την τοποθεσία στο χάρτη. \n \nΕυχαριστώ.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Κοινοποίηση</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -400,13 +396,7 @@
     <string name="editor_example_values">Παραδείγματα</string>
     <string name="editor_correct_mistake">Διόρθωση λάθους</string>
     <string name="editor_add_select_location">Επιλέξτε τοποθεσία</string>
-    <string name="editor_report_problem_desription_1">Περιγράψτε το πρόβλημα αναλυτικά ώστε η κοινότητα του OpenStreetMap να το διορθώσει.</string>
-    <string name="editor_report_problem_desription_2">Ή κάντε το μόνοι σας στη διεύθυνση https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Αποστολή</string>
-    <string name="editor_report_problem_title">Πρόβλημα</string>
-    <string name="editor_report_problem_no_place_title">Η τοποθεσία δεν υπάρχει</string>
-    <string name="editor_report_problem_under_construction_title">Κλειστό για συντήρηση</string>
-    <string name="editor_report_problem_duplicate_place_title">Διπλότυπη τοποθεσία</string>
     <string name="autodownload">Αυτόματη λήψη</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Καθημερινά</string>
@@ -653,7 +643,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Ταξινόμηση…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Ταξινόμηση αγαπημένων</string>
+    <string name="sort_bookmarks">Ταξινόμηση Αγαπημένων</string>
     <!-- Android -->
     <string name="by_default">Προεπιλογή</string>
     <!-- Android -->
@@ -769,7 +759,7 @@
     <string name="browser_not_available">Δεν είναι διαθέσιμος ο περιηγητής</string>
     <string name="volume">Ένταση ήχου</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Εξαγωγή όλων των Μερών και Ιχνών</string>
+    <string name="bookmarks_export">Εξαγωγή όλων των Αγαπημένων</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Ρυθμίσεις συστήματος σύνθεσης ομιλίας</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -892,13 +882,13 @@
     <string name="pref_speedlimit_title">Εμφάνιση ορίων ταχύτητας</string>
     <string name="location_privacy_info">Οι εφαρμογές λαμβάνουν δεδομένα τοποθεσίας από την υπηρεσία τοποθεσίας του λειτουργικού σας, η οποία ίσως κοινοποιεί την τοποθεσία σας με την Google και/ή τον προμηθευτή της συσκευής σας. Χρησιμοποιήστε ένα λειτουργικό Android με διατήρηση απορρήτου ώστε να το αποφύγετε αυτό.</string>
     <string name="pref_maplanguage_local">Τοπική γλώσσα</string>
-    <string name="pref_backup_title">Αντίγραφο ασφαλείας αγαπημένων</string>
+    <string name="pref_backup_title">Αντίγραφο ασφαλείας Αγαπημένων</string>
     <string name="pref_backup_summary">Αυτόματο αντίγραφο ασφαλείας σε έναν φάκελο στη συσκευή σας</string>
     <string name="pref_backup_now_title">Αντίγραφο ασφαλείας τώρα</string>
     <string name="pref_backup_now_summary">Δημιουργία αντιγράφου ασφαλείας άμεσα</string>
     <string name="pref_backup_now_summary_progress">Αντίγραφο ασφαλείας σε εξέλιξη…</string>
     <string name="pref_backup_now_summary_ok">Επιτυχής ολοκλήρωση αντιγράφου ασφαλείας</string>
-    <string name="pref_backup_now_summary_empty_lists">Κανένα μέρος ή ίχνος για αντίγραφο ασφαλείας</string>
+    <string name="pref_backup_now_summary_empty_lists">Κανένα Αγαπημένο για αντίγραφο ασφαλείας</string>
     <string name="pref_backup_now_summary_failed">Αποτυχία αντιγράφου ασφαλείας</string>
     <string name="pref_backup_now_summary_folder_unavailable">Ο φάκελος αντιγράφου ασφαλείας δεν είναι διαθέσιμος</string>
     <string name="pref_backup_status_summary_success">Τελευταίο επιτυχές αντίγραφο ασφαλείας</string>
@@ -912,4 +902,22 @@
     <string name="prefs_speed_cameras_information">Οι προειδοποιήσεις καμερών ταχύτητας είναι απενεργοποιημένες σε χώρες όπου ειδοποιήσεις απαγορεύονται από τοπική νομοθεσία.</string>
     <string name="pref_backup_location_summary_initial">Παρακαλούμε επιλέξτε έναν φάκελο πρώτα και παραχωρήστε άδεια</string>
     <string name="dialog_report_error_with_logs">Παρακαλούμε στείλτε μας μια αναφορά σφάλματος:\n - \"Ενεργοποίηση αρχείου καταγραφής\" στις ρυθμίσεις\n - κάντε αναπαραγωγή του προβλήματος\n - στην οθόνη \"Σχετικά &amp; Βοήθεια\" πατήστε το κουμπί \"Αναφορά σφάλματος\" και στείλτε μέσω email ή συνομιλία\n - απενεργοποιήστε την καταγραφή</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Να μην χρησιμοποιούνται εναλλακτικές</string>
+    <string name="pref_alt_map_lang_handling">Εναλλακτικές γλώσσες χάρτη</string>
+    <string name="pref_alt_map_lang_handling_system_order">Χρήση με σειρά συστήματος</string>
+    <string name="pref_alt_map_lang_handling_local_only">Προτίμηση και χρήση μόνο όπου είναι τοπική</string>
+    <string name="invalid_route">Μη έγκυρη διαδρομή</string>
+    <string name="building_route">Κατασκευή διαδρομής…</string>
+    <string name="route_not_started">Διαδρομή δεν βρέθηκε</string>
+    <string name="on_route">Καθ\' οδόν</string>
+    <string name="route_needs_rebuild">Η διαδρομή χρειάζεται ανακατασκευή</string>
+    <string name="route_finished">Διαδρομή ολοκληρώθηκε</string>
+    <string name="not_following_route">Δεν ακολουθείται η διαδρομή</string>
+    <string name="pref_openexternallinks_title">Αυτόματο άνοιγμα τρίτων συνδέσμων</string>
+    <string name="pref_openexternallinks_summary">Άνοιγμα τρίτων συνδέσμων στο CoMaps από προεπιλογή</string>
+    <string name="destination">Προορισμός</string>
+    <string name="stop">Στάση</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="route_recalculating">Επαναϋπολογισμός της διαδρομής…</string>
+    <string name="population">Πληθυσμός: %s</string>
 </resources>

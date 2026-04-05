@@ -5,55 +5,55 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d Lesezeiche</string>
+			<string>%lld Lesezeiche</string>
 			<key>one</key>
-			<string>%d Lesezeiche</string>
+			<string>%lld Lesezeiche</string>
 			<key>other</key>
-			<string>%d Lesezeiche</string>
+			<string>%lld Lesezeiche</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d Dateie sind gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
+			<string>%lld Dateie sind gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
 			<key>one</key>
-			<string>%d Datei isch gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
+			<string>%lld Datei isch gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
 			<key>other</key>
-			<string>%d Dateie sind gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
+			<string>%lld Dateie sind gfunde worde. Du gsehsch sie nach de Konvertierig.</string>
 		</dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d Tracks</string>
+			<string>%lld Tracks</string>
 			<key>one</key>
-			<string>%d Track</string>
+			<string>%lld Track</string>
 			<key>other</key>
-			<string>%d Tracks</string>
+			<string>%lld Tracks</string>
 		</dict>
 	</dict>
 </dict>

@@ -20,8 +20,8 @@ bool IsComplex(tree_node::types::Ptr<HierarchyEntry> const & tree)
 
   return tree_node::CountIf(tree, [&](auto const & e)
   {
-    auto const & isAttraction = ftypes::AttractionsChecker::Instance();
-    return isAttraction(e.m_type);
+    auto const & isPartOfTourismAttractions = ftypes::IsPartOfTourismAttractionsChecker::Instance();
+    return isPartOfTourismAttractions(e.m_type);
   }) >= kNumRequiredTypes;
 }
 

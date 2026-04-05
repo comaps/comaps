@@ -849,6 +849,9 @@ void Ranker::UpdateResults(bool lastUpdate)
 
     auto const & rankerResult = m_tentativeResults[i];
 
+    if (ftypes::IsDisusedBusiness::Instance()(rankerResult.m_types))
+      continue;
+
     /// @DebugNote
     // Uncomment for extended ranking print.
     // if (!m_params.m_viewportSearch)

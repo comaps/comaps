@@ -21,6 +21,7 @@ final class MapTemplateBuilder {
   private enum Constants {
     static let carPlayGuidanceBackgroundColor = UIColor(46, 100, 51, 1.0)
   }
+  private static weak var myPositionModeButton: CPMapButton?
   
   // MARK: - CPMapTemplate builders
   class func buildBaseTemplate(positionMode: MWMMyPositionMode) -> CPMapTemplate {
@@ -61,20 +62,22 @@ final class MapTemplateBuilder {
   // MARK: - MapTemplate UI configs
   class func configureBaseUI(mapTemplate: CPMapTemplate) {
     mapTemplate.userInfo = MapInfo(type: CPConstants.TemplateType.main)
-    let panningButton = buildMapButton(type: .startPanning) { _ in
-      mapTemplate.showPanningInterface(animated: true)
-    }
     let zoomInButton = buildMapButton(type: .zoomIn) { _ in
       FrameworkHelper.zoomMap(.in)
     }
     let zoomOutButton = buildMapButton(type: .zoomOut) { _ in
       FrameworkHelper.zoomMap(.out)
     }
+    let panningButton = buildMapButton(type: .startPanning) { _ in
+      mapTemplate.mapButtons = [zoomInButton, zoomOutButton]
+      mapTemplate.showPanningInterface(animated: true)
+    }
     let myPositionModeButton = buildMapButton(type: .myPositionMode) { _ in
       FrameworkHelper.switchMyPositionMode()
     }
+    Self.myPositionModeButton = myPositionModeButton
     mapTemplate.mapButtons = [myPositionModeButton, panningButton, zoomInButton, zoomOutButton]
-    
+
     let settingsButton = buildBarButton(type: .settings) { _ in
       let gridTemplate = SettingsTemplateBuilder.buildGridTemplate()
       CarPlayService.shared.pushTemplate(gridTemplate, animated: true)
@@ -83,14 +86,6 @@ final class MapTemplateBuilder {
   }
   
   class func configurePanUI(mapTemplate: CPMapTemplate) {
-    let zoomInButton = buildMapButton(type: .zoomIn) { _ in
-      FrameworkHelper.zoomMap(.in)
-    }
-    let zoomOutButton = buildMapButton(type: .zoomOut) { _ in
-      FrameworkHelper.zoomMap(.out)
-    }
-    mapTemplate.mapButtons = [zoomInButton, zoomOutButton]
-    
     let doneButton = buildBarButton(type: .dismissPaning) { _ in
       mapTemplate.dismissPanningInterface(animated: true)
     }
@@ -100,12 +95,20 @@ final class MapTemplateBuilder {
   
   class func configureNavigationUI(mapTemplate: CPMapTemplate) {
     mapTemplate.userInfo = MapInfo(type: CPConstants.TemplateType.navigation)
+    let zoomInButton = buildMapButton(type: .zoomIn) { _ in
+      FrameworkHelper.zoomMap(.in)
+    }
+    let zoomOutButton = buildMapButton(type: .zoomOut) { _ in
+      FrameworkHelper.zoomMap(.out)
+    }
     let panningButton = buildMapButton(type: .startPanning) { _ in
+      mapTemplate.mapButtons = [zoomInButton, zoomOutButton]
       mapTemplate.showPanningInterface(animated: true)
     }
     let myPositionModeButton = buildMapButton(type: .myPositionMode) { _ in
       FrameworkHelper.switchMyPositionMode()
     }
+    Self.myPositionModeButton = myPositionModeButton
     mapTemplate.mapButtons = [myPositionModeButton, panningButton]
     setupMuteAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
@@ -125,25 +128,25 @@ final class MapTemplateBuilder {
   }
   
   class func updateMyPositionModeButton(mapTemplate: CPMapTemplate, newMode: MWMMyPositionMode) {
-    let button = CPMapButton(handler: { _ in
+    guard let oldButton = myPositionModeButton,
+          let index = mapTemplate.mapButtons.firstIndex(of: oldButton) else { return }
+    let newButton = buildMapButton(type: .myPositionMode) { _ in
       FrameworkHelper.switchMyPositionMode()
-    })
-    
+    }
     switch newMode {
     case .pendingPosition:
-      button.image = UIImage(systemName: "location.fill")
+      newButton.image = UIImage(systemName: "location.fill")
     case .notFollowNoPosition:
-      button.image = UIImage(systemName: "location")
+      newButton.image = UIImage(systemName: "location")
     case .notFollow:
-      button.image = UIImage(systemName: "location")
+      newButton.image = UIImage(systemName: "location")
     case .follow:
-      button.image = UIImage(systemName: "location.fill")
+      newButton.image = UIImage(systemName: "location.fill")
     case .followAndRotate:
-      button.image = UIImage(systemName: "location.north.line.fill")
+      newButton.image = UIImage(systemName: "location.north.line.fill")
     }
-    if mapTemplate.mapButtons.count > 0 {
-      mapTemplate.mapButtons[0] = button
-    }
+    mapTemplate.mapButtons[index] = newButton
+    myPositionModeButton = newButton
   }
   
   class func setupRecenterButton(mapTemplate: CPMapTemplate) {

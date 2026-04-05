@@ -5,49 +5,57 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
+			<key>zero</key>
+			<string>אין סימניות</string>
 			<key>one</key>
-			<string>סימניה %d</string>
+			<string>סימנייה אחת</string>
+			<key>two</key>
+			<string>שתי סימניות</string>
 			<key>other</key>
-			<string>%d סימניות</string>
+			<string>%lld סימניות</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>one</key>
-			<string>נמצא %d קובץ. תוכלו לראות אותו לאחר ההמרה.</string>
+			<string>נמצא קובץ אחד. יהיה אפשר לראות אותו לאחר ההמרה.</string>
+			<key>two</key>
+			<string>נמצאו %lld קבצים. יהיה אפשר לראות אותם לאחר ההמרה.</string>
 			<key>other</key>
-			<string>נמצאו %d קבצים. תוכלו לראות אותם לאחר ההמרה.</string>
+			<string>נמצאו %lld קבצים. יהיה אפשר לראות אותם לאחר ההמרה.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>one</key>
-			<string>מסלול %d</string>
+			<string>מסלול אחד</string>
+			<key>two</key>
+			<string>שני מסלולים</string>
 			<key>other</key>
-			<string>%d מסלולים</string>
+			<string>%lld מסלולים</string>
 		</dict>
 	</dict>
 </dict>

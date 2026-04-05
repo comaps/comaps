@@ -36,7 +36,7 @@
     <string name="type.amenity.bus_station">Аутобуска станица</string>
     <string name="type.amenity.cafe">Кафић</string>
     <string name="type.amenity.car_rental">Рентакар</string>
-    <string name="type.amenity.car_sharing">Дељени аутомобили</string>
+    <string name="type.amenity.car_sharing">Дељење аутомобила</string>
     <string name="type.amenity.car_wash">Ауто-перионица</string>
     <string name="type.amenity.casino">Казино</string>
     <string name="type.amenity.gambling">Коцкарница</string>
@@ -152,7 +152,7 @@
     <!-- A weather shelter by the public transport stop. -->
     <string name="type.amenity.shelter.public_transport">Склониште на станици</string>
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
-    <string name="type.amenity.shelter.basic_hut">Преноћиште / Бивак</string>
+    <string name="type.amenity.shelter.basic_hut">Колиба за ноћење (бивак)</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
     <string name="type.amenity.shelter.lean_to">Настрешница за спавање</string>
     <string name="type.amenity.public_bath">Јавно купатило</string>
@@ -306,7 +306,6 @@
     <string name="type.cuisine.international">Интернационална</string>
     <string name="type.cuisine.irish">Ирска</string>
     <string name="type.cuisine.italian">Италијанска</string>
-    <string name="type.cuisine.italian_pizza">Пица</string>
     <string name="type.cuisine.japanese">Јапанска</string>
     <string name="type.cuisine.kebab">Кебаб</string>
     <string name="type.cuisine.korean">Корејска</string>
@@ -594,7 +593,7 @@
     <string name="type.landuse.cemetery">Groblje</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery.christian">Hrišćansko groblje</string>
-    <string name="type.landuse.commercial">Kmercijalna oblast</string>
+    <string name="type.landuse.commercial">Комерцијална област</string>
     <string name="type.landuse.construction">Градилиште</string>
     <string name="type.landuse.education">Obrazovna ustanova</string>
     <string name="type.landuse.farmland">Poljoprivredno zemljište</string>
@@ -1093,7 +1092,7 @@
     <string name="type.shop.beverages">Pića</string>
     <string name="type.shop.bicycle">Prodavnica bicikala</string>
     <string name="type.shop.bookmaker">Kladionica</string>
-    <string name="type.shop.books">Knjižara</string>
+    <string name="type.shop.books">Књижара</string>
     <string name="type.shop.butcher">Mesara</string>
     <string name="type.shop.cannabis">Kanabis šop</string>
     <string name="type.shop.car">Prodaja automobila</string>
@@ -1135,7 +1134,7 @@
     <string name="type.shop.herbalist">Prodavnica bilja</string>
     <string name="type.shop.hifi">HiFi audio</string>
     <string name="type.shop.houseware">Kućne potrepštine</string>
-    <string name="type.shop.jewelry">Zlatara</string>
+    <string name="type.shop.jewelry">Златара</string>
     <string name="type.shop.kiosk">Киоск</string>
     <string name="type.shop.kitchen">Kuhinjska oprema</string>
     <string name="type.shop.laundry">Perionica veša</string>
@@ -1182,7 +1181,7 @@
     <string name="type.shop.art">Umetnički radovi</string>
     <string name="type.shop.baby_goods">Беби-опрема</string>
     <string name="type.shop.bag">Torbe</string>
-    <string name="type.shop.bed">Продавница кревета</string>
+    <string name="type.shop.bed">Душеци / кревети</string>
     <string name="type.shop.boutique">Бутик</string>
     <string name="type.shop.charity">Добротворна радња</string>
     <string name="type.shop.cheese">Sir</string>
@@ -1225,7 +1224,7 @@
     <string name="type.sport.skateboard">Skejtbord</string>
     <string name="type.sport.skiing">Skijanje</string>
     <string name="type.sport.soccer">Фудбал</string>
-    <string name="type.sport.swimming">Plivanje</string>
+    <string name="type.sport.swimming">Пливање</string>
     <string name="type.sport.table_tennis">Stoni tenis</string>
     <string name="type.sport.tennis">Тениски терен</string>
     <string name="type.sport.volleyball">Odbojka</string>
@@ -1255,7 +1254,7 @@
     <string name="type.attraction.maze">Lavirint</string>
     <string name="type.attraction.roller_coaster">Rolerkoster</string>
     <string name="type.attraction.water_slide">Tobogan</string>
-    <string name="type.tourism.attraction.specified">Turistička atrakcija</string>
+    <string name="type.tourism.attraction.specified">Atrakcija</string>
     <string name="type.tourism.camp_site">Kamp</string>
     <string name="type.tourism.caravan_site">Kamp za karavane</string>
     <!-- A rentable countryside vacation house. -->
@@ -1329,8 +1328,8 @@
     <string name="type.piste_type.nordic">Стаза за нордијско скијање</string>
     <string name="type.piste_type.sled">Стаза за санкање</string>
     <string name="type.piste_type.sled.area">Стаза за санкање</string>
-    <string name="type.piste_type.snow_park">Простор за скокове и трикове</string>
-    <string name="type.piste_type.hike">Стаза за пешачење</string>
+    <string name="type.piste_type.snow_park">Снежни парк</string>
+    <string name="type.piste_type.hike">Снежна стаза за ходање</string>
     <string name="type.piste_type.connection">Веза између стаза</string>
     <string name="type.piste_type.skitour">Стаза за турно скијање</string>
     <string name="type.amenity.events_venue">Место за догађаје</string>
@@ -1343,15 +1342,15 @@
     <!-- https://wiki.openstreetmap.org/wiki/Key:social_facility -->
     <string name="type.amenity.social_facility">Socijalna ustanova</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance -->
-    <string name="type.emergency.emergency_ward_entrance">Ulaz u hitnu pomoć</string>
+    <string name="type.emergency.emergency_ward_entrance">Улаз у хитну помоћ</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo -->
     <string name="type.amenity.dojo">Доџо</string>
     <!-- https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall -->
-    <string name="type.leisure.sports_hall">Sportska hala</string>
+    <string name="type.leisure.sports_hall">Спортска хала</string>
     <string name="type.place.neighbourhood">Naselje</string>
     <string name="type.amenity.motorcycle_rental">Изнајмљивање моторцикала</string>
     <string name="type.power.pole">Далековод</string>
-    <string name="type.man_made.cairn">Gromila</string>
+    <string name="type.man_made.cairn">Громила</string>
     <string name="type.leisure.recreation_ground">Rekreacioni prostor</string>
     <string name="type.power.minor_line">Manja dalekovodna linija</string>
     <string name="type.leisure.hackerspace">Hakerski prostor</string>
@@ -1364,7 +1363,7 @@
     <string name="type.man_made.utility_pole">Uslužni stub</string>
     <string name="type.railway.narrow_gauge.bridge">Железнички мост уског колосека</string>
     <string name="type.railway.preserved.bridge">Очувани железнички мост</string>
-    <string name="type.shop.hearing_aids">Prodavnica slušnog aparata</string>
+    <string name="type.shop.hearing_aids">Продавница слушних апарата</string>
     <string name="type.railway.funicular.tunnel">Тунел успињаче</string>
     <string name="type.railway.narrow_gauge.tunnel">Тунел уског колосека</string>
     <string name="type.sport.diving">Slobodni skokovi</string>
@@ -1395,7 +1394,7 @@
     <string name="type.building.guardhouse">Кућица обезбеђења</string>
     <string name="type.power.portal">Носач електричних водова</string>
     <string name="type.shop.lighting">Prodavnica rasvete</string>
-    <string name="type.amenity.give_box">Kutija za poklone</string>
+    <string name="type.amenity.give_box">Кутија за поклоне</string>
     <string name="type.amenity.food_sharing">Дељење хране</string>
     <string name="type.social_facility.food_bank">Банка хране</string>
     <string name="type.social_facility.soup_kitchen">Narodna kuhinja</string>
@@ -1493,7 +1492,7 @@
     <string name="type.entrance.emergency">Излаз за хитне случајеве</string>
     <string name="type.natural.sand">Pesak</string>
     <string name="type.natural.tree">Дрво</string>
-    <string name="type.xmas.tree">Božićna jelka</string>
+    <string name="type.xmas.tree">Божићна јелка</string>
     <string name="type.shop.beauty.nails">Salon za nokte</string>
     <string name="type.man_made.mast.communication">Антенски стуб</string>
     <string name="type.amenity.hydrant">Хидрант за наводњавање</string>
@@ -1510,4 +1509,6 @@
     <string name="type.emergency.access_point.address">Адреса службе хитне помоћи</string>
     <string name="type.waterway.fuel">Бензинска пумпа за пловила</string>
     <string name="type.amenity.community_centre.youth_centre">Омладински центар</string>
+    <string name="type.shop.water">Продавница воде</string>
+    <string name="type.attraction">Атракција</string>
 </resources>

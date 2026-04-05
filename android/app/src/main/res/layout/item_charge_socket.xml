@@ -36,7 +36,7 @@
             app:srcCompat="@drawable/ic_charge_socket_unknown"
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:tint="?attr/colorControlNormal"
+            android:tint="?attr/iconTint"
             />
 
         <!-- Socket type -->

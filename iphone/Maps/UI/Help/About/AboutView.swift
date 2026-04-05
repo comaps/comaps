@@ -212,10 +212,19 @@ struct AboutView: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button {
-                        dismiss()
-                    } label: {
-                        Text("close")
+                    if #available(iOS 26, *) {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Label("close", systemImage: "xmark")
+                        }
+                        .buttonStyle(.glassProminent)
+                    } else {
+                        Button {
+                            dismiss()
+                        } label: {
+                            Text("close")
+                        }
                     }
                 }
             }

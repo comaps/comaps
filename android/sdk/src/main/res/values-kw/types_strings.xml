@@ -213,7 +213,6 @@
     <string name="type.cuisine.international">Keswlasek</string>
     <string name="type.cuisine.irish">Iwerdhonek</string>
     <string name="type.cuisine.italian">Italek</string>
-    <string name="type.cuisine.italian_pizza">Italek, Pitsa</string>
     <string name="type.cuisine.japanese">Japanek</string>
     <string name="type.cuisine.korean">Koreek</string>
     <string name="type.cuisine.lao">Laosek</string>
@@ -468,7 +467,7 @@
     <string name="type.landuse.military">Selva</string>
     <string name="type.landuse.orchard">Avalennek</string>
     <string name="type.landuse.quarry">Mengleudh</string>
-    <string name="type.landuse.railway">Yyns Horn</string>
+    <string name="type.landuse.railway">Tir Hyns Horn</string>
     <string name="type.landuse.recreation_ground">Park</string>
     <string name="type.landuse.reservoir">Kreun</string>
     <string name="type.landuse.residential">Tir Anedhel</string>
@@ -1297,13 +1296,13 @@
     <string name="type.tourism.artwork">Artweyth</string>
     <string name="type.tourism.artwork.architecture">Artweyth Pennsernethel</string>
     <string name="type.tourism.artwork.painting">Lymnans</string>
-    <string name="type.tourism.attraction">Tennvos</string>
+    <string name="type.tourism.attraction">Tennvos Tornysi</string>
     <string name="type.attraction.amusement_ride">Marghogeth-Omdhidhana</string>
     <string name="type.attraction.animal">Garth Eneval</string>
     <string name="type.attraction.bumper_car">Kerri Bomm</string>
     <string name="type.attraction.big_wheel">Ros Ferris</string>
     <string name="type.attraction.carousel">Res a-Dro</string>
-    <string name="type.attraction.historic">Tennvos istorek</string>
+    <string name="type.attraction.historic">Tennvos Istorek</string>
     <string name="type.attraction.maze">Milhyntal</string>
     <string name="type.attraction.roller_coaster">Tren-Omdhidhana</string>
     <string name="type.attraction.water_slide">Slynk Dowr</string>
@@ -1317,8 +1316,8 @@
     <string name="type.tourism.guest_house">Gwesti</string>
     <string name="type.tourism.hostel">Ostel</string>
     <string name="type.tourism.hotel">Ostel</string>
-    <string name="type.tourism.information">Kudhlow Tornyas</string>
-    <string name="type.tourism.information.board">Bordh Kudhlow</string>
+    <string name="type.tourism.information">Kedhlow Tornyas</string>
+    <string name="type.tourism.information.board">Bordh Kedhlow</string>
     <string name="type.tourism.information.guidepost">Post Arwodh</string>
     <string name="type.tourism.information.map">Mappa Tornyas</string>
     <string name="type.tourism.information.office">Buro Tornyas</string>
@@ -1416,4 +1415,6 @@
     <string name="type.emergency.disaster_help_point">Poynt Gweres Goredhom</string>
     <string name="type.waterway.fuel">Kay Petrol Porth</string>
     <string name="type.amenity.community_centre.youth_centre">Kresen Yowynkneth</string>
+    <string name="type.shop.water">Gwerthji Dowr</string>
+    <string name="type.attraction">Tennvos</string>
 </resources>

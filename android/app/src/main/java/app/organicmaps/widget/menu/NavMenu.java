@@ -1,9 +1,14 @@
 package app.organicmaps.widget.menu;
 
+import android.content.SharedPreferences;
+import android.content.res.TypedArray;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
@@ -22,6 +27,8 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
+import static androidx.core.content.ContextCompat.getString;
+
 public class NavMenu
 {
   private final BottomSheetBehavior<View> mNavBottomSheetBehavior;
@@ -33,6 +40,8 @@ public class NavMenu
   private final MaterialTextView mEtaValue;
   private final MaterialTextView mEtaAmPm;
   private final View mTimeValuesContainer;
+  private final MaterialTextView mEtaDestination;
+  private final ShapeableImageView mEtaIcon;
   private final MaterialTextView mTimeHourValue;
   private final MaterialTextView mTimeHourUnits;
   private final MaterialTextView mTimeMinuteValue;
@@ -45,9 +54,18 @@ public class NavMenu
   private final CircularProgressIndicator mRebuildingRouteProgressBar;
 
   private final AppCompatActivity mActivity;
+  private final SharedPreferences mSharedPreferences;
   private final NavMenuListener mNavMenuListener;
 
-  private int currentPeekHeight = 0;
+  private int mCurrentPeekHeight = 0;
+
+  // Copy of the routing info (to improve UI responsiveness while switching
+  // display info between destination and intermediate stop).
+  private RoutingInfo mRoutingInfo;
+
+  // Variable to switch the display of distance and time info between final destination or
+  // the next intermediate stop.
+  private boolean mShowInfoToFinalDestination;
 
   public interface OnMenuSizeChangedListener
   {
@@ -60,6 +78,7 @@ public class NavMenu
                  OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
     mActivity = activity;
+    mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
     mNavMenuListener = navMenuListener;
     final View bottomFrame = mActivity.findViewById(R.id.nav_bottom_frame);
     mHeaderFrame = bottomFrame.findViewById(R.id.line_frame);
@@ -97,6 +116,8 @@ public class NavMenu
     mEtaViewContainer = bottomFrame.findViewById(R.id.eta_view_container);
     mEtaValue = bottomFrame.findViewById(R.id.eta_value);
     mEtaAmPm = bottomFrame.findViewById(R.id.eta_am_pm);
+    mEtaDestination = bottomFrame.findViewById(R.id.eta_destination);
+    mEtaIcon = bottomFrame.findViewById(R.id.eta_icon);
     mTimeValuesContainer = bottomFrame.findViewById(R.id.time_values_container);
     mTimeHourValue = bottomFrame.findViewById(R.id.time_hour_value);
     mTimeHourUnits = bottomFrame.findViewById(R.id.time_hour_dimen);
@@ -116,6 +137,11 @@ public class NavMenu
     mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
+
+    // Get preferences for the display of distance and time info (to the final
+    // destination or to the next intermediate stop).
+    mShowInfoToFinalDestination = mSharedPreferences.getBoolean(
+      getString(mActivity, R.string.pref_nav_menu_final_destination), true);
   }
 
   private void onStopClicked()
@@ -147,10 +173,10 @@ public class NavMenu
   public void setPeekHeight()
   {
     int headerHeight = mHeaderFrame.getHeight();
-    if (currentPeekHeight != headerHeight)
+    if (mCurrentPeekHeight != headerHeight)
     {
-      currentPeekHeight = headerHeight;
-      mNavBottomSheetBehavior.setPeekHeight(currentPeekHeight);
+      mCurrentPeekHeight = headerHeight;
+      mNavBottomSheetBehavior.setPeekHeight(mCurrentPeekHeight);
       mOnMenuSizeChangedListener.OnMenuSizeChange();
     }
   }
@@ -177,16 +203,16 @@ public class NavMenu
                                                 : Graphics.tint(mActivity, R.drawable.ic_voice_off));
   }
 
-  private void updateTime(int seconds)
+  private void updateTime(int timeInSeconds)
   {
-    updateTimeLeft(seconds);
-    updateTimeEstimate(seconds);
+    updateTimeLeft(timeInSeconds);
+    updateTimeEstimate(timeInSeconds);
   }
 
-  private void updateTimeLeft(int seconds)
+  private void updateTimeLeft(int timeInSeconds)
   {
-    final long hours = TimeUnit.SECONDS.toHours(seconds);
-    final long minutes = TimeUnit.SECONDS.toMinutes(seconds) % 60;
+    final long hours = TimeUnit.SECONDS.toHours(timeInSeconds);
+    final long minutes = TimeUnit.SECONDS.toMinutes(timeInSeconds) % 60;
     mTimeMinuteValue.setText(String.valueOf(minutes));
     String min = mActivity.getResources().getString(R.string.minute);
     mTimeMinuteUnits.setText(min);
@@ -200,10 +226,10 @@ public class NavMenu
     UiUtils.setTextAndShow(mTimeHourUnits, hour);
   }
 
-  private void updateTimeEstimate(int seconds)
+  private void updateTimeEstimate(int timeInSeconds)
   {
     // Calculate ETA from current local time and remaining seconds.
-    final LocalTime localTime = LocalTime.now().plusSeconds(seconds);
+    final LocalTime localTime = LocalTime.now().plusSeconds(timeInSeconds);
 
     // String to set the format of the ETA value (24h or AM/PM).
     final String etaValueFormat;
@@ -226,6 +252,21 @@ public class NavMenu
 
     mEtaValue.setText(localTime.format(DateTimeFormatter.ofPattern(etaValueFormat)));
     mEtaAmPm.setText(etaAmPmText);
+
+    mEtaValue.setOnClickListener(view -> {
+      if ((mRoutingInfo == null) || (mRoutingInfo.indexOfNextStop <= 0))
+      {
+        toggleNavMenu();
+      }
+      else
+      {
+        mShowInfoToFinalDestination = !mShowInfoToFinalDestination;
+        mSharedPreferences.edit().putBoolean(
+          getString(mActivity, R.string.pref_nav_menu_final_destination),
+          mShowInfoToFinalDestination).apply();
+        updateControls();
+      }
+    });
   }
 
   private void updateDistance(Distance distToTarget)
@@ -255,27 +296,75 @@ public class NavMenu
         case RouteNeedsRebuild -> R.string.route_needs_rebuild;
         case RouteFinished -> R.string.route_finished;
         case RouteNoFollowing -> R.string.not_following_route;
-        case RouteRebuilding -> R.string.rebuilding_route;
+        case RouteRebuilding -> R.string.route_recalculating;
       }));
+  }
+
+  private Pair<Distance, Integer> updateDestination()
+  {
+    Distance distance;
+    int timeInSeconds;
+
+    // Set destination/stop string and icon.
+    String destinationText;
+    int iconId;
+
+    if ((mShowInfoToFinalDestination) || (mRoutingInfo.indexOfNextStop <= 0))
+    {
+      destinationText = mActivity.getString(R.string.destination);
+      iconId = R.drawable.route_point_finish;
+      distance = mRoutingInfo.distToTarget;
+      timeInSeconds = mRoutingInfo.totalTimeInSeconds;
+    }
+    else
+    {
+      destinationText = mActivity.getString(R.string.stop);
+
+      TypedArray iconArray = mActivity.getResources().obtainTypedArray(R.array.route_stop_icons);
+      iconId = iconArray.getResourceId(mRoutingInfo.indexOfNextStop - 1, R.drawable.route_point_20);
+      iconArray.recycle();
+      distance = mRoutingInfo.distToNextStop;
+      timeInSeconds = mRoutingInfo.timeToNextStop;
+    }
+
+    mEtaDestination.setText(destinationText);
+    mEtaIcon.setImageDrawable(AppCompatResources.getDrawable(mActivity, iconId));
+
+    return new Pair<>(distance, timeInSeconds);
   }
 
   public void update(@NonNull RoutingInfo info)
   {
+    // Save a copy of the routing info.
+    mRoutingInfo = info;
+
+    // Update controls.
+    updateControls();
+  }
+
+  private void updateControls()
+  {
+    if (mRoutingInfo == null)
+      return;
+
     // Hide/show & update controls based on routing session state.
-    if (RoutingSessionState.isNavigable(info.routingSessionState))
+    if (RoutingSessionState.isNavigable(mRoutingInfo.routingSessionState))
     {
+      // Update destination labels (to final destination or to the next intermediate stop).
+      Pair<Distance, Integer> displayInfo = updateDestination();
+
       // Show & update time info.
       UiUtils.show(mTimeValuesContainer);
       UiUtils.show(mEtaViewContainer);
-      updateTime(info.totalTimeInSeconds);
+      updateTime(displayInfo.second);
 
       // Show & update distance info.
       UiUtils.show(mDistanceViewContainer);
-      updateDistance(info.distToTarget);
+      updateDistance(displayInfo.first);
 
       // Show & update route progress bar.
       UiUtils.show(mRouteProgress);
-      updateRouteProgress(info.completionPercent);
+      updateRouteProgress(mRoutingInfo.completionPercent);
 
       // Hide rebuilding route circular progress bar.
       UiUtils.hide(mRebuildingRouteProgressBar);
@@ -300,7 +389,7 @@ public class NavMenu
       UiUtils.show(mRebuildingRouteProgressBar);
 
       // Update routing session state message.
-      updateRoutingSessionState(info.routingSessionState);
+      updateRoutingSessionState(mRoutingInfo.routingSessionState);
     }
   }
 

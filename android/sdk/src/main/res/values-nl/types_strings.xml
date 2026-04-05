@@ -302,7 +302,6 @@
     <string name="type.cuisine.international">Internationaal</string>
     <string name="type.cuisine.irish">Iers</string>
     <string name="type.cuisine.italian">Italiaans</string>
-    <string name="type.cuisine.italian_pizza">Italiaans, pizza</string>
     <string name="type.cuisine.japanese">Japans</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Koreaans</string>
@@ -1252,7 +1251,7 @@
     <string name="type.tourism.artwork.painting">Schilderij</string>
     <string name="type.tourism.artwork.sculpture">Kunstwerk</string>
     <string name="type.tourism.artwork.statue">Standbeeld</string>
-    <string name="type.tourism.attraction">Attractie</string>
+    <string name="type.tourism.attraction">Toeristische attractie</string>
     <string name="type.attraction.amusement_ride">Prettocht</string>
     <string name="type.attraction.animal">Dierenverblijf</string>
     <string name="type.attraction.bumper_car">Botsauto\'s</string>
@@ -1510,4 +1509,10 @@
     <string name="type.emergency.access_point.address">Noodhulppost adres</string>
     <string name="type.waterway.fuel">Brandstofsteiger</string>
     <string name="type.amenity.community_centre.youth_centre">Jeugdcentrum</string>
+    <string name="type.attraction">Attractie</string>
+    <string name="type.shop.water">Waterwinkel</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Sportcentrum</string>
+    <string name="type.leisure.sports_centre.sport.boules">Sportcentrum</string>
+    <string name="type.sport.boules">jeu de boules</string>
 </resources>

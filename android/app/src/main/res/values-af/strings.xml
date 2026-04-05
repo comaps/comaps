@@ -164,12 +164,8 @@
     <string name="downloading_is_active">Die kaart word tans afgelaai.</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Kyk my huidige posisie in CoMaps! %1$s of %2$s Het u nie vanlyn kaarte nie? Laai hier af: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hallo, kyk my liggingmerker in CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hallo, sien my huidige ligging op die CoMaps-toep!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Dagsê, \n \nEk is nou hier: %1$s. Klik op die skakel %2$s of hierdie een %3$s om die plek op die kaart te sien. \n \nDankie.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Deel</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -382,13 +378,7 @@
     <string name="editor_example_values">Voorbeeldwaardes</string>
     <string name="editor_correct_mistake">Stel fout reg</string>
     <string name="editor_add_select_location">Kies Ligging</string>
-    <string name="editor_report_problem_desription_1">Beskryf asb. die probleem in detail sodat die OpenStreetMap-gemeenskap dit kan regstel.</string>
-    <string name="editor_report_problem_desription_2">Of doen dit welf by https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Stuur</string>
-    <string name="editor_report_problem_title">Probleem</string>
-    <string name="editor_report_problem_no_place_title">Hierdie plek bestaan nie</string>
-    <string name="editor_report_problem_under_construction_title">Gesluit vir onderhoud</string>
-    <string name="editor_report_problem_duplicate_place_title">Dupliseer plek</string>
     <string name="autodownload">Laai kaarte outomaties af</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Daagliks</string>

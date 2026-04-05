@@ -20,7 +20,6 @@
     <!-- SECTION: Types: Historic -->
     <string name="type.leisure.common">Common Land</string>
     <string name="type.leisure.sports_centre">Sports Centre</string>
-    <string name="type.office.government">Governmental Office</string>
     <string name="type.railway.station.subway">Metro Station</string>
     <string name="type.railway.station.subway.adana">Metro Station</string>
     <string name="type.railway.station.subway.algiers">Metro station</string>
@@ -253,7 +252,7 @@
     <string name="type.railway.subway_entrance.yerevan">Metro Entrance</string>
     <string name="type.railway.subway_entrance.yokohama">Metro Entrance</string>
     <string name="type.shop.books">Bookshop</string>
-    <string name="type.shop.car_repair">Car Repair Garage</string>
+    <string name="type.shop.car_repair">Car Garage</string>
     <string name="type.shop.caravan">Caravan Dealership</string>
     <string name="type.shop.computer">Computer Shop</string>
     <string name="type.shop.confectionery">Sweet Shop</string>
@@ -284,9 +283,25 @@
     <string name="type.sport.soccer">Football</string>
     <string name="type.tourism.camp_site">Campsite</string>
     <string name="type.tourism.caravan_site">Caravan Park</string>
-    <string name="type.power.pole">Power Pole</string>
-    <string name="type.man_made.utility_pole">Utility Pole</string>
     <string name="type.railway.station.subway.qingdao">Metro Station</string>
-    <string name="type.addr_interpolation">Address/Block</string>
-    <string name="type.addr_interpolation.even">Address/Block</string>
+    <string name="type.amenity.shelter.lean_to">Lean-to Shelter</string>
+    <string name="type.amenity.vending_machine.public_transport_tickets">Public Transport Ticket Machine</string>
+    <string name="type.tourism.information.visitor_centre">Visitor Centre</string>
+    <string name="type.amenity.atm">Cash Machine</string>
+    <string name="type.amenity.community_centre">Community Centre</string>
+    <string name="type.amenity.community_centre.youth_centre">Youth Centre</string>
+    <string name="type.amenity.prep_school">Prep School</string>
+    <string name="type.amenity.parking.multi.storey">Multistorey Parking</string>
+    <string name="type.amenity.parking.multi.storey.fee">Multistorey Parking</string>
+    <string name="type.landuse.cemetery">Graveyard</string>
+    <string name="type.leisure.fitness_centre">Fitness Centre</string>
+    <string name="type.leisure.indoor_play">Indoor Play Centre</string>
+    <string name="type.leisure.sports_centre.sport.multi">Sports Centre</string>
+    <string name="type.natural.cave_entrance">Cave Entrance</string>
+    <string name="type.office.ngo">Non-Governmental Organisation</string>
+    <string name="type.railway.station.light_rail">Train Station</string>
+    <string name="type.amenity.charging_station.motorcycle">Motorcycles</string>
+    <string name="type.amenity.kindergarten">Kindergarten</string>
+    <string name="type.amenity.library">Library</string>
+    <string name="type.amenity.lounger">Lounger</string>
 </resources>

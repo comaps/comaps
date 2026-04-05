@@ -228,6 +228,8 @@ ankerl::unordered_dense::map<string, vector<string>> const kSynonyms = {
     {"brg", {"barrage"}},
     {"brk", {"break", "brook"}},
     {"bro", {"brother"}},
+    {"bros", {"brothers"}},
+    {"brothers", {"bros"}},
     {"brw", {"brow"}},
     {"bsn", {"basin"}},
     {"bstd", {"bastide"}},

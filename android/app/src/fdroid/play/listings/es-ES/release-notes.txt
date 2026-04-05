@@ -1,9 +1,8 @@
-• Datos de OSM a 21 de febrero
-• Visualización de horarios apertura por turnos, en lugar de fuera del horario laboral
-• Visualización de descripciones de OSM y nº de habitaciones para PDI seleccionados
-• Añadidos artículos Wikipedia en croata, italiano, neerlandés y polaco
-• Añadidas filas de árboles y centros juveniles
-• Corregido problema con transliteración
-• Mejorada configuración de idiomas alternativos del mapa
+- Datos de OpenStreetMap a fecha del 21 de marzo
+- Se agregaron deportes: cuatro en raya y petanca
+- Se agregaron artículos de Wikipedia en Checo, Tailandés, Turco y Ucraniano
+- Se ha evitado que aparezca el nombre secundario, por ejemplo, en calles de regiones multilenguaje
+- Se ha mejorado el indicador de progreso de rueda con una animación más fluida
+- Se soportan definiciones de máxima velocidad para más tipos de carreteras en diferentes países
 
-Más información en comaps.app/latest
+Más detalles en comaps.app/latest

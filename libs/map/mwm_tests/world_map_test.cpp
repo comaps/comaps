@@ -5,6 +5,8 @@
 #include "indexer/data_source.hpp"
 #include "indexer/feature.hpp"
 
+#include "base/localisation.hpp"
+
 #include "coding/string_utf8_multilang.hpp"
 
 #include <iostream>
@@ -41,7 +43,7 @@ UNIT_TEST(World_Capitals)
     if (found)
       ++capitalsCount;
 
-    std::string_view const name = ft->GetName(StringUtf8Multilang::kEnglishCode);
+    std::string_view const name = ft->GetName(localisation::kEnglishLanguageIndex);
     if (testCapitals.count(name) > 0)
       TEST(found, (name));
   }

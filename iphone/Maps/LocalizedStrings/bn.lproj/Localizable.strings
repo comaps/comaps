@@ -1,596 +1,872 @@
-"translated_om_site_url" = "https://www.comaps.app/";
-"close" = "বন্ধ করুন";
-"zoom_to_country" = "মানচিত্রে দেখান";
-"country_status_download_failed" = "ডাউনলোড ব্যর্থ হয়েছে";
-"download" = "ডাউনলোড";
-"wikimedia_commons" = "উইকিমিডিয়া কমন্স";
-"panoramax_picture" = "Panoramax ছবি";
-"self_service" = "স্ব-সেবা";
-"panoramax" = "Panoramax";
-"fediverse" = "মাস্টোডন";
-"bluesky" = "ব্লুস্কাই";
+/* Button text (should be short) */
+"cancel" = "বাতিল";
+/* Button which interrupts country download */
+"cancel_download" = "ডাউনলোড বাতিল করুন";
+/* Button which deletes downloaded country */
+"delete" = "মুছুন";
+"download_maps" = "মানচিত্র ডাউনলোড করুন";
+/* Settings/Downloader - info for country which started downloading */
+"downloading" = "ডাউনলোডরত…";
+/* Title of offline maps explanation */
+"offline_explanation_title" = "অফলাইন মানচিত্র";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "এলাকাটি দেখতে এবং নেভিগেট করতে একটি মানচিত্র ডাউনলোড করতে হবে।\nআপনি যেসব এলাকায় ভ্রমণ করতে চান সেগুলোর মানচিত্র ডাউনলোড করুন।";
+/* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "কিলোমিটার";
-"saved" = "সংরক্ষণ";
-"about_proposition_2" = "গোপনীয়তা বান্ধব এবং বিজ্ঞাপন মুক্ত";
-"osm_mapdata" = "OpenStreetMap থেকে মানচিত্রের তথ্য";
+/* Leave Review dialog - Review button */
+"leave_a_review" = "একটি রিভিউ দিয়ে যান";
+/* Choose measurement on first launch alert - choose imperial system button */
+"miles" = "মাইল";
+/* A text for current gps location point/arrow selected on the map */
+"core_my_position" = "আমার অবস্থান";
+/* Update maps later button text */
+"later" = "পরে";
+/* View and button titles for accessibility, please also edit it in iphone/plist.txt */
+"search" = "খুঁজুন";
+/* Settings/Downloader - 3G download warning dialog confirm button */
+"use_cellular_data" = "হ্যাঁ";
+/* View and button titles for accessibility */
+"zoom_to_country" = "মানচিত্রে দেখান";
+/* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
+"country_status_download_without_size" = "মানচিত্র ডাউনলোড করুন";
+/* Message to display at the center of the screen when the country download has failed */
+"country_status_download_failed" = "ডাউনলোড ব্যর্থ হয়েছে";
+/* Text in About screen */
+"about_headline" = "সম্প্রদায়ের দ্বারা পরিচালিত উন্মুক্ত প্রকল্প";
+/* Text in About screen */
 "about_proposition_1" = "অফলাইন, দ্রুত এবং সহজেই ব্যবহারযোগ্য";
-"follow_us" = "আমাদের সাথে সংযোগ করুন";
-"social_email" = "ই-মেইল";
+/* Text in About screen */
+"about_proposition_2" = "গোপনীয়তা বান্ধব এবং বিজ্ঞাপন মুক্ত";
+/* Text in About screen */
+"about_proposition_3" = "Transparent and not for profit";
+"close" = "বন্ধ করুন";
+"download" = "ডাউনলোড";
+/* REMOVE THIS STRING AFTER REFACTORING */
+"continue_button" = "চালিয়ে যান";
+/* "Add new bookmark list" dialog title */
+"add_new_set" = "নতুন তালিকা বানান";
+/* Add Bookmark list dialog - hint when the list name is empty */
+"bookmark_set_name" = "তালিকার নাম";
+/* "Bookmark Lists" dialog title */
+"bookmark_sets" = "বুকমার্ক তালিকার নাম";
+/* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
+"bookmarks" = "স্থান";
+/* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
+"bookmarks_and_tracks" = "প্রিয় তালিকা";
+/* Default bookmark list name */
+"core_my_places" = "আমার স্থানগুলি";
+/* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
+"address" = "ঠিকানা";
+/* Settings button in system menu */
+"settings" = "সেটিংস";
+/* Measurement units title in settings activity */
+"measurement_units" = "মাপের একক";
+/* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
+"category_eat" = "খাওয়ার স্থান";
+/* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
+"category_food" = "মুদিখানা";
+/* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
+"category_transport" = "যানবাহন";
+/* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
+"category_fuel" = "গাড়ির তেল";
+/* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
+"category_parking" = "পার্কিং";
+/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
+"category_shopping" = "কেনাকাটা";
+/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
+"category_secondhand" = "ব্যবহৃত";
+/* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
+"category_hotel" = "হোটেল";
+/* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
+"category_tourism" = "দর্শনীয় স্থান";
+/* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
+"category_entertainment" = "মনোরঞ্জন";
+/* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
+"category_atm" = "এটিএম";
+/* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
+"category_nightlife" = "নাইটলাইফ";
+/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
+"category_children" = "পারিবারিক ভ্রমণ";
+/* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
+"category_bank" = "ব্যাঙ্ক";
+/* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
+"category_pharmacy" = "ফার্মেসি";
+/* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
+"category_hospital" = "হাসপাতাল";
+/* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
+"category_toilet" = "শৌচালয়";
+/* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
+"category_post" = "ডাক";
+/* Search category for police; any changes should be duplicated in categories.txt @category_police! */
+"category_police" = "পুলিশ";
+/* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
+"category_wifi" = "ওয়াইফাই";
+/* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
+"category_recycling" = "রিসাইক্লিং";
+/* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
+"category_water" = "জল";
+/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
+"category_rv" = "আর ভি সুযোগ-সুবিধা";
+"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
+/* message title of loading file */
+"load_kmz_title" = "প্রিয় তালিকা লোড করা হচ্ছে";
+/* Kmz file successful loading */
+"load_kmz_successful" = "প্রিয় তালিকা সফলভাবে লোড হয়েছে! আপনি সেগুলো মানচিত্রে অথবা প্রিয় ব্যবস্থাপক স্ক্রিনে দেখতে পারবেন।";
+/* Kml file loading failed */
+"load_kmz_failed" = "প্রিয় তালিকা লোড করা যায়নি। ফাইলটি সম্ভবত নষ্ট বা অব্যবহারযোগ্য হতে পারে।";
+/* resource for context menu */
+"edit" = "সম্পাদন করুন";
+/* Warning message when doing search around current position */
+"unknown_current_position" = "আপনার অবস্থানটি এখনও অব্দি চিহ্নিত করা যায়নি";
+/* Subject for emailed bookmark */
+"bookmark_share_email_subject" = "নমস্কার, আমার পিন টি CoMaps-এ দেখুন!";
+/* Subject for emailed position */
+"my_position_share_email_subject" = "নমস্কার, আমার বর্তমান অবস্থানটি CoMaps অ্যাপে দেখুন!";
+/* Share by email button text, also used in editor and About. */
+"email" = "ইমেইল";
+/* Text for message to copy something */
 "copy_to_clipboard" = "ক্লিপবোর্ডে অনুলিপি";
+/* Text for message when used successfully copied something */
+"copied_to_clipboard" = "Copied to clipboard: %@";
+/* place preview title */
+"info" = "Info";
+/* Used for bookmark editing */
+"done" = "সম্পন্ন";
+/* Prints version number in About dialog */
+"version" = "CoMaps version: %@";
 "version %@ (%@)" = "সংস্করণ %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "সংস্করণ: %@ (%@)\nমানচিত্রের তথ্য: %@";
+/* Title for tracks category in bookmarks manager */
+"tracks_title" = "ট্র্যাকগুলি";
+/* Length of track in cell that describes route */
+"length" = "দৈর্ঘ্য";
+"share_my_location" = "আমার অবস্থানটি শেয়ার করুন";
+"prefs_group_route" = "নেভিগেশন";
+"pref_zoom_title" = "জুম করার বোতামগুলি";
+"pref_left_button_type" = "Left Main Button";
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Map Language";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Local Language";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Map Appearance";
+/* Settings «Map» category: «Appearance» title */
+"pref_appearance_title" = "Appearance";
+/* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_light" = "Light";
+/* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_dark" = "Dark";
+/* Generic «Disabled» string */
+"disabled" = "Disabled";
+/* Generic «Off» string */
+"off" = "বন্ধ";
+/* Generic «On» string */
+"on" = "চালু";
+/* Generic «Auto» string */
+"auto" = "স্বয়ংক্রিয়";
+/* Settings «Map» category: «Perspective view» title */
+"pref_map_3d_title" = "দৃষ্টিকোণ দৃশ্য";
+/* Settings «Map» category: «3D buildings» title */
+"pref_map_3d_buildings_title" = "3D বিল্ডিং";
+/* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
+"pref_map_3d_buildings_disabled_summary" = "3D বিল্ডিং দেখানো পাওয়ার সাশ্রয় মোডে বন্ধ হয়ে যায়";
+/* Settings «Route» category: «Tts enabled» title */
+"pref_tts_title" = "Voice Instructions";
+/* Settings «Route» category: «Tts enable» title */
+"pref_tts_enable_title" = "Enable Voice Instructions";
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "রাস্তার নাম ঘোষণা করুন";
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "সক্রিয় করা হলে, যে রাস্তা বা প্রস্থানের দিকে ঘুরতে হবে তার নাম বলা হবে।";
+/* Settings «Route» category: «Tts language» title */
+"pref_tts_language_title" = "আওয়াজের ভাষা";
+/* Settings «Route» category: «Test Voice Directions» title */
+"pref_tts_test_voice_title" = "আওয়াজ দ্বারা দিকনির্দেশনা পরীক্ষা করুন";
+/* Title for "Other" section in TTS settings. */
+"pref_tts_other_section_title" = "Other";
+"pref_map_auto_zoom" = "স্বয়ংক্রিয় জুম";
+"placepage_distance" = "দুরত্ব";
+"search_show_on_map" = "মানচিত্রে দেখুন";
+/* Text in menu */
+"website" = "ওয়েবসাইট";
+/* Text in About menu, opens CoMaps news website */
+"news" = "সংবাদ";
+/* Text in the about screen */
 "social_codeberg" = "Codeberg";
-"osm_profile_login" = "OpenStreetMap অ্যাকাউন্টে লগইন করুন";
-"osm_profile_reauthorize_promt" = "OpenStreetMap অ্যাকাউন্টটি এই অ্যাপ থেকে সংযোগ বিচ্ছিন্ন করা হয়েছে";
-"osm_profile_reauthorize" = "OpenStreetMap এর সাথে পুনরায় সংযোগ করুন";
-"osm_profile_remove" = "OpenStreetMap অ্যাকাউন্ট সরান";
-"osm_profile_remove_promt" = "যদি আপনি আপনার অ্যাকাউন্ট পুনরায় সংযুক্ত করতে না পারেন বা না চান, তাহলে আপনি এটিকে এই অ্যাপ থেকে সরিয়ে দিতে পারেন";
 "social_mastodon" = "মাস্টোডন";
 "social_lemmy" = "Lemmy";
 "social_matrix" = "Matrix";
-"osm_profile_logout" = "OpenStreetMap অ্যাকাউন্ট থেকে লগ আউট করুন";
-"osm_profile_delete" = "OpenStreetMap অ্যাকাউন্ট মুছুন";
+"social_bluesky" = "Bluesky";
+"social_pixelfed" = "Pixelfed";
+"social_email" = "ই-মেইল";
+/* Text in the editor */
+"fediverse" = "মাস্টোডন";
+/* Text in menu */
+"facebook" = "ফেসবুক";
+/* Text in menu */
+"twitter" = "এক্স (টুইটার)";
+/* Text in menu */
+"instagram" = "ইনস্টাগ্রাম";
+/* Text in the editor */
+"vk" = "ভিকে";
+/* Text in the editor */
+"line" = "Line";
+/* Text in the editor */
+"bluesky" = "ব্লুস্কাই";
+/* Text in menu */
+"panoramax" = "Panoramax";
+/* Text in menu */
+"panoramax_picture" = "Panoramax ছবি";
+/* Text in menu */
+"rate_the_app" = "অ্যাপটি রেট করুন";
+/* Text in menu */
+"help" = "সাহায্য";
+/* Button in the main Help dialog */
+"faq" = "প্রায়শই জিজ্ঞাসিত প্রশ্ন";
+/* Button in the main menu */
+"donate" = "দান করুন";
+/* Button in the main Help dialog */
+"copyright" = "স্বত্ব";
+/* Text in menu + Button in the main Help dialog */
+"report_a_bug" = "বাগ রিপোর্ট করুন";
+/* Button in the About screen */
+"report_incorrect_map_bug" = "Report or fix incorrect map data";
+/* Button in the About screen */
+"volunteer" = "Volunteer";
+/* "Social media" section header in the About screen */
+"follow_us" = "আমাদের সাথে সংযোগ করুন";
+/* Alert text */
+"email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
+/* Alert title */
+"email_error_title" = "Error sending email";
+/* Toast text when user hides UI with a long tap anywhere on the map */
+"long_tap_toast" = "ইন্টারফেসটি দেখতে আবার মানচিত্রে দীর্ঘক্ষণ টিপুন";
+/* Update all button text */
+"downloader_update_all_button" = "সব আপডেট করুন";
+/* Downloaded maps list header */
+"downloader_downloaded_subtitle" = "ডাউনলোড করা";
+/* Downloaded maps category */
+"downloader_available_maps" = "Available";
+/* Country queued for download */
+"downloader_queued" = "সারিবদ্ধ";
+"downloader_near_me_subtitle" = "আমার নিকটে";
+/* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
+"downloader_status_maps" = "মানচিত্র";
+"downloader_download_all_button" = "সব ডাউনলোড করুন";
+"downloader_downloading" = "ডাউনলোড হচ্ছে:";
+"downloader_search_results" = "Found";
+/* Status of outdated country in the list */
+"downloader_status_outdated" = "Update";
+/* Status of failed country in the list */
+"downloader_status_failed" = "Failed";
+/* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
+"downloader_delete_map_while_routing_dialog" = "To delete map, please stop navigation।";
+/* PointsInDifferentMWM */
+"routing_failed_cross_mwm_building" = "রুটগুলি শুধুমাত্র তৈরি করা যেতে পারে যা সম্পূর্ণরূপে একটি একক অঞ্চলের মানচিত্রের মধ্যে আছে।";
+/* Context menu item for downloader. */
+"downloader_download_map" = "মানচিত্র ডাউনলোড করুন";
+/* Item status in downloader. */
+"downloader_retry" = "পুনরায় চেষ্টা করুন";
+/* Item in context menu. */
+"downloader_delete_map" = "মানচিত্র ডিলিট করুন";
+/* Text for routing error dialog */
+"routing_download_maps_along" = "আপনার রুটের সমস্ত মানচিত্র ডাউনলোড করুন";
+/* Text for routing error dialog */
+"routing_requires_all_map" = "একটি রুট তৈরি করার জন্য, আমাদের আপনার অবস্থান থেকে আপনার গন্তব্য পর্যন্ত সমস্ত মানচিত্র ডাউনলোড এবং আপডেট করতে হবে।";
+/* bookmark button text */
+"bookmark" = "bookmark";
+"save" = "সংরক্ষণ করুন";
+"create" = "তৈরি করুন";
+/* red color */
+"red" = "Red";
+/* yellow color */
+"yellow" = "হলুদ";
+/* blue color */
+"blue" = "Blue";
+/* green color */
+"green" = "Green";
+/* purple color */
+"purple" = "বেগুনি";
+/* orange color */
+"orange" = "কমলা";
+/* brown color */
+"brown" = "বাদামী";
+/* pink color */
+"pink" = "গোলাপি";
+/* deep purple color */
+"deep_purple" = "গাঢ় বেগুনি";
+/* light blue color */
+"light_blue" = "হাল্কা নীল";
+/* cyan color */
+"cyan" = "সায়ান";
+/* teal color */
+"teal" = "টিল";
+/* lime color */
+"lime" = "লাইম";
+/* deep orange color */
+"deep_orange" = "গাঢ় কমলা";
+/* gray color */
+"gray" = "ধূসর";
+/* blue gray color */
+"blue_gray" = "ধূসর নীল";
+"dialog_routing_disclaimer_title" = "রুটটি অনুসরণ করার সময়, দয়া করে মনে রাখবেন:";
+"dialog_routing_disclaimer_priority" = "— রাস্তার অবস্থা, ট্রাফিক আইন এবং রাস্তার চিহ্নগুলি সর্বদা নেভিগেশন ইঙ্গিতের চেয়ে অগ্রাধিকার পায়;";
+"dialog_routing_disclaimer_precision" = "— মানচিত্রটি ভুল হতে পারে, এবং প্রস্তাবিত রুটটি সর্বদা গন্তব্যে পৌঁছানোর সবচেয়ে অনুকূল উপায় নাও হতে পারে;";
+"dialog_routing_disclaimer_recommendations" = "— প্রস্তাবিত রুটগুলিকে কেবল সুপারিশ হিসেবেই বোঝা উচিত;";
+"dialog_routing_disclaimer_borders" = "— সীমান্তবর্তী অঞ্চলে রুট ব্যবহারে সতর্কতা অবলম্বন করুন: আমাদের অ্যাপ দ্বারা তৈরি রুটগুলি সম্ভবত অননুমোদিত স্থানে দেশের সীমানা অতিক্রম করতে পারে।";
+"dialog_routing_disclaimer_beware" = "দয়া করে রাস্তায় সতর্ক এবং নিরাপদ থাকুন!";
+"dialog_routing_check_gps" = "জিপিএস সিগন্যাল পরীক্ষা করুন";
+"dialog_routing_error_location_not_found" = "রুট তৈরি করা যায়নি। বর্তমান জিপিএস স্থানাঙ্ক সনাক্ত করা যায়নি।";
+"dialog_routing_location_turn_wifi" = "আপনার জিপিএস সিগন্যাল পরীক্ষা করুন। ওয়াইফাই সক্ষম করলে আপনার অবস্থানের নির্ভুলতা উন্নত হবে।";
+"dialog_routing_location_turn_on" = "অবস্থানের পরিষেবা চালু করুন";
+"dialog_routing_location_unknown_turn_on" = "আপনার বর্তমান জিপিএস স্থানাঙ্ক সনাক্ত করা যায়নি। রুট গণনা করতে অবস্থান পরিষেবা সক্ষম করুন।";
+"dialog_routing_download_files" = "Download required files";
+"dialog_routing_download_and_update_all" = "Download or update all maps along the projected path to calculate a route।";
+"dialog_routing_unable_locate_route" = "রুট সনাক্ত করা যাচ্ছে না";
+"dialog_routing_change_start_or_end" = "দয়া করে আপনার শুরুর স্থান বা গন্তব্য পুনরায় ঠিক করুন।";
+"dialog_routing_change_start" = "শুরুর স্থান পুনরায় ঠিক করুন";
+"dialog_routing_start_not_determined" = "রুট তৈরি করা হয়নি। শুরুর স্থান চিহ্নিত করা যাচ্ছে না।";
+"dialog_routing_select_closer_start" = "দয়া করে শুরুর স্থানটি বদলে রাস্তার সামনে আনুন।";
+"dialog_routing_change_end" = "গন্তব্য পুনরায় ঠিক করুন";
+"dialog_routing_end_not_determined" = "রুট তৈরি করা হয়নি। গন্তব্যের স্থান চিহ্নিত করা যাচ্ছে না।";
+"dialog_routing_select_closer_end" = "Please select a destination point located closer to a road।";
+"dialog_routing_change_intermediate" = "Unable to locate the intermediate point।";
+"dialog_routing_intermediate_not_determined" = "Please adjust your intermediate point।";
+"dialog_routing_system_error" = "সিস্টেমের ত্রুটি";
+"dialog_routing_application_error" = "Unable to create route due to an application error।";
+"dialog_routing_try_again" = "অনুগ্রহ করে পুনরায় চেষ্টা করুন";
+"dialog_routing_download_and_build_cross_route" = "আপনি কি মানচিত্রটি ডাউনলোড করে একাধিক মানচিত্র বিস্তৃত একটি সর্বোত্তম রুট তৈরি করতে চান?";
+"dialog_routing_download_cross_route" = "এই মানচিত্রের সীমানা অতিক্রম করে আরও ভালো রুট তৈরি করতে অতিরিক্ত মানচিত্র ডাউনলোড করুন।";
+/* «Show» context menu */
+"show" = "দেখান";
+/* «Hide» context menu */
+"hide" = "লুকিয়ে দিন";
+/* Failed planning route message in navigation view */
+"routing_planning_error" = "Route Planning Failed";
+/* Arrive routing message in navigation view */
+"routing_arrive" = "Arrival at %@";
+/* Text for routing::RouterResultCode::FileTooOld dialog. */
+"dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route।";
+"categories" = "শ্রেণীসমূহ";
+"history" = "ইতিহাস";
+"search_not_found" = "Oops, no results found।";
+/* The message when user did not find anything in the search. */
+"search_not_found_query" = "আপনি যে অঞ্চলটি খুঁজছেন সেটি ডাউনলোড করুন অথবা কাছাকাছি একটি শহর বা গ্রামের নাম যোগ করার চেষ্টা করুন।";
+"search_history_title" = "খোঁজের ইতিহাস";
+"search_history_text" = "View your recent searches।";
+"clear_search" = "অনুসন্ধাণের ইতিহাস মুছে দিন";
+/* Place Page link to Wikipedia article (if map object has it). */
+"read_in_wikipedia" = "উইকিপিডিয়া";
+/* Place Page link to Wikimedia Commons. */
+"wikimedia_commons" = "উইকিমিডিয়া কমন্স";
+"p2p_your_location" = "আপনার অবস্থান";
+"p2p_start" = "চালু করুন";
+"p2p_from_here" = "এখান থেকে রুট বানান";
+"p2p_to_here" = "এই অব্দি রুট বানান";
+"p2p_only_from_current" = "Navigation is only available from your current location।";
+"p2p_reroute_from_current" = "আপনি কি আপনার বর্তমান অবস্থান থেকে একটি রুট পরিকল্পনা করতে চান?";
+"editor_time_add" = "সময়সূচী যোগ করুন";
+"editor_time_delete" = "সময়সূচী মুছুন";
+/* Text for allday switch. */
+"editor_time_allday" = "সারাদিন (২৪ ঘন্টা)";
+"editor_time_open" = "খোলা";
+"editor_time_close" = "বন্ধ";
+"editor_time_add_closed" = "বাণিজ্যের সময়ে বাদে সময় যোগ করুন";
+"editor_time_title" = "বাণিজ্যের সময়";
+"editor_time_advanced" = "অ্যাডভান্সড মোড";
+"editor_time_simple" = "সহজ মোড";
+"editor_hours_closed" = "অবাণিজ্যিক সময়";
+"editor_example_values" = "উদাহরণ মান";
+"editor_add_select_location" = "অবস্থান বেছে নিন";
+"editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together।";
+"share_with_friends" = "Share with friends";
+"editor_report_problem_send_button" = "পাঠান";
+"autodownload" = "মানচিত্র অটো-ডাউনলোড করুন";
+/* Voice */
+"voice" = "Voice";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Unknown";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Existence confirmed %@";
+"hours_confirmed_time_ago" = "Confirmed %@";
+/* Place Page opening hours text */
+"closed_now" = "এখন বন্ধ";
+/* Place Page opening hours text */
+"daily" = "প্রতিদিন";
+"twentyfour_seven" = "২৪/৭";
+"day_off_today" = "আজকে বন্ধ";
+"day_off" = "বন্ধ";
+"today" = "আজকে";
+"opens_tomorrow_at" = "Opens tomorrow at %@";
+"opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
+"opens_at" = "Opens at %@";
+"opens_in" = "Opens in %@";
+"closes_at" = "%@ এ বন্ধ হবে";
+"closes_in" = "%@ এর মধ্যে বন্ধ হবে";
+"closed" = "বন্ধ";
+"add_opening_hours" = "Add opening hours";
+/* OpenStreetMap */
+"osm_mapdata" = "OpenStreetMap থেকে মানচিত্রের তথ্য";
+"osm_mapdata_explanation %@" = "Community-created map data as of *%@*. Learn more about how to edit and update the map at [OpenStreetMap.org](https://openstreetmap.org)।";
+"osm_more_about" = "More about OpenStreetMap";
+"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+/* OpenStreetMap Profile */
+"osm_profile" = "OpenStreetMap profile";
+"osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world।";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) হল একটি সাম্প্রদায়িক প্রকল্প যা একটি মুক্ত ও উন্মুক্ত মানচিত্র তৈরি করে। এটি CoMaps-এ মানচিত্র তথ্যের প্রধান উৎস এবং উইকিপিডিয়ার মতোই কাজ করে। আপনি স্থান যোগ বা সম্পাদনা করতে পারেন এবং সেগুলো সারা বিশ্বের লক্ষ লক্ষ ব্যবহারকারীর জন্য উপলব্ধ হয়ে ওঠে।\nসম্প্রদায়ে যোগ দিন এবং সবার জন্য একটি আরও ভালো মানচিত্র তৈরি করতে সাহায্য করুন!";
+"osm_profile_login" = "OpenStreetMap অ্যাকাউন্টে লগইন করুন";
+"osm_profile_reauthorize_promt" = "OpenStreetMap অ্যাকাউন্টটি এই অ্যাপ থেকে সংযোগ বিচ্ছিন্ন করা হয়েছে";
+"osm_profile_reauthorize" = "OpenStreetMap এর সাথে পুনরায় সংযোগ করুন";
+"osm_profile_remove_promt" = "যদি আপনি আপনার অ্যাকাউন্ট পুনরায় সংযুক্ত করতে না পারেন বা না চান, তাহলে আপনি এটিকে এই অ্যাপ থেকে সরিয়ে দিতে পারেন";
+"osm_profile_remove" = "OpenStreetMap অ্যাকাউন্ট সরান";
+"osm_profile_register_promt" = "Don't have an OpenStreetMap account?";
+"osm_profile_register" = "Register at OpenStreetMap";
+"osm_profile_verfied_changes" = "Verified Changes";
 "osm_profile_view_edit_history" = "সম্পাদনাসমূহর ইতিহাস দেখুন";
 "osm_profile_view_notes" = "নোট দেখুন";
-"social_bluesky" = "Bluesky";
-"deep_purple" = "গাঢ় বেগুনি";
-"light_blue" = "হাল্কা নীল";
-"cyan" = "সায়ান";
-"dialog_routing_unable_locate_route" = "রুট সনাক্ত করা যাচ্ছে না";
-"p2p_start" = "চালু করুন";
-"editor_hours_closed" = "অবাণিজ্যিক সময়";
-"opens_at" = "Opens at %@";
-"opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
+"osm_profile_logout" = "OpenStreetMap অ্যাকাউন্ট থেকে লগ আউট করুন";
+"osm_profile_delete" = "OpenStreetMap অ্যাকাউন্ট মুছুন";
+/* Information text: "Last upload 11.01.2016" */
+"last_upload" = "Last upload";
+"thank_you" = "Thank You";
+"edit_place" = "স্থানটি পরিবর্তন করুন";
+"place_name" = "Place Name";
+"add_language" = "একটি ভাষা যোগ করুন";
+/* Editable House Number text field (in address block). */
+"house_number" = "বিল্ডিং নম্বর";
+"details" = "বিস্তারিত";
+/* Text field to enter non-existing street name, below list of known streets around */
+"add_street" = "একটি রাস্তা অ্যাড করুন";
 "choose_language" = "একটি ভাষা বেছে নিন";
-"operator" = "Operator: %@";
-"mi" = "মাইল";
-"hour" = "ঘ";
-"error_enter_correct_phone" = "সঠিক ফোন নম্বর দিন";
-"button_layer_subway" = "Subway";
-"capacity" = "Capacity: %@";
-"ok" = "আচ্ছা";
-"switch_to_phone_bookmarks_carplay" = "Switch to the phone to see all bookmarks";
-"tourist_places" = "দর্শনীয় স্থান";
-"whats_new_auto_update_button_later" = "Manually update later";
-"app_tip_04" = "Tap anywhere on the map to select anything. A long tap is used to hide and show the interface।";
-"enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
-"edit_track" = "Edit Track";
-"cancel_download" = "ডাউনলোড বাতিল করুন";
-"leave_a_review" = "একটি রিভিউ দিয়ে যান";
-"downloading" = "ডাউনলোডরত…";
-"delete" = "মুছুন";
-"miles" = "মাইল";
-"cancel" = "বাতিল";
-"download_maps" = "মানচিত্র ডাউনলোড করুন";
-"category_toilet" = "শৌচালয়";
-"add_new_set" = "নতুন তালিকা বানান";
-"category_shopping" = "কেনাকাটা";
-"share_my_location" = "আমার অবস্থানটি শেয়ার করুন";
-"my_position_share_email_subject" = "নমস্কার, আমার বর্তমান অবস্থানটি CoMaps অ্যাপে দেখুন!";
-"copied_to_clipboard" = "Copied to clipboard: %@";
-"category_water" = "জল";
-"category_rv" = "আর ভি সুযোগ-সুবিধা";
-"category_recycling" = "রিসাইক্লিং";
-"load_kmz_failed" = "প্রিয় তালিকা লোড করা যায়নি। ফাইলটি সম্ভবত নষ্ট বা অব্যবহারযোগ্য হতে পারে।";
-"prefs_group_route" = "নেভিগেশন";
-"info" = "Info";
-"pref_appearance_title" = "Appearance";
-"unknown_current_position" = "আপনার অবস্থানটি এখনও অব্দি চিহ্নিত করা যায়নি";
-"email" = "ইমেইল";
-"placepage_distance" = "দুরত্ব";
-"website" = "ওয়েবসাইট";
-"search_show_on_map" = "মানচিত্রে দেখুন";
-"twitter" = "এক্স (টুইটার)";
-"pref_tts_title" = "Voice Instructions";
-"pref_tts_street_names_description" = "সক্রিয় করা হলে, যে রাস্তা বা প্রস্থানের দিকে ঘুরতে হবে তার নাম বলা হবে।";
-"pref_tts_test_voice_title" = "আওয়াজ দ্বারা দিকনির্দেশনা পরীক্ষা করুন";
-"pref_map_auto_zoom" = "স্বয়ংক্রিয় জুম";
-"pref_tts_language_title" = "আওয়াজের ভাষা";
-"facebook" = "ফেসবুক";
-"instagram" = "ইনস্টাগ্রাম";
-"vk" = "ভিকে";
-"pref_tts_street_names_title" = "রাস্তার নাম ঘোষণা করুন";
-"pref_tts_other_section_title" = "Other";
-"line" = "Line";
-"news" = "সংবাদ";
-"button_convert" = "Convert";
-"open_in_app" = "Open in Another App";
-"faq" = "প্রায়শই জিজ্ঞাসিত প্রশ্ন";
-"pref_map_3d_buildings_disabled_summary" = "3D বিল্ডিং দেখানো পাওয়ার সাশ্রয় মোডে বন্ধ হয়ে যায়";
-"pref_map_3d_buildings_title" = "3D বিল্ডিং";
-"email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
-"disabled" = "Disabled";
-"donate" = "দান করুন";
-"volunteer" = "Volunteer";
-"long_tap_toast" = "ইন্টারফেসটি দেখতে আবার মানচিত্রে দীর্ঘক্ষণ টিপুন";
-"report_a_bug" = "বাগ রিপোর্ট করুন";
-"copyright" = "স্বত্ব";
-"pref_left_button_type" = "Left Main Button";
-"rate_the_app" = "অ্যাপটি রেট করুন";
-"email_error_title" = "Error sending email";
-"help" = "সাহায্য";
-"report_incorrect_map_bug" = "Report or fix incorrect map data";
+"choose_street" = "একটি রাস্তা বেছে নিন";
+"postal_code" = "ডাক কোড|পিন কোড";
+"cuisine" = "রন্ধনপ্রণালী";
+"select_cuisine" = "রন্ধনপ্রণালী নির্বাচন করুন";
+/* login text field */
+"email_or_username" = "ইমাইল বা ইউইজারনেম";
+"phone" = "Phone";
+"level" = "তলা";
+"please_note" = "Please note";
+"downloader_delete_map_dialog" = "All of your map edits will be deleted with the map।";
+"downloader_update_maps" = "মানচিত্রগুলি আপডেট করুন";
+"downloader_search_field_hint" = "মানচিত্র খুঁজুন";
+"migration_download_error_dialog" = "Download error";
+"common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet।";
 "downloader_no_space_title" = "পর্যাপ্ত যায়গা নেই";
-"downloader_hide_screen" = "Hide Screen";
-"animals" = "পশুপাখি";
-"isolines_toast_zooms_1_10" = "Zoom in to explore isolines";
-"icloud_disabled_title" = "iCloud Is Disabled";
-"osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world।";
-"osm_more_about" = "More about OpenStreetMap";
-"osm_profile" = "OpenStreetMap profile";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) হল একটি সাম্প্রদায়িক প্রকল্প যা একটি মুক্ত ও উন্মুক্ত মানচিত্র তৈরি করে। এটি CoMaps-এ মানচিত্র তথ্যের প্রধান উৎস এবং উইকিপিডিয়ার মতোই কাজ করে। আপনি স্থান যোগ বা সম্পাদনা করতে পারেন এবং সেগুলো সারা বিশ্বের লক্ষ লক্ষ ব্যবহারকারীর জন্য উপলব্ধ হয়ে ওঠে।\nসম্প্রদায়ে যোগ দিন এবং সবার জন্য একটি আরও ভালো মানচিত্র তৈরি করতে সাহায্য করুন!";
-"osm_profile_register_promt" = "Don't have an OpenStreetMap account?";
-"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+"downloader_no_space_message" = "দয়া করে কোনও অদরকারি ডেটা ডিলিট করুন";
+"editor_profile_changes" = "যাচাইকৃত পরিবর্তনগুলি";
+"editor_focus_map_on_location" = "স্থান বা ব্যবসার স্থানের চিহ্নটি স্থাপন করতে মানচিত্রটি টেনে আনুন।";
+"editor_add_select_category" = "Select category";
+"editor_add_select_category_popular_subtitle" = "Popular";
+"editor_add_select_category_all_subtitle" = "All Categories";
+"editor_edit_place_title" = "সম্পাদনা";
+"editor_add_place_title" = "যোগ করা হচ্ছে";
+"editor_edit_place_name_hint" = "স্থানের নাম";
+/* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
+"editor_default_language_hint" = "স্থানীয় ভাষায় যেমন লেখা আছে";
+"editor_edit_place_category_title" = "শ্রেণি";
+"whatsnew_editor_message_1" = "Add new places to the map, and edit existing ones directly from the app।";
+"dialog_incorrect_feature_position" = "Change location";
+"message_invalid_feature_position" = "এখানে কোনও বস্তু পাওয়া যাচ্ছে না";
+/* Error dialog no space */
+"migration_no_space_message" = "To download, you need more space. Please delete any unnecessary data।";
+"editor_sharing_title" = "I improved the CoMaps maps";
+/* Downloaded 10 **of** 20 <- it is that "of" */
+"downloader_of" = "%2$d এর মধ্যে %1$d";
+"download_over_mobile_header" = "সেলুলার নেটওয়ার্ক সংযোগের মাধ্যমে ডাউনলোড করতে চান?";
+"download_over_mobile_message" = "This could be considerably expensive with some plans or if roaming।";
+"error_enter_correct_house_number" = "সঠিক বিল্ডিং নম্বর দিন";
+"editor_storey_number" = "Number of floors (maximum of %d)";
+/* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
+"error_enter_correct_storey_number" = "বাড়ির তলার সংখ্যা %d এর বেশি না হয়";
+"editor_zip_code" = "ডাক কোড";
+"error_enter_correct_zip_code" = "সঠিক ডাক কোড প্রদান করুন";
+/* Place Page title for long tap */
+"core_placepage_unknown_place" = "মানচিত্র বিন্দু";
+/* Title for OSM note section in the editor */
+"editor_other_info" = "OpenStreetMap স্বেচ্ছাসেবকদের জন্য নোট (ঐচ্ছিক)";
+"editor_detailed_description_hint" = "Detailed comment";
+"editor_detailed_description" = "Your suggested map changes will be sent to the OpenStreetMap community. Please describe any additional details that cannot be edited in CoMaps।";
+"editor_more_about_osm" = "আরো OpenStreetMap সম্বন্ধে";
+"editor_operator" = "Operator";
+/* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
+"operator" = "Operator: %@";
+"editor_category_unsuitable_title" = "উপযুক্ত শ্রেণী খুঁজে পাচ্ছেন না?";
+"editor_category_unsuitable_text" = "CoMaps শুধুমাত্র সাধারণ বিন্দু শ্রেণী যোগ করার অনুমতি দেয়, অর্থাৎ শহর, রাস্তা, হ্রদ, ভবনের রূপরেখা ইত্যাদি নয়। অনুগ্রহ করে এই ধরনের শ্রেণী সরাসরি <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> এ যোগ করুন। বিস্তারিত ধাপে ধাপে নির্দেশনার জন্য আমাদের <a href=\"https://www.comaps.app/support/advanced-map-editing/\">গাইড</a> টি দেখুন।";
+"downloader_no_downloaded_maps_title" = "আপনি কোনো মানচিত্র ডাউনলোড করেননি";
+"downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline।";
+"current_location_unknown_error_title" = "Current location is unknown।";
 "current_location_unknown_error_message" = "An error occurred while determining your location. Check that your device is working properly and try again later।";
-"others_sorttype" = "অন্যান্য";
-"save" = "সংরক্ষণ করুন";
-"downloader_delete_map_while_routing_dialog" = "To delete map, please stop navigation।";
-"downloader_retry" = "পুনরায় চেষ্টা করুন";
-"downloader_search_results" = "Found";
-"create" = "তৈরি করুন";
-"downloader_downloading" = "ডাউনলোড হচ্ছে:";
-"downloader_status_outdated" = "Update";
-"routing_download_maps_along" = "আপনার রুটের সমস্ত মানচিত্র ডাউনলোড করুন";
-"downloader_download_map" = "মানচিত্র ডাউনলোড করুন";
-"bookmark" = "bookmark";
-"green" = "Green";
-"yellow" = "হলুদ";
-"downloader_delete_map" = "মানচিত্র ডিলিট করুন";
-"red" = "Red";
-"downloader_status_failed" = "Failed";
-"routing_failed_cross_mwm_building" = "রুটগুলি শুধুমাত্র তৈরি করা যেতে পারে যা সম্পূর্ণরূপে একটি একক অঞ্চলের মানচিত্রের মধ্যে আছে।";
-"purple" = "বেগুনি";
-"blue" = "Blue";
+"location_services_disabled_header" = "Location services are disabled";
+"location_services_disabled_message" = "Enable access to geolocation in the device settings";
+"location_services_disabled_1" = "1. Open Settings";
+"location_services_disabled_2" = "2. Tap Location";
+/* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
+"location_services_disabled_3" = "3. Select While Using the App";
+"location_services_disabled_on_device_2" = "২. গোপনীয়তা বাছুন";
+"location_services_disabled_on_device_3" = "3. Select Location Services";
+"location_services_disabled_on_device_4" = "4. Turn on Location Services";
+"location_services_disabled_on_device_additional_message" = "Or continue using CoMaps without Location";
+/* abbreviation for meters */
+"m" = "মি";
+/* abbreviation for kilometers */
+"km" = "কিমি";
+/* abbreviation for kilometers per hour */
+"kilometers_per_hour" = "কিমি/ঘ";
+/* abbreviation for mile(s) */
+"mi" = "মাইল";
+/* A unit of measure */
+"ft" = "ফুট";
+"miles_per_hour" = "mph";
+"hour" = "ঘ";
+"minute" = "মিন";
+"day" = "দিন";
+"placepage_more_button" = "আরো";
+"book_button" = "Book";
+"placepage_call_button" = "Call";
+"placepage_edit_bookmark_button" = "সংরক্ষিত স্থানগুলি সম্পাদনা করুন";
+"placepage_bookmark_name_hint" = "Bookmark Name";
+"placepage_personal_notes_hint" = "ব্যক্তিগত নোট (টেক্সট বা html)";
+"placepage_delete_bookmark_button" = "Delete Bookmark";
+"editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
+"editor_comment_hint" = "Comment…";
+"editor_reset_edits_message" = "সমস্ত স্থানীয় পরিবর্তন বাতিল করতে চান?";
+"editor_reset_edits_button" = "পরিবর্তনগুলো বাতিল করুন";
+"editor_remove_place_message" = "যুক্ত স্থানগুলি মুছে দিতে চান?";
+"editor_remove_place_button" = "মুছুন";
+"editor_place_doesnt_exist" = "স্থানটি অস্তিত্বই নেই";
+"editor_place_doesnt_exist_description" = "ত্রুটির নোট পাঠানোর জন্য OpenStreetMap সম্প্রদায়কে এখন ওই স্থানটির বর্ণনা দিন";
+"text_more_button" = "…more";
+/* Phone number error message */
+"error_enter_correct_phone" = "সঠিক ফোন নম্বর দিন";
+"error_enter_correct_web" = "সঠিক ওয়েব এড্রেস দিন";
+"error_enter_correct_email" = "সঠিক ইমেইল দিন";
+"refresh" = "Update";
+"placepage_add_place_button" = "OpenStreetMap এ স্থান যোগ করুন";
+/* Displayed when saving some edits to the map to warn against publishing personal data */
+"editor_share_to_all_dialog_title" = "Do you want to send it to all users?";
+/* Dialog before publishing the modifications to the public map. */
+"editor_share_to_all_dialog_message_1" = "Make sure you did not enter any private or personal data।";
+"editor_share_to_all_dialog_message_2" = "OpenStreetMap editors will check the changes and contact you if they have any questions।";
+"navigation_stop_button" = "থামান";
+/* iOS dialog for the case when recent track recording is on and the app comes back from background */
+"recent_track_background_dialog_title" = "Disable recording of your recently travelled route?";
+"off_recent_track_background_button" = "Disable";
+/* For sharing via SMS and so on */
+"sharing_call_action_look" = "Check out";
+"recent_track_background_dialog_message" = "CoMaps uses your location in the background to record your recently travelled route।";
+"general_settings" = "General settings";
+/* For the first routing */
+"accept" = "স্বীকার করুন";
+/* For the first routing */
+"decline" = "অস্বীকার করুন";
+"mobile_data_dialog" = "Use mobile internet to show detailed information?";
+"mobile_data_option_always" = "Use Always";
+"mobile_data_option_today" = "Only Today";
+"mobile_data_option_not_today" = "Do Not Use Today";
 "mobile_data" = "Mobile Internet";
+/* NOTE to translators: please synchronize your translation with the English one. */
+"mobile_data_description" = "Mobile internet is required for map update notifications and uploading edits।";
+"mobile_data_option_never" = "Never Use";
+"mobile_data_option_ask" = "সর্বদা জিজ্ঞেস করুন";
+"traffic_update_maps_text" = "To display traffic data, maps must be updated।";
+"big_font" = "Increase size for map labels";
+/* "traffic" as in road congestion */
+"traffic_update_app_message" = "To display traffic data, the application must be updated।";
+/* "traffic" as in "road congestion" */
+"traffic_data_unavailable" = "Traffic data is not available";
+"enable_logging" = "Enable logging";
+"log_file_size" = "Log file size: %@";
+"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "Use in system order";
+"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"transliteration_title" = "Transliterate into Latin alphabet";
+"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
+/* Subway exits for public transport marks on the map */
+"core_exit" = "প্রস্থান";
+/* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
+"routing_add_start_point" = "Use search or tap on the map to add a route starting point";
+/* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
+"routing_add_finish_point" = "Use search or tap on the map to add a destination point";
+"planning_route_manage_route" = "Manage Route";
+"button_plan" = "পরিকল্পনা করুন";
+"placepage_remove_stop" = "Remove Stop";
+"planning_route_remove_title" = "Drag here to remove";
+"placepage_add_stop" = "Add Stop";
+"start_from_my_position" = "Start from";
+/* Title for button when a route was saved. */
+"saved" = "সংরক্ষণ";
 "core_entrance" = "প্রবেশ";
-"bookmarks_import" = "Import Bookmarks and Tracks";
-"bookmark_lists_hide_all" = "Hide all";
-"bookmark_lists" = "Lists";
-"bookmarks_create_new_group" = "একটি নতুন তালিকা তৈরি করুন";
 "error_enter_correct_name" = "Please enter a correct name";
+"bookmark_lists" = "Lists";
+/* Do not display all bookmark lists on the map */
+"bookmark_lists_hide_all" = "Hide all";
 "bookmark_lists_show_all" = "Show all";
-"pref_appearance_dark" = "Dark";
-"about_proposition_3" = "Transparent and not for profit";
-"on" = "চালু";
-"off" = "বন্ধ";
-"pref_map_3d_title" = "দৃষ্টিকোণ দৃশ্য";
-"auto" = "স্বয়ংক্রিয়";
-"categories" = "শ্রেণীসমূহ";
-"routing_planning_error" = "Route Planning Failed";
+"bookmarks_create_new_group" = "একটি নতুন তালিকা তৈরি করুন";
+/* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
+"bookmarks_import" = "Import Bookmarks and Tracks";
+"downloader_hide_screen" = "Hide Screen";
+"downloader_percent" = "%@ (%@ of %@)";
+"downloader_process" = "Downloading %@…";
+"downloader_applying" = "Applying %@…";
+"bookmarks_error_message_share_general" = "Unable to share due to an application error";
+"bookmarks_error_title_share_empty" = "Sharing error";
+"bookmarks_error_message_share_empty" = "Cannot share an empty list";
+"bookmarks_error_message_empty_list_name" = "Please enter the list name";
+"bookmarks_error_title_list_name_already_taken" = "This name is already taken";
+"bookmarks_error_title_list_name_too_long" = "This name is too long";
+"profile" = "OpenStreetMap profile";
+"bookmarks_detect_title" = "New files detected";
+"button_convert" = "Convert";
+"bookmarks_convert_error_title" = "Error";
+"bookmarks_convert_error_message" = "Some files were not converted।";
+"restore" = "পুনরুদ্ধার করুন";
+"privacy_policy" = "গোপনীয়তা নীতি";
+"terms_of_use" = "Terms of use";
+"button_layer_subway" = "Subway";
+"layers_title" = "Map Styles and Layers";
+"subway_data_unavailable" = "সাবওয়ে মানচিত্র অনুপলব্ধ";
+"title_error_downloading_bookmarks" = "An error occurred";
+"popular_place" = "Popular";
+"export_file" = "Export KMZ";
+"export_file_gpx" = "Export GPX";
+"delete_list" = "Delete list";
+"hide_from_map" = "Hide from map";
+"tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
+"download_button" = "Download";
+"speedcams_alert_title" = "Speed cameras";
+"place_description_title" = "Place Description";
+/* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
+"pref_tts_speedcams_auto" = "Warn if speeding";
+/* Speed camera settings menu option - Always warn (about speedcams) */
+"pref_tts_speedcams_always" = "সর্বদা সতর্ক করুন";
+/* Speed camera settings menu option - Never warn (about speedcams) */
+"pref_tts_speedcams_never" = "Never warn";
+"power_managment_title" = "Power saving mode";
+"power_managment_description" = "Try to reduce power usage at the expense of some functionality।";
+"power_managment_setting_never" = "Never";
+"power_managment_setting_auto" = "When battery is low";
+"power_managment_setting_manual_max" = "সর্বদা";
+"enable_logging_warning_message" = "Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info।";
+"driving_options_title" = "Routing options";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_tolls" = "টোল এড়িয়ে চলুন";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_unpaved" = "কাঁচা রাস্তা এড়িয়ে চলুন";
+"avoid_paved" = "পাকা রাস্তা এড়িয়ে চলুন";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "সিঁড়ি এড়িয়ে চলুন";
+"avoid_ferry" = "ফেরি এড়িয়ে চলুন";
+"avoid_motorways" = "Avoid freeways";
+"unable_to_calc_alert_title" = "Unable to calculate route";
+"unable_to_calc_alert_subtitle" = "A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry।";
+"define_to_avoid_btn" = "Define roads to avoid";
+"change_driving_options_btn" = "Routing options enabled";
+"toll_road" = "Toll road";
+"unpaved_road" = "Unpaved road";
+"ferry_crossing" = "Ferry crossing";
+"trip_start" = "Let's go";
+"pick_destination" = "Destination";
+"follow_my_position" = "Re-center";
+"search_results" = "Search results";
+"then_turn" = "Then";
+"redirect_route_alert" = "Do you want to rebuild the route?";
+/* A generic "Yes" button in dialogs */
+"yes" = "হ্যাঁ";
+/* A generic "No" button in dialogs */
+"no" = "না";
+/* E.g. "WiFi:Yes" */
+"yes_available" = "হ্যাঁ";
+/* E.g. "WiFi:No" */
+"no_available" = "না";
+/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
+"capacity" = "Capacity: %@";
+/* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
+"network" = "Network: %@";
+"trip_finished" = "You have arrived!";
+"keyboard_availability_alert" = "Keyboard is not available while driving";
+"dialog_routing_change_start_carplay" = "Unable to build a route from your current location";
+"dialog_routing_change_end_carplay" = "Unable to find a route to your destination. Please choose another end point";
+"dialog_routing_check_gps_carplay" = "No GPS signal. Please move to an open area";
+"dialog_routing_unable_locate_route_carplay" = "Unable to build a route. Please specify other route points";
+"dialog_routing_download_files_carplay" = "To create a route, download missing maps on your device";
+"dialog_routing_system_error_carplay" = "An error occurred. Please restart the application";
+"dialog_routing_rebuild_from_current_location_carplay" = "The route will be rebuilt from your current location";
+"dialog_routing_rebuild_for_vehicle_carplay" = "The route will be converted into an automobile one";
+"not_all_shown_bookmarks_carplay" = "Not all bookmarks are shown";
+"switch_to_phone_bookmarks_carplay" = "Switch to the phone to see all bookmarks";
+"ok" = "আচ্ছা";
+"speedcams_alert_title_carplay_1" = "Speedсams";
+"speedcams_alert_title_carplay_2" = "Speed warnings";
+"download_map_carplay" = "Please download maps in the app on your mobile device";
+"carplay_roundabout_exit" = "%@ exit";
+/* max. 10 symbols, both iOS and Android */
+"sort" = "Sort…";
+/* iOS */
+"sort_default" = "Sort by default";
+"sort_type" = "Sort by type";
+"sort_distance" = "Sort by distance";
+"sort_date" = "Sort by date";
+"sort_name" = "Sort by name";
+"week_ago_sorttype" = "এক সপ্তাহ আগে";
+"month_ago_sorttype" = "এক মাস আগে";
+"moremonth_ago_sorttype" = "More than a month ago";
+"moreyear_ago_sorttype" = "More than a year ago";
+"near_me_sorttype" = "Near me";
+"others_sorttype" = "অন্যান্য";
+"food_places" = "খাবার";
+"tourist_places" = "দর্শনীয় স্থান";
+"museums" = "জাদুঘর";
+"parks" = "Parks";
+"swim_places" = "Swim";
+"mountains" = "পাহাড়";
+"animals" = "পশুপাখি";
+"hotels" = "হোটেল";
+"buildings" = "Buildings";
+"money" = "টাকা";
+"shops" = "দোকান";
+"parkings" = "পার্কিং";
+"fuel_places" = "Gas Stations";
 "medicine" = "ওষুধ";
 "search_in_the_list" = "তালিকাতে খুঁজুন";
 "religious_places" = "Religious places";
-"car_continue_in_the_car" = "To the car screen";
-"drive_through" = "Drive-through";
-"dialog_routing_location_turn_on" = "অবস্থানের পরিষেবা চালু করুন";
-"restore" = "পুনরুদ্ধার করুন";
-"money" = "টাকা";
-"button_layer_outdoor" = "Outdoors";
-"editor_category_unsuitable_text" = "CoMaps শুধুমাত্র সাধারণ বিন্দু শ্রেণী যোগ করার অনুমতি দেয়, অর্থাৎ শহর, রাস্তা, হ্রদ, ভবনের রূপরেখা ইত্যাদি নয়। অনুগ্রহ করে এই ধরনের শ্রেণী সরাসরি <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> এ যোগ করুন। বিস্তারিত ধাপে ধাপে নির্দেশনার জন্য আমাদের <a href=\"https://www.comaps.app/support/advanced-map-editing/\">গাইড</a> টি দেখুন।";
-"closes_at" = "%@ এ বন্ধ হবে";
-"downloader_no_space_message" = "দয়া করে কোনও অদরকারি ডেটা ডিলিট করুন";
-"trip_start" = "Let's go";
-"trip_finished" = "You have arrived!";
-"dialog_routing_select_closer_end" = "Please select a destination point located closer to a road।";
-"icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature।";
-"editor_more_about_osm" = "আরো OpenStreetMap সম্বন্ধে";
-"track_recording_alert_title" = "Save into Bookmarks and Tracks?";
-"tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
-"dialog_routing_application_error" = "Unable to create route due to an application error।";
-"editor_storey_number" = "Number of floors (maximum of %d)";
-"downloader_loading_ios" = "Downloading";
-"speedcams_alert_title_carplay_1" = "Speedсams";
-"p2p_from_here" = "এখান থেকে রুট বানান";
-"editor_profile_changes" = "যাচাইকৃত পরিবর্তনগুলি";
-"app_tip_05" = "Did you know that your current location on the map can be selected?";
-"routing_add_start_point" = "Use search or tap on the map to add a route starting point";
-"whats_new_auto_update_button_size" = "Update (%@)";
-"export_file" = "Export KMZ";
-"editor_reset_edits_button" = "পরিবর্তনগুলো বাতিল করুন";
-"power_managment_setting_never" = "Never";
-"downloader_process" = "Downloading %@…";
-"dialog_routing_disclaimer_priority" = "— রাস্তার অবস্থা, ট্রাফিক আইন এবং রাস্তার চিহ্নগুলি সর্বদা নেভিগেশন ইঙ্গিতের চেয়ে অগ্রাধিকার পায়;";
-"pref_tts_speedcams_always" = "সর্বদা সতর্ক করুন";
-"hide_from_map" = "Hide from map";
-"bookmark_sets" = "বুকমার্ক তালিকার নাম";
-"opens_in" = "Opens in %@";
-"dialog_routing_check_gps" = "জিপিএস সিগন্যাল পরীক্ষা করুন";
-"dialog_routing_download_cross_route" = "এই মানচিত্রের সীমানা অতিক্রম করে আরও ভালো রুট তৈরি করতে অতিরিক্ত মানচিত্র ডাউনলোড করুন।";
-"osm_profile_verfied_changes" = "Verified Changes";
-"dialog_routing_location_turn_wifi" = "আপনার জিপিএস সিগন্যাল পরীক্ষা করুন। ওয়াইফাই সক্ষম করলে আপনার অবস্থানের নির্ভুলতা উন্নত হবে।";
-"placepage_personal_notes_hint" = "ব্যক্তিগত নোট (টেক্সট বা html)";
-"start_track_recording" = "Record Track";
-"dialog_routing_change_end_carplay" = "Unable to find a route to your destination. Please choose another end point";
-"placepage_add_place_button" = "OpenStreetMap এ স্থান যোগ করুন";
-"downloader_status_maps" = "মানচিত্র";
-"avoid_tolls" = "টোল এড়িয়ে চলুন";
-"enable_logging" = "Enable logging";
-"category_post" = "ডাক";
-"editor_time_title" = "বাণিজ্যের সময়";
-"editor_other_info" = "OpenStreetMap স্বেচ্ছাসেবকদের জন্য নোট (ঐচ্ছিক)";
-"brown" = "বাদামী";
-"track_title" = "Track";
-"car_continue_on_the_phone" = "Continue on the phone";
-"isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
-"icloud_synchronization_error_alert_title" = "iCloud synchronization failure";
-"downloader_search_field_hint" = "মানচিত্র খুঁজুন";
-"shops" = "দোকান";
-"category_eat" = "খাওয়ার স্থান";
-"isolines_location_error_dialog" = "Contour lines are not yet available in this area";
-"bookmarks_recently_deleted" = "Recently Deleted Lists";
-"dialog_routing_disclaimer_precision" = "— মানচিত্রটি ভুল হতে পারে, এবং প্রস্তাবিত রুটটি সর্বদা গন্তব্যে পৌঁছানোর সবচেয়ে অনুকূল উপায় নাও হতে পারে;";
-"delete_list" = "Delete list";
-"move" = "Move";
-"elevation_profile_diff_level_moderate" = "Moderate";
-"error_enter_correct_zip_code" = "সঠিক ডাক কোড প্রদান করুন";
 "transit_not_found" = "Subway navigation in this region is not available yet";
-"carplay_roundabout_exit" = "%@ exit";
-"food_places" = "খাবার";
-"editor_detailed_description" = "Your suggested map changes will be sent to the OpenStreetMap community. Please describe any additional details that cannot be edited in CoMaps।";
-"bookmarks_convert_error_title" = "Error";
-"select_cuisine" = "রন্ধনপ্রণালী নির্বাচন করুন";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap editors will check the changes and contact you if they have any questions।";
-"terms_of_use" = "Terms of use";
-"day_off" = "বন্ধ";
-"about_headline" = "সম্প্রদায়ের দ্বারা পরিচালিত উন্মুক্ত প্রকল্প";
-"downloader_delete_map_dialog" = "All of your map edits will be deleted with the map।";
-"app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need।";
-"category_parking" = "পার্কিং";
-"avoid_motorways" = "Avoid freeways";
-"editor_time_delete" = "সময়সূচী মুছুন";
-"parks" = "Parks";
-"category_children" = "পারিবারিক ভ্রমণ";
-"dialog_routing_unable_locate_route_carplay" = "Unable to build a route. Please specify other route points";
-"sort_name" = "Sort by name";
-"no" = "না";
-"core_exit" = "প্রস্থান";
-"dialog_routing_error_location_not_found" = "রুট তৈরি করা যায়নি। বর্তমান জিপিএস স্থানাঙ্ক সনাক্ত করা যায়নি।";
-"location_services_disabled_2" = "2. Tap Location";
-"clear" = "পরিষ্কার করুন";
-"opens_tomorrow_at" = "Opens tomorrow at %@";
-"closes_in" = "%@ এর মধ্যে বন্ধ হবে";
-"gray" = "ধূসর";
-"p2p_reroute_from_current" = "আপনি কি আপনার বর্তমান অবস্থান থেকে একটি রুট পরিকল্পনা করতে চান?";
-"pink" = "গোলাপি";
-"app_tip_09" = "Our main goal is to build fast, privacy-focused, easy-to-use maps that you will love।";
-"app_tip_08" = "You can easily fix and improve the map data।";
-"stop_without_saving" = "Stop Without Saving";
-"dialog_routing_change_intermediate" = "Unable to locate the intermediate point।";
-"bugreport_alert_message" = "Would you like to send a bug report to the developers?\nWe rely on our users as CoMaps doesn't collect any error information automatically. Thank you in advance for supporting CoMaps!";
-"whatsnew_editor_message_1" = "Add new places to the map, and edit existing ones directly from the app।";
-"m" = "মি";
-"dialog_routing_change_start_carplay" = "Unable to build a route from your current location";
-"editor_sharing_title" = "I improved the CoMaps maps";
-"edit" = "সম্পাদন করুন";
-"dialog_routing_check_gps_carplay" = "No GPS signal. Please move to an open area";
-"downloader_update_all_button" = "সব আপডেট করুন";
-"moremonth_ago_sorttype" = "More than a month ago";
-"downloader_applying" = "Applying %@…";
-"routing_arrive" = "Arrival at %@";
-"enable_icloud_synchronization_message" = "iCloud synchronization is an experimental feature under development. Make sure that you have made a backup of all your bookmarks and tracks।";
-"unable_to_calc_alert_subtitle" = "A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry।";
-"power_managment_title" = "Power saving mode";
-"category_bank" = "ব্যাঙ্ক";
-"download_map_carplay" = "Please download maps in the app on your mobile device";
-"mobile_data_dialog" = "Use mobile internet to show detailed information?";
-"stop_track_recording" = "Stop Track Recording";
-"planning_route_remove_title" = "Drag here to remove";
-"p2p_your_location" = "আপনার অবস্থান";
-"category_transport" = "যানবাহন";
-"text_more_button" = "…more";
-"downloader_of" = "%2$d এর মধ্যে %1$d";
-"mobile_data_option_ask" = "সর্বদা জিজ্ঞেস করুন";
-"follow_my_position" = "Re-center";
-"download_over_mobile_message" = "This could be considerably expensive with some plans or if roaming।";
-"ferry_crossing" = "Ferry crossing";
-"add_language" = "একটি ভাষা যোগ করুন";
-"common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet।";
-"car_used_on_the_car_screen" = "You are now using CoMaps on the car screen";
-"parkings" = "পার্কিং";
-"yes" = "হ্যাঁ";
-"location_services_disabled_on_device_additional_message" = "Or continue using CoMaps without Location";
-"recent_track_background_dialog_message" = "CoMaps uses your location in the background to record your recently travelled route।";
-"current_location_unknown_error_title" = "Current location is unknown।";
-"app_tip_07" = "Our app is developed by a few enthusiasts and the community।";
-"editor_time_advanced" = "অ্যাডভান্সড মোড";
-"add_street" = "একটি রাস্তা অ্যাড করুন";
-"share_with_friends" = "Share with friends";
-"dialog_routing_download_files_carplay" = "To create a route, download missing maps on your device";
-"last_upload" = "Last upload";
-"placepage_delete_track_confirmation_alert_message" = "Are you sure you want to delete this track?";
-"title_error_downloading_bookmarks" = "An error occurred";
-"editor_example_values" = "উদাহরণ মান";
-"message_invalid_feature_position" = "এখানে কোনও বস্তু পাওয়া যাচ্ছে না";
-"mobile_data_option_always" = "Use Always";
-"off_recent_track_background_button" = "Disable";
-"dialog_routing_disclaimer_borders" = "— সীমান্তবর্তী অঞ্চলে রুট ব্যবহারে সতর্কতা অবলম্বন করুন: আমাদের অ্যাপ দ্বারা তৈরি রুটগুলি সম্ভবত অননুমোদিত স্থানে দেশের সীমানা অতিক্রম করতে পারে।";
 "dialog_pedestrian_route_is_long_header" = "No subway route found";
-"category_nightlife" = "নাইটলাইফ";
-"unpaved_road" = "Unpaved road";
-"phone" = "Phone";
-"app_tip_06" = "আপনি আমাদের অ্যাপটি আপনার ভাষায় অনুবাদ করতে সাহায্য করতে পারেন।";
-"decline" = "অস্বীকার করুন";
-"downloader_no_downloaded_maps_title" = "আপনি কোনো মানচিত্র ডাউনলোড করেননি";
-"elevation_profile_ascent" = "উর্ধ্বগমন";
-"pref_zoom_title" = "জুম করার বোতামগুলি";
-"p2p_only_from_current" = "Navigation is only available from your current location।";
-"downloader_near_me_subtitle" = "আমার নিকটে";
-"dialog_routing_change_start_or_end" = "দয়া করে আপনার শুরুর স্থান বা গন্তব্য পুনরায় ঠিক করুন।";
-"export_file_gpx" = "Export GPX";
-"version" = "CoMaps version: %@";
-"add_opening_hours" = "Add opening hours";
-"general_settings" = "General settings";
-"bookmarks_error_title_share_empty" = "Sharing error";
-"bookmarks_export" = "Export all Bookmarks and Tracks";
-"pref_appearance_light" = "Light";
-"dialog_routing_change_end" = "গন্তব্য পুনরায় ঠিক করুন";
-"planning_route_manage_route" = "Manage Route";
-"place_name" = "Place Name";
-"navigation_stop_button" = "থামান";
-"load_kmz_successful" = "প্রিয় তালিকা সফলভাবে লোড হয়েছে! আপনি সেগুলো মানচিত্রে অথবা প্রিয় ব্যবস্থাপক স্ক্রিনে দেখতে পারবেন।";
-"power_managment_setting_manual_max" = "সর্বদা";
-"icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
-"please_note" = "Please note";
-"bookmarks_detect_title" = "New files detected";
-"migration_download_error_dialog" = "Download error";
-"choose_street" = "একটি রাস্তা বেছে নিন";
-"category_food" = "মুদিখানা";
-"p2p_to_here" = "এই অব্দি রুট বানান";
-"bookmark_share_email_subject" = "নমস্কার, আমার পিন টি CoMaps-এ দেখুন!";
-"editor_operator" = "Operator";
-"dialog_routing_intermediate_not_determined" = "Please adjust your intermediate point।";
-"read_in_wikipedia" = "উইকিপিডিয়া";
-"editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
-"placepage_track_name_hint" = "Track Name";
-"speedcams_alert_title_carplay_2" = "Speed warnings";
-"download_button" = "Download";
-"core_my_places" = "আমার স্থানগুলি";
-"category_pharmacy" = "ফার্মেসি";
-"kilometers_per_hour" = "কিমি/ঘ";
-"category_secondhand" = "ব্যবহৃত";
-"editor_report_problem_send_button" = "পাঠান";
-"elevation_profile_descent" = "Descent";
-"editor_remove_place_button" = "মুছুন";
-"category_police" = "পুলিশ";
-"dialog_routing_disclaimer_recommendations" = "— প্রস্তাবিত রুটগুলিকে কেবল সুপারিশ হিসেবেই বোঝা উচিত;";
-"editor_time_allday" = "সারাদিন (২৪ ঘন্টা)";
-"backup" = "Backup";
-"track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";
-"category_atm" = "এটিএম";
-"hotels" = "হোটেল";
-"deep_orange" = "গাঢ় কমলা";
-"unable_to_calc_alert_title" = "Unable to calculate route";
-"network" = "Network: %@";
-"elevation_profile_diff_level_easy" = "Easy";
-"editor_share_to_all_dialog_title" = "Do you want to send it to all users?";
-"mobile_data_description" = "Mobile internet is required for map update notifications and uploading edits।";
-"daily" = "প্রতিদিন";
-"elevation_profile_diff_level" = "Difficulty level";
-"mobile_data_option_not_today" = "Do Not Use Today";
-"downloader_update_maps" = "মানচিত্রগুলি আপডেট করুন";
-"dialog_routing_end_not_determined" = "রুট তৈরি করা হয়নি। গন্তব্যের স্থান চিহ্নিত করা যাচ্ছে না।";
-"closed_now" = "এখন বন্ধ";
-"dialog_routing_download_and_update_all" = "Download or update all maps along the projected path to calculate a route।";
-"error_enter_correct_storey_number" = "বাড়ির তলার সংখ্যা %d এর বেশি না হয়";
-"download_over_mobile_header" = "সেলুলার নেটওয়ার্ক সংযোগের মাধ্যমে ডাউনলোড করতে চান?";
-"measurement_units" = "মাপের একক";
-"orange" = "কমলা";
-"error_enter_correct_web" = "সঠিক ওয়েব এড্রেস দিন";
-"editor_edit_place_title" = "সম্পাদনা";
-"category_wifi" = "ওয়াইফাই";
-"editor_place_doesnt_exist" = "স্থানটি অস্তিত্বই নেই";
-"subway_data_unavailable" = "সাবওয়ে মানচিত্র অনুপলব্ধ";
-"near_me_sorttype" = "Near me";
-"pref_tts_speedcams_auto" = "Warn if speeding";
-"details" = "বিস্তারিত";
-"privacy_policy" = "গোপনীয়তা নীতি";
-"editor_default_language_hint" = "স্থানীয় ভাষায় যেমন লেখা আছে";
-"search_not_found" = "Oops, no results found।";
-"editor_add_select_location" = "অবস্থান বেছে নিন";
-"downloader_queued" = "সারিবদ্ধ";
-"change_driving_options_btn" = "Routing options enabled";
-"car_used_on_the_phone_screen" = "You are now using CoMaps on the phone screen";
-"category_hospital" = "হাসপাতাল";
-"redirect_route_alert" = "Do you want to rebuild the route?";
-"enable_logging_warning_message" = "Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info।";
-"dialog_routing_rebuild_from_current_location_carplay" = "The route will be rebuilt from your current location";
-"popular_place" = "Popular";
-"address" = "ঠিকানা";
-"routing_add_finish_point" = "Use search or tap on the map to add a destination point";
-"elevation_profile_max_elevation" = "Max. elevation";
-"mobile_data_option_today" = "Only Today";
-"editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together।";
-"icloud_synchronization_error_quota_exceeded" = "Error: Failed to synchronize due to iCloud quota exceeded";
-"icloud_sync" = "iCloud Syncronization (Beta)";
-"dialog_routing_rebuild_for_vehicle_carplay" = "The route will be converted into an automobile one";
-"week_ago_sorttype" = "এক সপ্তাহ আগে";
-"hide" = "লুকিয়ে দিন";
-"editor_detailed_description_hint" = "Detailed comment";
-"driving_options_title" = "Routing options";
-"dialog_routing_select_closer_start" = "দয়া করে শুরুর স্থানটি বদলে রাস্তার সামনে আনুন।";
-"lime" = "লাইম";
-"website_menu" = "Menu Link";
-"app_tip_02" = "Do you like our app? Please donate to support the development! Don't like it yet? Please let us know why, and we will fix it!";
-"pick_destination" = "Destination";
-"teal" = "টিল";
-"level" = "তলা";
-"refresh" = "Update";
-"use_cellular_data" = "হ্যাঁ";
-"day_off_today" = "আজকে বন্ধ";
-"location_services_disabled_3" = "3. Select While Using the App";
-"osm_profile_register" = "Register at OpenStreetMap";
-"location_services_disabled_on_device_3" = "3. Select Location Services";
-"miles_per_hour" = "mph";
-"history" = "ইতিহাস";
-"keyboard_availability_alert" = "Keyboard is not available while driving";
-"whats_new_auto_update_message" = "Updating maps keeps the information about objects up to date";
-"closed" = "বন্ধ";
-"editor_time_close" = "বন্ধ";
-"editor_time_add" = "সময়সূচী যোগ করুন";
-"editor_edit_place_category_title" = "শ্রেণি";
-"bookmarks_error_title_list_name_already_taken" = "This name is already taken";
-"category_entertainment" = "মনোরঞ্জন";
-"placepage_add_stop" = "Add Stop";
-"avoid_unpaved" = "কাঁচা রাস্তা এড়িয়ে চলুন";
-"autodownload" = "মানচিত্র অটো-ডাউনলোড করুন";
-"enable" = "Enable";
-"osm_mapdata_explanation %@" = "Community-created map data as of *%@*. Learn more about how to edit and update the map at [OpenStreetMap.org](https://openstreetmap.org)।";
-"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
-"then_turn" = "Then";
-"mountains" = "পাহাড়";
-"dialog_incorrect_feature_position" = "Change location";
-"app_tip_01" = "With your donations and support, we can create the best maps in the World!";
-"dialog_routing_system_error" = "সিস্টেমের ত্রুটি";
-"buildings" = "Buildings";
-"dialog_routing_download_and_build_cross_route" = "আপনি কি মানচিত্রটি ডাউনলোড করে একাধিক মানচিত্র বিস্তৃত একটি সর্বোত্তম রুট তৈরি করতে চান?";
-"dialog_routing_disclaimer_beware" = "দয়া করে রাস্তায় সতর্ক এবং নিরাপদ থাকুন!";
-"log_file_size" = "Log file size: %@";
-"editor_add_select_category_all_subtitle" = "All Categories";
-"search" = "খুঁজুন";
-"ft" = "ফুট";
-"placepage_edit_bookmark_button" = "সংরক্ষিত স্থানগুলি সম্পাদনা করুন";
-"month_ago_sorttype" = "এক মাস আগে";
-"dialog_routing_start_not_determined" = "রুট তৈরি করা হয়নি। শুরুর স্থান চিহ্নিত করা যাচ্ছে না।";
-"museums" = "জাদুঘর";
-"sort" = "Sort…";
-"downloader_percent" = "%@ (%@ of %@)";
-"dialog_routing_system_error_carplay" = "An error occurred. Please restart the application";
-"dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route।";
-"placepage_bookmark_name_hint" = "Bookmark Name";
-"power_managment_description" = "Try to reduce power usage at the expense of some functionality।";
-"downloader_updating_ios" = "Updating";
-"dialog_routing_download_files" = "Download required files";
-"migration_no_space_message" = "To download, you need more space. Please delete any unnecessary data।";
-"downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline।";
-"search_history_text" = "View your recent searches।";
-"location_services_disabled_on_device_2" = "২. গোপনীয়তা বাছুন";
-"bookmarks_error_title_list_name_too_long" = "This name is too long";
-"sort_type" = "Sort by type";
-"cuisine" = "রন্ধনপ্রণালী";
-"country_status_download_without_size" = "মানচিত্র ডাউনলোড করুন";
-"editor_zip_code" = "ডাক কোড";
-"pref_tts_speedcams_never" = "Never warn";
-"twentyfour_seven" = "২৪/৭";
-"delete_all" = "Delete All";
-"outdoor_seating" = "Outdoor seating";
-"place_description_title" = "Place Description";
-"editor_add_select_category_popular_subtitle" = "Popular";
-"swim_places" = "Swim";
-"editor_time_add_closed" = "বাণিজ্যের সময়ে বাদে সময় যোগ করুন";
-"placepage_remove_stop" = "Remove Stop";
-"search_results" = "Search results";
-"core_placepage_unknown_place" = "মানচিত্র বিন্দু";
-"elevation_profile_diff_level_hard" = "Hard";
-"dialog_routing_try_again" = "অনুগ্রহ করে পুনরায় চেষ্টা করুন";
-"no_available" = "না";
-"fuel_places" = "Gas Stations";
-"sharing_call_action_look" = "Check out";
-"clear_search" = "অনুসন্ধাণের ইতিহাস মুছে দিন";
-"downloader_download_all_button" = "সব ডাউনলোড করুন";
-"category_tourism" = "দর্শনীয় স্থান";
-"editor_comment_hint" = "Comment…";
-"editor_share_to_all_dialog_message_1" = "Make sure you did not enter any private or personal data।";
-"location_services_disabled_message" = "Enable access to geolocation in the device settings";
-"edit_place" = "স্থানটি পরিবর্তন করুন";
 "dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
-"settings" = "সেটিংস";
-"downloader_available_maps" = "Available";
-"editor_category_unsuitable_title" = "উপযুক্ত শ্রেণী খুঁজে পাচ্ছেন না?";
-"location_services_disabled_on_device_4" = "4. Turn on Location Services";
-"layers_title" = "Map Styles and Layers";
-"avoid_ferry" = "ফেরি এড়িয়ে চলুন";
-"elevation_profile_min_elevation" = "Min. elevation";
-"category_hotel" = "হোটেল";
-"postal_code" = "ডাক কোড|পিন কোড";
-"location_services_disabled_1" = "1. Open Settings";
-"whats_new_auto_update_title" = "Update downloaded maps";
-"power_managment_setting_auto" = "When battery is low";
-"recover" = "Recover";
-"km" = "কিমি";
-"search_history_title" = "খোঁজের ইতিহাস";
-"placepage_delete_track_button" = "Delete Track";
-"house_number" = "বিল্ডিং নম্বর";
-"show" = "দেখান";
-"dialog_routing_location_unknown_turn_on" = "আপনার বর্তমান জিপিএস স্থানাঙ্ক সনাক্ত করা যায়নি। রুট গণনা করতে অবস্থান পরিষেবা সক্ষম করুন।";
-"dialog_routing_disclaimer_title" = "রুটটি অনুসরণ করার সময়, দয়া করে মনে রাখবেন:";
-"location_services_disabled_header" = "Location services are disabled";
-"tracks_title" = "ট্র্যাকগুলি";
-"bookmarks_error_message_empty_list_name" = "Please enter the list name";
-"start_from_my_position" = "Start from";
-"email_or_username" = "ইমাইল বা ইউইজারনেম";
-"editor_focus_map_on_location" = "স্থান বা ব্যবসার স্থানের চিহ্নটি স্থাপন করতে মানচিত্রটি টেনে আনুন।";
-"error_enter_correct_email" = "সঠিক ইমেইল দিন";
-"continue_button" = "চালিয়ে যান";
-"placepage_delete_bookmark_button" = "Delete Bookmark";
-"placepage_call_button" = "Call";
-"define_to_avoid_btn" = "Define roads to avoid";
-"book_button" = "Book";
-"error_enter_correct_house_number" = "সঠিক বিল্ডিং নম্বর দিন";
-"toll_road" = "Toll road";
-"editor_edit_place_name_hint" = "স্থানের নাম";
-"accept" = "স্বীকার করুন";
-"not_all_shown_bookmarks_carplay" = "Not all bookmarks are shown";
-"icloud_synchronization_error_connection_error" = "Error: Failed to synchronize due to connection error";
-"dialog_routing_change_start" = "শুরুর স্থান পুনরায় ঠিক করুন";
-"editor_remove_place_message" = "যুক্ত স্থানগুলি মুছে দিতে চান?";
-"blue_gray" = "ধূসর নীল";
-"editor_reset_edits_message" = "সমস্ত স্থানীয় পরিবর্তন বাতিল করতে চান?";
-"sort_distance" = "Sort by distance";
-"traffic_update_app_message" = "To display traffic data, the application must be updated।";
-"category_fuel" = "গাড়ির তেল";
-"editor_add_place_title" = "যোগ করা হচ্ছে";
-"bookmark_set_name" = "তালিকার নাম";
-"recover_all" = "Recover All";
-"moreyear_ago_sorttype" = "More than a year ago";
-"social_pixelfed" = "Pixelfed";
-"day" = "দিন";
-"bookmarks_error_message_share_empty" = "Cannot share an empty list";
-"sort_date" = "Sort by date";
-"app_tip_00" = "Thank you for using our community-built maps!";
-"length" = "দৈর্ঘ্য";
-"sort_default" = "Sort by default";
-"big_font" = "Increase size for map labels";
-"search_not_found_query" = "আপনি যে অঞ্চলটি খুঁজছেন সেটি ডাউনলোড করুন অথবা কাছাকাছি একটি শহর বা গ্রামের নাম যোগ করার চেষ্টা করুন।";
-"load_kmz_title" = "প্রিয় তালিকা লোড করা হচ্ছে";
 "button_layer_isolines" = "Contour Lines";
-"later" = "পরে";
-"button_plan" = "পরিকল্পনা করুন";
+"isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
+"isolines_location_error_dialog" = "Contour lines are not yet available in this area";
+"elevation_profile_diff_level" = "Difficulty level";
+"elevation_profile_diff_level_easy" = "Easy";
+"elevation_profile_diff_level_moderate" = "Moderate";
+"elevation_profile_diff_level_hard" = "Hard";
+"elevation_profile_ascent" = "উর্ধ্বগমন";
+"elevation_profile_descent" = "Descent";
+"elevation_profile_min_elevation" = "Min. elevation";
+"elevation_profile_max_elevation" = "Max. elevation";
+"isolines_toast_zooms_1_10" = "Zoom in to explore isolines";
+"downloader_updating_ios" = "Updating";
+"downloader_loading_ios" = "Downloading";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_title" = "Update downloaded maps";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_message" = "Updating maps keeps the information about objects up to date";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_size" = "Update (%@)";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_later" = "Manually update later";
+/* Delete track button on track edit screen */
+"placepage_delete_track_button" = "Delete Track";
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "Are you sure you want to delete this track?";
+/* Placeholder for track name input on track edit screen */
+"placepage_track_name_hint" = "Track Name";
+/* move track or bookmark from the list button text */
+"move" = "Move";
+/* edit track screen title */
+"track_title" = "Track";
+/* Translated CoMaps site */
+"translated_om_site_url" = "https://www.comaps.app/";
+/* App Tip #00 */
+"app_tip_00" = "Thank you for using our community-built maps!";
+/* App tip #01 */
+"app_tip_01" = "With your donations and support, we can create the best maps in the World!";
+/* App tip #02 */
+"app_tip_02" = "Do you like our app? Please donate to support the development! Don't like it yet? Please let us know why, and we will fix it!";
+/* App tip #03 */
+"app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need।";
+/* App tip #04 */
+"app_tip_04" = "Tap anywhere on the map to select anything. A long tap is used to hide and show the interface।";
+/* App tip #05 */
+"app_tip_05" = "Did you know that your current location on the map can be selected?";
+/* App tip #06 */
+"app_tip_06" = "আপনি আমাদের অ্যাপটি আপনার ভাষায় অনুবাদ করতে সাহায্য করতে পারেন।";
+/* App tip #07 */
+"app_tip_07" = "Our app is developed by a few enthusiasts and the community।";
+/* App tip #08 */
+"app_tip_08" = "You can easily fix and improve the map data।";
+/* App tip #09 */
+"app_tip_09" = "Our main goal is to build fast, privacy-focused, easy-to-use maps that you will love।";
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "You are now using CoMaps on the phone screen";
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "You are now using CoMaps on the car screen";
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "Continue on the phone";
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "To the car screen";
+/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
+"button_layer_outdoor" = "Outdoors";
+/* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
+"bookmarks_export" = "Export all Bookmarks and Tracks";
+/* Text for the editing the Track's color button. */
 "change_color" = "রঙ পরিবর্তন কর";
-"continue_recording" = "রেকর্ড করে যান";
-"bookmarks_error_message_share_general" = "Unable to share due to an application error";
+/* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "মানচিত্র";
-"bookmarks" = "স্থান";
-"bookmarks_and_tracks" = "প্রিয় তালিকা";
-"downloader_downloaded_subtitle" = "ডাউনলোড করা";
-"traffic_data_unavailable" = "Traffic data is not available";
-"today" = "আজকে";
-"mobile_data_option_never" = "Never Use";
-"editor_time_open" = "খোলা";
-"bookmarks_convert_error_message" = "Some files were not converted।";
-"profile" = "OpenStreetMap profile";
-"transliteration_title" = "Transliterate into Latin alphabet";
-"editor_time_simple" = "সহজ মোড";
-"editor_add_select_category" = "Select category";
-"speedcams_alert_title" = "Speed cameras";
-"recent_track_background_dialog_title" = "Disable recording of your recently travelled route?";
-"placepage_more_button" = "আরো";
-"done" = "সম্পন্ন";
-"minute" = "মিন";
-"core_my_position" = "আমার অবস্থান";
-"traffic_update_maps_text" = "To display traffic data, maps must be updated।";
-"routing_requires_all_map" = "একটি রুট তৈরি করার জন্য, আমাদের আপনার অবস্থান থেকে আপনার গন্তব্য পর্যন্ত সমস্ত মানচিত্র ডাউনলোড এবং আপডেট করতে হবে।";
-"thank_you" = "Thank You";
-"yes_available" = "হ্যাঁ";
-"pref_mapappearance_title" = "Map Appearance";
-"pref_tts_enable_title" = "Enable Voice Instructions";
-"pref_maplanguage_title" = "Map Language";
-"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
-"pref_maplanguage_local" = "Local Language";
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
-"offline_explanation_title" = "অফলাইন মানচিত্র";
-"offline_explanation_text" = "এলাকাটি দেখতে এবং নেভিগেট করতে একটি মানচিত্র ডাউনলোড করতে হবে।\nআপনি যেসব এলাকায় ভ্রমণ করতে চান সেগুলোর মানচিত্র ডাউনলোড করুন।";
-"editor_place_doesnt_exist_description" = "ত্রুটির নোট পাঠানোর জন্য OpenStreetMap সম্প্রদায়কে এখন ওই স্থানটির বর্ণনা দিন";
-"avoid_paved" = "পাকা রাস্তা এড়িয়ে চলুন";
-"avoid_steps" = "সিঁড়ি এড়িয়ে চলুন";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"drive_through" = "Drive-through";
+/* Restaurant or other food place's menu URL field in the Editor */
+"website_menu" = "Menu Link";
+/* Message for the bug report alert. */
+"bugreport_alert_message" = "Would you like to send a bug report to the developers?\nWe rely on our users as CoMaps doesn't collect any error information automatically. Thank you in advance for supporting CoMaps!";
+/* Title for the iCloud synchronization setting */
+"icloud_sync" = "iCloud Syncronization (Beta)";
+/* Title for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "iCloud synchronization is an experimental feature under development. Make sure that you have made a backup of all your bookmarks and tracks।";
+/* Title for the "iCloud Is Disabled" alert. */
+"icloud_disabled_title" = "iCloud Is Disabled";
+/* Message for the "iCloud is Disabled" alert. */
+"icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature।";
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
+"enable" = "Enable";
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
+"backup" = "Backup";
+/* Title for the "iCloud synchronization failure" alert. */
+"icloud_synchronization_error_alert_title" = "iCloud synchronization failure";
+/* iCloud error message: Failed to synchronize due to connection error */
+"icloud_synchronization_error_connection_error" = "Error: Failed to synchronize due to connection error";
+/* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
+"icloud_synchronization_error_quota_exceeded" = "Error: Failed to synchronize due to iCloud quota exceeded";
+/* iCloud error message: iCloud is not available */
+"icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
+/* Title for the "Open in Another App" button on the PlacePage. */
+"open_in_app" = "Open in Another App";
+/* To indicate if the place proposed self service... */
+"self_service" = "স্ব-সেবা";
+/* To indicate if restaurant or other place has outdoor seating */
+"outdoor_seating" = "Outdoor seating";
+/* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
+"bookmarks_recently_deleted" = "Recently Deleted Lists";
+/* Title for the "Clear" button on the Recently Deleted Lists screen. */
+"clear" = "পরিষ্কার করুন";
+/* Title for the "Delete All" button on the Recently Deleted Lists screen. */
+"delete_all" = "Delete All";
+/* Title for the "Recover" button on the Recently Deleted Lists screen. */
+"recover" = "Recover";
+/* Title for the "Recover All" button on the Recently Deleted Lists screen. */
+"recover_all" = "Recover All";
+/* Prompt to start recording a track. */
+"start_track_recording" = "Record Track";
+/* Prompt for stopping a track recording. */
+"stop_track_recording" = "Stop Track Recording";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"stop_without_saving" = "Stop Without Saving";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"continue_recording" = "রেকর্ড করে যান";
+/* Title for the alert when saving a track recording. */
+"track_recording_alert_title" = "Save into Bookmarks and Tracks?";
+/* Message for the toast when saving the track recording is finished but nothing to save. */
+"track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";
+"edit_track" = "Edit Track";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

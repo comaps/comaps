@@ -1690,7 +1690,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Metadata)
     auto const mlStr = StringUtf8Multilang::FromBuffer(std::move(buffer));
 
     std::string_view desc;
-    mlStr.GetString(localisation::ConvertLanguageCodeToLanguageIndex(lang), desc);
+    mlStr.GetString(localisation::ConvertLanguageCodeToLanguageIndex(std::string{lang}), desc);
     return std::string(desc);
   };
 
@@ -2599,11 +2599,13 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"sport", "australian_football"},
       {"sport", "baseball"},
       {"sport", "basketball"},
+      {"sport", "boules"},
       {"sport", "bowls"},
       {"sport", "cricket"},
       {"sport", "curling"},
       {"sport", "diving"},
       {"sport", "equestrian"},
+      {"sport", "four_square"},
       {"sport", "gymnastics"},
       {"sport", "handball"},
       {"sport", "multi"},

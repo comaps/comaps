@@ -293,7 +293,6 @@
     <string name="type.cuisine.international">Cuisine internationale</string>
     <string name="type.cuisine.irish">Cuisine irlandaise</string>
     <string name="type.cuisine.italian">Cuisine italienne</string>
-    <string name="type.cuisine.italian_pizza">Pizza italienne</string>
     <string name="type.cuisine.japanese">Cuisine japonaise</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Cuisine coréenne</string>
@@ -1374,7 +1373,7 @@
     <string name="type.landuse.village_green">Terrain</string>
     <string name="type.military.bunker">Bunker</string>
     <string name="type.shop.bookmaker">Bookmaker</string>
-    <string name="type.tourism.attraction">Attraction</string>
+    <string name="type.tourism.attraction">Attraction touristique</string>
     <string name="type.man_made.crane">Grue</string>
     <string name="type.railway.station.subway.qingdao">Station de métro</string>
     <string name="type.landuse.religious">Terre religieuse</string>
@@ -1510,4 +1509,10 @@
     <string name="type.emergency.disaster_help_point">Point d\'aide d\'urgence en cas de catastrophe</string>
     <string name="type.waterway.fuel">Quai de ravitaillement en carburant</string>
     <string name="type.amenity.community_centre.youth_centre">Centre de jeunesse</string>
+    <string name="type.shop.water">Magasin d\'eau</string>
+    <string name="type.attraction">Attraction</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centre Sportif</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centre Sportif</string>
+    <string name="type.sport.boules">Boules</string>
+    <string name="type.sport.four_square">Four Square</string>
 </resources>

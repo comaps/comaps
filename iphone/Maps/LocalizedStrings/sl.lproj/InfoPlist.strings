@@ -1,5 +1,10 @@
+/* Used in home screen quick actions. */
 "search" = "Išči";
+/* Used in home screen quick actions. */
+"bookmarks_and_tracks" = "Priljubljeni";
+/* Used in home screen quick actions. */
 "route" = "Pot";
-"bookmarks_and_tracks" = "Zaznamki in poti";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
 "NSLocationAlwaysUsageDescription" = "Zaznavanje položaja v ozadju je potrebno, da lahko izkoristite zmogljivosti orodja v celoti. Uporablja se za potno usmerjanje in shranjevanje vaše nedavno prepotovane poti.";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
 "NSLocationWhenInUseUsageDescription" = "Določanje vašega položaja je potrebno za potno usmerjanje in shranjevanje vaše nedavno prepotovane poti.";

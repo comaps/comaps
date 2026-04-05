@@ -22,7 +22,7 @@ class Loader
 public:
   explicit Loader(DataSource const & dataSource) : m_dataSource(dataSource) {}
 
-  std::string GetWikiDescription(FeatureID const & featureId, std::vector<int8_t> const & langPriority);
+  std::string GetWikiDescription(FeatureID const & featureId, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes);
 
 private:
   struct Entry

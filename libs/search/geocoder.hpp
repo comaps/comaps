@@ -4,7 +4,6 @@
 #include "search/categories_cache.hpp"
 #include "search/cbv.hpp"
 #include "search/cities_boundaries_table.hpp"
-#include "search/cuisine_filter.hpp"
 #include "search/feature_offset_match.hpp"
 #include "search/features_layer.hpp"
 #include "search/features_layer_path_finder.hpp"
@@ -75,7 +74,6 @@ public:
     m2::RectD m_pivot;
     std::optional<m2::PointD> m_position;
     Locales m_categoryLocales;
-    std::vector<uint32_t> m_cuisineTypes;
     std::vector<uint32_t> m_preferredTypes;
     std::shared_ptr<Tracer> m_tracer;
 
@@ -314,8 +312,6 @@ private:
   SuburbsCache m_suburbsCache;
   LocalitiesCaches & m_localitiesCaches;
   HotelsCache m_hotelsCache;
-  FoodCache m_foodCache;
-  cuisine_filter::CuisineFilter m_cuisineFilter;
 
   base::Cancellable const & m_cancellable;
 

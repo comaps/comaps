@@ -466,16 +466,6 @@ NSString *const kAboutSegue = @"Map2About";
 }
 
 - (void)setupTrackPadGestureRecognizers API_AVAILABLE(ios(14.0)) {
-  if (!NSProcessInfo.processInfo.isiOSAppOnMac)
-    return;
-  // Pan
-  UIPanGestureRecognizer * panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
-  panRecognizer.minimumNumberOfTouches = 2;
-  panRecognizer.allowedScrollTypesMask = UIScrollTypeMaskContinuous;
-  panRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect)];
-  panRecognizer.delegate = self;
-  [self.view addGestureRecognizer:panRecognizer];
-
   // Mouse zoom
   UIPanGestureRecognizer * zoomPanRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleZoomPan:)];
   zoomPanRecognizer.allowedScrollTypesMask = UIScrollTypeMaskDiscrete;
@@ -487,17 +477,28 @@ NSString *const kAboutSegue = @"Map2About";
   pinchRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect)];
   pinchRecognizer.delegate = self;
   [self.view addGestureRecognizer:pinchRecognizer];
+  
+  // Pointer location
+  UIHoverGestureRecognizer * hoverRecognizer = [[UIHoverGestureRecognizer alloc] initWithTarget:self action:@selector(handlePointerHover:)];
+  hoverRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirectPointer)];
+  [self.view addGestureRecognizer:hoverRecognizer];
+
+  if (!NSProcessInfo.processInfo.isiOSAppOnMac)
+    return;
+
+  // Pan
+  UIPanGestureRecognizer * panRecognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handlePan:)];
+  panRecognizer.minimumNumberOfTouches = 2;
+  panRecognizer.allowedScrollTypesMask = UIScrollTypeMaskContinuous;
+  panRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect)];
+  panRecognizer.delegate = self;
+  [self.view addGestureRecognizer:panRecognizer];
 
   // Trackpad rotation
   UIRotationGestureRecognizer * rotationRecognizer = [[UIRotationGestureRecognizer alloc] initWithTarget:self action:@selector(handleRotation:)];
   rotationRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirect | UITouchTypeDirect)];
   rotationRecognizer.delegate = self;
   [self.view addGestureRecognizer:rotationRecognizer];
-
-  // Pointer location
-  UIHoverGestureRecognizer * hoverRecognizer = [[UIHoverGestureRecognizer alloc] initWithTarget:self action:@selector(handlePointerHover:)];
-  hoverRecognizer.allowedTouchTypes = @[@(UITouchTypeIndirectPointer)];
-  [self.view addGestureRecognizer:hoverRecognizer];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

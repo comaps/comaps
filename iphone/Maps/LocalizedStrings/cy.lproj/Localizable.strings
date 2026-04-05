@@ -1,595 +1,872 @@
-"close" = "Cau";
-"editor_reset_edits_button" = "Canslo newidiadau";
-"core_exit" = "Allanfa";
-"downloader_hide_screen" = "Cuddio Sgrin";
-"downloader_process" = "Wrthi'n lawrlwytho %@…";
-"core_entrance" = "Mynedfa";
-"saved" = "Cadwyd";
-"power_managment_setting_never" = "Byth";
-"ok" = "Iawn";
-"others_sorttype" = "Eraill";
-"money" = "Arian";
-"editor_category_unsuitable_text" = "CoMaps allows to add simple point categories only, that means no towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Check our <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> for detailed step by step instructions.";
-"dialog_routing_location_turn_on" = "Galluogi gwasanaethau lleoli";
-"closes_at" = "Closes at %@";
-"downloader_no_space_message" = "Please delete any unnecessary data";
-"trip_start" = "Bant â ni";
-"trip_finished" = "You have arrived!";
-"share_my_location" = "Rhannu Fy Lleoliad";
-"dialog_routing_select_closer_end" = "Please select a destination point located closer to a road.";
-"icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature.";
-"editor_more_about_osm" = "Mwy am OpenStreetMap";
-"track_recording_alert_title" = "Save into Bookmarks and Tracks?";
-"tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
-"dialog_routing_application_error" = "Unable to create route due to an application error.";
-"category_toilet" = "Toiled";
-"pref_maplanguage_title" = "Iaith Fap";
-"categories" = "Categorïau";
-"social_codeberg" = "Codeberg";
-"add_new_set" = "Ychwanegu Rhestr Newydd";
-"instagram" = "Instagram";
-"editor_storey_number" = "Number of floors (maximum of %d)";
-"downloader_loading_ios" = "Wrthi'n lawrlwytho";
-"speedcams_alert_title_carplay_1" = "Camerâu cyflymder";
-"cancel_download" = "Canslo Lawrlwytho";
-"p2p_from_here" = "Llwybr o";
-"save" = "Cadw";
-"editor_profile_changes" = "Newidiadau wedi'u Dilysu";
-"opens_at" = "Opens at %@";
-"social_matrix" = "Matrix";
-"app_tip_05" = "Did you know that your current location on the map can be selected?";
-"copy_to_clipboard" = "Copïo i'r Clipffwrdd";
-"edit_track" = "Golygu Ôl";
-"routing_add_start_point" = "Use search or tap on the map to add a route starting point";
-"whats_new_auto_update_button_size" = "Diweddariad (%@)";
-"export_file" = "Allforio KMZ";
-"downloader_delete_map_while_routing_dialog" = "To delete map, please stop navigation.";
-"button_layer_outdoor" = "Awyr agored";
-"my_position_share_email_subject" = "Hey, check out my current location on the CoMaps map!";
-"category_shopping" = "Siopa";
-"dialog_routing_disclaimer_priority" = "— Road conditions, traffic laws, and road signs always take priority over navigation hints;";
-"pref_tts_speedcams_always" = "Rhybuddio bob amser";
-"hide_from_map" = "Hide from map";
-"operator" = "Gweithredwr: %@";
-"bookmark_sets" = "Hoff Restrau";
-"vk" = "VK";
-"opens_in" = "Opens in %@";
-"dialog_routing_check_gps" = "Gwiriwch eich cysylltiad GPS";
-"copied_to_clipboard" = "Copied to clipboard: %@";
-"placepage_distance" = "Pellter";
-"dialog_routing_download_cross_route" = "Download additional maps to create a better route that crosses the boundaries of this map.";
-"osm_profile_verfied_changes" = "Newidiadau wedi'u Dilysu";
-"follow_us" = "Cysylltu â ni";
-"dialog_routing_location_turn_wifi" = "Please check your GPS signal. Enabling Wi-Fi will improve your location accuracy.";
-"placepage_personal_notes_hint" = "Personal notes (text or html)";
-"start_track_recording" = "Recordio Ôl";
-"dialog_routing_change_end_carplay" = "Unable to find a route to your destination. Please choose another end point";
-"placepage_add_place_button" = "Add Place to OpenStreetMap";
-"osm_mapdata" = "Data map gan OpenStreetMap";
-"downloader_status_maps" = "Mapiau";
-"avoid_tolls" = "Osgoi tollau";
-"enable_logging" = "Galluogi cofnodi";
-"osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world.";
-"self_service" = "Hunanwasanaeth";
-"rate_the_app" = "Sgorio'r ap";
-"mobile_data" = "Rhyngrwyd Symudol";
-"category_post" = "Post";
-"downloader_retry" = "Ailgeisio";
-"editor_time_title" = "Oriau Busnes";
-"editor_other_info" = "Nodyn i wirfoddolwyr OpenStreetMap (dewisol)";
-"brown" = "Brown";
-"track_title" = "Ôl";
-"car_continue_on_the_phone" = "Continue on the phone";
-"isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
-"leave_a_review" = "Adolygu";
-"pref_tts_street_names_title" = "Cyhoeddi Enwau Strydoedd";
-"icloud_synchronization_error_alert_title" = "iCloud synchronization failure";
-"downloader_search_field_hint" = "Dod o hyd i fap";
-"shops" = "Siopau";
-"category_eat" = "Ble i fwyta";
-"isolines_location_error_dialog" = "Contour lines are not yet available in this area";
-"category_water" = "Dŵr";
-"category_rv" = "Cyfleusterau Carafan";
-"bookmarks_recently_deleted" = "Recently Deleted Lists";
-"panoramax" = "Panoramax";
-"category_recycling" = "Ailgylchu";
-"dialog_routing_disclaimer_precision" = "— The map might be inaccurate, and the suggested route might not always be the most optimal way to reach the destination;";
-"fediverse" = "Mastodon";
-"delete_list" = "Dileu rhestr";
-"osm_more_about" = "Mwy am OpenStreetMap";
-"kilometres" = "Cilometrau";
-"move" = "Symud";
-"elevation_profile_diff_level_moderate" = "Canolig";
-"version: %@ (%@)\nmap data: %@" = "Fersiwn: %@ (%@)\nData Map: %@";
-"error_enter_correct_zip_code" = "Enter a valid ZIP code";
-"load_kmz_failed" = "Failed to load bookmarks. The file may be corrupted or defective.";
-"transit_not_found" = "Subway navigation in this region is not available yet";
-"carplay_roundabout_exit" = "allanfa %@";
-"pref_tts_other_section_title" = "Arall";
-"food_places" = "Bwyd";
-"editor_detailed_description" = "Your suggested map changes will be sent to the OpenStreetMap community. Please describe any additional details that cannot be edited in CoMaps.";
-"bookmarks_convert_error_title" = "Gwall";
-"select_cuisine" = "Dewis bwyd";
-"editor_share_to_all_dialog_message_2" = "OpenStreetMap editors will check the changes and contact you if they have any questions.";
-"terms_of_use" = "Terms of use";
-"day_off" = "Ar gau";
-"website" = "Gwefan";
-"about_headline" = "Prosiect agored a bwerwyd gan y gymuned";
-"downloader_delete_map_dialog" = "All of your map edits will be deleted with the map.";
-"app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need.";
-"downloader_search_results" = "Canfuwyd";
-"pref_appearance_dark" = "Tywyll";
-"category_parking" = "Parcio";
-"avoid_motorways" = "Osgoi traffyrdd";
-"prefs_group_route" = "Llywio";
-"editor_time_delete" = "Dileu Amserlen";
-"parks" = "Parciau";
-"p2p_start" = "Dechrau";
-"downloading" = "Wrthi'n lawrlwytho…";
-"category_children" = "Gwyliau teulu";
-"dialog_routing_unable_locate_route_carplay" = "Unable to build a route. Please specify other route points";
-"about_proposition_2" = "Blaenoriaethu preifatrwydd, heb hysbysebion";
-"sort_name" = "Sort by name";
-"create" = "creu";
-"line" = "Line";
-"no" = "Na";
-"news" = "Newyddion";
-"hour" = "h";
-"info" = "Gwybodaeth";
-"dialog_routing_error_location_not_found" = "Unable to create route. Current GPS coordinates could not be identified.";
-"location_services_disabled_2" = "2. Tap Location";
-"clear" = "Clirio";
-"bookmarks_import" = "Mewnforio Ffefrynnau";
-"opens_tomorrow_at" = "Opens tomorrow at %@";
-"about_proposition_3" = "Tryloyw ac nid-er-elw";
-"closes_in" = "Closes in %@";
-"gray" = "Llwyd";
-"downloader_downloading" = "Wrthi'n lawrlwytho:";
-"p2p_reroute_from_current" = "Do you want to plan a route from your current location?";
-"pink" = "Pinc";
-"app_tip_09" = "Our main goal is to build fast, privacy-focused, easy-to-use maps that you will love.";
-"app_tip_08" = "You can easily fix and improve the map data.";
-"stop_without_saving" = "Stop Without Saving";
-"dialog_routing_change_intermediate" = "Unable to locate the intermediate point.";
-"downloader_status_outdated" = "Diweddaru";
-"pref_appearance_title" = "Gwedd";
-"button_layer_subway" = "Tanlwybr";
-"unknown_current_position" = "Your location hasn't been determined yet";
-"bugreport_alert_message" = "Would you like to send a bug report to the developers?\nWe rely on our users as CoMaps doesn't collect any error information automatically. Thank you in advance for supporting CoMaps!";
-"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
-"whatsnew_editor_message_1" = "Add new places to the map, and edit existing ones directly from the app.";
-"osm_profile" = "Proffil OpenStreetMap";
-"m" = "m";
-"car_continue_in_the_car" = "To the car screen";
-"dialog_routing_change_start_carplay" = "Unable to build a route from your current location";
-"bookmark_lists_hide_all" = "Cuddio popeth";
-"on" = "Ymlaen";
-"editor_sharing_title" = "I improved the CoMaps maps";
-"email" = "E-bost";
-"edit" = "Golygu";
-"routing_download_maps_along" = "Download all of the maps along your route";
-"dialog_routing_check_gps_carplay" = "No GPS signal. Please move to an open area";
-"routing_planning_error" = "Route Planning Failed";
-"drive_through" = "Gyrru trwodd";
-"downloader_update_all_button" = "Diweddaru Popeth";
-"restore" = "Adfer";
-"twitter" = "X (Twitter)";
-"moremonth_ago_sorttype" = "More than a month ago";
-"downloader_applying" = "Wrthi'n cymhwyso %@…";
-"routing_arrive" = "Arrival at %@";
-"enable_icloud_synchronization_message" = "iCloud synchronization is an experimental feature under development. Make sure that you have made a backup of all your bookmarks and tracks.";
-"unable_to_calc_alert_subtitle" = "A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry.";
-"current_location_unknown_error_message" = "An error occurred while determining your location. Check that your device is working properly and try again later.";
-"medicine" = "Meddyginiaethau";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) is a community project to build a free and open map. It's the main source of map data in CoMaps and works similar to Wikipedia. You can add or edit places and they become available to millions of users all over the World.\nJoin the community and help to make a better map for everyone!";
-"power_managment_title" = "Power saving mode";
-"opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
-"category_bank" = "Banc";
-"download_map_carplay" = "Please download maps in the app on your mobile device";
-"mobile_data_dialog" = "Use mobile internet to show detailed information?";
-"search_show_on_map" = "Gweld ar y map";
-"mi" = "mi";
-"stop_track_recording" = "Stop Track Recording";
-"planning_route_remove_title" = "Drag here to remove";
-"p2p_your_location" = "Eich Lleoliad";
-"category_transport" = "Trafnidiaeth";
-"text_more_button" = "mwy";
-"downloader_of" = "%1$d o %2$d";
-"mobile_data_option_ask" = "Gofyn Bob Amser";
-"country_status_download_failed" = "Methwyd â lawrlwytho";
-"about_proposition_1" = "All-lein, cyflym, a hawdd i'w ddefnyddio";
-"follow_my_position" = "Ail-ganoli";
-"download_over_mobile_message" = "This could be considerably expensive with some plans or if roaming.";
-"ferry_crossing" = "Ferry crossing";
-"email_error_title" = "Gwall wrth anfon e-bost";
-"add_language" = "Ychwanegu iaith";
-"common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet.";
-"car_used_on_the_car_screen" = "You are now using CoMaps on the car screen";
-"parkings" = "Parcio";
-"yes" = "Ie";
-"location_services_disabled_on_device_additional_message" = "Or continue using CoMaps without Location";
-"recent_track_background_dialog_message" = "CoMaps uses your location in the background to record your recently travelled route.";
-"off" = "Wedi'i diffodd";
-"current_location_unknown_error_title" = "Current location is unknown.";
-"app_tip_07" = "Our app is developed by a few enthusiasts and the community.";
-"editor_time_advanced" = "Modd Uwch";
-"add_street" = "Add a street";
-"share_with_friends" = "Share with friends";
-"dialog_routing_download_files_carplay" = "To create a route, download missing maps on your device";
-"last_upload" = "Lanlwythwyd ddiwethaf";
-"osm_profile_register_promt" = "Don't have an OpenStreetMap account?";
-"placepage_delete_track_confirmation_alert_message" = "Are you sure you want to delete this track?";
-"help" = "Help";
-"report_incorrect_map_bug" = "Report or fix incorrect map data";
-"title_error_downloading_bookmarks" = "An error occurred";
-"editor_example_values" = "Gwerthoedd Enghreifftiol";
-"message_invalid_feature_position" = "No object can be located here";
-"mobile_data_option_always" = "Defnyddio Bob Amser";
-"off_recent_track_background_button" = "Analluogi";
-"dialog_routing_disclaimer_borders" = "— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorized places.";
-"dialog_pedestrian_route_is_long_header" = "No subway route found";
-"category_nightlife" = "Bywyd Nos";
-"unpaved_road" = "Unpaved road";
-"phone" = "Ffôn";
-"whats_new_auto_update_button_later" = "Manually update later";
-"app_tip_06" = "You can help to translate our app into your language.";
-"delete" = "Dileu";
-"decline" = "Gwrthod";
-"downloader_no_downloaded_maps_title" = "You haven't downloaded any maps";
-"search_in_the_list" = "Search in the list";
-"elevation_profile_ascent" = "Esgyniad";
-"pref_zoom_title" = "Botymau chwyddo";
-"zoom_to_country" = "Dangos ar y map";
-"p2p_only_from_current" = "Navigation is only available from your current location.";
-"downloader_near_me_subtitle" = "Gerllaw";
-"dialog_routing_change_start_or_end" = "Please adjust your starting point or destination.";
-"animals" = "Anifeiliaid";
-"export_file_gpx" = "Allforio GPX";
-"pref_map_3d_title" = "Perspective view";
-"pref_tts_title" = "Cyfarwyddiadau Llais";
-"version" = "Fersiwn CoMaps: %@";
-"add_opening_hours" = "Add opening hours";
-"general_settings" = "Gosodiadau cyffredinol";
-"bookmarks_error_title_share_empty" = "Gwall rhannu";
-"bookmarks_export" = "Export all Bookmarks and Tracks";
-"pref_appearance_light" = "Golau";
-"dialog_routing_change_end" = "Addasu cylchfan";
-"planning_route_manage_route" = "Rheoli Llwybr";
-"place_name" = "Enw Lle";
-"navigation_stop_button" = "Stopio";
-"load_kmz_successful" = "Bookmarks loaded successfully! You can find them on the map or on the Bookmarks Manager screen.";
-"power_managment_setting_manual_max" = "Bob amser";
-"faq" = "Cwestiynau Cyffredin";
-"icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
-"osm_profile_delete" = "Dileu cyfrif OpenStreetMap";
-"please_note" = "Noder";
-"bookmarks_detect_title" = "New files detected";
-"migration_download_error_dialog" = "Gwall lawrlwytho";
-"choose_street" = "Choose a street";
-"category_food" = "Bwyd";
-"p2p_to_here" = "Llwybr i";
-"bookmark_share_email_subject" = "Hey, check out my pin in CoMaps!";
-"editor_operator" = "Gweithredwr";
-"pref_map_3d_buildings_disabled_summary" = "3D buildings are disabled in power saving mode";
-"dialog_routing_intermediate_not_determined" = "Please adjust your intermediate point.";
-"pref_map_3d_buildings_title" = "Adeiladau 3D";
-"enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
-"bookmark_lists" = "Rhestrau";
-"read_in_wikipedia" = "Wicipedia";
-"editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
-"placepage_track_name_hint" = "Enw'r Ôl";
-"speedcams_alert_title_carplay_2" = "Rhybuddion cyflymder";
-"download_button" = "Lawrlwytho";
-"core_my_places" = "Fy Lleoliadau";
-"downloader_no_space_title" = "Not enough space";
-"category_pharmacy" = "Fferyllfa";
-"kilometers_per_hour" = "km/h";
-"isolines_toast_zooms_1_10" = "Zoom in to explore isolines";
-"category_secondhand" = "Ail Law";
-"editor_report_problem_send_button" = "Anfon";
-"elevation_profile_descent" = "Disgyniad";
-"editor_remove_place_button" = "Dileu";
-"category_police" = "Heddlu";
-"dialog_routing_disclaimer_recommendations" = "— Suggested routes should only be understood as recommendations;";
-"translated_om_site_url" = "https://www.comaps.app/";
-"download" = "Lawrlwytho";
-"email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
-"editor_time_allday" = "All Day (24 hours)";
-"downloader_download_map" = "Lawrlwytho map";
-"backup" = "Backup";
-"track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";
-"category_atm" = "Peiriant Codi Arian";
-"pref_mapappearance_title" = "Gwedd Map";
-"hotels" = "Gwestai";
-"deep_orange" = "Oren Tywyll";
-"pref_tts_street_names_description" = "When enabled, the name of the street or exit to turn onto will be spoken aloud.";
-"unable_to_calc_alert_title" = "Unable to calculate route";
-"network" = "Rhwydwaith: %@";
-"elevation_profile_diff_level_easy" = "Hawdd";
-"editor_share_to_all_dialog_title" = "Do you want to send it to all users?";
-"mobile_data_description" = "Mobile internet is required for map update notifications and uploading edits.";
-"daily" = "Dyddiol";
-"elevation_profile_diff_level" = "Lefel anhawster";
-"editor_hours_closed" = "Oriau Cau";
-"mobile_data_option_not_today" = "Do Not Use Today";
-"pref_maplanguage_local" = "Iaith Leol";
-"downloader_update_maps" = "Diweddaru Mapiau";
-"dialog_routing_end_not_determined" = "Route was not created. Unable to locate the destination.";
-"closed_now" = "Ar gau nawr";
-"dialog_routing_download_and_update_all" = "Download or update all maps along the projected path to calculate a route.";
-"miles" = "Milltiroedd";
-"deep_purple" = "Porffor Tywyll";
-"error_enter_correct_storey_number" = "The number of floors must non exceed %d";
-"download_over_mobile_header" = "Download over a cellular network connection?";
-"measurement_units" = "Unedau mesur";
-"orange" = "Oren";
-"pref_tts_test_voice_title" = "Profi Cyfarwyddiadau Llais";
-"social_email" = "E-bost";
-"error_enter_correct_web" = "Enter a valid web address";
-"bookmark" = "lleoliad";
-"editor_edit_place_title" = "Golygu";
-"category_wifi" = "WiFi";
-"editor_place_doesnt_exist" = "Place does not exist";
-"subway_data_unavailable" = "Subway map is unavailable";
-"near_me_sorttype" = "Gerllaw";
-"green" = "Gwyrdd";
-"pref_tts_speedcams_auto" = "Warn if speeding";
-"details" = "Manylion";
-"yellow" = "Melyn";
-"privacy_policy" = "Polisi preifatrwydd";
-"editor_default_language_hint" = "As it is written in the local language";
-"search_not_found" = "Oops, no results found.";
-"editor_add_select_location" = "Dewis Lleoliad";
-"downloader_queued" = "Wedi'u ciwio";
-"change_driving_options_btn" = "Routing options enabled";
-"car_used_on_the_phone_screen" = "You are now using CoMaps on the phone screen";
-"category_hospital" = "Ysbyty";
-"redirect_route_alert" = "Do you want to rebuild the route?";
-"light_blue" = "Golau Glas";
-"downloader_delete_map" = "Dileu Map";
-"social_lemmy" = "Lemmy";
-"enable_logging_warning_message" = "Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.";
-"dialog_routing_rebuild_from_current_location_carplay" = "The route will be rebuilt from your current location";
-"popular_place" = "Poblogaidd";
-"address" = "Cyfeiriad";
-"routing_add_finish_point" = "Use search or tap on the map to add a destination point";
-"elevation_profile_max_elevation" = "Max. elevation";
-"mobile_data_option_today" = "Dim Ond Am Heddiw";
-"editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";
-"button_convert" = "Trosi";
-"icloud_synchronization_error_quota_exceeded" = "Error: Failed to synchronize due to iCloud quota exceeded";
-"icloud_sync" = "iCloud Syncronization (Beta)";
-"dialog_routing_rebuild_for_vehicle_carplay" = "The route will be converted into an automobile one";
-"week_ago_sorttype" = "Wythnos yn ôl";
-"red" = "Coch";
-"hide" = "Cuddio";
-"editor_detailed_description_hint" = "Sylw manwl";
-"driving_options_title" = "Opsiynau llywio";
-"dialog_routing_select_closer_start" = "Please select a starting point closer to a road.";
+/* Button text (should be short) */
 "cancel" = "Canslo";
-"switch_to_phone_bookmarks_carplay" = "Switch to the phone to see all bookmarks";
-"lime" = "Leim";
-"website_menu" = "Dolen i'r Fwydlen";
-"app_tip_02" = "Do you like our app? Please donate to support the development! Don't like it yet? Please let us know why, and we will fix it!";
-"pick_destination" = "Cyrchfan";
-"cyan" = "Gwyrddlas";
-"teal" = "Gwyrddlas";
-"level" = "Llawr";
-"panoramax_picture" = "Llun Panoramax";
-"refresh" = "Diweddaru";
-"use_cellular_data" = "Ie";
-"capacity" = "Capasiti: %@";
-"day_off_today" = "Ar gau heddiw";
-"location_services_disabled_3" = "3. Select While Using the App";
-"osm_profile_register" = "Register at OpenStreetMap";
-"location_services_disabled_on_device_3" = "3. Select Location Services";
-"miles_per_hour" = "mya";
-"history" = "Hanes";
-"osm_profile_remove_promt" = "If you can't or don't want to reconnect your account, you can just remove it from this app";
-"keyboard_availability_alert" = "Keyboard is not available while driving";
-"whats_new_auto_update_message" = "Updating maps keeps the information about objects up to date";
-"closed" = "Ar gau";
-"editor_time_close" = "Ar gau";
-"social_mastodon" = "Mastodon";
-"editor_time_add" = "Ychwanegu Amserlen";
-"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
-"bluesky" = "Bluesky";
-"editor_edit_place_category_title" = "Categori";
-"bookmarks_error_title_list_name_already_taken" = "This name is already taken";
-"category_entertainment" = "Adloniant";
-"placepage_add_stop" = "Ychwanegu Stop";
-"avoid_unpaved" = "Avoid unpaved roads";
-"autodownload" = "Lawrlwytho mapiau yn awtomatig";
-"app_tip_04" = "Tap anywhere on the map to select anything. A long tap is used to hide and show the interface.";
-"enable" = "Enable";
-"osm_mapdata_explanation %@" = "Community-created map data as of *%@*. Learn more about how to edit and update the map at [OpenStreetMap.org](https://openstreetmap.org).";
-"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
-"then_turn" = "Yna";
-"disabled" = "Wedi'i analluogi";
-"mountains" = "Mynyddoedd";
-"osm_profile_login" = "Mewngofnodi i OpenStreetMap";
-"dialog_incorrect_feature_position" = "Newid lleoliad";
-"app_tip_01" = "With your donations and support, we can create the best maps in the World!";
-"downloader_status_failed" = "Failed";
-"dialog_routing_system_error" = "Gwall system";
-"buildings" = "Adeiladau";
-"dialog_routing_download_and_build_cross_route" = "Would you like to download the map and create a more optimal route spanning more than one map?";
-"dialog_routing_disclaimer_beware" = "Please stay alert and safe on the roads!";
-"log_file_size" = "Log file size: %@";
-"bookmarks_create_new_group" = "Create a new list";
-"editor_add_select_category_all_subtitle" = "Pob Categori";
-"search" = "Chwilio";
-"ft" = "ft";
-"placepage_edit_bookmark_button" = "Golygu Nod Tudalen";
-"pref_map_auto_zoom" = "Awtochwyddo";
-"error_enter_correct_phone" = "Enter a valid phone number";
-"pref_tts_language_title" = "Iaith Lais";
-"month_ago_sorttype" = "Mis yn ôl";
-"dialog_routing_start_not_determined" = "Route was not created. Unable to locate starting point.";
-"auto" = "Awto";
-"osm_profile_view_edit_history" = "View Edit History";
-"museums" = "Amgueddfeydd";
-"sort" = "Trefnu…";
-"downloader_percent" = "%@ (%@ o %@)";
-"dialog_routing_system_error_carplay" = "An error occurred. Please restart the application";
-"dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
-"placepage_bookmark_name_hint" = "Enw Lle";
-"power_managment_description" = "Try to reduce power usage at the expense of some functionality.";
-"downloader_updating_ios" = "Wrthi'n diweddaru";
-"error_enter_correct_name" = "Please enter a correct name";
-"dialog_routing_download_files" = "Lawrlwytho'r ffeiliau sydd eu hangen";
-"migration_no_space_message" = "To download, you need more space. Please delete any unnecessary data.";
-"icloud_disabled_title" = "iCloud Is Disabled";
-"downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline.";
-"search_history_text" = "View your recent searches.";
-"location_services_disabled_on_device_2" = "2. Dewis Preifatrwydd";
-"dialog_routing_unable_locate_route" = "Unable to locate route";
-"bookmarks_error_title_list_name_too_long" = "This name is too long";
-"sort_type" = "Sort by type";
-"social_bluesky" = "Bluesky";
-"cuisine" = "Bwyd";
-"country_status_download_without_size" = "Lawrlwytho Map";
-"editor_zip_code" = "Cod Post";
-"pref_tts_speedcams_never" = "Byth";
-"osm_profile_view_notes" = "Gweld Nodiadau";
-"twentyfour_seven" = "24/7";
-"donate" = "Rhoi arian";
-"delete_all" = "Dileu Popeth";
-"outdoor_seating" = "Seddi awyr agored";
-"place_description_title" = "Disgrifiad Lleoliad";
-"editor_add_select_category_popular_subtitle" = "Poblogaidd";
-"swim_places" = "Nofio";
-"editor_time_add_closed" = "Add Non-Business Hours";
-"placepage_remove_stop" = "Dileu Stop";
-"search_results" = "Canlyniadau chwilio";
-"core_placepage_unknown_place" = "Pwynt Map";
-"elevation_profile_diff_level_hard" = "Anodd";
-"dialog_routing_try_again" = "Ceisiwch eto";
-"no_available" = "Na";
-"fuel_places" = "Gorsafoedd Petrol";
-"sharing_call_action_look" = "Edrychwch";
-"volunteer" = "Gwirfodoli";
-"clear_search" = "Clear Search History";
-"downloader_download_all_button" = "Lawrlwytho Popeth";
-"category_tourism" = "Atyniadau";
+/* Button which interrupts country download */
+"cancel_download" = "Canslo Lawrlwytho";
+/* Button which deletes downloaded country */
+"delete" = "Dileu";
 "download_maps" = "Lawrlwytho Mapiau";
-"editor_comment_hint" = "Sylw…";
-"editor_share_to_all_dialog_message_1" = "Make sure you did not enter any private or personal data.";
-"location_services_disabled_message" = "Enable access to geolocation in the device settings";
-"edit_place" = "Golygu Lle";
-"dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
-"settings" = "Gosodiadau";
-"downloader_available_maps" = "Ar gael";
-"editor_category_unsuitable_title" = "Can't find a suitable category?";
-"location_services_disabled_on_device_4" = "4. Turn on Location Services";
-"layers_title" = "Map Styles and Layers";
-"avoid_ferry" = "Avoid ferries";
-"elevation_profile_min_elevation" = "Min. elevation";
-"category_hotel" = "Gwesty";
-"postal_code" = "Cod Post";
-"location_services_disabled_1" = "1. Agor Gosodiadau";
-"osm_profile_reauthorize_promt" = "The OpenStreetMap account was disconnected from this app";
-"whats_new_auto_update_title" = "Update downloaded maps";
-"power_managment_setting_auto" = "When battery is low";
-"recover" = "Recover";
-"km" = "km";
-"search_history_title" = "Hanes Chwilio";
-"placepage_delete_track_button" = "Dileu Ôl";
-"house_number" = "Rhif adeilad";
-"show" = "Dangos";
-"dialog_routing_location_unknown_turn_on" = "Unable to locate current GPS coordinates. Enable location services to calculate route.";
-"dialog_routing_disclaimer_title" = "When following the route, please keep in mind:";
-"location_services_disabled_header" = "Location services are disabled";
-"tracks_title" = "Olion";
-"long_tap_toast" = "Long-tap on the map again to see the interface";
-"bookmarks_error_message_empty_list_name" = "Please enter the list name";
-"start_from_my_position" = "Dechrau o";
-"routing_failed_cross_mwm_building" = "Routes can only be created that are fully contained within a map of a single region.";
-"email_or_username" = "Email or username";
-"editor_focus_map_on_location" = "Drag the map to place the cross at the location of the place or business.";
-"error_enter_correct_email" = "Enter a valid email";
-"continue_button" = "Parhau";
-"placepage_delete_bookmark_button" = "Dileu Lle";
-"tourist_places" = "Golygfeydd";
-"placepage_call_button" = "Ffonio";
-"pref_tts_enable_title" = "Galluogi Cyfarwyddiadau Llais";
-"define_to_avoid_btn" = "Define roads to avoid";
-"book_button" = "Llyfr";
-"error_enter_correct_house_number" = "Enter a valid building number";
-"toll_road" = "Toll road";
-"choose_language" = "Choose a language";
-"editor_edit_place_name_hint" = "Name of the place";
-"accept" = "Derbyn";
-"not_all_shown_bookmarks_carplay" = "Not all bookmarks are shown";
-"icloud_synchronization_error_connection_error" = "Error: Failed to synchronize due to connection error";
-"dialog_routing_change_start" = "Newid man cychwyn";
-"editor_remove_place_message" = "Delete added place?";
-"blue_gray" = "Llwyd Tywyll";
-"report_a_bug" = "Rhoi gwybod am nam";
-"wikimedia_commons" = "Comin Wicimedia";
-"editor_reset_edits_message" = "Discard all local changes?";
-"sort_distance" = "Sort by distance";
-"copyright" = "Hawlfraint";
-"traffic_update_app_message" = "To display traffic data, the application must be updated.";
-"category_fuel" = "Nwy";
-"editor_add_place_title" = "Ychwanegu";
-"bookmark_set_name" = "Enw Rhestr";
-"recover_all" = "Adfer Popeth";
-"moreyear_ago_sorttype" = "More than a year ago";
-"social_pixelfed" = "Pixelfed";
-"religious_places" = "Mannau addoli";
-"day" = "d";
-"bookmarks_error_message_share_empty" = "Cannot share an empty list";
-"sort_date" = "Sort by date";
-"facebook" = "Facebook";
-"app_tip_00" = "Thank you for using our community-built maps!";
-"osm_profile_remove" = "Remove OpenStreetMap account";
-"length" = "Hyd";
-"sort_default" = "Sort by default";
-"big_font" = "Increase size for map labels";
-"search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
-"load_kmz_title" = "Wrthi'n llwytho Ffefrynnau";
-"button_layer_isolines" = "Contour Lines";
-"later" = "Nes ymlaen";
-"version %@ (%@)" = "Fersiwn %@ (%@)";
-"button_plan" = "Cynllunio";
-"purple" = "Porffor";
-"change_color" = "Newid Lliw";
-"continue_recording" = "Parhau i Recordio";
-"bookmarks_error_message_share_general" = "Unable to share due to an application error";
-"map" = "Map";
-"bookmarks" = "Lleoedd";
-"bookmarks_and_tracks" = "Ffefrynnau";
-"downloader_downloaded_subtitle" = "Wedi'u lawrlwytho";
-"blue" = "Glas";
-"traffic_data_unavailable" = "Traffic data is not available";
-"today" = "Heddiw";
-"mobile_data_option_never" = "Byth";
-"editor_time_open" = "Ar agor";
-"bookmarks_convert_error_message" = "Some files were not converted.";
-"profile" = "Proffil OpenStreetMap";
-"transliteration_title" = "Transliterate into Latin alphabet";
-"editor_time_simple" = "Modd Syml";
-"editor_add_select_category" = "Dewiswch gategori";
-"speedcams_alert_title" = "Camerâu cyflymder";
-"recent_track_background_dialog_title" = "Disable recording of your recently travelled route?";
-"placepage_more_button" = "Rhagor";
-"osm_profile_logout" = "Logout of OpenStreetMap account";
-"open_in_app" = "Open in Another App";
-"done" = "Iawn";
-"minute" = "min";
+/* Settings/Downloader - info for country which started downloading */
+"downloading" = "Wrthi'n lawrlwytho…";
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Mapiau All-lein";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "Mae angen lawrlwytho map i weld a phori'r ardal.\nLawrlwythwch fapiau ar gyfer ardaloedd rydych am deithio iddynt.";
+/* Choose measurement on first launch alert - choose metric system button */
+"kilometres" = "Cilometrau";
+/* Leave Review dialog - Review button */
+"leave_a_review" = "Adolygu";
+/* Choose measurement on first launch alert - choose imperial system button */
+"miles" = "Milltiroedd";
+/* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Fy Lleoliad";
-"traffic_update_maps_text" = "To display traffic data, maps must be updated.";
+/* Update maps later button text */
+"later" = "Nes ymlaen";
+/* View and button titles for accessibility, please also edit it in iphone/plist.txt */
+"search" = "Chwilio";
+/* Settings/Downloader - 3G download warning dialog confirm button */
+"use_cellular_data" = "Ie";
+/* View and button titles for accessibility */
+"zoom_to_country" = "Dangos ar y map";
+/* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
+"country_status_download_without_size" = "Lawrlwytho Map";
+/* Message to display at the center of the screen when the country download has failed */
+"country_status_download_failed" = "Methwyd â lawrlwytho";
+/* Text in About screen */
+"about_headline" = "Prosiect agored a bwerwyd gan y gymuned";
+/* Text in About screen */
+"about_proposition_1" = "All-lein, cyflym, a hawdd i'w ddefnyddio";
+/* Text in About screen */
+"about_proposition_2" = "Blaenoriaethu preifatrwydd, heb hysbysebion";
+/* Text in About screen */
+"about_proposition_3" = "Tryloyw ac nid-er-elw";
+"close" = "Cau";
+"download" = "Lawrlwytho";
+/* REMOVE THIS STRING AFTER REFACTORING */
+"continue_button" = "Parhau";
+/* "Add new bookmark list" dialog title */
+"add_new_set" = "Ychwanegu Rhestr Newydd";
+/* Add Bookmark list dialog - hint when the list name is empty */
+"bookmark_set_name" = "Enw Rhestr";
+/* "Bookmark Lists" dialog title */
+"bookmark_sets" = "Hoff Restrau";
+/* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
+"bookmarks" = "Lleoedd";
+/* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
+"bookmarks_and_tracks" = "Ffefrynnau";
+/* Default bookmark list name */
+"core_my_places" = "Fy Lleoliadau";
+/* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
+"address" = "Cyfeiriad";
+/* Settings button in system menu */
+"settings" = "Gosodiadau";
+/* Measurement units title in settings activity */
+"measurement_units" = "Unedau mesur";
+/* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
+"category_eat" = "Ble i fwyta";
+/* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
+"category_food" = "Bwyd";
+/* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
+"category_transport" = "Trafnidiaeth";
+/* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
+"category_fuel" = "Nwy";
+/* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
+"category_parking" = "Parcio";
+/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
+"category_shopping" = "Siopa";
+/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
+"category_secondhand" = "Ail Law";
+/* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
+"category_hotel" = "Gwesty";
+/* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
+"category_tourism" = "Atyniadau";
+/* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
+"category_entertainment" = "Adloniant";
+/* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
+"category_atm" = "Peiriant Codi Arian";
+/* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
+"category_nightlife" = "Bywyd Nos";
+/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
+"category_children" = "Gwyliau teulu";
+/* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
+"category_bank" = "Banc";
+/* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
+"category_pharmacy" = "Fferyllfa";
+/* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
+"category_hospital" = "Ysbyty";
+/* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
+"category_toilet" = "Toiled";
+/* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
+"category_post" = "Post";
+/* Search category for police; any changes should be duplicated in categories.txt @category_police! */
+"category_police" = "Heddlu";
+/* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
+"category_wifi" = "WiFi";
+/* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
+"category_recycling" = "Ailgylchu";
+/* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
+"category_water" = "Dŵr";
+/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
+"category_rv" = "Cyfleusterau Carafan";
+"share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
+/* message title of loading file */
+"load_kmz_title" = "Wrthi'n llwytho Ffefrynnau";
+/* Kmz file successful loading */
+"load_kmz_successful" = "Bookmarks loaded successfully! You can find them on the map or on the Bookmarks Manager screen.";
+/* Kml file loading failed */
+"load_kmz_failed" = "Failed to load bookmarks. The file may be corrupted or defective.";
+/* resource for context menu */
+"edit" = "Golygu";
+/* Warning message when doing search around current position */
+"unknown_current_position" = "Your location hasn't been determined yet";
+/* Subject for emailed bookmark */
+"bookmark_share_email_subject" = "Hey, check out my pin in CoMaps!";
+/* Subject for emailed position */
+"my_position_share_email_subject" = "Hey, check out my current location on the CoMaps map!";
+/* Share by email button text, also used in editor and About. */
+"email" = "E-bost";
+/* Text for message to copy something */
+"copy_to_clipboard" = "Copïo i'r Clipffwrdd";
+/* Text for message when used successfully copied something */
+"copied_to_clipboard" = "Copied to clipboard: %@";
+/* place preview title */
+"info" = "Gwybodaeth";
+/* Used for bookmark editing */
+"done" = "Iawn";
+/* Prints version number in About dialog */
+"version" = "Fersiwn CoMaps: %@";
+"version %@ (%@)" = "Fersiwn %@ (%@)";
+"version: %@ (%@)\nmap data: %@" = "Fersiwn: %@ (%@)\nData Map: %@";
+/* Title for tracks category in bookmarks manager */
+"tracks_title" = "Olion";
+/* Length of track in cell that describes route */
+"length" = "Hyd";
+"share_my_location" = "Rhannu Fy Lleoliad";
+"prefs_group_route" = "Llywio";
+"pref_zoom_title" = "Botymau chwyddo";
 "pref_left_button_type" = "Prif Fotwm Chwith";
-"bookmark_lists_show_all" = "Dangos popeth";
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Iaith Fap";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Iaith Leol";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Gwedd Map";
+/* Settings «Map» category: «Appearance» title */
+"pref_appearance_title" = "Gwedd";
+/* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_light" = "Golau";
+/* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_dark" = "Tywyll";
+/* Generic «Disabled» string */
+"disabled" = "Wedi'i analluogi";
+/* Generic «Off» string */
+"off" = "Wedi'i diffodd";
+/* Generic «On» string */
+"on" = "Ymlaen";
+/* Generic «Auto» string */
+"auto" = "Awto";
+/* Settings «Map» category: «Perspective view» title */
+"pref_map_3d_title" = "Perspective view";
+/* Settings «Map» category: «3D buildings» title */
+"pref_map_3d_buildings_title" = "Adeiladau 3D";
+/* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
+"pref_map_3d_buildings_disabled_summary" = "3D buildings are disabled in power saving mode";
+/* Settings «Route» category: «Tts enabled» title */
+"pref_tts_title" = "Cyfarwyddiadau Llais";
+/* Settings «Route» category: «Tts enable» title */
+"pref_tts_enable_title" = "Galluogi Cyfarwyddiadau Llais";
+/* Settings «Route» category: «Tts announce street names» title */
+"pref_tts_street_names_title" = "Cyhoeddi Enwau Strydoedd";
+/* Settings «Route» category: «Tts announce street names» description */
+"pref_tts_street_names_description" = "When enabled, the name of the street or exit to turn onto will be spoken aloud.";
+/* Settings «Route» category: «Tts language» title */
+"pref_tts_language_title" = "Iaith Lais";
+/* Settings «Route» category: «Test Voice Directions» title */
+"pref_tts_test_voice_title" = "Profi Cyfarwyddiadau Llais";
+/* Title for "Other" section in TTS settings. */
+"pref_tts_other_section_title" = "Arall";
+"pref_map_auto_zoom" = "Awtochwyddo";
+"placepage_distance" = "Pellter";
+"search_show_on_map" = "Gweld ar y map";
+/* Text in menu */
+"website" = "Gwefan";
+/* Text in About menu, opens CoMaps news website */
+"news" = "Newyddion";
+/* Text in the about screen */
+"social_codeberg" = "Codeberg";
+"social_mastodon" = "Mastodon";
+"social_lemmy" = "Lemmy";
+"social_matrix" = "Matrix";
+"social_bluesky" = "Bluesky";
+"social_pixelfed" = "Pixelfed";
+"social_email" = "E-bost";
+/* Text in the editor */
+"fediverse" = "Mastodon";
+/* Text in menu */
+"facebook" = "Facebook";
+/* Text in menu */
+"twitter" = "X (Twitter)";
+/* Text in menu */
+"instagram" = "Instagram";
+/* Text in the editor */
+"vk" = "VK";
+/* Text in the editor */
+"line" = "Line";
+/* Text in the editor */
+"bluesky" = "Bluesky";
+/* Text in menu */
+"panoramax" = "Panoramax";
+/* Text in menu */
+"panoramax_picture" = "Llun Panoramax";
+/* Text in menu */
+"rate_the_app" = "Sgorio'r ap";
+/* Text in menu */
+"help" = "Help";
+/* Button in the main Help dialog */
+"faq" = "Cwestiynau Cyffredin";
+/* Button in the main menu */
+"donate" = "Rhoi arian";
+/* Button in the main Help dialog */
+"copyright" = "Hawlfraint";
+/* Text in menu + Button in the main Help dialog */
+"report_a_bug" = "Rhoi gwybod am nam";
+/* Button in the About screen */
+"report_incorrect_map_bug" = "Report or fix incorrect map data";
+/* Button in the About screen */
+"volunteer" = "Gwirfodoli";
+/* "Social media" section header in the About screen */
+"follow_us" = "Cysylltu â ni";
+/* Alert text */
+"email_error_body" = "The email client has not been set up. Please configure it or contact us at %@";
+/* Alert title */
+"email_error_title" = "Gwall wrth anfon e-bost";
+/* Toast text when user hides UI with a long tap anywhere on the map */
+"long_tap_toast" = "Long-tap on the map again to see the interface";
+/* Update all button text */
+"downloader_update_all_button" = "Diweddaru Popeth";
+/* Downloaded maps list header */
+"downloader_downloaded_subtitle" = "Wedi'u lawrlwytho";
+/* Downloaded maps category */
+"downloader_available_maps" = "Ar gael";
+/* Country queued for download */
+"downloader_queued" = "Wedi'u ciwio";
+"downloader_near_me_subtitle" = "Gerllaw";
+/* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
+"downloader_status_maps" = "Mapiau";
+"downloader_download_all_button" = "Lawrlwytho Popeth";
+"downloader_downloading" = "Wrthi'n lawrlwytho:";
+"downloader_search_results" = "Canfuwyd";
+/* Status of outdated country in the list */
+"downloader_status_outdated" = "Diweddaru";
+/* Status of failed country in the list */
+"downloader_status_failed" = "Failed";
+/* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
+"downloader_delete_map_while_routing_dialog" = "To delete map, please stop navigation.";
+/* PointsInDifferentMWM */
+"routing_failed_cross_mwm_building" = "Routes can only be created that are fully contained within a map of a single region.";
+/* Context menu item for downloader. */
+"downloader_download_map" = "Lawrlwytho map";
+/* Item status in downloader. */
+"downloader_retry" = "Ailgeisio";
+/* Item in context menu. */
+"downloader_delete_map" = "Dileu Map";
+/* Text for routing error dialog */
+"routing_download_maps_along" = "Download all of the maps along your route";
+/* Text for routing error dialog */
 "routing_requires_all_map" = "In order to create a route, we need to download and update all the maps from your location to your destination.";
-"thank_you" = "Diolch";
-"yes_available" = "Ie";
-"osm_profile_reauthorize" = "Reconnect with OpenStreetMap";
+/* bookmark button text */
+"bookmark" = "lleoliad";
+"save" = "Cadw";
+"create" = "creu";
+/* red color */
+"red" = "Coch";
+/* yellow color */
+"yellow" = "Melyn";
+/* blue color */
+"blue" = "Glas";
+/* green color */
+"green" = "Gwyrdd";
+/* purple color */
+"purple" = "Porffor";
+/* orange color */
+"orange" = "Oren";
+/* brown color */
+"brown" = "Brown";
+/* pink color */
+"pink" = "Pinc";
+/* deep purple color */
+"deep_purple" = "Porffor Tywyll";
+/* light blue color */
+"light_blue" = "Golau Glas";
+/* cyan color */
+"cyan" = "Gwyrddlas";
+/* teal color */
+"teal" = "Gwyrddlas";
+/* lime color */
+"lime" = "Leim";
+/* deep orange color */
+"deep_orange" = "Oren Tywyll";
+/* gray color */
+"gray" = "Llwyd";
+/* blue gray color */
+"blue_gray" = "Llwyd Tywyll";
+"dialog_routing_disclaimer_title" = "When following the route, please keep in mind:";
+"dialog_routing_disclaimer_priority" = "— Road conditions, traffic laws, and road signs always take priority over navigation hints;";
+"dialog_routing_disclaimer_precision" = "— The map might be inaccurate, and the suggested route might not always be the most optimal way to reach the destination;";
+"dialog_routing_disclaimer_recommendations" = "— Suggested routes should only be understood as recommendations;";
+"dialog_routing_disclaimer_borders" = "— Exercise caution with routes in border zones: the routes created by our app may sometimes cross country borders in unauthorized places.";
+"dialog_routing_disclaimer_beware" = "Please stay alert and safe on the roads!";
+"dialog_routing_check_gps" = "Gwiriwch eich cysylltiad GPS";
+"dialog_routing_error_location_not_found" = "Unable to create route. Current GPS coordinates could not be identified.";
+"dialog_routing_location_turn_wifi" = "Please check your GPS signal. Enabling Wi-Fi will improve your location accuracy.";
+"dialog_routing_location_turn_on" = "Galluogi gwasanaethau lleoli";
+"dialog_routing_location_unknown_turn_on" = "Unable to locate current GPS coordinates. Enable location services to calculate route.";
+"dialog_routing_download_files" = "Lawrlwytho'r ffeiliau sydd eu hangen";
+"dialog_routing_download_and_update_all" = "Download or update all maps along the projected path to calculate a route.";
+"dialog_routing_unable_locate_route" = "Unable to locate route";
+"dialog_routing_change_start_or_end" = "Please adjust your starting point or destination.";
+"dialog_routing_change_start" = "Newid man cychwyn";
+"dialog_routing_start_not_determined" = "Route was not created. Unable to locate starting point.";
+"dialog_routing_select_closer_start" = "Please select a starting point closer to a road.";
+"dialog_routing_change_end" = "Addasu cylchfan";
+"dialog_routing_end_not_determined" = "Route was not created. Unable to locate the destination.";
+"dialog_routing_select_closer_end" = "Please select a destination point located closer to a road.";
+"dialog_routing_change_intermediate" = "Unable to locate the intermediate point.";
+"dialog_routing_intermediate_not_determined" = "Please adjust your intermediate point.";
+"dialog_routing_system_error" = "Gwall system";
+"dialog_routing_application_error" = "Unable to create route due to an application error.";
+"dialog_routing_try_again" = "Ceisiwch eto";
+"dialog_routing_download_and_build_cross_route" = "Would you like to download the map and create a more optimal route spanning more than one map?";
+"dialog_routing_download_cross_route" = "Download additional maps to create a better route that crosses the boundaries of this map.";
+/* «Show» context menu */
+"show" = "Dangos";
+/* «Hide» context menu */
+"hide" = "Cuddio";
+/* Failed planning route message in navigation view */
+"routing_planning_error" = "Route Planning Failed";
+/* Arrive routing message in navigation view */
+"routing_arrive" = "Arrival at %@";
+/* Text for routing::RouterResultCode::FileTooOld dialog. */
+"dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
+"categories" = "Categorïau";
+"history" = "Hanes";
+"search_not_found" = "Oops, no results found.";
+/* The message when user did not find anything in the search. */
+"search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
+"search_history_title" = "Hanes Chwilio";
+"search_history_text" = "View your recent searches.";
+"clear_search" = "Clear Search History";
+/* Place Page link to Wikipedia article (if map object has it). */
+"read_in_wikipedia" = "Wicipedia";
+/* Place Page link to Wikimedia Commons. */
+"wikimedia_commons" = "Comin Wicimedia";
+"p2p_your_location" = "Eich Lleoliad";
+"p2p_start" = "Dechrau";
+"p2p_from_here" = "Llwybr o";
+"p2p_to_here" = "Llwybr i";
+"p2p_only_from_current" = "Navigation is only available from your current location.";
+"p2p_reroute_from_current" = "Do you want to plan a route from your current location?";
+"editor_time_add" = "Ychwanegu Amserlen";
+"editor_time_delete" = "Dileu Amserlen";
+/* Text for allday switch. */
+"editor_time_allday" = "All Day (24 hours)";
+"editor_time_open" = "Ar agor";
+"editor_time_close" = "Ar gau";
+"editor_time_add_closed" = "Add Non-Business Hours";
+"editor_time_title" = "Oriau Busnes";
+"editor_time_advanced" = "Modd Uwch";
+"editor_time_simple" = "Modd Syml";
+"editor_hours_closed" = "Oriau Cau";
+"editor_example_values" = "Gwerthoedd Enghreifftiol";
+"editor_add_select_location" = "Dewis Lleoliad";
+"editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";
+"share_with_friends" = "Share with friends";
+"editor_report_problem_send_button" = "Anfon";
+"autodownload" = "Lawrlwytho mapiau yn awtomatig";
+/* Voice */
+"voice" = "Voice";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Unknown";
+/* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Cadarnhawyd %@";
-"rooms" = "%@ ystafell";
-"offline_explanation_title" = "Mapiau All-lein";
-"offline_explanation_text" = "Mae angen lawrlwytho map i weld a phori'r ardal.\nLawrlwythwch fapiau ar gyfer ardaloedd rydych am deithio iddynt.";
-"avoid_steps" = "Osgoi grisiau";
+/* Place Page opening hours text */
+"closed_now" = "Ar gau nawr";
+/* Place Page opening hours text */
+"daily" = "Dyddiol";
+"twentyfour_seven" = "24/7";
+"day_off_today" = "Ar gau heddiw";
+"day_off" = "Ar gau";
+"today" = "Heddiw";
+"opens_tomorrow_at" = "Opens tomorrow at %@";
+"opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
+"opens_at" = "Opens at %@";
+"opens_in" = "Opens in %@";
+"closes_at" = "Closes at %@";
+"closes_in" = "Closes in %@";
+"closed" = "Ar gau";
+"add_opening_hours" = "Add opening hours";
+/* OpenStreetMap */
+"osm_mapdata" = "Data map gan OpenStreetMap";
+"osm_mapdata_explanation %@" = "Community-created map data as of *%@*. Learn more about how to edit and update the map at [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_more_about" = "Mwy am OpenStreetMap";
+"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
+/* OpenStreetMap Profile */
+"osm_profile" = "Proffil OpenStreetMap";
+"osm_profile_promt" = "Create an OpenStreetMap account or log in to publish your map edits to the world.";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org) (OSM) is a community project to build a free and open map. It's the main source of map data in CoMaps and works similar to Wikipedia. You can add or edit places and they become available to millions of users all over the World.\nJoin the community and help to make a better map for everyone!";
+"osm_profile_login" = "Mewngofnodi i OpenStreetMap";
+"osm_profile_reauthorize_promt" = "The OpenStreetMap account was disconnected from this app";
+"osm_profile_reauthorize" = "Reconnect with OpenStreetMap";
+"osm_profile_remove_promt" = "If you can't or don't want to reconnect your account, you can just remove it from this app";
+"osm_profile_remove" = "Remove OpenStreetMap account";
+"osm_profile_register_promt" = "Don't have an OpenStreetMap account?";
+"osm_profile_register" = "Register at OpenStreetMap";
+"osm_profile_verfied_changes" = "Newidiadau wedi'u Dilysu";
+"osm_profile_view_edit_history" = "View Edit History";
+"osm_profile_view_notes" = "Gweld Nodiadau";
+"osm_profile_logout" = "Logout of OpenStreetMap account";
+"osm_profile_delete" = "Dileu cyfrif OpenStreetMap";
+/* Information text: "Last upload 11.01.2016" */
+"last_upload" = "Lanlwythwyd ddiwethaf";
+"thank_you" = "Diolch";
+"edit_place" = "Golygu Lle";
+"place_name" = "Enw Lle";
+"add_language" = "Ychwanegu iaith";
+/* Editable House Number text field (in address block). */
+"house_number" = "Rhif adeilad";
+"details" = "Manylion";
+/* Text field to enter non-existing street name, below list of known streets around */
+"add_street" = "Add a street";
+"choose_language" = "Choose a language";
+"choose_street" = "Choose a street";
+"postal_code" = "Cod Post";
+"cuisine" = "Bwyd";
+"select_cuisine" = "Dewis bwyd";
+/* login text field */
+"email_or_username" = "Email or username";
+"phone" = "Ffôn";
+"level" = "Llawr";
+"please_note" = "Noder";
+"downloader_delete_map_dialog" = "All of your map edits will be deleted with the map.";
+"downloader_update_maps" = "Diweddaru Mapiau";
+"downloader_search_field_hint" = "Dod o hyd i fap";
+"migration_download_error_dialog" = "Gwall lawrlwytho";
+"common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet.";
+"downloader_no_space_title" = "Not enough space";
+"downloader_no_space_message" = "Please delete any unnecessary data";
+"editor_profile_changes" = "Newidiadau wedi'u Dilysu";
+"editor_focus_map_on_location" = "Drag the map to place the cross at the location of the place or business.";
+"editor_add_select_category" = "Dewiswch gategori";
+"editor_add_select_category_popular_subtitle" = "Poblogaidd";
+"editor_add_select_category_all_subtitle" = "Pob Categori";
+"editor_edit_place_title" = "Golygu";
+"editor_add_place_title" = "Ychwanegu";
+"editor_edit_place_name_hint" = "Name of the place";
+/* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
+"editor_default_language_hint" = "As it is written in the local language";
+"editor_edit_place_category_title" = "Categori";
+"whatsnew_editor_message_1" = "Add new places to the map, and edit existing ones directly from the app.";
+"dialog_incorrect_feature_position" = "Newid lleoliad";
+"message_invalid_feature_position" = "No object can be located here";
+/* Error dialog no space */
+"migration_no_space_message" = "To download, you need more space. Please delete any unnecessary data.";
+"editor_sharing_title" = "I improved the CoMaps maps";
+/* Downloaded 10 **of** 20 <- it is that "of" */
+"downloader_of" = "%1$d o %2$d";
+"download_over_mobile_header" = "Download over a cellular network connection?";
+"download_over_mobile_message" = "This could be considerably expensive with some plans or if roaming.";
+"error_enter_correct_house_number" = "Enter a valid building number";
+"editor_storey_number" = "Number of floors (maximum of %d)";
+/* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
+"error_enter_correct_storey_number" = "The number of floors must non exceed %d";
+"editor_zip_code" = "Cod Post";
+"error_enter_correct_zip_code" = "Enter a valid ZIP code";
+/* Place Page title for long tap */
+"core_placepage_unknown_place" = "Pwynt Map";
+/* Title for OSM note section in the editor */
+"editor_other_info" = "Nodyn i wirfoddolwyr OpenStreetMap (dewisol)";
+"editor_detailed_description_hint" = "Sylw manwl";
+"editor_detailed_description" = "Your suggested map changes will be sent to the OpenStreetMap community. Please describe any additional details that cannot be edited in CoMaps.";
+"editor_more_about_osm" = "Mwy am OpenStreetMap";
+"editor_operator" = "Gweithredwr";
+/* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
+"operator" = "Gweithredwr: %@";
+"editor_category_unsuitable_title" = "Can't find a suitable category?";
+"editor_category_unsuitable_text" = "CoMaps allows to add simple point categories only, that means no towns, roads, lakes, building outlines, etc. Please add such categories directly to <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Check our <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> for detailed step by step instructions.";
+"downloader_no_downloaded_maps_title" = "You haven't downloaded any maps";
+"downloader_no_downloaded_maps_message" = "Download maps to search and navigate offline.";
+"current_location_unknown_error_title" = "Current location is unknown.";
+"current_location_unknown_error_message" = "An error occurred while determining your location. Check that your device is working properly and try again later.";
+"location_services_disabled_header" = "Location services are disabled";
+"location_services_disabled_message" = "Enable access to geolocation in the device settings";
+"location_services_disabled_1" = "1. Agor Gosodiadau";
+"location_services_disabled_2" = "2. Tap Location";
+/* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
+"location_services_disabled_3" = "3. Select While Using the App";
+"location_services_disabled_on_device_2" = "2. Dewis Preifatrwydd";
+"location_services_disabled_on_device_3" = "3. Select Location Services";
+"location_services_disabled_on_device_4" = "4. Turn on Location Services";
+"location_services_disabled_on_device_additional_message" = "Or continue using CoMaps without Location";
+/* abbreviation for meters */
+"m" = "m";
+/* abbreviation for kilometers */
+"km" = "km";
+/* abbreviation for kilometers per hour */
+"kilometers_per_hour" = "km/h";
+/* abbreviation for mile(s) */
+"mi" = "mi";
+/* A unit of measure */
+"ft" = "ft";
+"miles_per_hour" = "mya";
+"hour" = "h";
+"minute" = "min";
+"day" = "d";
+"placepage_more_button" = "Rhagor";
+"book_button" = "Llyfr";
+"placepage_call_button" = "Ffonio";
+"placepage_edit_bookmark_button" = "Golygu Nod Tudalen";
+"placepage_bookmark_name_hint" = "Enw Lle";
+"placepage_personal_notes_hint" = "Personal notes (text or html)";
+"placepage_delete_bookmark_button" = "Dileu Lle";
+"editor_edits_sent_message" = "Your note will be sent to OpenStreetMap";
+"editor_comment_hint" = "Sylw…";
+"editor_reset_edits_message" = "Discard all local changes?";
+"editor_reset_edits_button" = "Canslo newidiadau";
+"editor_remove_place_message" = "Delete added place?";
+"editor_remove_place_button" = "Dileu";
+"editor_place_doesnt_exist" = "Place does not exist";
+"editor_place_doesnt_exist_description" = "Describe what the place looks like now to send an error note to the OpenStreetMap community";
+"text_more_button" = "mwy";
+/* Phone number error message */
+"error_enter_correct_phone" = "Enter a valid phone number";
+"error_enter_correct_web" = "Enter a valid web address";
+"error_enter_correct_email" = "Enter a valid email";
+"refresh" = "Diweddaru";
+"placepage_add_place_button" = "Add Place to OpenStreetMap";
+/* Displayed when saving some edits to the map to warn against publishing personal data */
+"editor_share_to_all_dialog_title" = "Do you want to send it to all users?";
+/* Dialog before publishing the modifications to the public map. */
+"editor_share_to_all_dialog_message_1" = "Make sure you did not enter any private or personal data.";
+"editor_share_to_all_dialog_message_2" = "OpenStreetMap editors will check the changes and contact you if they have any questions.";
+"navigation_stop_button" = "Stopio";
+/* iOS dialog for the case when recent track recording is on and the app comes back from background */
+"recent_track_background_dialog_title" = "Disable recording of your recently travelled route?";
+"off_recent_track_background_button" = "Analluogi";
+/* For sharing via SMS and so on */
+"sharing_call_action_look" = "Edrychwch";
+"recent_track_background_dialog_message" = "CoMaps uses your location in the background to record your recently travelled route.";
+"general_settings" = "Gosodiadau cyffredinol";
+/* For the first routing */
+"accept" = "Derbyn";
+/* For the first routing */
+"decline" = "Gwrthod";
+"mobile_data_dialog" = "Use mobile internet to show detailed information?";
+"mobile_data_option_always" = "Defnyddio Bob Amser";
+"mobile_data_option_today" = "Dim Ond Am Heddiw";
+"mobile_data_option_not_today" = "Do Not Use Today";
+"mobile_data" = "Rhyngrwyd Symudol";
+/* NOTE to translators: please synchronize your translation with the English one. */
+"mobile_data_description" = "Mobile internet is required for map update notifications and uploading edits.";
+"mobile_data_option_never" = "Byth";
+"mobile_data_option_ask" = "Gofyn Bob Amser";
+"traffic_update_maps_text" = "To display traffic data, maps must be updated.";
+"big_font" = "Increase size for map labels";
+/* "traffic" as in road congestion */
+"traffic_update_app_message" = "To display traffic data, the application must be updated.";
+/* "traffic" as in "road congestion" */
+"traffic_data_unavailable" = "Traffic data is not available";
+"enable_logging" = "Galluogi cofnodi";
+"log_file_size" = "Log file size: %@";
+"pref_alt_map_lang_handling" = "Alternative Map Languages";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "Use in system order";
+"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
+"transliteration_title" = "Transliterate into Latin alphabet";
+"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
+/* Subway exits for public transport marks on the map */
+"core_exit" = "Allanfa";
+/* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
+"routing_add_start_point" = "Use search or tap on the map to add a route starting point";
+/* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
+"routing_add_finish_point" = "Use search or tap on the map to add a destination point";
+"planning_route_manage_route" = "Rheoli Llwybr";
+"button_plan" = "Cynllunio";
+"placepage_remove_stop" = "Dileu Stop";
+"planning_route_remove_title" = "Drag here to remove";
+"placepage_add_stop" = "Ychwanegu Stop";
+"start_from_my_position" = "Dechrau o";
+/* Title for button when a route was saved. */
+"saved" = "Cadwyd";
+"core_entrance" = "Mynedfa";
+"error_enter_correct_name" = "Please enter a correct name";
+"bookmark_lists" = "Rhestrau";
+/* Do not display all bookmark lists on the map */
+"bookmark_lists_hide_all" = "Cuddio popeth";
+"bookmark_lists_show_all" = "Dangos popeth";
+"bookmarks_create_new_group" = "Create a new list";
+/* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
+"bookmarks_import" = "Mewnforio Ffefrynnau";
+"downloader_hide_screen" = "Cuddio Sgrin";
+"downloader_percent" = "%@ (%@ o %@)";
+"downloader_process" = "Wrthi'n lawrlwytho %@…";
+"downloader_applying" = "Wrthi'n cymhwyso %@…";
+"bookmarks_error_message_share_general" = "Unable to share due to an application error";
+"bookmarks_error_title_share_empty" = "Gwall rhannu";
+"bookmarks_error_message_share_empty" = "Cannot share an empty list";
+"bookmarks_error_message_empty_list_name" = "Please enter the list name";
+"bookmarks_error_title_list_name_already_taken" = "This name is already taken";
+"bookmarks_error_title_list_name_too_long" = "This name is too long";
+"profile" = "Proffil OpenStreetMap";
+"bookmarks_detect_title" = "New files detected";
+"button_convert" = "Trosi";
+"bookmarks_convert_error_title" = "Gwall";
+"bookmarks_convert_error_message" = "Some files were not converted.";
+"restore" = "Adfer";
+"privacy_policy" = "Polisi preifatrwydd";
+"terms_of_use" = "Terms of use";
+"button_layer_subway" = "Tanlwybr";
+"layers_title" = "Map Styles and Layers";
+"subway_data_unavailable" = "Nid yw'r map tanddaearol ar gael";
+"title_error_downloading_bookmarks" = "An error occurred";
+"popular_place" = "Poblogaidd";
+"export_file" = "Allforio KMZ";
+"export_file_gpx" = "Allforio GPX";
+"delete_list" = "Dileu rhestr";
+"hide_from_map" = "Hide from map";
+"tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
+"download_button" = "Lawrlwytho";
+"speedcams_alert_title" = "Camerâu cyflymder";
+"place_description_title" = "Disgrifiad Lleoliad";
+/* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
+"pref_tts_speedcams_auto" = "Warn if speeding";
+/* Speed camera settings menu option - Always warn (about speedcams) */
+"pref_tts_speedcams_always" = "Rhybuddio bob amser";
+/* Speed camera settings menu option - Never warn (about speedcams) */
+"pref_tts_speedcams_never" = "Byth";
+"power_managment_title" = "Power saving mode";
+"power_managment_description" = "Try to reduce power usage at the expense of some functionality.";
+"power_managment_setting_never" = "Byth";
+"power_managment_setting_auto" = "When battery is low";
+"power_managment_setting_manual_max" = "Bob amser";
+"enable_logging_warning_message" = "Enable this option temporarily to record and manually send detailed diagnostic logs about your issue to us using \"Report a bug\" in the Help dialog. Logs may include location info.";
+"driving_options_title" = "Opsiynau llywio";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_tolls" = "Osgoi tollau";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_unpaved" = "Avoid unpaved roads";
+"avoid_paved" = "Avoid paved roads";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Osgoi grisiau";
+"avoid_ferry" = "Avoid ferries";
+"avoid_motorways" = "Osgoi traffyrdd";
+"unable_to_calc_alert_title" = "Unable to calculate route";
+"unable_to_calc_alert_subtitle" = "A route could not be found. This may be caused by your routing options or incomplete OpenStreetMap data. Please change your routing options and retry.";
+"define_to_avoid_btn" = "Define roads to avoid";
+"change_driving_options_btn" = "Routing options enabled";
+"toll_road" = "Toll road";
+"unpaved_road" = "Unpaved road";
+"ferry_crossing" = "Ferry crossing";
+"trip_start" = "Bant â ni";
+"pick_destination" = "Cyrchfan";
+"follow_my_position" = "Ail-ganoli";
+"search_results" = "Canlyniadau chwilio";
+"then_turn" = "Yna";
+"redirect_route_alert" = "Do you want to rebuild the route?";
+/* A generic "Yes" button in dialogs */
+"yes" = "Ie";
+/* A generic "No" button in dialogs */
+"no" = "Na";
+/* E.g. "WiFi:Yes" */
+"yes_available" = "Ie";
+/* E.g. "WiFi:No" */
+"no_available" = "Na";
+/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
+"capacity" = "Capasiti: %@";
+/* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
+"network" = "Rhwydwaith: %@";
+"trip_finished" = "You have arrived!";
+"keyboard_availability_alert" = "Keyboard is not available while driving";
+"dialog_routing_change_start_carplay" = "Unable to build a route from your current location";
+"dialog_routing_change_end_carplay" = "Unable to find a route to your destination. Please choose another end point";
+"dialog_routing_check_gps_carplay" = "No GPS signal. Please move to an open area";
+"dialog_routing_unable_locate_route_carplay" = "Unable to build a route. Please specify other route points";
+"dialog_routing_download_files_carplay" = "To create a route, download missing maps on your device";
+"dialog_routing_system_error_carplay" = "An error occurred. Please restart the application";
+"dialog_routing_rebuild_from_current_location_carplay" = "The route will be rebuilt from your current location";
+"dialog_routing_rebuild_for_vehicle_carplay" = "The route will be converted into an automobile one";
+"not_all_shown_bookmarks_carplay" = "Not all bookmarks are shown";
+"switch_to_phone_bookmarks_carplay" = "Switch to the phone to see all bookmarks";
+"ok" = "Iawn";
+"speedcams_alert_title_carplay_1" = "Camerâu cyflymder";
+"speedcams_alert_title_carplay_2" = "Rhybuddion cyflymder";
+"download_map_carplay" = "Please download maps in the app on your mobile device";
+"carplay_roundabout_exit" = "allanfa %@";
+/* max. 10 symbols, both iOS and Android */
+"sort" = "Trefnu…";
+/* iOS */
+"sort_default" = "Sort by default";
+"sort_type" = "Sort by type";
+"sort_distance" = "Sort by distance";
+"sort_date" = "Sort by date";
+"sort_name" = "Sort by name";
+"week_ago_sorttype" = "Wythnos yn ôl";
+"month_ago_sorttype" = "Mis yn ôl";
+"moremonth_ago_sorttype" = "More than a month ago";
+"moreyear_ago_sorttype" = "More than a year ago";
+"near_me_sorttype" = "Gerllaw";
+"others_sorttype" = "Eraill";
+"food_places" = "Bwyd";
+"tourist_places" = "Golygfeydd";
+"museums" = "Amgueddfeydd";
+"parks" = "Parciau";
+"swim_places" = "Nofio";
+"mountains" = "Mynyddoedd";
+"animals" = "Anifeiliaid";
+"hotels" = "Gwestai";
+"buildings" = "Adeiladau";
+"money" = "Arian";
+"shops" = "Siopau";
+"parkings" = "Parcio";
+"fuel_places" = "Gorsafoedd Petrol";
+"medicine" = "Meddyginiaethau";
+"search_in_the_list" = "Search in the list";
+"religious_places" = "Mannau addoli";
+"transit_not_found" = "Subway navigation in this region is not available yet";
+"dialog_pedestrian_route_is_long_header" = "No subway route found";
+"dialog_pedestrian_route_is_long_message" = "Please choose a start or end point closer to a subway station";
+"button_layer_isolines" = "Contour Lines";
+"isolines_activation_error_dialog" = "Activating contour lines requires downloading map data for this area";
+"isolines_location_error_dialog" = "Contour lines are not yet available in this area";
+"elevation_profile_diff_level" = "Lefel anhawster";
+"elevation_profile_diff_level_easy" = "Hawdd";
+"elevation_profile_diff_level_moderate" = "Canolig";
+"elevation_profile_diff_level_hard" = "Anodd";
+"elevation_profile_ascent" = "Esgyniad";
+"elevation_profile_descent" = "Disgyniad";
+"elevation_profile_min_elevation" = "Min. elevation";
+"elevation_profile_max_elevation" = "Max. elevation";
+"isolines_toast_zooms_1_10" = "Zoom in to explore isolines";
+"downloader_updating_ios" = "Wrthi'n diweddaru";
+"downloader_loading_ios" = "Wrthi'n lawrlwytho";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_title" = "Update downloaded maps";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_message" = "Updating maps keeps the information about objects up to date";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_size" = "Diweddariad (%@)";
+/* Autoupdate dialog on start */
+"whats_new_auto_update_button_later" = "Manually update later";
+/* Delete track button on track edit screen */
+"placepage_delete_track_button" = "Dileu Ôl";
+/* The track deletion confirmaion alert message. */
+"placepage_delete_track_confirmation_alert_message" = "Are you sure you want to delete this track?";
+/* Placeholder for track name input on track edit screen */
+"placepage_track_name_hint" = "Enw'r Ôl";
+/* move track or bookmark from the list button text */
+"move" = "Symud";
+/* edit track screen title */
+"track_title" = "Ôl";
+/* Translated CoMaps site */
+"translated_om_site_url" = "https://www.comaps.app/";
+/* App Tip #00 */
+"app_tip_00" = "Thank you for using our community-built maps!";
+/* App tip #01 */
+"app_tip_01" = "With your donations and support, we can create the best maps in the World!";
+/* App tip #02 */
+"app_tip_02" = "Do you like our app? Please donate to support the development! Don't like it yet? Please let us know why, and we will fix it!";
+/* App tip #03 */
+"app_tip_03" = "If you know a software developer, you can ask him or her to implement a feature that you need.";
+/* App tip #04 */
+"app_tip_04" = "Tap anywhere on the map to select anything. A long tap is used to hide and show the interface.";
+/* App tip #05 */
+"app_tip_05" = "Did you know that your current location on the map can be selected?";
+/* App tip #06 */
+"app_tip_06" = "You can help to translate our app into your language.";
+/* App tip #07 */
+"app_tip_07" = "Our app is developed by a few enthusiasts and the community.";
+/* App tip #08 */
+"app_tip_08" = "You can easily fix and improve the map data.";
+/* App tip #09 */
+"app_tip_09" = "Our main goal is to build fast, privacy-focused, easy-to-use maps that you will love.";
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "You are now using CoMaps on the phone screen";
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "You are now using CoMaps on the car screen";
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "Continue on the phone";
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "To the car screen";
+/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
+"button_layer_outdoor" = "Awyr agored";
+/* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
+"bookmarks_export" = "Export all Bookmarks and Tracks";
+/* Text for the editing the Track's color button. */
+"change_color" = "Newid Lliw";
+/* Main screen title "Map" displayed in the navigation back button's menu. */
+"map" = "Map";
+"drive_through" = "Gyrru trwodd";
+/* Restaurant or other food place's menu URL field in the Editor */
+"website_menu" = "Dolen i'r Fwydlen";
+/* Message for the bug report alert. */
+"bugreport_alert_message" = "Would you like to send a bug report to the developers?\nWe rely on our users as CoMaps doesn't collect any error information automatically. Thank you in advance for supporting CoMaps!";
+/* Title for the iCloud synchronization setting */
+"icloud_sync" = "iCloud Syncronization (Beta)";
+/* Title for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_title" = "Enable iCloud Syncronization";
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "iCloud synchronization is an experimental feature under development. Make sure that you have made a backup of all your bookmarks and tracks.";
+/* Title for the "iCloud Is Disabled" alert. */
+"icloud_disabled_title" = "iCloud Is Disabled";
+/* Message for the "iCloud is Disabled" alert. */
+"icloud_disabled_message" = "Please enable iCloud in your device's settings to use this feature.";
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
+"enable" = "Enable";
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
+"backup" = "Backup";
+/* Title for the "iCloud synchronization failure" alert. */
+"icloud_synchronization_error_alert_title" = "iCloud synchronization failure";
+/* iCloud error message: Failed to synchronize due to connection error */
+"icloud_synchronization_error_connection_error" = "Error: Failed to synchronize due to connection error";
+/* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
+"icloud_synchronization_error_quota_exceeded" = "Error: Failed to synchronize due to iCloud quota exceeded";
+/* iCloud error message: iCloud is not available */
+"icloud_synchronization_error_cloud_is_unavailable" = "Error: iCloud is not available";
+/* Title for the "Open in Another App" button on the PlacePage. */
+"open_in_app" = "Open in Another App";
+/* To indicate if the place proposed self service... */
+"self_service" = "Hunanwasanaeth";
+/* To indicate if restaurant or other place has outdoor seating */
+"outdoor_seating" = "Seddi awyr agored";
+/* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
+"bookmarks_recently_deleted" = "Recently Deleted Lists";
+/* Title for the "Clear" button on the Recently Deleted Lists screen. */
+"clear" = "Clirio";
+/* Title for the "Delete All" button on the Recently Deleted Lists screen. */
+"delete_all" = "Dileu Popeth";
+/* Title for the "Recover" button on the Recently Deleted Lists screen. */
+"recover" = "Recover";
+/* Title for the "Recover All" button on the Recently Deleted Lists screen. */
+"recover_all" = "Adfer Popeth";
+/* Prompt to start recording a track. */
+"start_track_recording" = "Recordio Ôl";
+/* Prompt for stopping a track recording. */
+"stop_track_recording" = "Stop Track Recording";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"stop_without_saving" = "Stop Without Saving";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"continue_recording" = "Parhau i Recordio";
+/* Title for the alert when saving a track recording. */
+"track_recording_alert_title" = "Save into Bookmarks and Tracks?";
+/* Message for the toast when saving the track recording is finished but nothing to save. */
+"track_recording_toast_nothing_to_save" = "Track is empty - nothing to save";
+"edit_track" = "Golygu Ôl";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

@@ -57,8 +57,8 @@ bool FilterWorld::IsPopularAttraction(feature::FeatureBuilder const & fb, std::s
   if (fb.GetName().empty())
     return false;
 
-  auto const & attractionsChecker = ftypes::AttractionsChecker::Instance();
-  if (!attractionsChecker(fb.GetTypes()))
+  auto const & isPartOfTourismAttractions = ftypes::IsPartOfTourismAttractionsChecker::Instance();
+  if (!isPartOfTourismAttractions(fb.GetTypes()))
     return false;
 
   if (popularityFilename.empty())

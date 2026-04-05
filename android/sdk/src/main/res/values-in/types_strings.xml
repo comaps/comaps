@@ -250,7 +250,6 @@
     <string name="type.cuisine.international">Masakan Internasional</string>
     <string name="type.cuisine.irish">Masakan Irlandia</string>
     <string name="type.cuisine.italian">Masakan Italia</string>
-    <string name="type.cuisine.italian_pizza">Italia, Pizza</string>
     <string name="type.cuisine.japanese">Masakan Jepang</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Korea</string>
@@ -516,7 +515,7 @@
     <string name="type.historic.wayside_cross">Salib di pinggir jalan</string>
     <string name="type.historic.wayside_shrine">Kuil di pinggir jalan</string>
     <string name="type.historic.wreck">Kecelakaan kapal</string>
-    <string name="type.landuse.basin">Sebuah baskom air</string>
+    <string name="type.landuse.basin">Kolam|Embung</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery">Pemakaman</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
@@ -1182,4 +1181,19 @@
     <string name="type.emergency">Darurat</string>
     <string name="type.office.security">Kantor Satpam</string>
     <string name="type.building.guardhouse">Pos Satpam</string>
+    <string name="type.highway.cycleway">Jalur Sepeda</string>
+    <string name="type.highway.cycleway.permissive">Jalur Sepeda</string>
+    <string name="type.highway.elevator">Lift</string>
+    <string name="type.highway.ladder">Tangga</string>
+    <string name="type.area_highway.cycleway">Jalur Sepeda</string>
+    <string name="type.internet_access">Internet</string>
+    <string name="type.internet_access.wlan">Wifi</string>
+    <string name="type.junction">Simpang</string>
+    <string name="type.junction.circular">Bundaran</string>
+    <string name="type.junction.roundabout">Bundaran</string>
+    <string name="type.landuse.brownfield">Lahan Terbengkalai</string>
+    <string name="type.landuse.religious">Lahan Keagamaan</string>
+    <string name="type.landuse.commercial">Area Komersial</string>
+    <string name="type.landuse.construction">Area Konstruksi</string>
+    <string name="type.landuse.education">Fasilitas Pendidikan</string>
 </resources>

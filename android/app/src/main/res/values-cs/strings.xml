@@ -165,12 +165,8 @@
     <string name="downloading_is_active">Právě probíhá stahování země</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Podívej se na mojí polohu v CoMaps! %1$s nebo %2$s Nemáš offline mapy? Stáhni si je zde: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Koukni na mojí značku na mapě v CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Podívej se na mou aktuální polohu na mapě v CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Ahoj, \n \nPrávě jsem tady: %1$s. Klepni na jeden z těchto odkazů %2$s, %3$s a uvidíš toto místo na mapě. \n \nDíky.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Sdílet</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -393,13 +389,7 @@
     <string name="editor_example_values">Vzorové hodnoty</string>
     <string name="editor_correct_mistake">Opravit chybu</string>
     <string name="editor_add_select_location">Zvolte umístění</string>
-    <string name="editor_report_problem_desription_1">Popište prosím detailně problém, aby vám komunita OpenStreetMap mohla pomoct opravit chybu.</string>
-    <string name="editor_report_problem_desription_2">Nebo to udělejte sami na https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Odeslat</string>
-    <string name="editor_report_problem_title">Problém</string>
-    <string name="editor_report_problem_no_place_title">Místo neexistuje</string>
-    <string name="editor_report_problem_under_construction_title">Zavřeno kvůli údržbě</string>
-    <string name="editor_report_problem_duplicate_place_title">Duplicitní místo</string>
     <string name="autodownload">Automaticky stahovat mapy</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Denně</string>
@@ -753,7 +743,7 @@
     <string name="browser_not_available">Webový prohlížeč není k dispozici</string>
     <string name="volume">Hlasitost</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportovat všechna místa a stopy</string>
+    <string name="bookmarks_export">Exportovat všechna oblíbená místa</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Systémové nastavení syntézy řeči</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -843,7 +833,7 @@
     <string name="pref_backup_now_title">Zálohovat nyní</string>
     <string name="pref_backup_now_summary">Nyní vytvořit zálohu</string>
     <string name="pref_backup_now_summary_ok">Záloha úspěšně dokončena</string>
-    <string name="pref_backup_now_summary_empty_lists">Nemáte žádná místa ani stopy k zálohování</string>
+    <string name="pref_backup_now_summary_empty_lists">Nemáte žádná oblíbené místa k zálohování</string>
     <string name="pref_backup_now_summary_progress">Zálohování…</string>
     <string name="pref_backup_now_summary_failed">Zálohování selhalo</string>
     <string name="pref_backup_now_summary_folder_unavailable">Složka pro zálohování není dostupná</string>
@@ -899,10 +889,10 @@
     <string name="editor_mark_business_vacant_description">Použijte, pokud se podnik přestěhoval a místo je volné a připravené pro nového zájemce.</string>
     <string name="editor_submit">Odeslat</string>
     <plurals name="minutes_short">
-        <item quantity="one">%d min</item>
-        <item quantity="few">%d min</item>
-        <item quantity="many">%d min</item>
-        <item quantity="other">%d min</item>
+        <item quantity="one">%d min.</item>
+        <item quantity="few">%d min.</item>
+        <item quantity="many">%d min.</item>
+        <item quantity="other">%d min.</item>
     </plurals>
     <string name="power_management">Správa výkonu</string>
     <string name="charge_socket_schuko">Domovní EU</string>
@@ -932,11 +922,17 @@
     <string name="route_needs_rebuild">Trasu je potřeba přepočítat</string>
     <string name="route_finished">Trasa dokončena</string>
     <string name="not_following_route">Nenásledujete trasu</string>
-    <string name="rebuilding_route">Přepočítávání trasy…</string>
     <string name="pref_alt_map_lang_handling">Alternativní jazyky mapy</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Nepoužívat alternativy</string>
     <string name="pref_alt_map_lang_handling_system_order">Použít v systémovém pořadí</string>
     <string name="pref_alt_map_lang_handling_local_only">Preferovat a používat pouze tam, kde je to přirozené</string>
     <string name="pref_openexternallinks_title">Automaticky otevírat odkazy třetích stran</string>
     <string name="pref_openexternallinks_summary">Ve výchozím nastavení otevírat odkazy třetích stran v aplikaci CoMap</string>
+    <string name="route_recalculating">Přepočítávám trasu…</string>
+    <string name="bookmark_share_email_subject">Pro zobrazení této lokace přejdi na %1$s nebo vlož tyto souřadnice %2$s do své mapové aplikace.</string>
+    <string name="my_position_share_email">Pro zobrazení mé polohy přejdi na %1$s nebo vlož tyto souřadnice %2$s do své mapové aplikace.</string>
+    <string name="destination">Cíl</string>
+    <string name="stop">Zastávka</string>
+    <string name="charge_socket_type1_combo">Typ 1 combo</string>
+    <string name="population">Počet obyvatel: %s</string>
 </resources>

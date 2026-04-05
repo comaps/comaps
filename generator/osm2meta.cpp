@@ -21,6 +21,7 @@
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
+#include "3party/boost/boost/algorithm/string/replace.hpp"
 
 namespace
 {
@@ -359,6 +360,12 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_rooms(std::string const 
   return v;
 }
 
+std::string MetadataTagProcessorImpl::ValidateAndFormat_charge(std::string v)
+{
+  boost::replace_all(v, "; ", "\n");
+  return v;
+}
+
 std::string MetadataTagProcessorImpl::ValidateAndFormat_airport_iata(std::string const & v) const
 {
   if (!ftypes::IsAirportChecker::Instance()(m_params.m_types))
@@ -637,6 +644,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_DURATION: valid = ValidateAndFormat_duration(v); break;
   case Metadata::FMD_CAPACITY: valid = ValidateAndFormat_capacity(v); break;
   case Metadata::FMD_ROOMS: valid = ValidateAndFormat_rooms(v); break;
+  case Metadata::FMD_CHARGE: valid = ValidateAndFormat_charge(v); break;
   case Metadata::FMD_LOCAL_REF: valid = ValidateAndFormat_local_ref(v); break;
   case Metadata::FMD_DRIVE_THROUGH: valid = ValidateAndFormat_drive_through(v); break;
   case Metadata::FMD_SELF_SERVICE: valid = ValidateAndFormat_self_service(v); break;
@@ -653,6 +661,8 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_RATINGS:
   case Metadata::FMD_EXTERNAL_URI:
   case Metadata::FMD_WHEELCHAIR:
+  case Metadata::FMD_POPULATION:  // Population tag had been already processed in
+                                  // generator/osm2type.cpp::GetNameAndType()
   case Metadata::FMD_COUNT: CHECK(false, (mdType, "should not be parsed from OSM."));
   }
 

@@ -5,61 +5,133 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d záložek</string>
+			<string>%lld záložek</string>
 			<key>one</key>
-			<string>%d záložka</string>
+			<string>%lld záložka</string>
 			<key>few</key>
-			<string>%d záložky</string>
+			<string>%lld záložky</string>
 			<key>other</key>
-			<string>%d záložek</string>
+			<string>%lld záložek</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>Bylo nalezeno %d souborů. Uvidíte je po konverzi.</string>
+			<string>Bylo nalezeno %lld souborů. Uvidíte je po konverzi.</string>
 			<key>one</key>
-			<string>Byl nalezen %d soubor. Uvidíte jej po konverzi.</string>
+			<string>Byl nalezen %lld soubor. Uvidíte jej po konverzi.</string>
 			<key>few</key>
-			<string>Byly nalezeny %d soubory. Uvidíte je po konverzi.</string>
+			<string>Byly nalezeny %lld soubory. Uvidíte je po konverzi.</string>
 			<key>other</key>
-			<string>Bylo nalezeno %d souborů. Uvidíte je po konverzi.</string>
+			<string>Bylo nalezeno %lld souborů. Uvidíte je po konverzi.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d stop</string>
+			<string>%lld stop</string>
 			<key>one</key>
-			<string>%d stopa</string>
+			<string>%lld stopa</string>
 			<key>few</key>
-			<string>%d stopy</string>
+			<string>%lld stopy</string>
 			<key>other</key>
-			<string>%d stop</string>
+			<string>%lld stop</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld obyvatel</string>
+			<key>one</key>
+			<string>%lld obyvatel</string>
+			<key>few</key>
+			<string>%lld obyvatelé</string>
+			<key>other</key>
+			<string>%lld obyvatel</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld místností</string>
+			<key>one</key>
+			<string>%lld místnost</string>
+			<key>few</key>
+			<string>%lld místnosti</string>
+			<key>other</key>
+			<string>%lld místností</string>
 		</dict>
 	</dict>
 </dict>

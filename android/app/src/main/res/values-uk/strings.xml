@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Зараз відбувається завантаження мапи</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Перевірте моє поточне розташування в CoMaps! %1$s або %2$s Немає автономних мап? Завантаж тут: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Поглянь на мою мiтку на мапі CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Поглянь на моє поточне розташування на мапі CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Привіт, \n \nЯ зараз тут: %1$s. Натисни на це посилання %2$s або на це посилання %3$s щоб побачити місце на мапі. \n \nДякую.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Подiлитись</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -398,13 +394,7 @@
     <string name="editor_example_values">Приклади значень</string>
     <string name="editor_correct_mistake">Виправте помилку</string>
     <string name="editor_add_select_location">Виберіть місце розташування</string>
-    <string name="editor_report_problem_desription_1">Будь-ласка, напишіть детально про проблему, щоб суспільство OpenStreetMap виправило помилку.</string>
-    <string name="editor_report_problem_desription_2">Або зробіть це самостійно на сайті https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Надіслати</string>
-    <string name="editor_report_problem_title">Проблема</string>
-    <string name="editor_report_problem_no_place_title">Місце не існує</string>
-    <string name="editor_report_problem_under_construction_title">Зачинено на ремонт</string>
-    <string name="editor_report_problem_duplicate_place_title">Дубльовані місця</string>
     <string name="autodownload">Автоматичне завантаження</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Щоденно</string>

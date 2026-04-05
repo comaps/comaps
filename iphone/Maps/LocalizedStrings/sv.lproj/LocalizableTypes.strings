@@ -24,11 +24,15 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grill för barbecue";
 "type.amenity.bench" = "Bänk";
+"type.amenity.bench.backless" = "Bänk utan ryggstöd";
 "type.amenity.bicycle_parking" = "Cykelparkering";
+"type.amenity.bicycle_parking.covered" = "Cykelparkering under tak";
+"type.amenity.boat_rental" = "Båtuthyrning";
 "type.amenity.bicycle_rental" = "Cykeluthyrning";
 "type.amenity.bicycle_repair_station" = "Cykelreparationsstation";
 "type.amenity.biergarten" = "Ölservering";
 "type.amenity.brothel" = "Bordell";
+"type.amenity.love_hotel" = "Kärlekshotell";
 "type.amenity.bureau_de_change" = "Valutaväxling";
 "type.amenity.bus_station" = "Busstation";
 "type.amenity.cafe" = "Café";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Motorcykeluthyrning";
 "type.amenity.car_sharing" = "Samåkning";
 "type.amenity.car_wash" = "Biltvätt";
+"type.man_made.telescope" = "Teleskop";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatorium";
 "type.amenity.casino" = "Kasino";
 "type.amenity.gambling" = "Spelande";
+"type.amenity.studio" = "Studio";
 "type.leisure.adult_gaming_centre" = "Spelcenter för vuxna";
 "type.leisure.amusement_arcade" = "Arkad";
 "type.amenity.charging_station" = "Laddstation";
-"type.amenity.charging_station.bicycle" = "Laddningsstation för cykel";
 "type.amenity.charging_station.motorcar" = "Laddningsstation för bilar";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "Laddningsstation för cykel";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Barnomsorg";
 "type.amenity.cinema" = "Bio";
 "type.leisure.bowling_alley" = "Bowlinghall";
 "type.amenity.clinic" = "Klinik";
 "type.amenity.college" = "Högskola";
 "type.amenity.community_centre" = "Stadshus";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Tryckluft";
 "type.amenity.conference_centre" = "Konferens Center";
 "type.amenity.courthouse" = "Domstol";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Mässa";
 "type.amenity.money_transfer" = "Pengaöverföring";
 "type.amenity.music_school" = "Musikskola";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Språkskola";
 "type.office.diplomatic" = "Ambassad";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Snabbmat";
 "type.amenity.ferry_terminal" = "Färja";
 "type.amenity.fire_station" = "Brandstation";
 "type.amenity.food_court" = "Restaurangtorg";
 "type.amenity.fountain" = "Fontän";
 "type.amenity.fuel" = "Bensinstation";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Begravningsplats";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Begravningsplats";
 "type.amenity.hospital" = "Sjukhus";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "Förskola";
 "type.amenity.library" = "Bibliotek";
 "type.amenity.loading_dock" = "Lastkaj";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "Marknadsplats";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcykelparkering";
 "type.amenity.nightclub" = "Nattklubb";
 "type.amenity.nursing_home" = "Vårdhem";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "Parkeringsplats";
 "type.amenity.parking_space.underground" = "Parkeringsplats";
 "type.amenity.parking_space.disabled" = "Handikappparkeringsplats";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "Betalningsterminal";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "Apotek";
 "type.amenity.place_of_worship" = "Plats för tillbedjan";
 "type.amenity.place_of_worship.buddhist" = "Tempel";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "Polis";
 "type.amenity.post_box" = "Postlåda";
 "type.amenity.post_office" = "Postkontor";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "Fängelse";
 "type.amenity.pub" = "Krog";
 "type.amenity.public_bookcase" = "Bokskåp";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "Restaurang";
 "type.amenity.sanitary_dump_station" = "Tömning av kemtoalett";
 "type.amenity.school" = "Skola";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Vindskydd";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Vindskydd";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivack";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
 "type.amenity.public_bath" = "Offentligt bad";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Fordonsinspektion";
 "type.amenity.vending_machine.fuel" = "Bränslepump";
 "type.amenity.veterinary" = "Veterinär";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "Papperskorg";
 "type.amenity.waste_disposal" = "Avfallscontainer";
 "type.amenity.waste_transfer_station" = "Återvinningscentral";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Avloppsvatten";
 "type.barrier.entrance" = "Ingång";
 "type.barrier.fence" = "Staket";
+"type.barrier.guard_rail" = "Vägräcke";
 "type.barrier.gate" = "Grind";
 "type.barrier.hedge" = "Häck";
 "type.barrier.kissing_gate" = "Grind";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Stödmur";
 "type.barrier.stile" = "Stätta";
 "type.barrier.turnstile" = "Vändkors";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "Bom";
 "type.barrier.toll_booth" = "Tullhus";
 "type.barrier.wall" = "Mur";
 "type.boundary" = "Gräns";
 "type.boundary.administrative" = "Administrativ gräns";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "Landsgräns";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regiongräns";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regiongräns";
 "type.boundary.national_park" = "Nationalpark";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Skyddat område";
 "type.boundary.protected_area.6" = "Skyddat område";
 "type.building" = "Byggnad";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Adress";
 "type.building.has_parts" = "Byggnad";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Trädgårdsmästare";
 "type.craft.grinding_mill" = "Kvarn för slipning";
 "type.craft.handicraft" = "Konsthantverk";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Vvs";
 "type.craft.key_cutter" = "Nyckelklippning";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "Internationell mat";
 "type.cuisine.irish" = "Irländsk mat";
 "type.cuisine.italian" = "Italiensk mat";
-"type.cuisine.italian_pizza" = "Italiensk, pizza";
 "type.cuisine.japanese" = "Japansk mat";
 "type.cuisine.kebab" = "Kebab";
 "type.cuisine.korean" = "Koreansk mat";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "Vegetarisk mat";
 "type.cuisine.vietnamese" = "Vietnamesisk mat";
 "type.emergency" = "Nödsituation";
+"type.emergency.access_point" = "Räddningspunkt";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Nöduppsamlingsplats";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Livboj";
 "type.emergency.defibrillator" = "Hjärtstartare";
 "type.emergency.fire_hydrant" = "Brandpost";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "Nödtelefon";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Livräddare";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Bergsräddningsstation";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Entré";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Huvudentré";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Utgång";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratis";
 "type.healthcare.laboratory" = "Medicinskt laboratorium";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "Logoped";
 "type.highway" = "Väg";
 "type.highway.bridleway" = "Ridväg";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Bro";
 "type.highway.bridleway.permissive" = "Ridväg";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunnel";
 "type.highway.busway" = "Dedikerad bussväg";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Busshållplats";
 "type.highway.construction" = "Väg under uppförande";
 "type.highway.cycleway" = "Cykelbana";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Cykelbro";
 "type.highway.cycleway.permissive" = "Cykelbana";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Cykeltunnel";
 "type.highway.elevator" = "Hiss";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "Trottoar";
 "type.highway.footway.crossing" = "Övergångsställe för fotgängare";
 "type.highway.footway.area" = "Gångväg";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Gångbro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Gångtunnel";
 "type.highway.ford" = "Vadställe";
 "type.highway.living_street" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunnel";
 "type.highway.motorway" = "Motorväg";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Tunnel";
 "type.highway.motorway_junction" = "Avfart";
 "type.highway.motorway_link" = "Motorvägspåfart";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunnel";
 "type.highway.path" = "Gångväg";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Svår eller dåligt uppmärkt stig";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Stig som är mycket svår eller omöjlig att urskilja";
 "type.highway.path.bicycle" = "Gång- och cykelbana";
 "type.highway.footway.bicycle" = "Gång- och cykelbana";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Bro";
 "type.highway.path.horse" = "Ridväg";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunnel";
 "type.highway.pedestrian" = "Gata";
 "type.highway.pedestrian.area" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Bro";
 "type.highway.pedestrian.square" = "Torg";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Tunnel";
 "type.highway.primary" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunnel";
 "type.highway.primary_link" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunnel";
 "type.highway.raceway" = "Racerbana";
 "type.highway.residential" = "Gata";
 "type.highway.residential.area" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
 "type.highway.rest_area" = "Viloplats";
 "type.highway.road" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Bro";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
 "type.highway.secondary" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunnel";
 "type.highway.secondary_link" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunnel";
 "type.highway.service" = "Gata";
 "type.highway.service.area" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Bro";
 "type.highway.service.driveway" = "Gata";
 "type.highway.service.parking_aisle" = "Gata";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunnel";
 "type.highway.services" = "Rastplats";
 "type.highway.speed_camera" = "Hastighetskamera";
 "type.highway.steps" = "Trappa";
-
+"type.highway.ladder" = "Stege";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
 "type.highway.tertiary" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunnel";
 "type.highway.tertiary_link" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunnel";
 "type.highway.track" = "Traktorväg";
 "type.highway.track.area" = "Traktorväg";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Bro";
 "type.highway.track.grade1" = "Traktorväg";
 "type.highway.track.no.access" = "Traktorväg";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunnel";
 "type.highway.traffic_signals" = "Trafikljus";
 "type.highway.trunk" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunnel";
 "type.highway.trunk_link" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunnel";
 "type.highway.unclassified" = "Gata";
 "type.highway.unclassified.area" = "Gata";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Bro";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunnel";
 "type.area_highway.cycleway" = "Cykelbana";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "Fartyg";
 "type.historic.tank" = "Historisk tank";
 "type.historic.tomb" = "Grav";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Kors";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Korset vid vägkanten";
 "type.historic.wayside_shrine" = "Helgedom vid vägkanten";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Koloniträgdårdar";
 "type.landuse.basin" = "Vattenbassäng";
 "type.landuse.brownfield" = "Tidigare industriområde";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Begravningsplats";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Begravningsplats";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Saltsjö";
 "type.landuse.village_green" = "Grönområde";
 "type.landuse.vineyard" = "Vingård";
+"type.landuse.plant_nursery" = "Plantskola";
 "type.leisure" = "Fritid";
+"type.leisure.bandstand" = "Musikpaviljong";
 "type.leisure.common" = "Allmän plats";
 "type.leisure.dog_park" = "Hundpark";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "Gym";
 "type.leisure.fitness_station" = "Fitnesstation";
 "type.leisure.dance" = "Danshall";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Skridskobana";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Småbåtshamn";
 "type.leisure.nature_reserve" = "Naturreservat";
 "type.leisure.outdoor_seating" = "Sittplatser utomhus";
+"type.leisure.firepit" = "Eldstad";
 "type.leisure.park" = "Park";
 "type.leisure.park.no.access" = "Privat park";
 "type.leisure.park.permissive" = "Park";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Båtramp";
 "type.leisure.sports_centre" = "Sportcenter";
-"type.sport.climbing" = "Klättercentrum";
-"type.sport.yoga" = "Yogastudio";
+"type.leisure.sports_centre.sport.multi" = "Idrottscentrum";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Klätterhall";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Ishall";
+"type.leisure.sports_centre.sport.padel" = "Padelhall";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Simhall";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "Stadion";
 "type.leisure.swimming_pool" = "Simbassäng";
 "type.leisure.swimming_pool.private" = "Simbassäng";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Lagringstank";
 "type.man_made.surveillance" = "Övervakningskamera";
 "type.man_made.tower" = "Torn";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Kommunikationstorn";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Kommunikationstorn";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Mobilmast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Oljebrunn eller gasbrunn";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gasflamma";
+"type.man_made.crane" = "Kran";
 "type.man_made.wastewater_plant" = "Avloppsreningsverk";
 "type.man_made.water_tap" = "Vattenkran";
 "type.man_made.water_tap.drinking_water_no" = "Vattenkran";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Bergspass";
 "type.natural" = "Natur";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Kala stenar";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Småsten";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Stenig rasbrant";
 "type.natural.bay" = "Bukt";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "Vägbank";
 "type.natural.coastline" = "Kust";
 "type.natural.desert" = "Öken";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "Gejser";
 "type.natural.glacier" = "Glaciär";
 "type.natural.grassland" = "Gräsmarker";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "Vattenkälla";
 "type.natural.spring.drinking_water_no" = "Vattenkälla";
 "type.natural.strait" = "Sund";
+"type.natural.tree" = "Träd";
 "type.natural.tree_row" = "Trädrad";
 "type.natural.vineyard" = "Vingård";
 "type.natural.volcano" = "Vulkan";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "Sumpmark";
 "type.natural.wetland.bog" = "Myr";
 "type.natural.wetland.marsh" = "Träsk";
+"type.natural.wetland.saltmarsh" = "Saltträsk";
+"type.natural.wetland.saltmarsh.tidal" = "Tidvattens saltträsk";
+"type.natural.wetland.fen" = "Kärr";
+"type.natural.wetland.reedbed" = "Vass";
+"type.natural.wetland.swamp" = "Träsk";
+"type.natural.wetland.mangrove" = "Mangroveträsk";
+"type.natural.wetland.tidalflat" = "Tidvatten";
 "type.noexit" = "Återvändsgränd";
 "type.office" = "Kontor";
 "type.office.company" = "Företagskontor";
@@ -843,10 +887,8 @@
 "type.place.islet" = "Ö";
 "type.place.isolated_dwelling" = "Isolerade bostäder";
 "type.place.locality" = "Lokalitet";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Grannskap";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Grannskapet";
 "type.place.ocean" = "Ocean";
@@ -855,7 +897,6 @@
 "type.place.square" = "Torg";
 "type.place.state" = "Stat";
 "type.place.state.USA" = "Stat";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Förort";
 "type.place.town" = "Stad";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "Solkraftverk";
 "type.power.plant.wind" = "Vindkraftverk";
 "type.power.substation" = "Ställverk";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Elstolpe";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Kollektivtrafik";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Järnväg under uppbyggnad";
 "type.railway.crossing" = "Järnvägsövergång";
 "type.railway.disused" = "Otrafikerad järnväg";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "Bergbana";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Bergbanetunnel";
@@ -902,6 +942,10 @@
 "type.railway.light_rail.tunnel" = "Light Rail Tunnel";
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail Bridge";
+"type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Smalspårig järnväg";
 "type.railway.narrow_gauge.bridge" = "Smalspårig järnvägsbro";
 "type.railway.narrow_gauge.tunnel" = "Smalspårig järnvägstunnel";
@@ -913,14 +957,12 @@
 "type.railway.rail.highspeed" = "Järnväg för höghastighetståg";
 "type.railway.rail.tourism" = "Järnväg för turisttrafik";
 "type.railway.rail.main" = "Järnväg";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Sekundär järnväg";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Järnväg för allmännyttiga ändamål";
 "type.railway.rail.spur" = "Järnvägsspår";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Extra järnvägsspår";
 "type.railway.rail.bridge" = "Järnvägsbro";
@@ -1027,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Tunnelbanestation";
 "type.railway.station.subway.philadelphia" = "Tunnelbanestation";
 "type.railway.station.subway.pyongyang" = "Tunnelbanestation";
+"type.railway.station.subway.qingdao" = "Tunnelbana";
 "type.railway.station.subway.rennes" = "Tunnelbanestation";
 "type.railway.station.subway.rio" = "Tunnelbanestation";
 "type.railway.station.subway.roma" = "Tunnelbanestation";
@@ -1188,6 +1231,7 @@
 "type.shop.bakery" = "Bageri";
 "type.shop.bathroom_furnishing" = "Badrumsinredning";
 "type.shop.beauty" = "Skönhetssalong";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "Drinkar";
 "type.shop.bicycle" = "Cykelaffär";
 "type.shop.bookmaker" = "Vadhållningsagent";
@@ -1239,6 +1283,7 @@
 "type.shop.kitchen" = "Köksbutik";
 "type.shop.laundry" = "Tvättstuga";
 "type.shop.mall" = "Galleria";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "Massagesalong";
 "type.shop.mobile_phone" = "Mobilbutik";
 "type.shop.money_lender" = "Pengar långivare";
@@ -1266,6 +1311,7 @@
 "type.shop.supermarket" = "Stormarknad";
 "type.shop.tattoo" = "Tatuerare";
 "type.shop.tea" = "Tebutik";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Biljettkontor";
 "type.shop.toys" = "Leksaksaffär";
 "type.shop.travel_agency" = "Resebyrå";
@@ -1277,7 +1323,7 @@
 "type.shop.agrarian" = "Lantbruksbutik";
 "type.shop.antiques" = "Antikviteter";
 "type.shop.appliance" = "Vitvarubutik";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Konstaffär";
 "type.shop.baby_goods" = "Barnbutik";
@@ -1302,25 +1348,35 @@
 "type.shop.trade" = "Handlar förnödenheter";
 "type.shop.watches" = "Klockor";
 "type.shop.wholesale" = "Grossistbutik";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "Sport";
+"type.sport.multi" = "Olika sporter";
+"type.sport.9pin" = "Bowling";
+"type.sport.10pin" = "Bowling";
 "type.sport.american_football" = "Amerikansk fotboll";
 "type.sport.archery" = "Bågskytte";
 "type.sport.athletics" = "Friidrott";
 "type.sport.australian_football" = "Australisk fotboll";
+"type.sport.badminton" = "Badminton";
 "type.sport.baseball" = "Baseboll";
 "type.sport.basketball" = "Basket";
 "type.sport.beachvolleyball" = "Beachvolleyboll";
 "type.sport.bowls" = "Bowls";
 "type.sport.chess" = "Schack";
+"type.sport.climbing" = "Klättercentrum";
 "type.sport.cricket" = "Cricket";
 "type.sport.curling" = "Curling";
+"type.sport.diving" = "Höghöjdsdykning";
 "type.sport.equestrian" = "Ridsport";
+"type.sport.field_hockey" = "Landhockey";
+"type.sport.futsal" = "Futsal";
 "type.sport.golf" = "Golf";
 "type.sport.gymnastics" = "Gymnastik";
 "type.sport.handball" = "Handboll";
-"type.sport.multi" = "Olika sporter";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Ishockey";
+"type.sport.padel" = "Padel";
+"type.sport.pelota" = "Baskisk pelota";
 "type.sport.scuba_diving" = "Dykning";
 "type.sport.shooting" = "Skytte";
 "type.sport.skateboard" = "Skateboard";
@@ -1330,17 +1386,9 @@
 "type.sport.table_tennis" = "Bordtennis";
 "type.sport.tennis" = "Tennisbana";
 "type.sport.volleyball" = "Volleyboll";
-"type.sport.10pin" = "Bowling";
-"type.sport.9pin" = "Bowling";
-"type.sport.padel" = "Padel";
-"type.sport.futsal" = "Futsal";
-"type.sport.ice_hockey" = "Ishockey";
-"type.sport.field_hockey" = "Landhockey";
-"type.sport.badminton" = "Badminton";
-"type.sport.pelota" = "Baskisk pelota";
+"type.sport.yoga" = "Yogastudio";
 "type.tourism" = "Turism";
 "type.tourism.aquarium" = "Akvarium";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Fjällstuga";
 "type.tourism.apartment" = "Semesterlägenhet";
@@ -1350,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Skulptur";
 "type.tourism.artwork.statue" = "Staty";
 "type.tourism.attraction" = "Attraktion";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Nöjesattraktion";
 "type.attraction.animal" = "Inhägnad för djur";
 "type.attraction.bumper_car" = "Radiobilar";
@@ -1362,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Attraktion";
 "type.tourism.camp_site" = "Campingplats";
 "type.tourism.caravan_site" = "Husvagnsplats";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Semesterstuga";
 "type.tourism.gallery" = "Attraktion";
@@ -1373,18 +1421,20 @@
 "type.tourism.information.board" = "Informationstavla";
 "type.tourism.information.guidepost" = "Vägledning";
 "type.tourism.information.map" = "Turistkarta";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Turistcenter";
 "type.tourism.information.visitor_centre" = "Besökscentrum";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "Motell";
 "type.tourism.museum" = "Museum";
 "type.tourism.picnic_site" = "Picknickplatser";
 "type.leisure.resort" = "Semesterort";
 "type.tourism.theme_park" = "Attraktion";
 "type.tourism.viewpoint" = "Utsiktsplats";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Vildmarksstuga";
 "type.tourism.zoo" = "Djurpark";
+"type.tourism.zoo.petting" = "Djurpark för barn";
 "type.traffic_calming" = "Farthinder";
 "type.traffic_calming.bump" = "Fartgupp";
 "type.traffic_calming.hump" = "Fartbula";
@@ -1398,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Kulvert";
 "type.waterway.dock" = "Fartygsdocka";
 "type.waterway.drain" = "Utlopp";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Mynning";
 "type.waterway.drain.tunnel" = "Kulvert";
 "type.waterway.lock_gate" = "Slussport";
@@ -1445,61 +1496,20 @@
 "type.self_service.only" = "Endast självbetjäning";
 "type.self_service.partially" = "Delvis självbetjäning";
 "type.self_service.no" = "Ingen självbetjäning";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Social anläggning";
-
+"type.social_facility.soup_kitchen" = "Soppkök";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Ingång till akutmottagning";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojo";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Idrottshall";
-"type.barrier.guard_rail" = "Vägräcke";
-"type.highway.ladder" = "Stege";
-"type.leisure.firepit" = "Eldstad";
-"type.natural.wetland.fen" = "Kärr";
-"type.natural.wetland.saltmarsh" = "Saltträsk";
-"type.natural.wetland.saltmarsh.tidal" = "Tidvattens saltträsk";
-"type.man_made.crane" = "Kran";
-"type.natural.wetland.reedbed" = "Vass";
-"type.natural.wetland.swamp" = "Träsk";
-"type.natural.wetland.mangrove" = "Mangroveträsk";
-"type.railway.station.subway.qingdao" = "Tunnelbana";
-"type.railway.monorail.tunnel" = "Monorail Tunnel";
-"type.natural.wetland.tidalflat" = "Tidvatten";
-"type.sport.diving" = "Höghöjdsdykning";
-"type.tourism.zoo.petting" = "Djurpark för barn";
-"type.amenity.love_hotel" = "Kärlekshotell";
-"type.amenity.studio" = "Studio";
-"type.landuse.plant_nursery" = "Plantskola";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Cykelparkering under tak";
-"type.post_office.post_partner" = "Post Partner";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.emergency.access_point" = "Räddningspunkt";
-"type.emergency.life_ring" = "Livboj";
-"type.social_facility.soup_kitchen" = "Soppkök";
-"type.man_made.observatory" = "Observatorium";
-"type.man_made.telescope" = "Teleskop";
-"type.amenity.boat_rental" = "Båtuthyrning";
-"type.amenity.bench.backless" = "Bänk utan ryggstöd";
-"type.leisure.bandstand" = "Musikpaviljong";
 "type.xmas.tree" = "Julgran";
-"type.natural.tree" = "Träd";
-"type.natural.sand" = "Sand";
-"type.man_made.mast.communication" = "Mobilmast";
-"type.leisure.sports_centre.sport.swimming" = "Simhall";
-"type.leisure.sports_centre.sport.padel" = "Padelhall";
-"type.leisure.sports_centre.sport.ice_hockey" = "Ishall";
-"type.leisure.sports_centre.sport.climbing" = "Klätterhall";
-"type.leisure.sports_centre.sport.multi" = "Idrottscentrum";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

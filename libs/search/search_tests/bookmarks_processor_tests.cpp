@@ -23,8 +23,6 @@ using namespace std;
 
 using Ids = vector<Id>;
 
-string const kLocale = "en";
-
 class BookmarksProcessorTest : public generator::tests_support::TestWithClassificator
 {
 public:
@@ -34,7 +32,7 @@ public:
 
   void Add(Id const & id, GroupId const & group, kml::BookmarkData const & data)
   {
-    Doc const doc(data, kLocale);
+    Doc const doc(data);
     m_processor.Add(id, doc);
     AttachToGroup(id, group);
   }
@@ -43,7 +41,7 @@ public:
 
   void Update(Id const & id, kml::BookmarkData const & data)
   {
-    Doc const doc(data, kLocale);
+    Doc const doc(data);
     m_processor.Update(id, doc);
   }
 

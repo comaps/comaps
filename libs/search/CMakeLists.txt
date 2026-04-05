@@ -36,8 +36,6 @@ set(SRC
   city_finder.cpp
   city_finder.hpp
   common.hpp
-  cuisine_filter.cpp
-  cuisine_filter.hpp
   displayed_categories.cpp
   displayed_categories.hpp
   doc_vec.cpp
@@ -179,7 +177,7 @@ target_link_libraries(${PROJECT_NAME}
   openlocationcode
 )
 
-if(PLATFORM_DESKTOP)
+if(NOT (SKIP_TOOLS AND SKIP_TESTS))
   add_subdirectory(search_tests_support)
   add_subdirectory(search_quality)
 endif()

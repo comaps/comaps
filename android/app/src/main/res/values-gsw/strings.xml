@@ -197,9 +197,7 @@
     <string name="cant_change_this_setting">Leider sind d Iistellige für d Chartespeicherig aktuell deaktiviert</string>
     <string name="downloading_is_active">D Charte wird abeglade</string>
     <string name="my_position_share_sms">Lueg dir min aktuelle Standort uf CoMaps aa! %1$s oder %2$s Kei Offline-Charte installiert? Da abelade: https://www.comaps.app/download/</string>
-    <string name="bookmark_share_email_subject">Hey, lueg dir mini Stecknadle uf de CoMaps-Charte aa!</string>
     <string name="my_position_share_email_subject">Hey, lueg dir min aktuelle Standort uf de CoMaps-Charte aa!</string>
-    <string name="my_position_share_email">Hi, \n \nich bi grad da: %1$s. Klick de Link %2$s oder %3$s, zum de Ort uf de Charte aazzeige. \n \nViele Dank.</string>
     <string name="share">Teile</string>
     <string name="email">E-Mail</string>
     <string name="done">Fertig</string>
@@ -337,12 +335,7 @@
     <string name="editor_example_values">Biispiil</string>
     <string name="editor_correct_mistake">Fehler korrigiere</string>
     <string name="editor_add_select_location">Standort uuswähle</string>
-    <string name="editor_report_problem_desription_2">Oder machs grad selber uf https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Sende</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">De Ort existiert nöd</string>
-    <string name="editor_report_problem_under_construction_title">Wege Wartigsarbeite zue</string>
-    <string name="editor_report_problem_duplicate_place_title">Dopplete Ort</string>
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off_today">Hüt zue</string>
     <string name="day_off">Zue</string>
@@ -580,7 +573,6 @@
     <string name="dialog_routing_end_not_determined">Route isch nöd erstellt worde. Ziil cha nöd gfunde werde.</string>
     <string name="search_not_found_query">Lad d Region abe, wo du drin suechsch, oder tue de Name vonere nöch glegene Stadt oder Dorf dezue.</string>
     <string name="editor_time_allday">Ganztägig (24 Stund)</string>
-    <string name="editor_report_problem_desription_1">Bitte beschriib s Problem detailliert, dass d OpenStreetMap-Community de Fehler korrigiere cha.</string>
     <string name="editor_default_language_hint">Wie i de lokale Spraach gschribe</string>
     <string name="operator">Betriiber: %s</string>
     <string name="editor_reset_edits_message">Alli lokale Änderige verwerfe?</string>

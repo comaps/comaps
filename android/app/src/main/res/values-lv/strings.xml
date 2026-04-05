@@ -168,12 +168,8 @@
     <string name="downloading_is_active">Tagad notiek kartes lejupielāde</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Apskatiet manu atrašanās vietu „CoMaps“ lietotnē! %1$s vai %2$s Vai Jums nav nesaistes kartes? Lejupielādējiet to: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hei, apskatiet manu grāmatzīmi CoMaps kartē!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Sveiciens! Apskati manu atrašanās vietu CoMaps kartē!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hei, \n \nŠobrīd atrodos te: %1$s. Spied uz šīs %2$s vai šīs %3$s saites, lai kartē redzētu manu atrašanās vietu. \n \nPaldies.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Kopīgot</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -185,7 +181,7 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">„OpenStreetMap“ dati: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Ceļi</string>
+    <string name="tracks_title">Pēdojumi</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Garums</string>
     <string name="share_my_location">Kopīgot manu atrašanās vietu</string>
@@ -400,31 +396,25 @@
     <string name="editor_example_values">Piemēra vērtības</string>
     <string name="editor_correct_mistake">Labot kļūdu</string>
     <string name="editor_add_select_location">Izvēlieties atrašanās vietu</string>
-    <string name="editor_report_problem_desription_1">Sīkāk aprakstiet problēmu, lai „OpenStreetMap“ kopiena to varētu novērst.</string>
-    <string name="editor_report_problem_desription_2">Vai arī to izlabo vietnē https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Sūtīt</string>
-    <string name="editor_report_problem_title">Problēma</string>
-    <string name="editor_report_problem_no_place_title">Vieta nepastāv</string>
-    <string name="editor_report_problem_under_construction_title">Aizvērts uz remonta laiku</string>
-    <string name="editor_report_problem_duplicate_place_title">Vieta dublējas</string>
     <string name="autodownload">Automātiska karšu lejupielāde</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Ik dienu</string>
     <string name="twentyfour_seven">24/7</string>
     <string name="day_off_today">Šodien slēgts</string>
     <string name="day_off">Slēgts</string>
-    <string name="opens_in">Atveras pēc %s</string>
-    <string name="closes_in">Slēgts pēc %s</string>
+    <string name="opens_in">Atvērsies pēc %s</string>
+    <string name="closes_in">Slēgsies pēc %s</string>
     <string name="closed">Slēgts</string>
-    <string name="edit_opening_hours">Rediģēt darba laiku</string>
-    <string name="no_osm_account">Vai jums nav „OpenStreetMap“ konta?</string>
-    <string name="register_at_openstreetmap">Reģistrējieties „OpenStreetMap“</string>
+    <string name="edit_opening_hours">Labot darba laiku</string>
+    <string name="no_osm_account">Vai jums nav OpenStreetMap konta?</string>
+    <string name="register_at_openstreetmap">Reģistrējieties OpenStreetMap\'ā</string>
     <string name="login">Ierakstīties</string>
     <!-- Status message indicating that user did not login to OSM profile yet. -->
     <string name="not_signed_in">Neierakstījāties</string>
     <string name="login_osm">Ierakstīties OpenStreetMap</string>
     <string name="logout">Izrakstīties</string>
-    <string name="edit_place">Rediģēt vietu</string>
+    <string name="edit_place">Labot vietu</string>
     <string name="add_language">Pievienot valodu</string>
     <string name="street">Iela</string>
     <!-- Editable House Number text field (in address block). -->
@@ -455,7 +445,7 @@
     <string name="editor_login_error_dialog">Pieteikšanās kļūda</string>
     <string name="editor_profile_changes">Apstiprinātas izmaiņas</string>
     <string name="editor_focus_map_on_location">Velciet karti, lai novietotu krustiņu objekta vai iestādes atrašanās vietā.</string>
-    <string name="editor_edit_place_title">Rediģēšana</string>
+    <string name="editor_edit_place_title">Vietas labošana</string>
     <string name="editor_add_place_title">Pievienošana</string>
     <string name="editor_edit_place_name_hint">Vietas nosaukums</string>
     <!-- The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name -->
@@ -496,7 +486,7 @@
     <string name="minute">min.</string>
     <string name="day">d</string>
     <string name="placepage_more_button">Vairāk</string>
-    <string name="placepage_edit_bookmark_button">Labot saglabāto vietu</string>
+    <string name="placepage_edit_bookmark_button">Saglabātās vietas labošana</string>
     <string name="placepage_personal_notes_hint">Personīgas piezīmes (teksts vai HTML)</string>
     <string name="editor_reset_edits_message">Vai atmest visas vietējās izmaiņas?</string>
     <string name="editor_reset_edits_button">Atmest izmaiņas</string>
@@ -522,7 +512,7 @@
     <string name="editor_share_to_all_dialog_message_2">OpenStreetMap redaktori pārbaudīs veiktās izmaiņas un sazināsies ar Tevi, ja viņiem būs kādi jautājumi.</string>
     <string name="navigation_stop_button">Apturēt</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">Maršruta reģistrēšana</string>
+    <string name="track_recording">Pēdojums tiek ierakstīts</string>
     <!-- For the first routing -->
     <string name="accept">Pieņemt</string>
     <!-- For the first routing -->
@@ -585,20 +575,20 @@
     <string name="phone_number">Tālruņa numurs</string>
     <string name="profile">„OpenStreetMap“ profils</string>
     <plurals name="bookmarks_detect_message">
-        <item quantity="zero">Lietotne atrada %d jaunu datņu. Varat tās apskatīt pēc konvertācijas.</item>
-        <item quantity="one">Lietotne atrada %d jaunu datni. Varat to apskatīt pēc konvertācijas.</item>
-        <item quantity="other">Lietotne atrada %d jaunas datnes. Varat tās apskatīt pēc konvertācijas.</item>
+        <item quantity="zero">Tika atrastas %d jaunas datnes. Tās var apskatīt pēc pārveidošanas.</item>
+        <item quantity="one">Tika atrasta %d jauna datne. To var apskatīt pēc pārveidošanas.</item>
+        <item quantity="other">Tika atrastas %d jaunas datnes. Tās var apskatīt pēc pārveidošanas.</item>
     </plurals>
     <string name="restore">Atjaunot</string>
     <plurals name="tracks">
-        <item quantity="zero">%d ceļu</item>
-        <item quantity="one">%d ceļš</item>
-        <item quantity="other">%d ceļi</item>
+        <item quantity="zero">%d pēdojumu</item>
+        <item quantity="one">%d pēdojums</item>
+        <item quantity="other">%d pēdojumi</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Privātums</string>
     <string name="privacy_policy">Privātuma politika</string>
-    <string name="terms_of_use">Lietošanas noteikumi</string>
+    <string name="terms_of_use">Izmantošanas nosacījumi</string>
     <string name="button_layer_traffic">Satiksme</string>
     <string name="subway">Metro</string>
     <string name="layers_title">Kartes stili un slāņi</string>
@@ -656,7 +646,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Kārtot…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Kārtot izlasi</string>
+    <string name="sort_bookmarks">Kārtot izlases elementus</string>
     <!-- Android -->
     <string name="by_default">Pēc noklusējuma</string>
     <!-- Android -->
@@ -760,7 +750,7 @@
     <string name="browser_not_available">Tīmekļa pārlūkprogramma nav pieejama</string>
     <string name="volume">Skaļums</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Izgūt visas vietas un ceļus</string>
+    <string name="bookmarks_export">Izgūt visu izlasi</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Runas atveidošanas sistēmas iestatījumi</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -784,12 +774,12 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">Lai navigācija būtu pēc iespējas precīzāka, iesakām tālruņa baterijas iesatatījumos izslēgt energotaupības režīmu.</string>
     <string name="choose_color">Izvēlēties krāsu</string>
-    <string name="edit_track">Labot ceļu</string>
+    <string name="edit_track">Pēdojuma labošana</string>
     <string name="change_map_locale">Kartes valoda</string>
     <string name="wikimedia_commons">Vikikrātuve</string>
     <string name="nav_auto">Automātisks navigācijas laikā</string>
-    <string name="start_track_recording">Ierakstīt ceļu</string>
-    <string name="stop_track_recording">Apstādināt ierakstīšanu</string>
+    <string name="start_track_recording">Ierakstīt pēdojumu</string>
+    <string name="stop_track_recording">Apstādināt pēdojuma ierakstīšanu</string>
     <string name="stop_without_saving">Pārtraukt ierakstīšanu</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
@@ -797,13 +787,13 @@
     <string name="continue_recording">Turpināt ierakstīt</string>
     <string name="track_recording_alert_title">Pievienot izlasei?</string>
     <string name="editor_other_info">Piezīme OpenStreetMap brīvprātigajiem (nav obligāts)</string>
-    <string name="track_recording_toast_nothing_to_save">Ceļš ir tukšs – nav nekā saglabājama</string>
+    <string name="track_recording_toast_nothing_to_save">Pēdojums ir tukšs – nav nekā saglabājama</string>
     <string name="error_no_file_manager_app">Nevar attēlot mapes atlasīšanas logu, jo ierīcē nav uzstādīta piemērota lietotne. Lūgums uzstādīt datņu pārvaldnieka lietotni un mēģināt vēlreiz.</string>
     <string name="uri_open_location_failed">Nav uzstādīta neviena lietotne, kas varētu atvērt atrašanās vietu</string>
     <string name="aa_request_permission_notification">Šai lietotnei ir nepieciešama jūsu atļauja</string>
     <string name="editor_about_osm">Jūsu labojumi tiek augšupielādēti sabiedriskajā <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> datubāzē. Lūdzu, nepievienojiet personisku vai ar autortiesībām aizsargātu informāciju.</string>
     <string name="aa_location_permissions_request">CoMaps lietotnes darbībai ir nepieciešama piekļuve jūsu atrašanās vietai. Kad tas ir droši, pārbaudiet paziņojumu savā tālrunī.</string>
-    <string name="editor_note_hint">Aprakstiet kļūdas kartē vai lietas, ko nevar rediģēt, izmantojot CoMaps</string>
+    <string name="editor_note_hint">Aprakstiet kļūdas kartē vai lietas, ko nevar izlabot, izmantojot CoMaps</string>
     <string name="aa_request_permission_activity_text">CoMaps lietotnei ir nepieciešama atrašanās vietas atļauja sekmīgai Android Auto darbībai</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
@@ -862,13 +852,13 @@
         <item quantity="other">%d min.</item>
     </plurals>
     <string name="pref_maplanguage_local">Vietējā valoda</string>
-    <string name="opens_day_at">Atver %1$s plkst. %2$s</string>
-    <string name="closes_at">Slēdz %s</string>
-    <string name="opens_at">Atver %s</string>
-    <string name="closes_day_at">Slēdz %1$s plkst. %2$s</string>
+    <string name="opens_day_at">Atvērsies %1$s %2$s</string>
+    <string name="closes_at">Tiks slēgts %s</string>
+    <string name="opens_at">Atvērsies %s</string>
+    <string name="closes_day_at">Slēgsies %1$s %2$s</string>
     <string name="osm_note_toast">Piezīme tiks nosūtīta “OpenStreetMap”</string>
     <string name="pref_backup_now_summary_ok">Rezerves kopēšana sekmīgi pabeigta</string>
-    <string name="pref_backup_now_summary_empty_lists">Nav vietu un ceļu, kam veikt rezerves kopēšanu</string>
+    <string name="pref_backup_now_summary_empty_lists">Nav vietu un pēdojumu, kam veikt rezerves kopēšanu</string>
     <string name="pref_backup_now_summary_failed">Rezerves kopēšana neizdevās</string>
     <string name="pref_backup_now_summary_folder_unavailable">Rezerves kopiju mape nav pieejama</string>
     <string name="pref_backup_status_summary_success">Pēdējā sekmīgā rezerves kopēšana</string>
@@ -898,5 +888,13 @@
     <string name="route_needs_rebuild">Maršrutam ir nepieciešama izveidošana no jauna</string>
     <string name="route_finished">Maršruts pabeigts</string>
     <string name="not_following_route">Neseko maršrutam</string>
-    <string name="rebuilding_route">Izveido maršrutu no jauna…</string>
+    <string name="power_management">Enerģijas pārvaldība</string>
+    <string name="route_recalculating">Pārrēķina maršrutu…</string>
+    <string name="pref_openexternallinks_title">Automātiski atvērt trešo pušu saites</string>
+    <string name="pref_openexternallinks_summary">Pēc noklusējuma atvērt trešo pušu saites CoMaps</string>
+    <string name="stop">Apturēt</string>
+    <string name="destination">Galamērķis</string>
+    <string name="pref_alt_map_lang_handling">Kartes papildu valodas</string>
+    <string name="pref_alt_map_lang_handling_system_order">Izmantot sistēmas secībā</string>
+    <string name="share_track">Kopīgot pēdojumu</string>
 </resources>

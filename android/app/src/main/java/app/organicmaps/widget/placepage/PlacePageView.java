@@ -81,6 +81,7 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+import java.text.NumberFormat;
 import java.time.Instant;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -140,6 +141,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvCapacity;
   private View mRooms;
   private MaterialTextView mTvRooms;
+  private View mCharge;
+  private MaterialTextView mTvCharge;
   private View mWheelchair;
   private MaterialTextView mTvWheelchair;
   private View mDriveThrough;
@@ -152,6 +155,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvOutdoorSeating;
   private View mEntrance;
   private MaterialTextView mTvEntrance;
+  private View mPopulation;
+  private MaterialTextView mTvPopulation;
   private MaterialTextView mTvLastChecked;
   private View mEditPlace;
   private View mAddPlace;
@@ -315,6 +320,8 @@ public class PlacePageView extends Fragment
     mTvCapacity = mFrame.findViewById(R.id.tv__place_capacity);
     mRooms = mFrame.findViewById(R.id.ll__place_rooms);
     mTvRooms = mFrame.findViewById(R.id.tv__place_rooms);
+    mCharge = mFrame.findViewById(R.id.ll__place_charge);
+    mTvCharge = mFrame.findViewById(R.id.tv__place_charge);
     mWheelchair = mFrame.findViewById(R.id.ll__place_wheelchair);
     mTvWheelchair = mFrame.findViewById(R.id.tv__place_wheelchair);
     mDriveThrough = mFrame.findViewById(R.id.ll__place_drive_through);
@@ -326,6 +333,8 @@ public class PlacePageView extends Fragment
     mEntrance = mFrame.findViewById(R.id.ll__place_entrance);
     mTvEntrance = mEntrance.findViewById(R.id.tv__place_entrance);
     mTvLastChecked = mFrame.findViewById(R.id.place_page_last_checked);
+    mPopulation = mFrame.findViewById(R.id.ll__place_population);
+    mTvPopulation = mFrame.findViewById(R.id.tv__place_population);
     mEditPlace = mFrame.findViewById(R.id.ll__place_editor);
     mAddPlace = mFrame.findViewById(R.id.ll__place_add);
     mMapTooOld = mFrame.findViewById(R.id.cv__map_too_old);
@@ -338,10 +347,12 @@ public class PlacePageView extends Fragment
     mAtm.setOnLongClickListener(this);
     mCapacity.setOnLongClickListener(this);
     mRooms.setOnLongClickListener(this);
+    mCharge.setOnLongClickListener(this);
     mWheelchair.setOnLongClickListener(this);
     mDriveThrough.setOnLongClickListener(this);
     mSelfService.setOnLongClickListener(this);
     mOutdoorSeating.setOnLongClickListener(this);
+    mPopulation.setOnLongClickListener(this);
 
     mDownloaderIcon = new DownloaderStatusIcon(mPreview.findViewById(R.id.downloader_status_frame));
 
@@ -675,9 +686,12 @@ public class PlacePageView extends Fragment
 
     final String cap = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY);
     refreshMetadataOrHide(!TextUtils.isEmpty(cap) ? getString(R.string.capacity, cap) : "", mCapacity, mTvCapacity);
-
+    /// @todo Use plurals strings for rooms tag
     final String rooms = mMapObject.getMetadata(Metadata.MetadataType.FMD_ROOMS);
     refreshMetadataOrHide(!TextUtils.isEmpty(rooms) ? getString(R.string.rooms, rooms) : "", mRooms, mTvRooms);
+
+    final String charge = mMapObject.getMetadata(Metadata.MetadataType.FMD_CHARGE);
+    refreshMetadataOrHide(charge, mCharge, mTvCharge);
 
     refreshMetadataOrHide(mMapObject.hasAtm() ? getString(app.organicmaps.sdk.R.string.type_amenity_atm) : "", mAtm,
                           mTvAtm);
@@ -697,6 +711,23 @@ public class PlacePageView extends Fragment
     final String outdoorSeating = mMapObject.getMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING);
     refreshMetadataOrHide(outdoorSeating.equals("yes") ? getString(R.string.outdoor_seating) : "", mOutdoorSeating,
                           mTvOutdoorSeating);
+
+    String population = mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION);
+    if (!TextUtils.isEmpty(population))
+    {
+      try
+      {
+        final long populationInt = Long.parseLong(population);
+        population = getString(R.string.population, NumberFormat.getIntegerInstance().format(populationInt));
+      }
+      catch (NumberFormatException e)
+      {
+        population = "";
+      }
+    }
+    else
+      population = "";
+    refreshMetadataOrHide(population, mPopulation, mTvPopulation);
 
     final String lastChecked = mMapObject.getMetadata(Metadata.MetadataType.FMD_CHECK_DATE);
     if (!lastChecked.isEmpty())
@@ -1080,12 +1111,16 @@ public class PlacePageView extends Fragment
       items.add(mTvCapacity.getText().toString());
     else if (id == R.id.ll__place_rooms)
       items.add(mTvRooms.getText().toString());
+    else if (id == R.id.ll__place_charge)
+      items.add(mTvCharge.getText().toString());
     else if (id == R.id.ll__place_wheelchair)
       items.add(mTvWheelchair.getText().toString());
     else if (id == R.id.ll__place_drive_through)
       items.add(mTvDriveThrough.getText().toString());
     else if (id == R.id.ll__place_outdoor_seating)
       items.add(mTvOutdoorSeating.getText().toString());
+    else if (id == R.id.ll__place_population)
+      items.add(mTvPopulation.getText().toString());
 
     final Context context = requireContext();
     if (items.size() == 1)

@@ -9,7 +9,7 @@ env:
 jobs:
   tag:
     name: Tag
-    runs-on: ubuntu-latest
+    runs-on: comaps-android
     environment: production
     steps:
       - name: Checkout sources
@@ -57,7 +57,7 @@ jobs:
 
   android-release:
     name: Android Release
-    runs-on: ubuntu-latest
+    runs-on: comaps-android
     environment: production
     needs: tag
     strategy:
@@ -65,15 +65,9 @@ jobs:
       matrix:
         include:
           - flavor: google
-          - flavor: huawei
+          #- flavor: huawei
           - flavor: web
     steps:
-      - name: Install build tools and dependencies
-        shell: bash
-        run: |
-          apt-get update -y
-          apt-get install -y cmake ninja-build
-
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
@@ -160,16 +154,12 @@ jobs:
           } > ${{ runner.temp }}/release-notes.txt
 
       - name: Upload universal APK to Codeberg
-        uses: softprops/action-gh-release@v1
+        uses: actions/forgejo-release@v2
         if: ${{ matrix.flavor == 'web' }}
         with:
-          body_path: ${{ runner.temp }}/release-notes.txt
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: ${{ needs.tag.outputs.tag }}
-          tag_name: ${{ needs.tag.outputs.tag }}
-          discussion_category_name: 'Announcements'
-          prerelease: true
-          files: |
-            ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk
-            ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum
-          fail_on_unmatched_files: true
+          release-notes-file: ${{ runner.temp }}/release-notes.txt
+          direction: upload
+          release-dir: ./android/app/build/outputs/apk/web/release
+          #release-files: |
+          #  ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk
+          #  ./android/app/build/outputs/apk/web/release/CoMaps-${{ needs.tag.outputs.code }}-web-release.apk.sha256sum

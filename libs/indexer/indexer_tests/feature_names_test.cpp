@@ -3,6 +3,8 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_utils.hpp"
 
+#include "base/localisation.hpp"
+
 #include "coding/string_utf8_multilang.hpp"
 
 #include <string>
@@ -13,23 +15,28 @@ using namespace std;
 
 using StrUtf8 = StringUtf8Multilang;
 
-/*
-void GetPreferredNames(feature::RegionData const & regionData, StrUtf8 const & src, int8_t deviceLang,
-                       bool allowTranslit, std::string & primary, std::string & secondary)
+/* TODO: Not working right now, because the language is determined more dynamically. Needed to find a way to still test this without adding extra complexity.
+ 
+void GetPreferredNames(feature::RegionData const & regionData, StrUtf8 const & src, std::string & primary, std::string & secondary)
 {
-  feature::NameParamsIn in{src, regionData, deviceLang, allowTranslit};
-  feature::NameParamsOut out;
-  feature::GetPreferredNames(in, out);
-  primary = out.GetPrimary();
-  secondary = out.secondary;
+  auto const translatedName = localisation::TranslatedFeatureName(src, regionData.GetLanguages());
+  
+  std::optional<std::string> const translatedPrimaryName = translatedName.m_primary;
+  if (translatedPrimaryName.has_value())
+    primary = translatedPrimaryName.value();
+  
+  std::optional<std::string> const translatedSecondaryName = translatedName.m_secondary;
+  if (translatedSecondaryName.has_value())
+    secondary = translatedSecondaryName.value();
 }
 
 UNIT_TEST(GetPrefferedNames)
 {
   feature::RegionData regionData;
-  regionData.SetLanguages({"de", "ko"});
+  std::vector<localisation::LanguageCode> const languageCodes = {"de", "ko"};
+  regionData.SetLanguages(languageCodes);
 
-  int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+  int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
   string primary, secondary;
   bool const allowTranslit = false;
 
@@ -178,7 +185,7 @@ UNIT_TEST(GetPrefferedNames)
     TEST_EQUAL(secondary, "", ());
   }
   {
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
     StrUtf8 src;
     src.AddString("int_name", "int name");
     src.AddString("en", "en name");
@@ -192,7 +199,7 @@ UNIT_TEST(GetPrefferedNames)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
     StrUtf8 src;
     src.AddString("int_name", "int name");
     src.AddString("en", "en name");
@@ -206,7 +213,7 @@ UNIT_TEST(GetPrefferedNames)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
     StrUtf8 src;
     src.AddString("default", "default name");
     src.AddString("int_name", "int name");
@@ -221,7 +228,7 @@ UNIT_TEST(GetPrefferedNames)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
     StrUtf8 src;
     src.AddString("default", "default name");
     src.AddString("int_name", "int name");
@@ -241,9 +248,10 @@ UNIT_TEST(GetPrefferedNamesLocal)
   bool const allowTranslit = true;
   {
     feature::RegionData regionData;
-    regionData.SetLanguages({"kk", "ru"});
+    std::vector<localisation::LanguageCode> const languageCodes = {"de", "ko"};
+    regionData.SetLanguages(languageCodes);
 
-    int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
 
     StrUtf8 src;
     src.AddString("default", "default name");
@@ -256,9 +264,10 @@ UNIT_TEST(GetPrefferedNamesLocal)
   }
   {
     feature::RegionData regionData;
-    regionData.SetLanguages({"kk", "be"});
+    std::vector<localisation::LanguageCode> const languageCodes = {"de", "ko"};
+    regionData.SetLanguages(languageCodes);
 
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
 
     StrUtf8 src;
     src.AddString("int_name", "int name");
@@ -272,9 +281,10 @@ UNIT_TEST(GetPrefferedNamesLocal)
   }
   {
     feature::RegionData regionData;
-    regionData.SetLanguages({"kk", "ru"});
+    std::vector<localisation::LanguageCode> const languageCodes = {"de", "ko"};
+    regionData.SetLanguages(languageCodes);
 
-    int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
 
     StrUtf8 src;
     src.AddString("int_name", "int name");
@@ -288,21 +298,20 @@ UNIT_TEST(GetPrefferedNamesLocal)
   }
 }
 
-void GetReadableName(feature::RegionData const & regionData, StrUtf8 const & src, int8_t deviceLang, bool allowTranslit,
-                     std::string & name)
+void GetReadableName(feature::RegionData const & regionData, StrUtf8 const & src, std::string & name)
 {
-  feature::NameParamsIn in{src, regionData, deviceLang, allowTranslit};
-  feature::NameParamsOut out;
-  feature::GetPreferredNames(in, out);
-  name = out.GetPrimary();
+  std::optional<std::string> const translatedName = localisation::TranslatedFeatureName(src, regionData.GetLanguages()).m_primary;
+  if (translatedName.has_value())
+    name = translatedName.value();
 }
 
 UNIT_TEST(GetReadableName)
 {
   feature::RegionData regionData;
-  regionData.SetLanguages({"de", "ko"});
+  std::vector<localisation::LanguageCode> const languageCodes = {"de", "ko"};
+  regionData.SetLanguages(languageCodes);
 
-  int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+  int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
   bool const allowTranslit = false;
   string name;
 
@@ -384,7 +393,7 @@ UNIT_TEST(GetReadableName)
     TEST_EQUAL(name, "ru name", ());
   }
 
-  deviceLang = StrUtf8::GetLangIndex("de");
+  deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("de");
 
   {
     StrUtf8 src;
@@ -441,7 +450,7 @@ UNIT_TEST(GetReadableName)
     TEST_EQUAL(name, "ko name", ());
   }
   {
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
     StrUtf8 src;
     src.AddString("int_name", "int name");
     src.AddString("en", "en name");
@@ -454,7 +463,7 @@ UNIT_TEST(GetReadableName)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("be");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("be");
     StrUtf8 src;
     src.AddString("default", "default name");
     src.AddString("int_name", "int name");
@@ -468,7 +477,7 @@ UNIT_TEST(GetReadableName)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
     StrUtf8 src;
     src.AddString("default", "default name");
     src.AddString("int_name", "int name");
@@ -482,7 +491,7 @@ UNIT_TEST(GetReadableName)
   {
     feature::RegionData regionData;
     regionData.SetLanguages({"ru"});
-    int8_t deviceLang = StrUtf8::GetLangIndex("ru");
+    int8_t deviceLang = localisation::ConvertLanguageCodeToLanguageIndex("ru");
     StrUtf8 src;
     src.AddString("en", "en name");
     src.AddString("be", "be name");
@@ -502,7 +511,7 @@ UNIT_TEST(GetNameForSearchOnBooking)
     feature::RegionData regionData;
     string result;
     auto lang = feature::GetNameForSearchOnBooking(regionData, src, result);
-    TEST_EQUAL(lang, StrUtf8::kUnsupportedLanguageCode, ());
+    TEST_EQUAL(lang, localisation::kUnsupportedLanguageIndex, ());
     TEST(result.empty(), ());
   }
   {
@@ -534,7 +543,7 @@ UNIT_TEST(GetNameForSearchOnBooking)
     regionData.SetLanguages({"ko"});
     string result;
     auto lang = feature::GetNameForSearchOnBooking(regionData, src, result);
-    TEST_EQUAL(lang, StrUtf8::GetLangIndex("ko"), ());
+    TEST_EQUAL(lang, localisation::ConvertLanguageCodeToLanguageIndex("ko"), ());
     TEST_EQUAL(result, "ko name", ());
   }
   {
@@ -546,7 +555,7 @@ UNIT_TEST(GetNameForSearchOnBooking)
     regionData.SetLanguages({"de", "ko"});
     string result;
     auto lang = feature::GetNameForSearchOnBooking(regionData, src, result);
-    TEST_EQUAL(lang, StrUtf8::GetLangIndex("de"), ());
+    TEST_EQUAL(lang, localisation::ConvertLanguageCodeToLanguageIndex("de"), ());
     TEST_EQUAL(result, "de name", ());
   }
   {
@@ -557,7 +566,7 @@ UNIT_TEST(GetNameForSearchOnBooking)
     regionData.SetLanguages({"de", "fr"});
     string result;
     auto lang = feature::GetNameForSearchOnBooking(regionData, src, result);
-    TEST_EQUAL(lang, StrUtf8::GetLangIndex("en"), ());
+    TEST_EQUAL(lang, localisation::ConvertLanguageCodeToLanguageIndex("en"), ());
     TEST_EQUAL(result, "en name", ());
   }
 }

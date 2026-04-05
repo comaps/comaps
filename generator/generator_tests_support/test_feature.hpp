@@ -37,9 +37,9 @@ public:
   void SetPostcode(std::string const & postcode) { m_postcode = postcode; }
   uint64_t GetId() const { return m_id; }
 
-  std::string_view GetName(std::string_view lang) const
+  std::string GetName(std::string lang) const
   {
-    std::string_view res;
+    std::string res;
     if (m_names.GetString(lang, res))
       return res;
     return {};

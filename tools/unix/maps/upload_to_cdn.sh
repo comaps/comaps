@@ -72,16 +72,15 @@ for version in $OLD_VERSIONS_DE1; do
   fi
 done
 
-# TODO: temporary disabled until IPv6 connection issues are figured out.
 # fr1 - keep max 6 versions
-echo "SKIP Cleaning fr1 (keeping 6 newest versions)..."
-#OLD_VERSIONS_FR1=$(rclone lsd fr1:/data/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +7)
-#for version in $OLD_VERSIONS_FR1; do
-#  if [ $version -gt 250101 ]; then
-#    echo "  Deleting fr1:/data/maps/$version/"
-#    rclone purge fr1:/data/maps/$version/
-#  fi
-#done
+echo "Cleaning fr1 (keeping 6 newest versions)..."
+OLD_VERSIONS_FR1=$(rclone lsd fr1:/data/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +7)
+for version in $OLD_VERSIONS_FR1; do
+  if [ $version -gt 250101 ]; then
+    echo "  Deleting fr1:/data/maps/$version/"
+    rclone purge fr1:/data/maps/$version/
+  fi
+done
 
 # us2 - keep all versions (no cleanup)
 echo "Skipping us2 cleanup (keeping all versions)"
@@ -101,9 +100,8 @@ rclone copy --include "*.{mwm,txt,sig}" $DIR fi1:/var/www/html/maps/$MAPS &
 echo "Uploading to de1"
 rclone copy --include "*.{mwm,txt,sig}" $DIR de1:/var/www/html/comaps-cdn/maps/$MAPS &
 
-# TODO: temporary disabled until IPv6 connection issues are figured out.
-echo "SKIP Uploading to fr1"
-# rclone copy --include "*.{mwm,txt,sig}" $DIR fr1:/data/maps/$MAPS &
+echo "Uploading to fr1"
+rclone copy --include "*.{mwm,txt,sig}" $DIR fr1:/data/maps/$MAPS &
 
 # us1 is not used for maps atm
 # rclone lsd us1:/home/dh_zzxxrk/cdn-us-1.comaps.app/maps
@@ -124,8 +122,7 @@ rclone copy -v --include "*.{mwm,txt,sig}" $DIR fi1:/var/www/html/maps/$MAPS
 echo "de1 status:"
 rclone copy -v --include "*.{mwm,txt,sig}" $DIR de1:/var/www/html/comaps-cdn/maps/$MAPS
 
-# TODO: temporary disabled until IPv6 connection issues are figured out.
-echo "SKIP fr1 status:"
-# rclone copy -v --include "*.{mwm,txt}" $DIR fr1:/data/maps/$MAPS
+echo "fr1 status:"
+rclone copy -v --include "*.{mwm,txt}" $DIR fr1:/data/maps/$MAPS
 
 echo "Upload complete"

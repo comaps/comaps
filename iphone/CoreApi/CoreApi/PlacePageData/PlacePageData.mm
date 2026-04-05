@@ -1,12 +1,16 @@
 #import "PlacePageData.h"
 
-#import "PlacePageButtonsData+Core.h"
 #import "PlacePagePreviewData+Core.h"
 #import "PlacePageInfoData+Core.h"
 #import "PlacePageBookmarkData+Core.h"
 #import "PlacePageTrackData+Core.h"
 #import "ElevationProfileData+Core.h"
 #import "MWMMapNodeAttributes.h"
+#import "PlacePageBookmarkData+Core.h"
+#import "PlacePageInfoData+Core.h"
+#import "PlacePageOSMContributionData+Core.h"
+#import "PlacePagePreviewData+Core.h"
+#import "PlacePageTrackData+Core.h"
 
 #include <CoreApi/CoreApi.h>
 #include "platform/network_policy.hpp"
@@ -43,8 +47,8 @@ static PlacePageRoadType convertRoadType(RoadWarningMarkType roadType) {
 
 - (instancetype)initWithLocalizationProvider:(id<IOpeningHoursLocalization>)localization {
   self = [super init];
+
   if (self) {
-    _buttonsData = [[PlacePageButtonsData alloc] initWithRawData:rawData()];
     _infoData = [[PlacePageInfoData alloc] initWithRawData:rawData() ohLocalization:localization];
 
     if (rawData().IsBookmark()) {
@@ -80,6 +84,10 @@ static PlacePageRoadType convertRoadType(RoadWarningMarkType roadType) {
     if (!countryId.empty()) {
       _mapNodeAttributes = [[MWMStorage sharedStorage] attributesForCountry:@(rawData().GetCountryId().c_str())];
       [[MWMStorage sharedStorage] addObserver:self];
+      // Show the OSM contribution section only when the selected place has an associated country (hidden for oceans,
+      // etc.).
+      _osmContributionData = [[PlacePageOSMContributionData alloc] initWithRawData:rawData()
+                                                                     mapAttributes:_mapNodeAttributes];
     }
 
     _objectType = [self objectTypeFromRawData];
@@ -175,6 +183,9 @@ static PlacePageRoadType convertRoadType(RoadWarningMarkType roadType) {
 - (void)processCountryEvent:(NSString *)countryId {
   if ([countryId isEqualToString:self.mapNodeAttributes.countryId]) {
     _mapNodeAttributes = [[MWMStorage sharedStorage] attributesForCountry:countryId];
+    if ([PlacePageData hasData])
+      _osmContributionData = [[PlacePageOSMContributionData alloc] initWithRawData:rawData()
+                                                                     mapAttributes:_mapNodeAttributes];
     if (self.onMapNodeStatusUpdate != nil) {
       self.onMapNodeStatusUpdate();
     }

@@ -9,6 +9,7 @@
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
+#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
 
@@ -490,8 +491,7 @@ bool WorldFeed::SetFeedLanguage()
 
   strings::AsciiToLower(m_feedLanguage);
 
-  StringUtf8Multilang multilang;
-  if (multilang.GetLangIndex(m_feedLanguage) != StringUtf8Multilang::kUnsupportedLanguageCode)
+  if (localisation::ConvertLanguageCodeToLanguageIndex(m_feedLanguage) != localisation::kUnsupportedLanguageIndex)
     return true;
 
   LOG(LINFO, ("Unsupported language:", m_feedLanguage));

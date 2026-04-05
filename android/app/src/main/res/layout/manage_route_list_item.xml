@@ -10,7 +10,7 @@
     android:id="@+id/type_icon"
     android:layout_width="24dp"
     android:layout_height="24dp"
-    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
     app:srcCompat="@drawable/route_point_finish"/>
@@ -28,7 +28,7 @@
     android:textStyle="bold"
     android:textAlignment="viewStart"
     app:layout_constraintStart_toEndOf="@id/type_icon"
-    app:layout_constraintEnd_toStartOf="@id/delete_icon"
+    app:layout_constraintEnd_toStartOf="@id/reorder_icon"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toTopOf="@id/subtitle"
     app:layout_constrainedWidth="true"
@@ -46,20 +46,45 @@
     android:textAppearance="@style/MwmTextAppearance.Body1"
     android:textAlignment="viewStart"
     app:layout_constraintStart_toEndOf="@id/type_icon"
-    app:layout_constraintEnd_toStartOf="@id/delete_icon"
+    app:layout_constraintEnd_toStartOf="@id/reorder_icon"
     app:layout_constraintTop_toBottomOf="@id/title"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constrainedWidth="true"
     tools:text="Subtitle"/>
 
   <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/reorder_icon"
+      android:layout_width="24dp"
+      android:layout_height="match_parent"
+      android:layout_marginTop="@dimen/margin_half"
+      android:layout_marginBottom="@dimen/margin_half"
+      android:layout_marginEnd="@dimen/margin_half_plus"
+      app:layout_constraintEnd_toStartOf="@id/divider"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:srcCompat="@drawable/ic_drag_handle"
+      app:tint="?iconTint"/>
+
+  <View
+      android:id="@+id/divider"
+      android:layout_width="1dp"
+      android:layout_height="match_parent"
+      android:layout_marginBottom="@dimen/margin_half"
+      android:layout_marginTop="@dimen/margin_half"
+      app:layout_constraintEnd_toStartOf="@id/delete_icon"
+      android:layout_marginEnd="@dimen/margin_half_plus"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      android:background="?dividerHorizontal"/>
+
+  <com.google.android.material.imageview.ShapeableImageView
     android:id="@+id/delete_icon"
     android:layout_width="24dp"
-    android:layout_height="24dp"
+    android:layout_height="match_parent"
     style="@style/MwmWidget.Editor.MetadataIcon"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    app:srcCompat="@drawable/ic_delete"/>
+    app:srcCompat="@drawable/ic_close"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

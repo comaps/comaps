@@ -23,7 +23,7 @@ import re
 class CountryDict(dict):
     def __init__(self, *args, **kwargs):
         dict.__init__(self, *args, **kwargs)
-        self.order = ["id", "n", "v", "c", "s", "sha1_base64", "rs", "g"]
+        self.order = ["id", "n", "v", "min_compat_app_v", "c", "s", "sha1_base64", "rs", "g"]
 
     def __iter__(self):
         for key in self.order:
@@ -133,6 +133,7 @@ def hierarchy_to_countries(
     hierarchy_path,
     target_path,
     version,
+    min_compat_app_v,
 ):
     def fill_last(last, stack):
         name = last["id"]
@@ -146,7 +147,10 @@ def hierarchy_to_countries(
     oldvs = parse_old_vs_new(old_vs_new_csv_path)
     vsosm = parse_borders_vs_osm(borders_vs_osm_csv_path)
     countries_synonyms = parse_countries_synonyms(countries_synonyms_csv_path)
-    stack = [CountryDict(v=int(version), id="Countries", g=[])]
+    stack = [CountryDict(id="Countries", v=int(version))]
+    if (min_compat_app_v):
+        stack[0]["min_compat_app_v"] = min_compat_app_v
+    stack[0]["g"] = []
     last = None
     with open(hierarchy_path) as f:
         for line in f:

@@ -8,4 +8,5 @@
   android:background="?clickableBackground"
   android:padding="@dimen/margin_base"
   android:maxLines="1"
+  android:scrollbars="none"
   android:textAppearance="@style/MwmTextAppearance.Body1"/>

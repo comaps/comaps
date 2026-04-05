@@ -20,7 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
@@ -257,7 +257,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
 
     ViewGroup root = (ViewGroup) view;
     View mTabFrame = root.findViewById(R.id.tab_frame);
-    ViewPager pager = mTabFrame.findViewById(R.id.pages);
+    ViewPager2 pager = mTabFrame.findViewById(R.id.pages);
 
     mToolbarController = new ToolbarController(view);
     TabLayout tabLayout = root.findViewById(R.id.tabs);
@@ -267,7 +267,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     else
       tabLayout.setVisibility(View.GONE);
 
-    final TabAdapter tabAdapter = new TabAdapter(getChildFragmentManager(), pager, tabLayout);
+    final TabAdapter tabAdapter = new TabAdapter(this, pager, tabLayout);
 
     mResultsFrame = root.findViewById(R.id.results_frame);
     RecyclerView mResults = mResultsFrame.findViewById(R.id.recycler);
@@ -298,11 +298,6 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mToolbarController.activate();
 
     SearchEngine.INSTANCE.addListener(this);
-
-    SharedPreferences preferences = MwmApplication.prefs(requireContext());
-    int lastSelectedTabPosition = preferences.getInt(Config.KEY_PREF_LAST_SEARCHED_TAB, 0);
-    if (SearchRecents.getSize() == 0 && Config.isSearchHistoryEnabled())
-      pager.setCurrentItem(lastSelectedTabPosition);
 
     tabAdapter.setTabSelectedListener(tab -> mToolbarController.deactivate());
 

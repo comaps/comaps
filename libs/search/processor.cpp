@@ -246,18 +246,11 @@ void Processor::SetQuery(string const & query, bool categorialRequest /* = false
   m_preferredTypes.clear();
   m_isCategorialRequest = categorialRequest;
 
-  auto const locales = GetCategoryLocales();
-  if (!FillCategories(tokenSlice, locales, m_categories, m_preferredTypes))
-  {
-    // Try to match query to cuisine categories.
-    if (FillCategories(tokenSlice, locales, GetDefaultCuisineCategories(), m_cuisineTypes))
-    {
-      /// @todo What if I'd like to find "Burger" street? @see "BurgerStreet" test.
-      m_isCategorialRequest = true;
-      m_preferredTypes = ftypes::IsEatChecker::Instance().GetTypes();
-    }
-  }
+  FillCategories(tokenSlice, GetCategoryLocales(), m_categories, m_preferredTypes);
 
+  if (ftypes::IsNationalCuisineChecker::Instance()(m_preferredTypes))
+    m_isCategorialRequest = true;
+  
   if (!m_isCategorialRequest)
   {
     // Assign tokens and prefix to scorer.
@@ -814,8 +807,10 @@ void Processor::InitParams(QueryParams & params) const
   {
     ForEachCategoryTypeFuzzy(tokenSlice, [&c, &params](size_t i, uint32_t t)
     {
-      uint32_t const index = c.GetIndexForType(t);
-      params.GetTypeIndices(i).push_back(index);
+      if (!ftypes::IsNationalCuisineChecker::Instance()(t)) {
+        uint32_t const index = c.GetIndexForType(t);
+        params.GetTypeIndices(i).push_back(index);
+      }
     });
   }
 
@@ -838,7 +833,6 @@ void Processor::InitGeocoder(Geocoder::Params & geocoderParams, SearchParams con
   geocoderParams.m_pivot = GetPivotRect(viewportSearch);
   geocoderParams.m_position = m_position;
   geocoderParams.m_categoryLocales = GetCategoryLocales();
-  geocoderParams.m_cuisineTypes = m_cuisineTypes;
   geocoderParams.m_preferredTypes = m_preferredTypes;
   geocoderParams.m_tracer = searchParams.m_tracer;
   geocoderParams.m_filteringParams = searchParams.m_filteringParams;

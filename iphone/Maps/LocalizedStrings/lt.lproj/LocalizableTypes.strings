@@ -2,7 +2,12 @@
 "type.addr_interpolation.even" = "Adresas / blokas";
 "type.addr_interpolation.odd" = "Adresas / blokas";
 "type.aerialway" = "Keltuvas";
+"type.aerialway.cable_car" = "Didysis gondolinis keltuvas";
+"type.aerialway.chair_lift" = "Krėslinis keltuvas";
+"type.aerialway.drag_lift" = "Traukiamasis keltuvas";
 "type.aerialway.gondola" = "Gondolinis keltuvas";
+"type.aerialway.mixed_lift" = "Mišrus keltuvas";
+"type.aerialway.station" = "Keltuvo stotelė";
 "type.aeroway" = "Oro transporto infrastruktūra";
 "type.aeroway.aerodrome" = "Oro uostas";
 "type.aeroway.aerodrome.international" = "Tarptautinis oro uostas";
@@ -19,11 +24,15 @@
 "type.amenity.bar" = "Baras";
 "type.amenity.bbq" = "Grilis";
 "type.amenity.bench" = "Suolas";
+"type.amenity.bench.backless" = "Be atramos";
 "type.amenity.bicycle_parking" = "Dviračių stovėjimo aikštelė";
+"type.amenity.bicycle_parking.covered" = "Dengta dviračių stovėjimo aikštelė";
+"type.amenity.boat_rental" = "Valčių nuoma";
 "type.amenity.bicycle_rental" = "Dviračių nuoma";
 "type.amenity.bicycle_repair_station" = "Dviračių remonto stotelė";
 "type.amenity.biergarten" = "Alaus sodas";
 "type.amenity.brothel" = "Viešnamis";
+"type.amenity.love_hotel" = "Meilės viešbutis";
 "type.amenity.bureau_de_change" = "Valiutos keitykla";
 "type.amenity.bus_station" = "Autobusų stotis";
 "type.amenity.cafe" = "Kavinė";
@@ -31,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Motociklų nuoma";
 "type.amenity.car_sharing" = "Automobilių dalijimosi vieta";
 "type.amenity.car_wash" = "Automobilių plovykla";
+"type.man_made.telescope" = "Teleskopas";
+"type.man_made.telescope.optical" = "Teleskopas (optinis)";
+"type.man_made.telescope.radio" = "Teleskopas (radijo bangų)";
+"type.man_made.telescope.gamma" = "Teleskopas (gama spindulių)";
+"type.man_made.observatory" = "Observatorija";
 "type.amenity.casino" = "Kazino";
 "type.amenity.gambling" = "Lošimo namai";
+"type.amenity.studio" = "TV, radijo arba įrašų studija";
 "type.leisure.adult_gaming_centre" = "Lošimo automatų salonas";
 "type.leisure.amusement_arcade" = "Žaidimo automatų salonas";
 "type.amenity.charging_station" = "Krovimo stotelė";
-"type.amenity.charging_station.bicycle" = "Dviračiams";
 "type.amenity.charging_station.motorcar" = "Automobiliams";
+"type.amenity.charging_station.motorcycle" = "Motociklams";
+"type.amenity.charging_station.bicycle" = "Dviračiams";
+"type.amenity.charging_station.small" = "Ribotas vietų skaičius";
 "type.amenity.childcare" = "Lopšelis";
 "type.amenity.cinema" = "Kino teatras";
 "type.leisure.bowling_alley" = "Boulingo klubas";
 "type.amenity.clinic" = "Klinika";
 "type.amenity.college" = "Kolegija";
 "type.amenity.community_centre" = "Bendruomenės centras";
+"type.amenity.community_centre.youth_centre" = "Jaunimo centras";
 "type.amenity.compressed_air" = "Oro kompresorius";
 "type.amenity.conference_centre" = "Konferencijų centras";
 "type.amenity.courthouse" = "Teismo rūmai";
@@ -55,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Parodų centras";
 "type.amenity.money_transfer" = "Pinigų perlaidos";
 "type.amenity.music_school" = "Muzikos mokykla";
+"type.amenity.sailing_school" = "Buriavimo mokykla";
+"type.amenity.flight_school" = "Aviacijos mokykla";
+"type.amenity.prep_school" = "Parengiamoji mokykla";
 "type.amenity.language_school" = "Kalbų mokykla";
 "type.office.diplomatic" = "Ambasada";
+"type.office.security" = "Saugos tarnyba";
+"type.building.guardhouse" = "Apsaugos postas";
+"type.power.portal" = "Portalinė atrama";
 "type.amenity.fast_food" = "Greitas maistas";
 "type.amenity.ferry_terminal" = "Kelto prieplauka";
 "type.amenity.fire_station" = "Ugniagesių gelbėtojų komandos būstinė";
 "type.amenity.food_court" = "Maisto halė";
 "type.amenity.fountain" = "Fontanas";
 "type.amenity.fuel" = "Degalinė";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Šventoriaus kapinės";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Krikščionių šventoriaus kapinės";
 "type.amenity.hospital" = "Ligoninė";
@@ -75,7 +97,11 @@
 "type.amenity.internet_cafe" = "Interneto kavinė";
 "type.amenity.kindergarten" = "Vaikų darželis";
 "type.amenity.library" = "Biblioteka";
+"type.amenity.loading_dock" = "Prievaža (rampa)";
+"type.amenity.lounger" = "Gultas";
+"type.amenity.luggage_locker" = "Bagažo pasaugojimo automatas";
 "type.amenity.marketplace" = "Turgavietė";
+"type.amenity.mobile_money_agent" = "Mobiliųjų pinigų kasa";
 "type.amenity.motorcycle_parking" = "Motociklų stovėjimo aikštelė";
 "type.amenity.nightclub" = "Naktinis klubas";
 "type.amenity.nursing_home" = "Globos namai";
@@ -104,7 +130,9 @@
 "type.amenity.parking_space.private" = "Stovėjimo vieta";
 "type.amenity.parking_space.underground" = "Stovėjimo vieta";
 "type.amenity.parking_space.disabled" = "Stovėjimo vieta neįgaliesiems";
+"type.amenity.car_pooling" = "Pakeleivių paėmimo / išleidimo punktas";
 "type.amenity.payment_terminal" = "Savitarnos mokėjimų terminalas";
+"type.amenity.payment_centre" = "Mokėjimų centras";
 "type.amenity.pharmacy" = "Vaistinė";
 "type.amenity.place_of_worship" = "Maldos namai";
 "type.amenity.place_of_worship.buddhist" = "Budistų šventykla";
@@ -119,6 +147,7 @@
 "type.amenity.police" = "Policija";
 "type.amenity.post_box" = "Pašto dėžutė";
 "type.amenity.post_office" = "Pašto skyrius";
+"type.post_office.post_partner" = "Pašto paslaugos";
 "type.amenity.prison" = "Kalėjimas";
 "type.amenity.pub" = "Aludė";
 "type.amenity.public_bookcase" = "Knygų namelis";
@@ -140,16 +169,12 @@
 "type.amenity.restaurant" = "Restoranas";
 "type.amenity.sanitary_dump_station" = "Nuotėkų išleidimo stotis";
 "type.amenity.school" = "Mokykla";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Priedanga";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Viešojo transporto stotelės paviljonas";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivako namelis";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Pastogė nakvynei";
 "type.amenity.public_bath" = "Viešoji vonia";
@@ -177,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Transporto priemonių techninės apžiūros stotis";
 "type.amenity.vending_machine.fuel" = "Kuro kolonėlė";
 "type.amenity.veterinary" = "Veterinarijos klinika";
+"type.amenity.animal_shelter" = "Gyvūnų prieglauda";
 "type.amenity.waste_basket" = "Šiukšliadėžė";
 "type.amenity.waste_disposal" = "Atliekų konteineris";
 "type.amenity.waste_transfer_station" = "Atliekų tvarkymo stotis";
@@ -195,6 +221,7 @@
 "type.natural.water.wastewater" = "Nusodintuvas";
 "type.barrier.entrance" = "Įėjimas / įvažiavimas";
 "type.barrier.fence" = "Tvora";
+"type.barrier.guard_rail" = "Atitvaras";
 "type.barrier.gate" = "Vartai";
 "type.barrier.hedge" = "Gyvatvorė";
 "type.barrier.kissing_gate" = "Žmonių vartai";
@@ -202,18 +229,16 @@
 "type.barrier.retaining_wall" = "Atraminė siena";
 "type.barrier.stile" = "Perlipa";
 "type.barrier.turnstile" = "Turniketas";
+"type.barrier.wicket_gate" = "Varteliai";
 "type.barrier.swing_gate" = "Veriamasis užtvaras";
 "type.barrier.toll_booth" = "Kelių rinkliavos mokėjimo punktas";
 "type.barrier.wall" = "Siena";
 "type.boundary" = "Riba";
 "type.boundary.administrative" = "Administracinė riba";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "Valstybės siena";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regiono riba";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regiono riba";
 "type.boundary.national_park" = "Nacionalinis parkas";
@@ -226,7 +251,6 @@
 "type.boundary.protected_area.5" = "Saugoma teritorija";
 "type.boundary.protected_area.6" = "Saugoma teritorija";
 "type.building" = "Pastatas";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Adresas";
 "type.building.has_parts" = "Pastatas";
@@ -247,7 +271,6 @@
 "type.craft.gardener" = "Sodininko biuras";
 "type.craft.grinding_mill" = "Malūnas";
 "type.craft.handicraft" = "Amatininko dirbtuvė";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Šildymo, vėdinimo, kondicionavimo įrangos įrengimas ir priežiūra";
 "type.craft.key_cutter" = "Raktų dirbtuvė";
@@ -308,7 +331,6 @@
 "type.cuisine.international" = "Įvairių šalių virtuvė";
 "type.cuisine.irish" = "Airių virtuvė";
 "type.cuisine.italian" = "Italų virtuvė";
-"type.cuisine.italian_pizza" = "Italų virtuvė, pica";
 "type.cuisine.japanese" = "Japonų virtuvė";
 "type.cuisine.kebab" = "Kebabai";
 "type.cuisine.korean" = "Korėjiečių virtuvė";
@@ -347,23 +369,63 @@
 "type.cuisine.vegan" = "Veganiška virtuvė";
 "type.cuisine.vegetarian" = "Vegetariška virtuvė";
 "type.cuisine.vietnamese" = "Vietnamiečių virtuvė";
+"type.emergency" = "Kritinė situacija";
+"type.emergency.access_point" = "Evakuacijos vieta";
+"type.emergency.access_point.address" = "Evakuacijos adresas";
 "type.emergency.assembly_point" = "Evakuacijos susirinkimo vieta";
+"type.emergency.disaster_help_point" = "Pagalbos stichinių nelaimių atvejais punktas";
+"type.emergency.life_ring" = "Gelbėjimo ratas";
 "type.emergency.defibrillator" = "Defibriliatorius";
 "type.emergency.fire_hydrant" = "Gaisrinis hidrantas";
+"type.amenity.hydrant" = "Laistymo hidrantas";
 "type.emergency.phone" = "Avarinis telefonas";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Gelbėtojas";
-
+"type.beacon.cardinal.east" = "Kardinalinis navigacinis ženklas";
+"type.beacon.cardinal.north" = "Kardinalinis navigacinis ženklas";
+"type.beacon.cardinal.south" = "Kardinalinis navigacinis ženklas";
+"type.beacon.cardinal.west" = "Kardinalinis navigacinis ženklas";
+"type.beacon.isolated_danger" = "Pavienės kliūties ženklas";
+"type.beacon.lateral.port" = "Lateralinis navigacinis ženklas";
+"type.beacon.lateral.starboard" = "Lateralinis navigacinis ženklas";
+"type.beacon.safe_water" = "Saugių vandenų navigacinis ženklas";
+"type.beacon.special_purpose" = "Specialusis navigacinis ženklas";
+"type.buoy.cardinal.east" = "Kardinalinė buja";
+"type.buoy.cardinal.north" = "Kardinalinė buja";
+"type.buoy.cardinal.south" = "Kardinalinė buja";
+"type.buoy.cardinal.west" = "Kardinalinė buja";
+"type.buoy.isolated_danger" = "Pavienės kliūties buja";
+"type.buoy.lateral.port" = "Lateralinė buja";
+"type.buoy.lateral.starboard" = "Lateralinė buja";
+"type.buoy.safe_water" = "Saugių vandenų buja";
+"type.buoy.special_purpose" = "Specialioji buja";
+"type.spherical_buoy.cardinal.east" = "Kardinalinė sferinė buja";
+"type.spherical_buoy.cardinal.north" = "Kardinalinė sferinė buja";
+"type.spherical_buoy.cardinal.south" = "Kardinalinė sferinė buja";
+"type.spherical_buoy.cardinal.west" = "Kardinalinė sferinė buja";
+"type.spherical_buoy.isolated_danger" = "Pavienės kliūties sferinė buja";
+"type.spherical_buoy.lateral.port" = "Lateralinė sferinė buja";
+"type.spherical_buoy.lateral.starboard" = "Lateralinė sferinė buja";
+"type.spherical_buoy.safe_water" = "Saugių vandenų sferinė buja";
+"type.spherical_buoy.special_purpose" = "Specialioji sferinė buja";
+"type.lateral.port" = "Kairysis bortas";
+"type.lateral.starboard" = "Dešinysis bortas";
+"type.cardinal.east" = "Rytai";
+"type.cardinal.north" = "Šiaurė";
+"type.cardinal.south" = "Pietūs";
+"type.cardinal.west" = "Vakarai";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Kalnų gelbėjimo stotis";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Įėjimas";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Pagrindinis įėjimas";
+"type.entrance.house" = "Įėjimas į namą";
+"type.entrance.garage" = "Įvažiavimas į garažą";
+"type.entrance.service" = "Tarnybinis įėjimas / įvažiavimas";
+"type.entrance.entry" = "Tik įėjimas / įvažiavimas";
 "type.entrance.exit" = "Tik išėjimas / išvažiavimas";
+"type.entrance.emergency" = "Avarinis išėjimas / išvažiavimas";
 "type.fee.yes" = "Mokama";
 "type.fee.no" = "Nemokama";
 "type.healthcare.laboratory" = "Medicininė laboratorija";
@@ -378,28 +440,22 @@
 "type.healthcare.speech_therapist" = "Logopedija";
 "type.highway" = "Kelias";
 "type.highway.bridleway" = "Raitųjų kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Tiltas";
 "type.highway.bridleway.permissive" = "Raitųjų kelias";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunelis";
 "type.highway.busway" = "Viešojo transporto kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunelis";
 "type.highway.bus_stop" = "Stotelė";
 "type.highway.construction" = "Tiesiamas kelias";
 "type.highway.cycleway" = "Dviračių takas";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Tiltas";
 "type.highway.cycleway.permissive" = "Dviračių takas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunelis";
 "type.highway.elevator" = "Liftas";
@@ -407,168 +463,130 @@
 "type.highway.footway.sidewalk" = "Šaligatvis";
 "type.highway.footway.crossing" = "Pėsčiųjų perėja";
 "type.highway.footway.area" = "Pėsčiųjų zona";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Pėsčiųjų tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Pėsčiųjų tunelis";
 "type.highway.ford" = "Brasta";
 "type.highway.living_street" = "Gyvenamoji zona";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunelis";
 "type.highway.motorway" = "Greitkelis";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Greitkelio tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Greitkelio tunelis";
 "type.highway.motorway_junction" = "Nuovaža";
 "type.highway.motorway_link" = "Jungiamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunelis";
 "type.highway.path" = "Takas";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Sudėtingas arba menkai išsiskiriantis takas";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Labai sudėtingas arba neišsiskiriantis takas";
 "type.highway.path.bicycle" = "Dviračių ir pėsčiųjų takas";
 "type.highway.footway.bicycle" = "Dviračių ir pėsčiųjų takas";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Tiltas";
 "type.highway.path.horse" = "Raitųjų takas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunelis";
 "type.highway.pedestrian" = "Pėsčiųjų gatvė";
 "type.highway.pedestrian.area" = "Pėsčiųjų zona";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Pėsčiųjų tiltas";
 "type.highway.pedestrian.square" = "Aikštė / skveras";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Pėsčiųjų tunelis";
 "type.highway.primary" = "Plentas";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunelis";
 "type.highway.primary_link" = "Jungiamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunelis";
 "type.highway.raceway" = "Lenktynių trasa";
 "type.highway.residential" = "Gyvenamoji gatvė";
 "type.highway.residential.area" = "Gyvenamoji gatvė";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunelis";
 "type.highway.rest_area" = "Poilsio zona";
 "type.highway.road" = "Kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Tiltas";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunelis";
 "type.highway.secondary" = "Antrinės svarbos kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunelis";
 "type.highway.secondary_link" = "Jungiamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunelis";
 "type.highway.service" = "Privažiuojamasis kelias";
 "type.highway.service.area" = "Privažiuojamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Tiltas";
 "type.highway.service.driveway" = "Privažiavimas";
 "type.highway.service.parking_aisle" = "Pravažiavimas stovėjimo aikštelėje";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunelis";
 "type.highway.services" = "Paslaugų zona";
 "type.highway.speed_camera" = "Greičio matuoklis";
 "type.highway.steps" = "Laiptai";
-
+"type.highway.ladder" = "Kopėčios";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunelis";
 "type.highway.tertiary" = "Tretinės svarbos kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunelis";
 "type.highway.tertiary_link" = "Jungiamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunelis";
-
+"type.highway.track" = "Privažiavimo kelias";
+"type.highway.track.area" = "Privažiavimo kelias";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Tiltas";
-
+"type.highway.track.grade1" = "Privažiavimo kelias";
+"type.highway.track.no.access" = "Privažiavimo kelias";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunelis";
 "type.highway.traffic_signals" = "Šviesoforas";
 "type.highway.trunk" = "Magistralinis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunelis";
 "type.highway.trunk_link" = "Jungiamasis kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunelis";
 "type.highway.unclassified" = "Vietinės reikšmės kelias";
 "type.highway.unclassified.area" = "Vietinės reikšmės kelias";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Tiltas";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunelis";
 "type.area_highway.cycleway" = "Dviračių takas";
@@ -583,11 +601,13 @@
 "type.area_highway.service" = "Privažiuojamasis kelias";
 "type.area_highway.tertiary" = "Tretinės svarbos kelias";
 "type.area_highway.steps" = "Laiptai";
+"type.area_highway.track" = "Privažiavimo kelias";
 "type.area_highway.trunk" = "Magistralinis kelias";
 "type.area_highway.unclassified" = "Vietinės reikšmės kelias";
 "type.historic" = "Senovinis / istorinis objektas";
 "type.historic.aircraft" = "Senovinis orlaivis";
 "type.historic.anchor" = "Senovinis inkaras";
+"type.historic.archaeological_site" = "Archeologinė vietovė";
 "type.historic.battlefield" = "Mūšio laukas";
 "type.historic.boundary_stone" = "Senovinis riboženklis";
 "type.historic.cannon" = "Patranka";
@@ -622,10 +642,8 @@
 "type.historic.ship" = "Laivas";
 "type.historic.tank" = "Senovinis tankas";
 "type.historic.tomb" = "Kapas";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Kryžius";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Pakelės kryžius";
 "type.historic.wayside_shrine" = "Pakelės šventykla";
@@ -639,10 +657,8 @@
 "type.landuse.allotments" = "Sodai";
 "type.landuse.basin" = "Baseinas";
 "type.landuse.brownfield" = "Apleista teritorija";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Kapinės";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Krikščionių kapinės";
 "type.landuse.religious" = "Religinės paskirties teritorija";
@@ -675,9 +691,12 @@
 "type.landuse.salt_pond" = "Druskos garinimo tvenkinys";
 "type.landuse.village_green" = "Kaimo aikštė";
 "type.landuse.vineyard" = "Vynuogynas";
+"type.landuse.plant_nursery" = "Augalų daigynas";
 "type.leisure" = "Laisvalaikis";
+"type.leisure.bandstand" = "Estrada";
 "type.leisure.common" = "Bendro naudojimo zona";
 "type.leisure.dog_park" = "Šunų parkas";
+"type.leisure.escape_game" = "Pabėgimo kambarys";
 "type.leisure.fitness_centre" = "Sporto klubas";
 "type.leisure.fitness_station" = "Lauko treniruokliai";
 "type.leisure.dance" = "Šokių salė";
@@ -687,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolfo aikštynas";
 "type.leisure.hackerspace" = "Techninės kūrybos erdvė";
 "type.leisure.ice_rink" = "Ledo arena";
+"type.leisure.indoor_play" = "Vaikų žaidimų erdvė";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Gamtos rezervatas";
 "type.leisure.outdoor_seating" = "Lauko sėdimos vietos";
+"type.leisure.firepit" = "Laužavietė";
 "type.leisure.park" = "Parkas";
 "type.leisure.park.no.access" = "Privatus parkas";
 "type.leisure.park.permissive" = "Parkas";
@@ -701,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Slipas";
 "type.leisure.sports_centre" = "Sporto centras";
-"type.sport.climbing" = "Laipiojimo centras";
-"type.sport.yoga" = "Joga";
+"type.leisure.sports_centre.sport.multi" = "Sporto centras";
+"type.leisure.sports_centre.sport.american_football" = "Sporto centras";
+"type.leisure.sports_centre.sport.archery" = "Sporto centras";
+"type.leisure.sports_centre.sport.athletics" = "Sporto centras";
+"type.leisure.sports_centre.sport.australian_football" = "Sporto centras";
+"type.leisure.sports_centre.sport.badminton" = "Sporto centras";
+"type.leisure.sports_centre.sport.baseball" = "Sporto centras";
+"type.leisure.sports_centre.sport.basketball" = "Sporto centras";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sporto centras";
+"type.leisure.sports_centre.sport.bowls" = "Sporto centras";
+"type.leisure.sports_centre.sport.climbing" = "Sporto centras";
+"type.leisure.sports_centre.sport.cricket" = "Sporto centras";
+"type.leisure.sports_centre.sport.curling" = "Sporto centras";
+"type.leisure.sports_centre.sport.equestrian" = "Sporto centras";
+"type.leisure.sports_centre.sport.field_hockey" = "Sporto centras";
+"type.leisure.sports_centre.sport.futsal" = "Sporto centras";
+"type.leisure.sports_centre.sport.golf" = "Sporto centras";
+"type.leisure.sports_centre.sport.gymnastics" = "Sporto centras";
+"type.leisure.sports_centre.sport.handball" = "Sporto centras";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sporto centras";
+"type.leisure.sports_centre.sport.padel" = "Sporto centras";
+"type.leisure.sports_centre.sport.pelota" = "Sporto centras";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sporto centras";
+"type.leisure.sports_centre.sport.shooting" = "Sporto centras";
+"type.leisure.sports_centre.sport.skateboard" = "Sporto centras";
+"type.leisure.sports_centre.sport.skiing" = "Sporto centras";
+"type.leisure.sports_centre.sport.soccer" = "Sporto centras";
+"type.leisure.sports_centre.sport.swimming" = "Vandens sporto centras";
+"type.leisure.sports_centre.sport.table_tennis" = "Sporto centras";
+"type.leisure.sports_centre.sport.tennis" = "Sporto centras";
+"type.leisure.sports_centre.sport.volleyball" = "Sporto centras";
+"type.leisure.sports_centre.sport.yoga" = "Sporto centras";
+"type.leisure.fitness_centre.sport.yoga" = "Jogos studija";
 "type.leisure.stadium" = "Stadionas";
 "type.leisure.swimming_pool" = "Plaukimo baseinas";
 "type.leisure.swimming_pool.private" = "Plaukimo baseinas";
@@ -726,18 +778,17 @@
 "type.man_made.storage_tank" = "Rezervuaras";
 "type.man_made.surveillance" = "Stebėjimo kamera";
 "type.man_made.tower" = "Bokštas";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Komunikacijų bokštas";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Komunikacijų bokštas";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Komunikacijų stiebas";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Naftos arba dujų gręžinys";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Dujų fakelas";
+"type.man_made.crane" = "Kranas";
 "type.man_made.wastewater_plant" = "Nuotekų valykla";
 "type.man_made.water_tap" = "Vandens čiaupas";
 "type.man_made.water_tap.drinking_water_no" = "Vandens čiaupas";
@@ -750,13 +801,10 @@
 "type.military.bunker" = "Bunkeris";
 "type.mountain_pass" = "Kalnų perėja";
 "type.natural" = "Gamta";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Uolos";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Gargždas";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Nuobiros";
 "type.natural.bay" = "Įlanka";
@@ -770,6 +818,7 @@
 "type.man_made.embankment" = "Pylimas";
 "type.natural.coastline" = "Kranto linija";
 "type.natural.desert" = "Dykuma";
+"type.natural.sand" = "Smėlis";
 "type.natural.geyser" = "Geizeris";
 "type.natural.glacier" = "Ledynas";
 "type.natural.grassland" = "Pieva";
@@ -791,6 +840,7 @@
 "type.natural.spring" = "Versmė";
 "type.natural.spring.drinking_water_no" = "Versmė";
 "type.natural.strait" = "Sąsiauris";
+"type.natural.tree" = "Medis";
 "type.natural.tree_row" = "Medžių eilė";
 "type.natural.vineyard" = "Vynuogynas";
 "type.natural.volcano" = "Ugnikalnis";
@@ -798,6 +848,13 @@
 "type.natural.wetland" = "Šlapynė";
 "type.natural.wetland.bog" = "Pelkė";
 "type.natural.wetland.marsh" = "Klampynė";
+"type.natural.wetland.saltmarsh" = "Druskinga pelkė";
+"type.natural.wetland.saltmarsh.tidal" = "Užliejama druskinga pelkė";
+"type.natural.wetland.fen" = "Žolinė pelkė";
+"type.natural.wetland.reedbed" = "Nendrynas";
+"type.natural.wetland.swamp" = "Raistas";
+"type.natural.wetland.mangrove" = "Mangrovė";
+"type.natural.wetland.tidalflat" = "Vatai";
 "type.noexit" = "Aklikelis";
 "type.office" = "Biuras";
 "type.office.company" = "Įmonės būstinė";
@@ -830,10 +887,8 @@
 "type.place.islet" = "Salelė";
 "type.place.isolated_dwelling" = "Viensėdis";
 "type.place.locality" = "Vietovė";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Kvartalas";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Apylinkė";
 "type.place.ocean" = "Vandenynas";
@@ -842,7 +897,6 @@
 "type.place.square" = "Aikštė";
 "type.place.state" = "Provincija";
 "type.place.state.USA" = "Valstija";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Miesto dalis";
 "type.place.town" = "Miestelis";
@@ -863,13 +917,10 @@
 "type.power.plant.solar" = "Saulės elektrinių parkas";
 "type.power.plant.wind" = "Vėjo elektrinių parkas";
 "type.power.substation" = "Pastotė";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Elektros linijos atrama";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Elektros stulpas";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Komunikacijų stulpas";
 "type.public_transport" = "Viešasis transportas";
@@ -879,6 +930,8 @@
 "type.railway.construction" = "Statomas geležinkelis";
 "type.railway.crossing" = "Geležinkelio perėja";
 "type.railway.disused" = "Apleistas geležinkelis";
+"type.railway.disused.bridge" = "Apleistas geležinkelio tiltas";
+"type.railway.disused.tunnel" = "Apleistas geležinkelio tunelis";
 "type.railway.funicular" = "Funikulierius";
 "type.railway.funicular.bridge" = "Funikulieriaus tiltas";
 "type.railway.funicular.tunnel" = "Funikulieriaus tunelis";
@@ -890,6 +943,9 @@
 "type.railway.monorail" = "Vienbėgis";
 "type.railway.monorail.bridge" = "Vienbėgio tiltas";
 "type.railway.monorail.tunnel" = "Vienbėgio tunelis";
+"type.railway.miniature" = "Mažasis geležinkelis";
+"type.railway.miniature.bridge" = "Mažojo geležinkelio tiltas";
+"type.railway.miniature.tunnel" = "Mažojo geležinkelio tunelis";
 "type.railway.narrow_gauge" = "Siaurasis geležinkelis";
 "type.railway.narrow_gauge.bridge" = "Siaurojo geležinkelio tiltas";
 "type.railway.narrow_gauge.tunnel" = "Siaurojo geležinkelio tunelis";
@@ -901,14 +957,12 @@
 "type.railway.rail.highspeed" = "Greitasis geležinkelis";
 "type.railway.rail.tourism" = "Turistinis geležinkelis";
 "type.railway.rail.main" = "Geležinkelis";
-
+"type.railway.turntable" = "Grįžratis";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Geležinkelio atšaka";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Ūkinis geležinkelis";
 "type.railway.rail.spur" = "Geležinkelio aklakelis";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Funkcinis geležinkelis";
 "type.railway.rail.bridge" = "Geležinkelio tiltas";
@@ -1015,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Metro stotis";
 "type.railway.station.subway.philadelphia" = "Metro stotis";
 "type.railway.station.subway.pyongyang" = "Metro stotis";
+"type.railway.station.subway.qingdao" = "Metro stotis";
 "type.railway.station.subway.rennes" = "Metro stotis";
 "type.railway.station.subway.rio" = "Metro stotis";
 "type.railway.station.subway.roma" = "Metro stotis";
@@ -1176,6 +1231,7 @@
 "type.shop.bakery" = "Kepyklėlė";
 "type.shop.bathroom_furnishing" = "Vonios įranga";
 "type.shop.beauty" = "Grožio salonas";
+"type.shop.beauty.nails" = "Manikiūro salonas";
 "type.shop.beverages" = "Gėrimai";
 "type.shop.bicycle" = "Dviračių parduotuvė";
 "type.shop.bookmaker" = "Lažybų salonas";
@@ -1227,6 +1283,7 @@
 "type.shop.kitchen" = "Virtuvės studija";
 "type.shop.laundry" = "Skalbykla";
 "type.shop.mall" = "Parduotuvių centras";
+"type.shop.beauty.day_spa" = "Dienos poilsio namai (SPA)";
 "type.shop.massage" = "Masažo salonas";
 "type.shop.mobile_phone" = "Mobiliųjų telefonų salonas";
 "type.shop.money_lender" = "Greitosios paskolos";
@@ -1254,6 +1311,7 @@
 "type.shop.supermarket" = "Prekybos centras";
 "type.shop.tattoo" = "Tatuiruočių salonas";
 "type.shop.tea" = "Arbatos parduotuvė";
+"type.shop.telecommunication" = "Telekomunikacijų parduotuvė";
 "type.shop.ticket" = "Bilietų kasos";
 "type.shop.toys" = "Žaislų parduotuvė";
 "type.shop.travel_agency" = "Kelionių agentūra";
@@ -1265,7 +1323,7 @@
 "type.shop.agrarian" = "Ūkininkų prekių parduotuvė";
 "type.shop.antiques" = "Antikvariatas";
 "type.shop.appliance" = "Buitinės technikos parduotuvė";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Meno galerija";
 "type.shop.baby_goods" = "Kūdikių prekių parduotuvė";
@@ -1290,25 +1348,35 @@
 "type.shop.trade" = "Specializuotų prekių parduotuvė";
 "type.shop.watches" = "Laikrodžių salonas";
 "type.shop.wholesale" = "Prekybos bazė";
+"type.shop.lighting" = "Apšvietimo salonas";
+"type.disusedbusiness" = "Uždaryta įstaiga";
 "type.sport" = "Sportas";
+"type.sport.multi" = "Įvairus sportas";
+"type.sport.9pin" = "Boulingas";
+"type.sport.10pin" = "Boulingas";
 "type.sport.american_football" = "Amerikietiškasis futbolas";
 "type.sport.archery" = "Šaudymas iš lanko";
 "type.sport.athletics" = "Lengvoji atletika";
 "type.sport.australian_football" = "Australiškasis futbolas";
+"type.sport.badminton" = "Badmintonas";
 "type.sport.baseball" = "Beisbolas";
 "type.sport.basketball" = "Krepšinis";
 "type.sport.beachvolleyball" = "Paplūdimo tinklinis";
 "type.sport.bowls" = "Rutulių sportas";
 "type.sport.chess" = "Šachmatai";
+"type.sport.climbing" = "Laipiojimo centras";
 "type.sport.cricket" = "Kriketas";
 "type.sport.curling" = "Akmenslydis";
+"type.sport.diving" = "Šuoliai į vandenį";
 "type.sport.equestrian" = "Žirgų sportas";
+"type.sport.field_hockey" = "Žolės riedulys";
+"type.sport.futsal" = "Salės futbolas";
 "type.sport.golf" = "Golfas";
 "type.sport.gymnastics" = "Gimnastika";
 "type.sport.handball" = "Rankinis";
-"type.sport.multi" = "Įvairus sportas";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Ledo ritulys";
+"type.sport.padel" = "Padelis";
+"type.sport.pelota" = "Baskų pelota";
 "type.sport.scuba_diving" = "Nardymas su akvalangu";
 "type.sport.shooting" = "Šaudymas";
 "type.sport.skateboard" = "Riedlenčių sportas";
@@ -1318,17 +1386,9 @@
 "type.sport.table_tennis" = "Stalo tenisas";
 "type.sport.tennis" = "Lauko tenisas";
 "type.sport.volleyball" = "Tinklinis";
-"type.sport.10pin" = "Boulingas";
-"type.sport.9pin" = "Boulingas";
-"type.sport.padel" = "Padelis";
-"type.sport.futsal" = "Salės futbolas";
-"type.sport.ice_hockey" = "Ledo ritulys";
-"type.sport.field_hockey" = "Žolės riedulys";
-"type.sport.badminton" = "Badmintonas";
-"type.sport.pelota" = "Baskų pelota";
+"type.sport.yoga" = "Joga";
 "type.tourism" = "Turizmas";
 "type.tourism.aquarium" = "Akvariumas";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Kalnų namelis";
 "type.tourism.apartment" = "Atostogoms nuomojamas butas";
@@ -1338,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Skulptūra";
 "type.tourism.artwork.statue" = "Statula";
 "type.tourism.attraction" = "Atrakcija";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Atrakcionas";
 "type.attraction.animal" = "Gyvūnų aptvaras";
 "type.attraction.bumper_car" = "Autodromas";
@@ -1350,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Atrakcija";
 "type.tourism.camp_site" = "Stovyklavietė";
 "type.tourism.caravan_site" = "Kemperių parkas";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Atostogų namelis";
 "type.tourism.gallery" = "Meno galerija";
@@ -1361,15 +1421,16 @@
 "type.tourism.information.board" = "Informacinė lenta";
 "type.tourism.information.guidepost" = "Rodyklės stulpelis";
 "type.tourism.information.map" = "Turistinis žemėlapis";
+"type.tourism.information.tactile_map" = "Taktilinis planas";
 "type.tourism.information.office" = "Turizmo informacijos centras";
 "type.tourism.information.visitor_centre" = "Lankytojų centras";
+"type.amenity.ranger_station" = "Parko lankytojų centras";
 "type.tourism.motel" = "Motelis";
 "type.tourism.museum" = "Muziejus";
 "type.tourism.picnic_site" = "Iškylavietė";
 "type.leisure.resort" = "Poilsiavietė";
 "type.tourism.theme_park" = "Pramogų parkas";
 "type.tourism.viewpoint" = "Regykla";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Trobelė";
 "type.tourism.zoo" = "Zoologijos sodas";
@@ -1387,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Pralaida";
 "type.waterway.dock" = "Dokas";
 "type.waterway.drain" = "Drenažo kanalas";
+"type.waterway.fuel" = "Mažųjų laivų degalinė";
 "type.natural.water.drain" = "Drenažo kanalas";
 "type.waterway.drain.tunnel" = "Pralaida";
 "type.waterway.lock_gate" = "Šliuzo vartai";
@@ -1402,6 +1464,13 @@
 "type.wheelchair.limited" = "Ribota prieiga neįgaliojo vežimėliu";
 "type.wheelchair.no" = "Prieigos neįgaliojo vežimėliu nėra";
 "type.wheelchair.yes" = "Visapusė prieiga neįgaliojo vežimėliu";
+"type.aerialway.j.bar" = "Laktinis keltuvas";
+"type.aerialway.magic_carpet" = "Keltuvas-konvejeris";
+"type.aerialway.platter" = "Bugelinis disko formos keltuvas";
+"type.aerialway.rope_tow" = "Įsikimbamasis keltuvas";
+"type.aerialway.t.bar" = "Bugelinis „T“ formos keltuvas";
+"type.piste_type.downhill" = "Kalnų slidinėjimo trasa";
+"type.piste_type.downhill.area" = "Kalnų slidinėjimo trasa";
 "type.piste_type.downhill.advanced" = "Sudėtinga kalnų slidinėjimo trasa";
 "type.piste_type.downhill.advanced.area" = "Sudėtinga kalnų slidinėjimo trasa";
 "type.piste_type.downhill.easy" = "Nesudėtinga kalnų slidinėjimo trasa";
@@ -1413,6 +1482,9 @@
 "type.piste_type.downhill.intermediate.area" = "Vidutinio sudėtingumo kalnų slidinėjimo trasa";
 "type.piste_type.downhill.novice" = "Pradedančiųjų kalnų slidinėjimo trasa";
 "type.piste_type.downhill.novice.area" = "Pradedančiųjų kalnų slidinėjimo trasa";
+"type.piste_type.nordic" = "Slidinėjimo kroso trasa";
+"type.piste_type.sled" = "Rogučių trasa";
+"type.piste_type.sled.area" = "Rogučių trasa";
 "type.piste_type.snow_park" = "Sniego parkas";
 "type.piste_type.hike" = "Sniego žygių pėsčiomis trasa";
 "type.piste_type.connection" = "Jungiamoji trasa";
@@ -1424,180 +1496,20 @@
 "type.self_service.only" = "Tik savitarna";
 "type.self_service.partially" = "Dalinė savitarna";
 "type.self_service.no" = "Nėra savitarnos";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Socialinė įstaiga";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
-"type.emergency.emergency_ward_entrance" = "Skubios pagalbos skyriaus įėjimas";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
-"type.amenity.dojo" = "Dodžo";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
-"type.leisure.sports_hall" = "Sporto salė";
-"type.amenity.love_hotel" = "Meilės viešbutis";
-"type.amenity.studio" = "TV, radijo arba įrašų studija";
-"type.barrier.guard_rail" = "Atitvaras";
-"type.landuse.plant_nursery" = "Augalų daigynas";
-"type.sport.diving" = "Šuoliai į vandenį";
-"type.natural.wetland.saltmarsh" = "Druskinga pelkė";
-"type.leisure.firepit" = "Laužavietė";
-"type.natural.wetland.tidalflat" = "Vatai";
-"type.highway.ladder" = "Kopėčios";
-"type.natural.wetland.swamp" = "Raistas";
-"type.man_made.crane" = "Kranas";
-"type.natural.wetland.mangrove" = "Mangrovė";
-"type.natural.wetland.fen" = "Žolinė pelkė";
-"type.natural.wetland.saltmarsh.tidal" = "Užliejama druskinga pelkė";
-"type.natural.wetland.reedbed" = "Nendrynas";
-"type.railway.station.subway.qingdao" = "Metro stotis";
-"type.leisure.escape_game" = "Pabėgimo kambarys";
-"type.amenity.luggage_locker" = "Bagažo pasaugojimo automatas";
-"type.amenity.ranger_station" = "Parko lankytojų centras";
-"type.amenity.bicycle_parking.covered" = "Dengta dviračių stovėjimo aikštelė";
-"type.barrier.wicket_gate" = "Varteliai";
-"type.amenity.animal_shelter" = "Gyvūnų prieglauda";
-"type.office.security" = "Saugos tarnyba";
-"type.power.portal" = "Portalinė atrama";
-"type.building.guardhouse" = "Apsaugos postas";
-"type.amenity.bench.backless" = "Be atramos";
-"type.amenity.boat_rental" = "Valčių nuoma";
-"type.man_made.telescope" = "Teleskopas";
-"type.man_made.telescope.optical" = "Teleskopas (optinis)";
-"type.man_made.telescope.radio" = "Teleskopas (radijo bangų)";
-"type.man_made.telescope.gamma" = "Teleskopas (gama spindulių)";
-"type.man_made.observatory" = "Observatorija";
-"type.amenity.sailing_school" = "Buriavimo mokykla";
-"type.amenity.flight_school" = "Aviacijos mokykla";
-"type.amenity.prep_school" = "Parengiamoji mokykla";
-"type.amenity.lounger" = "Gultas";
-"type.amenity.payment_centre" = "Mokėjimų centras";
-"type.amenity.hydrant" = "Laistymo hidrantas";
-"type.emergency.access_point" = "Evakuacijos vieta";
-"type.emergency.life_ring" = "Gelbėjimo ratas";
-"type.lateral.port" = "Kairysis bortas";
-"type.lateral.starboard" = "Dešinysis bortas";
-"type.entrance.house" = "Įėjimas į namą";
-"type.entrance.garage" = "Įvažiavimas į garažą";
-"type.entrance.service" = "Tarnybinis įėjimas / įvažiavimas";
-"type.entrance.entry" = "Tik įėjimas / įvažiavimas";
-"type.entrance.emergency" = "Avarinis išėjimas / išvažiavimas";
-"type.cardinal.east" = "Rytai";
-"type.cardinal.north" = "Šiaurė";
-"type.cardinal.south" = "Pietūs";
-"type.cardinal.west" = "Vakarai";
-"type.leisure.bandstand" = "Estrada";
-"type.leisure.indoor_play" = "Vaikų žaidimų erdvė";
-"type.leisure.fitness_centre.sport.yoga" = "Jogos studija";
-"type.leisure.sports_centre.sport.swimming" = "Vandens sporto centras";
-"type.leisure.sports_centre.sport.multi" = "Sporto centras";
-"type.leisure.sports_centre.sport.american_football" = "Sporto centras";
-"type.leisure.sports_centre.sport.archery" = "Sporto centras";
-"type.leisure.sports_centre.sport.athletics" = "Sporto centras";
-"type.leisure.sports_centre.sport.australian_football" = "Sporto centras";
-"type.leisure.sports_centre.sport.badminton" = "Sporto centras";
-"type.leisure.sports_centre.sport.baseball" = "Sporto centras";
-"type.leisure.sports_centre.sport.basketball" = "Sporto centras";
-"type.leisure.sports_centre.sport.beachvolleyball" = "Sporto centras";
-"type.leisure.sports_centre.sport.bowls" = "Sporto centras";
-"type.leisure.sports_centre.sport.climbing" = "Sporto centras";
-"type.leisure.sports_centre.sport.cricket" = "Sporto centras";
-"type.leisure.sports_centre.sport.curling" = "Sporto centras";
-"type.leisure.sports_centre.sport.equestrian" = "Sporto centras";
-"type.leisure.sports_centre.sport.field_hockey" = "Sporto centras";
-"type.leisure.sports_centre.sport.futsal" = "Sporto centras";
-"type.leisure.sports_centre.sport.golf" = "Sporto centras";
-"type.leisure.sports_centre.sport.gymnastics" = "Sporto centras";
-"type.leisure.sports_centre.sport.handball" = "Sporto centras";
-"type.leisure.sports_centre.sport.ice_hockey" = "Sporto centras";
-"type.leisure.sports_centre.sport.padel" = "Sporto centras";
-"type.leisure.sports_centre.sport.pelota" = "Sporto centras";
-"type.leisure.sports_centre.sport.scuba_diving" = "Sporto centras";
-"type.leisure.sports_centre.sport.shooting" = "Sporto centras";
-"type.leisure.sports_centre.sport.skateboard" = "Sporto centras";
-"type.leisure.sports_centre.sport.skiing" = "Sporto centras";
-"type.leisure.sports_centre.sport.soccer" = "Sporto centras";
-"type.leisure.sports_centre.sport.table_tennis" = "Sporto centras";
-"type.leisure.sports_centre.sport.tennis" = "Sporto centras";
-"type.leisure.sports_centre.sport.volleyball" = "Sporto centras";
-"type.leisure.sports_centre.sport.yoga" = "Sporto centras";
-"type.man_made.mast.communication" = "Komunikacijų stiebas";
-"type.natural.sand" = "Smėlis";
-"type.natural.tree" = "Medis";
-"type.shop.beauty.nails" = "Manikiūro salonas";
-"type.shop.beauty.day_spa" = "Dienos poilsio namai (SPA)";
-"type.shop.telecommunication" = "Telekomunikacijų parduotuvė";
-"type.shop.lighting" = "Apšvietimo salonas";
-"type.disusedbusiness" = "Uždaryta įstaiga";
 "type.social_facility.soup_kitchen" = "Labdaros valgykla";
 "type.social_facility.food_bank" = "Maisto bankas";
 "type.amenity.food_sharing" = "Dalijimosi maistu punktas";
 "type.amenity.give_box" = "Dalijimosi daiktais punktas";
+/* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
+"type.emergency.emergency_ward_entrance" = "Skubios pagalbos skyriaus įėjimas";
+/* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
+"type.amenity.dojo" = "Dodžo";
+/* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
+"type.leisure.sports_hall" = "Sporto salė";
 "type.xmas.tree" = "Kalėdų eglė";
-"type.amenity.mobile_money_agent" = "Mobiliųjų pinigų kasa";
-"type.aerialway.cable_car" = "Didysis gondolinis keltuvas";
-"type.aerialway.chair_lift" = "Krėslinis keltuvas";
-"type.aerialway.drag_lift" = "Traukiamasis keltuvas";
-"type.aerialway.mixed_lift" = "Mišrus keltuvas";
-"type.aerialway.station" = "Keltuvo stotelė";
-"type.amenity.loading_dock" = "Prievaža (rampa)";
-"type.amenity.car_pooling" = "Pakeleivių paėmimo / išleidimo punktas";
-"type.post_office.post_partner" = "Pašto paslaugos";
-"type.emergency" = "Kritinė situacija";
-"type.beacon.cardinal.east" = "Kardinalinis navigacinis ženklas";
-"type.beacon.cardinal.north" = "Kardinalinis navigacinis ženklas";
-"type.beacon.cardinal.south" = "Kardinalinis navigacinis ženklas";
-"type.beacon.cardinal.west" = "Kardinalinis navigacinis ženklas";
-"type.beacon.isolated_danger" = "Pavienės kliūties ženklas";
-"type.beacon.lateral.port" = "Lateralinis navigacinis ženklas";
-"type.beacon.lateral.starboard" = "Lateralinis navigacinis ženklas";
-"type.beacon.safe_water" = "Saugių vandenų navigacinis ženklas";
-"type.beacon.special_purpose" = "Specialusis navigacinis ženklas";
-"type.buoy.cardinal.east" = "Kardinalinė buja";
-"type.buoy.cardinal.north" = "Kardinalinė buja";
-"type.buoy.cardinal.south" = "Kardinalinė buja";
-"type.buoy.cardinal.west" = "Kardinalinė buja";
-"type.buoy.isolated_danger" = "Pavienės kliūties buja";
-"type.buoy.lateral.port" = "Lateralinė buja";
-"type.buoy.lateral.starboard" = "Lateralinė buja";
-"type.buoy.safe_water" = "Saugių vandenų buja";
-"type.buoy.special_purpose" = "Specialioji buja";
-"type.spherical_buoy.cardinal.east" = "Kardinalinė sferinė buja";
-"type.spherical_buoy.cardinal.north" = "Kardinalinė sferinė buja";
-"type.spherical_buoy.cardinal.south" = "Kardinalinė sferinė buja";
-"type.spherical_buoy.cardinal.west" = "Kardinalinė sferinė buja";
-"type.spherical_buoy.isolated_danger" = "Pavienės kliūties sferinė buja";
-"type.spherical_buoy.lateral.port" = "Lateralinė sferinė buja";
-"type.spherical_buoy.lateral.starboard" = "Lateralinė sferinė buja";
-"type.spherical_buoy.safe_water" = "Saugių vandenų sferinė buja";
-"type.spherical_buoy.special_purpose" = "Specialioji sferinė buja";
-"type.highway.track" = "Privažiavimo kelias";
-"type.highway.track.area" = "Privažiavimo kelias";
-"type.highway.track.grade1" = "Privažiavimo kelias";
-"type.highway.track.no.access" = "Privažiavimo kelias";
-"type.area_highway.track" = "Privažiavimo kelias";
-"type.historic.archaeological_site" = "Archeologinė vietovė";
-"type.aerialway.j.bar" = "Laktinis keltuvas";
-"type.aerialway.magic_carpet" = "Keltuvas-konvejeris";
-"type.aerialway.platter" = "Bugelinis disko formos keltuvas";
-"type.aerialway.rope_tow" = "Įsikimbamasis keltuvas";
-"type.aerialway.t.bar" = "Bugelinis „T“ formos keltuvas";
-"type.piste_type.downhill" = "Kalnų slidinėjimo trasa";
-"type.piste_type.downhill.area" = "Kalnų slidinėjimo trasa";
-"type.piste_type.nordic" = "Slidinėjimo kroso trasa";
-"type.piste_type.sled" = "Rogučių trasa";
-"type.piste_type.sled.area" = "Rogučių trasa";
-"type.waterway.fuel" = "Mažųjų laivų degalinė";
-"type.amenity.charging_station.motorcycle" = "Motociklams";
-"type.amenity.charging_station.small" = "Ribotas vietų skaičius";
-"type.emergency.access_point.address" = "Evakuacijos adresas";
-"type.emergency.disaster_help_point" = "Pagalbos stichinių nelaimių atvejais punktas";
-"type.railway.disused.bridge" = "Apleistas geležinkelio tiltas";
-"type.railway.disused.tunnel" = "Apleistas geležinkelio tunelis";
-"type.railway.miniature" = "Mažasis geležinkelis";
-"type.railway.miniature.bridge" = "Mažojo geležinkelio tiltas";
-"type.railway.miniature.tunnel" = "Mažojo geležinkelio tunelis";
-"type.railway.turntable" = "Grįžratis";
-"type.tourism.information.tactile_map" = "Taktilinis planas";
-"type.amenity.community_centre.youth_centre" = "Jaunimo centras";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

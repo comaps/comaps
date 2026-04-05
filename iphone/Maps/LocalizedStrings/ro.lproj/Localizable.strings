@@ -1,266 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "Anulare";
-
 /* Button which interrupts country download */
 "cancel_download" = "Anulează descărcarea";
-
 /* Button which deletes downloaded country */
 "delete" = "Șterge";
 "download_maps" = "Descarcă hărți";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Se descarcă…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Hărti Offline";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometri";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Lasă un comentariu";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "Mile";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Poziția mea";
-
 /* Update maps later button text */
 "later" = "Mai târziu";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Caută";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "Da";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "Arată pe hartă";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "Descarcă harta";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Descărcarea a eșuat";
-
+/* Text in About screen */
+"about_headline" = "Proiect deschis, susținut de comunitate";
 /* Text in About screen */
 "about_proposition_1" = "Offline, rapid și ușor de utilizat";
-
 /* Text in About screen */
 "about_proposition_2" = "Concentrat pe confidențialitate și fără reclame";
+/* Text in About screen */
+"about_proposition_3" = "Transparent și non-profit";
 "close" = "Închide";
 "download" = "Descarcă";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "Continuă";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Adaugă o listă nouă";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Nume listă";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Liste favorite";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Locuri";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Favorite";
-
 /* Default bookmark list name */
 "core_my_places" = "Locurile mele";
-
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adresă";
-
 /* Settings button in system menu */
 "settings" = "Setări";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "Unități de măsură";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Unde să mănânci";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Alimentare";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Transport";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Benzinărie";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "Parcare";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Cumpărături";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "La mâna a doua";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hotel";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Obiective turistice";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Divertisment";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "Bancomat";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Viață nocturnă";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "Divertisment cu copiii";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "Bancă";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Farmacie";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Spital";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "Toaletă";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Poștă";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "Poliția";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "Wi-Fi";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "Reciclare";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Apă";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Pentru rulote";
 "share_bookmarks_email_body" = "Salut!\n\nAm atașat marcajele mele; te rog să le deschizi în CoMaps. Dacă nu o ai instalată, o poți descărca de aici: https://www.comaps.app/download/\n\nBucură-te de călătorii cu CoMaps!";
-
 /* message title of loading file */
 "load_kmz_title" = "Se încarcă locurile preferatel";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "Locuri preferate încărcate cu succes! Le poți găsi pe hartă sau în „Gestionare Favortite”.";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "Încărcarea locurilor favorite a eșuat. Fișierul poate fi corupt.";
-
 /* resource for context menu */
 "edit" = "Editează";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "Poziția ta nu a fost stabilită încă";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Poți vedea locul meu preferat pe harta CoMaps!";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Poți vedea poziția mea pe harta CoMaps!";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "E-mail";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "Copiați în clipboard";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "Copiat în notițe: %@";
-
 /* place preview title */
 "info" = "Info";
-
 /* Used for bookmark editing */
 "done" = "Gata";
-
 /* Prints version number in About dialog */
 "version" = "Versiunea CoMaps: %@";
 "version %@ (%@)" = "Versiunea %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Versiunea: %@ (%@)\nDate cartografice: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "Trasee";
-
 /* Length of track in cell that describes route */
 "length" = "Lungime";
 "share_my_location" = "Trimite poziția mea";
 "prefs_group_route" = "Navigare";
 "pref_zoom_title" = "Butoane zoom";
 "pref_left_button_type" = "Left Main Button";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Limba hărții";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Limbă Locală";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Aspectul hărții";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Aspect";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "Luminos";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "Întunecat";
-
 /* Generic «Disabled» string */
 "disabled" = "Disabled";
-
 /* Generic «Off» string */
 "off" = "Oprit";
-
 /* Generic «On» string */
 "on" = "Pornit";
-
 /* Generic «Auto» string */
 "auto" = "Automat";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Vedere în perspectivă";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "Clădiri 3D";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Clădirile 3D sunt oprite în modul de economisire a energiei";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Instrucțiuni vocale";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Enable Voice Instructions";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Anunțați numele străzilor";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Când este activată, numele străzii sau al ieșirii pe care să o pornim va fi rostit cu voce tare.";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Limba ghidului vocal";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "Testează direcțiile vocale";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Altceva";
 "pref_map_auto_zoom" = "Zoom automat";
 "placepage_distance" = "Distanță";
 "search_show_on_map" = "Vezi pe hartă";
-
 /* Text in menu */
 "website" = "Site web";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "Știri";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -269,166 +199,114 @@
 "social_bluesky" = "Bluesky";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "E-Mail";
-
 /* Text in the editor */
 "fediverse" = "Mastodon";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X (Twitter)";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "Bluesky";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "Imagine Panoramax";
-
 /* Text in menu */
 "rate_the_app" = "Evaluează aplicația";
-
 /* Text in menu */
 "help" = "Ajutor";
-
 /* Button in the main Help dialog */
 "faq" = "Întrebări frecvente";
-
 /* Button in the main menu */
 "donate" = "Donează";
-
 /* Button in the main Help dialog */
 "copyright" = "Drepturi de autor";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "Raportează o eroare";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Raportați sau remediați datele incorecte de pe hartă";
-
 /* Button in the About screen */
 "volunteer" = "Fii voluntar și îmbunătațește CoMaps";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "Conectează-te cu noi";
-
 /* Alert text */
 "email_error_body" = "Clientul de e-mail nu a fost configurat. Te rugăm să-l configurezi sau să ne contactezi la %@";
-
 /* Alert title */
 "email_error_title" = "Eroare de trimitere e-mail";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Atingeți lung pe hartă din nou pentru a vedea interfața";
-
 /* Update all button text */
 "downloader_update_all_button" = "Actualizează tot";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Descărcate";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "Disponibile";
-
 /* Country queued for download */
 "downloader_queued" = "În așteptare";
 "downloader_near_me_subtitle" = "Lângă mine";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "Hărți";
 "downloader_download_all_button" = "Descarcă tot";
 "downloader_downloading" = "Se descarcă:";
 "downloader_search_results" = "Găsite";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "Actualizează";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "Eșuat";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "Pentru a șterge harta, oprește navigarea.";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Pot fi create numai trasee cuprinse de harta unei singure regiuni.";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "Descarcă harta";
-
 /* Item status in downloader. */
 "downloader_retry" = "Mai încearcă";
-
 /* Item in context menu. */
 "downloader_delete_map" = "Șterge harta";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Descarcă hărțile de pe traseu";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Pentru a crea un traseu, este necesar ca toate hărțile de la poziția ta până la destinație să fie descărcate și actualizate.";
-
 /* bookmark button text */
 "bookmark" = "preferat";
 "save" = "Salvează";
 "create" = "creează";
-
 /* red color */
 "red" = "Roșu";
-
 /* yellow color */
 "yellow" = "Galben";
-
 /* blue color */
 "blue" = "Albastru";
-
 /* green color */
 "green" = "Verde";
-
 /* purple color */
 "purple" = "Violet";
-
 /* orange color */
 "orange" = "Portocaliu";
-
 /* brown color */
 "brown" = "Maro";
-
 /* pink color */
 "pink" = "Roz";
-
 /* deep purple color */
 "deep_purple" = "Violet închis";
-
 /* light blue color */
 "light_blue" = "Albastru deschis";
-
 /* cyan color */
 "cyan" = "Turcoaz";
-
 /* teal color */
 "teal" = "Smarald";
-
 /* lime color */
 "lime" = "Verde aprins";
-
 /* deep orange color */
 "deep_orange" = "Portocaliu închis";
-
 /* gray color */
 "gray" = "Gri";
-
 /* blue gray color */
 "blue_gray" = "Gri albăstriu";
 "dialog_routing_disclaimer_title" = "Când parcurgi traseul, ai în vedere următoarele:";
@@ -459,34 +337,26 @@
 "dialog_routing_try_again" = "Încearcă din nou";
 "dialog_routing_download_and_build_cross_route" = "Vrei să descarci harta și să creezi un traseu mai bun care include mai multe hărți?";
 "dialog_routing_download_cross_route" = "Descarcă hărți suplimentare pentru a crea un traseu mai bun care să traverseze limitele acestei hărți.";
-
 /* «Show» context menu */
 "show" = "Arată";
-
 /* «Hide» context menu */
 "hide" = "Ascunde";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Planificarea traseului a eșuat";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Sosire la %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Pentru a crea un traseu, descarcă și actualizează toate hărțile de pe parcursul traseului.";
 "categories" = "Categorii";
 "history" = "Cronologie";
 "search_not_found" = "Nu s-a găsit nimic.";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Descărcați regiunea în care căutați sau încercați să adăugați numele unei localități din apropiere.";
 "search_history_title" = "Istoricul căutărilor";
 "search_history_text" = "Arată căutările recente.";
 "clear_search" = "Șterge istoricul căutărilor";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Wikipedia";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Poziția ta";
@@ -497,7 +367,6 @@
 "p2p_reroute_from_current" = "Vrei să planifici un traseu din poziția ta actuală?";
 "editor_time_add" = "Adaugă planificare";
 "editor_time_delete" = "Elimină planificarea";
-
 /* Text for allday switch. */
 "editor_time_allday" = "Toată ziua (24 ore)";
 "editor_time_open" = "Deschis";
@@ -513,10 +382,16 @@
 "share_with_friends" = "Trimite prietenilor";
 "editor_report_problem_send_button" = "Trimite";
 "autodownload" = "Descărcare automată";
-
+/* Voice */
+"voice" = "Voce";
+"voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Unknown";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Existence confirmed %@";
+"hours_confirmed_time_ago" = "Confirmat acum %@";
 /* Place Page opening hours text */
 "closed_now" = "Închis acum";
-
 /* Place Page opening hours text */
 "daily" = "Zilnic";
 "twentyfour_seven" = "24/7";
@@ -531,13 +406,11 @@
 "closes_in" = "Închide în %@";
 "closed" = "Închis";
 "add_opening_hours" = "Adaugă orele de funcționare";
-
 /* OpenStreetMap */
 "osm_mapdata" = "Datele hărții de la OpenStreetMap";
 "osm_mapdata_explanation %@" = "Date cartografice create de comunitate din data de *%@*. Aflați mai multe despre cum să editați și să actualizați harta la [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Mai multe despre OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "Profil OpenStreetMap";
 "osm_profile_promt" = "Creați un cont OpenStreetMap sau conectați-vă pentru a vă publica editările hărții pentru întreaga lume.";
@@ -550,20 +423,19 @@
 "osm_profile_register_promt" = "Nu ai un cont OpenStreetMap?";
 "osm_profile_register" = "Înregistrați-vă la OpenStreetMap";
 "osm_profile_verfied_changes" = "Modificări confirmate";
+"osm_profile_view_edit_history" = "Vizualizați istoricul modificărilor";
+"osm_profile_view_notes" = "Vizualizați notițe";
 "osm_profile_logout" = "Deconectează-te de la contul OpenStreetMap";
 "osm_profile_delete" = "Șterge contul OpenStreetMap";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Ultima încărcare";
 "thank_you" = "Mulțumesc";
 "edit_place" = "Modifică locul";
 "place_name" = "Numele locului";
 "add_language" = "Adaugă o limbă";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "Număr";
 "details" = "Detalii";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "Adaugă o stradă";
 "choose_language" = "Alege o limbă";
@@ -571,7 +443,6 @@
 "postal_code" = "Cod poștal";
 "cuisine" = "Bucătărie";
 "select_cuisine" = "Alege bucătăria";
-
 /* login text field */
 "email_or_username" = "E-mail sau nume de utilizator";
 "phone" = "Telefon";
@@ -592,40 +463,33 @@
 "editor_edit_place_title" = "Modifică";
 "editor_add_place_title" = "Adaugă";
 "editor_edit_place_name_hint" = "Numele locului";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Așa cum este scris în limba locală";
 "editor_edit_place_category_title" = "Categorie";
 "whatsnew_editor_message_1" = "Adaugă locuri noi pe hartă și modifică-le pe cele existente direct din aplicație.";
 "dialog_incorrect_feature_position" = "Schimbă poziția";
 "message_invalid_feature_position" = "Niciun obiect nu poate fi poziționat aici";
-
 /* Error dialog no space */
 "migration_no_space_message" = "Ai nevoie de mai mult spațiu pentru a descărca. Șterge datele care nu sunt necesare.";
 "editor_sharing_title" = "Am îmbunătățit hărțile CoMaps";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d din %2$d";
 "download_over_mobile_header" = "Vrei să descarci prin rețeaua de telefonie mobilă?";
 "download_over_mobile_message" = "Aceasta poate fi destul de costisitoare în cazul unor abonamente sau în roaming.";
 "error_enter_correct_house_number" = "Introdu un număr corect";
 "editor_storey_number" = "Număr de etaje (maximum %d)";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Numărul de etaje nu trebuie să depășească %d";
 "editor_zip_code" = "Cod poștal";
 "error_enter_correct_zip_code" = "Introdu codul poștal corect";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Punct Hartă";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Notiță pentru voluntarii OpenStreetMap (opțional)";
 "editor_detailed_description_hint" = "Comentariu detaliat";
 "editor_detailed_description" = "Modificările aduse hărții, sugerate de tine, vor fi trimise comunității OpenStreetMap. Descrie orice detalii suplimentare care nu pot fi modificate în CoMaps.";
 "editor_more_about_osm" = "Mai multe despre OpenStreetMap";
 "editor_operator" = "Operator";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operator: %@";
 "editor_category_unsuitable_title" = "Nu găsiți o categorie potrivită?";
@@ -638,26 +502,20 @@
 "location_services_disabled_message" = "Activează accesul la geolocalizare din setările dispozitivului";
 "location_services_disabled_1" = "1. Deschide Configurări";
 "location_services_disabled_2" = "2. Apasă pe Localizare";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. Alege „În timp ce folosești aplicația”";
 "location_services_disabled_on_device_2" = "2. Selectează confidențialitate și securitate";
 "location_services_disabled_on_device_3" = "3. Selectează Servicii de localizare";
 "location_services_disabled_on_device_4" = "4. Activează Servicii de localizare";
 "location_services_disabled_on_device_additional_message" = "Sau continuă să folosești CoMaps fără Locație";
-
 /* abbreviation for meters */
 "m" = "m";
-
 /* abbreviation for kilometers */
 "km" = "km";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "km/h";
-
 /* abbreviation for mile(s) */
 "mi" = "mi";
-
 /* A unit of measure */
 "ft" = "ft";
 "miles_per_hour" = "mph";
@@ -678,35 +536,29 @@
 "editor_remove_place_message" = "Elimini locul adăugat?";
 "editor_remove_place_button" = "Elimină";
 "editor_place_doesnt_exist" = "Locul nu există";
+"editor_place_doesnt_exist_description" = "Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap";
 "text_more_button" = "…mai mult";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "Introdu un număr de telefon corect";
 "error_enter_correct_web" = "Introdu o adresă web corectă";
 "error_enter_correct_email" = "Introdu un e-mail valabil";
 "refresh" = "Actualizează";
 "placepage_add_place_button" = "Adaugă un loc pe OpenStreetMap";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Vrei să-l trimiți tuturor utilizatorilor?";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Asigură-te că nu ai introdus niciun fel de date personale.";
 "editor_share_to_all_dialog_message_2" = "Editorii OpenStreetMap vor verifica modificările și vor lua legătura cu dvs. dacă au întrebări.";
 "navigation_stop_button" = "Oprește";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Dezactivezi înregistrarea celui mai recent traseu efectuat?";
 "off_recent_track_background_button" = "Dezactivează";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "Verifică";
 "recent_track_background_dialog_message" = "CoMaps folosește poziția ta geografică pentru a înregistra cel mai recent traseu urmat.";
 "general_settings" = "Opțiuni generale";
-
 /* For the first routing */
 "accept" = "Acceptă";
-
 /* For the first routing */
 "decline" = "Refuză";
 "mobile_data_dialog" = "Folosești internetul mobil pentru a vedea informații detaliate?";
@@ -714,29 +566,28 @@
 "mobile_data_option_today" = "Doar astăzi";
 "mobile_data_option_not_today" = "Nu folosi astăzi";
 "mobile_data" = "Internet mobil";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Internetul mobil este necesar pentru a afișa informații detaliate despre locuri generale și cele preferate.";
 "mobile_data_option_never" = "Nu utiliza niciodată";
 "mobile_data_option_ask" = "Întreabă întotdeauna";
 "traffic_update_maps_text" = "Pentru a afișa datele privind traficul, hărțile trebuie actualizate.";
 "big_font" = "Mărește dimensiunea literelor pe hartă";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Pentru a afișa datele privind traficul, aplicația trebuie actualizată.";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Datele privind traficul nu sunt disponibile";
 "enable_logging" = "Activează jurnalizarea";
 "log_file_size" = "Dimensiunea fișierului jurnal: %@";
+"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "Use in system order";
+"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
 "transliteration_title" = "Transcrie în alfabet latin";
-
+"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "Ieșire";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Utilizați funcția de căutare sau atingeți ușor pe hartă pentru a adăuga un punct de plecare";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Utilizați funcția de căutare sau atingeți ușor pe hartă pentru a adăuga un punct de destinație";
 "planning_route_manage_route" = "Gestionare traseu";
@@ -745,18 +596,15 @@
 "planning_route_remove_title" = "Trage aici pentru a elimina";
 "placepage_add_stop" = "Adaugă oprire";
 "start_from_my_position" = "Pornește de la";
-
 /* Title for button when a route was saved. */
 "saved" = "Salvat";
 "core_entrance" = "Intrare";
 "error_enter_correct_name" = "Introdu un nume corect";
 "bookmark_lists" = "Liste";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "Ascunde tot";
 "bookmark_lists_show_all" = "Arată tot";
 "bookmarks_create_new_group" = "Creează o listă nouă";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "Importați marcaje și piese";
 "downloader_hide_screen" = "Ascunde pagina";
@@ -790,13 +638,10 @@
 "download_button" = "Descarcă";
 "speedcams_alert_title" = "Radare";
 "place_description_title" = "Descrierea locului";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Avertizează la depășirea limitei de viteză";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Avertizează mereu";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Nu avertiza niciodată";
 "power_managment_title" = "Economisire a energiei";
@@ -806,14 +651,13 @@
 "power_managment_setting_manual_max" = "Economisire maximă a energiei";
 "enable_logging_warning_message" = "Opțiunea activează jurnalizarea în scopuri de diagnosticare. Aceasta poate fi utilă echipei noastre pentru a rezolva problemele cu aplicația. Activează temporar această opțiune pentru a înregistra și a ne trimite jurnale detaliate despre problema ta.";
 "driving_options_title" = "Opțiuni de ocolire";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Evitați drumurile cu taxă";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Evitați drumurile neasfaltate";
-
+"avoid_paved" = "Evitați drumurile asfaltate sau pavate";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Evitați treptele";
 "avoid_ferry" = "Evitați trecerile cu bac";
 "avoid_motorways" = "Evitați autostrăzile";
 "unable_to_calc_alert_title" = "Nu poate fi creat un traseu";
@@ -829,22 +673,16 @@
 "search_results" = "Rezultatul căutării";
 "then_turn" = "Apoi";
 "redirect_route_alert" = "Vrei să refaci traseul?";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "Da";
-
 /* A generic "No" button in dialogs */
 "no" = "Nu";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "Da";
-
 /* E.g. "WiFi:No" */
 "no_available" = "Nu";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Capacitate: %@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Rețea: %@";
 "trip_finished" = "Ai ajuns!";
@@ -864,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "Info radare";
 "download_map_carplay" = "Descarcă hărțile în aplicația CoMaps din dispozitivul tău";
 "carplay_roundabout_exit" = "%@ ieșire";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Sortare…";
-
 /* iOS */
 "sort_default" = "Sortare standard";
 "sort_type" = "Sortează după tip";
@@ -913,187 +749,124 @@
 "isolines_toast_zooms_1_10" = "Mărește harta pentru a vedea izoliniile";
 "downloader_updating_ios" = "Se actualizează";
 "downloader_loading_ios" = "Se descarcă";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Actualizează hărțile descărcate";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Actualizarea hărților menține actualizate informațiile despre obiecte";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Actualizează (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "Actualizează manual mai târziu";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Elimină traseul";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "Sunteți sigur că doriți să ștergeți această pistă?";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Numele traseului";
-
 /* move track or bookmark from the list button text */
 "move" = "Mută";
-
 /* edit track screen title */
 "track_title" = "Traseu";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/";
-
 /* App Tip #00 */
 "app_tip_00" = "Mulțumim că folosești hărțile construite de comunitatea noastră!";
-
 /* App tip #01 */
 "app_tip_01" = "Cu donațiile și sprijinul dumneavoastră, putem crea cele mai bune hărți din lume!";
-
 /* App tip #02 */
 "app_tip_02" = "Îți place aplicația noastră? Vă rugăm să donați pentru a sprijini dezvoltarea! Nu-ți place încă? Vă rugăm să ne anunțați și vom remedia!";
-
 /* App tip #03 */
 "app_tip_03" = "Dacă cunoașteți un dezvoltator de software, îi puteți cere să implementeze o caracteristică de care aveți nevoie.";
-
 /* App tip #04 */
 "app_tip_04" = "Atingeți oriunde pe hartă pentru a selecta orice. Atingeți lung pentru a ascunde și a reda interfața.";
-
 /* App tip #05 */
 "app_tip_05" = "Știți că vă puteți selecta locația curentă pe hartă?";
-
 /* App tip #06 */
 "app_tip_06" = "Puteți ajuta la traducerea aplicației noastre în limba dvs.";
-
 /* App tip #07 */
 "app_tip_07" = "Aplicația noastră este dezvoltată de câțiva entuziaști și de comunitate.";
-
 /* App tip #08 */
 "app_tip_08" = "Puteți remedia și îmbunătăți cu ușurință datele hărții.";
-
 /* App tip #09 */
 "app_tip_09" = "Scopul nostru principal este să construim hărți rapide, axate pe confidențialitate și ușor de utilizat, care să vă placă.";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Acum utilizați CoMaps pe ecranul telefonului";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "Acum utilizați CoMaps pe ecranul mașinii";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "Continuați în telefon";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "La ecranul mașinii";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Drumeție";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Exportați toate marcajele și piesele";
-
 /* Text for the editing the Track's color button. */
 "change_color" = "Schimbă culoarea";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Hartă";
 "drive_through" = "Servire în mașină";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Legătura de meniu";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Doriți să trimiteți un raport de eroare dezvoltatorilor?\nNe bazăm pe utilizatorii noștri, deoarece CoMaps nu colectează automat nicio informație privind erorile. Vă mulțumim anticipat pentru susținerea CoMaps!";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "iCloud Syncronization (Beta)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Activați Sincronizarea iCloud";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
+/* Message for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_message" = "Sincronizarea iCloud este o funcție experimentală aflată în curs de dezvoltare. Asigurați-vă că ați făcut o copie de rezervă a tuturor marcajelor și pieselor dvs.";
-
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud este dezactivat";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "Vă rugăm să activați iCloud în setările dispozitivului dvs. pentru a utiliza această funcție.";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Activați";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "Backup";
-
 /* Title for the "iCloud synchronization failure" alert. */
 "icloud_synchronization_error_alert_title" = "Eșecul sincronizării iCloud";
-
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "Eroare: Nu s-a reușit sincronizarea din cauza unei erori de conexiune";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "Eroare: Nu s-a reușit sincronizarea din cauza depășirii cotei iCloud";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Eroare: iCloud nu este disponibil";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "Deschidere în altă aplicație";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "Autoservire";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Scaune în aer liber";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "Liste șterse recent";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "Ștergere";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "Ștergeți toate";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "Recuperare";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Recuperează tot";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "Înregistrați traseul";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Opriți înregistrarea traseului";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Oprire fără salvare";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Continuați înregistrarea";
-
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Salvați în Locuri preferate și trasee?";
-
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Traseul este gol - nu este nimic de salvat";
 "edit_track" = "Editează traseul";
-"osm_profile_view_edit_history" = "Vizualizați istoricul modificărilor";
-"osm_profile_view_notes" = "Vizualizați notițe";
-"about_headline" = "Proiect deschis, susținut de comunitate";
-"about_proposition_3" = "Transparent și non-profit";
-"pref_mapappearance_title" = "Aspectul hărții";
-"pref_maplanguage_title" = "Limba hărții";
-"transliteration_title_disabled_summary" = "Disabled when always using the local language for the map";
-"pref_maplanguage_local" = "Limbă Locală";
-"hours_confirmed_time_ago" = "Confirmat acum %@";
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"avoid_paved" = "Evitați drumurile asfaltate sau pavate";
-"editor_place_doesnt_exist_description" = "Descrie cum arată locul acum ca să trimiți o notiță comunității OpenStreetMap";
-"avoid_steps" = "Evitați treptele";
-"offline_explanation_text" = "O hartă trebuie descărcată ca să vezi și să navighezi prin zonă.\nDescarcă hărți pentru zonele în care vrei să mergi.";
-"offline_explanation_title" = "Hărti Offline";
-"voice" = "Voce";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

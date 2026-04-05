@@ -11,6 +11,7 @@
 #include "geometry/point_with_altitude.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 
 // This header should be included due to a python compilation error.
 // pyport.h overwrites defined macros and replaces it with its own.
@@ -53,31 +54,31 @@ namespace
 {
 struct LocalizableStringAdapter
 {
-  static std::string const & Get(LocalizableString const & str, std::string const & lang)
+  static std::string const & Get(LocalizableString const & str, localisation::LanguageCode const & languageCode)
   {
-    auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-    auto const it = str.find(langIndex);
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    auto const it = str.find(languageIndex);
     if (it != str.end())
       return it->second;
-    throw std::runtime_error("Language not found. lang: " + lang);
+    throw std::runtime_error("Language not found. lang: " + languageCode);
   }
 
-  static void Set(LocalizableString & str, std::string const & lang, std::string const & val)
+  static void Set(LocalizableString & str, localisation::LanguageCode const & languageCode, std::string const & val)
   {
-    auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-    if (langIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
-      throw std::runtime_error("Unsupported language. lang: " + lang);
-    str[langIndex] = val;
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    if (languageIndex == localisation::kUnsupportedLanguageIndex)
+      throw std::runtime_error("Unsupported language. lang: " + languageCode);
+    str[languageIndex] = val;
   }
 
-  static void Delete(LocalizableString & str, std::string const & lang)
+  static void Delete(LocalizableString & str, localisation::LanguageCode const & languageCode)
   {
-    auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-    auto const it = str.find(langIndex);
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(languageCode);
+    auto const it = str.find(languageIndex);
     if (it != str.end())
       str.erase(it);
     else
-      throw std::runtime_error("Language not found. lang: " + lang);
+      throw std::runtime_error("Language not found. lang: " + languageCode);
   }
 
   static boost::python::dict GetDict(LocalizableString const & str)
@@ -85,7 +86,7 @@ struct LocalizableStringAdapter
     boost::python::dict d;
     for (auto const & s : str)
     {
-      std::string lang = StringUtf8Multilang::GetLangByCode(s.first);
+      std::string lang = localisation::GetLanguageNameByLanguageIndex(s.first);
       if (lang.empty())
         throw std::runtime_error("Language not found");
       d[lang] = s.second;
@@ -102,11 +103,11 @@ struct LocalizableStringAdapter
     auto const langs = pyhelpers::PythonListToStdVector<std::string>(dict.keys());
     for (auto const & lang : langs)
     {
-      auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-      if (langIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
+      localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(lang);
+      if (languageIndex == localisation::kUnsupportedLanguageIndex)
         throw std::runtime_error("Unsupported language. lang: " + lang);
 
-      str[langIndex] = extract<std::string>(dict[lang]);
+      str[languageIndex] = extract<std::string>(dict[lang]);
     }
   }
 
@@ -116,7 +117,7 @@ struct LocalizableStringAdapter
     out << "[";
     for (auto it = str.begin(); it != str.end(); ++it)
     {
-      out << "'" << StringUtf8Multilang::GetLangByCode(it->first) << "':'" << it->second << "'";
+      out << "'" << localisation::GetLanguageNameByLanguageIndex(it->first) << "':'" << it->second << "'";
       auto it2 = it;
       it2++;
       if (it2 != str.end())
@@ -449,7 +450,7 @@ std::string LanguagesListToString(std::vector<int8_t> const & langs)
   out << "[";
   for (size_t i = 0; i < langs.size(); ++i)
   {
-    out << "'" << StringUtf8Multilang::GetLangByCode(langs[i]) << "'";
+    out << "'" << localisation::GetLanguageNameByLanguageIndex(langs[i]) << "'";
     if (i + 1 != langs.size())
       out << ", ";
   }
@@ -547,7 +548,7 @@ boost::python::list GetLanguages(std::vector<int8_t> const & langs)
   result.reserve(langs.size());
   for (auto const & langCode : langs)
   {
-    std::string lang = StringUtf8Multilang::GetLangByCode(langCode);
+    std::string lang = localisation::GetLanguageNameByLanguageIndex(langCode);
     if (lang.empty())
       throw std::runtime_error("Language not found. langCode: " + std::to_string(langCode));
     result.emplace_back(std::move(lang));
@@ -565,10 +566,10 @@ void SetLanguages(std::vector<int8_t> & langs, boost::python::object const & ite
   langs.reserve(langStr.size());
   for (auto const & lang : langStr)
   {
-    auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-    if (langIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(lang);
+    if (languageIndex == localisation::kUnsupportedLanguageIndex)
       throw std::runtime_error("Unsupported language. lang: " + lang);
-    langs.emplace_back(langIndex);
+    langs.emplace_back(languageIndex);
   }
 }
 
@@ -584,10 +585,10 @@ boost::python::list GetSupportedLanguages()
 
 boost::python::object GetLanguageIndex(std::string const & lang)
 {
-  auto const langIndex = StringUtf8Multilang::GetLangIndex(lang);
-  if (langIndex == StringUtf8Multilang::kUnsupportedLanguageCode)
+  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(lang);
+  if (languageIndex == localisation::kUnsupportedLanguageIndex)
     throw std::runtime_error("Unsupported language. lang: " + lang);
-  return boost::python::object(langIndex);
+  return boost::python::object(languageIndex);
 }
 
 std::string ExportKml(FileData const & fileData)

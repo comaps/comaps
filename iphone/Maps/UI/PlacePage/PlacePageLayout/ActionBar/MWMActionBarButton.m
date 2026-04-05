@@ -104,7 +104,7 @@ NSString *titleForButton(MWMActionBarButtonType type, BOOL isSelected) {
       }
       break;
     case MWMActionBarButtonTypeCall:
-      [self.button setImage:[UIImage imageNamed:@"ic_placepage_phone_number"] forState:UIControlStateNormal];
+      [self.button setImage:[UIImage systemImageNamed:@"phone.fill"] forState:UIControlStateNormal];
       break;
     case MWMActionBarButtonTypeBookmark:
       [self setupBookmarkButton:isSelected];
@@ -129,7 +129,7 @@ NSString *titleForButton(MWMActionBarButtonType type, BOOL isSelected) {
         self.button.coloring = MWMButtonColoringBlue;
       break;
     case MWMActionBarButtonTypeMore:
-      [self.button setImage:[UIImage imageNamed:@"ic_placepage_more"] forState:UIControlStateNormal];
+      [self.button setImage:[UIImage systemImageNamed:@"ellipsis"] forState:UIControlStateNormal];
       break;
     case MWMActionBarButtonTypeRouteAddStop:
       [self.button setImage:[UIImage imageNamed:@"ic_add_route_point"] forState:UIControlStateNormal];

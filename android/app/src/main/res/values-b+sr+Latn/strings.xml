@@ -90,9 +90,7 @@
     <string name="cant_change_this_setting">Izvinite, podešavanje lokacije za čuvanje mapa je trenutno onemogućeno</string>
     <string name="downloading_is_active">Preuzimanje mapa je u toku</string>
     <string name="my_position_share_sms">Vidi moju trenutnu lokaciju u CoMaps-u! %1$s ili %2$s Još ne koristiš offline mape? Preuzmi ih ovde: https://www.comaps.app/download/</string>
-    <string name="bookmark_share_email_subject">Hej, vidi moj marker u CoMaps-u!</string>
     <string name="my_position_share_email_subject">Hej, vidi moju trenutnu lokaciju na CoMaps mapi!</string>
-    <string name="my_position_share_email">Zdravo, \n \nJa sam ovde: %1$s. Klikni na ovaj %2$s ili ovaj link %3$s da bi video to mesto na mapi. \n \nHvala.</string>
     <string name="share">Podeli</string>
     <string name="email">Email</string>
     <string name="copied_to_clipboard">Kopirano u klipbord: %s</string>
@@ -239,13 +237,7 @@
     <string name="editor_example_values">Primeri</string>
     <string name="editor_correct_mistake">Ispravi grešku</string>
     <string name="editor_add_select_location">Izaberite lokaciju</string>
-    <string name="editor_report_problem_desription_1">Molim Vas da detaljno opišete problem kako bi OpenStreetMap zajednica mogla da ga popravi.</string>
-    <string name="editor_report_problem_desription_2">Ili to učinite sami na https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Pošalji</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">Ovo mesto ne postoji</string>
-    <string name="editor_report_problem_under_construction_title">Zatvoreno zbog održavanja</string>
-    <string name="editor_report_problem_duplicate_place_title">Duplirano mesto</string>
     <string name="autodownload">Automatsko preuzimanje mapa</string>
     <string name="daily">Svaki dan</string>
     <string name="twentyfour_seven">24/7</string>

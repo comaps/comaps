@@ -299,7 +299,6 @@
     <string name="type.cuisine.international">Uluslararası Mutfak</string>
     <string name="type.cuisine.irish">İrlanda Mutfağı</string>
     <string name="type.cuisine.italian">İtalyan Mutfağı</string>
-    <string name="type.cuisine.italian_pizza">İtalyan, Pizza</string>
     <string name="type.cuisine.japanese">Japon Mutfağı</string>
     <string name="type.cuisine.kebab">Kebap</string>
     <string name="type.cuisine.korean">Kore Mutfağı</string>
@@ -678,7 +677,7 @@
     <string name="type.man_made.water_well">Su Kuyusu</string>
     <string name="type.man_made.water_well.drinking_water_no">Su Kuyusu</string>
     <string name="type.man_made.windmill">Yel Değirmeni</string>
-    <string name="type.man_made.works">Sanayi İşleri</string>
+    <string name="type.man_made.works">Sanayi Kuruluşu</string>
     <string name="type.military">Askeri</string>
     <string name="type.military.bunker">Sığınak</string>
     <string name="type.mountain_pass">Boğaz</string>
@@ -1132,7 +1131,7 @@
     <string name="type.shop.greengrocer">Manav</string>
     <string name="type.shop.grocery">Market</string>
     <string name="type.shop.hairdresser">Kuaför</string>
-    <string name="type.shop.hardware">Donanım mağazası</string>
+    <string name="type.shop.hardware">Hırdavatçı</string>
     <string name="type.shop.health_food">Sağlık Gıda Mağazası</string>
     <string name="type.shop.hearing_aids">İşitme cihazı mağazası</string>
     <string name="type.shop.herbalist">Aktar</string>
@@ -1406,4 +1405,10 @@
     <string name="type.emergency.life_ring">Can simidi</string>
     <string name="type.emergency.access_point">Acil Durum Noktası</string>
     <string name="type.leisure.hackerspace">Hackerspace</string>
+    <string name="type.amenity.charging_station.small">Sınırlı Kapasite</string>
+    <string name="type.amenity.community_centre.youth_centre">Gençlik Merkezi</string>
+    <string name="type.amenity.flight_school">Uçuş Okulu</string>
+    <string name="type.amenity.prep_school">Özel Ders Okulu</string>
+    <string name="type.amenity.boat_rental">Tekne Kiralama</string>
+    <string name="type.amenity.charging_station.motorcycle">Motosiklet</string>
 </resources>

@@ -67,17 +67,17 @@ enum SocialMedia: CaseIterable, Identifiable {
     var image: Image {
         switch self {
             case .codeberg:
-                return Image(.SocialMedia.codeberg)
+                return Image(.Brands.codeberg)
             case .mastodon:
-                return Image(.SocialMedia.mastodon)
+                return Image(.Brands.mastodon)
             case .matrix:
-                return Image(.SocialMedia.matrix)
+                return Image(.Brands.matrix)
             case .lemmy:
-                return Image(.SocialMedia.lemmy)
+                return Image(.Brands.lemmy)
             case .bluesky:
-                return Image(.SocialMedia.bluesky)
+                return Image(.Brands.bluesky)
             case .pixelfed:
-                return Image(.SocialMedia.pixelfed)
+                return Image(.Brands.pixelfed)
             case .email:
                 return Image(systemName: "envelope.fill")
         }

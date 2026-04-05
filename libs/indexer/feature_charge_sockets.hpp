@@ -90,12 +90,13 @@ public:
 
   static constexpr std::string_view UNKNOWN = "unknown";
 
-  /** List of supported sockets, ~ordered from high-power to low-power.
+  /** List of supported sockets, ~ordered from high-power to low-power
+   * and how common they are in OSM.
    * This order can be used in the UIs.
    */
-  static constexpr std::array<std::string_view, 14> SUPPORTED_TYPES = {
-      "mcs",    "type2_combo", "chademo", "nacs",  "type1",  "gb_dc", "chaoji",
-      "type3c", "type2_cable", "type2",   "gb_ac", "type3a", "typee", "schuko"};
+  static constexpr std::array<std::string_view, 15> SUPPORTED_TYPES = {
+      "mcs",         "type2_combo", "chademo", "type1_combo", "nacs",   "gb_dc", "chaoji", "type3c",
+      "type2_cable", "type2",       "type1",   "gb_ac",       "type3a", "typee", "schuko"};
 
   /** Return a list of OSM attributes that have changed between the current
    * list of sockets and the provided old list.

@@ -6,7 +6,7 @@ SKIP_MAP_DOWNLOAD="${SKIP_MAP_DOWNLOAD:-}"
 SKIP_GENERATE_SYMBOLS="${SKIP_GENERATE_SYMBOLS:-}"
 SKIP_GENERATE_DRULES="${SKIP_GENERATE_DRULES:-}"
 
-CMAKE_CONFIG="${CMAKE_CONFIG:-} -U SKIP_QT_GUI -U GENERATOR_TOOL -U USE_PCH -U CMAKE_EXPORT_COMPILE_COMMANDS -U NJOBS -U SKIP_TESTS"
+CMAKE_CONFIG="${CMAKE_CONFIG:-} -U SKIP_QT_GUI -U GENERATOR_TOOL -U USE_PCH -U CMAKE_EXPORT_COMPILE_COMMANDS -U NJOBS -U SKIP_TESTS -U COVERAGE_REPORT"
 
 OPT_DEBUG=
 OPT_RELEASE=
@@ -20,7 +20,8 @@ OPT_STANDALONE=
 OPT_COMPILE_DATABASE=
 OPT_LAUNCH_BINARY=
 OPT_NJOBS=
-while getopts ":cdrRxtagjlp:n:" opt; do
+OPT_APPIMAGE=
+while getopts ":cdrRxtaigjlp:n:" opt; do
   case $opt in
     a) OPT_STANDALONE=1 ;;
     c) OPT_CLEAN=1 ;;
@@ -40,6 +41,7 @@ while getopts ":cdrRxtagjlp:n:" opt; do
        ;;
     R) OPT_RELEASEDEBUGINFO=1 ;;
     t) OPT_DESIGNER=1 ;;
+    i) OPT_APPIMAGE=1 ;;
     *)
       echo "Build the desktop app and other C++ targets (tests, tools...)"
       echo "Usage: $0 [-d] [-r] [-R] [-c] [-x] [-s] [-t] [-a] [-g] [-j] [-l] [-p PATH] [-n NUM] [target1 target2 ...]"
@@ -58,6 +60,7 @@ while getopts ":cdrRxtagjlp:n:" opt; do
       echo -e "-n  Number of parallel processes"
       echo -e "-j  Generate compile_commands.json"
       echo -e "-l  Launches built binaries, useful for tests"
+      echo -e "-i  Build Qt AppImage (Linux only)"
       exit 1
       ;;
   esac
@@ -65,7 +68,7 @@ done
 
 OPT_TARGET=${@:$OPTIND}
 
-if [ "$OPT_TARGET" != "desktop" -a -z "$OPT_DESIGNER" -a -z "$OPT_STANDALONE"]; then
+if [ "$OPT_TARGET" != "desktop" -a -z "$OPT_DESIGNER" -a -z "$OPT_STANDALONE" ]; then
   CMAKE_CONFIG="${CMAKE_CONFIG:-} -DSKIP_QT_GUI=ON"
 fi
 
@@ -79,9 +82,14 @@ if [[ "$OPT_TARGET" =~ generator_tool|topography_generator_tool|world_roads_buil
   CMAKE_CONFIG="${CMAKE_CONFIG:-} -DGENERATOR_TOOL=ON"
 fi
 
+if [ "$OPT_TARGET" == "coverage" ]; then
+  CMAKE_CONFIG="${CMAKE_CONFIG:-} -DCOVERAGE_REPORT=ON"
+  OPT_TARGET=
+fi
+
 OMIM_PATH="$(cd "${OMIM_PATH:-$(dirname "$0")/../..}"; pwd)"
 
-if [ "$OPT_TARGET" != "desktop" ] && [ -z "$SKIP_MAP_DOWNLOAD$SKIP_GENERATE_SYMBOLS$SKIP_GENERATE_DRULES" ]; then
+if [ "$OPT_TARGET" ] && [ "$OPT_TARGET" != "desktop" ] && [ -z "$SKIP_MAP_DOWNLOAD$SKIP_GENERATE_SYMBOLS$SKIP_GENERATE_DRULES" ]; then
   SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1 SKIP_GENERATE_DRULES=1 ./configure.sh
 else
   ./configure.sh
@@ -155,6 +163,44 @@ build()
       ${CMAKE_CONFIG:-}
     echo ""
     $MAKE_COMMAND $OPT_TARGET
+    if [ -n "$OPT_APPIMAGE" ]; then
+      export ARCH="$(uname -m)"
+      APPDIR="$DIRNAME/AppDir"
+      "$CMAKE" --install "$DIRNAME" --prefix="$APPDIR/usr"
+
+      LINUXDEPLOY="$DIRNAME/linuxdeploy-$ARCH.AppImage"
+      LINUXDEPLOY_URL="https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-$ARCH.AppImage"
+      curl -L "$LINUXDEPLOY_URL" -o "$LINUXDEPLOY" $([ -e "$LINUXDEPLOY" ] && echo "-z $LINUXDEPLOY")
+
+      LINUXDEPLOY_PLUGIN_QT="$DIRNAME/linuxdeploy-plugin-qt-$ARCH.AppImage"
+      LINUXDEPLOY_PLUGIN_QT_URL="https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-$ARCH.AppImage"
+      curl -L "$LINUXDEPLOY_PLUGIN_QT_URL" -o "$LINUXDEPLOY_PLUGIN_QT" $([ -e "$LINUXDEPLOY_PLUGIN_QT" ] && echo "-z $LINUXDEPLOY_PLUGIN_QT")
+
+      chmod +x "$LINUXDEPLOY"
+      chmod +x "$LINUXDEPLOY_PLUGIN_QT"
+
+      ARCH_OUTPUT=$ARCH
+      # For file name consistency in aarch64 and arm64
+      [ "$ARCH_OUTPUT" == "aarch64" ] && [ ARCH_OUTPUT = "arm64" ]
+
+      export OUTPUT="CoMaps-linux-$ARCH_OUTPUT.appimage"
+      if [ -n "${TAG:-}" ]; then
+        export UPDATE_INFORMATION="zsync|https://codeberg.org/comaps/comaps/releases/download/$TAG/$OUTPUT"
+      fi
+
+      # linuxdeploy plugin qt env vars
+      # For wayland support; x11 supported by default
+      export EXTRA_QT_MODULES="waylandcompositor"
+      export EXTRA_PLATFORM_PLUGINS="libqwayland-egl.so;libqwayland-generic.so"
+
+      APPDIR_DESKTOP_FILE="$APPDIR/usr/share/applications/app.comaps.comaps.desktop"
+      APPDIR_DESKTOP_ICON="$APPDIR/usr/share/icons/hicolor/scalable/apps/comaps.svg"
+      $LINUXDEPLOY --appdir="$APPDIR" \
+        --desktop-file="$APPDIR_DESKTOP_FILE" \
+        --icon-file="$APPDIR_DESKTOP_ICON" \
+        --plugin qt \
+        --output appimage
+   fi
     if [ -n "$OPT_TARGET" ] && [ -n "$OPT_LAUNCH_BINARY" ]; then
       for target in $OPT_TARGET; do
         "$DIRNAME/$target"

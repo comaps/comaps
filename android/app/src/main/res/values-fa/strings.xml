@@ -379,13 +379,7 @@
     <string name="editor_example_values">مقادیر پیش فرض</string>
     <string name="editor_correct_mistake">تصحیح خطا</string>
     <string name="editor_add_select_location">مکان را انتخاب کنید</string>
-    <string name="editor_report_problem_desription_1">لطفا مشکلتان را با جزئیات توضیح دهید بطوری که انجمن OpenStreetMap بتوانند آن را برطرف کنند.</string>
-    <string name="editor_report_problem_desription_2">یا خودتان آن را انجام دهید در وبسایت https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">فرستادن</string>
-    <string name="editor_report_problem_title">مشکل</string>
-    <string name="editor_report_problem_no_place_title">مکان وجود ندارد</string>
-    <string name="editor_report_problem_under_construction_title">به علت تعمیرات بسته است</string>
-    <string name="editor_report_problem_duplicate_place_title">مکان تکراری</string>
     <string name="autodownload">بارگیری خودکار نقشه‌ها</string>
     <!-- Place Page opening hours text -->
     <string name="daily">روزانه</string>

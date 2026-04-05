@@ -1,272 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "Peruuta";
-
 /* Button which interrupts country download */
 "cancel_download" = "Peruuta lataus";
-
 /* Button which deletes downloaded country */
 "delete" = "Poista";
 "download_maps" = "Lataa karttoja";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Ladataan…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Ei-verkkotilassa olevat kartat";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "Alueen katseluun ja navigointiin tarvitaan kartta.\nLataa karttoja alueille, joille haluat matkustaa.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometrit";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Jätä arviointi";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "Mailit";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Sijaintini";
-
 /* Update maps later button text */
 "later" = "Myöhemmin";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Haku";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "Kyllä";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "Näytä kartalla";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "Lataa kartta";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Lataus epäonnistui";
-
 /* Text in About screen */
 "about_headline" = "Avoin projekti yhteisön toteuttamana";
-
 /* Text in About screen */
 "about_proposition_1" = "Yhteydetön tila, nopea ja helppokäyttöinen";
-
 /* Text in About screen */
 "about_proposition_2" = "Yksityisyyteen keskittynyt ja mainokseton";
-
 /* Text in About screen */
 "about_proposition_3" = "Läpinäkyvä ja voittoa tavoittelematon";
 "close" = "Sulje";
 "download" = "Lataa";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "Jatka";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Lisää uusi valikoima";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Kirjanmerkkivalikoiman nimi";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Suosikkiluettelot";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Kirjanmerkit";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Suosikit";
-
 /* Default bookmark list name */
-"core_my_places" = "Paikkani";
-
+"core_my_places" = "Omat suosikit";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Osoite";
-
 /* Settings button in system menu */
 "settings" = "Asetukset";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "Mittayksiköt";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Missä syödä";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Elintarvikkeet";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Liikenne";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Huoltoasema";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "Parkkipaikka";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Ostokset";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Käytetyt tavarat";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hotelli";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Nähtävyydet";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Viihde";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "Pankkiautomaatti";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Yöelämä";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "Vapaa-aikaa lasten kanssa";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "Pankki";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Apteekki";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Sairaala";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "WC";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Posti";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "Poliisi";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "WiFi";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "Jätteiden kierrätys";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Vesi";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karavaanaritilat";
 "share_bookmarks_email_body" = "Hei!\nLiitteenä kirjanmerkkini. Avaa ne CoMaps-sovelluksella. Jos sinulla ei ole vielä sovellusta, voit ladata sen osoitteesta: https://www.comaps.app/download/\n\nNauti matkustamisesta CoMapsin kanssa!";
-
 /* message title of loading file */
 "load_kmz_title" = "Ladataan kirjanmerkkejä";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "Kirjanmerkkien lataaminen onnistui! Löydät ne joko kartalta tai kirjanmerkkien hallinnasta.";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "Kirjanmerkkien lataus epäonnistui. Tiedosto saattaa olla vioittunut.";
-
 /* resource for context menu */
 "edit" = "Muokkaa";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "Sijaintiasi ei ole vielä määritetty";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Hei, katso merkintäni CoMaps-kartalla!";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Hei, kurkkaa tämänhetkinen sijaintini CoMaps:n kartalla!";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "Sähköposti";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "Kopioi leikepöydälle";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "Kopioitu leikepöydälle: %@";
-
 /* place preview title */
 "info" = "Tietoa";
-
 /* Used for bookmark editing */
 "done" = "Valmis";
-
 /* Prints version number in About dialog */
 "version" = "CoMaps versio: %@";
 "version %@ (%@)" = "Versio %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Versio: %@ (%@)\nKarttatiedot: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "Reitit";
-
 /* Length of track in cell that describes route */
 "length" = "Pituus";
 "share_my_location" = "Jaa sijaintini";
 "prefs_group_route" = "Navigointi";
 "pref_zoom_title" = "Zoomauspainikkeet";
 "pref_left_button_type" = "Vasen pääpainike";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Karttakieli";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Paikallinen kieli";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Kartan ulkoasu";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Ulkoasu";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "Vaalea";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "Tumma";
-
 /* Generic «Disabled» string */
 "disabled" = "Pois käytöstä";
-
 /* Generic «Off» string */
 "off" = "Pois päältä";
-
 /* Generic «On» string */
 "on" = "Päällä";
-
 /* Generic «Auto» string */
 "auto" = "Automaattinen";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektiivinäkymä";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D-rakennukset";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-rakennukset ovat poissa päältä virransäästötilassa";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Ääniohjeistukset";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Ota ääniohjeet käyttöön";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Ilmoita kadunnimet";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Kun tämä on käytössä, sen kadun tai liittymän nimi, jolle käännytään, puhutaan ääneen.";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Äänen kieli";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "Testaa puheohjeita";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Muu";
 "pref_map_auto_zoom" = "Automaattinen zoomaus";
 "placepage_distance" = "Etäisyys";
 "search_show_on_map" = "Näytä kartalla";
-
 /* Text in menu */
 "website" = "Kotisivut";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "Uutiset";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -275,166 +199,114 @@
 "social_bluesky" = "Bluesky";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "Sähköposti";
-
 /* Text in the editor */
 "fediverse" = "Mastodon";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X (Twitter)";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "Bluesky";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "Panoramax-kuva";
-
 /* Text in menu */
 "rate_the_app" = "Arvioi sovellus";
-
 /* Text in menu */
 "help" = "Ohje";
-
 /* Button in the main Help dialog */
 "faq" = "Usein kysytyt kysymykset";
-
 /* Button in the main menu */
 "donate" = "Lahjoita";
-
 /* Button in the main Help dialog */
 "copyright" = "Tekijänoikeudet";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "Ilmoita virheestä";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Ilmoita tai korjaa virheelliset karttatiedot";
-
 /* Button in the About screen */
 "volunteer" = "Tee vapaaehtoistyötä ja paranna CoMapsia";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "Ota yhteyttä";
-
 /* Alert text */
 "email_error_body" = "Sähköpostisovellusta ei ole asetettu. Ole hyvä ja määritä sähköpostiasetukset tai ota meihin yhteyttä toista kautta osoitteessa %@";
-
 /* Alert title */
 "email_error_title" = "Virhe lähetettäessä viestiä";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Paina karttaa pitkään uudelleen nähdäksesi käyttöliittymän";
-
 /* Update all button text */
 "downloader_update_all_button" = "Päivitä kaikki";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Ladatut";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "Saatavilla";
-
 /* Country queued for download */
 "downloader_queued" = "Jonossa";
 "downloader_near_me_subtitle" = "Lähelläni";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "Kartat";
 "downloader_download_all_button" = "Lataa kaikki";
 "downloader_downloading" = "Ladataan:";
 "downloader_search_results" = "Löytyi";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "Päivitä";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "Epäonnistunut";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "Pysäytä navigointi poistaaksesi kartan.";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Vain kokonaisuudessaan yhdelle kartalle mahtuvia reittejä voidaan luoda.";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "Lataa kartta";
-
 /* Item status in downloader. */
 "downloader_retry" = "Yritä uudelleen";
-
 /* Item in context menu. */
 "downloader_delete_map" = "Poista kartta";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Lataa karttoja matkalla";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Reitin luominen vaatii karttojen lataamisen ja päivityksen oman sijaintisi ja kohteeen väliltä.";
-
 /* bookmark button text */
 "bookmark" = "kirjanmerkki";
 "save" = "Tallenna";
 "create" = "luo";
-
 /* red color */
 "red" = "Punainen";
-
 /* yellow color */
 "yellow" = "Keltainen";
-
 /* blue color */
 "blue" = "Sininen";
-
 /* green color */
 "green" = "Vihreä";
-
 /* purple color */
 "purple" = "Violetti";
-
 /* orange color */
 "orange" = "Oranssi";
-
 /* brown color */
 "brown" = "Ruskea";
-
 /* pink color */
 "pink" = "Pinkki";
-
 /* deep purple color */
 "deep_purple" = "Tumman purppuranpunainen";
-
 /* light blue color */
 "light_blue" = "Vaaleansininen";
-
 /* cyan color */
 "cyan" = "Sinivihreä";
-
 /* teal color */
 "teal" = "Smaragdinvihreä";
-
 /* lime color */
 "lime" = "Limen värinen";
-
 /* deep orange color */
 "deep_orange" = "Tumman oranssi";
-
 /* gray color */
 "gray" = "Harmaa";
-
 /* blue gray color */
 "blue_gray" = "Siniharmaa";
 "dialog_routing_disclaimer_title" = "Muista seuraavat asiat seuratessasi reittiä:";
@@ -465,34 +337,26 @@
 "dialog_routing_try_again" = "Yritä uudelleen";
 "dialog_routing_download_and_build_cross_route" = "Haluatko ladata kartan ja luoda paremman reitin, joka ulottuu usealle kartalle?";
 "dialog_routing_download_cross_route" = "Lataa kartta ja luo parempi reitti, joka ylittää tämän kartan reunan.";
-
 /* «Show» context menu */
 "show" = "Näytä";
-
 /* «Hide» context menu */
 "hide" = "Piilota";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Reitin suunnittelu epäonnistui";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Saavut: %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Lataa ja päivitä kaikki kartat reitin varrella luodaksesi reitin.";
 "categories" = "Luokat";
 "history" = "Historia";
 "search_not_found" = "Pahoittelut, hakutuloksia ei ole.";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Lataa alue, jolta etsit, tai yritä lisätä läheisen kaupungin tai kylän nimi.";
 "search_history_title" = "Hakuhistoria";
 "search_history_text" = "Näytä viimeaikaiset hakusi.";
 "clear_search" = "Poista hakuhistoria";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Wikipedia";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Sijaintisi";
@@ -503,7 +367,6 @@
 "p2p_reroute_from_current" = "Haluatko valita vaihtoehtoisen reitin?";
 "editor_time_add" = "Lisää aikataulu";
 "editor_time_delete" = "Poista aikataulu";
-
 /* Text for allday switch. */
 "editor_time_allday" = "Koko päivän (24 tuntia)";
 "editor_time_open" = "Avoinna";
@@ -519,10 +382,16 @@
 "share_with_friends" = "Jaa kavereille";
 "editor_report_problem_send_button" = "Lähetä";
 "autodownload" = "Lataa kartat automaattisesti";
-
+/* Voice */
+"voice" = "Ääni";
+"voice_explanation" = "Voit valita paremman äänen järjestelmäasetuksista kohdasta *Helppokäyttöisyys*, *Lue ja Puhu*, *Äänet*.";
+"voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
+"unknown" = "Tuntematon";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Olemassaolo varmistettu %@";
+"hours_confirmed_time_ago" = "Varmistettu %@";
 /* Place Page opening hours text */
 "closed_now" = "Suljettu nyt";
-
 /* Place Page opening hours text */
 "daily" = "Päivittäin";
 "twentyfour_seven" = "Päivin ja öin";
@@ -537,13 +406,11 @@
 "closes_in" = "Sulkeutuu %@ kuluttua";
 "closed" = "Suljettu";
 "add_opening_hours" = "Lisää aukioloajat";
-
 /* OpenStreetMap */
 "osm_mapdata" = "Karttatiedot OpenStreetMapista";
 "osm_mapdata_explanation %@" = "Yhteisön luomat karttadata *%@*:sta alkaen. Lisätietoja kartan muokkaamisesta ja päivittämisestä osoitteessa [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Lisätietoja OpenStreetMapista";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/About_OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "OpenStreetMap-profiili";
 "osm_profile_promt" = "Luo OpenStreetMap-tili tai kirjaudu sisään, jotta voit julkaista karttamuokkauksesi maailmalle.";
@@ -556,20 +423,19 @@
 "osm_profile_register_promt" = "Eikö sinulla ole OpenStreetMap-tiliä?";
 "osm_profile_register" = "Rekisteröi tili OpenStreetMapissa";
 "osm_profile_verfied_changes" = "Vahvistetut karttamuutokset";
+"osm_profile_view_edit_history" = "Näytä muokkaushistoria";
+"osm_profile_view_notes" = "Näytä ilmoitukset";
 "osm_profile_logout" = "Kirjaudu ulos OpenStreetMap-tililtä";
 "osm_profile_delete" = "Poista OpenStreetMap-tili";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Viimeisin lisäys";
 "thank_you" = "Kiitos";
 "edit_place" = "Muokkaa kohdetta";
 "place_name" = "Paikan nimi";
 "add_language" = "Lisää kieli";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "Talon numero";
 "details" = "Lisätiedot";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "Lisää katu";
 "choose_language" = "Valitse kieli";
@@ -577,7 +443,6 @@
 "postal_code" = "Postinumero";
 "cuisine" = "Ruokalaji";
 "select_cuisine" = "Valitse ruokalaji";
-
 /* login text field */
 "email_or_username" = "Sähköposti tai käyttäjätunnus";
 "phone" = "Puhelinnumero";
@@ -598,40 +463,33 @@
 "editor_edit_place_title" = "Muokkaus";
 "editor_add_place_title" = "Lisääminen";
 "editor_edit_place_name_hint" = "Paikan nimi";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Paikallisella kielellä kirjoitettuna";
 "editor_edit_place_category_title" = "Kategoria";
 "whatsnew_editor_message_1" = "Lisää karttaan uusia paikkoja ja muokkaa sovelluksessa olevia karttoja suoraan sovelluksessa.";
 "dialog_incorrect_feature_position" = "Vaihda sijaintia";
 "message_invalid_feature_position" = "Kohdetta ei voida asettaa tänne";
-
 /* Error dialog no space */
 "migration_no_space_message" = "Tarvitset lisää tilaa ladataksesi. Poista tarpeeton data.";
 "editor_sharing_title" = "Paransin CoMaps-karttoja";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d/%2$d";
 "download_over_mobile_header" = "Lataa käyttämällä puhelinverkkoyhteyttä?";
 "download_over_mobile_message" = "Tämä vaihtoehto saattaa olla huomattavasti kalliimpi tietyillä sopimuksilla tai roaming-yhteydellä.";
 "error_enter_correct_house_number" = "Syötä oikea talon numero";
 "editor_storey_number" = "Kerrosten määrä (maks. %d)";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Kerrosten määrä saa olla korkeintaan %d";
 "editor_zip_code" = "Postinumero";
 "error_enter_correct_zip_code" = "Anna kelvollinen postinumero";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Karttapiste";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Huomautus OpenStreetMapin vapaaehtoisille (valinnainen)";
 "editor_detailed_description_hint" = "Yksityiskohtainen kommentti";
 "editor_detailed_description" = "Ehdottamasi muutokset lähetetään OpenStreetMap-yhteisöön. Kuvaa tiedot, joita ei voi muokata CoMaps:ssä.";
 "editor_more_about_osm" = "Lisätietoja OpenStreetMapista";
 "editor_operator" = "Operaattori";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Palveluntarjoaja: %@";
 "editor_category_unsuitable_title" = "Etkö löydä sopivaa luokkaa?";
@@ -644,26 +502,20 @@
 "location_services_disabled_message" = "Salli sijaintipalveluiden käyttö laitteen asetuksissa";
 "location_services_disabled_1" = "1. Avaa asetukset";
 "location_services_disabled_2" = "2. Valitse sijainti";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. Valitse sovellusta käytettäessä";
 "location_services_disabled_on_device_2" = "2. Valitse Tietosuoja";
 "location_services_disabled_on_device_3" = "3. Valitse Sijaintipalvelut";
 "location_services_disabled_on_device_4" = "4. Ota Sijaintipalvelut käyttöön";
 "location_services_disabled_on_device_additional_message" = "Tai jatka CoMaps käyttöä ilman sijaintia";
-
 /* abbreviation for meters */
 "m" = "m";
-
 /* abbreviation for kilometers */
 "km" = "km";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "km/h";
-
 /* abbreviation for mile(s) */
 "mi" = "mi";
-
 /* A unit of measure */
 "ft" = "ft";
 "miles_per_hour" = "mph";
@@ -684,35 +536,29 @@
 "editor_remove_place_message" = "Poistetaanko lisätty paikka?";
 "editor_remove_place_button" = "Poista";
 "editor_place_doesnt_exist" = "Paikkaa ei ole olemassa";
+"editor_place_doesnt_exist_description" = "Kuvaile, miltä paikka näyttää nyt, lähettääksesi virheilmoituksen OpenStreetMap-yhteisölle";
 "text_more_button" = "…lisää";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "Syötä kelvollinen puhelinnumero";
 "error_enter_correct_web" = "Syötä kelvollinen verkko-osoite";
 "error_enter_correct_email" = "Syötä kelvollinen sähköpostiosoite";
 "refresh" = "Päivitä";
 "placepage_add_place_button" = "Lisää paikka OpenStreetMapiin";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Haluatko lähettää sen kaikille käyttäjille?";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Varmista, ettet syöttänyt henkilökohtaisia tietojasi.";
 "editor_share_to_all_dialog_message_2" = "OpenStreetMap-muokkaajat tarkistavat muutokset ja ottavat sinuun yhteyttä, jos heillä on kysyttävää.";
 "navigation_stop_button" = "Lopeta";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Poistetaanko viimeisen matkareitin tallennus?";
 "off_recent_track_background_button" = "Poista";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "Tarkastele";
 "recent_track_background_dialog_message" = "CoMaps käyttää sijaintipalveluita taustalla viimeisimmän reittisi tallentamiseksi.";
 "general_settings" = "Yleiset asetukset";
-
 /* For the first routing */
 "accept" = "Hyväksy";
-
 /* For the first routing */
 "decline" = "Hylkää";
 "mobile_data_dialog" = "Näytetäänkö lisätiedot mobiili-internetillä?";
@@ -720,29 +566,28 @@
 "mobile_data_option_today" = "Vain tänään";
 "mobile_data_option_not_today" = "Älä käytä tänään";
 "mobile_data" = "Mobiili-internet";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Mobiili-internet vaaditaan paikkojen lisätietojen, kuten valokuvien, hintojen ja arvioiden näyttämiseen.";
 "mobile_data_option_never" = "Älä käytä koskaan";
 "mobile_data_option_ask" = "Kysy aina";
 "traffic_update_maps_text" = "Liikennetietojen näyttämiseksi kartat on päivitettävä.";
 "big_font" = "Suurenna fonttikokoa kartalla";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Liikennetietojen näyttämiseksi sovellus on päivitettävä.";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Liikennetietoja ei ole saatavilla";
 "enable_logging" = "Ota loki käyttöön";
 "log_file_size" = "Lokitiedoston koko: %@";
+"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Älä käytä vaihtoehtoja";
+"pref_alt_map_lang_handling_system_order" = "Use in system order";
+"pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
 "transliteration_title" = "Translitterointi latinalaisiksi aakkosiksi";
-
+"transliteration_title_disabled_summary" = "Kytke pois käytöstä, jos käytät aina paikallista kieltä kartalle";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "Poistu";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Käytä hakua tai napauta karttaa lisätäksesi reitin lähtöpisteen";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Käytä hakua tai napauta karttaa lisätäksesi kohdepisteen";
 "planning_route_manage_route" = "Hallitse reittiä";
@@ -751,18 +596,15 @@
 "planning_route_remove_title" = "Vedä tähän poistaaksesi";
 "placepage_add_stop" = "Lisää pysähdys";
 "start_from_my_position" = "Aloita kohdasta";
-
 /* Title for button when a route was saved. */
 "saved" = "Tallennettu";
 "core_entrance" = "Sisäänkäynti";
 "error_enter_correct_name" = "Anna oikea nimi";
 "bookmark_lists" = "Luettelot";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "Piilota kaikki";
 "bookmark_lists_show_all" = "Näytä kaikki";
 "bookmarks_create_new_group" = "Luo uusi luettelo";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "Kirjanmerkkien ja reittien tuominen";
 "downloader_hide_screen" = "Piilota näyttö";
@@ -796,13 +638,10 @@
 "download_button" = "Lataa";
 "speedcams_alert_title" = "Nopeuskamerat";
 "place_description_title" = "Paikan kuvaus";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Varoittaa sinua ylinopeudesta";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Varoita aina";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Älä koskaan varoita";
 "power_managment_title" = "Virransäästötila";
@@ -812,14 +651,13 @@
 "power_managment_setting_manual_max" = "Täysi virransäästö";
 "enable_logging_warning_message" = "Valinta ottaa käyttöön lokikirjaukset diagnostiikkaa varten. Se voi auttaa tukihenkilöstöämme, kun he korjaavat sovelluksen ongelmia. Ota tämä ominaisuus käyttöön vain, jos CoMaps:n tuki pyytää.";
 "driving_options_title" = "Reititysvalinnat";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Vältä maksullisia teitä";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Vältä päällystämättömiä teitä";
-
+"avoid_paved" = "Vältä päällystettyjä teitä";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Vältä portaita";
 "avoid_ferry" = "Vältä lautan käyttöä";
 "avoid_motorways" = "Vältä moottoritietä";
 "unable_to_calc_alert_title" = "Reittiä ei voi luoda";
@@ -835,22 +673,16 @@
 "search_results" = "Hakutulokset";
 "then_turn" = "Sitten";
 "redirect_route_alert" = "Haluatko luoda reitin uudelleen?";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "Kyllä";
-
 /* A generic "No" button in dialogs */
 "no" = "Ei";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "Kyllä";
-
 /* E.g. "WiFi:No" */
 "no_available" = "Ei";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Kapasiteetti: %@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Verkko: %@";
 "trip_finished" = "Olet perillä!";
@@ -870,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "Nopeusvaroitukset";
 "download_map_carplay" = "Lataa kartat laitteesi CoMaps-sovelluksessa";
 "carplay_roundabout_exit" = "Poistumisramppi %@";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Järjestä…";
-
 /* iOS */
 "sort_default" = "Oletusjärjestys";
 "sort_type" = "Järjestä tyypin mukaan";
@@ -919,187 +749,124 @@
 "isolines_toast_zooms_1_10" = "Suurenna kartta nähdäksesi korkeuskäyrät";
 "downloader_updating_ios" = "Päivitetään";
 "downloader_loading_ios" = "Ladataan";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Päivitä ladatut kartat";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Karttojen päivittäminen pitää kohteita koskevat tiedot ajan tasalla";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Päivitä (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "Päivitä manuaalisesti myöhemmin";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Poista reitti";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "Haluatko varmasti poistaa tämän kappaleen?";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Reitin nimi";
-
 /* move track or bookmark from the list button text */
 "move" = "Siirrä";
-
 /* edit track screen title */
 "track_title" = "Reitti";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/fi/";
-
 /* App Tip #00 */
 "app_tip_00" = "Kiitos, että käytät yhteisön laatimia karttojamme!";
-
 /* App tip #01 */
 "app_tip_01" = "Lahjoituksellasi ja tuellasi voimme luoda maailman parhaat kartat!";
-
 /* App tip #02 */
 "app_tip_02" = "Pidätkö sovelluksestamme? Lahjoita tukemaan kehitystä! Etkö pidä siitä vielä? Kerro meille, niin korjaamme asian!";
-
 /* App tip #03 */
 "app_tip_03" = "Jos tunnet ohjelmistokehittäjän, voit pyytää häntä ottamaan käyttöön tarvitsemasi ominaisuuden.";
-
 /* App tip #04 */
 "app_tip_04" = "Voit valita mitä tahansa napauttamalla mitä tahansa kohtaa kartalla. Piilota ja näytä käyttöliittymä takaisin pitkällä napautuksella.";
-
 /* App tip #05 */
 "app_tip_05" = "Tiesitkö, että voit valita nykyisen sijaintisi kartalta?";
-
 /* App tip #06 */
 "app_tip_06" = "Voit auttaa kääntämään sovelluksemme kielellesi.";
-
 /* App tip #07 */
 "app_tip_07" = "Sovelluksemme on muutaman harrastajan ja yhteisön kehittämä.";
-
 /* App tip #08 */
 "app_tip_08" = "Voit helposti korjata ja parantaa karttatietoja.";
-
 /* App tip #09 */
 "app_tip_09" = "Päätavoitteemme on rakentaa nopeita, yksityisyyteen keskittyviä, helppokäyttöisiä karttoja, joista pidät.";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Käytät nyt CoMapsia puhelimen näytöllä";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "Käytät nyt CoMaps auton näytöllä";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "Jatka puhelimessa";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Auton näyttöön";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Vaellus";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Vie kaikki kirjanmerkit ja kappaleet";
-
 /* Text for the editing the Track's color button. */
 "change_color" = "Vaihda väri";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Kartta";
 "drive_through" = "Ajaa läpi";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Valikkolinkki";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Haluatko lähettää vikailmoituksen kehittäjille?\nLuotamme käyttäjiin, sillä CoMaps ei kerää virhetietoja automaattisesti. Kiitos etukäteen CoMapsin tukemisesta!";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "iCloud Synkronointi (Beta)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Ota iCloud-synkronointi käyttöön";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
+/* Message for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_message" = "iCloud-synkronointi on kehitteillä oleva kokeellinen ominaisuus. Varmista, että olet tehnyt varmuuskopion kaikista kirjanmerkeistäsi ja kappaleistasi.";
-
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud on poissa käytöstä";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "Ota iCloud käyttöön laitteesi asetuksissa, jotta voit käyttää tätä ominaisuutta.";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Ota käyttöön";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "Varmuuskopiointi";
-
 /* Title for the "iCloud synchronization failure" alert. */
 "icloud_synchronization_error_alert_title" = "iCloud-synkronoinnin epäonnistuminen";
-
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "Virhe: Synkronointi epäonnistui yhteysvirheen vuoksi";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "Virhe: iCloud-kiintiön ylittymisen vuoksi synkronointi epäonnistui";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Virhe: iCloud ei ole käytettävissä";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "Avaa toisessa sovelluksessa";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "Itsepalvelu";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Ulkona istuminen";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "Äskettäin poistetut luettelot";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "Tyhjennä";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "Poista kaikki";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "Palauta";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Palauta kaikki";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "Reitin tallennus";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Lopeta reitin tallennus";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Lopeta tallentamatta";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Jatka tallennusta";
-
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Tallenna kirjanmerkkeihin ja reitteihin?";
-
+"track_recording_alert_title" = "Tallenna suosikkeihin?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Reitti on tyhjä - ei mitään tallennettavaa";
 "edit_track" = "Muokkaa reittiä";
-"osm_profile_view_edit_history" = "Näytä muokkaushistoria";
-"osm_profile_view_notes" = "Näytä ilmoitukset";
-"pref_mapappearance_title" = "Kartan ulkoasu";
-"pref_maplanguage_title" = "Karttakieli";
-"transliteration_title_disabled_summary" = "Kytke pois käytöstä, jos käytät aina paikallista kieltä kartalle";
-"pref_maplanguage_local" = "Paikallinen kieli";
-"existence_confirmed_time_ago" = "Olemassaolo varmistettu %@";
-"hours_confirmed_time_ago" = "Varmistettu %@";
-"offline_explanation_text" = "Alueen katseluun ja navigointiin tarvitaan kartta.\nLataa karttoja alueille, joille haluat matkustaa.";
-"offline_explanation_title" = "Ei-verkkotilassa olevat kartat";
-"avoid_steps" = "Vältä portaita";
-"editor_place_doesnt_exist_description" = "Kuvaile, miltä paikka näyttää nyt, lähettääksesi virheilmoituksen OpenStreetMap-yhteisölle";
-"voice" = "Ääni";
-"unknown" = "Tuntematon";
-"voice_explanation" = "Voit valita paremman äänen järjestelmäasetuksista kohdasta *Helppokäyttöisyys*, *Lue ja Puhu*, *Äänet*.";
-"avoid_paved" = "Vältä päällystettyjä teitä";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Paranna OpenStreetMapia";
+"contribute_to_osm_add_place" = "Lisää paikka";
+"contribute_to_osm_update_map" = "Päivitä kartta täydentääksesi";
+"contribute_to_osm_update_map_description" = "Sinun täytyy päivittää %@ kartta uusimpaan versioon ennen kuin voit osallistua OpenStreetMap-tietojen parantamiseen";

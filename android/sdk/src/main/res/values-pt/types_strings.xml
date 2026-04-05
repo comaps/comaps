@@ -291,7 +291,6 @@
     <string name="type.cuisine.international">Cozinha internacional</string>
     <string name="type.cuisine.irish">Cozinha irlandesa</string>
     <string name="type.cuisine.italian">Cozinha italiana</string>
-    <string name="type.cuisine.italian_pizza">Italiana, piza</string>
     <string name="type.cuisine.japanese">Cozinha japonesa</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Cozinha coreana</string>
@@ -1235,13 +1234,13 @@
     <string name="type.tourism.artwork.painting">Pintura</string>
     <string name="type.tourism.artwork.sculpture">Escultura</string>
     <string name="type.tourism.artwork.statue">Estátua</string>
-    <string name="type.tourism.attraction">Atração turística</string>
+    <string name="type.tourism.attraction">Atração Turística</string>
     <string name="type.attraction.amusement_ride">Atração de parque de diversão</string>
     <string name="type.attraction.animal">Recinto para animais</string>
     <string name="type.attraction.bumper_car">Carrinhos de choque</string>
     <string name="type.attraction.big_wheel">Roda-gigante</string>
     <string name="type.attraction.carousel">Carrossel</string>
-    <string name="type.attraction.historic">Atração histórica</string>
+    <string name="type.attraction.historic">Atração Histórica</string>
     <string name="type.attraction.maze">Labirinto</string>
     <string name="type.attraction.roller_coaster">Montanha-russa</string>
     <string name="type.attraction.water_slide">Escorrega aquático</string>
@@ -1511,4 +1510,10 @@
     <string name="type.emergency.disaster_help_point">Ponto de Ajuda de Emergências e Desastres</string>
     <string name="type.waterway.fuel">Doca de Combustível Marinha</string>
     <string name="type.amenity.community_centre.youth_centre">Centro Juvenil</string>
+    <string name="type.shop.water">Loja de Água</string>
+    <string name="type.attraction">Atração</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centro Desportivo</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centro Desportivo</string>
+    <string name="type.sport.boules">Boules</string>
 </resources>

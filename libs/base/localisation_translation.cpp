@@ -39,13 +39,13 @@ Translation BestTranslation(StringUtf8Multilang const translations,
       bool shouldTransliterate = true;
       vector<LanguageIndex> const mapLanguageIndexes = GetMapLanguageIndexes();
       for (LanguageIndex const regionalLanguageIndex : regionalLanguageIndexes)
-        if (!shouldTransliterate || std::find(mapLanguageIndexes.begin(), mapLanguageIndexes.end(),
+        if (!shouldTransliterate || find(mapLanguageIndexes.begin(), mapLanguageIndexes.end(),
                                               regionalLanguageIndex) != mapLanguageIndexes.end())
           shouldTransliterate = false;
       if (shouldTransliterate)
         bestTranslation = Transliteration::Instance().Transliterate(bestLanguageIndex, bestTranslation);
     }
-    else if (std::find(regionalLanguageIndexes.begin(), regionalLanguageIndexes.end(), bestLanguageIndex) ==
+    else if (find(regionalLanguageIndexes.begin(), regionalLanguageIndexes.end(), bestLanguageIndex) ==
              regionalLanguageIndexes.end())
     {
       bestTranslation = Transliteration::Instance().Transliterate(bestLanguageIndex, bestTranslation);
@@ -72,11 +72,11 @@ struct NameTranslation TranslatedFeatureName(StringUtf8Multilang const names,
 
   Translation const bestName = BestTranslation(names, prioritizedMapLanguageIndexes, regionalLanguageIndexes);
   Translation const localName = LocalTranslation(names, regionalLanguageIndexes);
-  if (bestName.m_translation == localName.m_translation)
-    return NameTranslation(bestName.m_translation, bestName.m_likelyLanguageIndexForRendering);
+  if (bestName.m_translation == localName.m_translation || find(regionalLanguageIndexes.begin(), regionalLanguageIndexes.end(), bestName.m_likelyLanguageIndex) != regionalLanguageIndexes.end())
+    return NameTranslation(bestName.m_translation, bestName.m_likelyLanguageIndex);
   else
-    return NameTranslation(bestName.m_translation, bestName.m_likelyLanguageIndexForRendering, localName.m_translation,
-                           localName.m_likelyLanguageIndexForRendering);
+    return NameTranslation(bestName.m_translation, bestName.m_likelyLanguageIndex, localName.m_translation,
+                           localName.m_likelyLanguageIndex);
 }
 
 string TranslatedFeatureType(string const translationKey)

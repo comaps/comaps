@@ -91,11 +91,9 @@
     <string name="unknown_current_position">Vaša položaj še ni bil določen</string>
     <string name="cant_change_this_setting">Žal so nastavitve shranjevanja zemljevidov trenutno onemogočene</string>
     <string name="downloading_is_active">Poteka prenašanje zemljevida</string>
-    <string name="bookmarks_and_tracks">Zaznamki in poti</string>
+    <string name="bookmarks_and_tracks">Priljubljeni</string>
     <string name="my_position_share_sms">Oglej si moj trenutni položaj na CoMaps! %1$s ali %2$s Nimaš zemljevidov brez povezave? Prenesi jih tukaj: https://www.comaps.app/download/</string>
-    <string name="bookmark_share_email_subject">Živjo, oglej si tale kraj na CoMaps!</string>
     <string name="my_position_share_email_subject">Živjo, poglej si moj trenutni položaj na zemljevidu CoMaps!</string>
-    <string name="my_position_share_email">Živjo, \n \nzdajle sem tukaj: %1$s. S povezavo %2$s ali %3$s si lahko ogledaš ta kraj na zemljevidu. \n \nHvala.</string>
     <string name="share">Deli</string>
     <string name="email">E-pošta</string>
     <string name="copied_to_clipboard">Kopirano na odložišče: %s</string>
@@ -188,7 +186,7 @@
     <string name="dialog_routing_location_turn_wifi">Preverite svoj signal GPS. Vaš položaj se bo dalo natančneje določiti, če omogočite Wi-Fi.</string>
     <string name="dialog_routing_location_unknown_turn_on">Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun povezave morate vklopiti položajne storitve.</string>
     <string name="dialog_routing_unable_locate_route">Poti ni bilo mogoče najti</string>
-    <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti relacije</string>
+    <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti poti</string>
     <string name="dialog_routing_change_start_or_end">Prilagodite svoje izhodišče ali cilj.</string>
     <string name="dialog_routing_change_start">Prilagodi izhodišče</string>
     <string name="dialog_routing_start_not_determined">Pot ni bila ustvarjena. Ni mogoče najti izhodišča.</string>
@@ -199,7 +197,7 @@
     <string name="dialog_routing_change_intermediate">Ne morem najti vmesne točke</string>
     <string name="dialog_routing_intermediate_not_determined">Prilagodite vmesno točko</string>
     <string name="dialog_routing_system_error">Sistemska napaka</string>
-    <string name="dialog_routing_application_error">Zaradi aplikacijske napake ne morem ustvariti relacije</string>
+    <string name="dialog_routing_application_error">Zaradi napake v orodju ne morem ustvariti poti</string>
     <string name="dialog_routing_try_again">Poskusite znova</string>
     <string name="not_now">Ne zdaj</string>
     <string name="dialog_routing_download_and_build_cross_route">Bi želeli prenesti zemljevid za boljši izračun najugodnejše poti, ki vodi čez več kot en zemljevid?</string>
@@ -239,13 +237,7 @@
     <string name="editor_example_values">Primeri vrednosti</string>
     <string name="editor_correct_mistake">Popravi napako</string>
     <string name="editor_add_select_location">Izberi položaj</string>
-    <string name="editor_report_problem_desription_1">Podrobno opišite težavo, da jo lahko skupnost OpenStreetMap odpravi.</string>
-    <string name="editor_report_problem_desription_2">Ali pa jo popravite sami na https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Pošlji</string>
-    <string name="editor_report_problem_title">Težava</string>
-    <string name="editor_report_problem_no_place_title">Ta kraj ne obstaja</string>
-    <string name="editor_report_problem_under_construction_title">Zaprto zaradi vzdrževalnih del</string>
-    <string name="editor_report_problem_duplicate_place_title">Podvojen kraj</string>
     <string name="autodownload">Samodejno prenesi zemljevide</string>
     <string name="daily">Vsak dan</string>
     <string name="twentyfour_seven">24/7</string>
@@ -281,7 +273,7 @@
     <string name="level_value_generic">Nadstropje: %s</string>
     <string name="downloader_delete_map_dialog">Z zemljevidom bodo izbrisana tudi vsa vaša urejanja</string>
     <string name="downloader_update_maps">Posodobi zemljevide</string>
-    <string name="downloader_mwm_migration_dialog">Relacijo ustvarite tako, da posodobite vse zemljevide in ponovno začrtate relacijo.</string>
+    <string name="downloader_mwm_migration_dialog">Da ustvarite pot, morate posodobiti vse zemljevide in ponovno načrtovati pot.</string>
     <string name="downloader_search_field_hint">Najdi zemljevid</string>
     <string name="common_check_internet_connection_dialog">Preverite, da je vaša naprava povezana s spletom</string>
     <string name="downloader_no_space_title">Ni dovolj prostora</string>
@@ -463,7 +455,7 @@
     <string name="trip_finished">Prispeli ste na cilj!</string>
     <string name="ok">V redu</string>
     <string name="sort">Uredi …</string>
-    <string name="sort_bookmarks">Uredi zaznamke</string>
+    <string name="sort_bookmarks">Razvrsti zaznamke</string>
     <string name="by_default">Privzeto</string>
     <string name="by_type">Po tipu</string>
     <string name="by_distance">Po razdalji</string>
@@ -555,7 +547,7 @@
     <string name="button_layer_outdoor">Na prostem</string>
     <string name="browser_not_available">Spletni brskalnik ni na voljo</string>
     <string name="volume">Glasnost</string>
-    <string name="bookmarks_export">Izvozi vse zaznamke in sledi</string>
+    <string name="bookmarks_export">Izvozi vse zaznamke</string>
     <string name="pref_tts_open_system_settings">Sistemske nastavitve sintetizatorja govora</string>
     <string name="pref_tts_no_system_tts">Nastavitve za sintezo govora niso bile najdene. Ali ste prepričani, da vaša naprava to podpira?</string>
     <string name="drive_through">Vožnja skozi</string>
@@ -581,14 +573,14 @@
     <string name="zoom_in">Približaj</string>
     <string name="zoom_out">Oddalji</string>
     <string name="pref_left_button_title">Nastavitev levega gumba</string>
-    <string name="pref_backup_title">Varnostno kopiranje priljubljenih</string>
+    <string name="pref_backup_title">Varnostno kopiranje zaznamkov</string>
     <string name="pref_backup_summary">Samodejno varnostno kopiraj v mapo na vaši napravi</string>
     <string name="pref_backup_now_title">Ustvari varnostno kopijo zdaj</string>
     <string name="pref_left_button_disable">Onemogoči</string>
     <string name="pref_backup_now_summary_progress">Varnostno kopiranje se izvaja …</string>
     <string name="pref_backup_now_summary">Nemudoma ustvari varnostno kopijo</string>
     <string name="pref_backup_now_summary_ok">Varnostno kopiranje uspešno izvedeno</string>
-    <string name="pref_backup_now_summary_empty_lists">Ni zaznamkov in sledi za varnostno kopiranje</string>
+    <string name="pref_backup_now_summary_empty_lists">Ni zaznamkov za varnostno kopiranje</string>
     <string name="pref_backup_now_summary_failed">Varnostno kopiranje je spodletelo</string>
     <string name="pref_backup_now_summary_folder_unavailable">Mapa za varnostno kopijo ni na voljo</string>
     <string name="pref_backup_status_summary_success">Zadnje uspešno kopiranje</string>
@@ -674,5 +666,16 @@
     <string name="route_needs_rebuild">Potrebna je ponovna izdelava potne povezave</string>
     <string name="route_finished">Pot je končana</string>
     <string name="not_following_route">Ne sledite poti</string>
-    <string name="rebuilding_route">Ponovna izdelava poti …</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne uporabljaj alternativ</string>
+    <string name="pref_alt_map_lang_handling">Alternativni jeziki zemljevida</string>
+    <string name="pref_alt_map_lang_handling_system_order">Uporabi v sistemskem vrstne redu</string>
+    <string name="pref_alt_map_lang_handling_local_only">Uporabljaj prednostno in samo kjer je domače</string>
+    <string name="pref_openexternallinks_title">Samodejno odpri zunanje povezave</string>
+    <string name="pref_openexternallinks_summary">Privzeto odpri zunanje povezave v CoMaps</string>
+    <string name="bookmark_share_email_subject">Odpri povezavo %1$s ali vnesi koordinate %2$s v svoji aplikaciji z zemljevidi za ogled te lokacije.</string>
+    <string name="my_position_share_email">Odpri povezavo %1$s ali vnesi koordinate %2$s v svoji aplikaciji z zemljevidi za ogled moje lokacije.</string>
+    <string name="population">Prebivalcev: %s</string>
+    <string name="destination">Cilj</string>
+    <string name="stop">Ustavi</string>
 </resources>

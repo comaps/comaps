@@ -196,7 +196,6 @@ bool IsUsefulNondrawableType(uint32_t type, GeomType geomType = GeomType::Undefi
   }
 
   static uint32_t const arrTypes[] = {
-      cl.GetTypeByPath({"cuisine"}),
       cl.GetTypeByPath({"fee"}),
   };
   return base::IsExist(arrTypes, type);

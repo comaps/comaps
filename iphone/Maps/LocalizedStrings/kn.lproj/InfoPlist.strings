@@ -1,5 +1,10 @@
+/* Used in home screen quick actions. */
 "search" = "ಹುಡುಕು";
+/* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "ಮೆಚ್ಚಿನವುಗಳು";
+/* Used in home screen quick actions. */
 "route" = "ಮಾರ್ಗ";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
 "NSLocationAlwaysUsageDescription" = "ಅಪ್ಲಿಕೇಶನ್‌ನ ಕಾರ್ಯವನ್ನು ಸಂಪೂರ್ಣವಾಗಿ ಆನಂದಿಸಲು ಹಿನ್ನೆಲೆಯಲ್ಲಿ ಸ್ಥಳವನ್ನು ಪತ್ತೆಹಚ್ಚುವುದು ಅವಶ್ಯಕ. ಇದನ್ನು ಸಂಚರಣೆಗಾಗಿ ಮತ್ತು ನೀವು ಇತ್ತೀಚೆಗೆ ಪ್ರಯಾಣಿಸಿದ ಟ್ರ್ಯಾಕ್ ಅನ್ನು ಉಳಿಸಲು ಬಳಸಲಾಗುತ್ತದೆ.";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
 "NSLocationWhenInUseUsageDescription" = "ಸಂಚರಣೆಗೆ ಮತ್ತು ನೀವು ಇತ್ತೀಚೆಗೆ ಪ್ರಯಾಣಿಸಿದ ಟ್ರ್ಯಾಕ್ ಅನ್ನು ಉಳಿಸಲು ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ನಿರ್ಧರಿಸುವುದು ಅವಶ್ಯಕ.";

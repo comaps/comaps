@@ -123,8 +123,8 @@ private:
     // when we have many types for POI.
     base::StringIL const types2[] = {
         // 1-arity
-        {"building:part"}, {"hwtag"},        {"psurface"}, {"internet_access"}, {"organic"}, {"wheelchair"},
-        {"cuisine"},       {"area:highway"}, {"fee"},
+        {"building:part"}, {"hwtag"},      {"psurface"},     {"internet_access"},
+        {"organic"},       {"wheelchair"}, {"area:highway"}, {"fee"},
     };
 
     Classificator const & c = classif();

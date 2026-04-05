@@ -24,11 +24,15 @@
 "type.amenity.bar" = "Bārs";
 "type.amenity.bbq" = "Barbecue Grill";
 "type.amenity.bench" = "Soliņš";
+"type.amenity.bench.backless" = "Bez atzveltnes";
 "type.amenity.bicycle_parking" = "Divriteņu novietne";
+"type.amenity.bicycle_parking.covered" = "Divriteņu novietne ar jumtu";
+"type.amenity.boat_rental" = "Laivu noma";
 "type.amenity.bicycle_rental" = "Velosipēdu noma";
 "type.amenity.bicycle_repair_station" = "Divriteņu darbnīca";
 "type.amenity.biergarten" = "Alus dārzs";
 "type.amenity.brothel" = "Bordelis";
+"type.amenity.love_hotel" = "Love Hotel";
 "type.amenity.bureau_de_change" = "Valūtas maiņa";
 "type.amenity.bus_station" = "Autoosta";
 "type.amenity.cafe" = "Kafejnīca";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Motociklu noma";
 "type.amenity.car_sharing" = "Car Sharing";
 "type.amenity.car_wash" = "Automazgātuve";
+"type.man_made.telescope" = "Teleskops";
+"type.man_made.telescope.optical" = "Teleskops (optiskais)";
+"type.man_made.telescope.radio" = "Teleskops (radio)";
+"type.man_made.telescope.gamma" = "Teleskops (Gamma)";
+"type.man_made.observatory" = "Observatorija";
 "type.amenity.casino" = "Kazino";
 "type.amenity.gambling" = "Gambling";
+"type.amenity.studio" = "Studija";
 "type.leisure.adult_gaming_centre" = "Adult Gaming Centre";
 "type.leisure.amusement_arcade" = "Arcade";
 "type.amenity.charging_station" = "Uzlādes stacija";
-"type.amenity.charging_station.bicycle" = "Divriteņi";
 "type.amenity.charging_station.motorcar" = "Mašīnas";
+"type.amenity.charging_station.motorcycle" = "Motocikli";
+"type.amenity.charging_station.bicycle" = "Divriteņi";
+"type.amenity.charging_station.small" = "Ierobežots vietu skaits";
 "type.amenity.childcare" = "Bērnudārzs";
 "type.amenity.cinema" = "Kinoteātris";
 "type.leisure.bowling_alley" = "Bowling Alley";
 "type.amenity.clinic" = "Poliklīnika";
 "type.amenity.college" = "Koledža";
 "type.amenity.community_centre" = "Kultūras nams";
+"type.amenity.community_centre.youth_centre" = "Jauniešu centrs";
 "type.amenity.compressed_air" = "Saspiests gaiss";
 "type.amenity.conference_centre" = "Conference Center";
 "type.amenity.courthouse" = "Courthouse";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Exhibition Center";
 "type.amenity.money_transfer" = "Money Transfer";
 "type.amenity.music_school" = "Music School";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Language School";
 "type.office.diplomatic" = "Embassy";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";
 "type.amenity.ferry_terminal" = "Ferry";
 "type.amenity.fire_station" = "Fire Station";
 "type.amenity.food_court" = "Food Court";
 "type.amenity.fountain" = "Fountain";
-"type.amenity.fuel" = "Gas Station";
-
+"type.amenity.fuel" = "Degvielas uzpildes stacija";
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Graveyard";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Graveyard";
 "type.amenity.hospital" = "Hospital";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "Kindergarten";
 "type.amenity.library" = "Library";
 "type.amenity.loading_dock" = "Loading Dock";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Bagāžas glabātava";
 "type.amenity.marketplace" = "Marketplace";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcycle Parking";
 "type.amenity.nightclub" = "Nightclub";
 "type.amenity.nursing_home" = "Nursing Home";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "Parking Space";
 "type.amenity.parking_space.underground" = "Parking Space";
 "type.amenity.parking_space.disabled" = "Disabled Parking Space";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "Payment Terminal";
+"type.amenity.payment_centre" = "Maksājumu centrs";
 "type.amenity.pharmacy" = "Aptieka";
 "type.amenity.place_of_worship" = "Pielūgsmes vieta";
 "type.amenity.place_of_worship.buddhist" = "Budistu templis";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "Police";
 "type.amenity.post_box" = "Mailbox";
 "type.amenity.post_office" = "Post Office";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "Prison";
 "type.amenity.pub" = "Krogs";
 "type.amenity.public_bookcase" = "Book Exchange";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Holding Tank Dump Station";
 "type.amenity.school" = "School";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Shelter";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Shelter";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac Hut";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
 "type.amenity.public_bath" = "Public Bath";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Vehicle Inspection";
 "type.amenity.vending_machine.fuel" = "Fuel Pump";
 "type.amenity.veterinary" = "Veterinary Doctor";
+"type.amenity.animal_shelter" = "Dzīvnieku patversme";
 "type.amenity.waste_basket" = "Trash Bin";
 "type.amenity.waste_disposal" = "Dumpster";
 "type.amenity.waste_transfer_station" = "Waste Transfer Station";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Wastewater";
 "type.barrier.entrance" = "Entrance";
 "type.barrier.fence" = "Fence";
+"type.barrier.guard_rail" = "Guard Rail";
 "type.barrier.gate" = "Gate";
 "type.barrier.hedge" = "Hedge";
 "type.barrier.kissing_gate" = "Gate";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Retaining Wall";
 "type.barrier.stile" = "Stile";
 "type.barrier.turnstile" = "Turnstile";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "Swing Gate";
 "type.barrier.toll_booth" = "Toll Booth";
 "type.barrier.wall" = "Wall";
 "type.boundary" = "Boundary";
 "type.boundary.administrative" = "Administrative Boundary";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "National Border";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regional Boundary";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
 "type.boundary.national_park" = "National Park";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Protected Area";
 "type.boundary.protected_area.6" = "Protected Area";
 "type.building" = "Building";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Address";
 "type.building.has_parts" = "Building";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Gardener";
 "type.craft.grinding_mill" = "Grinding Mill";
 "type.craft.handicraft" = "Handicraft";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "HVAC";
 "type.craft.key_cutter" = "Key Cutting";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "International";
 "type.cuisine.irish" = "Irish";
 "type.cuisine.italian" = "Italian";
-"type.cuisine.italian_pizza" = "Italian, Pizza";
 "type.cuisine.japanese" = "Japanese";
 "type.cuisine.kebab" = "Kebab";
 "type.cuisine.korean" = "Korean";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "Vegetarian";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
+"type.emergency.access_point" = "Ārkārtas glābšanas punkts";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Ārkārtas tikšanās punkts";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Glābšanas boja";
 "type.emergency.defibrillator" = "Defibrillators";
 "type.emergency.fire_hydrant" = "Ugunsdzēsēju ūdens ņemšanas vieta";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "Ārkārtas tālrunis";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Glābējs";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Osta";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Kalnu glābšanas stacija";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Entrance";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Main Entrance";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Exit";
+"type.entrance.emergency" = "Ārkārtas izeja";
 "type.fee.yes" = "$";
 "type.fee.no" = "Free";
 "type.healthcare.laboratory" = "Medical Laboratory";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "Logopedics";
 "type.highway" = "Highway";
 "type.highway.bridleway" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Bridge";
 "type.highway.bridleway.permissive" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunnel";
 "type.highway.busway" = "Dedicated Bus Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Tilts";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunelis";
 "type.highway.bus_stop" = "Pietura";
 "type.highway.construction" = "Road Under Construction";
 "type.highway.cycleway" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bridge";
 "type.highway.cycleway.permissive" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunnel";
 "type.highway.elevator" = "Elevator";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "Sidewalk";
 "type.highway.footway.crossing" = "Pedestrian Crossing";
 "type.highway.footway.area" = "Foot Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Pedestrian Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Pedestrian Tunnel";
 "type.highway.ford" = "Ford";
 "type.highway.living_street" = "Living Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunnel";
 "type.highway.motorway" = "Motorway";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Motorway Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Motorway Tunnel";
 "type.highway.motorway_junction" = "Road Exit";
 "type.highway.motorway_link" = "Motorway";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunnel";
 "type.highway.path" = "Path";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Path";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Path";
 "type.highway.path.bicycle" = "Path";
 "type.highway.footway.bicycle" = "Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Bridge";
 "type.highway.path.horse" = "Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunnel";
 "type.highway.pedestrian" = "Pedestrian Street";
 "type.highway.pedestrian.area" = "Pedestrian Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Gājēju tilts";
 "type.highway.pedestrian.square" = "Laukums";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Gājēju tunelis";
 "type.highway.primary" = "Galvenais ceļš";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Tilts";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunelis";
 "type.highway.primary_link" = "Primary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunnel";
 "type.highway.raceway" = "Racetrack";
 "type.highway.residential" = "Residential Street";
 "type.highway.residential.area" = "Residential Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
 "type.highway.rest_area" = "Rest Area";
 "type.highway.road" = "Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Bridge";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
 "type.highway.secondary" = "Secondary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunnel";
 "type.highway.secondary_link" = "Secondary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunnel";
 "type.highway.service" = "Service Road";
 "type.highway.service.area" = "Service Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Bridge";
 "type.highway.service.driveway" = "Service Road";
 "type.highway.service.parking_aisle" = "Service Road";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunnel";
 "type.highway.services" = "Service Area";
 "type.highway.speed_camera" = "Speed Camera";
 "type.highway.steps" = "Stairs";
-
+"type.highway.ladder" = "Kāpnes";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
 "type.highway.tertiary" = "Tertiary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunnel";
 "type.highway.tertiary_link" = "Tertiary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunnel";
 "type.highway.track" = "Track";
 "type.highway.track.area" = "Track";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Bridge";
 "type.highway.track.grade1" = "Track";
 "type.highway.track.no.access" = "Track";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunnel";
 "type.highway.traffic_signals" = "Traffic Lights";
 "type.highway.trunk" = "Trunk Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunnel";
 "type.highway.trunk_link" = "Trunk Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunnel";
 "type.highway.unclassified" = "Minor Road";
 "type.highway.unclassified.area" = "Minor Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Bridge";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunnel";
 "type.area_highway.cycleway" = "Cycle Path";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "Ship";
 "type.historic.tank" = "Historic Tank";
 "type.historic.tomb" = "Tomb";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Krusts";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Wayside Cross";
 "type.historic.wayside_shrine" = "Wayside Shrine";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Allotments";
 "type.landuse.basin" = "Basin";
 "type.landuse.brownfield" = "Brownfield";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Graveyard";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Graveyard";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Salt Pond";
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "Vineyard";
+"type.landuse.plant_nursery" = "Stādaudzētava";
 "type.leisure" = "Leisure";
+"type.leisure.bandstand" = "Estrāde";
 "type.leisure.common" = "Valsts zemes īpašums";
 "type.leisure.dog_park" = "Suņu parks";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "Fitness Centre";
 "type.leisure.fitness_station" = "Fitness Station";
 "type.leisure.dance" = "Dance Hall";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Nature Reserve";
 "type.leisure.outdoor_seating" = "Outdoor Seating";
+"type.leisure.firepit" = "Ugunskura vieta";
 "type.leisure.park" = "Park";
 "type.leisure.park.no.access" = "Park";
 "type.leisure.park.permissive" = "Park";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Slipway";
 "type.leisure.sports_centre" = "Sporta centrs";
-"type.sport.climbing" = "Kāpšana";
-"type.sport.yoga" = "Joga";
+"type.leisure.sports_centre.sport.multi" = "Sporta centrs";
+"type.leisure.sports_centre.sport.american_football" = "Sporta centrs";
+"type.leisure.sports_centre.sport.archery" = "Sporta centrs";
+"type.leisure.sports_centre.sport.athletics" = "Sporta centrs";
+"type.leisure.sports_centre.sport.australian_football" = "Sporta centrs";
+"type.leisure.sports_centre.sport.badminton" = "Sporta centrs";
+"type.leisure.sports_centre.sport.baseball" = "Sporta centrs";
+"type.leisure.sports_centre.sport.basketball" = "Sporta centrs";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sporta centrs";
+"type.leisure.sports_centre.sport.bowls" = "Sporta centrs";
+"type.leisure.sports_centre.sport.climbing" = "Sporta centrs";
+"type.leisure.sports_centre.sport.cricket" = "Sporta centrs";
+"type.leisure.sports_centre.sport.curling" = "Sporta centrs";
+"type.leisure.sports_centre.sport.equestrian" = "Sporta centrs";
+"type.leisure.sports_centre.sport.field_hockey" = "Sporta centrs";
+"type.leisure.sports_centre.sport.futsal" = "Sporta centrs";
+"type.leisure.sports_centre.sport.golf" = "Sporta centrs";
+"type.leisure.sports_centre.sport.gymnastics" = "Sporta centrs";
+"type.leisure.sports_centre.sport.handball" = "Sporta centrs";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sporta centrs";
+"type.leisure.sports_centre.sport.padel" = "Sporta centrs";
+"type.leisure.sports_centre.sport.pelota" = "Sporta centrs";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sporta centrs";
+"type.leisure.sports_centre.sport.shooting" = "Sporta centrs";
+"type.leisure.sports_centre.sport.skateboard" = "Sporta centrs";
+"type.leisure.sports_centre.sport.skiing" = "Sporta centrs";
+"type.leisure.sports_centre.sport.soccer" = "Sporta centrs";
+"type.leisure.sports_centre.sport.swimming" = "Peldēšanas centrs";
+"type.leisure.sports_centre.sport.table_tennis" = "Sporta centrs";
+"type.leisure.sports_centre.sport.tennis" = "Sporta centrs";
+"type.leisure.sports_centre.sport.volleyball" = "Sporta centrs";
+"type.leisure.sports_centre.sport.yoga" = "Sporta centrs";
+"type.leisure.fitness_centre.sport.yoga" = "Jogas studija";
 "type.leisure.stadium" = "Stadions";
 "type.leisure.swimming_pool" = "Peldbaseins";
 "type.leisure.swimming_pool.private" = "Peldbaseins";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Storage Tank";
 "type.man_made.surveillance" = "Surveillance Camera";
 "type.man_made.tower" = "Tower";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Communications Tower";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Communications Tower";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Naftas vai gāzes urbums";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Gāzes deglis";
+"type.man_made.crane" = "Crane";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
 "type.man_made.water_tap" = "Water Tap";
 "type.man_made.water_tap.drinking_water_no" = "Water Tap";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Mountain Pass";
 "type.natural" = "Nature";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Bare Rock";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Shingle";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Scree";
 "type.natural.bay" = "Bay";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "Embankment";
 "type.natural.coastline" = "Coastline";
 "type.natural.desert" = "Desert";
+"type.natural.sand" = "Smiltis";
 "type.natural.geyser" = "Geizers";
 "type.natural.glacier" = "Ledājs";
 "type.natural.grassland" = "Pļava";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "Natural Spring";
 "type.natural.spring.drinking_water_no" = "Natural Spring";
 "type.natural.strait" = "Strait";
+"type.natural.tree" = "Koks";
 "type.natural.tree_row" = "Koku rinda";
 "type.natural.vineyard" = "Vīnogu dārzs";
 "type.natural.volcano" = "Vulkāns";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "Mitrājs";
 "type.natural.wetland.bog" = "Muklājs";
 "type.natural.wetland.marsh" = "Dumbrājs";
+"type.natural.wetland.saltmarsh" = "Sāļūdens dumbrājs";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Purvs";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Dead End";
 "type.office" = "Office";
 "type.office.company" = "Company Office";
@@ -843,10 +887,8 @@
 "type.place.islet" = "Islet";
 "type.place.isolated_dwelling" = "Isolated Dwelling";
 "type.place.locality" = "Locality";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Apkaime";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Maza apkaime";
 "type.place.ocean" = "Ocean";
@@ -855,7 +897,6 @@
 "type.place.square" = "Square";
 "type.place.state" = "State";
 "type.place.state.USA" = "State";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Pilsētas apgabals";
 "type.place.town" = "Town";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "Solar Power Plant";
 "type.power.plant.wind" = "Wind Power Plant";
 "type.power.substation" = "Substation";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Power Tower";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Public Transport";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Neizmantots dzelzceļa tilts";
+"type.railway.disused.tunnel" = "Neizmantots dzelzceļa tunelis";
 "type.railway.funicular" = "Funikulieris";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Šaursliežu dzelzceļa tilts";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "High-Speed Railway";
 "type.railway.rail.tourism" = "Touristic Railway";
 "type.railway.rail.main" = "Railway";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Railway Branch";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Utility Railway";
 "type.railway.rail.spur" = "Railway Spur";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Service Rail Track";
 "type.railway.rail.bridge" = "Railway Bridge";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Subway Station";
 "type.railway.station.subway.philadelphia" = "Subway Station";
 "type.railway.station.subway.pyongyang" = "Subway Station";
+"type.railway.station.subway.qingdao" = "Metro stacija";
 "type.railway.station.subway.rennes" = "Subway Station";
 "type.railway.station.subway.rio" = "Subway Station";
 "type.railway.station.subway.roma" = "Subway Station";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "Bakery";
 "type.shop.bathroom_furnishing" = "Bathroom Furnishings";
 "type.shop.beauty" = "Beauty Shop";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "Beverages";
 "type.shop.bicycle" = "Bicycle Shop";
 "type.shop.bookmaker" = "Bookmaker";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "Kitchen Store";
 "type.shop.laundry" = "Laundry";
 "type.shop.mall" = "Mall";
+"type.shop.beauty.day_spa" = "Dienas spa";
 "type.shop.massage" = "Masāžas salons";
 "type.shop.mobile_phone" = "Viedtālruņa veikals";
 "type.shop.money_lender" = "Money Lender";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "Supermarket";
 "type.shop.tattoo" = "Tattoo Parlour";
 "type.shop.tea" = "Tea Shop";
+"type.shop.telecommunication" = "Tālsaziņas preču veikals";
 "type.shop.ticket" = "Biļešu tirdzniecības vieta";
 "type.shop.toys" = "Rotaļlietu veikals";
 "type.shop.travel_agency" = "Ceļojumu aģentūra";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "Agricultural Shop";
 "type.shop.antiques" = "Antiques Shop";
 "type.shop.appliance" = "Appliance Shop";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Artwork Shop";
 "type.shop.baby_goods" = "Baby Goods Shop";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "Trade Supplies";
 "type.shop.watches" = "Watch Store";
 "type.shop.wholesale" = "Wholesale Store";
+"type.shop.lighting" = "Gaismekļu veikals";
+"type.disusedbusiness" = "Brīva uzņēmējdarbība";
 "type.sport" = "Sports";
+"type.sport.multi" = "Various Sports";
+"type.sport.9pin" = "Bowling";
+"type.sport.10pin" = "Bowling";
 "type.sport.american_football" = "Amerikāņu futbols";
 "type.sport.archery" = "Lokšaušana";
 "type.sport.athletics" = "Athletics";
 "type.sport.australian_football" = "Australian Football";
+"type.sport.badminton" = "Badminton";
 "type.sport.baseball" = "Baseball";
 "type.sport.basketball" = "Basketball";
 "type.sport.beachvolleyball" = "Beach Volleyball";
 "type.sport.bowls" = "Bowls";
 "type.sport.chess" = "Chess";
+"type.sport.climbing" = "Kāpšana";
 "type.sport.cricket" = "Krikets";
 "type.sport.curling" = "Curling";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "Equestrian Sports";
+"type.sport.field_hockey" = "Field Hockey";
+"type.sport.futsal" = "Futsal";
 "type.sport.golf" = "Golf";
 "type.sport.gymnastics" = "Gymnastics";
 "type.sport.handball" = "Handball";
-"type.sport.multi" = "Various Sports";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Ice Hockey";
+"type.sport.padel" = "Padel";
+"type.sport.pelota" = "Basque Pelota";
 "type.sport.scuba_diving" = "Niršana";
 "type.sport.shooting" = "Šaušana";
 "type.sport.skateboard" = "Skateboarding";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "Table Tennis";
 "type.sport.tennis" = "Teniss";
 "type.sport.volleyball" = "Volejbols";
-"type.sport.10pin" = "Bowling";
-"type.sport.9pin" = "Bowling";
-"type.sport.padel" = "Padel";
-"type.sport.futsal" = "Futsal";
-"type.sport.ice_hockey" = "Ice Hockey";
-"type.sport.field_hockey" = "Field Hockey";
-"type.sport.badminton" = "Badminton";
-"type.sport.pelota" = "Basque Pelota";
+"type.sport.yoga" = "Joga";
 "type.tourism" = "Tūrisms";
 "type.tourism.aquarium" = "Aquarium";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Mountain Lodge";
 "type.tourism.apartment" = "Holiday Apartment";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Sculpture";
 "type.tourism.artwork.statue" = "Statue";
 "type.tourism.attraction" = "Attraction";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Atrakciju brauciens";
 "type.attraction.animal" = "Animal Enclosure";
 "type.attraction.bumper_car" = "Bumper Car";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Attraction";
 "type.tourism.camp_site" = "Campground";
 "type.tourism.caravan_site" = "RV Park";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Holiday Cottage";
 "type.tourism.gallery" = "Art Gallery";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "Information Board";
 "type.tourism.information.guidepost" = "Guidepost";
 "type.tourism.information.map" = "Tourist Map";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Tourist Office";
 "type.tourism.information.visitor_centre" = "Apmeklētāju centrs";
+"type.amenity.ranger_station" = "Kārtībnieka birojs";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museum";
 "type.tourism.picnic_site" = "Picnic Site";
 "type.leisure.resort" = "Resort";
 "type.tourism.theme_park" = "Theme Park";
 "type.tourism.viewpoint" = "Skatu laukums";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Wilderness Hut";
 "type.tourism.zoo" = "Zoo";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Culvert";
 "type.waterway.dock" = "Waterway Dock";
 "type.waterway.drain" = "Drain";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "Culvert";
 "type.waterway.lock_gate" = "Lock Gate";
@@ -1447,101 +1496,20 @@
 "type.self_service.only" = "Self-service only";
 "type.self_service.partially" = "Partial self-service";
 "type.self_service.no" = "No self-service";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Social Facility";
-
+"type.social_facility.soup_kitchen" = "Zupas virtuve";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Ēdiena kopīgošana";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Emergency Ward Entrance";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojo";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Sports hall";
-"type.leisure.firepit" = "Ugunskura vieta";
-"type.sport.diving" = "High Diving";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.highway.ladder" = "Kāpnes";
-"type.natural.wetland.swamp" = "Purvs";
-"type.man_made.crane" = "Crane";
-"type.natural.wetland.saltmarsh" = "Sāļūdens dumbrājs";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.barrier.guard_rail" = "Guard Rail";
-"type.amenity.studio" = "Studija";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.railway.station.subway.qingdao" = "Metro stacija";
-"type.landuse.plant_nursery" = "Stādaudzētava";
-"type.amenity.love_hotel" = "Love Hotel";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Bagāžas glabātava";
-"type.amenity.ranger_station" = "Kārtībnieka birojs";
-"type.amenity.bicycle_parking.covered" = "Divriteņu novietne ar jumtu";
-"type.post_office.post_partner" = "Post Partner";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Dzīvnieku patversme";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.shop.lighting" = "Gaismekļu veikals";
-"type.leisure.sports_centre.sport.soccer" = "Sporta centrs";
-"type.leisure.sports_centre.sport.athletics" = "Sporta centrs";
-"type.leisure.sports_centre.sport.padel" = "Sporta centrs";
-"type.leisure.sports_centre.sport.swimming" = "Peldēšanas centrs";
-"type.leisure.sports_centre.sport.ice_hockey" = "Sporta centrs";
-"type.leisure.fitness_centre.sport.yoga" = "Jogas studija";
-"type.leisure.sports_centre.sport.golf" = "Sporta centrs";
-"type.leisure.sports_centre.sport.shooting" = "Sporta centrs";
-"type.leisure.sports_centre.sport.table_tennis" = "Sporta centrs";
-"type.leisure.sports_centre.sport.handball" = "Sporta centrs";
-"type.leisure.sports_centre.sport.baseball" = "Sporta centrs";
-"type.leisure.sports_centre.sport.pelota" = "Sporta centrs";
-"type.leisure.sports_centre.sport.skiing" = "Sporta centrs";
-"type.leisure.sports_centre.sport.cricket" = "Sporta centrs";
-"type.leisure.sports_centre.sport.equestrian" = "Sporta centrs";
-"type.leisure.sports_centre.sport.volleyball" = "Sporta centrs";
-"type.leisure.sports_centre.sport.curling" = "Sporta centrs";
-"type.leisure.sports_centre.sport.futsal" = "Sporta centrs";
-"type.leisure.sports_centre.sport.american_football" = "Sporta centrs";
-"type.leisure.sports_centre.sport.multi" = "Sporta centrs";
-"type.leisure.sports_centre.sport.yoga" = "Sporta centrs";
-"type.leisure.sports_centre.sport.australian_football" = "Sporta centrs";
-"type.leisure.sports_centre.sport.basketball" = "Sporta centrs";
-"type.leisure.sports_centre.sport.archery" = "Sporta centrs";
-"type.leisure.sports_centre.sport.gymnastics" = "Sporta centrs";
-"type.leisure.sports_centre.sport.badminton" = "Sporta centrs";
-"type.leisure.sports_centre.sport.tennis" = "Sporta centrs";
-"type.leisure.sports_centre.sport.beachvolleyball" = "Sporta centrs";
-"type.leisure.sports_centre.sport.skateboard" = "Sporta centrs";
-"type.leisure.sports_centre.sport.climbing" = "Sporta centrs";
-"type.leisure.sports_centre.sport.scuba_diving" = "Sporta centrs";
-"type.leisure.sports_centre.sport.field_hockey" = "Sporta centrs";
-"type.leisure.sports_centre.sport.bowls" = "Sporta centrs";
-"type.amenity.bench.backless" = "Bez atzveltnes";
-"type.leisure.bandstand" = "Estrāde";
-"type.disusedbusiness" = "Brīva uzņēmējdarbība";
-"type.shop.telecommunication" = "Tālsaziņas preču veikals";
-"type.amenity.payment_centre" = "Maksājumu centrs";
-"type.amenity.boat_rental" = "Laivu noma";
-"type.man_made.observatory" = "Observatorija";
-"type.man_made.telescope.optical" = "Teleskops (optiskais)";
-"type.man_made.telescope.radio" = "Teleskops (radio)";
-"type.amenity.food_sharing" = "Ēdiena kopīgošana";
-"type.social_facility.soup_kitchen" = "Zupas virtuve";
-"type.man_made.telescope" = "Teleskops";
-"type.man_made.telescope.gamma" = "Teleskops (Gamma)";
-"type.emergency.access_point" = "Ārkārtas glābšanas punkts";
-"type.emergency.life_ring" = "Glābšanas boja";
-"type.shop.beauty.day_spa" = "Dienas spa";
-"type.natural.sand" = "Smiltis";
-"type.natural.tree" = "Koks";
 "type.xmas.tree" = "Ziemassvētku egle";
-"type.entrance.emergency" = "Ārkārtas izeja";
-"type.lateral.port" = "Osta";
-"type.amenity.charging_station.small" = "Ierobežots vietu skaits";
-"type.amenity.charging_station.motorcycle" = "Motocikli";
-"type.railway.disused.bridge" = "Neizmantots dzelzceļa tilts";
-"type.railway.disused.tunnel" = "Neizmantots dzelzceļa tunelis";
-"type.amenity.community_centre.youth_centre" = "Jauniešu centrs";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

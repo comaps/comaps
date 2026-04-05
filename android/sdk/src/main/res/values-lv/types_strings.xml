@@ -196,4 +196,5 @@
     <string name="type.recycling.plastic_bottles">Plastmasas pudeles</string>
     <string name="type.amenity.ranger_station">Kārtībnieka birojs</string>
     <string name="type.amenity.community_centre.youth_centre">Jauniešu centrs</string>
+    <string name="type.amenity.fuel">Degvielas uzpildes stacija</string>
 </resources>

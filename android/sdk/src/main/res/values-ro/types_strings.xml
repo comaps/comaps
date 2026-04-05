@@ -249,7 +249,6 @@
     <string name="type.cuisine.international">Bucătărie internațională</string>
     <string name="type.cuisine.irish">Bucătărie irlandeză</string>
     <string name="type.cuisine.italian">Bucătărie italiană</string>
-    <string name="type.cuisine.italian_pizza">Pizza</string>
     <string name="type.cuisine.japanese">Bucătărie japoneză</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Bucătărie coreană</string>
@@ -1452,4 +1451,5 @@
     <string name="type.social_facility.food_bank">Bancă de alimente</string>
     <string name="type.xmas.tree">Brad de Crăciun</string>
     <string name="type.amenity.hydrant">Hidrant Irigații</string>
+    <string name="type.railway.turntable">Placă turnantă</string>
 </resources>

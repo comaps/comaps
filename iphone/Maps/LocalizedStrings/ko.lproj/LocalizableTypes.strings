@@ -24,11 +24,15 @@
 "type.amenity.bar" = "바";
 "type.amenity.bbq" = "바비큐 그릴";
 "type.amenity.bench" = "벤치";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "자전거 주차장";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "자전거 대여";
 "type.amenity.bicycle_repair_station" = "자전거 수리소";
 "type.amenity.biergarten" = "비어가르텐";
 "type.amenity.brothel" = "사창가";
+"type.amenity.love_hotel" = "Love Hotel";
 "type.amenity.bureau_de_change" = "환전";
 "type.amenity.bus_station" = "버스 터미널";
 "type.amenity.cafe" = "카페";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "오토바이 대여";
 "type.amenity.car_sharing" = "카 셰어링";
 "type.amenity.car_wash" = "세차";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "카지노";
 "type.amenity.gambling" = "도박";
+"type.amenity.studio" = "Studio";
 "type.leisure.adult_gaming_centre" = "성인 게임 센터";
 "type.leisure.amusement_arcade" = "아케이드";
 "type.amenity.charging_station" = "충전 역";
-"type.amenity.charging_station.bicycle" = "자전거 충전소";
 "type.amenity.charging_station.motorcar" = "자동차 충전소";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "자전거 충전소";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "보육";
 "type.amenity.cinema" = "영화관";
 "type.leisure.bowling_alley" = "볼링장";
 "type.amenity.clinic" = "클리닉";
 "type.amenity.college" = "칼리지";
 "type.amenity.community_centre" = "커뮤니티센터";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "압축 공기";
 "type.amenity.conference_centre" = "컨퍼런스 센터";
 "type.amenity.courthouse" = "법원";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "전시 센터";
 "type.amenity.money_transfer" = "송금";
 "type.amenity.music_school" = "음악 학교";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "언어 학교";
 "type.office.diplomatic" = "대사관";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "패스트 푸드";
 "type.amenity.ferry_terminal" = "페리";
 "type.amenity.fire_station" = "소방서";
 "type.amenity.food_court" = "Food Court";
 "type.amenity.fountain" = "분수";
 "type.amenity.fuel" = "주유소";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "묘소";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "묘소";
 "type.amenity.hospital" = "병원";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "유치원";
 "type.amenity.library" = "도서관";
 "type.amenity.loading_dock" = "하역장";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "시장";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "오토바이 주차";
 "type.amenity.nightclub" = "나이트 클럽";
 "type.amenity.nursing_home" = "요양원";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "주차장";
 "type.amenity.parking_space.underground" = "주차장";
 "type.amenity.parking_space.disabled" = "장애인 주차 공간";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "결제 단말기";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "약국";
 "type.amenity.place_of_worship" = "예배 장소";
 "type.amenity.place_of_worship.buddhist" = "불교 사원";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "경찰";
 "type.amenity.post_box" = "우편함";
 "type.amenity.post_office" = "우체국";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "감옥";
 "type.amenity.pub" = "술집";
 "type.amenity.public_bookcase" = "도서 교환";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "레스토랑";
 "type.amenity.sanitary_dump_station" = "Holding Tank Dump Station";
 "type.amenity.school" = "학교";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "대피소";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "대피소";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "비박 오두막";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
 "type.amenity.public_bath" = "대중목욕탕";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "차량검사";
 "type.amenity.vending_machine.fuel" = "Fuel Pump";
 "type.amenity.veterinary" = "동물병원";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "쓰레기통";
 "type.amenity.waste_disposal" = "휴지통";
 "type.amenity.waste_transfer_station" = "Waste Transfer Station";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "폐수";
 "type.barrier.entrance" = "입구";
 "type.barrier.fence" = "Fence";
+"type.barrier.guard_rail" = "Guard Rail";
 "type.barrier.gate" = "게이트";
 "type.barrier.hedge" = "Hedge";
 "type.barrier.kissing_gate" = "게이트";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Retaining Wall";
 "type.barrier.stile" = "디딤대";
 "type.barrier.turnstile" = "개찰구";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "차량차단기";
 "type.barrier.toll_booth" = "톨게이트";
 "type.barrier.wall" = "Wall";
 "type.boundary" = "Boundary";
 "type.boundary.administrative" = "Administrative Boundary";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "National Border";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regional Boundary";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
 "type.boundary.national_park" = "국립 공원";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "보호구역";
 "type.boundary.protected_area.6" = "보호구역";
 "type.building" = "건물";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "주소";
 "type.building.has_parts" = "건물";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "조경사";
 "type.craft.grinding_mill" = "그라인딩 밀";
 "type.craft.handicraft" = "수예";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "냉난방기";
 "type.craft.key_cutter" = "키 커팅";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "국제 음식";
 "type.cuisine.irish" = "아일랜드식 음식";
 "type.cuisine.italian" = "이탈리아식 음식";
-"type.cuisine.italian_pizza" = "이탈리아식, 피자";
 "type.cuisine.japanese" = "일본식 음식";
 "type.cuisine.kebab" = "케밥";
 "type.cuisine.korean" = "한국식 음식";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "채식주의자 음식";
 "type.cuisine.vietnamese" = "베트남식 음식";
 "type.emergency" = "Emergency";
+"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "비상 집결지";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "제세동기";
 "type.emergency.fire_hydrant" = "소화전";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "긴급 전화";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "인명 구조원";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "산악 구조 센터";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "입구";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "정문";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "종료";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "무료";
 "type.healthcare.laboratory" = "의료 연구실";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "대화 요법";
 "type.highway" = "Highway";
 "type.highway.bridleway" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "다리";
 "type.highway.bridleway.permissive" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "터널";
 "type.highway.busway" = "버스전용도로";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "터널";
 "type.highway.bus_stop" = "버스 정류장";
 "type.highway.construction" = "공사 중 도로";
 "type.highway.cycleway" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "다리";
 "type.highway.cycleway.permissive" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "터널";
 "type.highway.elevator" = "Elevator";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "보도";
 "type.highway.footway.crossing" = "횡단보도";
 "type.highway.footway.area" = "길";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "터널";
 "type.highway.ford" = "여울";
 "type.highway.living_street" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "터널";
 "type.highway.motorway" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "터널";
 "type.highway.motorway_junction" = "Road Exit";
 "type.highway.motorway_link" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "터널";
 "type.highway.path" = "길";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "어렵거나 잘 보이지 않는 트레일";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "매우 어렵거나 구별하기 어려운 흔적";
 "type.highway.path.bicycle" = "길";
 "type.highway.footway.bicycle" = "길";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "다리";
 "type.highway.path.horse" = "길";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "터널";
 "type.highway.pedestrian" = "거리";
 "type.highway.pedestrian.area" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "다리";
 "type.highway.pedestrian.square" = "광장";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "터널";
 "type.highway.primary" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "터널";
 "type.highway.primary_link" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "터널";
 "type.highway.raceway" = "경마장";
 "type.highway.residential" = "거리";
 "type.highway.residential.area" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "터널";
 "type.highway.rest_area" = "휴게소";
 "type.highway.road" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "다리";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "터널";
 "type.highway.secondary" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "터널";
 "type.highway.secondary_link" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "터널";
 "type.highway.service" = "거리";
 "type.highway.service.area" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "다리";
 "type.highway.service.driveway" = "거리";
 "type.highway.service.parking_aisle" = "거리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "터널";
 "type.highway.services" = "Service Area";
 "type.highway.speed_camera" = "스피드 카메라";
 "type.highway.steps" = "길";
-
+"type.highway.ladder" = "Ladder";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "터널";
 "type.highway.tertiary" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "터널";
 "type.highway.tertiary_link" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "터널";
 "type.highway.track" = "거리";
 "type.highway.track.area" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "다리";
 "type.highway.track.grade1" = "거리";
 "type.highway.track.no.access" = "거리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "터널";
 "type.highway.traffic_signals" = "신호등";
 "type.highway.trunk" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "터널";
 "type.highway.trunk_link" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "터널";
 "type.highway.unclassified" = "거리";
 "type.highway.unclassified.area" = "거리";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "다리";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "터널";
 "type.area_highway.cycleway" = "Cycle Path";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "배";
 "type.historic.tank" = "역사적인 탱크";
 "type.historic.tomb" = "무덤";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "십자가";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "길가의 십자가";
 "type.historic.wayside_shrine" = "길가의 신사";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Allotments";
 "type.landuse.basin" = "저수지";
 "type.landuse.brownfield" = "Brownfield";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "묘소";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "묘소";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Salt Pond";
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "Vineyard";
+"type.landuse.plant_nursery" = "Plant Nursery";
 "type.leisure" = "Leisure";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "Public Land";
 "type.leisure.dog_park" = "애완견 지역";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "피트니스센터";
 "type.leisure.fitness_station" = "피트니스 스테이션";
 "type.leisure.dance" = "댄스홀";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "미니골프";
 "type.leisure.hackerspace" = "해커스 스페이스";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "천연보호구역";
 "type.leisure.outdoor_seating" = "야외 좌석";
+"type.leisure.firepit" = "Firepit";
 "type.leisure.park" = "공원";
 "type.leisure.park.no.access" = "공원";
 "type.leisure.park.permissive" = "공원";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "사우나";
 "type.leisure.slipway" = "Slipway";
 "type.leisure.sports_centre" = "스포츠 센터";
-"type.sport.climbing" = "등반 센터";
-"type.sport.yoga" = "요가 스튜디오";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "경기장";
 "type.leisure.swimming_pool" = "수영장";
 "type.leisure.swimming_pool.private" = "수영장";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Storage Tank";
 "type.man_made.surveillance" = "감시 카메라";
 "type.man_made.tower" = "타워";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "커뮤니케이션 타워";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "커뮤니케이션 타워";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "석유 또는 가스 우물";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "가스 플레어";
+"type.man_made.crane" = "Crane";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
 "type.man_made.water_tap" = "수도꼭지";
 "type.man_made.water_tap.drinking_water_no" = "수도꼭지";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "벙커";
 "type.mountain_pass" = "Mountain Pass";
 "type.natural" = "자연";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "베어 락";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "페블";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "스토니 스크리";
 "type.natural.bay" = "만";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "둑";
 "type.natural.coastline" = "연안";
 "type.natural.desert" = "사막";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "간헐천";
 "type.natural.glacier" = "빙하";
 "type.natural.grassland" = "초원";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "샘";
 "type.natural.spring.drinking_water_no" = "샘";
 "type.natural.strait" = "해협";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "나무 행";
 "type.natural.vineyard" = "포도원";
 "type.natural.volcano" = "화산";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "습지 구역";
 "type.natural.wetland.bog" = "수렁";
 "type.natural.wetland.marsh" = "소택";
+"type.natural.wetland.saltmarsh" = "Salt Marsh";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Dead End";
 "type.office" = "사무실";
 "type.office.company" = "회사";
@@ -843,10 +887,8 @@
 "type.place.islet" = "섬";
 "type.place.isolated_dwelling" = "고립된 주거";
 "type.place.locality" = "장소";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "동네";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "이웃";
 "type.place.ocean" = "대양";
@@ -855,7 +897,6 @@
 "type.place.square" = "광장";
 "type.place.state" = "주";
 "type.place.state.USA" = "주";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "교외";
 "type.place.town" = "타운";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "태양광 발전소";
 "type.power.plant.wind" = "풍력 발전소";
 "type.power.substation" = "변전소";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "전봇대";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Public Transport";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "케이블카";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "모노레일";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "고속 철도";
 "type.railway.rail.tourism" = "관광 철도";
 "type.railway.rail.main" = "철도";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "보조 철도";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "유틸리티 철도";
 "type.railway.rail.spur" = "철도 박차";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "보조 레일 트랙";
 "type.railway.rail.bridge" = "철도 교량";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "전철역";
 "type.railway.station.subway.philadelphia" = "전철역";
 "type.railway.station.subway.pyongyang" = "평양 전철역";
+"type.railway.station.subway.qingdao" = "전철역";
 "type.railway.station.subway.rennes" = "전철역";
 "type.railway.station.subway.rio" = "전철역";
 "type.railway.station.subway.roma" = "전철역";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "베이커리";
 "type.shop.bathroom_furnishing" = "욕실 가구";
 "type.shop.beauty" = "미용실";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "음료";
 "type.shop.bicycle" = "자전거 가게";
 "type.shop.bookmaker" = "마권판매소";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "주방용품점";
 "type.shop.laundry" = "세탁소";
 "type.shop.mall" = "몰";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "마사지샵";
 "type.shop.mobile_phone" = "휴대폰 대리점";
 "type.shop.money_lender" = "자금 대출 기관";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "슈퍼마켓";
 "type.shop.tattoo" = "타투 가게";
 "type.shop.tea" = "차 가게";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "매표소";
 "type.shop.toys" = "장난감 가게";
 "type.shop.travel_agency" = "여행사";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "농산물 가게";
 "type.shop.antiques" = "고물";
 "type.shop.appliance" = "가전제품 매장";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "아트샵";
 "type.shop.baby_goods" = "어린이 가게";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "거래 용품";
 "type.shop.watches" = "시계";
 "type.shop.wholesale" = "도매점";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "스포츠";
+"type.sport.multi" = "다양한 스포츠";
+"type.sport.9pin" = "볼링";
+"type.sport.10pin" = "볼링";
 "type.sport.american_football" = "미식 축구";
 "type.sport.archery" = "양궁";
 "type.sport.athletics" = "육상 경기장";
 "type.sport.australian_football" = "오스트레일리안 풋볼";
+"type.sport.badminton" = "배드민턴";
 "type.sport.baseball" = "야구";
 "type.sport.basketball" = "야구";
 "type.sport.beachvolleyball" = "비치발리볼";
 "type.sport.bowls" = "론볼";
 "type.sport.chess" = "체스";
+"type.sport.climbing" = "등반 센터";
 "type.sport.cricket" = "크리켓";
 "type.sport.curling" = "컬링";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "승마 경기장";
+"type.sport.field_hockey" = "필드 하키";
+"type.sport.futsal" = "풋살";
 "type.sport.golf" = "골프";
 "type.sport.gymnastics" = "체조";
 "type.sport.handball" = "핸드볼";
-"type.sport.multi" = "다양한 스포츠";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "아이스 하키";
+"type.sport.padel" = "파델";
+"type.sport.pelota" = "바스크 펠로타";
 "type.sport.scuba_diving" = "스쿠버 다이빙";
 "type.sport.shooting" = "사격 경기";
 "type.sport.skateboard" = "스케이트보딩";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "탁구";
 "type.sport.tennis" = "테니스 코트";
 "type.sport.volleyball" = "배구";
-"type.sport.10pin" = "볼링";
-"type.sport.9pin" = "볼링";
-"type.sport.padel" = "파델";
-"type.sport.futsal" = "풋살";
-"type.sport.ice_hockey" = "아이스 하키";
-"type.sport.field_hockey" = "필드 하키";
-"type.sport.badminton" = "배드민턴";
-"type.sport.pelota" = "바스크 펠로타";
+"type.sport.yoga" = "요가 스튜디오";
 "type.tourism" = "Tourism";
 "type.tourism.aquarium" = "수족관";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "마운틴 롯지";
 "type.tourism.apartment" = "홀리데이 아파트";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "작품";
 "type.tourism.artwork.statue" = "작품";
 "type.tourism.attraction" = "관광 명소";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "놀이기구";
 "type.attraction.animal" = "동물 인클로저";
 "type.attraction.bumper_car" = "Bumper Car";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "관광 명소";
 "type.tourism.camp_site" = "캠핑";
 "type.tourism.caravan_site" = "카라반 사용가능 캠핑장";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "홀리데이 코티지";
 "type.tourism.gallery" = "갤러리";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "정보 게시판";
 "type.tourism.information.guidepost" = "도표";
 "type.tourism.information.map" = "관광안내도";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "관광정보센터";
 "type.tourism.information.visitor_centre" = "방문자 센터";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "모텔";
 "type.tourism.museum" = "박물관";
 "type.tourism.picnic_site" = "피크닉 장소";
 "type.leisure.resort" = "리조트";
 "type.tourism.theme_park" = "테마 파크";
 "type.tourism.viewpoint" = "관점";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "황야 오두막";
 "type.tourism.zoo" = "동물원";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "암거";
 "type.waterway.dock" = "Waterway Dock";
 "type.waterway.drain" = "Drain";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "암거";
 "type.waterway.lock_gate" = "수문";
@@ -1447,42 +1496,20 @@
 "type.self_service.only" = "셀프 서비스 전용";
 "type.self_service.partially" = "부분 셀프 서비스";
 "type.self_service.no" = "셀프 서비스 없음";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "사회 시설";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "응급 병동 입구";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "도장";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "스포츠 홀";
-"type.railway.station.subway.qingdao" = "전철역";
-"type.highway.ladder" = "Ladder";
-"type.landuse.plant_nursery" = "Plant Nursery";
-"type.leisure.firepit" = "Firepit";
-"type.sport.diving" = "High Diving";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.natural.wetland.swamp" = "Swamp";
-"type.man_made.crane" = "Crane";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.barrier.guard_rail" = "Guard Rail";
-"type.amenity.studio" = "Studio";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.amenity.love_hotel" = "Love Hotel";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.post_office.post_partner" = "Post Partner";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.xmas.tree" = "Christmas Tree";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

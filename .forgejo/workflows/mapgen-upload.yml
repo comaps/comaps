@@ -1,0 +1,87 @@
+name: mapgen-upload
+on:
+  workflow_dispatch: # Manual trigger
+
+env:
+  COUNTRIES_PUB_KEY: ${{ secrets.COUNTRIES_PUB_KEY }}
+  COUNTRIES_SECRET_KEY: ${{ secrets.COUNTRIES_SECRET_KEY }}
+  # RCLONE_CONF is multi-line text containing keys and credentials for CDN nodes
+  RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
+  DEBIAN_FRONTEND: noninteractive
+  TZ: Etc/UTC
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
+
+jobs:
+  upload-maps:
+    name: Upload maps to CDN nodes
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          cd ~
+          git clone --depth 1 --sparse --filter=blob:none -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+          cd comaps
+          git sparse-checkout set tools/unix/maps
+      - name: Write config file
+        run: |
+          mkdir -p ~/.config/rclone/
+          echo "${{ secrets.RCLONE_CONF }}" > ~/.config/rclone/rclone.conf
+      - name: Upload map files to CDNs
+        shell: bash
+        run: |
+          shopt -s nullglob
+          buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
+          builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
+          mwmfiles=( /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm )
+
+          if (( ${#mwmfiles[@]} )); then
+            echo "<$(date +%T)> Uploading maps from $buildfolder/$builddate..."
+            cd ~/comaps/tools/unix/maps
+            ./upload_to_cdn.sh /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
+            echo "<$(date +%T)> Finished uploading maps from $buildfolder/$builddate."
+          else
+            echo "<$(date +%T)> No MWM files in /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm, not uploading maps."
+            echo "<$(date +%T)> Found top level: $(ls -alt /mnt/4tbexternal/osm-maps/*)"
+            echo "<$(date +%T)> Found second level: $(ls -alt /mnt/4tbexternal/osm-maps/$buildfolder/*)"
+          fi
+
+          # TODO: /latest is not needed as per last indep updates iteration and also gets counted as a maps folder and older maps get deleted
+          exit 0
+          # the /latest folder is newly created each build, but it may not have succeeded...
+          buildpath=/mnt/4tbexternal/osm-maps/$buildfolder/latest
+          countriesfiles=( $buildpath/countries* )
+          if (( ${#countriesfiles[@]} > 1 )); then
+            mkdir -p ~/keys
+            echo "$COUNTRIES_PUB_KEY" > ~/keys/countries_ed25519_pk.pem
+            echo "$COUNTRIES_SECRET_KEY" > ~/keys/countries_ed25519_sk.pem
+            openssl pkeyutl -verify -pubin -inkey ~/keys/countries_ed25519_pk.pem -rawin -in $buildpath/countries.txt -sigfile $buildpath/countries.txt.sig
+            verify=$?
+            if [[ $verify == 0 ]]; then
+              echo "<$(date +%T)> Uploading countries.txt & .sig from $buildpath..."
+              ./upload_to_cdn.sh $buildpath
+            else
+              echo "<$(date +%T)> Failed verifying countries.txt.sig: openssl verify returned $verify"
+            fi
+          else
+            echo "<$(date +%T)> ERROR: Didn't find countries.txt & .sig in $buildpath: [$countriesfiles]"
+            exit 1
+          fi
+      - name: Notify Zulip
+        run: |
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=Maps upload is done!'

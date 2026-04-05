@@ -5,61 +5,125 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d закладок</string>
+			<string>%lld закладок</string>
 			<key>one</key>
-			<string>%d закладка</string>
+			<string>%lld закладка</string>
 			<key>few</key>
-			<string>%d закладки</string>
+			<string>%lld закладки</string>
 			<key>many</key>
-			<string>%d закладок</string>
+			<string>%lld закладок</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>файлов не найдено.</string>
+			<string>Файлов не найдено.</string>
 			<key>one</key>
-			<string>%d файл был найден. Вы увидите его после конвертации.</string>
+			<string>Был найден %lld файл. Вы увидите его после конвертации.</string>
 			<key>few</key>
-			<string>%d файла были найдены. Вы увидите их после конвертации.</string>
+			<string>Были найдены %lld файла. Вы увидите их после конвертации.</string>
 			<key>many</key>
-			<string>%d файлов были найдены. Вы увидите их после конвертации.</string>
+			<string>Были найдены %lld файлов. Вы увидите их после конвертации.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d треков</string>
+			<string>%lld треков</string>
 			<key>one</key>
-			<string>%d трек</string>
+			<string>%lld трек</string>
 			<key>few</key>
-			<string>%d трека</string>
+			<string>%lld трека</string>
 			<key>many</key>
-			<string>%d треков</string>
+			<string>%lld треков</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld комната</string>
+			<key>few</key>
+			<string>%lld комнаты</string>
+			<key>many</key>
+			<string>%lld комнат</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>one</key>
+			<string>%lld житель</string>
+			<key>few</key>
+			<string>%lld жителя</string>
+			<key>many</key>
+			<string>%lld жителей</string>
 		</dict>
 	</dict>
 </dict>

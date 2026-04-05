@@ -45,7 +45,7 @@ public:
   // m_turnNotifications contains information about the next turn notifications.
   // If there is nothing to pronounce m_turnNotifications is empty.
   // If there is something to pronounce the size of m_turnNotifications may be one or even more
-  // depends on the number of notifications to prononce.
+  // depends on the number of notifications to pronounce.
   std::vector<std::string> m_turnNotifications;
   // Current street name. May be empty.
   std::string m_currentStreetName;
@@ -68,5 +68,17 @@ public:
 
   // Routing state.
   SessionState m_routingSessionState;
+
+  // Index of the next intermediate stop:
+  //  -1 = invalid next intermediate stops.
+  //   0 = there are no next intermediate stops.
+  //   1 = intermediate stop #1.
+  //   2 = intermediate stop #2.
+  //   and so on...
+  int m_indexOfNextStop;
+
+  // Time & distance information to next intermediate stop.
+  platform::Distance m_distToNextStop;
+  int m_timeToNextStop;
 };
 }  // namespace routing

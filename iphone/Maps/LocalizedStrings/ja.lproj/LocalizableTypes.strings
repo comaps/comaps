@@ -24,11 +24,15 @@
 "type.amenity.bar" = "バー";
 "type.amenity.bbq" = "バーベキューグリル";
 "type.amenity.bench" = "ベンチ";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "駐輪場";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "レンタサイクル";
 "type.amenity.bicycle_repair_station" = "自転車修理ステーション";
 "type.amenity.biergarten" = "ビアガーデン";
 "type.amenity.brothel" = "売春宿";
+"type.amenity.love_hotel" = "ラブホテル";
 "type.amenity.bureau_de_change" = "外貨両替所";
 "type.amenity.bus_station" = "バスステーション";
 "type.amenity.cafe" = "カフェ";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "レンタルバイク";
 "type.amenity.car_sharing" = "カーシェアリング";
 "type.amenity.car_wash" = "洗車場";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "カジノ";
 "type.amenity.gambling" = "ギャンブル";
+"type.amenity.studio" = "スタジオ";
 "type.leisure.adult_gaming_centre" = "アダルト ゲーム センター";
 "type.leisure.amusement_arcade" = "ゲームセンター";
 "type.amenity.charging_station" = "充電ステーション";
-"type.amenity.charging_station.bicycle" = "自転車充電ステーション";
 "type.amenity.charging_station.motorcar" = "自動車充電ステーション";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "自転車充電ステーション";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "託児所";
 "type.amenity.cinema" = "映画館";
 "type.leisure.bowling_alley" = "ボーリング場";
 "type.amenity.clinic" = "クリニック";
 "type.amenity.college" = "カレッジ";
 "type.amenity.community_centre" = "コミュニティセンター";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "圧縮空気";
 "type.amenity.conference_centre" = "カンファレンスセンター";
 "type.amenity.courthouse" = "裁判所";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "エキシビションセンター";
 "type.amenity.money_transfer" = "送金";
 "type.amenity.music_school" = "音楽学校";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "語学学校";
 "type.office.diplomatic" = "大使館";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "ファストフード";
 "type.amenity.ferry_terminal" = "フェリー";
 "type.amenity.fire_station" = "消防署";
 "type.amenity.food_court" = "フードコート";
 "type.amenity.fountain" = "噴水";
 "type.amenity.fuel" = "ガソリンスタンド";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "墓地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "キリスト教墓地";
 "type.amenity.hospital" = "病院";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "幼稚園";
 "type.amenity.library" = "図書館";
 "type.amenity.loading_dock" = "発送センター";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "市場";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "バイク駐輪場";
 "type.amenity.nightclub" = "ナイトクラブ";
 "type.amenity.nursing_home" = "養護施設";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "駐車スペース";
 "type.amenity.parking_space.underground" = "駐車スペース";
 "type.amenity.parking_space.disabled" = "身障者用駐車スペース";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "決済端末";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "薬局";
 "type.amenity.place_of_worship" = "礼拝";
 "type.amenity.place_of_worship.buddhist" = "寺院";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "警察";
 "type.amenity.post_box" = "郵便ポスト";
 "type.amenity.post_office" = "郵便局";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "刑務所";
 "type.amenity.pub" = "バー";
 "type.amenity.public_bookcase" = "街角文庫";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "レストラン";
 "type.amenity.sanitary_dump_station" = "ダンプステーション";
 "type.amenity.school" = "学校";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "避難所";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "避難所";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "ビバーク小屋";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "三壁の避難所";
 "type.amenity.public_bath" = "公衆浴場";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "車検";
 "type.amenity.vending_machine.fuel" = "燃料ポンプ";
 "type.amenity.veterinary" = "獣医";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "ゴミ箱";
 "type.amenity.waste_disposal" = "ゴミ";
 "type.amenity.waste_transfer_station" = "ゴミ処理場";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "廃水";
 "type.barrier.entrance" = "入口";
 "type.barrier.fence" = "フェンス";
+"type.barrier.guard_rail" = "防護柵";
 "type.barrier.gate" = "ゲート";
 "type.barrier.hedge" = "生垣";
 "type.barrier.kissing_gate" = "キッシングゲート";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "擁壁";
 "type.barrier.stile" = "回転扉";
 "type.barrier.turnstile" = "ターンスタイル";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "スイングゲート";
 "type.barrier.toll_booth" = "料金所";
 "type.barrier.wall" = "壁";
 "type.boundary" = "境界線";
 "type.boundary.administrative" = "行政境界";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "国境";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "行政界";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "行政界";
 "type.boundary.national_park" = "国立公園";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "保護区域";
 "type.boundary.protected_area.6" = "保護区域";
 "type.building" = "建物";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "住所";
 "type.building.has_parts" = "建物";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "造園家";
 "type.craft.grinding_mill" = "粉砕機";
 "type.craft.handicraft" = "手芸";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "冷暖房空調";
 "type.craft.key_cutter" = "キーカット";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "国際料理";
 "type.cuisine.irish" = "アイルランド料理";
 "type.cuisine.italian" = "イタリア料理";
-"type.cuisine.italian_pizza" = "イタリア料理、ピザ";
 "type.cuisine.japanese" = "日本料理";
 "type.cuisine.kebab" = "カバブ";
 "type.cuisine.korean" = "韓国料理";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "ベジタリアン料理";
 "type.cuisine.vietnamese" = "ベトナム料理";
 "type.emergency" = "緊急サービス";
+"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "緊急集合場所";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "除細動器";
 "type.emergency.fire_hydrant" = "消火栓";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "緊急電話";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "ライフガード";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "山岳救助ステーション";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "エントランス";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "正面玄関";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "終了する";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "￥";
 "type.fee.no" = "無料";
 "type.healthcare.laboratory" = "医療研究所";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "ロゴペディックス";
 "type.highway" = "道路";
 "type.highway.bridleway" = "馬道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "馬道(橋)";
 "type.highway.bridleway.permissive" = "馬道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "馬道(トンネル)";
 "type.highway.busway" = "バス専用道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "トンネル";
 "type.highway.bus_stop" = "バス停";
 "type.highway.construction" = "工事中の道路";
 "type.highway.cycleway" = "自転車道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "自転車道(橋)";
 "type.highway.cycleway.permissive" = "自転車道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "自転車道(トンネル)";
 "type.highway.elevator" = "エレベーター";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "歩道";
 "type.highway.footway.crossing" = "横断歩道";
 "type.highway.footway.area" = "歩道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "トンネル";
 "type.highway.ford" = "浅瀬";
 "type.highway.living_street" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "トンネル";
 "type.highway.motorway" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "トンネル";
 "type.highway.motorway_junction" = "ジャンクション";
 "type.highway.motorway_link" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "トンネル";
 "type.highway.path" = "歩道";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "困難な、または見通しの悪いトレイル";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "非常に難しい、または区別がつかないトレイル";
 "type.highway.path.bicycle" = "歩道";
 "type.highway.footway.bicycle" = "歩道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "橋";
 "type.highway.path.horse" = "歩道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "トンネル";
 "type.highway.pedestrian" = "ストリート";
 "type.highway.pedestrian.area" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "橋";
 "type.highway.pedestrian.square" = "広場";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "トンネル";
 "type.highway.primary" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "トンネル";
 "type.highway.primary_link" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "トンネル";
 "type.highway.raceway" = "レース場";
 "type.highway.residential" = "ストリート";
 "type.highway.residential.area" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "トンネル";
 "type.highway.rest_area" = "休憩所";
 "type.highway.road" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "橋";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "トンネル";
 "type.highway.secondary" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "トンネル";
 "type.highway.secondary_link" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "トンネル";
 "type.highway.service" = "ストリート";
 "type.highway.service.area" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "橋";
 "type.highway.service.driveway" = "ストリート";
 "type.highway.service.parking_aisle" = "ストリート";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "トンネル";
 "type.highway.services" = "サービスエリア";
 "type.highway.speed_camera" = "自動速度違反取締装置";
 "type.highway.steps" = "歩道";
-
+"type.highway.ladder" = "階子";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "トンネル";
 "type.highway.tertiary" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "トンネル";
 "type.highway.tertiary_link" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "トンネル";
 "type.highway.track" = "ストリート";
 "type.highway.track.area" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "橋";
 "type.highway.track.grade1" = "ストリート";
 "type.highway.track.no.access" = "ストリート";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "トンネル";
 "type.highway.traffic_signals" = "交通信号";
 "type.highway.trunk" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "トンネル";
 "type.highway.trunk_link" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "トンネル";
 "type.highway.unclassified" = "ストリート";
 "type.highway.unclassified.area" = "ストリート";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "橋";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "トンネル";
 "type.area_highway.cycleway" = "自転車道";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "退役船";
 "type.historic.tank" = "歴史的な戦車";
 "type.historic.tomb" = "墓";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "十字架";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "歴史的な十字架";
 "type.historic.wayside_shrine" = "歴史的な祠";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "市民農園";
 "type.landuse.basin" = "水地";
 "type.landuse.brownfield" = "再開発用地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "墓地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "キリスト教墓地";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "塩田";
 "type.landuse.village_green" = "村の中心";
 "type.landuse.vineyard" = "ブドウ園";
+"type.landuse.plant_nursery" = "園芸センター";
 "type.leisure" = "レジャー";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "レジャー(共有地)";
 "type.leisure.dog_park" = "ドッグエリア";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "フィットネスセンター、ジム";
 "type.leisure.fitness_station" = "フィットネスステーション";
 "type.leisure.dance" = "ダンスホール";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "ミニゴルフ";
 "type.leisure.hackerspace" = "ハッカースペース";
 "type.leisure.ice_rink" = "アイスリンク";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "マリーナ";
 "type.leisure.nature_reserve" = "自然保護区";
 "type.leisure.outdoor_seating" = "屋外席";
+"type.leisure.firepit" = "焚き火場";
 "type.leisure.park" = "公園";
 "type.leisure.park.no.access" = "公園";
 "type.leisure.park.permissive" = "公園";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "サウナ";
 "type.leisure.slipway" = "スリップウェイ";
 "type.leisure.sports_centre" = "スポーツセンター";
-"type.sport.climbing" = "クライミングセンター";
-"type.sport.yoga" = "ヨガスタジオ";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "スタジアム";
 "type.leisure.swimming_pool" = "プール";
 "type.leisure.swimming_pool.private" = "プール";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "貯蔵タンク";
 "type.man_made.surveillance" = "監視カメラ";
 "type.man_made.tower" = "タワー";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "通信塔";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "通信塔";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "石油またはガス井戸";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "ガスフレア";
+"type.man_made.crane" = "クレーン";
 "type.man_made.wastewater_plant" = "下水処理場";
 "type.man_made.water_tap" = "給水栓";
 "type.man_made.water_tap.drinking_water_no" = "給水栓";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "掩蔽壕";
 "type.mountain_pass" = "峠";
 "type.natural" = "自然";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "岩肌";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "小石";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "がれ";
 "type.natural.bay" = "港湾";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "盛土";
 "type.natural.coastline" = "海岸線";
 "type.natural.desert" = "砂漠";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "間欠泉";
 "type.natural.glacier" = "氷河";
 "type.natural.grassland" = "草原";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "泉";
 "type.natural.spring.drinking_water_no" = "泉";
 "type.natural.strait" = "海峡";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "並木";
 "type.natural.vineyard" = "ブドウ園";
 "type.natural.volcano" = "火山";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "湿地帯";
 "type.natural.wetland.bog" = "泥炭地";
 "type.natural.wetland.marsh" = "沼地";
+"type.natural.wetland.saltmarsh" = "Salt Marsh";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "行き止まり";
 "type.office" = "オフィス";
 "type.office.company" = "会社事務所";
@@ -843,10 +887,8 @@
 "type.place.islet" = "島";
 "type.place.isolated_dwelling" = "小規模な村";
 "type.place.locality" = "地域";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "地域";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "近隣";
 "type.place.ocean" = "海";
@@ -855,7 +897,6 @@
 "type.place.square" = "広場";
 "type.place.state" = "州";
 "type.place.state.USA" = "州";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "区";
 "type.place.town" = "町";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "太陽光発電所";
 "type.power.plant.wind" = "風力発電所";
 "type.power.substation" = "変電所";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "電柱";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "電柱";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "ユーティリティポール";
 "type.public_transport" = "公共交通機関";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "建設中の鉄道";
 "type.railway.crossing" = "歩行者専用踏切";
 "type.railway.disused" = "休止線";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "フニクラ";
 "type.railway.funicular.bridge" = "ケーブルカー(橋)";
 "type.railway.funicular.tunnel" = "ケーブルカー(トンネル)";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "モノレール";
 "type.railway.monorail.bridge" = "モノレール(橋)";
 "type.railway.monorail.tunnel" = "モノレール(トンネル)";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "狭軌鉄道";
 "type.railway.narrow_gauge.bridge" = "狭軌鉄道(橋)";
 "type.railway.narrow_gauge.tunnel" = "狭軌鉄道(トンネル)";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "高速鉄道";
 "type.railway.rail.tourism" = "観光鉄道";
 "type.railway.rail.main" = "鉄道";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "二次鉄道";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "実用鉄道";
 "type.railway.rail.spur" = "引き込み線";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "補助線路";
 "type.railway.rail.bridge" = "鉄道(橋)";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "パリ地下鉄駅";
 "type.railway.station.subway.philadelphia" = "フィラデルフィア地下鉄駅";
 "type.railway.station.subway.pyongyang" = "平壌地下鉄駅";
+"type.railway.station.subway.qingdao" = "青島地下鉄駅";
 "type.railway.station.subway.rennes" = "地下鉄駅";
 "type.railway.station.subway.rio" = "地下鉄駅";
 "type.railway.station.subway.roma" = "地下鉄駅";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "パン屋";
 "type.shop.bathroom_furnishing" = "バスルームの備品";
 "type.shop.beauty" = "ビューティーサロン";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "ドリンク";
 "type.shop.bicycle" = "自転車屋";
 "type.shop.bookmaker" = "ブックメーカー";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "キッチンストア";
 "type.shop.laundry" = "ランドリー";
 "type.shop.mall" = "モール";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "マッサージ店";
 "type.shop.mobile_phone" = "携帯ショップ";
 "type.shop.money_lender" = "消費者金融";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "スーパーマーケット";
 "type.shop.tattoo" = "タトゥースタジオ";
 "type.shop.tea" = "茶販売店";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "チケット売り場";
 "type.shop.toys" = "おもちゃ屋";
 "type.shop.travel_agency" = "旅行会社";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "農産物直売所";
 "type.shop.antiques" = "骨董品";
 "type.shop.appliance" = "家電店";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "アートショップ";
 "type.shop.baby_goods" = "キッズストア";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "貿易用品";
 "type.shop.watches" = "時計";
 "type.shop.wholesale" = "問屋";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "スポーツ";
+"type.sport.multi" = "複数";
+"type.sport.9pin" = "ボウリング";
+"type.sport.10pin" = "ボウリング";
 "type.sport.american_football" = "アメリカンフットボール";
 "type.sport.archery" = "アーチェリー";
 "type.sport.athletics" = "運動競技";
 "type.sport.australian_football" = "オーストラリアンフットボール";
+"type.sport.badminton" = "バドミントン";
 "type.sport.baseball" = "野球";
 "type.sport.basketball" = "バスケットボール";
 "type.sport.beachvolleyball" = "ビーチバレー";
 "type.sport.bowls" = "ローンボウルズ";
 "type.sport.chess" = "チェス";
+"type.sport.climbing" = "クライミングセンター";
 "type.sport.cricket" = "クリケット";
 "type.sport.curling" = "カーリング";
+"type.sport.diving" = "ハイダイビング";
 "type.sport.equestrian" = "馬術";
+"type.sport.field_hockey" = "フィールドホッケー";
+"type.sport.futsal" = "フットサル";
 "type.sport.golf" = "ゴルフ";
 "type.sport.gymnastics" = "体操";
 "type.sport.handball" = "ハンドボール";
-"type.sport.multi" = "複数";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "アイスホッケー";
+"type.sport.padel" = "パデル";
+"type.sport.pelota" = "バスクペロタ";
 "type.sport.scuba_diving" = "スキューバダイビング";
 "type.sport.shooting" = "射撃競技";
 "type.sport.skateboard" = "スケートボード";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "卓球";
 "type.sport.tennis" = "テニスコート";
 "type.sport.volleyball" = "バレーボール";
-"type.sport.10pin" = "ボウリング";
-"type.sport.9pin" = "ボウリング";
-"type.sport.padel" = "パデル";
-"type.sport.futsal" = "フットサル";
-"type.sport.ice_hockey" = "アイスホッケー";
-"type.sport.field_hockey" = "フィールドホッケー";
-"type.sport.badminton" = "バドミントン";
-"type.sport.pelota" = "バスクペロタ";
+"type.sport.yoga" = "ヨガスタジオ";
 "type.tourism" = "観光";
 "type.tourism.aquarium" = "水族館";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "山小屋";
 "type.tourism.apartment" = "ホリデー・アパート";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "彫刻";
 "type.tourism.artwork.statue" = "像";
 "type.tourism.attraction" = "アトラクション";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "遊園地";
 "type.attraction.animal" = "アニマル・エンクロージャー";
 "type.attraction.bumper_car" = "バンパーカー";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "アトラクション";
 "type.tourism.camp_site" = "キャンプ場";
 "type.tourism.caravan_site" = "オートキャンプ場";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "ホリデー・コテージ";
 "type.tourism.gallery" = "美術館";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "情報板";
 "type.tourism.information.guidepost" = "道標";
 "type.tourism.information.map" = "観光マップ";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "観光案内所";
 "type.tourism.information.visitor_centre" = "ビジターセンター";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "モーテル";
 "type.tourism.museum" = "博物館";
 "type.tourism.picnic_site" = "ピクニック場";
 "type.leisure.resort" = "リゾート";
 "type.tourism.theme_park" = "テーマパーク";
 "type.tourism.viewpoint" = "観光スポット";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "無人小屋";
 "type.tourism.zoo" = "動物園";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "暗渠";
 "type.waterway.dock" = "ドック";
 "type.waterway.drain" = "用水路";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "用水路";
 "type.waterway.drain.tunnel" = "暗渠";
 "type.waterway.lock_gate" = "水門";
@@ -1447,42 +1496,20 @@
 "type.self_service.only" = "セルフサービスのみ";
 "type.self_service.partially" = "一部セルフサービス";
 "type.self_service.no" = "セルフサービスはない";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "社会施設";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "救急病棟入口";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "道場";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "スポーツホール";
-"type.landuse.plant_nursery" = "園芸センター";
-"type.amenity.love_hotel" = "ラブホテル";
-"type.amenity.studio" = "スタジオ";
-"type.barrier.guard_rail" = "防護柵";
-"type.highway.ladder" = "階子";
-"type.leisure.firepit" = "焚き火場";
-"type.sport.diving" = "ハイダイビング";
-"type.man_made.crane" = "クレーン";
-"type.railway.station.subway.qingdao" = "青島地下鉄駅";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.natural.wetland.swamp" = "Swamp";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.post_office.post_partner" = "Post Partner";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.xmas.tree" = "Christmas Tree";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

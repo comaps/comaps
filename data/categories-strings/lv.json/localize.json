@@ -217,7 +217,7 @@
 "aeroway-aerodrome": "3Lidosta|U+2708",
 "leisure-stadium": "Stadions|sports|U+26BD|U+26BE|U+1F3BE|U+1F3C0|U+1F3C8|U+1F4AA|U+1F3C9",
 "leisure-playground|@category_children": "Rotaļu laukums|bērnu laukums|laukumiņš|bērnu rotaļu laukums",
-"leisure-sports_centre|leisure-sports_centre-sport-american_football|leisure-sports_centre-sport-archery|leisure-sports_centre-sport-athletics|leisure-sports_centre-sport-australian_football|leisure-sports_centre-sport-badminton|leisure-sports_centre-sport-baseball|leisure-sports_centre-sport-basketball|leisure-sports_centre-sport-beachvolleyball|leisure-sports_centre-sport-bowls|leisure-sports_centre-sport-climbing|leisure-sports_centre-sport-cricket|leisure-sports_centre-sport-curling|leisure-sports_centre-sport-equestrian|leisure-sports_centre-sport-field_hockey|leisure-sports_centre-sport-futsal|leisure-sports_centre-sport-golf|leisure-sports_centre-sport-gymnastics|leisure-sports_centre-sport-handball|leisure-sports_centre-sport-ice_hockey|leisure-sports_centre-sport-multi|leisure-sports_centre-sport-padel|leisure-sports_centre-sport-pelota|leisure-sports_centre-sport-scuba_diving|leisure-sports_centre-sport-shooting|leisure-sports_centre-sport-skateboard|leisure-sports_centre-sport-skiing|leisure-sports_centre-sport-soccer|leisure-sports_centre-sport-table_tennis|leisure-sports_centre-sport-tennis|leisure-sports_centre-sport-volleyball|leisure-sports_centre-sport-yoga": "4Sporta centrs|U+26BD|U+26BE|U+1F3BE|U+1F4AA|U+1F3C8|U+1F3C0|U+1F3C9",
+"leisure-sports_centre": "4Sporta centrs|U+26BD|U+26BE|U+1F3BE|U+1F4AA|U+1F3C8|U+1F3C0|U+1F3C9",
 "leisure-golf_course": "Golfa laukums|U+26F3",
 "leisure-miniature_golf": "Minigolfs|minigolfa laukums",
 "leisure-escape_game": "Kvestu istaba",

@@ -135,7 +135,12 @@ struct SettingsNavigationView: View {
                     }
                 }
             } header: {
-                Text("pref_tts_title")
+                HStack(spacing: 4) {
+                    Image(systemName: "speaker.wave.2")
+                        .imageScale(.small)
+                    
+                    Text("pref_tts_title")
+                }
             } footer: {
                 if shouldProvideVoiceRouting {
                     Button {
@@ -218,7 +223,12 @@ struct SettingsNavigationView: View {
                 }
                 .tint(.accent)
             } header: {
-                Text("driving_options_title")
+                HStack(spacing: 4) {
+                    Image(systemName: "slider.horizontal.3")
+                        .imageScale(.small)
+                    
+                    Text("driving_options_title")
+                }
             }
             
             Section {

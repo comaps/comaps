@@ -307,7 +307,6 @@
     <string name="type.cuisine.international">Internacional</string>
     <string name="type.cuisine.irish">Irlandesa</string>
     <string name="type.cuisine.italian">Italiana</string>
-    <string name="type.cuisine.italian_pizza">Italiana, pizzas</string>
     <string name="type.cuisine.japanese">Japonesa</string>
     <string name="type.cuisine.kebab">Kebabs</string>
     <string name="type.cuisine.korean">Coreana</string>
@@ -1253,7 +1252,7 @@
     <string name="type.tourism.artwork.sculpture">Escultura</string>
     <string name="type.tourism.artwork.statue">Estatua</string>
     <string name="type.tourism.attraction">Atracción turística</string>
-    <string name="type.attraction.amusement_ride">Atracción</string>
+    <string name="type.attraction.amusement_ride">Atracción de feria</string>
     <string name="type.attraction.animal">Recinto de animales</string>
     <string name="type.attraction.bumper_car">Coches de choque</string>
     <string name="type.attraction.big_wheel">Noria</string>
@@ -1511,4 +1510,6 @@
     <string name="type.emergency.access_point.address">Dirección de Punto de Emergencia</string>
     <string name="type.waterway.fuel">Gasolinera marina</string>
     <string name="type.amenity.community_centre.youth_centre">Centro juvenil</string>
+    <string name="type.shop.water">Empresas especializadas en la venta de sistemas de tratamiento de agua</string>
+    <string name="type.attraction">Atracción</string>
 </resources>

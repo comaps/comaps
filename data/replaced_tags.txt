@@ -110,6 +110,8 @@ wifi=yes : internet_access=wlan
 wifi=free : internet_access=wlan
 wifi=no : internet_access=no
 
+cuisine=italian_pizza : cuisine=pizza
+
 diet:vegetarian=yes : cuisine=vegetarian
 diet:vegetarian=only : cuisine=vegetarian
 diet=vegetarian : cuisine=vegetarian

@@ -2,6 +2,8 @@
 
 #include "descriptions/serdes.hpp"
 
+#include "base/localisation.hpp"
+
 #include "coding/reader.hpp"
 #include "coding/writer.hpp"
 
@@ -14,7 +16,7 @@ using namespace descriptions;
 struct RawDescription
 {
   FeatureIndex m_idx;
-  std::vector<std::pair<LangCode, std::string>> m_strings;
+  std::vector<std::pair<localisation::LanguageIndex, std::string>> m_strings;
 };
 
 template <typename Reader>

@@ -305,7 +305,6 @@
     <string name="type.cuisine.international">Rahvusvaheline</string>
     <string name="type.cuisine.irish">Iiri</string>
     <string name="type.cuisine.italian">Itaalia</string>
-    <string name="type.cuisine.italian_pizza">Itaalia, pizza</string>
     <string name="type.cuisine.japanese">Jaapani</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Korea</string>
@@ -1510,4 +1509,6 @@
     <string name="type.emergency.access_point.address">Hädaolukorras asukohatuvastuspunkti aadress</string>
     <string name="type.waterway.fuel">Väikelaevade tankla</string>
     <string name="type.amenity.community_centre.youth_centre">Noortekeskus</string>
+    <string name="type.shop.water">Veepood</string>
+    <string name="type.attraction">Lõbustus</string>
 </resources>

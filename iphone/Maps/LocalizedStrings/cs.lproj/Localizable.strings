@@ -1,272 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "Zrušit";
-
 /* Button which interrupts country download */
 "cancel_download" = "Zrušit stahování";
-
 /* Button which deletes downloaded country */
 "delete" = "Smazat";
 "download_maps" = "Stáhnout mapy";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Stahování…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Offline mapy";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "Pro prohlížení a navigaci v dané oblasti je nutné si stáhnout mapu.\nStáhněte si mapy oblastí, které chcete navštívit.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometry";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Zpětná vazba";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "Míle";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Moje poloha";
-
 /* Update maps later button text */
 "later" = "Později";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Hledat";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "Ano";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "Ukázat na mapě";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "Stáhnout mapu";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Stahování selhalo";
-
 /* Text in About screen */
 "about_headline" = "Otevřený projekt vyvíjený komunitou";
-
 /* Text in About screen */
 "about_proposition_1" = "Offline, rychlé a snadno použitelné";
-
 /* Text in About screen */
 "about_proposition_2" = "Zaměřeno na soukromí a bez reklam";
-
 /* Text in About screen */
 "about_proposition_3" = "Transparentní a neziskové";
 "close" = "Zavřít";
 "download" = "Stáhnout";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "Pokračovat";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Přidat novou skupinu záložek";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Název seznamu";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Seznamy oblíbených";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Místa";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Oblíbené";
-
 /* Default bookmark list name */
-"core_my_places" = "Moje místa";
-
+"core_my_places" = "Oblíbené";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adresa";
-
 /* Settings button in system menu */
 "settings" = "Nastavení";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "Měřicí jednotky";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Kde se najíst";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Potraviny";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Doprava";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Čerpací stanice";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "Parkoviště";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Nákupy";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Second-hand";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hotel";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Památky";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Zábava";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "Bankomat";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Noční život";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "Dovolená s dětmi";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "Banka";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Lékárna";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Nemocnice";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "Záchody";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Pošta";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "Policie";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "Wi-Fi";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "Recyklace";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Voda";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Pro obytné vozy";
 "share_bookmarks_email_body" = "Ahoj!\n \nV příloze najdeš má uložená místa; otevři je v aplikaci CoMaps. Pokud ji nemáš nainstalovanou, můžeš si ji stáhnout zde: https://www.comaps.app/cs/download/\n \nUžij si cestování s CoMaps!";
-
 /* message title of loading file */
 "load_kmz_title" = "Načítání oblíbených";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "Oblíbené byly úspěšně nahrány! Naleznete je na mapě nebo ve správci oblíbených.";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "Nepodařilo se načíst oblíbená místa. Soubor může být poškozený nebo vadný.";
-
 /* resource for context menu */
 "edit" = "Upravit";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "Vaše poloha zatím nebyla určena";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Koukni na mojí značku na mapě v CoMaps!";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Podívej se na mou aktuální polohu na mapě v CoMaps!";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "E-mail";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "Zkopírovat do schránky";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "Zkopírováno do schránky: %@";
-
 /* place preview title */
 "info" = "Více informací";
-
 /* Used for bookmark editing */
 "done" = "Hotovo";
-
 /* Prints version number in About dialog */
 "version" = "Verze CoMaps: %@";
 "version %@ (%@)" = "Verze %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Verze: %@ (%@)\nMapová data: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "Stopy";
-
 /* Length of track in cell that describes route */
 "length" = "Délka";
 "share_my_location" = "Sdílet mé umístění";
 "prefs_group_route" = "Navigace";
 "pref_zoom_title" = "Tlačítka přiblížení/oddálení";
 "pref_left_button_type" = "Levé hlavní tlačítko";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Jazyk mapy";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Místní jazyk";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Vzhled mapy";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Vzhled";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "Světlý";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "Tmavý";
-
 /* Generic «Disabled» string */
 "disabled" = "Zakázáno";
-
 /* Generic «Off» string */
 "off" = "Vypnuto";
-
 /* Generic «On» string */
 "on" = "Zapnuto";
-
 /* Generic «Auto» string */
 "auto" = "Automaticky";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Zobrazení perspektivy";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D budovy";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D budovy jsou vypnuty v úsporném režimu";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Hlasové instrukce";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Zapnout hlasové pokyny";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Oznamovat názvy ulic";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Je-li povoleno, bude nahlas vyslovován název ulice nebo výjezdu, na který máte odbočit.";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Jazyk hlasu";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "Otestovat hlasové pokyny";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Ostatní";
 "pref_map_auto_zoom" = "Automatické zvětšení";
 "placepage_distance" = "Vzdálenost";
 "search_show_on_map" = "Zobrazit na mapě";
-
 /* Text in menu */
 "website" = "Webové stránky";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "Novinky";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -275,166 +199,114 @@
 "social_bluesky" = "Bluesky";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "E-Mail";
-
 /* Text in the editor */
 "fediverse" = "Mastodon";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X (Twitter)";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "Bluesky";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "Obrázek Panoramax";
-
 /* Text in menu */
 "rate_the_app" = "Ohodnotit aplikaci";
-
 /* Text in menu */
 "help" = "Nápověda";
-
 /* Button in the main Help dialog */
 "faq" = "Otázky a odpovědi";
-
 /* Button in the main menu */
 "donate" = "Darovat";
-
 /* Button in the main Help dialog */
 "copyright" = "Autorská práva";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "Nahlásit chybu";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Nahlášení nebo oprava nesprávných mapových dat";
-
 /* Button in the About screen */
 "volunteer" = "Staňte se dobrovolníkem a vylepšete CoMaps";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "Spojte se s námi";
-
 /* Alert text */
 "email_error_body" = "Emailový klient nebyl ještě nakonfigurován. Nastavte ho, prosím, nebo použijte jiný způsob k našemu kontaktování na %@";
-
 /* Alert title */
 "email_error_title" = "Chyba při odesílání emailu";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Dlouhým klepnutím na mapu znovu zobrazíte rozhraní";
-
 /* Update all button text */
 "downloader_update_all_button" = "Aktualizovat vše";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Staženo";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "Dostupné";
-
 /* Country queued for download */
 "downloader_queued" = "Ve frontě";
 "downloader_near_me_subtitle" = "Poblíž mě";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "Mapy";
 "downloader_download_all_button" = "Stáhnout vše";
 "downloader_downloading" = "Probíhá stahování:";
 "downloader_search_results" = "Nalezeno";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "Aktualizace";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "Selhalo";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "Chcete-li odstranit mapu, pak prosím zastavte navigaci.";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Lze vytvářet jen takové trasy, které se nachází na území jediné mapy.";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "Stáhnout mapu";
-
 /* Item status in downloader. */
 "downloader_retry" = "Opakovat";
-
 /* Item in context menu. */
 "downloader_delete_map" = "Smazat mapu";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Stahovat mapy podél cesty";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Naplánování trasy vyžaduje stažení a aktualizaci všech map z vašeho umístění do cílového umístění.";
-
 /* bookmark button text */
 "bookmark" = "místo";
 "save" = "Uložit";
 "create" = "vytvořit";
-
 /* red color */
 "red" = "Červená";
-
 /* yellow color */
 "yellow" = "Žlutá";
-
 /* blue color */
 "blue" = "Modrá";
-
 /* green color */
 "green" = "Zelená";
-
 /* purple color */
 "purple" = "Purpurová";
-
 /* orange color */
 "orange" = "Oranžová";
-
 /* brown color */
 "brown" = "Hnědá";
-
 /* pink color */
 "pink" = "Růžová";
-
 /* deep purple color */
 "deep_purple" = "Tmavě fialová";
-
 /* light blue color */
 "light_blue" = "Světle modrá";
-
 /* cyan color */
 "cyan" = "Azurová";
-
 /* teal color */
 "teal" = "Čajová";
-
 /* lime color */
 "lime" = "Limeta";
-
 /* deep orange color */
 "deep_orange" = "Tmavě oranžová";
-
 /* gray color */
 "gray" = "Šedá";
-
 /* blue gray color */
 "blue_gray" = "Modrošedá";
 "dialog_routing_disclaimer_title" = "Při navigaci podle trasy mějte na paměti následující:";
@@ -465,34 +337,26 @@
 "dialog_routing_try_again" = "Prosím, zkuste to znovu";
 "dialog_routing_download_and_build_cross_route" = "Chcete mapu stáhnout a vytvořit optimálnější trasu, která vede přes více než jednu mapu?";
 "dialog_routing_download_cross_route" = "Stáhnout mapu a vytvořit optimálnější trasu, která překračuje hranice této mapy.";
-
 /* «Show» context menu */
 "show" = "Ukázat";
-
 /* «Hide» context menu */
 "hide" = "Skrýt";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Naplánování trasy se nezdařilo";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Příjezd: %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Pro vytvoření trasy si prosím stáhněte a aktualizujte všechny mapy podél očekávané cesty.";
 "categories" = "Kategorie";
 "history" = "Historie";
 "search_not_found" = "Omlouváme se, nic nebylo nalezeno.";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Stáhněte si oblast, ve které hledáte, nebo zkuste přidat název blízkého města/obce.";
 "search_history_title" = "Historie vyhledávání";
 "search_history_text" = "Získejte rychlý přístup k hledaným výrazům.";
 "clear_search" = "Vymazat historii vyhledávání";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Wikipedie";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Vaše umístění";
@@ -503,7 +367,6 @@
 "p2p_reroute_from_current" = "Máme naplánovat trasu z vašeho současného umístění?";
 "editor_time_add" = "Přidat rozvrh";
 "editor_time_delete" = "Smazat rozvrh";
-
 /* Text for allday switch. */
 "editor_time_allday" = "Celý den (24 hodin)";
 "editor_time_open" = "Otevřeno";
@@ -519,10 +382,16 @@
 "share_with_friends" = "Sdílejte s kamarády";
 "editor_report_problem_send_button" = "Odeslat";
 "autodownload" = "Automaticky stahovat mapy";
-
+/* Voice */
+"voice" = "Hlas";
+"voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";
+"voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
+"unknown" = "Neznámý";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Existence potvrzena %@";
+"hours_confirmed_time_ago" = "Potvrzeno %@";
 /* Place Page opening hours text */
 "closed_now" = "Zavřeno";
-
 /* Place Page opening hours text */
 "daily" = "Denně";
 "twentyfour_seven" = "Nonstop";
@@ -537,13 +406,11 @@
 "closes_in" = "Zavírá za %@";
 "closed" = "Zavřeno";
 "add_opening_hours" = "Přidat otevírací dobu";
-
 /* OpenStreetMap */
 "osm_mapdata" = "Mapová data z OpenStreetMap";
 "osm_mapdata_explanation %@" = "Data map vytvořená komunitou ke dni *%@*. Další informace o tom, jak upravovat a aktualizovat mapu, najdete na stránkách [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Další informace o projektu OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Cs:Co_je_OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "Profil OpenStreetMap";
 "osm_profile_promt" = "Vytvořte si účet OpenStreetMap nebo se přihlaste a zveřejněte své úpravy mapy celému světu.";
@@ -556,20 +423,19 @@
 "osm_profile_register_promt" = "Nemáte účet u OpenStreetMap?";
 "osm_profile_register" = "Zaregistrujte si účet na OpenStreetMap";
 "osm_profile_verfied_changes" = "Oveřené změny";
+"osm_profile_view_edit_history" = "Zobrazit historii úprav";
+"osm_profile_view_notes" = "Zobrazit poznámky";
 "osm_profile_logout" = "Odhlásit se z účtu OpenStreetMap";
 "osm_profile_delete" = "Odstranit účet OpenStreetMap";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Poslední nahrání";
 "thank_you" = "Děkujeme Vám";
 "edit_place" = "Upravit místo";
 "place_name" = "Název místa";
 "add_language" = "Přidat jazyk";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "Číslo domu";
 "details" = "Podrobnosti";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "Přidat ulici";
 "choose_language" = "Zvolit jazyk";
@@ -577,7 +443,6 @@
 "postal_code" = "PSČ";
 "cuisine" = "Kuchyně";
 "select_cuisine" = "Vybrat kuchyni";
-
 /* login text field */
 "email_or_username" = "E-mail nebo uživatelské jméno";
 "phone" = "Telefon";
@@ -598,40 +463,33 @@
 "editor_edit_place_title" = "Probíhají úpravy";
 "editor_add_place_title" = "Přidávání";
 "editor_edit_place_name_hint" = "Název místa";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Jak je napsáno v místním jazyce";
 "editor_edit_place_category_title" = "Kategorie";
 "whatsnew_editor_message_1" = "Přidejte na mapu nová místa a upravte existující místa přímo z aplikace.";
 "dialog_incorrect_feature_position" = "Změnit umístění";
 "message_invalid_feature_position" = "Objekt zde nemůže být umístěn";
-
 /* Error dialog no space */
 "migration_no_space_message" = "Ke stažení potřebujete více volného místa. Odstraňte prosím nepotřebná data.";
 "editor_sharing_title" = "Vylepšil jsem mapy CoMaps";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d z %2$d";
 "download_over_mobile_header" = "Stáhnout pomocí připojení přes mobilní síť?";
 "download_over_mobile_message" = "Toto by mohlo být s některými tarify nebo roamingem výrazně dražší.";
 "error_enter_correct_house_number" = "Zadejte správné číslo domu";
 "editor_storey_number" = "Počet poschodí (max. %d)";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Opravte počet poschodí, max. %d";
 "editor_zip_code" = "PSČ";
 "error_enter_correct_zip_code" = "Zadejte správné poštovní směrovací číslo";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Bod na mapě";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Poznámka pro dobrovolníky OpenStreetMap (nepovinné)";
 "editor_detailed_description_hint" = "Podrobný komentář";
 "editor_detailed_description" = "Vámi navržené změny odešleme do komunity OpenStreetMap. Popište podrobnosti, které nelze upravit v CoMaps.";
 "editor_more_about_osm" = "Další informace o projektu OpenStreetMap";
 "editor_operator" = "Provozovatel";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Operátor: %@";
 "editor_category_unsuitable_title" = "Nemůžete najít vhodnou kategorii?";
@@ -644,26 +502,20 @@
 "location_services_disabled_message" = "Povolte přístup ke geolokaci v nastavení přístroje";
 "location_services_disabled_1" = "1. Otevřete Nastavení";
 "location_services_disabled_2" = "2. Klepněte na položku Poloha";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. Vyberte při používání aplikace";
 "location_services_disabled_on_device_2" = "2. Vyberte možnost Soukromí";
 "location_services_disabled_on_device_3" = "3. Vyberte možnost Služby určování polohy";
 "location_services_disabled_on_device_4" = "4. Zapnutí služeb určování polohy";
 "location_services_disabled_on_device_additional_message" = "Nebo pokračujte v používání aplikace CoMaps bez polohy";
-
 /* abbreviation for meters */
 "m" = "m";
-
 /* abbreviation for kilometers */
 "km" = "km";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "km/h";
-
 /* abbreviation for mile(s) */
 "mi" = "mil";
-
 /* A unit of measure */
 "ft" = "stopa";
 "miles_per_hour" = "mil/h";
@@ -684,35 +536,29 @@
 "editor_remove_place_message" = "Odstranit přidané místo?";
 "editor_remove_place_button" = "Odstranit";
 "editor_place_doesnt_exist" = "Místo neexistuje";
+"editor_place_doesnt_exist_description" = "Popište, jak místo vypadá nyní a pošlete poznámku o chybě komunitě OpenStreetMap";
 "text_more_button" = "…dále";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "Zadejte platné telefonní číslo";
 "error_enter_correct_web" = "Zadat platnou webovou adresu";
 "error_enter_correct_email" = "Zadejte platný e-mail";
 "refresh" = "Aktualizovat";
 "placepage_add_place_button" = "Přidat místo do OpenStreetMap";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Chcete změnu odeslat všem uživatelům?";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Ujistěte se, že jste nezadali žádná soukromá nebo osobní data.";
 "editor_share_to_all_dialog_message_2" = "Editoři OpenStreetMap zkontrolují změny a budou vás kontaktovat, pokud budou mít nějaké dotazy.";
 "navigation_stop_button" = "Zastavit";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Zakázat zaznamenávání vaší nedávno ujeté trasy?";
 "off_recent_track_background_button" = "Zakázat";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "Odjezd";
 "recent_track_background_dialog_message" = "CoMaps používají geopozici na pozadí, aby se zaznamenala vaše nedávno ujetá trasa.";
 "general_settings" = "Obecná nastavení";
-
 /* For the first routing */
 "accept" = "Přijmout";
-
 /* For the first routing */
 "decline" = "Odmítnout";
 "mobile_data_dialog" = "Použít mobilní data k zobrazení podrobnějších informací?";
@@ -720,29 +566,28 @@
 "mobile_data_option_today" = "Jen dnes";
 "mobile_data_option_not_today" = "Nepoužívat dnes";
 "mobile_data" = "Mobilní data";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Pro zobrazení oznámení o aktualizacích map a nahrávání úprav je potřeba internet.";
 "mobile_data_option_never" = "Nikdy nepoužívat";
 "mobile_data_option_ask" = "Vždy se zeptat";
 "traffic_update_maps_text" = "Ke zobrazení údajů o provozu musí být aktualizovány mapy.";
 "big_font" = "Zvětšit velikost písma na mapě";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Ke zobrazení dat o provozu je nutné aplikaci aktualizovat.";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Data o provozu nejsou k dispozici";
 "enable_logging" = "Povolit protokolování";
 "log_file_size" = "Velikost souboru protokolu: %@";
+"pref_alt_map_lang_handling" = "Alternativní jazyky mapy";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Nepoužívat alternativy";
+"pref_alt_map_lang_handling_system_order" = "Použít v systémovém pořadí";
+"pref_alt_map_lang_handling_local_only" = "Preferovat a používat pouze tam, kde je to přirozené";
 "transliteration_title" = "Přepis do latinky";
-
+"transliteration_title_disabled_summary" = "Neaktivní, pokud se pro mapu vždy používá místní jazyk";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "Ukončit";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Pomocí vyhledávání nebo klepnutím na mapu přidejte výchozí bod trasy";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Pomocí vyhledávání nebo klepnutím na mapu přidejte cílový bod";
 "planning_route_manage_route" = "Spravovat trasu";
@@ -751,18 +596,15 @@
 "planning_route_remove_title" = "Pro odebrání přetáhněte sem";
 "placepage_add_stop" = "Přidat zastávku";
 "start_from_my_position" = "Začít z";
-
 /* Title for button when a route was saved. */
 "saved" = "Uloženo";
 "core_entrance" = "Vstup";
 "error_enter_correct_name" = "Zadejte prosím správný název";
 "bookmark_lists" = "Seznamy";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "Skrýt vše";
 "bookmark_lists_show_all" = "Zobrazit vše";
 "bookmarks_create_new_group" = "Vytvořit nový seznam";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "Importovat oblíbené";
 "downloader_hide_screen" = "Skrýt obrazovku";
@@ -796,13 +638,10 @@
 "download_button" = "Stáhnout";
 "speedcams_alert_title" = "Radary";
 "place_description_title" = "Popis místa";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Varovat při překročení rychlosti";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Vždy upozorňovat";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Nikdy neupozorňovat";
 "power_managment_title" = "Režim spořiče baterie";
@@ -812,14 +651,13 @@
 "power_managment_setting_manual_max" = "Vždy";
 "enable_logging_warning_message" = "Dočasně zapněte, abyste mohli zaznamenat a ručně nám poslat podrobná diagnostická data o vašem problému pomocí tlačítka „Nahlásit chybu“ v okně nápovědy. Protokoly mohou zahrnovat informace o poloze.";
 "driving_options_title" = "Možnosti trasy";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Vyhnout se mýtnému";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Vyhnout se nezpevněným silnicím";
-
+"avoid_paved" = "Vyhnout se zpevněným cestám";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Vyhnout se schodům";
 "avoid_ferry" = "Vyhnout se trajektům";
 "avoid_motorways" = "Vyhnout se dálnicím";
 "unable_to_calc_alert_title" = "Nelze vypočítat trasu";
@@ -835,22 +673,16 @@
 "search_results" = "Prohledat výsledky";
 "then_turn" = "Poté";
 "redirect_route_alert" = "Chcete přestavět trasu?";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "Ano";
-
 /* A generic "No" button in dialogs */
 "no" = "Ne";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "Ano";
-
 /* E.g. "WiFi:No" */
 "no_available" = "Ne";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Kapacita: %@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Síť: %@";
 "trip_finished" = "Přijeli jste!";
@@ -870,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "Rych. varování";
 "download_map_carplay" = "Stáhněte si prosím mapy do aplikace CoMaps ve vašem zařízení";
 "carplay_roundabout_exit" = "%@ výjezd";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Třídit…";
-
 /* iOS */
 "sort_default" = "Třídit ve výchozím nastavení";
 "sort_type" = "Třídit dle typu";
@@ -919,192 +749,124 @@
 "isolines_toast_zooms_1_10" = "Přiblížit pro prozkoumání izolinií";
 "downloader_updating_ios" = "Probíhá aktualizace";
 "downloader_loading_ios" = "Probíhá stahování";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Aktualizujte své stažené mapy";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Aktualizace map zajišťuje aktuální informace o objektech";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Aktualizace (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "Aktualizovat ručně později";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Odstranit stopu";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "Opravdu chcete tuto stopu odstranit?";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Název stopy";
-
 /* move track or bookmark from the list button text */
 "move" = "Přesunout";
-
 /* edit track screen title */
 "track_title" = "Dráha";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/cs/";
-
 /* App Tip #00 */
 "app_tip_00" = "Děkujeme, že používáte naše komunitní mapy!";
-
 /* App tip #01 */
 "app_tip_01" = "S vašimi dary a podporou můžeme vytvořit ty nejlepší mapy na světě!";
-
 /* App tip #02 */
 "app_tip_02" = "Líbí se vám naše aplikace? Přispějte prosím na podporu rozvoje! Ještě se ti to nelíbí? Dejte nám prosím vědět a my to napravíme!";
-
 /* App tip #03 */
 "app_tip_03" = "Pokud znáte vývojáře softwaru, můžete ho požádat, aby implementoval funkci, kterou potřebujete.";
-
 /* App tip #04 */
 "app_tip_04" = "Klepnutím na libovolné místo na mapě můžete cokoli vybrat. Dlouhým klepnutím skryjete a znovu zobrazíte rozhraní.";
-
 /* App tip #05 */
 "app_tip_05" = "Víte, že si na mapě můžete vybrat svou aktuální polohu?";
-
 /* App tip #06 */
 "app_tip_06" = "Můžete pomoci přeložit naši aplikaci do vašeho jazyka.";
-
 /* App tip #07 */
 "app_tip_07" = "Naše aplikace je vyvinuta několika nadšenci a komunitou.";
-
 /* App tip #08 */
 "app_tip_08" = "Mapová data můžete snadno opravit a vylepšit.";
-
 /* App tip #09 */
 "app_tip_09" = "Naším hlavním cílem je vytvářet rychlé, na soukromí zaměřené a snadno použitelné mapy, které si zamilujete.";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Na obrazovce telefonu nyní používáte aplikaci CoMaps";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "Na obrazovce auta nyní používáte aplikaci CoMaps";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "Pokračujte v telefonu";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Na obrazovku auta";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Pěší turistika";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Exportovat všechny oblíbené";
-
+"bookmarks_export" = "Exportovat všechna oblíbená místa";
 /* Text for the editing the Track's color button. */
 "change_color" = "Změna barvy";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Mapa";
 "drive_through" = "Průjezd";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Odkaz na menu";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Chcete poslat vývojářům hlášení o chybě?\nSpoléháme na naše uživatele, protože společnost CoMaps neshromažďuje žádné informace o chybách automaticky. Předem vám děkujeme za podporu CoMaps!";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "Synchronizace s iCloudem (Beta)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Povolení synchronizace s iCloudem";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_message" = "Synchronizace iCloudu je experimentální funkce, která se vyvíjí. Ujistěte se, že jste si vytvořili zálohu všech svých záložek a skladeb.";
-
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "Synchronizace s iCloudem je experimentální funkce, která se vyvíjí. Ujistěte se, že jste si vytvořili zálohu všech svých oblíbených míst.";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "Služba iCloud je vypnutá";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "Chcete-li tuto funkci používat, povolte v nastavení vašeho účtu Apple službu iCloud.";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Povolit";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "Záloha";
-
 /* Title for the "iCloud synchronization failure" alert. */
-"icloud_synchronization_error_alert_title" = "Selhání synchronizace iCloudu";
-
+"icloud_synchronization_error_alert_title" = "Selhání synchronizace s iCloudem";
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "Chyba: Nepodařilo se synchronizovat z důvodu chyby připojení";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "Chyba: Nepodařilo se synchronizovat z důvodu překročení kvóty iCloudu";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Chyba: iCloud není k dispozici";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "Otevřít v jiné aplikaci";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "Samoobsluha";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Venkovní posezení";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "Nedávno odstraněné seznamy";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "Vymazat";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "Smazat vše";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "Obnovit";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Obnovit vše";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "Zaznamenat trasu";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Zastavit nahrávání trasy";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Zastavit bez uložení";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Pokračovat v nahrávání";
-
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Uložit do oblíbených?";
-
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Trasa je prázdná - není co ukládat";
 "edit_track" = "Upravit trasu";
-"osm_profile_view_notes" = "Zobrazit poznámky";
-"osm_profile_view_edit_history" = "Zobrazit historii úprav";
-"pref_mapappearance_title" = "Vzhled mapy";
-"pref_maplanguage_title" = "Jazyk mapy";
-"transliteration_title_disabled_summary" = "Neaktivní, pokud se pro mapu vždy používá místní jazyk";
-"pref_maplanguage_local" = "Místní jazyk";
-"existence_confirmed_time_ago" = "Existence potvrzena %@";
-"hours_confirmed_time_ago" = "Potvrzeno %@";
-"offline_explanation_text" = "Pro prohlížení a navigaci v dané oblasti je nutné si stáhnout mapu.\nStáhněte si mapy oblastí, které chcete navštívit.";
-"offline_explanation_title" = "Offline mapy";
-"avoid_steps" = "Vyhnout se schodům";
-"editor_place_doesnt_exist_description" = "Popište, jak místo vypadá nyní a pošlete poznámku o chybě komunitě OpenStreetMap";
-"voice" = "Hlas";
-"unknown" = "Neznámý";
-"voice_explanation_before_version26" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Mluvený obsah*, *Hlasy*.";
-"voice_explanation" = "Lepší hlas je možné vybrat v nastavení systému na stránce *Přístupnost*, *Čtení a mluvení*, *Hlasy*.";
-"avoid_paved" = "Vyhnout se zpevněným cestám";
-"pref_alt_map_lang_handling_local_only" = "Preferovat a používat pouze tam, kde je to přirozené";
-"pref_alt_map_lang_handling" = "Alternativní jazyky mapy";
-"pref_alt_map_lang_handling_system_order" = "Použít v systémovém pořadí";
-"rooms" = "%@ místností";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Nepoužívat alternativy";
+/* Title of the general section in settings */
+"general" = "Obecné";
+/* Title of the interface section in settings */
+"interface" = "Rozhraní";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Přispět do OpenStreetMap";
+"contribute_to_osm_add_place" = "Přidat místo";
+"contribute_to_osm_update_map" = "Pro přispívání aktualizujte mapu";
+"contribute_to_osm_update_map_description" = "Před přispíváním do dat OpenStreetMap musíte nejprve aktualizovat mapu %@ na nejnovější verzi";

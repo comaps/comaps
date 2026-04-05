@@ -174,7 +174,7 @@ public:
   IsAttraction()
   {
     // We have several lists for attractions: short list in search categories for @tourism and long
-    // list in ftypes::AttractionsChecker. We have highway-pedestrian, place-square, historic-tomb,
+    // list in ftypes::IsPartOfTourismAttractionsChecker. We have highway-pedestrian, place-square, historic-tomb,
     // landuse-cemetery, amenity-townhall etc in long list and logic of long list is "if this object
     // has high popularity and/or wiki description probably it is attraction". It's better to use
     // short list here.

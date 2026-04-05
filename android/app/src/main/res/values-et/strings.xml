@@ -143,7 +143,7 @@
     <string name="description">Märkmed</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Minu lemmikud CoMapsis</string>
-    <string name="share_bookmarks_email_body">Tere! \n\nManuses on minu järjehoidjad rakendusest CoMaps. Palun ava need kui Sul CoMaps on nutiseadmesse paigaldatud. Või kui ei ole, laadi rakendus alla oma iOSi või Androidi seadmesse, järgides seda linki: https://www.comaps.app/download/ \n \nNaudi reisimist CoMapsiga!</string>
+    <string name="share_bookmarks_email_body">Tere! \n\nManuses on minu lemmikud rakendusest CoMaps. Palun ava need kui Sul CoMaps on nutiseadmesse paigaldatud. Või kui ei ole, laadi rakendus alla oma iOSi või Androidi seadmesse, järgides seda linki: https://www.comaps.app/download/ \n \nNaudi reisimist CoMapsiga!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Laadin lemmikuid</string>
     <!-- Kmz file successful loading -->
@@ -164,12 +164,8 @@
     <string name="downloading_is_active">Kaardi allalaadimine on hetkel pooleli</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hei, vaata minu praegust asukohta CoMapsi kaardil! %1$s või %2$s Võrguühenduseta kaardid puuduvad? Laadi siit: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hei, vaata minu asukoha märget CoMapsi kaardil!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hei, vaata minu praegust asukohta CoMapsi kaardil!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Tere, \n \nOlen praegu siin: %1$s. Ava see link %2$s või see %3$s, et näha seda kohta kaardil. \n \nAitäh.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Jaga</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -394,13 +390,7 @@
     <string name="editor_example_values">Näidisväärtused</string>
     <string name="editor_correct_mistake">Paranda viga</string>
     <string name="editor_add_select_location">Vali asukoht</string>
-    <string name="editor_report_problem_desription_1">Palun kirjelda probleemi üksikasjalikult, et OpenStreetMapi kogukond saaks selle parandada.</string>
-    <string name="editor_report_problem_desription_2">Või tee seda ise aadressil https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Saada</string>
-    <string name="editor_report_problem_title">Probleem</string>
-    <string name="editor_report_problem_no_place_title">Sellist kohta pole olemas</string>
-    <string name="editor_report_problem_under_construction_title">Suletud hoolduseks</string>
-    <string name="editor_report_problem_duplicate_place_title">Dubleeritud koht</string>
     <string name="autodownload">Laadi kaardid automaaselt alla</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Iga päev</string>
@@ -765,7 +755,7 @@
     <string name="browser_not_available">Veebibrauser ei ole saadaval</string>
     <string name="volume">Helivaljus</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Ekspordi kõik asukohad ja rajad</string>
+    <string name="bookmarks_export">Ekspordi kõik lemmikud</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Süsteemsed kõnesünteesi seadistused</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -843,7 +833,7 @@
     <string name="pref_backup_now_title">Varunda kohe</string>
     <string name="pref_backup_now_summary">Tee varukoopia kohe</string>
     <string name="pref_backup_now_summary_progress">Varundamine on töös…</string>
-    <string name="pref_backup_now_summary_empty_lists">Pole asukohti ega radu, mida varundada</string>
+    <string name="pref_backup_now_summary_empty_lists">Pole lemmikuid, mida varundada</string>
     <string name="pref_backup_now_summary_failed">Varundamine ei õnnestunud</string>
     <string name="backup_interval_manual_only">Pole kasutusel (vaid käsitsi varundus)</string>
     <string name="dialog_report_error_with_logs">Palun saada meile veateade, selleks:\n - Vali seadistustest „Lülita logimine sisse“\n - korda probleemi\n - Vaatest „Rakenduse teave ja abiteave“ klõpsi „Teata veast“ nuppu ja saada veateade e-kirjaga või vestluses\n - lülita logimine välja</string>
@@ -929,11 +919,17 @@
     <string name="route_needs_rebuild">Teekond vajab uuesti koostamist</string>
     <string name="route_finished">Teekond on lõppenud</string>
     <string name="not_following_route">Sa ei järgi teekonda</string>
-    <string name="rebuilding_route">Teekond on uuesti koostamisel…</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Ära kasuta alternatiive</string>
     <string name="pref_alt_map_lang_handling_local_only">Eelista ja kasuta vaid kohalikku keelt</string>
     <string name="pref_alt_map_lang_handling">Alternatiivsed kaardikeeled</string>
     <string name="pref_alt_map_lang_handling_system_order">Kasuta süsteemi järjestuses</string>
     <string name="pref_openexternallinks_title">Ava kolmandate osapoolte lingid automaatselt</string>
     <string name="pref_openexternallinks_summary">Ava Comapsis leiduvad kolmandate osapoolte lingid vaikimisi</string>
+    <string name="bookmark_share_email_subject">Selle asukoha nägemiseks palun klõpsa %1$s linki või kopeeri need koordinaadid kaardile: %2$s .</string>
+    <string name="my_position_share_email">Minu asukoha nägemiseks palun klõpsa %1$s linki või kopeeri need koordinaadid kaardile: %2$s .</string>
+    <string name="destination">Sihtpunkt</string>
+    <string name="stop">Vahepeatus</string>
+    <string name="route_recalculating">Koostan teekonda uuesti…</string>
+    <string name="charge_socket_type1_combo">Tüüp 1 kombo</string>
+    <string name="population">Rahvaarv: %s</string>
 </resources>

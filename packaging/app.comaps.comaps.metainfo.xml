@@ -79,9 +79,31 @@
     </screenshot>
   </screenshots>
 
- <releases>
-    <release version="2026.02.23" date="2026-02-23">
+  <releases>
+    <release version="2026.03.23" date="2026-03-23">
      <url type="details">https://comaps.app/latest/</url>
+     <description><ul>
+<li>OpenStreetMap data as of March 21</li>
+<li>Added sports: four square and boules</li>
+<li>Added Czech, Thai, Turkish and Ukrainian Wikipedia articles</li>
+<li>Prevent secondary name from appearing for e.g. streets in multi-language regions</li>
+<li>Support maxspeed definitions for more road types in different countries</li>
+<li>Support AppImage builds</li>
+     </ul></description>
+    </release>
+    <release version="2026.03.09" date="2026-03-09">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.03.09-18</url>
+     <description>
+       <ul>
+	 <li>OpenStreetMap data as of March 7</li>
+	 <li>Show charge amounts for usage of facilities</li>
+	 <li>Fixed subways display and routing in several cities</li>
+	 <li>Show population of cities, towns, etc.</li>
+       </ul>
+     </description>
+   </release>
+    <release version="2026.02.23" date="2026-02-23">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.02.23-9</url>
      <description>
        <ul>
 	 <li>OpenStreetMap data as of February 21</li>

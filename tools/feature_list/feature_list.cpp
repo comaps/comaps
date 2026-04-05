@@ -28,6 +28,7 @@
 #include "geometry/point2d.hpp"
 
 #include "base/file_name_utils.hpp"
+#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 
@@ -220,8 +221,10 @@ public:
     string name(f.GetName(localisation::kDefaultNameIndex));
     if (name.empty())
     {
-      name = f.GetReadableName();
-      if (name.empty())
+      std::optional<std::string> const n = f.GetTranslatedName().m_primary;
+      if (n.has_value() && !n.value().empty())
+        name = n.value();
+      else
         name = metaOperator;
     }
 

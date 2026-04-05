@@ -2798,7 +2798,7 @@ bool Framework::ParseEditorDebugCommand(search::SearchParams const & params)
         return true;
       }
 
-      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.value());
+      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.has_value() ? ft->GetTranslatedName().m_primary.value() : "");
       res.SetAddress(std::move(edit.second));
       res.FromFeature(fid, feature::TypesHolder(*ft).GetBestType(), 0, {});
 

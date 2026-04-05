@@ -47,7 +47,7 @@
           android:id="@+id/tabs_divider"
           layout="@layout/item_divider" />
 
-        <androidx.viewpager.widget.ViewPager
+        <androidx.viewpager2.widget.ViewPager2
           android:id="@+id/pages"
           style="@style/MwmWidget.Floating"
           android:layout_width="match_parent"

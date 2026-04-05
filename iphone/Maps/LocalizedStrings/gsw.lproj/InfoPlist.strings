@@ -1,5 +1,10 @@
+/* Used in home screen quick actions. */
 "search" = "Suechi";
+/* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "Favorite";
+/* Used in home screen quick actions. */
 "route" = "Route";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
 "NSLocationAlwaysUsageDescription" = "S Bestimme vom aktuelle Standort im Hintergrund isch nötig, zum de volli Funktionsumfang vo de App chönne z gnüsse. Das wird defür gnutzt, zum de Route z folge und din scho zrugggleite Weg z speichere.";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
 "NSLocationWhenInUseUsageDescription" = "D Aagab vom aktuelle Standort wird i de Optione bi de Verfolgig vonere Route und bim Speichere vo dim z letscht zrugggleite Weg gnutzt.";

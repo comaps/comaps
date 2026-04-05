@@ -128,10 +128,6 @@ std::string Info::FormatSubtitle(bool withTypes, bool withMainType) const
   if (!flats.empty())
     append(flats);
 
-  // Cuisines.
-  for (auto const & cuisine : GetLocalizedCuisines())
-    append(cuisine);
-
   // Airport IATA code.
   auto const iata = GetMetadata(feature::Metadata::FMD_AIRPORT_IATA);
   if (!iata.empty())

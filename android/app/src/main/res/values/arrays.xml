@@ -25,6 +25,7 @@
 
   <string-array name="charge_socket_types">
     <item>type2_combo</item>
+    <item>type1_combo</item>
     <item>nacs</item>
     <item>chademo</item>
     <item>type2</item>

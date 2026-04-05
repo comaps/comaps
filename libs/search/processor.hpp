@@ -147,7 +147,6 @@ protected:
   /// @}
 
   std::vector<uint32_t> m_preferredTypes;
-  std::vector<uint32_t> m_cuisineTypes;
 
   m2::RectD m_viewport;
   std::optional<m2::PointD> m_position;

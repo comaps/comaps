@@ -13,6 +13,7 @@
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
+#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>
@@ -172,7 +173,7 @@ public:
         auto const featureId = i;
         TEST(IsSupportedLang(p.first), (p.first));
 
-        auto const langIndex = StringUtf8Multilang::GetLangIndex(p.first);
+        auto const langIndex = localisation::ConvertLanguageCodeToLanguageIndex(std::string{p.first});
         std::string const str = d.Deserialize(*reader.GetPtr(), featureId, {langIndex});
         TEST_EQUAL(str, p.second, ());
       }
@@ -228,7 +229,7 @@ private:
 
   static bool IsSupportedLang(std::string_view lang)
   {
-    return StringUtf8Multilang::GetLangIndex(lang) != StringUtf8Multilang::kUnsupportedLanguageCode;
+    return localisation::ConvertLanguageCodeToLanguageIndex(std::string{lang}) != localisation::kUnsupportedLanguageIndex;
   }
 
   static int SumPageSizes(std::vector<PageT> const & p)
@@ -245,7 +246,7 @@ private:
       if (stat[code] == 0)
         continue;
 
-      auto const svLang = StringUtf8Multilang::GetLangByCode(static_cast<int8_t>(code));
+      auto const svLang = localisation::ConvertLanguageIndexToLanguageCode(static_cast<int8_t>(code));
       if (langs.count(svLang) == 0)
         return false;
 
@@ -261,7 +262,7 @@ private:
     for (auto const & [lang, _] : meta)
     {
       auto const it =
-          base::FindIf(p, [lang = lang](auto const & p) { return StringUtf8Multilang::GetLangIndex(p.first) == lang; });
+          base::FindIf(p, [lang = lang](auto const & p) { return localisation::ConvertLanguageCodeToLanguageIndex(std::string{p.first}) == lang; });
       if (it == std::end(p))
         return false;
     }

@@ -422,6 +422,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 - (void)configTextViewCell:(UITableViewCell * _Nonnull)cell
                     cellID:(MWMEditorCellID)cellID
                       icon:(NSString *)icon
+              isSystemIcon:(BOOL)isSystemIcon
                placeholder:(NSString * _Nonnull)name
               errorMessage:(NSString * _Nonnull)error
                    isValid:(BOOL)isValid
@@ -429,7 +430,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 {
   MWMEditorTextTableViewCell * tCell = static_cast<MWMEditorTextTableViewCell *>(cell);
   [tCell configWithDelegate:self
-                       icon:[UIImage imageNamed:icon]
+                       icon:(isSystemIcon ? [UIImage systemImageNamed:icon] : [UIImage imageNamed:icon])
                        text:ToNSString(m_mapObject.GetMetadata(static_cast<MetadataID>(cellID)))
                 placeholder:name
                errorMessage:error
@@ -441,6 +442,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 - (void)configTextViewCell:(UITableViewCell * _Nonnull)cell
                     cellID:(MWMEditorCellID)cellID
                       icon:(NSString * _Nonnull)icon
+              isSystemIcon:(BOOL)isSystemIcon
                placeholder:(NSString * _Nonnull)name
 {
   MetadataID metaId = static_cast<MetadataID>(cellID);
@@ -450,7 +452,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 
   MWMEditorTextTableViewCell * tCell = static_cast<MWMEditorTextTableViewCell *>(cell);
   [tCell configWithDelegate:self
-                       icon:[UIImage imageNamed:icon]
+                       icon:(isSystemIcon ? [UIImage systemImageNamed:icon] : [UIImage imageNamed:icon])
                        text:value
                 placeholder:name
                keyboardType:UIKeyboardTypeDefault
@@ -478,7 +480,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_phone_number"
+                        icon:@"phone.fill"
+                isSystemIcon:true
                  placeholder:L(@"phone")
                 errorMessage:L(@"error_enter_correct_phone")
                      isValid:isValid
@@ -489,7 +492,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_website"
+                        icon:@"globe"
+                isSystemIcon:true
                  placeholder:L(@"website")
                 errorMessage:L(@"error_enter_correct_web")
                      isValid:isValid
@@ -500,7 +504,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_website_menu"
+                        icon:@"menucard"
+                isSystemIcon:true
                  placeholder:L(@"website_menu")
                 errorMessage:L(@"error_enter_correct_web")
                      isValid:isValid
@@ -511,7 +516,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_email"
+                        icon:@"envelope.fill"
+                isSystemIcon:true
                  placeholder:L(@"email")
                 errorMessage:L(@"error_enter_correct_email")
                      isValid:isValid
@@ -541,7 +547,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     MWMEditorSwitchTableViewCell * tCell = static_cast<MWMEditorSwitchTableViewCell *>(cell);
     // TODO(Vlad, IgorTomko): Support all other possible Internet statuses.
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_wifi"]
+                         icon:[UIImage systemImageNamed:@"wifi"]
                          text:L(@"category_wifi")
                            on:m_mapObject.GetInternet() == feature::Internet::Wlan];
     break;
@@ -595,7 +601,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorSelectTableViewCell * tCell = static_cast<MWMEditorSelectTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_address"]
+                         icon:[UIImage imageNamed:@"address"]
                          text:@(m_mapObject.GetStreet().m_defaultName.c_str())
                   placeholder:L(@"add_street")];
     break;
@@ -618,6 +624,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     [self configTextViewCell:cell
                       cellID:cellID
                         icon:nil
+                isSystemIcon:false
                  placeholder:L(@"editor_zip_code")
                 errorMessage:L(@"error_enter_correct_zip_code")
                      isValid:isValid
@@ -636,6 +643,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
     [self configTextViewCell:cell
                       cellID:cellID
                         icon:nil
+                isSystemIcon:false
                  placeholder:placeholder
                 errorMessage:errorMessage
                      isValid:isValid
@@ -651,7 +659,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
 
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_level"
+                        icon:@"level"
+                isSystemIcon:false
                  placeholder:L(@"level")
                 errorMessage:errorMessage
                      isValid:isValid
@@ -662,7 +671,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorSelectTableViewCell * tCell = static_cast<MWMEditorSelectTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_cuisine"]
+                         icon:[UIImage systemImageNamed:@"fork.knife"]
                          text:@(m_mapObject.FormatCuisines().c_str())
                   placeholder:L(@"select_cuisine")];
     break;
@@ -671,7 +680,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorSegmentedTableViewCell * tCell = static_cast<MWMEditorSegmentedTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_drive_through"]
+                         icon:[UIImage imageNamed:@"drivethrough"]
                          text:L(@"drive_through")
                          value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_DRIVE_THROUGH))];
     break;
@@ -680,7 +689,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorSegmentedTableViewCell * tCell = static_cast<MWMEditorSegmentedTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_self_service"]
+                         icon:[UIImage imageNamed:@"service.slash"]
                          text:L(@"self_service")
                          value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_SELF_SERVICE))];
     break;
@@ -689,7 +698,7 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     MWMEditorSegmentedTableViewCell * tCell = static_cast<MWMEditorSegmentedTableViewCell *>(cell);
     [tCell configWithDelegate:self
-                         icon:[UIImage imageNamed:@"ic_placepage_outdoor_seating"]
+                         icon:[UIImage imageNamed:@"outdoorseating"]
                          text:L(@"outdoor_seating")
                          value:feature::YesNoUnknownFromString(m_mapObject.GetMetadata(feature::Metadata::FMD_OUTDOOR_SEATING))];
     break;
@@ -698,7 +707,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_fediverse"
+                        icon:@"Brands/Mastodon"
+                isSystemIcon:false
                  placeholder:L(@"fediverse")];
     break;
   }
@@ -706,7 +716,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_facebook"
+                        icon:@"Brands/Facebook"
+                isSystemIcon:false
                  placeholder:L(@"facebook")];
     break;
   }
@@ -714,7 +725,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_instagram"
+                        icon:@"Brands/Instagram"
+                isSystemIcon:false
                  placeholder:L(@"instagram")];
     break;
   }
@@ -722,7 +734,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_twitter"
+                        icon:@"Brands/X"
+                isSystemIcon:false
                  placeholder:L(@"twitter")];
     break;
   }
@@ -730,7 +743,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_vk"
+                        icon:@"Brands/VK"
+                isSystemIcon:false
                  placeholder:L(@"vk")];
     break;
   }
@@ -738,7 +752,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_line"
+                        icon:@"Brands/Line"
+                isSystemIcon:false
                  placeholder:L(@"line")];
     break;
   }
@@ -746,7 +761,8 @@ void registerCellsForTableView(std::vector<MWMEditorCellID> const & cells, UITab
   {
     [self configTextViewCell:cell
                       cellID:cellID
-                        icon:@"ic_placepage_bluesky"
+                        icon:@"Brands/Bluesky"
+                isSystemIcon:false
                  placeholder:L(@"bluesky")];
     break;
   }

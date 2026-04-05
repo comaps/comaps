@@ -68,9 +68,9 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Добавить список</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Название списка меток</string>
+    <string name="bookmark_set_name">Название списка</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Метки</string>
+    <string name="bookmarks">Места</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Избранное</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -148,14 +148,14 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Примечание</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">С вами поделились метками CoMaps</string>
-    <string name="share_bookmarks_email_body">Здравствуйте! \n \nВ прикреплённом файле мои метки из офлайновых карт CoMaps. Для того чтобы открыть этот файл, вам потребуется приложение CoMaps, которое можно установить по ссылке: https://www.comaps.app/download/ \n \nСпасибо!</string>
+    <string name="share_bookmarks_email_subject">Мои избранные места в CoMaps</string>
+    <string name="share_bookmarks_email_body">Здравствуйте! \n \nВ прикреплённом файле мои избранные места; откройте их в CoMaps. Если у вас не установлен CoMaps, приложение можно скачать отсюда: https://www.comaps.app/download/ \n \nПриятного путешествия с CoMaps!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Загрузка меток</string>
+    <string name="load_kmz_title">Загрузка избранных</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Метки успешно загружены! Вы можете увидеть их на карте или в ваших сохранённых метках.</string>
+    <string name="load_kmz_successful">Избранные успешно загружены! Вы можете увидеть их на карте или в Ваших Избранных.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Файл с метками не был загружен. Возможно, файл повреждён или неисправен.</string>
+    <string name="load_kmz_failed">Файл с избранными не был загружен. Возможно, файл повреждён или неисправен.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Тип файла не поддерживается приложением: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Идет процесс скачивание карты</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Смотри где я сейчас! Жми %1$s или %2$s Нету автономных карт? Скачай тут https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Моя метка на карте CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Смотри моё текущее местоположение на карте CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Привет! \n \nЯ сейчас здесь: %1$s. Чтобы увидеть это место на карте CoMaps, открой эту ссылку %2$s или эту %3$s \n \nСпасибо.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Поделиться</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -236,7 +232,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Новости</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Связаться с нами</string>
+    <string name="feedback">Обратная связь</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Оценить приложение</string>
     <!-- Text in menu -->
@@ -271,7 +267,7 @@
     <string name="downloader_download_all_button">Загрузить все</string>
     <string name="downloader_downloading">Загружается:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Чтобы удалить карту, пожалуйста, остановите ведение</string>
+    <string name="downloader_delete_map_while_routing_dialog">Чтобы удалить карту, пожалуйста, остановите навигацию</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Маршрут может быть проложен только внутри карты одного региона.</string>
     <!-- Context menu item for downloader. -->
@@ -402,13 +398,7 @@
     <string name="editor_example_values">Примеры значений</string>
     <string name="editor_correct_mistake">Исправьте ошибку</string>
     <string name="editor_add_select_location">Выберите местоположение</string>
-    <string name="editor_report_problem_desription_1">Пожалуйста, напишите подробно о проблеме, чтобы сообщество OpenStreetMap исправило ошибку.</string>
-    <string name="editor_report_problem_desription_2">Или сделайте это самостоятельно на сайте https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Отправить</string>
-    <string name="editor_report_problem_title">Проблема</string>
-    <string name="editor_report_problem_no_place_title">Места не существует</string>
-    <string name="editor_report_problem_under_construction_title">Закрыто на ремонт</string>
-    <string name="editor_report_problem_duplicate_place_title">Повторяющееся место</string>
     <string name="autodownload">Автозагрузка карт</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Ежедневно</string>
@@ -474,7 +464,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d из %2$d</string>
     <string name="download_over_mobile_header">Загрузить через сотовую связь?</string>
-    <string name="download_over_mobile_message">На некоторых тарифных планах или в роуминге это может привести к значительным расходам</string>
+    <string name="download_over_mobile_message">На некоторых тарифных планах или в роуминге это может привести к значительным расходам.</string>
     <string name="error_enter_correct_house_number">Введите корректный номер дома</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Количество этажей не должно превышать %d</string>
@@ -493,7 +483,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Оператор: %s</string>
     <string name="editor_category_unsuitable_title">Нет подходящей категории?</string>
-    <string name="editor_category_unsuitable_text">CoMaps позволяет добавлять на карту только простые типы объектов, то есть никаких городов, дорог, озер, контуров зданий. Пожалуйста, добавляйте такие категории на сайте <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Также рекомендуем ознакомиться с нашими <a href="https://www.comaps.app/support/advanced-map-editing/">подробными пошаговыми инструкциями и другими приложениями для редактирования карты</a>.</string>
+    <string name="editor_category_unsuitable_text">CoMaps может добавлять на карту только простые типы объектов. Города, дороги, озёра, контуры зданий, и т.д. через CoMaps добавить нельзя. Пожалуйста, добавляйте такие категории напрямую на сайте <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ознакомьтесь с нашим <a href="https://www.comaps.app/support/advanced-map-editing/">гайдом</a> для подробных пошаговых инструкций.</string>
     <string name="downloader_no_downloaded_maps_title">У вас нет загруженных карт</string>
     <string name="downloader_no_downloaded_maps_message">Скачайте необходимые карты, чтобы находить места и пользоваться ведением без интернета</string>
     <string name="current_location_unknown_error_title">Текущее местоположение неизвестно</string>
@@ -504,7 +494,7 @@
     <string name="minute">мин</string>
     <string name="day">д</string>
     <string name="placepage_more_button">Ещё</string>
-    <string name="placepage_edit_bookmark_button">Редактировать метку</string>
+    <string name="placepage_edit_bookmark_button">Редактировать избранное место</string>
     <string name="placepage_personal_notes_hint">Примечание (текст или html)</string>
     <string name="editor_reset_edits_message">Сбросить все локальные правки?</string>
     <string name="editor_reset_edits_button">Отменить изменения</string>
@@ -553,7 +543,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Отправить отзыв</string>
     <string name="prefs_languages_information">Подсказки озвучиваются системным синтезатором речи (TTS). На многих устройствах используется Google TTS, его можно загрузить или обновить в Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Для некоторых языков, возможно, необходимо установить дополнительный синтезатор речи (TTS) из магазина приложений (Google Play, Galaxy Store, App Gallery, FDroid). \nЧтобы настроить синтезатор речи, перейдите в Настройки → Язык и ввод → Синтез речи. \nЗдесь можно установить дополнительные языковые пакеты или выбрать синтезатор речи.</string>
+    <string name="prefs_languages_information_off">Для некоторых языков, возможно, необходимо установить дополнительный синтезатор речи (TTS) из магазина приложений (Google Play, Galaxy Store, App Gallery, FDroid). \nЧтобы настроить синтезатор речи, перейдите в Настройки → Язык и ввод → Синтез речи. \nЗдесь можно установить дополнительные языковые пакеты или выбрать другой синтезатор речи.</string>
     <string name="prefs_languages_information_off_link">Ознакомьтесь с подробностями в этом руководстве</string>
     <string name="transliteration_title">Транслитерация в латиницу</string>
     <string name="learn_more">Узнать больше</string>
@@ -569,19 +559,19 @@
     <string name="dialog_error_storage_message">Внешняя память устройства недоступна, возможно SD карта была удалена, повреждена или файловая система доступна только для чтения. Проверьте это и свяжитесь, пожалуйста, с нами support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Эмуляция ошибки с внешней памятью</string>
     <string name="error_enter_correct_name">Пожалуйста, введите название правильно</string>
-    <string name="bookmark_lists">Списки</string>
+    <string name="bookmark_lists">Списки Избранных</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Скрыть все</string>
     <string name="bookmark_lists_show_all">Показать все</string>
     <plurals name="bookmarks_places">
-        <item quantity="one">%d метка</item>
-        <item quantity="few">%d метки</item>
-        <item quantity="many">%d меток</item>
-        <item quantity="other">%d меток</item>
+        <item quantity="one">%d избранное место</item>
+        <item quantity="few">%d избранных места</item>
+        <item quantity="many">%d избранных мест</item>
+        <item quantity="other">%d избранных мест</item>
     </plurals>
     <string name="bookmarks_create_new_group">Создать новый список</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Импортировать метки и треки</string>
+    <string name="bookmarks_import">Импортировать Избранные</string>
     <string name="bookmarks_error_message_share_general">Не удалось поделиться из-за ошибки приложения</string>
     <string name="bookmarks_error_title_share_empty">Ошибка при попытке поделиться</string>
     <string name="bookmarks_error_message_share_empty">Нельзя делиться пустыми списками</string>
@@ -594,7 +584,7 @@
     <string name="phone_number">Номер телефона</string>
     <string name="profile">Профиль OpenStreetMap</string>
     <plurals name="bookmarks_detect_message">
-        <item quantity="one">%d файл был найден. Вы увидите его после конвертации.</item>
+        <item quantity="one">Был найден один файл. Вы увидите его после конвертации.</item>
         <item quantity="few">%d файла были найдены. Вы увидите их после конвертации.</item>
         <item quantity="many">%d файлов были найдены. Вы увидите их после конвертации.</item>
         <item quantity="other">%d файлов были найдены. Вы увидите их после конвертации.</item>
@@ -614,7 +604,7 @@
     <string name="subway">Метро</string>
     <string name="layers_title">Стили и слои карты</string>
     <string name="bookmarks_empty_list_title">Список пустой</string>
-    <string name="bookmarks_empty_list_message">Чтобы добавить метку, нажмите на место на карте, а затем на иконку звёздочки</string>
+    <string name="bookmarks_empty_list_message">Чтобы добавить место, нажмите на место на карте, а затем на иконку звёздочки</string>
     <string name="category_desc_more">…ещё</string>
     <string name="export_file">Экспортировать в KMZ</string>
     <string name="export_file_gpx">Экспортировать в GPX</string>
@@ -662,12 +652,14 @@
     <string name="capacity">Вместимость: %s</string>
     <!-- To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="network">Сеть: %s</string>
+    <!-- Population of cities, towns, etc. -->
+    <string name="population">Население: %s</string>
     <string name="trip_finished">Вы прибыли!</string>
     <string name="ok">Ок</string>
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Сортировать…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Сортировать метки</string>
+    <string name="sort_bookmarks">Сортировать избранные</string>
     <!-- Android -->
     <string name="by_default">По умолчанию</string>
     <!-- Android -->
@@ -789,7 +781,7 @@
     <string name="browser_not_available">Веб-браузер недоступен</string>
     <string name="volume">Громкость</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Экспортировать все метки и треки</string>
+    <string name="bookmarks_export">Экспортировать все избранные</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Системные настройки синтеза речи</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -821,7 +813,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Продолжить запись</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Сохранить в метки и треки?</string>
+    <string name="track_recording_alert_title">Сохранить в Избранные?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Трек пуст - нечего сохранять</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -844,20 +836,20 @@
     <string name="editor_level">Этаж (0 это первый этаж)</string>
     <string name="error_enter_correct_level">Введите правильный номер этажа</string>
     <string name="about_help">О программе и помощь</string>
-    <string name="bookmark_color">Цвет метки</string>
+    <string name="bookmark_color">Цвет избранного</string>
     <string name="bicycle">Велосипед</string>
     <string name="vehicle">Вид транспорта</string>
     <string name="pedestrian">Пешеход</string>
     <string name="clear">Очистить</string>
     <string name="route_type">Вид маршрута</string>
     <!-- Settings "Backup" category: "Backup" title -->
-    <string name="pref_backup_title">Резервное копирование меток и треков</string>
+    <string name="pref_backup_title">Резервное копирование избранных</string>
     <string name="pref_backup_summary">Автоматически сохранять в папку на Вашем устройстве</string>
     <string name="pref_backup_now_title">Сделать резервную копию</string>
     <string name="pref_backup_now_summary">Создать резервную копию прямо сейчас</string>
     <string name="pref_backup_now_summary_progress">Идёт резервное копирование…</string>
     <string name="pref_backup_now_summary_ok">Резервная копия сделана успешно</string>
-    <string name="pref_backup_now_summary_empty_lists">Нет меток и треков для резервного копирования</string>
+    <string name="pref_backup_now_summary_empty_lists">Нет избранных для резервного копирования</string>
     <string name="pref_backup_now_summary_failed">Ошибка при резервном копировании</string>
     <string name="pref_backup_now_summary_folder_unavailable">Папка для резервных копий недоступна</string>
     <string name="pref_backup_status_summary_success">Последнее успешное копирование</string>
@@ -923,5 +915,44 @@
     <string name="place_page_map_too_old_title">Данные карты устарели</string>
     <string name="place_page_update_too_old_map">Обновить регион карты</string>
     <string name="place_page_too_old_to_edit">Редактирование OpenStreetMap отключено, так как данные карты слишком старые.</string>
-    <string name="pref_alt_map_lang_handling_local_only">Prefer and only use where native</string>
+    <string name="pref_alt_map_lang_handling_local_only">Предпочитать и использовать только там, где они исконные</string>
+    <string name="pref_speedlimit_title">Отображать ограничения скорости</string>
+    <string name="download_resources_custom_url_title">Альтернативный сервер карт</string>
+    <string name="download_resources_custom_url_message">Переопределить сервер карт по умолчанию, используемый для их загрузки. Оставьте поле пустым, чтобы использовать сервер CoMaps по умолчанию.</string>
+    <string name="pref_alt_map_lang_handling">Альтернативные языки карты</string>
+    <string name="pref_openexternallinks_title">Автоматически открывать сторонние ссылки</string>
+    <string name="pref_openexternallinks_summary">Открывать сторонние ссылки в CoMaps по умолчанию</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Не использовать альтернативные</string>
+    <string name="pref_alt_map_lang_handling_system_order">Использовать в соответствие с системой</string>
+    <string name="place_page_map_too_old_description">Ваши текущие данные карт слишком устаревшие, пожалуйста, обновите их.</string>
+    <string name="place_page_app_too_old_description">Ваши текущие данные карт слишком устаревшие, пожалуйста, обновите приложение CoMaps.</string>
+    <string name="prefs_speed_cameras_information">Предупреждения про камеры фиксации скорости отключены в тех странах, где это запрещено местным законодательством.</string>
+    <string name="location_privacy_info">Приложения получают данные местоположения из вашего системного провайдера местоположения, который может выдать ваше местоположение Google и/или производителю вашего устройства. Используйте кастомные прошивки Android, ориентированные на приватность, чтобы избежать этого.</string>
+    <string name="building_route">Прокладка маршрута…</string>
+    <string name="route_not_started">Маршрут не начат</string>
+    <string name="on_route">По пути</string>
+    <string name="route_needs_rebuild">Маршрут следует перестроить</string>
+    <string name="route_finished">Маршрут закончен</string>
+    <string name="not_following_route">Не следуя маршруту</string>
+    <string name="bookmark_share_email_subject">Откройте эту ссылку %1$s или вставьте эти координаты %2$s в Ваше приложение карт, чтобы увидеть это место.</string>
+    <string name="my_position_share_email">Откройте эту ссылку %1$s или вставьте эти координаты %2$s в Ваше приложение карт, чтобы увидеть моё местоположение.</string>
+    <string name="mb_downloaded">%1$d МБ / %2$d МБ</string>
+    <string name="pref_maplanguage_local">Местный Язык</string>
+    <string name="power_management">Энергопотребление</string>
+    <string name="destination">Назначение</string>
+    <string name="stop">Остановка</string>
+    <string name="navigation_start_tts_message">"Запуск Навигации, язык голосовых подсказок: "</string>
+    <string name="navigation_start_tts_disabled_message">Голосовые подсказки отключены: Движок TTS не доступен</string>
+    <string name="charge_socket_type2_combo">Type 2 combo</string>
+    <string name="charge_socket_type1">Type 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_schuko">Домашняя европейская</string>
+    <string name="advanced">Расширенные</string>
+    <string name="download_resources_custom_url_error_scheme">Пожалуйста, введите URL, начинающийся с http:// или https://</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="download_resources_custom_url_summary_none">Не настроено</string>
+    <string name="rooms">%s комнат</string>
+    <string name="invalid_route">Неверный маршрут</string>
+    <string name="route_recalculating">Пересчёт маршрута…</string>
+    <string name="location_privacy">Приватность местоположения</string>
 </resources>

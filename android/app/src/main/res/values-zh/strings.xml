@@ -170,12 +170,8 @@
     <string name="downloading_is_active">地图下载正在进行中</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">嘿，在 CoMaps 上查看我目前的位置吧！请打开 %1$s 或 %2$s 链接，还没安装离线地图？在此下载: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">嘿，看看我在 CoMaps 上标记的图钉吧！</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">嗨，到 CoMaps 查看我当前的位置！</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">嗨， \n \n我现在在这：%1$s。点击此链接 %2$s 或此链接 %3$s 来查看在地图上的位置。 \n \n谢谢。</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">分享</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -406,13 +402,7 @@
     <string name="editor_example_values">示例值</string>
     <string name="editor_correct_mistake">纠正错误</string>
     <string name="editor_add_select_location">选择地点</string>
-    <string name="editor_report_problem_desription_1">请详细描述此问题以便 OpenStreetMap 社区能够修复此错误。</string>
-    <string name="editor_report_problem_desription_2">或者在 https://www.openstreetmap.org/ 上亲自修复此错误</string>
     <string name="editor_report_problem_send_button">发送</string>
-    <string name="editor_report_problem_title">问题</string>
-    <string name="editor_report_problem_no_place_title">该地点不存在</string>
-    <string name="editor_report_problem_under_construction_title">因维护而关闭</string>
-    <string name="editor_report_problem_duplicate_place_title">重复的地点</string>
     <string name="autodownload">自动下载</string>
     <!-- Place Page opening hours text -->
     <string name="daily">每天</string>
@@ -780,7 +770,7 @@
     <string name="browser_not_available">网络浏览器不可用</string>
     <string name="volume">音量</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">导出所有地点和轨迹</string>
+    <string name="bookmarks_export">导出所有收藏</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">文本转语音系统设置</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -850,7 +840,7 @@
     <string name="pref_backup_now_summary_progress">正在备份…</string>
     <string name="pref_backup_now_summary_ok">备份已成功完成</string>
     <string name="pref_backup_title">备份收藏</string>
-    <string name="pref_backup_now_summary_empty_lists">没有要备份的地点和轨迹</string>
+    <string name="pref_backup_now_summary_empty_lists">没有要备份的收藏</string>
     <string name="pref_backup_now_summary_failed">备份失败</string>
     <string name="pref_backup_now_summary_folder_unavailable">备份文件夹不可用</string>
     <string name="pref_backup_status_summary_success">上次成功备份</string>
@@ -869,7 +859,7 @@
     <string name="osm_note_hint">或者，也可以为 OpenStreetMap 社区留下注记，以便其他人可以在此添加或修复地点。</string>
     <string name="osm_note_toast">注记将发送至 OpenStreetMap</string>
     <string name="existence_confirmed_time_ago">已于%s确认地点存在</string>
-    <string name="delete_track_dialog_title">是否删除%s？</string>
+    <string name="delete_track_dialog_title">是否删除 %s？</string>
     <string name="hours_confirmed_time_ago">已于%s确认</string>
     <string name="share_track">分享轨迹</string>
     <string name="pref_tts_no_system_tts_short">未找到文字转语音引擎，请检查应用设置</string>
@@ -935,11 +925,17 @@
     <string name="route_needs_rebuild">需要重新规划路线</string>
     <string name="route_finished">导航结束</string>
     <string name="not_following_route">已偏航</string>
-    <string name="rebuilding_route">正在重新规划路线…</string>
     <string name="pref_alt_map_lang_handling">备选地图语言</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">不使用备选语言</string>
     <string name="pref_alt_map_lang_handling_system_order">按系统顺序使用</string>
     <string name="pref_alt_map_lang_handling_local_only">优先使用并仅在使用本地语言时使用</string>
     <string name="pref_openexternallinks_title">自动打开第三方链接</string>
     <string name="pref_openexternallinks_summary">在 CoMaps 中默认打开第三方链接</string>
+    <string name="bookmark_share_email_subject">点击此链接 %1$s 或将这些坐标 %2$s 粘贴到您的地图应用中即可查看此位置。</string>
+    <string name="my_position_share_email">点击此链接 %1$s 或将这些坐标 %2$s 粘贴到您的地图应用中即可查看我的位置。</string>
+    <string name="destination">目的地</string>
+    <string name="route_recalculating">正在重新计算路线…</string>
+    <string name="stop">途经点</string>
+    <string name="charge_socket_type1_combo">Type 1 Combo</string>
+    <string name="population">人口：%s</string>
 </resources>

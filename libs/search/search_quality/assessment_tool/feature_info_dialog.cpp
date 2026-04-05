@@ -57,23 +57,23 @@ FeatureInfoDialog::FeatureInfoDialog(QWidget * parent, osm::MapObject const & ma
   }
 
   {
-    LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-    vector<LanguageIndex> languageIndexes = {{localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex}};
-    if (localeCode != localisation::kUnsupportedLanguageIndex &&
-        ::find(languageIndexes.begin(), languageIndexes.end(), localeCode) == languageIndexes.end())
+    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+    vector<localisation::LanguageIndex> languageIndexes = {{localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex}};
+    if (languageIndex != localisation::kUnsupportedLanguageIndex &&
+        ::find(languageIndexes.begin(), languageIndexes.end(), languageIndex) == languageIndexes.end())
     {
-        languageIndexes.push_back(localeCode);
+        languageIndexes.push_back(languageIndex);
     }
 
-    for (auto const & code : languageIndexes)
+    for (auto const & languageIndex : languageIndexes)
     {
       string_view name;
-      if (!mapObject.GetNameMultilang().GetString(code, name))
+      if (!mapObject.GetNameMultilang().GetString(languageIndex, name))
         continue;
 
-      auto const lang = localisation::ConvertLanguageCodeToLanguageIndex(code);
-      CHECK(!lang.empty(), ("Can't find lang by code:", code));
-      auto * label = new QLabel(QString::fromStdString(std::string{lang} + ":"));
+      localisation::LanguageCode const languageCode = localisation::ConvertLanguageIndexToLanguageCode(languageIndex);
+      CHECK(!languageCode.empty(), ("Can't find lang by code:", languageIndex));
+      auto * label = new QLabel(QString::fromStdString(languageCode + ":"));
       auto * content = MakeSelectableLabel(std::string{name});
 
       AddRow(*layout, label, content);

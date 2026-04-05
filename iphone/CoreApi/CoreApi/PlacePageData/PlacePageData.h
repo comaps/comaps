@@ -3,7 +3,7 @@
 
 #import "MWMTypes.h"
 
-@class PlacePageButtonsData;
+@class PlacePageOSMContributionData;
 @class PlacePageTrackData;
 @class PlacePagePreviewData;
 @class PlacePageInfoData;
@@ -34,10 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(class, nonatomic, readonly) BOOL hasData;
 
-@property(nonatomic, readonly, nullable) PlacePageButtonsData *buttonsData;
-@property(nonatomic, readonly) PlacePagePreviewData *previewData;
-@property(nonatomic, readonly, nullable) PlacePageInfoData *infoData;
-@property(nonatomic, readonly, nullable) PlacePageBookmarkData *bookmarkData;
+@property(nonatomic, readonly, nullable) PlacePageOSMContributionData * osmContributionData;
+@property(nonatomic, readonly) PlacePagePreviewData * previewData;
+@property(nonatomic, readonly, nullable) PlacePageInfoData * infoData;
+@property(nonatomic, readonly, nullable) PlacePageBookmarkData * bookmarkData;
 @property(nonatomic, readonly) PlacePageRoadType roadType;
 @property(nonatomic, readonly, nullable) NSString *wikiDescriptionHtml;
 @property(nonatomic, readonly, nullable) PlacePageTrackData *trackData;

@@ -597,14 +597,8 @@ node|z16-[historic=cross],
 node|z16-[man_made=cross],
 node|z16-[historic=tomb],
 node|z16-[tourism=aquarium],
-node|z17-[attraction=animal],
-node|z17-[attraction=amusement_ride],
-node|z17-[attraction=carousel],
-node|z17-[attraction=roller_coaster],
-node|z17-[attraction=maze],
-node|z17-[attraction=historic],
-node|z17-[attraction=big_wheel],
-node|z17-[attraction=bumper_car],
+node|z16-[attraction],
+node|z17-[attraction=water_slide],
 node|z17-[historic=ruins],
 node|z17-[historic=wayside_shrine],
 node|z17-[historic=archaeological_site],
@@ -820,17 +814,19 @@ node|z15[tourism=theme_park],
 node|z16-[tourism=theme_park],
 {icon-image: theme_park-m.svg;icon-min-distance: 24;}
 
-node|z17-[attraction=animal],
-{icon-image: animal-m.svg;icon-min-distance: 24;}
+node|z16-[attraction],
+{icon-image: attraction-m.svg;icon-min-distance: 24;}
 
-node|z17-[attraction=amusement_ride],
-node|z17-[attraction=carousel],
-node|z17-[attraction=roller_coaster],
-node|z17-[attraction=maze],
-node|z17-[attraction=historic],
-node|z17-[attraction=big_wheel],
-node|z17-[attraction=bumper_car],
-{icon-image: playground-m.svg;icon-min-distance: 24;}
+node|z16-[attraction=animal],
+{icon-image: animal-m.svg;}
+
+node|z16-[attraction=historic],
+{icon-image: historic_attraction-m.svg;}
+
+node|z16[attraction=water_slide],
+{text: none; icon-image: none}
+node|z17-[attraction=water_slide],
+{icon-image: water_slide-m.svg;icon-min-distance: 24;}
 
 node|z15-[amenity=community_centre],
 node|z16-[amenity=conference_centre],
@@ -1066,8 +1062,10 @@ node|z16-[leisure=sports_centre],
 node|z16-[leisure=sports_centre][sport=american_football],
 node|z16-[leisure=sports_centre][sport=basketball],
 node|z16-[leisure=sports_centre][sport=baseball],
+node|z16-[leisure=sports_centre][sport=boules],
 node|z16-[leisure=sports_centre][sport=equestrian],
 node|z16-[leisure=sports_centre][sport=soccer],
+node|z16-[leisure=sports_centre][sport=four_square],
 node|z16-[leisure=sports_centre][sport=futsal],
 node|z16-[leisure=sports_centre][sport=tennis],
 node|z16-[leisure=sports_centre][sport=skiing],
@@ -1334,6 +1332,10 @@ node|z17-[sport=baseball],
 {icon-image: baseball-m.svg;}
 node|z16-[leisure=sports_centre][sport=baseball],
 {icon-image: baseball-centre-m.svg;}
+node|z17-[sport=boules],
+{icon-image: boules-m.svg;}
+node|z16-[leisure=sports_centre][sport=boules],
+{icon-image: boules-centre-m.svg;}
 node|z17-[sport=equestrian],
 {icon-image: equestrian-m.svg;}
 node|z16-[leisure=sports_centre][sport=equestrian],
@@ -1383,6 +1385,10 @@ node|z17-[sport=climbing],
 {icon-image: climbing-m.svg;}
 node|z16-[leisure=sports_centre][sport=climbing],
 {icon-image: climbing-centre-m.svg;}
+node|z17-[sport=four_square],
+{icon-image: four_square-m.svg;}
+node|z16-[leisure=sports_centre][sport=four_square],
+{icon-image: four_square-centre-m.svg;}
 node|z17-[sport=golf],
 {icon-image: golf-m.svg;}
 node|z16-[leisure=sports_centre][sport=golf],
@@ -1935,6 +1941,7 @@ node|z16-[shop=convenience],
 node|z16-[shop=deli],
 node|z16-[shop=farm],
 node|z16-[shop=grocery],
+node|z16-[shop=water],
 node|z16-[shop=health_food],
 node|z16-[shop=copyshop],
 node|z16-[shop=photo],
@@ -2080,6 +2087,8 @@ node|z16[shop=farm],
 node|z16[shop=grocery],
 node|z16[shop=health_food],
 {icon-image: convenience-m.svg;}
+node|z16-[shop=water],
+{icon-image: shop-water-m.svg;}
 node|z16[shop=copyshop],
 {icon-image: copyshop-m.svg;}
 node|z16[shop=camera],

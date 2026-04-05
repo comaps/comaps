@@ -226,7 +226,7 @@ void TestLeavingRoute(RoutingSession & session, location::GpsInfo const & info)
 {
   vector<double> const latitudes = {0.0,    -0.001, -0.002, -0.003, -0.004, -0.005,
                                     -0.006, -0.007, -0.008, -0.009, -0.01,  -0.011};
-  SessionStateTest sessionStateTest({SessionState::OnRoute, SessionState::RouteNeedRebuild}, session);
+  SessionStateTest sessionStateTest({SessionState::OnRoute, SessionState::RouteNeedsRebuild}, session);
   TestMovingByUpdatingLat(sessionStateTest, latitudes, info, session);
 }
 
@@ -331,7 +331,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteRebuildingMovingA
       code = m_session->OnLocationPositionChanged(info);
       info.m_latitude -= 0.1;
     }
-    TEST_EQUAL(code, SessionState::RouteNeedRebuild, ());
+    TEST_EQUAL(code, SessionState::RouteNeedsRebuild, ());
     checkTimedSignal.Signal();
   });
   TEST(checkTimedSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not rebuilt."));
@@ -364,7 +364,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteRebuildingMovingT
 
   // Going starting far from the route and moving to the route but rebuild flag still is set.
   {
-    SessionStateTest sessionStateTest({SessionState::RouteNotStarted, SessionState::RouteNeedRebuild}, *m_session);
+    SessionStateTest sessionStateTest({SessionState::RouteNotStarted, SessionState::RouteNeedsRebuild}, *m_session);
     TimedSignal checkTimedSignalAway;
     GetPlatform().RunTask(Platform::Thread::Gui, [&checkTimedSignalAway, &info, this]()
     {
@@ -379,7 +379,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteRebuildingMovingT
           info.m_latitude += 0.1;
         }
       }
-      TEST_EQUAL(code, SessionState::RouteNeedRebuild, ());
+      TEST_EQUAL(code, SessionState::RouteNeedsRebuild, ());
       checkTimedSignalAway.Signal();
     });
     TEST(checkTimedSignalAway.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not rebuilt."));
@@ -454,7 +454,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowRouteFlagPersist
       code = m_session->OnLocationPositionChanged(info);
       info.m_latitude -= 0.1;
     }
-    TEST_EQUAL(code, SessionState::RouteNeedRebuild, ());
+    TEST_EQUAL(code, SessionState::RouteNeedsRebuild, ());
     TEST(m_session->IsFollowing(), ());
 
     m_session->RebuildRoute(kTestRoute.front(), [&rebuildTimedSignal](Route const &, RouterResultCode)
@@ -580,7 +580,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteRebuildingError)
 
   // Continue moving along the route.
   {
-    SessionStateTest sessionStateTest({SessionState::RouteNeedRebuild, SessionState::OnRoute}, *m_session);
+    SessionStateTest sessionStateTest({SessionState::RouteNeedsRebuild, SessionState::OnRoute}, *m_session);
     vector<double> const latitudes = {0.002, 0.0025, 0.003};
     TestMovingByUpdatingLat(sessionStateTest, latitudes, info, *m_session);
   }
@@ -590,7 +590,7 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestRouteRebuildingError)
   // In this case the navigation is continued based on the former route.
   TestLeavingRoute(*m_session, info);
   {
-    SessionStateTest sessionStateTest({SessionState::RouteNeedRebuild, SessionState::RouteRebuilding}, *m_session);
+    SessionStateTest sessionStateTest({SessionState::RouteNeedsRebuild, SessionState::RouteRebuilding}, *m_session);
     TimedSignal signal;
     GetPlatform().RunTask(Platform::Thread::Gui, [this, &signal]()
     {

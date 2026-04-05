@@ -38,6 +38,22 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
   return [dateFormatter dateFromString:dateString];
 }
 
+/// Format integer string
+NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
+  if (!integerString || integerString.length == 0) {
+    return nil;
+  }
+  
+  static NSNumberFormatter *numberFormatter = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+  });
+  
+  return [numberFormatter stringFromNumber:[NSNumber numberWithInteger: [integerString integerValue]]];
+}
+
 @implementation PlacePageInfoData
 
 - (NSDate * _Nullable)getMostRecentCheckDate {
@@ -123,7 +139,8 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
           break;
         case MetadataID::FMD_LEVEL: _level = ToNSString(value); break;
         case MetadataID::FMD_CAPACITY: _capacity = [NSString stringWithFormat:NSLocalizedString(@"capacity", nil), ToNSString(value)]; break;
-        case MetadataID::FMD_ROOMS: _rooms = [NSString stringWithFormat:NSLocalizedString(@"rooms", nil), ToNSString(value)]; break;
+        case MetadataID::FMD_ROOMS: _rooms = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"rooms", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
+        case MetadataID::FMD_CHARGE: _charge = ToNSString(value); break;
         case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
@@ -136,6 +153,8 @@ NSDate * _Nullable ParseDateString(NSString * _Nullable dateString) {
             _outdoorSeating = NSLocalizedString(@"outdoor_seating", nil);
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
+        case MetadataID::FMD_POPULATION: _population = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"population", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
+
         default:
           break;
       }

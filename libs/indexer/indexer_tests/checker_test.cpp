@@ -118,11 +118,11 @@ UNIT_TEST(GetHighwayClassTest)
   TEST_EQUAL(ftypes::GetHighwayClass(types4), ftypes::HighwayClass::Undefined, ());
 }
 
-UNIT_TEST(IsAttractionsChecker)
+UNIT_TEST(IsIsPartOfTourismAttractionsChecker)
 {
   classificator::Load();
   Classificator const & c = classif();
-  auto const & checker = ftypes::AttractionsChecker::Instance();
+  auto const & isPartOfTourismAttractions = ftypes::IsPartOfTourismAttractionsChecker::Instance();
 
   base::StringIL arrExceptions[] = {
       {"tourism", "information"},
@@ -134,7 +134,7 @@ UNIT_TEST(IsAttractionsChecker)
 
   for (uint32_t const t : search::GetCategoryTypes("sights", "en", GetDefaultCategories()))
     if (!base::IsExist(exceptions, ftype::Trunc(t, 2)))
-      TEST(checker(t), (c.GetFullObjectName(t)));
+      TEST(isPartOfTourismAttractions(t), (c.GetFullObjectName(t)));
 }
 
 UNIT_TEST(IsMotorwayJunctionChecker)

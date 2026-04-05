@@ -2,6 +2,8 @@
 
 #include "search/reverse_geocoder.hpp"
 
+#include "geometry/mercator.hpp"
+
 #include "storage/country_info_getter.hpp"
 
 #include "indexer/classificator.hpp"
@@ -290,9 +292,6 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
 
   auto const subtypes = strings::JoinStrings(feature::GetLocalizedSubtypes(typesHolder), feature::kFieldsSeparator);
 
-  auto const cuisines = feature::GetLocalizedCuisines(typesHolder);
-  auto const cuisine = strings::JoinStrings(cuisines, feature::kFieldsSeparator);
-
   auto const roadShields = ftypes::GetRoadShieldsNames(ft);
   auto const roadShield = strings::JoinStrings(roadShields, feature::kFieldsSeparator);
 
@@ -316,7 +315,6 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
   append(roadShield);
   append(brand);
   append(elevation);
-  append(cuisine);
   append(subtypes);
   append(fee);
 

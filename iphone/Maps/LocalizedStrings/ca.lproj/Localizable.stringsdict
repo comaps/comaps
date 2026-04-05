@@ -5,61 +5,133 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Cap marcador</string>
 			<key>one</key>
-			<string>%d marcador</string>
+			<string>%lld marcador</string>
 			<key>many</key>
-			<string>%d marcadors</string>
+			<string>%lld marcadors</string>
 			<key>other</key>
-			<string>%d marcadors</string>
+			<string>%lld marcadors</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>S'han trobat %d fitxers. Podeu veure'ls després de la conversió.</string>
+			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
 			<key>one</key>
-			<string>S'ha trobat %d fitxer. Podeu veure'l després de la conversió.</string>
+			<string>S&apos;ha trobat %lld fitxer. Podeu veure&apos;l després de la conversió.</string>
 			<key>many</key>
-			<string>S'han trobat %d fitxers. Podeu veure'ls després de la conversió.</string>
+			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
 			<key>other</key>
-			<string>S'han trobat %d fitxers. Podeu veure'ls després de la conversió.</string>
+			<string>S&apos;han trobat %lld fitxers. Podeu veure&apos;ls després de la conversió.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d recorreguts</string>
+			<string>%lld recorreguts</string>
 			<key>one</key>
-			<string>%d recorregut</string>
+			<string>%lld recorregut</string>
 			<key>many</key>
-			<string>%d recorreguts</string>
+			<string>%lld recorreguts</string>
 			<key>other</key>
-			<string>%d recorreguts</string>
+			<string>%lld recorreguts</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Cap resident</string>
+			<key>one</key>
+			<string>%lld resident</string>
+			<key>many</key>
+			<string>%lld residents</string>
+			<key>other</key>
+			<string>%lld residents</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Cap habitació</string>
+			<key>one</key>
+			<string>%lld habitació</string>
+			<key>many</key>
+			<string>%lld habitacions</string>
+			<key>other</key>
+			<string>%lld habitacions</string>
 		</dict>
 	</dict>
 </dict>

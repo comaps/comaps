@@ -262,7 +262,6 @@
     <string name="type.cuisine.international">Διεθνής</string>
     <string name="type.cuisine.irish">Ιρλανδέζικη</string>
     <string name="type.cuisine.italian">Ιταλική</string>
-    <string name="type.cuisine.italian_pizza">Ιταλική, Πίτσα</string>
     <string name="type.cuisine.japanese">Ιαπωνική</string>
     <string name="type.cuisine.kebab">Κεμπάπ</string>
     <string name="type.cuisine.korean">Κορεάτικη</string>
@@ -510,8 +509,8 @@
     <string name="type.historic.memorial">Μνημείο</string>
     <string name="type.historic.memorial.cross">Σταυρός μνήμης</string>
     <string name="type.historic.memorial.plaque">Μνημείο</string>
-    <string name="type.historic.memorial.sculpture">Μνημείο</string>
-    <string name="type.historic.memorial.statue">Μνημείο</string>
+    <string name="type.historic.memorial.sculpture">Γλυπτό</string>
+    <string name="type.historic.memorial.statue">Άγαλμα</string>
     <string name="type.historic.memorial.stolperstein">Λίθοι Μνήμης</string>
     <string name="type.historic.stone">Ιστορική Πέτρα</string>
     <string name="type.historic.memorial.war_memorial">Μνημείο του Αγνώστου Στρατιώτη</string>
@@ -519,9 +518,9 @@
     <string name="type.historic.monument">Μνημείο</string>
     <string name="type.historic.pillory">Κύφωνας</string>
     <string name="type.historic.ruins">Ερείπια</string>
-    <string name="type.historic.ship">Αξιοθέατο</string>
+    <string name="type.historic.ship">Πλοίο</string>
     <string name="type.historic.tank">Ιστορική δεξαμενή</string>
-    <string name="type.historic.tomb">Αξιοθέατο</string>
+    <string name="type.historic.tomb">Τάφος</string>
     <!-- Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. -->
     <string name="type.man_made.cross">Σταυρός</string>
     <!-- Usually a Christian historical cross placed along a road. -->
@@ -534,25 +533,25 @@
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
     <string name="type.landuse.cemetery">Νεκροταφείο</string>
     <!-- In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. -->
-    <string name="type.landuse.cemetery.christian">Νεκροταφείο</string>
+    <string name="type.landuse.cemetery.christian">Χριστιανικό νεκροταφείο</string>
     <string name="type.landuse.farmland">Αγροτική γη</string>
     <string name="type.landuse.flowerbed">Παρτέρι</string>
     <string name="type.landuse.forest">Δάσος</string>
-    <string name="type.landuse.forest.coniferous">Δάσος</string>
-    <string name="type.landuse.forest.deciduous">Δάσος</string>
+    <string name="type.landuse.forest.coniferous">Κωνοφόρο δάσος</string>
+    <string name="type.landuse.forest.deciduous">Φυλλοβόλο δάσος</string>
     <string name="type.landuse.forest.mixed">Δάσος</string>
     <string name="type.landuse.grass">Γκαζόν</string>
     <string name="type.landuse.landfill">Σκουπιδότοπος</string>
     <string name="type.landuse.railway">Σιδηροδρομικές εγκαταστάσεις</string>
-    <string name="type.landuse.reservoir">Νερό</string>
-    <string name="type.leisure.dog_park">Περιοχή για βόλτα σκύλων</string>
+    <string name="type.landuse.reservoir">Ταμιευτήρας</string>
+    <string name="type.leisure.dog_park">Πάρκο σκύλων</string>
     <string name="type.leisure.fitness_centre">Κέντρο γυμναστικής</string>
     <string name="type.leisure.fitness_station">Γυμναστήριο</string>
     <string name="type.leisure.dance">Αίθουσα χορού</string>
-    <string name="type.leisure.garden">Κήπος αναψυχής</string>
-    <string name="type.leisure.garden.residential">Κήπος αναψυχής</string>
+    <string name="type.leisure.garden">Κήπος</string>
+    <string name="type.leisure.garden.residential">Οικιστικός κήπος</string>
     <string name="type.leisure.golf_course">Γήπεδο γκολφ</string>
-    <string name="type.leisure.nature_reserve">Φυσικό απόθεμα</string>
+    <string name="type.leisure.nature_reserve">Προστατευόμενος βιότοπος</string>
     <string name="type.leisure.outdoor_seating">Καθίσματα εξωτερικού χώρου</string>
     <string name="type.leisure.park">Πάρκο</string>
     <string name="type.leisure.park.no.access">Ιδιωτικό πάρκο</string>
@@ -569,7 +568,7 @@
     <string name="type.leisure.swimming_pool">Πισίνα</string>
     <string name="type.leisure.swimming_pool.private">Πισίνα</string>
     <string name="type.leisure.water_park">Υδάτινο πάρκο</string>
-    <string name="type.man_made.chimney">Καμινάδα εργοστασίου</string>
+    <string name="type.man_made.chimney">Καμινάδα</string>
     <string name="type.man_made.survey_point">Γεωδαιτικό σημείο</string>
     <string name="type.man_made.lighthouse">Φάρος</string>
     <string name="type.man_made.surveillance">Κάμερα παρακολούθησης</string>
@@ -614,7 +613,7 @@
     <string name="type.natural.hot_spring">Θερμή πηγή</string>
     <string name="type.natural.water.lake">Λίμνη</string>
     <string name="type.natural.water.lock">Θάλαμος κλειδαριάς</string>
-    <string name="type.natural.water.pond">Δεξαμενή</string>
+    <string name="type.natural.water.pond">Λιμνούλα</string>
     <string name="type.natural.water.reservoir">Δεξαμενή</string>
     <string name="type.natural.water.basin">Μια λεκάνη νερού</string>
     <string name="type.natural.water.river">Ποταμός</string>
@@ -636,7 +635,7 @@
     <string name="type.natural.wetland.bog">Βάλτος</string>
     <string name="type.natural.wetland.marsh">Έλος</string>
     <string name="type.office">Γραφείο</string>
-    <string name="type.office.company">Γραφείο επιχείρησης</string>
+    <string name="type.office.company">Γραφείο εταιρείας</string>
     <string name="type.office.estate_agent">Κτηματομεσίτης</string>
     <string name="type.office.government">Κυβερνητικό γραφείο</string>
     <string name="type.office.insurance">Ασφαλιστικό γραφείο</string>
@@ -659,9 +658,9 @@
     <string name="type.place.country">Χώρα</string>
     <string name="type.place.county">Δήμος</string>
     <string name="type.place.farm">Αγρόκτημα</string>
-    <string name="type.place.hamlet">Χωριουδάκι</string>
+    <string name="type.place.hamlet">Οικισμός</string>
     <string name="type.place.island">Νησί</string>
-    <string name="type.place.islet">Νησί</string>
+    <string name="type.place.islet">Νησίδα</string>
     <string name="type.place.isolated_dwelling">Απομονωμένη κατοικία</string>
     <string name="type.place.locality">Τοποθεσία</string>
     <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
@@ -1112,12 +1111,12 @@
     <!-- Typically serviced, staff is present and food is available (compared to wilderness_hut). -->
     <string name="type.tourism.alpine_hut">Ορεινό καταφύγιο</string>
     <string name="type.tourism.apartment">Διαμέρισμα διακοπών</string>
-    <string name="type.tourism.artwork">Έργα τέχνης</string>
+    <string name="type.tourism.artwork">Έργο τέχνης</string>
     <string name="type.tourism.artwork.architecture">Έργα τέχνης</string>
-    <string name="type.tourism.artwork.painting">Έργα τέχνης</string>
-    <string name="type.tourism.artwork.sculpture">Έργα τέχνης</string>
-    <string name="type.tourism.artwork.statue">Έργα τέχνης</string>
-    <string name="type.tourism.attraction">Αξιοθέατα</string>
+    <string name="type.tourism.artwork.painting">Ζωγραφιά</string>
+    <string name="type.tourism.artwork.sculpture">Γλυπτό</string>
+    <string name="type.tourism.artwork.statue">Άγαλμα</string>
+    <string name="type.tourism.attraction">Τουριστικό αξιοθέατο</string>
     <string name="type.attraction.amusement_ride">Βόλτα ψυχαγωγίας</string>
     <string name="type.attraction.animal">Περίφραξη ζώων</string>
     <string name="type.attraction.carousel">Στροβιλοδρόμιο</string>
@@ -1125,12 +1124,12 @@
     <string name="type.attraction.maze">Λαβύρινθος</string>
     <string name="type.attraction.roller_coaster">Τρενάκι του λούνα παρκ</string>
     <string name="type.attraction.water_slide">Διαφάνεια νερού</string>
-    <string name="type.tourism.attraction.specified">Αξιοθέατα</string>
+    <string name="type.tourism.attraction.specified">Αξιοθέατο</string>
     <string name="type.tourism.camp_site">Κάμπινγκ</string>
     <string name="type.tourism.caravan_site">Χώρος για τροχόσπιτα</string>
     <!-- A rentable countryside vacation house. -->
     <string name="type.tourism.chalet">Εξοχικό σπίτι διακοπών</string>
-    <string name="type.tourism.gallery">Αξιοθέατο</string>
+    <string name="type.tourism.gallery">Γκαλερί</string>
     <string name="type.tourism.guest_house">Ξενώνας</string>
     <string name="type.tourism.hostel">Πανδοχείο</string>
     <string name="type.tourism.hotel">Ξενοδοχείο</string>
@@ -1144,7 +1143,7 @@
     <string name="type.tourism.museum">Μουσείο</string>
     <string name="type.tourism.picnic_site">Χώρος εκδρομής</string>
     <string name="type.leisure.resort">Θέρετρο</string>
-    <string name="type.tourism.theme_park">Αξιοθέατο</string>
+    <string name="type.tourism.theme_park">Θεματικό πάρκο</string>
     <string name="type.tourism.viewpoint">Θέα</string>
     <!-- Typically more basic, not staffed and free (compared to alpine_hut). -->
     <string name="type.tourism.wilderness_hut">Καλύβα</string>
@@ -1346,4 +1345,20 @@
     <string name="type.railway.crossing">Σιδηροδρομική διάβαση</string>
     <string name="type.shop.telecommunication">Κατάστημα τηλεπικοινωνιών</string>
     <string name="type.waterway.dam">Φράγμα</string>
+    <string name="type.attraction">Αξιοθέατο</string>
+    <string name="type.landuse.orchard">Οπωρώνας</string>
+    <string name="type.landuse.quarry">Λατομείο</string>
+    <string name="type.landuse.residential">Οικιστική περιοχή</string>
+    <string name="type.landuse.village_green">Γη</string>
+    <string name="type.landuse.vineyard">Αμπελώνας</string>
+    <string name="type.landuse.plant_nursery">Φυτώριο</string>
+    <string name="type.man_made.flagpole">Ιστός σημαίας</string>
+    <string name="type.man_made.mast">Ιστός</string>
+    <string name="type.man_made.works">Εργοστάσιο</string>
+    <string name="type.power">Ρεύμα</string>
+    <string name="type.power.generator">Γεννήτρια ρεύματος</string>
+    <string name="type.power.line">Γραμμή ρεύματος</string>
+    <string name="type.power.line.underground">Υπόγεια γραμμή ρεύματος</string>
+    <string name="type.amenity.bicycle_parking.covered">Στεγασμένος χώρος στάθμευσης ποδηλάτων</string>
+    <string name="type.barrier.guard_rail">Στηθαίο ασφαλείας</string>
 </resources>

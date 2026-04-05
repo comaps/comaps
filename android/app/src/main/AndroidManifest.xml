@@ -79,10 +79,6 @@
     </intent>
   </queries>
 
-  <supports-screens
-      android:largeScreens="true"
-      android:xlargeScreens="true"/>
-
   <!-- "android:resizeableActivity" allows free-form and split-screen modes -->
   <application
       android:name=".MwmApplication"
@@ -469,10 +465,6 @@
         android:name="app.organicmaps.editor.FeatureCategoryActivity"
         android:parentActivityName="app.organicmaps.MwmActivity"
         android:windowSoftInputMode="adjustResize" />
-
-    <activity
-        android:name="app.organicmaps.editor.ReportActivity"
-        android:parentActivityName="app.organicmaps.MwmActivity" />
 
     <activity
         android:name="app.organicmaps.editor.OsmLoginActivity"

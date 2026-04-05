@@ -49,14 +49,12 @@
     <string name="zoom_to_country">Amosar nel mapa</string>
     <string name="category_parking">Aparcaderu</string>
     <string name="placepage_distance">Distancia</string>
-    <string name="editor_report_problem_duplicate_place_title">Llugar duplicáu</string>
     <string name="edit_place">Editar llugar</string>
     <string name="add_language">Amestar una llingua</string>
     <string name="sort">Ordenar…</string>
     <string name="parks">Parques</string>
     <string name="elevation_profile_time">Tiempu:</string>
     <string name="miles">Milles</string>
-    <string name="editor_report_problem_no_place_title">Esti llugar nun esiste</string>
     <string name="next_button">Siguiente</string>
     <string name="self_service">Autoserviciu</string>
     <string name="parkings">Aparcaderu</string>

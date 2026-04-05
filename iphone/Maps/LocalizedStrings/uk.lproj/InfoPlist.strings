@@ -1,15 +1,10 @@
-
 /* Used in home screen quick actions. */
 "search" = "Пошук";
-
 /* Used in home screen quick actions. */
 "bookmarks_and_tracks" = "Улюблені";
-
 /* Used in home screen quick actions. */
 "route" = "Маршрут";
-
 /* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
 "NSLocationAlwaysUsageDescription" = "Визначення розташування у фоновому режимі необхідно для повноцінного користування застосунком. Воно використовується під час руху по маршруту та для збереження шляху, що було нещодавно пройдено.";
-
 /* Needed to explain why we require access to GPS coordinates when the app is active. */
 "NSLocationWhenInUseUsageDescription" = "Визначення розташування використовується в русі за маршрутом і збереженні нещодавно пройденого шляху.";

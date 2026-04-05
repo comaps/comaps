@@ -163,8 +163,6 @@
     <string name="editor_time_simple">Einfaldur hamur</string>
     <string name="editor_correct_mistake">Leiðrétta mistök</string>
     <string name="editor_add_select_location">Veldu staðsetningu</string>
-    <string name="editor_report_problem_title">Vandamál</string>
-    <string name="editor_report_problem_no_place_title">Þessi staður er ekki til</string>
     <string name="day_off">Lokað</string>
     <string name="no_osm_account">Ertu ekki með OpenStreetMap-aðgang?</string>
     <string name="not_signed_in">Ekki skráð/ur inn</string>
@@ -249,8 +247,6 @@
     <string name="house_number">Bygging númer</string>
     <string name="blue_gray">Blágrátt</string>
     <string name="p2p_to_here">Leið til</string>
-    <string name="editor_report_problem_under_construction_title">Lokað vegna viðhalds</string>
-    <string name="editor_report_problem_duplicate_place_title">Tvítekinn staður</string>
     <string name="social_media">Samfélagsmiðlar</string>
     <string name="add_street">Bæta við götu</string>
     <string name="empty_street_name_error">Settu inn götuheiti</string>
@@ -413,8 +409,6 @@
     <string name="download_resources">Áður en þú byrjar skaltu sækja heims-yfirlitskortið yfir á tækið þitt. \nÞað mun nota %s af tiltæku minni.</string>
     <string name="load_kmz_failed">Mistókst að hlaða inn bókamerkjum. Skráin gæti verið skemmd eða gölluð.</string>
     <string name="unknown_current_position">Ekki er enn búið að ákvarða staðsetninguna þína</string>
-    <string name="bookmark_share_email_subject">Hæ, skoðaðu staðsetninguna mína á CoMaps!</string>
-    <string name="my_position_share_email">Hæ, \n \nÉg er núna hérna: %1$s. Smelltu á þennan tengil %2$s eða þennan%3$s til að sjá staðinn á kortinu. \n \nBestu þakkir.</string>
     <string name="long_tap_toast">Ýttu á kortið og haltu til að sjá viðmótið</string>
     <string name="search_history_text">Skoðaðu nýlegar leitir þínar.</string>
     <string name="editor_time_add_closed">Bæta við ekki-opnunartímum</string>
@@ -438,7 +432,6 @@
     <string name="compass_calibration_recommended">Bættu nákvæmni örvarinnar með því að hreyfa símann í áttu-hreyfingu til að kvarða áttavitann.</string>
     <string name="compass_calibration_required">Hreyfðu símann í áttu-hreyfingu til að kvarða áttavitann og laga þannig stefnu örvarinnar á kortinu.</string>
     <string name="editor_example_values">Dæmi um gildi</string>
-    <string name="editor_report_problem_desription_2">Eða gerðu það sjálf/ur á https://www.openstreetmap.org/</string>
     <string name="edit_opening_hours">Breyta opnunartímum</string>
     <string name="register_at_openstreetmap">Skráðu þig á OpenStreetMap</string>
     <string name="download_over_mobile_header">Sækja í gegnum gagnatengingu farsíma?</string>
@@ -487,7 +480,6 @@
     <string name="p2p_reroute_from_current">Viltu skipuleggja leið frá fyrirliggjandi staðsetningu þinni?</string>
     <string name="editor_time_add">Bæta við áætlun</string>
     <string name="editor_time_delete">Eyða áætlun</string>
-    <string name="editor_report_problem_desription_1">Lýstu vandamálinu nákvæmlega svo meðlimir OpenStreetMap samfélagsins geti lagfært það.</string>
     <string name="downloader_delete_map_dialog">Öllum breytingunum þínum verður eytt með kortinu.</string>
     <string name="downloader_mwm_migration_dialog">Til að búa til leið þarftu að uppfæra öll kort og síðan skipuleggja leiðina aftur.</string>
     <string name="common_check_internet_connection_dialog">Gakktu úr skugga um að tækið sé tengt við internetið.</string>

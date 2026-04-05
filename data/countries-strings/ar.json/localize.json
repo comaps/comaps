@@ -34,7 +34,7 @@
 "Austria_Burgenland":"بورغنلاند",
 "Austria_Carinthia":"كيرنتن",
 "Austria_Lower Austria_West":"النمسا السفلى — غرب",
-"Austria_Lower Austria_Wien":"فيينا",
+"Austria_Lower Austria_Wien":"فيينا والنمسا السفلى - الشرق",
 "Austria_Salzburg":"سالزبورغ",
 "Austria_Styria":"شتايرمارك",
 "Austria_Tyrol":"تيرول",
@@ -2540,5 +2540,11 @@
 "Spain_Castile and Leon_West Short":"منطقة قـشتالة وليون",
 "Spain_Galicia_North Short":"منطقة غاليسيا",
 "Spain_Galicia_South Short":"منطقة غاليسيا",
-"Switzerland_Espace Mittelland_East Short":"منطقة ميتلاند"
+"Switzerland_Espace Mittelland_East Short":"منطقة ميتلاند",
+"France_Auvergne-Rhone-Alpes":"أوفرن-رون ألب",
+"France_Bourgogne-Franche-Comte":"بورغون-فرانش كونته",
+"France_Grand_Est":"الشرق الكبير",
+"France_Hauts-de-France":"أوت-دو-فرانس",
+"France_Normandy":"نورماندي",
+"France_Nouvelle-Aquitaine":"نوفيل-أكيتين"
 }

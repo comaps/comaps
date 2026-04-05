@@ -431,6 +431,7 @@ public:
   double GetTotalDistanceMeters() const;
   double GetCurrentDistanceFromBeginMeters() const;
   double GetCurrentDistanceToEndMeters() const;
+  double GetCurrentDistanceToSegmentMeters(size_t segIdx) const;
   double GetMercatorDistanceFromBegin() const;
 
   /// \brief Extracts information about the nearest turn from the remaining part of the route.

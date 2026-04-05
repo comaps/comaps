@@ -56,7 +56,9 @@ Sample::Result Sample::Result::Build(FeatureType & ft, Relevance relevance)
 {
   Sample::Result r;
   r.m_pos = feature::GetCenter(ft);
-  r.m_name = strings::MakeUniString(ft.GetReadableName());
+  std::optional<std::string> const name = ft.GetTranslatedName().m_primary;
+  if (name.has_value())
+    r.m_name = strings::MakeUniString(name.value());
   r.m_houseNumber = ft.GetHouseNumber();
   r.m_types = feature::TypesHolder(ft).ToObjectNames();
   r.m_relevance = relevance;

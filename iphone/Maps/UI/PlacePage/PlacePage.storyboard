@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24127" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bX8-ZQ-XDA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="24506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bX8-ZQ-XDA">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24063"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="24504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -475,72 +475,6 @@
             </objects>
             <point key="canvasLocation" x="215.94202898550725" y="124.55357142857142"/>
         </scene>
-        <!--Place Page Buttons View Controller-->
-        <scene sceneID="ogi-1N-syw">
-            <objects>
-                <viewController storyboardIdentifier="PlacePageButtonsViewController" id="4Am-Sa-65S" customClass="PlacePageButtonsViewController" customModule="CoMaps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="uEh-Ml-VWK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="021-FW-tZO">
-                                <rect key="frame" x="16" y="16" width="343" height="224"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUc-Qr-8Sb">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="OYY-L8-CtC"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="9" maxY="0.0"/>
-                                        <state key="normal" title="Add Place"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="placepage_add_place_button"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="PPButton"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onAddPlace:" destination="4Am-Sa-65S" eventType="touchUpInside" id="2NL-kj-B6z"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAP-Be-X7d">
-                                        <rect key="frame" x="0.0" y="60" width="343" height="164"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="fBI-zz-Fkk"/>
-                                        </constraints>
-                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="9" maxY="0.0"/>
-                                        <state key="normal" title="Edit Place"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedText" value="edit_place"/>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="PPButton"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="onEditPlace:" destination="4Am-Sa-65S" eventType="touchUpInside" id="ftW-wO-u8A"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wND-VP-FnI"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="021-FW-tZO" secondAttribute="bottom" constant="16" id="9ot-3E-Be3"/>
-                            <constraint firstItem="021-FW-tZO" firstAttribute="leading" secondItem="uEh-Ml-VWK" secondAttribute="leading" constant="16" id="Hq9-h5-Znu"/>
-                            <constraint firstItem="021-FW-tZO" firstAttribute="top" secondItem="uEh-Ml-VWK" secondAttribute="top" constant="16" id="NQ6-jj-fu0"/>
-                            <constraint firstAttribute="trailing" secondItem="021-FW-tZO" secondAttribute="trailing" constant="16" id="Ox1-Cd-PWE"/>
-                        </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="styleName" value="Background"/>
-                        </userDefinedRuntimeAttributes>
-                    </view>
-                    <size key="freeformSize" width="375" height="256"/>
-                    <connections>
-                        <outlet property="addPlaceButton" destination="RUc-Qr-8Sb" id="tGs-o6-b7n"/>
-                        <outlet property="editPlaceButton" destination="bAP-Be-X7d" id="vHM-Wx-qq4"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nLA-cQ-5zm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="929" y="655"/>
-        </scene>
         <!--Opening Hours View Controller-->
         <scene sceneID="txO-kw-ZRm">
             <objects>
@@ -599,8 +533,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_placepage_open_hours" translatesAutoresizingMaskIntoConstraints="NO" id="A9s-da-nap">
-                                <rect key="frame" x="0.0" y="28" width="56" height="44"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="A9s-da-nap">
+                                <rect key="frame" x="0.0" y="28.5" width="56" height="43"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="56" id="6wJ-lr-axQ"/>
@@ -1447,9 +1381,9 @@
     <resources>
         <image name="Place Page/Direction Indicator" width="32" height="32"/>
         <image name="arrow.forward.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="clock.fill" catalog="system" width="128" height="123"/>
         <image name="dialog_btn_press" width="280" height="44"/>
         <image name="ic_arrow_gray_down" width="28" height="28"/>
-        <image name="ic_placepage_open_hours" width="28" height="28"/>
         <namedColor name="Press Background Color">
             <color red="0.96100002527236938" green="0.96100002527236938" blue="0.96100002527236938" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -164,12 +164,8 @@
     <string name="downloading_is_active">Harta este în curs de descărcare</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Poți vedea poziția mea pe harta CoMaps! %1$s sau %2$s Nu ai descărcat aplicația? O poți descărca de aici: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Poți vedea locul meu preferat pe harta CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Poți vedea poziția mea pe harta CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Bună, \n \nAcum sunt aici: %1$s. Apasă pe adresa %2$s sau pe %3$s pentru a vedea locul pe hartă. \n \nMulțumesc.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Trimite</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -394,13 +390,7 @@
     <string name="editor_example_values">Exemple</string>
     <string name="editor_correct_mistake">Corectare greșeală</string>
     <string name="editor_add_select_location">Selectați locația</string>
-    <string name="editor_report_problem_desription_1">Descrie problema în detaliu, astfel încât comunitatea OpenStreetMap să poată remedia eroarea.</string>
-    <string name="editor_report_problem_desription_2">Sau corecteaz-o tu pe https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Trimite</string>
-    <string name="editor_report_problem_title">Problemă</string>
-    <string name="editor_report_problem_no_place_title">Acest loc nu există</string>
-    <string name="editor_report_problem_under_construction_title">Închis pentru întreținere</string>
-    <string name="editor_report_problem_duplicate_place_title">Loc duplicat</string>
     <string name="autodownload">Descărcare automată</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Zilnic</string>
@@ -904,4 +894,5 @@
     <string name="download_resources_custom_url_message">Înlocuiți serverul prestabilit folosit pentru descărcarea hărților. Lăsați liber pentru serverul prestabilit.</string>
     <string name="advanced">Avansate</string>
     <string name="pref_speedlimit_title">Afișează limita de viteză</string>
+    <string name="rooms">%s camere</string>
 </resources>

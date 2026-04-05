@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Harita indiriliyor</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hey, CoMaps’te geçerli konumumu incele! %1$s veya %2$s Çevrimdışı haritalar sende yok mu? Buradan indir: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hey, CoMaps\'teki imimi incele!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hey, CoMaps’te geçerli konumumu incele!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Merhaba, \n \nŞu anda bulunduğum yer: %1$s. Yeri haritada görmek için %2$s veya %3$s bağlantısına tıkla. \n \nTeşekkürler.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Paylaş</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -234,7 +230,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Haberler</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Geri Bildirim</string>
+    <string name="feedback">Geri bildirim</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Uygulamayı değerlendir</string>
     <!-- Text in menu -->
@@ -398,13 +394,7 @@
     <string name="editor_example_values">Örnek Değerler</string>
     <string name="editor_correct_mistake">Hatayı düzelt</string>
     <string name="editor_add_select_location">Konum Seç</string>
-    <string name="editor_report_problem_desription_1">OpenStreetMap topluluğunun hatayı düzeltmesi için lütfen problemi detaylı bir şekilde açıklayın.</string>
-    <string name="editor_report_problem_desription_2">Veya bunu https://www.openstreetmap.org/ adresinden kendiniz yapın</string>
     <string name="editor_report_problem_send_button">Gönder</string>
-    <string name="editor_report_problem_title">Sorun</string>
-    <string name="editor_report_problem_no_place_title">Yer yok</string>
-    <string name="editor_report_problem_under_construction_title">Bakım için kapalı</string>
-    <string name="editor_report_problem_duplicate_place_title">Kopyalanmış yer</string>
     <string name="autodownload">Haritaları kendiliğinden indir</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Her gün</string>
@@ -900,4 +890,14 @@
     <string name="place_page_update_too_old_map">Bölge haritasını güncelle</string>
     <string name="place_page_too_old_to_edit">Harita verisi çok eski olduğu için OpenStreetMap düzenleyicisi devre dışı.</string>
     <string name="prefs_speed_cameras_information">Yerel yasalarca uyarıların yasaklandığı ülkelerde hız kamerası uyarıları devre dışıdır.</string>
+    <string name="pref_speedlimit_title">Hız sınırını göster</string>
+    <string name="power_management">Güç yönetimi</string>
+    <string name="pref_openexternallinks_title">Üçüncü taraf bağlantıları otomatik aç</string>
+    <string name="pref_openexternallinks_summary">Üçüncü taraf bağlantıları varsayılan olarak CoMaps\'te aç</string>
+    <string name="pref_alt_map_lang_handling">Alternatif Harita Dilleri</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Alternatif dil kullanma</string>
+    <string name="pref_alt_map_lang_handling_system_order">Sistem dili sırasına göre kullan</string>
+    <string name="pref_alt_map_lang_handling_local_only">Sadece anadil olduğu yerlerde tercih et</string>
+    <string name="download_resources_custom_url_title">Özel Harita Sunucusu</string>
+    <string name="download_resources_custom_url_message">Harita indirmek için kullanılan varsayılan sunucu yerine farklı sunucu kullanabilirsiniz. CoMaps varsayılan sunucusunu kullanmak için boş bırakın.</string>
 </resources>

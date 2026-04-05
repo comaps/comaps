@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Trwa pobieranie mapy</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hej, spójrz na moją aktualną lokalizację w CoMaps! %1$s lub %2$s Nie masz map offline? Pobierz tutaj: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hej, spójrz na mój znacznik w CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hej, sprawdź moją aktualną lokalizację na mapie CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Cześć, \n \nJestem teraz tutaj: %1$s. Naciśnij na ten link %2$s lub ten %3$s, aby zobaczyć to miejsce na mapie. \n \nDziękuję.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Udostępnij</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -223,7 +219,7 @@
     <!-- Settings «Route» category: «Test Voice Directions» title -->
     <string name="pref_tts_test_voice_title">Testuj wskazówki głosowe</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Jeśli nie słyszysz głosu, sprawdź głośność lub systemowe ustawienia zamiany tekstu na mowę.</string>
+    <string name="pref_tts_playing_test_voice">Jeśli nie słyszysz głosu, sprawdź głośność lub systemowe ustawienia zamiany tekstu na mowę</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Niedostępne</string>
     <string name="pref_map_auto_zoom">Automatyczne powiększanie</string>
@@ -236,7 +232,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Wiadomości</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Informacja zwrotna</string>
+    <string name="feedback">Opinia</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Oceń aplikację</string>
     <!-- Text in menu -->
@@ -343,18 +339,18 @@
     <string name="dialog_routing_location_turn_on">Włącz usługi określania lokalizacji</string>
     <string name="dialog_routing_location_unknown_turn_on">Nie można ustalić współrzędnych GPS. Włącz usługi określania lokalizacji, aby wyznaczyć trasę.</string>
     <string name="dialog_routing_unable_locate_route">Nie można zlokalizować trasy</string>
-    <string name="dialog_routing_cant_build_route">Nie można wyznaczyć trasy.</string>
+    <string name="dialog_routing_cant_build_route">Nie można wyznaczyć trasy</string>
     <string name="dialog_routing_change_start_or_end">Zmień punkt początkowy lub docelowy.</string>
     <string name="dialog_routing_change_start">Zmień punkt początkowy</string>
     <string name="dialog_routing_start_not_determined">Nie wyznaczono trasy. Nie można zlokalizować punktu początkowego.</string>
     <string name="dialog_routing_select_closer_start">Wybierz punkt początkowy położony bliżej drogi.</string>
     <string name="dialog_routing_change_end">Zmień punkt docelowy</string>
     <string name="dialog_routing_end_not_determined">Nie wyznaczono trasy. Nie można zlokalizować punktu docelowego.</string>
-    <string name="dialog_routing_select_closer_end">Wybierz punkt docelowy położony bliżej drogi.</string>
-    <string name="dialog_routing_change_intermediate">Nie można zlokalizować punktu postoju.</string>
-    <string name="dialog_routing_intermediate_not_determined">Dokonaj korekty punktu postoju.</string>
+    <string name="dialog_routing_select_closer_end">Wybierz punkt docelowy położony bliżej drogi</string>
+    <string name="dialog_routing_change_intermediate">Nie można zlokalizować punktu postoju</string>
+    <string name="dialog_routing_intermediate_not_determined">Dokonaj korekty punktu postoju</string>
     <string name="dialog_routing_system_error">Błąd systemowy</string>
-    <string name="dialog_routing_application_error">Nie można wyznaczyć trasy z powodu błędu aplikacji.</string>
+    <string name="dialog_routing_application_error">Nie można wyznaczyć trasy z powodu błędu aplikacji</string>
     <string name="dialog_routing_try_again">Spróbuj ponownie</string>
     <string name="not_now">Nie teraz</string>
     <string name="dialog_routing_download_and_build_cross_route">Chcesz pobrać mapę i wyznaczyć lepszą trasę, obejmującą więcej map?</string>
@@ -368,7 +364,7 @@
     <string name="hide">Ukryj</string>
     <string name="categories">Kategorie</string>
     <string name="history">Historia</string>
-    <string name="search_not_found">Przepraszamy, nic nie znaleziono.</string>
+    <string name="search_not_found">Przepraszamy, nic nie znaleziono</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Pobierz region, w którym szukasz lub spróbuj dodać nazwę pobliskiego miasta/wsi.</string>
     <string name="search_history_title">Historia wyszukiwania</string>
@@ -380,7 +376,7 @@
     <string name="p2p_start">Start</string>
     <string name="p2p_from_here">Trasa od</string>
     <string name="p2p_to_here">Trasa do</string>
-    <string name="p2p_only_from_current">Nawigacja jest dostępna tylko od twojej bieżącej lokalizacji.</string>
+    <string name="p2p_only_from_current">Nawigacja jest dostępna tylko od Twojej bieżącej lokalizacji</string>
     <string name="p2p_reroute_from_current">Czy chcesz, byśmy zaplanowali trasę z Twojej bieżącej lokalizacji?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Dalej</string>
@@ -402,14 +398,8 @@
     <string name="editor_example_values">Przykładowe wartości</string>
     <string name="editor_correct_mistake">Popraw błąd</string>
     <string name="editor_add_select_location">Wybierz lokalizację</string>
-    <string name="editor_report_problem_desription_1">Prosimy o szczegółowe opisanie problemu, aby użytkownicy OpenStreetMap mogli naprawić błąd.</string>
-    <string name="editor_report_problem_desription_2">Albo zrób to sam na https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Wyślij</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">To miejsce nie istnieje</string>
-    <string name="editor_report_problem_under_construction_title">Zamknięte z powodu prac konserwacyjnych</string>
-    <string name="editor_report_problem_duplicate_place_title">Powielone miejsce</string>
-    <string name="autodownload">Automatyczne pobieranie</string>
+    <string name="autodownload">Automatyczne pobieranie map</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Codziennie</string>
     <string name="twentyfour_seven">24/7</string>
@@ -445,14 +435,14 @@
     <!-- login text field -->
     <string name="editor_add_phone">Dodaj numer telefonu</string>
     <string name="level">Kondygnacja</string>
-    <string name="downloader_delete_map_dialog">Wszystkie zmiany dotyczące mapy zostaną usunięte wraz z nią.</string>
+    <string name="downloader_delete_map_dialog">Wszystkie zmiany dotyczące mapy zostaną usunięte wraz z nią</string>
     <string name="downloader_update_maps">Aktualizuj mapy</string>
     <string name="downloader_mwm_migration_dialog">Aby utworzyć trasę, należy zaktualizować wszystkie mapy, a następnie ponownie zaplanować trasę.</string>
     <string name="downloader_search_field_hint">Znajdź mapę</string>
     <string name="common_check_internet_connection_dialog">Sprawdź swoje ustawienia i upewnij się, że urządzenie ma połączenie z internetem.</string>
     <string name="downloader_no_space_title">Brak wolnego miejsca</string>
     <string name="downloader_no_space_message">Usuń niepotrzebne dane</string>
-    <string name="editor_login_error_dialog">Błąd logowania.</string>
+    <string name="editor_login_error_dialog">Błąd logowania</string>
     <string name="editor_profile_changes">Zmiany zweryfikowane</string>
     <string name="editor_focus_map_on_location">Przeciągnij mapę, aby umieścić krzyżyk w miejscu lokalizacji miejsca lub firmy.</string>
     <string name="editor_edit_place_title">Edycja</string>
@@ -468,7 +458,7 @@
     <string name="osm_presentation">Dane OpenStreetMap stworzone przez społeczność na dzień %s. Dowiedz się więcej o tym, jak edytować i aktualizować mapę na stronie OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) to projekt społecznościowy mający na celu stworzenie darmowej i otwartej mapy. Jest to główne źródło danych mapowych w CoMaps i działa podobnie do Wikipedii. Można dodawać lub edytować miejsca, które stają się dostępne dla milionów użytkowników na całym świecie. \nDołącz do społeczności i pomóż stworzyć lepszą mapę dla wszystkich!</string>
-    <string name="login_to_make_edits_visible">Proszę utworzyć konto OpenStreetMap lub zalogować się, aby opublikować swoje zmiany na mapie.</string>
+    <string name="login_to_make_edits_visible">Proszę utworzyć konto OpenStreetMap lub zalogować się, aby opublikować swoje zmiany na mapie</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d z %2$d</string>
     <string name="download_over_mobile_header">Czy pobrać, używając połączenia z siecią komórkową?</string>
@@ -494,7 +484,7 @@
     <string name="editor_category_unsuitable_text">CoMaps pozwala na dodawanie tylko prostych kategorii punktów, co oznacza brak miast, dróg, jezior, obrysów budynków itp. Dodaj takie kategorie bezpośrednio do <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Sprawdź nasz <a href="https://www.comaps.app/support/advanced-map-editing/">przewodnik</a>, aby uzyskać szczegółowe instrukcje krok po kroku.</string>
     <string name="downloader_no_downloaded_maps_title">Nie pobrano żadnych map</string>
     <string name="downloader_no_downloaded_maps_message">Pobierz mapy, aby wyszukiwać miejsca i nawigować bez połączenia z internetem</string>
-    <string name="current_location_unknown_error_title">Aktualna lokalizacja jest nieznana.</string>
+    <string name="current_location_unknown_error_title">Bieżąca lokalizacja jest nieznana</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
     <string name="miles_per_hour">mph</string>
@@ -551,7 +541,7 @@
     <string name="feedback_general">Ogólne uwagi</string>
     <string name="prefs_languages_information">Stosujemy system TTS dla komend głosowych. Stosuje go wiele urządzeń z systemem Android, można go pobrać lub zaktualizować z Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="prefs_languages_information_off">Dla niektórych języków konieczne będzie zainstalowanie syntezatora mowy lub dodatkowego pakietu językowego ze sklepu z aplikacjami (Google Play, Galaxy Store, App Gallery, F-Droid). \nOtwórz ustawienia urządzenia → Język i wprowadzanie → Mowa → Wysyłanie tekstu na mowę. \nTutaj możesz zarządzać ustawieniami syntezy mowy (na przykład pobrać pakiet językowy do użytku offline) oraz wybrać inny silnik zamiany tekstu na mowę.</string>
-    <string name="prefs_languages_information_off_link">Aby uzyskać więcej informacji, spójrz na ten poradnik.</string>
+    <string name="prefs_languages_information_off_link">Aby uzyskać więcej informacji, spójrz na ten poradnik</string>
     <string name="transliteration_title">Transkrypcja na alfabet łaciński</string>
     <string name="learn_more">Dowiedz się więcej</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -627,7 +617,7 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Nigdy nie ostrzegaj</string>
     <string name="power_managment_title">Tryb oszczędzania energii</string>
-    <string name="power_managment_description">Spróbuj zmniejszyć zużycie energii kosztem części funkcji.</string>
+    <string name="power_managment_description">Spróbuj zmniejszyć zużycie energii kosztem części funkcji</string>
     <string name="power_managment_setting_never">Nigdy</string>
     <string name="power_managment_setting_auto">Automatycznie</string>
     <string name="power_managment_setting_manual_max">Maksymalna oszczędność energii</string>
@@ -782,7 +772,7 @@
     <string name="browser_not_available">Przeglądarka internetowa jest niedostępna</string>
     <string name="volume">Głośność</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksportuj wszystkie miejsca i trasy</string>
+    <string name="bookmarks_export">Eksportuj wszystkie ulubione</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Ustawienia systemu syntezy mowy</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -814,7 +804,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Kontynuuj nagrywanie</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Zapisać nagranie w ulubionych?</string>
+    <string name="track_recording_alert_title">Zapisać w ulubionych?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Trasa jest pusta - nic do zapisania</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -875,7 +865,7 @@
     <string name="share_track">Udostępnij trasę</string>
     <string name="hours_confirmed_time_ago">Potwierdzone %s</string>
     <string name="existence_confirmed_time_ago">Istnienie potwierdzone %s</string>
-    <string name="osm_note_hint">Ewentualnie zostaw notatkę dla społeczności OpenStreetMap, żeby ktoś inny mógł dodać lub poprawić to miejsce.</string>
+    <string name="osm_note_hint">Ewentualnie zostaw uwagę dla społeczności OpenStreetMap, żeby ktoś inny mógł dodać lub poprawić to miejsce.</string>
     <string name="osm_note_toast">Notatka zostanie wysłana do OpenStreetMap</string>
     <string name="offline_explanation_title">Mapy Offline</string>
     <string name="offline_explanation_text">Aby przeglądać i nawigować po okolicy potrzebujesz pobrać mapę.\nPobierz mapy obszarów, po których chcesz podróżować.</string>
@@ -936,4 +926,23 @@
     <string name="location_privacy">Lokalizacja Prywatność</string>
     <string name="rooms">%s pokoje</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="pref_alt_map_lang_handling">Alternatywne języki map</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Nie używaj alternatyw</string>
+    <string name="pref_alt_map_lang_handling_system_order">Użyj w porządku systemowym</string>
+    <string name="pref_alt_map_lang_handling_local_only">Preferuj i używaj tylko tam, gdzie jest to rodzime</string>
+    <string name="invalid_route">Nieprawidłowa trasa</string>
+    <string name="building_route">Budowanie trasy…</string>
+    <string name="route_not_started">Trasa nie rozpoczęta</string>
+    <string name="on_route">W trasie</string>
+    <string name="route_needs_rebuild">Trasa wymaga przebudowania</string>
+    <string name="route_finished">Trasa ukończona</string>
+    <string name="not_following_route">Bez podążania trasą</string>
+    <string name="pref_openexternallinks_title">Automatycznie otwieraj odnośniki stron trzecich</string>
+    <string name="pref_openexternallinks_summary">Domyślnie otwieraj odnośniki stron trzecich w CoMaps</string>
+    <string name="population">Liczba ludności: %s</string>
+    <string name="destination">Cel</string>
+    <string name="stop">Punkt pośredni</string>
+    <string name="charge_socket_type1_combo">Typ 1 combo</string>
+    <string name="route_recalculating">Ponowne obliczanie trasy…</string>
+    <string name="bookmark_share_email_subject">Przejdź pod %1$s lub skopiuj te koordynaty %2$s do swojej aplikacji mapowej, aby zobaczyć tę lokalizację.</string>
 </resources>

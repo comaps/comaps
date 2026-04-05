@@ -1,266 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "Άκυρο";
-
 /* Button which interrupts country download */
 "cancel_download" = "Ακύρωση λήψης";
-
 /* Button which deletes downloaded country */
 "delete" = "Διαγραφή";
 "download_maps" = "Λήψη χαρτών";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Λήψη…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Χάρτες εκτός σύνδεσης";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "Χρειάζεται να ληφθεί ένας χάρτης για να δείτε και να πλοηγηθείτε την περιοχή.\nΚατεβάστε χάρτες για τις περιοχές που θέλετε να ταξιδέψετε.";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Χιλιόμετρα";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Αφήστε μια κριτική";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "Μίλια";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Η θέση μου";
-
 /* Update maps later button text */
 "later" = "Αργότερα";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "Αναζήτηση";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "Ναι";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "Εμφάνιση στο χάρτη";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "Λήψη χάρτη";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Η λήψη απέτυχε";
-
+/* Text in About screen */
+"about_headline" = "Ανοιχτό έργο με την υποστήριξη της κοινότητας";
 /* Text in About screen */
 "about_proposition_1" = "Εκτός σύνδεσης, γρήγορο και εύχρηστο";
-
 /* Text in About screen */
 "about_proposition_2" = "Εστιασμένο στην ιδιωτικότητα και χωρίς διαφημίσεις";
+/* Text in About screen */
+"about_proposition_3" = "Διαφανές και μη κερδοσκοπικό";
 "close" = "Κλείσιμο";
 "download" = "Λήψη";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "Συνέχεια";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Δημιουργία νέας λίστας";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Όνομα λίστας";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "Λίστες αγαπημένων";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Μέρη";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Αγαπημένα";
-
 /* Default bookmark list name */
-"core_my_places" = "Τα μέρη μου";
-
+"core_my_places" = "Τα αγαπημένα μου";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Διεύθυνση";
-
 /* Settings button in system menu */
 "settings" = "Ρυθμίσεις";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "Μονάδες μέτρησης";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Μέρη για φαγητό";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Παντοπωλεία";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Συγκοινωνία";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Βενζινάδικο";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "Χώρος στάθμευσης";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "Ψώνια";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Μεταχειρισμένα";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Ξενοδοχείο";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Αξιοθέατα";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Ψυχαγωγία";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "ATM";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Νυχτερινή ζωή";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "Οικογενειακές διακοπές";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "Τράπεζα";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Φαρμακείο";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Νοσοκομείο";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "Τουαλέτα";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Ταχυδρομείο";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "Αστυνομία";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "WiFi";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "Ανακύκλωση";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Νερό";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Για RV";
 "share_bookmarks_email_body" = "Γειά σου! \n\nΣου επισυνάπτω τα αποθηκευμένα μου μέρη. Παρακαλώ άνοιξε τα με το CoMaps. Αν δεν το έχεις εγκατεστημένο, μπορείς να το κατεβάσεις από εδώ: https://www.comaps.app/download/ \n\nΚαλή διασκέδαση ταξιδεύοντας με το CoMaps!";
-
 /* message title of loading file */
 "load_kmz_title" = "Φορτώνονται τα Αγαπημένα";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "Τα αγαπημένα φορτώθηκαν με επιτυχία! Μπορείτε να τα βρείτε στο χάρτη ή στην οθόνη Διαχείρισης αγαπημένων.";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "Η φόρτωση των αγαπημένων απέτυχε. Το αρχείο μπορεί να είναι κατεστραμμένο ή ελαττωματικό.";
-
 /* resource for context menu */
 "edit" = "Επεξεργασία";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "Η τοποθεσία σας δεν έχει προσδιοριστεί ακόμη";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Γεια, δες τις τοποθεσίες που έχω καρφιτσώσει στο CoMaps!";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Γεια, δες την τρέχουσα τοποθεσία μου στο χάρτη του CoMaps!";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "Email";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "Αντιγραφή στο πρόχειρο";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "Αντιγράφηκε στο Πρόχειρο: %@";
-
 /* place preview title */
 "info" = "Πληροφορίες";
-
 /* Used for bookmark editing */
 "done" = "Ολοκλήρωση";
-
 /* Prints version number in About dialog */
 "version" = "Έκδοση CoMaps: %@";
 "version %@ (%@)" = "Έκδοση %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Έκδοση: %@ (%@)\nΔεδομένα χάρτη: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "Ίχνη";
-
 /* Length of track in cell that describes route */
 "length" = "Μήκος";
 "share_my_location" = "Κοινοποίηση της τοποθεσίας μου";
 "prefs_group_route" = "Πλοήγηση";
 "pref_zoom_title" = "Πλήκτρα μεγέθυνσης";
 "pref_left_button_type" = "Αριστερό κύριο κουμπί";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Γλώσσα χάρτη";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Τοπική γλώσσα";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Εμφάνιση χάρτη";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Εμφάνιση";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "Ανοιχτόχρωμη";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "Σκουρόχρωμη";
-
 /* Generic «Disabled» string */
 "disabled" = "Απενεργοποιημένο";
-
 /* Generic «Off» string */
 "off" = "Απενεργ.";
-
 /* Generic «On» string */
 "on" = "Ενεργ.";
-
 /* Generic «Auto» string */
 "auto" = "Αυτόματα";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Οπτική γωνία";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "Τρισδιάστατα κτίρια";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "Τα τρισδιάστατα κτίρια είναι απενεργοποιημένα σε λειτουργία εξοικονόμησης ενέργειας";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Φωνητικές οδηγίες";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Ενεργοποίηση φωνητικών οδηγιών";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Αναγγελία ονόματων οδών";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Όταν είναι ενεργοποιημένο, το όνομα της οδού ή της εξόδου στην οποία θα μεταβείτε θα εκφωνείται δυνατά.";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Γλώσσα φωνής";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "Δοκιμή φωνητικών οδηγιών";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Άλλo";
 "pref_map_auto_zoom" = "Αυτόματη μεγέθυνση";
 "placepage_distance" = "Απόσταση";
 "search_show_on_map" = "Προβολή στο χάρτη";
-
 /* Text in menu */
 "website" = "Ιστότοπος";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "Νέα";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -269,166 +199,114 @@
 "social_bluesky" = "Bluesky";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "Ηλεκτρονικό ταχυδρομείο";
-
 /* Text in the editor */
 "fediverse" = "Mastodon";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X (Twitter)";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "Bluesky";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "εικόνα Panoramax";
-
 /* Text in menu */
 "rate_the_app" = "Βαθμολογήστε την εφαρμογή";
-
 /* Text in menu */
 "help" = "Βοήθεια";
-
 /* Button in the main Help dialog */
 "faq" = "Συχνές ερωτήσεις";
-
 /* Button in the main menu */
 "donate" = "Δωρεά";
-
 /* Button in the main Help dialog */
 "copyright" = "Πνευματικά δικαιώματα";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "Αναφορά σφάλματος";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Αναφορά ή διόρθωση λανθασμένων δεδομένων χάρτη";
-
 /* Button in the About screen */
 "volunteer" = "Γίνετε εθελοντής και βελτιώστε το CoMaps";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "Συνδεθείτε μαζί μας";
-
 /* Alert text */
 "email_error_body" = "Το πρόγραμμα ηλεκτρονικού ταχυδρομείου δεν έχει ρυθμιστεί. Ρυθμίστε το ή χρησιμοποιήστε άλλο τρόπο να επικοινωνήσετε μαζί μας στη διεύθυνση %@";
-
 /* Alert title */
 "email_error_title" = "Σφάλμα κατά την αποστολή του e-mail";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "Πατήστε ξανά παρατεταμένα στο χάρτη για να δείτε το περιβάλλον εργασίας";
-
 /* Update all button text */
 "downloader_update_all_button" = "Ενημέρωση όλων";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "Κατεβασμένοι";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "Διαθέσιμοι";
-
 /* Country queued for download */
 "downloader_queued" = "Στην ουρά";
 "downloader_near_me_subtitle" = "Κοντά μου";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "Χάρτες";
 "downloader_download_all_button" = "Λήψη όλων";
 "downloader_downloading" = "Γίνεται λήψη:";
 "downloader_search_results" = "Βρέθηκαν";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "Ενημέρωση";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "Απέτυχε";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "Για να διαγράψετε χάρτη, σταματήστε την πλοήγηση.";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Μπορούν να δημιουργηθούν μόνο διαδρομές που περιέχονται πλήρως μέσα σε ένα χάρτη σε μια ενιαία περιοχή.";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "Λήψη χάρτη";
-
 /* Item status in downloader. */
 "downloader_retry" = "Επανάληψη";
-
 /* Item in context menu. */
 "downloader_delete_map" = "Διαγραφή χάρτη";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Κατέβασμα όλων των χαρτών για ολόκληρο το μήκος της διαδρομής σας";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Για να φτιάξετε μια διαδρομή, πρέπει πρώτα να γίνει λήψη και ενημέρωση όλων των χαρτών από τη θέση σας μέχρι τον προορισμό σας.";
-
 /* bookmark button text */
 "bookmark" = "μέρος";
 "save" = "Αποθήκευση";
 "create" = "δημιουργήστε";
-
 /* red color */
 "red" = "Κόκκινο";
-
 /* yellow color */
 "yellow" = "Κίτρινο";
-
 /* blue color */
 "blue" = "Μπλε";
-
 /* green color */
 "green" = "Πράσινο";
-
 /* purple color */
 "purple" = "Μωβ";
-
 /* orange color */
 "orange" = "Πορτοκαλί";
-
 /* brown color */
 "brown" = "Καφέ";
-
 /* pink color */
 "pink" = "Ροζ";
-
 /* deep purple color */
 "deep_purple" = "Βαθύ μωβ";
-
 /* light blue color */
 "light_blue" = "Γαλάζιο";
-
 /* cyan color */
 "cyan" = "Κυανό";
-
 /* teal color */
 "teal" = "Σμαραγδένιο";
-
 /* lime color */
 "lime" = "Λάιμ";
-
 /* deep orange color */
 "deep_orange" = "Βαθύ πορτοκαλί";
-
 /* gray color */
 "gray" = "Γκρι";
-
 /* blue gray color */
 "blue_gray" = "Γκρίζο μπλε";
 "dialog_routing_disclaimer_title" = "Όταν ακολουθείτε την διαδρομή, να θυμάστε:";
@@ -459,34 +337,26 @@
 "dialog_routing_try_again" = "Προσπαθήστε ξανά";
 "dialog_routing_download_and_build_cross_route" = "Θέλετε να κατεβάσετε το χάρτη και να δημιουργήσετε μια πιο βέλτιστη διαδρομή που εκτείνεται σε περισσότερους από έναν χάρτες;";
 "dialog_routing_download_cross_route" = "Κατεβάστε επιπλέον χάρτες για να δημιουργηθεί μια καλύτερη διαδρομή που διασχίζει τα όρια αυτού του χάρτη.";
-
 /* «Show» context menu */
 "show" = "Εμφάνιση";
-
 /* «Hide» context menu */
 "hide" = "Απόκρυψη";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Ο σχεδιασμός διαδρομής απέτυχε";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Άφιξη στις %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Κάντε λήψη και ενημέρωση όλων των χαρτών κατά μήκος της προβαλλόμενης διαδρομής για τον υπολογισμό της.";
 "categories" = "Κατηγορίες";
 "history" = "Ιστορικό";
 "search_not_found" = "Ωχ, δε βρέθηκαν αποτελέσματα.";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Κατεβάστε την περιοχή στην οποία ψάχνετε ή δοκιμάστε να προσθέσετε το όνομα μιας κοντινής πόλης/χωριού.";
 "search_history_title" = "Ιστορικό αναζητήσεων";
 "search_history_text" = "Προβολή πρόσφατων αναζητήσεων.";
 "clear_search" = "Εκκαθάριση ιστορικού αναζητήσεων";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Βικιπέδια";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Κοινά της Wikimedia";
 "p2p_your_location" = "Η τοποθεσία σας";
@@ -497,7 +367,6 @@
 "p2p_reroute_from_current" = "Θέλετε να σχεδιαστεί μια διαδρομή από την τρέχουσα τοποθεσία σας;";
 "editor_time_add" = "Προσθέσετε χρονοδιάγραμμα";
 "editor_time_delete" = "Διαγραφή χρονοδιαγράμματος";
-
 /* Text for allday switch. */
 "editor_time_allday" = "Όλη την ημέρα (24 ώρες)";
 "editor_time_open" = "Ανοικτό";
@@ -513,10 +382,16 @@
 "share_with_friends" = "Μοιραστείτε το με φίλους";
 "editor_report_problem_send_button" = "Αποστολή";
 "autodownload" = "Αυτόματη λήψη";
-
+/* Voice */
+"voice" = "Φωνή";
+"voice_explanation" = "Είναι δυνατό να επιλέξετε μια καλύτερη φωνή στις ρυθμίσεις συστήματος κατώ από *Προσβασιμότητα*, *Ανάγνωση & Ομιλία*, *Φωνές*.";
+"voice_explanation_before_version26" = "Είναι δυνατό να επιλέξετε μια καλύτερη φωνή στις ρυθμίσεις συστήματος κατώ από *Προσβασιμότητα*, *Εκφωνούμενο περιεχόμενο*, *Φωνές*.";
+"unknown" = "Άγνωστο";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Ύπαρξη επιβεβαιώθηκε %@";
+"hours_confirmed_time_ago" = "Επιβεβαιώθηκε %@";
 /* Place Page opening hours text */
 "closed_now" = "Κλειστό τώρα";
-
 /* Place Page opening hours text */
 "daily" = "Καθημερινά";
 "twentyfour_seven" = "24/7";
@@ -531,13 +406,11 @@
 "closes_in" = "Κλείνει σε %@";
 "closed" = "Κλειστό";
 "add_opening_hours" = "Προσθέστε ώρες λειτουργίας";
-
 /* OpenStreetMap */
 "osm_mapdata" = "Δεδομένα χάρτη από το OpenStreetMap";
 "osm_mapdata_explanation %@" = "Δεδομένα χαρτών που δημιουργήθηκαν από την κοινότητα στις *%@*. Μάθετε περισσότερα για τον τρόπο επεξεργασίας και ενημέρωσης του χάρτη στο [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Περισσότερα σχετικά με το OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/El:Σχετικά_με_το_OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "Προφίλ OpenStreetMap";
 "osm_profile_promt" = "Δημιουργήστε έναν λογαριασμό OpenStreetMap ή συνδεθείτε για να δημοσιεύσετε τις επεξεργασίες του χάρτη σας στον κόσμο.";
@@ -550,20 +423,19 @@
 "osm_profile_register_promt" = "Δεν έχετε λογαριασμό OpenStreetMap;";
 "osm_profile_register" = "Εγγραφή στο OpenStreetMap";
 "osm_profile_verfied_changes" = "Επαληθευμένες αλλαγές";
+"osm_profile_view_edit_history" = "Προβολή ιστορικού επεξεργασιών";
+"osm_profile_view_notes" = "Προβολή σημειώσεων";
 "osm_profile_logout" = "Αποσύνδεση από τον λογαριασμό OpenStreetMap";
 "osm_profile_delete" = "Διαγραφή λογαριασμού OpenStreetMap";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Τελευταία μεταφόρτωση";
 "thank_you" = "Σας ευχαριστούμε";
 "edit_place" = "Επεξεργασία τοποθεσίας";
 "place_name" = "Όνομα τοποθεσίας";
 "add_language" = "Προσθήκη γλώσσας";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "Αριθμός κτιρίου";
 "details" = "Λεπτομέρειες";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "Προσθέστε οδό";
 "choose_language" = "Επιλέξτε μια γλώσσα";
@@ -571,7 +443,6 @@
 "postal_code" = "Ταχυδρομικός Κώδικας";
 "cuisine" = "Κουζίνα";
 "select_cuisine" = "Επιλέξτε κουζίνα";
-
 /* login text field */
 "email_or_username" = "Email ή όνομα χρήστη";
 "phone" = "Τηλέφωνο";
@@ -592,40 +463,33 @@
 "editor_edit_place_title" = "Επεξεργασία";
 "editor_add_place_title" = "Προσθήκη";
 "editor_edit_place_name_hint" = "Όνομα τοποθεσίας";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Όπως είναι γραμμένο στην τοπική γλώσσα";
 "editor_edit_place_category_title" = "Κατηγορία";
 "whatsnew_editor_message_1" = "Προσθέστε νέες τοποθεσίες στο χάρτη, και επεξεργαστείτε τις υπάρχουσες απευθείας από την εφαρμογή.";
 "dialog_incorrect_feature_position" = "Αλλαγή τοποθεσίας";
 "message_invalid_feature_position" = "Δε μπορεί να τοποθετηθεί αντικείμενο εδώ";
-
 /* Error dialog no space */
 "migration_no_space_message" = "Για να το κατεβάσετε, χρειάζεστε περισσότερο χώρο. Διαγράψτε μη απαραίτητα δεδομένα.";
 "editor_sharing_title" = "Βελτίωσα τους χάρτες CoMaps";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d από %2$d";
 "download_over_mobile_header" = "Να γίνει λήψη μέσω δικτύου κινητής τηλεφωνίας;";
 "download_over_mobile_message" = "Αυτό μπορεί να είναι πολύ ακριβό για μερικά πακέτα ή στην περίπτωση roaming.";
 "error_enter_correct_house_number" = "Εισαγάγετε έναν έγκυρο αριθμό κτιρίου";
 "editor_storey_number" = "Αριθμός ορόφων (μέγιστο %d)";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "Ο αριθμός των ορόφων δεν πρέπει να υπερβαίνει τους %d";
 "editor_zip_code" = "Ταχυδρομικός κώδικας";
 "error_enter_correct_zip_code" = "Εισάγετε έναν έγκυρο ταχυδρομικό κώδικα";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "Σημείο χάρτη";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Σημείωση για τους εθελοντές του OpenStreetMap (προαιρετική)";
 "editor_detailed_description_hint" = "Λεπτομερές σχόλιο";
 "editor_detailed_description" = "Οι προτεινόμενες αλλαγές θα σταλούν στην Κοινότητα του OpenStreetMap. Περιγράψτε τυχόν πρόσθετα στοιχεία που δεν μπορείτε να επεξεργαστείτε στο CoMaps.";
 "editor_more_about_osm" = "Περισσότερα σχετικά με το OpenStreetMap";
 "editor_operator" = "Χειριστής";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Χειριστής: %@";
 "editor_category_unsuitable_title" = "Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;";
@@ -638,26 +502,20 @@
 "location_services_disabled_message" = "Ενεργοποιήστε την υπηρεσία γεωεντοπισμού στις ρυθμίσεις της συσκευής";
 "location_services_disabled_1" = "1. Ανοίξτε τις Ρυθμίσεις";
 "location_services_disabled_2" = "2. Πατήστε Τοποθεσία";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. Επιλέξτε «Κατά τη χρήση της εφαρμογής»";
 "location_services_disabled_on_device_2" = "2. Επιλέξτε Απόρρητο";
 "location_services_disabled_on_device_3" = "3. Επιλέξτε Υπηρεσίες τοποθεσίας";
 "location_services_disabled_on_device_4" = "4. Ενεργοποιήστε τις Υπηρεσίες τοποθεσίας";
 "location_services_disabled_on_device_additional_message" = "Ή συνεχίστε να χρησιμοποιείτε το CoMaps χωρίς Τοποθεσία";
-
 /* abbreviation for meters */
 "m" = "μ";
-
 /* abbreviation for kilometers */
 "km" = "χμ";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "χμ/ω";
-
 /* abbreviation for mile(s) */
 "mi" = "μι";
-
 /* A unit of measure */
 "ft" = "πόδια";
 "miles_per_hour" = "μλ/ώ";
@@ -678,35 +536,29 @@
 "editor_remove_place_message" = "Διαγραφή της τοποθεσίας που προστέθηκε;";
 "editor_remove_place_button" = "Διαγραφή";
 "editor_place_doesnt_exist" = "Η τοποθεσία δεν υπάρχει";
+"editor_place_doesnt_exist_description" = "Περιγράψτε το πως μοιάζει το μέρος τώρα για να στείλετε μια σημείωση λάθους στην κοινότητα του OpenStreetMap";
 "text_more_button" = "…περισσότερα";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "Εισάγετε έναν έγκυρο αριθμό τηλεφώνου";
 "error_enter_correct_web" = "Εισάγετε μια έγκυρη ηλεκτρονική διεύθυνση";
 "error_enter_correct_email" = "Εισάγετε ένα έγκυρο email";
 "refresh" = "Ενημέρωση";
 "placepage_add_place_button" = "Προσθήκη τοποθεσίας στο OpenStreetMap";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "Θέλετε να το στείλετε σε όλους τους χρήστες;";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Βεβαιωθείτε ότι δεν έχετε εισάγει προσωπικά δεδομένα.";
 "editor_share_to_all_dialog_message_2" = "Οι συντάκτες του OpenStreetMap θα ελέγξουν τις αλλαγές και θα επικοινωνήσουν μαζί σας εάν έχουν απορίες.";
 "navigation_stop_button" = "Τέλος";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "Θέλετε να απενεργοποιήσετε την καταγραφή της πρόσφατης διαδρομής σας;";
 "off_recent_track_background_button" = "Απενεργοποίηση";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "Τσέκαρε";
 "recent_track_background_dialog_message" = "Το CoMaps χρησιμοποιεί την τοποθεσία σας στο παρασκήνιο για την καταγραφή των πρόσφατων διαδρομών σας.";
 "general_settings" = "Γενικές ρυθμίσεις";
-
 /* For the first routing */
 "accept" = "Συμφωνώ";
-
 /* For the first routing */
 "decline" = "Διαφωνώ";
 "mobile_data_dialog" = "Θέλετε να χρησιμοποιήσετε το δίκτυο κινητής τηλεφωνίας για να εμφανίσετε αναλυτικές πληροφορίες;";
@@ -714,29 +566,28 @@
 "mobile_data_option_today" = "Μόνο σήμερα";
 "mobile_data_option_not_today" = "Να μην χρησιμοποιηθεί σήμερα";
 "mobile_data" = "Ίντερνετ μέσω δικτύου κινητής";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Απαιτείται πρόσβαση στο διαδίκτυο μέσω δικτύου κινητής για τις ειδοποιήσεις ενημερώσεων χάρτη και μεταφορτώσεως επεξεργασιών.";
 "mobile_data_option_never" = "Να μην χρησιμοποιείται ποτέ";
 "mobile_data_option_ask" = "Να γίνεται πάντα ερώτηση";
 "traffic_update_maps_text" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να ενημερωθούν οι χάρτες.";
 "big_font" = "Αύξηση μεγέθους γραμματοσειράς στο χάρτη";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Για να εμφανιστούν πληροφορίες για την κίνηση, πρέπει να γίνει ενημέρωση της εφαρμογής.";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Οι πληροφορίες για την κίνηση δεν είναι διαθέσιμες";
 "enable_logging" = "Ενεργοποίηση αρχείου καταγραφής";
 "log_file_size" = "Μέγεθος αρχείου καταγραφής: %@";
+"pref_alt_map_lang_handling" = "Εναλλακτικές γλώσσες χάρτη";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Να μην χρησιμοποιούνται εναλλακτικές";
+"pref_alt_map_lang_handling_system_order" = "Χρήση με σειρά συστήματος";
+"pref_alt_map_lang_handling_local_only" = "Προτίμηση και χρήση μόνο όπου είναι τοπική";
 "transliteration_title" = "Μεταγραφή στο λατινικό αλφάβητο";
-
+"transliteration_title_disabled_summary" = "Απενεργοποιημένο όταν πάντα χρησιμοποιείται η τοπική γλώσσα για τον χάρτη";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "Έξοδος";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Χρησιμοποιήστε την αναζήτηση ή πατήστε στο χάρτη για να προσθέσετε ένα σημείο εκκίνησης της διαδρομής";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Χρησιμοποιήστε την αναζήτηση ή πατήστε στο χάρτη για να προσθέσετε ένα σημείο προορισμού";
 "planning_route_manage_route" = "Διαχείριση διαδρομής";
@@ -745,18 +596,15 @@
 "planning_route_remove_title" = "Σύρετε εδώ για αφαίρεση";
 "placepage_add_stop" = "Προσθήκη στάσης";
 "start_from_my_position" = "Έναρξη από";
-
 /* Title for button when a route was saved. */
 "saved" = "Αποθηκεύτηκε";
 "core_entrance" = "Είσοδος";
 "error_enter_correct_name" = "Εισάγετε ένα σωστό όνομα";
 "bookmark_lists" = "Λίστες";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "Απόκρυψη όλων";
 "bookmark_lists_show_all" = "Εμφάνιση όλων";
 "bookmarks_create_new_group" = "Δημιουργία νέας λίστας";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "Εισαγωγή Αγαπημένων";
 "downloader_hide_screen" = "Απόκρυψη οθόνης";
@@ -790,13 +638,10 @@
 "download_button" = "Λήψη";
 "speedcams_alert_title" = "Κάμερες ταχύτητας";
 "place_description_title" = "Περιγραφή μέρους";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Προειδοποιήσεις για υπερβολική ταχύτητα";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Να ειδοποιούμαι πάντα";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Να μην ειδοποιούμαι ποτέ";
 "power_managment_title" = "Λειτουργία εξοικονόμησης ενέργειας";
@@ -806,14 +651,13 @@
 "power_managment_setting_manual_max" = "Πάντα";
 "enable_logging_warning_message" = "Αυτή η λειτουργία είναι ενεργοποιημένη για την καταγραφή ενεργειών για διαγνωστικούς σκοπούς. Αυτό βοηθά την ομάδα να εντοπίζει προβλήματα με την εφαρμογή. Να ενεργοποιείτε τη λειτουργία μόνο κατόπιν αιτήματος της υποστήριξης του CoMaps.";
 "driving_options_title" = "Ρυθμίσεις δρομολόγησης";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Αποφυγή διοδίων";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Αποφυγή χωματόδρομων";
-
+"avoid_paved" = "Αποφυγή στρωμένων δρόμων";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Αποφυγή σκαλοπατιών";
 "avoid_ferry" = "Αποφυγή πορθμείων";
 "avoid_motorways" = "Αποφυγή αυτοκινητόδρομων";
 "unable_to_calc_alert_title" = "Δεν ήταν δυνατός ο υπολογισμός διαδρομής";
@@ -829,22 +673,16 @@
 "search_results" = "Αποτελέσματα αναζήτησης";
 "then_turn" = "Μετά";
 "redirect_route_alert" = "Θα θέλατε να επανυπολογιστεί η διαδρομή;";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "Ναι";
-
 /* A generic "No" button in dialogs */
 "no" = "Όχι";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "Ναι";
-
 /* E.g. "WiFi:No" */
 "no_available" = "Όχι";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Χωρητικότητα: %@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Δίκτυο: %@";
 "trip_finished" = "Μόλις φτάσατε!";
@@ -864,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "Ειδοποιήσεις ταχύτητας";
 "download_map_carplay" = "Κάντε λήψη χαρτών στην εφαρμογή, στη συσκευή σας";
 "carplay_roundabout_exit" = "%@ έξοδος";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "Ταξινόμηση…";
-
 /* iOS */
 "sort_default" = "Ταξινόμηση κατά προεπιλογή";
 "sort_type" = "Ταξινόμηση ανά τύπο";
@@ -913,194 +749,124 @@
 "isolines_toast_zooms_1_10" = "Μεγεθύνετε για να δείτε περιγράμματα";
 "downloader_updating_ios" = "Γίνεται ενημέρωση";
 "downloader_loading_ios" = "Κατέβασμα";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Ενημέρωση κατεβασμένων χαρτών";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "Η ενημέρωση των χαρτών διατηρεί τις πληροφορίες των στοιχείων επικαιροποιημένες";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Ενημέρωση (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "Χειροκίνητη ενημέρωση αργότερα";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Διαγραφή ίχνους";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "Σίγουρα θέλετε να διαγράψετε αυτό το ίχνος;";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Όνομα ίχνους";
-
 /* move track or bookmark from the list button text */
 "move" = "Μετακίνηση";
-
 /* edit track screen title */
 "track_title" = "Ίχνος";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/";
-
 /* App Tip #00 */
 "app_tip_00" = "Σας ευχαριστούμε που χρησιμοποιείτε τους χάρτες μας που δημιουργήθηκαν από την κοινότητα!";
-
 /* App tip #01 */
 "app_tip_01" = "Με τις δωρεές και την υποστήριξή σας, μπορούμε να δημιουργήσουμε τους καλύτερους χάρτες στον κόσμο!";
-
 /* App tip #02 */
 "app_tip_02" = "Σας αρέσει η εφαρμογή μας; Παρακαλούμε κάντε μια δωρεά για να στηρίξετε την ανάπτυξη! Ακόμα δεν σας αρέσει; Ενημερώστε μας και θα το διορθώσουμε!";
-
 /* App tip #03 */
 "app_tip_03" = "Εάν γνωρίζετε έναν προγραμματιστή λογισμικού, μπορείτε να του ζητήσετε να υλοποιήσει μια λειτουργία που χρειάζεστε.";
-
 /* App tip #04 */
 "app_tip_04" = "Πατήστε οπουδήποτε στο χάρτη για να επιλέξετε οτιδήποτε. Πατήστε παρατεταμένα για να αποκρύψετε και να εμφανίσετε ξανά το περιβάλλον εργασίας.";
-
 /* App tip #05 */
 "app_tip_05" = "Γνωρίζετε ότι μπορείτε να επιλέξετε την τρέχουσα τοποθεσία σας στο χάρτη;";
-
 /* App tip #06 */
 "app_tip_06" = "Μπορείτε να βοηθήσετε στη μετάφραση της εφαρμογής μας στη γλώσσα σας.";
-
 /* App tip #07 */
 "app_tip_07" = "Η εφαρμογή μας έχει αναπτυχθεί από λίγους θιασώτες και την κοινότητα.";
-
 /* App tip #08 */
 "app_tip_08" = "Μπορείτε εύκολα να διορθώσετε και να βελτιώσετε τα δεδομένα χάρτη.";
-
 /* App tip #09 */
 "app_tip_09" = "Ο κύριος στόχος μας είναι να δημιουργήσουμε γρήγορους, εύχρηστους και με σεβασμό στην ιδιωτικότητα χάρτες που θα λατρέψετε.";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "Αυτή τη στιγμή το CoMaps βρίσκεται στην οθόνη του κινητού";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "Αυτή τη στιγμή το CoMaps βρίσκεται στην οθόνη του αυτοκινήτου";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "Συνέχεια στο κινητό";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "Στην οθόνη του αυτοκινήτου";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Πεζοπορία";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "Εξαγωγή όλων των Αγαπημένων";
-
 /* Text for the editing the Track's color button. */
 "change_color" = "Αλλαγή χρώματος";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Χάρτης";
 "drive_through" = "Οδηγώ μέσα από";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Σύνδεσμος μενού";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Θα θέλατε να στείλετε μια αναφορά σφάλματος στους προγραμματιστές;\nΒασιζόμαστε στους χρήστες μας, καθώς οι CoMaps δεν συλλέγουν αυτόματα καμία πληροφορία σφάλματος. Σας ευχαριστούμε εκ των προτέρων για την υποστήριξη των CoMaps!";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "Συγχρονισμός iCloud (Beta)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Ενεργοποίηση συγχρονισμού iCloud";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
-"enable_icloud_synchronization_message" = "Ο συγχρονισμός iCloud είναι μια πειραματική λειτουργία υπό ανάπτυξη. Βεβαιωθείτε ότι έχετε δημιουργήσει αντίγραφο ασφαλείας όλων των σελιδοδεικτών και των κομματιών σας.";
-
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "Ο συγχρονισμός iCloud είναι μια πειραματική λειτουργία υπό ανάπτυξη. Βεβαιωθείτε ότι έχετε δημιουργήσει αντίγραφο ασφαλείας όλων των αγαπημένων σας.";
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "Το iCloud είναι απενεργοποιημένο";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "Ενεργοποιήστε το iCloud για το CoMaps στις ρυθμίσεις του Apple λογαριασμού σας για να χρησιμοποιήσετε αυτή τη λειτουργία.";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "Ενεργοποίηση";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "Δημιουργία αντιγράφων ασφαλείας";
-
 /* Title for the "iCloud synchronization failure" alert. */
 "icloud_synchronization_error_alert_title" = "Αποτυχία συγχρονισμού iCloud";
-
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "Σφάλμα: Αποτυχία συγχρονισμού λόγω σφάλματος σύνδεσης";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "Σφάλμα: iCloud: Απέτυχε ο συγχρονισμός λόγω υπέρβασης της ποσόστωσης iCloud";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "Σφάλμα: Το iCloud δεν είναι διαθέσιμο";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "Άνοιγμα σε άλλη εφαρμογή";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "Αυτοεξυπηρέτηση";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Εξωτερικά καθίσματα";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "Πρόσφατα διαγραμμένες λίστες";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "Εκκαθάριση";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "Διαγραφή όλων";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "Ανάκτηση";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Ανάκτηση όλων";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "Εγγραφή ίχνους";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Σταματήστε την εγγραφή ίχνους";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Σταματήστε χωρίς αποθήκευση";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Συνέχεια εγγραφής";
-
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Αποθήκευση στα Αγαπημένα;";
-
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Το ίχνος είναι άδειο - δεν υπάρχει τίποτα να αποθηκεύσετε";
 "edit_track" = "Επεξεργασία ίχνους";
-"osm_profile_view_notes" = "Προβολή σημειώσεων";
-"osm_profile_view_edit_history" = "Προβολή ιστορικού επεξεργασιών";
-"about_proposition_3" = "Διαφανές και μη κερδοσκοπικό";
-"about_headline" = "Ανοιχτό έργο με την υποστήριξη της κοινότητας";
-"pref_mapappearance_title" = "Εμφάνιση χάρτη";
-"pref_maplanguage_title" = "Γλώσσα χάρτη";
-"transliteration_title_disabled_summary" = "Απενεργοποιημένο όταν πάντα χρησιμοποιείται η τοπική γλώσσα για τον χάρτη";
-"pref_maplanguage_local" = "Τοπική γλώσσα";
-"existence_confirmed_time_ago" = "Ύπαρξη επιβεβαιώθηκε %@";
-"hours_confirmed_time_ago" = "Επιβεβαιώθηκε %@";
-"offline_explanation_text" = "Χρειάζεται να ληφθεί ένας χάρτης για να δείτε και να πλοηγηθείτε την περιοχή.\nΚατεβάστε χάρτες για τις περιοχές που θέλετε να ταξιδέψετε.";
-"avoid_steps" = "Αποφυγή σκαλοπατιών";
-"avoid_paved" = "Αποφυγή στρωμένων δρόμων";
-"unknown" = "Άγνωστο";
-"voice" = "Φωνή";
-"offline_explanation_title" = "Χάρτες εκτός σύνδεσης";
-"voice_explanation" = "Είναι δυνατό να επιλέξετε μια καλύτερη φωνή στις ρυθμίσεις συστήματος κατώ από *Προσβασιμότητα*, *Ανάγνωση & Ομιλία*, *Φωνές*.";
-"voice_explanation_before_version26" = "Είναι δυνατό να επιλέξετε μια καλύτερη φωνή στις ρυθμίσεις συστήματος κατώ από *Προσβασιμότητα*, *Εκφωνούμενο περιεχόμενο*, *Φωνές*.";
-"editor_place_doesnt_exist_description" = "Περιγράψτε το πως μοιάζει το μέρος τώρα για να στείλετε μια σημείωση λάθους στην κοινότητα του OpenStreetMap";
-"pref_alt_map_lang_handling_local_only" = "Προτίμηση και χρήση μόνο όπου είναι τοπική";
-"pref_alt_map_lang_handling" = "Εναλλακτικές γλώσσες χάρτη";
-"pref_alt_map_lang_handling_system_order" = "Χρήση με σειρά συστήματος";
-"rooms" = "%@ δωμάτια";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title of the general section in settings */
+"general" = "Γενικές";
+/* Title of the interface section in settings */
+"interface" = "Διεπαφή";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Συνεισφορά στο OpenStreetMap";
+"contribute_to_osm_add_place" = "Προσθήκη μέρους";
+"contribute_to_osm_update_map" = "Ενημέρωση του χάρτη για συνεισφορά";
+"contribute_to_osm_update_map_description" = "Πρέπει να ενημερώσετε τον χάρτη %@ στην τελευταία έκδοση ώστε να μπορέσετε να συνεισφέρετε στα δεδομένα του OpenStreetMap";

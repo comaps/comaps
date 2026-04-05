@@ -1,272 +1,196 @@
-
 /* Button text (should be short) */
 "cancel" = "取消";
-
 /* Button which interrupts country download */
 "cancel_download" = "取消下載";
-
 /* Button which deletes downloaded country */
 "delete" = "刪除";
 "download_maps" = "下載地圖";
-
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "下載中…";
-
+/* Title of offline maps explanation */
+"offline_explanation_title" = "離線地圖";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。";
 /* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "公里";
-
 /* Leave Review dialog - Review button */
 "leave_a_review" = "撰寫評論";
-
 /* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "英哩";
-
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "我的位置";
-
 /* Update maps later button text */
 "later" = "以後再說";
-
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
 "search" = "搜尋";
-
 /* Settings/Downloader - 3G download warning dialog confirm button */
 "use_cellular_data" = "是";
-
 /* View and button titles for accessibility */
 "zoom_to_country" = "在地圖上顯示";
-
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
 "country_status_download_without_size" = "下載地圖";
-
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "下載失敗";
-
 /* Text in About screen */
 "about_headline" = "由社群推動的開放項目";
-
 /* Text in About screen */
 "about_proposition_1" = "離線、快速、易用";
-
 /* Text in About screen */
 "about_proposition_2" = "注重隱私且無廣告";
-
 /* Text in About screen */
 "about_proposition_3" = "決策問責、財務透明、非營利性";
 "close" = "關閉";
 "download" = "下載";
-
 /* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "繼續";
-
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "新增新的書籤列表";
-
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "列表名稱";
-
 /* "Bookmark Lists" dialog title */
 "bookmark_sets" = "最愛列表";
-
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "地點";
-
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "最愛";
-
 /* Default bookmark list name */
 "core_my_places" = "我的地點";
-
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "地址";
-
 /* Settings button in system menu */
 "settings" = "設定";
-
 /* Measurement units title in settings activity */
 "measurement_units" = "測量單位";
-
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "在哪裡吃";
-
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "食品";
-
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "交通";
-
 /* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "加油站";
-
 /* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "停車場";
-
 /* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
 "category_shopping" = "購物";
-
 /* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "二手商店";
-
 /* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "旅館";
-
 /* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "旅遊景點";
-
 /* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "娛樂";
-
 /* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "自動提款機";
-
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "夜生活";
-
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "親子休閒";
-
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "銀行";
-
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "藥局";
-
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "醫院";
-
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "廁所";
-
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "郵局";
-
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "警察局";
-
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "無線網路";
-
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "回收";
-
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "水";
-
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "露營車設施";
 "share_bookmarks_email_body" = "您好！\n\n附件是我儲存的地點，請在 CoMaps 中打開。如果您沒有安裝 CoMaps，可以在這裡下載: https://www.comaps.app/download/\n\n祝您使用 CoMaps 旅行愉快！";
-
 /* message title of loading file */
 "load_kmz_title" = "正在載入最愛";
-
 /* Kmz file successful loading */
 "load_kmz_successful" = "最愛載入成功！ 您可以在地圖或最愛管理畫面中找到它們。";
-
 /* Kml file loading failed */
 "load_kmz_failed" = "最愛載入失敗，檔案可能已損壞或不完整。";
-
 /* resource for context menu */
 "edit" = "編輯";
-
 /* Warning message when doing search around current position */
 "unknown_current_position" = "您的位置尚未確定";
-
 /* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "嘿，看看我在 CoMaps 上標記的圖釘吧！";
-
 /* Subject for emailed position */
 "my_position_share_email_subject" = "嗨，到 CoMaps 查看我目前的位置！";
-
 /* Share by email button text, also used in editor and About. */
 "email" = "電子郵件";
-
 /* Text for message to copy something */
 "copy_to_clipboard" = "複製到剪貼簿";
-
 /* Text for message when used successfully copied something */
 "copied_to_clipboard" = "已複製到剪貼簿：%@";
-
 /* place preview title */
 "info" = "資訊";
-
 /* Used for bookmark editing */
 "done" = "完成";
-
 /* Prints version number in About dialog */
 "version" = "CoMaps 版本：%@";
 "version %@ (%@)" = "%@ (%@) 版本";
 "version: %@ (%@)\nmap data: %@" = "版本: %@ (%@)\n地圖資料: %@";
-
 /* Title for tracks category in bookmarks manager */
 "tracks_title" = "軌跡";
-
 /* Length of track in cell that describes route */
 "length" = "長度";
 "share_my_location" = "分享我的位置";
 "prefs_group_route" = "導航";
 "pref_zoom_title" = "縮放按鈕";
 "pref_left_button_type" = "左側主要按鈕";
-
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "地圖語言";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "本地語言";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "地圖樣貌";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "外觀";
-
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_light" = "淺色";
-
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "深色";
-
 /* Generic «Disabled» string */
 "disabled" = "不啟用";
-
 /* Generic «Off» string */
 "off" = "關閉";
-
 /* Generic «On» string */
 "on" = "開啟";
-
 /* Generic «Auto» string */
 "auto" = "自動";
-
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "透視圖";
-
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D 建築";
-
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D 建築在省電模式下將會關閉";
-
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "語音提示";
-
 /* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "啟用語音提示";
-
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "播報街道名稱";
-
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "啟用後，將大聲播報即將進入的街道或出口的名稱。";
-
 /* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "語音語言";
-
 /* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "測試語音指令";
-
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "其他";
 "pref_map_auto_zoom" = "自動縮放";
 "placepage_distance" = "距離";
 "search_show_on_map" = "在地圖上查看";
-
 /* Text in menu */
 "website" = "網站";
-
 /* Text in About menu, opens CoMaps news website */
 "news" = "新聞";
-
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -275,166 +199,114 @@
 "social_bluesky" = "Bluesky";
 "social_pixelfed" = "Pixelfed";
 "social_email" = "電子郵件";
-
 /* Text in the editor */
 "fediverse" = "Mastodon";
-
 /* Text in menu */
 "facebook" = "Facebook";
-
 /* Text in menu */
 "twitter" = "X（推特）";
-
 /* Text in menu */
 "instagram" = "Instagram";
-
 /* Text in the editor */
 "vk" = "VK";
-
 /* Text in the editor */
 "line" = "Line";
-
 /* Text in the editor */
 "bluesky" = "Bluesky";
-
 /* Text in menu */
 "panoramax" = "Panoramax";
-
 /* Text in menu */
 "panoramax_picture" = "Panoramax 圖片";
-
 /* Text in menu */
 "rate_the_app" = "為我們評分";
-
 /* Text in menu */
 "help" = "幫助";
-
 /* Button in the main Help dialog */
 "faq" = "問題和解答";
-
 /* Button in the main menu */
 "donate" = "捐助我們";
-
 /* Button in the main Help dialog */
 "copyright" = "版權";
-
 /* Text in menu + Button in the main Help dialog */
 "report_a_bug" = "報告問題";
-
 /* Button in the About screen */
 "report_incorrect_map_bug" = "回報或修復不正確的地圖數據";
-
 /* Button in the About screen */
 "volunteer" = "志工與改進 CoMaps";
-
 /* "Social media" section header in the About screen */
 "follow_us" = "聯絡我們";
-
 /* Alert text */
 "email_error_body" = "電子郵件客戶端未設定。請配置電子郵件客戶端或通過 %@ 聯絡我們";
-
 /* Alert title */
 "email_error_title" = "電子郵件發送失敗";
-
 /* Toast text when user hides UI with a long tap anywhere on the map */
 "long_tap_toast" = "再次長按地圖即可查看介面";
-
 /* Update all button text */
 "downloader_update_all_button" = "更新全部";
-
 /* Downloaded maps list header */
 "downloader_downloaded_subtitle" = "已下載";
-
 /* Downloaded maps category */
 "downloader_available_maps" = "可用";
-
 /* Country queued for download */
 "downloader_queued" = "已加入到下載清單";
 "downloader_near_me_subtitle" = "在我附近";
-
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
 "downloader_status_maps" = "地圖";
 "downloader_download_all_button" = "下載全部";
 "downloader_downloading" = "正在下載：";
 "downloader_search_results" = "已找到";
-
 /* Status of outdated country in the list */
 "downloader_status_outdated" = "更新";
-
 /* Status of failed country in the list */
 "downloader_status_failed" = "失敗";
-
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "要刪除地圖，請停止導航。";
-
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "路線只能完全處在同一地圖裡時才能被規劃。";
-
 /* Context menu item for downloader. */
 "downloader_download_map" = "下載地圖";
-
 /* Item status in downloader. */
 "downloader_retry" = "重新下載";
-
 /* Item in context menu. */
 "downloader_delete_map" = "刪除地圖";
-
 /* Text for routing error dialog */
 "routing_download_maps_along" = "下載路線上的所有地圖";
-
 /* Text for routing error dialog */
 "routing_requires_all_map" = "規劃路線需要下載並更新好所有從您的位置到目的地的地圖。";
-
 /* bookmark button text */
 "bookmark" = "地點";
 "save" = "儲存";
 "create" = "建立";
-
 /* red color */
 "red" = "紅色";
-
 /* yellow color */
 "yellow" = "黃色";
-
 /* blue color */
 "blue" = "藍色";
-
 /* green color */
 "green" = "綠色";
-
 /* purple color */
 "purple" = "紫色";
-
 /* orange color */
 "orange" = "橙色";
-
 /* brown color */
 "brown" = "棕色";
-
 /* pink color */
 "pink" = "粉色";
-
 /* deep purple color */
 "deep_purple" = "暗紫色";
-
 /* light blue color */
 "light_blue" = "天藍色";
-
 /* cyan color */
 "cyan" = "藍綠色";
-
 /* teal color */
 "teal" = "碧綠色";
-
 /* lime color */
 "lime" = "青檸";
-
 /* deep orange color */
 "deep_orange" = "深橙色";
-
 /* gray color */
 "gray" = "灰色";
-
 /* blue gray color */
 "blue_gray" = "藍灰色";
 "dialog_routing_disclaimer_title" = "依照路線行進時，請牢記：";
@@ -465,34 +337,26 @@
 "dialog_routing_try_again" = "請再試一次";
 "dialog_routing_download_and_build_cross_route" = "您是否要下載地圖，以規劃跨越邊界的更佳路線？";
 "dialog_routing_download_cross_route" = "下載地圖，以規劃一條跨越邊界的更佳路線。";
-
 /* «Show» context menu */
 "show" = "顯示";
-
 /* «Hide» context menu */
 "hide" = "隱藏";
-
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "路線規劃失敗";
-
 /* Arrive routing message in navigation view */
 "routing_arrive" = "已抵達 %@";
-
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "要規劃路線，請下載並更新所有沿線的地圖。";
 "categories" = "類別";
 "history" = "歷史";
 "search_not_found" = "很抱歉，沒有搜尋到任何地點。";
-
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "下載您要搜尋的區域的地圖，或嘗試輸入附近的城鎮或村莊名稱。";
 "search_history_title" = "搜尋歷史紀錄";
 "search_history_text" = "查看您最近的搜尋記錄。";
 "clear_search" = "清除搜尋記錄";
-
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "維基百科";
-
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "維基共享資源";
 "p2p_your_location" = "您的位置";
@@ -503,7 +367,6 @@
 "p2p_reroute_from_current" = "您是否想要規劃目前位置的路線？";
 "editor_time_add" = "新增排程";
 "editor_time_delete" = "刪除排程";
-
 /* Text for allday switch. */
 "editor_time_allday" = "全天 (24 小時)";
 "editor_time_open" = "營業中";
@@ -519,10 +382,16 @@
 "share_with_friends" = "與朋友分享";
 "editor_report_problem_send_button" = "傳送";
 "autodownload" = "自動下載";
-
+/* Voice */
+"voice" = "聲音";
+"voice_explanation" = "在系統設定「協助工具」，「TalkBack」，「設定」選擇比較好的聲音。";
+"voice_explanation_before_version26" = "在系統設定「協助工具」，「說話內容」，「聲音」選擇比較好的聲音。";
+"unknown" = "未知";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "存在確認 %@";
+"hours_confirmed_time_ago" = "已確認 %@";
 /* Place Page opening hours text */
 "closed_now" = "現已打烊";
-
 /* Place Page opening hours text */
 "daily" = "每天";
 "twentyfour_seven" = "24/7 全天候營業";
@@ -537,16 +406,15 @@
 "closes_in" = "將於 %@ 後歇業";
 "closed" = "已停止營業";
 "add_opening_hours" = "新增營業時間";
-
 /* OpenStreetMap */
 "osm_mapdata" = "地圖資料源於 OpenStreetMap";
 "osm_mapdata_explanation %@" = "截至 *%@* 的地圖資料由社群所創建。請訪問 [OpenStreetMap.org](https://openstreetmap.org) 以了解有關如何編輯和更新地圖的更多資訊。";
 "osm_more_about" = "關於 OpenStreetMap 的更多資訊";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Zh-hant:關於OpenStreetMap";
-
 /* OpenStreetMap Profile */
 "osm_profile" = "OpenStreetMap 個人資料";
 "osm_profile_promt" = "建立 OpenStreetMap 帳戶或登入以向全世界發布您的地圖編輯。";
+"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org)（OSM）是一個建立免費開放地圖的社群專案。 它是CoMaps中地圖資料的主要來源，其工作原理類似於維基百科。 您可以新增或編輯地點，可供全世界數以百萬計的使用者使用並受益。\n 加入OSM，讓我們共繪更優質的地圖吧！";
 "osm_profile_login" = "登入 OpenStreetMap 帳號";
 "osm_profile_reauthorize_promt" = "OpenStreetMap 帳號已與此應用斷開連接";
 "osm_profile_reauthorize" = "重新連接 OpenStreetMap";
@@ -555,20 +423,19 @@
 "osm_profile_register_promt" = "沒有 OpenStreetMap 帳戶嗎？";
 "osm_profile_register" = "註冊 OpenStreetMap 帳戶";
 "osm_profile_verfied_changes" = "已驗證的變更";
+"osm_profile_view_edit_history" = "查看編輯歷史記錄";
+"osm_profile_view_notes" = "查看註記";
 "osm_profile_logout" = "登出 OpenStreetMap 帳號";
 "osm_profile_delete" = "刪除 OpenStreetMap 帳號";
-
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "最後上傳";
 "thank_you" = "謝謝您";
 "edit_place" = "編輯地點";
 "place_name" = "地點名稱";
 "add_language" = "新增語言";
-
 /* Editable House Number text field (in address block). */
 "house_number" = "門牌號碼";
 "details" = "詳細資訊";
-
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "新增街道";
 "choose_language" = "選擇語言";
@@ -576,7 +443,6 @@
 "postal_code" = "郵遞區號";
 "cuisine" = "料理";
 "select_cuisine" = "選擇料理";
-
 /* login text field */
 "email_or_username" = "電子郵件或使用者名稱";
 "phone" = "電話";
@@ -597,40 +463,33 @@
 "editor_edit_place_title" = "編輯中";
 "editor_add_place_title" = "新增中";
 "editor_edit_place_name_hint" = "該地點的名稱";
-
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "當地語言寫道";
 "editor_edit_place_category_title" = "類別";
 "whatsnew_editor_message_1" = "新增新地點到地圖，並直接透過此應用編輯已存在的地點。";
 "dialog_incorrect_feature_position" = "更改位置";
 "message_invalid_feature_position" = "地點無法放置在這裡";
-
 /* Error dialog no space */
 "migration_no_space_message" = "為了下載，您需要更多的儲存空間。請刪除不必要的檔案。";
 "editor_sharing_title" = "我改進了 CoMaps 地圖";
-
 /* Downloaded 10 **of** 20 <- it is that "of" */
 "downloader_of" = "%1$d / %2$d";
 "download_over_mobile_header" = "用行動數據連線下載嗎？";
 "download_over_mobile_message" = "如果您使用行動數據或漫遊來進行下載，將可能導致額外的費用。";
 "error_enter_correct_house_number" = "輸入正確的門牌號碼";
 "editor_storey_number" = "樓層數量（最多 %d 層）";
-
 /* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "最多可編輯 %d 層的建築";
 "editor_zip_code" = "郵遞區號";
 "error_enter_correct_zip_code" = "輸入有效的郵遞區號";
-
 /* Place Page title for long tap */
 "core_placepage_unknown_place" = "地圖點";
-
 /* Title for OSM note section in the editor */
 "editor_other_info" = "OpenStreetMap 志工注意事項（可選）";
 "editor_detailed_description_hint" = "詳細註釋";
 "editor_detailed_description" = "您建議的變更將傳送至 OpenStreetMap 社群。說明無法在 CoMaps 中編輯的詳細資料。";
 "editor_more_about_osm" = "關於 OpenStreetMap 的更多資訊";
 "editor_operator" = "操作員";
-
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "操作員: %@";
 "editor_category_unsuitable_title" = "找不到合適的類別？";
@@ -643,26 +502,20 @@
 "location_services_disabled_message" = "啟用裝置設定中的定位服務";
 "location_services_disabled_1" = "1. 開啟設定";
 "location_services_disabled_2" = "2. 點擊位置";
-
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
 "location_services_disabled_3" = "3. 點擊“僅在使用該應用程式時允許”";
 "location_services_disabled_on_device_2" = "2. 點擊“隱私權”";
 "location_services_disabled_on_device_3" = "3. 選擇“定位服務”";
 "location_services_disabled_on_device_4" = "4. 開啟“定位服務”";
 "location_services_disabled_on_device_additional_message" = "或繼續使用 CoMaps，但無法定位到您目前所在的位置";
-
 /* abbreviation for meters */
 "m" = "公尺";
-
 /* abbreviation for kilometers */
 "km" = "公里";
-
 /* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "公里每小時";
-
 /* abbreviation for mile(s) */
 "mi" = "英哩";
-
 /* A unit of measure */
 "ft" = "英尺";
 "miles_per_hour" = "英哩每小時";
@@ -683,35 +536,29 @@
 "editor_remove_place_message" = "移除已新增的地點？";
 "editor_remove_place_button" = "移除";
 "editor_place_doesnt_exist" = "該地點不存在";
+"editor_place_doesnt_exist_description" = "描述現地是什麼，然後傳送錯誤註解到開放街圖社群";
 "text_more_button" = "…更多";
-
 /* Phone number error message */
 "error_enter_correct_phone" = "輸入正確的電話號碼";
 "error_enter_correct_web" = "請輸入有效的網址";
 "error_enter_correct_email" = "請輸入有效的電子郵件";
 "refresh" = "更新";
 "placepage_add_place_button" = "將地點新增至 OpenStreetMap";
-
 /* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "您想要發送給所有使用者嗎？";
-
 /* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "確保您沒有輸入任何隱私或是個人資料。";
 "editor_share_to_all_dialog_message_2" = "開放街圖編輯將檢查更改並在有任何問題時與您聯繫。";
 "navigation_stop_button" = "停止";
-
 /* iOS dialog for the case when recent track recording is on and the app comes back from background */
 "recent_track_background_dialog_title" = "取消記錄您最近去過的路線嗎？";
 "off_recent_track_background_button" = "禁用";
-
 /* For sharing via SMS and so on */
 "sharing_call_action_look" = "查看";
 "recent_track_background_dialog_message" = "CoMaps 在後臺使用您的位置記錄您最近去過的路線。";
 "general_settings" = "一般設定";
-
 /* For the first routing */
 "accept" = "接受";
-
 /* For the first routing */
 "decline" = "拒絕";
 "mobile_data_dialog" = "使用手機網路顯示更多詳細資訊嗎？";
@@ -719,29 +566,28 @@
 "mobile_data_option_today" = "僅限今天";
 "mobile_data_option_not_today" = "今天不使用";
 "mobile_data" = "行動網路";
-
 /* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "要顯示地點的詳細資訊（例如照片、價格和評價），需要使用行動網路。";
 "mobile_data_option_never" = "絕不使用";
 "mobile_data_option_ask" = "一律詢問";
 "traffic_update_maps_text" = "若要顯示交通資料，必須更新地圖。";
 "big_font" = "增加地圖上的字體大小";
-
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "諾要顯示交通資訊，必須更新應用。";
-
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "交通資訊不可用";
 "enable_logging" = "啟用日誌記錄";
 "log_file_size" = "日誌檔案大小：%@";
+"pref_alt_map_lang_handling" = "其他地圖語言";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "在系統命令中使用";
+"pref_alt_map_lang_handling_local_only" = "偏好而且只在原生使用";
 "transliteration_title" = "拉丁字母音譯";
-
+"transliteration_title_disabled_summary" = "當在地圖總是使用在地語言時不啟用";
 /* Subway exits for public transport marks on the map */
 "core_exit" = "退出";
-
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "請搜尋地點或點擊地圖以新增路線起點";
-
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "請搜尋地點或點擊地圖以新增目的地";
 "planning_route_manage_route" = "管理路線";
@@ -750,18 +596,15 @@
 "planning_route_remove_title" = "拖曳到此處以移除";
 "placepage_add_stop" = "新增中途點";
 "start_from_my_position" = "起點";
-
 /* Title for button when a route was saved. */
 "saved" = "已儲存";
 "core_entrance" = "入口";
 "error_enter_correct_name" = "請輸入正確的名稱";
 "bookmark_lists" = "列表";
-
 /* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "全部隱藏";
 "bookmark_lists_show_all" = "全部顯示";
 "bookmarks_create_new_group" = "創建新的列表";
-
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "匯入最愛";
 "downloader_hide_screen" = "隱藏畫面";
@@ -795,13 +638,10 @@
 "download_button" = "下載";
 "speedcams_alert_title" = "測速照相";
 "place_description_title" = "地點說明";
-
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "超速行駛時發出警告";
-
 /* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "始終提醒測速照相機";
-
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "永遠不會對測速照相機發出警告";
 "power_managment_title" = "省電模式";
@@ -811,14 +651,13 @@
 "power_managment_setting_manual_max" = "最大程度省電";
 "enable_logging_warning_message" = "暫時啟用此選項，以便使用“報告問題”功能在幫助對話框中記錄並手動發送詳細的診斷日誌給我們。日誌可能包含位置資訊。";
 "driving_options_title" = "繞行設定";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "避開收費公路";
-
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "避開無鋪面道路";
-
+"avoid_paved" = "避免有舖面的道路";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "避免階梯";
 "avoid_ferry" = "避開渡輪";
 "avoid_motorways" = "避開高速公路";
 "unable_to_calc_alert_title" = "無法規劃路線";
@@ -834,22 +673,16 @@
 "search_results" = "搜尋結果";
 "then_turn" = "然後";
 "redirect_route_alert" = "您想要重新規劃路線嗎？";
-
 /* A generic "Yes" button in dialogs */
 "yes" = "是";
-
 /* A generic "No" button in dialogs */
 "no" = "否";
-
 /* E.g. "WiFi:Yes" */
 "yes_available" = "是";
-
 /* E.g. "WiFi:No" */
 "no_available" = "否";
-
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "容量：%@";
-
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "網路： %@";
 "trip_finished" = "您已到達目的地！";
@@ -869,10 +702,8 @@
 "speedcams_alert_title_carplay_2" = "超速警告";
 "download_map_carplay" = "將CoMaps 應用程式中的地圖下載至個人裝置中";
 "carplay_roundabout_exit" = "第 %@ 个出口";
-
 /* max. 10 symbols, both iOS and Android */
 "sort" = "排序…";
-
 /* iOS */
 "sort_default" = "默認排序";
 "sort_type" = "按類型排序";
@@ -918,193 +749,124 @@
 "isolines_toast_zooms_1_10" = "放大地圖以查看等高線";
 "downloader_updating_ios" = "更新";
 "downloader_loading_ios" = "正在下載";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "更新已下載的地圖";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "更新地圖以讓對象的資訊保持在最新狀態";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "更新 (%@)";
-
 /* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "稍後手動更新";
-
 /* Delete track button on track edit screen */
 "placepage_delete_track_button" = "刪除軌跡";
-
 /* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "您確定要刪除該曲目嗎？";
-
 /* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "軌跡名稱";
-
 /* move track or bookmark from the list button text */
 "move" = "移動";
-
 /* edit track screen title */
 "track_title" = "軌跡";
-
 /* Translated CoMaps site */
 "translated_om_site_url" = "https://www.comaps.app/zh-Hant/";
-
 /* App Tip #00 */
 "app_tip_00" = "感謝您使用我們社區構建的地圖！";
-
 /* App tip #01 */
 "app_tip_01" = "有了您的捐贈和支持，我們可以創造世界上最好的地圖！";
-
 /* App tip #02 */
 "app_tip_02" = "您喜歡我們的應用程式嗎？請捐款以支持發展！還不喜歡嗎？請告訴我們，我們會修復您提到的問題！";
-
 /* App tip #03 */
 "app_tip_03" = "如果您認識軟體開發人員，您可以要求他實現您需要的功能。";
-
 /* App tip #04 */
 "app_tip_04" = "點擊地圖上的任何位置即可選擇任何內容。長按可隱藏和顯示介面。";
-
 /* App tip #05 */
 "app_tip_05" = "您知道您可以在地圖上選擇您目前的位置嗎？";
-
 /* App tip #06 */
 "app_tip_06" = "您可以幫助將我們的應用程序翻譯成您的語言。";
-
 /* App tip #07 */
 "app_tip_07" = "我們的應用程序是由一些愛好者和社區開發的。";
-
 /* App tip #08 */
 "app_tip_08" = "您可以輕鬆修復和改進地圖數據。";
-
 /* App tip #09 */
 "app_tip_09" = "我們的主要目標是構建您會喜歡的快速、注重隱私、易於使用的地圖。";
-
 /* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
 "car_used_on_the_phone_screen" = "您現在正在手機螢幕上使用 CoMaps";
-
 /* Text on the phone placeholder screen that maps are displayed on the car screen */
 "car_used_on_the_car_screen" = "您現在正在汽車螢幕上使用 CoMaps";
-
 /* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
 "car_continue_on_the_phone" = "在手機上繼續";
-
 /* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
 "car_continue_in_the_car" = "轉到汽車螢幕";
-
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "徒步旅行";
-
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
 "bookmarks_export" = "匯出所有最愛";
-
 /* Text for the editing the Track's color button. */
 "change_color" = "更改顏色";
-
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "地圖";
 "drive_through" = "得來速通道";
-
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "選單連結";
-
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "您想向開發人員發送錯誤報告嗎？\n由於 CoMaps 不會自動收集任何錯誤資訊，因此我們只能依靠用戶的協助。感謝您對 CoMaps 的支持！";
-
-/* Title for the iCloud syncronization setting */
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "iCloud 同步 (測試)";
-
-/* Title for the "Enable iCloud Syncronization" alert. */
+/* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "啟用 iCloud 同步";
-
-/* Message for the "Enable iCloud Syncronization" alert. */
+/* Message for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_message" = "iCloud 同步是一項正在開發中的實驗性功能。確保您已備份所有書籤和軌跡。";
-
 /* Title for the "iCloud Is Disabled" alert. */
 "icloud_disabled_title" = "iCloud 已停用";
-
 /* Message for the "iCloud is Disabled" alert. */
 "icloud_disabled_message" = "請在您的 Apple 帳號設定中為 CoMaps 啟用 iCloud 以使用此功能。";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Enable" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
 "enable" = "啟用";
-
-/* Title for the "Enable iCloud Syncronization" alert's "Backup" action button. */
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
 "backup" = "備份";
-
 /* Title for the "iCloud synchronization failure" alert. */
 "icloud_synchronization_error_alert_title" = "iCloud 同步失敗";
-
 /* iCloud error message: Failed to synchronize due to connection error */
 "icloud_synchronization_error_connection_error" = "錯誤：由於連線錯誤，導致無法同步";
-
 /* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
 "icloud_synchronization_error_quota_exceeded" = "錯誤：由於超出 iCloud 配額，導致同步失敗";
-
 /* iCloud error message: iCloud is not available */
 "icloud_synchronization_error_cloud_is_unavailable" = "錯誤：iCloud 不可用";
-
 /* Title for the "Open in Another App" button on the PlacePage. */
 "open_in_app" = "在另一個應用程式中打開";
-
 /* To indicate if the place proposed self service... */
 "self_service" = "自助服務";
-
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "戶外座位";
-
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "最近刪除的列表";
-
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */
 "clear" = "清除";
-
 /* Title for the "Delete All" button on the Recently Deleted Lists screen. */
 "delete_all" = "刪除所有";
-
 /* Title for the "Recover" button on the Recently Deleted Lists screen. */
 "recover" = "恢復";
-
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "全部恢復";
-
 /* Prompt to start recording a track. */
 "start_track_recording" = "錄製軌跡";
-
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "停止軌跡記錄";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "停止而不保存";
-
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "繼續錄製";
-
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "儲存到最愛？";
-
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "軌跡為空 - 沒有可保存的內容";
 "edit_track" = "編輯軌跡";
-"osm_profile_explanation" = "[OpenStreetMap.org](https://openstreetmap.org)（OSM）是一個建立免費開放地圖的社群專案。 它是CoMaps中地圖資料的主要來源，其工作原理類似於維基百科。 您可以新增或編輯地點，可供全世界數以百萬計的使用者使用並受益。\n 加入OSM，讓我們共繪更優質的地圖吧！";
-"osm_profile_view_edit_history" = "查看編輯歷史記錄";
-"osm_profile_view_notes" = "查看註記";
-"pref_mapappearance_title" = "地圖樣貌";
-"pref_maplanguage_title" = "地圖語言";
-"transliteration_title_disabled_summary" = "當在地圖總是使用在地語言時不啟用";
-"pref_maplanguage_local" = "本地語言";
-"hours_confirmed_time_ago" = "已確認 %@";
-"existence_confirmed_time_ago" = "存在確認 %@";
-"editor_place_doesnt_exist_description" = "描述現地是什麼，然後傳送錯誤註解到開放街圖社群";
-"avoid_steps" = "避免階梯";
-"avoid_paved" = "避免有舖面的道路";
-"offline_explanation_title" = "離線地圖";
-"offline_explanation_text" = "需要先下載地圖才能檢視與瀏覽該區域。\n請下載您想去的區域的地圖。";
-"voice" = "聲音";
-"voice_explanation" = "在系統設定「協助工具」，「TalkBack」，「設定」選擇比較好的聲音。";
-"voice_explanation_before_version26" = "在系統設定「協助工具」，「說話內容」，「聲音」選擇比較好的聲音。";
-"unknown" = "未知";
-"pref_alt_map_lang_handling_local_only" = "偏好而且只在原生使用";
-"pref_alt_map_lang_handling" = "其他地圖語言";
-"pref_alt_map_lang_handling_system_order" = "在系統命令中使用";
-"rooms" = "%@ 房間";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

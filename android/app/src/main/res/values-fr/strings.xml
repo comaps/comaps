@@ -149,13 +149,13 @@
     <string name="description">Notes</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Mes favoris CoMaps.</string>
-    <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, téléchargez l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
+    <string name="share_bookmarks_email_body">Bonjour,\n \nVous trouverez ci-joint mes Favoris, veuillez les ouvrir dans l’application CoMaps. Si vous ne l’avez pas encore installée, téléchargez l\'application depuis : https://www.comaps.app/download/ \n \nBon voyage avec CoMaps !</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Chargement des favoris</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Vos favoris ont été chargés avec succès ! Vous pouvez les trouver sur la carte ou sur l\'écran Gestionnaire de favoris.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Échec du chargement des favoris. Le fichier est peut-être corrompu ou défectueux.</string>
+    <string name="load_kmz_failed">Échec du chargement des Favoris. Le fichier est peut-être corrompu ou défectueux.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Le type de fichier n’est pas reconnu par l’appli :\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -170,12 +170,12 @@
     <string name="downloading_is_active">Le téléchargement de la carte est en cours</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hé, regardez ma position actuelle sur CoMaps ! %1$s ou %2$s. Les cartes hors ligne ne sont pas installées ? Téléchargez-les ici : https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hé, regardez ce lieu dans CoMaps !</string>
+    <!-- Share a position using EMail, %1$@ is https://comaps.at link WITH NAME and %2$@ is the geo url containing only coordinates  -->
+  <string name="bookmark_share_email_subject">Suis ce lien %1$s ou copie ces coordonnées %2$s dans ton appli de cartes pour voir cette position.</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hé, regardez ma position actuelle sur la carte CoMaps !</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Bonjour, \n \nJe suis actuellement ici : %1$s. Cliquez sur ce lien %2$s ou sur celui-ci %3$s pour voir l’endroit sur la carte. \n \nMerci.</string>
+    <!-- Share my position using EMail, %1$@ is https://comaps.at link WITHOUT NAME and %2$@ is the geo url containing only coordinates  -->
+    <string name="my_position_share_email">Suis ce lien %1$s ou copie ces coordonnées %2$s dans ton appli de cartes pour voir ma position.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Partager</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -402,13 +402,7 @@
     <string name="editor_example_values">Exemple de valeurs</string>
     <string name="editor_correct_mistake">Corriger une erreur</string>
     <string name="editor_add_select_location">Sélectionnez un emplacement</string>
-    <string name="editor_report_problem_desription_1">Veuillez décrire le problème en détail pour permettre à la communauté OpenStreetMap de le résoudre.</string>
-    <string name="editor_report_problem_desription_2">Ou faites-le vous-même sur https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Envoyer</string>
-    <string name="editor_report_problem_title">Problème</string>
-    <string name="editor_report_problem_no_place_title">Ce lieu n’existe pas</string>
-    <string name="editor_report_problem_under_construction_title">Fermé pour travaux</string>
-    <string name="editor_report_problem_duplicate_place_title">Lieu en doublon</string>
     <string name="autodownload">Téléchargement automatique des cartes</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Quotidien</string>
@@ -662,7 +656,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Trier…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Trier les favoris</string>
+    <string name="sort_bookmarks">Trier les Favoris</string>
     <!-- Android -->
     <string name="by_default">Par défaut</string>
     <!-- Android -->
@@ -780,7 +774,7 @@
     <string name="browser_not_available">Le navigateur Web n’est pas disponible</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exporter tous les lieux et toutes les traces</string>
+    <string name="bookmarks_export">Exporter tous les Favoris</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Paramètres du système de synthèse vocale</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -854,13 +848,13 @@
     <string name="backup_interval_every_week">Hebdomadaire</string>
     <string name="pref_backup_location_title">Emplacement des enregistrements</string>
     <string name="pref_backup_location_summary_initial">Veuillez d’abord sélectionner un dossier puis accorder l’autorisation</string>
-    <string name="pref_backup_now_summary_empty_lists">Aucun lieu ni piste à sauvegarder</string>
+    <string name="pref_backup_now_summary_empty_lists">Aucun favori à sauvegarder</string>
     <string name="pref_backup_interval_title">Enregistrement automatique</string>
     <string name="pref_backup_status_summary_success">Dernier enregistrement réussi</string>
     <string name="pref_backup_now_summary_ok">L’enregistrement s’est déroulé avec succès</string>
     <string name="pref_backup_history_title">Nombre d’enregistrements à conserver</string>
     <string name="pref_backup_now_summary_folder_unavailable">L’emplacement pour enregistrer n’est pas disponible</string>
-    <string name="pref_backup_title">Sauvegarder les favoris</string>
+    <string name="pref_backup_title">Sauvegarder les Favoris</string>
     <string name="backup_interval_manual_only">Désactivé (manuel uniquement)</string>
     <string name="pref_backup_summary">Enregistrement automatique dans un dossier de votre appareil</string>
     <string name="about_help">À propos &amp; aide</string>
@@ -880,6 +874,7 @@
     <string name="charge_socket_type2_cable">Type 2 (avec câble)</string>
     <string name="charge_socket_type2_combo">Type 2 combo</string>
     <string name="charge_socket_type1">Type 1</string>
+    <string name="charge_socket_type1_combo">Type 1 combo</string>
     <string name="charge_socket_nacs">NACS</string>
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_count">Quantité</string>
@@ -904,8 +899,8 @@
     <string name="closes_day_at">Fermeture le %1$s à %2$s</string>
     <plurals name="minutes_short">
         <item quantity="one">%d min</item>
-        <item quantity="many">%d min</item>
-        <item quantity="other">%d min</item>
+        <item quantity="many">%d mins</item>
+        <item quantity="other">%d mins</item>
     </plurals>
     <string name="editor_business_vacant_button">Local commercial vacant</string>
     <string name="editor_mark_business_vacant_title">Marquer l\'établissement comme vacant</string>
@@ -930,20 +925,23 @@
     <string name="pref_speedlimit_title">Afficher les limites de vitesse</string>
     <string name="location_privacy_info">Les applications reçoivent des données de localisation provenant du service de localisation de votre système d\'exploitation, qui peut partager votre position avec Google et/ou le fabricant de votre appareil. Pour éviter cela, utilisez un système d\'exploitation Android préservant la confidentialité.</string>
     <string name="location_privacy">Confidentialité relative à la localisation</string>
-    <string name="rooms">%s pièces</string>
+    <string name="rooms">%s chambres</string>
     <string name="mb_downloaded">%1$d Mo / %2$d Mo</string>
-    <string name="invalid_route">Itinéraire invalide</string>
-    <string name="building_route">Construction de l\'itinéraire…</string>
-    <string name="route_not_started">Itinéraire non commencé</string>
-    <string name="on_route">En route</string>
-    <string name="route_needs_rebuild">L\'itinéraire doit être refait</string>
+    <string name="invalid_route">Itinéraire non valide</string>
+    <string name="building_route">Calcul de l\'itinéraire…</string>
+    <string name="route_not_started">Itinéraire non démarré</string>
+    <string name="on_route">Sur l\'itinéraire</string>
+    <string name="route_needs_rebuild">L\'itinéraire doit être recalculé</string>
     <string name="route_finished">Itinéraire terminé</string>
-    <string name="not_following_route">N\'emprunte pas l\'itinéraire</string>
-    <string name="rebuilding_route">Réorganisation de l\'itinéraire…</string>
+    <string name="not_following_route">Hors itinéraire</string>
     <string name="pref_openexternallinks_title">Ouvrir automatiquement les liens tiers</string>
-    <string name="pref_openexternallinks_summary">Ouvrir les liens tiers dans CoMaps par défaut</string>
+    <string name="pref_openexternallinks_summary">Par défaut, ouvrir les liens tiers dans CoMaps</string>
     <string name="pref_alt_map_lang_handling">Langues alternatives pour les cartes</string>
-    <string name="pref_alt_map_lang_handling_ignore_alternatives">N\'utilisez pas d\'alternatives</string>
-    <string name="pref_alt_map_lang_handling_system_order">Utilisation dans l\'ordre du système</string>
-    <string name="pref_alt_map_lang_handling_local_only">Privilégiez et utilisez uniquement lorsque le langage natif est utilisé.</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne pas utiliser d\'alternative</string>
+    <string name="pref_alt_map_lang_handling_system_order">Utiliser l\'ordre système</string>
+    <string name="pref_alt_map_lang_handling_local_only">Privilégier la langue locale lorsqu\'elle existe</string>
+    <string name="destination">Destination</string>
+    <string name="stop">Arrêt</string>
+    <string name="route_recalculating">Recalcul de l\'itinéraire…</string>
+    <string name="population">Population : %s</string>
 </resources>

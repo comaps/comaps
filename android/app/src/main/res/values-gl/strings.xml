@@ -6,7 +6,6 @@
     <string name="miles">Millas</string>
     <string name="category_transport">Transporte</string>
     <string name="length">Lonxitude</string>
-    <string name="editor_report_problem_title">Problema</string>
     <string name="editor_edit_place_category_title">Categoría</string>
     <string name="category_hotel">Hotel</string>
     <string name="editor_edit_place_title">Editar</string>
@@ -194,9 +193,7 @@
     <string name="cant_change_this_setting">Sentímolo, a configuración da almacenaxe de mapas está desactivada</string>
     <string name="downloading_is_active">A descarga do mapa está en curso</string>
     <string name="my_position_share_sms">Olla a miña localización actual en CoMaps! %1$s ou %2$s Non ten mapas offline? Descárgueos aquí: https://www.comaps.app/download/</string>
-    <string name="bookmark_share_email_subject">Mira o meu marcador no mapa de CoMaps!</string>
     <string name="my_position_share_email_subject">Mira a miña localización actual no mapa en CoMaps!</string>
-    <string name="my_position_share_email">Ola: \n\nAgora estou aquí: %1$s. Fai clic nesta ligazón %2$s ou esta %3$s para velo no mapa. \n\nGrazas.</string>
     <string name="copied_to_clipboard">Copiado ao portarretallos: %s</string>
     <string name="data_version">Datos de OpenStreetMap: %s</string>
     <string name="share_my_location">Compartir a miña localización</string>
@@ -284,13 +281,8 @@
     <string name="editor_time_add_closed">Engadir horas de peche</string>
     <string name="editor_time_add">Engadir horario</string>
     <string name="editor_time_simple">Modo sinxelo</string>
-    <string name="editor_report_problem_desription_1">Por favor, describa o problema en detalle para que a comunidade de OpenStreetMap poida corrixir o erro.</string>
-    <string name="editor_report_problem_desription_2">Ou fágao vostede mesmo en https://www.openstreetmap.org/</string>
-    <string name="editor_report_problem_no_place_title">Este lugar non existe</string>
-    <string name="editor_report_problem_duplicate_place_title">Lugar duplicado</string>
     <string name="autodownload">Descarga automática</string>
     <string name="day_off_today">Pechado hoxe</string>
-    <string name="editor_report_problem_under_construction_title">Pechado por mantemento</string>
     <string name="opens_in">Abre en %s</string>
     <string name="closes_in">Pecha en %s</string>
     <string name="no_osm_account">Non ten conta en OpenStreetMap?</string>

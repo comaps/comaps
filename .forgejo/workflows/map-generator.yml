@@ -5,487 +5,44 @@ on:
       map-generator-test:
         description: 'Test (non-prod) generation?'
         required: false
-        default: false
-        type: boolean
-#      run-copy-coasts:
-#        description: 'Copy last used coastlines?'
-#        required: false
-#        default: true
-#        type: boolean
-      run-isolines:
-        description: 'Update altitude isolines?'
-        required: false
-        default: false
-        type: boolean
-      run-tiger:
-        description: 'Update TIGER address data?'
-        required: false
         default: true
         type: boolean
-      run-planet-pbf:
-        description: 'Update PBF planet (for Wiki & subways)?'
-        required: false
-        default: true
-        type: boolean
-      run-subways:
-        description: 'Update subways?'
-        required: false
-        default: true
-        type: boolean
-      run-wiki:
-        description: 'Update Wikipedia descriptions?'
+      run-copy-coasts:
+        description: 'Copy last used coastlines?'
         required: false
         default: true
         type: boolean
       run-planet-o5m:
-        description: 'Update O5M planet (for mapgen)?'
-        required: false
-        default: true
-        type: boolean
-      run-mapgen:
-        description: 'Run maps generation?'
+        description: 'Update OSM planet?'
         required: false
         default: true
         type: boolean
       map-generator-continue:
         description: 'Continue previous map generation?'
-        required: false
+        required: true
         default: false
         type: boolean
-#      map-generator-countries:
-#        description: 'Generate specific MWMs? (i.e. "US_New York_*, foo")'
-#        required: false
-#        type: string
-      run-upload:
-        description: 'Upload latest maps to CDN?'
+      map-generator-countries:
+        description: 'Generate specific MWMs? (i.e. "US_New York_*, foo")'
         required: false
-        default: false
-        type: boolean
-#      reset:
-#        description: 'Reset part of the system?'
-#        required: false
-#        default: 'no'
-#        type: choice
-#        options:
-#          - 'no'
-#          - wiki-ratelimit
-
-## RCLONE_CONF is multi-line text containing keys and credentials for us2,ru1,fi1,de1 servers
+        type: string
 
 env:
-  RCLONE_CONF: ${{ secrets.RCLONE_CONF }}
   COUNTRIES_PUB_KEY: ${{ secrets.COUNTRIES_PUB_KEY }}
   COUNTRIES_SECRET_KEY: ${{ secrets.COUNTRIES_SECRET_KEY }}
-  WIKIMEDIA_USERNAME: ${{ secrets.WIKIMEDIA_USERNAME }}
-  WIKIMEDIA_PASSWORD: ${{ secrets.WIKIMEDIA_PASSWORD }}
   ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
   ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
   MWMTEST: ${{ inputs.map-generator-test }}
   MWMCONTINUE: ${{ inputs.map-generator-continue }}
-  # MWMCOUNTRIES: ${{ inputs.map-generator-countries }}
+  MWMCOUNTRIES: ${{ inputs.map-generator-countries }}
   DEBIAN_FRONTEND: noninteractive
   TZ: Etc/UTC
 
 jobs:
-  clone-repos:
-    name: Clone Git Repos
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal:/mnt/4tbexternal
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Checkout main repo
-        shell: bash
-        run: |
-          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
-          cd ~
-          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
-      - name: Checkout wikiparser repo
-        shell: bash
-        run: |
-          cd ~
-          git clone --depth 1 --single-branch https://codeberg.org/comaps/wikiparser.git
-      - name: Checkout subways repo
-        shell: bash
-        run: |
-          cd ~
-          git clone --depth 1 --single-branch https://codeberg.org/comaps/subways.git
-
-  copy-coasts:
-    # if: inputs.run-copy-coasts
-    name: Copy Previously Generated Coasts
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: Copy Coasts
-        shell: bash
-        run: |
-          echo "WorldCoasts available:"
-          ls -al /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.*
-
-          if [ -f /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom ]; then
-
-          echo "Before:"
-          ls -al /home/planet/latest_coasts*
-          # TODO: don't copy coasts from test generations
-          cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom /home/planet/latest_coasts.geom
-          cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.rawgeom /home/planet/latest_coasts.rawgeom
-
-          echo "After:"
-          ls -al /home/planet/latest_coasts*
-
-          else
-
-          echo "No WorldCoasts found."
-
-          fi
-
-  update-isolines:
-    if: inputs.run-isolines
-    name: Update Isolines
-    runs-on: mapfilemaker
-    needs:
-      - clone-repos
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      # TODO: we only need to update these if our SRTM or countries change
-      # TODO: after update, verify that sizable files exist: /home/planet/isolines/*.isolines
-      - name: Update Isolines
-        shell: bash
-        # TODO: preserve previous isolines version?
-        # TODO: cleanup the tmp-tiles dir after completion
-        run: |
-          cd ~/comaps/
-          ./tools/unix/build_omim.sh -p ~ -R topography_generator_tool
-          rm -rf /home/planet/isolines/
-          mkdir /home/planet/isolines/
-          ~/omim-build-relwithdebinfo/topography_generator_tool \
-          --profiles_path=./data/conf/isolines/isolines-profiles.json \
-          --countries_to_generate_path=./data/conf/isolines/countries-to-generate.json \
-          --tiles_isolines_out_dir=/home/planet/isolines/tmp-tiles/ \
-          --countries_isolines_out_dir=/home/planet/isolines/ \
-          --data_dir=./data/ \
-          --srtm_path=/home/planet/SRTM-patched-europe/ \
-          --threads=96
-      - name: Check isolines
-        shell: bash
-        run: |
-          NUMISO=$(ls -al /home/planet/isolines/*.isolines | wc -l)
-          echo "Found $NUMISO isolines"
-          if [ $NUMISO -lt 10 ]; then
-          echo "ERROR: Did generation fail?"
-          exit 1
-          fi
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Isolines are done!'
-
-  update-tiger:
-    if: inputs.run-tiger
-    name: Update TIGER
-    runs-on: mapfilemaker
-    needs:
-      - clone-repos
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Build address_parser
-        shell: bash
-        run: |
-          cd ~/comaps
-          #rm -rf ~/omim-build-relwithdebinfo/CMakeCache.txt
-          #rm -rf ~/omim-build-relwithdebinfo/CMakeFiles
-          ./tools/unix/build_omim.sh -p ~ -R address_parser_tool
-      - name: Update TIGER from Nominatim
-        shell: bash
-        # TODO: use curl instead of wget2
-        run: |
-          # TODO: maybe remove old osm-planet/tiger first?
-          cd /home/planet/
-          mkdir -p tiger
-          wget2 https://nominatim.org/data/tiger-nominatim-preprocessed-latest.csv.tar.gz
-          cd ~/comaps
-          tar -xOzf /home/planet/tiger-nominatim-preprocessed-latest.csv.tar.gz | ~/omim-build-relwithdebinfo/address_parser_tool --output_path=/home/planet/tiger
-
-  update-planet-pbf:
-    if: inputs.run-planet-pbf
-    name: Update PBF Planet
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: Download Planet File if Absent
-        shell: bash
-        # TODO: replace wget2 with curl -Z
-        run: |
-          if [ ! -d /home/planet/planet/ ]; then
-          mkdir -p /home/planet/planet/
-          fi
-          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
-          cd /home/planet/planet/
-          wget2 --verbose --progress=bar --continue https://ftpmirror.your.org/pub/openstreetmap/pbf/planet-latest.osm.pbf
-          else
-          echo "planet-latest.osm.pbf was found, raw download not required."
-          fi
-      - name: Update PBF Planet
-        shell: bash
-        run: |
-          cd /home/planet/planet/
-          rm -f planet-latest-new.osm.pbf
-          pyosmium-up-to-date planet-latest.osm.pbf -o planet-latest-new.osm.pbf -v --size 16384
-          mv planet-latest-new.osm.pbf planet-latest.osm.pbf
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=PBF planet update is done!'
-
-  update-subways:
-    if: inputs.run-subways
-    name: Update Subways
-    runs-on: mapfilemaker
-    needs:
-      - clone-repos
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Update Subways
-        shell: bash
-        run: |
-          cd ~/comaps/
-          cp tools/unix/maps/settings.sh.prod tools/unix/maps/settings.sh
-          ./tools/unix/maps/generate_subways.sh
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Subways are done!'
-
-  wiki-update:
-    if: inputs.run-wiki
-    name: Update Wikipedia
-    runs-on: mapfilemaker
-    needs:
-      - clone-repos
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Check for planet file
-        shell: bash
-        # TODO: remove debug output
-        run: |
-          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
-          echo "ERROR: No file at /home/planet/planet/planet-latest.osm.pbf"
-          ls -al /home/planet/
-          ls -al /home/planet/planet/
-          exit 1
-          fi
-      - name: Only get new dumps once per 30 days
-        shell: bash
-        run: |
-          if [[ '${{ inputs.reset }}' == 'wiki-ratelimit' ]]; then
-          echo "Bypassing wiki rate limit upon request."
-          exit 0
-          fi
-
-          datediff() {
-            d1=$(date -d "$1" +%s)
-            d2=$(date -d "$2" +%s)
-            echo $(( (d1 - d2) / 86400 ))
-          }
-          RECENTDUMPDATE=$(find /home/planet/wikipedia/dumps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 |  cut -d/ -f6)
-          TODAY=$(date +%Y%m%d)
-          DATEDIFF=$(datediff $TODAY $RECENTDUMPDATE)
-          if [ $DATEDIFF -lt 30 ]; then
-          echo "ERROR: The most recent wiki dump is from $RECENTDUMPDATE, $DATEDIFF days ago. Wikimedia limits users to 15 snapshot requests per month."
-          echo "Set the 'reset' option to 'wiki-ratelimit' to bypass this."
-          ls -al /home/planet/wikipedia/dumps/
-          exit 1
-          fi
-      - name: Update Wikipedia from Enterprise API
-        shell: bash
-        run: |
-          #todo: curl in download.sh can fail when rate limited and even save error messages to the output. need to validate.
-          #downloading all languages can also trigger rate limits or fail as well. needs work.
-          #also: a failure to download means a failure to build, and could result in no wiki descriptions etc.
-          #also-also: do we want to remove old wiki data in planet between builds? pastk: no need, its being updated / augmented
-          mkdir -p /home/planet/wikipedia/dumps
-          mkdir -p /home/planet/wikipedia/build
-          cd ~/wikiparser
-          ls -al
-          echo "Downloading ..."
-          ./download.sh /home/planet/wikipedia/dumps
-          ls -al /home/planet/wikipedia/dumps/*
-          echo "Running ..."
-          ./run.sh /home/planet/wikipedia/build \
-          /home/planet/planet/planet-latest.osm.pbf \
-          /home/planet/wikipedia/dumps/latest/*.tar.gz
-          echo "DONE"
-      - name: Check that the latest dumps are present, recent, and not super tiny
-        shell: bash
-        run: |
-          FAILCHECK=0
-
-          # Check all .tar.gz files in /home/planet/wikipedia/dumps/latest/
-          for file in /home/planet/wikipedia/dumps/latest/*.tar.gz; do
-              # Check if file exists (handles case where glob doesn't match)
-              [ -e "$file" ] || continue
-
-              # Get file size in MB and modification time in days
-              size_mb=$(stat -f%z "$file" 2>/dev/null | awk '{print int($1/1024/1024)}' || stat -c%s "$file" | awk '{print int($1/1024/1024)}')
-              days_old=$(find "$file" -mtime -7 | wc -l)
-
-              # Verify conditions
-              if [ "$size_mb" -lt 100 ]; then
-                  echo "FAIL: $file is only ${size_mb}MB (< 100MB)"
-                  FAILCHECK=1
-              elif [ "$days_old" -eq 0 ]; then
-                  echo "FAIL: $file is older than 7 days"
-                  ls -al $file
-                  FAILCHECK=1
-              else
-                  echo "PASS: $file (${size_mb}MB, modified within 7 days)"
-              fi
-          done
-
-          exit $FAILCHECK
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Wiki update is done!'
-
-  update-planet-o5m:
-    if: inputs.run-planet-o5m
-    name: Update O5M Planet
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - name: Check for O5M Planet File
-        shell: bash
-        run: |
-          if [ ! -f /home/planet/planet/planet.o5m ]; then
-          echo "WARN: No file at /home/planet/planet/planet.o5m"
-
-          if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
-          echo "ERROR: No file at /home/planet/planet/planet-latest.osm.pbf"
-          ls -al /home/planet/
-          ls -al /home/planet/planet/
-          exit 1
-          fi
-
-          echo "Converting planet-latest.osm.pbf to planet.o5m"
-          cd /home/planet/planet/
-          osmconvert -v --drop-author --drop-version --hash-memory=4000 planet-latest.osm.pbf -o=planet.o5m
-          echo "Conversion is done."
-          fi
-      - name: Update O5M planet
-        run: |
-          echo "Starting..."
-          cd /home/planet/planet/
-          rm -f planet-new.o5m
-          osmupdate -v --drop-author --drop-version --hash-memory=4000  --max-merge=32 --out-o5m planet.o5m planet-new.o5m
-          mv planet-new.o5m planet.o5m
-          echo "Done."
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=O5M planet update is done!'
-
   generate-maps:
-    if: inputs.run-mapgen
     name: Generate Maps
     runs-on: mapfilemaker
-    needs:
-      - clone-repos
-    timeout-minutes: 40320
+    timeout-minutes: 3600 # 60hrs, usually takes ~35
     container:
       image: codeberg.org/comaps/maps_generator:f6d53d54f794
       volumes:
@@ -497,36 +54,146 @@ jobs:
       group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Make output folders if necessary
+      - name: Copy worldcoasts from the previous generation
+        if: inputs.run-copy-coasts
+        continue-on-error: true
         shell: bash
         run: |
-          if [ ! -d /mnt/4tbexternal/osm-maps ]; then
-          mkdir -p /mnt/4tbexternal/osm-maps
+          echo "WorldCoasts.* available:"
+          ls -al /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.*
+          if [ -f /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom ]; then
+            echo "Before:"
+            ls -alh /home/planet/latest_coasts*
+            # TODO: don't copy coasts from test generations
+            cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom /home/planet/latest_coasts.geom
+            cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.rawgeom /home/planet/latest_coasts.rawgeom
+            echo "After:"
+            ls -alh /home/planet/latest_coasts*
+          else
+            echo "No WorldCoasts found."
           fi
-      - name: Get SRTM if necessary
-        # TODO: it should be a separate step like Wiki or isolines
+      - name: Clean temp files from previous generations
         shell: bash
         run: |
-          if [ ! -d /home/planet/SRTM-patched-europe/ ]; then
-          echo "ERROR: NO SRTM"
-          exit 1
+          if [ $MWMCONTINUE == "true" ]; then
+            echo "Skip cleanup because of continuing previous generation."
+            exit 0
           fi
-      - name: Run docker_maps_generator.sh
+          echo "Checking for intermediate map build data in /mnt/4tbexternal/osm-maps..."
+          cd /mnt/4tbexternal/osm-maps/
+          # List all dated directories, sort by name (newest first)
+          ls -1d */ 2>/dev/null | grep -E '^[0-9]{4}_[0-9]{2}_[0-9]{2}__[0-9]{2}_[0-9]{2}_[0-9]{2}(\-test)?/$' | while read dir; do
+            if [ -f "${dir}world_roads.o5m" ]; then
+              echo "Removing ${dir}world_roads.o5m"
+              rm ${dir}world_roads.o5m
+            fi
+            if [ -d "${dir}osm2ft" ]; then
+              echo "Removing ${dir}osm2ft"
+              rm -r ${dir}osm2ft
+            fi
+            if [ -d "${dir}intermediate_data" ]; then
+              echo "Removing ${dir}intermediate_data"
+              rm -r ${dir}intermediate_data
+            fi
+          done
+          echo "Intermediate data cleaned up."
+      - name: Check for enough free space
+        shell: bash
+        run: |
+          cd /mnt/4tbexternal/osm-maps
+          KB=`df -k --output=avail . | tail -n1`
+          GB=$(( KB/1024/1024 ))
+          echo "Free space available: $GB GB"
+          if [ $MWMCONTINUE == "true" ] || [[ -n $MWMCOUNTRIES ]]; then
+            echo "Skip free space check for continued or partial generations."
+          elif [[ $GB -lt 650 ]]; then
+            echo "ERROR: Need at least 650 GB free space for whole planet generation"
+            exit 1
+          fi
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          cd ~
+          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+      - name: Compile and prepare tools
+        shell: bash
+        run: |
+          echo "Bootstrapping boost C++ library..."
+          cd ~/comaps/3party/boost/
+          ./bootstrap.sh
+          ./b2 headers
+          echo "Compiling binaries..."
+          cd ~/comaps
+          ./tools/unix/build_omim.sh -p ~ -R generator_tool
+          ./tools/unix/build_omim.sh -p ~ -R world_roads_builder_tool
+          ./tools/unix/build_omim.sh -p ~ -R mwm_diff_tool
+          echo "Preparing python venv..."
+          cd tools/python/maps_generator
+          python3 -m venv /tmp/venv
+          /tmp/venv/bin/pip3 install -r requirements_dev.txt
+      - name: Generate drules and search categories (configure the repo)
         shell: bash
         run: |
           cd ~/comaps
+          export SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1 SKIP_GENERATE_STRINGS=1
+          ./configure.sh
+      - name: Check O5M planet file exists
+        shell: bash
+        run: |
+          if [ ! -f /home/planet/planet/planet.o5m ]; then
+            echo "WARN: No file at /home/planet/planet/planet.o5m"
+            if [ ! -f /home/planet/planet/planet-latest.osm.pbf ]; then
+              echo "ERROR: No file at /home/planet/planet/planet-latest.osm.pbf"
+              ls -al /home/planet/planet/
+              exit 1
+            fi
+          echo "Converting planet-latest.osm.pbf to planet.o5m"
+          cd /home/planet/planet/
+          osmconvert -v --drop-author --drop-version --hash-memory=4000 planet-latest.osm.pbf -o=planet.o5m
+          echo "Conversion is done."
+          fi
+      - name: Update O5M planet
+        if: inputs.run-planet-o5m
+        run: |
+          echo "Starting..."
+          cd /home/planet/planet/
+          rm -f planet-new.o5m
+          osmupdate -v --drop-author --drop-version --hash-memory=4000  --max-merge=32 --out-o5m planet.o5m planet-new.o5m
+          mv planet-new.o5m planet.o5m
+          echo "Done."
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=O5M planet is updated for maps generation.'
+      - name: Generate maps
+        shell: bash
+        run: |
+          if [ ! -d /home/planet/SRTM-patched-europe/ ]; then
+            # TODO: it should be a separate step like Wiki or isolines; still we don't check for isolines or wiki here?
+            echo "ERROR: NO SRTM"
+            exit 1
+          fi
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=Starting maps generation.'
+          mkdir -p /mnt/4tbexternal/osm-maps
+          cd ~/comaps
           bash ./tools/unix/maps/docker_maps_generator.sh
-      - name: Symlink our maps to mapgen
+      - name: Publish (symlink) new maps to mapgen server
         shell: bash
         run: |
           buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
           builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
           cd /var/www/html/maps
           ln -s /mnt/4tbexternal/osm-maps/$buildfolder/$builddate $builddate
+          echo "All published maps versions:"
+          ls -lah ./
       - name: Sign countries.txt and copy to latest
         shell: bash
         run: |
@@ -535,7 +202,7 @@ jobs:
 
           echo "$COUNTRIES_PUB_KEY" > ~/keys/countries_ed25519_pk.pem
           echo "$COUNTRIES_SECRET_KEY" > ~/keys/countries_ed25519_sk.pem
-      
+
           buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
           builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
           cd /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
@@ -556,70 +223,4 @@ jobs:
             --data-urlencode type=stream \
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Generator is done!'
-
-  upload-maps:
-    if: inputs.run-upload
-    name: Upload Maps
-    runs-on: mapfilemaker
-    container:
-      image: codeberg.org/comaps/maps_generator:f6d53d54f794
-      volumes:
-        - /mnt/4tbexternal/:/mnt/4tbexternal/
-        - /mnt/4tbexternal/osm-planet:/home/planet
-    concurrency:
-      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
-      cancel-in-progress: true
-    steps:
-      - uses: actions/cache@v4
-        with:
-          path: "~"
-          key: cache-${{ github.run_id }}-${{ github.run_attempt }}
-      - name: Write config file
-        run: |
-          mkdir -p ~/.config/rclone/
-          echo "${{ secrets.RCLONE_CONF }}" > ~/.config/rclone/rclone.conf
-      - name: Upload map files to CDNs
-        shell: bash
-        run: |
-          shopt -s nullglob
-          buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
-          builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
-          mwmfiles=( /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm )
-
-          if (( ${#mwmfiles[@]} )); then
-            echo "<$(date +%T)> Uploading maps from $buildfolder/$builddate..."
-            cd ~/comaps/tools/unix/maps
-            ./upload_to_cdn.sh /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
-            echo "<$(date +%T)> Finished uploading maps from $buildfolder/$builddate."
-          else
-            echo "<$(date +%T)> No MWM files in /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm, not uploading maps."
-            echo "<$(date +%T)> Found top level: $(ls -alt /mnt/4tbexternal/osm-maps/*)"
-            echo "<$(date +%T)> Found second level: $(ls -alt /mnt/4tbexternal/osm-maps/$buildfolder/*)"
-          fi
-
-          # the /latest folder is newly created each build, but it may not have succeeded...
-          buildpath=/mnt/4tbexternal/osm-maps/$buildfolder/latest
-          countriesfiles=( $buildpath/countries* )
-          if (( ${#countriesfiles[@]} > 1 )); then
-            openssl pkeyutl -verify -pubin -inkey ~/keys/countries_ed25519_pk.pem -rawin -in $buildpath/countries.txt -sigfile $buildpath/countries.txt.sig
-            verify=$?
-            if [[ $verify == 0 ]]; then
-              echo "<$(date +%T)> Uploading countries.txt & .sig from $buildpath..."
-              ./upload_to_cdn.sh $buildpath
-            else
-              echo "<$(date +%T)> Failed verifying countries.txt.sig: openssl verify returned $verify"
-            fi
-          else
-            echo "<$(date +%T)> ERROR: Didn't find countries.txt & .sig in $buildpath: [$countriesfiles]"
-            exit 1
-          fi
-      - name: Notify Zulip
-        run: |
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode 'content=Upload is done!'
-
+            --data-urlencode 'content=Maps generation is finished!'

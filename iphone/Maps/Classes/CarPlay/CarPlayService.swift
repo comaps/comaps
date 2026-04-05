@@ -34,6 +34,7 @@ final class CarPlayService: NSObject {
   private var searchText = ""
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
+    LOG(.info, "Settting up service...")
     isCarplayActivated = true
     self.window = window
     self.interfaceController = interfaceController
@@ -55,7 +56,7 @@ final class CarPlayService: NSObject {
       router.restoreTripPreviewOnCarplay(beforeRootTemplateDidAppear: true)
     }
     updateContentStyle(configuration.contentStyle)
-    FrameworkHelper.updatePositionArrowOffset(false, offset: (Int32(window.height * window.screen.scale)/3))
+    FrameworkHelper.updatePositionArrowOffset(false, offset: 120)
 
     CarPlayWindowScaleAdjuster.updateAppearance(
       fromWindow: MapsAppDelegate.theApp().window,
@@ -67,16 +68,21 @@ final class CarPlayService: NSObject {
   }
 
   private var savedInterfaceController: CPInterfaceController?
-  @objc func showOnPhone() {
+
+  func showOnPhone() {
+    LOG(.info, "Show on the Phone screen")
     savedInterfaceController = interfaceController
     switchScreenToPhone()
     showPhoneModeAlert()
   }
 
-  @objc func showOnCarplay() {
-    if let window, let savedInterfaceController {
-      setup(window: window, interfaceController: savedInterfaceController)
+  private func showOnCarplay() {
+    LOG(.info, "Show on the Car screen")
+    guard let window, let savedInterfaceController else {
+      LOG(.warning, "Failed to show on carplay: the `window` is \(String(describing: window)), the `savedInterfaceController` is \(String(describing: savedInterfaceController))")
+      return
     }
+    setup(window: window, interfaceController: savedInterfaceController)
   }
 
   private func showPhoneModeAlert() {
@@ -114,6 +120,7 @@ final class CarPlayService: NSObject {
     } else if router?.previewTrip != nil {
       MWMRouter.rebuild(withBestRouter: true)
     }
+    router?.cancelNavigationSession()
     searchService = nil
     router = nil
     sessionConfiguration = nil
@@ -222,6 +229,7 @@ final class CarPlayService: NSObject {
   }
 
   func cancelCurrentTrip() {
+    LOG(.info, "Cancel current trip")
     router?.cancelTrip()
     if let carplayVC = carplayVC {
       carplayVC.hideSpeedControl()

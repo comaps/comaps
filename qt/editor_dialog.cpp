@@ -59,8 +59,8 @@ EditorDialog::EditorDialog(QWidget * parent, osm::EditableMapObject & emo) : QDi
       namesGrid->addWidget(new QLabel(QString::fromUtf8(ln.m_languageCode.data(), ln.m_languageCode.size())), namesRow, 0);
       QLineEdit * lineEditName = new QLineEdit(QString::fromStdString(ln.m_name));
       lineEditName->setReadOnly(!emo.IsNameEditable());
-      std::string_view const languageIndex = localisation::ConvertLanguageIndexToLanguageCode(ln.m_languageIndex);
-      lineEditName->setObjectName(QString::fromUtf8(languageIndex.data(), languageIndex.size()));
+      localisation::LanguageCode const languageCode = localisation::ConvertLanguageIndexToLanguageCode(ln.m_languageIndex);
+      lineEditName->setObjectName(QString::fromUtf8(languageCode.data(), languageCode.size()));
       namesGrid->addWidget(lineEditName, namesRow++, 1);
     }
 
@@ -161,17 +161,17 @@ void EditorDialog::OnSave()
   if (m_feature.IsNameEditable())
   {
     StringUtf8Multilang names;
-    for (int8_t langCode = localisation::kDefaultNameIndex; langCode < localisation::kMaxSupportedLanguages;
-         ++langCode)
+    for (localisation::LanguageIndex languageIndex = localisation::kDefaultNameIndex; languageIndex < localisation::kMaxSupportedLanguages;
+         ++languageIndex)
     {
-      std::string_view const lang = localisation::ConvertLanguageIndexToLanguageCode(langCode);
-      QLineEdit * le = findChild<QLineEdit *>(QString::fromUtf8(lang.data(), lang.size()));
+      localisation::LanguageCode const languageCode = localisation::ConvertLanguageIndexToLanguageCode(languageIndex);
+      QLineEdit * le = findChild<QLineEdit *>(QString::fromUtf8(languageCode.data(), languageCode.size()));
       if (!le)
         continue;
 
       std::string const name = le->text().toStdString();
       if (!name.empty())
-        names.AddString(langCode, name);
+        names.AddString(languageIndex, name);
     }
 
     m_feature.SetName(names);

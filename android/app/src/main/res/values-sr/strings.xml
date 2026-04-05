@@ -142,8 +142,8 @@
     <!-- Notes field in Bookmarks view -->
     <string name="description">Напомене</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">CoMaps фаворити</string>
-    <string name="share_bookmarks_email_body">Здраво! \n \nУ прилогу су моји фаворити; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!</string>
+    <string name="share_bookmarks_email_subject">CoMaps маркери</string>
+    <string name="share_bookmarks_email_body">Здраво! \n \nУ прилогу су моји маркери; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">Учитавање маркера</string>
     <!-- Kmz file successful loading -->
@@ -164,12 +164,8 @@
     <string name="downloading_is_active">Преузимање мапа је у току</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Види моју тренутну локацију у CoMaps-у! %1$s или %2$s Још не користиш offline мапе? Преузми их овде: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Хеј, види мој маркер у CoMaps-у!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Хеј, види моју тренутну локацију на CoMaps мапи!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Здраво, \n \nЈа сам овде: %1$s. Кликни на овај %2$s или овај линк %3$s да би видео то место на мапи. \n \nХвала.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Подели</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -395,13 +391,7 @@
     <string name="editor_hours_closed">Нерадно време</string>
     <string name="editor_example_values">Примери</string>
     <string name="editor_correct_mistake">Исправи грешку</string>
-    <string name="editor_report_problem_desription_1">Молим Вас да детаљно опишете проблем како би OpenStreetMap заједница могла да га поправи.</string>
-    <string name="editor_report_problem_desription_2">Или то учините сами на https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Пошаљи</string>
-    <string name="editor_report_problem_title">Проблем</string>
-    <string name="editor_report_problem_no_place_title">Ово место не постоји</string>
-    <string name="editor_report_problem_under_construction_title">Затворено због одржавања</string>
-    <string name="editor_report_problem_duplicate_place_title">Дуплирано место</string>
     <string name="autodownload">Аутоматско преузимање мапа</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Сваки дан</string>
@@ -651,7 +641,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Сортирање…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Сортирање фаворита</string>
+    <string name="sort_bookmarks">Сортирање маркера</string>
     <!-- Android -->
     <string name="by_default">Подразумевано</string>
     <!-- Android -->
@@ -757,7 +747,7 @@
     <string name="browser_not_available">Веб читач није доступан</string>
     <string name="volume">Јачина звука</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Експортуј све места и путање</string>
+    <string name="bookmarks_export">Експортуј све маркере и путање</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Системска подешавања синтезе говора</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -789,7 +779,7 @@
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="continue_recording">Настави снимање</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Сачувати у маркерима?</string>
+    <string name="track_recording_alert_title">Сачувати у маркерима и путањама?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">Путања је празна, нема шта да се сачува</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
@@ -826,15 +816,15 @@
     <string name="pref_left_button_title">Подешавање левог дугмета</string>
     <string name="pref_left_button_disable">Искључи</string>
     <string name="saved">Сачувано</string>
-    <string name="editor_building_levels">Spratovi (укљ. приземље, искључујући кров)</string>
+    <string name="editor_building_levels">Спратови (укљ. приземље, искључујући кров)</string>
     <string name="error_enter_correct_level">Унесите важећи спрат</string>
     <string name="editor_level">Спрат (0 је приземље)</string>
     <string name="clear">Чисто</string>
-    <string name="bicycle">Бицикла</string>
+    <string name="bicycle">Бицикл</string>
     <string name="route_type">Тип руте</string>
     <string name="pedestrian">Пешак</string>
     <string name="ruler">Лењир</string>
-    <string name="bookmark_color">Боја фаворита</string>
+    <string name="bookmark_color">Боја маркера</string>
     <string name="vehicle">Возило</string>
     <string name="about_help">О програму и помоћ</string>
     <string name="panoramax">Panoramax Picture</string>
@@ -855,8 +845,8 @@
     <string name="dialog_report_error_with_logs">Молимо вас, пошаљите нам поруку о грешци:\n- \"Омогући вођење дневника\" у подешавањима\n- репродукујте проблем\n- на екрану \"О програму и помоћ\" кликните на дугме \"Пријави грешку\" и пошаљите на е-маил или чат\n- онемогући вођење дневника</string>
     <string name="dialog_report_error_missing_folder">Изабрана локација резервне копије није доступна за снимање. Молимо вас, одаберите друго место.</string>
     <string name="pref_backup_interval_title">Аутоматска резервна копија</string>
-    <string name="pref_backup_now_summary_empty_lists">Нема места и путања за израду резервне копије</string>
-    <string name="pref_backup_title">Чување фаворита</string>
+    <string name="pref_backup_now_summary_empty_lists">Нема маркера и путања за израду резервне копије</string>
+    <string name="pref_backup_title">Бекап маркера и путања</string>
     <string name="closed_now">Затворено сада</string>
     <string name="open_now">Сада је отворено</string>
     <string name="at">на %s</string>
@@ -896,9 +886,9 @@
     <string name="opens_day_at">Отвара се у %1$s у %2$s</string>
     <string name="closes_day_at">Затвара се у %1$s у %2$s</string>
     <plurals name="minutes_short">
-        <item quantity="one">%d мин</item>
-        <item quantity="few">%d мин</item>
-        <item quantity="other">%d мин</item>
+        <item quantity="one">%d минут</item>
+        <item quantity="few">%d минита</item>
+        <item quantity="other">%d минита</item>
     </plurals>
     <string name="editor_business_vacant_button">Пословни простор је празан</string>
     <string name="editor_mark_business_vacant_title">Означи пословни простор као празан</string>
@@ -931,7 +921,6 @@
     <string name="route_needs_rebuild">Поновно прерачунавање руте</string>
     <string name="route_finished">Крај руте</string>
     <string name="not_following_route">Не пратите руту</string>
-    <string name="rebuilding_route">Прерачунаванје руте…</string>
     <string name="mb_downloaded">%1$d МБ / %2$d МБ</string>
     <string name="pref_alt_map_lang_handling">Алтернативни језици мапе</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Не користите алтернативе</string>
@@ -939,4 +928,11 @@
     <string name="pref_alt_map_lang_handling_local_only">Преферирају и користе само тамо где матерњи</string>
     <string name="pref_openexternallinks_title">Аутоматски отворите линкове независних произвођача</string>
     <string name="pref_openexternallinks_summary">Отворите линкове независних произвођача у CoMaps-у по дефаулту</string>
+    <string name="bookmark_share_email_subject">Кликните на овај линк %1$s или копирајте ове координате %2$s у вашу апликацију за мапе, да бисте видели локацију.</string>
+    <string name="my_position_share_email">Кликните на овај линк %1$s или копирајте ове координате %2$s у вашу апликацију за мапе, да бисте видели моју локацију.</string>
+    <string name="destination">Одредиште</string>
+    <string name="stop">Међустаница</string>
+    <string name="charge_socket_type1_combo">Тип 1 комбо</string>
+    <string name="route_recalculating">Прерачунавање руте…</string>
+    <string name="population">Становника: %s</string>
 </resources>

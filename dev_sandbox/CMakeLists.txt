@@ -89,7 +89,6 @@ copy_resources(
   vulkan_shaders
 
   categories.txt
-  categories_cuisines.txt
   classificator.txt
   colors.txt
   countries.txt

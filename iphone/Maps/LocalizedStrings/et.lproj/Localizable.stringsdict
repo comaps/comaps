@@ -5,55 +5,91 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d järjehoidjat</string>
+			<string>%lld järjehoidjat</string>
 			<key>one</key>
-			<string>%d järjehoidja</string>
+			<string>%lld järjehoidja</string>
 			<key>other</key>
-			<string>%d järjehoidjat</string>
+			<string>%lld järjehoidjat</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>Leidsime %d faili.</string>
+			<string>Leidsime %lld faili.</string>
 			<key>one</key>
-			<string>Leidsime %d faili. Näed seda peale teisendamist.</string>
+			<string>Leidsime %lld faili. Näed seda peale teisendamist.</string>
 			<key>other</key>
-			<string>Leidsime %d faili. Näed neid peale teisendamist.</string>
+			<string>Leidsime %lld faili. Näed neid peale teisendamist.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d rada</string>
+			<string>%lld rada</string>
 			<key>one</key>
-			<string>%d rada</string>
+			<string>%lld rada</string>
 			<key>other</key>
-			<string>%d rada</string>
+			<string>%lld rada</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>0 elanikku</string>
+			<key>one</key>
+			<string>%lld elanik</string>
+			<key>other</key>
+			<string>%lld elanikku</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>0 tuba</string>
+			<key>one</key>
+			<string>%lld tuba</string>
+			<key>other</key>
+			<string>%lld tuba</string>
 		</dict>
 	</dict>
 </dict>

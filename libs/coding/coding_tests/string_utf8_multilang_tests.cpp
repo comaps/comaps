@@ -260,22 +260,4 @@ UNIT_TEST(MultilangString_Buffers)
   TEST_EQUAL(test, "blabla", ());
 }
 
-UNIT_TEST(MultilangString_GetBest)
-{
-  StringUtf8Multilang s;
-  s.AddString("ru", "ру_строка");
-  s.AddString("en", "en_string");
-  s.AddString("default", "default");
-
-  auto res = s.GetBestString(
-      {StringUtf8Multilang::kAltNameCode, StringUtf8Multilang::kDefaultCode, StringUtf8Multilang::kEnglishCode});
-  TEST_EQUAL(res, "default", ());
-
-  res = s.GetBestString({StringUtf8Multilang::kAltNameCode});
-  TEST(res.empty(), ());
-
-  res = s.GetFirstString();
-  TEST_EQUAL(res, "ру_строка", ());
-}
-
 }  // namespace string_utf8_multilang_tests

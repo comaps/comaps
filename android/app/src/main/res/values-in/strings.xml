@@ -163,12 +163,8 @@
     <string name="downloading_is_active">Pengunduhan peta sedang berjalan</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hei, lihat lokasiku saat ini di CoMaps! %1$s atau %2$s belum memiliki peta offline? Unduh di sini: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hei, lihat pinku di CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hei, lihat lokasiku saat ini di peta CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hai, \n \nSekarang saya ada di sini: %1$s. Klik tautan ini %2$s atau yang ini %3$s untuk melihat tempatnya di peta. \n \nTerima kasih.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Bagikan</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -387,13 +383,7 @@
     <string name="editor_example_values">Contoh Nilai</string>
     <string name="editor_correct_mistake">Koreksi kesalahan</string>
     <string name="editor_add_select_location">Pilih Lokasi</string>
-    <string name="editor_report_problem_desription_1">Harap menggambarkan masalah secara rinci sehingga komunitas OpenStreetMap dapat memperbaiki kesalahan.</string>
-    <string name="editor_report_problem_desription_2">Atau Anda bisa melakukan sendiri di https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Kirim</string>
-    <string name="editor_report_problem_title">Masalah</string>
-    <string name="editor_report_problem_no_place_title">Tempat tidak ada</string>
-    <string name="editor_report_problem_under_construction_title">Ditutup karena pemeliharaan</string>
-    <string name="editor_report_problem_duplicate_place_title">Tempat ganda</string>
     <string name="autodownload">Unduhan otomatis</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Setiap Hari</string>

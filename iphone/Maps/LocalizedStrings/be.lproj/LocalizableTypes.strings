@@ -24,11 +24,15 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Барбекю-грыль";
 "type.amenity.bench" = "Bench";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "Велапаркоўка";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "Bicycle Rental";
 "type.amenity.bicycle_repair_station" = "Bicycle Repair Station";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Brothel";
+"type.amenity.love_hotel" = "Love Hotel";
 "type.amenity.bureau_de_change" = "Currency Exchange";
 "type.amenity.bus_station" = "Bus Station";
 "type.amenity.cafe" = "Cafe";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Пракат матацыклаў";
 "type.amenity.car_sharing" = "Car Sharing";
 "type.amenity.car_wash" = "Car Wash";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Азартныя гульні";
+"type.amenity.studio" = "Studio";
 "type.leisure.adult_gaming_centre" = "Гульнявы цэнтр для дарослых";
 "type.leisure.amusement_arcade" = "Аркада";
 "type.amenity.charging_station" = "Charging Station";
-"type.amenity.charging_station.bicycle" = "Станцыя для зарадкі ровараў";
 "type.amenity.charging_station.motorcar" = "Аўтамабільная зарадная станцыя";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "Станцыя для зарадкі ровараў";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "Nursery";
 "type.amenity.cinema" = "Cinema";
 "type.leisure.bowling_alley" = "Боўлінг";
 "type.amenity.clinic" = "Clinic";
 "type.amenity.college" = "College";
 "type.amenity.community_centre" = "Community Centre";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "Сціснутае паветра";
 "type.amenity.conference_centre" = "Канферэнц-цэнтр";
 "type.amenity.courthouse" = "Courthouse";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Выставачны цэнтр";
 "type.amenity.money_transfer" = "Грашовыя пераводы";
 "type.amenity.music_school" = "Музычная школа";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "Моўная школа";
 "type.office.diplomatic" = "Embassy";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "Fast Food";
 "type.amenity.ferry_terminal" = "Ferry";
 "type.amenity.fire_station" = "Пажарная частка";
 "type.amenity.food_court" = "Food Court";
 "type.amenity.fountain" = "Fountain";
 "type.amenity.fuel" = "АЗС";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Могілкі";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Хрысціянскія могілкі";
 "type.amenity.hospital" = "Hospital";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "Kindergarten";
 "type.amenity.library" = "Library";
 "type.amenity.loading_dock" = "Пагрузная платформа";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "Marketplace";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "Motorcycle Parking";
 "type.amenity.nightclub" = "Nightclub";
 "type.amenity.nursing_home" = "Nursing Home";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "Parking Space";
 "type.amenity.parking_space.underground" = "Parking Space";
 "type.amenity.parking_space.disabled" = "Паркоўка для інвалідаў";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "Payment Terminal";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "Pharmacy";
 "type.amenity.place_of_worship" = "Place of Worship";
 "type.amenity.place_of_worship.buddhist" = "Buddhist Temple";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "Police";
 "type.amenity.post_box" = "Паштовая скрыня";
 "type.amenity.post_office" = "Post Office";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "Турма";
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Book Exchange";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Зліў для прыбіральняў транспартных сродкаў";
 "type.amenity.school" = "School";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Навес";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Навес";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Хаціна-бівак";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Бівальны навес";
 "type.amenity.public_bath" = "Грамадская лазня";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Тэхагляд аўтамабіля";
 "type.amenity.vending_machine.fuel" = "Паліўная калонка";
 "type.amenity.veterinary" = "Veterinary Doctor";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "Trash Bin";
 "type.amenity.waste_disposal" = "Dumpster";
 "type.amenity.waste_transfer_station" = "Станцыя перавалкі адходаў";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Сцёкавыя вады";
 "type.barrier.entrance" = "Entrance";
 "type.barrier.fence" = "Fence";
+"type.barrier.guard_rail" = "Guard Rail";
 "type.barrier.gate" = "Gate";
 "type.barrier.hedge" = "Hedge";
 "type.barrier.kissing_gate" = "Gate";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Retaining Wall";
 "type.barrier.stile" = "Stile";
 "type.barrier.turnstile" = "Турнікет";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "Шлагбаўм";
 "type.barrier.toll_booth" = "Toll Booth";
 "type.barrier.wall" = "Wall";
 "type.boundary" = "Boundary";
 "type.boundary.administrative" = "Administrative Boundary";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "National Border";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Regional Boundary";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Regional Boundary";
 "type.boundary.national_park" = "National Park";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Запаведная зона";
 "type.boundary.protected_area.6" = "Запаведная зона";
 "type.building" = "Building";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Адрас";
 "type.building.has_parts" = "Building";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Садоўнік";
 "type.craft.grinding_mill" = "Млын";
 "type.craft.handicraft" = "Рамесніцтва";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Ацяпленне, вентыляцыя і кандыцыянаванне";
 "type.craft.key_cutter" = "Выраб ключоў";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "International";
 "type.cuisine.irish" = "Irish";
 "type.cuisine.italian" = "Italian";
-"type.cuisine.italian_pizza" = "Italian, Pizza";
 "type.cuisine.japanese" = "Japanese";
 "type.cuisine.kebab" = "Kebab";
 "type.cuisine.korean" = "Korean";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "Vegetarian";
 "type.cuisine.vietnamese" = "Vietnamese";
 "type.emergency" = "Emergency";
+"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "Аварыйны зборны пункт";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "Дэфібрылятар";
 "type.emergency.fire_hydrant" = "Пажарны гідрант";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "Emergency Phone";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Ратавальнік";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "ГорныГ ратавальны пункт";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Entrance";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Галоўны ўваход";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "Выхад";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "бясплатна";
 "type.healthcare.laboratory" = "Медыцынская лабараторыя";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "лагапедыя";
 "type.highway" = "Highway";
 "type.highway.bridleway" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Мост";
 "type.highway.bridleway.permissive" = "Bridle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Тунэль";
 "type.highway.busway" = "Выдзеленая аўтобусная дарога";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Тунэль";
 "type.highway.bus_stop" = "Bus Stop";
 "type.highway.construction" = "Road Under Construction";
 "type.highway.cycleway" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Мост";
 "type.highway.cycleway.permissive" = "Cycle Path";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Тунэль";
 "type.highway.elevator" = "Elevator";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "Тратуар";
 "type.highway.footway.crossing" = "Пешаходны пераход";
 "type.highway.footway.area" = "Foot Path";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Тунэль";
 "type.highway.ford" = "Ford";
 "type.highway.living_street" = "Living Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Тунэль";
 "type.highway.motorway" = "Motorway";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Тунэль";
 "type.highway.motorway_junction" = "Road Exit";
 "type.highway.motorway_link" = "Motorway";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Тунэль";
 "type.highway.path" = "Сцежка";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Складаная ці дрэнна бачная сцежка";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Вельмі складаная ці неадметная сцежка";
 "type.highway.path.bicycle" = "Сцежка";
 "type.highway.footway.bicycle" = "Сцежка";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Мост";
 "type.highway.path.horse" = "Сцежка";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Тунэль";
 "type.highway.pedestrian" = "Pedestrian Street";
 "type.highway.pedestrian.area" = "Pedestrian Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Мост";
 "type.highway.pedestrian.square" = "Плошча";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Тунэль";
 "type.highway.primary" = "Primary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Тунэль";
 "type.highway.primary_link" = "Primary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Тунэль";
 "type.highway.raceway" = "Racetrack";
 "type.highway.residential" = "Residential Street";
 "type.highway.residential.area" = "Residential Street";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Тунэль";
 "type.highway.rest_area" = "Rest Area";
 "type.highway.road" = "Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Мост";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Тунэль";
 "type.highway.secondary" = "Secondary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Тунэль";
 "type.highway.secondary_link" = "Secondary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Тунэль";
 "type.highway.service" = "Service Road";
 "type.highway.service.area" = "Service Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Мост";
 "type.highway.service.driveway" = "Service Road";
 "type.highway.service.parking_aisle" = "Service Road";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Тунэль";
 "type.highway.services" = "Service Area";
 "type.highway.speed_camera" = "Speed Camera";
 "type.highway.steps" = "Stairs";
-
+"type.highway.ladder" = "Ladder";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Тунэль";
 "type.highway.tertiary" = "Tertiary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Тунэль";
 "type.highway.tertiary_link" = "Tertiary Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Тунэль";
 "type.highway.track" = "Track";
 "type.highway.track.area" = "Track";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Мост";
 "type.highway.track.grade1" = "Track";
 "type.highway.track.no.access" = "Track";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Тунэль";
 "type.highway.traffic_signals" = "Traffic Lights";
 "type.highway.trunk" = "Траса";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Тунэль";
 "type.highway.trunk_link" = "З'езд з трасы";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Тунэль";
 "type.highway.unclassified" = "Minor Road";
 "type.highway.unclassified.area" = "Minor Road";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Мост";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Тунэль";
 "type.area_highway.cycleway" = "Cycle Path";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "Судна";
 "type.historic.tank" = "Гістарычны танк";
 "type.historic.tomb" = "Магіла";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Крыж";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Прыдарожны крыж";
 "type.historic.wayside_shrine" = "Прыдарожная святыня";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "Allotments";
 "type.landuse.basin" = "Рэзервуар";
 "type.landuse.brownfield" = "Brownfield";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Могілкі";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Хрысціянскія могілкі";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "Salt Pond";
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "Vineyard";
+"type.landuse.plant_nursery" = "Plant Nursery";
 "type.leisure" = "Leisure";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "Public Land";
 "type.leisure.dog_park" = "Dog Park";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "Fitness Centre";
 "type.leisure.fitness_station" = "Fitness Station";
 "type.leisure.dance" = "Танцавальная зала";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Мінігольф";
 "type.leisure.hackerspace" = "Хакерская прастора";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "Прычал";
 "type.leisure.nature_reserve" = "Nature Reserve";
 "type.leisure.outdoor_seating" = "Месцы на адкрытым паветры";
+"type.leisure.firepit" = "Firepit";
 "type.leisure.park" = "Park";
 "type.leisure.park.no.access" = "Park";
 "type.leisure.park.permissive" = "Park";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Slipway";
 "type.leisure.sports_centre" = "Sports Center";
-"type.sport.climbing" = "Скаладром";
-"type.sport.yoga" = "Ёга";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "Stadium";
 "type.leisure.swimming_pool" = "Басейн";
 "type.leisure.swimming_pool.private" = "Басейн";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "Рэзервуар";
 "type.man_made.surveillance" = "Surveillance Camera";
 "type.man_made.tower" = "Tower";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Вежа сувязі";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Вежа сувязі";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Нафтавы ці газавы свідравіна";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Газавы факел";
+"type.man_made.crane" = "Crane";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
 "type.man_made.water_tap" = "Water Tap";
 "type.man_made.water_tap.drinking_water_no" = "Water Tap";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Перавал";
 "type.natural" = "Прырода";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Каменная парода";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Галька";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Камяністая асып";
 "type.natural.bay" = "Заліў";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "Насып";
 "type.natural.coastline" = "Узбярэжжа";
 "type.natural.desert" = "Пустыня";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "Гейзер";
 "type.natural.glacier" = "Ледавік";
 "type.natural.grassland" = "Луг";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "Крыніца";
 "type.natural.spring.drinking_water_no" = "Крыніца";
 "type.natural.strait" = "Праліў";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "Шэраг дрэў";
 "type.natural.vineyard" = "Вінаграднік";
 "type.natural.volcano" = "Вулкан";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "Балоцістая мясцовасць";
 "type.natural.wetland.bog" = "Тарфянік";
 "type.natural.wetland.marsh" = "Балота";
+"type.natural.wetland.saltmarsh" = "Salt Marsh";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Dead End";
 "type.office" = "Office";
 "type.office.company" = "Company Office";
@@ -843,10 +887,8 @@
 "type.place.islet" = "Астравок";
 "type.place.isolated_dwelling" = "Хутар";
 "type.place.locality" = "Місце";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Мікрараён";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Наваколле";
 "type.place.ocean" = "Акіян";
@@ -855,7 +897,6 @@
 "type.place.square" = "Плошча";
 "type.place.state" = "Штат";
 "type.place.state.USA" = "Штат";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Раён";
 "type.place.town" = "Мястэчка";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "Сонечная электрастанцыя";
 "type.power.plant.wind" = "Ветраэлектрастанцыя";
 "type.power.substation" = "Substation";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Power Tower";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Public Transport";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "Фунікулёр";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "Хуткасная чыгунка";
 "type.railway.rail.tourism" = "Турыстычная чыгунка";
 "type.railway.rail.main" = "Чыгуначны";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Другасная чыгунка";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Службова чыгунка";
 "type.railway.rail.spur" = "Чыгуначны шлях";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Дапаможны чыгуначны шлях";
 "type.railway.rail.bridge" = "Чыгуначны мост";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Subway Station";
 "type.railway.station.subway.philadelphia" = "Subway Station";
 "type.railway.station.subway.pyongyang" = "Subway Station";
+"type.railway.station.subway.qingdao" = "Subway Station";
 "type.railway.station.subway.rennes" = "Subway Station";
 "type.railway.station.subway.rio" = "Subway Station";
 "type.railway.station.subway.roma" = "Subway Station";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "Bakery";
 "type.shop.bathroom_furnishing" = "Мэбля для ванных пакояў";
 "type.shop.beauty" = "Beauty Shop";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "Напоі";
 "type.shop.bicycle" = "Bicycle Shop";
 "type.shop.bookmaker" = "Bookmaker";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "Крама для кухні";
 "type.shop.laundry" = "Laundry";
 "type.shop.mall" = "Mall";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "Massage Salon";
 "type.shop.mobile_phone" = "Cell Phone Store";
 "type.shop.money_lender" = "Ліхвяр";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "Supermarket";
 "type.shop.tattoo" = "Tattoo Parlour";
 "type.shop.tea" = "Крама гарбаты";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Ticket Shop";
 "type.shop.toys" = "Toy Store";
 "type.shop.travel_agency" = "Travel Agency";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "Сельскагаспадарчы магазін";
 "type.shop.antiques" = "Антыкварыят";
 "type.shop.appliance" = "Крама бытавой тэхнікі";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Крама мастацтваў";
 "type.shop.baby_goods" = "Дзіцячая крама";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "Гандлёвая прыналежнасць";
 "type.shop.watches" = "Гадзіннік";
 "type.shop.wholesale" = "Аптовая крама";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "Спорт";
+"type.sport.multi" = "Розныя віды спорту";
+"type.sport.9pin" = "Боўлінг";
+"type.sport.10pin" = "Боўлінг";
 "type.sport.american_football" = "Амерыканскі футбол";
 "type.sport.archery" = "Стральба з лука";
 "type.sport.athletics" = "Athletics";
 "type.sport.australian_football" = "Аўстралійскі футбол";
+"type.sport.badminton" = "Бадмінтон";
 "type.sport.baseball" = "Бейсбол";
 "type.sport.basketball" = "Basketball";
 "type.sport.beachvolleyball" = "Пляжны валейбол";
 "type.sport.bowls" = "Боўлз";
 "type.sport.chess" = "Шахматы";
+"type.sport.climbing" = "Скаладром";
 "type.sport.cricket" = "Крикет";
 "type.sport.curling" = "Кёрлінг";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "Конны спорт";
+"type.sport.field_hockey" = "Хакей на траве";
+"type.sport.futsal" = "Футзал";
 "type.sport.golf" = "Гольф";
 "type.sport.gymnastics" = "Гімнастыка";
 "type.sport.handball" = "Гандбол";
-"type.sport.multi" = "Розныя віды спорту";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Хакей з шайбай";
+"type.sport.padel" = "Падэль";
+"type.sport.pelota" = "Баскская пелота";
 "type.sport.scuba_diving" = "Месца для дайвінга";
 "type.sport.shooting" = "Стральба";
 "type.sport.skateboard" = "Скейтбордынг";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "Настольны тэніс";
 "type.sport.tennis" = "Тэнісны корт";
 "type.sport.volleyball" = "Валейбол";
-"type.sport.10pin" = "Боўлінг";
-"type.sport.9pin" = "Боўлінг";
-"type.sport.padel" = "Падэль";
-"type.sport.futsal" = "Футзал";
-"type.sport.ice_hockey" = "Хакей з шайбай";
-"type.sport.field_hockey" = "Хакей на траве";
-"type.sport.badminton" = "Бадмінтон";
-"type.sport.pelota" = "Баскская пелота";
+"type.sport.yoga" = "Ёга";
 "type.tourism" = "Tourism";
 "type.tourism.aquarium" = "Акварыум";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Горны прытулак з абслугоўваннем";
 "type.tourism.apartment" = "Кватэра для адпачынку";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "Sculpture";
 "type.tourism.artwork.statue" = "Statue";
 "type.tourism.attraction" = "Attraction";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Атракцыён";
 "type.attraction.animal" = "Вальера для жывёл";
 "type.attraction.bumper_car" = "Bumper Car";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Attraction";
 "type.tourism.camp_site" = "Campground";
 "type.tourism.caravan_site" = "Кемпінг для аўтадамоў";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Катэдж для адпачынку";
 "type.tourism.gallery" = "Art Gallery";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "Інфармацыйны шчыт";
 "type.tourism.information.guidepost" = "Даведнік";
 "type.tourism.information.map" = "Карта";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "Турыстычны офіс";
 "type.tourism.information.visitor_centre" = "Цэнтр для наведвальнікаў";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Museum";
 "type.tourism.picnic_site" = "Picnic Site";
 "type.leisure.resort" = "Resort";
 "type.tourism.theme_park" = "Theme Park";
 "type.tourism.viewpoint" = "Аглядальная пляцоўка";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Турыстычная хатка";
 "type.tourism.zoo" = "Zoo";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Водопропускная труба";
 "type.waterway.dock" = "Waterway Dock";
 "type.waterway.drain" = "Drain";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "Drain";
 "type.waterway.drain.tunnel" = "Водопропускная труба";
 "type.waterway.lock_gate" = "Lock Gate";
@@ -1447,42 +1496,20 @@
 "type.self_service.only" = "Толькі самаабслугоўванне";
 "type.self_service.partially" = "Частковае самаабслугоўванне";
 "type.self_service.no" = "Няма самаабслугоўвання";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Сацыяльная ўстанова";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Уваход у аддзяленне хуткай дапамогі";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Додзе";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Спартыўная зала";
-"type.barrier.guard_rail" = "Guard Rail";
-"type.highway.ladder" = "Ladder";
-"type.man_made.crane" = "Crane";
-"type.railway.station.subway.qingdao" = "Subway Station";
-"type.leisure.firepit" = "Firepit";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.sport.diving" = "High Diving";
-"type.natural.wetland.swamp" = "Swamp";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.amenity.studio" = "Studio";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.landuse.plant_nursery" = "Plant Nursery";
-"type.amenity.love_hotel" = "Love Hotel";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.post_office.post_partner" = "Post Partner";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.xmas.tree" = "Christmas Tree";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

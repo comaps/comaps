@@ -1,11 +1,8 @@
-• OpenStreetMap data as of February 21
-• Display opening hours in shifts instead of non-business hours
-• Show OSM descriptions and number of rooms for selected POIs
-• Added Croatian, Italian, Dutch and Polish Wikipedia articles
-• Added tree rows and youth centres
-• Fixed transliteration not working
-• Improved Alternative Map Languages setting
-• A new Android 12+ setting to open osm.org and geo2me links
-• Display a rerouting indicator in navigation panel
+• OpenStreetMap data as of March 21
+• Added sports: four square and boules
+• Added Czech, Thai, Turkish and Ukrainian Wikipedia articles
+• Prevent secondary name from appearing for e.g. streets in multi-language regions
+• Improved wheel progress indicators with smoother animation
+• Support maxspeed definitions for more road types in different countries
 
 More details on comaps.app/latest

@@ -1,0 +1,8 @@
+• OpenStreetMap-data pr. 21. marts
+• Tilføjet nye sportsgrene: boules og four square
+• Tjekkiske, thailandske, tyrkiske og ukrainske Wikipedia-artikler tilføjet
+• Sekundære navne vises ikke længere i flersprogede områder, afhængigt af indstillingerne
+• Forbedrede runde fremskridtsindikatorer med jævnere animation
+• Understøttelse af hastighedsbegrænsninger på flere vejtyper i forskellige lande
+
+Flere detailjer på comaps.app/latest

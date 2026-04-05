@@ -62,7 +62,6 @@ import app.organicmaps.downloader.OnmapDownloader;
 import app.organicmaps.editor.EditorActivity;
 import app.organicmaps.editor.EditorHostFragment;
 import app.organicmaps.editor.FeatureCategoryActivity;
-import app.organicmaps.editor.ReportFragment;
 import app.organicmaps.help.HelpActivity;
 import app.organicmaps.intent.Factory;
 import app.organicmaps.intent.IntentProcessor;
@@ -155,8 +154,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   private boolean mPreciseLocationDialogShown = false;
 
   private static final String[] DOCKED_FRAGMENTS = {SearchFragment.class.getName(), DownloaderFragment.class.getName(),
-                                                    RoutingPlanFragment.class.getName(),
-                                                    EditorHostFragment.class.getName(), ReportFragment.class.getName()};
+                                                    RoutingPlanFragment.class.getName(), EditorHostFragment.class.getName()};
 
   public final ActivityResultLauncher<Intent> startDrivingOptionsForResult =
       registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {

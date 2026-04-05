@@ -254,7 +254,6 @@
     <string name="type.cuisine.international">Mezinárodní kuchyně</string>
     <string name="type.cuisine.irish">Irská kuchyně</string>
     <string name="type.cuisine.italian">Italská kuchyně</string>
-    <string name="type.cuisine.italian_pizza">Italská, pizza</string>
     <string name="type.cuisine.japanese">Japonská kuchyně</string>
     <string name="type.cuisine.kebab">Kebab</string>
     <string name="type.cuisine.korean">Korejská kuchyně</string>
@@ -1105,7 +1104,7 @@
     <string name="type.tourism.artwork.painting">Umělecké dílo</string>
     <string name="type.tourism.artwork.sculpture">Umělecké dílo</string>
     <string name="type.tourism.artwork.statue">Umělecké dílo</string>
-    <string name="type.tourism.attraction">Atrakce</string>
+    <string name="type.tourism.attraction">Turistická atrakce</string>
     <string name="type.attraction.amusement_ride">Zábavní jízda</string>
     <string name="type.attraction.animal">Ohrada pro zvířata</string>
     <string name="type.attraction.carousel">Kolotoč</string>
@@ -1507,4 +1506,8 @@
     <string name="type.emergency.access_point.address">Adresa pro nouzové záchranné služby</string>
     <string name="type.waterway.fuel">Přístavní čerpací stanice</string>
     <string name="type.amenity.community_centre.youth_centre">Centrum mládeže</string>
+    <string name="type.shop.water">Obchod s vodou</string>
+    <string name="type.attraction">Atrakce</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Sportovní centrum</string>
+    <string name="type.sport.four_square">Four Square</string>
 </resources>

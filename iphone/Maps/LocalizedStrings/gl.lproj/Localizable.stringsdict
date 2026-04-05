@@ -4,56 +4,56 @@
 <dict>
 	<key>bookmarks_places</key>
 	<dict>
-		<key>value</key>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Sen marcadores</string>
 			<key>one</key>
-			<string>%d marcador</string>
+			<string>%lld marcador</string>
 			<key>other</key>
-			<string>%d marcadores</string>
+			<string>%lld marcadores</string>
 		</dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
+		<string>%#@nevertranslate@</string>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d traxectos</string>
+			<string>%lld traxectos</string>
 			<key>one</key>
-			<string>%d traxecto</string>
+			<string>%lld traxecto</string>
 			<key>other</key>
-			<string>%d traxectos</string>
+			<string>%lld traxectos</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>Atopáronse %d arquivos. Veraos despois da conversión.</string>
+			<string>Atopáronse %lld arquivos. Veraos despois da conversión.</string>
 			<key>one</key>
-			<string>Atopouse %d arquivo. Verao despois da conversión.</string>
+			<string>Atopouse %lld arquivo. Verao despois da conversión.</string>
 			<key>other</key>
-			<string>Atopáronse %d arquivos. Veraos despois da conversión.</string>
+			<string>Atopáronse %lld arquivos. Veraos despois da conversión.</string>
 		</dict>
 	</dict>
 </dict>

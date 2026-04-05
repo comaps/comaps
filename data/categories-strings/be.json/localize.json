@@ -306,5 +306,13 @@
 "shop-carpet|@shop": "Дываны",
 "shop-craft|@shop": "Рамяство|Творчасць",
 "shop-pasta|@shop": "Макароны",
-"amenity-luggage_locker": "5Камера захоўвання|шафка|4багаж"
+"amenity-luggage_locker": "5Камера захоўвання|шафка|4багаж",
+"cuisine-bubble_tea": "Чай з бурбалкамі",
+"cuisine-hotdog|@fastfood": "Хот-доги|хотдог",
+"cuisine-ice_cream": "Кафе-марозіва",
+"cuisine-kebab|@fastfood": "Кебабы|кебаб|шаурма",
+"cuisine-pancake|cuisine-crepe": "Бліны|панкейкі",
+"cuisine-seafood|cuisine-fish": "Морапрадукты|рыба|рыбны",
+"@cuisine_all_vegetarian": "Вегетарыянская кухня",
+"cuisine-vegan|@cuisine_all_vegetarian": "Веганская кухня"
 }

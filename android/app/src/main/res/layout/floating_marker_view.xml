@@ -69,7 +69,7 @@
           android:id="@+id/triangle"
           android:layout_width="@dimen/margin_half_plus_eight"
           android:layout_height="@dimen/margin_half_plus_eight"
-          app:tint="?colorControlNormal"
+          app:tint="?iconTint"
           app:srcCompat="?elevationProfileSelectedPointTriangle" />
         <com.google.android.material.textview.MaterialTextView
           android:id="@+id/altitude"

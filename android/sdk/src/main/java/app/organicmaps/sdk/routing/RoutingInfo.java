@@ -53,17 +53,17 @@ public final class RoutingInfo
     }
   }
 
-  // Target (end point of route).
+  // Distance to target (end point of route).
   public final Distance distToTarget;
   // Next turn.
   public final Distance distToTurn;
-
+  // Time in seconds to target (end point of route).
   public final int totalTimeInSeconds;
   // Current street name.
   public final String currentStreet;
   // The next street name.
   public final String nextStreet;
-  // The next next street name.
+  // The next to the next street name.
   public final String nextNextStreet;
   public final double completionPercent;
   // For vehicle routing.
@@ -81,12 +81,23 @@ public final class RoutingInfo
   private final boolean shouldPlayWarningSignal;
   // Routing session state.
   public final RoutingSessionState routingSessionState;
+  // Index of the next intermediate stop:
+  //  -1 = invalid next intermediate stops.
+  //   0 = there are no next intermediate stops.
+  //   1 = intermediate stop #1.
+  //   2 = intermediate stop #2.
+  //   and so on...
+  public final int indexOfNextStop;
+  // Time & distance information to the next intermediate stop.
+  public final Distance distToNextStop;
+  public final int timeToNextStop;
 
   private RoutingInfo(Distance distToTarget, Distance distToTurn, String currentStreet, String nextStreet,
                       String nextNextStreet, double completionPercent, int vehicleTurnOrdinal,
                       int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum, int totalTime,
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
-                      boolean shouldPlayWarningSignal, int routingSessionState)
+                      boolean shouldPlayWarningSignal, int routingSessionState,
+                      int indexOfNextStop, Distance distToNextStop, int timeToNextStop)
   {
     this.distToTarget = distToTarget;
     this.distToTurn = distToTurn;
@@ -104,6 +115,9 @@ public final class RoutingInfo
     this.speedCamLimitExceeded = speedLimitExceeded;
     this.shouldPlayWarningSignal = shouldPlayWarningSignal;
     this.routingSessionState = RoutingSessionState.fromIntValue(routingSessionState);
+    this.indexOfNextStop = indexOfNextStop;
+    this.distToNextStop = distToNextStop;
+    this.timeToNextStop = timeToNextStop;
   }
 
   public boolean isSpeedCamLimitExceeded()

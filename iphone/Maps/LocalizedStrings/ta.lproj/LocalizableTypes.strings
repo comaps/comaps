@@ -1,17 +1,39 @@
+"type.addr_interpolation" = "முகவரி/தொகுதி";
+"type.addr_interpolation.even" = "முகவரி/தொகுதி";
+"type.addr_interpolation.odd" = "முகவரி/தொகுதி";
+"type.aerialway" = "வான்வழி";
 "type.aerialway.cable_car" = "கயிறு வண்டி";
+"type.aerialway.chair_lift" = "நாற்காலி தூக்கி";
+"type.aerialway.drag_lift" = "இழுப்பு தூக்கி";
+"type.aerialway.gondola" = "கோண்டோலா";
+"type.aerialway.mixed_lift" = "கலப்பு தூக்கி";
+"type.aerialway.station" = "வான்வழி நிலையம்";
+"type.aeroway" = "வான்வெளி உள்கட்டமைப்பு";
+"type.aeroway.aerodrome" = "பறப்பகம்";
 "type.aeroway.aerodrome.international" = "பன்னாட்டு விமான நிலையம்";
+"type.aeroway.apron" = "ஏற்றிடம்";
+"type.aeroway.gate" = "வாயில்";
 "type.aeroway.helipad" = "இறங்குதளம்";
 "type.aeroway.runway" = "ஓடுபாதை";
+"type.aeroway.taxiway" = "நடையோடுபாதை";
 "type.aeroway.terminal" = "முனையம்";
+"type.amenity" = "வசதி";
 "type.amenity.arts_centre" = "கலை நடுவண்";
+"type.amenity.atm" = "எநேப";
 "type.amenity.bank" = "வைப்பகம்";
 "type.amenity.bar" = "மதுக்கூடம்";
+"type.amenity.bbq" = "திறந்த வெளி வாட்டு";
 "type.amenity.bench" = "நீண்ட இருக்கை";
+"type.amenity.bench.backless" = "சாய்வில்லாத நீண்ட இருக்கை";
 "type.amenity.bicycle_parking" = "மிதிவண்டி நிறுத்தம்";
 "type.amenity.bicycle_parking.covered" = "மேல்மூடப்பட்ட மிதிவண்டி நிறுத்தம்";
 "type.amenity.boat_rental" = "படகு வாடகை";
 "type.amenity.bicycle_rental" = "மிதிவண்டி வாடகை";
 "type.amenity.bicycle_repair_station" = "மிதிவண்டி பழுதுபூங்காகும் நிலையம்";
+"type.amenity.biergarten" = "பீர் தோட்டம்";
+"type.amenity.brothel" = "விபச்சார விடுதி";
+"type.amenity.love_hotel" = "காதல் ஓட்டல்";
+"type.amenity.bureau_de_change" = "பணமாற்றம், நாணயமாற்றம்";
 "type.amenity.bus_station" = "பேருந்து நிலையம்";
 "type.amenity.cafe" = "கஃபே";
 "type.amenity.car_rental" = "கார் வாடகை";
@@ -21,38 +43,25 @@
 "type.man_made.telescope" = "தொலைநோக்கி";
 "type.man_made.telescope.optical" = "தொலைநோக்கி (ஆப்டிகல்)";
 "type.man_made.telescope.radio" = "தொலைநோக்கி (வானொலி)";
-"type.amenity.gambling" = "சூதாட்டம்";
-"type.amenity.charging_station" = "சார்சிங் ச்டேசன்";
-"type.amenity.charging_station.bicycle" = "மிதிவண்டிகள்";
-"type.amenity.charging_station.motorcar" = "மகிழுந்துகள்";
-"type.aerialway.chair_lift" = "நாற்காலி தூக்கி";
-"type.aerialway.drag_lift" = "இழுப்பு தூக்கி";
-"type.aerialway.gondola" = "கோண்டோலா";
-"type.aerialway.mixed_lift" = "கலப்பு தூக்கி";
-"type.aerialway.station" = "வான்வழி நிலையம்";
-"type.aeroway" = "வான்வெளி உள்கட்டமைப்பு";
-"type.aeroway.apron" = "ஏற்றிடம்";
-"type.aeroway.taxiway" = "நடையோடுபாதை";
-"type.amenity" = "வசதி";
-"type.amenity.atm" = "எநேப";
-"type.amenity.bbq" = "திறந்த வெளி வாட்டு";
-"type.amenity.bench.backless" = "சாய்வில்லாத நீண்ட இருக்கை";
-"type.amenity.biergarten" = "பீர் தோட்டம்";
-"type.amenity.brothel" = "விபச்சார விடுதி";
-"type.amenity.love_hotel" = "காதல் ஓட்டல்";
-"type.amenity.bureau_de_change" = "பணமாற்றம், நாணயமாற்றம்";
 "type.man_made.telescope.gamma" = "தொலைநோக்கி (காமா)";
 "type.man_made.observatory" = "கண்காணிப்பகம்";
 "type.amenity.casino" = "கேசினோ";
+"type.amenity.gambling" = "சூதாட்டம்";
+"type.amenity.studio" = "மீடியா ச்டுடியோ";
 "type.leisure.adult_gaming_centre" = "அகவை வந்தோர் கேமிங் நடுவண்";
 "type.leisure.amusement_arcade" = "ஆர்கேட்";
+"type.amenity.charging_station" = "சார்சிங் ச்டேசன்";
+"type.amenity.charging_station.motorcar" = "மகிழுந்துகள்";
+"type.amenity.charging_station.motorcycle" = "இருசக்கரவண்டிகள்";
+"type.amenity.charging_station.bicycle" = "மிதிவண்டிகள்";
+"type.amenity.charging_station.small" = "வரையறுக்கப்பட்ட திறன்";
 "type.amenity.childcare" = "நாற்றங்கால்";
 "type.amenity.cinema" = "சினிமா";
-"type.amenity.studio" = "மீடியா ச்டுடியோ";
 "type.leisure.bowling_alley" = "பந்துவீச்சு சந்து";
 "type.amenity.clinic" = "கிளினிக்";
 "type.amenity.college" = "கல்லூரி";
 "type.amenity.community_centre" = "சமூக நடுவண்";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "அழுத்தப்பட்ட காற்று";
 "type.amenity.conference_centre" = "மாநாட்டு நடுவண்";
 "type.amenity.courthouse" = "நீதிமன்ற வளாகம்";
@@ -63,6 +72,11 @@
 "type.amenity.driving_school" = "ஓட்டுநர் பள்ளி";
 "type.amenity.exhibition_centre" = "கண்காட்சி நடுவண்";
 "type.amenity.money_transfer" = "பணமாற்றல்";
+"type.amenity.music_school" = "இசை பள்ளிக்கூடம்";
+"type.amenity.sailing_school" = "படகோட்டம் பள்ளி";
+"type.amenity.flight_school" = "விமானப் பள்ளி";
+"type.amenity.prep_school" = "பயிற்சி பள்ளி";
+"type.amenity.language_school" = "மொழி பள்ளிக்கூடம்";
 "type.office.diplomatic" = "தூதரகம்";
 "type.office.security" = "பாதுகாப்பு காவலர்கள் அலுவலகம்";
 "type.building.guardhouse" = "பாதுகாப்பு சாவடி";
@@ -73,7 +87,9 @@
 "type.amenity.food_court" = "உணவு அறமன்றம்";
 "type.amenity.fountain" = "நீரூற்று";
 "type.amenity.fuel" = "எரிவாயு நிலையம்";
+/* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "கல்லறை";
+/* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "கிறிச்டியன் கல்லறை";
 "type.amenity.hospital" = "மருத்துவமனை";
 "type.amenity.hunting_stand" = "வேட்டை ச்டாண்ட்";
@@ -84,8 +100,8 @@
 "type.amenity.loading_dock" = "ஏற்றுதல் கப்பல்துறை";
 "type.amenity.lounger" = "லவுஞ்சர்";
 "type.amenity.luggage_locker" = "லக்கேச் லாக்கர்";
-"type.amenity.mobile_money_agent" = "மொபைல் பண முகவர்";
 "type.amenity.marketplace" = "சந்தை";
+"type.amenity.mobile_money_agent" = "மொபைல் பண முகவர்";
 "type.amenity.motorcycle_parking" = "மின்னோடி சைக்கிள் நிறுத்தம்";
 "type.amenity.nightclub" = "இரவு விடுதி";
 "type.amenity.nursing_home" = "முதியோர் இல்லம்";
@@ -115,11 +131,12 @@
 "type.amenity.parking_space.underground" = "நிறுத்தம் இடம்";
 "type.amenity.parking_space.disabled" = "முடக்கப்பட்ட நிறுத்தம் இடம்";
 "type.amenity.car_pooling" = "மகிழுந்து பகிர்வு";
-"type.amenity.payment_centre" = "கட்டண இடம்";
 "type.amenity.payment_terminal" = "கட்டண முனையம்";
+"type.amenity.payment_centre" = "கட்டண இடம்";
 "type.amenity.pharmacy" = "மருந்தகம்";
 "type.amenity.place_of_worship" = "வழிபாட்டு இடம்";
 "type.amenity.place_of_worship.buddhist" = "புத்த கோவில்";
+"type.amenity.place_of_worship.christian" = "தேவாலயம்";
 "type.amenity.place_of_worship.christian.mormon" = "பிந்தைய நாள் புனிதர்களின் இயேசு கிறிச்துவின் தேவாலயம்";
 "type.amenity.place_of_worship.christian.jehovahs_witness" = "யெகோவாவின் சாட்சிகள் மாநிலங்கள் மன்றம்";
 "type.amenity.place_of_worship.hindu" = "இந்து கோவில்";
@@ -152,9 +169,13 @@
 "type.amenity.restaurant" = "உணவகம்";
 "type.amenity.sanitary_dump_station" = "ஓல்டிங் டேங்க் டம்ப் ச்டேசன்";
 "type.amenity.school" = "பள்ளி";
+/* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "தங்குமிடம்";
+/* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "தங்குமிடம்";
+/* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Bivouac குடிசை";
+/* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "சாய்ந்து உறங்கும் இடம்";
 "type.amenity.public_bath" = "பொது குளியல்";
 "type.amenity.shower" = "மழை";
@@ -214,8 +235,11 @@
 "type.barrier.wall" = "சுவர்";
 "type.boundary" = "எல்லை";
 "type.boundary.administrative" = "நிர்வாக எல்லை";
+/* Borders between countries. */
 "type.boundary.administrative.2" = "தேசிய எல்லை";
+/* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "பிராந்திய எல்லை";
+/* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "பிராந்திய எல்லை";
 "type.boundary.national_park" = "தேசிய பூங்கா";
 "type.boundary.aboriginal_lands" = "பூர்வீக நிலங்கள்";
@@ -227,6 +251,7 @@
 "type.boundary.protected_area.5" = "பாதுகாக்கப்பட்ட பகுதி";
 "type.boundary.protected_area.6" = "பாதுகாக்கப்பட்ட பகுதி";
 "type.building" = "கட்டிடம்";
+/* Duplicates [address] in strings.txt */
 "type.building.address" = "முகவரி";
 "type.building.has_parts" = "கட்டிடம்";
 "type.building_part" = "கட்டிடம்";
@@ -246,6 +271,7 @@
 "type.craft.gardener" = "தோட்டக்காரர்";
 "type.craft.grinding_mill" = "அரைக்கும் மில்";
 "type.craft.handicraft" = "கைவினை";
+/* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "HVAC";
 "type.craft.key_cutter" = "கீ கட்டிங்";
 "type.craft.locksmith" = "பூட்டு தொழிலாளி";
@@ -305,7 +331,6 @@
 "type.cuisine.international" = "சர்வதேசம்";
 "type.cuisine.irish" = "ஐரிச்";
 "type.cuisine.italian" = "இத்தாலியன்";
-"type.cuisine.italian_pizza" = "இத்தாலியன், பிச்சா";
 "type.cuisine.japanese" = "சப்பானியர்கள்";
 "type.cuisine.kebab" = "கபாப்";
 "type.cuisine.korean" = "கொரிய";
@@ -346,15 +371,61 @@
 "type.cuisine.vietnamese" = "வியட்நாமிய";
 "type.emergency" = "அவசரநிலை";
 "type.emergency.access_point" = "அவசரகால மீட்புப் புள்ளி";
+"type.emergency.access_point.address" = "அவசர மீட்பு முகவரி";
 "type.emergency.assembly_point" = "அவசர பேரவை புள்ளி";
+"type.emergency.disaster_help_point" = "அவசரகால பேரிடர் உதவி மையம்";
 "type.emergency.life_ring" = "லைஃப்போய்";
 "type.emergency.defibrillator" = "டிஃபிபிரிலேட்டர்";
 "type.emergency.fire_hydrant" = "தீ நீரேற்றம்";
+"type.amenity.hydrant" = "நீர்ப்பாசன நீர்ப்பாசனம்";
 "type.emergency.phone" = "அவசர தொலைபேசி";
+/* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "உயிர்காப்பாளர்";
+"type.beacon.cardinal.east" = "கார்டினல் பெக்கான்";
+"type.beacon.cardinal.north" = "கார்டினல் பெக்கான்";
+"type.beacon.cardinal.south" = "கார்டினல் பெக்கான்";
+"type.beacon.cardinal.west" = "கார்டினல் பெக்கான்";
+"type.beacon.isolated_danger" = "தனிமைப்படுத்தப்பட்ட ஆபத்தான கலங்கரை விளக்கம்";
+"type.beacon.lateral.port" = "பக்கவாட்டு கலங்கரை விளக்கம்";
+"type.beacon.lateral.starboard" = "பக்கவாட்டு கலங்கரை விளக்கம்";
+"type.beacon.safe_water" = "பாதுகாப்பான நீர் கலங்கரை விளக்கம்";
+"type.beacon.special_purpose" = "சிறப்பு நோக்கத்திற்கான கலங்கரை விளக்கம்";
+"type.buoy.cardinal.east" = "கார்டினல் பாய்";
+"type.buoy.cardinal.north" = "கார்டினல் பாய்";
+"type.buoy.cardinal.south" = "கார்டினல் பாய்";
+"type.buoy.cardinal.west" = "கார்டினல் பாய்";
+"type.buoy.isolated_danger" = "தனிமைப்படுத்தப்பட்ட இடர் மிதவை";
+"type.buoy.lateral.port" = "பக்கவாட்டு மிதவை";
+"type.buoy.lateral.starboard" = "பக்கவாட்டு மிதவை";
+"type.buoy.safe_water" = "பாதுகாப்பான நீர் மிதவை";
+"type.buoy.special_purpose" = "சிறப்பு நோக்க மிதவை";
+"type.spherical_buoy.cardinal.east" = "கோள கார்டினல் மிதவை";
+"type.spherical_buoy.cardinal.north" = "கோள கார்டினல் மிதவை";
+"type.spherical_buoy.cardinal.south" = "கோள கார்டினல் மிதவை";
+"type.spherical_buoy.cardinal.west" = "கோள கார்டினல் மிதவை";
+"type.spherical_buoy.isolated_danger" = "கோள தனிமைப்படுத்தப்பட்ட இடர் மிதவை";
+"type.spherical_buoy.lateral.port" = "கோள பக்கவாட்டு மிதவை";
+"type.spherical_buoy.lateral.starboard" = "கோள பக்கவாட்டு மிதவை";
+"type.spherical_buoy.safe_water" = "கோள பாதுகாப்பான நீர் மிதவை";
+"type.spherical_buoy.special_purpose" = "கோள சிறப்பு நோக்க மிதவை";
+"type.lateral.port" = "துறைமுகம்";
+"type.lateral.starboard" = "ச்டார்போர்டு";
+"type.cardinal.east" = "கிழக்கு";
+"type.cardinal.north" = "வடக்கு";
+"type.cardinal.south" = "தெற்கு";
+"type.cardinal.west" = "மேற்கு";
+/* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "மலை மீட்பு நிலையம்";
+/* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "நுழைவாயில்";
+/* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "முதன்மையான நுழைவாயில்";
+"type.entrance.house" = "வீட்டு நுழைவாயில்";
+"type.entrance.garage" = "கேரேச் நுழைவாயில்";
+"type.entrance.service" = "பணி நுழைவு";
+"type.entrance.entry" = "நுழைவு (மட்டும்)";
+"type.entrance.exit" = "வெளியேறு (மட்டும்)";
+"type.entrance.emergency" = "அவசர வெளியேற்றம்";
 "type.fee.yes" = "$";
 "type.fee.no" = "இலவசம்";
 "type.healthcare.laboratory" = "மருத்துவ ஆய்வகம்";
@@ -369,105 +440,154 @@
 "type.healthcare.speech_therapist" = "லோகோபெடிக்ச்";
 "type.highway" = "நெடுஞ்சாலை";
 "type.highway.bridleway" = "பிரிடில் பாதை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "பாலம்";
 "type.highway.bridleway.permissive" = "பிரிடில் பாதை";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.busway" = "பிரத்யேக பேருந்து சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.bus_stop" = "பேருந்து நிறுத்தம்";
 "type.highway.construction" = "சாலை கட்டுமானத்தில் உள்ளது";
 "type.highway.cycleway" = "சைக்கிள் பாதை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "பாலம்";
 "type.highway.cycleway.permissive" = "சைக்கிள் பாதை";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.elevator" = "உயர்த்தி";
 "type.highway.footway" = "நடை பாதை";
 "type.highway.footway.sidewalk" = "நடைபாதை";
 "type.highway.footway.crossing" = "பாதசாரி குறுக்குவழி";
 "type.highway.footway.area" = "பாதசாரி பகுதி";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "பாதசாரி பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "பாதசாரி சுரங்கப்பாதை";
 "type.highway.ford" = "ஃபோர்டு";
 "type.highway.living_street" = "வாழும் தெரு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "சுரங்கப்பாதை";
 "type.highway.motorway" = "மின்னோடி பாதை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "மின்னோடி பாதை பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "மின்னோடி பாதை சுரங்கப்பாதை";
 "type.highway.motorway_junction" = "சாலை வெளியேறு";
 "type.highway.motorway_link" = "மின்னோடி பாதை வளைவு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "சுரங்கப்பாதை";
 "type.highway.path" = "பாதை";
+/* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "கடினமான அல்லது தெளிவற்ற பாதை";
+/* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "வல்லுநர் அல்லது கண்ணுக்கு தெரியாத பாதை";
 "type.highway.path.bicycle" = "சைக்கிள் & கால் பாதை";
 "type.highway.footway.bicycle" = "சைக்கிள் & கால் பாதை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "பாலம்";
 "type.highway.path.horse" = "பிரிடில் பாதை";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "சுரங்கப்பாதை";
 "type.highway.pedestrian" = "பாதசாரி தெரு";
 "type.highway.pedestrian.area" = "பாதசாரி பகுதி";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "பாதசாரி பாலம்";
 "type.highway.pedestrian.square" = "நாற்கை";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "பாதசாரி சுரங்கப்பாதை";
 "type.highway.primary" = "முதன்மை சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "சுரங்கப்பாதை";
 "type.highway.primary_link" = "முதன்மை சாலை வளைவு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "சுரங்கப்பாதை";
 "type.highway.raceway" = "பந்தயப் பாதை";
 "type.highway.residential" = "குடியிருப்பு தெரு";
 "type.highway.residential.area" = "குடியிருப்பு தெரு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "சுரங்கப்பாதை";
 "type.highway.rest_area" = "ஓய்வு பகுதி";
 "type.highway.road" = "சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "பாலம்";
+/* A bridge structure outline. */
 "type.man_made.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "சுரங்கப்பாதை";
 "type.highway.secondary" = "இரண்டாம் நிலை சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "சுரங்கப்பாதை";
 "type.highway.secondary_link" = "இரண்டாம் நிலை சாலை வளைவு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "சுரங்கப்பாதை";
 "type.highway.service" = "சர்வீச் ரோடு";
 "type.highway.service.area" = "சர்வீச் ரோடு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "பாலம்";
 "type.highway.service.driveway" = "ஓட்டுப்பாதை";
 "type.highway.service.parking_aisle" = "நிறுத்தம் இடைகழி";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "சுரங்கப்பாதை";
 "type.highway.services" = "பணி பகுதி";
 "type.highway.speed_camera" = "வேக கேமரா";
 "type.highway.steps" = "படிக்கட்டுகள்";
 "type.highway.ladder" = "ஏணி";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "சுரங்கப்பாதை";
 "type.highway.tertiary" = "மூன்றாம் நிலை சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "சுரங்கப்பாதை";
 "type.highway.tertiary_link" = "மூன்றாம் நிலை சாலை வளைவு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "சுரங்கப்பாதை";
 "type.highway.track" = "மின்தடம்";
 "type.highway.track.area" = "மின்தடம்";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "பாலம்";
 "type.highway.track.grade1" = "மின்தடம்";
 "type.highway.track.no.access" = "மின்தடம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "சுரங்கப்பாதை";
 "type.highway.traffic_signals" = "போக்குவரத்து விளக்குகள்";
 "type.highway.trunk" = "டிரங்க் சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "சுரங்கப்பாதை";
 "type.highway.trunk_link" = "டிரங்க் ரோடு வளைவு";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "சுரங்கப்பாதை";
 "type.highway.unclassified" = "சிறு சாலை";
 "type.highway.unclassified.area" = "சிறு சாலை";
+/* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "பாலம்";
+/* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "சுரங்கப்பாதை";
 "type.area_highway.cycleway" = "சைக்கிள் பாதை";
 "type.area_highway.footway" = "நடைபாதை";
@@ -522,7 +642,9 @@
 "type.historic.ship" = "கப்பல்";
 "type.historic.tank" = "வரலாற்று தொட்டி";
 "type.historic.tomb" = "கல்லறை";
+/* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "குறுக்கு";
+/* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "வேசைட் கிராச்";
 "type.historic.wayside_shrine" = "வழியோர திண்ணை";
 "type.historic.wreck" = "கப்பல் விபத்து";
@@ -535,7 +657,9 @@
 "type.landuse.allotments" = "ஒதுக்கீடுகள்";
 "type.landuse.basin" = "பேசின்";
 "type.landuse.brownfield" = "பிரவுன்ஃபீல்ட்";
+/* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "இடுகாடு";
+/* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "கிறிச்தவ கல்லறை";
 "type.landuse.religious" = "மத நிலம்";
 "type.landuse.commercial" = "வணிகப் பகுதி";
@@ -543,6 +667,7 @@
 "type.landuse.education" = "கல்வி வசதி";
 "type.landuse.farmland" = "விவசாய நிலம்";
 "type.landuse.farmyard" = "பண்ணை தோட்டம்";
+"type.landuse.field" = "புலம்";
 "type.landuse.flowerbed" = "பூச்செடி";
 "type.landuse.forest" = "காடு";
 "type.landuse.forest.coniferous" = "ஊசியிலையுள்ள காடு";
@@ -596,6 +721,7 @@
 "type.leisure.recreation_ground" = "பொழுதுபோக்கு மைதானம்";
 "type.leisure.sauna" = "சௌனா";
 "type.leisure.slipway" = "ச்லிப்வே";
+"type.leisure.sports_centre" = "விளையாட்டு நடுவண்";
 "type.leisure.sports_centre.sport.multi" = "விளையாட்டு நடுவண்";
 "type.leisure.sports_centre.sport.american_football" = "விளையாட்டு நடுவண்";
 "type.leisure.sports_centre.sport.archery" = "விளையாட்டு நடுவண்";
@@ -652,9 +778,15 @@
 "type.man_made.storage_tank" = "சேமிப்பு தொட்டி";
 "type.man_made.surveillance" = "கண்காணிப்பு கேமரா";
 "type.man_made.tower" = "கோபுரம்";
+/* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "செய்தி தொடர்பு கோபுரம்";
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "செய்தி தொடர்பு கோபுரம்";
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "தொடர்புகள் கப்பற் பாய் மரம்";
+/* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "எண்ணெய் அல்லது எரிவாயு கிணறு";
+/* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "காற்று வெடிப்பு";
 "type.man_made.crane" = "கொக்கு";
 "type.man_made.wastewater_plant" = "கழிவு நீர் சுத்திகரிப்பு நிலையம்";
@@ -669,8 +801,11 @@
 "type.military.bunker" = "பதுங்கு குழி";
 "type.mountain_pass" = "மவுண்டன் பாச்";
 "type.natural" = "இயற்கை";
+/* A rocky land cover. */
 "type.natural.bare_rock" = "வெற்றுப் பாறை";
+/* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "சிங்கிள்";
+/* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "திரை";
 "type.natural.bay" = "விரிகுடா";
 "type.natural.beach" = "கடற்கரை";
@@ -683,6 +818,7 @@
 "type.man_made.embankment" = "அணைக்கட்டு";
 "type.natural.coastline" = "கடற்கரை";
 "type.natural.desert" = "பாலைவனம்";
+"type.natural.sand" = "மணல்";
 "type.natural.geyser" = "கீசர்";
 "type.natural.glacier" = "பனிப்பாறை";
 "type.natural.grassland" = "புல்வெளி";
@@ -704,6 +840,7 @@
 "type.natural.spring" = "இயற்கை வேனில்";
 "type.natural.spring.drinking_water_no" = "இயற்கை வேனில்";
 "type.natural.strait" = "சலசந்தி";
+"type.natural.tree" = "மரம்";
 "type.natural.tree_row" = "மர வரிசை";
 "type.natural.vineyard" = "திராட்சைத் தோட்டம்";
 "type.natural.volcano" = "எரிமலை";
@@ -750,7 +887,9 @@
 "type.place.islet" = "தீவு";
 "type.place.isolated_dwelling" = "தனிமைப்படுத்தப்பட்ட குடியிருப்பு";
 "type.place.locality" = "உள்ளக";
+/* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "காலாண்டு";
+/* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "அக்கம்";
 "type.place.ocean" = "பெருங்கடல்";
 "type.place.region" = "பிராந்தியம்";
@@ -758,6 +897,7 @@
 "type.place.square" = "நாற்கை";
 "type.place.state" = "மாநிலம்";
 "type.place.state.USA" = "மாநிலம்";
+/* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "புறநகர்";
 "type.place.town" = "நகரம்";
 "type.place.village" = "சிற்றூர்";
@@ -777,8 +917,11 @@
 "type.power.plant.solar" = "சூரிய மின் நிலையம்";
 "type.power.plant.wind" = "காற்றாலை மின் நிலையம்";
 "type.power.substation" = "துணை மின் நிலையம்";
+/* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "பவர் டவர்";
+/* A single pole supporting minor power lines. */
 "type.power.pole" = "மின் கம்பம்";
+/* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "பயன்பாட்டு முனை";
 "type.public_transport" = "பொது போக்குவரத்து";
 "type.public_transport.platform" = "மேடை";
@@ -787,6 +930,8 @@
 "type.railway.construction" = "தொடர்வண்டி கட்டுமானம்";
 "type.railway.crossing" = "தொடர்வண்டி கடத்தல்";
 "type.railway.disused" = "பயன்படுத்தப்படாத தொடர்வண்டி";
+"type.railway.disused.bridge" = "பயன்படுத்தப்படாத தொடர்வண்டி பாலம்";
+"type.railway.disused.tunnel" = "பயன்படுத்தப்படாத தொடர்வண்டி சுரங்கப்பாதை";
 "type.railway.funicular" = "ஃபுனிகுலர்";
 "type.railway.funicular.bridge" = "ஃபுனிகுலர் பாலம்";
 "type.railway.funicular.tunnel" = "புனிகுலர் சுரங்கப்பாதை";
@@ -798,6 +943,9 @@
 "type.railway.monorail" = "மோனோரயில்";
 "type.railway.monorail.bridge" = "மோனோரயில் பாலம்";
 "type.railway.monorail.tunnel" = "மோனோரயில் சுரங்கப்பாதை";
+"type.railway.miniature" = "சிறிய சித்திரம் தொடர்வண்டி";
+"type.railway.miniature.bridge" = "சிறிய சித்திரம் தொடர்வண்டி பாலம்";
+"type.railway.miniature.tunnel" = "சிறிய சித்திரம் தொடர்வண்டி சுரங்கப்பாதை";
 "type.railway.narrow_gauge" = "நாரோ கேச் ரயில்";
 "type.railway.narrow_gauge.bridge" = "நெரோ கேச் ரயில் பாலம்";
 "type.railway.narrow_gauge.tunnel" = "நாரோ கேச் ரயில் சுரங்கப்பாதை";
@@ -809,9 +957,13 @@
 "type.railway.rail.highspeed" = "அதிவேக இதொடர்வண்டி";
 "type.railway.rail.tourism" = "சுற்றுலா தொடர்வண்டி";
 "type.railway.rail.main" = "தொடர்வண்டி";
+"type.railway.turntable" = "தொடர்வண்டி திரும்புமேசை";
+/* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "தொடர்வண்டி கிளை";
+/* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "பயன்பாட்டு இதொடர்வண்டி";
 "type.railway.rail.spur" = "தொடர்வண்டி ச்பர்";
+/* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "பணி ரயில் பாதை";
 "type.railway.rail.bridge" = "தொடர்வண்டி பாலம்";
 "type.railway.rail.highspeed.bridge" = "தொடர்வண்டி பாலம்";
@@ -1079,6 +1231,7 @@
 "type.shop.bakery" = "பேக்கரி";
 "type.shop.bathroom_furnishing" = "குளியலறை தளபாடங்கள்";
 "type.shop.beauty" = "அழகு கடை";
+"type.shop.beauty.nails" = "ஆணி நிலையம்";
 "type.shop.beverages" = "பானங்கள்";
 "type.shop.bicycle" = "சைக்கிள் கடை";
 "type.shop.bookmaker" = "புத்தகத் தயாரிப்பாளர்";
@@ -1170,6 +1323,8 @@
 "type.shop.agrarian" = "விவசாயக் கடை";
 "type.shop.antiques" = "பழங்கால பொருட்கள் கடை";
 "type.shop.appliance" = "உபகரணங்கள் கடை";
+"type.shop.water" = "Water Shop";
+/* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "கலைப்படைப்பு கடை";
 "type.shop.baby_goods" = "குழந்தை பொருட்கள் கடை";
 "type.shop.bag" = "பை கடை";
@@ -1229,10 +1384,12 @@
 "type.sport.soccer" = "கால்பந்து";
 "type.sport.swimming" = "நீச்சல்";
 "type.sport.table_tennis" = "டேபிள் டென்னிச்";
+"type.sport.tennis" = "வரிப்பந்தாட்டம்";
 "type.sport.volleyball" = "கைப்பந்து";
 "type.sport.yoga" = "யோகா";
 "type.tourism" = "சுற்றுலா";
 "type.tourism.aquarium" = "மீன்வளம்";
+/* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "மவுண்டன் லாட்ச்";
 "type.tourism.apartment" = "விடுமுறை அபார்ட்மெண்ட்";
 "type.tourism.artwork" = "கலைப்படைப்பு";
@@ -1241,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "சிற்பம்";
 "type.tourism.artwork.statue" = "சிலை";
 "type.tourism.attraction" = "ஈர்ப்பு";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "பொழுதுபோக்கு சவாரி";
 "type.attraction.animal" = "விலங்கு அடைப்பு";
 "type.attraction.bumper_car" = "பம்பர் கார்";
@@ -1253,6 +1411,7 @@
 "type.tourism.attraction.specified" = "ஈர்ப்பு";
 "type.tourism.camp_site" = "முகாம்";
 "type.tourism.caravan_site" = "RV பூங்கா";
+/* A rentable countryside vacation house. */
 "type.tourism.chalet" = "விடுமுறை குடிசை";
 "type.tourism.gallery" = "கலைக்கூடம்";
 "type.tourism.guest_house" = "விருந்தினர் மாளிகை";
@@ -1262,6 +1421,7 @@
 "type.tourism.information.board" = "செய்தி பலகை";
 "type.tourism.information.guidepost" = "வழிகாட்டி";
 "type.tourism.information.map" = "சுற்றுலா வரைபடம்";
+"type.tourism.information.tactile_map" = "தொட்டுணரக்கூடிய வரைபடம்";
 "type.tourism.information.office" = "சுற்றுலா அலுவலகம்";
 "type.tourism.information.visitor_centre" = "பார்வையாளர் நடுவண்";
 "type.amenity.ranger_station" = "ரேஞ்சர் நிலையம்";
@@ -1271,6 +1431,7 @@
 "type.leisure.resort" = "ரிசார்ட்";
 "type.tourism.theme_park" = "கருப்பொருள் பூங்கா";
 "type.tourism.viewpoint" = "கண்ணோட்டம்";
+/* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "வனப்பகுதி குடிசை";
 "type.tourism.zoo" = "உயிரியல் பூங்கா";
 "type.tourism.zoo.petting" = "செல்லப்பிராணி பூங்கா";
@@ -1287,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "கால்வாய்";
 "type.waterway.dock" = "நீர்வழி கப்பல்துறை";
 "type.waterway.drain" = "வாய்க்கால்";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "வாய்க்கால்";
 "type.waterway.drain.tunnel" = "கால்வாய்";
 "type.waterway.lock_gate" = "பூட்டு கேட்";
@@ -1334,83 +1496,20 @@
 "type.self_service.only" = "தன்வய பணி மட்டுமே";
 "type.self_service.partially" = "பகுதி தன்வய பணி";
 "type.self_service.no" = "தன்வய பணி இல்லை";
+/* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "சமூக வசதி";
 "type.social_facility.soup_kitchen" = "கஞ்சி சமையலறை";
 "type.social_facility.food_bank" = "உணவு வங்கி";
 "type.amenity.food_sharing" = "உணவுப் பகிர்வு";
 "type.amenity.give_box" = "பெட்டியைக் கொடு";
+/* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "அவசர வார்டு நுழைவு";
+/* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "டோசோ";
+/* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "விளையாட்டு அரங்கம்";
-"type.addr_interpolation" = "முகவரி/தொகுதி";
-"type.addr_interpolation.even" = "முகவரி/தொகுதி";
-"type.addr_interpolation.odd" = "முகவரி/தொகுதி";
-"type.aerialway" = "வான்வழி";
-"type.aeroway.aerodrome" = "பறப்பகம்";
-"type.aeroway.gate" = "வாயில்";
-"type.amenity.music_school" = "இசை பள்ளிக்கூடம்";
-"type.amenity.language_school" = "மொழி பள்ளிக்கூடம்";
-"type.amenity.place_of_worship.christian" = "தேவாலயம்";
-"type.landuse.field" = "புலம்";
-"type.leisure.sports_centre" = "விளையாட்டு நடுவண்";
-"type.man_made.mast.communication" = "தொடர்புகள் கப்பற் பாய் மரம்";
-"type.amenity.sailing_school" = "படகோட்டம் பள்ளி";
-"type.amenity.flight_school" = "விமானப் பள்ளி";
-"type.amenity.prep_school" = "பயிற்சி பள்ளி";
-"type.beacon.cardinal.east" = "கார்டினல் பெக்கான்";
-"type.beacon.cardinal.north" = "கார்டினல் பெக்கான்";
-"type.beacon.cardinal.south" = "கார்டினல் பெக்கான்";
-"type.beacon.cardinal.west" = "கார்டினல் பெக்கான்";
-"type.beacon.isolated_danger" = "தனிமைப்படுத்தப்பட்ட ஆபத்தான கலங்கரை விளக்கம்";
-"type.beacon.lateral.port" = "பக்கவாட்டு கலங்கரை விளக்கம்";
-"type.beacon.lateral.starboard" = "பக்கவாட்டு கலங்கரை விளக்கம்";
-"type.beacon.safe_water" = "பாதுகாப்பான நீர் கலங்கரை விளக்கம்";
-"type.beacon.special_purpose" = "சிறப்பு நோக்கத்திற்கான கலங்கரை விளக்கம்";
-"type.buoy.cardinal.east" = "கார்டினல் பாய்";
-"type.buoy.cardinal.north" = "கார்டினல் பாய்";
-"type.buoy.cardinal.south" = "கார்டினல் பாய்";
-"type.buoy.cardinal.west" = "கார்டினல் பாய்";
-"type.buoy.isolated_danger" = "தனிமைப்படுத்தப்பட்ட இடர் மிதவை";
-"type.buoy.lateral.port" = "பக்கவாட்டு மிதவை";
-"type.buoy.lateral.starboard" = "பக்கவாட்டு மிதவை";
-"type.buoy.safe_water" = "பாதுகாப்பான நீர் மிதவை";
-"type.buoy.special_purpose" = "சிறப்பு நோக்க மிதவை";
-"type.spherical_buoy.cardinal.east" = "கோள கார்டினல் மிதவை";
-"type.spherical_buoy.cardinal.north" = "கோள கார்டினல் மிதவை";
-"type.spherical_buoy.cardinal.south" = "கோள கார்டினல் மிதவை";
-"type.spherical_buoy.cardinal.west" = "கோள கார்டினல் மிதவை";
-"type.spherical_buoy.isolated_danger" = "கோள தனிமைப்படுத்தப்பட்ட இடர் மிதவை";
-"type.spherical_buoy.lateral.port" = "கோள பக்கவாட்டு மிதவை";
-"type.spherical_buoy.lateral.starboard" = "கோள பக்கவாட்டு மிதவை";
-"type.spherical_buoy.safe_water" = "கோள பாதுகாப்பான நீர் மிதவை";
-"type.spherical_buoy.special_purpose" = "கோள சிறப்பு நோக்க மிதவை";
-"type.lateral.port" = "துறைமுகம்";
-"type.lateral.starboard" = "ச்டார்போர்டு";
-"type.cardinal.east" = "கிழக்கு";
-"type.cardinal.north" = "வடக்கு";
-"type.cardinal.south" = "தெற்கு";
-"type.cardinal.west" = "மேற்கு";
-"type.entrance.house" = "வீட்டு நுழைவாயில்";
-"type.entrance.garage" = "கேரேச் நுழைவாயில்";
-"type.entrance.service" = "பணி நுழைவு";
-"type.entrance.entry" = "நுழைவு (மட்டும்)";
-"type.entrance.exit" = "வெளியேறு (மட்டும்)";
-"type.entrance.emergency" = "அவசர வெளியேற்றம்";
-"type.natural.sand" = "மணல்";
-"type.natural.tree" = "மரம்";
-"type.shop.beauty.nails" = "ஆணி நிலையம்";
 "type.xmas.tree" = "கிறிச்துமச் மரம்";
-"type.sport.tennis" = "வரிப்பந்தாட்டம்";
-"type.railway.disused.tunnel" = "பயன்படுத்தப்படாத தொடர்வண்டி சுரங்கப்பாதை";
-"type.amenity.charging_station.motorcycle" = "இருசக்கரவண்டிகள்";
-"type.amenity.charging_station.small" = "வரையறுக்கப்பட்ட திறன்";
-"type.emergency.access_point.address" = "அவசர மீட்பு முகவரி";
-"type.emergency.disaster_help_point" = "அவசரகால பேரிடர் உதவி மையம்";
-"type.amenity.hydrant" = "நீர்ப்பாசன நீர்ப்பாசனம்";
-"type.railway.disused.bridge" = "பயன்படுத்தப்படாத தொடர்வண்டி பாலம்";
-"type.railway.miniature" = "சிறிய சித்திரம் தொடர்வண்டி";
-"type.railway.miniature.bridge" = "சிறிய சித்திரம் தொடர்வண்டி பாலம்";
-"type.railway.miniature.tunnel" = "சிறிய சித்திரம் தொடர்வண்டி சுரங்கப்பாதை";
-"type.railway.turntable" = "தொடர்வண்டி திரும்புமேசை";
-"type.tourism.information.tactile_map" = "தொட்டுணரக்கூடிய வரைபடம்";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

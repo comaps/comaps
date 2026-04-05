@@ -1,0 +1,74 @@
+name: mapgen-isolines
+on:
+  workflow_dispatch: # Manual trigger
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+  TZ: Etc/UTC
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
+
+jobs:
+  update-isolines:
+    name: Update Isolines
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          cd ~
+          git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+      - name: Build topography_generator_tool
+        shell: bash
+        run: |
+          cd ~/comaps
+          ./tools/unix/build_omim.sh -p ~ -R topography_generator_tool
+      - name: Process isolines
+        shell: bash
+        # TODO: we only need to update these if our SRTM or countries change
+        run: |
+          echo "Backing up previous version to isolines-bak/"
+          cd /home/planet
+          rm -rf isolines-bak
+          mv -fT isolines{,-bak}
+          mkdir isolines
+          echo "Processing ..."
+          cd ~/comaps/
+          ~/omim-build-relwithdebinfo/topography_generator_tool \
+          --profiles_path=./data/conf/isolines/isolines-profiles.json \
+          --countries_to_generate_path=./data/conf/isolines/countries-to-generate.json \
+          --tiles_isolines_out_dir=/home/planet/isolines/tmp-tiles/ \
+          --countries_isolines_out_dir=/home/planet/isolines/ \
+          --data_dir=./data/ \
+          --srtm_path=/home/planet/SRTM-patched-europe/ \
+          --threads=56
+          # Delete temp files
+          rm -rf /home/planet/isolines/tmp-tiles/
+          echo "DONE"
+      - name: Check isolines
+        shell: bash
+        # TODO: after update, verify that sizable files exist: /home/planet/isolines/*.isolines
+        run: |
+          NUMISO=$(ls -al /home/planet/isolines/*.isolines | wc -l)
+          echo "Found $NUMISO isolines"
+          if [ $NUMISO -lt 10 ]; then
+          echo "ERROR: Did generation fail?"
+          exit 1
+          fi
+      - name: Notify Zulip
+        run: |
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode 'content=Isolines are updated!'

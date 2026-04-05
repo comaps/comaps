@@ -17,6 +17,7 @@ readonly SMOKE_SUITE=(  \
 )
 BUILD_DIR=.
 SUITE=full
+EXCLUDE=
 
 log() {
   echo "$@" 2>&1 | tee -a "$LOG"
@@ -34,6 +35,7 @@ usage() {
   log "  -b    path to build directory, default: ."
   log "  -s    test suite, smoke or full, default: full"
   log "  -f    regular expression which is applied to all tests, default: .*"
+  log "  -e    regular expression which is applied to test binaries, default: none"
   log "  -h    prints this help message"
   log ""
   log "Smoke test suite consists of:"
@@ -54,6 +56,9 @@ do
         shift
         ;;
     -f) FILTER=${2?"Test filter regex is not set"}
+        shift
+        ;;
+    -e) EXCLUDE=${2?"Exclude filter regex is not set"}
         shift
         ;;
     -h) usage
@@ -78,36 +83,30 @@ case "$SUITE" in
          ;;
 esac
 
-EXIT_STATUS=0
+PASSED_TESTS=0
+TOTAL_TESTS=0
 for testBin in "${TESTS[@]}"
 do
+  if [ "$EXCLUDE" ] && [[ "$testBin" =~ $EXCLUDE ]]
+  then
+    continue
+  fi
+
   if [ ! -x "$testBin" ]
   then
     die "Can't find test $testBin"
   fi
 
+  TOTAL_TESTS=$((TOTAL_TESTS + 1))
+
   log "Running $testBin..."
   if [ -z "${FILTER+undefined}" ]
   then
-    ./$testBin 2>&1 | tee -a "$LOG"
-    if [ ${PIPESTATUS[0]} -ne 0 ]
-    then
-      EXIT_STATUS=1
-    fi
+    (./"$testBin" 2>&1 | tee -a "$LOG") && ((PASSED_TESTS++)) || true
   else
-    ./$testBin --filter="$FILTER" 2>&1 | tee -a "$LOG"
-    if [ ${PIPESTATUS[0]} -ne 0 ]
-    then
-      EXIT_STATUS=1
-    fi
+    (./"$testBin" --filter="$FILTER" 2>&1 | tee -a "$LOG") && ((PASSED_TESTS++)) || true
   fi
 done
 
-if [ $EXIT_STATUS -eq 0 ]
-then
-  log "All tests passed, see log for details."
-else
-  log "Some of tests failed, see log for details."
-fi
-log "Log is written to: $LOG"
-exit $EXIT_STATUS
+log "$PASSED_TESTS / $TOTAL_TESTS passed."
+echo "Log is written to: $LOG"

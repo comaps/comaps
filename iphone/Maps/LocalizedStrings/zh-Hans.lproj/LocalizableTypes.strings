@@ -24,11 +24,15 @@
 "type.amenity.bar" = "酒吧";
 "type.amenity.bbq" = "烧烤架";
 "type.amenity.bench" = "长椅";
+"type.amenity.bench.backless" = "长凳";
 "type.amenity.bicycle_parking" = "自行车停车处";
+"type.amenity.bicycle_parking.covered" = "有顶棚自行车停车处";
+"type.amenity.boat_rental" = "船只租赁";
 "type.amenity.bicycle_rental" = "自行车出租点";
 "type.amenity.bicycle_repair_station" = "自行车维修站";
 "type.amenity.biergarten" = "啤酒花园";
 "type.amenity.brothel" = "妓院";
+"type.amenity.love_hotel" = "情侣酒店";
 "type.amenity.bureau_de_change" = "货币兑换";
 "type.amenity.bus_station" = "公交车站";
 "type.amenity.cafe" = "咖啡馆่";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "摩托车租赁";
 "type.amenity.car_sharing" = "拼车点";
 "type.amenity.car_wash" = "洗车";
+"type.man_made.telescope" = "望远镜";
+"type.man_made.telescope.optical" = "光学望远镜";
+"type.man_made.telescope.radio" = "射电望远镜";
+"type.man_made.telescope.gamma" = "伽玛射线望远镜";
+"type.man_made.observatory" = "观测台";
 "type.amenity.casino" = "赌场";
 "type.amenity.gambling" = "赌博";
+"type.amenity.studio" = "演播厅";
 "type.leisure.adult_gaming_centre" = "成人游戏中心";
 "type.leisure.amusement_arcade" = "电子游戏厅";
 "type.amenity.charging_station" = "充电站";
-"type.amenity.charging_station.bicycle" = "自行车充电站";
 "type.amenity.charging_station.motorcar" = "汽车充电站";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "自行车充电站";
+"type.amenity.charging_station.small" = "容量有限";
 "type.amenity.childcare" = "托儿所";
 "type.amenity.cinema" = "电影院";
 "type.leisure.bowling_alley" = "保龄球馆";
 "type.amenity.clinic" = "诊所";
 "type.amenity.college" = "学院";
 "type.amenity.community_centre" = "社区活动中心";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "压缩空气";
 "type.amenity.conference_centre" = "会议中心";
 "type.amenity.courthouse" = "法院";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "展览中心";
 "type.amenity.money_transfer" = "汇款";
 "type.amenity.music_school" = "音乐学校";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "飞行学校";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "语言学校";
 "type.office.diplomatic" = "大使馆";
+"type.office.security" = "保安室";
+"type.building.guardhouse" = "保安亭";
+"type.power.portal" = "能源站";
 "type.amenity.fast_food" = "快餐店";
 "type.amenity.ferry_terminal" = "轮渡码头";
 "type.amenity.fire_station" = "消防局";
 "type.amenity.food_court" = "美食广场";
 "type.amenity.fountain" = "喷泉";
 "type.amenity.fuel" = "加油站";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "墓地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "基督教墓地";
 "type.amenity.hospital" = "医院";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "幼儿园";
 "type.amenity.library" = "图书馆";
 "type.amenity.loading_dock" = "装卸码头";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "行李寄存处";
 "type.amenity.marketplace" = "市场";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "摩托车停车场";
 "type.amenity.nightclub" = "夜总会";
 "type.amenity.nursing_home" = "养老院";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "停车位";
 "type.amenity.parking_space.underground" = "停车位";
 "type.amenity.parking_space.disabled" = "残疾人停车位";
+"type.amenity.car_pooling" = "拼车";
 "type.amenity.payment_terminal" = "支付终端";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "药店";
 "type.amenity.place_of_worship" = "礼拜场所";
 "type.amenity.place_of_worship.buddhist" = "佛教寺庙";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "警察局";
 "type.amenity.post_box" = "邮箱";
 "type.amenity.post_office" = "邮局";
+"type.post_office.post_partner" = "邮政合作点";
 "type.amenity.prison" = "监狱";
 "type.amenity.pub" = "酒馆";
 "type.amenity.public_bookcase" = "公共书架";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "餐馆";
 "type.amenity.sanitary_dump_station" = "储液池排泄站";
 "type.amenity.school" = "学校";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "庇护所";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "庇护所";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "行军床";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "三面避难所";
 "type.amenity.public_bath" = "公共浴场";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "车辆检验";
 "type.amenity.vending_machine.fuel" = "燃油泵";
 "type.amenity.veterinary" = "兽医";
+"type.amenity.animal_shelter" = "动物收容所";
 "type.amenity.waste_basket" = "垃圾篓";
 "type.amenity.waste_disposal" = "大型垃圾箱";
 "type.amenity.waste_transfer_station" = "垃圾转运站";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "废水";
 "type.barrier.entrance" = "入口";
 "type.barrier.fence" = "篱笆";
+"type.barrier.guard_rail" = "交通护栏";
 "type.barrier.gate" = "门";
 "type.barrier.hedge" = "灌木篱笆";
 "type.barrier.kissing_gate" = "窄门";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "挡土墙";
 "type.barrier.stile" = "台阶";
 "type.barrier.turnstile" = "旋转门";
+"type.barrier.wicket_gate" = "旁门";
 "type.barrier.swing_gate" = "道闸";
 "type.barrier.toll_booth" = "收费站";
 "type.barrier.wall" = "墙";
 "type.boundary" = "边界";
 "type.boundary.administrative" = "行政区域界线";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "国家行政区域界线";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "行政区域边界";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "行政区域边界";
 "type.boundary.national_park" = "国家公园";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "保护区";
 "type.boundary.protected_area.6" = "保护区";
 "type.building" = "建筑物";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "地址";
 "type.building.has_parts" = "建筑物";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "园艺工";
 "type.craft.grinding_mill" = "磨粉机";
 "type.craft.handicraft" = "手工艺";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "暖通工程师";
 "type.craft.key_cutter" = "钥匙切割";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "国际菜肴";
 "type.cuisine.irish" = "爱尔兰菜";
 "type.cuisine.italian" = "意大利菜";
-"type.cuisine.italian_pizza" = "意大利菜，披萨";
 "type.cuisine.japanese" = "日本菜";
 "type.cuisine.kebab" = "烤肉";
 "type.cuisine.korean" = "韩国菜";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "素菜";
 "type.cuisine.vietnamese" = "越南菜";
 "type.emergency" = "紧急服务";
+"type.emergency.access_point" = "紧急连络点";
+"type.emergency.access_point.address" = "紧急救援地址";
 "type.emergency.assembly_point" = "紧急集合点";
+"type.emergency.disaster_help_point" = "灾害应急帮助点";
+"type.emergency.life_ring" = "救生艇";
 "type.emergency.defibrillator" = "除颤器";
 "type.emergency.fire_hydrant" = "消防栓";
+"type.amenity.hydrant" = "灌溉取水栓";
 "type.emergency.phone" = "紧急电话";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "救生员";
-
+"type.beacon.cardinal.east" = "方位航标";
+"type.beacon.cardinal.north" = "方位航标";
+"type.beacon.cardinal.south" = "方位航标";
+"type.beacon.cardinal.west" = "方位航标";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "东";
+"type.cardinal.north" = "北";
+"type.cardinal.south" = "南";
+"type.cardinal.west" = "西";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "山地救援站";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "入口";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "主要入口";
+"type.entrance.house" = "房屋入口";
+"type.entrance.garage" = "车库入口";
+"type.entrance.service" = "服务入口";
+"type.entrance.entry" = "单向入口";
 "type.entrance.exit" = "单向出口";
+"type.entrance.emergency" = "应急出口";
 "type.fee.yes" = "¥";
 "type.fee.no" = "免费";
 "type.healthcare.laboratory" = "医学实验室";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "语言治疗师";
 "type.highway" = "道路";
 "type.highway.bridleway" = "马道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "桥";
 "type.highway.bridleway.permissive" = "允许通行的骑马道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "隧道";
 "type.highway.busway" = "巴士专用道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "隧道";
 "type.highway.bus_stop" = "公交站";
 "type.highway.construction" = "在建道路";
 "type.highway.cycleway" = "自行车道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "桥";
 "type.highway.cycleway.permissive" = "允许通行的自行车道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "隧道";
 "type.highway.elevator" = "电梯";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "人行道";
 "type.highway.footway.crossing" = "过街人行横道";
 "type.highway.footway.area" = "步行道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "行人过街天桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "隧道";
 "type.highway.ford" = "浅滩";
 "type.highway.living_street" = "生活性街道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "隧道";
 "type.highway.motorway" = "高速公路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "隧道";
 "type.highway.motorway_junction" = "出口";
 "type.highway.motorway_link" = "高速公路连接路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "隧道";
 "type.highway.path" = "小道";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "难走或难见的小路";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "非常困难或难以分辨的路径";
 "type.highway.path.bicycle" = "小道";
 "type.highway.footway.bicycle" = "小道";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "桥";
 "type.highway.path.horse" = "小道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "隧道";
 "type.highway.pedestrian" = "步行街";
 "type.highway.pedestrian.area" = "步行区";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "人行天桥";
 "type.highway.pedestrian.square" = "广场";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "人行隧道";
 "type.highway.primary" = "主要道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "隧道";
 "type.highway.primary_link" = "主要道路连接路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "隧道";
 "type.highway.raceway" = "赛车场";
 "type.highway.residential" = "住宅区道路";
 "type.highway.residential.area" = "住宅区道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "隧道";
 "type.highway.rest_area" = "休息区";
 "type.highway.road" = "道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "桥";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "隧道";
 "type.highway.secondary" = "次要道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "隧道";
 "type.highway.secondary_link" = "次要道路连接路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "隧道";
 "type.highway.service" = "服务道路";
 "type.highway.service.area" = "服务道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "桥";
 "type.highway.service.driveway" = "车道";
 "type.highway.service.parking_aisle" = "停车场通道";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "隧道";
 "type.highway.services" = "服务区";
 "type.highway.speed_camera" = "超速摄像头";
 "type.highway.steps" = "阶梯";
-
+"type.highway.ladder" = "梯子";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "隧道";
 "type.highway.tertiary" = "三级道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "隧道";
 "type.highway.tertiary_link" = "三级道路连接路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "隧道";
 "type.highway.track" = "土路";
 "type.highway.track.area" = "土路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "桥";
 "type.highway.track.grade1" = "土路";
 "type.highway.track.no.access" = "土路";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "隧道";
 "type.highway.traffic_signals" = "交通信号灯";
 "type.highway.trunk" = "干线道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "隧道";
 "type.highway.trunk_link" = "干线道路连接路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "隧道";
 "type.highway.unclassified" = "道路";
 "type.highway.unclassified.area" = "道路";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "桥";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "隧道";
 "type.area_highway.cycleway" = "自行车道";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "历史船";
 "type.historic.tank" = "历史悠久的坦克";
 "type.historic.tomb" = "陵墓";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "十字架";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "路旁十字架";
 "type.historic.wayside_shrine" = "路旁神龛";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "市民农园";
 "type.landuse.basin" = "水盆地";
 "type.landuse.brownfield" = "废弃的工业用地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "墓地";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "基督教墓地";
 "type.landuse.religious" = "宗教用地";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "盐田";
 "type.landuse.village_green" = "村庄绿地";
 "type.landuse.vineyard" = "葡萄园";
+"type.landuse.plant_nursery" = "苗圃";
 "type.leisure" = "休闲要素";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "公共用地";
 "type.leisure.dog_park" = "遛狗区";
+"type.leisure.escape_game" = "密室逃脱";
 "type.leisure.fitness_centre" = "健身中心";
 "type.leisure.fitness_station" = "健身驿站";
 "type.leisure.dance" = "舞厅";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "小型高尔夫球场";
 "type.leisure.hackerspace" = "创客空间";
 "type.leisure.ice_rink" = "滑冰场";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "游艇码头";
 "type.leisure.nature_reserve" = "自然保护区";
 "type.leisure.outdoor_seating" = "室外座椅";
+"type.leisure.firepit" = "火坑";
 "type.leisure.park" = "公园";
 "type.leisure.park.no.access" = "公园";
 "type.leisure.park.permissive" = "公园";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "桑拿";
 "type.leisure.slipway" = "船台";
 "type.leisure.sports_centre" = "体育中心";
-"type.sport.climbing" = "攀登中心";
-"type.sport.yoga" = "瑜伽工作室";
+"type.leisure.sports_centre.sport.multi" = "运动中心";
+"type.leisure.sports_centre.sport.american_football" = "运动中心";
+"type.leisure.sports_centre.sport.archery" = "运动中心";
+"type.leisure.sports_centre.sport.athletics" = "运动中心";
+"type.leisure.sports_centre.sport.australian_football" = "运动中心";
+"type.leisure.sports_centre.sport.badminton" = "运动中心";
+"type.leisure.sports_centre.sport.baseball" = "运动中心";
+"type.leisure.sports_centre.sport.basketball" = "运动中心";
+"type.leisure.sports_centre.sport.beachvolleyball" = "运动中心";
+"type.leisure.sports_centre.sport.bowls" = "运动中心";
+"type.leisure.sports_centre.sport.climbing" = "运动中心";
+"type.leisure.sports_centre.sport.cricket" = "运动中心";
+"type.leisure.sports_centre.sport.curling" = "运动中心";
+"type.leisure.sports_centre.sport.equestrian" = "运动中心";
+"type.leisure.sports_centre.sport.field_hockey" = "运动中心";
+"type.leisure.sports_centre.sport.futsal" = "运动中心";
+"type.leisure.sports_centre.sport.golf" = "运动中心";
+"type.leisure.sports_centre.sport.gymnastics" = "运动中心";
+"type.leisure.sports_centre.sport.handball" = "运动中心";
+"type.leisure.sports_centre.sport.ice_hockey" = "运动中心";
+"type.leisure.sports_centre.sport.padel" = "运动中心";
+"type.leisure.sports_centre.sport.pelota" = "运动中心";
+"type.leisure.sports_centre.sport.scuba_diving" = "运动中心";
+"type.leisure.sports_centre.sport.shooting" = "运动中心";
+"type.leisure.sports_centre.sport.skateboard" = "运动中心";
+"type.leisure.sports_centre.sport.skiing" = "运动中心";
+"type.leisure.sports_centre.sport.soccer" = "运动中心";
+"type.leisure.sports_centre.sport.swimming" = "游泳中心";
+"type.leisure.sports_centre.sport.table_tennis" = "运动中心";
+"type.leisure.sports_centre.sport.tennis" = "运动中心";
+"type.leisure.sports_centre.sport.volleyball" = "运动中心";
+"type.leisure.sports_centre.sport.yoga" = "运动中心";
+"type.leisure.fitness_centre.sport.yoga" = "瑜伽中心";
 "type.leisure.stadium" = "体育场";
 "type.leisure.swimming_pool" = "游泳池";
 "type.leisure.swimming_pool.private" = "游泳池";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "储罐";
 "type.man_made.surveillance" = "监视器";
 "type.man_made.tower" = "高塔";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "通讯塔";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "通讯塔";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "通讯信号塔";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "石油或天然气井";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "燃气火炬";
+"type.man_made.crane" = "起重机";
 "type.man_made.wastewater_plant" = "污水处理厂";
 "type.man_made.water_tap" = "水龙头";
 "type.man_made.water_tap.drinking_water_no" = "水龙头";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "地堡";
 "type.mountain_pass" = "山口";
 "type.natural" = "自然";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "岩石";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "鹅卵石";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "石质碎石";
 "type.natural.bay" = "海湾";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "路堤";
 "type.natural.coastline" = "海岸线";
 "type.natural.desert" = "沙漠";
+"type.natural.sand" = "沙子";
 "type.natural.geyser" = "间歇泉";
 "type.natural.glacier" = "冰川";
 "type.natural.grassland" = "草原";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "泉水";
 "type.natural.spring.drinking_water_no" = "泉水";
 "type.natural.strait" = "海峡";
+"type.natural.tree" = "树";
 "type.natural.tree_row" = "树列";
 "type.natural.vineyard" = "葡萄园";
 "type.natural.volcano" = "火山";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "湿地";
 "type.natural.wetland.bog" = "泥炭地";
 "type.natural.wetland.marsh" = "草沼";
+"type.natural.wetland.saltmarsh" = "盐沼";
+"type.natural.wetland.saltmarsh.tidal" = "潮汐盐沼";
+"type.natural.wetland.fen" = "湿地";
+"type.natural.wetland.reedbed" = "芦苇地";
+"type.natural.wetland.swamp" = "沼泽";
+"type.natural.wetland.mangrove" = "红树林";
+"type.natural.wetland.tidalflat" = "潮汐平原";
 "type.noexit" = "死胡同";
 "type.office" = "办公室";
 "type.office.company" = "企业公司";
@@ -843,10 +887,8 @@
 "type.place.islet" = "岛";
 "type.place.isolated_dwelling" = "孤立居所";
 "type.place.locality" = "地方";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "邻里社区";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "社区";
 "type.place.ocean" = "海洋";
@@ -855,7 +897,6 @@
 "type.place.square" = "广场";
 "type.place.state" = "州/省";
 "type.place.state.USA" = "州";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "市郊";
 "type.place.town" = "镇";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "太阳能发电厂";
 "type.power.plant.wind" = "风力发电厂";
 "type.power.substation" = "变电站";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "高压电塔";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "电线杆";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "公共设施杆";
 "type.public_transport" = "公共交通要素";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "在建铁路";
 "type.railway.crossing" = "铁路道口";
 "type.railway.disused" = "废弃铁路";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "缆车";
 "type.railway.funicular.bridge" = "缆索铁路桥轨道";
 "type.railway.funicular.tunnel" = "缆索铁路隧道轨道";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "单轨轨道";
 "type.railway.monorail.bridge" = "单轨轨道";
 "type.railway.monorail.tunnel" = "单轨轨道";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "微缩铁路隧道";
 "type.railway.narrow_gauge" = "窄轨铁路轨道";
 "type.railway.narrow_gauge.bridge" = "窄轨铁路桥轨道";
 "type.railway.narrow_gauge.tunnel" = "窄轨铁路隧道轨道";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "高速铁路";
 "type.railway.rail.tourism" = "观光性铁路";
 "type.railway.rail.main" = "铁路";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "铁路支线";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "公共铁路";
 "type.railway.rail.spur" = "铁路岔线";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "服务性铁路";
 "type.railway.rail.bridge" = "铁路轨道";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "地铁车站";
 "type.railway.station.subway.philadelphia" = "地铁车站";
 "type.railway.station.subway.pyongyang" = "地铁车站";
+"type.railway.station.subway.qingdao" = "地铁车站";
 "type.railway.station.subway.rennes" = "地铁车站";
 "type.railway.station.subway.rio" = "地铁车站";
 "type.railway.station.subway.roma" = "地铁车站";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "烘培店";
 "type.shop.bathroom_furnishing" = "卫浴摆设";
 "type.shop.beauty" = "美容店";
+"type.shop.beauty.nails" = "美甲店";
 "type.shop.beverages" = "饮料店";
 "type.shop.bicycle" = "自行车店";
 "type.shop.bookmaker" = "博彩公司";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "厨房用品店";
 "type.shop.laundry" = "洗衣店";
 "type.shop.mall" = "商场";
+"type.shop.beauty.day_spa" = "日间水疗";
 "type.shop.massage" = "按摩院";
 "type.shop.mobile_phone" = "手机店";
 "type.shop.money_lender" = "借贷机构";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "超市";
 "type.shop.tattoo" = "纹身店";
 "type.shop.tea" = "茶叶店";
+"type.shop.telecommunication" = "电信服务商店";
 "type.shop.ticket" = "售票处";
 "type.shop.toys" = "玩具店";
 "type.shop.travel_agency" = "旅行社";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "农产品店";
 "type.shop.antiques" = "古董";
 "type.shop.appliance" = "家电店";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "艺术商店";
 "type.shop.baby_goods" = "儿童商店";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "贸易用品";
 "type.shop.watches" = "手表";
 "type.shop.wholesale" = "批发店";
+"type.shop.lighting" = "照明用品商店";
+"type.disusedbusiness" = "空置商业";
 "type.sport" = "体育运动";
+"type.sport.multi" = "各种运动";
+"type.sport.9pin" = "保龄球";
+"type.sport.10pin" = "保龄球";
 "type.sport.american_football" = "美式足球";
 "type.sport.archery" = "射箭";
 "type.sport.athletics" = "竞技";
 "type.sport.australian_football" = "澳式足球";
+"type.sport.badminton" = "羽毛球";
 "type.sport.baseball" = "棒球";
 "type.sport.basketball" = "篮球";
 "type.sport.beachvolleyball" = "沙滩排球";
 "type.sport.bowls" = "草地滚球";
 "type.sport.chess" = "国际象棋";
+"type.sport.climbing" = "攀登中心";
 "type.sport.cricket" = "板球";
 "type.sport.curling" = "冰壶";
+"type.sport.diving" = "高台跳水";
 "type.sport.equestrian" = "马术运动";
+"type.sport.field_hockey" = "曲棍球";
+"type.sport.futsal" = "五人制足球";
 "type.sport.golf" = "高尔夫球";
 "type.sport.gymnastics" = "体操";
 "type.sport.handball" = "手球";
-"type.sport.multi" = "各种运动";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "冰球";
+"type.sport.padel" = "笼式网球";
+"type.sport.pelota" = "巴斯克回力球";
 "type.sport.scuba_diving" = "水肺潜水";
 "type.sport.shooting" = "射击";
 "type.sport.skateboard" = "滑板活动";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "乒乓球";
 "type.sport.tennis" = "网球场";
 "type.sport.volleyball" = "排球";
-"type.sport.10pin" = "保龄球";
-"type.sport.9pin" = "保龄球";
-"type.sport.padel" = "笼式网球";
-"type.sport.futsal" = "五人制足球";
-"type.sport.ice_hockey" = "冰球";
-"type.sport.field_hockey" = "曲棍球";
-"type.sport.badminton" = "羽毛球";
-"type.sport.pelota" = "巴斯克回力球";
+"type.sport.yoga" = "瑜伽工作室";
 "type.tourism" = "旅游要素";
 "type.tourism.aquarium" = "水族馆";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "山间小屋";
 "type.tourism.apartment" = "度假公寓";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "雕塑";
 "type.tourism.artwork.statue" = "雕像";
 "type.tourism.attraction" = "景点";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "游乐设施";
 "type.attraction.animal" = "动物围栏";
 "type.attraction.bumper_car" = "碰碰车";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "景点";
 "type.tourism.camp_site" = "宿营场地";
 "type.tourism.caravan_site" = "房车宿营地";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "度假别墅";
 "type.tourism.gallery" = "美术馆";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "标示";
 "type.tourism.information.guidepost" = "指路牌";
 "type.tourism.information.map" = "旅游地图";
+"type.tourism.information.tactile_map" = "触觉地图";
 "type.tourism.information.office" = "旅游咨询中心";
 "type.tourism.information.visitor_centre" = "游客中心";
+"type.amenity.ranger_station" = "护林站";
 "type.tourism.motel" = "汽车旅馆";
 "type.tourism.museum" = "博物馆";
 "type.tourism.picnic_site" = "野餐地点";
 "type.leisure.resort" = "度假村";
 "type.tourism.theme_park" = "主题公园";
 "type.tourism.viewpoint" = "观景点";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "野外住宿小屋";
 "type.tourism.zoo" = "动物园";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "涵洞";
 "type.waterway.dock" = "船坞";
 "type.waterway.drain" = "渠";
+"type.waterway.fuel" = "船用加油码头";
 "type.natural.water.drain" = "渠";
 "type.waterway.drain.tunnel" = "涵洞";
 "type.waterway.lock_gate" = "闸门";
@@ -1447,118 +1496,20 @@
 "type.self_service.only" = "仅限自助服务";
 "type.self_service.partially" = "部分自助服务";
 "type.self_service.no" = "无自助服务";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "社会设施";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
-"type.emergency.emergency_ward_entrance" = "急诊室入口";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
-"type.amenity.dojo" = "道场";
-
-/* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
-"type.leisure.sports_hall" = "体育馆";
-"type.landuse.plant_nursery" = "苗圃";
-"type.leisure.firepit" = "火坑";
-"type.amenity.love_hotel" = "情侣酒店";
-"type.barrier.guard_rail" = "交通护栏";
-"type.highway.ladder" = "梯子";
-"type.amenity.studio" = "演播厅";
-"type.sport.diving" = "高台跳水";
-"type.man_made.crane" = "起重机";
-"type.railway.station.subway.qingdao" = "地铁车站";
-"type.natural.wetland.tidalflat" = "潮汐平原";
-"type.natural.wetland.swamp" = "沼泽";
-"type.natural.wetland.saltmarsh" = "盐沼";
-"type.natural.wetland.mangrove" = "红树林";
-"type.natural.wetland.fen" = "湿地";
-"type.natural.wetland.saltmarsh.tidal" = "潮汐盐沼";
-"type.natural.wetland.reedbed" = "芦苇地";
-"type.leisure.escape_game" = "密室逃脱";
-"type.amenity.luggage_locker" = "行李寄存处";
-"type.amenity.ranger_station" = "护林站";
-"type.amenity.bicycle_parking.covered" = "有顶棚自行车停车处";
-"type.post_office.post_partner" = "邮政合作点";
-"type.barrier.wicket_gate" = "旁门";
-"type.amenity.animal_shelter" = "动物收容所";
-"type.office.security" = "保安室";
-"type.power.portal" = "能源站";
-"type.building.guardhouse" = "保安亭";
-"type.amenity.bench.backless" = "长凳";
-"type.entrance.emergency" = "应急出口";
-"type.amenity.boat_rental" = "船只租赁";
-"type.man_made.telescope" = "望远镜";
-"type.man_made.telescope.optical" = "光学望远镜";
-"type.man_made.telescope.radio" = "射电望远镜";
-"type.man_made.telescope.gamma" = "伽玛射线望远镜";
-"type.man_made.observatory" = "观测台";
-"type.amenity.car_pooling" = "拼车";
-"type.xmas.tree" = "圣诞树";
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "食物银行";
 "type.amenity.food_sharing" = "食物共享设施";
 "type.amenity.give_box" = "捐赠箱";
-"type.shop.beauty.nails" = "美甲店";
-"type.natural.tree" = "树";
-"type.natural.sand" = "沙子";
-"type.leisure.sports_centre.sport.volleyball" = "运动中心";
-"type.leisure.sports_centre.sport.swimming" = "游泳中心";
-"type.cardinal.south" = "南";
-"type.cardinal.east" = "东";
-"type.cardinal.west" = "西";
-"type.cardinal.north" = "北";
-"type.entrance.garage" = "车库入口";
-"type.entrance.entry" = "单向入口";
-"type.emergency.access_point" = "紧急连络点";
-"type.waterway.fuel" = "船用加油码头";
-"type.amenity.charging_station.small" = "容量有限";
-"type.amenity.flight_school" = "飞行学校";
-"type.emergency.access_point.address" = "紧急救援地址";
-"type.emergency.disaster_help_point" = "灾害应急帮助点";
-"type.emergency.life_ring" = "救生艇";
-"type.amenity.hydrant" = "灌溉取水栓";
-"type.beacon.cardinal.west" = "方位航标";
-"type.beacon.cardinal.south" = "方位航标";
-"type.beacon.cardinal.north" = "方位航标";
-"type.beacon.cardinal.east" = "方位航标";
-"type.entrance.house" = "房屋入口";
-"type.entrance.service" = "服务入口";
-"type.social_facility.food_bank" = "食物银行";
-"type.tourism.information.tactile_map" = "触觉地图";
-"type.disusedbusiness" = "空置商业";
-"type.shop.telecommunication" = "电信服务商店";
-"type.shop.lighting" = "照明用品商店";
-"type.shop.beauty.day_spa" = "日间水疗";
-"type.railway.miniature.tunnel" = "微缩铁路隧道";
-"type.man_made.mast.communication" = "通讯信号塔";
-"type.leisure.fitness_centre.sport.yoga" = "瑜伽中心";
-"type.leisure.sports_centre.sport.yoga" = "运动中心";
-"type.leisure.sports_centre.sport.tennis" = "运动中心";
-"type.leisure.sports_centre.sport.table_tennis" = "运动中心";
-"type.leisure.sports_centre.sport.soccer" = "运动中心";
-"type.leisure.sports_centre.sport.skiing" = "运动中心";
-"type.leisure.sports_centre.sport.skateboard" = "运动中心";
-"type.leisure.sports_centre.sport.shooting" = "运动中心";
-"type.leisure.sports_centre.sport.american_football" = "运动中心";
-"type.leisure.sports_centre.sport.archery" = "运动中心";
-"type.leisure.sports_centre.sport.athletics" = "运动中心";
-"type.leisure.sports_centre.sport.australian_football" = "运动中心";
-"type.leisure.sports_centre.sport.badminton" = "运动中心";
-"type.leisure.sports_centre.sport.baseball" = "运动中心";
-"type.leisure.sports_centre.sport.basketball" = "运动中心";
-"type.leisure.sports_centre.sport.beachvolleyball" = "运动中心";
-"type.leisure.sports_centre.sport.bowls" = "运动中心";
-"type.leisure.sports_centre.sport.climbing" = "运动中心";
-"type.leisure.sports_centre.sport.cricket" = "运动中心";
-"type.leisure.sports_centre.sport.curling" = "运动中心";
-"type.leisure.sports_centre.sport.equestrian" = "运动中心";
-"type.leisure.sports_centre.sport.field_hockey" = "运动中心";
-"type.leisure.sports_centre.sport.futsal" = "运动中心";
-"type.leisure.sports_centre.sport.golf" = "运动中心";
-"type.leisure.sports_centre.sport.gymnastics" = "运动中心";
-"type.leisure.sports_centre.sport.handball" = "运动中心";
-"type.leisure.sports_centre.sport.ice_hockey" = "运动中心";
-"type.leisure.sports_centre.sport.padel" = "运动中心";
-"type.leisure.sports_centre.sport.pelota" = "运动中心";
-"type.leisure.sports_centre.sport.scuba_diving" = "运动中心";
-"type.leisure.sports_centre.sport.multi" = "运动中心";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+/* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
+"type.emergency.emergency_ward_entrance" = "急诊室入口";
+/* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
+"type.amenity.dojo" = "道场";
+/* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
+"type.leisure.sports_hall" = "体育馆";
+"type.xmas.tree" = "圣诞树";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

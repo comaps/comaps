@@ -57,10 +57,7 @@ env:
 jobs:
   lint:
     name: Android Lint
-    runs-on: ubuntu-latest
-    container:
-      image: codeberg.org/comaps/docker-android-sdk:ubuntu-standalone-zy-docker
-      options: --user root
+    runs-on: comaps-android
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
@@ -93,10 +90,7 @@ jobs:
 
   android-check:
     name: Build Android Debug
-    runs-on: ubuntu-latest
-    container:
-      image: codeberg.org/comaps/docker-android-sdk:ubuntu-standalone-zy-docker
-      options: --user root
+    runs-on: comaps-android
     strategy:
       fail-fast: false
       matrix:

@@ -400,6 +400,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     // Nothing should be displayed on the screen about turns if these lines are executed.
     info = FollowingInfo();
     info.m_routingSessionState = m_state;
+    info.m_indexOfNextStop = -1; // Invalid next stop index.
     return;
   }
 
@@ -409,6 +410,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     info.m_distToTarget = platform::Distance::CreateFormatted(m_route->GetTotalDistanceMeters());
     info.m_time = static_cast<int>(std::max(kMinimumETASec, m_route->GetCurrentTimeToEndSec()));
     info.m_routingSessionState = m_state;
+    info.m_indexOfNextStop = -1; // Invalid next stop index.
     return;
   }
 
@@ -451,6 +453,38 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
 
   // Routing session state.
   info.m_routingSessionState = m_state;
+
+  // Get number of subroutes.
+  size_t subrouteCount = m_route->GetSubrouteCount();
+
+  // Get index of the subroute that we're currently in.
+  size_t currentSubrouteIdx = m_route->GetCurrentSubrouteIdx();
+
+  // Set index of next intermediate stop:
+  //  0 = there are no next intermediate stops.
+  //  1 = intermediate stop #1.
+  //  2 = intermediate stop #2.
+  //  and so on...
+  if (currentSubrouteIdx == (subrouteCount - 1))
+  {
+    // We're in the last subroute (There are no more intermediate stops).
+    info.m_indexOfNextStop = 0;
+    return;
+  }
+
+  // Set the index of the next intermediate stop.
+  info.m_indexOfNextStop = (int) currentSubrouteIdx + 1;
+
+  // Get index of end segment of the subroute.
+  size_t subrouteEndSegmentIdx = m_route->GetSubrouteAttrs(currentSubrouteIdx).GetEndSegmentIdx();
+
+  // Get remaining distance to end of subroute.
+  info.m_distToNextStop = platform::Distance::CreateFormatted(
+    m_route->GetCurrentDistanceToSegmentMeters(subrouteEndSegmentIdx));
+
+  // Get remaining time to end of subroute.
+  info.m_timeToNextStop = std::max(kMinimumETASec,
+                                   m_route->GetCurrentTimeToSegmentSec(subrouteEndSegmentIdx));
 }
 
 double RoutingSession::GetCompletionPercent() const

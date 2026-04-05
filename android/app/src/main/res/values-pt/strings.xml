@@ -19,7 +19,7 @@
     <!-- Update maps later button text -->
     <string name="later">Mais tarde</string>
     <!-- View and button titles for accessibility, please also edit it in iphone/plist.txt -->
-    <string name="search">Pesquisar</string>
+    <string name="search">Procurar</string>
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Pesquisar mapa</string>
     <!-- Location services are disabled by user alert - message -->
@@ -145,13 +145,13 @@
     <string name="description">Notas</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">Os meus Favoritos do CoMaps</string>
-    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo os meus favoritos; por favor abra-os com o CoMaps. Caso não tenha, descarregue a aplicação aqui: https://www.comaps.app/download/ \n \nDivirta-se a viajar com o CoMaps!</string>
+    <string name="share_bookmarks_email_body">Olá! \n \nSegue em anexo os meus Favoritos; por favor abra-os com o CoMaps. Caso não tenha, descarregue a aplicação aqui: https://www.comaps.app/download/ \n \nDivirta-se a viajar com o CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">A Carregar Favoritos</string>
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Os favoritos foram carregados com sucesso! Pode encontrá-los no mapa ou no ecrã de gestão dos favoritos.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Surgiu uma falha ao enviar os favoritos. O ficheiro pode estar corrompido ou com defeito.</string>
+    <string name="load_kmz_failed">Surgiu uma falha ao enviar os Favoritos. O ficheiro pode estar corrompido ou com defeito.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">O tipo de ficheiro não é reconhecido pela aplicação: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -166,12 +166,8 @@
     <string name="downloading_is_active">O descarregamento do país está a ser feito neste momento</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Veja onde estou agora. Abra a hiperligação: %1$s ou %2$s Não tem um mapa offline instalado? Descarregue em https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Veja o meu marcador no mapa do CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Veja a minha localização atual no mapa CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Olá, \n \nEstou neste momento aqui: %1$s. Clique nesta ligação %2$s ou nesta %3$s para ver o local no mapa. \n \nObrigado.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Partilhar</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -230,7 +226,7 @@
     <!-- Text in About menu, opens CoMaps news website -->
     <string name="news">Notícias</string>
     <!-- Settings: Send feedback button and dialog title -->
-    <string name="feedback">Comentários</string>
+    <string name="feedback">Opinião</string>
     <!-- Text in menu -->
     <string name="rate_the_app">Avaliar a aplicação</string>
     <!-- Text in menu -->
@@ -396,13 +392,7 @@
     <string name="editor_example_values">Valores de exemplo</string>
     <string name="editor_correct_mistake">Corrigir erro</string>
     <string name="editor_add_select_location">Selecione a localização</string>
-    <string name="editor_report_problem_desription_1">Por favor, descreva o problema ao pormenor para que a comunidade OpenStreetMap possa corrigir o erro.</string>
-    <string name="editor_report_problem_desription_2">Ou faça-o em https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Enviar</string>
-    <string name="editor_report_problem_title">Problema</string>
-    <string name="editor_report_problem_no_place_title">O lugar não existe</string>
-    <string name="editor_report_problem_under_construction_title">Encerrado para manutenção</string>
-    <string name="editor_report_problem_duplicate_place_title">Lugar em duplicado</string>
     <string name="autodownload">Descarregamento automático</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Diariamente</string>
@@ -480,7 +470,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Operador: %s</string>
     <string name="editor_category_unsuitable_title">Não encontra uma categoria adequada?</string>
-    <string name="editor_category_unsuitable_text">O CoMaps apenas consegue adicionar apenas categorias de pontos simples, não consegue adicionar cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente ao <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulte o nosso <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> para instruções detalhadas passo a passo.</string>
+    <string name="editor_category_unsuitable_text">O CoMaps apenas lhe permite adicionar categorias de pontos simples, ou seja, nada de cidades, estradas, lagos, contornos de edifícios etc. Por favor, adicione essas categorias diretamente ao <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Consulte o nosso <a href="https://www.comaps.app/support/advanced-map-editing/">guia</a> para instruções detalhadas passo a passo.</string>
     <string name="downloader_no_downloaded_maps_title">Não descarregou quaisquer mapas</string>
     <string name="downloader_no_downloaded_maps_message">Descarregar mapas para encontrar a localização e navegar offline</string>
     <string name="current_location_unknown_error_title">A localização atual é desconhecida</string>
@@ -644,7 +634,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Ordenar…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Ordenar favoritos</string>
+    <string name="sort_bookmarks">Ordenar Favoritos</string>
     <!-- Android -->
     <string name="by_default">Predefinido</string>
     <!-- Android -->
@@ -748,7 +738,7 @@
     <string name="browser_not_available">O navegador de Internet não está disponível</string>
     <string name="volume">Volume</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Exportar todos os Favoritos e Trajetos</string>
+    <string name="bookmarks_export">Exportar todos os Favoritos</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Definições do sistema de síntese de voz</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -837,7 +827,7 @@
     <string name="pref_backup_now_title">Criar backup agora</string>
     <string name="pref_backup_now_summary">Cria um backup imediatamente</string>
     <string name="pref_backup_now_summary_progress">Backup a decorrer…</string>
-    <string name="pref_backup_now_summary_empty_lists">Sem marcadores ou trajetos para fazer backup</string>
+    <string name="pref_backup_now_summary_empty_lists">Sem Favoritos para fazer backup</string>
     <string name="pref_backup_now_summary_failed">Backup falhou</string>
     <string name="pref_backup_now_summary_folder_unavailable">A pasta de backup não está disponível</string>
     <string name="pref_backup_status_summary_success">Último backup com sucesso</string>
@@ -891,8 +881,8 @@
     <string name="closes_day_at">Fecha %1$s às %2$s</string>
     <plurals name="minutes_short">
         <item quantity="one">%d min</item>
-        <item quantity="many">%d min</item>
-        <item quantity="other">%d min</item>
+        <item quantity="many">%d mins</item>
+        <item quantity="other">%d mins</item>
     </plurals>
     <string name="editor_business_vacant_button">O negócio está vago</string>
     <string name="editor_mark_business_vacant_title">Marcar negócio como vago</string>
@@ -927,5 +917,17 @@
     <string name="route_needs_rebuild">Rota precisa de ser recalculada</string>
     <string name="route_finished">Rota terminada</string>
     <string name="not_following_route">Não está seguindo a rota</string>
-    <string name="rebuilding_route">Recalculando a rota…</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Não usar alternativas</string>
+    <string name="pref_alt_map_lang_handling">Idiomas do Mapa Alternativos</string>
+    <string name="pref_alt_map_lang_handling_system_order">Usar na ordem do sistema</string>
+    <string name="pref_alt_map_lang_handling_local_only">Preferir e usar apenas quando nativo</string>
+    <string name="pref_openexternallinks_title">Abrir automaticamente ligações de terceiros</string>
+    <string name="pref_openexternallinks_summary">Abrir ligações de terceiros no CoMaps por padrão</string>
+    <string name="bookmark_share_email_subject">Siga esta ligação %1$s ou insira estas coordenadas %2$s na sua aplicação de mapas para ver esta localização.</string>
+    <string name="my_position_share_email">Siga esta ligação %1$s ou insira estas coordenadas %2$s na sua aplicação de mapas para ver a minha localização.</string>
+    <string name="destination">Destino</string>
+    <string name="stop">Paragem</string>
+    <string name="route_recalculating">Recalculando rota…</string>
+    <string name="charge_socket_type1_combo">Tipo 1 combo</string>
+    <string name="population">População: %s</string>
 </resources>

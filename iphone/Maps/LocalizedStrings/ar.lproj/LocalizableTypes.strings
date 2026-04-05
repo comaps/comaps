@@ -24,11 +24,15 @@
 "type.amenity.bar" = "حانة";
 "type.amenity.bbq" = "شواية شواء";
 "type.amenity.bench" = "مصطبة";
+"type.amenity.bench.backless" = "Without Backrest";
 "type.amenity.bicycle_parking" = "موقف دراجات";
+"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
+"type.amenity.boat_rental" = "Boat Rental";
 "type.amenity.bicycle_rental" = "تأجير دراجات";
 "type.amenity.bicycle_repair_station" = "محطة تصليح الدراجات";
 "type.amenity.biergarten" = "متجر بيرة";
 "type.amenity.brothel" = "دعارة";
+"type.amenity.love_hotel" = "فندق جب";
 "type.amenity.bureau_de_change" = "صرافة العملات";
 "type.amenity.bus_station" = "محطة حافلات";
 "type.amenity.cafe" = "مقهى";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "تأجير الدراجات النارية";
 "type.amenity.car_sharing" = "مشاركة السيارة";
 "type.amenity.car_wash" = "مغسلة سيارات";
+"type.man_made.telescope" = "Telescope";
+"type.man_made.telescope.optical" = "Telescope (Optical)";
+"type.man_made.telescope.radio" = "Telescope (Radio)";
+"type.man_made.telescope.gamma" = "Telescope (Gamma)";
+"type.man_made.observatory" = "Observatory";
 "type.amenity.casino" = "كازينو";
 "type.amenity.gambling" = "قمار";
+"type.amenity.studio" = "معرض";
 "type.leisure.adult_gaming_centre" = "مركز ألعاب الكبار";
 "type.leisure.amusement_arcade" = "ممر";
 "type.amenity.charging_station" = "محطة شحن";
-"type.amenity.charging_station.bicycle" = "محطة شحن الدراجات";
 "type.amenity.charging_station.motorcar" = "محطة شحن السيارات";
+"type.amenity.charging_station.motorcycle" = "Motorcycles";
+"type.amenity.charging_station.bicycle" = "محطة شحن الدراجات";
+"type.amenity.charging_station.small" = "Limited Capacity";
 "type.amenity.childcare" = "حضّانة";
 "type.amenity.cinema" = "سينما";
 "type.leisure.bowling_alley" = "صالة بولينج";
 "type.amenity.clinic" = "عيادة";
 "type.amenity.college" = "كلية";
 "type.amenity.community_centre" = "مركز اجتماعي";
+"type.amenity.community_centre.youth_centre" = "Youth Centre";
 "type.amenity.compressed_air" = "هواء مضغوط";
 "type.amenity.conference_centre" = "مركز المؤتمرات";
 "type.amenity.courthouse" = "محكمة";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "مركز المعرض";
 "type.amenity.money_transfer" = "تحويل المال";
 "type.amenity.music_school" = "مدرسة موسيقى";
+"type.amenity.sailing_school" = "Sailing School";
+"type.amenity.flight_school" = "Flight School";
+"type.amenity.prep_school" = "Tutorial School";
 "type.amenity.language_school" = "مدرسة لغات";
 "type.office.diplomatic" = "سفارة";
+"type.office.security" = "Security Guards Office";
+"type.building.guardhouse" = "Security Booth";
+"type.power.portal" = "Power Portal";
 "type.amenity.fast_food" = "وجبات سريعة";
 "type.amenity.ferry_terminal" = "محطة عبّارات";
 "type.amenity.fire_station" = "محطة إطفاء";
 "type.amenity.food_court" = "مكان تناول الطعام";
 "type.amenity.fountain" = "نافورة";
 "type.amenity.fuel" = "محطة وقود";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "مقبرة";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "مقبرة مسيحية";
 "type.amenity.hospital" = "مستشفى";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "روضة أطفال";
 "type.amenity.library" = "مكتبة";
 "type.amenity.loading_dock" = "رصيف التحميل";
+"type.amenity.lounger" = "Lounger";
+"type.amenity.luggage_locker" = "Luggage Locker";
 "type.amenity.marketplace" = "سوق";
+"type.amenity.mobile_money_agent" = "Mobile Money Agent";
 "type.amenity.motorcycle_parking" = "موقف دراجات نارية";
 "type.amenity.nightclub" = "نادي ليلي";
 "type.amenity.nursing_home" = "دار تمريض";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "مكان لوقوف السيارات";
 "type.amenity.parking_space.underground" = "مكان لوقوف السيارات";
 "type.amenity.parking_space.disabled" = "مكان وقوف السيارات لذوي الاحتياجات الخاصة";
+"type.amenity.car_pooling" = "Car Pooling";
 "type.amenity.payment_terminal" = "محطة دفع";
+"type.amenity.payment_centre" = "Payment Centre";
 "type.amenity.pharmacy" = "صيدلية";
 "type.amenity.place_of_worship" = "مكان عبادة";
 "type.amenity.place_of_worship.buddhist" = "معبد بوذي";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "شرطة";
 "type.amenity.post_box" = "صندوق بريد";
 "type.amenity.post_office" = "مكتب بريد";
+"type.post_office.post_partner" = "Post Partner";
 "type.amenity.prison" = "سجن";
 "type.amenity.pub" = "حانة";
 "type.amenity.public_bookcase" = "مكتبة، تبادل كتب";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "مطعم";
 "type.amenity.sanitary_dump_station" = "محطة تفريغ المخلفات الصحية";
 "type.amenity.school" = "مدرسة";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "ملجأ";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "ملجأ";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "كوخ إقامة مؤقتة";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Lean-to Shelter";
 "type.amenity.public_bath" = "حمام عام";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "فحص المركبة";
 "type.amenity.vending_machine.fuel" = "مضخة وقود";
 "type.amenity.veterinary" = "طبيب بيطري";
+"type.amenity.animal_shelter" = "Animal Shelter";
 "type.amenity.waste_basket" = "سلة مهملات";
 "type.amenity.waste_disposal" = "حاوية قمامة";
 "type.amenity.waste_transfer_station" = "محطة نقل النفايات";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "مياه الصرف";
 "type.barrier.entrance" = "مدخل";
 "type.barrier.fence" = "سياج";
+"type.barrier.guard_rail" = "Guard Rail";
 "type.barrier.gate" = "بوابة";
 "type.barrier.hedge" = "سياج نباتي";
 "type.barrier.kissing_gate" = "بوابة";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "جدار استنادي";
 "type.barrier.stile" = "مرقى";
 "type.barrier.turnstile" = "الباب الدوار";
+"type.barrier.wicket_gate" = "Wicket gate";
 "type.barrier.swing_gate" = "حاجز بوابة";
 "type.barrier.toll_booth" = "كشك رسوم عبور";
 "type.barrier.wall" = "جدار";
 "type.boundary" = "حدود";
 "type.boundary.administrative" = "حدود إدارية";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "حدود دولية";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "حدود منطقة";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "حدود منطقة";
 "type.boundary.national_park" = "منتزه وطني";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "منطقة محمية";
 "type.boundary.protected_area.6" = "منطقة محمية";
 "type.building" = "مبنى";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "العنوان";
 "type.building.has_parts" = "مبنى";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "بستاني";
 "type.craft.grinding_mill" = "طاحونة";
 "type.craft.handicraft" = "مشغولات يدوية";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "محل تكييف";
 "type.craft.key_cutter" = "قطع المفاتيح";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "مطبخ عالمي";
 "type.cuisine.irish" = "مطبخ إيرلندي";
 "type.cuisine.italian" = "مطبخ إيطالي";
-"type.cuisine.italian_pizza" = "مطبخ إيطالي، بيتزا";
 "type.cuisine.japanese" = "مطبخ ياباني";
 "type.cuisine.kebab" = "كباب";
 "type.cuisine.korean" = "مطبخ كوري";
@@ -354,23 +370,62 @@
 "type.cuisine.vegetarian" = "نباتي";
 "type.cuisine.vietnamese" = "مطبخ فيتنامي";
 "type.emergency" = "طوارئ";
+"type.emergency.access_point" = "Emergency Rescue Point";
+"type.emergency.access_point.address" = "Emergency Rescue Address";
 "type.emergency.assembly_point" = "نقطة التجمع في حالات الطوارئ";
+"type.emergency.disaster_help_point" = "Emergency Disaster Help Point";
+"type.emergency.life_ring" = "Lifebuoy";
 "type.emergency.defibrillator" = "مزيل الرجفان";
 "type.emergency.fire_hydrant" = "صنبور الإطفاء";
+"type.amenity.hydrant" = "Irrigation Hydrant";
 "type.emergency.phone" = "هاتف الطوارئ";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "منقذ";
-
+"type.beacon.cardinal.east" = "Cardinal Beacon";
+"type.beacon.cardinal.north" = "Cardinal Beacon";
+"type.beacon.cardinal.south" = "Cardinal Beacon";
+"type.beacon.cardinal.west" = "Cardinal Beacon";
+"type.beacon.isolated_danger" = "Isolated Danger Beacon";
+"type.beacon.lateral.port" = "Lateral Beacon";
+"type.beacon.lateral.starboard" = "Lateral Beacon";
+"type.beacon.safe_water" = "Safe Water Beacon";
+"type.beacon.special_purpose" = "Special Purpose Beacon";
+"type.buoy.cardinal.east" = "Cardinal Buoy";
+"type.buoy.cardinal.north" = "Cardinal Buoy";
+"type.buoy.cardinal.south" = "Cardinal Buoy";
+"type.buoy.cardinal.west" = "Cardinal Buoy";
+"type.buoy.isolated_danger" = "Isolated Danger Buoy";
+"type.buoy.lateral.port" = "Lateral Buoy";
+"type.buoy.lateral.starboard" = "Lateral Buoy";
+"type.buoy.safe_water" = "Safe Water Buoy";
+"type.buoy.special_purpose" = "Special Purpose Buoy";
+"type.spherical_buoy.cardinal.east" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.north" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.south" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.cardinal.west" = "Spherical Cardinal Buoy";
+"type.spherical_buoy.isolated_danger" = "Spherical Isolated Danger Buoy";
+"type.spherical_buoy.lateral.port" = "Spherical Lateral Buoy";
+"type.spherical_buoy.lateral.starboard" = "Spherical Lateral Buoy";
+"type.spherical_buoy.safe_water" = "Spherical Safe Water Buoy";
+"type.spherical_buoy.special_purpose" = "Spherical Special Purpose Buoy";
+"type.lateral.port" = "Port";
+"type.lateral.starboard" = "Starboard";
+"type.cardinal.east" = "East";
+"type.cardinal.north" = "North";
+"type.cardinal.south" = "South";
+"type.cardinal.west" = "West";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "محطة إنقاذ الجبال";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "مدخل";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "المدخل الرئيسي";
+"type.entrance.house" = "House Entrance";
+"type.entrance.garage" = "Garage Entrance";
+"type.entrance.service" = "Service Entrance";
+"type.entrance.entry" = "Entry (Only)";
 "type.entrance.exit" = "مخرج";
+"type.entrance.emergency" = "Emergency Exit";
 "type.fee.yes" = "$";
 "type.fee.no" = "مجانية";
 "type.healthcare.laboratory" = "مختبر طبي";
@@ -385,28 +440,22 @@
 "type.healthcare.speech_therapist" = "علاج النطق";
 "type.highway" = "طريق السريع";
 "type.highway.bridleway" = "طريق خيول";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "جسر";
 "type.highway.bridleway.permissive" = "طريق خيول";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "نفق";
 "type.highway.busway" = "طريق حافلات مخصص";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "نفق";
 "type.highway.bus_stop" = "موقف حافلات";
 "type.highway.construction" = "طريق تحت الإنشاء";
 "type.highway.cycleway" = "مسار للدراجات";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "جسر";
 "type.highway.cycleway.permissive" = "مسار للدراجات";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "نفق";
 "type.highway.elevator" = "مِصعَد";
@@ -414,172 +463,130 @@
 "type.highway.footway.sidewalk" = "رصيف";
 "type.highway.footway.crossing" = "عبور المشاة";
 "type.highway.footway.area" = "منطقة مشاة";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "جسر للمشاة";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "نفق للمشاة";
 "type.highway.ford" = "مخاضة";
 "type.highway.living_street" = "شارع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "نفق";
 "type.highway.motorway" = "طريق سريع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "نفق";
 "type.highway.motorway_junction" = "مخرج";
 "type.highway.motorway_link" = "طريق سريع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "نفق";
 "type.highway.path" = "مسار";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "درب صعب أو ضعيف الرؤية";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "أثر صعب للغاية أو لا يمكن تمييزه";
 "type.highway.path.bicycle" = "مسار للمشاة والدراجات معاً";
 "type.highway.footway.bicycle" = "مسار للمشاة والدراجات معاً";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "جسر";
 "type.highway.path.horse" = "مسار";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "نفق";
 "type.highway.pedestrian" = "شارع للمشاة";
 "type.highway.pedestrian.area" = "شارع للمشاة";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "جسر";
 "type.highway.pedestrian.square" = "ميدان";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "نفق";
 "type.highway.primary" = "شارع رئيسي";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "نفق";
 "type.highway.primary_link" = "شارع رئيسي";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "نفق";
 "type.highway.raceway" = "مسار سباق";
 "type.highway.residential" = "شارع سكني";
 "type.highway.residential.area" = "شارع سكني";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "نفق";
 "type.highway.rest_area" = "استراحة";
 "type.highway.road" = "طريق";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "جسر";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "نفق";
 "type.highway.secondary" = "شارع ثانوي";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "نفق";
 "type.highway.secondary_link" = "شارع ثانوي";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "نفق";
 "type.highway.service" = "شارع خدمي";
 "type.highway.service.area" = "شارع خدمي";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "جسر";
 "type.highway.service.driveway" = "شارع خدمي";
 "type.highway.service.parking_aisle" = "شارع خدمي";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "نفق";
 "type.highway.services" = "موقف الراحة";
 "type.highway.speed_camera" = "كاميرا لرصد السرعة";
 "type.highway.steps" = "درج";
-
+"type.highway.ladder" = "Ladder";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "نفق";
 "type.highway.tertiary" = "شارع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "نفق";
 "type.highway.tertiary_link" = "شارع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "نفق";
 "type.highway.track" = "شارع";
 "type.highway.track.area" = "شارع";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "جسر";
 "type.highway.track.grade1" = "شارع";
 "type.highway.track.no.access" = "شارع";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "نفق";
 "type.highway.traffic_signals" = "إشارات مرورية";
 "type.highway.trunk" = "شارع وطني";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "نفق";
 "type.highway.trunk_link" = "شارع وطني";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "نفق";
 "type.highway.unclassified" = "شارع صغير";
 "type.highway.unclassified.area" = "شارع صغير";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "جسر";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "نفق";
 "type.area_highway.cycleway" = "مسار للدراجات";
@@ -635,10 +642,8 @@
 "type.historic.ship" = "سفينة";
 "type.historic.tank" = "الخزان التاريخي";
 "type.historic.tomb" = "قبر";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "صليب";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "صليب جانب الطريق";
 "type.historic.wayside_shrine" = "ضريح جانب الطريق";
@@ -652,10 +657,8 @@
 "type.landuse.allotments" = "حصص الحدائق";
 "type.landuse.basin" = "حوض مياه";
 "type.landuse.brownfield" = "Brownfield";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "مقبرة";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "مقبرة مسيحية";
 "type.landuse.religious" = "Religious Land";
@@ -688,9 +691,12 @@
 "type.landuse.salt_pond" = "ملّاحة";
 "type.landuse.village_green" = "Land";
 "type.landuse.vineyard" = "حقل عنب";
+"type.landuse.plant_nursery" = "Plant Nursery";
 "type.leisure" = "Leisure";
+"type.leisure.bandstand" = "Bandstand";
 "type.leisure.common" = "Public Land";
 "type.leisure.dog_park" = "متنزه كلاب";
+"type.leisure.escape_game" = "Escape Room";
 "type.leisure.fitness_centre" = "مركز لياقة بدنية";
 "type.leisure.fitness_station" = "مركز لياقة خارجي";
 "type.leisure.dance" = "صالة رقص";
@@ -700,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "مختبر اختراق";
 "type.leisure.ice_rink" = "Ice Rink";
+"type.leisure.indoor_play" = "Indoor Play Centre";
 "type.leisure.marina" = "مرسى";
 "type.leisure.nature_reserve" = "محمية طبيعية";
 "type.leisure.outdoor_seating" = "جلوس في الهواء الطلق";
+"type.leisure.firepit" = "Firepit";
 "type.leisure.park" = "متنزه";
 "type.leisure.park.no.access" = "متنزه";
 "type.leisure.park.permissive" = "متنزه";
@@ -714,8 +722,39 @@
 "type.leisure.sauna" = "ساونا";
 "type.leisure.slipway" = "Slipway";
 "type.leisure.sports_centre" = "مركز رياضي";
-"type.sport.climbing" = "مركز تسلق";
-"type.sport.yoga" = "نادي يوغا";
+"type.leisure.sports_centre.sport.multi" = "Sports Centre";
+"type.leisure.sports_centre.sport.american_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.archery" = "Sports Centre";
+"type.leisure.sports_centre.sport.athletics" = "Sports Centre";
+"type.leisure.sports_centre.sport.australian_football" = "Sports Centre";
+"type.leisure.sports_centre.sport.badminton" = "Sports Centre";
+"type.leisure.sports_centre.sport.baseball" = "Sports Centre";
+"type.leisure.sports_centre.sport.basketball" = "Sports Centre";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.bowls" = "Sports Centre";
+"type.leisure.sports_centre.sport.climbing" = "Sports Centre";
+"type.leisure.sports_centre.sport.cricket" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sports Centre";
+"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
+"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.golf" = "Sports Centre";
+"type.leisure.sports_centre.sport.gymnastics" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
+"type.leisure.sports_centre.sport.padel" = "Sports Centre";
+"type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
+"type.leisure.sports_centre.sport.shooting" = "Sports Centre";
+"type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
+"type.leisure.sports_centre.sport.skiing" = "Sports Centre";
+"type.leisure.sports_centre.sport.soccer" = "Sports Centre";
+"type.leisure.sports_centre.sport.swimming" = "Swimming Centre";
+"type.leisure.sports_centre.sport.table_tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.tennis" = "Sports Centre";
+"type.leisure.sports_centre.sport.volleyball" = "Sports Centre";
+"type.leisure.sports_centre.sport.yoga" = "Sports Centre";
+"type.leisure.fitness_centre.sport.yoga" = "Yoga Studio";
 "type.leisure.stadium" = "ملعب";
 "type.leisure.swimming_pool" = "مسبح";
 "type.leisure.swimming_pool.private" = "مسبح خاص";
@@ -739,18 +778,17 @@
 "type.man_made.storage_tank" = "خزان";
 "type.man_made.surveillance" = "كاميرا مراقبة";
 "type.man_made.tower" = "برج";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "برج اتصالات";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "برج اتصالات";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Communications Mast";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "بئر نفط أو غاز";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "شعلة الغاز";
+"type.man_made.crane" = "Crane";
 "type.man_made.wastewater_plant" = "Wastewater Treatment Plant";
 "type.man_made.water_tap" = "حنفية مياه";
 "type.man_made.water_tap.drinking_water_no" = "حنفية مياه";
@@ -763,13 +801,10 @@
 "type.military.bunker" = "ملجأ";
 "type.mountain_pass" = "Mountain Pass";
 "type.natural" = "طبيعة";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "صخور عارية";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "الحصى";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "حصى";
 "type.natural.bay" = "خليج";
@@ -783,6 +818,7 @@
 "type.man_made.embankment" = "ضفة اصطناعية";
 "type.natural.coastline" = "ساحل";
 "type.natural.desert" = "صحراء";
+"type.natural.sand" = "Sand";
 "type.natural.geyser" = "حَمَّة";
 "type.natural.glacier" = "كتلة جليدية";
 "type.natural.grassland" = "أرض عشبية";
@@ -804,6 +840,7 @@
 "type.natural.spring" = "ينبوع";
 "type.natural.spring.drinking_water_no" = "ينبوع";
 "type.natural.strait" = "مضيق";
+"type.natural.tree" = "Tree";
 "type.natural.tree_row" = "صف شجر";
 "type.natural.vineyard" = "حقل عنب";
 "type.natural.volcano" = "بركان";
@@ -811,6 +848,13 @@
 "type.natural.wetland" = "منطقة رطبة";
 "type.natural.wetland.bog" = "رخاخ";
 "type.natural.wetland.marsh" = "هور";
+"type.natural.wetland.saltmarsh" = "Salt Marsh";
+"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
+"type.natural.wetland.fen" = "Fen";
+"type.natural.wetland.reedbed" = "Reed Bed";
+"type.natural.wetland.swamp" = "Swamp";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Tidal Flat";
 "type.noexit" = "Dead End";
 "type.office" = "مكتب";
 "type.office.company" = "مكتب شركة";
@@ -843,10 +887,8 @@
 "type.place.islet" = "جزيرة";
 "type.place.isolated_dwelling" = "مسكن منعزل";
 "type.place.locality" = "منطقة مجاورة";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "حي سكني";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "الحي";
 "type.place.ocean" = "محيط";
@@ -855,7 +897,6 @@
 "type.place.square" = "ميدان";
 "type.place.state" = "محافظة";
 "type.place.state.USA" = "ولاية";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "ضاحية";
 "type.place.town" = "بلدة";
@@ -876,13 +917,10 @@
 "type.power.plant.solar" = "محطة طاقة شمسية";
 "type.power.plant.wind" = "محطة طاقة الرياح";
 "type.power.substation" = "محطة كهرباء فرعية";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "عمود كهرباء";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Power Pole";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Utility Pole";
 "type.public_transport" = "Public Transport";
@@ -892,6 +930,8 @@
 "type.railway.construction" = "Railway Construction";
 "type.railway.crossing" = "Railway Crossing";
 "type.railway.disused" = "Disused Railway";
+"type.railway.disused.bridge" = "Disused Railway Bridge";
+"type.railway.disused.tunnel" = "Disused Railway Tunnel";
 "type.railway.funicular" = "حبلي";
 "type.railway.funicular.bridge" = "Funicular Bridge";
 "type.railway.funicular.tunnel" = "Funicular Tunnel";
@@ -903,6 +943,9 @@
 "type.railway.monorail" = "خط حديدي أحادي السكة";
 "type.railway.monorail.bridge" = "Monorail Bridge";
 "type.railway.monorail.tunnel" = "Monorail Tunnel";
+"type.railway.miniature" = "Miniature Railway";
+"type.railway.miniature.bridge" = "Miniature Railway Bridge";
+"type.railway.miniature.tunnel" = "Miniature Railway Tunnel";
 "type.railway.narrow_gauge" = "Narrow Gauge Rail";
 "type.railway.narrow_gauge.bridge" = "Narrow Gauge Rail Bridge";
 "type.railway.narrow_gauge.tunnel" = "Narrow Gauge Rail Tunnel";
@@ -914,14 +957,12 @@
 "type.railway.rail.highspeed" = "سكة حديد عالية السرعة";
 "type.railway.rail.tourism" = "سكة حديد سياحية";
 "type.railway.rail.main" = "سكة حديدية";
-
+"type.railway.turntable" = "Railway Turntable";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "سكة حديدية ثانوية";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "سكة حديد غير";
 "type.railway.rail.spur" = "سكة حديد سبير";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "مسار السكك الحديدية المساعدة";
 "type.railway.rail.bridge" = "جسر سكة حديدية";
@@ -1028,6 +1069,7 @@
 "type.railway.station.subway.paris" = "محطة مترو";
 "type.railway.station.subway.philadelphia" = "محطة مترو";
 "type.railway.station.subway.pyongyang" = "محطة مترو";
+"type.railway.station.subway.qingdao" = "محطة مترو";
 "type.railway.station.subway.rennes" = "محطة مترو";
 "type.railway.station.subway.rio" = "محطة مترو";
 "type.railway.station.subway.roma" = "محطة مترو";
@@ -1189,6 +1231,7 @@
 "type.shop.bakery" = "مخبز";
 "type.shop.bathroom_furnishing" = "أثاث الحمام";
 "type.shop.beauty" = "صالون تجميل";
+"type.shop.beauty.nails" = "Nail Salon";
 "type.shop.beverages" = "مشروبات";
 "type.shop.bicycle" = "متجر دراجات هوائية";
 "type.shop.bookmaker" = "مراهنة";
@@ -1240,6 +1283,7 @@
 "type.shop.kitchen" = "متجر مطابخ";
 "type.shop.laundry" = "مغسلة ملابس";
 "type.shop.mall" = "مركز تسوق";
+"type.shop.beauty.day_spa" = "Day Spa";
 "type.shop.massage" = "قاعة تدليك";
 "type.shop.mobile_phone" = "متجر هواتف محمولة";
 "type.shop.money_lender" = "مُقرض أموال";
@@ -1267,6 +1311,7 @@
 "type.shop.supermarket" = "سوبر ماركت";
 "type.shop.tattoo" = "محل وشوم";
 "type.shop.tea" = "متجر شاي";
+"type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "مكتب تذاكر";
 "type.shop.toys" = "متجر لعبات";
 "type.shop.travel_agency" = "وكيل سفريات";
@@ -1278,7 +1323,7 @@
 "type.shop.agrarian" = "محل زراعي";
 "type.shop.antiques" = "متجر تحفيات";
 "type.shop.appliance" = "متجر أدوات منزلية";
-
+"type.shop.water" = "Water Shop";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "متجر الفنون";
 "type.shop.baby_goods" = "متجر بضع الرضّغ";
@@ -1303,25 +1348,35 @@
 "type.shop.trade" = "معدات التجارة";
 "type.shop.watches" = "متجر ساعات";
 "type.shop.wholesale" = "متجر مواد بالجملة";
+"type.shop.lighting" = "Lighting Shop";
+"type.disusedbusiness" = "Vacant Business";
 "type.sport" = "رياضة";
+"type.sport.multi" = "رياضات متنوعة";
+"type.sport.9pin" = "بولنغ";
+"type.sport.10pin" = "بولنغ";
 "type.sport.american_football" = "كرة القدم الأمريكية";
 "type.sport.archery" = "رماية";
 "type.sport.athletics" = "العاب رياضية";
 "type.sport.australian_football" = "كرة القدم الأسترالية";
+"type.sport.badminton" = "ريشة الطائرة";
 "type.sport.baseball" = "كرة القاعدة";
 "type.sport.basketball" = "كرة السلة";
 "type.sport.beachvolleyball" = "كرة طائرة شاطئية";
 "type.sport.bowls" = "بولنغ المخضرة";
 "type.sport.chess" = "شطرنج";
+"type.sport.climbing" = "مركز تسلق";
 "type.sport.cricket" = "كريكت";
 "type.sport.curling" = "كرلنغ";
+"type.sport.diving" = "High Diving";
 "type.sport.equestrian" = "رياضة الفروسية";
+"type.sport.field_hockey" = "هوكي الميدان";
+"type.sport.futsal" = "كرة الصالات";
 "type.sport.golf" = "غولف";
 "type.sport.gymnastics" = "جمباز";
 "type.sport.handball" = "كرة اليد";
-"type.sport.multi" = "رياضات متنوعة";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "هوكي الجليد";
+"type.sport.padel" = "بادل";
+"type.sport.pelota" = "باسك بيلوتا";
 "type.sport.scuba_diving" = "موقع غوص سكوبا";
 "type.sport.shooting" = "رماية";
 "type.sport.skateboard" = "تزلج على اللوح";
@@ -1331,17 +1386,9 @@
 "type.sport.table_tennis" = "كرة الطاولة";
 "type.sport.tennis" = "ملعب تنس";
 "type.sport.volleyball" = "كرة الطائرة";
-"type.sport.10pin" = "بولنغ";
-"type.sport.9pin" = "بولنغ";
-"type.sport.padel" = "بادل";
-"type.sport.futsal" = "كرة الصالات";
-"type.sport.ice_hockey" = "هوكي الجليد";
-"type.sport.field_hockey" = "هوكي الميدان";
-"type.sport.badminton" = "ريشة الطائرة";
-"type.sport.pelota" = "باسك بيلوتا";
+"type.sport.yoga" = "نادي يوغا";
 "type.tourism" = "Tourism";
 "type.tourism.aquarium" = "حوض سمك";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "لودج الجبل";
 "type.tourism.apartment" = "شُقَق عطلة";
@@ -1351,6 +1398,7 @@
 "type.tourism.artwork.sculpture" = "منحوتة";
 "type.tourism.artwork.statue" = "تمثال";
 "type.tourism.attraction" = "مكان جذاب";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "جولة ترفيهية";
 "type.attraction.animal" = "الضميمة الحيوانية";
 "type.attraction.bumper_car" = "Bumper Car";
@@ -1363,7 +1411,6 @@
 "type.tourism.attraction.specified" = "مكان جذاب";
 "type.tourism.camp_site" = "مخيّم";
 "type.tourism.caravan_site" = "موقع لمراكب ترفيه";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "عطلة المنزلية";
 "type.tourism.gallery" = "معرض الفني";
@@ -1374,15 +1421,16 @@
 "type.tourism.information.board" = "لوحة معلومات";
 "type.tourism.information.guidepost" = "دليل";
 "type.tourism.information.map" = "خريطة سياحية";
+"type.tourism.information.tactile_map" = "Tactile Map";
 "type.tourism.information.office" = "مكتب سياحة";
 "type.tourism.information.visitor_centre" = "مركز الزوار";
+"type.amenity.ranger_station" = "Ranger Station";
 "type.tourism.motel" = "موتيل";
 "type.tourism.museum" = "متحف";
 "type.tourism.picnic_site" = "موقع نزهة";
 "type.leisure.resort" = "منتجع";
 "type.tourism.theme_park" = "مدينة العاب";
 "type.tourism.viewpoint" = "نقطة منظر";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "كوخ برية";
 "type.tourism.zoo" = "حديقة حيوان";
@@ -1400,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "بربخ";
 "type.waterway.dock" = "Waterway Dock";
 "type.waterway.drain" = "قناة تصريف المياه";
+"type.waterway.fuel" = "Marina Fuel Dock";
 "type.natural.water.drain" = "قناة تصريف المياه";
 "type.waterway.drain.tunnel" = "بربخ";
 "type.waterway.lock_gate" = "بوابة هويس";
@@ -1447,42 +1496,20 @@
 "type.self_service.only" = "الخدمة الذاتية فقط";
 "type.self_service.partially" = "خدمة ذاتية جزئية";
 "type.self_service.no" = "لا توجد خدمة ذاتية";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "المرفق الاجتماعي";
-
+"type.social_facility.soup_kitchen" = "Soup Kitchen";
+"type.social_facility.food_bank" = "Food Bank";
+"type.amenity.food_sharing" = "Food Sharing";
+"type.amenity.give_box" = "Give Box";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "مدخل جناح الطوارئ";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "دوجو";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "الصالة الرياضية";
-"type.amenity.love_hotel" = "فندق جب";
-"type.amenity.studio" = "معرض";
-"type.railway.station.subway.qingdao" = "محطة مترو";
-"type.landuse.plant_nursery" = "Plant Nursery";
-"type.leisure.firepit" = "Firepit";
-"type.natural.wetland.tidalflat" = "Tidal Flat";
-"type.sport.diving" = "High Diving";
-"type.highway.ladder" = "Ladder";
-"type.natural.wetland.swamp" = "Swamp";
-"type.man_made.crane" = "Crane";
-"type.natural.wetland.saltmarsh" = "Salt Marsh";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.barrier.guard_rail" = "Guard Rail";
-"type.natural.wetland.fen" = "Fen";
-"type.natural.wetland.saltmarsh.tidal" = "Tidal Salt Marsh";
-"type.natural.wetland.reedbed" = "Reed Bed";
-"type.leisure.escape_game" = "Escape Room";
-"type.amenity.luggage_locker" = "Luggage Locker";
-"type.amenity.ranger_station" = "Ranger Station";
-"type.amenity.bicycle_parking.covered" = "Covered Bicycle Parking";
-"type.post_office.post_partner" = "Post Partner";
-"type.barrier.wicket_gate" = "Wicket gate";
-"type.amenity.animal_shelter" = "Animal Shelter";
-"type.office.security" = "Security Guards Office";
-"type.power.portal" = "Power Portal";
-"type.building.guardhouse" = "Security Booth";
-"type.amenity.community_centre.youth_centre" = "Youth Centre";
+"type.xmas.tree" = "Christmas Tree";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";

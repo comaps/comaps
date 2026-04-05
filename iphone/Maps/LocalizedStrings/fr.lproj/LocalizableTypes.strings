@@ -24,11 +24,15 @@
 "type.amenity.bar" = "Bar";
 "type.amenity.bbq" = "Grille de barbecue";
 "type.amenity.bench" = "Banc";
+"type.amenity.bench.backless" = "Sans dossier";
 "type.amenity.bicycle_parking" = "Stationnement vélo";
+"type.amenity.bicycle_parking.covered" = "Parking vélo couvert";
+"type.amenity.boat_rental" = "Location de bateaux";
 "type.amenity.bicycle_rental" = "Location de vélos";
 "type.amenity.bicycle_repair_station" = "Station de réparation de vélos";
 "type.amenity.biergarten" = "Biergarten";
 "type.amenity.brothel" = "Maison close";
+"type.amenity.love_hotel" = "Love hotel";
 "type.amenity.bureau_de_change" = "Bureau de change";
 "type.amenity.bus_station" = "Gare routière";
 "type.amenity.cafe" = "Café";
@@ -36,19 +40,28 @@
 "type.amenity.motorcycle_rental" = "Location de motos";
 "type.amenity.car_sharing" = "Station d’autopartage";
 "type.amenity.car_wash" = "Station de lavage";
+"type.man_made.telescope" = "Télescope";
+"type.man_made.telescope.optical" = "Télescope (optique)";
+"type.man_made.telescope.radio" = "Télescope (radio)";
+"type.man_made.telescope.gamma" = "Télescope (Gamma)";
+"type.man_made.observatory" = "Observatoire";
 "type.amenity.casino" = "Casino";
 "type.amenity.gambling" = "Jeu d’argent";
+"type.amenity.studio" = "Studio Multimédia";
 "type.leisure.adult_gaming_centre" = "Centre de jeux pour adultes";
 "type.leisure.amusement_arcade" = "Salle de jeux d’arcade";
 "type.amenity.charging_station" = "Borne de recharge";
-"type.amenity.charging_station.bicycle" = "Vélos";
 "type.amenity.charging_station.motorcar" = "Voitures";
+"type.amenity.charging_station.motorcycle" = "Motos";
+"type.amenity.charging_station.bicycle" = "Vélos";
+"type.amenity.charging_station.small" = "Capacité limitée";
 "type.amenity.childcare" = "Garderie";
 "type.amenity.cinema" = "Cinéma";
 "type.leisure.bowling_alley" = "Salle de bowling";
 "type.amenity.clinic" = "Clinique";
 "type.amenity.college" = "Enseignement post-secondaire";
 "type.amenity.community_centre" = "Salle polyvalente";
+"type.amenity.community_centre.youth_centre" = "Centre de jeunesse";
 "type.amenity.compressed_air" = "Air comprimé";
 "type.amenity.conference_centre" = "Centre de conférence";
 "type.amenity.courthouse" = "Palais de justice";
@@ -60,18 +73,22 @@
 "type.amenity.exhibition_centre" = "Centre d’exposition";
 "type.amenity.money_transfer" = "Transfert d’argent";
 "type.amenity.music_school" = "École de musique";
+"type.amenity.sailing_school" = "École de voile";
+"type.amenity.flight_school" = "École de pilotage";
+"type.amenity.prep_school" = "École de soutien scolaire";
 "type.amenity.language_school" = "École de langue";
 "type.office.diplomatic" = "Ambassade";
+"type.office.security" = "Bureau des agents de sécurité";
+"type.building.guardhouse" = "Guérite de sécurité";
+"type.power.portal" = "Portique haute tension";
 "type.amenity.fast_food" = "Restauration rapide";
 "type.amenity.ferry_terminal" = "Terminal de ferry";
 "type.amenity.fire_station" = "Caserne de pompiers";
 "type.amenity.food_court" = "Aire de restauration";
 "type.amenity.fountain" = "Fontaine";
 "type.amenity.fuel" = "Station-service";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard" = "Cimetière";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.amenity.grave_yard.christian" = "Cimetière chrétien";
 "type.amenity.hospital" = "Hôpital";
@@ -81,7 +98,10 @@
 "type.amenity.kindergarten" = "Crèche";
 "type.amenity.library" = "Bibliothèque";
 "type.amenity.loading_dock" = "Quai de chargement";
+"type.amenity.lounger" = "Chaise longue";
+"type.amenity.luggage_locker" = "Casier à bagages";
 "type.amenity.marketplace" = "Marché";
+"type.amenity.mobile_money_agent" = "Agent d'argent liquide";
 "type.amenity.motorcycle_parking" = "Parking moto";
 "type.amenity.nightclub" = "Discothèque";
 "type.amenity.nursing_home" = "Maison de retraite";
@@ -110,7 +130,9 @@
 "type.amenity.parking_space.private" = "Place de stationnement";
 "type.amenity.parking_space.underground" = "Place de stationnement";
 "type.amenity.parking_space.disabled" = "Place de stationnement handicapé";
+"type.amenity.car_pooling" = "Covoiturage";
 "type.amenity.payment_terminal" = "Terminal de paiement";
+"type.amenity.payment_centre" = "Centre de paiement";
 "type.amenity.pharmacy" = "Pharmacie";
 "type.amenity.place_of_worship" = "Lieu de culte";
 "type.amenity.place_of_worship.buddhist" = "Temple bouddhiste";
@@ -125,6 +147,7 @@
 "type.amenity.police" = "Police";
 "type.amenity.post_box" = "Boîte aux lettres";
 "type.amenity.post_office" = "Bureau de poste";
+"type.post_office.post_partner" = "Partenaire de publication";
 "type.amenity.prison" = "Prison";
 "type.amenity.pub" = "Pub";
 "type.amenity.public_bookcase" = "Microbibliothèque";
@@ -146,16 +169,12 @@
 "type.amenity.restaurant" = "Restaurant";
 "type.amenity.sanitary_dump_station" = "Station de vidange";
 "type.amenity.school" = "École";
-
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "Abri";
-
 /* A weather shelter by the public transport stop. */
 "type.amenity.shelter.public_transport" = "Abri";
-
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "Cabane de Bivouac";
-
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
 "type.amenity.shelter.lean_to" = "Abri-lit adossé";
 "type.amenity.public_bath" = "Bain public";
@@ -183,6 +202,7 @@
 "type.amenity.vehicle_inspection" = "Centre de contrôle technique";
 "type.amenity.vending_machine.fuel" = "Pompe à carburants";
 "type.amenity.veterinary" = "Docteur vétérinaire";
+"type.amenity.animal_shelter" = "Abri pour animaux";
 "type.amenity.waste_basket" = "Poubelle";
 "type.amenity.waste_disposal" = "Déchets";
 "type.amenity.waste_transfer_station" = "Station de transfert de déchets";
@@ -201,6 +221,7 @@
 "type.natural.water.wastewater" = "Bassin d’eaux usées";
 "type.barrier.entrance" = "Entrée";
 "type.barrier.fence" = "Clôture";
+"type.barrier.guard_rail" = "Glissière de sécurité";
 "type.barrier.gate" = "Porte";
 "type.barrier.hedge" = "Haie";
 "type.barrier.kissing_gate" = "Portillon à chicane mobile";
@@ -208,18 +229,16 @@
 "type.barrier.retaining_wall" = "Mur de soutènement";
 "type.barrier.stile" = "Échalier";
 "type.barrier.turnstile" = "Tourniquet";
+"type.barrier.wicket_gate" = "Portillon";
 "type.barrier.swing_gate" = "Portail Battant";
 "type.barrier.toll_booth" = "Poste de péage";
 "type.barrier.wall" = "Mur";
 "type.boundary" = "Frontière";
 "type.boundary.administrative" = "Frontière administrative";
-
 /* Borders between countries. */
 "type.boundary.administrative.2" = "Frontière nationale";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.3" = "Frontière régionale";
-
 /* Country's primary subdivision borders, e.g. between regions, provinces, states.. */
 "type.boundary.administrative.4" = "Frontière régionale";
 "type.boundary.national_park" = "Parc national";
@@ -232,7 +251,6 @@
 "type.boundary.protected_area.5" = "Zone protégée";
 "type.boundary.protected_area.6" = "Zone protégée";
 "type.building" = "Bâtiment";
-
 /* Duplicates [address] in strings.txt */
 "type.building.address" = "Adresse";
 "type.building.has_parts" = "Bâtiment";
@@ -253,7 +271,6 @@
 "type.craft.gardener" = "Paysagiste";
 "type.craft.grinding_mill" = "Moulin à broyer";
 "type.craft.handicraft" = "Artisanat";
-
 /* Heating, Ventilation, and Air Conditioning */
 "type.craft.hvac" = "Chauffage, ventilation et climatisation";
 "type.craft.key_cutter" = "Reproduction de clés";
@@ -314,7 +331,6 @@
 "type.cuisine.international" = "Cuisine internationale";
 "type.cuisine.irish" = "Cuisine irlandaise";
 "type.cuisine.italian" = "Cuisine italienne";
-"type.cuisine.italian_pizza" = "Pizza italienne";
 "type.cuisine.japanese" = "Cuisine japonaise";
 "type.cuisine.kebab" = "Kebab";
 "type.cuisine.korean" = "Cuisine coréenne";
@@ -354,24 +370,62 @@
 "type.cuisine.vegetarian" = "Cuisine végétarienne";
 "type.cuisine.vietnamese" = "Cuisine vietnamienne";
 "type.emergency" = "Urgence";
+"type.emergency.access_point" = "Point de secours d'urgence";
+"type.emergency.access_point.address" = "Adresse pour les secours d'urgence";
 "type.emergency.assembly_point" = "Point de rassemblement d’urgence";
+"type.emergency.disaster_help_point" = "Point d'aide d'urgence en cas de catastrophe";
+"type.emergency.life_ring" = "Bouée de sauvetage";
 "type.emergency.defibrillator" = "Défibrillateur";
 "type.emergency.fire_hydrant" = "Point d’eau incendie";
 "type.amenity.hydrant" = "Borne de puisage";
 "type.emergency.phone" = "Téléphone d’urgence";
-
 /* A place where a lifeguard is on duty. */
 "type.emergency.lifeguard" = "Sauveteur";
-
+"type.beacon.cardinal.east" = "Phare cardinal";
+"type.beacon.cardinal.north" = "Phare cardinal";
+"type.beacon.cardinal.south" = "Balise cardinale";
+"type.beacon.cardinal.west" = "Balise cardinale";
+"type.beacon.isolated_danger" = "Balise de danger isolé";
+"type.beacon.lateral.port" = "Balise latérale";
+"type.beacon.lateral.starboard" = "Balise latérale";
+"type.beacon.safe_water" = "Balise d'eaux saines";
+"type.beacon.special_purpose" = "Balise, marque spéciale";
+"type.buoy.cardinal.east" = "Bouée cardinale";
+"type.buoy.cardinal.north" = "Bouée cardinale";
+"type.buoy.cardinal.south" = "Bouée cardinale";
+"type.buoy.cardinal.west" = "Bouée cardinale";
+"type.buoy.isolated_danger" = "Bouée de danger isolée";
+"type.buoy.lateral.port" = "Bouée latérale";
+"type.buoy.lateral.starboard" = "Bouée latérale";
+"type.buoy.safe_water" = "Bouée d’eaux saines";
+"type.buoy.special_purpose" = "Bouée, marque spéciale";
+"type.spherical_buoy.cardinal.east" = "Bouée cardinale sphérique";
+"type.spherical_buoy.cardinal.north" = "Bouée cardinale sphérique";
+"type.spherical_buoy.cardinal.south" = "Bouée cardinale sphérique";
+"type.spherical_buoy.cardinal.west" = "Bouée cardinale sphérique";
+"type.spherical_buoy.isolated_danger" = "Bouée sphérique, danger isolé";
+"type.spherical_buoy.lateral.port" = "Bouée latérale sphérique";
+"type.spherical_buoy.lateral.starboard" = "Bouée latérale sphérique";
+"type.spherical_buoy.safe_water" = "Bouée sphérique, marque d’eaux saines";
+"type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
+"type.lateral.port" = "Bâbord";
+"type.lateral.starboard" = "Tribord";
+"type.cardinal.east" = "Est :";
+"type.cardinal.north" = "Nord :";
+"type.cardinal.south" = "Sud";
+"type.cardinal.west" = "Ouest";
 /* A mountain rescue base for search and rescue activities. */
 "type.emergency.mountain_rescue" = "Station de sauvetage en montagne";
-
 /* This is for secondary entrances, for main entrances see type.entrance.main */
 "type.entrance" = "Entrée";
-
 /* This is for main/primary entrances, for secondary entrances see type.entrance */
 "type.entrance.main" = "Entrée principale";
+"type.entrance.house" = "Entrée de la maison";
+"type.entrance.garage" = "Entrée du garage";
+"type.entrance.service" = "Entrée de service";
+"type.entrance.entry" = "Entrée (uniquement)";
 "type.entrance.exit" = "Sortie";
+"type.entrance.emergency" = "Issue de secours";
 "type.fee.yes" = "€";
 "type.fee.no" = "Gratuit";
 "type.healthcare.laboratory" = "Laboratoire médical";
@@ -386,28 +440,22 @@
 "type.healthcare.speech_therapist" = "Logopédie";
 "type.highway" = "Autoroute";
 "type.highway.bridleway" = "Chemin équestre";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.bridleway.bridge" = "Pont";
 "type.highway.bridleway.permissive" = "Chemin équestre";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.bridleway.tunnel" = "Tunnel";
 "type.highway.busway" = "Route réservée aux bus";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.busway.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Arrêt de bus";
 "type.highway.construction" = "Route en construction";
 "type.highway.cycleway" = "Piste cyclable";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Pont";
 "type.highway.cycleway.permissive" = "Piste cyclable";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.cycleway.tunnel" = "Tunnel";
 "type.highway.elevator" = "Ascenseur";
@@ -415,172 +463,130 @@
 "type.highway.footway.sidewalk" = "Trottoir";
 "type.highway.footway.crossing" = "Passage pour piétons";
 "type.highway.footway.area" = "Chemin";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.footway.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.footway.tunnel" = "Tunnel";
 "type.highway.ford" = "Gué";
 "type.highway.living_street" = "Zone de rencontre";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.living_street.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.living_street.tunnel" = "Tunnel";
 "type.highway.motorway" = "Autoroute";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway.tunnel" = "Tunnel";
 "type.highway.motorway_junction" = "Sortie";
 "type.highway.motorway_link" = "Bretelle d’autoroute";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.motorway_link.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.motorway_link.tunnel" = "Tunnel";
 "type.highway.path" = "Chemin";
-
 /* Hiking trail tagged as sac_scale=demanding_mountain_hiking (3 of 6) or trail_visibility=bad. */
 "type.highway.path.difficult" = "Sentier difficile ou peu visible";
-
 /* Hiking trail tagged as sac_scale=alpine_hiking (4+ of 6) or trail_visibility=horrible or more extreme. */
 "type.highway.path.expert" = "Sentier très difficile ou indiscernable";
 "type.highway.path.bicycle" = "Chemin";
 "type.highway.footway.bicycle" = "Chemin";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.path.bridge" = "Pont";
 "type.highway.path.horse" = "Chemin";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.path.tunnel" = "Tunnel";
 "type.highway.pedestrian" = "Rue piétonne";
 "type.highway.pedestrian.area" = "Rue piétonne";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.pedestrian.bridge" = "Pont";
 "type.highway.pedestrian.square" = "Parc";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.pedestrian.tunnel" = "Tunnel piéton";
 "type.highway.primary" = "Rue principale";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary.tunnel" = "Tunnel";
 "type.highway.primary_link" = "Accès à rue principale";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.primary_link.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.primary_link.tunnel" = "Tunnel";
 "type.highway.raceway" = "Circuit";
 "type.highway.residential" = "Rue résidentielle";
 "type.highway.residential.area" = "Rue résidentielle";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.residential.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
 "type.highway.rest_area" = "Aire de repos";
 "type.highway.road" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Pont";
-
 /* A bridge structure outline. */
 "type.man_made.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.road.tunnel" = "Tunnel";
 "type.highway.secondary" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary.tunnel" = "Tunnel";
 "type.highway.secondary_link" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.secondary_link.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.secondary_link.tunnel" = "Tunnel";
 "type.highway.service" = "Rue";
 "type.highway.service.area" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.service.bridge" = "Pont";
 "type.highway.service.driveway" = "Rue";
 "type.highway.service.parking_aisle" = "Allée";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.service.tunnel" = "Tunnel";
 "type.highway.services" = "Aire de service";
 "type.highway.speed_camera" = "Radar de vitesse";
 "type.highway.steps" = "Escaliers";
-
+"type.highway.ladder" = "Échelle";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.steps.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.steps.tunnel" = "Tunnel";
 "type.highway.tertiary" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary.tunnel" = "Tunnel";
 "type.highway.tertiary_link" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.tertiary_link.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.tertiary_link.tunnel" = "Tunnel";
 "type.highway.track" = "Piste";
 "type.highway.track.area" = "Piste";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.track.bridge" = "Pont";
 "type.highway.track.grade1" = "Piste";
 "type.highway.track.no.access" = "Piste";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.track.tunnel" = "Tunnel";
 "type.highway.traffic_signals" = "Feux de circulation";
 "type.highway.trunk" = "Voie rapide";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk.tunnel" = "Tunnel";
 "type.highway.trunk_link" = "Voie rapide";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.trunk_link.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.trunk_link.tunnel" = "Tunnel";
 "type.highway.unclassified" = "Rue";
 "type.highway.unclassified.area" = "Rue";
-
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.unclassified.bridge" = "Pont";
-
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.unclassified.tunnel" = "Tunnel";
 "type.area_highway.cycleway" = "Piste cyclable";
@@ -636,10 +642,8 @@
 "type.historic.ship" = "Navire";
 "type.historic.tank" = "Char historique";
 "type.historic.tomb" = "Tombe historique";
-
 /* Usually has no historic and sometimes no religious context. E.g. a mountain summit cross. */
 "type.man_made.cross" = "Croix";
-
 /* Usually a Christian historical cross placed along a road. */
 "type.historic.wayside_cross" = "Croix de chemin";
 "type.historic.wayside_shrine" = "Oratoire";
@@ -653,10 +657,8 @@
 "type.landuse.allotments" = "Jardins familiaux";
 "type.landuse.basin" = "Réservoir";
 "type.landuse.brownfield" = "Friche industrielle";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery" = "Cimetière";
-
 /* In most (European) countries, сemeteries are usually independent of places of worship (e.g. military cemeteries), while grave yards are usually the yard of a place of worship. */
 "type.landuse.cemetery.christian" = "Cimetière chrétien";
 "type.landuse.religious" = "Terre religieuse";
@@ -689,9 +691,12 @@
 "type.landuse.salt_pond" = "Marais salants";
 "type.landuse.village_green" = "Terrain";
 "type.landuse.vineyard" = "Vignes";
+"type.landuse.plant_nursery" = "Pépinière";
 "type.leisure" = "Loisir";
+"type.leisure.bandstand" = "Kiosque à musique";
 "type.leisure.common" = "Terrain public";
 "type.leisure.dog_park" = "Parc canin";
+"type.leisure.escape_game" = "Escape room";
 "type.leisure.fitness_centre" = "Centre fitness";
 "type.leisure.fitness_station" = "Station de fitness";
 "type.leisure.dance" = "Salle de danse";
@@ -701,9 +706,11 @@
 "type.leisure.miniature_golf" = "Minigolf";
 "type.leisure.hackerspace" = "Hackerspace";
 "type.leisure.ice_rink" = "Patinoire";
+"type.leisure.indoor_play" = "Complexe de jeux intérieurs";
 "type.leisure.marina" = "Marina";
 "type.leisure.nature_reserve" = "Réserve naturelle";
 "type.leisure.outdoor_seating" = "Places en terrasse";
+"type.leisure.firepit" = "Foyer";
 "type.leisure.park" = "Parc";
 "type.leisure.park.no.access" = "Parc";
 "type.leisure.park.permissive" = "Parc";
@@ -715,8 +722,39 @@
 "type.leisure.sauna" = "Sauna";
 "type.leisure.slipway" = "Cale de mise à l’eau";
 "type.leisure.sports_centre" = "Complexe sportif";
-"type.sport.climbing" = "Escalade";
-"type.sport.yoga" = "Yoga";
+"type.leisure.sports_centre.sport.multi" = "Complexe sportif";
+"type.leisure.sports_centre.sport.american_football" = "Complexe sportif";
+"type.leisure.sports_centre.sport.archery" = "Complexe sportif";
+"type.leisure.sports_centre.sport.athletics" = "Complexe sportif";
+"type.leisure.sports_centre.sport.australian_football" = "Complexe sportif";
+"type.leisure.sports_centre.sport.badminton" = "Complexe sportif";
+"type.leisure.sports_centre.sport.baseball" = "Complexe sportif";
+"type.leisure.sports_centre.sport.basketball" = "Complexe sportif";
+"type.leisure.sports_centre.sport.beachvolleyball" = "Complexe sportif";
+"type.leisure.sports_centre.sport.bowls" = "Complexe sportif";
+"type.leisure.sports_centre.sport.climbing" = "Complexe sportif";
+"type.leisure.sports_centre.sport.cricket" = "Complexe sportif";
+"type.leisure.sports_centre.sport.curling" = "Complexe sportif";
+"type.leisure.sports_centre.sport.equestrian" = "Complexe sportif";
+"type.leisure.sports_centre.sport.field_hockey" = "Complexe sportif";
+"type.leisure.sports_centre.sport.futsal" = "Complexe sportif";
+"type.leisure.sports_centre.sport.golf" = "Complexe sportif";
+"type.leisure.sports_centre.sport.gymnastics" = "Complexe sportif";
+"type.leisure.sports_centre.sport.handball" = "Complexe sportif";
+"type.leisure.sports_centre.sport.ice_hockey" = "Complexe sportif";
+"type.leisure.sports_centre.sport.padel" = "Complexe sportif";
+"type.leisure.sports_centre.sport.pelota" = "Complexe sportif";
+"type.leisure.sports_centre.sport.scuba_diving" = "Complexe sportif";
+"type.leisure.sports_centre.sport.shooting" = "Complexe sportif";
+"type.leisure.sports_centre.sport.skateboard" = "Complexe sportif";
+"type.leisure.sports_centre.sport.skiing" = "Complexe sportif";
+"type.leisure.sports_centre.sport.soccer" = "Complexe sportif";
+"type.leisure.sports_centre.sport.swimming" = "Piscine";
+"type.leisure.sports_centre.sport.table_tennis" = "Complexe sportif";
+"type.leisure.sports_centre.sport.tennis" = "Complexe sportif";
+"type.leisure.sports_centre.sport.volleyball" = "Complexe sportif";
+"type.leisure.sports_centre.sport.yoga" = "Complexe sportif";
+"type.leisure.fitness_centre.sport.yoga" = "Salle de yoga";
 "type.leisure.stadium" = "Stade";
 "type.leisure.swimming_pool" = "Piscine";
 "type.leisure.swimming_pool.private" = "Piscine privée";
@@ -740,18 +778,17 @@
 "type.man_made.storage_tank" = "Réservoir";
 "type.man_made.surveillance" = "Caméra de surveillance";
 "type.man_made.tower" = "Tour";
-
 /* A huge telecommunications tower. Often a local monument or a landmark. */
 "type.man_made.communications_tower" = "Tour de communication";
-
-/* A regular telecommunications tower / mast. */
+/* A regular telecommunications tower. */
 "type.man_made.tower.communication" = "Tour de communication";
-
+/* A regular telecommunications mast. */
+"type.man_made.mast.communication" = "Antenne de télécommunications";
 /* A deep hole drilled into the earth to extract oil or gas. */
 "type.man_made.petroleum_well" = "Puits de pétrole ou de gaz";
-
 /* A tower/mast constructed to burn off excess gas. */
 "type.man_made.flare" = "Torche à gaz";
+"type.man_made.crane" = "Grue";
 "type.man_made.wastewater_plant" = "Station d’épuration";
 "type.man_made.water_tap" = "Robinet d’eau";
 "type.man_made.water_tap.drinking_water_no" = "Robinet d'eau";
@@ -764,13 +801,10 @@
 "type.military.bunker" = "Bunker";
 "type.mountain_pass" = "Col de montagne";
 "type.natural" = "Nature";
-
 /* A rocky land cover. */
 "type.natural.bare_rock" = "Zone rocheuse";
-
 /* A land cover consisting of rounded rock fragments (pebbles) on a beach or riverbed. */
 "type.natural.shingle" = "Galets";
-
 /* A loose surface consisting of angular, sharp stones. Usually on a mountain slope and prone to landslides. */
 "type.natural.scree" = "Éboulis pierreux";
 "type.natural.bay" = "Baie";
@@ -784,6 +818,7 @@
 "type.man_made.embankment" = "Remblai";
 "type.natural.coastline" = "Littoral";
 "type.natural.desert" = "Désert";
+"type.natural.sand" = "Sable";
 "type.natural.geyser" = "Geyser";
 "type.natural.glacier" = "Glacier";
 "type.natural.grassland" = "Pelouse";
@@ -805,6 +840,7 @@
 "type.natural.spring" = "Source";
 "type.natural.spring.drinking_water_no" = "Source";
 "type.natural.strait" = "Détroit";
+"type.natural.tree" = "Arbre";
 "type.natural.tree_row" = "Rangée d’arbres";
 "type.natural.vineyard" = "Vignoble";
 "type.natural.volcano" = "Volcan";
@@ -812,6 +848,13 @@
 "type.natural.wetland" = "Zone humide";
 "type.natural.wetland.bog" = "Tourbière";
 "type.natural.wetland.marsh" = "Marais";
+"type.natural.wetland.saltmarsh" = "Marais salant";
+"type.natural.wetland.saltmarsh.tidal" = "Marais salant à marée";
+"type.natural.wetland.fen" = "Marais";
+"type.natural.wetland.reedbed" = "Roselière";
+"type.natural.wetland.swamp" = "Marais";
+"type.natural.wetland.mangrove" = "Mangrove";
+"type.natural.wetland.tidalflat" = "Estran";
 "type.noexit" = "Voie sans issue";
 "type.office" = "Bureau";
 "type.office.company" = "Bureaux d'entreprise";
@@ -844,10 +887,8 @@
 "type.place.islet" = "Îlet";
 "type.place.isolated_dwelling" = "Lieu-dit";
 "type.place.locality" = "Lieu-dit";
-
 /* Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) */
 "type.place.quarter" = "Quartier";
-
 /* Named part of a city, town or suburb, smaller than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Neighbourhood) */
 "type.place.neighbourhood" = "Quartier";
 "type.place.ocean" = "Océan";
@@ -856,7 +897,6 @@
 "type.place.square" = "Place";
 "type.place.state" = "État";
 "type.place.state.USA" = "État";
-
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Quartier";
 "type.place.town" = "Ville";
@@ -877,13 +917,10 @@
 "type.power.plant.solar" = "Centrale solaire";
 "type.power.plant.wind" = "Ferme d’éoliennes";
 "type.power.substation" = "Poste électrique";
-
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Pylône électrique";
-
 /* A single pole supporting minor power lines. */
 "type.power.pole" = "Pylône électrique";
-
 /* A single pole supporting various public utilities, such as lighting or telephony. */
 "type.man_made.utility_pole" = "Pylônes (télécommunication, lampadaire)";
 "type.public_transport" = "Transport public";
@@ -893,6 +930,8 @@
 "type.railway.construction" = "Chemin de fer en construction";
 "type.railway.crossing" = "Passage à niveau pour piéton";
 "type.railway.disused" = "Chemin de fer désaffecté";
+"type.railway.disused.bridge" = "Pont ferroviaire désaffecté";
+"type.railway.disused.tunnel" = "Tunnel ferroviaire désaffecté";
 "type.railway.funicular" = "Funiculaire";
 "type.railway.funicular.bridge" = "Funiculaire";
 "type.railway.funicular.tunnel" = "Funiculaire";
@@ -904,6 +943,9 @@
 "type.railway.monorail" = "Monorail";
 "type.railway.monorail.bridge" = "Monorail";
 "type.railway.monorail.tunnel" = "Monorail";
+"type.railway.miniature" = "Chemin de fer miniature";
+"type.railway.miniature.bridge" = "Pont ferroviaire miniature";
+"type.railway.miniature.tunnel" = "Tunnel ferroviaire miniature";
 "type.railway.narrow_gauge" = "Rail à voie étroite";
 "type.railway.narrow_gauge.bridge" = "Pont ferroviaire à voie étroite";
 "type.railway.narrow_gauge.tunnel" = "Tunnel ferroviaire à voie étroite";
@@ -915,14 +957,12 @@
 "type.railway.rail.highspeed" = "Chemin de fer à grande vitesse";
 "type.railway.rail.tourism" = "Ligne touristique";
 "type.railway.rail.main" = "Chemin de fer";
-
+"type.railway.turntable" = "Plateau tournant ferroviaire";
 /* Includes ordinary railway=rail w/o more specific usage= and service= tags. */
 "type.railway.rail.branch" = "Chemin de fer secondaire";
-
 /* Non-passenger utility tracks: industrial, military, test. */
 "type.railway.rail.utility" = "Train de fret";
 "type.railway.rail.spur" = "Embranchement ferroviaire";
-
 /* Short service tracks: siding, yard, crossover. */
 "type.railway.rail.service" = "Service ferroviaire";
 "type.railway.rail.bridge" = "Pont ferroviaire";
@@ -1029,6 +1069,7 @@
 "type.railway.station.subway.paris" = "Station de métro";
 "type.railway.station.subway.philadelphia" = "Station de métro";
 "type.railway.station.subway.pyongyang" = "Station de métro";
+"type.railway.station.subway.qingdao" = "Station de métro";
 "type.railway.station.subway.rennes" = "Station de métro";
 "type.railway.station.subway.rio" = "Station de métro";
 "type.railway.station.subway.roma" = "Station de métro";
@@ -1190,6 +1231,7 @@
 "type.shop.bakery" = "Boulangerie";
 "type.shop.bathroom_furnishing" = "Mobilier de salle de bain";
 "type.shop.beauty" = "Salon de beauté";
+"type.shop.beauty.nails" = "Salon de manucure";
 "type.shop.beverages" = "Boissons";
 "type.shop.bicycle" = "Magasin de vélos";
 "type.shop.bookmaker" = "Bookmaker";
@@ -1241,6 +1283,7 @@
 "type.shop.kitchen" = "Magasin de cuisine";
 "type.shop.laundry" = "Laverie";
 "type.shop.mall" = "Centre commercial";
+"type.shop.beauty.day_spa" = "Spa de jour";
 "type.shop.massage" = "Salon de massage";
 "type.shop.mobile_phone" = "Magasin de téléphonie mobile";
 "type.shop.money_lender" = "Magasin";
@@ -1268,6 +1311,7 @@
 "type.shop.supermarket" = "Supermarché";
 "type.shop.tattoo" = "Salon de tatouage";
 "type.shop.tea" = "Boutique de thés";
+"type.shop.telecommunication" = "Boutique télécom";
 "type.shop.ticket" = "Billetterie";
 "type.shop.toys" = "Magasin de jouets";
 "type.shop.travel_agency" = "Agence de voyages";
@@ -1279,7 +1323,7 @@
 "type.shop.agrarian" = "Magasin de matériel agricole";
 "type.shop.antiques" = "Antiquités";
 "type.shop.appliance" = "Magasin d’électroménager";
-
+"type.shop.water" = "Magasin d'eau";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Boutique d’art";
 "type.shop.baby_goods" = "Magasin de puériculture";
@@ -1304,25 +1348,35 @@
 "type.shop.trade" = "Grossiste";
 "type.shop.watches" = "Montres";
 "type.shop.wholesale" = "Magasin de gros";
+"type.shop.lighting" = "Boutique de luminaires";
+"type.disusedbusiness" = "Magasin vacant";
 "type.sport" = "Sport";
+"type.sport.multi" = "Sports multiples";
+"type.sport.9pin" = "Bowling";
+"type.sport.10pin" = "Bowling";
 "type.sport.american_football" = "Football américain";
 "type.sport.archery" = "Tir à l’arc";
 "type.sport.athletics" = "Athlétisme";
 "type.sport.australian_football" = "Football australien";
+"type.sport.badminton" = "Badminton";
 "type.sport.baseball" = "Base-ball";
 "type.sport.basketball" = "Basket-ball";
 "type.sport.beachvolleyball" = "Beach-volley";
 "type.sport.bowls" = "Boulingrin";
 "type.sport.chess" = "Échecs";
+"type.sport.climbing" = "Escalade";
 "type.sport.cricket" = "Cricket";
 "type.sport.curling" = "Curling";
+"type.sport.diving" = "Plongeon de haut vol";
 "type.sport.equestrian" = "Sport hippique";
+"type.sport.field_hockey" = "Hockey sur gazon";
+"type.sport.futsal" = "Futsal";
 "type.sport.golf" = "Golf";
 "type.sport.gymnastics" = "Gymnastique";
 "type.sport.handball" = "Handball";
-"type.sport.multi" = "Sports multiples";
-
-/* Used to tag a scuba diving site. */
+"type.sport.ice_hockey" = "Hockey sur glace";
+"type.sport.padel" = "Padel";
+"type.sport.pelota" = "Pelote basque";
 "type.sport.scuba_diving" = "Plongée sous-marine";
 "type.sport.shooting" = "Tir sportif";
 "type.sport.skateboard" = "Skateboard";
@@ -1332,17 +1386,9 @@
 "type.sport.table_tennis" = "Tennis de table";
 "type.sport.tennis" = "Tennis";
 "type.sport.volleyball" = "Volley-ball";
-"type.sport.10pin" = "Bowling";
-"type.sport.9pin" = "Bowling";
-"type.sport.padel" = "Padel";
-"type.sport.futsal" = "Futsal";
-"type.sport.ice_hockey" = "Hockey sur glace";
-"type.sport.field_hockey" = "Hockey sur gazon";
-"type.sport.badminton" = "Badminton";
-"type.sport.pelota" = "Pelote basque";
+"type.sport.yoga" = "Yoga";
 "type.tourism" = "Tourisme";
 "type.tourism.aquarium" = "Aquarium";
-
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
 "type.tourism.alpine_hut" = "Auberge de montagne";
 "type.tourism.apartment" = "Appart’hôtel";
@@ -1351,7 +1397,8 @@
 "type.tourism.artwork.painting" = "Œuvre";
 "type.tourism.artwork.sculpture" = "Œuvre";
 "type.tourism.artwork.statue" = "Œuvre";
-"type.tourism.attraction" = "Attraction";
+"type.tourism.attraction" = "Attraction touristique";
+"type.attraction" = "Attraction";
 "type.attraction.amusement_ride" = "Manège";
 "type.attraction.animal" = "Enclos pour animaux";
 "type.attraction.bumper_car" = "Auto-tamponneuse";
@@ -1364,7 +1411,6 @@
 "type.tourism.attraction.specified" = "Attraction";
 "type.tourism.camp_site" = "Camping";
 "type.tourism.caravan_site" = "Aire de camping-car";
-
 /* A rentable countryside vacation house. */
 "type.tourism.chalet" = "Chalet de vacances";
 "type.tourism.gallery" = "Galerie d’art";
@@ -1375,15 +1421,16 @@
 "type.tourism.information.board" = "Panneau d’informations";
 "type.tourism.information.guidepost" = "Poteaux indicateurs";
 "type.tourism.information.map" = "Carte touristique";
+"type.tourism.information.tactile_map" = "Carte tactile";
 "type.tourism.information.office" = "Office de tourisme";
 "type.tourism.information.visitor_centre" = "Centre de visite";
+"type.amenity.ranger_station" = "Poste de garde forestier";
 "type.tourism.motel" = "Motel";
 "type.tourism.museum" = "Musée";
 "type.tourism.picnic_site" = "Terrain de pique-nique";
 "type.leisure.resort" = "Complexe touristique";
 "type.tourism.theme_park" = "Parc d’attractions";
 "type.tourism.viewpoint" = "Belvédère";
-
 /* Typically more basic, not staffed and free (compared to alpine_hut). */
 "type.tourism.wilderness_hut" = "Refuge non gardé";
 "type.tourism.zoo" = "Zoo";
@@ -1401,6 +1448,7 @@
 "type.waterway.ditch.tunnel" = "Drain";
 "type.waterway.dock" = "Cale";
 "type.waterway.drain" = "Drainage";
+"type.waterway.fuel" = "Quai de ravitaillement en carburant";
 "type.natural.water.drain" = "Drainage";
 "type.waterway.drain.tunnel" = "Drain";
 "type.waterway.lock_gate" = "Porte d’écluse";
@@ -1448,156 +1496,20 @@
 "type.self_service.only" = "En libre-service uniquement";
 "type.self_service.partially" = "En libre-service partiellement";
 "type.self_service.no" = "Pas en libre-service";
-
 /* https://wiki.openstreetmap.org/wiki/Key:social_facility */
 "type.amenity.social_facility" = "Établissement de services sociaux";
-
+"type.social_facility.soup_kitchen" = "Soupe populaire";
+"type.social_facility.food_bank" = "Banque alimentaire";
+"type.amenity.food_sharing" = "Repas partagé";
+"type.amenity.give_box" = "Boîte à don";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Entrée du service des urgences";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
 "type.amenity.dojo" = "Dojo";
-
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Salle de sport";
-"type.leisure.firepit" = "Foyer";
-"type.amenity.studio" = "Studio Multimédia";
-"type.amenity.love_hotel" = "Love hotel";
-"type.landuse.plant_nursery" = "Pépinière";
-"type.barrier.guard_rail" = "Glissière de sécurité";
-"type.sport.diving" = "Plongeon de haut vol";
-"type.highway.ladder" = "Échelle";
-"type.man_made.crane" = "Grue";
-"type.railway.station.subway.qingdao" = "Station de métro";
-"type.natural.wetland.saltmarsh.tidal" = "Marais salant à marée";
-"type.natural.wetland.fen" = "Marais";
-"type.natural.wetland.swamp" = "Marais";
-"type.natural.wetland.mangrove" = "Mangrove";
-"type.natural.wetland.tidalflat" = "Estran";
-"type.natural.wetland.reedbed" = "Roselière";
-"type.natural.wetland.saltmarsh" = "Marais salant";
-"type.leisure.escape_game" = "Escape room";
-"type.amenity.luggage_locker" = "Casier à bagages";
-"type.post_office.post_partner" = "Partenaire de publication";
-"type.amenity.ranger_station" = "Poste de garde forestier";
-"type.amenity.bicycle_parking.covered" = "Parking vélo couvert";
-"type.amenity.animal_shelter" = "Abri pour animaux";
-"type.barrier.wicket_gate" = "Portillon";
-"type.office.security" = "Bureau des agents de sécurité";
-"type.power.portal" = "Portique haute tension";
-"type.building.guardhouse" = "Guérite de sécurité";
-"type.shop.lighting" = "Boutique de luminaires";
-"type.amenity.bench.backless" = "Sans dossier";
-"type.leisure.bandstand" = "Kiosque à musique";
-"type.leisure.sports_centre.sport.soccer" = "Complexe sportif";
-"type.leisure.sports_centre.sport.athletics" = "Complexe sportif";
-"type.leisure.sports_centre.sport.padel" = "Complexe sportif";
-"type.leisure.sports_centre.sport.swimming" = "Piscine";
-"type.leisure.sports_centre.sport.ice_hockey" = "Complexe sportif";
-"type.leisure.fitness_centre.sport.yoga" = "Salle de yoga";
-"type.leisure.sports_centre.sport.golf" = "Complexe sportif";
-"type.leisure.sports_centre.sport.shooting" = "Complexe sportif";
-"type.leisure.sports_centre.sport.table_tennis" = "Complexe sportif";
-"type.leisure.sports_centre.sport.handball" = "Complexe sportif";
-"type.leisure.sports_centre.sport.baseball" = "Complexe sportif";
-"type.leisure.sports_centre.sport.pelota" = "Complexe sportif";
-"type.leisure.sports_centre.sport.skiing" = "Complexe sportif";
-"type.leisure.sports_centre.sport.cricket" = "Complexe sportif";
-"type.leisure.sports_centre.sport.equestrian" = "Complexe sportif";
-"type.leisure.sports_centre.sport.volleyball" = "Complexe sportif";
-"type.leisure.sports_centre.sport.curling" = "Complexe sportif";
-"type.leisure.sports_centre.sport.futsal" = "Complexe sportif";
-"type.leisure.sports_centre.sport.american_football" = "Complexe sportif";
-"type.leisure.sports_centre.sport.multi" = "Complexe sportif";
-"type.leisure.sports_centre.sport.yoga" = "Complexe sportif";
-"type.leisure.sports_centre.sport.australian_football" = "Complexe sportif";
-"type.leisure.sports_centre.sport.basketball" = "Complexe sportif";
-"type.leisure.sports_centre.sport.gymnastics" = "Complexe sportif";
-"type.leisure.sports_centre.sport.badminton" = "Complexe sportif";
-"type.leisure.sports_centre.sport.tennis" = "Complexe sportif";
-"type.leisure.sports_centre.sport.beachvolleyball" = "Complexe sportif";
-"type.leisure.sports_centre.sport.skateboard" = "Complexe sportif";
-"type.leisure.sports_centre.sport.climbing" = "Complexe sportif";
-"type.leisure.sports_centre.sport.scuba_diving" = "Complexe sportif";
-"type.leisure.sports_centre.sport.field_hockey" = "Complexe sportif";
-"type.leisure.sports_centre.sport.bowls" = "Complexe sportif";
-"type.disusedbusiness" = "Magasin vacant";
-"type.leisure.sports_centre.sport.archery" = "Complexe sportif";
-"type.amenity.lounger" = "Chaise longue";
-"type.shop.telecommunication" = "Boutique télécom";
-"type.amenity.payment_centre" = "Centre de paiement";
-"type.amenity.mobile_money_agent" = "Agent d'argent liquide";
-"type.amenity.boat_rental" = "Location de bateaux";
-"type.leisure.indoor_play" = "Complexe de jeux intérieurs";
-"type.man_made.observatory" = "Observatoire";
-"type.man_made.telescope.optical" = "Télescope (optique)";
-"type.man_made.telescope.radio" = "Télescope (radio)";
-"type.amenity.food_sharing" = "Repas partagé";
-"type.social_facility.food_bank" = "Banque alimentaire";
-"type.social_facility.soup_kitchen" = "Soupe populaire";
-"type.man_made.telescope" = "Télescope";
-"type.amenity.give_box" = "Boîte à don";
-"type.man_made.telescope.gamma" = "Télescope (Gamma)";
-"type.amenity.car_pooling" = "Covoiturage";
-"type.amenity.sailing_school" = "École de voile";
-"type.amenity.flight_school" = "École de pilotage";
-"type.amenity.prep_school" = "École de soutien scolaire";
-"type.emergency.access_point" = "Point de secours d'urgence";
-"type.emergency.life_ring" = "Bouée de sauvetage";
-"type.shop.beauty.day_spa" = "Spa de jour";
-"type.beacon.cardinal.east" = "Phare cardinal";
-"type.beacon.cardinal.north" = "Phare cardinal";
-"type.beacon.cardinal.south" = "Balise cardinale";
-"type.beacon.cardinal.west" = "Balise cardinale";
-"type.beacon.isolated_danger" = "Balise de danger isolé";
-"type.beacon.lateral.port" = "Balise latérale";
-"type.beacon.lateral.starboard" = "Balise latérale";
-"type.beacon.safe_water" = "Balise d'eaux saines";
-"type.beacon.special_purpose" = "Balise, marque spéciale";
-"type.buoy.cardinal.east" = "Bouée cardinale";
-"type.buoy.cardinal.north" = "Bouée cardinale";
-"type.buoy.cardinal.south" = "Bouée cardinale";
-"type.buoy.cardinal.west" = "Bouée cardinale";
-"type.buoy.isolated_danger" = "Bouée de danger isolée";
-"type.buoy.lateral.port" = "Bouée latérale";
-"type.buoy.lateral.starboard" = "Bouée latérale";
-"type.buoy.safe_water" = "Bouée d’eaux saines";
-"type.buoy.special_purpose" = "Bouée, marque spéciale";
-"type.spherical_buoy.cardinal.east" = "Bouée cardinale sphérique";
-"type.spherical_buoy.cardinal.north" = "Bouée cardinale sphérique";
-"type.spherical_buoy.cardinal.south" = "Bouée cardinale sphérique";
-"type.spherical_buoy.cardinal.west" = "Bouée cardinale sphérique";
-"type.spherical_buoy.isolated_danger" = "Bouée sphérique, danger isolé";
-"type.spherical_buoy.lateral.port" = "Bouée latérale sphérique";
-"type.spherical_buoy.lateral.starboard" = "Bouée latérale sphérique";
-"type.spherical_buoy.safe_water" = "Bouée sphérique, marque d’eaux saines";
-"type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
-"type.lateral.port" = "Bâbord";
-"type.lateral.starboard" = "Tribord";
-"type.cardinal.east" = "Est :";
-"type.cardinal.north" = "Nord :";
-"type.cardinal.south" = "Sud";
-"type.cardinal.west" = "Ouest";
-"type.entrance.house" = "Entrée de la maison";
-"type.entrance.garage" = "Entrée du garage";
-"type.entrance.service" = "Entrée de service";
-"type.entrance.entry" = "Entrée (uniquement)";
-"type.entrance.emergency" = "Issue de secours";
-"type.natural.sand" = "Sable";
 "type.xmas.tree" = "Arbre de Noël";
-"type.natural.tree" = "Arbre";
-"type.man_made.mast.communication" = "Antenne de télécommunications";
-"type.shop.beauty.nails" = "Salon de manucure";
-"type.amenity.charging_station.small" = "Capacité limitée";
-"type.amenity.charging_station.motorcycle" = "Motos";
-"type.railway.disused.bridge" = "Pont ferroviaire désaffecté";
-"type.railway.turntable" = "Plateau tournant ferroviaire";
-"type.tourism.information.tactile_map" = "Carte tactile";
-"type.railway.miniature.bridge" = "Pont ferroviaire miniature";
-"type.emergency.disaster_help_point" = "Point d'aide d'urgence en cas de catastrophe";
-"type.emergency.access_point.address" = "Adresse pour les secours d'urgence";
-"type.railway.miniature.tunnel" = "Tunnel ferroviaire miniature";
-"type.railway.disused.tunnel" = "Tunnel ferroviaire désaffecté";
-"type.railway.miniature" = "Chemin de fer miniature";
-"type.waterway.fuel" = "Quai de ravitaillement en carburant";
-"type.amenity.community_centre.youth_centre" = "Centre de jeunesse";
+"type.leisure.sports_centre.sport.four_square" = "Centre Sportif";
+"type.sport.four_square" = "Four Square";
+"type.sport.boules" = "Boules";
+"type.leisure.sports_centre.sport.boules" = "Centre Sportif";

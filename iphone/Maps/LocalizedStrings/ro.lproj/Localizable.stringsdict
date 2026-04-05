@@ -5,61 +5,93 @@
 	<key>bookmarks_places</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
 			<string>Zero marcaje</string>
 			<key>one</key>
-			<string>%d marcaj</string>
+			<string>%lld marcaj</string>
 			<key>few</key>
-			<string>%d marcaje</string>
+			<string>%lld marcaje</string>
 			<key>other</key>
-			<string>%d marcaje</string>
+			<string>%lld marcaje</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>A fost găsit %d fișier. Îl vei vedea după conversie.</string>
+			<string>A fost găsit %lld fișier. Îl vei vedea după conversie.</string>
 			<key>one</key>
-			<string>A fost găsit %d fișier. Îl vei vedea după conversie.</string>
+			<string>A fost găsit %lld fișier. Îl vei vedea după conversie.</string>
 			<key>few</key>
-			<string>Au fost găsit %d fișiere. Le vei vedea după conversie.</string>
+			<string>Au fost găsit %lld fișiere. Le vei vedea după conversie.</string>
 			<key>other</key>
-			<string>Au fost găsit %d fișiere. Le vei vedea după conversie.</string>
+			<string>Au fost găsit %lld fișiere. Le vei vedea după conversie.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
 	<dict>
 		<key>NSStringLocalizedFormatKey</key>
-		<string>%#@value@</string>
-		<key>value</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
 		<dict>
 			<key>NSStringFormatSpecTypeKey</key>
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
-			<string>d</string>
+			<string>lld</string>
 			<key>zero</key>
-			<string>%d înregistrare</string>
+			<string>%lld înregistrare</string>
 			<key>one</key>
-			<string>%d înregistrare</string>
+			<string>%lld înregistrare</string>
 			<key>few</key>
-			<string>%d înregistrări</string>
+			<string>%lld înregistrări</string>
 			<key>other</key>
-			<string>%d înregistrări</string>
+			<string>%lld înregistrări</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld residents</string>
+			<key>one</key>
+			<string>%lld resident</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld rooms</string>
+			<key>one</key>
+			<string>%lld room</string>
 		</dict>
 	</dict>
 </dict>

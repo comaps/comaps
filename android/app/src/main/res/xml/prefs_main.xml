@@ -118,7 +118,7 @@
       android:persistent="false"
       android:title="@string/pref_openexternallinks_title"
       android:summary="@string/pref_openexternallinks_summary"
-      app:icon="@drawable/open_in_new"
+      app:icon="@drawable/ic_open_in"
       android:order="14"
       app:isPreferenceVisible="false"/>
   </androidx.preference.PreferenceCategory>

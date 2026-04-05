@@ -948,7 +948,9 @@ void PreprocessElement(OsmElement * p, CalculateOriginFnT const & calcOrg)
       }
 
       // Avoid duplication for some cuisines.
-      if (normalized == "bbq" || normalized == "barbeque")
+      if (normalized == "italian_pizza")
+        normalized = "pizza";
+      else if (normalized == "bbq" || normalized == "barbeque")
         normalized = "barbecue";
       else if (normalized == "doughnut")
         normalized = "donut";
@@ -1431,7 +1433,14 @@ void GetNameAndType(OsmElement * p, FeatureBuilderParams & params, TypesFilterFn
     // Get population rank.
     uint64_t const population = generator::osm_element::GetPopulation(v);
     if (population != 0)
+    {
       params.rank = feature::PopulationToRank(population);
+      // Store raw value as metadata for display on the place page.
+      // Must be done here because TagProcessor::Call() clears the tag after this
+      // lambda returns, so it never reaches MetadataTagProcessor (Stage 6).
+      /// @todo(pastk): don't store unparseable numbers
+      params.GetMetadata().Set(feature::Metadata::FMD_POPULATION, v);
+    }
   }},
       {"ref", "*",
        [&params](string & k, string & v)

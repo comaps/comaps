@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="65sp"
@@ -17,31 +18,68 @@
     android:id="@+id/eta_view_container"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
     android:gravity="center"
     android:minWidth="@dimen/nav_numbers_side_min_width">
 
-    <!-- ETA value -->
-    <com.google.android.material.textview.MaterialTextView
-      android:id="@+id/eta_value"
+    <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:includeFontPadding="false"
-      android:lines="1"
-      android:textAppearance="@style/MwmTextAppearance.NavMenu.Number"
-      tools:text="99:99"/>
+      android:orientation="horizontal"
+      android:clickable="false"
+      tools:background="#20FF0000">
 
-    <!-- ETA AM/PM -->
-    <com.google.android.material.textview.MaterialTextView
-      android:id="@+id/eta_am_pm"
+      <!-- ETA value -->
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/eta_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:textAppearance="@style/MwmTextAppearance.NavMenu.Number"
+        tools:text="99:99"/>
+
+      <!-- ETA AM/PM -->
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/eta_am_pm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:clickable="false"
+        android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
+        tools:background="#20FF0000"
+        tools:text="AM/PM"/>
+    </LinearLayout>
+
+    <!-- Destination -->
+    <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:includeFontPadding="false"
-      android:lines="1"
-      android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
-      tools:background="#20FF0000"
-      tools:text="AM/PM"/>
+      android:orientation="horizontal"
+      android:clickable="false"
+      tools:background="#20FF0000">
 
+      <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/eta_icon"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:clickable="false"
+        app:srcCompat="@drawable/route_point_finish"/>
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/eta_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:lines="1"
+        android:clickable="false"
+        android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
+        tools:background="#20FF0000"
+        tools:text="@string/destination"/>
+    </LinearLayout>
   </LinearLayout>
 
   <Space
@@ -76,7 +114,8 @@
         android:includeFontPadding="false"
         android:lines="1"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time"
-        tools:text="999" />
+        tools:text="999"/>
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_hour_dimen"
         android:layout_width="wrap_content"
@@ -85,7 +124,8 @@
         android:includeFontPadding="false"
         android:lines="1"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time.Dimension"
-        tools:text="h" />
+        tools:text="h"/>
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_minute_value"
         android:layout_width="wrap_content"
@@ -94,7 +134,8 @@
         android:lines="1"
         android:textAlignment="center"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time"
-        tools:text="99" />
+        tools:text="99"/>
+
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/time_minute_dimen"
         android:layout_width="wrap_content"
@@ -102,7 +143,7 @@
         android:includeFontPadding="false"
         android:lines="1"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Time.Dimension"
-        tools:text="m" />
+        tools:text="m"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -113,7 +154,7 @@
       android:lines="1"
       android:textAlignment="center"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
-      tools:text="----" />
+      tools:text="----"/>
   </LinearLayout>
 
   <Space
@@ -137,7 +178,7 @@
       android:includeFontPadding="false"
       android:lines="1"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number"
-      tools:text="99999" />
+      tools:text="99999"/>
 
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/distance_dimen"
@@ -147,7 +188,7 @@
       android:lines="1"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
       tools:background="#20FF0000"
-      tools:text="km" />
+      tools:text="km"/>
   </LinearLayout>
 
   <Space

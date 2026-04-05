@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   xmlns:tools="http://schemas.android.com/tools"
@@ -11,63 +11,68 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginEnd="@dimen/margin_base"
-    android:layout_marginTop="@dimen/margin_quarter"
     app:srcCompat="@drawable/ic_opening_hours"
-    android:tint="?iconTint"/>
+    app:tint="?iconTint"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@id/oh_today_label"
+    app:layout_constraintBottom_toBottomOf="@id/oh_today_label"/>
 
-  <LinearLayout
-      android:id="@+id/today_container"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_toEndOf="@id/icon">
+  <androidx.constraintlayout.widget.Barrier
+    android:id="@+id/oh_header_barrier"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:barrierDirection="bottom"
+    app:barrierMargin="@dimen/margin_half"
+    app:constraint_referenced_ids="oh_today_label,oh_today_shifts"/>
 
     <com.google.android.material.textview.MaterialTextView
       android:id="@+id/oh_today_label"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_marginTop="6dp"
-      android:layout_marginBottom="0dp"
+      android:layout_marginStart="@dimen/margin_base"
       android:textAppearance="@style/MwmTextAppearance.PlacePage"
       tools:text="@string/today"
       android:text="@string/today"
+      app:layout_constraintStart_toEndOf="@id/icon"
+      app:layout_constraintTop_toTopOf="parent"
       tools:visibility="visible"/>
 
-    <com.google.android.material.textview.MaterialTextView
-      android:id="@+id/oh_today_open_time"
-      android:layout_width="0dp"
-      android:layout_height="wrap_content"
-      android:layout_weight="1"
-      android:layout_marginTop="6dp"
-      android:textAppearance="@style/MwmTextAppearance.PlacePage"
-      tools:text="@string/twentyfour_seven"
-      android:text="@string/twentyfour_seven"
-      android:textAlignment="viewEnd"
-      tools:visibility="visible"/>
-  </LinearLayout>
+  <LinearLayout
+    android:id="@+id/oh_today_shifts"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginTop="6dp"
+    android:layout_marginStart="@dimen/margin_base"
+    app:layout_constraintStart_toEndOf="@id/oh_today_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/rw__full_opening_hours"
-    android:layout_width="wrap_content"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_alignParentEnd="true"
-    android:layout_alignStart="@id/today_container"
-    android:layout_below="@id/today_container"
+    android:layout_marginTop="8dp"
+    app:layout_goneMarginTop="0dp"
     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
     tools:itemCount="3"
     tools:listitem="@layout/place_page_opening_hours_item"
-    android:layout_marginTop="8dp"/>
+    app:layout_constraintStart_toStartOf="@id/oh_today_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/oh_header_barrier"/>
 
   <com.google.android.material.textview.MaterialTextView
     android:id="@+id/oh_check_date"
     style="@style/MwmTextAppearance.Caption"
+    android:layout_width="0dp"
     android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
-    android:layout_alignParentEnd="true"
-    android:layout_alignStart="@id/rw__full_opening_hours"
-    android:layout_below="@id/rw__full_opening_hours"
     android:textAppearance="@style/MwmTextAppearance.Body4"
     android:textAlignment="viewStart"
     android:visibility="gone"
     tools:visibility="visible"
+    app:layout_constraintStart_toStartOf="@id/oh_today_label"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/rw__full_opening_hours"
     tools:text="Confirmed 2 months ago"/>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

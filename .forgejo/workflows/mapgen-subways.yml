@@ -19,8 +19,10 @@ on:
 env:
   HTML_DIR: "/mnt/4tbexternal/osm-planet/subway/validator"
   SPREADSHEET_ID: "1SEW1-NiNOnA2qDwievcxYV1FOaQl1mb1fdeyqAxHu3k"
-  DEBIAN_FRONTEND: nonnteractive
+  DEBIAN_FRONTEND: noninteractive
   TZ: Etc/UTC
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
 
 # /var/www/html/subways is mapped as a volume on cdn-fi-1
 # as is /tmp/planet
@@ -63,8 +65,6 @@ jobs:
   process-subways:
     name: Process and Compare Subways
     runs-on: mapfilemaker
-    needs:
-      - clone-repos
     container:
       image: codeberg.org/comaps/maps_generator:f6d53d54f794
       volumes:
@@ -74,17 +74,16 @@ jobs:
       group: ${{ github.workflow }}-mapgen-subways-${{ github.event.pull_request.number || github.ref }}
       cancel-in-progress: true
     steps:
-      - name: Checkout main repo
+      - name: Checkout subways and main repos
         shell: bash
         run: |
-          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
-          cd ~
-          git clone --depth 1 -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
-      - name: Checkout subways repo
-        shell: bash
-        run: |
+          echo "Cloning comaps/subways repo branch ${{ inputs.subways-branch || 'master' }}"
           cd ~
           git clone --depth 1 -b ${{ inputs.subways-branch || 'master' }} --single-branch https://codeberg.org/comaps/subways.git
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          git clone --depth 1 --sparse --filter=blob:none -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+          cd comaps
+          git sparse-checkout set tools/unix/maps tools/python/transit data
 
       - name: Process Subways
         shell: bash
@@ -101,7 +100,8 @@ jobs:
           if [ -f "$HTML_DIR/cities.txt" ]; then
             echo "Comparing local validation with VK's validation..."
             python3 ./scripts/compare_html_validation.py "$HTML_DIR/cities.txt" \
-              --remote-url "https://maps.vk.com/osm/tools/subways/latest/cities.txt"
+              --remote-url "https://maps.vk.com/osm/tools/subways/latest/cities.txt" \
+              --cache-and-report "$HTML_DIR"
             exit 0
           else
             echo "Local cities.txt not found at $HTML_DIR/cities.txt"
@@ -136,3 +136,16 @@ jobs:
             echo "  patch source_data/Rapid.csv < patch-file"
             echo "or by manually reviewing and applying the changes."
           fi
+      - name: Notify Zulip
+        run: |
+          MSG="Subways are updated!"
+          if [ -f "/tmp/validator_out.txt" ]; then
+          MSG="$MSG $(cat /tmp/validator_out.txt)"
+          fi
+          
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode "content=$MSG"

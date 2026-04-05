@@ -1,198 +1,330 @@
-"search" = "Suechi";
-"bookmarks_and_tracks" = "Favorite";
-"cancel_download" = "Abelade abbreche";
-"leave_a_review" = "Bewertig abgeh";
-"category_shopping" = "Shopping";
-"later" = "Spöter";
-"zoom_to_country" = "Uf de Charte azeige";
-"bookmark_sets" = "Favoritelischtene";
-"category_bank" = "Bank";
-"edit" = "Bearbeite";
-"info" = "Info";
-"tracks_title" = "Tracks";
-"fediverse" = "Mastodon";
-"bluesky" = "Bluesky";
-"done" = "Fertig";
-"length" = "Längi";
-"version" = "CoMaps Version: %@";
-"pref_appearance_title" = "Erschiinigsbild";
-"pref_appearance_light" = "Hell";
-"pref_appearance_dark" = "Dunkel";
-"pref_tts_other_section_title" = "Wiiteri";
-"line" = "Line";
-"copyright" = "Copyright";
-"downloader_available_maps" = "Verfüegbar";
-"long_tap_toast" = "Tipp nomal lang uf d Charte, zum s Interface zgseh";
-"downloader_update_all_button" = "Alli aktualisiere";
-"downloader_downloaded_subtitle" = "Abeglade";
-"downloader_queued" = "I de Warteschlange";
-"downloader_near_me_subtitle" = "I minere Nöchi";
-"downloader_status_maps" = "Charte";
-"downloader_download_all_button" = "Alli abelade";
-"downloader_delete_map_while_routing_dialog" = "Zum Lösche vo de Charte bitte d Navigation unterbreche.";
-"routing_failed_cross_mwm_building" = "Es chönd nur Route erstellt werde, wo vollständig i einere einzige Charte enthalte sind.";
-"downloader_download_map" = "Charte abelade";
-"downloader_retry" = "Wiederhole";
-"downloader_delete_map" = "Charte lösche";
-"routing_download_maps_along" = "Charte entlang de Route abelade";
-"routing_requires_all_map" = "Zum Erstelle vonere Route müend alli Charte vo dim Standort bis zum Ziel abeglade und aktualisiert worde sii.";
-"downloader_status_outdated" = "Aktualisiere";
-"downloader_status_failed" = "Fehlgschlage";
-"deep_orange" = "Dunkelorange";
-"gray" = "Grau";
-"blue_gray" = "Graublau";
-"dialog_routing_disclaimer_title" = "Wenn du de Route folgsch, beacht bitte:";
-"dialog_routing_check_gps" = "GPS-Signal prüefe";
-"day_off_today" = "Hüt zue";
-"day_off" = "Zue";
-"today" = "Hüt";
-"closed" = "Zue";
-"opens_in" = "Öffnet i %@";
-"closes_in" = "Schlüüst i %@";
-"opens_tomorrow_at" = "Öffnet morn am %@";
-"opens_dayoftheweek_at" = "Öffnet %1$@ am %2$@";
-"opens_at" = "Öffnet am %@";
-"closes_at" = "Schlüsst am %@";
-"add_opening_hours" = "Öffnigsziite hinzuefüege";
-"mobile_data" = "Mobils Internet";
-"button_layer_outdoor" = "Wandere";
-"miles_per_hour" = "mph";
-"placepage_edit_bookmark_button" = "Gspeicherte Ort bearbeite";
-"report_a_bug" = "App-Fehler melde";
-"report_incorrect_map_bug" = "Falschi Chartedate melde oder korrigiere";
-"volunteer" = "Freiwillig helfe und CoMaps verbessere";
-"follow_us" = "Bliib in Kontakt";
-"email_error_body" = "De Email-Client isch nonig iigrichtet worde. Konfigurier ihn bitte oder nutz en anderi Möglichkeit oder kontaktier eus under %@";
-"email_error_title" = "Fehler bim Email-Versand";
-"downloader_search_results" = "Gfunde";
-"bookmark" = "Ort";
-"dialog_routing_download_files" = "Erforderlichi Dateie abelade";
-"dialog_routing_download_and_update_all" = "Lad alli Charte- und Routeinformatione für de planti Weg abe oder aktualisier sie, zum d Route z berechne.";
-"dialog_routing_change_start" = "Startpunkt aapasse";
-"routing_planning_error" = "Routeplanig fehlgschlage";
-"routing_arrive" = "Aakunft: %@";
-"dialog_routing_download_and_update_maps" = "Zum Erstelle vonere Route muesch du all Charte abelade oder aktualisiere, wo d Route druf liit.";
-"editor_report_problem_send_button" = "Sende";
-"editor_done_dialog_1" = "Du hesch d Weltcharte gänderet. Bhalt das nöd für dich! Verzell dine Fründe devo und bearbeited sie zemme.";
-"share_with_friends" = "Mit Fründe teile";
-"closed_now" = "Jetzt zue";
-"message_invalid_feature_position" = "Es Objekt cha da nöd positioniert werde";
-"downloader_of" = "%1$d vo %2$d";
-"hotels" = "Hotels";
-"ok" = "OK";
-"elevation_profile_min_elevation" = "Min. Höchi";
-"parks" = "Parks";
-"category_recycling" = "Recycling";
-"copied_to_clipboard" = "I d Zwüscheablag kopiert: %@";
-"dialog_routing_location_turn_on" = "Standortdienst aktiviere";
-"downloader_no_space_message" = "Bitte lösch unnötigi Date";
-"editor_category_unsuitable_text" = "Mit CoMaps cha mer nur eifachi Punktkategorie hinzuefüege, drum kei Städt, Strasse, See, Gebäudeumriss etc. Bitte füeg sottigi Kategorie direkt bi <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzue. I eusem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfade</a> findsch du e detaillierti Schritt-für-Schritt-Aaleitig.";
-"wikimedia_commons" = "Wikimedia Commons";
-"about_headline" = "Offnigs Projekt, vo de Gmeinschaft entwicklet";
-"operator" = "Betriiber: %@";
-"share_bookmarks_email_body" = "Hoi!\n\nIm Ahang sind mini gspeicherte Ört; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/\n\nViel Spass bim Reise mit CoMaps!";
+/* Button text (should be short) */
 "cancel" = "Abbräche";
+/* Button which interrupts country download */
+"cancel_download" = "Abelade abbreche";
+/* Button which deletes downloaded country */
 "delete" = "Lösche";
 "download_maps" = "Charte abelade";
+/* Settings/Downloader - info for country which started downloading */
 "downloading" = "Wird abeglade…";
+/* Title of offline maps explanation */
+"offline_explanation_title" = "Offline-Charte";
+/* Text of offline maps explanation */
+"offline_explanation_text" = "Zum d Gegend chönne aazluege, muess e Charte abeglade werde.\nLad Charte für die Gebiet abe, wo du bereise möchtsch.";
+/* Choose measurement on first launch alert - choose metric system button */
 "kilometres" = "Kilometer";
+/* Leave Review dialog - Review button */
+"leave_a_review" = "Bewertig abgeh";
+/* Choose measurement on first launch alert - choose imperial system button */
 "miles" = "Meile";
+/* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "Min Standort";
+/* Update maps later button text */
+"later" = "Spöter";
+/* View and button titles for accessibility, please also edit it in iphone/plist.txt */
+"search" = "Suechi";
+/* Settings/Downloader - 3G download warning dialog confirm button */
+"use_cellular_data" = "Ja";
+/* View and button titles for accessibility */
+"zoom_to_country" = "Uf de Charte azeige";
+/* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
+"country_status_download_without_size" = "Charte abelade";
+/* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Abelade fehlgschlage";
+/* Text in About screen */
+"about_headline" = "Offnigs Projekt, vo de Gmeinschaft entwicklet";
+/* Text in About screen */
+"about_proposition_1" = "Offline, schnell und eifach z benutze";
+/* Text in About screen */
+"about_proposition_2" = "Dateschutzorientiert und werbefrei";
+/* Text in About screen */
+"about_proposition_3" = "Transparent und nöd gwünnorientiert";
 "close" = "Schlüsse";
 "download" = "Abelade";
+/* REMOVE THIS STRING AFTER REFACTORING */
 "continue_button" = "Fortfahre";
+/* "Add new bookmark list" dialog title */
 "add_new_set" = "Neui Lischte hinzuefüege";
+/* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Name vo de Lischte";
+/* "Bookmark Lists" dialog title */
+"bookmark_sets" = "Favoritelischtene";
+/* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Ört";
-"about_proposition_1" = "Offline, schnell und eifach z benutze";
-"about_proposition_2" = "Dateschutzorientiert und werbefrei";
-"about_proposition_3" = "Transparent und nöd gwünnorientiert";
+/* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
+"bookmarks_and_tracks" = "Favorite";
+/* Default bookmark list name */
 "core_my_places" = "Miini Ort";
+/* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Adresse";
+/* Settings button in system menu */
 "settings" = "Iistellige";
+/* Measurement units title in settings activity */
 "measurement_units" = "Masseinheite";
+/* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
 "category_eat" = "Essensmöglichkeite";
+/* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Lebensmittel";
+/* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
 "category_transport" = "Verchehr";
+/* Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! */
 "category_fuel" = "Tankstell";
+/* Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! */
 "category_parking" = "Parkplatz";
+/* Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! */
+"category_shopping" = "Shopping";
+/* Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! */
 "category_secondhand" = "Second-hand";
+/* Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! */
 "category_hotel" = "Hotel";
+/* Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! */
 "category_tourism" = "Sehenswürdigkeit";
+/* Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! */
 "category_entertainment" = "Unterhaltig";
+/* Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! */
 "category_atm" = "Geldautomat";
+/* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Nachtlebe";
+/* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
 "category_children" = "Freiziit mit Chind";
+/* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
+"category_bank" = "Bank";
+/* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Apothek";
+/* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
 "category_hospital" = "Spital";
+/* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "Toilette";
+/* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Post";
+/* Search category for police; any changes should be duplicated in categories.txt @category_police! */
 "category_police" = "Polizeistation";
+/* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "WLAN";
+/* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
+"category_recycling" = "Recycling";
+/* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
 "category_water" = "Wasser";
+/* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Iirichtige für Wohnmobil";
+"share_bookmarks_email_body" = "Hoi!\n\nIm Ahang sind mini gspeicherte Ört; bitte öffne sie in CoMaps. Wenn du d App nöd installiert hesch, chasch sie da abelade: https://comaps.app/download/\n\nViel Spass bim Reise mit CoMaps!";
+/* message title of loading file */
 "load_kmz_title" = "Favorite werded glade";
+/* Kmz file successful loading */
 "load_kmz_successful" = "Favorite erfolgriich glade! Du chasch sie uf de Charte oder im Favorite-Manager aazeige.";
+/* Kml file loading failed */
 "load_kmz_failed" = "Lade vo de Favorite fehlgschlage. D Datei chönnt beschädigt oder defekt sii.";
+/* resource for context menu */
+"edit" = "Bearbeite";
+/* Warning message when doing search around current position */
 "unknown_current_position" = "Din Standort het nonig chönne ermittlet werde";
+/* Subject for emailed bookmark */
 "bookmark_share_email_subject" = "Hey, lueg dir mini Stecknadle uf de CoMaps-Charte aa!";
+/* Subject for emailed position */
 "my_position_share_email_subject" = "Hey, lueg dir min aktuelle Standort uf de CoMaps-Charte aa!";
+/* Share by email button text, also used in editor and About. */
 "email" = "E-Mail";
+/* Text for message to copy something */
+"copy_to_clipboard" = "I d Zwüscheablag kopiere";
+/* Text for message when used successfully copied something */
+"copied_to_clipboard" = "I d Zwüscheablag kopiert: %@";
+/* place preview title */
+"info" = "Info";
+/* Used for bookmark editing */
+"done" = "Fertig";
+/* Prints version number in About dialog */
+"version" = "CoMaps Version: %@";
+"version %@ (%@)" = "Version %@ (%@)";
+"version: %@ (%@)\nmap data: %@" = "Version: %@ (%@)\nChartedate: %@";
+/* Title for tracks category in bookmarks manager */
+"tracks_title" = "Tracks";
+/* Length of track in cell that describes route */
+"length" = "Längi";
 "share_my_location" = "Min Standort teile";
 "prefs_group_route" = "Navigation";
 "pref_zoom_title" = "Zoom-Taschtene";
+"pref_left_button_type" = "Lingge Hauptbutton";
+/* Settings «Map» category: «Map Language» title */
+"pref_maplanguage_title" = "Charte-Spraach";
+/* Settings «Map» category: «Map Language» local value */
+"pref_maplanguage_local" = "Lokali Spraach";
+/* Settings «Map» category: «Map Appearance» title */
+"pref_mapappearance_title" = "Chartedarstellig";
+/* Settings «Map» category: «Appearance» title */
+"pref_appearance_title" = "Erschiinigsbild";
+/* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_light" = "Hell";
+/* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
+"pref_appearance_dark" = "Dunkel";
+/* Generic «Disabled» string */
+"disabled" = "Deaktiviert";
+/* Generic «Off» string */
 "off" = "Uus";
+/* Generic «On» string */
 "on" = "Aa";
+/* Generic «Auto» string */
 "auto" = "Auto";
+/* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspektivischi Aasicht";
+/* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D-Gebäude";
+/* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
 "pref_map_3d_buildings_disabled_summary" = "3D-Gebäude werded im Energiesparmodus uusgschaltet";
+/* Settings «Route» category: «Tts enabled» title */
+"pref_tts_title" = "Sprachfüehrig";
+/* Settings «Route» category: «Tts enable» title */
 "pref_tts_enable_title" = "Sprachfüehrig aktiviere";
+/* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Strassenäme aakündige";
+/* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Wenn aktiviert, wird de Name vo de Strass oder Uusfahrt, wo abboge wird, luut aakündigt.";
+/* Settings «Route» category: «Tts language» title */
 "pref_tts_language_title" = "Sprach für d Sprachfüehrig";
+/* Settings «Route» category: «Test Voice Directions» title */
 "pref_tts_test_voice_title" = "Test d Sprachaawisige";
+/* Title for "Other" section in TTS settings. */
+"pref_tts_other_section_title" = "Wiiteri";
 "pref_map_auto_zoom" = "Auto-Zoom";
 "placepage_distance" = "Entfernig";
 "search_show_on_map" = "Uf de Charte aaluege";
+/* Text in menu */
 "website" = "Websiite";
+/* Text in About menu, opens CoMaps news website */
 "news" = "Neuigkeite";
+/* Text in the about screen */
+"social_codeberg" = "Codeberg";
+"social_mastodon" = "Mastodon";
+"social_lemmy" = "Lemmy";
+"social_matrix" = "Matrix";
+"social_bluesky" = "Bluesky";
+"social_pixelfed" = "Pixelfed";
+"social_email" = "E-Mail";
+/* Text in the editor */
+"fediverse" = "Mastodon";
+/* Text in menu */
 "facebook" = "Facebook";
+/* Text in menu */
 "twitter" = "X (Twitter)";
+/* Text in menu */
 "instagram" = "Instagram";
+/* Text in the editor */
 "vk" = "VK";
+/* Text in the editor */
+"line" = "Line";
+/* Text in the editor */
+"bluesky" = "Bluesky";
+/* Text in menu */
+"panoramax" = "Panoramax";
+/* Text in menu */
+"panoramax_picture" = "Panoramax Bild";
+/* Text in menu */
 "rate_the_app" = "Bewert d App";
+/* Text in menu */
 "help" = "Hilf";
+/* Button in the main Help dialog */
 "faq" = "Hüüfigi Frage und Antworte";
+/* Button in the main menu */
 "donate" = "Spende";
+/* Button in the main Help dialog */
+"copyright" = "Copyright";
+/* Text in menu + Button in the main Help dialog */
+"report_a_bug" = "App-Fehler melde";
+/* Button in the About screen */
+"report_incorrect_map_bug" = "Falschi Chartedate melde oder korrigiere";
+/* Button in the About screen */
+"volunteer" = "Freiwillig helfe und CoMaps verbessere";
+/* "Social media" section header in the About screen */
+"follow_us" = "Bliib in Kontakt";
+/* Alert text */
+"email_error_body" = "De Email-Client isch nonig iigrichtet worde. Konfigurier ihn bitte oder nutz en anderi Möglichkeit oder kontaktier eus under %@";
+/* Alert title */
+"email_error_title" = "Fehler bim Email-Versand";
+/* Toast text when user hides UI with a long tap anywhere on the map */
+"long_tap_toast" = "Tipp nomal lang uf d Charte, zum s Interface zgseh";
+/* Update all button text */
+"downloader_update_all_button" = "Alli aktualisiere";
+/* Downloaded maps list header */
+"downloader_downloaded_subtitle" = "Abeglade";
+/* Downloaded maps category */
+"downloader_available_maps" = "Verfüegbar";
+/* Country queued for download */
+"downloader_queued" = "I de Warteschlange";
+"downloader_near_me_subtitle" = "I minere Nöchi";
+/* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
+"downloader_status_maps" = "Charte";
+"downloader_download_all_button" = "Alli abelade";
 "downloader_downloading" = "Wird abeglade:";
+"downloader_search_results" = "Gfunde";
+/* Status of outdated country in the list */
+"downloader_status_outdated" = "Aktualisiere";
+/* Status of failed country in the list */
+"downloader_status_failed" = "Fehlgschlage";
+/* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
+"downloader_delete_map_while_routing_dialog" = "Zum Lösche vo de Charte bitte d Navigation unterbreche.";
+/* PointsInDifferentMWM */
+"routing_failed_cross_mwm_building" = "Es chönd nur Route erstellt werde, wo vollständig i einere einzige Charte enthalte sind.";
+/* Context menu item for downloader. */
+"downloader_download_map" = "Charte abelade";
+/* Item status in downloader. */
+"downloader_retry" = "Wiederhole";
+/* Item in context menu. */
+"downloader_delete_map" = "Charte lösche";
+/* Text for routing error dialog */
+"routing_download_maps_along" = "Charte entlang de Route abelade";
+/* Text for routing error dialog */
+"routing_requires_all_map" = "Zum Erstelle vonere Route müend alli Charte vo dim Standort bis zum Ziel abeglade und aktualisiert worde sii.";
+/* bookmark button text */
+"bookmark" = "Ort";
 "save" = "Speichere";
 "create" = "erstelle";
+/* red color */
 "red" = "Rot";
+/* yellow color */
 "yellow" = "Gääl";
+/* blue color */
 "blue" = "Blau";
+/* green color */
 "green" = "Grüen";
+/* purple color */
 "purple" = "Violett";
+/* orange color */
 "orange" = "Orange";
+/* brown color */
 "brown" = "Bruun";
-"panoramax" = "Panoramax";
+/* pink color */
 "pink" = "Rosa";
+/* deep purple color */
 "deep_purple" = "Dunkelpurpur";
+/* light blue color */
 "light_blue" = "Hellblau";
+/* cyan color */
 "cyan" = "Blaugrüen";
+/* teal color */
 "teal" = "Smaragdgrüen";
+/* lime color */
 "lime" = "Limette";
+/* deep orange color */
+"deep_orange" = "Dunkelorange";
+/* gray color */
+"gray" = "Grau";
+/* blue gray color */
+"blue_gray" = "Graublau";
+"dialog_routing_disclaimer_title" = "Wenn du de Route folgsch, beacht bitte:";
 "dialog_routing_disclaimer_priority" = "– De Zuestand vo de Strasse, d Verchehrsregle und Strasseschilder hend stets Vorrang vor de Navigationsaawisige;";
 "dialog_routing_disclaimer_precision" = "– D Charte chan ungenau sii und di vorgschlagni Route isch eventuell nöd de optimali Weg, zum s Ziel erreiche;";
 "dialog_routing_disclaimer_recommendations" = "– Di vorgschlagne Route sind als Empfehlig z vertah;";
 "dialog_routing_disclaimer_borders" = "– Bitte bis vorsichtig bi Route i Grenzgebiet: d Route, wo eusi App erstellt, chönd mengisch Landesgrenze i gsperrte Gebiet überschriite.";
 "dialog_routing_disclaimer_beware" = "Bitte fahr uufmerksam und sicher!";
+"dialog_routing_check_gps" = "GPS-Signal prüefe";
 "dialog_routing_error_location_not_found" = "Route cha nöd erstellt werde. Aktuelli GPS-Koordinate hend nöd chönne ermittlet werde.";
 "dialog_routing_location_turn_wifi" = "Bitte prüef dis GPS-Signal. WLAN verbessert dini Standortgenauigkeit.";
+"dialog_routing_location_turn_on" = "Standortdienst aktiviere";
 "dialog_routing_location_unknown_turn_on" = "Aktuelli GPS-Koordinate chönd nöd ermittlet werde. Aktivier d Standortdienst, zum d Route z berechne.";
+"dialog_routing_download_files" = "Erforderlichi Dateie abelade";
+"dialog_routing_download_and_update_all" = "Lad alli Charte- und Routeinformatione für de planti Weg abe oder aktualisier sie, zum d Route z berechne.";
 "dialog_routing_unable_locate_route" = "Route cha nöd ermittlet werde";
 "dialog_routing_change_start_or_end" = "Bitte pass din Startpunkt oder dis Ziil a.";
+"dialog_routing_change_start" = "Startpunkt aapasse";
 "dialog_routing_start_not_determined" = "Route isch nöd erstellt worde. Startpunkt cha nöd gfunde werde.";
 "dialog_routing_select_closer_start" = "Bitte wähl en Startpunkt, wo nöcher anere Strass liit.";
 "dialog_routing_change_end" = "Ziil aapasse";
@@ -205,16 +337,28 @@
 "dialog_routing_try_again" = "Bitte versuechs nomal";
 "dialog_routing_download_and_build_cross_route" = "Willsch d Charte abelade und e besseri Route erstelle, wo meh als ei Charte umfasst?";
 "dialog_routing_download_cross_route" = "Lad zuesätzlichi Charte abe, zum e besseri Route z erstelle, wo d Grenze vo dere Charte überschritet.";
+/* «Show» context menu */
 "show" = "Aazeige";
+/* «Hide» context menu */
 "hide" = "Uusblende";
+/* Failed planning route message in navigation view */
+"routing_planning_error" = "Routeplanig fehlgschlage";
+/* Arrive routing message in navigation view */
+"routing_arrive" = "Aakunft: %@";
+/* Text for routing::RouterResultCode::FileTooOld dialog. */
+"dialog_routing_download_and_update_maps" = "Zum Erstelle vonere Route muesch du all Charte abelade oder aktualisiere, wo d Route druf liit.";
 "categories" = "Kategorie";
 "history" = "Verlauf";
 "search_not_found" = "Leider isch nüt gfunde worde.";
+/* The message when user did not find anything in the search. */
 "search_not_found_query" = "Lad d Region abe, wo du drin suechsch, oder tue de Name vonere nöch glegene Stadt oder Dorf dezue.";
 "search_history_title" = "Suechverlauf";
 "search_history_text" = "Da werded dini letschte Suechaafrage aazeigt.";
 "clear_search" = "Suechverlauf lösche";
+/* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Wikipedia";
+/* Place Page link to Wikimedia Commons. */
+"wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Din Standort";
 "p2p_start" = "Start";
 "p2p_from_here" = "Vo";
@@ -223,6 +367,7 @@
 "p2p_reroute_from_current" = "Sött e Route vo dim aktuelle Standort uus berechnet werde?";
 "editor_time_add" = "Ziitplan hinzuefüege";
 "editor_time_delete" = "Ziitplan lösche";
+/* Text for allday switch. */
 "editor_time_allday" = "Ganztägig (24 Stund)";
 "editor_time_open" = "Offe";
 "editor_time_close" = "Gschlosse";
@@ -233,117 +378,271 @@
 "editor_hours_closed" = "Schlüüsziite";
 "editor_example_values" = "Biispiil";
 "editor_add_select_location" = "Standort uuswähle";
+"editor_done_dialog_1" = "Du hesch d Weltcharte gänderet. Bhalt das nöd für dich! Verzell dine Fründe devo und bearbeited sie zemme.";
+"share_with_friends" = "Mit Fründe teile";
+"editor_report_problem_send_button" = "Sende";
 "autodownload" = "Charte automatisch abelade";
+/* Voice */
+"voice" = "Stimm";
+"voice_explanation" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* e besseri Stimm uuszwähle.";
+"voice_explanation_before_version26" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* e besseri Stimm uuszwähle.";
+"unknown" = "Unbekantt";
+/* Place page confirmation messages and time ago formatting */
+"existence_confirmed_time_ago" = "Existenz bestätigt %@";
+"hours_confirmed_time_ago" = "Bestätigt %@";
+/* Place Page opening hours text */
+"closed_now" = "Jetzt zue";
+/* Place Page opening hours text */
 "daily" = "Täglich";
 "twentyfour_seven" = "24/7";
+"day_off_today" = "Hüt zue";
+"day_off" = "Zue";
+"today" = "Hüt";
+"opens_tomorrow_at" = "Öffnet morn am %@";
+"opens_dayoftheweek_at" = "Öffnet %1$@ am %2$@";
+"opens_at" = "Öffnet am %@";
+"opens_in" = "Öffnet i %@";
+"closes_at" = "Schlüsst am %@";
+"closes_in" = "Schlüüst i %@";
+"closed" = "Zue";
+"add_opening_hours" = "Öffnigsziite hinzuefüege";
+/* OpenStreetMap */
+"osm_mapdata" = "Chartedate vo OpenStreetMap";
+"osm_mapdata_explanation %@" = "Vo de Community erstellti Chartedate vom *%@*. Erfahr meh drüber, wie du d Charte bearbeite und aktualisiere chasch under [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_more_about" = "Meh Informatione über OpenStreetMap";
+"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/DE:Über_OSM";
+/* OpenStreetMap Profile */
+"osm_profile" = "OpenStreetMap-Profil";
+"osm_profile_promt" = "Erstell es OpenStreetMap-Konto oder meld dich a, zum dini Chartebearbeitige weltwiit z veröffentliche.";
+"osm_profile_explanation" = "OpenStreetMap.org (OSM) isch es Gmeinschaftsprojekt zum Erstelle vonere freie und offene Charte. Es isch d Hauptquelle für Chartedate in CoMaps und funktioniert ähnlich wie Wikipedia. Du chasch Ort hinzuefüege oder bearbeite, wo denn Millione vo Nutzende uf de ganze Welt zur Verfüegig stönd.\nTritt de Gmeinschaft bii und hilf mit, d Charte für alli besser z mache!";
+"osm_profile_login" = "OpenStreetMap-Konto aamelde";
+"osm_profile_reauthorize_promt" = "S OpenStreetMap-Konto isch vo dere App trennt worde";
+"osm_profile_reauthorize" = "OpenStreetMap-Konto neu verbinde";
+"osm_profile_remove_promt" = "Wenn du dis Konto nöd neu verbinde chasch oder willsch, chasch es eifach us dere App entferne";
+"osm_profile_remove" = "OpenStreetMap-Konto entferne";
+"osm_profile_register_promt" = "Keis Konto bi OpenStreetMap?";
+"osm_profile_register" = "Bi OpenStreetMap registriere";
+"osm_profile_verfied_changes" = "Bestätigti Änderige a de Charte";
+"osm_profile_view_edit_history" = "Bearbeitigsverlauf aaluege";
+"osm_profile_view_notes" = "Notize aaluege";
+"osm_profile_logout" = "OpenStreetMap-Konto abmelde";
+"osm_profile_delete" = "OpenStreetMap-Konto lösche";
+/* Information text: "Last upload 11.01.2016" */
+"last_upload" = "Z letscht ufeglade";
+"thank_you" = "Danke";
 "edit_place" = "Iitrag bearbeite";
+"place_name" = "Name vom Ort";
 "add_language" = "E Spraach hinzuefüege";
+/* Editable House Number text field (in address block). */
 "house_number" = "Huusnummere";
 "details" = "Details";
+/* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "E Strass hinzuefüege";
 "choose_language" = "E Spraach wähle";
 "choose_street" = "E Strass wähle";
 "postal_code" = "Postleitzahl";
 "cuisine" = "Chuchi";
 "select_cuisine" = "Chuchi uuswähle";
+/* login text field */
 "email_or_username" = "E-Mail oder Benutzername";
+"phone" = "Telefon";
 "level" = "Etage";
+"please_note" = "Bitte beachte";
 "downloader_delete_map_dialog" = "Alli Charteänderige werded zemme mit de Charte glöscht.";
 "downloader_update_maps" = "Charte aktualisiere";
 "downloader_search_field_hint" = "Charte finde";
+"migration_download_error_dialog" = "Fehler bim Abelade";
 "common_check_internet_connection_dialog" = "Bitte überprüef dini Iistellige und stell sicher, dass dis Grät mit em Internet verbunde isch.";
 "downloader_no_space_title" = "Nöd gnueg Speicherplatz";
+"downloader_no_space_message" = "Bitte lösch unnötigi Date";
 "editor_profile_changes" = "Bestätigti Änderige a de Charte";
 "editor_focus_map_on_location" = "Verschieb d Charte, zum s Chrüz a de Stell z platziere, wo sich de Ort oder s Gschäft befindet.";
+"editor_add_select_category" = "Kategorie uuswähle";
+"editor_add_select_category_popular_subtitle" = "Beliebt";
+"editor_add_select_category_all_subtitle" = "Alli Kategorie";
 "editor_edit_place_title" = "Wird bearbeitet";
 "editor_add_place_title" = "Wird hinzuegfüegt";
 "editor_edit_place_name_hint" = "Name vom Ort";
+/* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "Wie i de lokale Spraach gschribe";
 "editor_edit_place_category_title" = "Kategorie";
+"whatsnew_editor_message_1" = "Füeg uf de Charte en neue Ort hinzue oder bearbeit existierendi Ort direkt i de App.";
+"dialog_incorrect_feature_position" = "Standort wechsle";
+"message_invalid_feature_position" = "Es Objekt cha da nöd positioniert werde";
+/* Error dialog no space */
+"migration_no_space_message" = "Zum Abelade bruchsch meh Platz. Bitte lösch unnötigi Date.";
+"editor_sharing_title" = "Ich ha d CoMaps-Charte verbesseret";
+/* Downloaded 10 **of** 20 <- it is that "of" */
+"downloader_of" = "%1$d vo %2$d";
 "download_over_mobile_header" = "Über e Mobilfunktnetzverbindig abelade?";
 "download_over_mobile_message" = "Das chönnt mit gwüssne Tarif oder bim Roaming sehr tüür werde.";
 "error_enter_correct_house_number" = "Richtigi Huusnummere iigeh";
+"editor_storey_number" = "Aazahl vo de Etage (maximal %d)";
+/* Error message in Editor when a user tries to set the number of floors for a building higher than %d floors */
 "error_enter_correct_storey_number" = "S Gebäude cha nöd meh als %d Etage ha";
 "editor_zip_code" = "Postleitzahl";
 "error_enter_correct_zip_code" = "Gib die richtigi Postleitzahl ii";
+/* Place Page title for long tap */
 "core_placepage_unknown_place" = "Chartepunkt";
+/* Title for OSM note section in the editor */
 "editor_other_info" = "Hiiwiis a Freiwilligi vo OpenStreetMap (optional)";
+"editor_detailed_description_hint" = "Uusfüehrliche Kommentar";
+"editor_detailed_description" = "Dini Änderigsvorschläg für d Charte werded a OpenStreetMap gschickt: Beschriib Details vo de Objekt, wo in CoMaps nöd chönd bearbeitet werde.";
 "editor_more_about_osm" = "Meh Informatione über OpenStreetMap";
 "editor_operator" = "Betriiber";
+/* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
+"operator" = "Betriiber: %@";
 "editor_category_unsuitable_title" = "Kei passendi Kategorie gfunde?";
+"editor_category_unsuitable_text" = "Mit CoMaps cha mer nur eifachi Punktkategorie hinzuefüege, drum kei Städt, Strasse, See, Gebäudeumriss etc. Bitte füeg sottigi Kategorie direkt bi <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a> hinzue. I eusem <a href=\"https://www.comaps.app/support/advanced-map-editing/\">Leitfade</a> findsch du e detaillierti Schritt-für-Schritt-Aaleitig.";
 "downloader_no_downloaded_maps_title" = "Kei Charte abeglade";
 "downloader_no_downloaded_maps_message" = "Lad Charte für d Offline-Suechi und Navigation abe.";
 "current_location_unknown_error_title" = "Aktuelle Standort isch unbekannt.";
+"current_location_unknown_error_message" = "Bi de Standortsuechi isch en unbekannte Fehler uftrete. Prüef d Funktionstüchtigkeit vo dim Grät und versuechs chli spöter nomal.";
+"location_services_disabled_header" = "Standortdienst sind deaktiviert";
+"location_services_disabled_message" = "Aktivier de Zuegang zur Positionsbestimmig i de Grätiistellige";
+"location_services_disabled_1" = "1. Iistellige öffne";
+"location_services_disabled_2" = "2. Uf Standort tippe";
+/* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
+"location_services_disabled_3" = "3. Wähl „Beim Verwenden der App“";
+"location_services_disabled_on_device_2" = "2. Datenschutz uuswähle";
+"location_services_disabled_on_device_3" = "3. Wähl Standortdienste";
+"location_services_disabled_on_device_4" = "4. Standortdienste iischalte";
+"location_services_disabled_on_device_additional_message" = "Oder nutz CoMaps wiiterhin ohni Standort";
+/* abbreviation for meters */
 "m" = "m";
+/* abbreviation for kilometers */
 "km" = "km";
+/* abbreviation for kilometers per hour */
 "kilometers_per_hour" = "km/h";
+/* abbreviation for mile(s) */
 "mi" = "mi";
+/* A unit of measure */
 "ft" = "ft";
+"miles_per_hour" = "mph";
 "hour" = "h";
 "minute" = "min";
 "day" = "d";
 "placepage_more_button" = "Meh";
+"book_button" = "Bueche";
+"placepage_call_button" = "Aalüüte";
+"placepage_edit_bookmark_button" = "Gspeicherte Ort bearbeite";
+"placepage_bookmark_name_hint" = "Name vom Ort";
 "placepage_personal_notes_hint" = "Persönlichi Notize (Text oder HTML)";
+"placepage_delete_bookmark_button" = "Ort lösche";
+"editor_edits_sent_message" = "Dini Notiz wird a OpenStreetMap gschickt";
 "editor_comment_hint" = "Kommentar…";
 "editor_reset_edits_message" = "Alli lokale Änderige verwerfe?";
 "editor_reset_edits_button" = "Änderige verwerfe";
 "editor_remove_place_message" = "Hinzuegfüegts Objekt lösche?";
 "editor_remove_place_button" = "Lösche";
 "editor_place_doesnt_exist" = "De Ort existiert nöd";
+"editor_place_doesnt_exist_description" = "Beschrib wie de Ort jetzt usgseht zum e Fehlermeldig a d OpenStreetMap Community z schicke";
+"text_more_button" = "…meh";
+/* Phone number error message */
 "error_enter_correct_phone" = "Gib e gültigi Telefonnummere ii";
 "error_enter_correct_web" = "Gib e gültigi Internetadresse ii";
 "error_enter_correct_email" = "Gib e gültigi E-Mail-Adresse ii";
+"refresh" = "Aktualisiere";
 "placepage_add_place_button" = "Ort zu OpenStreetMap hinzuefüege";
+/* Displayed when saving some edits to the map to warn against publishing personal data */
 "editor_share_to_all_dialog_title" = "A alli Benutzer sende?";
+/* Dialog before publishing the modifications to the public map. */
 "editor_share_to_all_dialog_message_1" = "Stell sicher, dass du kei persönlichi oder privati Date iigeh hesch.";
 "editor_share_to_all_dialog_message_2" = "Freiwilligi vo OpenStreetMap werded dini Änderige prüefe und sich bi Frage mit dir in Verbindig setze.";
 "navigation_stop_button" = "Beende";
+/* iOS dialog for the case when recent track recording is on and the app comes back from background */
+"recent_track_background_dialog_title" = "Uufzeichnig vo dinere chürzlich gfahrene Route deaktiviere?";
+"off_recent_track_background_button" = "Deaktiviere";
+/* For sharing via SMS and so on */
+"sharing_call_action_look" = "Naaluege";
+"recent_track_background_dialog_message" = "CoMaps nutzt dini Geoposition im Hintergrund, zum dini chürzlich gfahreni Route uufzneh.";
+"general_settings" = "Allgemeini Iistellige";
+/* For the first routing */
 "accept" = "Aaneh";
+/* For the first routing */
 "decline" = "Ablehne";
 "mobile_data_dialog" = "Mobils Internet verwende, zum genaueri Informatione aazzeige?";
 "mobile_data_option_always" = "Immer verwende";
 "mobile_data_option_today" = "Nur hüt";
 "mobile_data_option_not_today" = "Hüt nöd verwende";
+"mobile_data" = "Mobils Internet";
+/* NOTE to translators: please synchronize your translation with the English one. */
 "mobile_data_description" = "Für Benachrichtigunge über Charteaktualisierige und s Ufelade vo Änderige isch e mobili Internetverbindig erforderlich.";
 "mobile_data_option_never" = "Nie verwende";
 "mobile_data_option_ask" = "Immer fröge";
 "traffic_update_maps_text" = "Zum Verchehrsdate aazzeige, müend d Charte aktualisiert werde.";
 "big_font" = "Schrift uf de Charte vergrössere";
+/* "traffic" as in road congestion */
+"traffic_update_app_message" = "Zum Aazeige vo Verchehrsdate muess d Awendig aktualisiert werde.";
+/* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Verchehrsdate sind nöd verfüegbar";
 "enable_logging" = "Protokollierig aktiviere";
+"log_file_size" = "Grössi vo de Protokolldatei: %@";
+"pref_alt_map_lang_handling" = "Alternativi Charte-Spraache";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_system_order" = "I de Systemreihefolg nutze";
+"pref_alt_map_lang_handling_local_only" = "Bevorzuge und nur nutze, wenns die lokali Spraach isch";
 "transliteration_title" = "Transliteration is latiinische Alphabet";
+"transliteration_title_disabled_summary" = "Bi de Nutzig vo de lokale Spraach für d Charte uusgschaltet";
+/* Subway exits for public transport marks on the map */
 "core_exit" = "Uusgang";
+/* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Nutz d Suechi oder tipp uf d Charte, zum en Routestartpunkt hinzuezfüege";
+/* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
 "routing_add_finish_point" = "Nutz d Suechi oder tipp uf d Charte, zum en Ziilpunkt hinzuezfüege";
 "planning_route_manage_route" = "Route verwalte";
 "button_plan" = "Plane";
 "placepage_remove_stop" = "Stopp entferne";
+"planning_route_remove_title" = "Dahi zieh zum Entferne";
 "placepage_add_stop" = "Stopp hinzuefüege";
+"start_from_my_position" = "Starte vo";
+/* Title for button when a route was saved. */
+"saved" = "Gspeicheret";
 "core_entrance" = "Iigang";
 "error_enter_correct_name" = "Bitte gib en korrekte Name ii";
 "bookmark_lists" = "Lischtene";
+/* Do not display all bookmark lists on the map */
 "bookmark_lists_hide_all" = "Alli uusblende";
 "bookmark_lists_show_all" = "Alli aazeige";
 "bookmarks_create_new_group" = "Neui Lischte erstelle";
+/* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
 "bookmarks_import" = "Favorite importiere";
+"downloader_hide_screen" = "Bildschirm uusblende";
+"downloader_percent" = "%@ (%@ vo %@)";
+"downloader_process" = "%@ abeglade…";
+"downloader_applying" = "%@ aawende…";
 "bookmarks_error_message_share_general" = "Teile weg emne Aawendigsfehler nöd möglich";
 "bookmarks_error_title_share_empty" = "Fehler bim Teile";
 "bookmarks_error_message_share_empty" = "E leeri Lischte cha nöd teilt werde";
 "bookmarks_error_message_empty_list_name" = "Bitte gib en Lischtename ii";
 "bookmarks_error_title_list_name_already_taken" = "De Name isch scho vergeh";
+"bookmarks_error_title_list_name_too_long" = "De Name isch z lang";
 "profile" = "OpenStreetMap-Profil";
+"bookmarks_detect_title" = "Neui Dateie erchennt";
+"button_convert" = "Konvertiere";
+"bookmarks_convert_error_title" = "Fehler";
+"bookmarks_convert_error_message" = "Einigi Dateie sind nöd konvertiert worde.";
 "restore" = "Wiederherstelle";
 "privacy_policy" = "Dateschutzerchlärig";
 "terms_of_use" = "Nutzigsbedingige";
+"button_layer_subway" = "U-Bahn";
 "layers_title" = "Chartestil und Ebene";
 "subway_data_unavailable" = "D U-Bahncharte staht nöd zur Verfüegig";
+"title_error_downloading_bookmarks" = "Es isch en Fehler uftrete";
+"popular_place" = "Beliebt";
 "export_file" = "KMZ exportiere";
 "export_file_gpx" = "GPX exportiere";
 "delete_list" = "Lischte lösche";
+"hide_from_map" = "Uf de Charte uusblende";
+"tags_loading_error_subtitle" = "Während em Lade vo de Tags isch en Fehler uftrete, bitte versuechs nomal";
+"download_button" = "Abelade";
 "speedcams_alert_title" = "Blitzer";
 "place_description_title" = "Ortsbeschriibig";
+/* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
 "pref_tts_speedcams_auto" = "Warne wenn z schnell";
+/* Speed camera settings menu option - Always warn (about speedcams) */
 "pref_tts_speedcams_always" = "Immer warne";
+/* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Nie warne";
 "power_managment_title" = "Stromsparmodus";
 "power_managment_description" = "Versuech, de Stromverbruuch uf Choschte wo einige Funktione z reduziere.";
@@ -352,8 +651,13 @@
 "power_managment_setting_manual_max" = "Immer";
 "enable_logging_warning_message" = "Aktivier die Option ziitwiis, zum manuell Aktivitäte zwecks Diagnostik uufzzeichne und z schicke. Das hilft eusem Team, Problem mit de App z erchenne. Aktivier die Option, reproduzier s Problem und schick denn d Protokoll über de Chnopf \"Fehler melde\" a eus.";
 "driving_options_title" = "Routeoptione";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_tolls" = "Mautstrasse vermiide";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_unpaved" = "Unbefestigti Strasse miide";
+"avoid_paved" = "Befestigti Strasse miide";
+/* Recommended length for CarPlay and Android Auto is around 25-27 characters */
+"avoid_steps" = "Stäge vermiide";
 "avoid_ferry" = "Fähre miide";
 "avoid_motorways" = "Autobahne miide";
 "unable_to_calc_alert_title" = "Route cha nöd berechnet werde";
@@ -363,12 +667,49 @@
 "toll_road" = "Mautstrass";
 "unpaved_road" = "Unbefestigti Strass";
 "ferry_crossing" = "Fährstell";
+"trip_start" = "Losfahre";
+"pick_destination" = "Ziel";
+"follow_my_position" = "Zentriere";
+"search_results" = "Suechergebnis";
+"then_turn" = "Denaa";
+"redirect_route_alert" = "Willsch d Route neu erstelle?";
+/* A generic "Yes" button in dialogs */
 "yes" = "Ja";
+/* A generic "No" button in dialogs */
 "no" = "Nei";
+/* E.g. "WiFi:Yes" */
 "yes_available" = "Ja";
+/* E.g. "WiFi:No" */
 "no_available" = "Nei";
+/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
+"capacity" = "Kapazität: %@";
+/* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
+"network" = "Netzwerk: %@";
 "trip_finished" = "Du bisch aacho!";
+"keyboard_availability_alert" = "D Tastatur isch unterwegs nöd verfüegbar";
+"dialog_routing_change_start_carplay" = "Vom aktuelle Standort uus cha kei Route erstellt werde";
+"dialog_routing_change_end_carplay" = "Zu dem Endpunkt cha kei Route erstellt werde. Bitte wähl en andere Endpunkt";
+"dialog_routing_check_gps_carplay" = "Keis GPS-Signal. Gah uf s offnige Gländ";
+"dialog_routing_unable_locate_route_carplay" = "Es cha kei Route erstellt werde. Bitte wähl anderi Routepünkt";
+"dialog_routing_download_files_carplay" = "Lad die fehlende Charte abe, zum d Route z erstelle";
+"dialog_routing_system_error_carplay" = "Es isch en Fehler uftrete. Bitte start d App neu";
+"dialog_routing_rebuild_from_current_location_carplay" = "D Route wird vo dim derziitige Standort uus neu erstellt werde";
+"dialog_routing_rebuild_for_vehicle_carplay" = "D Route wird zunere Route für Fahrzüüg gänderet";
+"not_all_shown_bookmarks_carplay" = "Es werded nöd all Lesezeiche aazeigt";
+"switch_to_phone_bookmarks_carplay" = "Wechsle uf s Telefon zum alli Lesezeiche z gseh";
+"ok" = "OK";
+"speedcams_alert_title_carplay_1" = "Blitzer";
+"speedcams_alert_title_carplay_2" = "Blitzerwarnig";
+"download_map_carplay" = "Lad Charte i de App CoMaps uf dim Grät abe";
+"carplay_roundabout_exit" = "%@ Uusfahrt";
+/* max. 10 symbols, both iOS and Android */
 "sort" = "Sortiere…";
+/* iOS */
+"sort_default" = "Nach Voriistellig sortiere";
+"sort_type" = "Nach Kategorie sortiere";
+"sort_distance" = "Nach Entfernig sortiere";
+"sort_date" = "Nach Datum sortiere";
+"sort_name" = "Nach Name sortiere";
 "week_ago_sorttype" = "Vor einere Wuche";
 "month_ago_sorttype" = "Vor eim Monet";
 "moremonth_ago_sorttype" = "Vor über eim Monet";
@@ -378,9 +719,11 @@
 "food_places" = "Esse";
 "tourist_places" = "Sehenswürdigkeite";
 "museums" = "Musee";
+"parks" = "Parks";
 "swim_places" = "Schwümmmöglichkeite";
 "mountains" = "Berge";
 "animals" = "Tier";
+"hotels" = "Hotels";
 "buildings" = "Gebäude";
 "money" = "Geld";
 "shops" = "Ladegschäft";
@@ -395,209 +738,135 @@
 "button_layer_isolines" = "Höhelinie";
 "isolines_activation_error_dialog" = "Zum d Höhelinie chönne nutze, aktualisier d Charte vom betroffene Gebiet oder lad sie abe";
 "isolines_location_error_dialog" = "D Topografieebeni isch für das Gebiet nonig verfüegbar";
-"elevation_profile_ascent" = "Berguf";
-"elevation_profile_descent" = "Bergab";
-"elevation_profile_max_elevation" = "Max. Höchi";
-"isolines_toast_zooms_1_10" = "Charte vergrössere, zum d Höhelinie sichtbar z mache";
-"downloader_loading_ios" = "Wird abeglade";
-"app_tip_00" = "Danke, dass du eusi vo de Community erstellte Charte bruuchsch!";
-"app_tip_01" = "Mit dinere Spend und dinere Unterstützig chönd mir die beste Charte vo de Welt erstelle!";
-"capacity" = "Kapazität: %@";
-"network" = "Netzwerk: %@";
-"translated_om_site_url" = "https://www.comaps.app/gsw/";
-"app_tip_02" = "Gfallt dir eusi App? Bitte spend, zum d Entwicklig z unterstütze! Gfallts dir nonig? Bitte lass es eus wüsse und mir werded s Problem behebe!";
-"app_tip_03" = "Wenn du en Softwareentwickler kennsch, chasch du ihn oder sie bitte, e Funktion z implementiere, wo du bruuchsch.";
-"app_tip_04" = "Tipp irgendwo uf d Charte, zum öppis uuszwähle. Tipp lang, zum d Oberflächi uus- und wieder iizblende.";
-"app_tip_05" = "Scho gwüsst, dass du din aktuelle Standort uf de Charte uuswähle chasch?";
-"app_tip_06" = "Du chasch debi helfe, eusi App i dini Spraach z übersetze.";
-"app_tip_07" = "Eusi App wird vo einige Enthusiaste und de Community entwicklet.";
-"app_tip_08" = "Du chasch d Chartedate eifach korrigiere und verbessere.";
-"app_tip_09" = "Euses Hauptziel ischs, schnelli, dateschutzorientierti und benutzerfründlichi Charte z erstelle, wo du wirsch liebe.";
-"car_used_on_the_phone_screen" = "Du verwendsch jetzt CoMaps uf dim Telefondisplay";
-"car_used_on_the_car_screen" = "Du verwendsch jetzt CoMaps uf em Bildschirm vom Auto";
-"car_continue_on_the_phone" = "Wiiter am Telefon";
-"car_continue_in_the_car" = "Zum Autobildschirm";
-"bookmarks_export" = "Alli Favorite exportiere";
-"drive_through" = "Drive-trough";
-"website_menu" = "Link zur Spiischarte";
-"open_in_app" = "Inere andere App öffne";
-"self_service" = "Selbschtbedienig";
-"outdoor_seating" = "Sitzplätz im Freie";
-"clear" = "Lösche";
-"start_track_recording" = "Strecki uufzeichne";
-"stop_track_recording" = "Streckeuufzeichnig stoppe";
-"stop_without_saving" = "Ohni Speichere beende";
-"continue_recording" = "Uufnahm fortsetze";
-"track_recording_alert_title" = "I d Favorite speichere?";
-"track_recording_toast_nothing_to_save" = "Route isch leer – nüt z speichere";
-"edit_track" = "Track bearbeite";
-"use_cellular_data" = "Ja";
-"panoramax_picture" = "Panoramax Bild";
-"country_status_download_without_size" = "Charte abelade";
-"osm_profile_promt" = "Erstell es OpenStreetMap-Konto oder meld dich a, zum dini Chartebearbeitige weltwiit z veröffentliche.";
-"osm_more_about" = "Meh Informatione über OpenStreetMap";
-"osm_profile" = "OpenStreetMap-Profil";
-"osm_profile_explanation" = "OpenStreetMap.org (OSM) isch es Gmeinschaftsprojekt zum Erstelle vonere freie und offene Charte. Es isch d Hauptquelle für Chartedate in CoMaps und funktioniert ähnlich wie Wikipedia. Du chasch Ort hinzuefüege oder bearbeite, wo denn Millione vo Nutzende uf de ganze Welt zur Verfüegig stönd.\nTritt de Gmeinschaft bii und hilf mit, d Charte für alli besser z mache!";
-"osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/DE:Über_OSM";
-"editor_storey_number" = "Aazahl vo de Etage (maximal %d)";
 "elevation_profile_diff_level" = "Aaspruchsniveau";
-"icloud_synchronization_error_cloud_is_unavailable" = "Fehler: iCloud isch nöd verfüegbar";
-"enable" = "Aktiviere";
-"backup" = "Sicherig";
-"icloud_synchronization_error_alert_title" = "iCloud-Synchronisierig fehlgschlage";
-"icloud_synchronization_error_connection_error" = "Fehler: Synchronisierig wegemne Verbindigsfehler fehlgschlage";
-"icloud_synchronization_error_quota_exceeded" = "Fehler: Synchronisierig fehlgschlage, will iCloud-Kontingent überschritte";
-"osm_profile_reauthorize_promt" = "S OpenStreetMap-Konto isch vo dere App trennt worde";
-"osm_profile_reauthorize" = "OpenStreetMap-Konto neu verbinde";
-"osm_profile_remove_promt" = "Wenn du dis Konto nöd neu verbinde chasch oder willsch, chasch es eifach us dere App entferne";
-"osm_profile_remove" = "OpenStreetMap-Konto entferne";
-"osm_profile_view_edit_history" = "Bearbeitigsverlauf aaluege";
-"osm_profile_view_notes" = "Notize aaluege";
-"osm_profile_logout" = "OpenStreetMap-Konto abmelde";
-"osm_profile_delete" = "OpenStreetMap-Konto lösche";
-"last_upload" = "Z letscht ufeglade";
-"thank_you" = "Danke";
-"place_name" = "Name vom Ort";
-"please_note" = "Bitte beachte";
-"migration_download_error_dialog" = "Fehler bim Abelade";
-"editor_add_select_category" = "Kategorie uuswähle";
-"editor_add_select_category_popular_subtitle" = "Beliebt";
-"editor_add_select_category_all_subtitle" = "Alli Kategorie";
-"whatsnew_editor_message_1" = "Füeg uf de Charte en neue Ort hinzue oder bearbeit existierendi Ort direkt i de App.";
-"dialog_incorrect_feature_position" = "Standort wechsle";
-"migration_no_space_message" = "Zum Abelade bruchsch meh Platz. Bitte lösch unnötigi Date.";
-"editor_sharing_title" = "Ich ha d CoMaps-Charte verbesseret";
-"editor_detailed_description_hint" = "Uusfüehrliche Kommentar";
-"editor_detailed_description" = "Dini Änderigsvorschläg für d Charte werded a OpenStreetMap gschickt: Beschriib Details vo de Objekt, wo in CoMaps nöd chönd bearbeitet werde.";
-"current_location_unknown_error_message" = "Bi de Standortsuechi isch en unbekannte Fehler uftrete. Prüef d Funktionstüchtigkeit vo dim Grät und versuechs chli spöter nomal.";
-"location_services_disabled_header" = "Standortdienst sind deaktiviert";
-"location_services_disabled_message" = "Aktivier de Zuegang zur Positionsbestimmig i de Grätiistellige";
-"location_services_disabled_1" = "1. Iistellige öffne";
-"location_services_disabled_3" = "3. Wähl „Beim Verwenden der App“";
-"location_services_disabled_on_device_2" = "2. Datenschutz uuswähle";
-"location_services_disabled_on_device_3" = "3. Wähl Standortdienste";
-"location_services_disabled_on_device_4" = "4. Standortdienste iischalte";
-"location_services_disabled_on_device_additional_message" = "Oder nutz CoMaps wiiterhin ohni Standort";
-"book_button" = "Bueche";
-"placepage_call_button" = "Aalüüte";
-"placepage_bookmark_name_hint" = "Name vom Ort";
-"placepage_delete_bookmark_button" = "Ort lösche";
-"editor_edits_sent_message" = "Dini Notiz wird a OpenStreetMap gschickt";
-"text_more_button" = "…meh";
-"refresh" = "Aktualisiere";
-"recent_track_background_dialog_title" = "Uufzeichnig vo dinere chürzlich gfahrene Route deaktiviere?";
-"off_recent_track_background_button" = "Deaktiviere";
-"sharing_call_action_look" = "Naaluege";
-"recent_track_background_dialog_message" = "CoMaps nutzt dini Geoposition im Hintergrund, zum dini chürzlich gfahreni Route uufzneh.";
-"traffic_update_app_message" = "Zum Aazeige vo Verchehrsdate muess d Awendig aktualisiert werde.";
-"log_file_size" = "Grössi vo de Protokolldatei: %@";
-"planning_route_remove_title" = "Dahi zieh zum Entferne";
-"start_from_my_position" = "Starte vo";
-"downloader_hide_screen" = "Bildschirm uusblende";
-"downloader_percent" = "%@ (%@ vo %@)";
-"downloader_process" = "%@ abeglade…";
-"downloader_applying" = "%@ aawende…";
-"bookmarks_error_title_list_name_too_long" = "De Name isch z lang";
-"bookmarks_detect_title" = "Neui Dateie erchennt";
-"button_convert" = "Konvertiere";
-"bookmarks_convert_error_title" = "Fehler";
-"bookmarks_convert_error_message" = "Einigi Dateie sind nöd konvertiert worde.";
-"title_error_downloading_bookmarks" = "Es isch en Fehler uftrete";
-"popular_place" = "Beliebt";
-"hide_from_map" = "Uf de Charte uusblende";
-"tags_loading_error_subtitle" = "Während em Lade vo de Tags isch en Fehler uftrete, bitte versuechs nomal";
-"trip_start" = "Losfahre";
-"pick_destination" = "Ziel";
-"follow_my_position" = "Zentriere";
-"search_results" = "Suechergebnis";
-"then_turn" = "Denaa";
-"redirect_route_alert" = "Willsch d Route neu erstelle?";
-"keyboard_availability_alert" = "D Tastatur isch unterwegs nöd verfüegbar";
-"dialog_routing_change_start_carplay" = "Vom aktuelle Standort uus cha kei Route erstellt werde";
-"dialog_routing_change_end_carplay" = "Zu dem Endpunkt cha kei Route erstellt werde. Bitte wähl en andere Endpunkt";
-"dialog_routing_check_gps_carplay" = "Keis GPS-Signal. Gah uf s offnige Gländ";
-"dialog_routing_unable_locate_route_carplay" = "Es cha kei Route erstellt werde. Bitte wähl anderi Routepünkt";
-"dialog_routing_download_files_carplay" = "Lad die fehlende Charte abe, zum d Route z erstelle";
-"dialog_routing_system_error_carplay" = "Es isch en Fehler uftrete. Bitte start d App neu";
-"dialog_routing_rebuild_from_current_location_carplay" = "D Route wird vo dim derziitige Standort uus neu erstellt werde";
-"dialog_routing_rebuild_for_vehicle_carplay" = "D Route wird zunere Route für Fahrzüüg gänderet";
-"not_all_shown_bookmarks_carplay" = "Es werded nöd all Lesezeiche aazeigt";
-"switch_to_phone_bookmarks_carplay" = "Wechsle uf s Telefon zum alli Lesezeiche z gseh";
-"speedcams_alert_title_carplay_1" = "Blitzer";
-"speedcams_alert_title_carplay_2" = "Blitzerwarnig";
-"download_map_carplay" = "Lad Charte i de App CoMaps uf dim Grät abe";
-"carplay_roundabout_exit" = "%@ Uusfahrt";
-"sort_default" = "Nach Voriistellig sortiere";
-"sort_type" = "Nach Kategorie sortiere";
-"sort_distance" = "Nach Entfernig sortiere";
-"sort_date" = "Nach Datum sortiere";
-"sort_name" = "Nach Name sortiere";
 "elevation_profile_diff_level_easy" = "Liecht";
 "elevation_profile_diff_level_moderate" = "Mittel";
 "elevation_profile_diff_level_hard" = "Schwer";
+"elevation_profile_ascent" = "Berguf";
+"elevation_profile_descent" = "Bergab";
+"elevation_profile_min_elevation" = "Min. Höchi";
+"elevation_profile_max_elevation" = "Max. Höchi";
+"isolines_toast_zooms_1_10" = "Charte vergrössere, zum d Höhelinie sichtbar z mache";
 "downloader_updating_ios" = "Aktualisierig";
+"downloader_loading_ios" = "Wird abeglade";
+/* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Aktualisier dini abegladne Charte";
+/* Autoupdate dialog on start */
 "whats_new_auto_update_message" = "S Aktualisiere vo de Charte sorgt defür, dass d Objektinformatione stets uf em neuste Stand sind";
+/* Autoupdate dialog on start */
 "whats_new_auto_update_button_size" = "Aktualisiere (%@)";
+/* Autoupdate dialog on start */
 "whats_new_auto_update_button_later" = "Spöter manuell aktualisiere";
+/* Delete track button on track edit screen */
 "placepage_delete_track_button" = "Track lösche";
+/* The track deletion confirmaion alert message. */
 "placepage_delete_track_confirmation_alert_message" = "Willsch du de Track würklich lösche?";
+/* Placeholder for track name input on track edit screen */
 "placepage_track_name_hint" = "Name vom Track";
+/* move track or bookmark from the list button text */
 "move" = "Verschiebe";
+/* edit track screen title */
 "track_title" = "Track";
+/* Translated CoMaps site */
+"translated_om_site_url" = "https://www.comaps.app/gsw/";
+/* App Tip #00 */
+"app_tip_00" = "Danke, dass du eusi vo de Community erstellte Charte bruuchsch!";
+/* App tip #01 */
+"app_tip_01" = "Mit dinere Spend und dinere Unterstützig chönd mir die beste Charte vo de Welt erstelle!";
+/* App tip #02 */
+"app_tip_02" = "Gfallt dir eusi App? Bitte spend, zum d Entwicklig z unterstütze! Gfallts dir nonig? Bitte lass es eus wüsse und mir werded s Problem behebe!";
+/* App tip #03 */
+"app_tip_03" = "Wenn du en Softwareentwickler kennsch, chasch du ihn oder sie bitte, e Funktion z implementiere, wo du bruuchsch.";
+/* App tip #04 */
+"app_tip_04" = "Tipp irgendwo uf d Charte, zum öppis uuszwähle. Tipp lang, zum d Oberflächi uus- und wieder iizblende.";
+/* App tip #05 */
+"app_tip_05" = "Scho gwüsst, dass du din aktuelle Standort uf de Charte uuswähle chasch?";
+/* App tip #06 */
+"app_tip_06" = "Du chasch debi helfe, eusi App i dini Spraach z übersetze.";
+/* App tip #07 */
+"app_tip_07" = "Eusi App wird vo einige Enthusiaste und de Community entwicklet.";
+/* App tip #08 */
+"app_tip_08" = "Du chasch d Chartedate eifach korrigiere und verbessere.";
+/* App tip #09 */
+"app_tip_09" = "Euses Hauptziel ischs, schnelli, dateschutzorientierti und benutzerfründlichi Charte z erstelle, wo du wirsch liebe.";
+/* Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen */
+"car_used_on_the_phone_screen" = "Du verwendsch jetzt CoMaps uf dim Telefondisplay";
+/* Text on the phone placeholder screen that maps are displayed on the car screen */
+"car_used_on_the_car_screen" = "Du verwendsch jetzt CoMaps uf em Bildschirm vom Auto";
+/* Displayed on the phone screen. Button to display maps on the phone screen instead of a car */
+"car_continue_on_the_phone" = "Wiiter am Telefon";
+/* Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! */
+"car_continue_in_the_car" = "Zum Autobildschirm";
+/* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
+"button_layer_outdoor" = "Wandere";
+/* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
+"bookmarks_export" = "Alli Favorite exportiere";
+/* Text for the editing the Track's color button. */
 "change_color" = "Farb ändere";
-"bugreport_alert_message" = "Willsch du en Fehlerbricht a d Entwickler schicke?\nMir sind uf eusi Nutzer aagwische, will CoMaps kei Fehlerinformatione automatisch sammlet. Mir danked dir im Voruus für dini Unterstützig vo CoMaps!";
-"enable_icloud_synchronization_title" = "Aktivier d iCloud-Synchronisierig";
-"enable_icloud_synchronization_message" = "D iCloud-Synchronisierig isch en experimentelli Funktion, wo no entwicklet wird. Stell sicher, dass du e Sicherigskopie vo all dine Lesezeiche und Tracks erstellt hesch.";
-"icloud_disabled_title" = "iCloud isch deaktiviert";
-"icloud_disabled_message" = "Bitte aktivier iCloud für CoMaps i de Iistellige vo dim Apple-Konto, zum die Funktion chönne nutze.";
-"bookmarks_recently_deleted" = "Chürzlich glöschti Lischte";
-"delete_all" = "Alli lösche";
-"recover" = "Wiederherstelle";
-"recover_all" = "Alles wiederherstelle";
-"location_services_disabled_2" = "2. Uf Standort tippe";
-"osm_profile_login" = "OpenStreetMap-Konto aamelde";
-"osm_profile_register_promt" = "Keis Konto bi OpenStreetMap?";
-"osm_profile_register" = "Bi OpenStreetMap registriere";
-"osm_profile_verfied_changes" = "Bestätigti Änderige a de Charte";
-"phone" = "Telefon";
-"general_settings" = "Allgemeini Iistellige";
-"button_layer_subway" = "U-Bahn";
-"download_button" = "Abelade";
+/* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Charte";
-"saved" = "Gspeicheret";
-"pref_tts_title" = "Sprachfüehrig";
+"drive_through" = "Drive-trough";
+/* Restaurant or other food place's menu URL field in the Editor */
+"website_menu" = "Link zur Spiischarte";
+/* Message for the bug report alert. */
+"bugreport_alert_message" = "Willsch du en Fehlerbricht a d Entwickler schicke?\nMir sind uf eusi Nutzer aagwische, will CoMaps kei Fehlerinformatione automatisch sammlet. Mir danked dir im Voruus für dini Unterstützig vo CoMaps!";
+/* Title for the iCloud synchronization setting */
 "icloud_sync" = "iCloud-Synchronisierig (Beta)";
-"pref_left_button_type" = "Lingge Hauptbutton";
-"disabled" = "Deaktiviert";
-"copy_to_clipboard" = "I d Zwüscheablag kopiere";
-"version %@ (%@)" = "Version %@ (%@)";
-"version: %@ (%@)\nmap data: %@" = "Version: %@ (%@)\nChartedate: %@";
-"social_codeberg" = "Codeberg";
-"social_lemmy" = "Lemmy";
-"social_email" = "E-Mail";
-"osm_mapdata_explanation %@" = "Vo de Community erstellti Chartedate vom *%@*. Erfahr meh drüber, wie du d Charte bearbeite und aktualisiere chasch under [OpenStreetMap.org](https://openstreetmap.org).";
-"osm_mapdata" = "Chartedate vo OpenStreetMap";
-"social_matrix" = "Matrix";
-"social_bluesky" = "Bluesky";
-"social_mastodon" = "Mastodon";
-"social_pixelfed" = "Pixelfed";
-"pref_mapappearance_title" = "Chartedarstellig";
-"pref_maplanguage_title" = "Charte-Spraach";
-"transliteration_title_disabled_summary" = "Bi de Nutzig vo de lokale Spraach für d Charte uusgschaltet";
-"pref_maplanguage_local" = "Lokali Spraach";
-"hours_confirmed_time_ago" = "Bestätigt %@";
-"existence_confirmed_time_ago" = "Existenz bestätigt %@";
-"editor_place_doesnt_exist_description" = "Beschrib wie de Ort jetzt usgseht zum e Fehlermeldig a d OpenStreetMap Community z schicke";
-"offline_explanation_title" = "Offline-Charte";
-"offline_explanation_text" = "Zum d Gegend chönne aazluege, muess e Charte abeglade werde.\nLad Charte für die Gebiet abe, wo du bereise möchtsch.";
-"avoid_steps" = "Stäge vermiide";
-"avoid_paved" = "Befestigti Strasse miide";
-"voice" = "Stimm";
-"voice_explanation" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Lesen & Sprechen*, *Stimmen* e besseri Stimm uuszwähle.";
-"voice_explanation_before_version26" = "Es isch möglich, i de Systemiistellige under *Barrierefreiheit*, *Gesprochene Inhalte*, *Stimmen* e besseri Stimm uuszwähle.";
-"unknown" = "Unbekantt";
-"pref_alt_map_lang_handling_local_only" = "Bevorzuge und nur nutze, wenns die lokali Spraach isch";
-"pref_alt_map_lang_handling" = "Alternativi Charte-Spraache";
-"pref_alt_map_lang_handling_system_order" = "I de Systemreihefolg nutze";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+/* Title for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_title" = "Aktivier d iCloud-Synchronisierig";
+/* Message for the "Enable iCloud Synchronization" alert. */
+"enable_icloud_synchronization_message" = "D iCloud-Synchronisierig isch en experimentelli Funktion, wo no entwicklet wird. Stell sicher, dass du e Sicherigskopie vo all dine Lesezeiche und Tracks erstellt hesch.";
+/* Title for the "iCloud Is Disabled" alert. */
+"icloud_disabled_title" = "iCloud isch deaktiviert";
+/* Message for the "iCloud is Disabled" alert. */
+"icloud_disabled_message" = "Bitte aktivier iCloud für CoMaps i de Iistellige vo dim Apple-Konto, zum die Funktion chönne nutze.";
+/* Title for the "Enable iCloud Synchronization" alert's "Enable" action button. */
+"enable" = "Aktiviere";
+/* Title for the "Enable iCloud Synchronization" alert's "Backup" action button. */
+"backup" = "Sicherig";
+/* Title for the "iCloud synchronization failure" alert. */
+"icloud_synchronization_error_alert_title" = "iCloud-Synchronisierig fehlgschlage";
+/* iCloud error message: Failed to synchronize due to connection error */
+"icloud_synchronization_error_connection_error" = "Fehler: Synchronisierig wegemne Verbindigsfehler fehlgschlage";
+/* iCloud error message: Failed to synchronize due to iCloud quota exceeded */
+"icloud_synchronization_error_quota_exceeded" = "Fehler: Synchronisierig fehlgschlage, will iCloud-Kontingent überschritte";
+/* iCloud error message: iCloud is not available */
+"icloud_synchronization_error_cloud_is_unavailable" = "Fehler: iCloud isch nöd verfüegbar";
+/* Title for the "Open in Another App" button on the PlacePage. */
+"open_in_app" = "Inere andere App öffne";
+/* To indicate if the place proposed self service... */
+"self_service" = "Selbschtbedienig";
+/* To indicate if restaurant or other place has outdoor seating */
+"outdoor_seating" = "Sitzplätz im Freie";
+/* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
+"bookmarks_recently_deleted" = "Chürzlich glöschti Lischte";
+/* Title for the "Clear" button on the Recently Deleted Lists screen. */
+"clear" = "Lösche";
+/* Title for the "Delete All" button on the Recently Deleted Lists screen. */
+"delete_all" = "Alli lösche";
+/* Title for the "Recover" button on the Recently Deleted Lists screen. */
+"recover" = "Wiederherstelle";
+/* Title for the "Recover All" button on the Recently Deleted Lists screen. */
+"recover_all" = "Alles wiederherstelle";
+/* Prompt to start recording a track. */
+"start_track_recording" = "Strecki uufzeichne";
+/* Prompt for stopping a track recording. */
+"stop_track_recording" = "Streckeuufzeichnig stoppe";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"stop_without_saving" = "Ohni Speichere beende";
+/* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
+"continue_recording" = "Uufnahm fortsetze";
+/* Title for the alert when saving a track recording. */
+"track_recording_alert_title" = "I d Favorite speichere?";
+/* Message for the toast when saving the track recording is finished but nothing to save. */
+"track_recording_toast_nothing_to_save" = "Route isch leer – nüt z speichere";
+"edit_track" = "Track bearbeite";
+/* Title of the general section in settings */
+"general" = "General";
+/* Title of the interface section in settings */
+"interface" = "Interface";
+/* OpenStreetMap contribution section on the PlacePage. */
+"contribute_to_osm" = "Contribute to OpenStreetMap";
+"contribute_to_osm_add_place" = "Add Place";
+"contribute_to_osm_update_map" = "Update the Map to Contribute";
+"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";

@@ -7,6 +7,7 @@
 
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
+#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>
@@ -20,8 +21,7 @@ namespace descriptions
 {
 using FeatureIndex = uint32_t;
 using StringIndex = uint32_t;
-using LangCode = int8_t;
-using LangMeta = buffer_vector<std::pair<LangCode, StringIndex>, 8>;
+using LangMeta = buffer_vector<std::pair<localisation::LanguageIndex, StringIndex>, 8>;
 using LangMetaOffset = uint32_t;
 
 enum class Version : uint8_t
@@ -141,10 +141,8 @@ private:
 class Deserializer
 {
 public:
-  using LangPriorities = std::vector<LangCode>;
-
   template <typename Reader>
-  std::string Deserialize(Reader & reader, FeatureIndex featureIndex, LangPriorities const & langPriority)
+  std::string Deserialize(Reader & reader, FeatureIndex featureIndex, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
   {
     NonOwningReaderSource source(reader);
     auto const version = static_cast<Version>(ReadPrimitiveFromSource<uint8_t>(source));
@@ -152,11 +150,11 @@ public:
     auto subReader = reader.CreateSubReader(source.Pos(), source.Size());
     CHECK(subReader, ());
     CHECK(version == Version::V0, ());
-    return DeserializeV0(*subReader, featureIndex, langPriority);
+    return DeserializeV0(*subReader, featureIndex, prioritizedLanguageIndexes);
   }
 
   template <typename Reader>
-  std::string DeserializeV0(Reader & reader, FeatureIndex featureIndex, LangPriorities const & langPriority)
+  std::string DeserializeV0(Reader & reader, FeatureIndex featureIndex, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
   {
     InitializeIfNeeded(reader);
 
@@ -187,17 +185,17 @@ public:
 
       while (source.Size() > 0)
       {
-        auto const lang = ReadPrimitiveFromSource<LangCode>(source);
+        auto const lang = ReadPrimitiveFromSource<localisation::LanguageIndex>(source);
         auto const stringIndex = ReadVarUint<StringIndex>(source);
         langMeta.emplace_back(lang, stringIndex);
       }
     }
 
     auto stringsSubReader = CreateStringsSubReader(reader);
-    for (LangCode const lang : langPriority)
+    for (localisation::LanguageIndex const prioritizedLanguageIndex : prioritizedLanguageIndexes)
     {
       for (auto const & meta : langMeta)
-        if (lang == meta.first)
+        if (prioritizedLanguageIndex == meta.first)
           return m_stringsReader.ExtractString(*stringsSubReader, meta.second);
     }
 

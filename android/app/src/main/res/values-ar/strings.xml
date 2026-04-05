@@ -23,7 +23,7 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">ابحث في الخريطة</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">التطبيق أو جميع خدمات تحديد المواقع معطلة لديك في الوقت الحالي. الرجاء تفعيلها في الإعدادات.</string>
+    <string name="location_is_disabled_long_text">التطبيق أو جميع خدمات تحديد المواقع مُعطّلة لديك في الوقت الحالي. الرجاء تفعيلها في الإعدادات.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">دقة محدودة</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
@@ -45,13 +45,13 @@
     <string name="about_developed_by_enthusiasts">مفتوح المصدر بالكامل، غير هادف للربح، ويتميز بالشفافية في اتخاذ القرارات والشؤون المالية.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">إعدادات الموقع</string>
-    <string name="close">إغلاق</string>
+    <string name="close">أغلِق</string>
     <string name="unsupported_phone">أنت بحاجة الى OpenGL بأجهزة تسريع. لسوء الحظ جهازك لا يدعم هذه الخاصية.</string>
     <string name="download">نزّل</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="disconnect_usb_cable">الرجاء فصل كابل الناقل التسلسلي الشامل أو إدخال بطاقة الذاكرة من أجل استخدام CoMaps.</string>
+    <string name="disconnect_usb_cable">الرجاء فصل كبل USB أو أدخل بطاقة ذاكرة من أجل استخدام CoMaps</string>
     <!-- Used in DownloadResources startup screen -->
-    <string name="not_enough_free_space_on_sdcard">الرجاء إخلاء بعض المساحة في تخزين البطاقة الرقمية الآمنةلناقل التسلسلي الشامل أولا من أجل استخدام هذا التطبيق.</string>
+    <string name="not_enough_free_space_on_sdcard">يُرجى إخلاء مساحة على بطاقة SD أو وحدة تخزين USB أولاً لتتمكن من استخدام التطبيق</string>
     <string name="download_resources">قبل أن تبدأ باستخدام التطبيق، سنقوم بتنزيل خريطة العالم العامة على جهازك. \nستحتاج إلى %s من المساحة.</string>
     <string name="download_resources_continue">اذهب الى الخريطة</string>
     <string name="downloading_country_can_proceed">ينزل %1$s (%2$s). يمكنك الآن \nالمتابعة الى الخريطة.</string>
@@ -96,7 +96,7 @@
     <!-- Measurement units title in settings activity -->
     <string name="measurement_units">وحدات القياس</string>
     <!-- Detailed description of Measurement Units settings button -->
-    <string name="measurement_units_summary">اختر من بين الأميال و الكيلومترات.</string>
+    <string name="measurement_units_summary">اختر من بين الأميال و الكيلومترات</string>
     <!-- SECTION: Search categories -->
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
     <string name="category_eat">أمكان لتناول الطعام</string>
@@ -147,11 +147,11 @@
     <string name="description">ملاحظات</string>
     <!-- Email Subject when sharing bookmark list -->
     <string name="share_bookmarks_email_subject">مفضلاتي على CoMaps</string>
-    <string name="share_bookmarks_email_body">مرحبًا!\n\nالمرفقات هي مفضلاتي؛ يرجى فتحها في CoMaps. إذا لم يكن لديكه مثبتًا، يمكنك تنزيله من هنا: https://www.comaps.app/download/\n\nاستمتع بالسفر مع CoMaps!</string>
+    <string name="share_bookmarks_email_body">مرحبًا!\n\nالمرفقات هي مفضلاتي؛ يُرجى فتحها في CoMaps. إذا لم يكن لديكه مثبتًا، يمكنك تنزيله من هنا: https://www.comaps.app/download/\n\nاستمتع بالسفر مع CoMaps!</string>
     <!-- message title of loading file -->
     <string name="load_kmz_title">يحمل المفضلات</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">تم تحميل المفضلة بنجاح! يمكنك العثور عليها على الخريطة أو في شاشة مدير المفضلة.</string>
+    <string name="load_kmz_successful">حُمّلت المفضلة بنجاح! يمكنك العثور عليها على الخريطة أو في شاشة مدير المفضلة.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">فشل تحميل المفضلة. قد يكون الملف تالفًا أو معيبًا.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -161,25 +161,21 @@
     <!-- resource for context menu -->
     <string name="edit">عدِّل</string>
     <!-- Warning message when doing search around current position -->
-    <string name="unknown_current_position">لم يتم تحديد موقعك بعد.</string>
+    <string name="unknown_current_position">لم يُحدّد موقعك بعد</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">نأسف، اعدادات تخزين الخرائط معطلة حاليًا.</string>
+    <string name="cant_change_this_setting">نأسف، اعدادات تخزين الخرائط مُعطَّلة حاليًا</string>
     <!-- Alert message that downloading is in progress. -->
     <string name="downloading_is_active">جارٍ تنزيل الخريطة الآن</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">تفقد موقعي الحالي على CoMaps! %1$s أو %2$s. ليس لديك أي خرائط تعمل بدون الاتصال بالإنترنت مثبتة على جهازك؟ نزّلها من هنا: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">مرحباً، تفقد الدبوس الخاص بي على خريطة CoMaps!</string>
     <!-- Subject for emailed position -->
-    <string name="my_position_share_email_subject">مرحباً، تحقق من موقعي الحالي على خريطة CoMaps!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">ًمرحبا، \n \nأنا هنا الآن: %1$s. انقر على هذا الرابط %2$s أو ذلك الرابط %3$s لمشاهدة المكان على الخريطة. \n \nشكراً.</string>
+    <string name="my_position_share_email_subject">مرحبًا، تحقق من موقعي الحالي على خريطة CoMaps!</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
-    <string name="share">مشاركة</string>
+    <string name="share">شارك</string>
     <!-- Share by email button text, also used in editor and About. -->
     <string name="email">البريد الالكتروني</string>
     <!-- Text for message when used successfully copied something -->
-    <string name="copied_to_clipboard">تم النسخ الى الحافظة: %s</string>
+    <string name="copied_to_clipboard">نُسخ الى الحافظة: %s</string>
     <!-- Used for bookmark editing -->
     <string name="done">تم</string>
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
@@ -188,14 +184,14 @@
     <string name="tracks_title">المسارات</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">الطول</string>
-    <string name="share_my_location">مشاركة موقعي</string>
+    <string name="share_my_location">شارك موقعي</string>
     <!-- Settings general group in settings screen -->
     <string name="prefs_group_general">الإعدادات العامة</string>
     <!-- Settings information group in settings screen -->
     <string name="prefs_group_information">معلومات</string>
     <string name="prefs_group_route">الملاحة</string>
-    <string name="pref_zoom_title">أزرار التكبير والتصغير</string>
-    <string name="pref_zoom_summary">عرض على الشاشة</string>
+    <string name="pref_zoom_title">أزرار تقريب/تبعيد</string>
+    <string name="pref_zoom_summary">اعرض على الخريطة</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">الوضع الليلي</string>
     <!-- Generic «Off» string -->
@@ -224,7 +220,7 @@
     <string name="pref_tts_playing_test_voice">تحقق من مستوى الصوت أو إعدادات تحويل النص إلى كلام في النظام إذا كنت لا تسمع الصوت الآن</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">غير متاح</string>
-    <string name="pref_map_auto_zoom">تكبير تلقائي</string>
+    <string name="pref_map_auto_zoom">تقريب تلقائي</string>
     <string name="placepage_distance">المسافة</string>
     <string name="search_show_on_map">اعرض على الخريطة</string>
     <!-- Menu button -->
@@ -250,7 +246,7 @@
     <!-- Text in menu + Button in the main Help dialog -->
     <string name="report_a_bug">بلِّغ عن علة</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
-    <string name="compass_calibration_recommended">قم بتحسين اتجاه السهم عن طريق تحريك الهاتف في حركة على شكل ثمانية لمعايرة البوصلة.</string>
+    <string name="compass_calibration_recommended">حسّن اتجاه السهم عن طريق تحريك الهاتف في حركة على شكل ثمانية لمعايرة البوصلة.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_required">حرك الهاتف في حركة على شكل ثمانية لمعايرة البوصلة وإصلاح اتجاه السهم على الخريطة.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
@@ -262,20 +258,20 @@
     <!-- Downloaded maps list header -->
     <string name="downloader_downloaded_subtitle">مُنزلة</string>
     <!-- Country queued for download -->
-    <string name="downloader_queued">مَصْفوف</string>
+    <string name="downloader_queued">مَصفوف</string>
     <string name="downloader_near_me_subtitle">قريب مني</string>
     <!-- In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" -->
     <string name="downloader_status_maps">الخرائط</string>
-    <string name="downloader_download_all_button">تنزيل الكل</string>
-    <string name="downloader_downloading">يتم التنزيل:</string>
+    <string name="downloader_download_all_button">نزّل الكل</string>
+    <string name="downloader_downloading">يُنزل:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
     <string name="downloader_delete_map_while_routing_dialog">لحذف الخريطة، يُرجى إيقاف الملاحة أولاً</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">يمكن فقط إنشاء المسارات التي توجد بشكل كامل ضمن خريطة دولة واحدة.</string>
     <!-- Context menu item for downloader. -->
-    <string name="downloader_download_map">تنزيل الخريطة</string>
+    <string name="downloader_download_map">نزّل الخريطة</string>
     <!-- Item status in downloader. -->
-    <string name="downloader_retry">المحاولة مجدداً</string>
+    <string name="downloader_retry">حاول مجددًا</string>
     <!-- Item in context menu. -->
     <string name="downloader_delete_map">احذف الخريطة</string>
     <!-- Item in context menu. -->
@@ -288,7 +284,7 @@
     <string name="routing_not_enough_space">لا يوجد مساحة كافية</string>
     <!-- location service disabled -->
     <string name="enable_location_services">الرجاء تفعيل خدمات الموقع</string>
-    <string name="save">حفظ</string>
+    <string name="save">احفظ</string>
     <string name="create">أنشئ</string>
     <!-- red color -->
     <string name="red">أحمر</string>
@@ -349,10 +345,10 @@
     <string name="dialog_routing_application_error">تعذر إنشاء مسار نتيجة وجود خطأ في التطبيق</string>
     <string name="dialog_routing_try_again">الرجاء إعادة المحاولة</string>
     <string name="not_now">ليس الآن</string>
-    <string name="dialog_routing_download_and_build_cross_route">هل ترغب في تنزيل الخريطة وإنشاء مسار أفضل يمتد عبر أكثر من خريطة؟</string>
-    <string name="dialog_routing_download_cross_route">تنزيل خرائط إضافية لإنشاء مسار أفضل يعبر حافة هذه الخريطة.</string>
+    <string name="dialog_routing_download_and_build_cross_route">أترغب في تنزيل الخريطة وإنشاء مسار أفضل يمتد عبر أكثر من خريطة؟</string>
+    <string name="dialog_routing_download_cross_route">نزّل خرائط إضافية لإنشاء مسار أفضل يتجاوز حدود هذه الخارطة.</string>
     <!-- SECTION: Strings for downloading map from search -->
-    <string name="search_without_internet_advertisement">لبدء البحث وإنشاء الطرق، يرجى تنزيل الخريطة، ولن تحتاج إلى اتصال بالإنترنت بعد ذلك.</string>
+    <string name="search_without_internet_advertisement">لبدء البحث وإنشاء الطرق، يُرجى تنزيل الخريطة، ولن تحتاج إلى اتصال بالإنترنت بعد ذلك.</string>
     <string name="search_select_map">اختيار الخريطة</string>
     <!-- «Show» context menu -->
     <string name="show">اعرض</string>
@@ -362,7 +358,7 @@
     <string name="history">سجل البحث</string>
     <string name="search_not_found">المعذرة، لم أعثر على أية نتائج</string>
     <!-- The message when user did not find anything in the search. -->
-    <string name="search_not_found_query">قم بتنزيل المنطقة التي تبحث فيها أو حاول إضافة اسم بلدة/قرية قريبة.</string>
+    <string name="search_not_found_query">نزّل المنطقة التي تبحث فيها أو حاول إضافة اسم بلدة/قرية قريبة.</string>
     <string name="search_history_title">سجل البحث</string>
     <string name="search_history_text">اعرض عمليات البحث الأخيرة</string>
     <string name="clear_search">مسح سجل البحث</string>
@@ -373,7 +369,7 @@
     <string name="p2p_from_here">مسار من</string>
     <string name="p2p_to_here">المسار إلى</string>
     <string name="p2p_only_from_current">تتوفر الملاحة من خلال موقعك الحالي فقط</string>
-    <string name="p2p_reroute_from_current">هل ترغب في أن نرسم مسار لك من موقعك الحالي؟</string>
+    <string name="p2p_reroute_from_current">أترغب في تخطيط مسار من موقعك الحالي؟</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">التالي</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
@@ -394,13 +390,7 @@
     <string name="editor_example_values">أمثلة على القيم</string>
     <string name="editor_correct_mistake">تصحيح الخطأ</string>
     <string name="editor_add_select_location">حدّد الموقع</string>
-    <string name="editor_report_problem_desription_1">يرجى وصف المشكلة بالتفاصيل حتى يتسنى لفريق خريطة الشارع المفتوحة إصلاح الخطأ.</string>
-    <string name="editor_report_problem_desription_2">أو افعل ذلك بنفسك من خلال الموقع https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">إرسال</string>
-    <string name="editor_report_problem_title">مشكلة</string>
-    <string name="editor_report_problem_no_place_title">المكان غير موجود</string>
-    <string name="editor_report_problem_under_construction_title">مغلق للصيانة</string>
-    <string name="editor_report_problem_duplicate_place_title">مكان مكرر</string>
     <string name="autodownload">التنزيل التلقائي</string>
     <!-- Place Page opening hours text -->
     <string name="daily">يومياً</string>
@@ -422,10 +412,10 @@
     <string name="add_language">أضف لغة</string>
     <string name="street">الشارع</string>
     <!-- Editable House Number text field (in address block). -->
-    <string name="house_number">رقم المنزل</string>
+    <string name="house_number">رقم المبنى</string>
     <string name="details">التفاصيل</string>
     <string name="social_media">وسائل التواصل الاجتماعي</string>
-    <string name="building">البناء</string>
+    <string name="building">مبنى</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">أضف شارع</string>
     <!-- Error to display when a new street name is not entered in the New street dialog -->
@@ -441,11 +431,11 @@
     <string name="downloader_update_maps">حدِّث الخرائط</string>
     <string name="downloader_mwm_migration_dialog">لإنشاء مسار، فأنت تحتاج إلى تحديث كل الخرائط ثم إعادة تخطيط المسار مرة أخرى.</string>
     <string name="downloader_search_field_hint">ابحث عن خريطة</string>
-    <string name="common_check_internet_connection_dialog">يرجى التحقق من الإعدادات والتأكد من اتصال جهازك بالإنترنت.</string>
+    <string name="common_check_internet_connection_dialog">يُرجى التأكد من اتصال جهازك بالإنترنت</string>
     <string name="downloader_no_space_title">لا تتوفر مساحة كافية</string>
     <string name="downloader_no_space_message">الرجاء حذف البيانات غير الضرورية</string>
-    <string name="editor_login_error_dialog">خطأ في تسجيل الدخول.</string>
-    <string name="editor_profile_changes">التعديلات التي تم التحقق منها</string>
+    <string name="editor_login_error_dialog">خطأ في تسجيل الدخول</string>
+    <string name="editor_profile_changes">تغييرات مؤكدة</string>
     <string name="editor_focus_map_on_location">اسحب الخريطة لوضع الصليب في موقع المكان أو النشاط التجاري.</string>
     <string name="editor_edit_place_title">التعديل</string>
     <string name="editor_add_place_title">الإضافة</string>
@@ -460,22 +450,22 @@
     <string name="osm_presentation">بيانات OpenStreetMap التي أنشأها المجتمع اعتبارًا من %s. تعرف على المزيد حول كيفية تعديل الخريطة وتحديثها على OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) هو مشروع مجتمعي لبناء خريطة مجانية ومفتوحة. إنه المصدر الرئيسي لبيانات الخرائط في CoMaps ويعمل على غرار ويكيبيديا. يمكنك إضافة الأماكن أو تعديلها وتصبح متاحة لملايين المستخدمين في جميع أنحاء العالم.\nنضم إلى المجتمع وساعد في إنشاء خريطة أفضل للجميع!</string>
-    <string name="login_to_make_edits_visible">أنشئ حساباً على OpenStreetMap أو سجّل الدخول لنشر تعديلاتك على الخريطة للعالم.</string>
+    <string name="login_to_make_edits_visible">أنشئ حسابًا على OpenStreetMap أو سجِّل الدخول لنشر تعديلاتك على الخريطة للعالم</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d من%2$d</string>
     <string name="download_over_mobile_header">تنزيل باستخدام بيانات الجوال؟</string>
-    <string name="download_over_mobile_message">قد يكون هذا مكلفاً جداً في بعض الاحيان أو عند التجوال.</string>
-    <string name="error_enter_correct_house_number">أدخل رقم بناء صحيح</string>
+    <string name="download_over_mobile_message">قد يكون هذا مكلفاً للغاية في بعض باقات بيانات الجوال، خاصة إذا كنت في وضع التجوال.</string>
+    <string name="error_enter_correct_house_number">أدخل رقم مبنى صحيح</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">يجب ألا يتجاوز عدد طوابق المبنى %d</string>
+    <string name="error_enter_correct_storey_number">يجب ألا يتجاوز عدد الطوابق %d</string>
     <string name="editor_zip_code">الرمز البريدي</string>
-    <string name="error_enter_correct_zip_code">أدخل الرمز البريدي صالح</string>
+    <string name="error_enter_correct_zip_code">أدخل رمز بريدي صالح</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">ملاحظة لمتطوعي OpenStreetMap (اختياري)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
     <string name="editor_note_hint">وصف الأخطاء على الخريطة أو الأشياء التي لا يمكن تحريرها باستخدام CoMaps</string>
     <!-- Information about OSM at the top of the editing page -->
-    <string name="editor_about_osm">يتم تحميل تعديلاتك على قاعدة البيانات العامة <a href="https://wiki.openstreetmap.org/wiki/Ar:About_OpenStreetMap">OpenStreetMap</a>. يرجى عدم إضافة معلومات شخصية أو محمية بحقوق الطبع والنشر.</string>
+    <string name="editor_about_osm">تُرفع تعديلاتك على قاعدة البيانات العامة <a href="https://wiki.openstreetmap.org/wiki/Ar:About_OpenStreetMap">OpenStreetMap</a>. يُرجى عدم إضافة معلومات شخصية أو محمية بحقوق الطبع والنشر.</string>
     <string name="editor_more_about_osm">المزيد عن خريطة الشارع المفتوحة</string>
     <string name="editor_osm_history">سجل تعدليك</string>
     <string name="editor_osm_notes">ملاحظات بيانات خريطتك</string>
@@ -483,10 +473,10 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">المشغل: %s</string>
     <string name="editor_category_unsuitable_title">لا يمكن العثور على فئة مناسبة؟</string>
-    <string name="editor_category_unsuitable_text">تسمح الخرائط العضوية بإضافة فئات نقاط بسيطة فقط، وهذا يعني عدم وجود بلدات وطرق وبحيرات ومخططات للمباني وما إلى ذلك. يرجى إضافة هذه الفئات مباشرة إلى <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. راجع موقعنا <a href="https://www.comaps.app/support/advanced-map-editing/">دليل</a> للحصول على تعليمات مفصلة خطوة بخطوة.</string>
-    <string name="downloader_no_downloaded_maps_title">لم تقم بتنزيل أية خرائط</string>
-    <string name="downloader_no_downloaded_maps_message">قم بتنزيل خرائط للبحث عن مكان واستخدام الملاحة بدون اتصال بالإنترنت.</string>
-    <string name="current_location_unknown_error_title">الموقع الحالي غير معروف.</string>
+    <string name="editor_category_unsuitable_text">يقتصر تطبيق CoMaps على إضافة فئات النقاط البسيطة فقط، ولا يمكنه إضافة المدن أو الطرق أو البحيرات أو مخططات المباني وما إلى ذلك. يُرجى إضافة هذه الفئات مباشرة إلى <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. راجع <a href="https://www.comaps.app/support/advanced-map-editing/">دليلنا</a> للحصول على تعليمات مفصلة خطوة بخطوة.</string>
+    <string name="downloader_no_downloaded_maps_title">لم تُنزّل أي خرائط</string>
+    <string name="downloader_no_downloaded_maps_message">نزِّل الخرائط للبحث والتنقل دون اتصال بالإنترنت</string>
+    <string name="current_location_unknown_error_title">الموقع الحالي غير معروف</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">كم/ساعة</string>
     <string name="miles_per_hour">ميل/ساعة</string>
@@ -496,8 +486,8 @@
     <string name="placepage_more_button">المزيد</string>
     <string name="placepage_edit_bookmark_button">عدِّل المكان المحفوظ</string>
     <string name="placepage_personal_notes_hint">ملاحظات شخصية (نص أو html)</string>
-    <string name="editor_reset_edits_message">هل تريد مسح كافة التغييرات المحلية؟</string>
-    <string name="editor_reset_edits_button">مسح</string>
+    <string name="editor_reset_edits_message">أهمِل كل التغييرات المحلية؟</string>
+    <string name="editor_reset_edits_button">أهمِل التغييرات</string>
     <string name="editor_remove_place_message">حذف المكان المُضاف؟</string>
     <string name="editor_remove_place_button">احذف</string>
     <string name="editor_place_doesnt_exist">المكان غير موجود</string>
@@ -514,9 +504,9 @@
     <string name="error_enter_correct_line_page">أدخل رقم تعريفي خاص بتطبيق LINE أو موقع ويب خاص بتطيق LINE صالح</string>
     <string name="placepage_add_place_button">أضف مكانًا إلى OpenStreetMap</string>
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
-    <string name="editor_share_to_all_dialog_title">هل ترغب في إرساله لجميع المستخدمين؟</string>
+    <string name="editor_share_to_all_dialog_title">أترغب في إرساله لجميع المستخدمين؟</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">تأكد من أنك لم تقم بإدخال أية بيانات شخصية.</string>
+    <string name="editor_share_to_all_dialog_message_1">تأكد من عدم إدخال أي بيانات خاصة أو شخصية.</string>
     <string name="editor_share_to_all_dialog_message_2">سيتحقق محررو خرائط الشارع المفتوحة من التغييرات ويتواصلون معك إذا كان لديهم أي أسئلة.</string>
     <string name="navigation_stop_button">توقف</string>
     <!-- Shown as toast when starting the recent track recording -->
@@ -542,10 +532,10 @@
     <string name="enable_logging">فعِّل التسجيل</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">تعقيب عام</string>
-    <string name="prefs_languages_information">نحن نستخدم نظام تحويل النص إلى كلام (TTS) للتعليمات الصوتية. تستخدم العديد من أجهزة أندرويد نظام Google TTS، يمكنك تنزيله من أو تحديثه من متجر Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">بالنسبة لبعض اللغات، ستحتاج إلى تنزيل تطبيق تحويل النص إلى كلام أو حزمة لغات إضافية من متجر التطبيقات (متجر Play، متجر Galaxy، معرض التطبيقات، FDroid).\nافتح إعدادات جهازك، ثم اللغة والإدخال، ثم تحويل النص إلى كلام.\nهنا يمكنك إدارة إعدادات نظامي تحويل النص إلى كلام (على سبيل المثال، تنزيل حزمة لغات للاستخدام دون اتصال بالإنترنت).</string>
-    <string name="prefs_languages_information_off_link">لمزيد من المعلومات الرجاء مراجعة هذا الدليل.</string>
-    <string name="transliteration_title">كتابة جميع الاسماء بالحروف اللاتينية بشكل حرفي</string>
+    <string name="prefs_languages_information">نحن نستخدم نظام تحويل النص إلى كلام (TTS) الخاص بالنظام للتعليمات الصوتية. تستخدم العديد من أجهزة أندرويد محرك Google TTS، ويمكنك تنزيله أو تحديثه من متجر Google Play عبر الرابط التالي: (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">بالنسبة لبعض اللغات، ستحتاج إلى تثبيت مُصنِّع صوت أو حزمة لغة إضافية من متجر التطبيقات (Google Play أو Galaxy Store أو App Gallery أو F-Droid).\nافتح إعدادات جهازك ← إمكانية الوصول ← الكلام ← إخراج تحويل النص إلى كلام.\nهنا يمكنك إدارة إعدادات توليد الكلام (على سبيل المثال، لتنزيل حزمة لغة للاستخدام دون اتصال بالإنترنت) واختيار محرك تحويل نص إلى كلام مختلف.</string>
+    <string name="prefs_languages_information_off_link">لمزيد من المعلومات، الرجاء مراجعة هذا الدليل</string>
+    <string name="transliteration_title">ترجم حرفيًا إلى الأبجدية اللاتينية</string>
     <string name="learn_more">معرفة المزيد</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
     <string name="routing_add_start_point">استخدم البحث أو النقر على الخريطة لإضافة نقطة بداية مسار</string>
@@ -559,48 +549,48 @@
     <string name="dialog_error_storage_message">التخزين الخارجي غير متوفر، ربما تمت إزالة بطاقة SD، أو أنها تالفة أو نظام الملفات للقراءة فقط. افحصه أو راسلنا على support@comaps.app</string>
     <string name="setting_emulate_bad_storage">محاكاة التخزين السيء</string>
     <string name="error_enter_correct_name">الرجاء إدخال اسم صحيح</string>
-    <string name="bookmark_lists">قوائم</string>
+    <string name="bookmark_lists">القوائم المفضلة</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">أخفِ الكل</string>
     <string name="bookmark_lists_show_all">أظهِر الكل</string>
     <plurals name="bookmarks_places">
-        <item quantity="zero"/>
-        <item quantity="one">%d إشارة مرجعية</item>
-        <item quantity="two">%d إشارتان مرجعيتان</item>
-        <item quantity="few">%d إشارات مرجعية</item>
-        <item quantity="many">%d إشارةً مرجعيةً</item>
-        <item quantity="other">%d إشارةً مرجعيةً</item>
+        <item quantity="zero">لا أماكن محفوظة</item>
+        <item quantity="one">مكان محفوظ واحد</item>
+        <item quantity="two">مكانان محفوظان</item>
+        <item quantity="few">%d أماكن محفوظة</item>
+        <item quantity="many">%d مكانًا محفوظًا</item>
+        <item quantity="other">%d أماكن محفوظة</item>
     </plurals>
     <string name="bookmarks_create_new_group">أنشئ قائمة جديدة</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">استيراد الإشارات المرجعية والمسارات</string>
+    <string name="bookmarks_import">استورد المفضلات</string>
     <string name="bookmarks_error_message_share_general">تعذرت المشاركة بسبب خطأ في التطبيق</string>
     <string name="bookmarks_error_title_share_empty">خطأ في المشاركة</string>
     <string name="bookmarks_error_message_share_empty">لا يمكن مشاركة قائمة فارغة</string>
     <string name="bookmarks_error_title_empty_list_name">لا يمكن للاسم أن يكون فارغًا</string>
-    <string name="bookmarks_error_message_empty_list_name">يرجى إدخال اسم القائمة</string>
+    <string name="bookmarks_error_message_empty_list_name">يُرجى إدخال اسم القائمة</string>
     <string name="bookmarks_new_list_hint">قائمة جديدة</string>
     <string name="bookmarks_error_title_list_name_already_taken">هذا الاسم موجود سابقا</string>
-    <string name="bookmarks_error_message_list_name_already_taken">يرجى اختيار اسم آخر</string>
+    <string name="bookmarks_error_message_list_name_already_taken">يُرجى اختيار اسم آخر</string>
     <string name="please_wait">أرجو الإنتظار…</string>
     <string name="phone_number">رقم الهاتف</string>
     <string name="profile">ملف الشخصي على خريطة الشارع المفتوحة</string>
     <plurals name="bookmarks_detect_message">
-        <item quantity="zero"/>
-        <item quantity="one">تم العثور على %d ملف. يمكنك رؤيته بعد التحويل.</item>
-        <item quantity="two">تم العثور على %d ملفين. يمكنك رؤيتهما بعد التحويل.</item>
-        <item quantity="few">تم العثور على %d ملفات. يمكنك رؤيتها بعد التحويل.</item>
-        <item quantity="many">تم العثور على %d ملفًا. يمكنك رؤيتها بعد التحويل.</item>
-        <item quantity="other">تم العثور على %d ملفًا. يمكنك رؤيتها بعد التحويل.</item>
+        <item quantity="zero">لم يُعثر على ملف.</item>
+        <item quantity="one">عُثر على ملف. يمكنك رؤيته بعد التحويل.</item>
+        <item quantity="two">عُثر على ملفين. يمكنك رؤيتهما بعد التحويل.</item>
+        <item quantity="few">عُثر على %d ملفات. يمكنك رؤيتهم بعد التحويل.</item>
+        <item quantity="many">عُثر على %d ملفًا. يمكنك رؤيتهم بعد التحويل.</item>
+        <item quantity="other">عُثر على %d ملف. يمكنك رؤيتهم بعد التحويل.</item>
     </plurals>
     <string name="restore">استعادة</string>
     <plurals name="tracks">
-        <item quantity="zero"/>
-        <item quantity="one">%d مسار</item>
-        <item quantity="two">%d مساران</item>
+        <item quantity="zero">لا مسار</item>
+        <item quantity="one">مسار واحد</item>
+        <item quantity="two">مساران</item>
         <item quantity="few">%d مسارات</item>
         <item quantity="many">%d مسارًا</item>
-        <item quantity="other">%d مسارًا</item>
+        <item quantity="other">%d مسار</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">خصوصية</string>
@@ -610,10 +600,10 @@
     <string name="subway">مترو الانفاق</string>
     <string name="layers_title">أنماط الخريطة وطبقاتها</string>
     <string name="bookmarks_empty_list_title">هذه اللائحة فارغة</string>
-    <string name="bookmarks_empty_list_message">لإضافة إشارة مرجعية ، اضغط على مكان على الخريطة ثم انقر على رمز النجمة</string>
+    <string name="bookmarks_empty_list_message">لحفظ مكان، انقر على المكان في الخريطة ثم انقر على أيقونة النجمة</string>
     <string name="category_desc_more">…المزيد</string>
-    <string name="export_file">تصدير KMZ</string>
-    <string name="export_file_gpx">تصدير GPX</string>
+    <string name="export_file">صدِّر KMZ</string>
+    <string name="export_file_gpx">صدِّر GPX</string>
     <string name="delete_list">احذف القائمة</string>
     <string name="speedcams_alert_title">تحذيرات كاميرات السرعة</string>
     <string name="place_description_title">وصف المكان</string>
@@ -626,7 +616,7 @@
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">لا تحذرني من أبداً</string>
     <string name="power_managment_title">وضع توفير الطاقة</string>
-    <string name="power_managment_description">عندما يتم اختيار الوضع التلقائي، يبدأ التطبيق بتعطيل الخصائص التي تستهلك البطارية بناءً على مستوى شحن البطارية الحالي</string>
+    <string name="power_managment_description">حاول تقليل استهلاك الطاقة على حساب بعض الوظائف</string>
     <string name="power_managment_setting_never">أبدًا</string>
     <string name="power_managment_setting_auto">تلقائي</string>
     <string name="power_managment_setting_manual_max">توفير الطاقة الأقصى</string>
@@ -661,9 +651,9 @@
     <string name="trip_finished">لقد وصلت!</string>
     <string name="ok">موافق</string>
     <!-- max. 10 symbols, both iOS and Android -->
-    <string name="sort">ترتيب…</string>
+    <string name="sort">رتّب…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">رتّب العلامات المرجعية</string>
+    <string name="sort_bookmarks">رتّب المفضلات</string>
     <!-- Android -->
     <string name="by_default">بشكل افتراضي</string>
     <!-- Android -->
@@ -689,7 +679,7 @@
     <string name="mountains">جبال</string>
     <string name="animals">حيوانات</string>
     <string name="hotels">فنادق</string>
-    <string name="buildings">أبنية</string>
+    <string name="buildings">مبانٍ</string>
     <string name="money">نقود</string>
     <string name="shops">متاجر</string>
     <string name="parkings">مواقف سيارات</string>
@@ -700,9 +690,9 @@
     <string name="select_list">حدّد القائمة</string>
     <string name="transit_not_found">التنقل باستخدام مترو الأنفاق في هذه المنطقة غير متاح حتى الآن</string>
     <string name="dialog_pedestrian_route_is_long_header">لم يتم العثور على مترو الانفاق</string>
-    <string name="dialog_pedestrian_route_is_long_message">يرجى اختيار نقطة بداية أو نهاية أقرب لمحطة مترو الأنفاق</string>
+    <string name="dialog_pedestrian_route_is_long_message">يُرجى اختيار نقطة بداية أو نهاية أقرب لمحطة مترو الأنفاق</string>
     <string name="button_layer_isolines">تضاريس</string>
-    <string name="isolines_activation_error_dialog">لتفعيل الطبقة الطبوغرافية واستخدامها ، يرجى تحديث أو تنزيل خريطة المنطقة</string>
+    <string name="isolines_activation_error_dialog">يتطلب تفعيل الخطوط الكنتورية تنزيل بيانات الخريطة لهذه المنطقة</string>
     <string name="isolines_location_error_dialog">الطبقة الطبوغرافية ليست متاحة بعد في هذه المنطقة</string>
     <string name="elevation_profile_ascent">تصاعدي</string>
     <string name="elevation_profile_descent">تنازلي</string>
@@ -711,9 +701,9 @@
     <string name="elevation_profile_difficulty">درجة الصعوبة</string>
     <string name="elevation_profile_distance">المسافة:</string>
     <string name="elevation_profile_time">المدة:</string>
-    <string name="isolines_toast_zooms_1_10">قم بالتقريب لتكتشف خطوط الكنتور</string>
-    <string name="downloader_loading_ios">جاري التنزيل</string>
-    <string name="download_map_title">تنزيل خريطة العالم</string>
+    <string name="isolines_toast_zooms_1_10">قرِّب لاستكشاف خطوط التساوي</string>
+    <string name="downloader_loading_ios">ينزل</string>
+    <string name="download_map_title">نزّل خريطة العالم</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disk_error">تعذر إنشاء المجلد ونقل الملفات على الذاكرة الداخلية للجهاز أو على بطاقة SD</string>
     <!-- Used in DownloadResources startup screen -->
@@ -740,7 +730,7 @@
     <!-- App tip #01 -->
     <string name="app_tip_01">بتبرعاتكم ودعمكم، يمكننا إنشاء أفضل الخرائط في العالم!</string>
     <!-- App tip #02 -->
-    <string name="app_tip_02">هل تحب التطبيق لدينا؟ يرجى التبرع لدعم التنمية! لا أحب ذلك حتى الآن؟ واسمحوا لنا أن نعرف، وسوف نقوم بإصلاحه!</string>
+    <string name="app_tip_02">هل أعجبك تطبيقنا؟ يُرجى التبرع لدعم عملية التطوير! أما إذا لم يعجبك بعد، فيُرجى إخبارنا بالسبب وسنقوم بإصلاحه!</string>
     <!-- App tip #03 -->
     <string name="app_tip_03">إذا كنت تعرف أحد مطوري البرامج، فيمكنك أن تطلب منه تنفيذ الميزة التي تحتاجها.</string>
     <!-- App tip #04 -->
@@ -750,11 +740,11 @@
     <!-- App tip #06 -->
     <string name="app_tip_06">يمكنك المساعدة في ترجمة تطبيقنا إلى لغتك.</string>
     <!-- App tip #07 -->
-    <string name="app_tip_07">تم تطوير تطبيقنا من قبل عدد قليل من المتحمسين والمجتمع.</string>
+    <string name="app_tip_07">طوِّر تطبيقنا من قِبل عدد قليل من المتحمسين والمجتمع.</string>
     <!-- App tip #08 -->
     <string name="app_tip_08">يمكنك بسهولة إصلاح وتحسين بيانات الخريطة.</string>
     <!-- App tip #09 -->
-    <string name="app_tip_09">هدفنا الرئيسي هو إنشاء خرائط سريعة وسهلة الاستخدام تركز على الخصوصية والتي ستعجبك.</string>
+    <string name="app_tip_09">هدفنا الرئيسي هو بناء خرائط سريعة، تركز على الخصوصية وسهلة الاستخدام ستنال إعجابكم.</string>
     <!-- Text on the Android Auto or CarPlay placeholder screen that maps are displayed on the phone screen -->
     <string name="car_used_on_the_phone_screen">أنت الآن تستخدم CoMaps على شاشة الهاتف</string>
     <!-- Text on the phone placeholder screen that maps are displayed on the car screen -->
@@ -766,7 +756,7 @@
     <!-- Displayed on the Android Auto or CarPlay screen. Button to display maps on the car screen instead of a phone. Must be no more than 18 symbols! -->
     <string name="car_continue_in_the_car">إلى شاشة السيارة</string>
     <!-- Ask user to grant location permissions -->
-    <string name="aa_location_permissions_request">تحتاج CoMaps ة إلى الوصول إلى الموقع. عندما يكون الوضع آمنًا، تحقق من الإشعارات الموجودة على هاتفك.</string>
+    <string name="aa_location_permissions_request">يحتاج CoMaps إلى الوصول إلى موقعك. عندما يكون الوضع آمنًا، تحقق من الإشعار على هاتفك.</string>
     <!-- Notification title for permission request from AA. -->
     <string name="aa_request_permission_notification">هذا التطبيق يحتاج إلى إذنك</string>
     <!-- The text in the activity for location permission request. -->
@@ -779,22 +769,22 @@
     <string name="browser_not_available">متصفح الويب غير متوفر</string>
     <string name="volume">مستوى الصوت</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">تصدير كافة الإشارات المرجعية والمسارات</string>
+    <string name="bookmarks_export">صدِّر كل المفضلات</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">إعدادات تركيب الكلام النظام</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">لم يتم العثور على إعدادات تركيب الكلام، هل أنت متأكد من أن جهازك يدعمها؟</string>
+    <string name="pref_tts_no_system_tts">لم يُعثر على إعدادات تركيب الكلام، أمتأكد من أن جهازك يدعمها؟</string>
     <string name="drive_through">الشراء من السيارة</string>
     <string name="clear_the_search">مسح البحث</string>
-    <string name="zoom_in">تكبير</string>
+    <string name="zoom_in">قرِّب</string>
     <!-- Accessibility text for the zoom-out button on the map -->
-    <string name="zoom_out">تصغير</string>
+    <string name="zoom_out">بعِّد</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">رابط القائمة</string>
     <!-- Button in the Place Page which opens a restaurant or other food place's menu in a browser -->
     <string name="view_menu">عرض القائمة</string>
     <!-- Title for the "Open in Another App" button on the PlacePage. -->
-    <string name="open_in_app">فتح في تطبيق آخر</string>
+    <string name="open_in_app">افتح في تطبيق آخر</string>
     <!-- To indicate if the place proposed self service... -->
     <string name="self_service">الخدمة الذاتية</string>
     <string name="select_option">حدد الخيار</string>
@@ -803,22 +793,22 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">للحصول على التنقل الأكثر دقة، نوصي بتعطيل وضع توفير الطاقة في إعدادات بطارية الهاتف.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">تسجيل المسار</string>
+    <string name="start_track_recording">سجِّل مسار</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">إيقاف تسجيل المسار</string>
+    <string name="stop_track_recording">أوقِف تسجيل المسار</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="stop_without_saving">التوقف بدون حفظ</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
-    <string name="continue_recording">متابعة التسجيل</string>
+    <string name="continue_recording">استمر التسجيل</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">حفظ في الإشارات المرجعية والمسارات؟</string>
+    <string name="track_recording_alert_title">حفظ إلى المفضلة؟</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">المسار فارغ - لا يوجد شيء للحفظ</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
-    <string name="error_no_file_manager_app">غير قادر على عرض مربع حوار تحديد المجلد لأنه لا يوجد تطبيق مناسب مثبت على جهازك. يرجى تثبيت تطبيق مدير الملفات والمحاولة مرة أخرى.</string>
+    <string name="error_no_file_manager_app">غير قادر على عرض مربع حوار تحديد المجلد لأنه لا يوجد تطبيق مناسب مثبت على جهازك. يُرجى تثبيت تطبيق مدير الملفات والمحاولة مرة أخرى.</string>
     <string name="choose_color">اختر اللون</string>
     <string name="edit_track">عدِّل المسار</string>
-    <string name="uri_open_location_failed">لم يتم تثبيت أي تطبيق يمكنه فتح الموقع</string>
+    <string name="uri_open_location_failed">لم تثبت أي تطبيق يمكنه فتح الموقع</string>
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">تلقائي في التنقل</string>
     <string name="translated_om_site_url">https://comaps.app/ar</string>
@@ -828,11 +818,11 @@
     <string name="wikimedia_commons">ويكيميديا كومنز</string>
     <string name="panoramax">صورة Panoramax</string>
     <string name="app_site_url">https://comaps.app/ar</string>
-    <string name="saved">تم الحفظ</string>
+    <string name="saved">حُفظ</string>
     <string name="delete_track_dialog_title">احذف %s؟</string>
     <string name="pref_left_button_disable">عطِّل</string>
     <string name="about_help">عن و المساعدة</string>
-    <string name="dialog_report_error_with_logs">يرجى إرسال تقرير خطأ إلينا:\n - \"فعِّل التسجيل\" في الإعدادات\n - أعد إنتاج المشكلة\n - في شاشة \"عن و المساعدة\" اضغط على زر \"بلِّغ عن علة\" وأرسل عبر البريد الإلكتروني أو الدردشة\n - تعطيل التسجيل</string>
+    <string name="dialog_report_error_with_logs">يًرجى إرسال تقرير خطأ إلينا:\n - \"فعِّل التسجيل\" في الإعدادات\n - أعد إنتاج المشكلة\n - في شاشة \"عن و المساعدة\" اضغط على زر \"بلِّغ عن علة\" وأرسل عبر البريد الإلكتروني أو الدردشة\n - تعطيل التسجيل</string>
     <string name="place_page_update_too_old_map">حدِّث منطقة الخريطة</string>
     <string name="list_description_empty">عدِّل القائمة لإضافة وصف</string>
     <string name="editor_socket">عدِّل المقبس</string>
@@ -846,4 +836,116 @@
     <string name="closes_at">يغلق في %s</string>
     <string name="opens_day_at">يفتح على %1$s في %2$s</string>
     <string name="closes_day_at">يغلق على %1$s في %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="zero">الآن</item>
+        <item quantity="one">دقيقة</item>
+        <item quantity="two">دقيقتان</item>
+        <item quantity="few">%d دقائق</item>
+        <item quantity="many">%d دقائق</item>
+        <item quantity="other">%d دقيقة</item>
+    </plurals>
+    <string name="hours_confirmed_time_ago">أُكِّد %s</string>
+    <string name="existence_confirmed_time_ago">أُكِّد الوجود %s</string>
+    <string name="level_value_generic">المستوى: %s</string>
+    <string name="editor_building_levels">عدد الطوابق (بما في ذلك الطابق الأرضي، باستثناء السطح)</string>
+    <string name="editor_place_doesnt_exist_description">صف كيف يبدو المكان الآن لإرسال ملاحظة خطأ إلى مجتمع OpenStreetMap</string>
+    <string name="editor_business_vacant_button">العمل متوقف</string>
+    <string name="editor_mark_business_vacant_title">علِّم العمل متوقف</string>
+    <string name="editor_mark_business_vacant_description">استخدم هذا الخيار إذا كان النشاط التجاري قد انتقل والمكان شاغر وجاهز لمستأجر جديد.</string>
+    <string name="editor_submit">أرسل</string>
+    <string name="editor_level">الطابق (0 هو الطابق الأرضي)</string>
+    <string name="error_enter_correct_level">أدخل رقم طابق صحيح</string>
+    <string name="error_enter_correct_fediverse_page">أدخل اسم مستخدم ماستودون أو عنوان ويب صالحًا</string>
+    <string name="error_enter_correct_bluesky_page">أدخل اسم مستخدم Bluesky أو عنوان ويب صالحًا</string>
+    <string name="place_page_map_too_old_title">بيانات الخريطة قديمة</string>
+    <string name="place_page_map_too_old_description">بيانات الخرائط الحالية قديمة جدًا، يُرجى تحديث الخريطة.</string>
+    <string name="place_page_app_too_old_description">بيانات الخرائط الحالية قديمة جدًا، يُرجى تحديث تطبيق CoMaps.</string>
+    <string name="place_page_too_old_to_edit">عُطِّل تعديل OpenStreetMap لأن بيانات الخريطة قديمة جدًا.</string>
+    <string name="osm_note_hint">أو بدلاً من ذلك، اترك ملاحظة لمجتمع OpenStreetMap ليتمكن شخص آخر من إضافة أو إصلاح مكان هنا.</string>
+    <string name="osm_note_toast">سيتم إرسال الملاحظة إلى OpenStreetMap</string>
+    <string name="prefs_speed_cameras_information">تُعطَّل تحذيرات كاميرات السرعة في البلدان التي تحظر فيها القوانين المحلية هذه التنبيهات.</string>
+    <string name="power_management">إدارة الطاقة</string>
+    <string name="avoid_steps">تجنب السلالم</string>
+    <string name="avoid_paved">تجنب الطرق المرصوفة</string>
+    <string name="pref_maplanguage_local">اللغة المحلية</string>
+    <string name="pref_alt_map_lang_handling_local_only">يُفضل ويُستخدم فقط حيثما يكون أصليًا</string>
+    <string name="pref_backup_status_summary_success">آخر نسخة احتياطية ناجحة</string>
+    <string name="pref_backup_location_title">مكان النسخ الاحتياطي</string>
+    <string name="pref_backup_location_summary_initial">يُرجى اختيار مجلد أولاً ومنح الإذن</string>
+    <string name="pref_backup_history_title">عدد النسخ الاحتياطية التي سيتم الاحتفاظ بها</string>
+    <string name="pref_backup_interval_title">نسخ احتياطي تلقائي</string>
+    <string name="backup_interval_every_day">يوميًا</string>
+    <string name="backup_interval_every_week">أسبوعيًا</string>
+    <string name="backup_interval_manual_only">متوقف (يدوي فقط)</string>
+    <string name="dialog_report_error_missing_folder">موقع النسخ الاحتياطي المحدد غير متاح أو غير قابل للكتابة. يُرجى اختيار موقع آخر.</string>
+    <string name="clear">امحُ</string>
+    <string name="bookmark_color">لون المفضلة</string>
+    <string name="open_now">افتح الآن</string>
+    <string name="at">على %s</string>
+    <string name="share_track">شارك المسار</string>
+    <string name="pref_tts_no_system_tts_short">لم يُعثر على محرك تحويل النص إلى كلام، يُرجى التحقق من إعدادات التطبيق</string>
+    <string name="navigation_start_tts_message">"يبدأ الملاحة، لغة التعليمات الصوتية: "</string>
+    <string name="navigation_start_tts_disabled_message">التعليمات الصوتية مُعطَّلة: محرك تحويل النص إلى كلام غير متوفر</string>
+    <string name="unknown_power_output">مجهول</string>
+    <string name="charge_socket_type2">النوع 2 (دون كبل)</string>
+    <string name="charge_socket_type2_cable">النوع 2 (مع كبل)</string>
+    <string name="charge_socket_type2_combo">النوع 2 كومبو</string>
+    <string name="charge_socket_type1">النوع 1</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="download_resources_custom_url_summary_none">غير مُعيِّن</string>
+    <string name="download_resources_custom_url_error_scheme">يُرجى إدخال رابط يبدأ بـ https:// أو http://</string>
+    <string name="pref_alt_map_lang_handling">لغات بديلة للخريطة</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">لا تستخدم بدائل</string>
+    <string name="pref_alt_map_lang_handling_system_order">استخدم حسب ترتيب النظام</string>
+    <string name="location_privacy_info">تتلقى التطبيقات بيانات الموقع من خدمة الموقع في نظام تشغيلك، والتي قد تشارك موقعك مع جوجل و/أو الشركة المصنعة لجهازك. استخدم نظام تشغيل أندرويد يحافظ على الخصوصية لتجنب ذلك.</string>
+    <string name="location_privacy">خصوصية الموقع</string>
+    <string name="pref_speedlimit_title">أظهِر حدود السرعة</string>
+    <string name="rooms">%s غرف</string>
+    <string name="invalid_route">مسار غير صالح</string>
+    <string name="building_route">يَبنِي مسار…</string>
+    <string name="route_not_started">لم يبدأ المسار</string>
+    <string name="on_route">على المسار</string>
+    <string name="route_needs_rebuild">المسار بحاجة إلى إعادة بناء</string>
+    <string name="route_finished">انتهى المسار</string>
+    <string name="not_following_route">لا يتبع المسار</string>
+    <string name="pref_openexternallinks_title">فتح روابط الطرف الثالث تلقائيًا</string>
+    <string name="pref_openexternallinks_summary">افتح روابط الطرف الثالث في CoMaps افتراضيًا</string>
+    <string name="comma_separated_pair">%1$s, %2$s</string>
+    <string name="pref_left_button_title">إعداد الزر الأيسر</string>
+    <string name="pref_backup_title">نسخ المفضلات احتياطيًا</string>
+    <string name="pref_backup_summary">نسخ احتياطي تلقائي إلى مجلد على جهازك</string>
+    <string name="pref_backup_now_title">انسخ احتياطيًا الآن</string>
+    <string name="pref_backup_now_summary_ok">اكتملت عملية النسخ الاحتياطي بنجاح</string>
+    <string name="pref_backup_now_summary_empty_lists">لا توجد مفضلات لنسخها احتياطيًا</string>
+    <string name="pref_backup_now_summary_folder_unavailable">مجلد النسخ الاحتياطي غير متاح</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="charge_socket_schuko">الاتحاد الأوروبي المحلي</string>
+    <string name="unknown_socket_type">مقبس مجهول</string>
+    <string name="charging_station_available_sockets">المقابس المتوفرة</string>
+    <string name="charge_socket_unknown_other">أخرى أو مجهولة</string>
+    <string name="charge_socket_count">العدّ</string>
+    <string name="charge_socket_power">القدرة (كيلوواط)</string>
+    <string name="unknown_count">مجهول</string>
+    <string name="error_value_must_be_positive">يجب أن تكون القيمة موجبة</string>
+    <string name="error_invalid_number">رقم غير صالح</string>
+    <string name="offline_explanation_title">خرائط بلا اتصال بالإنترنت</string>
+    <string name="offline_explanation_text">يجب تنزيل خريطة لعرض المنطقة والتنقل فيها.\nنزِّل خرائط للمناطق التي ترغب في السفر إليها.</string>
+    <string name="advanced">متقدم</string>
+    <string name="download_resources_custom_url_title">خادم خرائط مخصَّص</string>
+    <string name="download_resources_custom_url_message">تجاوز خادم تنزيل الخرائط الافتراضي المستخدم لتنزيل الخرائط. اتركه فارغًا لاستخدام خادم CoMaps الافتراضي.</string>
+    <string name="ruler">مسطرة</string>
+    <string name="route_type">نوع المسار</string>
+    <string name="vehicle">مركبة</string>
+    <string name="pedestrian">مشاة</string>
+    <string name="bicycle">دراجة</string>
+    <string name="closed_now">مغلق الآن</string>
+    <string name="pref_backup_now_summary_progress">النسخ الاحتياطي قيد التقدم…</string>
+    <string name="pref_backup_now_summary_failed">فشل النسخ الاحتياطي</string>
+    <string name="bookmark_share_email_subject">اتبع هذا الرابط %1$s أو ألصِق هذه الإحداثيات %2$s في تطبيق خرائطك لرؤية هذا الموقع.</string>
+    <string name="my_position_share_email">اتبع هذا الرابط %1$s أو ألصِق هذه الإحداثيات %2$s في تطبيق خرائطك لرؤية هذا الموقع.</string>
+    <string name="destination">الوجهة</string>
+    <string name="stop">أوقِف</string>
+    <string name="route_recalculating">يعيد حساب المسار…</string>
+    <string name="charge_socket_type1_combo">النوع 1 كومبو</string>
+    <string name="population">السكان: %s</string>
 </resources>

@@ -1,115 +1,84 @@
 name: Coverage Report
 on:
   workflow_dispatch: # Manual trigger
-  pull_request:
-    types:
-      - opened
-      - synchronize
-      - labeled
-      - unlabeled
-    paths-ignore:
-      - .gitignore
-      - CONTRIBUTORS
-      - LICENSE
-      - NOTICE
-      - README.md
-      - docs/**
-      - packaging/**
-      - libs/platform/*apple*
-      - libs/platform/*_android*
-      - libs/platform/*_ios*
-      - libs/platform/*_mac*
-      - libs/platform/*_win*
-      - libs/pyhelpers/**
-      - tools/**
-      - '!tools/python/test_server/**'
-      - xcode/**
 
 # Cancels previous jobs if the same branch or PR was updated again.
 concurrency:
   group: ${{ github.workflow }}-coverage-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
-jobs:
-  should-run-check:
-    name: Should run coverage
-    runs-on: ubuntu-latest
-    outputs:
-      run-from-pr: ${{ steps.run-from-pr.outputs.run-from-pr }}
-      manually-triggered: ${{ steps.manually-triggered.outputs.manually-triggered }}
-    steps:
-      - name: Check if PR has 'Coverage' label
-        id: run-from-pr
-        if: github.event_name == 'pull_request'
-        env:
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          LABEL_NAME="Coverage"
-          LABELS=$(gh pr view https://github.com/$GITHUB_REPOSITORY/pull/$PR_NUMBER --json labels)
-          if echo "$LABELS" | jq -e '.labels[].name' | grep -q "$LABEL_NAME"; then
-            echo "run-from-pr=true" >> $GITHUB_OUTPUT
-            echo "'Coverage' label found in PR."
-          fi
-      - name: Check if manually triggered
-        id: manually-triggered
-        if: github.event_name == 'workflow_dispatch'
-        run: echo "manually-triggered=true" >> $GITHUB_OUTPUT
+env:
+  SUBMODULE_CACHE_PATHS: |
+    .git/modules
+    3party/CMake-MetalShaderSupport
+    3party/Vulkan-Headers
+    3party/boost
+    3party/expat
+    3party/fast_double_parser
+    3party/fast_obj
+    3party/freetype/freetype
+    3party/gflags
+    3party/glaze
+    3party/glfw
+    3party/glm
+    3party/googletest
+    3party/harfbuzz/harfbuzz
+    3party/icu/icu
+    3party/imgui/imgui
+    3party/jansson/jansson
+    3party/just_gtfs
+    3party/protobuf/protobuf
+    3party/pugixml/pugixml
+    3party/utfcpp
+    tools/kothic
+    tools/osmctools
 
+jobs:
   coverage:
-    needs: should-run-check
     name: Generate coverage report
-    runs-on: ubuntu-latest
-    if: ${{ needs.should-run-check.outputs.run-from-pr == 'true' || needs.should-run-check.outputs.manually-triggered == 'true'}}
+    runs-on: comaps-android
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
           fetch-depth: 100 # enough to get all commits for the current day
 
-      - name: Parallel submodules checkout
-        shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
+      - name: Cache world map
+        uses: actions/cache@v4
+        with:
+          path: data/world_mwm
+          key: world-mwm
 
-      - name: Install build tools and dependencies
+      - uses: actions/cache@v4
+        with:
+          path: ${{ env.SUBMODULE_CACHE_PATHS }}
+          key: submodules-${{ hashFiles('.gitmodules') }}
+          restore-keys: |
+            submodules-
+
+      - name: Sync and update submodules
         shell: bash
         run: |
-          apt update -y
-          apt install -y \
-              ninja-build \
-              libgl1-mesa-dev \
-              libglvnd-dev \
-              qt6-base-dev \
-              libfreetype-dev \
-              libharfbuzz-dev \
-              libqt6svg6-dev \
-              qt6-positioning-dev \
-              libqt6positioning6-plugins \
-              libqt6positioning6 \
-              llvm \
-              gcovr
+          git submodule sync --recursive
+          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
         with:
           key: ${{ github.workflow }}-coverage
 
-      - name: CMake
-        shell: bash
-        env:
-          CC: clang-18
-          CXX: clang++-18
-          CMAKE_C_COMPILER_LAUNCHER: ccache
-          CMAKE_CXX_COMPILER_LAUNCHER: ccache
-        # -g1 should slightly reduce build time.
-        run: |
-          cmake . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug \
-            -DCMAKE_CXX_FLAGS=-g1 -DCOVERAGE_REPORT=ON
-
       - name: Compile
         shell: bash
-        working-directory: build
-        run: ninja
+        env:
+          CC: clang
+          CXX: clang++
+          CMAKE_C_COMPILER_LAUNCHER: ccache
+          CMAKE_CXX_COMPILER_LAUNCHER: ccache
+          SKIP_MAP_DOWNLOAD: 1
+          # -g1 should slightly reduce build time.
+          CMAKE_C_FLAGS: -g1
+          CMAKE_CXX_FLAGS: -g1
+        run: ./tools/unix/build_omim.sh -d coverage
 
       - name: Tests
         shell: bash
@@ -133,7 +102,7 @@ jobs:
           locale-gen ru_RU
           locale-gen ru_RU.UTF-8
           update-locale
-          ctest -L "omim-test" -E "$CTEST_EXCLUDE_REGEX" --output-on-failure
+          ./tools/unix/run_tests.sh -b ../omim-build-debug -e "$CTEST_EXCLUDE_REGEX" -s full
 
       - name: Run coverage report generation
         shell: bash

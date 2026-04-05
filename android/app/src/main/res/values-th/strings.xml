@@ -163,12 +163,8 @@
     <string name="downloading_is_active">กำลังดำเนินการดาวน์โหลดประเทศในตอนนี้</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">เฮ้อ ตรวจสอบตำแหน่งที่ตั้งปัจจุบันของฉันที่ CoMaps! %1$s หรือ %2$s ไม่มีการติดตั้งแผนที่แบบออฟไลน์? ดาวน์โหลดที่นี่: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">เฮ้ ตรวจสอบหมุดของฉันที่ แผนที่ CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">นี่ มาดูตำแหน่งปัจจุบันของฉันที่แผนที่ CoMaps สิ!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">หวัดดี \n \nฉันอยู่ที่นี่ตอนนี้: %1$s. คลิกลิงก์นี้ %2$s หรือลิงก์นี้ %3$s เพื่อดูสถานที่บนแผนที่ \n \nขอบคุณ</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">แชร์</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -387,13 +383,7 @@
     <string name="editor_example_values">ตัวอย่างของค่าที่ตั้งไว้</string>
     <string name="editor_correct_mistake">แก้ไขข้อผิดพลาด</string>
     <string name="editor_add_select_location">เลือกสถานที่</string>
-    <string name="editor_report_problem_desription_1">กรุณาอธิบายปัญหาโดยละเอียดเพื่อที่ชุมชน OpenStreetMap จะสามารถแก้ไขข้อผิดพลาดได้</string>
-    <string name="editor_report_problem_desription_2">หรือทำด้วยตัวคุณเองที่ https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">ส่ง</string>
-    <string name="editor_report_problem_title">ปัญหา</string>
-    <string name="editor_report_problem_no_place_title">ไม่มีสถานที่นี้อยู่</string>
-    <string name="editor_report_problem_under_construction_title">ปิดปรับปรุง</string>
-    <string name="editor_report_problem_duplicate_place_title">สถานที่ซ้ำ</string>
     <string name="autodownload">ดาวน์โหลดอัตโนมัติ</string>
     <!-- Place Page opening hours text -->
     <string name="daily">ทุกวัน</string>

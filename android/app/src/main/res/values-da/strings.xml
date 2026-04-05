@@ -165,12 +165,8 @@
     <string name="downloading_is_active">Download af kort er i gang nu</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Hey, tjek min nuværende placering på CoMaps! %1$s eller %2$s. Har du ikke offline kort? Download her: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hey, tjek min knappenål på CoMaps!</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hey, tjek min nuværende placering på CoMaps-kortet!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hej, \n \nJeg er her nu: %1$s. Tryk på dette link %2$s eller dette %3$s for at se stedet på kortet. \n \nTak.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Del</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -389,13 +385,7 @@
     <string name="editor_example_values">Eksempelværdier</string>
     <string name="editor_correct_mistake">Ret fejl</string>
     <string name="editor_add_select_location">Vælg placering</string>
-    <string name="editor_report_problem_desription_1">Beskriv problemet i detaljer, så OpenStreetMap-fællesskabet kan løse fejlen.</string>
-    <string name="editor_report_problem_desription_2">Eller gør det selv på https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Send</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">Stedet findes ikke</string>
-    <string name="editor_report_problem_under_construction_title">Lukket for vedligeholdelse</string>
-    <string name="editor_report_problem_duplicate_place_title">Duplikeret sted</string>
     <string name="autodownload">Download kort automatisk</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Daglig</string>
@@ -635,7 +625,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sorter…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sorter favoritter</string>
+    <string name="sort_bookmarks">Sortér favoritter</string>
     <!-- Android -->
     <string name="by_default">Som standard</string>
     <!-- Android -->
@@ -736,7 +726,7 @@
     <string name="browser_not_available">Webbrowser er ikke tilgængelig</string>
     <string name="volume">Lydstyrke</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksporter alle steder og spor</string>
+    <string name="bookmarks_export">Eksportér alle favoritter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Indstillinger for talesyntese-system</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -817,7 +807,7 @@
     <string name="error_enter_correct_bluesky_page">Indtast et gyldigt Bluesky-brugernavn eller en webadresse</string>
     <string name="editor_level">Etage (0 er stueetage)</string>
     <string name="pref_backup_now_summary_ok">Sikkerhedskopiering fuldført</string>
-    <string name="pref_backup_now_summary_empty_lists">Ingen steder og spor at lave sikkerhedskopi af</string>
+    <string name="pref_backup_now_summary_empty_lists">Ingen favoritter at lave sikkerhedskopi af</string>
     <string name="pref_backup_now_summary_failed">Sikkerhedskopiering mislykkedes</string>
     <string name="pref_backup_now_summary_folder_unavailable">Mappen til sikkerhedskopiering er ikke tilgængelig</string>
     <string name="pref_backup_status_summary_success">Sidste vellykkede sikkerhedskopiering</string>
@@ -832,7 +822,7 @@
     <string name="editor_building_levels">Etager (inkl. stueetage, ekskl. tag)</string>
     <string name="error_enter_correct_level">Indtast et gyldigt etagenummer</string>
     <string name="pref_left_button_title">Indstilling af venstre knap</string>
-    <string name="pref_backup_title">Sikkerhedskopi af favoritter</string>
+    <string name="pref_backup_title">Sikkerhedskopiér favoritter</string>
     <string name="pref_backup_now_title">Sikkerhedskopiér nu</string>
     <string name="pref_backup_now_summary">Opret en sikkerhedskopi straks</string>
     <string name="clear">Ryd</string>
@@ -920,7 +910,17 @@
     <string name="route_needs_rebuild">Rute skal genopbygges</string>
     <string name="route_finished">Rute færdig</string>
     <string name="not_following_route">Følger ikke rute</string>
-    <string name="rebuilding_route">Genopbygger rute…</string>
     <string name="pref_openexternallinks_title">Åbn automatisk links fra tredjeparter</string>
     <string name="pref_openexternallinks_summary">Åbn som standard links fra tredjeparter i CoMaps</string>
+    <string name="pref_alt_map_lang_handling">Alternative kortsprog</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Brug ikke alternativer</string>
+    <string name="pref_alt_map_lang_handling_system_order">Brug i systemorden</string>
+    <string name="pref_alt_map_lang_handling_local_only">Foretræk og brug kun, hvor det er hjemmehørende</string>
+    <string name="bookmark_share_email_subject">Følg dette link %1$s eller indsæt disse koordinater %2$s i din kortapp for at se denne placering.</string>
+    <string name="my_position_share_email">Følg dette link %1$s eller indsæt disse koordinater %2$s i din kortapp for at se min placering.</string>
+    <string name="destination">Destination</string>
+    <string name="stop">Stop</string>
+    <string name="route_recalculating">Genberegner ruten…</string>
+    <string name="charge_socket_type1_combo">Type 1 combo</string>
+    <string name="population">Indbyggertal: %s</string>
 </resources>

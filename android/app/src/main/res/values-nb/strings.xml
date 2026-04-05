@@ -23,7 +23,7 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Søk på kartet</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">Du har for øyeblikket deaktivert alle posisjonstjenester for denne enheten eller applikasjonen. Slå dem på i «Innstillinger».</string>
+    <string name="location_is_disabled_long_text">Posisjonstjenester er slått av for denne enheten eller appen. Slå dem på i «Innstillinger».</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Begrenset nøyaktighet</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
@@ -170,12 +170,8 @@
     <string name="downloading_is_active">Nedlasting av kart er i gang nå</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Se posisjonen min på CoMaps! %1$s eller %2$s Har du ikke offline-kart? Last ned her: https://www.comaps.app/download/</string>
-    <!-- Subject for emailed bookmark -->
-    <string name="bookmark_share_email_subject">Hei, se merket mitt på CoMaps-kartet</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hei, se posisjonen min på CoMaps-kartet!</string>
-    <!-- Share my position using EMail, %1$@ is om:// and %2$@ is https://comaps.app link WITHOUT NAME -->
-    <string name="my_position_share_email">Hei, \n \nJeg er her nå: %1$s. Klikk denne lenken %2$s eller denne %3$s for å se stedet på kartet. \n \nTakk.</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Del</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -400,13 +396,7 @@
     <string name="editor_example_values">Eksempelverdier</string>
     <string name="editor_correct_mistake">Rett feil</string>
     <string name="editor_add_select_location">Velg sted</string>
-    <string name="editor_report_problem_desription_1">Beskriv problemet detaljert slik at OpenStreetMap-samfunnet kan fikse feilen.</string>
-    <string name="editor_report_problem_desription_2">Eller gjør det selv på https://www.openstreetmap.org/</string>
     <string name="editor_report_problem_send_button">Send</string>
-    <string name="editor_report_problem_title">Problem</string>
-    <string name="editor_report_problem_no_place_title">Stedet finnes ikke</string>
-    <string name="editor_report_problem_under_construction_title">Stengt pga. vedlikehold</string>
-    <string name="editor_report_problem_duplicate_place_title">Duplisert sted</string>
     <string name="autodownload">Last ned kart automatisk</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Daglig</string>
@@ -771,7 +761,7 @@
     <string name="browser_not_available">Nettleser er ikke tilgjengelig</string>
     <string name="volume">Volum</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Eksporter alle steder og spor</string>
+    <string name="bookmarks_export">Eksporter alle favoritter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Systeminnstillinger for talesyntese</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -855,7 +845,7 @@
     <string name="pref_backup_summary">Automatisk sikkerhetskopiering til en mappe på enheten din</string>
     <string name="pref_backup_now_summary">Opprett en sikkerhetskopi med en gang</string>
     <string name="pref_backup_now_summary_ok">Sikkerhetskopiering fullført</string>
-    <string name="pref_backup_now_summary_empty_lists">Ingen steder og spor å sikkerhetskopiere</string>
+    <string name="pref_backup_now_summary_empty_lists">Ingen favoritter å sikkerhetskopiere</string>
     <string name="pref_backup_now_summary_folder_unavailable">Sikkerhetskopimappen er ikke tilgjengelig</string>
     <string name="pref_backup_status_summary_success">Siste vellykkede sikkerhetskopiering</string>
     <string name="pref_backup_location_summary_initial">Velg en mappe først og gi tillatelse</string>
@@ -917,7 +907,6 @@
     <string name="pref_speedlimit_title">Vis fartsgrenser</string>
     <string name="rooms">%s rom</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
-    <string name="rebuilding_route">Beregner rute på nytt…</string>
     <string name="invalid_route">Ugyldig rute</string>
     <string name="building_route">Beregner rute…</string>
     <string name="route_not_started">Rute ikke startet</string>
@@ -925,4 +914,16 @@
     <string name="route_needs_rebuild">Rute må beregnes på nytt</string>
     <string name="route_finished">Rute fullført</string>
     <string name="not_following_route">Følger ikke rute</string>
+    <string name="pref_alt_map_lang_handling_local_only">Foretrekk og bruk kun hvor det er lokalt språk</string>
+    <string name="pref_alt_map_lang_handling">Alternative kartspråk</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ikke bruk alternativer</string>
+    <string name="pref_alt_map_lang_handling_system_order">Bruk i systemrekkefølge</string>
+    <string name="pref_openexternallinks_title">Åpne tredje-parts lenker automatisk</string>
+    <string name="pref_openexternallinks_summary">Åpne tredje-parts lenker i CoMaps som standard</string>
+    <string name="route_recalculating">Beregner ruten på nytt…</string>
+    <string name="stop">Stopp</string>
+    <string name="destination">Bestemmelsessted</string>
+    <string name="bookmark_share_email_subject">Følg denne lenken %1$s eller lim inn disse koordinatene %2$s i kart-appen din for å se denne posisjonen.</string>
+    <string name="my_position_share_email">Følg denne lenken %1$s eller lim inn disse koordinatene %2$s i kart-appen din for å se posisjonen min.</string>
+    <string name="population">Folketall: %s</string>
 </resources>

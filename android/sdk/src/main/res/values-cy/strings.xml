@@ -28,4 +28,7 @@
     <string name="month_ago">%s mis yn ôl</string>
     <string name="months_ago">%s mis yn ôl</string>
     <string name="year_ago">%s blwyddyn yn ôl</string>
+    <string name="maps_storage_external">Storfa allanol a rennir</string>
+    <string name="subway_data_unavailable">Nid yw\'r map tanddaearol ar gael</string>
+    <string name="years_ago">%s o flynyddoedd yn ôl</string>
 </resources>

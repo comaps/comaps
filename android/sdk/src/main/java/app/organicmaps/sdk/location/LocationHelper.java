@@ -215,6 +215,22 @@ public class LocationHelper implements BaseLocationProvider.Listener
 
     Logger.d(TAG, "provider = " + mLocationProvider.getClass().getSimpleName() + " location = " + location);
 
+    // Duplicate filtering
+    // Android location system sometimes sends exact duplicate updates
+    // Especially when TrackerService subscribes to updates also
+    if (mSavedLocation != null)
+    {
+      // Check for exact duplicates (same timestamp and coordinates)
+      boolean isExactDuplicate = location.getElapsedRealtimeNanos() == mSavedLocation.getElapsedRealtimeNanos()
+                              && location.getLatitude() == mSavedLocation.getLatitude()
+                              && location.getLongitude() == mSavedLocation.getLongitude();
+      if (isExactDuplicate)
+      {
+        Logger.d(TAG, "Rejected exact duplicate: " + location);
+        return;
+      }
+    }
+
     mSavedLocation = location;
     mMyPosition = null;
     notifyLocationUpdated();

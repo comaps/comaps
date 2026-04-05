@@ -9,10 +9,11 @@ This document gives some guidelines to write and review PR with essential elemen
 - New functionality and unit or integration tests for it should be developed in the same PR
 - Every commit of all PRs should be compilable under all platforms and all tests should pass. If changes break unit or integration tests, then these tests should be fixed, ideally before opening a PR. 
 - Every commit should reflect a completed idea and have an understandable comment. Review fixes should be merged into one commit
+- When some source files are changed and then some other source files based on them are auto-generated, they should be committed in different commits. For example, if you change style (mapcss) files, then put auto-generated files into a separate [styles] Regenerate commit
+- Whitespace and formatting changes should be a separate commit from logical changes, and possibly even be a separate cleanup PR, to make reviewing and merging easier.
 - All commits and PR captions should be written in English.
 - We suggest PRs should have prefixes in square brackets depending on the changed subsystem. For example, [routing], [generator], or [android]. Commits may have several prefixes (See `git log --oneline|egrep -o '\[[0-9a-z]*\]'|sort|uniq -c|sort -nr|less` for ideas.)
 - Use imperative mood in commit's message, e.g. `[core] Fix gcc warnings` not `[core] Fixed gcc warnings`
-- When some source files are changed and then some other source files based on them are auto-generated, they should be committed in different commits. For example, if you change style (mapcss) files, then put auto-generated files into a separate [styles] Regenerate commit
 - All code bases should conform to ./docs/CPP_STYLE.md, ./docs/OBJC_STYLE.md, ./docs/JAVA_STYLE.md or other style in ./docs/ depending on the language
 - The description field of every PR should contain a description to explain **what and why** vs. how.
 - If your changes are visual (e.g. app UI or map style changes) then please add before/after screenshots or videos.
@@ -49,7 +50,7 @@ Here's a small template that can help writing feedback to first-time contributor
 
 > Thank you so much for this contribution - and welcome to CoMaps!
 > 
-> For CoMaps, we use the [_Developers Certficate of Origin_](https://codeberg.org/comaps/comaps/src/branch/main/docs/DCO.md) for contributors to certify that they wrote/have the right to submit their code to our project. This helps ensure that CoMaps can remain open source as it gives us some legal protection. You can sign it by signing your commit. The easiest way is to amend your existing commit with `git commit -s -m 'your commit message'`. If you are using the Codeberg interface you can also sign your commit by selection _"Add a Signed-off-by trailer by the committer at the end of the commit log message."_. 
+> For CoMaps, we use the [_Developers Certficate of Origin_](https://codeberg.org/comaps/Governance/src/branch/main/DCO.md) for contributors to certify that they wrote/have the right to submit their code to our project. This helps ensure that CoMaps can remain open source as it gives us some legal protection. You can sign it by signing your commit. The easiest way is to amend your existing commit with `git commit -s -m 'your commit message'`. If you are using the Codeberg interface you can also sign your commit by selection _"Add a Signed-off-by trailer by the committer at the end of the commit log message."_. 
 > 
 > If you haven't yet, you could also add yourself to our [CONTRIBUTOR](https://codeberg.org/comaps/comaps/src/branch/main/CONTRIBUTORS) file with your name or pseudonym if you want (that would also give you a chance to sign the commit if needed).
 

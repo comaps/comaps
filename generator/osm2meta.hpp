@@ -42,9 +42,11 @@ struct MetadataTagProcessorImpl
   std::string ValidateAndFormat_duration(std::string const & v) const;
   static std::string ValidateAndFormat_capacity(std::string const & v);
   static std::string ValidateAndFormat_rooms(std::string const & v);
+  static std::string ValidateAndFormat_charge(std::string v);
   static std::string ValidateAndFormat_drive_through(std::string v);
   static std::string ValidateAndFormat_self_service(std::string v);
   static std::string ValidateAndFormat_outdoor_seating(std::string v);
+  // Population tag had been already processed in generator/osm2type.cpp::GetNameAndType()
 
 protected:
   // stores information about charge sockets in charging stations.

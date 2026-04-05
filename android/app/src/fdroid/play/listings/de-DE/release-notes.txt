@@ -1,9 +1,8 @@
-• OpenStreetMap-Daten vom 21. Februar
-• Anzeige der Öffnungszeiten in Schichten, statt außerhalb der Geschäftszeiten.
-• Zeigt OSM-Beschreibungen und Anzahl von Räumen bei ausgewählten POIs
-• Kroatische, italienische, niederländische und polnische Wikipedia-Artikel hinzugefügt
-• Baumreihen und Jugendzentren hinzugefügt
-• Transliterations-Fehler behoben
-• Verbesserte Alternative-Karten-Sprachen-Einstellung
+• OpenStreetMap-Daten vom 21. März
+• Sportarten hinzugefügt: Boule und Four Squares
+• Tschechische, thailändische, türkische & ukrainische Wikipedia-Artikel hinzugefügt
+• Sekundäre Namen, z. B. für Straßen, in mehrsprachigen Regionen werden je Einstellung nicht angezeigt
+• Verbesserte Fortschrittsanzeige mit flüssigerer Animation
+• Unterstützung von mehr Höchstgeschwindigkeitsdefinitionen in verschiedenen Ländern
 
-Mehr Details auf comaps.app/latest
+Weitere Details unter comaps.app/latest

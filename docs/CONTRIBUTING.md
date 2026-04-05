@@ -17,6 +17,13 @@ If you'd like to help in any other way or if there are any related questions - p
 
 If none of those ways of contributing seem to be a good fit, and you'd like to help out in another way, you could also [donate](https://www.comaps.app/donate/)
 
+### General guidelines
+
+CoMaps is made by a growing group of volunteers, and to ensure that we all can work well together, we have a couple of guidelines we ask you to follow when contributing: 
+
+* [Code of Conduct](https://codeberg.org/comaps/Governance/src/branch/main/CODE_OF_CONDUCT.md), for how we want to interact with each other
+* [AI usage guidelines](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md), for when/how the use of AI is appropriate when contributing to CoMaps
+
 ### Bug Reports and Feature Requests
 
 [Submit an issue](https://codeberg.org/comaps/comaps/issues) and describe your feature idea or report a bug.
@@ -90,7 +97,7 @@ of the content, that you have the necessary rights to the content and that
 the content you contribute may be provided under the project license.
 
 To contribute you must assure that you have read and are following the rules
-stated in the [Developers Certificate of Origin](DCO.md) (DCO). We have
+stated in the [Developers Certificate of Origin](https://codeberg.org/comaps/Governance/src/branch/main/DCO.md) (DCO). We have
 borrowed this procedure from the Linux kernel project to improve tracking of
 who did what, and for legal reasons.
 
