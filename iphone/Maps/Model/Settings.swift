@@ -466,12 +466,11 @@ import Combine
     /// Countries to avoid crossing into (used with .Specific mode)
     static var avoidedBorderCountries: Set<String> {
         get {
-            let nsSet = RoutingOptions().avoidedBorderCountries
-            return Set(nsSet.compactMap { $0 as? String })
+            return Set(RoutingOptions().avoidedBorderCountries)
         }
         set {
             let routingOptions = RoutingOptions()
-            routingOptions.avoidedBorderCountries = Set(newValue.map { $0 as NSString }) as NSSet
+            routingOptions.avoidedBorderCountries = Set(newValue)
             routingOptions.save()
 
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)

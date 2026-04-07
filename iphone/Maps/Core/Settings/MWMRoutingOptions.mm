@@ -1,6 +1,6 @@
 #import "MWMRoutingOptions.h"
 
-#import "MWMStorage.h"
+#import "MWMStorage+UI.h"
 
 #include "defines.hpp"
 #include "routing/routing_options.hpp"
