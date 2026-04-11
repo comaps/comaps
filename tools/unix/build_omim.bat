@@ -201,11 +201,14 @@ REM ============================================================
 REM 9. Run configure.sh (generates drules, symbols, and other data files)
 REM ============================================================
 echo Running configure.sh...
-bash "!OMIM_PATH!/configure.sh"
+pushd "!OMIM_PATH!"
+bash configure.sh
 if errorlevel 1 (
+  popd
   echo ERROR: configure.sh failed
   exit /b 1
 )
+popd
 
 REM ============================================================
 REM 10. Build
