@@ -63,7 +63,7 @@ set(SRC
   update_dialog.hpp
 )
 
-omim_add_executable(${PROJECT_NAME} MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
+omim_add_executable(${PROJECT_NAME} WIN32 MACOSX_BUNDLE ${RES_SOURCES} ${SRC})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES AUTOMOC ON)
 

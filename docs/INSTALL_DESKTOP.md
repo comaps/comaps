@@ -140,8 +140,47 @@ pip3 install "protobuf<3.21"
   <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
 
 
-We haven't compiled CoMaps on Windows *natively* in a long time, somes adaptations is required to support Windows.
-You'll need to have python3, cmake, ninja, and QT6 in the PATH, and Visual Studio 2022 or Visual Studio 2022 Build Tools installed. Use [Visual Studio Developer Command Prompt](https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) or generate Visual Studio project files with CMake to build the project.
+Native Windows builds are supported using MSVC and Qt 6.
+
+#### Prerequisites
+
+- [Visual Studio 2022](https://visualstudio.microsoft.com/) (Community or Build Tools) with the **Desktop development with C++** workload, including the **MSVC x64 build tools** and **Windows 10/11 SDK**
+- [CMake](https://cmake.org/download/) 3.22.1 or newer (add to PATH during install)
+- [Ninja](https://ninja-build.org/) (add to PATH, or install via `winget install Ninja-build.Ninja`)
+- [Qt 6](https://www.qt.io/download-qt-installer) — install the **MSVC 2019 64-bit** component (tested with Qt 6.6.0 installed to `C:\Qt\`)
+- [Python 3](https://www.python.org/downloads/) (add to PATH during install)
+- [Git for Windows](https://git-scm.com/download/win) with Git Bash available in PATH
+
+#### Building
+
+Open the **x64 Native Tools Command Prompt for VS 2022** and run:
+
+```bat
+cd comaps
+tools\unix\build_omim.bat -d
+```
+
+The script checks for all prerequisites, auto-detects Qt, configures CMake, and builds with Ninja. The output binary is placed in `..\omim-build-Debug\CoMaps.exe`.
+
+Key build options (see `build_omim.bat` header for full list):
+
+| Flag | Effect |
+|------|--------|
+| `-d` | Debug build |
+| `-r` | Release build |
+| `-R` | RelWithDebInfo build |
+| `-c` | Clean build directory first |
+
+#### Running
+
+After a successful build, deploy Qt DLLs alongside the exe so it can be launched directly:
+
+```bat
+set PATH=C:\Qt\6.6.0\msvc2019_64\bin;%PATH%
+windeployqt --debug ..\omim-build-Debug\CoMaps.exe
+```
+
+You can then double-click `CoMaps.exe` from Explorer. The Qt DLLs only need to be deployed once (or after a Qt version change).
 
 However, it is possible to use the WSL (Windows Subsystem for Linux) to run GUI applications.
 
