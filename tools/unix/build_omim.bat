@@ -51,7 +51,7 @@ if errorlevel 1 (
 for /f "tokens=*" %%i in ('cmake --version 2^>^&1 ^| findstr /C:"cmake version"') do echo Found %%i
 
 REM ============================================================
-REM 3. Check Python and install required packages
+REM 3. Check Python
 REM ============================================================
 where python >nul 2>nul
 if errorlevel 1 (
@@ -60,20 +60,8 @@ if errorlevel 1 (
   exit /b 1
 )
 for /f "tokens=*" %%i in ('python --version 2^>^&1') do echo Found %%i
-
-REM protobuf < 4.0 is required by the CMake build
-python -c "import google.protobuf; v=google.protobuf.__version__; exit(0 if tuple(int(x) for x in v.split('.')) < (4,0,0) else 1)" >nul 2>&1
-if errorlevel 1 (
-  echo Installing Python protobuf ...
-  python -m pip install "protobuf<4.0" --quiet
-  if errorlevel 1 (
-    echo ERROR: Failed to install protobuf
-    exit /b 1
-  )
-  echo Installed protobuf.
-) else (
-  echo Found protobuf.
-)
+REM CMake checks for protobuf ^< 4.0 at configure time and will warn if missing.
+REM See INSTALL_DESKTOP.md for how to install it.
 
 REM ============================================================
 REM 4. Check Git / Bash (needed for version.sh)
@@ -104,15 +92,12 @@ if errorlevel 1 (
 )
 
 REM ============================================================
-REM 6. Detect or install Qt6 (MSVC variant)
+REM 6. Detect Qt6 (MSVC variant)
 REM ============================================================
 set "QT6_DIR="
-set "QT_VERSION=6.6.0"
 set "QT_INSTALL_DIR=C:\Qt"
-set "QT_MSVC_ARCH=msvc2019_64"
-set "QT_AQT_ARCH=win64_msvc2019_64"
 
-REM Search for existing MSVC Qt6
+REM Search for any installed MSVC Qt6 under C:\Qt\
 for /d %%V in ("%QT_INSTALL_DIR%\6.*") do (
   if exist "%%V\msvc2022_64\lib\cmake\Qt6\Qt6Config.cmake" (
     set "QT6_PREFIX=%%V\msvc2022_64"
@@ -127,32 +112,13 @@ for /d %%V in ("%QT_INSTALL_DIR%\6.*") do (
 if defined QT6_DIR (
   echo Found Qt6 MSVC: !QT6_DIR!
 ) else (
-  echo Qt6 MSVC variant not found. Installing via aqtinstall...
-
-  python -c "import aqt" >nul 2>&1
-  if errorlevel 1 (
-    echo Installing aqtinstall...
-    python -m pip install aqtinstall --quiet
-    if errorlevel 1 (
-      echo ERROR: Failed to install aqtinstall
-      exit /b 1
-    )
-  )
-
-  set "QT6_TARGET_DIR=!QT_INSTALL_DIR!\!QT_VERSION!\!QT_MSVC_ARCH!"
-
-  if not exist "!QT6_TARGET_DIR!\lib\cmake\Qt6\Qt6Config.cmake" (
-    echo Installing Qt !QT_VERSION! [!QT_AQT_ARCH!]...
-    python -m aqt install-qt windows desktop !QT_VERSION! !QT_AQT_ARCH! --outputdir "!QT_INSTALL_DIR!"
-    if errorlevel 1 (
-      echo ERROR: Failed to install Qt6 via aqtinstall
-      exit /b 1
-    )
-  )
-
-  set "QT6_PREFIX=!QT6_TARGET_DIR!"
-  set "QT6_DIR=!QT6_TARGET_DIR!\lib\cmake\Qt6"
-  echo Installed Qt6: !QT6_DIR!
+  echo.
+  echo ERROR: Qt6 MSVC variant not found under %QT_INSTALL_DIR%\.
+  echo Install Qt6 with the MSVC 2019/2022 64-bit component from:
+  echo   https://www.qt.io/download-qt-installer
+  echo See docs\INSTALL_DESKTOP.md for full setup instructions.
+  echo.
+  exit /b 1
 )
 
 echo.
@@ -232,7 +198,17 @@ if not exist "!OMIM_PATH!\CMakeLists.txt" (
 echo Source directory: !OMIM_PATH!
 
 REM ============================================================
-REM 9. Build
+REM 9. Run configure.sh (generates drules, symbols, and other data files)
+REM ============================================================
+echo Running configure.sh...
+bash "!OMIM_PATH!/configure.sh"
+if errorlevel 1 (
+  echo ERROR: configure.sh failed
+  exit /b 1
+)
+
+REM ============================================================
+REM 10. Build
 REM ============================================================
 if defined OPT_DEBUG call :build Debug
 if errorlevel 1 exit /b 1

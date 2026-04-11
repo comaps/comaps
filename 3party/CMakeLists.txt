@@ -50,7 +50,8 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
     add_subdirectory(harfbuzz)
   endif()
 
-  # Windows doesn't have a system zlib; build it from bundled source.
+  # Windows has no system-provided zlib (unlike Linux/macOS). Build the bundled
+  # source rather than requiring users to set up vcpkg or another package manager.
   if (PLATFORM_WIN)
     add_subdirectory(zlib)
   endif()
