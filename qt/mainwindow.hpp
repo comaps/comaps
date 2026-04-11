@@ -41,7 +41,7 @@ class MainWindow
 
   QPushButton * m_downloadButton = nullptr;
   QPushButton * m_retryButton = nullptr;
-  QLabel * m_downloadingStatusLabel = nullptr;
+  QPushButton * m_cancelDownloadButton = nullptr;
 
   storage::CountryId m_lastCountry;
 
@@ -127,6 +127,7 @@ protected Q_SLOTS:
 
   void OnDownloadClicked();
   void OnRetryDownloadClicked();
+  void OnCancelDownloadClicked();
 
   void OnSwitchSelectionMode(SelectionMode mode);
   void OnSwitchMwmsBordersSelectionMode();

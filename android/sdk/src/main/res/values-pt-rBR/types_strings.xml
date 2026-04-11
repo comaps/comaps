@@ -611,8 +611,8 @@
     <string name="type.office.lawyer">Escritório de advogado</string>
     <string name="type.office.ngo">Escritório de ONG</string>
     <string name="type.office.telecommunication">Operadora de telecomunicações</string>
-    <string name="type.organic.only">Orgânico</string>
-    <string name="type.organic.yes">Orgânico</string>
+    <string name="type.organic.only">Só orgânico</string>
+    <string name="type.organic.yes">Opções orgânicas</string>
     <string name="type.place.farm">Fazenda</string>
     <string name="type.place.hamlet">Lugarejo</string>
     <!-- Named part of a city or town, bigger than place=neighbourhood and smaller than place=suburb (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dquarter) -->
@@ -1504,4 +1504,7 @@
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.boules">Centro esportivo</string>
     <string name="type.leisure.sports_centre.sport.four_square">Centro esportivo</string>
+    <string name="type.organic.no">Sem opções orgânicas</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centro de esportes</string>
+    <string name="type.sport.pickleball">Pickleball</string>
 </resources>

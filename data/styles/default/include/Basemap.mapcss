@@ -801,6 +801,12 @@ line|z18-[man_made=embankment],
 {width: 7; dashes: 8,4,4,3;}
 
 
+line|z18-[natural=tree_row],
+{color: @woods; width: 6;}
+line|z19-[natural=tree_row],
+{width: 6.5;}
+
+
 /* 9. ISOLINES */
 
 line|z11-[isoline=step_1000],

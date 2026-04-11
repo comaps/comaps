@@ -457,9 +457,10 @@ void MainWindow::CreateCountryStatusControls()
   m_retryButton->setVisible(false);
   connect(m_retryButton, &QAbstractButton::released, this, &MainWindow::OnRetryDownloadClicked);
 
-  m_downloadingStatusLabel = CreateBlackControl<QLabel>("Downloading");
-  mainLayout->addWidget(m_downloadingStatusLabel, 0, Qt::AlignHCenter);
-  m_downloadingStatusLabel->setVisible(false);
+  m_cancelDownloadButton = CreateBlackControl<QPushButton>("Downloading (click to cancel)");
+  mainLayout->addWidget(m_cancelDownloadButton, 0, Qt::AlignHCenter);
+  m_cancelDownloadButton->setVisible(false);
+  connect(m_cancelDownloadButton, &QAbstractButton::released, this, &MainWindow::OnCancelDownloadClicked);
 
   m_pDrawWidget->setLayout(mainLayout);
 
@@ -467,7 +468,7 @@ void MainWindow::CreateCountryStatusControls()
   {
     m_downloadButton->setVisible(false);
     m_retryButton->setVisible(false);
-    m_downloadingStatusLabel->setVisible(false);
+    m_cancelDownloadButton->setVisible(false);
 
     m_lastCountry = countryId;
     // Called by Framework in World zoom level.
@@ -491,15 +492,15 @@ void MainWindow::CreateCountryStatusControls()
     }
     else if (status == storage::Status::Downloading)
     {
-      m_downloadingStatusLabel->setVisible(true);
+      m_cancelDownloadButton->setVisible(true);
     }
     else if (status == storage::Status::InQueue)
     {
-      m_downloadingStatusLabel->setVisible(true);
+      m_cancelDownloadButton->setVisible(true);
 
       std::stringstream str;
-      str << countryName << " is waiting for downloading";
-      m_downloadingStatusLabel->setText(str.str().c_str());
+      str << countryName << " is waiting for downloading (click to cancel)";
+      m_cancelDownloadButton->setText(str.str().c_str());
     }
     else if (status != storage::Status::OnDisk && status != storage::Status::OnDiskOutOfDate)
     {
@@ -522,8 +523,8 @@ void MainWindow::CreateCountryStatusControls()
   }, [this](storage::CountryId const & countryId, downloader::Progress const & progress)
   {
     std::stringstream str;
-    str << "Downloading (" << countryId << ") " << progress.m_bytesDownloaded * 100 / progress.m_bytesTotal << "%";
-    m_downloadingStatusLabel->setText(str.str().c_str());
+    str << "Downloading (" << countryId << ") " << progress.m_bytesDownloaded * 100 / progress.m_bytesTotal << "% (click to cancel)";
+    m_cancelDownloadButton->setText(str.str().c_str());
   });
 }
 
@@ -853,6 +854,11 @@ void MainWindow::OnDownloadClicked()
 void MainWindow::OnRetryDownloadClicked()
 {
   GetFramework().GetStorage().RetryDownloadNode(m_lastCountry);
+}
+
+void MainWindow::OnCancelDownloadClicked()
+{
+  GetFramework().GetStorage().CancelDownloadNode(m_lastCountry);
 }
 
 void MainWindow::SetLayerEnabled(LayerType type, bool enable)

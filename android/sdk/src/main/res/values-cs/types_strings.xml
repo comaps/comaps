@@ -1510,4 +1510,8 @@
     <string name="type.attraction">Atrakce</string>
     <string name="type.leisure.sports_centre.sport.four_square">Sportovní centrum</string>
     <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.boules">Sportovní centrum</string>
+    <string name="type.sport.boules">Koulové sporty</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sportovní centrum</string>
+    <string name="type.sport.pickleball">Pickleball</string>
 </resources>

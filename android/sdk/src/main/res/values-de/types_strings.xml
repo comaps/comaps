@@ -808,8 +808,8 @@
     <string name="type.office.lawyer">Anwaltskanzlei</string>
     <string name="type.office.ngo">Nichtregierungsorganisation</string>
     <string name="type.office.telecommunication">Mobilfunkbetreiber</string>
-    <string name="type.organic.only">Bio</string>
-    <string name="type.organic.yes">Bio</string>
+    <string name="type.organic.only">Nur Bio</string>
+    <string name="type.organic.yes">Bio-Produkte</string>
     <string name="type.place.city">Großstadt</string>
     <string name="type.place.city.capital">Hauptstadt</string>
     <string name="type.place.city.capital.10">Großstadt</string>
@@ -1334,7 +1334,7 @@
     <string name="type.attraction.bumper_car">Autoscooter</string>
     <string name="type.attraction.big_wheel">Riesenrad</string>
     <string name="type.attraction.carousel">Karussell</string>
-    <string name="type.attraction.historic">Historischer Lernort</string>
+    <string name="type.attraction.historic">Historischer Ort</string>
     <string name="type.attraction.maze">Labyrinth</string>
     <string name="type.attraction.roller_coaster">Achterbahn</string>
     <string name="type.attraction.water_slide">Wasserrutsche</string>
@@ -1517,4 +1517,7 @@
     <string name="type.sport.boules">Boule</string>
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.four_square">Sportzentrum</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sportzentrum</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Keine Bio-Produkte</string>
 </resources>

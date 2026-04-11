@@ -1448,4 +1448,6 @@
     <string name="type.social_facility.food_bank">Banco alimentare</string>
     <string name="type.xmas.tree">Albero di Natale</string>
     <string name="type.amenity.community_centre.youth_centre">Centro della Gioventù</string>
+    <string name="type.leisure.sports_centre.sport.boules">Centro sportivo</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Centro sportivo</string>
 </resources>

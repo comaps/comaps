@@ -215,13 +215,13 @@ print(google.protobuf.__version__)"
 )
 
 if(PROTOBUF_CHECK EQUAL 0)
-    if(PROTOBUF_VERSION VERSION_LESS "4.0.0")
-        message(STATUS "Python protobuf ${PROTOBUF_VERSION} found (< 4.0)")
+    if(PROTOBUF_VERSION VERSION_LESS "3.20.0" OR PROTOBUF_VERSION VERSION_GREATER_EQUAL "4.0.0")
+        message(FATAL_ERROR "Python protobuf ${PROTOBUF_VERSION} found, but version (>=3.20, <4.0) is required")
     else()
-        message(FATAL_ERROR "Python protobuf ${PROTOBUF_VERSION} found, but version < 4.0 required")
+        message(STATUS "Python protobuf ${PROTOBUF_VERSION} found (>=3.20, <4.0)")
     endif()
 else()
-    message(FATAL_ERROR "Python protobuf not found. Install version <4.0")
+    message(FATAL_ERROR "Python protobuf not found. Install version (>=3.20, <4.0)")
 endif()
 
 

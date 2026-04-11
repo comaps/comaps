@@ -13,13 +13,11 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>Sem favoritos</string>
+			<string>Sem lugares</string>
 			<key>one</key>
-			<string>%lld favorito</string>
-			<key>many</key>
-			<string>%lld favoritos</string>
+			<string>%lld lugar</string>
 			<key>other</key>
-			<string>%lld favoritos</string>
+			<string>%lld lugares</string>
 		</dict>
 	</dict>
 	<key>bookmarks_detect_message</key>
@@ -32,12 +30,8 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>zero</key>
-			<string>%lld arquivo foi encontrado.</string>
 			<key>one</key>
 			<string>%lld arquivo foi encontrado. Você poderá vê-lo após a conversão.</string>
-			<key>many</key>
-			<string>%lld arquivos foram encontrados. Você poderá vê-los após a conversão.</string>
 			<key>other</key>
 			<string>%lld arquivos foram encontrados. Você poderá vê-los após a conversão.</string>
 		</dict>
@@ -52,12 +46,8 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
-			<key>zero</key>
-			<string>%lld trilha</string>
 			<key>one</key>
 			<string>%lld trilha</string>
-			<key>many</key>
-			<string>%lld trilhas</string>
 			<key>other</key>
 			<string>%lld trilhas</string>
 		</dict>

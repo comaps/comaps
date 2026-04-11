@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260311T165121Z",
+    "data_updated": "20260323T134459Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -2376,6 +2376,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-centre-m.svg"
         },
         {
+            "description": "leisure=sports_centre + sport=boules",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/boules-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=boules",
+            "key": "sport",
+            "value": "boules",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/boules-centre-m.svg"
+        },
+        {
             "description": "leisure=sports_centre + sport=bowls",
             "key": "leisure",
             "value": "sports_centre",
@@ -2446,6 +2458,18 @@
             "key": "sport",
             "value": "field_hockey",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=four_square",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/four_square-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=four_square",
+            "key": "sport",
+            "value": "four_square",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/four_square-centre-m.svg"
         },
         {
             "description": "leisure=sports_centre + sport=futsal",
@@ -4648,6 +4672,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/volleyball-m.svg"
         },
         {
+            "description": "sport=boules",
+            "key": "sport",
+            "value": "boules",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/boules-m.svg"
+        },
+        {
             "description": "sport=bowls",
             "key": "sport",
             "value": "bowls",
@@ -4688,6 +4718,12 @@
             "key": "sport",
             "value": "field_hockey",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/hockey-m.svg"
+        },
+        {
+            "description": "sport=four_square",
+            "key": "sport",
+            "value": "four_square",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/four_square-m.svg"
         },
         {
             "description": "sport=futsal",

@@ -54,7 +54,7 @@
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Маркери";
 /* Default bookmark list name */
-"core_my_places" = "Моја места";
+"core_my_places" = "Моји маркери";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Адреса";
 /* Settings button in system menu */
@@ -107,7 +107,7 @@
 "category_water" = "Вода";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "За кампер возила";
-"share_bookmarks_email_body" = "Здраво!\n\nУ прилогу су моја места; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/\n\nУживај у путовању са CoMaps-ом!";
+"share_bookmarks_email_body" = "Здраво! \n \nУ прилогу су моји фаворити; молим те да их отвориш у CoMaps-у. Ако га немаш већ инсталираног, можеш да га преузмеш одавде: https://www.comaps.app/download/ \n \nУживај у путовању са CoMaps-ом!";
 /* message title of loading file */
 "load_kmz_title" = "Учитавање маркера";
 /* Kmz file successful loading */
@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Оператор: %@";
 "editor_category_unsuitable_title" = "Не можете да пронађете одговарајућу категорију?";
-"editor_category_unsuitable_text" = "CoMaps омогућава додавање једноставних категорија за тачке на мапи, што искључује градове, путеве, језера, тлоцрте зграда, итд. Молимо Вас да такве категорије додате директно на <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Прочитајте наше <a href=\"https://www.comaps.app/support/advanced-map-editing/\">упутство</a> за детаљне инструкције, корак-по-корак.";
+"editor_category_unsuitable_text" = "CoMaps омогућава додавање једноставних категорија за тачке на мапи, што искључује градове, путеве, језера, тлоцрте зграда, итд. Молимо Вас да такве категорије додате директно на <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Прочитајте наше <a href=\"https://www.comaps.app/support/advanced-map-editing/\">упутство</a> за детаљне инструкције, корак по корак.";
 "downloader_no_downloaded_maps_title" = "Нисте преузели ни једну мапу";
 "downloader_no_downloaded_maps_message" = "Преузмите мапе да бисте претраживали и користили навигацију без интернета.";
 "current_location_unknown_error_title" = "Тренутна локација није позната.";
@@ -525,7 +525,7 @@
 "placepage_more_button" = "Више";
 "book_button" = "Резервиши";
 "placepage_call_button" = "Позови";
-"placepage_edit_bookmark_button" = "Измени место";
+"placepage_edit_bookmark_button" = "Измени сачувано место";
 "placepage_bookmark_name_hint" = "Назив места";
 "placepage_personal_notes_hint" = "Личне белешке (текст или хтмл)";
 "placepage_delete_bookmark_button" = "Обриши место";

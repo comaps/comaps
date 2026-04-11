@@ -838,8 +838,14 @@ UNIT_TEST(Normalize_Special)
   }
 
   {
-    std::string const utf8 = "əüöğ";
-    TEST_EQUAL(strings::ToUtf8(strings::Normalize(strings::MakeUniString(utf8))), "əuog", ());
+    std::string const utf8 = "əüğ";
+    TEST_EQUAL(strings::ToUtf8(strings::Normalize(strings::MakeUniString(utf8))), "əug", ());
+  }
+
+  // these characters are allowed in search and not normalized
+  {
+    std::string const utf8 = "öäæøå";
+    TEST_EQUAL(strings::ToUtf8(strings::Normalize(strings::MakeUniString(utf8))), "öäæøå", ());
   }
 }
 

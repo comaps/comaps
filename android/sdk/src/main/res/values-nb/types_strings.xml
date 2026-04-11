@@ -1429,4 +1429,7 @@
     <string name="type.leisure.sports_centre.sport.four_square">Sportssenter</string>
     <string name="type.leisure.sports_centre.sport.boules">Sportssenter</string>
     <string name="type.sport.boules">Boule</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sportssenter</string>
+    <string name="type.power.pole">Strømstolpe</string>
+    <string name="type.man_made.utility_pole">Stolpe</string>
 </resources>

@@ -393,7 +393,7 @@ osm::EditJournal XMLFeature::GetEditJournal() const
   // debug print
   std::ostringstream ost;
   Save(ost);
-  LOG(LDEBUG, ("Read in XMLFeature:\n", ost.str()));
+  LOG(LDEBUG, ("Parsing XMLFeature:\n", ost.str()));
 
   auto readEditJournalList = [](pugi::xml_node & xmlNode, osm::EditJournal & journal, bool isHistory)
   {
@@ -522,8 +522,6 @@ osm::EditJournal XMLFeature::GetEditJournal() const
   auto xmlJournalHistory = GetRootNode().child("journalHistory");
   readEditJournalList(xmlJournalHistory, journal, true);
 
-  LOG(LDEBUG, ("Read in Journal:\n", journal.JournalToString()));
-
   return journal;
 }
 
@@ -584,11 +582,6 @@ void XMLFeature::SetEditJournal(osm::EditJournal const & journal)
 
   auto xmlJournalHistory = GetRootNode().append_child("journalHistory");
   insertEditJournalList(xmlJournalHistory, journal.GetJournalHistory());
-
-  // debug print
-  std::ostringstream ost;
-  Save(ost);
-  LOG(LDEBUG, ("Saving XMLFeature:\n", ost.str()));
 }
 
 bool XMLFeature::HasAnyTags() const

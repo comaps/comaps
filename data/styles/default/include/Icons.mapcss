@@ -207,11 +207,6 @@ node|z19-[man_made=water_well][drinking_water=not],
 node|z19-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
-line|z18-[natural=tree_row],
-{color: @woods;width: 6;}
-line|z19-[natural=tree_row],
-{width: 6.5;}
-
 node|z17-[natural=tree][name],
 {icon-image: tree-special-m.svg;}
 node|z18-[natural=tree][!name],
@@ -1093,6 +1088,7 @@ node|z16-[leisure=sports_centre][sport=athletics],
 node|z16-[leisure=sports_centre][sport=gymnastics],
 node|z16-[leisure=sports_centre][sport=bowls],
 node|z15-[leisure=sports_centre][sport=swimming],
+node|z16-[leisure=sports_centre][sport=pickleball],
 node|z17-[highway=ladder],
 node|z18-[amenity=dojo],
 node|z18-[amenity=vending_machine],
@@ -1420,6 +1416,10 @@ node|z17-[sport=padel],
 {icon-image: padel-m.svg;}
 node|z16-[leisure=sports_centre][sport=padel],
 {icon-image: padel-centre-m.svg;}
+node|z17-[sport=pickleball],
+{icon-image: pickleball-m.svg;}
+node|z16-[leisure=sports_centre][sport=pickleball],
+{icon-image: pickleball-centre-m.svg;}
 node|z17-[sport=handball],
 {icon-image: handball-m.svg;}
 node|z16-[leisure=sports_centre][sport=handball],

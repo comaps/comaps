@@ -11,6 +11,14 @@ DEBUG: 0
 # A main working directory. There is a subdirectory created for each generator run
 # which contains the planet and other downloads, temporary build files, logs and completed MWMs.
 MAIN_OUT_PATH: ${Developer:OMIM_PATH}/../maps_build
+# A space to optionally publish generated maps in a structure suitable for a map server.
+# This folder should then be made available as "maps/" on a map server, e.g. https://my.mapserver.net/maps/
+# A maps structure there is created via symlinking to the actual map folders in MAIN_OUT_PATH.
+# If not set then no symlinking/publishing happens.
+# PUBLISH_PATH: ${Developer:OMIM_PATH}/../maps_publish
+# Keys to sign published maps with (produces countries.txt.sig). If not set then no signing happens.
+# PUBLISH_KEY_PUBLIC: ~/maps_ed25519_pk.pem
+# PUBLISH_KEY_SECRET: ~/maps_ed25519_sk.pem
 # Path for storing caches for nodes, ways, relations.
 # If it's not set then caches are stored inside the directory of the current build.
 # CACHE_PATH: ${Main:MAIN_OUT_PATH}/cache

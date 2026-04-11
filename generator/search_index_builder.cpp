@@ -92,10 +92,11 @@ void GetCategoryTypes(CategoriesHolder const & categories, std::pair<int, int> s
 {
   for (uint32_t t : types)
   {
-    // Truncate |t| up to 2 levels and choose the best category match to find explicit category if
-    // any and not distinguish types like highway-primary-bridge and highway-primary-tunnel or
-    // amenity-parking-fee and amenity-parking-underground-fee if we do not have such explicit
-    // categories.
+    // Index the feature under its own category only - if its defined explicitly.
+    // E.g. `leisure-swimming_pool-private` is not matched by a `swimming pool` search
+    // because it has its own explicit search category defined.
+    // But sport-specific subtypes of `leisure-sports_centre` are matched by a `sports centre` search
+    // because these subtypes have no explicitly defined search categories.
 
     for (uint8_t level = ftype::GetLevel(t); level >= 2; --level)
     {

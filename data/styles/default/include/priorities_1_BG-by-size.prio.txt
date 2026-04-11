@@ -68,6 +68,7 @@ leisure-sports_centre-sport-ice_hockey              # area z13- (also has icon z
 leisure-sports_centre-sport-multi                   # area z13- (also has icon z16-, caption(optional) z16-)
 leisure-sports_centre-sport-padel                   # area z13- (also has icon z16-, caption(optional) z16-)
 leisure-sports_centre-sport-pelota                  # area z13- (also has icon z16-, caption(optional) z16-)
+leisure-sports_centre-sport-pickleball              # area z13- (also has icon z16-, caption(optional) z16-)
 leisure-sports_centre-sport-scuba_diving            # area z13- (also has icon z16-, caption(optional) z16-)
 leisure-sports_centre-sport-shooting                # area z13- (also has icon z16-, caption(optional) z16-)
 leisure-sports_centre-sport-skateboard              # area z13- (also has icon z16-, caption(optional) z16-)

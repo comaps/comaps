@@ -559,7 +559,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
     return std::string();
   };
 
-  if (k.starts_with("description"))
+  if (k.starts_with("description") || k.starts_with("defibrillator:location"))
   {
     // Separate description tags processing.
     localisation::LanguageIndex languageIndex = localisation::kDefaultNameIndex;

@@ -1417,4 +1417,10 @@
     <string name="type.amenity.community_centre.youth_centre">Kresen Yowynkneth</string>
     <string name="type.shop.water">Gwerthji Dowr</string>
     <string name="type.attraction">Tennvos</string>
+    <string name="type.leisure.sports_centre.sport.boules">Kresen Sportys</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Kresen Sportys</string>
+    <string name="type.sport.boules">Gwariow Pelyow</string>
+    <string name="type.sport.four_square">Peswar Pedrek</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Kresen Sportys</string>
+    <string name="type.sport.pickleball">Pel Pyckel</string>
 </resources>

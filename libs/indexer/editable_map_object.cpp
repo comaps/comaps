@@ -739,16 +739,18 @@ void EditableMapObject::ClearJournal()
 
 void EditableMapObject::ApplyEditsFromJournal(EditJournal const & editJournal)
 {
+  LOG(LDEBUG, ("Applying JournalHistory entries..."));
   for (JournalEntry const & entry : editJournal.GetJournalHistory())
     ApplyJournalEntry(entry);
 
+  LOG(LDEBUG, ("Applying Journal entries..."));
   for (JournalEntry const & entry : editJournal.GetJournal())
     ApplyJournalEntry(entry);
 }
 
 void EditableMapObject::ApplyJournalEntry(JournalEntry const & entry)
 {
-  LOG(LDEBUG, ("Applying Journal Entry: ", osm::EditJournal::ToString(entry)));
+  LOG(LDEBUG, (osm::EditJournal::ToString(entry)));
 
   switch (entry.journalEntryType)
   {

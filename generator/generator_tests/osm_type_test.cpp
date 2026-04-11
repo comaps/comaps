@@ -2609,6 +2609,7 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_SimpleTypesSmoke)
       {"sport", "gymnastics"},
       {"sport", "handball"},
       {"sport", "multi"},
+      {"sport", "pickleball"},
       {"sport", "scuba_diving"},
       {"sport", "shooting"},
       {"sport", "skiing"},

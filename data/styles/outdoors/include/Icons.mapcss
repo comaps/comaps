@@ -149,9 +149,9 @@ node|z15-[man_made=water_well][drinking_water=not],
 node|z15-[amenity=water_point][drinking_water=not],
 {icon-image: drinking-water-no-m.svg;}
 
-node|z16-[natural=tree][name],
+node|z15-[natural=tree][name],
 {icon-image: tree-special-m.svg;}
-node|z18-[natural=tree][!name],
+node|z17-[natural=tree][!name],
 {icon-image: tree-m.svg;}
 
 

@@ -578,7 +578,7 @@
 "traffic_data_unavailable" = "Liikennetietoja ei ole saatavilla";
 "enable_logging" = "Ota loki käyttöön";
 "log_file_size" = "Lokitiedoston koko: %@";
-"pref_alt_map_lang_handling" = "Alternative Map Languages";
+"pref_alt_map_lang_handling" = "Vaihtoehtoiset kartan kielet";
 "pref_alt_map_lang_handling_ignore_alternatives" = "Älä käytä vaihtoehtoja";
 "pref_alt_map_lang_handling_system_order" = "Use in system order";
 "pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";

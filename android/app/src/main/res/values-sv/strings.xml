@@ -850,7 +850,7 @@
         <item quantity="other">%d min</item>
     </plurals>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
-    <string name="editor_place_doesnt_exist_description">Beskriv hur platsen ser ut nu för att skicka en felanmälan till OpenStreetMaps community</string>
+    <string name="editor_place_doesnt_exist_description">Beskriv hur platsen ser ut nu för att skicka en felanmälan till OpenStreetMap community</string>
     <string name="editor_mark_business_vacant_description">Använd denna om företaget har flyttat och lokalen är ledig.</string>
     <string name="error_enter_correct_instagram_page">Ange ett giltigt Instagram-användarnamn eller en webbadress</string>
 </resources>

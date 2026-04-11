@@ -1404,7 +1404,7 @@
 "type.attraction.bumper_car" = "Autoscooter";
 "type.attraction.big_wheel" = "Riesenrad";
 "type.attraction.carousel" = "Karussell";
-"type.attraction.historic" = "Historischer Lernort";
+"type.attraction.historic" = "Historischer Ort";
 "type.attraction.maze" = "Labyrinth";
 "type.attraction.roller_coaster" = "Achterbahn";
 "type.attraction.water_slide" = "Wasserrutsche";
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boule";
 "type.leisure.sports_centre.sport.boules" = "Sportzentrum";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sportzentrum";

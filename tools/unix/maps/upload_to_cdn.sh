@@ -2,31 +2,12 @@
 
 # Upload new maps version to all CDN nodes (in parallel) and remove old versions.
 
-# Use following commands for deleting older maps:
-#
-# ru1 - keep max 3 maps versions
-# First list all maps versions on the server
-#   sudo rclone lsd ru1:comaps-maps/maps
-# Delete the old version
-#   sudo rclone purge -v ru1:comaps-maps/maps/250713/
-#
-# fi1 - max 3 versions
-#   sudo rclone lsd fi1:/var/www/html/maps
-#   sudo rclone purge -v fi1:/var/www/html/maps/250713/
-#
-# de1 - max 6 versions
-#    sudo rclone lsd de1:/var/www/html/comaps-cdn/maps
-#    sudo rclone purge -v de1:/var/www/html/comaps-cdn/maps/250713/
-#
-# us2 - all versions, don't delete
-#    sudo rclone lsd us2:comaps-map-files/maps
-
 set -e -u
 
 if [ $# -eq 0 ]; then
   echo "Usage: upload_to_cdn.sh MAPS_PATH"
   echo "e.g. sudo upload_to_cdn.sh osm-maps/2025_09_06__09_48_08/250906"
-  echo "uploads are run in parallel to us2,ru1,fi1,de1 servers,"
+  echo "uploads are run in parallel to all CDN nodes/servers,"
   echo "subsequent runs will update only missing/differing files,"
   echo "so its fine to run second time to ensure there were no incomplete transfers"
   echo "or to run on an unfinished generation first and then again after its fully finished."
@@ -42,66 +23,69 @@ echo "Uploading maps folder $DIR to $MAPS"
 # Remove old versions before uploading new ones
 echo "Checking for old versions to remove..."
 
-# ru1 - keep max 3 versions
-echo "Cleaning ru1 (keeping 3 newest versions)..."
-OLD_VERSIONS_RU1=$(rclone lsd ru1:comaps-maps/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +4)
-for version in $OLD_VERSIONS_RU1; do
-  if [ $version -gt 250101 ]; then
-    echo "  Deleting ru1:comaps-maps/maps/$version/"
-    rclone purge ru1:comaps-maps/maps/$version/
-  fi
-done
+remove_old() {
+  local REMOTE_DIR="$1"
+  local MAX="$2"
+  local COUNT=0
+  local VERSIONS=$(rclone lsf --dirs-only --dir-slash=false --max-depth=1 "$REMOTE_DIR" | sort -r | tr '\n' ' ')
+  echo "Checking $REMOTE_DIR (keep $MAX versions)"
+  echo "  Versions present: $VERSIONS"
+  for version in $VERSIONS; do
+    if [ $version -gt 250101 ]; then
+      if [[ "$version" == "$MAPS" ]]; then
+        echo "  $MAPS dir is present already, skip cleaning and continue previous upload"
+        return
+      fi
+      COUNT=$(($COUNT + 1))
+      if [ "$COUNT" -ge "$MAX" ]; then
+        echo "  Deleting $version"
+        rclone purge $REMOTE_DIR/$version/
+        # Delete only 1 version at a time, for safety
+        return
+      fi
+    fi
+  done
+}
 
-# fi1 - keep max 3 versions
-echo "Cleaning fi1 (keeping 3 newest versions)..."
-OLD_VERSIONS_FI1=$(rclone lsd fi1:/var/www/html/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +4)
-for version in $OLD_VERSIONS_FI1; do
-  if [ $version -gt 250101 ]; then
-    echo "  Deleting fi1:/var/www/html/maps/$version/"
-    rclone purge fi1:/var/www/html/maps/$version/
-  fi
-done
+RU1="ru1:comaps-maps/maps"
+remove_old $RU1 3
 
-# de1 - keep max 6 versions
-echo "Cleaning de1 (keeping 6 newest versions)..."
-OLD_VERSIONS_DE1=$(rclone lsd de1:/var/www/html/comaps-cdn/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +7)
-for version in $OLD_VERSIONS_DE1; do
-  if [ $version -gt 250101 ]; then
-    echo "  Deleting de1:/var/www/html/comaps-cdn/maps/$version/"
-    rclone purge de1:/var/www/html/comaps-cdn/maps/$version/
-  fi
-done
+FI1="fi1:/var/www/html/maps"
+remove_old $FI1 3
 
-# fr1 - keep max 6 versions
-echo "Cleaning fr1 (keeping 6 newest versions)..."
-OLD_VERSIONS_FR1=$(rclone lsd fr1:/data/maps --max-depth 1 | awk '{print $5}' | sort -r | tail -n +7)
-for version in $OLD_VERSIONS_FR1; do
-  if [ $version -gt 250101 ]; then
-    echo "  Deleting fr1:/data/maps/$version/"
-    rclone purge fr1:/data/maps/$version/
-  fi
-done
+DE1="de1:/var/www/html/comaps-cdn/maps"
+remove_old $DE1 6
 
-# us2 - keep all versions (no cleanup)
-echo "Skipping us2 cleanup (keeping all versions)"
+FR1="fr1:/data/maps"
+remove_old $FR1 6
+
+IT1="it1:maps"
+remove_old $IT1 6
+
+US2="us2:comaps-map-files/maps"
+echo "Skipping $US2 cleanup (keep all versions)"
+echo "  Versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $US2 | sort -r | tr '\n' ' ')"
 
 echo "Old version cleanup complete"
 
 echo "Uploading to us2"
 # An explicit mwm/txt filter is used to skip temp files when run for an unfinished generation
-rclone copy --include "*.{mwm,txt,sig}" $DIR us2:comaps-map-files/maps/$MAPS &
+rclone copy --include "*.{mwm,txt,sig}" $DIR $US2/$MAPS &
 
 echo "Uploading to ru1"
-rclone copy --include "*.{mwm,txt,sig}" $DIR ru1:comaps-maps/maps/$MAPS &
+rclone copy --include "*.{mwm,txt,sig}" $DIR $RU1/$MAPS &
 
 echo "Uploading to fi1"
-rclone copy --include "*.{mwm,txt,sig}" $DIR fi1:/var/www/html/maps/$MAPS &
+rclone copy --include "*.{mwm,txt,sig}" $DIR $FI1/$MAPS &
 
 echo "Uploading to de1"
-rclone copy --include "*.{mwm,txt,sig}" $DIR de1:/var/www/html/comaps-cdn/maps/$MAPS &
+rclone copy --include "*.{mwm,txt,sig}" $DIR $DE1/$MAPS &
 
 echo "Uploading to fr1"
-rclone copy --include "*.{mwm,txt,sig}" $DIR fr1:/data/maps/$MAPS &
+rclone copy --include "*.{mwm,txt,sig}" $DIR $FR1/$MAPS &
+
+echo "Uploading to it1"
+rclone copy --include "*.{mwm,txt,sig}" $DIR $IT1/$MAPS &
 
 # us1 is not used for maps atm
 # rclone lsd us1:/home/dh_zzxxrk/cdn-us-1.comaps.app/maps
@@ -110,19 +94,31 @@ wait
 
 echo "Running once more without parallelization to output status:"
 
-echo "us2 status:"
-rclone copy -v --include "*.{mwm,txt,sig}" $DIR us2:comaps-map-files/maps/$MAPS
+echo "$US2 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $US2/$MAPS
 
-echo "ru1 status:"
-rclone copy -v --include "*.{mwm,txt,sig}" $DIR ru1:comaps-maps/maps/$MAPS
+echo "$RU1 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $RU1/$MAPS
 
-echo "fi1 status:"
-rclone copy -v --include "*.{mwm,txt,sig}" $DIR fi1:/var/www/html/maps/$MAPS
+echo "$FI1 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $FI1/$MAPS
 
-echo "de1 status:"
-rclone copy -v --include "*.{mwm,txt,sig}" $DIR de1:/var/www/html/comaps-cdn/maps/$MAPS
+echo "$DE1 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $DE1/$MAPS
 
-echo "fr1 status:"
-rclone copy -v --include "*.{mwm,txt}" $DIR fr1:/data/maps/$MAPS
+echo "$FR1 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $FR1/$MAPS
+
+echo "$IT1 status:"
+rclone copy -v --include "*.{mwm,txt,sig}" $DIR $IT1/$MAPS
 
 echo "Upload complete"
+
+echo "us2 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $US2 | sort -r | tr '\n' ' ')"
+echo "ru1 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $RU1 | sort -r | tr '\n' ' ')"
+echo "fi1 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $FI1 | sort -r | tr '\n' ' ')"
+echo "de1 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $DE1 | sort -r | tr '\n' ' ')"
+echo "fr1 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $FR1 | sort -r | tr '\n' ' ')"
+echo "it1 versions present: $(rclone lsf --dirs-only --dir-slash=false --max-depth=1 $IT1 | sort -r | tr '\n' ' ')"
+
+echo "DONE"

@@ -10,12 +10,12 @@
 "type.aerialway.station" = "Remontées mécaniques";
 "type.aeroway" = "Équipement aérien";
 "type.aeroway.aerodrome" = "Aéroport";
-"type.aeroway.aerodrome.international" = "Aéroport";
+"type.aeroway.aerodrome.international" = "Aéroport International";
 "type.aeroway.apron" = "Aire de stationnement pour aéronefs";
 "type.aeroway.gate" = "Porte d’embarquement";
-"type.aeroway.helipad" = "Hélisurface";
-"type.aeroway.runway" = "Piste d’aviation";
-"type.aeroway.taxiway" = "Taxiway";
+"type.aeroway.helipad" = "Héliport";
+"type.aeroway.runway" = "Piste d'atterrissage";
+"type.aeroway.taxiway" = "Voie de circulation";
 "type.aeroway.terminal" = "Terminal";
 "type.amenity" = "Infrastructures";
 "type.amenity.arts_centre" = "Centre artistique";
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "Centre Sportif";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Centre Sportif";

@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android">
   <item>
     <shape android:shape="oval">
-      <solid android:color="@color/dl_update"/>
+      <solid android:color="@color/bg_dl_update"/>
       <size
           android:width="40dp"
           android:height="40dp" />

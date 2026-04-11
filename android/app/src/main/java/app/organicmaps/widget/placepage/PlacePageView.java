@@ -151,6 +151,8 @@ public class PlacePageView extends Fragment
   private MaterialTextView mTvSelfService;
   private View mCuisine;
   private MaterialTextView mTvCuisine;
+  private View mOrganic;
+  private MaterialTextView mTvOrganic;
   private View mOutdoorSeating;
   private MaterialTextView mTvOutdoorSeating;
   private View mEntrance;
@@ -330,6 +332,8 @@ public class PlacePageView extends Fragment
     mTvSelfService = mFrame.findViewById(R.id.tv__place_self_service);
     mCuisine = mFrame.findViewById(R.id.ll__place_cuisine);
     mTvCuisine = mFrame.findViewById(R.id.tv__place_cuisine);
+    mOrganic = mFrame.findViewById(R.id.ll__place_organic);
+    mTvOrganic = mFrame.findViewById(R.id.tv__place_organic);
     mEntrance = mFrame.findViewById(R.id.ll__place_entrance);
     mTvEntrance = mEntrance.findViewById(R.id.tv__place_entrance);
     mTvLastChecked = mFrame.findViewById(R.id.place_page_last_checked);
@@ -679,6 +683,8 @@ public class PlacePageView extends Fragment
     /// @todo I don't like it when we take all data from mapObject, but for cuisines, we should
     /// go into JNI Framework and rely on some "active object".
     refreshMetadataOrHide(Framework.nativeGetActiveObjectFormattedCuisine(), mCuisine, mTvCuisine);
+    final String organic = getLocalizedFeatureType(getContext(), mMapObject.getOrganic());
+    refreshMetadataOrHide(organic, mOrganic, mTvOrganic);
     refreshWiFi();
     refreshMetadataOrHide(mMapObject.getMetadata(Metadata.MetadataType.FMD_FLATS), mEntrance, mTvEntrance);
     final String level = Utils.getLocalizedLevel(getContext(), mMapObject.getMetadata(Metadata.MetadataType.FMD_LEVEL));

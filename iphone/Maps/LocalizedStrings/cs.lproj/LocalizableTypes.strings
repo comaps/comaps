@@ -1511,5 +1511,7 @@
 "type.xmas.tree" = "Vánoční strom";
 "type.leisure.sports_centre.sport.four_square" = "Sportovní centrum";
 "type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.sport.boules" = "Koulové sporty";
+"type.leisure.sports_centre.sport.boules" = "Sportovní centrum";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sportovní centrum";

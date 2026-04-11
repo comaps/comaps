@@ -1,0 +1,8 @@
+• 5 Nisan tarihli OpenStreetMap verileri
+• Açık hava harita stilinde artık yollar kontrast kenarlıklı, daha belirgin
+• Pickleball eklendi
+• Restoranlar ve süpermarketler gibi POI’ler için organik seçeneklerin mevcut olup olmadığına dair bilgi eklendi
+• Açık hava stilinde ağaç sıralarının ve ağaçların görünürlüğü artırıldı
+• Aralıklı olarak meydana gelen birkaç çökme sorunu giderildi
+
+Daha fazla bilgi için comaps.app/latest

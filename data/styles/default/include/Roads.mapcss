@@ -243,37 +243,46 @@ line|z15-[highway=trunk_link][tunnel?],
 line|z13[highway=motorway][bridge?]::bridgewhite,
 line|z13[highway=trunk][bridge?]::bridgewhite
 {casing-width-add: 0.2;}
+line|z14[highway=motorway_link][bridge?]::bridgewhite,
+line|z14[highway=trunk_link][bridge?]::bridgewhite,
+{casing-width-add: 0.5;}
 line|z14-16[highway=motorway][bridge?]::bridgewhite,
 line|z14-16[highway=trunk][bridge?]::bridgewhite,
-line|z14-16[highway=motorway_link][bridge?]::bridgewhite,
-line|z14-16[highway=trunk_link][bridge?]::bridgewhite,
-{casing-width-add: 0;}
+line|z15-16[highway=motorway_link][bridge?]::bridgewhite,
+line|z15-16[highway=trunk_link][bridge?]::bridgewhite,
+{casing-width-add: 1;}
 line|z17[highway=motorway][bridge?]::bridgewhite,
 line|z17[highway=trunk][bridge?]::bridgewhite,
 line|z17[highway=motorway_link][bridge?]::bridgewhite,
 line|z17[highway=trunk_link][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
+{casing-width-add: 1.8;}
 line|z18-[highway=motorway][bridge?]::bridgewhite,
 line|z18-[highway=trunk][bridge?]::bridgewhite,
 line|z18-[highway=motorway_link][bridge?]::bridgewhite,
 line|z18-[highway=trunk_link][bridge?]::bridgewhite,
-{casing-width-add: 1;}
+{casing-width-add: 2;}
 
-line|z13-16[highway=motorway][bridge?]::bridgeblack,
-line|z13-16[highway=trunk][bridge?]::bridgeblack,
-line|z14-16[highway=motorway_link][bridge?]::bridgeblack,
-line|z14-16[highway=trunk_link][bridge?]::bridgeblack
+line|z13[highway=motorway][bridge?]::bridgeblack,
+line|z13[highway=trunk][bridge?]::bridgeblack,
 {casing-width-add: 0.4;}
+line|z14[highway=motorway_link][bridge?]::bridgeblack,
+line|z14[highway=trunk_link][bridge?]::bridgeblack
+{casing-width-add: 0.9;}
+line|z14-16[highway=motorway][bridge?]::bridgeblack,
+line|z14-16[highway=trunk][bridge?]::bridgeblack,
+line|z15-16[highway=motorway_link][bridge?]::bridgeblack,
+line|z15-16[highway=trunk_link][bridge?]::bridgeblack
+{casing-width-add: 1.4;}
 line|z17[highway=motorway][bridge?]::bridgeblack,
 line|z17[highway=trunk][bridge?]::bridgeblack,
 line|z17[highway=motorway_link][bridge?]::bridgeblack,
 line|z17[highway=trunk_link][bridge?]::bridgeblack
-{casing-width-add: 1.6;}
+{casing-width-add: 2.6;}
 line|z18-[highway=motorway][bridge?]::bridgeblack,
 line|z18-[highway=trunk][bridge?]::bridgeblack,
 line|z18-[highway=motorway_link][bridge?]::bridgeblack,
 line|z18-[highway=trunk_link][bridge?]::bridgeblack
-{casing-width-add: 2;}
+{casing-width-add: 3;}
 
 /* 4.PRIMARY 8-22 ZOOM */
 
@@ -355,25 +364,33 @@ line|z15-[highway=primary_link][tunnel?],
 
 /* 4.3 Primary bridge 14-22 ZOOM */
 
-line|z14-16[highway=primary][bridge?]::bridgewhite,
-line|z14-16[highway=primary_link][bridge?]::bridgewhite,
+line|z14[highway=primary_link][bridge?]::bridgewhite,
 {casing-width-add: 0;}
+line|z15[highway=primary_link][bridge?]::bridgewhite,
+{casing-width-add: 0.5;}
+line|z14-16[highway=primary][bridge?]::bridgewhite,
+line|z16[highway=primary_link][bridge?]::bridgewhite,
+{casing-width-add: 1;}
 line|z17[highway=primary][bridge?]::bridgewhite,
 line|z17[highway=primary_link][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
+{casing-width-add: 1.8;}
 line|z18-[highway=primary][bridge?]::bridgewhite,
 line|z18-[highway=primary_link][bridge?]::bridgewhite,
-{casing-width-add: 1;}
+{casing-width-add: 2;}
 
-line|z14-16[highway=primary][bridge?]::bridgeblack,
-line|z14-16[highway=primary_link][bridge?]::bridgeblack,
+line|z14[highway=primary_link][bridge?]::bridgeblack,
 {casing-width-add: 0.4;}
+line|z15[highway=primary_link][bridge?]::bridgeblack,
+{casing-width-add: 0.9;}
+line|z14-16[highway=primary][bridge?]::bridgeblack,
+line|z16[highway=primary_link][bridge?]::bridgeblack,
+{casing-width-add: 1.4;}
 line|z17[highway=primary][bridge?]::bridgeblack,
 line|z17[highway=primary_link][bridge?]::bridgeblack,
-{casing-width-add: 1.6;}
+{casing-width-add: 2.6;}
 line|z18-[highway=primary][bridge?]::bridgeblack,
 line|z18-[highway=primary_link][bridge?]::bridgeblack,
-{casing-width-add: 2;}
+{casing-width-add: 3;}
 
 /* 5.SECONDARY 10-22 ZOOM */
 
@@ -437,25 +454,33 @@ line|z16-[highway=secondary_link][tunnel?],
 
 /* 5.3 Secondary bridge 14-22 ZOOM */
 
-line|z14-16[highway=secondary][bridge?]::bridgewhite,
-line|z14-16[highway=secondary_link][bridge?]::bridgewhite,
+line|z14[highway=secondary_link][bridge?]::bridgewhite,
 {casing-width-add: 0;}
+line|z15[highway=secondary_link][bridge?]::bridgewhite,
+{casing-width-add: 0.5;}
+line|z14-16[highway=secondary][bridge?]::bridgewhite,
+line|z16[highway=secondary_link][bridge?]::bridgewhite,
+{casing-width-add: 1;}
 line|z17[highway=secondary][bridge?]::bridgewhite,
 line|z17[highway=secondary_link][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
+{casing-width-add: 1.8;}
 line|z18-[highway=secondary][bridge?]::bridgewhite,
 line|z18-[highway=secondary_link][bridge?]::bridgewhite,
-{casing-width-add: 1;}
+{casing-width-add: 2;}
 
-line|z14-16[highway=secondary][bridge?]::bridgeblack,
-line|z14-16[highway=secondary_link][bridge?]::bridgeblack,
+line|z14[highway=secondary_link][bridge?]::bridgeblack,
 {casing-width-add: 0.4;}
+line|z15[highway=secondary_link][bridge?]::bridgeblack,
+{casing-width-add: 0.9;}
+line|z14-16[highway=secondary][bridge?]::bridgeblack,
+line|z16[highway=secondary_link][bridge?]::bridgeblack,
+{casing-width-add: 1.4;}
 line|z17[highway=secondary][bridge?]::bridgeblack,
 line|z17[highway=secondary_link][bridge?]::bridgeblack,
-{casing-width-add: 1.6;}
+{casing-width-add: 2.6;}
 line|z18-[highway=secondary][bridge?]::bridgeblack,
 line|z18-[highway=secondary_link][bridge?]::bridgeblack
-{casing-width-add: 2;}
+{casing-width-add: 3;}
 
 /* 6.TERTIARY & UNCLASSIFIED 11-22 ZOOM */
 
@@ -548,32 +573,35 @@ line|z16-[highway=unclassified][tunnel?],
 {opacity: 0.7; casing-width: 1; casing-dashes: 5,5; color: @tertiary_tunnel; casing-linecap: butt; casing-color: @tertiary_tunnel_casing; casing-opacity: 0.7;}
 
 /* 6.3 Tertiary & Unclassified bridge 14-22 ZOOM */
-
+line|z14[highway=tertiary_link][bridge?]::bridgewhite,
+{casing-width-add: 0.5;}
 line|z14-16[highway=tertiary][bridge?]::bridgewhite,
-line|z14-16[highway=tertiary_link][bridge?]::bridgewhite,
+line|z15-16[highway=tertiary_link][bridge?]::bridgewhite,
 line|z14-16[highway=unclassified][bridge?]::bridgewhite,
-{casing-width-add: 0;}
+{casing-width-add: 1;}
 line|z17[highway=tertiary][bridge?]::bridgewhite,
 line|z17[highway=tertiary_link][bridge?]::bridgewhite,
 line|z17[highway=unclassified][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
+{casing-width-add: 1.8;}
 line|z18-[highway=tertiary][bridge?]::bridgewhite,
 line|z18-[highway=tertiary_link][bridge?]::bridgewhite,
 line|z18-[highway=unclassified][bridge?]::bridgewhite,
-{casing-width-add: 1;}
+{casing-width-add: 2;}
 
+line|z14[highway=tertiary_link][bridge?]::bridgeblack,
+{casing-width-add: 0.9;}
 line|z14-16[highway=tertiary][bridge?]::bridgeblack,
-line|z14-16[highway=tertiary_link][bridge?]::bridgeblack,
+line|z15-16[highway=tertiary_link][bridge?]::bridgeblack,
 line|z14-16[highway=unclassified][bridge?]::bridgeblack,
-{casing-width-add: 0.4;}
+{casing-width-add: 1.4;}
 line|z17[highway=tertiary][bridge?]::bridgeblack,
 line|z17[highway=tertiary_link][bridge?]::bridgeblack,
 line|z17[highway=unclassified][bridge?]::bridgeblack,
-{casing-width-add: 1.6;}
+{casing-width-add: 2.6;}
 line|z18-[highway=tertiary][bridge?]::bridgeblack,
 line|z18-[highway=tertiary_link][bridge?]::bridgeblack,
 line|z18-[highway=unclassified][bridge?]::bridgeblack,
-{casing-width-add: 2;}
+{casing-width-add: 3;}
 
 /* 7.RESIDENTIAL, ROAD, STREETS & SERVICE 12-22 ZOOM */
 
@@ -638,19 +666,23 @@ line|z16-[highway=living_street][tunnel?],
 
 /* 7.3 Residential, Road, Street bridge 14-22 ZOOM */
 
-line|z14-16[highway=residential][bridge?]::bridgewhite,
-{casing-width-add: 0;}
-line|z17[highway=residential][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
-line|z18-[highway=residential][bridge?]::bridgewhite,
+line|z14[highway=residential][bridge?]::bridgewhite,
+{casing-width-add: 0.5;}
+line|z15-16[highway=residential][bridge?]::bridgewhite,
 {casing-width-add: 1;}
-
-line|z14-16[highway=residential][bridge?]::bridgeblack,
-{casing-width-add: 0.4;}
-line|z17[highway=residential][bridge?]::bridgeblack,
-{casing-width-add: 1.6;}
-line|z18-[highway=residential][bridge?]::bridgeblack,
+line|z17[highway=residential][bridge?]::bridgewhite,
+{casing-width-add: 1.8;}
+line|z18-[highway=residential][bridge?]::bridgewhite,
 {casing-width-add: 2;}
+
+line|z14[highway=residential][bridge?]::bridgeblack,
+{casing-width-add: 0.9;}
+line|z15-16[highway=residential][bridge?]::bridgeblack,
+{casing-width-add: 1.4;}
+line|z17[highway=residential][bridge?]::bridgeblack,
+{casing-width-add: 2.6;}
+line|z18-[highway=residential][bridge?]::bridgeblack,
+{casing-width-add: 3;}
 
 /* 7.4 Service 15-22 ZOOM */
 
@@ -691,31 +723,23 @@ line|z15-[highway=busway][tunnel?],
 
 /* 7.6 Service bridge 15-22 ZOOM */
 
-line|z15-[highway=service][bridge?]::bridgewhite,
-line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
-line|z15-[highway=busway][bridge?]::bridgewhite,
-{casing-width-add: 0;}
-line|z15-[highway=service][bridge?]::bridgewhite,
-line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
-line|z15-[highway=busway][bridge?]::bridgewhite,
-{casing-width-add: 0.8;}
-line|z15-[highway=service][bridge?]::bridgewhite,
-line|z15-[highway=service][service=busway][bridge?]::bridgewhite,
-line|z15-[highway=busway][bridge?]::bridgewhite,
-{casing-width-add: 1;}
-
-line|z15-[highway=service][bridge?]::bridgeblack,
-line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
-line|z15-[highway=busway][bridge?]::bridgeblack,
-{casing-width-add: 0.4;}
-line|z15-[highway=service][bridge?]::bridgeblack,
-line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
-line|z15-[highway=busway][bridge?]::bridgeblack,
-{casing-width-add: 1.6;}
-line|z15-[highway=service][bridge?]::bridgeblack,
-line|z15-[highway=service][service=busway][bridge?]::bridgeblack,
-line|z15-[highway=busway][bridge?]::bridgeblack,
+line|z15-16[highway=service][bridge?]::bridgewhite,
+line|z15-16[highway=service][service=busway][bridge?]::bridgewhite,
+line|z15-16[highway=busway][bridge?]::bridgewhite,
+{casing-width-add: 1.5;}
+line|z17-[highway=service][bridge?]::bridgewhite,
+line|z17-[highway=service][service=busway][bridge?]::bridgewhite,
+line|z17-[highway=busway][bridge?]::bridgewhite,
 {casing-width-add: 2;}
+
+line|z15-16[highway=service][bridge?]::bridgeblack,
+line|z15-16[highway=service][service=busway][bridge?]::bridgeblack,
+line|z15-16[highway=busway][bridge?]::bridgeblack,
+{casing-width-add: 2.5;}
+line|z17-[highway=service][bridge?]::bridgeblack,
+line|z17-[highway=service][service=busway][bridge?]::bridgeblack,
+line|z17-[highway=busway][bridge?]::bridgeblack,
+{casing-width-add: 3;}
 
 /* 8.OTHERS ROADS 13-22 ZOOM */
 
@@ -826,18 +850,26 @@ line|z16-[highway=pedestrian][tunnel?],
 
 /* 8.3 Pedestrian & other brige 13-22 ZOOM */
 
+line|z16[highway=service][bridge?]::bridgewhite
+{casing-width-add: 0.5;}
+line|z16-[highway=road][bridge?]::bridgewhite,
+line|z17-[highway=service][bridge?]::bridgewhite
+{casing-width-add: 1;}
+
+line|z16[highway=service][bridge?]::bridgeblack
+{casing-width-add: 0.7;}
+line|z16-[highway=road][bridge?]::bridgeblack,
+line|z17-[highway=service][bridge?]::bridgeblack
+{casing-width-add: 1.2;}
+
 line|z13[highway=pedestrian][bridge?]::bridgewhite,
 {casing-width-add: -0.2;}
 line|z14-[highway=pedestrian][bridge?]::bridgewhite,
-line|z16-[highway=road][bridge?]::bridgewhite,
-line|z16-[highway=service][bridge?]::bridgewhite
 {casing-width-add: 0;}
 line|z16-[highway=pedestrian][bridge?]::bridgewhite,
 {casing-width-add: 0.2;}
 
 line|z14-[highway=pedestrian][bridge?]::bridgeblack,
-line|z16-[highway=road][bridge?]::bridgeblack,
-line|z16-[highway=service][bridge?]::bridgeblack
 {casing-width-add: 0.2;}
 line|z16-[highway=pedestrian][bridge?]::bridgeblack,
 {casing-width-add: 0.6;}
@@ -1144,130 +1176,59 @@ line|z17-[highway=bridleway][bridge?]::bridgeblack
 
 line|z14-[highway=motorway]::border,
 line|z14-[highway=motorway_link]::border,
-{color: @motorway1_border; opacity: 1;}
+{casing-color: @motorway1_border; casing-opacity: 1;}
 
 line|z14-[highway=trunk]::border,
 line|z14-[highway=trunk_link]::border,
-{color: @trunk1_border; opacity: 1;}
+{casing-color: @trunk1_border; casing-opacity: 1;}
 
 line|z11-13[highway=primary]::border,
-{color: @primary1_border; opacity: 1;}
+{casing-color: @primary1_border; casing-opacity: 1;}
 line|z14-[highway=primary]::border,
 line|z15-[highway=primary_link]::border,
-{color: @primary2_border; opacity: 1;}
+{casing-color: @primary2_border; casing-opacity: 1;}
 
 line|z11-13[highway=secondary]::border,
-{color: @secondary0_border; opacity: 1;}
+{casing-color: @secondary0_border; casing-opacity: 1;}
 line|z14-[highway=secondary]::border,
 line|z15-[highway=secondary_link]::border,
-{color: @secondary1_border; opacity: 1;}
+{casing-color: @secondary1_border; casing-opacity: 1;}
 
-/* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0. Finally subtract 0.5 from everything smaller than 3. */
+/* Border width is 0.25 if original road width is <2 and 0.5 otherwise.
+   If width with border is <= 2 then remove the border. */
 
-line|z14[highway=motorway]::border,
-{width: 4.4;}
-line|z15[highway=motorway]::border,
-{width: 5.6;}
-line|z16[highway=motorway]::border,
-{width: 7.8;}
-line|z17[highway=motorway]::border,
-{width: 9.0;}
-line|z18[highway=motorway]::border,
-{width: 12.0;}
-line|z19-[highway=motorway]::border,
-{width: 16.0;}
+line|z14-[highway=motorway]::border,
+{casing-width: 0.5;}
 
-line|z14[highway=trunk]::border,
-{width: 4.0;}
-line|z15[highway=trunk]::border,
-{width: 4.8;}
-line|z16[highway=trunk]::border,
-{width: 6.2;}
-line|z17[highway=trunk]::border,
-{width: 8.2;}
-line|z18[highway=trunk]::border,
-{width: 11;}
-line|z19-[highway=trunk]::border,
-{width: 13.5;}
+line|z14-[highway=trunk]::border,
+{casing-width: 0.5;}
 
 line|z14[highway=motorway_link]::border,
 line|z14[highway=trunk_link]::border,
-{width: 2.2;}
-line|z15[highway=motorway_link]::border,
-line|z15[highway=trunk_link]::border,
-{width: 3.7;}
-line|z16[highway=motorway_link]::border,
-line|z16[highway=trunk_link]::border,
-{width: 5.1;}
-line|z17[highway=motorway_link]::border,
-line|z17[highway=trunk_link]::border,
-{width: 6.7;}
-line|z18[highway=motorway_link]::border,
-line|z18[highway=trunk_link]::border,
-{width: 9.5;}
-line|z19-[highway=motorway_link]::border,
-line|z19-[highway=trunk_link]::border,
-{width: 11.7;}
+{casing-width: 0.25;}
+line|z15-[highway=motorway_link]::border,
+line|z15-[highway=trunk_link]::border,
+{casing-width: 0.5;}
 
-line|z11[highway=primary]::border,
-{width: 1.8;}
-line|z12[highway=primary]::border,
-{width: 2.2;}
-line|z13[highway=primary]::border,
-{width: 3.0;}
-line|z14[highway=primary]::border,
-{width: 3.8;}
-line|z15[highway=primary]::border,
-{width: 4.4;}
-line|z16[highway=primary]::border,
-{width: 5.4;}
-line|z17[highway=primary]::border,
-{width: 7;}
-line|z18[highway=primary]::border,
-{width: 10;}
-line|z19-[highway=primary]::border,
-{width: 12;}
+line|z11-12[highway=primary]::border,
+{casing-width: 0.25;}
+line|z13-[highway=primary]::border,
+{casing-width: 0.5;}
 
 line|z15[highway=primary_link]::border,
-{width: 2;}
-line|z16[highway=primary_link]::border,
-{width: 3.2;}
-line|z17[highway=primary_link]::border,
-{width: 4.7;}
-line|z18[highway=primary_link]::border,
-{width: 6.4;}
-line|z19-[highway=primary_link]::border,
-{width: 8.2;}
+{casing-width: 0.25;}
+line|z16-[highway=primary_link]::border,
+{casing-width: 0.5;}
 
-line|z11[highway=secondary]::border,
-{width: 1.7;}
-line|z12[highway=secondary]::border,
-{width: 2;}
-line|z13[highway=secondary]::border,
-{width: 2.2;}
-line|z14[highway=secondary]::border,
-{width: 3.2;}
-line|z15[highway=secondary]::border,
-{width: 3.8;}
-line|z16[highway=secondary]::border,
-{width: 5;}
-line|z17[highway=secondary]::border,
-{width: 6.6;}
-line|z18[highway=secondary]::border,
-{width: 9.4;}
-line|z19-[highway=secondary]::border,
-{width: 11.6;}
+line|z11-13[highway=secondary]::border,
+{casing-width: 0.25;}
+line|z14-[highway=secondary]::border,
+{casing-width: 0.5;}
 
 line|z15[highway=secondary_link]::border,
-{width: 2;}
-line|z16[highway=secondary_link]::border,
-{width: 3.2;}
-line|z17[highway=secondary_link]::border,
-{width: 4.7;}
-line|z18[highway=secondary_link]::border,
-{width: 6.4;}
-line|z19-[highway=secondary_link]::border,
-{width: 8.2;}
+{casing-width: 0.25;}
+line|z16-[highway=secondary_link]::border,
+{casing-width: 0.5;}
 
 
 /* 8.11 Minor road borders */
@@ -1278,11 +1239,13 @@ line|z13-[highway=unclassified]::border,
 line|z14-[highway=residential]::border,
 line|z14-[highway=road]::border,
 line|z14-[highway=living_street]::border,
-line|z14-[highway=pedestrian]::border,
-line|z14-[highway=ford]::border,
 line|z15-[highway=service]::border,
 line|z15-[highway=service][service=busway]::border,
 line|z15-[highway=busway]::border,
+{casing-color: @minor_road_border; casing-opacity: 0.1;}
+
+line|z14-[highway=pedestrian]::border,
+line|z14-[highway=ford]::border,
 line|z15-[highway=footway]::border,
 line|z15-[highway=ladder]::border,
 line|z15-[highway=steps]::border,
@@ -1294,87 +1257,55 @@ line|z13-[highway=unclassified][bridge?]::border,
 line|z14-[highway=residential][bridge?]::border,
 line|z14-[highway=road][bridge?]::border,
 line|z14-[highway=living_street][bridge?]::border,
-line|z14-[highway=pedestrian][bridge?]::border,
 line|z15-[highway=service][bridge?]::border,
 line|z15-[highway=service][service=busway][bridge?]::border,
 line|z15-[highway=busway][bridge?]::border,
+{casing-color: @bridge_minor_road_border; casing-opacity: 1;}
+
+line|z14-[highway=pedestrian][bridge?]::border,
 line|z15-[highway=footway][bridge?]::border,
 line|z15-[highway=steps][bridge?]::border,
-{color: @bridge_minor_road_border; opacity: 1; linecap: butt}
+{color: @bridge_minor_road_border; opacity: 1; linecap: butt;}
 
-/* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0. Finally subtract 0.5 from everything smaller than 3. */
+/* Border width is 0.25 if original road width is <2 and 0.5 otherwise.
+   If width with border is <= 2 then remove the border. */
 
-line|z11[highway=tertiary]::border,
-{width: 1.7;}
-line|z12[highway=tertiary]::border,
-{width: 2.1;}
-line|z13[highway=tertiary]::border,
-{width: 2.3;}
-line|z14[highway=tertiary]::border,
-{width: 3.7;}
-line|z15[highway=tertiary]::border,
-{width: 4.8;}
-line|z16[highway=tertiary]::border,
-{width: 6;}
-line|z17[highway=tertiary]::border,
-{width: 7.6;}
-line|z18[highway=tertiary]::border,
-{width: 10.4;}
-line|z19-[highway=tertiary]::border,
-{width: 12.6;}
+line|z11-13[highway=tertiary]::border,
+{casing-width: 0.25;}
+line|z14-[highway=tertiary]::border,
+{casing-width: 0.5;}
 
 line|z14[highway=tertiary_link]::border,
-{width: 2.3;}
-line|z15[highway=tertiary_link]::border,
-{width: 3.5;}
-line|z16[highway=tertiary_link]::border,
-{width: 4.2;}
-line|z17[highway=tertiary_link]::border,
-{width: 5.7;}
-line|z18[highway=tertiary_link]::border,
-{width: 7.4;}
-line|z19-[highway=tertiary_link]::border,
-{width: 9.2;}
+{casing-width: 0.25;}
+line|z15-[highway=tertiary_link]::border,
+{casing-width: 0.5;}
 
 line|z13[highway=unclassified]::border,
-{width: 1.9;}
-line|z14[highway=unclassified]::border,
-{width: 3.3;}
-line|z15[highway=unclassified]::border,
-{width: 4.2;}
-line|z16[highway=unclassified]::border,
-{width: 5.2;}
-line|z17[highway=unclassified]::border,
-{width: 7;}
-line|z18[highway=unclassified]::border,
-{width: 9;}
-line|z19-[highway=unclassified]::border,
-{width: 11;}
+{casing-width: 0.25;}
+line|z14-[highway=unclassified]::border,
+{casing-width: 0.5;}
 
 line|z14[highway=residential]::border,
 line|z14[highway=road]::border,
 line|z14[highway=living_street]::border,
-{width: 2.1;}
-line|z15[highway=residential]::border,
-line|z15[highway=road]::border,
-line|z15[highway=living_street]::border,
-{width: 3.4;}
-line|z16[highway=residential]::border,
-line|z16[highway=road]::border,
-line|z16[highway=living_street]::border,
-{width: 4.2;}
-line|z17[highway=residential]::border,
-line|z17[highway=road]::border,
-line|z17[highway=living_street]::border,
-{width: 5.7;}
-line|z18[highway=residential]::border,
-line|z18[highway=road]::border,
-line|z18[highway=living_street]::border,
-{width: 7.4;}
-line|z19-[highway=residential]::border,
-line|z19-[highway=road]::border,
-line|z19-[highway=living_street]::border,
-{width: 9.2;}
+{casing-width: 0.25;}
+line|z15-[highway=residential]::border,
+line|z15-[highway=road]::border,
+line|z15-[highway=living_street]::border,
+{casing-width: 0.5;}
+
+line|z15-16[highway=service]::border,
+line|z15-16[highway=service][service=busway]::border,
+line|z15-16[highway=busway]::border,
+{casing-width: 0.25;}
+line|z17-[highway=service]::border,
+line|z17-[highway=service][service=busway]::border,
+line|z17-[highway=busway]::border,
+{casing-width: 0.5;}
+
+/* No point using casing-width for dashed ways as need to specify dashing for each zoom level anyway */
+/* Width is like the original road, but increased by 1. Then set everything smaller or equal 2 to 0.
+   Finally subtract 0.5 from everything smaller than 3. */
 
 line|z14[highway=pedestrian]::border,
 line|z14[highway=ford]::border,
@@ -1394,29 +1325,6 @@ line|z18[highway=ford]::border,
 line|z19-[highway=pedestrian]::border,
 line|z19-[highway=ford]::border,
 {width: 6;dashes: 13,2.7;}
-
-line|z15[highway=service]::border,
-line|z15[highway=service][service=busway]::border,
-line|z15[highway=busway]::border,
-{width: 1.7;}
-line|z15[highway=service][service=driveway]::border,
-{width: 0;}
-line|z16[highway=service]::border,
-line|z16[highway=service][service=busway]::border,
-line|z16[highway=busway]::border,
-{width: 2.1;}
-line|z17[highway=service]::border,
-line|z17[highway=service][service=busway]::border,
-line|z17[highway=busway]::border,
-{width: 3;}
-line|z18[highway=service]::border,
-line|z18[highway=service][service=busway]::border,
-line|z18[highway=busway]::border,
-{width: 4;}
-line|z19-[highway=service]::border,
-line|z19-[highway=service][service=busway]::border,
-line|z19-[highway=busway]::border,
-{width: 5;}
 
 line|z15[highway=footway]::border,
 {width: 2; dashes: 5,1.5;}
@@ -1460,6 +1368,7 @@ line|z18[highway=steps]::border,
 line|z19-[highway=ladder]::border,
 line|z19-[highway=steps]::border,
 {width: 11; dashes: 4,3.5;}
+
 
 /* 8.12 Runway 12-22 ZOOM */
 

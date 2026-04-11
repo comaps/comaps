@@ -50,6 +50,7 @@
             android:layout_marginStart="@dimen/margin_quarter"
             android:layout_toEndOf="@id/icon"
             android:text="@string/editor_edit_place_category_title"
+            android:textAlignment="viewStart"
             android:textAppearance="@style/MwmTextAppearance.Body4"
             tools:text="Trololo"/>
         <com.google.android.material.textview.MaterialTextView
@@ -58,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_alignStart="@id/title"
             android:layout_below="@id/title"
+            android:textAlignment="viewStart"
             android:textAppearance="@style/MwmTextAppearance.Body1"
             tools:text="Ololo"/>
       </RelativeLayout>

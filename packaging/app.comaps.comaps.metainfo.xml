@@ -80,8 +80,20 @@
   </screenshots>
 
   <releases>
-    <release version="2026.03.23" date="2026-03-23">
+    <release version="2026.04.07" date="2026-04-07">
      <url type="details">https://comaps.app/latest/</url>
+     <description><ul>
+<li>OpenStreetMap data as of April 5</li>
+<li>Outdoor style: more prominent roads with contrast borders</li>
+<li>Allow cancelling of ongoing downloads</li>
+<li>Added pickleball</li>
+<li>Increased visibility of tree rows and trees in outdoor style</li>
+<li>Added road shields specific to Argentina, Uruguay and Bolivia and removed duplicate shields</li>
+<li>Fixed several intermittent crashes</li>
+     </ul></description>
+    </release>
+    <release version="2026.03.23" date="2026-03-23">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.03.23-5</url>
      <description><ul>
 <li>OpenStreetMap data as of March 21</li>
 <li>Added sports: four square and boules</li>

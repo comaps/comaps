@@ -1,8 +1,9 @@
-•  Données OpenStreetMap du 21 Mars
-•  Ajout de nouveaux sports : quatre-carrés et boules
-•  Ajout des pages Wikipedia en Thaï, Turc, Ukrainien et Tchèque
-•  Suppression de l'affichage du nom alternatif (ex. pour les noms de rues dans les régions multi-langages)
-•  Animations plus fluides pour les roues de progression
-•  Support de la définition de vitesse maximale pour plus de types de routes et de pays
+• Données OpenStreetMap du 5 Avril
+• Style de carte randonnée : les routes ressortent mieux grâce à des bordures contrastées
+• Ajout du sport pickleball
+• Affichage de la disponibilité des options bio, pour les points d'intérêt de type restaurants ou supermarchés
+• Meilleure visibilité des arbres dans le style randonnée
+• Ajout des panneaux routiers de l'Argentine, l'Uruguay, la Bolivie, et supression des doublons
+• Correction de plusieurs crashes
 
-Plus d'infos sur comaps.app/latest
+Plus de détails sur comaps.app/latest

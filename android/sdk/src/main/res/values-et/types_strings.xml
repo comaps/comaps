@@ -1511,4 +1511,10 @@
     <string name="type.amenity.community_centre.youth_centre">Noortekeskus</string>
     <string name="type.shop.water">Veepood</string>
     <string name="type.attraction">Lõbustus</string>
+    <string name="type.leisure.sports_centre.sport.boules">Veerekuulimängude keskus</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Nelja ruudukastimängude keskus</string>
+    <string name="type.sport.boules">Boules ehk veerepall</string>
+    <string name="type.sport.four_square">Nelja ruudukasti pallimäng</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Pickleballi keskus</string>
 </resources>

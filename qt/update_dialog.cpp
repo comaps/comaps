@@ -196,11 +196,34 @@ void UpdateDialog::OnItemClick(QTreeWidgetItem * item, int column)
   break;
 
   case NodeStatus::NotDownloaded:
-  case NodeStatus::Error:
-  case NodeStatus::Partly: st.DownloadNode(countryId); break;
+  case NodeStatus::Error: st.DownloadNode(countryId); break;
+
+  case NodeStatus::Partly:
+  {
+    QMessageBox ask(this);
+    ask.setIcon(QMessageBox::Question);
+    ask.setText(tr("Do you want to download or delete %1?").arg(countryId.c_str()));
+    QPushButton * const btnDownload = ask.addButton(tr("Download"), QMessageBox::ActionRole);
+    QPushButton * const btnDelete = ask.addButton(tr("Delete"), QMessageBox::ActionRole);
+    QPushButton * const btnCancel = ask.addButton(tr("Cancel"), QMessageBox::NoRole);
+    UNUSED_VALUE(btnCancel);
+
+    ask.exec();
+
+    QAbstractButton * const res = ask.clickedButton();
+
+    if (res == btnDownload)
+      st.DownloadNode(countryId);
+    else if (res == btnDelete)
+    {
+      if (!m_framework.HasUnsavedEdits(countryId) || DeleteNotUploadedEditsConfirmation())
+        st.DeleteNode(countryId);
+    }
+  }
+  break;
 
   case NodeStatus::InQueue:
-  case NodeStatus::Downloading: st.DeleteNode(countryId); break;
+  case NodeStatus::Downloading: st.CancelDownloadNode(countryId); break;
 
   case NodeStatus::Applying:
     // Do nothing.
@@ -385,8 +408,12 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
     break;
 
   case NodeStatus::OnDisk:
-  case NodeStatus::Partly:
     statusString = tr("Installed (click to delete)");
+    rowColor = COLOR_ONDISK;
+    break;
+
+  case NodeStatus::Partly:
+    statusString = tr("Partially installed (click to install or delete)");
     rowColor = COLOR_ONDISK;
     break;
 
@@ -401,7 +428,7 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
     break;
 
   case NodeStatus::Downloading:
-    statusString = tr("Downloading ...");
+    statusString = tr("Downloading... (click to cancel)");
     rowColor = COLOR_INPROGRESS;
     break;
 
@@ -411,7 +438,7 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
     break;
 
   case NodeStatus::InQueue:
-    statusString = tr("Marked for download");
+    statusString = tr("Marked for download (click to cancel)");
     rowColor = COLOR_INQUEUE;
     break;
 
@@ -428,13 +455,15 @@ void UpdateDialog::UpdateRowWithCountryInfo(QTreeWidgetItem * item, CountryId co
 
     if (size.second > Mb)
     {
-      item->setText(KColumnIndexSize,
-                    QString("%1/%2 MB").arg(uint((size.first + halfMb) / Mb)).arg(uint((size.second + halfMb) / Mb)));
+      item->setText(KColumnIndexSize, QString("%1/%2 MB (click to cancel)")
+                                          .arg(uint((size.first + halfMb) / Mb))
+                                          .arg(uint((size.second + halfMb) / Mb)));
     }
     else
     {
-      item->setText(KColumnIndexSize,
-                    QString("%1/%2 kB").arg(uint((size.first + 1023) / 1024)).arg(uint((size.second + 1023) / 1024)));
+      item->setText(KColumnIndexSize, QString("%1/%2 kB (click to cancel)")
+                                          .arg(uint((size.first + 1023) / 1024))
+                                          .arg(uint((size.second + 1023) / 1024)));
     }
 
     item->setData(KColumnIndexSize, Qt::UserRole, QVariant(static_cast<qint64>(size.second)));

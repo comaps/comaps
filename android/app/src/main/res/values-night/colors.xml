@@ -39,9 +39,14 @@
   <color name="elevation_profile_dot_enabled">#FF9600</color>
   <color name="elevation_profile">@color/base_accent</color>
 
-  <!-- Downloader -->
-  <color name="dl_done">#54575b</color>
-  <color name="dl_download">#ffe68c</color>
+  <!-- Downloader icons -->
+  <color name="bg_dl_done">#54575b</color>
+  <color name="bg_dl_download">#ffe68c</color>
+
+  <color name="fg_dl_done">#cccdce</color>
+  <color name="fg_dl_folder">#756940</color>
+  <color name="fg_dl_folder_done">#cccdce</color>
+
 
   <!-- Categories -->
   <color name="foreground_color">#000</color>

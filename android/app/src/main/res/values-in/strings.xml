@@ -38,7 +38,7 @@
     <!-- Text in About screen -->
     <string name="about_proposition_1">• Tidak ada iklan, tidak ada pelacakan, tidak ada pengumpulan data</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• Tidak menguras baterai, bekerja secara offline</string>
+    <string name="about_proposition_2">• Fokus pada privasi dan bebas iklan</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Offline, cepat dan kompak</string>
     <!-- Text in About screen -->
@@ -70,7 +70,7 @@
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
     <string name="bookmarks">Penanda</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Penanda dan jalur</string>
+    <string name="bookmarks_and_tracks">Favorit</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Nama</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -770,4 +770,15 @@
     <string name="app_site_url">https://comaps.app/id/</string>
     <string name="saved">Disimpan</string>
     <string name="offline_explanation_text">Peta perlu diunduh untuk melihat dan menavigasi area ini.\nUnduh peta untuk wilayah yang ingin Anda jelajahi.</string>
+    <string name="offline_explanation_title">peta luring</string>
+    <string name="about_headline">Proyek terbuka yang didukung oleh komunitas</string>
+    <string name="maps_storage_free_size">%1$s bebas dari %2$s</string>
+    <string name="move_maps_error">Galat pergerakan peta pada berkas</string>
+    <string name="prefs_group_general">Pengaturan umum</string>
+    <string name="prefs_group_information">Informasi</string>
+    <string name="menu">Menu</string>
+    <string name="mb_downloaded">%1$d Mb / %2$d Mb</string>
+    <string name="read_in_wikipedia">Wikipedia</string>
+    <string name="opens_in">Buka in %s</string>
+    <string name="closes_in">Tutup pada %s</string>
 </resources>

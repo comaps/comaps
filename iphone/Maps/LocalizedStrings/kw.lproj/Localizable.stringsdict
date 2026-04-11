@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bookmarks_places</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Mann leow</string>
+			<key>one</key>
+			<string>%lld le</string>
+			<key>two</key>
+			<string>%lld leow</string>
+			<key>few</key>
+			<string>%lld leow</string>
+			<key>many</key>
+			<string>%lld leow</string>
+			<key>other</key>
+			<string>%lld leow</string>
+		</dict>
+	</dict>
+	<key>bookmarks_detect_message</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
+			<key>one</key>
+			<string>Yth esa %lld restren kevys. Ty a yll gweles wosa treylyans.</string>
+			<key>two</key>
+			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
+			<key>few</key>
+			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
+			<key>many</key>
+			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
+			<key>other</key>
+			<string>Yth esa %lld restrennow kevys. Ty a yll gweles wosa treylyans.</string>
+		</dict>
+	</dict>
+	<key>tracks</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld lerghow</string>
+			<key>one</key>
+			<string>%lld lergh</string>
+			<key>two</key>
+			<string>%lld lerghow</string>
+			<key>few</key>
+			<string>%lld lerghow</string>
+			<key>many</key>
+			<string>%lld lerghow</string>
+			<key>other</key>
+			<string>%lld lerghow</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld teythyogyon</string>
+			<key>one</key>
+			<string>%lld teythyek</string>
+			<key>two</key>
+			<string>%lld teythyogyon</string>
+			<key>few</key>
+			<string>%lld teythyogyon</string>
+			<key>many</key>
+			<string>%lld teythyogyon</string>
+			<key>other</key>
+			<string>%lld teythyogyon</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld stevellow</string>
+			<key>one</key>
+			<string>%lld stevel</string>
+			<key>two</key>
+			<string>%lld stevellow</string>
+			<key>few</key>
+			<string>%lld stevellow</string>
+			<key>many</key>
+			<string>%lld stevellow</string>
+			<key>other</key>
+			<string>%lld stevellow</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

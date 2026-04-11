@@ -66,8 +66,8 @@ public class WheelProgressView extends FrameLayout
 
   public void setProgress(int progress)
   {
-    if (mProgress.getProgress() == progress) return;
-    mProgress.setProgressCompat(progress, true);
+    if (progress > mProgress.getProgress())
+      mProgress.setProgressCompat(progress, true);
   }
 
   public void setPending(boolean pending)

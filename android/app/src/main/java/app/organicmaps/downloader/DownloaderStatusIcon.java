@@ -2,11 +2,9 @@ package app.organicmaps.downloader;
 
 import android.util.SparseIntArray;
 import android.view.View;
-import androidx.annotation.AttrRes;
 import androidx.annotation.DrawableRes;
 import app.organicmaps.R;
 import app.organicmaps.sdk.downloader.CountryItem;
-import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.widget.WheelProgressView;
 import com.google.android.material.imageview.ShapeableImageView;
@@ -38,38 +36,21 @@ public class DownloaderStatusIcon
     return this;
   }
 
-  protected @AttrRes int selectIcon(CountryItem country)
+  protected @DrawableRes int selectIcon(CountryItem country)
   {
     return switch (country.status)
     {
-      case CountryItem.STATUS_DONE -> R.attr.status_done;
-      case CountryItem.STATUS_DOWNLOADABLE, CountryItem.STATUS_PARTLY -> R.attr.status_downloadable;
-      case CountryItem.STATUS_FAILED -> R.attr.status_failed;
-      case CountryItem.STATUS_UPDATABLE -> R.attr.status_updatable;
+      case CountryItem.STATUS_DONE -> R.drawable.downloader_done;
+      case CountryItem.STATUS_DOWNLOADABLE, CountryItem.STATUS_PARTLY -> R.drawable.downloader_download;
+      case CountryItem.STATUS_FAILED -> R.drawable.downloader_failed;
+      case CountryItem.STATUS_UPDATABLE -> R.drawable.downloader_update;
       default -> throw new IllegalArgumentException("Inappropriate item status: " + country.status);
     };
   }
 
-  private @DrawableRes int resolveIcon(@AttrRes int iconAttr)
-  {
-    int res = sIconsCache.get(iconAttr);
-    if (res == 0)
-    {
-      res = ThemeUtils.getResource(mFrame.getContext(), R.attr.downloaderTheme, iconAttr);
-      sIconsCache.put(iconAttr, res);
-    }
-
-    return res;
-  }
-
   protected void updateIcon(CountryItem country)
   {
-    @AttrRes
-    int iconAttr = selectIcon(country);
-    @DrawableRes
-    int icon = resolveIcon(iconAttr);
-
-    mIcon.setImageResource(icon);
+    mIcon.setImageResource(selectIcon(country));
   }
 
   public void update(CountryItem country)

@@ -17,6 +17,7 @@
 
 #include <algorithm>
 #include <map>
+#include <unordered_map>
 
 #include "3party/ankerl/unordered_dense.h"
 
@@ -71,7 +72,7 @@ private:
     // May be nullptr, because it has "lazy" loading.
     GraphPtrT m_graph;
   };
-  ankerl::unordered_dense::map<NumMwmId, GraphAttrs> m_graphs;
+  std::unordered_map<NumMwmId, GraphAttrs> m_graphs;
 
   ankerl::unordered_dense::map<NumMwmId, SpeedCamerasMapT> m_cachedCameras;
   SpeedCamerasMapT const & ReceiveSpeedCamsFromMwm(NumMwmId numMwmId);

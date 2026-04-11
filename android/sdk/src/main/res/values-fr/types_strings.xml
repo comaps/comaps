@@ -13,12 +13,12 @@
     <string name="type.aerialway.station">Remontées mécaniques</string>
     <string name="type.aeroway">Équipement aérien</string>
     <string name="type.aeroway.aerodrome">Aéroport</string>
-    <string name="type.aeroway.aerodrome.international">Aéroport</string>
+    <string name="type.aeroway.aerodrome.international">Aéroport International</string>
     <string name="type.aeroway.apron">Aire de stationnement pour aéronefs</string>
     <string name="type.aeroway.gate">Porte d’embarquement</string>
-    <string name="type.aeroway.helipad">Hélisurface</string>
-    <string name="type.aeroway.runway">Piste d’aviation</string>
-    <string name="type.aeroway.taxiway">Taxiway</string>
+    <string name="type.aeroway.helipad">Héliport</string>
+    <string name="type.aeroway.runway">Piste d\'atterrissage</string>
+    <string name="type.aeroway.taxiway">Voie de circulation</string>
     <string name="type.amenity">Infrastructures</string>
     <string name="type.amenity.arts_centre">Centre artistique</string>
     <string name="type.amenity.atm">GAB</string>
@@ -1515,4 +1515,6 @@
     <string name="type.leisure.sports_centre.sport.four_square">Centre Sportif</string>
     <string name="type.sport.boules">Boules</string>
     <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centre Sportif</string>
+    <string name="type.sport.pickleball">Pickleball</string>
 </resources>

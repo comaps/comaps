@@ -1512,4 +1512,11 @@
     <string name="type.amenity.community_centre.youth_centre">Centro juvenil</string>
     <string name="type.shop.water">Empresas especializadas en la venta de sistemas de tratamiento de agua</string>
     <string name="type.attraction">Atracción</string>
+    <string name="type.leisure.sports_centre.sport.boules">Polideportivo</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Polideportivo</string>
+    <string name="type.sport.boules">Deportes de bolas</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centro deportivo</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Sin opciones orgánicas</string>
 </resources>

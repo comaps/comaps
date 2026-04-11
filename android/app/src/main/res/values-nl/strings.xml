@@ -101,7 +101,7 @@
     <string name="measurement_units_summary">Kies tussen mijlen en kilometers</string>
     <!-- SECTION: Search categories -->
     <!-- Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! -->
-    <string name="category_eat">Waar iets gaan eten</string>
+    <string name="category_eat">Eetgelegenheden</string>
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
     <string name="category_food">Boodschappen</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
@@ -183,7 +183,7 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">OpenStreetMap-gegevens: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Sporen</string>
+    <string name="tracks_title">Routes</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Lengte</string>
     <string name="share_my_location">Mijn locatie delen</string>
@@ -514,7 +514,7 @@
     <string name="editor_share_to_all_dialog_message_2">OpenStreetMap-editors zullen de wijzigingen controleren en contact met u opnemen als ze vragen hebben.</string>
     <string name="navigation_stop_button">Stop</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">Spoor opnemen</string>
+    <string name="track_recording">Route opnemen</string>
     <!-- For the first routing -->
     <string name="accept">Accepteer</string>
     <!-- For the first routing -->
@@ -555,7 +555,7 @@
     <string name="error_enter_correct_name">Voer een geldige naam in</string>
     <string name="bookmark_lists">Favoriete lijsten</string>
     <!-- Do not display all bookmark lists on the map -->
-    <string name="bookmark_lists_hide_all">Ales verbergen</string>
+    <string name="bookmark_lists_hide_all">Alles verbergen</string>
     <string name="bookmark_lists_show_all">Toon alles</string>
     <plurals name="bookmarks_places">
         <item quantity="one">%d opgeslagen plaats</item>
@@ -581,8 +581,8 @@
     </plurals>
     <string name="restore">Zet terug</string>
     <plurals name="tracks">
-        <item quantity="one">%d spoor</item>
-        <item quantity="other">%d sporen</item>
+        <item quantity="one">%d route</item>
+        <item quantity="other">%d routes</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Privacy</string>
@@ -619,7 +619,7 @@
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_unpaved">Onverharde wegen vermijden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
-    <string name="avoid_ferry">Veerboten verbinden</string>
+    <string name="avoid_ferry">Veerboten vermijden</string>
     <string name="avoid_motorways">Snelwegen vermijden</string>
     <string name="unable_to_calc_alert_title">Kan route niet berekenen</string>
     <string name="unable_to_calc_alert_subtitle">Een route kon niet worden gevonden. Dit kan worden veroorzaakt door uw routeringsopties of onvolledige OpenStreetMap-gegevens. Wijzig uw routeringsopties en probeer het opnieuw.</string>
@@ -787,9 +787,9 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">Voor de meest nauwkeurige navigatie raden we aan om de energiebesparende modus uit te schakelen in de batterij-instellingen van de telefoon.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">Spoor opnemen</string>
+    <string name="start_track_recording">Route opnemen</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">Stop spoor opnemen</string>
+    <string name="stop_track_recording">Opname route stoppen</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="stop_without_saving">Stoppen zonder op te slaan</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
@@ -797,11 +797,11 @@
     <!-- Title for the alert when saving a track recording. -->
     <string name="track_recording_alert_title">Opslaan naar Favorieten?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
-    <string name="track_recording_toast_nothing_to_save">Spoor is leeg - niets op te slaan</string>
+    <string name="track_recording_toast_nothing_to_save">Geen route - niets op te slaan</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
     <string name="error_no_file_manager_app">Kan het mappen-selecteerscherm niet weergeven omdat er geen geschikte app op uw apparaat is geïnstalleerd. Installeer een app voor bestandsbeheer en probeer het opnieuw.</string>
     <string name="choose_color">Kies een kleur</string>
-    <string name="edit_track">Spoor bewerken</string>
+    <string name="edit_track">Route bewerken</string>
     <string name="uri_open_location_failed">Geen app geïnstalleerd die de locatie kan openen</string>
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Auto in navigatie</string>
@@ -855,7 +855,7 @@
     <string name="dialog_report_error_with_logs">Stuur ons een foutenrapport:\n - stel \"Logboek inschakelen\" in bij de Instellingen\n - reproduceer het probleem\n - druk in het scherm \"Over &amp; Hulp\" op de knop \"Meld een fout\" en verzend via e-mail of chat\n - logboek uitschakelen</string>
     <string name="osm_note_toast">Opmerking wordt verzonden naar OpenStreetMap</string>
     <string name="osm_note_hint">Of laat een opmerking achter voor de OpenStreetMap-gemeenschap, zodat iemand anders hier een plaats kan toevoegen of verbeteren.</string>
-    <string name="share_track">Spoor delen</string>
+    <string name="share_track">Route delen</string>
     <string name="delete_track_dialog_title">%s verwijderen?</string>
     <string name="existence_confirmed_time_ago">Bestaan bevestigd %s</string>
     <string name="hours_confirmed_time_ago">Bevestigd %s</string>

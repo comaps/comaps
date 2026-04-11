@@ -1,8 +1,10 @@
-• OpenStreetMap-gegevens per 21 maart
-• Sporten toegevoegd: jeu de boules en four square
-• Wikipedia-artikelen in het Tsjechisch, Thais, Turks en Oekraïens toegevoegd
-• Secundaire namen, afhankelijk van de instelling, niet meer getoond bij bijv. straten in meertalige regio's
-• Verbeterde ronde voortgangsindicatoren met vloeiendere animatie
-• Ondersteuning voor maximumsnelheid op meer wegtypes in verschillende landen
+• OpenStreetMap-gegevens per 5 april
+• Wandelen-stijl: prominentere wegen met contrasterende randen
+• Sport toegevoegd: pickleball
+• Beschikbaarheid van biologische opties toegevoegd bij plaatsen zoals restaurants en supermarkten
+• Bomen(rijen) duidelijker zichtbaar in wandelen-stijl
+• Verbeterde ondersteuning voor RTL-talen
+• Specifieke weglabels toegevoegd in Argentinië, Uruguay en Bolivia; dubbele labels verwijderd
+• Enkele sporadische crashes opgelost
 
 Meer details op comaps.app/latest

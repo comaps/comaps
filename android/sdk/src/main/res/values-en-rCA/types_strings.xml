@@ -14,4 +14,5 @@
     <string name="type.shop.tyres">Tire Shop</string>
     <string name="type.traffic_calming.bump">Road Bump</string>
     <string name="type.traffic_calming.hump">Road Bump</string>
+    <string name="type.addr_interpolation">Address/Block</string>
 </resources>

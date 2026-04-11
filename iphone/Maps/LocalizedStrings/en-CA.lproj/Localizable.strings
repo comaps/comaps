@@ -109,9 +109,9 @@
 "category_rv" = "RV Facilities";
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my saved places; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
 /* message title of loading file */
-"load_kmz_title" = "Loading Favorites";
+"load_kmz_title" = "Loading Favourites";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Favorites loaded successfully! You can find them on the map or on the Favorites Manager screen.";
+"load_kmz_successful" = "Favourites loaded successfully! You can find them on the map or on the Favourites Manager screen.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Failed to load favorites. The file may be corrupted or defective.";
 /* resource for context menu */
@@ -606,7 +606,7 @@
 "bookmark_lists_show_all" = "Show all";
 "bookmarks_create_new_group" = "Create a new list";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Import Favorites";
+"bookmarks_import" = "Import Favourites";
 "downloader_hide_screen" = "Hide Screen";
 "downloader_percent" = "%@ (%@ of %@)";
 "downloader_process" = "Downloading %@…";
@@ -800,9 +800,9 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Outdoors";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Export all Favorites";
+"bookmarks_export" = "Export all Favourites";
 /* Text for the editing the Track's color button. */
-"change_color" = "Change Color";
+"change_color" = "Change Colour";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Map";
 "drive_through" = "Drive-through";

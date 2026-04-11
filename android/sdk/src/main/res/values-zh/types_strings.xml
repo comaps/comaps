@@ -146,7 +146,7 @@
     <!-- Weather shelter (including sun shelters and natural rock shelters). -->
     <string name="type.amenity.shelter">庇护所</string>
     <!-- A weather shelter by the public transport stop. -->
-    <string name="type.amenity.shelter.public_transport">庇护所</string>
+    <string name="type.amenity.shelter.public_transport">候车亭</string>
     <!-- Compared to wilderness_hut its smaller and simpler, without a fireplace. -->
     <string name="type.amenity.shelter.basic_hut">行军床</string>
     <!-- A traditional 3-walled shelter (one side open), suitable for overnight camping. -->
@@ -644,8 +644,8 @@
     <string name="type.leisure.sauna">桑拿</string>
     <string name="type.leisure.slipway">船台</string>
     <string name="type.leisure.sports_centre">体育中心</string>
-    <string name="type.sport.climbing">攀登中心</string>
-    <string name="type.sport.yoga">瑜伽工作室</string>
+    <string name="type.sport.climbing">攀登</string>
+    <string name="type.sport.yoga">瑜伽</string>
     <string name="type.leisure.stadium">体育场</string>
     <string name="type.leisure.swimming_pool">游泳池</string>
     <string name="type.leisure.swimming_pool.private">游泳池</string>
@@ -1331,7 +1331,7 @@
     <string name="type.man_made.storage_tank">储罐</string>
     <string name="type.mountain_pass">山口</string>
     <string name="type.natural.desert">沙漠</string>
-    <string name="type.organic.yes">有机</string>
+    <string name="type.organic.yes">有有机选项</string>
     <string name="type.power.pole">电线杆</string>
     <string name="type.railway.crossing">铁路道口</string>
     <string name="type.railway.preserved.tunnel">保留铁路隧道</string>
@@ -1358,7 +1358,7 @@
     <string name="type.recycling.green_waste">绿色/有机垃圾</string>
     <string name="type.recycling.cardboard">硬纸板</string>
     <string name="type.noexit">死胡同</string>
-    <string name="type.organic.only">有机</string>
+    <string name="type.organic.only">仅限有机</string>
     <string name="type.railway.preserved">保留铁路</string>
     <string name="type.railway.preserved.bridge">保留铁路桥</string>
     <string name="type.railway.subway">地铁线路</string>
@@ -1475,4 +1475,7 @@
     <string name="type.leisure.sports_centre.sport.pelota">运动中心</string>
     <string name="type.leisure.sports_centre.sport.scuba_diving">运动中心</string>
     <string name="type.leisure.sports_centre.sport.multi">运动中心</string>
+    <string name="type.amenity.prep_school">补习学校</string>
+    <string name="type.amenity.lounger">躺椅</string>
+    <string name="type.amenity.payment_centre">付款中心</string>
 </resources>

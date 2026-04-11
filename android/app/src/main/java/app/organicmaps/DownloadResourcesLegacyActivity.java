@@ -271,7 +271,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
     mChbDownloadCountry = findViewById(R.id.chb_download_country);
     mBtnAdvanced = findViewById(R.id.btn_advanced);
 
-    mBtnAdvanced.setOnClickListener(v -> CustomMapServerDialog.show(this, url -> { prepareFilesDownload(false); }));
+    mBtnAdvanced.setOnClickListener(v -> CustomMapServerDialog.show(this, url -> prepareFilesDownload(false)));
     mBtnAdvanced.setEnabled(true);
 
     mBtnListeners = new View.OnClickListener[BTN_COUNT];
@@ -448,7 +448,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
                                             setAction(TRY_AGAIN);
                                             onTryAgainClicked();
                                           })
-                       .setNegativeButton(R.string.cancel, (dialog, which) -> { setAction(RESUME); })
+                       .setNegativeButton(R.string.cancel, (dialog, which) -> setAction(RESUME))
                        .setOnDismissListener(dialog -> mAlertDialog = null)
                        .show();
   }

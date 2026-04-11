@@ -66,7 +66,7 @@
     <string name="type.amenity.language_school">Taalschool</string>
     <string name="type.office.diplomatic">Ambassade</string>
     <string name="type.amenity.fast_food">Fast food</string>
-    <string name="type.amenity.ferry_terminal">Veerpont</string>
+    <string name="type.amenity.ferry_terminal">Veerterminal</string>
     <string name="type.amenity.fire_station">Brandweer</string>
     <string name="type.amenity.fountain">Fontein</string>
     <string name="type.amenity.fuel">Tankstation</string>
@@ -738,8 +738,8 @@
     <string name="type.office.lawyer">Advocatenkantoor</string>
     <string name="type.office.ngo">NGO-kantoor</string>
     <string name="type.office.telecommunication">Mobiele provider</string>
-    <string name="type.organic.only">Biologisch</string>
-    <string name="type.organic.yes">Biologisch</string>
+    <string name="type.organic.only">Alleen biologisch</string>
+    <string name="type.organic.yes">o.a. biologisch</string>
     <string name="type.place.city">Stad</string>
     <string name="type.place.city.capital">Hoofdstad</string>
     <string name="type.place.city.capital.10">Stad</string>
@@ -1477,7 +1477,7 @@
     <string name="type.spherical_buoy.lateral.starboard">Sferische laterale boei</string>
     <string name="type.spherical_buoy.safe_water">Sferische scheidingsboei</string>
     <string name="type.spherical_buoy.special_purpose">Sferische speciale boei</string>
-    <string name="type.lateral.port">Haven</string>
+    <string name="type.lateral.port">Bakboord</string>
     <string name="type.lateral.starboard">Stuurboord</string>
     <string name="type.cardinal.west">West</string>
     <string name="type.entrance.house">Huis entree</string>
@@ -1515,4 +1515,7 @@
     <string name="type.leisure.sports_centre.sport.four_square">Sportcentrum</string>
     <string name="type.leisure.sports_centre.sport.boules">Sportcentrum</string>
     <string name="type.sport.boules">jeu de boules</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sportcentrum</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Niet biologisch</string>
 </resources>

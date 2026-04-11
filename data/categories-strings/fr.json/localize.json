@@ -530,5 +530,8 @@
 "cuisine-tapas": "Tapas",
 "cuisine-tea": "Thé",
 "@cuisine_all_vegetarian": "Cuisine végétarienne",
-"cuisine-vegan|@cuisine_all_vegetarian": "Cuisine végétalienne"
+"cuisine-vegan|@cuisine_all_vegetarian": "Cuisine végétalienne",
+"amenity-boat_rental": "4Location de bateau|bateau|bateaux|3Location",
+"leisure-sports_centre-sport-swimming": "4Centre aquatique",
+"man_made-observatory": "4Observatoire"
 }

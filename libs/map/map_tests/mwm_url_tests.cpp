@@ -515,10 +515,7 @@ namespace
 {
 string generatePartOfUrl(url_scheme::MapPoint const & point)
 {
-  stringstream stream;
-  stream << "&ll=" << std::to_string(point.m_lat) << "," << std::to_string(point.m_lon) << "&n=" << point.m_name
-         << "&id=" << point.m_id;
-  return stream.str();
+  return std::format("&ll={},{}&n={}&id={}", point.m_lat, point.m_lon, point.m_name, point.m_id);
 }
 
 string randomString(size_t size, uint32_t seed)

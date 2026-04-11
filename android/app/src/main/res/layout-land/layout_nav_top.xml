@@ -48,7 +48,6 @@
     android:id="@+id/nav_next_turn_container"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:layout_constraintEnd_toStartOf="@+id/street_frame"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toBottomOf="@+id/statutbar"
     android:layout_marginStart="@dimen/margin_quarter"

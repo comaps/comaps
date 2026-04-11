@@ -24,6 +24,7 @@
       android:layout_height="wrap_content"
       android:layout_weight="1"
       android:maxLines="1"
+      android:textAlignment="viewStart"
       android:textAppearance="@style/MwmTextAppearance.Body1"/>
 
 </LinearLayout>

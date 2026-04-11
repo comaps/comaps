@@ -752,6 +752,7 @@
     <string name="type.leisure.sports_centre.sport.ice_hockey">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.padel">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.pelota">Sports Centre</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.scuba_diving">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.shooting">Sports Centre</string>
     <string name="type.leisure.sports_centre.sport.skateboard">Sports Centre</string>
@@ -872,8 +873,9 @@
     <string name="type.office.lawyer">Lawyer</string>
     <string name="type.office.ngo">Non-Governmental Organization</string>
     <string name="type.office.telecommunication">Telecom Company</string>
-    <string name="type.organic.only">Organic</string>
-    <string name="type.organic.yes">Organic</string>
+    <string name="type.organic.only">Organic only</string>
+    <string name="type.organic.yes">Organic options</string>
+    <string name="type.organic.no">No organic options</string>
     <string name="type.place.city">City</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">City</string>
@@ -1388,6 +1390,7 @@
     <string name="type.sport.ice_hockey">Ice Hockey</string>
     <string name="type.sport.padel">Padel</string>
     <string name="type.sport.pelota">Basque Pelota</string>
+    <string name="type.sport.pickleball">Pickleball</string>
     <!-- Used to tag a scuba diving. -->
     <string name="type.sport.scuba_diving">Scuba Diving</string>
     <string name="type.sport.shooting">Shooting</string>

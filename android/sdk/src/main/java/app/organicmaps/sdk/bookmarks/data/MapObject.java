@@ -322,6 +322,10 @@ public class MapObject implements PlacePageData
   {
     return mRawTypes.contains("amenity-atm");
   }
+  public String getOrganic()
+  {
+    return getFeatureType("organic-");
+  }
 
   public final boolean isMyPosition()
   {
@@ -336,6 +340,15 @@ public class MapObject implements PlacePageData
   public final boolean isTrack()
   {
     return mMapObjectType == TRACK;
+  }
+  private String getFeatureType(String match)
+  {
+    for (String type : mRawTypes) {
+      if (type.startsWith(match)) {
+        return type;
+      }
+    }
+    return null;
   }
 
   @Nullable

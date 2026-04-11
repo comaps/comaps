@@ -183,7 +183,8 @@ build()
       # For file name consistency in aarch64 and arm64
       [ "$ARCH_OUTPUT" == "aarch64" ] && [ ARCH_OUTPUT = "arm64" ]
 
-      export OUTPUT="CoMaps-linux-$ARCH_OUTPUT.appimage"
+      VERSION=$($OMIM_PATH/tools/unix/version.sh qt_version);
+      export OUTPUT="CoMaps-$ARCH_OUTPUT-$VERSION.appimage"
       if [ -n "${TAG:-}" ]; then
         export UPDATE_INFORMATION="zsync|https://codeberg.org/comaps/comaps/releases/download/$TAG/$OUTPUT"
       fi

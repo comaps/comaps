@@ -82,7 +82,7 @@
 "type.building.guardhouse" = "Beveiligingsloket";
 "type.power.portal" = "Verdeelstation";
 "type.amenity.fast_food" = "Fast food";
-"type.amenity.ferry_terminal" = "Veerpont";
+"type.amenity.ferry_terminal" = "Veerterminal";
 "type.amenity.fire_station" = "Brandweer";
 "type.amenity.food_court" = "Foodcourt";
 "type.amenity.fountain" = "Fontein";
@@ -408,7 +408,7 @@
 "type.spherical_buoy.lateral.starboard" = "Sferische laterale boei";
 "type.spherical_buoy.safe_water" = "Sferische scheidingsboei";
 "type.spherical_buoy.special_purpose" = "Sferische speciale boei";
-"type.lateral.port" = "Haven";
+"type.lateral.port" = "Bakboord";
 "type.lateral.starboard" = "Stuurboord";
 "type.cardinal.east" = "Oost";
 "type.cardinal.north" = "Noorden";
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "jeu de boules";
 "type.leisure.sports_centre.sport.boules" = "Sportcentrum";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sportcentrum";

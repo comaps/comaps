@@ -1,8 +1,9 @@
-• OpenStreetMap-Daten vom 21. März
-• Sportarten hinzugefügt: Boule und Four Squares
-• Tschechische, thailändische, türkische & ukrainische Wikipedia-Artikel hinzugefügt
-• Sekundäre Namen, z. B. für Straßen, in mehrsprachigen Regionen werden je Einstellung nicht angezeigt
-• Verbesserte Fortschrittsanzeige mit flüssigerer Animation
-• Unterstützung von mehr Höchstgeschwindigkeitsdefinitionen in verschiedenen Ländern
+• OpenStreetMap-Daten vom 5. April
+• Wandern Kartenstil: deutlichere Straßen mit kontrastreichen Rändern
+• Pickleball hinzugefügt
+• Verfügbarkeit von Bio-Produkten für Orte wie Restaurants und Supermärkte hinzugefügt
+• Sichtbarkeit von Baumreihen und Bäumen im Wandern Kartenstil erhöht
+• Spezifische Straßenschilder für Argentinien, Uruguay and Bolivien hinzugefügt und Duplikate entfernt
+• Behebt verschiedene periodische Abstürze
 
 Weitere Details unter comaps.app/latest

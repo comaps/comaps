@@ -59,18 +59,19 @@ jobs:
         continue-on-error: true
         shell: bash
         run: |
-          echo "WorldCoasts.* available:"
-          ls -al /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.*
           if [ -f /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom ]; then
+            echo "WorldCoasts.* available:"
+            ls -alh /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.*
             echo "Before:"
-            ls -alh /home/planet/latest_coasts*
+            ls -alh /home/planet/latest_coasts.*
             # TODO: don't copy coasts from test generations
             cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.geom /home/planet/latest_coasts.geom
             cp -p /mnt/4tbexternal/osm-maps/*/intermediate_data/WorldCoasts.rawgeom /home/planet/latest_coasts.rawgeom
             echo "After:"
-            ls -alh /home/planet/latest_coasts*
+            ls -alh /home/planet/latest_coasts.*
           else
-            echo "No WorldCoasts found."
+            echo "No previously generated WorldCoasts found."
+            exit 1
           fi
       - name: Clean temp files from previous generations
         shell: bash
@@ -96,18 +97,19 @@ jobs:
               rm -r ${dir}intermediate_data
             fi
           done
-          echo "Intermediate data cleaned up."
+          echo "Done."
       - name: Check for enough free space
         shell: bash
         run: |
           cd /mnt/4tbexternal/osm-maps
           KB=`df -k --output=avail . | tail -n1`
           GB=$(( KB/1024/1024 ))
-          echo "Free space available: $GB GB"
+          GB_REQ=650
+          echo "Free space available: $GB GB (min $GB_REQ GB required)"
           if [ $MWMCONTINUE == "true" ] || [[ -n $MWMCOUNTRIES ]]; then
             echo "Skip free space check for continued or partial generations."
-          elif [[ $GB -lt 650 ]]; then
-            echo "ERROR: Need at least 650 GB free space for whole planet generation"
+          elif [[ $GB -lt $GB_REQ ]]; then
+            echo "ERROR: not enough free space for whole planet generation"
             exit 1
           fi
       - name: Checkout main repo
@@ -132,11 +134,12 @@ jobs:
           cd tools/python/maps_generator
           python3 -m venv /tmp/venv
           /tmp/venv/bin/pip3 install -r requirements_dev.txt
+          echo "Done."
       - name: Generate drules and search categories (configure the repo)
         shell: bash
         run: |
           cd ~/comaps
-          export SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1 SKIP_GENERATE_STRINGS=1
+          export SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1 SKIP_GENERATE_STRINGS=1 SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1
           ./configure.sh
       - name: Check O5M planet file exists
         shell: bash
@@ -148,11 +151,11 @@ jobs:
               ls -al /home/planet/planet/
               exit 1
             fi
-          echo "Converting planet-latest.osm.pbf to planet.o5m"
-          cd /home/planet/planet/
-          osmconvert -v --drop-author --drop-version --hash-memory=4000 planet-latest.osm.pbf -o=planet.o5m
-          echo "Conversion is done."
+            echo "Converting planet-latest.osm.pbf to planet.o5m"
+            cd /home/planet/planet/
+            osmconvert -v --drop-author --drop-version --hash-memory=4000 planet-latest.osm.pbf -o=planet.o5m
           fi
+          echo "Done."
       - name: Update O5M planet
         if: inputs.run-planet-o5m
         run: |
@@ -182,40 +185,12 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=Starting maps generation.'
+          mkdir -p /root/keys
+          echo "$COUNTRIES_PUB_KEY" > /root/keys/comaps_maps_ed25519_pk.pem
+          echo "$COUNTRIES_SECRET_KEY" > /root/keys/comaps_maps_ed25519_sk.pem
           mkdir -p /mnt/4tbexternal/osm-maps
           cd ~/comaps
           bash ./tools/unix/maps/docker_maps_generator.sh
-      - name: Publish (symlink) new maps to mapgen server
-        shell: bash
-        run: |
-          buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
-          builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
-          cd /var/www/html/maps
-          ln -s /mnt/4tbexternal/osm-maps/$buildfolder/$builddate $builddate
-          echo "All published maps versions:"
-          ls -lah ./
-      - name: Sign countries.txt and copy to latest
-        shell: bash
-        run: |
-          shopt -s nullglob
-          mkdir -p ~/keys
-
-          echo "$COUNTRIES_PUB_KEY" > ~/keys/countries_ed25519_pk.pem
-          echo "$COUNTRIES_SECRET_KEY" > ~/keys/countries_ed25519_sk.pem
-
-          buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
-          builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
-          cd /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
-          openssl pkeyutl -sign -inkey ~/keys/countries_ed25519_sk.pem -rawin -in countries.txt -out countries.txt.sig
-          openssl pkeyutl -verify -pubin -inkey ~/keys/countries_ed25519_pk.pem -rawin -in countries.txt -sigfile countries.txt.sig
-          cd ..
-          mkdir -p latest
-          cp -p /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/countries* latest
-
-          cd /var/www/html/maps
-          # remove old symlink to old build's latest
-          rm -r latest
-          ln -s /mnt/4tbexternal/osm-maps/$buildfolder/latest latest
       - name: Notify Zulip
         run: |
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \

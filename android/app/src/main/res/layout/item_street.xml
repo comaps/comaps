@@ -37,6 +37,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:maxLines="1"
+      android:textAlignment="viewStart"
       android:textAppearance="@style/MwmTextAppearance.Body1"
       tools:text="Street name"/>
 
@@ -45,6 +46,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:maxLines="1"
+      android:textAlignment="viewStart"
       android:textAppearance="@style/MwmTextAppearance.Body3"
       tools:text="Localized street name"/>
 

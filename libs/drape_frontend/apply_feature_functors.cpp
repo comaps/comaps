@@ -201,9 +201,12 @@ bool IsSymbolRoadShield(ftypes::RoadShield const & shield)
          shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Blue ||
          shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Red ||
          shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey ||
+         shield.m_type == ftypes::RoadShieldType::UY_National ||
          shield.m_type == ftypes::RoadShieldType::US_Interstate ||
          shield.m_type == ftypes::RoadShieldType::US_Highway ||
          shield.m_type == ftypes::RoadShieldType::Italy_Autostrada ||
+         shield.m_type == ftypes::RoadShieldType::Argentina_RN ||
+         shield.m_type == ftypes::RoadShieldType::Bolivia_Fundamental ||
          shield.m_type == ftypes::RoadShieldType::Hungary_Green ||
          shield.m_type == ftypes::RoadShieldType::Hungary_Blue;
 }
@@ -220,6 +223,8 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     result = "shield-highway_hexagon_red";
   else if (shield.m_type == ftypes::RoadShieldType::Highway_Hexagon_Turkey)
     result = "shield-highway_hexagon_turkey";
+  else if (shield.m_type == ftypes::RoadShieldType::UY_National)
+    result = shield.m_name.size() <= 2 ? "shield-uy" : "shield-uy-wide";
   else if (shield.m_type == ftypes::RoadShieldType::US_Interstate)
     result = shield.m_name.size() <= 2 ? "shield-us-i-thin" : "shield-us-i-wide";
   else if (shield.m_type == ftypes::RoadShieldType::US_Highway)
@@ -230,6 +235,10 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
     result = "shield-hungary-green";
   else if (shield.m_type == ftypes::RoadShieldType::Hungary_Blue)
     result = "shield-hungary-blue";
+  else if (shield.m_type == ftypes::RoadShieldType::Argentina_RN)
+    result = shield.m_name.size() <= 2 ? "shield-argentina-rn" : "shield-argentina-rn-wide";
+  else if (shield.m_type == ftypes::RoadShieldType::Bolivia_Fundamental)
+    result = "shield-bolivia-fundamental" ;
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 
@@ -331,10 +340,12 @@ dp::Color GetRoadShieldTextColor(dp::Color const & baseColor, ftypes::RoadShield
       {RoadShieldType::Highway_Hexagon_Blue, kRoadShieldWhiteTextColor},
       {RoadShieldType::Highway_Hexagon_Red, kRoadShieldWhiteTextColor},
       {RoadShieldType::Highway_Hexagon_Turkey, kRoadShieldBlackTextColor},
+      {RoadShieldType::UY_National, kRoadShieldWhiteTextColor},
       {RoadShieldType::US_Interstate, kRoadShieldWhiteTextColor},
       {RoadShieldType::US_Highway, kRoadShieldBlackTextColor},
       {RoadShieldType::UK_Highway, kRoadShieldUKYellowTextColor},
       {RoadShieldType::Italy_Autostrada, kRoadShieldWhiteTextColor},
+      {RoadShieldType::Bolivia_Fundamental, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Green, kRoadShieldWhiteTextColor},
       {RoadShieldType::Hungary_Blue, kRoadShieldWhiteTextColor}};
 

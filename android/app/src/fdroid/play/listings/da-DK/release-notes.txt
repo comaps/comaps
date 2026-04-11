@@ -1,8 +1,10 @@
-• OpenStreetMap-data pr. 21. marts
-• Tilføjet nye sportsgrene: boules og four square
-• Tjekkiske, thailandske, tyrkiske og ukrainske Wikipedia-artikler tilføjet
-• Sekundære navne vises ikke længere i flersprogede områder, afhængigt af indstillingerne
-• Forbedrede runde fremskridtsindikatorer med jævnere animation
-• Understøttelse af hastighedsbegrænsninger på flere vejtyper i forskellige lande
+• OpenStreetMap-data pr. 5. april
+• Vandring-stil: mere fremtrædende veje med kontrastkanter
+• Tilføjet sport: pickleball
+• Tilføjet tilgængelighed af økologiske varer for interessepunkter som restauranter og supermarkeder
+• Øget synlighed af træer og trærækker i vandring-stilen
+• Forbedret understøttelse af RTL-sprog
+• Specifikke vejskilte tilføjet i Argentina, Uruguay og Bolivia; dublerede skilte fjernet
+• Flere sporadiske nedbrud rettet
 
-Flere detailjer på comaps.app/latest
+Flere detaljer på comaps.app/latest

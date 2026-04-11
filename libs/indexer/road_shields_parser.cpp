@@ -81,9 +81,12 @@ ankerl::unordered_dense::map<std::string, RoadShieldType> const kRoadNetworkShie
     {"ua:regional", RoadShieldType::Generic_Blue},
     {"ua:territorial", RoadShieldType::Generic_White_Bordered},
     {"ua:local", RoadShieldType::Generic_White_Bordered},
+    {"uy", RoadShieldType::UY_National},
     {"za:national", RoadShieldType::Generic_White_Bordered},
     {"za:regional", RoadShieldType::Generic_White_Bordered},
     {"my:federal", RoadShieldType::Generic_Orange_Bordered},
+    {"ar:national", RoadShieldType::Argentina_RN},
+    {"bo:fundamental", RoadShieldType::Bolivia_Fundamental},
     // United States road networks.
     {"us:i", RoadShieldType::US_Interstate},
     {"us:us", RoadShieldType::US_Highway},
@@ -106,9 +109,9 @@ public:
       if (base::IsExist(kStatesCode, network.substr(3)))
         return RoadShieldType::Generic_White_Bordered;
     }
-
-    // Minimum length for the network tag is 4 (US:I).
-    if (network.size() >= 4)
+    
+    // Minimum length for network tag is 2 (UY). 
+    if (network.size() >= 2)
     {
       strings::AsciiToLower(network);
 
@@ -730,6 +733,29 @@ public:
   {}
 };
 
+class ArgentinaRoadShieldParser : public SimpleRoadShieldParser
+{
+public:
+  // Hide duplicated shields to remove duplication due to tagging convention in AR:
+  // https://wiki.openstreetmap.org/wiki/ES:Argentina/V%C3%ADas_de_circulaci%C3%B3n#Relaciones_de_Ruta_(type=route)
+  // refs that don't start with RN/RP will still appear with the default shield (but shouldn't exist in AR)
+  // suggestion for future improvement by @pastk: https://codeberg.org/comaps/comaps/pulls/3966#issuecomment-12533514
+  explicit ArgentinaRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"RN", RoadShieldType::Hidden},
+                                              {"RP", RoadShieldType::Hidden}})
+  {}
+};
+
+class BoliviaRoadShieldParser : public SimpleRoadShieldParser
+{
+public:
+  // Hide duplicated shields to remove duplication due to tagging convention in Bolivia for national roads
+  // TODO: Same improvements as outlined for the ArgentinaRoadShieldParser apply
+  explicit BoliviaRoadShieldParser(std::string const & baseRoadNumber)
+    : SimpleRoadShieldParser(baseRoadNumber, {{"F", RoadShieldType::Hidden}})
+  {}
+};
+
 class UkraineRoadShieldParser : public SimpleUnicodeRoadShieldParser
 {
 public:
@@ -902,6 +928,10 @@ RoadShieldsSetT GetRoadShields(std::string const & mwmName, std::string const & 
     return IndiaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Austria")
     return AustriaRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Argentina")
+    return ArgentinaRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Bolivia")
+    return BoliviaRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Belgium")
     return BelgiumRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Greece")
@@ -1013,6 +1043,9 @@ std::string DebugPrint(RoadShieldType shieldType)
   case RoadShieldType::US_Interstate: return "US interstate";
   case RoadShieldType::US_Highway: return "US highway";
   case RoadShieldType::UK_Highway: return "UK highway";
+  case RoadShieldType::Bolivia_Fundamental: return "Bolivia fundamental";
+  case RoadShieldType::Argentina_RN: return "Argentina national";
+  case RoadShieldType::UY_National: return "UY national";
   case RoadShieldType::Italy_Autostrada: return "Italy autostrada";
   case RoadShieldType::Hungary_Green: return "hungary green";
   case RoadShieldType::Hungary_Blue: return "hungary blue";

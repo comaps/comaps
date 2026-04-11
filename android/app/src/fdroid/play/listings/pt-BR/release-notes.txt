@@ -1,8 +1,10 @@
-• Dados OSM de 21/03
-• Adicionados os seguintes esportes: four square e bocha
-• Adicionados artigos da Wikipédia em tcheco, tailandês, turco e ucraniano
-• Impedimento da exibição de nomes secundários, por exemplo, para ruas em regiões multilíngues
-• Indicadores de progresso aprimorados com animação mais fluida
-• Suporte para definições de velocidade máxima para mais tipos de vias em diferentes países
+• Dados OSM de 5/4
+• Estilo Ar Livre: estradas mais visíveis com bordas contrastantes
+• Adição de pickleball
+• Adição de informação de opções orgânicas para restaurantes e supermercados
+• Maior visibilidade de fileiras de árvores e árvores no estilo Ar Livre
+• Melhor suporte a idiomas direita-esquerda em diversas telas
+• Adição de placas para Argentina, Uruguai e Bolívia e remoção de placas duplicadas
+• Correção de diversos travamentos intermitentes
 
 Mais detalhes em comaps.app/latest

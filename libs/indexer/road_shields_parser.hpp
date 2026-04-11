@@ -41,9 +41,12 @@ enum class RoadShieldType
   US_Interstate,
   US_Highway,
   UK_Highway,
+  UY_National,
   Italy_Autostrada,
   Hungary_Green,
   Hungary_Blue,
+  Argentina_RN,
+  Bolivia_Fundamental,
   Hidden,
   Count
 };

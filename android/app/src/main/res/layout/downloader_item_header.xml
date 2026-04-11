@@ -13,6 +13,7 @@
     android:paddingTop="@dimen/margin_half"
     android:paddingBottom="@dimen/margin_half"
     android:layout_marginEnd="@dimen/margin_base"
+    android:textAlignment="viewStart"
     android:textAppearance="@style/MwmTextAppearance.Caption"
     tools:text="Downloaded"
     tools:background="#80FF0000"/>

@@ -1,8 +1,9 @@
-• OpenStreetMap podaci od 21. ožujka
-• Dodani sportovi: foursquare i boćanje
-• Dodani članci na češkoj, tajlandskoj, turskoj i ukrajinskoj Wikipediji
-• Spriječeno prikazivanje sekundarnog naziva npr. za ulice u višejezičnim regijama
-• Poboljšani indikatori napretka glatkijom animacijom
-• Podrška za pretpostavljene maksimalne brzine za više tipova cesta u različitim državama
+• OpenStreetMap podaci od 5. travnja
+• Stil za aktivnosti na otvorenom: istaknutije ceste s kontrastnim rubovima
+• Dodan pickleball
+• Dodane informacije o namirnicama organskih uzgoja za POI-je poput restorana i supermarketa
+• Povećana vidljivost drvoreda i stabala u stilu za aktivnosti na otvorenom
+• Poboljšana podrška za jezike koji se pišu zdesna nalijevo na nekoliko zaslona
+• Ispravljeno nekoliko sporadičnih rušenja aplikacije
 
 Više detalja na comaps.app/latest

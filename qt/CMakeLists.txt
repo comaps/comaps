@@ -106,12 +106,11 @@ function(copy_resources)
   endforeach()
 endfunction()
 
-copy_resources(
+set(DATA_FILES
   countries-strings
   fonts
   symbols
   welcome.html
-
   categories.txt
   categories_cuisines.txt
   classificator.txt
@@ -136,9 +135,24 @@ copy_resources(
   WorldCoasts.mwm
 )
 
+copy_resources(${DATA_FILES})
+
 include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(DIRECTORY ${OMIM_ROOT}/data DESTINATION ${CMAKE_INSTALL_DATADIR}/comaps)
+
+function(install_resources)
+  foreach(file ${ARGN})
+    if(EXISTS ${DATA_DIR}/${file})
+      if(IS_DIRECTORY ${DATA_DIR}/${file})
+        install(DIRECTORY ${DATA_DIR}/${file} DESTINATION ${CMAKE_INSTALL_DATADIR}/comaps/data)
+      else()
+        install(FILES ${DATA_DIR}/${file} DESTINATION ${CMAKE_INSTALL_DATADIR}/comaps/data)
+      endif()
+    endif()
+  endforeach()
+endfunction()
+
+install_resources(${DATA_FILES})
 
 if (PLATFORM_LINUX)
   install(FILES ${OMIM_ROOT}/packaging/app.comaps.comaps.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo/)

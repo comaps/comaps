@@ -110,3 +110,6 @@ done
 
 log "$PASSED_TESTS / $TOTAL_TESTS passed."
 echo "Log is written to: $LOG"
+if [ "$TOTAL_TESTS" -ne "$PASSED_TESTS" ]; then
+  exit 1
+fi

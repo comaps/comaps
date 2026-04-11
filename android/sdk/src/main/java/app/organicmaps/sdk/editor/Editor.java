@@ -13,6 +13,7 @@ import app.organicmaps.sdk.editor.data.LocalizedName;
 import app.organicmaps.sdk.editor.data.LocalizedStreet;
 import app.organicmaps.sdk.editor.data.NamesDataSource;
 import app.organicmaps.sdk.util.Config;
+import app.organicmaps.sdk.util.log.Logger;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
@@ -21,6 +22,7 @@ import java.lang.annotation.RetentionPolicy;
  */
 public final class Editor
 {
+  private static final String TAG = Editor.class.getSimpleName();
   // Should correspond to core osm::FeatureStatus.
   @Retention(RetentionPolicy.SOURCE)
   @IntDef({UNTOUCHED, DELETED, OBSOLETE, MODIFIED, CREATED})
@@ -46,7 +48,10 @@ public final class Editor
   public static void uploadChanges()
   {
     if (nativeHasSomethingToUpload() && OsmOAuth.isAuthorized())
+    {
+      Logger.i(TAG, "Uploading OSM changes...");
       nativeUploadChanges(OsmOAuth.getAuthToken(), Config.getVersionName(), Config.getApplicationId());
+    }
   }
 
   public static native boolean nativeShouldShowEditPlace();

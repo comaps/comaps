@@ -75,7 +75,7 @@
 "type.amenity.music_school" = "音乐学校";
 "type.amenity.sailing_school" = "Sailing School";
 "type.amenity.flight_school" = "飞行学校";
-"type.amenity.prep_school" = "Tutorial School";
+"type.amenity.prep_school" = "补习学校";
 "type.amenity.language_school" = "语言学校";
 "type.office.diplomatic" = "大使馆";
 "type.office.security" = "保安室";
@@ -98,7 +98,7 @@
 "type.amenity.kindergarten" = "幼儿园";
 "type.amenity.library" = "图书馆";
 "type.amenity.loading_dock" = "装卸码头";
-"type.amenity.lounger" = "Lounger";
+"type.amenity.lounger" = "躺椅";
 "type.amenity.luggage_locker" = "行李寄存处";
 "type.amenity.marketplace" = "市场";
 "type.amenity.mobile_money_agent" = "Mobile Money Agent";
@@ -132,7 +132,7 @@
 "type.amenity.parking_space.disabled" = "残疾人停车位";
 "type.amenity.car_pooling" = "拼车";
 "type.amenity.payment_terminal" = "支付终端";
-"type.amenity.payment_centre" = "Payment Centre";
+"type.amenity.payment_centre" = "付款中心";
 "type.amenity.pharmacy" = "药店";
 "type.amenity.place_of_worship" = "礼拜场所";
 "type.amenity.place_of_worship.buddhist" = "佛教寺庙";
@@ -172,7 +172,7 @@
 /* Weather shelter (including sun shelters and natural rock shelters). */
 "type.amenity.shelter" = "庇护所";
 /* A weather shelter by the public transport stop. */
-"type.amenity.shelter.public_transport" = "庇护所";
+"type.amenity.shelter.public_transport" = "候车亭";
 /* Compared to wilderness_hut its smaller and simpler, without a fireplace. */
 "type.amenity.shelter.basic_hut" = "行军床";
 /* A traditional 3-walled shelter (one side open), suitable for overnight camping. */
@@ -1364,7 +1364,7 @@
 "type.sport.beachvolleyball" = "沙滩排球";
 "type.sport.bowls" = "草地滚球";
 "type.sport.chess" = "国际象棋";
-"type.sport.climbing" = "攀登中心";
+"type.sport.climbing" = "攀登";
 "type.sport.cricket" = "板球";
 "type.sport.curling" = "冰壶";
 "type.sport.diving" = "高台跳水";
@@ -1386,7 +1386,7 @@
 "type.sport.table_tennis" = "乒乓球";
 "type.sport.tennis" = "网球场";
 "type.sport.volleyball" = "排球";
-"type.sport.yoga" = "瑜伽工作室";
+"type.sport.yoga" = "瑜伽";
 "type.tourism" = "旅游要素";
 "type.tourism.aquarium" = "水族馆";
 /* Typically serviced, staff is present and food is available (compared to wilderness_hut). */
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";

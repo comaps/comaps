@@ -926,4 +926,7 @@
     <string name="bookmark_share_email_subject">Følg denne lenken %1$s eller lim inn disse koordinatene %2$s i kart-appen din for å se denne posisjonen.</string>
     <string name="my_position_share_email">Følg denne lenken %1$s eller lim inn disse koordinatene %2$s i kart-appen din for å se posisjonen min.</string>
     <string name="population">Folketall: %s</string>
+    <string name="editor_business_vacant_button">Forretning står tom</string>
+    <string name="editor_mark_business_vacant_title">Merk forretning som tom</string>
+    <string name="editor_mark_business_vacant_description">Bruk dette hvis forretningen er flyttet ut, og lokalet står tomt og klar for en ny leietaker.</string>
 </resources>

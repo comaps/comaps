@@ -8,7 +8,7 @@
 /* Settings/Downloader - info for country which started downloading */
 "downloading" = "Sedang mengunduh…";
 /* Title of offline maps explanation */
-"offline_explanation_title" = "Offline Maps";
+"offline_explanation_title" = "peta luring";
 /* Text of offline maps explanation */
 "offline_explanation_text" = "Peta perlu diunduh untuk melihat dan menavigasi area ini.\nUnduh peta untuk wilayah yang ingin Anda jelajahi.";
 /* Choose measurement on first launch alert - choose metric system button */
@@ -32,7 +32,7 @@
 /* Message to display at the center of the screen when the country download has failed */
 "country_status_download_failed" = "Sedang Mengunduh telah gagal";
 /* Text in About screen */
-"about_headline" = "Open project powered by the community";
+"about_headline" = "Proyek terbuka yang didukung oleh komunitas";
 /* Text in About screen */
 "about_proposition_1" = "Offline, cepat dan mudah digunakan";
 /* Text in About screen */
@@ -52,9 +52,9 @@
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Penanda";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Penanda dan jalur";
+"bookmarks_and_tracks" = "Favorit";
 /* Default bookmark list name */
-"core_my_places" = "Tempat-tempat Saya";
+"core_my_places" = "Favorit Saya";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Alamat";
 /* Settings button in system menu */
@@ -357,8 +357,6 @@
 "clear_search" = "Bersihkan riwayat pencarian";
 /* Place Page link to Wikipedia article (if map object has it). */
 "read_in_wikipedia" = "Wikipedia";
-/* Place Page link to Wikimedia Commons. */
-"wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Lokasi Anda";
 "p2p_start" = "Mulai";
 "p2p_from_here" = "Dari";
@@ -870,3 +868,4 @@
 "contribute_to_osm_add_place" = "Add Place";
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"wikimedia_commons" = "Wikimedia Commons";

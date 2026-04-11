@@ -58,6 +58,11 @@ jobs:
   lint:
     name: Android Lint
     runs-on: comaps-android
+    # This currently fails on main.
+    # Allow failures so that the fail/pass results from CI can be helpful
+    # in the assesment of code changes with the workflows that work on main.
+    # Let's remove this line after the errors are resolved.
+    continue-on-error: true
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4

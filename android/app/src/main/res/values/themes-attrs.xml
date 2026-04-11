@@ -37,7 +37,6 @@
     <attr name="trafficLoadingAnimation" format="reference" />
     <attr name="navButtonsThemeRect" format="reference" />
     <attr name="navButtonsThemeRound" format="reference" />
-    <attr name="downloaderTheme" format="reference" />
     <attr name="navigationTheme" format="reference" />
     <attr name="routingButtonHint" format="color" />
     <attr name="drivingOptionsViewBg" format="color" />
@@ -46,14 +45,6 @@
     <attr name="colorBtnHighlight" format="color" />
     <attr name="transitStepDivider" format="reference" />
     <attr name="colorAccentTransparent" format="reference" />
-  </declare-styleable>
-  <declare-styleable name="ThemeAttrs.Downloader">
-    <attr name="status_done" format="reference" />
-    <attr name="status_downloadable" format="reference" />
-    <attr name="status_failed" format="reference" />
-    <attr name="status_updatable" format="reference" />
-    <attr name="status_folder" format="reference" />
-    <attr name="status_folder_done" format="reference" />
   </declare-styleable>
   <declare-styleable name="ThemeAttrs.Navigation">
     <attr name="searchLayoutBackground" format="reference" />

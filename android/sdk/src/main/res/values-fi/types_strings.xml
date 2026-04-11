@@ -1461,4 +1461,5 @@
     <string name="type.amenity.community_centre.youth_centre">Nuorisokeskus</string>
     <string name="type.amenity.mobile_money_agent">Mobile Money Agent</string>
     <string name="type.shop.water">Vesimyymälä</string>
+    <string name="type.amenity.give_box">Lahjoituslaatikko</string>
 </resources>

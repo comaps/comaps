@@ -746,6 +746,7 @@
 "type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
 "type.leisure.sports_centre.sport.padel" = "Sports Centre";
 "type.leisure.sports_centre.sport.pelota" = "Sports Centre";
+"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
 "type.leisure.sports_centre.sport.scuba_diving" = "Sports Centre";
 "type.leisure.sports_centre.sport.shooting" = "Sports Centre";
 "type.leisure.sports_centre.sport.skateboard" = "Sports Centre";
@@ -1381,6 +1382,7 @@
 "type.sport.ice_hockey" = "Ice Hockey";
 "type.sport.padel" = "Padel";
 "type.sport.pelota" = "Basque Pelota";
+"type.sport.pickleball" = "Pickleball";
 "type.sport.scuba_diving" = "Scuba Diving";
 "type.sport.shooting" = "Shooting";
 "type.sport.skateboard" = "Skateboarding";

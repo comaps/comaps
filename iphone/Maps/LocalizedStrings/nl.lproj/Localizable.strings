@@ -62,7 +62,7 @@
 /* Measurement units title in settings activity */
 "measurement_units" = "Eenheid van afstand";
 /* Search category for cafes, bars, restaurants; any changes should be duplicated in categories.txt @category_eat! */
-"category_eat" = "Waar iets gaan eten";
+"category_eat" = "Eetgelegenheden";
 /* Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! */
 "category_food" = "Boodschappen";
 /* Search category for public transport; any changes should be duplicated in categories.txt @category_transport! */
@@ -137,7 +137,7 @@
 "version %@ (%@)" = "Versie %@ (%@)";
 "version: %@ (%@)\nmap data: %@" = "Versie: %@ (%@)\nKaartgegevens: %@";
 /* Title for tracks category in bookmarks manager */
-"tracks_title" = "Sporen";
+"tracks_title" = "Routes";
 /* Length of track in cell that describes route */
 "length" = "Lengte";
 "share_my_location" = "Mijn locatie delen";
@@ -602,7 +602,7 @@
 "error_enter_correct_name" = "Voer een geldige naam in";
 "bookmark_lists" = "Lijsten";
 /* Do not display all bookmark lists on the map */
-"bookmark_lists_hide_all" = "Ales verbergen";
+"bookmark_lists_hide_all" = "Alles verbergen";
 "bookmark_lists_show_all" = "Toon alles";
 "bookmarks_create_new_group" = "Nieuwe lijst aanmaken";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
@@ -658,7 +658,7 @@
 "avoid_paved" = "Verharde wegen vermijden";
 /* Recommended length for CarPlay and Android Auto is around 25-27 characters */
 "avoid_steps" = "Trappen vermijden";
-"avoid_ferry" = "Veerboten verbinden";
+"avoid_ferry" = "Veerboten vermijden";
 "avoid_motorways" = "Snelwegen vermijden";
 "unable_to_calc_alert_title" = "Kan route niet berekenen";
 "unable_to_calc_alert_subtitle" = "Een route kon niet worden gevonden. Dit kan worden veroorzaakt door uw routeringsopties of onvolledige OpenStreetMap-gegevens. Wijzig uw routeringsopties en probeer het opnieuw.";
@@ -849,9 +849,9 @@
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Alles herstellen";
 /* Prompt to start recording a track. */
-"start_track_recording" = "Spoor opnemen";
+"start_track_recording" = "Route opnemen";
 /* Prompt for stopping a track recording. */
-"stop_track_recording" = "Stop spoor opnemen";
+"stop_track_recording" = "Opname route stoppen";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "stop_without_saving" = "Stoppen zonder op te slaan";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
@@ -859,8 +859,8 @@
 /* Title for the alert when saving a track recording. */
 "track_recording_alert_title" = "Opslaan in Favorieten?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
-"track_recording_toast_nothing_to_save" = "Spoor is leeg - niets op te slaan";
-"edit_track" = "Spoor bewerken";
+"track_recording_toast_nothing_to_save" = "Geen route - niets op te slaan";
+"edit_track" = "Route bewerken";
 /* Title of the general section in settings */
 "general" = "Algemeen";
 /* Title of the interface section in settings */

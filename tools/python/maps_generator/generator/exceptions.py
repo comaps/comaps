@@ -33,6 +33,10 @@ class FailedTest(MapsGeneratorError):
     pass
 
 
+class SigningError(MapsGeneratorError):
+    pass
+
+
 def wait_and_raise_if_fail(p):
     if p.wait() != os.EX_OK:
         if type(p) is subprocess.Popen:

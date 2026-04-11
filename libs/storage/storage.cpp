@@ -1781,7 +1781,7 @@ void Storage::CancelDownloadNode(CountryId const & countryId)
     m_downloadingCountries.erase(countryId);
 
     if (needNotify)
-      NotifyStatusChangedForHierarchy(countryId);
+      NotifyStatusChangedForHierarchy(descendantId);
   });
 }
 

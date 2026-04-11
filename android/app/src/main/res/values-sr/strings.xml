@@ -482,7 +482,7 @@
     <string name="minute">мин</string>
     <string name="day">д</string>
     <string name="placepage_more_button">Више</string>
-    <string name="placepage_edit_bookmark_button">Измени место</string>
+    <string name="placepage_edit_bookmark_button">Измени сачувано место</string>
     <string name="editor_reset_edits_message">Брисање свих измена које нису послате?</string>
     <string name="editor_reset_edits_button">Одбаци промене</string>
     <string name="editor_remove_place_message">Брисање додатог места?</string>
@@ -886,9 +886,9 @@
     <string name="opens_day_at">Отвара се у %1$s у %2$s</string>
     <string name="closes_day_at">Затвара се у %1$s у %2$s</string>
     <plurals name="minutes_short">
-        <item quantity="one">%d минут</item>
-        <item quantity="few">%d минита</item>
-        <item quantity="other">%d минита</item>
+        <item quantity="one">%d мин</item>
+        <item quantity="few">%d мин</item>
+        <item quantity="other">%d мин</item>
     </plurals>
     <string name="editor_business_vacant_button">Пословни простор је празан</string>
     <string name="editor_mark_business_vacant_title">Означи пословни простор као празан</string>

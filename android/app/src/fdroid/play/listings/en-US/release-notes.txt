@@ -1,8 +1,10 @@
-• OpenStreetMap data as of March 21
-• Added sports: four square and boules
-• Added Czech, Thai, Turkish and Ukrainian Wikipedia articles
-• Prevent secondary name from appearing for e.g. streets in multi-language regions
-• Improved wheel progress indicators with smoother animation
-• Support maxspeed definitions for more road types in different countries
+• OpenStreetMap data as of April 5
+• Outdoor style: more prominent roads with contrast borders
+• Added pickleball
+• Added organic options availability info for POIs like restaurants and supermarkets
+• Increased visibility of tree rows and trees in outdoor style
+• Improved right-to-left languages support in several screens
+• Added road shields specific to Argentina, Uruguay and Bolivia and removed duplicate shields
+• Fixed several intermittent crashes
 
 More details on comaps.app/latest

@@ -185,6 +185,13 @@ tools/python/data/*/dist
 tools/python/data/*/*.egg-info
 tools/python/*/venv/
 
+# Auto-generated from sr by tools/unix/generate_serbian_latin_strings.sh
+android/app/src/fdroid/play/listings/sr-Latn/
+android/app/src/main/res/values-b+sr+Latn/
+android/sdk/src/main/res/values-b+sr+Latn/
+iphone/Maps/LocalizedStrings/sr-Latn.lproj/
+data/countries-strings/sr_Latn.json/
+
 # Configs
 tools/python/maps_generator/var/etc/map_generator.ini
 tools/python/routing/etc/*.ini

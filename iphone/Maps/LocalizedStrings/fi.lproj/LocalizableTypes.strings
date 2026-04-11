@@ -1501,7 +1501,7 @@
 "type.social_facility.soup_kitchen" = "Keittokeittiö";
 "type.social_facility.food_bank" = "Ruokapankki";
 "type.amenity.food_sharing" = "Food Sharing";
-"type.amenity.give_box" = "Give Box";
+"type.amenity.give_box" = "Lahjoituslaatikko";
 /* https://wiki.openstreetmap.org/wiki/Tag:emergency=emergency_ward_entrance */
 "type.emergency.emergency_ward_entrance" = "Hätäosaston sisäänkäynti";
 /* https://wiki.openstreetmap.org/wiki/Tag:amenity=dojo */
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";

@@ -129,10 +129,14 @@
   <color name="material_calendar_surface_dark">#929292</color>
   <color name="notification_warning">#FFC22219</color>
   
-  <!-- Downloader -->
-  <color name="dl_done">#ebebeb</color>
-  <color name="dl_download">#FF37653F</color>
-  <color name="dl_update">#ffc30a</color>
+  <!-- Downloader icons -->
+  <color name="bg_dl_done">#ebebeb</color>
+  <color name="bg_dl_download">#FF37653F</color>
+  <color name="bg_dl_update">#ffc30a</color>
+
+  <color name="fg_dl_done">#6c6c6c</color>
+  <color name="fg_dl_folder">#FFF</color>
+  <color name="fg_dl_folder_done">#6c6c6c</color>
 
   <!-- Categories -->
   <color name="foreground_color">#FFF</color>

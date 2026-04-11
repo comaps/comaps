@@ -4,6 +4,7 @@ import glob
 import logging
 import os
 import shutil
+import subprocess
 from functools import partial
 from multiprocessing.pool import ThreadPool
 from typing import AnyStr
@@ -14,6 +15,8 @@ from urllib.parse import unquote
 from urllib.parse import urljoin
 from urllib.parse import urlparse
 from urllib.request import url2pathname
+
+from maps_generator.generator.exceptions import SigningError
 
 import requests
 from bs4 import BeautifulSoup
@@ -186,7 +189,9 @@ def is_verified(name: AnyStr) -> bool:
     return is_exists_file_and_md5(name) and check_md5(name, md5_ext(name))
 
 
-def make_symlink(target: AnyStr, link_name: AnyStr):
+def make_symlink(target: AnyStr, link_name: AnyStr, force: bool = False):
+    if force and os.path.exists(target):
+        os.remove(target)
     try:
         os.symlink(target, link_name)
     except OSError as e:
@@ -199,3 +204,37 @@ def make_symlink(target: AnyStr, link_name: AnyStr):
                 raise e
         else:
             raise e
+
+
+def sign_file(file_path, key_path, signature_path=None):
+    if signature_path is None:
+        signature_path = file_path + ".sig"
+    cmd = [
+        "openssl", "pkeyutl", "-sign",
+        "-inkey", key_path,
+        "-rawin", "-in", file_path,
+        "-out", signature_path,
+    ]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        stderr = proc.stderr.strip()
+        stdout = proc.stdout.strip()
+        raise SigningError(f"Signing {file_path} with {key_path} failed (exitcode: {proc.returncode} stdout: {stdout!s} stderr: {stderr!s}")
+    logger.info(f"Signed {file_path}, signature {signature_path}")
+    return signature_path
+
+
+def verify_file(file_path, signature_path, pub_key_path):
+    cmd = [
+        "openssl", "pkeyutl", "-verify",
+        "-pubin", "-inkey", pub_key_path,
+        "-rawin", "-in", file_path,
+        "-sigfile", signature_path,
+    ]
+    proc = subprocess.run(cmd, capture_output=True, text=True)
+    if proc.returncode != 0:
+        stderr = proc.stderr.strip()
+        stdout = proc.stdout.strip()
+        logger.warning(f"Signature verification failed for {signature_path} (exitcode: {proc.returncode} stdout: {stdout!s} stderr: {stderr!s}")
+        return False
+    return True

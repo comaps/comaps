@@ -70,6 +70,8 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>0 становника</string>
 			<key>one</key>
 			<string>%lld становник</string>
 			<key>few</key>

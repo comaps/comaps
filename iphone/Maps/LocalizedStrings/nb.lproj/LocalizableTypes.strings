@@ -920,9 +920,9 @@
 /* A tower or pylon carrying high voltage electricity cables. */
 "type.power.tower" = "Strømmast";
 /* A single pole supporting minor power lines. */
-"type.power.pole" = "Power Pole";
+"type.power.pole" = "Strømstolpe";
 /* A single pole supporting various public utilities, such as lighting or telephony. */
-"type.man_made.utility_pole" = "Utility Pole";
+"type.man_made.utility_pole" = "Stolpe";
 "type.public_transport" = "Offentlig transport";
 "type.public_transport.platform" = "Plattform";
 "type.railway" = "Jernbane";
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boule";
 "type.leisure.sports_centre.sport.boules" = "Sportssenter";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sportssenter";

@@ -866,7 +866,7 @@
 /* Title of the interface section in settings */
 "interface" = "Interfaz";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Colaborar con OpenStreetMap";
+"contribute_to_osm" = "Colaborar a OpenStreetMap";
 "contribute_to_osm_add_place" = "Añadir lugar";
 "contribute_to_osm_update_map" = "Actualiza el mapa para colaborar";
 "contribute_to_osm_update_map_description" = "Debes actualizar el mapa %@ a la última versión antes de poder colaborar con OpenStreetMap";

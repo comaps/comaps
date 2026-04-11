@@ -1,8 +1,9 @@
-• Dati OpenStreetMap aggiornati al 21 marzo
-• Aggiunti sport: four square e bocce
-• Aggiunti articoli di Wikipedia in ceco, thailandese, turco e ucraino
-• Impedita la visualizzazione del nome secondario, ad esempio per le strade in regioni multilingue
-• Migliorati gli indicatori di progresso a ruota con animazioni più fluide
-• Supporto di più definizioni di velocità massima in diversi paesi
+• Dati di OpenStreetMap del 5 aprile
+• Stile outdoor: Le strade più importanti avrannò i bordi in rilievo
+• Aggiunto il pickleball
+• Aggiunte informazioni sulla disponibilità di opzioni biologiche nei ristoranti e nei supermercati
+• Maggiore visibilità per le file di alberi e degli alberi in stile outdoor
+• Miglioramento il supporto per le lingue scritte da destra a sinistra
+• Aggiunti gli stemmi stradali specifici per Argentina, Uruguay e Bolivia
 
-Maggiori dettagli su comaps.app/latest
+Per saperne di più comaps.app/latest

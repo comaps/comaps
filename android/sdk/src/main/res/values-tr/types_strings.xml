@@ -1411,4 +1411,8 @@
     <string name="type.amenity.prep_school">Özel Ders Okulu</string>
     <string name="type.amenity.boat_rental">Tekne Kiralama</string>
     <string name="type.amenity.charging_station.motorcycle">Motosiklet</string>
+    <string name="type.amenity.lounger">Şezlong</string>
+    <string name="type.amenity.car_pooling">Araç Paylaşım İstasyonu</string>
+    <string name="type.amenity.payment_centre">Ödeme Merkezi</string>
+    <string name="type.shop.beauty.nails">Tırnak Salonu</string>
 </resources>

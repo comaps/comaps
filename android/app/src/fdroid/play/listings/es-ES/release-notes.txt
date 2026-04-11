@@ -1,8 +1,8 @@
-- Datos de OpenStreetMap a fecha del 21 de marzo
-- Se agregaron deportes: cuatro en raya y petanca
-- Se agregaron artículos de Wikipedia en Checo, Tailandés, Turco y Ucraniano
-- Se ha evitado que aparezca el nombre secundario, por ejemplo, en calles de regiones multilenguaje
-- Se ha mejorado el indicador de progreso de rueda con una animación más fluida
-- Se soportan definiciones de máxima velocidad para más tipos de carreteras en diferentes países
+• Datos de OpenStreetMap a fecha de abril 5
+• Estilo de senderismo: carreteras más visibles con bordes con contraste
+• Se ha agreado Pickleball
+• Se ha agreado información sobre disponibilidad de productos organicos para POIs como restaurantes y supermercados
+• Se ha incrementado la visibilidad de árboles y filas de árboles en el estilo de senderismo
+• Se han agregado letreros de carretera específicos de Argentina, Uruguay y Bolivia
 
 Más detalles en comaps.app/latest

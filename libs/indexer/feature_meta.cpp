@@ -119,7 +119,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_PHONE_NUMBER;
   else if (k == "fax" || k == "contact:fax")
     outType = Metadata::EType::FMD_FAX_NUMBER;
-  else if (k == "stars")
+  else if (k == "stars" || k == "award:michelin")
     outType = Metadata::FMD_STARS;
   else if (k.starts_with("operator"))
     outType = Metadata::FMD_OPERATOR;
@@ -139,7 +139,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_CONTACT_FEDIVERSE;
   else if (k == "contact:bluesky")
     outType = Metadata::FMD_CONTACT_BLUESKY;
-  else if (k == "internet_access" || k == "wifi")
+  else if (k == "internet_access" || k == "wifi" || k == "internet")
     outType = Metadata::FMD_INTERNET;
   else if (k == "ele")
     outType = Metadata::FMD_ELE;
@@ -168,11 +168,11 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_PANORAMAX;
   else if (k == "addr:flats")
     outType = Metadata::FMD_FLATS;
-  else if (k == "height")
+  else if (k == "height" || k == "building:height")
     outType = Metadata::FMD_HEIGHT;
   else if (k == "min_height")
     outType = Metadata::FMD_MIN_HEIGHT;
-  else if (k == "building:levels")
+  else if (k == "building:levels" || k == "levels")
     outType = Metadata::FMD_BUILDING_LEVELS;
   else if (k == "building:min_level")
     outType = Metadata::FMD_BUILDING_MIN_LEVEL;
@@ -194,7 +194,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_LOCAL_REF;
   else if (k == "drive_through")
     outType = Metadata::FMD_DRIVE_THROUGH;
-  else if (k == "website:menu")
+  else if (k == "website:menu" || k == "contact:website:menu")
     outType = Metadata::FMD_WEBSITE_MENU;
   else if (k == "self_service")
     outType = Metadata::FMD_SELF_SERVICE;

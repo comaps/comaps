@@ -10,6 +10,7 @@
 #include "geometry/tree4d.hpp"
 
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "3party/ankerl/unordered_dense.h"
@@ -131,7 +132,7 @@ public:
 
 private:
   m4::Tree<std::reference_wrapper<CountryPolygons const>> m_regionsTree;
-  ankerl::unordered_dense::map<std::string, CountryPolygons> m_countryPolygonsMap;
+  std::unordered_map<std::string, CountryPolygons> m_countryPolygonsMap;
 };
 
 using PolygonsList = std::vector<Polygon>;

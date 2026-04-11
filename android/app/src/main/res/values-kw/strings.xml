@@ -131,12 +131,12 @@
     <string name="p2p_your_location">Dha Tyller</string>
     <string name="p2p_start">Dalleth</string>
     <string name="next_button">Nessa</string>
-    <string name="editor_time_add">Addya Rol Vetyansow</string>
+    <string name="editor_time_add">Keworra Rol Vetyansow</string>
     <string name="editor_time_delete">Dilea Rol Vetyansow</string>
     <string name="editor_time_allday">Dres an Jorna (24 ourys)</string>
     <string name="editor_time_open">Ygor</string>
     <string name="editor_time_close">Deges</string>
-    <string name="editor_time_add_closed">Addya Ourys Nanegys</string>
+    <string name="editor_time_add_closed">Keworra Ourys Nanegys</string>
     <string name="editor_time_title">Ourys Negys</string>
     <string name="editor_time_advanced">Fordh Avonsys</string>
     <string name="editor_time_simple">Fordh Sempel</string>
@@ -156,17 +156,17 @@
     <string name="login_osm">Omgelmi dhe OpenStreetMap</string>
     <string name="logout">Omdenna</string>
     <string name="edit_place">Golegi Le</string>
-    <string name="add_language">Addya unn yeth</string>
+    <string name="add_language">Keworra yeth</string>
     <string name="street">Stret</string>
     <string name="house_number">Niver drehevyans</string>
     <string name="details">Manylyon</string>
     <string name="social_media">Media Socyal</string>
     <string name="building">Drehevyans</string>
-    <string name="add_street">Addya unn stret</string>
+    <string name="add_street">Keworra stret</string>
     <string name="empty_street_name_error">Ynworra unn hanow street mar pleg</string>
     <string name="choose_language">Dewis unn yeth</string>
     <string name="choose_street">Dewis unn stret</string>
-    <string name="editor_add_phone">Addya Niver Fon</string>
+    <string name="editor_add_phone">Keworra Niver Fon</string>
     <string name="level">Leur</string>
     <string name="level_value_generic">Leur: %s</string>
     <string name="downloader_update_maps">Nowedhi Mappys</string>
@@ -216,8 +216,8 @@
     <string name="error_enter_correct_line_page">Ynworra unn ID LINE bo trigva gwiasva ewn</string>
     <string name="error_enter_correct_fediverse_page">Ynworra unn hanow usyer Mastodon bo trigva gwiasva ewn</string>
     <string name="error_enter_correct_bluesky_page">Ynworra unn hanow usyer Bluesky bo trigva gwiasva ewn</string>
-    <string name="placepage_add_place_button">Addya Le dhe OpenStreetMap</string>
-    <string name="osm_note_hint">Bo, yn tereylys, skrifa unn noten rag an kemeneth OpenStreetMap, ha orth nebonan yll addya bo ewnhe unn le omma.</string>
+    <string name="placepage_add_place_button">Keworra Le dhe OpenStreetMap</string>
+    <string name="osm_note_hint">Bo, yn tereylys, skrifa noten rag an kemeneth OpenStreetMap, hag orth nebonan a yll keworra bo ewnhe le omma.</string>
     <string name="osm_note_toast">Noten a vydh danvon dhe OpenStreetMap</string>
     <string name="editor_share_to_all_dialog_title">A vynn\'ta mos danvon dhe oll usyoryon?</string>
     <string name="navigation_stop_button">Hedhi</string>
@@ -230,7 +230,7 @@
     <string name="learn_more">Dyski moy</string>
     <string name="button_plan">Devisya</string>
     <string name="placepage_remove_stop">Dilea Powes</string>
-    <string name="placepage_add_stop">Addya Powes</string>
+    <string name="placepage_add_stop">Keworra Powes</string>
     <string name="error_enter_correct_name">Ynworra unn hanow ewn mar pleg</string>
     <string name="bookmark_lists">Rolyow Drudhow</string>
     <string name="bookmark_lists_hide_all">Keles oll</string>
@@ -388,7 +388,7 @@
     <string name="download_resources">Dherag ty dalleth ow devnydhya an app, mar pleg iskarga an mappa ollvysel sempel dhe gas devis.\nY devnydhya %s a dalghuster.</string>
     <string name="downloading_country_can_proceed">Owth iskargaow %1$s (%2$s). Ty gallos\nprocedya dhe\'n mappa.</string>
     <string name="download_country_failed">%s iskarg yw fyllis</string>
-    <string name="add_new_set">Addya unn Rol Nowydh</string>
+    <string name="add_new_set">Keworra Rol Nowydh</string>
     <string name="bookmark_set_name">Hanow Rol</string>
     <string name="maps_storage">Sawya mappys dhe</string>
     <string name="maps_storage_summary">Dewis an restrenva dhe iskarga mappys dhe</string>
@@ -456,7 +456,7 @@
     <string name="dialog_routing_download_cross_route">Iskarga mappys keworransel dhe gul unn kerdh gwell a-dreus moy ages unn mappa.</string>
     <string name="search_without_internet_advertisement">Rag dalleth ow hwilas hag ow gul kerdhow, iskarga an mappa, mar pleg. Wosa henna, ty na fella res unn junyans kesrosweyth.</string>
     <string name="search_not_found">Soweth, sewyansow kavos vyth</string>
-    <string name="search_not_found_query">Iskarga an pow py tyller ty ow hwilas po assaya owth addya unn hanow tre/gwig yn ogas.</string>
+    <string name="search_not_found_query">Iskarga an pow le may ty ow hwilas po assaya ow keworra hanow tre/gwig yn ogas.</string>
     <string name="search_history_text">Gweles gas hwithransow a-dhiwedhes</string>
     <string name="p2p_from_here">Mos dhyworth</string>
     <string name="p2p_to_here">Mos war-tu</string>
@@ -492,18 +492,18 @@
     <string name="editor_profile_changes">Chanjyow Gwirhys</string>
     <string name="editor_focus_map_on_location">Draylya an mappa rag settya an krows yn an tyller a an le po negys.</string>
     <string name="editor_edit_place_title">Ow Golegi</string>
-    <string name="editor_add_place_title">Owth Addya</string>
+    <string name="editor_add_place_title">Ow Keworra</string>
     <string name="message_invalid_feature_position">Tra vyth gallos bos desedhys omma</string>
     <string name="osm_presentation">Data OpenStreetMap gulys gans an kemeneth dhyworth %s. Dyski moy a-dro dhe fatel golegi ha nowedhi an mappa yn OpenStreetMap.org</string>
-    <string name="login_osm_presentation">OpenStreetMap.org (OSM) yw unn ragdres kemeneth dhe byldya unn mappa rydh ha apert. Yth yw an devedhyans chif a data mappa yn CoMaps ha oberi haval dhe Wikipedya. Ty gallos addya po golegi leow ha i bos kavadow dhe milvilyow usyoryon dres oll an bys.\nOmjunya an kemeneth ha gweres gul unn mappa gwell rag keniver!</string>
+    <string name="login_osm_presentation">OpenStreetMap.org (OSM) yw ragdres kemeneth rag byldya mappa rydh hag apert. An devedhyans chif a dhata mappa yn CoMaps yw hag oberi haval dhe Ikipedya. Ty a yll keworra po golegi leow hag i bos kavadow dhe vilvilyow devnydhyoryon dres oll an bys.\nOmjunya an kemeneth ha gweres gul mappa gwell rag keniver!</string>
     <string name="login_to_make_edits_visible">Gul unn akont OpenStreetMap po omgelmi dhe dyllo gas chanjyow dhe\'n bys</string>
     <string name="downloader_of">%1$d a %2$d</string>
     <string name="download_over_mobile_message">Y a yll bos kostek fest war nebes towlow po a tramor.</string>
     <string name="error_enter_correct_storey_number">An niver a leuryow res na eksedya %d</string>
     <string name="editor_note_hint">Deskrifa errors war an mappa po pyth may na golegys yn CoMaps</string>
-    <string name="editor_about_osm">Gas chanjyow yw ughkargys dhe\'n sel dherivadow <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> poblek. Mar pleg, addya kedhlow privedh po gwirbryntys vyth.</string>
+    <string name="editor_about_osm">Gas chanjyow yw ughkargys dhe\'n sel dherivadow <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> poblek. Mar pleg, keworra kedhlow privedh po gwirbryntys vyth.</string>
     <string name="editor_category_unsuitable_title">Na gallos kavos unn klass fytti?</string>
-    <string name="editor_category_unsuitable_text">CoMaps a yll addya klassys poynt sempel hepken, ny yllir addya trevow, fordhow, lynnyn, drehevyansow, h.e. Mar pleg, addya klassys a\'n par na dhe <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Checkya agan <a href="https://www.comaps.app/support/advanced-map-editing/">gid</a> rag danvonadow manylys.</string>
+    <string name="editor_category_unsuitable_text">CoMaps a yll keworra klassys poynt sempel hepken, ny yllir keworra trevow, fordhow, lynnyn, drehevyansow, h.e. Mar pleg, keworra klassys a\'n par na dhe <a href="https://www.openstreetmap.org">OpenStreetMap</a>. Checkya agan <a href="https://www.comaps.app/support/advanced-map-editing/">gid</a> rag danvonadow manylys.</string>
     <string name="downloader_no_downloaded_maps_title">Ty na iskargys neb mappys</string>
     <string name="downloader_no_downloaded_maps_message">Iskarga mappys dhe hwilas ha viajya dhywarlinen</string>
     <string name="current_location_unknown_error_title">Tyller a\'n jydh yw ankoth</string>
@@ -533,8 +533,8 @@
     <string name="prefs_languages_information_off_link">Rag moy kedhlow checkya an kowethlyver ma</string>
     <string name="prefs_speed_cameras_information">Gwarnyans kamera tooth yw marow yn broyow le may gwarnyansow yw difennys erbynn lagha leel.</string>
     <string name="transliteration_title">Treylya y\'n lytherennans Latin</string>
-    <string name="routing_add_start_point">Devnydhya hwithrans po tava war an mappa rag addya unn tyller dalleth</string>
-    <string name="routing_add_finish_point">Devnydhya hwithrans po tava war an mappa rag addya unn penn an fordh</string>
+    <string name="routing_add_start_point">Devnydhya hwithrans po tava war\'n mappa rag keworra tyller dalleth</string>
+    <string name="routing_add_finish_point">Devnydhya hwithrans po tava war\'n mappa rag keworra penn an fordh</string>
     <string name="planning_route_manage_route">Dyghtya Kerdh</string>
     <string name="saved">Sawys</string>
     <string name="dialog_error_storage_title">Kudyn hedhas dalghuster</string>
@@ -656,7 +656,7 @@
     <string name="navigation_start_tts_message">"Ow dalleth navygacyon, yeth lev: "</string>
     <string name="navigation_start_tts_disabled_message">Lenna danvonadow marow: jynn tekst-dhe-areth ankavadow</string>
     <string name="offline_explanation_text">Unn mappa res iskargys rag gweles ha viajya an arenebedh.\nIskarga mappys rag arenebedhow may ty mynnes viajya dhe.</string>
-    <string name="list_description_empty">Golegi an rol rag addya unn deskrifans</string>
+    <string name="list_description_empty">Golegi an rol rag keworra deskrifans</string>
     <string name="advanced">Avonsys</string>
     <string name="download_resources_custom_url_title">Servell Mappa Personel</string>
     <string name="download_resources_custom_url_message">Aslea an servell defowt devnydhys rag iskargow mappa. Gwitha gwag rag devnydhya an servell CoMaps defowt.</string>

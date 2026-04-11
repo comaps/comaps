@@ -98,7 +98,7 @@
 "type.amenity.kindergarten" = "Anaokulu";
 "type.amenity.library" = "Kütüphane";
 "type.amenity.loading_dock" = "Yükleme Alanı";
-"type.amenity.lounger" = "Lounger";
+"type.amenity.lounger" = "Şezlong";
 "type.amenity.luggage_locker" = "Emanet Eşya Dolabı";
 "type.amenity.marketplace" = "Pazaryeri";
 "type.amenity.mobile_money_agent" = "Mobile Money Agent";
@@ -130,9 +130,9 @@
 "type.amenity.parking_space.private" = "Park Alanı";
 "type.amenity.parking_space.underground" = "Park Alanı";
 "type.amenity.parking_space.disabled" = "Engelli Park Yeri";
-"type.amenity.car_pooling" = "Car Pooling";
+"type.amenity.car_pooling" = "Araç Paylaşım İstasyonu";
 "type.amenity.payment_terminal" = "Ödeme Noktası";
-"type.amenity.payment_centre" = "Payment Centre";
+"type.amenity.payment_centre" = "Ödeme Merkezi";
 "type.amenity.pharmacy" = "Eczane";
 "type.amenity.place_of_worship" = "İbadet Yeri";
 "type.amenity.place_of_worship.buddhist" = "Budist Tapınağı";
@@ -1231,7 +1231,7 @@
 "type.shop.bakery" = "Fırın";
 "type.shop.bathroom_furnishing" = "Banyo Mobilya Mağazası";
 "type.shop.beauty" = "Güzellik Salonu";
-"type.shop.beauty.nails" = "Nail Salon";
+"type.shop.beauty.nails" = "Tırnak Salonu";
 "type.shop.beverages" = "İçecekler";
 "type.shop.bicycle" = "Bisikletçi";
 "type.shop.bookmaker" = "Bahisçi";
@@ -1513,3 +1513,5 @@
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
 "type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";

@@ -655,7 +655,7 @@ deprecated|deprecated;527;x
 highway|primary_link|tunnel;[highway=primary_link][tunnel?];;name;int_name;528;
 deprecated:highway|footway|alpine_hiking:04.2024;[highway=footway][sac_scale=alpine_hiking];x;name;int_name;529;highway|path|expert
 deprecated|deprecated;530;x
-deprecated|deprecated;531;x
+sport|pickleball;531;
 deprecated|deprecated;532;x
 deprecated:leisure|landscape_reserve:01.2024;533;leisure|nature_reserve
 deprecated|deprecated;534;x
@@ -915,7 +915,7 @@ leisure|sports_centre|sport|multi;[leisure=sports_centre][sport=multi];;name;int
 leisure|sports_centre|sport|soccer;[leisure=sports_centre][sport=soccer];;name;int_name;786;
 leisure|sports_centre|sport|four_square;[leisure=sports_centre][sport=four_square];;name;int_name;787;
 leisure|sports_centre|sport|boules;[leisure=sports_centre][sport=boules];;name;int_name;788;
-deprecated|deprecated;789;x
+leisure|sports_centre|sport|pickleball;[leisure=sports_centre][sport=pickleball];;name;int_name;789;
 deprecated|deprecated;790;x
 deprecated|deprecated;791;x
 deprecated|deprecated;792;x
@@ -1233,7 +1233,7 @@ traffic_calming|bump;1102;
 traffic_calming|hump;1103;
 shop|car_parts;1104;
 attraction;[attraction];;name;int_name;1105;
-deprecated|deprecated;1106;x
+organic|no;1106;
 shop|water;1107;
 amenity|hydrant;1108;
 amenity|public_bookcase;1109;

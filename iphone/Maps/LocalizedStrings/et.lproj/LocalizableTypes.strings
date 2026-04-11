@@ -1509,7 +1509,9 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Spordisaal";
 "type.xmas.tree" = "Jõulupuu";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
-"type.sport.four_square" = "Four Square";
-"type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.leisure.sports_centre.sport.four_square" = "Nelja ruudukastimängude keskus";
+"type.sport.four_square" = "Nelja ruudukasti pallimäng";
+"type.sport.boules" = "Boules ehk veerepall";
+"type.leisure.sports_centre.sport.boules" = "Veerekuulimängude keskus";
+"type.sport.pickleball" = "Pickleball";
+"type.leisure.sports_centre.sport.pickleball" = "Pickleballi keskus";

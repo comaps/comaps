@@ -180,6 +180,12 @@ line|z19-[natural=earth_bank],
 {width: 14.3; dashes: 6,8.5,12,2.3; opacity: 0.8;}
 
 
+line|z15-[natural=tree_row],
+{color: @woods; width: 6;}
+line|z17-[natural=tree_row],
+{width: 6.5;}
+
+
 /* Ski pistes */
 
 area|z13-[piste:type=downhill][area],

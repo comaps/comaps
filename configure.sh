@@ -9,6 +9,7 @@ SKIP_MAP_DOWNLOAD="${SKIP_MAP_DOWNLOAD:-}"
 SKIP_GENERATE_SYMBOLS="${SKIP_GENERATE_SYMBOLS:-}"
 SKIP_GENERATE_DRULES="${SKIP_GENERATE_DRULES:-}"
 SKIP_GENERATE_STRINGS="${SKIP_GENERATE_STRINGS:-}"
+SKIP_GENERATE_SERBIAN_LATIN_STRINGS="${SKIP_GENERATE_SERBIAN_LATIN_STRINGS:-}"
 
 DRULES_NOT_GENERATED=
 SYMBOLS_NOT_GENERATED=
@@ -50,6 +51,7 @@ while true; do
     -s | --skip-generate-symbols ) SKIP_GENERATE_SYMBOLS=1; shift ;;
     -d | --skip-generate-drules ) SKIP_GENERATE_DRULES=1; shift ;;
     -S | --skip-generate-strings ) SKIP_GENERATE_STRINGS=1; shift ;;
+    -L | --skip-generate-strings ) SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1; shift ;;
     * ) break ;;
   esac
 done
@@ -130,6 +132,13 @@ if [ -z "$SKIP_GENERATE_STRINGS" ]; then
   fi
 else
   echo "Skipping generate Desktop UI strings..."
+fi
+
+if [ -z "$SKIP_GENERATE_SERBIAN_LATIN_STRINGS" ]; then
+  echo "Generating Serbian Latin strings..."
+  ./tools/unix/generate_serbian_latin_strings.sh
+else
+  echo "Skipping generate Serbian Latin strings..."
 fi
 
 if [ -z "$SKIP_GENERATE_SYMBOLS" ]; then

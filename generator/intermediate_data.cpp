@@ -2,7 +2,6 @@
 
 #include "base/checked_cast.hpp"
 
-#include <execution>
 #include <future>
 
 namespace generator::cache

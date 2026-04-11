@@ -721,8 +721,8 @@
     <string name="type.office.lawyer">Advogado</string>
     <string name="type.office.ngo">Escritório de ONG</string>
     <string name="type.office.telecommunication">Operadora de telecomunicações</string>
-    <string name="type.organic.only">Orgânico</string>
-    <string name="type.organic.yes">Orgânico</string>
+    <string name="type.organic.only">Apenas orgânico</string>
+    <string name="type.organic.yes">Opções orgânicas</string>
     <string name="type.place.city">Cidade</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">Cidade</string>
@@ -1516,4 +1516,7 @@
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.boules">Centro Desportivo</string>
     <string name="type.sport.boules">Boules</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Centro Desportivo</string>
+    <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Sem opções orgânicas</string>
 </resources>

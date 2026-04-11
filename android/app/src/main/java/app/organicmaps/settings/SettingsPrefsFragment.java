@@ -4,7 +4,6 @@ import static app.organicmaps.leftbutton.LeftButtonsHolder.DISABLE_BUTTON_CODE;
 import static app.organicmaps.sdk.editor.data.Language.DEFAULT_LANG_CODE;
 import static app.organicmaps.sdk.editor.data.Language.AUTO_LANG_CODE;
 
-import android.util.Log;
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
 import android.content.Context;

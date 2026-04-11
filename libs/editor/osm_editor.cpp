@@ -151,6 +151,8 @@ void Editor::LoadEdits()
     return;
   }
 
+  LOG(LINFO, ("Loading OSM edits..."));
+
   xml_document doc;
   bool needRewriteEdits = false;
 
@@ -194,6 +196,8 @@ bool Editor::Save(FeaturesContainer const & features) const
   if (features.empty())
     return m_storage->Reset();
 
+  LOG(LINFO, ("Saving OSM edits to XML..."));
+
   xml_document doc;
   xml_node root = doc.append_child(kXmlRootNode);
   // Use format_version for possible future format changes.
@@ -230,6 +234,7 @@ bool Editor::Save(FeaturesContainer const & features) const
         if (!fti.m_uploadError.empty())
           xf.SetUploadError(fti.m_uploadError);
       }
+      LOG(LDEBUG, ("Saved XMLFeature:\n", editor::DebugPrint(xf)));
       switch (fti.m_status)
       {
       case FeatureStatus::Deleted: VERIFY(xf.AttachToParentNode(deleted), ()); break;
@@ -609,6 +614,8 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
       // TODO(a): Use UploadInfo as part of FeatureTypeInfo.
       UploadInfo uploadInfo = {fti.m_uploadAttemptTimestamp, fti.m_uploadStatus, fti.m_uploadError};
 
+      LOG(LINFO, ("Uploading edits of feature ID:", fti.m_object.GetID(),
+                  "name:", fti.m_object.GetDefaultName(), "latlon:", fti.m_object.GetLatLon()));
       LOG(LDEBUG, ("Content of editJournal:\n", fti.m_object.GetJournal().JournalToString()));
 
       try
@@ -662,7 +669,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
             UpdateXMLFeatureTags(feature, journal, changeset);
 
             // Upload XMLFeature to OSM
-            LOG(LDEBUG, ("CREATE Feature", feature));
+            LOG(LINFO, ("CREATE OSM Feature", feature));
             if (!mergeSameLocation)
               changeset.Create(feature);
             else
@@ -679,15 +686,17 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
             UpdateXMLFeatureTags(feature, journal, changeset);
 
             // Upload XMLFeature to OSM
-            LOG(LDEBUG, ("MODIFIED Feature", feature));
+            LOG(LINFO, ("MODIFIED OSM Feature", feature));
             changeset.Modify(feature);
             break;
           }
 
           case EditingLifecycle::IN_SYNC:
           {
-            CHECK(false, ("Object already IN_SYNC should not be here"));
-            continue;
+            /// @todo(pastk): find out why it had been uploaded, xml journal flushed to history, but not marked as uploaded.
+            /// see https://codeberg.org/comaps/comaps/issues/3749#issuecomment-12648306
+            LOG(LWARNING, ("OSM edits had been uploaded but not marked as such."));
+            break;
           }
           }
           break;
@@ -701,6 +710,7 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
                                   [this, fid = fti.m_object.GetID()]() { RemoveFeatureIfExists(fid); });
             continue;
           }
+          LOG(LINFO, ("DELETED OSM Feature ID", fti.m_object.GetID()));
           changeset.Delete(GetMatchingFeatureFromOSM(changeset, *originalObjectPtr));
           break;
         }

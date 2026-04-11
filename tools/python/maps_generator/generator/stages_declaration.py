@@ -10,7 +10,6 @@ import logging
 import multiprocessing
 import os
 import shutil
-import tarfile
 import errno
 from collections import defaultdict
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -29,7 +28,9 @@ from maps_generator.generator.env import Env
 from maps_generator.generator.env import PathProvider
 from maps_generator.generator.env import WORLD_COASTS_NAME
 from maps_generator.generator.env import WORLD_NAME
+from maps_generator.generator.env import create_if_not_exist_path
 from maps_generator.generator.exceptions import BadExitStatusError
+from maps_generator.generator.exceptions import SigningError
 from maps_generator.generator.gen_tool import run_gen_tool
 from maps_generator.generator.stages import InternalDependency as D
 from maps_generator.generator.stages import Stage
@@ -44,6 +45,9 @@ from maps_generator.generator.stages import test_stage
 from maps_generator.generator.statistics import get_stages_info
 from maps_generator.utils.file import download_files
 from maps_generator.utils.file import is_verified
+from maps_generator.utils.file import make_symlink
+from maps_generator.utils.file import sign_file
+from maps_generator.utils.file import verify_file
 from post_generation.hierarchy_to_countries import hierarchy_to_countries
 from post_generation.inject_promo_ids import inject_promo_ids
 
@@ -134,10 +138,7 @@ class StageFeatures(Stage):
         if is_accepted(env, StageIsolinesInfo):
             extra.update({"isolines_path": PathProvider.isolines_path()})
         extra.update({"addresses_path": PathProvider.addresses_path()})
-
         steps.step_features(env, **extra)
-        if os.path.exists(env.paths.packed_polygons_path):
-            shutil.copy2(env.paths.packed_polygons_path, env.paths.mwm_path)
 
 
 @outer_stage
@@ -200,6 +201,19 @@ class StageMwm(Stage):
         tmp_mwm_names = env.get_tmp_mwm_names()
         if len(tmp_mwm_names):
             logger.info(f'Number of feature data .mwm.tmp country files to process: {len(tmp_mwm_names)}')
+
+            if env.publish_path:
+                # TODO: remove old structure compat-publishing when migration is finished
+                symlink_path = os.path.join(env.publish_path, env.mwm_version)
+                make_symlink(env.paths.mwm_path, symlink_path)
+                logger.info(f'Compat-publishing generated maps to: {symlink_path}')
+                if env.min_compat_app_v:
+                    symlink_path = os.path.join(env.publish_path, env.min_compat_app_v)
+                    create_if_not_exist_path(symlink_path)
+                    symlink_path = os.path.join(symlink_path, env.mwm_version)
+                    make_symlink(env.paths.mwm_path, symlink_path)
+                    logger.info(f'Publishing generated maps to: {symlink_path}')
+
             with ThreadPoolExecutor(settings.THREADS_COUNT) as pool:
                 pool.map(
                     lambda c: StageMwm.make_mwm(c, env),
@@ -387,24 +401,36 @@ class StageCountriesTxt(Stage):
                 env.paths.mwm_path,
             )
 
-        with open(env.paths.counties_txt_path, "w") as f:
+        with open(env.paths.countries_txt_path, "w") as f:
             json.dump(countries, f, ensure_ascii=False, indent=1)
 
+        signature_path = ""
+        if env.publish_key_secret:
+            signature_path = sign_file(env.paths.countries_txt_path, env.publish_key_secret)
+            logger.info(f"Signed {env.paths.countries_txt_path}")
+            if verify_file(env.paths.countries_txt_path, signature_path, env.publish_key_public):
+                logger.info(f"Verified {signature_path}")
+            else:
+                raise SigningError(f"Verification of {signature_path} with {env.publish_key_public} failed!")
 
-@outer_stage
-@production_only
-class StageLocalAds(Stage):
-    def apply(self, env: Env):
-        create_csv(
-            env.paths.localads_path,
-            env.paths.mwm_path,
-            env.paths.mwm_path,
-            env.mwm_version,
-            multiprocessing.cpu_count(),
-        )
-        with tarfile.open(f"{env.paths.localads_path}.tar.gz", "w:gz") as tar:
-            for filename in os.listdir(env.paths.localads_path):
-                tar.add(os.path.join(env.paths.localads_path, filename), arcname=filename)
+        def _symlink_suffixed(file_name, link_path):
+            file_name = os.path.basename(file_name)
+            # use relative path
+            target = os.path.join(env.mwm_version, file_name)
+            link_name = file_name
+            # inject optional build suffix, e.g. "countries-test.txt.sig"
+            if env.build_suffix:
+                name, ext = file_name.split(".", 1)
+                link_name = f"{name}-{env.build_suffix}.{ext}"
+            symlink_path = os.path.join(link_path, link_name)
+            make_symlink(target, symlink_path, force=True)
+            logger.info(f'Symlinked {symlink_path} to {target}')
+
+        if env.publish_path and env.min_compat_app_v:
+            mcav_path = os.path.join(env.publish_path, env.min_compat_app_v)
+            _symlink_suffixed(env.paths.countries_txt_path, mcav_path)
+            if signature_path:
+                _symlink_suffixed(signature_path, mcav_path)
 
 
 @outer_stage

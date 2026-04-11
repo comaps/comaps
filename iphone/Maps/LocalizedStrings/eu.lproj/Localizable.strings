@@ -46,15 +46,15 @@
 /* "Add new bookmark list" dialog title */
 "add_new_set" = "Gehitu zerrenda berri bat";
 /* Add Bookmark list dialog - hint when the list name is empty */
-"bookmark_set_name" = "Markagailuen zerrendaren izena";
+"bookmark_set_name" = "Zerrendaren izena";
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Markagailuen zerrenda";
+"bookmark_sets" = "Gogoko zerrendak";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
-"bookmarks" = "Markagailuak";
+"bookmarks" = "Lekuak";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Gogokoak";
 /* Default bookmark list name */
-"core_my_places" = "Nire tokiak";
+"core_my_places" = "Nire gogokoak";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Helbidea";
 /* Settings button in system menu */
@@ -107,13 +107,13 @@
 "category_water" = "Ura";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "Karabanak";
-"share_bookmarks_email_body" = "Kaixo!\nNire markagailuak CoMaps aplikazioan erantsi ditut. Mesedez, ireki itzazu CoMaps instalatuta baduzu. Edo, ez baduzu, deskargatu aplikazioa zure iOS edo Android gailurako esteka hau jarraituz: https://www.comaps.app/download/\n\nGozatu bidaiatzen CoMaps-ekin!";
+"share_bookmarks_email_body" = "Kaixo!\n\nAtxikita daude gordetako nire lekuak; ireki, mesedez, CoMaps-en. Instalatuta ez baduzu, hemen deskarga dezakezu: https://www.comaps.app/download/\n\nGozatu bidaiaz CoMaps-ekin!";
 /* message title of loading file */
-"load_kmz_title" = "Markagailuak kargatzen";
+"load_kmz_title" = "Gogokoak kargatzen";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Markagailuak behar bezala kargatu dira! Mapan edo markagailuak kudeatzeko pantailan aurki ditzakezu.";
+"load_kmz_successful" = "Gogokoak behar bezala kargatu dira! Mapan edo Gogokoen kudeatzailearen pantailan aurki ditzakezu.";
 /* Kml file loading failed */
-"load_kmz_failed" = "Ezin izan dira markagailuak kargatu. Fitxategia hondatuta edo akastuna izan daiteke.";
+"load_kmz_failed" = "Ezin izan dira gogokoak kargatu. Fitxategia hondatuta edo akastuna izan daiteke.";
 /* resource for context menu */
 "edit" = "Editatu";
 /* Warning message when doing search around current position */
@@ -232,7 +232,7 @@
 /* Button in the About screen */
 "report_incorrect_map_bug" = "Salatu edo konpondu maparen datu okerrak";
 /* Button in the About screen */
-"volunteer" = "Boluntario izateko";
+"volunteer" = "Boluntarioa izatea eta CoMaps hobetzea";
 /* "Social media" section header in the About screen */
 "follow_us" = "Jarri gurekin harremanetan";
 /* Alert text */
@@ -274,7 +274,7 @@
 /* Text for routing error dialog */
 "routing_requires_all_map" = "Arrasto bat sortzeko beharrezkoa da kokapenetik helmugarainoko mapa guztiak deskargatzea eta eguneratzea.";
 /* bookmark button text */
-"bookmark" = "Markagailua";
+"bookmark" = "lekua";
 "save" = "Gorde";
 "create" = "sortu";
 /* red color */
@@ -388,8 +388,8 @@
 "voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
 "unknown" = "Unknown";
 /* Place page confirmation messages and time ago formatting */
-"existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"existence_confirmed_time_ago" = "Existentzia konfirmatua %@";
+"hours_confirmed_time_ago" = "Baieztatuta %@";
 /* Place Page opening hours text */
 "closed_now" = "Orain itxita";
 /* Place Page opening hours text */
@@ -525,14 +525,14 @@
 "placepage_more_button" = "Gehiago";
 "book_button" = "Erreserba";
 "placepage_call_button" = "Deitu";
-"placepage_edit_bookmark_button" = "Editatu markagailua";
-"placepage_bookmark_name_hint" = "Markagailuaren izena";
+"placepage_edit_bookmark_button" = "Editatu gordetako lekua";
+"placepage_bookmark_name_hint" = "Leku izena";
 "placepage_personal_notes_hint" = "Ohar pertsonalak (testua edo html)";
-"placepage_delete_bookmark_button" = "Ezabatu markagailua";
+"placepage_delete_bookmark_button" = "Ezabatu lekua";
 "editor_edits_sent_message" = "Zure oharra OpenStreetMap-era bidaliko da";
 "editor_comment_hint" = "Iruzkina…";
 "editor_reset_edits_message" = "Tokiko aldaketa guztiak berrezarri nahi dituzu?";
-"editor_reset_edits_button" = "Berreskuratu";
+"editor_reset_edits_button" = "Baztertu aldaketak";
 "editor_remove_place_message" = "Gehitutako tokia ezabatu?";
 "editor_remove_place_button" = "Ezabatu";
 "editor_place_doesnt_exist" = "Tokia ez da existitzen";
@@ -579,7 +579,7 @@
 "enable_logging" = "Historia gaitu";
 "log_file_size" = "Erregistro fitxategiaren tamaina: %@";
 "pref_alt_map_lang_handling" = "Alternative Map Languages";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Don't use alternatives";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Ez erabili alternatibarik";
 "pref_alt_map_lang_handling_system_order" = "Use in system order";
 "pref_alt_map_lang_handling_local_only" = "Prefer and only use where native";
 "transliteration_title" = "Latinezko transliterazioa";
@@ -606,7 +606,7 @@
 "bookmark_lists_show_all" = "Erakutsi guztiak";
 "bookmarks_create_new_group" = "Sortu zerrenda berria";
 /* Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files */
-"bookmarks_import" = "Inportatu markagailuak eta arrastoak";
+"bookmarks_import" = "Inportatu gogokoak";
 "downloader_hide_screen" = "Ezkutatu pantaila";
 "downloader_percent" = "%@ (%@/%@)";
 "downloader_process" = "%@ deskargatzen…";
@@ -800,7 +800,7 @@
 /* Outdoors/hiking map style (activity) name in the Styles and Layers dialog */
 "button_layer_outdoor" = "Landa-eremua";
 /* Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks */
-"bookmarks_export" = "Esportatu markagailu eta arrasto guztiak";
+"bookmarks_export" = "Esportatu gogoko guztiak";
 /* Text for the editing the Track's color button. */
 "change_color" = "Kolorea aldatu";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
@@ -811,7 +811,7 @@
 /* Message for the bug report alert. */
 "bugreport_alert_message" = "Akatsen txostena bidali nahi diezu garatzaileei?\nGure erabiltzaileengan oinarritzen gara CoMaps-ek ez baitu automatikoki akatsen informaziorik biltzen. Eskerrik asko aldez aurretik CoMaps laguntzeagatik!";
 /* Title for the iCloud synchronization setting */
-"icloud_sync" = "iCloud Syncronization (Beta)";
+"icloud_sync" = "iCloud sinkronizazioa (Beta)";
 /* Title for the "Enable iCloud Synchronization" alert. */
 "enable_icloud_synchronization_title" = "Gaitu iCloud sinkronizazioa";
 /* Message for the "Enable iCloud Synchronization" alert. */
@@ -857,16 +857,16 @@
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */
 "continue_recording" = "Jarraitu grabatzen";
 /* Title for the alert when saving a track recording. */
-"track_recording_alert_title" = "Markagailu eta arrastoetan gorde nahi duzu?";
+"track_recording_alert_title" = "Gorde gogokoetan?";
 /* Message for the toast when saving the track recording is finished but nothing to save. */
 "track_recording_toast_nothing_to_save" = "Arrastoa hutsik dago; ez dago ezer gordetzeko";
 "edit_track" = "Editatu arrastoa";
 /* Title of the general section in settings */
-"general" = "General";
+"general" = "Orokorra";
 /* Title of the interface section in settings */
-"interface" = "Interface";
+"interface" = "Interfazea";
 /* OpenStreetMap contribution section on the PlacePage. */
-"contribute_to_osm" = "Contribute to OpenStreetMap";
-"contribute_to_osm_add_place" = "Add Place";
-"contribute_to_osm_update_map" = "Update the Map to Contribute";
-"contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
+"contribute_to_osm" = "Egin ekarpena OpenStreetMap-en";
+"contribute_to_osm_add_place" = "Gehitu lekua";
+"contribute_to_osm_update_map" = "Eguneratu mapa ekarpenak egiteko";
+"contribute_to_osm_update_map_description" = "%@ ko mapa azken bertsiora eguneratu behar duzu OpenStreetMapeko datuetan lagundu aurretik";

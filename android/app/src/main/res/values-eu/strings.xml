@@ -68,9 +68,9 @@
     <!-- "Add new bookmark list" dialog title -->
     <string name="add_new_set">Gehitu zerrenda berri bat</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Markagailuen zerrendaren izena</string>
+    <string name="bookmark_set_name">Zerrendaren izena</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Markagailuak</string>
+    <string name="bookmarks">Lekuak</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
     <string name="bookmarks_and_tracks">Gogokoak</string>
     <!-- Add bookmark dialog - bookmark name -->
@@ -151,9 +151,9 @@
     <string name="share_bookmarks_email_subject">CoMaps markagailuak zurekin partekatu dira</string>
     <string name="share_bookmarks_email_body">Kaixo! \nNire markagailuak CoMaps aplikazioan erantsi ditut. Mesedez, ireki itzazu CoMaps instalatuta baduzu. Edo, ez baduzu, deskargatu aplikazioa zure iOS edo Android gailurako esteka hau jarraituz: https://www.comaps.app/download/ \n \nGozatu bidaiatzen CoMaps-ekin!</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Markagailuak kargatzen</string>
+    <string name="load_kmz_title">Gogokoak kargatzen</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Markagailuak behar bezala kargatu dira! Mapan edo markagailuak kudeatzeko pantailan aurki ditzakezu.</string>
+    <string name="load_kmz_successful">Gogokoak behar bezala kargatu dira! Mapan edo Gogokoen kudeatzailearen pantailan aurki ditzakezu.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Ezin izan dira markagailuak kargatu. Fitxategia hondatuta edo akastuna izan daiteke.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -490,10 +490,10 @@
     <string name="minute">min</string>
     <string name="day">e</string>
     <string name="placepage_more_button">Gehiago</string>
-    <string name="placepage_edit_bookmark_button">Editatu markagailua</string>
+    <string name="placepage_edit_bookmark_button">Editatu gordetako lekua</string>
     <string name="placepage_personal_notes_hint">Ohar pertsonalak (testua edo html)</string>
     <string name="editor_reset_edits_message">Tokiko aldaketa guztiak berrezarri nahi dituzu?</string>
-    <string name="editor_reset_edits_button">Berreskuratu</string>
+    <string name="editor_reset_edits_button">Baztertu aldaketak</string>
     <string name="editor_remove_place_message">Gehitutako tokia ezabatu?</string>
     <string name="editor_remove_place_button">Ezabatu</string>
     <string name="editor_place_doesnt_exist">Tokia ez da existitzen</string>
@@ -565,7 +565,7 @@
     </plurals>
     <string name="bookmarks_create_new_group">Sortu zerrenda berria</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Inportatu markagailuak eta arrastoak</string>
+    <string name="bookmarks_import">Inportatu gogokoak</string>
     <string name="bookmarks_error_message_share_general">Ezin izan da partekatu aplikazioaren errore baten ondorioz</string>
     <string name="bookmarks_error_title_share_empty">Partekatzeak huts egin du</string>
     <string name="bookmarks_error_message_share_empty">Ezin da partekatu zerrenda hutsik</string>
@@ -763,7 +763,7 @@
     <string name="browser_not_available">Web arakatzailea ez dago erabilgarri</string>
     <string name="volume">Bolumena</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Esportatu markagailu eta arrasto guztiak</string>
+    <string name="bookmarks_export">Esportatu gogoko guztiak</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Sistemaren ahots-sintesiaren ezarpenak</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
@@ -880,4 +880,10 @@
     <string name="download_resources_custom_url_error_scheme">Sartu http:// edo https://-rekin hasten den URL bat</string>
     <string name="pref_speedlimit_title">Erakutsi abiadura mugak</string>
     <string name="on_route">Bidean</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ez erabili alternatibarik</string>
+    <string name="bookmark_share_email_subject">Jarraitu %1$s esteka hau edo itsatsi %2$s koordenatu hauek zure mapen aplikazioan kokapen hau ikusteko.</string>
+    <string name="my_position_share_email">Jarraitu %1$s esteka hau edo itsatsi %2$s koordenatu hauek zure mapen aplikazioan nire kokapena ikusteko.</string>
+    <string name="share_track">Partekatu Track hau</string>
+    <string name="hours_confirmed_time_ago">%s baieztatuta</string>
+    <string name="existence_confirmed_time_ago">%s baieztatutako existentzia</string>
 </resources>

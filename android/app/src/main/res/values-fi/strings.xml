@@ -924,4 +924,10 @@
     <string name="not_following_route">Ei reitillä</string>
     <string name="pref_openexternallinks_title">Avaa kolmannen osapuolen linkit automaattisesti</string>
     <string name="pref_openexternallinks_summary">Avaa kolmannen osapuolen linkit oletuksena CoMapsissa</string>
+    <string name="editor_mark_business_vacant_title">Merkitse liike tyhjillään olevaksi</string>
+    <string name="population">Asukasluku: %s</string>
+    <string name="pref_maplanguage_local">Paikallinen kieli</string>
+    <string name="pref_alt_map_lang_handling">Vaihtoehtoiset kartan kielet</string>
+    <string name="invalid_route">Virheellinen reitti</string>
+    <string name="route_recalculating">Lasketaan reittiä uudelleen…</string>
 </resources>

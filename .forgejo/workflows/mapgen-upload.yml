@@ -41,25 +41,27 @@ jobs:
         shell: bash
         run: |
           shopt -s nullglob
-          buildfolder=$(find /mnt/4tbexternal/osm-maps/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f5)
-          builddate=$(find /mnt/4tbexternal/osm-maps/*/ -mindepth 1 -maxdepth 1 -iname "2*" -type d | sort -n -r | head -1 | cut -d/ -f6)
-          mwmfiles=( /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm )
+          MAPSDIR="/mnt/4tbexternal/osm-maps"
+          # Skips test maps generations like 2026_03_24__09_07_50-test/
+          buildfolder=$(basename $(find $MAPSDIR/ -mindepth 1 -maxdepth 1 -regex ".*/20[0-9_]+$" -type d | sort -n -r | head -1))
+          builddate=$(basename $(find $MAPSDIR/$buildfolder/ -mindepth 1 -maxdepth 1 -regex ".*/[0-9]+$" -type d))
+          mwmfiles=( $MAPSDIR/$buildfolder/$builddate/*.mwm )
 
           if (( ${#mwmfiles[@]} )); then
             echo "<$(date +%T)> Uploading maps from $buildfolder/$builddate..."
             cd ~/comaps/tools/unix/maps
-            ./upload_to_cdn.sh /mnt/4tbexternal/osm-maps/$buildfolder/$builddate
+            ./upload_to_cdn.sh $MAPSDIR/$buildfolder/$builddate
             echo "<$(date +%T)> Finished uploading maps from $buildfolder/$builddate."
           else
-            echo "<$(date +%T)> No MWM files in /mnt/4tbexternal/osm-maps/$buildfolder/$builddate/*.mwm, not uploading maps."
-            echo "<$(date +%T)> Found top level: $(ls -alt /mnt/4tbexternal/osm-maps/*)"
-            echo "<$(date +%T)> Found second level: $(ls -alt /mnt/4tbexternal/osm-maps/$buildfolder/*)"
+            echo "<$(date +%T)> No MWM files in $MAPSDIR/$buildfolder/$builddate/*.mwm, not uploading maps."
+            echo "<$(date +%T)> Found top level: $(ls -alt $MAPSDIR/*)"
+            echo "<$(date +%T)> Found second level: $(ls -alt $MAPSDIR/$buildfolder/*)"
           fi
 
           # TODO: /latest is not needed as per last indep updates iteration and also gets counted as a maps folder and older maps get deleted
           exit 0
           # the /latest folder is newly created each build, but it may not have succeeded...
-          buildpath=/mnt/4tbexternal/osm-maps/$buildfolder/latest
+          buildpath=$MAPSDIR/$buildfolder/latest
           countriesfiles=( $buildpath/countries* )
           if (( ${#countriesfiles[@]} > 1 )); then
             mkdir -p ~/keys

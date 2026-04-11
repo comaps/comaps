@@ -17,12 +17,14 @@
 			<string>NSStringPluralRuleType</string>
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
+			<key>zero</key>
+			<string>%lld Datoteka je pronađeno.</string>
 			<key>one</key>
-			<string>%lld fajl pronađen. Možeš je vidjeti nakon konverzije.</string>
+			<string>%lld Datoteka je pronađena. Možeš je vidjeti nakon konverzije.</string>
 			<key>few</key>
-			<string>%lld fajlova pronađeno. Možeš ih vidjeti nakon konverzije.</string>
+			<string>%lld Datoteka je pronađeno. Možeš ih vidjeti nakon konverzije.</string>
 			<key>other</key>
-			<string>%lld fajlova pronađeno. Možeš ih vidjeti nakon konverzije.</string>
+			<string>%lld Datoteka je pronađeno. Možeš ih vidjeti nakon konverzije.</string>
 		</dict>
 	</dict>
 	<key>tracks</key>
@@ -36,13 +38,49 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>zero</key>
-			<string>Nula</string>
+			<string>%lld putova</string>
 			<key>one</key>
-			<string>Jedan</string>
+			<string>%lld put</string>
 			<key>few</key>
-			<string>Nekoliko</string>
+			<string>%lld putova</string>
 			<key>other</key>
-			<string>Ostalo</string>
+			<string>%lld putovi</string>
+		</dict>
+	</dict>
+	<key>population</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld stanovnika</string>
+			<key>one</key>
+			<string>%lld Stanovnika</string>
+			<key>few</key>
+			<string>%lld Stanovnika</string>
+			<key>other</key>
+			<string>%lld Stanovnika</string>
+		</dict>
+	</dict>
+	<key>rooms</key>
+	<dict>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>zero</key>
+			<string>%lld Soba</string>
+			<key>one</key>
+			<string>%lld Soba</string>
+			<key>few</key>
+			<string>%lld Sobe</string>
+			<key>other</key>
+			<string>%lld Soba</string>
 		</dict>
 	</dict>
 </dict>

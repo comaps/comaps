@@ -538,7 +538,7 @@
 "amenity-give_box": "Spendenbox|spenden",
 "amenity-hydrant": "5Hydrant|5Wasserhydrant|4Nutzwasser|4Bewässerungshydrant|4Reinigungshydrant|4Zapfstelle",
 "tourism-information-tactile_map": "3Taktile-Karte|3Karte|4Sehbehinderung|3Barrierefreiheit|5Information",
-"waterway-fuel": "3Bunkerstation|4Schiffstankstelle",
+"waterway-fuel": "3Bunkerstation|4Schiffstankstelle|5Bootstankstelle|4Wassertankstelle|4Seetankstelle",
 "barrier-toll_booth": "4Mautstelle|4Mautstation",
 "@fastfood": "Fast-Food",
 "cuisine-bagel": "Bagel",
@@ -613,5 +613,7 @@
 "cuisine-american": "14US-amerikanisches Essen|17US-amerikanische Küche",
 "cuisine-african": "11Afrikanisches Essen|14Afrikanische Küche",
 "shop-water|@category_water|@category_food|@shop": "4Trinkwasser|4Trinkwasserflaschen",
-"cuisine-bubble_tea": "3Bubble Tea|3Boba Tea"
+"cuisine-bubble_tea": "3Bubble Tea|3Boba Tea",
+"sport-boules": "Boule|Pétanque|Boccia",
+"sport-four_square": "Four Square"
 }
