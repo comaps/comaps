@@ -139,6 +139,7 @@ pip3 install "protobuf<3.21"
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
 
+### Windows (Native)
 
 Native Windows builds are supported using MSVC and Qt 6.
 
@@ -148,8 +149,12 @@ Native Windows builds are supported using MSVC and Qt 6.
 - [CMake](https://cmake.org/download/) 3.22.1 or newer (add to PATH during install)
 - [Ninja](https://ninja-build.org/) (add to PATH, or install via `winget install Ninja-build.Ninja`)
 - [Qt 6](https://www.qt.io/download-qt-installer) — install the **MSVC 2019 64-bit** component (tested with Qt 6.6.0 installed to `C:\Qt\`)
-- [Python 3](https://www.python.org/downloads/) (add to PATH during install)
+- [Python 3](https://www.python.org/downloads/) (add to PATH during install) with `protobuf < 4.0`:
+  ```bat
+  pip install "protobuf<4.0"
+  ```
 - [Git for Windows](https://git-scm.com/download/win) with Git Bash available in PATH
+- PATH set properly for the above, like `PATH=C:\Qt\6.6.0\msvc2019_64\bin;%LOCALAPPDATA%\Programs\Python\Python313;%LOCALAPPDATA%\Programs\Python\Python313\Scripts;%PATH%`
 
 #### Building
 
@@ -171,18 +176,31 @@ Key build options (see `build_omim.bat` header for full list):
 | `-R` | RelWithDebInfo build |
 | `-c` | Clean build directory first |
 
+
 #### Running
 
-After a successful build, deploy Qt DLLs alongside the exe so it can be launched directly:
+After a successful build, deploy Qt DLLs alongside the exe so it can be launched directly (adjust the Qt path to match your installed version):
 
 ```bat
 set PATH=C:\Qt\6.6.0\msvc2019_64\bin;%PATH%
 windeployqt --debug ..\omim-build-Debug\CoMaps.exe
 ```
 
-You can then double-click `CoMaps.exe` from Explorer. The Qt DLLs only need to be deployed once (or after a Qt version change).
+The Qt DLLs only need to be deployed once (or after a Qt version change).
 
-However, it is possible to use the WSL (Windows Subsystem for Linux) to run GUI applications.
+CoMaps expects the repository's `data` folder to be present in the working directory. When launching from Explorer, pass the path explicitly:
+
+```bat
+..\omim-build-Debug\CoMaps.exe -data_path <path_to_repo>\data
+```
+
+Or run it from the repository root in a command prompt:
+
+```bat
+..\omim-build-Debug\CoMaps.exe
+```
+
+Or copy the repo data folder to the CoMaps.exe folder.
 
 #### Windows 11 (WSL)
 
