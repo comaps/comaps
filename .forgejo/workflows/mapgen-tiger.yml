@@ -58,7 +58,6 @@ jobs:
           echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
           cd ~
           git clone --depth 1 --recurse-submodules --shallow-submodules -b $FORGEJO_REF_NAME --single-branch $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
-          git config --global --unset url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf
       - name: Build address parser tool
         shell: bash
         run: |

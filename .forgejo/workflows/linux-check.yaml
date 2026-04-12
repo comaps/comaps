@@ -96,7 +96,6 @@ jobs:
           git config --global url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf "https://github.com/"
           git submodule sync --recursive
           git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
-          git config --global --unset url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
@@ -175,7 +174,6 @@ jobs:
           git config --global url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf "https://github.com/"
           git submodule sync --recursive
           git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
-          git config --global --unset url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
