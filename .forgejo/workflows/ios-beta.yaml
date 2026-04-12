@@ -47,7 +47,13 @@ jobs:
           fetch-depth: 100 # enough to get all commits for the current day
 
       - name: Parallel submodules checkout
-        run: git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
+        shell: bash
+        env:
+          PAT_GITHUB: ${{ secrets.PAT_GITHUB }}
+        run: |
+          git config --global url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf "https://github.com/"
+          git submodule update --depth 1 --init --recursive --jobs=$(($(sysctl -n hw.logicalcpu) * 20))
+          git config --global --unset url."https://x-access-token:${PAT_GITHUB}@github.com/".insteadOf
 
       - name: Restore beta keys
         shell: bash
