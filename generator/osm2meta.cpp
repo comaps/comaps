@@ -225,6 +225,8 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_turn_lanes_backward(std:
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_email(std::string const & v)
 {
+  if (v.size() >= 7 && v.substr(0, 7) == "mailto:")
+    return v.substr(7);
   return v;
 }
 
