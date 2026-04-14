@@ -7,10 +7,10 @@ android-tools = { module = "com.android.tools.build:gradle", version.ref = "andr
 triplet-play-publisher = { module = "com.github.triplet.gradle:play-publisher", version = "3.13.0" }
 huawei-publish = { module = "ru.cian:huawei-publish-gradle-plugin", version = "1.4.2" }
 android-tools-desugar = { module = "com.android.tools:desugar_jdk_libs", version = "2.1.5" }
-microg-services-location = { module = "org.microg.gms:play-services-location", version = "0.3.6.244735" }
+microg-services-location = { module = "org.microg.gms:play-services-location", version = "0.3.14.250932" }
 androidx-core = { module = "androidx.core:core", version = "1.17.0" }
 jetbrains-kotlin-bom = { module = "org.jetbrains.kotlin:kotlin-bom", version = "2.2.21" }
-androidx-annotation = { module = "androidx.annotation:annotation", version = "1.9.1" }
+androidx-annotation = { module = "androidx.annotation:annotation", version = "1.10.0" }
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version = "1.7.1" }
 androidx-car-app = { module = "androidx.car.app:app", version.ref = "androidxCarApp" }
 androidx-car-app-projected = { module = "androidx.car.app:app-projected", version.ref = "androidxCarApp" }
