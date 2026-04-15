@@ -7,6 +7,7 @@
 #include "generator/gen_mwm_info.hpp"
 #include "generator/geometry_holder.hpp"
 #include "generator/region_meta.hpp"
+#include "generator/route_relations_builder.hpp"
 #include "generator/search_index_builder.hpp"
 
 #include "routing/routing_helpers.hpp"
@@ -24,15 +25,18 @@
 #include "coding/succinct_mapper.hpp"
 
 #include "base/assert.hpp"
+#include "base/geo_object_id.hpp"
 #include "base/logging.hpp"
 #include "base/scope_guard.hpp"
 #include "base/string_utils.hpp"
 
 #include "defines.hpp"
 
+#include <algorithm>
 #include <limits>
 #include <list>
 #include <memory>
+#include <unordered_map>
 #include <vector>
 
 namespace feature
@@ -59,6 +63,11 @@ public:
 
     m_addrFile =
         std::make_unique<FileWriter>(info.GetIntermediateFileName(name + DATA_FILE_EXTENSION, TEMP_ADDR_EXTENSION));
+
+    // Load route relations mapping (produced by RouteRelationsBuilder during generate_features).
+    std::string const relsFile = info.GetIntermediateFileName(ROUTE_RELATIONS_FILENAME);
+    m_wayToRelations = generator::RouteRelationsBuilder::LoadWayToRelations(relsFile);
+    LOG(LINFO, ("Loaded route relations for", m_wayToRelations.size(), "ways."));
   }
 
   void Finish() override
@@ -249,6 +258,24 @@ public:
       }
     }
 
+    // Annotate Line features with route relation IDs for hiking/cycling overlays.
+    if (fb.IsLine() && !m_wayToRelations.empty())
+    {
+      std::vector<uint32_t> relIds;
+      for (auto const & osmId : fb.GetOsmIds())
+      {
+        auto const it = m_wayToRelations.find(osmId.GetSerialId());
+        if (it != m_wayToRelations.end())
+          relIds.insert(relIds.end(), it->second.begin(), it->second.end());
+      }
+      if (!relIds.empty())
+      {
+        std::sort(relIds.begin(), relIds.end());
+        relIds.erase(std::unique(relIds.begin(), relIds.end()), relIds.end());
+        fb.SetRouteRelationIds(relIds);
+      }
+    }
+
     // Override "alt_name" with synonym for Country or State for better search matching.
     /// @todo Probably, we should store and index OSM's short_name tag.
     if (indexer::SynonymsHolder::CanApply(fb.GetTypes()))
@@ -353,6 +380,9 @@ private:
   generator::OsmID2FeatureID m_osm2ft;
 
   indexer::SynonymsHolder m_synonyms;
+
+  // Way OSM ID -> sorted relation indices, loaded from RouteRelationsBuilder output.
+  std::unordered_map<uint64_t, std::vector<uint32_t>> m_wayToRelations;
 
   DISALLOW_COPY_AND_MOVE(FeaturesCollector2);
 };
