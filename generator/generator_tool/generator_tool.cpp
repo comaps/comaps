@@ -22,6 +22,7 @@
 #include "generator/restriction_generator.hpp"
 #include "generator/road_access_generator.hpp"
 #include "generator/road_penalty_generator.hpp"
+#include "generator/route_relations_builder.hpp"
 #include "generator/routing_index_generator.hpp"
 #include "generator/routing_world_roads_generator.hpp"
 #include "generator/search_index_builder.hpp"
@@ -340,6 +341,12 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
         LOG(LINFO, ("Processing metalines from", metalinesFilename));
         if (!feature::WriteMetalinesSection(dataFile, metalinesFilename, osmToFeatureFilename))
           LOG(LCRITICAL, ("Error generating metalines section."));
+
+        string const relsFilename = genInfo.GetIntermediateFileName(ROUTE_RELATIONS_FILENAME);
+
+        LOG(LINFO, ("Processing route relations from", relsFilename));
+        if (!generator::RouteRelationsBuilder::WriteRelationsSections(dataFile, relsFilename))
+          LOG(LCRITICAL, ("Error generating route relations section."));
       }
     }
 

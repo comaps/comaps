@@ -10,6 +10,11 @@
 #include <array>
 #include <string>
 
+namespace generator
+{
+class RouteRelationsBuilder;
+}  // namespace generator
+
 namespace feature
 {
 
@@ -118,7 +123,7 @@ protected:
   dp::Color m_color = kEmptyColor;
   Type m_type;  // from route or route_master tag
 
-  friend class RelationBuilder;
+  friend class generator::RouteRelationsBuilder;
 };
 
 using ShortArray = buffer_vector<uint32_t, 2>;
