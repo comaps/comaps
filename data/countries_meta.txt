@@ -313,6 +313,18 @@
 "Honduras": {
  "languages": ["es"]
 },
+"Hong Kong": {
+  "iso3166-1": {
+    "alpha-2": "HK",
+    "alpha-3": "HKG"
+  },
+  "driving": "l",
+  "languages": [
+    "zh",
+    "en"
+  ],
+  "timezone": "Asia/Shanghai"
+},
 "Hungary": {
  "languages": ["hu"]
 },
@@ -441,6 +453,18 @@
 },
 "Luxembourg": {
  "languages": ["fr", "de", "en"]
+},
+"Macau": {
+  "iso3166-1": {
+    "alpha-2": "MO",
+    "alpha-3": "MAC"
+  },
+  "driving": "l",
+  "languages": [
+    "zh",
+    "pt"
+  ],
+  "timezone": "Asia/Shanghai"
 },
 "Macedonia": {
  "languages": ["mk"]
