@@ -777,6 +777,30 @@ amenity-bank                                        # icon z16- (also has captio
 amenity-library                                     # icon z17- (also has caption(optional) z17-)
 amenity-marketplace                                 # icon z16- (also has caption(optional) z16-, area z15-)
 amenity-pharmacy                                    # icon z16- (also has caption(optional) z17-)
+club                                                # icon z18-
+club-allotments                                     # icon z18-
+club-art                                            # icon z18-
+club-automobile                                     # icon z18-
+club-board_games                                    # icon z18-
+club-cadet                                          # icon z18-
+club-chess                                          # icon z18-
+club-computer                                       # icon z18-
+club-culture                                        # icon z18-
+club-fishing                                        # icon z18-
+club-freemasonry                                    # icon z18-
+club-hunting                                        # icon z18-
+club-motorcycle                                     # icon z18-
+club-music                                          # icon z18-
+club-sailing                                        # icon z18-
+club-scout                                          # icon z18-
+club-social                                         # icon z18-
+club-sport                                          # icon z18-
+club-student                                        # icon z18-
+club-surf_life_saving                               # icon z18-
+club-tourism                                        # icon z18-
+club-veterans                                       # icon z18-
+club-youth                                          # icon z18-
+club-youth_movement                                 # icon z18-
 shop-convenience                                    # icon z16- (also has caption(optional) z16-)
 shop-deli                                           # icon z16- (also has caption(optional) z16-)
 shop-farm                                           # icon z16- (also has caption(optional) z16-)

@@ -46,6 +46,9 @@ node|z18-[office],
 node|z18-[craft],
 {icon-image: craft-m.svg;}
 
+node|z18-[club],
+{icon-image: club-m.svg;}
+
 node|z16-[shop],
 {icon-min-distance: 10;}
 node|z18-[shop],
@@ -2390,6 +2393,34 @@ node|z17-[craft=metal_construction],
 {icon-image:metal_construction-m.svg;}
 node|z17-[craft=winery],
 {icon-image:winery-m.svg;}
+
+/* 6.2 CLUB */
+
+node|z18-[club],
+node|z18-[club=sport],
+node|z19-[club=scout],
+node|z18-[club=social],
+node|z18-[club=freemasonry],
+node|z19-[club=music],
+node|z19-[club=culture],
+node|z19-[club=veterans],
+node|z18-[club=sailing],
+node|z19-[club=fishing],
+node|z18-[club=allotments],
+node|z19-[club=motorcycle],
+node|z19-[club=automobile],
+node|z19-[club=computer],
+node|z19-[club=youth],
+node|z19-[club=youth_movement],
+node|z19-[club=cadet],
+node|z19-[club=student],
+node|z19-[club=board_games],
+node|z18-[club=hunting],
+node|z18-[club=surf_life_saving],
+node|z19-[club=art],
+node|z19-[club=tourism],
+node|z19-[club=chess],
+{icon-image: club-m.svg;font-size: 11;}
 
 /* 7. CAR */
 
