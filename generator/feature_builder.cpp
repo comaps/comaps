@@ -674,7 +674,7 @@ void FeatureBuilder::SerializeForMwm(SupportingData & data, serial::GeometryCodi
     }
 
     // Relations control bit
-    bitSink.Write(0, 1);
+    bitSink.Write(!m_routeRelationIds.empty(), 1);
   }
 
   if (type == GeomType::Line)
@@ -707,6 +707,10 @@ void FeatureBuilder::SerializeForMwm(SupportingData & data, serial::GeometryCodi
       reverse(data.m_ptsOffset.begin(), data.m_ptsOffset.end());
       WriteVarUintArray(data.m_ptsOffset, sink);
     }
+
+    // Write route relation IDs
+    if (!m_routeRelationIds.empty())
+      WriteVarUInt32SortedShortArray(m_routeRelationIds, sink);
   }
   else
   {

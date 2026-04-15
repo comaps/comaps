@@ -191,7 +191,14 @@ public:
   // area's one if there is no relation, and relation id otherwise.
   base::GeoObjectId GetMostGenericOsmId() const;
   bool HasOsmIds() const { return !m_osmIds.empty(); }
+  std::vector<base::GeoObjectId> const & GetOsmIds() const { return m_osmIds; }
   std::string DebugPrintIDs() const;
+  ///@}
+
+  /// @name Route relation IDs for hiking/cycling trails.
+  /// Set by RouteRelationsBuilder before MWM serialization.
+  ///@{
+  void SetRouteRelationIds(std::vector<uint32_t> const & ids) { m_routeRelationIds = ids; }
   ///@}
 
   // To work with coasts.
@@ -211,6 +218,8 @@ protected:
   m2::RectD m_limitRect;
   std::vector<base::GeoObjectId> m_osmIds;
   FeatureBuilderParams m_params;
+  /// Sorted relation indices for hiking/cycling routes.
+  std::vector<uint32_t> m_routeRelationIds;
   /// Not used in GEOM_POINTs
   int64_t m_coastCell;
 };

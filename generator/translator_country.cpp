@@ -22,6 +22,7 @@
 #include "generator/restriction_writer.hpp"
 #include "generator/road_access_generator.hpp"
 #include "generator/road_penalty_generator.hpp"
+#include "generator/route_relations_builder.hpp"
 
 #include "platform/platform.hpp"
 
@@ -115,6 +116,7 @@ TranslatorCountry::TranslatorCountry(std::shared_ptr<FeatureProcessorInterface> 
   collectors->Append(std::make_shared<MiniRoundaboutCollector>(info.GetIntermediateFileName(MINI_ROUNDABOUTS_FILENAME),
                                                                cache->GetCache()));
   collectors->Append(std::make_shared<AddressesCollector>(info.GetIntermediateFileName(ADDR_INTERPOL_FILENAME)));
+  collectors->Append(std::make_shared<RouteRelationsBuilder>(info.GetIntermediateFileName(ROUTE_RELATIONS_FILENAME)));
 
   if (affiliation)
     collectors->Append(std::make_shared<CrossMwmOsmWaysCollector>(info.m_intermediateDir, affiliation));

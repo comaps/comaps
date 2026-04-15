@@ -99,6 +99,7 @@ auto constexpr TMP_OFFSETS_EXT = OFFSET_EXT EXTENSION_TMP;
 #define ROAD_ACCESS_FILENAME "road_access.bin"
 #define ROAD_PENALTY_FILENAME "road_penalty.bin"
 
+#define ROUTE_RELATIONS_FILENAME           "route_relations.bin"
 #define METALINES_FILENAME "metalines.bin"
 #define CAMERAS_TO_WAYS_FILENAME "cameras_to_ways.bin"
 #define MINI_ROUNDABOUTS_FILENAME "mini_roundabouts.bin"
