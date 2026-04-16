@@ -464,6 +464,7 @@
 		CDCA27842245090900167D87 /* ListenerContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA27832245090900167D87 /* ListenerContainer.swift */; };
 		CDCA278622451F5000167D87 /* RouteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA278522451F5000167D87 /* RouteInfo.swift */; };
 		CDCA278E2248F34C00167D87 /* MWMRoutingManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDCA278B2248F34C00167D87 /* MWMRoutingManager.mm */; };
+		CE8597442FC10A4500D250DC /* libi18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8597432FC10A4500D250DC /* libi18n.a */; };
 		ED0B1C312BC2951F00FB8EDD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ED0B1C302BC2951F00FB8EDD /* PrivacyInfo.xcprivacy */; };
 		ED0B1FEF2CAA9A25006E31A4 /* UIView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B1FEE2CAA9A25006E31A4 /* UIView+Highlight.swift */; };
 		ED0C54992C6E6AF000253A5F /* TrackRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C54972C6E14E800253A5F /* TrackRecordingManager.swift */; };
@@ -1413,6 +1414,7 @@
 		CDCA278C2248F34C00167D87 /* MWMRouterResultCode.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMRouterResultCode.h; sourceTree = "<group>"; tabWidth = 2; };
 		CDCA278F2248F3B800167D87 /* MWMLocationModeListener.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMLocationModeListener.h; sourceTree = "<group>"; tabWidth = 2; };
 		CDE0F3AD225B8D45008BA5C3 /* MWMSpeedCameraManagerMode.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMSpeedCameraManagerMode.h; sourceTree = "<group>"; tabWidth = 2; };
+		CE8597432FC10A4500D250DC /* libi18n.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libi18n.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED097E762BB80C320006ED01 /* CoMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0B1C302BC2951F00FB8EDD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED0B1FEE2CAA9A25006E31A4 /* UIView+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Highlight.swift"; sourceTree = "<group>"; };
@@ -1825,6 +1827,7 @@
 				FA853BAF26BC3B8A0026D455 /* libdrape_frontend.a in Frameworks */,
 				FA853BB126BC3B8A0026D455 /* libeditor.a in Frameworks */,
 				FA853BB326BC3B8A0026D455 /* libgeometry.a in Frameworks */,
+				CE8597442FC10A4500D250DC /* libi18n.a in Frameworks */,
 				FA853BB526BC3B8A0026D455 /* libicu.a in Frameworks */,
 				FA853BB726BC3B8A0026D455 /* libindexer.a in Frameworks */,
 				FA853BB926BC3B8A0026D455 /* libcppjansson.a in Frameworks */,
@@ -2041,6 +2044,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE8597432FC10A4500D250DC /* libi18n.a */,
 				FAF9DDA22A86DC54000D7037 /* libharfbuzz.a */,
 				FA456C3B26BDC6AD00B83C20 /* Chart.framework */,
 				FA853BF226BC5DE50026D455 /* libshaders.a */,

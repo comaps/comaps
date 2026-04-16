@@ -21,6 +21,7 @@ target_link_libraries(${PROJECT_NAME}
     search_tests_support  # TestSearchEngine in helpers.cpp
   PRIVATE
     coding
+    i18n
     indexer
     platform
     search

@@ -10,8 +10,9 @@
 #include "geometry/mercator.hpp"
 #include "geometry/point_with_altitude.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
 
 // This header should be included due to a python compilation error.
 // pyport.h overwrites defined macros and replaces it with its own.

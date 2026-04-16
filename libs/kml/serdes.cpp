@@ -11,8 +11,9 @@
 #include "geometry/mercator.hpp"
 #include "geometry/point_with_altitude.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"

@@ -17,10 +17,11 @@
 #include "geometry/mercator.hpp"
 #include "geometry/point_with_altitude.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
-#include "base/localisation.hpp"
 #include "base/math.hpp"
 #include "base/stl_helpers.hpp"
 

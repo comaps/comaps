@@ -17,8 +17,9 @@
 
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>

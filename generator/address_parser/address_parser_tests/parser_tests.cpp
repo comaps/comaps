@@ -9,7 +9,7 @@
 
 #include "indexer/ftypes_matcher.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <fstream>
 

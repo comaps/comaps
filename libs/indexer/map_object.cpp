@@ -11,8 +11,9 @@
 #include "platform/distance.hpp"
 #include "platform/measurement_utils.hpp"
 
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

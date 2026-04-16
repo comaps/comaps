@@ -119,6 +119,9 @@
       location = "container:geometry/geometry.xcodeproj">
    </FileRef>
    <FileRef
+      location = "container:i18n/i18n.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "container:indexer/indexer.xcodeproj">
    </FileRef>
    <FileRef

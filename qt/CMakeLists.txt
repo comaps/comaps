@@ -85,6 +85,7 @@ target_link_libraries(${PROJECT_NAME}
     coding
     editor
     generator  # For borders::LoadBorders
+    i18n
 )
 
 target_link_libraries(${PROJECT_NAME}

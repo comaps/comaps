@@ -98,6 +98,7 @@ target_link_libraries(${PROJECT_NAME}
     base
     cppjansson
     geometry
+    i18n
 )
 
 target_link_libraries(${PROJECT_NAME}

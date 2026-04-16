@@ -28,6 +28,7 @@ target_link_libraries(${PROJECT_NAME}
     platform
     routing
   PRIVATE
+    i18n
     routing_common
     storage
 )

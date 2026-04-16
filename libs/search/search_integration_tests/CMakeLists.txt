@@ -22,6 +22,7 @@ target_link_libraries(${PROJECT_NAME}
     generator
     generator_tests_support
     geometry
+    i18n
     indexer
     platform
     platform_tests_support

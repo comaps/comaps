@@ -19,8 +19,9 @@
 #include "coding/string_utf8_multilang.hpp"
 #include "coding/varint.hpp"
 
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/logging.hpp"
 #include "base/stl_helpers.hpp"
 

@@ -188,6 +188,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
     coding
     cppjansson
+    i18n
     indexer # feature::*
 )
 

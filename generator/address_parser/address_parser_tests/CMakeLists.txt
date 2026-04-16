@@ -4,8 +4,8 @@ omim_add_test(${PROJECT_NAME} parser_tests.cpp)
 target_link_libraries(${PROJECT_NAME}
   PRIVATE
     address_parser
-    base
     generator_tests_support
+    i18n
     indexer
     search
 )

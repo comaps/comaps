@@ -94,6 +94,7 @@ target_link_libraries(${PROJECT_NAME}
     drape_frontend
     editor
     geometry
+    i18n
     indexer
     kml
     platform

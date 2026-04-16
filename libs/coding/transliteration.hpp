@@ -7,7 +7,7 @@
 #include <mutex>
 #include <string>
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 // From ICU library, either 3party/icu or from the system's package.
 #include <unicode/uversion.h>

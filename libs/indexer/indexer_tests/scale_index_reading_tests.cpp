@@ -22,7 +22,7 @@
 
 #include "geometry/rect2d.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include "defines.hpp"
 

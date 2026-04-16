@@ -44,6 +44,7 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
     geometry
+    i18n
     indexer
   PRIVATE
     coding

@@ -59,5 +59,6 @@ target_link_libraries(${PROJECT_NAME}
     coding
   PRIVATE
     base
+    i18n
     platform_tests_support  # For csv_reader_test (TODO: Move ScopedFile into a base header)
 )

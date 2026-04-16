@@ -25,6 +25,7 @@ target_link_libraries(${PROJECT_NAME}
     cppjansson
     drape_frontend  # df::ToDrapeColor, df::LoadTransitColors
     generator       # routing::transit::DeserializeFromJson
+    i18n
     indexer
     platform
     routing

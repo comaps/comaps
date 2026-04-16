@@ -7,8 +7,9 @@
 #include "drape_frontend/tile_key.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
 #include "base/thread.hpp"
 
 #include <algorithm>

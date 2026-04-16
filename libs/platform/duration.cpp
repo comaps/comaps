@@ -2,8 +2,9 @@
 
 #include "platform/locale.hpp"
 
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/stl_helpers.hpp"
 
 /// @todo(KK): move the formatting code from the platform namespace

@@ -4,7 +4,7 @@
 
 #include "indexer/mwm_set.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <cstdint>
 #include <map>

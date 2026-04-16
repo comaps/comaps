@@ -7,7 +7,7 @@
 #include "indexer/search_string_utils.hpp"
 #include "indexer/trie_reader.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <algorithm>
 #include <functional>

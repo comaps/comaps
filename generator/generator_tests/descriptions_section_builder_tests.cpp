@@ -12,9 +12,10 @@
 #include "coding/files_container.hpp"
 #include "coding/string_utf8_multilang.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 
 #include "defines.hpp"

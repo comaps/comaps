@@ -8,10 +8,11 @@
 
 #include "indexer/feature_region_locator.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 
 #include <algorithm>

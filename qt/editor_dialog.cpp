@@ -5,7 +5,8 @@
 
 #include "coding/string_utf8_multilang.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
+
 #include "base/string_utils.hpp"
 
 #include <string>

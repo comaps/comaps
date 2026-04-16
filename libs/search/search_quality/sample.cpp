@@ -8,8 +8,9 @@
 #include "indexer/feature_algo.hpp"
 #include "indexer/feature_data.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

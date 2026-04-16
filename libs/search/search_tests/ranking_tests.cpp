@@ -10,7 +10,8 @@
 #include "indexer/search_delimiters.hpp"
 #include "indexer/search_string_utils.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
+
 #include "base/string_utils.hpp"
 
 #include <cstdint>

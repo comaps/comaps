@@ -7,9 +7,10 @@
 #include "geometry/angles.hpp"
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
 #include "base/limited_priority_queue.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/math.hpp"

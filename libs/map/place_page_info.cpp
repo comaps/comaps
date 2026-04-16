@@ -20,9 +20,10 @@
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/string_utils.hpp"
 
 #include "3party/open-location-code/openlocationcode.h"

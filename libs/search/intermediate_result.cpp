@@ -14,9 +14,10 @@
 
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/macros.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"

@@ -13,7 +13,7 @@
 
 #include "coding/point_coding.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 namespace generator
 {

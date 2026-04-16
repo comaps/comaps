@@ -6,7 +6,7 @@
 #include "coding/string_utf8_multilang.hpp"
 #include "coding/writer.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <map>
 #include <string>

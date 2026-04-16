@@ -208,6 +208,8 @@ target_link_libraries(${PROJECT_NAME}
     routing_common
     traffic
     transit
+  PRIVATE
+    i18n
 )
 
 target_link_libraries(${PROJECT_NAME}

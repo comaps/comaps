@@ -27,8 +27,9 @@
 #include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

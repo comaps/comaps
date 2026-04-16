@@ -25,6 +25,7 @@ omim_link_libraries(
   platform
   geometry
   coding
+  i18n
   base
   opening_hours
   freetype

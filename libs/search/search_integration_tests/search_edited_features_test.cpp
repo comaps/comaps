@@ -9,7 +9,7 @@
 
 #include "geometry/point2d.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 namespace search_edited_features_test
 {

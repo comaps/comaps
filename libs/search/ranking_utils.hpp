@@ -5,8 +5,9 @@
 
 #include "indexer/search_string_utils.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/levenshtein_dfa.hpp"
-#include "base/localisation.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>

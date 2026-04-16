@@ -11,8 +11,9 @@
 #include "geometry/point2d.hpp"
 #include "geometry/spline.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
-#include "base/localisation.hpp"
 
 #include <string>
 #include <vector>

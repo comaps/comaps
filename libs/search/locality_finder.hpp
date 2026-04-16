@@ -14,8 +14,9 @@
 #include "geometry/rect2d.hpp"
 #include "geometry/tree4d.hpp"
 
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/macros.hpp"
 
 #include <cstdint>

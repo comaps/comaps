@@ -5,9 +5,10 @@
 #include "coding/dd_vector.hpp"
 #include "coding/text_storage.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
-#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

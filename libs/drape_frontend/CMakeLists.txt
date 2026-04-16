@@ -216,6 +216,7 @@ target_link_libraries(${PROJECT_NAME}
     coding
     drape
     geometry
+    i18n
     indexer
     kml
     platform

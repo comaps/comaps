@@ -21,10 +21,11 @@
 #include "coding/writer.hpp"
 #include "coding/zip_reader.hpp"
 
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"
 

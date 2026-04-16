@@ -10,8 +10,9 @@
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
-#include "base/localisation.hpp"
 #include "base/macros.hpp"
 
 #include <array>

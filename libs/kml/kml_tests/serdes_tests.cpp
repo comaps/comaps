@@ -18,8 +18,9 @@
 #include "coding/reader.hpp"
 #include "coding/writer.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/scope_guard.hpp"
 
 #include <cstring>
