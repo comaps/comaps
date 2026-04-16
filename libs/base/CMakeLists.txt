@@ -42,10 +42,6 @@ set(SRC
   levenshtein_dfa.hpp
   limited_priority_queue.hpp
   linked_map.hpp
-  localisation.cpp
-  localisation.hpp
-  localisation_translation.cpp
-  localisation_translation.hpp
   logging.cpp
   logging.hpp
   lower_case.cpp
@@ -113,14 +109,6 @@ omim_add_library(${PROJECT_NAME} ${SRC})
 if (NOT MSVC)
   set_source_files_properties(fast_math.cpp PROPERTIES COMPILE_OPTIONS "-fno-finite-math-only;$<$<CONFIG:DEBUG>:-O1>")
 endif()
-
-target_link_libraries(${PROJECT_NAME}
-  PUBLIC
-    storage
-  PRIVATE
-    coding
-    platform
-)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)

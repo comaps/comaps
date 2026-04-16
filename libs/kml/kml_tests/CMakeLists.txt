@@ -15,6 +15,7 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     geometry
+    i18n
     indexer
     kml
     map

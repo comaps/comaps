@@ -5,8 +5,9 @@
 #include "indexer/ftypes_matcher.hpp"
 #include "indexer/road_shields_parser.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/buffer_vector.hpp"
-#include "base/localisation.hpp"
 
 #include <functional>
 #include <string>

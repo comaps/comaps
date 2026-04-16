@@ -81,10 +81,11 @@
 #include "geometry/rect2d.hpp"
 #include "geometry/triangle2d.hpp"
 
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"
 #include "base/exception.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/logging.hpp"
 #include "base/math.hpp"
 #include "base/shared_buffer_manager.hpp"

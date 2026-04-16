@@ -2,7 +2,7 @@
 
 #include "drape_frontend/render_state_extension.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include "drape/color.hpp"
 #include "drape/drape_global.hpp"

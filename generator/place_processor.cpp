@@ -9,7 +9,8 @@
 
 #include "geometry/area_on_earth.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
+
 #include "base/stl_helpers.hpp"
 
 #include <algorithm>

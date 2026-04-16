@@ -8,7 +8,7 @@ omim_add_test(${PROJECT_NAME} ${SRC} NO_PLATFORM_INIT)
 
 target_link_libraries(${PROJECT_NAME}
   PRIVATE
-    base
     coding
     descriptions
+    i18n
 )

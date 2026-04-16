@@ -2,8 +2,9 @@
 
 #include "coding/string_utf8_multilang.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/control_flow.hpp"
-#include "base/localisation.hpp"
 #include "base/macros.hpp"
 #include "base/stl_helpers.hpp"
 

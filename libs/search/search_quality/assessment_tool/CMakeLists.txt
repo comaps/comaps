@@ -44,6 +44,7 @@ target_link_libraries(${PROJECT_NAME}
     search_quality
   PRIVATE
     coding
+    i18n
     platform
     platform_tests_support
     qt_common

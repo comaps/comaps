@@ -2,7 +2,7 @@
 
 #include "indexer/classificator.hpp"
 
-#include "base/localisation_translation.hpp"
+#include "i18n/localisation_translation.hpp"
 
 #include <algorithm>
 

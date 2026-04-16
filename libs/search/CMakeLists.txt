@@ -177,6 +177,7 @@ target_link_libraries(${PROJECT_NAME}
     editor
     ge0
     geometry
+    i18n
     indexer
     kml
     platform

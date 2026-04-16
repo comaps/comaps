@@ -56,6 +56,7 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     generator_tests_support
+    i18n
     platform_tests_support
     search
 )

@@ -10,8 +10,9 @@
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/geo_object_id.hpp"
-#include "base/localisation.hpp"
 
 #include <limits>
 

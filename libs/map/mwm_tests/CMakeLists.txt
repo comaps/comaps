@@ -13,6 +13,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
     base
     geometry
+    i18n
     indexer
     map
     platform

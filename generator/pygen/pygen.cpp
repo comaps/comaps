@@ -18,9 +18,10 @@
 #include "geometry/rect2d.hpp"
 #include "geometry/triangle2d.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 
 #include "pyhelpers/module_version.hpp"

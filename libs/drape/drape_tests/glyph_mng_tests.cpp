@@ -8,8 +8,9 @@
 
 #include "coding/reader.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
 
 #include "qt_tstfrm/test_main_loop.hpp"
 

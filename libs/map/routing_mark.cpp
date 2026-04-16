@@ -4,8 +4,9 @@
 #include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "i18n/localisation_translation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation_translation.hpp"
 
 #include <algorithm>
 

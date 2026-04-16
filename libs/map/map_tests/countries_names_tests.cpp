@@ -13,9 +13,10 @@
 #include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
-#include "base/localisation.hpp"
 
 #include <set>
 #include <string>

@@ -8,8 +8,9 @@
 #include "coding/file_writer.hpp"
 #include "coding/internal/file_data.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/geo_object_id.hpp"
-#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 
 #include <functional>

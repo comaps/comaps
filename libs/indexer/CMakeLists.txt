@@ -168,6 +168,7 @@ target_link_libraries(${PROJECT_NAME}
     cppjansson
     drape
     geometry
+    i18n
     platform
     storage
   PRIVATE

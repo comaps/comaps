@@ -13,7 +13,7 @@
 #include "indexer/feature_algo.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 namespace raw_generator_tests
 {

@@ -50,6 +50,7 @@ target_link_libraries(${PROJECT_NAME}
     drape
   PRIVATE
     coding
+    i18n
     indexer
     platform
     qt_tstfrm

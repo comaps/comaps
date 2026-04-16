@@ -28,6 +28,7 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
     editor_tests_support
     geometry
+    i18n
     platform_tests_support
     search
 )

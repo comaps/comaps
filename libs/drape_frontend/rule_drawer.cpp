@@ -26,8 +26,9 @@
 #include "geometry/polyline2d.hpp"
 #include "geometry/screenbase.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
-#include "base/localisation.hpp"
 #include "base/macros.hpp"
 #include "base/string_utils.hpp"
 

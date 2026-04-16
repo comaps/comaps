@@ -29,6 +29,7 @@ target_link_libraries(${PROJECT_NAME}
     drape_frontend
     generator_tests_support
     geometry
+    i18n
     indexer
     kml
     map

@@ -57,7 +57,8 @@
 #include "geometry/screenbase.hpp"
 #include "geometry/triangle2d.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
+
 #include "base/macros.hpp"
 #include "base/strings_bundle.hpp"
 

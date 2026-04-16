@@ -8,7 +8,7 @@
 #include "platform/settings.hpp"
 #include "platform/style_utils.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <QLocale>
 #include <QtGui/QIcon>

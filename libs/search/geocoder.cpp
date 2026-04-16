@@ -38,10 +38,11 @@
 #include "geometry/mercator.hpp"
 #include "geometry/parametrized_segment.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 #include "base/control_flow.hpp"
-#include "base/localisation.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 #include "base/scope_guard.hpp"

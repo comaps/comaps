@@ -249,6 +249,7 @@ target_link_libraries(${PROJECT_NAME}
     cppjansson
     descriptions
     geometry
+    i18n
     indexer
     platform
     routing

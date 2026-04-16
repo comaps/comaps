@@ -66,6 +66,7 @@ target_link_libraries(${PROJECT_NAME}
     generator
     generator_tests_support
     geometry
+    i18n
     platform
     platform_tests_support
     routing

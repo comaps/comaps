@@ -9,7 +9,7 @@
 
 #include "geometry/mercator.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 #include <algorithm>
 #include <cstdint>

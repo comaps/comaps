@@ -1,9 +1,10 @@
 #pragma once
 #include "descriptions/serdes.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/geo_object_id.hpp"
-#include "base/localisation.hpp"
 
 #include <array>
 #include <string>

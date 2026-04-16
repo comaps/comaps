@@ -15,9 +15,10 @@
 #include "coding/string_utf8_multilang.hpp"
 #include "coding/zip_reader.hpp"
 
+#include "i18n/localisation.hpp"
+#include "i18n/localisation_translation.hpp"
+
 #include "base/file_name_utils.hpp"
-#include "base/localisation.hpp"
-#include "base/localisation_translation.hpp"
 #include "base/scope_guard.hpp"
 
 #include <array>

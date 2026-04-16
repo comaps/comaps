@@ -9,7 +9,7 @@
 
 #include "geometry/point_with_altitude.hpp"
 
-#include "base/localisation_translation.hpp"
+#include "i18n/localisation_translation.hpp"
 
 namespace kml
 {

@@ -3,7 +3,7 @@
 
 #include "geometry/point2d.hpp"
 
-#include "base/localisation.hpp"
+#include "i18n/localisation.hpp"
 
 class Writer;
 
