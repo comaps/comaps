@@ -31,7 +31,6 @@ class GenTool:
         "generate_regions": bool,
         "generate_regions_kv": bool,
         "generate_search_index": bool,
-        "generate_traffic_keys": bool,
         "generate_world": bool,
         "have_borders_for_whole_world": bool,
         "make_city_roads": bool,
