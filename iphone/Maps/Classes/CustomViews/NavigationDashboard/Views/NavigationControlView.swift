@@ -26,6 +26,8 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       onTTSStatusUpdated()
     }
   }
+    
+  @IBOutlet private weak var trackRecordingButton: UIButton!
 
   private lazy var dimBackground: DimBackground = {
     DimBackground(mainView: self, tapAction: { [weak self] in
@@ -94,6 +96,10 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
       self.removeFromSuperview()
     })
   }
+    
+  deinit {
+    TrackRecordingManager.shared.removeObserver(self)
+  }
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -102,6 +108,10 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
 
     MWMTextToSpeech.add(self)
     MapOverlayManager.add(self)
+
+    TrackRecordingManager.shared.addObserver(self) { [weak self] state, _, _ in
+      self?.trackRecordingButton.isHidden = (state == .active)
+    }
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -205,6 +215,25 @@ final class NavigationControlView: SolidTouchView, MWMTextToSpeechObserver, MapO
     isExtended = !isExtended
     refreshDiminishTimer()
   }
+  
+  @IBAction
+    private func trackRecordingAction() {
+      let manager = TrackRecordingManager.shared
+        
+      if manager.recordingState != .active {
+        manager.start { [weak self] result in
+          switch result {
+          case .success:
+            MapViewController.shared()?.controlsManager.setTrackRecordingButtonState(.visible)
+              
+            self?.diminish()
+              
+          case .failure:
+            self?.refreshDiminishTimer()
+          }
+        }
+      }
+    }
 
   private func morphExtendButton() {
     guard let imageView = extendButton.imageView else { return }
