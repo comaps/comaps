@@ -1,10 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.textview.MaterialTextView xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          style="@style/MwmWidget.TextView.Search"
-          android:drawablePadding="@dimen/margin_base"
-          android:paddingStart="@dimen/margin_base"
-          android:paddingEnd="@dimen/margin_base"
-          android:textAlignment="viewStart"
-          tools:drawableStart="@drawable/ic_category_eat"
-          tools:text="Sample category"/>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    android:background="@drawable/category_bg"
+    android:padding="@dimen/margin_half"
+    android:layout_margin="@dimen/margin_quarter">
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/icon"
+        android:layout_gravity="center"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        tools:srcCompat="@drawable/ic_category_eat"/>
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start|center"
+        android:gravity="center_vertical"
+        android:maxLines="3"
+        android:hyphenationFrequency="normal"
+        android:ellipsize="end"
+        android:layout_marginStart="@dimen/margin_half"
+        android:layout_marginEnd="@dimen/margin_quarter"
+        android:textAppearance="@style/MwmTextAppearance.Body3"
+        tools:text="@string/category_children"/>
+</LinearLayout>

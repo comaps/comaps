@@ -1,8 +1,11 @@
 package app.organicmaps.search;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmRecyclerFragment;
 
@@ -15,7 +18,20 @@ public class SearchCategoriesFragment
     super.onViewCreated(view, savedInstanceState);
     getAdapter().updateCategories(this);
 
+    getRecyclerView().setLayoutManager(new GridLayoutManager(requireContext(), getContext().getResources().getInteger(R.integer.search_category_span)));
     ((SearchFragment) getParentFragment()).setRecyclerScrollListener(getRecyclerView());
+  }
+
+  @Override
+  public void onConfigurationChanged(@NonNull Configuration newConfig)
+  {
+    super.onConfigurationChanged(newConfig);
+    RecyclerView.LayoutManager rc = getRecyclerView().getLayoutManager();
+    if (rc instanceof GridLayoutManager)
+    {
+      ((GridLayoutManager) rc).setSpanCount(getContext().getResources().getInteger(R.integer.search_category_span));
+    }
+    getRecyclerView().getAdapter().notifyDataSetChanged();
   }
 
   @NonNull
