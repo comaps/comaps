@@ -43,7 +43,6 @@ target_link_libraries(${PROJECT_NAME}
     search
     search_quality
   PRIVATE
-    coding
     i18n
     platform
     platform_tests_support

@@ -11,9 +11,8 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/mwm_set.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/stl_helpers.hpp"

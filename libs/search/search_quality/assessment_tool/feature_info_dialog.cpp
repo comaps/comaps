@@ -3,11 +3,10 @@
 #include "indexer/classificator.hpp"
 #include "indexer/map_object.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/latlon.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/string_utils.hpp"

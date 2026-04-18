@@ -9,7 +9,7 @@
 
 #include "geometry/latlon.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <string>
 #include <vector>

@@ -12,13 +12,12 @@
 #include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 #include "geometry/triangle2d.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"

@@ -1,9 +1,9 @@
 #include "i18n/localisation.hpp"
 
-#include "coding/transliteration.hpp"
-
 #include "platform/preferred_languages.hpp"
 #include "platform/settings.hpp"
+
+#include "i18n/transliteration.hpp"
 
 #include "base/macros.hpp"
 

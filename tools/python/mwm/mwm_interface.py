@@ -9,7 +9,7 @@ from typing import Union
 
 from mwm.feature_types import readable_type
 
-# See coding/string_utf8_multilang.cpp to synchronize languages.
+# See i18n/string_utf8_multilang.cpp to synchronize languages.
 LANGS = (
     "default",
     "en",

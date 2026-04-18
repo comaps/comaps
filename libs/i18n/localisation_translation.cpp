@@ -1,10 +1,10 @@
 #include "i18n/localisation_translation.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-#include "coding/transliteration.hpp"
-
 #include "platform/get_text_by_id.hpp"
 #include "platform/localization.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
+#include "i18n/transliteration.hpp"
 
 namespace localisation
 {

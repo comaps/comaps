@@ -3,10 +3,10 @@
 #include "indexer/feature_meta.hpp"
 
 #include "coding/reader.hpp"
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/writer.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <map>
 #include <string>

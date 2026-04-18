@@ -4,13 +4,12 @@
 #include "indexer/classificator.hpp"
 #include "indexer/classificator_loader.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/point_with_altitude.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 

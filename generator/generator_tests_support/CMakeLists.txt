@@ -20,15 +20,15 @@ omim_add_library(${PROJECT_NAME} ${SRC})
 target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
-    coding
     editor
     generator
     geometry
+    i18n
     indexer
     platform
     routing
   PRIVATE
-    i18n
+    coding
     routing_common
     storage
 )

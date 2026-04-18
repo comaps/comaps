@@ -15,6 +15,7 @@
 #include "indexer/ftypes_matcher.hpp"
 
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
 
 #include "i18n/localisation.hpp"
@@ -24,8 +25,6 @@
 #include "base/checked_cast.hpp"
 #include "base/math.hpp"
 #include "base/stl_helpers.hpp"
-
-#include "geometry/point2d.hpp"
 
 namespace routing
 {

@@ -10,9 +10,9 @@
 #include "platform/platform_tests_support/scoped_mwm.hpp"
 
 #include "coding/files_container.hpp"
-#include "coding/string_utf8_multilang.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/file_name_utils.hpp"

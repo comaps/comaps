@@ -13,11 +13,10 @@
 #include "indexer/feature_data.hpp"
 #include "indexer/osm_element.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "platform/platform.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/file_name_utils.hpp"
 
