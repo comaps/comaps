@@ -222,7 +222,6 @@
 
 /* 6.2 Natural labels */
 
-@water_label: #207A8F;
 @park_label: #3A7921;
 @halo_park_label: #FFFFFF;
 
