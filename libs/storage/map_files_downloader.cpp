@@ -118,7 +118,7 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
       return;
 
     // Servers are sorted from best to worst.
-    m_fileRequest.reset(RequestT::Get(url::Join(m_serversList.front(), url),
+    m_fileRequest.reset(RequestT::Get(url::Join("https://mapgen-fi-1.comaps.app/", url), /// @todo(pastk): hardcoded for the test build
                                       [this, callback = std::move(callback)](RequestT & request)
     {
       bool deleteRequest = true;
