@@ -2,6 +2,7 @@ import argparse
 import logging
 import sys
 
+from mwm.analyze_routing import analyze_routing
 from mwm.decode_id import decode_id
 from mwm.dump_mwm import dump_mwm
 from mwm.find_feature import find_and_print_features
@@ -18,6 +19,7 @@ class Mwm:
             description="Mwm utils",
             usage="""mwm <command> [<args>]
 The most commonly used mwm commands are:
+    analyze_routing      Dump feature types present in the routing section.
     decode_id            Unpacks maps.me OSM id to an OSM object link.
     dump_mwm             Dumps some MWM structures.
     find_feature         Finds features in an mwm file based on a query.
@@ -32,6 +34,26 @@ The most commonly used mwm commands are:
             parser.print_help()
             exit(1)
         getattr(self, args.command)()
+
+    @staticmethod
+    def analyze_routing():
+        parser = argparse.ArgumentParser(
+            description="Dump feature types present in the routing section of an MWM file."
+        )
+        parser.add_argument("--path", type=str, required=True, help="Path to mwm.")
+        parser.add_argument(
+            "--type_filter",
+            type=str,
+            default=None,
+            help="Only report types whose name contains this substring (e.g. 'construction', 'highway').",
+        )
+        parser.add_argument(
+            "--show_features",
+            action="store_true",
+            help="Also list feature IDs for each reported type.",
+        )
+        args = parser.parse_args(sys.argv[2:])
+        analyze_routing(args.path, args.type_filter, args.show_features)
 
     @staticmethod
     def decode_id():
