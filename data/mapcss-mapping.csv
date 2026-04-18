@@ -1760,27 +1760,171 @@ amenity|luggage_locker;1629;
 building|guardhouse;[building=guardhouse],[amenity=security_booth],[amenity=checkpoint];;;;1630;
 office|security;1631;
 shop|lighting;1632;
-club|sport;1633;
-club|scout;1634;
-club|social;1635;
-club|freemasonry;1636;
-club|music;1637;
-club|culture;1638;
-club|veterans;1639;
-club|sailing;1640;
-club|fishing;1641;
-club|allotments;1642;
-club|motorcycle;1643;
-club|automobile;1644;
-club|youth;1645;
-club|youth_movement;1646;
-club|cadet;1647;
-club|student;1648;
-club|board_games;1649;
-club|hunting;1650;
-club|surf_life_saving;1651;
-club|art;1652;
-club|tourism;1653;
-club|chess;1654;
-club|computer;1655;
-club;[club?];;name;int_name;1656;
+deprecated|deprecated;1633;x
+deprecated|deprecated;1634;x
+deprecated|deprecated;1635;x
+deprecated|deprecated;1636;x
+deprecated|deprecated;1637;x
+deprecated|deprecated;1638;x
+deprecated|deprecated;1639;x
+deprecated|deprecated;1640;x
+deprecated|deprecated;1641;x
+deprecated|deprecated;1642;x
+deprecated|deprecated;1643;x
+club;[club?];;name;int_name;1644;
+club|scout;1645;
+club|social;1646; 
+club|freemasonry;1647;
+club|music;1648;
+club|culture;1649;
+club|veterans;1650;
+deprecated|deprecated;1651;x
+club|allotments;1652;
+club|motorcycle;1653;
+club|automobile;1654;
+club|youth;1655;
+club|youth_movement;1656;
+club|cadet;1657;
+club|student;1658;
+club|board_games;1659;
+club|hunting;1660;
+club|surf_life_saving;1661;
+club|art;1662;
+club|tourism;1663;
+club|computer;1664;
+club|amateur_radio;1665;
+deprecated|deprecated;1666;x
+club|model_railway;1667;
+deprecated|deprecated;1668;x
+club|bicycle;1669;
+club|linux;1670;
+club|scuba_diving;1671;
+club|card_games;1672;
+deprecated|deprecated;1673;x
+deprecated|deprecated;1674;x
+deprecated|deprecated;1675;x
+deprecated|deprecated;1676;x
+deprecated|deprecated;1677;x
+deprecated|deprecated;1678;x
+deprecated|deprecated;1679;x
+deprecated|deprecated;1680;x
+club|baduk;1681;
+club|photography;1682;
+deprecated|deprecated;1683;x
+club|fan;1684;
+club|nudism;1685;
+club|hiking;1686;
+club|doityourself;1687;
+club|fraternity;1688;
+club|theatre;1689;
+club|ethnic;1690;
+club|dog;1691;
+club|gardening;1692;
+club|religion;1693;
+deprecated|deprecated;1694;x
+deprecated|deprecated;1695;x
+deprecated|deprecated;1696;x
+deprecated|deprecated;1697;x
+deprecated|deprecated;1698;x
+deprecated|deprecated;1699;x
+deprecated|deprecated;1700;x
+deprecated|deprecated;1701;x
+deprecated|deprecated;1702;x
+deprecated|deprecated;1703;x
+deprecated|deprecated;1704;x
+deprecated|deprecated;1705;x
+deprecated|deprecated;1706;x
+deprecated|deprecated;1707;x
+deprecated|deprecated;1708;x
+deprecated|deprecated;1709;x
+deprecated|deprecated;1710;x
+deprecated|deprecated;1711;x
+deprecated|deprecated;1712;x
+deprecated|deprecated;1713;x
+deprecated|deprecated;1714;x
+deprecated|deprecated;1715;x
+deprecated|deprecated;1716;x
+deprecated|deprecated;1717;x
+deprecated|deprecated;1718;x
+deprecated|deprecated;1719;x
+deprecated|deprecated;1720;x
+deprecated|deprecated;1721;x
+deprecated|deprecated;1722;x
+deprecated|deprecated;1723;x
+deprecated|deprecated;1724;x
+deprecated|deprecated;1725;x
+deprecated|deprecated;1726;x
+club|sport;1727;
+club|soccer;[club=soccer],[club=sport][sport=soccer];;name;int_name; 1728;
+club|tennis;[club=tennis],[club=sport][sport=tennis];;name;int_name; 1729;
+club|shooting;[club=shooting],[club=sport][sport=shooting];;name;int_name; 1730;
+club|sailing;[club=sailing],[club=sport][sport=sailing];;name;int_name; 1731;
+club|bowls;[club=bowls],[club=sport][sport=bowls];;name;int_name; 1732;
+club|equestrian;[club=equestrian],[club=sport][sport=equestrian];;name;int_name; 1733;
+club|golf;[club=golf],[club=sport][sport=golf];;name;int_name; 1734;
+club|gymnastics;[club=gymnastics],[club=sport][sport=gymnastics];;name;int_name; 1735;
+club|basketball;[club=basketball],[club=sport][sport=basketball];;name;int_name; 1736;
+club|athletics;[club=athletics],[club=sport][sport=athletics];;name;int_name; 1737;
+club|rowing;[club=rowing],[club=sport][sport=rowing];;name;int_name; 1738;
+club|canoe;[club=canoe],[club=sport][sport=canoe];;name;int_name; 1739;
+club|cricket;[club=cricket],[club=sport][sport=cricket];;name;int_name; 1740;
+club|billiards;[club=billiards],[club=sport][sport=billiards];;name;int_name; 1741;
+club|snooker;[club=snooker],[club=sport][sport=snooker];;name;int_name; 1742;
+club|chess;[club=chess],[club=sport][sport=chess];;name;int_name; 1743;
+club|gaelic_games;[club=gaelic_games],[club=sport][sport=gaelic_games];;name;int_name; 1744;
+club|rugby_union;[club=rugby_union],[club=sport][sport=rugby_union];;name;int_name; 1745;
+deprecated|deprecated;1746;x
+club|boxing;[club=boxing],[club=sport][sport=boxing];;name;int_name; 1747;
+club|table_tennis;[club=table_tennis],[club=sport][sport=table_tennis];;name;int_name; 1748;
+club|archery;[club=archery],[club=sport][sport=archery];;name;int_name; 1749;
+club|swimming;[club=swimming],[club=sport][sport=swimming];;name;int_name; 1750;
+club|model_aerodrome;[club=model_aerodrome],[club=sport][sport=model_aerodrome];;name;int_name; 1751;
+club|cycling;[club=cycling],[club=sport][sport=cycling];;name;int_name; 1752;
+club|rugby;[club=rugby],[club=sport][sport=rugby];;name;int_name; 1753;
+club|gliding;[club=gliding],[club=sport][sport=gliding];;name;int_name; 1754;
+club|field_hockey;[club=field_hockey],[club=sport][sport=field_hockey];;name;int_name; 1755;
+deprecated|deprecated;1756;x
+club|fishing;[club=fishing],[club=sport][sport=fishing];;name;int_name; 1757;
+club|judo;[club=judo],[club=sport][sport=judo];;name;int_name; 1758;
+club|padel;[club=padel],[club=sport][sport=padel];;name;int_name; 1759;
+club|surfing;[club=surfing],[club=sport][sport=surfing];;name;int_name; 1760;
+club|martial_arts;[club=martial_arts],[club=sport][sport=martial_arts];;name;int_name; 1761;
+club|fitness;[club=fitness],[club=sport][sport=fitness];;name;int_name; 1762;
+club|running;[club=running],[club=sport][sport=running];;name;int_name; 1763;
+club|baseball;[club=baseball],[club=sport][sport=baseball];;name;int_name; 1764;
+club|football;[club=football],[club=sport][sport=football];;name;int_name; 1765;
+club|climbing;[club=climbing],[club=sport][sport=climbing];;name;int_name; 1766;
+club|handball;[club=handball],[club=sport][sport=handball];;name;int_name; 1767;
+club|taekwondo;[club=taekwondo],[club=sport][sport=taekwondo];;name;int_name; 1768;
+club|yachting;[club=yachting],[club=yacht],[club=boat],[club=sport][sport=yachting];;name;int_name; 1769;
+club|aeronautical;[club=aeronautical],[club=aviation],[club=sport][sport=aeronautical];;name;int_name; 1770;
+club|boules;[club=boules],[club=sport][sport=boules];;name;int_name; 1771;
+deprecated|deprecated;1772;x
+deprecated|deprecated;1773;x
+deprecated|deprecated;1774;x
+deprecated|deprecated;1775;x
+deprecated|deprecated;1776;x
+deprecated|deprecated;1777;x
+deprecated|deprecated;1778;x
+deprecated|deprecated;1779;x
+deprecated|deprecated;1780;x
+deprecated|deprecated;1781;x
+deprecated|deprecated;1782;x
+deprecated|deprecated;1783;x
+deprecated|deprecated;1784;x
+deprecated|deprecated;1785;x
+deprecated|deprecated;1786;x
+deprecated|deprecated;1787;x
+deprecated|deprecated;1788;x
+deprecated|deprecated;1789;x
+deprecated|deprecated;1790;x
+deprecated|deprecated;1791;x
+deprecated|deprecated;1792;x
+deprecated|deprecated;1793;x
+deprecated|deprecated;1794;x
+deprecated|deprecated;1795;x
+deprecated|deprecated;1796;x
+deprecated|deprecated;1797;x
+deprecated|deprecated;1798;x
+deprecated|deprecated;1799;x
+deprecated|deprecated;1800;x
