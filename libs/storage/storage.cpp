@@ -21,6 +21,7 @@
 #include "coding/internal/file_data.hpp"
 #include "coding/sha1.hpp"
 
+#include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
@@ -123,10 +124,7 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
 }
 
 namespace
-{ //pastk: no need, dl from map version url
-std::string const kCountriesLatestRelativeUrl = MAPS_BASE_URL "/" MAP_SERIES "/" COUNTRIES_FILE;
-std::string const kCountriesLatestSigRelativeUrl = MAPS_BASE_URL "/" MAP_SERIES "/" COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION;
-
+{
 bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 {
   auto & pl = GetPlatform();
@@ -161,14 +159,14 @@ bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
 
 void Storage::ApplyCountriesInMemory(std::string const & buffer)
 {
+  LOG(LDEBUG, ("COUNTRIES: applying in-memory"));
+  /// @todo(pastk): why do we need a temp dummy Storage object?
   std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
-  parsed->m_currentVersion =
+  int64_t const newVersion =
       LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
                               parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_mapSeries);
 
-  int64_t const newVersion = parsed->m_currentVersion;
-  if (newVersion <= m_currentVersion || newVersion <= 0)
-    return;
+  ASSERT_GREATER(newVersion, m_currentVersion, ());
 
   m_currentVersion = newVersion;
   m_countries = std::move(parsed->m_countries);
@@ -189,7 +187,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
     if (IsNode(p.first))
       NotifyStatusChangedForHierarchy(p.first);
 
-  LOG(LDEBUG, ("COUNTRIES: applied in-memory. version=", m_currentVersion));
+  LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
 }
 
 void Storage::ApplyPendingCountriesIfAny()
@@ -217,18 +215,17 @@ void Storage::ApplyPendingCountriesIfAny()
 
 void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion)
 {
-  if (parsedVersion <= m_currentVersion)
-    return;
+  ASSERT_GREATER(parsedVersion, m_currentVersion, ());
 
+  LOG(LDEBUG, ("COUNTRIES: saving downloaded", COUNTRIES_FILE));
   GetPlatform().RunTask(Platform::Thread::File, [buffer]() { (void)SaveCountriesToWritableDirAtomic(*buffer); });
 
+  LOG(LDEBUG, ("COUNTRIES: applying downloaded", COUNTRIES_FILE));
   GetPlatform().RunTask(Platform::Thread::Gui, [this, buffer, parsedVersion]()
   {
-    if (parsedVersion <= m_currentVersion)
-      return;
-
     if (IsInitialResourcesDownloadRequired())
     {
+      /// @todo(pastk): actually need to always check for updates and download latest Worlds
       // Persist, but do NOT hot-apply during initial Worlds download flow.
       if (!m_hasPendingCountries || parsedVersion > m_pendingCountriesVersion)
       {
@@ -256,81 +253,146 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
   });
 }
 
+int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) const
+{
+  try
+  {
+    base::Json const json(buffer.c_str());
+    auto root = json.get();
+
+    if (root == nullptr || !json_is_object(root))
+    {
+      LOG(LWARNING, ("COUNTRIES: malformed", SERVER_MAPS_FILE, ", contents:\n", buffer));
+      return 0;
+    }
+
+    json_t* mapSeries = json_object_get(root, "map-series"); //pastk TODO change to "map_series" to be same as countries.txt
+    if (json_is_object(mapSeries))
+    {
+      void* iter = json_object_iter(mapSeries);
+      while (iter)
+      {
+        const char* key = json_object_iter_key(iter);
+        if (std::string(key) == MAP_SERIES)
+        {
+          json_t* entry = json_object_iter_value(iter);
+          json_t* latest = json_object_get(entry, "latest");
+          return json_integer_value(latest);
+        }
+        iter = json_object_iter_next(mapSeries, iter);
+      }
+    }
+    return 0;
+  }
+  catch (RootException const &)
+  {
+    LOG(LWARNING, ("COUNTRIES: error parsing", SERVER_MAPS_FILE, ", contents:\n", buffer));
+    return 0;
+  }
+}
+
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
-  LOG(LINFO, ("COUNTRIES: scheduling download of:", kCountriesLatestRelativeUrl));
+  std::string const serverMapsUrl = "meta/" SERVER_MAPS_FILE;
+  LOG(LINFO, ("COUNTRIES: check for map updates by fetching", serverMapsUrl));
 
-  // Use MapFilesDownloader so we respect custom server / metaserver selection.
-  m_downloader->DownloadAsString(kCountriesLatestRelativeUrl, [this](std::string const & buffer)
+  m_downloader->DownloadAsStringFromMeta(serverMapsUrl, [this, serverMapsUrl](std::string const & mapsBuffer)
   {
-    LOG(LDEBUG, ("COUNTRIES: downloaded bytes=", buffer.size()));
-
-    if (buffer.empty())
+    if (mapsBuffer.empty())
     {
-      LOG(LWARNING, ("COUNTRIES: empty response, ignoring"));
+      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response - skip update"));
       return false;
     }
 
-    CountryTree countries;
-    Affiliations affiliations;
-    CountryNameSynonyms synonyms;
-    MwmTopCityGeoIds topCities;
-    MwmTopCountryGeoIds topCountries;
-    int64_t mapSeries = -1;
+    LOG(LDEBUG, ("COUNTRIES: parsing downloaded", serverMapsUrl));
+    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer);
+    if (dataVersion == 0)
+    {
+      LOG(LWARNING, ("COUNTRIES: latest map version info not found for map series", MAP_SERIES));
+      return false;
+    }
+    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES));
+    if (dataVersion <= m_currentVersion)
+    {
+      LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      return false;
+    }
 
-    int64_t const parsedVersion =
+    /// @todo(pastk): request servers list from meta using the new/pending data version.
+    /// e.g. temporary set m_downloader->SetDataVersion(dataVersion); or pass new version as a param.
+    // Force fetch new servers list for new data version.
+    m_downloader->ResetMetaConfig();
+
+    auto const countriesUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE, dataVersion);
+    LOG(LINFO, ("COUNTRIES: fetching updated", dataVersion, "maps list from", countriesUrl));
+    // Use MapFilesDownloader so we respect custom server / metaserver selection.
+    m_downloader->DownloadAsString(countriesUrl, [this, dataVersion](std::string const & buffer)
+    {
+      LOG(LDEBUG, ("COUNTRIES: downloaded bytes=", buffer.size()));
+
+      if (buffer.empty())
+      {
+        LOG(LWARNING, ("COUNTRIES: empty response - skip update"));
+        return false;
+      }
+
+      CountryTree countries;
+      Affiliations affiliations;
+      CountryNameSynonyms synonyms;
+      MwmTopCityGeoIds topCities;
+      MwmTopCountryGeoIds topCountries;
+      std::string mapSeries = "";
+
+      int64_t const parsedVersion =
         LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
-    LOG(LINFO, ("COUNTRIES: parsed data version=", parsedVersion, "current data version=", m_currentVersion, "mapSeries=", mapSeries));
-
-    if (parsedVersion <= 0)
-      return false;
-
-    auto const currentAppVersion = GetPlatform().IntVersion();
-
-    //pastk: again don't compare with app
-    if (mapSeries > 0 && mapSeries > currentAppVersion)
-    {
-      // The new countries.txt is not compatible with this app version.
-      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. mapSeries=", mapSeries, "currentAppVersion=", currentAppVersion));
-      return false;
-    }
-
-    auto buf = std::make_shared<std::string>(std::move(buffer));
-
-    LOG(LDEBUG, ("COUNTRIES: downloading", kCountriesLatestSigRelativeUrl));
-
-    m_downloader->DownloadAsString(kCountriesLatestSigRelativeUrl,
-                                   [this, buf, parsedVersion](std::string const & sigBuf)
-    {
-      if (sigBuf.empty())
+      if (parsedVersion != dataVersion || mapSeries != MAP_SERIES)
       {
-        LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
+        LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
+                       "parsed map series", mapSeries, "expected", MAP_SERIES, "- skip update"));
         return false;
       }
 
-      if (sigBuf.size() != 64)
+      auto buf = std::make_shared<std::string>(std::move(buffer));
+
+      auto const countriesSigUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION, parsedVersion);
+      LOG(LDEBUG, ("COUNTRIES: fetching signature", countriesSigUrl));
+
+      m_downloader->DownloadAsString(countriesSigUrl,
+                                     [this, buf, parsedVersion](std::string const & sigBuf)
       {
-        LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+        if (sigBuf.empty())
+        {
+          LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
+          return false;
+        }
+
+        if (sigBuf.size() != 64)
+        {
+          LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+          return false;
+        }
+
+        LOG(LDEBUG, ("COUNTRIES: verifying signature."));
+        if (!platform::crypto::VerifyEd25519(storage::kCountriesTxtPublicKey.data(),
+                                             reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
+                                             reinterpret_cast<uint8_t const *>(sigBuf.data())))
+        {
+          LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+          return false;
+        }
+
+        PersistAndApplyCountries(buf, parsedVersion);
+
         return false;
-      }
+      }, true /* forceReset: allow nested request */);
 
-      LOG(LDEBUG, ("COUNTRIES: verifying signature."));
-      if (!platform::crypto::VerifyEd25519(storage::kCountriesTxtPublicKey.data(),
-                                           reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
-                                           reinterpret_cast<uint8_t const *>(sigBuf.data())))
-      {
-        LOG(LWARNING, ("COUNTRIES: signature verification failed."));
-        return false;
-      }
-
-      PersistAndApplyCountries(buf, parsedVersion);
-
-      return false;
+      // Don't reset the request, we started another download.
+      return true;
     }, true /* forceReset: allow nested request */);
 
     // Don't reset the request, we started another download.
     return true;
-  }, false /* forceReset */);
+  }, false /* force reset */);
 }
 
 Storage::Storage(int)
@@ -351,8 +413,6 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
 
   m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
-
-  LOG(LINFO, ("COUNTRIES: after LoadCountriesFile. m_currentVersion=", m_currentVersion));
 
   // Fetch, persist, and apply.
   RunCountriesCheckAsyncSaveOnly();
@@ -828,7 +888,7 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
   {
     m_currentVersion = LoadCountriesFromFile(pathToCountriesFile, m_countries, m_affiliations, m_countryNameSynonyms,
                                              m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
-    LOG(LINFO, ("Loaded countries list for version:", m_currentVersion));
+    LOG(LINFO, ("Loaded countries list for map version:", m_currentVersion));
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
   }
@@ -1226,11 +1286,12 @@ bool Storage::CheckFailedCountries(CountriesVec const & countries) const
   return false;
 }
 
+/// @todo(pastk): cleanup unused functions
 void Storage::RunCountriesCheckAsync()
 {
-  m_downloader->DownloadAsString(SERVER_DATAVERSION_FILE, [this](std::string const & buffer)
+  m_downloader->DownloadAsString(SERVER_MAPS_FILE, [this](std::string const & buffer)
   {
-    LOG(LDEBUG, (SERVER_DATAVERSION_FILE, "downloaded"));
+    LOG(LDEBUG, (SERVER_MAPS_FILE, "downloaded"));
 
     int64_t const dataVersion = ParseIndexAndGetDataVersion(buffer);
     if (dataVersion <= m_currentVersion)

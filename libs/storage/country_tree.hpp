@@ -122,7 +122,7 @@ private:
 /// @return version of country file or -1 if error was encountered
 int64_t LoadCountriesFromBuffer(std::string const & buffer, CountryTree & countries, Affiliations & affiliations,
                                 CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, int64_t & mapSeries);
+                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, std::string & mapSeries);
 int64_t LoadCountriesFromFile(std::string const & path, CountryTree & countries, Affiliations & affiliations,
                               CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
                               MwmTopCountryGeoIds & mwmTopCountryGeoIds);

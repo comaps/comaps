@@ -11,6 +11,8 @@
 
 #include "cppjansson/cppjansson.hpp"
 
+#include "private.h"
+
 #include <algorithm>
 #include <cstddef>
 
@@ -389,55 +391,21 @@ bool LoadCountriesImpl(string const & jsonBuffer, StoreInterface & store)
   }
 }
 
-namespace
-{
-int64_t ParseMapSeries(std::string s)
-{
-  // pastk: do we need it at all?
-  // Get yyMMdd app version from string value (e.g., "2026.01.05").
-  strings::Trim(s);
-
-  if (s.size() != 10 || s[4] != '.' || s[7] != '.')
-    return -1;
-
-  std::string yymmdd;
-  yymmdd.reserve(6);
-  yymmdd.append(s, 2, 2);
-  yymmdd.append(s, 5, 2);
-  yymmdd.append(s, 8, 2);
-
-  int64_t v = -1;
-  if (!strings::to_int64(yymmdd, v))
-    return -1;
-
-  return v;
-}
-}  // namespace
-
 int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countries, Affiliations & affiliations,
                                 CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, int64_t & mapSeries)
+                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, std::string & mapSeries)
 {
   countries.Clear();
   affiliations.clear();
 
   int64_t version = -1;
-  mapSeries = -1;
-  std::string mapSeriesString{};
   try
   {
     base::Json root(jsonBuffer.c_str());
     FromJSONObject(root.get(), "v", version);
-    FromJSONObjectOptionalField(root.get(), "map_series", mapSeriesString);
+    FromJSONObjectOptionalField(root.get(), "map_series", mapSeries);
 
-    if (!mapSeriesString.empty())
-    {
-      mapSeries = ParseMapSeries(mapSeriesString);
-      if (mapSeries < 0)
-        LOG(LWARNING, ("COUNTRIES(LoadCountriesFromBuffer): Bad map_series string", "mapSeriesString=", mapSeriesString, "mapSeries=", mapSeries));
-    }
-
-    LOG(LDEBUG, ("COUNTRIES(LoadCountriesFromBuffer): data version (v)=", version, "mapSeriesString=", mapSeriesString, "mapSeries=", mapSeries));
+    LOG(LDEBUG, ("COUNTRIES: loaded and parsed map version", version, "mapSeries", mapSeries));
 
     StoreCountries store(countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds, mwmTopCountryGeoIds);
     if (!LoadCountriesImpl(jsonBuffer, store))
@@ -470,8 +438,8 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
 {
   string json;
   int64_t version = -1;
-  int64_t mapSeries = -1;
-  int64_t newMapSeries = -1;
+  std::string mapSeries = "";
+  std::string newMapSeries = "";
 
   // Choose the latest version from "resource" or "writable":
   // w > r in case of autoupdates
@@ -481,6 +449,7 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
   auto reader = GetReaderImpl(pl, path, "fr");
   if (reader)
   {
+    LOG(LDEBUG, ("COUNTRIES: loading bundled", COUNTRIES_FILE));
     reader->ReadAsString(json);
     version = LoadCountriesFromBuffer(json, countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds,
                                       mwmTopCountryGeoIds, mapSeries);
@@ -495,28 +464,24 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
     MwmTopCityGeoIds newCityIds;
     MwmTopCountryGeoIds newCountryIds;
 
+    LOG(LDEBUG, ("COUNTRIES: loading previously updated", COUNTRIES_FILE));
     reader->ReadAsString(json);
     int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, newMapSeries);
 
-    auto const currentAppVersion = pl.IntVersion();
-
-    if (newMapSeries > 0 && newMapSeries > currentAppVersion) //pastk: compare with hardcoded value
+    if (newMapSeries != MAP_SERIES || newVersion < version)
     {
-      // The new countries.txt is not compatible with this app version.
-      LOG(LWARNING, ("COUNTRIES: countries.txt requires newer app. newMapSeries=", newMapSeries, "app=", currentAppVersion));
+      LOG(LWARNING, ("COUNTRIES: previously updated", COUNTRIES_FILE,
+                     "is either of incompatible map series", newMapSeries, "(expected", MAP_SERIES
+                     ") or is of older map version", newVersion, "(bundled", version, ") - falling back to bundled"));
       return version;
     }
 
-    if (newVersion > version)
-    {
-      version = newVersion;
-
-      countries = std::move(newCountries);
-      affiliations = std::move(newAffs);
-      countryNameSynonyms = std::move(newSyms);
-      mwmTopCityGeoIds = std::move(newCityIds);
-      mwmTopCountryGeoIds = std::move(newCountryIds);
-    }
+    version = newVersion;
+    countries = std::move(newCountries);
+    affiliations = std::move(newAffs);
+    countryNameSynonyms = std::move(newSyms);
+    mwmTopCityGeoIds = std::move(newCityIds);
+    mwmTopCountryGeoIds = std::move(newCountryIds);
   }
 
   return version;
