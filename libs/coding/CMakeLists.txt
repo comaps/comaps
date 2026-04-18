@@ -66,15 +66,11 @@ set(SRC
   streams.hpp
   streams_common.hpp
   streams_sink.hpp
-  string_utf8_multilang.cpp
-  string_utf8_multilang.hpp
   succinct_mapper.hpp
   tesselator_decl.hpp
   text_storage.hpp
   traffic.cpp
   traffic.hpp
-  transliteration.cpp
-  transliteration.hpp
   url.cpp
   url.hpp
   value_opt_string.hpp
@@ -98,7 +94,6 @@ target_link_libraries(${PROJECT_NAME}
     base
     cppjansson
     geometry
-    i18n
 )
 
 target_link_libraries(${PROJECT_NAME}

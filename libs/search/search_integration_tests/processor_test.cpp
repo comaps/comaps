@@ -24,7 +24,7 @@
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/checked_cast.hpp"
 #include "base/scope_guard.hpp"

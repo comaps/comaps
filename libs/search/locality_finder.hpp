@@ -8,14 +8,13 @@
 #include "indexer/mwm_set.hpp"
 #include "indexer/rank_table.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 #include "geometry/tree4d.hpp"
 
 #include "i18n/localisation.hpp"
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/macros.hpp"
 

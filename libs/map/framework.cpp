@@ -69,8 +69,6 @@
 #include "platform/settings.hpp"
 
 #include "coding/point_coding.hpp"
-#include "coding/string_utf8_multilang.hpp"
-#include "coding/transliteration.hpp"
 #include "coding/url.hpp"
 
 #include "geometry/angles.hpp"
@@ -82,6 +80,8 @@
 #include "geometry/triangle2d.hpp"
 
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
+#include "i18n/transliteration.hpp"
 
 #include "base/assert.hpp"
 #include "base/buffer_vector.hpp"

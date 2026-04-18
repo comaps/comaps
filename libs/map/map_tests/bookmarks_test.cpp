@@ -12,11 +12,11 @@
 #include "platform/preferred_languages.hpp"
 
 #include "coding/internal/file_data.hpp"
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/zip_reader.hpp"
 
 #include "i18n/localisation.hpp"
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/file_name_utils.hpp"
 #include "base/scope_guard.hpp"

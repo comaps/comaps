@@ -1,13 +1,13 @@
 #pragma once
 
+#include "i18n/localisation.hpp"
+
 #include <atomic>
 #include <cstdint>
 #include <map>
 #include <memory>
 #include <mutex>
 #include <string>
-
-#include "i18n/localisation.hpp"
 
 // From ICU library, either 3party/icu or from the system's package.
 #include <unicode/uversion.h>

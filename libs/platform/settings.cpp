@@ -6,14 +6,13 @@
 
 #include "defines.hpp"
 
-#include "coding/transliteration.hpp"
-
 #include "geometry/angles.hpp"
 #include "geometry/any_rect2d.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
 #include "i18n/localisation.hpp"
+#include "i18n/transliteration.hpp"
 
 #include "base/assert.hpp"
 #include "base/math.hpp"

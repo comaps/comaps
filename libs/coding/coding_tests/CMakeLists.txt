@@ -32,7 +32,6 @@ set(SRC
   simple_dense_coding_test.cpp
   sha1_test.cpp
   sparse_vector_tests.cpp
-  string_utf8_multilang_tests.cpp
   succinct_ef_test.cpp
   succinct_mapper_test.cpp
   test_polylines.cpp
@@ -59,6 +58,5 @@ target_link_libraries(${PROJECT_NAME}
     coding
   PRIVATE
     base
-    i18n
     platform_tests_support  # For csv_reader_test (TODO: Move ScopedFile into a base header)
 )

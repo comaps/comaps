@@ -11,10 +11,11 @@
 #include "coding/byte_stream.hpp"
 #include "coding/geometry_coding.hpp"
 #include "coding/read_write_utils.hpp"
-#include "coding/string_utf8_multilang.hpp"
 
 #include "geometry/mercator.hpp"
 #include "geometry/region2d.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/logging.hpp"
 #include "base/math.hpp"

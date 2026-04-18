@@ -5,10 +5,10 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/mwm_set.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <map>
 #include <string>

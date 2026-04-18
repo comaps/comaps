@@ -11,10 +11,10 @@
 #include "indexer/osm_element.hpp"
 #include "indexer/types_mapping.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/logging.hpp"
 #include "base/macros.hpp"

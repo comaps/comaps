@@ -10,10 +10,9 @@
 
 #include "platform/preferred_languages.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "i18n/localisation.hpp"
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <memory>
 #include <string>

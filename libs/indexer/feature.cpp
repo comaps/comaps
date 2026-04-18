@@ -16,10 +16,10 @@
 #include "coding/files_container.hpp"
 #include "coding/geometry_coding.hpp"
 #include "coding/reader.hpp"
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/varint.hpp"
 
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"

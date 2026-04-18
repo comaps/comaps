@@ -2,7 +2,7 @@
 
 #include "platform/platform.hpp"
 
-#include "coding/transliteration.hpp"
+#include "i18n/transliteration.hpp"
 
 #ifdef OMIM_OS_ANDROID
 #include "coding/zip_reader.hpp"

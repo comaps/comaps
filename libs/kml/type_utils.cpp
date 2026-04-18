@@ -5,11 +5,11 @@
 #include "indexer/feature_region_locator.hpp"
 
 #include "coding/point_coding.hpp"
-#include "coding/string_utf8_multilang.hpp"
 
 #include "geometry/point_with_altitude.hpp"
 
 #include "i18n/localisation_translation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 namespace kml
 {

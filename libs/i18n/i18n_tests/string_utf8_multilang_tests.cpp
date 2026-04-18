@@ -1,8 +1,7 @@
 #include "testing/testing.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "i18n/localisation.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/control_flow.hpp"
 #include "base/macros.hpp"

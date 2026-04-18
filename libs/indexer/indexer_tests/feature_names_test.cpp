@@ -3,7 +3,7 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_utils.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "i18n/string_utf8_multilang.hpp"
 
 #include <string>
 

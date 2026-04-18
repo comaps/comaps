@@ -4,10 +4,11 @@
 #include "indexer/feature_meta.hpp"
 
 #include "coding/reader.hpp"
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/value_opt_string.hpp"
 #include "coding/varint.hpp"
 #include "coding/write_to_sink.hpp"
+
+#include "i18n/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
