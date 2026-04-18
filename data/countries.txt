@@ -1,7 +1,7 @@
 {
  "id": "Countries",
  "v": 260405,
- "min_compat_app_v": "2026.04.05",
+ "map_series": "2026.04.05",
  "g": [
   {
    "id": "World",
