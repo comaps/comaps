@@ -191,7 +191,10 @@ private:
   void ApplyCountriesInMemory(std::string const & buffer);
   void ApplyPendingCountriesIfAny();
   void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
+  /// @return 0 If error.
+  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer) const;
   void RunCountriesCheckAsyncSaveOnly();
+
 
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
@@ -269,7 +272,7 @@ private:
   Affiliations m_affiliations;
   CountryNameSynonyms m_countryNameSynonyms;
 
-  int64_t m_mapSeries = -1;
+  std::string m_mapSeries = "";
 
   /// @todo This containers are empty for now, but probably will be used in future.
   /// @{

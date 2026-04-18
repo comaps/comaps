@@ -51,11 +51,17 @@ public:
   virtual QueueInterface const & GetQueue() const;
 
   /**
-   * @brief Async file download as string buffer (for small files only).
-   * Request can be skipped if current servers list is empty.
+   * @brief Async file download as string buffer from meta-server (for small files only).
    * Callback will be skipped on download error.
-   * NOTE: not in use at the moment.
-   * @param[in]  url        Final url part like "index.json" or "maps/210415/countries.txt".
+   * @param[in]  url        Final url part like "maps/maps.json".
+   * @param[in]  forceReset True - force reset current request, if any.
+   */
+  void DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback, bool forceReset = false);
+  /**
+   * @brief Async file download as string buffer from a server suggested by meta-server (for small files only).
+   * Fetches server list from the metaserver for the current data version first.
+   * Callback will be skipped on download error.
+   * @param[in]  url        Final url part like "maps/2026.04.14/260420/countries.txt".
    * @param[in]  forceReset True - force reset current request, if any.
    */
   void DownloadAsString(std::string url, std::function<bool(std::string const &)> && callback, bool forceReset = false);

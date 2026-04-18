@@ -76,7 +76,7 @@ auto constexpr TMP_OFFSETS_EXT = OFFSET_EXT EXTENSION_TMP;
 #define MAPS_BASE_URL "maps" // e.g. "maps/2026.04.01/260417/Andorra.mwm"
 #define COUNTRIES_FILE "countries.txt"
 #define COUNTRIES_SIGNATURE_EXTENSION ".sig"
-#define SERVER_DATAVERSION_FILE "data_version.json"
+#define SERVER_MAPS_FILE "maps.json"
 #define COUNTRIES_ROOT "Countries"
 
 #define COUNTRIES_META_FILE "countries_meta.txt"

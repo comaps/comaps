@@ -16,8 +16,8 @@ void MapFilesDownloaderWithPing::GetMetaConfig(MetaConfigCallback const & callba
   CHECK(!metaConfig.m_serversList.empty(), ());
 
   // Sort the list of servers by latency.
-  /// @todo(pastk:: actually the sort order is used only in MapFilesDownloader::DownloadAsString()
-  /// to get e.g. countries.txt but this code is not enabled at the moment.
+  /// @todo(pastk): actually the sort order is used only in MapFilesDownloader::DownloadAsString()
+  /// to get e.g. countries.txt - maybe not needed at all?
   auto const sorted = Pinger::ExcludeUnavailableAndSortEndpoints(metaConfig.m_serversList);
   // Keep the original list if all servers are unavailable.
   if (!sorted.empty())

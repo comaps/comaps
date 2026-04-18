@@ -18,6 +18,8 @@ namespace storage
 {
 void MapFilesDownloader::DownloadMapFile(QueuedCountry && queuedCountry)
 {
+  /// @todo(pastk): check for new map versions before every download session
+
   if (!m_serversList.empty())
   {
     Download(std::move(queuedCountry));
@@ -71,6 +73,42 @@ QueueInterface const & MapFilesDownloader::GetQueue() const
   return m_pendingRequests;
 }
 
+void MapFilesDownloader::DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback,
+                                          bool forceReset /* = false */)
+{
+  if (m_fileRequest && !forceReset)
+    return;
+
+  Platform & pl = GetPlatform();
+  std::string metaServerUrl = pl.MetaServerUrl();
+  // If user sets a custom download server, skip metaserver entirely.
+  std::string const customServer = pl.CustomMapServerUrl();
+  if (!customServer.empty())
+  {
+    LOG(LINFO, ("Using custom map server URL:", customServer));
+
+    metaServerUrl = customServer;
+  }
+
+  m_fileRequest.reset(RequestT::Get(url::Join(metaServerUrl, url),
+                                    [this, callback = std::move(callback)](RequestT & request)
+  {
+    bool deleteRequest = true;
+    auto const & buffer = request.GetData();
+
+    LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
+
+    if (!buffer.empty())
+    {
+      // Update deleteRequest flag if new download was requested in callback.
+      deleteRequest = !callback(buffer);
+    }
+
+    if (deleteRequest)
+      m_fileRequest.reset();
+  }));
+}
+
 void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(std::string const &)> && callback,
                                           bool forceReset /* = false */)
 {
@@ -103,7 +141,6 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
 void MapFilesDownloader::EnsureMetaConfigReady(std::function<void()> && callback)
 {
   /// @todo Implement logic if m_metaConfig is "outdated".
-  /// Fetch new servers list on each download request?
   if (!m_serversList.empty())
   {
     callback();
@@ -170,7 +207,7 @@ MetaConfig MapFilesDownloader::LoadMetaConfig()
     return metaConfig;
   }
 
-  std::string const metaServerUrl = pl.MetaServerUrl();
+  std::string const metaServerUrl = url::Join(pl.MetaServerUrl(), "servers");
   std::string httpResult;
 
   if (!metaServerUrl.empty())
