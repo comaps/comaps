@@ -34,25 +34,13 @@ public:
   void Init(FeatureType & ft);
 
   template <class FnT>
-  void ForEachColorWithOffset(float width, FnT && fn) const
+  void ForEachColorWithOffset(float roadWidth, float colorWidth, FnT && fn) const
   {
     int const sz = m_colors.size();
-    int const halfsize = sz / 2;
-    bool const isEven = (sz % 2 == 0);
-    float const halfWidth = width / 2;
 
-    // sz == 2, offsets:
-    // -w/2
-    // w/2
-    // sz == 3, offsets:
-    // -w
-    // 0
-    // w
     for (int i = 0; i < sz; ++i)
     {
-      double pxOffset = (i - halfsize) * width;
-      if (isEven)
-        pxOffset += halfWidth;
+      double pxOffset = 1.7 * roadWidth + i * (2 * colorWidth);
 
       fn(pxOffset, m_colors[i].first);
     }
