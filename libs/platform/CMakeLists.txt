@@ -37,6 +37,7 @@ set(SRC
   locale.hpp
   localization.cpp
   localization.hpp
+  localized_types_map.cpp
   location.hpp
   measurement_utils.cpp
   measurement_utils.hpp

@@ -34,7 +34,7 @@ for f in ${SYMBOLS_FILES[*]}; do
   fi
 done
 
-if [ ! -f "libs/indexer/localized_types_map.cpp" ]; then
+if [ ! -f "libs/platform/localized_types_map.cpp" ]; then
   STRINGS_NOT_GENERATED=1
 fi
 
