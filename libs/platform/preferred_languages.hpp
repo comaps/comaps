@@ -16,7 +16,7 @@ std::string GetCurrentOrig();
 
 /// @return Current language in out Twine translations compatible format, e.g. "en", "pt" or "zh-Hant".
 std::string GetCurrentTwine();
-std::string GetCurrentMapTwine();
+std::string GetTwine(std::string const & lang);
 
 /// @return Normalized language code for the current user in the form "en", "zh".
 /// Returned languages are normalized to our supported languages in the core, see

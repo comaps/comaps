@@ -3,6 +3,8 @@
 #include "platform/duration.hpp"
 #include "platform/locale.hpp"
 
+#include "i18n/duration.hpp"
+
 #include <chrono>
 
 namespace platform
@@ -53,9 +55,9 @@ Locale GetLocale(std::string const & language)
  This is why the expectation strings are not explicit.
  */
 
-auto const m = Duration::GetUnitsString(Duration::Units::Minutes);
-auto const h = Duration::GetUnitsString(Duration::Units::Hours);
-auto const d = Duration::GetUnitsString(Duration::Units::Days);
+auto const m = GetUnitsString(Duration::Units::Minutes);
+auto const h = GetUnitsString(Duration::Units::Hours);
+auto const d = GetUnitsString(Duration::Units::Days);
 
 UNIT_TEST(Duration_AllUnits)
 {
@@ -84,8 +86,8 @@ UNIT_TEST(Duration_AllUnits)
     for (auto const & dataDuration : data.m_duration)
     {
       auto const duration = Duration(dataDuration.Seconds());
-      auto durationStr = duration.GetLocalizedString(
-          {Duration::Units::Days, Duration::Units::Hours, Duration::Units::Minutes}, data.m_locale);
+      auto durationStr = GetLocalizedString(
+          duration, {Duration::Units::Days, Duration::Units::Hours, Duration::Units::Minutes}, data.m_locale);
       TEST_EQUAL(durationStr, dataDuration.result, ());
     }
   }
@@ -109,9 +111,8 @@ UNIT_TEST(Duration_Localization)
     for (auto const & duration : data.m_duration)
     {
       auto const durationStr =
-          Duration(duration.Seconds())
-              .GetLocalizedString({Duration::Units::Days, Duration::Units::Hours, Duration::Units::Minutes},
-                                  data.m_locale);
+          GetLocalizedString(Duration(duration.Seconds()),
+                             {Duration::Units::Days, Duration::Units::Hours, Duration::Units::Minutes}, data.m_locale);
       TEST_EQUAL(durationStr, duration.result, ());
     }
   }

@@ -1,6 +1,8 @@
 project(i18n)
 
 set(SRC
+  duration.cpp
+  duration.hpp
   localisation.cpp
   localisation.hpp
   localisation_translation.cpp
@@ -17,9 +19,8 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
     coding
-    storage
-  PRIVATE
     platform
+    storage
 )
 
 target_link_libraries(${PROJECT_NAME}
