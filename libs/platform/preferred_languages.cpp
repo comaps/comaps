@@ -1,7 +1,5 @@
 #include "platform/preferred_languages.hpp"
 
-#include "i18n/localisation.hpp"
-
 #include "base/buffer_vector.hpp"
 #include "base/string_utils.hpp"
 
@@ -600,11 +598,6 @@ std::string GetTwine(std::string const & lang)
 std::string GetCurrentTwine()
 {
   return GetTwine(GetCurrentOrig());
-}
-
-std::string GetCurrentMapTwine()
-{
-  return GetTwine(localisation::GetMapLanguageCode());
 }
 
 }  // namespace languages

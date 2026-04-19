@@ -20,6 +20,7 @@
 #include "geometry/latlon.hpp"
 #include "geometry/mercator.hpp"
 
+#include "i18n/duration.hpp"
 #include "i18n/localisation.hpp"
 #include "i18n/localisation_translation.hpp"
 
@@ -256,7 +257,7 @@ void Info::SetTitlesForTrack(Track const & track)
   auto const duration = track.GetDurationInSeconds();
   statistics.push_back(platform::Distance::CreateFormatted(length).ToString());
   if (duration > 0)
-    statistics.push_back(platform::Duration(duration).GetPlatformLocalizedString());
+    statistics.push_back(platform::GetPlatformLocalizedString(platform::Duration(duration)));
   m_uiTrackStatistics = strings::JoinStrings(statistics, feature::kFieldsSeparator);
 }
 

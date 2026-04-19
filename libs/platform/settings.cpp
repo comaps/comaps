@@ -11,9 +11,6 @@
 #include "geometry/point2d.hpp"
 #include "geometry/rect2d.hpp"
 
-#include "i18n/localisation.hpp"
-#include "i18n/transliteration.hpp"
-
 #include "base/assert.hpp"
 #include "base/math.hpp"
 #include "base/timer.hpp"
@@ -337,57 +334,6 @@ bool FromString<location::EMyPositionMode>(string const & s, location::EMyPositi
     v = location::Follow;
   else if (s == "FollowAndRotate")
     v = location::FollowAndRotate;
-  else
-    return false;
-
-  return true;
-}
-
-template <>
-string ToString<Transliteration::Mode>(Transliteration::Mode const & mode)
-{
-  switch (mode)
-  {
-  case Transliteration::Mode::Enabled: return "Enabled";
-  case Transliteration::Mode::Disabled: return "Disabled";
-  }
-  UNREACHABLE();
-}
-
-template <>
-bool FromString<Transliteration::Mode>(string const & s, Transliteration::Mode & mode)
-{
-  if (s == "Enabled")
-    mode = Transliteration::Mode::Enabled;
-  else if (s == "Disabled")
-    mode = Transliteration::Mode::Disabled;
-  else
-    return false;
-
-  return true;
-}
-
-template <>
-string ToString<localisation::AlternativeMapLanguageHandling>(localisation::AlternativeMapLanguageHandling const & alternativeMapLanguageHandling)
-{
-  switch (alternativeMapLanguageHandling)
-  {
-  case localisation::AlternativeMapLanguageHandling::IgnoreAlternatives: return "off";
-  case localisation::AlternativeMapLanguageHandling::SystemOrder: return "false";
-  case localisation::AlternativeMapLanguageHandling::LocalOnly: return "true";
-  }
-  UNREACHABLE();
-}
-
-template <>
-bool FromString<localisation::AlternativeMapLanguageHandling>(string const & s, localisation::AlternativeMapLanguageHandling & mode)
-{
-  if (s == "true")
-    mode = localisation::AlternativeMapLanguageHandling::LocalOnly;
-  else if (s == "false")
-    mode = localisation::AlternativeMapLanguageHandling::SystemOrder;
-  else if (s == "off")
-    mode = localisation::AlternativeMapLanguageHandling::IgnoreAlternatives;
   else
     return false;
 

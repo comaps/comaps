@@ -15,6 +15,8 @@
 
 #include "geometry/mercator.hpp"
 
+#include "i18n/localisation.hpp"
+
 #include "base/assert.hpp"
 #include "base/checked_cast.hpp"
 
@@ -149,7 +151,7 @@ SearchAPI::SearchAPI(DataSource & dataSource, storage::Storage const & storage,
   , m_infoGetter(infoGetter)
   , m_delegate(delegate)
   , m_engine(m_dataSource, GetDefaultCategories(), m_infoGetter,
-             Engine::Params(languages::GetCurrentMapTwine() /* locale */, numThreads))
+             Engine::Params(languages::GetTwine(localisation::GetMapLanguageCode()) /* locale */, numThreads))
 {}
 
 void SearchAPI::OnViewportChanged(m2::RectD const & viewport)

@@ -3,7 +3,6 @@ project(platform_tests)
 set(SRC
   country_file_tests.cpp
   distance_tests.cpp
-  duration_tests.cpp
   downloader_tests/downloader_test.cpp
   downloader_utils_tests.cpp
   get_text_by_id_tests.cpp

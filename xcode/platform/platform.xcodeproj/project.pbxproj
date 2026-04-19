@@ -118,7 +118,6 @@
 		ED49D7442CEE43A4004AF27E /* meta_config_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED49D7422CEE43A4004AF27E /* meta_config_tests.cpp */; };
 		ED965B252CD8F72E0049E39E /* duration.hpp in Headers */ = {isa = PBXBuildFile; fileRef = ED965B242CD8F72A0049E39E /* duration.hpp */; };
 		ED965B272CD8F7810049E39E /* duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED965B262CD8F77D0049E39E /* duration.cpp */; };
-		ED965B472CDA52DB0049E39E /* duration_tests.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED965B462CDA4EC00049E39E /* duration_tests.cpp */; };
 		ED965B482CDA575B0049E39E /* duration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED965B262CD8F77D0049E39E /* duration.cpp */; };
 		F6DF73581EC9EAE700D8BA0B /* string_storage_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DF73561EC9EAE700D8BA0B /* string_storage_base.cpp */; };
 		F6DF73591EC9EAE700D8BA0B /* string_storage_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6DF73561EC9EAE700D8BA0B /* string_storage_base.cpp */; };
@@ -265,7 +264,6 @@
 		ED49D7422CEE43A4004AF27E /* meta_config_tests.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = meta_config_tests.cpp; sourceTree = "<group>"; };
 		ED965B242CD8F72A0049E39E /* duration.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = duration.hpp; sourceTree = "<group>"; };
 		ED965B262CD8F77D0049E39E /* duration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = duration.cpp; sourceTree = "<group>"; };
-		ED965B462CDA4EC00049E39E /* duration_tests.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = duration_tests.cpp; sourceTree = "<group>"; };
 		F6DF73561EC9EAE700D8BA0B /* string_storage_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = string_storage_base.cpp; sourceTree = "<group>"; };
 		F6DF73571EC9EAE700D8BA0B /* string_storage_base.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = string_storage_base.hpp; sourceTree = "<group>"; };
 		FAA8389026BB48E9002E54C6 /* libcppjansson.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcppjansson.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -334,7 +332,6 @@
 			isa = PBXGroup;
 			children = (
 				ED49D7422CEE43A4004AF27E /* meta_config_tests.cpp */,
-				ED965B462CDA4EC00049E39E /* duration_tests.cpp */,
 				168EFCC12A30EB7400F71EE8 /* distance_tests.cpp */,
 				675341001C58C4C9002CF0D9 /* apk_test.cpp */,
 				675341011C58C4C9002CF0D9 /* country_file_tests.cpp */,
@@ -771,7 +768,6 @@
 				678338971C6DE59200FD6263 /* country_file_tests.cpp in Sources */,
 				678338951C6DE59200FD6263 /* testingmain.cpp in Sources */,
 				1669C8412A30DCD200530AD1 /* distance.cpp in Sources */,
-				ED965B472CDA52DB0049E39E /* duration_tests.cpp in Sources */,
 				44CAB5F62A1F926800819330 /* utm_mgrs_utils_tests.cpp in Sources */,
 				F6DF735A1EC9EAE700D8BA0B /* string_storage_base.cpp in Sources */,
 				168EFCC22A30EB7400F71EE8 /* distance_tests.cpp in Sources */,

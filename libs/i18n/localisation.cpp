@@ -5,7 +5,64 @@
 
 #include "i18n/transliteration.hpp"
 
+#include "base/assert.hpp"
 #include "base/macros.hpp"
+
+namespace settings
+{
+template <>
+std::string ToString<Transliteration::Mode>(Transliteration::Mode const & mode)
+{
+  switch (mode)
+  {
+  case Transliteration::Mode::Enabled: return "Enabled";
+  case Transliteration::Mode::Disabled: return "Disabled";
+  }
+  UNREACHABLE();
+}
+
+template <>
+bool FromString<Transliteration::Mode>(std::string const & s, Transliteration::Mode & mode)
+{
+  if (s == "Enabled")
+    mode = Transliteration::Mode::Enabled;
+  else if (s == "Disabled")
+    mode = Transliteration::Mode::Disabled;
+  else
+    return false;
+
+  return true;
+}
+
+template <>
+std::string ToString<localisation::AlternativeMapLanguageHandling>(
+    localisation::AlternativeMapLanguageHandling const & alternativeMapLanguageHandling)
+{
+  switch (alternativeMapLanguageHandling)
+  {
+  case localisation::AlternativeMapLanguageHandling::IgnoreAlternatives: return "off";
+  case localisation::AlternativeMapLanguageHandling::SystemOrder: return "false";
+  case localisation::AlternativeMapLanguageHandling::LocalOnly: return "true";
+  }
+  UNREACHABLE();
+}
+
+template <>
+bool FromString<localisation::AlternativeMapLanguageHandling>(std::string const & s,
+                                                              localisation::AlternativeMapLanguageHandling & mode)
+{
+  if (s == "true")
+    mode = localisation::AlternativeMapLanguageHandling::LocalOnly;
+  else if (s == "false")
+    mode = localisation::AlternativeMapLanguageHandling::SystemOrder;
+  else if (s == "off")
+    mode = localisation::AlternativeMapLanguageHandling::IgnoreAlternatives;
+  else
+    return false;
+
+  return true;
+}
+}  // namespace settings
 
 namespace localisation
 {

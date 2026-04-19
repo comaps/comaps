@@ -9,6 +9,8 @@
 
 #include "base/assert.hpp"
 
+#include "i18n/duration.hpp"
+
 namespace
 {
 double constexpr kInvalidTimestamp = std::numeric_limits<double>::min();
@@ -121,7 +123,7 @@ std::string TrackStatistics::GetFormattedLength() const
 
 std::string TrackStatistics::GetFormattedDuration() const
 {
-  return platform::Duration(static_cast<int>(m_duration)).GetPlatformLocalizedString();
+  return platform::GetPlatformLocalizedString(platform::Duration(static_cast<int>(m_duration)));
 }
 
 std::string TrackStatistics::GetFormattedAscent() const
