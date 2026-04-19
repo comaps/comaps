@@ -1,13 +1,16 @@
 #pragma once
 
-#include "storage/storage_defines.hpp"
-
 #include "i18n/localisation.hpp"
 
 #include <string>
 #include <vector>
 
 class StringUtf8Multilang;
+
+namespace storage
+{
+using CountryId = std::string;
+}
 
 namespace localisation
 {

@@ -20,7 +20,6 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     platform
-    storage
 )
 
 target_link_libraries(${PROJECT_NAME}
