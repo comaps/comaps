@@ -155,6 +155,7 @@ private:
   void ProcessRule(LineRuleProto const & lineRule);
 
   RelationsDrawInfo m_relsInfo;
+  float m_minWidth;
   m2::SharedSpline m_spline;
   std::vector<m2::SharedSpline> m_clippedSplines;
   double const m_currentScaleGtoP;

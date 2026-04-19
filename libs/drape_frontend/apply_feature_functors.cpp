@@ -37,6 +37,8 @@
 
 #include "3party/skarupke/flat_hash_map.hpp"
 
+#include <cstdlib>
+
 namespace df
 {
 dp::Color ToDrapeColor(uint32_t src)
@@ -867,6 +869,7 @@ ApplyLineFeatureGeometry::ApplyLineFeatureGeometry(TileKey const & tileKey, TIns
                                                    RelationsDrawSettings const & relsSettings)
   : TBase(tileKey, insertShape, f, CaptionDescription())
   , m_relsInfo(relsSettings)
+  , m_minWidth(100)
   , m_currentScaleGtoP(currentScaleGtoP)
   // TODO(pastk) : calculate just once in the RuleDrawer.
   , m_minSegmentSqrLength(math::Pow2(4.0 * df::VisualParams::Instance().GetVisualScale() / currentScaleGtoP))
@@ -939,6 +942,24 @@ void ApplyLineFeatureGeometry::ProcessLineRules(Stylist::LineRulesT const & line
   for (LineRuleProto const * r : lineRules)
     ProcessRule(*r);
 
+  double const visScale = df::VisualParams::Instance().GetVisualScale();
+
+  // Place multiple color lines with offset.
+  LineViewParams params;
+  params.m_width = 2 * visScale + 1;
+  params.m_tileCenter = m_tileRect.Center();
+  params.m_depth = PriorityToDepth(0, drule::line, 0);  // draw routes below roads
+  params.m_rank = m_f.GetRank();
+  params.m_baseGtoPScale = m_currentScaleGtoP;
+  params.m_zoomLevel = m_tileKey.m_zoomLevel;
+
+  m_relsInfo.ForEachColorWithOffset(m_minWidth, params.m_width, [&params, this](double pxOffset, dp::Color color)
+  {
+    params.m_color = color;
+    for (auto const & spline : m_clippedSplines)
+      m_insertShape(make_unique_dp<LineShape>(spline.Equidistant(pxOffset / m_currentScaleGtoP), params));
+  });
+
 #ifdef LINES_GENERATION_CALC_FILTERED_POINTS
   LinesStat::Get().InsertLine(m_f.GetID(), m_tileKey.m_zoomLevel, m_readCount, static_cast<int>(m_spline->GetSize()));
 #endif
@@ -987,17 +1008,8 @@ void ApplyLineFeatureGeometry::ProcessRule(LineRuleProto const & lineRule)
     for (auto const & spline : m_clippedSplines)
       m_insertShape(make_unique_dp<LineShape>(spline, params));
 
-    // Place multiple color lines with offset.
-    params.m_width = 3 * visScale;  // std::max(4.0f, params.m_width / 2);
-    params.m_depth += 10;
-
-    m_relsInfo.ForEachColorWithOffset(params.m_width, [&params, this](double pxOffset, dp::Color color)
-    {
-      params.m_color = color;
-
-      for (auto const & spline : m_clippedSplines)
-        m_insertShape(make_unique_dp<LineShape>(spline.Equidistant(pxOffset / m_currentScaleGtoP), params));
-    });
+    if (params.m_width < m_minWidth)
+      m_minWidth = params.m_width;
   }
 }
 
