@@ -187,7 +187,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
     if (IsNode(p.first))
       NotifyStatusChangedForHierarchy(p.first);
 
-  LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
+  LOG(LINFO, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
 }
 
 void Storage::ApplyPendingCountriesIfAny()
@@ -248,7 +248,7 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
       m_pendingCountriesBuffer = *buffer;
       m_pendingCountriesVersion = parsedVersion;
       m_hasPendingCountries = true;
-      LOG(LDEBUG, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+      LOG(LINFO, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
     }
   });
 }
@@ -314,7 +314,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES));
     if (dataVersion <= m_currentVersion)
     {
-      LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      LOG(LINFO, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
       return false;
     }
 
@@ -372,7 +372,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
           return false;
         }
 
-        LOG(LDEBUG, ("COUNTRIES: verifying signature."));
+        LOG(LINFO, ("COUNTRIES: verifying signature."));
         if (!platform::crypto::VerifyEd25519(storage::kCountriesTxtPublicKey.data(),
                                              reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
                                              reinterpret_cast<uint8_t const *>(sigBuf.data())))

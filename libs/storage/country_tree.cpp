@@ -405,7 +405,7 @@ int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countri
     FromJSONObject(root.get(), "v", version);
     FromJSONObjectOptionalField(root.get(), "map_series", mapSeries);
 
-    LOG(LDEBUG, ("COUNTRIES: loaded and parsed map version", version, "mapSeries", mapSeries));
+    LOG(LINFO, ("COUNTRIES: loaded and parsed map version", version, "mapSeries", mapSeries));
 
     StoreCountries store(countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds, mwmTopCountryGeoIds);
     if (!LoadCountriesImpl(jsonBuffer, store))
@@ -449,7 +449,7 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
   auto reader = GetReaderImpl(pl, path, "fr");
   if (reader)
   {
-    LOG(LDEBUG, ("COUNTRIES: loading bundled", COUNTRIES_FILE));
+    LOG(LINFO, ("COUNTRIES: loading bundled", COUNTRIES_FILE));
     reader->ReadAsString(json);
     version = LoadCountriesFromBuffer(json, countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds,
                                       mwmTopCountryGeoIds, mapSeries);
@@ -464,7 +464,7 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
     MwmTopCityGeoIds newCityIds;
     MwmTopCountryGeoIds newCountryIds;
 
-    LOG(LDEBUG, ("COUNTRIES: loading previously updated", COUNTRIES_FILE));
+    LOG(LINFO, ("COUNTRIES: loading previously updated", COUNTRIES_FILE));
     reader->ReadAsString(json);
     int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, newMapSeries);
 
