@@ -1,10 +1,9 @@
 #include "storage/storage.hpp"
 
+#include "private.h"
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
-#include "private.h"
-#include "storage/countries_txt_signature.hpp"
 #include "storage/downloader.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
@@ -372,8 +371,14 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
           return false;
         }
 
+        std::array<uint8_t, 32> countriesTxtPublicKey{};
+        if (!DecodeHex32(COUNTRIES_TXT_SIGNATURE_HEX, countriesTxtPublicKey))
+        {
+          LOG(LWARNING, ("COUNTRIES: invalid public signature hex"));
+          return false;
+        }
         LOG(LINFO, ("COUNTRIES: verifying signature."));
-        if (!platform::crypto::VerifyEd25519(storage::kCountriesTxtPublicKey.data(),
+        if (!platform::crypto::VerifyEd25519(countriesTxtPublicKey.data(),
                                              reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
                                              reinterpret_cast<uint8_t const *>(sigBuf.data())))
         {

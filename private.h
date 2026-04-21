@@ -11,9 +11,7 @@
 #define TRAFFIC_DATA_BASE_URL ""
 #define USER_BINDING_PKCS12 ""
 #define USER_BINDING_PKCS12_PASSWORD ""
+#define COUNTRIES_TXT_SIGNATURE_HEX "91c0a9f6aa182371f047e256ab46489211acc2b51b13197fbe8c94eaa9749c7b"
 
 // The app is compatible with maps belonging to the following or earlier map series:
 #define MAP_SERIES "2026.04.05"
-
-// The public key for verifying countries.txt signature: libs/storage/countries_txt_signature.hpp
-// Note: It cannot be moved here because it would break the iOS build.

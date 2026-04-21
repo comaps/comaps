@@ -1,5 +1,7 @@
 #pragma once
 
+#include <boost/algorithm/hex.hpp>
+
 #include "storage/country.hpp"
 #include "storage/country_name_getter.hpp"
 #include "storage/country_tree.hpp"
@@ -188,6 +190,27 @@ private:
     std::vector<platform::CountryFile> missing;
     return (GetForceDownloadWorlds(missing) == WorldStatus::READY) && !missing.empty();
   }
+
+  inline bool DecodeHex32(std::string_view hex, std::array<uint8_t, 32> & out)
+  {
+    if (hex.size() != 64)
+      return false;
+
+    try
+    {
+      boost::algorithm::unhex(hex.begin(), hex.end(), out.begin());
+      return true;
+    }
+    catch (boost::algorithm::non_hex_input const &)
+    {
+      return false;
+    }
+    catch (boost::algorithm::not_enough_input const &)
+    {
+      return false;
+    }
+  }
+
   void ApplyCountriesInMemory(std::string const & buffer);
   void ApplyPendingCountriesIfAny();
   void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
