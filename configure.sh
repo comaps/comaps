@@ -102,12 +102,12 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   if [ ! -f "$WORLD_PATH" ]; then
     echo "Downloading world map..."
     # Using a fi1 maps mirror/CDN
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/World.mwm" -P "$MWM_PATH" &&
-    rm -f World.mwm; ln -s "$WORLD_PATH" World.mwm
+    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/World.mwm" -P "$MWM_PATH" && \
+    rm -f World.mwm && ln -s "$WORLD_PATH" World.mwm
   fi
   if [ ! -f "$WORLD_PATH2" ]; then
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/WorldCoasts.mwm" -P "$MWM_PATH" &&
-    rm -f WorldCoasts.mwm; ln -s "$WORLD_PATH2" WorldCoasts.mwm
+    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/WorldCoasts.mwm" -P "$MWM_PATH" && \
+    rm -f WorldCoasts.mwm && ln -s "$WORLD_PATH2" WorldCoasts.mwm
   fi
 
   if [ ! -f "World.mwm" ]; then

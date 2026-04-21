@@ -21,6 +21,14 @@ omim_add_library(${PROJECT_NAME} ${SRC})
 
 target_include_directories(${PROJECT_NAME} INTERFACE .)
 
+if (MSVC)
+  # Boost Spirit templates require enormous memory with MSVC /Od /RTC1 /Zi debug settings.
+  # Strip incompatible/memory-heavy flags, then add /O2 to override /Od.
+  string(REPLACE "/RTC1" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+  string(REPLACE "/Zi" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+  target_compile_options(${PROJECT_NAME} PRIVATE $<$<CONFIG:Debug>:/O2>)
+endif()
+
 omim_add_test_subdirectory(opening_hours_tests)
 omim_add_test_subdirectory(opening_hours_integration_tests)
 omim_add_test_subdirectory(opening_hours_supported_features_tests)

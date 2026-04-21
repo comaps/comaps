@@ -233,7 +233,12 @@ endif()
 add_subdirectory(libs)
 
 if (PLATFORM_DESKTOP)
-  add_subdirectory(dev_sandbox)
+  # dev_sandbox requires a platform-specific context factory (main_linux.cpp / main.mm).
+  # No Windows implementation exists yet; the upstream Vulkan-only port (af48e3caf6)
+  # is unmerged and doesn't cover the OpenGL path used on Windows.
+  if (NOT MSVC)
+    add_subdirectory(dev_sandbox)
+  endif()
   add_subdirectory(generator)
   add_subdirectory(tools)
   if (NOT SKIP_QT_GUI)

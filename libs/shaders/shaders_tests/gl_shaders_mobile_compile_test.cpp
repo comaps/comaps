@@ -34,6 +34,11 @@ std::string const kCompilerOpenGLES = "macos/glslangValidator";
 std::string const kMaliCompilerOpenGLES3Dir = "linux/mali_compiler_es3";
 std::string const kCompilerMaliOpenGLES3 = kMaliCompilerOpenGLES3Dir + "/malisc";
 std::string const kCompilerOpenGLES = "linux/glslangValidator";
+#else
+// Mali compiler not available on this platform; tests will be skipped.
+std::string const kMaliCompilerOpenGLES3Dir = "";
+std::string const kCompilerMaliOpenGLES3 = "";
+std::string const kCompilerOpenGLES = "";
 #endif
 
 std::string DebugPrint(QString const & s)
