@@ -159,17 +159,21 @@ if "%~1"=="-j" (
 )
 if "%~1"=="-l" set "OPT_LAUNCH_BINARY=1"
 
-if "%~1"=="-n" (
-  shift
-  set "OPT_NJOBS=%~1"
-  set "CMAKE_CONFIG=!CMAKE_CONFIG! -DNJOBS=!OPT_NJOBS!"
-)
+if "%~1"=="-n" goto :parse_n
+if "%~1"=="-p" goto :parse_p
 
-if "%~1"=="-p" (
-  shift
-  set "OPT_PATH=%~1"
-)
+shift
+goto :parse
 
+:parse_n
+shift
+set "OPT_NJOBS=%~1"
+shift
+goto :parse
+
+:parse_p
+shift
+set "OPT_PATH=%~1"
 shift
 goto :parse
 :endparse
@@ -181,6 +185,8 @@ if not defined OPT_DEBUG if not defined OPT_RELEASE if not defined OPT_RELWITHDE
 )
 
 if not defined OPT_NJOBS set "OPT_NJOBS=%NUMBER_OF_PROCESSORS%"
+REM MSVC debug builds are memory-heavy; cap parallelism to avoid out-of-heap errors.
+if "!GENERATOR!"=="Ninja" set "BUILD_CMD=ninja -j !OPT_NJOBS!"
 
 REM ============================================================
 REM 8. Paths
@@ -202,6 +208,8 @@ REM 9. Run configure.sh (generates drules, symbols, and other data files)
 REM ============================================================
 echo Running configure.sh...
 pushd "!OMIM_PATH!"
+set "SKIP_MAP_DOWNLOAD=1"
+set "PYTHONUTF8=1"
 bash configure.sh
 if errorlevel 1 (
   popd
