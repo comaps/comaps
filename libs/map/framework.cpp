@@ -2401,7 +2401,7 @@ void Framework::SetCustomMapLanguageCode(std::optional<localisation::LanguageCod
     settings::Set(localisation::kMapLanguageSetting, languageCode.value());
   else
     settings::Delete(localisation::kMapLanguageSetting);
-  
+
   RefreshMapLanguage();
 }
 
@@ -3189,6 +3189,14 @@ bool Framework::ParseSearchQueryCommand(search::SearchParams const & params)
     return true;
   if (ParseAllTypesDebugCommand(params))
     return true;
+
+  if (params.m_query == "?check-updates")
+  {
+    LOG(LINFO, ("COUNTRIES: triggered manual check for updates"));
+    m_storage.RunCountriesCheckAsyncSaveOnly();
+    return true;
+  }
+
   return false;
 }
 

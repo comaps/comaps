@@ -419,8 +419,9 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
   m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
 
+  /// @todo(pastk): add opt-in setting for automatic map updates checks
   // Fetch, persist, and apply.
-  RunCountriesCheckAsyncSaveOnly();
+  // RunCountriesCheckAsyncSaveOnly();
 }
 
 Storage::Storage(string const & referenceCountriesTxtJsonForTesting,

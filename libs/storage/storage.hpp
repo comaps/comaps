@@ -216,8 +216,6 @@ private:
   void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
   /// @return 0 If error.
   int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer) const;
-  void RunCountriesCheckAsyncSaveOnly();
-
 
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
@@ -366,6 +364,7 @@ public:
   int64_t ParseIndexAndGetDataVersion(std::string const & index) const;
   void ApplyCountries(std::string const & countriesBuffer, Storage & storage);
   /// @}
+  void RunCountriesCheckAsyncSaveOnly();
 
   /// \brief Returns root country id of the country tree.
   CountryId const GetRootId() const;
