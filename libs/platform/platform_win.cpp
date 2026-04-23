@@ -52,44 +52,81 @@ std::unique_ptr<Socket> CreateSocket()
 }
 }  // namespace platform
 
+namespace
+{
+bool IsResourcesDir(std::string const & dir)
+{
+  return Platform::IsFileExistsByFullPath(dir + "\\welcome.html");
+}
+}  // namespace
+
 Platform::Platform()
 {
-  std::string path;
-  CHECK(GetPathToBinary(path), ("Can't get path to binary"));
+  std::string exePath;
+  CHECK(GetPathToBinary(exePath), ("Can't get path to binary"));
+  exePath.erase(exePath.find_last_of('\\'));
+  // exePath is now the directory containing the executable.
 
-  // resources path:
-  // 1. try to use data folder in the same path as executable
-  // 2. if not found, try to use ..\..\..\data (for development only)
-  path.erase(path.find_last_of('\\'));
-  if (IsFileExistsByFullPath(path + "\\data\\"))
-    m_resourcesDir = path + "\\data\\";
-  else
-  {
+  // Resources directory search order:
+  // 1. MWM_RESOURCES_DIR environment variable override
+  // 2. data\ next to executable (dev build junction or release install)
+  // 3. CoMaps.app\Contents\Resources\ (cmake bundle next to executable)
+  // 4. ..\share\comaps\data\ (FHS-style install)
+  // 5. Up to 3 parent directories (development build only)
+  if (char const * envDir = ::getenv("MWM_RESOURCES_DIR"))
+    m_resourcesDir = std::string(envDir) + "\\";
+
+  if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\data"))
+    m_resourcesDir = exePath + "\\data\\";
+
+  if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\CoMaps.app\\Contents\\Resources"))
+    m_resourcesDir = exePath + "\\CoMaps.app\\Contents\\Resources\\";
+
+  if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\..\\share\\comaps\\data"))
+    m_resourcesDir = exePath + "\\..\\share\\comaps\\data\\";
+
 #ifndef RELEASE
-    path.erase(path.find_last_of('\\'));
-    path.erase(path.find_last_of('\\'));
-    if (IsFileExistsByFullPath(path + "\\data\\"))
-      m_resourcesDir = path + "\\data\\";
-#else
-    CHECK(false, ("Can't find resources directory"));
+  if (m_resourcesDir.empty())
+  {
+    std::string devPath = exePath;
+    for (int i = 0; i < 3 && m_resourcesDir.empty(); ++i)
+    {
+      auto const slash = devPath.find_last_of('\\');
+      if (slash == std::string::npos)
+        break;
+      devPath.erase(slash);
+      if (IsResourcesDir(devPath + "\\data"))
+        m_resourcesDir = devPath + "\\data\\";
+    }
+  }
 #endif
+
+  // Writable directory:
+  // 1. MWM_WRITABLE_DIR environment variable override
+  // 2. Resources directory if writable (dev builds)
+  // 3. %LOCALAPPDATA%\CoMaps\ (installed builds)
+  if (char const * envDir = ::getenv("MWM_WRITABLE_DIR"))
+  {
+    m_writableDir = std::string(envDir) + "\\";
+  }
+  else if (!m_resourcesDir.empty())
+  {
+    auto const tmpFilePath = base::JoinPath(m_resourcesDir, "mapswithmetmptestfile");
+    try
+    {
+      FileWriter tmpfile(tmpFilePath);
+      tmpfile.Write("Hi from Alex!", 13);
+      m_writableDir = m_resourcesDir;
+    }
+    catch (RootException const &)
+    {
+      CHECK(GetUserWritableDir(m_writableDir), ("Can't get writable directory"));
+    }
+    FileWriter::DeleteFileX(tmpFilePath);
   }
 
-  // writable path:
-  // 1. the same as resources if we have write access to this folder
-  // 2. otherwise, use system-specific folder
-  auto const tmpFilePath = base::JoinPath(m_resourcesDir, "mapswithmetmptestfile");
-  try
-  {
-    FileWriter tmpfile(tmpFilePath);
-    tmpfile.Write("Hi from Alex!", 13);
-    m_writableDir = m_resourcesDir;
-  }
-  catch (RootException const &)
-  {
+  if (m_writableDir.empty())
     CHECK(GetUserWritableDir(m_writableDir), ("Can't get writable directory"));
-  }
-  FileWriter::DeleteFileX(tmpFilePath);
 
   m_settingsDir = m_writableDir;
   char pathBuf[MAX_PATH] = {0};
