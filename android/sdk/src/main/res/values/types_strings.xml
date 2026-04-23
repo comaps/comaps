@@ -291,16 +291,9 @@
     <string name="type_club_model_railway">Model Railway Club</string>
     <string name="type_club_model_aerodrome">Model Aerodrome Club</string>
     <string name="type_club_bicycle">Bicycle Club</string>
-    <string name="type_club_linux">Linux Club</string>
     <string name="type_club_scuba_diving">Scuba Diving Club</string>
-    <string name="type_club_card_games">Card Games Club</string>
-    <string name="type_club_baduk">Baduk Club</string>
-    <string name="type_club_photography">Photography Club</string>
     <string name="type_club_equestrian">Equestrian Club</string>
-    <string name="type_club_fan">Fan Club</string>
-    <string name="type_club_nudism">Nudist Club</string>
     <string name="type_club_hiking">Hiking Club</string>
-    <string name="type_club_doityourself">DIY Club</string>
     <string name="type_club_fraternity">Fraternity</string>
     <string name="type_club_theatre">Theatre Club</string>
     <string name="type_club_ethnic">Ethnic Club</string>
@@ -327,7 +320,6 @@
     <string name="type_club_table_tennis">Table Tennis Club</string>
     <string name="type_club_archery">Archery Club</string>
     <string name="type_club_swimming">Swimming Club</string>
-    <string name="type_club_cycling">Cycling Club</string>
     <string name="type_club_rugby">Rugby Club</string>
     <string name="type_club_gliding">Gliding Club</string>
     <string name="type_club_field_hockey">Field Hockey Club</string>

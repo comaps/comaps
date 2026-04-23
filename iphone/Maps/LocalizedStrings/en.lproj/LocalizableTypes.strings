@@ -287,14 +287,8 @@
 "type.club.model_railway" = "Model Railway Club";
 "type.club.model_aerodrome" = "Model Aerodrome Club";
 "type.club.bicycle" = "Bicycle Club";
-"type.club.linux" = "Linux Club";
 "type.club.scuba_diving" = "Scuba Diving Club";
-"type.club.card_games" = "Card Games Club";
-"type.club.baduk" = "Baduk Club";
-"type.club.photography" = "Photography Club";
 "type.club.equestrian" = "Equestrian Club";
-"type.club.fan" = "Fan Club";
-"type.club.nudism" = "Nudist Club";
 "type.club.hiking" = "Hiking Club";
 "type.club.doityourself" = "DIY Club";
 "type.club.fraternity" = "Fraternity";
@@ -323,7 +317,6 @@
 "type.club.table_tennis" = "Table Tennis Club";
 "type.club.archery" = "Archery Club";
 "type.club.swimming" = "Swimming Club";
-"type.club.cycling" = "Cycling Club";
 "type.club.rugby" = "Rugby Club";
 "type.club.gliding" = "Gliding Club";
 "type.club.field_hockey" = "Field Hockey Club";
