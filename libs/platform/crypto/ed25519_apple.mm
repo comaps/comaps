@@ -5,8 +5,8 @@
 
 namespace platform::crypto
 {
-bool VerifyEd25519(uint8_t const * pubKey, uint8_t const * msg, size_t msgSize, uint8_t const * sig)
+bool VerifyEd25519(uint8_t const * pubKey, size_t pubKeySize, uint8_t const * msg, size_t msgSize, uint8_t const * sig, size_t sigSize)
 {
-  return [Bridge verifyRegionsFileWithRawPublicKey:[NSData dataWithBytes:&pubKey length:sizeof(pubKey)] rawData:[NSData dataWithBytes:&msg length:sizeof(msg)] dataSize:msgSize rawSignature:[NSData dataWithBytes:&sig length:sizeof(sig)]];
+  return [Bridge verifyRegionsFileWithRawPublicKey:[NSData dataWithBytes:pubKey length:pubKeySize] rawData:[NSData dataWithBytes:msg length:msgSize] rawSignature:[NSData dataWithBytes:sig length:sigSize]];
 }
 } // namespace platform::crypto

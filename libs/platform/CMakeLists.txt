@@ -147,7 +147,6 @@ else() # neither iPhone nor Android
       secure_storage_qt.cpp
       socket_apple.mm
       http_session_manager.mm
-      crypto/ed25519_apple.mm
     )
   elseif(${PLATFORM_LINUX})
     append(SRC

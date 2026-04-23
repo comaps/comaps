@@ -378,9 +378,9 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
           return false;
         }
         LOG(LDEBUG, ("COUNTRIES: verifying signature."));
-        if (!platform::crypto::VerifyEd25519(countriesTxtPublicKey.data(),
+        if (!platform::crypto::VerifyEd25519(countriesTxtPublicKey.data(), countriesTxtPublicKey.size(),
                                              reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
-                                             reinterpret_cast<uint8_t const *>(sigBuf.data())))
+                                             reinterpret_cast<uint8_t const *>(sigBuf.data()), sigBuf.size()))
         {
           LOG(LWARNING, ("COUNTRIES: signature verification failed."));
           return false;
