@@ -20,6 +20,12 @@ inline void ParsePatternsList(std::string const & patternsFile, ToDo && toDo)
   std::string line;
   while (std::getline(is, line))
   {
+    // Strip Windows CRLF carriage return left by binary-mode reads.
+    if (!line.empty() && line.back() == '\r')
+      line.pop_back();
+    if (line.empty())
+      continue;
+
     buffer_vector<double, 8> pattern;
     strings::Tokenize(line, " ", [&](std::string_view token)
     {
