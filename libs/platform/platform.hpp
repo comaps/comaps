@@ -186,7 +186,11 @@ public:
 
   /// @return path for directory in the persistent memory, can be the same
   /// as WritableDir, but on some platforms it's different
-  std::string const & SettingsDir() const { return m_settingsDir; }
+  std::string const & SettingsDir() const
+  {
+    ASSERT(!m_settingsDir.empty(), ());
+    return m_settingsDir;
+  }
   void SetSettingsDir(std::string const & path);
   /// @return full path to file in the settings directory
   std::string SettingsPathForFile(std::string const & file) const;

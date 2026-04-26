@@ -36,6 +36,10 @@ struct MetalineData
 
 std::vector<MetalineData> ReadMetalinesFromFile(MwmSet::MwmId const & mwmId)
 {
+  // Bundle files (e.g. World.mwm from resources) have no on-disk path and no metalines.
+  if (mwmId.GetInfo()->GetLocalFile().IsInBundle())
+    return {};
+
   try
   {
     std::vector<MetalineData> model;
