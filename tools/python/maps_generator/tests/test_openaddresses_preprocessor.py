@@ -2,6 +2,7 @@ import importlib.util
 import io
 import os
 import unittest
+import zipfile
 
 _HERE = os.path.dirname(__file__)
 _PREPROCESSOR = os.path.normpath(
@@ -11,20 +12,22 @@ _spec = importlib.util.spec_from_file_location("openaddresses_preprocessor", _PR
 _mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 
-_double_to_uint32 = _mod._double_to_uint32
-_lat_to_y         = _mod._lat_to_y
-_perfect_shuffle  = _mod._perfect_shuffle
-_point_to_int64   = _mod._point_to_int64
-_write_string     = _mod._write_string
-_write_varint     = _mod._write_varint
-_write_varuint    = _mod._write_varuint
-_zigzag_encode    = _mod._zigzag_encode
-_COORD_BITS       = _mod._COORD_BITS
-_COORD_SIZE       = _mod._COORD_SIZE
-_MIN_X            = _mod._MIN_X
-_MAX_X            = _mod._MAX_X
-_MIN_Y            = _mod._MIN_Y
-_MAX_Y            = _mod._MAX_Y
+_double_to_uint32        = _mod._double_to_uint32
+_lat_to_y                = _mod._lat_to_y
+_perfect_shuffle         = _mod._perfect_shuffle
+_point_to_int64          = _mod._point_to_int64
+_write_string            = _mod._write_string
+_write_varint            = _mod._write_varint
+_write_varuint           = _mod._write_varuint
+_zigzag_encode           = _mod._zigzag_encode
+_find_countrywide_geojson = _mod._find_countrywide_geojson
+_build_auto_mapping      = _mod._build_auto_mapping
+_COORD_BITS              = _mod._COORD_BITS
+_COORD_SIZE              = _mod._COORD_SIZE
+_MIN_X                   = _mod._MIN_X
+_MAX_X                   = _mod._MAX_X
+_MIN_Y                   = _mod._MIN_Y
+_MAX_Y                   = _mod._MAX_Y
 
 
 
@@ -326,6 +329,75 @@ class TestRecordRoundTrip(unittest.TestCase):
         data = self._build_record("99", "King St", "K1A 0A6", -75.7, 45.4)
         rec = self._parse_record(data)
         self.assertEqual(rec["m_from"], "99")
+
+
+class TestFindCountrywideGeojson(unittest.TestCase):
+    def _make_zip(self, names):
+        buf = io.BytesIO()
+        with zipfile.ZipFile(buf, "w") as zf:
+            for name in names:
+                zf.writestr(name, b"")
+        buf.seek(0)
+        return zipfile.ZipFile(buf, "r")
+
+    def test_finds_countrywide(self):
+        zf = self._make_zip(["ca/countrywide-addresses-country.geojson", "ca/other.geojson"])
+        self.assertEqual(_find_countrywide_geojson(zf), "ca/countrywide-addresses-country.geojson")
+        zf.close()
+
+    def test_finds_countrywide_simple_name(self):
+        zf = self._make_zip(["au/countrywide.geojson"])
+        self.assertEqual(_find_countrywide_geojson(zf), "au/countrywide.geojson")
+        zf.close()
+
+    def test_ignores_nested_paths(self):
+        zf = self._make_zip(["ca/sub/countrywide.geojson", "ca/statewide.geojson"])
+        with self.assertRaises(ValueError):
+            _find_countrywide_geojson(zf)
+        zf.close()
+
+    def test_raises_when_not_found(self):
+        zf = self._make_zip(["ca/statewide.geojson", "ca/other.csv"])
+        with self.assertRaises(ValueError):
+            _find_countrywide_geojson(zf)
+        zf.close()
+
+    def test_ignores_non_geojson(self):
+        zf = self._make_zip(["ca/countrywide.csv", "ca/countrywide.zip"])
+        with self.assertRaises(ValueError):
+            _find_countrywide_geojson(zf)
+        zf.close()
+
+
+class TestBuildAutoMapping(unittest.TestCase):
+    def test_canada_bc(self):
+        mapping = _build_auto_mapping("ca/countrywide.geojson")
+        self.assertIn("BC", mapping)
+        self.assertEqual(mapping["BC"], "Canada_British Columbia")
+
+    def test_canada_all_provinces(self):
+        mapping = _build_auto_mapping("ca/countrywide.geojson")
+        for code in ("AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT"):
+            self.assertIn(code, mapping)
+
+    def test_canada_mwm_name_format(self):
+        mapping = _build_auto_mapping("ca/countrywide.geojson")
+        for mwm_name in mapping.values():
+            self.assertTrue(mwm_name.startswith("Canada_"), mwm_name)
+
+    def test_australia_vic(self):
+        mapping = _build_auto_mapping("au/countrywide.geojson")
+        self.assertIn("VIC", mapping)
+        self.assertEqual(mapping["VIC"], "Australia_Victoria")
+
+    def test_case_insensitive_country_prefix(self):
+        mapping_lower = _build_auto_mapping("ca/countrywide.geojson")
+        mapping_upper = _build_auto_mapping("CA/countrywide.geojson")
+        self.assertEqual(mapping_lower, mapping_upper)
+
+    def test_unknown_country_raises(self):
+        with self.assertRaises(ValueError):
+            _build_auto_mapping("xx/countrywide.geojson")
 
 
 if __name__ == "__main__":
