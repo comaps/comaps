@@ -154,7 +154,8 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
       if (!res.from && !res.to && res.addrsInside == 0)
       {
         ++m_stats.m_addedSingle;
-        addNode(e.m_points.front(), e.m_from + " - " + e.m_to);
+        auto const hn = (e.m_from == e.m_to) ? e.m_from : e.m_from + " - " + e.m_to;
+        addNode(e.m_points.front(), hn);
       }
       else
         ++m_stats.m_existSingle;
