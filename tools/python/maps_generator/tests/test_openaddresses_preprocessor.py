@@ -1,8 +1,6 @@
 import importlib.util
 import io
-import math
 import os
-import struct
 import unittest
 
 _HERE = os.path.dirname(__file__)
@@ -149,7 +147,7 @@ class TestLatToY(unittest.TestCase):
 
     def test_monotone(self):
         lats = [0, 10, 30, 49, 60, 80]
-        ys = [_lat_to_y(l) for l in lats]
+        ys = [_lat_to_y(lat_val) for lat_val in lats]
         for i in range(len(ys) - 1):
             self.assertLess(ys[i], ys[i + 1])
 
@@ -279,7 +277,8 @@ class TestRecordRoundTrip(unittest.TestCase):
         m_to = read_string()
         m_street = read_string()
         m_postcode = read_string()
-        interpol = data[pos[0]]; pos[0] += 1
+        interpol = data[pos[0]]
+        pos[0] += 1
         count = read_varuint()
         point = read_varint()
         return {
