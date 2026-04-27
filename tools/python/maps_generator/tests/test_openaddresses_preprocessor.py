@@ -336,10 +336,6 @@ class TestRecordRoundTrip(unittest.TestCase):
         self.assertEqual(rec["m_from"], "99")
 
 
-# ---------------------------------------------------------------------------
-# Helper: write a .poly file to a temp directory
-# ---------------------------------------------------------------------------
-
 def _write_poly(directory: str, name: str, rings: list) -> str:
     """Write a minimal .poly file and return its path.
 
