@@ -1,5 +1,6 @@
 import importlib.util
 import io
+import json
 import os
 import tempfile
 import textwrap
@@ -24,8 +25,6 @@ _write_varuint              = _mod._write_varuint
 _zigzag_encode              = _mod._zigzag_encode
 _find_countrywide_geojsons  = _mod._find_countrywide_geojsons
 _parse_poly                 = _mod._parse_poly
-_ray_cast                   = _mod._ray_cast
-_bbox                       = _mod._bbox
 _BorderIndex                = _mod._BorderIndex
 _COORD_BITS                 = _mod._COORD_BITS
 _COORD_SIZE                 = _mod._COORD_SIZE
@@ -33,7 +32,6 @@ _MIN_X                      = _mod._MIN_X
 _MAX_X                      = _mod._MAX_X
 _MIN_Y                      = _mod._MIN_Y
 _MAX_Y                      = _mod._MAX_Y
-
 
 
 class TestWriteVaruint(unittest.TestCase):
@@ -355,7 +353,6 @@ def _write_poly(directory: str, name: str, rings: list) -> str:
     return path
 
 
-# Simple unit square: (0,0)-(1,0)-(1,1)-(0,1)
 _SQUARE = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0)]
 
 
@@ -473,42 +470,6 @@ class TestParsePoly(unittest.TestCase):
         self.assertEqual(rings, [])
 
 
-class TestRayCast(unittest.TestCase):
-    def test_center_inside(self):
-        self.assertTrue(_ray_cast(0.5, 0.5, _SQUARE))
-
-    def test_outside(self):
-        self.assertFalse(_ray_cast(2.0, 2.0, _SQUARE))
-
-    def test_outside_negative(self):
-        self.assertFalse(_ray_cast(-1.0, 0.5, _SQUARE))
-
-    def test_near_edge(self):
-        self.assertTrue(_ray_cast(0.01, 0.5, _SQUARE))
-        self.assertFalse(_ray_cast(-0.01, 0.5, _SQUARE))
-
-    def test_triangle(self):
-        triangle = [(0.0, 0.0), (2.0, 0.0), (1.0, 2.0)]
-        self.assertTrue(_ray_cast(1.0, 0.5, triangle))
-        self.assertFalse(_ray_cast(0.1, 1.5, triangle))
-
-
-class TestBbox(unittest.TestCase):
-    def test_unit_square(self):
-        self.assertEqual(_bbox(_SQUARE), (0.0, 0.0, 1.0, 1.0))
-
-    def test_single_point(self):
-        self.assertEqual(_bbox([(3.0, 4.0)]), (3.0, 4.0, 3.0, 4.0))
-
-    def test_negative_coords(self):
-        ring = [(-120.0, 49.0), (-121.0, 50.0), (-119.0, 48.0)]
-        minx, miny, maxx, maxy = _bbox(ring)
-        self.assertAlmostEqual(minx, -121.0)
-        self.assertAlmostEqual(miny, 48.0)
-        self.assertAlmostEqual(maxx, -119.0)
-        self.assertAlmostEqual(maxy, 50.0)
-
-
 class TestBorderIndex(unittest.TestCase):
     def setUp(self):
         self.tmpdir = tempfile.mkdtemp()
@@ -549,6 +510,130 @@ class TestBorderIndex(unittest.TestCase):
         idx = _BorderIndex(self.tmpdir)
         result = idx.find(0.5, 0.5)
         self.assertFalse(result.endswith(".poly"))
+
+
+class TestProcess(unittest.TestCase):
+    def setUp(self):
+        self.tmpdir = tempfile.mkdtemp()
+        self.borders = tempfile.mkdtemp()
+        self.output = tempfile.mkdtemp()
+        _write_poly(self.borders, "TestRegion", [_SQUARE])
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.tmpdir)
+        shutil.rmtree(self.borders)
+        shutil.rmtree(self.output)
+
+    def _make_zip(self, features):
+        path = os.path.join(self.tmpdir, "test.zip")
+        lines = "\n".join(json.dumps(f) for f in features)
+        with zipfile.ZipFile(path, "w") as zf:
+            zf.writestr("cc/countrywide.geojson", lines)
+        return path
+
+    def _feat(self, lon, lat, number="42", street="Main St", postcode="V5K 0A1"):
+        return {
+            "type": "Feature",
+            "geometry": {"type": "Point", "coordinates": [lon, lat]},
+            "properties": {"number": number, "street": street, "postcode": postcode},
+        }
+
+    def _read_records(self, path):
+        with open(path, "rb") as fh:
+            data = fh.read()
+        pos = [0]
+        records = []
+
+        def read_varuint():
+            result = 0
+            shift = 0
+            while True:
+                b = data[pos[0]]
+                pos[0] += 1
+                result |= (b & 0x7F) << shift
+                if not (b & 0x80):
+                    break
+                shift += 7
+            return result
+
+        def read_varint():
+            v = read_varuint()
+            return (v >> 1) ^ -(v & 1)
+
+        def read_string():
+            n = read_varuint()
+            s = data[pos[0]:pos[0] + n].decode("utf-8")
+            pos[0] += n
+            return s
+
+        while pos[0] < len(data):
+            m_from = read_string()
+            m_to = read_string()
+            m_street = read_string()
+            m_postcode = read_string()
+            interpol = data[pos[0]]
+            pos[0] += 1
+            count = read_varuint()
+            point = read_varint()
+            records.append({
+                "m_from": m_from, "m_to": m_to, "m_street": m_street,
+                "m_postcode": m_postcode, "interpol": interpol,
+                "count": count, "point": point,
+            })
+        return records
+
+    def test_valid_feature_produces_record(self):
+        zip_path = self._make_zip([self._feat(0.5, 0.5)])
+        _mod.process(zip_path, self.output, self.borders)
+        out_file = os.path.join(self.output, "TestRegion.tempaddr")
+        self.assertTrue(os.path.exists(out_file))
+        records = self._read_records(out_file)
+        self.assertEqual(len(records), 1)
+        r = records[0]
+        self.assertEqual(r["m_from"], "42")
+        self.assertEqual(r["m_to"], "42")
+        self.assertEqual(r["m_street"], "Main St")
+        self.assertEqual(r["m_postcode"], "V5K 0A1")
+        self.assertEqual(r["interpol"], 0)
+        self.assertEqual(r["count"], 1)
+        self.assertEqual(r["point"], _point_to_int64(0.5, 0.5))
+
+    def test_feature_outside_region_not_written(self):
+        zip_path = self._make_zip([self._feat(5.0, 5.0)])
+        _mod.process(zip_path, self.output, self.borders)
+        self.assertEqual(os.listdir(self.output), [])
+
+    def test_incomplete_feature_skipped(self):
+        zip_path = self._make_zip([
+            self._feat(0.5, 0.5, number=""),
+            self._feat(0.5, 0.5, street=""),
+        ])
+        _mod.process(zip_path, self.output, self.borders)
+        self.assertEqual(os.listdir(self.output), [])
+
+    def test_multiple_features_same_region(self):
+        zip_path = self._make_zip([
+            self._feat(0.2, 0.2, number="1", street="A St"),
+            self._feat(0.8, 0.8, number="2", street="B Ave"),
+        ])
+        _mod.process(zip_path, self.output, self.borders)
+        out_file = os.path.join(self.output, "TestRegion.tempaddr")
+        records = self._read_records(out_file)
+        self.assertEqual(len(records), 2)
+        streets = {r["m_street"] for r in records}
+        self.assertEqual(streets, {"A St", "B Ave"})
+
+    def test_mixed_valid_and_invalid(self):
+        zip_path = self._make_zip([
+            self._feat(0.5, 0.5),
+            self._feat(5.0, 5.0),
+            self._feat(0.3, 0.3, number=""),
+        ])
+        _mod.process(zip_path, self.output, self.borders)
+        out_file = os.path.join(self.output, "TestRegion.tempaddr")
+        records = self._read_records(out_file)
+        self.assertEqual(len(records), 1)
 
 
 if __name__ == "__main__":
