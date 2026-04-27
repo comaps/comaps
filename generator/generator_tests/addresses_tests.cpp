@@ -20,17 +20,6 @@ UNIT_TEST(GenerateAddresses_AddressInfo_FormatRange)
   TEST_EQUAL(info.FormatRange(), "", ());
 }
 
-UNIT_TEST(AddressEnricher_DiscretePoint_HouseNumberLabel)
-{
-  auto makeLabel = [](std::string const & from, std::string const & to) -> std::string
-  { return (from == to) ? from : from + " - " + to; };
-
-  TEST_EQUAL(makeLabel("42", "42"), "42", ());
-  TEST_EQUAL(makeLabel("100", "100"), "100", ());
-  TEST_EQUAL(makeLabel("100", "198"), "100 - 198", ());
-  TEST_EQUAL(makeLabel("1", "99"), "1 - 99", ());
-}
-
 UNIT_TEST(AddressEnricher_GetHNRange_Alphanumeric)
 {
   using RawEntry = generator::AddressEnricher::RawEntryBase;

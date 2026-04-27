@@ -17,10 +17,12 @@ Python ray-casting fallback is used otherwise.
 import argparse
 import io
 import json
+import logging
 import math
 import os
-import sys
 import zipfile
+
+logger = logging.getLogger("maps_generator")
 
 _COORD_BITS: int = 30
 _COORD_SIZE: float = (1 << _COORD_BITS) - 1
@@ -34,10 +36,6 @@ _INTERPOL_NONE: int = 0
 
 _ADDR_EXT: str = ".tempaddr"
 
-
-# ---------------------------------------------------------------------------
-# Binary encoding helpers (unchanged)
-# ---------------------------------------------------------------------------
 
 def _write_varuint(f: io.RawIOBase, value: int) -> None:
     value = int(value) & 0xFFFFFFFFFFFFFFFF
@@ -95,10 +93,6 @@ def _point_to_int64(lon: float, lat: float) -> int:
     uy = _double_to_uint32(_lat_to_y(lat), _MIN_Y, _MAX_Y)
     return int(_perfect_shuffle((uy << 32) | ux))
 
-
-# ---------------------------------------------------------------------------
-# .poly file parsing
-# ---------------------------------------------------------------------------
 
 def _parse_poly(path: str) -> list[list[tuple[float, float]]]:
     """Parse an OSM .poly file into a list of rings.
@@ -158,10 +152,6 @@ def _ray_cast(lon: float, lat: float, ring: list[tuple[float, float]]) -> bool:
     return inside
 
 
-# ---------------------------------------------------------------------------
-# Border index
-# ---------------------------------------------------------------------------
-
 class _BorderIndex:
     """Spatial index over .poly border files for fast point-in-polygon lookup.
 
@@ -180,13 +170,12 @@ class _BorderIndex:
         self._rings: list[list[list[tuple[float, float]]]] = []
         self._bboxes: list[tuple[float, float, float, float]] = []
 
-        print(f"Loading {len(poly_files)} border polygons...", file=sys.stderr)
+        logger.info(f"Loading {len(poly_files)} border polygons...")
         for fn in poly_files:
-            mwm_name = fn[:-5]  # strip .poly
+            mwm_name = fn[:-5]
             rings = _parse_poly(os.path.join(borders_dir, fn))
             if not rings:
                 continue
-            # Use the first (outer) ring for bbox
             bb = _bbox(rings[0])
             self._names.append(mwm_name)
             self._rings.append(rings)
@@ -205,12 +194,11 @@ class _BorderIndex:
             self._strtree = STRtree(shapely_polys)
             self._shapely_polys = shapely_polys
             self._use_shapely = True
-            print("Using Shapely for spatial index.", file=sys.stderr)
+            logger.info("Using Shapely for spatial index.")
         except ImportError:
-            print(
+            logger.info(
                 "Shapely not found; using pure-Python fallback (slower). "
-                "Install shapely for better performance.",
-                file=sys.stderr,
+                "Install shapely for better performance."
             )
 
     def find(self, lon: float, lat: float) -> str | None:
@@ -231,10 +219,6 @@ class _BorderIndex:
             return None
 
 
-# ---------------------------------------------------------------------------
-# ZIP helpers
-# ---------------------------------------------------------------------------
-
 def _find_countrywide_geojsons(zf: zipfile.ZipFile) -> list[str]:
     """Return all countrywide geojson paths found in the ZIP."""
     found = []
@@ -248,10 +232,6 @@ def _find_countrywide_geojsons(zf: zipfile.ZipFile) -> list[str]:
         )
     return found
 
-
-# ---------------------------------------------------------------------------
-# Main processing
-# ---------------------------------------------------------------------------
 
 def process(
     zip_path: str,
@@ -278,7 +258,7 @@ def process(
         with zipfile.ZipFile(zip_path, "r") as zf:
             geojson_paths = _find_countrywide_geojsons(zf)
             for geojson_path in geojson_paths:
-                print(f"Processing {geojson_path}...", file=sys.stderr)
+                logger.info(f"Processing {geojson_path}...")
                 with zf.open(geojson_path) as raw:
                     for line_bytes in raw:
                         line_bytes = line_bytes.rstrip(b"\n\r")
@@ -331,14 +311,13 @@ def process(
         for f in writers.values():
             f.close()
 
-    print(
+    logger.info(
         f"Processed {total} entries: "
         f"wrote {total - skipped_incomplete - skipped_region}, "
         f"skipped incomplete: {skipped_incomplete}, "
-        f"skipped no region: {skipped_region}",
-        file=sys.stderr,
+        f"skipped no region: {skipped_region}"
     )
-    print(f"Output: {len(writers)} file(s) in {output_dir}", file=sys.stderr)
+    logger.info(f"Output: {len(writers)} file(s) in {output_dir}")
 
 
 def main() -> None:
