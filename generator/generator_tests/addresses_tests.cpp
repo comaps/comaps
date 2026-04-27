@@ -1,5 +1,6 @@
 #include "testing/testing.hpp"
 
+#include "generator/address_enricher.hpp"
 #include "generator/addresses_collector.hpp"
 
 UNIT_TEST(GenerateAddresses_AddressInfo_FormatRange)
@@ -28,4 +29,23 @@ UNIT_TEST(AddressEnricher_DiscretePoint_HouseNumberLabel)
   TEST_EQUAL(makeLabel("100", "100"), "100", ());
   TEST_EQUAL(makeLabel("100", "198"), "100 - 198", ());
   TEST_EQUAL(makeLabel("1", "99"), "1 - 99", ());
+}
+
+UNIT_TEST(AddressEnricher_GetHNRange_Alphanumeric)
+{
+  using RawEntry = generator::AddressEnricher::RawEntryBase;
+  RawEntry e;
+
+  e.m_from = "100"; e.m_to = "198";
+  TEST_NOT_EQUAL(e.GetHNRange(), RawEntry::kInvalidRange, ());
+
+  e.m_from = "1"; e.m_to = "1";
+  TEST_NOT_EQUAL(e.GetHNRange(), RawEntry::kInvalidRange, ());
+
+  e.m_from = "123A"; e.m_to = "123A";
+  TEST_NOT_EQUAL(e.GetHNRange(), RawEntry::kInvalidRange, ());
+  TEST_EQUAL(e.GetHNRange(), std::make_pair(uint64_t(123), uint64_t(123)), ());
+
+  e.m_from = "foo"; e.m_to = "bar";
+  TEST_EQUAL(e.GetHNRange(), RawEntry::kInvalidRange, ());
 }
