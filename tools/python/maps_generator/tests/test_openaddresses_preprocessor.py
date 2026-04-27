@@ -1,6 +1,8 @@
 import importlib.util
 import io
 import os
+import tempfile
+import textwrap
 import unittest
 import zipfile
 
@@ -12,22 +14,25 @@ _spec = importlib.util.spec_from_file_location("openaddresses_preprocessor", _PR
 _mod = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(_mod)
 
-_double_to_uint32        = _mod._double_to_uint32
-_lat_to_y                = _mod._lat_to_y
-_perfect_shuffle         = _mod._perfect_shuffle
-_point_to_int64          = _mod._point_to_int64
-_write_string            = _mod._write_string
-_write_varint            = _mod._write_varint
-_write_varuint           = _mod._write_varuint
-_zigzag_encode           = _mod._zigzag_encode
-_find_countrywide_geojson = _mod._find_countrywide_geojson
-_build_auto_mapping      = _mod._build_auto_mapping
-_COORD_BITS              = _mod._COORD_BITS
-_COORD_SIZE              = _mod._COORD_SIZE
-_MIN_X                   = _mod._MIN_X
-_MAX_X                   = _mod._MAX_X
-_MIN_Y                   = _mod._MIN_Y
-_MAX_Y                   = _mod._MAX_Y
+_double_to_uint32           = _mod._double_to_uint32
+_lat_to_y                   = _mod._lat_to_y
+_perfect_shuffle             = _mod._perfect_shuffle
+_point_to_int64             = _mod._point_to_int64
+_write_string               = _mod._write_string
+_write_varint               = _mod._write_varint
+_write_varuint              = _mod._write_varuint
+_zigzag_encode              = _mod._zigzag_encode
+_find_countrywide_geojsons  = _mod._find_countrywide_geojsons
+_parse_poly                 = _mod._parse_poly
+_ray_cast                   = _mod._ray_cast
+_bbox                       = _mod._bbox
+_BorderIndex                = _mod._BorderIndex
+_COORD_BITS                 = _mod._COORD_BITS
+_COORD_SIZE                 = _mod._COORD_SIZE
+_MIN_X                      = _mod._MIN_X
+_MAX_X                      = _mod._MAX_X
+_MIN_Y                      = _mod._MIN_Y
+_MAX_Y                      = _mod._MAX_Y
 
 
 
@@ -331,7 +336,34 @@ class TestRecordRoundTrip(unittest.TestCase):
         self.assertEqual(rec["m_from"], "99")
 
 
-class TestFindCountrywideGeojson(unittest.TestCase):
+# ---------------------------------------------------------------------------
+# Helper: write a .poly file to a temp directory
+# ---------------------------------------------------------------------------
+
+def _write_poly(directory: str, name: str, rings: list) -> str:
+    """Write a minimal .poly file and return its path.
+
+    rings is a list of lists of (lon, lat) tuples.  The first ring is outer;
+    subsequent rings are holes (prefixed with '!').
+    """
+    path = os.path.join(directory, name + ".poly")
+    with open(path, "w") as fh:
+        fh.write(name + "\n")
+        for i, ring in enumerate(rings):
+            prefix = "!" if i > 0 else ""
+            fh.write(f"{prefix}{i + 1}\n")
+            for lon, lat in ring:
+                fh.write(f"   {lon:.6E}   {lat:.6E}\n")
+            fh.write("END\n")
+        fh.write("END\n")
+    return path
+
+
+# Simple unit square: (0,0)-(1,0)-(1,1)-(0,1)
+_SQUARE = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0)]
+
+
+class TestFindCountrywideGeojsons(unittest.TestCase):
     def _make_zip(self, names):
         buf = io.BytesIO()
         with zipfile.ZipFile(buf, "w") as zf:
@@ -340,64 +372,187 @@ class TestFindCountrywideGeojson(unittest.TestCase):
         buf.seek(0)
         return zipfile.ZipFile(buf, "r")
 
-    def test_finds_countrywide(self):
+    def test_finds_single(self):
         zf = self._make_zip(["ca/countrywide-addresses-country.geojson", "ca/other.geojson"])
-        self.assertEqual(_find_countrywide_geojson(zf), "ca/countrywide-addresses-country.geojson")
+        result = _find_countrywide_geojsons(zf)
+        self.assertEqual(result, ["ca/countrywide-addresses-country.geojson"])
         zf.close()
 
-    def test_finds_countrywide_simple_name(self):
-        zf = self._make_zip(["au/countrywide.geojson"])
-        self.assertEqual(_find_countrywide_geojson(zf), "au/countrywide.geojson")
+    def test_finds_multiple_countries(self):
+        zf = self._make_zip(["ca/countrywide.geojson", "au/countrywide.geojson", "ca/other.csv"])
+        result = _find_countrywide_geojsons(zf)
+        self.assertIn("ca/countrywide.geojson", result)
+        self.assertIn("au/countrywide.geojson", result)
+        self.assertEqual(len(result), 2)
         zf.close()
 
     def test_ignores_nested_paths(self):
         zf = self._make_zip(["ca/sub/countrywide.geojson", "ca/statewide.geojson"])
         with self.assertRaises(ValueError):
-            _find_countrywide_geojson(zf)
+            _find_countrywide_geojsons(zf)
         zf.close()
 
     def test_raises_when_not_found(self):
         zf = self._make_zip(["ca/statewide.geojson", "ca/other.csv"])
         with self.assertRaises(ValueError):
-            _find_countrywide_geojson(zf)
+            _find_countrywide_geojsons(zf)
         zf.close()
 
     def test_ignores_non_geojson(self):
         zf = self._make_zip(["ca/countrywide.csv", "ca/countrywide.zip"])
         with self.assertRaises(ValueError):
-            _find_countrywide_geojson(zf)
+            _find_countrywide_geojsons(zf)
         zf.close()
 
 
-class TestBuildAutoMapping(unittest.TestCase):
-    def test_canada_bc(self):
-        mapping = _build_auto_mapping("ca/countrywide.geojson")
-        self.assertIn("BC", mapping)
-        self.assertEqual(mapping["BC"], "Canada_British Columbia")
+class TestParsePoly(unittest.TestCase):
+    def _write(self, content: str) -> str:
+        fd, path = tempfile.mkstemp(suffix=".poly")
+        os.write(fd, content.encode())
+        os.close(fd)
+        return path
 
-    def test_canada_all_provinces(self):
-        mapping = _build_auto_mapping("ca/countrywide.geojson")
-        for code in ("AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK", "YT"):
-            self.assertIn(code, mapping)
+    def test_single_ring(self):
+        content = textwrap.dedent("""\
+            TestRegion
+            1
+               0.0   0.0
+               1.0   0.0
+               1.0   1.0
+               0.0   1.0
+            END
+            END
+        """)
+        path = self._write(content)
+        rings = _parse_poly(path)
+        os.unlink(path)
+        self.assertEqual(len(rings), 1)
+        self.assertEqual(len(rings[0]), 4)
+        self.assertAlmostEqual(rings[0][0][0], 0.0)
+        self.assertAlmostEqual(rings[0][0][1], 0.0)
 
-    def test_canada_mwm_name_format(self):
-        mapping = _build_auto_mapping("ca/countrywide.geojson")
-        for mwm_name in mapping.values():
-            self.assertTrue(mwm_name.startswith("Canada_"), mwm_name)
+    def test_scientific_notation(self):
+        content = textwrap.dedent("""\
+            TestRegion
+            1
+               -1.208514E+02   4.900030E+01
+               -1.208608E+02   4.900030E+01
+            END
+            END
+        """)
+        path = self._write(content)
+        rings = _parse_poly(path)
+        os.unlink(path)
+        self.assertEqual(len(rings), 1)
+        self.assertAlmostEqual(rings[0][0][0], -120.8514, places=3)
+        self.assertAlmostEqual(rings[0][0][1], 49.0003, places=3)
 
-    def test_australia_vic(self):
-        mapping = _build_auto_mapping("au/countrywide.geojson")
-        self.assertIn("VIC", mapping)
-        self.assertEqual(mapping["VIC"], "Australia_Victoria")
+    def test_multiple_rings(self):
+        content = textwrap.dedent("""\
+            TestRegion
+            1
+               0.0   0.0
+               1.0   0.0
+               1.0   1.0
+            END
+            !2
+               0.2   0.2
+               0.8   0.2
+               0.8   0.8
+            END
+            END
+        """)
+        path = self._write(content)
+        rings = _parse_poly(path)
+        os.unlink(path)
+        self.assertEqual(len(rings), 2)
+        self.assertEqual(len(rings[0]), 3)
+        self.assertEqual(len(rings[1]), 3)
 
-    def test_case_insensitive_country_prefix(self):
-        mapping_lower = _build_auto_mapping("ca/countrywide.geojson")
-        mapping_upper = _build_auto_mapping("CA/countrywide.geojson")
-        self.assertEqual(mapping_lower, mapping_upper)
+    def test_empty_file_returns_no_rings(self):
+        content = "TestRegion\nEND\n"
+        path = self._write(content)
+        rings = _parse_poly(path)
+        os.unlink(path)
+        self.assertEqual(rings, [])
 
-    def test_unknown_country_raises(self):
-        with self.assertRaises(ValueError):
-            _build_auto_mapping("xx/countrywide.geojson")
+
+class TestRayCast(unittest.TestCase):
+    def test_center_inside(self):
+        self.assertTrue(_ray_cast(0.5, 0.5, _SQUARE))
+
+    def test_outside(self):
+        self.assertFalse(_ray_cast(2.0, 2.0, _SQUARE))
+
+    def test_outside_negative(self):
+        self.assertFalse(_ray_cast(-1.0, 0.5, _SQUARE))
+
+    def test_near_edge(self):
+        self.assertTrue(_ray_cast(0.01, 0.5, _SQUARE))
+        self.assertFalse(_ray_cast(-0.01, 0.5, _SQUARE))
+
+    def test_triangle(self):
+        triangle = [(0.0, 0.0), (2.0, 0.0), (1.0, 2.0)]
+        self.assertTrue(_ray_cast(1.0, 0.5, triangle))
+        self.assertFalse(_ray_cast(0.1, 1.5, triangle))
+
+
+class TestBbox(unittest.TestCase):
+    def test_unit_square(self):
+        self.assertEqual(_bbox(_SQUARE), (0.0, 0.0, 1.0, 1.0))
+
+    def test_single_point(self):
+        self.assertEqual(_bbox([(3.0, 4.0)]), (3.0, 4.0, 3.0, 4.0))
+
+    def test_negative_coords(self):
+        ring = [(-120.0, 49.0), (-121.0, 50.0), (-119.0, 48.0)]
+        minx, miny, maxx, maxy = _bbox(ring)
+        self.assertAlmostEqual(minx, -121.0)
+        self.assertAlmostEqual(miny, 48.0)
+        self.assertAlmostEqual(maxx, -119.0)
+        self.assertAlmostEqual(maxy, 50.0)
+
+
+class TestBorderIndex(unittest.TestCase):
+    def setUp(self):
+        self.tmpdir = tempfile.mkdtemp()
+        # Region A: unit square (0,0)-(1,1)
+        _write_poly(self.tmpdir, "RegionA", [_SQUARE])
+        # Region B: unit square (2,0)-(3,1)
+        _write_poly(self.tmpdir, "RegionB", [[(2.0, 0.0), (3.0, 0.0), (3.0, 1.0), (2.0, 1.0)]])
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.tmpdir)
+
+    def test_point_in_region_a(self):
+        idx = _BorderIndex(self.tmpdir)
+        self.assertEqual(idx.find(0.5, 0.5), "RegionA")
+
+    def test_point_in_region_b(self):
+        idx = _BorderIndex(self.tmpdir)
+        self.assertEqual(idx.find(2.5, 0.5), "RegionB")
+
+    def test_point_outside_all(self):
+        idx = _BorderIndex(self.tmpdir)
+        self.assertIsNone(idx.find(5.0, 5.0))
+
+    def test_point_between_regions(self):
+        idx = _BorderIndex(self.tmpdir)
+        self.assertIsNone(idx.find(1.5, 0.5))
+
+    def test_no_poly_files_raises(self):
+        empty = tempfile.mkdtemp()
+        try:
+            with self.assertRaises(ValueError):
+                _BorderIndex(empty)
+        finally:
+            os.rmdir(empty)
+
+    def test_mwm_name_strips_poly_extension(self):
+        idx = _BorderIndex(self.tmpdir)
+        result = idx.find(0.5, 0.5)
+        self.assertFalse(result.endswith(".poly"))
 
 
 if __name__ == "__main__":
