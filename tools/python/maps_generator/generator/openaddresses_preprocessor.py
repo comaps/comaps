@@ -10,8 +10,7 @@ Usage:
     python3 openaddresses_preprocessor.py <zip_file> <output_dir> --borders-dir <path>
 
 The borders directory should contain the .poly files from the CoMaps repository
-(data/borders/).  Shapely is used for spatial operations if available; a pure
-Python ray-casting fallback is used otherwise.
+(data/borders/).  Shapely is required for spatial operations.
 """
 
 import argparse
@@ -21,6 +20,9 @@ import logging
 import math
 import os
 import zipfile
+
+from shapely.geometry import Point, Polygon
+from shapely.strtree import STRtree
 
 logger = logging.getLogger("maps_generator")
 
@@ -108,16 +110,13 @@ def _parse_poly(path: str) -> list[list[tuple[float, float]]]:
         for i, line in enumerate(fh):
             stripped = line.strip()
             if i == 0:
-                # region name header — skip
                 continue
             if stripped == "END":
                 if current is not None:
                     rings.append(current)
                     current = None
-                # final END closes the file
                 continue
-            if stripped.lstrip("!").isdigit():
-                # ring index line (e.g. "1", "!2") — start a new ring
+            if stripped.lstrip("!").isdigit():  # "!N" = hole ring
                 current = []
                 continue
             if current is not None and stripped:
@@ -132,32 +131,8 @@ def _parse_poly(path: str) -> list[list[tuple[float, float]]]:
     return rings
 
 
-def _bbox(ring: list[tuple[float, float]]) -> tuple[float, float, float, float]:
-    lons = [p[0] for p in ring]
-    lats = [p[1] for p in ring]
-    return (min(lons), min(lats), max(lons), max(lats))
-
-
-def _ray_cast(lon: float, lat: float, ring: list[tuple[float, float]]) -> bool:
-    """Ray-casting point-in-polygon test."""
-    inside = False
-    n = len(ring)
-    j = n - 1
-    for i in range(n):
-        xi, yi = ring[i]
-        xj, yj = ring[j]
-        if ((yi > lat) != (yj > lat)) and (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi):
-            inside = not inside
-        j = i
-    return inside
-
-
 class _BorderIndex:
-    """Spatial index over .poly border files for fast point-in-polygon lookup.
-
-    Uses Shapely + STRtree when available; falls back to bounding-box
-    pre-filtering + pure-Python ray-casting otherwise.
-    """
+    """Spatial index over .poly border files for point-in-polygon lookup."""
 
     def __init__(self, borders_dir: str) -> None:
         poly_files = [
@@ -167,56 +142,27 @@ class _BorderIndex:
             raise ValueError(f"No .poly files found in {borders_dir}")
 
         self._names: list[str] = []
-        self._rings: list[list[list[tuple[float, float]]]] = []
-        self._bboxes: list[tuple[float, float, float, float]] = []
+        self._polys: list[Polygon] = []
 
         logger.info(f"Loading {len(poly_files)} border polygons...")
         for fn in poly_files:
-            mwm_name = fn[:-5]
             rings = _parse_poly(os.path.join(borders_dir, fn))
             if not rings:
                 continue
-            bb = _bbox(rings[0])
-            self._names.append(mwm_name)
-            self._rings.append(rings)
-            self._bboxes.append(bb)
+            outer = rings[0]
+            holes = rings[1:] if len(rings) > 1 else []
+            self._names.append(fn[:-5])
+            self._polys.append(Polygon(outer, holes))
 
-        self._use_shapely = False
-        try:
-            from shapely.geometry import Point, Polygon
-            from shapely.strtree import STRtree
-
-            shapely_polys = []
-            for rings in self._rings:
-                outer = rings[0]
-                holes = rings[1:] if len(rings) > 1 else []
-                shapely_polys.append(Polygon(outer, holes))
-            self._strtree = STRtree(shapely_polys)
-            self._shapely_polys = shapely_polys
-            self._use_shapely = True
-            logger.info("Using Shapely for spatial index.")
-        except ImportError:
-            logger.info(
-                "Shapely not found; using pure-Python fallback (slower). "
-                "Install shapely for better performance."
-            )
+        self._strtree = STRtree(self._polys)
 
     def find(self, lon: float, lat: float) -> str | None:
         """Return the MWM name for the region containing (lon, lat), or None."""
-        if self._use_shapely:
-            from shapely.geometry import Point
-            pt = Point(lon, lat)
-            candidates = self._strtree.query(pt)
-            for idx in candidates:
-                if self._shapely_polys[idx].contains(pt):
-                    return self._names[idx]
-            return None
-        else:
-            for i, (minx, miny, maxx, maxy) in enumerate(self._bboxes):
-                if minx <= lon <= maxx and miny <= lat <= maxy:
-                    if _ray_cast(lon, lat, self._rings[i][0]):
-                        return self._names[i]
-            return None
+        pt = Point(lon, lat)
+        for idx in self._strtree.query(pt):
+            if self._polys[idx].contains(pt):
+                return self._names[idx]
+        return None
 
 
 def _find_countrywide_geojsons(zf: zipfile.ZipFile) -> list[str]:
