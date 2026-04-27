@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-"""Converts an OpenAddresses ZIP to CoMaps .tempaddr address files."""
+"""Converts an OpenAddresses ZIP to CoMaps .tempaddr address files.
+
+Each address is assigned to a MWM region by point-in-polygon lookup against
+the .poly border files in the CoMaps borders directory.  This correctly handles
+countries where provinces/states are split into multiple MWM regions (e.g.
+Canada_British_Columbia_Vancouver vs Canada_British_Columbia_Northeast).
+
+Usage:
+    python3 openaddresses_preprocessor.py <zip_file> <output_dir> --borders-dir <path>
+
+The borders directory should contain the .poly files from the CoMaps repository
+(data/borders/).  Shapely is used for spatial operations if available; a pure
+Python ray-casting fallback is used otherwise.
+"""
 
 import argparse
 import io
@@ -21,6 +34,10 @@ _INTERPOL_NONE: int = 0
 
 _ADDR_EXT: str = ".tempaddr"
 
+
+# ---------------------------------------------------------------------------
+# Binary encoding helpers (unchanged)
+# ---------------------------------------------------------------------------
 
 def _write_varuint(f: io.RawIOBase, value: int) -> None:
     value = int(value) & 0xFFFFFFFFFFFFFFFF
@@ -74,106 +91,184 @@ def _perfect_shuffle(x: int) -> int:
 
 
 def _point_to_int64(lon: float, lat: float) -> int:
-    ux = _double_to_uint32(lon,           _MIN_X, _MAX_X)
+    ux = _double_to_uint32(lon,            _MIN_X, _MAX_X)
     uy = _double_to_uint32(_lat_to_y(lat), _MIN_Y, _MAX_Y)
     return int(_perfect_shuffle((uy << 32) | ux))
 
 
-def _collect_mwm_names(countries_txt: str) -> list[str]:
-    with open(countries_txt, encoding="utf-8") as f:
-        root = json.load(f)
-    names: list[str] = []
-    stack = [root]
-    while stack:
-        node = stack.pop()
-        if isinstance(node, dict):
-            n = node.get("id", "")
-            if n:
-                names.append(n)
-            v = node.get("g", node.get("v", []))
-            if isinstance(v, list):
-                stack.extend(v)
-        elif isinstance(node, list):
-            stack.extend(node)
-    return names
+# ---------------------------------------------------------------------------
+# .poly file parsing
+# ---------------------------------------------------------------------------
+
+def _parse_poly(path: str) -> list[list[tuple[float, float]]]:
+    """Parse an OSM .poly file into a list of rings.
+
+    Each ring is a list of (lon, lat) tuples.  Rings whose index line starts
+    with '!' are holes and are returned as-is (callers decide how to handle
+    them; for point-in-polygon purposes holes are ignored — a point inside a
+    hole is still inside the outer polygon for MWM assignment).
+    """
+    rings: list[list[tuple[float, float]]] = []
+    current: list[tuple[float, float]] | None = None
+    with open(path, encoding="utf-8") as fh:
+        for i, line in enumerate(fh):
+            stripped = line.strip()
+            if i == 0:
+                # region name header — skip
+                continue
+            if stripped == "END":
+                if current is not None:
+                    rings.append(current)
+                    current = None
+                # final END closes the file
+                continue
+            if stripped.lstrip("!").isdigit():
+                # ring index line (e.g. "1", "!2") — start a new ring
+                current = []
+                continue
+            if current is not None and stripped:
+                parts = stripped.split()
+                if len(parts) >= 2:
+                    try:
+                        lon = float(parts[0])
+                        lat = float(parts[1])
+                        current.append((lon, lat))
+                    except ValueError:
+                        pass
+    return rings
 
 
-def _find_countrywide_geojson(zf: zipfile.ZipFile) -> str:
+def _bbox(ring: list[tuple[float, float]]) -> tuple[float, float, float, float]:
+    lons = [p[0] for p in ring]
+    lats = [p[1] for p in ring]
+    return (min(lons), min(lats), max(lons), max(lats))
+
+
+def _ray_cast(lon: float, lat: float, ring: list[tuple[float, float]]) -> bool:
+    """Ray-casting point-in-polygon test."""
+    inside = False
+    n = len(ring)
+    j = n - 1
+    for i in range(n):
+        xi, yi = ring[i]
+        xj, yj = ring[j]
+        if ((yi > lat) != (yj > lat)) and (lon < (xj - xi) * (lat - yi) / (yj - yi) + xi):
+            inside = not inside
+        j = i
+    return inside
+
+
+# ---------------------------------------------------------------------------
+# Border index
+# ---------------------------------------------------------------------------
+
+class _BorderIndex:
+    """Spatial index over .poly border files for fast point-in-polygon lookup.
+
+    Uses Shapely + STRtree when available; falls back to bounding-box
+    pre-filtering + pure-Python ray-casting otherwise.
+    """
+
+    def __init__(self, borders_dir: str) -> None:
+        poly_files = [
+            f for f in os.listdir(borders_dir) if f.endswith(".poly")
+        ]
+        if not poly_files:
+            raise ValueError(f"No .poly files found in {borders_dir}")
+
+        self._names: list[str] = []
+        self._rings: list[list[list[tuple[float, float]]]] = []
+        self._bboxes: list[tuple[float, float, float, float]] = []
+
+        print(f"Loading {len(poly_files)} border polygons...", file=sys.stderr)
+        for fn in poly_files:
+            mwm_name = fn[:-5]  # strip .poly
+            rings = _parse_poly(os.path.join(borders_dir, fn))
+            if not rings:
+                continue
+            # Use the first (outer) ring for bbox
+            bb = _bbox(rings[0])
+            self._names.append(mwm_name)
+            self._rings.append(rings)
+            self._bboxes.append(bb)
+
+        self._use_shapely = False
+        try:
+            from shapely.geometry import Point, Polygon
+            from shapely.strtree import STRtree
+
+            shapely_polys = []
+            for rings in self._rings:
+                outer = rings[0]
+                holes = rings[1:] if len(rings) > 1 else []
+                shapely_polys.append(Polygon(outer, holes))
+            self._strtree = STRtree(shapely_polys)
+            self._shapely_polys = shapely_polys
+            self._use_shapely = True
+            print("Using Shapely for spatial index.", file=sys.stderr)
+        except ImportError:
+            print(
+                "Shapely not found; using pure-Python fallback (slower). "
+                "Install shapely for better performance.",
+                file=sys.stderr,
+            )
+
+    def find(self, lon: float, lat: float) -> str | None:
+        """Return the MWM name for the region containing (lon, lat), or None."""
+        if self._use_shapely:
+            from shapely.geometry import Point
+            pt = Point(lon, lat)
+            candidates = self._strtree.query(pt)
+            for idx in candidates:
+                if self._shapely_polys[idx].contains(pt):
+                    return self._names[idx]
+            return None
+        else:
+            for i, (minx, miny, maxx, maxy) in enumerate(self._bboxes):
+                if minx <= lon <= maxx and miny <= lat <= maxy:
+                    if _ray_cast(lon, lat, self._rings[i][0]):
+                        return self._names[i]
+            return None
+
+
+# ---------------------------------------------------------------------------
+# ZIP helpers
+# ---------------------------------------------------------------------------
+
+def _find_countrywide_geojsons(zf: zipfile.ZipFile) -> list[str]:
+    """Return all countrywide geojson paths found in the ZIP."""
+    found = []
     for name in zf.namelist():
         parts = name.split("/")
         if len(parts) == 2 and "countrywide" in parts[1] and parts[1].endswith(".geojson"):
-            return name
-    raise ValueError(
-        "No countrywide geojson found in ZIP (expected <cc>/countrywide*.geojson). "
-        "Use --mapping to specify 'geojson_path' and 'region_to_mwm_prefix' manually."
-    )
-
-
-def _build_auto_mapping(geojson_path: str) -> dict[str, str]:
-    try:
-        import pycountry
-    except ImportError as exc:
-        raise ImportError(
-            "pycountry is required for automatic region mapping. "
-            "Install it (`pip install pycountry`) or use --mapping."
-        ) from exc
-    country_code = geojson_path.split("/")[0].upper()
-    country = pycountry.countries.get(alpha_2=country_code)
-    if country is None:
+            found.append(name)
+    if not found:
         raise ValueError(
-            f"Cannot determine country from geojson path '{geojson_path}'. Use --mapping."
+            "No countrywide geojson found in ZIP (expected <cc>/countrywide*.geojson)."
         )
-    subdivisions = pycountry.subdivisions.get(country_code=country_code)
-    if not subdivisions:
-        raise ValueError(
-            f"No ISO 3166-2 subdivisions found for '{country_code}'. Use --mapping."
-        )
-    return {
-        s.code.split("-", 1)[1]: f"{country.name}_{s.name}"
-        for s in subdivisions
-    }
+    return found
 
 
-def _build_region_mwm_map(
-    region_to_mwm_prefix: dict[str, str],
-    countries_txt: str | None,
-) -> dict[str, list[str]]:
-    if countries_txt is not None:
-        all_names = _collect_mwm_names(countries_txt)
-    else:
-        all_names = None
-
-    result: dict[str, list[str]] = {}
-    for region, prefix in region_to_mwm_prefix.items():
-        if all_names is None:
-            result[region] = [prefix]
-        else:
-            matches = [
-                n for n in all_names
-                if n == prefix or n.startswith(prefix + "_")
-            ]
-            result[region] = matches if matches else [prefix]
-    return result
-
+# ---------------------------------------------------------------------------
+# Main processing
+# ---------------------------------------------------------------------------
 
 def process(
     zip_path: str,
     output_dir: str,
-    mapping: dict | None = None,
-    countries_txt: str | None = None,
+    borders_dir: str,
 ) -> None:
     os.makedirs(output_dir, exist_ok=True)
 
+    index = _BorderIndex(borders_dir)
+
     writers: dict[str, io.BufferedWriter] = {}
 
-    def get_writers(mwm_names: list[str]) -> list[io.BufferedWriter]:
-        result = []
-        for name in mwm_names:
-            if name not in writers:
-                path = os.path.join(output_dir, name + _ADDR_EXT)
-                writers[name] = open(path, "wb")
-            result.append(writers[name])
-        return result
+    def get_writer(mwm_name: str) -> io.BufferedWriter:
+        if mwm_name not in writers:
+            path = os.path.join(output_dir, mwm_name + _ADDR_EXT)
+            writers[mwm_name] = open(path, "wb")
+        return writers[mwm_name]
 
     total = 0
     skipped_incomplete = 0
@@ -181,65 +276,56 @@ def process(
 
     try:
         with zipfile.ZipFile(zip_path, "r") as zf:
-            if mapping is not None:
-                geojson_path: str = mapping["geojson_path"]
-                region_to_mwm_prefix: dict[str, str] = mapping["region_to_mwm_prefix"]
-            else:
-                geojson_path = _find_countrywide_geojson(zf)
-                region_to_mwm_prefix = _build_auto_mapping(geojson_path)
+            geojson_paths = _find_countrywide_geojsons(zf)
+            for geojson_path in geojson_paths:
+                print(f"Processing {geojson_path}...", file=sys.stderr)
+                with zf.open(geojson_path) as raw:
+                    for line_bytes in raw:
+                        line_bytes = line_bytes.rstrip(b"\n\r")
+                        if not line_bytes:
+                            continue
+                        total += 1
 
-            region_to_mwms = _build_region_mwm_map(region_to_mwm_prefix, countries_txt)
+                        try:
+                            feat = json.loads(line_bytes)
+                        except json.JSONDecodeError:
+                            skipped_incomplete += 1
+                            continue
 
-            with zf.open(geojson_path) as raw:
-                for line_bytes in raw:
-                    line_bytes = line_bytes.rstrip(b"\n\r")
-                    if not line_bytes:
-                        continue
-                    total += 1
+                        props = feat.get("properties", {})
+                        number   = props.get("number",   "").strip()
+                        street   = props.get("street",   "").strip()
+                        postcode = props.get("postcode", "").strip()
 
-                    try:
-                        feat = json.loads(line_bytes)
-                    except json.JSONDecodeError:
-                        skipped_incomplete += 1
-                        continue
+                        if not number or not street:
+                            skipped_incomplete += 1
+                            continue
 
-                    props = feat.get("properties", {})
-                    number   = props.get("number",   "").strip()
-                    street   = props.get("street",   "").strip()
-                    postcode = props.get("postcode", "").strip()
-                    region   = props.get("region",   "").strip().upper()
+                        geom = feat.get("geometry") or {}
+                        coords = geom.get("coordinates")
+                        if not coords or len(coords) < 2:
+                            skipped_incomplete += 1
+                            continue
 
-                    if not number or not street:
-                        skipped_incomplete += 1
-                        continue
+                        lon, lat = float(coords[0]), float(coords[1])
 
-                    geom = feat.get("geometry") or {}
-                    coords = geom.get("coordinates")
-                    if not coords or len(coords) < 2:
-                        skipped_incomplete += 1
-                        continue
+                        mwm_name = index.find(lon, lat)
+                        if mwm_name is None:
+                            skipped_region += 1
+                            continue
 
-                    mwm_names = region_to_mwms.get(region)
-                    if mwm_names is None:
-                        skipped_region += 1
-                        continue
+                        ipoint = _point_to_int64(lon, lat)
 
-                    lon, lat = float(coords[0]), float(coords[1])
-                    ipoint = _point_to_int64(lon, lat)
+                        buf = io.BytesIO()
+                        _write_string(buf, number)
+                        _write_string(buf, number)
+                        _write_string(buf, street)
+                        _write_string(buf, postcode)
+                        buf.write(bytes([_INTERPOL_NONE]))
+                        _write_varuint(buf, 1)
+                        _write_varint(buf, ipoint)
 
-                    record = bytearray()
-                    buf = io.BytesIO()
-                    _write_string(buf, number)
-                    _write_string(buf, number)
-                    _write_string(buf, street)
-                    _write_string(buf, postcode)
-                    buf.write(bytes([_INTERPOL_NONE]))
-                    _write_varuint(buf, 1)
-                    _write_varint(buf, ipoint)
-                    record = buf.getvalue()
-
-                    for f in get_writers(mwm_names):
-                        f.write(record)
+                        get_writer(mwm_name).write(buf.getvalue())
 
     finally:
         for f in writers.values():
@@ -249,7 +335,7 @@ def process(
         f"Processed {total} entries: "
         f"wrote {total - skipped_incomplete - skipped_region}, "
         f"skipped incomplete: {skipped_incomplete}, "
-        f"skipped unknown region: {skipped_region}",
+        f"skipped no region: {skipped_region}",
         file=sys.stderr,
     )
     print(f"Output: {len(writers)} file(s) in {output_dir}", file=sys.stderr)
@@ -257,25 +343,27 @@ def process(
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Convert an OpenAddresses ZIP to CoMaps .tempaddr files"
+        description=(
+            "Convert an OpenAddresses collection ZIP to CoMaps .tempaddr files. "
+            "Addresses are assigned to MWM regions via point-in-polygon lookup "
+            "against the CoMaps .poly border files."
+        )
     )
-    parser.add_argument("zip_file", help="Path to OpenAddresses collection ZIP (e.g. collection-ca.zip)")
-    parser.add_argument("output_dir", help="Output directory for .tempaddr files (set as ADDRESSES_PATH)")
     parser.add_argument(
-        "--mapping",
-        help=(
-            "Path to a JSON mapping file with 'geojson_path' and 'region_to_mwm_prefix' keys. "
-            "If omitted, the countrywide geojson is auto-detected from the ZIP and regions are "
-            "derived from ISO 3166-2 subdivisions via pycountry."
-        ),
+        "zip_file",
+        help="Path to OpenAddresses collection ZIP (e.g. collection-ca.zip)",
     )
-    parser.add_argument("--countries-txt", help="Path to countries.txt to generate per-sub-region files")
+    parser.add_argument(
+        "output_dir",
+        help="Output directory for .tempaddr files (set as ADDRESSES_PATH in the generator)",
+    )
+    parser.add_argument(
+        "--borders-dir",
+        required=True,
+        help="Path to directory containing CoMaps .poly border files (data/borders/)",
+    )
     args = parser.parse_args()
-    mapping = None
-    if args.mapping:
-        with open(args.mapping, encoding="utf-8") as f:
-            mapping = json.load(f)
-    process(args.zip_file, args.output_dir, mapping, args.countries_txt)
+    process(args.zip_file, args.output_dir, args.borders_dir)
 
 
 if __name__ == "__main__":
