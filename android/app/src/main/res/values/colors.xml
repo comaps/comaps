@@ -49,6 +49,7 @@
   <color name="white_54">#8AFFFFFF</color> <!-- 54% black -->
   <color name="white_60">#99FFFFFF</color> <!-- 60% white -->
   <color name="dark_gray">#8B000000</color>
+  <color name="medium_gray">#C0C0C0</color>
   <color name="light_gray">#F5F5F5</color>
   <color name="extended_green">#3C8C3C</color>
 

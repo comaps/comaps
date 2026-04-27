@@ -379,6 +379,7 @@ If you are low on RAM, disk space or traffic there are ways to reduce system req
 Android Studio has issues in parsing the C++ part of the project, please let us know if you know how to resolve it. As a workaround, for working C++ suggestions, you may use:
 
 - [Qt Creator](https://www.qt.io/product/development-tools), see [setup/usage instructions](QT_CREATOR.md)
+- [Eclipse](https://eclipseide.org/), see [setup/usage instructions](ECLIPSE.md)
 - [Xcode](https://developer.apple.com/xcode/)
 - [CLion](https://www.jetbrains.com/clion/)
 

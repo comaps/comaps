@@ -935,4 +935,6 @@
     <string name="stop">Zastávka</string>
     <string name="charge_socket_type1_combo">Typ 1 combo</string>
     <string name="population">Počet obyvatel: %s</string>
+    <string name="setting_value_system_default">Podle systému</string>
+    <string name="change_app_locale">Jazyk aplikace</string>
 </resources>

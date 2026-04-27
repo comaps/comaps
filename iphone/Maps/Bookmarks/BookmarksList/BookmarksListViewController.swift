@@ -23,6 +23,9 @@ final class BookmarksListViewController: MWMViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+      
+    tableView.sectionFooterHeight = .leastNormalMagnitude
+    tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNormalMagnitude))
 
     let toolbarItemAttributes = [NSAttributedString.Key.font: UIFont.medium16(),
                                  NSAttributedString.Key.foregroundColor: UIColor.linkBlue()]
@@ -63,6 +66,7 @@ final class BookmarksListViewController: MWMViewController {
   override func viewDidLayoutSubviews() {
     super.viewDidLayoutSubviews()
     updateInfoSize()
+    updateTableViewInsets()
   }
 
   private func updateInfoSize() {
@@ -85,6 +89,13 @@ final class BookmarksListViewController: MWMViewController {
   override func setEditing(_ editing: Bool, animated: Bool) {
     super.setEditing(editing, animated: animated)
     tableView.setEditing(editing, animated: animated)
+  }
+    
+  private func updateTableViewInsets() {
+    let keyboardHeight = MWMKeyboard.keyboardHeight()
+    let bottomInset = keyboardHeight > 0 ? keyboardHeight : toolBar.bounds.height
+    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: bottomInset, right: 0)
+    tableView.scrollIndicatorInsets = tableView.contentInset
   }
 }
 
@@ -266,7 +277,6 @@ extension BookmarksListViewController: BookmarksListInfoViewControllerDelegate {
 
 extension BookmarksListViewController: MWMKeyboardObserver {
   func onKeyboardAnimation() {
-    let keyboardHeight = MWMKeyboard.keyboardHeight();
-    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+    updateTableViewInsets()
   }
 }

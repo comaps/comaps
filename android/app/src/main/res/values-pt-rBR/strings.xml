@@ -119,7 +119,7 @@
     <!-- Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! -->
     <string name="category_nightlife">Vida noturna</string>
     <!-- Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! -->
-    <string name="category_children">Feriados em família</string>
+    <string name="category_children">Passeio em família</string>
     <!-- Search category for banks; any changes should be duplicated in categories.txt @category_bank! -->
     <string name="category_bank">Banco</string>
     <!-- Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! -->
@@ -147,7 +147,7 @@
     <!-- message title of loading file -->
     <string name="load_kmz_title">Carregando favoritos</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou na tela de gestão dos favoritos.</string>
+    <string name="load_kmz_successful">Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou no gestor de favoritos.</string>
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">Falha ao carregar Favoritos. O arquivo pode estar corrompido ou com defeito.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
@@ -165,7 +165,7 @@
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Veja onde estou agora. Abra o link: %1$s ou %2$s Não tem mapas offline instalados? Baixe aqui: https://www.comaps.app/download/</string>
     <!-- Subject for emailed position -->
-    <string name="my_position_share_email_subject">Veja no mapa a minha localização atual via CoMaps!</string>
+    <string name="my_position_share_email_subject">Veja a minha localização atual no mapa CoMaps!</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Compartilhar</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -594,7 +594,7 @@
     <string name="others_sorttype">Outros</string>
     <!-- SECTION: Bookmark types used for sorting -->
     <string name="food_places">Comida</string>
-    <string name="tourist_places">Pontos turíticos</string>
+    <string name="tourist_places">Atrações</string>
     <string name="museums">Museus</string>
     <string name="parks">Parques</string>
     <string name="swim_places">Natação</string>
@@ -914,4 +914,6 @@
     <string name="charge_socket_type1_combo">Tipo 1 combo</string>
     <string name="route_recalculating">Recalculando rota…</string>
     <string name="population">População: %s</string>
+    <string name="setting_value_system_default">Padrão do sistema</string>
+    <string name="change_app_locale">Idioma do app</string>
 </resources>

@@ -222,7 +222,6 @@
 
 /* 6.2 Natural labels */
 
-@water_label: #207A8F;
 @park_label: #3A7921;
 @halo_park_label: #FFFFFF;
 
@@ -245,7 +244,8 @@
 @hotel_label: #54413B;
 @sport_label: #459177;
 @nature_label: #40662A;
-@water_label: #06829E;
+@water_label: #14697F;
+@water_light_label: #06829E;
 @neutral_label: #494F54;
 @healthcare_label: #A6454B;
 @public_transport_label: #234B73;

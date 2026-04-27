@@ -1280,7 +1280,7 @@
     <string name="type.junction.circular">Kruhový objezd</string>
     <string name="type.area_highway.cycleway">Cyklostezka</string>
     <string name="type.landuse.commercial">Komerční zóna</string>
-    <string name="type.organic.only">Přírodní</string>
+    <string name="type.organic.only">Pouze přírodní</string>
     <string name="type.railway.abandoned">Zaniklá železnice</string>
     <string name="type.landuse.education">Vzdělávací zařízení</string>
     <string name="type.sport.bowls">Bowls</string>
@@ -1296,7 +1296,7 @@
     <string name="type.man_made.silo">Silo</string>
     <string name="type.man_made.survey_point">Topografický bod</string>
     <string name="type.shop.supermarket">Supermarket</string>
-    <string name="type.organic.yes">Přírodní</string>
+    <string name="type.organic.yes">Přírodní volby</string>
     <string name="type.railway.tram">Tramvajová trať</string>
     <string name="type.railway.light_rail.tunnel">Tunel lehké železnice</string>
     <string name="type.railway.funicular.tunnel">Tunel pozemní lanové dráhy</string>
@@ -1514,4 +1514,5 @@
     <string name="type.sport.boules">Koulové sporty</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Sportovní centrum</string>
     <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Žádné přírodní volby</string>
 </resources>

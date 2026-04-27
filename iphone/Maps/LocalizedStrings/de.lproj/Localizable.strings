@@ -179,9 +179,9 @@
 /* Settings «Route» category: «Tts announce street names» description */
 "pref_tts_street_names_description" = "Wenn aktiviert, wird der Name der Straße oder Ausfahrt, in die abgebogen werden soll, laut angekündigt.";
 /* Settings «Route» category: «Tts language» title */
-"pref_tts_language_title" = "Sprache der Sprachführung";
+"pref_tts_language_title" = "Sprache";
 /* Settings «Route» category: «Test Voice Directions» title */
-"pref_tts_test_voice_title" = "Teste die Sprachanweisungen";
+"pref_tts_test_voice_title" = "Sprachanweisungen testen";
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Weitere";
 "pref_map_auto_zoom" = "Auto-Zoom";
@@ -240,7 +240,7 @@
 /* Alert title */
 "email_error_title" = "Fehler beim E-Mail-Versand";
 /* Toast text when user hides UI with a long tap anywhere on the map */
-"long_tap_toast" = "Tippe erneut lange auf die Karte, um die Benutzeroberfläche wiederzusehen";
+"long_tap_toast" = "Tippe erneut lange auf die Karte, um die Benutzeroberfläche anzuzeigen";
 /* Update all button text */
 "downloader_update_all_button" = "Alle Karten aktualisieren";
 /* Downloaded maps list header */
@@ -782,7 +782,7 @@
 /* App tip #05 */
 "app_tip_05" = "Wusstest du, dass du deinen aktuellen Standort auf der Karte auswählen kannst?";
 /* App tip #06 */
-"app_tip_06" = "Du kannst dabei helfen, unsere App in deiner Sprache zu übersetzen.";
+"app_tip_06" = "Du kannst dabei helfen, unsere App in deine Sprache zu übersetzen.";
 /* App tip #07 */
 "app_tip_07" = "Unsere App wird von einigen Enthusiasten und der Community entwickelt.";
 /* App tip #08 */

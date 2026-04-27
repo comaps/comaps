@@ -57,7 +57,7 @@
     <string name="blue_gray">Gris azulado</string>
     <!-- SECTION: Strings for downloading map from search -->
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Datos de OpenStreetMap creados por la comunidad a partir de %s. Obtenga más información sobre cómo editar y actualizar el mapa en OpenStreetMap.org</string>
+    <string name="osm_presentation">Datos de OpenStreetMap creados por la comunidad a fecha de %s. Obtenga más información sobre cómo editar y actualizar el mapa en OpenStreetMap.org</string>
     <string name="placepage_add_place_button">Agregar lugar a OpenStreetMap</string>
     <string name="transliteration_title">Transliteración al alfabeto latino</string>
     <string name="dialog_error_storage_title">Problema de acceso al almacenamiento</string>

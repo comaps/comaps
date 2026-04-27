@@ -1,5 +1,7 @@
 #pragma once
 
+#include <boost/algorithm/hex.hpp>
+
 #include "storage/country.hpp"
 #include "storage/country_name_getter.hpp"
 #include "storage/country_tree.hpp"
@@ -176,6 +178,46 @@ private:
 
   CountryTree m_countries;
 
+  std::string m_pendingCountriesBuffer;
+  int64_t m_pendingCountriesVersion = 0;
+  bool m_hasPendingCountries = false;
+
+  inline bool IsIdleForCountriesApply() const
+  {
+    return m_downloader->GetQueue().IsEmpty() && m_downloadingCountries.empty() && m_diffsBeingApplied.empty();
+  }
+  inline bool IsInitialResourcesDownloadRequired() const
+  {
+    std::vector<platform::CountryFile> missing;
+    return (GetForceDownloadWorlds(missing) == WorldStatus::READY) && !missing.empty();
+  }
+
+  inline bool DecodeHex32(std::string_view hex, std::array<uint8_t, 32> & out)
+  {
+    if (hex.size() != 64)
+      return false;
+
+    try
+    {
+      boost::algorithm::unhex(hex.begin(), hex.end(), out.begin());
+      return true;
+    }
+    catch (boost::algorithm::non_hex_input const &)
+    {
+      return false;
+    }
+    catch (boost::algorithm::not_enough_input const &)
+    {
+      return false;
+    }
+  }
+
+  void ApplyCountriesInMemory(std::string const & buffer);
+  void ApplyPendingCountriesIfAny();
+  void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
+  /// @return 0 If error.
+  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer) const;
+
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
   /// Note. This set is necessary for implementation of downloading progress of
@@ -252,6 +294,8 @@ private:
   Affiliations m_affiliations;
   CountryNameSynonyms m_countryNameSynonyms;
 
+  std::string m_mapSeries = "";
+
   /// @todo This containers are empty for now, but probably will be used in future.
   /// @{
   MwmTopCityGeoIds m_mwmTopCityGeoIds;
@@ -321,6 +365,7 @@ public:
   int64_t ParseIndexAndGetDataVersion(std::string const & index) const;
   void ApplyCountries(std::string const & countriesBuffer, Storage & storage);
   /// @}
+  void RunCountriesCheckAsyncSaveOnly();
 
   /// \brief Returns root country id of the country tree.
   CountryId const GetRootId() const;

@@ -1,0 +1,5 @@
+"search" = "සෙවීම";
+"bookmarks_and_tracks" = "Favorites";
+"route" = "Route";
+NSLocationAlwaysUsageDescription = "Detecting location in the background is necessary to fully enjoy the functionality of the app. It is used for navigation and saving your recently traveled track.";
+NSLocationWhenInUseUsageDescription = "Determining your location is necessary for navigation and for saving your recently traveled track.";

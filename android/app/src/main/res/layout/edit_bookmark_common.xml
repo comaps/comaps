@@ -88,6 +88,7 @@
   <com.google.android.material.textfield.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/margin_base"
     android:layout_marginEnd="@dimen/margin_half"
     android:layout_marginStart="@dimen/margin_half"
     android:layout_below="@id/rl__bookmark_set"
@@ -99,8 +100,9 @@
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:padding="@dimen/margin_half_double_plus"
       android:inputType="textMultiLine"
-      android:textAlignment="viewStart" />
+      android:textAlignment="viewStart"
+      android:gravity="top|start"
+      android:lines="5" />
   </com.google.android.material.textfield.TextInputLayout>
 </RelativeLayout>

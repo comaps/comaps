@@ -741,7 +741,7 @@
     <string name="type.office.government">Vladina kancelarija</string>
     <string name="type.office.insurance">Osiguranje</string>
     <string name="type.office.lawyer">Адвокат</string>
-    <string name="type.office.ngo">NVO</string>
+    <string name="type.office.ngo">Невладина организација</string>
     <string name="type.office.telecommunication">Mobilni operater</string>
     <string name="type.organic.only">Само органско</string>
     <string name="type.organic.yes">Органска храна</string>

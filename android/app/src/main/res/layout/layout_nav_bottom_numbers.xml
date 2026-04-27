@@ -15,11 +15,9 @@
 
   <!-- ETA (Estimated Time of Arrival) -->
   <LinearLayout
-    android:id="@+id/eta_view_container"
+    android:id="@+id/eta_container"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:clickable="true"
-    android:focusable="true"
     android:orientation="vertical"
     android:gravity="center"
     android:minWidth="@dimen/nav_numbers_side_min_width">
@@ -28,7 +26,6 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:clickable="false"
       tools:background="#20FF0000">
 
       <!-- ETA value -->
@@ -48,7 +45,6 @@
         android:layout_height="wrap_content"
         android:includeFontPadding="false"
         android:lines="1"
-        android:clickable="false"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
         tools:background="#20FF0000"
         tools:text="AM/PM"/>
@@ -59,26 +55,25 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:orientation="horizontal"
-      android:clickable="false"
       tools:background="#20FF0000">
 
       <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/eta_icon"
         android:layout_width="18dp"
         android:layout_height="18dp"
-        android:clickable="false"
         app:srcCompat="@drawable/route_point_finish"/>
 
       <com.google.android.material.textview.MaterialTextView
         android:id="@+id/eta_destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="fill"
         android:includeFontPadding="false"
         android:lines="1"
-        android:clickable="false"
         android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
         tools:background="#20FF0000"
         tools:text="@string/destination"/>
+
     </LinearLayout>
   </LinearLayout>
 
@@ -146,15 +141,30 @@
         tools:text="m"/>
     </LinearLayout>
 
-    <com.google.android.material.textview.MaterialTextView
-      android:id="@+id/routing_state"
+    <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:includeFontPadding="false"
-      android:lines="1"
-      android:textAlignment="center"
-      android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
-      tools:text="----"/>
+      android:orientation="horizontal"
+      tools:background="#20FF0000">
+
+      <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/dots_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/switch_dots_on"/>
+
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/routing_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:clickable="false"
+        android:lines="1"
+        android:textAlignment="center"
+        android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"
+        tools:text="----"/>
+
+    </LinearLayout>
   </LinearLayout>
 
   <Space
@@ -164,7 +174,7 @@
 
   <!-- Distance -->
   <LinearLayout
-    android:id="@+id/distance_view_container"
+    android:id="@+id/distance_container"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -184,6 +194,7 @@
       android:id="@+id/distance_dimen"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:gravity="center"
       android:includeFontPadding="false"
       android:lines="1"
       android:textAppearance="@style/MwmTextAppearance.NavMenu.Number.Dimension"

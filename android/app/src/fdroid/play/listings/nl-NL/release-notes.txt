@@ -1,10 +1,10 @@
-• OpenStreetMap-gegevens per 5 april
-• Wandelen-stijl: prominentere wegen met contrasterende randen
-• Sport toegevoegd: pickleball
-• Beschikbaarheid van biologische opties toegevoegd bij plaatsen zoals restaurants en supermarkten
-• Bomen(rijen) duidelijker zichtbaar in wandelen-stijl
-• Verbeterde ondersteuning voor RTL-talen
-• Specifieke weglabels toegevoegd in Argentinië, Uruguay en Bolivia; dubbele labels verwijderd
-• Enkele sporadische crashes opgelost
+• OpenStreetMap-gegevens per 21 april
+• Taalinstelling voor gebruikersinterface toegevoegd
+• Android Auto: snelheidslimiet weergeven tijdens navigatie
+• Android Auto: gebruik standaardachtergrondkleuren i.p.v. aangepast groen
+• Mogelijkheid om in het navigatiepaneel te wisselen tussen volgende stop en eindbestemming
+• Enkele bugs in de gesproken instructies opgelost
+• Diverse UI-verbeteringen
+• Waterlabels met meer contrast in lichte modus
 
 Meer details op comaps.app/latest

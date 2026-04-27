@@ -63,10 +63,12 @@
       android:id="@+id/edit_description"
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:hint="@string/placepage_personal_notes_hint"
-      android:minHeight="@dimen/height_item_multiline"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:inputType="textMultiLine"/>
+      android:inputType="textMultiLine"
+      android:gravity="top|start"
+      android:textAlignment="viewStart"
+      android:lines="5"/>
     </com.google.android.material.textfield.TextInputLayout>
     <View
       android:layout_width="match_parent"

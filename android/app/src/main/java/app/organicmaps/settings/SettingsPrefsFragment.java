@@ -19,6 +19,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.os.LocaleListCompat;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.MultiSelectListPreference;
@@ -30,7 +32,7 @@ import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.dialog.CustomMapServerDialog;
 import app.organicmaps.downloader.OnmapDownloader;
-import app.organicmaps.editor.LanguagesFragment;
+import app.organicmaps.editor.MapLanguagesFragment;
 import app.organicmaps.editor.ProfileActivity;
 import app.organicmaps.leftbutton.LeftButton;
 import app.organicmaps.leftbutton.LeftButtonsHolder;
@@ -58,7 +60,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements LanguagesFragment.Listener
+public class SettingsPrefsFragment extends BaseXmlSettingsFragment
+    implements MapLanguagesFragment.Listener, AppLanguagesFragment.Listener
 {
   @Override
   protected int getXmlResources()
@@ -172,6 +175,21 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     }
   }
 
+  private void updateAppLanguageCodeSummary()
+  {
+    final Preference pref = getPreference(getString(R.string.pref_app_locale));
+    pref.setVisible(true);
+    LocaleListCompat appLocales = AppCompatDelegate.getApplicationLocales();
+    Locale currentLocale = appLocales.get(0);
+    if (appLocales.isEmpty())
+    {
+      pref.setSummary(getString(R.string.setting_value_system_default));
+    } else if (currentLocale != null)
+    {
+      pref.setSummary(currentLocale.getDisplayLanguage());
+    }
+  }
+
   private void updateTrafficHttpUrlSummary()
   {
     final Preference pref = getPreference(getString(R.string.pref_traffic_http_url));
@@ -239,6 +257,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
     updateVoiceInstructionsPrefsSummary();
     updateRoutingSettingsPrefsSummary();
     updateMapLanguageCodeSummary();
+    updateAppLanguageCodeSummary();
     updateTrafficHttpUrlSummary();
     updateTrafficAppsSummary();
   }
@@ -260,9 +279,24 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
       }
       else if (key.equals(getString(R.string.pref_map_locale)))
       {
-        LanguagesFragment langFragment = (LanguagesFragment) getSettingsActivity().stackFragment(
-            LanguagesFragment.class, getString(R.string.change_map_locale), null);
+        MapLanguagesFragment langFragment = (MapLanguagesFragment) getSettingsActivity().stackFragment(
+            MapLanguagesFragment.class, getString(R.string.change_map_locale), null);
         langFragment.setListener(this);
+      }
+      else if (key.equals(getString(R.string.pref_app_locale)))
+      {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU)
+        {
+          Intent intent = new Intent(Settings.ACTION_APP_LOCALE_SETTINGS);
+          intent.setData(Uri.fromParts("package", requireContext().getPackageName(), null));
+          startActivity(intent);
+        }
+        else
+        {
+          AppLanguagesFragment langFragment = (AppLanguagesFragment) getSettingsActivity().stackFragment(
+              AppLanguagesFragment.class, getString(R.string.change_app_locale), null);
+          langFragment.setListener(this);
+        }
       }
       else if (key.equals(getString(R.string.pref_backup)))
       {
@@ -759,9 +793,15 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment implements La
   }
 
   @Override
-  public void onLanguageSelected(Language language)
+  public void onMapLanguageSelected(Language language)
   {
     MapLanguageCode.setMapLanguageCode(language.code);
+    getSettingsActivity().onBackPressed();
+  }
+
+  @Override
+  public void onAppLanguageSelected()
+  {
     getSettingsActivity().onBackPressed();
   }
 

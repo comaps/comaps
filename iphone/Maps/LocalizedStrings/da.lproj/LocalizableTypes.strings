@@ -520,7 +520,7 @@
 "type.highway.residential.bridge" = "Bro";
 /* These translations are used for all type.highway.*.tunnel. */
 "type.highway.residential.tunnel" = "Tunnel";
-"type.highway.rest_area" = "Holdeplads";
+"type.highway.rest_area" = "Rasteplads";
 "type.highway.road" = "Vej";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.road.bridge" = "Bro";
@@ -734,13 +734,13 @@
 "type.leisure.sports_centre.sport.bowls" = "Sportscenter";
 "type.leisure.sports_centre.sport.climbing" = "Klatrehal";
 "type.leisure.sports_centre.sport.cricket" = "Sportscenter";
-"type.leisure.sports_centre.sport.curling" = "Sports Centre";
-"type.leisure.sports_centre.sport.equestrian" = "Sports Centre";
-"type.leisure.sports_centre.sport.field_hockey" = "Sports Centre";
-"type.leisure.sports_centre.sport.futsal" = "Sports Centre";
+"type.leisure.sports_centre.sport.curling" = "Sportscenter";
+"type.leisure.sports_centre.sport.equestrian" = "Sportscenter";
+"type.leisure.sports_centre.sport.field_hockey" = "Sportscenter";
+"type.leisure.sports_centre.sport.futsal" = "Sportscenter";
 "type.leisure.sports_centre.sport.golf" = "Golfcenter";
 "type.leisure.sports_centre.sport.gymnastics" = "Gymnastikcenter";
-"type.leisure.sports_centre.sport.handball" = "Sports Centre";
+"type.leisure.sports_centre.sport.handball" = "Sportscenter";
 "type.leisure.sports_centre.sport.ice_hockey" = "Sports Centre";
 "type.leisure.sports_centre.sport.padel" = "Padelcenter";
 "type.leisure.sports_centre.sport.pelota" = "Sports Centre";
@@ -1323,7 +1323,7 @@
 "type.shop.agrarian" = "Landbrugsbutik";
 "type.shop.antiques" = "Antikvitetsbutik";
 "type.shop.appliance" = "Hvidevareforretning";
-"type.shop.water" = "Water Shop";
+"type.shop.water" = "Vandbutik";
 /* maybe change to Art Gallery for en-US when supported */
 "type.shop.art" = "Kunsthandler";
 "type.shop.baby_goods" = "Børnebutik";
@@ -1397,8 +1397,8 @@
 "type.tourism.artwork.painting" = "Kunstværk";
 "type.tourism.artwork.sculpture" = "Skulptur";
 "type.tourism.artwork.statue" = "Statue";
-"type.tourism.attraction" = "Attraktioner";
-"type.attraction" = "Attraction";
+"type.tourism.attraction" = "Turistattraktion";
+"type.attraction" = "Attraktion";
 "type.attraction.amusement_ride" = "Forlystelse";
 "type.attraction.animal" = "Indhegning til dyr";
 "type.attraction.bumper_car" = "Radiobil";
@@ -1509,9 +1509,9 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Sportshal";
 "type.xmas.tree" = "Juletræ";
-"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
+"type.leisure.sports_centre.sport.four_square" = "Sportscenter";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Sports Centre";
+"type.leisure.sports_centre.sport.boules" = "Sportscenter";
 "type.sport.pickleball" = "Pickleball";
-"type.leisure.sports_centre.sport.pickleball" = "Sports Centre";
+"type.leisure.sports_centre.sport.pickleball" = "Sportscenter";

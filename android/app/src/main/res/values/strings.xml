@@ -727,6 +727,7 @@
     <string name="sort_bookmarks">Sort Favorites</string>
     <!-- Android -->
     <string name="by_default">By default</string>
+    <string name="setting_value_system_default">System default</string>
     <!-- Android -->
     <string name="by_type">By type</string>
     <!-- Android -->
@@ -793,6 +794,8 @@
     <string name="enable_show_on_lock_screen_description">When enabled, the app will work on the lockscreen even when the device is locked.</string>
     <!-- Current language of the map -->
     <string name="change_map_locale">Map language</string>
+    <!-- Current language of the app -->
+    <string name="change_app_locale">App language</string>
     <!-- Enable live traffic data via HTTP (title) -->
     <string name="traffic_http_enabled">Enable live traffic data</string>
     <!-- Enable live traffic data via HTTP (description) -->

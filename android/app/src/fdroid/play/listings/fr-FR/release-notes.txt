@@ -1,9 +1,9 @@
-• Données OpenStreetMap du 5 Avril
-• Style de carte randonnée : les routes ressortent mieux grâce à des bordures contrastées
-• Ajout du sport pickleball
-• Affichage de la disponibilité des options bio, pour les points d'intérêt de type restaurants ou supermarchés
-• Meilleure visibilité des arbres dans le style randonnée
-• Ajout des panneaux routiers de l'Argentine, l'Uruguay, la Bolivie, et supression des doublons
-• Correction de plusieurs crashes
+• Données OpenStreetMap du 21 Avril
+• Ajout du choix de langage de l'interface
+• Android Auto : montrer la limite de vitesse en mode navigation
+• Android Auto : utilisation des couleurs de fond standard au lieu d'un vert spécial
+• Possibilité de commuter entre le prochain arrêt et l'arrêt final sur les infos de navigation
+• Correction de bugs sur la navigation audio
+• Diverses modifications d'interface et autres corrections
 
 Plus de détails sur comaps.app/latest

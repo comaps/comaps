@@ -503,6 +503,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     mMapButtonsViewModel.getLayoutMode().observe(this, this::initNavigationButtons);
 
     mSearchController = new FloatingSearchToolbarController(this, this);
+    mSearchController.getToolbar().setBackground(ContextCompat.getDrawable(this, R.drawable.bg_search_radius));
     mSearchController.getToolbar().getViewTreeObserver();
 
     // Note: You must call registerForActivityResult() before the fragment or activity is created.

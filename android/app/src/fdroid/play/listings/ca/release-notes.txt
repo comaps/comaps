@@ -1,0 +1,9 @@
+• Dades d'OpenStreetMap a data del 21 d'abril
+• Addició de configuració del llenguatge de la interfície
+• Android Auto: mostra el límit de velocitat durant la navegació
+• Android Auto: utilitza els colors de fons estàndard en lloc del verd personalitzat
+• El panell de navegació permet alternar entre informació de la següent parada i de la destinació final
+• Correcció d'errors de la navegació per veu
+• Etiquetes d'aigua amb més contrast en el mode clar
+
+Més detalls a comaps.app/latest

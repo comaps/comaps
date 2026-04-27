@@ -943,4 +943,6 @@
     <string name="my_position_share_email">Sigue este enlace %1$s o pega estas coordenadas %2$s en tu aplicación de mapas para ver mi ubicación.</string>
     <string name="charge_socket_type1_combo">Tipo 1 combo</string>
     <string name="population">Población: %s</string>
+    <string name="setting_value_system_default">Configuración predeterminada del sistema</string>
+    <string name="change_app_locale">Idioma de la aplicación</string>
 </resources>

@@ -929,4 +929,6 @@
     <string name="editor_business_vacant_button">Forretning står tom</string>
     <string name="editor_mark_business_vacant_title">Merk forretning som tom</string>
     <string name="editor_mark_business_vacant_description">Bruk dette hvis forretningen er flyttet ut, og lokalet står tomt og klar for en ny leietaker.</string>
+    <string name="change_app_locale">Språk i appen</string>
+    <string name="setting_value_system_default">Systemstandard</string>
 </resources>

@@ -1,10 +1,10 @@
-• Dados OSM de 5/4
-• Estilo Ar Livre: estradas mais visíveis com bordas contrastantes
-• Adição de pickleball
-• Adição de informação de opções orgânicas para restaurantes e supermercados
-• Maior visibilidade de fileiras de árvores e árvores no estilo Ar Livre
-• Melhor suporte a idiomas direita-esquerda em diversas telas
-• Adição de placas para Argentina, Uruguai e Bolívia e remoção de placas duplicadas
-• Correção de diversos travamentos intermitentes
+• Dados OSM de 21/04
+• Adição de configuração de idioma dentro do app
+• Android Auto: exibição de limite de velocidade durante a navegação
+• Android Auto: uso de cores de fundo padrão em vez de verde personalizado
+• Adição de botão para alternar entre informações da próxima parada e do destino final
+• Correção de diversos bugs na navegação por voz
+• Vários ajustes e correções na interface do usuário
+• Nomes de corpos d'água com maior contraste no modo claro
 
 Mais detalhes em comaps.app/latest

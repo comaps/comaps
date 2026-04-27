@@ -111,7 +111,7 @@ public class RoutingErrorDialogFragment extends BaseRoutingErrorDialogFragment
     MapManagerHelper.warnOn3g(requireActivity(), size, () -> {
       final FragmentManager manager = requireActivity().getSupportFragmentManager();
       RoutingMapsDownloadFragment downloader =
-          RoutingMapsDownloadFragment.create(manager.getFragmentFactory(), getAppContextOrThrow(), mMapsArray);
+          RoutingMapsDownloadFragment.create(manager.getFragmentFactory(), requireContext(), mMapsArray);
       downloader.show(manager, downloader.getClass().getSimpleName());
       mCancelled = false;
       dismiss();

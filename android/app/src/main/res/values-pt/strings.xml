@@ -930,4 +930,6 @@
     <string name="route_recalculating">Recalculando rota…</string>
     <string name="charge_socket_type1_combo">Tipo 1 combo</string>
     <string name="population">População: %s</string>
+    <string name="setting_value_system_default">Predefinição do Sistema</string>
+    <string name="change_app_locale">Idioma da Aplicação</string>
 </resources>

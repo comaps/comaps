@@ -434,11 +434,11 @@ class Env:
 
         Version.write(self.build_path, self.planet_version)
 
-        self.min_compat_app_v = self.get_min_compat_app_v()
+        self.min_compat_app_v = self.get_map_series()
         if self.min_compat_app_v:
-            logger.info(f"Minimum compatible app version: {self.min_compat_app_v}")
+            logger.info(f"Map series: {self.min_compat_app_v}")
         else:
-            logger.warning("Minimum compatible app version is not set!")
+            logger.warning("Map series is not set!")
 
         self.setup_borders()
         self.setup_osm2ft()
@@ -577,17 +577,17 @@ class Env:
         return build_osmtools(settings.OSM_TOOLS_SRC_PATH)
 
     @staticmethod
-    def get_min_compat_app_v() -> AnyStr:
+    def get_map_series() -> AnyStr:
         # the line format is
-        #define MIN_COMPAT_APP_V "2026.02.09-4"
+        #define MAP_SERIES "2026.02.09"
         try:
             with open(os.path.join(settings.OMIM_PATH, 'private.h'), 'r') as f:
                 lines = f.readlines()
                 for line in lines:
-                    if "MIN_COMPAT_APP_V" in line:
+                    if "MAP_SERIES" in line:
                         return line.split('"')[1]
         except Exception as e:
-            logger.error(f"Error parsing private.h for MIN_COMPAT_APP_V: {e}")
+            logger.error(f"Error parsing private.h for MAP_SERIES: {e}")
         return ''
 
 

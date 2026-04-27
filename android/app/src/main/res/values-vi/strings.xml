@@ -23,11 +23,11 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Tìm kiếm Bản đồ</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">Bạn hiện đang tắt tất cả Dịch vụ Định vị cho thiết bị hoặc ứng dụng này. Bạn vui lòng bật lại chúng trong Thiết lập.</string>
+    <string name="location_is_disabled_long_text">Bạn hiện đang tắt tất cả Dịch vụ Vị trí cho thiết bị hoặc ứng dụng này. Vui lòng bật lại chúng trong Cài đặt.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="limited_accuracy">Độ chính xác hạn chế</string>
+    <string name="limited_accuracy">Độ chính xác bị hạn chế</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
-    <string name="precise_location_is_disabled_long_text">Để đảm bảo điều hướng chính xác, bật vị trí chính xác trong cài đặt.</string>
+    <string name="precise_location_is_disabled_long_text">Để đảm bảo điều hướng chính xác, bật Vị trí Chính xác trong cài đặt</string>
     <!-- View and button titles for accessibility -->
     <string name="zoom_to_country">Hiển thị trên bản đồ</string>
     <!-- Message to display at the center of the screen when the country download has failed -->
@@ -36,13 +36,13 @@
     <string name="try_again">Thử lại</string>
     <string name="about_menu_title">Giới thiệu về CoMaps</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_1">• Không có quảng cáo, không theo dõi, không thu thập dữ liệu</string>
+    <string name="about_proposition_1">• Dễ sử dụng và chỉn chu</string>
     <!-- Text in About screen -->
-    <string name="about_proposition_2">• Không hao pin, hoạt động offline</string>
+    <string name="about_proposition_2">• Chú trọng quyền riêng tư và không quảng cáo</string>
     <!-- Text in About screen -->
     <string name="about_proposition_3">• Ngoại tuyến, nhanh chóng và nhỏ gọn</string>
     <!-- Text in About screen -->
-    <string name="about_developed_by_enthusiasts">Ứng dụng nguồn mở được tạo bởi những người đam mê và tình nguyện viên.</string>
+    <string name="about_developed_by_enthusiasts">Mã nguồn mở hoàn toàn, phi lợi nhuận, minh bạch trong việc ra quyết định và tài chính.</string>
     <!-- The button that opens system location settings -->
     <string name="location_settings">Cài đặt vị trí</string>
     <string name="close">Đóng</string>
@@ -62,15 +62,15 @@
     <!-- REMOVE THIS STRING AFTER REFACTORING -->
     <string name="continue_button">Tiếp tục</string>
     <!-- Show popup notification on top of the map when country download has failed. -->
-    <string name="download_country_failed">%s</string>
+    <string name="download_country_failed">Tải xuống %s thất bại</string>
     <!-- "Add new bookmark list" dialog title -->
-    <string name="add_new_set">Thêm Bộ Mới</string>
+    <string name="add_new_set">Thêm một danh sách mới</string>
     <!-- Add Bookmark list dialog - hint when the list name is empty -->
-    <string name="bookmark_set_name">Đánh dấu Tên Bộ</string>
+    <string name="bookmark_set_name">Tên danh sách</string>
     <!-- Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. -->
-    <string name="bookmarks">Đánh dấu</string>
+    <string name="bookmarks">Địa điểm</string>
     <!-- "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt -->
-    <string name="bookmarks_and_tracks">Đánh dấu và dấu vết</string>
+    <string name="bookmarks_and_tracks">Ưa thích</string>
     <!-- Add bookmark dialog - bookmark name -->
     <string name="name">Tên</string>
     <!-- Editor title above street and house number, duplicates [type.building.address] in types_strings.txt -->
@@ -78,13 +78,13 @@
     <!-- Add Bookmark dialog/Bookmark list; Bookmarks dialog/Bookmark list cell. -->
     <string name="list">Danh sách</string>
     <!-- Settings button in system menu -->
-    <string name="settings">Thiết lập</string>
+    <string name="settings">Cài đặt</string>
     <!-- Header of settings activity where user defines storage path -->
     <string name="maps_storage">Lưu bản đồ vào</string>
     <!-- Detailed description of Maps Storage settings button -->
-    <string name="maps_storage_summary">Chọn vị trí nơi bản đồ sẽ được tải về</string>
+    <string name="maps_storage_summary">Chọn thư mục để tải bản đồ về</string>
     <!-- E.g. "Downloaded maps: 500Mb" in Maps Storage settings -->
-    <string name="maps_storage_downloaded">Bản đồ</string>
+    <string name="maps_storage_downloaded">Bản đồ đã tải xuống</string>
     <!-- Question dialog for transferring maps from one storage to another -->
     <string name="move_maps">Di chuyển bản đồ?</string>
     <!-- Ask user to wait several minutes (some long process in modal dialog). -->
@@ -99,11 +99,11 @@
     <!-- Search category for grocery stores; any changes should be duplicated in categories.txt @category_food! -->
     <string name="category_food">Cửa hàng tạp hóa</string>
     <!-- Search category for public transport; any changes should be duplicated in categories.txt @category_transport! -->
-    <string name="category_transport">Giao thông</string>
+    <string name="category_transport">Phương tiện công cộng</string>
     <!-- Search category for fuel stations; any changes should be duplicated in categories.txt @category_fuel! -->
-    <string name="category_fuel">Khí đốt</string>
+    <string name="category_fuel">Xăng dầu</string>
     <!-- Search category for parking lots; any changes should be duplicated in categories.txt @category_parking! -->
-    <string name="category_parking">đỗ xe</string>
+    <string name="category_parking">Nơi đỗ xe</string>
     <!-- Search category for malls/clothes/shoes/gifts/jewellery/sport shops; any changes should be duplicated in categories.txt @category_shopping! -->
     <string name="category_shopping">Đi mua sắm</string>
     <!-- Search category for second_hand/charity/antique/auction shops; any changes should be duplicated in categories.txt @category_secondhand! -->
@@ -111,7 +111,7 @@
     <!-- Search category for places to stay; any changes should be duplicated in categories.txt @category_hotel! -->
     <string name="category_hotel">Khách sạn</string>
     <!-- Search category sight seeings and touristic attractions; any changes should be duplicated in categories.txt @category_tourism! -->
-    <string name="category_tourism">Diểm tham quan</string>
+    <string name="category_tourism">Điểm tham quan</string>
     <!-- Search category for entertainment; any changes should be duplicated in categories.txt @category_entertainment! -->
     <string name="category_entertainment">Giải trí</string>
     <!-- Search category for ATMs; any changes should be duplicated in categories.txt @category_atm! -->
@@ -137,18 +137,18 @@
     <!-- Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type -->
     <string name="category_water">Nước</string>
     <!-- Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! -->
-    <string name="category_rv">Đối với RV</string>
+    <string name="category_rv">Dịch vụ hỗ trợ xe RV</string>
     <!-- SECTION: Other translations -->
     <!-- Notes field in Bookmarks view -->
     <string name="description">Ghi chú</string>
     <!-- Email Subject when sharing bookmark list -->
-    <string name="share_bookmarks_email_subject">Điểm đánh dấu CoMaps được chia sẻ</string>
+    <string name="share_bookmarks_email_subject">Điểm CoMaps Ưa thích của tôi</string>
     <!-- message title of loading file -->
-    <string name="load_kmz_title">Tải Điểm đánh dấu</string>
+    <string name="load_kmz_title">Đang tải Ưa thích</string>
     <!-- Kmz file successful loading -->
-    <string name="load_kmz_successful">Đã tải điểm đánh dấu thành công! Bạn có thể tìm chúng trên bản đồ hoặc màn hình Trình quản lý Điểm đánh dấu.</string>
+    <string name="load_kmz_successful">Đã tải Ưa thích thành công! Bạn có thể tìm chúng trên bản đồ hoặc trên màn hình Quản lý Ưa thích.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Không tải lên được điểm đánh dấu. Tập tin có thể bị hỏng hoặc lỗi.</string>
+    <string name="load_kmz_failed">Không tải được Ưa thích. Tập tin có thể bị hỏng hoặc lỗi.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Loại tệp không được ứng dụng nhận dạng: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -158,13 +158,13 @@
     <!-- Warning message when doing search around current position -->
     <string name="unknown_current_position">Chưa xác định được vị trí của bạn</string>
     <!-- Alert message that we can't run Map Storage settings due to some reasons. -->
-    <string name="cant_change_this_setting">Rất tiếc, cài đặt Lưu trữ Bản đồ hiện đã bị tắt.</string>
+    <string name="cant_change_this_setting">Rất tiếc, cài đặt Lưu trữ Bản đồ hiện đã bị tắt</string>
     <!-- Alert message that downloading is in progress. -->
-    <string name="downloading_is_active">Hiện đang tải xuống quốc gia.</string>
+    <string name="downloading_is_active">Đang tải xuống bản đồ</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
     <string name="my_position_share_sms">Này, hãy xem vị trí hiện tại của tôi tại CoMaps! %1$s hoặc %2$s Bạn không có bản đồ ngoại tuyến? Tải xuống tại đây: https://www.comaps.app/download/</string>
     <!-- Subject for emailed position -->
-    <string name="my_position_share_email_subject">Này, hãy xem vị trí hiện tại của tôi tại CoMaps map!</string>
+    <string name="my_position_share_email_subject">Này, hãy xem vị trí hiện tại của tôi trên ứng dụng CoMaps!</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
     <string name="share">Chia sẻ</string>
     <!-- Share by email button text, also used in editor and About. -->
@@ -176,13 +176,13 @@
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
     <string name="data_version">Dữ liệu OpenStreetMap: %s</string>
     <!-- Title for tracks category in bookmarks manager -->
-    <string name="tracks_title">Dấu vết</string>
+    <string name="tracks_title">Hành trình</string>
     <!-- Length of track in cell that describes route -->
     <string name="length">Độ dài</string>
     <string name="share_my_location">Chia sẻ Vị trí của tôi</string>
-    <string name="prefs_group_route">Điều hướng</string>
-    <string name="pref_zoom_title">Nút Phóng to/Thu nhỏ</string>
-    <string name="pref_zoom_summary">Hiển thị trên màn hình</string>
+    <string name="prefs_group_route">Chỉ đường</string>
+    <string name="pref_zoom_title">Nút thu phóng</string>
+    <string name="pref_zoom_summary">Hiển thị trên bản đồ</string>
     <!-- Settings «Map» category: «Night style» title -->
     <string name="pref_map_style_title">Chế độ ban đêm</string>
     <!-- Generic «Off» string -->
@@ -194,24 +194,24 @@
     <!-- Settings «Map» category: «Perspective view» title -->
     <string name="pref_map_3d_title">Góc nhìn phối cảnh</string>
     <!-- Settings «Map» category: «3D buildings» title -->
-    <string name="pref_map_3d_buildings_title">Nhà cửa 3D</string>
+    <string name="pref_map_3d_buildings_title">Nhà 3D</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
-    <string name="pref_map_3d_buildings_disabled_summary">Tòa nhà 3D bị tắt ở chế độ tiết kiệm năng lượng</string>
+    <string name="pref_map_3d_buildings_disabled_summary">Nhà 3D bị tắt ở chế độ tiết kiệm năng lượng</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
     <string name="pref_tts_enable_title">Hướng dẫn bằng Giọng nói</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
     <string name="pref_tts_street_names_title">Thông báo tên đường</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Nếu bật, sẽ đọc to tên đường hoặc lối ra để rẽ vào.</string>
+    <string name="pref_tts_street_names_description">Nếu bật, sẽ đọc to tên đường hoặc lối ra cần rẽ vào.</string>
     <!-- Settings «Route» category: «Tts language» title -->
     <string name="pref_tts_language_title">Ngôn ngữ Giọng nói</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Kiểm tra chỉ đường bằng giọng nói (TTS, chuyển văn bản thành giọng nói)</string>
+    <string name="pref_tts_test_voice_title">Kiểm tra chỉ đường bằng giọng nói</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kiểm tra cài đặt âm lượng hoặc chuyển văn bản sang giọng nói của hệ thống nếu bây giờ bạn không nghe thấy giọng nói.</string>
+    <string name="pref_tts_playing_test_voice">Kiểm tra cài đặt âm lượng hoặc chuyển văn bản sang giọng nói của hệ thống nếu bây giờ bạn không nghe thấy giọng nói</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
     <string name="pref_tts_unavailable">Không có sẵn</string>
-    <string name="pref_map_auto_zoom">Ống dòm tự động</string>
+    <string name="pref_map_auto_zoom">Tự động thu phóng</string>
     <string name="placepage_distance">Khoảng cách</string>
     <string name="search_show_on_map">Xem trên bản đồ</string>
     <!-- Text in menu -->
@@ -225,11 +225,11 @@
     <!-- Text in menu -->
     <string name="help">Trợ giúp</string>
     <!-- Button in the main Help dialog -->
-    <string name="faq">Câu hỏi và trả lời</string>
+    <string name="faq">Câu hỏi thường gặp</string>
     <!-- Button in the main menu -->
     <string name="donate">Quyên tặng</string>
     <!-- Button in the main Help dialog -->
-    <string name="how_to_support_us">Hỗ trợ dự án</string>
+    <string name="how_to_support_us">Giúp cải thiện CoMaps</string>
     <!-- Button in the main Help dialog -->
     <string name="copyright">Bản quyền</string>
     <!-- Text in menu + Button in the main Help dialog -->
@@ -237,9 +237,9 @@
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
     <string name="compass_calibration_recommended">Cải thiện hướng mũi tên bằng cách di chuyển điện thoại theo chuyển động hình số tám để hiệu chỉnh la bàn.</string>
     <!-- Toast text when compass calibration may improve the correctness of the current position arrow -->
-    <string name="compass_calibration_required">Di chuyển điện thoại theo chuyển động hình số tám để hiệu chỉnh la bàn và cố định hướng mũi tên trên bản đồ.</string>
+    <string name="compass_calibration_required">Di chuyển điện thoại theo chuyển động hình số tám để hiệu chỉnh la bàn và sửa hướng mũi tên trên bản đồ.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
-    <string name="long_tap_toast">Nhấn và giữ lại vào bản đồ để xem giao diện</string>
+    <string name="long_tap_toast">Nhấn và giữ lần nữa vào bản đồ để xem giao diện</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Cập nhật tất cả</string>
     <!-- Cancel all button text -->
@@ -254,13 +254,13 @@
     <string name="downloader_download_all_button">Tải xuống tất cả</string>
     <string name="downloader_downloading">Đang tải về:</string>
     <!-- Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode -->
-    <string name="downloader_delete_map_while_routing_dialog">Để xóa bản đồ, vui lòng dừng điều hướng.</string>
+    <string name="downloader_delete_map_while_routing_dialog">Để xóa bản đồ, vui lòng dừng điều hướng trước</string>
     <!-- PointsInDifferentMWM -->
     <string name="routing_failed_cross_mwm_building">Tuyến đường chỉ có thể được tạo hoàn toàn được chứa trong một bản đồ.</string>
     <!-- Context menu item for downloader. -->
     <string name="downloader_download_map">Tải về bản đồ</string>
     <!-- Item status in downloader. -->
-    <string name="downloader_retry">Lặp lại</string>
+    <string name="downloader_retry">Thử lại</string>
     <!-- Item in context menu. -->
     <string name="downloader_delete_map">Xóa Bản đồ</string>
     <!-- Item in context menu. -->
@@ -268,19 +268,19 @@
     <!-- Preference title -->
     <string name="google_play_services">Dịch vụ vị trí của Google Play</string>
     <!-- Preference text -->
-    <string name="pref_use_google_play">Nhanh chóng xác định vị trí gần đúng của bạn bằng Bluetooth, WiFi hoặc mạng di động</string>
+    <string name="pref_use_google_play">Một dịch vụ độc quyền kết hợp GPS, Wi-Fi, mạng di động, v.v. để xác định vị trí của bạn chính xác hơn. Dịch vụ này có thể kết nối với máy chủ của Google.</string>
     <!-- Preference title -->
     <!-- Preference description -->
     <!-- Text for routing error dialog -->
-    <string name="routing_download_maps_along">Tải xuống bản đồ theo tuyến đường</string>
+    <string name="routing_download_maps_along">Tải xuống tất cả bản đồ dọc theo tuyến đường của bạn</string>
     <!-- Text for routing error dialog -->
-    <string name="routing_requires_all_map">Tạo một tuyến đường đòi hỏi tất cả các bản đồ từ vị trí của bạn đến điểm đến phải được tải xuống và cập nhật.</string>
+    <string name="routing_requires_all_map">Để tạo một tuyến đường, chúng tôi cần tải xuống và cập nhật tất cả bản đồ từ vị trí của bạn cho đến điểm đến của bạn.</string>
     <!-- Text for routing error dialog -->
     <string name="routing_not_enough_space">Không đủ không gian</string>
     <!-- location service disabled -->
-    <string name="enable_location_services">Bạn vui lòng bật Dịch vụ Định vị</string>
+    <string name="enable_location_services">Vui lòng bật dịch vụ vị trí</string>
     <string name="save">Lưu</string>
-    <string name="create">tạo</string>
+    <string name="create">Tạo</string>
     <!-- red color -->
     <string name="red">Đỏ</string>
     <!-- yellow color -->
@@ -298,9 +298,9 @@
     <!-- pink color -->
     <string name="pink">Hồng</string>
     <!-- deep purple color -->
-    <string name="deep_purple">Tía thẫm</string>
+    <string name="deep_purple">Tím thẫm</string>
     <!-- light blue color -->
-    <string name="light_blue">Xanh da trời</string>
+    <string name="light_blue">Xanh da trời nhạt</string>
     <!-- cyan color -->
     <string name="cyan">Xanh lơ</string>
     <!-- teal color -->
@@ -314,11 +314,11 @@
     <!-- blue gray color -->
     <string name="blue_gray">Xám xanh da trời</string>
     <!-- SECTION: Routing dialogs strings -->
-    <string name="dialog_routing_disclaimer_title">Khi đi theo tuyến đường, hãy lưu ý:</string>
-    <string name="dialog_routing_disclaimer_priority">— Điều kiện đường, luật giao thông và biển báo đường bộ luôn được ưu tiên hơn lời khuyên định hướng;</string>
-    <string name="dialog_routing_disclaimer_precision">— Bản đồ có thể không chính xác và tuyến đường được đề xuất có thể không luôn là cách tối ưu nhất để đi đến đích;</string>
-    <string name="dialog_routing_disclaimer_recommendations">— Các tuyến đường được đề nghị chỉ nên được coi là các khuyến nghị;</string>
-    <string name="dialog_routing_disclaimer_borders">— Chú ý khi thể dục theo những con đường gần đường biên giới: những con đường do ứng dụng của chúng tôi tạo ra đôi khi có khả năng vượt ra khỏi biên giới vào những địa điểm không được phép;</string>
+    <string name="dialog_routing_disclaimer_title">Khi đi theo tuyến đường, hãy nhớ rằng:</string>
+    <string name="dialog_routing_disclaimer_priority">— Điều kiện đường, luật giao thông và biển báo đường bộ luôn được ưu tiên hơn lời chỉ đường;</string>
+    <string name="dialog_routing_disclaimer_precision">— Bản đồ có thể không chính xác, và tuyến đường được đề xuất có thể không phải là cách tối ưu nhất để đi đến đích;</string>
+    <string name="dialog_routing_disclaimer_recommendations">— Các tuyến đường được đề nghị chỉ nên được coi như các lời khuyên;</string>
+    <string name="dialog_routing_disclaimer_borders">— Chú ý khi tập thể dục theo những con đường gần đường biên giới: những tuyến đường do ứng dụng của chúng tôi tạo ra đôi khi có thể vượt ra khỏi biên giới vào những địa điểm không được phép.</string>
     <string name="dialog_routing_disclaimer_beware">Hãy cảnh giác và giữ an toàn trên đường!</string>
     <string name="dialog_routing_check_gps">Kiểm tra tín hiệu GPS</string>
     <string name="dialog_routing_error_location_not_found">Không thể tạo tuyến đường. Không xác định được tọa độ GPS hiện tại.</string>
@@ -326,22 +326,22 @@
     <string name="dialog_routing_location_turn_on">Bật các dịch vụ định vị</string>
     <string name="dialog_routing_location_unknown_turn_on">Không thể xác định vị trí tọa độ GPS hiện tại. Bật các dịch vụ định vị để tính toán tuyến đường.</string>
     <string name="dialog_routing_unable_locate_route">Không thể xác định tuyến đường</string>
-    <string name="dialog_routing_cant_build_route">Không thể tạo tuyến đường.</string>
+    <string name="dialog_routing_cant_build_route">Không thể tạo tuyến đường</string>
     <string name="dialog_routing_change_start_or_end">Hãy điều chỉnh điểm bắt đầu hoặc điểm đến của bạn.</string>
     <string name="dialog_routing_change_start">Điều chỉnh điểm bắt đầu</string>
     <string name="dialog_routing_start_not_determined">Tuyến đường chưa được tạo. Không thể xác định vị trí điểm bắt đầu.</string>
     <string name="dialog_routing_select_closer_start">Hãy chọn điểm bắt đầu gần với một con đường hơn.</string>
     <string name="dialog_routing_change_end">Điều chỉnh điểm đến</string>
     <string name="dialog_routing_end_not_determined">Tuyến đường chưa được tạo. Không thể xác định vị trí điểm đến.</string>
-    <string name="dialog_routing_select_closer_end">Hãy chọn điểm đến gần với một con đường hơn.</string>
-    <string name="dialog_routing_change_intermediate">Không thể định vị điểm trung gian.</string>
-    <string name="dialog_routing_intermediate_not_determined">Vui lòng điều chỉnh điểm trung gian của bạn.</string>
+    <string name="dialog_routing_select_closer_end">Hãy chọn điểm đến gần với một con đường hơn</string>
+    <string name="dialog_routing_change_intermediate">Không thể định vị điểm trung gian</string>
+    <string name="dialog_routing_intermediate_not_determined">Vui lòng điều chỉnh điểm trung gian của bạn</string>
     <string name="dialog_routing_system_error">Lỗi hệ thống</string>
-    <string name="dialog_routing_application_error">Không thể tạo tuyến đường do lỗi ứng dụng.</string>
+    <string name="dialog_routing_application_error">Không thể tạo tuyến đường do lỗi ứng dụng</string>
     <string name="dialog_routing_try_again">Vui lòng thử lại</string>
-    <string name="not_now">Lúc khác</string>
+    <string name="not_now">Không phải bây giờ</string>
     <string name="dialog_routing_download_and_build_cross_route">Bạn có muốn tải về bản đồ và tạo một tuyến đường tối ưu hơn kéo dài trên nhiều hơn một bản đồ?</string>
-    <string name="dialog_routing_download_cross_route">Tải về bản đồ để tạo tuyến đường tối ưu hơn mà đi qua cạnh của bản đồ này.</string>
+    <string name="dialog_routing_download_cross_route">Tải thêm các bản đồ để tạo tuyến đường tối ưu hơn mà vượt qua ranh giới của bản đồ này.</string>
     <!-- SECTION: Strings for downloading map from search -->
     <string name="search_without_internet_advertisement">Để bắt đầu tìm kiếm và tạo đường đi, vui lòng tải về bản đồ, và bạn sẽ không cần đến kết nối Internet nữa.</string>
     <string name="search_select_map">Chọn bản đồ</string>
@@ -351,18 +351,18 @@
     <string name="hide">Ẩn</string>
     <string name="categories">Thể loại</string>
     <string name="history">Lịch sử</string>
-    <string name="search_not_found">Xin lỗi, tôi không tìm thấy kết quả nào.</string>
+    <string name="search_not_found">Úi, không tìm thấy kết quả nào.</string>
     <!-- The message when user did not find anything in the search. -->
     <string name="search_not_found_query">Tải xuống khu vực bạn đang tìm kiếm hoặc thử thêm tên thị trấn/làng gần đó.</string>
     <string name="search_history_title">Lịch sử tìm kiếm</string>
-    <string name="search_history_text">Truy cập nhanh chóng đến câu hỏi tìm kiếm gần đây.</string>
+    <string name="search_history_text">Xem các tìm kiếm gần đây của bạn</string>
     <string name="clear_search">Xóa Lịch sử Tìm kiếm</string>
     <string name="p2p_your_location">Vị trí của bạn</string>
     <string name="p2p_start">Bắt đầu</string>
-    <string name="p2p_from_here">Từ</string>
-    <string name="p2p_to_here">Tuyến đến</string>
-    <string name="p2p_only_from_current">Chức năng tìm đường chỉ có sẵn từ vị trí hiện tại của bạn.</string>
-    <string name="p2p_reroute_from_current">Bạn có muốn chúng tôi vạch đường từ vị trí hiện tại của bạn không?</string>
+    <string name="p2p_from_here">Đi từ</string>
+    <string name="p2p_to_here">Đi đến</string>
+    <string name="p2p_only_from_current">Chức năng tìm đường chỉ có sẵn từ vị trí hiện tại của bạn</string>
+    <string name="p2p_reroute_from_current">Bạn có muốn tạo tuyến đường từ vị trí hiện tại của bạn không?</string>
     <!-- Edit open hours/set time and minutes dialog -->
     <string name="next_button">Tiếp theo</string>
     <!-- Tab title in the Edit Opening Hours time picker -->
@@ -384,12 +384,12 @@
     <string name="editor_correct_mistake">Sửa lỗi</string>
     <string name="editor_add_select_location">Chọn vị trí</string>
     <string name="editor_report_problem_send_button">Gửi</string>
-    <string name="autodownload">Tự động tải về</string>
+    <string name="autodownload">Tự động tải về bản đồ</string>
     <!-- Place Page opening hours text -->
     <string name="daily">Hàng ngày</string>
-    <string name="twentyfour_seven">ngày và đêm</string>
-    <string name="day_off_today">Nghỉ hôm nay</string>
-    <string name="day_off">Ngày nghỉ</string>
+    <string name="twentyfour_seven">Cả ngày</string>
+    <string name="day_off_today">Đóng cửa hôm nay</string>
+    <string name="day_off">Đóng cửa</string>
     <string name="closed">Đã đóng</string>
     <string name="edit_opening_hours">Sửa giờ làm việc</string>
     <string name="no_osm_account">Bạn chưa có tài khoản tại OpenStreetMap ư?</string>
@@ -406,48 +406,48 @@
     <string name="house_number">Số nhà</string>
     <string name="details">Chi tiết</string>
     <string name="social_media">Truyền thông xã hội</string>
-    <string name="building">Xây dựng</string>
+    <string name="building">Tòa nhà</string>
     <!-- Text field to enter non-existing street name, below list of known streets around -->
     <string name="add_street">Thêm con đường</string>
-    <string name="choose_language">Đã chọn ngôn ngữ</string>
-    <string name="choose_street">Đã chọn con đường</string>
+    <string name="choose_language">Chọn một ngôn ngữ</string>
+    <string name="choose_street">Chọn một con đường</string>
     <string name="cuisine">Ẩm thực</string>
     <string name="select_cuisine">Chọn Ẩm thực</string>
     <!-- login text field -->
     <string name="level">Tầng</string>
-    <string name="downloader_delete_map_dialog">Tất cả những thay đổi của bản đồ sẽ bị xóa cùng với bản đồ đó.</string>
+    <string name="downloader_delete_map_dialog">Tất cả những chỉnh sửa bản đồ của bạn sẽ bị xóa cùng với bản đồ đó</string>
     <string name="downloader_update_maps">Cập nhật các bản đồ</string>
-    <string name="downloader_mwm_migration_dialog">Để tạo một tuyến đường, bạn cần cập nhật tất cả các bản đồ và sau đó lập lại tuyến đường.</string>
+    <string name="downloader_mwm_migration_dialog">Để tạo một tuyến đường, bạn cần cập nhật tất cả bản đồ và sau đó thiết lập lại tuyến đường.</string>
     <string name="downloader_search_field_hint">Tìm bản đồ</string>
-    <string name="common_check_internet_connection_dialog">Xin kiểm tra các thiết lập và đảm bảo thiết bị của bạn có kết nối Internet.</string>
+    <string name="common_check_internet_connection_dialog">Vui lòng đảm bảo rằng thiết bị của bạn được kết nối đến mạng Internet</string>
     <string name="downloader_no_space_title">Không đủ dung lượng</string>
-    <string name="downloader_no_space_message">Xin xóa dữ liệu không cần thiết</string>
-    <string name="editor_login_error_dialog">Lỗi đăng nhập.</string>
+    <string name="downloader_no_space_message">Vui lòng xóa dữ liệu không cần thiết</string>
+    <string name="editor_login_error_dialog">Lỗi đăng nhập</string>
     <string name="editor_profile_changes">Các thay đổi đã được xác thực</string>
     <string name="editor_focus_map_on_location">Kéo bản đồ để đặt dấu thập vào vị trí của địa điểm hoặc doanh nghiệp.</string>
     <string name="editor_edit_place_title">Chỉnh sửa</string>
-    <string name="editor_add_place_title">Nhập</string>
+    <string name="editor_add_place_title">Thêm</string>
     <string name="editor_edit_place_name_hint">Tên địa điểm</string>
     <!-- The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name -->
     <string name="editor_default_language_hint">Vì nó được viết bằng ngôn ngữ địa phương</string>
     <string name="editor_edit_place_category_title">Thể loại</string>
     <string name="detailed_problem_description">Mô tả chi tiết của vấn đề</string>
     <string name="editor_report_problem_other_title">Một vấn đề khác</string>
-    <string name="message_invalid_feature_position">Một đối tượng không thể đặt được ở đây</string>
+    <string name="message_invalid_feature_position">Không đối tượng nào có thể đặt ở đây</string>
     <!-- Text in About and OSM Login screens. First %@ is replaced by a local, human readable date. -->
-    <string name="osm_presentation">Dữ liệu OpenStreetMap do cộng đồng tạo ra kể từ %s. Tìm hiểu thêm về cách chỉnh sửa và cập nhật bản đồ tại OpenStreetMap.org</string>
+    <string name="osm_presentation">Dữ liệu OpenStreetMap do cộng đồng tạo ra tính đến %s. Tìm hiểu thêm về cách chỉnh sửa và cập nhật bản đồ tại OpenStreetMap.org</string>
     <!-- OSM explanation on Android login screen -->
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) là một dự án cộng đồng nhằm xây dựng bản đồ mở và miễn phí. Đây là nguồn dữ liệu bản đồ chính trong CoMaps và hoạt động tương tự như Wikipedia. Bạn có thể thêm hoặc chỉnh sửa địa điểm và chúng sẽ có sẵn cho hàng triệu người dùng trên toàn thế giới. \nTham gia cộng đồng và giúp tạo bản đồ tốt hơn cho mọi người!</string>
-    <string name="login_to_make_edits_visible">Tạo tài khoản OpenStreetMap hoặc đăng nhập để xuất bản các chỉnh sửa bản đồ của bạn với thế giới.</string>
+    <string name="login_to_make_edits_visible">Tạo tài khoản OpenStreetMap hoặc đăng nhập để xuất bản các chỉnh sửa bản đồ của bạn với thế giới</string>
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d trên %2$d</string>
     <string name="download_over_mobile_header">Tải xuống qua kết nối mạng di động?</string>
-    <string name="download_over_mobile_message">Như vậy sẽ rất đắt tiền với một số gói dữ liệu hoặc khi chuyển vùng.</string>
-    <string name="error_enter_correct_house_number">Nhập số nhà chính xác</string>
+    <string name="download_over_mobile_message">Điều này có thể rất tốn kém với một số gói dữ liệu di động, đặc biệt khi bạn đang chuyển vùng.</string>
+    <string name="error_enter_correct_house_number">Nhập số nhà hợp lệ</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
-    <string name="error_enter_correct_storey_number">Sửa tòa nhà có tối đa %d tầng</string>
-    <string name="editor_zip_code">Mã ZIP</string>
-    <string name="error_enter_correct_zip_code">Nhập Mã ZIP chính xác</string>
+    <string name="error_enter_correct_storey_number">Số tầng không thể vượt quá %d</string>
+    <string name="editor_zip_code">Mã bưu chính</string>
+    <string name="error_enter_correct_zip_code">Nhập mã bưu chính hợp lệ</string>
     <!-- Title for OSM note section in the editor -->
     <string name="editor_other_info">Lưu ý dành cho tình nguyện viên OpenStreetMap (tùy chọn)</string>
     <!-- Hint of the input field in the OSM note section of the editor -->
@@ -457,25 +457,25 @@
     <string name="editor_more_about_osm">Thông tin bổ sung về OpenStreetMap</string>
     <string name="editor_osm_history">Lịch sử chỉnh sửa của bạn</string>
     <string name="editor_osm_notes">Ghi chú dữ liệu bản đồ của bạn</string>
-    <string name="editor_operator">Toán tử</string>
+    <string name="editor_operator">Đơn vị vận hành</string>
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
-    <string name="operator">Toán tử: %s</string>
+    <string name="operator">Đơn vị vận hành: %s</string>
     <string name="editor_category_unsuitable_title">Không thể tìm thấy một danh mục phù hợp?</string>
-    <string name="editor_category_unsuitable_text">CoMaps chỉ cho phép thêm các danh mục điểm đơn giản, nghĩa là không có thị trấn, đường, hồ, đường viền tòa nhà, v.v. Vui lòng thêm các danh mục đó trực tiếp vào <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Hãy xem <a href="https://www.comaps.app/support/advanced-map-editing/">hướng dẫn</a> của chúng tôi để biết hướng dẫn chi tiết từng bước.</string>
+    <string name="editor_category_unsuitable_text">CoMaps chỉ có thể thêm các danh mục điểm đơn giản, nó không thể thêm thị trấn, đường, hồ, đường viền tòa nhà, v.v. Vui lòng thêm các danh mục đó trực tiếp vào <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Hãy xem <a href="https://www.comaps.app/support/advanced-map-editing/">hướng dẫn</a> của chúng tôi để biết chỉ dẫn chi tiết từng bước.</string>
     <string name="downloader_no_downloaded_maps_title">Bạn chưa tải về bất kỳ bản đồ nào</string>
-    <string name="downloader_no_downloaded_maps_message">Tải về bản đồ để tìm địa điểm và định hướng ngoại tuyến.</string>
-    <string name="current_location_unknown_error_title">Chưa biết địa điểm hiện tại.</string>
+    <string name="downloader_no_downloaded_maps_message">Tải về bản đồ để tìm kiếm và tìm đường ngoại tuyến</string>
+    <string name="current_location_unknown_error_title">Vị trí hiện tại không xác định được</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/giờ</string>
     <string name="miles_per_hour">mph</string>
     <string name="hour">giờ</string>
     <string name="minute">phút</string>
     <string name="day">ngày</string>
-    <string name="placepage_more_button">Bổ sung</string>
-    <string name="placepage_edit_bookmark_button">Sửa Dấu Trang</string>
+    <string name="placepage_more_button">Thêm</string>
+    <string name="placepage_edit_bookmark_button">Sửa Địa điểm đã lưu</string>
     <string name="placepage_personal_notes_hint">Ghi chú cá nhân (văn bản hoặc html)</string>
-    <string name="editor_reset_edits_message">Cài đặt lại tất cả thay đổi cục bộ?</string>
-    <string name="editor_reset_edits_button">Cài đặt lại</string>
+    <string name="editor_reset_edits_message">Loại bỏ tất cả thay đổi cục bộ?</string>
+    <string name="editor_reset_edits_button">Loại bỏ các thay đổi</string>
     <string name="editor_remove_place_message">Xóa một địa điểm đã thêm?</string>
     <string name="editor_remove_place_button">Xóa</string>
     <string name="editor_place_doesnt_exist">Địa điểm không tồn tại</string>
@@ -487,11 +487,11 @@
     <!-- Displayed when saving some edits to the map to warn against publishing personal data -->
     <string name="editor_share_to_all_dialog_title">Bạn có muốn gửi cho toàn bộ người dùng?</string>
     <!-- Dialog before publishing the modifications to the public map. -->
-    <string name="editor_share_to_all_dialog_message_1">Chắc chắn rằng bạn không nhập bất kỳ thông tin cá nhân nào.</string>
+    <string name="editor_share_to_all_dialog_message_1">Chắc chắn rằng bạn không nhập bất kỳ thông tin riêng tư hoặc cá nhân nào.</string>
     <string name="editor_share_to_all_dialog_message_2">Các biên tập viên của OpenStreetMap sẽ kiểm tra các thay đổi và liên hệ với bạn nếu họ có bất kỳ câu hỏi nào.</string>
     <string name="navigation_stop_button">Dừng</string>
     <!-- Shown as toast when starting the recent track recording -->
-    <string name="track_recording">Ghi lại hành trình</string>
+    <string name="track_recording">Đang ghi lại hành trình</string>
     <!-- For the first routing -->
     <string name="accept">Chấp nhận</string>
     <!-- For the first routing -->
@@ -502,44 +502,44 @@
     <string name="mobile_data_option_not_today">Không Sử dụng Hôm nay</string>
     <string name="mobile_data">Internet Di động</string>
     <!-- NOTE to translators: please synchronize your translation with the English one. -->
-    <string name="mobile_data_description">Internet di động là cần thiết để hiển thị thông tin chi tiết về các nơi, ví dụ như ảnh chụp, giá cả và đánh giá.</string>
+    <string name="mobile_data_description">Mạng di động là cần thiết để hiển thị thông báo về việc cập nhật bản đồ và tải lên các chỉnh sửa</string>
     <string name="mobile_data_option_never">Không bao giờ sử dụng</string>
     <string name="mobile_data_option_ask">Luôn Hỏi</string>
-    <string name="traffic_update_maps_text">Để hiển thị dữ liệu giao thông, cần cập nhật bản đồ.</string>
-    <string name="big_font">Tăng kích cỡ phông chữ trên bản đồ</string>
+    <string name="traffic_update_maps_text">Để hiển thị dữ liệu giao thông, cần cập nhật bản đồ</string>
+    <string name="big_font">Tăng kích thước các nhãn trên bản đồ</string>
     <string name="traffic_update_app">Vui lòng cập nhật CoMaps</string>
     <!-- "traffic" as in "road congestion" -->
     <string name="traffic_data_unavailable">Dữ liệu giao thông không khả dụng</string>
-    <string name="enable_logging">Bật nhật ký</string>
+    <string name="enable_logging">Bật nhật ký hoạt động</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Phản hồi chung</string>
-    <string name="prefs_languages_information">Chúng tôi sử dụng TTS hệ thống để hướng dẫn bằng giọng nói. Rất nhiều thiết bị Android sử dụng Google TTS, bạn có thể tải về hoặc cập nhật nó từ Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Đối với một số ngôn ngữ, bạn sẽ cần cài đặt một trình tổng hợp lời nói khác hoặc một gói ngôn ngữ bổ sung từ cửa hàng ứng dụng (Google Play, Galaxy Store, App Gallery, FDroid). \nMở cài đặt của thiết bị → Ngôn ngữ và nhập liệu → Lời nói → Đầu ra văn bản sang lời nói. \nTại đây bạn có thể quản lý các cài đặt tổng hợp lời nói (ví dụ, tải về các gói ngôn ngữ để sử dụng ngoại tuyến) và chọn một công cụ chuyển đổi văn bản sang lời nói khác.</string>
-    <string name="prefs_languages_information_off_link">Để biết thêm thông tin, vui lòng kiểm tra bài hướng dẫn này.</string>
+    <string name="prefs_languages_information">Chúng tôi sử dụng TTS hệ thống cho chức năng hướng dẫn bằng giọng nói. Nhiều thiết bị Android sử dụng Google TTS, bạn có thể tải về hoặc cập nhật nó từ Cửa hàng Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
+    <string name="prefs_languages_information_off">Đối với một số ngôn ngữ, bạn sẽ cần cài đặt một trình tổng hợp lời nói hoặc một gói ngôn ngữ bổ sung từ cửa hàng ứng dụng (Google Play, Galaxy Store, App Gallery, FDroid). \nMở cài đặt của thiết bị → Ngôn ngữ và nhập liệu → Lời nói → Đầu ra của chuyển văn bản thành lời nói. \nTại đây bạn có thể quản lý các cài đặt tổng hợp lời nói (ví dụ, tải về các gói ngôn ngữ để sử dụng ngoại tuyến) và chọn một công cụ chuyển đổi văn bản thành lời nói khác.</string>
+    <string name="prefs_languages_information_off_link">Để biết thêm thông tin, vui lòng kiểm tra hướng dẫn này</string>
     <string name="transliteration_title">Chuyển ngữ sang chữ Latinh</string>
     <string name="learn_more">Tìm hiểu thêm</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
-    <string name="routing_add_start_point">Sử dụng tìm kiếm hoặc nhấn vào bản đồ để thêm điểm bắt đầu tuyến đường</string>
+    <string name="routing_add_start_point">Sử dụng tìm kiếm hoặc nhấn vào bản đồ để thêm điểm bắt đầu</string>
     <!-- User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". -->
     <string name="routing_add_finish_point">Sử dụng tìm kiếm hoặc nhấn vào bản đồ để thêm điểm đến</string>
     <string name="planning_route_manage_route">Quản lý lộ trình</string>
     <string name="button_plan">Kế hoạch</string>
     <string name="placepage_remove_stop">Xóa điểm dừng</string>
     <string name="placepage_add_stop">Thêm điểm dừng</string>
-    <string name="dialog_error_storage_title">Vấn đề truy cập ổ lưu trữ</string>
-    <string name="dialog_error_storage_message">Ổ lưu trữ bên ngoài không khả dụng, có thể Thẻ SD đã bị tháo, bị hỏng hoặc hệ thống tập tin được thiết lập chỉ đọc. Hãy kiểm tra và liên hệ với chúng tôi qua support@comaps.app</string>
-    <string name="setting_emulate_bad_storage">Giả lập ổ lưu trữ hỏng</string>
+    <string name="dialog_error_storage_title">Vấn đề truy cập bộ nhớ</string>
+    <string name="dialog_error_storage_message">Bộ nhớ bên ngoài không truy cập được. Thẻ SD có thể đã bị tháo, bị hỏng hoặc hệ thống tập tin được thiết lập chỉ đọc. Vui lòng kiểm tra thẻ SD hoặc liên hệ với chúng tôi qua support@comaps.app</string>
+    <string name="setting_emulate_bad_storage">Giả lập bộ nhớ hỏng</string>
     <string name="error_enter_correct_name">Vui lòng nhập một tên chính xác</string>
-    <string name="bookmark_lists">Danh sách</string>
+    <string name="bookmark_lists">Danh sách Ưa thích</string>
     <!-- Do not display all bookmark lists on the map -->
     <string name="bookmark_lists_hide_all">Ẩn tất cả</string>
     <string name="bookmark_lists_show_all">Hiển thị tất cả</string>
     <plurals name="bookmarks_places">
-        <item quantity="other">%d dấu trang</item>
+        <item quantity="other">%d địa điểm đã lưu</item>
     </plurals>
     <string name="bookmarks_create_new_group">Tạo danh sách mới</string>
     <!-- Bookmark categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
-    <string name="bookmarks_import">Nhập dấu trang và bản nhạc</string>
+    <string name="bookmarks_import">Nhập Ưa thích</string>
     <string name="bookmarks_error_message_share_general">Không thể chia sẻ do lỗi ứng dụng</string>
     <string name="bookmarks_error_title_share_empty">Lỗi chia sẻ</string>
     <string name="bookmarks_error_message_share_empty">Không thể chia sẻ một danh sách trống</string>
@@ -553,38 +553,38 @@
     <string name="profile">Hồ sơ OpenStreetMap</string>
     <string name="restore">Khôi phục</string>
     <plurals name="tracks">
-        <item quantity="other">%d các chặng đường</item>
+        <item quantity="other">%d hành trình</item>
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="privacy">Sự riêng tư</string>
     <string name="privacy_policy">Chính sách bảo mật</string>
-    <string name="terms_of_use">Điều khoảng sử dụng</string>
+    <string name="terms_of_use">Điều khoản sử dụng</string>
     <string name="button_layer_traffic">Giao thông</string>
-    <string name="subway">Xe điện ngầm</string>
+    <string name="subway">Tàu điện ngầm</string>
     <string name="layers_title">Kiểu và lớp bản đồ</string>
     <string name="bookmarks_empty_list_title">Danh sách trống</string>
-    <string name="bookmarks_empty_list_message">Để thêm dấu trang, hãy nhấn vào một địa điểm trên bản đồ và sau đó nhấn vào biểu tượng dấu sao</string>
+    <string name="bookmarks_empty_list_message">Để lưu một địa điểm, nhấn vào một địa điểm trên bản đồ và sau đó nhấn vào biểu tượng ngôi sao</string>
     <string name="category_desc_more">…thêm</string>
     <string name="export_file">Xuất KMZ</string>
     <string name="export_file_gpx">Xuất GPX</string>
     <string name="delete_list">Xóa danh sách</string>
-    <string name="speedcams_alert_title">Tăn tốc độ máy ảnh</string>
+    <string name="speedcams_alert_title">Camera tốc độ</string>
     <string name="place_description_title">Mô tả Địa điểm</string>
     <!-- this text will be shown in application notification preferences opposite checkbox which enable/disable downloader notifications. Devices on Android 8+ are affected. -->
     <string name="notification_channel_downloader">Trình tải xuống bản đồ</string>
     <!-- "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit -->
-    <string name="pref_tts_speedcams_auto">Cảnh báo về việc chạy quá tốc độ</string>
+    <string name="pref_tts_speedcams_auto">Cảnh báo nếu chạy quá tốc độ</string>
     <!-- Speed camera settings menu option - Always warn (about speedcams) -->
     <string name="pref_tts_speedcams_always">Luôn cảnh báo</string>
     <!-- Speed camera settings menu option - Never warn (about speedcams) -->
     <string name="pref_tts_speedcams_never">Không bao giờ cảnh báo</string>
     <string name="power_managment_title">Chế độ tiết kiệm năng lượng</string>
-    <string name="power_managment_description">Nếu chế độ tiết kiệm năng lượng được bật, ứng dụng sẽ tắt các chức năng tiêu thụ năng lượng tùy thuộc vào mức pin hiện tại của điện thoại</string>
+    <string name="power_managment_description">Cố gắng giảm tiêu thụ năng lượng bằng cách hạn chế một số tính năng</string>
     <string name="power_managment_setting_never">Không bao giờ</string>
-    <string name="power_managment_setting_auto">Tự động</string>
-    <string name="power_managment_setting_manual_max">Tiết kiệm năng lượng tối đa</string>
-    <string name="enable_logging_warning_message">Tùy chọn này được kích hoạt để ghi nhật ký đăng nhập cho mục đích chẩn đoán. Điều này sẽ giúp nhóm chúng tôi làm rõ các vấn đề liên quan đến ứng dụng. Hãy bật tùy chọn này chỉ khi nào có yêu cầu hỗ trợ từ CoMaps.</string>
-    <string name="driving_options_title">Thiết lập đi vòng</string>
+    <string name="power_managment_setting_auto">Khi pin thấp</string>
+    <string name="power_managment_setting_manual_max">Luôn luôn</string>
+    <string name="enable_logging_warning_message">Tạm thời bật tùy chọn này để ghi và gửi thủ công nhật ký chẩn đoán chi tiết về vấn đề của bạn đến chúng tôi bằng \"Báo cáo lỗi\" trong mục Giúp đỡ. Nhật ký có thể gồm dữ liệu vị trí.</string>
+    <string name="driving_options_title">Tùy chọn tuyến đường</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Tránh đường thu phí</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
@@ -593,9 +593,9 @@
     <string name="avoid_ferry">Tránh bến phà</string>
     <string name="avoid_motorways">Tránh xa lộ</string>
     <string name="unable_to_calc_alert_title">Không thể tạo tuyến đường</string>
-    <string name="unable_to_calc_alert_subtitle">Rất tiếc, chúng không thể tạo tuyến đường với những tùy chọn đã chọn. Hãy thay đổi thiết lập và thử lại</string>
-    <string name="define_to_avoid_btn">Thiết lập đường đi vòng</string>
-    <string name="change_driving_options_btn">Thiết lập đường đi tránh đã được bật</string>
+    <string name="unable_to_calc_alert_subtitle">Không thể tìm thấy tuyến đường. Điều này có thể là vì tùy chọn tuyến đường của bạn hoặc dữ liệu OpenStreetMap bị thiếu. Vui lòng thay đổi tùy chọn tuyến đường của bạn và thử lại.</string>
+    <string name="define_to_avoid_btn">Chỉ rõ đường cần tránh</string>
+    <string name="change_driving_options_btn">Đã bật các tùy chọn tuyến đường</string>
     <string name="toll_road">Đường trả phí</string>
     <string name="unpaved_road">Đường đất</string>
     <string name="ferry_crossing">Bến phà</string>
@@ -616,7 +616,7 @@
     <!-- max. 10 symbols, both iOS and Android -->
     <string name="sort">Sắp xếp…</string>
     <!-- Android, title, max 20-22 symbols -->
-    <string name="sort_bookmarks">Sắp xếp dấu trang</string>
+    <string name="sort_bookmarks">Sắp xếp Ưa thích</string>
     <!-- Android -->
     <string name="by_default">Theo mặc định</string>
     <!-- Android -->
@@ -635,7 +635,7 @@
     <string name="others_sorttype">Khác</string>
     <!-- SECTION: Bookmark types used for sorting -->
     <string name="food_places">Đồ ăn</string>
-    <string name="tourist_places">Danh lam thắng cảnh</string>
+    <string name="tourist_places">Điểm tham quan</string>
     <string name="museums">Bảo tàng</string>
     <string name="parks">Công viên</string>
     <string name="swim_places">Bơi lội</string>
@@ -654,19 +654,19 @@
     <string name="transit_not_found">Điều hướng đến Metro hiện chưa khả dụng cho khu vực này</string>
     <string name="dialog_pedestrian_route_is_long_header">Không tìm thấy tuyến Metro</string>
     <string name="dialog_pedestrian_route_is_long_message">Hãy chọn điểm đầu hoặc điểm cuối của tuyến gần với bến Metro</string>
-    <string name="button_layer_isolines">Độ cao</string>
-    <string name="isolines_activation_error_dialog">Để sử dụng các đường chỉ độ cao, hãy cập nhật hoặc tải xuống bản đồ của khu vực bạn mong muốn</string>
-    <string name="isolines_location_error_dialog">Đường hiển thị độ cao hiện chưa khả dụng tại khu vực này</string>
+    <string name="button_layer_isolines">Đường đồng mức</string>
+    <string name="isolines_activation_error_dialog">Để kích hoạt đường đồng mức, bạn cần tải về dữ liệu bản đồ cho khu vực này</string>
+    <string name="isolines_location_error_dialog">Đường đồng mức chưa có sẵn trong khu vực này</string>
     <string name="elevation_profile_ascent">Đi lên</string>
     <string name="elevation_profile_descent">Đi xuống</string>
-    <string name="elevation_profile_min_elevation">Min. độ cao</string>
-    <string name="elevation_profile_max_elevation">Max. độ cao</string>
+    <string name="elevation_profile_min_elevation">Độ cao nhỏ nhất</string>
+    <string name="elevation_profile_max_elevation">Độ cao lớn nhất</string>
     <string name="elevation_profile_difficulty">Độ khó</string>
-    <string name="elevation_profile_distance">Khoảng cách</string>
-    <string name="elevation_profile_time">Giờ:</string>
-    <string name="isolines_toast_zooms_1_10">Phóng bản đồ để nhìn rõ đường đồng mức</string>
-    <string name="downloader_loading_ios">Tải xuống</string>
-    <string name="enable_keep_screen_on">Giữ màn hình luôn bật</string>
+    <string name="elevation_profile_distance">Khoảng cách:</string>
+    <string name="elevation_profile_time">Thời gian:</string>
+    <string name="isolines_toast_zooms_1_10">Phóng to bản đồ để khám phá đường đẳng trị</string>
+    <string name="downloader_loading_ios">Đang tải xuống</string>
+    <string name="enable_keep_screen_on">Giữ màn hình bật</string>
     <!-- Description in preferences -->
     <string name="enable_keep_screen_on_description">Khi được bật, màn hình sẽ luôn sáng khi hiển thị bản đồ.</string>
     <!-- OpenStreetMap text on splash screen -->
@@ -710,17 +710,17 @@
     <!-- Grant Permissions button. -->
     <string name="aa_grant_permissions">Cấp quyền</string>
     <!-- Outdoors/hiking map style (activity) name in the Styles and Layers dialog -->
-    <string name="button_layer_outdoor">Đi bộ đường dài</string>
+    <string name="button_layer_outdoor">Ngoài trời</string>
     <!-- Text displayed when a webview or a browser are disabled, and external links can't be opened. -->
     <string name="browser_not_available">Trình duyệt web không khả dụng</string>
     <string name="volume">Âm lượng</string>
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
-    <string name="bookmarks_export">Xuất tất cả Dấu trang và Bản nhạc</string>
+    <string name="bookmarks_export">Xuất tất cả mục Ưa thích</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
     <string name="pref_tts_open_system_settings">Cài đặt tổng hợp giọng nói của hệ thống</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
     <string name="pref_tts_no_system_tts">Không tìm thấy cài đặt Tổng hợp giọng nói, bạn có chắc thiết bị của mình hỗ trợ nó không?</string>
-    <string name="drive_through">Lái xe qua</string>
+    <string name="drive_through">Mua hàng trên xe</string>
     <string name="clear_the_search">Xóa tìm kiếm</string>
     <string name="zoom_in">Phóng to</string>
     <!-- Accessibility text for the zoom-out button on the map -->
@@ -739,21 +739,21 @@
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">Để điều hướng chính xác nhất, chúng tôi khuyên bạn nên tắt chế độ tiết kiệm năng lượng trong cài đặt pin của điện thoại.</string>
     <!-- Prompt to start recording a track. -->
-    <string name="start_track_recording">Ghi âm đường đi</string>
+    <string name="start_track_recording">Ghi hành trình</string>
     <!-- Prompt for stopping a track recording. -->
-    <string name="stop_track_recording">Dừng ghi âm đường đi</string>
+    <string name="stop_track_recording">Dừng ghi hành trình</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
     <string name="stop_without_saving">Dừng mà không lưu</string>
     <!-- Title for the "Stop Without Saving" action for the alert when saving a track recording. -->
-    <string name="continue_recording">Tiếp tục ghi âm</string>
+    <string name="continue_recording">Tiếp tục ghi</string>
     <!-- Title for the alert when saving a track recording. -->
-    <string name="track_recording_alert_title">Lưu bản ghi vào đánh dấu và dấu vết?</string>
+    <string name="track_recording_alert_title">Lưu vào Ưa thích?</string>
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
-    <string name="track_recording_toast_nothing_to_save">Tuyến đường trống - không có gì để lưu</string>
+    <string name="track_recording_toast_nothing_to_save">Hành trình trống - không có gì để lưu</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
     <string name="error_no_file_manager_app">Không thể hiển thị hộp thoại chọn thư mục vì không có ứng dụng phù hợp nào được cài đặt trên thiết bị của bạn. Vui lòng cài đặt ứng dụng quản lý tệp và thử lại</string>
     <string name="choose_color">Chọn màu</string>
-    <string name="edit_track">Chỉnh sửa tuyến đường</string>
+    <string name="edit_track">Chỉnh sửa hành trình</string>
     <string name="uri_open_location_failed">Không có ứng dụng nào được cài đặt có thể mở vị trí</string>
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Tự động điều hướng</string>
@@ -765,4 +765,155 @@
     <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="panoramax">Ảnh Panoramax</string>
     <string name="saved">Đã lưu</string>
+    <string name="about_headline">Dự án mở được vận hành bởi cộng đồng</string>
+    <string name="maps_storage_free_size">%1$s trống của %2$s</string>
+    <string name="move_maps_error">Lỗi khi chuyển các tệp bản đồ</string>
+    <string name="share_bookmarks_email_body">Xin chào! \n \nĐính kèm là các điểm Ưa thích của tôi; vui lòng mở chúng trong CoMaps. Nếu bạn chưa cài đặt nó thì bạn có thể tải nó xuống ở đây: https://www.comaps.app/download/ \n \nTận hưởng hành trình với CoMaps nhé!</string>
+    <string name="bookmark_share_email_subject">Theo đường dẫn này %1$s hoặc dán tọa độ này %2$s vào ứng dụng bản đồ của bạn để xem vị trí này.</string>
+    <string name="my_position_share_email">Theo đường dẫn này %1$s hoặc dán tọa độ này %2$s vào ứng dụng bản đồ của bạn để xem vị trí của tôi.</string>
+    <string name="prefs_group_general">Cài đặt chung</string>
+    <string name="prefs_group_information">Thông tin</string>
+    <string name="menu">Menu</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
+    <string name="read_in_wikipedia">Wikipedia</string>
+    <string name="wikimedia_commons">Wikimedia Commons</string>
+    <string name="opens_in">Mở trong %s</string>
+    <string name="closes_in">Đóng trong %s</string>
+    <string name="opens_at">Mở lúc %s</string>
+    <string name="closes_at">Đóng lúc %s</string>
+    <string name="opens_day_at">Mở vào %1$s lúc %2$s</string>
+    <string name="closes_day_at">Đóng vào %1$s lúc %2$s</string>
+    <plurals name="minutes_short">
+        <item quantity="other">%d phút</item>
+    </plurals>
+    <string name="hours_confirmed_time_ago">Đã xác nhận %s</string>
+    <string name="existence_confirmed_time_ago">Sự tồn tại được xác nhận %s</string>
+    <string name="empty_street_name_error">Vui lòng nhập tên một phố</string>
+    <string name="editor_add_phone">Thêm Điện thoại</string>
+    <string name="level_value_generic">Tầng: %s</string>
+    <string name="pref_left_button_disable">Tắt</string>
+    <string name="clear">Xóa</string>
+    <string name="vehicle">Phương tiện</string>
+    <string name="pedestrian">Người đi bộ</string>
+    <string name="bicycle">Xe đạp</string>
+    <string name="ruler">Thước kẻ</string>
+    <string name="backup_interval_every_day">Hàng ngày</string>
+    <string name="backup_interval_every_week">Hàng tuần</string>
+    <string name="unknown_power_output">Không rõ</string>
+    <string name="charge_socket_nacs">NACS</string>
+    <string name="charge_socket_chademo">CHAdeMO</string>
+    <string name="charge_socket_count">Số lượng</string>
+    <string name="unknown_count">Không rõ</string>
+    <string name="editor_submit">Gửi</string>
+    <string name="advanced">Nâng cao</string>
+    <string name="destination">Điểm đến</string>
+    <string name="stop">Điểm dừng</string>
+    <string name="disk_error_title">Lỗi bộ nhớ</string>
+    <string name="connection_failure">Kết nối thất bại</string>
+    <string name="change_map_locale">Ngôn ngữ bản đồ</string>
+    <string name="comma_separated_pair">%1$s, %2$s</string>
+    <string name="route_type">Loại tuyến đường</string>
+    <string name="pref_backup_title">Sao lưu Ưa thích</string>
+    <string name="pref_backup_now_title">Sao lưu ngay</string>
+    <string name="pref_backup_now_summary_failed">Sao lưu thất bại</string>
+    <string name="pref_backup_location_title">Vị trí sao lưu</string>
+    <string name="pref_backup_interval_title">Sao lưu tự động</string>
+    <string name="open_now">Đang mở</string>
+    <string name="closed_now">Đang đóng</string>
+    <string name="at">lúc %s</string>
+    <string name="share_track">Chia sẻ hành trình</string>
+    <string name="delete_track_dialog_title">Xóa %s?</string>
+    <string name="charge_socket_type1">Loại 1</string>
+    <string name="unknown_socket_type">Cổng chưa rõ</string>
+    <string name="charging_station_available_sockets">Cổng có sẵn</string>
+    <string name="charge_socket_power">Công suất (kW)</string>
+    <string name="editor_socket">Chỉnh sửa cổng</string>
+    <string name="error_invalid_number">Số không hợp lệ</string>
+    <string name="avoid_steps">Tránh cầu thang</string>
+    <string name="offline_explanation_title">Bản đồ ngoại tuyến</string>
+    <string name="power_management">Quản lý năng lượng</string>
+    <string name="charge_socket_schuko">Nội địa EU</string>
+    <string name="download_resources_custom_url_summary_none">Chưa đặt</string>
+    <string name="pref_maplanguage_local">Ngôn ngữ địa phương</string>
+    <string name="location_privacy">Quyền riêng tư vị trí</string>
+    <string name="rooms">%s phòng</string>
+    <string name="invalid_route">Tuyến đường không hợp lệ</string>
+    <string name="editor_building_levels">Số tầng (bao gồm tầng trệt, không bao gồm mái)</string>
+    <string name="editor_place_doesnt_exist_description">Mô tả địa điểm trông như thế nào ngay bây giờ để gửi ghi chú lỗi đến cộng đồng OpenStreetMap</string>
+    <string name="delete_place_empty_comment_error">Vui lòng nêu rõ lý do xóa địa điểm</string>
+    <string name="editor_business_vacant_button">Cơ sở kinh doanh đang trống</string>
+    <string name="editor_mark_business_vacant_title">Đánh dấu cơ sở kinh doanh là trống</string>
+    <string name="editor_mark_business_vacant_description">Dùng cái này nếu cơ sở kinh doanh đã đi nơi khác và không gian đang trống và sẵn sàng cho một người thuê mới.</string>
+    <string name="editor_level">Tầng (0 là tầng trệt)</string>
+    <string name="error_enter_correct_level">Nhập số tầng hợp lệ</string>
+    <string name="error_enter_correct_facebook_page">Nhập một địa chỉ Facebook, tài khoản, hoặc tên trang hợp lệ</string>
+    <string name="error_enter_correct_instagram_page">Nhập một tên người dùng Instagram hoặc địa chỉ web hợp lệ</string>
+    <string name="error_enter_correct_twitter_page">Nhập một tên người dùng Twitter hoặc địa chỉ web hợp lệ</string>
+    <string name="error_enter_correct_vk_page">Nhập một tên người dùng VK hoặc địa chỉ web hợp lệ</string>
+    <string name="error_enter_correct_line_page">Nhập một ID LINE hoặc địa chỉ web hợp lệ</string>
+    <string name="error_enter_correct_fediverse_page">Nhập một tên người dùng Mastodon hoặc địa chỉ web hợp lệ</string>
+    <string name="error_enter_correct_bluesky_page">Nhập một tên người dùng Bluesky hoặc địa chỉ web hợp lệ</string>
+    <string name="place_page_map_too_old_title">Dữ liệu bản đồ đã lỗi thời</string>
+    <string name="place_page_map_too_old_description">Dữ liệu bản đồ hiện tại của bạn rất cũ, vui lòng cập nhật bản đồ.</string>
+    <string name="place_page_app_too_old_description">Dữ liệu bản đồ hiện tại của bạn rất cũ, vui lòng cập nhật ứng dụng CoMaps.</string>
+    <string name="place_page_update_too_old_map">Cập nhật khu vực bản đồ</string>
+    <string name="place_page_too_old_to_edit">Việc chỉnh sửa OpenStreetMap đã bị tắt vì dữ liệu bản đồ quá cũ.</string>
+    <string name="osm_note_hint">Hoặc, một cách khác là để lại ghi chú cho cộng đồng OpenStreetMap để người khác có thể thêm hoặc sửa địa điểm ở đây.</string>
+    <string name="osm_note_toast">Ghi chú sẽ được gửi đến OpenStreetMap</string>
+    <string name="prefs_speed_cameras_information">Cảnh báo camera tốc độ bị tắt ở những quốc gia mà việc cảnh báo bị cấm bởi luật địa phương.</string>
+    <plurals name="bookmarks_detect_message">
+        <item quantity="other">%d tệp được tìm thấy. Bạn có thể xem chúng sau khi chuyển đổi.</item>
+    </plurals>
+    <string name="avoid_paved">Tránh đường được rải nhựa</string>
+    <string name="population">Dân số: %s</string>
+    <string name="download_map_title">Tải xuống bản đồ toàn cảnh thế giới</string>
+    <string name="disk_error">Không thể tạo thư mục và chuyển các tệp trong bộ nhớ thiết bị hoặc thẻ SD</string>
+    <string name="disconnect_usb_cable_title">Ngắt kết nối dây USB</string>
+    <string name="enable_show_on_lock_screen">Hiện trên màn hình khóa</string>
+    <string name="enable_show_on_lock_screen_description">Khi được bật, ứng dụng sẽ hoạt động trên màn hình khóa ngay cả khi thiết bị bị khóa.</string>
+    <string name="pref_left_button_title">Thiết lập nút bên trái</string>
+    <string name="pref_backup_summary">Tự động sao lưu đến một thư mục trên thiết bị của bạn</string>
+    <string name="pref_backup_now_summary">Tạo ngay một bản sao lưu</string>
+    <string name="pref_backup_now_summary_progress">Đang tạo bản sao lưu…</string>
+    <string name="pref_backup_now_summary_ok">Hoàn thành sao lưu thành công</string>
+    <string name="pref_backup_now_summary_empty_lists">Không mục Ưa thích nào được sao lưu</string>
+    <string name="pref_backup_now_summary_folder_unavailable">Thư mục sao lưu không có sẵn</string>
+    <string name="pref_backup_status_summary_success">Sao lưu thành công gần nhất</string>
+    <string name="pref_backup_location_summary_initial">Vui lòng chọn một thư mục trước và cấp quyền</string>
+    <string name="pref_backup_history_title">Số lượng bản sao lưu cần giữ</string>
+    <string name="backup_interval_manual_only">Tắt (chỉ làm thủ công)</string>
+    <string name="dialog_report_error_missing_folder">Vị trí sao lưu đã chọn không có sẵn hoặc không ghi vào được. Vui lòng chọn vị trí khác.</string>
+    <string name="dialog_report_error_with_logs">Vui lòng gửi cho chúng tôi một bản báo cáo lỗi:\n - \"Bật nhật ký hoạt động\" trong phần cài đặt\n - tạo lại vấn đề\n - trong phần \"Giới thiệu &amp; Trợ giúp\" nhấn nút \"Báo cáo lỗi\" và gửi qua email hoặc tin nhắn\n - tắt nhật ký hoạt động</string>
+    <string name="bookmark_color">Màu cho Ưa thích</string>
+    <string name="about_help">Giới thiệu &amp; Trợ giúp</string>
+    <string name="pref_tts_no_system_tts_short">Không có công cụ chuyển văn bản thành giọng nói nào được tìm thấy, kiểm tra cài đặt ứng dụng</string>
+    <string name="navigation_start_tts_message">"Đang bắt đầu Chỉ đường, ngôn ngữ hướng dẫn bằng giọng nói: "</string>
+    <string name="navigation_start_tts_disabled_message">Hướng dẫn bằng giọng nói đã bị tắt: công cụ TTS không có sẵn</string>
+    <string name="charge_socket_type2">Loại 2 (không có dây)</string>
+    <string name="charge_socket_type2_cable">Loại 2 (có dây)</string>
+    <string name="charge_socket_type2_combo">Combo Loại 2</string>
+    <string name="charge_socket_type1_combo">Combo Loại 1</string>
+    <string name="edit_socket_info_tooltip">Tạo cổng sạc mới hoặc chỉnh sửa cổng đang có sẵn.</string>
+    <string name="charge_socket_unknown_other">Khác hoặc không biết</string>
+    <string name="error_value_must_be_positive">Giá trị phải là dương</string>
+    <string name="offline_explanation_text">Một bản đồ cần được tải xuống để xem và điều hướng trong vùng.\nTải xuống bản đồ cho những khu vực bạn muốn đến.</string>
+    <string name="list_description_empty">Chỉnh sửa danh sách để thêm mô tả</string>
+    <string name="download_resources_custom_url_title">Tùy chỉnh máy chủ bản đồ</string>
+    <string name="download_resources_custom_url_message">Ghi đè máy chủ tải xuống bản đồ mặc định. Để trống để sử dụng máy chủ mặc định của CoMaps.</string>
+    <string name="download_resources_custom_url_error_scheme">Vui lòng nhập một URL bắt đầu bằng http:// hoặc https://</string>
+    <string name="pref_alt_map_lang_handling">Ngôn ngữ bản đồ thay thế</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Không sử dụng ngôn ngữ thay thế</string>
+    <string name="pref_alt_map_lang_handling_system_order">Dùng theo thứ tự hệ thống</string>
+    <string name="pref_alt_map_lang_handling_local_only">Ưu tiên và chỉ dùng ở nơi bản ngữ</string>
+    <string name="location_privacy_info">Các ứng dụng nhận dữ liệu vị trí từ dịch vụ vị trí của hệ điều hành điện thoại, nó có thể chia sẻ vị trí của bạn với Google và/hoặc nhà cung cấp thiết bị. Sử dụng một hệ điều hành Android bảo vệ quyền riêng tư để tránh điều này.</string>
+    <string name="pref_speedlimit_title">Hiện giới hạn tốc độ</string>
+    <string name="building_route">Đang tạo tuyến đường…</string>
+    <string name="route_not_started">Tuyến đường chưa bắt đầu</string>
+    <string name="on_route">Đang di chuyển</string>
+    <string name="route_needs_rebuild">Tuyến đường cần thiết lập lại</string>
+    <string name="route_finished">Tuyến đường đã hoàn thành</string>
+    <string name="not_following_route">Đang lệch khỏi tuyến đường</string>
+    <string name="route_recalculating">Đang tính lại tuyến đường…</string>
+    <string name="pref_openexternallinks_title">Tự động mở các đường dẫn bên thứ ba</string>
+    <string name="pref_openexternallinks_summary">Mặc định mở các đường dẫn bên thứ ba trong CoMaps</string>
 </resources>

@@ -744,8 +744,8 @@
     <string name="type.office.lawyer">Advokaat</string>
     <string name="type.office.ngo">Valitsusväline organisatsioon</string>
     <string name="type.office.telecommunication">Sideettevõte</string>
-    <string name="type.organic.only">Mahetoode</string>
-    <string name="type.organic.yes">Mahetoode</string>
+    <string name="type.organic.only">Vaid mahetooted</string>
+    <string name="type.organic.yes">Valikus on mahetooteid</string>
     <string name="type.place.city">Linn</string>
     <string name="type.place.city.capital">Pealinn</string>
     <string name="type.place.city.capital.10">Linn</string>
@@ -1517,4 +1517,5 @@
     <string name="type.sport.four_square">Nelja ruudukasti pallimäng</string>
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Pickleballi keskus</string>
+    <string name="type.organic.no">Valikus pole mahetooteid</string>
 </resources>

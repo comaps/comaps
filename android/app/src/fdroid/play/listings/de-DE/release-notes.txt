@@ -1,9 +1,10 @@
-• OpenStreetMap-Daten vom 5. April
-• Wandern Kartenstil: deutlichere Straßen mit kontrastreichen Rändern
-• Pickleball hinzugefügt
-• Verfügbarkeit von Bio-Produkten für Orte wie Restaurants und Supermärkte hinzugefügt
-• Sichtbarkeit von Baumreihen und Bäumen im Wandern Kartenstil erhöht
-• Spezifische Straßenschilder für Argentinien, Uruguay and Bolivien hinzugefügt und Duplikate entfernt
-• Behebt verschiedene periodische Abstürze
+• OpenStreetMap-Daten vom 21. April
+• Spracheinstellung für die App-Oberfläche hinzugefügt
+• Android Auto: Geschwindigkeitsbegrenzung während der Navigation anzeigen
+• Android Auto: Nutzt Standard-Hintergrundfarben
+• Navigationsansicht kann zwischen nächstem Stopp und Ziel wechseln
+• Diverse Fehlerbehebung in Sprachnavigation
+• Diverse Fehlerbehebung und Verbesserungen an Benutzeroberfläche
+• Kontraststärkere Wasser-Label im hellen Modus
 
 Weitere Details unter comaps.app/latest

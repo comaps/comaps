@@ -591,7 +591,7 @@ bool EditableMapObject::ValidateEmail(string const & email)
 
   if (strings::IsASCIIString(email))
   {
-    static auto const s_emailRegex = regex(R"([^@\s]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$)");
+    static std::regex const s_emailRegex(R"(^(?!mailto:)[^@\s]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$)", std::regex_constants::icase);
     return regex_match(email, s_emailRegex);
   }
 

@@ -59,6 +59,13 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_OrganicMaps_nativeInitFramework(
   }
 }
 
+// static void nativeSetContext(Context context);
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_OrganicMaps_nativeSetContext(JNIEnv * env, jclass clazz,
+                                                                             jobject context)
+{
+  android::Platform::Instance().SetContext(env, context);
+}
+
 // static void nativeAddLocalization(String name, String value);
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_OrganicMaps_nativeAddLocalization(JNIEnv * env, jclass clazz,
                                                                                   jstring name, jstring value)

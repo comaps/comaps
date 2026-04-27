@@ -383,7 +383,7 @@
     <string name="type.highway.residential.bridge">Bro</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.residential.tunnel">Tunnel</string>
-    <string name="type.highway.rest_area">Holdeplads</string>
+    <string name="type.highway.rest_area">Rasteplads</string>
     <string name="type.highway.road">Vej</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.road.bridge">Bro</string>
@@ -1091,7 +1091,7 @@
     <string name="type.tourism.artwork.painting">Kunstværk</string>
     <string name="type.tourism.artwork.sculpture">Skulptur</string>
     <string name="type.tourism.artwork.statue">Statue</string>
-    <string name="type.tourism.attraction">Attraktioner</string>
+    <string name="type.tourism.attraction">Turistattraktion</string>
     <string name="type.attraction.amusement_ride">Forlystelse</string>
     <string name="type.attraction.animal">Indhegning til dyr</string>
     <string name="type.attraction.carousel">Karrusel</string>
@@ -1487,4 +1487,15 @@
     <string name="type.leisure.sports_centre.sport.bowls">Sportscenter</string>
     <string name="type.leisure.sports_centre.sport.cricket">Sportscenter</string>
     <string name="type.waterway.fuel">Marina brændstofkaj</string>
+    <string name="type.leisure.sports_centre.sport.boules">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Sportscenter</string>
+    <string name="type.shop.water">Vandbutik</string>
+    <string name="type.sport.boules">Boules</string>
+    <string name="type.attraction">Attraktion</string>
+    <string name="type.leisure.sports_centre.sport.curling">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.equestrian">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.field_hockey">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.futsal">Sportscenter</string>
+    <string name="type.leisure.sports_centre.sport.handball">Sportscenter</string>
 </resources>

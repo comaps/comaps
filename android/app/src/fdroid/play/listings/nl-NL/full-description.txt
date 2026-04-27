@@ -7,7 +7,7 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 • Houd de kaarten up-to-date, zowel in de app als op de OpenStreetMap-website
 
 ‣ <b>Offline-georiënteerd</b>: Plan en navigeer je reis in het buitenland zonder internet, zoek waypoints tijdens een lange wandeling, enzovoort. Alle functies zijn ontworpen om offline te functioneren.
-‣ <b>Respect voor privacy</b>: De app is ontworpen met privacy in gedachten - geen gegevensverzameling en advertentievrij.
+‣ <b>Respect voor privacy</b>: De app is ontworpen met privacy in gedachten - geen gegevensverzameling en reclamevrij.
 ‣ <b>Eenvoudig en verfijnd</b>: essentiële, gebruiksvriendelijke functies die gewoon werken.
 ‣ <b>Bespaar je batterij en opslag</b>: De app verbruikt minder batterij dan andere navigatie-apps. Compacte kaarten besparen ruimte op je telefoon.
 ‣ <b>Gratis en gebouwd door de community</b>: Mensen zoals jij helpen de app door plaatsen toe te voegen aan OpenStreetMap, functies te testen en feedback te geven, en hun programmervaardigheden bij te dragen of te doneren.
@@ -22,7 +22,7 @@ Sluit je aan bij de community en help mee aan de ontwikkeling van de beste kaart
 • Navigatie met spraakmeldingen voor wandelen, fietsen of autorijden
 • Sla je favoriete plaatsen op met een enkele klik
 • Offline Wikipedia-artikelen
-• Metro laag en routebeschrijvingen
+• Metrolaag en routebeschrijvingen
 • Trackregistratie
 • Exporteer en importeer bladwijzers en tracks in KML, KMZ, GPX-formaten
 • Een donkere modus voor gebruik 's nachts

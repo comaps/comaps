@@ -938,4 +938,6 @@
     <string name="stop">途经点</string>
     <string name="charge_socket_type1_combo">Type 1 Combo</string>
     <string name="population">人口：%s</string>
+    <string name="setting_value_system_default">系统默认</string>
+    <string name="change_app_locale">应用语言</string>
 </resources>

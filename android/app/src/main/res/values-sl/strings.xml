@@ -11,8 +11,8 @@
     <string name="miles">Milje</string>
     <string name="later">Kasneje</string>
     <string name="search_map">Išči po zemljevidu</string>
-    <string name="location_is_disabled_long_text">Na tej napravi so trenutno izklopljene vse položajne storitve. Omogočite jih v nastavitvah.</string>
-    <string name="limited_accuracy">Nenatančna navigacija</string>
+    <string name="location_is_disabled_long_text">Na tej napravi so trenutno vse možnosti zaznavanja položaja izklopljene. Omogočite jih v nastavitvah.</string>
+    <string name="limited_accuracy">Nenatančno usmerjanje</string>
     <string name="precise_location_is_disabled_long_text">Natančnejše potno usmerjanje lahko omogočite prek nastavitve Uporabi natančen položaj v sistemskih nastavitvah</string>
     <string name="zoom_to_country">Pokaži na zemljevidu</string>
     <string name="country_status_download_failed">Prenos ni uspel</string>
@@ -27,7 +27,7 @@
     <string name="close">Zapri</string>
     <string name="unsupported_phone">Aplikacija potrebuje strojno pospešeni OpenGL. Na žalost vaša naprava ni podprta.</string>
     <string name="download">Prenesi</string>
-    <string name="dialog_routing_location_turn_on">Omogoči položajne storitve</string>
+    <string name="dialog_routing_location_turn_on">Omogoči zaznavanje položaja</string>
     <string name="download_over_mobile_message">To je lahko precej drago z nekaterimi mobilnimi naročninami ali če gostujete v tujem mobilnem omrežju.</string>
     <string name="error_enter_correct_house_number">Vnesite veljavno številko stavbe</string>
     <string name="app_site_url">https://comaps.app/</string>
@@ -49,7 +49,7 @@
     <string name="list">Seznam</string>
     <string name="settings">Nastavitve</string>
     <string name="maps_storage">Shrani zemljevide v</string>
-    <string name="maps_storage_summary">Izberi mapo, v katero naj se prenesejo zemljevidi</string>
+    <string name="maps_storage_summary">Izberite mapo, v katero naj se prenesejo zemljevidi</string>
     <string name="maps_storage_downloaded">Prenesenih zemljevidov</string>
     <string name="maps_storage_free_size">%1$s prosto od %2$s</string>
     <string name="move_maps">Premaknem zemljevide?</string>
@@ -104,7 +104,7 @@
     <string name="share_my_location">Deli moj položaj</string>
     <string name="prefs_group_general">Splošne nastavitve</string>
     <string name="prefs_group_information">Informacije</string>
-    <string name="prefs_group_route">Navigacija</string>
+    <string name="prefs_group_route">Usmerjanje</string>
     <string name="pref_zoom_title">Gumbi za povečavo</string>
     <string name="pref_zoom_summary">Prikaži na zemljevidu</string>
     <string name="pref_map_style_title">Nočni način</string>
@@ -157,7 +157,7 @@
     <string name="routing_download_maps_along">Prenesite vse zemljevide, čez katere gre vaša pot</string>
     <string name="routing_requires_all_map">Preden lahko ustvarite povezavo, morate prenesti in posodobiti vse zemljevide med vašim trenutnim položajem in končnim ciljem.</string>
     <string name="routing_not_enough_space">Ni dovolj prostora</string>
-    <string name="enable_location_services">Omogočite položajne storitve</string>
+    <string name="enable_location_services">Omogočite zaznavanje položaja</string>
     <string name="save">Shrani</string>
     <string name="red">Rdeča</string>
     <string name="yellow">Rumena</string>
@@ -184,7 +184,7 @@
     <string name="dialog_routing_check_gps">Preveri signal GPS</string>
     <string name="dialog_routing_error_location_not_found">Poti ni bilo mogoče ustvariti. Trenutni položaj GPS je nedoločljiv.</string>
     <string name="dialog_routing_location_turn_wifi">Preverite svoj signal GPS. Vaš položaj se bo dalo natančneje določiti, če omogočite Wi-Fi.</string>
-    <string name="dialog_routing_location_unknown_turn_on">Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun povezave morate vklopiti položajne storitve.</string>
+    <string name="dialog_routing_location_unknown_turn_on">Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun poti vklopite zaznavanje položaja.</string>
     <string name="dialog_routing_unable_locate_route">Poti ni bilo mogoče najti</string>
     <string name="dialog_routing_cant_build_route">Ni bilo mogoče ustvariti poti</string>
     <string name="dialog_routing_change_start_or_end">Prilagodite svoje izhodišče ali cilj.</string>
@@ -348,7 +348,7 @@
     <string name="accept">Potrdi</string>
     <string name="decline">Zavrni</string>
     <string name="mobile_data_dialog">Naj pridobim podrobne podatke prek mobilnega omrežja?</string>
-    <string name="mobile_data_option_always">Vedno uporabi</string>
+    <string name="mobile_data_option_always">Uporabi vedno</string>
     <string name="mobile_data_option_today">Samo danes</string>
     <string name="mobile_data_option_not_today">Ne uporabi danes</string>
     <string name="mobile_data">Mobilno omrežje</string>
@@ -356,7 +356,7 @@
     <string name="mobile_data_option_never">Nikoli ne uporabi</string>
     <string name="mobile_data_option_ask">Vedno vprašaj</string>
     <string name="traffic_update_maps_text">Za prikazovanje podatkov o prometu je treba posodobiti zemljevide</string>
-    <string name="big_font">Povečajte velikost oznak na zemljevidu</string>
+    <string name="big_font">Povečaj velikost oznak na zemljevidu</string>
     <string name="traffic_update_app">Posodobite CoMaps</string>
     <string name="traffic_data_unavailable">Prometni podatki niso na voljo</string>
     <string name="enable_logging">Omogoči dnevniške zapise</string>
@@ -366,7 +366,7 @@
     <string name="transliteration_title">Prečrkuj v latinico</string>
     <string name="learn_more">Več o tem</string>
     <string name="routing_add_start_point">Za dodajanje izhodišča poti uporabite iskalno vrstico ali izberite točko na zemljevidu</string>
-    <string name="routing_add_finish_point">Uporabite iskanje ali pritisnite točko na zemljevidu, da dodate cilj</string>
+    <string name="routing_add_finish_point">Uporabite iskanje ali se dotaknite točke na zemljevidu, da dodate cilj</string>
     <string name="planning_route_manage_route">Uredi načrt poti</string>
     <string name="button_plan">Načrtuj</string>
     <string name="placepage_remove_stop">Odstrani postanek</string>
@@ -484,7 +484,7 @@
     <string name="search_in_the_list">Išči po seznamu</string>
     <string name="religious_places">Verski kraji</string>
     <string name="select_list">Izberi seznam</string>
-    <string name="transit_not_found">V tem območju navigacija s podzemno železnico še ni na voljo</string>
+    <string name="transit_not_found">V tem območju usmerjanje s podzemno železnico še ni na voljo</string>
     <string name="dialog_pedestrian_route_is_long_header">Poti s podzemno železnico ni bilo mogoče najti</string>
     <string name="dialog_pedestrian_route_is_long_message">Izberite začetno ali končno točko, ki je bližje postaji podzemne železnice</string>
     <string name="button_layer_isolines">Plastnice</string>
@@ -507,7 +507,7 @@
     <string name="enable_keep_screen_on">Ohrani zaslon prižgan</string>
     <string name="enable_keep_screen_on_description">Če je to omogočeno, bo zaslon vedno prižgan, kadar bo prikazan zemljevid.</string>
     <string name="enable_show_on_lock_screen">Vidno na zaklenjenem zaslonu</string>
-    <string name="enable_show_on_lock_screen_description">Kadar je to omogočeno, bo aplikacija delovala na zaslonu tudi, ko bo naprava zaklenjena.</string>
+    <string name="enable_show_on_lock_screen_description">Kadar je to omogočeno, bo orodje delovalo na zaslonu tudi, ko bo naprava zaklenjena.</string>
     <string name="change_map_locale">Jezik zemljevida</string>
     <string name="splash_subtitle">Kartografski podatki OpenStreetMap</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
@@ -528,7 +528,7 @@
     <string name="error_invalid_number">Neveljavno število</string>
     <string name="offline_explanation_title">Zemljevidi brez povezave</string>
     <string name="offline_explanation_text">Zemljevid morate prenesti, da siga lahko ogledujete in se po njem usmerjate.\nPrenesite zemljevide za območja, kjer nameravate potovati.</string>
-    <string name="google_play_services">Googleova združena lokacijska storitev</string>
+    <string name="google_play_services">Googleovo združeno zaznavanje položaja</string>
     <string name="create">Ustvari</string>
     <string name="editor_place_doesnt_exist_description">Opišite, kako to mesto izgleda sedaj, da pošljete obvestilo skupnosti OpenStreetMap</string>
     <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z orodji (Google Play, Galaxy Store, App Gallery, FDroid).\nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor.\nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>
@@ -559,7 +559,7 @@
     <string name="select_option">Izberi možnost</string>
     <string name="outdoor_seating">Sedišča na prostem</string>
     <string name="power_save_dialog_summary">Za kar najbolj natančno navigacijo priporočamo, da v nastavitvah baterije telefona onemogočite varčevanje z energijo.</string>
-    <string name="start_track_recording">Snemaj sled</string>
+    <string name="start_track_recording">Snemanje sledi</string>
     <string name="stop_track_recording">Ustavi snemanje sledi</string>
     <string name="stop_without_saving">Ustavi brez shranjevanja</string>
     <string name="continue_recording">Nadaljuj snemanje</string>
@@ -574,7 +574,7 @@
     <string name="zoom_out">Oddalji</string>
     <string name="pref_left_button_title">Nastavitev levega gumba</string>
     <string name="pref_backup_title">Varnostno kopiranje zaznamkov</string>
-    <string name="pref_backup_summary">Samodejno varnostno kopiraj v mapo na vaši napravi</string>
+    <string name="pref_backup_summary">Samodejno varnostno kopira v mapo na vaši napravi</string>
     <string name="pref_backup_now_title">Ustvari varnostno kopijo zdaj</string>
     <string name="pref_left_button_disable">Onemogoči</string>
     <string name="pref_backup_now_summary_progress">Varnostno kopiranje se izvaja …</string>
@@ -651,7 +651,7 @@
     <string name="list_description_empty">Uredite seznam, da dodate opis</string>
     <string name="advanced">Napredno</string>
     <string name="download_resources_custom_url_title">Strežnik zemljevida po meri</string>
-    <string name="download_resources_custom_url_message">Prepiši privzeti strežnik za prenos zemljevidov, ki se uporablja za prenos zemljevidov. Pustite prazno, če želite uporabiti privzeti strežnik CoMaps.</string>
+    <string name="download_resources_custom_url_message">Prepiše privzeti strežnik za prenos zemljevidov, ki se uporablja za prenos zemljevidov. Pustite prazno, če želite uporabiti privzeti strežnik CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">Ni nastavljeno</string>
     <string name="download_resources_custom_url_error_scheme">Vnesite polni URL, ki se začne z http:// ali https://</string>
     <string name="pref_maplanguage_local">Krajevni jezik</string>
@@ -667,15 +667,17 @@
     <string name="route_finished">Pot je končana</string>
     <string name="not_following_route">Ne sledite poti</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
-    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne uporabljaj alternativ</string>
-    <string name="pref_alt_map_lang_handling">Alternativni jeziki zemljevida</string>
-    <string name="pref_alt_map_lang_handling_system_order">Uporabi v sistemskem vrstne redu</string>
-    <string name="pref_alt_map_lang_handling_local_only">Uporabljaj prednostno in samo kjer je domače</string>
+    <string name="pref_alt_map_lang_handling_ignore_alternatives">Ne uporabljaj drugih jezikov</string>
+    <string name="pref_alt_map_lang_handling">Drugi jeziki zemljevida</string>
+    <string name="pref_alt_map_lang_handling_system_order">Uporabi v sistemskem vrstnem redu</string>
+    <string name="pref_alt_map_lang_handling_local_only">Uporabljaj prednostno in samo kjer so domači</string>
     <string name="pref_openexternallinks_title">Samodejno odpri zunanje povezave</string>
-    <string name="pref_openexternallinks_summary">Privzeto odpri zunanje povezave v CoMaps</string>
+    <string name="pref_openexternallinks_summary">Privzeto odpre zunanje povezave v CoMaps</string>
     <string name="bookmark_share_email_subject">Odpri povezavo %1$s ali vnesi koordinate %2$s v svoji aplikaciji z zemljevidi za ogled te lokacije.</string>
     <string name="my_position_share_email">Odpri povezavo %1$s ali vnesi koordinate %2$s v svoji aplikaciji z zemljevidi za ogled moje lokacije.</string>
     <string name="population">Prebivalcev: %s</string>
     <string name="destination">Cilj</string>
     <string name="stop">Ustavi</string>
+    <string name="charge_socket_type1_combo">Kombinacija vrste 1</string>
+    <string name="route_recalculating">Ponovno preračunavanje poti …</string>
 </resources>

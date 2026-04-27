@@ -19,7 +19,6 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentFactory;
 import androidx.fragment.app.FragmentManager;
 import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.bookmarks.ChooseBookmarkCategoryFragment;
 import app.organicmaps.bookmarks.ChooseBookmarkCategoryFragment.Listener;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
@@ -39,7 +38,7 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
 
-public class EditBookmarkFragment extends BaseMwmDialogFragment implements View.OnClickListener, Listener
+public class EditBookmarkFragment extends DialogFragment implements View.OnClickListener, Listener
 {
   public static final String EXTRA_CATEGORY_ID = "CategoryId";
   public static final String EXTRA_ID = "BookmarkTrackId";

@@ -83,6 +83,17 @@
     <release version="2026.04.07" date="2026-04-07">
      <url type="details">https://comaps.app/latest/</url>
      <description><ul>
+<li>OpenStreetMap data as of April 21</li>
+<li>Show results for viewport search</li>
+<li>Fixed sorting downloads by size</li>
+<li>More contrast water labels in light mode</li>
+<li>Outdoor style: removed not useful footway borders at overview zoom levels</li>
+<li>Fixed crash viewing poi with charge socket info</li>
+     </ul></description>
+    </release>
+    <release version="2026.04.07" date="2026-04-07">
+     <url type="details">https://codeberg.org/comaps/comaps/releases/tag/v2026.04.07-8</url>
+     <description><ul>
 <li>OpenStreetMap data as of April 5</li>
 <li>Outdoor style: more prominent roads with contrast borders</li>
 <li>Allow cancelling of ongoing downloads</li>

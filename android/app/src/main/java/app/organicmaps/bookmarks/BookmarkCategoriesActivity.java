@@ -37,6 +37,12 @@ public class BookmarkCategoriesActivity extends BaseToolbarActivity
   }
 
   @Override
+  protected int getToolbarTitle()
+  {
+    return R.string.bookmarks_and_tracks;
+  }
+
+  @Override
   protected Class<? extends Fragment> getFragmentClass()
   {
     return BookmarkCategoriesFragment.class;

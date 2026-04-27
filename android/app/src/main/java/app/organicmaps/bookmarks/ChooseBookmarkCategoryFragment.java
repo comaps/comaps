@@ -7,18 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.dialog.EditTextDialogFragment;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import java.util.List;
 
 public class ChooseBookmarkCategoryFragment
-    extends BaseMwmDialogFragment implements ChooseBookmarkCategoryAdapter.CategoryListener
+    extends DialogFragment implements ChooseBookmarkCategoryAdapter.CategoryListener
 {
   public static final String CATEGORY_POSITION = "ExtraCategoryPosition";
 
@@ -32,9 +32,10 @@ public class ChooseBookmarkCategoryFragment
   private Listener mListener;
 
   @Override
-  protected int getStyle()
+  public void onCreate(@Nullable Bundle savedInstanceState)
   {
-    return STYLE_NO_TITLE;
+    super.onCreate(savedInstanceState);
+    setStyle(STYLE_NO_TITLE, 0);
   }
 
   @Nullable

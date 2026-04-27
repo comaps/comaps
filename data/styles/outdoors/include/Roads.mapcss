@@ -509,9 +509,11 @@ line|z14-[highway=living_street]::border,
 line|z15-[highway=service]::border,
 {casing-color: @minor_road_border; casing-opacity: 0.6;}
 
-line|z11-[highway=footway]::border,
-line|z15-[highway=ladder]::border,
-line|z15-[highway=steps]::border,
+/* Strangely, borders on zooms earlier than z16 actually make footways tad less prominent.
+   See https://codeberg.org/comaps/comaps/issues/4026 */
+line|z16-[highway=footway]::border,
+line|z16-[highway=ladder]::border,
+line|z16-[highway=steps]::border,
 {color: @minor_road_border; opacity: 0.2;}
 
 line|z15-[highway=service][service=busway]::border,
@@ -669,23 +671,11 @@ line|z13-14[highway=service][service=parking_aisle]::border,
 
 /* No point using casing-width for dashed ways as need to specify dashing for each zoom level anyway */
 
-line|z11[highway=footway]::border,
-{width: 2; dashes: 3.5,2;}
-/* Steps on z12-14 look same as footways, z15- follows main style */
-line|z12[highway=ladder]::border,
-line|z12[highway=steps]::border,
-line|z12[highway=footway]::border,
-{width: 2.1; dashes: 3.5,2;}
-line|z13[highway=ladder]::border,
-line|z13[highway=steps]::border,
-line|z13[highway=footway]::border,
-{width: 2.3; dashes: 4,2.5;}
-line|z14[highway=ladder]::border,
-line|z14[highway=steps]::border,
-line|z14[highway=footway]::border,
-{width: 2.6; dashes: 4,2.5;}
+/* Reset not useful z15 borders inherited from general style. */
 line|z15[highway=footway]::border,
-{width: 3.2; dashes: 6,3.5;}
+line|z15[highway=ladder]::border,
+line|z15[highway=steps]::border,
+{width: 0;}
 line|z16[highway=footway]::border,
 {width: 4.4; dashes: 6,3.5;}
 line|z17[highway=footway]::border,

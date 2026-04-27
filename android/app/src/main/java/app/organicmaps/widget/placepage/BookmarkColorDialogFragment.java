@@ -3,19 +3,18 @@ package app.organicmaps.widget.placepage;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.GridView;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.bookmarks.ColorsAdapter;
 import app.organicmaps.sdk.bookmarks.data.PredefinedColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import java.util.List;
 
-public class BookmarkColorDialogFragment extends BaseMwmDialogFragment
+public class BookmarkColorDialogFragment extends DialogFragment
 {
   public static final String ICON_COLOR = "ExtraIconColor";
   public static final String ICON_RES = "ExtraIconRes";
@@ -68,7 +67,7 @@ public class BookmarkColorDialogFragment extends BaseMwmDialogFragment
 
     @SuppressLint("InflateParams")
     final GridView gView =
-        (GridView) LayoutInflater.from(requireActivity()).inflate(R.layout.fragment_color_grid, null);
+        (GridView) getLayoutInflater().inflate(R.layout.fragment_color_grid, null);
     gView.setAdapter(adapter);
     gView.setOnItemClickListener((parent, view, pos, id) -> {
       if (mColorSetListener != null)

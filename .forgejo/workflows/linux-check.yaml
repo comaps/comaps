@@ -28,32 +28,6 @@ on:
   pull_request:
     paths: *paths
 
-env:
-  SUBMODULE_CACHE_PATHS: |
-    .git/modules
-    3party/CMake-MetalShaderSupport
-    3party/Vulkan-Headers
-    3party/boost
-    3party/expat
-    3party/fast_double_parser
-    3party/fast_obj
-    3party/freetype/freetype
-    3party/gflags
-    3party/glaze
-    3party/glfw
-    3party/glm
-    3party/googletest
-    3party/harfbuzz/harfbuzz
-    3party/icu/icu
-    3party/imgui/imgui
-    3party/jansson/jansson
-    3party/just_gtfs
-    3party/protobuf/protobuf
-    3party/pugixml/pugixml
-    3party/utfcpp
-    tools/kothic
-    tools/osmctools
-
 jobs:
   linux-no-unity:
     name: Linux no unity build
@@ -75,24 +49,14 @@ jobs:
         with:
           fetch-depth: 100 # enough to get all commits for the current day
 
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
+
       - name: Cache world map
         uses: actions/cache@v4
         with:
           path: data/world_mwm
           key: world-mwm
-
-      - uses: actions/cache@v4
-        with:
-          path: ${{ env.SUBMODULE_CACHE_PATHS }}
-          key: submodules-${{ hashFiles('.gitmodules') }}
-          restore-keys: |
-            submodules-
-
-      - name: Sync and update submodules
-        shell: bash
-        run: |
-          git submodule sync --recursive
-          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2
@@ -150,24 +114,14 @@ jobs:
         with:
           fetch-depth: 100 # enough to get all commits for the current day
 
+      - name: Update submodules
+        uses: ./.forgejo/actions/update-submodules
+
       - name: Cache world map
         uses: actions/cache@v4
         with:
           path: data/world_mwm
           key: world-mwm
-
-      - uses: actions/cache@v4
-        with:
-          path: ${{ env.SUBMODULE_CACHE_PATHS }}
-          key: submodules-${{ hashFiles('.gitmodules') }}
-          restore-keys: |
-            submodules-
-
-      - name: Sync and update submodules
-        shell: bash
-        run: |
-          git submodule sync --recursive
-          git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
       - name: Configure ccache
         uses: https://github.com/hendrikmuhs/ccache-action@v1.2

@@ -1,7 +1,7 @@
 {
     "data_format": 1,
     "data_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/taginfo.json",
-    "data_updated": "20260323T134459Z",
+    "data_updated": "20260408T212157Z",
     "project": {
         "name": "CoMaps",
         "description": "CoMaps is a community-focused privacy navigation iOS & Android app for travelers - drivers, hikers, and cyclists.",
@@ -2568,6 +2568,18 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pelota-centre-m.svg"
         },
         {
+            "description": "leisure=sports_centre + sport=pickleball",
+            "key": "leisure",
+            "value": "sports_centre",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pickleball-centre-m.svg"
+        },
+        {
+            "description": "leisure=sports_centre + sport=pickleball",
+            "key": "sport",
+            "value": "pickleball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pickleball-centre-m.svg"
+        },
+        {
             "description": "leisure=sports_centre + sport=scuba_diving",
             "key": "leisure",
             "value": "sports_centre",
@@ -3015,11 +3027,6 @@
             "key": "natural",
             "value": "tree",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/tree-special-m.svg"
-        },
-        {
-            "description": "natural=tree_row",
-            "key": "natural",
-            "value": "tree_row"
         },
         {
             "description": "natural=volcano",
@@ -4774,6 +4781,12 @@
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pelota-m.svg"
         },
         {
+            "description": "sport=pickleball",
+            "key": "sport",
+            "value": "pickleball",
+            "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/pickleball-m.svg"
+        },
+        {
             "description": "sport=scuba_diving",
             "key": "sport",
             "value": "scuba_diving",
@@ -5070,6 +5083,1381 @@
             "key": "xmas:feature",
             "value": "tree",
             "icon_url": "https://codeberg.org/comaps/comaps/raw/branch/main/data/styles/default/light/symbols/christmas-tree-m.svg"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #82A3B7, fill-color: (dark): #273137",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #82A3B7, fill-color: (dark): #273137",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #8BABBE, fill-color: (dark): #293339",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #8BABBE, fill-color: (dark): #293339",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #90B1C4, fill-color: (dark): #2B353A",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #90B1C4, fill-color: (dark): #2B353A",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #92B4C7, fill-color: (dark): #2C363B",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #92B4C7, fill-color: (dark): #2C363B",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #94B6C9, fill-color: (dark): #2C363C",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #94B6C9, fill-color: (dark): #2C363C",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #96B9CC, fill-color: (dark): #2D373D",
+            "key": "aerodrome",
+            "value": "international"
+        },
+        {
+            "description": "aeroway=aerodrome + aerodrome=international | fill-color: (light): #96B9CC, fill-color: (dark): #2D373D",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #82A3B7, fill-color: (dark): #273137",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #8BABBE, fill-color: (dark): #293339",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #90B1C4, fill-color: (dark): #2B353A",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #92B4C7, fill-color: (dark): #2C363B",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #94B6C9, fill-color: (dark): #2C363C",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=aerodrome | fill-color: (light): #96B9CC, fill-color: (dark): #2D373D",
+            "key": "aeroway",
+            "value": "aerodrome"
+        },
+        {
+            "description": "aeroway=terminal | fill-color: (light): #D0D1CC, fill-color: (dark): #2A2A29, casing-color: (light): #9B9A8F, casing-color: (dark): #1F1F1D",
+            "key": "aeroway",
+            "value": "terminal"
+        },
+        {
+            "description": "aeroway=terminal | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A, casing-color: (light): #A1A096, casing-color: (dark): #20201E",
+            "key": "aeroway",
+            "value": "terminal"
+        },
+        {
+            "description": "amenity=bicycle_parking | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "bicycle_parking"
+        },
+        {
+            "description": "amenity=car_pooling | fill-color: (light): #EBF0EF, fill-color: (dark): #1E1F1F",
+            "key": "amenity",
+            "value": "car_pooling"
+        },
+        {
+            "description": "amenity=car_wash | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "car_wash"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "charging_station"
+        },
+        {
+            "description": "amenity=charging_station + motorcar?=* | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "motorcar?"
+        },
+        {
+            "description": "amenity=charging_station | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "charging_station"
+        },
+        {
+            "description": "amenity=childcare | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "amenity",
+            "value": "childcare"
+        },
+        {
+            "description": "amenity=clinic | fill-color: (light): #FFDAD6, fill-color: (dark): #1E1A19",
+            "key": "amenity",
+            "value": "clinic"
+        },
+        {
+            "description": "amenity=college | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "amenity",
+            "value": "college"
+        },
+        {
+            "description": "amenity=courthouse | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "courthouse"
+        },
+        {
+            "description": "amenity=doctors | fill-color: (light): #FFDAD6, fill-color: (dark): #1E1A19",
+            "key": "amenity",
+            "value": "doctors"
+        },
+        {
+            "description": "amenity=fire_station | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "fire_station"
+        },
+        {
+            "description": "amenity=fountain | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "amenity",
+            "value": "fountain"
+        },
+        {
+            "description": "amenity=fuel | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "fuel"
+        },
+        {
+            "description": "amenity=grave_yard | fill-color: (light): #BECC76, fill-color: (dark): #262918",
+            "key": "amenity",
+            "value": "grave_yard"
+        },
+        {
+            "description": "amenity=grave_yard | fill-color: (light): #C0CE7B, fill-color: (dark): #252818",
+            "key": "amenity",
+            "value": "grave_yard"
+        },
+        {
+            "description": "amenity=grave_yard | fill-color: (light): #C3CF7F, fill-color: (dark): #242718",
+            "key": "amenity",
+            "value": "grave_yard"
+        },
+        {
+            "description": "amenity=grave_yard | fill-color: (light): #C7D184, fill-color: (dark): #242617",
+            "key": "amenity",
+            "value": "grave_yard"
+        },
+        {
+            "description": "amenity=grave_yard | fill-color: (light): #C9D189, fill-color: (dark): #232617",
+            "key": "amenity",
+            "value": "grave_yard"
+        },
+        {
+            "description": "amenity=hospital | fill-color: (light): #FFDAD6, fill-color: (dark): #1E1A19",
+            "key": "amenity",
+            "value": "hospital"
+        },
+        {
+            "description": "amenity=kindergarten | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "amenity",
+            "value": "kindergarten"
+        },
+        {
+            "description": "amenity=marketplace | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "marketplace"
+        },
+        {
+            "description": "amenity=motorcycle_parking | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "motorcycle_parking"
+        },
+        {
+            "description": "amenity=parking | fill-color: (light): #EBF0EF, fill-color: (dark): #1E1F1F",
+            "key": "amenity",
+            "value": "parking"
+        },
+        {
+            "description": "amenity=place_of_worship | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "place_of_worship"
+        },
+        {
+            "description": "amenity=police | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "police"
+        },
+        {
+            "description": "amenity=prison | fill-color: (light): #727272, fill-color: (dark): #7f7f7f",
+            "key": "amenity",
+            "value": "prison"
+        },
+        {
+            "description": "amenity=ranger_station | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "ranger_station"
+        },
+        {
+            "description": "amenity=recycling + recycling_type=centre | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "recycling"
+        },
+        {
+            "description": "amenity=recycling + recycling_type=centre | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "recycling_type",
+            "value": "centre"
+        },
+        {
+            "description": "amenity=school | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "amenity",
+            "value": "school"
+        },
+        {
+            "description": "amenity=social_facility | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "social_facility"
+        },
+        {
+            "description": "amenity=university | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "amenity",
+            "value": "university"
+        },
+        {
+            "description": "amenity=vehicle_inspection | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "amenity",
+            "value": "vehicle_inspection"
+        },
+        {
+            "description": "amenity=waste_transfer_station | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "amenity",
+            "value": "waste_transfer_station"
+        },
+        {
+            "description": "area:highway=footway | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area:highway",
+            "value": "footway"
+        },
+        {
+            "description": "area:highway=living_street | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area:highway",
+            "value": "living_street"
+        },
+        {
+            "description": "area:highway=pedestrian | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area:highway",
+            "value": "pedestrian"
+        },
+        {
+            "description": "barrier=city_wall | color: (light): #AEAD9E, color: (dark): #232320",
+            "key": "barrier",
+            "value": "city_wall"
+        },
+        {
+            "description": "barrier=ditch | color: (light): #8C5826, color: (dark): #273137",
+            "key": "barrier",
+            "value": "ditch"
+        },
+        {
+            "description": "barrier=fence | color: (light): #888888, color: (dark): #292929",
+            "key": "barrier",
+            "value": "fence"
+        },
+        {
+            "description": "barrier=guard_rail | color: (light): #888888, color: (dark): #292929",
+            "key": "barrier",
+            "value": "guard_rail"
+        },
+        {
+            "description": "barrier=hedge | color: (light): #95A852, color: (dark): #2C3218",
+            "key": "barrier",
+            "value": "hedge"
+        },
+        {
+            "description": "barrier=retaining_wall | color: (light): #888888, color: (dark): #292929",
+            "key": "barrier",
+            "value": "retaining_wall"
+        },
+        {
+            "description": "barrier=wall | color: (light): #888888, color: (dark): #292929",
+            "key": "barrier",
+            "value": "wall"
+        },
+        {
+            "description": "barrier=yes | color: (light): #888888, color: (dark): #292929",
+            "key": "barrier",
+            "value": "yes"
+        },
+        {
+            "description": "boundary=aboriginal_lands | color: (light): #734D26, color: (dark): #734D26",
+            "key": "boundary",
+            "value": "aboriginal_lands"
+        },
+        {
+            "description": "boundary=aboriginal_lands | fill-color: (light): #734D26, fill-color: (dark): #734D26",
+            "key": "boundary",
+            "value": "aboriginal_lands"
+        },
+        {
+            "description": "boundary=administrative + admin_level=3 | color: (light): #73726B, color: (dark): #666666",
+            "key": "admin_level",
+            "value": "3"
+        },
+        {
+            "description": "boundary=administrative + admin_level=3 | color: (light): #73726B, color: (dark): #666666",
+            "key": "boundary",
+            "value": "administrative"
+        },
+        {
+            "description": "boundary=administrative + admin_level=4 | color: (light): #73726B, color: (dark): #666666",
+            "key": "admin_level",
+            "value": "4"
+        },
+        {
+            "description": "boundary=administrative + admin_level=4 | color: (light): #73726B, color: (dark): #666666",
+            "key": "boundary",
+            "value": "administrative"
+        },
+        {
+            "description": "boundary=administrative | color: (light): #63635C, color: (dark): #555555",
+            "key": "boundary",
+            "value": "administrative"
+        },
+        {
+            "description": "boundary=national_park | color: (light): #7B8F35, color: (dark): #191D0B",
+            "key": "boundary",
+            "value": "national_park"
+        },
+        {
+            "description": "boundary=national_park | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "key": "boundary",
+            "value": "national_park"
+        },
+        {
+            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #191D0B",
+            "key": "boundary",
+            "value": "protected_area"
+        },
+        {
+            "description": "boundary=protected_area + protect_class=1 | color: (light): #7B8F35, color: (dark): #191D0B",
+            "key": "protect_class",
+            "value": "1"
+        },
+        {
+            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "key": "boundary",
+            "value": "protected_area"
+        },
+        {
+            "description": "boundary=protected_area + protect_class=1 | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "key": "protect_class",
+            "value": "1"
+        },
+        {
+            "description": "building:part=* | fill-color: (light): #D0D1CC, fill-color: (dark): #2A2A29, casing-color: (light): #9B9A8F, casing-color: (dark): #1F1F1D",
+            "key": "building:part"
+        },
+        {
+            "description": "building:part=* | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A, casing-color: (light): #A1A096, casing-color: (dark): #20201E",
+            "key": "building:part"
+        },
+        {
+            "description": "building=* | fill-color: (light): #D0D1CC, fill-color: (dark): #2A2A29, casing-color: (light): #9B9A8F, casing-color: (dark): #1F1F1D",
+            "key": "building"
+        },
+        {
+            "description": "building=* | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A",
+            "key": "building"
+        },
+        {
+            "description": "building=* | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A, casing-color: (light): #A1A096, casing-color: (dark): #20201E",
+            "key": "building"
+        },
+        {
+            "description": "emergency=mountain_rescue | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "emergency",
+            "value": "mountain_rescue"
+        },
+        {
+            "description": "highway=footway + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area?"
+        },
+        {
+            "description": "highway=footway + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "highway",
+            "value": "footway"
+        },
+        {
+            "description": "highway=pedestrian + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "area?"
+        },
+        {
+            "description": "highway=pedestrian + area?=* | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "highway",
+            "value": "pedestrian"
+        },
+        {
+            "description": "highway=pedestrian + place=square | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "highway",
+            "value": "pedestrian"
+        },
+        {
+            "description": "highway=pedestrian + place=square | fill-color: (light): #FCF3E6, fill-color: (dark): #32312E",
+            "key": "place",
+            "value": "square"
+        },
+        {
+            "description": "highway=rest_area | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "highway",
+            "value": "rest_area"
+        },
+        {
+            "description": "highway=services | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "highway",
+            "value": "services"
+        },
+        {
+            "description": "historic=citywalls | color: (light): #AEAD9E, color: (dark): #232320",
+            "key": "historic",
+            "value": "citywalls"
+        },
+        {
+            "description": "landuse=allotments | fill-color: (light): #D5D395, fill-color: (dark): #2B2A1E",
+            "key": "landuse",
+            "value": "allotments"
+        },
+        {
+            "description": "landuse=allotments | fill-color: (light): #D6D498, fill-color: (dark): #2A291D",
+            "key": "landuse",
+            "value": "allotments"
+        },
+        {
+            "description": "landuse=allotments | fill-color: (light): #D8D59B, fill-color: (dark): #29281D",
+            "key": "landuse",
+            "value": "allotments"
+        },
+        {
+            "description": "landuse=basin | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "landuse",
+            "value": "basin"
+        },
+        {
+            "description": "landuse=cemetery | fill-color: (light): #BECC76, fill-color: (dark): #262918",
+            "key": "landuse",
+            "value": "cemetery"
+        },
+        {
+            "description": "landuse=cemetery | fill-color: (light): #C0CE7B, fill-color: (dark): #252818",
+            "key": "landuse",
+            "value": "cemetery"
+        },
+        {
+            "description": "landuse=cemetery | fill-color: (light): #C3CF7F, fill-color: (dark): #242718",
+            "key": "landuse",
+            "value": "cemetery"
+        },
+        {
+            "description": "landuse=cemetery | fill-color: (light): #C7D184, fill-color: (dark): #242617",
+            "key": "landuse",
+            "value": "cemetery"
+        },
+        {
+            "description": "landuse=cemetery | fill-color: (light): #C9D189, fill-color: (dark): #232617",
+            "key": "landuse",
+            "value": "cemetery"
+        },
+        {
+            "description": "landuse=construction | fill-color: (light): #E4E3E6, fill-color: (dark): #1C1C1C",
+            "key": "landuse",
+            "value": "construction"
+        },
+        {
+            "description": "landuse=education | fill-color: (light): #F5DFBC, fill-color: (dark): #1D1A16",
+            "key": "landuse",
+            "value": "education"
+        },
+        {
+            "description": "landuse=farmland | fill-color: (light): #E3DEAC, fill-color: (dark): #2D2C22",
+            "key": "landuse",
+            "value": "farmland"
+        },
+        {
+            "description": "landuse=farmyard | fill-color: (light): #E6D6AF, fill-color: (dark): #2E2B23",
+            "key": "landuse",
+            "value": "farmyard"
+        },
+        {
+            "description": "landuse=flowerbed | fill-color: (light): #BECC76, fill-color: (dark): #262918",
+            "key": "landuse",
+            "value": "flowerbed"
+        },
+        {
+            "description": "landuse=forest | fill-color: (light): #A2BA4E, fill-color: (dark): #202510",
+            "key": "landuse",
+            "value": "forest"
+        },
+        {
+            "description": "landuse=forest | fill-color: (light): #A6BD55, fill-color: (dark): #1F2410",
+            "key": "landuse",
+            "value": "forest"
+        },
+        {
+            "description": "landuse=forest | fill-color: (light): #AABF5C, fill-color: (dark): #1F2310",
+            "key": "landuse",
+            "value": "forest"
+        },
+        {
+            "description": "landuse=forest | fill-color: (light): #AFC162, fill-color: (dark): #1F2211",
+            "key": "landuse",
+            "value": "forest"
+        },
+        {
+            "description": "landuse=forest | fill-color: (light): #B3C369, fill-color: (dark): #1F2311",
+            "key": "landuse",
+            "value": "forest"
+        },
+        {
+            "description": "landuse=garages | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "landuse",
+            "value": "garages"
+        },
+        {
+            "description": "landuse=grass | fill-color: (light): #C4D181, fill-color: (dark): #272A1A",
+            "key": "landuse",
+            "value": "grass"
+        },
+        {
+            "description": "landuse=grass | fill-color: (light): #C6D285, fill-color: (dark): #26291A",
+            "key": "landuse",
+            "value": "grass"
+        },
+        {
+            "description": "landuse=grass | fill-color: (light): #C9D48A, fill-color: (dark): #252819",
+            "key": "landuse",
+            "value": "grass"
+        },
+        {
+            "description": "landuse=grass | fill-color: (light): #CCD58E, fill-color: (dark): #252719",
+            "key": "landuse",
+            "value": "grass"
+        },
+        {
+            "description": "landuse=industrial | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "landuse",
+            "value": "industrial"
+        },
+        {
+            "description": "landuse=landfill | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "landuse",
+            "value": "landfill"
+        },
+        {
+            "description": "landuse=meadow | fill-color: (light): #C4D181, fill-color: (dark): #272A1A",
+            "key": "landuse",
+            "value": "meadow"
+        },
+        {
+            "description": "landuse=meadow | fill-color: (light): #C6D285, fill-color: (dark): #26291A",
+            "key": "landuse",
+            "value": "meadow"
+        },
+        {
+            "description": "landuse=meadow | fill-color: (light): #C9D48A, fill-color: (dark): #252819",
+            "key": "landuse",
+            "value": "meadow"
+        },
+        {
+            "description": "landuse=meadow | fill-color: (light): #CCD58E, fill-color: (dark): #252719",
+            "key": "landuse",
+            "value": "meadow"
+        },
+        {
+            "description": "landuse=military + military=danger_area | fill-color: (light): #DE2D28, fill-color: (dark): #B71C1C",
+            "key": "landuse",
+            "value": "military"
+        },
+        {
+            "description": "landuse=military + military=danger_area | fill-color: (light): #DE2D28, fill-color: (dark): #B71C1C",
+            "key": "military",
+            "value": "danger_area"
+        },
+        {
+            "description": "landuse=military | fill-color: (light): #DE2D28, fill-color: (dark): #B71C1C",
+            "key": "landuse",
+            "value": "military"
+        },
+        {
+            "description": "landuse=orchard | fill-color: (light): #D5D395, fill-color: (dark): #2B2A1E",
+            "key": "landuse",
+            "value": "orchard"
+        },
+        {
+            "description": "landuse=orchard | fill-color: (light): #D6D498, fill-color: (dark): #2A291D",
+            "key": "landuse",
+            "value": "orchard"
+        },
+        {
+            "description": "landuse=orchard | fill-color: (light): #D8D59B, fill-color: (dark): #29281D",
+            "key": "landuse",
+            "value": "orchard"
+        },
+        {
+            "description": "landuse=plant_nursery | fill-color: (light): #D5D395, fill-color: (dark): #2B2A1E",
+            "key": "landuse",
+            "value": "plant_nursery"
+        },
+        {
+            "description": "landuse=plant_nursery | fill-color: (light): #D6D498, fill-color: (dark): #2A291D",
+            "key": "landuse",
+            "value": "plant_nursery"
+        },
+        {
+            "description": "landuse=plant_nursery | fill-color: (light): #D8D59B, fill-color: (dark): #29281D",
+            "key": "landuse",
+            "value": "plant_nursery"
+        },
+        {
+            "description": "landuse=quarry | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "landuse",
+            "value": "quarry"
+        },
+        {
+            "description": "landuse=railway | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "landuse",
+            "value": "railway"
+        },
+        {
+            "description": "landuse=recreation_ground | fill-color: (light): #C4D181, fill-color: (dark): #272A1A",
+            "key": "landuse",
+            "value": "recreation_ground"
+        },
+        {
+            "description": "landuse=recreation_ground | fill-color: (light): #C6D285, fill-color: (dark): #26291A",
+            "key": "landuse",
+            "value": "recreation_ground"
+        },
+        {
+            "description": "landuse=recreation_ground | fill-color: (light): #C9D48A, fill-color: (dark): #252819",
+            "key": "landuse",
+            "value": "recreation_ground"
+        },
+        {
+            "description": "landuse=religious | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "landuse",
+            "value": "religious"
+        },
+        {
+            "description": "landuse=reservoir | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "landuse",
+            "value": "reservoir"
+        },
+        {
+            "description": "landuse=retail | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "landuse",
+            "value": "retail"
+        },
+        {
+            "description": "landuse=salt_pond | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "landuse",
+            "value": "salt_pond"
+        },
+        {
+            "description": "landuse=village_green | fill-color: (light): #C4D181, fill-color: (dark): #272A1A",
+            "key": "landuse",
+            "value": "village_green"
+        },
+        {
+            "description": "landuse=village_green | fill-color: (light): #C6D285, fill-color: (dark): #26291A",
+            "key": "landuse",
+            "value": "village_green"
+        },
+        {
+            "description": "landuse=village_green | fill-color: (light): #C9D48A, fill-color: (dark): #252819",
+            "key": "landuse",
+            "value": "village_green"
+        },
+        {
+            "description": "landuse=vineyard | fill-color: (light): #D5D395, fill-color: (dark): #2B2A1E",
+            "key": "landuse",
+            "value": "vineyard"
+        },
+        {
+            "description": "landuse=vineyard | fill-color: (light): #D6D498, fill-color: (dark): #2A291D",
+            "key": "landuse",
+            "value": "vineyard"
+        },
+        {
+            "description": "landuse=vineyard | fill-color: (light): #D8D59B, fill-color: (dark): #29281D",
+            "key": "landuse",
+            "value": "vineyard"
+        },
+        {
+            "description": "leisure=beach_resort | fill-color: (light): #FADDA0, fill-color: (dark): #322C20",
+            "key": "leisure",
+            "value": "beach_resort"
+        },
+        {
+            "description": "leisure=dog_park | fill-color: (light): #B9C96F, fill-color: (dark): #252816",
+            "key": "leisure",
+            "value": "dog_park"
+        },
+        {
+            "description": "leisure=fitness_centre + sport=yoga | fill-color: (light): #F5EED3, fill-color: (dark): #31302A",
+            "key": "leisure",
+            "value": "fitness_centre"
+        },
+        {
+            "description": "leisure=fitness_centre + sport=yoga | fill-color: (light): #F5EED3, fill-color: (dark): #31302A",
+            "key": "sport",
+            "value": "yoga"
+        },
+        {
+            "description": "leisure=fitness_station | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "leisure",
+            "value": "fitness_station"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EDE5CA, fill-color: (dark): #171614",
+            "key": "garden:type",
+            "value": "residential"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EDE5CA, fill-color: (dark): #171614",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EDE5CB, fill-color: (dark): #171614",
+            "key": "garden:type",
+            "value": "residential"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EDE5CB, fill-color: (dark): #171614",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EEE6CB, fill-color: (dark): #171614",
+            "key": "garden:type",
+            "value": "residential"
+        },
+        {
+            "description": "leisure=garden + garden:type=residential | fill-color: (light): #EEE6CB, fill-color: (dark): #171614",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=garden | fill-color: (light): #D5D395, fill-color: (dark): #2B2A1E",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=garden | fill-color: (light): #D6D498, fill-color: (dark): #2A291D",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=garden | fill-color: (light): #D8D59B, fill-color: (dark): #29281D",
+            "key": "leisure",
+            "value": "garden"
+        },
+        {
+            "description": "leisure=golf_course | fill-color: (light): #B9C96F, fill-color: (dark): #252816",
+            "key": "leisure",
+            "value": "golf_course"
+        },
+        {
+            "description": "leisure=golf_course | fill-color: (light): #BBCB73, fill-color: (dark): #242716",
+            "key": "leisure",
+            "value": "golf_course"
+        },
+        {
+            "description": "leisure=golf_course | fill-color: (light): #BECC78, fill-color: (dark): #232616",
+            "key": "leisure",
+            "value": "golf_course"
+        },
+        {
+            "description": "leisure=marina | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "leisure",
+            "value": "marina"
+        },
+        {
+            "description": "leisure=miniature_golf | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "leisure",
+            "value": "miniature_golf"
+        },
+        {
+            "description": "leisure=nature_reserve | fill-color: (light): #7B8F35, fill-color: (dark): #191D0B",
+            "key": "leisure",
+            "value": "nature_reserve"
+        },
+        {
+            "description": "leisure=park | fill-color: (light): #D5DB8F, fill-color: (dark): #2B2C1D",
+            "key": "leisure",
+            "value": "park"
+        },
+        {
+            "description": "leisure=park | fill-color: (light): #D6DC93, fill-color: (dark): #2A2B1D",
+            "key": "leisure",
+            "value": "park"
+        },
+        {
+            "description": "leisure=park | fill-color: (light): #D8DC97, fill-color: (dark): #29281C",
+            "key": "leisure",
+            "value": "park"
+        },
+        {
+            "description": "leisure=park | fill-color: (light): #D8DD96, fill-color: (dark): #292A1C",
+            "key": "leisure",
+            "value": "park"
+        },
+        {
+            "description": "leisure=park | fill-color: (light): #DBDD9D, fill-color: (dark): #27281B",
+            "key": "leisure",
+            "value": "park"
+        },
+        {
+            "description": "leisure=pitch | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "leisure",
+            "value": "pitch"
+        },
+        {
+            "description": "leisure=playground | fill-color: (light): #E4E7A2, fill-color: (dark): #2E2E20",
+            "key": "leisure",
+            "value": "playground"
+        },
+        {
+            "description": "leisure=resort | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "leisure",
+            "value": "resort"
+        },
+        {
+            "description": "leisure=sports_centre | fill-color: (light): #F5EED3, fill-color: (dark): #31302A",
+            "key": "leisure",
+            "value": "sports_centre"
+        },
+        {
+            "description": "leisure=stadium | fill-color: (light): #E8E8C3, fill-color: (dark): #2E2E27",
+            "key": "leisure",
+            "value": "stadium"
+        },
+        {
+            "description": "leisure=swimming_pool | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "leisure",
+            "value": "swimming_pool"
+        },
+        {
+            "description": "leisure=track + area?=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "area?"
+        },
+        {
+            "description": "leisure=track + area?=* | fill-color: (light): #D4E796, fill-color: (dark): #2A2E1E",
+            "key": "leisure",
+            "value": "track"
+        },
+        {
+            "description": "leisure=water_park | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "leisure",
+            "value": "water_park"
+        },
+        {
+            "description": "man_made=breakwater | color: (light): #F5E8D6, color: (dark): #181715",
+            "key": "man_made",
+            "value": "breakwater"
+        },
+        {
+            "description": "man_made=breakwater | color: (light): #F5EADA, color: (dark): #181715",
+            "key": "man_made",
+            "value": "breakwater"
+        },
+        {
+            "description": "man_made=breakwater | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "key": "man_made",
+            "value": "breakwater"
+        },
+        {
+            "description": "man_made=breakwater | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "key": "man_made",
+            "value": "breakwater"
+        },
+        {
+            "description": "man_made=bridge | fill-color: (light): #FCF1DE, fill-color: (dark): #2C2C1A",
+            "key": "man_made",
+            "value": "bridge"
+        },
+        {
+            "description": "man_made=cutline | color: (light): #C4D181, color: (dark): #272A1A",
+            "key": "man_made",
+            "value": "cutline"
+        },
+        {
+            "description": "man_made=embankment | color: (light): #A1A096, color: (dark): #20201E",
+            "key": "man_made",
+            "value": "embankment"
+        },
+        {
+            "description": "man_made=pier | color: (light): #F5E8D6, color: (dark): #181715",
+            "key": "man_made",
+            "value": "pier"
+        },
+        {
+            "description": "man_made=pier | color: (light): #F5EADA, color: (dark): #181715",
+            "key": "man_made",
+            "value": "pier"
+        },
+        {
+            "description": "man_made=pier | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "key": "man_made",
+            "value": "pier"
+        },
+        {
+            "description": "man_made=pier | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "key": "man_made",
+            "value": "pier"
+        },
+        {
+            "description": "man_made=wastewater_plant | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "man_made",
+            "value": "wastewater_plant"
+        },
+        {
+            "description": "man_made=works | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "man_made",
+            "value": "works"
+        },
+        {
+            "description": "natural=bare_rock | fill-color: (light): #D9D2BF, fill-color: (dark): #2B2A26",
+            "key": "natural",
+            "value": "bare_rock"
+        },
+        {
+            "description": "natural=beach | fill-color: (light): #FADDA0, fill-color: (dark): #322C20",
+            "key": "natural",
+            "value": "beach"
+        },
+        {
+            "description": "natural=cliff | color: (light): #8C5826, color: (dark): #273137",
+            "key": "natural",
+            "value": "cliff"
+        },
+        {
+            "description": "natural=coastline | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "natural",
+            "value": "coastline"
+        },
+        {
+            "description": "natural=desert | fill-color: (light): #F4E5C8, fill-color: (dark): #312E28",
+            "key": "natural",
+            "value": "desert"
+        },
+        {
+            "description": "natural=earth_bank | color: (light): #8C5826, color: (dark): #273137",
+            "key": "natural",
+            "value": "earth_bank"
+        },
+        {
+            "description": "natural=glacier | fill-color: (light): #FFFFFF, fill-color: (dark): #333333",
+            "key": "natural",
+            "value": "glacier"
+        },
+        {
+            "description": "natural=grassland | fill-color: (light): #C4D181, fill-color: (dark): #272A1A",
+            "key": "natural",
+            "value": "grassland"
+        },
+        {
+            "description": "natural=grassland | fill-color: (light): #C6D285, fill-color: (dark): #26291A",
+            "key": "natural",
+            "value": "grassland"
+        },
+        {
+            "description": "natural=grassland | fill-color: (light): #C9D48A, fill-color: (dark): #252819",
+            "key": "natural",
+            "value": "grassland"
+        },
+        {
+            "description": "natural=grassland | fill-color: (light): #CCD58E, fill-color: (dark): #252719",
+            "key": "natural",
+            "value": "grassland"
+        },
+        {
+            "description": "natural=heath | fill-color: (light): #CED797, fill-color: (dark): #292B1E",
+            "key": "natural",
+            "value": "heath"
+        },
+        {
+            "description": "natural=heath | fill-color: (light): #CFD89A, fill-color: (dark): #282A1D",
+            "key": "natural",
+            "value": "heath"
+        },
+        {
+            "description": "natural=heath | fill-color: (light): #D2D99E, fill-color: (dark): #27291D",
+            "key": "natural",
+            "value": "heath"
+        },
+        {
+            "description": "natural=heath | fill-color: (light): #D4DAA0, fill-color: (dark): #27281D",
+            "key": "natural",
+            "value": "heath"
+        },
+        {
+            "description": "natural=land | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "key": "natural",
+            "value": "land"
+        },
+        {
+            "description": "natural=land | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "key": "natural",
+            "value": "land"
+        },
+        {
+            "description": "natural=sand | fill-color: (light): #F4E5C8, fill-color: (dark): #312E28",
+            "key": "natural",
+            "value": "sand"
+        },
+        {
+            "description": "natural=sand | fill-color: (light): #F7E4C3, fill-color: (dark): #312d24",
+            "key": "natural",
+            "value": "sand"
+        },
+        {
+            "description": "natural=scree | fill-color: (light): #CCC7BA, fill-color: (dark): #292825",
+            "key": "natural",
+            "value": "scree"
+        },
+        {
+            "description": "natural=scrub | fill-color: (light): #ACC261, fill-color: (dark): #222713",
+            "key": "natural",
+            "value": "scrub"
+        },
+        {
+            "description": "natural=scrub | fill-color: (light): #AFC467, fill-color: (dark): #212613",
+            "key": "natural",
+            "value": "scrub"
+        },
+        {
+            "description": "natural=scrub | fill-color: (light): #B3C66D, fill-color: (dark): #212513",
+            "key": "natural",
+            "value": "scrub"
+        },
+        {
+            "description": "natural=scrub | fill-color: (light): #B7C873, fill-color: (dark): #212413",
+            "key": "natural",
+            "value": "scrub"
+        },
+        {
+            "description": "natural=shingle | fill-color: (light): #CCC7BA, fill-color: (dark): #292825",
+            "key": "natural",
+            "value": "shingle"
+        },
+        {
+            "description": "natural=strait | color: (light): #89CDDC, color: (dark): #344E54",
+            "key": "natural",
+            "value": "strait"
+        },
+        {
+            "description": "natural=tree_row | color: (light): #A2BA4E, color: (dark): #202510",
+            "key": "natural",
+            "value": "tree_row"
+        },
+        {
+            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "natural",
+            "value": "water"
+        },
+        {
+            "description": "natural=water + tunnel=* | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "tunnel"
+        },
+        {
+            "description": "natural=water + water=ditch | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "natural",
+            "value": "water"
+        },
+        {
+            "description": "natural=water + water=ditch | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "water",
+            "value": "ditch"
+        },
+        {
+            "description": "natural=water + water=drain | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "natural",
+            "value": "water"
+        },
+        {
+            "description": "natural=water + water=drain | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "water",
+            "value": "drain"
+        },
+        {
+            "description": "natural=water + water=wastewater | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "natural",
+            "value": "water"
+        },
+        {
+            "description": "natural=water + water=wastewater | fill-color: (light): #8FCDD3, fill-color: (dark): #364D4F",
+            "key": "water",
+            "value": "wastewater"
+        },
+        {
+            "description": "natural=water | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "natural",
+            "value": "water"
+        },
+        {
+            "description": "natural=wetland + wetland=bog | fill-color: (light): #B8DDC0, fill-color: (dark): #455348",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=bog | fill-color: (light): #B8DDC0, fill-color: (dark): #455348",
+            "key": "wetland",
+            "value": "bog"
+        },
+        {
+            "description": "natural=wetland + wetland=fen | fill-color: (light): #B6DEC5, fill-color: (dark): #45544B",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=fen | fill-color: (light): #B6DEC5, fill-color: (dark): #45544B",
+            "key": "wetland",
+            "value": "fen"
+        },
+        {
+            "description": "natural=wetland + wetland=mangrove | fill-color: (light): #A2D4B0, fill-color: (dark): #3E5143",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=mangrove | fill-color: (light): #A2D4B0, fill-color: (dark): #3E5143",
+            "key": "wetland",
+            "value": "mangrove"
+        },
+        {
+            "description": "natural=wetland + wetland=marsh | fill-color: (light): #ABDDC2, fill-color: (dark): #41544A",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=marsh | fill-color: (light): #ABDDC2, fill-color: (dark): #41544A",
+            "key": "wetland",
+            "value": "marsh"
+        },
+        {
+            "description": "natural=wetland + wetland=reedbed | fill-color: (light): #C3E0D1, fill-color: (dark): #4A5550",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=reedbed | fill-color: (light): #C3E0D1, fill-color: (dark): #4A5550",
+            "key": "wetland",
+            "value": "reedbed"
+        },
+        {
+            "description": "natural=wetland + wetland=saltmarsh + tidal=yes | fill-color: (light): #A0DAD1, fill-color: (dark): #3D5350",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=saltmarsh + tidal=yes | fill-color: (light): #A0DAD1, fill-color: (dark): #3D5350",
+            "key": "tidal",
+            "value": "yes"
+        },
+        {
+            "description": "natural=wetland + wetland=saltmarsh + tidal=yes | fill-color: (light): #A0DAD1, fill-color: (dark): #3D5350",
+            "key": "wetland",
+            "value": "saltmarsh"
+        },
+        {
+            "description": "natural=wetland + wetland=saltmarsh | fill-color: (light): #AADEC4, fill-color: (dark): #41544B",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=saltmarsh | fill-color: (light): #AADEC4, fill-color: (dark): #41544B",
+            "key": "wetland",
+            "value": "saltmarsh"
+        },
+        {
+            "description": "natural=wetland + wetland=swamp | fill-color: (light): #A1D4B7, fill-color: (dark): #3D5045",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=swamp | fill-color: (light): #A1D4B7, fill-color: (dark): #3D5045",
+            "key": "wetland",
+            "value": "swamp"
+        },
+        {
+            "description": "natural=wetland + wetland=tidalflat | fill-color: (light): #9FD2DB, fill-color: (dark): #3C5053",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "natural=wetland + wetland=tidalflat | fill-color: (light): #9FD2DB, fill-color: (dark): #3C5053",
+            "key": "wetland",
+            "value": "tidalflat"
+        },
+        {
+            "description": "natural=wetland | fill-color: (light): #ABDDC2, fill-color: (dark): #41544A",
+            "key": "natural",
+            "value": "wetland"
+        },
+        {
+            "description": "office=diplomatic | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "office",
+            "value": "diplomatic"
+        },
+        {
+            "description": "piste:type=snow_park | fill-color: (light): #C47AFF, fill-color: (dark): #623D7F",
+            "key": "piste:type",
+            "value": "snow_park"
+        },
+        {
+            "description": "place=islet | fill-color: (light): #F5E8D6, fill-color: (dark): #181715",
+            "key": "place",
+            "value": "islet"
+        },
+        {
+            "description": "place=islet | fill-color: (light): #F5EADA, fill-color: (dark): #181715",
+            "key": "place",
+            "value": "islet"
+        },
+        {
+            "description": "power=generator | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "power",
+            "value": "generator"
+        },
+        {
+            "description": "power=plant | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "power",
+            "value": "plant"
+        },
+        {
+            "description": "power=substation | fill-color: (light): #E8E8E8, fill-color: (dark): #1C1C1C",
+            "key": "power",
+            "value": "substation"
+        },
+        {
+            "description": "public_transport=platform | fill-color: (light): #ECE3D6, fill-color: (dark): #232220",
+            "key": "public_transport",
+            "value": "platform"
+        },
+        {
+            "description": "railway=platform | fill-color: (light): #ECE3D6, fill-color: (dark): #232220",
+            "key": "railway",
+            "value": "platform"
+        },
+        {
+            "description": "tourism=camp_site | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "tourism",
+            "value": "camp_site"
+        },
+        {
+            "description": "tourism=information + information=office | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "information",
+            "value": "office"
+        },
+        {
+            "description": "tourism=information + information=office | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "tourism",
+            "value": "information"
+        },
+        {
+            "description": "tourism=information + information=visitor_centre | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "information",
+            "value": "visitor_centre"
+        },
+        {
+            "description": "tourism=information + information=visitor_centre | fill-color: (light): #E8E1D5, fill-color: (dark): #1B1A19",
+            "key": "tourism",
+            "value": "information"
+        },
+        {
+            "description": "waterway=canal | color: (light): #89CDDC, color: (dark): #344E54",
+            "key": "waterway",
+            "value": "canal"
+        },
+        {
+            "description": "waterway=dam | color: (light): #D0D1CC, color: (dark): #2A2A29",
+            "key": "waterway",
+            "value": "dam"
+        },
+        {
+            "description": "waterway=dam | fill-color: (light): #D0D1CC, fill-color: (dark): #2A2A29, casing-color: (light): #9B9A8F, casing-color: (dark): #1F1F1D",
+            "key": "waterway",
+            "value": "dam"
+        },
+        {
+            "description": "waterway=dam | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A",
+            "key": "waterway",
+            "value": "dam"
+        },
+        {
+            "description": "waterway=dam | fill-color: (light): #D5D6D2, fill-color: (dark): #2B2B2A, casing-color: (light): #A1A096, casing-color: (dark): #20201E",
+            "key": "waterway",
+            "value": "dam"
+        },
+        {
+            "description": "waterway=ditch | color: (light): #8FCDD3, color: (dark): #364D4F",
+            "key": "waterway",
+            "value": "ditch"
+        },
+        {
+            "description": "waterway=dock | fill-color: (light): #89CDDC, fill-color: (dark): #344E54",
+            "key": "waterway",
+            "value": "dock"
+        },
+        {
+            "description": "waterway=drain | color: (light): #8FCDD3, color: (dark): #364D4F",
+            "key": "waterway",
+            "value": "drain"
+        },
+        {
+            "description": "waterway=fish_pass | color: (light): #89CDDC, color: (dark): #344E54",
+            "key": "waterway",
+            "value": "fish_pass"
+        },
+        {
+            "description": "waterway=river | color: (light): #89CDDC, color: (dark): #344E54",
+            "key": "waterway",
+            "value": "river"
+        },
+        {
+            "description": "waterway=stream | color: (light): #89CDDC, color: (dark): #344E54",
+            "key": "waterway",
+            "value": "stream"
+        },
+        {
+            "description": "waterway=weir | color: (light): #D0D1CC, color: (dark): #2A2A29",
+            "key": "waterway",
+            "value": "weir"
         }
     ]
 }

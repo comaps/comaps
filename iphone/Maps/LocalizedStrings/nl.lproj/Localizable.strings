@@ -36,7 +36,7 @@
 /* Text in About screen */
 "about_proposition_1" = "Offline, snel en gebruiksvriendelijk";
 /* Text in About screen */
-"about_proposition_2" = "Privacygericht en advertentievrij";
+"about_proposition_2" = "Privacygericht en reclamevrij";
 /* Text in About screen */
 "about_proposition_3" = "Transparant en zonder winstoogmerk";
 "close" = "Sluiten";
@@ -149,7 +149,7 @@
 /* Settings «Map» category: «Map Language» local value */
 "pref_maplanguage_local" = "Plaatselijke taal";
 /* Settings «Map» category: «Map Appearance» title */
-"pref_mapappearance_title" = "Kaart uiterlijk";
+"pref_mapappearance_title" = "Kaartweergave";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Weergave";
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */
@@ -169,7 +169,7 @@
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D-gebouwen";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
-"pref_map_3d_buildings_disabled_summary" = "3D-gebouwen worden uitgeschakeld in de energiebesparende modus";
+"pref_map_3d_buildings_disabled_summary" = "3D-gebouwen zijn uitgeschakeld in energiebesparende modus";
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Gesproken instructies";
 /* Settings «Route» category: «Tts enable» title */
@@ -222,7 +222,7 @@
 /* Text in menu */
 "help" = "Hulp";
 /* Button in the main Help dialog */
-"faq" = "Vragen en antwoorden";
+"faq" = "Veelgestelde vragen";
 /* Button in the main menu */
 "donate" = "Doneren";
 /* Button in the main Help dialog */
@@ -234,7 +234,7 @@
 /* Button in the About screen */
 "volunteer" = "Draag bij en verbeter CoMaps";
 /* "Social media" section header in the About screen */
-"follow_us" = "Verbind met ons";
+"follow_us" = "Blijf met ons in contact";
 /* Alert text */
 "email_error_body" = "Het e-mailprogramma is niet ingesteld. Stel het programma in of neem contact met ons op via %@";
 /* Alert title */
@@ -266,7 +266,7 @@
 /* Context menu item for downloader. */
 "downloader_download_map" = "Kaart downloaden";
 /* Item status in downloader. */
-"downloader_retry" = "Opnieuw";
+"downloader_retry" = "Opnieuw proberen";
 /* Item in context menu. */
 "downloader_delete_map" = "Kaart verwijderen";
 /* Text for routing error dialog */
@@ -298,11 +298,11 @@
 /* light blue color */
 "light_blue" = "Lichtblauw";
 /* cyan color */
-"cyan" = "Blauwgroen";
+"cyan" = "Cyaan";
 /* teal color */
-"teal" = "Smaragdgroen";
+"teal" = "Blauwgroen";
 /* lime color */
-"lime" = "Limoen";
+"lime" = "Limoengroen";
 /* deep orange color */
 "deep_orange" = "Donkeroranje";
 /* gray color */
@@ -310,19 +310,19 @@
 /* blue gray color */
 "blue_gray" = "Grijsblauw";
 "dialog_routing_disclaimer_title" = "Belangrijk bij het volgen van een route:";
-"dialog_routing_disclaimer_priority" = "— De toestand van het wegdek, de verkeersregels en -borden hebben altijd voorrang op het advies van het navigatiesysteem;";
+"dialog_routing_disclaimer_priority" = "— De situatie op de weg, verkeersregels en verkeersborden gaan altijd vóór op het advies van het navigatiesysteem;";
 "dialog_routing_disclaimer_precision" = "— De kaart kan onnauwkeurig zijn en de voorgestelde route is niet altijd de meest optimale manier om uw bestemming te bereiken;";
 "dialog_routing_disclaimer_recommendations" = "— Beschouw de voorgestelde routes enkel als aanbevelingen;";
 "dialog_routing_disclaimer_borders" = "— Wees voorzichtig met de routes in de grenszones: de routes die door onze app zijn gemaakt, gaan wellicht door landgrenzen in ongeautoriseerde plaatsen.";
-"dialog_routing_disclaimer_beware" = "Blijf alert en rij veilig!";
+"dialog_routing_disclaimer_beware" = "Blijf alert en rijd veilig!";
 "dialog_routing_check_gps" = "Controleer gps-signaal";
 "dialog_routing_error_location_not_found" = "Route samenstellen mislukt. De huidige gps-coördinaten kunnen niet worden geïdentificeerd.";
 "dialog_routing_location_turn_wifi" = "Controleer uw gps-signaal. Schakel WiFi in voor een meer nauwkeurige locatiebepaling.";
 "dialog_routing_location_turn_on" = "Schakel locatiediensten in";
-"dialog_routing_location_unknown_turn_on" = "De huidige gps-coördinaten kunnen niet worden gevonden. Schakel locatiediensten in om de route te berekenen.";
+"dialog_routing_location_unknown_turn_on" = "Kan de huidige gps-coördinaten niet bepalen. Schakel locatiediensten in om de route te berekenen.";
 "dialog_routing_download_files" = "Download de vereiste bestanden";
-"dialog_routing_download_and_update_all" = "Download de kaart en route-informatie voor het ingestelde traject en werk deze bij om de route te berekenen.";
-"dialog_routing_unable_locate_route" = "Route vinden mislukt";
+"dialog_routing_download_and_update_all" = "Download of update alle kaarten op de ingestelde route om een route te berekenen.";
+"dialog_routing_unable_locate_route" = "Route kan niet worden gevonden";
 "dialog_routing_change_start_or_end" = "Pas het beginpunt of de bestemming aan.";
 "dialog_routing_change_start" = "Startpunt aanpassen";
 "dialog_routing_start_not_determined" = "Route samenstellen mislukt. Startpunt kan niet worden gevonden.";
@@ -346,7 +346,7 @@
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Aankomst: %@";
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
-"dialog_routing_download_and_update_maps" = "Om een route te maken, download en update alle kaarten rondom de route.";
+"dialog_routing_download_and_update_maps" = "Download of update alle kaarten op de ingestelde route om een route te berekenen.";
 "categories" = "Categorieën";
 "history" = "Geschiedenis";
 "search_not_found" = "Sorry, geen resultaten gevonden.";
@@ -374,8 +374,8 @@
 "editor_time_add_closed" = "Sluitingstijden toevoegen";
 "editor_time_title" = "Openingstijden";
 "editor_time_advanced" = "Geavanceerde modus";
-"editor_time_simple" = "Eenvoudige modus";
-"editor_hours_closed" = "Sluitingstijden";
+"editor_time_simple" = "Simpele modus";
+"editor_hours_closed" = "Gesloten-tijden";
 "editor_example_values" = "Voorbeeldwaarden";
 "editor_add_select_location" = "Locatie selecteren";
 "editor_done_dialog_1" = "U hebt de wereldkaart gewijzigd. Houdt dit niet voor uzelf! Vertel het uw vrienden en bewerk het samen.";
@@ -405,7 +405,7 @@
 "closes_at" = "Sluit om %@";
 "closes_in" = "Sluit over %@";
 "closed" = "Gesloten";
-"add_opening_hours" = "Voeg openingstijden toe";
+"add_opening_hours" = "Openingstijden toevoegen";
 /* OpenStreetMap */
 "osm_mapdata" = "Kaartgegevens van OpenStreetMap";
 "osm_mapdata_explanation %@" = "Door de gemeenschap gemaakte kaartgegevens tot *%@*. Lees meer over hoe je de kaart kunt bewerken en bijwerken op [OpenStreetMap.org](https://openstreetmap.org).";
@@ -419,7 +419,7 @@
 "osm_profile_reauthorize_promt" = "Het OpenStreetMap-account is losgekoppeld van deze app";
 "osm_profile_reauthorize" = "Opnieuw verbinden met OpenStreetMap";
 "osm_profile_remove_promt" = "Als je je account niet opnieuw kunt of wilt koppelen, kun je het gewoon uit deze app verwijderen";
-"osm_profile_remove" = "Geheugen van OpenStreetMap-account uit deze app verwijderen";
+"osm_profile_remove" = "OpenStreetMap-account loskoppelen";
 "osm_profile_register_promt" = "Geen account bij OpenStreetMap?";
 "osm_profile_register" = "Registreer bij OpenStreetMap";
 "osm_profile_verfied_changes" = "Gecontroleerde wijzigingen";
@@ -429,7 +429,7 @@
 "osm_profile_delete" = "OpenStreetMap-account verwijderen";
 /* Information text: "Last upload 11.01.2016" */
 "last_upload" = "Laatste upload";
-"thank_you" = "Dank je wel";
+"thank_you" = "Dankjewel";
 "edit_place" = "Locatie bewerken";
 "place_name" = "Locatienaam";
 "add_language" = "Taal toevoegen";
@@ -495,10 +495,10 @@
 "editor_category_unsuitable_title" = "Kun je geen geschikte categorie vinden?";
 "editor_category_unsuitable_text" = "CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Lees onze <a href=\"https://www.comaps.app/support/advanced-map-editing/\">handleiding</a> voor gedetailleerde stap voor stap instructies.";
 "downloader_no_downloaded_maps_title" = "U hebt geen kaarten gedownload";
-"downloader_no_downloaded_maps_message" = "Download kaarten om een locatie te zoeken en offline te navigeren.";
+"downloader_no_downloaded_maps_message" = "Download kaarten om offline te zoeken en navigeren.";
 "current_location_unknown_error_title" = "Huidige locatie is onbekend.";
 "current_location_unknown_error_message" = "Er is een fout opgetreden tijdens het zoeken naar uw locatie. Controleer of uw apparaat goed werkt en probeer het later opnieuw.";
-"location_services_disabled_header" = "Locatie-identificatie is uitgeschakeld";
+"location_services_disabled_header" = "Locatiediensten zijn uitgeschakeld";
 "location_services_disabled_message" = "Schakel de toegang tot geolocatie in in de instellingen van het apparaat";
 "location_services_disabled_1" = "1. Instellingen openen";
 "location_services_disabled_2" = "2. Tik op locatie";
@@ -506,7 +506,7 @@
 "location_services_disabled_3" = "3. Selecteer Bij gebruik van app";
 "location_services_disabled_on_device_2" = "2. Selecteer Privacy en beveiliging";
 "location_services_disabled_on_device_3" = "3. Selecteer Locatievoorzieningen";
-"location_services_disabled_on_device_4" = "4. Locatievoorzieningen inschakelen";
+"location_services_disabled_on_device_4" = "4. Locatiediensten inschakelen";
 "location_services_disabled_on_device_additional_message" = "Of blijf CoMaps gebruiken zonder locatie";
 /* abbreviation for meters */
 "m" = "m";
@@ -531,8 +531,8 @@
 "placepage_delete_bookmark_button" = "Verwijder plaats";
 "editor_edits_sent_message" = "Je opmerking wordt verzonden naar OpenStreetMap";
 "editor_comment_hint" = "Reactie…";
-"editor_reset_edits_message" = "Alle lokale wijzigingen weggooien?";
-"editor_reset_edits_button" = "Wijzigingen weggooien";
+"editor_reset_edits_message" = "Alle lokale wijzigingen verwerpen?";
+"editor_reset_edits_button" = "Wijzigingen verwerpen";
 "editor_remove_place_message" = "Toegevoegde locatie verwijderen?";
 "editor_remove_place_button" = "Verwijder";
 "editor_place_doesnt_exist" = "Locatie bestaat niet";
@@ -541,7 +541,7 @@
 /* Phone number error message */
 "error_enter_correct_phone" = "Voer een geldig telefoonnummer in";
 "error_enter_correct_web" = "Voer een geldig webadres in";
-"error_enter_correct_email" = "Voer een geldig emailadres in";
+"error_enter_correct_email" = "Voer een geldig e-mailadres in";
 "refresh" = "Update";
 "placepage_add_place_button" = "Plaats toevoegen aan OpenStreetMap";
 /* Displayed when saving some edits to the map to warn against publishing personal data */
@@ -558,7 +558,7 @@
 "recent_track_background_dialog_message" = "CoMaps gebruikt uw geografische positie op de achtergrond om uw onlangs afgelegde route vast te leggen.";
 "general_settings" = "Algemene instellingen";
 /* For the first routing */
-"accept" = "Accepteer";
+"accept" = "Accepteren";
 /* For the first routing */
 "decline" = "Weiger";
 "mobile_data_dialog" = "Mobiel internet gebruiken om gedetailleerde informatie weer te geven?";

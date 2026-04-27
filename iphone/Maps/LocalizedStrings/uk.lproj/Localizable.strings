@@ -38,7 +38,7 @@
 /* Text in About screen */
 "about_proposition_2" = "Орієнтований на приватність та без реклами";
 /* Text in About screen */
-"about_proposition_3" = "Transparent and not for profit";
+"about_proposition_3" = "Прозоро та некомерційно";
 "close" = "Закрити";
 "download" = "Завантажити";
 /* REMOVE THIS STRING AFTER REFACTORING */
@@ -48,13 +48,13 @@
 /* Add Bookmark list dialog - hint when the list name is empty */
 "bookmark_set_name" = "Список назв";
 /* "Bookmark Lists" dialog title */
-"bookmark_sets" = "Списки мiток";
+"bookmark_sets" = "Списки обраного";
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Місця";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
 "bookmarks_and_tracks" = "Улюблені";
 /* Default bookmark list name */
-"core_my_places" = "Мої мітки";
+"core_my_places" = "Моє обране";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
 "address" = "Адреса";
 /* Settings button in system menu */
@@ -145,11 +145,11 @@
 "pref_zoom_title" = "Кнопки трансфокації";
 "pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
-"pref_maplanguage_title" = "Map Language";
+"pref_maplanguage_title" = "Мова мапи";
 /* Settings «Map» category: «Map Language» local value */
 "pref_maplanguage_local" = "Місцева мова";
 /* Settings «Map» category: «Map Appearance» title */
-"pref_mapappearance_title" = "Map Appearance";
+"pref_mapappearance_title" = "Вигляд мапи";
 /* Settings «Map» category: «Appearance» title */
 "pref_appearance_title" = "Вигляд";
 /* Settings "Appearance" category: "Light" title, should be consistent with the pref_appearance_title translation. */

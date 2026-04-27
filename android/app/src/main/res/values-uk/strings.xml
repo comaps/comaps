@@ -155,7 +155,7 @@
     <!-- Kmz file successful loading -->
     <string name="load_kmz_successful">Улюблені успішно завантажено! Ви можете знайти їх на мапі або у ваших збережених улюблених.</string>
     <!-- Kml file loading failed -->
-    <string name="load_kmz_failed">Не вдалося завантажити улюблене. Файл може бути пошкодженим або несправним.</string>
+    <string name="load_kmz_failed">Не вдалося завантажити обране. Файл може бути пошкодженим або несправним.</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
     <string name="unknown_file_type">Тип файлу не розпізнається програмою: \n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
@@ -917,4 +917,6 @@
     <string name="pedestrian">Пішохід</string>
     <string name="ruler">Лінійка</string>
     <string name="download_resources_custom_url_summary_none">Не налаштовано</string>
+    <string name="bookmark_share_email_subject">Перейдіть за цим посиланням %1$s або вставте ці координати %2$s у свій зачтосунок із мапами, аби переглянути це місце.</string>
+    <string name="my_position_share_email">Перейдіть за цим посиланням %1$s або вставте ці координати %2$s у свій застосунок із мапами, аби побачити моє розташування.</string>
 </resources>

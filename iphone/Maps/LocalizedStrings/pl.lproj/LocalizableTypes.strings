@@ -24,7 +24,7 @@
 "type.amenity.bar" = "Bar alkoholowy";
 "type.amenity.bbq" = "Grill";
 "type.amenity.bench" = "Ławka";
-"type.amenity.bench.backless" = "Ławka bez oparcia";
+"type.amenity.bench.backless" = "Bez oparcia";
 "type.amenity.bicycle_parking" = "Parking dla rowerów";
 "type.amenity.bicycle_parking.covered" = "Zadaszony parking dla rowerów";
 "type.amenity.boat_rental" = "Wypożyczalnia łodzi";
@@ -47,7 +47,7 @@
 "type.man_made.observatory" = "Obserwatorium";
 "type.amenity.casino" = "Kasyno";
 "type.amenity.gambling" = "Hazard";
-"type.amenity.studio" = "Studio";
+"type.amenity.studio" = "Studio medialne";
 "type.leisure.adult_gaming_centre" = "Centrum gier dla dorosłych";
 "type.leisure.amusement_arcade" = "Arkada";
 "type.amenity.charging_station" = "Stacja ładowania";

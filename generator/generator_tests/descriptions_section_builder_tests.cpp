@@ -232,10 +232,10 @@ private:
     return localisation::ConvertLanguageCodeToLanguageIndex(std::string{lang}) != localisation::kUnsupportedLanguageIndex;
   }
 
-  static int SumPageSizes(std::vector<PageT> const & p)
+  static size_t SumPageSizes(std::vector<PageT> const & p)
   {
     return std::accumulate(std::begin(p), std::end(p), 0,
-                           [](int acc, PageT const & p) { return acc + p.second.size(); });
+                           [](size_t acc, PageT const & p) { return acc + p.second.size(); });
   }
 
   static bool CheckLangs(DescriptionsCollectionBuilderStat::LangStatistics const & stat)

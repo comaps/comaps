@@ -944,4 +944,6 @@
     <string name="stop">Arrêt</string>
     <string name="route_recalculating">Recalcul de l\'itinéraire…</string>
     <string name="population">Population : %s</string>
+    <string name="setting_value_system_default">Paramètres par défaut du système</string>
+    <string name="change_app_locale">Langue de l\'application</string>
 </resources>

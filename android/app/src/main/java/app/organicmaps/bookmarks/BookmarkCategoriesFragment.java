@@ -119,7 +119,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
       return;
 
     rw.setNestedScrollingEnabled(false);
-    RecyclerView.ItemDecoration decor = new DividerItemDecorationWithPadding(requireContext());
+    RecyclerView.ItemDecoration decor = new DividerItemDecorationWithPadding(requireContext(), R.dimen.bookmark_category_margin_start);
     rw.addItemDecoration(decor);
     mCategoriesAdapterObserver = this::onCategoriesChanged;
     BookmarkManager.INSTANCE.addCategoriesUpdatesListener(mCategoriesAdapterObserver);

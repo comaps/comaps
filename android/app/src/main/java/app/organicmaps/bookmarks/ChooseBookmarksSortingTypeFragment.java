@@ -9,14 +9,14 @@ import android.widget.RadioGroup;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentManager;
 import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import app.organicmaps.util.UiUtils;
 
 public class ChooseBookmarksSortingTypeFragment
-    extends BaseMwmDialogFragment implements RadioGroup.OnCheckedChangeListener
+    extends DialogFragment implements RadioGroup.OnCheckedChangeListener
 {
   private static final String EXTRA_SORTING_TYPES = "sorting_types";
   private static final String EXTRA_CURRENT_SORT_TYPE = "current_sort_type";
@@ -51,12 +51,6 @@ public class ChooseBookmarksSortingTypeFragment
     return inflater.inflate(R.layout.dialog_sorting_types, container, false);
   }
 
-  @Override
-  protected int getStyle()
-  {
-    return STYLE_NO_TITLE;
-  }
-
   @IdRes
   private int getViewId(int sortingType)
   {
@@ -71,6 +65,13 @@ public class ChooseBookmarksSortingTypeFragment
       }
     }
     return R.id.sort_by_default;
+  }
+
+  @Override
+  public void onCreate(@Nullable Bundle savedInstanceState)
+  {
+    super.onCreate(savedInstanceState);
+    setStyle(STYLE_NO_TITLE, 0);
   }
 
   @Override

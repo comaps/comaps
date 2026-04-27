@@ -186,6 +186,12 @@ jobject Platform::GetContext() const
   return m_context;
 }
 
+void Platform::SetContext(JNIEnv * env, jobject context)
+{
+  env->DeleteGlobalRef(m_context);
+  m_context = env->NewGlobalRef(context);
+}
+
 void Platform::AndroidSecureStorage::Init(JNIEnv * env)
 {
   if (m_secureStorageClass != nullptr)

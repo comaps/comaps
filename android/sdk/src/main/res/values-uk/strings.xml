@@ -38,4 +38,11 @@
     <string name="access_rules_author_only">Редагується онлайн</string>
     <string name="today">Сьогодні</string>
     <string name="yesterday">Вчора</string>
+    <string name="days_ago">%s днів тому</string>
+    <string name="week_ago">%s тиждень тому</string>
+    <string name="weeks_ago">%s тижнів тому</string>
+    <string name="month_ago">%s місяць тому</string>
+    <string name="months_ago">%s місяців тому</string>
+    <string name="year_ago">%s рік тому</string>
+    <string name="years_ago">%s роки тому</string>
 </resources>

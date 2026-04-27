@@ -78,32 +78,23 @@
     <item name="backgroundTint">@null</item>
   </style>
 
-  <style name="MwmWidget.Button.StackedButtonsDialog">
+  <style name="MwmWidget.Button.StackedButtonsDialog" parent="@style/MwmTheme.M3.AlertDialog.Button">
     <item name="android:layout_width">match_parent</item>
-    <item name="android:layout_height">@dimen/margin_double_plus</item>
-    <item name="android:paddingEnd">@dimen/margin_base</item>
-    <item name="android:paddingStart">@dimen/margin_base</item>
-    <item name="android:background">?clickableBackground</item>
-    <item name="android:textSize">@dimen/text_size_button</item>
-    <item name="android:textColor">?buttonDialogTextColor</item>
-    <item name="android:fontFamily">@string/robotoMedium</item>
+    <item name="android:layout_height">wrap_content</item>
     <item name="android:lines">2</item>
     <item name="android:gravity">center_vertical|end</item>
   </style>
 
-  <style name="MwmWidget.StackedButtonsDialogTitle">
+  <style name="MwmWidget.StackedButtonsDialogTitle" parent="@style/MaterialAlertDialog.Material3.Title.Text">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
     <item name="android:layout_marginBottom">@dimen/margin_dialog_title</item>
     <item name="android:textAppearance">@style/MwmTextAppearance.Body1</item>
-    <item name="android:fontFamily">@string/robotoMedium</item>
   </style>
 
-  <style name="MwmWidget.StackedButtonsDialogMessage">
+  <style name="MwmWidget.StackedButtonsDialogMessage" parent="@style/MaterialAlertDialog.Material3.Body.Text">
     <item name="android:layout_width">match_parent</item>
     <item name="android:layout_height">wrap_content</item>
-    <item name="android:layout_marginBottom">@dimen/margin_base_plus</item>
-    <item name="android:textAppearance">@style/MwmTextAppearance.Body3</item>
   </style>
 
   <style name="MwmWidget.Button.Primary">
@@ -154,6 +145,7 @@
   <style name="MwmWidget.ToolbarTheme" parent="ThemeOverlay.Material3.Dark.ActionBar">
     <item name="android:gravity">center_vertical</item>
     <item name="colorAccent">@android:color/white</item>
+    <item name="colorPrimary">@color/bg_primary</item>
     <item name="colorSecondary">@android:color/white</item>
     <item name="iconTint">@color/white_primary</item>
   </style>

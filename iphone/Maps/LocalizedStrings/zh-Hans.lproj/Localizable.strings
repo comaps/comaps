@@ -157,7 +157,7 @@
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "深色";
 /* Generic «Disabled» string */
-"disabled" = "已禁用";
+"disabled" = "禁用";
 /* Generic «Off» string */
 "off" = "关闭";
 /* Generic «On» string */

@@ -655,7 +655,7 @@
     <!-- Android, title, max 20-22 symbols -->
     <string name="sort_bookmarks">رتّب المفضلات</string>
     <!-- Android -->
-    <string name="by_default">بشكل افتراضي</string>
+    <string name="by_default">مبدئيًا</string>
     <!-- Android -->
     <string name="by_type">حسب النوع</string>
     <!-- Android -->
@@ -909,7 +909,7 @@
     <string name="route_finished">انتهى المسار</string>
     <string name="not_following_route">لا يتبع المسار</string>
     <string name="pref_openexternallinks_title">فتح روابط الطرف الثالث تلقائيًا</string>
-    <string name="pref_openexternallinks_summary">افتح روابط الطرف الثالث في CoMaps افتراضيًا</string>
+    <string name="pref_openexternallinks_summary">افتح روابط الطرف الثالث في CoMaps مبدئيًا</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="pref_left_button_title">إعداد الزر الأيسر</string>
     <string name="pref_backup_title">نسخ المفضلات احتياطيًا</string>
@@ -932,7 +932,7 @@
     <string name="offline_explanation_text">يجب تنزيل خريطة لعرض المنطقة والتنقل فيها.\nنزِّل خرائط للمناطق التي ترغب في السفر إليها.</string>
     <string name="advanced">متقدم</string>
     <string name="download_resources_custom_url_title">خادم خرائط مخصَّص</string>
-    <string name="download_resources_custom_url_message">تجاوز خادم تنزيل الخرائط الافتراضي المستخدم لتنزيل الخرائط. اتركه فارغًا لاستخدام خادم CoMaps الافتراضي.</string>
+    <string name="download_resources_custom_url_message">تجاوز خادم تنزيل الخرائط المبدئي المستخدم لتنزيل الخرائط. اتركه فارغًا لاستخدام خادم CoMaps المبدئي.</string>
     <string name="ruler">مسطرة</string>
     <string name="route_type">نوع المسار</string>
     <string name="vehicle">مركبة</string>
@@ -948,4 +948,6 @@
     <string name="route_recalculating">يعيد حساب المسار…</string>
     <string name="charge_socket_type1_combo">النوع 1 كومبو</string>
     <string name="population">السكان: %s</string>
+    <string name="setting_value_system_default">النظام المبدئي</string>
+    <string name="change_app_locale">لغة التطبيق</string>
 </resources>

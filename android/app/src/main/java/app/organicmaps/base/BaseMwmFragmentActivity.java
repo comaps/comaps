@@ -18,6 +18,7 @@ import androidx.fragment.app.FragmentManager;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.SplashActivity;
+import app.organicmaps.sdk.OrganicMaps;
 import app.organicmaps.sdk.util.log.Logger;
 import com.google.android.material.appbar.MaterialToolbar;
 import java.util.Objects;
@@ -66,6 +67,22 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
 
     attachDefaultFragment();
     mSafeCreated = true;
+  }
+
+  @CallSuper
+  @Override
+  protected void onResume()
+  {
+    super.onResume();
+    OrganicMaps.nativeSetContext(this);
+  }
+
+  @CallSuper
+  @Override
+  protected void onPause()
+  {
+    super.onPause();
+    OrganicMaps.nativeSetContext(getApplicationContext());
   }
 
   @CallSuper
@@ -147,8 +164,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
     {
       OnBackPressListener listener = (OnBackPressListener) currentFragment;
       return listener.onBackPressed();
-    }
-    catch (ClassCastException e)
+    } catch (ClassCastException e)
     {
       Logger.i(TAG, "Fragment '" + currentFragment + "' doesn't handle back press by itself.");
       return false;
@@ -157,6 +173,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
 
   /**
    * Override to set custom content view.
+   *
    * @return layout resId.
    */
   protected int getContentLayoutResId()
@@ -180,7 +197,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
     final int resId = getFragmentContentResId();
     if (resId <= 0 || findViewById(resId) == null)
       throw new IllegalStateException(
-          "Fragment can't be added, since getFragmentContentResId() isn't implemented or returns wrong resourceId.");
+              "Fragment can't be added, since getFragmentContentResId() isn't implemented or returns wrong resourceId.");
 
     String name = fragmentClass.getName();
     Fragment potentialInstance = getSupportFragmentManager().findFragmentByTag(name);
@@ -200,6 +217,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
   /**
    * Override to automatically attach fragment in onCreate. Tag applied to fragment in back stack is set to fragment
    * name, too. WARNING : if custom layout for activity is set, getFragmentContentResId() must be implemented, too.
+   *
    * @return class of the fragment, eg FragmentClass.getClass()
    */
   protected Class<? extends Fragment> getFragmentClass()
@@ -209,6 +227,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
 
   /**
    * Get resource id for the fragment. That must be implemented to return correct resource id, if custom layout is set.
+   *
    * @return resourceId for the fragment
    */
   protected int getFragmentContentResId()

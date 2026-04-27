@@ -225,6 +225,9 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_turn_lanes_backward(std:
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_email(std::string const & v)
 {
+  constexpr std::string_view kMailtoPrefix = "mailto:";
+  if (v.starts_with(kMailtoPrefix))
+    return v.substr(kMailtoPrefix.size());
   return v;
 }
 

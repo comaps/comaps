@@ -115,7 +115,8 @@ class MwmPython(mi.Mwm):
             tag_info = self.get_tag("features")
             self.seek_tag("features")
             version = read_uint(self.file, 1)
-            if version != 0:
+            #if version != 0 :
+            if version != 1 : 
                 self.file.seek(old_pos)
                 raise FeaturesSectionParseError(f"Unexpected features section version: {version}.")
             features_offset = read_uint(self.file, bytelen=4)

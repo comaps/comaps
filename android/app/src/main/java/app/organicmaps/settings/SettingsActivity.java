@@ -14,6 +14,12 @@ public class SettingsActivity
                                            PreferenceFragmentCompat.OnPreferenceStartScreenCallback
 {
   @Override
+  protected int getToolbarTitle()
+  {
+    return R.string.settings;
+  }
+
+  @Override
   protected int getContentLayoutResId()
   {
     return R.layout.activity_settings;

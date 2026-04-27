@@ -223,7 +223,13 @@ private:
   static bool IsPositiveRouting(string const & value)
   {
     // This values neither positive and neither negative.
-    for (char const * s : {"unknown", "dismount"})
+    /* @todo(pastk): "private" here partially fixes a bug where foot=private on a highway=path
+     * results in hwtag-yesfoot by at least removing this explicit "yes".
+     * We avoid treating it as a hard hwtag-nofoot which means no routing at all,
+     * while we still want to allow routing when destination is intentionally on a private path
+     * (similar to a more generic access=private). Ideally we should add an explicit hwtag-privatefoot?
+    */
+    for (char const * s : {"unknown", "dismount", "private"})
       if (value == s)
         return false;
     return !IsNegativeRouting(value);
@@ -1051,6 +1057,7 @@ bool IsCarDesignatedHighway(uint32_t type)
 {
   switch (ftypes::IsWayChecker::Instance().GetSearchRank(type))
   {
+  // See search rank / designated list in IsWayChecker
   case ftypes::IsWayChecker::Motorway:
   case ftypes::IsWayChecker::Regular:
   case ftypes::IsWayChecker::Minors: return true;
@@ -1060,11 +1067,13 @@ bool IsCarDesignatedHighway(uint32_t type)
 
 bool IsBicycleDesignatedHighway(uint32_t type)
 {
+  // See search rank / designated list in IsWayChecker
   return ftypes::IsWayChecker::Instance().GetSearchRank(type) == ftypes::IsWayChecker::Cycleway;
 }
 
 bool IsPedestrianDesignatedHighway(uint32_t type)
 {
+  // See search rank / designated list in IsWayChecker
   return ftypes::IsWayChecker::Instance().GetSearchRank(type) == ftypes::IsWayChecker::Pedestrian;
 }
 
@@ -1260,10 +1269,12 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
       auto const ApplyFlag = [&flags, &AddParam](Flags::Type f, CachedTypes::Type yes, CachedTypes::Type no0,
                                                  CachedTypes::Type no1, bool isDesignated)
       {
+        // !isDesignated basically means e.g. don't add hwtag-yesfoot to footways as its implied.
         if (flags[f] == 1 && !isDesignated)
           AddParam(yes);
         else if (flags[f] == -1)
           AddParam(no0);
+        // Ref sequence set in "struct Flags", e.g. "Sidewalk" is secondary to "Foot".
         else if (flags[int(f) + 1] == 1 && !isDesignated)
           AddParam(yes);
         else if (flags[int(f) + 1] == -1)

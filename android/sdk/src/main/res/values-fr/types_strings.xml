@@ -714,8 +714,8 @@
     <string name="type.office.lawyer">Cabinet d’avocat</string>
     <string name="type.office.ngo">Bureau d’ONG</string>
     <string name="type.office.telecommunication">Opérateur mobile</string>
-    <string name="type.organic.only">Biologique</string>
-    <string name="type.organic.yes">Biologique</string>
+    <string name="type.organic.only">Produits biologiques uniquement</string>
+    <string name="type.organic.yes">Produits biologiques</string>
     <string name="type.place.city">Ville</string>
     <string name="type.place.city.capital">Capitale</string>
     <string name="type.place.city.capital.10">Ville</string>
@@ -1517,4 +1517,5 @@
     <string name="type.sport.four_square">Four Square</string>
     <string name="type.leisure.sports_centre.sport.pickleball">Centre Sportif</string>
     <string name="type.sport.pickleball">Pickleball</string>
+    <string name="type.organic.no">Pas de produits biologiques</string>
 </resources>

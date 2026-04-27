@@ -1228,8 +1228,8 @@
     <string name="type.man_made.breakwater">Molo</string>
     <string name="type.man_made.pier">Pir</string>
     <string name="type.mountain_pass">Fjellpass</string>
-    <string name="type.organic.only">Økologisk</string>
-    <string name="type.organic.yes">Økologisk</string>
+    <string name="type.organic.only">Kun økologisk</string>
+    <string name="type.organic.yes">Økologiske alternativer</string>
     <string name="type.public_transport.platform">Plattform</string>
     <string name="type.railway.crossing">Jernbaneovergang</string>
     <string name="type.railway.station.subway.qingdao">T-banestasjon</string>
@@ -1432,4 +1432,5 @@
     <string name="type.leisure.sports_centre.sport.pickleball">Sportssenter</string>
     <string name="type.power.pole">Strømstolpe</string>
     <string name="type.man_made.utility_pole">Stolpe</string>
+    <string name="type.organic.no">Ingen økologiske alternativer</string>
 </resources>

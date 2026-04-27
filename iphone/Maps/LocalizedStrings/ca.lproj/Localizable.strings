@@ -157,7 +157,7 @@
 /* Settings "Appearance" category: "Dark" title, should be consistent with the pref_appearance_title translation. */
 "pref_appearance_dark" = "Fosc";
 /* Generic «Disabled» string */
-"disabled" = "Disabled";
+"disabled" = "Desactivat";
 /* Generic «Off» string */
 "off" = "Desactivat";
 /* Generic «On» string */
@@ -173,7 +173,7 @@
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Instruccions de veu";
 /* Settings «Route» category: «Tts enable» title */
-"pref_tts_enable_title" = "Enable Voice Instructions";
+"pref_tts_enable_title" = "Activa les instruccions de veu";
 /* Settings «Route» category: «Tts announce street names» title */
 "pref_tts_street_names_title" = "Anuncia els noms dels carrers";
 /* Settings «Route» category: «Tts announce street names» description */
@@ -389,7 +389,7 @@
 "unknown" = "Unknown";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Existence confirmed %@";
-"hours_confirmed_time_ago" = "Confirmed %@";
+"hours_confirmed_time_ago" = "Confirmat %@";
 /* Place Page opening hours text */
 "closed_now" = "Tancat ara";
 /* Place Page opening hours text */
@@ -408,7 +408,7 @@
 "add_opening_hours" = "Afegeix horari d'obertura";
 /* OpenStreetMap */
 "osm_mapdata" = "Dades del mapa d'OpenStreetMap";
-"osm_mapdata_explanation %@" = "Dades de mapes creades per la comunitat a partir de *%@*. Obteniu més informació sobre com editar i actualitzar el mapa a [OpenStreetMap.org](https://openstreetmap.org).";
+"osm_mapdata_explanation %@" = "Dades de mapes creades per la comunitat el *%@*. Obteniu més informació sobre com editar i actualitzar el mapa a [OpenStreetMap.org](https://openstreetmap.org).";
 "osm_more_about" = "Més sobre l'OpenStreetMap";
 "osm_more_about_url" = "https://wiki.openstreetmap.org/wiki/Ca:About_OpenStreetMap";
 /* OpenStreetMap Profile */

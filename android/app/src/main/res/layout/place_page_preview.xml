@@ -190,6 +190,7 @@
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:background="?ppBackground"
+      android:gravity="center_horizontal"
       android:orientation="horizontal">
       <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/item_icon"
@@ -215,6 +216,8 @@
         android:layout_weight="1"
         android:padding="@dimen/margin_quarter"
         android:background="?clickableBackground"
+        android:maxLines="2"
+        android:ellipsize="end"
         tools:text="@string/categories" />
       <com.google.android.material.button.MaterialButton
         android:id="@+id/edit_Bookmark"

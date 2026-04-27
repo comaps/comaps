@@ -499,8 +499,12 @@ line|z18-[man_made=embankment],
   It is deprectated and will be replaced with natural=water=reservoir.
 */
 
-node|z1-[place=ocean],
-node|z4-[place=sea],
+node|z1-9[place=ocean],
+node|z4-9[place=sea],
+{text:name;text-color: @water_light_label;}
+
+node|z10-[place=ocean],
+node|z10-[place=sea],
 area|z10-13[landuse=reservoir][bbox_area>=4000000],
 area|z10-13[natural=water][!tunnel][bbox_area>=4000000],
 area|z14-[landuse=reservoir],
@@ -513,7 +517,7 @@ line|z13-[natural=strait],
 node|z14-[natural=strait],
 node|z14-[natural=bay],
 node|z16-[natural=wetland],
-{text:name;text-color: @water_label;text-halo-color: @water;text-halo-radius: 0.1;text-halo-opacity: 0.4;}
+{text:name;text-color: @water_label;}
 
 area|z10-13[landuse=reservoir][bbox_area<4000000],
 area|z10-13[natural=water][!tunnel][bbox_area<4000000],
@@ -564,18 +568,18 @@ line|z13-14[waterway=stream],
 line|z13-14[waterway=canal],
 line|z13-14[waterway=fish_pass],
 line|z13-14[natural=strait],
-{font-size: 10;text:name;text-color: @water_label;text-halo-color: @water;text-halo-radius: 0.1;text-halo-opacity: 0.4;}
+{font-size: 10;text:name;text-color: @water_label;}
 line|z15-17[waterway=stream],
 line|z15-17[waterway=canal],
 line|z15-17[waterway=fish_pass],
 line|z15-17[natural=strait],
-{font-size: 11;text:name;text-color: @water_label;text-halo-color: @water;text-halo-radius: 0.1;text-halo-opacity: 0.4;}
+{font-size: 11;text:name;text-color: @water_label;}
 line|z15-[waterway=river],
 line|z18-[waterway=stream],
 line|z18-[waterway=canal],
 line|z18-[waterway=fish_pass],
 line|z18-[natural=strait],
-{font-size: 12;text:name;text-color: @water_label;text-halo-color: @water;text-halo-radius: 0.1;text-halo-opacity: 0.4;}
+{font-size: 12;text:name;text-color: @water_label;}
 
 line[waterway]
 {text-position: line;}

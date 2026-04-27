@@ -189,6 +189,32 @@ UNIT_CLASS_TEST(TestWithClassificator, FBuilder_RemoveUselessNames)
   TEST(fb1.IsValid(), (fb1));
 }
 
+UNIT_CLASS_TEST(TestWithClassificator, FBuilder_RefSerialization)
+{
+  FeatureBuilderParams params;
+
+  base::StringIL arr[] = {{"aeroway", "gate"}};
+  AddTypes(params, arr);
+  params.FinishAddingTypes();
+  params.AddName("alt_name", "A00");
+  params.ref = "C00";
+
+  FeatureBuilder fb;
+  fb.AddOsmId(base::MakeOsmNode(1));
+  fb.SetParams(params);
+  fb.SetCenter(m2::PointD(10.1, 15.8));
+  TEST(fb.IsValid(), ());
+
+  feature::DataHeader header;
+  header.SetGeometryCodingParams(serial::GeometryCodingParams());
+  header.SetScales({scales::GetUpperScale()});
+  feature::GeometryHolder holder(fb, header);
+  auto & buffer = holder.GetBuffer();
+
+  TEST(fb.PreSerializeAndRemoveUselessNamesForMwm(buffer), ());
+  TEST(fb.GetName(localisation::kDefaultNameIndex) == "C00", ());
+}
+
 UNIT_CLASS_TEST(TestWithClassificator, FBuilder_HN)
 {
   FeatureBuilderParams params;

@@ -1,5 +1,6 @@
 #include "storage/storage.hpp"
 
+#include "private.h"
 #include "storage/country_tree_helpers.hpp"
 #include "storage/diff_scheme/apply_diff.hpp"
 // #include "storage/diff_scheme/diff_scheme_loader.hpp"
@@ -7,6 +8,7 @@
 #include "storage/map_files_downloader.hpp"
 #include "storage/storage_helpers.hpp"
 
+#include "platform/crypto/ed25519.hpp"
 #include "platform/downloader_utils.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/mwm_version.hpp"
@@ -18,6 +20,7 @@
 #include "coding/internal/file_data.hpp"
 #include "coding/sha1.hpp"
 
+#include "base/assert.hpp"
 #include "base/exception.hpp"
 #include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
@@ -119,6 +122,284 @@ Progress Storage::GetOverallProgress(CountriesVec const & countries) const
   return overallProgress;
 }
 
+namespace
+{
+bool SaveCountriesToWritableDirAtomic(std::string const & buffer)
+{
+  auto & pl = GetPlatform();
+  std::string const finalPath = base::JoinPath(pl.WritableDir(), COUNTRIES_FILE);
+  std::string const tmpPath = finalPath + EXTENSION_TMP;
+
+  try
+  {
+    FileWriter w(tmpPath);
+    w.Write(buffer.data(), buffer.size());
+  }
+  catch (...)
+  {
+    LOG(LWARNING, ("COUNTRIES: write tmp failed:", tmpPath));
+    pl.RemoveFileIfExists(tmpPath);
+    return false;
+  }
+
+  pl.RemoveFileIfExists(finalPath);
+  if (!base::RenameFileX(tmpPath, finalPath))
+  {
+    LOG(LWARNING, ("COUNTRIES: rename failed:", tmpPath, "->", finalPath));
+    pl.RemoveFileIfExists(tmpPath);
+    return false;
+  }
+
+  pl.DisableBackupForFile(finalPath);
+  LOG(LINFO, ("COUNTRIES: saved to:", finalPath));
+  return true;
+}
+}  // namespace
+
+void Storage::ApplyCountriesInMemory(std::string const & buffer)
+{
+  LOG(LDEBUG, ("COUNTRIES: applying in-memory"));
+  /// @todo(pastk): why do we need a temp dummy Storage object?
+  std::shared_ptr<Storage> parsed(new Storage(7 /* dummy */));
+  int64_t const newVersion =
+      LoadCountriesFromBuffer(buffer, parsed->m_countries, parsed->m_affiliations, parsed->m_countryNameSynonyms,
+                              parsed->m_mwmTopCityGeoIds, parsed->m_mwmTopCountryGeoIds, parsed->m_mapSeries);
+
+  ASSERT_GREATER(newVersion, m_currentVersion, ());
+
+  m_currentVersion = newVersion;
+  m_countries = std::move(parsed->m_countries);
+
+  m_downloader->SetDataVersion(m_currentVersion);
+  m_downloader->ResetMetaConfig();
+
+  RegisterAllLocalMaps(false /* enableDiffs */);
+
+  m_affiliations = std::move(parsed->m_affiliations);
+  m_countryNameSynonyms = std::move(parsed->m_countryNameSynonyms);
+  m_mwmTopCityGeoIds = std::move(parsed->m_mwmTopCityGeoIds);
+  m_mwmTopCountryGeoIds = std::move(parsed->m_mwmTopCountryGeoIds);
+
+  NotifyStatusChanged(GetRootId());
+
+  for (auto const & p : m_localFiles)
+    if (IsNode(p.first))
+      NotifyStatusChangedForHierarchy(p.first);
+
+  LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
+}
+
+void Storage::ApplyPendingCountriesIfAny()
+{
+  if (!m_hasPendingCountries)
+    return;
+
+  if (!IsIdleForCountriesApply())
+    return;
+
+  if (m_pendingCountriesVersion <= m_currentVersion)
+  {
+    m_hasPendingCountries = false;
+    m_pendingCountriesVersion = 0;
+    m_pendingCountriesBuffer.clear();
+    return;
+  }
+
+  std::string buffer = std::move(m_pendingCountriesBuffer);
+  m_hasPendingCountries = false;
+  m_pendingCountriesVersion = 0;
+
+  ApplyCountriesInMemory(buffer);
+}
+
+void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion)
+{
+  ASSERT_GREATER(parsedVersion, m_currentVersion, ());
+
+  LOG(LDEBUG, ("COUNTRIES: saving downloaded", COUNTRIES_FILE));
+  GetPlatform().RunTask(Platform::Thread::File, [buffer]() { (void)SaveCountriesToWritableDirAtomic(*buffer); });
+
+  LOG(LDEBUG, ("COUNTRIES: applying downloaded", COUNTRIES_FILE));
+  GetPlatform().RunTask(Platform::Thread::Gui, [this, buffer, parsedVersion]()
+  {
+    if (IsInitialResourcesDownloadRequired())
+    {
+      /// @todo(pastk): actually need to always check for updates and download latest Worlds
+      // Persist, but do NOT hot-apply during initial Worlds download flow.
+      if (!m_hasPendingCountries || parsedVersion > m_pendingCountriesVersion)
+      {
+        m_pendingCountriesBuffer = *buffer;
+        m_pendingCountriesVersion = parsedVersion;
+        m_hasPendingCountries = true;
+      }
+      LOG(LINFO, ("COUNTRIES: initial resources download active; deferring apply. version=", parsedVersion));
+      return;
+    }
+
+    if (IsIdleForCountriesApply())
+    {
+      ApplyCountriesInMemory(*buffer);
+      return;
+    }
+
+    if (!m_hasPendingCountries || parsedVersion > m_pendingCountriesVersion)
+    {
+      m_pendingCountriesBuffer = *buffer;
+      m_pendingCountriesVersion = parsedVersion;
+      m_hasPendingCountries = true;
+      LOG(LDEBUG, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+    }
+  });
+}
+
+int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) const
+{
+  try
+  {
+    base::Json const json(buffer.c_str());
+    auto root = json.get();
+
+    if (root == nullptr || !json_is_object(root))
+    {
+      LOG(LWARNING, ("COUNTRIES: malformed", SERVER_MAPS_FILE, ", contents:\n", buffer));
+      return 0;
+    }
+
+    json_t* mapSeries = json_object_get(root, "map-series"); //pastk TODO change to "map_series" to be same as countries.txt
+    if (json_is_object(mapSeries))
+    {
+      void* iter = json_object_iter(mapSeries);
+      while (iter)
+      {
+        const char* key = json_object_iter_key(iter);
+        if (std::string(key) == MAP_SERIES)
+        {
+          json_t* entry = json_object_iter_value(iter);
+          json_t* latest = json_object_get(entry, "latest");
+          return json_integer_value(latest);
+        }
+        iter = json_object_iter_next(mapSeries, iter);
+      }
+    }
+    return 0;
+  }
+  catch (RootException const &)
+  {
+    LOG(LWARNING, ("COUNTRIES: error parsing", SERVER_MAPS_FILE, ", contents:\n", buffer));
+    return 0;
+  }
+}
+
+void Storage::RunCountriesCheckAsyncSaveOnly()
+{
+  std::string const serverMapsUrl = "meta/" SERVER_MAPS_FILE;
+  LOG(LINFO, ("COUNTRIES: check for map updates by fetching", serverMapsUrl));
+
+  m_downloader->DownloadAsStringFromMeta(serverMapsUrl, [this, serverMapsUrl](std::string const & mapsBuffer)
+  {
+    if (mapsBuffer.empty())
+    {
+      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response - skip update"));
+      return false;
+    }
+
+    LOG(LDEBUG, ("COUNTRIES: parsing downloaded", serverMapsUrl));
+    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer);
+    if (dataVersion == 0)
+    {
+      LOG(LWARNING, ("COUNTRIES: latest map version info not found for map series", MAP_SERIES));
+      return false;
+    }
+    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES));
+    if (dataVersion <= m_currentVersion)
+    {
+      LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      return false;
+    }
+
+    /// @todo(pastk): request servers list from meta using the new/pending data version.
+    /// e.g. temporary set m_downloader->SetDataVersion(dataVersion); or pass new version as a param.
+    // Force fetch new servers list for new data version.
+    m_downloader->ResetMetaConfig();
+
+    auto const countriesUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE, dataVersion);
+    LOG(LINFO, ("COUNTRIES: fetching updated", dataVersion, "maps list from", countriesUrl));
+    // Use MapFilesDownloader so we respect custom server / metaserver selection.
+    m_downloader->DownloadAsString(countriesUrl, [this, dataVersion](std::string const & buffer)
+    {
+      LOG(LDEBUG, ("COUNTRIES: downloaded bytes=", buffer.size()));
+
+      if (buffer.empty())
+      {
+        LOG(LWARNING, ("COUNTRIES: empty response - skip update"));
+        return false;
+      }
+
+      CountryTree countries;
+      Affiliations affiliations;
+      CountryNameSynonyms synonyms;
+      MwmTopCityGeoIds topCities;
+      MwmTopCountryGeoIds topCountries;
+      std::string mapSeries = "";
+
+      int64_t const parsedVersion =
+        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
+      if (parsedVersion != dataVersion || mapSeries != MAP_SERIES)
+      {
+        LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
+                       "parsed map series", mapSeries, "expected", MAP_SERIES, "- skip update"));
+        return false;
+      }
+
+      auto buf = std::make_shared<std::string>(std::move(buffer));
+
+      auto const countriesSigUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION, parsedVersion);
+      LOG(LDEBUG, ("COUNTRIES: fetching signature", countriesSigUrl));
+
+      m_downloader->DownloadAsString(countriesSigUrl,
+                                     [this, buf, parsedVersion](std::string const & sigBuf)
+      {
+        if (sigBuf.empty())
+        {
+          LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
+          return false;
+        }
+
+        if (sigBuf.size() != 64)
+        {
+          LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+          return false;
+        }
+
+        std::array<uint8_t, 32> countriesTxtPublicKey{};
+        if (!DecodeHex32(COUNTRIES_TXT_SIGNATURE_HEX, countriesTxtPublicKey))
+        {
+          LOG(LWARNING, ("COUNTRIES: invalid public signature hex"));
+          return false;
+        }
+        LOG(LDEBUG, ("COUNTRIES: verifying signature."));
+        if (!platform::crypto::VerifyEd25519(countriesTxtPublicKey.data(),
+                                             reinterpret_cast<uint8_t const *>(buf->data()), buf->size(),
+                                             reinterpret_cast<uint8_t const *>(sigBuf.data())))
+        {
+          LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+          return false;
+        }
+
+        PersistAndApplyCountries(buf, parsedVersion);
+
+        return false;
+      }, true /* forceReset: allow nested request */);
+
+      // Don't reset the request, we started another download.
+      return true;
+    }, true /* forceReset: allow nested request */);
+
+    // Don't reset the request, we started another download.
+    return true;
+  }, false /* force reset */);
+}
+
 Storage::Storage(int)
 {
   // Do nothing here, used in RunCountriesCheckAsync() only.
@@ -131,9 +412,16 @@ Storage::Storage(string const & pathToCountriesFile /* = COUNTRIES_FILE */, stri
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   SetLocale(languages::GetCurrentTwine());
+
+  LOG(LDEBUG, ("COUNTRIES: Storage ctor entered. pathToCountriesFile=", pathToCountriesFile, "dataDir=", m_dataDir));
   LoadCountriesFile(pathToCountriesFile);
 
+  m_downloader->ResetMetaConfig();
   m_downloader->SetDataVersion(m_currentVersion);
+
+  /// @todo(pastk): add opt-in setting for automatic map updates checks
+  // Fetch, persist, and apply.
+  // RunCountriesCheckAsyncSaveOnly();
 }
 
 Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
@@ -143,7 +431,7 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
   m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
+                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_mapSeries);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);
@@ -606,7 +894,7 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
   {
     m_currentVersion = LoadCountriesFromFile(pathToCountriesFile, m_countries, m_affiliations, m_countryNameSynonyms,
                                              m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds);
-    LOG(LINFO, ("Loaded countries list for version:", m_currentVersion));
+    LOG(LINFO, ("Loaded countries list for map version:", m_currentVersion));
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
   }
@@ -719,6 +1007,7 @@ void Storage::OnDownloadFinished(QueuedCountry const & queuedCountry, DownloadSt
     {
       DownloadStatus status = DownloadStatus::Completed;
 
+      // Verify map checksum.
       if (coding::SHA1::CalculateBase64(path) != sha1)
       {
         LOG(LERROR, ("SHA check error for", path));
@@ -1003,11 +1292,12 @@ bool Storage::CheckFailedCountries(CountriesVec const & countries) const
   return false;
 }
 
+/// @todo(pastk): cleanup unused functions
 void Storage::RunCountriesCheckAsync()
 {
-  m_downloader->DownloadAsString(SERVER_DATAVERSION_FILE, [this](std::string const & buffer)
+  m_downloader->DownloadAsString(SERVER_MAPS_FILE, [this](std::string const & buffer)
   {
-    LOG(LDEBUG, (SERVER_DATAVERSION_FILE, "downloaded"));
+    LOG(LDEBUG, (SERVER_MAPS_FILE, "downloaded"));
 
     int64_t const dataVersion = ParseIndexAndGetDataVersion(buffer);
     if (dataVersion <= m_currentVersion)
@@ -1023,7 +1313,7 @@ void Storage::RunCountriesCheckAsync()
       std::shared_ptr<Storage> storage(new Storage(7 /* dummy */));
       storage->m_currentVersion =
           LoadCountriesFromBuffer(buffer, storage->m_countries, storage->m_affiliations, storage->m_countryNameSynonyms,
-                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds);
+                                  storage->m_mwmTopCityGeoIds, storage->m_mwmTopCountryGeoIds, storage->m_mapSeries);
       if (storage->m_currentVersion > 0)
       {
         LOG(LDEBUG, ("Apply new version", storage->m_currentVersion, dataVersion));
@@ -1529,6 +1819,8 @@ void Storage::OnFinishDownloading()
         RetryDownloadNode(country);
     }
   });
+
+  ApplyPendingCountriesIfAny();
 }
 
 void Storage::OnDiffStatusReceived(diffs::NameDiffInfoMap && diffs)

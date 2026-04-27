@@ -19,10 +19,10 @@ public class DividerItemDecorationWithPadding extends RecyclerView.ItemDecoratio
   @NonNull
   private final Drawable mDivider;
 
-  public DividerItemDecorationWithPadding(@NonNull Context context)
+  public DividerItemDecorationWithPadding(@NonNull Context context, int marginStart)
   {
-    mDivider = Objects.requireNonNull(AppCompatResources.getDrawable(context, R.drawable.divider_base));
-    mStartMargin = context.getResources().getDimensionPixelSize(R.dimen.margin_quadruple_plus_half);
+    mDivider = Objects.requireNonNull(AppCompatResources.getDrawable(context, R.drawable.list_divider));
+    mStartMargin = context.getResources().getDimensionPixelSize(marginStart);
   }
 
   @Override

@@ -141,7 +141,7 @@
 /* Length of track in cell that describes route */
 "length" = "Dolžina";
 "share_my_location" = "Deli moj položaj";
-"prefs_group_route" = "Navigacija";
+"prefs_group_route" = "Usmerjanje";
 "pref_zoom_title" = "Gumbi za povečavo";
 "pref_left_button_type" = "Levi glavni gumb";
 /* Settings «Map» category: «Map Language» title */
@@ -318,8 +318,8 @@
 "dialog_routing_check_gps" = "Preveri signal GPS";
 "dialog_routing_error_location_not_found" = "Poti ni bilo mogoče ustvariti. Trenutni položaj GPS je nedoločljiv.";
 "dialog_routing_location_turn_wifi" = "Preverite svoj signal GPS. Vaš položaj se bo dalo natančneje določiti, če omogočite Wi-Fi.";
-"dialog_routing_location_turn_on" = "Omogoči položajne storitve";
-"dialog_routing_location_unknown_turn_on" = "Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun povezave morate vklopiti položajne storitve.";
+"dialog_routing_location_turn_on" = "Omogoči zaznavanje položaja";
+"dialog_routing_location_unknown_turn_on" = "Ni bilo mogoče določiti trenutnih koordinat GPS. Za izračun poti vklopite zaznavanje položaja.";
 "dialog_routing_download_files" = "Prenesi zahtevane datoteke";
 "dialog_routing_download_and_update_all" = "Prenesite ali posodobite vse zemljevide vzdolž približne poti za izračun točne poti.";
 "dialog_routing_unable_locate_route" = "Poti ni bilo mogoče najti";
@@ -493,7 +493,7 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Upravitelj: %@";
 "editor_category_unsuitable_title" = "Ne najdete primerne kategorije?";
-"editor_category_unsuitable_text" = "CoMaps dovoljuje dodajanje preprostih točkovnih kategorij, ne pa mest, cest, jezer, obrisov stavb itd. Tovrstne kategorije dodajte neposredno na <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Natančna navodila si preberite v <a href=\"https://www.comaps.app/support/advanced-map-editing/\">vodiču</a>.";
+"editor_category_unsuitable_text" = "CoMaps omogoča dodajanje preprostih točkovnih kategorij, ne pa mest, cest, jezer, obrisov stavb itd. Tovrstne kategorije dodajte neposredno na <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Natančna navodila si preberite v <a href=\"https://www.comaps.app/support/advanced-map-editing/\">vodiču</a>.";
 "downloader_no_downloaded_maps_title" = "Prenesli niste nobenih zemljevidov";
 "downloader_no_downloaded_maps_message" = "Prenesite zemljevide za iskanje in usmerjanje brez povezave.";
 "current_location_unknown_error_title" = "Trenutni položaj je neznan.";
@@ -562,7 +562,7 @@
 /* For the first routing */
 "decline" = "Zavrni";
 "mobile_data_dialog" = "Naj pridobim podrobne podatke prek mobilnega omrežja?";
-"mobile_data_option_always" = "Vedno uporabi";
+"mobile_data_option_always" = "Uporabi vedno";
 "mobile_data_option_today" = "Samo danes";
 "mobile_data_option_not_today" = "Ne uporabi danes";
 "mobile_data" = "Mobilno omrežje";
@@ -571,17 +571,17 @@
 "mobile_data_option_never" = "Nikoli ne uporabi";
 "mobile_data_option_ask" = "Vedno vprašaj";
 "traffic_update_maps_text" = "Za prikazovanje prometnih podatkov je treba posodobiti zemljevide.";
-"big_font" = "Povečajte velikost oznak na zemljevidu";
+"big_font" = "Povečaj velikost oznak na zemljevidu";
 /* "traffic" as in road congestion */
 "traffic_update_app_message" = "Za prikazovanje prometnih podatkov je treba posodobiti to orodje.";
 /* "traffic" as in "road congestion" */
 "traffic_data_unavailable" = "Prometni podatki niso na voljo";
 "enable_logging" = "Omogoči dnevniške zapise";
 "log_file_size" = "Velikost dnevniške datoteke: %@";
-"pref_alt_map_lang_handling" = "Alternativni jeziki zemljevida";
-"pref_alt_map_lang_handling_ignore_alternatives" = "Ne uporabljaj alternativ";
-"pref_alt_map_lang_handling_system_order" = "Uporabi v sistemskem vrstne redu";
-"pref_alt_map_lang_handling_local_only" = "Uporabljaj prednostno in samo kjer je domače";
+"pref_alt_map_lang_handling" = "Drugi jeziki zemljevida";
+"pref_alt_map_lang_handling_ignore_alternatives" = "Ne uporabljaj drugih jezikov";
+"pref_alt_map_lang_handling_system_order" = "Uporabi v sistemskem vrstnem redu";
+"pref_alt_map_lang_handling_local_only" = "Uporabljaj prednostno in samo kjer so domači";
 "transliteration_title" = "Prečrkuj v latinico";
 "transliteration_title_disabled_summary" = "Onemogočeno, ko za zemljevid vedno uporabljate lokalni jezik";
 /* Subway exits for public transport marks on the map */
@@ -589,7 +589,7 @@
 /* User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". */
 "routing_add_start_point" = "Za dodajanje izhodišča poti uporabite iskalno vrstico ali izberite točko na zemljevidu";
 /* User selected the start of a route by pressing Route From. Now the destination of a route should be selected using search or by tapping on the map and then pressing "Route To". */
-"routing_add_finish_point" = "Uporabite iskanje ali pritisnite točko na zemljevidu, da dodate cilj";
+"routing_add_finish_point" = "Uporabite iskanje ali se dotaknite točke na zemljevidu, da dodate cilj";
 "planning_route_manage_route" = "Uredi načrt poti";
 "button_plan" = "Načrtuj";
 "placepage_remove_stop" = "Odstrani postanek";
@@ -732,7 +732,7 @@
 "medicine" = "Zdravstvo";
 "search_in_the_list" = "Išči po seznamu";
 "religious_places" = "Verski kraji";
-"transit_not_found" = "V tem območju navigacija s podzemno železnico še ni na voljo";
+"transit_not_found" = "V tem območju usmerjanje s podzemno železnico še ni na voljo";
 "dialog_pedestrian_route_is_long_header" = "Poti s podzemno železnico ni bilo mogoče najti";
 "dialog_pedestrian_route_is_long_message" = "Izberite začetno ali končno točko, ki je bližje postaji podzemne železnice";
 "button_layer_isolines" = "Plastnice";
@@ -849,7 +849,7 @@
 /* Title for the "Recover All" button on the Recently Deleted Lists screen. */
 "recover_all" = "Obnovi vse";
 /* Prompt to start recording a track. */
-"start_track_recording" = "Snemaj sled";
+"start_track_recording" = "Snemanje sledi";
 /* Prompt for stopping a track recording. */
 "stop_track_recording" = "Ustavi snemanje sledi";
 /* Title for the "Stop Without Saving" action for the alert when saving a track recording. */

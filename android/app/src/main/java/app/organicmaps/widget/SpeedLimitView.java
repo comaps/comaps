@@ -16,6 +16,11 @@ public class SpeedLimitView extends BaseSignView
   private final int unlimitedBorderColor;
   private final int unlimitedStripeColor;
 
+  public SpeedLimitView(Context ctx)
+  {
+    this(ctx, null);
+  }
+
   public SpeedLimitView(Context ctx, @Nullable AttributeSet attrs)
   {
     super(ctx, attrs);
@@ -23,7 +28,8 @@ public class SpeedLimitView extends BaseSignView
     setBorderWidthRatio(0.2f);
     setBorderInsetRatio(0.05f);
 
-    try (TypedArray styleAttrs = ctx.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedLimitView, 0, 0))
+    try (TypedArray styleAttrs = ctx.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedLimitView, 0,
+                                                                       R.style.MwmWidget_SpeedLimit))
     {
       final int bgColor =
           styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBackgroundColor, DefaultValues.BACKGROUND_COLOR);
@@ -64,17 +70,22 @@ public class SpeedLimitView extends BaseSignView
     invalidate();
   }
 
+  public int getSpeedLimit()
+  {
+    return mSpeedLimit;
+  }
+
+  @Override
+  public boolean isAlert()
+  {
+    return mAlert;
+  }
+
   @Nullable
   @Override
   protected String getValueString()
   {
     return (mSpeedLimit > 0 ? mSpeedStr : null);
-  }
-
-  @Override
-  protected boolean isAlert()
-  {
-    return mAlert;
   }
 
   @Override

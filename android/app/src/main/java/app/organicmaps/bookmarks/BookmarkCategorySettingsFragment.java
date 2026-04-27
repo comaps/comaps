@@ -27,7 +27,7 @@ import java.util.Objects;
 
 public class BookmarkCategorySettingsFragment extends BaseMwmToolbarFragment
 {
-  private static final int TEXT_LENGTH_LIMIT = 60;
+  private static final int TEXT_LENGTH_LIMIT = 100;
 
   @SuppressWarnings("NullableProblems")
   @NonNull

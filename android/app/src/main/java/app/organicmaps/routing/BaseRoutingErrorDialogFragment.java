@@ -12,9 +12,9 @@ import android.widget.ExpandableListView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 import app.organicmaps.R;
 import app.organicmaps.adapter.DisabledChildSimpleExpandableListAdapter;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.StringUtils;
@@ -27,7 +27,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-abstract class BaseRoutingErrorDialogFragment extends BaseMwmDialogFragment
+abstract class BaseRoutingErrorDialogFragment extends DialogFragment
 {
   static final String EXTRA_MISSING_MAPS = "MissingMaps";
 

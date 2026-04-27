@@ -1,18 +1,18 @@
 /* Button text (should be short) */
-"cancel" = "Cancel";
+"cancel" = "Semmet";
 /* Button which interrupts country download */
-"cancel_download" = "Cancel Download";
+"cancel_download" = "Sefsex azdam";
 /* Button which deletes downloaded country */
-"delete" = "Delete";
-"download_maps" = "Download Maps";
+"delete" = "Kkes";
+"download_maps" = "Sader-d tikarḍiwin";
 /* Settings/Downloader - info for country which started downloading */
-"downloading" = "Downloading…";
+"downloading" = "Azdam…";
 /* Title of offline maps explanation */
-"offline_explanation_title" = "Offline Maps";
+"offline_explanation_title" = "Tikarḍiwin s war tuqqna";
 /* Text of offline maps explanation */
 "offline_explanation_text" = "A map needs to be downloaded to view and navigate the area.\nDownload maps for areas you want to travel.";
 /* Choose measurement on first launch alert - choose metric system button */
-"kilometres" = "ⴽⵉⵍⵓⵎⵉⵜⵔⴻⵏ";
+"kilometres" = "Ikilumitren";
 /* Leave Review dialog - Review button */
 "leave_a_review" = "Leave a Review";
 /* Choose measurement on first launch alert - choose imperial system button */
@@ -20,11 +20,11 @@
 /* A text for current gps location point/arrow selected on the map */
 "core_my_position" = "My Position";
 /* Update maps later button text */
-"later" = "Later";
+"later" = "Ticki";
 /* View and button titles for accessibility, please also edit it in iphone/plist.txt */
-"search" = "Search";
+"search" = "Nadi";
 /* Settings/Downloader - 3G download warning dialog confirm button */
-"use_cellular_data" = "Yes";
+"use_cellular_data" = "Ih";
 /* View and button titles for accessibility */
 "zoom_to_country" = "Show on the map";
 /* Button text for the button at the center of the screen when the country is not downloaded and the size should not be shown */
@@ -52,7 +52,7 @@
 /* Should be used in the bookmarks-only context, see bookmarks_and_tracks if tracks are also implied. */
 "bookmarks" = "Bookmarks";
 /* "Bookmarks and Tracks" dialog title, also sync it with iphone/plist.txt */
-"bookmarks_and_tracks" = "Bookmarks and Tracks";
+"bookmarks_and_tracks" = "Imenyafen";
 /* Default bookmark list name */
 "core_my_places" = "My Places";
 /* Editor title above street and house number, duplicates [type.building.address] in types_strings.txt */
@@ -92,19 +92,19 @@
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
 "category_pharmacy" = "Pharmacy";
 /* Search category for hospitals; any changes should be duplicated in categories.txt @category_hospital! */
-"category_hospital" = "Hospital";
+"category_hospital" = "Sbiṭar";
 /* Search category for toilets; any changes should be duplicated in categories.txt @category_toilet! */
 "category_toilet" = "Toilet";
 /* Search category for post offices; any changes should be duplicated in categories.txt @category_post! */
 "category_post" = "Post";
 /* Search category for police; any changes should be duplicated in categories.txt @category_police! */
-"category_police" = "Police";
+"category_police" = "Tamsulta";
 /* Search category for WiFi access; any changes should be duplicated in categories.txt @category_wifi! */
 "category_wifi" = "WiFi";
 /* Search category for recycling; any changes should be duplicated in categories.txt @category_recycling! */
 "category_recycling" = "Recycling";
 /* Search category for water; any changes should be duplicated in categories.txt @category_water! also used to sort bookmarks by type */
-"category_water" = "Water";
+"category_water" = "Aman";
 /* Search category for RV facilities; any changes should be duplicated in categories.txt @category_rv! */
 "category_rv" = "RV Facilities";
 "share_bookmarks_email_body" = "Hello!\n\nAttached are my bookmarks; please open them in CoMaps. If you don't have it installed you can download it here: https://www.comaps.app/download/\n\nEnjoy travelling with CoMaps!";
@@ -115,7 +115,7 @@
 /* Kml file loading failed */
 "load_kmz_failed" = "Failed to load bookmarks. The file may be corrupted or defective.";
 /* resource for context menu */
-"edit" = "Edit";
+"edit" = "Ẓreg";
 /* Warning message when doing search around current position */
 "unknown_current_position" = "Your location hasn't been determined yet";
 /* Subject for emailed bookmark */
@@ -123,7 +123,7 @@
 /* Subject for emailed position */
 "my_position_share_email_subject" = "Hey, check out my current location on the CoMaps map!";
 /* Share by email button text, also used in editor and About. */
-"email" = "Email";
+"email" = "Imayl";
 /* Text for message to copy something */
 "copy_to_clipboard" = "Nɣel ɣer tecfawt";
 /* Text for message when used successfully copied something */
@@ -131,7 +131,7 @@
 /* place preview title */
 "info" = "Info";
 /* Used for bookmark editing */
-"done" = "Done";
+"done" = "Yemmug";
 /* Prints version number in About dialog */
 "version" = "CoMaps version: %@";
 "version %@ (%@)" = "Alqem %@ (%@)";
@@ -141,7 +141,7 @@
 /* Length of track in cell that describes route */
 "length" = "Length";
 "share_my_location" = "Share My Location";
-"prefs_group_route" = "Navigation";
+"prefs_group_route" = "Tunigin";
 "pref_zoom_title" = "Zoom buttons";
 "pref_left_button_type" = "Left Main Button";
 /* Settings «Map» category: «Map Language» title */
@@ -159,11 +159,11 @@
 /* Generic «Disabled» string */
 "disabled" = "Disabled";
 /* Generic «Off» string */
-"off" = "Off";
+"off" = "Ur irmid ara";
 /* Generic «On» string */
-"on" = "On";
+"on" = "D urmid";
 /* Generic «Auto» string */
-"auto" = "Auto";
+"auto" = "Awurman";
 /* Settings «Map» category: «Perspective view» title */
 "pref_map_3d_title" = "Perspective view";
 /* Settings «Map» category: «3D buildings» title */
@@ -185,12 +185,12 @@
 /* Title for "Other" section in TTS settings. */
 "pref_tts_other_section_title" = "Other";
 "pref_map_auto_zoom" = "Auto zoom";
-"placepage_distance" = "Distance";
-"search_show_on_map" = "View on map";
+"placepage_distance" = "Ameccaq";
+"search_show_on_map" = "Wali-t ɣef tkarḍa";
 /* Text in menu */
-"website" = "Website";
+"website" = "Asmel web";
 /* Text in About menu, opens CoMaps news website */
-"news" = "News";
+"news" = "Isallen";
 /* Text in the about screen */
 "social_codeberg" = "Codeberg";
 "social_mastodon" = "Mastodon";
@@ -220,11 +220,11 @@
 /* Text in menu */
 "rate_the_app" = "Rate the app";
 /* Text in menu */
-"help" = "Help";
+"help" = "Tallalt";
 /* Button in the main Help dialog */
 "faq" = "Frequently Asked Questions";
 /* Button in the main menu */
-"donate" = "Donate";
+"donate" = "Muddet tawsa";
 /* Button in the main Help dialog */
 "copyright" = "Copyright";
 /* Text in menu + Button in the main Help dialog */
@@ -244,55 +244,55 @@
 /* Update all button text */
 "downloader_update_all_button" = "Update All";
 /* Downloaded maps list header */
-"downloader_downloaded_subtitle" = "Downloaded";
+"downloader_downloaded_subtitle" = "Yettwasader-d";
 /* Downloaded maps category */
-"downloader_available_maps" = "Available";
+"downloader_available_maps" = "Tella";
 /* Country queued for download */
 "downloader_queued" = "Queued";
 "downloader_near_me_subtitle" = "Near me";
 /* In maps downloader and country place page shows how many maps are downloaded / to download, e.g. "Maps: 3 of 10" */
-"downloader_status_maps" = "Maps";
-"downloader_download_all_button" = "Download All";
+"downloader_status_maps" = "Tikarḍiwin";
+"downloader_download_all_button" = "Sader-iten-id akk";
 "downloader_downloading" = "Downloading:";
-"downloader_search_results" = "Found";
+"downloader_search_results" = "Nufa-t";
 /* Status of outdated country in the list */
-"downloader_status_outdated" = "Update";
+"downloader_status_outdated" = "Mucceḍ";
 /* Status of failed country in the list */
-"downloader_status_failed" = "Failed";
+"downloader_status_failed" = "Ur yeddi ara";
 /* Displayed in a dialog that appears when a user tries to delete a map while the app is in the follow route mode */
 "downloader_delete_map_while_routing_dialog" = "To delete map, please stop navigation.";
 /* PointsInDifferentMWM */
 "routing_failed_cross_mwm_building" = "Routes can only be created that are fully contained within a map of a single region.";
 /* Context menu item for downloader. */
-"downloader_download_map" = "Download map";
+"downloader_download_map" = "Sader-d takarḍa";
 /* Item status in downloader. */
-"downloader_retry" = "Retry";
+"downloader_retry" = "Ɛreḍ tikkelt nniḍen";
 /* Item in context menu. */
-"downloader_delete_map" = "Delete Map";
+"downloader_delete_map" = "Kkes takarḍa";
 /* Text for routing error dialog */
 "routing_download_maps_along" = "Download all of the maps along your route";
 /* Text for routing error dialog */
 "routing_requires_all_map" = "In order to create a route, we need to download and update all the maps from your location to your destination.";
 /* bookmark button text */
 "bookmark" = "bookmark";
-"save" = "Save";
+"save" = "Sekles";
 "create" = "create";
 /* red color */
-"red" = "Red";
+"red" = "Azeggaɣ";
 /* yellow color */
-"yellow" = "Yellow";
+"yellow" = "Awraɣ";
 /* blue color */
-"blue" = "Blue";
+"blue" = "Azegzaw";
 /* green color */
-"green" = "Green";
+"green" = "Adal";
 /* purple color */
-"purple" = "Purple";
+"purple" = "Arẓaẓ";
 /* orange color */
-"orange" = "Orange";
+"orange" = "Aččini";
 /* brown color */
-"brown" = "Brown";
+"brown" = "Aqehwi";
 /* pink color */
-"pink" = "Pink";
+"pink" = "Axuxi";
 /* deep purple color */
 "deep_purple" = "Deep Purple";
 /* light blue color */
@@ -338,29 +338,29 @@
 "dialog_routing_download_and_build_cross_route" = "Would you like to download the map and create a more optimal route spanning more than one map?";
 "dialog_routing_download_cross_route" = "Download additional maps to create a better route that crosses the boundaries of this map.";
 /* «Show» context menu */
-"show" = "Show";
+"show" = "Sken-d";
 /* «Hide» context menu */
-"hide" = "Hide";
+"hide" = "Seggelmes";
 /* Failed planning route message in navigation view */
 "routing_planning_error" = "Route Planning Failed";
 /* Arrive routing message in navigation view */
 "routing_arrive" = "Arrival at %@";
 /* Text for routing::RouterResultCode::FileTooOld dialog. */
 "dialog_routing_download_and_update_maps" = "Download and update all map along the projected path to calculate route.";
-"categories" = "Categories";
-"history" = "History";
+"categories" = "Taggayin";
+"history" = "Amazray";
 "search_not_found" = "Oops, no results found.";
 /* The message when user did not find anything in the search. */
 "search_not_found_query" = "Download the region where you are searching or try adding a nearby town/village name.";
-"search_history_title" = "Search History";
+"search_history_title" = "Amazray n unadi";
 "search_history_text" = "View your recent searches.";
-"clear_search" = "Clear Search History";
+"clear_search" = "Kkes amazray n unadi";
 /* Place Page link to Wikipedia article (if map object has it). */
-"read_in_wikipedia" = "Wikipedia";
+"read_in_wikipedia" = "Wikipidya";
 /* Place Page link to Wikimedia Commons. */
 "wikimedia_commons" = "Wikimedia Commons";
 "p2p_your_location" = "Your Location";
-"p2p_start" = "Start";
+"p2p_start" = "Bdu";
 "p2p_from_here" = "Route from";
 "p2p_to_here" = "Route to";
 "p2p_only_from_current" = "Navigation is only available from your current location.";
@@ -369,8 +369,8 @@
 "editor_time_delete" = "Delete Schedule";
 /* Text for allday switch. */
 "editor_time_allday" = "All Day (24 hours)";
-"editor_time_open" = "Open";
-"editor_time_close" = "Closed";
+"editor_time_open" = "Yeldin";
+"editor_time_close" = "Yettwamdel";
 "editor_time_add_closed" = "Add Non-Business Hours";
 "editor_time_title" = "Business Hours";
 "editor_time_advanced" = "Advanced Mode";
@@ -380,23 +380,23 @@
 "editor_add_select_location" = "Select Location";
 "editor_done_dialog_1" = "You’ve changed the world map! Don't keep it to yourself; tell your friends and edit it together.";
 "share_with_friends" = "Share with friends";
-"editor_report_problem_send_button" = "Send";
+"editor_report_problem_send_button" = "Azen";
 "autodownload" = "Auto-download maps";
 /* Voice */
 "voice" = "Voice";
 "voice_explanation" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Read & Speak*, *Voices*.";
 "voice_explanation_before_version26" = "It's possible to pick a better voice in the system settings under *Accessibility*, *Spoken Content*, *Voices*.";
-"unknown" = "Unknown";
+"unknown" = "Ur yettwassen ara";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Existence confirmed %@";
 "hours_confirmed_time_ago" = "Confirmed %@";
 /* Place Page opening hours text */
-"closed_now" = "Closed now";
+"closed_now" = "Yemdel tura";
 /* Place Page opening hours text */
-"daily" = "Daily";
+"daily" = "Yal ass";
 "twentyfour_seven" = "24/7";
 "day_off_today" = "Closed today";
-"day_off" = "Closed";
+"day_off" = "Yemdel";
 "today" = "Today";
 "opens_tomorrow_at" = "Opens tomorrow at %@";
 "opens_dayoftheweek_at" = "Opens %1$@ at %2$@";
@@ -404,7 +404,7 @@
 "opens_in" = "Opens in %@";
 "closes_at" = "Closes at %@";
 "closes_in" = "Closes in %@";
-"closed" = "Closed";
+"closed" = "Yemdel";
 "add_opening_hours" = "Add opening hours";
 /* OpenStreetMap */
 "osm_mapdata" = "Isefka n tkarḍa seg OpenStreetMap";
@@ -435,7 +435,7 @@
 "add_language" = "Add a language";
 /* Editable House Number text field (in address block). */
 "house_number" = "Building number";
-"details" = "Details";
+"details" = "Talqayt";
 /* Text field to enter non-existing street name, below list of known streets around */
 "add_street" = "Add a street";
 "choose_language" = "Choose a language";
@@ -450,7 +450,7 @@
 "please_note" = "Please note";
 "downloader_delete_map_dialog" = "All of your map edits will be deleted with the map.";
 "downloader_update_maps" = "Update Maps";
-"downloader_search_field_hint" = "Find map";
+"downloader_search_field_hint" = "Af-d takarḍa";
 "migration_download_error_dialog" = "Download error";
 "common_check_internet_connection_dialog" = "Please make sure your device is connected to the Internet.";
 "downloader_no_space_title" = "Not enough space";
@@ -465,7 +465,7 @@
 "editor_edit_place_name_hint" = "Name of the place";
 /* The second part of the editor_edit_place_name_hint to explain that name should be entered in a local language, see https://wiki.openstreetmap.org/wiki/Key:name */
 "editor_default_language_hint" = "As it is written in the local language";
-"editor_edit_place_category_title" = "Category";
+"editor_edit_place_category_title" = "Taggayt";
 "whatsnew_editor_message_1" = "Add new places to the map, and edit existing ones directly from the app.";
 "dialog_incorrect_feature_position" = "Change location";
 "message_invalid_feature_position" = "No object can be located here";
@@ -522,7 +522,7 @@
 "hour" = "h";
 "minute" = "min";
 "day" = "d";
-"placepage_more_button" = "More";
+"placepage_more_button" = "Ugar";
 "book_button" = "Book";
 "placepage_call_button" = "Call";
 "placepage_edit_bookmark_button" = "Edit Bookmark";
@@ -534,7 +534,7 @@
 "editor_reset_edits_message" = "Discard all local changes?";
 "editor_reset_edits_button" = "Discard";
 "editor_remove_place_message" = "Delete added place?";
-"editor_remove_place_button" = "Delete";
+"editor_remove_place_button" = "Kkes";
 "editor_place_doesnt_exist" = "Place does not exist";
 "editor_place_doesnt_exist_description" = "Describe what the place looks like now to send an error note to the OpenStreetMap community";
 "text_more_button" = "…more";
@@ -635,7 +635,7 @@
 "delete_list" = "Delete list";
 "hide_from_map" = "Hide from map";
 "tags_loading_error_subtitle" = "An error occurred while loading tags, please try again";
-"download_button" = "Download";
+"download_button" = "Sader";
 "speedcams_alert_title" = "Speed cameras";
 "place_description_title" = "Place Description";
 /* "Speed cameras" settings menu option (should be short! no more than 47-50 chars) to warn a driver if there is a risk of exceeding the speed limit */
@@ -674,13 +674,13 @@
 "then_turn" = "Then";
 "redirect_route_alert" = "Do you want to rebuild the route?";
 /* A generic "Yes" button in dialogs */
-"yes" = "Yes";
+"yes" = "Ih";
 /* A generic "No" button in dialogs */
-"no" = "No";
+"no" = "Uhu";
 /* E.g. "WiFi:Yes" */
-"yes_available" = "Yes";
+"yes_available" = "Ih";
 /* E.g. "WiFi:No" */
-"no_available" = "No";
+"no_available" = "Uhu";
 /* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
 "capacity" = "Capacity: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
@@ -730,7 +730,7 @@
 "parkings" = "Parking";
 "fuel_places" = "Gas Stations";
 "medicine" = "Medicine";
-"search_in_the_list" = "Search in the list";
+"search_in_the_list" = "Nadi deg tebdart";
 "religious_places" = "Religious places";
 "transit_not_found" = "Subway navigation in this region is not available yet";
 "dialog_pedestrian_route_is_long_header" = "No subway route found";
@@ -747,8 +747,8 @@
 "elevation_profile_min_elevation" = "Min. elevation";
 "elevation_profile_max_elevation" = "Max. elevation";
 "isolines_toast_zooms_1_10" = "Zoom in to explore isolines";
-"downloader_updating_ios" = "Updating";
-"downloader_loading_ios" = "Downloading";
+"downloader_updating_ios" = "Mucceḍ";
+"downloader_loading_ios" = "Asader";
 /* Autoupdate dialog on start */
 "whats_new_auto_update_title" = "Update downloaded maps";
 /* Autoupdate dialog on start */
@@ -804,7 +804,7 @@
 /* Text for the editing the Track's color button. */
 "change_color" = "Change Color";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
-"map" = "Map";
+"map" = "Takarḍa";
 "drive_through" = "Drive-through";
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Menu Link";

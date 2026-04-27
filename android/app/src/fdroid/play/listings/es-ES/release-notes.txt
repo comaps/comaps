@@ -1,8 +1,9 @@
-• Datos de OpenStreetMap a fecha de abril 5
-• Estilo de senderismo: carreteras más visibles con bordes con contraste
-• Se ha agreado Pickleball
-• Se ha agreado información sobre disponibilidad de productos organicos para POIs como restaurantes y supermercados
-• Se ha incrementado la visibilidad de árboles y filas de árboles en el estilo de senderismo
-• Se han agregado letreros de carretera específicos de Argentina, Uruguay y Bolivia
+• Datos de OpenStreetMap a fecha del 21 de abril
+• Añadido ajuste de idioma de la interfaz de la app
+• Android Auto: muestra el límite de velocidad durante la navegación
+• Android Auto: uso de colores de fondo estándar en lugar del verde personalizado
+• Añadido panel de navegación que alterna entre la próxima parada y el destino final
+• Correcciones en la navegación por voz
+• Mayor contraste en los nombres de masas de agua en el modo claro
 
 Más detalles en comaps.app/latest

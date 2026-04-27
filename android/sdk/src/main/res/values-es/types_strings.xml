@@ -748,8 +748,8 @@
     <string name="type.office.lawyer">Despacho de abogados</string>
     <string name="type.office.ngo">Organización no gubernamental</string>
     <string name="type.office.telecommunication">Operadora de telefonía</string>
-    <string name="type.organic.only">Orgánico</string>
-    <string name="type.organic.yes">Orgánico</string>
+    <string name="type.organic.only">Solo orgánico</string>
+    <string name="type.organic.yes">Opciones orgánicas</string>
     <string name="type.place.city">Ciudad</string>
     <string name="type.place.city.capital">Capital</string>
     <string name="type.place.city.capital.10">Ciudad</string>

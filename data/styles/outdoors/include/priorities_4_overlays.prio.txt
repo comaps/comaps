@@ -695,11 +695,11 @@ highway-cycleway-tunnel                             # pathtext z13- (also has li
 === 2953
 
 area:highway-footway                                # caption z15- (also has area z14-)
-highway-footway                                     # pathtext z13- (also has line z11-, line::border z11-)
-highway-footway-area                                # pathtext z13- (also has line z11-, line::border z11-, area z14-)
-highway-footway-bicycle                             # pathtext z13- (also has line z11-, line::border z11-, line::cycleline z13-)
-highway-footway-bridge                              # pathtext z13- (also has line z11-, line::border z11-, line::bridgeblack z17-, line::bridgewhite z15-)
-highway-footway-tunnel                              # pathtext z13- (also has line z11-, line::border z11-, line::tunnelBackground z17-, line::tunnelCasing z17-)
+highway-footway                                     # pathtext z13- (also has line z11-, line::border z16-)
+highway-footway-area                                # pathtext z13- (also has line z11-, line::border z16-, area z14-)
+highway-footway-bicycle                             # pathtext z13- (also has line z11-, line::border z12-, line::cycleline z13-)
+highway-footway-bridge                              # pathtext z13- (also has line z11-, line::border z16-, line::bridgeblack z17-, line::bridgewhite z15-)
+highway-footway-tunnel                              # pathtext z13- (also has line z11-, line::border z16-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 highway-tertiary_link                               # pathtext z18- (also has line z14-, line::border z14-)
 highway-tertiary_link-bridge                        # pathtext z18- (also has line z14-, line::border z14-, line::bridgeblack z14-, line::bridgewhite z14-)
 highway-tertiary_link-tunnel                        # pathtext z18- (also has line z14-, line::border z14-, line(casing) z16-)
@@ -735,9 +735,9 @@ highway-path-horse                                  # pathtext z13- (also has li
 highway-path-tunnel                                 # pathtext z13- (also has line z11-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2820
 
-highway-steps                                       # pathtext z13- (also has line z12-, line::border z12-)
-highway-steps-bridge                                # pathtext z13- (also has line z12-, line::border z12-, line::bridgeblack z17-, line::bridgewhite z15-)
-highway-steps-tunnel                                # pathtext z13- (also has line z12-, line::border z12-, line::tunnelBackground z17-, line::tunnelCasing z17-)
+highway-steps                                       # pathtext z13- (also has line z12-, line::border z16-)
+highway-steps-bridge                                # pathtext z13- (also has line z12-, line::border z16-, line::bridgeblack z17-, line::bridgewhite z15-)
+highway-steps-tunnel                                # pathtext z13- (also has line z12-, line::border z16-, line::tunnelBackground z17-, line::tunnelCasing z17-)
 === 2810
 
 highway-track                                       # pathtext z13- (also has line z11-)
@@ -1183,7 +1183,7 @@ amenity-nursing_home                                # icon z17- (also has captio
 amenity-prison                                      # icon z17- (also has caption(optional) z17-, area z12-)
 amenity-social_facility                             # icon z17- (also has caption(optional) z17-, area z15-)
 amenity-waste_transfer_station                      # icon z17- (also has caption(optional) z18-, area z13-)
-highway-ladder                                      # icon z16- and pathtext z17- (also has line z12-, line::border z12-)
+highway-ladder                                      # icon z16- and pathtext z17- (also has line z12-, line::border z16-)
 landuse-farmland                                    # caption z15- (also has area z10-)
 landuse-garages                                     # caption z15- (also has area z13-)
 landuse-orchard                                     # caption z15- (also has area z12-)

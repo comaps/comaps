@@ -75,6 +75,7 @@ sudo dnf install -y \
     git \
     clang \
     cmake \
+    icu \
     ninja-build \
     freetype-devel \
     libicu-devel \

@@ -533,7 +533,7 @@
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Üldine tagasiside</string>
     <string name="prefs_languages_information">Hääljuhiste jaoks kasutame kõnesünteesi. Paljud Android-seadmed kasutavad Google\'i TTS-i, saad selle alla laadida või värskendada Google Play teenusest (https:play.google.comstoreappsdetails?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Mõne keele puhul pead paigaldama kõnesüntesaatori või täiendava keelepaketi rakenduste poest (Google Play, Galaxy Store, App Gallery, FDroid). \nAva oma nutiseadme seadistused → Keel ja sisend → Kõne → Tekst kõneks väljund. \nSiin saad hallata kõnesünteesi seadistusi (näiteks alla laadida keelepaketti võrguühenduseta kasutamiseks) ja valida mõne muu teksti kõneks muutmise mootori.</string>
+    <string name="prefs_languages_information_off">Mõne keele puhul pead paigaldama kõnesüntesaatori või täiendava keelepaketi rakenduste poest (Google Play, Galaxy Store, App Gallery, F-Droid). \nAva oma nutiseadme seadistused → Keel ja sisend → Kõne → Tekst kõneks väljund. \nSiin saad hallata kõnesünteesi seadistusi (näiteks alla laadida keelepaketti võrguühenduseta kasutamiseks) ja valida mõne muu teksti kõneks muutmise mootori.</string>
     <string name="prefs_languages_information_off_link">Lisainfo saamiseks palun vaata seda juhendit</string>
     <string name="transliteration_title">Transliteratsioon ladina tähestikku</string>
     <string name="learn_more">Lisateave</string>
@@ -588,7 +588,7 @@
     <string name="subway">Metroo</string>
     <string name="layers_title">Kaardi stiilid ja kihid</string>
     <string name="bookmarks_empty_list_title">See loend on tühi</string>
-    <string name="bookmarks_empty_list_message">ASukoha lisamiseks puuduta kohta kaardil ja seejärel puuduta tähekese ikooni</string>
+    <string name="bookmarks_empty_list_message">Asukoha lisamiseks puuduta kohta kaardil ja seejärel puuduta tähekese ikooni</string>
     <string name="category_desc_more">…veel</string>
     <string name="export_file">Ekspordi KMZ-failina</string>
     <string name="export_file_gpx">Ekspordi GPX-failina</string>
@@ -932,4 +932,6 @@
     <string name="route_recalculating">Koostan teekonda uuesti…</string>
     <string name="charge_socket_type1_combo">Tüüp 1 kombo</string>
     <string name="population">Rahvaarv: %s</string>
+    <string name="setting_value_system_default">Süsteemi vaikeväärtus</string>
+    <string name="change_app_locale">Rakenduse keel</string>
 </resources>

@@ -120,7 +120,7 @@ void SearchPanel::StopBusyIndicator()
   m_pClearButton->setIcon(m_clearIcon);
 }
 
-void SearchPanel::OnEverywhereSearchResults(uint64_t timestamp, search::Results results)
+void SearchPanel::OnSearchResults(uint64_t timestamp, search::Results results)
 {
   CHECK(m_threadChecker.CalledOnOriginalThread(), ());
 
@@ -254,7 +254,7 @@ void SearchPanel::OnSearchTextChanged(QString const & str)
                                   isCategory,
                                   // m_onResults
                                   [this, timestamp](Results results, std::vector<ProductInfo> /* productInfo */)
-    { OnEverywhereSearchResults(timestamp, std::move(results)); }};
+    { OnSearchResults(timestamp, std::move(results)); }};
 
     if (GetFramework().GetSearchAPI().SearchEverywhere(std::move(params)))
       StartBusyIndicator();
@@ -268,19 +268,11 @@ void SearchPanel::OnSearchTextChanged(QString const & str)
                                 // m_onStarted
                                 [this]() { StartBusyIndicator(); },
                                 // m_onCompleted
-                                [this](search::Results results)
-    {
-      // |m_pTable| is not updated here because the OnResults callback is recreated within
-      // SearchAPI when the viewport is changed. Thus a single call to SearchInViewport may
-      // initiate an arbitrary amount of actual search requests with different viewports, and
-      // clearing the table would require additional care (or, most likely, we would need a better
-      // API). This is similar to the Android and iOS clients where we do not show the list of
-      // results in the viewport search mode.
-      GetFramework().FillSearchResultsMarks(true /* clear */, results);
-      StopBusyIndicator();
-    }};
+                                [this, timestamp](search::Results results)
+    { OnSearchResults(timestamp, std::move(results)); }};
 
-    GetFramework().GetSearchAPI().SearchInViewport(std::move(params));
+    if (GetFramework().GetSearchAPI().SearchInViewport(std::move(params)))
+      StartBusyIndicator();
   }
 }
 

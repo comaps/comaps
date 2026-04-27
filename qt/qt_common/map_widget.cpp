@@ -372,7 +372,7 @@ void MapWidget::ShowInfoPopup(QMouseEvent * e, m2::PointD const & pt)
     menu.addSeparator();
   }, m_framework.PtoG(pt));
 
-  menu.exec(e->pos());
+  menu.exec(e->globalPosition().toPoint());
 }
 
 void MapWidget::initializeGL()

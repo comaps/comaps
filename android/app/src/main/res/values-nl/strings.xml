@@ -169,7 +169,7 @@
     <!-- Alert message that downloading is in progress. -->
     <string name="downloading_is_active">De kaart wordt nu gedownload</string>
     <!-- Share my position using SMS, %1$@ contains om:// and %2$@ https://comaps.app link WITHOUT NAME. @NOTE non-ascii symbols in the link will result in max 70 characters SMS instead of 140. -->
-    <string name="my_position_share_sms">Hey, kijk naar mijn huidige locatie op CoMaps! %1$s of %2$s Heeft u geen offline-kaarten? Download ze hier: https://www.comaps.app/download/</string>
+    <string name="my_position_share_sms">Bekijk mijn huidige locatie op CoMaps! %1$s of %2$s Heb je geen offline kaarten? Download ze hier: https://www.comaps.app/nl/download/</string>
     <!-- Subject for emailed position -->
     <string name="my_position_share_email_subject">Hey, bekijk mijn huidige locatie op CoMaps!</string>
     <!-- Share button text which opens menu with more buttons, like Message, EMail, Facebook etc. -->
@@ -177,7 +177,7 @@
     <!-- Share by email button text, also used in editor and About. -->
     <string name="email">E-mail</string>
     <!-- Text for message when used successfully copied something -->
-    <string name="copied_to_clipboard">Naar het klembord gekopieerd: %s</string>
+    <string name="copied_to_clipboard">Gekopieerd naar het klembord: %s</string>
     <!-- Used for bookmark editing -->
     <string name="done">Klaar</string>
     <!-- Data version in «About» screen, %@ is replaced by a local, human readable date. -->
@@ -207,7 +207,7 @@
     <!-- Settings «Map» category: «3D buildings» title -->
     <string name="pref_map_3d_buildings_title">3D-gebouwen</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
-    <string name="pref_map_3d_buildings_disabled_summary">3D-gebouwen worden uitgeschakeld in de energiebesparende modus</string>
+    <string name="pref_map_3d_buildings_disabled_summary">3D-gebouwen zijn uitgeschakeld in energiebesparende modus</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
     <string name="pref_tts_enable_title">Gesproken instructies</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
@@ -236,7 +236,7 @@
     <!-- Text in menu -->
     <string name="help">Hulp</string>
     <!-- Button in the main Help dialog -->
-    <string name="faq">Vragen en antwoorden</string>
+    <string name="faq">Veelgestelde vragen</string>
     <!-- Button in the main menu -->
     <string name="donate">Doneren</string>
     <!-- Button in the main Help dialog -->
@@ -271,7 +271,7 @@
     <!-- Context menu item for downloader. -->
     <string name="downloader_download_map">Kaart downloaden</string>
     <!-- Item status in downloader. -->
-    <string name="downloader_retry">Opnieuw</string>
+    <string name="downloader_retry">Opnieuw proberen</string>
     <!-- Item in context menu. -->
     <string name="downloader_delete_map">Kaart verwijderen</string>
     <!-- Item in context menu. -->
@@ -313,11 +313,11 @@
     <!-- light blue color -->
     <string name="light_blue">Lichtblauw</string>
     <!-- cyan color -->
-    <string name="cyan">Blauwgroen</string>
+    <string name="cyan">Cyaan</string>
     <!-- teal color -->
-    <string name="teal">Smaragdgroen</string>
+    <string name="teal">Blauwgroen</string>
     <!-- lime color -->
-    <string name="lime">Limoen</string>
+    <string name="lime">Limoengroen</string>
     <!-- deep orange color -->
     <string name="deep_orange">Donkeroranje</string>
     <!-- gray color -->
@@ -326,17 +326,17 @@
     <string name="blue_gray">Grijsblauw</string>
     <!-- SECTION: Routing dialogs strings -->
     <string name="dialog_routing_disclaimer_title">Belangrijk bij het volgen van een route:</string>
-    <string name="dialog_routing_disclaimer_priority">— De toestand van het wegdek, de verkeersregels en -borden hebben altijd voorrang op het advies van het navigatiesysteem;</string>
+    <string name="dialog_routing_disclaimer_priority">— De situatie op de weg, verkeersregels en verkeersborden gaan altijd vóór op het advies van het navigatiesysteem;</string>
     <string name="dialog_routing_disclaimer_precision">— De kaart kan onnauwkeurig zijn en de voorgestelde route is niet altijd de meest optimale manier om uw bestemming te bereiken;</string>
     <string name="dialog_routing_disclaimer_recommendations">— Beschouw de voorgestelde routes enkel als aanbevelingen;</string>
     <string name="dialog_routing_disclaimer_borders">— Wees voorzichtig met de routes in de grenszones: de routes die door onze app zijn gemaakt, gaan wellicht door landgrenzen in ongeautoriseerde plaatsen.</string>
-    <string name="dialog_routing_disclaimer_beware">Blijf alert en rij veilig!</string>
+    <string name="dialog_routing_disclaimer_beware">Blijf alert en rijd veilig!</string>
     <string name="dialog_routing_check_gps">Controleer gps-signaal</string>
     <string name="dialog_routing_error_location_not_found">Route samenstellen mislukt. De huidige gps-coördinaten kunnen niet worden geïdentificeerd.</string>
     <string name="dialog_routing_location_turn_wifi">Controleer uw gps-signaal. Schakel WiFi in voor een meer nauwkeurige locatiebepaling.</string>
     <string name="dialog_routing_location_turn_on">Schakel locatiediensten in</string>
-    <string name="dialog_routing_location_unknown_turn_on">De huidige gps-coördinaten kunnen niet worden gevonden. Schakel locatiediensten in om de route te berekenen.</string>
-    <string name="dialog_routing_unable_locate_route">Route vinden mislukt</string>
+    <string name="dialog_routing_location_unknown_turn_on">Kan de huidige gps-coördinaten niet bepalen. Schakel locatiediensten in om de route te berekenen.</string>
+    <string name="dialog_routing_unable_locate_route">Route kan niet worden gevonden</string>
     <string name="dialog_routing_cant_build_route">Route samenstellen mislukt</string>
     <string name="dialog_routing_change_start_or_end">Pas het beginpunt of de bestemming aan.</string>
     <string name="dialog_routing_change_start">Startpunt aanpassen</string>
@@ -355,7 +355,7 @@
     <string name="dialog_routing_download_cross_route">Download de kaart om een betere route samen te stellen die de grenzen van deze kaart overschrijdt.</string>
     <!-- SECTION: Strings for downloading map from search -->
     <string name="search_without_internet_advertisement">Om te beginnen met zoeken en om routebeschrijvingen te kunnen maken, moet u de kaart downloaden. Daarna is een internetverbinding niet meer nodig.</string>
-    <string name="search_select_map">Selecteer de kaart</string>
+    <string name="search_select_map">Selecteer kaart</string>
     <!-- «Show» context menu -->
     <string name="show">Tonen</string>
     <!-- «Hide» context menu -->
@@ -389,8 +389,8 @@
     <string name="editor_time_add_closed">Sluitingstijden toevoegen</string>
     <string name="editor_time_title">Openingstijden</string>
     <string name="editor_time_advanced">Geavanceerde modus</string>
-    <string name="editor_time_simple">Eenvoudige modus</string>
-    <string name="editor_hours_closed">Sluitingstijden</string>
+    <string name="editor_time_simple">Simpele modus</string>
+    <string name="editor_hours_closed">Gesloten-tijden</string>
     <string name="editor_example_values">Voorbeeldwaarden</string>
     <string name="editor_correct_mistake">Corrigeer fout</string>
     <string name="editor_add_select_location">Locatie selecteren</string>
@@ -407,11 +407,11 @@
     <string name="edit_opening_hours">Openingstijden bewerken</string>
     <string name="no_osm_account">Geen account bij OpenStreetMap?</string>
     <string name="register_at_openstreetmap">Registreer bij OpenStreetMap</string>
-    <string name="login">Log in</string>
+    <string name="login">Inloggen</string>
     <!-- Status message indicating that user did not login to OSM profile yet. -->
     <string name="not_signed_in">Niet ingelogd</string>
     <string name="login_osm">Log in bij OpenStreetMap</string>
-    <string name="logout">Log uit</string>
+    <string name="logout">Uitloggen</string>
     <string name="edit_place">Locatie bewerken</string>
     <string name="add_language">Taal toevoegen</string>
     <string name="street">Straat</string>
@@ -458,7 +458,7 @@
     <!-- Downloaded 10 **of** 20 <- it is that "of" -->
     <string name="downloader_of">%1$d van %2$d</string>
     <string name="download_over_mobile_header">Downloaden via mobiele internetverbinding?</string>
-    <string name="download_over_mobile_message">Met sommige mobiele dataplannen kan dit erg duur zijn, vooral bij roaming.</string>
+    <string name="download_over_mobile_message">Met sommige mobiele abonnementen kan dit erg duur zijn, vooral bij roaming.</string>
     <string name="error_enter_correct_house_number">Voer een geldig huisnummer in</string>
     <!-- Error message in Editor when a user tries to set the number of floors for a building higher than %d floors -->
     <string name="error_enter_correct_storey_number">Het aantal verdiepingen mag niet groter zijn dan %d</string>
@@ -479,7 +479,7 @@
     <string name="editor_category_unsuitable_title">Kun je geen geschikte categorie vinden?</string>
     <string name="editor_category_unsuitable_text">CoMaps kan alleen eenvoudige puntcategorieën toevoegen, dus geen steden, wegen, meren, contouren van gebouwen, enz. Voeg dergelijke categorieën direct toe aan <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Lees onze <a href="https://www.comaps.app/support/advanced-map-editing/">handleiding</a> voor gedetailleerde stap voor stap instructies.</string>
     <string name="downloader_no_downloaded_maps_title">U hebt geen kaarten gedownload</string>
-    <string name="downloader_no_downloaded_maps_message">Download kaarten om een locatie te zoeken en offline te navigeren</string>
+    <string name="downloader_no_downloaded_maps_message">Download kaarten om offline te zoeken en navigeren</string>
     <string name="current_location_unknown_error_title">Huidige locatie is onbekend</string>
     <!-- abbreviation for kilometers per hour -->
     <string name="kilometers_per_hour">km/h</string>
@@ -490,17 +490,17 @@
     <string name="placepage_more_button">Meer</string>
     <string name="placepage_edit_bookmark_button">Opgeslagen plaats bewerken</string>
     <string name="placepage_personal_notes_hint">Persoonlijke aantekeningen (tekst of html)</string>
-    <string name="editor_reset_edits_message">Alle lokale wijzigingen weggooien?</string>
-    <string name="editor_reset_edits_button">Wijzigingen weggooien</string>
+    <string name="editor_reset_edits_message">Alle lokale wijzigingen verwerpen?</string>
+    <string name="editor_reset_edits_button">Wijzigingen verwerpen</string>
     <string name="editor_remove_place_message">Toegevoegde locatie verwijderen?</string>
     <string name="editor_remove_place_button">Verwijder</string>
     <string name="editor_place_doesnt_exist">Locatie bestaat niet</string>
     <!-- Error message for "Place doesn't exist" dialog when comment is empty -->
-    <string name="delete_place_empty_comment_error">Graag de reden voor verwijdering aangeven</string>
+    <string name="delete_place_empty_comment_error">Geef de reden voor het verwijderen van de plaats op</string>
     <!-- Phone number error message -->
     <string name="error_enter_correct_phone">Voer een geldig telefoonnummer in</string>
     <string name="error_enter_correct_web">Voer een geldig webadres in</string>
-    <string name="error_enter_correct_email">Voer een geldig emailadres in</string>
+    <string name="error_enter_correct_email">Voer een geldig e-mailadres in</string>
     <string name="error_enter_correct_facebook_page">Voer een geldig Facebook-webadres, een accountnaam of een paginanaam in</string>
     <string name="error_enter_correct_instagram_page">Voer een geldig Instagram-webadres of accountnaam in</string>
     <string name="error_enter_correct_twitter_page">Voer een geldig Twitter-webadres of gebruikersnaam in</string>
@@ -516,7 +516,7 @@
     <!-- Shown as toast when starting the recent track recording -->
     <string name="track_recording">Route opnemen</string>
     <!-- For the first routing -->
-    <string name="accept">Accepteer</string>
+    <string name="accept">Accepteren</string>
     <!-- For the first routing -->
     <string name="decline">Weiger</string>
     <string name="mobile_data_dialog">Mobiel internet gebruiken om gedetailleerde informatie weer te geven?</string>
@@ -893,7 +893,7 @@
     <string name="closes_day_at">Sluit op %1$s om %2$s</string>
     <string name="editor_submit">Indienen</string>
     <string name="editor_business_vacant_button">Bedrijfsruimte is leeg</string>
-    <string name="editor_mark_business_vacant_title">Bedrijfsruimte leeg markeren</string>
+    <string name="editor_mark_business_vacant_title">Bedrijfsruimte als leeg markeren</string>
     <string name="editor_mark_business_vacant_description">Gebruik dit als het bedrijf is verhuisd en de ruimte leeg is en klaar is voor een nieuwe huurder.</string>
     <string name="power_management">Energiebeheer</string>
     <string name="charge_socket_schuko">Binnenlandse EU</string>
@@ -936,4 +936,6 @@
     <string name="route_recalculating">Route herberekenen…</string>
     <string name="charge_socket_type1_combo">Type 1 combo</string>
     <string name="population">Populatie: %s</string>
+    <string name="setting_value_system_default">Systeem standaard</string>
+    <string name="change_app_locale">Taal van de app</string>
 </resources>

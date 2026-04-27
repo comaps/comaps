@@ -1,0 +1,45 @@
+name: Update submodules
+description: Updates git submodules, additionally restoring/saving them from/to cache
+
+inputs:
+  fetch-depth:
+    description: Fetch depth
+    default: 1
+
+runs:
+  using: composite
+  steps:
+    - name: Calculate submodules cache params
+      id: cache_params
+      shell: bash
+      run: |
+        cat >> $FORGEJO_OUTPUT <<EOF
+        paths<<STRING
+        .git/modules
+        `git submodule status | awk '{print $2}'`
+        STRING
+        EOF
+        echo key=`git submodule status | sha256sum | head -c64` >> $FORGEJO_OUTPUT
+
+    - name: Restore submodules from cache
+      id: cache_restore
+      uses: actions/cache/restore@v4
+      with:
+        path: ${{ steps.cache_params.outputs.paths }}
+        key: submodules-${{ steps.cache_params.outputs.key }}
+        restore-keys: |
+          submodules-
+
+    - name: Sync and update submodules
+      if: steps.cache_restore.outputs.cache-hit != 'true'
+      shell: bash
+      run: |
+        git submodule sync --recursive
+        git submodule update --depth ${{ inputs.fetch-depth }} --init --recursive
+
+    - name: Same submodules to cache
+      if: steps.cache_restore.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: ${{ steps.cache_params.outputs.paths }}
+        key: submodules-${{ steps.cache_params.outputs.key }}

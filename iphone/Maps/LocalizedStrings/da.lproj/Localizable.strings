@@ -368,7 +368,7 @@
 "editor_time_add" = "Tilføj tidsplan";
 "editor_time_delete" = "Slet tidsplan";
 /* Text for allday switch. */
-"editor_time_allday" = "Alle dage (24 timer)";
+"editor_time_allday" = "Hele døgnet";
 "editor_time_open" = "Åbent";
 "editor_time_close" = "Lukket";
 "editor_time_add_closed" = "Tilføj Lukket-timer";
@@ -487,7 +487,7 @@
 /* Title for OSM note section in the editor */
 "editor_other_info" = "Note til OpenStreetMap-frivillige (valgfrit)";
 "editor_detailed_description_hint" = "Detaljerede bemærkninger";
-"editor_detailed_description" = "Dine foreslåede ændringer vil blive sendt til OpenStreetMap fællesskabet. Beskrive detaljer, som ikke kan redigeres i CoMaps.";
+"editor_detailed_description" = "Dine foreslåede ændringer vil blive sendt til OpenStreetMap fællesskabet. Beskriv detaljer, som ikke kan redigeres i CoMaps.";
 "editor_more_about_osm" = "Mere om OpenStreetMap";
 "editor_operator" = "Operatør";
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */

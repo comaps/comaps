@@ -90,7 +90,7 @@ void Metadata::EncodeWikiURL(int startIndex, std::string & url)
 {
   // Spaces and ? characters should be corrected to form a valid URL's path.
   // Standard percent encoding also encodes other characters like (), which lead to an unnecessary HTTP redirection.
-  for (auto i = startIndex; i < url.size(); ++i)
+  for (size_t i = startIndex; i < url.size(); ++i)
   {
     auto & c = url[i];
     if (c == ' ')
@@ -178,7 +178,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_BUILDING_MIN_LEVEL;
   else if (k == "denomination")
     outType = Metadata::FMD_DENOMINATION;
-  else if (k == "level")
+  else if (k == "level" || k == "indoor:level")
     outType = Metadata::FMD_LEVEL;
   else if (k == "iata")
     outType = Metadata::FMD_AIRPORT_IATA;
@@ -297,6 +297,7 @@ void RegionData::AddPublicHoliday(int8_t month, int8_t offset)
 }
 
 // Warning: exact osm tag keys should be returned for valid enum values.
+// Except in case of `DebugPrint` only keys like socket
 string ToString(Metadata::EType type)
 {
   switch (type)
@@ -355,7 +356,7 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_SELF_SERVICE: return "self_service";
   case Metadata::FMD_OUTDOOR_SEATING: return "outdoor_seating";
   case Metadata::FMD_NETWORK: return "network";
-  case Metadata::FMD_CHARGE_SOCKETS: CHECK(false, ("FMD_CHARGE_SOCKETS is a compound attribute."));
+  case Metadata::FMD_CHARGE_SOCKETS: return "socket";
   case Metadata::FMD_ROOMS: return "rooms";
   case Metadata::FMD_CHARGE: return "charge";
   case Metadata::FMD_POPULATION: return "population";

@@ -9,22 +9,21 @@ import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmDialogFragment;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.InputUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-public class EditTextDialogFragment extends BaseMwmDialogFragment
+public class EditTextDialogFragment extends DialogFragment
 {
   public static final String ARG_TITLE = "arg_dialog_title";
   public static final String ARG_INITIAL = "arg_initial";
@@ -114,6 +113,7 @@ public class EditTextDialogFragment extends BaseMwmDialogFragment
     }
 
     AlertDialog editTextDialog = new MaterialAlertDialogBuilder(requireActivity())
+                                     .setTitle(mTitle)
                                      .setView(buildView())
                                      .setNegativeButton(negativeButtonText, null)
                                      .setPositiveButton(positiveButtonText, null)
@@ -192,8 +192,6 @@ public class EditTextDialogFragment extends BaseMwmDialogFragment
     }
 
     InputUtils.showKeyboard(mEtInput);
-
-    ((TextView) root.findViewById(R.id.tv__title)).setText(mTitle);
     return root;
   }
 }

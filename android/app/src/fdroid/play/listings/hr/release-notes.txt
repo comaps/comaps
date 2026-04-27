@@ -1,9 +1,10 @@
-• OpenStreetMap podaci od 5. travnja
-• Stil za aktivnosti na otvorenom: istaknutije ceste s kontrastnim rubovima
-• Dodan pickleball
-• Dodane informacije o namirnicama organskih uzgoja za POI-je poput restorana i supermarketa
-• Povećana vidljivost drvoreda i stabala u stilu za aktivnosti na otvorenom
-• Poboljšana podrška za jezike koji se pišu zdesna nalijevo na nekoliko zaslona
-• Ispravljeno nekoliko sporadičnih rušenja aplikacije
+• OpenStreetMap podaci od 21. travnja
+• Dodana postavka za podešavanje jezika korisničkog sučelja
+• Android Auto: prikaz ograničenja brzine tijekom navigacije
+• Android Auto: standardne pozadinske boje umjesto prilagođene zelene
+• Dodan izbor prikaza između međuodredišta i odredišta u navigacijskom panelu
+• Ispravljeno nekoliko grešaka glasovne navigacije
+• Razne dorade i ispravci sučelja
+• Bolji kontrast oznaka vodenih površina u svijetlom načinu
 
 Više detalja na comaps.app/latest

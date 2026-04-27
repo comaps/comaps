@@ -14,6 +14,7 @@ You need Eclipse with CDT (C/C++ developer tools).
 
 * `libs` – this should be the first dir to import
 * `qt` if you want to work on the desktop app
+* `generator` if you want to work on the map generator tool (only C++ code so far)
 * `tools` if you want to work on tools which are not part of the main app
 
 If you want to work on the Android app from within Eclipse, you can also import `android`. We don’t have instructions for that yet (feel free to contribute yours) but have been able to import that portion of the code into Eclipse. There are three main caveats:
@@ -28,7 +29,7 @@ Repeat these steps for each subdir you want to work with (`libs`, `qt`, `android
 
 From the menu, choose **File > Import**.
 
-In the dialog that opens, select **C/C++ > Existing Code as Makefile Project** and click **Next**.
+In the dialog that opens, select **C/C++ > Existing Code as Classic Makefile Project** and click **Next**.
 
 In the next dialog:
 
@@ -62,7 +63,7 @@ Should any additional header files ever get added to the root dir, you will have
 
 ## Dependencies
 
-Right-click the project root in Package Explorer and select **Properties** from the context menu.
+For each project in your workspace, right-click the project root in Package Explorer and select **Properties** from the context menu.
 
 In the dialog that opens, select **C/C++ General > Paths and Symbols** from the tree on the left.
 
@@ -80,6 +81,8 @@ Click the **Includes** tab and add the following paths:
   * `QtOpenGLWidgets`
   * `QtWidgets`
 * This list may be incomplete – if you spot anything missing and know how to add it, please add it here
+
+You can export the include path settings to a file using the **Export Settings...** button. Then you can import them into other projects using the **Import Settings...** button. The quickest way is probably to configure imports for `libs` manually, export them, then import them into each other project and make project-specific settings there.)
 
 On the **References** tab, check `libs` (except in the `libs` project itself, where this is not available and not needed).
 

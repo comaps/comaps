@@ -1,10 +1,17 @@
 package app.organicmaps.help;
 
 import androidx.fragment.app.Fragment;
+import app.organicmaps.R;
 import app.organicmaps.base.BaseToolbarActivity;
 
 public class HelpActivity extends BaseToolbarActivity
 {
+  @Override
+  protected int getToolbarTitle()
+  {
+    return R.string.about_menu_title;
+  }
+
   @Override
   protected Class<? extends Fragment> getFragmentClass()
   {

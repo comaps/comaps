@@ -220,6 +220,16 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     nativeAddLocalization("wifi", mContext.getString(R.string.category_wifi));
   }
 
+  /**
+   * This method stores Context that is used by C++. Active Activity must be update this on every
+   * onResume(), or otherwise strings in C++ won't be localised into correct language. Also, don't
+   * forget to use nativeSetContext() in onPause() to pass ApplicationContext, otherwise there will
+   * be memory leak or crash.
+   *
+   * @param context must be Activity or Fragment Context ()
+   */
+  public static native void nativeSetContext(Context context);
+
   private static native void nativeSetSettingsDir(String settingsPath);
 
   private static native void nativeInitPlatform(Context context, String apkPath, String writablePath,

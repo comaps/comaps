@@ -862,7 +862,7 @@
     <string name="type.office.lawyer">Odvetniška pisarna</string>
     <string name="type.office.ngo">Nevladna organizacija</string>
     <string name="type.office.telecommunication">Telekomunikacijsko podjetje</string>
-    <string name="type.organic.only">Organsko</string>
+    <string name="type.organic.only">Samo organsko</string>
     <string name="type.organic.yes">Organsko</string>
     <string name="type.place.city">Mesto</string>
     <string name="type.place.city.capital">Glavno mesto</string>
@@ -1417,4 +1417,11 @@
     <string name="type.amenity.community_centre.youth_centre">Mladinski center</string>
     <string name="type.shop.water">Prodajalna vode</string>
     <string name="type.attraction">Znamenitost</string>
+    <string name="type.leisure.sports_centre.sport.boules">Športno središče</string>
+    <string name="type.leisure.sports_centre.sport.four_square">Športno središče</string>
+    <string name="type.leisure.sports_centre.sport.pickleball">Športno središče</string>
+    <string name="type.organic.no">Neorgansko</string>
+    <string name="type.sport.boules">Balinanje</string>
+    <string name="type.sport.four_square">Four Square</string>
+    <string name="type.sport.pickleball">Pickleball</string>
 </resources>

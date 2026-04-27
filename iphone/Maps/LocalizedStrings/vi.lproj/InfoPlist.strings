@@ -1,7 +1,7 @@
 /* Used in home screen quick actions. */
 "search" = "Tìm kiếm";
 /* Used in home screen quick actions. */
-"bookmarks_and_tracks" = "Đánh dấu và dấu vết";
+"bookmarks_and_tracks" = "Ưa thích";
 /* Used in home screen quick actions. */
 "route" = "Tuyến đường";
 /* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */

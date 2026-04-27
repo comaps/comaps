@@ -311,7 +311,7 @@
     <string name="detailed_problem_description">Descrición detallada do problema</string>
     <string name="editor_report_problem_other_title">Un problema diferente</string>
     <string name="message_invalid_feature_position">Non se pode situar ningún obxecto aquí</string>
-    <string name="osm_presentation">Datos de OpenStreetMap creados pola comunidade a partir de %s. Máis información sobre como editar e actualizar o mapa en OpenStreetMap.org</string>
+    <string name="osm_presentation">Datos de OpenStreetMap creados pola comunidade a data de %s. Máis información sobre como editar e actualizar o mapa en OpenStreetMap.org</string>
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) é un proxecto comunitario para construír un mapa libre e aberto. É a principal fonte de datos cartográficos de CoMaps e funciona de forma similar a Wikipedia. Vostede pode engadir ou editar lugares e estes pasan a estar dispoñibles para millóns de usuarios de todo o mundo. \nÚnase á comunidade e axude a crear un mapa mellor para todos!</string>
     <string name="login_to_make_edits_visible">Cre unha conta OpenStreetMap ou inicie sesión para publicar as súas edicións de mapas en todo o mundo</string>
     <string name="download_over_mobile_header">Descargar con conexión de rede móbil?</string>
@@ -646,4 +646,7 @@
     <string name="download_resources_custom_url_message">Sobrescribe o servidor predefinido para descargar mapas. Deixar baleiro para usar o servidor por defecto de CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">Sen establecer</string>
     <string name="download_resources_custom_url_error_scheme">Escribe un URL que comece por http:// ou https://</string>
+    <string name="bookmark_share_email_subject">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver esta localización.</string>
+    <string name="my_position_share_email">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver a miña localización.</string>
+    <string name="mb_downloaded">%1$d MB / %2$d MB</string>
 </resources>

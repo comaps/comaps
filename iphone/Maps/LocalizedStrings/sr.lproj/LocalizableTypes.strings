@@ -862,7 +862,7 @@
 "type.office.government" = "Vladina kancelarija";
 "type.office.insurance" = "Osiguranje";
 "type.office.lawyer" = "Адвокат";
-"type.office.ngo" = "NVO";
+"type.office.ngo" = "Невладина организација";
 "type.office.telecommunication" = "Mobilni operater";
 "type.organic.only" = "Органско";
 "type.organic.yes" = "Органско";

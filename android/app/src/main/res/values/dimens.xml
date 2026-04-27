@@ -184,4 +184,5 @@
   <dimen name="app_icon_border_width">0.8</dimen>
 
   <dimen name="routing_toolbar_button">40dp</dimen>
+  <dimen name="bookmark_category_margin_start">56dp</dimen>
 </resources>

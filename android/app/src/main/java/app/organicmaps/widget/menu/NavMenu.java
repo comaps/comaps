@@ -1,8 +1,10 @@
 package app.organicmaps.widget.menu;
 
+import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.util.Pair;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -49,6 +51,7 @@ public class NavMenu
   private final View mDistanceViewContainer;
   private final MaterialTextView mDistanceValue;
   private final MaterialTextView mDistanceUnits;
+  private final ShapeableImageView mDotsSwitch;
   private final LinearProgressIndicator mRouteProgress;
   private final MaterialTextView mRoutingState;
   private final CircularProgressIndicator mRebuildingRouteProgressBar;
@@ -74,6 +77,9 @@ public class NavMenu
 
   private final OnMenuSizeChangedListener mOnMenuSizeChangedListener;
 
+  private float mLastTouchCoordY;
+
+  @SuppressLint("ClickableViewAccessibility")
   public NavMenu(AppCompatActivity activity, NavMenuListener navMenuListener,
                  OnMenuSizeChangedListener onMenuSizeChangedListener)
   {
@@ -83,7 +89,6 @@ public class NavMenu
     final View bottomFrame = mActivity.findViewById(R.id.nav_bottom_frame);
     mHeaderFrame = bottomFrame.findViewById(R.id.line_frame);
     mOnMenuSizeChangedListener = onMenuSizeChangedListener;
-    mHeaderFrame.setOnClickListener(v -> toggleNavMenu());
     mHeaderFrame.addOnLayoutChangeListener((view, i, i1, i2, i3, i4, i5, i6, i7) -> setPeekHeight());
     mNavBottomSheetBehavior = BottomSheetBehavior.from(mActivity.findViewById(R.id.nav_bottom_sheet));
     mBottomSheetBackground = mActivity.findViewById(R.id.nav_bottom_sheet_background);
@@ -113,7 +118,7 @@ public class NavMenu
     });
 
     // Bottom frame.
-    mEtaViewContainer = bottomFrame.findViewById(R.id.eta_view_container);
+    mEtaViewContainer = bottomFrame.findViewById(R.id.eta_container);
     mEtaValue = bottomFrame.findViewById(R.id.eta_value);
     mEtaAmPm = bottomFrame.findViewById(R.id.eta_am_pm);
     mEtaDestination = bottomFrame.findViewById(R.id.eta_destination);
@@ -123,10 +128,12 @@ public class NavMenu
     mTimeHourUnits = bottomFrame.findViewById(R.id.time_hour_dimen);
     mTimeMinuteValue = bottomFrame.findViewById(R.id.time_minute_value);
     mTimeMinuteUnits = bottomFrame.findViewById(R.id.time_minute_dimen);
-    mDistanceViewContainer = bottomFrame.findViewById(R.id.distance_view_container);
+    mDistanceViewContainer = bottomFrame.findViewById(R.id.distance_container);
     mDistanceValue = bottomFrame.findViewById(R.id.distance_value);
     mDistanceUnits = bottomFrame.findViewById(R.id.distance_dimen);
+    mDotsSwitch = bottomFrame.findViewById(R.id.dots_switch);
     mRouteProgress = bottomFrame.findViewById(R.id.navigation_progress);
+    mRouteProgress.setOnClickListener(view -> toggleInfoDisplay());
     mRoutingState = bottomFrame.findViewById(R.id.routing_state);
     mRebuildingRouteProgressBar = bottomFrame.findViewById(R.id.rebuilding_route_progress_bar);
 
@@ -137,6 +144,30 @@ public class NavMenu
     mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
+
+    // Set OnTouchListener on header frame to collect vertical click coordinate.
+    mHeaderFrame.setOnTouchListener((view, motionEvent) -> {
+      if (motionEvent.getActionMasked() == MotionEvent.ACTION_DOWN)
+      {
+        // Save the Y coordinate.
+        mLastTouchCoordY = motionEvent.getY();
+      }
+      return false;
+    });
+    mHeaderFrame.setOnClickListener(v -> {
+      if (mLastTouchCoordY < mTimeValuesContainer.getBottom())
+      {
+        // Clicked on the top part of the header frame.
+        // Toggle nav menu bottom sheet visibility.
+        toggleNavMenu();
+      }
+      else
+      {
+        // Clicked on the bottom part of the header frame.
+        // Toggle display info between next intermediate stop or final destination.
+        toggleInfoDisplay();
+      }
+    });
 
     // Get preferences for the display of distance and time info (to the final
     // destination or to the next intermediate stop).
@@ -168,6 +199,20 @@ public class NavMenu
       collapseNavBottomSheet();
     else
       expandNavBottomSheet();
+  }
+
+  private void toggleInfoDisplay()
+  {
+    // Check if there is a next intermediate stop.
+    if ((mRoutingInfo != null) && (mRoutingInfo.indexOfNextStop > 0))
+    {
+      // Toggle display info between next intermediate stop or final destination.
+      mShowInfoToFinalDestination = !mShowInfoToFinalDestination;
+      mSharedPreferences.edit().putBoolean(
+        getString(mActivity, R.string.pref_nav_menu_final_destination),
+        mShowInfoToFinalDestination).apply();
+      updateControls();
+    }
   }
 
   public void setPeekHeight()
@@ -252,21 +297,6 @@ public class NavMenu
 
     mEtaValue.setText(localTime.format(DateTimeFormatter.ofPattern(etaValueFormat)));
     mEtaAmPm.setText(etaAmPmText);
-
-    mEtaValue.setOnClickListener(view -> {
-      if ((mRoutingInfo == null) || (mRoutingInfo.indexOfNextStop <= 0))
-      {
-        toggleNavMenu();
-      }
-      else
-      {
-        mShowInfoToFinalDestination = !mShowInfoToFinalDestination;
-        mSharedPreferences.edit().putBoolean(
-          getString(mActivity, R.string.pref_nav_menu_final_destination),
-          mShowInfoToFinalDestination).apply();
-        updateControls();
-      }
-    });
   }
 
   private void updateDistance(Distance distToTarget)
@@ -333,6 +363,26 @@ public class NavMenu
     return new Pair<>(distance, timeInSeconds);
   }
 
+  private void updateDotsSwitch()
+  {
+    if (mRoutingInfo.indexOfNextStop <= 0)
+    {
+      // There is no next intermediate stop. Hide dots switch.
+      UiUtils.hide(mDotsSwitch);
+    }
+    else
+    {
+      // Show dots switch.
+      UiUtils.show(mDotsSwitch);
+
+      // Set dots switch on/off image.
+      mDotsSwitch.setImageDrawable(AppCompatResources.getDrawable(mActivity,
+                                                                  mShowInfoToFinalDestination?
+                                                                  R.drawable.switch_dots_on :
+                                                                  R.drawable.switch_dots_off));
+    }
+  }
+
   public void update(@NonNull RoutingInfo info)
   {
     // Save a copy of the routing info.
@@ -366,6 +416,9 @@ public class NavMenu
       UiUtils.show(mRouteProgress);
       updateRouteProgress(mRoutingInfo.completionPercent);
 
+      // Update dots switch.
+      updateDotsSwitch();
+
       // Hide rebuilding route circular progress bar.
       UiUtils.hide(mRebuildingRouteProgressBar);
 
@@ -384,6 +437,9 @@ public class NavMenu
 
       // Hide route progress bar.
       UiUtils.invisible(mRouteProgress);
+
+      // Hide intermediate stop/final destination dots switch.
+      UiUtils.hide(mDotsSwitch);
 
       // Show rebuilding route circular progress bar.
       UiUtils.show(mRebuildingRouteProgressBar);

@@ -18,13 +18,9 @@
   <com.google.android.material.textview.MaterialTextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textAppearance="?android:textAppearanceLarge"
-    android:layout_marginTop="@dimen/margin_base_plus_quarter"
-    android:textSize="@dimen/text_size_toolbar"
-    android:fontFamily="@string/robotoMedium"
-    android:textStyle="normal"
-    android:lineSpacingExtra="@dimen/text_size_banner"
+    style="@style/MaterialAlertDialog.Material3.Title.Text"
     android:text="@string/select_list"
+    android:layout_marginTop="@dimen/margin_base"
     android:layout_marginEnd="@dimen/margin_base_plus"
     android:layout_marginStart="@dimen/margin_base_plus"
     tools:text="Select list"/>

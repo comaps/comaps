@@ -273,7 +273,7 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
 
   private void configureRecyclerDividers()
   {
-    RecyclerView.ItemDecoration decorWithPadding = new DividerItemDecorationWithPadding(requireContext());
+    RecyclerView.ItemDecoration decorWithPadding = new DividerItemDecorationWithPadding(requireContext(), R.dimen.margin_quadruple);
     getRecyclerView().addItemDecoration(decorWithPadding);
     getRecyclerView().addOnScrollListener(mRecyclerListener);
   }

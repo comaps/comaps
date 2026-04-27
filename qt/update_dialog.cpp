@@ -50,6 +50,25 @@ namespace
 size_t const kInvalidPos = numeric_limits<int32_t>::max();
 size_t const kIrrelevantPos = numeric_limits<int32_t>::max() - 1;
 
+class TreeItem : public QTreeWidgetItem
+{
+public:
+  using QTreeWidgetItem::QTreeWidgetItem;
+
+  bool operator<(QTreeWidgetItem const & other) const override
+  {
+    if (auto const * const w = treeWidget(); w != nullptr && w->sortColumn() == KColumnIndexSize)
+      return GetSize(*this) < GetSize(other);
+    return QTreeWidgetItem::operator<(other);
+  }
+
+private:
+  static qint64 GetSize(QTreeWidgetItem const & item)
+  {
+    return item.data(KColumnIndexSize, Qt::UserRole).value<qint64>();
+  }
+};
+
 bool DeleteNotUploadedEditsConfirmation()
 {
   QMessageBox msb;
@@ -486,7 +505,7 @@ QTreeWidgetItem * UpdateDialog::CreateTreeItem(CountryId const & countryId, size
                                                QTreeWidgetItem * parent)
 {
   QString const text = GetNodeName(countryId);
-  QTreeWidgetItem * item = new QTreeWidgetItem(parent, QStringList(text));
+  auto * const item = new TreeItem(parent, QStringList(text));
   item->setData(KColumnIndexCountry, Qt::UserRole, QVariant(countryId.c_str()));
 
   auto const pos = QVariant(static_cast<qint64>(posInRanking));

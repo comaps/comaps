@@ -45,6 +45,7 @@ public:
   AndroidSecureStorage & GetSecureStorage() { return m_secureStorage; }
 
   jobject GetContext() const;
+  void SetContext(JNIEnv * env, jobject context);
 
   static Platform & Instance();
 

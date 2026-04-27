@@ -1350,7 +1350,7 @@
     <string name="type.leisure.firepit">Ognisko</string>
     <string name="type.aerialway.magic_carpet">Wyciąg taśmowy</string>
     <string name="type.amenity.love_hotel">Hotel miłości</string>
-    <string name="type.amenity.studio">Studio</string>
+    <string name="type.amenity.studio">Studio medialne</string>
     <string name="type.landuse.plant_nursery">Szkółka roślin</string>
     <string name="type.landuse.religious">Teren religijny</string>
     <string name="type.sport.diving">Skoki do wody z dużej wysokości</string>
@@ -1393,7 +1393,7 @@
     <string name="type.shop.lighting">Sklep oświetleniowy</string>
     <string name="type.barrier.wicket_gate">Furtka</string>
     <string name="type.leisure.escape_game">Escape Room</string>
-    <string name="type.amenity.bench.backless">Ławka bez oparcia</string>
+    <string name="type.amenity.bench.backless">Bez oparcia</string>
     <string name="type.amenity.lounger">Leżak</string>
     <string name="type.leisure.bandstand">Muszla koncertowa</string>
     <string name="type.leisure.sports_centre.sport.multi">Centrum sportowe</string>

@@ -1,5 +1,6 @@
 #include "storage/country_tree.hpp"
 
+#include "base/string_utils.hpp"
 #include "platform/platform.hpp"
 
 #include "coding/reader.hpp"
@@ -10,7 +11,10 @@
 
 #include "cppjansson/cppjansson.hpp"
 
+#include "private.h"
+
 #include <algorithm>
+#include <cstddef>
 
 namespace storage
 {
@@ -389,7 +393,7 @@ bool LoadCountriesImpl(string const & jsonBuffer, StoreInterface & store)
 
 int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countries, Affiliations & affiliations,
                                 CountryNameSynonyms & countryNameSynonyms, MwmTopCityGeoIds & mwmTopCityGeoIds,
-                                MwmTopCountryGeoIds & mwmTopCountryGeoIds)
+                                MwmTopCountryGeoIds & mwmTopCountryGeoIds, std::string & mapSeries)
 {
   countries.Clear();
   affiliations.clear();
@@ -399,6 +403,9 @@ int64_t LoadCountriesFromBuffer(string const & jsonBuffer, CountryTree & countri
   {
     base::Json root(jsonBuffer.c_str());
     FromJSONObject(root.get(), "v", version);
+    FromJSONObjectOptionalField(root.get(), "map_series", mapSeries);
+
+    LOG(LDEBUG, ("COUNTRIES: loaded and parsed map version", version, "mapSeries", mapSeries));
 
     StoreCountries store(countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds, mwmTopCountryGeoIds);
     if (!LoadCountriesImpl(jsonBuffer, store))
@@ -431,6 +438,8 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
 {
   string json;
   int64_t version = -1;
+  std::string mapSeries = "";
+  std::string newMapSeries = "";
 
   // Choose the latest version from "resource" or "writable":
   // w > r in case of autoupdates
@@ -440,9 +449,10 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
   auto reader = GetReaderImpl(pl, path, "fr");
   if (reader)
   {
+    LOG(LDEBUG, ("COUNTRIES: loading bundled", COUNTRIES_FILE));
     reader->ReadAsString(json);
     version = LoadCountriesFromBuffer(json, countries, affiliations, countryNameSynonyms, mwmTopCityGeoIds,
-                                      mwmTopCountryGeoIds);
+                                      mwmTopCountryGeoIds, mapSeries);
   }
 
   reader = GetReaderImpl(pl, path, "w");
@@ -454,19 +464,24 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
     MwmTopCityGeoIds newCityIds;
     MwmTopCountryGeoIds newCountryIds;
 
+    LOG(LDEBUG, ("COUNTRIES: loading previously updated", COUNTRIES_FILE));
     reader->ReadAsString(json);
-    int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds);
+    int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, newMapSeries);
 
-    if (newVersion > version)
+    if (newMapSeries != MAP_SERIES || newVersion < version)
     {
-      version = newVersion;
-
-      countries = std::move(newCountries);
-      affiliations = std::move(newAffs);
-      countryNameSynonyms = std::move(newSyms);
-      mwmTopCityGeoIds = std::move(newCityIds);
-      mwmTopCountryGeoIds = std::move(newCountryIds);
+      LOG(LWARNING, ("COUNTRIES: previously updated", COUNTRIES_FILE,
+                     "is either of incompatible map series", newMapSeries, "(expected", MAP_SERIES
+                     ") or is of older map version", newVersion, "(bundled", version, ") - falling back to bundled"));
+      return version;
     }
+
+    version = newVersion;
+    countries = std::move(newCountries);
+    affiliations = std::move(newAffs);
+    countryNameSynonyms = std::move(newSyms);
+    mwmTopCityGeoIds = std::move(newCityIds);
+    mwmTopCountryGeoIds = std::move(newCountryIds);
   }
 
   return version;

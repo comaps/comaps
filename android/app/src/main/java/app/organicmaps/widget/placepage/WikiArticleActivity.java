@@ -4,11 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import app.organicmaps.R;
 import app.organicmaps.base.BaseToolbarActivity;
 
 public class WikiArticleActivity extends BaseToolbarActivity
 {
   private static final String EXTRA_TITLE = "title";
+
+  @Override
+  protected int getToolbarTitle()
+  {
+    return R.string.place_description_title;
+  }
 
   @Override
   protected Class<? extends Fragment> getFragmentClass()

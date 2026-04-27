@@ -86,7 +86,7 @@
 /* Search category for nightclubs/bars; any changes should be duplicated in categories.txt @category_nightlife! */
 "category_nightlife" = "Vida noturna";
 /* Search category for water park/disneyland/playground/toys store; any changes should be duplicated in categories.txt @category_children! */
-"category_children" = "Feriados em família";
+"category_children" = "Passeio em família";
 /* Search category for banks; any changes should be duplicated in categories.txt @category_bank! */
 "category_bank" = "Banco";
 /* Search category for pharmacies; any changes should be duplicated in categories.txt @category_pharmacy! */
@@ -111,7 +111,7 @@
 /* message title of loading file */
 "load_kmz_title" = "Carregando favoritos";
 /* Kmz file successful loading */
-"load_kmz_successful" = "Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou na tela de gestão dos favoritos.";
+"load_kmz_successful" = "Favoritos carregados com sucesso! Você pode encontrá-los no mapa ou no gestor de favoritos.";
 /* Kml file loading failed */
 "load_kmz_failed" = "Falha ao carregar favoritos. O arquivo pode estar corrompido ou com defeito.";
 /* resource for context menu */
@@ -119,9 +119,9 @@
 /* Warning message when doing search around current position */
 "unknown_current_position" = "A sua localização ainda não foi determinada";
 /* Subject for emailed bookmark */
-"bookmark_share_email_subject" = "Veja o meu marcador no mapa do CoMaps!";
+"bookmark_share_email_subject" = "Veja o meu marcador no CoMaps!";
 /* Subject for emailed position */
-"my_position_share_email_subject" = "Veja no mapa a minha localização atual via CoMaps!";
+"my_position_share_email_subject" = "Veja a minha localização atual no mapa CoMaps!";
 /* Share by email button text, also used in editor and About. */
 "email" = "Email";
 /* Text for message to copy something */
@@ -717,7 +717,7 @@
 "near_me_sorttype" = "Próximo de mim";
 "others_sorttype" = "Outros";
 "food_places" = "Comida";
-"tourist_places" = "Pontos turíticos";
+"tourist_places" = "Atrações";
 "museums" = "Museus";
 "parks" = "Parques";
 "swim_places" = "Natação";
