@@ -119,19 +119,6 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
     for (auto const i : iPoints)
       e.m_points.push_back(Int64ToPointObsolete(i, kPointCoordBits));
 
-    auto const res = Match(e);
-    if (!res.street)
-    {
-      ++m_stats.m_noStreet;
-      LOG(LDEBUG, ("No street found:", e.m_street, mercator::ToLatLon(e.m_points.front())));
-      continue;
-    }
-    if (res.interpol)
-    {
-      ++m_stats.m_existInterpol;
-      continue;
-    }
-
     auto const addNode = [&](m2::PointD const & p, std::string hn)
     {
       feature::FeatureBuilder fb;
@@ -148,6 +135,33 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
 
       fn(std::move(fb));
     };
+
+    if (e.GetHNRange() == Entry::kInvalidRange)
+    {
+      // Alphanumeric HNs can't be range-matched or interpolated; emit single-point entries directly.
+      if (e.m_points.size() == 1)
+      {
+        ++m_stats.m_addedSingle;
+        auto const hn = (e.m_from == e.m_to) ? e.m_from : e.m_from + " - " + e.m_to;
+        addNode(e.m_points.front(), hn);
+      }
+      else
+        LOG(LDEBUG, ("Invalid HN range for multi-point entry, skipping:", e.m_from, e.m_to, e.m_street));
+      continue;
+    }
+
+    auto const res = Match(e);
+    if (!res.street)
+    {
+      ++m_stats.m_noStreet;
+      LOG(LDEBUG, ("No street found:", e.m_street, mercator::ToLatLon(e.m_points.front())));
+      continue;
+    }
+    if (res.interpol)
+    {
+      ++m_stats.m_existInterpol;
+      continue;
+    }
 
     if (e.m_points.size() == 1)
     {
