@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Converts an OpenAddresses Canada ZIP to CoMaps .tempaddr address files."""
+"""Converts an OpenAddresses ZIP to CoMaps .tempaddr address files."""
 
 import argparse
 import io
@@ -19,23 +19,6 @@ _MAX_Y: float = 180.0
 
 _INTERPOL_NONE: int = 0
 
-_REGION_TO_MWM_PREFIX: dict[str, str] = {
-    "AB": "Canada_Alberta",
-    "BC": "Canada_British Columbia",
-    "MB": "Canada_Manitoba",
-    "NB": "Canada_New Brunswick",
-    "NL": "Canada_Newfoundland and Labrador",
-    "NS": "Canada_Nova Scotia",
-    "NT": "Canada_Northwest Territories",
-    "NU": "Canada_Nunavut",
-    "ON": "Canada_Ontario",
-    "PE": "Canada_Prince Edward Island",
-    "QC": "Canada_Quebec",
-    "SK": "Canada_Saskatchewan",
-    "YT": "Canada_Yukon",
-}
-
-_GEOJSON_PATH: str = "ca/countrywide-addresses-country.geojson"
 _ADDR_EXT: str = ".tempaddr"
 
 
@@ -115,14 +98,53 @@ def _collect_mwm_names(countries_txt: str) -> list[str]:
     return names
 
 
-def _build_region_mwm_map(countries_txt: str | None) -> dict[str, list[str]]:
+def _find_countrywide_geojson(zf: zipfile.ZipFile) -> str:
+    for name in zf.namelist():
+        parts = name.split("/")
+        if len(parts) == 2 and "countrywide" in parts[1] and parts[1].endswith(".geojson"):
+            return name
+    raise ValueError(
+        "No countrywide geojson found in ZIP (expected <cc>/countrywide*.geojson). "
+        "Use --mapping to specify 'geojson_path' and 'region_to_mwm_prefix' manually."
+    )
+
+
+def _build_auto_mapping(geojson_path: str) -> dict[str, str]:
+    try:
+        import pycountry
+    except ImportError as exc:
+        raise ImportError(
+            "pycountry is required for automatic region mapping. "
+            "Install it (`pip install pycountry`) or use --mapping."
+        ) from exc
+    country_code = geojson_path.split("/")[0].upper()
+    country = pycountry.countries.get(alpha_2=country_code)
+    if country is None:
+        raise ValueError(
+            f"Cannot determine country from geojson path '{geojson_path}'. Use --mapping."
+        )
+    subdivisions = pycountry.subdivisions.get(country_code=country_code)
+    if not subdivisions:
+        raise ValueError(
+            f"No ISO 3166-2 subdivisions found for '{country_code}'. Use --mapping."
+        )
+    return {
+        s.code.split("-", 1)[1]: f"{country.name}_{s.name}"
+        for s in subdivisions
+    }
+
+
+def _build_region_mwm_map(
+    region_to_mwm_prefix: dict[str, str],
+    countries_txt: str | None,
+) -> dict[str, list[str]]:
     if countries_txt is not None:
         all_names = _collect_mwm_names(countries_txt)
     else:
         all_names = None
 
     result: dict[str, list[str]] = {}
-    for region, prefix in _REGION_TO_MWM_PREFIX.items():
+    for region, prefix in region_to_mwm_prefix.items():
         if all_names is None:
             result[region] = [prefix]
         else:
@@ -134,10 +156,13 @@ def _build_region_mwm_map(countries_txt: str | None) -> dict[str, list[str]]:
     return result
 
 
-def process(zip_path: str, output_dir: str, countries_txt: str | None = None) -> None:
+def process(
+    zip_path: str,
+    output_dir: str,
+    mapping: dict | None = None,
+    countries_txt: str | None = None,
+) -> None:
     os.makedirs(output_dir, exist_ok=True)
-
-    region_to_mwms = _build_region_mwm_map(countries_txt)
 
     writers: dict[str, io.BufferedWriter] = {}
 
@@ -156,7 +181,16 @@ def process(zip_path: str, output_dir: str, countries_txt: str | None = None) ->
 
     try:
         with zipfile.ZipFile(zip_path, "r") as zf:
-            with zf.open(_GEOJSON_PATH) as raw:
+            if mapping is not None:
+                geojson_path: str = mapping["geojson_path"]
+                region_to_mwm_prefix: dict[str, str] = mapping["region_to_mwm_prefix"]
+            else:
+                geojson_path = _find_countrywide_geojson(zf)
+                region_to_mwm_prefix = _build_auto_mapping(geojson_path)
+
+            region_to_mwms = _build_region_mwm_map(region_to_mwm_prefix, countries_txt)
+
+            with zf.open(geojson_path) as raw:
                 for line_bytes in raw:
                     line_bytes = line_bytes.rstrip(b"\n\r")
                     if not line_bytes:
@@ -223,13 +257,25 @@ def process(zip_path: str, output_dir: str, countries_txt: str | None = None) ->
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Convert OpenAddresses Canada ZIP to CoMaps .tempaddr files"
+        description="Convert an OpenAddresses ZIP to CoMaps .tempaddr files"
     )
     parser.add_argument("zip_file", help="Path to OpenAddresses collection ZIP (e.g. collection-ca.zip)")
     parser.add_argument("output_dir", help="Output directory for .tempaddr files (set as ADDRESSES_PATH)")
+    parser.add_argument(
+        "--mapping",
+        help=(
+            "Path to a JSON mapping file with 'geojson_path' and 'region_to_mwm_prefix' keys. "
+            "If omitted, the countrywide geojson is auto-detected from the ZIP and regions are "
+            "derived from ISO 3166-2 subdivisions via pycountry."
+        ),
+    )
     parser.add_argument("--countries-txt", help="Path to countries.txt to generate per-sub-region files")
     args = parser.parse_args()
-    process(args.zip_file, args.output_dir, args.countries_txt)
+    mapping = None
+    if args.mapping:
+        with open(args.mapping, encoding="utf-8") as f:
+            mapping = json.load(f)
+    process(args.zip_file, args.output_dir, mapping, args.countries_txt)
 
 
 if __name__ == "__main__":
