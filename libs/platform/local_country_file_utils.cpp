@@ -343,6 +343,9 @@ void CountryIndexes::PreparePlaceOnDisk(LocalCountryFile const & localFile)
 // static
 bool CountryIndexes::DeleteFromDisk(LocalCountryFile const & localFile)
 {
+  if (localFile.IsInBundle())
+    return true;
+
   string const directory = IndexesDir(localFile);
   bool ok = true;
 
