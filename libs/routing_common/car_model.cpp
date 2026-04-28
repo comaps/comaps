@@ -21,6 +21,10 @@ using namespace routing;
 // of the route except for some edge cases.
 SpeedKMpH constexpr kSpeedOffroadKMpH = {0.01 /* weight */, kNotUsed /* eta */};
 
+/*
+ * The number of entries must match `kHighwayBasedFactors` and `kHighwayBasedSpeeds`
+ * in `car_model_coefs.hpp`.
+ */
 VehicleModel::LimitsInitList const kDefaultOptions = {
     // {HighwayType, passThroughAllowed}
     {HighwayType::HighwayMotorway, true},    {HighwayType::HighwayMotorwayLink, true},
@@ -31,6 +35,19 @@ VehicleModel::LimitsInitList const kDefaultOptions = {
     {HighwayType::HighwayResidential, true}, {HighwayType::HighwayUnclassified, true},
     {HighwayType::HighwayService, true},     {HighwayType::HighwayLivingStreet, true},
     {HighwayType::HighwayRoad, true},        {HighwayType::HighwayTrack, true},
+    // The router truncates types to two levels, so we need this in addition to the long construction types
+    {HighwayType::HighwayConstruction, true},
+    // Construction conterparts to each of the types above
+    // (needed for the map generator to include them in the routing section)
+    {HighwayType::HighwayConstructionMotorway, true},    {HighwayType::HighwayConstructionMotorwayLink, true},
+    {HighwayType::HighwayConstructionTrunk, true},       {HighwayType::HighwayConstructionTrunkLink, true},
+    {HighwayType::HighwayConstructionPrimary, true},     {HighwayType::HighwayConstructionPrimaryLink, true},
+    {HighwayType::HighwayConstructionSecondary, true},   {HighwayType::HighwayConstructionSecondaryLink, true},
+    {HighwayType::HighwayConstructionTertiary, true},    {HighwayType::HighwayConstructionTertiaryLink, true},
+    {HighwayType::HighwayConstructionResidential, true}, {HighwayType::HighwayConstructionUnclassified, true},
+    {HighwayType::HighwayConstructionService, true},     {HighwayType::HighwayConstructionLivingStreet, true},
+    {HighwayType::HighwayConstructionRoad, true},        {HighwayType::HighwayConstructionTrack, true},
+    // Non-highway types
     {HighwayType::RouteShuttleTrain, true},  {HighwayType::RouteFerry, true},
     {HighwayType::ManMadePier, true}};
 
