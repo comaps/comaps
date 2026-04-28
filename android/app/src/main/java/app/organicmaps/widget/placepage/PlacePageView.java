@@ -707,16 +707,26 @@ public class PlacePageView extends Fragment
     refreshMetadataOrHide(wheelchair, mWheelchair, mTvWheelchair);
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);
-    refreshMetadataOrHide(driveThrough.equals("yes") ? getString(R.string.drive_through) : "", mDriveThrough,
-                          mTvDriveThrough);
+    refreshMetadataOrHide(
+            switch (driveThrough)
+            {
+              case "yes" -> getString(R.string.drive_through);
+              case "no" -> getString(R.string.no_drive_through);
+              default -> "";
+            }, mDriveThrough, mTvDriveThrough);
 
     final String selfService = mMapObject.getMetadata(Metadata.MetadataType.FMD_SELF_SERVICE);
     refreshMetadataOrHide(getTagValueLocalized(getContext(), "self_service", selfService), mSelfService,
                           mTvSelfService);
 
     final String outdoorSeating = mMapObject.getMetadata(Metadata.MetadataType.FMD_OUTDOOR_SEATING);
-    refreshMetadataOrHide(outdoorSeating.equals("yes") ? getString(R.string.outdoor_seating) : "", mOutdoorSeating,
-                          mTvOutdoorSeating);
+    refreshMetadataOrHide(
+            switch (outdoorSeating)
+            {
+              case "yes" -> getString(R.string.outdoor_seating);
+              case "no" -> getString(R.string.no_outdoor_seating);
+              default -> "";
+            }, mOutdoorSeating, mTvOutdoorSeating);
 
     String population = mMapObject.getMetadata(Metadata.MetadataType.FMD_POPULATION);
     if (!TextUtils.isEmpty(population))

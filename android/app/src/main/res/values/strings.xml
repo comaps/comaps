@@ -861,6 +861,7 @@
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
     <string name="pref_tts_no_system_tts">Speech Synthesis settings were not found, are you sure your device supports it?</string>
     <string name="drive_through">Drive-through</string>
+    <string name="no_drive_through">No drive-through</string>
     <string name="clear_the_search">Clear the search</string>
     <string name="zoom_in">Zoom in</string>
     <!-- Accessibility text for the zoom-out button on the map -->
@@ -876,6 +877,7 @@
     <string name="select_option">Select option</string>
     <!-- To indicate if restaurant or other place has outdoor seating -->
     <string name="outdoor_seating">Outdoor seating</string>
+    <string name="no_outdoor_seating">No outdoor seating</string>
     <!-- Disclaimer summary shown when Power Saving Mode is enabled -->
     <string name="power_save_dialog_summary">For the most accurate navigation, we recommend disabling power saving mode in phone\'s battery settings.</string>
     <!-- Prompt to start recording a track. -->
