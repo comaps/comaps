@@ -2,6 +2,7 @@ package app.organicmaps.intent;
 
 import static app.organicmaps.api.Const.EXTRA_PICK_POINT;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
@@ -86,20 +87,27 @@ public class Factory
       if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
         return false;
 
-      // Import the MWM file on a background thread
+      // Show spinner while copying (MWM files can be large)
+      final ProgressDialog progressDialog = new ProgressDialog(activity, app.organicmaps.R.style.MwmTheme_ProgressDialog);
+      progressDialog.setMessage(activity.getString(app.organicmaps.R.string.custom_mwm_importing));
+      progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+      progressDialog.setIndeterminate(true);
+      progressDialog.setCancelable(false);
+      progressDialog.show();
+
       ThreadPool.getStorage().execute(() -> {
         CustomMwmManager.ImportResult result = CustomMwmManager.importMwmFile(activity, uri);
 
-        // Show result on UI thread
         activity.runOnUiThread(() -> {
+          progressDialog.dismiss();
           switch (result)
           {
             case SUCCESS:
               android.widget.Toast.makeText(activity,
                   activity.getString(app.organicmaps.R.string.custom_mwm_import_success),
-                  android.widget.Toast.LENGTH_LONG).show();
-              // Reload maps to include the new custom map
-              Framework.nativeReloadWorldMaps();
+                  android.widget.Toast.LENGTH_SHORT).show();
+              // Restart activity so the renderer and all UI picks up the new maps
+              activity.recreate();
               break;
             case ERROR_INVALID_FILE:
               android.widget.Toast.makeText(activity,

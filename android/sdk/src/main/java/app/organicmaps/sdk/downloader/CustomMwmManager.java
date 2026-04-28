@@ -13,6 +13,9 @@ import app.organicmaps.sdk.util.log.Logger;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -105,6 +108,17 @@ public class CustomMwmManager
     if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
     {
       Logger.e(TAG, "Invalid file name or not an MWM file: " + fileName);
+      return ImportResult.ERROR_INVALID_FILE;
+    }
+
+    // Strip duplicate-download suffixes added by browsers/file managers (e.g. "Portland (2).mwm" -> "Portland.mwm")
+    fileName = fileName.replaceAll("(?i)\\s*\\(\\d+\\)(\\.mwm)$", "$1");
+
+    // Sanity-check: MWM files are a FilesContainer whose first 8 bytes are a little-endian uint64_t
+    // pointing to the table of contents. If those bytes are 0 or implausibly large the file is junk.
+    if (!isValidMwmFile(resolver, uri))
+    {
+      Logger.e(TAG, "File does not appear to be a valid MWM container: " + fileName);
       return ImportResult.ERROR_INVALID_FILE;
     }
 
@@ -278,6 +292,38 @@ public class CustomMwmManager
     }
 
     return deleted;
+  }
+
+  /**
+   * Checks whether the URI looks like a valid MWM FilesContainer by reading the first 8 bytes.
+   * A FilesContainer starts with a little-endian uint64_t that is the offset of the TOC.
+   * The offset must be > 0 and less than the file's declared size (if determinable).
+   */
+  private static boolean isValidMwmFile(@NonNull ContentResolver resolver, @NonNull Uri uri)
+  {
+    try (InputStream is = resolver.openInputStream(uri))
+    {
+      if (is == null)
+        return false;
+
+      byte[] header = new byte[8];
+      int read = 0;
+      while (read < 8)
+      {
+        int n = is.read(header, read, 8 - read);
+        if (n < 0)
+          return false;
+        read += n;
+      }
+
+      long tocOffset = ByteBuffer.wrap(header).order(ByteOrder.LITTLE_ENDIAN).getLong();
+      // TOC offset must be positive; reject obviously bogus values (> 8 GB is unrealistic for a map file)
+      return tocOffset > 0 && tocOffset < 8L * 1024 * 1024 * 1024;
+    }
+    catch (IOException e)
+    {
+      return false;
+    }
   }
 
   /**

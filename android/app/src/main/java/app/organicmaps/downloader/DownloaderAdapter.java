@@ -21,6 +21,7 @@ import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.downloader.CountryItem;
+import app.organicmaps.sdk.downloader.CustomMwmManager;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.StringUtils;
@@ -33,9 +34,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Stack;
 
 class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolderWrapper>
@@ -64,6 +67,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
   private int mListenerSlot;
   private CountryItem mSelectedItem;
+  private Set<String> mCustomMapIds = new HashSet<>();
 
   private final OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(false) {
     @Override
@@ -503,6 +507,18 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         mVersion.setVisibility(View.GONE);
       }
 
+      // Show "Custom" label for user-imported MWM files
+      if (mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapIds.contains(mItem.id))
+      {
+        String customLabel = mActivity.getString(R.string.custom_mwm_custom_label);
+        CharSequence existing = mSubtitle.getText();
+        if (TextUtils.isEmpty(existing))
+          mSubtitle.setText(customLabel);
+        else
+          mSubtitle.setText(existing + " · " + customLabel);
+        mSubtitle.setVisibility(View.VISIBLE);
+      }
+
       mStatusIcon.update(mItem);
     }
 
@@ -592,6 +608,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   void refreshData()
   {
     mItems.clear();
+    mCustomMapIds = CustomMwmManager.getCustomMwmFiles(mActivity).keySet();
 
     String parent = getCurrentRootId();
     boolean hasLocation = false;
