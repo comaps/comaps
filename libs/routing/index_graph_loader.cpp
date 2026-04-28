@@ -237,7 +237,12 @@ bool ReadRoadPenaltyFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, 
 
     // Read number of vehicle types
     uint32_t numVehicleTypes = ReadPrimitiveFromSource<uint32_t>(src);
-    CHECK_EQUAL(numVehicleTypes, static_cast<uint32_t>(VehicleType::Count), ());
+    if (numVehicleTypes <= static_cast<uint32_t>(vehicleType)
+        && vehicleType == VehicleType::Decoder
+        && numVehicleTypes > static_cast<uint32_t>(VehicleType::Car))
+        // This is expected for older mwm files (up to v11) - not an error
+        vehicleType = VehicleType::Car;
+    CHECK(numVehicleTypes > static_cast<uint32_t>(vehicleType), ());
 
     // Skip to the correct vehicle type
     for (uint32_t i = 0; i < static_cast<uint32_t>(vehicleType); ++i)

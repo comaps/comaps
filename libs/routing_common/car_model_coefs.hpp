@@ -3,6 +3,7 @@
 #include "routing_common/vehicle_model.hpp"
 
 // These are default car model coefficients for open source developers.
+// Both maps, as well as `car_model::kDefaultOptions` (in `car_model.cpp`), must have the same number of entries.
 
 namespace routing
 {
