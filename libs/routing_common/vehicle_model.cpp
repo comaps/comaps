@@ -360,6 +360,23 @@ string DebugPrint(HighwayType type)
   case HighwayType::HighwayPedestrian: return "highway-pedestrian";
   case HighwayType::HighwayTrunkLink: return "highway-trunk_link";
   case HighwayType::HighwayPrimaryLink: return "highway-primary_link";
+  case HighwayType::HighwayConstruction: return "highway-construction";
+  case HighwayType::HighwayConstructionMotorway: return "highway-construction-motorway";
+  case HighwayType::HighwayConstructionMotorwayLink: return "highway-construction-motorway_link";
+  case HighwayType::HighwayConstructionTrunk: return "highway-construction-trunk";
+  case HighwayType::HighwayConstructionTrunkLink: return "highway-construction-trunk-link";
+  case HighwayType::HighwayConstructionPrimary: return "highway-construction-primary";
+  case HighwayType::HighwayConstructionPrimaryLink: return "highway-construction-primary_link";
+  case HighwayType::HighwayConstructionSecondary: return "highway-construction-secondary";
+  case HighwayType::HighwayConstructionSecondaryLink: return "highway-construction-secondary_link";
+  case HighwayType::HighwayConstructionTertiary: return "highway-construction-tertiary";
+  case HighwayType::HighwayConstructionTertiaryLink: return "highway-construction-tertiary_link";
+  case HighwayType::HighwayConstructionResidential: return "highway-construction-residential";
+  case HighwayType::HighwayConstructionUnclassified: return "highway-construction-unclassified";
+  case HighwayType::HighwayConstructionService: return "highway-construction-service";
+  case HighwayType::HighwayConstructionLivingStreet: return "highway-construction-living_street";
+  case HighwayType::HighwayConstructionRoad: return "highway-construction-road";
+  case HighwayType::HighwayConstructionTrack: return "highway-construction-track";
   case HighwayType::ManMadePier: return "man_made-pier";
   case HighwayType::HighwayBridleway: return "highway-bridleway";
   case HighwayType::HighwaySecondaryLink: return "highway-secondary_link";
@@ -389,7 +406,16 @@ void FromString(std::string_view s, HighwayType & highwayType)
         HighwayType::HighwayTrunk,         HighwayType::HighwayPedestrian, HighwayType::HighwayTrunkLink,
         HighwayType::HighwayPrimaryLink,   HighwayType::ManMadePier,       HighwayType::HighwayBridleway,
         HighwayType::HighwaySecondaryLink, HighwayType::RouteFerry,        HighwayType::HighwayTertiaryLink,
-        HighwayType::HighwayBusway,        HighwayType::RouteShuttleTrain};
+        HighwayType::HighwayBusway,        HighwayType::RouteShuttleTrain, HighwayType::HighwayConstruction,
+        HighwayType::HighwayConstructionMotorway,     HighwayType::HighwayConstructionMotorwayLink,
+        HighwayType::HighwayConstructionTrunk,        HighwayType::HighwayConstructionTrunkLink,
+        HighwayType::HighwayConstructionPrimary,      HighwayType::HighwayConstructionPrimaryLink,
+        HighwayType::HighwayConstructionSecondary,    HighwayType::HighwayConstructionSecondaryLink,
+        HighwayType::HighwayConstructionTertiary,     HighwayType::HighwayConstructionTertiaryLink,
+        HighwayType::HighwayConstructionResidential,  HighwayType::HighwayConstructionUnclassified,
+        HighwayType::HighwayConstructionService,      HighwayType::HighwayConstructionLivingStreet,
+        HighwayType::HighwayConstructionRoad,         HighwayType::HighwayConstructionTrack,
+    };
 
     for (auto type : allTypes)
       map[DebugPrint(type)] = type;
