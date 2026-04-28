@@ -281,7 +281,7 @@ void RoutesBuilder::Processor::InitRouter(VehicleType type)
     return cigSharedPtr->GetLimitRectForLeaf(countryId);
   };
 
-  bool const loadAltitudes = type != VehicleType::Car;
+  bool const loadAltitudes = (type != VehicleType::Car) && (type != VehicleType::Decoder);
   if (!m_dataSource)
     m_dataSource = m_dataSourceStorage.GetDataSource();
 

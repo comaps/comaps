@@ -23,6 +23,10 @@ using namespace routing;
 // of the route except for some edge cases.
 SpeedKMpH constexpr kSpeedOffroadKMpH = {0.01 /* weight */, kNotUsed /* eta */};
 
+/*
+ * The number of entries must match `kHighwayBasedFactors` and `kHighwayBasedSpeeds`
+ * in `car_model_coefs.hpp`.
+ */
 VehicleModel::LimitsInitList const kDefaultOptions = {
     // {HighwayType, passThroughAllowed}
     {HighwayType::HighwayMotorway, true},    {HighwayType::HighwayMotorwayLink, true},
@@ -33,6 +37,7 @@ VehicleModel::LimitsInitList const kDefaultOptions = {
     {HighwayType::HighwayResidential, true}, {HighwayType::HighwayUnclassified, true},
     {HighwayType::HighwayService, true},     {HighwayType::HighwayLivingStreet, true},
     {HighwayType::HighwayRoad, true},        {HighwayType::HighwayTrack, true},
+    // Non-highway types
     {HighwayType::RouteShuttleTrain, true},  {HighwayType::RouteFerry, true},
     {HighwayType::ManMadePier, true}};
 

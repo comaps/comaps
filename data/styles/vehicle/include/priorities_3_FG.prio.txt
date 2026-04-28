@@ -271,6 +271,22 @@ highway-track-no-access                             # line z16-
 === 130
 
 highway-construction                                # line z13-
+highway-construction-living_street                  # line z13-
+highway-construction-motorway                       # line z13-
+highway-construction-motorway_link                  # line z13-
+highway-construction-primary                        # line z13-
+highway-construction-primary_link                   # line z13-
+highway-construction-residential                    # line z13-
+highway-construction-road                           # line z13-
+highway-construction-secondary                      # line z13-
+highway-construction-secondary_link                 # line z13-
+highway-construction-service                        # line z13-
+highway-construction-tertiary                       # line z13-
+highway-construction-tertiary_link                  # line z13-
+highway-construction-track                          # line z13-
+highway-construction-trunk                          # line z13-
+highway-construction-trunk_link                     # line z13-
+highway-construction-unclassified                   # line z13-
 railway-abandoned                                   # line z16-
 railway-construction                                # line z16-
 railway-disused                                     # line z16-

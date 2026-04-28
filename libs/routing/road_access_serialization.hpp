@@ -33,11 +33,24 @@ public:
   using PointToAccessConditional = RoadAccess::PointToAccessConditional;
   using RoadAccessByVehicleType = std::array<RoadAccess, static_cast<size_t>(VehicleType::Count)>;
 
+  /**
+   * @brief Values for the access version header.
+   *
+   * Each version introduced a breaking change to the way road access is stored in the MWM,
+   * requiring a different approach to deserialization.
+   *
+   * For any future format changes, append a new value with a descriptive name to this enum,
+   * and update `kLatestVersion` as well as `kVehicleTypeCount`.
+   *
+   * For any new values added here, the corresponding `DebugPrint()` function in the cpp file also
+   * needs to be updated.
+   */
   enum class Header : uint32_t
   {
-    TheFirstVersionRoadAccess = 0,  // Version of section roadaccess in 2017.
-    WithoutAccessConditional = 1,   // Section roadaccess before conditional was implemented.
-    WithAccessConditional = 2       // Section roadaccess with conditional.
+    TheFirstVersionRoadAccess = 0,  //< Version of section roadaccess in 2017.
+    WithoutAccessConditional = 1,   //< Section roadaccess before conditional was implemented.
+    WithAccessConditional = 2,      //< Section roadaccess with conditional.
+    DecoderModelAccess = 3          //< New vehicle model `DecoderModel` added.
   };
 
   RoadAccessSerializer() = delete;
@@ -59,16 +72,47 @@ public:
     switch (header)
     {
     case Header::TheFirstVersionRoadAccess: break;  // Version of 2017. Unsupported.
-    case Header::WithoutAccessConditional: DeserializeAccess(src, vehicleType, roadAccess); break;
+    case Header::WithoutAccessConditional: DeserializeAccess(src, vehicleType, roadAccess, header); break;
     case Header::WithAccessConditional:
-      DeserializeAccess(src, vehicleType, roadAccess);
-      DeserializeAccessConditional(src, vehicleType, roadAccess);
+    case Header::DecoderModelAccess:
+      DeserializeAccess(src, vehicleType, roadAccess, header);
+      DeserializeAccessConditional(src, vehicleType, roadAccess, header);
       break;
     }
   }
 
 private:
-  inline static Header const kLatestVersion = Header::WithAccessConditional;
+  /**
+   * @brief Current version of the road access format.
+   *
+   * This should always be equal to the last value of `Header` and must be updated whenever format
+   * changes are introduced that require different processing.
+   *
+   * When changing this value, you must ensure backward compatibility with older versions.
+   */
+  inline static Header const kLatestVersion = Header::DecoderModelAccess;
+
+  /**
+   * @brief Number of vehicle types by version.
+   *
+   * Use `Header` as a numeric index into this array to determine the number of vehicle types for
+   * which access should be read upon encountering that version.
+   *
+   * When adding or removing vehicle types, append a new value to `Header` (see there), set
+   * `kLatestVersion` to that new value, and append an entry here, indicating the new number of
+   * vehicle types. You also need to review all functions in which `kVehicleTypeCount` is used and
+   * adapt them as needed to be compatible with both the old and new format.
+   */
+  inline static std::array<size_t, 4> const kVehicleTypeCount = {
+      // TheFirstVersionRoadAccess (version of section roadaccess in 2017, no longer supported)
+      0,
+      // WithoutAccessConditional (section roadaccess before conditional was implemented, 4 vehicle types)
+      4,
+      // WithAccessConditional (section roadaccess with conditional, 4 vehicle types)
+      4,
+      // DecoderModelAccess (new vehicle model `DecoderModel` and vehicle type added)
+      5
+  };
 
   class AccessPosition
   {
@@ -130,13 +174,18 @@ private:
   }
 
   template <class Source>
-  static void DeserializeAccess(Source & src, VehicleType vehicleType, RoadAccess & roadAccess)
+  static void DeserializeAccess(Source & src, VehicleType vehicleType, RoadAccess & roadAccess, Header header)
   {
-    std::array<uint32_t, static_cast<size_t>(VehicleType::Count)> sectionSizes{};
-    static_assert(static_cast<int>(VehicleType::Count) == 4,
-                  "It is assumed below that there are only 4 vehicle types and we store 4 numbers "
-                  "of sections size. If you add or remove vehicle type you should up "
-                  "|kLatestVersion| and save back compatibility here.");
+    std::vector<uint32_t> sectionSizes(kVehicleTypeCount[static_cast<std::size_t>(header)]);
+    static_assert(kVehicleTypeCount.size() == (static_cast<std::size_t>(kLatestVersion) + 1),
+                  "The number of entries in `kVehicleTypeCount` does not match `kLatestVersion`. "
+                  "Ensure `kVehicleTypeCount` has an entry for each possible value of `Header`, "
+                  "and `kLatestVersion` matches the highest possible value of `Header`.");
+    static_assert(static_cast<int>(VehicleType::Count) == 5,
+                  "The current version of the access header assumes there are exactly 5 vehicle "
+                  "types. Adding or removing vehicle types is a breaking change and requires "
+                  "increasing `kLatestVersion` and updating `kVehicleTypeCount`. See documentation "
+                  "of `kVehicleTypeCount` for details.");
 
     for (auto & sectionSize : sectionSizes)
       sectionSize = ReadPrimitiveFromSource<uint32_t>(src);
@@ -186,13 +235,18 @@ private:
   }
 
   template <class Source>
-  static void DeserializeAccessConditional(Source & src, VehicleType vehicleType, RoadAccess & roadAccess)
+  static void DeserializeAccessConditional(Source & src, VehicleType vehicleType, RoadAccess & roadAccess, Header header)
   {
-    std::array<uint32_t, static_cast<size_t>(VehicleType::Count)> sectionSizes{};
-    static_assert(static_cast<int>(VehicleType::Count) == 4,
-                  "It is assumed below that there are only 4 vehicle types and we store 4 numbers "
-                  "of sections size. If you add or remove vehicle type you should up "
-                  "|kLatestVersion| and save back compatibility here.");
+    std::vector<uint32_t> sectionSizes(kVehicleTypeCount[static_cast<std::size_t>(header)]);
+    static_assert(kVehicleTypeCount.size() == (static_cast<std::size_t>(kLatestVersion) + 1),
+                  "The number of entries in `kVehicleTypeCount` does not match `kLatestVersion`. "
+                  "Ensure `kVehicleTypeCount` has an entry for each possible value of `Header`, "
+                  "and `kLatestVersion` matches the highest possible value of `Header`.");
+    static_assert(static_cast<int>(VehicleType::Count) == 5,
+                  "The current version of the access header assumes there are exactly 5 vehicle "
+                  "types. Adding or removing vehicle types is a breaking change and requires "
+                  "increasing `kLatestVersion` and updating `kVehicleTypeCount`. See documentation "
+                  "of `kVehicleTypeCount` for details.");
 
     for (auto & sectionSize : sectionSizes)
       sectionSize = ReadPrimitiveFromSource<uint32_t>(src);
@@ -341,6 +395,8 @@ private:
   }
 
   // todo(@m) This code borrows heavily from traffic/traffic_info.hpp:SerializeTrafficKeys.
+  // SerializeTrafficKeys is from the defunct MapsWithMe traffic module and will be obsoleted by
+  // the new traffic feature currently under development.
   template <typename Sink>
   static void SerializeSegments(Sink & sink, std::vector<Segment> const & segments)
   {

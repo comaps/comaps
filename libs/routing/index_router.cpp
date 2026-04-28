@@ -35,6 +35,7 @@
 
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
+#include "routing_common/decoder_model.hpp"
 #include "routing_common/num_mwm_id.hpp"
 #include "routing_common/pedestrian_model.hpp"
 
@@ -119,6 +120,7 @@ shared_ptr<VehicleModelFactoryInterface> CreateVehicleModelFactory(
   case VehicleType::Transit: return make_shared<PedestrianModelFactory>(countryParentNameGetterFn);
   case VehicleType::Bicycle: return make_shared<BicycleModelFactory>(countryParentNameGetterFn);
   case VehicleType::Car: return make_shared<CarModelFactory>(countryParentNameGetterFn);
+  case VehicleType::Decoder: return make_shared<DecoderModelFactory>(countryParentNameGetterFn);
   case VehicleType::Count: CHECK(false, ("Can't create VehicleModelFactoryInterface for", vehicleType)); return nullptr;
   }
   UNREACHABLE();
@@ -132,7 +134,14 @@ unique_ptr<DirectionsEngine> CreateDirectionsEngine(VehicleType vehicleType, sha
   case VehicleType::Pedestrian:
   case VehicleType::Transit: return make_unique<PedestrianDirectionsEngine>(dataSource, numMwmIds);
   case VehicleType::Bicycle:
-  case VehicleType::Car: return make_unique<CarDirectionsEngine>(dataSource, numMwmIds);
+  case VehicleType::Car:
+  case VehicleType::Decoder:
+    /*
+     * For `VehicleType::Decoder` the directions engine serves no useful purpose.
+     * We could return `nullptr` here, but we would have to go through every usage of
+     * `m_directionsEngine` and ensure it can handle a null pointer.
+     */
+    return make_unique<CarDirectionsEngine>(dataSource, numMwmIds);
   case VehicleType::Count: CHECK(false, ("Can't create DirectionsEngine for", vehicleType)); return nullptr;
   }
   UNREACHABLE();
@@ -566,7 +575,7 @@ RouterResultCode IndexRouter::DoCalculateRoute(Checkpoints const & checkpoints, 
     FakeEnding startFakeEnding = m_guides.GetFakeEnding(i);
     FakeEnding finishFakeEnding = m_guides.GetFakeEnding(i + 1);
 
-    bool isStartSegmentStrictForward = (m_vehicleType == VehicleType::Car);
+    bool isStartSegmentStrictForward = ((m_vehicleType == VehicleType::Car) || (m_vehicleType == VehicleType::Decoder));
     if (startFakeEnding.m_projections.empty() || finishFakeEnding.m_projections.empty())
     {
       bool const isFirstSubroute = (i == checkpoints.GetPassedIdx());
@@ -1817,6 +1826,7 @@ void IndexRouter::SetupAlgorithmMode(IndexGraphStarter & starter, bool guidesAct
   case VehicleType::Bicycle: starter.GetGraph().SetMode(WorldGraphMode::Joints); break;
   case VehicleType::Transit: starter.GetGraph().SetMode(WorldGraphMode::NoLeaps); break;
   case VehicleType::Car:
+  case VehicleType::Decoder:
     starter.GetGraph().SetMode(AreMwmsNear(starter) ? WorldGraphMode::Joints : WorldGraphMode::LeapsOnly);
     break;
   case VehicleType::Count: CHECK(false, ("Unknown vehicle type:", m_vehicleType)); break;
