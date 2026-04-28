@@ -62,7 +62,6 @@ public:
     : m_pedestrianModel(PedestrianModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
     , m_bicycleModel(BicycleModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
     , m_carModel(CarModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
-    , m_constructionType(classif().GetTypeByPath({"highway", "construction"}))
   {
     CHECK(m_pedestrianModel, ());
     CHECK(m_bicycleModel, ());
@@ -72,9 +71,6 @@ public:
   VehicleMask CalcRoadMask(FeatureType & f) const
   {
     feature::TypesHolder const types(f);
-    if (types.HasWithSubclass(m_constructionType))
-      return 0;
-
     return CalcMask([&](VehicleModelInterface const & model) { return model.IsRoad(types); });
   }
 
@@ -102,8 +98,6 @@ private:
   std::shared_ptr<VehicleModelInterface> const m_pedestrianModel;
   std::shared_ptr<VehicleModelInterface> const m_bicycleModel;
   std::shared_ptr<VehicleModelInterface> const m_carModel;
-
-  uint32_t const m_constructionType;
 };
 
 class Processor final

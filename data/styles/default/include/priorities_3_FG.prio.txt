@@ -293,6 +293,22 @@ highway-track-tunnel                                # line z15- (also has line::
 === 190
 
 highway-construction                                # line z13- (also has pathtext z15-)
+highway-construction-living_street                  # line z13- (also has pathtext z15-)
+highway-construction-motorway                       # line z13- (also has pathtext z15-)
+highway-construction-motorway_link                  # line z13- (also has pathtext z15-)
+highway-construction-primary                        # line z13- (also has pathtext z15-)
+highway-construction-primary_link                   # line z13- (also has pathtext z15-)
+highway-construction-residential                    # line z13- (also has pathtext z15-)
+highway-construction-road                           # line z13- (also has pathtext z15-)
+highway-construction-secondary                      # line z13- (also has pathtext z15-)
+highway-construction-secondary_link                 # line z13- (also has pathtext z15-)
+highway-construction-service                        # line z13- (also has pathtext z15-)
+highway-construction-tertiary                       # line z13- (also has pathtext z15-)
+highway-construction-tertiary_link                  # line z13- (also has pathtext z15-)
+highway-construction-track                          # line z13- (also has pathtext z15-)
+highway-construction-trunk                          # line z13- (also has pathtext z15-)
+highway-construction-trunk_link                     # line z13- (also has pathtext z15-)
+highway-construction-unclassified                   # line z13- (also has pathtext z15-)
 leisure-track                                       # line z15- (also has caption z16-)
 railway-abandoned                                   # line z16-
 railway-construction                                # line z15-
