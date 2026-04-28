@@ -22,6 +22,7 @@
 
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
+#include "routing_common/decoder_model.hpp"
 #include "routing_common/pedestrian_model.hpp"
 
 #include "indexer/classificator.hpp"
@@ -62,19 +63,17 @@ public:
     : m_pedestrianModel(PedestrianModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
     , m_bicycleModel(BicycleModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
     , m_carModel(CarModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
-    , m_constructionType(classif().GetTypeByPath({"highway", "construction"}))
+    , m_decoderModel(DecoderModelFactory(countryParentNameGetterFn).GetVehicleModelForCountry(country))
   {
     CHECK(m_pedestrianModel, ());
     CHECK(m_bicycleModel, ());
     CHECK(m_carModel, ());
+    CHECK(m_decoderModel, ());
   }
 
   VehicleMask CalcRoadMask(FeatureType & f) const
   {
     feature::TypesHolder const types(f);
-    if (types.HasWithSubclass(m_constructionType))
-      return 0;
-
     return CalcMask([&](VehicleModelInterface const & model) { return model.IsRoad(types); });
   }
 
@@ -95,6 +94,8 @@ private:
       mask |= kBicycleMask;
     if (fn(*m_carModel))
       mask |= kCarMask;
+    if (fn(*m_decoderModel))
+      mask |= kDecoderMask;
 
     return mask;
   }
@@ -102,8 +103,7 @@ private:
   std::shared_ptr<VehicleModelInterface> const m_pedestrianModel;
   std::shared_ptr<VehicleModelInterface> const m_bicycleModel;
   std::shared_ptr<VehicleModelInterface> const m_carModel;
-
-  uint32_t const m_constructionType;
+  std::shared_ptr<VehicleModelInterface> const m_decoderModel;
 };
 
 class Processor final

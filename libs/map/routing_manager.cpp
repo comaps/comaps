@@ -521,7 +521,7 @@ void RoutingManager::SetRouterImpl(RouterType type)
 
   VehicleType const vehicleType = GetVehicleType(type);
 
-  m_loadAltitudes = vehicleType != VehicleType::Car;
+  m_loadAltitudes = (vehicleType != VehicleType::Car) && (vehicleType != VehicleType::Decoder);
 
   auto const countryFileGetter = [this](m2::PointD const & p) -> string
   {
