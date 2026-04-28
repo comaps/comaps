@@ -1003,4 +1003,6 @@
     <string name="custom_mwm_import_invalid">Invalid MWM file</string>
     <string name="custom_mwm_import_error">Failed to import map</string>
     <string name="custom_mwm_custom_label">Custom</string>
+    <string name="custom_mwm_remove">Remove custom map</string>
+    <string name="custom_mwm_remove_dialog">Remove the custom map file? The official map will be used instead if downloaded.</string>
 </resources>

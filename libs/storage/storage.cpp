@@ -759,7 +759,13 @@ Status Storage::CountryStatusEx(CountryId const & countryId) const
     return Status::UnknownError;
 
   if (localFile->GetVersion() != m_currentVersion)
+  {
+    // Custom maps use a future date version (YYMMDD) to override official maps.
+    // If the local version exceeds the current server version it is a custom import — treat as up to date.
+    if (localFile->GetVersion() > m_currentVersion)
+      return Status::OnDisk;
     return Status::OnDiskOutOfDate;
+  }
   return Status::OnDisk;
 }
 

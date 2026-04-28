@@ -106,7 +106,9 @@ public class Factory
               android.widget.Toast.makeText(activity,
                   activity.getString(app.organicmaps.R.string.custom_mwm_import_success),
                   android.widget.Toast.LENGTH_SHORT).show();
-              // Restart activity so the renderer and all UI picks up the new maps
+              // Re-register maps in the C++ layer first, then recreate so the GL context
+              // initialises with the newly registered custom map already present.
+              Framework.nativeReloadWorldMaps();
               activity.recreate();
               break;
             case ERROR_INVALID_FILE:

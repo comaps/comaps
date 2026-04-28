@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.CustomMwmManager;
 import app.organicmaps.sdk.downloader.MapManager;
@@ -28,6 +29,7 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
+import com.google.android.material.chip.Chip;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
@@ -301,6 +303,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     case CountryItem.STATUS_DONE:
       if (!mSelectedItem.isExpandable())
         items.add(getExploreMenuItem());
+      if (mCustomMapIds.contains(mSelectedItem.id))
+        items.add(getRemoveCustomMapMenuItem());
       appendDeleteMenuItem(items);
       break;
 
@@ -365,6 +369,30 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     return new MenuBottomSheetItem(R.string.cancel, R.drawable.ic_close, () -> onCancelActionSelected(mSelectedItem));
   }
 
+  private MenuBottomSheetItem getRemoveCustomMapMenuItem()
+  {
+    return new MenuBottomSheetItem(R.string.custom_mwm_remove, R.drawable.ic_delete,
+                                   () -> onRemoveCustomMapActionSelected(mSelectedItem, DownloaderAdapter.this));
+  }
+
+  private void onRemoveCustomMapActionSelected(final CountryItem item, final DownloaderAdapter adapter)
+  {
+    new MaterialAlertDialogBuilder(adapter.mActivity)
+        .setTitle(R.string.custom_mwm_remove)
+        .setMessage(R.string.custom_mwm_remove_dialog)
+        .setNegativeButton(R.string.cancel, null)
+        .setPositiveButton(R.string.ok, (dialog, which) -> {
+          CustomMwmManager.CustomMwmFile customFile =
+              CustomMwmManager.getCustomMwmFile(adapter.mActivity, item.id);
+          if (customFile != null)
+            CustomMwmManager.deleteCustomMwmFile(adapter.mActivity, customFile);
+          Framework.nativeReloadWorldMaps();
+          mCustomMapIds = CustomMwmManager.getCustomMwmFiles(adapter.mActivity).keySet();
+          refreshData();
+        })
+        .show();
+  }
+
   private class ItemViewHolder extends BaseInnerViewHolder<CountryItem>
   {
     private final DownloaderStatusIcon mStatusIcon;
@@ -373,6 +401,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     private final MaterialTextView mFoundName;
     private final MaterialTextView mSize;
     private final MaterialTextView mVersion;
+    private final Chip mCustomChip;
 
     private void processClick(boolean clickOnStatus)
     {
@@ -436,6 +465,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       mFoundName = frame.findViewById(R.id.found_name);
       mSize = frame.findViewById(R.id.size);
       mVersion = frame.findViewById(R.id.version);
+      mCustomChip = frame.findViewById(R.id.custom_map_chip);
 
       frame.setOnClickListener(v -> {
         if (mItem.isExpandable())
@@ -507,17 +537,10 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         mVersion.setVisibility(View.GONE);
       }
 
-      // Show "Custom" label for user-imported MWM files
-      if (mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapIds.contains(mItem.id))
-      {
-        String customLabel = mActivity.getString(R.string.custom_mwm_custom_label);
-        CharSequence existing = mSubtitle.getText();
-        if (TextUtils.isEmpty(existing))
-          mSubtitle.setText(customLabel);
-        else
-          mSubtitle.setText(existing + " · " + customLabel);
-        mSubtitle.setVisibility(View.VISIBLE);
-      }
+      // Show chip badge for user-imported MWM files
+      mCustomChip.setVisibility(
+          mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapIds.contains(mItem.id)
+          ? View.VISIBLE : View.GONE);
 
       mStatusIcon.update(mItem);
     }
