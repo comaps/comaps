@@ -805,7 +805,10 @@
 "change_color" = "Change Colour";
 /* Main screen title "Map" displayed in the navigation back button's menu. */
 "map" = "Map";
+/* To indicate if place has drive_through */
 "drive_through" = "Drive-through";
+/* To indicate if place don't have drive_through */
+"no_drive_through" = "No drive-through";
 /* Restaurant or other food place's menu URL field in the Editor */
 "website_menu" = "Menu Link";
 /* Message for the bug report alert. */
@@ -838,6 +841,8 @@
 "self_service" = "Self-service";
 /* To indicate if restaurant or other place has outdoor seating */
 "outdoor_seating" = "Outdoor seating";
+/* To indicate if restaurant or other place has no outdoor seating */
+"no_outdoor_seating" = "No outdoor seating";
 /* Title for the "Recently Deleted Lists" button on the Bookmarks and Lists screen. */
 "bookmarks_recently_deleted" = "Recently Deleted Lists";
 /* Title for the "Clear" button on the Recently Deleted Lists screen. */

@@ -145,12 +145,16 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
         case MetadataID::FMD_DRIVE_THROUGH:
           if (value == "yes")
             _driveThrough = NSLocalizedString(@"drive_through", nil);
+		  else if (value == "no")
+			_driveThrough = NSLocalizedString(@"no_drive_through", nil);
           break;
         case MetadataID::FMD_WEBSITE_MENU: _websiteMenu = ToNSString(value); break;
         case MetadataID::FMD_SELF_SERVICE: _selfService = GetLocalizedMetadataValueString(metaID, value); break;
         case MetadataID::FMD_OUTDOOR_SEATING:
           if (value == "yes")
             _outdoorSeating = NSLocalizedString(@"outdoor_seating", nil);
+		  else if (value == "no")
+			_outdoorSeating = NSLocalizedString(@"no_outdoor_seating", nil);
           break;
         case MetadataID::FMD_NETWORK: _network = [NSString stringWithFormat:NSLocalizedString(@"network", nil), ToNSString(value)]; break;
         case MetadataID::FMD_POPULATION: _population = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"population", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
