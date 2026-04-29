@@ -2,7 +2,7 @@ package app.organicmaps.intent;
 
 import static app.organicmaps.api.Const.EXTRA_PICK_POINT;
 
-import android.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
