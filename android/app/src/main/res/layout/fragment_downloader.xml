@@ -10,12 +10,25 @@
   <include layout="@layout/toolbar_with_search"/>
 
   <com.google.android.material.button.MaterialButton
+    android:id="@+id/check_updates"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/MwmWidget.M3.Button.Secondary"
+    android:text="@string/downloader_check_updates_button"
+    android:layout_alignParentBottom="true"
+    android:layout_marginLeft="@dimen/margin_base"
+    android:layout_marginRight="@dimen/margin_base"/>
+
+  <com.google.android.material.button.MaterialButton
     android:id="@+id/action"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_block_base"
-    android:layout_alignParentBottom="true"
-    style="@style/MwmWidget.Button.Primary"
-    tools:text="@string/downloader_update_all_button"/>
+    android:layout_height="wrap_content"
+    style="@style/MwmWidget.M3.Button.Primary"
+    tools:text="@string/downloader_update_all_button"
+    android:layout_above="@id/check_updates"
+    android:layout_alignWithParentIfMissing="true"
+    android:layout_marginLeft="@dimen/margin_base"
+    android:layout_marginRight="@dimen/margin_base"/>
 
   <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler"
