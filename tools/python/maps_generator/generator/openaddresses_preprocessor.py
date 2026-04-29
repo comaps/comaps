@@ -165,16 +165,29 @@ class _BorderIndex:
         return None
 
 
-def _find_countrywide_geojsons(zf: zipfile.ZipFile) -> list[str]:
-    """Return all countrywide geojson paths found in the ZIP."""
+def _find_address_geojsons(zf: zipfile.ZipFile) -> list[str]:
+    """Return all address geojson paths found in the ZIP.
+
+    OA batch output names files ``<source>-<layer>-<coverage>.geojson``,
+    so address files always contain "addresses" in the basename.  Countrywide
+    sources without a sub-national directory may also be named
+    ``countrywide.geojson`` (no "addresses" component), so we accept either.
+
+    Matches any depth — covers both ``<cc>/countrywide.geojson`` (Canada-style)
+    and ``<cc>/<state>/<source>-addresses-<coverage>.geojson`` (US-style) as
+    well as any future layouts.
+    """
     found = []
     for name in zf.namelist():
-        parts = name.split("/")
-        if len(parts) == 2 and "countrywide" in parts[1] and parts[1].endswith(".geojson"):
+        if not name.endswith(".geojson"):
+            continue
+        basename = name.split("/")[-1]
+        if "addresses" in basename or "countrywide" in basename:
             found.append(name)
     if not found:
         raise ValueError(
-            "No countrywide geojson found in ZIP (expected <cc>/countrywide*.geojson)."
+            "No address geojson files found in ZIP. "
+            "Expected files whose basename contains 'addresses' or 'countrywide'."
         )
     return found
 
@@ -202,7 +215,7 @@ def process(
 
     try:
         with zipfile.ZipFile(zip_path, "r") as zf:
-            geojson_paths = _find_countrywide_geojsons(zf)
+            geojson_paths = _find_address_geojsons(zf)
             for geojson_path in geojson_paths:
                 logger.info(f"Processing {geojson_path}...")
                 with zf.open(geojson_path) as raw:
@@ -219,9 +232,9 @@ def process(
                             continue
 
                         props = feat.get("properties", {})
-                        number   = props.get("number",   "").strip()
-                        street   = props.get("street",   "").strip()
-                        postcode = props.get("postcode", "").strip()
+                        number   = (props.get("number")   or "").strip()
+                        street   = (props.get("street")   or "").strip()
+                        postcode = (props.get("postcode") or "").strip()
 
                         if not number or not street:
                             skipped_incomplete += 1
