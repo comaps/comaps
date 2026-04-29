@@ -264,6 +264,9 @@ public class Framework
    */
   public static native void nativeReloadWorldMaps();
 
+  /** Forces tile cache invalidation for the current viewport, triggering a visual redraw. */
+  public static native void nativeInvalidateViewport();
+
   /**
    * Determines if currently is day or night at the given location. Used to switch day/night styles.
    * @param utcTimeSeconds Unix time in seconds.

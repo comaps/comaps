@@ -245,6 +245,11 @@ void FindAllCustomMaps(string const & dataDir, std::vector<LocalCountryFile> & l
   LOG(LINFO, ("Found", localFiles.size(), "custom maps in", customMapsPath));
 }
 
+bool IsCustomMap(LocalCountryFile const & localFile)
+{
+  return localFile.GetDirectory().find(kCustomMapsDir) != string::npos;
+}
+
 void FindAllLocalMapsAndCleanup(int64_t latestVersion, std::vector<LocalCountryFile> & localFiles)
 {
   FindAllLocalMapsAndCleanup(latestVersion, string(), localFiles);

@@ -593,11 +593,17 @@ void Storage::RegisterAllLocalMaps(bool enableDiffs /* = false */)
     while (j != localFiles.end() && i->GetCountryFile() == j->GetCountryFile())
     {
       LocalCountryFile & localFile = *j;
-      LOG(LINFO, ("Removing obsolete", localFile));
-      localFile.SyncWithDisk();
-
-      DeleteFromDiskWithIndexes(localFile, MapFileType::Map);
-      DeleteFromDiskWithIndexes(localFile, MapFileType::Diff);
+      // Don't delete an official map that is shadowed by a custom map — the user may remove
+      // the custom map later and the official one should still be present on disk.
+      bool const iIsCustom = platform::IsCustomMap(*i);
+      bool const jIsCustom = platform::IsCustomMap(localFile);
+      if (!iIsCustom || jIsCustom)
+      {
+        LOG(LINFO, ("Removing obsolete", localFile));
+        localFile.SyncWithDisk();
+        DeleteFromDiskWithIndexes(localFile, MapFileType::Map);
+        DeleteFromDiskWithIndexes(localFile, MapFileType::Diff);
+      }
       ++j;
     }
 

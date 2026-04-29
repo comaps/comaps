@@ -387,6 +387,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
           if (customFile != null)
             CustomMwmManager.deleteCustomMwmFile(adapter.mActivity, customFile);
           Framework.nativeReloadWorldMaps();
+          Framework.nativeInvalidateViewport();
           mCustomMapIds = CustomMwmManager.getCustomMwmFiles(adapter.mActivity).keySet();
           refreshData();
         })

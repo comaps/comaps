@@ -50,6 +50,9 @@ void FindAllDiffs(std::string const & dataDir, std::vector<LocalCountryFile> & d
 // Custom maps override downloaded maps when they have a newer version date.
 void FindAllCustomMaps(std::string const & dataDir, std::vector<LocalCountryFile> & localFiles);
 
+// Returns true if |localFile| lives inside the custom_maps directory.
+bool IsCustomMap(LocalCountryFile const & localFile);
+
 // This method removes:
 // * partially downloaded non-latest maps (with version less than |latestVersion|)
 // * empty directories

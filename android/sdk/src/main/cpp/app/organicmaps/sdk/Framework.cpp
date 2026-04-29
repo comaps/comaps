@@ -1478,6 +1478,11 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeReloadWorldMaps(
   g_framework->ReloadWorldMaps();
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeInvalidateViewport(JNIEnv * env, jclass)
+{
+  frm()->InvalidateRect(frm()->GetCurrentViewport());
+}
+
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsDayTime(JNIEnv * env, jclass,
                                                                               jlong utcTimeSeconds, jdouble lat,
                                                                               jdouble lon)
