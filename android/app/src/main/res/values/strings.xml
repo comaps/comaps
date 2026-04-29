@@ -274,6 +274,7 @@
     <string name="compass_calibration_required">Move the phone in a figure-eight motion to calibrate the compass and fix the arrow direction on the map.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
     <string name="long_tap_toast">Long-tap on the map again to see the interface</string>
+    <string name="downloader_check_updates_button">Check for updates</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Update All</string>
     <!-- Cancel all button text -->
