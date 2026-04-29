@@ -70,6 +70,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   private int mListenerSlot;
   private CountryItem mSelectedItem;
   private Set<String> mCustomMapIds = new HashSet<>();
+  // IDs of maps that have an officially-downloaded version on disk (may coexist with a custom map)
+  private Set<String> mOfficialMapIds = new HashSet<>();
 
   private final OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(false) {
     @Override
@@ -297,15 +299,24 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     case CountryItem.STATUS_DOWNLOADABLE: items.add(getDownloadMenuItem()); break;
 
     case CountryItem.STATUS_UPDATABLE:
-      items.add(getUpdateMenuItem());
+      if (!mCustomMapIds.contains(mSelectedItem.id))
+        items.add(getUpdateMenuItem());
       // Fallthrough
 
     case CountryItem.STATUS_DONE:
       if (!mSelectedItem.isExpandable())
         items.add(getExploreMenuItem());
       if (mCustomMapIds.contains(mSelectedItem.id))
+      {
         items.add(getRemoveCustomMapMenuItem());
-      appendDeleteMenuItem(items);
+        if (mOfficialMapIds.contains(mSelectedItem.id))
+          items.add(getDeleteOfficialMenuItem());
+        // Don't show plain "Delete" — custom is what's active; the two targeted actions above cover it
+      }
+      else
+      {
+        appendDeleteMenuItem(items);
+      }
       break;
 
     case CountryItem.STATUS_FAILED:
@@ -373,6 +384,26 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     return new MenuBottomSheetItem(R.string.custom_mwm_remove, R.drawable.ic_delete,
                                    () -> onRemoveCustomMapActionSelected(mSelectedItem, DownloaderAdapter.this));
+  }
+
+  private MenuBottomSheetItem getDeleteOfficialMenuItem()
+  {
+    return new MenuBottomSheetItem(R.string.custom_mwm_delete_official, R.drawable.ic_delete,
+                                   () -> onDeleteOfficialActionSelected(mSelectedItem, DownloaderAdapter.this));
+  }
+
+  private void onDeleteOfficialActionSelected(final CountryItem item, final DownloaderAdapter adapter)
+  {
+    new MaterialAlertDialogBuilder(adapter.mActivity)
+        .setTitle(R.string.downloader_delete_map)
+        .setMessage(R.string.downloader_delete_map_dialog)
+        .setNegativeButton(R.string.cancel, null)
+        .setPositiveButton(R.string.ok, (dialog, which) -> {
+          CustomMwmManager.deleteOfficialMapFromDisk(adapter.mActivity, item.id);
+          mOfficialMapIds.remove(item.id);
+          refreshData();
+        })
+        .show();
   }
 
   private void onRemoveCustomMapActionSelected(final CountryItem item, final DownloaderAdapter adapter)
@@ -633,6 +664,12 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     mItems.clear();
     mCustomMapIds = CustomMwmManager.getCustomMwmFiles(mActivity).keySet();
+    mOfficialMapIds = new HashSet<>();
+    for (String id : mCustomMapIds)
+    {
+      if (CustomMwmManager.hasOfficialMapOnDisk(mActivity, id))
+        mOfficialMapIds.add(id);
+    }
 
     String parent = getCurrentRootId();
     boolean hasLocation = false;

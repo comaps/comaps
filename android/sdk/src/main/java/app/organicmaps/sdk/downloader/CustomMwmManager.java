@@ -257,6 +257,27 @@ public class CustomMwmManager
   }
 
   /**
+   * Returns true if an officially-downloaded (non-custom) copy of the map exists on disk.
+   * This can be true even when a custom map is active (shadowing it).
+   */
+  public static boolean hasOfficialMapOnDisk(@NonNull Context context, @NonNull String countryName)
+  {
+    String writableDir = Framework.nativeGetWritableDir();
+    File root = new File(StorageUtils.addTrailingSeparator(writableDir));
+    File[] versionDirs = root.listFiles(f -> f.isDirectory() && f.getName().matches("\\d+")
+                                              && !f.getName().equals(CUSTOM_MAPS_DIR));
+    if (versionDirs == null)
+      return false;
+
+    for (File versionDir : versionDirs)
+    {
+      if (new File(versionDir, countryName + MWM_EXTENSION).exists())
+        return true;
+    }
+    return false;
+  }
+
+  /**
    * Checks if a custom version of a map exists.
    * @param countryName The country/map name (without .mwm extension)
    * @return The CustomMwmFile if found, null otherwise
@@ -266,6 +287,31 @@ public class CustomMwmManager
   {
     Map<String, CustomMwmFile> customFiles = getCustomMwmFiles(context);
     return customFiles.get(countryName);
+  }
+
+  /**
+   * Deletes the officially-downloaded (non-custom) copy of a map from disk.
+   * The custom map, if present, is unaffected. Call nativeReloadWorldMaps() after this.
+   */
+  public static void deleteOfficialMapFromDisk(@NonNull Context context, @NonNull String countryName)
+  {
+    String writableDir = Framework.nativeGetWritableDir();
+    File root = new File(StorageUtils.addTrailingSeparator(writableDir));
+    File[] versionDirs = root.listFiles(f -> f.isDirectory() && f.getName().matches("\\d+")
+                                              && !f.getName().equals(CUSTOM_MAPS_DIR));
+    if (versionDirs == null)
+      return;
+
+    for (File versionDir : versionDirs)
+    {
+      File mwmFile = new File(versionDir, countryName + MWM_EXTENSION);
+      if (mwmFile.exists())
+      {
+        Logger.i(TAG, "Deleting official map: " + mwmFile.getAbsolutePath());
+        if (!mwmFile.delete())
+          Logger.e(TAG, "Failed to delete official map: " + mwmFile.getAbsolutePath());
+      }
+    }
   }
 
   /**

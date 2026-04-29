@@ -1005,4 +1005,5 @@
     <string name="custom_mwm_custom_label">Custom</string>
     <string name="custom_mwm_remove">Remove custom map</string>
     <string name="custom_mwm_remove_dialog">Remove the custom map file? The official map will be used instead if downloaded.</string>
+    <string name="custom_mwm_delete_official">Delete downloaded map</string>
 </resources>
