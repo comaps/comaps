@@ -24,6 +24,8 @@ final class DownloaderInsetsListener implements OnApplyWindowInsetsListener
   @NonNull
   private final View mButton;
   @NonNull
+  private final View mCheckUpdatesButton;
+  @NonNull
   private final RecyclerView mRecyclerView;
 
   DownloaderInsetsListener(@NonNull View fragmentView)
@@ -32,6 +34,7 @@ final class DownloaderInsetsListener implements OnApplyWindowInsetsListener
     mToolbar = fragmentView.findViewById(R.id.toolbar);
     mFab = fragmentView.findViewById(R.id.fab);
     mButton = fragmentView.findViewById(R.id.action);
+    mCheckUpdatesButton = fragmentView.findViewById(R.id.check_updates);
     mRecyclerView = fragmentView.findViewById(R.id.recycler);
     mRecyclerView.setClipToPadding(false);
   }
@@ -44,7 +47,8 @@ final class DownloaderInsetsListener implements OnApplyWindowInsetsListener
 
     mToolbar.setPadding(safeInsets.left, safeInsets.top, safeInsets.right, mToolbar.getPaddingBottom());
 
-    boolean isAnyButtonVisible = UiUtils.isVisible(mFab) || UiUtils.isVisible(mButton);
+    boolean isAnyButtonVisible =
+        UiUtils.isVisible(mFab) || UiUtils.isVisible(mButton) || UiUtils.isVisible(mCheckUpdatesButton);
     if (isAnyButtonVisible)
       applyInsetsToButtons(safeInsets);
 
@@ -60,20 +64,32 @@ final class DownloaderInsetsListener implements OnApplyWindowInsetsListener
 
     ViewGroup.MarginLayoutParams fabParams = (ViewGroup.MarginLayoutParams) mFab.getLayoutParams();
     ViewGroup.MarginLayoutParams buttonParams = (ViewGroup.MarginLayoutParams) mButton.getLayoutParams();
+    ViewGroup.MarginLayoutParams checkUpdatesButtonParams =
+        (ViewGroup.MarginLayoutParams) mCheckUpdatesButton.getLayoutParams();
 
     final boolean isButtonVisible = UiUtils.isVisible(mButton);
+    final boolean isCheckUpdatesButtonVisible = UiUtils.isVisible(mCheckUpdatesButton);
 
-    buttonParams.bottomMargin = insets.bottom;
-    mButton.setPadding(insets.left, mButton.getPaddingTop(), insets.right, mButton.getPaddingBottom());
+    checkUpdatesButtonParams.leftMargin = insets.left + baseMargin;
+    checkUpdatesButtonParams.rightMargin = insets.right + baseMargin;
+    checkUpdatesButtonParams.bottomMargin = insets.bottom;
+
+    buttonParams.leftMargin = insets.left + baseMargin;
+    buttonParams.rightMargin = insets.right + baseMargin;
+    if (isCheckUpdatesButtonVisible)
+      buttonParams.bottomMargin = 0;
+    else
+      buttonParams.bottomMargin = insets.bottom;
 
     fabParams.rightMargin = insets.right + baseMargin;
-    if (isButtonVisible)
+    if (isCheckUpdatesButtonVisible || isButtonVisible)
       fabParams.bottomMargin = baseMargin;
     else
       fabParams.bottomMargin = insets.bottom + baseMargin;
 
     mFab.requestLayout();
     mButton.requestLayout();
+    mCheckUpdatesButton.requestLayout();
   }
 
   private void applyInsetsToRecyclerView(Insets insets, boolean isAnyButtonVisible)

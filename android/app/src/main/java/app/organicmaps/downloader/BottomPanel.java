@@ -24,6 +24,7 @@ class BottomPanel
   private final DownloaderFragment mFragment;
   private final FloatingActionButton mFab;
   private final MaterialButton mButton;
+  private final MaterialButton mCheckUpdatesButton;
 
   private final View.OnClickListener mDownloadListener = new View.OnClickListener() {
     @Override
@@ -74,6 +75,8 @@ class BottomPanel
     });
 
     mButton = frame.findViewById(R.id.action);
+
+    mCheckUpdatesButton = frame.findViewById(R.id.check_updates);
   }
 
   private void setUpdateAllState(UpdateInfo info)
@@ -110,9 +113,12 @@ class BottomPanel
     boolean show = !search;
     UiUtils.showIf(show && adapter.isMyMapsMode(), mFab);
 
+    String root = adapter.getCurrentRootId();
+
+    UiUtils.showIf(show && adapter.isMyMapsMode() && CountryItem.isRoot(root), mCheckUpdatesButton);
+
     if (show)
     {
-      String root = adapter.getCurrentRootId();
       int status = MapManager.nativeGetStatus(root);
       if (adapter.isMyMapsMode())
       {
