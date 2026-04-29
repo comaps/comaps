@@ -23,7 +23,7 @@ _write_string               = _mod._write_string
 _write_varint               = _mod._write_varint
 _write_varuint              = _mod._write_varuint
 _zigzag_encode              = _mod._zigzag_encode
-_find_countrywide_geojsons  = _mod._find_countrywide_geojsons
+_find_address_geojsons      = _mod._find_address_geojsons
 _parse_poly                 = _mod._parse_poly
 _BorderIndex                = _mod._BorderIndex
 _COORD_BITS                 = _mod._COORD_BITS
@@ -356,7 +356,7 @@ def _write_poly(directory: str, name: str, rings: list) -> str:
 _SQUARE = [(0.0, 0.0), (1.0, 0.0), (1.0, 1.0), (0.0, 1.0)]
 
 
-class TestFindCountrywideGeojsons(unittest.TestCase):
+class TestFindAddressGeojsons(unittest.TestCase):
     def _make_zip(self, names):
         buf = io.BytesIO()
         with zipfile.ZipFile(buf, "w") as zf:
@@ -365,36 +365,92 @@ class TestFindCountrywideGeojsons(unittest.TestCase):
         buf.seek(0)
         return zipfile.ZipFile(buf, "r")
 
-    def test_finds_single(self):
+    # --- Canada-style countrywide files ---
+
+    def test_finds_canada_countrywide(self):
         zf = self._make_zip(["ca/countrywide-addresses-country.geojson", "ca/other.geojson"])
-        result = _find_countrywide_geojsons(zf)
+        result = _find_address_geojsons(zf)
         self.assertEqual(result, ["ca/countrywide-addresses-country.geojson"])
         zf.close()
 
-    def test_finds_multiple_countries(self):
+    def test_finds_multiple_countrywide(self):
         zf = self._make_zip(["ca/countrywide.geojson", "au/countrywide.geojson", "ca/other.csv"])
-        result = _find_countrywide_geojsons(zf)
+        result = _find_address_geojsons(zf)
         self.assertIn("ca/countrywide.geojson", result)
         self.assertIn("au/countrywide.geojson", result)
         self.assertEqual(len(result), 2)
         zf.close()
 
-    def test_ignores_nested_paths(self):
-        zf = self._make_zip(["ca/sub/countrywide.geojson", "ca/statewide.geojson"])
-        with self.assertRaises(ValueError):
-            _find_countrywide_geojsons(zf)
+    # --- US-style county/state address files ---
+
+    def test_finds_us_county_addresses(self):
+        zf = self._make_zip([
+            "us/or/marion-addresses-county.geojson",
+            "us/or/marion-parcels-county.geojson",
+            "us/or/marion-parcels-county.geojson.meta",
+        ])
+        result = _find_address_geojsons(zf)
+        self.assertEqual(result, ["us/or/marion-addresses-county.geojson"])
         zf.close()
 
-    def test_raises_when_not_found(self):
-        zf = self._make_zip(["ca/statewide.geojson", "ca/other.csv"])
-        with self.assertRaises(ValueError):
-            _find_countrywide_geojsons(zf)
+    def test_finds_us_statewide_addresses(self):
+        zf = self._make_zip([
+            "us/or/statewide-addresses-state.geojson",
+            "us/or/statewide-buildings-state.geojson",
+        ])
+        result = _find_address_geojsons(zf)
+        self.assertEqual(result, ["us/or/statewide-addresses-state.geojson"])
         zf.close()
 
-    def test_ignores_non_geojson(self):
+    def test_finds_multiple_us_counties(self):
+        zf = self._make_zip([
+            "us/or/marion-addresses-county.geojson",
+            "us/or/yamhill-addresses-county.geojson",
+            "us/wa/king-addresses-county.geojson",
+            "us/or/marion-parcels-county.geojson",
+        ])
+        result = _find_address_geojsons(zf)
+        self.assertIn("us/or/marion-addresses-county.geojson", result)
+        self.assertIn("us/or/yamhill-addresses-county.geojson", result)
+        self.assertIn("us/wa/king-addresses-county.geojson", result)
+        self.assertEqual(len(result), 3)
+        zf.close()
+
+    def test_finds_depth2_addresses_without_countrywide(self):
+        # e.g. mx/national-addresses-country.geojson — depth 2, no "countrywide"
+        zf = self._make_zip(["mx/national-addresses-country.geojson", "mx/national-buildings-country.geojson"])
+        result = _find_address_geojsons(zf)
+        self.assertEqual(result, ["mx/national-addresses-country.geojson"])
+        zf.close()
+
+    def test_ignores_meta_files(self):
+        zf = self._make_zip([
+            "us/or/marion-addresses-county.geojson",
+            "us/or/marion-addresses-county.geojson.meta",
+        ])
+        result = _find_address_geojsons(zf)
+        self.assertEqual(result, ["us/or/marion-addresses-county.geojson"])
+        zf.close()
+
+    def test_ignores_non_address_geojsons(self):
+        zf = self._make_zip([
+            "us/or/marion-parcels-county.geojson",
+            "us/or/statewide-buildings-state.geojson",
+        ])
+        with self.assertRaises(ValueError):
+            _find_address_geojsons(zf)
+        zf.close()
+
+    def test_raises_when_empty_zip(self):
+        zf = self._make_zip(["ca/other.csv", "readme.txt"])
+        with self.assertRaises(ValueError):
+            _find_address_geojsons(zf)
+        zf.close()
+
+    def test_ignores_non_geojson_extension(self):
         zf = self._make_zip(["ca/countrywide.csv", "ca/countrywide.zip"])
         with self.assertRaises(ValueError):
-            _find_countrywide_geojsons(zf)
+            _find_address_geojsons(zf)
         zf.close()
 
 
