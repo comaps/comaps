@@ -17,11 +17,9 @@ import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -35,7 +33,6 @@ public class CustomMwmManager
   private static final String TAG = CustomMwmManager.class.getSimpleName();
   private static final String CUSTOM_MAPS_DIR = "custom_maps";
   private static final String MWM_EXTENSION = ".mwm";
-  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyMMdd", Locale.US);
 
   public enum ImportResult
   {
@@ -83,7 +80,7 @@ public class CustomMwmManager
   {
     //TODO: Ideally the MWM creation date would be baked into the file, not assumed
     String customMapsDir = getCustomMapsDir(context);
-    String today = DATE_FORMAT.format(new Date());
+    String today = new SimpleDateFormat("yyMMdd", Locale.US).format(new Date());
     String todayDir = StorageUtils.addTrailingSeparator(customMapsDir) + today;
 
     if (!StorageUtils.createDirectory(todayDir))
@@ -217,63 +214,14 @@ public class CustomMwmManager
   }
 
   /**
-   * Gets all version directories in the custom maps folder, sorted by version descending.
-   * @return List of version directory paths
-   */
-  @NonNull
-  public static List<String> getCustomMapVersionDirs(@NonNull Context context)
-  {
-    List<String> result = new ArrayList<>();
-    String customMapsDir = getCustomMapsDir(context);
-    File rootDir = new File(customMapsDir);
-
-    if (!rootDir.exists() || !rootDir.isDirectory())
-    {
-      return result;
-    }
-
-    File[] versionDirs = rootDir.listFiles(File::isDirectory);
-    if (versionDirs == null)
-    {
-      return result;
-    }
-
-    // Sort by version descending (newest first)
-    Arrays.sort(versionDirs, (a, b) -> {
-      long versionA = parseVersion(a.getName());
-      long versionB = parseVersion(b.getName());
-      return Long.compare(versionB, versionA);
-    });
-
-    for (File versionDir : versionDirs)
-    {
-      if (parseVersion(versionDir.getName()) > 0)
-      {
-        result.add(StorageUtils.addTrailingSeparator(versionDir.getAbsolutePath()));
-      }
-    }
-
-    return result;
-  }
-
-  /**
    * Returns true if an officially-downloaded (non-custom) copy of the map exists on disk.
    * This can be true even when a custom map is active (shadowing it).
    */
   public static boolean hasOfficialMapOnDisk(@NonNull Context context, @NonNull String countryName)
   {
-    String writableDir = Framework.nativeGetWritableDir();
-    File root = new File(StorageUtils.addTrailingSeparator(writableDir));
-    File[] versionDirs = root.listFiles(f -> f.isDirectory() && f.getName().matches("\\d+")
-                                              && !f.getName().equals(CUSTOM_MAPS_DIR));
-    if (versionDirs == null)
-      return false;
-
-    for (File versionDir : versionDirs)
-    {
+    for (File versionDir : getOfficialVersionDirs())
       if (new File(versionDir, countryName + MWM_EXTENSION).exists())
         return true;
-    }
     return false;
   }
 
@@ -295,14 +243,7 @@ public class CustomMwmManager
    */
   public static void deleteOfficialMapFromDisk(@NonNull Context context, @NonNull String countryName)
   {
-    String writableDir = Framework.nativeGetWritableDir();
-    File root = new File(StorageUtils.addTrailingSeparator(writableDir));
-    File[] versionDirs = root.listFiles(f -> f.isDirectory() && f.getName().matches("\\d+")
-                                              && !f.getName().equals(CUSTOM_MAPS_DIR));
-    if (versionDirs == null)
-      return;
-
-    for (File versionDir : versionDirs)
+    for (File versionDir : getOfficialVersionDirs())
     {
       File mwmFile = new File(versionDir, countryName + MWM_EXTENSION);
       if (mwmFile.exists())
@@ -312,6 +253,19 @@ public class CustomMwmManager
           Logger.e(TAG, "Failed to delete official map: " + mwmFile.getAbsolutePath());
       }
     }
+  }
+
+  /**
+   * Returns all numeric (official) version directories under the writable dir,
+   * excluding the custom_maps folder.
+   */
+  @NonNull
+  private static File[] getOfficialVersionDirs()
+  {
+    File root = new File(StorageUtils.addTrailingSeparator(Framework.nativeGetWritableDir()));
+    File[] dirs = root.listFiles(f -> f.isDirectory() && f.getName().matches("\\d+")
+                                      && !f.getName().equals(CUSTOM_MAPS_DIR));
+    return dirs != null ? dirs : new File[0];
   }
 
   /**

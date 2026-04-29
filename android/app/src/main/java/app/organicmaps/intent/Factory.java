@@ -2,14 +2,18 @@ package app.organicmaps.intent;
 
 import static app.organicmaps.api.Const.EXTRA_PICK_POINT;
 
-import android.app.ProgressDialog;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Gravity;
+import android.widget.FrameLayout;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.IntentCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
+import app.organicmaps.R;
 import app.organicmaps.editor.OsmLoginActivity;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.Map;
@@ -26,6 +30,8 @@ import app.organicmaps.sdk.util.StorageUtils;
 import app.organicmaps.sdk.util.concurrency.ThreadPool;
 import app.organicmaps.sdk.downloader.CustomMwmManager;
 import app.organicmaps.search.SearchActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.progressindicator.CircularProgressIndicator;
 import java.io.File;
 import java.util.Collections;
 import java.util.List;
@@ -87,12 +93,21 @@ public class Factory
       if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
         return false;
 
-      // Show spinner while copying (MWM files can be large)
-      final ProgressDialog progressDialog = new ProgressDialog(activity, app.organicmaps.R.style.MwmTheme_ProgressDialog);
-      progressDialog.setMessage(activity.getString(app.organicmaps.R.string.custom_mwm_importing));
-      progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-      progressDialog.setIndeterminate(true);
-      progressDialog.setCancelable(false);
+      // Show a non-cancellable progress spinner while copying (MWM files can be large)
+      final FrameLayout frame = new FrameLayout(activity);
+      final int dp24 = Math.round(24 * activity.getResources().getDisplayMetrics().density);
+      frame.setPadding(dp24, dp24, dp24, dp24);
+      final CircularProgressIndicator spinner = new CircularProgressIndicator(activity);
+      spinner.setIndeterminate(true);
+      frame.addView(spinner, new FrameLayout.LayoutParams(
+          FrameLayout.LayoutParams.WRAP_CONTENT,
+          FrameLayout.LayoutParams.WRAP_CONTENT,
+          Gravity.CENTER));
+      final AlertDialog progressDialog = new MaterialAlertDialogBuilder(activity)
+          .setMessage(R.string.custom_mwm_importing)
+          .setView(frame)
+          .setCancelable(false)
+          .create();
       progressDialog.show();
 
       ThreadPool.getStorage().execute(() -> {
@@ -103,9 +118,7 @@ public class Factory
           switch (result)
           {
             case SUCCESS:
-              android.widget.Toast.makeText(activity,
-                  activity.getString(app.organicmaps.R.string.custom_mwm_import_success),
-                  android.widget.Toast.LENGTH_SHORT).show();
+              Toast.makeText(activity, R.string.custom_mwm_import_success, Toast.LENGTH_SHORT).show();
               // Re-register maps in the C++ layer, invalidate tile cache, then recreate so the
               // GL context initialises with the newly registered custom map already present.
               Framework.nativeReloadWorldMaps();
@@ -113,15 +126,11 @@ public class Factory
               activity.recreate();
               break;
             case ERROR_INVALID_FILE:
-              android.widget.Toast.makeText(activity,
-                  activity.getString(app.organicmaps.R.string.custom_mwm_import_invalid),
-                  android.widget.Toast.LENGTH_LONG).show();
+              Toast.makeText(activity, R.string.custom_mwm_import_invalid, Toast.LENGTH_LONG).show();
               break;
             case ERROR_IO:
             case ERROR_STORAGE:
-              android.widget.Toast.makeText(activity,
-                  activity.getString(app.organicmaps.R.string.custom_mwm_import_error),
-                  android.widget.Toast.LENGTH_LONG).show();
+              Toast.makeText(activity, R.string.custom_mwm_import_error, Toast.LENGTH_LONG).show();
               break;
           }
         });

@@ -1,9 +1,7 @@
 package app.organicmaps.sdk.bookmarks.data;
 
 import android.content.ContentResolver;
-import android.database.Cursor;
 import android.net.Uri;
-import android.provider.OpenableColumns;
 import androidx.annotation.IntDef;
 import androidx.annotation.IntRange;
 import androidx.annotation.Keep;
@@ -341,30 +339,9 @@ public enum BookmarkManager {
 
   static @Nullable String getBookmarksFilenameFromUri(@NonNull ContentResolver resolver, @NonNull Uri uri)
   {
-    String filename = null;
-    final String scheme = uri.getScheme();
-    if (scheme.equals("content"))
-    {
-      try (Cursor cursor = resolver.query(uri, null, null, null, null))
-      {
-        if (cursor != null && cursor.moveToFirst())
-        {
-          final int columnIndex = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-          if (columnIndex >= 0)
-            filename = cursor.getString(columnIndex);
-        }
-      }
-    }
-
+    String filename = StorageUtils.getFileNameFromUri(resolver, uri);
     if (filename == null)
-    {
-      filename = uri.getPath();
-      if (filename == null)
-        return null;
-      final int cut = filename.lastIndexOf('/');
-      if (cut != -1)
-        filename = filename.substring(cut + 1);
-    }
+      return null;
     // See IsBadCharForPath()
     filename = filename.replaceAll("[:/\\\\<>\"|?*]", "");
 

@@ -69,7 +69,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
   private int mListenerSlot;
   private CountryItem mSelectedItem;
-  private Set<String> mCustomMapIds = new HashSet<>();
+  private Map<String, CustomMwmManager.CustomMwmFile> mCustomMapFiles = new HashMap<>();
   // IDs of maps that have an officially-downloaded version on disk (may coexist with a custom map)
   private Set<String> mOfficialMapIds = new HashSet<>();
 
@@ -299,14 +299,14 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     case CountryItem.STATUS_DOWNLOADABLE: items.add(getDownloadMenuItem()); break;
 
     case CountryItem.STATUS_UPDATABLE:
-      if (!mCustomMapIds.contains(mSelectedItem.id))
+      if (!mCustomMapFiles.containsKey(mSelectedItem.id))
         items.add(getUpdateMenuItem());
       // Fallthrough
 
     case CountryItem.STATUS_DONE:
       if (!mSelectedItem.isExpandable())
         items.add(getExploreMenuItem());
-      if (mCustomMapIds.contains(mSelectedItem.id))
+      if (mCustomMapFiles.containsKey(mSelectedItem.id))
       {
         items.add(getRemoveCustomMapMenuItem());
         if (mOfficialMapIds.contains(mSelectedItem.id))
@@ -400,6 +400,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         .setNegativeButton(R.string.cancel, null)
         .setPositiveButton(R.string.ok, (dialog, which) -> {
           CustomMwmManager.deleteOfficialMapFromDisk(adapter.mActivity, item.id);
+          Framework.nativeReloadWorldMaps();
+          Framework.nativeInvalidateViewport();
           mOfficialMapIds.remove(item.id);
           refreshData();
         })
@@ -413,13 +415,12 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         .setMessage(R.string.custom_mwm_remove_dialog)
         .setNegativeButton(R.string.cancel, null)
         .setPositiveButton(R.string.ok, (dialog, which) -> {
-          CustomMwmManager.CustomMwmFile customFile =
-              CustomMwmManager.getCustomMwmFile(adapter.mActivity, item.id);
+          CustomMwmManager.CustomMwmFile customFile = mCustomMapFiles.get(item.id);
           if (customFile != null)
             CustomMwmManager.deleteCustomMwmFile(adapter.mActivity, customFile);
           Framework.nativeReloadWorldMaps();
           Framework.nativeInvalidateViewport();
-          mCustomMapIds = CustomMwmManager.getCustomMwmFiles(adapter.mActivity).keySet();
+          mCustomMapFiles = CustomMwmManager.getCustomMwmFiles(adapter.mActivity);
           refreshData();
         })
         .show();
@@ -571,7 +572,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
       // Show chip badge for user-imported MWM files
       mCustomChip.setVisibility(
-          mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapIds.contains(mItem.id)
+          mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapFiles.containsKey(mItem.id)
           ? View.VISIBLE : View.GONE);
 
       mStatusIcon.update(mItem);
@@ -663,9 +664,9 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   void refreshData()
   {
     mItems.clear();
-    mCustomMapIds = CustomMwmManager.getCustomMwmFiles(mActivity).keySet();
+    mCustomMapFiles = CustomMwmManager.getCustomMwmFiles(mActivity);
     mOfficialMapIds = new HashSet<>();
-    for (String id : mCustomMapIds)
+    for (String id : mCustomMapFiles.keySet())
     {
       if (CustomMwmManager.hasOfficialMapOnDisk(mActivity, id))
         mOfficialMapIds.add(id);

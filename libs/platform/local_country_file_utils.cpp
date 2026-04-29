@@ -247,7 +247,9 @@ void FindAllCustomMaps(string const & dataDir, std::vector<LocalCountryFile> & l
 
 bool IsCustomMap(LocalCountryFile const & localFile)
 {
-  return localFile.GetDirectory().find(kCustomMapsDir) != string::npos;
+  // Check that the directory is rooted at WritableDir/custom_maps/, not merely containing the name
+  string const customMapsRoot = base::JoinPath(GetPlatform().WritableDir(), kCustomMapsDir);
+  return localFile.GetDirectory().find(customMapsRoot) == 0;
 }
 
 void FindAllLocalMapsAndCleanup(int64_t latestVersion, std::vector<LocalCountryFile> & localFiles)
