@@ -9,6 +9,9 @@ import java.util.List;
 @UiThread
 public final class MapManager
 {
+  // Approx 400Kb size of countries.txt download to see if there is enough space for check updates
+  public static final int COUNTRIES_TXT_SIZE = 400 * 1024 * 1024;
+
   // Used by JNI.
   @Keep
   public static class StorageCallbackData
@@ -46,6 +49,22 @@ public final class MapManager
     void onCurrentCountryChanged(String countryId);
   }
 
+  // Must correspond to CheckUpdatesStatus in storage_defines.hpp
+  public static final int CHECK_UPDATES_UNDEFINED = 0;
+  public static final int CHECK_UPDATES_UPDATED = 1;  // An update had been pulled and applied successfully
+  public static final int CHECK_UPDATES_NOUPDATE = 2; // No updates available at the moment
+  public static final int CHECK_UPDATES_EOL = 3;      // No more updates planned for app's map series
+  public static final int CHECK_UPDATES_ERROR = 4;    // An error happened while checking
+
+  public interface CheckUpdatesListener
+  {
+    // Called from JNI.
+    @Keep
+    @SuppressWarnings("unused")
+    // See CHECK_UPDATES_* statuses above
+    void onCheckUpdates(int status);
+  }
+
   private MapManager() {}
 
   /**
@@ -81,6 +100,14 @@ public final class MapManager
   public static void startDownload(@NonNull String countryId)
   {
     nativeDownload(countryId);
+  }
+
+  /**
+   * Checks CDN for map updates.
+   */
+  public static void startCheckUpdates()
+  {
+    nativeCheckUpdates();
   }
 
   /**
@@ -201,6 +228,21 @@ public final class MapManager
    * Deletes given installed {@code root} node with its children.
    */
   public static native void nativeDelete(String root);
+
+  /**
+   * Checks CDN for map updates.
+   */
+  private static native void nativeCheckUpdates();
+
+  /**
+   * Sets check-for-map-updates operation status callback. Single subscriber only.
+   */
+  public static native void nativeSubscribeOnCheckUpdates(CheckUpdatesListener listener);
+
+  /**
+   * Removes check-for-map-updates callback.
+   */
+  public static native void nativeUnsubscribeOnCheckUpdates();
 
   /**
    * Registers {@code callback} of storage status changed. Returns slot ID which should be used to unsubscribe in {@link

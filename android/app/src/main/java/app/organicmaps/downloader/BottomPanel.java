@@ -14,6 +14,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.downloader.UpdateInfo;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.button.MaterialButton;
@@ -21,6 +22,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 class BottomPanel
 {
+  private static final String TAG = DownloaderFragment.class.getSimpleName();
+
   private final DownloaderFragment mFragment;
   private final FloatingActionButton mFab;
   private final MaterialButton mButton;
@@ -77,6 +80,14 @@ class BottomPanel
     mButton = frame.findViewById(R.id.action);
 
     mCheckUpdatesButton = frame.findViewById(R.id.check_updates);
+    mCheckUpdatesButton.setOnClickListener(v -> {
+      MapManagerHelper.warnOn3g(mFragment.requireActivity(), MapManager.COUNTRIES_TXT_SIZE, () -> {
+        Logger.i(TAG, "Check updates triggered by button press");
+        mCheckUpdatesButton.setText(mFragment.getString(R.string.downloader_check_updates_checking));
+        mCheckUpdatesButton.setEnabled(false);
+        MapManager.startCheckUpdates();
+      });
+    });
   }
 
   private void setUpdateAllState(UpdateInfo info)
@@ -103,6 +114,12 @@ class BottomPanel
   {
     mButton.setText(R.string.downloader_cancel_all);
     mButton.setOnClickListener(mCancelListener);
+  }
+
+  public void resetCheckUpdatesButton()
+  {
+    mCheckUpdatesButton.setText(mFragment.getString(R.string.downloader_check_updates_button));
+    mCheckUpdatesButton.setEnabled(true);
   }
 
   public void update()
