@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
@@ -18,6 +19,7 @@ import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.search.MapSearchListener;
 import app.organicmaps.sdk.search.SearchEngine;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import app.organicmaps.widget.PlaceholderView;
@@ -27,6 +29,8 @@ import java.util.List;
 public class DownloaderFragment
     extends BaseMwmRecyclerFragment<DownloaderAdapter> implements MenuBottomSheetFragment.MenuBottomSheetInterface
 {
+  private static final String TAG = DownloaderFragment.class.getSimpleName();
+
   private DownloaderToolbarController mToolbarController;
 
   private BottomPanel mBottomPanel;
@@ -142,6 +146,28 @@ public class DownloaderFragment
       {}
     });
 
+    MapManager.nativeSubscribeOnCheckUpdates(new MapManager.CheckUpdatesListener() {
+      @Override
+      public void onCheckUpdates(int status)
+      {
+        mBottomPanel.resetCheckUpdatesButton();
+        if (status == MapManager.CHECK_UPDATES_UPDATED)
+          update();
+        else if (status > MapManager.CHECK_UPDATES_ERROR)
+          Logger.w(TAG, "Check updates finished with unknown status: " + status);
+
+        final int notifResId = switch (status)
+        {
+          case MapManager.CHECK_UPDATES_UPDATED -> R.string.downloader_check_updates_updated;
+          case MapManager.CHECK_UPDATES_NOUPDATE -> R.string.downloader_check_updates_no_updates;
+          case MapManager.CHECK_UPDATES_EOL -> R.string.downloader_check_updates_eol;
+          case MapManager.CHECK_UPDATES_ERROR -> R.string.downloader_check_updates_error;
+          default -> R.string.downloader_check_updates_error;
+        };
+        Toast.makeText(requireContext(), getString(notifResId), Toast.LENGTH_LONG).show();
+      }
+    });
+
     SearchEngine.INSTANCE.addMapListener(mSearchListener);
 
     getRecyclerView().addOnScrollListener(mScrollListener);
@@ -172,6 +198,8 @@ public class DownloaderFragment
       MapManager.nativeUnsubscribe(mSubscriberSlot);
       mSubscriberSlot = 0;
     }
+
+    MapManager.nativeUnsubscribeOnCheckUpdates();
 
     SearchEngine.INSTANCE.removeMapListener(mSearchListener);
   }

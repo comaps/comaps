@@ -49,6 +49,7 @@ struct TBatchedData
   {}
 };
 
+jobject g_checkUpdatesListener = nullptr;
 jobject g_countryChangedListener = nullptr;
 
 DECLARE_THREAD_CHECKER(g_batchingThreadChecker);
@@ -436,6 +437,41 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeDele
   auto const countryId = jni::ToNativeString(env, root);
   GetStorage().DeleteNode(countryId);
   EndBatchingCallbacks(env);
+}
+
+// static void nativeCheckUpdates();
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeCheckUpdates(JNIEnv * env, jclass clazz)
+{
+  /// @todo(pastk): check if running already
+  GetStorage().RunCountriesCheckAsyncSaveOnly();
+}
+
+// static void nativeSubscribeOnCheckUpdates(CheckUpdatesListener listener);
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeSubscribeOnCheckUpdates(JNIEnv * env,
+                                                                                                    jclass clazz,
+                                                                                                    jobject listener)
+{
+  ASSERT(!g_checkUpdatesListener, ());
+  g_checkUpdatesListener = env->NewGlobalRef(listener);
+
+  auto const callback = [](storage::CheckUpdatesStatus const & status)
+  {
+    JNIEnv * env = jni::GetEnv();
+    jmethodID methodID = jni::GetMethodID(env, g_checkUpdatesListener, "onCheckUpdates", "(I)V");
+    env->CallVoidMethod(g_checkUpdatesListener, methodID, static_cast<jint>(status));
+  };
+
+  GetStorage().SetCheckUpdatesListener(callback);
+}
+
+// static void nativeUnsubscribeOnCheckUpdates();
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeUnsubscribeOnCheckUpdates(JNIEnv * env,
+                                                                                                      jclass clazz)
+{
+  GetStorage().SetCheckUpdatesListener(nullptr);
+
+  env->DeleteGlobalRef(g_checkUpdatesListener);
+  g_checkUpdatesListener = nullptr;
 }
 
 static void StatusChangedCallback(std::shared_ptr<jobject> const & listenerRef, storage::CountryId const & countryId)

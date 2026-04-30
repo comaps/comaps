@@ -274,7 +274,16 @@
     <string name="compass_calibration_required">Move the phone in a figure-eight motion to calibrate the compass and fix the arrow direction on the map.</string>
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
     <string name="long_tap_toast">Long-tap on the map again to see the interface</string>
+    <!-- Button title to check for new map updates -->
     <string name="downloader_check_updates_button">Check for updates</string>
+    <!-- Pressed button title after check for new map updates had been requested-->
+    <string name="downloader_check_updates_checking">Checking for updates...</string>
+    <string name="downloader_check_updates_updated">Map updates available!</string>
+    <!-- Notification for when check map updates had been requested and there are no new map updates available -->
+    <string name="downloader_check_updates_no_updates">No updates available</string>
+    <string name="downloader_check_updates_eol">No more map updates for this app version. Please update the app!</string>
+    <!-- Notification for when check map updates had been requested and there had been some error -->
+    <string name="downloader_check_updates_error">Error checking for updates</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Update All</string>
     <!-- Cancel all button text -->
