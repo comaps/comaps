@@ -275,6 +275,9 @@
     <!-- Toast text when user hides UI with a long tap anywhere on the map -->
     <string name="long_tap_toast">Long-tap on the map again to see the interface</string>
     <string name="downloader_check_updates_button">Check for updates</string>
+    <string name="downloader_check_updates_checking">Checking...</string>
+    <string name="downloader_check_updates_updated">Map updates available!</string>
+    <string name="downloader_check_updates_no_updates">No updates available</string>
     <!-- Update all button text -->
     <string name="downloader_update_all_button">Update All</string>
     <!-- Cancel all button text -->
