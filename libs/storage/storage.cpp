@@ -187,6 +187,7 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
       NotifyStatusChangedForHierarchy(p.first);
 
   LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
+  NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Updated);
 }
 
 void Storage::ApplyPendingCountriesIfAny()
@@ -252,7 +253,7 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
   });
 }
 
-int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) const
+int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer, bool & isEOL) const
 {
   try
   {
@@ -272,10 +273,12 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) 
       while (iter)
       {
         const char* key = json_object_iter_key(iter);
-        if (std::string(key) == MAP_SERIES)
+        if (key && std::string_view(key) == MAP_SERIES)
         {
           json_t* entry = json_object_iter_value(iter);
           json_t* latest = json_object_get(entry, "latest");
+          char const * status = json_string_value(json_object_get(entry, "status"));
+          isEOL = status && std::string_view(status) == "EOL";
           return json_integer_value(latest);
         }
         iter = json_object_iter_next(mapSeries, iter);
@@ -290,6 +293,13 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer) 
   }
 }
 
+void Storage::NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status) const
+{
+  LOG(LINFO, ("COUNTRIES: check updates result:", storage::DebugPrint(status)));
+  if (m_onCheckUpdates != nullptr)
+    GetPlatform().RunTask(Platform::Thread::Gui, [this, status]() { m_onCheckUpdates(status); });
+}
+
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
   std::string const serverMapsUrl = "meta/" SERVER_MAPS_FILE;
@@ -299,21 +309,28 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
   {
     if (mapsBuffer.empty())
     {
-      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response - skip update"));
+      LOG(LWARNING, ("COUNTRIES:", serverMapsUrl, "empty response or error - skip update"));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
       return false;
     }
 
     LOG(LDEBUG, ("COUNTRIES: parsing downloaded", serverMapsUrl));
-    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer);
+    bool isEOL = false;
+    int64_t const dataVersion = ParseServerMapsAndGetLatestVersion(mapsBuffer, isEOL);
     if (dataVersion == 0)
     {
       LOG(LWARNING, ("COUNTRIES: latest map version info not found for map series", MAP_SERIES));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
       return false;
     }
-    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES));
+    LOG(LINFO, ("COUNTRIES:", dataVersion, "is latest map version for series", MAP_SERIES, "isEOL:", isEOL));
     if (dataVersion <= m_currentVersion)
     {
       LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      if (isEOL)
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::EOL);
+      else
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::NoUpdate);
       return false;
     }
 
@@ -331,7 +348,8 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
 
       if (buffer.empty())
       {
-        LOG(LWARNING, ("COUNTRIES: empty response - skip update"));
+        LOG(LWARNING, ("COUNTRIES:", COUNTRIES_FILE, "empty response or error - skip update"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
         return false;
       }
 
@@ -348,6 +366,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       {
         LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
                        "parsed map series", mapSeries, "expected", MAP_SERIES, "- skip update"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
         return false;
       }
 
@@ -361,13 +380,15 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       {
         if (sigBuf.empty())
         {
-          LOG(LWARNING, ("COUNTRIES: empty signature response; rejecting countries.txt update."));
+          LOG(LWARNING, ("COUNTRIES: empty signature response or error - skip update"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
         if (sigBuf.size() != 64)
         {
           LOG(LWARNING, ("COUNTRIES: invalid signature size"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
@@ -375,6 +396,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
         if (!DecodeHex32(COUNTRIES_TXT_SIGNATURE_HEX, countriesTxtPublicKey))
         {
           LOG(LWARNING, ("COUNTRIES: invalid public signature hex"));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
         LOG(LDEBUG, ("COUNTRIES: verifying signature."));
@@ -383,6 +405,7 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
                                              reinterpret_cast<uint8_t const *>(sigBuf.data())))
         {
           LOG(LWARNING, ("COUNTRIES: signature verification failed."));
+          NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
           return false;
         }
 
@@ -898,6 +921,11 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
   }
+}
+
+void Storage::SetCheckUpdatesListener(CheckUpdatesFunction listener)
+{
+  m_onCheckUpdates = std::move(listener);
 }
 
 int Storage::Subscribe(ChangeCountryFunction change, ProgressFunction progress)

@@ -164,6 +164,7 @@ public:
   using StartDownloadingCallback = std::function<void()>;
   using UpdateCallback = std::function<void(storage::CountryId const &, LocalFilePtr const)>;
   using DeleteCallback = std::function<bool(storage::CountryId const &, LocalFilePtr const)>;
+  using CheckUpdatesFunction = std::function<void(storage::CheckUpdatesStatus const &)>;
   using ChangeCountryFunction = std::function<void(CountryId const &)>;
   using ProgressFunction = std::function<void(CountryId const &, downloader::Progress const &)>;
   using DownloadingCountries = ankerl::unordered_dense::map<CountryId, downloader::Progress>;
@@ -214,8 +215,10 @@ private:
   void ApplyCountriesInMemory(std::string const & buffer);
   void ApplyPendingCountriesIfAny();
   void PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int64_t parsedVersion);
+  /// \param isEOL is true if no more updates are planned for this map series
   /// @return 0 If error.
-  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer) const;
+  int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer, bool & isEOL) const;
+  void NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status) const;
 
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.
@@ -260,6 +263,9 @@ private:
   };
 
   std::list<CountryObservers> m_observers;
+
+  // Called when "check for map updates" operation status has updated. Should be always run in the GUI/main thread.
+  CheckUpdatesFunction m_onCheckUpdates;
   //@}
 
   // This function is called each time all files requested for a
@@ -558,6 +564,9 @@ public:
   /// @return unique identifier that should be used with Unsubscribe function
   int Subscribe(ChangeCountryFunction change, ProgressFunction progress);
   void Unsubscribe(int slotId);
+
+  // Listener should be called in the GUI/main thread.
+  void SetCheckUpdatesListener(CheckUpdatesFunction listener);
 
   /// Returns information about selected counties downloading progress.
   /// |countries| - watched CountryId, ONLY leaf expected.

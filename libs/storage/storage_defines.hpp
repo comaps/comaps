@@ -76,6 +76,17 @@ enum class NodeErrorCode
 };
 std::string DebugPrint(NodeErrorCode status);
 
+/// \note The order of enum items is important, they're mirrored in MapManager.java
+enum class CheckUpdatesStatus
+{
+  Undefined,
+  Updated,   /**< An update had been pulled and applied successfully */
+  NoUpdate,  /**< No updates available at the moment */
+  EOL,       /**< No more updates planned for app's map series */
+  Error,     /**< An error happened while checking */
+};
+std::string DebugPrint(CheckUpdatesStatus status);
+
 struct StatusAndError
 {
   StatusAndError(NodeStatus nodeStatus, NodeErrorCode nodeError) : status(nodeStatus), error(nodeError) {}
