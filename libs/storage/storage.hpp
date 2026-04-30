@@ -164,6 +164,7 @@ public:
   using StartDownloadingCallback = std::function<void()>;
   using UpdateCallback = std::function<void(storage::CountryId const &, LocalFilePtr const)>;
   using DeleteCallback = std::function<bool(storage::CountryId const &, LocalFilePtr const)>;
+  using CheckUpdatesFunction = std::function<void(storage::CheckUpdatesStatus const &)>;
   using ChangeCountryFunction = std::function<void(CountryId const &)>;
   using ProgressFunction = std::function<void(CountryId const &, downloader::Progress const &)>;
   using DownloadingCountries = ankerl::unordered_dense::map<CountryId, downloader::Progress>;
@@ -260,6 +261,9 @@ private:
   };
 
   std::list<CountryObservers> m_observers;
+
+  // Called when "check for map updates" operation status has updated.
+  CheckUpdatesFunction m_onCheckUpdates;
   //@}
 
   // This function is called each time all files requested for a
@@ -558,6 +562,9 @@ public:
   /// @return unique identifier that should be used with Unsubscribe function
   int Subscribe(ChangeCountryFunction change, ProgressFunction progress);
   void Unsubscribe(int slotId);
+
+  // Listener should be called in the main thread context.
+  void SetCheckUpdatesListener(CheckUpdatesFunction listener);
 
   /// Returns information about selected counties downloading progress.
   /// |countries| - watched CountryId, ONLY leaf expected.

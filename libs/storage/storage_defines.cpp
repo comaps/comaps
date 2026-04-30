@@ -51,6 +51,19 @@ string DebugPrint(NodeStatus status)
   UNREACHABLE();
 }
 
+string DebugPrint(CheckUpdatesStatus status)
+{
+  switch (status)
+  {
+  case CheckUpdatesStatus::Undefined: return "Undefined"s;
+  case CheckUpdatesStatus::Updated: return "Updated"s;
+  case CheckUpdatesStatus::NoUpdate: return "NoUpdate"s;
+  case CheckUpdatesStatus::EOL: return "EOL"s;
+  case CheckUpdatesStatus::Error: return "Error"s;
+  }
+  UNREACHABLE();
+}
+
 string DebugPrint(NodeErrorCode status)
 {
   switch (status)

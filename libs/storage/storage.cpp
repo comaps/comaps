@@ -186,6 +186,8 @@ void Storage::ApplyCountriesInMemory(std::string const & buffer)
     if (IsNode(p.first))
       NotifyStatusChangedForHierarchy(p.first);
 
+  m_onCheckUpdates(storage::CheckUpdatesStatus::Updated);
+
   LOG(LDEBUG, ("COUNTRIES: applied in-memory, new version", m_currentVersion));
 }
 
@@ -314,6 +316,10 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
     if (dataVersion <= m_currentVersion)
     {
       LOG(LDEBUG, ("COUNTRIES:", dataVersion, "is not newer than current", m_currentVersion, "- skipping"));
+      GetPlatform().RunTask(Platform::Thread::Gui, [this]()
+      {
+        m_onCheckUpdates(storage::CheckUpdatesStatus::NoUpdate);
+      });
       return false;
     }
 
@@ -898,6 +904,11 @@ void Storage::LoadCountriesFile(string const & pathToCountriesFile)
     if (m_currentVersion < 0)
       LOG(LERROR, ("Can't load countries file", pathToCountriesFile));
   }
+}
+
+void Storage::SetCheckUpdatesListener(CheckUpdatesFunction listener)
+{
+  m_onCheckUpdates = std::move(listener);
 }
 
 int Storage::Subscribe(ChangeCountryFunction change, ProgressFunction progress)
