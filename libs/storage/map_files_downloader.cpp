@@ -98,11 +98,8 @@ void MapFilesDownloader::DownloadAsStringFromMeta(std::string url, std::function
 
     LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
 
-    if (!buffer.empty())
-    {
-      // Update deleteRequest flag if new download was requested in callback.
-      deleteRequest = !callback(buffer);
-    }
+    // Update deleteRequest flag if new download was requested in callback.
+    deleteRequest = !callback(buffer);
 
     if (deleteRequest)
       m_fileRequest.reset();
@@ -126,11 +123,8 @@ void MapFilesDownloader::DownloadAsString(std::string url, std::function<bool(st
 
       LOG(LDEBUG, ("DownloadAsString: status=", request.GetStatus(), "bytes=", buffer.size()));
 
-      if (!buffer.empty())
-      {
-        // Update deleteRequest flag if new download was requested in callback.
-        deleteRequest = !callback(buffer);
-      }
+      // Update deleteRequest flag if new download was requested in callback.
+      deleteRequest = !callback(buffer);
 
       if (deleteRequest)
         m_fileRequest.reset();
