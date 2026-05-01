@@ -154,7 +154,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_WIKIPEDIA;
   else if (k == "wikimedia_commons")
     outType = Metadata::FMD_WIKIMEDIA_COMMONS;
-  else if (k == "panoramax")
+  else if (k == "panoramax" || k == "panoramax:view")
     outType = Metadata::FMD_PANORAMAX;
   else if (k == "addr:flats")
     outType = Metadata::FMD_FLATS;
