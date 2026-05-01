@@ -4,4 +4,5 @@
   <integer name="pp_buttons_max">4</integer>
   <integer name="place_page_wiki_article_max_length">500</integer>
   <integer name="search_category_span">2</integer>
+  <integer name="color_grid_columns">3</integer>
 </resources>
