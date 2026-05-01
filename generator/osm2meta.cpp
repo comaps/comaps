@@ -344,7 +344,7 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_wikimedia_commons(std::s
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
 {
-  static auto const s_panoramaxRegex = std::regex(R"(^([a-z0-9]{8}(-[a-z0-9]{4}){3}-[a-z0-9]{12})$)");
+  static auto const s_panoramaxRegex = std::regex(R"(^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$)");
 
   if (std::regex_match(v, s_panoramaxRegex))
     return v;
@@ -352,7 +352,13 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
   if (std::string const * paramValue = parsedUrl.GetParamValue("pic"))
   {
     if (std::regex_match(*paramValue, s_panoramaxRegex))
-      return v;
+    {
+      if (std::string const * xyzValue = parsedUrl.GetParamValue("xyz"))
+      {
+        return *paramValue + "&xyz=" + *xyzValue;
+      }
+      return *paramValue;
+	}
   }
   LOG(LDEBUG, ("Invalid Panoramax tag value:", v));
   return {};
