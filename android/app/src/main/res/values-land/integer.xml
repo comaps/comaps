@@ -2,4 +2,5 @@
 <resources>
   <integer name="pp_title_lines">2</integer>
   <integer name="search_category_span">3</integer>
+  <integer name="color_grid_columns">4</integer>
 </resources>
