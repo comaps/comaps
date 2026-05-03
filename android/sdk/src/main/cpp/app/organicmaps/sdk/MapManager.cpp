@@ -598,4 +598,12 @@ JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_downloader_MapManager_native
 {
   return GetStorage().IsMapTooOldToEdit(jni::ToNativeString(env, country_id));
 }
+
+// static native boolean nativeIsLeafCountryId(String countryId);
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_downloader_MapManager_nativeIsLeafCountryId(JNIEnv * env,
+                                                                                                jclass clazz,
+                                                                                                jstring countryId)
+{
+  return static_cast<jboolean>(GetStorage().IsLeaf(jni::ToNativeString(env, countryId)));
+}
 }  // extern "C"

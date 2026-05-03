@@ -1006,4 +1006,8 @@
     <string name="custom_mwm_remove">Remove custom map</string>
     <string name="custom_mwm_remove_dialog">Remove the custom map file? The official map will be used instead if downloaded.</string>
     <string name="custom_mwm_delete_official">Delete downloaded map</string>
+    <string name="custom_mwm_unknown_region_title">Unrecognised map region</string>
+    <string name="custom_mwm_unknown_region">This file doesn\'t match any known map region. Import anyway?</string>
+    <string name="custom_mwm_unknown_region_named">"%s" doesn\'t match any known map region. Import anyway?</string>
+    <string name="import_anyway">Import anyway</string>
 </resources>

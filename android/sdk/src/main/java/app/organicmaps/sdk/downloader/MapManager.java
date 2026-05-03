@@ -266,4 +266,10 @@ public final class MapManager
    * Returns true when the map exists and is too old for map editing.
    */
   public static native boolean nativeIsMapTooOldToEdit(String countryId);
+
+  /**
+   * Returns true if the given string is a leaf node (downloadable map region) in the country tree.
+   * Use this to validate whether a filename corresponds to a known map region.
+   */
+  public static native boolean nativeIsLeafCountryId(String countryId);
 }

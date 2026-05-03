@@ -72,6 +72,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   private Map<String, CustomMwmManager.CustomMwmFile> mCustomMapFiles = new HashMap<>();
   // IDs of maps that have an officially-downloaded version on disk (may coexist with a custom map)
   private Set<String> mOfficialMapIds = new HashSet<>();
+  // IDs of custom maps whose filenames don't match any known country in the storage tree
+  private Set<String> mUnrecognizedCustomIds = new HashSet<>();
 
   private final OnBackPressedCallback mBackPressedCallback = new OnBackPressedCallback(false) {
     @Override
@@ -304,7 +306,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       // Fallthrough
 
     case CountryItem.STATUS_DONE:
-      if (!mSelectedItem.isExpandable())
+      if (!mSelectedItem.isExpandable() && !mUnrecognizedCustomIds.contains(mSelectedItem.id))
         items.add(getExploreMenuItem());
       if (mCustomMapFiles.containsKey(mSelectedItem.id))
       {
@@ -424,6 +426,21 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
           refreshData();
         })
         .show();
+  }
+
+  @NonNull
+  private static CountryItem makeSyntheticItem(@NonNull CustomMwmManager.CustomMwmFile file)
+  {
+    CountryItem item = new CountryItem(file.name);
+    item.name = file.name;
+    item.directParentId = "";
+    item.topmostParentId = "";
+    item.status = CountryItem.STATUS_DONE;
+    item.present = true;
+    item.category = CountryItem.CATEGORY_DOWNLOADED;
+    item.size = file.fileSize;
+    item.localVersion = file.version;
+    return item;
   }
 
   private class ItemViewHolder extends BaseInnerViewHolder<CountryItem>
@@ -689,6 +706,22 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     }
 
     MapManager.nativeListItems(parent, lat, lon, hasLocation, mMyMapsMode, mItems);
+
+    // Inject synthetic entries for custom maps whose filenames don't match any known country in the
+    // storage tree. Maps that are valid leaf country IDs are already represented in the hierarchy.
+    mUnrecognizedCustomIds = new HashSet<>();
+    if (mMyMapsMode && CountryItem.isRoot(parent))
+    {
+      for (Map.Entry<String, CustomMwmManager.CustomMwmFile> e : mCustomMapFiles.entrySet())
+      {
+        if (!MapManager.nativeIsLeafCountryId(e.getKey()))
+        {
+          mUnrecognizedCustomIds.add(e.getKey());
+          mItems.add(makeSyntheticItem(e.getValue()));
+        }
+      }
+    }
+
     processData();
   }
 
@@ -726,6 +759,10 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     mCountryIndex.clear();
     for (CountryItem ci : mItems)
     {
+      // Don't index synthetic unrecognized-custom items: native never fires status updates for them.
+      if (mUnrecognizedCustomIds.contains(ci.id))
+        continue;
+
       List<CountryItem> lst = mCountryIndex.get(ci.id);
       if (lst != null)
         lst.add(ci);

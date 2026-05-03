@@ -39,8 +39,21 @@ public class CustomMwmManager
     SUCCESS,
     ERROR_INVALID_FILE,
     ERROR_IO,
-    ERROR_STORAGE
+    ERROR_STORAGE,
+    /** The filename doesn't match any known leaf region in the country tree. */
+    ERROR_UNKNOWN_REGION
   }
+
+  /**
+   * After a call to {@link #importMwmFile} returns {@link ImportResult#ERROR_UNKNOWN_REGION},
+   * this holds the normalized filename (without .mwm) that was attempted, so the caller
+   * can display it in a "import anyway?" confirmation dialog.
+   */
+  @Nullable
+  private static volatile String sLastNormalizedName = null;
+
+  @Nullable
+  public static String getLastNormalizedName() { return sLastNormalizedName; }
 
   /**
    * Represents a custom MWM file with its metadata.
@@ -100,6 +113,24 @@ public class CustomMwmManager
   @NonNull
   public static ImportResult importMwmFile(@NonNull Context context, @NonNull Uri uri)
   {
+    return importMwmFile(context, uri, false);
+  }
+
+  /**
+   * Like {@link #importMwmFile(Context, Uri)} but skips the country-ID validation step.
+   * Use this when the user has already been warned that the region is unrecognised and
+   * has chosen to import anyway.
+   */
+  @NonNull
+  public static ImportResult importMwmFileForced(@NonNull Context context, @NonNull Uri uri)
+  {
+    return importMwmFile(context, uri, true);
+  }
+
+  @NonNull
+  private static ImportResult importMwmFile(@NonNull Context context, @NonNull Uri uri,
+                                            boolean skipRegionValidation)
+  {
     ContentResolver resolver = context.getContentResolver();
     String fileName = StorageUtils.getFileNameFromUri(resolver, uri);
     if (fileName == null || !fileName.toLowerCase(Locale.US).endsWith(MWM_EXTENSION))
@@ -108,8 +139,9 @@ public class CustomMwmManager
       return ImportResult.ERROR_INVALID_FILE;
     }
 
-    // Strip duplicate-download suffixes added by browsers/file managers (e.g. "Portland (2).mwm" -> "Portland.mwm")
-    fileName = fileName.replaceAll("(?i)\\s*\\(\\d+\\)(\\.mwm)$", "$1");
+    // Strip all duplicate-download suffixes added by browsers/file managers
+    // (e.g. "Portland (1) (2).mwm" -> "Portland.mwm")
+    fileName = fileName.replaceAll("(?i)(\\s*\\(\\d+\\))+(\\.mwm)$", "$2");
 
     // Sanity-check: MWM files are a FilesContainer whose first 8 bytes are a little-endian uint64_t
     // pointing to the table of contents. If those bytes are 0 or implausibly large the file is junk.
@@ -117,6 +149,21 @@ public class CustomMwmManager
     {
       Logger.e(TAG, "File does not appear to be a valid MWM container: " + fileName);
       return ImportResult.ERROR_INVALID_FILE;
+    }
+
+    // Validate and canonicalise: try to match the filename (or a prefix of it) to a known region.
+    String candidate = fileName.substring(0, fileName.length() - MWM_EXTENSION.length());
+    if (!skipRegionValidation)
+    {
+      String countryId = findMatchingCountryId(candidate);
+      if (countryId == null)
+      {
+        Logger.w(TAG, "Filename doesn't match any known region: " + candidate);
+        sLastNormalizedName = candidate;
+        return ImportResult.ERROR_UNKNOWN_REGION;
+      }
+      // Rename to the canonical country ID (strips any trailing junk after the region name)
+      fileName = countryId + MWM_EXTENSION;
     }
 
     String destDir = getTodayCustomMapsDir(context);
@@ -324,6 +371,33 @@ public class CustomMwmManager
     {
       return false;
     }
+  }
+
+  /**
+   * Tries to find the longest prefix of {@code candidate} that is a valid leaf country ID.
+   * Splits at word-boundary characters (space, open bracket/paren, hyphen preceded by space)
+   * so "US_Oregon_Portland - Copy" → "US_Oregon_Portland" and
+   * "Germany (old version)" → "Germany".
+   * Returns {@code candidate} itself if it matches directly, or null if no prefix matches.
+   */
+  @Nullable
+  private static String findMatchingCountryId(@NonNull String candidate)
+  {
+    if (MapManager.nativeIsLeafCountryId(candidate))
+      return candidate;
+
+    // Walk backwards through the string and test each prefix at a word boundary.
+    for (int i = candidate.length() - 1; i > 0; i--)
+    {
+      char c = candidate.charAt(i);
+      if (c == '(' || c == '[' || c == ' ')
+      {
+        String prefix = candidate.substring(0, i).trim();
+        if (!prefix.isEmpty() && MapManager.nativeIsLeafCountryId(prefix))
+          return prefix;
+      }
+    }
+    return null;
   }
 
   /**

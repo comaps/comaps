@@ -10,6 +10,7 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.IntentCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
@@ -132,11 +133,65 @@ public class Factory
             case ERROR_STORAGE:
               Toast.makeText(activity, R.string.custom_mwm_import_error, Toast.LENGTH_LONG).show();
               break;
+            case ERROR_UNKNOWN_REGION:
+              showUnknownRegionDialog(activity, uri, CustomMwmManager.getLastNormalizedName());
+              break;
           }
         });
       });
 
       return true;
+    }
+
+    private static void showUnknownRegionDialog(@NonNull MwmActivity activity, @NonNull Uri uri,
+                                                @Nullable String normalizedName)
+    {
+      String message = normalizedName != null
+          ? activity.getString(R.string.custom_mwm_unknown_region_named, normalizedName)
+          : activity.getString(R.string.custom_mwm_unknown_region);
+      new MaterialAlertDialogBuilder(activity)
+          .setTitle(R.string.custom_mwm_unknown_region_title)
+          .setMessage(message)
+          .setPositiveButton(R.string.import_anyway, (dialog, which) -> doForcedImport(activity, uri))
+          .setNegativeButton(R.string.cancel, null)
+          .show();
+    }
+
+    private static void doForcedImport(@NonNull MwmActivity activity, @NonNull Uri uri)
+    {
+      final FrameLayout frame = new FrameLayout(activity);
+      final int dp24 = Math.round(24 * activity.getResources().getDisplayMetrics().density);
+      frame.setPadding(dp24, dp24, dp24, dp24);
+      final CircularProgressIndicator spinner = new CircularProgressIndicator(activity);
+      spinner.setIndeterminate(true);
+      frame.addView(spinner, new FrameLayout.LayoutParams(
+          FrameLayout.LayoutParams.WRAP_CONTENT,
+          FrameLayout.LayoutParams.WRAP_CONTENT,
+          Gravity.CENTER));
+      final AlertDialog progressDialog = new MaterialAlertDialogBuilder(activity)
+          .setMessage(R.string.custom_mwm_importing)
+          .setView(frame)
+          .setCancelable(false)
+          .create();
+      progressDialog.show();
+
+      ThreadPool.getStorage().execute(() -> {
+        CustomMwmManager.ImportResult result = CustomMwmManager.importMwmFileForced(activity, uri);
+        activity.runOnUiThread(() -> {
+          progressDialog.dismiss();
+          if (result == CustomMwmManager.ImportResult.SUCCESS)
+          {
+            Toast.makeText(activity, R.string.custom_mwm_import_success, Toast.LENGTH_SHORT).show();
+            Framework.nativeReloadWorldMaps();
+            Framework.nativeInvalidateViewport();
+            activity.recreate();
+          }
+          else
+          {
+            Toast.makeText(activity, R.string.custom_mwm_import_error, Toast.LENGTH_LONG).show();
+          }
+        });
+      });
     }
   }
 
