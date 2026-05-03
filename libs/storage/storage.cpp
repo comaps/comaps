@@ -1498,14 +1498,6 @@ void Storage::GetChildrenInGroups(CountryId const & parent, CountriesVec & downl
   {
     CountryId const & childValue = childNode.Value().Name();
 
-    // Do not show bundled World files in Downloader UI, they are always exist and up-to-date.
-    if (IsWorldCountryID(childValue))
-    {
-      auto const pFile = GetLatestLocalFile(childValue);
-      if (pFile && pFile->IsInBundle())
-        return;
-    }
-
     vector<pair<CountryId, NodeStatus>> disputedTerritoriesAndStatus;
     StatusAndError const childStatus =
         GetNodeStatusInfo(childNode, disputedTerritoriesAndStatus, true /* isDisputedTerritoriesCounted */);
