@@ -29,7 +29,6 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
-import com.google.android.material.chip.Chip;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
@@ -451,7 +450,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     private final MaterialTextView mFoundName;
     private final MaterialTextView mSize;
     private final MaterialTextView mVersion;
-    private final Chip mCustomChip;
+    private final View mCustomLabel;
 
     private void processClick(boolean clickOnStatus)
     {
@@ -515,7 +514,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       mFoundName = frame.findViewById(R.id.found_name);
       mSize = frame.findViewById(R.id.size);
       mVersion = frame.findViewById(R.id.version);
-      mCustomChip = frame.findViewById(R.id.custom_map_chip);
+      mCustomLabel = frame.findViewById(R.id.custom_map_label);
 
       frame.setOnClickListener(v -> {
         if (mItem.isExpandable())
@@ -587,8 +586,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         mVersion.setVisibility(View.GONE);
       }
 
-      // Show chip badge for user-imported MWM files
-      mCustomChip.setVisibility(
+      // Show "Custom" label for user-imported MWM files
+      mCustomLabel.setVisibility(
           mMyMapsMode && mItem.present && !mItem.isExpandable() && mCustomMapFiles.containsKey(mItem.id)
           ? View.VISIBLE : View.GONE);
 

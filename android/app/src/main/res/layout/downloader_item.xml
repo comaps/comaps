@@ -84,17 +84,15 @@
       tools:text="Украина"
       tools:background="#60FFFF00"/>
 
-    <com.google.android.material.chip.Chip
-      android:id="@+id/custom_map_chip"
-      style="@style/Widget.Material3.Chip.Suggestion"
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/custom_map_label"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:layout_marginTop="2dp"
+      android:layout_marginTop="1dp"
       android:text="@string/custom_mwm_custom_label"
       android:textAppearance="@style/MwmTextAppearance.Body4"
+      android:textColor="?colorPrimary"
       android:visibility="gone"
-      android:clickable="false"
-      android:focusable="false"
       tools:visibility="visible"/>
   </LinearLayout>
 </RelativeLayout>
