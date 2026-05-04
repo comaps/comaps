@@ -66,7 +66,32 @@ public:
     m_map[c.GetTypeByPath({"highway", "steps"})] = HighwayClass::Pedestrian;
     m_map[c.GetTypeByPath({"highway", "cycleway"})] = HighwayClass::Pedestrian;
     m_map[c.GetTypeByPath({"highway", "path"})] = HighwayClass::Pedestrian;
+
+    // mvglasow: Appears to never have been used
     m_map[c.GetTypeByPath({"highway", "construction"})] = HighwayClass::Pedestrian;
+
+    // Construction types
+    m_map[c.GetTypeByPath({"highway", "construction", "motorway"})] = HighwayClass::Motorway;
+    m_map[c.GetTypeByPath({"highway", "construction", "motorway_link"})] = HighwayClass::Motorway;
+    m_map[c.GetTypeByPath({"highway", "construction", "trunk"})] = HighwayClass::Trunk;
+    m_map[c.GetTypeByPath({"highway", "construction", "trunk_link"})] = HighwayClass::Trunk;
+
+    m_map[c.GetTypeByPath({"highway", "construction", "primary"})] = HighwayClass::Primary;
+    m_map[c.GetTypeByPath({"highway", "primary_link"})] = HighwayClass::Primary;
+
+    m_map[c.GetTypeByPath({"highway", "construction", "secondary"})] = HighwayClass::Secondary;
+    m_map[c.GetTypeByPath({"highway", "construction", "secondary_link"})] = HighwayClass::Secondary;
+
+    m_map[c.GetTypeByPath({"highway", "construction", "tertiary"})] = HighwayClass::Tertiary;
+    m_map[c.GetTypeByPath({"highway", "construction", "tertiary_link"})] = HighwayClass::Tertiary;
+
+    m_map[c.GetTypeByPath({"highway", "construction", "unclassified"})] = HighwayClass::LivingStreet;
+    m_map[c.GetTypeByPath({"highway", "construction", "residential"})] = HighwayClass::LivingStreet;
+    m_map[c.GetTypeByPath({"highway", "construction", "living_street"})] = HighwayClass::LivingStreet;
+    m_map[c.GetTypeByPath({"highway", "construction", "road"})] = HighwayClass::LivingStreet;
+
+    m_map[c.GetTypeByPath({"highway", "construction", "service"})] = HighwayClass::Service;
+    m_map[c.GetTypeByPath({"highway", "construction", "track"})] = HighwayClass::Service;
   }
 
   HighwayClass Get(uint32_t t) const

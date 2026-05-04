@@ -123,6 +123,11 @@ auto constexpr kTurnPenaltyMinAngle = 65.0;
 auto constexpr kTurnPenaltyFullAngle = 90.0;
 
 /*
+ * Penalty applied to impassable ways
+ */
+auto constexpr kImpassablePenalty = 1.0E4;
+
+/*
  * Invalid feature ID.
  * Borrowed from indexer/feature_decl.hpp.
  */
@@ -690,6 +695,10 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     result *= m_decoder.GetRoadRefPenalty(refs);
   }
 
+  if ((m_decoder.m_trafficImpact.value().m_speedGroup != traffic::SpeedGroup::TempBlock)
+      && road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+    result *= kImpassablePenalty;
+
   return result;
 }
 
@@ -742,6 +751,7 @@ double RoutingTraffDecoder::GetHighwayTypePenalty(std::optional<routing::Highway
   double result = 1.0;
   if (highwayType)
   {
+    //LOG(LINFO, ("highway type:", highwayType.value()));
     if (IsRamp(highwayType.value()) != (ramps != Ramps::None))
       // if one is a ramp and the other is not, treat it as a mismatch
       result *= kAttributePenalty;
@@ -1363,18 +1373,28 @@ traffxml::RoadClass GetRoadClass(routing::HighwayType highwayType)
    */
   case routing::HighwayType::HighwayMotorway:
   case routing::HighwayType::HighwayMotorwayLink:
+  case routing::HighwayType::HighwayConstructionMotorway:
+  case routing::HighwayType::HighwayConstructionMotorwayLink:
     return traffxml::RoadClass::Motorway;
   case routing::HighwayType::HighwayTrunk:
   case routing::HighwayType::HighwayTrunkLink:
+  case routing::HighwayType::HighwayConstructionTrunk:
+  case routing::HighwayType::HighwayConstructionTrunkLink:
     return traffxml::RoadClass::Trunk;
   case routing::HighwayType::HighwayPrimary:
   case routing::HighwayType::HighwayPrimaryLink:
+  case routing::HighwayType::HighwayConstructionPrimary:
+  case routing::HighwayType::HighwayConstructionPrimaryLink:
     return traffxml::RoadClass::Primary;
   case routing::HighwayType::HighwaySecondary:
   case routing::HighwayType::HighwaySecondaryLink:
+  case routing::HighwayType::HighwayConstructionSecondary:
+  case routing::HighwayType::HighwayConstructionSecondaryLink:
     return traffxml::RoadClass::Secondary;
   case routing::HighwayType::HighwayTertiary:
   case routing::HighwayType::HighwayTertiaryLink:
+  case routing::HighwayType::HighwayConstructionTertiary:
+  case routing::HighwayType::HighwayConstructionTertiaryLink:
     return traffxml::RoadClass::Tertiary;
   default:
     return traffxml::RoadClass::Other;
@@ -1430,6 +1450,33 @@ double GetRoadClassPenalty(traffxml::RoadClass lhs, traffxml::RoadClass rhs)
       return kAttributePenalty;
   default:
     UNREACHABLE();
+  }
+}
+
+bool IsConstruction(routing::HighwayType highwayType)
+{
+  switch(highwayType)
+  {
+  case routing::HighwayType::HighwayConstruction:
+  case routing::HighwayType::HighwayConstructionMotorway:
+  case routing::HighwayType::HighwayConstructionMotorwayLink:
+  case routing::HighwayType::HighwayConstructionTrunk:
+  case routing::HighwayType::HighwayConstructionTrunkLink:
+  case routing::HighwayType::HighwayConstructionPrimary:
+  case routing::HighwayType::HighwayConstructionPrimaryLink:
+  case routing::HighwayType::HighwayConstructionSecondary:
+  case routing::HighwayType::HighwayConstructionSecondaryLink:
+  case routing::HighwayType::HighwayConstructionTertiary:
+  case routing::HighwayType::HighwayConstructionTertiaryLink:
+  case routing::HighwayType::HighwayConstructionResidential:
+  case routing::HighwayType::HighwayConstructionUnclassified:
+  case routing::HighwayType::HighwayConstructionService:
+  case routing::HighwayType::HighwayConstructionLivingStreet:
+  case routing::HighwayType::HighwayConstructionRoad:
+  case routing::HighwayType::HighwayConstructionTrack:
+    return true;
+  default:
+    return false;
   }
 }
 

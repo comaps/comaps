@@ -583,6 +583,7 @@ using DefaultTraffDecoder = RoutingTraffDecoder;
 
 traffxml::RoadClass GetRoadClass(routing::HighwayType highwayType);
 double GetRoadClassPenalty(traffxml::RoadClass lhs, traffxml::RoadClass rhs);
+bool IsConstruction(routing::HighwayType highwayType);
 bool IsRamp(routing::HighwayType highwayType);
 
 /**

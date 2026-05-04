@@ -70,13 +70,29 @@ void VehicleModel::AddAdditionalRoadTypes(Classificator const & classif, Additio
 
 std::optional<HighwayType> VehicleModel::GetHighwayType(FeatureTypes const & types) const
 {
+  /*
+   * Iterate through types.
+   * For each type, truncate to three levels and see if it has a match. If not, truncate to two
+   * levels and retry.
+   * First type in `types` which has a match wins over all subsequent ones.
+   * Within a type, three-level matches win over two-level ones.
+   */
   for (uint32_t t : types)
   {
-    ftype::TruncValue(t, 2);
+    ftype::TruncValue(t, 3);
 
     auto const ret = GetHighwayType(t);
     if (ret)
       return *ret;
+
+    if (ftype::GetLevel(t) > 2)
+    {
+      ftype::TruncValue(t, 2);
+
+      auto const ret = GetHighwayType(t);
+      if (ret)
+        return *ret;
+    }
   }
 
   // For example Denmark has "No track" profile (see kCarOptionsDenmark), but tracks exist in MWM.

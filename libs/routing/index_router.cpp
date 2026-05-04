@@ -339,6 +339,7 @@ bool IndexRouter::FindClosestProjectionToRoad(m2::PointD const & point, m2::Poin
   auto const rect = mercator::RectByCenterXYAndSizeInMeters(point, radius);
   std::vector<EdgeProjectionT> candidates;
 
+  // TODO should we increase the count in decoding mode?
   uint32_t const count = direction.IsAlmostZero() ? 1 : 4;
   m_roadGraph.FindClosestEdges(rect, count, candidates, (GetMode() == Mode::Decoding));
 
