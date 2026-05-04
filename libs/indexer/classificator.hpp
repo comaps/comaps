@@ -26,12 +26,37 @@ void PushValue(uint32_t & type, uint8_t value);
 /// @pre level < GetLevel(type).
 uint8_t GetValue(uint32_t type, uint8_t level);
 void PopValue(uint32_t & type);
+
+/**
+ * @brief Truncates a type to the number of levels specified.
+ *
+ * For example, truncating `natural-beach-sand` to 2 levels would result in `natural-beach`.
+ *
+ * Truncation is done in place, i.e. `type` is altered.
+ *
+ * @param type The type to truncate
+ * @param level The number of levels to truncate to
+ */
 void TruncValue(uint32_t & type, uint8_t level);
+
+/**
+ * @brief Truncates a type to the number of levels specified, and returns the result.
+ *
+ * For example, truncating `natural-beach-sand` to 2 levels would result in `natural-beach`.
+ *
+ * This is a convenience wrapper around `TruncValue()`, which will not alter `type`.
+ *
+ * @param type The type to truncate
+ * @param level The number of levels to truncate to
+ *
+ * @return The truncated type
+ */
 inline uint32_t Trunc(uint32_t type, uint8_t level)
 {
   TruncValue(type, level);
   return type;
 }
+
 uint8_t GetLevel(uint32_t type);
 }  // namespace ftype
 
