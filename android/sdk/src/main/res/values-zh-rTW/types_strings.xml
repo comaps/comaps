@@ -626,7 +626,24 @@
     <string name="type.highway.busway.bridge">橋樑</string>
     <string name="type.highway.busway.tunnel">隧道</string>
     <string name="type.highway.bus_stop">公車站</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">施工中道路</string>
+    <string name="type.highway.construction.motorway">施工中道路</string>
+    <string name="type.highway.construction.motorway_link">施工中道路</string>
+    <string name="type.highway.construction.trunk">施工中道路</string>
+    <string name="type.highway.construction.trunk_link">施工中道路</string>
+    <string name="type.highway.construction.primary">施工中道路</string>
+    <string name="type.highway.construction.primary_link">施工中道路</string>
+    <string name="type.highway.construction.secondary">施工中道路</string>
+    <string name="type.highway.construction.secondary_link">施工中道路</string>
+    <string name="type.highway.construction.tertiary">施工中道路</string>
+    <string name="type.highway.construction.tertiary_link">施工中道路</string>
+    <string name="type.highway.construction.residential">施工中道路</string>
+    <string name="type.highway.construction.unclassified">施工中道路</string>
+    <string name="type.highway.construction.service">施工中道路</string>
+    <string name="type.highway.construction.living_street">施工中道路</string>
+    <string name="type.highway.construction.road">施工中道路</string>
+    <string name="type.highway.construction.track">施工中道路</string>
     <string name="type.highway.cycleway">單車道</string>
     <string name="type.highway.cycleway.bridge">橋樑</string>
     <string name="type.highway.cycleway.permissive">單車道</string>

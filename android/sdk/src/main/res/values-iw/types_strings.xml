@@ -382,7 +382,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">מִנהָרָה</string>
     <string name="type.highway.bus_stop">תחנת אוטובוס</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">כביש בבניה</string>
+    <string name="type.highway.construction.motorway">כביש בבניה</string>
+    <string name="type.highway.construction.motorway_link">כביש בבניה</string>
+    <string name="type.highway.construction.trunk">כביש בבניה</string>
+    <string name="type.highway.construction.trunk_link">כביש בבניה</string>
+    <string name="type.highway.construction.primary">כביש בבניה</string>
+    <string name="type.highway.construction.primary_link">כביש בבניה</string>
+    <string name="type.highway.construction.secondary">כביש בבניה</string>
+    <string name="type.highway.construction.secondary_link">כביש בבניה</string>
+    <string name="type.highway.construction.tertiary">כביש בבניה</string>
+    <string name="type.highway.construction.tertiary_link">כביש בבניה</string>
+    <string name="type.highway.construction.residential">כביש בבניה</string>
+    <string name="type.highway.construction.unclassified">כביש בבניה</string>
+    <string name="type.highway.construction.service">כביש בבניה</string>
+    <string name="type.highway.construction.living_street">כביש בבניה</string>
+    <string name="type.highway.construction.road">כביש בבניה</string>
+    <string name="type.highway.construction.track">כביש בבניה</string>
     <string name="type.highway.cycleway">שביל אופניים</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">גשר לאופניים</string>

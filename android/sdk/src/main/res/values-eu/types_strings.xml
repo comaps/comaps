@@ -373,7 +373,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunela</string>
     <string name="type.highway.bus_stop">Autobus geltokia</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.motorway">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.motorway_link">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.trunk">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.trunk_link">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.primary">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.primary_link">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.secondary">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.secondary_link">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.tertiary">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.tertiary_link">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.residential">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.unclassified">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.service">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.living_street">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.road">Eraikitzen ari diren errepidea</string>
+    <string name="type.highway.construction.track">Eraikitzen ari diren errepidea</string>
     <string name="type.highway.cycleway">Bidegorri edo bizikleta-bidea</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Zubia</string>

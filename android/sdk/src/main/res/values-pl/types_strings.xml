@@ -380,7 +380,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Przystanek autobusowy</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.motorway">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.motorway_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.trunk">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.trunk_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.primary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.primary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.secondary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.secondary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.tertiary">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.tertiary_link">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.residential">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.unclassified">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.service">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.living_street">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.road">Droga w trakcie budowy</string>
+    <string name="type.highway.construction.track">Droga w trakcie budowy</string>
     <string name="type.highway.cycleway">Droga rowerowa</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Most drogowy dla rowerów</string>

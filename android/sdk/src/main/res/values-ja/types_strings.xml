@@ -356,7 +356,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">トンネル</string>
     <string name="type.highway.bus_stop">バス停</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">工事中の道路</string>
+    <string name="type.highway.construction.motorway">工事中の道路</string>
+    <string name="type.highway.construction.motorway_link">工事中の道路</string>
+    <string name="type.highway.construction.trunk">工事中の道路</string>
+    <string name="type.highway.construction.trunk_link">工事中の道路</string>
+    <string name="type.highway.construction.primary">工事中の道路</string>
+    <string name="type.highway.construction.primary_link">工事中の道路</string>
+    <string name="type.highway.construction.secondary">工事中の道路</string>
+    <string name="type.highway.construction.secondary_link">工事中の道路</string>
+    <string name="type.highway.construction.tertiary">工事中の道路</string>
+    <string name="type.highway.construction.tertiary_link">工事中の道路</string>
+    <string name="type.highway.construction.residential">工事中の道路</string>
+    <string name="type.highway.construction.unclassified">工事中の道路</string>
+    <string name="type.highway.construction.service">工事中の道路</string>
+    <string name="type.highway.construction.living_street">工事中の道路</string>
+    <string name="type.highway.construction.road">工事中の道路</string>
+    <string name="type.highway.construction.track">工事中の道路</string>
     <string name="type.highway.cycleway">自転車道</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">自転車道(橋)</string>
