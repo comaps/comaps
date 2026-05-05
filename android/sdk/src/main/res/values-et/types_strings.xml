@@ -382,7 +382,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bussipeatus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.motorway">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.motorway_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.trunk">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.trunk_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.primary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.primary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.secondary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.secondary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.tertiary">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.tertiary_link">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.residential">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.unclassified">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.service">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.living_street">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.road">Ehitusjärgus tee</string>
+    <string name="type.highway.construction.track">Ehitusjärgus tee</string>
     <string name="type.highway.cycleway">Jalgrattatee</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Jalgrattasild</string>

@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Тунель";
 "type.highway.bus_stop" = "Зупинка";
 "type.highway.construction" = "Дорога, що будується";
+"type.highway.construction.motorway" = "Дорога, що будується";
+"type.highway.construction.motorway_link" = "Дорога, що будується";
+"type.highway.construction.trunk" = "Дорога, що будується";
+"type.highway.construction.trunk_link" = "Дорога, що будується";
+"type.highway.construction.primary" = "Дорога, що будується";
+"type.highway.construction.primary_link" = "Дорога, що будується";
+"type.highway.construction.secondary" = "Дорога, що будується";
+"type.highway.construction.secondary_link" = "Дорога, що будується";
+"type.highway.construction.tertiary" = "Дорога, що будується";
+"type.highway.construction.tertiary_link" = "Дорога, що будується";
+"type.highway.construction.residential" = "Дорога, що будується";
+"type.highway.construction.unclassified" = "Дорога, що будується";
+"type.highway.construction.service" = "Дорога, що будується";
+"type.highway.construction.living_street" = "Дорога, що будується";
+"type.highway.construction.road" = "Дорога, що будується";
+"type.highway.construction.track" = "Дорога, що будується";
 "type.highway.cycleway" = "Велодоріжка";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Міст";

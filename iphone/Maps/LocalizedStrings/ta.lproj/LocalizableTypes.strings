@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.bus_stop" = "பேருந்து நிறுத்தம்";
 "type.highway.construction" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.motorway" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.motorway_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.trunk" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.trunk_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.primary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.primary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.secondary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.secondary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.tertiary" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.tertiary_link" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.residential" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.unclassified" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.service" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.living_street" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.road" = "சாலை கட்டுமானத்தில் உள்ளது";
+"type.highway.construction.track" = "சாலை கட்டுமானத்தில் உள்ளது";
 "type.highway.cycleway" = "சைக்கிள் பாதை";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "பாலம்";

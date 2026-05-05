@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Σήραγγα";
 "type.highway.bus_stop" = "Στάση λεωφορείου";
 "type.highway.construction" = "Οδός υπό κατασκευή";
+"type.highway.construction.motorway" = "Οδός υπό κατασκευή";
+"type.highway.construction.motorway_link" = "Οδός υπό κατασκευή";
+"type.highway.construction.trunk" = "Οδός υπό κατασκευή";
+"type.highway.construction.trunk_link" = "Οδός υπό κατασκευή";
+"type.highway.construction.primary" = "Οδός υπό κατασκευή";
+"type.highway.construction.primary_link" = "Οδός υπό κατασκευή";
+"type.highway.construction.secondary" = "Οδός υπό κατασκευή";
+"type.highway.construction.secondary_link" = "Οδός υπό κατασκευή";
+"type.highway.construction.tertiary" = "Οδός υπό κατασκευή";
+"type.highway.construction.tertiary_link" = "Οδός υπό κατασκευή";
+"type.highway.construction.residential" = "Οδός υπό κατασκευή";
+"type.highway.construction.unclassified" = "Οδός υπό κατασκευή";
+"type.highway.construction.service" = "Οδός υπό κατασκευή";
+"type.highway.construction.living_street" = "Οδός υπό κατασκευή";
+"type.highway.construction.road" = "Οδός υπό κατασκευή";
+"type.highway.construction.track" = "Οδός υπό κατασκευή";
 "type.highway.cycleway" = "Ποδηλατόδρομος";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Γέφυρα";

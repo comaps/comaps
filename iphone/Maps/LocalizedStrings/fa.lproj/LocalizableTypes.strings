@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "تونل";
 "type.highway.bus_stop" = "حمل و نقل";
 "type.highway.construction" = "جاده در دست ساخت است";
+"type.highway.construction.motorway" = "جاده در دست ساخت است";
+"type.highway.construction.motorway_link" = "جاده در دست ساخت است";
+"type.highway.construction.trunk" = "جاده در دست ساخت است";
+"type.highway.construction.trunk_link" = "جاده در دست ساخت است";
+"type.highway.construction.primary" = "جاده در دست ساخت است";
+"type.highway.construction.primary_link" = "جاده در دست ساخت است";
+"type.highway.construction.secondary" = "جاده در دست ساخت است";
+"type.highway.construction.secondary_link" = "جاده در دست ساخت است";
+"type.highway.construction.tertiary" = "جاده در دست ساخت است";
+"type.highway.construction.tertiary_link" = "جاده در دست ساخت است";
+"type.highway.construction.residential" = "جاده در دست ساخت است";
+"type.highway.construction.unclassified" = "جاده در دست ساخت است";
+"type.highway.construction.service" = "جاده در دست ساخت است";
+"type.highway.construction.living_street" = "جاده در دست ساخت است";
+"type.highway.construction.road" = "جاده در دست ساخت است";
+"type.highway.construction.track" = "جاده در دست ساخت است";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "پل";

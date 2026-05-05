@@ -376,7 +376,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tünel</string>
     <string name="type.highway.bus_stop">Otobüs Durağı</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.motorway">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.motorway_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.trunk">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.trunk_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.primary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.primary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.secondary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.secondary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.tertiary">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.tertiary_link">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.residential">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.unclassified">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.service">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.living_street">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.road">Yapım Aşamasında Yol</string>
+    <string name="type.highway.construction.track">Yapım Aşamasında Yol</string>
     <string name="type.highway.cycleway">Bisiklet Yolu</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Köprü</string>

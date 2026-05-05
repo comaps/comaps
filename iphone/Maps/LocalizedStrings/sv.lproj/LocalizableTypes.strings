@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Busshållplats";
 "type.highway.construction" = "Väg under uppförande";
+"type.highway.construction.motorway" = "Väg under uppförande";
+"type.highway.construction.motorway_link" = "Väg under uppförande";
+"type.highway.construction.trunk" = "Väg under uppförande";
+"type.highway.construction.trunk_link" = "Väg under uppförande";
+"type.highway.construction.primary" = "Väg under uppförande";
+"type.highway.construction.primary_link" = "Väg under uppförande";
+"type.highway.construction.secondary" = "Väg under uppförande";
+"type.highway.construction.secondary_link" = "Väg under uppförande";
+"type.highway.construction.tertiary" = "Väg under uppförande";
+"type.highway.construction.tertiary_link" = "Väg under uppförande";
+"type.highway.construction.residential" = "Väg under uppförande";
+"type.highway.construction.unclassified" = "Väg under uppförande";
+"type.highway.construction.service" = "Väg under uppförande";
+"type.highway.construction.living_street" = "Väg under uppförande";
+"type.highway.construction.road" = "Väg under uppförande";
+"type.highway.construction.track" = "Väg under uppförande";
 "type.highway.cycleway" = "Cykelbana";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Cykelbro";

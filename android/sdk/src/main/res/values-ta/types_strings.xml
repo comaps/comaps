@@ -386,7 +386,24 @@
     <string name="type.highway.busway.bridge">பாலம்</string>
     <string name="type.highway.busway.tunnel">சுரங்கப்பாதை</string>
     <string name="type.highway.bus_stop">பேருந்து நிறுத்தம்</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.motorway">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.motorway_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.trunk">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.trunk_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.primary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.primary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.secondary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.secondary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.tertiary">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.tertiary_link">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.residential">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.unclassified">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.service">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.living_street">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.road">சாலை கட்டுமானத்தில் உள்ளது</string>
+    <string name="type.highway.construction.track">சாலை கட்டுமானத்தில் உள்ளது</string>
     <string name="type.highway.cycleway">சைக்கிள் பாதை</string>
     <string name="type.highway.cycleway.bridge">பாலம்</string>
     <string name="type.highway.cycleway.permissive">சைக்கிள் பாதை</string>

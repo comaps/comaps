@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Parada d’autobús";
 "type.highway.construction" = "Via en construcció";
+"type.highway.construction.motorway" = "Via en construcció";
+"type.highway.construction.motorway_link" = "Via en construcció";
+"type.highway.construction.trunk" = "Via en construcció";
+"type.highway.construction.trunk_link" = "Via en construcció";
+"type.highway.construction.primary" = "Via en construcció";
+"type.highway.construction.primary_link" = "Via en construcció";
+"type.highway.construction.secondary" = "Via en construcció";
+"type.highway.construction.secondary_link" = "Via en construcció";
+"type.highway.construction.tertiary" = "Via en construcció";
+"type.highway.construction.tertiary_link" = "Via en construcció";
+"type.highway.construction.residential" = "Via en construcció";
+"type.highway.construction.unclassified" = "Via en construcció";
+"type.highway.construction.service" = "Via en construcció";
+"type.highway.construction.living_street" = "Via en construcció";
+"type.highway.construction.road" = "Via en construcció";
+"type.highway.construction.track" = "Via en construcció";
 "type.highway.cycleway" = "Carril bici";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Pont";
@@ -882,7 +898,7 @@
 "type.place.country" = "País";
 "type.place.county" = "Comtat";
 "type.place.farm" = "Farm";
-"type.place.hamlet" = "Aldea";
+"type.place.hamlet" = "Hamlet";
 "type.place.island" = "Illa";
 "type.place.islet" = "Illot";
 "type.place.isolated_dwelling" = "Habitatge aïllat";
@@ -900,7 +916,7 @@
 /* Named part of a city or town, bigger than place=quarter (Wiki: https://wiki.openstreetmap.org/wiki/Tag:place%3Dsuburb) */
 "type.place.suburb" = "Urbanització";
 "type.place.town" = "Town";
-"type.place.village" = "Poble";
+"type.place.village" = "Village";
 "type.power" = "Energia";
 "type.power.generator" = "Generador d’energia";
 "type.power.generator.solar" = "Generador solar";
@@ -1313,7 +1329,7 @@
 "type.shop.tea" = "Tea Shop";
 "type.shop.telecommunication" = "Telecommunication Shop";
 "type.shop.ticket" = "Ticket Shop";
-"type.shop.toys" = "Botiga de joguines";
+"type.shop.toys" = "Botiga de jocs";
 "type.shop.travel_agency" = "Agència de viatges";
 "type.shop.tyres" = "Tyre Shop";
 "type.shop.variety_store" = "Botiga de varietat";
@@ -1509,10 +1525,10 @@
 /* https://wiki.openstreetmap.org/wiki/Tag:leisure=sports_hall */
 "type.leisure.sports_hall" = "Pavelló esportiu";
 "type.xmas.tree" = "Arbre de Nadal";
-"type.leisure.sports_centre.sport.four_square" = "Poliesportiu";
+"type.leisure.sports_centre.sport.four_square" = "Sports Centre";
 "type.sport.four_square" = "Four Square";
 "type.sport.boules" = "Boules";
-"type.leisure.sports_centre.sport.boules" = "Poliesportiu";
+"type.leisure.sports_centre.sport.boules" = "Sports Centre";
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre esportiu";
 "type.organic.no" = "No organic options";

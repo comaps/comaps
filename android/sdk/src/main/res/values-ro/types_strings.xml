@@ -322,7 +322,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Stație de autobuz</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Drum în construcție</string>
+    <string name="type.highway.construction.motorway">Drum în construcție</string>
+    <string name="type.highway.construction.motorway_link">Drum în construcție</string>
+    <string name="type.highway.construction.trunk">Drum în construcție</string>
+    <string name="type.highway.construction.trunk_link">Drum în construcție</string>
+    <string name="type.highway.construction.primary">Drum în construcție</string>
+    <string name="type.highway.construction.primary_link">Drum în construcție</string>
+    <string name="type.highway.construction.secondary">Drum în construcție</string>
+    <string name="type.highway.construction.secondary_link">Drum în construcție</string>
+    <string name="type.highway.construction.tertiary">Drum în construcție</string>
+    <string name="type.highway.construction.tertiary_link">Drum în construcție</string>
+    <string name="type.highway.construction.residential">Drum în construcție</string>
+    <string name="type.highway.construction.unclassified">Drum în construcție</string>
+    <string name="type.highway.construction.service">Drum în construcție</string>
+    <string name="type.highway.construction.living_street">Drum în construcție</string>
+    <string name="type.highway.construction.road">Drum în construcție</string>
+    <string name="type.highway.construction.track">Drum în construcție</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Pod</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

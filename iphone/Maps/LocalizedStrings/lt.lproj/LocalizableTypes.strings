@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunelis";
 "type.highway.bus_stop" = "Stotelė";
 "type.highway.construction" = "Tiesiamas kelias";
+"type.highway.construction.motorway" = "Tiesiamas kelias";
+"type.highway.construction.motorway_link" = "Tiesiamas kelias";
+"type.highway.construction.trunk" = "Tiesiamas kelias";
+"type.highway.construction.trunk_link" = "Tiesiamas kelias";
+"type.highway.construction.primary" = "Tiesiamas kelias";
+"type.highway.construction.primary_link" = "Tiesiamas kelias";
+"type.highway.construction.secondary" = "Tiesiamas kelias";
+"type.highway.construction.secondary_link" = "Tiesiamas kelias";
+"type.highway.construction.tertiary" = "Tiesiamas kelias";
+"type.highway.construction.tertiary_link" = "Tiesiamas kelias";
+"type.highway.construction.residential" = "Tiesiamas kelias";
+"type.highway.construction.unclassified" = "Tiesiamas kelias";
+"type.highway.construction.service" = "Tiesiamas kelias";
+"type.highway.construction.living_street" = "Tiesiamas kelias";
+"type.highway.construction.road" = "Tiesiamas kelias";
+"type.highway.construction.track" = "Tiesiamas kelias";
 "type.highway.cycleway" = "Dviračių takas";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Tiltas";

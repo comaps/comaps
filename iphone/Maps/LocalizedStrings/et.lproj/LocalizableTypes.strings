@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bussipeatus";
 "type.highway.construction" = "Ehitusjärgus tee";
+"type.highway.construction.motorway" = "Ehitusjärgus tee";
+"type.highway.construction.motorway_link" = "Ehitusjärgus tee";
+"type.highway.construction.trunk" = "Ehitusjärgus tee";
+"type.highway.construction.trunk_link" = "Ehitusjärgus tee";
+"type.highway.construction.primary" = "Ehitusjärgus tee";
+"type.highway.construction.primary_link" = "Ehitusjärgus tee";
+"type.highway.construction.secondary" = "Ehitusjärgus tee";
+"type.highway.construction.secondary_link" = "Ehitusjärgus tee";
+"type.highway.construction.tertiary" = "Ehitusjärgus tee";
+"type.highway.construction.tertiary_link" = "Ehitusjärgus tee";
+"type.highway.construction.residential" = "Ehitusjärgus tee";
+"type.highway.construction.unclassified" = "Ehitusjärgus tee";
+"type.highway.construction.service" = "Ehitusjärgus tee";
+"type.highway.construction.living_street" = "Ehitusjärgus tee";
+"type.highway.construction.road" = "Ehitusjärgus tee";
+"type.highway.construction.track" = "Ehitusjärgus tee";
 "type.highway.cycleway" = "Jalgrattatee";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Jalgrattasild";

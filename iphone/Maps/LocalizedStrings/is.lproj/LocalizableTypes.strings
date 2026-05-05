@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Göng";
 "type.highway.bus_stop" = "Strætisvagnabiðstöð";
 "type.highway.construction" = "Vegur í byggingu";
+"type.highway.construction.motorway" = "Vegur í byggingu";
+"type.highway.construction.motorway_link" = "Vegur í byggingu";
+"type.highway.construction.trunk" = "Vegur í byggingu";
+"type.highway.construction.trunk_link" = "Vegur í byggingu";
+"type.highway.construction.primary" = "Vegur í byggingu";
+"type.highway.construction.primary_link" = "Vegur í byggingu";
+"type.highway.construction.secondary" = "Vegur í byggingu";
+"type.highway.construction.secondary_link" = "Vegur í byggingu";
+"type.highway.construction.tertiary" = "Vegur í byggingu";
+"type.highway.construction.tertiary_link" = "Vegur í byggingu";
+"type.highway.construction.residential" = "Vegur í byggingu";
+"type.highway.construction.unclassified" = "Vegur í byggingu";
+"type.highway.construction.service" = "Vegur í byggingu";
+"type.highway.construction.living_street" = "Vegur í byggingu";
+"type.highway.construction.road" = "Vegur í byggingu";
+"type.highway.construction.track" = "Vegur í byggingu";
 "type.highway.cycleway" = "Hjólastígur";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Brú";

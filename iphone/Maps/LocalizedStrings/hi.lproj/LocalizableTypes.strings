@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "बस स्टॉप";
 "type.highway.construction" = "निर्माणाधीन सड़क";
+"type.highway.construction.motorway" = "निर्माणाधीन सड़क";
+"type.highway.construction.motorway_link" = "निर्माणाधीन सड़क";
+"type.highway.construction.trunk" = "निर्माणाधीन सड़क";
+"type.highway.construction.trunk_link" = "निर्माणाधीन सड़क";
+"type.highway.construction.primary" = "निर्माणाधीन सड़क";
+"type.highway.construction.primary_link" = "निर्माणाधीन सड़क";
+"type.highway.construction.secondary" = "निर्माणाधीन सड़क";
+"type.highway.construction.secondary_link" = "निर्माणाधीन सड़क";
+"type.highway.construction.tertiary" = "निर्माणाधीन सड़क";
+"type.highway.construction.tertiary_link" = "निर्माणाधीन सड़क";
+"type.highway.construction.residential" = "निर्माणाधीन सड़क";
+"type.highway.construction.unclassified" = "निर्माणाधीन सड़क";
+"type.highway.construction.service" = "निर्माणाधीन सड़क";
+"type.highway.construction.living_street" = "निर्माणाधीन सड़क";
+"type.highway.construction.road" = "निर्माणाधीन सड़क";
+"type.highway.construction.track" = "निर्माणाधीन सड़क";
 "type.highway.cycleway" = "साइकिल मार्ग";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bridge";

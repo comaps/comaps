@@ -380,7 +380,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">نفق</string>
     <string name="type.highway.bus_stop">موقف حافلات</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.motorway">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.motorway_link">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.trunk">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.trunk_link">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.primary">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.primary_link">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.secondary">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.secondary_link">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.tertiary">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.tertiary_link">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.residential">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.unclassified">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.service">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.living_street">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.road">طريق تحت الإنشاء</string>
+    <string name="type.highway.construction.track">طريق تحت الإنشاء</string>
     <string name="type.highway.cycleway">مسار للدراجات</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">جسر</string>

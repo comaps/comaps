@@ -333,7 +333,24 @@
     <string name="type.highway.busway.bridge">Brugg</string>
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bushaltistell</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Strass im Bau</string>
+    <string name="type.highway.construction.motorway">Strass im Bau</string>
+    <string name="type.highway.construction.motorway_link">Strass im Bau</string>
+    <string name="type.highway.construction.trunk">Strass im Bau</string>
+    <string name="type.highway.construction.trunk_link">Strass im Bau</string>
+    <string name="type.highway.construction.primary">Strass im Bau</string>
+    <string name="type.highway.construction.primary_link">Strass im Bau</string>
+    <string name="type.highway.construction.secondary">Strass im Bau</string>
+    <string name="type.highway.construction.secondary_link">Strass im Bau</string>
+    <string name="type.highway.construction.tertiary">Strass im Bau</string>
+    <string name="type.highway.construction.tertiary_link">Strass im Bau</string>
+    <string name="type.highway.construction.residential">Strass im Bau</string>
+    <string name="type.highway.construction.unclassified">Strass im Bau</string>
+    <string name="type.highway.construction.service">Strass im Bau</string>
+    <string name="type.highway.construction.living_street">Strass im Bau</string>
+    <string name="type.highway.construction.road">Strass im Bau</string>
+    <string name="type.highway.construction.track">Strass im Bau</string>
     <string name="type.highway.cycleway">Veloweg</string>
     <string name="type.highway.cycleway.bridge">Brugg</string>
     <string name="type.highway.cycleway.permissive">Veloweg</string>
