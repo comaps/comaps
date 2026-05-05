@@ -212,6 +212,15 @@ def process(
     total = 0
     skipped_incomplete = 0
     skipped_region = 0
+    skipped_duplicate = 0
+
+    # Deduplication key: (number, street, unit, lat_3dp, lon_3dp).
+    # Rounding to 3 decimal places (~110 m) catches the same address appearing
+    # in multiple overlapping OA sources (e.g. us/or/marion and
+    # us/or/marion_and_polk) while still preserving distinct unit entries at
+    # the same building.  mwm_name is omitted — it is fully determined by
+    # the rounded coordinates and adds no dedup precision.
+    seen: set[tuple[str, str, str, float, float]] = set()
 
     try:
         with zipfile.ZipFile(zip_path, "r") as zf:
@@ -234,6 +243,7 @@ def process(
                         props = feat.get("properties", {})
                         number   = (props.get("number")   or "").strip()
                         street   = (props.get("street")   or "").strip()
+                        unit     = (props.get("unit")     or "").strip()
                         postcode = (props.get("postcode") or "").strip()
 
                         if not number or not street:
@@ -252,6 +262,12 @@ def process(
                         if mwm_name is None:
                             skipped_region += 1
                             continue
+
+                        dedup_key = (number, street, unit, round(lat, 3), round(lon, 3))
+                        if dedup_key in seen:
+                            skipped_duplicate += 1
+                            continue
+                        seen.add(dedup_key)
 
                         ipoint = _point_to_int64(lon, lat)
 
@@ -272,9 +288,10 @@ def process(
 
     logger.info(
         f"Processed {total} entries: "
-        f"wrote {total - skipped_incomplete - skipped_region}, "
+        f"wrote {total - skipped_incomplete - skipped_region - skipped_duplicate}, "
         f"skipped incomplete: {skipped_incomplete}, "
-        f"skipped no region: {skipped_region}"
+        f"skipped no region: {skipped_region}, "
+        f"skipped duplicate: {skipped_duplicate}"
     )
     logger.info(f"Output: {len(writers)} file(s) in {output_dir}")
 
