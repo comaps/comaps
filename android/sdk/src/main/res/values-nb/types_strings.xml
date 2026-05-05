@@ -337,7 +337,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Busstopp</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Veikonstruksjon</string>
+    <string name="type.highway.construction.motorway">Veikonstruksjon</string>
+    <string name="type.highway.construction.motorway_link">Veikonstruksjon</string>
+    <string name="type.highway.construction.trunk">Veikonstruksjon</string>
+    <string name="type.highway.construction.trunk_link">Veikonstruksjon</string>
+    <string name="type.highway.construction.primary">Veikonstruksjon</string>
+    <string name="type.highway.construction.primary_link">Veikonstruksjon</string>
+    <string name="type.highway.construction.secondary">Veikonstruksjon</string>
+    <string name="type.highway.construction.secondary_link">Veikonstruksjon</string>
+    <string name="type.highway.construction.tertiary">Veikonstruksjon</string>
+    <string name="type.highway.construction.tertiary_link">Veikonstruksjon</string>
+    <string name="type.highway.construction.residential">Veikonstruksjon</string>
+    <string name="type.highway.construction.unclassified">Veikonstruksjon</string>
+    <string name="type.highway.construction.service">Veikonstruksjon</string>
+    <string name="type.highway.construction.living_street">Veikonstruksjon</string>
+    <string name="type.highway.construction.road">Veikonstruksjon</string>
+    <string name="type.highway.construction.track">Veikonstruksjon</string>
     <string name="type.highway.cycleway">Sykkelvei</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Bru</string>

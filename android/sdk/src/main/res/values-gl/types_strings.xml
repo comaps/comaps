@@ -367,7 +367,24 @@
     <string name="type.highway.busway.bridge">Puente</string>
     <string name="type.highway.busway.tunnel">Túnel</string>
     <string name="type.highway.bus_stop">Parada de autobús</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Vía en construción</string>
+    <string name="type.highway.construction.motorway">Vía en construción</string>
+    <string name="type.highway.construction.motorway_link">Vía en construción</string>
+    <string name="type.highway.construction.trunk">Vía en construción</string>
+    <string name="type.highway.construction.trunk_link">Vía en construción</string>
+    <string name="type.highway.construction.primary">Vía en construción</string>
+    <string name="type.highway.construction.primary_link">Vía en construción</string>
+    <string name="type.highway.construction.secondary">Vía en construción</string>
+    <string name="type.highway.construction.secondary_link">Vía en construción</string>
+    <string name="type.highway.construction.tertiary">Vía en construción</string>
+    <string name="type.highway.construction.tertiary_link">Vía en construción</string>
+    <string name="type.highway.construction.residential">Vía en construción</string>
+    <string name="type.highway.construction.unclassified">Vía en construción</string>
+    <string name="type.highway.construction.service">Vía en construción</string>
+    <string name="type.highway.construction.living_street">Vía en construción</string>
+    <string name="type.highway.construction.road">Vía en construción</string>
+    <string name="type.highway.construction.track">Vía en construción</string>
     <string name="type.highway.cycleway">Ciclovía</string>
     <string name="type.highway.cycleway.bridge">Puente</string>
     <string name="type.highway.cycleway.permissive">Ciclovía</string>

@@ -263,7 +263,24 @@
     <!-- SECTION: Types: Roads -->
     <string name="type.highway">राजमार्ग</string>
     <string name="type.highway.bus_stop">बस स्टॉप</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.motorway">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.motorway_link">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.trunk">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.trunk_link">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.primary">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.primary_link">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.secondary">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.secondary_link">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.tertiary">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.tertiary_link">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.residential">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.unclassified">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.service">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.living_street">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.road">निर्माणाधीन सड़क</string>
+    <string name="type.highway.construction.track">निर्माणाधीन सड़क</string>
     <string name="type.highway.cycleway">साइकिल मार्ग</string>
     <string name="type.highway.cycleway.permissive">साइकिल मार्ग</string>
     <string name="type.highway.elevator">उत्थापक</string>

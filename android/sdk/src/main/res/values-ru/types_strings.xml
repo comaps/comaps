@@ -386,7 +386,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Тоннель</string>
     <string name="type.highway.bus_stop">Остановка</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Строящаяся дорога</string>
+    <string name="type.highway.construction.motorway">Строящаяся дорога</string>
+    <string name="type.highway.construction.motorway_link">Строящаяся дорога</string>
+    <string name="type.highway.construction.trunk">Строящаяся дорога</string>
+    <string name="type.highway.construction.trunk_link">Строящаяся дорога</string>
+    <string name="type.highway.construction.primary">Строящаяся дорога</string>
+    <string name="type.highway.construction.primary_link">Строящаяся дорога</string>
+    <string name="type.highway.construction.secondary">Строящаяся дорога</string>
+    <string name="type.highway.construction.secondary_link">Строящаяся дорога</string>
+    <string name="type.highway.construction.tertiary">Строящаяся дорога</string>
+    <string name="type.highway.construction.tertiary_link">Строящаяся дорога</string>
+    <string name="type.highway.construction.residential">Строящаяся дорога</string>
+    <string name="type.highway.construction.unclassified">Строящаяся дорога</string>
+    <string name="type.highway.construction.service">Строящаяся дорога</string>
+    <string name="type.highway.construction.living_street">Строящаяся дорога</string>
+    <string name="type.highway.construction.road">Строящаяся дорога</string>
+    <string name="type.highway.construction.track">Строящаяся дорога</string>
     <string name="type.highway.cycleway">Велодорожка</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Мост</string>
