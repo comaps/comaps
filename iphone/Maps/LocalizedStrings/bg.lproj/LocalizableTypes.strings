@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Тунел";
 "type.highway.bus_stop" = "Спирка";
 "type.highway.construction" = "Път в процес на изграждане";
+"type.highway.construction.motorway" = "Път в процес на изграждане";
+"type.highway.construction.motorway_link" = "Път в процес на изграждане";
+"type.highway.construction.trunk" = "Път в процес на изграждане";
+"type.highway.construction.trunk_link" = "Път в процес на изграждане";
+"type.highway.construction.primary" = "Път в процес на изграждане";
+"type.highway.construction.primary_link" = "Път в процес на изграждане";
+"type.highway.construction.secondary" = "Път в процес на изграждане";
+"type.highway.construction.secondary_link" = "Път в процес на изграждане";
+"type.highway.construction.tertiary" = "Път в процес на изграждане";
+"type.highway.construction.tertiary_link" = "Път в процес на изграждане";
+"type.highway.construction.residential" = "Път в процес на изграждане";
+"type.highway.construction.unclassified" = "Път в процес на изграждане";
+"type.highway.construction.service" = "Път в процес на изграждане";
+"type.highway.construction.living_street" = "Път в процес на изграждане";
+"type.highway.construction.road" = "Път в процес на изграждане";
+"type.highway.construction.track" = "Път в процес на изграждане";
 "type.highway.cycleway" = "Пътека за колела";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Мост";

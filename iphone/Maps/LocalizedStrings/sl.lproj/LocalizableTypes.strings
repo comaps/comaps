@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Predor";
 "type.highway.bus_stop" = "Avtobusno postajališče";
 "type.highway.construction" = "Cesta v gradnji";
+"type.highway.construction.motorway" = "Cesta v gradnji";
+"type.highway.construction.motorway_link" = "Cesta v gradnji";
+"type.highway.construction.trunk" = "Cesta v gradnji";
+"type.highway.construction.trunk_link" = "Cesta v gradnji";
+"type.highway.construction.primary" = "Cesta v gradnji";
+"type.highway.construction.primary_link" = "Cesta v gradnji";
+"type.highway.construction.secondary" = "Cesta v gradnji";
+"type.highway.construction.secondary_link" = "Cesta v gradnji";
+"type.highway.construction.tertiary" = "Cesta v gradnji";
+"type.highway.construction.tertiary_link" = "Cesta v gradnji";
+"type.highway.construction.residential" = "Cesta v gradnji";
+"type.highway.construction.unclassified" = "Cesta v gradnji";
+"type.highway.construction.service" = "Cesta v gradnji";
+"type.highway.construction.living_street" = "Cesta v gradnji";
+"type.highway.construction.road" = "Cesta v gradnji";
+"type.highway.construction.track" = "Cesta v gradnji";
 "type.highway.cycleway" = "Kolesarska steza";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Most";

@@ -370,7 +370,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunel</string>
     <string name="type.highway.bus_stop">Avtobus dayanacağı</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Tikili Yol</string>
+    <string name="type.highway.construction.motorway">Tikili Yol</string>
+    <string name="type.highway.construction.motorway_link">Tikili Yol</string>
+    <string name="type.highway.construction.trunk">Tikili Yol</string>
+    <string name="type.highway.construction.trunk_link">Tikili Yol</string>
+    <string name="type.highway.construction.primary">Tikili Yol</string>
+    <string name="type.highway.construction.primary_link">Tikili Yol</string>
+    <string name="type.highway.construction.secondary">Tikili Yol</string>
+    <string name="type.highway.construction.secondary_link">Tikili Yol</string>
+    <string name="type.highway.construction.tertiary">Tikili Yol</string>
+    <string name="type.highway.construction.tertiary_link">Tikili Yol</string>
+    <string name="type.highway.construction.residential">Tikili Yol</string>
+    <string name="type.highway.construction.unclassified">Tikili Yol</string>
+    <string name="type.highway.construction.service">Tikili Yol</string>
+    <string name="type.highway.construction.living_street">Tikili Yol</string>
+    <string name="type.highway.construction.road">Tikili Yol</string>
+    <string name="type.highway.construction.track">Tikili Yol</string>
     <string name="type.highway.cycleway">Velosiped yolu</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Körpü</string>

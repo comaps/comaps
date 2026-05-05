@@ -383,7 +383,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Тунел</string>
     <string name="type.highway.bus_stop">Аутобуско стајалиште</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Пут у изградњи</string>
+    <string name="type.highway.construction.motorway">Пут у изградњи</string>
+    <string name="type.highway.construction.motorway_link">Пут у изградњи</string>
+    <string name="type.highway.construction.trunk">Пут у изградњи</string>
+    <string name="type.highway.construction.trunk_link">Пут у изградњи</string>
+    <string name="type.highway.construction.primary">Пут у изградњи</string>
+    <string name="type.highway.construction.primary_link">Пут у изградњи</string>
+    <string name="type.highway.construction.secondary">Пут у изградњи</string>
+    <string name="type.highway.construction.secondary_link">Пут у изградњи</string>
+    <string name="type.highway.construction.tertiary">Пут у изградњи</string>
+    <string name="type.highway.construction.tertiary_link">Пут у изградњи</string>
+    <string name="type.highway.construction.residential">Пут у изградњи</string>
+    <string name="type.highway.construction.unclassified">Пут у изградњи</string>
+    <string name="type.highway.construction.service">Пут у изградњи</string>
+    <string name="type.highway.construction.living_street">Пут у изградњи</string>
+    <string name="type.highway.construction.road">Пут у изградњи</string>
+    <string name="type.highway.construction.track">Пут у изградњи</string>
     <string name="type.highway.cycleway">Бициклистичка стаза</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Мост</string>

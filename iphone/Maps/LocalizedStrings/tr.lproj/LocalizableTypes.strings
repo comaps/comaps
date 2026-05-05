@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tünel";
 "type.highway.bus_stop" = "Otobüs Durağı";
 "type.highway.construction" = "Yapım Aşamasında Yol";
+"type.highway.construction.motorway" = "Yapım Aşamasında Yol";
+"type.highway.construction.motorway_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.trunk" = "Yapım Aşamasında Yol";
+"type.highway.construction.trunk_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.primary" = "Yapım Aşamasında Yol";
+"type.highway.construction.primary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.secondary" = "Yapım Aşamasında Yol";
+"type.highway.construction.secondary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.tertiary" = "Yapım Aşamasında Yol";
+"type.highway.construction.tertiary_link" = "Yapım Aşamasında Yol";
+"type.highway.construction.residential" = "Yapım Aşamasında Yol";
+"type.highway.construction.unclassified" = "Yapım Aşamasında Yol";
+"type.highway.construction.service" = "Yapım Aşamasında Yol";
+"type.highway.construction.living_street" = "Yapım Aşamasında Yol";
+"type.highway.construction.road" = "Yapım Aşamasında Yol";
+"type.highway.construction.track" = "Yapım Aşamasında Yol";
 "type.highway.cycleway" = "Bisiklet Yolu";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Köprü";

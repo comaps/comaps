@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "터널";
 "type.highway.bus_stop" = "버스 정류장";
 "type.highway.construction" = "공사 중 도로";
+"type.highway.construction.motorway" = "공사 중 도로";
+"type.highway.construction.motorway_link" = "공사 중 도로";
+"type.highway.construction.trunk" = "공사 중 도로";
+"type.highway.construction.trunk_link" = "공사 중 도로";
+"type.highway.construction.primary" = "공사 중 도로";
+"type.highway.construction.primary_link" = "공사 중 도로";
+"type.highway.construction.secondary" = "공사 중 도로";
+"type.highway.construction.secondary_link" = "공사 중 도로";
+"type.highway.construction.tertiary" = "공사 중 도로";
+"type.highway.construction.tertiary_link" = "공사 중 도로";
+"type.highway.construction.residential" = "공사 중 도로";
+"type.highway.construction.unclassified" = "공사 중 도로";
+"type.highway.construction.service" = "공사 중 도로";
+"type.highway.construction.living_street" = "공사 중 도로";
+"type.highway.construction.road" = "공사 중 도로";
+"type.highway.construction.track" = "공사 중 도로";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "다리";

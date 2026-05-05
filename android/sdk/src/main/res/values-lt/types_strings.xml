@@ -466,7 +466,24 @@
     <string name="type.highway.busway.bridge">Tiltas</string>
     <string name="type.highway.busway.tunnel">Tunelis</string>
     <string name="type.highway.bus_stop">Stotelė</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Tiesiamas kelias</string>
+    <string name="type.highway.construction.motorway">Tiesiamas kelias</string>
+    <string name="type.highway.construction.motorway_link">Tiesiamas kelias</string>
+    <string name="type.highway.construction.trunk">Tiesiamas kelias</string>
+    <string name="type.highway.construction.trunk_link">Tiesiamas kelias</string>
+    <string name="type.highway.construction.primary">Tiesiamas kelias</string>
+    <string name="type.highway.construction.primary_link">Tiesiamas kelias</string>
+    <string name="type.highway.construction.secondary">Tiesiamas kelias</string>
+    <string name="type.highway.construction.secondary_link">Tiesiamas kelias</string>
+    <string name="type.highway.construction.tertiary">Tiesiamas kelias</string>
+    <string name="type.highway.construction.tertiary_link">Tiesiamas kelias</string>
+    <string name="type.highway.construction.residential">Tiesiamas kelias</string>
+    <string name="type.highway.construction.unclassified">Tiesiamas kelias</string>
+    <string name="type.highway.construction.service">Tiesiamas kelias</string>
+    <string name="type.highway.construction.living_street">Tiesiamas kelias</string>
+    <string name="type.highway.construction.road">Tiesiamas kelias</string>
+    <string name="type.highway.construction.track">Tiesiamas kelias</string>
     <string name="type.highway.cycleway">Dviračių takas</string>
     <string name="type.highway.cycleway.bridge">Tiltas</string>
     <string name="type.highway.cycleway.permissive">Dviračių takas</string>

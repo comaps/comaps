@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Alagút";
 "type.highway.bus_stop" = "Buszmegálló";
 "type.highway.construction" = "Útépítés";
+"type.highway.construction.motorway" = "Útépítés";
+"type.highway.construction.motorway_link" = "Útépítés";
+"type.highway.construction.trunk" = "Útépítés";
+"type.highway.construction.trunk_link" = "Útépítés";
+"type.highway.construction.primary" = "Útépítés";
+"type.highway.construction.primary_link" = "Útépítés";
+"type.highway.construction.secondary" = "Útépítés";
+"type.highway.construction.secondary_link" = "Útépítés";
+"type.highway.construction.tertiary" = "Útépítés";
+"type.highway.construction.tertiary_link" = "Útépítés";
+"type.highway.construction.residential" = "Útépítés";
+"type.highway.construction.unclassified" = "Útépítés";
+"type.highway.construction.service" = "Útépítés";
+"type.highway.construction.living_street" = "Útépítés";
+"type.highway.construction.road" = "Útépítés";
+"type.highway.construction.track" = "Útépítés";
 "type.highway.cycleway" = "Kerékpárút";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Híd";

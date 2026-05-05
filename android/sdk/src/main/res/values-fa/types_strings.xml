@@ -244,7 +244,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">تونل</string>
     <string name="type.highway.bus_stop">حمل و نقل</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.motorway">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.motorway_link">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.trunk">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.trunk_link">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.primary">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.primary_link">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.secondary">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.secondary_link">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.tertiary">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.tertiary_link">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.residential">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.unclassified">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.service">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.living_street">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.road">جاده در دست ساخت است</string>
+    <string name="type.highway.construction.track">جاده در دست ساخت است</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">پل</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

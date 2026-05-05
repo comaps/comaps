@@ -131,7 +131,24 @@
     <string name="type.highway.busway.bridge">Daraja</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Mtaro</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.motorway">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.motorway_link">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.trunk">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.trunk_link">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.primary">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.primary_link">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.secondary">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.secondary_link">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.tertiary">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.tertiary_link">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.residential">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.unclassified">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.service">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.living_street">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.road">Barabara inatengenezwa</string>
+    <string name="type.highway.construction.track">Barabara inatengenezwa</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Daraja</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

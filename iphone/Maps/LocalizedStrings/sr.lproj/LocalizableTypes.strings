@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Тунел";
 "type.highway.bus_stop" = "Аутобуско стајалиште";
 "type.highway.construction" = "Пут у изградњи";
+"type.highway.construction.motorway" = "Пут у изградњи";
+"type.highway.construction.motorway_link" = "Пут у изградњи";
+"type.highway.construction.trunk" = "Пут у изградњи";
+"type.highway.construction.trunk_link" = "Пут у изградњи";
+"type.highway.construction.primary" = "Пут у изградњи";
+"type.highway.construction.primary_link" = "Пут у изградњи";
+"type.highway.construction.secondary" = "Пут у изградњи";
+"type.highway.construction.secondary_link" = "Пут у изградњи";
+"type.highway.construction.tertiary" = "Пут у изградњи";
+"type.highway.construction.tertiary_link" = "Пут у изградњи";
+"type.highway.construction.residential" = "Пут у изградњи";
+"type.highway.construction.unclassified" = "Пут у изградњи";
+"type.highway.construction.service" = "Пут у изградњи";
+"type.highway.construction.living_street" = "Пут у изградњи";
+"type.highway.construction.road" = "Пут у изградњи";
+"type.highway.construction.track" = "Пут у изградњи";
 "type.highway.cycleway" = "Бициклистичка стаза";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Мост";
