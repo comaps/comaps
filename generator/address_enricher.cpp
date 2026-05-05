@@ -4,8 +4,11 @@
 
 #include "search/house_numbers_matcher.hpp"
 
+#include "indexer/custom_keyvalue.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/imported_source.hpp"
 #include "indexer/search_string_utils.hpp"
+
 
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
@@ -125,6 +128,9 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
       fb.SetCenter(p);
       fb.SetType(m_addrType);
 
+      indexer::CustomKeyValue kv;
+      kv.Add(indexer::kImportedSourceKey, 1 /* any nonzero value; only presence is checked */);
+      fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_IDS, kv.ToString());
       auto & params = fb.GetParams();
       params.SetStreet(e.m_street);
       params.SetPostcode(e.m_postcode);
