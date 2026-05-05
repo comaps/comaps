@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Đường hầm";
 "type.highway.bus_stop" = "Bến xe buýt";
 "type.highway.construction" = "Đường đang thi công";
+"type.highway.construction.motorway" = "Đường đang thi công";
+"type.highway.construction.motorway_link" = "Đường đang thi công";
+"type.highway.construction.trunk" = "Đường đang thi công";
+"type.highway.construction.trunk_link" = "Đường đang thi công";
+"type.highway.construction.primary" = "Đường đang thi công";
+"type.highway.construction.primary_link" = "Đường đang thi công";
+"type.highway.construction.secondary" = "Đường đang thi công";
+"type.highway.construction.secondary_link" = "Đường đang thi công";
+"type.highway.construction.tertiary" = "Đường đang thi công";
+"type.highway.construction.tertiary_link" = "Đường đang thi công";
+"type.highway.construction.residential" = "Đường đang thi công";
+"type.highway.construction.unclassified" = "Đường đang thi công";
+"type.highway.construction.service" = "Đường đang thi công";
+"type.highway.construction.living_street" = "Đường đang thi công";
+"type.highway.construction.road" = "Đường đang thi công";
+"type.highway.construction.track" = "Đường đang thi công";
 "type.highway.cycleway" = "Đường dành cho xe đạp";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Cầu";

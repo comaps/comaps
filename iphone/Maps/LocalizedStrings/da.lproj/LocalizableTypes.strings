@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Busstoppested";
 "type.highway.construction" = "Vej under anlæggelse";
+"type.highway.construction.motorway" = "Vej under anlæggelse";
+"type.highway.construction.motorway_link" = "Vej under anlæggelse";
+"type.highway.construction.trunk" = "Vej under anlæggelse";
+"type.highway.construction.trunk_link" = "Vej under anlæggelse";
+"type.highway.construction.primary" = "Vej under anlæggelse";
+"type.highway.construction.primary_link" = "Vej under anlæggelse";
+"type.highway.construction.secondary" = "Vej under anlæggelse";
+"type.highway.construction.secondary_link" = "Vej under anlæggelse";
+"type.highway.construction.tertiary" = "Vej under anlæggelse";
+"type.highway.construction.tertiary_link" = "Vej under anlæggelse";
+"type.highway.construction.residential" = "Vej under anlæggelse";
+"type.highway.construction.unclassified" = "Vej under anlæggelse";
+"type.highway.construction.service" = "Vej under anlæggelse";
+"type.highway.construction.living_street" = "Vej under anlæggelse";
+"type.highway.construction.road" = "Vej under anlæggelse";
+"type.highway.construction.track" = "Vej under anlæggelse";
 "type.highway.cycleway" = "Cykelsti";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bro";

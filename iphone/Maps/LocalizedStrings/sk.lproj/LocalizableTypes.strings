@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunel";
 "type.highway.bus_stop" = "Autobusová zastávka";
 "type.highway.construction" = "Cesta vo výstavbe";
+"type.highway.construction.motorway" = "Cesta vo výstavbe";
+"type.highway.construction.motorway_link" = "Cesta vo výstavbe";
+"type.highway.construction.trunk" = "Cesta vo výstavbe";
+"type.highway.construction.trunk_link" = "Cesta vo výstavbe";
+"type.highway.construction.primary" = "Cesta vo výstavbe";
+"type.highway.construction.primary_link" = "Cesta vo výstavbe";
+"type.highway.construction.secondary" = "Cesta vo výstavbe";
+"type.highway.construction.secondary_link" = "Cesta vo výstavbe";
+"type.highway.construction.tertiary" = "Cesta vo výstavbe";
+"type.highway.construction.tertiary_link" = "Cesta vo výstavbe";
+"type.highway.construction.residential" = "Cesta vo výstavbe";
+"type.highway.construction.unclassified" = "Cesta vo výstavbe";
+"type.highway.construction.service" = "Cesta vo výstavbe";
+"type.highway.construction.living_street" = "Cesta vo výstavbe";
+"type.highway.construction.road" = "Cesta vo výstavbe";
+"type.highway.construction.track" = "Cesta vo výstavbe";
 "type.highway.cycleway" = "Cyklocesta";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Most";

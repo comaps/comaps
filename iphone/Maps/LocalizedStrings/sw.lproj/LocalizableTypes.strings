@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Mtaro";
 "type.highway.bus_stop" = "Bus Stop";
 "type.highway.construction" = "Barabara inatengenezwa";
+"type.highway.construction.motorway" = "Barabara inatengenezwa";
+"type.highway.construction.motorway_link" = "Barabara inatengenezwa";
+"type.highway.construction.trunk" = "Barabara inatengenezwa";
+"type.highway.construction.trunk_link" = "Barabara inatengenezwa";
+"type.highway.construction.primary" = "Barabara inatengenezwa";
+"type.highway.construction.primary_link" = "Barabara inatengenezwa";
+"type.highway.construction.secondary" = "Barabara inatengenezwa";
+"type.highway.construction.secondary_link" = "Barabara inatengenezwa";
+"type.highway.construction.tertiary" = "Barabara inatengenezwa";
+"type.highway.construction.tertiary_link" = "Barabara inatengenezwa";
+"type.highway.construction.residential" = "Barabara inatengenezwa";
+"type.highway.construction.unclassified" = "Barabara inatengenezwa";
+"type.highway.construction.service" = "Barabara inatengenezwa";
+"type.highway.construction.living_street" = "Barabara inatengenezwa";
+"type.highway.construction.road" = "Barabara inatengenezwa";
+"type.highway.construction.track" = "Barabara inatengenezwa";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Daraja";

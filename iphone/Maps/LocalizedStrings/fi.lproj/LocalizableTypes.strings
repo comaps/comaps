@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunneli";
 "type.highway.bus_stop" = "Bussipysäkki";
 "type.highway.construction" = "Rakenteilla oleva tie";
+"type.highway.construction.motorway" = "Rakenteilla oleva tie";
+"type.highway.construction.motorway_link" = "Rakenteilla oleva tie";
+"type.highway.construction.trunk" = "Rakenteilla oleva tie";
+"type.highway.construction.trunk_link" = "Rakenteilla oleva tie";
+"type.highway.construction.primary" = "Rakenteilla oleva tie";
+"type.highway.construction.primary_link" = "Rakenteilla oleva tie";
+"type.highway.construction.secondary" = "Rakenteilla oleva tie";
+"type.highway.construction.secondary_link" = "Rakenteilla oleva tie";
+"type.highway.construction.tertiary" = "Rakenteilla oleva tie";
+"type.highway.construction.tertiary_link" = "Rakenteilla oleva tie";
+"type.highway.construction.residential" = "Rakenteilla oleva tie";
+"type.highway.construction.unclassified" = "Rakenteilla oleva tie";
+"type.highway.construction.service" = "Rakenteilla oleva tie";
+"type.highway.construction.living_street" = "Rakenteilla oleva tie";
+"type.highway.construction.road" = "Rakenteilla oleva tie";
+"type.highway.construction.track" = "Rakenteilla oleva tie";
 "type.highway.cycleway" = "Pyörätie";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Silta";

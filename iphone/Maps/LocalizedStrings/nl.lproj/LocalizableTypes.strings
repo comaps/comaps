@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bushalte";
 "type.highway.construction" = "Weg in aanbouw";
+"type.highway.construction.motorway" = "Weg in aanbouw";
+"type.highway.construction.motorway_link" = "Weg in aanbouw";
+"type.highway.construction.trunk" = "Weg in aanbouw";
+"type.highway.construction.trunk_link" = "Weg in aanbouw";
+"type.highway.construction.primary" = "Weg in aanbouw";
+"type.highway.construction.primary_link" = "Weg in aanbouw";
+"type.highway.construction.secondary" = "Weg in aanbouw";
+"type.highway.construction.secondary_link" = "Weg in aanbouw";
+"type.highway.construction.tertiary" = "Weg in aanbouw";
+"type.highway.construction.tertiary_link" = "Weg in aanbouw";
+"type.highway.construction.residential" = "Weg in aanbouw";
+"type.highway.construction.unclassified" = "Weg in aanbouw";
+"type.highway.construction.service" = "Weg in aanbouw";
+"type.highway.construction.living_street" = "Weg in aanbouw";
+"type.highway.construction.road" = "Weg in aanbouw";
+"type.highway.construction.track" = "Weg in aanbouw";
 "type.highway.cycleway" = "Fietspad";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Fietsbrug";

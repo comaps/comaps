@@ -333,7 +333,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Túnel</string>
     <string name="type.highway.bus_stop">Ponto de ônibus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Via em construção</string>
+    <string name="type.highway.construction.motorway">Via em construção</string>
+    <string name="type.highway.construction.motorway_link">Via em construção</string>
+    <string name="type.highway.construction.trunk">Via em construção</string>
+    <string name="type.highway.construction.trunk_link">Via em construção</string>
+    <string name="type.highway.construction.primary">Via em construção</string>
+    <string name="type.highway.construction.primary_link">Via em construção</string>
+    <string name="type.highway.construction.secondary">Via em construção</string>
+    <string name="type.highway.construction.secondary_link">Via em construção</string>
+    <string name="type.highway.construction.tertiary">Via em construção</string>
+    <string name="type.highway.construction.tertiary_link">Via em construção</string>
+    <string name="type.highway.construction.residential">Via em construção</string>
+    <string name="type.highway.construction.unclassified">Via em construção</string>
+    <string name="type.highway.construction.service">Via em construção</string>
+    <string name="type.highway.construction.living_street">Via em construção</string>
+    <string name="type.highway.construction.road">Via em construção</string>
+    <string name="type.highway.construction.track">Via em construção</string>
     <string name="type.highway.cycleway">Ciclovia</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Ponte para ciclistas</string>

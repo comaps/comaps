@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "隧道";
 "type.highway.bus_stop" = "公車站";
 "type.highway.construction" = "施工中道路";
+"type.highway.construction.motorway" = "施工中道路";
+"type.highway.construction.motorway_link" = "施工中道路";
+"type.highway.construction.trunk" = "施工中道路";
+"type.highway.construction.trunk_link" = "施工中道路";
+"type.highway.construction.primary" = "施工中道路";
+"type.highway.construction.primary_link" = "施工中道路";
+"type.highway.construction.secondary" = "施工中道路";
+"type.highway.construction.secondary_link" = "施工中道路";
+"type.highway.construction.tertiary" = "施工中道路";
+"type.highway.construction.tertiary_link" = "施工中道路";
+"type.highway.construction.residential" = "施工中道路";
+"type.highway.construction.unclassified" = "施工中道路";
+"type.highway.construction.service" = "施工中道路";
+"type.highway.construction.living_street" = "施工中道路";
+"type.highway.construction.road" = "施工中道路";
+"type.highway.construction.track" = "施工中道路";
 "type.highway.cycleway" = "單車道";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "橋樑";

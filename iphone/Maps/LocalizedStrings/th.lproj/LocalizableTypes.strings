@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "อุโมงค์";
 "type.highway.bus_stop" = "ป้ายรถเมล์";
 "type.highway.construction" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.motorway" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.motorway_link" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.trunk" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.trunk_link" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.primary" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.primary_link" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.secondary" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.secondary_link" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.tertiary" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.tertiary_link" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.residential" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.unclassified" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.service" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.living_street" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.road" = "ทางกำลังอยู่ในการก่อสร้าง";
+"type.highway.construction.track" = "ทางกำลังอยู่ในการก่อสร้าง";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "สะพาน";

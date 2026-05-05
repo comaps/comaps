@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunel";
 "type.highway.bus_stop" = "Stație de autobuz";
 "type.highway.construction" = "Drum în construcție";
+"type.highway.construction.motorway" = "Drum în construcție";
+"type.highway.construction.motorway_link" = "Drum în construcție";
+"type.highway.construction.trunk" = "Drum în construcție";
+"type.highway.construction.trunk_link" = "Drum în construcție";
+"type.highway.construction.primary" = "Drum în construcție";
+"type.highway.construction.primary_link" = "Drum în construcție";
+"type.highway.construction.secondary" = "Drum în construcție";
+"type.highway.construction.secondary_link" = "Drum în construcție";
+"type.highway.construction.tertiary" = "Drum în construcție";
+"type.highway.construction.tertiary_link" = "Drum în construcție";
+"type.highway.construction.residential" = "Drum în construcție";
+"type.highway.construction.unclassified" = "Drum în construcție";
+"type.highway.construction.service" = "Drum în construcție";
+"type.highway.construction.living_street" = "Drum în construcție";
+"type.highway.construction.road" = "Drum în construcție";
+"type.highway.construction.track" = "Drum în construcție";
 "type.highway.cycleway" = "Pistă de Biciclete";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Pod";

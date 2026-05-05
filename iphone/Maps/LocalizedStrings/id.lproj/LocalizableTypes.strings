@@ -430,6 +430,22 @@
 "type.highway.busway.tunnel" = "Terowongan";
 "type.highway.bus_stop" = "Halte bus";
 "type.highway.construction" = "Jalan sedang dibangun";
+"type.highway.construction.motorway" = "Jalan sedang dibangun";
+"type.highway.construction.motorway_link" = "Jalan sedang dibangun";
+"type.highway.construction.trunk" = "Jalan sedang dibangun";
+"type.highway.construction.trunk_link" = "Jalan sedang dibangun";
+"type.highway.construction.primary" = "Jalan sedang dibangun";
+"type.highway.construction.primary_link" = "Jalan sedang dibangun";
+"type.highway.construction.secondary" = "Jalan sedang dibangun";
+"type.highway.construction.secondary_link" = "Jalan sedang dibangun";
+"type.highway.construction.tertiary" = "Jalan sedang dibangun";
+"type.highway.construction.tertiary_link" = "Jalan sedang dibangun";
+"type.highway.construction.residential" = "Jalan sedang dibangun";
+"type.highway.construction.unclassified" = "Jalan sedang dibangun";
+"type.highway.construction.service" = "Jalan sedang dibangun";
+"type.highway.construction.living_street" = "Jalan sedang dibangun";
+"type.highway.construction.road" = "Jalan sedang dibangun";
+"type.highway.construction.track" = "Jalan sedang dibangun";
 "type.highway.cycleway" = "Jalur Sepeda";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Menjembatani";

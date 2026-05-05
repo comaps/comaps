@@ -325,7 +325,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Busshållplats</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Väg under uppförande</string>
+    <string name="type.highway.construction.motorway">Väg under uppförande</string>
+    <string name="type.highway.construction.motorway_link">Väg under uppförande</string>
+    <string name="type.highway.construction.trunk">Väg under uppförande</string>
+    <string name="type.highway.construction.trunk_link">Väg under uppförande</string>
+    <string name="type.highway.construction.primary">Väg under uppförande</string>
+    <string name="type.highway.construction.primary_link">Väg under uppförande</string>
+    <string name="type.highway.construction.secondary">Väg under uppförande</string>
+    <string name="type.highway.construction.secondary_link">Väg under uppförande</string>
+    <string name="type.highway.construction.tertiary">Väg under uppförande</string>
+    <string name="type.highway.construction.tertiary_link">Väg under uppförande</string>
+    <string name="type.highway.construction.residential">Väg under uppförande</string>
+    <string name="type.highway.construction.unclassified">Väg under uppförande</string>
+    <string name="type.highway.construction.service">Väg under uppförande</string>
+    <string name="type.highway.construction.living_street">Väg under uppförande</string>
+    <string name="type.highway.construction.road">Väg under uppförande</string>
+    <string name="type.highway.construction.track">Väg under uppförande</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Cykelbro</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

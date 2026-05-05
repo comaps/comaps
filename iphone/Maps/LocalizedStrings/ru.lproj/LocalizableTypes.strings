@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Тоннель";
 "type.highway.bus_stop" = "Остановка";
 "type.highway.construction" = "Строящаяся дорога";
+"type.highway.construction.motorway" = "Строящаяся дорога";
+"type.highway.construction.motorway_link" = "Строящаяся дорога";
+"type.highway.construction.trunk" = "Строящаяся дорога";
+"type.highway.construction.trunk_link" = "Строящаяся дорога";
+"type.highway.construction.primary" = "Строящаяся дорога";
+"type.highway.construction.primary_link" = "Строящаяся дорога";
+"type.highway.construction.secondary" = "Строящаяся дорога";
+"type.highway.construction.secondary_link" = "Строящаяся дорога";
+"type.highway.construction.tertiary" = "Строящаяся дорога";
+"type.highway.construction.tertiary_link" = "Строящаяся дорога";
+"type.highway.construction.residential" = "Строящаяся дорога";
+"type.highway.construction.unclassified" = "Строящаяся дорога";
+"type.highway.construction.service" = "Строящаяся дорога";
+"type.highway.construction.living_street" = "Строящаяся дорога";
+"type.highway.construction.road" = "Строящаяся дорога";
+"type.highway.construction.track" = "Строящаяся дорога";
 "type.highway.cycleway" = "Велодорожка";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Мост";

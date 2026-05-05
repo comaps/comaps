@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bushaltistell";
 "type.highway.construction" = "Strass im Bau";
+"type.highway.construction.motorway" = "Strass im Bau";
+"type.highway.construction.motorway_link" = "Strass im Bau";
+"type.highway.construction.trunk" = "Strass im Bau";
+"type.highway.construction.trunk_link" = "Strass im Bau";
+"type.highway.construction.primary" = "Strass im Bau";
+"type.highway.construction.primary_link" = "Strass im Bau";
+"type.highway.construction.secondary" = "Strass im Bau";
+"type.highway.construction.secondary_link" = "Strass im Bau";
+"type.highway.construction.tertiary" = "Strass im Bau";
+"type.highway.construction.tertiary_link" = "Strass im Bau";
+"type.highway.construction.residential" = "Strass im Bau";
+"type.highway.construction.unclassified" = "Strass im Bau";
+"type.highway.construction.service" = "Strass im Bau";
+"type.highway.construction.living_street" = "Strass im Bau";
+"type.highway.construction.road" = "Strass im Bau";
+"type.highway.construction.track" = "Strass im Bau";
 "type.highway.cycleway" = "Veloweg";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Brugg";

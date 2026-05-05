@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Túnel";
 "type.highway.bus_stop" = "Paragem de autocarros";
 "type.highway.construction" = "Estrada em construção";
+"type.highway.construction.motorway" = "Estrada em construção";
+"type.highway.construction.motorway_link" = "Estrada em construção";
+"type.highway.construction.trunk" = "Estrada em construção";
+"type.highway.construction.trunk_link" = "Estrada em construção";
+"type.highway.construction.primary" = "Estrada em construção";
+"type.highway.construction.primary_link" = "Estrada em construção";
+"type.highway.construction.secondary" = "Estrada em construção";
+"type.highway.construction.secondary_link" = "Estrada em construção";
+"type.highway.construction.tertiary" = "Estrada em construção";
+"type.highway.construction.tertiary_link" = "Estrada em construção";
+"type.highway.construction.residential" = "Estrada em construção";
+"type.highway.construction.unclassified" = "Estrada em construção";
+"type.highway.construction.service" = "Estrada em construção";
+"type.highway.construction.living_street" = "Estrada em construção";
+"type.highway.construction.road" = "Estrada em construção";
+"type.highway.construction.track" = "Estrada em construção";
 "type.highway.cycleway" = "Ciclovia";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Ponte";

@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunela";
 "type.highway.bus_stop" = "Autobus geltokia";
 "type.highway.construction" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.motorway" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.motorway_link" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.trunk" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.trunk_link" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.primary" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.primary_link" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.secondary" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.secondary_link" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.tertiary" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.tertiary_link" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.residential" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.unclassified" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.service" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.living_street" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.road" = "Eraikitzen ari diren errepidea";
+"type.highway.construction.track" = "Eraikitzen ari diren errepidea";
 "type.highway.cycleway" = "Bidegorri edo bizikleta-bidea";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Zubia";

@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Busstopp";
 "type.highway.construction" = "Veikonstruksjon";
+"type.highway.construction.motorway" = "Veikonstruksjon";
+"type.highway.construction.motorway_link" = "Veikonstruksjon";
+"type.highway.construction.trunk" = "Veikonstruksjon";
+"type.highway.construction.trunk_link" = "Veikonstruksjon";
+"type.highway.construction.primary" = "Veikonstruksjon";
+"type.highway.construction.primary_link" = "Veikonstruksjon";
+"type.highway.construction.secondary" = "Veikonstruksjon";
+"type.highway.construction.secondary_link" = "Veikonstruksjon";
+"type.highway.construction.tertiary" = "Veikonstruksjon";
+"type.highway.construction.tertiary_link" = "Veikonstruksjon";
+"type.highway.construction.residential" = "Veikonstruksjon";
+"type.highway.construction.unclassified" = "Veikonstruksjon";
+"type.highway.construction.service" = "Veikonstruksjon";
+"type.highway.construction.living_street" = "Veikonstruksjon";
+"type.highway.construction.road" = "Veikonstruksjon";
+"type.highway.construction.track" = "Veikonstruksjon";
 "type.highway.cycleway" = "Sykkelvei";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Bru";

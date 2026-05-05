@@ -448,6 +448,22 @@
 "type.highway.busway.tunnel" = "מִנהָרָה";
 "type.highway.bus_stop" = "תחנת אוטובוס";
 "type.highway.construction" = "כביש בבניה";
+"type.highway.construction.motorway" = "כביש בבניה";
+"type.highway.construction.motorway_link" = "כביש בבניה";
+"type.highway.construction.trunk" = "כביש בבניה";
+"type.highway.construction.trunk_link" = "כביש בבניה";
+"type.highway.construction.primary" = "כביש בבניה";
+"type.highway.construction.primary_link" = "כביש בבניה";
+"type.highway.construction.secondary" = "כביש בבניה";
+"type.highway.construction.secondary_link" = "כביש בבניה";
+"type.highway.construction.tertiary" = "כביש בבניה";
+"type.highway.construction.tertiary_link" = "כביש בבניה";
+"type.highway.construction.residential" = "כביש בבניה";
+"type.highway.construction.unclassified" = "כביש בבניה";
+"type.highway.construction.service" = "כביש בבניה";
+"type.highway.construction.living_street" = "כביש בבניה";
+"type.highway.construction.road" = "כביש בבניה";
+"type.highway.construction.track" = "כביש בבניה";
 "type.highway.cycleway" = "שביל אופניים";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "גשר לאופניים";

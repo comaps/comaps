@@ -452,6 +452,22 @@
 "type.highway.busway.tunnel" = "Tonnel";
 "type.highway.bus_stop" = "Bushalte";
 "type.highway.construction" = "Pad in aanbou";
+"type.highway.construction.motorway" = "Pad in aanbou";
+"type.highway.construction.motorway_link" = "Pad in aanbou";
+"type.highway.construction.trunk" = "Pad in aanbou";
+"type.highway.construction.trunk_link" = "Pad in aanbou";
+"type.highway.construction.primary" = "Pad in aanbou";
+"type.highway.construction.primary_link" = "Pad in aanbou";
+"type.highway.construction.secondary" = "Pad in aanbou";
+"type.highway.construction.secondary_link" = "Pad in aanbou";
+"type.highway.construction.tertiary" = "Pad in aanbou";
+"type.highway.construction.tertiary_link" = "Pad in aanbou";
+"type.highway.construction.residential" = "Pad in aanbou";
+"type.highway.construction.unclassified" = "Pad in aanbou";
+"type.highway.construction.service" = "Pad in aanbou";
+"type.highway.construction.living_street" = "Pad in aanbou";
+"type.highway.construction.road" = "Pad in aanbou";
+"type.highway.construction.track" = "Pad in aanbou";
 "type.highway.cycleway" = "Fietspad";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Brug";
