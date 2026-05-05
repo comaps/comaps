@@ -155,7 +155,7 @@ public:
    *
    * This implementation always returns false.
    */
-  virtual bool IsAccessIgnored() { return false; }
+  virtual bool IsAccessIgnored() const { return false; }
 
   /**
    * @brief Creates an `EdgeEstimator` based on maximum speeds.

@@ -338,7 +338,7 @@ public:
      *
      * This implementation may return true or false, depending on the location being decoded.
      */
-    bool IsAccessIgnored() override;
+    bool IsAccessIgnored() const override;
 
   private:
     RoutingTraffDecoder & m_decoder;

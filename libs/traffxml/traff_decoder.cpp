@@ -695,14 +695,13 @@ double RoutingTraffDecoder::TraffEstimator::CalcSegmentWeight(routing::Segment c
     result *= m_decoder.GetRoadRefPenalty(refs);
   }
 
-  if ((m_decoder.m_trafficImpact.value().m_speedGroup != traffic::SpeedGroup::TempBlock)
-      && road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
+  if (!IsAccessIgnored() && road.GetHighwayType() && IsConstruction(road.GetHighwayType().value()))
     result *= kImpassablePenalty;
 
   return result;
 }
 
-bool RoutingTraffDecoder::TraffEstimator::IsAccessIgnored()
+bool RoutingTraffDecoder::TraffEstimator::IsAccessIgnored() const
 {
   ASSERT(m_decoder.m_trafficImpact, ("Traffic impact for current message is not set"));
   return (m_decoder.m_trafficImpact.value().m_speedGroup == traffic::SpeedGroup::TempBlock);
