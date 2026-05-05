@@ -43,6 +43,7 @@
 
 #include "indexer/categories_holder.hpp"
 #include "indexer/classificator.hpp"
+#include "indexer/custom_keyvalue.hpp"
 #include "indexer/data_source.hpp"
 #include "indexer/edit_journal.hpp"
 #include "indexer/editable_map_object.hpp"
@@ -54,6 +55,7 @@
 #include "indexer/feature_utils.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/imported_source.hpp"
 #include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 #include "indexer/transliteration_loader.hpp"
@@ -2976,9 +2978,28 @@ bool Framework::GetEditableMapObject(FeatureID const & fid, osm::EditableMapObje
     return false;
 
   emo = {};
-  emo.SetFromFeatureType(*ft);
   auto const & editor = osm::Editor::Instance();
-  emo.SetEditableProperties(editor.GetEditableProperties(*ft));
+
+  bool const isImported = indexer::CustomKeyValue(ft->GetMetadata(feature::Metadata::FMD_CUSTOM_IDS))
+                               .Get(indexer::kImportedSourceKey).has_value();
+  if (isImported)
+  {
+    // Imported address features have no real OSM IDs. Treat editing as creating a new OSM node
+    // pre-populated with the imported address data.
+    auto const addrType = classif().GetTypeByPath({"building", "address"});
+    if (!editor.CreatePoint(addrType, feature::GetCenter(*ft), fid.m_mwmId, emo))
+    {
+      LOG(LERROR, ("Imported address: CreatePoint failed for feature:", fid));
+      return false;
+    }
+    emo.SetHouseNumber(ft->GetHouseNumber());
+    emo.SetPostcode(std::string(ft->GetMetadata(feature::Metadata::FMD_POSTCODE)));
+  }
+  else
+  {
+    emo.SetFromFeatureType(*ft);
+    emo.SetEditableProperties(editor.GetEditableProperties(*ft));
+  }
 
   auto const & dataSource = m_featuresFetcher.GetDataSource();
   search::ReverseGeocoder const coder(dataSource);
