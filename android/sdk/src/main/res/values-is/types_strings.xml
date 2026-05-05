@@ -1046,7 +1046,24 @@
     <string name="type.piste_type.snow_park">Snjóleikjagarður</string>
     <string name="type.internet_access.wlan">Þráðlaust net</string>
     <string name="type.amenity.shelter.lean_to">Setskýli</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Vegur í byggingu</string>
+    <string name="type.highway.construction.motorway">Vegur í byggingu</string>
+    <string name="type.highway.construction.motorway_link">Vegur í byggingu</string>
+    <string name="type.highway.construction.trunk">Vegur í byggingu</string>
+    <string name="type.highway.construction.trunk_link">Vegur í byggingu</string>
+    <string name="type.highway.construction.primary">Vegur í byggingu</string>
+    <string name="type.highway.construction.primary_link">Vegur í byggingu</string>
+    <string name="type.highway.construction.secondary">Vegur í byggingu</string>
+    <string name="type.highway.construction.secondary_link">Vegur í byggingu</string>
+    <string name="type.highway.construction.tertiary">Vegur í byggingu</string>
+    <string name="type.highway.construction.tertiary_link">Vegur í byggingu</string>
+    <string name="type.highway.construction.residential">Vegur í byggingu</string>
+    <string name="type.highway.construction.unclassified">Vegur í byggingu</string>
+    <string name="type.highway.construction.service">Vegur í byggingu</string>
+    <string name="type.highway.construction.living_street">Vegur í byggingu</string>
+    <string name="type.highway.construction.road">Vegur í byggingu</string>
+    <string name="type.highway.construction.track">Vegur í byggingu</string>
     <string name="type.highway.footway.area">Svæði fyrir fótgangandi</string>
     <string name="type.highway.pedestrian.area">Svæði fyrir fótgangandi</string>
     <string name="type.historic.tank">Sögulegur skriðdreki</string>

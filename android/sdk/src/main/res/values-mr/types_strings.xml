@@ -290,7 +290,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">बोगदा</string>
     <string name="type.highway.bus_stop">बस थांबा</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.motorway">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.motorway_link">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.trunk">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.trunk_link">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.primary">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.primary_link">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.secondary">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.secondary_link">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.tertiary">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.tertiary_link">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.residential">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.unclassified">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.service">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.living_street">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.road">बांधकामाधीन रस्ता</string>
+    <string name="type.highway.construction.track">बांधकामाधीन रस्ता</string>
     <string name="type.highway.cycleway">सायकल वाट</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">पूल</string>

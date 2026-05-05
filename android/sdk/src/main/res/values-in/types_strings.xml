@@ -323,7 +323,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Terowongan</string>
     <string name="type.highway.bus_stop">Halte bus</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.motorway">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.motorway_link">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.trunk">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.trunk_link">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.primary">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.primary_link">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.secondary">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.secondary_link">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.tertiary">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.tertiary_link">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.residential">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.unclassified">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.service">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.living_street">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.road">Jalan sedang dibangun</string>
+    <string name="type.highway.construction.track">Jalan sedang dibangun</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Menjembatani</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

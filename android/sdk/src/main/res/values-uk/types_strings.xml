@@ -381,7 +381,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Тунель</string>
     <string name="type.highway.bus_stop">Зупинка</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Дорога, що будується</string>
+    <string name="type.highway.construction.motorway">Дорога, що будується</string>
+    <string name="type.highway.construction.motorway_link">Дорога, що будується</string>
+    <string name="type.highway.construction.trunk">Дорога, що будується</string>
+    <string name="type.highway.construction.trunk_link">Дорога, що будується</string>
+    <string name="type.highway.construction.primary">Дорога, що будується</string>
+    <string name="type.highway.construction.primary_link">Дорога, що будується</string>
+    <string name="type.highway.construction.secondary">Дорога, що будується</string>
+    <string name="type.highway.construction.secondary_link">Дорога, що будується</string>
+    <string name="type.highway.construction.tertiary">Дорога, що будується</string>
+    <string name="type.highway.construction.tertiary_link">Дорога, що будується</string>
+    <string name="type.highway.construction.residential">Дорога, що будується</string>
+    <string name="type.highway.construction.unclassified">Дорога, що будується</string>
+    <string name="type.highway.construction.service">Дорога, що будується</string>
+    <string name="type.highway.construction.living_street">Дорога, що будується</string>
+    <string name="type.highway.construction.road">Дорога, що будується</string>
+    <string name="type.highway.construction.track">Дорога, що будується</string>
     <string name="type.highway.cycleway">Велодоріжка</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Міст</string>

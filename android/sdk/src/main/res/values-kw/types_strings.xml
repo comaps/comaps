@@ -286,7 +286,24 @@
     <string name="type.highway.busway.bridge">Pons</string>
     <string name="type.highway.busway.tunnel">Kowfordh</string>
     <string name="type.highway.bus_stop">Kyttrinva</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.motorway">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.motorway_link">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.trunk">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.trunk_link">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.primary">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.primary_link">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.secondary">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.secondary_link">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.tertiary">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.tertiary_link">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.residential">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.unclassified">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.service">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.living_street">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.road">Fordh y\'n Drehevyans</string>
+    <string name="type.highway.construction.track">Fordh y\'n Drehevyans</string>
     <string name="type.highway.cycleway">Hyns rag Diwrosow</string>
     <string name="type.highway.cycleway.bridge">Pons</string>
     <string name="type.highway.cycleway.permissive">Hyns rag Diwrosow</string>

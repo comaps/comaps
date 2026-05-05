@@ -329,7 +329,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Đường hầm</string>
     <string name="type.highway.bus_stop">Bến xe buýt</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Đường đang thi công</string>
+    <string name="type.highway.construction.motorway">Đường đang thi công</string>
+    <string name="type.highway.construction.motorway_link">Đường đang thi công</string>
+    <string name="type.highway.construction.trunk">Đường đang thi công</string>
+    <string name="type.highway.construction.trunk_link">Đường đang thi công</string>
+    <string name="type.highway.construction.primary">Đường đang thi công</string>
+    <string name="type.highway.construction.primary_link">Đường đang thi công</string>
+    <string name="type.highway.construction.secondary">Đường đang thi công</string>
+    <string name="type.highway.construction.secondary_link">Đường đang thi công</string>
+    <string name="type.highway.construction.tertiary">Đường đang thi công</string>
+    <string name="type.highway.construction.tertiary_link">Đường đang thi công</string>
+    <string name="type.highway.construction.residential">Đường đang thi công</string>
+    <string name="type.highway.construction.unclassified">Đường đang thi công</string>
+    <string name="type.highway.construction.service">Đường đang thi công</string>
+    <string name="type.highway.construction.living_street">Đường đang thi công</string>
+    <string name="type.highway.construction.road">Đường đang thi công</string>
+    <string name="type.highway.construction.track">Đường đang thi công</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Cầu</string>
     <!-- These translations are used for all type.highway.*.tunnel. -->

@@ -379,7 +379,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunnel</string>
     <string name="type.highway.bus_stop">Bushalte</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Weg in aanbouw</string>
+    <string name="type.highway.construction.motorway">Weg in aanbouw</string>
+    <string name="type.highway.construction.motorway_link">Weg in aanbouw</string>
+    <string name="type.highway.construction.trunk">Weg in aanbouw</string>
+    <string name="type.highway.construction.trunk_link">Weg in aanbouw</string>
+    <string name="type.highway.construction.primary">Weg in aanbouw</string>
+    <string name="type.highway.construction.primary_link">Weg in aanbouw</string>
+    <string name="type.highway.construction.secondary">Weg in aanbouw</string>
+    <string name="type.highway.construction.secondary_link">Weg in aanbouw</string>
+    <string name="type.highway.construction.tertiary">Weg in aanbouw</string>
+    <string name="type.highway.construction.tertiary_link">Weg in aanbouw</string>
+    <string name="type.highway.construction.residential">Weg in aanbouw</string>
+    <string name="type.highway.construction.unclassified">Weg in aanbouw</string>
+    <string name="type.highway.construction.service">Weg in aanbouw</string>
+    <string name="type.highway.construction.living_street">Weg in aanbouw</string>
+    <string name="type.highway.construction.road">Weg in aanbouw</string>
+    <string name="type.highway.construction.track">Weg in aanbouw</string>
     <string name="type.highway.cycleway">Fietspad</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Fietsbrug</string>

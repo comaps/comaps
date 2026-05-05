@@ -375,7 +375,24 @@
     <!-- These translations are used for all type.highway.*.tunnel. -->
     <string name="type.highway.busway.tunnel">Tunneli</string>
     <string name="type.highway.bus_stop">Bussipysäkki</string>
+    <!-- These translations are used for all type.highway.construction.*. -->
     <string name="type.highway.construction">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.motorway">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.motorway_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.trunk">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.trunk_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.primary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.primary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.secondary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.secondary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.tertiary">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.tertiary_link">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.residential">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.unclassified">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.service">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.living_street">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.road">Rakenteilla oleva tie</string>
+    <string name="type.highway.construction.track">Rakenteilla oleva tie</string>
     <string name="type.highway.cycleway">Pyörätie</string>
     <!-- These translations are used for all type.highway.*.bridge. -->
     <string name="type.highway.cycleway.bridge">Silta</string>
