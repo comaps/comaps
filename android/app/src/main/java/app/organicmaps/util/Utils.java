@@ -448,6 +448,12 @@ public class Utils
   }
 
   @NonNull
+  public static CharSequence formatRoutingTime(Context context, int seconds)
+  {
+    return formatRoutingTime(context, seconds, R.dimen.downloader_status_size, R.dimen.text_size_routing_number); //TODO: replace downloader_status_size here (ideally remove requiremnet for it)
+  }
+
+  @NonNull
   public static CharSequence formatRoutingTime(Context context, int seconds, @DimenRes int unitsSize)
   {
     return formatRoutingTime(context, seconds, unitsSize, R.dimen.text_size_routing_number);

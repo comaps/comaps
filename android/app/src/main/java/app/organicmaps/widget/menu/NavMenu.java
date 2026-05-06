@@ -347,7 +347,7 @@ public class NavMenu
       destinationText = mActivity.getString(R.string.destination);
       iconId = R.drawable.route_point_finish;
       distance = mRoutingInfo.distToTarget;
-      timeInSeconds = mRoutingInfo.totalTimeInSeconds;
+      timeInSeconds = mRoutingInfo.remainingTimeInSeconds;
     }
     else
     {

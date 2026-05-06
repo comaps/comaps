@@ -51,7 +51,7 @@ public final class RoutingUtils
       destinationBuilder.setName(" ");
 
     builder.addDestination(destinationBuilder.build(),
-                           createTravelEstimate(info.distToTarget, info.totalTimeInSeconds));
+                           createTravelEstimate(info.distToTarget, info.remainingTimeInSeconds));
 
     // TODO (AndrewShkrob): Use real distance and time estimates
     builder.addStep(createCurrentStep(context, info), createTravelEstimate(info.distToTurn, 0));

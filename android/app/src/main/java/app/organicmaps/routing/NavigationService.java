@@ -8,6 +8,7 @@ import static app.organicmaps.sdk.util.Constants.Vendor.XIAOMI;
 
 import android.annotation.SuppressLint;
 import android.app.ForegroundServiceStartNotAllowedException;
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -19,6 +20,8 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.os.Build;
 import android.os.IBinder;
+
+import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
@@ -43,6 +46,7 @@ import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.Graphics;
+import app.organicmaps.util.Utils;
 
 public class NavigationService extends Service implements LocationListener
 {
@@ -113,8 +117,7 @@ public class NavigationService extends Service implements LocationListener
 
     final NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
     final NotificationChannelCompat channel =
-        new NotificationChannelCompat.Builder(CHANNEL_ID,
-                                              NotificationManagerCompat.IMPORTANCE_LOW)
+        new NotificationChannelCompat.Builder(CHANNEL_ID, NotificationManagerCompat.IMPORTANCE_LOW)
             .setName(context.getString(R.string.pref_navigation))
             .setLightsEnabled(false) // less annoying
             .setVibrationEnabled(false) // less annoying
@@ -123,13 +126,18 @@ public class NavigationService extends Service implements LocationListener
   }
 
   /**
-   * See {@link android.app.Notification.Builder#setColorized(boolean) }
+   * See {@link Notification.Builder#setColorized(boolean) }
    */
   private static boolean isColorizedSupported()
   {
     // Nice colorized notifications should be supported on API=26 and later.
     // Nonetheless, even on API=32, Xiaomi uses their own legacy implementation that displays white-on-white instead.
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !XIAOMI.equalsIgnoreCase(Build.MANUFACTURER);
+  }
+
+  private static boolean isLiveUpdateSupported()
+  {
+    return Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA;
   }
 
   @NonNull
@@ -152,13 +160,14 @@ public class NavigationService extends Service implements LocationListener
                                .setCategory(NotificationCompat.CATEGORY_NAVIGATION)
                                .setPriority(NotificationManager.IMPORTANCE_LOW)
                                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                               .setRequestPromotedOngoing(true)
                                .setOngoing(true)
                                .setShowWhen(false)
                                .setOnlyAlertOnce(true)
                                .setSmallIcon(R.drawable.ic_logo_small)
                                .setContentIntent(pendingIntent)
-                               .addAction(0, context.getString(R.string.navigation_stop_button), exitPendingIntent)
-                               .setColorized(isColorizedSupported())
+                               .addAction(0, context.getString(R.string.navigation_notification_stop_button), exitPendingIntent)
+                               .setColorized(isColorizedSupported() && !isLiveUpdateSupported()) // not supported for live notification sadly
                                .setColor(ContextCompat.getColor(context, R.color.notification));
 
     return mNotificationBuilder;
@@ -266,16 +275,71 @@ public class NavigationService extends Service implements LocationListener
     return null;
   }
 
+  @Nullable
+  private Bitmap resolveTurnBitmap(@DrawableRes int resource) {
+    Drawable drawable = AppCompatResources.getDrawable(this, resource);
+    if (drawable == null) return null;
+
+    return (isColorizedSupported() && !isLiveUpdateSupported())
+            ? Graphics.drawableToBitmapWithTint(drawable, ContextCompat.getColor(this, R.color.notification))
+            : Graphics.drawableToBitmap(drawable);
+  }
+
+  private void updateRoutingNotification(RoutingInfo routingInfo)
+  {
+    // Only spend time updating RemoteView if notifications are allowed.
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
+            && ActivityCompat.checkSelfPermission(this, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
+      return;
+
+    final NotificationCompat.Builder notificationBuilder = getNotificationBuilder(this);
+
+    // Fill routing info notification
+    if (routingInfo.routingSessionState == RoutingInfo.RoutingSessionState.RouteRebuilding)
+    {
+      notificationBuilder
+              .setStyle(null)
+              .setLargeIcon((Bitmap) null)
+              .setContentText(null)
+              .setShortCriticalText(this.getString(R.string.route_recalc_short))
+              .setSmallIcon(R.drawable.ic_reload_small)
+              .setContentTitle(this.getString(R.string.route_recalculating))
+              .setProgress(0,0,true);
+    }
+    else
+    {
+      final double progress = routingInfo.completionPercent;
+      final int currentTurnResource = routingInfo.carDirection.getTurnRes();
+      String distToTurnString = routingInfo.distToTurn.toString(this);
+      String timeToEndString = Utils.formatRoutingTime(this, routingInfo.remainingTimeInSeconds).toString();
+      String arrivalTimeString = Utils.formatArrivalTime(routingInfo.remainingTimeInSeconds);
+
+      notificationBuilder
+              .setContentTitle(distToTurnString) //TODO: Add proper turn instruction here eg. Turn Left in 300m
+              .setContentText(this.getString(R.string.notif_time_dist_to, timeToEndString, arrivalTimeString))
+              .setShortCriticalText(this.getString(R.string.in_x, distToTurnString))
+              .setSmallIcon(currentTurnResource)
+              .setLargeIcon(resolveTurnBitmap(currentTurnResource))
+              .setProgress(1000, (int) (progress * 10), false); // Use 1000 range so can represent 0.1% increments
+    }
+
+    if (mCarNotificationExtender != null)
+      notificationBuilder.extend(mCarNotificationExtender);
+
+    // The notification object must be re-created for every update.
+    NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notificationBuilder.build());
+  }
+
   @Override
   @RequiresPermission(anyOf = {ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION})
   public void onLocationUpdated(@NonNull Location location)
   {
-    // Ignore any pending notifications when service is being stopping.
+    // Ignore any pending notifications if service is being stopped.
     final RoutingController routingController = RoutingController.get();
     if (!routingController.isNavigating())
       return;
 
-    // Voice the turn notification first.
+    // Trigger the TTS turn notifications first.
     final String[] turnNotifications = Framework.nativeGenerateNotifications(Config.TTS.getAnnounceStreets());
     if (turnNotifications != null)
       TtsPlayer.INSTANCE.playTurnNotifications(turnNotifications);
@@ -300,28 +364,6 @@ public class NavigationService extends Service implements LocationListener
     if (routingInfo.shouldPlayWarningSignal())
       mPlayer.playback(R.raw.speed_cams_beep);
 
-    // Don't spend time on updating RemoteView if notifications are not allowed.
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
-        && ActivityCompat.checkSelfPermission(this, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
-      return;
-
-    final NotificationCompat.Builder notificationBuilder = getNotificationBuilder(this)
-                                                               .setContentTitle(routingInfo.distToTurn.toString(this))
-                                                               .setContentText(routingInfo.nextStreet);
-
-    final Drawable drawable = AppCompatResources.getDrawable(this, routingInfo.carDirection.getTurnRes());
-    if (drawable != null)
-    {
-      final Bitmap bitmap = isColorizedSupported() ? Graphics.drawableToBitmap(drawable)
-                                                   : Graphics.drawableToBitmapWithTint(
-                                                         drawable, ContextCompat.getColor(this, R.color.base_accent));
-      notificationBuilder.setLargeIcon(bitmap);
-    }
-
-    if (mCarNotificationExtender != null)
-      notificationBuilder.extend(mCarNotificationExtender);
-
-    // The notification object must be re-created for every update.
-    NotificationManagerCompat.from(this).notify(NOTIFICATION_ID, notificationBuilder.build());
+    updateRoutingNotification(routingInfo);
   }
 }

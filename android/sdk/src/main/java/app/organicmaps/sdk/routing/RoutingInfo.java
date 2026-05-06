@@ -58,7 +58,7 @@ public final class RoutingInfo
   // Next turn.
   public final Distance distToTurn;
   // Time in seconds to target (end point of route).
-  public final int totalTimeInSeconds;
+  public final int remainingTimeInSeconds;
   // Current street name.
   public final String currentStreet;
   // The next street name.
@@ -104,7 +104,7 @@ public final class RoutingInfo
     this.currentStreet = currentStreet;
     this.nextStreet = nextStreet;
     this.nextNextStreet = nextNextStreet;
-    this.totalTimeInSeconds = totalTime;
+    this.remainingTimeInSeconds = totalTime;
     this.completionPercent = completionPercent;
     this.carDirection = CarDirection.values()[vehicleTurnOrdinal];
     this.nextCarDirection = CarDirection.values()[vehicleNextTurnOrdinal];

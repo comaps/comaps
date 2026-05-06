@@ -386,7 +386,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
     if (mArrival != null)
     {
-      String arrivalTime = Utils.formatArrivalTime(rinfo.totalTimeInSeconds);
+      String arrivalTime = Utils.formatArrivalTime(rinfo.remainingTimeInSeconds);
       mArrival.setText(arrivalTime);
     }
   }
@@ -404,7 +404,7 @@ final class RoutingBottomMenuController implements View.OnClickListener
 
   {
     CharSequence time =
-        Utils.formatRoutingTime(context, routingInfo.totalTimeInSeconds, R.dimen.text_size_routing_number);
+        Utils.formatRoutingTime(context, routingInfo.remainingTimeInSeconds, R.dimen.text_size_routing_number);
 
     SpannableStringBuilder builder = new SpannableStringBuilder();
     initTimeBuilderSequence(context, time, builder);
