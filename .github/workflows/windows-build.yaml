@@ -60,6 +60,25 @@ jobs:
       - name: Install Python protobuf
         run: pip install "protobuf>=3.20,<4.0"
 
+      - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
+        shell: bash
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          cat > "$HOME/.local/bin/uconv" << 'EOF'
+          #!/usr/bin/env bash
+          # Stub: passes input through without transliteration.
+          # uconv is only used by generate_serbian_latin_strings.sh for Android/iOS.
+          while [[ $# -gt 0 ]]; do
+            case "$1" in
+              -x) shift 2 ;;
+              *) INPUT="$1"; shift ;;
+            esac
+          done
+          cat "$INPUT"
+          EOF
+          chmod +x "$HOME/.local/bin/uconv"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
       - name: Configure repository
         shell: bash
         env:
