@@ -57,8 +57,18 @@ jobs:
         with:
           arch: x64
 
-      - name: Install Python protobuf
-        run: pip install "protobuf>=3.20,<4.0"
+      - name: Install optipng and Python protobuf
+        run: |
+          choco install optipng -y
+          pip install "protobuf>=3.20,<4.0"
+
+      - name: Patch kothic for Windows (multiprocessing fork not supported)
+        shell: bash
+        run: |
+          # Windows only supports spawn/forkserver, not fork.
+          # Guard the set_start_method call so it is skipped on Windows.
+          sed -i "s/set_start_method('fork')/if __import__('sys').platform != 'win32': set_start_method('fork')/" \
+            tools/kothic/src/libkomwm.py
 
       - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
         shell: bash
