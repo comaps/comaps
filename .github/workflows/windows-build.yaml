@@ -56,6 +56,9 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
+          # Windows SDK 26100 breaks jansson/dtoa.c via `#define Long int` clashing
+          # with winnt.h struct members. Pin to 22621 which is also on windows-latest.
+          sdk: '10.0.22621.0'
 
       - name: Install optipng and Python protobuf
         run: |
