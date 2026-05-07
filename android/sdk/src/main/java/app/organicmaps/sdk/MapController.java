@@ -34,6 +34,11 @@ public class MapController implements DefaultLifecycleObserver
     TAG = TAG_PEFRIX + "[" + mMap.getDisplayType() + "]";
   }
 
+  public void setSafeModeActive(boolean active)
+  {
+    mMap.setSafeModeActive(active);
+  }
+
   public MapView getView()
   {
     return mMapView;

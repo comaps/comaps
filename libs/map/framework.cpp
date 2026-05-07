@@ -63,6 +63,8 @@
 #include "base/math.hpp"
 #include "base/string_utils.hpp"
 
+#include "platform/safe_mode.hpp"
+
 #include "std/target_os.hpp"
 
 #include "defines.hpp"
@@ -378,7 +380,12 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
   GetPowerManager().Load();
 
   if (loadMaps)
-    LoadMapsSync();
+  {
+    if (safe_mode::IsActive())
+      LOG(LWARNING, ("Safe mode active — skipping map loading"));
+    else
+      LoadMapsSync();
+  }
 }
 
 Framework::~Framework()
@@ -490,6 +497,7 @@ bool Framework::HasUnsavedEdits(storage::CountryId const & countryId)
 // Small copy-paste with LoadMapsAsync, but I don't have a better solution.
 void Framework::LoadMapsSync()
 {
+  safe_mode::MarkLoadStarted();
   RegisterAllMaps();
   LOG(LDEBUG, ("Maps initialized"));
 
@@ -507,6 +515,7 @@ void Framework::LoadMapsSync()
 // Small copy-paste with LoadMapsSync, but I don't have a better solution.
 void Framework::LoadMapsAsync(std::function<void()> && callback)
 {
+  safe_mode::MarkLoadStarted();
   osm::Editor & editor = osm::Editor::Instance();
   threads::SimpleThread([this, &editor, callback = std::move(callback)]()
   {
@@ -537,6 +546,12 @@ void Framework::RegisterAllMaps()
   m_storage.GetLocalMaps(maps);
   for (auto const & localFile : maps)
     UNUSED_VALUE(RegisterMap(*localFile));
+}
+
+void Framework::RegisterOfficialMapsOnly()
+{
+  // Called in safe mode: platform layer already skips custom maps.
+  RegisterAllMaps();
 }
 
 void Framework::DeregisterAllMaps()
@@ -1556,6 +1571,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     m_drapeEngine->ShowDebugInfo(showDebugInfo);
 
   benchmark::RunGraphicsBenchmark(this);
+
+  safe_mode::MarkLoadComplete();
 }
 
 void Framework::OnRecoverSurface(int width, int height, bool recreateContextDependentResources)

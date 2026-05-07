@@ -53,6 +53,7 @@ public final class OrganicMaps implements DefaultLifecycleObserver
 
   private volatile boolean mFrameworkInitialized;
   private volatile boolean mPlatformInitialized;
+  private volatile boolean mSafeModeActive;
 
   @NonNull
   public LocationHelper getLocationHelper()
@@ -177,11 +178,17 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     Logger.i(TAG, "Platform initialized");
   }
 
+  public boolean isSafeModeActive()
+  {
+    return mSafeModeActive;
+  }
+
   private boolean initNativeFramework(@NonNull Runnable onComplete)
   {
     if (mFrameworkInitialized)
       return false;
 
+    mSafeModeActive = nativeIsSafeModeActive();
     nativeInitFramework(onComplete);
 
     initNativeStrings();
@@ -241,6 +248,8 @@ public final class OrganicMaps implements DefaultLifecycleObserver
   private static native void nativeAddLocalization(String name, String value);
 
   private static native void nativeOnTransit(boolean foreground);
+
+  private static native boolean nativeIsSafeModeActive();
 
   static
   {

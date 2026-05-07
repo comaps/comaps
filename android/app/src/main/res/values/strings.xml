@@ -1010,4 +1010,5 @@
     <string name="custom_mwm_unknown_region">This file doesn\'t match any known map region. Import anyway?</string>
     <string name="custom_mwm_unknown_region_named">"%s" doesn\'t match any known map region. Import anyway?</string>
     <string name="import_anyway">Import anyway</string>
+    <string name="safe_mode_banner">Map loading disabled after a crash. Go to Downloads to remove problematic files, then restart.</string>
 </resources>

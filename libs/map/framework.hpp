@@ -240,6 +240,10 @@ public:
   /// Registers all local map files in internal indexes.
   void RegisterAllMaps();
 
+  /// Safe-mode variant: registers official maps only (custom maps are skipped by the
+  /// platform layer when safe_mode::IsActive()).  Does NOT write the load sentinel.
+  void RegisterOfficialMapsOnly();
+
   /// Deregisters all registered map files.
   void DeregisterAllMaps();
 

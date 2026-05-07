@@ -50,6 +50,8 @@ set(SRC
   preferred_languages.hpp
   remote_file.cpp
   remote_file.hpp
+  safe_mode.cpp
+  safe_mode.hpp
   secure_storage.hpp
   servers_list.cpp
   servers_list.hpp

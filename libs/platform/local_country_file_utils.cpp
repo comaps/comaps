@@ -3,6 +3,7 @@
 #include "platform/country_file.hpp"
 #include "platform/mwm_version.hpp"
 #include "platform/platform.hpp"
+#include "platform/safe_mode.hpp"
 #include "platform/settings.hpp"
 
 #include "coding/internal/file_data.hpp"
@@ -290,7 +291,11 @@ void FindAllLocalMapsAndCleanup(int64_t latestVersion, string const & dataDir,
   // Find custom maps in the custom_maps directory.
   // Custom maps have higher priority and use future date versions (YYMMDD format).
   // The storage will prefer the newest version when multiple versions exist.
-  FindAllCustomMaps(dataDir, localFiles);
+  // In safe mode, skip custom maps — they are the likely crash source. The Java
+  // layer (CustomMwmManager) shows them in the Downloads screen via a direct
+  // file-system scan so the user can still delete them.
+  if (!safe_mode::IsActive())
+    FindAllCustomMaps(dataDir, localFiles);
 
   // Check for World and WorldCoasts in app bundle or in resources.
   Platform & platform = GetPlatform();

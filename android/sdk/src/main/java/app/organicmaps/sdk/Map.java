@@ -75,6 +75,12 @@ public final class Map
   private CallbackUnsupported mCallbackUnsupported;
 
   private static int sCurrentDpi = 0;
+  private boolean mSafeModeActive = false;
+
+  public void setSafeModeActive(boolean active)
+  {
+    mSafeModeActive = active;
+  }
 
   public Map(@NonNull DisplayType mapType)
   {
@@ -97,6 +103,8 @@ public final class Map
    */
   public void updateCompassOffset(final Context context, int offsetX, int offsetY, boolean forceRedraw)
   {
+    if (mSafeModeActive)
+      return;
     final int x = offsetX < 0 ? mCurrentCompassOffsetX : offsetX;
     final int y = offsetY < 0 ? mCurrentCompassOffsetY : offsetY;
     final int navPadding = Utils.dimen(context, R.dimen.nav_frame_padding);
@@ -177,6 +185,16 @@ public final class Map
     mRequireResize = false;
     setupWidgets(context, surfaceFrame.width(), surfaceFrame.height());
 
+    if (mSafeModeActive)
+    {
+      // Safe mode: skip engine creation, leave map blank so app UI remains usable.
+      mSurfaceCreated = true;
+      mSurfaceAttached = true;
+      if (mMapRenderingListener != null)
+        mMapRenderingListener.onRenderingCreated();
+      return;
+    }
+
     final boolean firstStart = mLocationHelper.isInFirstRun();
     if (!nativeCreateEngine(surface, surfaceDpi, firstStart, mLaunchByDeepLink, Config.getVersionCode(),
                             ROMUtils.isCustomROM()))
@@ -210,6 +228,9 @@ public final class Map
     if (!mSurfaceCreated || (!mRequireResize && isSurfaceCreating))
       return;
 
+    if (mSafeModeActive)
+      return;
+
     nativeSurfaceChanged(surface, surfaceFrame.width(), surfaceFrame.height());
 
     mRequireResize = false;
@@ -224,6 +245,13 @@ public final class Map
     Logger.d(TAG, "mSurfaceCreated = " + mSurfaceCreated + ", mSurfaceAttached = " + mSurfaceAttached);
     if (!mSurfaceCreated || !mSurfaceAttached)
       return;
+
+    if (mSafeModeActive)
+    {
+      mSurfaceCreated = false;
+      mSurfaceAttached = false;
+      return;
+    }
 
     nativeDetachSurface(!activityIsChangingConfigurations);
     mSurfaceCreated = !nativeDestroySurfaceOnDetach();
@@ -251,17 +279,24 @@ public final class Map
 
   public void onStart()
   {
+    if (mSafeModeActive)
+      return;
     nativeSetRenderingInitializationFinishedListener(mMapRenderingListener);
   }
 
   public void onStop()
   {
+    if (mSafeModeActive)
+      return;
     nativeSetRenderingInitializationFinishedListener(null);
   }
 
   public void onPause()
   {
     mUiThemeOnPause = Config.UiTheme.getCurrent();
+
+    if (mSafeModeActive)
+      return;
 
     // Pause/Resume can be called without surface creation/destroy.
     if (mSurfaceAttached)
@@ -270,6 +305,9 @@ public final class Map
 
   public void onResume()
   {
+    if (mSafeModeActive)
+      return;
+
     // Pause/Resume can be called without surface creation/destroy.
     if (mSurfaceAttached)
       nativeResumeSurfaceRendering();
@@ -336,6 +374,9 @@ public final class Map
 
   private void setupWidgets(final Context context, int width, int height)
   {
+    if (mSafeModeActive)
+      return;
+
     mHeight = height;
     mWidth = width;
 
@@ -357,6 +398,8 @@ public final class Map
 
   private void updateRulerOffset(final Context context, int offsetX, int offsetY)
   {
+    if (mSafeModeActive)
+      return;
     nativeSetupWidget(WIDGET_RULER, Utils.dimen(context, R.dimen.margin_ruler) + offsetX,
                       mHeight - Utils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
     if (mSurfaceCreated)
@@ -365,6 +408,8 @@ public final class Map
 
   private void updateAttributionOffset(final Context context, int offsetX, int offsetY)
   {
+    if (mSafeModeActive)
+      return;
     nativeSetupWidget(WIDGET_COPYRIGHT, Utils.dimen(context, R.dimen.margin_ruler) + offsetX,
                       mHeight - Utils.dimen(context, R.dimen.margin_ruler) - offsetY, ANCHOR_LEFT_BOTTOM);
     if (mSurfaceCreated)

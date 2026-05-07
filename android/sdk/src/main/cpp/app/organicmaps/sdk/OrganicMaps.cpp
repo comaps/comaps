@@ -4,6 +4,8 @@
 
 #include "app/organicmaps/sdk/core/jni_helper.hpp"
 
+#include "platform/safe_mode.hpp"
+
 extern "C"
 {
 // static void nativeSetSettingsDir(String settingsPath);
@@ -21,6 +23,12 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_OrganicMaps_nativeInitPlatform(
 {
   android::Platform::Instance().Initialize(env, context, apkPath, writablePath, privatePath, tmpPath, flavorName,
                                            buildType, isTablet);
+  safe_mode::Init();
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_OrganicMaps_nativeIsSafeModeActive(JNIEnv *, jclass)
+{
+  return static_cast<jboolean>(safe_mode::IsActive());
 }
 
 // static void nativeInitFramework(@NonNull Runnable onComplete);

@@ -43,6 +43,7 @@
 #include "routing/speed_camera_manager.hpp"
 
 #include "platform/country_file.hpp"
+#include "platform/safe_mode.hpp"
 #include "platform/local_country_file.hpp"
 #include "platform/local_country_file_utils.hpp"
 #include "platform/locale.hpp"
@@ -119,7 +120,21 @@ enum MultiTouchAction
 
 Framework::Framework(std::function<void()> && afterMapsLoaded) : m_work({} /* params */, false /* loadMaps */)
 {
-  m_work.LoadMapsAsync(std::move(afterMapsLoaded));
+  if (safe_mode::IsActive())
+  {
+    LOG(LWARNING, ("Safe mode active — registering official maps only, skipping custom maps"));
+    // Register official maps so the Downloads screen stays populated.
+    // Custom maps are automatically skipped inside FindAllLocalMapsAndCleanup
+    // when safe_mode::IsActive().  No load sentinel is written.
+    m_work.RegisterOfficialMapsOnly();
+    // Still invoke callback so Java-side initialization completes normally.
+    if (afterMapsLoaded)
+      GetPlatform().RunTask(Platform::Thread::Gui, std::move(afterMapsLoaded));
+  }
+  else
+  {
+    m_work.LoadMapsAsync(std::move(afterMapsLoaded));
+  }
 
   m_work.GetTrafficManager().SetStateListener(bind(&Framework::TrafficStateChanged, this, _1));
   m_work.GetTransitManager().SetStateListener(bind(&Framework::TransitSchemeStateChanged, this, _1));

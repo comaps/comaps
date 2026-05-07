@@ -129,6 +129,7 @@ import app.organicmaps.widget.menu.MainMenu;
 import app.organicmaps.widget.placepage.PlacePageController;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
@@ -262,12 +263,26 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public void onRenderingCreated()
   {
     checkMeasurementSystem();
+    if (MwmApplication.from(this).getOrganicMaps().isSafeModeActive())
+      showSafeModeBanner();
+  }
+
+  private void showSafeModeBanner()
+  {
+    final View rootView = findViewById(android.R.id.content);
+    if (rootView != null)
+      Snackbar.make(rootView, R.string.safe_mode_banner, Snackbar.LENGTH_INDEFINITE)
+              .setAction(R.string.ok, v -> {})
+              .show();
   }
 
   @Override
   @Keep
   public void onRenderingInitializationFinished()
   {
+    if (MwmApplication.from(this).getOrganicMaps().isSafeModeActive())
+      return;  // Engine not created in safe mode — skip rendering-dependent initialization.
+
     ThemeSwitcher.INSTANCE.restart(true);
 
     if (RoutingController.get().isPlanning())
@@ -547,7 +562,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
      * that require initialized Drape, such as restoring navigation and processing incoming intents.
      * https://github.com/organicmaps/organicmaps/issues/6712
      */
-    if (Map.isEngineCreated())
+    if (Map.isEngineCreated() && !MwmApplication.from(this).getOrganicMaps().isSafeModeActive())
       onRenderingInitializationFinished();
 
     backupRunner = new PeriodicBackupRunner(this);
@@ -608,6 +623,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     mMapController = new MapController(findViewById(R.id.map), MwmApplication.from(this).getLocationHelper(), this,
                                        this::reportUnsupported, isLaunchByDeeplink);
+    mMapController.setSafeModeActive(MwmApplication.from(this).getOrganicMaps().isSafeModeActive());
     getLifecycle().addObserver(mMapController);
 
     initNavigationButtons();
