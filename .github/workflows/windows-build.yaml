@@ -1,0 +1,151 @@
+name: Windows Desktop Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths: &paths
+      - 3party/**
+      - cmake/**
+      - CMakeLists.txt
+      - defines.hpp
+      - private.h
+      - configure.sh
+      - libs/**
+      - '!libs/platform/*_android*'
+      - '!libs/platform/*apple*'
+      - '!libs/platform/*_ios*'
+      - '!libs/platform/*_linux*'
+      - '!libs/platform/*_mac*'
+      - qt/**
+      - tools/unix/build_omim.bat
+      - .github/workflows/windows-build.yaml
+  pull_request:
+    paths: *paths
+
+jobs:
+  windows-build:
+    name: Windows x64 MSIX
+    runs-on: windows-latest
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Checkout submodules
+        shell: bash
+        run: git submodule update --depth 1 --init --recursive --jobs 16
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.6.*'
+          host: windows
+          target: desktop
+          arch: win64_msvc2019_64
+          cache: true
+
+      - name: Set up MSVC
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
+      - name: Install Python protobuf
+        run: pip install "protobuf>=3.20,<4.0"
+
+      - name: Configure repository
+        shell: bash
+        env:
+          SKIP_MAP_DOWNLOAD: '1'
+          PYTHONUTF8: '1'
+        run: bash configure.sh
+
+      - name: Configure CMake
+        shell: bash
+        run: |
+          cmake -S . -B build \
+            -G Ninja \
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DCMAKE_PREFIX_PATH="$QT_ROOT_DIR" \
+            -DCMAKE_UNITY_BUILD=OFF \
+            -DUSE_PCH=OFF \
+            -DCMAKE_C_COMPILER=cl \
+            -DCMAKE_CXX_COMPILER=cl \
+            -DSKIP_TESTS=ON
+
+      - name: Build CoMaps
+        shell: bash
+        run: cmake --build build --target CoMaps --parallel
+
+      - name: Stage executable and Qt runtime
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path staging | Out-Null
+          Copy-Item build\CoMaps.exe staging\
+          windeployqt --release staging\CoMaps.exe
+
+      - name: Bundle essential data files
+        shell: pwsh
+        run: |
+          # Copy data/ excluding large map downloads and development-only files.
+          # Robocopy exit codes 0-7 are non-fatal (0=nothing to copy, 1=copied OK, etc.)
+          robocopy data staging\data /E `
+            /XD world_mwm test_data bookmarks 260106 260122 260405 `
+            /XF "*.mwm" borders_vs_osm.csv
+          if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE }
+          exit 0
+
+      - name: Generate MSIX icon assets
+        shell: pwsh
+        run: |
+          Add-Type -AssemblyName System.Drawing
+          $src = [System.Drawing.Image]::FromFile((Resolve-Path "qt\res\logo.png"))
+          New-Item -ItemType Directory -Path staging\Assets | Out-Null
+
+          $assets = @(
+            @{ w = 44;  h = 44;  name = "Square44x44Logo"  },
+            @{ w = 50;  h = 50;  name = "StoreLogo"         },
+            @{ w = 71;  h = 71;  name = "Square71x71Logo"   },
+            @{ w = 150; h = 150; name = "Square150x150Logo" },
+            @{ w = 310; h = 310; name = "Square310x310Logo" },
+            @{ w = 310; h = 150; name = "Wide310x150Logo"   }
+          )
+
+          foreach ($a in $assets) {
+            $bmp = New-Object System.Drawing.Bitmap($a.w, $a.h)
+            $g   = [System.Drawing.Graphics]::FromImage($bmp)
+            $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+            $g.DrawImage($src, 0, 0, $a.w, $a.h)
+            $bmp.Save("staging\Assets\$($a.name).png", [System.Drawing.Imaging.ImageFormat]::Png)
+            $g.Dispose()
+            $bmp.Dispose()
+          }
+          $src.Dispose()
+
+      - name: Copy MSIX manifest
+        shell: pwsh
+        run: Copy-Item cmake\windows\AppxManifest.xml staging\
+
+      - name: Package MSIX
+        shell: pwsh
+        run: |
+          $makeappx = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" |
+            Sort-Object -Property DirectoryName |
+            Select-Object -Last 1 -ExpandProperty FullName
+          Write-Host "Using makeappx: $makeappx"
+          & $makeappx pack /d staging /p CoMaps.msix /nv
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Upload MSIX artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoMaps-windows-x64-${{ github.sha }}
+          path: CoMaps.msix
+          if-no-files-found: error

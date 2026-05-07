@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Windows Store MSIX manifest for CoMaps (Win32 Desktop Bridge).
+
+  Before submitting to the Windows Store:
+    - Update Identity/@Publisher to match your Store developer account CN
+      (e.g. "CN=Your Name, O=Your Org, C=US")
+    - Update Identity/@Name to match your Store app identity
+    - Update Identity/@Version to the release version (Major.Minor.Build.Revision)
+    - Sign the .msix with your Store certificate
+
+  For local/CI builds the Publisher placeholder "CN=CoMaps" is used; the package
+  will install only with Developer Mode enabled or after trusting a test certificate.
+-->
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="rescap">
+
+  <Identity
+    Name="CoMaps.CoMaps"
+    Publisher="CN=CoMaps"
+    Version="1.0.0.0"
+    ProcessorArchitecture="x64" />
+
+  <Properties>
+    <DisplayName>CoMaps</DisplayName>
+    <PublisherDisplayName>CoMaps</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+    <Description>Free offline maps and navigation based on OpenStreetMap</Description>
+  </Properties>
+
+  <Dependencies>
+    <!-- Windows 10 1809 (RS5) minimum — required for Desktop Bridge full trust -->
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.22621.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="en-US" />
+  </Resources>
+
+  <Applications>
+    <Application Id="CoMaps" Executable="CoMaps.exe" EntryPoint="Windows.FullTrustApplication">
+      <uap:VisualElements
+        DisplayName="CoMaps"
+        Description="Free offline maps and navigation based on OpenStreetMap"
+        BackgroundColor="transparent"
+        Square44x44Logo="Assets\Square44x44Logo.png"
+        Square150x150Logo="Assets\Square150x150Logo.png">
+        <uap:DefaultTile
+          Wide310x150Logo="Assets\Wide310x150Logo.png"
+          Square310x310Logo="Assets\Square310x310Logo.png"
+          Square71x71Logo="Assets\Square71x71Logo.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
+  </Capabilities>
+
+</Package>
