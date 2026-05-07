@@ -56,22 +56,25 @@ jobs:
         uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: x64
-          # Windows SDK 26100 breaks jansson/dtoa.c via `#define Long int` clashing
-          # with winnt.h struct members. Pin to 22621 which is also on windows-latest.
-          sdk: '10.0.22621.0'
 
       - name: Install optipng and Python protobuf
         run: |
           choco install optipng -y
           pip install "protobuf>=3.20,<4.0"
 
-      - name: Patch kothic for Windows (multiprocessing fork not supported)
+      - name: Patch 3party sources for Windows SDK 26100 compatibility
         shell: bash
         run: |
           # Windows only supports spawn/forkserver, not fork.
           # Guard the set_start_method call so it is skipped on Windows.
           sed -i "s/set_start_method('fork')/if __import__('sys').platform != 'win32': set_start_method('fork')/" \
             tools/kothic/src/libkomwm.py
+
+          # jansson/dtoa.c does `#define Long int` which leaks into the unity build TU.
+          # SDK 26100 added struct members named `Long` in winnt.h, causing C2628.
+          # Undefine Long at the end of dtoa.c so it doesn't escape the file.
+          echo "" >> 3party/jansson/jansson/src/dtoa.c
+          echo "#undef Long" >> 3party/jansson/jansson/src/dtoa.c
 
       - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
         shell: bash
