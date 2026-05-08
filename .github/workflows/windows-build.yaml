@@ -65,10 +65,22 @@ jobs:
       - name: Patch 3party sources for Windows compatibility
         shell: bash
         run: |
-          # Windows only supports spawn/forkserver, not fork.
-          # Guard the set_start_method call so it is skipped on Windows.
+          # kothic: Windows only supports spawn/forkserver, not fork.
           sed -i "s/set_start_method('fork')/if __import__('sys').platform != 'win32': set_start_method('fork')/" \
             tools/kothic/src/libkomwm.py
+
+          # jansson/dtoa.c is unity-built with hashtable_seed.c (which includes <windows.h>).
+          # dtoa.c defines Long=int (breaks winnt.h struct member) and Bias=1023
+          # (breaks timezoneapi.h TIME_ZONE_INFORMATION.Bias field) in SDK 26100.
+          # Undef them at the end of dtoa.c so they don't leak into subsequent TU files.
+          printf '\n#undef Long\n#undef Bias\n' >> 3party/jansson/jansson/src/dtoa.c
+
+          # zlib/gzguts.h has no include guard. In a unity build all four gz*.c files
+          # include it, causing gz_state to be redefined 4 times. Add a guard.
+          sed -i '1s|^|#ifndef GZGUTS_H_\n#define GZGUTS_H_\n|' \
+            3party/boost/libs/beast/test/extern/zlib-1.2.12/gzguts.h
+          echo '#endif /* GZGUTS_H_ */' \
+            >> 3party/boost/libs/beast/test/extern/zlib-1.2.12/gzguts.h
 
       - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
         shell: bash
@@ -107,8 +119,7 @@ jobs:
             -DUSE_PCH=OFF \
             -DCMAKE_C_COMPILER=cl \
             -DCMAKE_CXX_COMPILER=cl \
-            -DSKIP_TESTS=ON \
-            -DUSE_DTOA=OFF
+            -DSKIP_TESTS=ON
 
       - name: Build CoMaps
         shell: bash
