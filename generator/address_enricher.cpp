@@ -9,7 +9,6 @@
 #include "indexer/imported_source.hpp"
 #include "indexer/search_string_utils.hpp"
 
-
 #include "geometry/distance_on_sphere.hpp"
 #include "geometry/mercator.hpp"
 #include "geometry/parametrized_segment.hpp"
@@ -128,9 +127,11 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
       fb.SetCenter(p);
       fb.SetType(m_addrType);
 
-      indexer::CustomKeyValue kv;
-      kv.Add(indexer::kImportedSourceKey, 1 /* any nonzero value; only presence is checked */);
-      fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_IDS, kv.ToString());
+      {
+        indexer::CustomKeyValue kv;
+        kv.Add(indexer::kOpenAddressesEditableKey, e.m_editable ? 1 : 0);
+        fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_IDS, kv.ToString());
+      }
       auto & params = fb.GetParams();
       params.SetStreet(e.m_street);
       params.SetPostcode(e.m_postcode);
@@ -178,7 +179,9 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
         addNode(e.m_points.front(), hn);
       }
       else
+      {
         ++m_stats.m_existSingle;
+      }
     }
     else
     {

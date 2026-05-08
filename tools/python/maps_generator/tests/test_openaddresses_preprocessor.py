@@ -243,13 +243,14 @@ class TestPointToInt64(unittest.TestCase):
 
 class TestRecordRoundTrip(unittest.TestCase):
 
-    def _build_record(self, number, street, postcode, lon, lat):
+    def _build_record(self, number, street, postcode, lon, lat, editable=True):
         f = io.BytesIO()
         _write_string(f, number)
         _write_string(f, number)
         _write_string(f, street)
         _write_string(f, postcode)
         f.write(bytes([_mod._INTERPOL_NONE]))
+        f.write(bytes([1 if editable else 0]))
         _write_varuint(f, 1)
         _write_varint(f, _point_to_int64(lon, lat))
         return f.getvalue()
@@ -285,12 +286,14 @@ class TestRecordRoundTrip(unittest.TestCase):
         m_postcode = read_string()
         interpol = data[pos[0]]
         pos[0] += 1
+        editable = data[pos[0]] != 0
+        pos[0] += 1
         count = read_varuint()
         point = read_varint()
         return {
             "m_from": m_from, "m_to": m_to, "m_street": m_street,
             "m_postcode": m_postcode, "interpol": interpol,
-            "count": count, "point": point,
+            "editable": editable, "count": count, "point": point,
         }
 
     def test_from_equals_to(self):
@@ -332,6 +335,16 @@ class TestRecordRoundTrip(unittest.TestCase):
         data = self._build_record("99", "King St", "K1A 0A6", -75.7, 45.4)
         rec = self._parse_record(data)
         self.assertEqual(rec["m_from"], "99")
+
+    def test_editable_true(self):
+        data = self._build_record("1", "A St", "", -123.0, 49.0, editable=True)
+        rec = self._parse_record(data)
+        self.assertTrue(rec["editable"])
+
+    def test_editable_false(self):
+        data = self._build_record("1", "A St", "", -123.0, 49.0, editable=False)
+        rec = self._parse_record(data)
+        self.assertFalse(rec["editable"])
 
 
 def _write_poly(directory: str, name: str, rings: list) -> str:
@@ -630,12 +643,14 @@ class TestProcess(unittest.TestCase):
             m_postcode = read_string()
             interpol = data[pos[0]]
             pos[0] += 1
+            editable = data[pos[0]] != 0
+            pos[0] += 1
             count = read_varuint()
             point = read_varint()
             records.append({
                 "m_from": m_from, "m_to": m_to, "m_street": m_street,
                 "m_postcode": m_postcode, "interpol": interpol,
-                "count": count, "point": point,
+                "editable": editable, "count": count, "point": point,
             })
         return records
 
@@ -690,6 +705,143 @@ class TestProcess(unittest.TestCase):
         out_file = os.path.join(self.output, "TestRegion.tempaddr")
         records = self._read_records(out_file)
         self.assertEqual(len(records), 1)
+
+
+class TestLicenseIsOdblCompatible(unittest.TestCase):
+    def _check(self, license_info):
+        return _mod._license_is_odbl_compatible(license_info)
+
+    def test_clean_url_is_compatible(self):
+        self.assertTrue(self._check({"url": "https://creativecommons.org/licenses/by/4.0/"}))
+
+    def test_nc_url_is_blocked(self):
+        self.assertFalse(self._check({"url": "https://creativecommons.org/licenses/by-nc/4.0/"}))
+
+    def test_nd_url_is_blocked(self):
+        self.assertFalse(self._check({"url": "https://creativecommons.org/licenses/by-nd/4.0/"}))
+
+    def test_nc_in_text_is_blocked(self):
+        self.assertFalse(self._check({"url": "https://example.com/license", "text": "non-commercial use only"}))
+
+    def test_nd_in_text_is_blocked(self):
+        self.assertFalse(self._check({"url": "", "text": "no derivatives allowed"}))
+
+    def test_bare_string_clean_is_compatible(self):
+        self.assertTrue(self._check("https://opendatacommons.org/licenses/odbl/"))
+
+    def test_bare_string_nc_is_blocked(self):
+        self.assertFalse(self._check("https://creativecommons.org/licenses/by-nc-sa/4.0/"))
+
+    def test_odbl_url_is_compatible(self):
+        self.assertTrue(self._check({"url": "https://opendatacommons.org/licenses/odbl/1.0/"}))
+
+
+class TestSourceKeyFromGeojsonPath(unittest.TestCase):
+    def _key(self, path):
+        return _mod._source_key_from_geojson_path(path)
+
+    def test_county_path(self):
+        self.assertEqual(
+            self._key("ca/bc/city_of_victoria-addresses-county.geojson"),
+            "ca/bc/city_of_victoria",
+        )
+
+    def test_city_path(self):
+        self.assertEqual(
+            self._key("us/wa/city_of_spokane-addresses-city.geojson"),
+            "us/wa/city_of_spokane",
+        )
+
+    def test_countrywide_path(self):
+        self.assertEqual(
+            self._key("ca/countrywide.geojson"),
+            "ca/countrywide",
+        )
+
+    def test_no_layer_suffix(self):
+        self.assertEqual(
+            self._key("us/or/portland.geojson"),
+            "us/or/portland",
+        )
+
+
+class TestIsOdblCompatibleSource(unittest.TestCase):
+    def setUp(self):
+        # Isolate cache between tests.
+        _mod._source_editable_cache.clear()
+
+    def tearDown(self):
+        _mod._source_editable_cache.clear()
+
+    def _mock_load(self, source_json):
+        """Patch _load_source_json to return source_json without HTTP."""
+        import unittest.mock
+        return unittest.mock.patch.object(_mod, "_load_source_json", return_value=source_json)
+
+    def test_odbl_layer_is_compatible(self):
+        source = {
+            "layers": {
+                "addresses": [
+                    {"license": {"url": "https://opendatacommons.org/licenses/odbl/1.0/"}}
+                ]
+            }
+        }
+        with self._mock_load(source):
+            self.assertTrue(_mod._is_odbl_compatible_source("ca/bc/test"))
+
+    def test_nc_layer_is_blocked(self):
+        source = {
+            "layers": {
+                "addresses": [
+                    {"license": {"url": "https://creativecommons.org/licenses/by-nc/4.0/"}}
+                ]
+            }
+        }
+        with self._mock_load(source):
+            self.assertFalse(_mod._is_odbl_compatible_source("ca/bc/nc_source"))
+
+    def test_missing_source_json_defaults_to_true(self):
+        with self._mock_load(None):
+            self.assertTrue(_mod._is_odbl_compatible_source("ca/bc/missing"))
+
+    def test_no_license_field_defaults_to_true(self):
+        source = {"layers": {"addresses": [{"data": "something"}]}}
+        with self._mock_load(source):
+            self.assertTrue(_mod._is_odbl_compatible_source("ca/bc/nolicense"))
+
+    def test_result_is_cached(self):
+        source = {
+            "layers": {
+                "addresses": [
+                    {"license": {"url": "https://creativecommons.org/licenses/by-nc/4.0/"}}
+                ]
+            }
+        }
+        import unittest.mock
+        mock_fn = unittest.mock.MagicMock(return_value=source)
+        with unittest.mock.patch.object(_mod, "_load_source_json", mock_fn):
+            _mod._is_odbl_compatible_source("ca/bc/cached")
+            _mod._is_odbl_compatible_source("ca/bc/cached")
+        self.assertEqual(mock_fn.call_count, 1)
+
+    def test_local_sources_dir_reads_from_disk(self):
+        source = {
+            "layers": {
+                "addresses": [
+                    {"license": {"url": "https://creativecommons.org/licenses/by-nc/4.0/"}}
+                ]
+            }
+        }
+        with tempfile.TemporaryDirectory() as d:
+            source_path = os.path.join(d, "sources", "ca", "bc")
+            os.makedirs(source_path)
+            with open(os.path.join(source_path, "test.json"), "w") as f:
+                json.dump(source, f)
+            self.assertFalse(_mod._is_odbl_compatible_source("ca/bc/test", d))
+
+    def test_local_sources_dir_missing_file_defaults_to_true(self):
+        with tempfile.TemporaryDirectory() as d:
+            self.assertTrue(_mod._is_odbl_compatible_source("ca/bc/nonexistent", d))
 
 
 if __name__ == "__main__":
