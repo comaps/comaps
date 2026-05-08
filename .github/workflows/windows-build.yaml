@@ -115,7 +115,7 @@ jobs:
 
       - name: Build CoMaps
         shell: bash
-        run: cmake --build build --target CoMaps --parallel
+        run: cmake --build build --target desktop --parallel
 
       - name: Stage executable and Qt runtime
         shell: pwsh
