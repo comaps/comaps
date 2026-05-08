@@ -26,7 +26,7 @@ $cer = Join-Path $OutDir "CoMaps-test.cer"
 
 Export-PfxCertificate -Cert $cert `
     -FilePath $pfx `
-    -Password (ConvertTo-SecureString -String "" -Force -AsPlainText) | Out-Null
+    -NoRestriction | Out-Null
 
 Export-Certificate -Cert $cert -FilePath $cer -Type CERT | Out-Null
 
