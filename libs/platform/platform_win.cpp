@@ -117,12 +117,12 @@ Platform::Platform()
       FileWriter tmpfile(tmpFilePath);
       tmpfile.Write("Hi from Alex!", 13);
       m_writableDir = m_resourcesDir;
+      FileWriter::DeleteFileX(tmpFilePath);
     }
     catch (RootException const &)
     {
       CHECK(GetUserWritableDir(m_writableDir), ("Can't get writable directory"));
     }
-    FileWriter::DeleteFileX(tmpFilePath);
   }
 
   if (m_writableDir.empty())
