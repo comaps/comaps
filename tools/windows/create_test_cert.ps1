@@ -24,15 +24,14 @@ $cert = New-SelfSignedCertificate `
 $pfx = Join-Path $OutDir "CoMaps-test.pfx"
 $cer = Join-Path $OutDir "CoMaps-test.cer"
 
-Export-PfxCertificate -Cert $cert `
-    -FilePath $pfx `
-    -NoRestriction | Out-Null
+$pfxPw = ConvertTo-SecureString -String "comaps-test" -Force -AsPlainText
+Export-PfxCertificate -Cert $cert -FilePath $pfx -Password $pfxPw | Out-Null
 
 Export-Certificate -Cert $cert -FilePath $cer -Type CERT | Out-Null
 
 Write-Host "Created:"
-Write-Host "  $pfx  (private key — keep secret, do not commit)"
-Write-Host "  $cer  (public cert — run as admin to trust:)"
+Write-Host "  $pfx  (private key - keep secret, do not commit)"
+Write-Host "  $cer  (public cert - run as admin to trust:)"
 Write-Host ""
 Write-Host "  certutil -addstore TrustedPeople `"$cer`""
 Write-Host ""
