@@ -49,9 +49,10 @@ function BuildSkin() {
   # Set environment
   STYLE_PATH="$DATA_PATH/styles/$styleType/$styleName"
   PNG_PATH="$STYLE_PATH/symbols$symbolsSuffix/png"
+  LINK_TARGET="$STYLE_PATH/$resourceName$symbolsSuffix"
   rm -rf "$PNG_PATH" || true
-  mkdir -p "$(dirname "$PNG_PATH")"
-  ln -s "$STYLE_PATH/$resourceName$symbolsSuffix" "$PNG_PATH"
+  mkdir -p "$(dirname "$PNG_PATH")" "$LINK_TARGET"
+  ln -s "$LINK_TARGET" "$PNG_PATH"
   # Run skin generator
   "$SKIN_GENERATOR" --symbolWidth $symbolSize --symbolHeight $symbolSize --symbolsDir "$STYLE_PATH/$symbolsFolder" \
       --skinName "$DATA_PATH/symbols/$resourceName/$suffix/basic" --skinSuffix="$symbolsSuffix"
