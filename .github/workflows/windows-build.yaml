@@ -62,41 +62,12 @@ jobs:
           choco install optipng -y
           pip install "protobuf>=3.20,<4.0"
 
-      - name: Patch 3party sources for Windows compatibility
+      - name: Patch kothic for Windows (multiprocessing fork not supported)
         shell: bash
         run: |
-          # kothic: Windows only supports spawn/forkserver, not fork.
+          # Windows only supports spawn/forkserver, not fork.
           sed -i "s/set_start_method('fork')/if __import__('sys').platform != 'win32': set_start_method('fork')/" \
             tools/kothic/src/libkomwm.py
-
-          # jansson/dtoa.c is unity-built with hashtable_seed.c (which includes <windows.h>).
-          # dtoa.c defines Long=int (breaks winnt.h struct member) and Bias=1023
-          # (breaks timezoneapi.h TIME_ZONE_INFORMATION.Bias field) in SDK 26100.
-          # Undef them at the end of dtoa.c so they don't leak into subsequent TU files.
-          printf '\n#undef Long\n#undef Bias\n' >> 3party/jansson/jansson/src/dtoa.c
-
-          ZLIB_DIR=3party/boost/libs/beast/test/extern/zlib-1.2.12
-
-          # gzguts.h and inflate.h have no include guards; unity-building gz*.c /
-          # infback.c + inflate.c causes type redefinitions. Add guards.
-          for HDR in gzguts.h inflate.h; do
-            GUARD="$(echo $HDR | tr '.' '_' | tr '[:lower:]' '[:upper:]')_"
-            sed -i "1s|^|#ifndef ${GUARD}\n#define ${GUARD}\n|" "$ZLIB_DIR/$HDR"
-            echo "#endif /* ${GUARD} */" >> "$ZLIB_DIR/$HDR"
-          done
-
-          # protobuf/common.cc includes <windows.h> which pulls in wingdi.h and
-          # defines ERROR=0. LOGLEVEL_##ERROR then expands to LOGLEVEL_0 (undeclared).
-          # Undef after the windows.h block.
-          sed -i 's|^#include <windows.h>|#include <windows.h>\n#undef ERROR|' \
-            3party/protobuf/protobuf/src/google/protobuf/stubs/common.cc
-
-          # winbase.h defines GetCurrentTime() as GetTickCount().
-          # Undef before protobuf uses its own GetCurrentTime function.
-          sed -i '1s|^|#ifdef GetCurrentTime\n#undef GetCurrentTime\n#endif\n|' \
-            3party/protobuf/protobuf/src/google/protobuf/stubs/time.cc
-          sed -i '1s|^|#ifdef GetCurrentTime\n#undef GetCurrentTime\n#endif\n|' \
-            3party/protobuf/protobuf/src/google/protobuf/stubs/time.h
 
       - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
         shell: bash

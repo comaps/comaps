@@ -22,6 +22,7 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   set(EXPAT_DTD OFF)
   set(EXPAT_NS ON)
   add_subdirectory(expat/expat)
+  set_target_properties(expat PROPERTIES UNITY_BUILD OFF)
 
   # Configure Jansson library.
   set(JANSSON_BUILD_DOCS OFF)
@@ -30,6 +31,7 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   set(JANSSON_INSTALL OFF)
   set(JANSSON_WITHOUT_TESTS ON)
   add_subdirectory(jansson/jansson/)
+  set_target_properties(jansson PROPERTIES UNITY_BUILD OFF)
   target_include_directories(jansson INTERFACE "${PROJECT_BINARY_DIR}/3party/jansson/jansson/include")
 
   # Add gflags library.
@@ -43,6 +45,7 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
 
   # Add protobuf library.
   add_subdirectory(protobuf)
+  set_target_properties(protobuf PROPERTIES UNITY_BUILD OFF)
 
   if (NOT PLATFORM_LINUX)
     add_subdirectory(freetype)
@@ -54,6 +57,7 @@ if (NOT WITH_SYSTEM_PROVIDED_3PARTY)
   # source rather than requiring users to set up vcpkg or another package manager.
   if (PLATFORM_WIN)
     add_subdirectory(zlib)
+    set_target_properties(bundled_zlib PROPERTIES UNITY_BUILD OFF)
   endif()
 
   add_library(utf8cpp INTERFACE)
