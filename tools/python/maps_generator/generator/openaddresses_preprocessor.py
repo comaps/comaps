@@ -19,6 +19,8 @@ import json
 import logging
 import math
 import os
+import re
+import urllib.request
 import zipfile
 
 from shapely.geometry import Point, Polygon
@@ -192,10 +194,115 @@ def _find_address_geojsons(zf: zipfile.ZipFile) -> list[str]:
     return found
 
 
+_LAYER_SUFFIX_RE = re.compile(
+    r"-(?:addresses|buildings|parcels|centerlines)-[^/]+\.geojson$",
+    re.IGNORECASE,
+)
+
+_NC_ND_SUBSTRINGS: tuple[str, ...] = (
+    "non-commercial", "noncommercial",
+    "no derivatives", "no-derivatives", "noderivatives",
+    "-nc-", "-nc/", "-nd-", "-nd/",
+)
+
+
+def _source_key_from_geojson_path(geojson_path: str) -> str:
+    """Derive the OA source key from a GeoJSON path inside a collection ZIP.
+
+    Examples::
+
+        'ca/bc/city_of_victoria-addresses-county.geojson' -> 'ca/bc/city_of_victoria'
+        'ca/countrywide.geojson'                          -> 'ca/countrywide'
+    """
+    key = _LAYER_SUFFIX_RE.sub("", geojson_path)
+    if key == geojson_path:
+        key = geojson_path.removesuffix(".geojson")
+    return key
+
+
+def _license_is_odbl_compatible(license_info) -> bool:
+    """Return True if a single OA license object is compatible with ODbL.
+
+    Blocklist approach: only reject if explicit NC or ND terms are present.
+    license_info may be a dict or a bare URL string (both occur in OA data).
+    """
+    if isinstance(license_info, str):
+        url = license_info.lower()
+        text = ""
+    else:
+        url = (license_info.get("url") or "").lower()
+        text = (license_info.get("text") or "").lower()
+
+    for term in _NC_ND_SUBSTRINGS:
+        if term in url or term in text:
+            return False
+
+    return True
+
+
+_OA_GITHUB_RAW = "https://raw.githubusercontent.com/openaddresses/openaddresses/master"
+
+# Cache: source_key -> bool (editable or not). Populated lazily during a run.
+_source_editable_cache: dict[str, bool] = {}
+
+
+def _load_source_json(source_key: str, oa_sources_dir: str | None = None) -> dict | None:
+    """Load a source JSON from a local OA repo clone or the OpenAddresses GitHub repo."""
+    if oa_sources_dir:
+        local_path = os.path.join(oa_sources_dir, "sources", source_key + ".json")
+        try:
+            with open(local_path, "rb") as f:
+                return json.loads(f.read().decode("utf-8"))
+        except FileNotFoundError:
+            logger.warning(f"Source JSON not found locally for {source_key!r} ({local_path})")
+            return None
+        except Exception as exc:
+            logger.warning(f"Cannot read local source JSON for {source_key!r} ({local_path}): {exc}")
+            return None
+
+    url = f"{_OA_GITHUB_RAW}/sources/{source_key}.json"
+    try:
+        with urllib.request.urlopen(url, timeout=10) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+    except Exception as exc:
+        logger.warning(f"Cannot fetch source JSON for {source_key!r} ({url}): {exc}")
+        return None
+
+
+def _is_odbl_compatible_source(source_key: str, oa_sources_dir: str | None = None) -> bool:
+    """Return True if no address layer in the OA source JSON has an explicit
+    NC or ND license clause. Results are cached for the duration of the run.
+
+    Returns True when the source JSON is missing or has no license field:
+    absence of an explicit restriction is not a restriction.
+    """
+    if source_key in _source_editable_cache:
+        return _source_editable_cache[source_key]
+
+    source = _load_source_json(source_key, oa_sources_dir)
+    if source is None:
+        _source_editable_cache[source_key] = True
+        return True
+
+    address_layers = source.get("layers", {}).get("addresses", [])
+    for layer_entry in address_layers:
+        license_info = layer_entry.get("license")
+        if not license_info:
+            continue
+        if not _license_is_odbl_compatible(license_info):
+            logger.info(f"Source {source_key!r} has NC/ND license clause, marking as non-editable.")
+            _source_editable_cache[source_key] = False
+            return False
+
+    _source_editable_cache[source_key] = True
+    return True
+
+
 def process(
     zip_path: str,
     output_dir: str,
     borders_dir: str,
+    oa_sources_dir: str | None = None,
 ) -> None:
     os.makedirs(output_dir, exist_ok=True)
 
@@ -214,19 +321,27 @@ def process(
     skipped_region = 0
     skipped_duplicate = 0
 
-    # Deduplication key: (number, street, unit, lat_3dp, lon_3dp).
-    # Rounding to 3 decimal places (~110 m) catches the same address appearing
-    # in multiple overlapping OA sources (e.g. us/or/marion and
-    # us/or/marion_and_polk) while still preserving distinct unit entries at
-    # the same building.  mwm_name is omitted — it is fully determined by
-    # the rounded coordinates and adds no dedup precision.
-    seen: set[tuple[str, str, str, float, float]] = set()
+    # Dedup: (mwm_name, number, street, unit).
+    # ODbL sources are processed first (sorted below), so the first time we
+    # see an address in a given MWM it wins.  Any subsequent record for the
+    # same (mwm, number, street, unit) is dropped regardless of coordinates.
+    # This handles both same-region overlap (city + county covering the same
+    # building) and cross-region name collisions (e.g. a Spokane ODbL address
+    # and a Yakima county non-ODbL address with the same street name both
+    # landing in the same MWM polygon).
+    seen_mwm_addr: set[tuple[str, str, str, str]] = set()
 
     try:
         with zipfile.ZipFile(zip_path, "r") as zf:
             geojson_paths = _find_address_geojsons(zf)
+            # Process ODbL-compatible sources first so they win dedup over NC/ND sources.
+            # An address present in both ODbL and NC/ND data should remain editable.
+            geojson_paths = sorted(geojson_paths,
+                key=lambda p: (0 if _is_odbl_compatible_source(_source_key_from_geojson_path(p), oa_sources_dir) else 1))
             for geojson_path in geojson_paths:
-                logger.info(f"Processing {geojson_path}...")
+                source_key = _source_key_from_geojson_path(geojson_path)
+                editable = _is_odbl_compatible_source(source_key, oa_sources_dir)
+                logger.info(f"Processing {geojson_path} (editable={editable})...")
                 with zf.open(geojson_path) as raw:
                     for line_bytes in raw:
                         line_bytes = line_bytes.rstrip(b"\n\r")
@@ -263,11 +378,11 @@ def process(
                             skipped_region += 1
                             continue
 
-                        dedup_key = (number, street, unit, round(lat, 3), round(lon, 3))
-                        if dedup_key in seen:
+                        mwm_addr_key = (mwm_name, number, street, unit)
+                        if mwm_addr_key in seen_mwm_addr:
                             skipped_duplicate += 1
                             continue
-                        seen.add(dedup_key)
+                        seen_mwm_addr.add(mwm_addr_key)
 
                         ipoint = _point_to_int64(lon, lat)
 
@@ -277,6 +392,7 @@ def process(
                         _write_string(buf, street)
                         _write_string(buf, postcode)
                         buf.write(bytes([_INTERPOL_NONE]))
+                        buf.write(bytes([1 if editable else 0]))
                         _write_varuint(buf, 1)
                         _write_varint(buf, ipoint)
 
@@ -317,8 +433,16 @@ def main() -> None:
         required=True,
         help="Path to directory containing CoMaps .poly border files (data/borders/)",
     )
+    parser.add_argument(
+        "--oa-sources-dir",
+        default=None,
+        help=(
+            "Path to a local clone of github.com/openaddresses/openaddresses. "
+            "If set, license JSONs are read from disk instead of fetched from GitHub."
+        ),
+    )
     args = parser.parse_args()
-    process(args.zip_file, args.output_dir, args.borders_dir)
+    process(args.zip_file, args.output_dir, args.borders_dir, args.oa_sources_dir)
 
 
 if __name__ == "__main__":

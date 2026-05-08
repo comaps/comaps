@@ -24,6 +24,7 @@ public:
   {
     std::string m_from, m_to, m_street, m_postcode;
     feature::InterpolType m_interpol = feature::InterpolType::None;
+    bool m_editable = true;
 
     /// @name Used to compare house numbers by its integer value.
     /// @{
@@ -41,6 +42,7 @@ public:
       rw::Write(sink, m_postcode);
 
       WriteToSink(sink, static_cast<uint8_t>(m_interpol));
+      WriteToSink(sink, static_cast<uint8_t>(m_editable ? 1 : 0));
     }
 
     template <class TSource>
@@ -52,6 +54,7 @@ public:
       rw::Read(src, m_postcode);
 
       m_interpol = static_cast<feature::InterpolType>(ReadPrimitiveFromSource<uint8_t>(src));
+      m_editable = ReadPrimitiveFromSource<uint8_t>(src) != 0;
     }
   };
 
