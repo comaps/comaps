@@ -195,7 +195,7 @@ jobs:
             # No secret — generate a self-signed test cert (tools\windows\create_test_cert.ps1).
             Write-Host "No CODESIGN_PFX_BASE64 secret; using self-signed test cert."
             & tools\windows\create_test_cert.ps1 -OutDir .
-            & $signtool sign /fd SHA256 /f CoMaps-test.pfx /p "" CoMaps.msix
+            & $signtool sign /fd SHA256 /f CoMaps-test.pfx /p "comaps-test" CoMaps.msix
             Remove-Item CoMaps-test.pfx -Force
           }
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
