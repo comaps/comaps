@@ -5,6 +5,6 @@
 namespace indexer
 {
 
-inline constexpr uint8_t kImportedSourceKey = 0;
+inline constexpr uint8_t kOpenAddressesEditableKey = 0;
 
 }  // namespace indexer
