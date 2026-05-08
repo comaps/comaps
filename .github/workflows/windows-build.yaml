@@ -170,15 +170,41 @@ jobs:
         shell: pwsh
         run: |
           $makeappx = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" |
-            Sort-Object -Property DirectoryName |
-            Select-Object -Last 1 -ExpandProperty FullName
-          Write-Host "Using makeappx: $makeappx"
+            Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
           & $makeappx pack /d staging /p CoMaps.msix /nv
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Sign MSIX
+        shell: pwsh
+        env:
+          CODESIGN_PFX_BASE64: ${{ secrets.CODESIGN_PFX_BASE64 }}
+          CODESIGN_PFX_PASSWORD: ${{ secrets.CODESIGN_PFX_PASSWORD }}
+        run: |
+          $sdkBin = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64" |
+            Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
+          $signtool = Join-Path $sdkBin "signtool.exe"
+
+          if ($env:CODESIGN_PFX_BASE64) {
+            # Production/release signing via repository secret.
+            Write-Host "Signing with certificate from CODESIGN_PFX_BASE64 secret."
+            $pfxPath = Join-Path $env:TEMP "codesign.pfx"
+            [IO.File]::WriteAllBytes($pfxPath, [Convert]::FromBase64String($env:CODESIGN_PFX_BASE64))
+            & $signtool sign /fd SHA256 /f $pfxPath /p $env:CODESIGN_PFX_PASSWORD CoMaps.msix
+            Remove-Item $pfxPath -Force
+          } else {
+            # No secret — generate a self-signed test cert (tools\windows\create_test_cert.ps1).
+            Write-Host "No CODESIGN_PFX_BASE64 secret; using self-signed test cert."
+            & tools\windows\create_test_cert.ps1 -OutDir .
+            & $signtool sign /fd SHA256 /f CoMaps-test.pfx /p "" CoMaps.msix
+            Remove-Item CoMaps-test.pfx -Force
+          }
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload MSIX artifact
         uses: actions/upload-artifact@v4
         with:
           name: CoMaps-windows-x64-${{ github.sha }}
-          path: CoMaps.msix
-          if-no-files-found: error
+          path: |
+            CoMaps.msix
+            CoMaps-test.cer
+          if-no-files-found: warn
