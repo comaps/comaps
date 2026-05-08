@@ -2981,7 +2981,7 @@ bool Framework::GetEditableMapObject(FeatureID const & fid, osm::EditableMapObje
   auto const & editor = osm::Editor::Instance();
 
   bool const isImported = indexer::CustomKeyValue(ft->GetMetadata(feature::Metadata::FMD_CUSTOM_IDS))
-                               .Get(indexer::kImportedSourceKey).has_value();
+                               .Get(indexer::kOpenAddressesEditableKey).value_or(0) != 0;
   if (isImported)
   {
     // Imported address features have no real OSM IDs. Treat editing as creating a new OSM node
