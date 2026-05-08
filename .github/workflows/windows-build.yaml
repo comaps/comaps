@@ -62,19 +62,13 @@ jobs:
           choco install optipng -y
           pip install "protobuf>=3.20,<4.0"
 
-      - name: Patch 3party sources for Windows SDK 26100 compatibility
+      - name: Patch 3party sources for Windows compatibility
         shell: bash
         run: |
           # Windows only supports spawn/forkserver, not fork.
           # Guard the set_start_method call so it is skipped on Windows.
           sed -i "s/set_start_method('fork')/if __import__('sys').platform != 'win32': set_start_method('fork')/" \
             tools/kothic/src/libkomwm.py
-
-          # jansson/dtoa.c does `#define Long int` which leaks into the unity build TU.
-          # SDK 26100 added struct members named `Long` in winnt.h, causing C2628.
-          # Undefine Long at the end of dtoa.c so it doesn't escape the file.
-          echo "" >> 3party/jansson/jansson/src/dtoa.c
-          echo "#undef Long" >> 3party/jansson/jansson/src/dtoa.c
 
       - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
         shell: bash
@@ -113,7 +107,8 @@ jobs:
             -DUSE_PCH=OFF \
             -DCMAKE_C_COMPILER=cl \
             -DCMAKE_CXX_COMPILER=cl \
-            -DSKIP_TESTS=ON
+            -DSKIP_TESTS=ON \
+            -DUSE_DTOA=OFF
 
       - name: Build CoMaps
         shell: bash
