@@ -36,17 +36,17 @@ VehicleModel::LimitsInitList const kDefaultOptions = {
     {HighwayType::HighwayService, true},     {HighwayType::HighwayLivingStreet, true},
     {HighwayType::HighwayRoad, true},        {HighwayType::HighwayTrack, true},
     // The router truncates types to two levels, so we need this in addition to the long construction types
-    {HighwayType::HighwayConstruction, true},
+    {HighwayType::HighwayConstruction, false},
     // Construction conterparts to each of the types above
     // (needed for the map generator to include them in the routing section)
-    {HighwayType::HighwayConstructionMotorway, true},    {HighwayType::HighwayConstructionMotorwayLink, true},
-    {HighwayType::HighwayConstructionTrunk, true},       {HighwayType::HighwayConstructionTrunkLink, true},
-    {HighwayType::HighwayConstructionPrimary, true},     {HighwayType::HighwayConstructionPrimaryLink, true},
-    {HighwayType::HighwayConstructionSecondary, true},   {HighwayType::HighwayConstructionSecondaryLink, true},
-    {HighwayType::HighwayConstructionTertiary, true},    {HighwayType::HighwayConstructionTertiaryLink, true},
-    {HighwayType::HighwayConstructionResidential, true}, {HighwayType::HighwayConstructionUnclassified, true},
-    {HighwayType::HighwayConstructionService, true},     {HighwayType::HighwayConstructionLivingStreet, true},
-    {HighwayType::HighwayConstructionRoad, true},        {HighwayType::HighwayConstructionTrack, true},
+    {HighwayType::HighwayConstructionMotorway, false},    {HighwayType::HighwayConstructionMotorwayLink, false},
+    {HighwayType::HighwayConstructionTrunk, false},       {HighwayType::HighwayConstructionTrunkLink, false},
+    {HighwayType::HighwayConstructionPrimary, false},     {HighwayType::HighwayConstructionPrimaryLink, false},
+    {HighwayType::HighwayConstructionSecondary, false},   {HighwayType::HighwayConstructionSecondaryLink, false},
+    {HighwayType::HighwayConstructionTertiary, false},    {HighwayType::HighwayConstructionTertiaryLink, false},
+    {HighwayType::HighwayConstructionResidential, false}, {HighwayType::HighwayConstructionUnclassified, false},
+    {HighwayType::HighwayConstructionService, false},     {HighwayType::HighwayConstructionLivingStreet, false},
+    {HighwayType::HighwayConstructionRoad, false},        {HighwayType::HighwayConstructionTrack, false},
     // Non-highway types
     {HighwayType::RouteShuttleTrain, true},  {HighwayType::RouteFerry, true},
     {HighwayType::ManMadePier, true}};
