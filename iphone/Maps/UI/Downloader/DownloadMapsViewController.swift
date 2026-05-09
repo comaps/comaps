@@ -102,15 +102,27 @@ class DownloadMapsViewController: MWMViewController {
       refreshControl.addTarget(self, action: #selector(onCheckUpdates), for: .valueChanged)
       tableView.refreshControl = refreshControl
         
-      var addConfig = UIButton.Configuration.tinted()
+      // Primary button (download maps)
+      var addConfig = UIButton.Configuration.filled()
       addConfig.title = L("download_maps")
-      addConfig.cornerStyle = .medium
+      addConfig.buttonSize = .large
+      addConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+          var outgoing = incoming
+          outgoing.font = UIFont.preferredFont(forTextStyle: .headline)
+          return outgoing
+          }
       let addBtn = UIButton(configuration: addConfig)
       addBtn.addTarget(self, action: #selector(onAddMaps), for: .touchUpInside)
         
-      var updateConfig = UIButton.Configuration.tinted()
+      // Secondary button (update maps)
+      var updateConfig = UIButton.Configuration.gray()
       updateConfig.title = L("downloader_check_updates_button")
-      updateConfig.cornerStyle = .medium
+      updateConfig.buttonSize = .large
+      updateConfig.titleTextAttributesTransformer = UIConfigurationTextAttributesTransformer { incoming in
+          var outgoing = incoming
+          outgoing.font = UIFont.preferredFont(forTextStyle: .headline)
+          return outgoing
+          }
       let updateBtn = UIButton(configuration: updateConfig)
       updateBtn.addTarget(self, action: #selector(onCheckUpdates), for: .touchUpInside)
       checkUpdatesButton = updateBtn
@@ -120,7 +132,7 @@ class DownloadMapsViewController: MWMViewController {
       stack.spacing = 16
       stack.translatesAutoresizingMaskIntoConstraints = false
         
-      let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 132))
+      let footerView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 140))
       footerView.addSubview(stack)
         
       NSLayoutConstraint.activate([
@@ -283,6 +295,8 @@ class DownloadMapsViewController: MWMViewController {
   }
     
   @objc private func onCheckUpdates() {
+    checkUpdatesButton?.configuration?.showsActivityIndicator = true
+    checkUpdatesButton?.configuration?.imagePadding = 8
     checkUpdatesButton?.configuration?.title = L("downloader_check_updates_checking")
     checkUpdatesButton?.isEnabled = false
 
@@ -290,12 +304,36 @@ class DownloadMapsViewController: MWMViewController {
       guard let self = self else { return }
       
       DispatchQueue.main.async {
+        self.checkUpdatesButton?.configuration?.showsActivityIndicator = false
         self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
         self.checkUpdatesButton?.isEnabled = true
         
         self.tableView.refreshControl?.endRefreshing()
         
-        self.dataSource.reload { self.reloadData() }
+        switch status {
+        case .updated:
+          // Silent refresh (email app style)
+          self.dataSource.reload { self.reloadData() }
+            
+        case .noUpdate:
+          // Do nothing (email app style)
+          break
+            
+        case .error, .undefined:
+          // Temporarily flash an error on the button itself (no popup/toast)
+          self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_error")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+            self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
+          }
+            
+        case .EOL:
+          let alert = UIAlertController(title: nil, message: L("downloader_check_updates_eol"), preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: L("ok"), style: .default))
+          self.present(alert, animated: true)
+            
+        @unknown default:
+          break
+        }
       }
       
       Storage.shared().setCheckUpdatesListener(nil)
