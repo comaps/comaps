@@ -100,19 +100,21 @@ public:
 #if defined(OMIM_OS_WINDOWS)  //&& defined(PROFILER_COMMON)
 class InitializeFinalize : public FinalizeBase
 {
-  FILE * m_errFile;
+  FILE * m_errFile = nullptr;
   base::ScopedLogLevelChanger const m_debugLog;
 
 public:
   InitializeFinalize() : m_debugLog(LDEBUG)
   {
-    // App runs without error console under win32.
-    m_errFile = ::freopen(".\\mapsme.log", "w", stderr);
+    // App runs without a console on Windows. Redirect stderr to a log file in
+    // the writable directory so it works in read-only installs (e.g. MSIX).
+    auto const logPath = base::JoinPath(GetPlatform().WritableDir(), "mapsme.log");
+    m_errFile = ::freopen(logPath.c_str(), "w", stderr);
 
     //_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_DELAY_FREE_MEM_DF);
     //_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
   }
-  ~InitializeFinalize() { ::fclose(m_errFile); }
+  ~InitializeFinalize() { if (m_errFile) ::fclose(m_errFile); }
 };
 #else
 typedef FinalizeBase InitializeFinalize;
