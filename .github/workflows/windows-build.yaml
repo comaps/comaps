@@ -123,6 +123,14 @@ jobs:
           New-Item -ItemType Directory -Path staging | Out-Null
           Copy-Item build\CoMaps.exe staging\
           windeployqt --release staging\CoMaps.exe
+          # windeployqt may miss Qt6Xml which is linked but not detected via import scanning.
+          $qtBin = Join-Path $env:QT_ROOT_DIR "bin"
+          @("Qt6Xml.dll") | ForEach-Object {
+            $src = Join-Path $qtBin $_
+            if ((Test-Path $src) -and -not (Test-Path "staging\$_")) {
+              Copy-Item $src staging\
+            }
+          }
 
       - name: Bundle essential data files
         shell: pwsh
