@@ -533,10 +533,20 @@ void OpenLrV3TraffDecoder::DecodeLocation(traffxml::TraffMessage & message, traf
 
 double RoutingTraffDecoder::TraffEstimator::GetUTurnPenalty(Purpose /* purpose */) const
 {
-  // Adds 2 minutes penalty for U-turn. The value is quite arbitrary
-  // and needs to be properly selected after a number of real-world
-  // experiments.
-  return 2 * 60;  // seconds
+  /*
+   * Copied from `CarEstimator::GetUTurnPenalty()`, see comments there.
+   *
+   * For the decoder use case, there should never be a need to call this function: Only going back
+   * on the exact segment is considered a U turn, going back on the opposite carriageway (i.e. on
+   * a different segment) is not.
+   *
+   * Such maneuvers would only be needed when the vehicle is heading in the direction opposite to
+   * the one in which it needs to travel, which should only occur at the start of a route (or after
+   * recalculation) and should not happen at all when decoding locations.
+   *
+   * U turns on multiple-carriageway roads are addressed by `GetTurnPenalty()`.
+   */
+  return 2 * 60;  // seconds, or meters (before penalty) for the decoder use case
 }
 
 double RoutingTraffDecoder::TraffEstimator::GetTurnPenalty(Purpose /* purpose */, double angle,
