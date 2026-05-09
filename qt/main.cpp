@@ -135,6 +135,7 @@ int main(int argc, char * argv[])
   gflags::SetUsageMessage("Desktop application.");
   gflags::SetVersionString(platform.Version());
   gflags::ParseCommandLineFlags(&argc, &argv, true);
+  LOG(LINFO, ("Startup: gflags parsed"));
 
   if (!FLAGS_resources_path.empty())
     platform.SetResourceDir(FLAGS_resources_path);
@@ -147,9 +148,11 @@ int main(int argc, char * argv[])
     LOG(LCRITICAL, ("Invalid log level:", FLAGS_log_abort_level));
 
   Q_INIT_RESOURCE(resources_common);
+  LOG(LINFO, ("Startup: resources_common initialized"));
 
   InitializeFinalize mainGuard;
   UNUSED_VALUE(mainGuard);
+  LOG(LINFO, ("Startup: InitializeFinalize done"));
 
 #if defined(OMIM_OS_WINDOWS)
   // On Windows, must set surface format and enable shared contexts before QApplication
@@ -157,11 +160,14 @@ int main(int argc, char * argv[])
   // worker thread GL contexts fail to share with the root context (wglShareLists fails).
   QCoreApplication::setAttribute(Qt::AA_ShareOpenGLContexts);
   qt::common::SetDefaultSurfaceFormat(QString("windows"));
+  LOG(LINFO, ("Startup: OpenGL surface format set"));
 #endif
 
   QApplication app(argc, argv);
+  LOG(LINFO, ("Startup: QApplication created"));
   app.setDesktopFileName("app.comaps.comaps");
   platform.SetupMeasurementSystem();
+  LOG(LINFO, ("Startup: measurement system set"));
 
 #ifdef BUILD_DESIGNER
   QApplication::setApplicationName("CoMaps Designer");
@@ -183,11 +189,13 @@ int main(int argc, char * argv[])
   bool eulaAccepted = false;
   if (!settings::Get(settingsEULA, eulaAccepted) || !eulaAccepted)
   {
+    LOG(LINFO, ("Startup: reading copyright.html"));
     std::string buffer;
     {
       ReaderPtr<Reader> reader = platform.GetReader("copyright.html");
       reader.ReadAsString(buffer);
     }
+    LOG(LINFO, ("Startup: showing EULA dialog"));
     RemovePTagsWithNonMatchedLanguages(languages::GetCurrentTwine(), buffer);
     qt::InfoDialog eulaDialog(QCoreApplication::applicationName(), buffer.c_str(), nullptr, {"Accept", "Decline"});
     eulaAccepted = (eulaDialog.exec() == 1);
