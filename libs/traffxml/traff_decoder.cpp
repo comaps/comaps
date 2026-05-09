@@ -1494,10 +1494,15 @@ bool IsRamp(routing::HighwayType highwayType)
   switch(highwayType)
   {
   case routing::HighwayType::HighwayMotorwayLink:
+  case routing::HighwayType::HighwayConstructionMotorwayLink:
   case routing::HighwayType::HighwayTrunkLink:
+  case routing::HighwayType::HighwayConstructionTrunkLink:
   case routing::HighwayType::HighwayPrimaryLink:
+  case routing::HighwayType::HighwayConstructionPrimaryLink:
   case routing::HighwayType::HighwaySecondaryLink:
+  case routing::HighwayType::HighwayConstructionSecondaryLink:
   case routing::HighwayType::HighwayTertiaryLink:
+  case routing::HighwayType::HighwayConstructionTertiaryLink:
     return true;
   default:
     return false;
