@@ -126,6 +126,9 @@ public:
    *
    * The penalty is a fixed amount of time, determined by the implementation.
    *
+   * U turns are determined and the penalty is applied in `IndexGraph::GetPenalties()`,
+   * in (`index_graph.cpp`). Actual U turn detection is deferred to `IsUTurn()` in the same file.
+   *
    * @param purpose The purpose for which the result is to be used.
    * @return The penalty in seconds.
    */
