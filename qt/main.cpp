@@ -13,6 +13,7 @@
 
 #include "coding/reader.hpp"
 
+#include "base/file_name_utils.hpp"
 #include "base/logging.hpp"
 #include "base/macros.hpp"
 
