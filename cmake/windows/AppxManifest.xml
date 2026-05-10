@@ -20,7 +20,7 @@
 
   <Identity
     Name="CoMaps.CoMaps"
-    Publisher="CN=CoMaps"
+    Publisher="CN=CoMaps Test"
     Version="1.0.0.0"
     ProcessorArchitecture="x64" />
 
