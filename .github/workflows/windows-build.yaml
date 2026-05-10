@@ -154,10 +154,6 @@ jobs:
           $srcBmp = [System.Drawing.Bitmap]::new((Resolve-Path "qt\res\logo.png").Path)
           New-Item -ItemType Directory -Path staging\Assets | Out-Null
 
-          # Sample the brand color from the center of the logo so the tile background
-          # matches the green circle rather than showing the system accent color.
-          $brandColor = $srcBmp.GetPixel([int]($srcBmp.Width / 2), [int]($srcBmp.Height / 2))
-
           $assets = @(
             @{ w = 44;  h = 44;  name = "Square44x44Logo"  },
             @{ w = 50;  h = 50;  name = "StoreLogo"         },
@@ -168,9 +164,9 @@ jobs:
           )
 
           foreach ($a in $assets) {
-            $bmp = [System.Drawing.Bitmap]::new($a.w, $a.h)
+            $bmp = [System.Drawing.Bitmap]::new($a.w, $a.h, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
             $g   = [System.Drawing.Graphics]::FromImage($bmp)
-            $g.Clear($brandColor)
+            $g.Clear([System.Drawing.Color]::Transparent)
             $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
             $g.DrawImage($srcBmp, 0, 0, $a.w, $a.h)
             $bmp.Save("staging\Assets\$($a.name).png", [System.Drawing.Imaging.ImageFormat]::Png)
