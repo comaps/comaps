@@ -9,7 +9,7 @@
 #   CoMaps-test.cer  — public cert to import into Trusted People store once
 
 param(
-    [string]$Subject = "CN=CoMaps",
+    [string]$Subject = "CN=CoMaps Test",
     [string]$OutDir  = "."
 )
 
@@ -30,7 +30,7 @@ Export-PfxCertificate -Cert $cert -FilePath $pfx -Password $pfxPw | Out-Null
 Export-Certificate -Cert $cert -FilePath $cer -Type CERT | Out-Null
 
 Write-Host "Created:"
-Write-Host "  $pfx  (private key - keep secret, do not commit)"
+Write-Host "  $pfx  (test-only private key - safe to commit for CI/local testing)"
 Write-Host "  $cer  (public cert - run as admin to trust:)"
 Write-Host ""
 Write-Host "  certutil -addstore TrustedPeople `"$cer`""
