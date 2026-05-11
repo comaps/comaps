@@ -96,7 +96,6 @@ jobs:
       - name: Configure repository
         shell: bash
         env:
-          SKIP_MAP_DOWNLOAD: '1'
           PYTHONUTF8: '1'
         run: bash configure.sh
 
@@ -136,24 +135,25 @@ jobs:
         shell: pwsh
         run: |
           # Copy data/ excluding large map downloads and development-only files.
+          # configure.sh already downloaded World.mwm and WorldCoasts.mwm into world_mwm/<v>/
+          # and symlinked them as data/World.mwm and data/WorldCoasts.mwm. Robocopy /E /SL copies
+          # symlinks as symlinks; /COPYALL would dereference — we use explicit Copy-Item below
+          # for the two world MWMs so they are real files in the bundle.
           # borders/ holds per-country .poly files for the map generator — not needed at runtime
           # (the app uses packed_polygons.bin instead). symbols-svg/ is SVG source, runtime uses
           # the compiled PNGs in symbols/. *.prev and *.diff are development diff artifacts.
           # Robocopy exit codes 0-7 are non-fatal (0=nothing to copy, 1=copied OK, etc.)
           robocopy data staging\data /E `
-            /XD world_mwm test_data bookmarks borders symbols-svg 260106 260122 260405 `
+            /XD world_mwm test_data bookmarks borders symbols-svg `
             /XF "*.mwm" "*.prev" "*.diff" borders_vs_osm.csv old_vs_new.csv `
                 "minsk-pass.osm.bz2" "HOW_TO_EDIT_HIERARCHY.TXT.md"
           if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE }
 
-          # World.mwm and WorldCoasts.mwm are required at runtime for the world overview and
-          # coastline rendering. Parse the version code from countries.txt and download from CDN.
-          $countries = Get-Content data\countries.txt -Raw | ConvertFrom-Json
-          $v          = $countries.v
-          $map_series = $countries.min_compat_app_v
-          $base = "https://cdn-fi-1.comaps.app/maps/$map_series/$v"
-          Invoke-WebRequest "$base/World.mwm"       -OutFile staging\data\World.mwm
-          Invoke-WebRequest "$base/WorldCoasts.mwm" -OutFile staging\data\WorldCoasts.mwm
+          # Resolve the World/WorldCoasts symlinks and copy as real files.
+          # configure.sh created them in data/world_mwm/<v>/ and symlinked from data/.
+          $v = (Get-Content data\countries.txt -Raw | ConvertFrom-Json).v
+          Copy-Item "data\world_mwm\$v\World.mwm"       staging\data\World.mwm
+          Copy-Item "data\world_mwm\$v\WorldCoasts.mwm" staging\data\WorldCoasts.mwm
 
       # ---------------------------------------------------------------------------
       # Microsoft Store / MSIX steps — disabled
