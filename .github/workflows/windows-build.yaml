@@ -74,29 +74,11 @@ jobs:
           sed -i "s/set_start_method('fork')/if _sys.platform != 'win32': set_start_method('fork')/" \
             tools/kothic/src/libkomwm.py
 
-      - name: Stub uconv (not available on Windows; only needed for Android/iOS strings)
-        shell: bash
-        run: |
-          mkdir -p "$HOME/.local/bin"
-          cat > "$HOME/.local/bin/uconv" << 'EOF'
-          #!/usr/bin/env bash
-          # Stub: passes input through without transliteration.
-          # uconv is only used by generate_serbian_latin_strings.sh for Android/iOS.
-          while [[ $# -gt 0 ]]; do
-            case "$1" in
-              -x) shift 2 ;;
-              *) INPUT="$1"; shift ;;
-            esac
-          done
-          cat "$INPUT"
-          EOF
-          chmod +x "$HOME/.local/bin/uconv"
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-
       - name: Configure repository
         shell: bash
         env:
           PYTHONUTF8: '1'
+          SKIP_GENERATE_SERBIAN_LATIN_STRINGS: '1'
         run: bash configure.sh
 
       - name: Configure CMake
