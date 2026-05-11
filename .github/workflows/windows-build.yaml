@@ -145,7 +145,13 @@ jobs:
             /XF "*.mwm" "*.prev" "*.diff" borders_vs_osm.csv old_vs_new.csv `
                 "minsk-pass.osm.bz2" "HOW_TO_EDIT_HIERARCHY.TXT.md"
           if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE }
-          exit 0
+
+          # World.mwm and WorldCoasts.mwm are required at runtime for the world overview and
+          # coastline rendering. They live in a date-versioned subdir; resolve via the symlink.
+          $worldMwm = (Get-Item data\World.mwm).Target
+          $worldCoasts = (Get-Item data\WorldCoasts.mwm).Target
+          Copy-Item "data\$worldMwm" staging\data\World.mwm
+          Copy-Item "data\$worldCoasts" staging\data\WorldCoasts.mwm
 
       - name: Generate MSIX icon assets
         shell: pwsh
@@ -219,11 +225,26 @@ jobs:
           }
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+      - name: Package portable ZIP (for WinGet)
+        shell: pwsh
+        run: |
+          # A ZIP of the staging directory works as a WinGet portable installer
+          # (InstallerType: zip, NestedInstallerType: portable) without requiring
+          # a trusted code-signing certificate.
+          Compress-Archive -Path staging\* -DestinationPath CoMaps-portable.zip
+
       - name: Upload MSIX artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CoMaps-windows-x64-${{ github.sha }}
+          name: CoMaps-windows-x64-msix-${{ github.sha }}
           path: |
             CoMaps.msix
             CoMaps-test.cer
           if-no-files-found: warn
+
+      - name: Upload portable ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoMaps-windows-x64-portable-${{ github.sha }}
+          path: CoMaps-portable.zip
+          if-no-files-found: error
