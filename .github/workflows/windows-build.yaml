@@ -148,8 +148,10 @@ jobs:
 
           # World.mwm and WorldCoasts.mwm are required at runtime for the world overview and
           # coastline rendering. Parse the version code from countries.txt and download from CDN.
-          $v = (Get-Content data\countries.txt | Select-String '"v":').ToString() -replace '.*"v":\s*(\d+).*','$1'
-          $base = "https://cdn-fi-1.comaps.app/maps/$v"
+          $countries = Get-Content data\countries.txt -Raw | ConvertFrom-Json
+          $v          = $countries.v
+          $map_series = $countries.map_series
+          $base = "https://cdn-fi-1.comaps.app/maps/$map_series/$v"
           Invoke-WebRequest "$base/World.mwm"       -OutFile staging\data\World.mwm
           Invoke-WebRequest "$base/WorldCoasts.mwm" -OutFile staging\data\WorldCoasts.mwm
 
