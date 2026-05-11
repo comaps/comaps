@@ -147,11 +147,11 @@ jobs:
           if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE }
 
           # World.mwm and WorldCoasts.mwm are required at runtime for the world overview and
-          # coastline rendering. They live in a date-versioned subdir; resolve via the symlink.
-          $worldMwm = (Get-Item data\World.mwm).Target
-          $worldCoasts = (Get-Item data\WorldCoasts.mwm).Target
-          Copy-Item "data\$worldMwm" staging\data\World.mwm
-          Copy-Item "data\$worldCoasts" staging\data\WorldCoasts.mwm
+          # coastline rendering. Parse the version code from countries.txt and download from CDN.
+          $v = (Get-Content data\countries.txt | Select-String '"v":').ToString() -replace '.*"v":\s*(\d+).*','$1'
+          $base = "https://cdn-fi-1.comaps.app/maps/$v"
+          Invoke-WebRequest "$base/World.mwm"       -OutFile staging\data\World.mwm
+          Invoke-WebRequest "$base/WorldCoasts.mwm" -OutFile staging\data\WorldCoasts.mwm
 
       - name: Generate MSIX icon assets
         shell: pwsh
