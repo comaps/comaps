@@ -155,77 +155,87 @@ jobs:
           Invoke-WebRequest "$base/World.mwm"       -OutFile staging\data\World.mwm
           Invoke-WebRequest "$base/WorldCoasts.mwm" -OutFile staging\data\WorldCoasts.mwm
 
-      - name: Generate MSIX icon assets
-        shell: pwsh
-        run: |
-          Add-Type -AssemblyName System.Drawing
-          $srcBmp = [System.Drawing.Bitmap]::new((Resolve-Path "qt\res\logo.png").Path)
-          New-Item -ItemType Directory -Path staging\Assets | Out-Null
-
-          $assets = @(
-            @{ w = 44;  h = 44;  name = "Square44x44Logo"  },
-            @{ w = 50;  h = 50;  name = "StoreLogo"         },
-            @{ w = 71;  h = 71;  name = "Square71x71Logo"   },
-            @{ w = 150; h = 150; name = "Square150x150Logo" },
-            @{ w = 310; h = 310; name = "Square310x310Logo" },
-            @{ w = 310; h = 150; name = "Wide310x150Logo"   }
-          )
-
-          foreach ($a in $assets) {
-            $bmp = [System.Drawing.Bitmap]::new($a.w, $a.h, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
-            $g   = [System.Drawing.Graphics]::FromImage($bmp)
-            $g.Clear([System.Drawing.Color]::Transparent)
-            $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-            $g.DrawImage($srcBmp, 0, 0, $a.w, $a.h)
-            $bmp.Save("staging\Assets\$($a.name).png", [System.Drawing.Imaging.ImageFormat]::Png)
-            $g.Dispose()
-            $bmp.Dispose()
-          }
-          $srcBmp.Dispose()
-
-      - name: Copy MSIX manifest
-        shell: pwsh
-        run: Copy-Item cmake\windows\AppxManifest.xml staging\
-
-      - name: Package MSIX
-        shell: pwsh
-        run: |
-          $makeappx = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" |
-            Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
-          & $makeappx pack /d staging /p CoMaps.msix /nv
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-
-      - name: Sign MSIX
-        shell: pwsh
-        env:
-          CODESIGN_PFX_BASE64: ${{ secrets.CODESIGN_PFX_BASE64 }}
-          CODESIGN_PFX_PASSWORD: ${{ secrets.CODESIGN_PFX_PASSWORD }}
-        run: |
-          $sdkBin = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64" |
-            Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
-          $signtool = Join-Path $sdkBin "signtool.exe"
-
-          if ($env:CODESIGN_PFX_BASE64) {
-            # Production/release signing via repository secret.
-            Write-Host "Signing with certificate from CODESIGN_PFX_BASE64 secret."
-            $pfxPath = Join-Path $env:TEMP "codesign.pfx"
-            [IO.File]::WriteAllBytes($pfxPath, [Convert]::FromBase64String($env:CODESIGN_PFX_BASE64))
-            & $signtool sign /fd SHA256 /f $pfxPath /p $env:CODESIGN_PFX_PASSWORD CoMaps.msix
-            Remove-Item $pfxPath -Force
-          } elseif (Test-Path "tools\windows\CoMaps-test.pfx") {
-            # Use the committed test cert (tools/windows/CoMaps-test.pfx).
-            # Install the paired CoMaps-test.cer into Trusted People once to trust it locally.
-            Write-Host "Signing with committed test cert (tools\windows\CoMaps-test.pfx)."
-            Copy-Item tools\windows\CoMaps-test.cer . -ErrorAction SilentlyContinue
-            & $signtool sign /fd SHA256 /f tools\windows\CoMaps-test.pfx /p "comaps-test" CoMaps.msix
-          } else {
-            # Fallback: generate a fresh self-signed test cert.
-            Write-Host "No cert found; generating a self-signed test cert."
-            & tools\windows\create_test_cert.ps1 -OutDir .
-            & $signtool sign /fd SHA256 /f CoMaps-test.pfx /p "comaps-test" CoMaps.msix
-            Remove-Item CoMaps-test.pfx -Force
-          }
-          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      # ---------------------------------------------------------------------------
+      # Microsoft Store / MSIX steps — disabled
+      #
+      # The steps below (Generate MSIX icon assets, Copy MSIX manifest, Package
+      # MSIX, Sign MSIX, Upload MSIX artifact) are required for Microsoft Store
+      # submission. They are disabled because we are not currently pursuing Store
+      # distribution. Re-enable them when submitting to the Store; you will also
+      # need a valid Store publisher certificate set via the CODESIGN_PFX_BASE64
+      # and CODESIGN_PFX_PASSWORD repository secrets, and the Identity/@Publisher
+      # in cmake/windows/AppxManifest.xml updated to match your Partner Center CN.
+      #
+      # - name: Generate MSIX icon assets
+      #   shell: pwsh
+      #   run: |
+      #     Add-Type -AssemblyName System.Drawing
+      #     $srcBmp = [System.Drawing.Bitmap]::new((Resolve-Path "qt\res\logo.png").Path)
+      #     New-Item -ItemType Directory -Path staging\Assets | Out-Null
+      #     $assets = @(
+      #       @{ w = 44;  h = 44;  name = "Square44x44Logo"  },
+      #       @{ w = 50;  h = 50;  name = "StoreLogo"         },
+      #       @{ w = 71;  h = 71;  name = "Square71x71Logo"   },
+      #       @{ w = 150; h = 150; name = "Square150x150Logo" },
+      #       @{ w = 310; h = 310; name = "Square310x310Logo" },
+      #       @{ w = 310; h = 150; name = "Wide310x150Logo"   }
+      #     )
+      #     foreach ($a in $assets) {
+      #       $bmp = [System.Drawing.Bitmap]::new($a.w, $a.h, [System.Drawing.Imaging.PixelFormat]::Format32bppArgb)
+      #       $g   = [System.Drawing.Graphics]::FromImage($bmp)
+      #       $g.Clear([System.Drawing.Color]::Transparent)
+      #       $g.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+      #       $g.DrawImage($srcBmp, 0, 0, $a.w, $a.h)
+      #       $bmp.Save("staging\Assets\$($a.name).png", [System.Drawing.Imaging.ImageFormat]::Png)
+      #       $g.Dispose(); $bmp.Dispose()
+      #     }
+      #     $srcBmp.Dispose()
+      #
+      # - name: Copy MSIX manifest
+      #   shell: pwsh
+      #   run: Copy-Item cmake\windows\AppxManifest.xml staging\
+      #
+      # - name: Package MSIX
+      #   shell: pwsh
+      #   run: |
+      #     $makeappx = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64\makeappx.exe" |
+      #       Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
+      #     & $makeappx pack /d staging /p CoMaps.msix /nv
+      #     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      #
+      # - name: Sign MSIX
+      #   shell: pwsh
+      #   env:
+      #     CODESIGN_PFX_BASE64: ${{ secrets.CODESIGN_PFX_BASE64 }}
+      #     CODESIGN_PFX_PASSWORD: ${{ secrets.CODESIGN_PFX_PASSWORD }}
+      #   run: |
+      #     $sdkBin = Get-Item "C:\Program Files (x86)\Windows Kits\10\bin\*\x64" |
+      #       Sort-Object Name | Select-Object -Last 1 -ExpandProperty FullName
+      #     $signtool = Join-Path $sdkBin "signtool.exe"
+      #     if ($env:CODESIGN_PFX_BASE64) {
+      #       $pfxPath = Join-Path $env:TEMP "codesign.pfx"
+      #       [IO.File]::WriteAllBytes($pfxPath, [Convert]::FromBase64String($env:CODESIGN_PFX_BASE64))
+      #       & $signtool sign /fd SHA256 /f $pfxPath /p $env:CODESIGN_PFX_PASSWORD CoMaps.msix
+      #       Remove-Item $pfxPath -Force
+      #     } elseif (Test-Path "tools\windows\CoMaps-test.pfx") {
+      #       Copy-Item tools\windows\CoMaps-test.cer . -ErrorAction SilentlyContinue
+      #       & $signtool sign /fd SHA256 /f tools\windows\CoMaps-test.pfx /p "comaps-test" CoMaps.msix
+      #     } else {
+      #       & tools\windows\create_test_cert.ps1 -OutDir .
+      #       & $signtool sign /fd SHA256 /f CoMaps-test.pfx /p "comaps-test" CoMaps.msix
+      #       Remove-Item CoMaps-test.pfx -Force
+      #     }
+      #     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      #
+      # - name: Upload MSIX artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: CoMaps-windows-x64-msix-${{ github.sha }}
+      #     path: |
+      #       CoMaps.msix
+      #       CoMaps-test.cer
+      #     if-no-files-found: warn
+      # ---------------------------------------------------------------------------
 
       - name: Package portable ZIP (for WinGet)
         shell: pwsh
@@ -234,15 +244,6 @@ jobs:
           # (InstallerType: zip, NestedInstallerType: portable) without requiring
           # a trusted code-signing certificate.
           Compress-Archive -Path staging\* -DestinationPath CoMaps-portable.zip
-
-      - name: Upload MSIX artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: CoMaps-windows-x64-msix-${{ github.sha }}
-          path: |
-            CoMaps.msix
-            CoMaps-test.cer
-          if-no-files-found: warn
 
       - name: Upload portable ZIP artifact
         uses: actions/upload-artifact@v4
