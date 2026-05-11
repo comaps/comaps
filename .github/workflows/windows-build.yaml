@@ -26,7 +26,7 @@ on:
 
 jobs:
   windows-build:
-    name: Windows x64 MSIX
+    name: Windows x64 EXE (ZIP)
     runs-on: windows-latest
 
     concurrency:
@@ -150,7 +150,7 @@ jobs:
           # coastline rendering. Parse the version code from countries.txt and download from CDN.
           $countries = Get-Content data\countries.txt -Raw | ConvertFrom-Json
           $v          = $countries.v
-          $map_series = $countries.map_series
+          $map_series = $countries.min_compat_app_v
           $base = "https://cdn-fi-1.comaps.app/maps/$map_series/$v"
           Invoke-WebRequest "$base/World.mwm"       -OutFile staging\data\World.mwm
           Invoke-WebRequest "$base/WorldCoasts.mwm" -OutFile staging\data\WorldCoasts.mwm
