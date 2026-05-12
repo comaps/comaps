@@ -101,23 +101,42 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
 
   mkdir -p "$MWM_PATH"
 
+  # Use curl if available (uses system cert store, works on Windows/macOS/Linux),
+  # otherwise fall back to wget. Pass -z only when the file already exists to get
+  # If-Modified-Since behaviour (equivalent to wget -N).
+  download() {
+    local url=$1 dest=$2
+    if command -v curl > /dev/null 2>&1; then
+      local time_cond=()
+      [ -f "$dest" ] && time_cond=(-z "$dest")
+      curl -L --fail -o "$dest" "${time_cond[@]}" "$url"
+    else
+      wget -N "$url" -O "$dest"
+    fi
+  }
+
+  # Use ln -s if possible (Linux/macOS), otherwise cp (Windows without Developer Mode).
+  link_or_copy() {
+    local target=$1 link=$2
+    rm -f "$link"
+    if ln -s "$target" "$link" 2>/dev/null; then
+      : # symlink succeeded
+    else
+      cp "$target" "$link"
+    fi
+  }
+
   if [ ! -f "$WORLD_PATH" ]; then
     echo "Downloading world map..."
     # Using a fi1 maps mirror/CDN
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/World.mwm" -P "$MWM_PATH" && \
-    rm -f World.mwm && ln -s "$WORLD_PATH" World.mwm
+    download "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/World.mwm" "$WORLD_PATH"
   fi
   if [ ! -f "$WORLD_PATH2" ]; then
-    wget -N "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/WorldCoasts.mwm" -P "$MWM_PATH" && \
-    rm -f WorldCoasts.mwm && ln -s "$WORLD_PATH2" WorldCoasts.mwm
+    download "https://cdn-fi-1.comaps.app/maps/$MWM_VERSION/WorldCoasts.mwm" "$WORLD_PATH2"
   fi
 
-  if [ ! -f "World.mwm" ]; then
-    ln -s "$WORLD_PATH" World.mwm
-  fi
-  if [ ! -f "WorldCoasts.mwm" ]; then
-    ln -s "$WORLD_PATH2" WorldCoasts.mwm
-  fi
+  link_or_copy "$WORLD_PATH"  World.mwm
+  link_or_copy "$WORLD_PATH2" WorldCoasts.mwm
 
   popd
 else
