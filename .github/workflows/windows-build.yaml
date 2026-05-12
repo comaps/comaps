@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - zy-windows-app
     paths: &paths
       - 3party/**
       - cmake/**
