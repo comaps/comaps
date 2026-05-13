@@ -187,10 +187,20 @@ using VecPairDist = std::vector<PairDist>;
 
 /// @return a reference to a vector of pairs of a distance in meters and a text id.
 /// All the distances are translated in supported languages and can be pronounced.
-VecPairDist const & GetAllSoundedDistMeters();
+/// The distances are grammatically correct for a distance travelling towards a place.
+VecPairDist const & GetAllSoundedDistUntilMeters();
 /// @return a reference to a vector of pairs of a distance in feet and a text id.
 /// All the distances are translated in supported languages and can be pronounced.
-VecPairDist const & GetAllSoundedDistFeet();
+/// The distances are grammatically correct for a distance travelling towards a place.
+VecPairDist const & GetAllSoundedDistUntilFeet();
+/// @return a reference to a vector of pairs of a distance in meters and a text id.
+/// All the distances are translated in supported languages and can be pronounced.
+/// The distances are grammatically correct for a distance travelling away from a place.
+VecPairDist const & GetAllSoundedDistFromMeters();
+/// @return a reference to a vector of pairs of a distance in feet and a text id.
+/// All the distances are translated in supported languages and can be pronounced.
+/// The distances are grammatically correct for a distance travelling away from a place.
+VecPairDist const & GetAllSoundedDistFromFeet();
 
 // @TODO(vbykoianko) Now GetSoundedDistMeters/Feet() functions returns a subset of
 // the result of GetAllSoundedDistMeters/Feet() functions. So GetAllSoundedDistMeters/Feet()

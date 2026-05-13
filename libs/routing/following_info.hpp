@@ -24,6 +24,7 @@ public:
     , m_completionPercent(0)
     , m_pedestrianTurn(turns::PedestrianDirection::None)
     , m_routingSessionState(routing::SessionState::NoValidRoute)
+    , m_routeMissed(false)
   {}
 
   bool IsValid() const { return m_distToTarget.IsValid(); }
@@ -68,6 +69,9 @@ public:
 
   // Routing state.
   SessionState m_routingSessionState;
+
+  // Whether the user has strayed from the route.
+  bool m_routeMissed;
 
   // Index of the next intermediate stop:
   //  -1 = invalid next intermediate stops.

@@ -51,6 +51,9 @@ public:
   /// \brief Generate text of route rebuild notification.
   std::string GenerateRecalculatingText() const;
 
+  /// \brief Generate text of off route notification.
+  std::string GenerateNotRecalculatingText(uint32_t distanceMeters) const;
+
   /// \brief Generate text of speed camera notification.
   std::string GenerateSpeedCameraText() const;
 

@@ -132,6 +132,11 @@ public:
   void SetChangeSessionStateCallback(ChangeSessionStateCallback const & changeSessionStateCallback);
   void SetOnNewTurnCallback(OnNewTurn const & onNewTurn);
 
+  // Whether to recalculate the route when the user strays
+  void SetRebuildRouteOnMissed(bool rebuildRouteOnMissed);
+  bool GetRebuildRouteOnMissed();
+  bool RebuildRouteOnMissed();
+
   void SetSpeedCamShowCallback(SpeedCameraShowCallback && callback);
   void SetSpeedCamClearCallback(SpeedCameraClearCallback && callback);
 
@@ -203,7 +208,9 @@ private:
   /// Current position metrics to check for RouteNeedRebuild state.
   double m_lastDistance = 0.0;
   int m_moveAwayCounter = 0;
+  int m_moveAwayCounterSinceLastAnnounce = 0;
   m2::PointD m_lastGoodPosition;
+  bool m_rebuildRouteOnMissed = true;
 
   m2::PointD m_userCurrentPosition;
   bool m_userCurrentPositionValid = false;

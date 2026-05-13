@@ -164,6 +164,15 @@ public:
   bool DisableFollowMode();
   kml::TrackId SaveRoute();
 
+  void SetRebuildRouteOnMissed(bool rebuildRouteOnMissed)
+  {
+    m_routingSession.SetRebuildRouteOnMissed(rebuildRouteOnMissed);
+  }
+
+  bool GetRebuildRouteOnMissed() { return m_routingSession.GetRebuildRouteOnMissed(); }
+
+  bool RebuildRouteOnMissed() { return m_routingSession.RebuildRouteOnMissed(); }
+
   void SetRouteBuildingListener(RouteBuildingCallback const & buildingCallback)
   {
     m_routingBuildingCallback = buildingCallback;

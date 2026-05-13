@@ -28,6 +28,7 @@
 namespace
 {
 int constexpr kOnRouteMissedCount = 10;
+int constexpr kAnnounceRouteMissedCount = 20;
 
 double constexpr kShowLanesMinDistInMeters = 500.0;
 
@@ -136,6 +137,7 @@ void RoutingSession::RemoveRoute()
 
   m_lastDistance = 0.0;
   m_moveAwayCounter = 0;
+  m_moveAwayCounterSinceLastAnnounce = 0;
   m_turnNotificationsMgr.Reset();
 
   m_route = std::make_shared<Route>(std::string{} /* router */, 0 /* route id */);
@@ -287,6 +289,7 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
   if (m_route->MoveIterator(info))
   {
     m_moveAwayCounter = 0;
+    m_moveAwayCounterSinceLastAnnounce = 0;
     m_lastDistance = 0.0;
 
     PassCheckpoints();
@@ -325,13 +328,19 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
       return m_state;
 
     if (!info.HasSpeed() || info.m_speed < m_routingSettings.m_minSpeedForRouteRebuildMpS)
+    {
       m_moveAwayCounter += 1;
+      m_moveAwayCounterSinceLastAnnounce += 1;
+    }
     else
+    {
       m_moveAwayCounter += 2;
+      m_moveAwayCounterSinceLastAnnounce += 2;
+    }
 
     m_lastDistance = dist;
 
-    if (m_moveAwayCounter > kOnRouteMissedCount)
+    if (m_rebuildRouteOnMissed && m_moveAwayCounter > kOnRouteMissedCount)
     {
       m_passedDistanceOnRouteMeters += m_route->GetCurrentDistanceFromBeginMeters();
       SetState(SessionState::RouteNeedsRebuild);
@@ -467,6 +476,8 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   // Routing session state.
   info.m_routingSessionState = m_state;
 
+  info.m_routeMissed = m_moveAwayCounter > kOnRouteMissedCount;
+
   // Get number of subroutes.
   size_t subrouteCount = m_route->GetSubrouteCount();
 
@@ -566,6 +577,19 @@ void RoutingSession::GenerateNotifications(std::vector<std::string> & notificati
     return;
   }
 
+  // Route missed notifications
+  if (!m_rebuildRouteOnMissed /* if we will not be rerouting (see case above) */
+      // if this is the first announcement, we can use a shorter threshold as the user wants to know right away
+      && ((m_moveAwayCounter == m_moveAwayCounterSinceLastAnnounce &&
+           m_moveAwayCounterSinceLastAnnounce > kOnRouteMissedCount)
+          // for second or higher announcement, we use a longer interval to avoid being repetitive
+          || (m_moveAwayCounterSinceLastAnnounce > kAnnounceRouteMissedCount)))
+  {
+    m_moveAwayCounterSinceLastAnnounce = 0;
+    notifications.emplace_back(m_turnNotificationsMgr.GenerateNotRecalculatingText(m_lastDistance));
+    return;
+  }
+
   // Voice turn notifications.
   if (!m_routingSettings.m_soundDirection)
     return;
@@ -587,6 +611,39 @@ void RoutingSession::GenerateNotifications(std::vector<std::string> & notificati
   }
 
   m_speedCameraManager.GenerateNotifications(notifications);
+}
+
+void RoutingSession::SetRebuildRouteOnMissed(bool rebuildRouteOnMissed)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  if (rebuildRouteOnMissed)
+  {
+    // If we are off the route, recalculate immediately.
+    RebuildRouteOnMissed();
+  }
+
+  m_rebuildRouteOnMissed = rebuildRouteOnMissed;
+}
+
+bool RoutingSession::GetRebuildRouteOnMissed()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  return m_rebuildRouteOnMissed;
+}
+
+bool RoutingSession::RebuildRouteOnMissed()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  if (m_moveAwayCounter > kOnRouteMissedCount)
+  {
+    SetState(SessionState::RouteNeedsRebuild);
+    return true;
+  }
+
+  return false;
 }
 
 void RoutingSession::AssignRoute(std::shared_ptr<Route> const & route, RouterResultCode e)

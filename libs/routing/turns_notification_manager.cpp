@@ -94,6 +94,13 @@ std::string NotificationManager::GenerateRecalculatingText() const
   return m_getTtsText.GetRecalculatingNotification();
 }
 
+std::string NotificationManager::GenerateNotRecalculatingText(uint32_t distanceMeters) const
+{
+  double const distanceUnits = m_settings.ConvertMetersToUnits(distanceMeters);
+
+  return m_getTtsText.GetNotRecalculatingNotification(distanceUnits, m_settings.GetLengthUnits());
+}
+
 std::string NotificationManager::GenerateSpeedCameraText() const
 {
   return m_getTtsText.GetSpeedCameraNotification();
