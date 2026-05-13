@@ -133,6 +133,7 @@ jobs:
           $v = (Get-Content data\countries.txt -Raw | ConvertFrom-Json).v
           Copy-Item "data\world_mwm\$v\World.mwm"       staging\data\World.mwm
           Copy-Item "data\world_mwm\$v\WorldCoasts.mwm" staging\data\WorldCoasts.mwm
+          exit 0
 
       # ---------------------------------------------------------------------------
       # Microsoft Store / MSIX steps — disabled
