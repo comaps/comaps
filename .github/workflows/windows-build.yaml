@@ -125,7 +125,8 @@ jobs:
           robocopy data staging\data /E `
             /XD world_mwm test_data bookmarks borders symbols-svg `
             /XF "*.mwm" "*.prev" "*.diff" borders_vs_osm.csv old_vs_new.csv `
-                "minsk-pass.osm.bz2" "HOW_TO_EDIT_HIERARCHY.TXT.md"
+                "minsk-pass.osm.bz2" "HOW_TO_EDIT_HIERARCHY.TXT.md" `
+                "drules_proto*.txt"
           if ($LASTEXITCODE -gt 7) { exit $LASTEXITCODE }
 
           # configure.sh downloaded World/WorldCoasts.mwm into data/world_mwm/<v>/.
