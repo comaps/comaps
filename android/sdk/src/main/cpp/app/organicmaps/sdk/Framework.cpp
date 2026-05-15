@@ -1124,6 +1124,21 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSaveRoute(JNIEnv
   frm()->SaveRoute();
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetRebuildRouteOnMissed(JNIEnv * env, jclass, jboolean rebuildRouteOnMissed)
+{
+frm()->GetRoutingManager().SetRebuildRouteOnMissed(static_cast<bool>(rebuildRouteOnMissed));
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRebuildRouteOnMissed(JNIEnv * env, jclass)
+{
+  return static_cast<jboolean>(frm()->GetRoutingManager().GetRebuildRouteOnMissed());
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeRebuildRouteOnMissed(JNIEnv * env, jclass)
+{
+  return static_cast<jboolean>(frm()->GetRoutingManager().RebuildRouteOnMissed());
+}
+
 JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_Framework_nativeGetBookmarkDir(JNIEnv * env, jclass)
 {
   return jni::ToJavaString(env, GetPlatform().SettingsDir().c_str());

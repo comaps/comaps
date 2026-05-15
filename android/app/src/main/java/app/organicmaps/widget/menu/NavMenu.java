@@ -13,6 +13,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.ViewCompat;
 import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
 import app.organicmaps.sdk.sound.TtsPlayer;
@@ -56,6 +57,7 @@ public class NavMenu
   private final RouteProgressBar mRouteProgress;
   private final MaterialTextView mRoutingState;
   private final CircularProgressIndicator mRebuildingRouteProgressBar;
+  private final MaterialButton mRebuildRouteButton;
 
   private final AppCompatActivity mActivity;
   private final SharedPreferences mSharedPreferences;
@@ -140,6 +142,8 @@ public class NavMenu
     mRouteProgress.setOnClickListener(view -> toggleInfoDisplay());
     mRoutingState = bottomFrame.findViewById(R.id.routing_state);
     mRebuildingRouteProgressBar = bottomFrame.findViewById(R.id.rebuilding_route_progress_bar);
+    mRebuildRouteButton = bottomFrame.findViewById(R.id.rebuild_route);
+    mRebuildRouteButton.setOnClickListener(view -> Framework.nativeRebuildRouteOnMissed());
 
     // Bottom frame buttons.
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
@@ -396,6 +400,45 @@ public class NavMenu
     updateControls();
   }
 
+  private void showNavigableState()
+  {
+    // Update destination labels (to final destination or to the next intermediate stop).
+    Pair<Distance, Integer> displayInfo = updateDestination();
+
+    // Show & update time info.
+    UiUtils.show(mTimeValuesContainer);
+    UiUtils.show(mEtaViewContainer);
+    updateTime(displayInfo.second);
+
+    // Show & update distance info.
+    UiUtils.show(mDistanceViewContainer);
+    updateDistance(displayInfo.first);
+
+    // Show & update route progress bar.
+    UiUtils.show(mRouteProgress);
+    mRouteProgress.update(mRoutingInfo.completionPercent, mRoutingInfo.indexOfNextStop,
+                          mShowInfoToFinalDestination, mIntermediateStopsProgress);
+
+    // Update dots switch.
+    updateDotsSwitch();
+  }
+
+  private void hideNavigableState()
+  {
+    // Hide time info.
+    UiUtils.hide(mTimeValuesContainer);
+    UiUtils.hide(mEtaViewContainer);
+
+    // Hide distance info.
+    UiUtils.hide(mDistanceViewContainer);
+
+    // Hide route progress bar.
+    UiUtils.invisible(mRouteProgress);
+
+    // Hide intermediate stop/final destination dots switch.
+    UiUtils.hide(mDotsSwitch);
+  }
+
   private void updateControls()
   {
     if (mRoutingInfo == null)
@@ -404,47 +447,40 @@ public class NavMenu
     // Hide/show & update controls based on routing session state.
     if (RoutingSessionState.isNavigable(mRoutingInfo.routingSessionState))
     {
-      // Update destination labels (to final destination or to the next intermediate stop).
-      Pair<Distance, Integer> displayInfo = updateDestination();
+      if (mRoutingInfo.routeMissed)
+      {
+        hideNavigableState();
 
-      // Show & update time info.
-      UiUtils.show(mTimeValuesContainer);
-      UiUtils.show(mEtaViewContainer);
-      updateTime(displayInfo.second);
+        // Show the button to recalculate the route
+        UiUtils.show(mRebuildRouteButton);
 
-      // Show & update distance info.
-      UiUtils.show(mDistanceViewContainer);
-      updateDistance(displayInfo.first);
+        // Hide rebuilding route circular progress bar.
+        UiUtils.hide(mRebuildingRouteProgressBar);
 
-      // Show & update route progress bar.
-      UiUtils.show(mRouteProgress);
-      mRouteProgress.update(mRoutingInfo.completionPercent, mRoutingInfo.indexOfNextStop,
-                            mShowInfoToFinalDestination, mIntermediateStopsProgress);
+        // Update routing session state message.
+        UiUtils.setTextAndShow(mRoutingState, mActivity.getString(R.string.off_route));
+      }
+      else
+      {
+        showNavigableState();
 
-      // Update dots switch.
-      updateDotsSwitch();
+        // Hide the button to recalculate the route
+        UiUtils.hide(mRebuildRouteButton);
 
-      // Hide rebuilding route circular progress bar.
-      UiUtils.hide(mRebuildingRouteProgressBar);
+        // Hide rebuilding route circular progress bar.
+        UiUtils.hide(mRebuildingRouteProgressBar);
 
-      // Hide routing session state message.
-      mRoutingState.setText("");
-      UiUtils.invisible(mRoutingState);
+        // Hide routing session state message.
+        mRoutingState.setText("");
+        UiUtils.invisible(mRoutingState);
+      }
     }
     else
     {
-      // Hide time info.
-      UiUtils.hide(mTimeValuesContainer);
-      UiUtils.hide(mEtaViewContainer);
+      hideNavigableState();
 
-      // Hide distance info.
-      UiUtils.hide(mDistanceViewContainer);
-
-      // Hide route progress bar.
-      UiUtils.invisible(mRouteProgress);
-
-      // Hide intermediate stop/final destination dots switch.
-      UiUtils.hide(mDotsSwitch);
+      // Hide the button to recalculate the route
+      UiUtils.hide(mRebuildRouteButton);
 
       // Show rebuilding route circular progress bar.
       UiUtils.show(mRebuildingRouteProgressBar);

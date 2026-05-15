@@ -1018,6 +1018,12 @@
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">The app has been installed from Google Play, you can use it in your car.</string>
     <string name="pref_aa_support_summary_no">The app has not been installed from Google Play, you can\'t use it in your car. Press the setting to get more details on our FAQ.</string>
+    <string name="pref_rebuild_route_on_missed_title">Automatic rerouting</string>
+    <string name="pref_rebuild_route_on_missed_description">When enabled, a new route will automatically be created when you leave the planned route.</string>
+    <string name="recalculate_route">Recalculate</string>
+    <!-- Should be similar to TTS strings for being off the route eg. data/sound-strings/en.json/localize.json -->
+    <string name="off_route">You are off the route</string>
+
     <!-- Editor section title that shows recently used categories (types of objects) when adding a place on the map -->
     <string name="editor_add_select_category_recent_subtitle">Recently Used</string>
 </resources>

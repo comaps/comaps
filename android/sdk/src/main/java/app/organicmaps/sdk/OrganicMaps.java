@@ -24,6 +24,7 @@ import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.sdk.util.StorageUtils;
+import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.sdk.util.log.LogsManager;
 import java.io.IOException;
@@ -189,6 +190,11 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     BookmarkManager.loadBookmarks();
     TtsPlayer.INSTANCE.initialize(mContext);
     RoutingController.get().initialize(mLocationHelper);
+
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(mContext);
+    final boolean rebuildRouteOnMissed = prefs.getBoolean(mContext.getString(R.string.pref_rebuild_route_on_missed), true);
+    UiThread.run(() -> Framework.nativeSetRebuildRouteOnMissed(rebuildRouteOnMissed));
+
     TrafficManager.INSTANCE.initialize();
     mSubwayManager.initialize();
     mIsolinesManager.initialize();

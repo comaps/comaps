@@ -353,6 +353,11 @@ public class Framework
 
   public static native void nativeMemoryWarning();
   public static native void nativeSaveRoute();
+
+  public static native void nativeSetRebuildRouteOnMissed(boolean rebuildRouteOnMissed);
+  public static native boolean nativeGetRebuildRouteOnMissed();
+  public static native boolean nativeRebuildRouteOnMissed();
+
   public static native void nativeSetCustomMapDownloadUrl(String url);
 
   public static void applyCustomMapDownloadUrl(@NonNull Context context, @Nullable String url)

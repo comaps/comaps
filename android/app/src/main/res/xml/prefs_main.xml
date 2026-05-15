@@ -178,6 +178,12 @@
       android:order="5"
       android:persistent="false"
       android:title="@string/pref_aa_support_title" />
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="@string/pref_rebuild_route_on_missed"
+        android:title="@string/pref_rebuild_route_on_missed_title"
+        android:widgetLayout="@layout/preference_switch"
+        app:singleLineTitle="true" />
   </androidx.preference.PreferenceCategory>
 
   <PreferenceCategory

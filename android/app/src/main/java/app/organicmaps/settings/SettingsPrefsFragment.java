@@ -90,6 +90,7 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment
     initOpenExternalLinksPrefsCallback();
     initIncognitoModePrefsCallback();
     initAndroidAutoSupportPrefsCallback();
+    initRebuildRouteOnMissedCallback();
   }
 
   private void initLeftButtonPrefs()
@@ -656,6 +657,17 @@ public class SettingsPrefsFragment extends BaseXmlSettingsFragment
   {
     Preference keyboardTypingHistoryPref = getPreference(getString(R.string.pref_keyboard_typing_history));
     keyboardTypingHistoryPref.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
+  }
+
+  private void initRebuildRouteOnMissedCallback()
+  {
+    TwoStatePreference rebuildRouteOnMissedPref = getPreference(getString(app.organicmaps.sdk.R.string.pref_rebuild_route_on_missed));
+    Framework.nativeSetRebuildRouteOnMissed(rebuildRouteOnMissedPref.isChecked());
+
+    rebuildRouteOnMissedPref.setOnPreferenceChangeListener((preference, value) -> {
+      Framework.nativeSetRebuildRouteOnMissed((boolean) value);
+      return true;
+    });
   }
 
   private void removePreference(@NonNull String categoryKey, @NonNull Preference preference)

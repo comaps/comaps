@@ -202,6 +202,18 @@
       tools:text="km"/>
   </LinearLayout>
 
+  <com.google.android.material.button.MaterialButton
+      android:id="@+id/rebuild_route"
+      android:layout_width="wrap_content"
+      android:layout_height="@dimen/nav_button_height"
+      android:minWidth="@dimen/start_button_width"
+      style="@style/MwmWidget.M3.Button"
+      android:text="@string/recalculate_route"
+      android:textAllCaps="true"
+      android:textColor="@color/button_accent_text"
+      android:textStyle="bold"
+      app:backgroundTint="@color/base_accent" />
+
   <Space
     android:layout_width="0dp"
     android:layout_height="match_parent"

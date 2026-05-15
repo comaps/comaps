@@ -81,6 +81,7 @@ public final class RoutingInfo
   private final boolean shouldPlayWarningSignal;
   // Routing session state.
   public final RoutingSessionState routingSessionState;
+  public final boolean routeMissed;
   // Index of the next intermediate stop:
   //  -1 = invalid next intermediate stops.
   //   0 = there are no next intermediate stops.
@@ -96,7 +97,7 @@ public final class RoutingInfo
                       String nextNextStreet, double completionPercent, int vehicleTurnOrdinal,
                       int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum, int totalTime,
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
-                      boolean shouldPlayWarningSignal, int routingSessionState,
+                      boolean shouldPlayWarningSignal, int routingSessionState, boolean routeMissed,
                       int indexOfNextStop, Distance distToNextStop, int timeToNextStop)
   {
     this.distToTarget = distToTarget;
@@ -115,6 +116,7 @@ public final class RoutingInfo
     this.speedCamLimitExceeded = speedLimitExceeded;
     this.shouldPlayWarningSignal = shouldPlayWarningSignal;
     this.routingSessionState = RoutingSessionState.fromIntValue(routingSessionState);
+    this.routeMissed = routeMissed;
     this.indexOfNextStop = indexOfNextStop;
     this.distToNextStop = distToNextStop;
     this.timeToNextStop = timeToNextStop;
