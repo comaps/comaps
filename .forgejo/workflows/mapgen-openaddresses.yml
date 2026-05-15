@@ -1,0 +1,117 @@
+name: mapgen-openaddresses
+on:
+  workflow_dispatch: # Manual trigger
+    inputs:
+      oa-collection-id:
+        description: 'OpenAddresses collection ID (e.g. 6 for Canada)'
+        required: true
+        default: '6'
+        type: string
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+  TZ: Etc/UTC
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
+  OA_API_TOKEN: ${{ secrets.OA_API_TOKEN }}
+
+jobs:
+  update-openaddresses:
+    name: Update OpenAddresses data
+    runs-on: mapfilemaker
+    container:
+      image: codeberg.org/comaps/maps_generator:f6d53d54f794
+      volumes:
+        - /mnt/4tbexternal/:/mnt/4tbexternal/
+        - /mnt/4tbexternal/osm-planet:/home/planet
+    concurrency:
+      group: ${{ github.workflow }}-map-generator-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - name: Resolve collection name
+        id: resolve
+        shell: bash
+        run: |
+          COLLECTION_ID="${{ inputs.oa-collection-id }}"
+          # Do NOT use -L: %{redirect_url} is only populated when curl does not follow the redirect.
+          DOWNLOAD_URL=$(curl -fsS \
+            -H "Authorization: Bearer ${OA_API_TOKEN}" \
+            -w "%{redirect_url}" -o /dev/null \
+            "https://batch.openaddresses.io/api/collections/${COLLECTION_ID}/data")
+          if [ -z "${DOWNLOAD_URL}" ]; then
+            echo "ERROR: could not resolve download URL for collection ${COLLECTION_ID}" >&2
+            exit 1
+          fi
+          # Extract name from URL: https://.../collection-ca.zip -> ca
+          COLLECTION_NAME=$(basename "${DOWNLOAD_URL}" | sed 's/^collection-//;s/\.zip$//')
+          echo "Collection ${COLLECTION_ID} -> name: ${COLLECTION_NAME}, url: ${DOWNLOAD_URL}"
+          echo "collection-name=${COLLECTION_NAME}" >> "$GITHUB_OUTPUT"
+          echo "download-url=${DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
+
+      - name: Download OpenAddresses collection
+        shell: bash
+        run: |
+          COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
+          DOWNLOAD_URL="${{ steps.resolve.outputs.download-url }}"
+          DEST="/home/planet/collection-oa-${COLLECTION_NAME}.zip"
+
+          echo "Downloading collection ${COLLECTION_NAME} to ${DEST} ..."
+          [ -f "${DEST}" ] && mv -f "${DEST}" "${DEST}.bak"
+          curl -fsSL -o "${DEST}" "${DOWNLOAD_URL}"
+          echo "Downloaded $(du -sh "${DEST}" | cut -f1) to ${DEST}"
+
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode "content=OpenAddresses collection ${COLLECTION_NAME} downloaded."
+
+      - name: Checkout main repo
+        shell: bash
+        run: |
+          echo "Cloning $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY branch $FORGEJO_REF_NAME"
+          cd ~
+          git clone --depth 1 --recurse-submodules --shallow-submodules \
+            -b $FORGEJO_REF_NAME --single-branch \
+            $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
+
+      - name: Install Python dependencies
+        shell: bash
+        # shapely was added to requirements.txt in this PR but the pinned container
+        # image predates it. Install at runtime until the image is rebuilt.
+        # TODO: remove this step once maps_generator image is rebuilt with new requirements.txt
+        run: |
+          pip install --quiet "shapely>=2.0"
+
+      - name: Run OpenAddresses preprocessor
+        shell: bash
+        run: |
+          COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
+          ZIP="/home/planet/collection-oa-${COLLECTION_NAME}.zip"
+          OUTPUT_DIR="/home/planet/oa-out-${COLLECTION_NAME}"
+          BORDERS_DIR="${HOME}/comaps/data/borders"
+
+          [ -f "${ZIP}" ] || { echo "ERROR: ${ZIP} not found — re-run the workflow to download it" >&2; exit 1; }
+
+          echo "Backing up previous output ..."
+          rm -rf "${OUTPUT_DIR}.bak"
+          [ -d "${OUTPUT_DIR}" ] && mv -fT "${OUTPUT_DIR}" "${OUTPUT_DIR}.bak" || true
+          mkdir -p "${OUTPUT_DIR}"
+
+          echo "Running preprocessor ..."
+          python3 ~/comaps/tools/python/maps_generator/generator/openaddresses_preprocessor.py \
+            "${ZIP}" \
+            "${OUTPUT_DIR}" \
+            --borders-dir "${BORDERS_DIR}"
+
+          echo "Preprocessor output:"
+          ls -lah "${OUTPUT_DIR}" | head -20
+          echo "DONE"
+
+          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode "content=OpenAddresses preprocessor finished for collection ${COLLECTION_NAME}. Output at ${OUTPUT_DIR}."
