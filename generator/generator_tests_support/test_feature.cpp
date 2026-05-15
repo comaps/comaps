@@ -14,6 +14,7 @@
 #include "coding/string_utf8_multilang.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 

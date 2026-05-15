@@ -10,6 +10,7 @@
 #include "geometry/point2d.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 #include "base/logging.hpp"
 
 #include <functional>

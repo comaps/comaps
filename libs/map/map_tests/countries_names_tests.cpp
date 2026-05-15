@@ -13,10 +13,9 @@
 #include "indexer/mwm_set.hpp"
 #include "indexer/utils.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "base/cancellable.hpp"
 #include "base/checked_cast.hpp"
+#include "base/localisation.hpp"
 
 #include <set>
 #include <string>

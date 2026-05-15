@@ -22,6 +22,7 @@
 
 #include "base/assert.hpp"
 #include "base/geo_object_id.hpp"
+#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 

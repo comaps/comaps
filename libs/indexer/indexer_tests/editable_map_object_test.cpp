@@ -7,6 +7,10 @@
 #include "indexer/feature_utils.hpp"
 #include "indexer/validate_and_format_contacts.hpp"
 
+#include "coding/string_utf8_multilang.hpp"
+
+#include "base/localisation.hpp"
+
 #include <string>
 #include <vector>
 

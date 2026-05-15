@@ -7,9 +7,9 @@
 
 #include "platform/local_country_file.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include "geometry/mercator.hpp"
+
+#include "base/localisation.hpp"
 
 #include <algorithm>
 #include <cstdint>

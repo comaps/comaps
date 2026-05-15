@@ -7,7 +7,7 @@
 #include "indexer/search_string_utils.hpp"
 #include "indexer/trie_reader.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
+#include "base/localisation.hpp"
 
 #include <algorithm>
 #include <functional>

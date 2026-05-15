@@ -3,6 +3,9 @@
 #include "coding/string_utf8_multilang.hpp"
 
 #include "base/control_flow.hpp"
+#include "base/localisation.hpp"
+#include "base/macros.hpp"
+#include "base/stl_helpers.hpp"
 
 #include <utf8.h>
 

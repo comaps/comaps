@@ -1,9 +1,10 @@
 #include "testing/testing.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
 #include "coding/transliteration.hpp"
 
 #include "platform/platform.hpp"
+
+#include "base/localisation.hpp"
 
 namespace
 {

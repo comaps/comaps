@@ -9,6 +9,8 @@
 
 #include "indexer/ftypes_matcher.hpp"
 
+#include "base/localisation.hpp"
+
 #include <fstream>
 
 namespace addr_parser_tests
