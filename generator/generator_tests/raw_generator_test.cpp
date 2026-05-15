@@ -13,6 +13,8 @@
 #include "indexer/feature_algo.hpp"
 #include "indexer/ftypes_matcher.hpp"
 
+#include "base/localisation.hpp"
+
 namespace raw_generator_tests
 {
 using TestRawGenerator = generator::tests_support::TestRawGenerator;

@@ -9,9 +9,9 @@
 #include "geometry/mercator.hpp"
 
 #include "platform/distance.hpp"
-#include "platform/localization.hpp"
 #include "platform/measurement_utils.hpp"
 
+#include "base/localisation.hpp"
 #include "base/localisation_translation.hpp"
 #include "base/logging.hpp"
 #include "base/string_utils.hpp"

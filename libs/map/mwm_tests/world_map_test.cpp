@@ -7,8 +7,6 @@
 
 #include "base/localisation.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
-
 #include <iostream>
 
 UNIT_TEST(World_Capitals)

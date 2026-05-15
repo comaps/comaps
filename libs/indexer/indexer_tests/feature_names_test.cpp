@@ -3,8 +3,6 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/feature_utils.hpp"
 
-#include "base/localisation.hpp"
-
 #include "coding/string_utf8_multilang.hpp"
 
 #include <string>

@@ -15,6 +15,7 @@
 #include "platform/platform.hpp"
 
 #include "base/cancellable.hpp"
+#include "base/localisation.hpp"
 
 #include <string>
 #include <vector>

@@ -5,6 +5,8 @@
 
 #include "indexer/classificator.hpp"
 
+#include "base/localisation.hpp"
+
 namespace generator
 {
 namespace

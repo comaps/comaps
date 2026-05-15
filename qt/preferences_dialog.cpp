@@ -1,6 +1,5 @@
 #include "qt/preferences_dialog.hpp"
 
-#include "coding/string_utf8_multilang.hpp"
 #include "indexer/map_style.hpp"
 #include "map/framework.hpp"
 
@@ -8,6 +7,8 @@
 #include "platform/preferred_languages.hpp"
 #include "platform/settings.hpp"
 #include "platform/style_utils.hpp"
+
+#include "base/localisation.hpp"
 
 #include <QLocale>
 #include <QtGui/QIcon>

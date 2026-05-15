@@ -22,6 +22,8 @@
 
 #include "geometry/rect2d.hpp"
 
+#include "base/localisation.hpp"
+
 #include "defines.hpp"
 
 #include <algorithm>

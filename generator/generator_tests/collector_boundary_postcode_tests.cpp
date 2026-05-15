@@ -10,6 +10,7 @@
 #include "platform/platform.hpp"
 
 #include "coding/read_write_utils.hpp"
+#include "coding/string_utf8_multilang.hpp"
 
 #include "geometry/point2d.hpp"
 

@@ -13,6 +13,8 @@
 
 #include "coding/point_coding.hpp"
 
+#include "base/localisation.hpp"
+
 namespace generator
 {
 using feature::InterpolType;

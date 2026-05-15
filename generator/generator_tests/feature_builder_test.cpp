@@ -11,6 +11,7 @@
 #include "indexer/ftypes_matcher.hpp"
 
 #include "base/geo_object_id.hpp"
+#include "base/localisation.hpp"
 
 #include <limits>
 

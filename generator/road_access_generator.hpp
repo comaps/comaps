@@ -9,6 +9,8 @@
 
 #include "indexer/osm_element.hpp"
 
+#include "coding/string_utf8_multilang.hpp"
+
 #include <array>
 #include <memory>
 #include <optional>

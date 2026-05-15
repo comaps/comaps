@@ -20,6 +20,8 @@
 #include "geometry/mercator.hpp"
 #include "geometry/region2d/binary_operators.hpp"
 
+#include "base/localisation.hpp"
+
 namespace generator
 {
 using namespace feature;

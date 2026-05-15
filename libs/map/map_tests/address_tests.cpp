@@ -12,6 +12,7 @@
 
 #include "coding/string_utf8_multilang.hpp"
 
+#include "base/localisation.hpp"
 #include "base/localisation_translation.hpp"
 
 #include <memory>

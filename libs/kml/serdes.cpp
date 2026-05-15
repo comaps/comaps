@@ -12,6 +12,7 @@
 #include "geometry/point_with_altitude.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 #include "base/stl_helpers.hpp"
 #include "base/string_utils.hpp"
 #include "base/timer.hpp"

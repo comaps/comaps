@@ -8,6 +8,7 @@
 #include "geometry/latlon.hpp"
 
 #include "base/assert.hpp"
+#include "base/localisation.hpp"
 #include "base/string_utils.hpp"
 
 #include <algorithm>
