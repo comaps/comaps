@@ -148,13 +148,13 @@ Native Windows builds are supported using MSVC and Qt 6.
 - [Visual Studio 2022](https://visualstudio.microsoft.com/) (Community or Build Tools) with the **Desktop development with C++** workload, including the **MSVC x64 build tools** and **Windows 10/11 SDK**
 - [CMake](https://cmake.org/download/) 3.22.1 or newer (add to PATH during install)
 - [Ninja](https://ninja-build.org/) (add to PATH, or install via `winget install Ninja-build.Ninja`)
-- [Qt 6](https://www.qt.io/download-qt-installer) — install the **MSVC 2019 64-bit** component (tested with Qt 6.6.0 installed to `C:\Qt\`)
+- [Qt 6](https://www.qt.io/download-qt-installer) — in the installer, select **Custom Installation** and check the **MSVC 2022 64-bit** component under Qt 6.x (the default MinGW component will not work). Install to `C:\Qt\` (the default path).
 - [Python 3](https://www.python.org/downloads/) (add to PATH during install) with `protobuf < 4.0`:
   ```bat
   pip install "protobuf<4.0"
   ```
 - [Git for Windows](https://git-scm.com/download/win) with Git Bash available in PATH
-- PATH set properly for the above, like `PATH=C:\Qt\6.6.0\msvc2019_64\bin;%LOCALAPPDATA%\Programs\Python\Python313;%LOCALAPPDATA%\Programs\Python\Python313\Scripts;%PATH%`
+- PATH set properly for the above, like `PATH=C:\Qt\<version>\msvc2022_64\bin;%LOCALAPPDATA%\Programs\Python\Python313;%LOCALAPPDATA%\Programs\Python\Python313\Scripts;%PATH%`
 
 #### Building
 
@@ -182,7 +182,7 @@ Key build options (see `build_omim.bat` header for full list):
 After a successful build, deploy Qt DLLs alongside the exe so it can be launched directly (adjust the Qt path to match your installed version):
 
 ```bat
-set PATH=C:\Qt\6.6.0\msvc2019_64\bin;%PATH%
+set PATH=C:\Qt\<version>\msvc2022_64\bin;%PATH%
 windeployqt --debug ..\omim-build-Debug\CoMaps.exe
 ```
 
