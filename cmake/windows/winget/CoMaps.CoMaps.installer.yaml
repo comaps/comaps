@@ -1,6 +1,6 @@
-# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.6.0.schema.json
+# yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
 PackageIdentifier: CoMaps.CoMaps
-PackageVersion: 2026.04.07
+PackageVersion: 2026.05.15-1
 InstallerLocale: en-US
 Platform:
   - Windows.Desktop
@@ -15,7 +15,7 @@ Dependencies:
     - PackageIdentifier: Microsoft.VCRedist.2015+.x64
 Installers:
   - Architecture: x64
-    InstallerUrl: https://github.com/comaps/comaps/releases/download/v2026.04.07/CoMaps-portable.zip
-    InstallerSha256: 0000000000000000000000000000000000000000000000000000000000000000
+    InstallerUrl: https://cdn-us-1.comaps.app/windows/CoMaps-windows-x64-portable-1de9cf.zip
+    InstallerSha256: 4893a59481422dc694e643241ef4805ebc1af415d4879e4db5d7e4f206d7690d
 ManifestType: installer
-ManifestVersion: 1.6.0
+ManifestVersion: 1.12.0
