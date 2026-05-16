@@ -158,14 +158,14 @@ Native Windows builds are supported using MSVC and Qt 6.
 
 #### Building
 
-Open the **x64 Native Tools Command Prompt for VS 2022** and run:
+Open the **x64 Native Tools Command Prompt for VS 2022** and run the RelWithDebInfo build:
 
 ```bat
 cd comaps
-tools\unix\build_omim.bat -d
+tools\unix\build_omim.bat -R
 ```
 
-The script checks for all prerequisites, auto-detects Qt, configures CMake, and builds with Ninja. The output binary is placed in `..\omim-build-Debug\CoMaps.exe`.
+The script checks for all prerequisites, auto-detects Qt, configures CMake, and builds with Ninja. The output binary is placed in `..\omim-build-RelWithDebInfo\CoMaps.exe`.
 
 Key build options (see `build_omim.bat` header for full list):
 
@@ -179,28 +179,31 @@ Key build options (see `build_omim.bat` header for full list):
 
 #### Running
 
-After a successful build, deploy Qt DLLs alongside the exe so it can be launched directly (adjust the Qt path to match your installed version):
+Run from the repository root (CoMaps looks for the `data` folder in the working directory):
+
+```bat
+..\omim-build-RelWithDebInfo\CoMaps.exe
+```
+
+If running from another directory, pass the data path explicitly:
+
+```bat
+..\omim-build-RelWithDebInfo\CoMaps.exe -data_path <path_to_repo>\data
+```
+
+#### Distributing
+
+To share a standalone build, deploy Qt DLLs and copy the necessary data files:
 
 ```bat
 set PATH=C:\Qt\<version>\msvc2022_64\bin;%PATH%
-windeployqt --debug ..\omim-build-Debug\CoMaps.exe
+windeployqt --release ..\omim-build-RelWithDebInfo\CoMaps.exe
 ```
 
-The Qt DLLs only need to be deployed once (or after a Qt version change).
-
-CoMaps expects the repository's `data` folder to be present in the working directory. When launching from Explorer, pass the path explicitly:
-
-```bat
-..\omim-build-Debug\CoMaps.exe -data_path <path_to_repo>\data
-```
-
-Or run it from the repository root in a command prompt:
-
-```bat
-..\omim-build-Debug\CoMaps.exe
-```
-
-Or copy the repo data folder to the CoMaps.exe folder.
+Then copy the `data` folder alongside the exe, excluding files not needed at runtime:
+- Exclude: `world_mwm\`, `test_data\`, `bookmarks\`, `borders\`, `symbols-svg\`
+- Exclude: `*.mwm` (except `World.mwm` and `WorldCoasts.mwm` — copy those from `world_mwm\<version>\`)
+- Exclude: `*.prev`, `*.diff`, `drules_proto*.txt`, `borders_vs_osm.csv`, `old_vs_new.csv`
 
 #### Windows 11 (WSL)
 
