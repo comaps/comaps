@@ -5,10 +5,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-<<<<<<< HEAD
-=======
 import android.widget.TextView;
->>>>>>> d5c4b36816 ([android] Added recent categories history)
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -138,10 +135,6 @@ public class FeatureCategoryAdapter extends RecyclerView.Adapter<RecyclerView.Vi
     case TYPE_SECTION ->
     {
       return new SectionHeaderViewHolder(inflater.inflate(R.layout.item_category_title, parent, false));
-    }
-    default ->
-    {
-      throw new IllegalArgumentException("Unsupported viewType: " + viewType);
     }
     default -> throw new IllegalArgumentException("Unsupported viewType: " + viewType);
     }
