@@ -16,6 +16,6 @@ Dependencies:
 Installers:
   - Architecture: x64
     InstallerUrl: https://cdn-us-1.comaps.app/windows/CoMaps-windows-x64-portable-1de9cf.zip
-    InstallerSha256: 4893a59481422dc694e643241ef4805ebc1af415d4879e4db5d7e4f206d7690d
+    InstallerSha256: 53887b120058dfa5e98d4a4d3d99405f217c3d07ee1d78e2f2e76ed665364b55
 ManifestType: installer
 ManifestVersion: 1.12.0

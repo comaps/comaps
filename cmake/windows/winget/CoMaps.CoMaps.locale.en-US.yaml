@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.defaultLocale.1.12.0.schema.json
 PackageIdentifier: CoMaps.CoMaps
-PackageVersion: 2026.04.07
+PackageVersion: 2026.05.15-1
 PackageLocale: en-US
 Publisher: CoMaps Community
 PublisherUrl: https://comaps.app
