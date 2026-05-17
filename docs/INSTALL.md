@@ -87,17 +87,6 @@ It's probably best to have [Git for Windows](https://git-scm.com/download/win) i
 
 [optipng](http://optipng.sourceforge.net/) should be installed and available in the PATH (e.g. via [Chocolatey](https://chocolatey.org/): `choco install optipng`).
 
-It's necessary to enable symlink support:
-1. Activate _Windows Development Mode_ to enable symlinks globally:
-  - Windows 10: _Settings_ -> _Update and Security_ -> _For Developers_ -> _Activate Developer Mode_
-  - Windows 11: _Settings_ -> _Privacy and Security_ -> _For Developers_ -> _Activate Developer Mode_
-  - Press Win + R, run `ms-settings:developers` and _Activate Developer Mode_
-2. Enable [symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) support in git. The easiest way is to reinstall the latest [Git for Windows](https://git-scm.com/download/win) with the "Enable Symlinks" checkbox checked. If you don't want to reinstall Git, then you can add `-c core.symlinks=true` parameter to the clone command below to enable symlinks for the repository.
-
-```bash
-git config --global core.symlinks true
-```
-
 Clone the repository
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git

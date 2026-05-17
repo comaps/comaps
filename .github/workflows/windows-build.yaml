@@ -63,18 +63,6 @@ jobs:
           choco install optipng -y
           pip install "protobuf>=3.20,<4.0"
 
-      - name: Patch kothic for Windows (multiprocessing incompatible with spawn)
-        shell: bash
-        run: |
-          # On Windows the only start method is 'spawn'; worker processes don't inherit
-          # globals so pool.imap fails with NameError on variables like 'style'.
-          # Disable multiprocessing entirely on Windows (same as the local version of kothic).
-          sed -i "s/^MULTIPROCESSING = .*/import sys as _sys; MULTIPROCESSING = _sys.platform != 'win32'/" \
-            tools/kothic/src/libkomwm.py
-          # Also guard set_start_method in case the line still exists.
-          sed -i "s/set_start_method('fork')/if _sys.platform != 'win32': set_start_method('fork')/" \
-            tools/kothic/src/libkomwm.py
-
       - name: Configure repository
         shell: bash
         env:
