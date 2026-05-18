@@ -21,6 +21,7 @@ on:
       - '!libs/platform/*_mac*'
       - qt/**
       - tools/unix/build_omim.bat
+      - tools/unix/build_omim.sh
       - .github/workflows/windows-build.yaml
   pull_request:
     paths: *paths
