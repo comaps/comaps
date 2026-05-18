@@ -167,14 +167,14 @@ tools\unix\build_omim.bat -R
 
 The script checks for all prerequisites, auto-detects Qt, configures CMake, and builds with Ninja. The output binary is placed in `..\omim-build-RelWithDebInfo\CoMaps.exe`.
 
-Key build options (see `build_omim.bat` header for full list):
+Key build options (run `bash tools/unix/build_omim.sh` with no arguments for full list):
 
 | Flag | Effect |
 |------|--------|
 | `-d` | Debug build |
 | `-r` | Release build |
 | `-R` | RelWithDebInfo build |
-| `-c` | Clean build directory first |
+| `-c` | Clean build directory first (use after CMake configuration changes or switching compilers) |
 
 
 #### Running

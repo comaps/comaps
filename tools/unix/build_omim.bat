@@ -15,7 +15,7 @@ REM Run from: x64 Native Tools Command Prompt for VS 2022
 REM ============================================================
 
 REM 1. Require MSVC (cl.exe must be in PATH)
-where cl >/dev/null 2>/dev/null
+where cl >nul 2>nul
 if errorlevel 1 (
   echo.
   echo ERROR: MSVC compiler [cl.exe] not found.
@@ -29,7 +29,7 @@ if errorlevel 1 (
 )
 
 REM 2. Require Git Bash
-where bash >/dev/null 2>/dev/null
+where bash >nul 2>nul
 if errorlevel 1 (
   echo ERROR: bash not found in PATH.
   echo Install Git for Windows: https://git-scm.com/download/win
@@ -67,6 +67,7 @@ REM    build_omim.sh prepends its own -U flags to whatever CMAKE_CONFIG contains
 REM    so these are included in the final cmake invocation automatically.
 set "CMAKE_CONFIG=-DCMAKE_PREFIX_PATH=!QT6_PREFIX! -DCMAKE_UNITY_BUILD=OFF -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DUSE_PCH=OFF"
 
-REM 6. Hand off to the shared build script.
-bash "!OMIM_PATH!/tools/unix/build_omim.sh" %*
+REM 6. Hand off to the shared build script (from repo root so ./configure.sh resolves).
+cd /d "!OMIM_PATH!"
+bash tools/unix/build_omim.sh %*
 exit /b %ERRORLEVEL%
