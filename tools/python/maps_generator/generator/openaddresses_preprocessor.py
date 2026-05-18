@@ -20,6 +20,7 @@ import logging
 import math
 import os
 import re
+import urllib.error
 import urllib.request
 import zipfile
 
@@ -260,13 +261,39 @@ def _load_source_json(source_key: str, oa_sources_dir: str | None = None) -> dic
             logger.warning(f"Cannot read local source JSON for {source_key!r} ({local_path}): {exc}")
             return None
 
-    url = f"{_OA_GITHUB_RAW}/sources/{source_key}.json"
-    try:
-        with urllib.request.urlopen(url, timeout=10) as resp:
-            return json.loads(resp.read().decode("utf-8"))
-    except Exception as exc:
-        logger.warning(f"Cannot fetch source JSON for {source_key!r} ({url}): {exc}")
-        return None
+    # The batch ZIP sometimes uses hyphens where the source repo uses underscores
+    # (e.g. "rouyn-noranda" vs "rouyn_noranda").  Try the original key first, then
+    # the underscore-normalised form as a fallback.
+    keys_to_try = [source_key]
+    normalised = source_key.replace("-", "_")
+    if normalised != source_key:
+        keys_to_try.append(normalised)
+
+    for key in keys_to_try:
+        url = f"{_OA_GITHUB_RAW}/sources/{key}.json"
+        try:
+            with urllib.request.urlopen(url, timeout=10) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            if exc.code == 404:
+                continue
+            logger.warning(
+                f"Cannot fetch source JSON for {source_key!r} ({url}): {exc};"
+                " defaulting to ODbL-compatible"
+            )
+            return None
+        except Exception as exc:
+            logger.warning(
+                f"Cannot fetch source JSON for {source_key!r} ({url}): {exc};"
+                " defaulting to ODbL-compatible"
+            )
+            return None
+
+    logger.warning(
+        f"Source JSON not found for {source_key!r} on GitHub (HTTP 404);"
+        " defaulting to ODbL-compatible"
+    )
+    return None
 
 
 def _is_odbl_compatible_source(source_key: str, oa_sources_dir: str | None = None) -> bool:
