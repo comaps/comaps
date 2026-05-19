@@ -111,7 +111,10 @@
 }
 
 - (MWMRouterType)type {
-  return routerType(self.rm.GetRouter());
+  MWMRouterType const current = routerType(self.rm.GetRouter());
+  if (current == MWMRouterTypeVehicle && [MWMSettings emergencyModeEnabled])
+    return MWMRouterTypeEmergency;
+  return current;
 }
 
 - (void)addListener:(id<MWMRoutingManagerListener>)listener {
@@ -131,7 +134,20 @@
 }
 
 - (void)applyRouterType:(MWMRouterType)type {
-  self.rm.SetRouter(coreRouterType(type));
+  BOOL const wasEmergencyEnabled = [MWMSettings emergencyModeEnabled];
+  if (type == MWMRouterTypeEmergency) {
+    if (!wasEmergencyEnabled) {
+      [MWMSettings setEmergencyModeEnabled:YES];
+      self.rm.RecreateRouter();
+    }
+    self.rm.SetRouter(coreRouterType(MWMRouterTypeVehicle));
+  } else {
+    if (wasEmergencyEnabled) {
+      [MWMSettings setEmergencyModeEnabled:NO];
+      self.rm.RecreateRouter();
+    }
+    self.rm.SetRouter(coreRouterType(type));
+  }
 }
 
 - (void)addRoutePoint:(MWMRoutePoint *)point {

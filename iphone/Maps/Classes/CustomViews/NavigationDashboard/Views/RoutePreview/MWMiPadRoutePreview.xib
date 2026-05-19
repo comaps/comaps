@@ -75,7 +75,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXu-tl-a0m" userLabel="Buttons Box">
-                            <rect key="frame" x="62" y="4" width="196" height="40"/>
+                            <rect key="frame" x="29" y="4" width="262" height="40"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDl-pu-eov">
                                     <rect key="frame" x="6" y="0.0" width="40" height="40"/>
@@ -86,8 +86,16 @@
                                         <constraint firstAttribute="width" secondItem="jDl-pu-eov" secondAttribute="height" multiplier="1:1" id="Yqu-oc-yrg"/>
                                     </constraints>
                                 </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="61g-zQ-GBt" userLabel="Emergency">
+                                    <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="routeEmergency"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="61g-zQ-GBt" secondAttribute="height" multiplier="1:1" id="3uH-Yt-3Re"/>
+                                    </constraints>
+                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhE-hA-Leo">
-                                    <rect key="frame" x="54" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="90" y="0.0" width="40" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routePedestrian"/>
                                     <constraints>
@@ -95,7 +103,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eu3-bT-Dom">
-                                    <rect key="frame" x="102" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="132" y="0.0" width="40" height="40"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeAuto"/>
                                     <constraints>
@@ -103,7 +111,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yiM-fM-sSS" userLabel="Bicycle">
-                                    <rect key="frame" x="150" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="174" y="0.0" width="40" height="40"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeBicycle"/>
                                     <constraints>
@@ -111,7 +119,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f6i-lw-K3R" userLabel="Ruler">
-                                    <rect key="frame" x="198" y="0.0" width="40" height="40"/>
+                                    <rect key="frame" x="216" y="0.0" width="40" height="40"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeRuler"/>
                                     <constraints>
@@ -122,22 +130,25 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="yiM-fM-sSS" secondAttribute="trailing" priority="750" constant="6" id="5D1-qi-hgK"/>
-                                <constraint firstItem="VhE-hA-Leo" firstAttribute="leading" secondItem="jDl-pu-eov" secondAttribute="trailing" constant="8" id="7Gp-G4-bFf"/>
+                                <constraint firstItem="VhE-hA-Leo" firstAttribute="leading" secondItem="61g-zQ-GBt" secondAttribute="trailing" constant="2" id="7Gp-G4-bFf"/>
+                                <constraint firstItem="61g-zQ-GBt" firstAttribute="leading" secondItem="jDl-pu-eov" secondAttribute="trailing" constant="2" id="8XH-1N-KBP"/>
                                 <constraint firstItem="f6i-lw-K3R" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="BWr-hr-pwo"/>
                                 <constraint firstAttribute="trailing" secondItem="f6i-lw-K3R" secondAttribute="trailing" constant="6" id="Cd3-ev-uFS"/>
                                 <constraint firstItem="Eu3-bT-Dom" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="EzA-7U-VtV"/>
                                 <constraint firstAttribute="bottom" secondItem="jDl-pu-eov" secondAttribute="bottom" id="GaQ-fH-vHQ"/>
+                                <constraint firstAttribute="bottom" secondItem="61g-zQ-GBt" secondAttribute="bottom" id="Kdz-5F-pm4"/>
                                 <constraint firstAttribute="bottom" secondItem="Eu3-bT-Dom" secondAttribute="bottom" id="TKM-OQ-dSV"/>
-                                <constraint firstItem="f6i-lw-K3R" firstAttribute="leading" secondItem="yiM-fM-sSS" secondAttribute="trailing" constant="8" id="Zs5-bj-AR6"/>
-                                <constraint firstItem="Eu3-bT-Dom" firstAttribute="leading" secondItem="VhE-hA-Leo" secondAttribute="trailing" constant="8" id="a29-bx-wGD"/>
+                                <constraint firstItem="f6i-lw-K3R" firstAttribute="leading" secondItem="yiM-fM-sSS" secondAttribute="trailing" constant="2" id="Zs5-bj-AR6"/>
+                                <constraint firstItem="Eu3-bT-Dom" firstAttribute="leading" secondItem="VhE-hA-Leo" secondAttribute="trailing" constant="2" id="a29-bx-wGD"/>
                                 <constraint firstItem="jDl-pu-eov" firstAttribute="leading" secondItem="sXu-tl-a0m" secondAttribute="leading" constant="6" id="kNf-mc-JqH"/>
                                 <constraint firstAttribute="bottom" secondItem="yiM-fM-sSS" secondAttribute="bottom" id="mYY-Hb-4eW"/>
-                                <constraint firstItem="yiM-fM-sSS" firstAttribute="leading" secondItem="Eu3-bT-Dom" secondAttribute="trailing" constant="8" id="obj-Bs-U8h"/>
+                                <constraint firstItem="yiM-fM-sSS" firstAttribute="leading" secondItem="Eu3-bT-Dom" secondAttribute="trailing" constant="2" id="obj-Bs-U8h"/>
                                 <constraint firstItem="yiM-fM-sSS" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="pRA-lu-I23"/>
                                 <constraint firstItem="VhE-hA-Leo" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="pt4-Mg-zye"/>
                                 <constraint firstAttribute="bottom" secondItem="f6i-lw-K3R" secondAttribute="bottom" id="qTV-BL-cX4"/>
                                 <constraint firstAttribute="bottom" secondItem="VhE-hA-Leo" secondAttribute="bottom" id="scR-oW-NgF"/>
                                 <constraint firstItem="jDl-pu-eov" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="sf1-S5-kmZ"/>
+                                <constraint firstItem="61g-zQ-GBt" firstAttribute="top" secondItem="sXu-tl-a0m" secondAttribute="top" id="xT7-aV-3tp"/>
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
@@ -453,6 +464,7 @@
                 <outlet property="contentView" destination="3s2-BV-X5i" id="mp7-Qq-drU"/>
                 <outlet property="drivingOptionHeightConstraint" destination="Cgo-cU-dTy" id="GVj-A8-kR1"/>
                 <outlet property="drivingOptionsButton" destination="Opi-yT-xIZ" id="tMG-Af-HEo"/>
+                <outlet property="emergency" destination="61g-zQ-GBt" id="EA6-zM-B3y"/>
                 <outlet property="pedestrian" destination="VhE-hA-Leo" id="R3O-th-Jw0"/>
                 <outlet property="publicTransport" destination="Eu3-bT-Dom" id="XNh-uW-Kog"/>
                 <outlet property="ruler" destination="f6i-lw-K3R" id="s0G-le-Kbz"/>

@@ -57,6 +57,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 + (BOOL)hasRouteAltitude {
   switch ([self type]) {
     case MWMRouterTypeVehicle:
+    case MWMRouterTypeEmergency:
     case MWMRouterTypePublicTransport:
     case MWMRouterTypeRuler:
       return NO;
@@ -171,11 +172,27 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
     return;
 
   [self doStop:NO];
-  GetFramework().GetRoutingManager().SetRouter(coreRouterType(type));
+  BOOL const wasEmergencyEnabled = [MWMSettings emergencyModeEnabled];
+  if (type == MWMRouterTypeEmergency) {
+    if (!wasEmergencyEnabled) {
+      [MWMSettings setEmergencyModeEnabled:YES];
+      GetFramework().GetRoutingManager().RecreateRouter();
+    }
+    GetFramework().GetRoutingManager().SetRouter(coreRouterType(MWMRouterTypeVehicle));
+  } else {
+    if (wasEmergencyEnabled) {
+      [MWMSettings setEmergencyModeEnabled:NO];
+      GetFramework().GetRoutingManager().RecreateRouter();
+    }
+    GetFramework().GetRoutingManager().SetRouter(coreRouterType(type));
+  }
 }
 
 + (MWMRouterType)type {
-  return routerType(GetFramework().GetRoutingManager().GetRouter());
+  MWMRouterType const current = routerType(GetFramework().GetRoutingManager().GetRouter());
+  if (current == MWMRouterTypeVehicle && [MWMSettings emergencyModeEnabled])
+    return MWMRouterTypeEmergency;
+  return current;
 }
 + (void)disableFollowMode {
   GetFramework().GetRoutingManager().DisableFollowMode();
@@ -288,8 +305,13 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
     [[MWMMapViewControlsManager manager] onRoutePrepare];
     return;
   }
-  if (bestRouter)
-    self.type = routerType(rm.GetBestRouter(points.front().m_position, points.back().m_position));
+  if (bestRouter) {
+    MWMRouterType const bestType = routerType(rm.GetBestRouter(points.front().m_position, points.back().m_position));
+    if (bestType == MWMRouterTypeVehicle && [MWMSettings emergencyModeEnabled])
+      self.type = MWMRouterTypeEmergency;
+    else
+      self.type = bestType;
+  }
 
   [[MWMMapViewControlsManager manager] onRouteRebuild];
   rm.BuildRoute();

@@ -83,8 +83,16 @@
                                         </constraint>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-QF-6wm">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UGo-dm-02s" userLabel="Emergency">
                                     <rect key="frame" x="54" y="0.0" width="20" height="20"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <accessibility key="accessibilityConfiguration" identifier="routeEmergency"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="UGo-dm-02s" secondAttribute="height" multiplier="1:1" id="xOB-jv-YRb"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6D3-QF-6wm">
+                                    <rect key="frame" x="82" y="0.0" width="20" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routePedestrian"/>
                                     <constraints>
@@ -92,7 +100,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yIt-eq-pV5">
-                                    <rect key="frame" x="82" y="0.0" width="20" height="20"/>
+                                    <rect key="frame" x="110" y="0.0" width="20" height="20"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeAuto"/>
                                     <constraints>
@@ -100,7 +108,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuO-c6-y9C" userLabel="Bicycle">
-                                    <rect key="frame" x="110" y="0.0" width="20" height="20"/>
+                                    <rect key="frame" x="138" y="0.0" width="20" height="20"/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeBicycle"/>
                                     <constraints>
@@ -108,7 +116,7 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15Q-ZN-NzE" userLabel="Ruler">
-                                    <rect key="frame" x="138" y="0.0" width="20" height="20"/>
+                                    <rect key="frame" x="166" y="0.0" width="20" height="20"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <accessibility key="accessibilityConfiguration" identifier="routeRuler"/>
                                     <constraints>
@@ -119,6 +127,8 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="bottom" secondItem="6D3-QF-6wm" secondAttribute="bottom" id="6FS-Pq-Ued"/>
+                                <constraint firstItem="UGo-dm-02s" firstAttribute="top" secondItem="oQc-l8-sZH" secondAttribute="top" id="8G2-N3-62K"/>
+                                <constraint firstAttribute="bottom" secondItem="UGo-dm-02s" secondAttribute="bottom" id="8nW-hE-4mI"/>
                                 <constraint firstItem="FuO-c6-y9C" firstAttribute="top" secondItem="oQc-l8-sZH" secondAttribute="top" id="A7a-5f-vcS"/>
                                 <constraint firstAttribute="bottom" secondItem="cZF-Ha-2tB" secondAttribute="bottom" id="CUK-cL-Kgn"/>
                                 <constraint firstAttribute="bottom" secondItem="15Q-ZN-NzE" secondAttribute="bottom" id="D1r-cA-jTR"/>
@@ -140,7 +150,10 @@
                                 <constraint firstAttribute="bottom" secondItem="yIt-eq-pV5" secondAttribute="bottom" id="f1O-ox-6s4"/>
                                 <constraint firstItem="6D3-QF-6wm" firstAttribute="top" secondItem="oQc-l8-sZH" secondAttribute="top" id="heq-kc-Kpz"/>
                                 <constraint firstItem="15Q-ZN-NzE" firstAttribute="top" secondItem="oQc-l8-sZH" secondAttribute="top" id="my7-I5-Qu3"/>
-                                <constraint firstItem="6D3-QF-6wm" firstAttribute="leading" secondItem="cZF-Ha-2tB" secondAttribute="trailing" constant="8" id="ogb-pD-gIt">
+                                <constraint firstItem="6D3-QF-6wm" firstAttribute="leading" secondItem="UGo-dm-02s" secondAttribute="trailing" constant="8" id="ogb-pD-gIt">
+                                    <variation key="heightClass=compact" constant="16"/>
+                                </constraint>
+                                <constraint firstItem="UGo-dm-02s" firstAttribute="leading" secondItem="cZF-Ha-2tB" secondAttribute="trailing" constant="8" id="u9U-Vg-cLu">
                                     <variation key="heightClass=compact" constant="16"/>
                                 </constraint>
                             </constraints>
@@ -189,6 +202,7 @@
                 <outlet property="contentView" destination="WqK-Yb-PmP" id="4ph-Dm-EFr"/>
                 <outlet property="drivingOptionHeightConstraint" destination="Oxx-fO-ZLa" id="JOa-ih-oHZ"/>
                 <outlet property="drivingOptionsButton" destination="ZXA-Og-q2I" id="IZf-0l-IIV"/>
+                <outlet property="emergency" destination="UGo-dm-02s" id="mnx-eH-8kA"/>
                 <outlet property="pedestrian" destination="6D3-QF-6wm" id="bdh-zx-9LW"/>
                 <outlet property="publicTransport" destination="yIt-eq-pV5" id="yIX-eM-Hrs"/>
                 <outlet property="ruler" destination="15Q-ZN-NzE" id="Hel-ic-Opt"/>

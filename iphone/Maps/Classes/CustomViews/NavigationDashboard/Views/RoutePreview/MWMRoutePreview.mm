@@ -17,6 +17,7 @@ static CGFloat const kDrivingOptionsHeight = 48;
 @property(weak, nonatomic) IBOutlet UIButton * backButton;
 @property(weak, nonatomic) IBOutlet UIView * bicycle;
 @property(weak, nonatomic) IBOutlet UIView * contentView;
+@property(weak, nonatomic) IBOutlet UIView * emergency;
 @property(weak, nonatomic) IBOutlet UIView * pedestrian;
 @property(weak, nonatomic) IBOutlet UIView * publicTransport;
 @property(weak, nonatomic) IBOutlet UIView * ruler;
@@ -52,6 +53,7 @@ static CGFloat const kDrivingOptionsHeight = 48;
 
 - (void)layoutSubviews {
   [super layoutSubviews];
+  [self.emergency setNeedsLayout];
   [self.vehicle setNeedsLayout];
   [self resizeShadow];
 }
@@ -69,6 +71,7 @@ static CGFloat const kDrivingOptionsHeight = 48;
 - (void)setupProgresses
 {
   [self addProgress:self.vehicle imageName:@"ic_car" routerType:MWMRouterTypeVehicle];
+  [self addProgress:self.emergency imageName:@"ic_lightbulb" routerType:MWMRouterTypeEmergency];
   [self addProgress:self.pedestrian imageName:@"ic_pedestrian" routerType:MWMRouterTypePedestrian];
   [self addProgress:self.publicTransport
           imageName:@"ic_train"
