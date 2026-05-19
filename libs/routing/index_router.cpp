@@ -35,6 +35,7 @@
 
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
+#include "routing_common/emergency_car_model.hpp"
 #include "routing_common/num_mwm_id.hpp"
 #include "routing_common/pedestrian_model.hpp"
 
@@ -118,7 +119,10 @@ shared_ptr<VehicleModelFactoryInterface> CreateVehicleModelFactory(
   case VehicleType::Pedestrian:
   case VehicleType::Transit: return make_shared<PedestrianModelFactory>(countryParentNameGetterFn);
   case VehicleType::Bicycle: return make_shared<BicycleModelFactory>(countryParentNameGetterFn);
-  case VehicleType::Car: return make_shared<CarModelFactory>(countryParentNameGetterFn);
+  case VehicleType::Car:
+    if (settings::IsEmergencyModeEnabled())
+      return make_shared<EmergencyCarModelFactory>(countryParentNameGetterFn);
+    return make_shared<CarModelFactory>(countryParentNameGetterFn);
   case VehicleType::Count: CHECK(false, ("Can't create VehicleModelFactoryInterface for", vehicleType)); return nullptr;
   }
   UNREACHABLE();

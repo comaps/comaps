@@ -580,8 +580,20 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 }
 
 + (void)updateRoute {
+  static BOOL isEmergencyModeEnabled = [MWMSettings emergencyModeEnabled];
+  BOOL newEmergencyModeEnabled = [MWMSettings emergencyModeEnabled];
+  BOOL emergencyModeChanged = newEmergencyModeEnabled != isEmergencyModeEnabled;
+  if (emergencyModeChanged)
+  {
+    isEmergencyModeEnabled = newEmergencyModeEnabled;
+    GetFramework().GetRoutingManager().RecreateRouter();
+  }
+
   MWMRoutingOptions *newOptions = [MWMRoutingOptions new];
-  if (self.isRoutingActive && !self.isOnRoute && ![newOptions isEqual:[self router].routingOptions]) {
+  auto const &points = GetFramework().GetRoutingManager().GetRoutePoints();
+  BOOL hasRoutePoints = points.size() >= 2;
+  if (hasRoutePoints && (emergencyModeChanged || ![newOptions isEqual:[self router].routingOptions]))
+  {
     [self rebuildWithBestRouter:YES];
   }
 }

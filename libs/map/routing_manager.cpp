@@ -1433,6 +1433,15 @@ void RoutingManager::SetRouter(RouterType type)
   SetRouterImpl(type);
 }
 
+void RoutingManager::RecreateRouter()
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("RecreateRouter"));
+
+  // Hide preview and rebuild router with the same type to refresh vehicle model settings.
+  HidePreviewSegments();
+  SetRouterImpl(m_currentRouterType);
+}
+
 // static
 uint32_t RoutingManager::InvalidRoutePointsTransactionId()
 {

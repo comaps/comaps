@@ -27,6 +27,7 @@ using std::string;
 
 std::string_view kMeasurementUnits = "Units";
 std::string_view kDeveloperMode = "DeveloperMode";
+std::string_view kRoutingEmergencyMode = "RoutingEmergencyMode";
 std::string_view kDonateUrl = "DonateUrl";
 std::string_view kNY = "NY";
 
@@ -36,6 +37,18 @@ StringStorage & StringStorage::Instance()
 {
   static StringStorage inst;
   return inst;
+}
+
+bool IsEmergencyModeEnabled()
+{
+  bool enabled = false;
+  UNUSED_VALUE(Get(kRoutingEmergencyMode, enabled));
+  return enabled;
+}
+
+void SetEmergencyModeEnabled(bool enabled)
+{
+  Set(kRoutingEmergencyMode, enabled);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////

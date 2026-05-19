@@ -3,6 +3,8 @@
 #import "MWMMapViewControlsManager.h"
 #import "SwiftBridge.h"
 
+#include "platform/settings.hpp"
+
 #include <CoreApi/Framework.h>
 #include <CoreApi/Logger.h>
 
@@ -248,6 +250,16 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 {
   NSUserDefaults * ud = NSUserDefaults.standardUserDefaults;
   [ud setBool:shown forKey:kUDTrackWarningAlertWasShown];
+}
+
++ (BOOL)emergencyModeEnabled
+{
+  return settings::IsEmergencyModeEnabled();
+}
+
++ (void)setEmergencyModeEnabled:(BOOL)emergencyModeEnabled
+{
+  settings::SetEmergencyModeEnabled(static_cast<bool>(emergencyModeEnabled));
 }
 
 + (NSString *)donateUrl

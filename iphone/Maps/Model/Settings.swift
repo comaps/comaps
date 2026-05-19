@@ -446,6 +446,18 @@ import Combine
             NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
         }
     }
+
+
+    /// If emergency routing mode is enabled
+    @objc static var isEmergencyRoutingModeEnabled: Bool {
+        get {
+            return SettingsBridge.emergencyModeEnabled()
+        }
+        set {
+            SettingsBridge.setEmergencyModeEnabled(newValue)
+            NotificationCenter.default.post(name: routingOptionsChangedNotificationName, object: nil)
+        }
+    }
     
     
     

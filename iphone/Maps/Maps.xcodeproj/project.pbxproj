@@ -5119,8 +5119,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_TEAM = 2BKHKBHQ2B;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoMaps (Debug)";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
@@ -5138,7 +5139,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2026.01.01;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comapsdev.debug;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
@@ -5154,8 +5155,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2BKHKBHQ2B;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoMaps (Debug)";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
@@ -5186,8 +5188,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BKHKBHQ2B;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comapsdev.tests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoMaps (Debug).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoMaps (Debug)";
 			};
@@ -5201,8 +5204,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2BKHKBHQ2B;
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comapsdev.tests;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CoMaps (Debug).app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/CoMaps (Debug)";
 			};
@@ -5231,7 +5235,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 2026.01.01;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug.widgetextension;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comapsdev.debug.widgetextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";

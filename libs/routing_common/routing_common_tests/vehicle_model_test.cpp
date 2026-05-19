@@ -3,6 +3,7 @@
 #include "routing_common/bicycle_model.hpp"
 #include "routing_common/car_model.hpp"
 #include "routing_common/car_model_coefs.hpp"
+#include "routing_common/emergency_car_model.hpp"
 #include "routing_common/maxspeed_conversion.hpp"
 #include "routing_common/pedestrian_model.hpp"
 #include "routing_common/vehicle_model.hpp"
@@ -175,6 +176,29 @@ UNIT_CLASS_TEST(VehicleModelTest, OneWay)
   CheckOneWay({oneway, secondaryBridge}, true);
 
   CheckOneWay({oneway}, true);
+}
+
+UNIT_CLASS_TEST(VehicleModelTest, EmergencyModeOverrides)
+{
+  EmergencyCarModelFactory emergencyFactory({});
+  CarModelFactory baseFactory({});
+
+  auto baseModel = baseFactory.GetVehicleModel();
+  auto emergencyModel = emergencyFactory.GetVehicleModel();
+
+  feature::TypesHolder primaryTypes;
+  primaryTypes.Add(primary);
+  SpeedParams const params(true /* forward */, false /* in city */, Maxspeed());
+  auto const baseSpeed = baseModel->GetSpeed(primaryTypes, params);
+  auto const emergencySpeed = emergencyModel->GetSpeed(primaryTypes, params);
+  TEST_GREATER(emergencySpeed.m_weight, baseSpeed.m_weight, ());
+  TEST_GREATER(emergencySpeed.m_eta, baseSpeed.m_eta, ());
+
+  feature::TypesHolder onewayTypes;
+  onewayTypes.Add(primary);
+  onewayTypes.Add(oneway);
+  TEST_EQUAL(baseModel->IsOneWay(onewayTypes), true, ());
+  TEST_EQUAL(emergencyModel->IsOneWay(onewayTypes), false, ());
 }
 
 UNIT_CLASS_TEST(VehicleModelTest, DifferentSpeeds)

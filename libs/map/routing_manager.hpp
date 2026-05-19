@@ -146,6 +146,7 @@ public:
   routing::RoutingSession const & RoutingSession() const { return m_routingSession; }
   routing::RoutingSession & RoutingSession() { return m_routingSession; }
   void SetRouter(routing::RouterType type);
+  void RecreateRouter();
   routing::RouterType GetRouter() const { return m_currentRouterType; }
   bool IsRoutingActive() const { return m_routingSession.IsActive(); }
   bool IsRouteBuilt() const { return m_routingSession.IsBuilt(); }

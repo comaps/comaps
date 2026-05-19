@@ -30,6 +30,10 @@ struct RoutingOptionsView: View {
     
     /// If steps should be avoided during routing
     @State var shouldAvoidStepsWhileRouting: Bool = false
+
+
+    /// If emergency routing mode is enabled
+    @State var isEmergencyRoutingModeEnabled: Bool = false
     
     
     /// The actual view
@@ -98,6 +102,16 @@ struct RoutingOptionsView: View {
                         }
                     }
                     .tint(.accent)
+
+                    Toggle(isOn: $isEmergencyRoutingModeEnabled) {
+                        Label {
+                            Text("routing_emergency_mode")
+                        } icon: {
+                            Image(systemName: isEmergencyRoutingModeEnabled ? "exclamationmark.triangle.fill" : "exclamationmark.triangle")
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .tint(.accent)
                 }
             }
             .navigationTitle(String(localized: "driving_options_title"))
@@ -129,6 +143,7 @@ struct RoutingOptionsView: View {
             shouldAvoidFerriesWhileRouting = Settings.shouldAvoidFerriesWhileRouting
             shouldAvoidMotorwaysWhileRouting = Settings.shouldAvoidMotorwaysWhileRouting
             shouldAvoidStepsWhileRouting = Settings.shouldAvoidStepsWhileRouting
+            isEmergencyRoutingModeEnabled = Settings.isEmergencyRoutingModeEnabled
         }
         .onChange(of: shouldAvoidTollRoadsWhileRouting) { changedShouldAvoidTollRoadsWhileRouting in
             Settings.shouldAvoidTollRoadsWhileRouting = changedShouldAvoidTollRoadsWhileRouting
@@ -153,6 +168,9 @@ struct RoutingOptionsView: View {
         }
         .onChange(of: shouldAvoidStepsWhileRouting) { changedShouldAvoidStepsWhileRouting in
             Settings.shouldAvoidStepsWhileRouting = changedShouldAvoidStepsWhileRouting
+        }
+        .onChange(of: isEmergencyRoutingModeEnabled) { changedIsEmergencyRoutingModeEnabled in
+            Settings.isEmergencyRoutingModeEnabled = changedIsEmergencyRoutingModeEnabled
         }
         .accentColor(.toolbarAccent)
     }

@@ -47,6 +47,9 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)isTrackWarningAlertShown;
 + (void)setTrackWarningAlertShown:(BOOL)shown;
 
++ (BOOL)emergencyModeEnabled;
++ (void)setEmergencyModeEnabled:(BOOL)emergencyModeEnabled;
+
 + (NSString *)donateUrl;
 
 + (BOOL)iCLoudSynchronizationEnabled;
