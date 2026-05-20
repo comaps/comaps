@@ -341,6 +341,7 @@ def process(
         if mwm_name not in writers:
             path = os.path.join(output_dir, mwm_name + _ADDR_EXT)
             writers[mwm_name] = open(path, "wb")
+            writers[mwm_name].write(b"\xff\x01")  # tempaddr format header: magic + version
         return writers[mwm_name]
 
     total = 0
