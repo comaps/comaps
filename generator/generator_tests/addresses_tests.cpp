@@ -2,6 +2,18 @@
 
 #include "generator/address_enricher.hpp"
 #include "generator/addresses_collector.hpp"
+#include "generator/generator_tests_support/test_with_classificator.hpp"
+
+#include "platform/platform_tests_support/scoped_file.hpp"
+
+#include "coding/file_writer.hpp"
+#include "coding/point_coding.hpp"
+#include "coding/read_write_utils.hpp"
+
+#include "geometry/point2d.hpp"
+
+using generator::tests_support::TestWithClassificator;
+using platform::tests_support::ScopedFile;
 
 UNIT_TEST(GenerateAddresses_AddressInfo_FormatRange)
 {
@@ -37,4 +49,33 @@ UNIT_TEST(AddressEnricher_GetHNRange_Alphanumeric)
 
   e.m_from = "foo"; e.m_to = "bar";
   TEST_EQUAL(e.GetHNRange(), RawEntry::kInvalidRange, ());
+}
+
+UNIT_CLASS_TEST(TestWithClassificator, AddressEnricher_TempAddrFormat_Valid)
+{
+  using namespace generator;
+
+  ScopedFile sf("test_format_header.tempaddr", ScopedFile::Mode::DoNotCreate);
+  {
+    FileWriter w(sf.GetFullPath());
+    uint8_t const header[2] = {AddressEnricher::kTempAddrMagic, AddressEnricher::kTempAddrVersion};
+    w.Write(header, 2);
+
+    AddressEnricher::RawEntryBase e;
+    e.m_from = "12A";
+    e.m_to = "12A";
+    e.m_street = "Test St";
+    e.m_postcode = "V1A 1A1";
+    e.m_interpol = feature::InterpolType::None;
+    e.m_editable = true;
+    e.Save(w);
+
+    std::vector<int64_t> const pts = {PointToInt64Obsolete({0.0, 0.0}, kPointCoordBits)};
+    rw::Write(w, pts);
+  }
+
+  AddressEnricher enricher;
+  int count = 0;
+  enricher.ProcessRawEntries(sf.GetFullPath(), [&count](feature::FeatureBuilder const &) { ++count; });
+  TEST_EQUAL(count, 1, ());
 }
