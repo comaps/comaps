@@ -1,5 +1,6 @@
 #include "processor.hpp"
 
+#include "generator/address_enricher.hpp"
 #include "tiger_parser.hpp"
 
 #include "geometry/mercator.hpp"
@@ -22,6 +23,11 @@ Processor::Processor(std::string const & dataPath, std::string const & outputPat
 FileWriter & Processor::GetWriter(std::string const & country)
 {
   auto res = m_country2writer.try_emplace(country, base::JoinPath(m_outputPath, country) + TEMP_ADDR_EXTENSION);
+  if (res.second)
+  {
+    uint8_t const header[2] = {generator::AddressEnricher::kTempAddrMagic, generator::AddressEnricher::kTempAddrVersion};
+    res.first->second.Write(header, 2);
+  }
   return res.first->second;
 }
 
