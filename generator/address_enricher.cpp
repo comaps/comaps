@@ -109,6 +109,14 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
 {
   FileReader reader(path);
   ReaderSource src(reader);
+
+  CHECK_GREATER_OR_EQUAL(src.Size(), 2, ("tempaddr file too small or empty:", path));
+  uint8_t const magic = ReadPrimitiveFromSource<uint8_t>(src);
+  CHECK_EQUAL(magic, kTempAddrMagic,
+              ("Old-format tempaddr file. Delete cached .tempaddr files and regenerate:", path));
+  uint8_t const version = ReadPrimitiveFromSource<uint8_t>(src);
+  CHECK_EQUAL(version, kTempAddrVersion, ("Unsupported tempaddr version:", version, path));
+
   while (src.Size())
   {
     Entry e;
