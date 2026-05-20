@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Göng";
 "type.highway.bus_stop" = "Strætisvagnabiðstöð";
 "type.highway.construction" = "Vegur í byggingu";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Vegur í byggingu";
 "type.highway.construction.motorway_link" = "Vegur í byggingu";
 "type.highway.construction.trunk" = "Vegur í byggingu";

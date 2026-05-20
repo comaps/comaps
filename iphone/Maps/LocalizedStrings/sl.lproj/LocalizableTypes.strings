@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Predor";
 "type.highway.bus_stop" = "Avtobusno postajališče";
 "type.highway.construction" = "Cesta v gradnji";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Cesta v gradnji";
 "type.highway.construction.motorway_link" = "Cesta v gradnji";
 "type.highway.construction.trunk" = "Cesta v gradnji";

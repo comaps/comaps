@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "نفق";
 "type.highway.bus_stop" = "موقف حافلات";
 "type.highway.construction" = "طريق تحت الإنشاء";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "طريق تحت الإنشاء";
 "type.highway.construction.motorway_link" = "طريق تحت الإنشاء";
 "type.highway.construction.trunk" = "طريق تحت الإنشاء";

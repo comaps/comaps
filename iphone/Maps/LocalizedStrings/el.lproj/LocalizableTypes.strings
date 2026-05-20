@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Σήραγγα";
 "type.highway.bus_stop" = "Στάση λεωφορείου";
 "type.highway.construction" = "Οδός υπό κατασκευή";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Οδός υπό κατασκευή";
 "type.highway.construction.motorway_link" = "Οδός υπό κατασκευή";
 "type.highway.construction.trunk" = "Οδός υπό κατασκευή";

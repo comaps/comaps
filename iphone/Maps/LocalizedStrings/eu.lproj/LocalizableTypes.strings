@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Tunela";
 "type.highway.bus_stop" = "Autobus geltokia";
 "type.highway.construction" = "Eraikitzen ari diren errepidea";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Eraikitzen ari diren errepidea";
 "type.highway.construction.motorway_link" = "Eraikitzen ari diren errepidea";
 "type.highway.construction.trunk" = "Eraikitzen ari diren errepidea";

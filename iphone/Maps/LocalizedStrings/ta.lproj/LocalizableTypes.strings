@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "சுரங்கப்பாதை";
 "type.highway.bus_stop" = "பேருந்து நிறுத்தம்";
 "type.highway.construction" = "சாலை கட்டுமானத்தில் உள்ளது";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "சாலை கட்டுமானத்தில் உள்ளது";
 "type.highway.construction.motorway_link" = "சாலை கட்டுமானத்தில் உள்ளது";
 "type.highway.construction.trunk" = "சாலை கட்டுமானத்தில் உள்ளது";
