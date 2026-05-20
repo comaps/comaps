@@ -20,6 +20,10 @@ class AddressEnricher
   static double constexpr kDistanceThresholdM = 50.0;
 
 public:
+  // .tempaddr file-format header: magic byte + version.
+  static constexpr uint8_t kTempAddrMagic = 0xFF;
+  static constexpr uint8_t kTempAddrVersion = 1;
+
   struct RawEntryBase
   {
     std::string m_from, m_to, m_street, m_postcode;
