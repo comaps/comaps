@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Alagút";
 "type.highway.bus_stop" = "Buszmegálló";
 "type.highway.construction" = "Útépítés";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Útépítés";
 "type.highway.construction.motorway_link" = "Útépítés";
 "type.highway.construction.trunk" = "Útépítés";

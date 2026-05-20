@@ -430,7 +430,6 @@
 "type.highway.busway.tunnel" = "Terowongan";
 "type.highway.bus_stop" = "Halte bus";
 "type.highway.construction" = "Jalan sedang dibangun";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Jalan sedang dibangun";
 "type.highway.construction.motorway_link" = "Jalan sedang dibangun";
 "type.highway.construction.trunk" = "Jalan sedang dibangun";

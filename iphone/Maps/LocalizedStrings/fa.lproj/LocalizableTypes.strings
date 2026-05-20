@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "تونل";
 "type.highway.bus_stop" = "حمل و نقل";
 "type.highway.construction" = "جاده در دست ساخت است";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "جاده در دست ساخت است";
 "type.highway.construction.motorway_link" = "جاده در دست ساخت است";
 "type.highway.construction.trunk" = "جاده در دست ساخت است";

@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Тунель";
 "type.highway.bus_stop" = "Зупинка";
 "type.highway.construction" = "Дорога, що будується";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Дорога, що будується";
 "type.highway.construction.motorway_link" = "Дорога, що будується";
 "type.highway.construction.trunk" = "Дорога, що будується";

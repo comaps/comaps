@@ -452,23 +452,6 @@
 "type.highway.busway.tunnel" = "Twnnel";
 "type.highway.bus_stop" = "Bus Stop";
 "type.highway.construction" = "Road Under Construction";
-/* These translations are used for all type.highway.construction.*. */
-"type.highway.construction.motorway" = "Road Under Construction";
-"type.highway.construction.motorway_link" = "Road Under Construction";
-"type.highway.construction.trunk" = "Road Under Construction";
-"type.highway.construction.trunk_link" = "Road Under Construction";
-"type.highway.construction.primary" = "Road Under Construction";
-"type.highway.construction.primary_link" = "Road Under Construction";
-"type.highway.construction.secondary" = "Road Under Construction";
-"type.highway.construction.secondary_link" = "Road Under Construction";
-"type.highway.construction.tertiary" = "Road Under Construction";
-"type.highway.construction.tertiary_link" = "Road Under Construction";
-"type.highway.construction.residential" = "Road Under Construction";
-"type.highway.construction.unclassified" = "Road Under Construction";
-"type.highway.construction.service" = "Road Under Construction";
-"type.highway.construction.living_street" = "Road Under Construction";
-"type.highway.construction.road" = "Road Under Construction";
-"type.highway.construction.track" = "Road Under Construction";
 "type.highway.cycleway" = "Cycle Path";
 /* These translations are used for all type.highway.*.bridge. */
 "type.highway.cycleway.bridge" = "Pont";

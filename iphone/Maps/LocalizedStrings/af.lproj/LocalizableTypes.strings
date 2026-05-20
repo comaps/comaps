@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Tonnel";
 "type.highway.bus_stop" = "Bushalte";
 "type.highway.construction" = "Pad in aanbou";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Pad in aanbou";
 "type.highway.construction.motorway_link" = "Pad in aanbou";
 "type.highway.construction.trunk" = "Pad in aanbou";

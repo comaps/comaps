@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "बोगदा";
 "type.highway.bus_stop" = "बस थांबा";
 "type.highway.construction" = "बांधकामाधीन रस्ता";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "बांधकामाधीन रस्ता";
 "type.highway.construction.motorway_link" = "बांधकामाधीन रस्ता";
 "type.highway.construction.trunk" = "बांधकामाधीन रस्ता";

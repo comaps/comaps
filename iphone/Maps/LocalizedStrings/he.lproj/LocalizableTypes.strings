@@ -448,7 +448,6 @@
 "type.highway.busway.tunnel" = "מִנהָרָה";
 "type.highway.bus_stop" = "תחנת אוטובוס";
 "type.highway.construction" = "כביש בבניה";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "כביש בבניה";
 "type.highway.construction.motorway_link" = "כביש בבניה";
 "type.highway.construction.trunk" = "כביש בבניה";

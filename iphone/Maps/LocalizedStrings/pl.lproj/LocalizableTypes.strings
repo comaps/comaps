@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Tunel";
 "type.highway.bus_stop" = "Przystanek autobusowy";
 "type.highway.construction" = "Droga w trakcie budowy";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Droga w trakcie budowy";
 "type.highway.construction.motorway_link" = "Droga w trakcie budowy";
 "type.highway.construction.trunk" = "Droga w trakcie budowy";
