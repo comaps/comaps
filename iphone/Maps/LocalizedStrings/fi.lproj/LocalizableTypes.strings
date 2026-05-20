@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Tunneli";
 "type.highway.bus_stop" = "Bussipysäkki";
 "type.highway.construction" = "Rakenteilla oleva tie";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Rakenteilla oleva tie";
 "type.highway.construction.motorway_link" = "Rakenteilla oleva tie";
 "type.highway.construction.trunk" = "Rakenteilla oleva tie";

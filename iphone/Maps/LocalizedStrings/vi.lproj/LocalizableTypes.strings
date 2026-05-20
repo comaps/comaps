@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Đường hầm";
 "type.highway.bus_stop" = "Bến xe buýt";
 "type.highway.construction" = "Đường đang thi công";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Đường đang thi công";
 "type.highway.construction.motorway_link" = "Đường đang thi công";
 "type.highway.construction.trunk" = "Đường đang thi công";

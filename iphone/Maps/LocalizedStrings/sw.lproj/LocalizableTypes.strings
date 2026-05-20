@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Mtaro";
 "type.highway.bus_stop" = "Bus Stop";
 "type.highway.construction" = "Barabara inatengenezwa";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Barabara inatengenezwa";
 "type.highway.construction.motorway_link" = "Barabara inatengenezwa";
 "type.highway.construction.trunk" = "Barabara inatengenezwa";

@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "隧道";
 "type.highway.bus_stop" = "公交站";
 "type.highway.construction" = "在建道路";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "在建道路";
 "type.highway.construction.motorway_link" = "在建道路";
 "type.highway.construction.trunk" = "在建道路";

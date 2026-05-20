@@ -452,7 +452,6 @@
 "type.highway.busway.tunnel" = "Tunnel";
 "type.highway.bus_stop" = "Bussipeatus";
 "type.highway.construction" = "Ehitusjärgus tee";
-/* These translations are used for all type.highway.construction.*. */
 "type.highway.construction.motorway" = "Ehitusjärgus tee";
 "type.highway.construction.motorway_link" = "Ehitusjärgus tee";
 "type.highway.construction.trunk" = "Ehitusjärgus tee";
