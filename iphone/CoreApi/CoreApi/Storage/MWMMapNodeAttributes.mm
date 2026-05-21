@@ -78,6 +78,35 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
     _hasChildren = hasChildren;
     _hasParent = hasParent;
 
+    int64_t localVersion = GetFramework().GetStorage().GetVersion([countryId UTF8String]);
+    if (localVersion > 0) {
+      NSString *v = [NSString stringWithFormat:@"%06lld", localVersion];
+      if (v.length >= 6) {
+        v = [v substringFromIndex:v.length - 6];
+        NSInteger year = [[v substringWithRange:NSMakeRange(0, 2)] integerValue] + 2000;
+        NSInteger month = [[v substringWithRange:NSMakeRange(2, 2)] integerValue];
+        NSInteger day = [[v substringWithRange:NSMakeRange(4, 2)] integerValue];
+
+        if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+          NSDateComponents *comps = [[NSDateComponents alloc] init];
+          [comps setYear:year];
+          [comps setMonth:month];
+          [comps setDay:day];
+          NSDate *date = [[NSCalendar currentCalendar] dateFromComponents:comps];
+
+          static NSDateFormatter *shortFormatter;
+          static dispatch_once_t onceToken;
+          dispatch_once(&onceToken, ^{
+            shortFormatter = [[NSDateFormatter alloc] init];
+            shortFormatter.dateStyle = NSDateFormatterShortStyle;
+            shortFormatter.timeStyle = NSDateFormatterNoStyle;
+          });
+
+          _mapVersionDate = [shortFormatter stringFromDate:date];
+        }
+      }
+    }
+
     storage::Storage::UpdateInfo updateInfo;
     if (GetFramework().GetStorage().GetUpdateInfo([countryId UTF8String], updateInfo)) {
       _totalUpdateSizeBytes = updateInfo.m_totalDownloadSizeInBytes;
