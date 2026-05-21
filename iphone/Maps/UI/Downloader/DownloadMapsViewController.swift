@@ -302,48 +302,42 @@ class DownloadMapsViewController: MWMViewController {
 
     Storage.shared().setCheckUpdatesListener { [weak self] status in
       guard let self = self else { return }
-      
-      DispatchQueue.main.async {
-        self.checkUpdatesButton?.configuration?.showsActivityIndicator = false
-        self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
-        self.checkUpdatesButton?.isEnabled = true
-        
-        self.tableView.refreshControl?.endRefreshing()
-        
-        switch status {
-        case .updated:
-          // Silent refresh (email app style)
-          self.dataSource.reload { self.reloadData() }
-            
-        case .noUpdate:
-          // Do nothing (email app style)
-          break
-            
-        case .error, .undefined:
-          // Temporarily flash an error on the button itself (no popup/toast)
-          self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_error")
-          DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
-            self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
-          }
-            
-        case .EOL:
-          let alert = UIAlertController(title: nil, message: L("downloader_check_updates_eol"), preferredStyle: .alert)
-          alert.addAction(UIAlertAction(title: L("ok"), style: .default))
-          self.present(alert, animated: true)
-            
-        @unknown default:
-          break
+
+      self.checkUpdatesButton?.configuration?.showsActivityIndicator = false
+      self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
+      self.checkUpdatesButton?.isEnabled = true
+
+      self.tableView.refreshControl?.endRefreshing()
+
+      switch status {
+      case .updated:
+        // Silent refresh (email app style)
+        self.dataSource.reload { self.reloadData() }
+
+      case .noUpdate:
+        // Do nothing (email app style)
+        break
+
+      case .error, .undefined:
+        // Temporarily flash an error on the button itself (no popup/toast)
+        self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_error")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) {
+          self.checkUpdatesButton?.configuration?.title = L("downloader_check_updates_button")
         }
+
+      case .EOL:
+        let alert = UIAlertController(title: nil, message: L("downloader_check_updates_eol"), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: L("ok"), style: .default))
+        self.present(alert, animated: true)
+
+      @unknown default:
+        break
       }
       
       Storage.shared().setCheckUpdatesListener(nil)
     }
 
     Storage.shared().startCheckUpdates()
-  }
-
-  private func updateButtonText(_ text: String) {
-    checkUpdatesButton?.configuration?.title = text
   }
 }
 
