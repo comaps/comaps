@@ -3,6 +3,7 @@
 #include "map/framework.hpp"
 #include "map/routing_manager.hpp"
 
+#include "storage/country_info_getter.hpp"
 #include "storage/routing_helpers.hpp"
 #include "storage/storage.hpp"
 

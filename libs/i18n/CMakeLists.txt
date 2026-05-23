@@ -1,6 +1,8 @@
 project(i18n)
 
 set(SRC
+  country_language.cpp
+  country_language.hpp
   duration.cpp
   duration.hpp
   get_text_by_id.cpp
@@ -21,10 +23,8 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
     coding
-    platform
-  PRIVATE
     cppjansson
-    indexer
+    platform
 )
 
 target_link_libraries(${PROJECT_NAME}

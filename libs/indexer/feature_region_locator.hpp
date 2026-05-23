@@ -1,104 +1,46 @@
 #pragma once
 
-#include "cppjansson/cppjansson.hpp"
-
-#include "storage/country_info_getter.hpp"
-
 #include "geometry/point2d.hpp"
 
 #include "i18n/localisation.hpp"
 
-#include "base/string_utils.hpp"
-
+#include <memory>
 #include <vector>
+
+namespace storage
+{
+class CountryInfoGetter;
+}  // namespace storage
 
 namespace feature
 {
-using namespace std;
-using namespace localisation;
-
 class RegionLocator
 {
 public:
+  ~RegionLocator();
+
   /// Static instance
   static RegionLocator const & Instance();
 
   /**
-   * Find the local languages codes for a region id
-   * @param regionId The region id to check
+   * Find the local languages codes for a given point
+   * @param point The point to check
    * @return The local language codes
    */
-  vector<LanguageCode> GetLocalLanguageCodes(string const regionId) const
-  {
-    vector<string> regionIdParts;
-    for (auto const regionIdPart : strings::Tokenize(regionId, "_"))
-      regionIdParts.push_back(string(regionIdPart));
-
-    json_t const * jsonData = nullptr;
-    vector<LanguageCode> languages;
-    while (languages.empty() && !regionIdParts.empty())
-    {
-      string regionId = strings::JoinStrings(regionIdParts, "_");
-      FromJSONObjectOptionalField(m_jsonRoot.get(), regionId, jsonData);
-      if (jsonData)
-        FromJSONObjectOptionalField(jsonData, "languages", languages);
-      regionIdParts.pop_back();
-    }
-    return languages;
-  }
+  std::vector<localisation::LanguageCode> GetLocalLanguageCodes(m2::PointD const point) const;
 
   /**
    * Find the local languages codes for a given point
    * @param point The point to check
    * @return The local language codes
    */
-  vector<LanguageCode> GetLocalLanguageCodes(m2::PointD const point) const
-  {
-    return GetLocalLanguageCodes(m_infoGetter->GetRegionCountryId(point));
-  }
-
-  /**
-   * Find the local languages codes for a region id
-   * @param regionId The region id to check
-   * @return The local language codes
-   */
-  vector<LanguageIndex> GetLocalLanguageIndexes(string const regionId) const
-  {
-    vector<string> regionIdParts;
-    for (auto const regionIdPart : strings::Tokenize(regionId, "_"))
-      regionIdParts.push_back(string(regionIdPart));
-
-    json_t const * jsonData = nullptr;
-    vector<LanguageCode> languageCodes;
-    while (languageCodes.empty() && !regionIdParts.empty())
-    {
-      string regionId = strings::JoinStrings(regionIdParts, "_");
-      FromJSONObjectOptionalField(m_jsonRoot.get(), regionId, jsonData);
-      if (jsonData)
-        FromJSONObjectOptionalField(jsonData, "languages", languageCodes);
-      regionIdParts.pop_back();
-    }
-    return ConvertLanguageCodesToLanguageIndexes(languageCodes);
-  }
-
-  /**
-   * Find the local languages codes for a given point
-   * @param point The point to check
-   * @return The local language codes
-   */
-  vector<LanguageIndex> GetLocalLanguageIndexes(m2::PointD const point) const
-  {
-    return GetLocalLanguageIndexes(m_infoGetter->GetRegionCountryId(point));
-  }
+  std::vector<localisation::LanguageIndex> GetLocalLanguageIndexes(m2::PointD const point) const;
 
 private:
   /// Constructor
   RegionLocator();
 
   /// Country info getter
-  unique_ptr<storage::CountryInfoGetter> m_infoGetter;
-
-  /// JSON root
-  base::Json m_jsonRoot;
+  std::unique_ptr<storage::CountryInfoGetter> m_infoGetter;
 };
 }  // namespace feature

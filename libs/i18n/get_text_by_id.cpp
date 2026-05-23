@@ -6,8 +6,7 @@
 
 #include "cppjansson/cppjansson.hpp"
 
-#include "indexer/feature_region_locator.hpp"
-
+#include "i18n/country_language.hpp"
 #include "i18n/localisation.hpp"
 
 #include "base/assert.hpp"
@@ -70,12 +69,12 @@ TGetTextByIdPtr GetTextById::Create(string const & jsonBuffer, string const & lo
 TGetTextByIdPtr GetTextByIdFactoryForRegion(TextSource textSource, string const regionId)
 {
   string jsonBuffer;
-  for (LanguageIndex const languageIndex : PrioritizedMapLanguageIndexes(feature::RegionLocator::Instance().GetLocalLanguageIndexes(regionId)))
+  for (LanguageIndex const languageIndex : PrioritizedMapLanguageIndexes(CountryLanguage::Instance().GetLocalLanguageIndexes(regionId)))
   {
     LanguageCode const languageCode = ConvertLanguageIndexToLanguageCode(languageIndex);
     if (languageIndex == kDefaultNameIndex)
     {
-      for (auto const & localLanguageCode : feature::RegionLocator::Instance().GetLocalLanguageCodes(regionId))
+      for (auto const & localLanguageCode : CountryLanguage::Instance().GetLocalLanguageCodes(regionId))
         if (GetJsonBuffer(textSource, localLanguageCode, jsonBuffer))
           return GetTextById::Create(jsonBuffer, localLanguageCode);
     }

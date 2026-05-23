@@ -812,7 +812,8 @@ std::vector<localisation::LanguageIndex> FeatureType::GetLanguages()
     if (GetGeomType() == feature::GeomType::Point)
       regionData.SetLanguages(RegionLocator::Instance().GetLocalLanguageIndexes(GetCenter()));
     else
-      regionData.SetLanguages({localisation::kInternationalNameIndex, localisation::kEnglishLanguageIndex, localisation::kDefaultNameIndex});
+      regionData.SetLanguages({localisation::kInternationalNameIndex, localisation::kEnglishLanguageIndex,
+                               localisation::kDefaultNameIndex});
   }
 
   return regionData.GetLanguages();

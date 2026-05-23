@@ -1,29 +1,38 @@
 #include "indexer/feature_region_locator.hpp"
 
-#include "coding/reader.hpp"
+#include "storage/country_info_getter.hpp"
 
 #include "platform/platform.hpp"
 
-#include "defines.hpp"
+#include "i18n/country_language.hpp"
 
 namespace feature
 {
+using namespace std;
+using namespace localisation;
+
 /// Constructor
 RegionLocator::RegionLocator()
 {
-  auto & platform = GetPlatform();
-  m_infoGetter = storage::CountryInfoReader::CreateCountryInfoGetter(platform);
-
-  auto reader = platform.GetReader(COUNTRIES_META_FILE);
-  string buffer;
-  reader->ReadAsString(buffer);
-  m_jsonRoot = base::Json(buffer.data());
+  m_infoGetter = storage::CountryInfoReader::CreateCountryInfoGetter(GetPlatform());
 }
+
+RegionLocator::~RegionLocator() = default;
 
 /// Static instance
 RegionLocator const & RegionLocator::Instance()
 {
   static RegionLocator instance;
   return instance;
+}
+
+vector<LanguageCode> RegionLocator::GetLocalLanguageCodes(m2::PointD const point) const
+{
+  return CountryLanguage::Instance().GetLocalLanguageCodes(m_infoGetter->GetRegionCountryId(point));
+}
+
+vector<LanguageIndex> RegionLocator::GetLocalLanguageIndexes(m2::PointD const point) const
+{
+  return CountryLanguage::Instance().GetLocalLanguageIndexes(m_infoGetter->GetRegionCountryId(point));
 }
 }  // namespace feature
