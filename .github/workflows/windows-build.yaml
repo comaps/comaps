@@ -205,10 +205,11 @@ jobs:
       # ---------------------------------------------------------------------------
 
       - name: Build NSIS installer
-        shell: bash
+        shell: pwsh
         run: |
-          version=$(bash tools/unix/version.sh qt_version | cut -d- -f1)
-          makensis -DVERSION="$version" cmake/windows/CoMaps.nsi
+          $version = (bash tools/unix/version.sh qt_version) -split '-' | Select-Object -First 1
+          & "C:\Program Files (x86)\NSIS\makensis.exe" /DVERSION="$version" cmake\windows\CoMaps.nsi
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload NSIS installer artifact
         uses: actions/upload-artifact@v4
