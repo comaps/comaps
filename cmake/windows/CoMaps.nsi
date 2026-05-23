@@ -39,9 +39,17 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_RUN "$INSTDIR\CoMaps.exe"
+!define MUI_FINISHPAGE_RUN
 !define MUI_FINISHPAGE_RUN_TEXT "Launch CoMaps"
+!define MUI_FINISHPAGE_RUN_FUNCTION LaunchAppUnelevated
 !insertmacro MUI_PAGE_FINISH
+
+; Launch without inheriting the installer's admin token, so the app runs at
+; the normal user privilege level and correctly falls back to %LOCALAPPDATA%
+; for its writable directory rather than writing into Program Files.
+Function LaunchAppUnelevated
+  ExecShell "" "$INSTDIR\CoMaps.exe"
+FunctionEnd
 
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
