@@ -3,9 +3,6 @@ name: Windows Desktop Build
 on:
   workflow_dispatch:
   push:
-    branches:
-      - main
-      - zy-windows-app
     paths: &paths
       - 3party/**
       - cmake/**
@@ -59,9 +56,9 @@ jobs:
         with:
           arch: x64
 
-      - name: Install optipng and Python protobuf
+      - name: Install optipng, NSIS, and Python protobuf
         run: |
-          choco install optipng -y
+          choco install optipng nsis -y
           pip install "protobuf>=3.20,<4.0"
 
       - name: Configure repository
@@ -207,17 +204,15 @@ jobs:
       #     if-no-files-found: warn
       # ---------------------------------------------------------------------------
 
-      - name: Package portable ZIP (for WinGet)
-        shell: pwsh
+      - name: Build NSIS installer
+        shell: bash
         run: |
-          # A ZIP of the staging directory works as a WinGet portable installer
-          # (InstallerType: zip, NestedInstallerType: portable) without requiring
-          # a trusted code-signing certificate.
-          Compress-Archive -Path staging\* -DestinationPath CoMaps-portable.zip
+          version=$(bash tools/unix/version.sh qt_version | cut -d- -f1)
+          makensis -DVERSION="$version" cmake/windows/CoMaps.nsi
 
-      - name: Upload portable ZIP artifact
+      - name: Upload NSIS installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CoMaps-windows-x64-portable-${{ github.sha }}
-          path: CoMaps-portable.zip
+          name: CoMaps-windows-x64-setup-${{ github.sha }}
+          path: CoMaps-windows-x64-setup.exe
           if-no-files-found: error
