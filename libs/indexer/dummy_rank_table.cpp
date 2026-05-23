@@ -1,4 +1,4 @@
-#include "search/dummy_rank_table.hpp"
+#include "indexer/dummy_rank_table.hpp"
 
 #include "base/macros.hpp"
 

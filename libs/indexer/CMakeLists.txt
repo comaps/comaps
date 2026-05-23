@@ -49,6 +49,8 @@ set(SRC
   drules_selector_parser.hpp
   drules_struct.pb.cc
   drules_struct.pb.h
+  dummy_rank_table.cpp
+  dummy_rank_table.hpp
   edit_journal.cpp
   edit_journal.hpp
   editable_map_object.cpp
@@ -169,7 +171,6 @@ target_link_libraries(${PROJECT_NAME}
     i18n
     platform
   PRIVATE
-    search  # search::DummyRankTable in CachingRankTableLoader
     storage
 )
 

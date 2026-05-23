@@ -1,8 +1,7 @@
 #include "indexer/caching_rank_table_loader.hpp"
 
-#include "search/dummy_rank_table.hpp"
-
 #include "indexer/data_source.hpp"
+#include "indexer/dummy_rank_table.hpp"
 #include "indexer/feature_decl.hpp"
 
 CachingRankTableLoader::CachingRankTableLoader(DataSource const & dataSource, std::string const & sectionName)
