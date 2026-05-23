@@ -72,9 +72,9 @@ set(SRC
   feature_impl.hpp
   feature_meta.cpp
   feature_meta.hpp
+  feature_processor.hpp
   feature_region_locator.cpp
   feature_region_locator.hpp
-  feature_processor.hpp
   feature_source.cpp
   feature_source.hpp
   feature_to_osm.cpp
@@ -164,14 +164,13 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
     coding
-    cppjansson
     drape
     geometry
     i18n
     platform
-    storage
   PRIVATE
     search  # search::DummyRankTable in CachingRankTableLoader
+    storage
 )
 
 target_link_libraries(${PROJECT_NAME}
