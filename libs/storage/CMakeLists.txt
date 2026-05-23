@@ -68,6 +68,7 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     geometry
+    i18n
     mwm_diff
     platform
     routing_common

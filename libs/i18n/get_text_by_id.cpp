@@ -1,4 +1,4 @@
-#include "platform/get_text_by_id.hpp"
+#include "i18n/get_text_by_id.hpp"
 
 #include "coding/reader.hpp"
 

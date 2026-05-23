@@ -3,6 +3,8 @@ project(i18n)
 set(SRC
   duration.cpp
   duration.hpp
+  get_text_by_id.cpp
+  get_text_by_id.hpp
   localisation.cpp
   localisation.hpp
   localisation_translation.cpp
@@ -20,6 +22,9 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     platform
+  PRIVATE
+    cppjansson
+    indexer
 )
 
 target_link_libraries(${PROJECT_NAME}

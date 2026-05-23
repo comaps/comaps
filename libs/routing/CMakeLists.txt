@@ -202,14 +202,13 @@ target_link_libraries(${PROJECT_NAME}
     base
     coding
     geometry
+    i18n
     indexer
     kml
     platform
     routing_common
     traffic
     transit
-  PRIVATE
-    i18n
 )
 
 target_link_libraries(${PROJECT_NAME}

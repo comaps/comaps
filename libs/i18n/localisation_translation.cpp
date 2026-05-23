@@ -1,8 +1,8 @@
 #include "i18n/localisation_translation.hpp"
 
-#include "platform/get_text_by_id.hpp"
 #include "platform/localization.hpp"
 
+#include "i18n/get_text_by_id.hpp"
 #include "i18n/string_utf8_multilang.hpp"
 #include "i18n/transliteration.hpp"
 
