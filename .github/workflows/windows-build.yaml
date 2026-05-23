@@ -233,16 +233,19 @@ jobs:
       - name: Check required secrets
         run: |
           missing=()
-          [ -z "${{ secrets.SFTP_HOST }}"    ] && missing+=("SFTP_HOST")
-          [ -z "${{ secrets.SFTP_USER }}"    ] && missing+=("SFTP_USER")
-          [ -z "${{ secrets.SFTP_KEY }}"     ] && missing+=("SFTP_KEY")
-          [ -z "${{ secrets.SFTP_BASE_PATH }}" ] && missing+=("SFTP_BASE_PATH")
+          [ -z "${{ secrets.SFTP_HOST }}"       ] && missing+=("SFTP_HOST")
+          [ -z "${{ secrets.SFTP_USER }}"       ] && missing+=("SFTP_USER")
+          [ -z "${{ secrets.SFTP_BASE_PATH }}"  ] && missing+=("SFTP_BASE_PATH")
           if [ ${#missing[@]} -gt 0 ]; then
             echo "::error::Missing required secrets for SFTP upload: ${missing[*]}"
             echo "Set these in GitHub → Settings → Secrets and variables → Actions:"
             for s in "${missing[@]}"; do
               echo "  $s"
             done
+            exit 1
+          fi
+          if [ -z "${{ secrets.SFTP_KEY }}" ] && [ -z "${{ secrets.SFTP_PASSWORD }}" ]; then
+            echo "::error::Either SFTP_KEY (private key) or SFTP_PASSWORD must be set."
             exit 1
           fi
 
@@ -286,13 +289,9 @@ jobs:
 
       - name: Upload to SFTP
         env:
-          SFTP_KEY: ${{ secrets.SFTP_KEY }}
+          SFTP_KEY:      ${{ secrets.SFTP_KEY }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
         run: |
-          # Write the SSH key to a temp file
-          keyfile=$(mktemp)
-          chmod 600 "$keyfile"
-          echo "$SFTP_KEY" > "$keyfile"
-
           base="${{ secrets.SFTP_BASE_PATH }}"
           remote="${base}/${{ env.VERSION }}"
           filename="CoMaps-windows-x64-setup.exe"
@@ -306,10 +305,22 @@ jobs:
           put manifest.json ${remote}/manifest.json
           EOF
 
-          sftp -i "$keyfile" \
-               -o StrictHostKeyChecking=accept-new \
-               -o BatchMode=yes \
-               -b "$sftp_cmds" \
-               "${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }}"
+          if [ -n "$SFTP_KEY" ]; then
+            keyfile=$(mktemp)
+            chmod 600 "$keyfile"
+            echo "$SFTP_KEY" > "$keyfile"
+            sftp -i "$keyfile" \
+                 -o StrictHostKeyChecking=accept-new \
+                 -o BatchMode=yes \
+                 -b "$sftp_cmds" \
+                 "${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }}"
+            rm -f "$keyfile"
+          else
+            sshpass -p "$SFTP_PASSWORD" \
+              sftp -o StrictHostKeyChecking=accept-new \
+                   -o BatchMode=no \
+                   -b "$sftp_cmds" \
+                   "${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }}"
+          fi
 
-          rm -f "$keyfile" "$sftp_cmds"
+          rm -f "$sftp_cmds"
