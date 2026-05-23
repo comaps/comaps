@@ -275,6 +275,15 @@ jobs:
           echo "VERSION=$version" >> "$GITHUB_ENV"
           cat manifest.json
 
+      - name: Upload manifest artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoMaps-windows-x64-manifest-${{ github.sha }}
+          path: |
+            manifest.json
+            CoMaps-windows-x64-setup.exe.sha256
+          if-no-files-found: error
+
       - name: Upload to SFTP
         env:
           SFTP_KEY: ${{ secrets.SFTP_KEY }}
