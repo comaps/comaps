@@ -643,11 +643,7 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
   {
     auto const * tlMark = static_cast<TrafficLightMark const *>(mark);
     if (tlMark->GetFeatureID().IsValid())
-    {
       FillFeatureInfo(tlMark->GetFeatureID(), outInfo);
-      outInfo.SetSelectedObject(df::SelectionShape::OBJECT_POI);
-      return;
-    }
     break;
   }
       

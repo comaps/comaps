@@ -38,6 +38,7 @@ float constexpr kSpeedCameraOutlineWidth = 2.0f;
 int constexpr kMinSpeedCameraZoom = 13;
 int constexpr kMinSpeedCameraTitleZoom = 13;
 int constexpr kMinTrafficLightZoom = 15;
+int constexpr kMinTrafficLightLargeZoom = 17;
 
 }  // namespace
 
@@ -628,7 +629,7 @@ dp::Anchor SpeedCameraMark::GetAnchor() const
 TrafficLightMark::TrafficLightMark(m2::PointD const & ptOrg) : UserMark(ptOrg, Type::TRAFFIC_LIGHT)
 {
   m_symbolNames.insert(std::make_pair(kMinTrafficLightZoom, "traffic_signals"));
-  m_symbolNames.insert(std::make_pair(17, "traffic_signals-l"));
+  m_symbolNames.insert(std::make_pair(kMinTrafficLightLargeZoom, "traffic_signals-l"));
 }
 
 drape_ptr<df::UserPointMark::SymbolNameZoomInfo> TrafficLightMark::GetSymbolNames() const

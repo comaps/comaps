@@ -607,7 +607,7 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
   ASSERT(!segments.empty(), ());
   ASSERT_NOT_EQUAL(featureType, Classificator::INVALID_TYPE, ());
 
-  double constexpr kSearchRadiusM = 3.0; //radius (in meters)
+  double constexpr kSearchRadiusM = 0.3; //radius (in meters)
   double const kSearchRadiusMercator = mercator::MetersToMercator(kSearchRadiusM);
   double const kChunkSizeMercator = mercator::MetersToMercator(2000.0);
 
@@ -737,7 +737,7 @@ void RoutingManager::CreateRoadWarningMarks(RoadWarningsCollection && roadWarnin
 
 void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt, vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
 {
-  uint32_t const type = classif().GetTypeByPathSafe({"highway", "traffic_signals"});
+  static uint32_t const type = classif().GetTypeByPath({"highway", "traffic_signals"});
   CollectFeaturesAlongRoute(segments, startPt, type, trafficLights);
 }
 
@@ -833,7 +833,8 @@ bool RoutingManager::InsertRoute(Route const & route)
     }
 
     CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
-    CollectTrafficLights(segments, startPt, trafficLights);
+    if (m_currentRouterType == RouterType::Vehicle)
+      CollectTrafficLights(segments, startPt, trafficLights);
 
     auto const subrouteId =
         m_drapeEngine.SafeCallWithResult(&df::DrapeEngine::AddSubroute, df::SubrouteConstPtr(subroute.release()));
