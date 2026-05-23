@@ -15,7 +15,7 @@ Unicode True
 !endif
 
 Name "CoMaps"
-OutFile "..\CoMaps-windows-x64-setup.exe"
+OutFile "${SRCDIR}\CoMaps-windows-x64-setup.exe"
 InstallDir "$PROGRAMFILES64\CoMaps"
 InstallDirRegKey HKLM "Software\CoMaps" "InstallDir"
 RequestExecutionLevel admin
@@ -31,8 +31,8 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 !include "MUI2.nsh"
 !include "x64.nsh"
 
-!define MUI_ICON   "..\..\qt\res\windows\windows.ico"
-!define MUI_UNICON "..\..\qt\res\windows\windows.ico"
+!define MUI_ICON   "${SRCDIR}\qt\res\windows\windows.ico"
+!define MUI_UNICON "${SRCDIR}\qt\res\windows\windows.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_ABORTWARNING
 
@@ -79,7 +79,7 @@ Section "CoMaps" SecMain
   Call CloseCoMapsIfRunning
 
   SetOutPath "$INSTDIR"
-  File /r "staging\*.*"
+  File /r "${SRCDIR}\staging\*.*"
 
   ; Store install dir and version in registry
   WriteRegStr HKLM "Software\CoMaps" "InstallDir" "$INSTDIR"
