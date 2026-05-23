@@ -180,8 +180,9 @@ target_link_libraries(${PROJECT_NAME}
     i18n
     indexer
     kml
-    platform
     storage
+  PRIVATE
+    platform
 )
 
 target_link_libraries(${PROJECT_NAME}

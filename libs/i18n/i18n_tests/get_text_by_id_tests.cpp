@@ -1,6 +1,6 @@
 #include "testing/testing.hpp"
 
-#include "platform/get_text_by_id.hpp"
+#include "i18n/get_text_by_id.hpp"
 
 #include <string>
 

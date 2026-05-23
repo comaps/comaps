@@ -18,8 +18,6 @@ set(SRC
   downloader_defines.hpp
   downloader_utils.cpp
   downloader_utils.hpp
-  get_text_by_id.cpp
-  get_text_by_id.hpp
   gui_thread.hpp
   http_client.cpp
   http_client.hpp
@@ -189,8 +187,6 @@ target_link_libraries(${PROJECT_NAME}
   PRIVATE
     coding
     cppjansson
-    i18n
-    indexer # feature::*
 )
 
 target_link_libraries(${PROJECT_NAME}
