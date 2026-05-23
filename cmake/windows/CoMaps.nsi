@@ -39,17 +39,11 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-!define MUI_FINISHPAGE_RUN
-!define MUI_FINISHPAGE_RUN_TEXT "Launch CoMaps"
-!define MUI_FINISHPAGE_RUN_FUNCTION LaunchAppUnelevated
+; No finish-page launch: the installer runs elevated and any process it spawns
+; inherits the admin token, causing platform_win.cpp to treat Program Files as
+; writable and store maps there instead of %LOCALAPPDATA%\CoMaps\. Launch from
+; the Start Menu shortcut instead, which always runs unelevated.
 !insertmacro MUI_PAGE_FINISH
-
-; Launch without inheriting the installer's admin token, so the app runs at
-; the normal user privilege level and correctly falls back to %LOCALAPPDATA%
-; for its writable directory rather than writing into Program Files.
-Function LaunchAppUnelevated
-  ExecShell "" "$INSTDIR\CoMaps.exe"
-FunctionEnd
 
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
