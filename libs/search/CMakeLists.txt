@@ -42,8 +42,6 @@ set(SRC
   doc_vec.hpp
   downloader_search_callback.cpp
   downloader_search_callback.hpp
-  dummy_rank_table.cpp
-  dummy_rank_table.hpp
   editor_delegate.cpp
   editor_delegate.hpp
   emitter.hpp

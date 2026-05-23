@@ -2,7 +2,6 @@
 
 #include "search/cbv.hpp"
 #include "search/cities_boundaries_table.hpp"
-#include "search/dummy_rank_table.hpp"
 #include "search/features_filter.hpp"
 #include "search/features_layer.hpp"
 #include "search/features_layer_matcher.hpp"
@@ -19,6 +18,7 @@
 #include "search/utils.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/dummy_rank_table.hpp"
 #include "indexer/feature.hpp"
 #include "indexer/feature_algo.hpp"
 #include "indexer/feature_data.hpp"
