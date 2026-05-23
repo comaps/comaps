@@ -1,5 +1,6 @@
 package app.organicmaps.car.screens;
 
+import android.content.SharedPreferences;
 import android.location.Location;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -18,6 +19,7 @@ import androidx.car.app.navigation.model.TravelEstimate;
 import androidx.car.app.navigation.model.Trip;
 import androidx.core.graphics.drawable.IconCompat;
 import androidx.lifecycle.LifecycleOwner;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.car.CarAppService;
@@ -260,6 +262,13 @@ public class NavigationScreen extends BaseMapScreen implements RoutingController
 
   private void updateSpeedLimit(@NonNull final RoutingInfo info, @Nullable Location location)
   {
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getCarContext());
+    final boolean showSpeedLimit = prefs.getBoolean(getCarContext().getString(R.string.pref_speedlimit), true);
+    if (!showSpeedLimit)
+    {
+      getSurfaceRenderer().hideSpeedLimit();
+      return;
+    }
     final boolean speedLimitExceeded = location != null && info.speedLimitMps < location.getSpeed();
     getSurfaceRenderer().setSpeedLimit(StringUtils.nativeFormatSpeed(info.speedLimitMps), speedLimitExceeded);
   }

@@ -1,5 +1,6 @@
 package app.organicmaps.car.screens.settings;
 
+import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.car.app.CarContext;
@@ -12,6 +13,7 @@ import androidx.car.app.model.OnClickListener;
 import androidx.car.app.model.Row;
 import androidx.car.app.model.Template;
 import androidx.car.app.navigation.model.MapWithContentTemplate;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
 import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
@@ -64,6 +66,7 @@ public class SettingsScreen extends BaseMapScreen
     builder.addItem(createThemeItem());
     builder.addItem(createRoutingOptionsItem());
     builder.addItem(create3dBuildingsItem());
+    builder.addItem(createSpeedLimitItem());
     builder.addItem(createSharedPrefsToggle(R.string.big_font, Config::isLargeFontsSize, Config::setLargeFontsSize));
     builder.addItem(
         createSharedPrefsToggle(R.string.transliteration_title, Config::isTransliteration, Config::setTransliteration));
@@ -107,6 +110,20 @@ public class SettingsScreen extends BaseMapScreen
       invalidate();
     };
     return Toggle.create(getCarContext(), R.string.pref_map_3d_buildings_title, listener, _3d.buildings);
+  }
+
+  @NonNull
+  private Item createSpeedLimitItem()
+  {
+    final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getCarContext());
+    final String key = getCarContext().getString(R.string.pref_speedlimit);
+    final boolean enabled = prefs.getBoolean(key, true);
+    final OnClickListener listener = () ->
+    {
+      prefs.edit().putBoolean(key, !enabled).apply();
+      invalidate();
+    };
+    return Toggle.create(getCarContext(), R.string.pref_speedlimit_title, listener, enabled);
   }
 
   @NonNull
