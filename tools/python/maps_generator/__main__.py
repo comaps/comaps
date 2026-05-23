@@ -1,3 +1,4 @@
+import fnmatch
 import logging
 import os
 from argparse import ArgumentParser
@@ -142,12 +143,6 @@ def main():
 
     all_countries = get_all_countries_list(PathProvider.borders_path())
 
-    def end_star_compare(prefix, full):
-        return full.startswith(prefix)
-
-    def compare(a, b):
-        return a == b
-
     def get_countries_set_from_line(line):
         countries = []
         used_countries = set()
@@ -159,14 +154,8 @@ def main():
             countries_list = [x.strip() for x in line.replace(";", ",").split(",")]
 
         for country_item in countries_list:
-            cmp = compare
-            _raw_country = country_item[:]
-            if _raw_country and _raw_country[-1] == "*":
-                _raw_country = _raw_country.replace("*", "")
-                cmp = end_star_compare
-
             for country in all_countries:
-                if cmp(_raw_country, country):
+                if fnmatch.fnmatch(country.lower(), country_item.lower()):
                     used_countries.add(country_item)
                     countries.append(country)
 
