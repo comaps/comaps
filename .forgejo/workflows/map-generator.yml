@@ -23,7 +23,7 @@ on:
         default: false
         type: boolean
       map-generator-countries:
-        description: 'Generate specific MWMs? (i.e. "US_New York_*, foo")'
+        description: 'Generate specific MWMs? (i.e. "US_New York_*", "*Madrid*", "France")'
         required: false
         type: string
 
