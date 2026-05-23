@@ -27,6 +27,8 @@ jobs:
   windows-build:
     name: Windows x64 EXE (ZIP)
     runs-on: windows-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
 
     concurrency:
       group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -205,11 +207,13 @@ jobs:
       # ---------------------------------------------------------------------------
 
       - name: Build NSIS installer
+        id: version
         shell: pwsh
         run: |
           $version = (bash tools/unix/version.sh qt_version) -split '-' | Select-Object -First 1
           & "C:\Program Files (x86)\NSIS\makensis.exe" /DVERSION="$version" /DSRCDIR="$PWD" cmake\windows\CoMaps.nsi
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          echo "version=$version" >> $env:GITHUB_OUTPUT
 
       - name: Upload NSIS installer artifact
         uses: actions/upload-artifact@v4
@@ -217,3 +221,86 @@ jobs:
           name: CoMaps-windows-x64-setup-${{ github.sha }}
           path: CoMaps-windows-x64-setup.exe
           if-no-files-found: error
+
+  upload:
+    name: Upload to SFTP
+    needs: windows-build
+    runs-on: ubuntu-latest
+    # Skip on PRs — only upload on pushes and manual triggers.
+    if: github.event_name != 'pull_request'
+
+    steps:
+      - name: Check required secrets
+        run: |
+          missing=()
+          [ -z "${{ secrets.SFTP_HOST }}"    ] && missing+=("SFTP_HOST")
+          [ -z "${{ secrets.SFTP_USER }}"    ] && missing+=("SFTP_USER")
+          [ -z "${{ secrets.SFTP_KEY }}"     ] && missing+=("SFTP_KEY")
+          [ -z "${{ secrets.SFTP_BASE_PATH }}" ] && missing+=("SFTP_BASE_PATH")
+          if [ ${#missing[@]} -gt 0 ]; then
+            echo "::error::Missing required secrets for SFTP upload: ${missing[*]}"
+            echo "Set these in GitHub → Settings → Secrets and variables → Actions:"
+            for s in "${missing[@]}"; do
+              echo "  $s"
+            done
+            exit 1
+          fi
+
+      - name: Download installer artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: CoMaps-windows-x64-setup-${{ github.sha }}
+
+      - name: Generate manifest
+        run: |
+          filename="CoMaps-windows-x64-setup.exe"
+          sha256=$(sha256sum "$filename" | awk '{print $1}')
+          size=$(stat -c%s "$filename")
+          version="${{ needs.windows-build.outputs.version }}"
+          timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          cat > manifest.json <<EOF
+          {
+            "version": "$version",
+            "filename": "$filename",
+            "sha256": "$sha256",
+            "size": $size,
+            "timestamp": "$timestamp",
+            "git_sha": "${{ github.sha }}",
+            "git_ref": "${{ github.ref_name }}"
+          }
+          EOF
+          # Also write a flat sha256 sidecar for tools that expect it
+          echo "$sha256  $filename" > "${filename}.sha256"
+          echo "SHA256=$sha256" >> "$GITHUB_ENV"
+          echo "VERSION=$version" >> "$GITHUB_ENV"
+          cat manifest.json
+
+      - name: Upload to SFTP
+        env:
+          SFTP_KEY: ${{ secrets.SFTP_KEY }}
+        run: |
+          # Write the SSH key to a temp file
+          keyfile=$(mktemp)
+          chmod 600 "$keyfile"
+          echo "$SFTP_KEY" > "$keyfile"
+
+          base="${{ secrets.SFTP_BASE_PATH }}"
+          remote="${base}/${{ env.VERSION }}"
+          filename="CoMaps-windows-x64-setup.exe"
+
+          sftp_cmds=$(mktemp)
+          cat > "$sftp_cmds" <<EOF
+          -mkdir ${base}
+          -mkdir ${remote}
+          put ${filename} ${remote}/${filename}
+          put ${filename}.sha256 ${remote}/${filename}.sha256
+          put manifest.json ${remote}/manifest.json
+          EOF
+
+          sftp -i "$keyfile" \
+               -o StrictHostKeyChecking=accept-new \
+               -o BatchMode=yes \
+               -b "$sftp_cmds" \
+               "${{ secrets.SFTP_USER }}@${{ secrets.SFTP_HOST }}"
+
+          rm -f "$keyfile" "$sftp_cmds"
