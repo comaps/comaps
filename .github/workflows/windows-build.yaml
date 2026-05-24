@@ -226,8 +226,8 @@ jobs:
     name: Upload to SFTP
     needs: windows-build
     runs-on: ubuntu-latest
-    # Skip on PRs — only upload on pushes and manual triggers.
-    if: github.event_name != 'pull_request'
+    # Only upload on manual triggers.
+    if: github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Check required secrets
