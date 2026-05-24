@@ -258,32 +258,49 @@ jobs:
         run: |
           filename="CoMaps-windows-x64-setup.exe"
           sha256=$(sha256sum "$filename" | awk '{print $1}')
-          size=$(stat -c%s "$filename")
           version="${{ needs.windows-build.outputs.version }}"
-          timestamp=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-          cat > manifest.json <<EOF
-          {
-            "version": "$version",
-            "filename": "$filename",
-            "sha256": "$sha256",
-            "size": $size,
-            "timestamp": "$timestamp",
-            "git_sha": "${{ github.sha }}",
-            "git_ref": "${{ github.ref_name }}"
-          }
-          EOF
-          # Also write a flat sha256 sidecar for tools that expect it
-          echo "$sha256  $filename" > "${filename}.sha256"
+          base_url="https://cdn-us-1.comaps.app/windows/${version}"
           echo "SHA256=$sha256" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
-          cat manifest.json
+
+          # Flat sha256 sidecar
+          echo "$sha256  $filename" > "${filename}.sha256"
+
+          # WinGet installer manifest — can be used directly to update winget-pkgs
+          cat > CoMaps.CoMaps.installer.yaml <<EOF
+          # yaml-language-server: \$schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
+          PackageIdentifier: CoMaps.CoMaps
+          PackageVersion: ${version}
+          InstallerLocale: en-US
+          Platform:
+            - Windows.Desktop
+          MinimumOSVersion: 10.0.0.0
+          InstallerType: nullsoft
+          UpgradeBehavior: uninstallPrevious
+          InstallModes:
+            - interactive
+            - silent
+          InstallerSwitches:
+            Silent: /S
+            SilentWithProgress: /S
+          Dependencies:
+            PackageDependencies:
+              - PackageIdentifier: Microsoft.VCRedist.2015+.x64
+          Installers:
+            - Architecture: x64
+              InstallerUrl: ${base_url}/${filename}
+              InstallerSha256: ${sha256}
+          ManifestType: installer
+          ManifestVersion: 1.12.0
+          EOF
+          cat CoMaps.CoMaps.installer.yaml
 
       - name: Upload manifest artifacts
         uses: actions/upload-artifact@v4
         with:
           name: CoMaps-windows-x64-manifest-${{ github.sha }}
           path: |
-            manifest.json
+            CoMaps.CoMaps.installer.yaml
             CoMaps-windows-x64-setup.exe.sha256
           if-no-files-found: error
 
@@ -302,7 +319,7 @@ jobs:
           -mkdir ${remote}
           put ${filename} ${remote}/${filename}
           put ${filename}.sha256 ${remote}/${filename}.sha256
-          put manifest.json ${remote}/manifest.json
+          put CoMaps.CoMaps.installer.yaml ${remote}/CoMaps.CoMaps.installer.yaml
           EOF
 
           if [ -n "$SFTP_KEY" ]; then

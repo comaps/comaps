@@ -19,7 +19,9 @@ Dependencies:
 Installers:
   - Architecture: x64
     # Update InstallerUrl and InstallerSha256 after each release build.
-    InstallerUrl: https://cdn-us-1.comaps.app/windows/CoMaps-windows-x64-setup.exe
+    # The versioned URL is: https://cdn-us-1.comaps.app/windows/<version>/CoMaps-windows-x64-setup.exe
+    # Copy the generated CoMaps.CoMaps.installer.yaml from the SFTP server or GitHub artifact.
+    InstallerUrl: https://cdn-us-1.comaps.app/windows/0000.00.00/CoMaps-windows-x64-setup.exe
     InstallerSha256: 0000000000000000000000000000000000000000000000000000000000000000
 ManifestType: installer
 ManifestVersion: 1.12.0
