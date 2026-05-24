@@ -84,6 +84,10 @@ set(DATA_DIR ${OMIM_ROOT}/data)
 file(MAKE_DIRECTORY ${RESOURCES_FOLDER})
 
 function(copy_resources)
+  # Previously used execute_process(COMMAND cp ...) which silently ignored missing files.
+  # file(COPY) is cross-platform but errors on missing sources, so we need to decide
+  # explicitly: error on a normal build (developer needs to run configure.sh), but skip
+  # silently in CI when SKIP_MAP_DOWNLOAD is set and generated/downloaded files are absent.
   foreach(file ${ARGN})
     if(EXISTS ${DATA_DIR}/${file})
       file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
