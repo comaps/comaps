@@ -44,14 +44,6 @@ jobs:
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs 16
 
-      - name: Get version
-        id: version
-        shell: bash
-        run: |
-          # Capture before configure.sh writes generated files, which would make git describe --dirty
-          version=$(bash tools/unix/version.sh qt_version | cut -d- -f1-3)
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
@@ -94,6 +86,14 @@ jobs:
       - name: Build CoMaps
         shell: bash
         run: cmake --build build --target desktop --parallel
+
+      - name: Get version
+        id: version
+        shell: bash
+        run: |
+          # Run after configure.sh so the dirty flag matches what was baked into the exe.
+          version=$(bash tools/unix/version.sh qt_version | cut -d- -f1-3)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
 
       - name: Stage executable and Qt runtime
         shell: pwsh
