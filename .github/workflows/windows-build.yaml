@@ -67,7 +67,7 @@ jobs:
         shell: bash
         env:
           PYTHONUTF8: '1'
-          SKIP_GENERATE_SERBIAN_LATIN_STRINGS: '1'
+          SKIP_GENERATE_SERBIAN_LATIN_STRINGS: '1'  # requires uconv (ICU); not available on windows-latest; only affects Android/iOS string files, not the desktop build
         run: bash configure.sh
 
       - name: Configure CMake
