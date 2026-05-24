@@ -44,6 +44,14 @@ jobs:
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs 16
 
+      - name: Get version
+        id: version
+        shell: bash
+        run: |
+          # Capture before configure.sh writes generated files, which would make git describe --dirty
+          version=$(bash tools/unix/version.sh qt_version | cut -d- -f1-3)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
         with:
@@ -207,18 +215,16 @@ jobs:
       # ---------------------------------------------------------------------------
 
       - name: Build NSIS installer
-        id: version
         shell: pwsh
         run: |
-          $version = (bash tools/unix/version.sh qt_version) -split '-' | Select-Object -First 1
+          $version = "${{ steps.version.outputs.version }}"
           & "C:\Program Files (x86)\NSIS\makensis.exe" /DVERSION="$version" /DSRCDIR="$PWD" cmake\windows\CoMaps.nsi
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          echo "version=$version" >> $env:GITHUB_OUTPUT
 
       - name: Upload NSIS installer artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CoMaps-windows-x64-setup-${{ github.sha }}
+          name: CoMaps-windows-x64-setup-${{ steps.version.outputs.version }}
           path: CoMaps-windows-x64-setup.exe
           if-no-files-found: error
 
@@ -252,7 +258,7 @@ jobs:
       - name: Download installer artifact
         uses: actions/download-artifact@v4
         with:
-          name: CoMaps-windows-x64-setup-${{ github.sha }}
+          name: CoMaps-windows-x64-setup-${{ needs.windows-build.outputs.version }}
 
       - name: Generate manifest
         run: |
@@ -298,7 +304,7 @@ jobs:
       - name: Upload manifest artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: CoMaps-windows-x64-manifest-${{ github.sha }}
+          name: CoMaps-windows-x64-manifest-${{ needs.windows-build.outputs.version }}
           path: |
             CoMaps.CoMaps.installer.yaml
             CoMaps-windows-x64-setup.exe.sha256
