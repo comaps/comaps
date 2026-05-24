@@ -85,7 +85,11 @@ file(MAKE_DIRECTORY ${RESOURCES_FOLDER})
 
 function(copy_resources)
   foreach(file ${ARGN})
-    file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
+    if(EXISTS ${DATA_DIR}/${file})
+      file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
+    elseif(NOT DEFINED ENV{SKIP_MAP_DOWNLOAD})
+      message(SEND_ERROR "file COPY cannot find \"${DATA_DIR}/${file}\"")
+    endif()
   endforeach()
 endfunction()
 
