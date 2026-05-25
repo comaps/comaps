@@ -66,17 +66,30 @@ LangString DESC_UnData    ${LANG_ENGLISH} "Delete downloaded maps and bookmarks 
 ; Installer init: detect admin rights and set default install directory
 ; ---------------------------------------------------------------------------
 Function .onInit
-  UserInfo::GetAccountType
-  Pop $0
-  ${If} $0 == "Admin"
+  ; Detect elevation by trying to write a test key to HKLM.
+  ; UserInfo::GetAccountType is unreliable on corporate machines where UAC
+  ; elevates via different-account credentials — it may return "Admin" for the
+  ; credential account while the shell context still resolves to that account's
+  ; personal AppData instead of the All Users profile.
+  ; Writing to HKLM directly is the most reliable elevation check.
+  ClearErrors
+  WriteRegStr HKLM "Software\CoMaps" "_ElevTest" "1"
+  ${If} ${Errors}
+    StrCpy $IsAdminInstall 0
+  ${Else}
+    DeleteRegValue HKLM "Software\CoMaps" "_ElevTest"
     StrCpy $IsAdminInstall 1
+  ${EndIf}
+
+  ${If} $IsAdminInstall == 1
+    SetShellVarContext all
     ; Restore previous machine-wide install dir from registry, or use default.
     ReadRegStr $INSTDIR HKLM "Software\CoMaps" "InstallDir"
     ${If} $INSTDIR == ""
       StrCpy $INSTDIR "$PROGRAMFILES64\CoMaps"
     ${EndIf}
   ${Else}
-    StrCpy $IsAdminInstall 0
+    SetShellVarContext current
     ; Restore previous per-user install dir from registry, or use default.
     ReadRegStr $INSTDIR HKCU "Software\CoMaps" "InstallDir"
     ${If} $INSTDIR == ""
@@ -142,8 +155,6 @@ Section "CoMaps" SecMain
                        "NoModify"        1
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
                        "NoRepair"        1
-
-    SetShellVarContext all
   ${Else}
     ; Per-user: registry in HKCU, shortcuts for current user only.
     WriteRegStr HKCU "Software\CoMaps" "InstallDir"   "$INSTDIR"
@@ -168,11 +179,9 @@ Section "CoMaps" SecMain
                        "NoModify"        1
     WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
                        "NoRepair"        1
-
-    SetShellVarContext current
   ${EndIf}
 
-  ; Start Menu shortcut (context set above)
+  ; Start Menu shortcut ($SMPROGRAMS context set in .onInit)
   CreateDirectory "$SMPROGRAMS\CoMaps"
   CreateShortcut "$SMPROGRAMS\CoMaps\CoMaps.lnk" \
     "$INSTDIR\CoMaps.exe" "" "$INSTDIR\CoMaps.exe" 0 \
@@ -187,16 +196,17 @@ SectionEnd
 ; Uninstall init: detect whether this was a machine-wide or per-user install
 ; ---------------------------------------------------------------------------
 Function un.onInit
-  ; Check both HKLM and HKCU to find where this install was registered.
-  ReadRegStr $0 HKLM "Software\CoMaps" "InstallType"
-  ${If} $0 == "machine"
-    StrCpy $IsAdminInstall 1
-    SetShellVarContext all
-  ${Else}
+  ; Use the same HKLM write-test as .onInit to determine elevation.
+  ClearErrors
+  WriteRegStr HKLM "Software\CoMaps" "_ElevTest" "1"
+  ${If} ${Errors}
     StrCpy $IsAdminInstall 0
     SetShellVarContext current
+  ${Else}
+    DeleteRegValue HKLM "Software\CoMaps" "_ElevTest"
+    StrCpy $IsAdminInstall 1
+    SetShellVarContext all
   ${EndIf}
-
 FunctionEnd
 
 ; ---------------------------------------------------------------------------
