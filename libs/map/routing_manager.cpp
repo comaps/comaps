@@ -631,23 +631,40 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
 
       m2::PointD const pt = feature::GetCenter(ft);
 
+      // Find the closest route segment and record whether the route
+      // travels in the forward direction along the underlying road way.
       double minSqDist = numeric_limits<double>::max();
+      bool closestSegIsForward = true;
       m2::PointD prev = startPt;
       for (auto const & s : segments)
       {
         m2::PointD const curr = s.GetJunction().GetPoint();
         m2::ParametrizedSegment<m2::PointD> seg(prev, curr);
-        minSqDist = min(minSqDist, seg.SquaredDistanceToPoint(pt));
-        
-        // Performance break
+        double const d = seg.SquaredDistanceToPoint(pt);
+        if (d < minSqDist)
+        {
+          minSqDist = d;
+          closestSegIsForward = s.GetSegment().IsForward();
+        }
         if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
           break;
 
         prev = curr;
       }
 
-      if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
-        outFeatures.emplace_back(pt, ft.GetID());
+      if (minSqDist >= kSearchRadiusMercator * kSearchRadiusMercator)
+        return;
+
+      // If the signal has a direction hwtag, only include it when it
+      // faces the direction the route is travelling on that road.
+      static uint32_t const kForwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_forward"});
+      static uint32_t const kBackwardType = classif().GetTypeByPath({"hwtag", "traffic_signals_backward"});
+      if (types.Has(kForwardType) && !closestSegIsForward)
+        return;
+      if (types.Has(kBackwardType) && closestSegIsForward)
+        return;
+
+      outFeatures.emplace_back(pt, ft.GetID());
     }, queryRect, scales::GetUpperScale());
   };
 
