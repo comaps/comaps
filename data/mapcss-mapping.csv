@@ -695,8 +695,8 @@ power|plant|hydro;[power=plant][plant:source=hydro];;name;int_name;567;
 power|plant|wind;[power=plant][plant:source=wind];;name;int_name;568;
 power|plant|gas;[power=plant][plant:source=gas];;name;int_name;569;
 power|plant|coal;[power=plant][plant:source=coal];;name;int_name;570;
-deprecated|deprecated;571;x
-deprecated|deprecated;572;x
+hwtag|traffic_signals_forward;571;
+hwtag|traffic_signals_backward;572;
 deprecated|deprecated;573;x
 deprecated|deprecated;574;x
 aerialway|rope_tow;575;
