@@ -197,8 +197,6 @@ Function un.onInit
     SetShellVarContext current
   ${EndIf}
 
-  ; Data deletion section is unchecked by default.
-  SectionSetFlags ${SecUnData} 0
 FunctionEnd
 
 ; ---------------------------------------------------------------------------
