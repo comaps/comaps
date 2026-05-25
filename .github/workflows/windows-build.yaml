@@ -217,6 +217,7 @@ jobs:
       - name: Package portable ZIP
         shell: pwsh
         run: |
+          Copy-Item cmake\windows\README.txt staging\
           Push-Location staging
           Compress-Archive -Path * -DestinationPath "..\CoMaps-windows-x64-portable.zip"
           Pop-Location
