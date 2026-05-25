@@ -280,6 +280,8 @@ public:
     SmallChargingStation,
     MotorcarChargingStation,
     CarlessChargingStation,
+    TrafficSignalForward,
+    TrafficSignalBackward,
     Count
   };
 
@@ -325,6 +327,8 @@ public:
         {SmallChargingStation, {"amenity", "charging_station", "small"}},
         {MotorcarChargingStation, {"amenity", "charging_station", "motorcar"}},
         {CarlessChargingStation, {"amenity", "charging_station", "carless"}},
+        {TrafficSignalForward, {"hwtag", "traffic_signals_forward"}},
+        {TrafficSignalBackward, {"hwtag", "traffic_signals_backward"}},
     };
 
     m_types.resize(static_cast<size_t>(Count));
@@ -1388,6 +1392,17 @@ void PostprocessElement(OsmElement * p, FeatureBuilderParams & params)
       if (params.IsTypeExist(smallChargingStation))
         params.PopExactType(smallChargingStation);
     }
+  }
+
+  uint32_t const trafficSignalBase = classif().GetTypeByPath({"highway", "traffic_signals"});
+  if (params.IsTypeExist(trafficSignalBase))
+  {
+    TagProcessor(p).ApplyRules({
+        {"traffic_signals:direction", "forward",
+         [&] { params.AddType(types.Get(CachedTypes::TrafficSignalForward)); }},
+        {"traffic_signals:direction", "backward",
+         [&] { params.AddType(types.Get(CachedTypes::TrafficSignalBackward)); }},
+    });
   }
 }
 }  // namespace
