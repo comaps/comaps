@@ -1,9 +1,8 @@
 ; NSIS installer script for CoMaps (Windows x64)
 ;
-; Expects to be compiled with the staging\ directory as the working directory,
-; i.e. run from the repo root as:
+; Expects to be compiled from the repo root as:
 ;
-;   makensis /DVERSION=<ver> cmake\windows\CoMaps.nsi
+;   makensis /DVERSION=<ver> /DSRCDIR=<repo-root> cmake\windows\CoMaps.nsi
 ;
 ; where <ver> is the display version string, e.g. "2026.05.22".
 ; The staging\ directory must already be populated by the CI build steps.
@@ -14,11 +13,26 @@ Unicode True
   !define VERSION "0.0.0"
 !endif
 
+; ---------------------------------------------------------------------------
+; MultiUser.nsh — provides "Install for all users / just for me" page,
+; handles UAC re-elevation automatically when "all users" is selected,
+; and sets $INSTDIR, SetShellVarContext, and registry hive accordingly.
+; ---------------------------------------------------------------------------
+!define MULTIUSER_EXECUTIONLEVEL   Highest
+!define MULTIUSER_MUI
+!define MULTIUSER_INSTALLMODE_COMMANDLINE
+!define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_KEY      "Software\CoMaps"
+!define MULTIUSER_INSTALLMODE_DEFAULT_REGISTRY_VALUENAME "InstallMode"
+!define MULTIUSER_INSTALLMODE_INSTDIR                   "CoMaps"
+!define MULTIUSER_INSTALLMODE_INSTDIR_REGISTRY_KEY      "Software\CoMaps"
+!define MULTIUSER_INSTALLMODE_INSTDIR_REGISTRY_VALUENAME "InstallDir"
+!include "MultiUser.nsh"
+!include "MUI2.nsh"
+!include "LogicLib.nsh"
+!include "x64.nsh"
+
 Name "CoMaps"
 OutFile "${SRCDIR}\CoMaps-windows-x64-setup.exe"
-; InstallDir and RequestExecutionLevel are set dynamically in .onInit based on
-; whether the installer is running with admin rights.
-RequestExecutionLevel highest
 
 VIProductVersion "${VERSION}.0"
 VIAddVersionKey "ProductName"     "CoMaps"
@@ -27,29 +41,23 @@ VIAddVersionKey "FileVersion"     "${VERSION}.0"
 VIAddVersionKey "FileDescription" "CoMaps Installer"
 VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 
-; Modern UI + process close support
-!include "MUI2.nsh"
-!include "LogicLib.nsh"
-!include "x64.nsh"
-
 !define MUI_ICON   "${SRCDIR}\qt\res\windows\windows.ico"
 !define MUI_UNICON "${SRCDIR}\qt\res\windows\windows.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_ABORTWARNING
 
-; Whether this is a machine-wide (admin) or per-user install.
-; Set in .onInit; used throughout install and uninstall sections.
-Var IsAdminInstall
-
+; Installer pages
 !insertmacro MUI_PAGE_WELCOME
+!insertmacro MULTIUSER_PAGE_INSTALLMODE   ; "All users" / "Just me" radio buttons
 !insertmacro MUI_PAGE_DIRECTORY
 !insertmacro MUI_PAGE_INSTFILES
-; No finish-page launch: the installer runs elevated and any process it spawns
-; inherits the admin token, causing platform_win.cpp to treat Program Files as
-; writable and store maps there instead of %LOCALAPPDATA%\CoMaps\. Launch from
-; the Start Menu shortcut instead, which always runs unelevated.
+; No finish-page launch: the installer may be running elevated and any process
+; it spawns inherits the admin token, causing platform_win.cpp to treat
+; Program Files as writable and store maps there instead of %LOCALAPPDATA%\CoMaps\.
+; Launch from the Start Menu shortcut instead, which always runs unelevated.
 !insertmacro MUI_PAGE_FINISH
 
+; Uninstaller pages
 !insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
@@ -59,50 +67,24 @@ Var IsAdminInstall
 ; ---------------------------------------------------------------------------
 ; Uninstaller component descriptions
 ; ---------------------------------------------------------------------------
-LangString DESC_UnMain    ${LANG_ENGLISH} "Remove CoMaps and all installed files."
-LangString DESC_UnData    ${LANG_ENGLISH} "Delete downloaded maps and bookmarks stored in %LOCALAPPDATA%\CoMaps\. This cannot be undone."
+LangString DESC_UnMain ${LANG_ENGLISH} "Remove CoMaps and all installed files."
+LangString DESC_UnData ${LANG_ENGLISH} "Delete downloaded maps and bookmarks stored in %LOCALAPPDATA%\CoMaps\. This cannot be undone."
 
 ; ---------------------------------------------------------------------------
-; Installer init: detect admin rights and set default install directory
+; Installer / uninstaller init (MultiUser.nsh handles mode & elevation)
 ; ---------------------------------------------------------------------------
 Function .onInit
-  ; Detect elevation by trying to write a test key to HKLM.
-  ; UserInfo::GetAccountType is unreliable on corporate machines where UAC
-  ; elevates via different-account credentials — it may return "Admin" for the
-  ; credential account while the shell context still resolves to that account's
-  ; personal AppData instead of the All Users profile.
-  ; Writing to HKLM directly is the most reliable elevation check.
-  ClearErrors
-  WriteRegStr HKLM "Software\CoMaps" "_ElevTest" "1"
-  ${If} ${Errors}
-    StrCpy $IsAdminInstall 0
-  ${Else}
-    DeleteRegValue HKLM "Software\CoMaps" "_ElevTest"
-    StrCpy $IsAdminInstall 1
-  ${EndIf}
+  !insertmacro MULTIUSER_INIT
+FunctionEnd
 
-  ${If} $IsAdminInstall == 1
-    SetShellVarContext all
-    ; Restore previous machine-wide install dir from registry, or use default.
-    ReadRegStr $INSTDIR HKLM "Software\CoMaps" "InstallDir"
-    ${If} $INSTDIR == ""
-      StrCpy $INSTDIR "$PROGRAMFILES64\CoMaps"
-    ${EndIf}
-  ${Else}
-    SetShellVarContext current
-    ; Restore previous per-user install dir from registry, or use default.
-    ReadRegStr $INSTDIR HKCU "Software\CoMaps" "InstallDir"
-    ${If} $INSTDIR == ""
-      StrCpy $INSTDIR "$LOCALAPPDATA\Programs\CoMaps"
-    ${EndIf}
-  ${EndIf}
+Function un.onInit
+  !insertmacro MULTIUSER_UNINIT
 FunctionEnd
 
 ; ---------------------------------------------------------------------------
 ; Close CoMaps if running before install/upgrade
 ; ---------------------------------------------------------------------------
 Function CloseCoMapsIfRunning
-  ; Try graceful close first, then force-kill if still running after 3 s.
   FindWindow $0 "" "CoMaps"
   IntCmp $0 0 done_close
     MessageBox MB_OKCANCEL|MB_ICONINFORMATION \
@@ -113,7 +95,6 @@ Function CloseCoMapsIfRunning
     do_close:
       SendMessage $0 ${WM_CLOSE} 0 0
       Sleep 2000
-      ; If still running, force-kill
       FindWindow $0 "" "CoMaps"
       IntCmp $0 0 done_close
         nsExec::ExecToLog 'taskkill /f /im CoMaps.exe'
@@ -131,12 +112,10 @@ Section "CoMaps" SecMain
   SetOutPath "$INSTDIR"
   File /r "${SRCDIR}\staging\*.*"
 
-  ${If} $IsAdminInstall == 1
-    ; Machine-wide: registry in HKLM, shortcuts for all users.
-    WriteRegStr HKLM "Software\CoMaps" "InstallDir"   "$INSTDIR"
-    WriteRegStr HKLM "Software\CoMaps" "Version"      "${VERSION}"
-    WriteRegStr HKLM "Software\CoMaps" "InstallType"  "machine"
-
+  ; MultiUser.nsh sets $MultiUser.InstallMode ("AllUsers" or "CurrentUser"),
+  ; SetShellVarContext, $INSTDIR, and the registry hive automatically.
+  ; We only need to write Add/Remove Programs entries and shortcuts.
+  ${If} $MultiUser.InstallMode == "AllUsers"
     WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
                        "DisplayName"     "CoMaps"
     WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
@@ -156,11 +135,6 @@ Section "CoMaps" SecMain
     WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
                        "NoRepair"        1
   ${Else}
-    ; Per-user: registry in HKCU, shortcuts for current user only.
-    WriteRegStr HKCU "Software\CoMaps" "InstallDir"   "$INSTDIR"
-    WriteRegStr HKCU "Software\CoMaps" "Version"      "${VERSION}"
-    WriteRegStr HKCU "Software\CoMaps" "InstallType"  "user"
-
     WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
                        "DisplayName"     "CoMaps"
     WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
@@ -181,7 +155,8 @@ Section "CoMaps" SecMain
                        "NoRepair"        1
   ${EndIf}
 
-  ; Start Menu shortcut ($SMPROGRAMS context set in .onInit)
+  ; $SMPROGRAMS resolves to All Users or current user based on SetShellVarContext,
+  ; which MultiUser.nsh sets correctly for the chosen install mode.
   CreateDirectory "$SMPROGRAMS\CoMaps"
   CreateShortcut "$SMPROGRAMS\CoMaps\CoMaps.lnk" \
     "$INSTDIR\CoMaps.exe" "" "$INSTDIR\CoMaps.exe" 0 \
@@ -193,39 +168,18 @@ Section "CoMaps" SecMain
 SectionEnd
 
 ; ---------------------------------------------------------------------------
-; Uninstall init: detect whether this was a machine-wide or per-user install
-; ---------------------------------------------------------------------------
-Function un.onInit
-  ; Use the same HKLM write-test as .onInit to determine elevation.
-  ClearErrors
-  WriteRegStr HKLM "Software\CoMaps" "_ElevTest" "1"
-  ${If} ${Errors}
-    StrCpy $IsAdminInstall 0
-    SetShellVarContext current
-  ${Else}
-    DeleteRegValue HKLM "Software\CoMaps" "_ElevTest"
-    StrCpy $IsAdminInstall 1
-    SetShellVarContext all
-  ${EndIf}
-FunctionEnd
-
-; ---------------------------------------------------------------------------
 ; Uninstall sections
 ; ---------------------------------------------------------------------------
 Section "un.CoMaps" SecUnMain
   SectionIn RO  ; required
 
-  ; Remove Start Menu shortcuts (context set in un.onInit)
   Delete "$SMPROGRAMS\CoMaps\CoMaps.lnk"
   Delete "$SMPROGRAMS\CoMaps\Uninstall CoMaps.lnk"
   RMDir  "$SMPROGRAMS\CoMaps"
 
-  ; Remove installed files — delete the entire install directory tree.
-  ; User map downloads live in %LOCALAPPDATA%\CoMaps, not here.
   RMDir /r "$INSTDIR"
 
-  ; Remove registry entries
-  ${If} $IsAdminInstall == 1
+  ${If} $MultiUser.InstallMode == "AllUsers"
     DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps"
     DeleteRegKey HKLM "Software\CoMaps"
   ${Else}
@@ -235,7 +189,7 @@ Section "un.CoMaps" SecUnMain
 SectionEnd
 
 Section /o "un.Delete maps and bookmarks" SecUnData
-  ; Optional, unchecked by default (enforced in un.onInit).
+  ; Optional, unchecked by default (/o flag).
   ; Removes all downloaded maps and bookmarks from the user data folder.
   RMDir /r "$LOCALAPPDATA\CoMaps"
 SectionEnd
