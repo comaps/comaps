@@ -103,30 +103,18 @@ Platform::Platform()
 #endif
 
   // Writable directory:
-  // 1. MWM_WRITABLE_DIR environment variable override
-  // 2. Resources directory if writable (dev builds)
-  // 3. %LOCALAPPDATA%\CoMaps\ (installed builds)
+  // 1. MWM_WRITABLE_DIR environment variable override (dev builds)
+  // 2. %LOCALAPPDATA%\CoMaps\ (always, for installed builds)
+  //
+  // We intentionally do NOT use a write-test on the resources directory.
+  // A write-test would incorrectly pass when:
+  //  - The app runs elevated (e.g. launched from an admin installer), making Program Files writable.
+  //  - The exe is installed per-user in %LOCALAPPDATA%, where the data dir is always writable,
+  //    causing maps to be stored next to the exe and deleted on uninstall.
+  // Dev builds that need a local writable dir should set MWM_WRITABLE_DIR.
   if (char const * envDir = ::getenv("MWM_WRITABLE_DIR"))
-  {
     m_writableDir = std::string(envDir) + "\\";
-  }
-  else if (!m_resourcesDir.empty())
-  {
-    auto const tmpFilePath = base::JoinPath(m_resourcesDir, "mapswithmetmptestfile");
-    try
-    {
-      FileWriter tmpfile(tmpFilePath);
-      tmpfile.Write("Hi from Alex!", 13);
-      m_writableDir = m_resourcesDir;
-      FileWriter::DeleteFileX(tmpFilePath);
-    }
-    catch (RootException const &)
-    {
-      CHECK(GetUserWritableDir(m_writableDir), ("Can't get writable directory"));
-    }
-  }
-
-  if (m_writableDir.empty())
+  else
     CHECK(GetUserWritableDir(m_writableDir), ("Can't get writable directory"));
 
   m_settingsDir = m_writableDir;

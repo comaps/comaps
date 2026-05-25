@@ -16,9 +16,9 @@ Unicode True
 
 Name "CoMaps"
 OutFile "${SRCDIR}\CoMaps-windows-x64-setup.exe"
-InstallDir "$PROGRAMFILES64\CoMaps"
-InstallDirRegKey HKLM "Software\CoMaps" "InstallDir"
-RequestExecutionLevel admin
+; InstallDir and RequestExecutionLevel are set dynamically in .onInit based on
+; whether the installer is running with admin rights.
+RequestExecutionLevel highest
 
 VIProductVersion "${VERSION}.0"
 VIAddVersionKey "ProductName"     "CoMaps"
@@ -29,12 +29,17 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 
 ; Modern UI + process close support
 !include "MUI2.nsh"
+!include "LogicLib.nsh"
 !include "x64.nsh"
 
 !define MUI_ICON   "${SRCDIR}\qt\res\windows\windows.ico"
 !define MUI_UNICON "${SRCDIR}\qt\res\windows\windows.ico"
 !define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 !define MUI_ABORTWARNING
+
+; Whether this is a machine-wide (admin) or per-user install.
+; Set in .onInit; used throughout install and uninstall sections.
+Var IsAdminInstall
 
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_DIRECTORY
@@ -45,10 +50,40 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 ; the Start Menu shortcut instead, which always runs unelevated.
 !insertmacro MUI_PAGE_FINISH
 
+!insertmacro MUI_UNPAGE_COMPONENTS
 !insertmacro MUI_UNPAGE_CONFIRM
 !insertmacro MUI_UNPAGE_INSTFILES
 
 !insertmacro MUI_LANGUAGE "English"
+
+; ---------------------------------------------------------------------------
+; Uninstaller component descriptions
+; ---------------------------------------------------------------------------
+LangString DESC_UnMain    ${LANG_ENGLISH} "Remove CoMaps and all installed files."
+LangString DESC_UnData    ${LANG_ENGLISH} "Delete downloaded maps and bookmarks stored in %LOCALAPPDATA%\CoMaps\. This cannot be undone."
+
+; ---------------------------------------------------------------------------
+; Installer init: detect admin rights and set default install directory
+; ---------------------------------------------------------------------------
+Function .onInit
+  UserInfo::GetAccountType
+  Pop $0
+  ${If} $0 == "Admin"
+    StrCpy $IsAdminInstall 1
+    ; Restore previous machine-wide install dir from registry, or use default.
+    ReadRegStr $INSTDIR HKLM "Software\CoMaps" "InstallDir"
+    ${If} $INSTDIR == ""
+      StrCpy $INSTDIR "$PROGRAMFILES64\CoMaps"
+    ${EndIf}
+  ${Else}
+    StrCpy $IsAdminInstall 0
+    ; Restore previous per-user install dir from registry, or use default.
+    ReadRegStr $INSTDIR HKCU "Software\CoMaps" "InstallDir"
+    ${If} $INSTDIR == ""
+      StrCpy $INSTDIR "$LOCALAPPDATA\Programs\CoMaps"
+    ${EndIf}
+  ${EndIf}
+FunctionEnd
 
 ; ---------------------------------------------------------------------------
 ; Close CoMaps if running before install/upgrade
@@ -83,31 +118,61 @@ Section "CoMaps" SecMain
   SetOutPath "$INSTDIR"
   File /r "${SRCDIR}\staging\*.*"
 
-  ; Store install dir and version in registry
-  WriteRegStr HKLM "Software\CoMaps" "InstallDir" "$INSTDIR"
-  WriteRegStr HKLM "Software\CoMaps" "Version"    "${VERSION}"
+  ${If} $IsAdminInstall == 1
+    ; Machine-wide: registry in HKLM, shortcuts for all users.
+    WriteRegStr HKLM "Software\CoMaps" "InstallDir"   "$INSTDIR"
+    WriteRegStr HKLM "Software\CoMaps" "Version"      "${VERSION}"
+    WriteRegStr HKLM "Software\CoMaps" "InstallType"  "machine"
 
-  ; Add/Remove Programs entry
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "DisplayName"          "CoMaps"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "DisplayVersion"       "${VERSION}"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "Publisher"            "CoMaps Community"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "DisplayIcon"          "$INSTDIR\CoMaps.exe"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "UninstallString"      "$INSTDIR\Uninstall.exe"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "InstallLocation"      "$INSTDIR"
-  WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "URLInfoAbout"         "https://comaps.app"
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "NoModify"             1
-  WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
-                     "NoRepair"             1
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayName"     "CoMaps"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayVersion"  "${VERSION}"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "Publisher"       "CoMaps Community"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayIcon"     "$INSTDIR\CoMaps.exe"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "UninstallString" "$INSTDIR\Uninstall.exe"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "InstallLocation" "$INSTDIR"
+    WriteRegStr   HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "URLInfoAbout"    "https://comaps.app"
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "NoModify"        1
+    WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "NoRepair"        1
 
-  ; Start Menu shortcut
+    SetShellVarContext all
+  ${Else}
+    ; Per-user: registry in HKCU, shortcuts for current user only.
+    WriteRegStr HKCU "Software\CoMaps" "InstallDir"   "$INSTDIR"
+    WriteRegStr HKCU "Software\CoMaps" "Version"      "${VERSION}"
+    WriteRegStr HKCU "Software\CoMaps" "InstallType"  "user"
+
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayName"     "CoMaps"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayVersion"  "${VERSION}"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "Publisher"       "CoMaps Community"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "DisplayIcon"     "$INSTDIR\CoMaps.exe"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "UninstallString" "$INSTDIR\Uninstall.exe"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "InstallLocation" "$INSTDIR"
+    WriteRegStr   HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "URLInfoAbout"    "https://comaps.app"
+    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "NoModify"        1
+    WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps" \
+                       "NoRepair"        1
+
+    SetShellVarContext current
+  ${EndIf}
+
+  ; Start Menu shortcut (context set above)
   CreateDirectory "$SMPROGRAMS\CoMaps"
   CreateShortcut "$SMPROGRAMS\CoMaps\CoMaps.lnk" \
     "$INSTDIR\CoMaps.exe" "" "$INSTDIR\CoMaps.exe" 0 \
@@ -119,20 +184,55 @@ Section "CoMaps" SecMain
 SectionEnd
 
 ; ---------------------------------------------------------------------------
-; Uninstall section
+; Uninstall init: detect whether this was a machine-wide or per-user install
 ; ---------------------------------------------------------------------------
-Section "Uninstall"
-  ; Remove Start Menu shortcuts
+Function un.onInit
+  ; Check both HKLM and HKCU to find where this install was registered.
+  ReadRegStr $0 HKLM "Software\CoMaps" "InstallType"
+  ${If} $0 == "machine"
+    StrCpy $IsAdminInstall 1
+    SetShellVarContext all
+  ${Else}
+    StrCpy $IsAdminInstall 0
+    SetShellVarContext current
+  ${EndIf}
+
+  ; Data deletion section is unchecked by default.
+  SectionSetFlags ${SecUnData} 0
+FunctionEnd
+
+; ---------------------------------------------------------------------------
+; Uninstall sections
+; ---------------------------------------------------------------------------
+Section "un.CoMaps" SecUnMain
+  SectionIn RO  ; required
+
+  ; Remove Start Menu shortcuts (context set in un.onInit)
   Delete "$SMPROGRAMS\CoMaps\CoMaps.lnk"
   Delete "$SMPROGRAMS\CoMaps\Uninstall CoMaps.lnk"
   RMDir  "$SMPROGRAMS\CoMaps"
 
   ; Remove installed files — delete the entire install directory tree.
-  ; User map downloads live in %LOCALAPPDATA%\CoMaps, not here, so they
-  ; are preserved by default.
+  ; User map downloads live in %LOCALAPPDATA%\CoMaps, not here.
   RMDir /r "$INSTDIR"
 
   ; Remove registry entries
-  DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps"
-  DeleteRegKey HKLM "Software\CoMaps"
+  ${If} $IsAdminInstall == 1
+    DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps"
+    DeleteRegKey HKLM "Software\CoMaps"
+  ${Else}
+    DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\CoMaps"
+    DeleteRegKey HKCU "Software\CoMaps"
+  ${EndIf}
 SectionEnd
+
+Section /o "un.Delete maps and bookmarks" SecUnData
+  ; Optional, unchecked by default (enforced in un.onInit).
+  ; Removes all downloaded maps and bookmarks from the user data folder.
+  RMDir /r "$LOCALAPPDATA\CoMaps"
+SectionEnd
+
+!insertmacro MUI_UNFUNCTION_DESCRIPTION_BEGIN
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecUnMain} $(DESC_UnMain)
+  !insertmacro MUI_DESCRIPTION_TEXT ${SecUnData} $(DESC_UnData)
+!insertmacro MUI_UNFUNCTION_DESCRIPTION_END

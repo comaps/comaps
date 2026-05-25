@@ -214,6 +214,20 @@ jobs:
       #     if-no-files-found: warn
       # ---------------------------------------------------------------------------
 
+      - name: Package portable ZIP
+        shell: pwsh
+        run: |
+          Push-Location staging
+          Compress-Archive -Path * -DestinationPath "..\CoMaps-windows-x64-portable.zip"
+          Pop-Location
+
+      - name: Upload portable ZIP artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoMaps-windows-x64-portable-${{ steps.version.outputs.version }}
+          path: CoMaps-windows-x64-portable.zip
+          if-no-files-found: error
+
       - name: Build NSIS installer
         shell: pwsh
         run: |
@@ -260,19 +274,28 @@ jobs:
         with:
           name: CoMaps-windows-x64-setup-${{ needs.windows-build.outputs.version }}
 
-      - name: Generate manifest
+      - name: Download portable ZIP artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: CoMaps-windows-x64-portable-${{ needs.windows-build.outputs.version }}
+
+      - name: Generate manifests and checksums
         run: |
-          filename="CoMaps-windows-x64-setup.exe"
-          sha256=$(sha256sum "$filename" | awk '{print $1}')
           version="${{ needs.windows-build.outputs.version }}"
           base_url="https://cdn-us-1.comaps.app/windows/${version}"
-          echo "SHA256=$sha256" >> "$GITHUB_ENV"
           echo "VERSION=$version" >> "$GITHUB_ENV"
 
-          # Flat sha256 sidecar
-          echo "$sha256  $filename" > "${filename}.sha256"
+          installer="CoMaps-windows-x64-setup.exe"
+          portable="CoMaps-windows-x64-portable.zip"
 
-          # WinGet installer manifest — can be used directly to update winget-pkgs
+          installer_sha256=$(sha256sum "$installer" | awk '{print $1}')
+          portable_sha256=$(sha256sum  "$portable"  | awk '{print $1}')
+
+          # Flat sha256 sidecars
+          echo "$installer_sha256  $installer" > "${installer}.sha256"
+          echo "$portable_sha256  $portable"   > "${portable}.sha256"
+
+          # WinGet installer manifest (NSIS installer only) — can be used directly to update winget-pkgs
           cat > CoMaps.CoMaps.installer.yaml <<EOF
           # yaml-language-server: \$schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
           PackageIdentifier: CoMaps.CoMaps
@@ -294,8 +317,8 @@ jobs:
               - PackageIdentifier: Microsoft.VCRedist.2015+.x64
           Installers:
             - Architecture: x64
-              InstallerUrl: ${base_url}/${filename}
-              InstallerSha256: ${sha256}
+              InstallerUrl: ${base_url}/${installer}
+              InstallerSha256: ${installer_sha256}
           ManifestType: installer
           ManifestVersion: 1.12.0
           EOF
@@ -308,6 +331,7 @@ jobs:
           path: |
             CoMaps.CoMaps.installer.yaml
             CoMaps-windows-x64-setup.exe.sha256
+            CoMaps-windows-x64-portable.zip.sha256
           if-no-files-found: error
 
       - name: Upload to SFTP
@@ -317,14 +341,17 @@ jobs:
         run: |
           base="${{ secrets.SFTP_BASE_PATH }}"
           remote="${base}/${{ env.VERSION }}"
-          filename="CoMaps-windows-x64-setup.exe"
+          installer="CoMaps-windows-x64-setup.exe"
+          portable="CoMaps-windows-x64-portable.zip"
 
           sftp_cmds=$(mktemp)
           cat > "$sftp_cmds" <<EOF
           -mkdir ${base}
           -mkdir ${remote}
-          put ${filename} ${remote}/${filename}
-          put ${filename}.sha256 ${remote}/${filename}.sha256
+          put ${installer} ${remote}/${installer}
+          put ${installer}.sha256 ${remote}/${installer}.sha256
+          put ${portable} ${remote}/${portable}
+          put ${portable}.sha256 ${remote}/${portable}.sha256
           put CoMaps.CoMaps.installer.yaml ${remote}/CoMaps.CoMaps.installer.yaml
           EOF
 
