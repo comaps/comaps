@@ -79,6 +79,7 @@ TranslatorCountry::TranslatorCountry(std::shared_ptr<FeatureProcessorInterface> 
   , m_tagAdmixer(std::make_shared<TagAdmixer>(info.GetIntermediateFileName("ways", ".csv"),
                                               info.GetIntermediateFileName(TOWNS_FILE)))
   , m_tagReplacer(std::make_shared<TagReplacer>(base::JoinPath(GetPlatform().ResourcesDir(), REPLACED_TAGS_FILE)))
+  , m_junctionRefEnricher(std::make_shared<JunctionRefEnricher>())
 {
   /// @todo This option is not used, but may be useful in future?
   //  if (needMixTags)
@@ -134,6 +135,7 @@ std::shared_ptr<TranslatorInterface> TranslatorCountry::Clone() const
   copy->m_tagAdmixer = m_tagAdmixer;
   copy->m_tagReplacer = m_tagReplacer;
   copy->m_osmTagMixer = m_osmTagMixer;
+  copy->m_junctionRefEnricher = m_junctionRefEnricher;
   return copy;
 }
 
@@ -144,6 +146,7 @@ void TranslatorCountry::Preprocess(OsmElement & element)
   m_tagAdmixer->Process(element);
   if (m_osmTagMixer)
     m_osmTagMixer->Process(element);
+  m_junctionRefEnricher->Process(element);
   CollectFromRelations(element);
 }
 

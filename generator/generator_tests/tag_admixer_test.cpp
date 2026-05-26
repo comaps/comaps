@@ -2,6 +2,8 @@
 
 #include "generator/tag_admixer.hpp"
 
+#include "indexer/osm_element.hpp"
+
 #include "platform/platform_tests_support/scoped_file.hpp"
 
 #include <algorithm>
@@ -56,6 +58,93 @@ UNIT_TEST(CapitalsParserTests)
   TEST(capitals.find(242715809) != capitals.end(), ());
   TEST(capitals.find(448768937) != capitals.end(), ());
   TEST(capitals.find(140247101) == capitals.end(), ());
+}
+
+UNIT_TEST(JunctionRefEnricher_PropagatesJunctionRefFromNodeToWay)
+{
+  JunctionRefEnricher enricher;
+
+  // Node: highway=motorway_junction with junction:ref
+  OsmElement node;
+  node.m_type = OsmElement::EntityType::Node;
+  node.m_id = 42;
+  node.AddTag("highway", "motorway_junction");
+  node.AddTag("junction:ref", "17B");
+  enricher.Process(node);
+
+  // Way: highway=motorway_link whose first node is the junction node
+  OsmElement way;
+  way.m_type = OsmElement::EntityType::Way;
+  way.m_id = 100;
+  way.AddTag("highway", "motorway_link");
+  way.m_nodes = {42, 43, 44};
+  enricher.Process(way);
+
+  TEST_EQUAL(way.GetTag("junction:ref"), "17B", ());
+}
+
+UNIT_TEST(JunctionRefEnricher_FallsBackToPlainRef)
+{
+  JunctionRefEnricher enricher;
+
+  OsmElement node;
+  node.m_type = OsmElement::EntityType::Node;
+  node.m_id = 55;
+  node.AddTag("highway", "motorway_junction");
+  node.AddTag("ref", "5");
+  enricher.Process(node);
+
+  OsmElement way;
+  way.m_type = OsmElement::EntityType::Way;
+  way.m_id = 200;
+  way.AddTag("highway", "motorway_link");
+  way.m_nodes = {55, 56};
+  enricher.Process(way);
+
+  TEST_EQUAL(way.GetTag("junction:ref"), "5", ());
+}
+
+UNIT_TEST(JunctionRefEnricher_DoesNotOverwriteExistingRef)
+{
+  JunctionRefEnricher enricher;
+
+  OsmElement node;
+  node.m_type = OsmElement::EntityType::Node;
+  node.m_id = 77;
+  node.AddTag("highway", "motorway_junction");
+  node.AddTag("junction:ref", "99");
+  enricher.Process(node);
+
+  OsmElement way;
+  way.m_type = OsmElement::EntityType::Way;
+  way.m_id = 300;
+  way.AddTag("highway", "motorway_link");
+  way.AddTag("junction:ref", "existing");
+  way.m_nodes = {77, 78};
+  enricher.Process(way);
+
+  TEST_EQUAL(way.GetTag("junction:ref"), "existing", ());
+}
+
+UNIT_TEST(JunctionRefEnricher_IgnoresNonLinkWays)
+{
+  JunctionRefEnricher enricher;
+
+  OsmElement node;
+  node.m_type = OsmElement::EntityType::Node;
+  node.m_id = 88;
+  node.AddTag("highway", "motorway_junction");
+  node.AddTag("junction:ref", "7");
+  enricher.Process(node);
+
+  OsmElement way;
+  way.m_type = OsmElement::EntityType::Way;
+  way.m_id = 400;
+  way.AddTag("highway", "motorway");
+  way.m_nodes = {88, 89};
+  enricher.Process(way);
+
+  TEST(way.GetTag("junction:ref").empty(), ());
 }
 
 UNIT_TEST(TagsReplacer_Smoke)
