@@ -89,14 +89,14 @@ Function .onInit
   ${If} $0 != ""
     StrCpy $IsUpgrade 1
     ; Force all-users mode and restore directory.
-    !insertmacro MULTIUSER_INSTALLMODE_ALLUSERS
+    Call MultiUser.InstallMode.AllUsers
     StrCpy $INSTDIR $0
   ${Else}
     ReadRegStr $0 HKCU "Software\CoMaps" "InstallDir"
     ${If} $0 != ""
       StrCpy $IsUpgrade 1
       ; Force current-user mode and restore directory.
-      !insertmacro MULTIUSER_INSTALLMODE_CURRENTUSER
+      Call MultiUser.InstallMode.CurrentUser
       StrCpy $INSTDIR $0
     ${EndIf}
   ${EndIf}
