@@ -48,8 +48,10 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 
 ; Installer pages
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MULTIUSER_PAGE_INSTALLMODE   ; "All users" / "Just me" radio buttons
-!insertmacro MUI_PAGE_DIRECTORY
+!define MULTIUSER_PAGE_CUSTOMFUNCTION_PRE PageInstallModeSkipIfUpgrade
+!insertmacro MULTIUSER_PAGE_INSTALLMODE   ; "All users" / "Just me" radio buttons — skipped on upgrade
+!define MUI_PAGE_CUSTOMFUNCTION_PRE PageDirectorySkipIfUpgrade
+!insertmacro MUI_PAGE_DIRECTORY           ; skipped on upgrade (location locked to existing install)
 !insertmacro MUI_PAGE_INSTFILES
 ; No finish-page launch: the installer may be running elevated and any process
 ; it spawns inherits the admin token, causing platform_win.cpp to treat
@@ -70,11 +72,54 @@ VIAddVersionKey "LegalCopyright"  "Copyright 2026 The CoMaps Community"
 LangString DESC_UnMain ${LANG_ENGLISH} "Remove CoMaps and all installed files."
 LangString DESC_UnData ${LANG_ENGLISH} "Delete downloaded maps and bookmarks stored in %LOCALAPPDATA%\CoMaps\. This cannot be undone."
 
+; Whether we detected an existing install and are upgrading (1) or doing a fresh install (0).
+Var IsUpgrade
+
 ; ---------------------------------------------------------------------------
 ; Installer / uninstaller init (MultiUser.nsh handles mode & elevation)
 ; ---------------------------------------------------------------------------
 Function .onInit
   !insertmacro MULTIUSER_INIT
+
+  ; Detect an existing install. Check HKLM first (all-users), then HKCU (per-user).
+  ; If found, lock the install mode and directory to match, and flag as an upgrade.
+  StrCpy $IsUpgrade 0
+
+  ReadRegStr $0 HKLM "Software\CoMaps" "InstallDir"
+  ${If} $0 != ""
+    StrCpy $IsUpgrade 1
+    ; Force all-users mode and restore directory.
+    !insertmacro MULTIUSER_INSTALLMODE_ALLUSERS
+    StrCpy $INSTDIR $0
+  ${Else}
+    ReadRegStr $0 HKCU "Software\CoMaps" "InstallDir"
+    ${If} $0 != ""
+      StrCpy $IsUpgrade 1
+      ; Force current-user mode and restore directory.
+      !insertmacro MULTIUSER_INSTALLMODE_CURRENTUSER
+      StrCpy $INSTDIR $0
+    ${EndIf}
+  ${EndIf}
+
+  ; When upgrading, replace the welcome text and skip the install-mode page.
+  ${If} $IsUpgrade == 1
+    ; Override the Name shown throughout the installer to say "Upgrade".
+    Name "CoMaps Upgrade"
+  ${EndIf}
+FunctionEnd
+
+; Skip the install-mode page when upgrading (mode is locked).
+Function PageInstallModeSkipIfUpgrade
+  ${If} $IsUpgrade == 1
+    Abort  ; Abort the page — NSIS skips to the next one.
+  ${EndIf}
+FunctionEnd
+
+; Skip the directory page when upgrading (location is locked).
+Function PageDirectorySkipIfUpgrade
+  ${If} $IsUpgrade == 1
+    Abort
+  ${EndIf}
 FunctionEnd
 
 Function un.onInit
