@@ -43,5 +43,6 @@ protected:
   std::shared_ptr<TagAdmixer> m_tagAdmixer;
   std::shared_ptr<TagReplacer> m_tagReplacer;
   std::shared_ptr<OsmTagMixer> m_osmTagMixer;
+  std::shared_ptr<JunctionRefEnricher> m_junctionRefEnricher;
 };
 }  // namespace generator

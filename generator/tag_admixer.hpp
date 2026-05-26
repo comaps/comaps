@@ -10,8 +10,10 @@
 #include <fstream>
 #include <iostream>
 #include <map>
+#include <mutex>
 #include <set>
 #include <string>
+#include <unordered_map>
 #include <utility>
 
 class WaysParserHelper
@@ -285,4 +287,50 @@ public:
 
 private:
   std::map<std::pair<OsmElement::EntityType, uint64_t>, std::vector<OsmElement::Tag>> m_elements;
+};
+
+class JunctionRefEnricher
+{
+public:
+  void Process(OsmElement & element)
+  {
+    if (element.m_type == OsmElement::EntityType::Node)
+    {
+      if (element.GetTag("highway") != "motorway_junction")
+        return;
+
+      // Prefer junction:ref; fall back to plain ref (the same value on well-tagged nodes).
+      auto ref = element.GetTag("junction:ref");
+      if (ref.empty())
+        ref = element.GetTag("ref");
+      if (ref.empty())
+        return;
+
+      std::lock_guard<std::mutex> lock(m_mutex);
+      m_junctionNodes[element.m_id] = std::move(ref);
+    }
+    else if (element.m_type == OsmElement::EntityType::Way)
+    {
+      if (element.m_nodes.empty())
+        return;
+      // Only propagate to link roads branching off a motorway junction.
+      if (element.GetTag("highway").find("_link") == std::string::npos)
+        return;
+      // Don't overwrite an explicit junction:ref already on the way.
+      if (!element.GetTag("junction:ref").empty())
+        return;
+
+      std::lock_guard<std::mutex> lock(m_mutex);
+      // Check front (normal direction) and back (oneway=-1 reversed ways).
+      auto it = m_junctionNodes.find(element.m_nodes.front());
+      if (it == m_junctionNodes.end())
+        it = m_junctionNodes.find(element.m_nodes.back());
+      if (it != m_junctionNodes.end())
+        element.AddTag("junction:ref", it->second);
+    }
+  }
+
+private:
+  std::mutex m_mutex;
+  std::unordered_map<uint64_t, std::string> m_junctionNodes;
 };
