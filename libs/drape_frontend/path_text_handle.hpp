@@ -21,7 +21,14 @@ public:
 
   bool GetPivot(size_t textIndex, m2::PointD & pivot, m2::Spline::iterator & centerPointIter) const;
 
-  // TODO: these are unused?
+  // Both methods are called via PathTextHandle, which is itself an OverlayHandle.
+  // RenderBucket::Update() calls BeforeUpdate() then Update() on every overlay handle it owns;
+  // PathTextHandle delegates both calls down to its shared PathTextContext.
+  //
+  // BeforeUpdate() resets m_updated so that the next Update() call will re-project the spline.
+  // Multiple PathTextHandle instances (e.g. a road name repeated along a long road) can share
+  // one PathTextContext; the m_updated guard ensures the expensive GtoP pixel-spline projection
+  // runs only once per frame per context, not once per handle.
   inline void BeforeUpdate() { m_updated = false; }
   void Update(ScreenBase const & screen);
 
