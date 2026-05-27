@@ -35,6 +35,24 @@ struct PostprocessStaticTextures
 
 using PrerenderFrame = std::function<void(ScreenBase const & modelView)>;
 
+// PostprocessRenderer implements the post-process pass that runs after all map geometry has been
+// drawn to an offscreen framebuffer. Currently the only effect is SMAA antialiasing.
+//
+// Per-frame protocol (called by FrontendRenderer):
+//   1. BeginFrame()  — redirect rendering to m_mainFramebuffer (offscreen). Returns false if
+//      post-processing is disabled or the frame is inactive, in which case rendering goes
+//      directly to the default framebuffer and EndFrame() need not be called.
+//   2. Normal scene rendering happens (geometry, overlays, GUI).
+//   3. EndFrame()    — runs enabled effects (SMAA passes: edges → weights → blend) and blits the
+//      result to the default framebuffer/screen. Returns false if nothing was rendered.
+//
+// Stencil writing is used to mask route geometry during routing mode:
+//   EnableWritingToStencil() / DisableWritingToStencil() bracket the route draw calls.
+//   StencilWriterGuard is a RAII helper for this. The stencil is read by the SMAA pass to avoid
+//   over-sharpening on route edges, and by OnChangedRouteFollowingMode() to switch framebuffers.
+//
+// OnFramebufferFallback() is called when the primary framebuffer cannot be created (e.g. GPU
+// out of memory). It disables the post-process pass so rendering falls back to the default FB.
 class PostprocessRenderer
 {
 public:

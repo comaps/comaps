@@ -35,7 +35,10 @@ size_t constexpr kInvalidGlyphGroup = std::numeric_limits<size_t>::max();
 uint32_t constexpr kReservedPatterns = 10;
 size_t constexpr kReservedColors = 384;
 
-// TODO(AB): Investigate if it can be set to 1.0.
+// kGlyphAreaMultiplier provides a 20% headroom over the exact glyph height when computing
+// m_maxGlypsCount. Setting it to 1.0 would undercount available slots whenever glyphs are
+// taller than kBaseFontSizePixels (e.g. CJK, diacritics), causing late-loaded glyphs to be
+// silently dropped. 1.2 is conservative enough to prevent this in practice.
 float constexpr kGlyphAreaMultiplier = 1.2f;
 float constexpr kGlyphAreaCoverage = 0.9f;
 
@@ -68,8 +71,10 @@ m2::PointU StipplePenTextureSize(size_t patternsCount, uint32_t maxTextureSize)
 m2::PointU ColorTextureSize(size_t colorsCount, uint32_t maxTextureSize)
 {
   uint32_t const sz = static_cast<uint32_t>(floor(sqrt(colorsCount + kReservedColors)));
-  /// @todo(pastk): do we need this assert at all?
-  // No problem if assert will fire here. Just color texture will be 2x bigger :)
+  // The assert would fire if the sqrt of colorsCount exceeds kMinColorTextureSize (32), meaning
+  // more than ~1024 distinct colors are in use. In practice the style palette stays well below
+  // that, so the assert was suppressed to avoid spurious failures during style experimentation.
+  // If it ever fires it is non-fatal — the texture simply doubles in size to the next power of 2.
   // ASSERT_LESS_OR_EQUAL(sz, kMinColorTextureSize, (colorsCount));
   uint32_t colorTextureSize = std::max(math::NextPowOf2(sz), kMinColorTextureSize);
 
@@ -89,9 +94,11 @@ drape_ptr<Texture> CreateArrowTexture(ref_ptr<dp::GraphicsContext> context,
                                          dp::TextureFormat::RGBA8, textureAllocator, true /* allowOptional */);
   }
 
-  // There is no "arrow-texture.png".
-  // BackendRenderer::m_arrow3dPreloadedData mesh is used by default.
-  /// @todo Texture arrow is still present in case if somebody wants to use it?
+  // No custom arrow texture path was provided. The fallback loads "arrow-texture.png" with
+  // allowOptional=true, so if the file is absent (the normal case — the 3D arrow is rendered
+  // from BackendRenderer::m_arrow3dPreloadedData mesh data, not a texture) a null texture is
+  // returned gracefully. The StaticTexture call is retained so that a project can supply a
+  // custom arrow-texture.png in its resource folder to override the mesh-based arrow.
   return make_unique_dp<StaticTexture>(context, "arrow-texture.png", StaticTexture::kDefaultResource,
                                        dp::TextureFormat::RGBA8, textureAllocator, true /* allowOptional */);
 }

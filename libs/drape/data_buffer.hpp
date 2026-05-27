@@ -26,6 +26,18 @@ public:
   virtual void Bind() = 0;
 };
 
+// DataBuffer wraps a single vertex or index buffer through its two-phase lifecycle:
+//
+//   Phase 1 — CPU side: the buffer is backed by a CPUBuffer (plain heap memory). BackendRenderer
+//     fills it with vertex/index data via UploadData(). This phase happens on the reading thread.
+//
+//   Phase 2 — GPU side: VertexArrayBuffer::Preflush() calls MoveToGPU(), which creates the real
+//     GPU resource (an OpenGL VBO, Metal buffer, or Vulkan buffer) from the CPUBuffer contents
+//     and discards the CPU copy. After this point GetBuffer() returns a GPUBuffer / Metal /
+//     Vulkan impl. MoveToGPU() is not reversible.
+//
+// DataBufferMapper is a RAII helper for the Map()/UpdateData()/Unmap() triplet used to update
+// dynamic buffers each frame (e.g. animated normals for path text, user-location geometry).
 class DataBuffer
 {
 public:

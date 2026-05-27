@@ -15,6 +15,20 @@ class OverlayHandle;
 class OverlayTree;
 class VertexArrayBuffer;
 
+// RenderBucket is the unit of flushed geometry passed from BackendRenderer to FrontendRenderer.
+//
+// It pairs a VertexArrayBuffer (the raw vertex/index geometry for one RenderState) with an
+// optional list of OverlayHandles (interactive hit-test elements such as POI labels or icons).
+//
+// Lifecycle:
+//   BackendRenderer: Batcher::EndSession() finalises a bucket and calls the TFlushFn callback,
+//     which posts a FlushTileMessage carrying the bucket to FrontendRenderer.
+//   FrontendRenderer: the bucket is stored inside a RenderGroup (keyed by TileKey + RenderState).
+//     Each frame, FrontendRenderer calls CollectOverlayHandles() to register visible overlays with
+//     the OverlayTree, then Render() to draw the geometry.
+//
+// Thread safety: a bucket is created on BackendRenderer's thread, ownership is transferred via
+// drape_ptr move to FrontendRenderer; after that point it is only touched on the FR thread.
 class RenderBucket
 {
 public:

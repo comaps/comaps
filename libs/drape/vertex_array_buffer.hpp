@@ -49,6 +49,21 @@ namespace vulkan
 class VulkanVertexArrayBufferImpl;
 }  // namespace vulkan
 
+// VertexArrayBuffer owns the GPU-side geometry for one tile batch. It holds static buffers
+// (filled once by Batcher, never modified) and dynamic buffers (updated each frame for animated
+// elements such as user-location arrows or route progress indicators).
+//
+// Threading model — three distinct phases, each on a specific thread:
+//   1. BackendRenderer / reading thread: UploadData() / UploadIndices() fill CPU-side DataBuffers.
+//      Preflush() is then called, which transfers data to the GPU (creates OpenGL VBOs, Metal
+//      buffers, or Vulkan staging buffers). After Preflush(), the buffer is ready for rendering
+//      but the VAO has NOT been created yet.
+//   2. FrontendRenderer thread: Build() creates the VAO and binds attribute pointers. This must
+//      happen on the FR thread because OpenGL VAOs are bound to the context that created them.
+//   3. FrontendRenderer thread: Render() / RenderRange() issue the draw call.
+//
+// Metal / Vulkan use a VertexArrayBufferImpl subclass that replaces the OpenGL VAO mechanism with
+// the appropriate API equivalent; the Preflush / Build / Render call sequence is preserved.
 class VertexArrayBuffer
 {
   friend class metal::MetalVertexArrayBufferImpl;

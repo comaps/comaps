@@ -7,6 +7,19 @@
 
 namespace dp
 {
+// AttributeProvider is a read cursor over caller-owned vertex data, consumed by Batcher::Insert*().
+//
+// A provider has N streams, each mapping to one BindingInfo (a set of vertex attributes, e.g.
+// position, UV, colour). Streams allow vertex attributes to be stored in separate arrays
+// (stream-of-structures or structure-of-arrays) rather than forcing a single interleaved layout.
+//
+// Usage:
+//   1. Construct with streamCount = number of attribute arrays, vertexCount = vertices to upload.
+//   2. Call InitStream() once per stream, pointing each to a caller-managed data buffer.
+//   3. Pass the provider to Batcher::Insert*(), which calls GetRawPointer() / Advance() to pull
+//      vertices in chunks that fit the current VertexArrayBuffer capacity.
+//   4. The provider does NOT own the data — the caller must keep the buffers alive until the
+//      Batcher call returns.
 class AttributeProvider
 {
 public:

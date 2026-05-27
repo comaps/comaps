@@ -19,6 +19,24 @@ namespace df
 {
 using OnGraphicsContextInitialized = std::function<void()>;
 
+// BaseRenderer is the common base for FrontendRenderer (RenderThread) and BackendRenderer
+// (ResourceUploadThread). Each subclass owns a dedicated OS thread and a graphics context.
+//
+// Thread lifecycle:
+//   StartThread() spawns the thread, which calls CreateContext() → OnContextCreate() and then
+//   enters the render loop (IterateRenderLoop()). Each loop iteration drains the message queue
+//   (MessageAcceptor::ProcessMessages()) and calls RenderFrame() for FrontendRenderer.
+//   StopThread() posts a stop message and joins the thread.
+//
+// Rendering can be suspended and resumed without destroying the thread:
+//   SetRenderingDisabled(destroySurface=true)  — surface lost (e.g. app backgrounded on Android)
+//   SetRenderingDisabled(destroySurface=false) — pause without surface loss
+//   SetRenderingEnabled()  — surface recreated; re-creates the context if it was destroyed.
+//   Subclasses are notified via OnRenderingEnabled() / OnRenderingDisabled().
+//
+// CanReceiveMessages() returns false when the renderer is stopped and messages should not be
+// posted. IterateRenderLoop() is called by the platform's GL thread (Qt) instead of the
+// internal thread on platforms that require rendering on the main/platform thread.
 class BaseRenderer : public MessageAcceptor
 {
 public:

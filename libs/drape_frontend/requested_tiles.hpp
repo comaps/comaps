@@ -8,6 +8,16 @@
 
 namespace df
 {
+// RequestedTiles is a thread-safe single-slot mailbox between FrontendRenderer and BackendRenderer.
+//
+// FrontendRenderer calls Set() each time the viewport changes (new tile set computed).
+// BackendRenderer calls GetTiles() / GetParams() to consume the latest request before launching
+// reads. Only the most recent request is kept — if the viewport changes again before the backend
+// has consumed the previous request, the old request is silently replaced. This is intentional:
+// there is no point reading tiles for a viewport the user has already scrolled away from.
+//
+// CheckTileKey() can be called from either thread to verify that a given tile is still in the
+// most recently requested set (used to cancel in-flight reads for tiles that are no longer needed).
 class RequestedTiles
 {
 public:

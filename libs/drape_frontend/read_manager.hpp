@@ -29,6 +29,23 @@ class MetalineManager;
 
 uint8_t constexpr kReadingThreadsCount = 2;
 
+// ReadManager runs on BackendRenderer and manages a pool of kReadingThreadsCount (2) worker
+// threads that read map feature geometry from .mwm files.
+//
+// On each viewport change, FrontendRenderer calls BackendRenderer, which calls UpdateCoverage()
+// with the new visible tile set. ReadManager diffs the new set against m_tileInfos:
+//   - Tiles no longer needed are cancelled (CancelTileInfo) and cleared.
+//   - New tiles get a ReadMWMTask posted to the thread pool.
+//   Each ReadMWMTask reads features, builds geometry via RuleDrawer / shape builders, and posts
+//   FlushTile messages back to FrontendRenderer via ThreadsCommutator.
+//
+// Generation counters (m_generationCounter, m_userMarksGenerationCounter) increment when the
+// tile set is invalidated. Tasks carry the generation at dispatch time; FrontendRenderer discards
+// any FlushTile whose generation is older than the current maximum, so stale reads arriving after
+// a style change or MWM update are silently dropped.
+//
+// forceUpdateUserMarks in UpdateCoverage() bumps only the user-marks generation, allowing
+// bookmark/search-result geometry to be refreshed without re-reading all base map tiles.
 class ReadManager
 {
 public:

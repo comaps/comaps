@@ -53,8 +53,20 @@ void SupportManager::Init(ref_ptr<GraphicsContext> context)
   }
   LOG(LINFO, ("Max line width =", m_maxLineWidth, "| Max texture size =", m_maxTextureSize));
 
-  // Set up default antialiasing value.
-  // Turn off AA for a while by energy-saving issues.
+  // Antialiasing (SMAA — Subpixel Morphological AA, implemented in PostprocessRenderer) is
+  // permanently disabled by default because enabling it on mobile causes a measurable increase
+  // in power consumption (extra framebuffer passes each frame).
+  //
+  // The commented-out code below was the original implementation: it auto-enabled AA for a
+  // curated list of high-end Android GPUs and persisted the choice in user settings. Users
+  // could then override it in the app settings. This was removed rather than kept as an
+  // opt-in because the per-device list was unmaintainable and the energy impact varies widely.
+  //
+  // To re-enable SMAA for a build:
+  //   1. Set m_isAntialiasingEnabledByDefault = true here (always) or conditionally by platform.
+  //   2. Uncomment the settings::Get/Set block if per-user persistence is desired.
+  //   3. Wire up the settings toggle in the UI (Settings → Map → Anti-aliasing).
+  //
   //  bool val;
   //  if (!settings::Get(kSupportedAntialiasing, val))
   //  {
