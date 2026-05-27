@@ -2183,6 +2183,34 @@ void BookmarkManager::NotifyAboutFinishAsyncLoading(KMLDataCollectionPtr && coll
 
     m_loadBookmarksFinished = true;
 
+    // Validate custom order: remove entries for deleted categories, append new ones.
+    {
+      auto & catOrder = m_metadata.m_categoryOrder;
+      if (!catOrder.empty())
+      {
+        bool changed = false;
+        auto const eraseEnd = std::remove_if(catOrder.begin(), catOrder.end(), [this](auto const & fn) {
+          return GetCategoryByFileName(fn) == kml::kInvalidMarkGroupId || fn.empty();
+        });
+        if (eraseEnd != catOrder.end())
+        {
+          catOrder.erase(eraseEnd, catOrder.end());
+          changed = true;
+        }
+        for (auto const & [id, cat] : m_categories)
+        {
+          auto const fn = cat->GetFileName();
+          if (!fn.empty() && std::find(catOrder.begin(), catOrder.end(), fn) == catOrder.end())
+          {
+            catOrder.push_back(fn);
+            changed = true;
+          }
+        }
+        if (changed)
+          SaveMetadata();
+      }
+    }
+
     if (!m_bookmarkLoadingQueue.empty())
     {
       ASSERT(m_asyncLoadingInProgress, ());
@@ -2434,23 +2462,98 @@ std::vector<kml::MarkGroupId> BookmarkManager::GetSortedBmGroupIdList() const
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());
 
+  auto const & catOrder = m_metadata.m_categoryOrder;
+  if (catOrder.empty())
+  {
+    // First run after upgrade: seed from time-sorted order.
+    std::vector<kml::MarkGroupId> sortedList;
+    size_t const count = m_categories.size();
+    sortedList.reserve(count);
+
+    using PairT = std::pair<kml::MarkGroupId, BookmarkCategory const *>;
+    std::vector<PairT> vec;
+    vec.reserve(count);
+    for (auto const & [markGroupId, categoryPtr] : m_categories)
+      vec.emplace_back(markGroupId, categoryPtr.get());
+
+    std::sort(vec.begin(), vec.end(), [](PairT const & lhs, PairT const & rhs)
+    { return lhs.second->GetLastModifiedTime() > rhs.second->GetLastModifiedTime(); });
+
+    for (size_t i = 0; i < count; ++i)
+      sortedList.push_back(vec[i].first);
+
+    return sortedList;
+  }
+
   std::vector<kml::MarkGroupId> sortedList;
-  size_t const count = m_categories.size();
-  sortedList.reserve(count);
+  sortedList.reserve(m_categories.size());
 
-  using PairT = std::pair<kml::MarkGroupId, BookmarkCategory const *>;
-  std::vector<PairT> vec;
-  vec.reserve(count);
-  for (auto const & [markGroupId, categoryPtr] : m_categories)
-    vec.emplace_back(markGroupId, categoryPtr.get());
+  // Add categories in the stored order, skipping deleted ones.
+  for (auto const & fileName : catOrder)
+  {
+    auto const catId = GetCategoryByFileName(fileName);
+    if (catId != kml::kInvalidMarkGroupId)
+      sortedList.push_back(catId);
+  }
 
-  std::sort(vec.begin(), vec.end(), [](PairT const & lhs, PairT const & rhs)
-  { return lhs.second->GetLastModifiedTime() > rhs.second->GetLastModifiedTime(); });
-
-  for (size_t i = 0; i < count; ++i)
-    sortedList.push_back(vec[i].first);
+  // Append any new categories not yet in the order at the end.
+  for (auto const & [markGroupId, _] : m_categories)
+  {
+    if (std::find(sortedList.begin(), sortedList.end(), markGroupId) == sortedList.end())
+      sortedList.push_back(markGroupId);
+  }
 
   return sortedList;
+}
+
+void BookmarkManager::MoveCategory(kml::MarkGroupId categoryId, int direction)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ());
+
+  auto entryName = GetMetadataEntryName(categoryId);
+  if (entryName.empty())
+  {
+    // Newly created category has no file yet; assign one so it can be tracked in the order.
+    auto * group = GetBmCategory(categoryId);
+    std::string name = RemoveInvalidSymbols(group->GetName());
+    if (name.empty())
+      name = kDefaultBookmarksFileName;
+    entryName = GenerateUniqueFileName(GetBookmarksDirectory(), std::move(name), kKmlExtension);
+    group->SetFileName(entryName);
+  }
+
+  auto & catOrder = m_metadata.m_categoryOrder;
+  if (catOrder.empty())
+  {
+    // Seed the order from current state, skipping categories without filenames.
+    auto const sorted = GetSortedBmGroupIdList();
+    for (auto const & id : sorted)
+    {
+      auto const fn = GetMetadataEntryName(id);
+      if (!fn.empty())
+        catOrder.push_back(fn);
+    }
+  }
+
+  // Ensure the category is in the order (it may have just been assigned a filename).
+  auto it = std::find(catOrder.begin(), catOrder.end(), entryName);
+  if (it == catOrder.end())
+  {
+    catOrder.push_back(entryName);
+    it = std::prev(catOrder.end());
+  }
+
+  auto const idx = static_cast<size_t>(std::distance(catOrder.begin(), it));
+  if (direction < 0 && idx > 0)
+    std::swap(catOrder[idx], catOrder[idx - 1]);
+  else if (direction > 0 && idx + 1 < catOrder.size())
+    std::swap(catOrder[idx], catOrder[idx + 1]);
+  else
+    return;  // At boundary, nothing to do.
+
+  SaveMetadata();
+  NotifyBookmarksChanged();
+  NotifyCategoriesChanged();
 }
 
 kml::MarkGroupId BookmarkManager::CreateBookmarkCategory(kml::CategoryData && data, bool autoSave /* = true */)
@@ -2541,6 +2644,15 @@ bool BookmarkManager::DeleteBmCategory(kml::MarkGroupId groupId, bool permanentl
   m_changesTracker.OnDeleteGroup(groupId);
 
   auto const & filePath = it->second->GetFileName();
+  // Remove from custom order.
+  auto & catOrder = m_metadata.m_categoryOrder;
+  auto orderIt = std::find(catOrder.begin(), catOrder.end(), filePath);
+  if (orderIt != catOrder.end())
+  {
+    catOrder.erase(orderIt);
+    SaveMetadata();
+  }
+
   if (permanently)
   {
     base::DeleteFileX(filePath);
@@ -2709,6 +2821,10 @@ void BookmarkManager::CreateCategories(KMLDataCollection && dataCollection, bool
     loadedGroups.insert(groupId);
     auto * group = GetBmCategory(groupId);
     group->SetFileName(fileName);
+    // Only append to the custom order if it has been activated (non-empty).
+    if (!m_metadata.m_categoryOrder.empty() && !fileName.empty() &&
+        std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), fileName) == m_metadata.m_categoryOrder.end())
+      m_metadata.m_categoryOrder.push_back(fileName);
     group->SetServerId(fileData.m_serverId);
 
     // Restore sensitive info from the cache.
@@ -2761,6 +2877,9 @@ void BookmarkManager::CreateCategories(KMLDataCollection && dataCollection, bool
     UserMarkIdStorage::Instance().EnableSaving(true);
   }
   m_restoringCache.clear();
+
+  // Persist the category order.
+  SaveMetadata();
 
   // During the updating process the file shouldn't be re-saved on disk because it should be already up to date.
   // In other case race condition may occur when multiple devices are used.
@@ -2914,6 +3033,10 @@ BookmarkManager::KMLDataCollectionPtr BookmarkManager::PrepareToSaveBookmarks(
 
       file = GenerateUniqueFileName(fileDir, std::move(name), kKmlExtension);
       group->SetFileName(file);
+      // Only append to the custom order if it has been activated (non-empty).
+      if (!m_metadata.m_categoryOrder.empty() &&
+          std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), file) == m_metadata.m_categoryOrder.end())
+        m_metadata.m_categoryOrder.push_back(file);
     }
 
     collection->emplace_back(std::move(file), CollectBmGroupKMLData(group));

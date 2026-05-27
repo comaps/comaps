@@ -188,6 +188,10 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     ArrayList<MenuBottomSheetItem> items = new ArrayList<>();
     if (mSelectedCategory != null)
     {
+      items.add(new MenuBottomSheetItem(R.string.move_up, R.drawable.ic_arrow_up,
+                                        () -> onMoveActionSelected(mSelectedCategory, -1)));
+      items.add(new MenuBottomSheetItem(R.string.move_down, R.drawable.ic_arrow_down,
+                                        () -> onMoveActionSelected(mSelectedCategory, 1)));
       items.add(new MenuBottomSheetItem(R.string.edit, R.drawable.ic_edit,
                                         () -> onSettingsActionSelected(mSelectedCategory)));
       items.add(new MenuBottomSheetItem(mSelectedCategory.isVisible() ? R.string.hide : R.string.show,
@@ -282,6 +286,12 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
   public void onExportButtonClick()
   {
     BookmarksSharingHelper.INSTANCE.prepareBookmarkCategoriesForSharing(requireActivity());
+  }
+
+  private void onMoveActionSelected(@NonNull BookmarkCategory category, int direction)
+  {
+    BookmarkManager.INSTANCE.moveCategory(category.getId(), direction);
+    getAdapter().notifyDataSetChanged();
   }
 
   private void onShowActionSelected(@NonNull BookmarkCategory category)

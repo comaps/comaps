@@ -294,6 +294,7 @@ public:
 
   kml::GroupIdCollection const & GetUnsortedBmGroupsIdList() const { return m_unsortedBmGroupsIdList; }
   kml::GroupIdCollection GetSortedBmGroupIdList() const;
+  void MoveCategory(kml::MarkGroupId categoryId, int direction);
   size_t GetBmGroupsCount() const { return m_unsortedBmGroupsIdList.size(); }
   bool HasBmCategory(kml::MarkGroupId groupId) const;
   bool HasBookmark(kml::MarkId markId) const;
@@ -828,12 +829,14 @@ private:
   struct Metadata
   {
     DECLARE_VISITOR_AND_DEBUG_PRINT(Metadata, visitor(m_entriesProperties, "entriesProperties"),
-                                    visitor(m_commonProperties, "commonProperties"))
+                                    visitor(m_commonProperties, "commonProperties"),
+                                    visitor(m_categoryOrder, "categoryOrder"))
 
     bool GetEntryProperty(std::string const & entryName, std::string const & propertyName, std::string & value) const;
 
     std::map<std::string, Properties> m_entriesProperties;
     Properties m_commonProperties;
+    std::vector<std::string> m_categoryOrder;
   };
 
   Metadata m_metadata;

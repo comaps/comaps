@@ -557,6 +557,11 @@ public enum BookmarkManager {
     nativeResetLastSortingType(catId);
   }
 
+  public void moveCategory(long catId, int direction)
+  {
+    nativeMoveCategory(catId, direction);
+  }
+
   @NonNull
   @SortingType
   public int[] getAvailableSortingTypes(long catId, boolean hasMyPosition)
@@ -846,6 +851,8 @@ public enum BookmarkManager {
   private native void nativeSetLastSortingType(long catId, @SortingType int sortingType);
 
   private native void nativeResetLastSortingType(long catId);
+
+  private native void nativeMoveCategory(long catId, int direction);
 
   @NonNull
   @SortingType

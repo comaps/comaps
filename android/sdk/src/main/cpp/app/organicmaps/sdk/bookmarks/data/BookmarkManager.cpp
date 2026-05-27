@@ -595,6 +595,12 @@ Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetBookmarkCategor
   return MakeCategories(env, ids);
 }
 
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeMoveCategory(JNIEnv *, jobject, jlong catId, jint direction)
+{
+  frm()->GetBookmarkManager().MoveCategory(static_cast<kml::MarkGroupId>(catId), static_cast<int>(direction));
+}
+
 JNIEXPORT jint JNICALL
 Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetBookmarkCategoriesCount(JNIEnv * env, jobject)
 {

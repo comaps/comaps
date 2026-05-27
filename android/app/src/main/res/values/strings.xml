@@ -650,6 +650,8 @@
         <item quantity="other">%d saved places</item>
     </plurals>
     <string name="bookmarks_create_new_group">Create a new list</string>
+    <string name="move_up">Move up</string>
+    <string name="move_down">Move down</string>
     <!-- Favorite categories screen, button that opens folder selection dialog to import KML/KMZ/GPX/KMB files -->
     <string name="bookmarks_import">Import Favorites</string>
     <string name="bookmarks_error_message_share_general">Unable to share due to an application error</string>
