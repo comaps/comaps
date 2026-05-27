@@ -42,7 +42,14 @@ jobs:
 
       - name: Checkout submodules
         shell: bash
-        run: git submodule update --depth 1 --init --recursive --jobs 16
+        run: |
+          # Codeberg can return 504 under heavy parallel load; retry up to 3 times
+          # with a backoff and fewer jobs to reduce pressure.
+          for attempt in 1 2 3; do
+            git submodule update --depth 1 --init --recursive --jobs 4 && break
+            echo "Attempt $attempt failed, retrying in 30s..."
+            sleep 30
+          done
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v4
