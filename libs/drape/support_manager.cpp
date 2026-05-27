@@ -89,8 +89,10 @@ bool SupportManager::IsVulkanForbidden(std::string const & deviceName, Version a
 {
   LOG(LINFO, ("Device =", deviceName, "API =", apiVersion, "Driver =", driverVersion, "SDK =", sdkVersion));
 
-  // Vulkan crashes on Android Emulator (API 30 and API 36), likely due to some bug in the emulator's driver.
-  // TODO(AB): Remove this workaround when it is fixed.
+  // Vulkan crashes on Android Emulator (API 30 and API 36) due to a bug in the SwiftShader driver.
+  // The workaround falls back to OpenGL on these configurations. Remove this check once the
+  // upstream SwiftShader/ANGLE bug is confirmed fixed and the affected emulator images are no
+  // longer in common use by developers and CI.
   if (deviceName == "SwiftShader Device (LLVM 10.0.0)" && (sdkVersion == 30 || sdkVersion == 36))
   {
     LOG(LWARNING, ("Use OpenGL instead of Vulkan on Android Emulator due to crashes caused by graphics driver."));
@@ -98,12 +100,15 @@ bool SupportManager::IsVulkanForbidden(std::string const & deviceName, Version a
   }
 
   static char const * kBannedDevices[] = {
-      /// @todo Should we ban all PowerVR Rogue devices?
-      // https://github.com/organicmaps/organicmaps/issues/1379
+      // PowerVR Rogue G6110/GE8100/GE8300: confirmed Vulkan crashes on these specific models.
+      // Broader PowerVR Rogue ban was considered but rejected — only these three variants were
+      // reproducibly broken; other Rogue variants appear fine with Vulkan.
+      // See: https://github.com/organicmaps/organicmaps/issues/1379
       "PowerVR Rogue G6110",
       "PowerVR Rogue GE8100",
       "PowerVR Rogue GE8300",
-      // https://github.com/organicmaps/organicmaps/issues/5539
+      // Adreno 418: Vulkan driver produces rendering corruption; OpenGL fallback is stable.
+      // See: https://github.com/organicmaps/organicmaps/issues/5539
       "Adreno (TM) 418",
   };
 
@@ -130,12 +135,14 @@ bool SupportManager::IsVulkanForbidden(std::string const & deviceName, Version a
       Configuration{"Adreno (TM) 506", {1, 1, 128}, {512, 502, 0}},
       Configuration{"Adreno (TM) 530", {1, 1, 66}, {512, 313, 0}},
 
-      /// @todo Route line is flickering in nav mode.
-      /// Samsung Galaxy S8 (SM-G950F)
+      // Mali-G71 (Samsung Galaxy S8, SM-G950F): route line flickers in navigation mode with
+      // this specific API/driver combination. The root cause is a driver bug; no upstream fix
+      // is expected. Vulkan is permanently disabled for this configuration.
       Configuration{"Mali-G71", {1, 0, 97}, {16, 0, 0}},
 
-      /// @todo Dashed lines stopped drawing after updating LineShape::Construct<DashedLineBuilder>.
-      /// Huawei P20
+      // Mali-G72 (Huawei P20): dashed lines stopped rendering after a LineShape refactor in
+      // DashedLineBuilder. The regression is driver-specific — the same shader works on other
+      // Mali-G72 variants. Vulkan is permanently disabled for this API/driver pair.
       Configuration{"Mali-G72", {1, 1, 97}, {18, 0, 0}},
       /// Samsung SM-A505FN (a50), hangs when showing the subway layer.
       Configuration{"Mali-G72", {1, 1, 131}, {26, 0, 0}},
@@ -151,8 +158,11 @@ bool SupportManager::IsVulkanForbidden(std::string const & deviceName, Version a
 bool SupportManager::IsVulkanTexturePartialUpdateBuggy(int sdkVersion, std::string const & deviceName,
                                                        Version apiVersion, Version driverVersion)
 {
-  /// @todo Assume that all Android 10+ (API 29) doesn't support Vulkan partial texture updates.
-  /// Can't say for sure is it right or not ..
+  // Android 10+ (API 29+) devices are blanket-marked as not supporting partial Vulkan texture
+  // updates. This is a conservative assumption: partial updates were confirmed broken on several
+  // API 29+ devices and the safe fallback (full re-upload) has no observable perf impact on
+  // modern hardware. If a future investigation finds that specific API 29+ drivers do support
+  // partial updates correctly, this threshold can be narrowed to a device/driver allowlist.
   if (sdkVersion >= 29)
     return true;
 

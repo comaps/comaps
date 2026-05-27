@@ -224,7 +224,11 @@ public:
   /// @name Custom features are features that we render in a different way.
   /// Value in the map shows if the feature is skipped in process of geometry generation.
   /// For all custom features (if they are overlays) statistics will be gathered.
-  /// @todo Not used now, suspect that it was used for some Ads POIs.
+  // CustomFeatures allows the caller to mark specific feature IDs for special rendering treatment
+  // (the feature is either skipped in geometry generation or rendered differently, and overlay
+  // statistics are gathered for it). This API is currently dormant — it was likely added for
+  // sponsored/Ads POI highlighting and has no active callers. The infrastructure is retained
+  // because re-enabling it is low cost (call SetCustomFeatures with the desired IDs).
   /// @{
   void SetCustomFeatures(df::CustomFeatures && ids);
   void RemoveCustomFeatures(MwmSet::MwmId const & mwmId);

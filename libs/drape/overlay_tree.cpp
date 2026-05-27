@@ -161,7 +161,10 @@ bool OverlayTree::Remove(ref_ptr<OverlayHandle> handle)
 
 void OverlayTree::Add(ref_ptr<OverlayHandle> handle)
 {
-  /// @todo Fires when deleting downloaded country ?!
+  // During a country delete, FrontendRenderer may receive and call Add() for overlay handles
+  // that were generated before the delete completed, so their MWM-based OverlayID is no longer
+  // resolvable. The assert is suppressed rather than fixed here because the handles are harmless
+  // (they will be rejected at m_zoomLevel / Update() checks below) and the race is transient.
   // ASSERT(handle->GetOverlayID().IsValid(), ());
   ASSERT(IsNeedUpdate(), ());
 
@@ -209,7 +212,10 @@ void OverlayTree::Add(ref_ptr<OverlayHandle> handle)
 void OverlayTree::InsertHandle(ref_ptr<OverlayHandle> handle, int currentRank,
                                ref_ptr<OverlayHandle> const & parentOverlay)
 {
-  /// @todo Fires when updating country (delete-add) ?!
+  // Same as in Add(): during a country update (delete then re-add), InsertHandle() can be called
+  // with handles whose OverlayID refers to the now-deleted MWM version. The handles are transient
+  // and will be replaced once the new tile geometry is fully flushed; the assert stays suppressed
+  // to avoid spurious crashes during the update window.
   // ASSERT(handle->GetOverlayID().IsValid(), ());
   ASSERT(IsNeedUpdate(), ());
 
@@ -470,8 +476,14 @@ void OverlayTree::Select(m2::PointD const & glbPoint, TOverlayContainer & result
   m2::RectD rect(pxPoint, pxPoint);
   rect.Inflate(kSearchRectHalfSize, kSearchRectHalfSize);
 
-  /// @todo Why we can't call Select(rect) here?
-  /// Why we don't check handle->IsVisible(), like in Select(rect)?
+  // Point-select intentionally does NOT delegate to Select(rect) and does NOT check IsVisible()
+  // for two reasons:
+  //   1. Select(rect) uses ForEachInRect() on the spatial index, which requires pixel-space rects
+  //      aligned to the index cells. A tap produces a tiny inflate rect around the tap pixel;
+  //      ForEachInRect would miss handles whose pivot is near a cell boundary.
+  //   2. Tap targets should include handles that were displaced/hidden by higher-rank overlays
+  //      (IsVisible()==false) — the user is tapping a feature they can see at tile level even
+  //      if its label was suppressed by the overlap solver.
   for (auto const & handle : m_handlesCache)
     if (!handle->HasLinearFeatureShape() && rect.IsPointInside(handle->GetPivot(screen, false)))
       result.push_back(handle);

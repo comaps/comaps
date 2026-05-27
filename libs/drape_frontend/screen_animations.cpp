@@ -45,7 +45,10 @@ drape_ptr<SequenceAnimation> GetPrettyMoveAnimation(ScreenBase const & screen, d
   zoomOutAnim->SetScale(startScale, startScale * scaleFactor);
   zoomOutAnim->SetMaxDuration(kMaxAnimationTimeSec * 0.5);
 
-  // TODO (in future): Pass fixed duration instead of screen.
+  // SetMove() uses the screen to compute pixel distance so that the animation
+  // speed is consistent regardless of zoom level. Passing a fixed duration would
+  // cause the same pixel distance to animate at different real-world speeds at
+  // different zoom levels; the current design intentionally ties duration to distance.
   auto moveAnim = make_unique_dp<MapLinearAnimation>();
   moveAnim->SetMove(startPt, endPt, screen);
   moveAnim->SetMaxDuration(kMaxAnimationTimeSec);

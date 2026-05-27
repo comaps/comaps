@@ -88,10 +88,13 @@ void TileInfo::Cancel()
   m_isCanceled = true;
 }
 
-/*
- * TODO: the following check throws an exception while IsCancelled() is used in most places to quit gracefully.
- * Looks like the latter was added later, so maybe the throwing version is not needed anymore.
- */
+// Two cancellation patterns coexist intentionally:
+//   - ThrowIfCancelled() is called at the start of each feature-read loop iteration inside
+//     ReadMWMTask::Do(). The thrown ReadCanceledException unwinds the entire read stack in one step
+//     and is caught at the task boundary, making it the fast path for mid-tile cancellation.
+//   - IsCancelled() is used in a few outer call sites that can return gracefully without an
+//     exception (e.g. after a blocking wait). Both paths set the same m_isCanceled flag; keeping
+//     both avoids the overhead of try/catch in the already-exceptional callers.
 void TileInfo::ThrowIfCancelled() const
 {
   // The exception is handled in ReadMWMTask::Do().

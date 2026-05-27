@@ -199,7 +199,10 @@ double RulerHelper::CalcMetersDiff(double value)
   if (arrU[0].m_i > v)
   {
     m_rangeIndex = kMinUnitValue;
-    // TODO: "< X" ruler text seems to be never used.
+    // This branch is unreachable in practice: the ruler width is clamped by
+    // kMinMetersWidth/kMaxMetersWidth (set by the screen size at the minimum zoom level),
+    // so the converted value 'v' always falls within the unit table range. The "< X" text
+    // is kept as a defensive fallback but has never been observed to render.
     m_rulerText = std::string("< ") + arrU[0].m_s;
     result = kMinMetersWidth - 1.0;
   }

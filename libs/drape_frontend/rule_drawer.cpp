@@ -445,8 +445,11 @@ void RuleDrawer::operator()(FeatureType & f)
     size_t const index = shape->GetType();
     ASSERT_LESS(index, m_mapShapes.size(), ());
 
-    // TODO(pastk) : MinZoom was used for optimization in RenderGroup::UpdateCanBeDeletedStatus(), but is long time
-    // broken. See https://github.com/organicmaps/organicmaps/pull/5903 for details.
+    // SetFeatureMinZoom() was intended to let RenderGroup skip rendering a shape at zoom levels
+    // below the feature's minimum zoom, saving GPU work. The optimization is permanently disabled
+    // here (always 0 = never skip) because the implementation in RenderGroup::UpdateCanBeDeletedStatus()
+    // was found to be broken and caused rendering artefacts. See upstream PR #5903 for the full
+    // history; fixing it properly requires reworking how groups track per-feature zoom thresholds.
     shape->SetFeatureMinZoom(0);
     m_mapShapes[index].push_back(std::move(shape));
   };

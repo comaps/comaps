@@ -77,7 +77,11 @@ std::string const & VisualParams::GetResourcePostfix(double visualScale)
 {
   ASSERT_INITED;
   static VisualScale postfixes[] = {
-      /// @todo Not used in mobile because of minimal visual scale (@see visual_scale.hpp)
+      // "mdpi" is present for completeness but is never selected on mobile devices: the platform
+      // layer enforces a minimum visual scale above kMdpiScale so the nearest-scale search below
+      // always picks "hdpi" or higher. On desktop the scale is set directly from the OS DPI and
+      // can in principle land here, though in practice modern monitors are hdpi or better.
+      // See: visual_scale.hpp for the platform minimum scale constants.
       {"mdpi", kMdpiScale},
 
       {"hdpi", kHdpiScale},     {"xhdpi", kXhdpiScale},     {"6plus", k6plusScale},

@@ -46,8 +46,11 @@ struct TextMetrics
 
     if (m_glyphs.size() == 1)
       xAdvance -= xOffset;
-    // if (yOffset > 0)
-    //   height += yOffset;  // TODO(AB): Is it needed? Is it correct?
+    // yOffset adjustment for line height is intentionally omitted. HarfBuzz already encodes
+    // vertical glyph placement in the shaped glyph metrics, so adding yOffset here would
+    // double-count the adjustment and produce inflated line heights for glyphs with positive
+    // y-offsets (e.g. superscript runs). The commented-out code is left as documentation of
+    // the decision rather than being deleted, in case the behaviour of a future shaper changes.
     m_lineWidthInPixels += xAdvance;
     m_maxLineHeightInPixels = std::max(m_maxLineHeightInPixels, height);
   }

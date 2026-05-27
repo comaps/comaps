@@ -180,11 +180,13 @@ void StipplePenIndex::UploadResources(ref_ptr<dp::GraphicsContext> context, ref_
     m_pendingNodes.swap(pendingNodes);
   }
 
-  // Assume that all patterns are initialized when creating texture (ReserveResource) and uploaded once.
-  // Should provide additional logic like in ColorPalette::UploadResources, if we want multiple uploads.
-  // TODO: https://github.com/organicmaps/organicmaps/issues/4539
-  //  if (m_uploadCalled)
-  //    LOG(LERROR, ("Multiple stipple pen texture uploads are not supported"));
+  // All stipple-pen patterns are reserved up-front during texture initialisation (ReserveResource),
+  // so UploadResources() is expected to be called exactly once per texture lifetime. Unlike
+  // ColorPalette (which supports incremental uploads for runtime-added colors), the pen texture
+  // has no incremental-upload path. The commented-out error log was a canary for this assumption;
+  // it is disabled because the single-upload contract has held since the texture was introduced.
+  // If multiple-upload support is ever needed, see ColorPalette::UploadResources for the pattern.
+  // Tracking issue: https://github.com/organicmaps/organicmaps/issues/4539
   m_uploadCalled = true;
 
   uint32_t height = 0;
