@@ -11,6 +11,28 @@
 
 namespace df
 {
+// TileKey identifies a single map tile and the version of its geometry.
+//
+// The (x, y, zoomLevel) triplet is the standard slippy-map tile coordinate.
+// Zoom 1 = world overview; zoom 17 = street level (max data zoom is clamped
+// by ClipTileZoomByMaxDataZoom in tile_utils.hpp).
+//
+// Generation counters
+// -------------------
+// m_generation increments every time the tile's base geometry needs to be
+// rebuilt (e.g. map style changed, data updated). FrontendRenderer holds a
+// m_maxGeneration and discards any RenderGroup whose generation is older.
+// BackendRenderer's ReadManager tracks the current generation to skip reads
+// that are already superseded before they finish.
+//
+// m_userMarksGeneration is a separate counter that increments only when
+// user marks (bookmarks, search results, route waypoints) change. This lets
+// user-mark geometry be refreshed independently of base map geometry.
+//
+// operator< / operator== intentionally ignore both generation fields so that
+// tile coordinate lookups (std::map, std::set) work across geometry versions.
+// Use LessStrict / EqualStrict when you need to distinguish generations —
+// BatchersPool uses TileKeyStrictComparator for exactly this reason.
 struct TileKey
 {
   TileKey();

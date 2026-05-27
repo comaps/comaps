@@ -20,6 +20,20 @@ class RenderBucket;
 class AttributeProvider;
 class OverlayHandle;
 
+// Batcher accumulates vertex/index geometry for a single tile during one session.
+//
+// Usage pattern (always on ResourceUploadThread / BackendRenderer):
+//   1. SessionGuard guard(context, batcher, flushCallback);
+//      — or — batcher.StartSession(flushCallback);
+//   2. Call Insert*() for each primitive. Batcher organises them into one
+//      RenderBucket per RenderState (shader + blend mode + textures). When a
+//      bucket's internal VertexArrayBuffer is full it is flushed immediately;
+//      any bucket still open when EndSession() is called is flushed then.
+//   3. flushCallback receives each completed (RenderState, RenderBucket) pair
+//      and typically posts it to FrontendRenderer via ThreadsCommutator.
+//
+// BatchersPool (drape_frontend/batchers_pool.hpp) manages one Batcher per
+// TileKey so that geometry for different tiles can be built concurrently.
 class Batcher
 {
 public:
@@ -61,9 +75,14 @@ public:
                              ref_ptr<AttributeProvider> params, std::vector<int> const & indices,
                              drape_ptr<OverlayHandle> && handle);
 
+  // TFlushFn is called once per RenderState when a bucket is finalized.
+  // The callback takes ownership of the RenderBucket (drape_ptr move semantics).
+  // In practice the callback posts a FlushTileMessage to FrontendRenderer.
   using TFlushFn = std::function<void(RenderState const &, drape_ptr<RenderBucket> &&)>;
   void StartSession(TFlushFn && flusher);
   void EndSession(ref_ptr<GraphicsContext> context);
+  // ResetSession discards all pending buckets without flushing. Used when a
+  // tile read is cancelled mid-way (e.g. the tile scrolled off screen).
   void ResetSession();
 
   void SetBatcherHash(uint64_t batcherHash);
