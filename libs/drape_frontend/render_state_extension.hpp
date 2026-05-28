@@ -10,11 +10,14 @@
 namespace df
 {
 // DepthLayer controls the coarse rendering order of map elements across a frame.
-// The numeric order of enum values IS the sort order: lower values render first (farther back).
-// RenderStateExtension::Less() sorts render groups by DepthLayer before other state, so all
-// geometry in one layer is drawn before any geometry in the next layer.
+// RenderStateExtension::Less() sorts render groups by DepthLayer so all geometry in one layer
+// is drawn before geometry in the next layer within a single rendering pass.
 //
-// Layer semantics (back to front):
+// The frame sequence in FrontendRenderer::RenderScene() calls dedicated render functions per
+// layer in a specific order (generally back to front). Most layers follow enum order, but
+// OverlayUnderBuildingLayer is an intentional exception — see below.
+//
+// Layer semantics (back to front, enum order):
 //   GeometryLayer          — base map polygons, roads, land cover
 //   Geometry3dLayer        — extruded 3D building sides and rooftops
 //   UserLineLayer          — user-drawn routes and track lines (above buildings)
@@ -25,8 +28,12 @@ namespace df
 //   RoutingMarkLayer       — route turn arrows and waypoint icons
 //   SearchMarkLayer        — search result highlights (above routing marks)
 //   GuiLayer               — HUD elements (compass, scale ruler, zoom buttons)
-//   OverlayUnderBuildingLayer — overlays that should appear behind 3D buildings (sorted last
-//                              in the enum but placed under buildings by the depth buffer)
+//   OverlayUnderBuildingLayer — POI icons for features physically inside buildings (subway
+//                              entrances, parking, etc.). Sorted last in the enum but rendered
+//                              BEFORE Render3dLayer in the frame sequence so that 3D buildings
+//                              draw on top. Depth testing is disabled for these overlays —
+//                              the under-building effect comes from explicit render order, not
+//                              the depth buffer.
 //
 // IMPORTANT: Do not change the numeric order — it is baked into RenderStateExtension::Less().
 enum class DepthLayer : uint8_t
