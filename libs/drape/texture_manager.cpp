@@ -490,7 +490,8 @@ void TextureManager::GetColorRegion(Color const & color, ColorRegion & region)
 
 text::TextMetrics TextureManager::ShapeSingleTextLine(
     float fontPixelHeight, std::string_view utf8, TGlyphsBuffer * glyphRegions,
-    localisation::LanguageIndex const textLanguageIndex)  // TODO(AB): Better name?
+    localisation::LanguageIndex const textLanguageIndex)  // Index into the map's language list (e.g. 0=primary, 1=secondary).
+                                                          // kUnsupportedLanguageIndex means "use the map default language".
 {
   ASSERT(!utf8.empty(), ());
   std::vector<ref_ptr<Texture::ResourceInfo>> resourcesInfo;
@@ -505,7 +506,12 @@ text::TextMetrics TextureManager::ShapeSingleTextLine(
     lang = hb_language_from_string(languageCode.data(), static_cast<int>(languageCode.size()));
   }
 
-  // TODO(AB): Is this mutex too slow?
+  // m_calcGlyphsMutex serialises concurrent calls to ShapeText() from the two reading threads.
+  // ShapeText() calls into HarfBuzz and FreeType which are not thread-safe. The lock is held
+  // only for the duration of text shaping + atlas lookup; texture upload happens separately on
+  // the render thread. Profiling showed this is not a bottleneck in typical map browsing because
+  // text shaping is fast relative to MWM feature reads, but it could become one for dense label
+  // areas. If it does, the fix is per-thread GlyphManager instances rather than a shared one.
   std::lock_guard lock(m_calcGlyphsMutex);
 
   auto textMetrics = m_glyphManager->ShapeText(utf8, fontPixelHeight, lang);

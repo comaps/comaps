@@ -312,7 +312,10 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
       apply.ProcessAreaRules(s.m_areaRule, s.m_hatchingRule);
   }
 
-  /// @todo Can we put this check in the beginning of this function?
+  // This check is intentionally NOT at the top of the function. IsDiscardCustomFeature and
+  // IsHiddenChristmasFeature suppress only the POI label/icon — the feature's area polygon
+  // (triangles above) should still be rendered. Moving the check to the top would skip all
+  // geometry for the feature, including its filled area, which is incorrect.
   if (applyPointStyle && !IsDiscardCustomFeature(f.GetID()) && !IsHiddenChristmasFeature(f))
   {
     apply.ProcessPointRules(s.m_symbolRule, s.m_captionRule, s.m_houseNumberRule, featureCenter,

@@ -254,9 +254,9 @@ These are the densest cluster of open work, mostly owned by **AB** (Alexander Bo
 | File | Line | Note |
 |------|------|------|
 | `libs/drape/overlay_handle.hpp` | 143 | `displayFlag` logic effectively disabled — the flag exists but is not checked |
-| `libs/drape/overlay_tree.hpp` | 124 | `FindParent(OverlayHandle)` is O(n); suggested fix is a secondary cache keyed by `OverlayID` |
-| `libs/drape/overlay_tree.cpp` | 172, 220 | Assertion fires unexpectedly when deleting or updating a downloaded country — root cause unknown |
-| `libs/drape/overlay_tree.cpp` | 481 | `Select(rect)` cannot be called at a particular point — reason not documented |
+| `libs/drape/overlay_tree.hpp` | 124 | `m_overlayIdCache` was implemented and `FindParent()` is now O(log n) — the TODO comment is stale |
+| `libs/drape/overlay_tree.cpp` | 172, 220 | OverlayID is transiently invalid during country delete/re-add; assert suppressed deliberately (see inline comment) |
+| `libs/drape/overlay_tree.cpp` | 481 | Point-select intentionally skips `Select(rect)` — see inline comment for why |
 | `libs/drape_frontend/text_shape.cpp` | 405 | Shape classes both draw geometry and manipulate overlay priorities — should be separated |
 
 ### Feature-to-Geometry Conversion (`apply_feature_functors.cpp`)
@@ -280,7 +280,7 @@ All items below are from **pastk** (Pastuhov Konstantin) and relate to geometry 
 | `libs/drape_frontend/stylist.cpp` | 55 | Secondary text forced for all road/river lines — should be opt-in via style rules |
 | `libs/drape_frontend/stylist.cpp` | 96, 102 | House number `minZoom` recomputed on every feature; depends on secondary caption existence in an unclear way |
 | `libs/drape_frontend/stylist.cpp` | 157 | Circle/waymarker support may be dead code (not used in current styles) |
-| `libs/drape_frontend/rule_drawer.cpp` | 328 | Early-exit check placed after expensive work — should move to top of function |
+| `libs/drape_frontend/rule_drawer.cpp` | 328 | Check cannot move to top — it suppresses only POI labels, not area geometry; see inline comment |
 | `libs/drape_frontend/rule_drawer.cpp` | 461 | `MinZoom` field used for `RenderGroup` deletion optimization but the logic has been disabled for a long time |
 | `libs/drape_frontend/transit_scheme_builder.cpp` | 70 | Transit casing colour is hardcoded — should be configurable in style files |
 
@@ -289,14 +289,16 @@ All items below are from **pastk** (Pastuhov Konstantin) and relate to geometry 
 | File | Line | Note |
 |------|------|------|
 | `libs/drape/texture_manager.cpp` | 39 / `libs/drape/stipple_pen_resource.hpp` | `kStippleTextureWidth` (512) and `kMaxStipplePenLength` (512) should be the same constant but are defined separately |
-| `libs/drape/texture_manager.cpp` | 49 | `kSdfBorder` value — unclear if 1.0 is correct; not investigated |
-| `libs/drape/texture_manager.cpp` | 82 | Assert in glyph region lookup — unclear if still needed |
-| `libs/drape/texture_manager.cpp` | 105 | "Arrow" texture retained in case it's needed — may be dead |
+| `libs/drape/texture_manager.cpp` | 49 | `kGlyphAreaMultiplier` — 1.2 provides headroom for tall glyphs (CJK, diacritics); 1.0 would cause drops — see inline comment |
+| `libs/drape/texture_manager.cpp` | 82 | Assert suppressed non-fatally; color texture doubles in size if palette exceeds 1024 colors — see inline comment |
+| `libs/drape/texture_manager.cpp` | 105 | Arrow texture fallback is `allowOptional=true`; absent file returns null gracefully — see inline comment |
+| `libs/drape/texture_manager.cpp` | 497 | `textLanguageIndex` = index into map language list; `kUnsupportedLanguageIndex` = use map default — see inline comment |
+| `libs/drape/texture_manager.cpp` | 512 | Mutex serialises HarfBuzz/FreeType (not thread-safe); not a bottleneck in typical browsing — see inline comment |
 | `libs/drape/texture_manager.cpp` | 236 | Glyph atlas size not tuned — larger atlas may reduce texture switches |
 | `libs/drape/stipple_pen_resource.cpp` | 186 | Known bug tracked at organicmaps/organicmaps#4539 |
 | `libs/drape/metal/metal_texture.mm` | 28 | Metal uses `A8Unorm` format for Red channel textures — should be `R8Unorm` but shaders need updating first |
 | `libs/drape/glsl_func.hpp` | 5 | `GLM_ENABLE_EXPERIMENTAL` required by current GLM version — remove after upgrading GLM |
-| `libs/drape/utils/projection.hpp` | 11 | Asymmetric clipping values may cause near-plane polygons to be incorrectly clipped — suspected projection matrix bug |
+| `libs/drape/utils/projection.hpp` | 11 | Historical bug (asymmetric depth bounds caused clip-plane shift) — fixed; bounds are now ±25000 and the offset term cancels |
 
 ### Vulkan Backend
 
@@ -325,14 +327,14 @@ All items below are from **pastk** (Pastuhov Konstantin) and relate to geometry 
 
 | File | Line | Note |
 |------|------|------|
-| `libs/drape_frontend/drape_engine.cpp` | 714 | A call that should go directly to `FrontendRenderer` is routed through `PostMessage` — workaround for a broken message-delivery path |
-| `libs/drape_frontend/drape_engine.hpp` | 239 | `DrapeApi` (custom feature drawing) appears unused; suspected to have been used for ad POIs |
+| `libs/drape_frontend/drape_engine.cpp` | 714 | Direct call to FR bypasses PostMessage due to timing race with the render queue — explained in inline comment |
+| `libs/drape_frontend/drape_engine.hpp` | 239 | `CustomFeatures` API is dormant (likely ad-POI origin); retained because re-enabling is trivial — see inline comment |
 | `libs/drape_frontend/frontend_renderer.cpp` | 1652 | Semi-opaque subway routing background — unclear if needed |
 | `libs/drape_frontend/frontend_renderer.cpp` | 2229 | Overlay set uses `std::set` — `small_set` / `buffer_vector` would be faster for typical sizes |
 | `libs/drape_frontend/frontend_renderer.hpp` | 372 | `GetCurrentZoom()` has an assert that `m_currentZoomLevel != -1` — added defensively, root cause of -1 not documented |
 | `libs/drape_frontend/render_group.hpp` | 34 | `RenderGroup` has a polymorphic interface that is not actually needed |
 | `libs/drape_frontend/render_state_extension.hpp` | 30 | Polymorphic extension mechanism is a design smell; should be a plain struct |
-| `libs/drape_frontend/read_manager.cpp` | 227, 231 | `ReadMWMTask` pool uses manual `new` — could use a standard pool; tile-set mutex locked repeatedly |
+| `libs/drape_frontend/read_manager.cpp` | 227, 231 | Pool avoids per-tile malloc churn (explained); mutex ordering is load-bearing (explained) — see inline comments |
 
 ### Miscellaneous
 
@@ -343,11 +345,11 @@ All items below are from **pastk** (Pastuhov Konstantin) and relate to geometry 
 | `libs/drape/static_texture.hpp` | 28 | Texture name strings should be `std::string_view` after `StyleReader` refactoring |
 | `libs/drape_frontend/drape_global.hpp` | 35 | (same as above) |
 | `libs/drape_frontend/my_position_controller.cpp` | 636 | Code block not guarded by `m_hints.m_screenshotMode` — unclear if intentional |
-| `libs/drape_frontend/path_text_handle.hpp` | 33 | Several parameters noted as unused |
-| `libs/drape_frontend/poi_symbol_shape.cpp` | 163 | Depth test disabled path not handled correctly when `m_params.m_depthTestEnabled == false` |
-| `libs/drape_frontend/screen_animations.cpp` | 56 | Animation duration derived from screen object — a fixed duration constant is preferred |
-| `libs/drape_frontend/tile_info.cpp` | 87 | `IsCancelled()` exception thrown instead of graceful return — inconsistent with surrounding code |
-| `libs/drape_frontend/visual_params.cpp` | 83 | `visual_scale` not used on mobile — dead code path |
+| `libs/drape_frontend/path_text_handle.hpp` | 33 | Both methods are actively used via `PathTextHandle` delegation — see inline comment |
+| `libs/drape_frontend/poi_symbol_shape.cpp` | 163 | Real bug: depth value must still be in `[kMinDepth, kMaxDepth]` even when depth test is off or the primitive is clipped — fix is to clamp/remap depth when `depthTestEnabled == false` |
+| `libs/drape_frontend/screen_animations.cpp` | 56 | Screen passed intentionally — ensures speed is zoom-independent; see inline comment |
+| `libs/drape_frontend/tile_info.cpp` | 87 | Dual cancellation patterns are intentional; throw is the fast path — see inline comment |
+| `libs/drape_frontend/visual_params.cpp` | 83 | `mdpi` entry is unreachable on mobile due to platform minimum scale — see inline comment |
 | `libs/drape_frontend/gui/ruler_helper.cpp` | 41 | Ruler unit strings not localised |
 | `libs/drape_frontend/gui/ruler_helper.cpp` | 53 | Ruler value not fixed to zoom level — can show inconsistent distances at the same zoom |
-| `libs/drape_frontend/gui/ruler_helper.cpp` | 205 | `"< X"` ruler text appears to never be shown |
+| `libs/drape_frontend/gui/ruler_helper.cpp` | 205 | Confirmed dead code — ruler width clamping prevents this branch from ever being reached; see inline comment |

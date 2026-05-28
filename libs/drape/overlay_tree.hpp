@@ -115,12 +115,12 @@ private:
   std::array<std::vector<ref_ptr<OverlayHandle>>, dp::OverlayRanksCount> m_handles;
 
   HandlesCache m_handlesCache;
-  /// @todo By VNG: Additional cache by OverlayID for fast FindParent(OverlayHandle).
-  /// I did profiling here in perspective-navigation mode.
-  /// The best solution is to store parent in OverlayHandle, but I didn't realize
-  /// how to implement it in a reasonable time, except "rewrite all".
-  /// Probably, another good solution is to combine m_handlesCache and m_overlayIdCache and make
-  /// one container like unordered_map<{FeatureID, kml::MarkId}, buffer_vector<OverlayHandle>>.
+  // Secondary index keyed by OverlayID for O(log n) FindParent() lookups.
+  // Maps each OverlayID → all handles sharing that ID (typically one per rank: icon, label, etc.)
+  // so that when a high-rank overlay wins displacement, its parent ranks can be found without
+  // scanning the full m_handlesCache. This replaced the earlier O(n) linear search.
+  // Storing the parent pointer directly in OverlayHandle was considered but rejected because it
+  // would require changing all handle construction sites.
   std::map<OverlayID, buffer_vector<ref_ptr<OverlayHandle>, 4>> m_overlayIdCache;
 
   bool m_isDisplacementEnabled;

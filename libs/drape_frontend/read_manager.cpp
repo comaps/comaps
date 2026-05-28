@@ -218,12 +218,17 @@ void ReadManager::PushTaskBackForTileKey(TileKey const & tileKey, ref_ptr<dp::Te
   std::shared_ptr<TileInfo> tileInfo = std::make_shared<TileInfo>(std::move(context));
   m_tileInfos.insert(tileInfo);
 
-  /// @todo Do we really need ReadMWMTask pool? Avoid "new" with hand-written bicycle? ;)
+  // ReadMWMTask objects are pooled (ObjectPool) rather than heap-allocated per tile to avoid
+  // repeated malloc/free churn — each viewport change can dispatch dozens of tasks simultaneously.
+  // The pool recycles finished tasks via OnTaskFinished(); tasks are not reference-counted so
+  // the pool must outlive any in-flight task (ensured by Stop() joining the thread pool first).
   ReadMWMTask * task = m_tasksPool.Get();
 
   task->Init(tileInfo);
-  /// @todo Can we update m_activeTiles once like IncreaseCounter and lock mutex once?
-  /// Or order is important here?
+  // m_activeTiles is written here (dispatch time) and read in OnTaskFinished() which runs on a
+  // worker thread, hence the mutex. The insert must happen before PushBack(task) so that
+  // OnTaskFinished() always finds the tile in the active set when the task completes immediately.
+  // Collapsing this lock with IncreaseCounter's lock would require restructuring both call sites.
   {
     std::lock_guard lock(m_finishedTilesMutex);
     m_activeTiles.insert(TileKey(tileKey, m_generationCounter, m_userMarksGenerationCounter));
