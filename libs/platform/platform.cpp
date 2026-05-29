@@ -363,7 +363,7 @@ void Platform::RunThreads()
   ASSERT(!m_backgroundThread || m_backgroundThread->IsShutDown(), ());
 
   m_networkThread = std::make_unique<base::DelayedThreadPool>();
-  m_fileThread = std::make_unique<base::DelayedThreadPool>();
+  m_fileThread = std::make_unique<base::DelayedThreadPool>(1, base::DelayedThreadPool::Exit::ExecPending);
   m_backgroundThread = std::make_unique<base::DelayedThreadPool>();
 }
 
