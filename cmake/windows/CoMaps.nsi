@@ -101,11 +101,8 @@ Function .onInit
     ${EndIf}
   ${EndIf}
 
-  ; When upgrading, replace the welcome text and skip the install-mode page.
-  ${If} $IsUpgrade == 1
-    ; Override the Name shown throughout the installer to say "Upgrade".
-    Name "CoMaps Upgrade"
-  ${EndIf}
+  ; When upgrading, skip the install-mode page (mode is locked).
+  ; Note: Name is a compile-time directive and cannot be changed here at runtime.
 FunctionEnd
 
 ; Skip the install-mode page when upgrading (mode is locked).
