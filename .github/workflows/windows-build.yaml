@@ -221,19 +221,15 @@ jobs:
       #     if-no-files-found: warn
       # ---------------------------------------------------------------------------
 
-      - name: Package portable ZIP
+      - name: Stage portable bundle
         shell: pwsh
-        run: |
-          Copy-Item cmake\windows\README.txt staging\
-          Push-Location staging
-          Compress-Archive -Path * -DestinationPath "..\CoMaps-windows-x64-portable.zip"
-          Pop-Location
+        run: Copy-Item cmake\windows\README.txt staging\
 
-      - name: Upload portable ZIP artifact
+      - name: Upload portable artifact
         uses: actions/upload-artifact@v4
         with:
           name: CoMaps-windows-x64-portable-${{ steps.version.outputs.version }}
-          path: CoMaps-windows-x64-portable.zip
+          path: staging
           if-no-files-found: error
 
       - name: Build NSIS installer
@@ -287,10 +283,16 @@ jobs:
         with:
           name: CoMaps-windows-x64-setup-${{ needs.windows-build.outputs.version }}
 
-      - name: Download portable ZIP artifact
+      - name: Download portable artifact
         uses: actions/download-artifact@v4
         with:
           name: CoMaps-windows-x64-portable-${{ needs.windows-build.outputs.version }}
+          path: portable-staging
+
+      - name: Repackage portable ZIP
+        run: |
+          cd portable-staging
+          zip -r ../CoMaps-windows-x64-portable.zip .
 
       - name: Generate manifests and checksums
         run: |
