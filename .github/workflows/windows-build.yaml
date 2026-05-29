@@ -240,7 +240,12 @@ jobs:
         shell: pwsh
         run: |
           $version = "${{ steps.version.outputs.version }}"
-          & "C:\Program Files (x86)\NSIS\makensis.exe" /DVERSION="$version" /DSRCDIR="$PWD" cmake\windows\CoMaps.nsi
+          # VIProductVersion requires X.X.X.X (all numeric). Convert e.g.
+          # "2026.05.29-1-abc1234" → "2026.05.29.1" by replacing the first '-N-hash'
+          # suffix with '.N'.
+          $parts = $version -split '-'
+          $viversion = "$($parts[0]).$($parts[1])"
+          & "C:\Program Files (x86)\NSIS\makensis.exe" /DVERSION="$version" /DVIVERSION="$viversion" /DSRCDIR="$PWD" cmake\windows\CoMaps.nsi
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Upload NSIS installer artifact

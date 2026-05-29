@@ -34,7 +34,7 @@ Unicode True
 Name "CoMaps"
 OutFile "${SRCDIR}\CoMaps-windows-x64-setup.exe"
 
-VIProductVersion "${VERSION}.0"
+VIProductVersion "${VIVERSION}"
 VIAddVersionKey "ProductName"     "CoMaps"
 VIAddVersionKey "ProductVersion"  "${VERSION}"
 VIAddVersionKey "FileVersion"     "${VERSION}.0"
