@@ -826,6 +826,11 @@ shared_ptr<EdgeEstimator> EdgeEstimator::Create(VehicleType vehicleType, double 
   case VehicleType::Bicycle: return make_shared<BicycleEstimator>(maxWeighSpeedKMpH, offroadSpeedKMpH);
   case VehicleType::Car:
     return make_shared<CarEstimator>(dataSourcePtr, numMwmIds, trafficStash, maxWeighSpeedKMpH, offroadSpeedKMpH);
+  /*
+   * VehicleType::Decoder is for use with the TraFF decoder, which creates its EdgeEstimator by
+   * explicitly calling the constructor for the appropriate subclass.
+   */
+  case VehicleType::Decoder: CHECK(false, ("Creating EdgeEstimator for Decoder is not supported")); return nullptr;
   case VehicleType::Count: CHECK(false, ("Can't create EdgeEstimator for", vehicleType)); return nullptr;
   }
   UNREACHABLE();

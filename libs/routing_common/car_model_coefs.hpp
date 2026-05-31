@@ -7,21 +7,6 @@
 
 namespace routing
 {
-/**
- * @brief Speed to indicate that a segment is impassable.
- */
-/*
- * 1.0E-4 is the inverse of 1.0E4, which is used in `edge_estimator.cpp` as the penalty factor
- * for the weight of a segment with `SpeedGroup::TempBlock`, i.e. currently impassable.
- * Using its inverse as the speed is equivalent to 1 km/h with a penalty factor of 1.0E4.
- * The lowest speed is currently 5 km/h (for `HighwayTrack`), thus 1 m of an impassable way has the
- * same weight as at least 5 km of any routable way.
- * This has worked well in tests. In theory, we could increase it further to 1.0E-8, resulting in
- * 0.8 m of an impassable way costing as much as at least 40,000 km (earth circumference) of any
- * routable way.
- */
-auto const kImpassableSpeedKMpH = 1.0E-4;
-
 HighwayBasedFactors const kHighwayBasedFactors = {
     // {highway class : InOutCityFactor(in city, out city)}
 
@@ -60,27 +45,6 @@ HighwayBasedFactors const kHighwayBasedFactors = {
 
     {HighwayType::RouteFerry, InOutCityFactor(0.90)},
     {HighwayType::RouteShuttleTrain, InOutCityFactor(0.90)},
-
-    // Generic construction type
-    {HighwayType::HighwayConstruction, InOutCityFactor(1.0)},
-
-    // Construction types for each highway type:
-    {HighwayType::HighwayConstructionMotorway, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionMotorwayLink, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionTrunk, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionTrunkLink, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionPrimary, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionPrimaryLink, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionSecondary, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionSecondaryLink, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionTertiary, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionTertiaryLink, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionResidential, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionUnclassified, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionService, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionLivingStreet, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionRoad, InOutCityFactor(1.0)},
-    {HighwayType::HighwayConstructionTrack, InOutCityFactor(1.0)},
 };
 
 HighwayBasedSpeeds const kHighwayBasedSpeeds = {
@@ -115,26 +79,5 @@ HighwayBasedSpeeds const kHighwayBasedSpeeds = {
 
     {HighwayType::RouteFerry, InOutCitySpeedKMpH(10.00 /* in city */, 10.00 /* out city */)},
     {HighwayType::RouteShuttleTrain, InOutCitySpeedKMpH(25.00 /* in city */, 25.00 /* out city */)},
-
-    // Generic and long construction types:
-    // They are needed for traffic location decoding but we don’t want to route drivers through
-    // them, which is accomplished by setting their speed to kImpassableSpeedKMpH.
-    {HighwayType::HighwayConstruction, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionMotorway, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionMotorwayLink, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionTrunk, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionTrunkLink, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionPrimary, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionPrimaryLink, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionSecondary, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionSecondaryLink, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionTertiary, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionTertiaryLink, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionResidential, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionUnclassified, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionService, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionLivingStreet, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionRoad, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
-    {HighwayType::HighwayConstructionTrack, InOutCitySpeedKMpH(kImpassableSpeedKMpH)},
 };
 }  // namespace routing

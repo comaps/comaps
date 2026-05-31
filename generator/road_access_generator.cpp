@@ -220,6 +220,7 @@ RoadAccessTagProcessor::RoadAccessTagProcessor(VehicleType vehicleType) : m_vehi
   switch (vehicleType)
   {
   case VehicleType::Car:
+  case VehicleType::Decoder:
     // Order is important here starting from most specific (motorcar) to generic (access).
     m_accessMappings.push_back(&kMotorCarTagMapping);
     m_accessMappings.push_back(&kMotorVehicleTagMapping);

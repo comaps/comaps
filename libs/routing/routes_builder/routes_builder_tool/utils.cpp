@@ -56,6 +56,8 @@ routing::VehicleType ConvertVehicleTypeFromString(std::string const & str)
     return routing::VehicleType::Bicycle;
   if (str == "transit")
     return routing::VehicleType::Transit;
+  if (str == "decoder")
+    return routing::VehicleType::Decoder;
 
   CHECK(false, ("Unknown vehicle type:", str));
   UNREACHABLE();
