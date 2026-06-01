@@ -62,7 +62,7 @@ import Combine
                 return customButtonKind
             }
             
-            return .information
+            return .favourites
         }
         set {
             UserDefaults.standard.set(newValue.rawValue, forKey: userDefaultsKeyMapCustomButtonKind)

@@ -5,7 +5,7 @@ struct MapTrackRecordingIndicator: View {
     // MARK: Properties
     
     /// The custom button kind
-    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var customButtonKind: MapCustomButton.Kind = .information
+    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var customButtonKind: MapCustomButton.Kind = .favourites
     
     
     /// If the track is currently being recorded
