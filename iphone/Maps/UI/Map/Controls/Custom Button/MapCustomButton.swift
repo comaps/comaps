@@ -5,7 +5,7 @@ struct MapCustomButton: View {
     // MARK: Properties
     
     /// The custom button kind
-    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var kind: MapCustomButton.Kind = .information
+    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var kind: MapCustomButton.Kind = .favourites
     
     
     /// If a badge is being shown
