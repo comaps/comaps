@@ -9,7 +9,7 @@ struct MapMoreButton: View {
     
     
     /// The custom button kind
-    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var customButtonKind: MapCustomButton.Kind = .information
+    @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var customButtonKind: MapCustomButton.Kind = .favourites
     
     
     /// If a badge is being shown

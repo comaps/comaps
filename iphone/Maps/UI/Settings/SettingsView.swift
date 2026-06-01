@@ -29,7 +29,7 @@ struct SettingsView: View {
     
     
     /// The selected custom button type
-    @State private var selectedCustomButtonKind: MapCustomButton.Kind = .information
+    @State private var selectedCustomButtonKind: MapCustomButton.Kind = .favourites
     
     
     /// If zoom buttons should be displayed
