@@ -82,7 +82,7 @@ NSString * const kUDFileLoggingEnabledKey = @"FileLoggingEnabledKey";
 
 + (BOOL)zoomButtonsEnabled
 {
-  bool enabled = true;
+  bool enabled = false;
   UNUSED_VALUE(settings::Get(kZoomButtonsEnabledKey, enabled));
   return enabled;
 }

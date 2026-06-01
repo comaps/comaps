@@ -33,7 +33,7 @@ struct SettingsView: View {
     
     
     /// If zoom buttons should be displayed
-    @State private var hasZoomButtons: Bool = true
+    @State private var hasZoomButtons: Bool = false
     
     
     /// The selected map appearance
