@@ -16,6 +16,10 @@ struct MapMoreButton: View {
     @State private var hasBadge: Bool = false
     
     
+    /// The publisher for receiving map updates
+    private let mapUpdatesPublisher = NotificationCenter.default.publisher(for: MapControls.mapUpdatesNotificationName)
+    
+    
     /// The actual view
     var body: some View {
         Button {
@@ -64,10 +68,22 @@ struct MapMoreButton: View {
         }
         .contentShape(Rectangle())
         .onAppear {
-            hasBadge = (customButtonKind != .downloadMaps && MapControls.hasMapUpdates)
+            updateBadge()
         }
-        .onChange(of: customButtonKind) { changedCustomButtonKind in
-            hasBadge = (changedCustomButtonKind != .downloadMaps && MapControls.hasMapUpdates)
+        .onChange(of: customButtonKind) { _ in
+            updateBadge()
         }
+        .onReceive(mapUpdatesPublisher) { _ in
+            updateBadge()
+        }
+    }
+    
+    
+    
+    // MARK: Methods
+    
+    /// Update the badge
+    func updateBadge() {
+        hasBadge = (customButtonKind != .downloadMaps && MapControls.hasMapUpdates)
     }
 }

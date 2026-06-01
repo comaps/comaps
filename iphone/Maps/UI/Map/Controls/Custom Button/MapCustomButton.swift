@@ -16,6 +16,10 @@ struct MapCustomButton: View {
     @State private var hasRecordBadge: Bool = false
     
     
+    /// The publisher for receiving map updates
+    private let mapUpdatesPublisher = NotificationCenter.default.publisher(for: MapControls.mapUpdatesNotificationName)
+    
+    
     /// The publisher for receiving the updates on the track recording state
     private let changeChangeTrackRecordingPublisher = NotificationCenter.default.publisher(for: MapControls.changeTrackRecordingNotificationName)
     
@@ -40,6 +44,9 @@ struct MapCustomButton: View {
             updateBadges()
         }
         .onChange(of: kind) { changedKind in
+            updateBadges()
+        }
+        .onReceive(mapUpdatesPublisher) { _ in
             updateBadges()
         }
         .onReceive(changeChangeTrackRecordingPublisher) { _ in

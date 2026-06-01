@@ -76,7 +76,7 @@ extension MapControls {
     
     /// If there are map updates
     static var hasMapUpdates: Bool {
-        return UIApplication.shared.applicationIconBadgeNumber > 0
+        return MapsAppDelegate.theApp().badgeNumber() > 0
     }
     
     
@@ -136,6 +136,11 @@ extension MapControls {
     
     /// The notification name for changing the track recording state
     @objc static let changeTrackRecordingNotificationName: Notification.Name = Notification.Name(rawValue: "ChangeTrackRecording")
+    
+    
+    
+    /// The notification name for updating maps
+    @objc static let mapUpdatesNotificationName: Notification.Name = Notification.Name(rawValue: "MapUpdates")
     
     
     
