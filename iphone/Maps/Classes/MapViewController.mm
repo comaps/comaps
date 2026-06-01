@@ -545,6 +545,10 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
     [self processMyPositionStateModeEvent:location_helpers::mwmMyPositionMode(mode)];
   });
   
+  [[MWMStorage sharedStorage] setCheckUpdatesListener:^(MWMCheckUpdatesStatus){
+    [NSNotificationCenter.defaultCenter postNotificationName:MapControls.mapUpdatesNotificationName object:nil];
+  }];
+  
   auto runOnPowerManagerChangesFn = [&]() {
     [NSNotificationCenter.defaultCenter postNotificationName:Settings.changePowerSavingAdjustmentsNotificationName object:nil];
   };
