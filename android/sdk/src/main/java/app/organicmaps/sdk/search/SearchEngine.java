@@ -15,6 +15,8 @@ public enum SearchEngine implements SearchListener, MapSearchListener,
 {
   INSTANCE;
 
+  public static final long ALL_BOOKMARK_CATEGORIES = -1L;
+
   // Query, which results are shown on the map.
   @Nullable
   private String mQuery;
@@ -48,17 +50,21 @@ public enum SearchEngine implements SearchListener, MapSearchListener,
   }
 
   @Override
-  public void onBookmarkSearchResultsUpdate(@Nullable long[] bookmarkIds, long timestamp)
+  public void onBookmarkSearchResultsUpdate(@Nullable final long[] bookmarkIds, final long timestamp)
   {
-    for (BookmarkSearchListener listener : mBookmarkListeners)
-      listener.onBookmarkSearchResultsUpdate(bookmarkIds, timestamp);
+    UiThread.run(() -> {
+      for (BookmarkSearchListener listener : mBookmarkListeners)
+        listener.onBookmarkSearchResultsUpdate(bookmarkIds, timestamp);
+    });
   }
 
   @Override
-  public void onBookmarkSearchResultsEnd(@Nullable long[] bookmarkIds, long timestamp)
+  public void onBookmarkSearchResultsEnd(@Nullable final long[] bookmarkIds, final long timestamp)
   {
-    for (BookmarkSearchListener listener : mBookmarkListeners)
-      listener.onBookmarkSearchResultsEnd(bookmarkIds, timestamp);
+    UiThread.run(() -> {
+      for (BookmarkSearchListener listener : mBookmarkListeners)
+        listener.onBookmarkSearchResultsEnd(bookmarkIds, timestamp);
+    });
   }
 
   private final ObserverList<SearchListener> mListeners = new ObserverList<>();
@@ -143,6 +149,12 @@ public enum SearchEngine implements SearchListener, MapSearchListener,
   public boolean searchInBookmarks(@NonNull String query, long categoryId, long timestamp)
   {
     return nativeRunSearchInBookmarks(query.getBytes(StandardCharsets.UTF_8), categoryId, timestamp);
+  }
+
+  @MainThread
+  public boolean searchInBookmarks(@NonNull String query, long timestamp)
+  {
+    return nativeRunSearchInBookmarks(query.getBytes(StandardCharsets.UTF_8), ALL_BOOKMARK_CATEGORIES, timestamp);
   }
 
   public void setQuery(@Nullable String query)

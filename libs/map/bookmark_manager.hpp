@@ -37,6 +37,7 @@
 #include <map>
 #include <memory>
 #include <mutex>
+#include <optional>
 #include <string>
 #include <vector>
 
@@ -294,7 +295,8 @@ public:
   void SetLastSortingType(kml::MarkGroupId groupId, SortingType sortingType);
   void ResetLastSortingType(kml::MarkGroupId groupId);
 
-  void PrepareForSearch(kml::MarkGroupId groupId);
+  void PrepareForSearch(std::optional<kml::MarkGroupId> groupId = std::nullopt);
+  void ReleaseSearch();
 
   bool IsVisible(kml::MarkGroupId groupId) const;
 

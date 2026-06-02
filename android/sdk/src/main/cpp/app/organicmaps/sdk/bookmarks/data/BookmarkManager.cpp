@@ -523,6 +523,18 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_n
   frm()->GetBookmarkManager().PrepareForSearch(static_cast<kml::MarkGroupId>(catId));
 }
 
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativePrepareForSearchAll(JNIEnv *, jclass)
+{
+  frm()->GetBookmarkManager().PrepareForSearch(std::nullopt);
+}
+
+JNIEXPORT void JNICALL
+Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeReleaseSearch(JNIEnv *, jclass)
+{
+  frm()->GetBookmarkManager().ReleaseSearch();
+}
+
 JNIEXPORT jboolean JNICALL
 Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeAreAllCategoriesInvisible(JNIEnv *, jclass)
 {
