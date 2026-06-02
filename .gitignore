@@ -175,6 +175,10 @@ designer_version.h
 # Vim files
 *.sw?
 
+# AI coding agents
+AGENTS.md
+.pi/
+
 # Build version
 platform/platform_qt_version.cpp
 
