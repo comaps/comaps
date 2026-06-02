@@ -511,6 +511,16 @@ public enum BookmarkManager {
     nativePrepareForSearch(catId);
   }
 
+  public void prepareForSearchAll()
+  {
+    nativePrepareForSearchAll();
+  }
+
+  public void releaseSearch()
+  {
+    nativeReleaseSearch();
+  }
+
   public boolean areAllCategoriesVisible()
   {
     return nativeAreAllCategoriesVisible();
@@ -833,6 +843,10 @@ public enum BookmarkManager {
   private static native boolean nativeIsUsedCategoryName(@NonNull String name);
 
   private static native void nativePrepareForSearch(long catId);
+
+  private static native void nativePrepareForSearchAll();
+
+  private static native void nativeReleaseSearch();
 
   private static native boolean nativeAreAllCategoriesVisible();
 

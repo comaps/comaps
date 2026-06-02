@@ -189,7 +189,8 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
     mSearchContainer = toolbar.findViewById(R.id.search_container);
     UiUtils.hide(mSearchContainer, R.id.back);
 
-    mToolbarController = new BookmarksToolbarController(toolbar, requireActivity(), this);
+    mToolbarController = new BookmarksToolbarController(toolbar, requireActivity(),
+        this::deactivateSearch, this::runSearch, this::cancelSearch);
     mToolbarController.setHint(R.string.search_in_the_list);
 
     configureRecyclerAnimations();
@@ -377,6 +378,7 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
   {
     mSearchMode = false;
     BookmarkManager.INSTANCE.setNotificationsEnabled(false);
+    BookmarkManager.INSTANCE.releaseSearch();
     updateSearchVisibility();
   }
 
