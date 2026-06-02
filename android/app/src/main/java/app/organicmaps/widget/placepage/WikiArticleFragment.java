@@ -1,5 +1,7 @@
 package app.organicmaps.widget.placepage;
 
+import static app.organicmaps.util.ThemeUtils.isNightTheme;
+
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +15,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmFragment;
+import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
 
@@ -24,7 +27,6 @@ public class WikiArticleFragment extends BaseMwmFragment
   public static final String EXTRA_WIKI_ARTICLE = "description";
   private static final String SOURCE_SUFFIX = "<p><b>wikipedia.org</b></p>";
 
-  @SuppressWarnings("NullableProblems")
   @NonNull
   private String mDescription;
 
@@ -45,18 +47,19 @@ public class WikiArticleFragment extends BaseMwmFragment
     settings.setBuiltInZoomControls(false);
     settings.setDisplayZoomControls(false);
 
-    String textColor = colorToHex(isDarkMode() ? R.color.text_light : R.color.text_dark);
-    String bgColor = colorToHex(R.color.bg_window);
+    String textColor = colorToHex(isNightTheme() ? R.color.text_light : R.color.text_dark);
+    // String textColor = intToHex(ThemeUtils.getColor(requireContext(), android.R.attr.textColorPrimary));
+    String textColorSecondary = colorToHex(isNightTheme() ? R.color.white_secondary : R.color.black_secondary );
 
-    webView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_window));
+    webView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_app));
     webView.setVerticalScrollBarEnabled(true);
 
-    String html = buildHtml(mDescription + SOURCE_SUFFIX, textColor, bgColor);
+    String html = buildHtml(mDescription + SOURCE_SUFFIX, textColor, textColorSecondary);
     webView.loadDataWithBaseURL(
-            "https://wikipedia.org/",
+            null,
             html,
-            Utils.TEXT_HTML,
-            Utils.UTF_8,
+            "text/html",
+            "UTF-8",
             null
     );
     ViewCompat.setOnApplyWindowInsetsListener(root, WindowInsetUtils.PaddingInsetsListener.excludeTop());
@@ -64,10 +67,8 @@ public class WikiArticleFragment extends BaseMwmFragment
   }
 
   @NonNull
-  private String buildHtml(@NonNull String content, @NonNull String textColor, @NonNull String bgColor)
+  private String buildHtml(@NonNull String content, @NonNull String textColor, @NonNull String textColorSecondary)
   {
-    String secondaryTextColor = isDarkMode() ? "#A0A0A0" : "#6B6B6B";
-    String linkColor = isDarkMode() ? "#8AB4F8" : "#1565C0";
 
     return "<!DOCTYPE html>" +
             "<html>" +
@@ -78,22 +79,18 @@ public class WikiArticleFragment extends BaseMwmFragment
             "html, body {" +
             "  margin: 0;" +
             "  padding: 0;" +
-            "  background: " + bgColor + ";" +
             "}" +
             "body {" +
             "  padding: 24px 20px 32px;" +
             "  color: " + textColor + ";" +
-            "  background: " + bgColor + ";" +
-            "  font-size: 17px;" +
             "  line-height: 1.65;" +
-            "  font-family: sans-serif;" +
             "  word-wrap: break-word;" +
-            "  text-align: justify;" +
+            "  text-align: left;" +
             "  text-justify: inter-word;" +
             "}" +
             "p {" +
             "  margin: 0 0 16px 0;" +
-            "  text-align: justify;" +
+            "  text-align: left;" +
             "}" +
             "h1, h2, h3 {" +
             "  margin: 24px 0 12px 0;" +
@@ -106,13 +103,11 @@ public class WikiArticleFragment extends BaseMwmFragment
             "  height: auto;" +
             "}" +
             "a {" +
-            "  color: " + linkColor + ";" +
             "  text-decoration: none;" +
             "}" +
             ".source {" +
             "  margin-top: 24px;" +
-            "  color: " + secondaryTextColor + ";" +
-            "  font-size: 14px;" +
+            "  color: " + textColorSecondary + ";" +
             "  text-align: left;" +
             "}" +
             "</style>" +
@@ -122,14 +117,11 @@ public class WikiArticleFragment extends BaseMwmFragment
             "</body>" +
             "</html>";
   }
-
-  private boolean isDarkMode()
-  {
-    int nightFlags = getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK;
-    return nightFlags == Configuration.UI_MODE_NIGHT_YES;
-  }
   private String colorToHex(int colorRes)
   {
     return String.format(Locale.ROOT, "#%06X", 0xFFFFFF & ContextCompat.getColor(requireContext(), colorRes));
+  }
+  private static String intToHex(int color) {
+    return String.format("#%08X", color);
   }
 }
