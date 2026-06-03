@@ -71,7 +71,7 @@ public class WikiArticleFragment extends BaseMwmFragment
   {
 
     return "<!DOCTYPE html>" +
-            "<html>" +
+            "<html dir='auto'>" +
             "<head>" +
             "<meta charset='utf-8'>" +
             "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>" +
@@ -85,17 +85,17 @@ public class WikiArticleFragment extends BaseMwmFragment
             "  color: " + textColor + ";" +
             "  line-height: 1.65;" +
             "  word-wrap: break-word;" +
-            "  text-align: left;" +
+            "  text-align: start;" +
             "  text-justify: inter-word;" +
             "}" +
             "p {" +
             "  margin: 0 0 16px 0;" +
-            "  text-align: left;" +
+            "  text-align: start;" +
             "}" +
             "h1, h2, h3 {" +
             "  margin: 24px 0 12px 0;" +
             "  line-height: 1.25;" +
-            "  text-align: left;" +
+            "  text-align: start;" +
             "  color: " + textColor + ";" +
             "}" +
             "img {" +
@@ -108,7 +108,7 @@ public class WikiArticleFragment extends BaseMwmFragment
             ".source {" +
             "  margin-top: 24px;" +
             "  color: " + textColorSecondary + ";" +
-            "  text-align: left;" +
+            "  text-align: start;" +
             "}" +
             "</style>" +
             "</head>" +
