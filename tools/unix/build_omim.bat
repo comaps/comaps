@@ -80,8 +80,17 @@ if not exist "!OMIM_PATH!\CMakeLists.txt" (
   popd
 )
 
-REM 5. Skip Serbian Latin string generation — requires uconv (ICU), not available on Windows.
+REM 5. Windows-specific environment for configure.sh
+REM    - PYTHONUTF8: prevents cp1252 decode errors when Python reads UTF-8 MapCSS/resource files
+REM    - SKIP_GENERATE_SERBIAN_LATIN_STRINGS: requires uconv (ICU), not available on Windows
+REM    - optipng: warn if missing (symbols generation will be skipped by configure.sh automatically)
+set "PYTHONUTF8=1"
 set "SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1"
+where optipng >nul 2>nul || (
+  echo WARNING: optipng not found — symbol sprites will not be regenerated.
+  echo          Install via: choco install optipng
+  echo          Or run: winget install optipng
+)
 
 REM 7. Inject Windows-specific CMake flags via CMAKE_CONFIG.
 REM    build_omim.sh prepends its own -U flags to whatever CMAKE_CONFIG contains,
