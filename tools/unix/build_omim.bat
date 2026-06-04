@@ -80,12 +80,15 @@ if not exist "!OMIM_PATH!\CMakeLists.txt" (
   popd
 )
 
-REM 5. Inject Windows-specific CMake flags via CMAKE_CONFIG.
+REM 5. Skip Serbian Latin string generation — requires uconv (ICU), not available on Windows.
+set "SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1"
+
+REM 7. Inject Windows-specific CMake flags via CMAKE_CONFIG.
 REM    build_omim.sh prepends its own -U flags to whatever CMAKE_CONFIG contains,
 REM    so these are included in the final cmake invocation automatically.
 set "CMAKE_CONFIG=-DCMAKE_PREFIX_PATH=!QT6_PREFIX! -DCMAKE_UNITY_BUILD=OFF -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DUSE_PCH=OFF"
 
-REM 6. Hand off to the shared build script (from repo root so ./configure.sh resolves).
+REM 8. Hand off to the shared build script (from repo root so ./configure.sh resolves).
 cd /d "!OMIM_PATH!"
 "!GIT_BASH!" tools/unix/build_omim.sh %*
 exit /b %ERRORLEVEL%
