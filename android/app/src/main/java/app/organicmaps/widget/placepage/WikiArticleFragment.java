@@ -1,7 +1,5 @@
 package app.organicmaps.widget.placepage;
 
-import static app.organicmaps.util.ThemeUtils.isNightTheme;
-
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,13 +17,11 @@ import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
 
-import java.util.Locale;
 import java.util.Objects;
 
 public class WikiArticleFragment extends BaseMwmFragment
 {
   public static final String EXTRA_WIKI_ARTICLE = "description";
-  private static final String SOURCE_SUFFIX = "<p><b>wikipedia.org</b></p>";
 
   @NonNull
   private String mDescription;
@@ -47,14 +43,13 @@ public class WikiArticleFragment extends BaseMwmFragment
     settings.setBuiltInZoomControls(false);
     settings.setDisplayZoomControls(false);
 
-    String textColor = colorToHex(isNightTheme() ? R.color.text_light : R.color.text_dark);
-    // String textColor = intToHex(ThemeUtils.getColor(requireContext(), android.R.attr.textColorPrimary));
-    String textColorSecondary = colorToHex(isNightTheme() ? R.color.white_secondary : R.color.black_secondary );
+    final String textColor = colorToCssHex(android.R.attr.textColorPrimary);
+    final String textColorSecondary = colorToCssHex(android.R.attr.textColorSecondary);
 
     webView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_app));
     webView.setVerticalScrollBarEnabled(true);
 
-    String html = buildHtml(mDescription + SOURCE_SUFFIX, textColor, textColorSecondary);
+    final String html = buildHtml(mDescription, textColor, textColorSecondary);
     webView.loadDataWithBaseURL(
             null,
             html,
@@ -114,14 +109,17 @@ public class WikiArticleFragment extends BaseMwmFragment
             "</head>" +
             "<body>" +
             content +
+            "<p class='source'><b>wikipedia.org</b></p>" +
             "</body>" +
             "</html>";
   }
-  private String colorToHex(int colorRes)
+
+  private String colorToCssHex(int colorRes)
   {
-    return String.format(Locale.ROOT, "#%06X", 0xFFFFFF & ContextCompat.getColor(requireContext(), colorRes));
-  }
-  private static String intToHex(int color) {
-    return String.format("#%08X", color);
+    final int color = ThemeUtils.getColor(requireContext(), colorRes);
+    // Convert Android color int (0xAARRGGBB) to CSS hex with alpha (#RRGGBBAA)
+    final int rgb = color & 0x00FFFFFF;
+    final int alpha = (color >>> 24) & 0xFF;
+    return String.format("#%08X", (rgb << 8) | alpha);
   }
 }
