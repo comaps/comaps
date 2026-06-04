@@ -20,6 +20,7 @@
 #include <vector>
 
 #ifdef OMIM_OS_WINDOWS
+#include "std/windows.hpp"
 #include <io.h>
 #else
 #include <unistd.h>  // ftruncate
@@ -210,8 +211,17 @@ bool DeleteFileX(string const & fName)
 
 bool RenameFileX(string const & fOld, string const & fNew)
 {
+#ifdef OMIM_OS_WINDOWS
+  // On Windows, rename() fails if the destination exists. Use MoveFileExA with
+  // MOVEFILE_REPLACE_EXISTING for atomic-ish overwrite behaviour matching POSIX rename().
+  if (::MoveFileExA(fOld.c_str(), fNew.c_str(), MOVEFILE_REPLACE_EXISTING))
+    return true;
+  LOG(LWARNING, ("File operation error for file:", fOld, "-", GetLastError()));
+  return false;
+#else
   int res = rename(fOld.c_str(), fNew.c_str());
   return CheckFileOperationResult(res, fOld);
+#endif
 }
 
 bool MoveFileX(string const & fOld, string const & fNew)
