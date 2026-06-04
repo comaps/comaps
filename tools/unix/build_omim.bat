@@ -28,11 +28,29 @@ if errorlevel 1 (
   exit /b 1
 )
 
-REM 2. Require Git Bash
-where bash >nul 2>nul
-if errorlevel 1 (
-  echo ERROR: bash not found in PATH.
+REM 2. Require Git Bash (explicitly — WSL bash produces a Linux build)
+set "GIT_BASH="
+for %%C in (
+  "C:\Program Files\Git\bin\bash.exe"
+  "C:\Program Files\Git\usr\bin\bash.exe"
+) do if exist %%C if not defined GIT_BASH set "GIT_BASH=%%~C"
+
+if not defined GIT_BASH (
+  REM Fall back to PATH, but reject WSL bash (System32\bash.exe)
+  for /f "delims=" %%P in ('where bash 2^>nul') do (
+    if /i not "%%P"=="%SystemRoot%\System32\bash.exe" (
+      if /i not "%%P"=="%LOCALAPPDATA%\Microsoft\WindowsApps\bash.exe" (
+        if not defined GIT_BASH set "GIT_BASH=%%P"
+      )
+    )
+  )
+)
+
+if not defined GIT_BASH (
+  echo.
+  echo ERROR: Git Bash not found. WSL bash cannot be used ^(it produces a Linux build^).
   echo Install Git for Windows: https://git-scm.com/download/win
+  echo.
   exit /b 1
 )
 
@@ -69,5 +87,5 @@ set "CMAKE_CONFIG=-DCMAKE_PREFIX_PATH=!QT6_PREFIX! -DCMAKE_UNITY_BUILD=OFF -DCMA
 
 REM 6. Hand off to the shared build script (from repo root so ./configure.sh resolves).
 cd /d "!OMIM_PATH!"
-bash tools/unix/build_omim.sh %*
+"!GIT_BASH!" tools/unix/build_omim.sh %*
 exit /b %ERRORLEVEL%
