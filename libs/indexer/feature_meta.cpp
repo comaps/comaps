@@ -200,9 +200,9 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_CHARGE;
   else if (k == "population")
     outType = Metadata::FMD_POPULATION;
-  else if (k.starts_with("capacity:disabled"))
+  else if (k == "capacity:disabled")
     outType = Metadata::FMD_CAPACITY_DISABLED;
-  else if (k.starts_with("capacity:charging"))
+  else if (k == "capacity:charging")
     outType = Metadata::FMD_CAPACITY_CHARGING;
   else
     return false;
