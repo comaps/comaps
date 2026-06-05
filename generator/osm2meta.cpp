@@ -399,8 +399,11 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string v)
     return v;
 
   strings::NormalizeDigits(v);
-  //if (isdigit(v))
-  return v;
+  unsigned int i = 0;
+  if (strings::to_uint(v, i))
+    return v;
+  else
+    return {};
 }
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_local_ref(std::string const & v)
