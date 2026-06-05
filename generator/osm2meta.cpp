@@ -400,15 +400,15 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_brand(std::string const 
   return v;
 }
 
-std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string const & v)
+std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string v)
 {
   strings::AsciiToLower(v);
   if (v == "yes" || v == "no" || v == "unknown")
     return v;
 
   strings::NormalizeDigits(v);
-  if (isdigit(v))
-	return v;
+  //if (isdigit(v))
+  return v;
 }
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_local_ref(std::string const & v)

@@ -42,7 +42,7 @@ struct MetadataTagProcessorImpl
   std::string ValidateAndFormat_airport_iata(std::string const & v) const;
   static std::string ValidateAndFormat_brand(std::string const & v);
   std::string ValidateAndFormat_duration(std::string const & v) const;
-  static std::string ValidateAndFormat_capacity(std::string const & v);
+  static std::string ValidateAndFormat_capacity(std::string v);
   static std::string ValidateAndFormat_rooms(std::string const & v);
   static std::string ValidateAndFormat_charge(std::string v);
   static std::string ValidateAndFormat_drive_through(std::string v);
