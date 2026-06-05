@@ -150,7 +150,7 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
   // Process only _main_ tag here, needed for editor ser/des. Actual postcode parsing happens in GetNameAndType.
   else if (k == "addr:postcode")
     outType = Metadata::FMD_POSTCODE;
-  else if (k == "wikipedia")
+  else if (k == "wikipedia" || k == "subject:wikipedia")
     outType = Metadata::FMD_WIKIPEDIA;
   else if (k == "wikimedia_commons")
     outType = Metadata::FMD_WIKIMEDIA_COMMONS;
