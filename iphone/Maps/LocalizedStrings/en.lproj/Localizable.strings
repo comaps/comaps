@@ -871,12 +871,10 @@
 "contribute_to_osm_update_map" = "Update the Map to Contribute";
 "contribute_to_osm_update_map_description" = "You need to update the %@ map to the latest version before you can contribute to the OpenStreetMap data";
 
-/* To indicate the number of disabled spaces in a parking*/
-"capacity_disabled" = "Number of disabled parking spaces: %@";
+/* To indicate the number of disabled spaces in a parking */
 "capacity_disabled_yes" = "Has disabled parking spaces";
 "capacity_disabled_no" = "No disabled parking spaces";
 
-/* To indicate the number of charging spaces in a parking*/
-"capacity_charging" = "Spaces with chargers: %@";
+/* To indicate the number of charging spaces in a parking */
 "capacity_charging_yes" = "Has spaces reserved for electric vehicles";
 "capacity_charging_no" = "No spaces reserved for electric vehicles";
