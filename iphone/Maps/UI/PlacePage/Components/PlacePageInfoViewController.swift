@@ -213,6 +213,14 @@ class PlacePageInfoViewController: UIViewController {
     if let capacity = placePageInfoData.capacity {
       capacityView = createInfoItem(capacity, icon: UIImage(systemName: "viewfinder"))
     }
+      
+    if let capacityCharging = placePageInfoData.capacityCharging {
+      capacityChargingView = createInfoItem(capacityCharging, icon: UIImage(named: "powerplug.portrait.viewfinder"))
+    }
+      
+    if let capacityDisabled = placePageInfoData.capacityDisabled {
+      capacityDisabledView = createInfoItem(capacityDisabled, icon: UIImage(named: "figure.roll.viewfinder"))
+    }
 	
     if let rooms = placePageInfoData.rooms {
       roomsView = createInfoItem(rooms, icon: UIImage(systemName: "bed.double.fill"))
@@ -224,14 +232,6 @@ class PlacePageInfoViewController: UIViewController {
 
     if let wheelchair = placePageInfoData.wheelchair {
       wheelchairView = createInfoItem(wheelchair, icon: UIImage(systemName: "figure.roll"))
-    }
-	
-    if let capacityDisabled = placePageInfoData.capacityDisabled {
-      capacityDisabledView = createInfoItem(capacityDisabled, icon: UIImage(named: "ic_placepage_wheelchair"))
-    }
-	
-    if let capacityCharging = placePageInfoData.capacityCharging {
-      capacityChargingView = createInfoItem(capacityCharging, icon: UIImage(named: "ic_placepage__charging"))
     }
 
     if let selfService = placePageInfoData.selfService {
