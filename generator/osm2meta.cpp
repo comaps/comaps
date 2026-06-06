@@ -395,7 +395,7 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_brand(std::string const 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_capacity(std::string v)
 {
   strings::AsciiToLower(v);
-  if (v == "yes" || v == "no" || v == "unknown")
+  if (v == "yes" || v == "no")
     return v;
 
   strings::NormalizeDigits(v);
