@@ -681,8 +681,6 @@
 "yes_available" = "Ndio";
 /* E.g. "WiFi:No" */
 "no_available" = "Hapana";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Uwezo: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Mtandao: %@";
 "trip_finished" = "Umefika!";

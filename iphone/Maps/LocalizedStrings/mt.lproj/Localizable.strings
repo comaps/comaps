@@ -681,8 +681,6 @@
 "yes_available" = "Iva";
 /* E.g. "WiFi:No" */
 "no_available" = "Le";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacity: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Network: %@";
 "trip_finished" = "Wasalt!";

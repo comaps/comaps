@@ -681,8 +681,6 @@
 "yes_available" = "ใช่";
 /* E.g. "WiFi:No" */
 "no_available" = "ไม่ใช่";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "ความจุ: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "เครือข่าย: %@";
 "trip_finished" = "คุณมาถึงแล้ว!";

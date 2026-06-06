@@ -681,8 +681,6 @@
 "yes_available" = "Ano";
 /* E.g. "WiFi:No" */
 "no_available" = "Ne";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapacita: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Síť: %@";
 "trip_finished" = "Přijeli jste!";

@@ -681,8 +681,6 @@
 "yes_available" = "Bai";
 /* E.g. "WiFi:No" */
 "no_available" = "Ez";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Edukiera: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Sarea: %@";
 "trip_finished" = "Iritsi zara!";

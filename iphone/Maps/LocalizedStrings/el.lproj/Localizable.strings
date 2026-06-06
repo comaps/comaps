@@ -681,8 +681,6 @@
 "yes_available" = "Ναι";
 /* E.g. "WiFi:No" */
 "no_available" = "Όχι";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Χωρητικότητα: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Δίκτυο: %@";
 "trip_finished" = "Μόλις φτάσατε!";

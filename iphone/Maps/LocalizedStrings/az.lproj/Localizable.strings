@@ -681,8 +681,6 @@
 "yes_available" = "Var";
 /* E.g. "WiFi:No" */
 "no_available" = "Yox";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Tutumu: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Şəbəkə: %@";
 "trip_finished" = "Sən gəldin!";
