@@ -95,9 +95,9 @@
 			<key>NSStringFormatValueTypeKey</key>
 			<string>lld</string>
 			<key>other</key>
-			<string>%lld disabled parking spaces</string>
+			<string>%lld dedicated disabled spaces</string>
 			<key>one</key>
-			<string>%lld disabled parking space</string>
+			<string>%lld dedicated disabled space</string>
 		</dict>
 	</dict>
 	<key>capacity_charging</key>
@@ -113,7 +113,23 @@
 			<key>other</key>
 			<string>%lld spaces with chargers</string>
 			<key>one</key>
-			<string>%lld space with chargers</string>
+			<string>%lld space with a charger</string>
+		</dict>
+	</dict>
+	<key>capacity</key>
+	<dict>
+		<key>NSStringLocalizedFormatKey</key>
+		<string>%#@nevertranslate@</string>
+		<key>nevertranslate</key>
+		<dict>
+			<key>NSStringFormatSpecTypeKey</key>
+			<string>NSStringPluralRuleType</string>
+			<key>NSStringFormatValueTypeKey</key>
+			<string>lld</string>
+			<key>other</key>
+			<string>%lld spaces</string>
+			<key>one</key>
+			<string>%lld space</string>
 		</dict>
 	</dict>
 </dict>

@@ -681,8 +681,6 @@
 "yes_available" = "Sim";
 /* E.g. "WiFi:No" */
 "no_available" = "Não";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacidade: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Rede: %@";
 "trip_finished" = "Chegou ao destino!";

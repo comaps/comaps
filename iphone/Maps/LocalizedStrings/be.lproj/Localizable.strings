@@ -681,8 +681,6 @@
 "yes_available" = "Ёсць";
 /* E.g. "WiFi:No" */
 "no_available" = "Няма";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Ёмістасць: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Сетка: %@";
 "trip_finished" = "Вы прыбылі!";

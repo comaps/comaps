@@ -681,8 +681,6 @@
 "yes_available" = "Yes";
 /* E.g. "WiFi:No" */
 "no_available" = "No";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capacity: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Network: %@";
 "trip_finished" = "You have arrived!";
@@ -879,10 +877,10 @@
 "editor_add_select_category_recent_subtitle" = "Recently Used";
 "oh_unknown" = "Opening hours unknown";
 
-/* To indicate the number of disabled spaces in a parking */
-"capacity_disabled_yes" = "Has disabled parking spaces";
-"capacity_disabled_no" = "No disabled parking spaces";
+/* To indicate the number of disabled spaces */
+"capacity_disabled_yes" = "Has dedicated disabled spaces";
+"capacity_disabled_no" = "No dedicated disabled spaces";
 
-/* To indicate the number of charging spaces in a parking */
-"capacity_charging_yes" = "Has spaces reserved for electric vehicles";
-"capacity_charging_no" = "No spaces reserved for electric vehicles";
+/* To indicate the number of charging spaces */
+"capacity_charging_yes" = "Has spaces with chargers";
+"capacity_charging_no" = "No spaces with chargers";

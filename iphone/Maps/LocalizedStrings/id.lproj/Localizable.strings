@@ -679,8 +679,6 @@
 "yes_available" = "Ya";
 /* E.g. "WiFi:No" */
 "no_available" = "Tidak";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Kapasitas: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Jaringan: %@";
 "trip_finished" = "Anda telah sampai!";

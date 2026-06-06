@@ -138,7 +138,7 @@ NSString * _Nullable FormatIntegerString(NSString * _Nullable integerString) {
               ? NSLocalizedString(@"no_available", nil) : NSLocalizedString(@"yes_available", nil);
           break;
         case MetadataID::FMD_LEVEL: _level = ToNSString(value); break;
-        case MetadataID::FMD_CAPACITY: _capacity = [NSString stringWithFormat:NSLocalizedString(@"capacity", nil), ToNSString(value)]; break;
+        case MetadataID::FMD_CAPACITY: _capacity = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"capacity", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
         case MetadataID::FMD_ROOMS: _rooms = [[[NSAttributedString localizedAttributedStringWithFormat:NSLocalizedAttributedString(@"rooms", nil), [ToNSString(value) intValue]] attributedStringByInflectingString] string]; break;
         case MetadataID::FMD_CHARGE: _charge = ToNSString(value); break;
         case MetadataID::FMD_WHEELCHAIR: _wheelchair = ToNSString(localisation::TranslatedFeatureType(value)); break;

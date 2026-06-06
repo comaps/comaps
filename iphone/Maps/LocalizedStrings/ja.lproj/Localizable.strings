@@ -681,8 +681,6 @@
 "yes_available" = "はい";
 /* E.g. "WiFi:No" */
 "no_available" = "いいえ";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "定員：%@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "ネットワーク： %@";
 "trip_finished" = "到着しました!";

@@ -681,8 +681,6 @@
 "yes_available" = "Ja";
 /* E.g. "WiFi:No" */
 "no_available" = "Nee";
-/* To indicate the capacity of car parkings, bicycle parkings, electric vehicle charging stations... */
-"capacity" = "Capaciteit: %@";
 /* To indicate the network of ATMs, bicycle rentals, electric vehicle charging stations... */
 "network" = "Netwerk: %@";
 "trip_finished" = "Bestemming bereikt!";
