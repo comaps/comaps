@@ -196,7 +196,6 @@ EdgeEstimator::EdgeEstimator(VehicleType vehicleType, double maxWeightSpeedKMpH,
 
 #define N 288
 
-  // TODO do we need entries for VehicleType::Decoder here?
   static auto constexpr kTurnPenaltyMatrix = []
   {
     array<TurnPenalty, N> constexpr kTable = {{
