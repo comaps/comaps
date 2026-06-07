@@ -235,6 +235,7 @@ int64_t MwmSet::GetMwmVersion(CountryFile const & countryFile) const
 }
 
 void MwmSet::GetMwmsInfo(vector<shared_ptr<MwmInfo>> & info) const
+{
   lock_guard<mutex> lock(m_lock);
   info.clear();
   info.reserve(m_info.size());
