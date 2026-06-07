@@ -290,7 +290,7 @@ public:
                    double maxWeightSpeedKMpH,
                    routing::SpeedKMpH const & offroadSpeedKMpH,
                    RoutingTraffDecoder & decoder)
-      : EdgeEstimator(routing::VehicleType::Car, maxWeightSpeedKMpH, offroadSpeedKMpH, dataSourcePtr, numMwmIds)
+      : EdgeEstimator(routing::VehicleType::Decoder, maxWeightSpeedKMpH, offroadSpeedKMpH, dataSourcePtr, numMwmIds)
       , m_decoder(decoder)
     {
     }

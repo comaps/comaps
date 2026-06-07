@@ -22,7 +22,7 @@
 #include "routing/router_delegate.hpp"
 #include "routing/routing_helpers.hpp"
 
-#include "routing_common/car_model.hpp"
+#include "routing_common/decoder_model.hpp"
 #include "routing_common/maxspeed_conversion.hpp"
 
 #include "storage/routing_helpers.hpp"
@@ -723,7 +723,7 @@ RoutingTraffDecoder::DecoderRouter::DecoderRouter(CountryParentNameGetterFn cons
                                                   std::shared_ptr<routing::NumMwmIds> numMwmIds,
                                                   std::unique_ptr<m4::Tree<routing::NumMwmId>> numMwmTree,
                                                   DataSource & dataSource, RoutingTraffDecoder & decoder)
-  : routing::IndexRouter(routing::VehicleType::Car /* VehicleType vehicleType */,
+  : routing::IndexRouter(routing::VehicleType::Decoder /* VehicleType vehicleType */,
                          false /* bool loadAltitudes */,
                          countryParentNameGetterFn,
                          countryFileFn,

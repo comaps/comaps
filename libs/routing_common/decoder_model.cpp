@@ -44,6 +44,11 @@ auto constexpr kOffroadPenalty = 16;
 // a start or finish. On the other hand, while route calculation the fake edges are considered
 // as quite heavy. The idea behind that is to use the closest edge for the start and the finish
 // of the route except for some edge cases.
+/*
+ * TODO move this constant to the header
+ * `traff_decoder.cpp` uses `kOneMpSInKmpH / kOffroadPenalty` to initialize its `EdgeEstimator`,
+ * and includes the header for its vehicle model.
+ */
 SpeedKMpH constexpr kSpeedOffroadKMpH = kOneMpSInKmpH / kOffroadPenalty;
 
 HighwayBasedFactors const kDefaultFactors = {
@@ -205,6 +210,13 @@ VehicleModel::LimitsInitList NoPassThroughTrack()
   return res;
 }
 
+/*
+ * TODO are these entries meaningful in TraFF decoder context?
+ * They are stored in the vehicle model and retrieved with VehicleModel::GetSurfaceFactor(), which
+ * is called by VehicleModel::GetTypeSpeedImpl(). The latter is also called by
+ * `DecoderModel::GetSpeed()`, which seems to have the same callers as its `CarModel` counterpart,
+ * excluding tests.
+ */
 /// @todo Should make some compare constrains (like in CarModel_TrackVsGravelTertiary test)
 /// to better fit these factors with reality. I have no idea, how they were set.
 VehicleModel::SurfaceInitList const kDecoderSurface = {
@@ -236,6 +248,13 @@ DecoderModel::DecoderModel(VehicleModel::LimitsInitList const & roadLimits)
   AddAdditionalRoadTypes(cl, {{std::move(hwtagYesCar), decoder_model::kDefaultSpeeds.at(HighwayType::HighwayTrack)}});
 
   // Set max possible (reasonable) car speed. See EdgeEstimator::CalcHeuristic.
+  /*
+   * TODO revisit, we don’t use actual speeds.
+   * Segment weight is distance-based, optionally with a penalty factor (>= 1). Thus maximum speed
+   * is 1 m/s (`traff_decoder.cpp` has `kOneMpSInKmpH = 3.6`).
+   * We might want to move `kOneMpSInKmpH` to `decoder_model.hpp` as `traff_decoder.cpp` includes it.
+   * PS: setting this value more aggressively might also help with performance, see #1253.
+   */
   SpeedKMpH constexpr kMaxCarSpeedKMpH(200.0);
   CHECK_LESS(m_maxModelSpeed, kMaxCarSpeedKMpH, ());
   m_maxModelSpeed = kMaxCarSpeedKMpH;
