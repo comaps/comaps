@@ -76,7 +76,6 @@ public:
     LOG(LDEBUG, ("[BORDERS_GENERATOR] Assigned country index:", countryIndex, "to country:", name));
 
     // Store simplified polygons for later triangle generation
-    serial::GeometryCodingParams cp;
     std::vector<std::vector<m2::PointD>> simplifiedPolygons;
     for (m2::RegionD const & border : borders)
     {
@@ -89,6 +88,11 @@ public:
       simplifiedPolygons.push_back(out);
     }
 
+    // Compute proper coding params from first point of first polygon
+    serial::GeometryCodingParams cp;
+    if (!simplifiedPolygons.empty() && !simplifiedPolygons[0].empty())
+      cp.SetBasePoint(simplifiedPolygons[0][0]);
+
     // Store data for triangle generation phase
     m_triangleData.emplace_back(TriangleGenerationData{countryIndex, simplifiedPolygons, cp});
   }
@@ -98,10 +102,18 @@ public:
     for (size_t i = 0; i < m_polys.size(); i++)
     {
       auto w = m_writer.GetWriter(strings::to_string(i));
-      serial::GeometryCodingParams cp;
+      if (!w)
+      {
+        LOG(LERROR, ("[BORDERS_GENERATOR] Failed to create writer for polygon tag", i));
+        continue;
+      }
+      
+      // Use the proper coding params stored in triangle data
+      serial::GeometryCodingParams const & cp = m_triangleData[i].m_cp;
       
       WriteVarUint(w, 1U); // Write 1 polygon for simplicity
-      serial::SaveOuterPath(m_triangleData[i].m_simplifiedPolygons[0], cp, *w);
+      if (!m_triangleData[i].m_simplifiedPolygons.empty() && !m_triangleData[i].m_simplifiedPolygons[0].empty())
+        serial::SaveOuterPath(m_triangleData[i].m_simplifiedPolygons[0], cp, *w);
     }
     
     for (auto const & data : m_triangleData)
@@ -110,6 +122,11 @@ public:
     }
     
     auto w = m_writer.GetWriter(PACKED_POLYGONS_INFO_TAG);
+    if (!w)
+    {
+      LOG(LERROR, ("[BORDERS_GENERATOR] Failed to create writer for info tag"));
+      return;
+    }
     rw::Write(*w, m_polys);
   }
 
@@ -132,6 +149,13 @@ private:
   {
     LOG(LDEBUG, ("[BORDERS_GENERATOR] GenerateAndSaveTriangles called for country index:", countryIndex));
 
+    // Validation: Check that we have valid simplified polygons
+    if (simplifiedPolygons.empty())
+    {
+      LOG(LWARNING, ("[BORDERS_GENERATOR] No simplified polygons for country index", countryIndex));
+      return;
+    }
+
     tesselator::PolygonsT polygons;
     for (auto const & polygon : simplifiedPolygons)
     {
@@ -146,7 +170,7 @@ private:
 
     if (polygons.empty())
     {
-      LOG(LDEBUG, ("[BORDERS_GENERATOR] No suitable polygons for triangle generation in country index", countryIndex));
+      LOG(LWARNING, ("[BORDERS_GENERATOR] No suitable polygons for triangle generation in country index", countryIndex));
       return;
     }
 
@@ -157,7 +181,14 @@ private:
 
     if (trianglesCount == 0)
     {
-      LOG(LDEBUG, ("[BORDERS_GENERATOR] No triangles generated for country index", countryIndex));
+      LOG(LWARNING, ("[BORDERS_GENERATOR] No triangles generated for country index", countryIndex));
+      return;
+    }
+
+    // Validation: Check that trianglesInfo has valid data
+    if (trianglesInfo.IsEmpty())
+    {
+      LOG(LWARNING, ("[BORDERS_GENERATOR] Empty triangles info for country index", countryIndex));
       return;
     }
 
@@ -168,8 +199,15 @@ private:
 
     trianglesInfo.GetPointsInfo(
         basePoint, maxPoint,
-        [&cp](m2::PointD const & p) { return PointDToPointU(p, cp.GetCoordBits()); },
+        [coordBits = cp.GetCoordBits()](m2::PointD const & p) { return PointDToPointU(p, coordBits); },
         pointsInfo);
+
+    // Validation: Check that we have points to serialize
+    if (pointsInfo.m_points.empty())
+    {
+      LOG(LWARNING, ("[BORDERS_GENERATOR] No points in pointsInfo for country index", countryIndex));
+      return;
+    }
 
     // Save triangles using chain encoding
     serial::TrianglesChainSaver saver(cp);
@@ -177,17 +215,15 @@ private:
 
     // Write triangles to "t" + countryIndex tag
     auto trgWriter = m_writer.GetWriter("t" + strings::to_string(countryIndex));
-    if (trgWriter)
+    if (!trgWriter)
     {
-      saver.Save(*trgWriter);
-      LOG(LDEBUG, ("[BORDERS_GENERATOR] Generated", trianglesCount, "triangles for country index", countryIndex));
+      LOG(LERROR, ("[BORDERS_GENERATOR] Failed to create writer for triangle tag t", countryIndex));
+      return;
     }
-    else
-    {
-      LOG(LERROR, ("[BORDERS_GENERATOR] Failed to create writer for country index", countryIndex));
-    }
-  }
-};
+
+    saver.Save(*trgWriter);
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Generated", trianglesCount, "triangles for country index", countryIndex));
+  };
 
 bool ReadPolygon(std::istream & stream, Polygon & poly, std::string const & filename)
 {
