@@ -2852,7 +2852,7 @@
         {
             "key": "France_Rhone-Alpes_Ain",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2860,7 +2860,7 @@
         {
             "key": "France_Rhone-Alpes_Ardeche",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2868,7 +2868,7 @@
         {
             "key": "France_Rhone-Alpes_Drome",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2876,7 +2876,7 @@
         {
             "key": "France_Rhone-Alpes_Haute-Savoie",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2884,7 +2884,7 @@
         {
             "key": "France_Rhone-Alpes_Isere",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2892,7 +2892,7 @@
         {
             "key": "France_Rhone-Alpes_Loire",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2900,7 +2900,7 @@
         {
             "key": "France_Rhone-Alpes_Rhone",
             "value": {
-                "profileName": "high",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
@@ -2908,7 +2908,7 @@
         {
             "key": "France_Rhone-Alpes_Savoie",
             "value": {
-                "profileName": "high_f2",
+                "profileName": "high10",
                 "tileCoordsSubset": [],
                 "tilesAreBanned": false
             }
