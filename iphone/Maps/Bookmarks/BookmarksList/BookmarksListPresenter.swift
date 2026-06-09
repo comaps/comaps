@@ -377,7 +377,7 @@ extension BookmarksListPresenter: CategorySettingsViewControllerDelegate {
   }
 
   func categorySettingsController(_ viewController: CategorySettingsViewController, didDelete categoryId: MWMMarkGroupID) {
-    if let delegate = delegate as? UIViewController {
+    if let delegate = delegate {
       viewController.navigationController?.popToViewController(delegate, animated: true)
     }
   }
