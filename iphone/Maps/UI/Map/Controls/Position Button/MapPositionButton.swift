@@ -21,7 +21,7 @@ struct MapPositionButton: View {
                 Text(positionMode.description)
             } icon: {
                 positionMode.image
-                    .foregroundStyle(positionMode == .following || positionMode == .followingAndRotated ? Color.BaseColors.blue : Color.secondary)
+                    .foregroundStyle(positionMode == .following || positionMode == .followingAndRotated ? Color.BaseColors.blue : Color.mapButtonForeground)
                     .padding(.top, positionMode == .locate || positionMode == .following ? 1 : 0)
             }
         }
