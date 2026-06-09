@@ -171,25 +171,45 @@ struct MapModePicker: View {
             }
             .background {
                 if isPresentingModeOptions {
-                    RoundedRectangle(cornerRadius: 25)
-                        .stroke(selectedMode.color, lineWidth: 1)
-                        .background {
-                            RoundedRectangle(cornerRadius: 25)
-                                .fill(Color.MapButtons.background)
-                        }
-                        .shadow(radius: 2)
-                        .foregroundStyle(Color.secondary)
-                        .compositingGroup()
+                    if #unavailable(anyAppleOS 27) {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(selectedMode.color, lineWidth: 1)
+                            .background {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(Color.MapButtons.background)
+                            }
+                            .shadow(radius: 2)
+                            .foregroundStyle(Color.secondary)
+                            .compositingGroup()
+                    } else {
+                        RoundedRectangle(cornerRadius: 25)
+                            .stroke(selectedMode.color, lineWidth: 1)
+                            .background {
+                                RoundedRectangle(cornerRadius: 25)
+                                    .fill(Color.MapButtons.background.opacity(0.5))
+                                    .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 25))
+                            }
+                            .shadow(radius: 2)
+                            .foregroundStyle(Color.secondary)
+                            .compositingGroup()
+                    }
                 } else {
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(Color.MapButtons.border, lineWidth: 1)
-                        .background {
-                            RoundedRectangle(cornerRadius: 28)
-                                .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
-                        }
-                        .shadow(radius: 2)
-                        .foregroundStyle(Color.secondary)
-                        .compositingGroup()
+                    if #unavailable(anyAppleOS 27) {
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color.MapButtons.border, lineWidth: 1)
+                            .background {
+                                RoundedRectangle(cornerRadius: 28)
+                                    .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
+                            }
+                            .shadow(radius: 2)
+                            .foregroundStyle(Color.secondary)
+                            .compositingGroup()
+                    } else {
+                        RoundedRectangle(cornerRadius: 28)
+                            .fill(Color.MapButtons.background.opacity(0.3))
+                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28))
+                            .shadow(radius: 2)
+                    }
                 }
             }
             .padding(4)
