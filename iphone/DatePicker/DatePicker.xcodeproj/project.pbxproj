@@ -150,7 +150,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				DefaultBuildSystemTypeForWorkspace = Latest;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 2700;
 				ORGANIZATIONNAME = CoMaps;
 				TargetAttributes = {
 					47A13C6424B4A86000027D4F = {
