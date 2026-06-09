@@ -1,4 +1,7 @@
 {
+  "features" : [
+    "specular-location"
+  ],
   "fill" : {
     "solid" : "srgb:0.34510,0.50588,0.34118,1.00000"
   },
@@ -29,6 +32,7 @@
         "kind" : "neutral",
         "opacity" : 0.5
       },
+      "specular" : "inside",
       "translucency" : {
         "enabled" : true,
         "value" : 0.5
@@ -65,7 +69,7 @@
         "kind" : "neutral",
         "opacity" : 0.5
       },
-      "specular" : true,
+      "specular" : "inside",
       "translucency" : {
         "enabled" : true,
         "value" : 0.3
@@ -94,6 +98,7 @@
         "kind" : "neutral",
         "opacity" : 0.5
       },
+      "specular" : "inside",
       "translucency" : {
         "enabled" : true,
         "value" : 0.5
@@ -122,11 +127,12 @@
         }
       ],
       "lighting" : "combined",
+      "name" : "Group",
       "shadow" : {
         "kind" : "neutral",
         "opacity" : 0.5
       },
-      "specular" : true,
+      "specular" : "inside",
       "translucency" : {
         "enabled" : true,
         "value" : 0.3
