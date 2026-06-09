@@ -35,34 +35,61 @@ struct MapZoomButtons: View {
             .disabled(isAllowedToDrag)
             .background {
                 if isAllowedToDrag {
-                    RoundedRectangle(cornerRadius: 28)
-                        .stroke(Color.MapButtons.border, lineWidth: 1)
-                        .background {
-                            RoundedRectangle(cornerRadius: 28)
-                                .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
-                                .opacity(0.9)
-                        }
-                        .shadow(radius: 2)
-                        .overlay(content: {
-                            VStack(spacing: 0) {
-                                MapZoomButton.Kind.in.image
-                                    .font(.title2)
-                                    .scaleEffect(1.1)
-                                    .foregroundStyle(Color.secondary)
-                                    .scaleEffect(0.96)
-                                    .padding(.top, 15)
-                                
-                                Spacer(minLength: 0)
-                                
-                                MapZoomButton.Kind.out.image
-                                    .font(.title2)
-                                    .scaleEffect(1.1)
-                                    .foregroundStyle(Color.secondary)
-                                    .scaleEffect(0.96)
-                                    .padding(.bottom, 23)
+                    if #unavailable(anyAppleOS 27) {
+                        RoundedRectangle(cornerRadius: 28)
+                            .stroke(Color.MapButtons.border, lineWidth: 1)
+                            .background {
+                                RoundedRectangle(cornerRadius: 28)
+                                    .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
+                                    .opacity(0.9)
                             }
-                        })
-                        .compositingGroup()
+                            .shadow(radius: 2)
+                            .overlay(content: {
+                                VStack(spacing: 0) {
+                                    MapZoomButton.Kind.in.image
+                                        .font(.title2)
+                                        .scaleEffect(1.1)
+                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .scaleEffect(0.96)
+                                        .padding(.top, 15)
+                                    
+                                    Spacer(minLength: 0)
+                                    
+                                    MapZoomButton.Kind.out.image
+                                        .font(.title2)
+                                        .scaleEffect(1.1)
+                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .scaleEffect(0.96)
+                                        .padding(.bottom, 23)
+                                }
+                            })
+                            .compositingGroup()
+                    } else {
+                        RoundedRectangle(cornerRadius: 28)
+                            .fill(Color.MapButtons.background.opacity(0.3))
+                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28))
+                            .shadow(radius: 2)
+                            .overlay(content: {
+                                VStack(spacing: 0) {
+                                    MapZoomButton.Kind.in.image
+                                        .font(.title2)
+                                        .scaleEffect(1.1)
+                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .scaleEffect(0.96)
+                                        .padding(.top, 15)
+                                    
+                                    Spacer(minLength: 0)
+                                    
+                                    MapZoomButton.Kind.out.image
+                                        .font(.title2)
+                                        .scaleEffect(1.1)
+                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .scaleEffect(0.96)
+                                        .padding(.bottom, 23)
+                                }
+                            })
+                            .compositingGroup()
+                    }
                 }
             }
             .animation(.spring.speed(5), value: isAllowedToDrag)

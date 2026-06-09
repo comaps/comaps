@@ -22,7 +22,7 @@ extension MapModePicker {
         
         
         /// The foreground color (for animations)
-        @State private var foregroundColor: Color = .secondary
+        @State private var foregroundColor: Color = .mapButtonForeground
         
         
         /// The actual view
@@ -43,19 +43,19 @@ extension MapModePicker {
                     }
                 }
                 .onAppear {
-                    foregroundColor = (draggedMode == mode ? .white : .secondary)
+                    foregroundColor = (draggedMode == mode ? .white : .mapButtonForeground)
                 }
                 .onChange(of: draggedMode) { changedDraggedMode in
-                    if changedDraggedMode == mode, foregroundColor == .secondary {
+                    if changedDraggedMode == mode, foregroundColor == .mapButtonForeground {
                         withAnimation(.spring.speed(3.2).delay(0.1)) {
                             foregroundColor = .white
                         }
                     } else if changedDraggedMode != mode, foregroundColor == .white {
                         withAnimation(.spring.speed(4)) {
-                            foregroundColor = .secondary
+                            foregroundColor = .mapButtonForeground
                         }
                     } else {
-                        foregroundColor = (changedDraggedMode == mode ? .white : .secondary)
+                        foregroundColor = (changedDraggedMode == mode ? .white : .mapButtonForeground)
                     }
                 }
         }

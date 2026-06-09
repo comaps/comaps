@@ -49,7 +49,7 @@ struct MapLayersButton: View {
                         .padding(.bottom, 1)
                 }
             }
-            .buttonStyle(MapButtonStyle())
+            .buttonStyle(MapButtonStyle(isClear: isPresentingLayers))
             .background {
                 GeometryReader { geometry in
                     if #available(iOS 16.0, *) {
@@ -150,15 +150,22 @@ struct MapLayersButton: View {
             .frame(width: (isHorizontal ? height + optionsHeightForAnimations : nil), height: (isHorizontal ? nil : height + optionsHeightForAnimations), alignment: isHorizontal ? .trailing : .top)
             .background(alignment: isHorizontal ? .trailing : .top) {
                 if isPresentingLayers, !shouldTemporarilyHideLayers {
-                    Capsule()
-                        .stroke(Color.MapButtons.border, lineWidth: 1)
-                        .background(alignment: .top) {
-                            Capsule()
-                                .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
-                        }
-                        .shadow(radius: 2)
-                        .foregroundStyle(Color.secondary)
-                        .compositingGroup()
+                    if #unavailable(anyAppleOS 27) {
+                        Capsule()
+                            .stroke(Color.MapButtons.border, lineWidth: 1)
+                            .background(alignment: .top) {
+                                Capsule()
+                                    .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
+                            }
+                            .shadow(radius: 2)
+                            .foregroundStyle(Color.mapButtonForeground)
+                            .compositingGroup()
+                    } else {
+                        Capsule()
+                            .fill(Color.MapButtons.background.opacity(0.3))
+                            .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 28))
+                            .shadow(radius: 2)
+                    }
                 }
             }
             .compositingGroup()
