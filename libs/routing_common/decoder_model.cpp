@@ -247,15 +247,14 @@ DecoderModel::DecoderModel(VehicleModel::LimitsInitList const & roadLimits)
   // Set small track speed if highway is not in kDefaultSpeeds (path, pedestrian), but marked as yescar.
   AddAdditionalRoadTypes(cl, {{std::move(hwtagYesCar), decoder_model::kDefaultSpeeds.at(HighwayType::HighwayTrack)}});
 
-  // Set max possible (reasonable) car speed. See EdgeEstimator::CalcHeuristic.
   /*
-   * TODO revisit, we don’t use actual speeds.
+   * Set max possible (reasonable) car speed. See EdgeEstimator::CalcHeuristic.
    * Segment weight is distance-based, optionally with a penalty factor (>= 1). Thus maximum speed
-   * is 1 m/s (`traff_decoder.cpp` has `kOneMpSInKmpH = 3.6`).
-   * We might want to move `kOneMpSInKmpH` to `decoder_model.hpp` as `traff_decoder.cpp` includes it.
-   * PS: setting this value more aggressively might also help with performance, see #1253.
+   * is 1 m/s, or 3.6 km/h. Rounding up as the assertion requires `kMaxCarSpeedKMpH` to be truly
+   * greater than the speed assumed for any road (cannot be equal).
+   * However, tests do not show a significant performance improvement over 200 km/h.
    */
-  SpeedKMpH constexpr kMaxCarSpeedKMpH(200.0);
+  SpeedKMpH constexpr kMaxCarSpeedKMpH(4.0);
   CHECK_LESS(m_maxModelSpeed, kMaxCarSpeedKMpH, ());
   m_maxModelSpeed = kMaxCarSpeedKMpH;
 }
