@@ -89,6 +89,27 @@ fi
 
 OMIM_PATH="$(cd "${OMIM_PATH:-$(dirname "$0")/../..}"; pwd)"
 
+# Windows (Git Bash / MINGW) — inject platform-specific configuration.
+if [[ "$(uname -s)" =~ ^MINGW|^MSYS ]]; then
+  if ! command -v cl &>/dev/null; then
+    echo "ERROR: cl.exe not found. Run from VS 2022 x64 Native Tools Command Prompt."
+    exit 1
+  fi
+  QT6_PREFIX=
+  for qtdir in /c/Qt/6.*/msvc2022_64 /c/Qt/6.*/msvc2019_64; do
+    [ -f "$qtdir/lib/cmake/Qt6/Qt6Config.cmake" ] && { QT6_PREFIX="$qtdir"; break; }
+  done
+  if [ -z "$QT6_PREFIX" ]; then
+    echo "ERROR: Qt6 MSVC variant not found under C:\\Qt\\. See docs/INSTALL_DESKTOP.md."
+    exit 1
+  fi
+  echo "Found Qt6 MSVC: $QT6_PREFIX"
+  export PYTHONUTF8=1
+  export SKIP_GENERATE_SERBIAN_LATIN_STRINGS=1
+  command -v optipng &>/dev/null || echo "WARNING: optipng not found — symbol sprites will not be regenerated."
+  CMAKE_CONFIG="${CMAKE_CONFIG:-} -DCMAKE_PREFIX_PATH=$QT6_PREFIX -DCMAKE_UNITY_BUILD=OFF -DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DUSE_PCH=OFF"
+fi
+
 if [ "$OPT_TARGET" ] && [ "$OPT_TARGET" != "desktop" ] && [ -z "$SKIP_MAP_DOWNLOAD$SKIP_GENERATE_SYMBOLS$SKIP_GENERATE_DRULES" ]; then
   SKIP_MAP_DOWNLOAD=1 SKIP_GENERATE_SYMBOLS=1 SKIP_GENERATE_DRULES=1 ./configure.sh
 else
@@ -120,6 +141,8 @@ if [ "$(uname -s)" == "Darwin" ]; then
                                     -DCMAKE_CXX_COMPILER=/usr/local/bin/$GPP"
   fi
 elif [ "$(uname -s)" == "Linux" ]; then
+  PROCESSES=$(nproc)
+elif [[ "$(uname -s)" =~ ^MINGW|^MSYS ]]; then
   PROCESSES=$(nproc)
 else
   [ -n "$OPT_DESIGNER" ] \

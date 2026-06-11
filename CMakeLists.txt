@@ -243,7 +243,7 @@ if (PLATFORM_DESKTOP)
   # dev_sandbox requires a platform-specific context factory (main_linux.cpp / main.mm).
   # No Windows implementation exists yet; the upstream Vulkan-only port (af48e3caf6)
   # is unmerged and doesn't cover the OpenGL path used on Windows.
-  if (NOT MSVC)
+  if (NOT PLATFORM_WIN)
     add_subdirectory(dev_sandbox)
   endif()
   add_subdirectory(generator)

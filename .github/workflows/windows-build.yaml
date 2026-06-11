@@ -17,7 +17,6 @@ on:
       - '!libs/platform/*_linux*'
       - '!libs/platform/*_mac*'
       - qt/**
-      - tools/unix/build_omim.bat
       - tools/unix/build_omim.sh
       - .github/workflows/windows-build.yaml
   pull_request:

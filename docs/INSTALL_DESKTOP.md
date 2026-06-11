@@ -160,9 +160,9 @@ Native Windows builds are supported using MSVC and Qt 6.
 
 Open the **x64 Native Tools Command Prompt for VS 2022** and run the RelWithDebInfo build:
 
-```bat
+```bash
 cd comaps
-tools\unix\build_omim.bat -R
+bash tools/unix/build_omim.sh -R
 ```
 
 The script checks for all prerequisites, auto-detects Qt, configures CMake, and builds with Ninja. The output binary is placed in `..\omim-build-RelWithDebInfo\CoMaps.exe`.

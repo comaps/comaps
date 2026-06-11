@@ -71,17 +71,13 @@ Platform::Platform()
   // Resources directory search order:
   // 1. MWM_RESOURCES_DIR environment variable override
   // 2. data\ next to executable (dev build junction or release install)
-  // 3. CoMaps.app\Contents\Resources\ (cmake bundle next to executable)
-  // 4. ..\share\comaps\data\ (FHS-style install)
-  // 5. Up to 3 parent directories (development build only)
+  // 3. ..\share\comaps\data\ (FHS-style install)
+  // 4. Up to 3 parent directories (development build only)
   if (char const * envDir = ::getenv("MWM_RESOURCES_DIR"))
     m_resourcesDir = std::string(envDir) + "\\";
 
   if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\data"))
     m_resourcesDir = exePath + "\\data\\";
-
-  if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\CoMaps.app\\Contents\\Resources"))
-    m_resourcesDir = exePath + "\\CoMaps.app\\Contents\\Resources\\";
 
   if (m_resourcesDir.empty() && IsResourcesDir(exePath + "\\..\\share\\comaps\\data"))
     m_resourcesDir = exePath + "\\..\\share\\comaps\\data\\";
