@@ -20,11 +20,19 @@ export QT_QPA_PLATFORM=offscreen
 BINARY_NAME=skin_generator_tool
 OMIM_PATH="${OMIM_PATH:-$(cd "$(dirname "$0")/../.."; pwd)}"
 BUILD_DIR="$OMIM_PATH/build"
-SKIN_GENERATOR="${SKIN_GENERATOR:-$BUILD_DIR/$BINARY_NAME}"
 DATA_PATH="$OMIM_PATH/data"
 
+# On Windows (Git Bash), the built binary has an .exe suffix.
+CMAKE_EXTRA=()
+if [[ "$(uname -s)" =~ ^MINGW|^MSYS ]]; then
+  BINARY_NAME="${BINARY_NAME}.exe"
+  CMAKE_EXTRA=(-DCMAKE_C_COMPILER=cl -DCMAKE_CXX_COMPILER=cl -DCMAKE_UNITY_BUILD=OFF -DUSE_PCH=OFF)
+fi
+
+SKIN_GENERATOR="${SKIN_GENERATOR:-$BUILD_DIR/$BINARY_NAME}"
+
 # cmake rebuilds skin generator binary if necessary.
-cmake -S "$OMIM_PATH" -B "$BUILD_DIR" -G Ninja -DCMAKE_BUILD_TYPE=Release -DSKIP_TESTS:bool=true
+cmake -S "$OMIM_PATH" -B "$BUILD_DIR" -G Ninja -DCMAKE_BUILD_TYPE=Release -DSKIP_TESTS:bool=true "${CMAKE_EXTRA[@]}"
 cmake --build "$BUILD_DIR" --target "$BINARY_NAME"
 
 
