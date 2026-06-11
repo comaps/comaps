@@ -89,6 +89,16 @@ fi
 
 OMIM_PATH="$(cd "${OMIM_PATH:-$(dirname "$0")/../..}"; pwd)"
 
+# Detect accidental use of WSL bash when a Windows build is intended.
+# WSL reports uname -s as "Linux" but the repo lives on a Windows drive (/mnt/c/...).
+if [[ "$(uname -s)" == "Linux" ]] && grep -qiE "microsoft|wsl" /proc/version 2>/dev/null \
+    && [[ "$OMIM_PATH" == /mnt/* ]]; then
+  echo "ERROR: This looks like WSL bash building from a Windows path (${OMIM_PATH})."
+  echo "WSL bash produces a Linux build. For a Windows build, use Git Bash instead:"
+  echo '  "C:\Program Files\Git\bin\bash.exe" tools/unix/build_omim.sh'
+  exit 1
+fi
+
 # Windows (Git Bash / MINGW) — inject platform-specific configuration.
 if [[ "$(uname -s)" =~ ^MINGW|^MSYS ]]; then
   if ! command -v cl &>/dev/null; then
