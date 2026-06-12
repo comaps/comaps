@@ -250,6 +250,13 @@ jobs:
           path: CoMaps-windows-x64-setup.exe
           if-no-files-found: error
 
+      - name: Upload winget manifest templates
+        uses: actions/upload-artifact@v4
+        with:
+          name: CoMaps-windows-x64-winget-${{ steps.version.outputs.version }}
+          path: cmake/windows/winget/CoMaps*.yaml
+          if-no-files-found: error
+
   upload:
     name: Upload to SFTP
     needs: windows-build
@@ -288,6 +295,12 @@ jobs:
           name: CoMaps-windows-x64-portable-${{ needs.windows-build.outputs.version }}
           path: portable-staging
 
+      - name: Download winget manifest templates
+        uses: actions/download-artifact@v4
+        with:
+          name: CoMaps-windows-x64-winget-${{ needs.windows-build.outputs.version }}
+          path: winget-templates
+
       - name: Repackage portable ZIP
         run: |
           cd portable-staging
@@ -309,41 +322,22 @@ jobs:
           echo "$installer_sha256  $installer" > "${installer}.sha256"
           echo "$portable_sha256  $portable"   > "${portable}.sha256"
 
-          # WinGet installer manifest (NSIS installer only) — can be used directly to update winget-pkgs
-          cat > CoMaps.CoMaps.installer.yaml <<EOF
-          # yaml-language-server: \$schema=https://aka.ms/winget-manifest.installer.1.12.0.schema.json
-          PackageIdentifier: CoMaps.CoMaps
-          PackageVersion: ${version}
-          InstallerLocale: en-US
-          Platform:
-            - Windows.Desktop
-          MinimumOSVersion: 10.0.0.0
-          InstallerType: nullsoft
-          UpgradeBehavior: uninstallPrevious
-          InstallModes:
-            - interactive
-            - silent
-          InstallerSwitches:
-            Silent: /S
-            SilentWithProgress: /S
-          Dependencies:
-            PackageDependencies:
-              - PackageIdentifier: Microsoft.VCRedist.2015+.x64
-          Installers:
-            - Architecture: x64
-              InstallerUrl: ${base_url}/${installer}
-              InstallerSha256: ${installer_sha256}
-          ManifestType: installer
-          ManifestVersion: 1.12.0
-          EOF
-          cat CoMaps.CoMaps.installer.yaml
+          # Fill version, URL, and SHA256 into all winget manifests from the repo templates.
+          # The InstallerUrl/InstallerSha256 substitutions are no-ops on files that lack those keys.
+          for f in winget-templates/CoMaps*.yaml; do
+            sed \
+              -e "s|^PackageVersion:.*|PackageVersion: ${version}|" \
+              -e "s|InstallerUrl:.*|InstallerUrl: ${base_url}/${installer}|" \
+              -e "s|InstallerSha256:.*|InstallerSha256: ${installer_sha256}|" \
+              "$f" > "$(basename "$f")"
+          done
 
       - name: Upload manifest artifacts
         uses: actions/upload-artifact@v4
         with:
           name: CoMaps-windows-x64-manifest-${{ needs.windows-build.outputs.version }}
           path: |
-            CoMaps.CoMaps.installer.yaml
+            CoMaps*.yaml
             CoMaps-windows-x64-setup.exe.sha256
             CoMaps-windows-x64-portable.zip.sha256
           if-no-files-found: error
@@ -359,15 +353,17 @@ jobs:
           portable="CoMaps-windows-x64-portable.zip"
 
           sftp_cmds=$(mktemp)
-          cat > "$sftp_cmds" <<EOF
-          -mkdir ${base}
-          -mkdir ${remote}
-          put ${installer} ${remote}/${installer}
-          put ${installer}.sha256 ${remote}/${installer}.sha256
-          put ${portable} ${remote}/${portable}
-          put ${portable}.sha256 ${remote}/${portable}.sha256
-          put CoMaps.CoMaps.installer.yaml ${remote}/CoMaps.CoMaps.installer.yaml
-          EOF
+          {
+            echo "-mkdir ${base}"
+            echo "-mkdir ${remote}"
+            echo "put ${installer} ${remote}/${installer}"
+            echo "put ${installer}.sha256 ${remote}/${installer}.sha256"
+            echo "put ${portable} ${remote}/${portable}"
+            echo "put ${portable}.sha256 ${remote}/${portable}.sha256"
+            for yaml in CoMaps*.yaml; do
+              echo "put ${yaml} ${remote}/${yaml}"
+            done
+          } > "$sftp_cmds"
 
           if [ -n "$SFTP_KEY" ]; then
             keyfile=$(mktemp)
