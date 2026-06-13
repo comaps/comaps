@@ -1,5 +1,6 @@
 #pragma once
 
+#include "drape_frontend/backend_renderer.hpp"
 #include "drape_frontend/base_renderer.hpp"
 #include "drape_frontend/custom_features_context.hpp"
 #include "drape_frontend/drape_engine_params.hpp"
@@ -7,6 +8,7 @@
 #include "drape_frontend/frontend_renderer.hpp"
 #include "drape_frontend/gui/skin.hpp"
 #include "drape_frontend/map_data_provider.hpp"
+#include "drape_frontend/my_position_controller.hpp"
 #include "drape_frontend/overlays_tracker.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/route_shape.hpp"
@@ -20,6 +22,8 @@
 #include "indexer/mwm_set.hpp"
 
 #include "transit/transit_display_info.hpp"
+
+#include "traffic/traffic_info.hpp"
 
 #include "kml/type_utils.hpp"
 
@@ -166,7 +170,7 @@ public:
   void UpdateMapStyle();
 
   void SetCompassInfo(location::CompassInfo const & info);
-  void SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+  void SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
                   location::RouteMatchingInfo const & routeInfo);
   void SwitchMyPositionNextMode();
   void StartPendingPositionMode();
@@ -184,7 +188,8 @@ public:
 
   dp::DrapeID AddSubroute(SubrouteConstPtr subroute);
   void RemoveSubroute(dp::DrapeID subrouteId, bool deactivateFollowing);
-  void FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued);
+  void FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued,
+                   bool allowRouteRotation);
   void DeactivateRouteFollowing();
   void SetSubrouteVisibility(dp::DrapeID subrouteId, bool isVisible);
   dp::DrapeID AddRoutePreviewSegment(m2::PointD const & startPt, m2::PointD const & finishPt);

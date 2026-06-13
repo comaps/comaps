@@ -127,6 +127,9 @@ public:
 
   bool IsFakeSegment(size_t index) const;
 
+  /// \brief Obtain a point |lookaheadDistanceM| meters along the current route
+  m2::PointD GetLookaheadPoint(double lookaheadDistanceM) const;
+
 private:
   /// \returns iterator to the best projection of center of |posRect| to the |m_poly|.
   /// If there's a good projection of center of |posRect| to two closest segments of |m_poly|
