@@ -81,20 +81,15 @@ set(BUNDLE_FOLDER ${CMAKE_BINARY_DIR}/${CMAKE_BUILD_TYPE}/${BUNDLE_NAME}.app)
 set(RESOURCES_FOLDER ${BUNDLE_FOLDER}/Contents/Resources)
 set(DATA_DIR ${OMIM_ROOT}/data)
 
-file(MAKE_DIRECTORY ${RESOURCES_FOLDER})
+execute_process(
+  COMMAND mkdir -p ${RESOURCES_FOLDER}
+)
 
 function(copy_resources)
-  # Previously used execute_process(COMMAND cp ...) which silently ignored missing files.
-  # file(COPY) is cross-platform but errors on missing sources, so we need to decide
-  # explicitly: error on a normal build (developer needs to run configure.sh), but skip
-  # silently in CI (SKIP_MAP_DOWNLOAD or the standard CI env var) where generated/downloaded
-  # files may be absent.
   foreach(file ${ARGN})
-    if(EXISTS ${DATA_DIR}/${file})
-      file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
-    elseif(NOT DEFINED ENV{SKIP_MAP_DOWNLOAD} AND NOT DEFINED ENV{CI})
-      message(SEND_ERROR "file COPY cannot find \"${DATA_DIR}/${file}\"")
-    endif()
+    execute_process(
+      COMMAND cp -r ${DATA_DIR}/${file} ${RESOURCES_FOLDER}
+    )
   endforeach()
 endfunction()
 
