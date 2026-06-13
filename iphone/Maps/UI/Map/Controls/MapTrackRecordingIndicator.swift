@@ -4,6 +4,10 @@ import SwiftUI
 struct MapTrackRecordingIndicator: View {
     // MARK: Properties
     
+    /// The vertical size class of the environment
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
+    
     /// The custom button kind
     @AppStorage(Settings.userDefaultsKeyMapCustomButtonKind) private var customButtonKind: MapCustomButton.Kind = .favourites
     
@@ -16,12 +20,18 @@ struct MapTrackRecordingIndicator: View {
     private let changeChangeTrackRecordingPublisher = NotificationCenter.default.publisher(for: MapControls.changeTrackRecordingNotificationName)
     
     
+    /// The default height of a map control
+    var controlHeight: CGFloat
+    
+    
     /// The actual view
     var body: some View {
         GeometryReader { geometry in
             HStack(spacing: 0) {
                 if customButtonKind != .recordTrack, isRecording {
-                    Spacer(minLength: 0)
+                    if verticalSizeClass != .compact {
+                        Spacer(minLength: 0)
+                    }
                     
                     HStack(spacing: 0) {
                         ForEach(Mode.allCases) { mode in
@@ -63,6 +73,7 @@ struct MapTrackRecordingIndicator: View {
                     Spacer(minLength: 0)
                 }
             }
+            .padding(.leading, verticalSizeClass == .compact ? (controlHeight + 24) : 0)
             .onReceive(changeChangeTrackRecordingPublisher) { _ in
                 isRecording = (TrackRecordingManager.shared.recordingState == .active)
             }
