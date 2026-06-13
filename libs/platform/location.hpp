@@ -98,6 +98,15 @@ static inline double BearingToAngle(double a)
   return AngleToBearing(a);
 }
 
+// Convert angle (in radians counterclockwise from X) to bearing ([0, 360) clockwise from the north)
+static inline double RadiansToBearing(double a)
+{
+  double reverseAng = fmod(-a + math::pi2, 2 * math::pi);
+  if (reverseAng < 0)
+    reverseAng += 2 * math::pi;
+  return reverseAng;
+}
+
 class RouteMatchingInfo
 {
   m2::PointD m_matchedPosition;

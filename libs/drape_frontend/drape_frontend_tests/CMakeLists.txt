@@ -17,5 +17,6 @@ target_link_libraries(${PROJECT_NAME}
     drape_frontend
     geometry
     indexer
+    routing
     shaders
 )

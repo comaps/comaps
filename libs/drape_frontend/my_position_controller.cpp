@@ -12,6 +12,7 @@
 #include "geometry/angles.hpp"
 #include "geometry/any_rect2d.hpp"
 #include "geometry/mercator.hpp"
+#include "geometry/point2d.hpp"
 #include "geometry/screenbase.hpp"
 
 #include "platform/location.hpp"
@@ -19,6 +20,7 @@
 
 #include "base/logging.hpp"
 #include "base/math.hpp"
+#include "routing/base/followed_polyline.hpp"
 
 #include <algorithm>
 #include <array>
@@ -43,6 +45,13 @@ int constexpr kZoomThreshold = 10;
 int constexpr kMaxScaleZoomLevel = 16;
 int constexpr kDefaultAutoZoom = 16;
 double constexpr kUnknownAutoZoom = -1.0;
+
+double constexpr kLookaheadTimeSpeedRatio = 2.1;
+double constexpr kDefaultLookaheadSpeedMps = 14;  // 50 km/h
+double constexpr kMaxLookaheadTimeSec = 40.0;
+int constexpr kLookaheadSamples = 6;
+int constexpr kExtendedSamplesThresholdM = 1000;
+std::array<double, kLookaheadSamples> constexpr kLookaheadSampleMultipliers = {{0.15, 0.5, 1, 0.275, 0.35, 0.75}};
 
 inline int GetZoomLevel(ScreenBase const & screen)
 {
@@ -164,9 +173,11 @@ MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifi
   , m_errorRadius(0.0)
   , m_horizontalAccuracy(0.0)
   , m_position(m2::PointD::Zero())
-  , m_drawDirection(0.0)
+  , m_direction(0.0)
+  , m_routeDirection(0.0)
+  , m_arrowDirection(0.0)
   , m_oldPosition(m2::PointD::Zero())
-  , m_oldDrawDirection(0.0)
+  , m_oldArrowDirection(0.0)
   , m_enablePerspectiveInRouting(false)
   , m_enableAutoZoomInRouting(params.m_isAutozoomEnabled)
   , m_autoScale2d(GetScreenScale(kDefaultAutoZoom))
@@ -178,7 +189,8 @@ MyPositionController::MyPositionController(Params && params, ref_ptr<DrapeNotifi
   , m_isDirtyAutoZoom(false)
   , m_isPendingAnimation(false)
   , m_isPositionAssigned(false)
-  , m_isDirectionAssigned(false)
+  , m_isArrowDirectionAssigned(false)
+  , m_isRouteDirectionAssigned(false)
   , m_isCompassAvailable(false)
   , m_positionIsObsolete(false)
   , m_needBlockAutoZoom(false)
@@ -407,7 +419,8 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   // In routing not-follow -> follow-and-rotate, otherwise not-follow -> follow.
   if (m_mode == location::NotFollow)
   {
-    if (IsRotationAvailable() && m_lastFollowMode == location::FollowAndRotate)
+    if (m_lastFollowMode == location::FollowAndRotate &&
+        (IsArrowRotationAvailable() || (m_preferRouteDirectionInRouting && IsRouteRotationAvailable())))
       ChangeMode(location::FollowAndRotate, true);
     else
       ChangeMode(location::Follow, true);
@@ -420,7 +433,7 @@ void MyPositionController::NextMode(ScreenBase const & screen)
   // routing is enabled.
   if (m_mode == location::Follow)
   {
-    if (IsRotationAvailable() || m_isInRouting)
+    if (IsArrowRotationAvailable() || m_isInRouting)
     {
       ChangeMode(location::FollowAndRotate, true);
       UpdateViewport(preferredZoomLevel);
@@ -447,8 +460,8 @@ void MyPositionController::StartPendingPositionMode()
   }
 }
 
-void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool isNavigable, double distanceToNextTurn,
-                                            double speedLimit, ScreenBase const & screen)
+void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
+                                            df::NavigationContext const & navigationContext, ScreenBase const & screen)
 {
   m2::PointD const oldPos = GetDrawablePosition();
   double const oldAzimut = GetDrawableAzimut();
@@ -460,32 +473,84 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
   m_errorRadius = rect.SizeX() * 0.5;
   m_horizontalAccuracy = info.m_horizontalAccuracy;
 
-  if (distanceToNextTurn >= 0.0 || speedLimit >= 0.0)
+  if (navigationContext.m_distanceToNextTurn >= 0.0 || navigationContext.m_speedLimit >= 0.0)
   {
     double const mercatorPerMeter = m_errorRadius / info.m_horizontalAccuracy;
     m_autoScale2d =
-        mercatorPerMeter * CalculateAutoZoom(speedLimit, distanceToNextTurn, false /* isPerspectiveAllowed */);
+        mercatorPerMeter * CalculateAutoZoom(navigationContext.m_speedLimit, navigationContext.m_distanceToNextTurn,
+                                             false /* isPerspectiveAllowed */);
     m_autoScale3d =
-        mercatorPerMeter * CalculateAutoZoom(speedLimit, distanceToNextTurn, true /* isPerspectiveAllowed */);
+        mercatorPerMeter * CalculateAutoZoom(navigationContext.m_speedLimit, navigationContext.m_distanceToNextTurn,
+                                             true /* isPerspectiveAllowed */);
   }
   else
   {
     m_autoScale2d = m_autoScale3d = kUnknownAutoZoom;
   }
 
-  // Sets direction based on GPS if:
+  // Sets arrow direction based on GPS if:
   // 1. Compass is not available.
   // 2. Direction must be glued to the route during routing (route-corrected angle is set only in
   // OnLocationUpdate(): in OnCompassUpdate() the angle always has the original value.
   // 3. Device is moving faster then pedestrian.
   bool const isMovingFast = info.HasSpeed() && info.m_speed > kMinSpeedThresholdMps;
-  bool const glueArrowInRouting = isNavigable && m_isArrowGluedInRouting;
+  bool const glueArrowInRouting = navigationContext.m_isNavigable && m_isArrowGluedInRouting;
+
+  // Calculate the route direction by sampling points along the route up to the lookahead distance
+  // and taking the average direction
+  if (glueArrowInRouting && navigationContext.m_followedPolyline != nullptr)
+  {
+    double const speedLimitMps =
+        (navigationContext.m_speedLimit > 0 ? navigationContext.m_speedLimit : kDefaultLookaheadSpeedMps);
+    double const lookaheadTimeSec = std::min(speedLimitMps * kLookaheadTimeSpeedRatio, kMaxLookaheadTimeSec);
+    double const lookaheadDistanceM =
+        std::min(speedLimitMps * lookaheadTimeSec, navigationContext.m_distanceToNextTurn);
+
+    m2::PointD const currentPoint = navigationContext.m_followedPolyline->GetCurrentIter().m_pt;
+
+    int const numSamples =
+        navigationContext.m_distanceToNextTurn < kExtendedSamplesThresholdM ? kLookaheadSamples / 2 : kLookaheadSamples;
+
+    ang::AverageCalc calc;
+    bool valid = true;
+
+    for (int i = 0; i < numSamples; i++)
+    {
+      double const sampleDist = kLookaheadSampleMultipliers[i] * lookaheadDistanceM;
+      m2::PointD const samplePoint = navigationContext.m_followedPolyline->GetLookaheadPoint(sampleDist);
+      double const angle = ang::AngleTo(currentPoint, samplePoint);
+
+      if (std::isnan(angle) || std::isinf(angle))
+      {
+        valid = false;
+        break;
+      }
+
+      calc.Add(angle);
+    }
+
+    if (!valid)
+    {
+      SetRouteDirection(info.m_bearing);
+    }
+    else
+    {
+      // The angle is clamped to a cone in front of the driver to prevent situations
+      // where the route direction faces the opposite way the driver is actually
+      // going
+      double const bisect = ang::AngleTo(currentPoint, navigationContext.m_followedPolyline->GetLookaheadPoint(
+                                                           std::min(speedLimitMps, lookaheadDistanceM * 0.1)));
+      SetRouteDirection(location::RadiansToBearing(ang::ClampAngle(calc.GetAverage(), bisect, math::DegToRad(15.0))));
+    }
+  }
 
   if ((!m_isCompassAvailable || glueArrowInRouting || isMovingFast) && info.HasBearing())
   {
-    SetDirection(math::DegToRad(info.m_bearing));
+    SetArrowDirection(math::DegToRad(info.m_bearing));
     m_lastGPSBearingTimer.Reset();
   }
+
+  m_direction = m_preferRouteDirectionInRouting ? m_routeDirection : m_arrowDirection;
 
   if (m_isPositionAssigned && (!AlmostCurrentPosition(oldPos) || !AlmostCurrentAzimut(oldAzimut)))
   {
@@ -510,7 +575,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info, bool
       }
       else if (m_mode == location::FollowAndRotate)
       {
-        ChangeModelView(m_position, m_drawDirection,
+        ChangeModelView(m_position, m_direction,
                         m_isInRouting ? GetRoutingRotationPixelCenter() : m_visiblePixelRect.Center(),
                         kDoNotChangeZoom);
       }
@@ -591,10 +656,12 @@ void MyPositionController::OnCompassUpdate(location::CompassInfo const & info, S
   if ((IsInRouting() && m_isArrowGluedInRouting) || existsFreshGpsBearing)
     return;
 
-  SetDirection(info.m_bearing);
+  SetArrowDirection(info.m_bearing);
 
-  if (m_isPositionAssigned && !AlmostCurrentAzimut(oldAzimut) && m_mode == location::FollowAndRotate)
+  if (m_isPositionAssigned && !AlmostCurrentAzimut(oldAzimut) && m_mode == location::FollowAndRotate &&
+      !m_preferRouteDirectionInRouting)
   {
+    m_direction = info.m_bearing;
     CreateAnim(GetDrawablePosition(), oldAzimut, screen);
     m_isDirtyViewport = true;
   }
@@ -606,7 +673,7 @@ bool MyPositionController::UpdateViewportWithAutoZoom()
   if (autoScale > 0.0 && m_mode == location::FollowAndRotate && m_isInRouting && m_enableAutoZoomInRouting &&
       !m_needBlockAutoZoom)
   {
-    ChangeModelView(autoScale, m_position, m_drawDirection, GetRoutingRotationPixelCenter());
+    ChangeModelView(autoScale, m_position, m_direction, GetRoutingRotationPixelCenter());
     return true;
   }
   return false;
@@ -638,7 +705,7 @@ void MyPositionController::Render(ref_ptr<dp::GraphicsContext> context, ref_ptr<
     m_shape->SetPositionObsolete(m_positionIsObsolete);
     m_shape->SetPosition(m2::PointF(GetDrawablePosition()));
     m_shape->SetAzimuth(static_cast<float>(GetDrawableAzimut()));
-    m_shape->SetIsValidAzimuth(IsRotationAvailable());
+    m_shape->SetIsValidAzimuth(IsArrowRotationAvailable());
     m_shape->SetAccuracy(static_cast<float>(m_errorRadius));
     m_shape->SetRoutingMode(IsInRouting());
 
@@ -664,13 +731,19 @@ bool MyPositionController::AlmostCurrentPosition(m2::PointD const & pos) const
 bool MyPositionController::AlmostCurrentAzimut(double azimut) const
 {
   double constexpr kDirectionEqualityDelta = 1e-3;
-  return AlmostEqualAbs(azimut, m_drawDirection, kDirectionEqualityDelta);
+  return AlmostEqualAbs(azimut, m_direction, kDirectionEqualityDelta);
 }
 
-void MyPositionController::SetDirection(double bearing)
+void MyPositionController::SetRouteDirection(double bearing)
 {
-  m_drawDirection = bearing;
-  m_isDirectionAssigned = true;
+  m_routeDirection = bearing;
+  m_isRouteDirectionAssigned = true;
+}
+
+void MyPositionController::SetArrowDirection(double bearing)
+{
+  m_arrowDirection = bearing;
+  m_isArrowDirectionAssigned = true;
 }
 
 void MyPositionController::ChangeMode(location::EMyPositionMode newMode)
@@ -801,7 +874,7 @@ void MyPositionController::UpdateViewport(int zoomLevel)
   }
   else if (m_mode == location::FollowAndRotate)
   {
-    ChangeModelView(m_position, m_drawDirection,
+    ChangeModelView(m_position, m_direction,
                     m_isInRouting ? GetRoutingRotationPixelCenter() : m_visiblePixelRect.Center(), zoomLevel);
   }
 }
@@ -853,15 +926,15 @@ double MyPositionController::GetDrawableAzimut()
   }
 
   if (m_isPendingAnimation)
-    return m_oldDrawDirection;
+    return m_oldArrowDirection;
 
-  return m_drawDirection;
+  return m_arrowDirection;
 }
 
 void MyPositionController::CreateAnim(m2::PointD const & oldPos, double oldAzimut, ScreenBase const & screen)
 {
   double const moveDuration = PositionInterpolator::GetMoveDuration(oldPos, m_position, screen);
-  double const rotateDuration = AngleInterpolator::GetRotateDuration(oldAzimut, m_drawDirection);
+  double const rotateDuration = AngleInterpolator::GetRotateDuration(oldAzimut, m_arrowDirection);
   if (df::IsAnimationAllowed(std::max(moveDuration, rotateDuration), screen))
   {
     if (IsModeChangeViewport())
@@ -870,7 +943,7 @@ void MyPositionController::CreateAnim(m2::PointD const & oldPos, double oldAzimu
       {
         drape_ptr<Animation> anim = make_unique_dp<ArrowAnimation>(
             GetDrawablePosition(), m_position, syncAnim == nullptr ? moveDuration : syncAnim->GetDuration(),
-            GetDrawableAzimut(), m_drawDirection);
+            GetDrawableAzimut(), m_arrowDirection);
         if (syncAnim != nullptr)
         {
           anim->SetMaxDuration(syncAnim->GetMaxDuration());
@@ -879,13 +952,13 @@ void MyPositionController::CreateAnim(m2::PointD const & oldPos, double oldAzimu
         return anim;
       };
       m_oldPosition = oldPos;
-      m_oldDrawDirection = oldAzimut;
+      m_oldArrowDirection = oldAzimut;
       m_isPendingAnimation = true;
     }
     else
     {
       AnimationSystem::Instance().CombineAnimation(
-          make_unique_dp<ArrowAnimation>(oldPos, m_position, moveDuration, oldAzimut, m_drawDirection));
+          make_unique_dp<ArrowAnimation>(oldPos, m_position, moveDuration, oldAzimut, m_arrowDirection));
     }
   }
 }
@@ -904,13 +977,15 @@ void MyPositionController::EnableAutoZoomInRouting(bool enableAutoZoom)
   }
 }
 
-void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, bool isArrowGlued)
+void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, bool isArrowGlued,
+                                           bool allowRouteRotation)
 {
   if (!m_isInRouting)
   {
     m_isInRouting = true;
     m_isArrowGluedInRouting = isArrowGlued;
     m_enableAutoZoomInRouting = enableAutoZoom;
+    m_preferRouteDirectionInRouting = allowRouteRotation;
 
     if (m_preferredRoutingMode == location::Follow)
     {
@@ -920,8 +995,9 @@ void MyPositionController::ActivateRouting(int zoomLevel, bool enableAutoZoom, b
     else
     {
       ChangeMode(location::FollowAndRotate);
-      ChangeModelView(m_position, m_isDirectionAssigned ? m_drawDirection : 0.0, GetRoutingRotationPixelCenter(),
-                      zoomLevel, [this](ref_ptr<Animation> anim) { UpdateViewport(kDoNotChangeZoom); });
+      ChangeModelView(m_position, m_isRouteDirectionAssigned ? m_routeDirection : m_arrowDirection,
+                      GetRoutingRotationPixelCenter(), zoomLevel,
+                      [this](ref_ptr<Animation> anim) { UpdateViewport(kDoNotChangeZoom); });
     }
     ResetRoutingNotFollowTimer();
   }
@@ -933,8 +1009,10 @@ void MyPositionController::DeactivateRouting()
   {
     m_isInRouting = false;
     m_isArrowGluedInRouting = false;
+    m_preferRouteDirectionInRouting = false;
 
-    m_isDirectionAssigned = m_isCompassAvailable && m_isDirectionAssigned;
+    m_isArrowDirectionAssigned = m_isCompassAvailable && m_isArrowDirectionAssigned;
+    m_isRouteDirectionAssigned = false;
 
     ChangeMode(location::Follow);
     ChangeModelView(m_position, 0.0, m_visiblePixelRect.Center(), kDoNotChangeZoom);

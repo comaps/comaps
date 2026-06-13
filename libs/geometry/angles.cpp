@@ -45,4 +45,15 @@ double GetMiddleAngle(double a1, double a2)
   }
   return ang;
 }
+
+double ClampAngle(double a, double center, double halfWidth)
+{
+  double const d = std::remainder(a - center, 2 * math::pi);
+  double const clamped = std::clamp(d, -halfWidth, halfWidth);
+  double b = fmod(center + clamped, 2 * math::pi);
+  if (b < 0)
+    b += 2 * math::pi;
+  return b;
+}
+
 }  // namespace ang

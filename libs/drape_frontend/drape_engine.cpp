@@ -23,6 +23,7 @@
 #include "indexer/feature_decl.hpp"
 
 #include "platform/settings.hpp"
+#include "routing/base/followed_polyline.hpp"
 
 #include "base/assert.hpp"
 #include "base/logging.hpp"
@@ -467,13 +468,12 @@ void DrapeEngine::SetCompassInfo(location::CompassInfo const & info)
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, bool isNavigable, double distToNextTurn, double speedLimit,
+void DrapeEngine::SetGpsInfo(location::GpsInfo const & info, df::NavigationContext const & navigationContext,
                              location::RouteMatchingInfo const & routeInfo)
 {
-  m_threadCommutator->PostMessage(
-      ThreadsCommutator::RenderThread,
-      make_unique_dp<GpsInfoMessage>(info, isNavigable, distToNextTurn, speedLimit, routeInfo),
-      MessagePriority::Normal);
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<GpsInfoMessage>(info, navigationContext, routeInfo),
+                                  MessagePriority::Normal);
 }
 
 void DrapeEngine::SwitchMyPositionNextMode()
@@ -506,12 +506,13 @@ void DrapeEngine::StopLocationFollow()
                                   MessagePriority::Normal);
 }
 
-void DrapeEngine::FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued)
+void DrapeEngine::FollowRoute(int preferredZoomLevel, int preferredZoomLevel3d, bool enableAutoZoom, bool isArrowGlued,
+                              bool allowRouteRotation)
 {
-  m_threadCommutator->PostMessage(
-      ThreadsCommutator::RenderThread,
-      make_unique_dp<FollowRouteMessage>(preferredZoomLevel, preferredZoomLevel3d, enableAutoZoom, isArrowGlued),
-      MessagePriority::Normal);
+  m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread,
+                                  make_unique_dp<FollowRouteMessage>(preferredZoomLevel, preferredZoomLevel3d,
+                                                                     enableAutoZoom, isArrowGlued, allowRouteRotation),
+                                  MessagePriority::Normal);
 }
 
 void DrapeEngine::SetModelViewListener(ModelViewChangedHandler && fn)

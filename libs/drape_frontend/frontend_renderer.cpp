@@ -466,8 +466,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
       break;
 #endif
     ref_ptr<GpsInfoMessage> msg = message;
-    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->IsNavigable(), msg->GetDistanceToNextTurn(),
-                                             msg->GetSpeedLimit(), m_userEventStream.GetCurrentScreen());
+    m_myPositionController->OnLocationUpdate(msg->GetInfo(), msg->GetNavigationContext(),
+                                             m_userEventStream.GetCurrentScreen());
 
     location::RouteMatchingInfo const & info = msg->GetRouteInfo();
     if (info.HasDistanceFromBegin())
@@ -540,7 +540,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     if (m_pendingFollowRoute != nullptr)
     {
       FollowRoute(m_pendingFollowRoute->m_preferredZoomLevel, m_pendingFollowRoute->m_preferredZoomLevelIn3d,
-                  m_pendingFollowRoute->m_enableAutoZoom, m_pendingFollowRoute->m_isArrowGlued);
+                  m_pendingFollowRoute->m_enableAutoZoom, m_pendingFollowRoute->m_isArrowGlued,
+                  m_pendingFollowRoute->m_allowRouteRotation);
       m_pendingFollowRoute.reset();
     }
     break;
@@ -612,13 +613,14 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     // receive FollowRoute message before FlushSubroute message, so we need to postpone its processing.
     if (m_routeRenderer->GetSubroutes().empty())
     {
-      m_pendingFollowRoute = std::make_unique<FollowRouteData>(
-          msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(), msg->EnableAutoZoom(), msg->IsArrowGlued());
+      m_pendingFollowRoute =
+          std::make_unique<FollowRouteData>(msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(),
+                                            msg->EnableAutoZoom(), msg->IsArrowGlued(), msg->AllowRouteRotation());
     }
     else
     {
       FollowRoute(msg->GetPreferredZoomLevel(), msg->GetPreferredZoomLevelIn3d(), msg->EnableAutoZoom(),
-                  msg->IsArrowGlued());
+                  msg->IsArrowGlued(), msg->AllowRouteRotation());
     }
     break;
   }
@@ -1085,10 +1087,11 @@ void FrontendRenderer::UpdateContextDependentResources()
 }
 
 void FrontendRenderer::FollowRoute(int preferredZoomLevel, int preferredZoomLevelIn3d, bool enableAutoZoom,
-                                   bool isArrowGlued)
+                                   bool isArrowGlued, bool allowRouteRotation)
 {
   m_myPositionController->ActivateRouting(
-      !m_enablePerspectiveInNavigation ? preferredZoomLevel : preferredZoomLevelIn3d, enableAutoZoom, isArrowGlued);
+      !m_enablePerspectiveInNavigation ? preferredZoomLevel : preferredZoomLevelIn3d, enableAutoZoom, isArrowGlued,
+      allowRouteRotation);
 
   if (m_enablePerspectiveInNavigation)
     AddUserEvent(make_unique_dp<SetAutoPerspectiveEvent>(true /* isAutoPerspective */));

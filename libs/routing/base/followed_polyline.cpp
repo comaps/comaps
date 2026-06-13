@@ -237,4 +237,34 @@ Iter FollowedPolyline::GetClosestMatchingProjectionInInterval(m2::RectD const & 
 
   return nearestIter;
 }
+
+m2::PointD FollowedPolyline::GetLookaheadPoint(double lookaheadDistanceM) const
+{
+  if (!IsValid())
+    return m2::PointD();
+
+  size_t segmentIdx = m_current.m_ind;
+  m2::PointD prev = m_current.m_pt;
+
+  size_t const maxSegmentIdx = m_poly.GetSize() - 1;
+  double remaining = lookaheadDistanceM;
+
+  while (segmentIdx < maxSegmentIdx)
+  {
+    m2::PointD const & next = m_poly.GetPoint(segmentIdx + 1);
+    double segLen = mercator::DistanceOnEarth(prev, next);
+
+    if (remaining <= segLen)
+    {
+      double t = remaining / segLen;
+      return prev + (next - prev) * t;
+    }
+
+    remaining -= segLen;
+    prev = next;
+    segmentIdx += 1;
+  }
+
+  return m_poly.GetPoint(segmentIdx);
+}
 }  //  namespace routing
