@@ -8,6 +8,7 @@ protocol BottomMenuInteractorProtocol: AnyObject {
   func openSettings()
   func shareLocation(cell: BottomMenuItemCell)
   func toggleTrackRecording()
+  func openBluetoothDevices()
 }
 
 @objc protocol BottomMenuDelegate {
@@ -114,5 +115,9 @@ extension BottomMenuInteractor: BottomMenuInteractorProtocol {
         }
       }
     }
+  }
+
+  func openBluetoothDevices() {
+    close()
   }
 }

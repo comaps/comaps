@@ -11,6 +11,7 @@ class BottomMenuPresenter: NSObject {
     case share
     case donate
     case downloadMaps
+    case bluetoothDevices
     case settings
     case help
   }
@@ -130,6 +131,9 @@ extension BottomMenuPresenter {
         cell.configure(imageName: "ic_menu_download",
                        title: L("download_maps"),
                        badgeCount: MapsAppDelegate.theApp().badgeNumber())
+      case .bluetoothDevices:
+        cell.configure(imageName: "dot.radiowaves.left.and.right",
+                       title: L("bluetooth_devices"))
       case .donate:
         cell.configure(imageName: "ic_menu_donate",
                        title: L("donate"))
@@ -186,6 +190,8 @@ extension BottomMenuPresenter {
         interactor.toggleTrackRecording()
       case .downloadMaps:
         interactor.downloadMaps()
+      case .bluetoothDevices:
+        interactor.openBluetoothDevices()
       case .donate:
         interactor.donate()
       case .help:

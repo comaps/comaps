@@ -881,3 +881,6 @@
 "capacity_disabled_no" = "No dedicated disabled spaces";
 "capacity_charging_yes" = "Has spaces with chargers";
 "capacity_charging_no" = "No spaces with chargers";
+
+/* Bluetooth related */
+"bluetooth_devices" = "Bluetooth Devices";

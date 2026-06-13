@@ -886,3 +886,6 @@
 "capacity_charging_no" = "No spaces with chargers";
 
 "carplay_highway_exit" = "Exit %@";
+
+/* Bluetooth related */
+"bluetooth_devices" = "Bluetooth Devices";
