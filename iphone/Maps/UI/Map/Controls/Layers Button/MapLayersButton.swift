@@ -150,7 +150,7 @@ struct MapLayersButton: View {
             .frame(width: (isHorizontal ? height + optionsHeightForAnimations : nil), height: (isHorizontal ? nil : height + optionsHeightForAnimations), alignment: isHorizontal ? .trailing : .top)
             .background(alignment: isHorizontal ? .trailing : .top) {
                 if isPresentingLayers, !shouldTemporarilyHideLayers {
-                    if #unavailable(anyAppleOS 27) {
+                    if #unavailable(iOS 27, macOS 27) {
                         Capsule()
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background(alignment: .top) {

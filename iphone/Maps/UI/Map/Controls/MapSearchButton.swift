@@ -4,14 +4,24 @@ import SwiftUI
 struct MapSearchButton: View {
     // MARK: Properties
     
+    /// The vertical size class of the environment
+    @Environment(\.verticalSizeClass) private var verticalSizeClass
+    
+    
     /// The color scheme of the environment
     @Environment(\.colorScheme) private var colorScheme
+    
+    
+    /// The default height of a map control
+    var controlHeight: CGFloat
     
     
     /// The actual view
     var body: some View {
         HStack(spacing: 0) {
-            Spacer(minLength: 0)
+            if verticalSizeClass != .compact {
+                Spacer(minLength: 0)
+            }
             
             HStack(spacing: 0) {
                 ForEach(Mode.allCases) { mode in
@@ -51,6 +61,7 @@ struct MapSearchButton: View {
                     .compositingGroup()
             }
             .contentShape(Rectangle())
+            .padding(.leading, verticalSizeClass == .compact ? (controlHeight + 24) : 0)
             
             Spacer(minLength: 0)
         }

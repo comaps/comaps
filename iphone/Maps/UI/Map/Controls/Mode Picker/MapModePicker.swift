@@ -12,6 +12,10 @@ struct MapModePicker: View {
     @Environment(\.verticalSizeClass) private var verticalSizeClass
     
     
+    /// The default height of a map control
+    var controlHeight: CGFloat
+    
+    
     /// The selected mode
     @State private var selectedMode: Mode = MapControls.mode
     
@@ -171,7 +175,7 @@ struct MapModePicker: View {
             }
             .background {
                 if isPresentingModeOptions {
-                    if #unavailable(anyAppleOS 27) {
+                    if #unavailable(iOS 27, macOS 27) {
                         RoundedRectangle(cornerRadius: 25)
                             .stroke(selectedMode.color, lineWidth: 1)
                             .background {
@@ -194,7 +198,7 @@ struct MapModePicker: View {
                             .compositingGroup()
                     }
                 } else {
-                    if #unavailable(anyAppleOS 27) {
+                    if #unavailable(iOS 27, macOS 27) {
                         RoundedRectangle(cornerRadius: 28)
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background {
@@ -218,6 +222,7 @@ struct MapModePicker: View {
             }
             .padding(-4)
             .contentShape(Rectangle())
+            .padding(.leading, verticalSizeClass == .compact && !isPresentingModeOptions ? (controlHeight + 24) : 0)
             .accessibilityRepresentation {
                 Picker("mode", selection: $selectedMode) {
                     ForEach(Mode.allCases) { mode in
@@ -225,8 +230,8 @@ struct MapModePicker: View {
                     }
                 }
             }
-            .frame(maxWidth: !isPresentingModeOptions || (horizontalSizeClass == .compact && verticalSizeClass != .compact) ? .infinity : 320)
-            .frame(maxWidth: .infinity, alignment: .center)
+            .frame(maxWidth: !isPresentingModeOptions || (horizontalSizeClass == .compact && verticalSizeClass != .compact) ? .infinity : 320, alignment: verticalSizeClass == .compact ? .leading : .center)
+            .frame(maxWidth: .infinity, alignment: verticalSizeClass == .compact ? .leading : .center)
             .animation(.spring.speed(2), value: isPresentingModeOptions)
             .onChange(of: selectedMode) { changedSelectedMode in
                 draggedMode = changedSelectedMode

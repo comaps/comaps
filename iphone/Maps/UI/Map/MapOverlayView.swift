@@ -123,10 +123,10 @@ struct MapOverlayView: View {
                         .frame(height: controlHeight)
                         .fixedSize(horizontal: false, vertical: true)
                         
-                        MapModePicker(shouldTemporarilyHideLayersIfNecessary: $shouldTemporarilyHideLayersIfNecessary)
+                        MapModePicker(controlHeight: controlHeight, shouldTemporarilyHideLayersIfNecessary: $shouldTemporarilyHideLayersIfNecessary)
                             .frame(height: controlHeight)
                             .background(alignment: .top) {
-                                MapTrackRecordingIndicator()
+                                MapTrackRecordingIndicator(controlHeight: controlHeight)
                                     .frame(height: controlHeight)
                                     .padding(.top, controlHeight)
                             }
@@ -178,7 +178,7 @@ struct MapOverlayView: View {
                         .fixedSize(horizontal: false, vertical: true)
                         
                         if !isSearchPresented {
-                            MapSearchButton()
+                            MapSearchButton(controlHeight: controlHeight)
                                 .frame(height: controlHeight)
                         }
                     }

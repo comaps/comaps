@@ -13,7 +13,7 @@ struct MapButtonStyle: ButtonStyle {
                 .aspectRatio(1, contentMode: .fill)
                 .frame(width: geometry.size.width, height: geometry.size.width)
                 .background {
-                    if #unavailable(anyAppleOS 27) {
+                    if #unavailable(iOS 27, macOS 27) {
                         RoundedRectangle(cornerRadius: 28)
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background {
@@ -44,7 +44,7 @@ struct MapButtonStyle: ButtonStyle {
 extension Color {
     /// Color for the foreground of a button
     static var mapButtonForeground: Color {
-        if #unavailable(anyAppleOS 27) {
+        if #unavailable(iOS 27, macOS 27) {
             return Color.secondary
         } else {
             return Color.primary

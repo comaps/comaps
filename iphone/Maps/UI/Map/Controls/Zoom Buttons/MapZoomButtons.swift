@@ -35,7 +35,7 @@ struct MapZoomButtons: View {
             .disabled(isAllowedToDrag)
             .background {
                 if isAllowedToDrag {
-                    if #unavailable(anyAppleOS 27) {
+                    if #unavailable(iOS 27, macOS 27) {
                         RoundedRectangle(cornerRadius: 28)
                             .stroke(Color.MapButtons.border, lineWidth: 1)
                             .background {
