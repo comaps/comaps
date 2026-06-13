@@ -87,11 +87,12 @@ function(copy_resources)
   # Previously used execute_process(COMMAND cp ...) which silently ignored missing files.
   # file(COPY) is cross-platform but errors on missing sources, so we need to decide
   # explicitly: error on a normal build (developer needs to run configure.sh), but skip
-  # silently in CI when SKIP_MAP_DOWNLOAD is set and generated/downloaded files are absent.
+  # silently in CI (SKIP_MAP_DOWNLOAD or the standard CI env var) where generated/downloaded
+  # files may be absent.
   foreach(file ${ARGN})
     if(EXISTS ${DATA_DIR}/${file})
       file(COPY ${DATA_DIR}/${file} DESTINATION ${RESOURCES_FOLDER})
-    elseif(NOT DEFINED ENV{SKIP_MAP_DOWNLOAD})
+    elseif(NOT DEFINED ENV{SKIP_MAP_DOWNLOAD} AND NOT DEFINED ENV{CI})
       message(SEND_ERROR "file COPY cannot find \"${DATA_DIR}/${file}\"")
     endif()
   endforeach()
