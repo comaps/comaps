@@ -1936,6 +1936,76 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_ChargingStation)
   }
 }
 
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_Toilets)
+{
+  {
+    // A toilet with restricted access keeps both the main type and the access subtype.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "private"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "private"})), (params));
+  }
+
+  {
+    // access=no is treated the same as access=private.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "no"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "private"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"access", "customers"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "customers"})), (params));
+  }
+
+  {
+    // The common toilets:access=customers mistagging maps to the customers subtype too.
+    Tags const tags = {
+        {"amenity", "toilets"},
+        {"toilets:access", "customers"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 2, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets", "customers"})), (params));
+  }
+
+  {
+    // A public toilet keeps just the main type.
+    Tags const tags = {
+        {"amenity", "toilets"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"amenity", "toilets"})), (params));
+  }
+}
+
 UNIT_CLASS_TEST(TestWithClassificator, OsmType_RailwayRail)
 {
   using Type = std::vector<std::string>;
