@@ -1838,6 +1838,9 @@ node|z18-[amenity=fire_station],
 {font-size: 11;}
 node|z18-[amenity=toilets],
 {icon-image: toilets-m.svg;font-size: 11;}
+node|z18-[amenity=toilets][access=private],
+node|z18-[amenity=toilets][access=customers],
+{icon-image: toilets_private-m.svg;font-size: 11;}
 node|z18-[amenity=atm],
 {icon-image: atm-m.svg;font-size: 11;}
 

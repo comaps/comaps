@@ -380,6 +380,9 @@ node|z15-[man_made=observatory],
 
 node|z15-[amenity=toilets],
 {icon-image: toilets-m.svg; font-size: 11;}
+node|z15-[amenity=toilets][access=private],
+node|z15-[amenity=toilets][access=customers],
+{icon-image: toilets_private-m.svg; font-size: 11;}
 
 node|z11-12[man_made=lighthouse],
 {icon-image: lighthouse-s.svg; icon-min-distance: 10;}

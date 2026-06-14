@@ -700,6 +700,13 @@ node|z17-[amenity=toilets],
 node|z18-[amenity=toilets],
 {font-size: 14.5;}
 
+node|z17-[amenity=toilets][access=private],
+node|z17-[amenity=toilets][access=customers],
+{icon-image: toilets_private-m.svg; font-size: 13.75;}
+node|z18-[amenity=toilets][access=private],
+node|z18-[amenity=toilets][access=customers],
+{font-size: 14.5;}
+
 node|z18-[amenity=motorcycle_rental],
 {icon-image: motorcycle_rental-m.svg; font-size: 14.5;}
 

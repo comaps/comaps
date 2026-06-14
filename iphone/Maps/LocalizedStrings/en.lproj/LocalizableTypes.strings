@@ -184,6 +184,8 @@
 "type.amenity.telephone" = "Phone";
 "type.amenity.theatre" = "Theatre";
 "type.amenity.toilets" = "Toilet";
+"type.amenity.toilets.customers" = "Customer Access";
+"type.amenity.toilets.private" = "Private Access";
 "type.toilets.yes" = "Toilet";
 "type.amenity.townhall" = "Town Hall";
 "type.amenity.university" = "University";

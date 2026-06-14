@@ -738,6 +738,10 @@ amenity-fast_food                                   # icon z17- (also has captio
 shop-convenience                                    # icon z17- (also has caption(optional) z18-)
 === 250
 
+amenity-toilets-customers                           # icon z17- (also has caption(optional) z17-)
+amenity-toilets-private                             # icon z17- (also has caption(optional) z17-)
+=== 225
+
 amenity-bank                                        # icon z17- (also has caption(optional) z17-)
 amenity-parcel_locker                               # icon z17- (also has caption(optional) z17-)
 amenity-police                                      # icon z17-
@@ -1245,6 +1249,10 @@ entrance-emergency                                  # icon z19- (also has captio
 # amenity-fast_food                                 # caption(optional) z17- (also has icon z17-)
 # shop-convenience                                  # caption(optional) z18- (also has icon z17-)
 # === -9750
+
+# amenity-toilets-customers                         # caption(optional) z17- (also has icon z17-)
+# amenity-toilets-private                           # caption(optional) z17- (also has icon z17-)
+# === -9775
 
 # amenity-bank                                      # caption(optional) z17- (also has icon z17-)
 # amenity-parcel_locker                             # caption(optional) z17- (also has icon z17-)

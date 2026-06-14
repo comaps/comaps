@@ -1283,6 +1283,10 @@ shop-watches                                        # icon z18- (also has captio
 shop-wholesale                                      # icon z18- (also has caption(optional) z18-)
 === 500
 
+amenity-toilets-customers                           # icon z15- (also has caption(optional) z18-)
+amenity-toilets-private                             # icon z15- (also has caption(optional) z18-)
+=== 475
+
 amenity-shower                                      # icon z17- (also has caption(optional) z17-)
 amenity-toilets                                     # icon z15- (also has caption(optional) z18-)
 man_made-embankment                                 # pathtext z18- (also has line z16-)
@@ -2355,6 +2359,10 @@ natural-tree                                        # icon z15- (also has captio
 # shop-watches                                      # caption(optional) z18- (also has icon z18-)
 # shop-wholesale                                    # caption(optional) z18- (also has icon z18-)
 # === -9500
+
+# amenity-toilets-customers                         # caption(optional) z18- (also has icon z15-)
+# amenity-toilets-private                           # caption(optional) z18- (also has icon z15-)
+# === -9525
 
 # amenity-shower                                    # caption(optional) z17- (also has icon z17-)
 # amenity-toilets                                   # caption(optional) z18- (also has icon z15-)
