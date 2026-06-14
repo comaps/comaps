@@ -94,6 +94,7 @@ GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COREVIDEO_SILENCE_GL_DEPRECATION GLE
 GCC_SYMBOLS_PRIVATE_EXTERN = YES
 // Required to run test binaries on Mac.
 GENERATE_INFOPLIST_FILE = YES
+INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = CoMaps uses Bluetooth to find nearby compatible devices.
 MTL_FAST_MATH = YES
 ONLY_ACTIVE_ARCH = YES
 PRODUCT_NAME = $(TARGET_NAME)

@@ -890,3 +890,8 @@
 
 /* Bluetooth related */
 "bluetooth_devices" = "Bluetooth Devices";
+"bluetooth_devices_searching" = "Searching for nearby devices...";
+"bluetooth_devices_unavailable" = "Bluetooth is unavailable";
+"bluetooth_devices_powered_off" = "Turn on Bluetooth to search for compatible devices.";
+"bluetooth_devices_unauthorized" = "Allow Bluetooth access in Settings to search for compatible devices.";
+"bluetooth_devices_unsupported" = "This device does not support Bluetooth scanning.";
