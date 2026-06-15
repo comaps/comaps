@@ -49,7 +49,7 @@ struct MapZoomButtons: View {
                                     MapZoomButton.Kind.in.image
                                         .font(.title2)
                                         .scaleEffect(1.1)
-                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .foregroundStyle(Color.primary)
                                         .scaleEffect(0.96)
                                         .padding(.top, 15)
                                     
@@ -58,7 +58,7 @@ struct MapZoomButtons: View {
                                     MapZoomButton.Kind.out.image
                                         .font(.title2)
                                         .scaleEffect(1.1)
-                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .foregroundStyle(Color.primary)
                                         .scaleEffect(0.96)
                                         .padding(.bottom, 23)
                                 }
@@ -74,7 +74,7 @@ struct MapZoomButtons: View {
                                     MapZoomButton.Kind.in.image
                                         .font(.title2)
                                         .scaleEffect(1.1)
-                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .foregroundStyle(Color.primary)
                                         .scaleEffect(0.96)
                                         .padding(.top, 15)
                                     
@@ -83,7 +83,7 @@ struct MapZoomButtons: View {
                                     MapZoomButton.Kind.out.image
                                         .font(.title2)
                                         .scaleEffect(1.1)
-                                        .foregroundStyle(Color.mapButtonForeground)
+                                        .foregroundStyle(Color.primary)
                                         .scaleEffect(0.96)
                                         .padding(.bottom, 23)
                                 }
