@@ -332,6 +332,8 @@ public:
     return m_routingSession.GetIntermediateStopsProgress();
   }
 
+  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+
 private:
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);
@@ -349,11 +351,13 @@ private:
   using RoadWarningsCollection = std::map<routing::RoutingOptions::Road, std::vector<RoadInfo>>;
 
   using GetMwmIdFn = std::function<MwmSet::MwmId(routing::NumMwmId numMwmId)>;
-  void CollectFeaturesAlongRoute(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt, uint32_t featureType, std::vector<std::pair<m2::PointD, FeatureID>> & outFeatures);
+  void CollectFeaturesAlongRoute(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
+                                 uint32_t featureType, std::vector<std::pair<m2::PointD, FeatureID>> & outFeatures);
   void CollectRoadWarnings(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
                            double baseDistance, GetMwmIdFn const & getMwmIdFn, RoadWarningsCollection & roadWarnings);
   void CreateRoadWarningMarks(RoadWarningsCollection && roadWarnings);
-  void CollectTrafficLights(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt, std::vector<std::pair<m2::PointD, FeatureID>> & trafficLights);
+  void CollectTrafficLights(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,
+                            std::vector<std::pair<m2::PointD, FeatureID>> & trafficLights);
   void CreateTrafficLightMarks(std::vector<std::pair<m2::PointD, FeatureID>> && trafficLights);
 
   /// \returns false if the location could not be matched to the route and should be matched to the

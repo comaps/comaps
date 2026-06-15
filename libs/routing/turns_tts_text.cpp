@@ -111,7 +111,12 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
 
   if (notification.m_distanceUnits == 0 && !notification.m_useThenInsteadOfDistance &&
       !notification.m_useAtRoundaboutPrefix && notification.m_nextStreetInfo.empty())
+  {
+    if (notification.m_removeLastDot)
+      RemoveLastDot(dirStr);
+
     return dirStr;
+  }
 
   if (notification.IsPedestrianNotification())
   {
@@ -132,8 +137,8 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
   if (notification.m_useThenInsteadOfDistance)
   {
     bool const isRoundaboutEntranceReminder = notification.m_turnDir == CarDirection::LeaveRoundAbout &&
-                                               notification.m_distanceUnits == 0 &&
-                                               !notification.m_useAtRoundaboutPrefix;
+                                              notification.m_distanceUnits == 0 &&
+                                              !notification.m_useAtRoundaboutPrefix;
     if (!isRoundaboutEntranceReminder)
     {
       prefixStr = GetTextByIdTrimmed("then");
@@ -289,6 +294,9 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
     out = prefixStr + dirStr;
   }
 
+  if (notification.m_removeLastDot)
+    RemoveLastDot(out);
+
   return out;
 }
 
@@ -359,7 +367,8 @@ std::string GetRoundaboutTextId(Notification const & notification)
   // "Take the Nth exit" is used either as a chained "Then. Take the third exit." instruction
   // (m_useThenInsteadOfDistance) or as an advance "In 500 meters, at the roundabout, take the
   // third exit." instruction (m_useAtRoundaboutPrefix).
-  if (!notification.m_useThenInsteadOfDistance && !notification.m_useAtRoundaboutPrefix)
+  if (!notification.m_useAtRoundaboutPrefix && !notification.m_alwaysUseRoundaboutExitNumbers &&
+      !notification.m_useThenInsteadOfDistance)
     return "leave_the_roundabout";  // Notification just before leaving a roundabout.
 
   static constexpr uint8_t kMaxSoundedExit = 11;

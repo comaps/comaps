@@ -151,10 +151,27 @@ struct Notification
   /// if m_useAtRoundaboutPrefix == true, "At the roundabout," precedes the "take the Nth exit"
   /// instruction (advance notification) or the chained exit announcement.
   bool m_useAtRoundaboutPrefix = false;
+  bool m_alwaysUseRoundaboutExitNumbers = false;
+  bool m_removeLastDot = false;
   CarDirection m_turnDir = CarDirection::None;
   PedestrianDirection m_turnDirPedestrian = PedestrianDirection::None;
   measurement_utils::Units m_lengthUnits;
   RouteSegment::RoadNameInfo m_nextStreetInfo;
+
+  Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance,
+               bool alwaysUseRoundaboutExitNumbers, bool removeLastDot, CarDirection turnDir,
+               PedestrianDirection pedestrianDirection, measurement_utils::Units lengthUnits,
+               RouteSegment::RoadNameInfo const & nextStreetInfo)
+    : m_distanceUnits(distanceUnits)
+    , m_exitNum(exitNum)
+    , m_useThenInsteadOfDistance(useThenInsteadOfDistance)
+    , m_alwaysUseRoundaboutExitNumbers(alwaysUseRoundaboutExitNumbers)
+    , m_removeLastDot(removeLastDot)
+    , m_turnDir(turnDir)
+    , m_turnDirPedestrian(pedestrianDirection)
+    , m_lengthUnits(lengthUnits)
+    , m_nextStreetInfo(nextStreetInfo)
+  {}
 
   Notification(uint32_t distanceUnits, uint8_t exitNum, bool useThenInsteadOfDistance, CarDirection turnDir,
                measurement_utils::Units lengthUnits, RouteSegment::RoadNameInfo const & nextStreetInfo,
@@ -184,6 +201,8 @@ struct Notification
            m_useThenInsteadOfDistance == rhv.m_useThenInsteadOfDistance &&
            m_useAtEndOfRoadPrefix == rhv.m_useAtEndOfRoadPrefix &&
            m_useAtRoundaboutPrefix == rhv.m_useAtRoundaboutPrefix && m_turnDir == rhv.m_turnDir &&
+           m_alwaysUseRoundaboutExitNumbers == rhv.m_alwaysUseRoundaboutExitNumbers &&
+           m_removeLastDot == rhv.m_removeLastDot && m_turnDir == rhv.m_turnDir &&
            m_turnDirPedestrian == rhv.m_turnDirPedestrian && m_lengthUnits == rhv.m_lengthUnits &&
            m_nextStreetInfo == rhv.m_nextStreetInfo;
   }

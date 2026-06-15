@@ -1,6 +1,7 @@
 #pragma once
 
 #include "routing/lanes/lane_info.hpp"
+#include "routing/route_step.hpp"
 #include "routing/routing_options.hpp"
 #include "routing/routing_settings.hpp"
 #include "routing/segment.hpp"
@@ -468,6 +469,8 @@ public:
   std::vector<platform::CountryFile> const & GetMwmsPartlyProhibitedForSpeedCams() const;
 
   std::string DebugPrintTurns() const;
+
+  std::vector<RouteStepInfo> GetTurnsForDisplay(std::string const & locale) const;
 
 private:
   friend std::string DebugPrint(Route const & r);
