@@ -24,6 +24,10 @@ public enum PedestrianTurnDirection
     mNextTurnRes = nextResId;
   }
 
+  public int getTurnRes()
+  {
+    return mTurnRes;
+  }
   public void setTurnDrawable(@NonNull ImageView imageView)
   {
     imageView.setImageResource(mTurnRes);

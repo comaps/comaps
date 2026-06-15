@@ -78,6 +78,19 @@
       app:iconPadding="6dp"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn__directions_preview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/margin_base"
+        android:minHeight="@dimen/primary_button_min_height"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:text="@string/planning_route_preview"
+        android:textColor="?android:textColorPrimary"
+        android:textAppearance="@style/MwmTextAppearance.Body1"/>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn__save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

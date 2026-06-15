@@ -155,6 +155,9 @@ final class RoutingBottomMenuController implements View.OnClickListener
     MaterialButton manageRouteButton = altitudeChartFrame.findViewById(R.id.btn__manage_route);
     manageRouteButton.setOnClickListener(this);
 
+    MaterialButton directionsPreviewButton = altitudeChartFrame.findViewById(R.id.btn__directions_preview);
+    directionsPreviewButton.setOnClickListener(this);
+
     MaterialButton saveButton = altitudeChartFrame.findViewById(R.id.btn__save);
     saveButton.setOnClickListener(this);
   }
@@ -473,6 +476,8 @@ final class RoutingBottomMenuController implements View.OnClickListener
     }
     else if (id == R.id.btn__manage_route)
       mListener.onManageRouteOpen();
+    else if (id == R.id.btn__directions_preview)
+      mListener.onDirectionsPreviewOpen();
     else if (id == R.id.btn__save)
     {
       Framework.nativeSaveRoute();
