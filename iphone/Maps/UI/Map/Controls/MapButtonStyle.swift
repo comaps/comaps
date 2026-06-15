@@ -33,21 +33,10 @@ struct MapButtonStyle: ButtonStyle {
                             .opacity(configuration.isPressed ? 0.9 : 1)
                     }
                 }
-                .foregroundStyle(configuration.role == .destructive ? Color(.BaseColors.red) : Color.mapButtonForeground)
+                .foregroundStyle(configuration.role == .destructive ? Color(.BaseColors.red) : Color.primary)
                 .scaleEffect(configuration.isPressed ? 0.96 : 1)
                 .contentShape(Rectangle())
                 .animation(.smooth, value: configuration.isPressed)
-        }
-    }
-}
-
-extension Color {
-    /// Color for the foreground of a button
-    static var mapButtonForeground: Color {
-        if #unavailable(iOS 27, macOS 27) {
-            return Color.secondary
-        } else {
-            return Color.primary
         }
     }
 }

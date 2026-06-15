@@ -158,7 +158,7 @@ struct MapLayersButton: View {
                                     .fill(EllipticalGradient(colors: [Color.MapButtons.backgroundGlow, Color.MapButtons.background]))
                             }
                             .shadow(radius: 2)
-                            .foregroundStyle(Color.mapButtonForeground)
+                            .foregroundStyle(Color.primary)
                             .compositingGroup()
                     } else {
                         Capsule()

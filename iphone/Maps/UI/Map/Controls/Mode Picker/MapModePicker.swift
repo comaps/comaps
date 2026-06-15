@@ -183,7 +183,7 @@ struct MapModePicker: View {
                                     .fill(Color.MapButtons.background)
                             }
                             .shadow(radius: 2)
-                            .foregroundStyle(Color.secondary)
+                            .foregroundStyle(Color.primary)
                             .compositingGroup()
                     } else {
                         RoundedRectangle(cornerRadius: 25)
@@ -194,7 +194,7 @@ struct MapModePicker: View {
                                     .glassEffect(.regular, in: RoundedRectangle(cornerRadius: 25))
                             }
                             .shadow(radius: 2)
-                            .foregroundStyle(Color.secondary)
+                            .foregroundStyle(Color.primary)
                             .compositingGroup()
                     }
                 } else {

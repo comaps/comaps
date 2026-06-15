@@ -43,7 +43,7 @@ struct MapMoreButton: View {
                             } icon: {
                                 kind.image
                                     .symbolRenderingMode(kind.hasBadge ? .palette : .monochrome)
-                                    .foregroundStyle((kind.hasBadge ? Color.BaseColors.red : (colorScheme == .dark ? .white : .mapButtonForeground)), (colorScheme == .dark ? .white : .mapButtonForeground))
+                                    .foregroundStyle((kind.hasBadge ? Color.BaseColors.red : (colorScheme == .dark ? .white : .primary)), (colorScheme == .dark ? .white : .primary))
                                     // The use of explicitly setting the colour to white based on the color scheme above is to work around a weird case where the download map icons in the palette rendering mode isn't coloured white
                             }
                             .labelStyle(.titleAndIcon)
@@ -63,7 +63,7 @@ struct MapMoreButton: View {
                 .padding(12)
                 .aspectRatio(1, contentMode: .fill)
                 .symbolRenderingMode(hasBadge ? .palette : .monochrome)
-                .foregroundStyle((hasBadge ? Color.BaseColors.red : Color.mapButtonForeground), Color.mapButtonForeground)
+                .foregroundStyle((hasBadge ? Color.BaseColors.red : Color.primary), Color.primary)
             }
         }
         .contentShape(Rectangle())
