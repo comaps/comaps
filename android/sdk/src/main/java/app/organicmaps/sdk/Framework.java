@@ -16,6 +16,7 @@ import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.routing.JunctionInfo;
 import app.organicmaps.sdk.routing.RouteMarkData;
 import app.organicmaps.sdk.routing.RouteMarkType;
+import app.organicmaps.sdk.routing.RouteStepInfo;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingListener;
 import app.organicmaps.sdk.routing.RoutingLoadPointsListener;
@@ -259,6 +260,9 @@ public class Framework
   public static native double[] nativeGetIntermediateStopsProgress();
 
   public static native void nativeMoveRoutePoint(int currentIndex, int targetIndex);
+
+  @Nullable
+  public static native RouteStepInfo[] nativeGetRouteSteps(String language);
 
   @NonNull
   public static native TransitRouteInfo nativeGetTransitRouteInfo();

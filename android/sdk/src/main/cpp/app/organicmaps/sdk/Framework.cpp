@@ -8,6 +8,7 @@
 #include "app/organicmaps/sdk/routing/RouteMarkData.hpp"
 #include "app/organicmaps/sdk/routing/RouteMarkType.hpp"
 #include "app/organicmaps/sdk/routing/RouteRecommendationType.hpp"
+#include "app/organicmaps/sdk/routing/RouteStepInfo.hpp"
 #include "app/organicmaps/sdk/routing/RoutingInfo.hpp"
 #include "app/organicmaps/sdk/routing/TransitRouteInfo.hpp"
 #include "app/organicmaps/sdk/util/Distance.hpp"
@@ -1471,6 +1472,18 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeMoveRoutePoint(J
                                                                                jint targetIndex)
 {
   frm()->GetRoutingManager().MoveRoutePoint(currentIndex, targetIndex);
+}
+
+JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRouteSteps(JNIEnv * env, jclass,
+                                                                                      jstring language)
+{
+  std::string nativeLanguage = jni::ToNativeString(env, language);
+  RoutingManager & rm = frm()->GetRoutingManager();
+  if (!rm.IsRoutingActive() || !rm.IsRouteValid())
+    return nullptr;
+
+  auto const steps = rm.GetRouteTurnsForDisplay(nativeLanguage);
+  return CreateRouteStepInfoArray(env, steps);
 }
 
 JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetTransitRouteInfo(JNIEnv * env, jclass)
