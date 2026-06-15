@@ -34,7 +34,7 @@ struct MapCustomButton: View {
             } icon: {
                 kind.image
                     .symbolRenderingMode(hasBadge ? .palette : .monochrome)
-                    .foregroundStyle((hasBadge ? Color.BaseColors.red : Color.mapButtonForeground), Color.mapButtonForeground)
+                    .foregroundStyle((hasBadge ? Color.BaseColors.red : Color.primary), Color.primary)
                     .padding(.top, hasRecordBadge ? 3 : 0)
             }
         }
