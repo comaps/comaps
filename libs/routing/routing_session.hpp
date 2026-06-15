@@ -166,6 +166,8 @@ public:
   SpeedCameraManager & GetSpeedCamManager() { return m_speedCameraManager; }
   SpeedCameraManager const & GetSpeedCamManager() const { return m_speedCameraManager; }
 
+  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+
   std::shared_ptr<Route> GetRouteForTests() const { return m_route; }
   void SetGuidesForTests(GuidesTracks guides) { m_router->SetGuidesTracks(std::move(guides)); }
 

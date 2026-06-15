@@ -30,9 +30,9 @@
 #include "routing_common/num_mwm_id.hpp"
 
 #include "indexer/data_source.hpp"
+#include "indexer/feature_algo.hpp"
 #include "indexer/feature_meta.hpp"
 #include "indexer/map_style_reader.hpp"
-#include "indexer/feature_algo.hpp"
 
 #include "platform/country_file.hpp"
 #include "platform/distance.hpp"
@@ -602,15 +602,14 @@ void RoutingManager::RemoveRoute(bool deactivateFollowing)
   }
 }
 
-void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segments,
-                                               m2::PointD const & startPt,
+void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segments, m2::PointD const & startPt,
                                                uint32_t featureType,
                                                vector<std::pair<m2::PointD, FeatureID>> & outFeatures)
 {
   ASSERT(!segments.empty(), ());
   ASSERT_NOT_EQUAL(featureType, Classificator::INVALID_TYPE, ());
 
-  double constexpr kSearchRadiusM = 0.3; //radius (in meters)
+  double constexpr kSearchRadiusM = 0.3;  // radius (in meters)
   double const kSearchRadiusMercator = mercator::MetersToMercator(kSearchRadiusM);
   double const kChunkSizeMercator = mercator::MetersToMercator(2000.0);
 
@@ -621,7 +620,8 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
     m2::RectD queryRect = r;
     queryRect.Inflate(kSearchRadiusMercator, kSearchRadiusMercator);
 
-    dataSource.ForEachInRect([&](FeatureType & ft) {
+    dataSource.ForEachInRect([&](FeatureType & ft)
+    {
       if (ft.GetGeomType() != feature::GeomType::Point)
         return;
 
@@ -641,12 +641,14 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
       {
         m2::PointD const curr = s.GetJunction().GetPoint();
         m2::ParametrizedSegment<m2::PointD> seg(prev, curr);
+
         double const d = seg.SquaredDistanceToPoint(pt);
         if (d < minSqDist)
         {
           minSqDist = d;
           closestSegIsForward = s.GetSegment().IsForward();
         }
+
         if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
           break;
 
@@ -755,7 +757,8 @@ void RoutingManager::CreateRoadWarningMarks(RoadWarningsCollection && roadWarnin
   });
 }
 
-void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt, vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
+void RoutingManager::CollectTrafficLights(vector<RouteSegment> const & segments, m2::PointD const & startPt,
+                                          vector<std::pair<m2::PointD, FeatureID>> & trafficLights)
 {
   static uint32_t const type = classif().GetTypeByPath({"highway", "traffic_signals"});
   CollectFeaturesAlongRoute(segments, startPt, type, trafficLights);
@@ -900,11 +903,9 @@ void RoutingManager::GetRouteFollowingInfo(routing::FollowingInfo & info) const
   if (countryId.empty())
     return;
 
-  auto const mwmId =
-      m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(platform::CountryFile(countryId));
+  auto const mwmId = m_callbacks.m_dataSourceGetter().GetMwmIdByCountryFile(platform::CountryFile(countryId));
   if (mwmId.IsAlive())
-    info.m_isLeftHandTraffic =
-        mwmId.GetInfo()->GetRegionData().Get(feature::RegionData::RD_DRIVING) == "l";
+    info.m_isLeftHandTraffic = mwmId.GetInfo()->GetRegionData().Get(feature::RegionData::RD_DRIVING) == "l";
 }
 
 void RoutingManager::FollowRoute()
@@ -1748,4 +1749,9 @@ void RoutingManager::SetSubroutesVisibility(bool visible)
 bool RoutingManager::IsSpeedCamLimitExceeded() const
 {
   return m_routingSession.IsSpeedCamLimitExceeded();
+}
+
+std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_routingSession.GetRouteTurnsForDisplay(locale);
 }

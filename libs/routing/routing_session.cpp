@@ -413,7 +413,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     // Nothing should be displayed on the screen about turns if these lines are executed.
     info = FollowingInfo();
     info.m_routingSessionState = m_state;
-    info.m_indexOfNextStop = -1; // Invalid next stop index.
+    info.m_indexOfNextStop = -1;  // Invalid next stop index.
     return;
   }
 
@@ -423,7 +423,7 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
     info.m_distToTarget = platform::Distance::CreateFormatted(m_route->GetTotalDistanceMeters());
     info.m_time = static_cast<int>(std::max(kMinimumETASec, m_route->GetCurrentTimeToEndSec()));
     info.m_routingSessionState = m_state;
-    info.m_indexOfNextStop = -1; // Invalid next stop index.
+    info.m_indexOfNextStop = -1;  // Invalid next stop index.
     return;
   }
 
@@ -494,18 +494,17 @@ void RoutingSession::GetRouteFollowingInfo(FollowingInfo & info) const
   }
 
   // Set the index of the next intermediate stop.
-  info.m_indexOfNextStop = (int) currentSubrouteIdx + 1;
+  info.m_indexOfNextStop = (int)currentSubrouteIdx + 1;
 
   // Get index of end segment of the subroute.
   size_t subrouteEndSegmentIdx = m_route->GetSubrouteAttrs(currentSubrouteIdx).GetEndSegmentIdx();
 
   // Get remaining distance to end of subroute.
-  info.m_distToNextStop = platform::Distance::CreateFormatted(
-    m_route->GetCurrentDistanceToSegmentMeters(subrouteEndSegmentIdx));
+  info.m_distToNextStop =
+      platform::Distance::CreateFormatted(m_route->GetCurrentDistanceToSegmentMeters(subrouteEndSegmentIdx));
 
   // Get remaining time to end of subroute.
-  info.m_timeToNextStop = std::max(kMinimumETASec,
-                                   m_route->GetCurrentTimeToSegmentSec(subrouteEndSegmentIdx));
+  info.m_timeToNextStop = std::max(kMinimumETASec, m_route->GetCurrentTimeToSegmentSec(subrouteEndSegmentIdx));
 }
 
 double RoutingSession::GetCompletionPercent() const
@@ -948,6 +947,11 @@ void RoutingSession::OnTrafficInfoRemoved(MwmSet::MwmId const & mwmId)
 void RoutingSession::CopyTraffic(traffic::AllMwmTrafficInfo & trafficColoring) const
 {
   TrafficCache::CopyTraffic(trafficColoring);
+}
+
+std::vector<routing::RouteStepInfo> RoutingSession::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_route->GetTurnsForDisplay(locale);
 }
 
 void RoutingSession::SetLocaleWithJsonForTesting(std::string const & json, std::string const & locale)
