@@ -63,7 +63,7 @@ string Join(string const & s, Args &&... args)
     return tail;
   if (tail.empty())
     return s;
-  return s + ", " + tail;
+  return s + " " + tail;
 }
 
 ReverseGeocoder::Building FromFeatureImpl(FeatureType & ft, std::string const & hn, double distMeters)
@@ -373,8 +373,7 @@ string ReverseGeocoder::Address::FormatAddress() const
   // to the distance.
   if (m_building.m_distanceMeters > 200.0)
     return {};
-
-  return Join(m_street.m_name, m_building.m_name);
+  return Join(m_building.m_name, m_street.m_name);
 }
 
 bool ReverseGeocoder::RegionAddress::IsValid() const

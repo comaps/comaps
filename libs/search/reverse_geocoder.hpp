@@ -88,8 +88,6 @@ public:
     std::string const & GetStreetName() const { return m_street.m_name; }
     double GetDistance() const { return m_building.m_distanceMeters; }
     bool IsValid() const { return m_building.IsValid() && m_street.IsValid(); }
-
-    // 7 vulica Frunze
     std::string FormatAddress() const;
   };
 
