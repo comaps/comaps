@@ -587,7 +587,7 @@
     <string name="power_managment_setting_auto">자동</string>
     <string name="power_managment_setting_manual_max">최대 전력 절약</string>
     <string name="enable_logging_warning_message">이 옵션은 진단을 목적으로 로그를 엽니다 이를 통해 앱에 대한 문제를 분석하는 우리의 스탭을 도울 수 있습니다 이 옵션은 오직 CoMaps 지원 요청에서만 가능합니다.</string>
-    <string name="driving_options_title">운전 옵션</string>
+    <string name="routing_options_title">운전 옵션</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">유료 도로 피하기</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

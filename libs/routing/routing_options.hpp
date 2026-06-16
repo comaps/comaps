@@ -5,15 +5,16 @@
 #include <type_traits>
 #include <utility>
 
-#include "boost/container_hash/hash.hpp"
 #include "3party/skarupke/flat_hash_map.hpp"
+#include "boost/container_hash/hash.hpp"
+#include "routing/vehicle_mask.hpp"
 
 namespace routing
 {
 class RoutingOptions
 {
 public:
-  enum Road : uint8_t
+  enum Option : uint8_t
   {
     Usual = 1u << 0,
     Toll = 1u << 1,
@@ -26,22 +27,25 @@ public:
     Max = (1u << 6) + 1
   };
 
-  using RoadType = std::underlying_type_t<Road>;
+  using OptionType = std::underlying_type_t<Option>;
 
   RoutingOptions() = default;
-  explicit RoutingOptions(RoadType mask) : m_options(mask) {}
+  explicit RoutingOptions(OptionType mask, routing::VehicleType type) : m_options(mask), m_vehicle(type) {}
 
-  static RoutingOptions LoadCarOptionsFromSettings();
-  static void SaveCarOptionsToSettings(RoutingOptions options);
+  static RoutingOptions LoadOptionsFromSettings(VehicleType type);
+  static void SaveOptionsToSettings(RoutingOptions options);
 
-  void Add(Road type);
-  void Remove(Road type);
-  bool Has(Road type) const;
+  void Add(Option type);
+  void Remove(Option type);
+  bool Has(Option type) const;
 
-  RoadType GetOptions() const { return m_options; }
+  void setVehicleType(VehicleType vt) { m_vehicle = vt; }
+
+  OptionType GetOptions() const { return m_options; }
 
 private:
-  RoadType m_options = 0;
+  OptionType m_options = 0;
+  VehicleType m_vehicle = VehicleType::Car;
 };
 
 class RoutingOptionsClassifier
@@ -49,23 +53,23 @@ class RoutingOptionsClassifier
 public:
   RoutingOptionsClassifier();
 
-  std::optional<RoutingOptions::Road> Get(uint32_t type) const;
+  std::optional<RoutingOptions::Option> Get(uint32_t type) const;
   static RoutingOptionsClassifier const & Instance();
 
 private:
-  ska::flat_hash_map<uint32_t, RoutingOptions::Road, boost::hash<uint32_t>> m_data;
+  ska::flat_hash_map<uint32_t, RoutingOptions::Option, boost::hash<uint32_t>> m_data;
 };
 
-RoutingOptions::Road ChooseMainRoutingOptionRoad(RoutingOptions options, bool isCarRouter);
+RoutingOptions::Option ChooseMainRoutingOption(RoutingOptions options, bool isCarRouter);
 
 std::string DebugPrint(RoutingOptions const & routingOptions);
-std::string DebugPrint(RoutingOptions::Road type);
+std::string DebugPrint(RoutingOptions::Option type);
 
 /// Options guard for debugging/tests.
 class RoutingOptionSetter
 {
 public:
-  explicit RoutingOptionSetter(RoutingOptions::RoadType roadsMask);
+  explicit RoutingOptionSetter(RoutingOptions::OptionType optionssMask, VehicleType type);
   ~RoutingOptionSetter();
 
 private:

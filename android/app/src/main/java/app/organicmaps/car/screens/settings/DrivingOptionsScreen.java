@@ -17,6 +17,8 @@ import app.organicmaps.car.renderer.Renderer;
 import app.organicmaps.car.screens.base.BaseMapScreen;
 import app.organicmaps.car.util.Toggle;
 import app.organicmaps.car.util.UiHelpers;
+import app.organicmaps.sdk.Router;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.settings.RoadType;
 import java.util.HashMap;
@@ -59,10 +61,13 @@ public class DrivingOptionsScreen extends BaseMapScreen
   public void onStop(@NonNull LifecycleOwner owner)
   {
     super.onStop(owner);
+
+    Router routerType = RoutingController.get().getLastRouterType();
+
     for (final DrivingOption drivingOption : mDrivingOptions)
     {
       if (Boolean.TRUE.equals(mInitialDrivingOptionsState.get(drivingOption.roadType))
-          != RoutingOptions.hasOption(drivingOption.roadType))
+          != RoutingOptions.hasOption(drivingOption.roadType, routerType))
       {
         setResult(DRIVING_OPTIONS_RESULT_CHANGED);
         return;
@@ -75,7 +80,8 @@ public class DrivingOptionsScreen extends BaseMapScreen
   {
     final Header.Builder builder = new Header.Builder();
     builder.setStartHeaderAction(Action.BACK);
-    builder.setTitle(getCarContext().getString(R.string.driving_options_title));
+    Router routerType = RoutingController.get().getLastRouterType();
+    builder.setTitle(getCarContext().getString(R.string.routing_options_title));
     return builder.build();
   }
 
@@ -93,18 +99,24 @@ public class DrivingOptionsScreen extends BaseMapScreen
   {
     final OnClickListener listener = () ->
     {
-      if (RoutingOptions.hasOption(roadType))
-        RoutingOptions.removeOption(roadType);
+      Router routerType = RoutingController.get().getLastRouterType();
+      if (RoutingOptions.hasOption(roadType, routerType))
+        RoutingOptions.removeOption(roadType, routerType);
       else
-        RoutingOptions.addOption(roadType);
+        RoutingOptions.addOption(roadType, routerType);
       invalidate();
     };
-    return Toggle.create(getCarContext(), title, listener, RoutingOptions.hasOption(roadType));
+
+    Router routerType = RoutingController.get().getLastRouterType();
+    return Toggle.create(getCarContext(), title, listener, RoutingOptions.hasOption(roadType, routerType));
   }
 
   private void initDrivingOptionsState()
   {
+    Router routerType = RoutingController.get().getLastRouterType();
+
     for (final DrivingOption drivingOption : mDrivingOptions)
-      mInitialDrivingOptionsState.put(drivingOption.roadType, RoutingOptions.hasOption(drivingOption.roadType));
+      mInitialDrivingOptionsState.put(drivingOption.roadType,
+                                      RoutingOptions.hasOption(drivingOption.roadType, routerType));
   }
 }

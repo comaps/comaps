@@ -623,7 +623,7 @@
     <string name="power_managment_setting_auto">Cuando queda poca energía</string>
     <string name="power_managment_setting_manual_max">Siempre</string>
     <string name="enable_logging_warning_message">Activa esta opción temporalmente para grabar y enviar de forma manual registros para diagnosticar defectos mediante la opción «Informar de un fallo» en el diálogo Ayuda. Los registros pueden incluir ubicaciones.</string>
-    <string name="driving_options_title">Opciones de enrutamiento</string>
+    <string name="routing_options_title">Opciones de enrutamiento</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Evitar peajes</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

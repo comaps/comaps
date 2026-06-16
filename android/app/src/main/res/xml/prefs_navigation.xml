@@ -13,10 +13,10 @@
 
   <PreferenceScreen
       android:key="@string/prefs_routing"
-      android:title="@string/driving_options_title"
+      android:title="@string/routing_options_title"
       app:icon="@drawable/ic_instant_mix">
     <intent
-        android:targetClass="app.organicmaps.settings.DrivingOptionsActivity"
+        android:targetClass="app.organicmaps.settings.RoutingOptionsActivity"
         android:targetPackage="@string/app_id">
       <extra android:name="from" android:value="settings" />
     </intent>

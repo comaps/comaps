@@ -208,7 +208,7 @@
     <string name="power_managment_setting_auto">Kiotomatiki</string>
     <string name="power_managment_setting_manual_max">Upeo wa kuhifadhi nishati</string>
     <string name="enable_logging_warning_message">Chaguo huwasha data kwa madhumuni ya uchunguzi. Itakuwa muhimu kwa wafanyakazi wetu ambao wanatatua matatizo ya programu. Washa chaguo hili kwa maombi ya mhudumu wa CoMaps tu.</string>
-    <string name="driving_options_title">Machaguo ya njia</string>
+    <string name="routing_options_title">Machaguo ya njia</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Epuka barabara za ushuru</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

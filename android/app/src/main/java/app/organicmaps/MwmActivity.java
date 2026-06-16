@@ -47,11 +47,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.preference.PreferenceManager;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.api.Const;
 import app.organicmaps.backup.PeriodicBackupRunner;
 import app.organicmaps.base.BaseMwmFragmentActivity;
@@ -118,7 +118,7 @@ import app.organicmaps.sdk.widget.placepage.PlacePageData;
 import app.organicmaps.search.FloatingSearchToolbarController;
 import app.organicmaps.search.SearchActivity;
 import app.organicmaps.search.SearchFragment;
-import app.organicmaps.settings.DrivingOptionsActivity;
+import app.organicmaps.settings.RoutingOptionsActivity;
 import app.organicmaps.settings.SettingsActivity;
 import app.organicmaps.util.SharingUtils;
 import app.organicmaps.util.ThemeSwitcher;
@@ -159,7 +159,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   private static final String[] DOCKED_FRAGMENTS = {SearchFragment.class.getName(), DownloaderFragment.class.getName(),
                                                     RoutingPlanFragment.class.getName(), EditorHostFragment.class.getName()};
 
-  public final ActivityResultLauncher<Intent> startDrivingOptionsForResult =
+  public final ActivityResultLauncher<Intent> startRoutingOptionsForResult =
       registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
         if (activityResult.getResultCode() == Activity.RESULT_OK)
           rebuildLastRoute();
@@ -618,7 +618,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     if (!mIsTabletLayout)
     {
-      mRoutingPlanInplaceController = new RoutingPlanInplaceController(this, startDrivingOptionsForResult, this, this);
+      mRoutingPlanInplaceController = new RoutingPlanInplaceController(this, startRoutingOptionsForResult, this, this);
       removeCurrentFragment(false);
     }
 
@@ -1141,7 +1141,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mRoutingPlanInplaceController == null)
       return;
 
-    mRoutingPlanInplaceController.hideDrivingOptionsView();
+    mRoutingPlanInplaceController.hideRoutingOptionsView();
     RoutingController.get().rebuildLastRoute();
   }
 
@@ -1679,7 +1679,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mRoutingPlanInplaceController == null)
       return;
 
-    mRoutingPlanInplaceController.hideDrivingOptionsView();
+    mRoutingPlanInplaceController.hideRoutingOptionsView();
   }
 
   @Override
@@ -1690,7 +1690,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mRoutingPlanInplaceController == null)
       return;
 
-    mRoutingPlanInplaceController.hideDrivingOptionsView();
+    mRoutingPlanInplaceController.hideRoutingOptionsView();
     NavigationService.stopService(this);
     mMapButtonsViewModel.setSearchOption(null);
     mMapButtonsViewModel.setLayoutMode(MapButtonsController.LayoutMode.regular);
@@ -1792,7 +1792,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
             .setTitle(R.string.unable_to_calc_alert_title)
             .setMessage(R.string.unable_to_calc_alert_subtitle)
             .setPositiveButton(R.string.settings,
-                               (dialog, which) -> DrivingOptionsActivity.start(this, startDrivingOptionsForResult))
+                               (dialog, which) -> RoutingOptionsActivity.start(this, startRoutingOptionsForResult))
             .setNegativeButton(R.string.cancel, null)
             .setOnDismissListener(dialog -> mAlertDialog = null)
             .show();
@@ -2561,7 +2561,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public void onPlacePageRequestToggleRouteSettings(@NonNull RoadType roadType)
   {
     closePlacePage();
-    RoutingOptions.addOption(roadType);
+    Router routerType = RoutingController.get().getLastRouterType();
+    RoutingOptions.addOption(roadType, routerType);
     rebuildLastRouteInternal();
   }
 

@@ -269,7 +269,7 @@
     <string name="power_managment_setting_auto">Kur bateria është e ulët</string>
     <string name="power_managment_setting_manual_max">Gjithmonë</string>
     <string name="enable_logging_warning_message">Aktivizojeni këtë opsion përkohësisht për të regjistruar dhe dërguar manualisht regjistra të detajuar diagnostikues rreth problemit tuaj duke përdorur \"Raporto një gabim\" në dialogun e Ndihmës. Regjistrat mund të përfshijnë informacion mbi vendndodhjen.</string>
-    <string name="driving_options_title">Opsionet e rrugëzimit</string>
+    <string name="routing_options_title">Opsionet e rrugëzimit</string>
     <string name="avoid_tolls">Shmangni Toll-et (pagesat rrugore)</string>
     <string name="avoid_unpaved">Shmangni rrugët e pashtruara</string>
     <string name="enable_logging">Aktivizo regjistrim diagnostikimesh</string>

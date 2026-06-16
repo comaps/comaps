@@ -11,6 +11,7 @@ import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.settings.UnitLocale;
 import app.organicmaps.sdk.util.Config;
@@ -86,7 +87,7 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
   private void updateRoutingSettingsPrefsSummary()
   {
     final Preference pref = getPreference(getString(R.string.prefs_routing));
-    pref.setSummary(RoutingOptions.hasAnyOptions() ? R.string.on : R.string.off);
+    pref.setSummary(RoutingOptions.hasAnyOptions(RoutingController.get().getLastRouterType()) ? R.string.on : R.string.off);
   }
 
   private void initMeasureUnitsPrefsCallbacks()

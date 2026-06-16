@@ -628,7 +628,7 @@
     <string name="power_managment_setting_auto">При низком заряде</string>
     <string name="power_managment_setting_manual_max">Всегда</string>
     <string name="enable_logging_warning_message">Эта настройка включается для записи действий в целях диагностики, чтобы помочь нашей команде выявить проблемы с приложением. Включайте ее только на время для отправки детальной информации о неполадках, обнаруженных в приложении, через кнопку «Сообщить о проблеме». Логи могут включать данные о местоположении.</string>
-    <string name="driving_options_title">Настройки объезда</string>
+    <string name="routing_options_title">Настройки объезда</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Избегать платные дороги</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

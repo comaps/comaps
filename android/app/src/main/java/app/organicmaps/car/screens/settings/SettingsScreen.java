@@ -19,6 +19,8 @@ import app.organicmaps.car.util.ThemeUtils;
 import app.organicmaps.car.util.Toggle;
 import app.organicmaps.car.util.UiHelpers;
 import app.organicmaps.sdk.Framework;
+import app.organicmaps.sdk.Router;
+import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.util.Config;
 
 public class SettingsScreen extends BaseMapScreen
@@ -86,7 +88,8 @@ public class SettingsScreen extends BaseMapScreen
   private Item createRoutingOptionsItem()
   {
     final Row.Builder builder = new Row.Builder();
-    builder.setTitle(getCarContext().getString(R.string.driving_options_title));
+    Router routerType = RoutingController.get().getLastRouterType();
+    builder.setTitle(getCarContext().getString(R.string.routing_options_title));
     builder.setOnClickListener(
         ()
             -> getScreenManager().pushForResult(new DrivingOptionsScreen(getCarContext(), getSurfaceRenderer()),

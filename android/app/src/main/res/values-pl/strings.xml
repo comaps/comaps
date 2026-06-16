@@ -625,7 +625,7 @@
     <string name="power_managment_setting_auto">Automatycznie</string>
     <string name="power_managment_setting_manual_max">Maksymalna oszczędność energii</string>
     <string name="enable_logging_warning_message">Włącz tę opcję tymczasowo, aby zebrać szczegółowe dane diagnostyczne o twoim problemie. Dane zostaną użyte na potrzeby zgłaszania błędu przy użyciu opcji „Zgłoś błąd” w sekcji Pomoc. Logi mogą zawierać dane lokalizacyjne.</string>
-    <string name="driving_options_title">Ustawienia nawigacji</string>
+    <string name="routing_options_title">Ustawienia nawigacji</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Unikaj płatnych dróg</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

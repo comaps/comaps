@@ -589,7 +589,7 @@
     <string name="power_managment_setting_auto">Khi pin thấp</string>
     <string name="power_managment_setting_manual_max">Luôn luôn</string>
     <string name="enable_logging_warning_message">Tạm thời bật tùy chọn này để ghi và gửi thủ công nhật ký chẩn đoán chi tiết về vấn đề của bạn đến chúng tôi bằng \"Báo cáo lỗi\" trong mục Giúp đỡ. Nhật ký có thể gồm dữ liệu vị trí.</string>
-    <string name="driving_options_title">Tùy chọn tuyến đường</string>
+    <string name="routing_options_title">Tùy chọn tuyến đường</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Tránh đường thu phí</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

@@ -582,7 +582,7 @@
     <string name="power_managment_setting_auto">Pan vatri yw isel</string>
     <string name="power_managment_setting_manual_max">Pub prys</string>
     <string name="enable_logging_warning_message">Bywhewgh yn servadow an dewis ma rag rekordya ha danvon dre dhorn kovadhow manylys a-dro dh\'gas kudyn dhyn gans \"Derivas unn kudyn\" y\'n folen Weres. Kovadhow a yll synsi kedhlow tyller.</string>
-    <string name="driving_options_title">Dewisyow kerdh</string>
+    <string name="routing_options_title">Dewisyow kerdh</string>
     <string name="avoid_tolls">Goheles tollow</string>
     <string name="avoid_unpaved">Goheles fordh ankonsys</string>
     <string name="avoid_ferry">Goheles kowbalow</string>

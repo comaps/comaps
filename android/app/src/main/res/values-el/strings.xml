@@ -614,7 +614,7 @@
     <string name="power_managment_setting_auto">Όταν η μπαταρία είναι χαμηλή</string>
     <string name="power_managment_setting_manual_max">Πάντα</string>
     <string name="enable_logging_warning_message">Αυτή η λειτουργία είναι ενεργοποιημένη για την καταγραφή ενεργειών για διαγνωστικούς σκοπούς. Αυτό βοηθά την ομάδα να εντοπίζει προβλήματα με την εφαρμογή. Να ενεργοποιείτε τη λειτουργία μόνο κατόπιν αιτήματος της υποστήριξης του CoMaps.</string>
-    <string name="driving_options_title">Ρυθμίσεις δρομολόγησης</string>
+    <string name="routing_options_title">Ρυθμίσεις δρομολόγησης</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Αποφυγή διοδίων</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

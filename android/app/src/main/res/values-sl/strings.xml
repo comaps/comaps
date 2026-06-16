@@ -438,7 +438,7 @@
     <string name="power_managment_setting_auto">Kadar zmanjkuje energije</string>
     <string name="power_managment_setting_manual_max">Vedno</string>
     <string name="enable_logging_warning_message">Začasno omogočite to možnost, da zabeležite in nam ročno pošljete podrobne podatke o svoji težave prek gumba \"Prijavite napako\" v pogovornem oknu za pomoč. Zabeleženi podatki lahko vključujejo tudi podatke o položaju.</string>
-    <string name="driving_options_title">Možnosti iskanja povezav</string>
+    <string name="routing_options_title">Možnosti iskanja povezav</string>
     <string name="avoid_tolls">Brez cestnin</string>
     <string name="avoid_unpaved">Brez netlakovanih cest</string>
     <string name="avoid_ferry">Brez trajektov</string>

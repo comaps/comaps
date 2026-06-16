@@ -617,7 +617,7 @@
     <string name="power_managment_setting_auto">Bei niedrigem Akkustand</string>
     <string name="power_managment_setting_manual_max">Immer</string>
     <string name="enable_logging_warning_message">Aktiviere diese Option zeitweise, um manuell Aktivitäten zwecks Diagnostik aufzuzeichnen und zu senden. Das hilft unserem Team, Probleme mit der App zu erkennen. Aktiviere diese Option, reproduziere das Problem und sende die Protokolle über die Schaltfläche \"Fehler melden\" an uns.</string>
-    <string name="driving_options_title">Routenoptionen</string>
+    <string name="routing_options_title">Routenoptionen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Mautstraßen vermeiden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

@@ -623,7 +623,7 @@
     <string name="power_managment_setting_auto">当电量低时</string>
     <string name="power_managment_setting_manual_max">最大程度省电</string>
     <string name="enable_logging_warning_message">临时启用此选项，以便使用“报告错误”功能在帮助对话框中记录并手动发送详细诊断日志给我们。日志可能包含位置信息。</string>
-    <string name="driving_options_title">绕行设置</string>
+    <string name="routing_options_title">绕行设置</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">避开收费公路</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

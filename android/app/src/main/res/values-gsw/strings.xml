@@ -559,7 +559,7 @@
     <string name="subway">U-Bahn</string>
     <string name="pref_tts_speedcams_never">Nie warne</string>
     <string name="enable_logging_warning_message">Aktivier die Option ziitwiis, zum manuell Aktivitäte zwecks Diagnostik uufzzeichne und z schicke. Das hilft eusem Team, Problem mit de App z erchenne. Aktivier die Option, reproduzier s Problem und schick denn d Protokoll über de Chnopf \"Fehler melde\" a eus.</string>
-    <string name="driving_options_title">Routeoptione</string>
+    <string name="routing_options_title">Routeoptione</string>
     <string name="change_driving_options_btn">Routeoptione aktiv</string>
     <string name="by_default">Nach Voriistellig</string>
     <string name="category_toilet">Toilette</string>

@@ -352,7 +352,7 @@ private:
     FeatureID m_featureId;
     double m_distance = 0.0;
   };
-  using RoadWarningsCollection = std::map<routing::RoutingOptions::Road, std::vector<RoadInfo>>;
+  using RoadWarningsCollection = std::map<routing::RoutingOptions::Option, std::vector<RoadInfo>>;
 
   using GetMwmIdFn = std::function<MwmSet::MwmId(routing::NumMwmId numMwmId)>;
   void CollectFeaturesAlongRoute(std::vector<routing::RouteSegment> const & segments, m2::PointD const & startPt,

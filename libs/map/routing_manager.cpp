@@ -227,13 +227,13 @@ VehicleType GetVehicleType(RouterType routerType)
   UNREACHABLE();
 }
 
-RoadWarningMarkType GetRoadType(RoutingOptions::Road road)
+RoadWarningMarkType GetRoadType(RoutingOptions::Option road)
 {
-  if (road == RoutingOptions::Road::Toll)
+  if (road == RoutingOptions::Option::Toll)
     return RoadWarningMarkType::Toll;
-  if (road == RoutingOptions::Road::Ferry)
+  if (road == RoutingOptions::Option::Ferry)
     return RoadWarningMarkType::Ferry;
-  if (road == RoutingOptions::Road::Dirty)
+  if (road == RoutingOptions::Option::Dirty)
     return RoadWarningMarkType::Dirty;
 
   CHECK(false, ("Invalid road type to avoid:", road));
@@ -692,20 +692,20 @@ void RoutingManager::CollectRoadWarnings(vector<routing::RouteSegment> const & s
                                          double baseDistance, GetMwmIdFn const & getMwmIdFn,
                                          RoadWarningsCollection & roadWarnings)
 {
-  auto const isWarnedType = [](RoutingOptions::Road roadType)
+  auto const isWarnedType = [](RoutingOptions::Option roadType)
   {
-    return (roadType == RoutingOptions::Road::Toll || roadType == RoutingOptions::Road::Ferry ||
-            roadType == RoutingOptions::Road::Dirty);
+    return (roadType == RoutingOptions::Option::Toll || roadType == RoutingOptions::Option::Ferry ||
+            roadType == RoutingOptions::Option::Dirty);
   };
 
   bool const isCarRouter = (m_currentRouterType == RouterType::Vehicle);
 
   double currentDistance = baseDistance;
   double startDistance = baseDistance;
-  RoutingOptions::Road lastType = RoutingOptions::Road::Usual;
+  RoutingOptions::Option lastType = RoutingOptions::Option::Usual;
   for (size_t i = 0; i < segments.size(); ++i)
   {
-    auto const currentType = ChooseMainRoutingOptionRoad(segments[i].GetRoadTypes(), isCarRouter);
+    auto const currentType = ChooseMainRoutingOption(segments[i].GetRoadTypes(), isCarRouter);
     if (currentType != lastType)
     {
       if (isWarnedType(lastType))

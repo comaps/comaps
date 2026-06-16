@@ -428,7 +428,7 @@ UNIT_TEST(EnglandLondonStartNearMwmBorderTest)
                                    FromLatLon(51.606785, 0.264055), 416.8);
 }
 
-// Test that toll road is not crossed by a fake edge if RouingOptions are set to Road::Toll.
+// Test that toll road is not crossed by a fake edge if RouingOptions are set to Option::Toll.
 // Test on necessity calling RectCoversPolyline() after DataSource::ForEachInRect() while looking for fake edges.
 UNIT_TEST(RussiaMoscowNotCrossingTollRoadTest)
 {
@@ -439,7 +439,7 @@ UNIT_TEST(RussiaMoscowNotCrossingTollRoadTest)
 
   {
     // Avoid motorway toll road and build route through minor residential roads (short but slow).
-    RoutingOptionSetter optionsGuard(RoutingOptions::Toll);
+    RoutingOptionSetter optionsGuard(RoutingOptions::Toll, VehicleType::Car);
 
     // 1. End point is near the motorway toll road, but choose a minor track as end segment.
     CalculateRouteAndTestRouteLength(vehicleComponents, start, {0.0, 0.0}, finish[0], 8427.71);
@@ -711,7 +711,7 @@ UNIT_TEST(USA_Birmingham_AL_KeyWest_FL_NoMotorway)
   auto const finish = FromLatLon(24.5534713, -81.7932587);
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), start, {0., 0.}, finish, 1'471'410);
 
-  RoutingOptionSetter optionsGuard(RoutingOptions::Motorway);
+  RoutingOptionSetter optionsGuard(RoutingOptions::Motorway, VehicleType::Car);
   CalculateRouteAndTestRouteLength(GetVehicleComponents(VehicleType::Car), start, {0., 0.}, finish, 1'495'860);
 }
 
@@ -811,7 +811,7 @@ UNIT_TEST(Russia_Yekaterinburg_NChelny)
   auto const finish = FromLatLon(55.7341111, 52.4156012);
 
   {
-    RoutingOptionSetter optionsGuard(RoutingOptions::Dirty | RoutingOptions::Ferry);
+    RoutingOptionSetter optionsGuard(RoutingOptions::Dirty | RoutingOptions::Ferry, VehicleType::Car);
     // forward
     CalculateRouteAndTestRouteLength(*components, start, {0., 0.}, finish, 767702);
     // backward

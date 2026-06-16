@@ -604,7 +604,7 @@
     <string name="power_managment_setting_auto">Při vybité baterii</string>
     <string name="power_managment_setting_manual_max">Vždy</string>
     <string name="enable_logging_warning_message">Dočasně zapněte, abyste mohli zaznamenat a ručně nám poslat podrobná diagnostická data o vašem problému pomocí tlačítka „Nahlásit chybu“ v okně nápovědy. Protokoly mohou zahrnovat informace o poloze.</string>
-    <string name="driving_options_title">Možnosti trasy</string>
+    <string name="routing_options_title">Možnosti trasy</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Vyhnout se mýtnému</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

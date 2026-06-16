@@ -616,7 +616,7 @@
     <string name="power_managment_setting_auto">Wanneer batterij bijna leeg is</string>
     <string name="power_managment_setting_manual_max">Altijd</string>
     <string name="enable_logging_warning_message">Schakel deze optie tijdelijk in om gedetailleerde diagnostische loggegevens over uw probleem te verzamelen en handmatig naar ons te sturen via \"Meld een fout\" in het Help-dialoogvenster. Loggegevens kunnen locatie-informatie bevatten.</string>
-    <string name="driving_options_title">Route-instellingen</string>
+    <string name="routing_options_title">Route-instellingen</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Tolwegen vermijden</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

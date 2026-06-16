@@ -627,7 +627,7 @@
     <string name="power_managment_setting_auto">Automatique</string>
     <string name="power_managment_setting_manual_max">Économie d’énergie maximale</string>
     <string name="enable_logging_warning_message">Cette option est activée pour l’identification des actions à des fins de diagnostic. Cela aide l’équipe à identifier les problèmes liés à l’application. Activez cette option uniquement à la demande du support CoMaps.</string>
-    <string name="driving_options_title">Paramètres des itinéraires</string>
+    <string name="routing_options_title">Paramètres des itinéraires</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Éviter les routes à péages</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

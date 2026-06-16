@@ -437,7 +437,7 @@
     <string name="power_managment_description">Pokušajte smanjiti potrošnju energije na štetu nekih funkcionalnosti</string>
     <string name="power_managment_setting_auto">Kad je baterija pri kraju</string>
     <string name="enable_logging_warning_message">Privremeno omogućite ovu opciju kako biste snimili i ručno poslali detaljne dijagnostičke zapisnike o vašem problemu pomoću opcije \"Prijavi grešku\" u dijalogu Pomoć. Zapisnici mogu uključivati podatke o lokaciji.</string>
-    <string name="driving_options_title">Opcije rutiranja</string>
+    <string name="routing_options_title">Opcije rutiranja</string>
     <string name="avoid_tolls">Izbjegni cestarine</string>
     <string name="avoid_unpaved">Izbjegavaj neasfaltirane ceste</string>
     <string name="avoid_ferry">Izbjegavaj trajekte</string>

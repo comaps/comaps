@@ -13,58 +13,58 @@
 - (instancetype)init {
   self = [super init];
   if (self) {
-    _options = routing::RoutingOptions::LoadCarOptionsFromSettings();
+    _options = routing::RoutingOptions::LoadOptionsFromSettings(routing::VehicleType::Car);
   }
 
   return self;
 }
 
 - (BOOL)avoidToll {
-  return _options.Has(routing::RoutingOptions::Road::Toll);
+  return _options.Has(routing::RoutingOptions::Option::Toll);
 }
 
 - (void)setAvoidToll:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Toll) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Toll) enabled:avoid];
 }
 
 - (BOOL)avoidDirty {
-  return _options.Has(routing::RoutingOptions::Road::Dirty);
+  return _options.Has(routing::RoutingOptions::Option::Dirty);
 }
 
 - (void)setAvoidDirty:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Dirty) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Dirty) enabled:avoid];
 }
 
 - (BOOL)avoidPaved {
-  return _options.Has(routing::RoutingOptions::Road::Paved);
+  return _options.Has(routing::RoutingOptions::Option::Paved);
 }
 
 - (void)setAvoidPaved:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Paved) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Paved) enabled:avoid];
 }
 
 - (BOOL)avoidFerry {
-  return _options.Has(routing::RoutingOptions::Road::Ferry);
+  return _options.Has(routing::RoutingOptions::Option::Ferry);
 }
 
 - (void)setAvoidFerry:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Ferry) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Ferry) enabled:avoid];
 }
 
 - (BOOL)avoidMotorway {
-  return _options.Has(routing::RoutingOptions::Road::Motorway);
+  return _options.Has(routing::RoutingOptions::Option::Motorway);
 }
 
 - (void)setAvoidMotorway:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Motorway) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Motorway) enabled:avoid];
 }
 
 - (BOOL)avoidSteps {
-  return _options.Has(routing::RoutingOptions::Road::Steps);
+  return _options.Has(routing::RoutingOptions::Option::Steps);
 }
 
 - (void)setAvoidSteps:(BOOL)avoid {
-  [self setOption:(routing::RoutingOptions::Road::Steps) enabled:avoid];
+  [self setOption:(routing::RoutingOptions::Option::Steps) enabled:avoid];
 }
 
 - (BOOL)hasOptions {
@@ -72,10 +72,18 @@
 }
 
 - (void)save {
-  routing::RoutingOptions::SaveCarOptionsToSettings(_options);
+  _options.setVehicleType(routing::VehicleType::Pedestrian);
+  routing::RoutingOptions::SaveOptionsToSettings(_options);
+  _options.setVehicleType(routing::VehicleType::Bicycle);
+  routing::RoutingOptions::SaveOptionsToSettings(_options);
+  _options.setVehicleType(routing::VehicleType::Car);
+  routing::RoutingOptions::SaveOptionsToSettings(_options);
+  _options.setVehicleType(routing::VehicleType::Transit);
+  routing::RoutingOptions::SaveOptionsToSettings(_options);
 }
 
-- (void)setOption:(routing::RoutingOptions::Road)option enabled:(BOOL)enabled {
+- (void)setOption:(routing::RoutingOptions::Option)option enabled:(BOOL)enabled
+{
   if (enabled) {
     _options.Add(option);
   } else {

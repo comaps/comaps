@@ -586,7 +586,7 @@
     <string name="power_managment_setting_auto">خودکار</string>
     <string name="power_managment_setting_manual_max">حداکثر ذخیره انرژی</string>
     <string name="enable_logging_warning_message">این گزینه ثبت گزارش را برای اهداف تشخیصی فعال می‌کند. برای کارکنان بخش پشتیبانی که مشکلات برنامه را عیب یابی می‌کنند، مفید باشد. این گزینه را تنها در صورت درخواست پشتیبانی CoMaps فعال کنید.</string>
-    <string name="driving_options_title">گزینه‌های رانندگی</string>
+    <string name="routing_options_title">گزینه‌های رانندگی</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">از جاده های عوارضی خودداری کنید</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

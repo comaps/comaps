@@ -1089,10 +1089,10 @@ RouterResultCode IndexRouter::AdjustRoute(Checkpoints const & checkpoints, m2::P
 unique_ptr<WorldGraph> IndexRouter::MakeWorldGraph()
 {
   // Use saved routing options for all types (car, bicycle, pedestrian).
-  RoutingOptions const routingOptions = RoutingOptions::LoadCarOptionsFromSettings();
+  RoutingOptions const routingOptions = RoutingOptions::LoadOptionsFromSettings(m_vehicleType);
   /// @DebugNote
   // Add avoid roads here for debug purpose.
-  // routingOptions.Add(RoutingOptions::Road::Motorway);
+  // routingOptions.Add(RoutingOptions::Option::Motorway);
   LOG(LINFO, ("Avoid next roads:", routingOptions));
 
   auto crossMwmGraph = make_unique<CrossMwmGraph>(

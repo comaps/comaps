@@ -615,7 +615,7 @@
     <string name="power_managment_setting_auto">Kad ir zems uzlādes līmenis</string>
     <string name="power_managment_setting_manual_max">Vienmēr</string>
     <string name="enable_logging_warning_message">Uz laiku ieslēdziet šo opciju, lai reģistrētu un manuāli nosūtītu sīkākus žurnālus problēmu diagnostikai, izmantojot „Ziņot par kļūdu“ funkciju palīdzības lodziņā. Žurnāli var saturēt informāciju par atrašanās vietu.</string>
-    <string name="driving_options_title">Maršruta opcijas</string>
+    <string name="routing_options_title">Maršruta opcijas</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Izvairīties no maksas ceļiem</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

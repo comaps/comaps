@@ -525,7 +525,7 @@
     <string name="mobile_data_option_always">Uża Dejjem</string>
     <string name="feedback_general">Feedback Ġenerali</string>
     <string name="please_wait">Stenna ftit…</string>
-    <string name="driving_options_title">Għażliet tar-rotta</string>
+    <string name="routing_options_title">Għażliet tar-rotta</string>
     <string name="prefs_languages_information_off">Għal xi lingwi, se jkollok bżonn tinstalla sintetizzatur tad-diskors jew pakkett tal-lingwa addizzjonali mill-App Store (Google Play, Galaxy Store, App Gallery, FDroid).\nIftaħ is-settings tat-tagħmir → Language and input → Speech → Text to speech output.\nHawnhekk tista’ timmaniġġja s-settings għas-sinteżi tad-diskors (pereżempju, niżżel il-pakkett tal-lingwa għall-użu offline) u agħżel magna oħra minn kitba għal diskors.</string>
     <string name="by_distance">Skont id-distanza</string>
     <string name="transliteration_title">Jittraduċi ruħu fl-alfabett Latin</string>

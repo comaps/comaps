@@ -568,7 +568,7 @@
     <string name="power_managment_setting_auto">Автоматично</string>
     <string name="power_managment_setting_manual_max">Максимално пестене на енергия</string>
     <string name="enable_logging_warning_message">Тази настройка е разрешена, за да се записват действия за диагностични цели, които помагат на нашия екип да идентифицира проблеми с приложението. Временно активирайте тази настройка само за изпращане на подробна информация за проблема, който сте открили с приложението.</string>
-    <string name="driving_options_title">Опции за маршрутизация</string>
+    <string name="routing_options_title">Опции за маршрутизация</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Избягвайте платените пътища</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

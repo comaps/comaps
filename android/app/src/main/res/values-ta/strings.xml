@@ -270,7 +270,7 @@
     <string name="power_managment_setting_auto">பேட்டரி குறைவாக இருக்கும்போது</string>
     <string name="power_managment_setting_manual_max">எப்போதும்</string>
     <string name="enable_logging_warning_message">உதவி உரையாடலில் \"பிழையைப் புகாரளி\" என்பதைப் பயன்படுத்தி, உங்கள் சிக்கலைப் பற்றிய விரிவான கண்டறியும் பதிவுகளைப் பதிவுசெய்து கைமுறையாக எங்களுக்கு அனுப்ப இந்த விருப்பத்தை தற்காலிகமாக இயக்கவும். பதிவுகளில் இருப்பிடத் செய்தி இருக்கலாம்.</string>
-    <string name="driving_options_title">ரூட்டிங் விருப்பங்கள்</string>
+    <string name="routing_options_title">ரூட்டிங் விருப்பங்கள்</string>
     <string name="avoid_tolls">சுங்கச்சாவடிகளைத் தவிர்க்கவும்</string>
     <string name="avoid_unpaved">செப்பனிடப்படாத சாலைகளைத் தவிர்க்கவும்</string>
     <string name="avoid_paved">நடைபாதை சாலைகளைத் தவிர்க்கவும்</string>

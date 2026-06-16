@@ -469,8 +469,8 @@
     <activity
       android:name="app.organicmaps.widget.placepage.WikiArticleActivity"/>
     <activity
-      android:name="app.organicmaps.settings.DrivingOptionsActivity"
-      android:label="@string/driving_options_title"/>
+      android:name="app.organicmaps.settings.RoutingOptionsActivity"
+      android:label="@string/routing_options_title"/>
     <activity
         android:name="app.organicmaps.MapPlaceholderActivity"/>
     <activity

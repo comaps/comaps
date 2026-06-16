@@ -621,7 +621,7 @@
     <string name="power_managment_setting_auto">Автоматично</string>
     <string name="power_managment_setting_manual_max">Максимальне енергозбереження</string>
     <string name="enable_logging_warning_message">Тимчасово ввімкніть цей параметр, щоб записати та вручну надіслати нам детальні діагностичні журнали щодо вашої проблеми за допомогою «Повідомити про помилку» у діалоговому вікні «Допомоги». Журнали можуть містити інформацію про розташування.</string>
-    <string name="driving_options_title">Налаштування об’їзду</string>
+    <string name="routing_options_title">Налаштування об’їзду</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->
     <string name="avoid_tolls">Уникати платних доріг</string>
     <!-- Recommended length for CarPlay and Android Auto is around 25-27 characters -->

@@ -393,7 +393,7 @@
     <string name="power_managment_description">Tratarase de reducir o consumo de enerxía a expensas de certas funcións</string>
     <string name="power_managment_setting_auto">Cando queda pouca enerxía</string>
     <string name="enable_logging_warning_message">Active esta opción temporalmente para gravar e enviar de forma manual rexistros para diagnosticar defectos enviados mediante a opción «Informar dun fallo» no diálogo Axuda. Os rexistros poden incluír localizacións.</string>
-    <string name="driving_options_title">Opcións de encamiñamento</string>
+    <string name="routing_options_title">Opcións de encamiñamento</string>
     <string name="avoid_unpaved">Evitar camiños sen pavimentar</string>
     <string name="avoid_motorways">Evitar autoestradas</string>
     <string name="unable_to_calc_alert_title">Non se pode calcular a ruta</string>

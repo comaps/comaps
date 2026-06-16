@@ -9,20 +9,20 @@ using namespace routing;
 
 namespace
 {
-using RoadType = RoutingOptions::RoadType;
+using OptionType = RoutingOptions::OptionType;
 
 class RoutingOptionsTests
 {
 public:
-  RoutingOptionsTests() { m_savedOptions = RoutingOptions::LoadCarOptionsFromSettings(); }
+  RoutingOptionsTests() { m_savedOptions = RoutingOptions::LoadOptionsFromSettings(VehicleType::Car); }
 
-  ~RoutingOptionsTests() { RoutingOptions::SaveCarOptionsToSettings(m_savedOptions); }
+  ~RoutingOptionsTests() { RoutingOptions::SaveOptionsToSettings(m_savedOptions); }
 
 private:
   RoutingOptions m_savedOptions;
 };
 
-RoutingOptions CreateOptions(std::vector<RoutingOptions::Road> const & include)
+RoutingOptions CreateOptions(std::vector<RoutingOptions::Option> const & include)
 {
   RoutingOptions options;
 
@@ -32,46 +32,46 @@ RoutingOptions CreateOptions(std::vector<RoutingOptions::Road> const & include)
   return options;
 }
 
-void Checker(std::vector<RoutingOptions::Road> const & include)
+void Checker(std::vector<RoutingOptions::Option> const & include)
 {
   RoutingOptions options = CreateOptions(include);
 
   for (auto type : include)
     TEST(options.Has(type), ());
 
-  auto max = static_cast<RoadType>(RoutingOptions::Road::Max);
+  auto max = static_cast<OptionType>(RoutingOptions::Option::Max);
   for (uint8_t i = 1; i < max; i <<= 1)
   {
     bool hasInclude = false;
-    auto type = static_cast<RoutingOptions::Road>(i);
+    auto type = static_cast<RoutingOptions::Option>(i);
     for (auto has : include)
       hasInclude |= (type == has);
 
     if (!hasInclude)
-      TEST(!options.Has(static_cast<RoutingOptions::Road>(i)), ());
+      TEST(!options.Has(static_cast<RoutingOptions::Option>(i)), ());
   }
 }
 
 UNIT_TEST(RoutingOptionTest)
 {
-  Checker({RoutingOptions::Road::Toll, RoutingOptions::Road::Motorway, RoutingOptions::Road::Dirty});
-  Checker({RoutingOptions::Road::Toll, RoutingOptions::Road::Dirty});
+  Checker({RoutingOptions::Option::Toll, RoutingOptions::Option::Motorway, RoutingOptions::Option::Dirty});
+  Checker({RoutingOptions::Option::Toll, RoutingOptions::Option::Dirty});
 
-  Checker({RoutingOptions::Road::Toll, RoutingOptions::Road::Ferry, RoutingOptions::Road::Dirty});
+  Checker({RoutingOptions::Option::Toll, RoutingOptions::Option::Ferry, RoutingOptions::Option::Dirty});
 
-  Checker({RoutingOptions::Road::Dirty});
-  Checker({RoutingOptions::Road::Toll});
-  Checker({RoutingOptions::Road::Dirty, RoutingOptions::Road::Motorway});
+  Checker({RoutingOptions::Option::Dirty});
+  Checker({RoutingOptions::Option::Toll});
+  Checker({RoutingOptions::Option::Dirty, RoutingOptions::Option::Motorway});
   Checker({});
 }
 
 UNIT_CLASS_TEST(RoutingOptionsTests, GetSetTest)
 {
   RoutingOptions options =
-      CreateOptions({RoutingOptions::Road::Toll, RoutingOptions::Road::Motorway, RoutingOptions::Road::Dirty});
+      CreateOptions({RoutingOptions::Option::Toll, RoutingOptions::Option::Motorway, RoutingOptions::Option::Dirty});
 
-  RoutingOptions::SaveCarOptionsToSettings(options);
-  RoutingOptions fromSettings = RoutingOptions::LoadCarOptionsFromSettings();
+  RoutingOptions::SaveOptionsToSettings(options);
+  RoutingOptions fromSettings = RoutingOptions::LoadOptionsFromSettings(VehicleType::Car);
 
   TEST_EQUAL(options.GetOptions(), fromSettings.GetOptions(), ());
 }

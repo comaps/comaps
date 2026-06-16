@@ -356,7 +356,7 @@
     <string name="enable_logging">Virkja atvikaskráningu</string>
     <string name="feedback_general">Almennar umsagnir</string>
     <string name="bookmarks_empty_list_title">Þessi listi er tómur</string>
-    <string name="driving_options_title">Valkostir leiðagerðar</string>
+    <string name="routing_options_title">Valkostir leiðagerðar</string>
     <string name="change_driving_options_btn">Valkostir leiðagerðar virkir</string>
     <string name="aa_connected_title">Þú ert tengd(ur) við Android Auto</string>
     <string name="car_continue_on_the_phone">Halda áfram í símanum</string>
