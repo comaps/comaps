@@ -94,7 +94,7 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
     requireActivity().finish();
   }
 
-  // This method is called by MwmActivity & UrlProcessor when "cm://oauth2/osm/callback?code=XXX" is handled
+  // This method is called by MwmActivity & UrlProcessor when "comaps://oauth2/osm/callback?code=XXX" is handled
   private void continueOAuth2Flow(String oauth2code)
   {
     if (!isAdded())

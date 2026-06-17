@@ -110,6 +110,7 @@
         <data android:scheme="geo"/>
         <data android:scheme="ge0"/>
         <data android:scheme="cm"/>
+        <data android:scheme="comaps"/>
       </intent-filter>
 
       <intent-filter>
