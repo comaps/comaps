@@ -63,7 +63,8 @@ public class Framework
   public static String getHttpGe0Url(double lat, double lon, double zoomLevel, String name)
   {
     return nativeGetGe0Url(lat, lon, zoomLevel, name)
-        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX, Constants.Url.HTTP_SHARE_PREFIX);
+        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX, Constants.Url.HTTP_SHARE_PREFIX)
+        .replaceFirst(Constants.Url.SHORT_SHARE_PREFIX_OLD, Constants.Url.HTTP_SHARE_PREFIX);
   }
 
   /**

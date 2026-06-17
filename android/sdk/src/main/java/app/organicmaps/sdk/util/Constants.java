@@ -11,7 +11,8 @@ public final class Constants
 
   public static class Url
   {
-    public static final String SHORT_SHARE_PREFIX = "cm://";
+    public static final String SHORT_SHARE_PREFIX_OLD = "cm://"; // Deprecated June 17, 2026
+    public static final String SHORT_SHARE_PREFIX = "comaps://";
     public static final String HTTP_SHARE_PREFIX = "https://comaps.at/";
 
     public static final String MAILTO_SCHEME = "mailto:";
