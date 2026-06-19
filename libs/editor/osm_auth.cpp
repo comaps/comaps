@@ -113,7 +113,7 @@ OsmOAuth OsmOAuth::DevServerAuth()
   // CoMaps keys for OSM dev server
   constexpr char const * kOsmDevClientId = "Tj8yyx3FWy_N5wz6sUTAXTM6YBAiwVgM7sRLrLix2u8";
   constexpr char const * kOsmDevScope = "read_prefs write_api write_notes";
-  constexpr char const * kOsmDevRedirectUri = "cm://oauth2/osm/callback";
+  constexpr char const * kOsmDevRedirectUri = "comaps://oauth2/osm/callback";
 
   return {kOsmDevClientId, kOsmDevScope, kOsmDevRedirectUri, kOsmDevServer, kOsmDevServer};
 }
