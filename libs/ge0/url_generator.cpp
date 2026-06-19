@@ -111,8 +111,9 @@ namespace ge0
 {
 std::string GenerateShortShowMapUrl(double lat, double lon, double zoom, std::string const & name)
 {
-  size_t constexpr schemaLength = 5;  // strlen("cm://")
-  std::string urlSample = "cm://ZCoordba64";
+  std::string schema = "comaps://";
+  std::string urlSample = schema + "ZCoordba64";
+  size_t schemaLength = schema.size();
 
   int const zoomI = (zoom <= 4 ? 0 : (zoom >= 19.75 ? 63 : static_cast<int>((zoom - 4) * 4)));
   urlSample[schemaLength] = Base64Char(zoomI);

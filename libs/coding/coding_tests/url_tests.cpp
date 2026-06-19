@@ -127,11 +127,11 @@ UNIT_TEST(Url_Valid)
       .KV("ll", "10.3,12.3223")
       .KV("n", "Hello World");
 
-  TestUrl("cm:M&M//path?q=q&w=w").Scheme("cm").Host("M&M").Path("path").KV("q", "q").KV("w", "w");
+  TestUrl("comaps:M&M//path?q=q&w=w").Scheme("comaps").Host("M&M").Path("path").KV("q", "q").KV("w", "w");
 
   TestUrl("http://www.sandwichparlour.com.au/").Scheme("http").Host("www.sandwichparlour.com.au").Path("");
 
-  TestUrl("cm:/&test").Scheme("cm").Host("&test").Path("");
+  TestUrl("comaps:/&test").Scheme("comaps").Host("&test").Path("");
 }
 
 UNIT_TEST(Url_Fragment)
