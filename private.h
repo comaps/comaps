@@ -1,7 +1,7 @@
 #pragma once
 
 #define OSM_OAUTH2_CLIENT_ID "feHq7fMSmKzZD6XLgPPah3whHPbavSTrJCgwhLMmqT0"
-#define OSM_OAUTH2_REDIRECT_URI "cm://oauth2/osm/callback"
+#define OSM_OAUTH2_REDIRECT_URI "comaps://oauth2/osm/callback"
 #define OSM_OAUTH2_SCOPE "read_prefs write_api write_notes"
 #define MWM_GEOLOCATION_SERVER ""
 #define DIFF_LIST_URL ""

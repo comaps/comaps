@@ -80,7 +80,7 @@ UNIT_TEST(SearchApiAdvanced)
 {
   {
     // Ignore wrong cll=.
-    ParsedMapApi test("cm://search?query=aaa&cll=1,1,1");
+    ParsedMapApi test("comaps://search?query=aaa&cll=1,1,1");
     TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
     auto const & request = test.GetSearchRequest();
     ms::LatLon latlon = test.GetCenterLatLon();
@@ -93,7 +93,7 @@ UNIT_TEST(SearchApiAdvanced)
 
   {
     // Don't fail on unsupported parameters.
-    ParsedMapApi test("cm://search?query=aaa&ignoreThisParam=sure");
+    ParsedMapApi test("comaps://search?query=aaa&ignoreThisParam=sure");
     TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
     auto const & request = test.GetSearchRequest();
     ms::LatLon latlon = test.GetCenterLatLon();
@@ -106,7 +106,7 @@ UNIT_TEST(SearchApiAdvanced)
 
   {
     // Query parameter position doesn't matter
-    ParsedMapApi test("cm://search?cll=1,1&locale=ru&query=aaa");
+    ParsedMapApi test("comaps://search?cll=1,1&locale=ru&query=aaa");
     TEST_EQUAL(test.GetRequestType(), UrlType::Search, ());
     auto const & request = test.GetSearchRequest();
     ms::LatLon latlon = test.GetCenterLatLon();
@@ -266,7 +266,7 @@ UNIT_TEST(MapApiUrl)
 UNIT_TEST(MapApiGe0)
 {
   {
-    ParsedMapApi api("cm://o4B4pYZsRs");
+    ParsedMapApi api("comaps://o4B4pYZsRs");
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
     TEST_EQUAL(api.GetMapPoints().size(), 1, ());
     MapPoint const & p0 = api.GetMapPoints()[0];
@@ -275,7 +275,7 @@ UNIT_TEST(MapApiGe0)
   }
 
   {
-    ParsedMapApi api("cm://o4B4pYZsRs/Zoo_Zürich");
+    ParsedMapApi api("comaps://o4B4pYZsRs/Zoo_Zürich");
     TEST_EQUAL(api.GetRequestType(), UrlType::Map, ());
     TEST_EQUAL(api.GetMapPoints().size(), 1, ());
     MapPoint const & p0 = api.GetMapPoints()[0];
@@ -378,7 +378,7 @@ UNIT_TEST(SearchApiGeoScheme)
 UNIT_TEST(CrosshairApi)
 {
   {
-    ParsedMapApi api("cm://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
+    ParsedMapApi api("comaps://crosshair?cll=47.3813,8.5889&appname=Google%20Maps");
     TEST_EQUAL(api.GetRequestType(), UrlType::Crosshair, ());
     ms::LatLon latlon = api.GetCenterLatLon();
     TEST_ALMOST_EQUAL_ABS(latlon.m_lat, 47.3813, kEps, ());
@@ -406,8 +406,8 @@ UNIT_TEST(GlobalBackUrl)
     TEST_EQUAL(api.GetGlobalBackUrl(), "ge0://", ());
   }
   {
-    ParsedMapApi api("cm://map?ll=1,2&n=PointName&backurl=cm://");
-    TEST_EQUAL(api.GetGlobalBackUrl(), "cm://", ());
+    ParsedMapApi api("comaps://map?ll=1,2&n=PointName&backurl=comaps://");
+    TEST_EQUAL(api.GetGlobalBackUrl(), "comaps://", ());
   }
   {
     ParsedMapApi api("mwm://map?ll=1,2&n=PointName&backurl=ge0%3A%2F%2F");
@@ -497,16 +497,16 @@ UNIT_TEST(AppNameTest)
 UNIT_TEST(OAuth2Test)
 {
   {
-    ParsedMapApi api("cm://oauth2/osm/callback?code=THE_MEGA_CODE");
+    ParsedMapApi api("comaps://oauth2/osm/callback?code=THE_MEGA_CODE");
     TEST_EQUAL(api.GetRequestType(), UrlType::OAuth2, ());
     TEST_EQUAL(api.GetOAuth2Code(), "THE_MEGA_CODE", ());
   }
   {
-    ParsedMapApi api("cm://oauth2/google/callback?code=THE_MEGA_CODE");
+    ParsedMapApi api("comaps://oauth2/google/callback?code=THE_MEGA_CODE");
     TEST_EQUAL(api.GetRequestType(), UrlType::Incorrect, ());
   }
   {
-    ParsedMapApi api("cm://oauth2/osm/callback?code=");
+    ParsedMapApi api("comaps://oauth2/osm/callback?code=");
     TEST_EQUAL(api.GetRequestType(), UrlType::Incorrect, ());
   }
 }

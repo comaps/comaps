@@ -255,91 +255,91 @@ UNIT_TEST(LatLonToString_StringDensity)
 UNIT_TEST(GenerateShortShowMapUrl_SmokeTest)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "Name");
-  TEST_EQUAL("cm://8wAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_NameIsEmpty)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "");
-  TEST_EQUAL("cm://8wAAAAAAAA", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_ZoomVerySmall)
 {
   string res = GenerateShortShowMapUrl(0, 0, 2, "Name");
-  TEST_EQUAL("cm://AwAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://AwAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_ZoomNegative)
 {
   string res = GenerateShortShowMapUrl(0, 0, -5, "Name");
-  TEST_EQUAL("cm://AwAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://AwAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_ZoomLarge)
 {
   string res = GenerateShortShowMapUrl(0, 0, 20, "Name");
-  TEST_EQUAL("cm://_wAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://_wAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_ZoomVeryLarge)
 {
   string res = GenerateShortShowMapUrl(0, 0, 2000000000, "Name");
-  TEST_EQUAL("cm://_wAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://_wAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_FractionalZoom)
 {
   string res = GenerateShortShowMapUrl(0, 0, 8.25, "Name");
-  TEST_EQUAL("cm://RwAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://RwAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_FractionalZoomRoundsDown)
 {
   string res = GenerateShortShowMapUrl(0, 0, 8.499, "Name");
-  TEST_EQUAL("cm://RwAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://RwAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_FractionalZoomNextStep)
 {
   string res = GenerateShortShowMapUrl(0, 0, 8.5, "Name");
-  TEST_EQUAL("cm://SwAAAAAAAA/Name", res, ());
+  TEST_EQUAL("comaps://SwAAAAAAAA/Name", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_SpaceIsReplacedWithUnderscore)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "Hello World");
-  TEST_EQUAL("cm://8wAAAAAAAA/Hello_World", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/Hello_World", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_NamesAreEscaped)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "'Hello,World!%$");
-  TEST_EQUAL("cm://8wAAAAAAAA/%27Hello%2CWorld%21%25%24", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/%27Hello%2CWorld%21%25%24", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_UnderscoreIsReplacedWith_Percent_20)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "Hello_World");
-  TEST_EQUAL("cm://8wAAAAAAAA/Hello%20World", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/Hello%20World", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_ControlCharsAreEscaped)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "Hello\tWorld\n");
-  TEST_EQUAL("cm://8wAAAAAAAA/Hello%09World%0A", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/Hello%09World%0A", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_Unicode)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "\xe2\x98\x84");
-  TEST_EQUAL("cm://8wAAAAAAAA/\xe2\x98\x84", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/\xe2\x98\x84", res, ());
 }
 
 UNIT_TEST(GenerateShortShowMapUrl_UnicodeMixedWithOtherChars)
 {
   string res = GenerateShortShowMapUrl(0, 0, 19, "Back_in \xe2\x98\x84!\xd1\x8e\xd0\xbc");
-  TEST_EQUAL("cm://8wAAAAAAAA/Back%20in_\xe2\x98\x84%21\xd1\x8e\xd0\xbc", res, ());
+  TEST_EQUAL("comaps://8wAAAAAAAA/Back%20in_\xe2\x98\x84%21\xd1\x8e\xd0\xbc", res, ());
 }
 
 UNIT_TEST(GenerateGeoUri_SmokeTest)
