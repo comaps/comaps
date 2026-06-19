@@ -64,7 +64,7 @@ public:
   void operator()(std::string name, PolygonsList && borders)
   {
     LOG(LDEBUG, ("[BORDERS_GENERATOR] Processing country:", name, "with", borders.size(), "borders"));
-    
+
     // calc rect
     m2::RectD rect;
     for (m2::RegionD const & border : borders)
@@ -107,20 +107,18 @@ public:
         LOG(LERROR, ("[BORDERS_GENERATOR] Failed to create writer for polygon tag", i));
         continue;
       }
-      
+
       // Use the proper coding params stored in triangle data
       serial::GeometryCodingParams const & cp = m_triangleData[i].m_cp;
-      
-      WriteVarUint(w, 1U); // Write 1 polygon for simplicity
+
+      WriteVarUint(w, 1U);  // Write 1 polygon for simplicity
       if (!m_triangleData[i].m_simplifiedPolygons.empty() && !m_triangleData[i].m_simplifiedPolygons[0].empty())
         serial::SaveOuterPath(m_triangleData[i].m_simplifiedPolygons[0], cp, *w);
     }
-    
+
     for (auto const & data : m_triangleData)
-    {
       GenerateAndSaveTriangles(data.m_simplifiedPolygons, data.m_cp, data.m_countryIndex);
-    }
-    
+
     auto w = m_writer.GetWriter(PACKED_POLYGONS_INFO_TAG);
     if (!w)
     {
@@ -134,14 +132,14 @@ private:
   FilesContainerW m_writer;
 
   std::vector<storage::CountryDef> m_polys;
-  
+
   struct TriangleGenerationData
   {
     size_t m_countryIndex;
     std::vector<std::vector<m2::PointD>> m_simplifiedPolygons;
     serial::GeometryCodingParams m_cp;
   };
-  
+
   std::vector<TriangleGenerationData> m_triangleData;
 
   void GenerateAndSaveTriangles(std::vector<std::vector<m2::PointD>> const & simplifiedPolygons,
@@ -170,7 +168,8 @@ private:
 
     if (polygons.empty())
     {
-      LOG(LWARNING, ("[BORDERS_GENERATOR] No suitable polygons for triangle generation in country index", countryIndex));
+      LOG(LWARNING,
+          ("[BORDERS_GENERATOR] No suitable polygons for triangle generation in country index", countryIndex));
       return;
     }
 
@@ -197,10 +196,8 @@ private:
     m2::PointU const basePoint = cp.GetBasePoint();
     m2::PointU const maxPoint = serial::pts::GetMaxPoint(cp);
 
-    trianglesInfo.GetPointsInfo(
-        basePoint, maxPoint,
-        [coordBits = cp.GetCoordBits()](m2::PointD const & p) { return PointDToPointU(p, coordBits); },
-        pointsInfo);
+    trianglesInfo.GetPointsInfo(basePoint, maxPoint, [coordBits = cp.GetCoordBits()](m2::PointD const & p)
+    { return PointDToPointU(p, coordBits); }, pointsInfo);
 
     // Validation: Check that we have points to serialize
     if (pointsInfo.m_points.empty())
@@ -223,7 +220,7 @@ private:
 
     saver.Save(*trgWriter);
     LOG(LDEBUG, ("[BORDERS_GENERATOR] Generated", trianglesCount, "triangles for country index", countryIndex));
-  };
+  }
 };
 
 bool ReadPolygon(std::istream & stream, Polygon & poly, std::string const & filename)
@@ -371,26 +368,25 @@ void UnpackBorders(std::string const & baseDir, std::string const & targetDir)
 
   std::string const packedFile = base::JoinPath(baseDir, PACKED_POLYGONS_FILE);
   LOG(LDEBUG, ("[BORDERS_UNPACK] Opening file:", packedFile));
-  
+
   std::vector<storage::CountryDef> countries;
   FilesContainerR reader(packedFile);
-  
+
   LOG(LDEBUG, ("[BORDERS_UNPACK] File size:", reader.GetFileSize()));
   LOG(LDEBUG, ("[BORDERS_UNPACK] Tags in file:"));
-  reader.ForEachTagInfo([](FilesContainerBase::TagInfo const & info) {
-    LOG(LDEBUG, ("[BORDERS_UNPACK]   Tag:", info.m_tag, "offset:", info.m_offset, "size:", info.m_size));
-  });
-  
+  reader.ForEachTagInfo([](FilesContainerBase::TagInfo const & info)
+  { LOG(LDEBUG, ("[BORDERS_UNPACK]   Tag:", info.m_tag, "offset:", info.m_offset, "size:", info.m_size)); });
+
   LOG(LDEBUG, ("[BORDERS_UNPACK] Checking if info tag exists..."));
   if (!reader.IsExist(PACKED_POLYGONS_INFO_TAG))
   {
     LOG(LERROR, ("[BORDERS_UNPACK] Info tag does not exist:", PACKED_POLYGONS_INFO_TAG));
     return;
   }
-  
+
   ReaderSource<ModelReaderPtr> src(reader.GetReader(PACKED_POLYGONS_INFO_TAG));
   rw::Read(src, countries);
-  
+
   LOG(LDEBUG, ("[BORDERS_UNPACK] Found", countries.size(), "countries"));
 
   for (size_t id = 0; id < countries.size(); id++)
