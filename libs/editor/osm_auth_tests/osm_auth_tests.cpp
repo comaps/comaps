@@ -53,7 +53,7 @@ UNIT_TEST(OAuth_Token_parse)
   auto token = osm::FindAuthenticityToken("/oauth2/authorize",
   R"(<div class="col-auto mx-1"><form action="/oauth2/authorize" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="J5senhh" />
-    <input value="cm://oauth2/osm/callback" type="hidden" name="redirect_uri" />
+    <input value="comaps://oauth2/osm/callback" type="hidden" name="redirect_uri" />
     <input type="submit" name="commit" value="Authorize" class="btn btn-primary" />
   </form></div>)");
 
@@ -63,13 +63,13 @@ UNIT_TEST(OAuth_Token_parse)
   token = osm::FindAuthenticityToken("/oauth2/authorize",
   R"(<div class="col-auto mx-1"><form action="/oauth2/authorize" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="lRFbEQN0d2r7XeFq" />
-    <input value="cm://oauth2/osm/callback" type="hidden" name="redirect_uri" />
+    <input value="comaps://oauth2/osm/callback" type="hidden" name="redirect_uri" />
     <input type="submit" name="commit" value="Authorize" class="btn btn-primary" />
   </form></div>
   <div class="col-auto mx-1"><form action="/oauth2/authorize" accept-charset="UTF-8" method="post">
     <input type="hidden" name="_method" value="delete" />
     <input type="hidden" name="authenticity_token" value="J5senhh" />
-    <input value="cm://oauth2/osm/callback" type="hidden" name="redirect_uri" />
+    <input value="comaps://oauth2/osm/callback" type="hidden" name="redirect_uri" />
     <input type="submit" name="commit" value="Deny" class="btn btn-secondary" />
   </form></div>)");
 
@@ -82,13 +82,13 @@ UNIT_TEST(OAuth_Token_parse)
     <input type="hidden" name="authenticity_token" value="8h-snCINM3O" />
   </form></div>\n"   "<div class="col-auto mx-1"><form action="/oauth2/authorize" accept-charset="UTF-8" method="post">
     <input type="hidden" name="authenticity_token" value="8DDeqYcFHUIjw" />
-    <input value="cm://oauth2/osm/callback" type="hidden" name="redirect_uri" />
+    <input value="comaps://oauth2/osm/callback" type="hidden" name="redirect_uri" />
     <input type="submit" name="commit" value="Authorize" class="btn btn-primary" />
   </form></div>
   <div class="col-auto mx-1"><form action="/oauth2/authorize" accept-charset="UTF-8" method="post">
     <input type="hidden" name="_method" value="delete" />
     <input type="hidden" name="authenticity_token" value="4RbveLjuvOXlok9Q" />
-    <input value="cm://oauth2/osm/callback" type="hidden" name="redirect_uri" />
+    <input value="comaps://oauth2/osm/callback" type="hidden" name="redirect_uri" />
     <input type="submit" name="commit" value="Deny" class="btn btn-secondary" />
   </form></div>)");
 
@@ -96,13 +96,13 @@ UNIT_TEST(OAuth_Token_parse)
 }
 
 UNIT_TEST(OAuth_FindOauthCode) {
-  auto code = osm::FindOauthCode("cm://oauth2/osm/callback?redirect=true&code=befd_095315f197f4");
+  auto code = osm::FindOauthCode("comaps://oauth2/osm/callback?redirect=true&code=befd_095315f197f4");
   TEST_EQUAL(code, "befd_095315f197f4", ("Invalid code"));
 
-  code = osm::FindOauthCode("cm://oauth2/osm/callback?code=45c023d6");
+  code = osm::FindOauthCode("comaps://oauth2/osm/callback?code=45c023d6");
   TEST_EQUAL(code, "45c023d6", ("Invalid code"));
 
-  code = osm::FindOauthCode("cm://oauth2/osm/callback?the_code=cant_find");
+  code = osm::FindOauthCode("comaps://oauth2/osm/callback?the_code=cant_find");
   TEST_EQUAL(code, std::string{}, ("Code should not be found"));
 }
 

@@ -28,11 +28,11 @@ bool Ge0Parser::Parse(std::string const & url, Result & result)
 {
   // Original URL format:
   //
-  //       +------------------  1 byte: zoom level
-  //       |+-------+---------  9 bytes: lat,lon
-  //       ||       | +--+----  Variable number of bytes: point name
-  //       ||       | |  |
-  // cm://ZCoordba64/Name
+  //          +------------------  1 byte: zoom level
+  //          |+-------+---------  9 bytes: lat,lon
+  //          ||       | +--+----  Variable number of bytes: point name
+  //          ||       | |  |
+  // comaps://ZCoordba64/Name
 
   // Alternative format (differs only in the prefix):
   // http://comaps.app/ZCoordba64/Name
