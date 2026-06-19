@@ -224,6 +224,7 @@ private:
     saver.Save(*trgWriter);
     LOG(LDEBUG, ("[BORDERS_GENERATOR] Generated", trianglesCount, "triangles for country index", countryIndex));
   };
+};
 
 bool ReadPolygon(std::istream & stream, Polygon & poly, std::string const & filename)
 {
