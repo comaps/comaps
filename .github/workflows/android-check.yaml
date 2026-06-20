@@ -20,12 +20,11 @@ jobs:
         shell: bash
         run: git submodule update --depth 1 --init --recursive --jobs=$(($(nproc) * 20))
 
-      - name: Install protobuf
+      - name: Install Python venv
         shell: bash
         run: |
           sudo apt-get update -y
-          sudo apt-get install -y python3-pip
-          pip install "protobuf<3.21" --break-system-packages
+          sudo apt-get install -y python3-venv
 
       - name: Configure repository
         shell: bash

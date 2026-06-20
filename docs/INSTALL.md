@@ -39,8 +39,7 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
   <summary><span style="font-size: 1em; font-weight: bold;">Ubuntu/Debian</span></summary>
 
 ```bash
-sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-pip ninja-build jq
-
+sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-venv ninja-build jq
 ```
 </details>
 
@@ -62,40 +61,13 @@ sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning
 
 </details>
 
-You must also install a specific version of the python protobuf package, which is not the one provided by the python standard installation.    
-Note: If the system can't find `pip`, try `pip3` instead  
+The data generation tools require a specific Python `protobuf` version. You don't
+need to install it manually: `./configure.sh` (run below) creates a local `.venv`
+in the repository root and installs the correct version into it automatically.
 
-##### Solution1 ( break-system-packages )
-This simple method is adequate if you work in a temporary Virtual Machine, or do not fear troubles to system packages   
-
-```bash   
-pip install "protobuf<3.21" --break-system-packages
-```
-
-##### Solution2 ( python venv )   
-The venv python package allows to set a "Virtual Environment" and install specific packages inside a specific directory, without impacting standard packages.   
-[more details](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments) 
-
-```bash   
-# Setup the venv ( do this only once )
-# /path/to/venv can be for example  a "venv" directory inside your home directory 
-python3 -m venv --system-site-packages /path/to/venv
-
-# Activate the venv 
-# ( if you don't use bash shell,  "source" command does not exist and must be replaced by "." )
-source /path/to/venv/bin/activate
-
-# You can now install protobuf specific version inside the venv
-pip install "protobuf<3.21"
-```
-   
-Notes about venv:
-- using "--system-site-packages" is important: otherwise all previously installed system packages will mysteriously disappear
-- IMPORTANT: before running any Comaps generation command, check that the venv is activated, so that the right version of protobuf is used
-- if you find the activation command too tedious, you can setup an alias in your shell profile `alias venv='source /path/to/venv/bin/activate'`
-
-
-
+If you prefer to manage `protobuf` via your system Python (e.g. a distro
+`python3-protobuf` package), set `SKIP_PYTHON_VENV=1` before running `./configure.sh`
+and the venv step will be skipped.
 
 
 
@@ -114,7 +86,7 @@ If you plan to publish the app privately in stores check [special options](#spec
 
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
-  
+
 It's probably best to have [Git for Windows](https://git-scm.com/download/win) installed and Git Bash available in the PATH.
 
 [optipng](http://optipng.sourceforge.net/) should be installed and available in the PATH (e.g. via [Chocolatey](https://chocolatey.org/): `choco install optipng`).
@@ -162,9 +134,12 @@ xcode-select --install
 
 #### Homebrew packages
 ```bash
-brew install wget optipng cmake ninja qt jq
-pip3 install "protobuf<3.21"
+brew install wget optipng cmake ninja qt
 ```
+
+The required Python `protobuf` version is installed automatically into a local
+`.venv` by `./configure.sh` (run below). Set `SKIP_PYTHON_VENV=1` to manage it via
+your system Python instead.
 
 #### Clone the repository
 ```bash
@@ -175,7 +150,7 @@ cd comaps
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;" id="special-cases-options">Special cases options</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;" id="special-cases-options">Special cases options</span></summary>
 
 If you're only doing a one-off build or your internet bandwidth or disk space is limited, add following options to the `git clone` command:
 
@@ -199,7 +174,7 @@ If you really need them (e.g. to build a very old app version) then refer to ful
 
 ## Develop for:
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Android app</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Android app</span></summary>
 
 ### Preparing
 
@@ -515,7 +490,7 @@ To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Desktop developer app</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Desktop developer app</span></summary>
 
 See [install_desktop](INSTALL_DESKTOP.md) to install and build Desktop app for Linux and Mac OS
 
