@@ -93,6 +93,11 @@ if [ ! -d 3party/boost/boost ]; then
   popd
 fi
 
+# Provision and activate a local Python virtual environment with the protobuf
+# version required by the data generation tools below. Set SKIP_PYTHON_VENV=1 to
+# manage protobuf via your system Python instead.
+source ./tools/unix/activate_venv.sh
+
 if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   pushd data
 

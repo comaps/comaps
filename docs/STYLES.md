@@ -16,16 +16,11 @@ An overview of currently used icons can be found in the [Wiki](https://codeberg.
 
 ## Requirements
 
-To work with styles first [clone the CoMaps repository](INSTALL.md#getting-sources).
-
-Install a `protobuf` python package with `pip`
-```
-pip install "protobuf<3.21"
-```
-or with your OS package manager, e.g for Ubuntu 
-```
-sudo apt install python3-protobuf 
-```
+To work with styles first [clone the CoMaps repository](INSTALL.md#getting-sources)
+and run `./configure.sh`. That sets up a local `.venv` in the repository root with
+the required Python `protobuf` version, which the style generation scripts pick up
+automatically. To manage `protobuf` via your system Python instead, set
+`SKIP_PYTHON_VENV=1` before running `./configure.sh`.
 
 To run the `generate_symbols.sh` script, you need to install `optipng`, e.g. for Ubuntu
 ```
