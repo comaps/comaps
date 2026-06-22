@@ -40,26 +40,31 @@ The app version can be found in the "About" section of CoMaps.
 If you intend to generate isolines, you must also build the topography_generator_tool.  See instructions in [ISOLINES.md](../../../docs/ISOLINES.md)  
 
 
-3. Go to the `python` directory:
+3. Install the required python dependencies:
+Activate the `.venv` that `./configure.sh` automatically created,
+switch to the python tools directory, and install the generator dependencies
 
 ```sh
+source .venv/bin/activate
 cd tools/python/
-```
-
-4. Install python dependencies:
-
-```sh
 pip install -r maps_generator/requirements_dev.txt
 ```
 
-5. Create a [configuration file with defaults](https://codeberg.org/comaps/comaps/src/branch/main/tools/python/maps_generator/var/etc/map_generator.ini.default):
+If you didn't run `./configure.sh`, or you opted out with `SKIP_PYTHON_VENV=1`,
+omit the `source` line - the `pip install` then runs against your current Python.
+
+If you still have trouble, create the .venv with this command manually at the repo root, and execute the commands above again
+```sh
+python -m venv .venv
+```
+
+4. Create a [configuration file with defaults](https://codeberg.org/comaps/comaps/src/branch/main/tools/python/maps_generator/var/etc/map_generator.ini.default):
 
 ```sh
 cp maps_generator/var/etc/map_generator.ini.default maps_generator/var/etc/map_generator.ini
 ```
 
-
-6. Read through and edit the configuration file.
+5. Read through and edit the configuration file.
 
 Ensure that `OMIM_PATH` is set correctly.
 The default `PLANET_URL` setting makes the generator to download an OpenStreetMap dump file for the North Macedonia from [Geofabrik](http://download.geofabrik.de/index.html). Change `PLANET_URL` and `PLANET_MD5_URL` to get a region you want.
