@@ -38,6 +38,19 @@ final class BaseRoutePreviewStatus: SolidTouchView {
       configSaveRouteAsTrackButton(saveRouteAsTrackButtonCompact)
     }
   }
+ 
+    @IBOutlet private weak var directionsPreviewButtonRegular: UIButton! {
+      didSet {
+        configDirectionsPreviewButton(directionsPreviewButtonRegular)
+      }
+    }
+
+    @IBOutlet private weak var directionsPreviewButtonCompact: UIButton! {
+      didSet {
+        configDirectionsPreviewButton(directionsPreviewButtonCompact)
+      }
+    }
+
 
   @IBOutlet private var errorBoxBottom: NSLayoutConstraint!
   @IBOutlet private var resultsBoxBottom: NSLayoutConstraint!
@@ -72,6 +85,8 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     }
   }
 
+  private var isDirectionsPreviewAvailable = false
+
   private func addView() {
     guard superview != ownerView else { return }
     ownerView.addSubview(self)
@@ -105,6 +120,11 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     button.setTitle(L("save"), for: .normal)
     button.setTitle(L("saved"), for: .disabled)
   }
+    
+  private func configDirectionsPreviewButton(_ button: UIButton) {
+    button.setImagePadding(8)
+    button.setTitle(L("planning_route_preview"), for: .normal)
+  }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
     super.traitCollectionDidChange(previousTraitCollection)
@@ -118,6 +138,10 @@ final class BaseRoutePreviewStatus: SolidTouchView {
     manageRouteBox.isHidden = isCompact || resultsBox.isHidden
     manageRouteButtonCompact?.isHidden = !isCompact
     saveRouteAsTrackButtonCompact.isHidden = !isCompact
+      
+    let isRouteBuilt = MWMRouter.isRouteBuilt()
+    directionsPreviewButtonRegular?.isHidden = !isRouteBuilt || !isDirectionsPreviewAvailable || isCompact
+    directionsPreviewButtonCompact?.isHidden = !isRouteBuilt || !isDirectionsPreviewAvailable || !isCompact
   }
 
   @objc func hide() {
@@ -163,6 +187,11 @@ final class BaseRoutePreviewStatus: SolidTouchView {
   private func setRouteAsTrackButtonEnabled(_ isEnabled: Bool) {
     saveRouteAsTrackButtonRegular.isEnabled = isEnabled
     saveRouteAsTrackButtonCompact.isEnabled = isEnabled
+  }
+    
+  @objc func setDirectionsPreviewAvailable(_ available: Bool) {
+    isDirectionsPreviewAvailable = available
+    updateManageRouteVisibility()
   }
 
   private func updateResultsLabel() {

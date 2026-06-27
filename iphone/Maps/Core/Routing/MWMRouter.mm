@@ -8,6 +8,7 @@
 #import "MWMMapViewControlsManager.h"
 #import "MWMNavigationDashboardManager+Entity.h"
 #import "MWMRoutePoint+CPP.h"
+#import "MWMRouteStepInfo+CPP.h"
 #import "MWMStorage+UI.h"
 #import "MapsAppDelegate.h"
 #import "SwiftBridge.h"
@@ -201,6 +202,15 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   for (auto const &text : notifications)
     [turnNotifications addObject:@(text.c_str())];
   return [turnNotifications copy];
+}
+
++ (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale {
+  auto const steps = GetFramework().GetRoutingManager().GetRouteTurnsForDisplay(locale.UTF8String);
+  NSMutableArray<MWMRouteStepInfo *> *mwmSteps = [@[] mutableCopy];
+
+  for (auto const &step : steps)
+    [mwmSteps addObject:[[MWMRouteStepInfo alloc] initWithRouteStepInfo:step]];
+  return [mwmSteps copy];
 }
 
 + (void)removePoint:(MWMRoutePoint *)point {

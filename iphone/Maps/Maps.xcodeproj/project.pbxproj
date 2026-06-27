@@ -328,6 +328,9 @@
 		676507601C10559800830BB3 /* patterns.txt in Resources */ = {isa = PBXBuildFile; fileRef = 451950391B7A3E070085DA05 /* patterns.txt */; };
 		676507611C10559B00830BB3 /* colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = 452FCA3A1B6A3DF7007019AB /* colors.txt */; };
 		6B9978361C89A316003B8AA0 /* editor.config in Resources */ = {isa = PBXBuildFile; fileRef = 6B9978341C89A316003B8AA0 /* editor.config */; };
+		8481206E2FEF165300D4AC63 /* MWMRouteStepInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */; };
+		848120712FEF1FA100D4AC63 /* DirectionsPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */; };
+		848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */; };
 		8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */; };
 		8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */; };
 		99012847243F0D6900C72B10 /* UIViewController+alternative.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99012846243F0D6900C72B10 /* UIViewController+alternative.swift */; };
@@ -1224,6 +1227,11 @@
 		5605022E1B6211E100169CAD /* sound-strings */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "sound-strings"; path = "../../data/sound-strings"; sourceTree = "<group>"; };
 		6741AA5D1BF340DE002C974C /* CoMaps (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CoMaps (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B9978341C89A316003B8AA0 /* editor.config */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = editor.config; path = ../../data/editor.config; sourceTree = "<group>"; };
+		8481206A2FEF15EB00D4AC63 /* MWMRouteStepInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMRouteStepInfo.h; sourceTree = "<group>"; };
+		8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMRouteStepInfo.mm; sourceTree = "<group>"; };
+		848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsPreviewViewController.swift; sourceTree = "<group>"; };
+		848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectionsStepCell.swift; sourceTree = "<group>"; };
+		848120742FEF3FF400D4AC63 /* MWMRouteStepInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMRouteStepInfo+CPP.h"; sourceTree = "<group>"; };
 		8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayWindowScaleAdjuster.swift; sourceTree = "<group>"; };
 		8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarplayPlaceholderView.swift; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* CoMaps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CoMaps.plist; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -2175,6 +2183,9 @@
 		340475331E081A4600C92850 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				848120742FEF3FF400D4AC63 /* MWMRouteStepInfo+CPP.h */,
+				8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */,
+				8481206A2FEF15EB00D4AC63 /* MWMRouteStepInfo.h */,
 				34F5E0DC1E3F51AF00B1C415 /* MWMCoreRouterType.h */,
 				34F5E0DA1E3F3ED300B1C415 /* MWMRoutePoint.h */,
 				34AC8FC71EFC01F500E7F910 /* MWMRoutePoint.mm */,
@@ -2563,6 +2574,7 @@
 		34AB65D11FC5AA320078E451 /* RoutePreview */ = {
 			isa = PBXGroup;
 			children = (
+				8481206F2FEF1F8600D4AC63 /* DirectionsPreview */,
 				34AB65EA1FC5AA320078E451 /* MWMiPadRoutePreview.h */,
 				34AB65E91FC5AA320078E451 /* MWMiPadRoutePreview.m */,
 				34AB65D61FC5AA320078E451 /* MWMiPadRoutePreview.xib */,
@@ -2848,6 +2860,15 @@
 				ED1ADA322BC6B1B40029209F /* CarPlayServiceTests.swift */,
 			);
 			path = CarPlay;
+			sourceTree = "<group>";
+		};
+		8481206F2FEF1F8600D4AC63 /* DirectionsPreview */ = {
+			isa = PBXGroup;
+			children = (
+				848120722FEF209A00D4AC63 /* DirectionsStepCell.swift */,
+				848120702FEF1F9400D4AC63 /* DirectionsPreviewViewController.swift */,
+			);
+			path = DirectionsPreview;
 			sourceTree = "<group>";
 		};
 		97B4E9271851DAB300BEC5D7 /* Custom Views */ = {
@@ -4571,6 +4592,7 @@
 				4761BE2A252D3DB900EE2DE4 /* SubgroupCell.swift in Sources */,
 				1DFA2F6A20D3B57400FB2C66 /* UIColor+PartnerColor.m in Sources */,
 				9989273B2449E60200260CE2 /* BottomMenuBuilder.swift in Sources */,
+				848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */,
 				993DF10F23F6BDB100AC231A /* UIActivityIndicatorRenderer.swift in Sources */,
 				ED9DDF882D6F151000645BC8 /* PlacePageTrackRecordingLayout.swift in Sources */,
 				ED0B1FEF2CAA9A25006E31A4 /* UIView+Highlight.swift in Sources */,
@@ -4728,6 +4750,7 @@
 				99514BBB23E82B450085D3A7 /* ElevationProfileBuilder.swift in Sources */,
 				34AB66381FC5AA330078E451 /* RouteManagerCell.swift in Sources */,
 				ED1263AB2B6F99F900AD99F3 /* UIView+AddSeparator.swift in Sources */,
+				8481206E2FEF165300D4AC63 /* MWMRouteStepInfo.mm in Sources */,
 				CD4A1F132305872700F2A6B6 /* PromoBookingPresentationController.swift in Sources */,
 				EDB71E042D8B0943004A6A7F /* SearchOnMapAreaView.swift in Sources */,
 				3472B5D3200F501500DC6CD5 /* BackgroundFetchTaskFrameworkType.swift in Sources */,
@@ -4807,6 +4830,7 @@
 				27697F872E255B8500FBD913 /* EmbeddedSafariViewContent.swift in Sources */,
 				ED3EAC202B03C88100220A4A /* BottomTabBarButton.swift in Sources */,
 				47B9065321C7FA400079C85E /* MWMImageCache.m in Sources */,
+				848120712FEF1FA100D4AC63 /* DirectionsPreviewViewController.swift in Sources */,
 				F6FEA82E1C58F108007223CC /* MWMButton.m in Sources */,
 				34B924431DC8A29C0008D971 /* MWMMailViewController.m in Sources */,
 				340475651E081A4600C92850 /* MWMRouter.mm in Sources */,

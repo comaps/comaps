@@ -32,6 +32,7 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 @property(nonatomic) IBOutletCollection(MWMRouteStartButton) NSArray *goButtons;
 @property(nonatomic) MWMNavigationDashboardEntity *entity;
 @property(nonatomic) MWMRouteManagerTransitioningManager *routeManagerTransitioningManager;
+@property(nonatomic) MWMRouteManagerTransitioningManager *directionsPreviewTransitioningManager;
 @property(weak, nonatomic) IBOutlet UIButton *showRouteManagerButton;
 @property(weak, nonatomic) IBOutlet UIView *goButtonsContainer;
 @property(weak, nonatomic) UIView *ownerView;
@@ -129,6 +130,8 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     } else {
       self.routePreview.drivingOptionsState = MWMDrivingOptionsStateDefine;
     }
+    
+    [self.baseRoutePreviewStatus setDirectionsPreviewAvailable:YES];
   }
 }
 
@@ -241,6 +244,21 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 - (IBAction)saveRouteAsTrack:(id)sender {
   [MWMFrameworkHelper saveRouteAsTrack];
   [self.baseRoutePreviewStatus setRouteSaved:YES];
+}
+
+#pragma mark - Directions preview
+
+- (IBAction)showDirectionsPreview {
+  auto vc = [[MWMDirectionsPreviewViewController alloc] initWithNibName:nil bundle:nil];
+  
+  UISheetPresentationController *sheet = vc.sheetPresentationController;
+  sheet.detents = @[UISheetPresentationControllerDetent.mediumDetent,
+                    UISheetPresentationControllerDetent.largeDetent];
+  sheet.prefersGrabberVisible = YES;
+  sheet.prefersEdgeAttachedInCompactHeight = YES;
+  
+  [[MapViewController sharedController] presentViewController:vc animated:YES completion:nil];
+
 }
 
 #pragma mark - MWMNavigationControlView
