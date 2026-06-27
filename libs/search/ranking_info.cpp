@@ -24,11 +24,11 @@ namespace
 // these coeffs correspond to coeffs in a linear model.
 double constexpr kCategoriesHasName = 0.25;
 double constexpr kCategoriesPopularity = 0.05;
-double constexpr kCategoriesDistanceToPivot = -0.6874177;
+double constexpr kCategoriesDistanceToPivot = -1.3;
 double constexpr kCategoriesRank = 1.0000000;
 double constexpr kCategoriesFalseCats = -1.0000000;
 
-double constexpr kDistanceToPivot = -0.48;
+double constexpr kDistanceToPivot = -0.95;
 double constexpr kWalkingDistanceM = 5000.0;
 
 // These constants are very important and checked in Famous_Cities_Rank test.
