@@ -407,14 +407,15 @@ void LineShape::Construct<SolidLineBuilder>(SolidLineBuilder & builder) const
   // Skip joins generation for thin lines.
   bool const generateJoins = builder.GetHalfWidth() > 2.5f;
 
-  float pxOffset = m_params.m_width / 2;
+  float halfWidth = m_params.m_width / 2;
+  float pxOffset = m_params.m_pxOffset;
   ForEachSplineSection([&](glsl::vec2 const & p1, glsl::vec2 const & p2, glsl::vec2 const & tangent, double,
                            glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, int flag)
   {
-    builder.SubmitVertex({p1, m_params.m_depth}, pxOffset * rightNormal);
-    builder.SubmitVertex({p1, m_params.m_depth}, pxOffset * leftNormal);
-    builder.SubmitVertex({p2, m_params.m_depth}, pxOffset * rightNormal);
-    builder.SubmitVertex({p2, m_params.m_depth}, pxOffset * leftNormal);
+    builder.SubmitVertex({p1, m_params.m_depth}, (pxOffset + halfWidth) * rightNormal);
+    builder.SubmitVertex({p1, m_params.m_depth}, (pxOffset - halfWidth) * rightNormal);
+    builder.SubmitVertex({p2, m_params.m_depth}, (pxOffset + halfWidth) * rightNormal);
+    builder.SubmitVertex({p2, m_params.m_depth}, (pxOffset - halfWidth) * rightNormal);
 
     // Generate joins.
     if (flag & 0x1)  // p1 - first point
