@@ -216,7 +216,7 @@ fragment float4 fsCirclePoint(const CirclePointFragment_T in [[stage_in]],
 typedef struct
 {
   float3 a_position [[attribute(0)]];
-  float3 a_normal [[attribute(1)]];
+  float3 a_pxOffset [[attribute(1)]];
   float2 a_texCoords [[attribute(2)]];
 } LineVertex_T;
 
@@ -234,13 +234,12 @@ vertex LineFragment_T vsLine(const LineVertex_T in [[stage_in]],
 {
   LineFragment_T out;
   
-  float2 normal = in.a_normal.xy;
-  float halfWidth = length(normal);
+  float pxOffset = length(in.a_pxOffset);
   float2 transformedAxisPos = (float4(in.a_position.xy, 0.0, 1.0) * uniforms.u_modelView).xy;
-  if (halfWidth != 0.0)
+  if (pxOffset != 0.0)
   {
-    transformedAxisPos = CalcLineTransformedAxisPos(transformedAxisPos, in.a_position.xy + normal,
-                                                    uniforms.u_modelView, halfWidth);
+    transformedAxisPos = CalcLineTransformedAxisPos(transformedAxisPos, in.a_position.xy + in.a_pxOffset,
+                                                    uniforms.u_modelView, pxOffset);
   }
   
   //out.halfLength = float2(sign(in.a_normal.z) * halfWidth, abs(in.a_normal.z));

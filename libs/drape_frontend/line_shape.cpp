@@ -119,6 +119,7 @@ class SolidLineBuilder : public BaseLineBuilder<gpu::LineVertex>
 {
   using TBase = BaseLineBuilder<gpu::LineVertex>;
   using TNormal = gpu::LineVertex::TNormal;
+  using TPxOffset = gpu::LineVertex::TPxOffset;
 
   struct CapVertex
   {
@@ -188,10 +189,9 @@ public:
 
   uint32_t GetCapSize() override { return static_cast<uint32_t>(m_capGeometry.size()); }
 
-  void SubmitVertex(glsl::vec3 const & pivot, glsl::vec2 const & normal, bool isLeft)
+  void SubmitVertex(glsl::vec3 const & pivot, glsl::vec2 const & pxOffset)
   {
-    float const halfWidth = GetHalfWidth();
-    m_geometry.emplace_back(pivot, TNormal(halfWidth * normal, halfWidth * GetSide(isLeft)), m_colorCoord);
+    m_geometry.emplace_back(pivot, TPxOffset(pxOffset), m_colorCoord);
   }
 
   void SubmitJoin(glsl::vec2 const & pos)
@@ -407,13 +407,14 @@ void LineShape::Construct<SolidLineBuilder>(SolidLineBuilder & builder) const
   // Skip joins generation for thin lines.
   bool const generateJoins = builder.GetHalfWidth() > 2.5f;
 
+  float pxOffset = m_params.m_width / 2;
   ForEachSplineSection([&](glsl::vec2 const & p1, glsl::vec2 const & p2, glsl::vec2 const & tangent, double,
                            glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, int flag)
   {
-    builder.SubmitVertex({p1, m_params.m_depth}, rightNormal, false /* isLeft */);
-    builder.SubmitVertex({p1, m_params.m_depth}, leftNormal, true /* isLeft */);
-    builder.SubmitVertex({p2, m_params.m_depth}, rightNormal, false /* isLeft */);
-    builder.SubmitVertex({p2, m_params.m_depth}, leftNormal, true /* isLeft */);
+    builder.SubmitVertex({p1, m_params.m_depth}, pxOffset * rightNormal);
+    builder.SubmitVertex({p1, m_params.m_depth}, pxOffset * leftNormal);
+    builder.SubmitVertex({p2, m_params.m_depth}, pxOffset * rightNormal);
+    builder.SubmitVertex({p2, m_params.m_depth}, pxOffset * leftNormal);
 
     // Generate joins.
     if (flag & 0x1)  // p1 - first point

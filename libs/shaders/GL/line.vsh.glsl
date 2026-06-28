@@ -1,5 +1,5 @@
 layout (location = 0) in vec3 a_position;
-layout (location = 1) in vec3 a_normal;
+layout (location = 1) in vec2 a_pxOffset;
 layout (location = 2) in vec2 a_colorTexCoord;
 
 #ifdef ENABLE_VTF
@@ -28,13 +28,12 @@ layout (binding = 1) uniform sampler2D u_colorTex;
 
 void main()
 {
-  vec2 normal = a_normal.xy;
-  float halfWidth = length(normal);
+  float pxOffset = length(a_pxOffset);
   vec2 transformedAxisPos = (vec4(a_position.xy, 0.0, 1.0) * u_modelView).xy;
-  if (halfWidth != 0.0)
+  if (pxOffset != 0.0)
   {
-    transformedAxisPos = calcLineTransformedAxisPos(transformedAxisPos, a_position.xy + normal,
-                                                    u_modelView, halfWidth);
+    transformedAxisPos = calcLineTransformedAxisPos(transformedAxisPos, a_position.xy + a_pxOffset,
+                                                    u_modelView, pxOffset);
   }
 #ifdef ENABLE_VTF
   v_color = texture(u_colorTex, a_colorTexCoord);

@@ -139,12 +139,12 @@ dp::BindingInfo TextDynamicBindingInit()
 
 dp::BindingInfo LineBindingInit()
 {
-  static_assert(
-      sizeof(LineVertex) == sizeof(LineVertex::TPosition) + sizeof(LineVertex::TNormal) + sizeof(LineVertex::TTexCoord),
-      "");
+  static_assert(sizeof(LineVertex) ==
+                    sizeof(LineVertex::TPosition) + sizeof(LineVertex::TPxOffset) + sizeof(LineVertex::TTexCoord),
+                "");
   dp::BindingFiller<LineVertex> filler(3);
   filler.FillDecl<LineVertex::TPosition>("a_position");
-  filler.FillDecl<LineVertex::TNormal>("a_normal");
+  filler.FillDecl<LineVertex::TPxOffset>("a_pxOffset");
   filler.FillDecl<LineVertex::TTexCoord>("a_colorTexCoord");
 
   return filler.m_info;
@@ -323,9 +323,9 @@ uint32_t TextDynamicVertex::GetDynamicStreamID()
   return 0x7F;
 }
 
-LineVertex::LineVertex(TPosition const & position, TNormal const & normal, TTexCoord const & color)
+LineVertex::LineVertex(TPosition const & position, TPxOffset const & pxOffset, TTexCoord const & color)
   : m_position(position)
-  , m_normal(normal)
+  , m_pxOffset(pxOffset)
   , m_colorTexCoord(color)
 {}
 

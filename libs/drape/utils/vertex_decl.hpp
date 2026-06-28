@@ -134,12 +134,13 @@ using TTextDynamicVertexBuffer = VBReservedSizeT<TextDynamicVertex>;
 struct LineVertex : BaseVertex
 {
   using TNormal = glsl::vec3;
+  using TPxOffset = glsl::vec2;
 
   LineVertex() = default;
-  LineVertex(TPosition const & position, TNormal const & normal, TTexCoord const & color);
+  LineVertex(TPosition const & position, TPxOffset const & pxOffset, TTexCoord const & color);
 
   TPosition m_position;
-  TNormal m_normal;
+  TPxOffset m_pxOffset;
   TTexCoord m_colorTexCoord;
 
   static dp::BindingInfo const & GetBindingInfo();
