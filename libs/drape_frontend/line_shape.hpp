@@ -33,6 +33,10 @@ public:
   //  virtual ref_ptr<void> GetJoinData() = 0;
   //  virtual uint32_t GetJoinSize() = 0;
 
+  virtual dp::BindingInfo const & GetJoinBindingInfo() = 0;
+  virtual dp::RenderState GetJoinState() = 0;
+  virtual ref_ptr<void> GetJoinData() = 0;
+  virtual uint32_t GetJoinSize() = 0;
   virtual dp::BindingInfo const & GetCapBindingInfo() = 0;
   virtual dp::RenderState GetCapState() = 0;
   virtual ref_ptr<void> GetCapData() = 0;

@@ -216,7 +216,7 @@ fragment float4 fsCirclePoint(const CirclePointFragment_T in [[stage_in]],
 typedef struct
 {
   float3 a_position [[attribute(0)]];
-  float3 a_pxOffset [[attribute(1)]];
+  float2 a_pxOffset [[attribute(1)]];
   float2 a_texCoords [[attribute(2)]];
 } LineVertex_T;
 
@@ -332,63 +332,141 @@ fragment float4 fsDashedLine(const DashedLineFragment_T in [[stage_in]],
   return color;
 }
 
-// CapJoin
+// LineCap
 
 typedef struct
 {
   float3 a_position [[attribute(0)]];
-  float3 a_normal [[attribute(1)]];
+  float2 a_pxOffset [[attribute(1)]];
   float2 a_texCoords [[attribute(2)]];
-} CapJoinVertex_T;
+} LineCapVertex_T;
 
 typedef struct
 {
   float4 position [[position]];
+  float2 uv;
   float4 color;
-  float3 radius;
-} CapJoinFragment_T;
+} LineCapFragment_T;
 
 typedef struct
 {
   float4 color [[color(0)]];
   float depth [[depth(any)]];
-} CapJoinFragment_Output;
+} LineCapFragment_Output;
 
-vertex CapJoinFragment_T vsCapJoin(const CapJoinVertex_T in [[stage_in]],
-                                   constant Uniforms_T & uniforms [[buffer(1)]],
-                                   texture2d<float> u_colorTex [[texture(0)]],
-                                   sampler u_colorTexSampler [[sampler(0)]])
+vertex LineCapFragment_T vsLineCap(const LineCapVertex_T in [[stage_in]],
+                                  constant Uniforms_T & uniforms [[buffer(1)]],
+                                  texture2d<float> u_colorTex [[texture(0)]],
+				  sampler u_colorTexSampler [[sampler(0)]])
 {
-  CapJoinFragment_T out;
-  
-  float4 p = float4(in.a_position, 1.0) * uniforms.u_modelView;
-  float4 pos = float4(in.a_normal.xy, 0.0, 0.0) + p;
+  LineCapFragment_T out;
+
+  float4 p = float4(in.a_position, 1) * uniforms.u_modelView;
+  float2 poffset = (float4(in.a_position.xy + in.a_pxOffset, 0.0, 1) * uniforms.u_modelView).xy;
+  float2 off = length(in.a_pxOffset) * normalize(poffset - p.xy);
+  float4 pos = float4(in.a_pxOffset, 0, 0) + p;
   out.position = ApplyPivotTransform(pos * uniforms.u_projection, uniforms.u_pivotTransform, 0.0);
-  out.radius = in.a_normal;
   float4 color = u_colorTex.sample(u_colorTexSampler, in.a_texCoords);
   color.a *= uniforms.u_opacity;
   out.color = color;
-  
+  out.uv = 2.0 * normalize(off);
+
   return out;
 }
 
-fragment CapJoinFragment_Output fsCapJoin(const CapJoinFragment_T in [[stage_in]])
-{
-  constexpr float kAntialiasingPixelsCount = 2.5;
+fragment LineCapFragment_Output fsLineCap(const LineCapFragment_T in [[stage_in]])
+{  
+  LineCapFragment_Output out;
   
-  CapJoinFragment_Output out;
-  
-  float smallRadius = in.radius.z - kAntialiasingPixelsCount;
-  float stepValue = 1.0 - smoothstep(smallRadius * smallRadius, in.radius.z * in.radius.z,
-                                     in.radius.x * in.radius.x + in.radius.y * in.radius.y);
   out.color = in.color;
-  out.color.a *= stepValue;
-  
+  if (length(in.uv) > 1.0)
+    out.color.a = 0.0;
+
   if (out.color.a < 0.001)
     out.depth = 1.0;
   else
     out.depth = in.position.z;
   
+  return out;
+}
+
+// LineJoin
+
+typedef struct
+{
+  float3 a_position [[attribute(0)]];
+  float2 a_pxOffset [[attribute(1)]];
+  float2 a_texCoords [[attribute(2)]];
+  float a_from [[attribute(3)]];
+  float a_to [[attribute(4)]];
+  float a_smallRadius [[attribute(5)]];
+} LineJoinVertex_T;
+
+typedef struct
+{
+  float4 position [[position]];
+  float4 color;
+  float2 uv;
+  float from;
+  float to;
+  float smallRadius;
+} LineJoinFragment_T;
+
+typedef struct
+{
+  float4 color [[color(0)]];
+  float depth [[depth(any)]];
+} LineJoinFragment_Output;
+
+vertex LineJoinFragment_T vsLineJoin(const LineJoinVertex_T in [[stage_in]],
+                                     constant Uniforms_T & uniforms [[buffer(1)]],
+                                     texture2d<float> u_colorTex [[texture(0)]],
+				     sampler u_colorTexSampler [[sampler(0)]])
+{
+  LineJoinFragment_T out;
+
+  float4 p = float4(in.a_position, 1.0) * uniforms.u_modelView;
+  float2 poffset = (float4(in.a_position.xy + in.a_pxOffset, 0.0, 1.0) *  uniforms.u_modelView).xy;
+  float2 off = length(in.a_pxOffset) * normalize(poffset - p.xy);
+  float4 pos = float4(in.a_pxOffset, 0.0, 0.0) + p;
+  out.position = ApplyPivotTransform(pos * uniforms.u_projection, uniforms.u_pivotTransform, 0.0);
+  float4 color = u_colorTex.sample(u_colorTexSampler, in.a_texCoords);
+  color.a *= uniforms.u_opacity;
+  out.color = color;
+  out.from = in.a_from;
+  out.to = in.a_to;
+  out.smallRadius = in.a_smallRadius;
+  out.uv = 2.0 * normalize(off);
+  
+  return out;
+}
+
+fragment LineJoinFragment_Output fsLineJoin(const LineJoinFragment_T in [[stage_in]])
+{
+  LineJoinFragment_Output out;
+
+  out.color = in.color;
+  if(length(in.uv) > 1.0)
+    out.color.a = 0;
+  if(length(in.uv) < in.smallRadius)
+    out.color.a = 0;
+  float angle = atan2(in.uv.y, in.uv.x);
+  if(in.from > in.to)
+    {
+      if(angle < in.from && angle > in.to)
+	out.color.a = 0;
+    }
+  else
+    {
+      if(angle < in.from || angle > in.to)
+	out.color.a = 0;
+    }
+
+  if (out.color.a < 0.001)
+    out.depth = 1.0;
+  else
+    out.depth = in.position.z;
+
   return out;
 }
 

@@ -24,6 +24,7 @@
 #include "base/assert.hpp"
 
 #include <algorithm>
+#include <cmath>
 #include <vector>
 
 namespace df
@@ -57,6 +58,7 @@ struct BaseBuilderParams
 {
   dp::TextureManager::ColorRegion m_color;
   float m_pxHalfWidth;
+  float m_pxOffset;
   float m_depth;
   bool m_depthTestEnabled;
   DepthLayer m_depthLayer;
@@ -94,6 +96,16 @@ public:
 
   float GetHalfWidth() { return m_params.m_pxHalfWidth; }
 
+  float GetOffset() { return m_params.m_pxOffset; }
+
+  dp::BindingInfo const & GetJoinBindingInfo() override { return GetBindingInfo(); }
+
+  dp::RenderState GetJoinState() override { return GetState(); }
+
+  ref_ptr<void> GetJoinData() override { return ref_ptr<void>(); }
+
+  uint32_t GetJoinSize() override { return 0; }
+
   dp::BindingInfo const & GetCapBindingInfo() override { return GetBindingInfo(); }
 
   dp::RenderState GetCapState() override { return GetState(); }
@@ -118,28 +130,54 @@ protected:
 class SolidLineBuilder : public BaseLineBuilder<gpu::LineVertex>
 {
   using TBase = BaseLineBuilder<gpu::LineVertex>;
-  using TNormal = gpu::LineVertex::TNormal;
   using TPxOffset = gpu::LineVertex::TPxOffset;
+
+  struct JoinVertex
+  {
+    using TPosition = gpu::LineVertex::TPosition;
+    using TPxOffset = gpu::LineVertex::TPxOffset;
+    using TTexCoord = gpu::LineVertex::TTexCoord;
+    using TAngle = float;
+
+    JoinVertex() {}
+    JoinVertex(TPosition const & pos, TPxOffset const & pxOffset, TTexCoord const & color, TAngle const & from,
+               TAngle const & to, float const & smallRadius)
+      : m_position(pos)
+      , m_pxOffset(pxOffset)
+      , m_color(color)
+      , m_from(from)
+      , m_to(to)
+      , m_smallRadius(smallRadius)
+    {}
+
+    TPosition m_position;
+    TPxOffset m_pxOffset;
+    TTexCoord m_color;
+    TAngle m_from;
+    TAngle m_to;
+    float m_smallRadius;
+  };
 
   struct CapVertex
   {
     using TPosition = gpu::LineVertex::TPosition;
-    using TNormal = gpu::LineVertex::TNormal;
+    using TPxOffset = gpu::LineVertex::TPxOffset;
     using TTexCoord = gpu::LineVertex::TTexCoord;
 
     CapVertex() {}
-    CapVertex(TPosition const & pos, TNormal const & normal, TTexCoord const & color)
+    CapVertex(TPosition const & pos, TPxOffset const & pxOffset, TTexCoord const & color)
       : m_position(pos)
-      , m_normal(normal)
+      , m_pxOffset(pxOffset)
       , m_color(color)
     {}
 
     TPosition m_position;
-    TNormal m_normal;
+    TPxOffset m_pxOffset;
     TTexCoord m_color;
   };
 
   using TCapBuffer = gpu::VBUnknownSizeT<CapVertex>;
+  using TJoinBuffer = gpu::VBUnknownSizeT<JoinVertex>;
 
 public:
   using BuilderParams = BaseBuilderParams;
@@ -156,6 +194,27 @@ public:
     return state;
   }
 
+  dp::BindingInfo const & GetJoinBindingInfo() override
+  {
+    ASSERT(!m_joinGeometry.empty(), ());
+
+    static std::unique_ptr<dp::BindingInfo> s_joinInfo;
+    if (s_joinInfo == nullptr)
+    {
+      dp::BindingFiller<JoinVertex> filler(6);
+      filler.FillDecl<JoinVertex::TPosition>("a_position");
+      filler.FillDecl<JoinVertex::TPxOffset>("a_pxOffset");
+      filler.FillDecl<JoinVertex::TTexCoord>("a_colorTexCoords");
+      filler.FillDecl<JoinVertex::TAngle>("a_from");
+      filler.FillDecl<JoinVertex::TAngle>("a_to");
+      filler.FillDecl<float>("a_smallRadius");
+
+      s_joinInfo.reset(new dp::BindingInfo(filler.m_info));
+    }
+
+    return *s_joinInfo;
+  }
+
   dp::BindingInfo const & GetCapBindingInfo() override
   {
     ASSERT(!m_capGeometry.empty(), ());
@@ -165,7 +224,7 @@ public:
     {
       dp::BindingFiller<CapVertex> filler(3);
       filler.FillDecl<CapVertex::TPosition>("a_position");
-      filler.FillDecl<CapVertex::TNormal>("a_normal");
+      filler.FillDecl<CapVertex::TPxOffset>("a_pxOffset");
       filler.FillDecl<CapVertex::TTexCoord>("a_colorTexCoords");
 
       s_capInfo.reset(new dp::BindingInfo(filler.m_info));
@@ -174,16 +233,31 @@ public:
     return *s_capInfo;
   }
 
-  dp::RenderState GetCapState() override
+  dp::RenderState GetJoinState() override
   {
-    ASSERT(!m_capGeometry.empty(), ());
+    ASSERT(!m_joinGeometry.empty(), ());
 
-    auto state = CreateRenderState(gpu::Program::CapJoin, m_params.m_depthLayer);
+    auto state = CreateRenderState(gpu::Program::LineJoin, m_params.m_depthLayer);
     state.SetDepthTestEnabled(m_params.m_depthTestEnabled);
     state.SetColorTexture(m_params.m_color.GetTexture());
     state.SetDepthFunction(dp::TestFunction::Less);
     return state;
   }
+
+  dp::RenderState GetCapState() override
+  {
+    ASSERT(!m_capGeometry.empty(), ());
+
+    auto state = CreateRenderState(gpu::Program::LineCap, m_params.m_depthLayer);
+    state.SetDepthTestEnabled(m_params.m_depthTestEnabled);
+    state.SetColorTexture(m_params.m_color.GetTexture());
+    state.SetDepthFunction(dp::TestFunction::Less);
+    return state;
+  }
+
+  ref_ptr<void> GetJoinData() override { return make_ref<void>(m_joinGeometry.data()); }
+
+  uint32_t GetJoinSize() override { return static_cast<uint32_t>(m_joinGeometry.size()); }
 
   ref_ptr<void> GetCapData() override { return make_ref<void>(m_capGeometry.data()); }
 
@@ -194,10 +268,10 @@ public:
     m_geometry.emplace_back(pivot, TPxOffset(pxOffset), m_colorCoord);
   }
 
-  void SubmitJoin(glsl::vec2 const & pos)
+  void SubmitJoin(glsl::vec2 const & pos, glsl::vec2 const & from, glsl::vec2 const & to, bool const & onRight)
   {
     if (m_params.m_join == dp::RoundJoin)
-      CreateRoundCap(pos);
+      CreateArcJoin(pos, from, to, onRight);
   }
 
   void SubmitCap(glsl::vec2 const & pos)
@@ -214,17 +288,50 @@ private:
     float const radius = GetHalfWidth();
 
     m_capGeometry.emplace_back(CapVertex::TPosition(pos, m_params.m_depth),
-                               CapVertex::TNormal(-radius * kSqrt3, -radius, radius),
-                               CapVertex::TTexCoord(m_colorCoord));
+                               CapVertex::TPxOffset(-radius * kSqrt3, -radius), CapVertex::TTexCoord(m_colorCoord));
     m_capGeometry.emplace_back(CapVertex::TPosition(pos, m_params.m_depth),
-                               CapVertex::TNormal(radius * kSqrt3, -radius, radius),
+                               CapVertex::TPxOffset(radius * kSqrt3, -radius), CapVertex::TTexCoord(m_colorCoord));
+    m_capGeometry.emplace_back(CapVertex::TPosition(pos, m_params.m_depth), CapVertex::TPxOffset(0, 2.0f * radius),
                                CapVertex::TTexCoord(m_colorCoord));
-    m_capGeometry.emplace_back(CapVertex::TPosition(pos, m_params.m_depth),
-                               CapVertex::TNormal(0, 2.0f * radius, radius), CapVertex::TTexCoord(m_colorCoord));
+  }
+
+  void CreateArcJoin(glsl::vec2 const & pos, glsl::vec2 const & from, glsl::vec2 const & to, bool const & onRight)
+  {
+    // Here we use an equilateral triangle to render circle arc (part of incircle of a triangle).
+    static float constexpr kSqrt3 = 1.732050808f;
+
+    float radius;
+    float smallRadius;
+    if (onRight)
+    {
+      radius = GetOffset() + GetHalfWidth();
+      smallRadius = GetOffset() - GetHalfWidth();
+    }
+    else
+    {
+      radius = -(GetOffset() - GetHalfWidth());
+      smallRadius = -(GetOffset() + GetHalfWidth());
+    }
+
+    if (radius <= 0)
+      return;
+
+    float normalizedSmallRadius = (smallRadius < 0 ? 0 : smallRadius) / radius;
+
+    m_joinGeometry.emplace_back(JoinVertex::TPosition(pos, m_params.m_depth),
+                                JoinVertex::TPxOffset(-radius * kSqrt3, -radius), JoinVertex::TTexCoord(m_colorCoord),
+                                std::atan2(from.y, from.x), std::atan2(to.y, to.x), normalizedSmallRadius);
+    m_joinGeometry.emplace_back(JoinVertex::TPosition(pos, m_params.m_depth),
+                                JoinVertex::TPxOffset(radius * kSqrt3, -radius), JoinVertex::TTexCoord(m_colorCoord),
+                                std::atan2(from.y, from.x), std::atan2(to.y, to.x), normalizedSmallRadius);
+    m_joinGeometry.emplace_back(JoinVertex::TPosition(pos, m_params.m_depth), JoinVertex::TPxOffset(0, 2.0f * radius),
+                                JoinVertex::TTexCoord(m_colorCoord), std::atan2(from.y, from.x), std::atan2(to.y, to.x),
+                                normalizedSmallRadius);
   }
 
 private:
   TCapBuffer m_capGeometry;
+  TJoinBuffer m_joinGeometry;
 };
 
 class SimpleSolidLineBuilder : public BaseLineBuilder<gpu::AreaVertex>
@@ -318,6 +425,8 @@ void LineShape::ForEachSplineSection(FnT && fn) const
   ASSERT(!path.empty(), ());
   size_t const sz = path.size() - 1;
 
+  m2::PointD lastTangent = {0, 0};
+
   for (size_t i = 0, j = 1; j <= sz; ++j)
   {
     /// @todo Make this kind of filtration in Spline?
@@ -337,10 +446,27 @@ void LineShape::ForEachSplineSection(FnT && fn) const
       tanlen.first = tanlen.first / tanlen.second;
     }
 
+    m2::PointD fromCap = lastTangent.Ort();
+    if (m2::DotProduct(fromCap, tanlen.first) > 0)
+      fromCap *= -1;
+
+    m2::PointD toCap = tanlen.first.Ort();
+    if (m2::DotProduct(toCap, lastTangent) < 0)
+      toCap *= -1;
+
+    if (m2::CrossProduct(fromCap, toCap) < 0)
+      std::swap(fromCap, toCap);
+
     glsl::vec2 const tangent = glsl::ToVec2(tanlen.first);
 
+    bool capOnRight = (m2::CrossProduct(lastTangent, tanlen.first) > 0);
+
+    // p1, p2, tangent, tangent length, left normal, right normal, from cap, to cap, flag
     fn(ToShapeVertex2(path[i]), ToShapeVertex2(path[j]), tangent, tanlen.second, {-tangent.y, tangent.x},
-       {tangent.y, -tangent.x}, (i == 0 ? 0x1 : 0) + (j == sz ? 0x2 : 0));
+       {tangent.y, -tangent.x}, glsl::ToVec2(fromCap), glsl::ToVec2(toCap),
+       (i == 0 ? 0x1 : 0) + (j == sz ? 0x2 : 0) + (capOnRight ? 0x4 : 0));
+
+    lastTangent = tanlen.first;
 
     i = j;
   }
@@ -362,7 +488,7 @@ void LineShape::Construct<DashedLineBuilder>(DashedLineBuilder & builder) const
 
   float offset = 0;
   ForEachSplineSection([&](glsl::vec2 const & p1, glsl::vec2 const & p2, glsl::vec2 const & tangent, float toDraw,
-                           glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, int)
+                           glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, glsl::vec2, glsl::vec2, int)
   {
     glsl::vec2 currPivot = p1;
     do
@@ -405,12 +531,13 @@ template <>
 void LineShape::Construct<SolidLineBuilder>(SolidLineBuilder & builder) const
 {
   // Skip joins generation for thin lines.
-  bool const generateJoins = builder.GetHalfWidth() > 2.5f;
+  bool const generateJoins = builder.GetHalfWidth() + std::abs(builder.GetOffset()) > 2.5f;
 
-  float halfWidth = m_params.m_width / 2;
-  float pxOffset = m_params.m_pxOffset;
+  float halfWidth = builder.GetHalfWidth();
+  float pxOffset = builder.GetOffset();
   ForEachSplineSection([&](glsl::vec2 const & p1, glsl::vec2 const & p2, glsl::vec2 const & tangent, double,
-                           glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, int flag)
+                           glsl::vec2 const & leftNormal, glsl::vec2 const & rightNormal, glsl::vec2 const & capFrom,
+                           glsl::vec2 const & capTo, int flag)
   {
     builder.SubmitVertex({p1, m_params.m_depth}, (pxOffset + halfWidth) * rightNormal);
     builder.SubmitVertex({p1, m_params.m_depth}, (pxOffset - halfWidth) * rightNormal);
@@ -420,10 +547,10 @@ void LineShape::Construct<SolidLineBuilder>(SolidLineBuilder & builder) const
     // Generate joins.
     if (flag & 0x1)  // p1 - first point
       builder.SubmitCap(p1);
+    else if (generateJoins)  // p1 - middle point
+      builder.SubmitJoin(p1, capFrom, capTo, (flag & 0x4));
     if (flag & 0x2)  // p2 - last point
       builder.SubmitCap(p2);
-    else if (generateJoins)  // p2 - middle point
-      builder.SubmitJoin(p2);
   });
 }
 
@@ -465,6 +592,7 @@ void LineShape::Prepare(ref_ptr<dp::TextureManager> textures) const
 
     p.m_cap = m_params.m_cap;
     p.m_color = colorRegion;
+    p.m_pxOffset = m_params.m_pxOffset;
     p.m_depthTestEnabled = m_params.m_depthTestEnabled;
     p.m_depth = m_params.m_depth;
     p.m_depthLayer = m_params.m_depthLayer;
@@ -540,6 +668,14 @@ void LineShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> 
       dp::AttributeProvider capProvider(1, capSize);
       capProvider.InitStream(0, m_lineShapeInfo->GetCapBindingInfo(), m_lineShapeInfo->GetCapData());
       batcher->InsertTriangleList(context, m_lineShapeInfo->GetCapState(), make_ref(&capProvider));
+    }
+
+    uint32_t const joinSize = m_lineShapeInfo->GetJoinSize();
+    if (joinSize > 0)
+    {
+      dp::AttributeProvider joinProvider(1, joinSize);
+      joinProvider.InitStream(0, m_lineShapeInfo->GetJoinBindingInfo(), m_lineShapeInfo->GetJoinData());
+      batcher->InsertTriangleList(context, m_lineShapeInfo->GetJoinState(), make_ref(&joinProvider));
     }
   }
   else

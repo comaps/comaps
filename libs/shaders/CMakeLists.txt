@@ -15,6 +15,8 @@ set(shader_files
     GL/arrow3d_textured.vsh.glsl
     GL/circle.fsh.glsl
     GL/circle.vsh.glsl
+    GL/circle_arc.fsh.glsl
+    GL/circle_arc.vsh.glsl
     GL/circle_point.fsh.glsl
     GL/circle_point.vsh.glsl
     GL/colored_symbol.fsh.glsl
