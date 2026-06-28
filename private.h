@@ -14,4 +14,4 @@
 #define COUNTRIES_TXT_SIGNATURE_HEX "91c0a9f6aa182371f047e256ab46489211acc2b51b13197fbe8c94eaa9749c7b"
 
 // The app is compatible with maps belonging to the following or earlier map series:
-#define MAP_SERIES "2026.04.05"
+#define MAP_SERIES "2026.06.28"
