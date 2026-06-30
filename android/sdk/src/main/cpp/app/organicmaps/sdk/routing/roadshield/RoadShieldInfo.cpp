@@ -19,25 +19,18 @@ jobject ToJavaRoadShieldInfo(JNIEnv * env, routing::FollowingInfo::RoadShieldInf
   static jmethodID const ctorRouteInfoID = jni::GetConstructorID(env, klass,
     "("
     "[Lapp/organicmaps/sdk/routing/roadshield/RoadShield;"  // targetRoadShields
-    "I"                                                     // targetRoadShieldsIndexStart
-    "I"                                                     // targetRoadShieldsIndexEnd
-    "I"                                                     // junctionInfoIndexStart
-    "I"                                                     // junctionInfoIndexEnd
+    "[Lapp/organicmaps/sdk/routing/roadshield/RoadShield;"  // junctionRoadShields
     ")V"
   );
   // clang-format on
 
-  if (roadShieldInfo.m_targetRoadShields.empty() &&
-      roadShieldInfo.m_junctionInfoPosition.first == roadShieldInfo.m_junctionInfoPosition.second)
+  if (roadShieldInfo.m_targetRoadShields.empty() && roadShieldInfo.m_junctionRoadShields.empty())
     return nullptr;
 
   // clang-format off
   jobject const result = env->NewObject(klass, ctorRouteInfoID,
     roadShieldInfo.m_targetRoadShields.empty() ? nullptr : ToJavaRoadShieldsArray(env, roadShieldInfo.m_targetRoadShields),
-    roadShieldInfo.m_targetRoadShieldsPosition.first,
-    roadShieldInfo.m_targetRoadShieldsPosition.second,
-    roadShieldInfo.m_junctionInfoPosition.first,
-    roadShieldInfo.m_junctionInfoPosition.second
+    roadShieldInfo.m_junctionRoadShields.empty() ? nullptr : ToJavaRoadShieldsArray(env, roadShieldInfo.m_junctionRoadShields)
   );
   // clang-format on
   ASSERT(result, (jni::DescribeException()));

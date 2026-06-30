@@ -14,9 +14,34 @@ std::string ToJavaRoadShieldTypeName(ftypes::RoadShieldType roadShieldType)
   case Generic_Blue: return "GenericBlue";
   case Generic_Red: return "GenericRed";
   case Generic_Orange: return "GenericOrange";
+  case Generic_White_Bordered: return "GenericWhite";
+  case Generic_Green_Bordered: return "GenericGreen";
+  case Generic_Blue_Bordered: return "GenericBlue";
+  case Generic_Red_Bordered: return "GenericRed";
+  case Generic_Orange_Bordered: return "GenericOrange";
+  case Generic_Pill_White: return "GenericWhite";
+  case Generic_Pill_Green: return "GenericGreen";
+  case Generic_Pill_Blue: return "GenericBlue";
+  case Generic_Pill_Red: return "GenericRed";
+  case Generic_Pill_Orange: return "GenericOrange";
+  case Generic_Pill_White_Bordered: return "GenericWhite";
+  case Generic_Pill_Green_Bordered: return "GenericGreen";
+  case Generic_Pill_Blue_Bordered: return "GenericBlue";
+  case Generic_Pill_Red_Bordered: return "GenericRed";
+  case Generic_Pill_Orange_Bordered: return "GenericOrange";
+  case Highway_Hexagon_Green: return "GenericGreen";
+  case Highway_Hexagon_Blue: return "GenericBlue";
+  case Highway_Hexagon_Red: return "GenericRed";
+  case Highway_Hexagon_Turkey: return "GenericBlue";
   case US_Interstate: return "USInterstate";
   case US_Highway: return "USHighway";
   case UK_Highway: return "UKHighway";
+  case UY_National: return "GenericBlue";
+  case Italy_Autostrada: return "GenericGreen";
+  case Hungary_Green: return "GenericGreen";
+  case Hungary_Blue: return "GenericBlue";
+  case Argentina_RN: return "GenericBlue";
+  case Bolivia_Fundamental: return "GenericBlue";
   default: UNREACHABLE();
   }
 }

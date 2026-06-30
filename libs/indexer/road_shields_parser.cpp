@@ -45,8 +45,9 @@ std::array<std::string, 61> const kStatesCode = {{
     "SR",  // common prefix for State Road
 }};
 
-std::array<std::string, 13> const kModifiers = {{"alt", "alternate", "bus", "business", "bypass", "historic",
-                                                 "connector", "loop", "scenic", "spur", "temporary", "toll", "truck"}};
+std::array<std::string, 17> const kModifiers = {{"alt", "alternate", "bus", "business", "bypass", "historic",
+                                                 "connector", "loop", "scenic", "spur", "temporary", "toll", "truck",
+                                                 "north", "south", "east", "west"}};
 
 std::array<std::string, 27> const kBrazilStatesCode = {{
     "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA",
@@ -180,6 +181,19 @@ public:
 
     result.erase_if([&defaultShields](RoadShield const & shield)
     { return std::find(defaultShields.begin(), defaultShields.end(), shield) != defaultShields.end(); });
+
+    // Remove duplicates with same type and text
+    for (size_t i = 0; i < result.size(); ++i)
+    {
+      for (size_t j = i + 1; j < result.size(); ++j)
+      {
+        if (result[i].m_type == result[j].m_type && result[i].m_name == result[j].m_name)
+        {
+          result.erase(result.begin() + j);
+          --j;
+        }
+      }
+    }
 
     return result;
   }

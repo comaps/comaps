@@ -180,13 +180,13 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   private void updateStreetView(@NonNull RoutingInfo info)
   {
-    boolean hasStreet = !TextUtils.isEmpty(info.nextStreet);
+    final CharSequence instruction = RoadShieldUtils.composeInstruction(info, mNextStreet.getTextSize());
+    boolean hasStreet = !TextUtils.isEmpty(instruction);
     // Sic: don't use UiUtils.showIf() here because View.GONE breaks layout
     // https://github.com/organicmaps/organicmaps/issues/3732
     UiUtils.visibleIf(hasStreet, mStreetFrame);
-    if (!TextUtils.isEmpty(info.nextStreet))
-      mNextStreet.setText(RoadShieldUtils.createStreetTextWithShields(info.nextStreet, info.nextStreetRoadShields,
-                                                                      mNextStreet.getTextSize()));
+    if (hasStreet)
+      mNextStreet.setText(instruction);
     int margin = dimen(mFrame.getContext(), R.dimen.nav_frame_padding);
     if (hasStreet)
       margin += mStreetFrame.getHeight();

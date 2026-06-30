@@ -274,6 +274,8 @@ void Route::GetClosestStreetNameAfterIdx(size_t segIdx, RouteSegment::RoadNameIn
     // Use basic info from |roadNameInfoNext| to update |roadNameInfo|.
     if (roadNameInfo.m_destination_ref.empty())
       roadNameInfo.m_destination_ref = roadNameInfoNext.m_ref;
+    if (roadNameInfo.m_destination.empty() && !roadNameInfoNext.m_destination.empty())
+      roadNameInfo.m_destination = roadNameInfoNext.m_destination;
     if (!roadNameInfoNext.m_name.empty())
       roadNameInfo.m_name = roadNameInfoNext.m_name;
   }

@@ -11,35 +11,26 @@ public final class RoadShieldInfo
   /// An array of road shields for the target (next) street
   @Nullable
   public final RoadShield[] targetRoadShields;
-  /// Start position of the target road shields in the street name string. Inclusive
-  public final int targetRoadShieldsIndexStart;
-  /// End position of the target road shields in the street name string. Exclusive
-  public final int targetRoadShieldsIndexEnd;
-  /// Start position of the junction info in the street name string. Inclusive
-  public final int junctionInfoIndexStart;
-  /// End position of the junction info in the street name string. Exclusive
-  public final int junctionInfoIndexEnd;
+  /// An array of road shields for the junction
+  @Nullable
+  public final RoadShield[] junctionRoadShields;
 
   // Used by JNI.
   @Keep
-  private RoadShieldInfo(@Nullable RoadShield[] targetRoadShields, int targetRoadShieldsIndexStart,
-                         int targetRoadShieldsIndexEnd, int junctionInfoIndexStart, int junctionInfoIndexEnd)
+  private RoadShieldInfo(@Nullable RoadShield[] targetRoadShields, @Nullable RoadShield[] junctionRoadShields)
   {
     this.targetRoadShields = targetRoadShields;
-    this.targetRoadShieldsIndexStart = targetRoadShieldsIndexStart;
-    this.targetRoadShieldsIndexEnd = targetRoadShieldsIndexEnd;
-    this.junctionInfoIndexStart = junctionInfoIndexStart;
-    this.junctionInfoIndexEnd = junctionInfoIndexEnd;
+    this.junctionRoadShields = junctionRoadShields;
   }
 
   public boolean hasTargetRoadShields()
   {
-    return targetRoadShields != null && targetRoadShieldsIndexStart != targetRoadShieldsIndexEnd;
+    return targetRoadShields != null && targetRoadShields.length > 0;
   }
 
-  public boolean hasJunctionInfo()
+  public boolean hasJunctionRoadShields()
   {
-    return junctionInfoIndexStart != junctionInfoIndexEnd;
+    return junctionRoadShields != null && junctionRoadShields.length > 0;
   }
 
   @Override
@@ -58,17 +49,22 @@ public final class RoadShieldInfo
         if (i != targetRoadShields.length - 1)
           sb.append(", ");
       }
-      sb.append("], position=[")
-          .append(targetRoadShieldsIndexStart)
-          .append(", ")
-          .append(targetRoadShieldsIndexEnd)
-          .append(")");
+      sb.append("]");
     }
-    sb.append(", junctionInfo=");
-    if (!hasJunctionInfo())
+    sb.append(", junctionRoadShields=");
+    if (!hasJunctionRoadShields())
       sb.append("null");
     else
-      sb.append("[").append(junctionInfoIndexStart).append(", ").append(junctionInfoIndexEnd).append(")");
+    {
+      sb.append("[");
+      for (int i = 0; i < junctionRoadShields.length; i++)
+      {
+        sb.append(junctionRoadShields[i]);
+        if (i != junctionRoadShields.length - 1)
+          sb.append(", ");
+      }
+      sb.append("]");
+    }
     sb.append("}");
     return sb.toString();
   }

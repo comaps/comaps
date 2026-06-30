@@ -3,6 +3,7 @@ package app.organicmaps.car.util;
 import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.text.style.CharacterStyle;
+import android.util.TypedValue;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.car.app.CarContext;
@@ -68,9 +69,10 @@ public final class RoutingUtils
   private static Step createCurrentStep(@NonNull final CarContext context, @NonNull RoutingInfo info)
   {
     final Step.Builder builder = new Step.Builder();
-    builder.setCue(RoadShieldUtils.createStreetTextWithShields(RoutingUtils::createRoadShieldSpan, info.nextStreet,
-                                                               info.nextStreetRoadShields, 40f, /* drawOutline */
-                                                               false));
+    final float shieldTextSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 42f,
+                                                           context.getResources().getDisplayMetrics());
+    builder.setCue(RoadShieldUtils.composeInstruction(RoutingUtils::createRoadShieldSpan, info, shieldTextSize,
+                                                      /* drawOutline */ false));
     builder.setRoad(info.nextStreet);
     builder.setManeuver(RoutingHelpers.createManeuver(context, info.carDirection, info.exitNum));
     if (info.lanes != null)
@@ -95,9 +97,7 @@ public final class RoutingUtils
   private static Step createNextStep(@NonNull final CarContext context, @NonNull RoutingInfo info)
   {
     final Step.Builder builder = new Step.Builder();
-    builder.setCue(RoadShieldUtils.createStreetTextWithShields(RoutingUtils::createRoadShieldSpan, info.nextNextStreet,
-                                                               info.nextNextStreetRoadShields, 40f,
-                                                               /* drawOutline */ false));
+    builder.setCue(info.nextNextStreet);
     builder.setManeuver(RoutingHelpers.createManeuver(context, info.nextCarDirection, 0));
 
     return builder.build();
