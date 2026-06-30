@@ -31,8 +31,6 @@ set(SRC
   app/organicmaps/sdk/routing/roadshield/RoadShieldInfo.hpp
   app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
   app/organicmaps/sdk/routing/roadshield/RoadShieldType.hpp
-  app/organicmaps/sdk/routing/CarDirection.cpp
-  app/organicmaps/sdk/routing/CarDirection.hpp
   app/organicmaps/sdk/routing/JunctionInfo.hpp
   app/organicmaps/sdk/routing/LaneInfo.cpp
   app/organicmaps/sdk/routing/LaneInfo.hpp

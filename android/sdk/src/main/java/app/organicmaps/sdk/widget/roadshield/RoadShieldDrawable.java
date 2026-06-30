@@ -69,6 +69,7 @@ public class RoadShieldDrawable extends Drawable
 
   private final RoadShield mShield;
   private final boolean mDrawOutline;
+  private final String mDisplayText;
 
   private final Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
   private final Paint mBorderPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -76,14 +77,25 @@ public class RoadShieldDrawable extends Drawable
 
   private int mWidth;
   private int mHeight;
+
   private float mCornerRadius;
   private float mDrawingOffset;
   private final Rect mTextBounds = new Rect();
 
-  public RoadShieldDrawable(@NonNull RoadShield shield, float textSize, boolean drawOutline)
+  public RoadShieldDrawable(@NonNull RoadShield shield, float textSize, boolean drawOutline,
+                            boolean isJunction, boolean isLeftHandTraffic)
   {
     mShield = shield;
     mDrawOutline = drawOutline;
+    if (isJunction)
+    {
+      final char arrowChar = isLeftHandTraffic ? '\u2196' : '\u2197';
+      mDisplayText = isLeftHandTraffic ? arrowChar + shield.text : shield.text + arrowChar;
+    }
+    else
+    {
+      mDisplayText = shield.text;
+    }
     init(textSize);
   }
 
@@ -99,7 +111,7 @@ public class RoadShieldDrawable extends Drawable
     final float centerX = mWidth / 2.0f;
     final float centerY = mHeight / 2.0f;
     final float textY = centerY - mTextBounds.exactCenterY();
-    canvas.drawText(mShield.text, centerX, textY, mTextPaint);
+    canvas.drawText(mDisplayText, centerX, textY, mTextPaint);
   }
 
   @Override
@@ -140,18 +152,25 @@ public class RoadShieldDrawable extends Drawable
     mTextPaint.setStyle(Paint.Style.FILL);
     mTextPaint.setTextSize(textSize);
     mTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
-    mTextPaint.getTextBounds(mShield.text, 0, mShield.text.length(), mTextBounds);
+    mTextPaint.getTextBounds(mDisplayText, 0, mDisplayText.length(), mTextBounds);
 
     mBorderPaint.setColor(backgroundColor);
     mBorderPaint.setStyle(Paint.Style.FILL);
 
-    mWidth = (int) (mTextBounds.width() + mTextPaint.getTextSize() * 1.5f);
-    mHeight = (int) (mTextBounds.height() + mTextPaint.getTextSize() * 0.6f);
+    final Paint.FontMetrics fm = mTextPaint.getFontMetrics();
+    final float textHeight = fm.descent - fm.ascent;
+    final float textWidth = mTextPaint.measureText(mDisplayText);
+
+    final float horizontalPadding = textSize * 0.3f;
+    final float verticalPadding = textSize * 0.1f;
+
+    mWidth = (int) (textWidth + horizontalPadding * 2);
+    mHeight = (int) (textHeight + verticalPadding * 2);
     mDrawingOffset = mHeight * 0.1f;
     mCornerRadius = mHeight / 5.0f;
     mWidth += (int) mDrawingOffset;
     mHeight += (int) mDrawingOffset;
-    setBounds(0, 0, getIntrinsicWidth(), getIntrinsicHeight());
+    setBounds(0, 0, getIntrinsicWidth(), mHeight);
 
     mBorderOutlinePaint.setColor(mTextPaint.getColor());
     mBorderOutlinePaint.setStyle(Paint.Style.STROKE);

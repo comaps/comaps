@@ -359,11 +359,17 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
 void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info)
 {
   std::string const & mwmName = road.m_mwmId.GetMwmName();
-  info.m_targetRoadShields =
-      ftypes::GetRoadShields(mwmName, road.HasExitInfo() ? road.m_destination_ref : road.m_ref, road.m_highwayClass);
-  info.m_targetRoadShieldsPosition = {0, 0};
-  info.m_junctionInfo = ftypes::GetRoadShields(mwmName, road.m_junction_ref, road.m_highwayClass);
-  info.m_junctionInfoPosition = {0, 0};
+  if (road.HasExitInfo())
+  {
+    info.m_targetRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
+    info.m_junctionRoadShields =
+        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
+  }
+  else
+  {
+    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
+  }
 }
 
 std::string GetRoadShieldsText(ftypes::RoadShieldsSetT const & roadShields, bool const withBraces = true)
@@ -391,20 +397,15 @@ void GetFullRoadName(RouteSegment::RoadNameInfo const & road, FollowingInfo::Roa
   name.clear();
   if (road.HasExitInfo())
   {
-    if (!roadShields.m_junctionInfo.empty())
-    {
-      name += GetRoadShieldsText(roadShields.m_junctionInfo, /* withBraces */ false);
-      roadShields.m_junctionInfoPosition = {0, strings::Utf8Length(name)};
-    }
+    if (!roadShields.m_junctionRoadShields.empty())
+      name += GetRoadShieldsText(roadShields.m_junctionRoadShields, /* withBraces */ false);
 
     if (!roadShields.m_targetRoadShields.empty())
     {
       std::string const & shieldsText = GetRoadShieldsText(roadShields.m_targetRoadShields);
       if (!name.empty())
         name += " : ";
-      roadShields.m_targetRoadShieldsPosition.first = strings::Utf8Length(name);
       name += shieldsText;
-      roadShields.m_targetRoadShieldsPosition.second = strings::Utf8Length(name);
     }
 
     if (!road.m_destination.empty())
@@ -415,10 +416,7 @@ void GetFullRoadName(RouteSegment::RoadNameInfo const & road, FollowingInfo::Roa
   else
   {
     if (!roadShields.m_targetRoadShields.empty())
-    {
       name = GetRoadShieldsText(roadShields.m_targetRoadShields);
-      roadShields.m_targetRoadShieldsPosition = {0, strings::Utf8Length(name)};
-    }
     if (!road.m_name.empty())
       name += (name.empty() ? "" : " ") + road.m_name;
   }

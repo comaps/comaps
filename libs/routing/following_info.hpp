@@ -21,12 +21,8 @@ public:
   {
     /// An array of road shields for the target street
     ftypes::RoadShieldsSetT m_targetRoadShields;
-    /// Position of the road shields in the street name string. [Inclusive, Exclusive)
-    std::pair<uint16_t, uint16_t> m_targetRoadShieldsPosition;
-    /// An array of junction info shields for the target street
-    ftypes::RoadShieldsSetT m_junctionInfo;
-    /// Position of the junction info in the street name string. [Inclusive, Exclusive)
-    std::pair<uint16_t, uint16_t> m_junctionInfoPosition;
+    /// An array of road shields for the junction
+    ftypes::RoadShieldsSetT m_junctionRoadShields;
   };
 
   FollowingInfo()

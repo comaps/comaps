@@ -15,6 +15,8 @@ class FeatureType;
 namespace ftypes
 {
 
+// Any new values added here must also be added to
+// android/sdk/src/main/cpp/app/organicmaps/sdk/routing/roadshield/RoadShieldType.cpp
 enum class RoadShieldType
 {
   Default = 0,

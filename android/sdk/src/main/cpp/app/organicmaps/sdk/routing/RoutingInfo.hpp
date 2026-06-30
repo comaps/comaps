@@ -37,6 +37,13 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
                             "I"                                                       // indexOfNextStop
                             "Lapp/organicmaps/sdk/util/Distance;"                     // distToNextStop
                             "I"                                                       // timeToNextStop
+                            "Ljava/lang/String;"                                      // nextName
+                            "Ljava/lang/String;"                                      // nextRef
+                            "Ljava/lang/String;"                                      // nextJunctionRef
+                            "Ljava/lang/String;"                                      // nextDestinationRef
+                            "Ljava/lang/String;"                                      // nextDestination
+                            "Z"                                                       // nextIsLink
+                            "Z"                                                       // isLeftHandTraffic
                             ")V");
 
   jobjectArray jLanes = CreateLanesInfo(env, info.m_lanes);
@@ -64,7 +71,14 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
                                          static_cast<jint>(info.m_routingSessionState),
                                          info.m_indexOfNextStop,
                                          ToJavaDistance(env, info.m_distToNextStop),
-                                         static_cast<jint>(info.m_timeToNextStop));
+                                         static_cast<jint>(info.m_timeToNextStop),
+                                         jni::ToJavaString(env, info.m_nextName),
+                                         jni::ToJavaString(env, info.m_nextRef),
+                                         jni::ToJavaString(env, info.m_nextJunctionRef),
+                                         jni::ToJavaString(env, info.m_nextDestinationRef),
+                                         jni::ToJavaString(env, info.m_nextDestination),
+                                         static_cast<jboolean>(info.m_nextIsLink),
+                                         static_cast<jboolean>(info.m_isLeftHandTraffic));
   ASSERT(result, (jni::DescribeException()));
   return result;
 }
