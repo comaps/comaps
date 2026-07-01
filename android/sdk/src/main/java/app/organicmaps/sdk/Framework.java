@@ -257,6 +257,11 @@ public class Framework
 
   public static native void nativeMoveRoutePoint(int currentIndex, int targetIndex);
 
+  @Nullable
+  public static native RouteStepInfo[] nativeGetRouteSteps(String language);
+
+  public static native RouteStepInfo nativeGetNextRouteStep(String language);
+
   @NonNull
   public static native TransitRouteInfo nativeGetTransitRouteInfo();
   /**

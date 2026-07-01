@@ -38,6 +38,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.location.LocationHelper;
 import app.organicmaps.sdk.location.LocationListener;
+import app.organicmaps.sdk.routing.RouteStepInfo;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.sound.MediaPlayerWrapper;
@@ -287,6 +288,9 @@ public class NavigationService extends Service implements LocationListener
 
   private void updateRoutingNotification(RoutingInfo routingInfo)
   {
+    Framework.nativeGetRouteSteps(Utils.getLanguageCode());
+    RouteStepInfo info = mItems[position];
+    info.textualInstruction
     // Only spend time updating RemoteView if notifications are allowed.
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
             && ActivityCompat.checkSelfPermission(this, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
