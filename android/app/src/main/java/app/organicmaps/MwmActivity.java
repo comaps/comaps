@@ -1772,7 +1772,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mRoutingPlanInplaceController == null)
       return;
 
-    mRoutingPlanInplaceController.showDrivingOptionView();
+    mRoutingPlanInplaceController.showRoutingOptionsView();
   }
 
   @Override
