@@ -120,7 +120,7 @@
     <item name="wheelSecondaryColor">@android:color/transparent</item>
     <item name="wheelThickness">@dimen/margin_eighth</item>
   </style>
-
+  
   <style name="MwmWidget.Floating">
     <item name="android:elevation">@dimen/appbar_elevation</item>
   </style>

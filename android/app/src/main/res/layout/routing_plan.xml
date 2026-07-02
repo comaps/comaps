@@ -134,45 +134,37 @@
             android:layout_marginBottom="@dimen/routing_selector_wheel_margin"
             android:layout_marginEnd="12dp"/>
         </LinearLayout>
-
+        <com.google.android.material.imageview.ShapeableImageView
+          android:id="@+id/routing_options_btn"
+          android:layout_width="@dimen/margin_base_plus"
+          android:layout_height="@dimen/margin_base_plus"
+          android:layout_alignParentEnd="true"
+          android:layout_centerVertical="true"
+          android:layout_marginEnd="16dp"
+          app:srcCompat="@drawable/ic_settings" />
       </RelativeLayout>
 
     </com.google.android.material.appbar.MaterialToolbar>
   </FrameLayout>
   <FrameLayout
-    android:id="@+id/driving_options_btn_container"
+    android:id="@+id/routing_options_banner"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?drivingOptionsViewBg"
     android:foreground="@drawable/shadow_top"
     android:visibility="gone"
     tools:visibility="visible">
-    <LinearLayout
-      android:id="@+id/driving_options_btn"
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:background="?selectableItemBackgroundBorderless"
-      android:gravity="center"
-      android:minHeight="@dimen/height_block_base">
-        <com.google.android.material.imageview.ShapeableImageView
-          android:id="@+id/driving_options_btn_img"
-          android:layout_width="@dimen/margin_base_plus"
-          android:layout_height="@dimen/margin_base_plus"
-          android:layout_gravity="center"
-          android:layout_marginEnd="@dimen/margin_half_plus_eight"
-          app:srcCompat="@drawable/ic_error_white" />
-        <com.google.android.material.textview.MaterialTextView
-          android:id="@+id/driving_options_btn_title"
-          android:layout_width="wrap_content"
+        <HorizontalScrollView
+          android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:layout_gravity="center"
-          android:fontFamily="@string/robotoMedium"
-          android:gravity="center"
-          android:textAllCaps="true"
-          android:textAppearance="?android:attr/textAppearanceSmall"
-          android:textColor="@color/text_light"
-          tools:text="test" />
-    </LinearLayout>
+        android:scrollbars="none"> <LinearLayout
+            android:id="@+id/routing_options_buttons_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp">
+        </LinearLayout>
+      </HorizontalScrollView>
   </FrameLayout>
   <FrameLayout
     style="@style/MwmWidget.FrameLayout.Elevation"
