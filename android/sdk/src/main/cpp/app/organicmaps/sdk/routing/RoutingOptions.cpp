@@ -18,8 +18,9 @@ static routing::VehicleType makeVehicle(jint vehicle)
   {
   default:
   case 0: return routing::VehicleType::Car;
-  case 2: return routing::VehicleType::Bicycle;
   case 1: return routing::VehicleType::Pedestrian;
+  case 2: return routing::VehicleType::Bicycle;
+  case 3: return routing::VehicleType::Pedestrian; // transit
   }
 }
 

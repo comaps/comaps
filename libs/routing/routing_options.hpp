@@ -26,8 +26,12 @@ public:
 
     Max = (1u << 6) + 1
   };
-
+  
   using OptionType = std::underlying_type_t<Option>;
+
+  static constexpr OptionType kPedestrianOptionsMask = Ferry + Dirty + Steps + Paved;
+  static constexpr OptionType kBicycleOptionsMask = Ferry + Dirty + Steps + Paved;
+  static constexpr OptionType kVehicleOptionsMask = Toll + Motorway + Ferry + Dirty + Paved;
 
   RoutingOptions() = default;
   explicit RoutingOptions(OptionType mask, routing::VehicleType type) : m_options(mask), m_vehicle(type) {}

@@ -24,20 +24,31 @@ RoutingOptions RoutingOptions::LoadOptionsFromSettings(VehicleType type)
 {
   uint32_t mode = 0;
   std::string_view settingsName;
+  OptionType mask = -1;
   switch (type)
   {
-  case VehicleType::Car: settingsName = kAvoidRoutingOptionSettingsForCar; break;
-  case VehicleType::Bicycle: settingsName = kAvoidRoutingOptionSettingsForBicycle; break;
-  case VehicleType::Pedestrian: settingsName = kAvoidRoutingOptionSettingsForPedestrian; break;
-  case VehicleType::Transit: settingsName = kAvoidRoutingOptionSettingsForPedestrian; break;
+  case VehicleType::Car:
+    settingsName = kAvoidRoutingOptionSettingsForCar;
+    mask = kVehicleOptionsMask;
+    break;
+  case VehicleType::Bicycle:
+    settingsName = kAvoidRoutingOptionSettingsForBicycle;
+    mask = kBicycleOptionsMask;
+    break;
+  case VehicleType::Pedestrian:
+  case VehicleType::Transit:
+    settingsName = kAvoidRoutingOptionSettingsForPedestrian;
+    mask = kPedestrianOptionsMask;
+    break;
   default: UNREACHABLE();
   }
 
   if (!settings::Get(settingsName, mode))
-    settings::Get(kAvoidRoutingOptionSettingsForCar,
-                  mode);  // use car to init other modes when the new settings get rolled out
+    if (!settings::Get(kAvoidRoutingOptionSettingsForCar,
+                  mode))  // use car to init other modes when the new settings get rolled out
+      mode = 0;
 
-  return RoutingOptions(base::checked_cast<OptionType>(mode), type);
+  return RoutingOptions(base::checked_cast<OptionType>(mode) & mask, type);
 }
 
 // static
@@ -48,8 +59,8 @@ void RoutingOptions::SaveOptionsToSettings(RoutingOptions options)
   {
   case VehicleType::Car: settingsName = kAvoidRoutingOptionSettingsForCar; break;
   case VehicleType::Bicycle: settingsName = kAvoidRoutingOptionSettingsForBicycle; break;
+  case VehicleType::Transit:
   case VehicleType::Pedestrian: settingsName = kAvoidRoutingOptionSettingsForPedestrian; break;
-  case VehicleType::Transit: settingsName = kAvoidRoutingOptionSettingsForPedestrian; break;
   default: UNREACHABLE();
   }
 
