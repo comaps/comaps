@@ -33,7 +33,6 @@
 #include "indexer/feature_meta.hpp"
 #include "indexer/map_style_reader.hpp"
 #include "indexer/feature_algo.hpp"
-#include "indexer/map_style_reader.hpp"
 
 #include "platform/country_file.hpp"
 #include "platform/distance.hpp"
