@@ -93,6 +93,9 @@ if [ ! -d 3party/boost/boost ]; then
   popd
 fi
 
+# Provision and activate a local Python virtual environment with protobuf
+source ./tools/unix/activate_venv.sh
+
 if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   pushd data
 

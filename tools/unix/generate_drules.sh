@@ -4,6 +4,8 @@ set -e -u
 OMIM_PATH="${OMIM_PATH:-$(dirname "$0")/../..}"
 DATA_PATH="${DATA_PATH:-$OMIM_PATH/data}"
 
+source "$(dirname "$0")/activate_venv.sh"
+
 function BuildDrawingRules() {
   styleType=$1
   styleName=$2

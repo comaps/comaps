@@ -188,6 +188,9 @@ tools/python/data/*/dist
 tools/python/data/*/*.egg-info
 tools/python/*/venv/
 
+# Repo-local Python virtual environment provisioned by configure.sh
+/.venv/
+
 # Auto-generated from sr by tools/unix/generate_serbian_latin_strings.sh
 android/app/src/fdroid/play/listings/sr-Latn/
 android/app/src/main/res/values-b+sr+Latn/

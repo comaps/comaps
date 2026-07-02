@@ -13,6 +13,13 @@ Install Cmake (**3.22.1** minimum), Boost, Qt 6 and other dependencies.
 
 Installing *ccache* can speed up active development.
 
+The data generation tools need a specific Python `protobuf` version. You don't
+install it manually — `./configure.sh` creates a local `.venv` in the repository
+root and installs the correct version into it. The package lists below therefore
+only include Python plus the `venv`/`pip` modules needed to create that
+environment. To opt out and use your system Python's protobuf instead, set
+`SKIP_PYTHON_VENV=1` before running `./configure.sh`.
+
 #### Ubuntu
 
 ##### Fully supported versions
@@ -42,7 +49,7 @@ sudo apt update && sudo apt install -y \
     libxinerama-dev \
     libxcursor-dev \
     libxi-dev \
-    python3-protobuf \
+    python3-venv \
     zlib1g-dev
 ```
 
@@ -92,7 +99,6 @@ sudo dnf install -y \
     libXinerama-devel \
     libXcursor-devel \
     libXi-devel
-pip3 install "protobuf<3.21" --break-system-packages
 ```
 
 #### Alpine
@@ -109,7 +115,8 @@ sudo apk add \
     qt6-qtpositioning-dev \
     qt6-qtsvg-dev \
     samurai \
-    py3-protobuf \
+    python3 \
+    py3-pip \
     sqlite-dev
 ```
 
@@ -125,14 +132,12 @@ xbps-install -S \
     qt6-svg-devel \
     qt6-position-devel \
     python3-pip
-pip3 install "protobuf<3.21" --break-system-packages
 ```
 
 #### macOS
 
 ```bash
 brew install cmake ninja qt@6
-pip3 install "protobuf<3.21"
 ```
 </details>
 
