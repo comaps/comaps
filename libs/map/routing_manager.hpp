@@ -327,6 +327,10 @@ public:
 
   routing::RouterType GetCurrentRouterType() const { return m_currentRouterType; }
 
+  std::vector<routing::RouteStepInfo> GetRouteTurnsForDisplay(std::string const & locale) const;
+
+  routing::RouteStepInfo GetNextRouteTurnForDisplay(std::string const & locale) const;
+
 private:
   /// \returns true if the route has warnings.
   bool InsertRoute(routing::Route const & route);

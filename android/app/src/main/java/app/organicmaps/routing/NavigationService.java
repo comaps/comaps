@@ -288,9 +288,8 @@ public class NavigationService extends Service implements LocationListener
 
   private void updateRoutingNotification(RoutingInfo routingInfo)
   {
-    Framework.nativeGetRouteSteps(Utils.getLanguageCode());
-    RouteStepInfo info = mItems[position];
-    info.textualInstruction
+    RouteStepInfo stepInfo = Framework.nativeGetNextRouteStep(app.organicmaps.sdk.util.Utils.getLanguageCode());
+
     // Only spend time updating RemoteView if notifications are allowed.
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
             && ActivityCompat.checkSelfPermission(this, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
@@ -319,7 +318,7 @@ public class NavigationService extends Service implements LocationListener
       String arrivalTimeString = Utils.formatArrivalTime(routingInfo.remainingTimeInSeconds);
 
       notificationBuilder
-              .setContentTitle(distToTurnString) //TODO: Add proper turn instruction here eg. Turn Left in 300m
+              .setContentTitle(stepInfo.textualInstruction) //TODO: Add proper turn instruction here eg. Turn Left in 300m
               .setContentText(this.getString(R.string.notif_time_dist_to, timeToEndString, arrivalTimeString))
               .setShortCriticalText(this.getString(R.string.in_x, distToTurnString))
               .setSmallIcon(currentTurnResource)

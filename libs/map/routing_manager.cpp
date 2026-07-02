@@ -638,7 +638,7 @@ void RoutingManager::CollectFeaturesAlongRoute(vector<RouteSegment> const & segm
         m2::PointD const curr = s.GetJunction().GetPoint();
         m2::ParametrizedSegment<m2::PointD> seg(prev, curr);
         minSqDist = min(minSqDist, seg.SquaredDistanceToPoint(pt));
-        
+
         // Performance break
         if (minSqDist < kSearchRadiusMercator * kSearchRadiusMercator)
           break;
@@ -1730,4 +1730,14 @@ void RoutingManager::SetSubroutesVisibility(bool visible)
 bool RoutingManager::IsSpeedCamLimitExceeded() const
 {
   return m_routingSession.IsSpeedCamLimitExceeded();
+}
+
+std::vector<routing::RouteStepInfo> RoutingManager::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_routingSession.GetRouteTurnsForDisplay(locale);
+}
+
+routing::RouteStepInfo RoutingManager::GetNextRouteTurnForDisplay(std::string const & locale) const
+{
+  return m_routingSession.GetNextRouteTurnForDisplay(locale);
 }

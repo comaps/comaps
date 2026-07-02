@@ -927,6 +927,16 @@ void RoutingSession::CopyTraffic(traffic::AllMwmTrafficInfo & trafficColoring) c
   TrafficCache::CopyTraffic(trafficColoring);
 }
 
+std::vector<routing::RouteStepInfo> RoutingSession::GetRouteTurnsForDisplay(std::string const & locale) const
+{
+  return m_route->GetTurnsForDisplay(locale);
+}
+
+RouteStepInfo RoutingSession::GetNextRouteTurnForDisplay(std::string const & locale) const
+{
+  return m_route->GetNextTurnForDisplay(locale);
+}
+
 void RoutingSession::SetLocaleWithJsonForTesting(std::string const & json, std::string const & locale)
 {
   CHECK_THREAD_CHECKER(m_threadChecker, ());

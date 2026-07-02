@@ -468,6 +468,9 @@ public:
 
   std::string DebugPrintTurns() const;
 
+  std::vector<RouteStepInfo> GetTurnsForDisplay(std::string const & locale) const;
+  RouteStepInfo GetNextTurnForDisplay(std::string const & locale) const;
+
 private:
   friend std::string DebugPrint(Route const & r);
 

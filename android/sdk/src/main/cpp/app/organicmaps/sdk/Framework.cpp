@@ -1480,17 +1480,16 @@ JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetRoute
   return CreateRouteStepInfoArray(env, steps);
 }
 
-JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetNextRouteStep(JNIEnv * env, jclass,
+JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetNextRouteStep(JNIEnv * env, jclass,
                                                                                       jstring language)
 {
-  //TODO
   std::string nativeLanguage = jni::ToNativeString(env, language);
   RoutingManager & rm = frm()->GetRoutingManager();
   if (!rm.IsRoutingActive() || !rm.IsRouteValid())
     return nullptr;
 
-  auto const steps = rm.GetRouteTurnsForDisplay(nativeLanguage);
-  return CreateRouteStepInfoArray(env, steps);
+  auto const step = rm.GetNextRouteTurnForDisplay(nativeLanguage);
+  return ToJavaRouteStepInfo(env, step);
 }
 
 JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetTransitRouteInfo(JNIEnv * env, jclass)
