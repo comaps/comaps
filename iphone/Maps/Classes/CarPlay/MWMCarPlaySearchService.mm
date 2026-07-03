@@ -5,8 +5,9 @@
 #import "SwiftBridge.h"
 
 API_AVAILABLE(ios(12.0))
-@interface MWMCarPlaySearchService ()<MWMSearchObserver>
-@property(strong, nonatomic, nullable) void (^completionHandler)(NSArray<MWMCarPlaySearchResultObject *> *searchResults);
+@interface MWMCarPlaySearchService () <MWMSearchObserver>
+@property(strong, nonatomic, nullable) void (^completionHandler)(NSArray<MWMCarPlaySearchResultObject *> *searchResults)
+    ;
 @property(strong, nonatomic, nullable) NSString *lastQuery;
 @property(strong, nonatomic, nullable) NSString *inputLocale;
 @property(strong, nonatomic, readwrite) NSArray<MWMCarPlaySearchResultObject *> *lastResults;
@@ -15,9 +16,11 @@ API_AVAILABLE(ios(12.0))
 
 @implementation MWMCarPlaySearchService
 
-- (instancetype)init {
+- (instancetype)init
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     [MWMSearch addObserver:self];
     self.lastResults = @[];
   }
@@ -25,38 +28,51 @@ API_AVAILABLE(ios(12.0))
 }
 
 - (void)searchText:(NSString *)text
-    forInputLocale:(NSString *)inputLocale
- completionHandler:(void (^)(NSArray<MWMCarPlaySearchResultObject *> *searchResults))completionHandler {
+       forInputLocale:(NSString *)inputLocale
+    completionHandler:(void (^)(NSArray<MWMCarPlaySearchResultObject *> *searchResults))completionHandler
+{
   self.lastQuery = text;
   self.inputLocale = inputLocale;
   self.lastResults = @[];
   self.completionHandler = completionHandler;
   /// @todo Didn't find pure category request in CarPlay.
   [MWMSearch setSearchMode:SearchModeEverywhere];
-  SearchQuery * query = [[SearchQuery alloc] init:text locale:inputLocale source:SearchTextSourceTypedText autoSelectFirstResult: false];
+  SearchQuery *query = [[SearchQuery alloc] init:text
+                                          locale:inputLocale
+                                          source:SearchTextSourceTypedText
+                           autoSelectFirstResult:false];
   [MWMSearch searchQuery:query];
 }
 
-- (void)saveLastQuery {
-  if (self.lastQuery != nil && self.inputLocale != nil) {
-    SearchQuery * query = [[SearchQuery alloc] init:self.lastQuery locale:self.inputLocale source:SearchTextSourceTypedText autoSelectFirstResult: false];
+- (void)saveLastQuery
+{
+  if (self.lastQuery != nil && self.inputLocale != nil)
+  {
+    SearchQuery *query = [[SearchQuery alloc] init:self.lastQuery
+                                            locale:self.inputLocale
+                                            source:SearchTextSourceTypedText
+                             autoSelectFirstResult:false];
     [MWMSearch saveQuery:query];
   }
 }
 
 #pragma mark - MWMSearchObserver
 
-- (void)onSearchCompleted {
+- (void)onSearchCompleted
+{
   void (^completionHandler)(NSArray<MWMCarPlaySearchResultObject *> *searchResults) = self.completionHandler;
-  if (completionHandler == nil) { return; }
-  
+  if (completionHandler == nil)
+    return;
+
   NSMutableArray<MWMCarPlaySearchResultObject *> *results = [NSMutableArray array];
   NSInteger count = [MWMSearch resultsCount];
-  for (NSInteger row = 0; row < count; row++) {
+  for (NSInteger row = 0; row < count; row++)
+  {
     MWMCarPlaySearchResultObject *result = [[MWMCarPlaySearchResultObject alloc] initForRow:row];
-    if (result != nil) { [results addObject:result]; }
+    if (result != nil)
+      [results addObject:result];
   }
-  
+
   self.lastResults = results;
   completionHandler(results);
   self.completionHandler = nil;

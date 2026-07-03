@@ -1,7 +1,7 @@
 #import "MWMObjectsCategorySelectorController.h"
-#import "MWMObjectsCategorySelectorDataSource.h"
 #import "MWMEditorViewController.h"
 #import "MWMKeyboard.h"
+#import "MWMObjectsCategorySelectorDataSource.h"
 #import "MWMTableViewCell.h"
 #import "SwiftBridge.h"
 
@@ -11,20 +11,21 @@ using namespace osm;
 
 namespace
 {
-NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
+NSString *const kToEditorSegue = @"CategorySelectorToEditorSegue";
 }  // namespace
 
-@interface MWMObjectsCategorySelectorController ()<UISearchBarDelegate, UITableViewDelegate,
-                                                   UITableViewDataSource, MWMKeyboardObserver>
-{
-}
+@interface MWMObjectsCategorySelectorController () <UISearchBarDelegate,
+                                                    UITableViewDelegate,
+                                                    UITableViewDataSource,
+                                                    MWMKeyboardObserver>
+{}
 
-@property(weak, nonatomic) IBOutlet UITableView * tableView;
-@property(weak, nonatomic) IBOutlet UISearchBar * searchBar;
-@property(nonatomic) NSString * selectedType;
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property(nonatomic) NSString *selectedType;
 @property(nonatomic) BOOL isSearch;
-@property(nonatomic) MWMObjectsCategorySelectorDataSource * dataSource;
-@property(nonatomic, strong) UIStackView * searchResultsIsEmptyDisclaimer;
+@property(nonatomic) MWMObjectsCategorySelectorDataSource *dataSource;
+@property(nonatomic, strong) UIStackView *searchResultsIsEmptyDisclaimer;
 
 @end
 
@@ -50,8 +51,7 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
 
 - (void)configTable
 {
-  [self.tableView registerClass:[MWMTableViewCell class]
-         forCellReuseIdentifier:[UITableViewCell className]];
+  [self.tableView registerClass:[MWMTableViewCell class] forCellReuseIdentifier:[UITableViewCell className]];
 }
 
 - (void)setSelectedCategory:(std::string const &)type
@@ -64,7 +64,10 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
   return UIStatusBarStyleLightContent;
 }
 
-- (void)configNavBar { self.title = L(@"editor_add_select_category"); }
+- (void)configNavBar
+{
+  self.title = L(@"editor_add_select_category");
+}
 - (void)configSearchBar
 {
   self.searchBar.placeholder = L(@"search");
@@ -72,7 +75,7 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
 
 - (void)configEmptySearchResultsDisclaimer
 {
-  UIStackView * stackView = [[UIStackView alloc] init];
+  UIStackView *stackView = [[UIStackView alloc] init];
   stackView.axis = UILayoutConstraintAxisVertical;
   stackView.alignment = UIStackViewAlignmentFill;
   stackView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -87,7 +90,7 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
   titleLabel.font = [UIFont bold17];
   titleLabel.numberOfLines = 0;
 
-  UITextView * subtitleTextView = [[UITextView alloc] init];
+  UITextView *subtitleTextView = [[UITextView alloc] init];
   subtitleTextView.translatesAutoresizingMaskIntoConstraints = NO;
   subtitleTextView.editable = NO;
   subtitleTextView.scrollEnabled = NO;
@@ -99,26 +102,33 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
   NSDictionary *options = @{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType};
   NSError *error = nil;
 
-  NSAttributedString *attributedText =
-  [[NSAttributedString alloc] initWithData:htmlData
-                                   options:options
-                        documentAttributes:nil
-                                     error:&error];
-  if (error) {
+  NSAttributedString *attributedText = [[NSAttributedString alloc] initWithData:htmlData
+                                                                        options:options
+                                                             documentAttributes:nil
+                                                                          error:&error];
+  if (error)
+  {
     LOG(LERROR, ("Error parsing HTML:", error.localizedDescription));
-  } else {
-    UIColor * textColor;
-    if (@available(iOS 13.0, *)) {
-      textColor = [[UIColor alloc] initWithDynamicProvider:^UIColor * (UITraitCollection * traitCollection) {
-        return traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? UIColor.whitePrimaryText : UIColor.blackPrimaryText;
+  }
+  else
+  {
+    UIColor *textColor;
+    if (@available(iOS 13.0, *))
+    {
+      textColor = [[UIColor alloc] initWithDynamicProvider:^UIColor *(UITraitCollection *traitCollection) {
+        return traitCollection.userInterfaceStyle == UIUserInterfaceStyleDark ? UIColor.whitePrimaryText
+                                                                              : UIColor.blackPrimaryText;
       }];
-    } else {
+    }
+    else
+    {
       textColor = UIColor.blackPrimaryText;
     }
-    NSMutableAttributedString *mutableAttributedText = [[NSMutableAttributedString alloc] initWithAttributedString:attributedText];
-    [mutableAttributedText addAttributes:@{ NSForegroundColorAttributeName: textColor,
-                                            NSFontAttributeName: UIFont.regular14}
-                                   range:NSMakeRange(0, mutableAttributedText.length)];
+    NSMutableAttributedString *mutableAttributedText =
+        [[NSMutableAttributedString alloc] initWithAttributedString:attributedText];
+    [mutableAttributedText
+        addAttributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: UIFont.regular14}
+                range:NSMakeRange(0, mutableAttributedText.length)];
     subtitleTextView.attributedText = mutableAttributedText;
     subtitleTextView.textAlignment = NSTextAlignmentCenter;
   }
@@ -149,8 +159,7 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
     NSAssert(false, @"incorrect segue");
     return;
   }
-  MWMEditorViewController * dest =
-      static_cast<MWMEditorViewController *>(segue.destinationViewController);
+  MWMEditorViewController *dest = static_cast<MWMEditorViewController *>(segue.destinationViewController);
   dest.isCreating = YES;
   auto const object = self.createdObject;
   [dest setEditableMapObject:object];
@@ -170,7 +179,7 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
 - (EditableMapObject)createdObject
 {
   EditableMapObject emo;
-  auto & f = GetFramework();
+  auto &f = GetFramework();
   auto const type = classif().GetTypeByReadableObjectName(self.selectedType.UTF8String);
   if (!f.CreateMapObject(f.GetViewportCenter(), type, emo))
     NSAssert(false, @"This call should never fail, because IsPointCoveredByDownloadedMaps is "
@@ -180,11 +189,10 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
 
 #pragma mark - UITableView
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   auto cell = [tableView dequeueReusableCellWithCellClass:[UITableViewCell class] indexPath:indexPath];
-  NSString * type;
+  NSString *type;
   if (!self.isSearch && indexPath.section == 0 && [self.dataSource recentCategoriesListSize] > 0)
   {
     cell.textLabel.text = [self.dataSource getRecentCategoriesTranslation:indexPath.row];
@@ -287,8 +295,14 @@ NSString * const kToEditorSegue = @"CategorySelectorToEditorSegue";
   [self.tableView reloadData];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar { [searchBar resignFirstResponder]; }
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar { return UIBarPositionTopAttached; }
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+  [searchBar resignFirstResponder];
+}
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+  return UIBarPositionTopAttached;
+}
 - (void)searchBar:(UISearchBar *)searchBar setActiveState:(BOOL)isActiveState
 {
   [searchBar setShowsCancelButton:isActiveState animated:YES];

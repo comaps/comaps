@@ -11,7 +11,7 @@ Ensure that you have at least 20GB of free space.
 
 Install Cmake (**3.22.1** minimum), Boost, Qt 6 and other dependencies.
 
-Installing *ccache* can speed up active development.
+Installing _ccache_ can speed up active development.
 
 #### Ubuntu
 
@@ -48,13 +48,12 @@ sudo apt update && sudo apt install -y \
 
 ##### Workarounds for older Ubuntu versions
 
-| Software  | Minimum version | Impacted Ubuntu release | Workaround                                                  |
-| --------- | --------------- | ----------------------- | ----------------------------------------------------------- |
-| CMake     | `3.22.1`        | `20.04` and older       | Install newer `cmake` from [PPA](https://apt.kitware.com/) or from `snap`<br> with `sudo snap install --classic cmake` |
-| FreeType  | `2.13.1`        | `22.04` and older       | Install newer `libfreetype6` and `libfreetype-dev` from [PPA](https://launchpad.net/~reviczky/+archive/ubuntu/freetype) |
-| GeoClue   | `2.5.7`         | `20.04` and older       | Install newer `geoclue-2.0` from [PPA](https://launchpad.net/~savoury1/+archive/ubuntu/backports) |
-| Qt 6      | `6.4.0`         | `22.04` and older       | Build and install Qt 6.4 manually |
-
+| Software | Minimum version | Impacted Ubuntu release | Workaround                                                                                                              |
+| -------- | --------------- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| CMake    | `3.22.1`        | `20.04` and older       | Install newer `cmake` from [PPA](https://apt.kitware.com/) or from `snap`<br> with `sudo snap install --classic cmake`  |
+| FreeType | `2.13.1`        | `22.04` and older       | Install newer `libfreetype6` and `libfreetype-dev` from [PPA](https://launchpad.net/~reviczky/+archive/ubuntu/freetype) |
+| GeoClue  | `2.5.7`         | `20.04` and older       | Install newer `geoclue-2.0` from [PPA](https://launchpad.net/~savoury1/+archive/ubuntu/backports)                       |
+| Qt 6     | `6.4.0`         | `22.04` and older       | Build and install Qt 6.4 manually                                                                                       |
 
 ```bash
 sudo add-apt-repository -y ppa:savoury1/qt-6-2
@@ -134,13 +133,13 @@ pip3 install "protobuf<3.21" --break-system-packages
 brew install cmake ninja qt@6
 pip3 install "protobuf<3.21"
 ```
+
 </details>
 
 <details>
   <summary><span style="font-size: 1.5em; font-weight: bold;">Windows</span></summary>
 
-
-We haven't compiled CoMaps on Windows *natively* in a long time, somes adaptations is required to support Windows.
+We haven't compiled CoMaps on Windows _natively_ in a long time, somes adaptations is required to support Windows.
 You'll need to have python3, cmake, ninja, and QT6 in the PATH, and Visual Studio 2022 or Visual Studio 2022 Build Tools installed. Use [Visual Studio Developer Command Prompt](https://learn.microsoft.com/en-us/visualstudio/ide/reference/command-prompt-powershell?view=vs-2022) or generate Visual Studio project files with CMake to build the project.
 
 However, it is possible to use the WSL (Windows Subsystem for Linux) to run GUI applications.
@@ -148,6 +147,7 @@ However, it is possible to use the WSL (Windows Subsystem for Linux) to run GUI 
 #### Windows 11 (WSL)
 
 To run Linux GUI apps, you'll need to [install a driver](https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps) matching your system. This enables a virtual GPU allowing hardware-accelerated OpenGL rendering.
+
 - [Intel GPU Driver](https://www.intel.com/content/www/us/en/download/19344/intel-graphics-windows-dch-drivers.html)
 - [AMD GPU Driver](https://www.amd.com/en/support)
 - [NVIDIA GPU Driver](https://www.nvidia.com/Download/index.aspx?lang=en-us)
@@ -157,15 +157,16 @@ Once a GPU driver is installed and you have [built the app](#building-1) you sho
 #### Windows 10 (WSL)
 
 For Windows 10 you should do these steps (taken from [here](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242), check this blog post if you have any problems):
+
 1. Download and install [VcXsrv Windows X Server](https://sourceforge.net/projects/vcxsrv/).
 2. Run _XLaunch_ app to launch X Server. During settings make sure "Disable access control" checkbox is selected.
 3. (optionally) Click "Save configuration" and save configuration to some file (for example to _config.xlaunch_). With this you will be able to quickly run the desktop app in the future.
 4. When asked about firewall, allow access for both public and private networks.
 5. Add this line:
-    ```bash
-    export DISPLAY=$(ip route|awk '/^default/{print $3}'):0.0
-    ```
-    to _/etc/bash.bashrc_ file.
+   ```bash
+   export DISPLAY=$(ip route|awk '/^default/{print $3}'):0.0
+   ```
+   to _/etc/bash.bashrc_ file.
 6. Restart WSL.
 
 Now when you want to run the desktop app you just need to first launch the X Server on Windows (for example, by running previously saved _config.xlaunch_ file) and then you should be able to [build](#building-1) and [run](#running) the app from WSL.
@@ -177,11 +178,13 @@ Running X Server is also required to run `generate_symbols.sh` script when you c
 ### Building
 
 To build a desktop app:
+
 ```bash
 tools/unix/build_omim.sh -r desktop
 ```
 
 To build the "Designer" version of the desktop app, add the parameter `-t`:
+
 ```bash
 tools/unix/build_omim.sh -r -t desktop
 ```
@@ -216,6 +219,7 @@ A desktop app binary is `CoMaps`. To run e.g. a release version:
 ```bash
 ../omim-build-release/CoMaps
 ```
+
 </details>
 
 <details>
@@ -225,7 +229,6 @@ For running the "Designer" version instead, use the following command and
 optionally add the path to the style file to be loaded. If no path is provided,
 the application will ask for it by opening a file dialog on startup.
 
-
 ```bash
 ../omim-build-release/CoMaps.Designer optional/path/to/style.mapcss
 ```
@@ -233,6 +236,7 @@ the application will ask for it by opening a file dialog on startup.
 ```bash
 ../omim-build-release/CoMaps.app/Contents/MacOS/CoMaps
 ```
+
 </details>
 
 ### Testing
@@ -265,16 +269,17 @@ Some tests are known to be broken and disabled on CI.
 
 To generate a test coverage report you'll need [gcovr](https://gcovr.com) and gcov tools installed:
 
-
 <details>
   <summary><span style="font-size: 1em; font-weight: bold;">Linux</span></summary>
 
 Installing gcovr on Linux:
+
 ```bash
 pip3 install gcovr
 ```
 
 Installing gcov on Linux:
+
 ```bash
 # If you're using GCC compiler
 sudo apt-get install cpp
@@ -283,19 +288,19 @@ sudo apt-get install cpp
 sudo apt-get install llvm
 ```
 
-
 </details>
 
 <details>
   <summary><span style="font-size: 1em; font-weight: bold;">MacOS</span></summary>
 
-
 Installing gcovr on MacOS:
+
 ```bash
 brew install gcovr
 ```
 
 Installing gcov on MacOS:
+
 ```bash
 # If you're using AppleClang compiler it should already be installed
 
@@ -303,10 +308,7 @@ Installing gcov on MacOS:
 brew install llvm
 ```
 
-
 </details>
-
-
 
 #### Steps to generate coverage report:
 
@@ -362,6 +364,7 @@ with `CMAKE_CONFIG=-DSKIP_TESTS` variable. You would need 1.5 GB of memory
 to compile the `stats` module.
 
 The `build_omim.sh` script basically runs these commands:
+
 ```bash
     cmake <path_to_omim> -DCMAKE_BUILD_TYPE={Debug|Release}
     <make or ninja> [<target>] -j <number_of_processes>

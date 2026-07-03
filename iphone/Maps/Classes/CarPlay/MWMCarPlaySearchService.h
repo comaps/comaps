@@ -9,8 +9,8 @@ NS_SWIFT_NAME(CarPlaySearchService)
 - (instancetype)init;
 
 - (void)searchText:(NSString *)text
-    forInputLocale:(NSString *)inputLocale
- completionHandler:(void (^)(NSArray<MWMCarPlaySearchResultObject *> *searchResults))completionHandler;
+       forInputLocale:(NSString *)inputLocale
+    completionHandler:(void (^)(NSArray<MWMCarPlaySearchResultObject *> *searchResults))completionHandler;
 - (void)saveLastQuery;
 @end
 

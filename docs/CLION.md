@@ -22,22 +22,22 @@ configurations that use `tools/unix/build_omim.sh` and the binaries output to `.
 example, for the CoMaps desktop app:
 
 1. set up custom target in Settings → Build, Execution, Deployment → Custom Build Targets:
-    1. Name: `CoMaps (debug)`
-    2. Toolchain: leave on _Use Default_
-    3. Build: press ellipsis and add a tool:
-        1. Name: `build_omim.sh -d desktop`
-        2. Program: `$ProjectFileDir$/tools/unix/build_omim.sh`
-        3. Arguments: `-d desktop`
-        4. Working directory: `$ProjectFileDir$`
-    4. Clean: press ellipsis and add a tool:
-        1. Name: `build_omim.sh -d clean`
-        2. Program: `$ProjectFileDir$/tools/unix/build_omim.sh`
-        3. Arguments: `-d clean`
-        4. Working directory: `$ProjectFileDir$`
+   1. Name: `CoMaps (debug)`
+   2. Toolchain: leave on _Use Default_
+   3. Build: press ellipsis and add a tool:
+      1. Name: `build_omim.sh -d desktop`
+      2. Program: `$ProjectFileDir$/tools/unix/build_omim.sh`
+      3. Arguments: `-d desktop`
+      4. Working directory: `$ProjectFileDir$`
+   4. Clean: press ellipsis and add a tool:
+      1. Name: `build_omim.sh -d clean`
+      2. Program: `$ProjectFileDir$/tools/unix/build_omim.sh`
+      3. Arguments: `-d clean`
+      4. Working directory: `$ProjectFileDir$`
 2. set up Run/Debug Configuration of type _Custom Build Application_:
-    1. Name: `CoMaps`
-    2. Target: `CoMaps (debug)`
-    3. Executable: `../omim-build-debug/CoMaps`
+   1. Name: `CoMaps`
+   2. Target: `CoMaps (debug)`
+   3. Executable: `../omim-build-debug/CoMaps`
 
 Building this configuration will then execute the custom CoMaps build tooling, and the IDE will still be able to run a
 step-by-step debugging session using the resultant binary.
@@ -69,10 +69,10 @@ uv pip install -r maps_generator/requirements_dev.txt
 
 Finally, configure the python interpreter in the IDE:
 
-* File → Settings → Build Execution Deployment → Python interpreter → Add Local Interpreter... → Select existing
-    * Type: Python
-    * Python path: `.../comaps/tools/python/.venv/bin/python`
-* File → Reload CMake Project
+- File → Settings → Build Execution Deployment → Python interpreter → Add Local Interpreter... → Select existing
+  - Type: Python
+  - Python path: `.../comaps/tools/python/.venv/bin/python`
+- File → Reload CMake Project
 
 ## Troubleshooting
 

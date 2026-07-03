@@ -1,0 +1,108 @@
+name: Lint
+on:
+  pull_request:
+    paths:
+      - "**.cpp"
+      - "**.hpp"
+      - "**.c"
+      - "**.h"
+      - "**.java"
+      - "**.m"
+      - "**.mm"
+      - "**.py"
+      - "**.md"
+      - "**.yaml"
+      - "**.yml"
+      - ".clang-format"
+      - ".oxfmtrc.json"
+      - ".forgejo/workflows/lint.yaml"
+
+jobs:
+  clang-format:
+    name: clang-format
+    runs-on: comaps-android
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:standalone
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.job }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+      - name: Run clang-format
+        shell: bash
+        run: |
+          BASE_REF="${{ github.base_ref }}"
+          [ -z "$BASE_REF" ] && BASE_REF="main"
+          FILES=$(git diff --name-only "origin/$BASE_REF..HEAD" -- '*.cpp' '*.hpp' '*.c' '*.h' '*.java' '*.m' '*.mm' ':!3party/**' ':!android/app/build/**' ':!build/**' ':!omim-build-*' 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs -r clang-format --style=file --dry-run -Werror
+
+  banned-apis:
+    name: Banned APIs
+    runs-on: comaps-android
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:standalone
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.job }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+      - name: Run banned API check
+        shell: bash
+        run: |
+          BASE_REF="${{ github.base_ref }}"
+          [ -z "$BASE_REF" ] && BASE_REF="main"
+          FILES=$(git diff --name-only "origin/$BASE_REF..HEAD" -- '*.cpp' '*.hpp' '*.c' '*.h' ':!3party/**' ':!build/**' ':!omim-build-*' 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          FAILED=0
+          for PAT in 'std::unordered_map' 'std::unordered_set' 'std::filesystem'; do
+            if grep -nH "$PAT" $FILES 2>/dev/null; then echo "BANNED: $PAT"; FAILED=1; fi
+          done
+          [ "$FAILED" -ne 0 ] && exit 1
+
+  ruff:
+    name: ruff
+    runs-on: comaps-android
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:standalone
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.job }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+      - name: Run ruff
+        shell: bash
+        run: |
+          BASE_REF="${{ github.base_ref }}"
+          [ -z "$BASE_REF" ] && BASE_REF="main"
+          FILES=$(git diff --name-only "origin/$BASE_REF..HEAD" -- '*.py' ':!3party/**' ':!build/**' ':!omim-build-*' 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs -r ruff check
+          echo "$FILES" | xargs -r ruff format --check
+
+  oxfmt:
+    name: oxfmt
+    runs-on: comaps-android
+    container:
+      image: codeberg.org/comaps/docker-android-sdk:standalone
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.job }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+      - name: Run oxfmt
+        shell: bash
+        run: |
+          BASE_REF="${{ github.base_ref }}"
+          [ -z "$BASE_REF" ] && BASE_REF="main"
+          FILES=$(git diff --name-only "origin/$BASE_REF..HEAD" -- '*.md' '*.yaml' '*.yml' ':!3party/**' ':!build/**' ':!omim-build-*' 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          echo "$FILES" | xargs -r oxfmt --no-error-on-unmatched-pattern --check

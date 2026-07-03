@@ -174,7 +174,8 @@ void SaveLocalizableString(Writer & writer, LocalizableString const & str, std::
   writer << indent << "<mwm:" << tagName << ">\n";
   for (auto const & s : str)
   {
-    writer << indent << kIndent2 << "<mwm:lang code=\"" << localisation::ConvertLanguageIndexToLanguageCode(s.first) << "\">";
+    writer << indent << kIndent2 << "<mwm:lang code=\"" << localisation::ConvertLanguageIndexToLanguageCode(s.first)
+           << "\">";
     SaveStringWithCDATA(writer, s.second);
     writer << "</mwm:lang>\n";
   }

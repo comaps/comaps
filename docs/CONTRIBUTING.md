@@ -7,6 +7,7 @@ Thank you for your interest in contributing to CoMaps!
 - [Submit a bug report or a feature request](#bug-reports-and-feature-requests)
 
 There are things to do for everyone:
+
 - [For translators](#translations)
 - [For UI/UX and graphic designers](#ui-ux-map-styling-and-icons)
 - [For developers](#code-contributions)
@@ -19,10 +20,10 @@ If none of those ways of contributing seem to be a good fit, and you'd like to h
 
 ### General guidelines
 
-CoMaps is made by a growing group of volunteers, and to ensure that we all can work well together, we have a couple of guidelines we ask you to follow when contributing: 
+CoMaps is made by a growing group of volunteers, and to ensure that we all can work well together, we have a couple of guidelines we ask you to follow when contributing:
 
-* [Code of Conduct](https://codeberg.org/comaps/Governance/src/branch/main/CODE_OF_CONDUCT.md), for how we want to interact with each other
-* [AI usage guidelines](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md), for when/how the use of AI is appropriate when contributing to CoMaps
+- [Code of Conduct](https://codeberg.org/comaps/Governance/src/branch/main/CODE_OF_CONDUCT.md), for how we want to interact with each other
+- [AI usage guidelines](https://codeberg.org/comaps/Governance/src/branch/main/AI_USAGE.md), for when/how the use of AI is appropriate when contributing to CoMaps
 
 ### Bug Reports and Feature Requests
 
@@ -61,18 +62,15 @@ Please [learn how to use `git rebase`](https://git-scm.com/book/en/v2/Git-Branch
 
 We strive to help onboard new developers, but we don't always have enough time to guide newcomers step-by-step and explain everything in detail. So please make sure your changes follow these different guidelines when submitting a pull request:
 
-- [Pull Request Guide](PR_GUIDE.md).
 - [Directories structure](STRUCTURE.md)
-- [C++ Style Guide](CPP_STYLE.md).
-- [Java Style Guide](JAVA_STYLE.md).
-- [Swift Style Guide](SWIFT_STYLE.md).
-- [Objective-C Style Guide](OBJC_STYLE.md).
 
-...and more in the [docs folder](./) of the repository.
+Formatting is enforced by CI. Run `./tools/unix/clang-format.sh` before pushing.
+Swift uses Xcode's built-in `swift-format` (not available on Linux CI).
 
 ### Day-to-day Activities
 
 Please help us:
+
 - processing users questions and feedback in chats, app stores, email and social media and creating follow-up issues or updating existing ones
 - reproducing and triaging reported bugs
 - [testing upcoming features and bug fixes for Android, iOS and desktop versions](TESTING.md)
@@ -122,6 +120,7 @@ If you have contributed and interested in contributing more through collaboratio
 https://comaps.zulipchat.com/join/e5e3c4zurmfxykrtbiiq6qrw/
 
 When you join Zulip, in Watercooler > Signups do an intro with the team:
+
 - Short background, professional and personal
 - Why are you contributing to CoMaps
 - What you think about projects' principles and direction https://codeberg.org/comaps/Governance#core-principles

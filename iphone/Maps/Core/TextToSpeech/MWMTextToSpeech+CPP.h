@@ -15,5 +15,5 @@
 
 namespace tts
 {
-std::string translateLocale(std::string const & localeString);
+std::string translateLocale(std::string const &localeString);
 }  // namespace tts

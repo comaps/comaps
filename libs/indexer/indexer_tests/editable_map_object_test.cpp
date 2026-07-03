@@ -40,8 +40,8 @@ void CheckExpectations(StringUtf8Multilang const & s, vector<ExpectedName> const
   size_t counter = 0;
   s.ForEach([&expectations, &counter](int8_t const code, string_view name)
   {
-    auto const it = find_if(expectations.begin(), expectations.end(),
-                            [&code](ExpectedName const & item) { return localisation::ConvertLanguageCodeToLanguageIndex(item.m_lang.c_str()) == code; });
+    auto const it = find_if(expectations.begin(), expectations.end(), [&code](ExpectedName const & item)
+    { return localisation::ConvertLanguageCodeToLanguageIndex(item.m_lang.c_str()) == code; });
 
     if (it == expectations.end())
       TEST(false, ("Unexpected language code: ", code, ". Expectations: ", expectations));
@@ -238,20 +238,27 @@ UNIT_TEST(EditableMapObject_ValidateName)
 UNIT_TEST(EditableMapObject_CanUseAsDefaultName)
 {
   EditableMapObject emo;
-  vector<int8_t> const nativeMwmLanguages{localisation::ConvertLanguageCodeToLanguageIndex("de"), localisation::ConvertLanguageCodeToLanguageIndex("fr")};
+  vector<int8_t> const nativeMwmLanguages{localisation::ConvertLanguageCodeToLanguageIndex("de"),
+                                          localisation::ConvertLanguageCodeToLanguageIndex("fr")};
 
-  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("de"), nativeMwmLanguages),
+  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("de"),
+                                              nativeMwmLanguages),
        ("Check possibility to use Mwm language code"));
-  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"), nativeMwmLanguages),
+  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"),
+                                              nativeMwmLanguages),
        ("Check possibility to use Mwm language code"));
-  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("int_name"), nativeMwmLanguages),
+  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("int_name"),
+                                               nativeMwmLanguages),
        ("Check possibility to use international language code"));
   TEST(!EditableMapObject::CanUseAsDefaultName(100, nativeMwmLanguages), ("Incorrect language code is not supported"));
-  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("en"), {localisation::ConvertLanguageCodeToLanguageIndex("abcd")}),
+  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("en"),
+                                               {localisation::ConvertLanguageCodeToLanguageIndex("abcd")}),
        ("Incorrect Mwm language name is not supported"));
-  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("en"), nativeMwmLanguages),
+  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("en"),
+                                               nativeMwmLanguages),
        ("Can not to use language which not Mwm language or international"));
-  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("ru"), nativeMwmLanguages),
+  TEST(!EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("ru"),
+                                               nativeMwmLanguages),
        ("Check possibility to use user`s language code"));
 
   // Trying to use language codes in reverse priority.
@@ -259,13 +266,19 @@ UNIT_TEST(EditableMapObject_CanUseAsDefaultName)
   names.AddString(localisation::ConvertLanguageCodeToLanguageIndex("fr"), "second mwm language");
   emo.SetName(names);
 
-  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"), nativeMwmLanguages), ("It is possible to fix typo"));
+  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"),
+                                              nativeMwmLanguages),
+       ("It is possible to fix typo"));
 
   names.AddString(localisation::ConvertLanguageCodeToLanguageIndex("de"), "first mwm language");
   emo.SetName(names);
 
-  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("de"), nativeMwmLanguages), ("It is possible to fix typo"));
-  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"), nativeMwmLanguages), ("It is possible to fix typo"));
+  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("de"),
+                                              nativeMwmLanguages),
+       ("It is possible to fix typo"));
+  TEST(EditableMapObject::CanUseAsDefaultName(localisation::ConvertLanguageCodeToLanguageIndex("fr"),
+                                              nativeMwmLanguages),
+       ("It is possible to fix typo"));
 }
 
 UNIT_TEST(EditableMapObject_GetNamesDataSource)
@@ -284,35 +297,35 @@ UNIT_TEST(EditableMapObject_GetNamesDataSource)
   names.AddString(localisation::ConvertLanguageCodeToLanguageIndex("it"), "It name");
   emo.SetName(names);
 
-  vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("de"), localisation::ConvertLanguageCodeToLanguageIndex("fr")};
+  vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("de"),
+                                       localisation::ConvertLanguageCodeToLanguageIndex("fr")};
 
-  auto const namesDataSource =
-      EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
+  auto const namesDataSource = EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
 
   TEST_EQUAL(namesDataSource.names.size(), 9, ("All names including the default should be pushed into data source"));
   TEST_EQUAL(namesDataSource.mandatoryNamesCount, 1, ("Mandatory names count should always be 1"));
 
   {
-    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("de"), localisation::ConvertLanguageCodeToLanguageIndex("fr")};
+    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("de"),
+                                         localisation::ConvertLanguageCodeToLanguageIndex("fr")};
 
-    auto const namesDataSource =
-        EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
+    auto const namesDataSource = EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
     TEST_EQUAL(namesDataSource.names.size(), 9, ("All names including the default should be pushed into data source"));
     TEST_EQUAL(namesDataSource.mandatoryNamesCount, 1, ("Mandatory names count should always be 1"));
   }
   {
-    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("fr"), localisation::ConvertLanguageCodeToLanguageIndex("en")};
+    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("fr"),
+                                         localisation::ConvertLanguageCodeToLanguageIndex("en")};
 
-    auto const namesDataSource =
-        EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
+    auto const namesDataSource = EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
     TEST_EQUAL(namesDataSource.names.size(), 9, ("All names including the default should be pushed into data source"));
     TEST_EQUAL(namesDataSource.mandatoryNamesCount, 1, ("Mandatory names count should always be 1"));
   }
   {
-    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("en"), localisation::ConvertLanguageCodeToLanguageIndex("en")};
+    vector<int8_t> nativeMwmLanguages = {localisation::ConvertLanguageCodeToLanguageIndex("en"),
+                                         localisation::ConvertLanguageCodeToLanguageIndex("en")};
 
-    auto const namesDataSource =
-        EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
+    auto const namesDataSource = EditableMapObject::GetNamesDataSource(emo.GetNameMultilang(), nativeMwmLanguages);
     TEST_EQUAL(namesDataSource.names.size(), 9, ("All names including the default should be pushed into data source"));
     TEST_EQUAL(namesDataSource.mandatoryNamesCount, 1, ("Mandatory names count should always be 1"));
   }

@@ -1,6 +1,6 @@
 #import "MWMMapDownloaderMode.h"
-#import "MWMViewController.h"
 #import "MWMMyPositionMode.h"
+#import "MWMViewController.h"
 
 @class MWMMapViewControlsManager;
 @class EAGLView;
@@ -17,8 +17,8 @@
 @interface MapViewController : MWMViewController
 
 + (MapViewController *_Nullable)sharedController;
-- (void)addListener:(id<MWMLocationModeListener>_Nonnull)listener;
-- (void)removeListener:(id<MWMLocationModeListener>_Nonnull)listener;
+- (void)addListener:(id<MWMLocationModeListener> _Nonnull)listener;
+- (void)removeListener:(id<MWMLocationModeListener> _Nonnull)listener;
 
 // called when app is terminated by system
 - (void)onTerminate;
@@ -47,19 +47,19 @@
 
 - (void)dismissPlacePage;
 
-@property(nonatomic, readonly) MWMMapViewControlsManager * _Nonnull controlsManager;
-@property(nonatomic, readonly) MWMMapDownloadDialog * _Nonnull downloadDialog;
-@property(nonatomic, readonly) BookmarksCoordinator * _Nonnull bookmarksCoordinator;
-@property(nonatomic, readonly) SearchOnMapManager * _Nonnull searchManager;
+@property(nonatomic, readonly) MWMMapViewControlsManager *_Nonnull controlsManager;
+@property(nonatomic, readonly) MWMMapDownloadDialog *_Nonnull downloadDialog;
+@property(nonatomic, readonly) BookmarksCoordinator *_Nonnull bookmarksCoordinator;
+@property(nonatomic, readonly) SearchOnMapManager *_Nonnull searchManager;
 
 @property(nonatomic) MWMMyPositionMode currentPositionMode;
-@property(strong, nonatomic) IBOutlet EAGLView * _Nonnull mapView;
-@property(strong, nonatomic) IBOutlet UIView * _Nonnull controlsView;
-@property(nonatomic) UIView * _Nonnull searchContainer;
+@property(strong, nonatomic) IBOutlet EAGLView *_Nonnull mapView;
+@property(strong, nonatomic) IBOutlet UIView *_Nonnull controlsView;
+@property(nonatomic) UIView *_Nonnull searchContainer;
 
-@property (weak, nonatomic) IBOutlet SideButtonsArea * sideButtonsArea;
-@property (weak, nonatomic) IBOutlet WidgetsArea * widgetsArea;
-@property (weak, nonatomic) IBOutlet TrafficButtonArea * trafficButtonArea;
-@property (weak, nonatomic) IBOutlet PlacePageArea * placePageArea;
+@property(weak, nonatomic) IBOutlet SideButtonsArea *sideButtonsArea;
+@property(weak, nonatomic) IBOutlet WidgetsArea *widgetsArea;
+@property(weak, nonatomic) IBOutlet TrafficButtonArea *trafficButtonArea;
+@property(weak, nonatomic) IBOutlet PlacePageArea *placePageArea;
 
 @end

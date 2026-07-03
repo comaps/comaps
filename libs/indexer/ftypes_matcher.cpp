@@ -456,7 +456,8 @@ OneLevelPOIChecker::OneLevelPOIChecker() : ftypes::BaseChecker(1 /* level */)
 {
   Classificator const & c = classif();
 
-  for (auto const * path : {"amenity", "attraction", "craft", "emergency", "healthcare", "historic", "leisure", "mountain_pass", "office", "railway", "shop", "sport", "tourism"})
+  for (auto const * path : {"amenity", "attraction", "craft", "emergency", "healthcare", "historic", "leisure",
+                            "mountain_pass", "office", "railway", "shop", "sport", "tourism"})
     m_types.push_back(c.GetTypeByPath({path}));
 }
 

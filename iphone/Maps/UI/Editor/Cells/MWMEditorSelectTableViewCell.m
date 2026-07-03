@@ -4,11 +4,11 @@
 
 @interface MWMEditorSelectTableViewCell ()
 
-@property(weak, nonatomic) IBOutlet UIImageView * icon;
-@property(weak, nonatomic) IBOutlet UILabel * label;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * labelLeadingOffset;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * labelTrailingOffset;
-@property(weak, nonatomic) IBOutlet UIImageView * grayArrow;
+@property(weak, nonatomic) IBOutlet UIImageView *icon;
+@property(weak, nonatomic) IBOutlet UILabel *label;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *labelLeadingOffset;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *labelTrailingOffset;
+@property(weak, nonatomic) IBOutlet UIImageView *grayArrow;
 
 @property(weak, nonatomic) id<MWMEditorCellProtocol> delegate;
 
@@ -28,12 +28,12 @@
   if (text && text.length != 0)
   {
     self.label.text = text;
-   [self.label setStyleNameAndApply: @"blackPrimaryText"];
+    [self.label setStyleNameAndApply:@"blackPrimaryText"];
   }
   else
   {
     self.label.text = placeholder;
-    [self.label setStyleNameAndApply: @"blackHintText"];
+    [self.label setStyleNameAndApply:@"blackHintText"];
   }
   self.label.preferredMaxLayoutWidth =
       self.width - self.labelLeadingOffset.constant - self.labelTrailingOffset.constant;
@@ -42,5 +42,8 @@
     self.grayArrow.transform = CGAffineTransformMakeScale(-1, 1);
 }
 
-- (IBAction)selectAction { [self.delegate cellDidPressButton:self]; }
+- (IBAction)selectAction
+{
+  [self.delegate cellDidPressButton:self];
+}
 @end

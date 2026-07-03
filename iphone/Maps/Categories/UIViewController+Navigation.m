@@ -7,10 +7,9 @@ static CGFloat const kButtonExtraWidth = 16.0;
 
 - (UIBarButtonItem *)negativeSpacer
 {
-  UIBarButtonItem * spacer =
-      [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                                    target:nil
-                                                    action:nil];
+  UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
+                                                                          target:nil
+                                                                          action:nil];
   spacer.width = -kButtonExtraWidth;
   return spacer;
 }
@@ -22,9 +21,12 @@ static CGFloat const kButtonExtraWidth = 16.0;
 
 - (NSArray<UIBarButtonItem *> *)alignedNavBarButtonItems:(NSArray<UIBarButtonItem *> *)items
 {
-  return [@[ [self negativeSpacer] ] arrayByAddingObjectsFromArray:items];
+  return [@[[self negativeSpacer]] arrayByAddingObjectsFromArray:items];
 }
 
-- (void)goBack { [self.navigationController popViewControllerAnimated:YES]; }
+- (void)goBack
+{
+  [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end

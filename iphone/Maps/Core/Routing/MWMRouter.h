@@ -78,9 +78,8 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 - (instancetype)init __attribute__((unavailable("call +router instead")));
 - (instancetype)copy __attribute__((unavailable("call +router instead")));
 - (instancetype)copyWithZone:(NSZone *)zone __attribute__((unavailable("call +router instead")));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone
-__attribute__((unavailable("call +router instead")));
-+ (instancetype) new __attribute__((unavailable("call +router instead")));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable("call +router instead")));
++ (instancetype)new __attribute__((unavailable("call +router instead")));
 
 @end
 

@@ -15,8 +15,7 @@
 + (void)openRouteManagerTransaction
 {
   auto router = [MWMRouter router];
-  router.routeManagerTransactionId =
-      GetFramework().GetRoutingManager().OpenRoutePointsTransaction();
+  router.routeManagerTransactionId = GetFramework().GetRoutingManager().OpenRoutePointsTransaction();
 }
 
 + (void)applyRouteManagerTransaction
@@ -33,7 +32,7 @@
   auto router = [MWMRouter router];
   if (router.routeManagerTransactionId == RoutingManager::InvalidRoutePointsTransactionId())
     return;
-  auto & rm = GetFramework().GetRoutingManager();
+  auto &rm = GetFramework().GetRoutingManager();
   rm.CancelRoutePointsTransaction(router.routeManagerTransactionId);
   router.routeManagerTransactionId = RoutingManager::InvalidRoutePointsTransactionId();
   rm.CancelPreviewMode();

@@ -43,7 +43,6 @@ UNIT_TEST(Downloader_GetFilePathByUrl)
              base::JoinPath(GetPlatform().WritableDir(), "260401/Belarus_Brest Region.mwm.ready"), ());
 }
 
-
 UNIT_TEST(Downloader_ParseMetaConfig)
 {
   std::optional<downloader::MetaConfig> cfg;

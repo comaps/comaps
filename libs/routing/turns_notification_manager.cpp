@@ -142,15 +142,16 @@ std::string NotificationManager::GenerateRoundaboutNotification(TurnItemDist con
 
           // First (advance) notification: "In X meters, at the roundabout, take the Nth exit [onto Street]".
           double const distToPronounceUnits = m_settings.ConvertMetersToUnits(distToPronounceMeters);
-          uint32_t const roundedDistToPronounceUnits = m_settings.RoundByPresetSoundedDistancesUnits(distToPronounceUnits);
+          uint32_t const roundedDistToPronounceUnits =
+              m_settings.RoundByPresetSoundedDistancesUnits(distToPronounceUnits);
           m_nextTurnNotificationProgress = PronouncedNotification::First;
           // Tell the upcoming LeaveRoundAbout turn (when it becomes the first turn) to skip its
           // own first notification — we've already announced the exit instruction here.
           m_turnNotificationWithThen = true;
-          return m_getTtsText.GetTurnNotification(
-              {roundedDistToPronounceUnits, static_cast<uint8_t>(exitTurn.m_turnItem.m_exitNum),
-               false /* useThenInsteadOfDistance */, CarDirection::LeaveRoundAbout, lengthUnits, nextStreetInfo,
-               true /* useAtRoundaboutPrefix */});
+          return m_getTtsText.GetTurnNotification({roundedDistToPronounceUnits,
+                                                   static_cast<uint8_t>(exitTurn.m_turnItem.m_exitNum),
+                                                   false /* useThenInsteadOfDistance */, CarDirection::LeaveRoundAbout,
+                                                   lengthUnits, nextStreetInfo, true /* useAtRoundaboutPrefix */});
         }
       }
     }
@@ -171,10 +172,9 @@ std::string NotificationManager::GenerateRoundaboutNotification(TurnItemDist con
     // Reminder at entrance: "Take the Nth exit [onto Street]". useThenInsteadOfDistance routes
     // GetRoundaboutTextId to the "take_the_N_exit" key; the "Then" word itself is suppressed for
     // this specific case (LeaveRoundAbout + distance 0 + no roundabout prefix) inside GetTurnNotification.
-    return m_getTtsText.GetTurnNotification(
-        {0 /* distanceUnits */, static_cast<uint8_t>(exitTurn.m_turnItem.m_exitNum),
-         true /* useThenInsteadOfDistance */, CarDirection::LeaveRoundAbout, lengthUnits, nextStreetInfo,
-         false /* useAtRoundaboutPrefix */});
+    return m_getTtsText.GetTurnNotification({0 /* distanceUnits */, static_cast<uint8_t>(exitTurn.m_turnItem.m_exitNum),
+                                             true /* useThenInsteadOfDistance */, CarDirection::LeaveRoundAbout,
+                                             lengthUnits, nextStreetInfo, false /* useAtRoundaboutPrefix */});
   }
   return {};
 }
@@ -308,8 +308,7 @@ void NotificationManager::GenerateTurnNotifications(std::vector<TurnItemDist> co
 
   // If the second turn is itself a roundabout entrance with an exit, chain it as
   // "Then at the roundabout, take the Xth exit" instead of "Then enter the roundabout".
-  bool const isSecondTurnRoundaboutEntrance =
-      turns.size() >= 3 && IsClassicEntranceToRoundabout(secondTurn, turns[2]);
+  bool const isSecondTurnRoundaboutEntrance = turns.size() >= 3 && IsClassicEntranceToRoundabout(secondTurn, turns[2]);
 
   std::string secondNotification;
   if (isSecondTurnRoundaboutEntrance)

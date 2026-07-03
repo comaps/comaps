@@ -19,7 +19,6 @@ using std::string;
 
 constexpr char const * kApiVersion = "/api/0.6";
 
-
 string FindAuthenticityToken(string const & action, string body)
 {
   static boost::regex const kActionAndTokenRE(R"~(action="(.+?)".*?name="authenticity_token" value="(.+?)")~");

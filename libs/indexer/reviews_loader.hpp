@@ -35,4 +35,4 @@ private:
   std::map<MwmSet::MwmId, EntryPtr> m_deserializers;
   std::mutex m_mutex;
 };
-} // namespace reviews
+}  // namespace reviews

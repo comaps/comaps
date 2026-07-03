@@ -8,7 +8,7 @@
 @implementation PlacePageOSMContributionData (Core)
 
 - (instancetype _Nullable)initWithRawData:(place_page::Info const &)rawData
-                            mapAttributes:(MWMMapNodeAttributes * _Nonnull)mapAttributes
+                            mapAttributes:(MWMMapNodeAttributes *_Nonnull)mapAttributes
 {
   self = [super init];
   if (self)

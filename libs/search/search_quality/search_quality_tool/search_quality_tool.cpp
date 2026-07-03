@@ -337,8 +337,7 @@ void RunRequests(TestSearchEngine & engine, m2::RectD const & viewport, string q
   cout << fixed << setprecision(3);
   cout << endl;
   cout << "Maximum response time: " << maxTime << "s" << endl;
-  cout << "Average response time: " << averageTime << "s"
-       << " (std. dev. " << stdDevTime << "s)" << endl;
+  cout << "Average response time: " << averageTime << "s" << " (std. dev. " << stdDevTime << "s)" << endl;
 }
 
 int main(int argc, char * argv[])

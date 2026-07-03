@@ -114,13 +114,15 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     // So we ensure that it returns false here.
     mapLanguageComboBox->setStyleSheet("QComboBox { combobox-popup: 0; }");
     mapLanguageComboBox->setMaxVisibleItems(10);
-    std::vector<localisation::Language> const supportedLanguages = localisation::GetSupportedLanguages(/* includeServiceLangs */ false);
+    std::vector<localisation::Language> const supportedLanguages =
+        localisation::GetSupportedLanguages(/* includeServiceLangs */ false);
 
     // Create a vector of pairs (name, index) and sort by name
     std::vector<std::pair<std::string, size_t>> languageNameIndexPairs;
     for (size_t i = 0; i < supportedLanguages.size(); ++i)
       languageNameIndexPairs.emplace_back(std::string(supportedLanguages[i].m_name), i);
-    std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(), [](auto const & a, auto const & b) { return a.first < b.first; });
+    std::sort(languageNameIndexPairs.begin(), languageNameIndexPairs.end(),
+              [](auto const & a, auto const & b) { return a.first < b.first; });
 
     QStringList languagesList = QStringList();
     std::vector<size_t> sortedIndices;
@@ -144,9 +146,12 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     else if (languageIndex == localisation::kDefaultNameIndex)
       mapLanguageComboBox->setCurrentText(QString::fromStdString("Local Language"));
     else
-      mapLanguageComboBox->setCurrentText(QString::fromStdString(localisation::GetLanguageNameByLanguageIndex(languageIndex)));
+      mapLanguageComboBox->setCurrentText(
+          QString::fromStdString(localisation::GetLanguageNameByLanguageIndex(languageIndex)));
 
-    connect(mapLanguageComboBox, &QComboBox::currentIndexChanged, [&framework, sortedIndices, supportedLanguages](int index) {
+    connect(mapLanguageComboBox, &QComboBox::currentIndexChanged,
+            [&framework, sortedIndices, supportedLanguages](int index)
+    {
       if (index == 0)
         framework.SetCustomMapLanguageCode();
       else if (index == 1)
@@ -175,10 +180,11 @@ PreferencesDialog::PreferencesDialog(QWidget * parent, Framework & framework)
     sortedIndices.push_back(1);
     alternativeMapLanguageHandlingComboBox->addItems(languagesList);
 
-    alternativeMapLanguageHandlingComboBox->setCurrentText(languagesList.at(framework.GetAlternativeMapLanguageHandling()));
-    connect(alternativeMapLanguageHandlingComboBox, &QComboBox::currentIndexChanged, [&framework, languagesList](int index) {
-      framework.SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(index));
-    });
+    alternativeMapLanguageHandlingComboBox->setCurrentText(
+        languagesList.at(framework.GetAlternativeMapLanguageHandling()));
+    connect(alternativeMapLanguageHandlingComboBox, &QComboBox::currentIndexChanged,
+            [&framework, languagesList](int index)
+    { framework.SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(index)); });
   }
 
   QButtonGroup * nightModeGroup = new QButtonGroup(this);

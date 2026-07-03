@@ -164,7 +164,8 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
     {
       OnBackPressListener listener = (OnBackPressListener) currentFragment;
       return listener.onBackPressed();
-    } catch (ClassCastException e)
+    }
+    catch (ClassCastException e)
     {
       Logger.i(TAG, "Fragment '" + currentFragment + "' doesn't handle back press by itself.");
       return false;
@@ -197,7 +198,7 @@ public abstract class BaseMwmFragmentActivity extends AppCompatActivity
     final int resId = getFragmentContentResId();
     if (resId <= 0 || findViewById(resId) == null)
       throw new IllegalStateException(
-              "Fragment can't be added, since getFragmentContentResId() isn't implemented or returns wrong resourceId.");
+          "Fragment can't be added, since getFragmentContentResId() isn't implemented or returns wrong resourceId.");
 
     String name = fragmentClass.getName();
     Fragment potentialInstance = getSupportFragmentManager().findFragmentByTag(name);

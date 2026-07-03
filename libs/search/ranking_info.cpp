@@ -265,29 +265,16 @@ public:
 // static
 void RankingInfo::PrintCSVHeader(ostream & os)
 {
-  os << "DistanceToPivot"
-     << ",Rank"
-     << ",Popularity"
-     << ",Rating"
-     << ",NameScore"
-     << ",ErrorsMade"
-     << ",MatchedFraction"
-     << ",SearchType"
-     << ",ResultType"
-     << ",PureCats"
-     << ",FalseCats"
-     << ",AllTokensUsed"
-     << ",ExactCountryOrCapital"
-     << ",IsCategorialRequest"
-     << ",HasName";
+  os << "DistanceToPivot" << ",Rank" << ",Popularity" << ",Rating" << ",NameScore" << ",ErrorsMade"
+     << ",MatchedFraction" << ",SearchType" << ",ResultType" << ",PureCats" << ",FalseCats" << ",AllTokensUsed"
+     << ",ExactCountryOrCapital" << ",IsCategorialRequest" << ",HasName";
 }
 
 std::string DebugPrint(StoredRankingInfo const & info)
 {
   ostringstream os;
-  os << "StoredRankingInfo "
-     << "{ m_distanceToPivot: " << info.m_distanceToPivot << ", m_type: " << DebugPrint(info.m_type)
-     << ", m_classifType: ";
+  os << "StoredRankingInfo " << "{ m_distanceToPivot: " << info.m_distanceToPivot
+     << ", m_type: " << DebugPrint(info.m_type) << ", m_classifType: ";
 
   if (Model::IsPoi(info.m_type))
     os << DebugPrint(info.m_classifType.poi);

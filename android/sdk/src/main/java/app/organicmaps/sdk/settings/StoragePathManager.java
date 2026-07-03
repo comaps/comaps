@@ -298,14 +298,16 @@ public class StoragePathManager
     StorageItem res = null;
 
     for (StorageItem storage : mNonremovableStorages)
-      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly)
+      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize)
+          && !storage.mIsReadonly)
         res = storage;
 
     if (res != null)
       return res;
 
     for (StorageItem storage : mRemovableStorages)
-      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize) && !storage.mIsReadonly)
+      if ((res == null || storage.mFreeSize > THREEHUNDRED_MB && res.mFreeSize < storage.mFreeSize)
+          && !storage.mIsReadonly)
         res = storage;
 
     if (res != null)

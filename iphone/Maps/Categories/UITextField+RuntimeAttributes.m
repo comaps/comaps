@@ -9,7 +9,7 @@
 
 - (NSString *)localizedPlaceholder
 {
-  NSString * placeholder = self.placeholder;
+  NSString *placeholder = self.placeholder;
   return L(placeholder);
 }
 

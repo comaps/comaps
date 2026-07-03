@@ -132,9 +132,7 @@ public class MapObject implements PlacePageData
          source.readInt(), // mOpeningMode
          Objects.requireNonNull(
              ParcelCompat.readParcelable(source, Popularity.class.getClassLoader(), Popularity.class)),
-         Objects.requireNonNull(source.readString()), 
-         source.readString(), 
-         source.readInt(),
+         Objects.requireNonNull(source.readString()), source.readString(), source.readInt(),
          null // mRawTypes
     );
 
@@ -343,8 +341,10 @@ public class MapObject implements PlacePageData
   }
   private String getFeatureType(String match)
   {
-    for (String type : mRawTypes) {
-      if (type.startsWith(match)) {
+    for (String type : mRawTypes)
+    {
+      if (type.startsWith(match))
+      {
         return type;
       }
     }

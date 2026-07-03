@@ -25,10 +25,9 @@ double constexpr kSteetNameLinkMeters = 400.0;
 std::string DebugPrint(RouteSegment::RoadNameInfo const & rni)
 {
   stringstream out;
-  out << "RoadNameInfo "
-      << "{ m_name = " << rni.m_name << ", m_ref = " << rni.m_ref << ", m_junction_ref = " << rni.m_junction_ref
-      << ", m_destination_ref = " << rni.m_destination_ref << ", m_destination = " << rni.m_destination
-      << ", m_isLink = " << rni.m_isLink << " }";
+  out << "RoadNameInfo " << "{ m_name = " << rni.m_name << ", m_ref = " << rni.m_ref
+      << ", m_junction_ref = " << rni.m_junction_ref << ", m_destination_ref = " << rni.m_destination_ref
+      << ", m_destination = " << rni.m_destination << ", m_isLink = " << rni.m_isLink << " }";
   return out.str();
 }
 

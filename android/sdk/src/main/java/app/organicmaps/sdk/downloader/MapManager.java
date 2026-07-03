@@ -51,10 +51,10 @@ public final class MapManager
 
   // Must correspond to CheckUpdatesStatus in storage_defines.hpp
   public static final int CHECK_UPDATES_UNDEFINED = 0;
-  public static final int CHECK_UPDATES_UPDATED = 1;  // An update had been pulled and applied successfully
+  public static final int CHECK_UPDATES_UPDATED = 1; // An update had been pulled and applied successfully
   public static final int CHECK_UPDATES_NOUPDATE = 2; // No updates available at the moment
-  public static final int CHECK_UPDATES_EOL = 3;      // No more updates planned for app's map series
-  public static final int CHECK_UPDATES_ERROR = 4;    // An error happened while checking
+  public static final int CHECK_UPDATES_EOL = 3; // No more updates planned for app's map series
+  public static final int CHECK_UPDATES_ERROR = 4; // An error happened while checking
 
   public interface CheckUpdatesListener
   {

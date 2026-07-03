@@ -2,11 +2,11 @@
 
 #import "CoreApi/CoreApi-Swift.h"
 
-static NSString * const kLabelText = L(@"editor_hours_closed");
+static NSString *const kLabelText = L(@"editor_hours_closed");
 
 CGFloat labelWidth()
 {
-  UILabel * label = [[UILabel alloc] initWithFrame:CGRectZero];
+  UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
   label.font = [UIFont regular17];
   label.text = kLabelText;
   [label sizeToFit];
@@ -23,12 +23,12 @@ BOOL isCompactForCellWidth(CGFloat width)
 
 @interface MWMOpeningHoursClosedSpanTableViewCell ()
 
-@property(weak, nonatomic) IBOutlet UILabel * hoursClosedLabel;
-@property(weak, nonatomic) IBOutlet UILabel * timeSpanLabel;
+@property(weak, nonatomic) IBOutlet UILabel *hoursClosedLabel;
+@property(weak, nonatomic) IBOutlet UILabel *timeSpanLabel;
 
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * timeSpanHorizontalAlignment;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * timeSpanVerticalAlignment;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * hoursClosedTrailing;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *timeSpanHorizontalAlignment;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *timeSpanVerticalAlignment;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *hoursClosedTrailing;
 
 @property(nonatomic) BOOL isCompact;
 
@@ -36,7 +36,10 @@ BOOL isCompactForCellWidth(CGFloat width)
 
 @implementation MWMOpeningHoursClosedSpanTableViewCell
 
-+ (CGFloat)heightForWidth:(CGFloat)width { return isCompactForCellWidth(width) ? 44.0 : 64.0; }
++ (CGFloat)heightForWidth:(CGFloat)width
+{
+  return isCompactForCellWidth(width) ? 44.0 : 64.0;
+}
 - (void)awakeFromNib
 {
   [super awakeFromNib];
@@ -72,17 +75,17 @@ BOOL isCompactForCellWidth(CGFloat width)
 - (void)refresh
 {
   [super refresh];
-  NSCalendar * calendar = NSCalendar.currentCalendar;
+  NSCalendar *calendar = NSCalendar.currentCalendar;
 
-  MWMOpeningHoursSection * section = self.section;
+  MWMOpeningHoursSection *section = self.section;
   NSUInteger const row = self.row;
-  NSDate * openDate = [calendar dateFromComponents:[section timeForRow:row isStart:YES]];
-  NSDate * closeDate = [calendar dateFromComponents:[section timeForRow:row isStart:NO]];
+  NSDate *openDate = [calendar dateFromComponents:[section timeForRow:row isStart:YES]];
+  NSDate *closeDate = [calendar dateFromComponents:[section timeForRow:row isStart:NO]];
 
   NSDateFormatterStyle timeStyle = NSDateFormatterShortStyle;
   NSDateFormatterStyle dateStyle = NSDateFormatterNoStyle;
-  NSString * openString = [DateTimeFormatter dateStringFrom:openDate dateStyle:dateStyle timeStyle:timeStyle];
-  NSString * closeString = [DateTimeFormatter dateStringFrom:closeDate dateStyle:dateStyle timeStyle:timeStyle];
+  NSString *openString = [DateTimeFormatter dateStringFrom:openDate dateStyle:dateStyle timeStyle:timeStyle];
+  NSString *closeString = [DateTimeFormatter dateStringFrom:closeDate dateStyle:dateStyle timeStyle:timeStyle];
 
   self.timeSpanLabel.text = [NSString stringWithFormat:@"%@-%@", openString, closeString];
 
@@ -92,13 +95,16 @@ BOOL isCompactForCellWidth(CGFloat width)
 
 #pragma mark - Actions
 
-- (IBAction)cancelTap { [self.section removeClosedTime:self.row]; }
+- (IBAction)cancelTap
+{
+  [self.section removeClosedTime:self.row];
+}
 - (IBAction)expandTap
 {
   if (!self.isVisible)
     return;
   NSUInteger const row = self.row;
-  MWMOpeningHoursSection * section = self.section;
+  MWMOpeningHoursSection *section = self.section;
   section.selectedRow = [section isRowSelected:row] ? nil : @(row);
   [section refresh:NO];
 }

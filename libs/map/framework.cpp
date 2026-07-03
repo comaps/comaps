@@ -640,7 +640,7 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
     FillSpeedCameraMarkInfo(*static_cast<SpeedCameraMark const *>(mark), outInfo);
     break;
   }
-      
+
   case UserMark::Type::TRAFFIC_LIGHT:
   {
     auto const * tlMark = static_cast<TrafficLightMark const *>(mark);
@@ -648,7 +648,7 @@ void Framework::FillUserMarkInfo(UserMark const * mark, place_page::Info & outIn
       FillFeatureInfo(tlMark->GetFeatureID(), outInfo);
     break;
   }
-      
+
   default: CHECK(false, ("Unexpected user mark type", mark->GetMarkType()));
   }
 
@@ -2428,7 +2428,8 @@ bool Framework::LoadTransliteration()
 
 void Framework::SaveTransliteration(bool allowTranslit)
 {
-  settings::Set(localisation::kTransliterationSetting, allowTranslit ? Transliteration::Mode::Enabled : Transliteration::Mode::Disabled);
+  settings::Set(localisation::kTransliterationSetting,
+                allowTranslit ? Transliteration::Mode::Enabled : Transliteration::Mode::Disabled);
 }
 
 std::optional<localisation::LanguageCode> Framework::GetCustomMapLanguageCode()
@@ -2459,7 +2460,8 @@ localisation::AlternativeMapLanguageHandling Framework::GetAlternativeMapLanguag
   return localisation::UsedAlternativeMapLanguageHandling();
 }
 
-void Framework::SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling)
+void Framework::SetAlternativeMapLanguageHandling(
+    localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling)
 {
   settings::Set(localisation::kAlternativeMapLanguageHandlingSetting, alternativeMapLanguageHandling);
   InvalidateRect(GetCurrentViewport());
@@ -2771,7 +2773,9 @@ bool Framework::ParseEditorDebugCommand(search::SearchParams const & params)
         return true;
       }
 
-      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.has_value() ? ft->GetTranslatedName().m_primary.value() : "");
+      search::Result res(feature::GetCenter(*ft), ft->GetTranslatedName().m_primary.has_value()
+                                                      ? ft->GetTranslatedName().m_primary.value()
+                                                      : "");
       res.SetAddress(std::move(edit.second));
       res.FromFeature(fid, feature::TypesHolder(*ft).GetBestType(), 0, {});
 
@@ -3329,7 +3333,8 @@ void Framework::FillDescriptions(FeatureType & ft, place_page::Info & info) cons
   if (!ft.GetID().m_mwmId.IsAlive())
     return;
 
-  std::string wikiDescription = m_descriptionsLoader->GetWikiDescription(ft.GetID(), localisation::PrioritizedMapLanguageIndexes(ft.GetLanguages()));
+  std::string wikiDescription = m_descriptionsLoader->GetWikiDescription(
+      ft.GetID(), localisation::PrioritizedMapLanguageIndexes(ft.GetLanguages()));
   if (!wikiDescription.empty())
   {
     info.SetWikiDescription(std::move(wikiDescription));
@@ -3341,7 +3346,10 @@ void Framework::FillDescriptions(FeatureType & ft, place_page::Info & info) cons
   if (osmDescription.empty())
     return;
 
-  std::optional<std::string> translatedOsmDescription = localisation::TranslatedFeatureName(StringUtf8Multilang::FromBuffer(std::string(osmDescription)), ft.GetLanguages()).m_primary;
+  std::optional<std::string> translatedOsmDescription =
+      localisation::TranslatedFeatureName(StringUtf8Multilang::FromBuffer(std::string(osmDescription)),
+                                          ft.GetLanguages())
+          .m_primary;
   if (translatedOsmDescription.has_value())
     info.SetOSMDescription(std::string(translatedOsmDescription.value()));
 }

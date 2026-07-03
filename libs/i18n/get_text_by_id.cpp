@@ -69,7 +69,8 @@ TGetTextByIdPtr GetTextById::Create(string const & jsonBuffer, string const & lo
 TGetTextByIdPtr GetTextByIdFactoryForRegion(TextSource textSource, string const regionId)
 {
   string jsonBuffer;
-  for (LanguageIndex const languageIndex : PrioritizedMapLanguageIndexes(CountryLanguage::Instance().GetLocalLanguageIndexes(regionId)))
+  for (LanguageIndex const languageIndex :
+       PrioritizedMapLanguageIndexes(CountryLanguage::Instance().GetLocalLanguageIndexes(regionId)))
   {
     LanguageCode const languageCode = ConvertLanguageIndexToLanguageCode(languageIndex);
     if (languageIndex == kDefaultNameIndex)

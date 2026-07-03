@@ -131,8 +131,7 @@ bool Edge::operator<(Edge const & r) const
 string DebugPrint(Edge const & r)
 {
   ostringstream ss;
-  ss << boolalpha << "Edge "
-     << "{ featureId: " << DebugPrint(r.GetFeatureId()) << ", isForward: " << r.IsForward()
+  ss << boolalpha << "Edge " << "{ featureId: " << DebugPrint(r.GetFeatureId()) << ", isForward: " << r.IsForward()
      << ", partOfReal: " << r.HasRealPart() << ", segId: " << r.m_segId
      << ", startJunction: " << DebugPrint(r.m_startJunction) << ", endJunction: " << DebugPrint(r.m_endJunction)
      << " }";

@@ -10,15 +10,15 @@
 #include <algorithm>
 #include <functional>
 #include <string>
-#include <vector>
 #include <utility>
+#include <vector>
 
 namespace dp
 {
 namespace metal
 {
-MetalBaseContext::MetalBaseContext(id<MTLDevice> device, m2::PointU const & screenSize,
-                                   DrawableRequest && drawableRequest)
+MetalBaseContext::MetalBaseContext(id<MTLDevice> device, m2::PointU const &screenSize,
+                                   DrawableRequest &&drawableRequest)
   : m_device(device)
   , m_drawableRequest(std::move(drawableRequest))
 {
@@ -35,7 +35,7 @@ MetalBaseContext::MetalBaseContext(id<MTLDevice> device, m2::PointU const & scre
   RecreateDepthTexture(screenSize);
 }
 
-void MetalBaseContext::RecreateDepthTexture(m2::PointU const & screenSize)
+void MetalBaseContext::RecreateDepthTexture(m2::PointU const &screenSize)
 {
   if (screenSize.x == 0 || screenSize.y == 0)
   {
@@ -102,21 +102,16 @@ std::string MetalBaseContext::GetRendererVersion() const
     features.emplace_back(MTLFeatureSet_iOS_GPUFamily4_v2, "iOS_GPUFamily4_v2");
     features.emplace_back(MTLFeatureSet_iOS_GPUFamily5_v1, "iOS_GPUFamily5_v1");
 #endif
-    std::sort(features.begin(), features.end(), [](auto const & s1, auto const & s2)
-    {
-      return s1.first > s2.first;
-    });
+    std::sort(features.begin(), features.end(), [](auto const &s1, auto const &s2) { return s1.first > s2.first; });
   }
 
   for (auto featureSet : features)
-  {
     if ([m_device supportsFeatureSet:featureSet.first])
       return featureSet.second;
-  }
   return "Unknown";
 }
 
-void MetalBaseContext::PushDebugLabel(std::string const & label)
+void MetalBaseContext::PushDebugLabel(std::string const &label)
 {
   if (m_currentCommandEncoder == nil)
     return;
@@ -144,7 +139,7 @@ void MetalBaseContext::SetFramebuffer(ref_ptr<dp::BaseFramebuffer> framebuffer)
   m_currentFramebuffer = framebuffer;
 }
 
-void MetalBaseContext::ApplyFramebuffer(std::string const & framebufferLabel)
+void MetalBaseContext::ApplyFramebuffer(std::string const &framebufferLabel)
 {
   // Initialize frame command buffer if there is no one.
   if (!m_frameCommandBuffer)
@@ -198,11 +193,11 @@ void MetalBaseContext::ApplyFramebuffer(std::string const & framebufferLabel)
   [m_currentCommandEncoder setStencilReferenceValue:m_stencilReferenceValue];
 }
 
-void MetalBaseContext::SetClearColor(dp::Color const & color)
+void MetalBaseContext::SetClearColor(dp::Color const &color)
 {
   m_cleaner.SetClearColor(color);
   m_renderPassDescriptor.colorAttachments[0].clearColor =
-    MTLClearColorMake(color.GetRedF(), color.GetGreenF(), color.GetBlueF(), color.GetAlphaF());
+      MTLClearColorMake(color.GetRedF(), color.GetGreenF(), color.GetBlueF(), color.GetAlphaF());
 }
 
 void MetalBaseContext::Clear(uint32_t clearBits, uint32_t storeBits)
@@ -221,22 +216,25 @@ void MetalBaseContext::Clear(uint32_t clearBits, uint32_t storeBits)
   }
   else
   {
-    // Here, if we do not clear attachments, we load data ONLY if we store it afterwards, otherwise we use 'DontCare' option
-    // to improve performance.
+    // Here, if we do not clear attachments, we load data ONLY if we store it afterwards, otherwise we use 'DontCare'
+    // option to improve performance.
     if (clearBits & ClearBits::ColorBit)
       m_renderPassDescriptor.colorAttachments[0].loadAction = MTLLoadActionClear;
     else
-      m_renderPassDescriptor.colorAttachments[0].loadAction = (storeBits & ClearBits::ColorBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
+      m_renderPassDescriptor.colorAttachments[0].loadAction =
+          (storeBits & ClearBits::ColorBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
 
     if (clearBits & ClearBits::DepthBit)
       m_renderPassDescriptor.depthAttachment.loadAction = MTLLoadActionClear;
     else
-      m_renderPassDescriptor.depthAttachment.loadAction = (storeBits & ClearBits::DepthBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
+      m_renderPassDescriptor.depthAttachment.loadAction =
+          (storeBits & ClearBits::DepthBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
 
     if (clearBits & ClearBits::StencilBit)
       m_renderPassDescriptor.stencilAttachment.loadAction = MTLLoadActionClear;
     else
-      m_renderPassDescriptor.stencilAttachment.loadAction = (storeBits & ClearBits::StencilBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
+      m_renderPassDescriptor.stencilAttachment.loadAction =
+          (storeBits & ClearBits::StencilBit) ? MTLLoadActionLoad : MTLLoadActionDontCare;
 
     // Apply storing mode.
     if (storeBits & ClearBits::ColorBit)
@@ -303,10 +301,8 @@ void MetalBaseContext::SetStencilFunction(dp::StencilFace face, dp::TestFunction
   m_currentDepthStencilKey.SetStencilFunction(face, stencilFunction);
 }
 
-void MetalBaseContext::SetStencilActions(dp::StencilFace face,
-                                         dp::StencilAction stencilFailAction,
-                                         dp::StencilAction depthFailAction,
-                                         dp::StencilAction passAction)
+void MetalBaseContext::SetStencilActions(dp::StencilFace face, dp::StencilAction stencilFailAction,
+                                         dp::StencilAction depthFailAction, dp::StencilAction passAction)
 {
   m_currentDepthStencilKey.SetStencilActions(face, stencilFailAction, depthFailAction, passAction);
 }
@@ -314,7 +310,7 @@ void MetalBaseContext::SetStencilActions(dp::StencilFace face,
 void MetalBaseContext::SetCullingEnabled(bool enabled)
 {
   id<MTLRenderCommandEncoder> encoder = GetCommandEncoder();
-  [encoder setCullMode: (enabled ? MTLCullModeBack : MTLCullModeNone)];
+  [encoder setCullMode:(enabled ? MTLCullModeBack : MTLCullModeNone)];
 }
 
 id<MTLDevice> MetalBaseContext::GetMetalDevice() const
@@ -411,9 +407,9 @@ void MetalBaseContext::FinishCurrentEncoding()
   m_lastPipelineState = nil;
 }
 
-void MetalBaseContext::SetSystemPrograms(drape_ptr<GpuProgram> && programClearColor,
-                                         drape_ptr<GpuProgram> && programClearDepth,
-                                         drape_ptr<GpuProgram> && programClearColorAndDepth)
+void MetalBaseContext::SetSystemPrograms(drape_ptr<GpuProgram> &&programClearColor,
+                                         drape_ptr<GpuProgram> &&programClearDepth,
+                                         drape_ptr<GpuProgram> &&programClearColorAndDepth)
 {
   m_cleaner.Init(make_ref(this), std::move(programClearColor), std::move(programClearDepth),
                  std::move(programClearColorAndDepth));
@@ -446,13 +442,13 @@ void MetalBaseContext::DebugSynchronizeWithCPU()
   m_frameCommandBuffer = nil;
 }
 
-MTLRenderPassDescriptor * MetalBaseContext::GetRenderPassDescriptor() const
+MTLRenderPassDescriptor *MetalBaseContext::GetRenderPassDescriptor() const
 {
   return m_renderPassDescriptor;
 }
 }  // namespace metal
 
-void RenderFrameMediator(std::function<void()> && renderFrameFunction)
+void RenderFrameMediator(std::function<void()> &&renderFrameFunction)
 {
   @autoreleasepool
   {

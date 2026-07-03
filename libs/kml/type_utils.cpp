@@ -23,7 +23,8 @@ bool IsEqual(geometry::PointWithAltitude const & lhs, geometry::PointWithAltitud
   return AlmostEqualAbs(lhs, rhs, kMwmPointAccuracy);
 }
 
-std::string GetPreferredBookmarkStrForKml(LocalizableString const & name, std::vector<localisation::LanguageIndex> const languageIndexes)
+std::string GetPreferredBookmarkStrForKml(LocalizableString const & name,
+                                          std::vector<localisation::LanguageIndex> const languageIndexes)
 {
   if (name.size() == 1)
     return name.begin()->second;
@@ -33,7 +34,8 @@ std::string GetPreferredBookmarkStrForKml(LocalizableString const & name, std::v
   for (auto const & pair : name)
     nameMultilang.AddString(pair.first, pair.second);
 
-  std::optional<std::string> translatedName = localisation::TranslatedFeatureName(nameMultilang, languageIndexes).m_primary;
+  std::optional<std::string> translatedName =
+      localisation::TranslatedFeatureName(nameMultilang, languageIndexes).m_primary;
   if (translatedName.has_value())
     return translatedName.value();
 
@@ -53,7 +55,8 @@ std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types)
 
 std::string GetPreferredBookmarkNameForKml(BookmarkData const & bmData)
 {
-  std::vector<localisation::LanguageIndex> languageIndexes = feature::RegionLocator::Instance().GetLocalLanguageIndexes(bmData.m_point);
+  std::vector<localisation::LanguageIndex> languageIndexes =
+      feature::RegionLocator::Instance().GetLocalLanguageIndexes(bmData.m_point);
   std::string name = GetPreferredBookmarkStrForKml(bmData.m_customName, languageIndexes);
   if (name.empty())
     name = GetPreferredBookmarkStrForKml(bmData.m_name, languageIndexes);

@@ -8,8 +8,8 @@
 
 namespace
 {
-NSString * const kNetworkingPolicyTimeStamp = @"NetworkingPolicyTimeStamp";
-NSString * const kNetworkingPolicyStage = @"NetworkingPolicyStage";
+NSString *const kNetworkingPolicyTimeStamp = @"NetworkingPolicyTimeStamp";
+NSString *const kNetworkingPolicyStage = @"NetworkingPolicyStage";
 NSTimeInterval const kSessionDurationSeconds = 24 * 60 * 60;
 }  // namespace
 
@@ -27,7 +27,7 @@ Stage GetStage()
   return (Stage)[NSUserDefaults.standardUserDefaults integerForKey:kNetworkingPolicyStage];
 }
 
-NSDate * GetPolicyDate()
+NSDate *GetPolicyDate()
 {
   return [NSUserDefaults.standardUserDefaults objectForKey:kNetworkingPolicyTimeStamp];
 }

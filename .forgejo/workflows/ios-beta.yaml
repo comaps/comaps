@@ -7,8 +7,8 @@ on:
     paths-ignore:
       - .gitignore
       - .forgejo/**
-      - '!.forgejo/workflows/ios-beta.yaml'  # Run check on self change
-      - '**/*_tests/**'
+      - "!.forgejo/workflows/ios-beta.yaml" # Run check on self change
+      - "**/*_tests/**"
       - CONTRIBUTORS
       - LICENSE
       - NOTICE
@@ -33,7 +33,7 @@ jobs:
     runs-on: macos-15
     env:
       DEVELOPER_DIR: /Applications/Xcode_26.app/Contents/Developer
-      LANG: en_US.UTF-8  # Fastlane complains that the terminal is using ASCII.
+      LANG: en_US.UTF-8 # Fastlane complains that the terminal is using ASCII.
       LANGUAGE: en_US.UTF-8
       LC_ALL: en_US.UTF-8
     environment: beta
@@ -72,7 +72,7 @@ jobs:
           echo "IOS_VERSION=$(../tools/unix/version.sh ios_version)-$(../tools/unix/version.sh ios_build)" >> "$GITHUB_ENV"
           ./fastlane.sh upload_testflight
         env:
-          APPSTORE_CERTIFICATE_PASSWORD: '${{ secrets.APPSTORE_CERTIFICATE_PASSWORD }}'
+          APPSTORE_CERTIFICATE_PASSWORD: "${{ secrets.APPSTORE_CERTIFICATE_PASSWORD }}"
         working-directory: xcode
 
       - name: Upload ipa and DSYMs artifacts

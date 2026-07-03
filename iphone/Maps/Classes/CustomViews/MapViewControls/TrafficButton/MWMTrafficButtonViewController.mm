@@ -10,14 +10,17 @@
 #import "SwiftBridge.h"
 #import "base/assert.hpp"
 
-namespace {
+namespace
+{
 CGFloat const kTopOffset = 6;
 
-NSArray<UIImage *> *imagesWithName(NSString *name) {
+NSArray<UIImage *> *imagesWithName(NSString *name)
+{
   NSUInteger const imagesCount = 3;
   NSMutableArray<UIImage *> *images = [NSMutableArray arrayWithCapacity:imagesCount];
   NSString *mode = [UIColor isNightMode] ? @"dark" : @"light";
-  for (NSUInteger i = 1; i <= imagesCount; i += 1) {
+  for (NSUInteger i = 1; i <= imagesCount; i += 1)
+  {
     NSString *imageName = [NSString stringWithFormat:@"%@_%@_%@", name, mode, @(i).stringValue];
     [images addObject:static_cast<UIImage *_Nonnull>([UIImage imageNamed:imageName])];
   }
@@ -41,13 +44,16 @@ NSArray<UIImage *> *imagesWithName(NSString *name) {
 
 @implementation MWMTrafficButtonViewController
 
-+ (MWMTrafficButtonViewController *)controller {
++ (MWMTrafficButtonViewController *)controller
+{
   return [MWMMapViewControlsManager manager].trafficButton;
 }
 
-- (instancetype)init {
+- (instancetype)init
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     MapViewController *ovc = [MapViewController sharedController];
     [ovc addChildViewController:self];
     [ovc.controlsView addSubview:self.view];
@@ -59,16 +65,19 @@ NSArray<UIImage *> *imagesWithName(NSString *name) {
   return self;
 }
 
-- (void)dealloc {
+- (void)dealloc
+{
   [StyleManager.shared removeListener:self];
 }
 
-- (void)viewWillDisappear:(BOOL)animated {
+- (void)viewWillDisappear:(BOOL)animated
+{
   [super viewWillDisappear:animated];
   [Toast hideAll];
 }
 
-- (void)configLayout {
+- (void)configLayout
+{
   UIView *sv = self.view;
   UIView *ov = sv.superview;
 
@@ -78,12 +87,14 @@ NSArray<UIImage *> *imagesWithName(NSString *name) {
   self.leftOffset.active = YES;
 }
 
-- (void)setHidden:(BOOL)hidden {
+- (void)setHidden:(BOOL)hidden
+{
   _hidden = hidden;
   [self refreshLayout];
 }
 
-- (void)refreshLayout {
+- (void)refreshLayout
+{
   dispatch_async(dispatch_get_main_queue(), ^{
     auto const availableArea = self.availableArea;
     auto const fitInAvailableArea = CGRectGetMaxY(self.view.frame) < CGRectGetMaxY(availableArea) + kTopOffset;
@@ -95,102 +106,111 @@ NSArray<UIImage *> *imagesWithName(NSString *name) {
   });
 }
 
-- (void)handleTrafficState:(MWMMapOverlayTrafficState)state {
+- (void)handleTrafficState:(MWMMapOverlayTrafficState)state
+{
   MWMButton *btn = (MWMButton *)self.view;
   UIImageView *iv = btn.imageView;
-  switch (state) {
-    case MWMMapOverlayTrafficStateDisabled:
-      CHECK(false, ("Incorrect traffic manager state."));
-      break;
-    case MWMMapOverlayTrafficStateEnabled:
-      btn.imageName = @"btn_traffic_on";
-      break;
-    case MWMMapOverlayTrafficStateWaitingData:
-      iv.animationImages = imagesWithName(@"btn_traffic_update");
-      iv.animationDuration = 0.8;
-      [iv startAnimating];
-      break;
-    case MWMMapOverlayTrafficStateOutdated:
-      btn.imageName = @"btn_traffic_outdated";
-      break;
-    case MWMMapOverlayTrafficStateNoData:
-      btn.imageName = @"btn_traffic_on";
-      [Toast showWithText:L(@"traffic_data_unavailable")];
-      break;
-    case MWMMapOverlayTrafficStateNetworkError:
-      [MWMMapOverlayManager setTrafficEnabled:NO];
-      [[MWMAlertViewController activeAlertController] presentNoConnectionAlert];
-      break;
-    case MWMMapOverlayTrafficStateExpiredData:
-      btn.imageName = @"btn_traffic_outdated";
-      [Toast showWithText:L(@"traffic_update_maps_text")];
-      break;
-    case MWMMapOverlayTrafficStateExpiredApp:
-      btn.imageName = @"btn_traffic_outdated";
-      [Toast showWithText:L(@"traffic_update_app_message")];
-      break;
+  switch (state)
+  {
+  case MWMMapOverlayTrafficStateDisabled: CHECK(false, ("Incorrect traffic manager state.")); break;
+  case MWMMapOverlayTrafficStateEnabled: btn.imageName = @"btn_traffic_on"; break;
+  case MWMMapOverlayTrafficStateWaitingData:
+    iv.animationImages = imagesWithName(@"btn_traffic_update");
+    iv.animationDuration = 0.8;
+    [iv startAnimating];
+    break;
+  case MWMMapOverlayTrafficStateOutdated: btn.imageName = @"btn_traffic_outdated"; break;
+  case MWMMapOverlayTrafficStateNoData:
+    btn.imageName = @"btn_traffic_on";
+    [Toast showWithText:L(@"traffic_data_unavailable")];
+    break;
+  case MWMMapOverlayTrafficStateNetworkError:
+    [MWMMapOverlayManager setTrafficEnabled:NO];
+    [[MWMAlertViewController activeAlertController] presentNoConnectionAlert];
+    break;
+  case MWMMapOverlayTrafficStateExpiredData:
+    btn.imageName = @"btn_traffic_outdated";
+    [Toast showWithText:L(@"traffic_update_maps_text")];
+    break;
+  case MWMMapOverlayTrafficStateExpiredApp:
+    btn.imageName = @"btn_traffic_outdated";
+    [Toast showWithText:L(@"traffic_update_app_message")];
+    break;
   }
 }
 
-- (void)handleIsolinesState:(MWMMapOverlayIsolinesState)state {
-  switch (state) {
-    case MWMMapOverlayIsolinesStateDisabled:
-      break;
-    case MWMMapOverlayIsolinesStateEnabled:
-      if (![MWMMapOverlayManager isolinesVisible])
-        [Toast showWithText:L(@"isolines_toast_zooms_1_10")];
-      break;
-    case MWMMapOverlayIsolinesStateExpiredData:
-      [MWMAlertViewController.activeAlertController presentInfoAlert:L(@"isolines_activation_error_dialog")];
-      [MWMMapOverlayManager setIsoLinesEnabled:NO];
-      break;
-    case MWMMapOverlayIsolinesStateNoData:
-      [MWMAlertViewController.activeAlertController presentInfoAlert:L(@"isolines_location_error_dialog")];
-      [MWMMapOverlayManager setIsoLinesEnabled:NO];
-      break;
+- (void)handleIsolinesState:(MWMMapOverlayIsolinesState)state
+{
+  switch (state)
+  {
+  case MWMMapOverlayIsolinesStateDisabled: break;
+  case MWMMapOverlayIsolinesStateEnabled:
+    if (![MWMMapOverlayManager isolinesVisible])
+      [Toast showWithText:L(@"isolines_toast_zooms_1_10")];
+    break;
+  case MWMMapOverlayIsolinesStateExpiredData:
+    [MWMAlertViewController.activeAlertController presentInfoAlert:L(@"isolines_activation_error_dialog")];
+    [MWMMapOverlayManager setIsoLinesEnabled:NO];
+    break;
+  case MWMMapOverlayIsolinesStateNoData:
+    [MWMAlertViewController.activeAlertController presentInfoAlert:L(@"isolines_location_error_dialog")];
+    [MWMMapOverlayManager setIsoLinesEnabled:NO];
+    break;
   }
 }
 
-- (void)applyTheme {
+- (void)applyTheme
+{
   MWMButton *btn = static_cast<MWMButton *>(self.view);
   UIImageView *iv = btn.imageView;
 
   // Traffic state machine: https://confluence.mail.ru/pages/viewpage.action?pageId=103680959
   [iv stopAnimating];
-  if ([MWMMapOverlayManager trafficEnabled]) {
+  if ([MWMMapOverlayManager trafficEnabled])
+  {
     [self handleTrafficState:[MWMMapOverlayManager trafficState]];
-  } else if ([MWMMapOverlayManager transitEnabled]) {
+  }
+  else if ([MWMMapOverlayManager transitEnabled])
+  {
     btn.imageName = @"btn_subway_on";
     if ([MWMMapOverlayManager transitState] == MWMMapOverlayTransitStateNoData)
       [Toast showWithText:L(@"subway_data_unavailable")];
-  } else if ([MWMMapOverlayManager isoLinesEnabled]) {
+  }
+  else if ([MWMMapOverlayManager isoLinesEnabled])
+  {
     btn.imageName = @"btn_isoMap_on";
     [self handleIsolinesState:[MWMMapOverlayManager isolinesState]];
-  } else if ([MWMMapOverlayManager outdoorEnabled]) {
+  }
+  else if ([MWMMapOverlayManager outdoorEnabled])
+  {
     btn.imageName = @"btn_isoMap_on";
-  } else {
+  }
+  else
+  {
     btn.imageName = @"btn_layers";
   }
 }
 
-- (IBAction)buttonTouchUpInside {
-  BOOL needsToDisableMapLayer =
-  [MWMMapOverlayManager trafficEnabled] ||
-  [MWMMapOverlayManager transitEnabled] ||
-  [MWMMapOverlayManager isoLinesEnabled] ||
-  [MWMMapOverlayManager outdoorEnabled];
+- (IBAction)buttonTouchUpInside
+{
+  BOOL needsToDisableMapLayer = [MWMMapOverlayManager trafficEnabled] || [MWMMapOverlayManager transitEnabled] ||
+                                [MWMMapOverlayManager isoLinesEnabled] || [MWMMapOverlayManager outdoorEnabled];
 
-  if (needsToDisableMapLayer) {
+  if (needsToDisableMapLayer)
+  {
     [MWMMapOverlayManager setTrafficEnabled:NO];
     [MWMMapOverlayManager setTransitEnabled:NO];
     [MWMMapOverlayManager setIsoLinesEnabled:NO];
     [MWMMapOverlayManager setOutdoorEnabled:NO];
-  } else {
+  }
+  else
+  {
     MWMMapViewControlsManager.manager.menuState = MWMBottomMenuStateLayers;
   }
 }
 
-+ (void)updateAvailableArea:(CGRect)frame {
++ (void)updateAvailableArea:(CGRect)frame
+{
   auto controller = [self controller];
   if (CGRectEqualToRect(controller.availableArea, frame))
     return;
@@ -200,16 +220,20 @@ NSArray<UIImage *> *imagesWithName(NSString *name) {
 
 #pragma mark - MWMMapOverlayManagerObserver
 
-- (void)onTrafficStateUpdated {
+- (void)onTrafficStateUpdated
+{
   [self applyTheme];
 }
-- (void)onTransitStateUpdated {
+- (void)onTransitStateUpdated
+{
   [self applyTheme];
 }
-- (void)onIsoLinesStateUpdated {
+- (void)onIsoLinesStateUpdated
+{
   [self applyTheme];
 }
-- (void)onOutdoorStateUpdated {
+- (void)onOutdoorStateUpdated
+{
   [self applyTheme];
 }
 

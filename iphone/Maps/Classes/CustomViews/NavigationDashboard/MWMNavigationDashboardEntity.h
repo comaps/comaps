@@ -18,12 +18,12 @@
 @property(nonatomic, readonly) UIImage *nextTurnImage;
 @property(nonatomic, readonly) UIImage *turnImage;
 
-@property(nonatomic, readonly) NSString * arrival;
+@property(nonatomic, readonly) NSString *arrival;
 
-- (NSAttributedString *) estimate;
+- (NSAttributedString *)estimate;
 
-+ (NSAttributedString *) estimateDot;
++ (NSAttributedString *)estimateDot;
 
-+ (instancetype) new __attribute__((unavailable("init is not available")));
++ (instancetype)new __attribute__((unavailable("init is not available")));
 
 @end

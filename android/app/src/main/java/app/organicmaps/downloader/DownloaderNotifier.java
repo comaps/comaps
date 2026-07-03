@@ -85,7 +85,8 @@ public class DownloaderNotifier
     notifyProgress(null, 0, 0, 0, 0);
   }
 
-  public void notifyProgress(@Nullable String countryId, int maxProgress, int progress, int numRegions, int numSubregions)
+  public void notifyProgress(@Nullable String countryId, int maxProgress, int progress, int numRegions,
+                             int numSubregions)
   {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
         && ContextCompat.checkSelfPermission(mContext, POST_NOTIFICATIONS) != PERMISSION_GRANTED)
@@ -95,12 +96,13 @@ public class DownloaderNotifier
     }
 
     // countries do not get notifications
-    if (numSubregions > 1) {
+    if (numSubregions > 1)
+    {
       return;
     }
 
-    NotificationManagerCompat.from(mContext).notify(NOTIFICATION_ID,
-                                                    buildProgressNotification(countryId, maxProgress, progress, numRegions));
+    NotificationManagerCompat.from(mContext).notify(
+        NOTIFICATION_ID, buildProgressNotification(countryId, maxProgress, progress, numRegions));
   }
 
   @NonNull
@@ -110,7 +112,8 @@ public class DownloaderNotifier
   }
 
   @NonNull
-  public Notification buildProgressNotification(@Nullable String countryId, int maxProgress, int progress, int numRegions)
+  public Notification buildProgressNotification(@Nullable String countryId, int maxProgress, int progress,
+                                                int numRegions)
   {
     var builder = getNotificationBuilder(countryId);
 
@@ -118,7 +121,8 @@ public class DownloaderNotifier
 
     final String countryName = countryId != null ? MapManager.nativeGetName(countryId) : "";
 
-    if(numRegions > 0){
+    if (numRegions > 0)
+    {
       builder.setContentTitle(mContext.getString(R.string.downloader_downloading) + " " + countryName);
       builder.setContentText(mContext.getString(R.string.mb_downloaded, progress, maxProgress));
     }
@@ -133,15 +137,14 @@ public class DownloaderNotifier
     {
       mNotificationCountryId = countryId;
 
-      mProgressNotificationBuilder =
-          new NotificationCompat.Builder(mContext, CHANNEL_ID)
-              .setAutoCancel(true)
-              .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-              .setSmallIcon(R.drawable.ic_logo_small)
-              .setColor(ContextCompat.getColor(mContext, R.color.notification))
-              .setShowWhen(true)
-              .setContentIntent(getNotificationPendingIntent(countryId))
-              .setSound(null);
+      mProgressNotificationBuilder = new NotificationCompat.Builder(mContext, CHANNEL_ID)
+                                         .setAutoCancel(true)
+                                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                                         .setSmallIcon(R.drawable.ic_logo_small)
+                                         .setColor(ContextCompat.getColor(mContext, R.color.notification))
+                                         .setShowWhen(true)
+                                         .setContentIntent(getNotificationPendingIntent(countryId))
+                                         .setSound(null);
     }
     return mProgressNotificationBuilder;
   }

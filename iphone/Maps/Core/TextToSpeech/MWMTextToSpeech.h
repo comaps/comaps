@@ -1,5 +1,5 @@
-#import "MWMTextToSpeechObserver.h"
 #import <AVFoundation/AVFoundation.h>
+#import "MWMTextToSpeechObserver.h"
 
 @interface MWMTextToSpeech : NSObject
 
@@ -30,8 +30,7 @@
 - (instancetype)init __attribute__((unavailable("call +tts instead")));
 - (instancetype)copy __attribute__((unavailable("call +tts instead")));
 - (instancetype)copyWithZone:(NSZone *)zone __attribute__((unavailable("call +tts instead")));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone
-__attribute__((unavailable("call +tts instead")));
-+ (instancetype) new __attribute__((unavailable("call +tts instead")));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable("call +tts instead")));
++ (instancetype)new __attribute__((unavailable("call +tts instead")));
 
 @end

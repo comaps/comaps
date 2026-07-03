@@ -5,11 +5,11 @@ static CGFloat const kErrorLabelHeight = 16;
 
 @interface MWMEditorAdditionalNameTableViewCell ()
 
-@property(weak, nonatomic) IBOutlet UIStackView * stackView;
-@property(weak, nonatomic) IBOutlet UILabel * languageLabel;
-@property(weak, nonatomic) IBOutlet UITextField * textField;
-@property(weak, nonatomic) IBOutlet UILabel * errorLabel;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * errorLabelHeight;
+@property(weak, nonatomic) IBOutlet UIStackView *stackView;
+@property(weak, nonatomic) IBOutlet UILabel *languageLabel;
+@property(weak, nonatomic) IBOutlet UITextField *textField;
+@property(weak, nonatomic) IBOutlet UILabel *errorLabel;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *errorLabelHeight;
 
 @property(nonatomic, readwrite) NSInteger code;
 
@@ -45,12 +45,12 @@ static CGFloat const kErrorLabelHeight = 16;
   if (self.isValid)
   {
     self.errorLabelHeight.constant = 0;
-    [self.contentView setStyleNameAndApply: @"Background"];
+    [self.contentView setStyleNameAndApply:@"Background"];
   }
   else
   {
     self.errorLabelHeight.constant = kErrorLabelHeight;
-    [self.contentView setStyleNameAndApply: @"ErrorBackground"];
+    [self.contentView setStyleNameAndApply:@"ErrorBackground"];
   }
   [self layoutIfNeeded];
 }
@@ -94,7 +94,7 @@ static CGFloat const kErrorLabelHeight = 16;
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
 {
   // Allow to tap on the whole cell to start editing.
-  UIView * view = [super hitTest:point withEvent:event];
+  UIView *view = [super hitTest:point withEvent:event];
   if (view == self.stackView)
     return self.textField;
   return view;

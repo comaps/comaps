@@ -1,5 +1,7 @@
 package app.organicmaps.widget.menu;
 
+import static androidx.core.content.ContextCompat.getString;
+
 import android.annotation.SuppressLint;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
@@ -30,8 +32,6 @@ import com.google.android.material.textview.MaterialTextView;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
-
-import static androidx.core.content.ContextCompat.getString;
 
 public class NavMenu
 {
@@ -173,8 +173,8 @@ public class NavMenu
 
     // Get preferences for the display of distance and time info (to the final
     // destination or to the next intermediate stop).
-    mShowInfoToFinalDestination = mSharedPreferences.getBoolean(
-      getString(mActivity, R.string.pref_nav_menu_final_destination), true);
+    mShowInfoToFinalDestination =
+        mSharedPreferences.getBoolean(getString(mActivity, R.string.pref_nav_menu_final_destination), true);
   }
 
   private void onStopClicked()
@@ -210,9 +210,9 @@ public class NavMenu
     {
       // Toggle display info between next intermediate stop or final destination.
       mShowInfoToFinalDestination = !mShowInfoToFinalDestination;
-      mSharedPreferences.edit().putBoolean(
-        getString(mActivity, R.string.pref_nav_menu_final_destination),
-        mShowInfoToFinalDestination).apply();
+      mSharedPreferences.edit()
+          .putBoolean(getString(mActivity, R.string.pref_nav_menu_final_destination), mShowInfoToFinalDestination)
+          .apply();
       updateControls();
     }
   }
@@ -247,8 +247,10 @@ public class NavMenu
   {
     boolean ttsEnabled = TtsPlayer.isEnabled();
     mTts.setImageResource(ttsEnabled ? R.drawable.ic_voice_on : R.drawable.ic_voice_off);
-    mTts.setImageTintList(MaterialColors.getColorStateListOrNull(mActivity, ttsEnabled ? com.google.android.material.R.attr.colorSecondary : R.attr.iconTint));
-    mTts.setContentDescription(mActivity.getResources().getString(ttsEnabled ? R.string.tts_toggle_disable : R.string.tts_toggle_enable));
+    mTts.setImageTintList(MaterialColors.getColorStateListOrNull(
+        mActivity, ttsEnabled ? com.google.android.material.R.attr.colorSecondary : R.attr.iconTint));
+    mTts.setContentDescription(
+        mActivity.getResources().getString(ttsEnabled ? R.string.tts_toggle_disable : R.string.tts_toggle_enable));
   }
 
   private void updateTime(int timeInSeconds)
@@ -305,8 +307,7 @@ public class NavMenu
   private void updateDistance(Distance distToTarget)
   {
     mDistanceValue.setText(distToTarget.mDistanceStr);
-    UiUtils.setTextAndShow(mDistanceUnits,
-                           distToTarget.getUnitsStr(mActivity.getApplicationContext()));
+    UiUtils.setTextAndShow(mDistanceUnits, distToTarget.getUnitsStr(mActivity.getApplicationContext()));
   }
 
   private void updateRouteProgress(double completionPercent)
@@ -322,14 +323,14 @@ public class NavMenu
     UiUtils.setTextAndShow(mRoutingState, mActivity.getString(
       switch (routingSessionState)
       {
-        case NoValidRoute -> R.string.invalid_route;
-        case RouteBuilding -> R.string.building_route;
-        case RouteNotStarted -> R.string.route_not_started;
-        case OnRoute -> R.string.on_route;
-        case RouteNeedsRebuild -> R.string.route_needs_rebuild;
-        case RouteFinished -> R.string.route_finished;
-        case RouteNoFollowing -> R.string.not_following_route;
-        case RouteRebuilding -> R.string.route_recalculating;
+      case NoValidRoute -> R.string.invalid_route;
+      case RouteBuilding -> R.string.building_route;
+      case RouteNotStarted -> R.string.route_not_started;
+      case OnRoute -> R.string.on_route;
+      case RouteNeedsRebuild -> R.string.route_needs_rebuild;
+      case RouteFinished -> R.string.route_finished;
+      case RouteNoFollowing -> R.string.not_following_route;
+      case RouteRebuilding -> R.string.route_recalculating;
       }));
   }
 
@@ -379,10 +380,8 @@ public class NavMenu
       UiUtils.show(mDotsSwitch);
 
       // Set dots switch on/off image.
-      mDotsSwitch.setImageDrawable(AppCompatResources.getDrawable(mActivity,
-                                                                  mShowInfoToFinalDestination?
-                                                                  R.drawable.switch_dots_on :
-                                                                  R.drawable.switch_dots_off));
+      mDotsSwitch.setImageDrawable(AppCompatResources.getDrawable(
+          mActivity, mShowInfoToFinalDestination ? R.drawable.switch_dots_on : R.drawable.switch_dots_off));
     }
   }
 

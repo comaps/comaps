@@ -8,12 +8,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-typedef void (^MWMWebImageCompletion)(UIImage * _Nullable image, NSError * _Nullable error);
+typedef void (^MWMWebImageCompletion)(UIImage *_Nullable image, NSError *_Nullable error);
 
 @protocol IMWMWebImage
 
-- (id<IMWMImageTask>)imageWithUrl:(NSURL *)url
-                       completion:(MWMWebImageCompletion)completion;
+- (id<IMWMImageTask>)imageWithUrl:(NSURL *)url completion:(MWMWebImageCompletion)completion;
 - (void)cleanup;
 
 @end

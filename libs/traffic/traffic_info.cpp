@@ -520,8 +520,7 @@ string DebugPrint(TrafficInfo::RoadSegmentId const & id)
 {
   string const dir = id.m_dir == TrafficInfo::RoadSegmentId::kForwardDirection ? "Forward" : "Backward";
   ostringstream oss;
-  oss << "RoadSegmentId ["
-      << " fid = " << id.m_fid << " idx = " << id.m_idx << " dir = " << dir << " ]";
+  oss << "RoadSegmentId [" << " fid = " << id.m_fid << " idx = " << id.m_idx << " dir = " << dir << " ]";
   return oss.str();
 }
 }  // namespace traffic

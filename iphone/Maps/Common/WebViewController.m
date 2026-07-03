@@ -14,9 +14,11 @@
 
 @implementation WebViewController
 
-- (id)initWithUrl:(NSURL *)url title:(NSString *)title {
+- (id)initWithUrl:(NSURL *)url title:(NSString *)title
+{
   self = [super initWithNibName:nil bundle:nil];
-  if (self) {
+  if (self)
+  {
     _m_url = url;
     if (title)
       self.navigationItem.title = title;
@@ -24,9 +26,11 @@
   return self;
 }
 
-- (id)initWithHtml:(NSString *)htmlText baseUrl:(NSURL *)url title:(NSString *)title {
+- (id)initWithHtml:(NSString *)htmlText baseUrl:(NSURL *)url title:(NSString *)title
+{
   self = [super initWithNibName:nil bundle:nil];
-  if (self) {
+  if (self)
+  {
     _m_htmlText = htmlText;
     _m_url = url;
     if (title)
@@ -35,16 +39,19 @@
   return self;
 }
 
-- (NSString *)configuredHtmlWithText:(NSString *)htmlText {
+- (NSString *)configuredHtmlWithText:(NSString *)htmlText
+{
   NSString *html = [htmlText stringByReplacingOccurrencesOfString:@"<body>"
                                                        withString:@"<body><font face=\"helvetica\" size=\"14pt\">"];
   html = [html stringByReplacingOccurrencesOfString:@"</body>" withString:@"</font></body>"];
   return html;
 }
 
-- (instancetype)initWithAuthURL:(NSURL *)url onSuccessAuth:(MWMStringBlock)success onFailure:(MWMVoidBlock)failure {
+- (instancetype)initWithAuthURL:(NSURL *)url onSuccessAuth:(MWMStringBlock)success onFailure:(MWMVoidBlock)failure
+{
   self = [super initWithNibName:nil bundle:nil];
-  if (self) {
+  if (self)
+  {
     _m_url = url;
     _onFailure = failure;
     _onSuccess = success;
@@ -52,7 +59,8 @@
   return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
   [super viewDidLoad];
   UIView *view = self.view;
   view.styleName = @"Background";
@@ -85,64 +93,75 @@
   [self performURLRequest];
 }
 
-- (void)performURLRequest {
+- (void)performURLRequest
+{
   __weak __typeof(self) ws = self;
   [self willLoadUrl:^(BOOL load, NSDictionary<NSString *, NSString *> *headers) {
     __typeof(self) self = ws;
-    if (load) {
-      if (self.m_htmlText) {
+    if (load)
+    {
+      if (self.m_htmlText)
+      {
         [self.webView loadHTMLString:[self configuredHtmlWithText:self.m_htmlText] baseURL:self.m_url];
-      } else {
+      }
+      else
+      {
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.m_url];
-        for (NSString *header in headers.allKeys) {
+        for (NSString *header in headers.allKeys)
           [request setValue:headers[header] forHTTPHeaderField:header];
-        }
 
-//        if (self.shouldAddAccessToken) {
-//          NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", [MWMFrameworkHelper userAccessToken]];
-//          [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
-//        }
-        if ([UIColor isNightMode]) {
+        //        if (self.shouldAddAccessToken) {
+        //          NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", [MWMFrameworkHelper
+        //          userAccessToken]]; [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        //        }
+        if ([UIColor isNightMode])
           [request setValue:@"dark" forHTTPHeaderField:@"x-mapsme-theme"];
-        }
         [self.webView loadRequest:request];
       }
     }
   }];
 }
 
-- (void)willLoadUrl:(WebViewControllerWillLoadBlock)decisionHandler {
+- (void)willLoadUrl:(WebViewControllerWillLoadBlock)decisionHandler
+{
   decisionHandler(YES, nil);
 }
 
-- (BOOL)shouldAddAccessToken {
+- (BOOL)shouldAddAccessToken
+{
   return NO;
 }
 
-- (void)viewDidDisappear:(BOOL)animated {
+- (void)viewDidDisappear:(BOOL)animated
+{
   [super viewDidDisappear:animated];
   if (self.isMovingFromParentViewController && !self.authorized && self.onFailure)
     self.onFailure();
 }
 
-- (void)pop {
+- (void)pop
+{
   [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)webView:(WKWebView *)webView
-  decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
-                  decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction
+                    decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
+{
   NSURL *url = navigationAction.request.URL;
   // about:blank#localAnchor, e.g. in copyright.html.
-  if ([url.scheme isEqualToString:@"about"]) {
+  if ([url.scheme isEqualToString:@"about"])
+  {
     decisionHandler(WKNavigationActionPolicyAllow);
     return;
   }
 
-  if ([url.host isEqualToString:@"localhost"]) {
+  if ([url.host isEqualToString:@"localhost"])
+  {
     NSString *query = url.query;
     NSArray<NSString *> *components = [query componentsSeparatedByString:@"="];
-    if (components.count != 2) {
+    if (components.count != 2)
+    {
       NSAssert(false, @"Incorrect query:", query);
       [self pop];
       decisionHandler(WKNavigationActionPolicyCancel);
@@ -164,9 +183,12 @@
     return;
   }
 
-  if (!self.shouldResendHeaders) {
+  if (!self.shouldResendHeaders)
+  {
     decisionHandler(WKNavigationActionPolicyAllow);
-  } else {
+  }
+  else
+  {
     _m_url = url;
     self.shouldResendHeaders = NO;
     decisionHandler(WKNavigationActionPolicyCancel);
@@ -174,24 +196,28 @@
   }
 }
 
-- (void)forward {
+- (void)forward
+{
   [self.webView goForward];
 }
 
-- (void)back {
+- (void)back
+{
   [self.webView goBack];
 }
 
-- (void)reloadFromOrigin {
+- (void)reloadFromOrigin
+{
   self.shouldResendHeaders = YES;
   [self.webView reloadFromOrigin];
 }
 
 #if DEBUG
 - (void)webView:(WKWebView *)webView
-  didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
-                  completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,
-                                              NSURLCredential *_Nullable credential))completionHandler {
+    didReceiveAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+                    completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,
+                                                NSURLCredential *_Nullable credential))completionHandler
+{
   NSURLCredential *credential = [[NSURLCredential alloc] initWithTrust:[challenge protectionSpace].serverTrust];
   completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }

@@ -67,8 +67,7 @@ public class BookmarkColorDialogFragment extends DialogFragment
     adapter.chooseItem(mIconColor);
 
     @SuppressLint("InflateParams")
-    final GridView gView =
-        (GridView) getLayoutInflater().inflate(R.layout.fragment_color_grid, null);
+    final GridView gView = (GridView) getLayoutInflater().inflate(R.layout.fragment_color_grid, null);
     gView.setAdapter(adapter);
     gView.setOnItemClickListener((parent, view, pos, id) -> {
       if (mColorSetListener != null)
@@ -84,7 +83,8 @@ public class BookmarkColorDialogFragment extends DialogFragment
   {
     super.onConfigurationChanged(newConfig);
     View v = getView();
-    if (v instanceof GridView) {
+    if (v instanceof GridView)
+    {
       int numColumns = getResources().getInteger(R.integer.color_grid_columns);
       if (((GridView) v).getNumColumns() != numColumns)
       {

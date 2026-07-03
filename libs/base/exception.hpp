@@ -63,8 +63,8 @@ std::invoke_result_t<Fn &&, Args &&...> ExceptionCatcher(std::string const & com
   }
 
 // TODO: Use SRC_LOGGING macro.
-#define MYTHROW(exception_name, msg)                                                              \
+#define MYTHROW(exception_name, msg) \
   throw exception_name(#exception_name " " __FILE__ ":" TO_STRING(__LINE__), ::base::Message msg)
 
-#define MYTHROW1(exception_name, param1, msg)                                                             \
+#define MYTHROW1(exception_name, param1, msg) \
   throw exception_name(param1, #exception_name " " __FILE__ ":" TO_STRING(__LINE__), ::base::Message msg)

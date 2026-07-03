@@ -1,6 +1,4 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import static app.organicmaps.leftbutton.LeftButtonsHolder.DISABLE_BUTTON_CODE;
 
 import android.content.Intent;
@@ -10,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -39,8 +38,8 @@ import java.util.List;
 import java.util.Locale;
 
 @Keep
-public class GeneralSettingsFragment extends BaseXmlSettingsFragment
-    implements MapLanguagesFragment.Listener, AppLanguagesFragment.Listener
+public class GeneralSettingsFragment
+    extends BaseXmlSettingsFragment implements MapLanguagesFragment.Listener, AppLanguagesFragment.Listener
 {
   @Override
   protected int getXmlResources()
@@ -267,7 +266,8 @@ public class GeneralSettingsFragment extends BaseXmlSettingsFragment
     Framework.nativeGet3dMode(_3d);
 
     // Check power management: high-power mode disables 3D buildings
-    @PowerManagment.SchemeType int powerScheme = PowerManagment.getScheme();
+    @PowerManagment.SchemeType
+    int powerScheme = PowerManagment.getScheme();
     if (powerScheme == PowerManagment.HIGH)
     {
       pref.setShouldDisableView(true);

@@ -79,8 +79,7 @@ struct RestrictionUTurnForTests
 string DebugPrint(RestrictionUTurnForTests const & r)
 {
   std::ostringstream ss;
-  ss << "[" << DebugPrint(r.m_type) << "]: "
-     << "feature: " << r.m_featureId << ", "
+  ss << "[" << DebugPrint(r.m_type) << "]: " << "feature: " << r.m_featureId << ", "
      << "isFirstPoint: " << r.m_viaIsFirstPoint;
 
   return ss.str();

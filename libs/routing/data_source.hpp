@@ -7,6 +7,8 @@
 
 #include "base/lru_cache.hpp"
 
+#include "3party/ankerl/unordered_dense.h"
+
 #include <map>
 
 namespace routing
@@ -18,8 +20,7 @@ class MwmDataSource
 {
   DataSource & m_dataSource;
   std::shared_ptr<NumMwmIds> m_numMwmIDs;
-  // TODO(x7z4w): fix GetHandleSafe below to not depend on stable references (MwmSet::MwmHandle is being returned by pointer), then use ankerl::unordered_dense here.
-  std::unordered_map<NumMwmId, MwmSet::MwmHandle> m_handles;
+  ankerl::unordered_dense::map<NumMwmId, MwmSet::MwmHandle> m_handles;
 
   // Used for FeaturesRoadGraph in openlr only.
   std::map<MwmSet::MwmId, MwmSet::MwmHandle> m_handles2;
@@ -27,19 +28,13 @@ class MwmDataSource
   // Cache is important for Cross-Mwm routing, where we need at least 2 sources simultaneously.
   LruCache<MwmSet::MwmId, std::unique_ptr<FeatureSource>> m_featureSources{4};
 
-  MwmSet::MwmHandle const * GetHandleSafe(NumMwmId numMwmId)
+  // GetHandleSafe does not cache — returns by value. Callers must not hold
+  // pointers into m_handles across calls that may insert (ankerl::unordered_dense
+  // does not guarantee reference stability).
+  MwmSet::MwmHandle GetHandleSafe(NumMwmId numMwmId)
   {
     ASSERT(m_numMwmIDs, ());
-    auto it = m_handles.find(numMwmId);
-    if (it == m_handles.end())
-    {
-      auto handle = m_dataSource.GetMwmHandleByCountryFile(m_numMwmIDs->GetFile(numMwmId));
-      if (!handle.IsAlive())
-        return nullptr;
-
-      it = m_handles.emplace(numMwmId, std::move(handle)).first;
-    }
-    return &(it->second);
+    return m_dataSource.GetMwmHandleByCountryFile(m_numMwmIDs->GetFile(numMwmId));
   }
 
 public:
@@ -85,10 +80,10 @@ public:
 
   SectionStatus GetSectionStatus(NumMwmId numMwmId, std::string const & section)
   {
-    auto const * handle = GetHandleSafe(numMwmId);
-    if (!handle)
+    auto handle = GetHandleSafe(numMwmId);
+    if (!handle.IsAlive())
       return MwmNotLoaded;
-    return handle->GetValue()->m_cont.IsExist(section) ? SectionExists : NoSection;
+    return handle.GetValue()->m_cont.IsExist(section) ? SectionExists : NoSection;
   }
 
   MwmSet::MwmId GetMwmId(NumMwmId numMwmId) const

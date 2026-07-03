@@ -96,8 +96,8 @@ public final class RoutingInfo
                       String nextNextStreet, double completionPercent, int vehicleTurnOrdinal,
                       int vehicleNextTurnOrdinal, int pedestrianTurnOrdinal, int exitNum, int totalTime,
                       @Nullable LaneInfo[] lanes, double speedLimitMps, boolean speedLimitExceeded,
-                      boolean shouldPlayWarningSignal, int routingSessionState,
-                      int indexOfNextStop, Distance distToNextStop, int timeToNextStop)
+                      boolean shouldPlayWarningSignal, int routingSessionState, int indexOfNextStop,
+                      Distance distToNextStop, int timeToNextStop)
   {
     this.distToTarget = distToTarget;
     this.distToTurn = distToTurn;

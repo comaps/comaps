@@ -5,26 +5,26 @@
 namespace platform
 {
 
-NSString * StorageKey(std::string const & key)
+NSString *StorageKey(std::string const &key)
 {
   return [NSString stringWithFormat:@"Maps.me::PlatrormKey::%@", @(key.c_str())];
 }
 
-void SecureStorage::Save(std::string const & key, std::string const & value)
+void SecureStorage::Save(std::string const &key, std::string const &value)
 {
   [NSUserDefaults.standardUserDefaults setObject:@(value.c_str()) forKey:StorageKey(key)];
 }
 
-bool SecureStorage::Load(std::string const & key, std::string & value)
+bool SecureStorage::Load(std::string const &key, std::string &value)
 {
-  NSString * val = [NSUserDefaults.standardUserDefaults objectForKey:StorageKey(key)];
+  NSString *val = [NSUserDefaults.standardUserDefaults objectForKey:StorageKey(key)];
   if (!val)
     return false;
   value = val.UTF8String;
   return true;
 }
 
-void SecureStorage::Remove(std::string const & key)
+void SecureStorage::Remove(std::string const &key)
 {
   [NSUserDefaults.standardUserDefaults removeObjectForKey:StorageKey(key)];
 }

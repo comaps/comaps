@@ -5,13 +5,16 @@
 
 @interface MWMCollectionViewController ()
 
-@property(nonatomic, readwrite) MWMAlertViewController * alertController;
+@property(nonatomic, readwrite) MWMAlertViewController *alertController;
 
 @end
 
 @implementation MWMCollectionViewController
 
-- (BOOL)prefersStatusBarHidden { return NO; }
+- (BOOL)prefersStatusBarHidden
+{
+  return NO;
+}
 
 - (void)viewDidLoad
 {
@@ -22,7 +25,10 @@
 
 #pragma mark - Properties
 
-- (BOOL)hasNavigationBar { return YES; }
+- (BOOL)hasNavigationBar
+{
+  return YES;
+}
 - (MWMAlertViewController *)alertController
 {
   if (!_alertController)

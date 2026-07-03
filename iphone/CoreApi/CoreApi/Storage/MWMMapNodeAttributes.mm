@@ -1,26 +1,19 @@
-#import "MWMMapNodeAttributes+Core.h"
 #include <CoreApi/Framework.h>
+#import "MWMMapNodeAttributes+Core.h"
 
-static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
-  switch (status) {
-    case storage::NodeStatus::Undefined:
-      return MWMMapNodeStatusUndefined;
-    case storage::NodeStatus::Downloading:
-      return MWMMapNodeStatusDownloading;
-    case storage::NodeStatus::Applying:
-      return MWMMapNodeStatusApplying;
-    case storage::NodeStatus::InQueue:
-      return MWMMapNodeStatusInQueue;
-    case storage::NodeStatus::Error:
-      return MWMMapNodeStatusError;
-    case storage::NodeStatus::OnDiskOutOfDate:
-      return MWMMapNodeStatusOnDiskOutOfDate;
-    case storage::NodeStatus::OnDisk:
-      return MWMMapNodeStatusOnDisk;
-    case storage::NodeStatus::NotDownloaded:
-      return MWMMapNodeStatusNotDownloaded;
-    case storage::NodeStatus::Partly:
-      return MWMMapNodeStatusPartly;
+static MWMMapNodeStatus convertStatus(storage::NodeStatus status)
+{
+  switch (status)
+  {
+  case storage::NodeStatus::Undefined: return MWMMapNodeStatusUndefined;
+  case storage::NodeStatus::Downloading: return MWMMapNodeStatusDownloading;
+  case storage::NodeStatus::Applying: return MWMMapNodeStatusApplying;
+  case storage::NodeStatus::InQueue: return MWMMapNodeStatusInQueue;
+  case storage::NodeStatus::Error: return MWMMapNodeStatusError;
+  case storage::NodeStatus::OnDiskOutOfDate: return MWMMapNodeStatusOnDiskOutOfDate;
+  case storage::NodeStatus::OnDisk: return MWMMapNodeStatusOnDisk;
+  case storage::NodeStatus::NotDownloaded: return MWMMapNodeStatusNotDownloaded;
+  case storage::NodeStatus::Partly: return MWMMapNodeStatusPartly;
   }
 }
 
@@ -33,18 +26,22 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
 
 @implementation MWMCountryIdAndName
 
-- (instancetype)initWithCountryId:(NSString *)countryId name:(NSString *)countryName {
+- (instancetype)initWithCountryId:(NSString *)countryId name:(NSString *)countryName
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     _countryId = countryId;
     _countryName = countryName;
   }
   return self;
 }
 
-- (instancetype)initWithCountryAndName:(storage::CountryIdAndName const &)countryAndName {
+- (instancetype)initWithCountryAndName:(storage::CountryIdAndName const &)countryAndName
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     _countryId = @(countryAndName.m_id.c_str());
     _countryName = @(countryAndName.m_localName.c_str());
   }
@@ -62,9 +59,11 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
 - (instancetype)initWithCoreAttributes:(storage::NodeAttrs const &)attributes
                              countryId:(NSString *)countryId
                              hasParent:(BOOL)hasParent
-                           hasChildren:(BOOL)hasChildren {
+                           hasChildren:(BOOL)hasChildren
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     _countryId = [countryId copy];
     _totalMwmCount = attributes.m_mwmCounter;
     _downloadedMwmCount = attributes.m_localMwmCounter;
@@ -79,15 +78,18 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
     _hasParent = hasParent;
 
     int64_t localVersion = GetFramework().GetStorage().GetVersion([countryId UTF8String]);
-    if (localVersion > 0) {
+    if (localVersion > 0)
+    {
       NSString *v = [NSString stringWithFormat:@"%06lld", localVersion];
-      if (v.length >= 6) {
+      if (v.length >= 6)
+      {
         v = [v substringFromIndex:v.length - 6];
         NSInteger year = [[v substringWithRange:NSMakeRange(0, 2)] integerValue] + 2000;
         NSInteger month = [[v substringWithRange:NSMakeRange(2, 2)] integerValue];
         NSInteger day = [[v substringWithRange:NSMakeRange(4, 2)] integerValue];
 
-        if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+        if (month >= 1 && month <= 12 && day >= 1 && day <= 31)
+        {
           NSDateComponents *comps = [[NSDateComponents alloc] init];
           [comps setYear:year];
           [comps setMonth:month];
@@ -108,21 +110,22 @@ static MWMMapNodeStatus convertStatus(storage::NodeStatus status) {
     }
 
     storage::Storage::UpdateInfo updateInfo;
-    if (GetFramework().GetStorage().GetUpdateInfo([countryId UTF8String], updateInfo)) {
+    if (GetFramework().GetStorage().GetUpdateInfo([countryId UTF8String], updateInfo))
       _totalUpdateSizeBytes = updateInfo.m_totalDownloadSizeInBytes;
-    } else {
+    else
       _totalUpdateSizeBytes = 0;
-    }
 
     NSMutableArray *parentInfoArray = [NSMutableArray arrayWithCapacity:attributes.m_parentInfo.size()];
-    for (auto const &pi : attributes.m_parentInfo) {
+    for (auto const &pi : attributes.m_parentInfo)
+    {
       MWMCountryIdAndName *cn = [[MWMCountryIdAndName alloc] initWithCountryAndName:pi];
       [parentInfoArray addObject:cn];
     }
     _parentInfo = [parentInfoArray copy];
 
     NSMutableArray *topmostInfoArray = [NSMutableArray arrayWithCapacity:attributes.m_topmostParentInfo.size()];
-    for (auto const &pi : attributes.m_topmostParentInfo) {
+    for (auto const &pi : attributes.m_topmostParentInfo)
+    {
       MWMCountryIdAndName *cn = [[MWMCountryIdAndName alloc] initWithCountryAndName:pi];
       [topmostInfoArray addObject:cn];
     }

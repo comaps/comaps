@@ -120,10 +120,9 @@ string DebugPrint(NameScore const & score)
 string DebugPrint(NameScores const & scores)
 {
   ostringstream os;
-  os << boolalpha << "NameScores "
-     << "{ m_nameScore: " << DebugPrint(scores.m_nameScore) << ", m_matchedLength: " << scores.m_matchedLength
-     << ", m_errorsMade: " << DebugPrint(scores.m_errorsMade) << ", m_isAltOrOldName: "
-     << " }";
+  os << boolalpha << "NameScores " << "{ m_nameScore: " << DebugPrint(scores.m_nameScore)
+     << ", m_matchedLength: " << scores.m_matchedLength << ", m_errorsMade: " << DebugPrint(scores.m_errorsMade)
+     << ", m_isAltOrOldName: " << " }";
   return os.str();
 }
 }  // namespace search

@@ -53,7 +53,8 @@ public class FeatureCategoryFragment
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)
   {
     super.onViewCreated(view, savedInstanceState);
-    getRecyclerView().addItemDecoration(new DividerItemDecorationWithPadding(requireContext(), R.dimen.margin_quadruple));
+    getRecyclerView().addItemDecoration(
+        new DividerItemDecorationWithPadding(requireContext(), R.dimen.margin_quadruple));
 
     final Bundle args = getArguments();
     if (args != null)

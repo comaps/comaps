@@ -1,1 +1,1 @@
-See [docs/INSTALL.md](docs/INSTALL.md) 
+See [docs/INSTALL.md](docs/INSTALL.md)

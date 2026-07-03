@@ -38,19 +38,18 @@ Platform::Platform()
 {
   m_isTablet = (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad);
 
-  NSBundle * bundle = NSBundle.mainBundle;
-  NSString * path = [bundle resourcePath];
+  NSBundle *bundle = NSBundle.mainBundle;
+  NSString *path = [bundle resourcePath];
   m_resourcesDir = path.UTF8String;
   m_resourcesDir += "/";
 
-  NSArray * dirPaths =
-      NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-  NSString * docsDir = dirPaths.firstObject;
+  NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *docsDir = dirPaths.firstObject;
   m_writableDir = docsDir.UTF8String;
   m_writableDir += "/";
   m_settingsDir = m_writableDir;
 
-  NSString * tmpDir = NSTemporaryDirectory();
+  NSString *tmpDir = NSTemporaryDirectory();
   if (tmpDir)
     m_tmpDir = tmpDir.UTF8String;
   else
@@ -61,24 +60,21 @@ Platform::Platform()
 
   m_guiThread = std::make_unique<platform::GuiThread>();
 
-  UIDevice * device = UIDevice.currentDevice;
+  UIDevice *device = UIDevice.currentDevice;
   device.batteryMonitoringEnabled = YES;
 
-  LOG(LINFO, ("Device:", device.model.UTF8String, "SystemName:",
-              device.systemName.UTF8String, "SystemVersion:",
-              device.systemVersion.UTF8String));
+  LOG(LINFO, ("Device:", device.model.UTF8String, "SystemName:", device.systemName.UTF8String,
+              "SystemVersion:", device.systemVersion.UTF8String));
 }
 
-//static
-void Platform::DisableBackupForFile(std::string const & filePath)
+// static
+void Platform::DisableBackupForFile(std::string const &filePath)
 {
   // We need to disable iCloud backup for downloaded files.
   // This is the reason for rejecting from the AppStore
   // https://developer.apple.com/library/iOS/qa/qa1719/_index.html
-  CFURLRef url = CFURLCreateFromFileSystemRepresentation(kCFAllocatorDefault,
-                                                         reinterpret_cast<unsigned char const *>(filePath.c_str()),
-                                                         filePath.size(),
-                                                         0);
+  CFURLRef url = CFURLCreateFromFileSystemRepresentation(
+      kCFAllocatorDefault, reinterpret_cast<unsigned char const *>(filePath.c_str()), filePath.size(), 0);
   CFErrorRef err;
   BOOL valueRaw = YES;
   CFNumberRef value = CFNumberCreate(kCFAllocatorDefault, kCFNumberCharType, &valueRaw);
@@ -90,24 +86,24 @@ void Platform::DisableBackupForFile(std::string const & filePath)
 }
 
 // static
-Platform::EError Platform::MkDir(std::string const & dirName)
+Platform::EError Platform::MkDir(std::string const &dirName)
 {
   if (::mkdir(dirName.c_str(), 0755))
     return ErrnoToError();
   return Platform::ERR_OK;
 }
 
-void Platform::GetFilesByRegExp(std::string const & directory, boost::regex const & regexp, FilesList & res)
+void Platform::GetFilesByRegExp(std::string const &directory, boost::regex const &regexp, FilesList &res)
 {
   pl::EnumerateFilesByRegExp(directory, regexp, res);
 }
 
-void Platform::GetAllFiles(std::string const & directory, FilesList & res)
-{ 
+void Platform::GetAllFiles(std::string const &directory, FilesList &res)
+{
   pl::EnumerateFiles(directory, res);
 }
 
-bool Platform::GetFileSizeByName(std::string const & fileName, uint64_t & size) const
+bool Platform::GetFileSizeByName(std::string const &fileName, uint64_t &size) const
 {
   try
   {
@@ -119,28 +115,33 @@ bool Platform::GetFileSizeByName(std::string const & fileName, uint64_t & size) 
   }
 }
 
-std::unique_ptr<ModelReader> Platform::GetReader(std::string const & file, std::string searchScope) const
+std::unique_ptr<ModelReader> Platform::GetReader(std::string const &file, std::string searchScope) const
 {
   return std::make_unique<FileReader>(ReadPathForFile(file, std::move(searchScope)), READER_CHUNK_LOG_SIZE,
                                       READER_CHUNK_LOG_COUNT);
 }
 
-int Platform::VideoMemoryLimit() const { return 8 * 1024 * 1024; }
+int Platform::VideoMemoryLimit() const
+{
+  return 8 * 1024 * 1024;
+}
 
-int Platform::PreCachingDepth() const { return 2; }
+int Platform::PreCachingDepth() const
+{
+  return 2;
+}
 
 std::string Platform::GetMemoryInfo() const
 {
   struct task_basic_info info;
   mach_msg_type_number_t size = sizeof(info);
-  kern_return_t const kerr =
-      task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t)&info, &size);
+  kern_return_t const kerr = task_info(mach_task_self(), TASK_BASIC_INFO, (task_info_t)&info, &size);
   std::stringstream ss;
   if (kerr == KERN_SUCCESS)
   {
     ss << "Memory info: Resident_size = " << info.resident_size / 1024
-       << "KB; virtual_size = " << info.resident_size / 1024
-       << "KB; suspend_count = " << info.suspend_count << " policy = " << info.policy;
+       << "KB; virtual_size = " << info.resident_size / 1024 << "KB; suspend_count = " << info.suspend_count
+       << " policy = " << info.policy;
   }
   else
   {
@@ -149,13 +150,16 @@ std::string Platform::GetMemoryInfo() const
   return ss.str();
 }
 
-std::string Platform::DeviceName() const { return UIDevice.currentDevice.name.UTF8String; }
+std::string Platform::DeviceName() const
+{
+  return UIDevice.currentDevice.name.UTF8String;
+}
 
 std::string Platform::DeviceModel() const
 {
   utsname systemInfo;
   uname(&systemInfo);
-  NSString * deviceModel = @(systemInfo.machine);
+  NSString *deviceModel = @(systemInfo.machine);
   if (auto m = platform::kDeviceModelsBeforeMetalDriver[deviceModel])
     deviceModel = m;
   else if (auto m = platform::kDeviceModelsWithiOS10MetalDriver[deviceModel])
@@ -168,15 +172,15 @@ std::string Platform::DeviceModel() const
 std::string Platform::Version() const
 {
   /// @note Do not change version format, it is parsed on server side.
-  NSBundle * mainBundle = [NSBundle mainBundle];
-  NSString * version = [mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
-  NSString * build = [mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
+  NSBundle *mainBundle = [NSBundle mainBundle];
+  NSString *version = [mainBundle objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+  NSString *build = [mainBundle objectForInfoDictionaryKey:@"CFBundleVersion"];
   return std::string{version.UTF8String} + '-' + build.UTF8String + '-' + OMIM_OS_NAME;
 }
 
 int32_t Platform::IntVersion() const
 {
-  NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+  NSString *version = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
   int year = 0;
   int month = 0;
   int day = 0;
@@ -203,8 +207,8 @@ Platform::EConnectionType Platform::ConnectionStatus()
   CFRelease(reachability);
   if (!gotFlags || ((flags & kSCNetworkReachabilityFlagsReachable) == 0))
     return EConnectionType::CONNECTION_NONE;
-  SCNetworkReachabilityFlags userActionRequired = kSCNetworkReachabilityFlagsConnectionRequired |
-                                                  kSCNetworkReachabilityFlagsInterventionRequired;
+  SCNetworkReachabilityFlags userActionRequired =
+      kSCNetworkReachabilityFlagsConnectionRequired | kSCNetworkReachabilityFlagsInterventionRequired;
   if ((flags & userActionRequired) == userActionRequired)
     return EConnectionType::CONNECTION_NONE;
   if ((flags & kSCNetworkReachabilityFlagsIsWWAN) == kSCNetworkReachabilityFlagsIsWWAN)
@@ -246,18 +250,15 @@ void Platform::SetupMeasurementSystem() const
   auto units = measurement_utils::Units::Metric;
   if (settings::Get(settings::kMeasurementUnits, units))
     return;
-  BOOL const isMetric =
-      [[[NSLocale autoupdatingCurrentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
+  BOOL const isMetric = [[[NSLocale autoupdatingCurrentLocale] objectForKey:NSLocaleUsesMetricSystem] boolValue];
   units = isMetric ? measurement_utils::Units::Metric : measurement_utils::Units::Imperial;
   settings::Set(settings::kMeasurementUnits, units);
 }
 
-void Platform::GetSystemFontNames(FilesList & res) const
-{
-}
+void Platform::GetSystemFontNames(FilesList &res) const {}
 
 // static
-time_t Platform::GetFileCreationTime(std::string const & path)
+time_t Platform::GetFileCreationTime(std::string const &path)
 {
   struct stat st;
   if (0 == stat(path.c_str(), &st))
@@ -266,7 +267,7 @@ time_t Platform::GetFileCreationTime(std::string const & path)
 }
 
 // static
-time_t Platform::GetFileModificationTime(std::string const & path)
+time_t Platform::GetFileModificationTime(std::string const &path)
 {
   struct stat st;
   if (0 == stat(path.c_str(), &st))
@@ -275,7 +276,7 @@ time_t Platform::GetFileModificationTime(std::string const & path)
 }
 
 ////////////////////////////////////////////////////////////////////////
-extern Platform & GetPlatform()
+extern Platform &GetPlatform()
 {
   static Platform platform;
   return platform;

@@ -1,6 +1,7 @@
 """
 This file contains basic api for generator_tool and osm tools to generate maps.
 """
+
 import functools
 import json
 import logging
@@ -10,23 +11,19 @@ import subprocess
 from typing import AnyStr
 
 from maps_generator.generator import settings
-from maps_generator.generator.env import Env
-from maps_generator.generator.env import PathProvider
-from maps_generator.generator.env import WORLDS_NAMES
-from maps_generator.generator.env import WORLD_NAME
-from maps_generator.generator.env import get_all_countries_list
-from maps_generator.generator.exceptions import ValidationError
-from maps_generator.generator.exceptions import wait_and_raise_if_fail
+from maps_generator.generator.env import (
+    WORLD_NAME,
+    WORLDS_NAMES,
+    Env,
+    PathProvider,
+    get_all_countries_list,
+)
+from maps_generator.generator.exceptions import ValidationError, wait_and_raise_if_fail
 from maps_generator.generator.gen_tool import run_gen_tool
-from maps_generator.generator.osmtools import osmconvert
-from maps_generator.generator.osmtools import osmfilter
-from maps_generator.generator.osmtools import osmupdate
+from maps_generator.generator.osmtools import osmconvert, osmfilter, osmupdate
 from maps_generator.generator.statistics import make_stats
-from maps_generator.utils.file import download_files
-from maps_generator.utils.file import is_verified
-from maps_generator.utils.file import make_symlink
-from maps_generator.utils.md5 import md5_ext
-from maps_generator.utils.md5 import write_md5sum
+from maps_generator.utils.file import download_files, is_verified, make_symlink
+from maps_generator.utils.md5 import md5_ext, write_md5sum
 
 logger = logging.getLogger("maps_generator")
 
@@ -36,10 +33,10 @@ def multithread_run_if_one_country(func):
     def wrap(env, country, **kwargs):
         if len(env.countries) == 1:
             kwargs.update({"threads_count": settings.THREADS_COUNT})
-        # Otherwise index stage of Taiwan_* mwms continues to run after all other mwms have finished:
-        elif country == 'Taiwan_North':
+        # Otherwise Taiwan_* index stage continues after all other mwms finish:
+        elif country == "Taiwan_North":
             kwargs.update({"threads_count": 5})
-        elif country == 'Taiwan_South':
+        elif country == "Taiwan_South":
             kwargs.update({"threads_count": 2})
         func(env, country, **kwargs)
 
@@ -47,11 +44,11 @@ def multithread_run_if_one_country(func):
 
 
 def convert_planet(
-        tool: AnyStr,
-        in_planet: AnyStr,
-        out_planet: AnyStr,
-        output=subprocess.DEVNULL,
-        error=subprocess.DEVNULL,
+    tool: AnyStr,
+    in_planet: AnyStr,
+    out_planet: AnyStr,
+    output=subprocess.DEVNULL,
+    error=subprocess.DEVNULL,
 ):
     osmconvert(tool, in_planet, out_planet, output=output, error=error)
     write_md5sum(out_planet, md5_ext(out_planet))
@@ -155,16 +152,10 @@ def run_gen_tool_with_recovery_country(env: Env, *args, **kwargs):
     mwm = f"{kwargs['output']}.mwm"
     osm2ft = f"{mwm}.osm2ft"
     kwargs["data_path"] = env.paths.draft_path
-    make_symlink(
-        os.path.join(prev_data_path, osm2ft), os.path.join(env.paths.draft_path, osm2ft)
-    )
-    shutil.copy(
-        os.path.join(prev_data_path, mwm), os.path.join(env.paths.draft_path, mwm)
-    )
+    make_symlink(os.path.join(prev_data_path, osm2ft), os.path.join(env.paths.draft_path, osm2ft))
+    shutil.copy(os.path.join(prev_data_path, mwm), os.path.join(env.paths.draft_path, mwm))
     run_gen_tool(*args, **kwargs)
-    shutil.move(
-        os.path.join(env.paths.draft_path, mwm), os.path.join(prev_data_path, mwm)
-    )
+    shutil.move(os.path.join(env.paths.draft_path, mwm), os.path.join(prev_data_path, mwm))
     kwargs["data_path"] = prev_data_path
 
 
@@ -213,11 +204,11 @@ def step_cities_ids_world(env: Env, country: AnyStr, **kwargs):
 
 
 def filter_roads(
-        name_executable,
-        in_file,
-        out_file,
-        output=subprocess.DEVNULL,
-        error=subprocess.DEVNULL,
+    name_executable,
+    in_file,
+    out_file,
+    output=subprocess.DEVNULL,
+    error=subprocess.DEVNULL,
 ):
     osmfilter(
         name_executable,
@@ -231,13 +222,13 @@ def filter_roads(
 
 
 def make_world_road_graph(
-        name_executable,
-        path_roads_file,
-        path_resources,
-        path_res_file,
-        logger,
-        output=subprocess.DEVNULL,
-        error=subprocess.DEVNULL,
+    name_executable,
+    path_roads_file,
+    path_resources,
+    path_res_file,
+    logger,
+    output=subprocess.DEVNULL,
+    error=subprocess.DEVNULL,
 ):
     world_roads_builder_tool_cmd = [
         name_executable,
@@ -268,7 +259,7 @@ def step_prepare_routing_world(env: Env, country: AnyStr, logger, **kwargs):
         env.paths.world_roads_path,
         logger,
         env.get_subprocess_out(country),
-        env.get_subprocess_out(country)
+        env.get_subprocess_out(country),
     )
 
 

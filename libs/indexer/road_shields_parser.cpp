@@ -113,8 +113,8 @@ public:
       if (base::IsExist(kStatesCode, network.substr(3)))
         return RoadShieldType::Generic_White_Bordered;
     }
-    
-    // Minimum length for network tag is 2 (UY). 
+
+    // Minimum length for network tag is 2 (UY).
     if (network.size() >= 2)
     {
       strings::AsciiToLower(network);
@@ -656,7 +656,8 @@ class SloveniaRoadShieldParser : public RoadShieldParser
 {
 public:
   SloveniaRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass)
-    : RoadShieldParser(baseRoadNumber), m_highwayClass(highwayClass)
+    : RoadShieldParser(baseRoadNumber)
+    , m_highwayClass(highwayClass)
   {}
 
   RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
@@ -679,8 +680,8 @@ public:
       return RoadShield(RoadShieldType::Generic_Pill_Blue_Bordered, rawText);
 
     // "glavne ceste" (main roads: 1-11, 101-114) and regionalne ceste (regional roads: 201-941)
-    if (m_highwayClass == HighwayClass::Primary || m_highwayClass == HighwayClass::Secondary
-      || m_highwayClass == HighwayClass::Tertiary)
+    if (m_highwayClass == HighwayClass::Primary || m_highwayClass == HighwayClass::Secondary ||
+        m_highwayClass == HighwayClass::Tertiary)
       return RoadShield(RoadShieldType::Generic_Orange_Bordered, rawText);
 
     return RoadShield(RoadShieldType::Generic_White_Bordered, rawText);
@@ -767,8 +768,7 @@ public:
   // refs that don't start with RN/RP will still appear with the default shield (but shouldn't exist in AR)
   // suggestion for future improvement by @pastk: https://codeberg.org/comaps/comaps/pulls/3966#issuecomment-12533514
   explicit ArgentinaRoadShieldParser(std::string const & baseRoadNumber)
-    : SimpleRoadShieldParser(baseRoadNumber, {{"RN", RoadShieldType::Hidden},
-                                              {"RP", RoadShieldType::Hidden}})
+    : SimpleRoadShieldParser(baseRoadNumber, {{"RN", RoadShieldType::Hidden}, {"RP", RoadShieldType::Hidden}})
   {}
 };
 

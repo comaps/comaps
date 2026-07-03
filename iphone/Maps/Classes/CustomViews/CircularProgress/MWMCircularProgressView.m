@@ -3,25 +3,28 @@
 #import "UIImageView+Coloring.h"
 
 static CGFloat const kLineWidth = 2.0;
-static NSString * const kAnimationKey = @"CircleAnimation";
+static NSString *const kAnimationKey = @"CircleAnimation";
 
-static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progress - M_PI_2; }
+static CGFloat angleWithProgress(CGFloat progress)
+{
+  return 2.0 * M_PI * progress - M_PI_2;
+}
 
 @interface MWMCircularProgressView ()
 
-@property(nonatomic) CAShapeLayer * backgroundLayer;
-@property(nonatomic) CAShapeLayer * progressLayer;
+@property(nonatomic) CAShapeLayer *backgroundLayer;
+@property(nonatomic) CAShapeLayer *progressLayer;
 
-@property(nonatomic) UIColor * spinnerBackgroundColor;
+@property(nonatomic) UIColor *spinnerBackgroundColor;
 @property(nonatomic, readonly) CGColorRef progressLayerColor;
 
-@property(nonatomic) NSMutableDictionary * colors;
-@property(nonatomic) NSMutableDictionary<NSNumber *, NSNumber *> * buttonColoring;
-@property(nonatomic) NSMutableDictionary<NSNumber *, NSString *> * images;
+@property(nonatomic) NSMutableDictionary *colors;
+@property(nonatomic) NSMutableDictionary<NSNumber *, NSNumber *> *buttonColoring;
+@property(nonatomic) NSMutableDictionary<NSNumber *, NSString *> *images;
 
-@property(weak, nonatomic) IBOutlet MWMCircularProgress * owner;
-@property(weak, nonatomic) IBOutlet UIImageView * spinner;
-@property(weak, nonatomic) IBOutlet MWMButton * button;
+@property(weak, nonatomic) IBOutlet MWMCircularProgress *owner;
+@property(weak, nonatomic) IBOutlet UIImageView *spinner;
+@property(weak, nonatomic) IBOutlet MWMButton *button;
 
 @property(nonatomic) BOOL suspendRefreshProgress;
 
@@ -45,10 +48,9 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
 - (void)setupColors
 {
   self.colors = [NSMutableDictionary dictionary];
-  UIColor * progressColor = [_spinnerBackgroundColor isEqual:UIColor.clearColor]
-                                ? UIColor.whiteColor
-                                : [UIColor linkBlue];
-  UIColor * clearColor = UIColor.clearColor;
+  UIColor *progressColor =
+      [_spinnerBackgroundColor isEqual:UIColor.clearColor] ? UIColor.whiteColor : [UIColor linkBlue];
+  UIColor *clearColor = UIColor.clearColor;
   [self setSpinnerColoring:MWMImageColoringGray];
   [self setColor:clearColor forState:MWMCircularProgressStateNormal];
   [self setColor:clearColor forState:MWMCircularProgressStateSelected];
@@ -87,7 +89,10 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
   [self.layer addSublayer:self.progressLayer];
 }
 
-- (void)setSpinnerColoring:(MWMImageColoring)coloring { self.spinner.mwm_coloring = coloring; }
+- (void)setSpinnerColoring:(MWMImageColoring)coloring
+{
+  self.spinner.mwm_coloring = coloring;
+}
 - (void)setImageName:(nullable NSString *)imageName forState:(MWMCircularProgressState)state
 {
   self.images[@(state)] = imageName;
@@ -117,7 +122,7 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
   self.backgroundLayer.strokeColor = self.spinnerBackgroundColor.CGColor;
   [self updateBackgroundPath];
   self.progressLayer.strokeColor = self.progressLayerColor;
-  NSString * imageName = self.images[@(self.state)];
+  NSString *imageName = self.images[@(self.state)];
   if (imageName)
   {
     [self.button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
@@ -139,14 +144,13 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
   [self updateBackgroundPath];
   if (progress > 0.0)
   {
-    self.state =
-        progress < 1.0 ? MWMCircularProgressStateProgress : MWMCircularProgressStateCompleted;
+    self.state = progress < 1.0 ? MWMCircularProgressStateProgress : MWMCircularProgressStateCompleted;
     [self stopSpinner];
   }
   self.progressLayer.path = [self pathWithProgress:progress].CGPath;
 }
 
-- (void)updateBackgroundPath 
+- (void)updateBackgroundPath
 {
   self.backgroundLayer.path = [self pathWithProgress:1.0].CGPath;
 }
@@ -155,12 +159,12 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
 {
   CGPoint center = CGPointMake(self.width / 2.0, self.height / 2.0);
   CGFloat radius = MIN(center.x, center.y) - kLineWidth;
-  UIBezierPath * path = [UIBezierPath bezierPathWithArcCenter:center
-                                                       radius:radius
-                                                   startAngle:angleWithProgress(0.0)
-                                                     endAngle:angleWithProgress(progress)
-                                                    clockwise:YES];
-  return  path;
+  UIBezierPath *path = [UIBezierPath bezierPathWithArcCenter:center
+                                                      radius:radius
+                                                  startAngle:angleWithProgress(0.0)
+                                                    endAngle:angleWithProgress(progress)
+                                                   clockwise:YES];
+  return path;
 }
 #pragma mark - Spinner
 
@@ -171,12 +175,11 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
     self.spinner.hidden = NO;
     self.backgroundLayer.hidden = self.progressLayer.hidden = YES;
   }
-  NSString * postfix = ([UIColor isNightMode] && !self.isInvertColor) ||
-                               (![UIColor isNightMode] && self.isInvertColor) ||
-                               _spinnerBackgroundColor
-                           ? @"dark"
-                           : @"light";
-  UIImage * image = [UIImage imageNamed:[NSString stringWithFormat:@"Spinner_%@", postfix]];
+  NSString *postfix = ([UIColor isNightMode] && !self.isInvertColor) ||
+                              (![UIColor isNightMode] && self.isInvertColor) || _spinnerBackgroundColor
+                        ? @"dark"
+                        : @"light";
+  UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"Spinner_%@", postfix]];
   self.spinner.image = image;
   [self.spinner startRotation:1];
 }
@@ -195,20 +198,19 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
 - (void)animateFromValue:(CGFloat)fromValue toValue:(CGFloat)toValue
 {
   [self updatePath:toValue];
-  CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+  CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
   animation.duration = kDefaultAnimationDuration;
   animation.repeatCount = 1;
   animation.fromValue = @(fromValue / toValue);
   animation.toValue = @1;
-  animation.timingFunction =
-      [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+  animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
   animation.delegate = self.owner;
   [self.progressLayer addAnimation:animation forKey:kAnimationKey];
 }
 
 #pragma mark - Properties
 
-- (UIView * _Nullable)buttonView
+- (UIView *_Nullable)buttonView
 {
   return self.button;
 }
@@ -238,7 +240,7 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
 
 - (CGColorRef)progressLayerColor
 {
-  UIColor * color = self.colors[@(self.state)];
+  UIColor *color = self.colors[@(self.state)];
   return color.CGColor;
 }
 
@@ -250,7 +252,10 @@ static CGFloat angleWithProgress(CGFloat progress) { return 2.0 * M_PI * progres
     [self refreshProgress];
 }
 
-- (BOOL)animating { return [self.progressLayer animationForKey:kAnimationKey] != nil; }
+- (BOOL)animating
+{
+  return [self.progressLayer animationForKey:kAnimationKey] != nil;
+}
 - (void)setSuspendRefreshProgress:(BOOL)suspendRefreshProgress
 {
   _suspendRefreshProgress = suspendRefreshProgress;

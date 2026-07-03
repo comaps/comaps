@@ -28,8 +28,8 @@ public class SpeedLimitView extends BaseSignView
     setBorderWidthRatio(0.2f);
     setBorderInsetRatio(0.05f);
 
-    try (TypedArray styleAttrs = ctx.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedLimitView, 0,
-                                                                       R.style.MwmWidget_SpeedLimit))
+    try (TypedArray styleAttrs =
+             ctx.getTheme().obtainStyledAttributes(attrs, R.styleable.SpeedLimitView, 0, R.style.MwmWidget_SpeedLimit))
     {
       final int bgColor =
           styleAttrs.getColor(R.styleable.SpeedLimitView_speedLimitBackgroundColor, DefaultValues.BACKGROUND_COLOR);

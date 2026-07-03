@@ -44,7 +44,8 @@ jobject ToJavaName(JNIEnv * env, osm::LocalizedName const & name)
   jni::TScopedLocalRef jName(env, jni::ToJavaString(env, name.m_name));
   jni::TScopedLocalRef jLang(env, jni::ToJavaString(env, name.m_languageCode));
   jni::TScopedLocalRef jLangName(env, jni::ToJavaString(env, name.m_languageName));
-  return env->NewObject(g_localNameClazz, g_localNameCtor, name.m_languageIndex, jName.get(), jLang.get(), jLangName.get());
+  return env->NewObject(g_localNameClazz, g_localNameCtor, name.m_languageIndex, jName.get(), jLang.get(),
+                        jLangName.get());
 }
 
 jobject ToJavaStreet(JNIEnv * env, osm::LocalizedStreet const & street)

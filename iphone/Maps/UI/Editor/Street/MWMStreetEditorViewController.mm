@@ -8,8 +8,8 @@
   std::string m_editedStreetName;
 }
 
-@property (nonatomic) NSUInteger selectedStreet;
-@property (nonatomic) NSUInteger lastSelectedStreet;
+@property(nonatomic) NSUInteger selectedStreet;
+@property(nonatomic) NSUInteger lastSelectedStreet;
 
 @end
 
@@ -43,7 +43,7 @@
 {
   id<MWMStreetEditorProtocol> delegate = self.delegate;
   m_streets = delegate.nearbyStreets;
-  auto const & currentStreet = delegate.currentStreet;
+  auto const &currentStreet = delegate.currentStreet;
 
   BOOL const haveCurrentStreet = !currentStreet.m_defaultName.empty();
   if (haveCurrentStreet)
@@ -71,7 +71,7 @@
 
 - (void)configTable
 {
-  UITableView * tv = self.tableView;
+  UITableView *tv = self.tableView;
   [tv registerNibWithCellClass:[MWMStreetEditorEditTableViewCell class]];
 }
 
@@ -97,14 +97,14 @@
 {
   if ([cell isKindOfClass:[MWMStreetEditorEditTableViewCell class]])
   {
-    MWMStreetEditorEditTableViewCell * tCell = (MWMStreetEditorEditTableViewCell *)cell;
+    MWMStreetEditorEditTableViewCell *tCell = (MWMStreetEditorEditTableViewCell *)cell;
     [tCell configWithDelegate:self street:@(m_editedStreetName.c_str())];
   }
   else
   {
     NSUInteger const index = indexPath.row;
-    auto const & localizedStreet = m_streets[index];
-    NSString * street = @(localizedStreet.m_defaultName.c_str());
+    auto const &localizedStreet = m_streets[index];
+    NSString *street = @(localizedStreet.m_defaultName.c_str());
     BOOL const selected = (self.selectedStreet == index);
     cell.textLabel.text = street;
     cell.detailTextLabel.text = @(localizedStreet.m_localizedName.c_str());
@@ -131,46 +131,41 @@
     self.selectedStreet = self.lastSelectedStreet;
     self.navigationItem.rightBarButtonItem.enabled = (self.selectedStreet != NSNotFound);
   }
-  for (UITableViewCell * cell in self.tableView.visibleCells)
+  for (UITableViewCell *cell in self.tableView.visibleCells)
   {
     if ([cell isKindOfClass:[MWMStreetEditorEditTableViewCell class]])
       continue;
-    NSIndexPath * indexPath = [self.tableView indexPathForCell:cell];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     [self fillCell:cell indexPath:indexPath];
   }
 }
 
 #pragma mark - UITableViewDataSource
 
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (UITableViewCell *_Nonnull)tableView:(UITableView *_Nonnull)tableView
+                 cellForRowAtIndexPath:(NSIndexPath *_Nonnull)indexPath
 {
-  UITableViewCell * cell = nil;
+  UITableViewCell *cell = nil;
   if (m_streets.empty())
   {
-    cell = [tableView dequeueReusableCellWithCellClass:[MWMStreetEditorEditTableViewCell class]
-                                             indexPath:indexPath];
+    cell = [tableView dequeueReusableCellWithCellClass:[MWMStreetEditorEditTableViewCell class] indexPath:indexPath];
+  }
+  else if (indexPath.section == 0)
+  {
+    Class cls =
+        m_streets[indexPath.row].m_localizedName.empty() ? [UITableViewCell class] : [MWMTableViewSubtitleCell class];
+    cell = [tableView dequeueReusableCellWithCellClass:cls indexPath:indexPath];
   }
   else
   {
-    if (indexPath.section == 0)
-    {
-      Class cls = m_streets[indexPath.row].m_localizedName.empty()
-                      ? [UITableViewCell class]
-                      : [MWMTableViewSubtitleCell class];
-      cell = [tableView dequeueReusableCellWithCellClass:cls indexPath:indexPath];
-    }
-    else
-    {
-      cell = [tableView dequeueReusableCellWithCellClass:[MWMStreetEditorEditTableViewCell class]
-                                               indexPath:indexPath];
-    }
+    cell = [tableView dequeueReusableCellWithCellClass:[MWMStreetEditorEditTableViewCell class] indexPath:indexPath];
   }
 
   [self fillCell:cell indexPath:indexPath];
   return cell;
 }
 
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *_Nonnull)tableView numberOfRowsInSection:(NSInteger)section
 {
   auto const count = m_streets.size();
   if ((section == 0 && count == 0) || section != 0)
@@ -180,14 +175,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-  return m_streets.empty()? 1 : 2;
+  return m_streets.empty() ? 1 : 2;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   if ([cell isKindOfClass:[MWMStreetEditorEditTableViewCell class]])
     return;
 

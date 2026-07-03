@@ -8,21 +8,21 @@
 @end
 
 @interface MWMiPhoneRoutePreview ()
-@property(weak, nonatomic) IBOutlet UIButton * backButton;
-@property(nonatomic) NSLayoutConstraint * verticalConstraint;
+@property(weak, nonatomic) IBOutlet UIButton *backButton;
+@property(nonatomic) NSLayoutConstraint *verticalConstraint;
 @end
 
 @implementation MWMiPhoneRoutePreview
 
 - (void)setupConstraints
 {
-  UIView * sv = self.superview;
+  UIView *sv = self.superview;
   [self.leadingAnchor constraintEqualToAnchor:sv.leadingAnchor].active = YES;
   [self.trailingAnchor constraintEqualToAnchor:sv.trailingAnchor].active = YES;
   self.verticalConstraint = [self.bottomAnchor constraintEqualToAnchor:sv.topAnchor];
   self.verticalConstraint.active = YES;
 
-  NSLayoutXAxisAnchor * backLeadingAnchor = sv.leadingAnchor;
+  NSLayoutXAxisAnchor *backLeadingAnchor = sv.leadingAnchor;
   backLeadingAnchor = sv.safeAreaLayoutGuide.leadingAnchor;
   [self.backButton.leadingAnchor constraintEqualToAnchor:backLeadingAnchor].active = YES;
 
@@ -31,17 +31,15 @@
 
 - (void)setIsVisible:(BOOL)isVisible
 {
-  UIView * sv = self.superview;
+  UIView *sv = self.superview;
   if (!sv)
     return;
   self.verticalConstraint.active = NO;
-  NSLayoutYAxisAnchor * topAnchor = sv.topAnchor;
-  NSLayoutYAxisAnchor * selfAnchor = isVisible ? self.topAnchor : self.bottomAnchor;
+  NSLayoutYAxisAnchor *topAnchor = sv.topAnchor;
+  NSLayoutYAxisAnchor *selfAnchor = isVisible ? self.topAnchor : self.bottomAnchor;
   CGFloat constant = 0;
   if (isVisible)
-  {
     topAnchor = sv.topAnchor;
-  }
   self.verticalConstraint = [selfAnchor constraintEqualToAnchor:topAnchor constant:constant];
   self.verticalConstraint.active = YES;
   [super setIsVisible:isVisible];

@@ -6,18 +6,18 @@ on:
       - 3party/**
       - configure.sh
       - cmake/**
-      - '!cmake/windows/**'
+      - "!cmake/windows/**"
       - CMakeLists.txt
       - defines.hpp
-      - .forgejo/workflows/linux-check.yaml  # Run check on self change
+      - .forgejo/workflows/linux-check.yaml # Run check on self change
       - libs/**
-      - '!**/*_tests/**'
-      - '!libs/platform/*apple*'
-      - '!libs/platform/*_ios*'
-      - '!libs/platform/*_linux*'
-      - '!libs/platform/*_mac*'
-      - '!libs/platform/*_win*'
-      - '!libs/pyhelpers/**'
+      - "!**/*_tests/**"
+      - "!libs/platform/*apple*"
+      - "!libs/platform/*_ios*"
+      - "!libs/platform/*_linux*"
+      - "!libs/platform/*_mac*"
+      - "!libs/platform/*_win*"
+      - "!libs/pyhelpers/**"
       - private.h
       - qt/**
       - generator/**
@@ -84,13 +84,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - compiler: {CXX: g++, CC: gcc}
+          - compiler: { CXX: g++, CC: gcc }
             CMAKE_BUILD_TYPE: RelWithDebInfo
-          - compiler: {CXX: g++, CC: gcc}
+          - compiler: { CXX: g++, CC: gcc }
             CMAKE_BUILD_TYPE: Debug
-          - compiler: {CXX: clang++, CC: clang}
+          - compiler: { CXX: clang++, CC: clang }
             CMAKE_BUILD_TYPE: Debug
-          - compiler: {CXX: clang++, CC: clang}
+          - compiler: { CXX: clang++, CC: clang }
             CMAKE_BUILD_TYPE: RelWithDebInfo
     # Cancels previous jobs if the same branch or PR was updated again.
     concurrency:

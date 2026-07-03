@@ -10,7 +10,7 @@ typedef NS_ENUM(NSUInteger, MWMImageColoring) {
 @interface UIImageView (Coloring)
 
 @property(nonatomic) MWMImageColoring mwm_coloring;
-@property(copy, nonatomic) NSString * mwm_name;
+@property(copy, nonatomic) NSString *mwm_name;
 
 - (void)changeColoringToOpposite;
 

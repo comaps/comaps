@@ -1,6 +1,6 @@
 # Unit Testing
 
-This guide covers how to build and run C++ unit tests for the CoMaps codebase. See [INSTALL.md](INSTALL.md) for how to set up the build environment. 
+This guide covers how to build and run C++ unit tests for the CoMaps codebase. See [INSTALL.md](INSTALL.md) for how to set up the build environment.
 
 For user/beta testing of app releases, see [TESTING.md](TESTING.md).
 
@@ -17,6 +17,7 @@ Tests are disabled by default in release builds. To build with tests enabled:
 # Or build specific test target
 ./tools/unix/build_omim.sh -d indexer_tests
 ```
+
 By default the binaries will be placed in `../omim-build-debug`
 
 ## Running Tests
@@ -39,6 +40,7 @@ chmod +x tools/unix/run_test.sh
 ```
 
 **Options:**
+
 - `-b <path>` - Path to build directory (default: current directory)
 - `-s <suite>` - Test suite: `smoke` or `full` (default: full)
 - `-f <regex>` - Filter tests by name using regex
@@ -82,33 +84,39 @@ A quick validation suite covering core functionality:
 All test binaries found in the build directory (`*_tests`), as of January 2026:
 
 **Core Libraries:**
+
 - `base_tests` - Base utilities (logging, threading, containers)
 - `coding_tests` - Serialization, compression, file I/O
 - `geometry_tests` - Geometric primitives and algorithms
 - `descriptions_tests` - Feature descriptions
 
 **Platform & Storage:**
+
 - `platform_tests` - Platform abstraction layer
 - `storage_tests` - Map storage management
 - `storage_integration_tests` - Storage integration tests
 
 **Indexer & Data:**
+
 - `indexer_tests` - Map data indexing, search string utilities
 - `kml_tests` - KML file handling
 - `mwm_tests` - MWM file format
 - `mwm_diff_tests` - MWM diff/patch
 
 **Editor:**
+
 - `editor_tests` - OSM editing functionality
 - `osm_auth_tests` - OSM authentication
 
 **Graphics:**
+
 - `drape_tests` - Drape rendering engine
 - `drape_frontend_tests` - Drape frontend
 - `shaders_tests` - Shader compilation - See upstream tracking bug for the test taking too long https://github.com/organicmaps/organicmaps/issues/223
 - `style_tests` - Map styles
 
 **Traffic & Transit:**
+
 - `traffic_tests` - Traffic data
 - `tracking_tests` - GPS tracking
 - `transit_tests` - Public transit
@@ -117,11 +125,13 @@ All test binaries found in the build directory (`*_tests`), as of January 2026:
 - `world_feed_integration_tests` - See upstream tracking bug for failures: https://github.com/organicmaps/organicmaps/issues/215
 
 **Search:**
+
 - `search_tests` - Search and ranking
 - `search_integration_tests` - Search integration
 - `search_quality_tests` - Search quality metrics
 
 **Routing:**
+
 - `routing_tests` - Route planning
 - `routing_common_tests` - Common routing utilities
 - `routing_integration_tests` - See upstream tracking bug for failures: https://github.com/organicmaps/organicmaps/issues/221
@@ -129,22 +139,26 @@ All test binaries found in the build directory (`*_tests`), as of January 2026:
 - `routing_consistency_tests` - Routing consistency checks
 
 **Generator:**
+
 - `generator_tests` - Map data generation
 - `generator_integration_tests` - See upstream tracking bug for failure: https://github.com/organicmaps/organicmaps/issues/225
 - `address_parser_tests` - Address parsing
 
 **Map:**
+
 - `map_tests` - Map business logic
 - `map_integration_tests` - Map integration tests
 - `ge0_tests` - ge0 URL scheme
 
 **3rd Party:**
+
 - `opening_hours_tests` - Opening hours parsing
 - `opening_hours_integration_tests` - See upstream tracking bug for failures: https://github.com/organicmaps/organicmaps/issues/219
 - `opening_hours_supported_features_tests` - See upstream tracking bug for failures: https://github.com/organicmaps/organicmaps/issues/219
 - `bsdiff_tests` - Binary diff
 
 **Tools:**
+
 - `openlr_tests` - OpenLR location referencing
 - `poly_borders_tests` - Polygon borders
 - `track_analyzing_tests` - Track analysis
@@ -172,6 +186,7 @@ UNIT_TEST(MyTest_BasicFunctionality)
 ```
 
 **Common Test Macros:**
+
 - `TEST(condition, message)` - Assert condition is true
 - `TEST_EQUAL(a, b, message)` - Assert equality
 - `TEST_NOT_EQUAL(a, b, message)` - Assert inequality
@@ -179,6 +194,7 @@ UNIT_TEST(MyTest_BasicFunctionality)
 - `TEST_GREATER(a, b, message)` - Assert a > b
 
 Tests are organized in `*_tests` directories alongside their corresponding library code:
+
 - `libs/indexer/indexer_tests/`
 - `libs/search/search_tests/`
 - etc.

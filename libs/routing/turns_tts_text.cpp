@@ -132,8 +132,8 @@ std::string GetTtsText::GetTurnNotification(Notification const & notification) c
   if (notification.m_useThenInsteadOfDistance)
   {
     bool const isRoundaboutEntranceReminder = notification.m_turnDir == CarDirection::LeaveRoundAbout &&
-                                               notification.m_distanceUnits == 0 &&
-                                               !notification.m_useAtRoundaboutPrefix;
+                                              notification.m_distanceUnits == 0 &&
+                                              !notification.m_useAtRoundaboutPrefix;
     if (!isRoundaboutEntranceReminder)
     {
       prefixStr = GetTextByIdTrimmed("then");

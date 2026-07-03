@@ -6,9 +6,9 @@ CGFloat const kDetailShortRightSpace = 16;
 
 @interface MWMEditorCategoryCell ()
 
-@property(weak, nonatomic) IBOutlet UIImageView * accessoryIcon;
-@property(weak, nonatomic) IBOutlet UILabel * detail;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * detailRightSpace;
+@property(weak, nonatomic) IBOutlet UIImageView *accessoryIcon;
+@property(weak, nonatomic) IBOutlet UILabel *detail;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *detailRightSpace;
 @property(weak, nonatomic) id<MWMEditorCellProtocol> delegate;
 
 @end

@@ -537,9 +537,8 @@ void GetTurnDirectionBasic(IRoutingResult const & result, size_t const outgoingS
   if (!turnInfo.m_ingoing->m_roadNameInfo.m_name.empty() &&
       turnInfo.m_ingoing->m_roadNameInfo.m_name == turnInfo.m_outgoing->m_roadNameInfo.m_name &&
       turnInfo.m_ingoing->m_roadNameInfo.m_ref == turnInfo.m_outgoing->m_roadNameInfo.m_ref &&
-      turnInfo.m_ingoing->m_highwayClass == turnInfo.m_outgoing->m_highwayClass &&
-      !turnInfo.m_ingoing->m_isLink && !turnInfo.m_outgoing->m_isLink &&
-      !turnInfo.m_ingoing->m_onRoundabout && !turnInfo.m_outgoing->m_onRoundabout)
+      turnInfo.m_ingoing->m_highwayClass == turnInfo.m_outgoing->m_highwayClass && !turnInfo.m_ingoing->m_isLink &&
+      !turnInfo.m_outgoing->m_isLink && !turnInfo.m_ingoing->m_onRoundabout && !turnInfo.m_outgoing->m_onRoundabout)
   {
     double constexpr kSameRoadStraightAngle = 20.0;
     bool hasStraightAheadOption = false;

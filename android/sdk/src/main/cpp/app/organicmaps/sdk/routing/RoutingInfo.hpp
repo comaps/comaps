@@ -36,8 +36,8 @@ jobject CreateRoutingInfo(JNIEnv * env, routing::FollowingInfo const & info, Rou
       jni::ToJavaString(env, info.m_nextNextStreetName), info.m_completionPercent, info.m_turn, info.m_nextTurn,
       info.m_pedestrianTurn, info.m_exitNum, info.m_time, jLanes, info.m_speedLimitMps,
       static_cast<jboolean>(isSpeedCamLimitExceeded), static_cast<jboolean>(shouldPlaySignal),
-      static_cast<jint>(info.m_routingSessionState), info.m_indexOfNextStop,
-      ToJavaDistance(env, info.m_distToNextStop), static_cast<jint>(info.m_timeToNextStop));
+      static_cast<jint>(info.m_routingSessionState), info.m_indexOfNextStop, ToJavaDistance(env, info.m_distToNextStop),
+      static_cast<jint>(info.m_timeToNextStop));
   ASSERT(result, (jni::DescribeException()));
   return result;
 }

@@ -30,6 +30,7 @@ For more information, please see the source code at [`Framework::ParseSearchQuer
 - `?no-isolines`: Disable the isolines layer.
 
 ### 3D mode (for the Qt desktop app only)
+
 - `?3d`: Enable 3D (perspective) mode.
 - `?b3d`: Enable 3D buildings.
 - `?2d`: Disable 3D mode and buildings.

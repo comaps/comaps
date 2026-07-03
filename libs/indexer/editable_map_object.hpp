@@ -152,7 +152,8 @@ private:
 
 public:
   /// Check whether langCode can be used as default name.
-  static bool CanUseAsDefaultName(localisation::LanguageIndex const languageIndex, std::vector<localisation::LanguageIndex> const & mwmLanguageIndexes);
+  static bool CanUseAsDefaultName(localisation::LanguageIndex const languageIndex,
+                                  std::vector<localisation::LanguageIndex> const & mwmLanguageIndexes);
 
   /// See comment for NamesDataSource class.
   static NamesDataSource GetNamesDataSource(StringUtf8Multilang const & source,

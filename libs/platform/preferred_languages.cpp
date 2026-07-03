@@ -563,7 +563,8 @@ std::string GetCurrentNorm()
   return Normalize(GetCurrentOrig());
 }
 
-std::vector<std::string> GetSystemPreferredLanguageCodes() {
+std::vector<std::string> GetSystemPreferredLanguageCodes()
+{
   std::vector<std::string> langs = {};
 
   for (auto const & systemLanguage : GetSystemPreferred())

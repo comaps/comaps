@@ -34,14 +34,14 @@ class FixedSizeDeserializer;
 
 namespace transit
 {
-#define DECLARE_SCHEDULE_TYPES_FRIENDS                  \
-  template <class Sink>                                 \
-  friend class routing::transit::Serializer;            \
-  template <class Source>                               \
-  friend class routing::transit::Deserializer;          \
-  template <typename Sink>                              \
-  friend class routing::transit::FixedSizeSerializer;   \
-  template <typename Sink>                              \
+#define DECLARE_SCHEDULE_TYPES_FRIENDS                \
+  template <class Sink>                               \
+  friend class routing::transit::Serializer;          \
+  template <class Source>                             \
+  friend class routing::transit::Deserializer;        \
+  template <typename Sink>                            \
+  friend class routing::transit::FixedSizeSerializer; \
+  template <typename Sink>                            \
   friend class routing::transit::FixedSizeDeserializer;
 
 // Status of some transit itinerary (e.g. line) in the moment of time.

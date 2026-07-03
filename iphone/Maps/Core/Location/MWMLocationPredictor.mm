@@ -10,11 +10,11 @@ NSUInteger constexpr kMaxPredictionCount = 20;
 
 @interface MWMLocationPredictor ()
 
-@property(copy, nonatomic) CLLocation * lastLocation;
+@property(copy, nonatomic) CLLocation *lastLocation;
 @property(nonatomic) BOOL isLastLocationValid;
-@property (nonatomic) BOOL isLastPositionModeValid;
-@property (nonatomic) NSUInteger predictionsCount;
-@property (copy, nonatomic) TPredictionBlock onPredictionBlock;
+@property(nonatomic) BOOL isLastPositionModeValid;
+@property(nonatomic) NSUInteger predictionsCount;
+@property(copy, nonatomic) TPredictionBlock onPredictionBlock;
 
 @end
 
@@ -45,8 +45,7 @@ NSUInteger constexpr kMaxPredictionCount = 20;
 
 - (BOOL)isActive
 {
-  return self.isLastLocationValid && self.isLastPositionModeValid &&
-         self.predictionsCount < kMaxPredictionCount;
+  return self.isLastLocationValid && self.isLastPositionModeValid && self.predictionsCount < kMaxPredictionCount;
 }
 
 - (void)restart
@@ -69,23 +68,23 @@ NSUInteger constexpr kMaxPredictionCount = 20;
 
   self.predictionsCount++;
 
-  CLLocation * l = self.lastLocation;
+  CLLocation *l = self.lastLocation;
   CLLocationCoordinate2D coordinate = l.coordinate;
   CLLocationDistance altitude = l.altitude;
   CLLocationAccuracy hAccuracy = l.horizontalAccuracy;
   CLLocationAccuracy vAccuracy = l.verticalAccuracy;
   CLLocationDirection course = l.course;
   CLLocationSpeed speed = l.speed;
-  NSDate * timestamp = [NSDate date];
+  NSDate *timestamp = [NSDate date];
   Framework::PredictLocation(coordinate.latitude, coordinate.longitude, hAccuracy, course, speed,
                              timestamp.timeIntervalSince1970 - l.timestamp.timeIntervalSince1970);
-  CLLocation * location = [[CLLocation alloc] initWithCoordinate:coordinate
-                                                        altitude:altitude
-                                              horizontalAccuracy:hAccuracy
-                                                verticalAccuracy:vAccuracy
-                                                          course:course
-                                                           speed:speed
-                                                       timestamp:timestamp];
+  CLLocation *location = [[CLLocation alloc] initWithCoordinate:coordinate
+                                                       altitude:altitude
+                                             horizontalAccuracy:hAccuracy
+                                               verticalAccuracy:vAccuracy
+                                                         course:course
+                                                          speed:speed
+                                                      timestamp:timestamp];
   self.onPredictionBlock(location);
   [self schedule];
 }

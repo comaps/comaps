@@ -1,7 +1,7 @@
 package app.organicmaps.editor;
 
-import static app.organicmaps.sdk.editor.data.Language.DEFAULT_LANG_CODE;
 import static app.organicmaps.sdk.editor.data.Language.AUTO_LANG_CODE;
+import static app.organicmaps.sdk.editor.data.Language.DEFAULT_LANG_CODE;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -22,8 +22,8 @@ import java.util.Locale;
 import java.util.Objects;
 import java.util.Set;
 
-public class MapLanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
-    implements LanguagesAdapter.OnLanguageSelectedListener
+public class MapLanguagesFragment
+    extends BaseMwmRecyclerFragment<LanguagesAdapter> implements LanguagesAdapter.OnLanguageSelectedListener
 {
   final static String EXISTING_LOCALIZED_NAMES = "ExistingLocalizedNames";
   final static String IS_MAP_LANGUAGE_SELECTION = "IsMapLanguageSelection";

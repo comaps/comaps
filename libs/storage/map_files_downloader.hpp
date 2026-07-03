@@ -56,7 +56,8 @@ public:
    * @param[in]  url        Final url part like "maps/maps.json".
    * @param[in]  forceReset True - force reset current request, if any.
    */
-  void DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback, bool forceReset = false);
+  void DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback,
+                                bool forceReset = false);
   /**
    * @brief Async file download as string buffer from a server suggested by meta-server (for small files only).
    * Fetches server list from the metaserver for the current data version first.

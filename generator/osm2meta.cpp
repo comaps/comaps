@@ -346,7 +346,8 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_wikimedia_commons(std::s
 
 std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
 {
-  static auto const s_panoramaxRegex = std::regex(R"(^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$)");
+  static auto const s_panoramaxRegex =
+      std::regex(R"(^([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$)");
 
   if (std::regex_match(v, s_panoramaxRegex))
     return v;
@@ -356,11 +357,9 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_panoramax(std::string v)
     if (std::regex_match(*paramValue, s_panoramaxRegex))
     {
       if (std::string const * xyzValue = parsedUrl.GetParamValue("xyz"))
-      {
         return *paramValue + "&xyz=" + *xyzValue;
-      }
       return *paramValue;
-	}
+    }
   }
   LOG(LDEBUG, ("Invalid Panoramax tag value:", v));
   return {};
@@ -422,10 +421,12 @@ std::string MetadataTagProcessorImpl::ValidateAndFormat_local_ref(std::string co
 std::string MetadataTagProcessorImpl::ValidateAndFormat_drive_through(std::string v)
 {
   strings::AsciiToLower(v);
-  if (v == "yes" || v == "sidewalk" || v == "terrace" || v == "pedestrian_zone" || v == "patio" || v == "only" || v == "veranda" || v == "garden" || v == "parklet" || v == "street" || v == "balcony" || v == "beach" || v == "roof")
-	  return "yes";
+  if (v == "yes" || v == "sidewalk" || v == "terrace" || v == "pedestrian_zone" || v == "patio" || v == "only" ||
+      v == "veranda" || v == "garden" || v == "parklet" || v == "street" || v == "balcony" || v == "beach" ||
+      v == "roof")
+    return "yes";
   else if (v == "no")
-	  return v;
+    return v;
   return {};
 }
 

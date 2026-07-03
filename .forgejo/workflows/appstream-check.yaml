@@ -19,7 +19,7 @@ jobs:
           fetch-depth: 1
           sparse-checkout: |
             packaging/app.comaps.comaps.metainfo.xml
-  
+
       - name: Lint appstream data with Flatpak Builder
         run: flatpak-builder-lint appstream packaging/app.comaps.comaps.metainfo.xml
 

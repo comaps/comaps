@@ -8,18 +8,18 @@
 
 namespace
 {
-NSString * const kCuisineEditorCell = @"MWMCuisineEditorTableViewCell";
+NSString *const kCuisineEditorCell = @"MWMCuisineEditorTableViewCell";
 /// @returns pair.first in a separate vector.
-std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::string>> const & v)
+std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::string>> const &v)
 {
   std::vector<std::string> res;
-  for (auto const & kv : v)
+  for (auto const &kv : v)
     res.push_back(kv.first);
   return res;
 }
 }  // namespace
 
-@interface MWMCuisineEditorViewController ()<UISearchBarDelegate, MWMKeyboardObserver>
+@interface MWMCuisineEditorViewController () <UISearchBarDelegate, MWMKeyboardObserver>
 {
   osm::AllCuisines m_allCuisines;
   std::vector<std::string> m_selectedCuisines;
@@ -27,8 +27,8 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
   std::vector<std::string> m_untranslatedKeys;
 }
 
-@property(weak, nonatomic) IBOutlet UITableView * tableView;
-@property(weak, nonatomic) IBOutlet UISearchBar * searchBar;
+@property(weak, nonatomic) IBOutlet UITableView *tableView;
+@property(weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property(nonatomic) BOOL isSearch;
 
 @end
@@ -68,7 +68,7 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
   {
     self.isSearch = YES;
     std::string const st = searchText.UTF8String;
-    for (auto const & kv : m_allCuisines)
+    for (auto const &kv : m_allCuisines)
       if (search::ContainsNormalized(kv.second, st))
         m_displayedKeys.push_back(kv.first);
   }
@@ -107,8 +107,14 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
   [self.tableView reloadData];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar { [searchBar resignFirstResponder]; }
-- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar { return UIBarPositionTopAttached; }
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+  [searchBar resignFirstResponder];
+}
+- (UIBarPosition)positionForBar:(id<UIBarPositioning>)bar
+{
+  return UIBarPositionTopAttached;
+}
 - (void)searchBar:(UISearchBar *)searchBar setActiveState:(BOOL)isActiveState
 {
   [searchBar setShowsCancelButton:isActiveState animated:YES];
@@ -143,7 +149,7 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
   m_allCuisines = Cuisines::Instance().AllSupportedCuisines();
   m_displayedKeys = SliceKeys(m_allCuisines);
   m_selectedCuisines = [self.delegate selectedCuisines];
-  for (auto const & s : m_selectedCuisines)
+  for (auto const &s : m_selectedCuisines)
   {
     std::string const translated = Cuisines::Instance().Translate(s);
     if (translated.empty())
@@ -153,13 +159,15 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
 
 - (void)configTable
 {
-  [self.tableView registerClass:[MWMTableViewCell class]
-         forCellReuseIdentifier:[UITableViewCell className]];
+  [self.tableView registerClass:[MWMTableViewCell class] forCellReuseIdentifier:[UITableViewCell className]];
 }
 
 #pragma mark - Actions
 
-- (void)onCancel { [self.navigationController popViewControllerAnimated:YES]; }
+- (void)onCancel
+{
+  [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)onDone
 {
   [self.delegate setSelectedCuisines:m_selectedCuisines];
@@ -178,15 +186,14 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
 
 #pragma mark - UITableViewDataSource
 
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView
-                  cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (UITableViewCell *_Nonnull)tableView:(UITableView *_Nonnull)tableView
+                 cellForRowAtIndexPath:(NSIndexPath *_Nonnull)indexPath
 {
-  auto cell =
-      [tableView dequeueReusableCellWithCellClass:[UITableViewCell class] indexPath:indexPath];
+  auto cell = [tableView dequeueReusableCellWithCellClass:[UITableViewCell class] indexPath:indexPath];
   NSInteger const index = indexPath.row;
 
-  auto const & dataSource = [self dataSourceForSection:indexPath.section];
-  std::string const & key = dataSource[index];
+  auto const &dataSource = [self dataSourceForSection:indexPath.section];
+  std::string const &key = dataSource[index];
   if (dataSource == m_displayedKeys)
   {
     std::string const translated = osm::Cuisines::Instance().Translate(m_displayedKeys[index]);
@@ -209,7 +216,7 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
   return self.isSearch ? 1 : !m_untranslatedKeys.empty() + !m_displayedKeys.empty();
 }
 
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView *_Nonnull)tableView numberOfRowsInSection:(NSInteger)section
 {
   return [self dataSourceForSection:section].size();
 }
@@ -224,16 +231,13 @@ std::vector<std::string> SliceKeys(std::vector<std::pair<std::string, std::strin
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView * _Nonnull)tableView
-    didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (void)tableView:(UITableView *_Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath *_Nonnull)indexPath
 {
-  UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
+  UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
   [cell setSelected:NO animated:YES];
   BOOL const isAlreadySelected = cell.accessoryType == UITableViewCellAccessoryCheckmark;
-  cell.accessoryType =
-      isAlreadySelected ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
-  [self change:[self dataSourceForSection:indexPath.section][indexPath.row]
-      selected:!isAlreadySelected];
+  cell.accessoryType = isAlreadySelected ? UITableViewCellAccessoryNone : UITableViewCellAccessoryCheckmark;
+  [self change:[self dataSourceForSection:indexPath.section][indexPath.row] selected:!isAlreadySelected];
 }
 
 @end

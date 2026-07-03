@@ -21,8 +21,8 @@ implementation on Android.
 - Get under a roof and away from the open sky and any windows;
 - Restart device, start the app
 - Wait until location is detected, or go outside to have the open sky and wait
-for a few minutes so the device can find GPS satellites, without locking device
-and switching to another apps.
+  for a few minutes so the device can find GPS satellites, without locking device
+  and switching to another apps.
 - The screen should be automatically on all the time during the process.
 
 This test-case should work with the same behavior regardless of
@@ -31,7 +31,7 @@ This test-case should work with the same behavior regardless of
 2. Location disabled by user
 
 - Follow first 3 steps from (1) above but stop detecting location by pressing
-the location "rotating radar" button;
+  the location "rotating radar" button;
 - Check that location icon is crossed out;
 - Switch to some other app and back;
 - Check that location icon is crossed out;

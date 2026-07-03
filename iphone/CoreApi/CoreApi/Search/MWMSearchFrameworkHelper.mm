@@ -9,9 +9,9 @@
 
 + (NSArray<NSString *> *)searchCategories
 {
-  NSMutableArray * result = [NSMutableArray array];
-  auto const & categories = GetFramework().GetDisplayedCategories().GetKeys();
-  for (auto const & item : categories)
+  NSMutableArray *result = [NSMutableArray array];
+  auto const &categories = GetFramework().GetDisplayedCategories().GetKeys();
+  for (auto const &item : categories)
     [result addObject:@(item.c_str())];
   return [result copy];
 }
@@ -28,9 +28,9 @@
 
 + (NSArray<NSString *> *)lastSearchQueries
 {
-  NSMutableArray * result = [NSMutableArray array];
-  auto const & queries = GetFramework().GetSearchAPI().GetLastSearchQueries();
-  for (auto const & item : queries)
+  NSMutableArray *result = [NSMutableArray array];
+  auto const &queries = GetFramework().GetSearchAPI().GetLastSearchQueries();
+  for (auto const &item : queries)
     [result addObject:@(item.second.c_str())];
   return [result copy];
 }

@@ -6,7 +6,8 @@
 std::string StringUtf8Multilang::GetOSMTagByCode(localisation::LanguageIndex const languageIndex)
 {
   localisation::LanguageCode const languageCode = localisation::ConvertLanguageIndexToLanguageCode(languageIndex);
-  if (languageIndex == localisation::kInternationalNameIndex || languageIndex == localisation::kAlternativeNameIndex || languageIndex == localisation::kOldNameIndex)
+  if (languageIndex == localisation::kInternationalNameIndex || languageIndex == localisation::kAlternativeNameIndex ||
+      languageIndex == localisation::kOldNameIndex)
     return languageCode;
   else if (languageIndex == localisation::kDefaultNameIndex)
     return "name";

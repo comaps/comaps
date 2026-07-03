@@ -5,8 +5,7 @@
 // Note that setting the view non-opaque will only work if the EAGL surface has an alpha channel.
 @interface EAGLView : UIView
 
-
-@property(nonatomic) MWMMapWidgets * widgetsManager;
+@property(nonatomic) MWMMapWidgets *widgetsManager;
 
 @property(nonatomic, readonly) BOOL drapeEngineCreated;
 @property(nonatomic, readonly) CGSize pixelSize;

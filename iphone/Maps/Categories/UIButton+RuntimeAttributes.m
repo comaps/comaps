@@ -11,7 +11,7 @@
 
 - (NSString *)localizedText
 {
-  NSString * title = [self titleForState:UIControlStateNormal];
+  NSString *title = [self titleForState:UIControlStateNormal];
   return L(title);
 }
 

@@ -162,7 +162,7 @@ public:
   std::string DebugString();
 
   std::string const & GetHouseNumber();
-  
+
   std::vector<localisation::LanguageIndex> GetLanguages();
 
   localisation::NameTranslation GetTranslatedName();

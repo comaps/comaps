@@ -122,7 +122,8 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
       return;
 
     rw.setNestedScrollingEnabled(false);
-    RecyclerView.ItemDecoration decor = new DividerItemDecorationWithPadding(requireContext(), R.dimen.bookmark_category_margin_start);
+    RecyclerView.ItemDecoration decor =
+        new DividerItemDecorationWithPadding(requireContext(), R.dimen.bookmark_category_margin_start);
     rw.addItemDecoration(decor);
     mCategoriesAdapterObserver = this::onCategoriesChanged;
     BookmarkManager.INSTANCE.addCategoriesUpdatesListener(mCategoriesAdapterObserver);
@@ -190,25 +191,20 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     if (item.getItemId() == R.id.bookmark_categories_sort)
     {
       int currentType = BookmarkManager.INSTANCE.getCategorySortType();
-      final int[] sortTypes = {
-          BookmarkManager.SORT_CATEGORIES_BY_LAST_MODIFIED,
-          BookmarkManager.SORT_CATEGORIES_BY_NAME,
-          BookmarkManager.SORT_CATEGORIES_MANUAL
-      };
-      String[] options = {
-          getString(R.string.by_recently_used),
-          getString(R.string.by_name),
-          getString(R.string.by_custom)
-      };
+      final int[] sortTypes = {BookmarkManager.SORT_CATEGORIES_BY_LAST_MODIFIED,
+                               BookmarkManager.SORT_CATEGORIES_BY_NAME, BookmarkManager.SORT_CATEGORIES_MANUAL};
+      String[] options = {getString(R.string.by_recently_used), getString(R.string.by_name),
+                          getString(R.string.by_custom)};
 
       int checked = currentType;
 
       new MaterialAlertDialogBuilder(requireActivity())
           .setTitle(R.string.sort_categories)
-          .setSingleChoiceItems(options, checked, (dialog, which) -> {
-            BookmarkManager.INSTANCE.setCategorySortType(sortTypes[which]);
-            dialog.dismiss();
-          })
+          .setSingleChoiceItems(options, checked,
+                                (dialog, which) -> {
+                                  BookmarkManager.INSTANCE.setCategorySortType(sortTypes[which]);
+                                  dialog.dismiss();
+                                })
           .show();
       return true;
     }

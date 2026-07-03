@@ -26,8 +26,8 @@ typedef NS_ENUM(NSUInteger, TrackRecordingButtonState) {
 @property(nonatomic) MWMBottomMenuState menuState;
 @property(nonatomic) MWMBottomMenuState menuRestoreState;
 @property(nonatomic) BOOL isDirectionViewHidden;
-@property(nonatomic) BottomTabBarViewController * tabBarController;
-@property(nonatomic) TrackRecordingButtonViewController * trackRecordingButton;
+@property(nonatomic) BottomTabBarViewController *tabBarController;
+@property(nonatomic) TrackRecordingButtonViewController *trackRecordingButton;
 
 - (instancetype)init __attribute__((unavailable("init is not available")));
 - (instancetype)initWithParentController:(MapViewController *)controller;

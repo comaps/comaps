@@ -2,22 +2,20 @@
 #import "MWMZoomButtonsView.h"
 #import "Statistics.h"
 
-
 #include "Framework.h"
-#include "platform/settings.hpp"
 #include "indexer/scales.hpp"
+#include "platform/settings.hpp"
 
-static NSString * const kMWMZoomButtonsViewNibName = @"MWMZoomButtonsView";
+static NSString *const kMWMZoomButtonsViewNibName = @"MWMZoomButtonsView";
 
+@interface MWMZoomButtons ()
 
-@interface MWMZoomButtons()
+@property(nonatomic) IBOutlet MWMZoomButtonsView *zoomView;
+@property(weak, nonatomic) IBOutlet UIButton *zoomInButton;
+@property(weak, nonatomic) IBOutlet UIButton *zoomOutButton;
 
-@property (nonatomic) IBOutlet MWMZoomButtonsView * zoomView;
-@property (weak, nonatomic) IBOutlet UIButton * zoomInButton;
-@property (weak, nonatomic) IBOutlet UIButton * zoomOutButton;
-
-@property (nonatomic) BOOL zoomSwipeEnabled;
-@property (nonatomic, readonly) BOOL isZoomEnabled;
+@property(nonatomic) BOOL zoomSwipeEnabled;
+@property(nonatomic, readonly) BOOL isZoomEnabled;
 
 @end
 
@@ -90,7 +88,7 @@ static NSString * const kMWMZoomButtonsViewNibName = @"MWMZoomButtonsView";
 {
   if (!self.zoomSwipeEnabled)
     return;
-  UIView * const superview = self.zoomView.superview;
+  UIView *const superview = self.zoomView.superview;
   CGFloat const translation = -[sender translationInView:superview].y / superview.bounds.size.height;
 
   CGFloat const scaleFactor = exp(translation);

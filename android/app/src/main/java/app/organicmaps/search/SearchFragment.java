@@ -177,14 +177,12 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
                                 activityResult -> mToolbarController.onVoiceRecognitionResult(activityResult));
 
   private final ActivityResultLauncher<Intent> mContactPickerLauncher =
-          registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
-          result -> {
-            if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null)
-            {
-              mToolbarController.setQuery(Utils.getContactAddress(requireContext(), result.getData().getData()));
-            }
-          }
-  );
+      registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result.getResultCode() == Activity.RESULT_OK && result.getData() != null)
+        {
+          mToolbarController.setQuery(Utils.getContactAddress(requireContext(), result.getData().getData()));
+        }
+      });
 
   private final LocationListener mLocationListener = new LocationListener() {
     @Override
@@ -303,7 +301,8 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mShowOnMapFab.setOnClickListener(v -> showAllResultsOnMap());
     mOpenContactPicker = root.findViewById(R.id.open_contact_picker);
     mOpenContactPicker.setOnClickListener(v -> mContactPickerLauncher.launch(Utils.openContactPicker()));
-    ViewCompat.setOnApplyWindowInsetsListener(mResultsPlaceholder, new WindowInsetUtils.ScrollableContentInsetsListener(mResultsPlaceholder, mOpenContactPicker));
+    ViewCompat.setOnApplyWindowInsetsListener(mResultsPlaceholder, new WindowInsetUtils.ScrollableContentInsetsListener(
+                                                                       mResultsPlaceholder, mOpenContactPicker));
 
     mResults.setLayoutManager(new LinearLayoutManager(view.getContext()));
     mResults.setAdapter(mSearchAdapter);

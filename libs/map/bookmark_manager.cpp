@@ -1663,10 +1663,8 @@ kml::MarkGroupId BookmarkManager::GetCategoryByFileName(std::string const & file
   CHECK_THREAD_CHECKER(m_threadChecker, ());
   std::string const target = base::FileNameFromFullPath(fileName);
   for (auto const & c : m_categories)
-  {
     if (base::FileNameFromFullPath(c.second->GetFileName()) == target)
       return c.second->GetID();
-  }
   return kml::kInvalidMarkGroupId;
 }
 
@@ -2208,9 +2206,8 @@ void BookmarkManager::NotifyAboutFinishAsyncLoading(KMLDataCollectionPtr && coll
           changed = true;
         }
         // Remove entries for deleted categories.
-        auto const eraseEnd = std::remove_if(catOrder.begin(), catOrder.end(), [this](auto const & fn) {
-          return GetCategoryByFileName(fn) == kml::kInvalidMarkGroupId;
-        });
+        auto const eraseEnd = std::remove_if(catOrder.begin(), catOrder.end(), [this](auto const & fn)
+        { return GetCategoryByFileName(fn) == kml::kInvalidMarkGroupId; });
         if (eraseEnd != catOrder.end())
         {
           catOrder.erase(eraseEnd, catOrder.end());
@@ -2500,10 +2497,8 @@ std::vector<kml::MarkGroupId> BookmarkManager::GetSortedBmGroupIdList() const
     }
 
     for (auto const & [markGroupId, _] : m_categories)
-    {
       if (std::find(sortedList.begin(), sortedList.end(), markGroupId) == sortedList.end())
         sortedList.push_back(markGroupId);
-    }
 
     return sortedList;
   }
@@ -2517,8 +2512,8 @@ std::vector<kml::MarkGroupId> BookmarkManager::GetSortedBmGroupIdList() const
 
   if (sortType == CategorySortType::ByName)
   {
-    std::sort(vec.begin(), vec.end(), [](PairT const & lhs, PairT const & rhs)
-    { return lhs.second->GetName() < rhs.second->GetName(); });
+    std::sort(vec.begin(), vec.end(),
+              [](PairT const & lhs, PairT const & rhs) { return lhs.second->GetName() < rhs.second->GetName(); });
   }
   else
   {
@@ -2575,15 +2570,11 @@ void BookmarkManager::MoveCategoryToPosition(kml::MarkGroupId categoryId, size_t
 
   // Move by repeatedly swapping toward target position.
   if (targetPos > currentIdx)
-  {
     for (size_t i = currentIdx; i < targetPos; ++i)
       std::swap(catOrder[i], catOrder[i + 1]);
-  }
   else
-  {
     for (size_t i = currentIdx; i > targetPos; --i)
       std::swap(catOrder[i], catOrder[i - 1]);
-  }
 
   SaveMetadata();
   NotifyBookmarksChanged();
@@ -2596,8 +2587,7 @@ BookmarkManager::CategorySortType BookmarkManager::NormalizeCategorySortType(Cat
   {
   case CategorySortType::ByLastModified:
   case CategorySortType::ByName:
-  case CategorySortType::Manual:
-    return sortType;
+  case CategorySortType::Manual: return sortType;
   }
   return CategorySortType::ByLastModified;
 }
@@ -2903,7 +2893,8 @@ void BookmarkManager::CreateCategories(KMLDataCollection && dataCollection, bool
     if (!m_metadata.m_categoryOrder.empty() && !fileName.empty())
     {
       auto const fileBasename = base::FileNameFromFullPath(fileName);
-      if (std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), fileBasename) == m_metadata.m_categoryOrder.end())
+      if (std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), fileBasename) ==
+          m_metadata.m_categoryOrder.end())
         m_metadata.m_categoryOrder.push_back(fileBasename);
     }
     group->SetServerId(fileData.m_serverId);
@@ -3118,7 +3109,8 @@ BookmarkManager::KMLDataCollectionPtr BookmarkManager::PrepareToSaveBookmarks(
       if (!m_metadata.m_categoryOrder.empty())
       {
         auto const fileBasename = base::FileNameFromFullPath(file);
-        if (std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), fileBasename) == m_metadata.m_categoryOrder.end())
+        if (std::find(m_metadata.m_categoryOrder.begin(), m_metadata.m_categoryOrder.end(), fileBasename) ==
+            m_metadata.m_categoryOrder.end())
           m_metadata.m_categoryOrder.push_back(fileBasename);
       }
     }

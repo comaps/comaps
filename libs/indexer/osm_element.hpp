@@ -161,9 +161,10 @@ std::string DebugPrint(OsmElement::Tag const & tag);
 template <>
 struct std::hash<OsmElement::Tag>
 {
-    using is_avalanching = void;
-    auto operator()(OsmElement::Tag const & tag) const noexcept -> std::uint64_t {
-        std::string const str = tag.m_key + tag.m_value;
-        return ankerl::unordered_dense::detail::wyhash::hash(str.data(), sizeof(char) * str.size());
-    }
+  using is_avalanching = void;
+  auto operator()(OsmElement::Tag const & tag) const noexcept -> std::uint64_t
+  {
+    std::string const str = tag.m_key + tag.m_value;
+    return ankerl::unordered_dense::detail::wyhash::hash(str.data(), sizeof(char) * str.size());
+  }
 };

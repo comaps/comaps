@@ -7,9 +7,9 @@ on:
     paths-ignore:
       - .gitignore
       - .forgejo/**
-      - '!.forgejo/workflows/android-beta.yaml'  # Run check on self change
-      - '**/*_tests/**'
-      - '**/CMakeLists.txt'
+      - "!.forgejo/workflows/android-beta.yaml" # Run check on self change
+      - "**/*_tests/**"
+      - "**/CMakeLists.txt"
       - CONTRIBUTORS
       - LICENSE
       - NOTICE

@@ -10,6 +10,7 @@ The main focus of testing those test builds should always be the newly introduce
 This is the process for the different platforms:
 
 ## Android
+
 - A new Issue is created for every Android test build.
 - The Issue includes the APK, that needs to be tested, and notes of what changed with this test build.
 - Comments and problems found with the specific test build should be noted in the Issue.
@@ -17,6 +18,7 @@ This is the process for the different platforms:
 - New test builds also usually get announced in the chats.
 
 ## iOS
+
 - A new Issue is created for every iOS test build.
 - The Issue includes the signup link for the TestFlight and notes of what changed with this test build.
 - The available space for beta testers in TestFlight is limited and all spots might be filled already. We regularly remove inactive testers and sometimes add more spots though. So if the beta is full, maybe check again at some point later.

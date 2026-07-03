@@ -135,10 +135,10 @@ bool SegmentRange::GetSegmentBySegId(uint32_t segId, NumMwmIds const & numMwmIds
 string DebugPrint(SegmentRange const & segmentRange)
 {
   stringstream out;
-  out << "SegmentRange "
-      << "{ m_featureId = " << DebugPrint(segmentRange.m_featureId) << ", m_startSegId = " << segmentRange.m_startSegId
-      << ", m_endSegId = " << segmentRange.m_endSegId << ", m_forward = " << segmentRange.m_forward
-      << ", m_start = " << DebugPrint(segmentRange.m_start) << ", m_end = " << DebugPrint(segmentRange.m_end) << " }";
+  out << "SegmentRange " << "{ m_featureId = " << DebugPrint(segmentRange.m_featureId)
+      << ", m_startSegId = " << segmentRange.m_startSegId << ", m_endSegId = " << segmentRange.m_endSegId
+      << ", m_forward = " << segmentRange.m_forward << ", m_start = " << DebugPrint(segmentRange.m_start)
+      << ", m_end = " << DebugPrint(segmentRange.m_end) << " }";
   return out.str();
 }
 
@@ -147,8 +147,7 @@ namespace turns
 string DebugPrint(TurnItem const & turnItem)
 {
   stringstream out;
-  out << "TurnItem "
-      << "{ m_index = " << turnItem.m_index << ", m_turn = " << DebugPrint(turnItem.m_turn)
+  out << "TurnItem " << "{ m_index = " << turnItem.m_index << ", m_turn = " << DebugPrint(turnItem.m_turn)
       << ", m_lanes = " << ::DebugPrint(turnItem.m_lanes) << ", m_exitNum = " << turnItem.m_exitNum
       << ", m_pedestrianDir = " << DebugPrint(turnItem.m_pedestrianTurn) << " }";
   return out.str();
@@ -157,9 +156,8 @@ string DebugPrint(TurnItem const & turnItem)
 string DebugPrint(TurnItemDist const & turnItemDist)
 {
   stringstream out;
-  out << "TurnItemDist "
-      << "{ m_turnItem = " << DebugPrint(turnItemDist.m_turnItem) << ", m_distMeters = " << turnItemDist.m_distMeters
-      << " }";
+  out << "TurnItemDist " << "{ m_turnItem = " << DebugPrint(turnItemDist.m_turnItem)
+      << ", m_distMeters = " << turnItemDist.m_distMeters << " }";
   return out.str();
 }
 

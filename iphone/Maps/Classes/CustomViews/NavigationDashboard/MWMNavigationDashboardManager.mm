@@ -7,7 +7,8 @@
 
 #import "SwiftBridge.h"
 
-namespace {
+namespace
+{
 NSString *const kRoutePreviewIPhoneXibName = @"MWMiPhoneRoutePreview";
 NSString *const kNavigationInfoViewXibName = @"MWMNavigationInfoView";
 NSString *const kNavigationControlViewXibName = @"NavigationControlView";
@@ -40,23 +41,26 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 @implementation MWMNavigationDashboardManager
 
-+ (MWMNavigationDashboardManager *)sharedManager {
++ (MWMNavigationDashboardManager *)sharedManager
+{
   return [MWMMapViewControlsManager manager].navigationManager;
 }
 
-- (instancetype)initWithParentView:(UIView *)view {
+- (instancetype)initWithParentView:(UIView *)view
+{
   self = [super init];
-  if (self) {
+  if (self)
     _ownerView = view;
-  }
   return self;
 }
 
-- (SearchOnMapManager *)searchManager {
+- (SearchOnMapManager *)searchManager
+{
   return [[MapViewController sharedController] searchManager];
 }
 
-- (void)loadPreviewWithStatusBoxes {
+- (void)loadPreviewWithStatusBoxes
+{
   [NSBundle.mainBundle loadNibNamed:kRoutePreviewIPhoneXibName owner:self options:nil];
   auto ownerView = self.ownerView;
   _baseRoutePreviewStatus.ownerView = ownerView;
@@ -65,23 +69,27 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - MWMRoutePreview
 
-- (void)setRouteBuilderProgress:(CGFloat)progress {
+- (void)setRouteBuilderProgress:(CGFloat)progress
+{
   [self.routePreview router:[MWMRouter type] setProgress:progress / 100.];
 }
 
 #pragma mark - MWMNavigationGo
 
-- (IBAction)routingStartTouchUpInside {
+- (IBAction)routingStartTouchUpInside
+{
   [MWMRouter startRouting];
 }
-- (void)updateGoButtonTitle {
+- (void)updateGoButtonTitle
+{
   NSString *title = L(@"p2p_start");
 
   for (MWMRouteStartButton *button in self.goButtons)
     [button setTitle:title forState:UIControlStateNormal];
 }
 
-- (void)onNavigationInfoUpdated {
+- (void)onNavigationInfoUpdated
+{
   auto entity = self.entity;
   if (!entity.isValid)
     return;
@@ -97,42 +105,49 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - On route updates
 
-- (void)onRoutePrepare {
+- (void)onRoutePrepare
+{
   self.state = MWMNavigationDashboardStatePrepare;
   self.routePreview.drivingOptionsState = MWMDrivingOptionsStateNone;
 }
 
-- (void)onRoutePlanning {
+- (void)onRoutePlanning
+{
   self.state = MWMNavigationDashboardStatePlanning;
   self.routePreview.drivingOptionsState = MWMDrivingOptionsStateNone;
 }
 
-- (void)onRouteError:(NSString *)error {
+- (void)onRouteError:(NSString *)error
+{
   self.errorMessage = error;
   self.state = MWMNavigationDashboardStateError;
   self.routePreview.drivingOptionsState =
-    [MWMRouter hasActiveDrivingOptions] ? MWMDrivingOptionsStateChange : MWMDrivingOptionsStateNone;
+      [MWMRouter hasActiveDrivingOptions] ? MWMDrivingOptionsStateChange : MWMDrivingOptionsStateNone;
 }
 
-- (void)onRouteReady:(BOOL)hasWarnings {
+- (void)onRouteReady:(BOOL)hasWarnings
+{
   if (self.state != MWMNavigationDashboardStateNavigation)
     self.state = MWMNavigationDashboardStateReady;
 
   MWMRouterType const routerType = [MWMRouter type];
-  if (routerType == MWMRouterTypePublicTransport || routerType == MWMRouterTypeRuler) {
+  if (routerType == MWMRouterTypePublicTransport || routerType == MWMRouterTypeRuler)
+  {
     // For Public Transport and Ruler modes, there are no road restrictions, so always hide the button.
     self.routePreview.drivingOptionsState = MWMDrivingOptionsStateNone;
-  } else {
+  }
+  else
+  {
     // For all other modes (Vehicle, Pedestrian, Bicycle), show the button.
-    if ([MWMRouter hasActiveDrivingOptions]) {
+    if ([MWMRouter hasActiveDrivingOptions])
       self.routePreview.drivingOptionsState = MWMDrivingOptionsStateChange;
-    } else {
+    else
       self.routePreview.drivingOptionsState = MWMDrivingOptionsStateDefine;
-    }
   }
 }
 
-- (void)onRoutePointsUpdated {
+- (void)onRoutePointsUpdated
+{
   if (self.state == MWMNavigationDashboardStateHidden)
     self.state = MWMNavigationDashboardStatePrepare;
   [self.navigationInfoView updateToastView];
@@ -140,7 +155,8 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - State changes
 
-- (void)stateHidden {
+- (void)stateHidden
+{
   self.routePreview = nil;
   self.navigationInfoView.state = MWMNavigationInfoViewStateHidden;
   self.navigationInfoView = nil;
@@ -151,7 +167,8 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   _transportRoutePreviewStatus = nil;
 }
 
-- (void)statePrepare {
+- (void)statePrepare
+{
   self.navigationInfoView.state = MWMNavigationInfoViewStatePrepare;
   if (self.searchManager.isSearching)
     [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedSearch animated:YES];
@@ -166,13 +183,15 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     [button statePrepare];
 }
 
-- (void)statePlanning {
+- (void)statePlanning
+{
   [self statePrepare];
   [self.routePreview router:[MWMRouter type] setState:MWMCircularProgressStateSpinner];
   [self setRouteBuilderProgress:0.];
 }
 
-- (void)stateError {
+- (void)stateError
+{
   if (_state == MWMNavigationDashboardStateReady)
     return;
 
@@ -185,10 +204,13 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     [button stateError];
 }
 
-- (void)stateReady {
-  // TODO: Here assert sometimes fires with _state = MWMNavigationDashboardStateReady, if app was stopped while navigating and then restarted.
-  // Also in ruler mode when new point is added by single tap on the map state MWMNavigationDashboardStatePlanning is skipped and we get _state = MWMNavigationDashboardStateReady.
-  NSAssert(_state == MWMNavigationDashboardStatePlanning || _state == MWMNavigationDashboardStateReady, @"Invalid state change (ready)");
+- (void)stateReady
+{
+  // TODO: Here assert sometimes fires with _state = MWMNavigationDashboardStateReady, if app was stopped while
+  // navigating and then restarted. Also in ruler mode when new point is added by single tap on the map state
+  // MWMNavigationDashboardStatePlanning is skipped and we get _state = MWMNavigationDashboardStateReady.
+  NSAssert(_state == MWMNavigationDashboardStatePlanning || _state == MWMNavigationDashboardStateReady,
+           @"Invalid state change (ready)");
   [self setRouteBuilderProgress:100.];
   [self updateGoButtonTitle];
   bool const isTransport = ([MWMRouter type] == MWMRouterTypePublicTransport);
@@ -199,23 +221,24 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
     [self.baseRoutePreviewStatus showReady];
   self.goButtonsContainer.hidden = isTransport || isRuler;
   for (MWMRouteStartButton *button in self.goButtons)
-  {
     if (isRuler)
       [button stateHidden];
     else
       [button stateReady];
-  }
 }
 
-- (void)onRouteStart {
+- (void)onRouteStart
+{
   [MWMSearch clear];
   [self.searchManager close];
   self.state = MWMNavigationDashboardStateNavigation;
 }
-- (void)onRouteStop {
+- (void)onRouteStop
+{
   self.state = MWMNavigationDashboardStateHidden;
 }
-- (void)stateNavigation {
+- (void)stateNavigation
+{
   self.routePreview = nil;
   self.navigationInfoView.state = MWMNavigationInfoViewStateNavigation;
   self.navigationControlView.isVisible = YES;
@@ -227,7 +250,8 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - MWMRoutePreviewStatus
 
-- (IBAction)showRouteManager {
+- (IBAction)showRouteManager
+{
   auto routeManagerViewModel = [[MWMRouteManagerViewModel alloc] init];
   auto routeManager = [[MWMRouteManagerViewController alloc] initWithViewModel:routeManagerViewModel];
   routeManager.modalPresentationStyle = UIModalPresentationCustom;
@@ -238,23 +262,27 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   [[MapViewController sharedController] presentViewController:routeManager animated:YES completion:nil];
 }
 
-- (IBAction)saveRouteAsTrack:(id)sender {
+- (IBAction)saveRouteAsTrack:(id)sender
+{
   [MWMFrameworkHelper saveRouteAsTrack];
   [self.baseRoutePreviewStatus setRouteSaved:YES];
 }
 
 #pragma mark - MWMNavigationControlView
 
-- (IBAction)ttsButtonAction {
+- (IBAction)ttsButtonAction
+{
   BOOL const isEnabled = [MWMTextToSpeech tts].active;
   [MWMTextToSpeech tts].active = !isEnabled;
 }
 
-- (IBAction)settingsButtonAction {
+- (IBAction)settingsButtonAction
+{
   [[MapViewController sharedController] openSettings];
 }
 
-- (IBAction)stopRoutingButtonAction {
+- (IBAction)stopRoutingButtonAction
+{
   [MWMSearch clear];
   [MWMRouter stopRouting];
   [self.searchManager close];
@@ -262,53 +290,47 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - SearchOnMapManagerObserver
 
-- (void)searchManagerWithDidChangeState:(SearchOnMapState)state {
-  switch (state) {
-    case SearchOnMapStateClosed:
-      [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedNormal animated:YES];
-      break;
-    case SearchOnMapStateHidden:
-    case SearchOnMapStateSearching:
-      [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedSearch animated:YES];
-      break;
+- (void)searchManagerWithDidChangeState:(SearchOnMapState)state
+{
+  switch (state)
+  {
+  case SearchOnMapStateClosed:
+    [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedNormal animated:YES];
+    break;
+  case SearchOnMapStateHidden:
+  case SearchOnMapStateSearching:
+    [self.navigationInfoView setSearchState:NavigationSearchState::MinimizedSearch animated:YES];
+    break;
   }
 }
 
 #pragma mark - Available area
 
-+ (void)updateNavigationInfoAvailableArea:(CGRect)frame {
++ (void)updateNavigationInfoAvailableArea:(CGRect)frame
+{
   [[self sharedManager] updateNavigationInfoAvailableArea:frame];
 }
 
-- (void)updateNavigationInfoAvailableArea:(CGRect)frame {
+- (void)updateNavigationInfoAvailableArea:(CGRect)frame
+{
   _navigationInfoView.availableArea = frame;
 }
 #pragma mark - Properties
 
-- (void)setState:(MWMNavigationDashboardState)state {
+- (void)setState:(MWMNavigationDashboardState)state
+{
   if (state == MWMNavigationDashboardStateHidden)
     [self.searchManager removeObserver:self];
   else
     [self.searchManager addObserver:self];
-  switch (state) {
-    case MWMNavigationDashboardStateHidden:
-      [self stateHidden];
-      break;
-    case MWMNavigationDashboardStatePrepare:
-      [self statePrepare];
-      break;
-    case MWMNavigationDashboardStatePlanning:
-      [self statePlanning];
-      break;
-    case MWMNavigationDashboardStateError:
-      [self stateError];
-      break;
-    case MWMNavigationDashboardStateReady:
-      [self stateReady];
-      break;
-    case MWMNavigationDashboardStateNavigation:
-      [self stateNavigation];
-      break;
+  switch (state)
+  {
+  case MWMNavigationDashboardStateHidden: [self stateHidden]; break;
+  case MWMNavigationDashboardStatePrepare: [self statePrepare]; break;
+  case MWMNavigationDashboardStatePlanning: [self statePlanning]; break;
+  case MWMNavigationDashboardStateError: [self stateError]; break;
+  case MWMNavigationDashboardStateReady: [self stateReady]; break;
+  case MWMNavigationDashboardStateNavigation: [self stateNavigation]; break;
   }
   _state = state;
   [[MapViewController sharedController] updateStatusBarStyle];
@@ -318,13 +340,15 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 }
 
 @synthesize routePreview = _routePreview;
-- (MWMRoutePreview *)routePreview {
+- (MWMRoutePreview *)routePreview
+{
   if (!_routePreview)
     [self loadPreviewWithStatusBoxes];
   return _routePreview;
 }
 
-- (void)setRoutePreview:(MWMRoutePreview *)routePreview {
+- (void)setRoutePreview:(MWMRoutePreview *)routePreview
+{
   if (routePreview == _routePreview)
     return;
   [_routePreview remove];
@@ -332,20 +356,24 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   _routePreview.delegate = self;
 }
 
-- (MWMBaseRoutePreviewStatus *)baseRoutePreviewStatus {
+- (MWMBaseRoutePreviewStatus *)baseRoutePreviewStatus
+{
   if (!_baseRoutePreviewStatus)
     [self loadPreviewWithStatusBoxes];
   return _baseRoutePreviewStatus;
 }
 
-- (MWMTransportRoutePreviewStatus *)transportRoutePreviewStatus {
+- (MWMTransportRoutePreviewStatus *)transportRoutePreviewStatus
+{
   if (!_transportRoutePreviewStatus)
     [self loadPreviewWithStatusBoxes];
   return _transportRoutePreviewStatus;
 }
 
-- (MWMNavigationInfoView *)navigationInfoView {
-  if (!_navigationInfoView) {
+- (MWMNavigationInfoView *)navigationInfoView
+{
+  if (!_navigationInfoView)
+  {
     [NSBundle.mainBundle loadNibNamed:kNavigationInfoViewXibName owner:self options:nil];
     _navigationInfoView.state = MWMNavigationInfoViewStateHidden;
     _navigationInfoView.ownerView = self.ownerView;
@@ -353,15 +381,18 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
   return _navigationInfoView;
 }
 
-- (MWMNavigationControlView *)navigationControlView {
-  if (!_navigationControlView) {
+- (MWMNavigationControlView *)navigationControlView
+{
+  if (!_navigationControlView)
+  {
     [NSBundle.mainBundle loadNibNamed:kNavigationControlViewXibName owner:self options:nil];
     _navigationControlView.ownerView = self.ownerView;
   }
   return _navigationControlView;
 }
 
-- (MWMNavigationDashboardEntity *)entity {
+- (MWMNavigationDashboardEntity *)entity
+{
   if (!_entity)
     _entity = [[MWMNavigationDashboardEntity alloc] init];
   return _entity;
@@ -369,7 +400,8 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 
 #pragma mark - MWMRoutePreviewDelegate
 
-- (void)routePreviewDidPressDrivingOptions:(MWMRoutePreview *)routePreview {
+- (void)routePreviewDidPressDrivingOptions:(MWMRoutePreview *)routePreview
+{
   [[MapViewController sharedController] openDrivingOptions];
 }
 

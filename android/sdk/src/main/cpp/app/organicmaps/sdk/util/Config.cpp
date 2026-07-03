@@ -108,12 +108,15 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_util_Config_nativeSetLargeFontsS
   frm()->SetLargeFontsSize(value);
 }
 
-JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_util_Config_nativeGetAlternativeMapLanguageHandling(JNIEnv * env, jclass thiz)
+JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_util_Config_nativeGetAlternativeMapLanguageHandling(JNIEnv * env,
+                                                                                                    jclass thiz)
 {
   return frm()->GetAlternativeMapLanguageHandling();
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_util_Config_nativeSetAlternativeMapLanguageHandling(JNIEnv * env, jclass thiz, jint value)
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_util_Config_nativeSetAlternativeMapLanguageHandling(JNIEnv * env,
+                                                                                                    jclass thiz,
+                                                                                                    jint value)
 {
   frm()->SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling(static_cast<int>(value)));
 }

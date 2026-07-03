@@ -173,7 +173,7 @@ vector<LanguageIndex> PrioritizedMapLanguageIndexes(vector<LanguageIndex> const 
     for (LanguageIndex const regionalLanguageIndex : regionalLanguageIndexes)
       prioritizedMapLanguageIndexes.push_back(regionalLanguageIndex);
   }
-  
+
   LanguageIndex defaultLang = kUnsupportedLanguageIndex;
   if (!regionalLanguageIndexes.empty())
     defaultLang = MatchingRegionalLanguageIndex(regionalLanguageIndexes, mapLanguageIndexes);

@@ -6,7 +6,7 @@
 
 @protocol MWMOpeningHoursSectionProtocol <NSObject>
 
-@property(nullable, weak, nonatomic, readonly) UITableView * tableView;
+@property(nullable, weak, nonatomic, readonly) UITableView *tableView;
 
 - (void)updateActiveSection:(NSUInteger)index;
 
@@ -20,11 +20,11 @@
 @property(nonatomic) BOOL allDay;
 
 @property(nonatomic, readonly) NSUInteger index;
-@property(nullable, nonatomic) NSNumber * selectedRow;
+@property(nullable, nonatomic) NSNumber *selectedRow;
 @property(nonatomic, readonly) NSUInteger numberOfRows;
 
-@property(nullable, nonatomic) NSDateComponents * cachedStartTime;
-@property(nullable, nonatomic) NSDateComponents * cachedEndTime;
+@property(nullable, nonatomic) NSDateComponents *cachedStartTime;
+@property(nullable, nonatomic) NSDateComponents *cachedEndTime;
 
 @property(nonatomic, readonly) BOOL canAddClosedTime;
 
@@ -38,7 +38,7 @@
 
 - (CGFloat)heightForRow:(NSUInteger)row withWidth:(CGFloat)width;
 
-- (NSDateComponents * _Nonnull)timeForRow:(NSUInteger)row isStart:(BOOL)isStart;
+- (NSDateComponents *_Nonnull)timeForRow:(NSUInteger)row isStart:(BOOL)isStart;
 
 - (void)addSelectedDay:(osmoh::Weekday)day;
 - (void)removeSelectedDay:(osmoh::Weekday)day;

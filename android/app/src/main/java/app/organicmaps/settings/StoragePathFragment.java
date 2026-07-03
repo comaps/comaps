@@ -1,6 +1,4 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -10,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;

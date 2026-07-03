@@ -24,7 +24,7 @@ MWMRouterTransitType convertType(TransitType type)
   return MWMRouterTransitTypePedestrian;
 }
 
-UIColor * convertColor(uint32_t colorARGB)
+UIColor *convertColor(uint32_t colorARGB)
 {
   CGFloat const alpha = CGFloat((colorARGB >> 24) & 0xFF) / 255;
   CGFloat const red = CGFloat((colorARGB >> 16) & 0xFF) / 255;

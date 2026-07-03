@@ -171,9 +171,10 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
         UiUtils.show(mFrame);
         switch (ohStr)
         {
-          case "off", "closed" -> refreshTodayOpeningHours(getString(R.string.day_off), getResources().getColor(R.color.base_red));
-          case "unknown" -> refreshTodayOpeningHours(getString(R.string.oh_unknown), color);
-          default -> refreshTodayOpeningHours(ohStr, color);
+        case "off", "closed" ->
+          refreshTodayOpeningHours(getString(R.string.day_off), getResources().getColor(R.color.base_red));
+        case "unknown" -> refreshTodayOpeningHours(getString(R.string.oh_unknown), color);
+        default -> refreshTodayOpeningHours(ohStr, color);
         }
         UiUtils.hide(mFullWeekOpeningHours);
       }

@@ -1,6 +1,6 @@
 #import "MWMiPadRoutePreview.h"
-#import "MWMRouter.h"
 #import "MWMAvailableAreaAffectDirection.h"
+#import "MWMRouter.h"
 
 @interface MWMRoutePreview ()
 
@@ -9,14 +9,14 @@
 @end
 
 @interface MWMiPadRoutePreview ()
-@property(nonatomic) NSLayoutConstraint * horizontalConstraint;
+@property(nonatomic) NSLayoutConstraint *horizontalConstraint;
 @end
 
 @implementation MWMiPadRoutePreview
 
 - (void)setupConstraints
 {
-  UIView * sv = self.superview;
+  UIView *sv = self.superview;
   if (sv)
   {
     [self.topAnchor constraintEqualToAnchor:sv.topAnchor].active = YES;
@@ -29,10 +29,10 @@
 - (void)setIsVisible:(BOOL)isVisible
 {
   self.horizontalConstraint.active = NO;
-  UIView * sv = self.superview;
+  UIView *sv = self.superview;
   if (sv)
   {
-    NSLayoutXAxisAnchor * selfAnchor = isVisible ? self.leadingAnchor : self.trailingAnchor;
+    NSLayoutXAxisAnchor *selfAnchor = isVisible ? self.leadingAnchor : self.trailingAnchor;
     self.horizontalConstraint = [selfAnchor constraintEqualToAnchor:sv.leadingAnchor];
     self.horizontalConstraint.active = YES;
   }
@@ -41,10 +41,14 @@
 
 #pragma mark - SolidTouchView
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{}
 #pragma mark - AvailableArea / VisibleArea
 
 - (MWMAvailableAreaAffectDirections)visibleAreaAffectDirections

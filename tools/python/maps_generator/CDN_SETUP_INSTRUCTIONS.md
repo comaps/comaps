@@ -12,14 +12,17 @@ apt update
 apt install nginx vim
 
 ### set hostname for ssh sanity (will show in console upon next bash launch):
+
 vim /etc/hostname
 hostname cdn-XX-1
 
 ### for SSL:
+
 sudo snap install --classic certbot
 sudo certbot --nginx
 
 ### either totally disable access logging, or remove IPs and user agents from logging on line ~36:
+
 vim /etc/nginx/nginx.conf
 
 ```
@@ -38,6 +41,7 @@ if using Apache, try this:
 ```
 
 ### set up basic http pages/responses:
+
 cd /var/www/html/
 mkdir maps
 rm index.nginx-debian.html

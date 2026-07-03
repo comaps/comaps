@@ -79,7 +79,8 @@ void Transliteration::SetMode(Mode mode)
   m_mode = mode;
 }
 
-bool Transliteration::Transliterate(localisation::TransliteratorId const transliteratorId, icu::UnicodeString & ustr) const
+bool Transliteration::Transliterate(localisation::TransliteratorId const transliteratorId,
+                                    icu::UnicodeString & ustr) const
 {
   CHECK(m_inited, ());
   ASSERT(!transliteratorId.empty(), ());
@@ -98,7 +99,8 @@ bool Transliteration::Transliterate(localisation::TransliteratorId const transli
     {
       UErrorCode status = U_ZERO_ERROR;
       // Append remove diacritic rule.
-      auto const withDiacritic = std::string{transliteratorId}.append(";NFD;[\u02B9-\u02D3\u0301-\u0358\u00B7\u0027]Remove;NFC");
+      auto const withDiacritic =
+          std::string{transliteratorId}.append(";NFD;[\u02B9-\u02D3\u0301-\u0358\u00B7\u0027]Remove;NFC");
       icu::UnicodeString const uTransID(withDiacritic.c_str());
 
       it->second->m_transliterator.reset(icu::Transliterator::createInstance(uTransID, UTRANS_FORWARD, status));
@@ -153,7 +155,8 @@ bool Transliteration::Transliterate(std::string_view sv, int8_t langCode, std::s
   return true;
 }
 
-std::string Transliteration::Transliterate(localisation::LanguageIndex const languageIndex, std::string const name) const
+std::string Transliteration::Transliterate(localisation::LanguageIndex const languageIndex,
+                                           std::string const name) const
 {
   CHECK(m_inited, ());
   if (m_mode != Mode::Enabled)

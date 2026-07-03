@@ -7,9 +7,9 @@ namespace highway_full_name_tests
 
 UNIT_TEST(HighwayFullNameTest_NotHighway)
 {
-  OsmElement notRoad =
-      generator_tests::MakeOsmElement(0 /* id */, {{"name", "300 East"}, {"name:prefix", "North"}, {"name:full", "North 300 East"}},
-                     OsmElement::EntityType::Way);
+  OsmElement notRoad = generator_tests::MakeOsmElement(
+      0 /* id */, {{"name", "300 East"}, {"name:prefix", "North"}, {"name:full", "North 300 East"}},
+      OsmElement::EntityType::Way);
 
   TEST_EQUAL(notRoad.GetTag("name"), "300 East", ());
   TEST_EQUAL(notRoad.GetTag("name:prefix"), "North", ());
@@ -37,9 +37,9 @@ UNIT_TEST(HighwayFullNameTest_MissingName)
 
 UNIT_TEST(HighwayFullNameTest_MissingNamePrefix)
 {
-  OsmElement road3 =
-      generator_tests::MakeOsmElement(3 /* id */, {{"highway", "residential"}, {"name", "300 East"}, {"name:full", "North 300 East"}},
-                     OsmElement::EntityType::Way);
+  OsmElement road3 = generator_tests::MakeOsmElement(
+      3 /* id */, {{"highway", "residential"}, {"name", "300 East"}, {"name:full", "North 300 East"}},
+      OsmElement::EntityType::Way);
 
   TEST_EQUAL(road3.GetTag("name"), "300 East", ());
   TEST(!road3.HasTag("name:prefix"), ());
@@ -47,9 +47,9 @@ UNIT_TEST(HighwayFullNameTest_MissingNamePrefix)
 
 UNIT_TEST(HighwayFullNameTest_MissingNameFull)
 {
-  OsmElement road4 =
-      generator_tests::MakeOsmElement(4 /* id */, {{"highway", "residential"}, {"name", "300 East"}, {"name:prefix", "North"}},
-                     OsmElement::EntityType::Way);
+  OsmElement road4 = generator_tests::MakeOsmElement(
+      4 /* id */, {{"highway", "residential"}, {"name", "300 East"}, {"name:prefix", "North"}},
+      OsmElement::EntityType::Way);
 
   TEST_EQUAL(road4.GetTag("name"), "300 East", ());
   TEST(!road4.HasTag("name:full"), ());
@@ -57,8 +57,8 @@ UNIT_TEST(HighwayFullNameTest_MissingNameFull)
 
 UNIT_TEST(HighwayFullNameTest_OnlyName)
 {
-  OsmElement road5 =
-      generator_tests::MakeOsmElement(5 /* id */, {{"highway", "residential"}, {"name", "300 East"}}, OsmElement::EntityType::Way);
+  OsmElement road5 = generator_tests::MakeOsmElement(5 /* id */, {{"highway", "residential"}, {"name", "300 East"}},
+                                                     OsmElement::EntityType::Way);
 
   TEST_EQUAL(road5.GetTag("name"), "300 East", ());
   TEST(!road5.HasTag("name:prefix"), ());
@@ -67,8 +67,8 @@ UNIT_TEST(HighwayFullNameTest_OnlyName)
 
 UNIT_TEST(HighwayFullNameTest_OnlyFullName)
 {
-  OsmElement road6 = generator_tests::MakeOsmElement(6 /* id */, {{"highway", "residential"}, {"name:full", "North 300 East"}},
-                                    OsmElement::EntityType::Way);
+  OsmElement road6 = generator_tests::MakeOsmElement(
+      6 /* id */, {{"highway", "residential"}, {"name:full", "North 300 East"}}, OsmElement::EntityType::Way);
 
   TEST_EQUAL(road6.GetTag("name:full"), "North 300 East", ());
   TEST(!road6.HasTag("name"), ());

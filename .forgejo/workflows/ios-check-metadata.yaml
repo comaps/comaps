@@ -3,7 +3,7 @@ on:
   workflow_dispatch: # Manual trigger
   pull_request:
     paths:
-      - .forgejo/workflows/ios-check-metadata.yaml  # Run check on self change
+      - .forgejo/workflows/ios-check-metadata.yaml # Run check on self change
       - iphone/metadata/**
       - tools/python/check_store_metadata.py
 
@@ -17,7 +17,7 @@ jobs:
           cat <<'EOF'
           ${{ toJSON(github) }}
           EOF
-    
+
       - name: Checkout
         uses: actions/checkout@v4
         with:

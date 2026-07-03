@@ -4,8 +4,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol IMWMImageCoder
 
-- (UIImage * _Nullable)imageWithData:(NSData *)data;
-- (NSData * _Nullable)dataFromImage:(UIImage *)image;
+- (UIImage *_Nullable)imageWithData:(NSData *)data;
+- (NSData *_Nullable)dataFromImage:(UIImage *)image;
 
 @end
 

@@ -721,7 +721,9 @@ public:
   void SetCustomMapLanguageCode(std::optional<localisation::LanguageCode> const languageCode = {});
   void RefreshMapLanguage();
   localisation::AlternativeMapLanguageHandling GetAlternativeMapLanguageHandling();
-  void SetAlternativeMapLanguageHandling(localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling = localisation::AlternativeMapLanguageHandling::LocalOnly);
+  void SetAlternativeMapLanguageHandling(
+      localisation::AlternativeMapLanguageHandling const alternativeMapLanguageHandling =
+          localisation::AlternativeMapLanguageHandling::LocalOnly);
 
   void SetLargeFontsSize(bool isLargeSize);
   bool LoadLargeFontsSize();

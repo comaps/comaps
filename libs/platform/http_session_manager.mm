@@ -3,17 +3,15 @@
 @interface DataTaskInfo : NSObject
 
 @property(nonatomic, weak) id<NSURLSessionDataDelegate> delegate;
-@property(nonatomic) NSURLSessionDataTask * task;
+@property(nonatomic) NSURLSessionDataTask *task;
 
-- (instancetype)initWithTask:(NSURLSessionDataTask *)task
-                    delegate:(id<NSURLSessionDataDelegate>)delegate;
+- (instancetype)initWithTask:(NSURLSessionDataTask *)task delegate:(id<NSURLSessionDataDelegate>)delegate;
 
 @end
 
 @implementation DataTaskInfo
 
-- (instancetype)initWithTask:(NSURLSessionDataTask *)task
-                    delegate:(id<NSURLSessionDataDelegate>)delegate
+- (instancetype)initWithTask:(NSURLSessionDataTask *)task delegate:(id<NSURLSessionDataDelegate>)delegate
 {
   self = [super init];
   if (self)
@@ -27,10 +25,10 @@
 
 @end
 
-@interface HttpSessionManager ()<NSURLSessionDataDelegate>
+@interface HttpSessionManager () <NSURLSessionDataDelegate>
 
-@property(nonatomic) NSURLSession * session;
-@property(nonatomic) NSMutableDictionary * taskInfoByTaskID;
+@property(nonatomic) NSURLSession *session;
+@property(nonatomic) NSMutableDictionary *taskInfoByTaskID;
 @property(nonatomic) dispatch_queue_t taskInfoQueue;
 @property(nonatomic) dispatch_queue_t delegateQueue;
 
@@ -41,10 +39,8 @@
 + (HttpSessionManager *)sharedManager
 {
   static dispatch_once_t sOnceToken;
-  static HttpSessionManager * sManager;
-  dispatch_once(&sOnceToken, ^{
-    sManager = [[HttpSessionManager alloc] init];
-  });
+  static HttpSessionManager *sManager;
+  dispatch_once(&sOnceToken, ^{ sManager = [[HttpSessionManager alloc] init]; });
 
   return sManager;
 }
@@ -73,13 +69,12 @@
 
 - (NSURLSessionDataTask *)dataTaskWithRequest:(NSURLRequest *)request
                                      delegate:(id<NSURLSessionDataDelegate>)delegate
-                            completionHandler:(void (^)(NSData * data, NSURLResponse * response,
-                                                        NSError * error))completionHandler
+                            completionHandler:
+                                (void (^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler
 {
-  NSURLSessionDataTask * task = [self.session dataTaskWithRequest:request
-                                                completionHandler:completionHandler];
+  NSURLSessionDataTask *task = [self.session dataTaskWithRequest:request completionHandler:completionHandler];
 
-  DataTaskInfo * taskInfo = [[DataTaskInfo alloc] initWithTask:task delegate:delegate];
+  DataTaskInfo *taskInfo = [[DataTaskInfo alloc] initWithTask:task delegate:delegate];
   [self setDataTaskInfo:taskInfo forTask:task];
 
   return task;
@@ -87,24 +82,18 @@
 
 - (void)setDataTaskInfo:(DataTaskInfo *)taskInfo forTask:(NSURLSessionTask *)task
 {
-  dispatch_barrier_sync(self.taskInfoQueue, ^{
-    self.taskInfoByTaskID[@(task.taskIdentifier)] = taskInfo;
-  });
+  dispatch_barrier_sync(self.taskInfoQueue, ^{ self.taskInfoByTaskID[@(task.taskIdentifier)] = taskInfo; });
 }
 
 - (void)removeTaskInfoForTask:(NSURLSessionTask *)task
 {
-  dispatch_barrier_sync(self.taskInfoQueue, ^{
-    [self.taskInfoByTaskID removeObjectForKey:@(task.taskIdentifier)];
-  });
+  dispatch_barrier_sync(self.taskInfoQueue, ^{ [self.taskInfoByTaskID removeObjectForKey:@(task.taskIdentifier)]; });
 }
 
 - (DataTaskInfo *)taskInfoForTask:(NSURLSessionTask *)task
 {
-  __block DataTaskInfo * taskInfo = nil;
-  dispatch_sync(self.taskInfoQueue, ^{
-    taskInfo = self.taskInfoByTaskID[@(task.taskIdentifier)];
-  });
+  __block DataTaskInfo *taskInfo = nil;
+  dispatch_sync(self.taskInfoQueue, ^{ taskInfo = self.taskInfoByTaskID[@(task.taskIdentifier)]; });
 
   return taskInfo;
 }
@@ -115,9 +104,9 @@
                     newRequest:(NSURLRequest *)newRequest
              completionHandler:(void (^)(NSURLRequest *))completionHandler
 {
-  DataTaskInfo * taskInfo = [self taskInfoForTask:task];
+  DataTaskInfo *taskInfo = [self taskInfoForTask:task];
   if ([taskInfo.delegate
-       respondsToSelector:@selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)])
+          respondsToSelector:@selector(URLSession:task:willPerformHTTPRedirection:newRequest:completionHandler:)])
   {
     dispatch_async(self.delegateQueue, ^{
       [taskInfo.delegate URLSession:session
@@ -133,18 +122,15 @@
   }
 }
 
-- (void)URLSession:(NSURLSession *)session
-                    task:(NSURLSessionTask *)task
-    didCompleteWithError:(NSError *)error
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error
 {
-  DataTaskInfo * taskInfo = [self taskInfoForTask:task];
+  DataTaskInfo *taskInfo = [self taskInfoForTask:task];
   [self removeTaskInfoForTask:task];
 
   if ([taskInfo.delegate respondsToSelector:@selector(URLSession:task:didCompleteWithError:)])
   {
-    dispatch_async(self.delegateQueue, ^{
-      [taskInfo.delegate URLSession:session task:task didCompleteWithError:error];
-    });
+    dispatch_async(self.delegateQueue,
+                   ^{ [taskInfo.delegate URLSession:session task:task didCompleteWithError:error]; });
   }
 }
 
@@ -153,9 +139,8 @@
     didReceiveResponse:(NSURLResponse *)response
      completionHandler:(void (^)(NSURLSessionResponseDisposition disposition))completionHandler
 {
-  DataTaskInfo * taskInfo = [self taskInfoForTask:dataTask];
-  if ([taskInfo.delegate
-          respondsToSelector:@selector(URLSession:dataTask:didReceiveResponse:completionHandler:)])
+  DataTaskInfo *taskInfo = [self taskInfoForTask:dataTask];
+  if ([taskInfo.delegate respondsToSelector:@selector(URLSession:dataTask:didReceiveResponse:completionHandler:)])
   {
     dispatch_async(self.delegateQueue, ^{
       [taskInfo.delegate URLSession:session
@@ -170,16 +155,13 @@
   }
 }
 
-- (void)URLSession:(NSURLSession *)session
-          dataTask:(NSURLSessionDataTask *)dataTask
-    didReceiveData:(NSData *)data
+- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data
 {
-  DataTaskInfo * taskInfo = [self taskInfoForTask:dataTask];
+  DataTaskInfo *taskInfo = [self taskInfoForTask:dataTask];
   if ([taskInfo.delegate respondsToSelector:@selector(URLSession:dataTask:didReceiveData:)])
   {
-    dispatch_async(self.delegateQueue, ^{
-      [taskInfo.delegate URLSession:session dataTask:dataTask didReceiveData:data];
-    });
+    dispatch_async(self.delegateQueue,
+                   ^{ [taskInfo.delegate URLSession:session dataTask:dataTask didReceiveData:data]; });
   }
 }
 
@@ -187,10 +169,9 @@
 - (void)URLSession:(NSURLSession *)session
     didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
       completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition,
-                                  NSURLCredential * _Nullable credential))completionHandler
+                                  NSURLCredential *_Nullable credential))completionHandler
 {
-  NSURLCredential * credential =
-      [[NSURLCredential alloc] initWithTrust:[challenge protectionSpace].serverTrust];
+  NSURLCredential *credential = [[NSURLCredential alloc] initWithTrust:[challenge protectionSpace].serverTrust];
   completionHandler(NSURLSessionAuthChallengeUseCredential, credential);
 }
 #endif

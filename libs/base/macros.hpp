@@ -15,12 +15,12 @@ char (&ArraySize(T (&)[N]))[N];
 // Number of elements in array. Compilation error if the type passed is not an array.
 #define ARRAY_SIZE(X) sizeof(::base::impl::ArraySize(X))
 
-#define DISALLOW_COPY(className)                    \
-  className(className const &) = delete;            \
+#define DISALLOW_COPY(className)         \
+  className(className const &) = delete; \
   className & operator=(className const &) = delete
 
-#define DISALLOW_MOVE(className)               \
-  className(className &&) = delete;            \
+#define DISALLOW_MOVE(className)    \
+  className(className &&) = delete; \
   className & operator=(className &&) = delete
 
 #define DISALLOW_COPY_AND_MOVE(className) \
@@ -66,7 +66,7 @@ void ForceUseValue(T const & t)
 #define UINT64_FROM_UINT32(hi, lo)        ((static_cast<uint64_t>(hi) << 32) | lo)
 
 #define UINT32_FROM_UINT8(u3, u2, u1, u0) UINT32_FROM_UINT16(UINT16_FROM_UINT8(u3, u2), UINT16_FROM_UINT8(u1, u0))
-#define UINT64_FROM_UINT8(u7, u6, u5, u4, u3, u2, u1, u0)                                  \
+#define UINT64_FROM_UINT8(u7, u6, u5, u4, u3, u2, u1, u0) \
   UINT64_FROM_UINT32(UINT32_FROM_UINT8(u7, u6, u5, u4), UINT32_FROM_UINT8(u3, u2, u1, u0))
 
 #define UINT16_LO(x)     (static_cast<uint8_t>(x & 0xFF))

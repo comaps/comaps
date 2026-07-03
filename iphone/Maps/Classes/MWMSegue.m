@@ -9,8 +9,8 @@
 
 - (void)perform
 {
-  UINavigationController * nc = self.sourceViewController.navigationController;
-  UIViewController * dvc = self.destinationViewController;
+  UINavigationController *nc = self.sourceViewController.navigationController;
+  UIViewController *dvc = self.destinationViewController;
   [nc showViewController:dvc sender:nil];
 }
 

@@ -617,8 +617,8 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
       // TODO(a): Use UploadInfo as part of FeatureTypeInfo.
       UploadInfo uploadInfo = {fti.m_uploadAttemptTimestamp, fti.m_uploadStatus, fti.m_uploadError};
 
-      LOG(LINFO, ("Uploading edits of feature ID:", fti.m_object.GetID(),
-                  "name:", fti.m_object.GetDefaultName(), "latlon:", fti.m_object.GetLatLon()));
+      LOG(LINFO, ("Uploading edits of feature ID:", fti.m_object.GetID(), "name:", fti.m_object.GetDefaultName(),
+                  "latlon:", fti.m_object.GetLatLon()));
       LOG(LDEBUG, ("Content of editJournal:\n", fti.m_object.GetJournal().JournalToString()));
 
       try
@@ -696,8 +696,8 @@ void Editor::UploadChanges(string const & oauthToken, ChangesetTags tags, Finish
 
           case EditingLifecycle::IN_SYNC:
           {
-            /// @todo(pastk): find out why it had been uploaded, xml journal flushed to history, but not marked as uploaded.
-            /// see https://codeberg.org/comaps/comaps/issues/3749#issuecomment-12648306
+            /// @todo(pastk): find out why it had been uploaded, xml journal flushed to history, but not marked as
+            /// uploaded. see https://codeberg.org/comaps/comaps/issues/3749#issuecomment-12648306
             LOG(LWARNING, ("OSM edits had been uploaded but not marked as such."));
             break;
           }

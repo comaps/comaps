@@ -249,7 +249,7 @@ std::string GetRoadShieldSymbolName(ftypes::RoadShield const & shield, double fo
   else if (shield.m_type == ftypes::RoadShieldType::Argentina_RN)
     result = shield.m_name.size() <= 2 ? "shield-argentina-rn" : "shield-argentina-rn-wide";
   else if (shield.m_type == ftypes::RoadShieldType::Bolivia_Fundamental)
-    result = "shield-bolivia-fundamental" ;
+    result = "shield-bolivia-fundamental";
   else
     ASSERT(false, ("This shield type doesn't support symbols:", shield.m_type));
 

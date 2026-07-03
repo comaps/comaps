@@ -138,8 +138,7 @@ std::string GoogleApi::GetDirectionsURL(Params const & params, int32_t startTime
   std::stringstream ss;
   ss << kBaseUrl << "&origin=" << std::to_string(start.m_lat) << "," << std::to_string(start.m_lon)
      << "&destination=" << std::to_string(finish.m_lat) << "," << std::to_string(finish.m_lon)
-     << "&key=" << GetAccessToken() << "&alternatives=true"
-     << "&departure_time=" << secondFromEpoch;
+     << "&key=" << GetAccessToken() << "&alternatives=true" << "&departure_time=" << secondFromEpoch;
 
   return ss.str();
 }

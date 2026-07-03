@@ -3,7 +3,7 @@ on:
   workflow_dispatch: # Manual trigger
 
 env:
-  JAVA_HOME: /usr/lib/jvm/temurin-21-jdk-amd64  # Java 21 is required for Android Gradle 8 plugin
+  JAVA_HOME: /usr/lib/jvm/temurin-21-jdk-amd64 # Java 21 is required for Android Gradle 8 plugin
   SKIP_MAP_DOWNLOAD: true
 
 jobs:

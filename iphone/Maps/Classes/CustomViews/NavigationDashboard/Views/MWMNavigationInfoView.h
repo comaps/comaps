@@ -22,7 +22,7 @@ typedef NS_ENUM(NSUInteger, MWMNavigationInfoViewState) {
 
 @property(nonatomic, readonly) NavigationSearchState searchState;
 @property(nonatomic) MWMNavigationInfoViewState state;
-@property(weak, nonatomic) UIView * ownerView;
+@property(weak, nonatomic) UIView *ownerView;
 @property(nonatomic) CGRect availableArea;
 
 - (void)setSearchState:(NavigationSearchState)searchState animated:(BOOL)animated;

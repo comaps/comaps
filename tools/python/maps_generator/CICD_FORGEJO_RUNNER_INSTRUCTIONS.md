@@ -24,8 +24,8 @@ chmod g+s data/.cache
 
 - By the end of the instructions (after swapping out the initial sleep `command` for the final forgejo-runner `command`) your docker-compose.yml should look like this. Note the config.yml and volumes.
 
-
 **for a basic runner like cdn-fi-1:**
+
 ```
 #version: '3.8'
 
@@ -127,6 +127,7 @@ container:
 - Add these labels to the runner by editing `~/forgejo-runners/forgejo-runner-org/data/.runner`:
 
 **cdn-fi-1:**
+
 ```
     "comaps-org:host",
     "comaps:host",

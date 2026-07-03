@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import app.organicmaps.R;
 import app.organicmaps.util.ThemeUtils;
-import androidx.core.graphics.drawable.DrawableCompat;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 
@@ -56,7 +56,8 @@ public class WheelProgressView extends FrameLayout
   @NonNull
   private static Drawable getDefaultDrawable(@NonNull Context context)
   {
-    if (defaultDrawable == null) {
+    if (defaultDrawable == null)
+    {
       Drawable drawable = ContextCompat.getDrawable(context.getApplicationContext(), R.drawable.ic_close);
       defaultDrawable = DrawableCompat.wrap(drawable).mutate();
     }
@@ -66,7 +67,8 @@ public class WheelProgressView extends FrameLayout
 
   public void setProgress(int progress)
   {
-    if (mProgress.getProgress() == progress) return;
+    if (mProgress.getProgress() == progress)
+      return;
     mProgress.setProgressCompat(progress, true);
   }
 

@@ -3,22 +3,22 @@
 
 @interface MWMPlacePageOpeningHoursDayView ()
 
-@property (weak, nonatomic) IBOutlet UILabel * label;
-@property (weak, nonatomic) IBOutlet UILabel * openTime;
-@property (weak, nonatomic) IBOutlet UILabel * compatibilityLabel;
+@property(weak, nonatomic) IBOutlet UILabel *label;
+@property(weak, nonatomic) IBOutlet UILabel *openTime;
+@property(weak, nonatomic) IBOutlet UILabel *compatibilityLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel * breakLabel;
-@property (weak, nonatomic) IBOutlet UIView * breaksHolder;
+@property(weak, nonatomic) IBOutlet UILabel *breakLabel;
+@property(weak, nonatomic) IBOutlet UIView *breaksHolder;
 
-@property (weak, nonatomic) IBOutlet UILabel * closedLabel;
+@property(weak, nonatomic) IBOutlet UILabel *closedLabel;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * height;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * labelTopSpacing;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * labelWidth;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * breakLabelWidth;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * breaksHolderHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * openTimeLabelLeadingOffset;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint * labelOpenTimeLabelSpacing;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *height;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *labelTopSpacing;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *labelWidth;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *breakLabelWidth;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *breaksHolderHeight;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *openTimeLabelLeadingOffset;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *labelOpenTimeLabelSpacing;
 
 @end
 
@@ -26,7 +26,7 @@
 
 - (void)setLabelText:(NSString *)text isRed:(BOOL)isRed
 {
-  UILabel * label = self.label;
+  UILabel *label = self.label;
   label.text = text;
   if (isRed)
     [label setStyleNameAndApply:@"redText"];
@@ -53,9 +53,9 @@
     self.breakLabel.hidden = NO;
     self.breaksHolder.hidden = NO;
     CGFloat labelY = 0.0;
-    for (NSString * br in breaks)
+    for (NSString *br in breaks)
     {
-      UILabel * label = [[UILabel alloc] initWithFrame:CGRectMake(0, labelY, 0, 0)];
+      UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, labelY, 0, 0)];
       label.text = br;
       label.font = self.currentDay ? [UIFont regular14] : [UIFont light12];
       label.textColor = [UIColor blackSecondaryText];
@@ -95,8 +95,8 @@
   }
   else
   {
-    UILabel * label = self.label;
-    UILabel * openTime = self.openTime;
+    UILabel *label = self.label;
+    UILabel *openTime = self.openTime;
     CGFloat labelOpenTimeLabelSpacing = self.labelOpenTimeLabelSpacing.constant;
     [label sizeToIntegralFit];
     self.labelWidth.constant = MIN(label.width, openTime.minX - label.minX - labelOpenTimeLabelSpacing);

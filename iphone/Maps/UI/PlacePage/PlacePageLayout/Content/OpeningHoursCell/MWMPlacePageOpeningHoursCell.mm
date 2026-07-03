@@ -14,16 +14,16 @@ using WeekDayView = MWMPlacePageOpeningHoursDayView *;
 @interface MWMPlacePageOpeningHoursCell ()
 
 @property(weak, nonatomic) IBOutlet WeekDayView currentDay;
-@property(weak, nonatomic) IBOutlet UIView * middleSeparator;
-@property(weak, nonatomic) IBOutlet UIView * weekDaysView;
-@property(weak, nonatomic) IBOutlet UIImageView * expandImage;
-@property(weak, nonatomic) IBOutlet UIButton * toggleButton;
+@property(weak, nonatomic) IBOutlet UIView *middleSeparator;
+@property(weak, nonatomic) IBOutlet UIView *weekDaysView;
+@property(weak, nonatomic) IBOutlet UIImageView *expandImage;
+@property(weak, nonatomic) IBOutlet UIButton *toggleButton;
 
-@property(weak, nonatomic) IBOutlet UILabel * openTime;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * openTimeLeadingOffset;
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * openTimeTrailingOffset;
+@property(weak, nonatomic) IBOutlet UILabel *openTime;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *openTimeLeadingOffset;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *openTimeTrailingOffset;
 
-@property(weak, nonatomic) IBOutlet NSLayoutConstraint * weekDaysViewHeight;
+@property(weak, nonatomic) IBOutlet NSLayoutConstraint *weekDaysViewHeight;
 @property(nonatomic) CGFloat weekDaysViewEstimatedHeight;
 
 @property(weak, nonatomic) id<MWMPlacePageOpeningHoursCellProtocol> delegate;
@@ -33,28 +33,22 @@ using WeekDayView = MWMPlacePageOpeningHoursDayView *;
 
 @end
 
-NSString * stringFromTimeSpan(Timespan const & timeSpan)
+NSString *stringFromTimeSpan(Timespan const &timeSpan)
 {
-  return [NSString stringWithFormat:@"%@ - %@", stringFromTime(timeSpan.GetStart()),
-                                    stringFromTime(timeSpan.GetEnd())];
+  return [NSString stringWithFormat:@"%@ - %@", stringFromTime(timeSpan.GetStart()), stringFromTime(timeSpan.GetEnd())];
 }
 
-NSArray<NSString *> * arrayFromClosedTimes(TTimespans const & closedTimes)
+NSArray<NSString *> *arrayFromClosedTimes(TTimespans const &closedTimes)
 {
-  NSMutableArray<NSString *> * breaks = [NSMutableArray arrayWithCapacity:closedTimes.size()];
-  for (auto & ct : closedTimes)
-  {
+  NSMutableArray<NSString *> *breaks = [NSMutableArray arrayWithCapacity:closedTimes.size()];
+  for (auto &ct : closedTimes)
     [breaks addObject:stringFromTimeSpan(ct)];
-  }
   return [breaks copy];
 }
 
 WeekDayView getWeekDayView()
 {
-  return [NSBundle.mainBundle loadNibNamed:@"MWMPlacePageOpeningHoursWeekDayView"
-                                     owner:nil
-                                   options:nil]
-      .firstObject;
+  return [NSBundle.mainBundle loadNibNamed:@"MWMPlacePageOpeningHoursWeekDayView" owner:nil options:nil].firstObject;
 }
 
 @implementation MWMPlacePageOpeningHoursCell
@@ -98,10 +92,9 @@ WeekDayView getWeekDayView()
 
 - (void)processSchedule
 {
-  NSCalendar * cal = NSCalendar.currentCalendar;
+  NSCalendar *cal = NSCalendar.currentCalendar;
   cal.locale = NSLocale.currentLocale;
-  Weekday currentDay =
-      static_cast<Weekday>([cal components:NSCalendarUnitWeekday fromDate:[NSDate date]].weekday);
+  Weekday currentDay = static_cast<Weekday>([cal components:NSCalendarUnitWeekday fromDate:[NSDate date]].weekday);
   BOOL haveCurrentDay = NO;
   size_t timeTablesCount = timeTableSet.Size();
   self.haveExpandSchedule = (timeTablesCount > 1 || !timeTableSet.GetUnhandledDays().empty());
@@ -110,7 +103,7 @@ WeekDayView getWeekDayView()
   for (size_t idx = 0; idx < timeTablesCount; ++idx)
   {
     auto tt = timeTableSet.Get(idx);
-    ui::OpeningDays const & workingDays = tt.GetOpeningDays();
+    ui::OpeningDays const &workingDays = tt.GetOpeningDays();
     if (workingDays.find(currentDay) != workingDays.end())
     {
       haveCurrentDay = YES;
@@ -149,9 +142,9 @@ WeekDayView getWeekDayView()
 - (void)addCurrentDay:(ui::TimeTableSet::Proxy)timeTable
 {
   WeekDayView cd = self.currentDay;
-  NSString * label;
-  NSString * openTime;
-  NSArray<NSString *> * breaks;
+  NSString *label;
+  NSString *openTime;
+  NSArray<NSString *> *breaks;
 
   BOOL const everyDay = isEveryDay(timeTable);
   if (timeTable.IsTwentyFourHours())
@@ -255,17 +248,14 @@ WeekDayView getWeekDayView()
   // Major QA can tap multiple times before first segue call is performed.
   // This leads to multiple identical controllers to be pushed.
   self.toggleButton.enabled = NO;
-  dispatch_async(dispatch_get_main_queue(), ^{
-    self.toggleButton.enabled = YES;
-  });
+  dispatch_async(dispatch_get_main_queue(), ^{ self.toggleButton.enabled = YES; });
 }
 
 - (IBAction)extendedToggleButtonTap
 {
   id<MWMPlacePageOpeningHoursCellProtocol> delegate = self.delegate;
-  if (delegate.isEditor) {
+  if (delegate.isEditor)
     [delegate setOpeningHoursCellExpanded:!delegate.openingHoursCellExpanded];
-  }
 }
 
 #pragma mark - Properties

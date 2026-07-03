@@ -512,7 +512,8 @@ public class Utils
     String[] typeData = {ContactsContract.CommonDataKinds.StructuredPostal.FORMATTED_ADDRESS};
     try (Cursor cursor = context.getContentResolver().query(contactUri, typeData, null, null, null))
     {
-      if (cursor != null && cursor.moveToFirst()) {
+      if (cursor != null && cursor.moveToFirst())
+      {
         return cursor.getString(0);
       }
     }

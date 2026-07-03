@@ -1,7 +1,6 @@
 package app.organicmaps.provider;
 
 import android.net.Uri;
-
 import app.organicmaps.BuildConfig;
 
 /**
@@ -12,23 +11,18 @@ public final class NavigationContract
   public static final String AUTHORITY = BuildConfig.APPLICATION_ID + ".provider.navigation";
   public static final Uri LIVE_NAVIGATION_DATA_URI = Uri.parse("content://" + AUTHORITY + "/live");
 
-  public static final class Live {
+  public static final class Live
+  {
     public static final String[] ALL_COLUMNS = {
-            NavigationContract.Live.Columns.SESSION_STATE,
-            NavigationContract.Live.Columns.CAR_DIRECTION,
-            NavigationContract.Live.Columns.PEDESTRIAN_DIRECTION,
-            NavigationContract.Live.Columns.DIST_TO_TURN,
-            NavigationContract.Live.Columns.DIST_TO_TARGET,
-            NavigationContract.Live.Columns.DIST_TO_NEXT_STOP,
-            NavigationContract.Live.Columns.TOTAL_TIME_SECONDS,
-            NavigationContract.Live.Columns.TIME_TO_NEXT_STOP,
-            NavigationContract.Live.Columns.CURRENT_STREET,
-            NavigationContract.Live.Columns.NEXT_STREET,
-            NavigationContract.Live.Columns.COMPLETION_PERCENT,
-            NavigationContract.Live.Columns.EXIT_NUM
-    };
+        NavigationContract.Live.Columns.SESSION_STATE,        NavigationContract.Live.Columns.CAR_DIRECTION,
+        NavigationContract.Live.Columns.PEDESTRIAN_DIRECTION, NavigationContract.Live.Columns.DIST_TO_TURN,
+        NavigationContract.Live.Columns.DIST_TO_TARGET,       NavigationContract.Live.Columns.DIST_TO_NEXT_STOP,
+        NavigationContract.Live.Columns.TOTAL_TIME_SECONDS,   NavigationContract.Live.Columns.TIME_TO_NEXT_STOP,
+        NavigationContract.Live.Columns.CURRENT_STREET,       NavigationContract.Live.Columns.NEXT_STREET,
+        NavigationContract.Live.Columns.COMPLETION_PERCENT,   NavigationContract.Live.Columns.EXIT_NUM};
 
-    public static final class Columns {
+    public static final class Columns
+    {
       public static final String SESSION_STATE = "session_state";
 
       public static final String CAR_DIRECTION = "car_direction";

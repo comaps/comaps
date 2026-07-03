@@ -4,10 +4,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static inline BOOL firstVersionIsLessThanSecond(NSString * first, NSString * second)
+static inline BOOL firstVersionIsLessThanSecond(NSString *first, NSString *second)
 {
-  NSArray<NSString *> * f = [first componentsSeparatedByString:@"."];
-  NSArray<NSString *> * s = [second componentsSeparatedByString:@"."];
+  NSArray<NSString *> *f = [first componentsSeparatedByString:@"."];
+  NSArray<NSString *> *s = [second componentsSeparatedByString:@"."];
   NSUInteger iter = 0;
   while (f.count > iter && s.count > iter)
   {
@@ -22,7 +22,7 @@ static inline BOOL firstVersionIsLessThanSecond(NSString * first, NSString * sec
   return f.count < s.count;
 }
 
-static inline BOOL isIOSVersionLessThanString(NSString * version)
+static inline BOOL isIOSVersionLessThanString(NSString *version)
 {
   return firstVersionIsLessThanSecond(UIDevice.currentDevice.systemVersion, version);
 }
@@ -34,14 +34,12 @@ static inline BOOL isIOSVersionLessThan(NSUInteger version)
 
 static inline BOOL isInterfaceRightToLeft(void) NS_EXTENSION_UNAVAILABLE_IOS("Not available in extensions")
 {
-  return UIApplication.sharedApplication.userInterfaceLayoutDirection ==
-         UIUserInterfaceLayoutDirectionRightToLeft;
+  return UIApplication.sharedApplication.userInterfaceLayoutDirection == UIUserInterfaceLayoutDirectionRightToLeft;
 }
 
-static inline NSString * formattedSize(uint64_t size)
+static inline NSString *formattedSize(uint64_t size)
 {
-  return [NSByteCountFormatter stringFromByteCount:size
-                                        countStyle:NSByteCountFormatterCountStyleFile];
+  return [NSByteCountFormatter stringFromByteCount:size countStyle:NSByteCountFormatterCountStyleFile];
 }
 
 // Use only for screen dimensions CGFloat comparison
@@ -50,9 +48,11 @@ static inline BOOL equalScreenDimensions(CGFloat left, CGFloat right)
   return fabs(left - right) < 0.5;
 }
 
-static inline void performOnce(MWMVoidBlock block, NSString *key) {
+static inline void performOnce(MWMVoidBlock block, NSString *key)
+{
   BOOL performed = [[NSUserDefaults standardUserDefaults] boolForKey:key];
-  if (!performed) {
+  if (!performed)
+  {
     block();
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:key];
   }

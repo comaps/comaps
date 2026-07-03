@@ -113,7 +113,8 @@ bool Metadata::TypeFromString(string_view k, Metadata::EType & outType)
     outType = Metadata::FMD_STARS;
   else if (k.starts_with("operator"))
     outType = Metadata::FMD_OPERATOR;
-  else if (k == "url" || k == "website" || k == "contact:website" || k == "logainm:url" || k == "heritage:website" || k == "memorial:website" || k == "xmas:url")
+  else if (k == "url" || k == "website" || k == "contact:website" || k == "logainm:url" || k == "heritage:website" ||
+           k == "memorial:website" || k == "xmas:url")
     outType = Metadata::FMD_WEBSITE;
   else if (k == "facebook" || k == "contact:facebook")
     outType = Metadata::FMD_CONTACT_FACEBOOK;
@@ -233,10 +234,8 @@ void RegionData::SetLanguages(vector<localisation::LanguageIndex> const & langua
 {
   string value;
   for (localisation::LanguageIndex const & languageIndex : languageIndexes)
-  {
     if (languageIndex != localisation::kUnsupportedLanguageIndex)
       value.push_back(languageIndex);
-  }
   MetadataBase::Set(RegionData::Type::RD_LANGUAGES, value);
 }
 

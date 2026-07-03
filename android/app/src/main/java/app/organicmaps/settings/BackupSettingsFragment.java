@@ -1,6 +1,4 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import static app.organicmaps.backup.BackupUtils.formatReadableFolderPath;
 import static app.organicmaps.backup.BackupUtils.getMaxBackups;
 import static app.organicmaps.sdk.util.StorageUtils.isFolderWritable;
@@ -14,6 +12,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;

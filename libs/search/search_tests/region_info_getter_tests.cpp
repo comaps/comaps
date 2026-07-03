@@ -33,8 +33,9 @@ protected:
   RegionInfoGetter m_regionInfoGetter;
 };
 
-/* TODO: Not working right now, because the language is determined more dynamically. Needed to find a way to still test this without adding extra complexity.
- 
+/* TODO: Not working right now, because the language is determined more dynamically. Needed to find a way to still test
+this without adding extra complexity.
+
 UNIT_CLASS_TEST(RegionInfoGetterTest, CountryName)
 {
   SetLocale("en");

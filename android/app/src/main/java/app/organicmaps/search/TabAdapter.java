@@ -84,8 +84,8 @@ class TabAdapter extends FragmentStateAdapter
 
   private void attachTo(TabLayout tabs)
   {
-    new TabLayoutMediator(tabs, mPager, (tab, position) ->
-      tab.setText(mTabs_list.get(position).getTitleRes())).attach();
+    new TabLayoutMediator(tabs, mPager, (tab, position) -> tab.setText(mTabs_list.get(position).getTitleRes()))
+        .attach();
 
     tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
       @Override
@@ -124,8 +124,8 @@ class TabAdapter extends FragmentStateAdapter
   @Override
   public Fragment createFragment(int position)
   {
-    return mFragment.getChildFragmentManager().getFragmentFactory().instantiate(mContext.getClassLoader(),
-                                                   mTabs_list.get(position).getFragmentClass().getName());
+    return mFragment.getChildFragmentManager().getFragmentFactory().instantiate(
+        mContext.getClassLoader(), mTabs_list.get(position).getFragmentClass().getName());
   }
 
   @Override

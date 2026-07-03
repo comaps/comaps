@@ -57,11 +57,10 @@ struct LocalityItem
     if (regionData.IsWorldLevel())
       regionData.SetLanguages(feature::RegionLocator::Instance().GetLocalLanguageIndexes(m_center));
 
-    std::optional<std::string> translatedName = localisation::TranslatedFeatureName(m_names, regionData.GetLanguages()).m_primary;
+    std::optional<std::string> translatedName =
+        localisation::TranslatedFeatureName(m_names, regionData.GetLanguages()).m_primary;
     if (translatedName.has_value())
-    {
       return translatedName.value();
-    }
     return std::string();
   }
 

@@ -2,8 +2,7 @@
 
 size_t constexpr kGLThreadsCount = 2;
 
-iosOGLContextFactory::iosOGLContextFactory(CAEAGLLayer * layer, dp::ApiVersion apiVersion,
-                                           bool presentAvailable)
+iosOGLContextFactory::iosOGLContextFactory(CAEAGLLayer *layer, dp::ApiVersion apiVersion, bool presentAvailable)
   : m_layer(layer)
   , m_apiVersion(apiVersion)
   , m_drawContext(nullptr)
@@ -19,14 +18,14 @@ iosOGLContextFactory::~iosOGLContextFactory()
   delete m_uploadContext;
 }
 
-dp::GraphicsContext * iosOGLContextFactory::GetDrawContext()
+dp::GraphicsContext *iosOGLContextFactory::GetDrawContext()
 {
   if (m_drawContext == nullptr)
     m_drawContext = new iosOGLContext(m_layer, m_apiVersion, m_uploadContext, true /* needBuffers */);
   return m_drawContext;
 }
 
-dp::GraphicsContext * iosOGLContextFactory::GetResourcesUploadContext()
+dp::GraphicsContext *iosOGLContextFactory::GetResourcesUploadContext()
 {
   if (m_uploadContext == nullptr)
     m_uploadContext = new iosOGLContext(m_layer, m_apiVersion, m_drawContext, false /* needBuffers */);
@@ -58,7 +57,7 @@ void iosOGLContextFactory::SetPresentAvailable(bool available)
   }
 }
 
-void iosOGLContextFactory::WaitForInitialization(dp::GraphicsContext * context)
+void iosOGLContextFactory::WaitForInitialization(dp::GraphicsContext *context)
 {
   std::unique_lock<std::mutex> lock(m_initializationMutex);
   if (!m_isInitialized)
@@ -75,6 +74,6 @@ void iosOGLContextFactory::WaitForInitialization(dp::GraphicsContext * context)
     }
   }
 
-  if (static_cast<dp::GraphicsContext*>(m_drawContext) == context)
+  if (static_cast<dp::GraphicsContext *>(m_drawContext) == context)
     m_drawContext->SetPresentAvailable(m_presentAvailable);
 }

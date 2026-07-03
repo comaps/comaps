@@ -77,7 +77,8 @@ std::string DescriptionsCollectionBuilderStat::LangStatisticsToString() const
     if (m_langsStat[code] == 0)
       continue;
 
-    stream << localisation::ConvertLanguageIndexToLanguageCode(static_cast<int8_t>(code)) << ":" << m_langsStat[code] << " ";
+    stream << localisation::ConvertLanguageIndexToLanguageCode(static_cast<int8_t>(code)) << ":" << m_langsStat[code]
+           << " ";
   }
 
   return stream.str();

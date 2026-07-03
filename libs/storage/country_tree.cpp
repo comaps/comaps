@@ -472,13 +472,14 @@ int64_t LoadCountriesFromFile(string const & path, CountryTree & countries, Affi
 
     LOG(LDEBUG, ("COUNTRIES: loading previously updated", COUNTRIES_FILE));
     reader->ReadAsString(json);
-    int64_t const newVersion = LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, newMapSeries);
+    int64_t const newVersion =
+        LoadCountriesFromBuffer(json, newCountries, newAffs, newSyms, newCityIds, newCountryIds, newMapSeries);
 
     if (newMapSeries != MAP_SERIES || newVersion < version)
     {
-      LOG(LWARNING, ("COUNTRIES: previously updated", COUNTRIES_FILE,
-                     "is either of incompatible map series", newMapSeries, "(expected", MAP_SERIES
-                     ") or is of older map version", newVersion, "(bundled", version, ") - falling back to bundled"));
+      LOG(LWARNING, ("COUNTRIES: previously updated", COUNTRIES_FILE, "is either of incompatible map series",
+                     newMapSeries, "(expected", MAP_SERIES ") or is of older map version", newVersion, "(bundled",
+                     version, ") - falling back to bundled"));
       return version;
     }
 

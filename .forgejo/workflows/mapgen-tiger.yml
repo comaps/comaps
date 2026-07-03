@@ -3,7 +3,7 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       tiger-download:
-        description: 'Download updated TIGER data?'
+        description: "Download updated TIGER data?"
         required: true
         default: true
         type: boolean

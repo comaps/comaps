@@ -195,7 +195,8 @@ void Processor::SetPreferredLocale(string const & locale)
   LOG(LINFO, ("New preferred locale:", locale));
 
   localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT,
+                                localisation::SimilarLanguageIndexes(languageIndex));
 
   m_currentLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 
@@ -212,7 +213,8 @@ void Processor::SetInputLocale(string const & locale)
 
   localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
   LOG(LDEBUG, ("New input locale:", locale, "; locale code:", int(languageIndex)));
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT,
+                                localisation::SimilarLanguageIndexes(languageIndex));
   m_inputLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 }
 
@@ -260,7 +262,7 @@ void Processor::SetQuery(string const & query, bool categorialRequest /* = false
 
   if (ftypes::IsNationalCuisineChecker::Instance()(m_preferredTypes))
     m_isCategorialRequest = true;
-  
+
   if (!m_isCategorialRequest)
   {
     // Assign tokens and prefix to scorer.
@@ -817,7 +819,8 @@ void Processor::InitParams(QueryParams & params) const
   {
     ForEachCategoryTypeFuzzy(tokenSlice, [&c, &params](size_t i, uint32_t t)
     {
-      if (!ftypes::IsNationalCuisineChecker::Instance()(t)) {
+      if (!ftypes::IsNationalCuisineChecker::Instance()(t))
+      {
         uint32_t const index = c.GetIndexForType(t);
         params.GetTypeIndices(i).push_back(index);
       }

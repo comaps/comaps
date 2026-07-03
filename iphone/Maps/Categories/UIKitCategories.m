@@ -6,68 +6,105 @@
 
 @implementation NSObject (Optimized)
 
-+ (NSString *)className { return NSStringFromClass(self); }
++ (NSString *)className
+{
+  return NSStringFromClass(self);
+}
 - (void)performAfterDelay:(NSTimeInterval)delayInSec block:(MWMVoidBlock)block
 {
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSec * NSEC_PER_SEC)),
-                 dispatch_get_main_queue(), ^{
-                   block();
-                 });
+  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSec * NSEC_PER_SEC)), dispatch_get_main_queue(),
+                 ^{ block(); });
 }
 
 @end
 
 @implementation UIView (Coordinates)
 
-- (void)setMidX:(CGFloat)midX { self.center = CGPointMake(midX, self.center.y); }
-- (CGFloat)midX { return self.center.x; }
-- (void)setMidY:(CGFloat)midY { self.center = CGPointMake(self.center.x, midY); }
-- (CGFloat)midY { return self.center.y; }
+- (void)setMidX:(CGFloat)midX
+{
+  self.center = CGPointMake(midX, self.center.y);
+}
+- (CGFloat)midX
+{
+  return self.center.x;
+}
+- (void)setMidY:(CGFloat)midY
+{
+  self.center = CGPointMake(self.center.x, midY);
+}
+- (CGFloat)midY
+{
+  return self.center.y;
+}
 - (void)setOrigin:(CGPoint)origin
 {
   self.frame = CGRectMake(origin.x, origin.y, self.frame.size.width, self.frame.size.height);
 }
 
-- (CGPoint)origin { return self.frame.origin; }
+- (CGPoint)origin
+{
+  return self.frame.origin;
+}
 - (void)setMinX:(CGFloat)minX
 {
   self.frame = CGRectMake(minX, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
 
-- (CGFloat)minX { return self.frame.origin.x; }
+- (CGFloat)minX
+{
+  return self.frame.origin.x;
+}
 - (void)setMinY:(CGFloat)minY
 {
   self.frame = CGRectMake(self.frame.origin.x, minY, self.frame.size.width, self.frame.size.height);
 }
 
-- (CGFloat)minY { return self.frame.origin.y; }
+- (CGFloat)minY
+{
+  return self.frame.origin.y;
+}
 - (void)setMaxX:(CGFloat)maxX
 {
-  self.frame = CGRectMake(maxX - self.frame.size.width, self.frame.origin.y, self.frame.size.width,
-                          self.frame.size.height);
+  self.frame =
+      CGRectMake(maxX - self.frame.size.width, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
 }
 
-- (CGFloat)maxX { return self.frame.origin.x + self.frame.size.width; }
+- (CGFloat)maxX
+{
+  return self.frame.origin.x + self.frame.size.width;
+}
 - (void)setMaxY:(CGFloat)maxY
 {
-  self.frame = CGRectMake(self.frame.origin.x, maxY - self.frame.size.height, self.frame.size.width,
-                          self.frame.size.height);
+  self.frame =
+      CGRectMake(self.frame.origin.x, maxY - self.frame.size.height, self.frame.size.width, self.frame.size.height);
 }
 
-- (CGFloat)maxY { return self.frame.origin.y + self.frame.size.height; }
+- (CGFloat)maxY
+{
+  return self.frame.origin.y + self.frame.size.height;
+}
 - (void)setWidth:(CGFloat)width
 {
   self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, width, self.frame.size.height);
 }
 
-- (CGFloat)width { return self.frame.size.width; }
+- (CGFloat)width
+{
+  return self.frame.size.width;
+}
 - (void)setHeight:(CGFloat)height
 {
   self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, height);
 }
 
-- (CGFloat)height { return self.frame.size.height; }
-- (CGSize)size { return self.frame.size; }
+- (CGFloat)height
+{
+  return self.frame.size.height;
+}
+- (CGSize)size
+{
+  return self.frame.size;
+}
 - (void)setSize:(CGSize)size
 {
   self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, size.width, size.height);
@@ -85,8 +122,8 @@
 
 - (void)rateApp
 {
-  NSString * urlString = @"https://apps.apple.com/app/comaps/id6747180809?action=write-review";
-  NSURL * url = [NSURL URLWithString:urlString];
+  NSString *urlString = @"https://apps.apple.com/app/comaps/id6747180809?action=write-review";
+  NSURL *url = [NSURL URLWithString:urlString];
   [self openURL:url options:@{} completionHandler:nil];
 }
 
@@ -94,10 +131,14 @@
 
 @implementation SolidTouchView
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{}
 @end
 
 @implementation UIView (Refresh)
@@ -138,23 +179,33 @@
 
 @implementation SolidTouchImageView
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {}
-- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {}
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{}
+- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{}
 @end
 
 @implementation UINavigationController (Autorotate)
 
-- (BOOL)shouldAutorotate { return [self.viewControllers.lastObject shouldAutorotate]; }
+- (BOOL)shouldAutorotate
+{
+  return [self.viewControllers.lastObject shouldAutorotate];
+}
 @end
 
 @implementation UIViewController (Autorotate)
 
-- (NSUInteger)supportedInterfaceOrientations { return UIInterfaceOrientationMaskAll; }
+- (NSUInteger)supportedInterfaceOrientations
+{
+  return UIInterfaceOrientationMaskAll;
+}
 @end
 
-@interface UIViewController (SafariDelegateImpl)<SFSafariViewControllerDelegate>
+@interface UIViewController (SafariDelegateImpl) <SFSafariViewControllerDelegate>
 
 @end
 
@@ -169,7 +220,7 @@
 
 @implementation UIViewController (Safari)
 
-- (BOOL)openUrl:(NSString * _Nonnull)urlString
+- (BOOL)openUrl:(NSString *_Nonnull)urlString
 {
   return [self openUrl:urlString externally:NO];
 }
@@ -181,8 +232,9 @@
 
 - (BOOL)openUrl:(NSString *)urlString externally:(BOOL)externally skipEncoding:(BOOL)skipEncoding
 {
-  NSString * encoded = urlString;
-  if (!skipEncoding && ![urlString canBeConvertedToEncoding:NSASCIIStringEncoding]) {
+  NSString *encoded = urlString;
+  if (!skipEncoding && ![urlString canBeConvertedToEncoding:NSASCIIStringEncoding])
+  {
     // TODO: This is a temporary workaround to open cyrillic/non-ASCII URLs.
     // URLs in OSM are stored in UTF-8. NSURL constructor documentation says:
     // > Must be a URL that conforms to RFC 2396. This method parses URLString according to RFCs 1738 and 1808.
@@ -190,7 +242,7 @@
     // 1. Split the (non-ASCII) string into components (host, path, query, fragment, etc.)
     // 2. Encode each component separately (they have different allowed characters).
     // 3. Merge them back into the string and create NSURL.
-    NSMutableCharacterSet * charset = [[NSMutableCharacterSet alloc] init];
+    NSMutableCharacterSet *charset = [[NSMutableCharacterSet alloc] init];
     [charset formUnionWithCharacterSet:NSCharacterSet.URLHostAllowedCharacterSet];
     [charset formUnionWithCharacterSet:NSCharacterSet.URLPathAllowedCharacterSet];
     [charset formUnionWithCharacterSet:NSCharacterSet.URLQueryAllowedCharacterSet];
@@ -203,7 +255,7 @@
   NSRange const matrixUrl = [encoded rangeOfString:@"#/#"];
   if (matrixUrl.location != NSNotFound)
     encoded = [encoded stringByReplacingOccurrencesOfString:@"#/#" withString:@"#/%23"];
-  NSURLComponents * urlc = [NSURLComponents componentsWithString:encoded];
+  NSURLComponents *urlc = [NSURLComponents componentsWithString:encoded];
   if (!urlc)
   {
     NSAssert(false, @"Invalid URL %@", urlString);
@@ -213,14 +265,14 @@
   if (!urlc.scheme)
     urlc.scheme = @"http";
 
-  NSURL * url = urlc.URL;
+  NSURL *url = urlc.URL;
   if (externally && [UIApplication.sharedApplication canOpenURL:url])
   {
     [UIApplication.sharedApplication openURL:url options:@{} completionHandler:nil];
   }
   else
   {
-    SFSafariViewController * svc = [[SFSafariViewController alloc] initWithURL:url];
+    SFSafariViewController *svc = [[SFSafariViewController alloc] initWithURL:url];
     svc.delegate = self;
     [self.navigationController presentViewController:svc animated:YES completion:nil];
   }
@@ -240,7 +292,7 @@
   CGContextSetFillColorWithColor(context, color.CGColor);
   CGContextFillRect(context, rect);
 
-  UIImage * image = UIGraphicsGetImageFromCurrentImageContext();
+  UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
   UIGraphicsEndImageContext();
 
   return image;

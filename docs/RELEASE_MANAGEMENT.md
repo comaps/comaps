@@ -1,7 +1,7 @@
 # Release Management
- 
- Details to prepare and push a release are available in the [Wiki](https://codeberg.org/comaps/comaps/wiki/Release-process)
-	
+
+Details to prepare and push a release are available in the [Wiki](https://codeberg.org/comaps/comaps/wiki/Release-process)
+
 # Tools to upload metadata and screenshots on stores
 
 ## Apple App Store

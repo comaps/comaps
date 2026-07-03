@@ -1,10 +1,10 @@
-#import "SearchResult+Core.h"
 #import "CLLocation+Mercator.h"
 #import "MWMLocationManager.h"
+#import "SearchResult+Core.h"
 #import "SwiftBridge.h"
 
-#import "platform/localization.hpp"
 #import "platform/distance.hpp"
+#import "platform/localization.hpp"
 
 #include "map/bookmark_helpers.hpp"
 
@@ -12,9 +12,11 @@
 
 @implementation SearchResult
 
-- (instancetype)initWithTitleText:(NSString *)titleText type:(SearchItemType)type suggestion:(NSString *)suggestion {
+- (instancetype)initWithTitleText:(NSString *)titleText type:(SearchItemType)type suggestion:(NSString *)suggestion
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     _titleText = titleText;
     _itemType = type;
     _suggestion = suggestion;
@@ -24,13 +26,16 @@
 
 @end
 
-@implementation SearchResult(Core)
+@implementation SearchResult (Core)
 
-- (instancetype)initWithResult:(const search::Result &)result itemType:(SearchItemType)itemType index:(NSUInteger)index {
+- (instancetype)initWithResult:(search::Result const &)result itemType:(SearchItemType)itemType index:(NSUInteger)index
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     _index = index;
-    _titleText = result.GetString().empty() ? @(result.GetLocalizedFeatureType().c_str()) : @(result.GetString().c_str());
+    _titleText =
+        result.GetString().empty() ? @(result.GetLocalizedFeatureType().c_str()) : @(result.GetString().c_str());
     _addressText = @(result.GetAddress().c_str());
     _infoText = @(result.GetFeatureDescription().c_str());
     _branchText = result.GetBranch().empty() ? nil : @(result.GetBranch().c_str());
@@ -38,64 +43,77 @@
       _suggestion = @(result.GetSuggestionString().c_str());
 
     _distanceText = nil;
-    if (result.HasPoint()) {
+    if (result.HasPoint())
+    {
       auto const center = result.GetFeatureCenter();
       _point = CGPointMake(center.x, center.y);
       auto const [centerLat, centerLon] = mercator::ToLatLon(center);
       _coordinate = CLLocationCoordinate2DMake(centerLat, centerLon);
 
-      CLLocation * lastLocation = [MWMLocationManager lastLocation];
-      if (lastLocation) {
+      CLLocation *lastLocation = [MWMLocationManager lastLocation];
+      if (lastLocation)
+      {
         double const distanceM = mercator::DistanceOnEarth(lastLocation.mercator, center);
         std::string const distanceStr = platform::Distance::CreateFormatted(distanceM).ToString();
         _distanceText = @(distanceStr.c_str());
       }
     }
 
-    switch (result.IsOpenNow()) {
-      case osm::Yes: {
-        const int minutes = result.GetMinutesUntilClosed();
-        if (minutes < 60) { // less than 1 hour
-          _openStatusColor = [UIColor colorNamed:@"Base Colors/Yellow Color"];
-          NSString * time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
-          _openStatusText = [NSString stringWithFormat:L(@"closes_in"), time];
-        } else {
-          _openStatusColor = [UIColor colorNamed:@"Base Colors/Green Color"];
-          _openStatusText = L(@"editor_time_open");
-        }
-        break;
+    switch (result.IsOpenNow())
+    {
+    case osm::Yes:
+    {
+      int const minutes = result.GetMinutesUntilClosed();
+      if (minutes < 60)
+      {  // less than 1 hour
+        _openStatusColor = [UIColor colorNamed:@"Base Colors/Yellow Color"];
+        NSString *time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
+        _openStatusText = [NSString stringWithFormat:L(@"closes_in"), time];
       }
-      case osm::No: {
-        const int minutes = result.GetMinutesUntilOpen();
-        if (minutes < 15) { // less than 15 minutes
-          _openStatusColor = [UIColor colorNamed:@"Base Colors/Yellow Color"];
-          NSString * time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
-          _openStatusText = [NSString stringWithFormat:L(@"opens_in"), time];
-        }
-        else if (minutes < 60) { // less than an hour (but more than 15 mins)
-          _openStatusColor = [UIColor colorNamed:@"Base Colors/Red Color"];
-          NSString * time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
-          _openStatusText = [NSString stringWithFormat:L(@"opens_in"), time];
-        }
-        else { // opens later or schedule is unknown
-          _openStatusColor = [UIColor colorNamed:@"Base Colors/Red Color"];
-          _openStatusText = L(@"closed");
-        }
-        break;
+      else
+      {
+        _openStatusColor = [UIColor colorNamed:@"Base Colors/Green Color"];
+        _openStatusText = L(@"editor_time_open");
       }
-      case osm::Unknown: {
-        _openStatusText = nil;
-        _openStatusColor = UIColor.clearColor;
-        break;
+      break;
+    }
+    case osm::No:
+    {
+      int const minutes = result.GetMinutesUntilOpen();
+      if (minutes < 15)
+      {  // less than 15 minutes
+        _openStatusColor = [UIColor colorNamed:@"Base Colors/Yellow Color"];
+        NSString *time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
+        _openStatusText = [NSString stringWithFormat:L(@"opens_in"), time];
       }
+      else if (minutes < 60)
+      {  // less than an hour (but more than 15 mins)
+        _openStatusColor = [UIColor colorNamed:@"Base Colors/Red Color"];
+        NSString *time = [NSString stringWithFormat:@"%d %@", minutes, L(@"minute")];
+        _openStatusText = [NSString stringWithFormat:L(@"opens_in"), time];
+      }
+      else
+      {  // opens later or schedule is unknown
+        _openStatusColor = [UIColor colorNamed:@"Base Colors/Red Color"];
+        _openStatusText = L(@"closed");
+      }
+      break;
+    }
+    case osm::Unknown:
+    {
+      _openStatusText = nil;
+      _openStatusColor = UIColor.clearColor;
+      break;
+    }
     }
 
-    _isPopularHidden = YES; // Restore logic in the future when popularity is available.
+    _isPopularHidden = YES;  // Restore logic in the future when popularity is available.
     _isPureSuggest = result.GetResultType() == search::Result::Type::PureSuggest;
 
-    NSMutableArray<NSValue *> * ranges = [NSMutableArray array];
+    NSMutableArray<NSValue *> *ranges = [NSMutableArray array];
     size_t const rangesCount = result.GetHighlightRangesCount();
-    for (size_t i = 0; i < rangesCount; ++i) {
+    for (size_t i = 0; i < rangesCount; ++i)
+    {
       auto const &range = result.GetHighlightRange(i);
       NSRange nsRange = NSMakeRange(range.first, range.second);
       [ranges addObject:[NSValue valueWithRange:nsRange]];
@@ -104,12 +122,12 @@
 
     _itemType = itemType;
 
-    if (result.GetResultType() == search::Result::Type::Feature) {
+    if (result.GetResultType() == search::Result::Type::Feature)
+    {
       auto const featureType = result.GetFeatureType();
       auto const bookmarkImage = GetBookmarkIconByFeatureType(featureType);
-      _iconImageName = [NSString stringWithFormat:@"%@%@",
-                        @"ic_bm_",
-                        [@(kml::ToString(bookmarkImage).c_str()) lowercaseString]];
+      _iconImageName =
+          [NSString stringWithFormat:@"%@%@", @"ic_bm_", [@(kml::ToString(bookmarkImage).c_str()) lowercaseString]];
     }
   }
   return self;

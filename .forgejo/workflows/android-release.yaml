@@ -1,6 +1,6 @@
 name: Android Release
 on:
-  workflow_dispatch:  # Manual trigger
+  workflow_dispatch: # Manual trigger
 
 env:
   RELEASE_NOTES: android/app/src/google/play/release-notes/en-US/default.txt
@@ -15,7 +15,7 @@ jobs:
       - name: Checkout sources
         uses: actions/checkout@v4
         with:
-          fetch-depth: 100  # Enough to get all commits for the last day.
+          fetch-depth: 100 # Enough to get all commits for the last day.
           ssh-key: ${{ secrets.RELEASE_SSH_KEY }}
 
       - name: Tag
@@ -72,7 +72,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 100 # enough to get all commits for the current day
-          ref: 'refs/tags/${{ needs.tag.outputs.tag }}'
+          ref: "refs/tags/${{ needs.tag.outputs.tag }}"
 
       - name: Check tag
         shell: bash

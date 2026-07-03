@@ -13,16 +13,18 @@ using namespace std;
 
 using StrUtf8 = StringUtf8Multilang;
 
-/* TODO: Not working right now, because the language is determined more dynamically. Needed to find a way to still test this without adding extra complexity.
- 
-void GetPreferredNames(feature::RegionData const & regionData, StrUtf8 const & src, std::string & primary, std::string & secondary)
+/* TODO: Not working right now, because the language is determined more dynamically. Needed to find a way to still test
+this without adding extra complexity.
+
+void GetPreferredNames(feature::RegionData const & regionData, StrUtf8 const & src, std::string & primary, std::string &
+secondary)
 {
   auto const translatedName = localisation::TranslatedFeatureName(src, regionData.GetLanguages());
-  
+
   std::optional<std::string> const translatedPrimaryName = translatedName.m_primary;
   if (translatedPrimaryName.has_value())
     primary = translatedPrimaryName.value();
-  
+
   std::optional<std::string> const translatedSecondaryName = translatedName.m_secondary;
   if (translatedSecondaryName.has_value())
     secondary = translatedSecondaryName.value();
@@ -298,9 +300,8 @@ UNIT_TEST(GetPrefferedNamesLocal)
 
 void GetReadableName(feature::RegionData const & regionData, StrUtf8 const & src, std::string & name)
 {
-  std::optional<std::string> const translatedName = localisation::TranslatedFeatureName(src, regionData.GetLanguages()).m_primary;
-  if (translatedName.has_value())
-    name = translatedName.value();
+  std::optional<std::string> const translatedName = localisation::TranslatedFeatureName(src,
+regionData.GetLanguages()).m_primary; if (translatedName.has_value()) name = translatedName.value();
 }
 
 UNIT_TEST(GetReadableName)

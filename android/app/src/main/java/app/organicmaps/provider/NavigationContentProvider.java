@@ -8,29 +8,31 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.util.log.Logger;
 
 public class NavigationContentProvider extends ContentProvider
 {
-
   private static final String TAG = NavigationContentProvider.class.getSimpleName();
   private static final UriMatcher URI_MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
   public static final int LIVE_NAVIGATION_DATA_CODE = 1;
-  static {
+  static
+  {
     URI_MATCHER.addURI(NavigationContract.AUTHORITY, "live", LIVE_NAVIGATION_DATA_CODE);
   }
 
   @Override
-  public boolean onCreate() {
+  public boolean onCreate()
+  {
     return true;
   }
 
   @Override
-  public String getType(@NonNull Uri uri) {
-    return switch (URI_MATCHER.match(uri)) {
+  public String getType(@NonNull Uri uri)
+  {
+    return switch (URI_MATCHER.match(uri))
+    {
       case LIVE_NAVIGATION_DATA_CODE -> "vnd.android.cursor.item/app.comaps.navigation.routinginfo";
       default -> null;
     };
@@ -38,9 +40,8 @@ public class NavigationContentProvider extends ContentProvider
 
   @Nullable
   @Override
-  public Cursor query(@NonNull Uri uri, @Nullable String[] projection,
-                      @Nullable String selection, @Nullable String[] selectionArgs,
-                      @Nullable String sortOrder)
+  public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
+                      @Nullable String[] selectionArgs, @Nullable String sortOrder)
   {
     if (URI_MATCHER.match(uri) != LIVE_NAVIGATION_DATA_CODE)
     {
@@ -67,42 +68,24 @@ public class NavigationContentProvider extends ContentProvider
     {
       switch (column)
       {
-        case NavigationContract.Live.Columns.SESSION_STATE:
-          row.add(column, info.routingSessionState.name());
-          break;
-        case NavigationContract.Live.Columns.CAR_DIRECTION:
-          row.add(column, info.carDirection.name());
-          break;
-        case NavigationContract.Live.Columns.PEDESTRIAN_DIRECTION:
-          row.add(column, info.pedestrianTurnDirection.name());
-          break;
-        case NavigationContract.Live.Columns.DIST_TO_TURN:
-          row.add(column, info.distToTurn.toString(getContext()));
-          break;
-        case NavigationContract.Live.Columns.DIST_TO_TARGET:
-          row.add(column, info.distToTarget.toString(getContext()));
-          break;
-        case NavigationContract.Live.Columns.DIST_TO_NEXT_STOP:
-          row.add(column, info.distToNextStop.toString(getContext()));
-          break;
-        case NavigationContract.Live.Columns.TOTAL_TIME_SECONDS:
-          row.add(column, info.totalTimeInSeconds);
-          break;
-        case NavigationContract.Live.Columns.TIME_TO_NEXT_STOP:
-          row.add(column, info.timeToNextStop);
-          break;
-        case NavigationContract.Live.Columns.CURRENT_STREET:
-          row.add(column, info.currentStreet);
-          break;
-        case NavigationContract.Live.Columns.NEXT_STREET:
-          row.add(column, info.nextStreet);
-          break;
-        case NavigationContract.Live.Columns.COMPLETION_PERCENT:
-          row.add(column, info.completionPercent);
-          break;
-        case NavigationContract.Live.Columns.EXIT_NUM:
-          row.add(column, info.exitNum);
-          break;
+      case NavigationContract.Live.Columns.SESSION_STATE: row.add(column, info.routingSessionState.name()); break;
+      case NavigationContract.Live.Columns.CAR_DIRECTION: row.add(column, info.carDirection.name()); break;
+      case NavigationContract.Live.Columns.PEDESTRIAN_DIRECTION:
+        row.add(column, info.pedestrianTurnDirection.name());
+        break;
+      case NavigationContract.Live.Columns.DIST_TO_TURN: row.add(column, info.distToTurn.toString(getContext())); break;
+      case NavigationContract.Live.Columns.DIST_TO_TARGET:
+        row.add(column, info.distToTarget.toString(getContext()));
+        break;
+      case NavigationContract.Live.Columns.DIST_TO_NEXT_STOP:
+        row.add(column, info.distToNextStop.toString(getContext()));
+        break;
+      case NavigationContract.Live.Columns.TOTAL_TIME_SECONDS: row.add(column, info.totalTimeInSeconds); break;
+      case NavigationContract.Live.Columns.TIME_TO_NEXT_STOP: row.add(column, info.timeToNextStop); break;
+      case NavigationContract.Live.Columns.CURRENT_STREET: row.add(column, info.currentStreet); break;
+      case NavigationContract.Live.Columns.NEXT_STREET: row.add(column, info.nextStreet); break;
+      case NavigationContract.Live.Columns.COMPLETION_PERCENT: row.add(column, info.completionPercent); break;
+      case NavigationContract.Live.Columns.EXIT_NUM: row.add(column, info.exitNum); break;
       }
     }
     return cursor;
@@ -110,19 +93,23 @@ public class NavigationContentProvider extends ContentProvider
 
   @Nullable
   @Override
-  public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
+  public Uri insert(@NonNull Uri uri, @Nullable ContentValues values)
+  {
     // no-op
     return null;
   }
 
   @Override
-  public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection, @Nullable String[] selectionArgs) {
+  public int update(@NonNull Uri uri, @Nullable ContentValues values, @Nullable String selection,
+                    @Nullable String[] selectionArgs)
+  {
     // no-op
     return 0;
   }
 
   @Override
-  public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
+  public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs)
+  {
     // no-op
     return 0;
   }

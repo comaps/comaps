@@ -6,8 +6,8 @@
 
 @interface SocketImpl : NSObject
 
-@property(nonatomic) NSInputStream * inputStream;
-@property(nonatomic) NSOutputStream * outputStream;
+@property(nonatomic) NSInputStream *inputStream;
+@property(nonatomic) NSOutputStream *outputStream;
 
 @property(nonatomic) uint32_t timeout;
 
@@ -25,20 +25,19 @@
 {
   [self close];
 
-  NSDate * openStart = [NSDate date];
+  NSDate *openStart = [NSDate date];
 
   CFReadStreamRef readStream;
   CFWriteStreamRef writeStream;
 
-  CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)(host), (UInt32)port, &readStream,
-                                     &writeStream);
+  CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)(host), (UInt32)port, &readStream, &writeStream);
 
-  NSDictionary * settings = @{
+  NSDictionary *settings = @{
 #ifndef RELEASE
-                              (id)kCFStreamSSLValidatesCertificateChain : @NO,
+    (id)kCFStreamSSLValidatesCertificateChain: @NO,
 #endif
-                              (id)kCFStreamSSLLevel : (id)kCFStreamSocketSecurityLevelNegotiatedSSL
-                              };
+    (id)kCFStreamSSLLevel: (id)kCFStreamSocketSecurityLevelNegotiatedSSL
+  };
 
   CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, (CFTypeRef)settings);
   CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, (CFTypeRef)settings);
@@ -82,8 +81,8 @@
   if (!self.inputStream || self.inputStream.streamStatus != NSStreamStatusOpen)
     return NO;
 
-  NSDate * readStart = [NSDate date];
-  uint8_t * readPtr = data;
+  NSDate *readStart = [NSDate date];
+  uint8_t *readPtr = data;
   while (count != 0 && [[NSDate date] timeIntervalSinceDate:readStart] < self.timeout)
   {
     NSInteger const readCount = [self.inputStream read:readPtr maxLength:count];
@@ -118,9 +117,9 @@
   if (!self.outputStream || self.outputStream.streamStatus != NSStreamStatusOpen)
     return NO;
 
-  uint8_t const * writePtr = data;
+  uint8_t const *writePtr = data;
 
-  NSDate * writeStart = [NSDate date];
+  NSDate *writeStart = [NSDate date];
   while (count != 0 && [[NSDate date] timeIntervalSinceDate:writeStart] < self.timeout)
   {
     NSInteger const writeCount = [self.outputStream write:writePtr maxLength:count];
@@ -160,14 +159,14 @@ public:
   PlatformSocket();
   // Socket overrides
   ~PlatformSocket();
-  bool Open(std::string const & host, uint16_t port) override;
+  bool Open(std::string const &host, uint16_t port) override;
   void Close() override;
-  bool Read(uint8_t * data, uint32_t count) override;
-  bool Write(uint8_t const * data, uint32_t count) override;
+  bool Read(uint8_t *data, uint32_t count) override;
+  bool Write(uint8_t const *data, uint32_t count) override;
   void SetTimeout(uint32_t milliseconds) override;
 
 private:
-  SocketImpl * m_socketImpl = nullptr;
+  SocketImpl *m_socketImpl = nullptr;
 };
 
 std::unique_ptr<Socket> CreateSocket()
@@ -175,7 +174,10 @@ std::unique_ptr<Socket> CreateSocket()
   return std::make_unique<PlatformSocket>();
 }
 
-PlatformSocket::PlatformSocket() { m_socketImpl = [[SocketImpl alloc] init]; }
+PlatformSocket::PlatformSocket()
+{
+  m_socketImpl = [[SocketImpl alloc] init];
+}
 
 PlatformSocket::~PlatformSocket()
 {
@@ -183,22 +185,28 @@ PlatformSocket::~PlatformSocket()
   m_socketImpl = nullptr;
 }
 
-bool PlatformSocket::Open(std::string const & host, uint16_t port)
+bool PlatformSocket::Open(std::string const &host, uint16_t port)
 {
   return [m_socketImpl open:@(host.c_str()) port:port];
 }
 
-void PlatformSocket::Close() { [m_socketImpl close]; }
+void PlatformSocket::Close()
+{
+  [m_socketImpl close];
+}
 
-bool PlatformSocket::Read(uint8_t * data, uint32_t count)
+bool PlatformSocket::Read(uint8_t *data, uint32_t count)
 {
   return [m_socketImpl read:data count:count];
 }
 
-bool PlatformSocket::Write(uint8_t const * data, uint32_t count)
+bool PlatformSocket::Write(uint8_t const *data, uint32_t count)
 {
   return [m_socketImpl write:data count:count];
 }
 
-void PlatformSocket::SetTimeout(uint32_t milliseconds) { m_socketImpl.timeout = milliseconds; }
+void PlatformSocket::SetTimeout(uint32_t milliseconds)
+{
+  m_socketImpl.timeout = milliseconds;
+}
 }  // namespace platform

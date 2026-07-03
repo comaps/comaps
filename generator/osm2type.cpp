@@ -228,7 +228,7 @@ private:
      * We avoid treating it as a hard hwtag-nofoot which means no routing at all,
      * while we still want to allow routing when destination is intentionally on a private path
      * (similar to a more generic access=private). Ideally we should add an explicit hwtag-privatefoot?
-    */
+     */
     for (char const * s : {"unknown", "dismount", "private"})
       if (value == s)
         return false;

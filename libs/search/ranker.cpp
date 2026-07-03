@@ -965,10 +965,8 @@ void Ranker::GetBestMatchName(FeatureType & f, string & name) const
     {
       auto const mwmInfo = f.GetID().m_mwmId.GetInfo();
       if (mwmInfo)
-      {
         for (auto const l : mwmInfo->GetRegionData().GetLanguages())
           updateScore(l, s, false /* force */);
-      }
     }
   };
   UNUSED_VALUE(f.ForEachName(bestNameFinder));

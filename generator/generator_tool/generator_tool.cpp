@@ -526,9 +526,7 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
     }
 
     if (!FLAGS_reviews_path.empty())
-    {
       BuildReviewsSection(FLAGS_reviews_path, dataFile);
-    }
 
     // Check !generate_popular_places to avoid mixing, generate_popular_places stage uses the same wiki flags.
     if (!FLAGS_generate_popular_places && !FLAGS_wikipedia_pages.empty())

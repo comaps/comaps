@@ -8,21 +8,17 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import com.google.android.material.imageview.ShapeableImageView;
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-
 import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmToolbarFragment;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.Utils;
-
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.util.Objects;
 
 public class BookmarkCategorySettingsFragment extends BaseMwmToolbarFragment
@@ -51,7 +47,6 @@ public class BookmarkCategorySettingsFragment extends BaseMwmToolbarFragment
 
   @NonNull
   private ShapeableImageView mSaveView;
-
 
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState)

@@ -59,11 +59,12 @@ FeatureInfoDialog::FeatureInfoDialog(QWidget * parent, osm::MapObject const & ma
 
   {
     localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-    vector<localisation::LanguageIndex> languageIndexes = {{localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex}};
+    vector<localisation::LanguageIndex> languageIndexes = {
+        {localisation::kDefaultNameIndex, localisation::kEnglishLanguageIndex}};
     if (languageIndex != localisation::kUnsupportedLanguageIndex &&
         ::find(languageIndexes.begin(), languageIndexes.end(), languageIndex) == languageIndexes.end())
     {
-        languageIndexes.push_back(languageIndex);
+      languageIndexes.push_back(languageIndex);
     }
 
     for (auto const & languageIndex : languageIndexes)

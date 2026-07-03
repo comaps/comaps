@@ -13,8 +13,7 @@ NS_SWIFT_NAME(BookmarkGroup)
 @interface MWMBookmarkGroup : NSObject
 
 - (instancetype)init NS_UNAVAILABLE;
-- (instancetype)initWithCategoryId:(MWMMarkGroupID)categoryId
-                            bookmarksManager:(MWMBookmarksManager *)manager;
+- (instancetype)initWithCategoryId:(MWMMarkGroupID)categoryId bookmarksManager:(MWMBookmarksManager *)manager;
 
 @property(nonatomic, readonly) MWMMarkGroupID categoryId;
 @property(nonatomic, readonly) NSString *title;

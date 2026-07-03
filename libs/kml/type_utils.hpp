@@ -125,7 +125,8 @@ bool IsEqual(std::vector<T> const & lhs, std::vector<T> const & rhs)
 
 struct BookmarkData;
 std::string GetPreferredBookmarkNameForKml(BookmarkData const & bmData);
-std::string GetPreferredBookmarkStrForKml(LocalizableString const & name, std::vector<localisation::LanguageIndex> const languageIndexes);
+std::string GetPreferredBookmarkStrForKml(LocalizableString const & name,
+                                          std::vector<localisation::LanguageIndex> const languageIndexes);
 std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types);
 
 #define DECLARE_COLLECTABLE(IndexType, ...)            \
@@ -142,6 +143,6 @@ std::string GetLocalizedFeatureType(std::vector<uint32_t> const & types);
 
 #define VISITOR_COLLECTABLE visitor(m_collectionIndex, "collectionIndex")
 
-#define SKIP_VISITING(Type)                        \
+#define SKIP_VISITING(Type) \
   void operator()(Type, char const * = nullptr) {}
 }  // namespace kml

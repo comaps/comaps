@@ -119,8 +119,7 @@ std::string MapboxApi::GetDirectionsURL(Params const & params) const
   oss << kBaseURL << "directions/" << kDirectionsApiVersion << "/" << VehicleTypeToMapboxType(params.m_type) << "/";
   oss << LatLonsToString(coords) << "?";
   oss << "access_token=" << GetAccessToken() << "&";
-  oss << "overview=simplified&"
-      << "geometries=geojson";
+  oss << "overview=simplified&" << "geometries=geojson";
   oss << "&alternatives=true";
 
   return oss.str();

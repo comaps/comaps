@@ -4,14 +4,11 @@ import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.editor.data.Language;
-
 import com.google.android.material.textview.MaterialTextView;
 
 public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Holder>
@@ -21,9 +18,12 @@ public class LanguagesAdapter extends RecyclerView.Adapter<LanguagesAdapter.Hold
     void onLanguageSelected(Language language);
   }
 
-  @NonNull private final Language[] mLanguages;
-  @NonNull private final OnLanguageSelectedListener mListener;
-  @Nullable private final Language mPreselectedLanguage;
+  @NonNull
+  private final Language[] mLanguages;
+  @NonNull
+  private final OnLanguageSelectedListener mListener;
+  @Nullable
+  private final Language mPreselectedLanguage;
 
   public LanguagesAdapter(@NonNull OnLanguageSelectedListener listener, @NonNull Language[] languages,
                           @Nullable Language preselectedLanguage)

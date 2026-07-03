@@ -1,31 +1,27 @@
 package app.organicmaps.settings;
 
 import android.content.res.XmlResourceParser;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.os.LocaleListCompat;
-
-import org.xmlpull.v1.XmlPullParser;
-
+import app.organicmaps.R;
+import app.organicmaps.base.BaseMwmRecyclerFragment;
+import app.organicmaps.editor.LanguagesAdapter;
+import app.organicmaps.sdk.editor.data.Language;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
-import app.organicmaps.R;
-import app.organicmaps.base.BaseMwmRecyclerFragment;
-import app.organicmaps.editor.LanguagesAdapter;
-import app.organicmaps.sdk.editor.data.Language;
+import org.xmlpull.v1.XmlPullParser;
 
 /**
  * Fragment for selecting app UI language from available translations.
  * Uses locales defined in res/xml/locales_config.xml.
  */
-public class AppLanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapter>
-    implements LanguagesAdapter.OnLanguageSelectedListener
+public class AppLanguagesFragment
+    extends BaseMwmRecyclerFragment<LanguagesAdapter> implements LanguagesAdapter.OnLanguageSelectedListener
 {
   public interface Listener
   {
@@ -91,8 +87,7 @@ public class AppLanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapt
       {
         if (eventType == XmlPullParser.START_TAG && "locale".equals(parser.getName()))
         {
-          String localeName = parser.getAttributeValue(
-              "http://schemas.android.com/apk/res/android", "name");
+          String localeName = parser.getAttributeValue("http://schemas.android.com/apk/res/android", "name");
           if (localeName != null && !localeName.isEmpty())
             locales.add(Locale.forLanguageTag(localeName));
         }
@@ -121,6 +116,7 @@ public class AppLanguagesFragment extends BaseMwmRecyclerFragment<LanguagesAdapt
       localeList = LocaleListCompat.create(mLocaleLanguageMap.get(language));
 
     AppCompatDelegate.setApplicationLocales(localeList);
-    if (mListener != null) mListener.onAppLanguageSelected();
+    if (mListener != null)
+      mListener.onAppLanguageSelected();
   }
 }

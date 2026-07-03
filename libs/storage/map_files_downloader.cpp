@@ -74,7 +74,7 @@ QueueInterface const & MapFilesDownloader::GetQueue() const
 }
 
 void MapFilesDownloader::DownloadAsStringFromMeta(std::string url, std::function<bool(std::string const &)> && callback,
-                                          bool forceReset /* = false */)
+                                                  bool forceReset /* = false */)
 {
   if (m_fileRequest && !forceReset)
     return;

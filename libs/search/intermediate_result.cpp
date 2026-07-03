@@ -145,8 +145,7 @@ bool PreRankerResult::CategoriesComparator::operator()(PreRankerResult const & l
 std::string DebugPrint(PreRankerResult const & r)
 {
   ostringstream os;
-  os << "PreRankerResult "
-     << "{ FID: " << r.GetId().m_index  // index is enough here for debug purpose
+  os << "PreRankerResult " << "{ FID: " << r.GetId().m_index  // index is enough here for debug purpose
      << "; m_matchedTokensNumber: " << r.m_matchedTokensNumber << "; m_isRelaxed: " << r.m_isRelaxed << "; "
      << DebugPrint(r.m_info) << " }";
   return os.str();
@@ -331,8 +330,7 @@ void FillDetails(FeatureType & ft, std::string const & name, Result::Details & d
 string DebugPrint(RankerResult const & r)
 {
   stringstream ss;
-  ss << "RankerResult "
-     << "{ FID: " << r.GetID().m_index  // index is enough here for debug purpose
+  ss << "RankerResult " << "{ FID: " << r.GetID().m_index  // index is enough here for debug purpose
      << "; Name: " << r.GetName() << "; Type: " << classif().GetReadableObjectName(r.GetBestType())
      << "; Linear model rank: " << r.GetLinearModelRank();
 

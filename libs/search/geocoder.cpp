@@ -308,8 +308,8 @@ unique_ptr<MwmContext> GetWorldContext(DataSource const & dataSource)
   return {};
 }
 
-#define TRACE(branch)                                                                         \
-  m_resultTracer.CallMethod(ResultTracer::Branch::branch);                                    \
+#define TRACE(branch)                                      \
+  m_resultTracer.CallMethod(ResultTracer::Branch::branch); \
   SCOPE_GUARD(tracerGuard, [&] { m_resultTracer.LeaveMethod(ResultTracer::Branch::branch); })
 }  // namespace
 

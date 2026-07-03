@@ -1,9 +1,8 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
@@ -104,7 +103,8 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
     {
       boolean androidAutoState = Utils.isAndroidAutoSupported(requireContext());
-      aASupportPref.setSummary(androidAutoState ? R.string.pref_aa_support_summary_yes : R.string.pref_aa_support_summary_no);
+      aASupportPref.setSummary(androidAutoState ? R.string.pref_aa_support_summary_yes
+                                                : R.string.pref_aa_support_summary_no);
       aASupportPref.setIcon(androidAutoState ? R.drawable.ic_car_enabled : R.drawable.ic_car_disabled);
     }
     else

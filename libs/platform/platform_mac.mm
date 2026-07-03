@@ -25,7 +25,6 @@
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <netinet/in.h>
 
-
 Platform::Platform()
 {
   // CoMaps.app/Content/Resources or omim-build-debug for tests.
@@ -35,8 +34,8 @@ Platform::Platform()
   // Current working directory, can be overrided for Xcode projects in the scheme's settings.
   std::string const currentDir = [NSFileManager.defaultManager currentDirectoryPath].UTF8String;
 
-  char const * envResourcesDir = ::getenv("MWM_RESOURCES_DIR");
-  char const * envWritableDir = ::getenv("MWM_WRITABLE_DIR");
+  char const *envResourcesDir = ::getenv("MWM_RESOURCES_DIR");
+  char const *envWritableDir = ::getenv("MWM_WRITABLE_DIR");
 
   if (envResourcesDir && envWritableDir)
   {
@@ -61,23 +60,22 @@ Platform::Platform()
   else
   {
     m_resourcesDir = resourcesPath + "/";
-    std::string const paths[] =
-    {
-      // Developers can set a symlink to the data folder.
-      m_resourcesDir + "../../../data/",
-      // Check development environment without a symlink but with a git repo.
-      m_resourcesDir + "../../../../omim/data/",
-      m_resourcesDir + "../../../../organicmaps/data/",
-      // Working directory is set to the data folder or any project's subfolder.
-      currentDir + "/../data",
-      // Working directory is set to the project's root.
-      currentDir + "/data",
-      // Working directory is set to the build folder with binaries.
-      currentDir + "/../omim/data",
-      currentDir + "/../organicmaps/data",
+    std::string const paths[] = {
+        // Developers can set a symlink to the data folder.
+        m_resourcesDir + "../../../data/",
+        // Check development environment without a symlink but with a git repo.
+        m_resourcesDir + "../../../../omim/data/",
+        m_resourcesDir + "../../../../organicmaps/data/",
+        // Working directory is set to the data folder or any project's subfolder.
+        currentDir + "/../data",
+        // Working directory is set to the project's root.
+        currentDir + "/data",
+        // Working directory is set to the build folder with binaries.
+        currentDir + "/../omim/data",
+        currentDir + "/../organicmaps/data",
     };
     // Find the writable path.
-    for (auto const & path : paths)
+    for (auto const &path : paths)
     {
       if (IsFileExistsByFullPath(path))
       {
@@ -90,7 +88,7 @@ Platform::Platform()
     // a customized working directory.
     if (m_writableDir.empty())
     {
-      for (char const * keyword : {"/omim/", "/organicmaps/"})
+      for (char const *keyword : {"/omim/", "/organicmaps/"})
       {
         if (auto const p = currentDir.rfind(keyword); p != std::string::npos)
         {
@@ -107,14 +105,14 @@ Platform::Platform()
 
     if (m_writableDir.empty())
     {
-      NSArray * dirPaths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
-      NSString * supportDir = [dirPaths objectAtIndex:0];
+      NSArray *dirPaths = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES);
+      NSString *supportDir = [dirPaths objectAtIndex:0];
       m_writableDir = supportDir.UTF8String;
 #ifdef BUILD_DESIGNER
       m_writableDir += "/CoMapsData.Designer/";
-#else // BUILD_DESIGNER
+#else   // BUILD_DESIGNER
       m_writableDir += "/CoMapsData/";
-#endif // BUILD_DESIGNER
+#endif  // BUILD_DESIGNER
       ::mkdir(m_writableDir.c_str(), 0755);
     }
   }
@@ -126,9 +124,9 @@ Platform::Platform()
 
   m_settingsDir = m_writableDir;
 
-  NSString * tempDir = NSTemporaryDirectory();
+  NSString *tempDir = NSTemporaryDirectory();
   if (tempDir == nil)
-      tempDir = @"/tmp";
+    tempDir = @"/tmp";
   m_tmpDir = tempDir.UTF8String;
   base::AddSlashIfNeeded(m_tmpDir);
 
@@ -156,7 +154,8 @@ Platform::EConnectionType Platform::ConnectionStatus()
   memset(&zero, 0, sizeof(zero));
   zero.sin_len = sizeof(zero);
   zero.sin_family = AF_INET;
-  SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, reinterpret_cast<const struct sockaddr*>(&zero));
+  SCNetworkReachabilityRef reachability =
+      SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, reinterpret_cast<const struct sockaddr *>(&zero));
   if (!reachability)
     return EConnectionType::CONNECTION_NONE;
   SCNetworkReachabilityFlags flags;
@@ -164,7 +163,8 @@ Platform::EConnectionType Platform::ConnectionStatus()
   CFRelease(reachability);
   if (!gotFlags || ((flags & kSCNetworkReachabilityFlagsReachable) == 0))
     return EConnectionType::CONNECTION_NONE;
-  SCNetworkReachabilityFlags userActionRequired = kSCNetworkReachabilityFlagsConnectionRequired | kSCNetworkReachabilityFlagsInterventionRequired;
+  SCNetworkReachabilityFlags userActionRequired =
+      kSCNetworkReachabilityFlagsConnectionRequired | kSCNetworkReachabilityFlagsInterventionRequired;
   if ((flags & userActionRequired) == userActionRequired)
     return EConnectionType::CONNECTION_NONE;
   return EConnectionType::CONNECTION_WIFI;
@@ -182,12 +182,10 @@ uint8_t Platform::GetBatteryLevel()
   return 100;
 }
 
-void Platform::GetSystemFontNames(FilesList & res) const
-{
-}
+void Platform::GetSystemFontNames(FilesList &res) const {}
 
 // static
-time_t Platform::GetFileCreationTime(std::string const & path)
+time_t Platform::GetFileCreationTime(std::string const &path)
 {
   struct stat st;
   if (0 == stat(path.c_str(), &st))
@@ -199,7 +197,7 @@ time_t Platform::GetFileCreationTime(std::string const & path)
 }
 
 // static
-time_t Platform::GetFileModificationTime(std::string const & path)
+time_t Platform::GetFileModificationTime(std::string const &path)
 {
   struct stat st;
   if (0 == stat(path.c_str(), &st))

@@ -34,8 +34,9 @@
     [navigationController setNavigationBarHidden:YES animated:animated];
     return;
   }
-  
-  if ([viewController conformsToProtocol:@protocol(MWMController)]) {
+
+  if ([viewController conformsToProtocol:@protocol(MWMController)])
+  {
     id<MWMController> vc = (id<MWMController>)viewController;
     [navigationController setNavigationBarHidden:!vc.hasNavigationBar animated:animated];
   }
@@ -43,13 +44,14 @@
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-  UIViewController * topVC = self.viewControllers.lastObject;
+  UIViewController *topVC = self.viewControllers.lastObject;
   [self setupNavigationBackButtonItemFor:topVC];
   [super pushViewController:viewController animated:animated];
 }
 
-- (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
-  [viewControllers enumerateObjectsUsingBlock:^(UIViewController * vc, NSUInteger idx, BOOL * stop) {
+- (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated
+{
+  [viewControllers enumerateObjectsUsingBlock:^(UIViewController *vc, NSUInteger idx, BOOL *stop) {
     if (idx == viewControllers.count - 1)
       return;
     [self setupNavigationBackButtonItemFor:vc];
@@ -59,10 +61,12 @@
 
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
 {
-  [super traitCollectionDidChange: previousTraitCollection];
+  [super traitCollectionDidChange:previousTraitCollection];
   // Update the app theme when the device appearance is changing.
-  if ((self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass)
-      || (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass) || (self.traitCollection.userInterfaceStyle != previousTraitCollection.userInterfaceStyle)) {
+  if ((self.traitCollection.verticalSizeClass != previousTraitCollection.verticalSizeClass) ||
+      (self.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass) ||
+      (self.traitCollection.userInterfaceStyle != previousTraitCollection.userInterfaceStyle))
+  {
     [MWMThemeManager invalidate];
   }
 }
@@ -72,10 +76,14 @@
   return YES;
 }
 
-- (void)setupNavigationBackButtonItemFor:(UIViewController *)viewController {
-  if (@available(iOS 14.0, *)) {
+- (void)setupNavigationBackButtonItemFor:(UIViewController *)viewController
+{
+  if (@available(iOS 14.0, *))
+  {
     viewController.navigationItem.backButtonDisplayMode = UINavigationItemBackButtonDisplayModeMinimal;
-  } else {
+  }
+  else
+  {
     viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                                                        style:UIBarButtonItemStylePlain
                                                                                       target:nil

@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
-#import "MWMTypes.h"
 #import "MWMBookmarkColor.h"
+#import "MWMTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

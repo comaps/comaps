@@ -1,6 +1,7 @@
 # Directories Structure
 
 ## Platforms
+
 - `android/` - Android UI.
 
 - `iphone/` - iOS UI.
@@ -39,6 +40,7 @@ There are some other files not mentioned here.
 - `config.xsd` - XML schema for `editor.config`.
 
 Automatically generated:
+
 - `classificator.txt` - hierarchical list of all CoMaps types.
 - `types.txt`
 
@@ -51,6 +53,7 @@ Automatically generated:
 - `styles/` - map [style files](STYLES.md#files)
 
 Automatically [generated](STYLES.md#technical-details):
+
 - `symbols/` - icons skin files in various resolutions for `dark` and `light` themes.
 - `drules_proto*` - binary drawing rules files.
 - `colors.txt`,`patterns.txt`,`visibility.txt`
@@ -58,19 +61,23 @@ Automatically [generated](STYLES.md#technical-details):
 ### Strings and translations
 
 [Translation files](TRANSLATIONS.md#translation-files):
+
 - `strings/`
 - `categories.txt`, `categories_brands.txt`, `countries_names.txt`
 
 Misc strings:
+
 - `countries_synonyms.csv` - alternative country names.
 - `synonyms.txt` - country and region names abbreviations and short names.
 - `languages.txt` - native language names.
 
 Automatically [generated](TRANSLATIONS.md#technical-details):
+
 - `countries-strings/` - country and map region names JSON localization files.
 - `sound-strings/` - Text-To-Speech JSON localization files.
 
 ## Tools
+
 - `tools/` - various scripts for building packages and maps, testing, managing translations etc.
 
 - `generator/` - map building tool.

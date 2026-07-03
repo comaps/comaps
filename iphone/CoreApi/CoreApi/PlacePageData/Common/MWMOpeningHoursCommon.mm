@@ -1,48 +1,46 @@
 #import "MWMOpeningHoursCommon.h"
 #import "CoreApi/CoreApi-Swift.h"
 
-NSDateComponents * dateComponentsFromTime(osmoh::Time const & time)
+NSDateComponents *dateComponentsFromTime(osmoh::Time const &time)
 {
-  NSDateComponents * dc = [[NSDateComponents alloc] init];
+  NSDateComponents *dc = [[NSDateComponents alloc] init];
   dc.hour = time.GetHoursCount();
   dc.minute = time.GetMinutesCount();
   return dc;
 }
 
-NSDate * dateFromTime(osmoh::Time const & time)
+NSDate *dateFromTime(osmoh::Time const &time)
 {
-  NSCalendar * cal = NSCalendar.currentCalendar;
+  NSCalendar *cal = NSCalendar.currentCalendar;
   cal.locale = NSLocale.currentLocale;
   return [cal dateFromComponents:dateComponentsFromTime(time)];
 }
 
-NSString * stringFromTime(osmoh::Time const & time)
+NSString *stringFromTime(osmoh::Time const &time)
 {
   return [DateTimeFormatter dateStringFrom:dateFromTime(time)
                                  dateStyle:NSDateFormatterNoStyle
                                  timeStyle:NSDateFormatterShortStyle];
 }
 
-NSString * stringFromOpeningDays(editor::ui::OpeningDays const & openingDays)
+NSString *stringFromOpeningDays(editor::ui::OpeningDays const &openingDays)
 {
-  NSCalendar * cal = NSCalendar.currentCalendar;
+  NSCalendar *cal = NSCalendar.currentCalendar;
   cal.locale = NSLocale.currentLocale;
   NSUInteger const firstWeekday = cal.firstWeekday - 1;
 
-  NSArray<NSString *> * weekdaySymbols = cal.shortStandaloneWeekdaySymbols;
-  NSMutableArray<NSString *> * spanNames = [NSMutableArray arrayWithCapacity:2];
-  NSMutableArray<NSString *> * spans = [NSMutableArray array];
+  NSArray<NSString *> *weekdaySymbols = cal.shortStandaloneWeekdaySymbols;
+  NSMutableArray<NSString *> *spanNames = [NSMutableArray arrayWithCapacity:2];
+  NSMutableArray<NSString *> *spans = [NSMutableArray array];
 
-  auto weekdayFromDay = ^(NSUInteger day)
-  {
+  auto weekdayFromDay = ^(NSUInteger day) {
     NSUInteger idx = day + 1;
     if (idx > static_cast<NSUInteger>(osmoh::Weekday::Saturday))
       idx -= static_cast<NSUInteger>(osmoh::Weekday::Saturday);
     return static_cast<osmoh::Weekday>(idx);
   };
 
-  auto joinSpanNames = ^
-  {
+  auto joinSpanNames = ^{
     NSUInteger const spanNamesCount = spanNames.count;
     if (spanNamesCount == 0)
       return;
@@ -67,7 +65,7 @@ NSString * stringFromOpeningDays(editor::ui::OpeningDays const & openingDays)
   return [spans componentsJoinedByString:@", "];
 }
 
-BOOL isEveryDay(editor::ui::TimeTable const & timeTable)
+BOOL isEveryDay(editor::ui::TimeTable const &timeTable)
 {
   return timeTable.GetOpeningDays().size() == 7;
 }

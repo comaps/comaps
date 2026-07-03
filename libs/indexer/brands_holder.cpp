@@ -99,7 +99,8 @@ void BrandsHolder::LoadFromStream(std::istream & s)
         continue;
       }
 
-      localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(std::string{*iter});
+      localisation::LanguageIndex const languageIndex =
+          localisation::ConvertLanguageCodeToLanguageIndex(std::string{*iter});
       CHECK_NOT_EQUAL(languageIndex, localisation::kUnsupportedLanguageIndex, ());
 
       while (++iter)

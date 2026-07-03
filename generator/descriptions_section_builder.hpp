@@ -32,10 +32,7 @@ class DescriptionsCollectionBuilderStat
 public:
   using LangStatistics = std::array<size_t, localisation::kMaxSupportedLanguages>;
 
-  DescriptionsCollectionBuilderStat()
-  {
-    CHECK_EQUAL(m_langsStat.size(), localisation::kMaxSupportedLanguages, ());
-  }
+  DescriptionsCollectionBuilderStat() { CHECK_EQUAL(m_langsStat.size(), localisation::kMaxSupportedLanguages, ()); }
 
   std::string LangStatisticsToString() const;
   void IncCode(int8_t code)

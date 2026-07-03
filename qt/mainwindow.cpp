@@ -524,7 +524,8 @@ void MainWindow::CreateCountryStatusControls()
   }, [this](storage::CountryId const & countryId, downloader::Progress const & progress)
   {
     std::stringstream str;
-    str << "Downloading (" << countryId << ") " << progress.m_bytesDownloaded * 100 / progress.m_bytesTotal << "% (click to cancel)";
+    str << "Downloading (" << countryId << ") " << progress.m_bytesDownloaded * 100 / progress.m_bytesTotal
+        << "% (click to cancel)";
     m_cancelDownloadButton->setText(str.str().c_str());
   });
 }

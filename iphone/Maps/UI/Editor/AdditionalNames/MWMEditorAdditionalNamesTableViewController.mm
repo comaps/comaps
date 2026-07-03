@@ -5,7 +5,7 @@
 
 @interface MWMEditorAdditionalNamesTableViewController ()
 
-@property (weak, nonatomic) id<MWMEditorAdditionalNamesProtocol> delegate;
+@property(weak, nonatomic) id<MWMEditorAdditionalNamesProtocol> delegate;
 
 @end
 
@@ -19,8 +19,8 @@
 #pragma mark - UITableViewDataSource
 
 - (void)configWithDelegate:(id<MWMEditorAdditionalNamesProtocol>)delegate
-                      name:(StringUtf8Multilang const &)name
-additionalSkipLanguageCodes:(std::vector<NSInteger>)additionalSkipLanguageCodes
+                           name:(StringUtf8Multilang const &)name
+    additionalSkipLanguageCodes:(std::vector<NSInteger>)additionalSkipLanguageCodes
 {
   self.delegate = delegate;
   m_name = name;
@@ -36,10 +36,11 @@ additionalSkipLanguageCodes:(std::vector<NSInteger>)additionalSkipLanguageCodes
 - (void)viewWillAppear:(BOOL)animated
 {
   [super viewWillAppear:animated];
-  auto const getLanguageIndex = [](std::string languageCode) { return localisation::ConvertLanguageCodeToLanguageIndex(languageCode); };
+  auto const getLanguageIndex = [](std::string languageCode)
+  { return localisation::ConvertLanguageCodeToLanguageIndex(languageCode); };
   m_languages.clear();
 
-  for (auto const & language : localisation::GetSupportedLanguages())
+  for (auto const &language : localisation::GetSupportedLanguages())
   {
     auto const languageIndex = getLanguageIndex(language.m_languageCode);
     if (languageIndex != localisation::kDefaultNameIndex && m_name.HasString(languageIndex))
@@ -50,22 +51,25 @@ additionalSkipLanguageCodes:(std::vector<NSInteger>)additionalSkipLanguageCodes
   }
 
   std::sort(m_languages.begin(), m_languages.end(),
-       [&getLanguageIndex](localisation::Language const & lhs, localisation::Language const & rhs) {
-         // Default name can be changed in advanced mode, but it should be last in list of names.
-         if (getLanguageIndex(lhs.m_languageCode) == localisation::kDefaultNameIndex && getLanguageIndex(rhs.m_languageCode) != localisation::kDefaultNameIndex)
-           return false;
-         if (getLanguageIndex(lhs.m_languageCode) != localisation::kDefaultNameIndex && getLanguageIndex(rhs.m_languageCode) == localisation::kDefaultNameIndex)
-           return true;
+            [&getLanguageIndex](localisation::Language const &lhs, localisation::Language const &rhs)
+  {
+    // Default name can be changed in advanced mode, but it should be last in list of names.
+    if (getLanguageIndex(lhs.m_languageCode) == localisation::kDefaultNameIndex &&
+        getLanguageIndex(rhs.m_languageCode) != localisation::kDefaultNameIndex)
+      return false;
+    if (getLanguageIndex(lhs.m_languageCode) != localisation::kDefaultNameIndex &&
+        getLanguageIndex(rhs.m_languageCode) == localisation::kDefaultNameIndex)
+      return true;
 
-         return std::string(lhs.m_languageCode) < std::string(rhs.m_languageCode);
-       });
+    return std::string(lhs.m_languageCode) < std::string(rhs.m_languageCode);
+  });
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  MWMTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"ListCellIdentifier"];
+  MWMTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ListCellIdentifier"];
   NSInteger const index = indexPath.row;
-  localisation::Language const & lang = m_languages[index];
+  localisation::Language const &lang = m_languages[index];
   cell.textLabel.text = ToNSString(lang.m_name);
   cell.detailTextLabel.text = ToNSString(lang.m_languageCode);
   cell.accessoryType = UITableViewCellAccessoryNone;
@@ -82,7 +86,7 @@ additionalSkipLanguageCodes:(std::vector<NSInteger>)additionalSkipLanguageCodes
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
   NSInteger const index = indexPath.row;
-  localisation::Language const & language = m_languages[index];
+  localisation::Language const &language = m_languages[index];
 
   [self.delegate addAdditionalName:localisation::ConvertLanguageCodeToLanguageIndex(language.m_languageCode)];
   [self.navigationController popViewControllerAnimated:YES];

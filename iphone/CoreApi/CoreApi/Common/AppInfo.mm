@@ -12,9 +12,9 @@
 
 @interface AppInfo ()
 
-@property(nonatomic) NSString * bundleVersion;
-@property(nonatomic) NSString * buildNumber;
-@property(nonatomic) NSString * deviceModel;
+@property(nonatomic) NSString *bundleVersion;
+@property(nonatomic) NSString *buildNumber;
+@property(nonatomic) NSString *deviceModel;
 
 @end
 
@@ -22,11 +22,9 @@
 
 + (instancetype)sharedInfo
 {
-  static AppInfo * appInfo;
+  static AppInfo *appInfo;
   static dispatch_once_t onceToken;
-  dispatch_once(&onceToken, ^{
-    appInfo = [[self alloc] init];
-  });
+  dispatch_once(&onceToken, ^{ appInfo = [[self alloc] init]; });
   return appInfo;
 }
 
@@ -74,7 +72,7 @@
 {
   utsname systemInfo;
   uname(&systemInfo);
-  NSString * machine = @(systemInfo.machine);
+  NSString *machine = @(systemInfo.machine);
   if (platform::kDeviceModelsBeforeMetalDriver[machine] != nil)
     return MWMOpenGLDriverRegular;
   if (platform::kDeviceModelsWithiOS10MetalDriver[machine] != nil)
@@ -91,13 +89,14 @@
 {
   if (UIDevice.currentDevice.userInterfaceIdiom != UIUserInterfaceIdiomPhone)
     return NO;
-  NSURL * telURL = [NSURL URLWithString:@"tel://"];
+  NSURL *telURL = [NSURL URLWithString:@"tel://"];
   if (![UIApplication.sharedApplication canOpenURL:telURL])
     return NO;
-  NSDictionary<NSString *,CTCarrier *> * dict = [[CTTelephonyNetworkInfo alloc] init].serviceSubscriberCellularProviders;
+  NSDictionary<NSString *, CTCarrier *> *dict =
+      [[CTTelephonyNetworkInfo alloc] init].serviceSubscriberCellularProviders;
   for (id key in dict)
   {
-    NSString * networkCode = [dict objectForKey:key].mobileNetworkCode;
+    NSString *networkCode = [dict objectForKey:key].mobileNetworkCode;
     if (networkCode != nil && networkCode.length > 0 && ![networkCode isEqualToString:@"65535"])
       return YES;
   }

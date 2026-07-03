@@ -1,5 +1,5 @@
-#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
 
 @class MWMMapNodeAttributes;
 @class MWMMapUpdateInfo;
@@ -21,9 +21,7 @@ NS_SWIFT_NAME(StorageObserver)
 
 @optional
 
-- (void)processCountry:(NSString *)countryId
-       downloadedBytes:(uint64_t)downloadedBytes
-            totalBytes:(uint64_t)totalBytes;
+- (void)processCountry:(NSString *)countryId downloadedBytes:(uint64_t)downloadedBytes totalBytes:(uint64_t)totalBytes;
 
 @end
 
@@ -41,15 +39,15 @@ NS_SWIFT_NAME(Storage)
 
 + (instancetype)sharedStorage;
 
-- (BOOL)downloadNode:(NSString *)countryId error:(NSError * __autoreleasing _Nullable *)error;
+- (BOOL)downloadNode:(NSString *)countryId error:(NSError *__autoreleasing _Nullable *)error;
 - (void)retryDownloadNode:(NSString *)countryId;
-- (BOOL)updateNode:(NSString *)countryId error:(NSError * __autoreleasing _Nullable *)error;
+- (BOOL)updateNode:(NSString *)countryId error:(NSError *__autoreleasing _Nullable *)error;
 - (BOOL)deleteNode:(NSString *)countryId
-ignoreUnsavedEdits:(BOOL)force
-             error:(NSError * __autoreleasing _Nullable *)error;
+    ignoreUnsavedEdits:(BOOL)force
+                 error:(NSError *__autoreleasing _Nullable *)error;
 - (void)cancelDownloadNode:(NSString *)countryId;
 - (void)showNode:(NSString *)countryId;
-- (BOOL)downloadNodes:(NSArray<NSString *> *)countryIds error:(NSError * __autoreleasing _Nullable *)error;
+- (BOOL)downloadNodes:(NSArray<NSString *> *)countryIds error:(NSError *__autoreleasing _Nullable *)error;
 
 - (BOOL)haveDownloadedCountries;
 - (BOOL)downloadInProgress;
@@ -59,7 +57,7 @@ ignoreUnsavedEdits:(BOOL)force
 - (void)removeObserver:(id<MWMStorageObserver>)observer;
 
 - (void)startCheckUpdates;
-- (void)setCheckUpdatesListener:(void (^ _Nullable)(MWMCheckUpdatesStatus status))listener;
+- (void)setCheckUpdatesListener:(void (^_Nullable)(MWMCheckUpdatesStatus status))listener;
 
 #pragma mark - Attributes
 

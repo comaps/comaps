@@ -6,22 +6,22 @@ Translations are managed through [Codeberg Translate][codeberg_translate], which
 
 The project consists of multiple components, each with its own translation files.
 
-| Weblate Component                                   | Description                                                | Translation Files                                                                                        |
-| --------------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| [Android][android_weblate]                          | UI strings                                                 | [android/app/src/main/res/values\*/strings.xml][android_git] ([en][android_git_en])                      |
-| [Android feature types][android_typestrings_weblate]| Map feature types                                          | [android/sdk/src/main/res/values\*/type_strings.xml][android_sdkstrings_git] ([en][android_typestrings_git_en])|
-| [Android SDK][android_sdkstrings_weblate]           | UI strings (system-level)                                  | [android/sdk/src/main/res/values\*/strings.xml][android_sdkstrings_git] ([en][android_sdkstrings_git_en])|
-| [iOS][ios_weblate]                                  | UI strings                                                 | [iphone/Maps/LocalizedStrings/\*.lproj/Localizable.strings][ios_git] ([en][ios_git_en])                  |
-| [iOS Type Strings][ios_typestrings_weblate]         | OpenStreetMap Types                                        | [iphone/Maps/LocalizedStrings/\*.lproj/LocalizableTypes.strings][ios_git] ([en][ios_typestrings_git_en]) |
-| [iOS Plurals][ios_plurals_weblate]                  | UI strings (plurals)                                       | [iphone/Maps/LocalizedStrings/\*.lproj/Localizable.stringsdict][ios_git] ([en][ios_plurals_git_en])      |
-| [iOS Plist][ios_plist_weblate]                      | UI strings (system-level)                                  | [iphone/Maps/LocalizedStrings/\*.lproj/InfoPlist.strings][ios_git] ([en][ios_plist_git_en])              |
-| [TTS][tts_weblate]                                  | Voice announcement strings for navigation directions (TTS) | [translations/sound-strings/\*.json][tts_git] ([en][tts_git_en])                                                 |
-| [Countries][countries_weblate]                      | Country names for downloader                               | [translations/countries-strings/\*.json][countries_git] ([en][countries_git_en])                                 |
-| [Search keywords](https://translate.codeberg.org/projects/comaps/search-synonyms-aliases/) | Search keywords/aliases/synonyms | [translations/categories-strings/](https://codeberg.org/comaps/comaps/src/branch/main/data/translations/categories-strings) |
-| [AppStore Descriptions][appstore_weblate]           | AppStore descriptions                                      | [iphone/metadata][appstore_git] ([en][appstore_git_en])                                                  |
-| [Android Stores Descriptions][googleplay_weblate]   | Google, Huawei store descriptions                          | [android/app/src/google/play/listings][googleplay_git] ([en][googleplay_git_en])                         |
-| [F-Droid Descriptions][fdroid_weblate]              | F-Droid descriptions                                       | [android/app/src/fdroid/play/listings][fdroid_git] ([en][fdroid_git_en])                                 |
-| [Website][website_weblate]                          | Website content                                            | [comaps/website][website_git] ([see details][website_guide])                                             |
+| Weblate Component                                                                          | Description                                                | Translation Files                                                                                                           |
+| ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [Android][android_weblate]                                                                 | UI strings                                                 | [android/app/src/main/res/values\*/strings.xml][android_git] ([en][android_git_en])                                         |
+| [Android feature types][android_typestrings_weblate]                                       | Map feature types                                          | [android/sdk/src/main/res/values\*/type_strings.xml][android_sdkstrings_git] ([en][android_typestrings_git_en])             |
+| [Android SDK][android_sdkstrings_weblate]                                                  | UI strings (system-level)                                  | [android/sdk/src/main/res/values\*/strings.xml][android_sdkstrings_git] ([en][android_sdkstrings_git_en])                   |
+| [iOS][ios_weblate]                                                                         | UI strings                                                 | [iphone/Maps/LocalizedStrings/\*.lproj/Localizable.strings][ios_git] ([en][ios_git_en])                                     |
+| [iOS Type Strings][ios_typestrings_weblate]                                                | OpenStreetMap Types                                        | [iphone/Maps/LocalizedStrings/\*.lproj/LocalizableTypes.strings][ios_git] ([en][ios_typestrings_git_en])                    |
+| [iOS Plurals][ios_plurals_weblate]                                                         | UI strings (plurals)                                       | [iphone/Maps/LocalizedStrings/\*.lproj/Localizable.stringsdict][ios_git] ([en][ios_plurals_git_en])                         |
+| [iOS Plist][ios_plist_weblate]                                                             | UI strings (system-level)                                  | [iphone/Maps/LocalizedStrings/\*.lproj/InfoPlist.strings][ios_git] ([en][ios_plist_git_en])                                 |
+| [TTS][tts_weblate]                                                                         | Voice announcement strings for navigation directions (TTS) | [translations/sound-strings/\*.json][tts_git] ([en][tts_git_en])                                                            |
+| [Countries][countries_weblate]                                                             | Country names for downloader                               | [translations/countries-strings/\*.json][countries_git] ([en][countries_git_en])                                            |
+| [Search keywords](https://translate.codeberg.org/projects/comaps/search-synonyms-aliases/) | Search keywords/aliases/synonyms                           | [translations/categories-strings/](https://codeberg.org/comaps/comaps/src/branch/main/data/translations/categories-strings) |
+| [AppStore Descriptions][appstore_weblate]                                                  | AppStore descriptions                                      | [iphone/metadata][appstore_git] ([en][appstore_git_en])                                                                     |
+| [Android Stores Descriptions][googleplay_weblate]                                          | Google, Huawei store descriptions                          | [android/app/src/google/play/listings][googleplay_git] ([en][googleplay_git_en])                                            |
+| [F-Droid Descriptions][fdroid_weblate]                                                     | F-Droid descriptions                                       | [android/app/src/fdroid/play/listings][fdroid_git] ([en][fdroid_git_en])                                                    |
+| [Website][website_weblate]                                                                 | Website content                                            | [comaps/website][website_git] ([see details][website_guide])                                                                |
 
 Components without links haven't been integrated into Weblate and must be translated directly via [Codeberg Pull Requests](CONTRIBUTING.md).
 
@@ -45,7 +45,7 @@ Translations can be borrowed from a common category (indicated by the use of a `
 
 Syntax:
 
-- `|`   - used to separate synonyms.
+- `|` - used to separate synonyms.
 - `1`-`9` - a digit in front of a synonym indicate the number of characters that need to be typed in a search query to make this synonym appear in the list of suggestions. It is located immediately at the start of a synonym. At most one digit per synonym is allowed. This number doesn't need to be copied from the English string when translating.
 
 It's also possible to use emoji codes as search synonyms, e.g. U+1F6B0 for potable water. You do not have to repeat/duplicate terms or emoji that are already listed in the English source, as those will always be searched as well.
@@ -77,28 +77,31 @@ kicks in only for 8-letter or longer words.
 Categories explicitly listed in the "categories" tab in the app' search screen are special, because their exact displayed name is used as a search query.
 Hence a displayed name defined in UI strings should have a matching synonym defined in [Search keywords](https://translate.codeberg.org/projects/comaps/search-synonyms-aliases/).
 
-
 ### TTS translations
 
 #### Format string
+
 You will notice a string called `dist_direction_onto_street`. This string dictates the order for TTS announcements when Announce Street Names is turned on. Here is what each set of numbers and symbols means:
-* `%1$s`: the distance until the turn ("in 100 metres")
-* `%2$s`: the turn to make ("turn right")
-* `%3$s`: the word "onto" (except if the instruction is to take an exit).
-* `%4$s`: the street to turn onto ("Northeast Airport Way")
-* `%5$s`: another verb before the distance (some languages need this, but not all will use it).
+
+- `%1$s`: the distance until the turn ("in 100 metres")
+- `%2$s`: the turn to make ("turn right")
+- `%3$s`: the word "onto" (except if the instruction is to take an exit).
+- `%4$s`: the street to turn onto ("Northeast Airport Way")
+- `%5$s`: another verb before the distance (some languages need this, but not all will use it).
 
 With the example parts shown, a format string of `%1$s %2$s %3$s %4$s` would literally result in "In 100 metres turn right onto Northeast Airport Way." However, with a format string of `%1$s %4$s %3$s %2$s` (like in Hindi/Tamil), that would literally result in "In 100 metres Northeast Airport Way onto turn right".
 
 #### Offline testing
+
 Should you need to test/make your changes offline (like to use the emulator/a device to check your translation), here is what should be done:
+
 1. Create a clone/branch of the code.
 2. If a such file doesn't exist, create `translations/sound-strings/[language code].json/localize.json`. Replace [language code] with the two letter code for your language (e.g. `ta` for Tamil).
 3. If the file exists, make any necessary changes that are not updated with your translations.
 4. Open the file `libs/platform/languages.hpp`.
 5. Find the line that starts with `std::array<std::pair<std::string_view, std::string_view`. Increase the number in the line by 1.
 6. If you are not doing a dialect of a language (like "es" instead of "es-MX"), find the last bracketed item, like `{"ta", "தமிழ்"},`. Create a new line with `{"[language_code]", "[language name in language]},`. Otherwise, double check on how to implement the dialect.
-7. Save the file, then build the app on Android Studio. When the app opens, go to the TTS settings and select the language you just added. *Note: if this doesn't work, you may need to select your desired language in your system TTS settings*.
+7. Save the file, then build the app on Android Studio. When the app opens, go to the TTS settings and select the language you just added. _Note: if this doesn't work, you may need to select your desired language in your system TTS settings_.
 
 ## Machine Translation
 
@@ -123,6 +126,7 @@ Android developers can utilize the built-in features of Android Studio to add an
 When adding new strings, first check the base file of the component for existing ones. If no relevant strings are found, look for them on the corresponding platform (e.g., iOS when adding Android strings or vice versa). To maintain consistency across platforms, always reuse the existing string key from the other platform with the same English base string.
 
 ### Add support of new language in Android app
+
 1. Make sure Weblate has generated `strings.xml` for your language in this directory: [android/app/src/main/res/values\*/strings.xml][android_git]
 2. Add the language in `localeFilters` list in [build.gradle](https://codeberg.org/comaps/comaps/src/commit/e156d21eee7debd13ce9ec775cdcb264a97aad47/android/app/build.gradle#L258) (It's necessary to add the language in this file to be sure app translations and library translations are integrated in the app).
 3. Add the language in [locales_config.xml](https://codeberg.org/comaps/comaps/src/branch/main/android/app/src/main/res/xml/locales_config.xml) (It's necessary to allow users to change app language in Android settings on most recent devices).
@@ -141,7 +145,6 @@ Maps regeneration is required for new types added to [data/categories-strings/](
 Some features won't be category-searchable unless they're tagged with a name, e.g. roads, rivers, chimneys (see `libs/search/types_skipper.cpp`).
 
 Categories listed in the app' search screen are hardcoded in `search/displayed_categories.cpp`.
-
 
 ## Maintaining
 

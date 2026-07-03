@@ -3,22 +3,22 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       map-generator-test:
-        description: 'Test (non-prod) generation?'
+        description: "Test (non-prod) generation?"
         required: false
         default: true
         type: boolean
       run-copy-coasts:
-        description: 'Copy last used coastlines?'
+        description: "Copy last used coastlines?"
         required: false
         default: true
         type: boolean
       run-planet-o5m:
-        description: 'Update OSM planet?'
+        description: "Update OSM planet?"
         required: false
         default: true
         type: boolean
       map-generator-continue:
-        description: 'Continue previous map generation?'
+        description: "Continue previous map generation?"
         required: true
         default: false
         type: boolean

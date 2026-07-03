@@ -2,7 +2,8 @@
 
 @implementation NSDate (TimeDistance)
 
-- (NSInteger)daysToNow {
+- (NSInteger)daysToNow
+{
   NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay
                                                                  fromDate:self
                                                                    toDate:[NSDate date]

@@ -219,10 +219,10 @@ public:
   df::DepthLayer GetDepthLayer() const override { return df::DepthLayer::RoutingMarkLayer; }
   uint16_t GetPriority() const override { return static_cast<uint16_t>(Priority::TrafficLight); }
   df::SpecialDisplacement GetDisplacement() const override { return df::SpecialDisplacement::SpecialModeUserMark; }
-  
+
   void SetFeatureId(FeatureID const & featureId);
   FeatureID GetFeatureID() const override { return m_featureId; }
-  
+
   drape_ptr<SymbolNameZoomInfo> GetSymbolNames() const override;
 
   int GetMinZoom() const override;

@@ -8,12 +8,10 @@
 }
 
 - (void)setHighlighted:(BOOL)highlighted animated:(BOOL)animated
-{
-}
+{}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-}
+{}
 
 - (void)hide
 {
@@ -35,8 +33,8 @@
 
 - (NSUInteger)row
 {
-  UITableView * tableView = self.section.delegate.tableView;
-  NSIndexPath * indexPath = [tableView indexPathForCell:self];
+  UITableView *tableView = self.section.delegate.tableView;
+  NSIndexPath *indexPath = [tableView indexPathForCell:self];
   if (!indexPath)
     indexPath = self.indexPathAtInit;
   return indexPath.row;
@@ -44,7 +42,7 @@
 
 - (BOOL)isVisible
 {
-  UITableView * tableView = self.section.delegate.tableView;
+  UITableView *tableView = self.section.delegate.tableView;
   return [tableView indexPathForCell:self] != nil;
 }
 

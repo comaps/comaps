@@ -12,7 +12,7 @@ typedef NS_ENUM(NSUInteger, MWMZoomMode) { MWMZoomModeIn = 0, MWMZoomModeOut };
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^SearchInDownloaderCompletions)(NSArray<MWMMapSearchResult *> *results, BOOL finished);
-typedef void (^TrackRecordingUpdatedHandler)(TrackInfo * _Nonnull trackInfo);
+typedef void (^TrackRecordingUpdatedHandler)(TrackInfo *_Nonnull trackInfo);
 
 @protocol TrackRecorder
 
@@ -24,12 +24,12 @@ typedef void (^TrackRecordingUpdatedHandler)(TrackInfo * _Nonnull trackInfo);
 + (BOOL)isTrackRecordingEmpty;
 /// Returns current track recording elevation info.
 /// If the track recording is not in progress, returns empty ElevationProfileData.
-+ (ElevationProfileData * _Nonnull)trackRecordingElevationInfo;
++ (ElevationProfileData *_Nonnull)trackRecordingElevationInfo;
 
 @end
 
 NS_SWIFT_NAME(FrameworkHelper)
-@interface MWMFrameworkHelper : NSObject<TrackRecorder>
+@interface MWMFrameworkHelper : NSObject <TrackRecorder>
 
 + (void)processFirstLaunch:(BOOL)hasLocation;
 + (void)setVisibleViewport:(CGRect)rect scaleFactor:(CGFloat)scale;

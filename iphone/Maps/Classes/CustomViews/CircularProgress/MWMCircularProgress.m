@@ -9,8 +9,8 @@
 
 @interface MWMCircularProgress ()
 
-@property(nonatomic) IBOutlet MWMCircularProgressView * rootView;
-@property(nonatomic) NSNumber * nextProgressToAnimate;
+@property(nonatomic) IBOutlet MWMCircularProgressView *rootView;
+@property(nonatomic) NSNumber *nextProgressToAnimate;
 
 @end
 
@@ -18,20 +18,22 @@
 
 + (nonnull instancetype)downloaderProgressForParentView:(nonnull UIView *)parentView
 {
-  MWMCircularProgress * progress = [[self alloc] initWithParentView:parentView];
+  MWMCircularProgress *progress = [[self alloc] initWithParentView:parentView];
 
   progress.rootView.suspendRefreshProgress = YES;
 
   [progress setImageName:@"ic_download"
-           forStates:@[@(MWMCircularProgressStateNormal), @(MWMCircularProgressStateSelected)]];
+               forStates:@[@(MWMCircularProgressStateNormal), @(MWMCircularProgressStateSelected)]];
   [progress setImageName:@"ic_close_spinner"
-           forStates:@[@(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)]];
+               forStates:@[@(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)]];
   [progress setImageName:@"ic_download_error" forStates:@[@(MWMCircularProgressStateFailed)]];
   [progress setImageName:@"ic_check" forStates:@[@(MWMCircularProgressStateCompleted)]];
 
   [progress setColoring:MWMButtonColoringBlack
-              forStates:@[@(MWMCircularProgressStateNormal), @(MWMCircularProgressStateSelected),
-                         @(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)]];
+              forStates:@[
+                @(MWMCircularProgressStateNormal), @(MWMCircularProgressStateSelected),
+                @(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)
+              ]];
   [progress setColoring:MWMButtonColoringOther forStates:@[@(MWMCircularProgressStateFailed)]];
   [progress setColoring:MWMButtonColoringBlue forStates:@[@(MWMCircularProgressStateCompleted)]];
 
@@ -58,7 +60,10 @@
   return self;
 }
 
-- (void)dealloc { [self.rootView removeFromSuperview]; }
+- (void)dealloc
+{
+  [self.rootView removeFromSuperview];
+}
 - (void)reset
 {
   _progress = 0.;
@@ -76,8 +81,7 @@
   [self.rootView setSpinnerBackgroundColor:backgroundColor];
 }
 
-- (void)setImageName:(nullable NSString *)imageName
-           forStates:(MWMCircularProgressStateVec)states
+- (void)setImageName:(nullable NSString *)imageName forStates:(MWMCircularProgressStateVec)states
 {
   for (NSNumber *state in states)
     [self.rootView setImageName:imageName forState:(MWMCircularProgressState)state.integerValue];
@@ -89,14 +93,16 @@
     [self.rootView setColor:color forState:(MWMCircularProgressState)state.integerValue];
 }
 
-- (void)setColoring:(MWMButtonColoring)coloring
-          forStates:(MWMCircularProgressStateVec)states
+- (void)setColoring:(MWMButtonColoring)coloring forStates:(MWMCircularProgressStateVec)states
 {
   for (NSNumber *state in states)
     [self.rootView setColoring:coloring forState:(MWMCircularProgressState)state.integerValue];
 }
 
-- (void)setInvertColor:(BOOL)invertColor { self.rootView.isInvertColor = invertColor; }
+- (void)setInvertColor:(BOOL)invertColor
+{
+  self.rootView.isInvertColor = invertColor;
+}
 #pragma mark - Animation
 
 - (void)animationDidStop:(CABasicAnimation *)anim finished:(BOOL)flag
@@ -115,7 +121,10 @@
   self.rootView.buttonView.hidden = YES;
 }
 
-- (IBAction)buttonTouchUpInside:(UIButton *)sender { [self.delegate progressButtonPressed:self]; }
+- (IBAction)buttonTouchUpInside:(UIButton *)sender
+{
+  [self.delegate progressButtonPressed:self];
+}
 #pragma mark - Properties
 
 - (void)setProgress:(CGFloat)progress
@@ -148,5 +157,8 @@
   });
 }
 
-- (MWMCircularProgressState)state { return self.rootView.state; }
+- (MWMCircularProgressState)state
+{
+  return self.rootView.state;
+}
 @end

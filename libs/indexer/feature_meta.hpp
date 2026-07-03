@@ -149,7 +149,10 @@ public:
   bool Has(EType type) const { return MetadataBase::Has(static_cast<uint8_t>(type)); }
   std::string_view Get(EType type) const { return MetadataBase::Get(static_cast<uint8_t>(type)); }
 
-  std::string_view Set(EType type, std::string value) { return MetadataBase::Set(base::Underlying(type), std::move(value)); }
+  std::string_view Set(EType type, std::string value)
+  {
+    return MetadataBase::Set(base::Underlying(type), std::move(value));
+  }
   // Used in MetadataDeserializer::Get(), skips unsupported metadata in newer maps.
   void Set(uint8_t type, std::string value)
   {

@@ -58,17 +58,17 @@ The code to support reviews is split into three categories:
 
 The `libs/indexer/reviews_*` files contain:
 
-* the logical model of reviews;
-* the serialisation/deserialisation logic.
+- the logical model of reviews;
+- the serialisation/deserialisation logic.
 
 They reside in the `reviews` namespace.
 
 To test the library code, run in the root of the project:
 
 ```shell
-tools/unix/build_omim.sh -d indexer_tests && \                    
+tools/unix/build_omim.sh -d indexer_tests && \
   pushd ../omim-build-debug && \
-  ./indexer_tests --filter="Reviews"; \  
+  ./indexer_tests --filter="Reviews"; \
   popd
 ```
 
@@ -109,43 +109,43 @@ The review summaries are displayed in `PlacePageDialogUser` and `PlacePageDialog
 ### Manual End-to-End Testing
 
 1. prepare a reviews file:
-    1. Follow the instructions in
-       the [mangrove-osm-coder README](https://codeberg.org/mmakowski/mangrove-osm-coder/src/branch/main/README.md) to
-       run the review preprocessing tool. Use a full planet file if possible. If not, configure the region of interest
-       in `regions.txt`; `europe/poland/mazowieckie` will allow you to follow the steps of this tutorial exactly.
-    2. Once the tool runs (the full import of the entire planet file can take a few hours), copy the output
-       `<mangrove-osm-coder>/out/reviews.json` to `../maps-build/reviews/`.
+   1. Follow the instructions in
+      the [mangrove-osm-coder README](https://codeberg.org/mmakowski/mangrove-osm-coder/src/branch/main/README.md) to
+      run the review preprocessing tool. Use a full planet file if possible. If not, configure the region of interest
+      in `regions.txt`; `europe/poland/mazowieckie` will allow you to follow the steps of this tutorial exactly.
+   2. Once the tool runs (the full import of the entire planet file can take a few hours), copy the output
+      `<mangrove-osm-coder>/out/reviews.json` to `../maps-build/reviews/`.
 2. build the generator
-    ```shell
-    tools/unix/build_omim.sh -r generator_tool mwm_diff_tool
-    ```
+   ```shell
+   tools/unix/build_omim.sh -r generator_tool mwm_diff_tool
+   ```
 3. configure the generator by following the instructions
    in [tools/python/maps_generator/README.md](../tools/python/maps_generator/README.md), with the following changes:
-    1. create and activate a `venv` (for example, with `uv venv`) before running `pip install`
-    2. in the `map_generator.ini`, set:
-        1. `PLANET_URL: https://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf` to use a region with
-           reviewed features;
-        2. `REVIEWS_PATH: ${Main:MAIN_OUT_PATH}/reviews/reviews.json`
+   1. create and activate a `venv` (for example, with `uv venv`) before running `pip install`
+   2. in the `map_generator.ini`, set:
+      1. `PLANET_URL: https://download.geofabrik.de/europe/poland/mazowieckie-latest.osm.pbf` to use a region with
+         reviewed features;
+      2. `REVIEWS_PATH: ${Main:MAIN_OUT_PATH}/reviews/reviews.json`
 4. run the generator
-    ```shell
-    pushd tools/python
-    source .venv/bin/activate
-    python3 -m maps_generator \
-      --countries="Poland_Masovian Voivodeship" \
-      --skip="Coastline,CitiesIdsWorld,RoutingWorld,Ugc,Popularity,PopularityWorld,Srtm,IsolinesInfo,Descriptions,Routing,RoutingTransit,MwmDiffs"
+   ```shell
+   pushd tools/python
+   source .venv/bin/activate
+   python3 -m maps_generator \
+     --countries="Poland_Masovian Voivodeship" \
+     --skip="Coastline,CitiesIdsWorld,RoutingWorld,Ugc,Popularity,PopularityWorld,Srtm,IsolinesInfo,Descriptions,Routing,RoutingTransit,MwmDiffs"
    popd
-    ```
+   ```
 5. build the desktop app
    ```shell
    tools/unix/build_omim.sh -d desktop
    ```
 6. place the generated map files in `data`
-    1. `readlink -f data/World.mwm` --- make note of the `<yymmdd>` (for example `.../world_mwm/260421/World.mwm`)
-       directory name;
-    2. symlink the output directory of the generator as `data/<yyyymmdd>`, for example:
-       `ln -s /home/me/Projects/OSS/comaps/maps_build/2026_05_01__10_04_46/260501 data/260421`; whatever map was used
-       by the generator, the date in `data` must be on or before the one used by `World.mwm`, otherwise the app won't
-       pick up the map.
+   1. `readlink -f data/World.mwm` --- make note of the `<yymmdd>` (for example `.../world_mwm/260421/World.mwm`)
+      directory name;
+   2. symlink the output directory of the generator as `data/<yyyymmdd>`, for example:
+      `ln -s /home/me/Projects/OSS/comaps/maps_build/2026_05_01__10_04_46/260501 data/260421`; whatever map was used
+      by the generator, the date in `data` must be on or before the one used by `World.mwm`, otherwise the app won't
+      pick up the map.
 7. start the app: `../omim-build-debug/CoMaps`, then search for `Tekla`; the top result should be a café with at least
    one review.
 

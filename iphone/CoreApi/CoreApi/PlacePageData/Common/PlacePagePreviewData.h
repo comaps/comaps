@@ -22,7 +22,8 @@ typedef NS_ENUM(NSInteger, PlacePageDataOpeningHours) {
   PlacePageDataOpeningHoursClosed
 };
 
-typedef struct {
+typedef struct
+{
   PlacePageDataOpeningHours state;
   time_t nextTimeOpen;
   time_t nextTimeClosed;
@@ -41,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) PlacePageDataSchedule schedule;
 @property(nonatomic, readonly) BOOL isMyPosition;
 
-- (instancetype)initWithTrackInfo:(TrackInfo * _Nonnull)trackInfo;
+- (instancetype)initWithTrackInfo:(TrackInfo *_Nonnull)trackInfo;
 
 @end
 

@@ -3,13 +3,13 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       reload-postgis:
-        description: 'reload postgis with the current planet.o5m'
+        description: "reload postgis with the current planet.o5m"
         type: boolean
         default: false
 
 env:
   # software versions
-  MOC_VERSION: 0.5.0  # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
+  MOC_VERSION: 0.5.0 # mangrove-osm-coder version, see https://codeberg.org/mmakowski/mangrove-osm-coder/tags
   POSTGIS_VERSION: 18-3.6
   OSM2PGSQL_VERSION: 2.2.0
 
@@ -24,7 +24,6 @@ env:
   TZ: Etc/UTC
 
 jobs:
-
   import-planet:
     if: inputs.reload-postgis
     runs-on: mapfilemaker

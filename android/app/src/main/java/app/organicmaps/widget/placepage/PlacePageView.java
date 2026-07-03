@@ -717,28 +717,28 @@ public class PlacePageView extends Fragment
     refreshMetadataOrHide(wheelchair, mWheelchair, mTvWheelchair);
 
     String capacityDisabled = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_DISABLED);
-	if (!TextUtils.isEmpty(capacityDisabled))
-	{
-		capacityDisabled = switch (capacityDisabled)
-		{
-		    case "yes" -> getString(R.string.capacity_disabled_yes);
-            case "no" -> getString(R.string.capacity_disabled_no);
-            default -> getString(R.string.capacity_disabled, capacityDisabled);
-        };
-	}
-	refreshMetadataOrHide(capacityDisabled, mCapacityDisabled, mTvCapacityDisabled);
+    if (!TextUtils.isEmpty(capacityDisabled))
+    {
+      capacityDisabled = switch (capacityDisabled)
+      {
+        case "yes" -> getString(R.string.capacity_disabled_yes);
+        case "no" -> getString(R.string.capacity_disabled_no);
+        default -> getString(R.string.capacity_disabled, capacityDisabled);
+      };
+    }
+    refreshMetadataOrHide(capacityDisabled, mCapacityDisabled, mTvCapacityDisabled);
 
     String capacityCharging = mMapObject.getMetadata(Metadata.MetadataType.FMD_CAPACITY_CHARGING);
-	if (!TextUtils.isEmpty(capacityCharging))
-	{
-        capacityCharging = switch (capacityCharging)
-		{
-            case "yes" -> getString(R.string.capacity_charging_yes);
-            case "no" -> getString(R.string.capacity_charging_no);
-            default -> getString(R.string.capacity_charging, capacityCharging);
-		};
+    if (!TextUtils.isEmpty(capacityCharging))
+    {
+      capacityCharging = switch (capacityCharging)
+      {
+        case "yes" -> getString(R.string.capacity_charging_yes);
+        case "no" -> getString(R.string.capacity_charging_no);
+        default -> getString(R.string.capacity_charging, capacityCharging);
+      };
     }
-	refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
+    refreshMetadataOrHide(capacityCharging, mCapacityCharging, mTvCapacityCharging);
 
     final String driveThrough = mMapObject.getMetadata(Metadata.MetadataType.FMD_DRIVE_THROUGH);
     refreshMetadataOrHide(driveThrough.equals("yes") ? getString(R.string.drive_through) : "", mDriveThrough,
@@ -1156,9 +1156,9 @@ public class PlacePageView extends Fragment
     else if (id == R.id.ll__place_wheelchair)
       items.add(mTvWheelchair.getText().toString());
     else if (id == R.id.ll__place_capacity_disabled)
-        items.add(mTvCapacityDisabled.getText().toString());
+      items.add(mTvCapacityDisabled.getText().toString());
     else if (id == R.id.ll__place_capacity_charging)
-        items.add(mTvCapacityCharging.getText().toString());
+      items.add(mTvCapacityCharging.getText().toString());
     else if (id == R.id.ll__place_drive_through)
       items.add(mTvDriveThrough.getText().toString());
     else if (id == R.id.ll__place_outdoor_seating)

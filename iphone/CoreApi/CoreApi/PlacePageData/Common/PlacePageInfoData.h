@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly, nullable) NSString *capacityDisabled;
 @property(nonatomic, readonly, nullable) NSString *capacityCharging;
 
-- (NSDate * _Nullable)getMostRecentCheckDate;
+- (NSDate *_Nullable)getMostRecentCheckDate;
 
 @end
 

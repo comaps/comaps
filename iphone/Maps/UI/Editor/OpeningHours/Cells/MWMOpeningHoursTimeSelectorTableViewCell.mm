@@ -2,10 +2,10 @@
 
 @interface MWMOpeningHoursTimeSelectorTableViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIDatePicker * openTimePicker;
-@property (weak, nonatomic) IBOutlet UIDatePicker * closeTimePicker;
+@property(weak, nonatomic) IBOutlet UIDatePicker *openTimePicker;
+@property(weak, nonatomic) IBOutlet UIDatePicker *closeTimePicker;
 
-@property (nonatomic) NSCalendar * calendar;
+@property(nonatomic) NSCalendar *calendar;
 
 @end
 
@@ -26,10 +26,10 @@
 - (void)refresh
 {
   [super refresh];
-  MWMOpeningHoursSection * section = self.section;
+  MWMOpeningHoursSection *section = self.section;
   NSUInteger const row = section.selectedRow.unsignedIntegerValue;
-  NSDate * openDate = [self.calendar dateFromComponents:[section timeForRow:row isStart:YES]];
-  NSDate * closeDate = [self.calendar dateFromComponents:[section timeForRow:row isStart:NO]];
+  NSDate *openDate = [self.calendar dateFromComponents:[section timeForRow:row isStart:YES]];
+  NSDate *closeDate = [self.calendar dateFromComponents:[section timeForRow:row isStart:NO]];
 
   [self.openTimePicker setDate:openDate animated:NO];
   [self.closeTimePicker setDate:closeDate animated:NO];
@@ -39,14 +39,14 @@
 
 - (IBAction)openValueChanged
 {
-  NSDate * date = self.openTimePicker.date;
-  NSCalendarUnit const  components = NSCalendarUnitHour | NSCalendarUnitMinute;
+  NSDate *date = self.openTimePicker.date;
+  NSCalendarUnit const components = NSCalendarUnitHour | NSCalendarUnitMinute;
   self.section.cachedStartTime = [self.calendar components:components fromDate:date];
 }
 
 - (IBAction)closeValueChanged
 {
-  NSDate * date = self.closeTimePicker.date;
+  NSDate *date = self.closeTimePicker.date;
   NSCalendarUnit const components = NSCalendarUnitHour | NSCalendarUnitMinute;
   self.section.cachedEndTime = [self.calendar components:components fromDate:date];
 }

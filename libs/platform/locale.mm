@@ -18,9 +18,9 @@ Locale GetCurrentLocale()
   return NSLocale2Locale([NSLocale currentLocale]);
 }
 
-bool GetLocale(std::string localeName, Locale& result)
+bool GetLocale(std::string localeName, Locale &result)
 {
-  NSLocale *loc = [[NSLocale alloc] initWithLocaleIdentifier: @(localeName.c_str())];
+  NSLocale *loc = [[NSLocale alloc] initWithLocaleIdentifier:@(localeName.c_str())];
 
   if (!loc)
     return false;

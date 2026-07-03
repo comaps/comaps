@@ -91,9 +91,8 @@ void HttpThread::OnHeadersReceived()
       int const numElements = contentRange.size();
       if (numElements && contentRange.at(numElements - 1).toLongLong() != m_expectedSize)
       {
-        LOG(LWARNING, ("Http request to", m_reply->url().toEncoded().constData(),
-                       "aborted - invalid Content-Range:", contentRange.at(numElements - 1).toLongLong(),
-                       ", expected", m_expectedSize));
+        LOG(LWARNING, ("Http request to", m_reply->url().toEncoded().constData(), "aborted - invalid Content-Range:",
+                       contentRange.at(numElements - 1).toLongLong(), ", expected", m_expectedSize));
         m_reply->abort();
       }
     }

@@ -14,7 +14,6 @@ import app.organicmaps.R;
 import app.organicmaps.base.BaseMwmFragment;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.WindowInsetUtils;
-
 import java.util.Objects;
 
 public class WikiArticleFragment extends BaseMwmFragment
@@ -49,13 +48,7 @@ public class WikiArticleFragment extends BaseMwmFragment
     webView.setVerticalScrollBarEnabled(true);
 
     final String html = buildHtml(mDescription, textColor, textColorSecondary);
-    webView.loadDataWithBaseURL(
-            null,
-            html,
-            "text/html",
-            "UTF-8",
-            null
-    );
+    webView.loadDataWithBaseURL(null, html, "text/html", "UTF-8", null);
     ViewCompat.setOnApplyWindowInsetsListener(root, WindowInsetUtils.PaddingInsetsListener.excludeTop());
     return root;
   }
@@ -63,54 +56,51 @@ public class WikiArticleFragment extends BaseMwmFragment
   @NonNull
   private String buildHtml(@NonNull String content, @NonNull String textColor, @NonNull String textColorSecondary)
   {
-
-    return "<!DOCTYPE html>" +
-            "<html dir='auto'>" +
-            "<head>" +
-            "<meta charset='utf-8'>" +
-            "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>" +
-            "<style>" +
-            "html, body {" +
-            "  margin: 0;" +
-            "  padding: 0;" +
-            "}" +
-            "body {" +
-            "  padding: 24px 20px 32px;" +
-            "  color: " + textColor + ";" +
-            "  line-height: 1.45;" +
-            "  word-wrap: break-word;" +
-            "  text-align: start;" +
-            "  text-justify: inter-word;" +
-            "}" +
-            "p {" +
-            "  margin: 0 0 16px 0;" +
-            "  text-align: start;" +
-            "}" +
-            "h1, h2, h3 {" +
-            "  margin: 24px 0 12px 0;" +
-            "  line-height: 1.25;" +
-            "  text-align: start;" +
-            "  color: " + textColor + ";" +
-            "}" +
-            "img {" +
-            "  max-width: 100%;" +
-            "  height: auto;" +
-            "}" +
-            "a {" +
-            "  text-decoration: none;" +
-            "}" +
-            ".source {" +
-            "  margin-top: 24px;" +
-            "  color: " + textColorSecondary + ";" +
-            "  text-align: start;" +
-            "}" +
-            "</style>" +
-            "</head>" +
-            "<body>" +
-            content +
-            "<p class='source'><b>wikipedia.org</b></p>" +
-            "</body>" +
-            "</html>";
+    return "<!DOCTYPE html>"
+  + "<html dir='auto'>"
+  + "<head>"
+  + "<meta charset='utf-8'>"
+  + "<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>"
+  + "<style>"
+  + "html, body {"
+  + "  margin: 0;"
+  + "  padding: 0;"
+  + "}"
+  + "body {"
+  + "  padding: 24px 20px 32px;"
+  + "  color: " + textColor + ";"
+  + "  line-height: 1.45;"
+  + "  word-wrap: break-word;"
+  + "  text-align: start;"
+  + "  text-justify: inter-word;"
+  + "}"
+  + "p {"
+  + "  margin: 0 0 16px 0;"
+  + "  text-align: start;"
+  + "}"
+  + "h1, h2, h3 {"
+  + "  margin: 24px 0 12px 0;"
+  + "  line-height: 1.25;"
+  + "  text-align: start;"
+  + "  color: " + textColor + ";"
+  + "}"
+  + "img {"
+  + "  max-width: 100%;"
+  + "  height: auto;"
+  + "}"
+  + "a {"
+  + "  text-decoration: none;"
+  + "}"
+  + ".source {"
+  + "  margin-top: 24px;"
+  + "  color: " + textColorSecondary + ";"
+  + "  text-align: start;"
+  + "}"
+  + "</style>"
+  + "</head>"
+  + "<body>" + content + "<p class='source'><b>wikipedia.org</b></p>"
+  + "</body>"
+  + "</html>";
   }
 
   private String colorToCssHex(int colorRes)

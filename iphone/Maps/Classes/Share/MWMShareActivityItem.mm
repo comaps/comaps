@@ -2,12 +2,12 @@
 
 #include <CoreApi/Framework.h>
 #import <CoreApi/PlacePageData.h>
-#import <CoreApi/PlacePagePreviewData.h>
 #import <CoreApi/PlacePageInfoData.h>
 #import <CoreApi/PlacePagePhone.h>
+#import <CoreApi/PlacePagePreviewData.h>
 #import <LinkPresentation/LPLinkMetadata.h>
 
-NSString * httpGe0Url(NSString * shortUrl)
+NSString *httpGe0Url(NSString *shortUrl)
 {
   // Replace 'cm://' with 'https://comaps.at/'
   return [shortUrl stringByReplacingCharactersInRange:NSMakeRange(0, 5) withString:@"https://comaps.at/"];
@@ -41,7 +41,8 @@ NSString * httpGe0Url(NSString * shortUrl)
   return nil;
 }
 
-- (instancetype)initForPlacePage:(PlacePageData *)data {
+- (instancetype)initForPlacePage:(PlacePageData *)data
+{
   self = [super init];
   if (self)
   {
@@ -54,10 +55,9 @@ NSString * httpGe0Url(NSString * shortUrl)
 
 - (NSString *)url:(BOOL)isShort
 {
-  auto & f = GetFramework();
+  auto &f = GetFramework();
 
-  auto const title = ^NSString *(PlacePageData *data)
-  {
+  auto const title = ^NSString *(PlacePageData *data) {
     if (!data || data.isMyPosition)
       return L(@"core_my_position");
     else if (data.previewData.title.length > 0)
@@ -70,12 +70,12 @@ NSString * httpGe0Url(NSString * shortUrl)
       return @"";
   };
 
-  ms::LatLon const ll = self.data ? ms::LatLon(self.data.locationCoordinate.latitude,
-                                               self.data.locationCoordinate.longitude)
-                                    : ms::LatLon(self.location.latitude, self.location.longitude);
-  std::string const & s = f.CodeGe0url(ll.m_lat, ll.m_lon, f.GetDrawScale(), title(self.data).UTF8String);
+  ms::LatLon const ll = self.data
+                          ? ms::LatLon(self.data.locationCoordinate.latitude, self.data.locationCoordinate.longitude)
+                          : ms::LatLon(self.location.latitude, self.location.longitude);
+  std::string const &s = f.CodeGe0url(ll.m_lat, ll.m_lon, f.GetDrawScale(), title(self.data).UTF8String);
 
-  NSString * url = @(s.c_str());
+  NSString *url = @(s.c_str());
   if (!isShort)
     return url;
   NSUInteger const kGe0UrlLength = 16;
@@ -92,7 +92,7 @@ NSString * httpGe0Url(NSString * shortUrl)
 - (id)activityViewController:(UIActivityViewController *)activityViewController
          itemForActivityType:(NSString *)activityType
 {
-  NSString * type = activityType;
+  NSString *type = activityType;
   if ([UIActivityTypePostToTwitter isEqualToString:type])
     return self.itemForTwitter;
   return [self itemDefaultWithActivityType:type];
@@ -104,9 +104,10 @@ NSString * httpGe0Url(NSString * shortUrl)
   return [self subjectDefault];
 }
 
-- (LPLinkMetadata *)activityViewControllerLinkMetadata:(UIActivityViewController *)activityViewController API_AVAILABLE(ios(13.0))
+- (LPLinkMetadata *)activityViewControllerLinkMetadata:(UIActivityViewController *)activityViewController
+    API_AVAILABLE(ios(13.0))
 {
-  LPLinkMetadata * metadata = [[LPLinkMetadata alloc] init];
+  LPLinkMetadata *metadata = [[LPLinkMetadata alloc] init];
   metadata.originalURL = [NSURL URLWithString:httpGe0Url([self url:NO])];
   metadata.title = self.isMyPosition ? L(@"core_my_position") : self.data.previewData.title;
   metadata.iconProvider = [[NSItemProvider alloc] initWithObject:[UIImage imageNamed:@"Logo"]];
@@ -117,42 +118,36 @@ NSString * httpGe0Url(NSString * shortUrl)
 
 - (NSString *)itemForTwitter
 {
-  NSString * shortUrl = [self url:YES];
-  return [NSString stringWithFormat:@"%@\n%@", httpGe0Url(shortUrl),
-                                    self.isMyPosition ? L(@"my_position_share_email_subject")
-                                                      : self.data.previewData.title];
+  NSString *shortUrl = [self url:YES];
+  return [NSString
+      stringWithFormat:@"%@\n%@", httpGe0Url(shortUrl),
+                       self.isMyPosition ? L(@"my_position_share_email_subject") : self.data.previewData.title];
 }
 
 - (NSString *)itemDefaultWithActivityType:(NSString *)activityType
 {
-  NSString * ge0Url = [self url:NO];
-  NSString * url = httpGe0Url(ge0Url);
+  NSString *ge0Url = [self url:NO];
+  NSString *url = httpGe0Url(ge0Url);
   if (self.isMyPosition)
   {
     BOOL const hasSubject = [activityType isEqualToString:UIActivityTypeMail];
     if (hasSubject)
       return url;
-    return [NSString
-        stringWithFormat:@"%@ %@", L(@"my_position_share_email_subject"), url];
+    return [NSString stringWithFormat:@"%@ %@", L(@"my_position_share_email_subject"), url];
   }
 
   NSMutableArray *phones = [NSMutableArray new];
-  [self.data.infoData.phones enumerateObjectsUsingBlock:^(PlacePagePhone * _Nonnull phone, NSUInteger idx, BOOL * _Nonnull stop) {
-    [phones addObject:phone.phone];
-  }];
+  [self.data.infoData.phones enumerateObjectsUsingBlock:^(PlacePagePhone *_Nonnull phone, NSUInteger idx,
+                                                          BOOL *_Nonnull stop) { [phones addObject:phone.phone]; }];
 
-  NSMutableString * result = [L(@"sharing_call_action_look") mutableCopy];
-  std::vector<NSString *> strings{self.data.previewData.title,
-                                 self.data.previewData.subtitle,
-                                 self.data.previewData.secondarySubtitle,
-                                 [phones componentsJoinedByString:@"; "],
-                                 url};
+  NSMutableString *result = [L(@"sharing_call_action_look") mutableCopy];
+  std::vector<NSString *> strings{self.data.previewData.title, self.data.previewData.subtitle,
+                                  self.data.previewData.secondarySubtitle, [phones componentsJoinedByString:@"; "],
+                                  url};
 
-  for (auto const & str : strings)
-  {
+  for (auto const &str : strings)
     if (str.length)
       [result appendString:[NSString stringWithFormat:@"\n%@", str]];
-  }
 
   return result;
 }
@@ -161,8 +156,7 @@ NSString * httpGe0Url(NSString * shortUrl)
 
 - (NSString *)subjectDefault
 {
-  return self.isMyPosition ? L(@"my_position_share_email_subject")
-                           : L(@"bookmark_share_email_subject");
+  return self.isMyPosition ? L(@"my_position_share_email_subject") : L(@"bookmark_share_email_subject");
 }
 
 @end

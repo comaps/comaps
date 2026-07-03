@@ -1,23 +1,24 @@
 #import "MWMSearchCommonCell.h"
 #import "CLLocation+Mercator.h"
 #import "MWMLocationManager.h"
-#import "SwiftBridge.h"
 #import "SearchResult.h"
+#import "SwiftBridge.h"
 
 @interface MWMSearchCommonCell ()
 
-@property(weak, nonatomic) IBOutlet UILabel * distanceLabel;
-@property(weak, nonatomic) IBOutlet UILabel * infoLabel;
-@property(weak, nonatomic) IBOutlet UILabel * locationLabel;
-@property(weak, nonatomic) IBOutlet UILabel * openLabel;
-@property(weak, nonatomic) IBOutlet UIView * popularView;
-@property(weak, nonatomic) IBOutlet UIImageView * iconImageView;
+@property(weak, nonatomic) IBOutlet UILabel *distanceLabel;
+@property(weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property(weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property(weak, nonatomic) IBOutlet UILabel *openLabel;
+@property(weak, nonatomic) IBOutlet UIView *popularView;
+@property(weak, nonatomic) IBOutlet UIImageView *iconImageView;
 
 @end
 
 @implementation MWMSearchCommonCell
 
-- (void)configureWith:(SearchResult * _Nonnull)result isPartialMatching:(BOOL)isPartialMatching {
+- (void)configureWith:(SearchResult *_Nonnull)result isPartialMatching:(BOOL)isPartialMatching
+{
   [super configureWith:result isPartialMatching:isPartialMatching];
   self.locationLabel.text = result.addressText;
   [self.locationLabel sizeToFit];
@@ -29,31 +30,27 @@
   self.openLabel.textColor = result.openStatusColor;
   [self.openLabel setHidden:result.openStatusText.length == 0];
   [self setStyleNameAndApply:@"Background"];
-  if (result.iconImageName != nil) {
+  if (result.iconImageName != nil)
     self.iconImageView.image = [[UIImage imageNamed:result.iconImageName] imageWithTintColor:UIColor.white];
-  }
   self.iconImageView.backgroundColor = [UIColor colorNamed:@"Base Colors/Blue Color"];
   self.separatorInset = UIEdgeInsetsMake(0, kSearchCellSeparatorInset, 0, 0);
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
   [super layoutSubviews];
   self.iconImageView.image = [self.iconImageView.image imageWithTintColor:UIColor.white];
   [self.iconImageView.layer setCornerRadius:self.iconImageView.height / 2];
 }
 
-- (NSDictionary *)selectedTitleAttributes {
-  return @{
-    NSForegroundColorAttributeName : [UIColor black],
-    NSFontAttributeName : [UIFont bold17]
-  };
+- (NSDictionary *)selectedTitleAttributes
+{
+  return @{NSForegroundColorAttributeName: [UIColor black], NSFontAttributeName: [UIFont bold17]};
 }
 
-- (NSDictionary *)unselectedTitleAttributes {
-  return @{
-    NSForegroundColorAttributeName : [UIColor blackPrimaryText],
-    NSFontAttributeName : [UIFont medium17]
-  };
+- (NSDictionary *)unselectedTitleAttributes
+{
+  return @{NSForegroundColorAttributeName: [UIColor blackPrimaryText], NSFontAttributeName: [UIFont medium17]};
 }
 
 @end

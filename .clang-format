@@ -4,7 +4,7 @@ BasedOnStyle: Google
 AccessModifierOffset: -2
 AlignAfterOpenBracket: Align
 AlignConsecutiveMacros: AcrossEmptyLinesAndComments
-AlignEscapedNewlines: LeftWithLastLine
+AlignEscapedNewlines: Left
 AlignOperands: AlignAfterOperator
 AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: true
@@ -59,3 +59,7 @@ TabWidth: 2
 ---
 Language: Java
 AllowShortFunctionsOnASingleLine: Empty
+
+---
+Language: ObjC
+PointerAlignment: Right

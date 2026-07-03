@@ -25,13 +25,11 @@ MTLPixelFormat UnpackFormat(TextureFormat format)
   switch (format)
   {
   case TextureFormat::RGBA8: return MTLPixelFormatRGBA8Unorm;
-  case TextureFormat::Red: return MTLPixelFormatA8Unorm; // TODO: change to R8, fix shaders
+  case TextureFormat::Red: return MTLPixelFormatA8Unorm;  // TODO: change to R8, fix shaders
   case TextureFormat::RedGreen: return MTLPixelFormatRG8Unorm;
   case TextureFormat::DepthStencil: return MTLPixelFormatDepth32Float_Stencil8;
   case TextureFormat::Depth: return MTLPixelFormatDepth32Float;
-  case TextureFormat::Unspecified:
-    CHECK(false, ());
-    return MTLPixelFormatInvalid;
+  case TextureFormat::Unspecified: CHECK(false, ()); return MTLPixelFormatInvalid;
   }
   CHECK(false, ());
 }
@@ -42,16 +40,16 @@ drape_ptr<HWTexture> MetalTextureAllocator::CreateTexture(ref_ptr<dp::GraphicsCo
   return make_unique_dp<MetalTexture>(make_ref(this));
 }
 
-void MetalTexture::Create(ref_ptr<dp::GraphicsContext> context, Params const & params, ref_ptr<void> data)
+void MetalTexture::Create(ref_ptr<dp::GraphicsContext> context, Params const &params, ref_ptr<void> data)
 {
   Base::Create(context, params, data);
   ref_ptr<MetalBaseContext> metalContext = context;
   id<MTLDevice> metalDevice = metalContext->GetMetalDevice();
 
-  MTLTextureDescriptor * texDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:UnpackFormat(params.m_format)
-                                                                                      width:params.m_width
-                                                                                     height:params.m_height
-                                                                                  mipmapped:NO];
+  MTLTextureDescriptor *texDesc = [MTLTextureDescriptor texture2DDescriptorWithPixelFormat:UnpackFormat(params.m_format)
+                                                                                     width:params.m_width
+                                                                                    height:params.m_height
+                                                                                 mipmapped:NO];
   texDesc.usage = MTLTextureUsageShaderRead;
   m_isMutable = params.m_isMutable;
   if (params.m_isRenderTarget)
@@ -72,8 +70,8 @@ void MetalTexture::Create(ref_ptr<dp::GraphicsContext> context, Params const & p
   }
 }
 
-void MetalTexture::UploadData(ref_ptr<dp::GraphicsContext> context, uint32_t x, uint32_t y,
-                              uint32_t width, uint32_t height, ref_ptr<void> data)
+void MetalTexture::UploadData(ref_ptr<dp::GraphicsContext> context, uint32_t x, uint32_t y, uint32_t width,
+                              uint32_t height, ref_ptr<void> data)
 {
   UNUSED_VALUE(context);
   CHECK(m_isMutable, ("Upload data is avaivable only for mutable textures."));

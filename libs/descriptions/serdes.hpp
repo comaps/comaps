@@ -143,7 +143,8 @@ class Deserializer
 {
 public:
   template <typename Reader>
-  std::string Deserialize(Reader & reader, FeatureIndex featureIndex, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
+  std::string Deserialize(Reader & reader, FeatureIndex featureIndex,
+                          std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
   {
     NonOwningReaderSource source(reader);
     auto const version = static_cast<Version>(ReadPrimitiveFromSource<uint8_t>(source));
@@ -155,7 +156,8 @@ public:
   }
 
   template <typename Reader>
-  std::string DeserializeV0(Reader & reader, FeatureIndex featureIndex, std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
+  std::string DeserializeV0(Reader & reader, FeatureIndex featureIndex,
+                            std::vector<localisation::LanguageIndex> const & prioritizedLanguageIndexes)
   {
     InitializeIfNeeded(reader);
 

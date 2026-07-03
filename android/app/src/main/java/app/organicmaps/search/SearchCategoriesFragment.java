@@ -18,7 +18,8 @@ public class SearchCategoriesFragment
     super.onViewCreated(view, savedInstanceState);
     getAdapter().updateCategories(this);
 
-    getRecyclerView().setLayoutManager(new GridLayoutManager(requireContext(), getContext().getResources().getInteger(R.integer.search_category_span)));
+    getRecyclerView().setLayoutManager(new GridLayoutManager(
+        requireContext(), getContext().getResources().getInteger(R.integer.search_category_span)));
     ((SearchFragment) getParentFragment()).setRecyclerScrollListener(getRecyclerView());
   }
 

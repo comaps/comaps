@@ -140,7 +140,6 @@ private:
   std::string FetchAccessToken(SessionID const & sid) const;
 };
 
-
 std::string FindAuthenticityToken(std::string const & action, std::string body);
 std::string FindOauthCode(std::string const & redirectUri);
 std::string FindAccessToken(std::string const & json);

@@ -282,8 +282,7 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
 
     std::ostringstream out;
     out << std::fixed << std::setprecision(2) << "visible: " << areaG / 1000000.0 << " km2"
-        << ", readed: " << areaGTotal / 1000000.0 << " km2"
-        << ", ratio: " << areaGTotal / areaG;
+        << ", readed: " << areaGTotal / 1000000.0 << " km2" << ", ratio: " << areaGTotal / areaG;
     content.assign(out.str());
     return true;
   });
@@ -298,8 +297,8 @@ drape_ptr<LayerRenderer> LayerCacher::RecacheDebugLabels(ref_ptr<dp::GraphicsCon
     double const scale = distanceG / screen.PixelRect().SizeX();
 
     std::ostringstream out;
-    out << std::fixed << std::setprecision(2) << "scale2d: " << scale << " m/px"
-        << ", scale2d * vs: " << scale * vs << " m/px";
+    out << std::fixed << std::setprecision(2) << "scale2d: " << scale << " m/px" << ", scale2d * vs: " << scale * vs
+        << " m/px";
     content.assign(out.str());
     return true;
   });

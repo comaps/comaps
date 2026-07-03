@@ -122,9 +122,9 @@ public class DrivingOptionsFragment extends BaseMwmToolbarFragment
     pavedBtn.setOnCheckedChangeListener(pavedBtnListener);
   }
 
-  private record ToggleRoutingOptionListener(@NonNull RoadType mRoadType,
-                                             @NonNull View mRoot) implements CompoundButton.OnCheckedChangeListener {
-
+  private record ToggleRoutingOptionListener(@NonNull RoadType mRoadType, @NonNull View mRoot)
+      implements CompoundButton.OnCheckedChangeListener
+  {
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
     {

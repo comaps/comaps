@@ -35,14 +35,15 @@ using namespace std;
 
 namespace
 {
-bool ExtractName(StringUtf8Multilang const & names, localisation::LanguageIndex const languageIndex, vector<osm::LocalizedName> & result)
+bool ExtractName(StringUtf8Multilang const & names, localisation::LanguageIndex const languageIndex,
+                 vector<osm::LocalizedName> & result)
 {
   if (localisation::kUnsupportedLanguageIndex == languageIndex)
     return false;
 
   // Exclude languages that are already present.
-  auto const it = base::FindIf(
-      result, [languageIndex](osm::LocalizedName const & localizedName) { return localizedName.m_languageIndex == languageIndex; });
+  auto const it = base::FindIf(result, [languageIndex](osm::LocalizedName const & localizedName)
+  { return localizedName.m_languageIndex == languageIndex; });
 
   if (result.end() != it)
     return false;
@@ -180,8 +181,8 @@ NamesDataSource EditableMapObject::GetNamesDataSource(StringUtf8Multilang const 
   {
     auto const mandatoryNamesEnd = names.begin() + mandatoryCount;
     // Exclude languages which are already in container (languages with top priority).
-    auto const it = find_if(names.begin(), mandatoryNamesEnd,
-                            [languageIndex](LocalizedName const & localizedName) { return localizedName.m_languageIndex == languageIndex; });
+    auto const it = find_if(names.begin(), mandatoryNamesEnd, [languageIndex](LocalizedName const & localizedName)
+    { return localizedName.m_languageIndex == languageIndex; });
 
     if (mandatoryNamesEnd == it)
       names.emplace_back(languageIndex, string{name});
@@ -250,7 +251,8 @@ void EditableMapObject::SetName(string_view name, localisation::LanguageIndex la
 }
 
 // static
-bool EditableMapObject::CanUseAsDefaultName(localisation::LanguageIndex const languageIndex, vector<localisation::LanguageIndex> const & mwmLanguageIndexes)
+bool EditableMapObject::CanUseAsDefaultName(localisation::LanguageIndex const languageIndex,
+                                            vector<localisation::LanguageIndex> const & mwmLanguageIndexes)
 {
   for (auto const & mwmLanguageIndex : mwmLanguageIndexes)
   {
@@ -602,7 +604,8 @@ bool EditableMapObject::ValidateEmail(string const & email)
 
   if (strings::IsASCIIString(email))
   {
-    static std::regex const s_emailRegex(R"(^(?!mailto:)[^@\s]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$)", std::regex_constants::icase);
+    static std::regex const s_emailRegex(R"(^(?!mailto:)[^@\s]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)+$)",
+                                         std::regex_constants::icase);
     return regex_match(email, s_emailRegex);
   }
 
@@ -878,7 +881,8 @@ void EditableMapObject::LogDiffInJournal(EditableMapObject const & unedited_emo)
   // Name
   for (localisation::Language const & language : localisation::GetSupportedLanguages())
   {
-    localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(language.m_languageCode);
+    localisation::LanguageIndex const languageIndex =
+        localisation::ConvertLanguageCodeToLanguageIndex(language.m_languageCode);
     std::string_view new_name, old_name;
     UNUSED_VALUE(m_name.GetString(languageIndex, new_name));
     UNUSED_VALUE(unedited_emo.GetNameMultilang().GetString(languageIndex, old_name));

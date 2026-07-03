@@ -41,8 +41,7 @@ NewFeatureCategories::NewFeatureCategories(NewFeatureCategories && other) noexce
   : m_types(std::move(other.m_types))
   , m_categoriesData(std::move(other.m_categoriesData))
   , m_baseLangs(std::move(other.m_baseLangs))
-{
-}
+{}
 
 void NewFeatureCategories::AddLanguage(std::string const & lang)
 {
@@ -62,7 +61,7 @@ void NewFeatureCategories::AddLanguage(std::string const & lang)
     anyAdded = true;
 
   if (!anyAdded)
-    return; // This language group was already processed
+    return;  // This language group was already processed
 
   m_categoriesData.clear();
   m_categoriesData.reserve(m_types.size());
@@ -90,11 +89,12 @@ void NewFeatureCategories::AddLanguage(std::string const & lang)
     addSynonym(platform::GetLocalizedTypeName(typeName));
 
     // 2. Add all dialect variants efficiently via existing CategoriesHolder mappings
-    holder.ForEachNameByType(type, [&](auto const & name) {
+    holder.ForEachNameByType(type, [&](auto const & name)
+    {
       // name.m_locale comes safely from CategoriesHolder's internal mapping.
       std::string l(CategoriesHolder::MapIntegerToLocale(name.m_locale));
       strings::AsciiToLower(l);
-      
+
       // Match the base language (e.g., if locale is "pt-br", nameBase is "pt")
       std::string const nameBase = l.substr(0, l.find('-'));
       if (m_baseLangs.contains(nameBase))
@@ -115,9 +115,8 @@ NewFeatureCategories::TypeNames NewFeatureCategories::Search(std::string const &
     return {};
 
   std::vector<std::string> tokens;
-  search::ForEachNormalizedToken(query, [&](strings::UniString const & token) {
-    tokens.push_back(strings::ToUtf8(token));
-  });
+  search::ForEachNormalizedToken(query,
+                                 [&](strings::UniString const & token) { tokens.push_back(strings::ToUtf8(token)); });
 
   if (tokens.empty())
     return {};
@@ -137,7 +136,7 @@ NewFeatureCategories::TypeNames NewFeatureCategories::Search(std::string const &
           break;
         }
       }
-      
+
       if (allTokensFound)
       {
         result.push_back(data.m_typeName);

@@ -27,13 +27,12 @@ Follow the instructions for your OS, and afterwards the repository is prepared t
   <summary><span style="font-size: 1.5em; font-weight: bold;">Linux</span></summary>
 
 Clone the repository
+
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
 ### Install required packages for your specific Linux distro
-
-
 
 <details>
   <summary><span style="font-size: 1em; font-weight: bold;">Ubuntu/Debian</span></summary>
@@ -42,6 +41,7 @@ git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/
 sudo apt install build-essential cmake qt6-base-dev qt6-svg-dev qt6-positioning-dev libicu-dev libfreetype-dev libharfbuzz-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev optipng python3-pip ninja-build jq
 
 ```
+
 </details>
 
 <details>
@@ -62,47 +62,45 @@ sudo dnf install @development-tools cmake qt6-qtbase qt6-qtsvg qt6-qtpositioning
 
 </details>
 
-You must also install a specific version of the python protobuf package, which is not the one provided by the python standard installation.    
-Note: If the system can't find `pip`, try `pip3` instead  
+You must also install a specific version of the python protobuf package, which is not the one provided by the python standard installation.  
+Note: If the system can't find `pip`, try `pip3` instead
 
 ##### Solution1 ( break-system-packages )
-This simple method is adequate if you work in a temporary Virtual Machine, or do not fear troubles to system packages   
 
-```bash   
+This simple method is adequate if you work in a temporary Virtual Machine, or do not fear troubles to system packages
+
+```bash
 pip install "protobuf<3.21" --break-system-packages
 ```
 
-##### Solution2 ( python venv )   
-The venv python package allows to set a "Virtual Environment" and install specific packages inside a specific directory, without impacting standard packages.   
-[more details](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments) 
+##### Solution2 ( python venv )
 
-```bash   
+The venv python package allows to set a "Virtual Environment" and install specific packages inside a specific directory, without impacting standard packages.  
+[more details](https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments)
+
+```bash
 # Setup the venv ( do this only once )
-# /path/to/venv can be for example  a "venv" directory inside your home directory 
+# /path/to/venv can be for example  a "venv" directory inside your home directory
 python3 -m venv --system-site-packages /path/to/venv
 
-# Activate the venv 
+# Activate the venv
 # ( if you don't use bash shell,  "source" command does not exist and must be replaced by "." )
 source /path/to/venv/bin/activate
 
 # You can now install protobuf specific version inside the venv
 pip install "protobuf<3.21"
 ```
-   
+
 Notes about venv:
+
 - using "--system-site-packages" is important: otherwise all previously installed system packages will mysteriously disappear
 - IMPORTANT: before running any Comaps generation command, check that the venv is activated, so that the right version of protobuf is used
 - if you find the activation command too tedious, you can setup an alias in your shell profile `alias venv='source /path/to/venv/bin/activate'`
 
-
-
-
-
-
-
 ### Configure running bash script
 
 Go into the cloned repository and configure it for development:
+
 ```bash
 cd comaps
 ./configure.sh
@@ -120,10 +118,13 @@ It's probably best to have [Git for Windows](https://git-scm.com/download/win) i
 [optipng](http://optipng.sourceforge.net/) should be installed and available in the PATH (e.g. via [Chocolatey](https://chocolatey.org/): `choco install optipng`).
 
 It's necessary to enable symlink support:
+
 1. Activate _Windows Development Mode_ to enable symlinks globally:
-  - Windows 10: _Settings_ -> _Update and Security_ -> _For Developers_ -> _Activate Developer Mode_
-  - Windows 11: _Settings_ -> _Privacy and Security_ -> _For Developers_ -> _Activate Developer Mode_
-  - Press Win + R, run `ms-settings:developers` and _Activate Developer Mode_
+
+- Windows 10: _Settings_ -> _Update and Security_ -> _For Developers_ -> _Activate Developer Mode_
+- Windows 11: _Settings_ -> _Privacy and Security_ -> _For Developers_ -> _Activate Developer Mode_
+- Press Win + R, run `ms-settings:developers` and _Activate Developer Mode_
+
 2. Enable [symlinks](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresymlinks) support in git. The easiest way is to reinstall the latest [Git for Windows](https://git-scm.com/download/win) with the "Enable Symlinks" checkbox checked. If you don't want to reinstall Git, then you can add `-c core.symlinks=true` parameter to the clone command below to enable symlinks for the repository.
 
 ```bash
@@ -131,13 +132,15 @@ git config --global core.symlinks true
 ```
 
 Clone the repository
+
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 ```
 
-For _Windows 10/11_:  You should be able to build the project by following either of these setup methods:
+For _Windows 10/11_: You should be able to build the project by following either of these setup methods:
 
 **Setup 1: Using WSL**
+
 1. Install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) on your machine.
 2. Install g++ and jq by running the following command in WSL: `sudo apt install g++ jq`
 
@@ -150,32 +153,37 @@ Install the [Visual Studio Developer Command Prompt](https://docs.microsoft.com/
   <summary><span style="font-size: 1.5em; font-weight: bold;">macOS</span></summary>
 
 Install required build dependencies and Xcode
+
 1. Install Xcode Command Line Tools
 2. Install [Xcode](https://apps.apple.com/app/xcode/id497799835?mt=12) from the App Store
 3. Install [Homebrew](https://brew.sh) and required dependencies
 4. Clone and configure the repository to be able to build the iOS app later
 
 #### Xcode Command Line Tools
+
 ```bash
 xcode-select --install
 ```
 
 #### Homebrew packages
+
 ```bash
 brew install wget optipng cmake ninja qt jq
 pip3 install "protobuf<3.21"
 ```
 
 #### Clone the repository
+
 ```bash
 git clone --recurse-submodules --shallow-submodules https://codeberg.org/comaps/comaps.git
 cd comaps
 ./configure.sh
 ```
+
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;" id="special-cases-options">Special cases options</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;" id="special-cases-options">Special cases options</span></summary>
 
 If you're only doing a one-off build or your internet bandwidth or disk space is limited, add following options to the `git clone` command:
 
@@ -186,11 +194,13 @@ If you mistakenly did a `git clone` without checking out submodules, you can run
 To be able to publish the app in stores e.g. in Google Play its necessary to populate some configs with private keys, etc.
 
 If you need Organic Maps and Maps.ME commits history (before the CoMaps fork) run:
+
 ```bash
 git remote add om-historic https://codeberg.org/comaps/om-historic.git
 git fetch --tags om-historic
 git replace squashed-history historic-commits
 ```
+
 It'll seamlessly replace the squashed first "Organic Maps sources as of 02.04.2025" commit with all prior commits which will work with all git commands as usual.
 The `om-historic.git` repo is ~1Gb only as various historic blobs, bundled 3rd-party deps, etc. were removed from it.
 If you really need them (e.g. to build a very old app version) then refer to full organicmaps.git repo please.
@@ -198,8 +208,9 @@ If you really need them (e.g. to build a very old app version) then refer to ful
 </details>
 
 ## Develop for:
+
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Android app</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Android app</span></summary>
 
 ### Preparing
 
@@ -244,12 +255,10 @@ _macOS:_
 
 _Windows 10:_ no action needed, should work out of the box.
 
-
 ### Set up the emulator
 
 Set up a virtual device to use [emulator](https://developer.android.com/studio/run/emulator) ("Tools > Device Manager") or [use a hardware device for debugging](https://developer.android.com/studio/run/device).
 For the emulator its recommended to choose the latest supported API Level system image. Use ABI _x86_64_ for Intel-based processors and _arm64-v8a_ for ARM-based processors (e.g. M1/M2 Macs).
-
 
 ### Building
 
@@ -263,7 +272,7 @@ There is a matrix of different build variants:
 - _[Flavor](https://codeberg.org/comaps/comaps/src/commit/d02aefbf12a1a201090b40b395585e679b04c798/android/app/build.gradle#L179)_:
   - `Web` is a light APK without any bundled maps.
   - `Google` is a full Google Play store version including a low-zoom overview world map.
-  - `Fdroid` is a version for publishing on the [F-Droid](https://f-droid.org/) open source apps store (no bundled maps;  FOSS microG services instead of Google's).
+  - `Fdroid` is a version for publishing on the [F-Droid](https://f-droid.org/) open source apps store (no bundled maps; FOSS microG services instead of Google's).
   - ...and other flavors like `Huawei`.
 
 You can choose a build variant in Android Studio's "Build > Select Build Variant..." menu. There you can also choose a target architecture (Active ABI) like _x86_64_ (for e.g. emulator) or _arm64-v8a_ (many modern devices).
@@ -278,7 +287,6 @@ If the build or run options do not appear in the top centre of Android Studio, f
 
 See also https://developer.android.com/studio/run.
 
-
 ### Debugging
 
 To enable logging in case of crashes, after installing a debug version, run:
@@ -286,6 +294,7 @@ To enable logging in case of crashes, after installing a debug version, run:
 ```bash
 adb shell pm grant app.organicmaps.debug android.permission.READ_LOGS
 ```
+
 </details>
 
 <details>
@@ -300,12 +309,13 @@ To run Android Auto, connect the phone using USB cable and run the Desktop Head 
 ```
 [Android SDK path]/extras/google/auto/desktop-head-unit --usb
 ```
+
 Where `[Android SDK path]` is the path of the Android SDK on your system.
 The default location is:
-  - Windows: %USERPROFILE%\Android\Sdk
-  - MacOS: ~/Library/Android/sdk
-  - Linux ~/Android/Sdk
 
+- Windows: %USERPROFILE%\Android\Sdk
+- MacOS: ~/Library/Android/sdk
+- Linux ~/Android/Sdk
 
 ```
 [REDACTED]
@@ -401,6 +411,7 @@ To add any of those options to in-studio builds list them in "Command-line Optio
 #### Reduce resource usage
 
 If you are low on RAM, disk space or traffic there are ways to reduce system requirements:
+
 - exclude the `cpp` folder from indexing - if you do not make any work on the C++ code, this will greatly improve the start-up performance and the ram usage of Android Studio; Click on the `Project` tab on the left, find the `cpp` folder (should be next to the `java` folder), right click on it and select `Mark Directory as` -> `Excluded` (red folder icon), then restart Android Studio;
 - in Android Studio enable "File > Power Save Mode";
 - disable the "Android NDK Support" plugin in "Settings -> Plugins" completely and use another IDE (Visual Studio Code, Qt Creator, etc.) for editing C++ code instead;
@@ -424,6 +435,7 @@ For Xcode it is required to run `cmake . -g Xcode` to generate project files, wh
 #### Enable Vulkan Validation
 
 1. Download Vulkan Validation Layers
+
 ```bash
 ./tools/android/download_vulkan_validation_layers.py
 ```
@@ -433,17 +445,21 @@ For Xcode it is required to run `cmake . -g Xcode` to generate project files, wh
 If you build the app from command line, the parameter can be passed via command line.
 
 E.g.
+
 ```
 ./gradlew -Parm64 -PenableVulkanDiagnostics=ON runGoogleDebug
 ```
 
 #### Enable tracing
+
 1. Set `enableTrace=ON` in `gradle.properties`.
 2. Follow the guide https://perfetto.dev/docs/quickstart/android-tracing to set-up Perfetto
-Example of command line for running system tracing:
+   Example of command line for running system tracing:
+
 ```
 ./record_android_trace -a app.organicmaps.debug -o trace_file.perfetto-trace -t 30s -b 64mb sched freq idle am wm gfx view binder_driver hal dalvik camera input res memory
 ```
+
 </details>
 
 <details>
@@ -506,6 +522,7 @@ Compile and run the project ("Product" → "Run").
 To test CarPlay, simply select "I/O" → "External Displays" → "CarPlay" in the Simulator
 
 ### Spoofing GPS
+
 The Simulator supports setting a specific location or spoofing a GPX track. This is especially handy when testing CarPlay
 
 To select an Apple predetermined track or specific custom location, choose "Features" → "Location" in the Simulator
@@ -515,12 +532,12 @@ To simulate a custom GPX track use `python3 tools/python/ios_simulator_load_gpx.
 </details>
 
 <details>
-  <summary><span style="font-size: 1.5em; font-weight: bold;">Desktop developer app</span></summary> 
+  <summary><span style="font-size: 1.5em; font-weight: bold;">Desktop developer app</span></summary>
 
 See [install_desktop](INSTALL_DESKTOP.md) to install and build Desktop app for Linux and Mac OS
 
 </details>
 
-
 ## Map data and styles
+
 See readme for the [map generator](MAPS.md) and [styles](STYLES.md) if you need to customize the map files and styles.

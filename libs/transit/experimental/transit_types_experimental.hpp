@@ -37,14 +37,14 @@ namespace transit
 {
 namespace experimental
 {
-#define DECLARE_TRANSIT_TYPES_FRIENDS                   \
-  template <class Sink>                                 \
-  friend class routing::transit::Serializer;            \
-  template <class Source>                               \
-  friend class routing::transit::Deserializer;          \
-  template <typename Sink>                              \
-  friend class routing::transit::FixedSizeSerializer;   \
-  template <typename Sink>                              \
+#define DECLARE_TRANSIT_TYPES_FRIENDS                 \
+  template <class Sink>                               \
+  friend class routing::transit::Serializer;          \
+  template <class Source>                             \
+  friend class routing::transit::Deserializer;        \
+  template <typename Sink>                            \
+  friend class routing::transit::FixedSizeSerializer; \
+  template <typename Sink>                            \
   friend class routing::transit::FixedSizeDeserializer;
 
 using FeatureId = uint32_t;

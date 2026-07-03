@@ -8,18 +8,15 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.RecyclerView;
-
 import app.organicmaps.R;
 import app.organicmaps.adapter.OnItemClickListener;
 import app.organicmaps.sdk.bookmarks.data.BookmarkCategory;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import app.organicmaps.util.UiUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -166,8 +163,7 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
       CategoryItemMoreClickListener moreClickListener = new CategoryItemMoreClickListener(categoryHolder);
       categoryHolder.setMoreButtonClickListener(moreClickListener);
 
-      boolean manualSort = BookmarkManager.INSTANCE.getCategorySortType()
-          == BookmarkManager.SORT_CATEGORIES_MANUAL;
+      boolean manualSort = BookmarkManager.INSTANCE.getCategorySortType() == BookmarkManager.SORT_CATEGORIES_MANUAL;
       UiUtils.showIf(manualSort, categoryHolder.mDragHandle);
       categoryHolder.mDragHandle.setOnTouchListener((v, event) -> {
         if (event.getAction() == MotionEvent.ACTION_DOWN && mItemTouchHelper != null)
@@ -246,8 +242,8 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
 
   void onItemMove(int fromAdapterPosition, int toAdapterPosition)
   {
-    if (getItemViewType(fromAdapterPosition) != TYPE_CATEGORY_ITEM ||
-        getItemViewType(toAdapterPosition) != TYPE_CATEGORY_ITEM)
+    if (getItemViewType(fromAdapterPosition) != TYPE_CATEGORY_ITEM
+        || getItemViewType(toAdapterPosition) != TYPE_CATEGORY_ITEM)
       return;
 
     final int fromCat = toCategoryPosition(fromAdapterPosition);
@@ -386,8 +382,7 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
     }
 
     @Override
-    public int getMovementFlags(@NonNull RecyclerView recyclerView,
-                                @NonNull RecyclerView.ViewHolder viewHolder)
+    public int getMovementFlags(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)
     {
       if (viewHolder.getItemViewType() != TYPE_CATEGORY_ITEM)
         return makeMovementFlags(0, 0);
@@ -407,17 +402,16 @@ public class BookmarkCategoriesAdapter extends BaseBookmarkCategoryAdapter<Recyc
     }
 
     @Override
-    public boolean onMove(@NonNull RecyclerView recyclerView,
-                          @NonNull RecyclerView.ViewHolder viewHolder,
+    public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder,
                           @NonNull RecyclerView.ViewHolder target)
     {
-      mAdapter.onItemMove(viewHolder.getBindingAdapterPosition(),
-                          target.getBindingAdapterPosition());
+      mAdapter.onItemMove(viewHolder.getBindingAdapterPosition(), target.getBindingAdapterPosition());
       return true;
     }
 
     @Override
-    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {}
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction)
+    {}
 
     @Override
     public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder)

@@ -47,11 +47,11 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.preference.PreferenceManager;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.preference.PreferenceManager;
 import app.organicmaps.api.Const;
 import app.organicmaps.backup.PeriodicBackupRunner;
 import app.organicmaps.base.BaseMwmFragmentActivity;
@@ -156,7 +156,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   private boolean mPreciseLocationDialogShown = false;
 
   private static final String[] DOCKED_FRAGMENTS = {SearchFragment.class.getName(), DownloaderFragment.class.getName(),
-                                                    RoutingPlanFragment.class.getName(), EditorHostFragment.class.getName()};
+                                                    RoutingPlanFragment.class.getName(),
+                                                    EditorHostFragment.class.getName()};
 
   public final ActivityResultLauncher<Intent> startDrivingOptionsForResult =
       registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), activityResult -> {
@@ -1370,7 +1371,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     else
     {
       // Only enter fullscreen if the setting is enabled.
-      if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_long_tap_fullscreen), false))
+      if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean(getString(R.string.pref_long_tap_fullscreen),
+                                                                          false))
       {
         Toast.makeText(this, R.string.long_tap_disabled_toast, Toast.LENGTH_LONG).show();
         return;

@@ -350,7 +350,8 @@ UNIT_TEST(TurnsSound_ComposedTurnTest)
       {{5 /* idx */, CarDirection::TurnRight}, 620. /* m_distMeters */},
       {{10 /* idx */, CarDirection::EnterRoundAbout, 2 /* m_exitNum */}, 665. /* m_distMeters */},
       {{12 /* idx */, CarDirection::LeaveRoundAbout, 2 /* m_exitNum */}, 720. /* m_distMeters */}};
-  vector<string> const expectedNotification2 = {{"In 600 meters. Turn right. Then. At the roundabout. Take the second exit."}};
+  vector<string> const expectedNotification2 = {
+      {"In 600 meters. Turn right. Then. At the roundabout. Take the second exit."}};
   notificationManager.GenerateTurnNotifications(turns2, turnNotifications);
   TEST_EQUAL(turnNotifications, expectedNotification2, ());
   TEST_EQUAL(notificationManager.GetSecondTurnNotification(), CarDirection::EnterRoundAbout, ());

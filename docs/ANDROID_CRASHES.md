@@ -35,6 +35,7 @@ You can find these as an artifact on the release CI job (available for 90 days).
 If you have built a debug build you can find the debug symbols in `android/app/build/intermediates/merged_native_libs/webDebug/mergeWebDebugNativeLibs/out/lib/`, named `liborganicmaps.so`.
 
 Once you have the debug symbols in a file named `liborganicmaps.so`, run `addr2line -p -e liborganicmaps.so <pc>`. For example:
+
 ```
 addr2line -p -e android/app/build/intermediates/merged_native_libs/webDebug/mergeWebDebugNativeLibs/out/lib/arm64-v8a/liborganicmaps.so 0x0000000000827870
 ```

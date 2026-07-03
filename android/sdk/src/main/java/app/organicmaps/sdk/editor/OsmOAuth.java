@@ -152,11 +152,7 @@ public final class OsmOAuth
 
   public static void clearAuthorization()
   {
-    mPrefs.edit()
-            .remove(PREF_OSM_USERNAME)
-            .remove(PREF_OSM_OAUTH2_TOKEN)
-            .remove(PREF_OSM_PROFILE_PICTURE_URL)
-            .apply();
+    mPrefs.edit().remove(PREF_OSM_USERNAME).remove(PREF_OSM_OAUTH2_TOKEN).remove(PREF_OSM_PROFILE_PICTURE_URL).apply();
     getProfilePictureCacheFile().delete();
   }
 

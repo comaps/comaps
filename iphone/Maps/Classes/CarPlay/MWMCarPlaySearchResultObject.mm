@@ -11,7 +11,7 @@
 
 #include "platform/localization.hpp"
 
-@interface MWMCarPlaySearchResultObject()
+@interface MWMCarPlaySearchResultObject ()
 @property(assign, nonatomic, readwrite) NSInteger originalRow;
 @property(strong, nonatomic, readwrite) NSString *title;
 @property(strong, nonatomic, readwrite) NSString *address;
@@ -21,14 +21,17 @@
 
 @implementation MWMCarPlaySearchResultObject
 
-- (instancetype)initForRow:(NSInteger)row {
+- (instancetype)initForRow:(NSInteger)row
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     self.originalRow = row;
     NSInteger containerIndex = [MWMSearch containerIndexWithRow:row];
     SearchItemType type = [MWMSearch resultTypeWithRow:row];
-    if (type == SearchItemTypeRegular) {
-      auto const & result = [MWMSearch resultWithContainerIndex:containerIndex];
+    if (type == SearchItemTypeRegular)
+    {
+      auto const &result = [MWMSearch resultWithContainerIndex:containerIndex];
       self.title = result.titleText;
       self.address = result.addressText;
       self.coordinate = result.coordinate;

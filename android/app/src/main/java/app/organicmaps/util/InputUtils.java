@@ -6,11 +6,8 @@ import android.speech.RecognizerIntent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-
 import androidx.annotation.NonNull;
-
 import app.organicmaps.sdk.util.Utils;
-
 import java.util.ArrayList;
 
 public class InputUtils
@@ -53,17 +50,13 @@ public class InputUtils
 
   public static void showKeyboard(@NonNull final View view)
   {
-    ((InputMethodManager) view
-        .getContext()
-        .getSystemService(Context.INPUT_METHOD_SERVICE))
+    ((InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
         .showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
   }
 
   public static void hideKeyboard(@NonNull final View view)
   {
-    ((InputMethodManager) view
-        .getContext()
-        .getSystemService(Context.INPUT_METHOD_SERVICE))
+    ((InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE))
         .hideSoftInputFromWindow(view.getWindowToken(), 0);
   }
 

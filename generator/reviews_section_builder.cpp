@@ -93,7 +93,6 @@ Review ParseReview(json_t const * json, char const * osmId, uint const reviewIdx
       review.author = static_cast<std::string>(json_string_value(val));
     else
       MYTHROW(ParseError, (osmId, reviewIdx, ": invalid value type for 'author':", val->type));
-
   }
   return review;
 }

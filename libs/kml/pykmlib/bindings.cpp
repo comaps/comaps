@@ -150,9 +150,7 @@ struct PointWithAltitudeAdapter
   {
     auto const latLon = mercator::ToLatLon(ptWithAlt.GetPoint());
     std::ostringstream out;
-    out << "["
-        << "point:" << LatLonToString(latLon) << ", "
-        << "altitude:" << ptWithAlt.GetAltitude() << "]";
+    out << "[" << "point:" << LatLonToString(latLon) << ", " << "altitude:" << ptWithAlt.GetAltitude() << "]";
     return out.str();
   }
 };
@@ -370,18 +368,15 @@ std::string BookmarkIconToString(BookmarkIcon icon)
 std::string ColorDataToString(ColorData const & c)
 {
   std::ostringstream out;
-  out << "["
-      << "predefined_color:" << PredefinedColorToString(c.m_predefinedColor) << ", "
-      << "rgba:" << c.m_rgba << "]";
+  out << "[" << "predefined_color:" << PredefinedColorToString(c.m_predefinedColor) << ", " << "rgba:" << c.m_rgba
+      << "]";
   return out.str();
 }
 
 std::string LatLonToString(ms::LatLon const & latLon)
 {
   std::ostringstream out;
-  out << "["
-      << "lat:" << latLon.m_lat << ", "
-      << "lon:" << latLon.m_lon << "]";
+  out << "[" << "lat:" << latLon.m_lat << ", " << "lon:" << latLon.m_lon << "]";
   return out.str();
 }
 
@@ -400,19 +395,15 @@ std::string BookmarkDataToString(BookmarkData const & bm)
 {
   std::ostringstream out;
   ms::LatLon const latLon(mercator::YToLat(bm.m_point.y), mercator::XToLon(bm.m_point.x));
-  out << "["
-      << "name:" << LocalizableStringAdapter::ToString(bm.m_name) << ", "
+  out << "[" << "name:" << LocalizableStringAdapter::ToString(bm.m_name) << ", "
       << "description:" << LocalizableStringAdapter::ToString(bm.m_description) << ", "
       << "feature_types:" << VectorAdapter<uint32_t>::ToString(bm.m_featureTypes) << ", "
       << "custom_name:" << LocalizableStringAdapter::ToString(bm.m_customName) << ", "
-      << "color:" << ColorDataToString(bm.m_color) << ", "
-      << "icon:" << BookmarkIconToString(bm.m_icon) << ", "
+      << "color:" << ColorDataToString(bm.m_color) << ", " << "icon:" << BookmarkIconToString(bm.m_icon) << ", "
       << "viewport_scale:" << static_cast<uint32_t>(bm.m_viewportScale) << ", "
-      << "timestamp:" << DebugPrint(bm.m_timestamp) << ", "
-      << "point:" << LatLonToString(latLon) << ", "
+      << "timestamp:" << DebugPrint(bm.m_timestamp) << ", " << "point:" << LatLonToString(latLon) << ", "
       << "bound_tracks:" << VectorAdapter<uint8_t>::ToString(bm.m_boundTracks) << ", "
-      << "visible:" << (bm.m_visible ? "True" : "False") << ", "
-      << "nearest_toponym:'" << bm.m_nearestToponym << "', "
+      << "visible:" << (bm.m_visible ? "True" : "False") << ", " << "nearest_toponym:'" << bm.m_nearestToponym << "', "
       << "compilations:" << VectorAdapter<uint64_t>::ToString(bm.m_compilations) << ", "
       << "properties:" << PropertiesAdapter::ToString(bm.m_properties) << "]";
   return out.str();
@@ -421,24 +412,21 @@ std::string BookmarkDataToString(BookmarkData const & bm)
 std::string TrackLayerToString(TrackLayer const & trackLayer)
 {
   std::ostringstream out;
-  out << "["
-      << "line_width:" << trackLayer.m_lineWidth << ", "
-      << "color:" << ColorDataToString(trackLayer.m_color) << "]";
+  out << "[" << "line_width:" << trackLayer.m_lineWidth << ", " << "color:" << ColorDataToString(trackLayer.m_color)
+      << "]";
   return out.str();
 }
 
 std::string TrackDataToString(TrackData const & t)
 {
   std::ostringstream out;
-  out << "["
-      << "local_id:" << static_cast<uint32_t>(t.m_localId) << ", "
+  out << "[" << "local_id:" << static_cast<uint32_t>(t.m_localId) << ", "
       << "name:" << LocalizableStringAdapter::ToString(t.m_name) << ", "
       << "description:" << LocalizableStringAdapter::ToString(t.m_description) << ", "
       << "timestamp:" << DebugPrint(t.m_timestamp) << ", "
       << "layers:" << VectorAdapter<TrackLayer>::ToString(t.m_layers) << ", "
       << "points_with_altitudes:" << VectorAdapter<geometry::PointWithAltitude>::ToString(t.m_pointsWithAltitudes)
-      << ", "
-      << "visible:" << (t.m_visible ? "True" : "False") << ", "
+      << ", " << "visible:" << (t.m_visible ? "True" : "False") << ", "
       << "nearest_toponyms:" << VectorAdapter<std::string>::ToString(t.m_nearestToponyms) << ", "
       << "properties:" << PropertiesAdapter::ToString(t.m_properties) << "]";
   return out.str();
@@ -461,19 +449,13 @@ std::string LanguagesListToString(std::vector<int8_t> const & langs)
 std::string CategoryDataToString(CategoryData const & c)
 {
   std::ostringstream out;
-  out << "["
-      << "type:" << CompilationTypeToString(c.m_type) << ", "
-      << "compilation_id:" << c.m_compilationId << ", "
+  out << "[" << "type:" << CompilationTypeToString(c.m_type) << ", " << "compilation_id:" << c.m_compilationId << ", "
       << "name:" << LocalizableStringAdapter::ToString(c.m_name) << ", "
       << "annotation:" << LocalizableStringAdapter::ToString(c.m_annotation) << ", "
-      << "description:" << LocalizableStringAdapter::ToString(c.m_description) << ", "
-      << "image_url:'" << c.m_imageUrl << "', "
-      << "visible:" << (c.m_visible ? "True" : "False") << ", "
-      << "author_name:'" << c.m_authorName << "', "
-      << "author_id:'" << c.m_authorId << "', "
-      << "last_modified:" << DebugPrint(c.m_lastModified) << ", "
-      << "rating:" << c.m_rating << ", "
-      << "reviews_number:" << c.m_reviewsNumber << ", "
+      << "description:" << LocalizableStringAdapter::ToString(c.m_description) << ", " << "image_url:'" << c.m_imageUrl
+      << "', " << "visible:" << (c.m_visible ? "True" : "False") << ", " << "author_name:'" << c.m_authorName << "', "
+      << "author_id:'" << c.m_authorId << "', " << "last_modified:" << DebugPrint(c.m_lastModified) << ", "
+      << "rating:" << c.m_rating << ", " << "reviews_number:" << c.m_reviewsNumber << ", "
       << "access_rules:" << AccessRulesToString(c.m_accessRules) << ", "
       << "tags:" << VectorAdapter<std::string>::ToString(c.m_tags) << ", "
       << "toponyms:" << VectorAdapter<std::string>::ToString(c.m_toponyms) << ", "
@@ -485,9 +467,7 @@ std::string CategoryDataToString(CategoryData const & c)
 std::string FileDataToString(FileData const & fd)
 {
   std::ostringstream out;
-  out << "["
-      << "server_id:" << fd.m_serverId << ", "
-      << "category:" << CategoryDataToString(fd.m_categoryData) << ", "
+  out << "[" << "server_id:" << fd.m_serverId << ", " << "category:" << CategoryDataToString(fd.m_categoryData) << ", "
       << "bookmarks:" << VectorAdapter<BookmarkData>::ToString(fd.m_bookmarksData) << ", "
       << "tracks:" << VectorAdapter<TrackData>::ToString(fd.m_tracksData) << ", "
       << "compilations:" << VectorAdapter<CategoryData>::ToString(fd.m_compilationsData) << "]";

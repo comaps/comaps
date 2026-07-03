@@ -1,5 +1,5 @@
-#import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Foundation/Foundation.h>
 
 #import "MWMTypes.h"
 
@@ -34,10 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(class, nonatomic, readonly) BOOL hasData;
 
-@property(nonatomic, readonly, nullable) PlacePageOSMContributionData * osmContributionData;
-@property(nonatomic, readonly) PlacePagePreviewData * previewData;
-@property(nonatomic, readonly, nullable) PlacePageInfoData * infoData;
-@property(nonatomic, readonly, nullable) PlacePageBookmarkData * bookmarkData;
+@property(nonatomic, readonly, nullable) PlacePageOSMContributionData *osmContributionData;
+@property(nonatomic, readonly) PlacePagePreviewData *previewData;
+@property(nonatomic, readonly, nullable) PlacePageInfoData *infoData;
+@property(nonatomic, readonly, nullable) PlacePageBookmarkData *bookmarkData;
 @property(nonatomic, readonly) PlacePageRoadType roadType;
 @property(nonatomic, readonly, nullable) NSString *wikiDescriptionHtml;
 @property(nonatomic, readonly, nullable) PlacePageTrackData *trackData;
@@ -54,11 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) void (^onMapNodeProgressUpdate)(uint64_t downloadedBytes, uint64_t totalBytes);
 
 - (instancetype)initWithLocalizationProvider:(id<IOpeningHoursLocalization>)localization;
-- (instancetype)initWithTrackInfo:(TrackInfo * _Nonnull)trackInfo elevationInfo:(ElevationProfileData * _Nullable)elevationInfo;
+- (instancetype)initWithTrackInfo:(TrackInfo *_Nonnull)trackInfo
+                    elevationInfo:(ElevationProfileData *_Nullable)elevationInfo;
 - (instancetype)init NS_UNAVAILABLE;
 
 - (void)updateBookmarkStatus;
-- (void)updateWithTrackInfo:(TrackInfo * _Nonnull)trackInfo elevationInfo:(ElevationProfileData * _Nullable)elevationInfo;
+- (void)updateWithTrackInfo:(TrackInfo *_Nonnull)trackInfo elevationInfo:(ElevationProfileData *_Nullable)elevationInfo;
 
 @end
 

@@ -46,8 +46,7 @@ using SegmentMapping = std::map<traffic::TrafficInfo::RoadSegmentId, SegmentSpee
 std::string SegmentSpeedsRepr(SegmentSpeeds const & v)
 {
   std::ostringstream ss;
-  ss << "SegmentSpeeds("
-     << " weighted_speed=" << v.m_weightedSpeed << " weighted_ref_speed=" << v.m_weightedRefSpeed
+  ss << "SegmentSpeeds(" << " weighted_speed=" << v.m_weightedSpeed << " weighted_ref_speed=" << v.m_weightedRefSpeed
      << " weight=" << v.m_weight << " )";
   return ss.str();
 }

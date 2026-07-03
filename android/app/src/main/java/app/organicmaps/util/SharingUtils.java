@@ -23,7 +23,6 @@ import app.organicmaps.sdk.bookmarks.data.BookmarkInfo;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.util.StorageUtils;
 import app.organicmaps.sdk.util.log.Logger;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -120,7 +119,8 @@ public class SharingUtils
 
     final String geoUrl =
         Framework.nativeGetGeoUri(loc.getLatitude(), loc.getLongitude(), Framework.nativeGetDrawScale(), "")
-            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
+            .replaceAll("\\?.*", ""); // Strip out the zoom and redundant coordinates that don't add much information
+                                      // and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(loc.getLatitude(), loc.getLongitude(), Framework.nativeGetDrawScale(), "");
     final String text = context.getString(R.string.my_position_share_email, httpUrl, geoUrl);
@@ -136,12 +136,14 @@ public class SharingUtils
 
     final String geoUrl =
         Framework.nativeGetGeoUri(object.getLat(), object.getLon(), object.getScale(), object.getName())
-            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
+            .replaceAll("\\?.*", ""); // Strip out the zoom and redundant coordinates that don't add much information
+                                      // and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(object.getLat(), object.getLon(), object.getScale(), object.getName());
 
-    final String text = object.isMyPosition() ? context.getString(R.string.my_position_share_email, httpUrl, geoUrl)
-        : context.getString(R.string.bookmark_share_email_subject, httpUrl, geoUrl);
+    final String text = object.isMyPosition()
+                          ? context.getString(R.string.my_position_share_email, httpUrl, geoUrl)
+                          : context.getString(R.string.bookmark_share_email_subject, httpUrl, geoUrl);
     intent.putExtra(Intent.EXTRA_TEXT, text);
 
     context.startActivity(Intent.createChooser(intent, context.getString(R.string.share)));
@@ -155,7 +157,8 @@ public class SharingUtils
     final String subject = context.getString(R.string.bookmark_share_email_subject);
     final String geoUrl =
         Framework.nativeGetGeoUri(bookmark.getLat(), bookmark.getLon(), bookmark.getScale(), bookmark.getName())
-            .replaceAll("\\?.*", ""); //Strip out the zoom and redundant coordinates that don't add much information and might make the link scary
+            .replaceAll("\\?.*", ""); // Strip out the zoom and redundant coordinates that don't add much information
+                                      // and might make the link scary
     final String httpUrl =
         Framework.getHttpGe0Url(bookmark.getLat(), bookmark.getLon(), bookmark.getScale(), bookmark.getName());
     StringBuilder text = new StringBuilder();

@@ -1,0 +1,43 @@
+name: clang-tidy
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "**.cpp"
+      - "**.hpp"
+      - ".clang-tidy"
+      - ".forgejo/workflows/clang-tidy.yaml"
+
+jobs:
+  clang-tidy:
+    name: clang-tidy (changed files only)
+    runs-on: comaps-android
+    continue-on-error: true
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+      cancel-in-progress: true
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 200
+
+      - name: Run clang-tidy
+        shell: bash
+        run: |
+          set +e
+          BASE_REF="${{ github.base_ref }}"
+          [ -z "$BASE_REF" ] && BASE_REF="main"
+          FILES=$(git diff --name-only "origin/$BASE_REF..HEAD" -- '*.cpp' '*.hpp' ':!3party/**' ':!build/**' ':!omim-build-*' 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          echo "Checking: $FILES"
+          echo "$FILES" | xargs -r -P4 clang-tidy \
+            -extra-arg=-std=c++23 \
+            -extra-arg=-I. \
+            -extra-arg=-Ilibs \
+            --config-file=.clang-tidy \
+            2>&1 || true
+          echo "---"
+          echo "clang-tidy check complete (non-blocking)."

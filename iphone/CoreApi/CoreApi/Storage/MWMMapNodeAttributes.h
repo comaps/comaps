@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, MWMMapNodeStatus) {
 NS_ASSUME_NONNULL_BEGIN
 
 NS_SWIFT_NAME(CountryIdAndName)
-@interface MWMCountryIdAndName: NSObject
+@interface MWMCountryIdAndName : NSObject
 
 @property(nonatomic, readonly) NSString *countryId;
 @property(nonatomic, readonly) NSString *countryName;

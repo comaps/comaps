@@ -9,15 +9,13 @@ import android.text.style.ForegroundColorSpan;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-
-import com.google.android.material.radiobutton.MaterialRadioButton;
-import com.google.android.material.textview.MaterialTextView;
-
 import app.organicmaps.R;
 import app.organicmaps.sdk.settings.StorageItem;
 import app.organicmaps.sdk.settings.StoragePathManager;
 import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.util.ThemeUtils;
+import com.google.android.material.radiobutton.MaterialRadioButton;
+import com.google.android.material.textview.MaterialTextView;
 
 class StoragePathAdapter extends BaseAdapter
 {

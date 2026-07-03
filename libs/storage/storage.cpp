@@ -267,17 +267,18 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer, 
       return 0;
     }
 
-    json_t* mapSeries = json_object_get(root, "map-series"); //pastk TODO change to "map_series" to be same as countries.txt
+    json_t * mapSeries =
+        json_object_get(root, "map-series");  // pastk TODO change to "map_series" to be same as countries.txt
     if (json_is_object(mapSeries))
     {
-      void* iter = json_object_iter(mapSeries);
+      void * iter = json_object_iter(mapSeries);
       while (iter)
       {
-        const char* key = json_object_iter_key(iter);
+        char const * key = json_object_iter_key(iter);
         if (key && std::string_view(key) == MAP_SERIES)
         {
-          json_t* entry = json_object_iter_value(iter);
-          json_t* latest = json_object_get(entry, "latest");
+          json_t * entry = json_object_iter_value(iter);
+          json_t * latest = json_object_get(entry, "latest");
           char const * status = json_string_value(json_object_get(entry, "status"));
           isEOL = status && std::string_view(status) == "EOL";
           return json_integer_value(latest);
@@ -362,22 +363,22 @@ void Storage::RunCountriesCheckAsyncSaveOnly()
       std::string mapSeries = "";
 
       int64_t const parsedVersion =
-        LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
+          LoadCountriesFromBuffer(buffer, countries, affiliations, synonyms, topCities, topCountries, mapSeries);
       if (parsedVersion != dataVersion || mapSeries != MAP_SERIES)
       {
-        LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion,
-                       "parsed map series", mapSeries, "expected", MAP_SERIES, "- skip update"));
+        LOG(LWARNING, ("COUNTRIES: parsed map version", parsedVersion, "expected", dataVersion, "parsed map series",
+                       mapSeries, "expected", MAP_SERIES, "- skip update"));
         NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
         return false;
       }
 
       auto buf = std::make_shared<std::string>(std::move(buffer));
 
-      auto const countriesSigUrl = downloader::GetFileDownloadUrl(COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION, parsedVersion);
+      auto const countriesSigUrl =
+          downloader::GetFileDownloadUrl(COUNTRIES_FILE COUNTRIES_SIGNATURE_EXTENSION, parsedVersion);
       LOG(LDEBUG, ("COUNTRIES: fetching signature", countriesSigUrl));
 
-      m_downloader->DownloadAsString(countriesSigUrl,
-                                     [this, buf, parsedVersion](std::string const & sigBuf)
+      m_downloader->DownloadAsString(countriesSigUrl, [this, buf, parsedVersion](std::string const & sigBuf)
       {
         if (sigBuf.empty())
         {
@@ -454,8 +455,9 @@ Storage::Storage(string const & referenceCountriesTxtJsonForTesting,
 {
   m_downloader->SetDownloadingPolicy(m_downloadingPolicy);
 
-  m_currentVersion = LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations,
-                                             m_countryNameSynonyms, m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_mapSeries);
+  m_currentVersion =
+      LoadCountriesFromBuffer(referenceCountriesTxtJsonForTesting, m_countries, m_affiliations, m_countryNameSynonyms,
+                              m_mwmTopCityGeoIds, m_mwmTopCountryGeoIds, m_mapSeries);
   CHECK_LESS_OR_EQUAL(0, m_currentVersion, ("Can't load test countries file"));
 
   m_downloader->SetDataVersion(m_currentVersion);

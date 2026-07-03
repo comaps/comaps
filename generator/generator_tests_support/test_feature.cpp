@@ -451,8 +451,7 @@ void TestPark::Serialize(FeatureBuilder & fb) const
 string TestPark::ToDebugString() const
 {
   ostringstream os;
-  os << "TestPark [" << DebugPrint(m_names) << ", "
-     << "]";
+  os << "TestPark [" << DebugPrint(m_names) << ", " << "]";
   return os.str();
 }
 

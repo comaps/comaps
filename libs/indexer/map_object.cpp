@@ -129,7 +129,9 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
 
   std::ostringstream oss;
   bool isMainType = true;
-  // The tourist attraction type can get added to features as main type for which their original main type usually only would be shown, if it is the main type, because it is no POI according to the POI checker. They also should be shown though, if the main type is tourist attraction.
+  // The tourist attraction type can get added to features as main type for which their original main type usually only
+  // would be shown, if it is the main type, because it is no POI according to the POI checker. They also should be
+  // shown though, if the main type is tourist attraction.
   bool isOnlyTypeTouristAttraction = false;
   bool isFirst = true;
   for (auto const type : copy)
@@ -143,7 +145,7 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
         continue;
       }
     }
-    
+
     // Ignore types that never should be main types
     if ((isMainType || isOnlyTypeTouristAttraction) && isNeverMainTypeChecker(type))
       continue;
@@ -284,11 +286,10 @@ std::string MapObject::GetOrganic() const
 {
   auto const & isOrganic = ftypes::IsOrganicChecker::Instance();
 
-  for (auto const type : m_types) {
+  for (auto const type : m_types)
     if (isOrganic(type))
       return localisation::TranslatedFeatureType(classif().GetReadableObjectName(type));
-  }
-  
+
   return {};
 }
 

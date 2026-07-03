@@ -18,18 +18,19 @@ static void *kContext = &kContext;
 
 - (void)configWithDelegate:(id<MWMNoteCellDelegate>)delegate
                   noteText:(NSString *)text
-               placeholder:(NSString *)placeholder {
+               placeholder:(NSString *)placeholder
+{
   self.delegate = delegate;
   self.textView.text = text;
   self.textView.keyboardAppearance = [UIColor isNightMode] ? UIKeyboardAppearanceDark : UIKeyboardAppearanceDefault;
   self.textView.placeholder = placeholder;
 }
 
-- (void)updateTextViewForHeight:(CGFloat)height {
+- (void)updateTextViewForHeight:(CGFloat)height
+{
   id<MWMNoteCellDelegate> delegate = self.delegate;
-  if (height > kMinimalTextViewHeight) {
+  if (height > kMinimalTextViewHeight)
     [delegate cell:self didChangeSizeAndText:self.textView.text];
-  }
 
   [self setNeedsLayout];
 }
@@ -37,8 +38,10 @@ static void *kContext = &kContext;
 - (void)observeValueForKeyPath:(NSString *)keyPath
                       ofObject:(id)object
                         change:(NSDictionary *)change
-                       context:(void *)context {
-  if (context == kContext) {
+                       context:(void *)context
+{
+  if (context == kContext)
+  {
     NSValue *s = change[NSKeyValueChangeNewKey];
     CGFloat height = s.CGSizeValue.height;
     [self updateTextViewForHeight:height];
@@ -48,36 +51,44 @@ static void *kContext = &kContext;
   [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
 
-- (CGFloat)cellHeight {
+- (CGFloat)cellHeight
+{
   return self.textViewHeight.constant + 2 * kTopTextViewOffset;
 }
 
-- (CGFloat)textViewContentHeight {
+- (CGFloat)textViewContentHeight
+{
   return self.textView.contentSize.height;
 }
 
-+ (CGFloat)minimalHeight {
++ (CGFloat)minimalHeight
+{
   return kMinimalTextViewHeight;
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView {
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
   [self.delegate cell:self didFinishEditingWithText:textView.text];
   [self unregisterObserver];
 }
 
-- (void)textViewDidBeginEditing:(UITextView *)textView {
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
   [self registerObserver];
 }
 
-- (void)textViewDidChange:(UITextView *)textView {
+- (void)textViewDidChange:(UITextView *)textView
+{
   [textView sizeToFit];
 }
 
-- (void)unregisterObserver {
+- (void)unregisterObserver
+{
   [self.textView removeObserver:self forKeyPath:kTextViewContentSizeKeyPath context:kContext];
 }
 
-- (void)registerObserver {
+- (void)registerObserver
+{
   [self.textView addObserver:self
                   forKeyPath:kTextViewContentSizeKeyPath
                      options:NSKeyValueObservingOptionNew

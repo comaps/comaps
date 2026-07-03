@@ -5,23 +5,23 @@ on:
     paths: &paths
       - 3party/**
       - android/**
-      - '!android/app/src/fdroid/**'
-      - '!android/app/src/google/**'
+      - "!android/app/src/fdroid/**"
+      - "!android/app/src/google/**"
       - configure.sh
       - cmake/**
-      - '!cmake/windows/**'
+      - "!cmake/windows/**"
       - CMakeLists.txt
       - defines.hpp
-      - .forgejo/workflows/android-check.yaml  # Run check on self change
+      - .forgejo/workflows/android-check.yaml # Run check on self change
       - libs/**
-      - '!**/*_tests/**'
-      - '!libs/platform/*apple*'
-      - '!libs/platform/*_ios*'
-      - '!libs/platform/*_linux*'
-      - '!libs/platform/*_mac*'
-      - '!libs/platform/*qt*'
-      - '!libs/platform/*_win*'
-      - '!libs/pyhelpers/**'
+      - "!**/*_tests/**"
+      - "!libs/platform/*apple*"
+      - "!libs/platform/*_ios*"
+      - "!libs/platform/*_linux*"
+      - "!libs/platform/*_mac*"
+      - "!libs/platform/*qt*"
+      - "!libs/platform/*_win*"
+      - "!libs/pyhelpers/**"
       - private.h
     branches:
       - main

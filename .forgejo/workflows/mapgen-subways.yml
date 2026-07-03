@@ -3,18 +3,18 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       skip-planet-pbf:
-        description: 'Skip OSM planet update?'
+        description: "Skip OSM planet update?"
         required: true
         default: false
         type: boolean
       subways-branch:
-        description: 'Check out a different subways repo branch?'
+        description: "Check out a different subways repo branch?"
         required: true
         type: string
         default: master
   schedule:
     # Run daily at 00:00 UTC
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
 
 env:
   HTML_DIR: "/mnt/4tbexternal/osm-planet/subway/validator"
@@ -142,7 +142,7 @@ jobs:
           if [ -f "/tmp/validator_out.txt" ]; then
           MSG="$MSG $(cat /tmp/validator_out.txt)"
           fi
-          
+
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \
             -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
             --data-urlencode type=stream \

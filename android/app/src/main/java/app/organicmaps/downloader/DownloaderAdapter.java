@@ -408,8 +408,9 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         {
           if (country.status == CountryItem.STATUS_DOWNLOADABLE || country.status == CountryItem.STATUS_PARTLY)
           {
-            return (country.isExpandable() ? (mMyMapsMode ? R.drawable.downloader_folder_done : R.drawable.downloader_folder)
-                                           : R.drawable.downloader_download);
+            return (country.isExpandable()
+                        ? (mMyMapsMode ? R.drawable.downloader_folder_done : R.drawable.downloader_folder)
+                        : R.drawable.downloader_download);
           }
 
           return super.selectIcon(country);

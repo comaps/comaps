@@ -233,7 +233,8 @@ private:
 
   static bool IsSupportedLang(std::string_view lang)
   {
-    return localisation::ConvertLanguageCodeToLanguageIndex(std::string{lang}) != localisation::kUnsupportedLanguageIndex;
+    return localisation::ConvertLanguageCodeToLanguageIndex(std::string{lang}) !=
+           localisation::kUnsupportedLanguageIndex;
   }
 
   static size_t SumPageSizes(std::vector<PageT> const & p)
@@ -265,8 +266,8 @@ private:
   {
     for (auto const & [lang, _] : meta)
     {
-      auto const it =
-          base::FindIf(p, [lang = lang](auto const & p) { return localisation::ConvertLanguageCodeToLanguageIndex(std::string{p.first}) == lang; });
+      auto const it = base::FindIf(p, [lang = lang](auto const & p)
+      { return localisation::ConvertLanguageCodeToLanguageIndex(std::string{p.first}) == lang; });
       if (it == std::end(p))
         return false;
     }

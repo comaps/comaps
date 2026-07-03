@@ -3,22 +3,22 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       skip-planet-pbf:
-        description: 'Skip OSM planet update?'
+        description: "Skip OSM planet update?"
         required: true
         default: false
         type: boolean
       wikiparser-branch:
-        description: 'Check out a different wikiparser repo branch?'
+        description: "Check out a different wikiparser repo branch?"
         required: true
         type: string
         default: main
       wiki-download:
-        description: 'Download updated Wikipedia dumps?'
+        description: "Download updated Wikipedia dumps?"
         required: true
         default: true
         type: boolean
       force-download:
-        description: 'Force download despite Wikimedia monthly limit?'
+        description: "Force download despite Wikimedia monthly limit?"
         required: true
         default: false
         type: boolean

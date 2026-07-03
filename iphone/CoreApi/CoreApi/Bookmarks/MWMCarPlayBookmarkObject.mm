@@ -2,7 +2,7 @@
 #include "Framework.h"
 #include "geometry/mercator.hpp"
 
-@interface MWMCarPlayBookmarkObject()
+@interface MWMCarPlayBookmarkObject ()
 @property(assign, nonatomic, readwrite) MWMMarkID bookmarkId;
 @property(strong, nonatomic, readwrite) NSString *prefferedName;
 @property(strong, nonatomic, readwrite) NSString *address;
@@ -12,16 +12,18 @@
 
 @implementation MWMCarPlayBookmarkObject
 
-- (instancetype)initWithBookmarkId:(MWMMarkID)bookmarkId {
+- (instancetype)initWithBookmarkId:(MWMMarkID)bookmarkId
+{
   self = [super init];
-  if (self) {
+  if (self)
+  {
     self.bookmarkId = bookmarkId;
-    auto const & bm = GetFramework().GetBookmarkManager();
-    Bookmark const * bookmark = bm.GetBookmark(bookmarkId);
+    auto const &bm = GetFramework().GetBookmarkManager();
+    Bookmark const *bookmark = bm.GetBookmark(bookmarkId);
     self.prefferedName = @(bookmark->GetPreferredName().c_str());
     auto const pivot = bookmark->GetPivot();
     self.mercatorPoint = CGPointMake(pivot.x, pivot.y);
-    auto const & address = GetFramework().GetAddressAtPoint(pivot);
+    auto const &address = GetFramework().GetAddressAtPoint(pivot);
     self.address = @(address.FormatAddress().c_str());
     auto const location = mercator::ToLatLon(pivot);
     self.coordinate = CLLocationCoordinate2DMake(location.m_lat, location.m_lon);

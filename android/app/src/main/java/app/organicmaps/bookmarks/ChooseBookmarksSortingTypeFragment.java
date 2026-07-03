@@ -15,8 +15,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
 import app.organicmaps.util.UiUtils;
 
-public class ChooseBookmarksSortingTypeFragment
-    extends DialogFragment implements RadioGroup.OnCheckedChangeListener
+public class ChooseBookmarksSortingTypeFragment extends DialogFragment implements RadioGroup.OnCheckedChangeListener
 {
   private static final String EXTRA_SORTING_TYPES = "sorting_types";
   private static final String EXTRA_CURRENT_SORT_TYPE = "current_sort_type";

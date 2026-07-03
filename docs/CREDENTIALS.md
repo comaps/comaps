@@ -1,15 +1,15 @@
 This file contains a list of all sensitive credentials, access keys, authentication tokens, and security certificates used by CI/CD (Forgejo Actions).
 
-- [PRIVATE\_H](#private_h)
-- [RELEASE\_KEYSTORE](#release_keystore)
-- [SECURE\_PROPERTIES](#secure_properties)
-- [GOOGLE\_PLAY\_JSON](#google_play_json)
-- [HUAWEI\_APPGALLERY\_JSON](#huawei_appgallery_json)
-- [AGCONNECT\_SERVICES\_JSON](#agconnect_services_json)
-- [APPSTORE\_JSON](#appstore_json)
-- [CERTIFICATES\_DEV\_P12](#certificates_dev_p12)
-- [CERTIFICATES\_DISTR\_P12](#certificates_distr_p12)
-- [APPSTORE\_CERTIFICATE\_PASSWORD](#appstore_certificate_password)
+- [PRIVATE_H](#private_h)
+- [RELEASE_KEYSTORE](#release_keystore)
+- [SECURE_PROPERTIES](#secure_properties)
+- [GOOGLE_PLAY_JSON](#google_play_json)
+- [HUAWEI_APPGALLERY_JSON](#huawei_appgallery_json)
+- [AGCONNECT_SERVICES_JSON](#agconnect_services_json)
+- [APPSTORE_JSON](#appstore_json)
+- [CERTIFICATES_DEV_P12](#certificates_dev_p12)
+- [CERTIFICATES_DISTR_P12](#certificates_distr_p12)
+- [APPSTORE_CERTIFICATE_PASSWORD](#appstore_certificate_password)
 
 ## PRIVATE_H
 

@@ -25,8 +25,7 @@ public class LanesDrawable extends Drawable
   @ColorRes
   private static final int INACTIVE_LANE_TINT_RES = R.color.white_38;
 
-  private record TintColorInfo(@ColorInt int mActiveLaneTint, @ColorInt int mInactiveLaneTint) {
-  }
+  private record TintColorInfo(@ColorInt int mActiveLaneTint, @ColorInt int mInactiveLaneTint) {}
 
   private static class LaneDrawable
   {

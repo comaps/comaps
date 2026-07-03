@@ -80,10 +80,10 @@ std::string DebugPrint(NodeErrorCode status);
 enum class CheckUpdatesStatus
 {
   Undefined,
-  Updated,   /**< An update had been pulled and applied successfully */
-  NoUpdate,  /**< No updates available at the moment */
-  EOL,       /**< No more updates planned for app's map series */
-  Error,     /**< An error happened while checking */
+  Updated,  /**< An update had been pulled and applied successfully */
+  NoUpdate, /**< No updates available at the moment */
+  EOL,      /**< No more updates planned for app's map series */
+  Error,    /**< An error happened while checking */
 };
 std::string DebugPrint(CheckUpdatesStatus status);
 

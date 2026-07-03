@@ -1,5 +1,5 @@
-#import <CoreApi/MWMOpeningHoursCommon.h>
 #import "MWMOpeningHoursModel.h"
+#import <CoreApi/MWMOpeningHoursCommon.h>
 
 #include "editor/ui2oh.hpp"
 
@@ -7,9 +7,9 @@ extern UITableViewRowAnimation const kMWMOpeningHoursEditorRowAnimation = UITabl
 
 @interface MWMOpeningHoursModel () <MWMOpeningHoursSectionProtocol>
 
-@property (weak, nonatomic) id<MWMOpeningHoursModelProtocol> delegate;
+@property(weak, nonatomic) id<MWMOpeningHoursModelProtocol> delegate;
 
-@property (nonatomic) NSMutableArray<MWMOpeningHoursSection *> * sections;
+@property(nonatomic) NSMutableArray<MWMOpeningHoursSection *> *sections;
 
 @end
 
@@ -37,11 +37,8 @@ using namespace osmoh;
 
 - (void)refreshSectionsIndexes
 {
-  [self.sections enumerateObjectsUsingBlock:^(MWMOpeningHoursSection * _Nonnull section,
-                                              NSUInteger idx, BOOL * _Nonnull stop)
-  {
-    [section refreshIndex:idx];
-  }];
+  [self.sections enumerateObjectsUsingBlock:^(MWMOpeningHoursSection *_Nonnull section, NSUInteger idx,
+                                              BOOL *_Nonnull stop) { [section refreshIndex:idx]; }];
 }
 
 - (void)addSchedule
@@ -62,7 +59,7 @@ using namespace osmoh;
   timeTableSet.Remove(index);
   [self.sections removeObjectAtIndex:index];
   [self refreshSectionsIndexes];
-  UITableView * tableView = self.tableView;
+  UITableView *tableView = self.tableView;
   if (needRealDelete)
   {
     [tableView deleteSections:[[NSIndexSet alloc] initWithIndex:index]
@@ -80,11 +77,9 @@ using namespace osmoh;
 
 - (void)updateActiveSection:(NSUInteger)index
 {
-  for (MWMOpeningHoursSection * section in self.sections)
-  {
+  for (MWMOpeningHoursSection *section in self.sections)
     if (section.index != index)
       section.selectedRow = nil;
-  }
 }
 
 - (ui::TimeTableSet::Proxy)timeTableProxy:(NSUInteger)index
@@ -93,21 +88,21 @@ using namespace osmoh;
   return timeTableSet.Get(index);
 }
 
-- (MWMOpeningHoursEditorCells)cellKeyForIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (MWMOpeningHoursEditorCells)cellKeyForIndexPath:(NSIndexPath *_Nonnull)indexPath
 {
   NSUInteger const section = indexPath.section;
   NSAssert(section < self.count, @"Invalid section index");
   return [self.sections[section] cellKeyForRow:indexPath.row];
 }
 
-- (CGFloat)heightForIndexPath:(NSIndexPath * _Nonnull)indexPath withWidth:(CGFloat)width
+- (CGFloat)heightForIndexPath:(NSIndexPath *_Nonnull)indexPath withWidth:(CGFloat)width
 {
   NSUInteger const section = indexPath.section;
   NSAssert(section < self.count, @"Invalid section index");
   return [self.sections[section] heightForRow:indexPath.row withWidth:width];
 }
 
-- (void)fillCell:(MWMOpeningHoursTableViewCell * _Nonnull)cell atIndexPath:(NSIndexPath * _Nonnull)indexPath
+- (void)fillCell:(MWMOpeningHoursTableViewCell *_Nonnull)cell atIndexPath:(NSIndexPath *_Nonnull)indexPath
 {
   NSUInteger const section = indexPath.section;
   NSAssert(section < self.count, @"Invalid section index");
@@ -128,7 +123,7 @@ using namespace osmoh;
 
 - (void)storeCachedData
 {
-  for (MWMOpeningHoursModel * m in self.sections)
+  for (MWMOpeningHoursModel *m in self.sections)
     [m storeCachedData];
 }
 
@@ -167,15 +162,15 @@ using namespace osmoh;
 - (void)setIsSimpleMode:(BOOL)isSimpleMode
 {
   id<MWMOpeningHoursModelProtocol> delegate = self.delegate;
-  NSString * oh = delegate.openingHours;
+  NSString *oh = delegate.openingHours;
 
   auto isSimple = isSimpleMode;
   if (isSimple && oh && oh.length)
     isSimple = MakeTimeTableSet(osmoh::OpeningHours(oh.UTF8String), timeTableSet);
 
   delegate.advancedEditor.hidden = isSimple;
-  UITableView * tv = delegate.tableView;
-  UIButton * toggleModeButton = delegate.toggleModeButton;
+  UITableView *tv = delegate.tableView;
+  UIButton *toggleModeButton = delegate.toggleModeButton;
 
   if (isSimple)
   {
@@ -196,7 +191,7 @@ using namespace osmoh;
     }
     tv.hidden = YES;
     [toggleModeButton setTitle:L(@"editor_time_simple") forState:UIControlStateNormal];
-    MWMTextView * ev = delegate.editorView;
+    MWMTextView *ev = delegate.editorView;
     ev.text = delegate.openingHours;
     [ev becomeFirstResponder];
   }
@@ -204,7 +199,7 @@ using namespace osmoh;
 
 - (BOOL)isSimpleModeCapable
 {
-  NSString * oh = self.delegate.openingHours;
+  NSString *oh = self.delegate.openingHours;
   if (!oh || !oh.length)
     return YES;
   ui::TimeTableSet tts;

@@ -2,21 +2,20 @@
 
 @implementation MWMImageCoder
 
-- (UIImage *)imageWithData:(NSData *)data {
+- (UIImage *)imageWithData:(NSData *)data
+{
   UIImage *image = [UIImage imageWithData:data];
-  if (!image) {
+  if (!image)
     return nil;
-  }
 
   CGImageRef cgImage = image.CGImage;
   size_t width = CGImageGetWidth(cgImage);
   size_t height = CGImageGetHeight(cgImage);
   int32_t flags;
-  if ([self imageHasAlpha:image]) {
+  if ([self imageHasAlpha:image])
     flags = kCGImageAlphaPremultipliedLast;
-  } else {
+  else
     flags = kCGImageAlphaNoneSkipLast;
-  }
 
   CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
   CGContextRef context = CGBitmapContextCreate(NULL, width, height, 8, width * 4, colorSpace, flags);
@@ -32,20 +31,19 @@
   return resultImage;
 }
 
-- (NSData *)dataFromImage:(UIImage *)image {
-  if ([self imageHasAlpha:image]) {
+- (NSData *)dataFromImage:(UIImage *)image
+{
+  if ([self imageHasAlpha:image])
     return UIImagePNGRepresentation(image);
-  } else {
+  else
     return UIImageJPEGRepresentation(image, 0.9);
-  }
 }
 
-- (BOOL)imageHasAlpha:(UIImage *)image {
+- (BOOL)imageHasAlpha:(UIImage *)image
+{
   CGImageAlphaInfo alphaInfo = CGImageGetAlphaInfo(image.CGImage);
-  return (alphaInfo == kCGImageAlphaPremultipliedLast ||
-          alphaInfo == kCGImageAlphaPremultipliedFirst ||
-          alphaInfo == kCGImageAlphaLast ||
-          alphaInfo == kCGImageAlphaFirst);
+  return (alphaInfo == kCGImageAlphaPremultipliedLast || alphaInfo == kCGImageAlphaPremultipliedFirst ||
+          alphaInfo == kCGImageAlphaLast || alphaInfo == kCGImageAlphaFirst);
 }
 
 @end

@@ -124,7 +124,8 @@ UNIT_TEST(MultilangString_Unique)
 UNIT_TEST(MultilangString_LangNames)
 {
   // It is important to compare the contents of the strings, and not just pointers
-  TEST_EQUAL(string("Беларуская"), localisation::GetLanguageNameByLanguageIndex(localisation::ConvertLanguageCodeToLanguageIndex("be")), ());
+  TEST_EQUAL(string("Беларуская"),
+             localisation::GetLanguageNameByLanguageIndex(localisation::ConvertLanguageCodeToLanguageIndex("be")), ());
 
   auto const & languages = localisation::GetSupportedLanguages();
   // Using size_t workaround, because our logging/testing macroses do not support passing POD types

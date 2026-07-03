@@ -16,10 +16,9 @@ import app.organicmaps.MwmApplication;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.util.log.Logger;
-import java.util.List;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DownloaderService extends Service implements MapManager.StorageCallback

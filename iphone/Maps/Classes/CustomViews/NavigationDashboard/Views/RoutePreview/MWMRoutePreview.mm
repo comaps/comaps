@@ -2,27 +2,27 @@
 #import "MWMCircularProgress.h"
 #import "MWMLocationManager.h"
 #import "MWMRouter.h"
+#import "SwiftBridge.h"
 #import "UIButton+Orientation.h"
 #import "UIImageView+Coloring.h"
-#import "SwiftBridge.h"
 
 #include "platform/platform.hpp"
 
 static CGFloat const kDrivingOptionsHeight = 48;
 
-@interface MWMRoutePreview ()<MWMCircularProgressProtocol>
+@interface MWMRoutePreview () <MWMCircularProgressProtocol>
 
 @property(nonatomic) BOOL isVisible;
 @property(nonatomic) BOOL actualVisibilityValue;
-@property(weak, nonatomic) IBOutlet UIButton * backButton;
-@property(weak, nonatomic) IBOutlet UIView * bicycle;
-@property(weak, nonatomic) IBOutlet UIView * contentView;
-@property(weak, nonatomic) IBOutlet UIView * pedestrian;
-@property(weak, nonatomic) IBOutlet UIView * publicTransport;
-@property(weak, nonatomic) IBOutlet UIView * ruler;
-@property(weak, nonatomic) IBOutlet UIView * vehicle;
-@property(strong, nonatomic) IBOutlet NSLayoutConstraint * drivingOptionHeightConstraint;
-@property(strong, nonatomic) IBOutlet UIButton * drivingOptionsButton;
+@property(weak, nonatomic) IBOutlet UIButton *backButton;
+@property(weak, nonatomic) IBOutlet UIView *bicycle;
+@property(weak, nonatomic) IBOutlet UIView *contentView;
+@property(weak, nonatomic) IBOutlet UIView *pedestrian;
+@property(weak, nonatomic) IBOutlet UIView *publicTransport;
+@property(weak, nonatomic) IBOutlet UIView *ruler;
+@property(weak, nonatomic) IBOutlet UIView *vehicle;
+@property(strong, nonatomic) IBOutlet NSLayoutConstraint *drivingOptionHeightConstraint;
+@property(strong, nonatomic) IBOutlet UIButton *drivingOptionsButton;
 
 @end
 
@@ -42,7 +42,8 @@ static CGFloat const kDrivingOptionsHeight = 48;
   [self applyContentViewShadow];
 }
 
-- (void)applyContentViewShadow {
+- (void)applyContentViewShadow
+{
   self.contentView.layer.shadowOffset = CGSizeZero;
   self.contentView.layer.shadowRadius = 2.0;
   self.contentView.layer.shadowOpacity = 0.7;
@@ -50,49 +51,48 @@ static CGFloat const kDrivingOptionsHeight = 48;
   [self resizeShadow];
 }
 
-- (void)layoutSubviews {
+- (void)layoutSubviews
+{
   [super layoutSubviews];
   [self.vehicle setNeedsLayout];
   [self resizeShadow];
 }
 
-- (void)resizeShadow {
+- (void)resizeShadow
+{
   CGFloat shadowSize = 1.0;
   CGRect contentFrame = self.contentView.bounds;
-  CGRect shadowFrame = CGRectMake(contentFrame.origin.x - shadowSize,
-                                  contentFrame.size.height,
-                                  contentFrame.size.width + (2 * shadowSize),
-                                  shadowSize);
-  self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect: shadowFrame].CGPath;
+  CGRect shadowFrame = CGRectMake(contentFrame.origin.x - shadowSize, contentFrame.size.height,
+                                  contentFrame.size.width + (2 * shadowSize), shadowSize);
+  self.contentView.layer.shadowPath = [UIBezierPath bezierPathWithRect:shadowFrame].CGPath;
 }
 
 - (void)setupProgresses
 {
   [self addProgress:self.vehicle imageName:@"ic_car" routerType:MWMRouterTypeVehicle];
   [self addProgress:self.pedestrian imageName:@"ic_pedestrian" routerType:MWMRouterTypePedestrian];
-  [self addProgress:self.publicTransport
-          imageName:@"ic_train"
-         routerType:MWMRouterTypePublicTransport];
+  [self addProgress:self.publicTransport imageName:@"ic_train" routerType:MWMRouterTypePublicTransport];
   [self addProgress:self.bicycle imageName:@"ic_bike" routerType:MWMRouterTypeBicycle];
   [self addProgress:self.ruler imageName:@"ic_ruler_route" routerType:MWMRouterTypeRuler];
 }
 
-- (void)addProgress:(UIView *)parentView
-          imageName:(NSString *)imageName
-         routerType:(MWMRouterType)routerType
+- (void)addProgress:(UIView *)parentView imageName:(NSString *)imageName routerType:(MWMRouterType)routerType
 {
-  MWMCircularProgress * progress = [[MWMCircularProgress alloc] initWithParentView:parentView];
-  MWMCircularProgressStateVec imageStates = @[@(MWMCircularProgressStateNormal),
-    @(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)];
+  MWMCircularProgress *progress = [[MWMCircularProgress alloc] initWithParentView:parentView];
+  MWMCircularProgressStateVec imageStates =
+      @[@(MWMCircularProgressStateNormal), @(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner)];
 
   [progress setImageName:imageName forStates:imageStates];
-  [progress setImageName:[imageName stringByAppendingString:@"_selected"] forStates:@[@(MWMCircularProgressStateSelected), @(MWMCircularProgressStateCompleted)]];
+  [progress setImageName:[imageName stringByAppendingString:@"_selected"]
+               forStates:@[@(MWMCircularProgressStateSelected), @(MWMCircularProgressStateCompleted)]];
   [progress setImageName:@"ic_error" forStates:@[@(MWMCircularProgressStateFailed)]];
 
-  [progress setColoring:MWMButtonColoringWhiteText
-              forStates:@[@(MWMCircularProgressStateFailed), @(MWMCircularProgressStateSelected),
-                         @(MWMCircularProgressStateProgress), @(MWMCircularProgressStateSpinner),
-                         @(MWMCircularProgressStateCompleted)]];
+  [progress
+      setColoring:MWMButtonColoringWhiteText
+        forStates:@[
+          @(MWMCircularProgressStateFailed), @(MWMCircularProgressStateSelected), @(MWMCircularProgressStateProgress),
+          @(MWMCircularProgressStateSpinner), @(MWMCircularProgressStateCompleted)
+        ]];
 
   [progress setSpinnerBackgroundColor:UIColor.clearColor];
   [progress setColor:UIColor.whiteColor
@@ -104,13 +104,13 @@ static CGFloat const kDrivingOptionsHeight = 48;
 
 - (void)statePrepare
 {
-  for (auto const & progress : m_progresses)
+  for (auto const &progress : m_progresses)
     progress.second.state = MWMCircularProgressStateNormal;
 }
 
 - (void)selectRouter:(MWMRouterType)routerType
 {
-  for (auto const & progress : m_progresses)
+  for (auto const &progress : m_progresses)
     progress.second.state = MWMCircularProgressStateNormal;
   m_progresses[routerType].state = MWMCircularProgressStateSelected;
 }
@@ -125,7 +125,8 @@ static CGFloat const kDrivingOptionsHeight = 48;
   m_progresses[routerType].progress = progress;
 }
 
-- (IBAction)onDrivingOptions:(UIButton *)sender {
+- (IBAction)onDrivingOptions:(UIButton *)sender
+{
   [self.delegate routePreviewDidPressDrivingOptions:self];
 }
 
@@ -137,7 +138,7 @@ static CGFloat const kDrivingOptionsHeight = 48;
   if (s == MWMCircularProgressStateSelected || s == MWMCircularProgressStateCompleted)
     return;
 
-  for (auto const & prg : m_progresses)
+  for (auto const &prg : m_progresses)
   {
     if (prg.second != progress)
       continue;
@@ -158,39 +159,36 @@ static CGFloat const kDrivingOptionsHeight = 48;
   [superview addSubview:self];
   [self setupConstraints];
   self.actualVisibilityValue = YES;
-  dispatch_async(dispatch_get_main_queue(), ^{
-    self.isVisible = YES;
-  });
+  dispatch_async(dispatch_get_main_queue(), ^{ self.isVisible = YES; });
 }
 
-- (void)remove {
+- (void)remove
+{
   self.actualVisibilityValue = NO;
   self.isVisible = NO;
 }
 
-- (void)setupConstraints {}
+- (void)setupConstraints
+{}
 
-- (void)setDrivingOptionsState:(MWMDrivingOptionsState)state {
+- (void)setDrivingOptionsState:(MWMDrivingOptionsState)state
+{
   _drivingOptionsState = state;
   [self layoutIfNeeded];
-  self.drivingOptionHeightConstraint.constant =
-    (state == MWMDrivingOptionsStateNone) ? -kDrivingOptionsHeight : 0;
-  [UIView animateWithDuration:kDefaultAnimationDuration animations:^{
-    [self layoutIfNeeded];
-  }];
+  self.drivingOptionHeightConstraint.constant = (state == MWMDrivingOptionsStateNone) ? -kDrivingOptionsHeight : 0;
+  [UIView animateWithDuration:kDefaultAnimationDuration animations:^{ [self layoutIfNeeded]; }];
 
-  if (state == MWMDrivingOptionsStateDefine) {
+  if (state == MWMDrivingOptionsStateDefine)
+  {
     [self.drivingOptionsButton setImagePadding:0.0];
-    [self.drivingOptionsButton setImage:nil
-                               forState:UIControlStateNormal];
-    [self.drivingOptionsButton setTitle:L(@"define_to_avoid_btn").uppercaseString
-                               forState:UIControlStateNormal];
-  } else if (state == MWMDrivingOptionsStateChange) {
+    [self.drivingOptionsButton setImage:nil forState:UIControlStateNormal];
+    [self.drivingOptionsButton setTitle:L(@"define_to_avoid_btn").uppercaseString forState:UIControlStateNormal];
+  }
+  else if (state == MWMDrivingOptionsStateChange)
+  {
     [self.drivingOptionsButton setImagePadding:5.0];
-    [self.drivingOptionsButton setImage:[UIImage imageNamed:@"ic_options_warning"]
-                               forState:UIControlStateNormal];
-    [self.drivingOptionsButton setTitle:L(@"change_driving_options_btn").uppercaseString
-                               forState:UIControlStateNormal];
+    [self.drivingOptionsButton setImage:[UIImage imageNamed:@"ic_options_warning"] forState:UIControlStateNormal];
+    [self.drivingOptionsButton setTitle:L(@"change_driving_options_btn").uppercaseString forState:UIControlStateNormal];
   }
 }
 
@@ -198,14 +196,13 @@ static CGFloat const kDrivingOptionsHeight = 48;
 
 - (void)setIsVisible:(BOOL)isVisible
 {
-  if (isVisible != self.actualVisibilityValue) { return; }
+  if (isVisible != self.actualVisibilityValue)
+    return;
   _isVisible = isVisible;
   auto sv = self.superview;
   [sv setNeedsLayout];
   [UIView animateWithDuration:kDefaultAnimationDuration
-      animations:^{
-        [sv layoutIfNeeded];
-      }
+      animations:^{ [sv layoutIfNeeded]; }
       completion:^(BOOL finished) {
         if (!self.isVisible)
           [self removeFromSuperview];

@@ -6,7 +6,6 @@
 
 #include "platform/localization.hpp"
 
-
 namespace
 {
 using Category = std::pair<std::string, osm::NewFeatureCategories::TypeName>;
@@ -18,7 +17,7 @@ std::string locale()
 }
 }  // namespace
 
-@interface MWMObjectsCategorySelectorDataSource()
+@interface MWMObjectsCategorySelectorDataSource ()
 {
   osm::NewFeatureCategories m_categories;
   Categories m_categoriesList;
@@ -34,14 +33,14 @@ std::string locale()
   self = [super init];
   if (self)
     [self load];
-    
+
   return self;
 }
 
 - (void)initializeList:(osm::NewFeatureCategories::TypeNames const &)types
 {
   m_categoriesList.clear();
-  for (auto const & type : types)
+  for (auto const &type : types)
     m_categoriesList.emplace_back(localisation::TranslatedFeatureType(type), type);
 
   std::sort(m_categoriesList.begin(), m_categoriesList.end());
@@ -50,7 +49,7 @@ std::string locale()
 - (void)initializeRecentCategoriesList:(osm::NewFeatureCategories::TypeNames const &)types
 {
   m_recentCategoriesList.clear();
-  for (auto const & type : types)
+  for (auto const &type : types)
     m_recentCategoriesList.emplace_back(platform::GetLocalizedTypeName(type), type);
 }
 
@@ -60,7 +59,7 @@ std::string locale()
   m_categories.AddLanguage(locale());
   m_categories.AddLanguage("en");
 
-  auto const & types = m_categories.GetAllCreatableTypeNames();
+  auto const &types = m_categories.GetAllCreatableTypeNames();
   m_categoriesList.reserve(types.size());
   m_recentCategoriesList.reserve(types.size());
 
@@ -71,9 +70,9 @@ std::string locale()
 - (void)search:(NSString *)query
 {
   if (query.length == 0)
-    [self initializeList: m_categories.GetAllCreatableTypeNames()];
+    [self initializeList:m_categories.GetAllCreatableTypeNames()];
   else
-    [self initializeList: m_categories.Search([query UTF8String])];
+    [self initializeList:m_categories.Search([query UTF8String])];
 }
 
 - (void)addToRecentCategories:(NSString *)query

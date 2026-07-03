@@ -8,7 +8,7 @@ on:
     paths-ignore:
       - .gitignore
       - .forgejo/**
-      - '!.forgejo/workflows/macos-check.yaml'  # Run check on self change
+      - "!.forgejo/workflows/macos-check.yaml" # Run check on self change
       - CONTRIBUTORS
       - LICENSE
       - NOTICE
@@ -24,7 +24,7 @@ on:
       - libs/platform/*_win*
       - libs/pyhelpers/**
       - tools/**
-      - '!tools/python/test_server/**'
+      - "!tools/python/test_server/**"
       - xcode/**
 
 jobs:

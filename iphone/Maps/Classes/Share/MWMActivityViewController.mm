@@ -11,11 +11,13 @@
 
 @implementation MWMActivityViewController
 
-- (instancetype)initWithActivityItem:(id<UIActivityItemSource>)activityItem {
+- (instancetype)initWithActivityItem:(id<UIActivityItemSource>)activityItem
+{
   return [self initWithActivityItems:@[activityItem]];
 }
 
-- (instancetype)initWithActivityItems:(NSArray *)activityItems {
+- (instancetype)initWithActivityItems:(NSArray *)activityItems
+{
   self = [super initWithActivityItems:activityItems applicationActivities:nil];
   if (self)
     self.excludedActivityTypes = @[
@@ -25,14 +27,16 @@
   return self;
 }
 
-+ (instancetype)shareControllerForMyPosition:(CLLocationCoordinate2D)location {
++ (instancetype)shareControllerForMyPosition:(CLLocationCoordinate2D)location
+{
   MWMShareActivityItem *item = [[MWMShareActivityItem alloc] initForMyPositionAtLocation:location];
   MWMActivityViewController *shareVC = [[self alloc] initWithActivityItem:item];
   shareVC.excludedActivityTypes = [shareVC.excludedActivityTypes arrayByAddingObject:UIActivityTypeAirDrop];
   return shareVC;
 }
 
-+ (instancetype)shareControllerForPlacePage:(PlacePageData *)data {
++ (instancetype)shareControllerForPlacePage:(PlacePageData *)data
+{
   MWMShareActivityItem *item = [[MWMShareActivityItem alloc] initForPlacePage:data];
   MWMActivityViewController *shareVC = [[self alloc] initWithActivityItem:item];
   shareVC.excludedActivityTypes = [shareVC.excludedActivityTypes arrayByAddingObject:UIActivityTypeAirDrop];
@@ -41,11 +45,11 @@
 
 + (instancetype)shareControllerForURL:(NSURL *)url
                               message:(NSString *)message
-                    completionHandler:(UIActivityViewControllerCompletionWithItemsHandler)completionHandler {
+                    completionHandler:(UIActivityViewControllerCompletionWithItemsHandler)completionHandler
+{
   NSMutableArray *items = [NSMutableArray arrayWithObject:message];
-  if (url) {
+  if (url)
     [items addObject:url];
-  }
 
   MWMActivityViewController *shareVC = [[self alloc] initWithActivityItems:items.copy];
   shareVC.excludedActivityTypes = [shareVC.excludedActivityTypes arrayByAddingObject:UIActivityTypePostToFacebook];
@@ -53,7 +57,8 @@
   return shareVC;
 }
 
-- (void)presentInParentViewController:(UIViewController *)parentVC anchorView:(UIView *)anchorView {
+- (void)presentInParentViewController:(UIViewController *)parentVC anchorView:(UIView *)anchorView
+{
   self.ownerViewController = parentVC;
   self.anchorView = anchorView;
   self.popoverPresentationController.sourceView = anchorView;

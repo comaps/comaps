@@ -12,7 +12,6 @@
 <img src="docs/badges/logo.svg" width="150">
 </div>
 
-
 <div align="center">
 <h1><a href="https://comaps.app/">CoMaps</a></h1>
 <h2>Hike, Bike, Drive Offline - Easy Map Navigation with Privacy</h2>
@@ -64,7 +63,6 @@ A community-led free & open source maps app based on [OpenStreetMap](https://www
     <img src="docs/badges/codeberg.png" alt="Codeberg" width="160"/>
   </a>
 </p>
-
 
 <!-- Screenshots -->
 <p align="center">
@@ -120,7 +118,7 @@ A community-led free & open source maps app based on [OpenStreetMap](https://www
 
 - Android Auto and CarPlay support
 
- ***Freedom Is Here – Navigate the world with privacy and community at the forefront.***
+  **_Freedom Is Here – Navigate the world with privacy and community at the forefront._**
 
 ---
 
@@ -128,7 +126,7 @@ A community-led free & open source maps app based on [OpenStreetMap](https://www
 
 You can help by donating, contributing code, translating, or by telling others about it. To build the best maps app there is a need for software development, design, product, community development, and other areas. Reach out to us and let us know how you want to help.
 
-- Build instructions: [docs/INSTALL.md](docs/INSTALL.md)  
+- Build instructions: [docs/INSTALL.md](docs/INSTALL.md)
 - Contribution guide: [docs/CONTRIBUTING.md](docs/CONTRIBUTING.md)
 
 There is a dedicated [Zulip](https://codeberg.org/comaps/Governance/src/branch/main/contribute.md#3-team-messaging) chat for active contributors.
@@ -138,7 +136,7 @@ There is a dedicated [Zulip](https://codeberg.org/comaps/Governance/src/branch/m
 ## 💬 Feedback
 
 - Rate us on [App Store](https://apps.apple.com/app/comaps/id6747180809) and [Google Play](https://play.google.com/store/apps/details?id=app.comaps.google)
-- Star our repos on Codeberg 
+- Star our repos on Codeberg
 - Report bugs or request features on the [issue tracker](https://codeberg.org/comaps/comaps/issues)
 
 ---
@@ -156,6 +154,7 @@ The project's financial information is completely open and transparent at [our O
 The Android app has been reviewed by [Exodus Privacy](https://reports.exodus-privacy.eu.org/en/reports/app.comaps.google/latest/).
 
 To [verify](https://developer.android.com/studio/command-line/apksigner#usage-verify) the APK, use the following signing certificate fingerprints:
+
 ```
 SHA-256: 4894e8e6963627ef660031d8593fe77297f835acb4e23810003e926135023b4c
 SHA-1: 8b7b5739f917e9f7c681671ced0c9c8562123ade
@@ -163,16 +162,17 @@ MD5: 9cce0ffea281dc2f0e0a154d6d2e281e
 ```
 
 To verify CoMaps via [AppVerifier](https://github.com/soupslurpr/AppVerifier), use the following signing certificate fingerprint:
+
 ```
 app.comaps
 48:94:E8:E6:96:36:27:EF:66:00:31:D8:59:3F:E7:72:97:F8:35:AC:B4:E2:38:10:00:3E:92:61:35:02:3B:4C
 ```
+
 ---
 
 ## ⚖️ License
 
 Licensed under the Apache License 2.0.  
-See [LICENSE](LICENSE), [NOTICE](NOTICE), and [data/copyright.html](data/copyright.html). 
+See [LICENSE](LICENSE), [NOTICE](NOTICE), and [data/copyright.html](data/copyright.html).
 
 Our project is completely free and open source software. It had been reviewed by "[is it really FOSS?](https://isitreallyfoss.com/projects/comaps/)" and is listed as 100% FOSS, [see what that means](https://isitreallyfoss.com/about/categorisation/)
-
