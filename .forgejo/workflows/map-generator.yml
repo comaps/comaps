@@ -171,22 +171,43 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=O5M planet is updated for maps generation.'
-      - name: Merge OpenAddresses into TIGER directory
+      - name: Combine TIGER and OpenAddresses
         shell: bash
         run: |
-          OA_ADDR_DIR="/home/planet/open-addresses/addresses"
           TIGER_DIR="/home/planet/tiger"
-          mkdir -p "${TIGER_DIR}"
+          OA_DIR="/home/planet/open-addresses/addresses"
+          ADDR_DIR="/home/planet/addresses"
+
+          rm -rf "${ADDR_DIR}"
+          mkdir -p "${ADDR_DIR}"
+
+          # 1. Copy all TIGER files first
           shopt -s nullglob
-          OA_FILES=("${OA_ADDR_DIR}"/*.tempaddr)
-          if [ ${#OA_FILES[@]} -gt 0 ]; then
-            echo "Merging ${#OA_FILES[@]} OA .tempaddr files into ${TIGER_DIR} ..."
-            cp "${OA_FILES[@]}" "${TIGER_DIR}/"
-            echo "Done. OA regions now available alongside TIGER."
+          TIGER_FILES=("${TIGER_DIR}"/*.tempaddr)
+          if [ ${#TIGER_FILES[@]} -gt 0 ]; then
+            echo "Copying ${#TIGER_FILES[@]} TIGER files ..."
+            cp "${TIGER_FILES[@]}" "${ADDR_DIR}/"
           else
-            echo "No OA address files to merge (${OA_ADDR_DIR} empty or missing)."
-            echo "Falling back to TIGER-only addresses."
+            echo "WARNING: No TIGER files found in ${TIGER_DIR}"
           fi
+
+          # 2. Copy OA files, but skip US_* to avoid overwriting TIGER
+          #    (border regions in e.g. the Canada OA collection produce
+          #     US_*.tempaddr files that would clobber TIGER coverage)
+          OA_SKIPPED=0
+          OA_COPIED=0
+          OA_FILES=("${OA_DIR}"/*.tempaddr)
+          for f in "${OA_FILES[@]}"; do
+            basename=$(basename "${f}")
+            if [[ "${basename}" == US_* ]]; then
+              let "OA_SKIPPED += 1"
+            else
+              cp "${f}" "${ADDR_DIR}/"
+              let "OA_COPIED += 1"
+            fi
+          done
+          echo "OA: ${OA_COPIED} copied, ${OA_SKIPPED} skipped (US_* reserved for TIGER)"
+          echo "Total .tempaddr files in ${ADDR_DIR}: $(find "${ADDR_DIR}" -maxdepth 1 -name '*.tempaddr' | wc -l)"
       - name: Generate maps
         shell: bash
         run: |
