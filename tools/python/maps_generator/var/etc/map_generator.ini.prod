@@ -87,7 +87,7 @@ SUBWAY_URL: file:///home/planet/subway/subways.transit.json
 
 SRTM_PATH: /home/planet/SRTM-patched-europe/
 ISOLINES_PATH: /home/planet/isolines/
-ADDRESSES_PATH: /home/planet/tiger/
+ADDRESSES_PATH: /home/planet/addresses/
 
 # Local path (not url!) to .csv files.
 UK_POSTCODES_URL: /home/planet/postcodes/gb-postcode-data/gb_postcodes.csv
