@@ -171,6 +171,22 @@ jobs:
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
             --data-urlencode 'content=O5M planet is updated for maps generation.'
+      - name: Merge OpenAddresses into TIGER directory
+        shell: bash
+        run: |
+          OA_ADDR_DIR="/home/planet/open-addresses/addresses"
+          TIGER_DIR="/home/planet/tiger"
+          mkdir -p "${TIGER_DIR}"
+          shopt -s nullglob
+          OA_FILES=("${OA_ADDR_DIR}"/*.tempaddr)
+          if [ ${#OA_FILES[@]} -gt 0 ]; then
+            echo "Merging ${#OA_FILES[@]} OA .tempaddr files into ${TIGER_DIR} ..."
+            cp "${OA_FILES[@]}" "${TIGER_DIR}/"
+            echo "Done. OA regions now available alongside TIGER."
+          else
+            echo "No OA address files to merge (${OA_ADDR_DIR} empty or missing)."
+            echo "Falling back to TIGER-only addresses."
+          fi
       - name: Generate maps
         shell: bash
         run: |

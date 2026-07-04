@@ -91,10 +91,10 @@ jobs:
           COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
           ZIP="/home/planet/open-addresses/collection-${COLLECTION_NAME}.zip"
           STAGING_DIR="/home/planet/open-addresses/staging-${COLLECTION_NAME}"
-          DEST_DIR="/home/planet/open-addresses"
+          DEST_DIR="/home/planet/open-addresses/addresses"
           BORDERS_DIR="${HOME}/comaps/data/borders"
 
-          [ -f "${ZIP}" ] || { echo "ERROR: ${ZIP} not found — re-run the workflow to download it" >&2; exit 1; }
+          [ -f "${ZIP}" ] || { echo "ERROR: ${ZIP} not found -- re-run the workflow to download it" >&2; exit 1; }
 
           echo "Backing up previous staging output ..."
           rm -rf "${STAGING_DIR}.bak"
