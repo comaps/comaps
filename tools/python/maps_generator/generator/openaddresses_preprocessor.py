@@ -103,9 +103,8 @@ def _parse_poly(path: str) -> list[list[tuple[float, float]]]:
     """Parse an OSM .poly file into a list of rings.
 
     Each ring is a list of (lon, lat) tuples.  Rings whose index line starts
-    with '!' are holes and are returned as-is (callers decide how to handle
-    them; for point-in-polygon purposes holes are ignored — a point inside a
-    hole is still inside the outer polygon for MWM assignment).
+    with '!' are holes.  Shapely's Polygon.contains() respects holes — a point
+    inside a hole is NOT assigned to that MWM region.
     """
     rings: list[list[tuple[float, float]]] = []
     current: list[tuple[float, float]] | None = None
@@ -158,14 +157,29 @@ class _BorderIndex:
             self._polys.append(Polygon(outer, holes))
 
         self._strtree = STRtree(self._polys)
+        # Pre-compute areas for deterministic tiebreaking: when a point falls in
+        # multiple overlapping polygons, the smaller (more specific) region wins.
+        self._areas: list[float] = [p.area for p in self._polys]
 
     def find(self, lon: float, lat: float) -> str | None:
-        """Return the MWM name for the region containing (lon, lat), or None."""
+        """Return the MWM name for the region containing (lon, lat), or None.
+
+        When a point falls in multiple overlapping polygons (e.g. disputed
+        border regions or nested MWM sub-regions), the polygon with the
+        smallest area is returned — the more specific region wins.  STRtree
+        query results are sorted by area ascending, making the assignment
+        deterministic regardless of filesystem ordering.
+        """
         pt = Point(lon, lat)
-        for idx in self._strtree.query(pt):
-            if self._polys[idx].contains(pt):
-                return self._names[idx]
-        return None
+        candidates = [
+            (self._areas[idx], idx)
+            for idx in self._strtree.query(pt)
+            if self._polys[idx].contains(pt)
+        ]
+        if not candidates:
+            return None
+        candidates.sort(key=lambda x: x[0])
+        return self._names[candidates[0][1]]
 
 
 def _find_address_geojsons(zf: zipfile.ZipFile) -> list[str]:

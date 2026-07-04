@@ -111,7 +111,11 @@ jobs:
           ls -lah "${STAGING_DIR}" | head -20
 
           echo "Copying .tempaddr files to ${DEST_DIR} ..."
-          cp "${STAGING_DIR}"/*.tempaddr "${DEST_DIR}/" 2>/dev/null || true
+          shopt -s nullglob
+          for f in "${STAGING_DIR}"/*.tempaddr; do
+            basename=$(basename "${f}")
+            cp "${f}" "${DEST_DIR}/${basename}.tmp" && mv "${DEST_DIR}/${basename}.tmp" "${DEST_DIR}/${basename}"
+          done
           echo "DONE"
 
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \
