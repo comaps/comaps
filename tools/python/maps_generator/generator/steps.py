@@ -318,8 +318,6 @@ def step_popularity(env: Env, country: AnyStr, **kwargs):
         err=env.get_subprocess_out(country),
         data_path=env.paths.mwm_path,
         user_resource_path=env.paths.user_resource_path,
-        wikipedia_pages=env.paths.descriptions_path,
-        idToWikidata=env.paths.id_to_wikidata_path,
         generate_popular_places=True,
         output=country,
         **kwargs,
