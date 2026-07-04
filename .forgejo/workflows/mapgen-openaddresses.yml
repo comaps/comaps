@@ -90,24 +90,28 @@ jobs:
         run: |
           COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
           ZIP="/home/planet/open-addresses/collection-${COLLECTION_NAME}.zip"
-          OUTPUT_DIR="/home/planet/open-addresses/out-${COLLECTION_NAME}"
+          STAGING_DIR="/home/planet/open-addresses/staging-${COLLECTION_NAME}"
+          DEST_DIR="/home/planet/open-addresses"
           BORDERS_DIR="${HOME}/comaps/data/borders"
 
           [ -f "${ZIP}" ] || { echo "ERROR: ${ZIP} not found — re-run the workflow to download it" >&2; exit 1; }
 
-          echo "Backing up previous output ..."
-          rm -rf "${OUTPUT_DIR}.bak"
-          [ -d "${OUTPUT_DIR}" ] && mv -fT "${OUTPUT_DIR}" "${OUTPUT_DIR}.bak" || true
-          mkdir -p "${OUTPUT_DIR}"
+          echo "Backing up previous staging output ..."
+          rm -rf "${STAGING_DIR}.bak"
+          [ -d "${STAGING_DIR}" ] && mv -fT "${STAGING_DIR}" "${STAGING_DIR}.bak" || true
+          mkdir -p "${STAGING_DIR}" "${DEST_DIR}"
 
           echo "Running preprocessor ..."
           python3 ~/comaps/tools/python/maps_generator/generator/openaddresses_preprocessor.py \
             "${ZIP}" \
-            "${OUTPUT_DIR}" \
+            "${STAGING_DIR}" \
             --borders-dir "${BORDERS_DIR}"
 
           echo "Preprocessor output:"
-          ls -lah "${OUTPUT_DIR}" | head -20
+          ls -lah "${STAGING_DIR}" | head -20
+
+          echo "Copying .tempaddr files to ${DEST_DIR} ..."
+          cp "${STAGING_DIR}"/*.tempaddr "${DEST_DIR}/" 2>/dev/null || true
           echo "DONE"
 
           curl -X POST https://comaps.zulipchat.com/api/v1/messages \
@@ -115,4 +119,4 @@ jobs:
             --data-urlencode type=stream \
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
-            --data-urlencode "content=OpenAddresses preprocessor finished for collection ${COLLECTION_NAME}. Output at ${OUTPUT_DIR}."
+            --data-urlencode "content=OpenAddresses preprocessor finished for collection ${COLLECTION_NAME}. Copied to ${DEST_DIR}."
