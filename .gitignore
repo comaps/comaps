@@ -15,12 +15,16 @@ stxxl.errlog
 stxxl.log
 screenlog.0
 
-# symbols png/sdf are now generated at build
+# Following files are auto-generated at build time via configure.sh
+# ...from data/styles/default/*/symbols/* by tools/unix/generate_symbols.sh
 data/symbols/**/symbols.png
 data/symbols/**/symbols.sdf
-# translations are also generated at build
+# ...from data/translations/* by tools/unix/generate_json_strings.sh
 data/sound-strings/*/localize.json
 data/countries-strings/*/localize.json
+data/categories-strings/*/localize.json
+# ...from data/categories-strings/* by tools/unix/generate_categories.sh
+data/categories.txt
 
 data/bookmarks
 data/edits.xml
@@ -37,9 +41,6 @@ data/patterns.txt*
 data/symbols/*/design/
 data/colors_design.txt
 data/patterns_design.txt
-
-# Auto-generated from data/categories-strings/* by tools/unix/generate_categories.sh
-data/categories.txt
 
 # Compiled Python
 *.pyc
