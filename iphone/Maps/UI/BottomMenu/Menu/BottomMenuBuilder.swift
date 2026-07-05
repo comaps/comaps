@@ -1,5 +1,5 @@
 @objc class BottomMenuBuilder: NSObject {
-  private static let bluetoothDevicesServiceUUID = "00FF"
+  private static let bluetoothDevicesServiceUUID = "00000001-b691-470d-8439-e8a21d4caef5"
 
   @objc static func buildMenu(mapViewController: MapViewController,
                               controlsManager: MWMMapViewControlsManager,
