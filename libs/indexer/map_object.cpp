@@ -23,17 +23,15 @@ using namespace std;
 
 void MapObject::SetFromFeatureType(FeatureType & ft)
 {
-  m_mercator = feature::GetCenter(ft);
-  m_name = ft.GetNames();
-
   Classificator const & cl = classif();
   m_types = feature::TypesHolder(ft);
   m_types.RemoveIf([&cl](uint32_t t) { return !cl.IsTypeValid(t); });
-  // Actually, we can't select object on map with invalid (non-drawable or deprecated) type.
-  // TODO: in android prod a user will see an "empty" PP if a spot is selected in old mwm
-  // where a deprecated feature was; and could crash if play with routing to it, bookmarking it..
-  // A desktop/qt prod segfaults when trying to select such spots.
-  ASSERT(!m_types.Empty(), ());
+  // All types might be either deprecated or unsupported (new maps in old app).
+  if (m_types.Empty())
+    return;
+
+  m_mercator = feature::GetCenter(ft);
+  m_name = ft.GetNames();
 
   m_metadata = ft.GetMetadata();
   m_houseNumber = ft.GetHouseNumber();
@@ -108,7 +106,9 @@ std::string_view MapObject::GetPostcode() const
 
 std::string MapObject::GetLocalizedType() const
 {
-  ASSERT(!m_types.Empty(), ());
+  if (m_types.Empty())
+    return {};
+
   feature::TypesHolder copy(m_types);
   copy.SortBySpec();
 
@@ -117,7 +117,9 @@ std::string MapObject::GetLocalizedType() const
 
 std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
 {
-  ASSERT(!m_types.Empty(), ());
+  if (m_types.Empty())
+    return {};
+
   feature::TypesHolder copy(m_types);
   copy.SortBySpec();
 
@@ -143,7 +145,7 @@ std::string MapObject::GetLocalizedAllTypes(bool withMainType) const
         continue;
       }
     }
-    
+
     // Ignore types that never should be main types
     if ((isMainType || isOnlyTypeTouristAttraction) && isNeverMainTypeChecker(type))
       continue;
@@ -288,7 +290,7 @@ std::string MapObject::GetOrganic() const
     if (isOrganic(type))
       return localisation::TranslatedFeatureType(classif().GetReadableObjectName(type));
   }
-  
+
   return {};
 }
 

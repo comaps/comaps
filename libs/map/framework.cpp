@@ -722,7 +722,13 @@ void Framework::FillPointInfo(place_page::Info & info, m2::PointD const & mercat
   auto const fid = GetFeatureAtPoint(mercator, std::move(matcher));
   if (fid.IsValid())
   {
-    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) { FillInfoFromFeatureType(ft, info); }, fid);
+    m_featuresFetcher.GetDataSource().ReadFeature([&](FeatureType & ft) {
+      FillInfoFromFeatureType(ft, info);
+      // If all types are either deprecated or unsupported (new maps in older app),
+      // then act like its just a map point without features.
+      if (info.GetTypes().Empty())
+        FillNotMatchedPlaceInfo(info, mercator, customTitle);
+    }, fid);
     // This line overwrites mercator center from area feature which can be far away.
     info.SetMercator(mercator);
   }
@@ -751,14 +757,17 @@ void Framework::FillPostcodeInfo(string const & postcode, m2::PointD const & mer
 
 void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & info) const
 {
+  info.SetFromFeatureType(ft);
+  auto const & types = info.GetTypes();
+  if (types.Empty())
+    return;
+
   auto const featureStatus = osm::Editor::Instance().GetFeatureStatus(ft.GetID());
   ASSERT_NOT_EQUAL(featureStatus, FeatureStatus::Deleted, ("Deleted features cannot be selected from UI."));
   info.SetFeatureStatus(featureStatus);
 
-  if (ftypes::IsAddressObjectChecker::Instance()(ft))
+  if (ftypes::IsAddressObjectChecker::Instance()(types))
     info.SetAddress(GetAddressAtPoint(feature::GetCenter(ft)).FormatAddress());
-
-  info.SetFromFeatureType(ft);
 
   FillReviews(ft, info);
   FillDescriptions(ft, info);
@@ -769,7 +778,6 @@ void Framework::FillInfoFromFeatureType(FeatureType & ft, place_page::Info & inf
   info.SetCanEditOrAdd(canEditOrAdd);
 
   // Fill countryId for place page info
-  auto const & types = info.GetTypes();
   bool const isState = ftypes::IsStateChecker::Instance()(types);
   if (isState || ftypes::IsCountryChecker::Instance()(types))
   {
