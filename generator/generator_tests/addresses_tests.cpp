@@ -62,8 +62,11 @@ UNIT_CLASS_TEST(TestWithClassificator, AddressEnricher_TempAddrFormat_Valid)
     w.Write(header, 2);
 
     AddressEnricher::RawEntryBase e;
-    e.m_from = "12A";
-    e.m_to = "12A";
+    // Use a purely non-numeric HN so GetHNRange() returns kInvalidRange
+    // and the alphanumeric path fires without calling Match() (which
+    // requires street data that doesn't exist in this unit test).
+    e.m_from = "A";
+    e.m_to = "A";
     e.m_street = "Test St";
     e.m_postcode = "V1A 1A1";
     e.m_interpol = feature::InterpolType::None;
