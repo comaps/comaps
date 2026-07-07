@@ -67,6 +67,7 @@ BOOL defaultOrientation(CGSize const &size) {
 @property(weak, nonatomic) IBOutlet UIImageView *secondTurnImageView;
 @property(weak, nonatomic) IBOutlet NSLayoutConstraint *turnsWidth;
 @property(nonatomic) NavigationLanesView *lanesView;
+@property(nonatomic) NSLayoutConstraint *lanesViewTrailingOffsetConstraint;
 
 @property(weak, nonatomic) IBOutlet UIView *searchButtonsView;
 @property(weak, nonatomic) IBOutlet MWMButton *searchMainButton;
@@ -352,6 +353,7 @@ BOOL defaultOrientation(CGSize const &size) {
   self.heightConstraint.active = YES;
   self.streetNameTopOffsetConstraint.constant = self.additionalStreetNameTopOffset;
   self.streetNameTrailingOffsetConstraint.constant = (-1 * ov.frame.size.width/2) - 100;
+  self.lanesViewTrailingOffsetConstraint.constant = ov.frame.size.width / 2 - 12;
 }
 
 // Additional spacing for devices with a small top safe area (such as SE or when the device is in landscape mode).
@@ -464,13 +466,17 @@ BOOL defaultOrientation(CGSize const &size) {
   lanesView.translatesAutoresizingMaskIntoConstraints = NO;
   lanesView.hidden = YES;
   [self addSubview:lanesView];
+  NSLayoutConstraint *trailingOffset =
+    [lanesView.trailingAnchor constraintLessThanOrEqualToAnchor:self.trailingAnchor
+                                                       constant:self.superview.frame.size.width / 2 - 12];
   [NSLayoutConstraint activateConstraints:@[
     [lanesView.leadingAnchor constraintEqualToAnchor:self.turnsView.trailingAnchor constant:12],
     [lanesView.topAnchor constraintEqualToAnchor:self.streetNameView.bottomAnchor constant:8],
     [lanesView.heightAnchor constraintEqualToConstant:68],
-    [lanesView.trailingAnchor constraintLessThanOrEqualToAnchor:self.trailingAnchor constant:-12],
+    trailingOffset,
   ]];
   self.lanesView = lanesView;
+  self.lanesViewTrailingOffsetConstraint = trailingOffset;
 }
 
 - (void)setIsVisible:(BOOL)isVisible {

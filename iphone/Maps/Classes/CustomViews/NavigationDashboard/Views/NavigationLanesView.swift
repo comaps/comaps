@@ -65,7 +65,8 @@ final class NavigationLanesView: UIView {
     imageView.tintColor = UIColor.white()
     imageView.contentMode = .scaleAspectFit
     imageView.alpha = isActive ? 1.0 : inactiveLaneAlpha
-    // Keep each lane cell square so the strip width scales with the lane count.
+    imageView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+    imageView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
     let square = imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
     square.priority = .defaultHigh
     square.isActive = true
