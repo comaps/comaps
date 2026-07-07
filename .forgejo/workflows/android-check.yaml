@@ -34,8 +34,8 @@ on:
 jobs:
   lint:
     name: Android Lint
-    runs-on: comaps-android
-    # This currently fails on main.
+    runs-on: comaps-android-large
+    # This still has some lingering errors.
     # Allow failures so that the fail/pass results from CI can be helpful
     # in the assesment of code changes with the workflows that work on main.
     # Let's remove this line after the errors are resolved.
@@ -61,8 +61,8 @@ jobs:
         run: ./gradlew -Pandroidauto=true lint
 
   android-check:
-    name: Build Android Debug
-    runs-on: comaps-android
+    name: Build Android Debug ${{ matrix.flavor }}
+    runs-on: comaps-android-large
     strategy:
       fail-fast: false
       matrix:
@@ -92,7 +92,7 @@ jobs:
           path: data/world_mwm
           key: world-mwm
 
-      - name: Compile ${{ matrix.flavor }}
+      - name: Compile
         shell: bash
         working-directory: android
         env:
@@ -100,7 +100,7 @@ jobs:
           CMAKE_CXX_COMPILER_LAUNCHER: ccache
         run: ./gradlew -P${{ matrix.arch }} assemble${{ matrix.flavor }}
 
-      - name: Upload ${{ matrix.flavor }} apk
+      - name: Upload apk
         uses: actions/upload-artifact@v3
         with:
           name: android-${{ matrix.flavor }}
