@@ -467,8 +467,13 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
   std::atomic<uint32_t> missing = 0;
 
   /// @see Addr_Street_Place test for checking constants.
-  double constexpr kStreetRadiusM = 2000;
-  double constexpr kPlaceRadiusM = 4000;
+  /// TIGER address data (US only) needs a wide search radius: its segment
+  /// endpoints can be far from the matched OSM street geometry. OA and
+  /// OSM-native addresses have precise coordinates and only need a tight radius.
+  auto const mwmName = base::FileNameFromFullPath(container.GetFileName());
+  bool const hasTiger = mwmName.starts_with("US_");
+  double const kStreetRadiusM = hasTiger ? 2000.0 : 200.0;
+  double const kPlaceRadiusM = hasTiger ? 4000.0 : 200.0;
 
   std::vector<uint32_t> streets(featuresCount, kInvalidFeatureId);
   std::vector<uint32_t> places(featuresCount, kInvalidFeatureId);
