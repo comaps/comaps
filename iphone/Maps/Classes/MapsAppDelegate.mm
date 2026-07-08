@@ -5,6 +5,8 @@
 #import "MWMCoreRouterType.h"
 #import "MWMFrameworkListener.h"
 #import "MWMFrameworkObservers.h"
+#import "MWMKeyboard.h"
+#import "MWMLocationManager.h"
 #import "MWMMapViewControlsManager.h"
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRouter.h"
@@ -22,6 +24,8 @@
 
 #import <CoreApi/Framework.h>
 #import <CoreApi/MWMFrameworkHelper.h>
+
+#include "map/gps_tracker.hpp"
 
 #include "platform/background_downloader_ios.h"
 #include "platform/http_thread_apple.h"
@@ -57,11 +61,11 @@ void InitLocalizedStrings() {
 }  // namespace
 
 
-@interface MapsAppDelegate () <MWMStorageObserver,
-                               CPApplicationDelegate>
+@interface MapsAppDelegate () <MWMStorageObserver>
 
 @property(nonatomic) NSInteger standbyCounter;
 @property(nonatomic) MWMBackgroundFetchScheduler *backgroundFetchScheduler;
+@property(nonatomic, nullable) MWMNavigationController * mapNavigationController;
 
 @end
 
@@ -101,6 +105,7 @@ void InitLocalizedStrings() {
   [UIApplication.sharedApplication setMinimumBackgroundFetchInterval:minimumBackgroundFetchIntervalInSeconds];
   [self updateApplicationIconBadgeNumber];
   [TrackRecordingManager.shared setup];
+  [self startObservingLifecycle];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -132,6 +137,14 @@ void InitLocalizedStrings() {
 - (UISceneConfiguration *)application:(UIApplication *)application
   configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession
                                  options:(UISceneConnectionOptions *)options {
+  if ([connectingSceneSession.role isEqualToString:CPTemplateApplicationSceneSessionRoleApplication]) {
+    return [[UISceneConfiguration alloc] initWithName:@"CarPlay Configuration"
+                                          sessionRole:connectingSceneSession.role];
+  }
+  if ([connectingSceneSession.role isEqualToString:CPTemplateApplicationDashboardSceneSessionRoleApplication]) {
+    return [[UISceneConfiguration alloc] initWithName:@"CarPlay Dashboard Configuration"
+                                          sessionRole:connectingSceneSession.role];
+  }
   return [[UISceneConfiguration alloc] initWithName:@"Default Configuration"
                                         sessionRole:connectingSceneSession.role];
 }
@@ -154,8 +167,62 @@ void InitLocalizedStrings() {
   DeleteFramework();
 }
 
-- (void)handleDidEnterBackground {
-  LOG(LINFO, ("handleDidEnterBackground - begin"));
+#pragma mark - Application lifecycle
+
+- (void)startObservingLifecycle {
+  NSNotificationCenter * center = NSNotificationCenter.defaultCenter;
+  [center addObserver:self selector:@selector(appDidActivate) name:UIApplicationDidBecomeActiveNotification object:nil];
+  [center addObserver:self selector:@selector(appWillDeactivate) name:UIApplicationWillResignActiveNotification object:nil];
+  [center addObserver:self selector:@selector(appWillForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+  [center addObserver:self selector:@selector(appDidBackground) name:UIApplicationDidEnterBackgroundNotification object:nil];
+}
+
+- (void)appDidActivate {
+  LOG(LINFO, ("appDidActivate - begin"));
+  auto & f = GetFramework();
+  f.EnterForeground();
+  [self.mapViewController onGetFocus:YES];
+  f.SetRenderingEnabled();
+  [MWMLocationManager applicationDidBecomeActive];
+  [MWMSearch addCategoriesToSpotlight];
+  [MWMKeyboard applicationDidBecomeActive];
+  [MWMTextToSpeech applicationDidBecomeActive];
+  LOG(LINFO, ("appDidActivate - end"));
+}
+
+- (void)appWillDeactivate {
+  LOG(LINFO, ("appWillDeactivate - begin"));
+  [self.mapViewController onGetFocus:NO];
+  GetFramework().SetRenderingDisabled(false);
+  [MWMLocationManager applicationWillResignActive];
+  GetFramework().EnterBackground();
+  LOG(LINFO, ("appWillDeactivate - end"));
+}
+
+- (void)appWillForeground {
+  LOG(LINFO, ("appWillForeground - begin"));
+  if (!GpsTracker::Instance().IsEnabled())
+    return;
+
+  MWMViewController * topVc =
+      static_cast<MWMViewController *>(self.mapViewController.navigationController.topViewController);
+  if (![topVc isKindOfClass:[MWMViewController class]])
+    return;
+
+  if ([MWMSettings isTrackWarningAlertShown])
+    return;
+
+  [topVc.alertController presentTrackWarningAlertWithCancelBlock:^{
+    GpsTracker::Instance().SetEnabled(false);
+  }];
+
+  [MWMSettings setTrackWarningAlertShown:YES];
+  LOG(LINFO, ("appWillForeground - end"));
+}
+
+- (void)appDidBackground {
+  LOG(LINFO, ("appDidBackground - begin"));
+  [DeepLinkHandler.shared reset];
   if (m_activeDownloadsCounter) {
     UIApplication * app = UIApplication.sharedApplication;
     m_backgroundTask = [app beginBackgroundTaskWithExpirationHandler:^{
@@ -168,7 +235,7 @@ void InitLocalizedStrings() {
   [self runBackgroundTasks:tasks completionHandler:nil];
 
   [MWMRouter saveRouteIfNeeded];
-  LOG(LINFO, ("handleDidEnterBackground - end"));
+  LOG(LINFO, ("appDidBackground - end"));
 }
 
 // TODO: Drape enabling and iCloud sync are skipped during the test run due to the app crashing in teardown. This is a temporary solution. Drape should be properly disabled instead of merely skipping the enabling process.
@@ -250,25 +317,23 @@ void InitLocalizedStrings() {
 
 #pragma mark - Properties
 
-- (SceneDelegate *)activeSceneDelegate {
-  for (UIScene * scene in UIApplication.sharedApplication.connectedScenes) {
-    if ([scene.delegate isKindOfClass:[SceneDelegate class]])
-      return (SceneDelegate *)scene.delegate;
-  }
-  return nil;
+- (UIWindow *)window {
+  return self.activeSceneDelegate.window;
 }
 
-- (UIWindow *)window {
-  return [self activeSceneDelegate].window;
+- (MWMNavigationController *)ensureMapNavigationController {
+  if (!self.mapNavigationController)
+    self.mapNavigationController =
+      (MWMNavigationController *)[[UIStoryboard instance:MWMStoryboardMain] instantiateInitialViewController];
+  return self.mapNavigationController;
 }
 
 - (MapViewController *)mapViewController {
-  UIWindow * window = [self activeSceneDelegate].window;
-  for (id vc in [(UINavigationController *)window.rootViewController viewControllers]) {
+  // Nil until the map stack is created by the first connecting scene (phone or CarPlay).
+  for (id vc in self.mapNavigationController.viewControllers) {
     if ([vc isKindOfClass:[MapViewController class]])
       return vc;
   }
-  NSAssert(false, @"Please check the logic");
   return nil;
 }
 
@@ -332,20 +397,6 @@ void InitLocalizedStrings() {
     return NO;
 
   return YES;
-}
-
-#pragma mark - CPApplicationDelegate implementation
-
-- (void)application:(UIApplication *)application
-  didConnectCarInterfaceController:(CPInterfaceController *)interfaceController
-           toWindow:(CPWindow *)window API_AVAILABLE(ios(12.0)) {
-  [self.carplayService setupWithWindow:window interfaceController:interfaceController];
-}
-
-- (void)application:(UIApplication *)application
-  didDisconnectCarInterfaceController:(CPInterfaceController *)interfaceController
-                           fromWindow:(CPWindow *)window API_AVAILABLE(ios(12.0)) {
-  [self.carplayService destroy];
 }
 
 @end

@@ -124,6 +124,9 @@ BOOL keepRunningInBackground()
   if (GpsTracker::Instance().IsEnabled())
     return YES;
 
+  if ([MWMCarPlayService shared].isHostingMapOnCarScreen)
+    return YES;
+
   auto const isOnRoute = [MWMRouter isOnRoute];
   auto const isRouteFinished = [MWMRouter isRouteFinished];
   if (isOnRoute && !isRouteFinished)
@@ -218,19 +221,31 @@ void setShowLocationAlert(BOOL needShow) {
 
 #pragma mark - App Life Cycle
 
++ (void)applyBackgroundLocationUpdatesPolicy
+{
+  CLLocationManager * locationManager = [self manager].locationManager;
+  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
+    [locationManager setAllowsBackgroundLocationUpdates:keepRunningInBackground()];
+}
+
 + (void)applicationDidBecomeActive
 {
   [self start];
+  [self applyBackgroundLocationUpdatesPolicy];
 }
 
 + (void)applicationWillResignActive
 {
-  BOOL const keepRunning = keepRunningInBackground();
-  MWMLocationManager * manager = [self manager];
-  CLLocationManager * locationManager = manager.locationManager;
-  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
-    [locationManager setAllowsBackgroundLocationUpdates:keepRunning];
-  manager.started = keepRunning;
+  [self applyBackgroundLocationUpdatesPolicy];
+  [self manager].started = keepRunningInBackground();
+}
+
++ (void)reapplyBackgroundLocationPolicy
+{
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
+    return;
+  [self applyBackgroundLocationUpdatesPolicy];
+  [self manager].started = keepRunningInBackground();
 }
 
 #pragma mark - Getters

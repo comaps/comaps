@@ -185,8 +185,8 @@ final class CarPlayMapViewController: MWMViewController {
   }
 
   private func updateVisibleViewPort(frame: CGRect) {
-    guard CarPlayService.shared.isCarplayActivated else { return }
-    FrameworkHelper.setVisibleViewport(frame, scaleFactor: mapView?.contentScaleFactor ?? 1)
+    guard CarPlayService.shared.isCarplayActivated, let mapView else { return }
+    FrameworkHelper.setVisibleViewport(frame, scaleFactor: mapView.contentScaleFactor)
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
