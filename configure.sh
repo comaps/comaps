@@ -119,9 +119,7 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   link_or_copy() {
     local target=$1 link=$2
     rm -f "$link"
-    if ln -s "$target" "$link" 2>/dev/null; then
-      : # symlink succeeded
-    else
+    if ! ln -s "$target" "$link" 2>/dev/null; then
       cp "$target" "$link"
     fi
   }

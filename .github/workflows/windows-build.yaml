@@ -64,9 +64,9 @@ jobs:
         with:
           arch: x64
 
-      - name: Install optipng, NSIS, and Python protobuf
+      - name: Install zlib, optipng, NSIS, and Python protobuf
         run: |
-          choco install optipng nsis -y
+          choco install zlib optipng nsis -y
           pip install "protobuf>=3.20,<4.0"
 
       - name: Configure repository
@@ -326,7 +326,7 @@ jobs:
           # The InstallerUrl/InstallerSha256 substitutions are no-ops on files that lack those keys.
           for f in winget-templates/CoMaps*.yaml; do
             sed \
-              -e "s|^PackageVersion:.*|PackageVersion: ${version}|" \
+              -e "s|^PackageVersion:.*|PackageVersion: \"${version}\"|" \
               -e "s|InstallerUrl:.*|InstallerUrl: ${base_url}/${installer}|" \
               -e "s|InstallerSha256:.*|InstallerSha256: ${installer_sha256}|" \
               "$f" > "$(basename "$f")"

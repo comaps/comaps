@@ -154,6 +154,7 @@ Native Windows builds are supported using MSVC and Qt 6.
   pip install "protobuf<4.0"
   ```
 - [Git for Windows](https://git-scm.com/download/win) with Git Bash available in PATH
+- [zlib](https://chocolatey.org/packages/zlib) via Chocolatey: `choco install zlib`
 - PATH set properly for the above, like `PATH=C:\Qt\<version>\msvc2022_64\bin;%LOCALAPPDATA%\Programs\Python\Python313;%LOCALAPPDATA%\Programs\Python\Python313\Scripts;%PATH%`
 
 #### Building
