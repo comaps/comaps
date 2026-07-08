@@ -1577,18 +1577,12 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetAutoZoomEnabl
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetTransitSchemeEnabled(JNIEnv * env, jclass,
                                                                                         jboolean enabled)
 {
-  if (enabled)
-  {
-    frm()->SwitchToMapMode(MapMode::PublicTransport);
-  }
-  else {
-    frm()->SwitchToMapMode(MapMode::Walking);
-  }
+  frm()->PublicTransportMapModeSetTransitLines(static_cast<bool>(enabled));
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsTransitSchemeEnabled(JNIEnv * env, jclass)
 {
-  return static_cast<jboolean>(frm()->CurrentMapMode() == MapMode::PublicTransport);
+  return static_cast<jboolean>(frm()->PublicTransportMapModeHasTransitLines());
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetIsolinesLayerEnabled(JNIEnv * env, jclass,

@@ -135,6 +135,12 @@ std::string_view constexpr kPreferredGraphicsAPI = "PreferredGraphicsAPI";
 std::string_view constexpr kShowDebugInfo = "DebugInfo";
 std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
+// Old (pre-modes) settings keys, kept for backward-compatible fallback reads.
+std::string_view constexpr kOldTrafficEnabledKey = "TrafficEnabled";
+std::string_view constexpr kOldTransitSchemeEnabledKey = "TransitSchemeEnabled";
+std::string_view constexpr kOldIsolinesEnabledKey = "IsolinesEnabled";
+std::string_view constexpr kOldOutdoorsEnabledKey = "OutdoorsEnabled";
+
 auto constexpr kLargeFontsScaleFactor = 1.6;
 size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
 double constexpr kCloseDistance = 1.0;
@@ -2690,6 +2696,8 @@ void Framework::SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRe
       }
       break;
   default:
+      LOG(LWARNING, ("SwitchToMapMode: unrecognized MapMode value, defaulting to Walking. "
+                     "MapMode enum value:", static_cast<int>(mapMode)));
       mapModeValue = "Walking";
       if (MapStyleIsDark(mapStyle))
       {
@@ -2718,7 +2726,20 @@ void Framework::SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRe
 MapMode Framework::CurrentMapMode()
 {
   string mapModeValue = "Default";
-  UNUSED_VALUE(settings::Get(kMapModeKey, mapModeValue));
+  if (!settings::Get(kMapModeKey, mapModeValue))
+  {
+    // Fall back to old MapStyleKeyV1 to derive the initial mode.
+    string oldStyle;
+    if (settings::Get(kMapStyleKey, oldStyle) && !oldStyle.empty())
+    {
+      if (oldStyle.find("Cycling") != string::npos)
+        mapModeValue = "Cycling";
+      else if (oldStyle.find("Driving") != string::npos)
+        mapModeValue = "Driving";
+      else if (oldStyle.find("PublicTransport") != string::npos)
+        mapModeValue = "PublicTransport";
+    }
+  }
 
   MapMode mapMode = MapMode::Walking;
   if (mapModeValue == "Cycling")
@@ -2744,7 +2765,8 @@ bool Framework::CurrentMapModeHasTransitLines()
 bool Framework::DrivingMapModeHasTraffic()
 {
   bool hasTraffic;
-  if (!settings::Get(kMapModeDrivingTrafficKey, hasTraffic))
+  if (!settings::Get(kMapModeDrivingTrafficKey, hasTraffic) &&
+      !settings::Get(kOldTrafficEnabledKey, hasTraffic))
     hasTraffic = false;
   return hasTraffic;
 }
@@ -2761,7 +2783,8 @@ void Framework::DrivingMapModeSetTraffic(bool const hasTraffic)
 bool Framework::PublicTransportMapModeHasTransitLines()
 {
   bool hasTransitLines;
-  if (!settings::Get(kMapModePublicTransportTransitLinesKey, hasTransitLines))
+  if (!settings::Get(kMapModePublicTransportTransitLinesKey, hasTransitLines) &&
+      !settings::Get(kOldTransitSchemeEnabledKey, hasTransitLines))
     hasTransitLines = true;
   return hasTransitLines;
 }
@@ -2793,7 +2816,8 @@ void Framework::RefreshForMapMode()
 bool Framework::HasOutdoorLayer()
 {
   bool hasOutdoorLayer;
-  if (!settings::Get(kOutdoorKey, hasOutdoorLayer))
+  if (!settings::Get(kOutdoorKey, hasOutdoorLayer) &&
+      !settings::Get(kOldOutdoorsEnabledKey, hasOutdoorLayer))
     hasOutdoorLayer = false;
   return hasOutdoorLayer;
 }
@@ -2819,7 +2843,8 @@ void Framework::SetOutdoorLayer(bool const hasOutdoorLayer)
 bool Framework::HasContourLinesLayer()
 {
   bool hasContourLines;
-  if (!settings::Get(kContourLinesKey, hasContourLines))
+  if (!settings::Get(kContourLinesKey, hasContourLines) &&
+      !settings::Get(kOldIsolinesEnabledKey, hasContourLines))
     hasContourLines = false;
   return hasContourLines;
 }
@@ -2944,6 +2969,18 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
     mapAppearance = MapAppearance::Dark;
     isUsingVehicleStyle = true;
   }
+  else if (query == "?olight" || query == "mapstyle:outdoors_light")
+  {
+    mapAppearance = MapAppearance::Light;
+    isUsingVehicleStyle = false;
+    SetOutdoorLayer(true);
+  }
+  else if (query == "?odark" || query == "mapstyle:outdoors_dark")
+  {
+    mapAppearance = MapAppearance::Dark;
+    isUsingVehicleStyle = false;
+    SetOutdoorLayer(true);
+  }
 
   SwitchToMapAppearance(mapAppearance);
   SwitchToUsingVehicleStyle(isUsingVehicleStyle);
@@ -2956,6 +2993,26 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   if (query == "?no-aa" || query == "effect:no-antialiasing")
   {
     m_drapeEngine->SetPosteffectEnabled(df::PostprocessRenderer::Antialiasing, false /* enabled */);
+    return true;
+  }
+  if (query == "?scheme")
+  {
+    PublicTransportMapModeSetTransitLines(true);
+    return true;
+  }
+  if (query == "?no-scheme")
+  {
+    PublicTransportMapModeSetTransitLines(false);
+    return true;
+  }
+  if (query == "?isolines")
+  {
+    SetContourLinesLayer(true);
+    return true;
+  }
+  if (query == "?no-isolines")
+  {
+    SetContourLinesLayer(false);
     return true;
   }
   if (query == "?debug-info")

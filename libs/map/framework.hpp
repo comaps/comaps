@@ -309,7 +309,7 @@ public:
   /// If the vehicle style is being used
   bool IsUsingVehicleStyle();
 
-  /// Set i the vehicle style is being used
+  /// Set if the vehicle style is being used
   void SwitchToUsingVehicleStyle(bool const shouldUseVehicleStyle);
 
   df::DrapeApi & GetDrapeApi() { return m_drapeApi; }
