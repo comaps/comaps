@@ -1664,14 +1664,20 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetTransitScheme
                                                                                         jboolean enabled)
 {
   if (enabled)
+  {
     frm()->SwitchToMapMode(MapMode::PublicTransport);
+    frm()->PublicTransportMapModeSetTransitLines(true);
+  }
   else
+  {
+    frm()->PublicTransportMapModeSetTransitLines(false);
     frm()->SwitchToMapMode(MapMode::Default);
+  }
 }
 
 JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeIsTransitSchemeEnabled(JNIEnv * env, jclass)
 {
-  return static_cast<jboolean>(frm()->CurrentMapMode() == MapMode::PublicTransport);
+  return static_cast<jboolean>(frm()->PublicTransportMapModeHasTransitLines());
 }
 
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetIsolinesLayerEnabled(JNIEnv * env, jclass,

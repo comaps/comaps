@@ -21,7 +21,6 @@ public enum ThemeSwitcher
   INSTANCE;
 
   private static final long CHECK_INTERVAL_MS = 30 * 60 * 1000;
-  private static boolean mRendererActive = false;
 
   private final Runnable mAutoThemeChecker = new Runnable() {
     @Override
@@ -57,9 +56,7 @@ public enum ThemeSwitcher
   }
 
   /**
-   * Changes the UI theme of application and the map style if necessary. If the contract regarding
-   * the input parameter is broken, the UI will be frozen during attempting to change the map style
-   * through the synchronous method {@link MapAppearance#set(MapAppearance)}.
+   * Changes the UI theme of application and the map style if necessary.
    *
    * @param isRendererActive Indicates whether OpenGL renderer is active or not. Must be
    *                         <code>true</code> only if the map is rendered and visible on the screen
@@ -68,7 +65,6 @@ public enum ThemeSwitcher
   @androidx.annotation.UiThread
   public void restart(boolean isRendererActive)
   {
-    mRendererActive = isRendererActive;
     String theme = Config.UiTheme.getUiThemeSettings();
     if (ThemeUtils.isAutoTheme() || ThemeUtils.isNavAutoTheme())
     {
