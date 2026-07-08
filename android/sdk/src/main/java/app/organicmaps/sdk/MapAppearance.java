@@ -31,7 +31,7 @@ public enum MapAppearance
       if (mapAppearance.value == value)
         return mapAppearance;
     }
-    throw new IllegalArgumentException("Unknown map appearancde value: " + value);
+    throw new IllegalArgumentException("Unknown map appearance value: " + value);
   }
 
   private final int value;
