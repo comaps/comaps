@@ -44,8 +44,10 @@ final class CarPlayService: NSObject {
   private var mapHost: MapHost = .none
 
   private var rootTemplateDidAppear = false
+  private var hasAppliedDefaultCarZoom = false
   private var hasEngagedInitialCarFollow = false
   private func resetCarSessionDefaults() {
+    hasAppliedDefaultCarZoom = false
     hasEngagedInitialCarFollow = false
   }
   private weak var dashboardWindow: UIWindow?
@@ -390,6 +392,7 @@ final class CarPlayService: NSObject {
     if desired == .phone || desired == .none {
       resetCarSessionDefaults()
     }
+    applyDefaultCarZoomIfNeeded()
     engageInitialCarFollowIfNeeded(currentPositionMode)
     logStateSnapshot("after map host switch")
   }
@@ -448,6 +451,19 @@ final class CarPlayService: NSObject {
   private func refreshMyPositionModeButton() {
     guard let rootMapTemplate else { return }
     MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
+  }
+
+  /// Set default zoom to 15 on car screens
+  private static let kDefaultCarZoomLevel: Int32 = 15
+
+  private func applyDefaultCarZoomIfNeeded() {
+    guard !hasAppliedDefaultCarZoom,
+          mapHost == .carplay || mapHost == .dashboard,
+          !MWMRouter.isRoutingActive(),
+          currentPositionMode == .follow || currentPositionMode == .followAndRotate
+    else { return }
+    hasAppliedDefaultCarZoom = true
+    FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
   }
 
   private func engageInitialCarFollowIfNeeded(_ mode: MWMMyPositionMode) {
@@ -1031,6 +1047,7 @@ extension CarPlayService: CarPlayRouterListener {
 extension CarPlayService: LocationModeListener {
   func processMyPositionStateModeEvent(_ mode: MWMMyPositionMode) {
     currentPositionMode = mode
+    applyDefaultCarZoomIfNeeded()
     engageInitialCarFollowIfNeeded(mode)
 
     // make sure we have a rootMapTemplate

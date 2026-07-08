@@ -10,6 +10,8 @@
 #include "platform/local_country_file_utils.hpp"
 #include "platform/network_policy_ios.h"
 
+#include <cmath>
+
 @implementation MWMFrameworkHelper
 
 + (void)processFirstLaunch:(BOOL)hasLocation {
@@ -117,6 +119,14 @@
       GetFramework().Scale(Framework::SCALE_MIN, true);
       break;
   }
+}
+
++ (void)setZoomLevel:(int)zoomLevel animated:(BOOL)isAnimated {
+  auto & f = GetFramework();
+  int const currentZoomLevel = f.GetDrawScale();
+  if (currentZoomLevel == zoomLevel)
+    return;
+  f.Scale(std::pow(2.0, zoomLevel - currentZoomLevel), isAnimated);
 }
 
 + (void)moveMap:(UIOffset)offset {
