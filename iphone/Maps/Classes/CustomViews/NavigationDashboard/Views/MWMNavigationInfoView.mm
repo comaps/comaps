@@ -249,7 +249,13 @@ BOOL defaultOrientation(CGSize const &size) {
     return;
   if (info.streetName.length != 0) {
     [self setStreetNameVisible:YES];
-    self.streetNameLabel.text = info.streetName;
+    NSAttributedString * attributed =
+        [info attributedInstructionForTextSize:self.streetNameLabel.font.pointSize
+                                     textColor:self.streetNameLabel.textColor];
+    if (attributed.length != 0)
+      self.streetNameLabel.attributedText = attributed;
+    else
+      self.streetNameLabel.text = info.streetName;
   } else {
     [self setStreetNameVisible:NO];
   }

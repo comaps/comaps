@@ -200,6 +200,107 @@ final class NavigationInstructionFormatter: NSObject {
       .filter { !$0.isEmpty && seen.insert($0).inserted }
       .sorted { $0.count > $1.count }
   }
+
+  /// Builds an attributed turn instruction with inline drawn road shields, mirroring Android's
+  /// `RoadShieldUtils.composeInstruction`. Falls back to `nextStreet` when there is nothing to compose.
+  ///
+  /// - Parameter textSize: point size of the destination label; shields are drawn slightly smaller.
+  /// - Parameter textColor: color for the plain text runs, or `nil` to inherit the label's own color.
+  @objc static func attributedInstruction(nextStreet: String,
+                                          roadName: String,
+                                          roadRef: String,
+                                          junctionRef: String,
+                                          destinationRef: String,
+                                          destination: String,
+                                          isLink: Bool,
+                                          isLeftHandTraffic: Bool,
+                                          shields: RoadShieldInfo?,
+                                          textSize: CGFloat,
+                                          textColor: UIColor?) -> NSAttributedString {
+    if roadName.isEmpty && roadRef.isEmpty && junctionRef.isEmpty && destinationRef.isEmpty && destination.isEmpty {
+      return NSAttributedString(string: nextStreet)
+    }
+
+    let textAttributes: [NSAttributedString.Key: Any] = textColor.map { [.foregroundColor: $0] } ?? [:]
+    let result = NSMutableAttributedString()
+    let shieldTextSize = textSize * 0.85
+    // Font matching the destination label, used to vertically center shields on the text line.
+    let lineFont = UIFont.boldSystemFont(ofSize: textSize)
+
+    func appendText(_ string: String) {
+      result.append(NSAttributedString(string: string, attributes: textAttributes))
+    }
+
+    func appendShields(_ list: [RoadShield], isJunction: Bool) {
+      for (i, shield) in list.enumerated() {
+        if i > 0 {
+          appendText(" ")
+        }
+        let image = RoadShieldRenderer.image(for: shield, textSize: shieldTextSize, drawOutline: true,
+                                             isJunction: isJunction, isLeftHandTraffic: isLeftHandTraffic)
+        let attachment = NSTextAttachment()
+        attachment.image = image
+        // Center the shield on the font's cap-height midline (bounds.origin.y offsets the image's
+        // bottom from the baseline) so it aligns with the surrounding text.
+        let yOffset = lineFont.capHeight / 2.0 - image.size.height / 2.0
+        attachment.bounds = CGRect(x: 0, y: yOffset, width: image.size.width, height: image.size.height)
+        result.append(NSAttributedString(attachment: attachment))
+      }
+    }
+
+    let hasExitInfo = !junctionRef.isEmpty || !destinationRef.isEmpty || !destination.isEmpty
+
+    // These follow roughly the same rules as GetFullRoadName in routing_session.cpp.
+    if isLink || hasExitInfo {
+      if !junctionRef.isEmpty {
+        if let shields, shields.hasJunctionRoadShields {
+          appendShields(shields.junctionRoadShields, isJunction: true)
+        } else {
+          appendText(junctionRef)
+        }
+      }
+
+      if !destinationRef.isEmpty {
+        if result.length > 0 {
+          appendText(": ")
+        }
+        if let shields, shields.hasTargetRoadShields {
+          appendShields(shields.targetRoadShields, isJunction: false)
+        } else {
+          appendText(destinationRef)
+        }
+      }
+
+      if !destination.isEmpty {
+        if result.length > 0 {
+          appendText("\n")
+        }
+        let parts = destination.split(separator: ";").map { $0.trimmingCharacters(in: .whitespaces) }
+        appendText(parts.joined(separator: " / "))
+      } else if !roadName.isEmpty {
+        if result.length > 0 {
+          appendText(" ")
+        }
+        appendText(roadName)
+      }
+    } else {
+      if !roadRef.isEmpty, let shields, shields.hasTargetRoadShields {
+        appendShields(shields.targetRoadShields, isJunction: false)
+      }
+      if !roadName.isEmpty {
+        if result.length > 0 {
+          appendText(" ")
+        }
+        appendText(roadName)
+      }
+    }
+
+    if result.length == 0 {
+      return NSAttributedString(string: nextStreet)
+    }
+
+    return result
+  }
 }
 
 @objc(MWMRouteInfo)

@@ -13,6 +13,8 @@
 #include "routing/lanes/lane_info.hpp"
 #include "routing/turns.hpp"
 
+#include "indexer/road_shields_parser.hpp"
+
 #include "map/routing_manager.hpp"
 
 #include "platform/location.hpp"
@@ -109,6 +111,75 @@ NSArray<MWMLaneInfo *> *buildLanes(routing::turns::lanes::LanesInfo const & info
   }
   return lanes;
 }
+
+// Collapse the full ftypes::RoadShieldType set into the few styles the UI renders.
+// Keep in sync with android/.../roadshield/RoadShieldType.cpp and the MWMRoadShieldType enum.
+MWMRoadShieldType roadShieldType(ftypes::RoadShieldType type) {
+  using enum ftypes::RoadShieldType;
+  switch (type) {
+    case Default:
+    case Hidden:
+    case Count:
+    case Generic_White:
+    case Generic_White_Bordered:
+    case Generic_Pill_White:
+    case Generic_Pill_White_Bordered:
+    // No dedicated grey style; fall back to the neutral white shield.
+    case Generic_Grey:
+    case Generic_Grey_Bordered:
+    // Brazilian federal (BR) and state road shields are white.
+    case Brazil_National:
+    case Brazil_State: return MWMRoadShieldTypeGenericWhite;
+    case Generic_Green:
+    case Generic_Green_Bordered:
+    case Generic_Pill_Green:
+    case Generic_Pill_Green_Bordered:
+    case Highway_Hexagon_Green:
+    case Italy_Autostrada:
+    case Hungary_Green: return MWMRoadShieldTypeGenericGreen;
+    case Generic_Blue:
+    case Generic_Blue_Bordered:
+    case Generic_Pill_Blue:
+    case Generic_Pill_Blue_Bordered:
+    case Highway_Hexagon_Blue:
+    case Highway_Hexagon_Turkey:
+    case UY_National:
+    case Hungary_Blue:
+    case Argentina_RN:
+    case Bolivia_Fundamental: return MWMRoadShieldTypeGenericBlue;
+    case Generic_Red:
+    case Generic_Red_Bordered:
+    case Generic_Pill_Red:
+    case Generic_Pill_Red_Bordered:
+    case Highway_Hexagon_Red: return MWMRoadShieldTypeGenericRed;
+    case Generic_Orange:
+    case Generic_Orange_Bordered:
+    case Generic_Pill_Orange:
+    case Generic_Pill_Orange_Bordered: return MWMRoadShieldTypeGenericOrange;
+    case US_Interstate: return MWMRoadShieldTypeUsInterstate;
+    case US_Highway: return MWMRoadShieldTypeUsHighway;
+    case UK_Highway: return MWMRoadShieldTypeUkHighway;
+  }
+  return MWMRoadShieldTypeGenericWhite;
+}
+
+NSArray<MWMRoadShield *> *buildRoadShields(ftypes::RoadShieldsSetT const & shields) {
+  NSMutableArray<MWMRoadShield *> * result = [NSMutableArray arrayWithCapacity:shields.size()];
+  for (auto const & shield : shields) {
+    // GetRoadShieldDisplayText restores any network prefix that would otherwise be drawn into the
+    // symbol graphic (e.g. Brazilian "BR"), so the whole reference is drawn inside the generic shield.
+    NSString * text = @(ftypes::GetRoadShieldDisplayText(shield).c_str());
+    [result addObject:[[MWMRoadShield alloc] initWithType:roadShieldType(shield.m_type) text:text]];
+  }
+  return result;
+}
+
+MWMRoadShieldInfo *buildRoadShieldInfo(routing::FollowingInfo::RoadShieldInfo const & info) {
+  if (info.m_targetRoadShields.empty() && info.m_junctionRoadShields.empty())
+    return nil;
+  return [[MWMRoadShieldInfo alloc] initWithTargetRoadShields:buildRoadShields(info.m_targetRoadShields)
+                                         junctionRoadShields:buildRoadShields(info.m_junctionRoadShields)];
+}
 }  // namespace
 
 @interface MWMNavigationDashboardEntity ()
@@ -117,6 +188,14 @@ NSArray<MWMLaneInfo *> *buildLanes(routing::turns::lanes::LanesInfo const & info
 @property(copy, nonatomic, readwrite) NSArray<MWMLaneInfo *> * lanes;
 @property(copy, nonatomic, readwrite) NSString * distanceToTurn;
 @property(copy, nonatomic, readwrite) NSString * streetName;
+@property(copy, nonatomic, readwrite) NSString * nextRoadName;
+@property(copy, nonatomic, readwrite) NSString * nextRoadRef;
+@property(copy, nonatomic, readwrite) NSString * nextJunctionRef;
+@property(copy, nonatomic, readwrite) NSString * nextDestinationRef;
+@property(copy, nonatomic, readwrite) NSString * nextDestination;
+@property(nonatomic, readwrite) BOOL nextIsLink;
+@property(nonatomic, readwrite) BOOL isLeftHandTraffic;
+@property(nonatomic, readwrite) MWMRoadShieldInfo * nextRoadShields;
 @property(copy, nonatomic, readwrite) NSString * targetDistance;
 @property(copy, nonatomic, readwrite) NSString * targetUnits;
 @property(copy, nonatomic, readwrite) NSString * turnUnits;
@@ -184,6 +263,23 @@ NSArray<MWMLaneInfo *> *buildLanes(routing::turns::lanes::LanesInfo const & info
   return result;
 }
 
+- (NSAttributedString *)attributedInstructionForTextSize:(CGFloat)textSize textColor:(UIColor *)textColor {
+  if (self.nextRoadName.length == 0 && self.nextRoadRef.length == 0 && self.nextJunctionRef.length == 0 &&
+      self.nextDestinationRef.length == 0 && self.nextDestination.length == 0)
+    return nil;
+  return [MWMNavigationInstructionFormatter attributedInstructionWithNextStreet:self.streetName ?: @""
+                                                                       roadName:self.nextRoadName ?: @""
+                                                                        roadRef:self.nextRoadRef ?: @""
+                                                                    junctionRef:self.nextJunctionRef ?: @""
+                                                                 destinationRef:self.nextDestinationRef ?: @""
+                                                                    destination:self.nextDestination ?: @""
+                                                                         isLink:self.nextIsLink
+                                                              isLeftHandTraffic:self.isLeftHandTraffic
+                                                                        shields:self.nextRoadShields
+                                                                       textSize:textSize
+                                                                      textColor:textColor];
+}
+
 @end
 
 @interface MWMRouterTransitStepInfo ()
@@ -248,12 +344,21 @@ NSArray<MWMLaneInfo *> *buildLanes(routing::turns::lanes::LanesInfo const & info
         entity.roundExitNumber = 0;
       entity.lanes = buildLanes(info.m_lanes);
 
+      entity.nextRoadName = @(info.m_nextName.c_str());
+      entity.nextRoadRef = @(info.m_nextRef.c_str());
+      entity.nextJunctionRef = @(info.m_nextJunctionRef.c_str());
+      entity.nextDestinationRef = @(info.m_nextDestinationRef.c_str());
+      entity.nextDestination = @(info.m_nextDestination.c_str());
+      entity.nextIsLink = info.m_nextIsLink;
+      entity.isLeftHandTraffic = info.m_isLeftHandTraffic;
+      entity.nextRoadShields = buildRoadShieldInfo(info.m_nextStreetShields);
+
       NSArray<NSString *> * variants =
-          [MWMNavigationInstructionFormatter instructionVariantsWithRoadName:@(info.m_nextName.c_str())
-                                                                     roadRef:@(info.m_nextRef.c_str())
-                                                                 junctionRef:@(info.m_nextJunctionRef.c_str())
-                                                              destinationRef:@(info.m_nextDestinationRef.c_str())
-                                                                 destination:@(info.m_nextDestination.c_str())
+          [MWMNavigationInstructionFormatter instructionVariantsWithRoadName:entity.nextRoadName
+                                                                     roadRef:entity.nextRoadRef
+                                                                 junctionRef:entity.nextJunctionRef
+                                                              destinationRef:entity.nextDestinationRef
+                                                                 destination:entity.nextDestination
                                                                       isLink:info.m_nextIsLink];
       if (variants.firstObject.length != 0)
         entity.streetName = variants.firstObject;

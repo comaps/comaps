@@ -124,6 +124,7 @@
 		349D1CE41E3F836900A878FD /* UIViewController+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D1CE21E3F836900A878FD /* UIViewController+Hierarchy.swift */; };
 		34AB39C21D2BD8310021857D /* MWMStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AB39C01D2BD8310021857D /* MWMStopButton.m */; };
 		34AB66051FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65C51FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm */; };
+		DEAD5411D0000000000A0001 /* RoadShield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD5411D0000000000A0002 /* RoadShield.swift */; };
 		34AB66081FC5AA320078E451 /* MWMNavigationDashboardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65C61FC5AA320078E451 /* MWMNavigationDashboardManager.mm */; };
 		34AB660E1FC5AA320078E451 /* NavigationControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AB65CD1FC5AA320078E451 /* NavigationControlView.xib */; };
 		34AB66111FC5AA320078E451 /* NavigationTurnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65CE1FC5AA320078E451 /* NavigationTurnsView.swift */; };
@@ -949,6 +950,7 @@
 		34AB39BF1D2BD8310021857D /* MWMStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMStopButton.h; sourceTree = "<group>"; tabWidth = 2; };
 		34AB39C01D2BD8310021857D /* MWMStopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MWMStopButton.m; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C51FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = "MWMNavigationDashboardManager+Entity.mm"; sourceTree = "<group>"; tabWidth = 2; };
+		DEAD5411D0000000000A0002 /* RoadShield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadShield.swift; sourceTree = "<group>"; };
 		34AB65C61FC5AA320078E451 /* MWMNavigationDashboardManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMNavigationDashboardManager.mm; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C71FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "MWMNavigationDashboardManager+Entity.h"; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C91FC5AA320078E451 /* MWMNavigationDashboardEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMNavigationDashboardEntity.h; sourceTree = "<group>"; tabWidth = 2; };
@@ -2548,6 +2550,7 @@
 				34AB65C61FC5AA320078E451 /* MWMNavigationDashboardManager.mm */,
 				34AB65C71FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.h */,
 				34AB65C51FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm */,
+				DEAD5411D0000000000A0002 /* RoadShield.swift */,
 				34AB65CC1FC5AA320078E451 /* Views */,
 			);
 			name = NavigationDashboard;
@@ -4527,6 +4530,7 @@
 				993DF10323F6BDB100AC231A /* MainTheme.swift in Sources */,
 				EDC4E34D2C5D1BEF009286A2 /* RecentlyDeletedTableViewCell.swift in Sources */,
 				34AB66051FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm in Sources */,
+				DEAD5411D0000000000A0001 /* RoadShield.swift in Sources */,
 				993DF12A23F6BDB100AC231A /* Style.swift in Sources */,
 				ED9966802B94FBC20083CE55 /* ColorPicker.swift in Sources */,
 				993DF10423F6BDB100AC231A /* UIView+SetStyle.swift in Sources */,
