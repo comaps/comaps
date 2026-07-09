@@ -104,6 +104,10 @@ RoadShieldsSetT GetRoadShields(std::string const & rawRoadNumber);
 // Returns names of road shields if |ft| is a "highway" feature.
 std::vector<std::string> GetRoadShieldsNames(FeatureType & ft);
 
+// Text a generic drawn shield (e.g. navigation UI) should display for |shield|, restoring any
+// network prefix that is otherwise baked into the shield's symbol graphic (e.g. Brazilian "BR").
+std::string GetRoadShieldDisplayText(RoadShield const & shield);
+
 std::string DebugPrint(RoadShieldType shieldType);
 std::string DebugPrint(RoadShield const & shield);
 }  // namespace ftypes

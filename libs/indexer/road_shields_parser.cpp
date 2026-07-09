@@ -1121,6 +1121,20 @@ std::vector<std::string> GetRoadShieldsNames(FeatureType & ft)
   return names;
 }
 
+std::string GetRoadShieldDisplayText(RoadShield const & shield)
+{
+  // Restore the network prefix that is drawn into the symbol graphic (and thus stripped from m_name),
+  // since a generic drawn shield has no such graphic. E.g. Brazilian "BR-116" / "CE-040".
+  switch (shield.m_type)
+  {
+  case RoadShieldType::Brazil_National: return "BR-" + shield.m_name;
+  case RoadShieldType::Brazil_State:
+    return shield.m_additionalText.empty() ? shield.m_name : shield.m_additionalText + "-" + shield.m_name;
+  default:
+    return shield.m_additionalText.empty() ? shield.m_name : shield.m_name + " " + shield.m_additionalText;
+  }
+}
+
 std::string DebugPrint(RoadShieldType shieldType)
 {
   using ftypes::RoadShieldType;
