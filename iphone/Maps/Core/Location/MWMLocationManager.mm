@@ -185,8 +185,18 @@ void setShowLocationAlert(BOOL needShow) {
   if (self)
   {
     _observers = [Observers weakObjectsHashTable];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(protectedDataDidBecomeAvailable)
+                                               name:UIApplicationProtectedDataDidBecomeAvailable
+                                             object:nil];
   }
   return self;
+}
+
+- (void)protectedDataDidBecomeAvailable
+{
+  if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive)
+    [MWMLocationManager applicationDidBecomeActive];
 }
 
 - (void)dealloc
@@ -230,6 +240,10 @@ void setShowLocationAlert(BOOL needShow) {
 
 + (void)applicationDidBecomeActive
 {
+  // Check if protected data is available before starting location updates.
+  // Otherwise, can get false positives with kCLErrorDenied
+  if (!UIApplication.sharedApplication.isProtectedDataAvailable)
+    return;
   [self start];
   [self applyBackgroundLocationUpdatesPolicy];
 }
@@ -518,8 +532,20 @@ void setShowLocationAlert(BOOL needShow) {
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
   LOG(LWARNING, ("CLLocationManagerDelegate: Did fail with error:", error.localizedDescription.UTF8String));
-  if (self.lastLocationStatus == MWMLocationStatusNoError && error.code == kCLErrorDenied)
-    [self processLocationStatus:MWMLocationStatusDenied];
+  if (self.lastLocationStatus != MWMLocationStatusNoError || error.code != kCLErrorDenied)
+    return;
+
+  // Only trigger location authorization dialog if the app is actually restricted.
+  // Otherwise, fires false positives
+  switch (manager.authorizationStatus)
+  {
+    case kCLAuthorizationStatusDenied:
+    case kCLAuthorizationStatusRestricted:
+      [self processLocationStatus:MWMLocationStatusDenied];
+      break;
+    default:
+      break;
+  }
 }
 
 // Delegate's method didChangeAuthorizationStatus is used to handle the authorization status when the application finishes launching
