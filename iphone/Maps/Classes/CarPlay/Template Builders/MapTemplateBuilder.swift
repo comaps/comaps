@@ -128,38 +128,38 @@ final class MapTemplateBuilder {
   
   class func setupRecenterButton(mapTemplate: CPMapTemplate) {
     let recenterButton = buildBarButton(type: .recenter) { _ in
-      FrameworkHelper.switchMyPositionMode()
+      CarPlayService.shared.switchMyPositionModeFromCarPlayControl()
     }
     mapTemplate.leadingNavigationBarButtons = [recenterButton]
   }
-  
-  private class func setupMuteAndRedirectButtons(template: CPMapTemplate) {
-    let redirectButton = buildBarButton(type: .redirectRoute) { _ in
-      let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
-      CarPlayService.shared.pushTemplate(listTemplate, animated: true)
-    }
-    if MWMTextToSpeech.isTTSEnabled() {
-      let muteButton = buildBarButton(type: .mute) { _ in
-        MWMTextToSpeech.tts().active = false
-        setupUnmuteAndRedirectButtons(template: template)
-      }
-      template.leadingNavigationBarButtons = [muteButton, redirectButton]
-    } else {
-      template.leadingNavigationBarButtons = [redirectButton]
-    }
+
+  class func updateNavigationAudioButtons(mapTemplate: CPMapTemplate) {
+    setupAudioAndRedirectButtons(template: mapTemplate)
   }
   
-  private class func setupUnmuteAndRedirectButtons(template: CPMapTemplate) {
+  private class func setupMuteAndRedirectButtons(template: CPMapTemplate) {
+    setupAudioAndRedirectButtons(template: template)
+  }
+
+  private class func setupAudioAndRedirectButtons(template: CPMapTemplate) {
     let redirectButton = buildBarButton(type: .redirectRoute) { _ in
       let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
     if MWMTextToSpeech.isTTSEnabled() {
-      let unmuteButton = buildBarButton(type: .unmute) { _ in
-        MWMTextToSpeech.tts().active = true
-        setupMuteAndRedirectButtons(template: template)
+      if MWMTextToSpeech.tts().active {
+        let muteButton = buildBarButton(type: .mute) { _ in
+          MWMTextToSpeech.tts().active = false
+          setupAudioAndRedirectButtons(template: template)
+        }
+        template.leadingNavigationBarButtons = [muteButton, redirectButton]
+      } else {
+        let unmuteButton = buildBarButton(type: .unmute) { _ in
+          MWMTextToSpeech.tts().active = true
+          setupAudioAndRedirectButtons(template: template)
+        }
+        template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
       }
-      template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
     } else {
       template.leadingNavigationBarButtons = [redirectButton]
     }
@@ -192,7 +192,7 @@ final class MapTemplateBuilder {
 
   private class func buildMyPositionModeButton() -> CPMapButton {
     let button = CPMapButton { _ in
-      FrameworkHelper.switchMyPositionMode()
+      CarPlayService.shared.switchMyPositionModeFromCarPlayControl()
     }
     button.image = image(forPositionMode: CarPlayService.shared.currentPositionMode)
     myPositionModeButton = button

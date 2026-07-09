@@ -20,10 +20,15 @@
   self.window.rootViewController = [MapsAppDelegate.theApp ensureMapNavigationController];
   [self.window makeKeyAndVisible];
 
-  // Handle cold-start deep links delivered via URL contexts.
-  NSURL * launchURL = connectionOptions.URLContexts.anyObject.URL;
-  if (launchURL) {
-    [DeepLinkHandler.shared applicationDidFinishLaunching:@{UIApplicationLaunchOptionsURLKey: launchURL}];
+  // Handle cold-start deep links and document imports delivered via URL contexts.
+  for (UIOpenURLContext * context in connectionOptions.URLContexts) {
+    NSURL * launchURL = context.URL;
+    if (!launchURL)
+      continue;
+    if (launchURL.isFileURL)
+      [DeepLinkHandler.shared applicationDidOpenUrl:launchURL];
+    else
+      [DeepLinkHandler.shared applicationDidFinishLaunching:@{UIApplicationLaunchOptionsURLKey: launchURL}];
   }
 
   // Handle cold-start user activities (universal links and Spotlight results).

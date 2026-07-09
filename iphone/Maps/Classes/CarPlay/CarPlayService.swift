@@ -46,9 +46,11 @@ final class CarPlayService: NSObject {
   private var rootTemplateDidAppear = false
   private var hasAppliedDefaultCarZoom = false
   private var hasEngagedInitialCarFollow = false
+  private var isInitialCarHeadingModeDisabled = false
   private func resetCarSessionDefaults() {
     hasAppliedDefaultCarZoom = false
     hasEngagedInitialCarFollow = false
+    isInitialCarHeadingModeDisabled = false
   }
   private weak var dashboardWindow: UIWindow?
   private var isDashboardActive = false
@@ -99,6 +101,7 @@ final class CarPlayService: NSObject {
       self.router = router
       MWMRouter.unsubscribeFromEvents()
     }
+    startObservingTTS()
     applyRootViewController()
     if let sessionData = router?.restoredNavigationSession() {
       router?.cancelNavigationSession()
@@ -121,6 +124,7 @@ final class CarPlayService: NSObject {
   }
 
   private var savedInterfaceController: CPInterfaceController?
+  private var isObservingTTS = false
 
   func showOnPhone() {
     LOG(.info, "Show on the Phone screen")
@@ -169,6 +173,7 @@ final class CarPlayService: NSObject {
     router?.cancelNavigationSession()
     searchService = nil
     router = nil
+    stopObservingTTS()
     sessionConfiguration = nil
     interfaceController = nil
     pendingDashboardAction = nil
@@ -209,7 +214,7 @@ final class CarPlayService: NSObject {
     }
     savedInterfaceController = nil
     resetCarSessionDefaults()
-    LocationManager.reapplyBackgroundLocationPolicy()
+    LocationManager.refreshBackgroundLocationPolicy()
   }
 
   @objc func interfaceStyle() -> UIUserInterfaceStyle {
@@ -271,6 +276,8 @@ final class CarPlayService: NSObject {
   func appSceneDidBecomeActive() {
     logStateSnapshot("appSceneDidBecomeActive")
     reconcileMapHostIfOrphaned()
+    resumeLocationForActiveCarSceneIfNeeded()
+    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: true)
     guard isCarplayActivated, let controller = interfaceController else { return }
     if rootTemplateDidAppear {
       LOG(.info, "app scene active: root template already presented, nothing to reconcile")
@@ -298,6 +305,7 @@ final class CarPlayService: NSObject {
 
   private func applyRootViewController() {
     guard let window = window else { return }
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
     let carplaySotyboard = UIStoryboard.instance(.carPlay)
     let carplayVC = carplaySotyboard.instantiateInitialViewController() as! CarPlayMapViewController
     window.rootViewController = carplayVC
@@ -305,6 +313,7 @@ final class CarPlayService: NSObject {
       mapHost = .none
     }
     updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "applyRootViewController")
   }
 
   @objc func attachMapIfNeeded() {
@@ -316,6 +325,7 @@ final class CarPlayService: NSObject {
   private static let kCarPositionArrowOffset: Int32 = 120
 
   private func updateMapHost() {
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
     var desired: MapHost
     if isDashboardActive, dashboardVC != nil, !isPhoneModeRequested {
       desired = .dashboard
@@ -395,6 +405,7 @@ final class CarPlayService: NSObject {
     applyDefaultCarZoomIfNeeded()
     engageInitialCarFollowIfNeeded(currentPositionMode)
     logStateSnapshot("after map host switch")
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
   }
 
   private func reconcileMapHostIfOrphaned() {
@@ -402,9 +413,25 @@ final class CarPlayService: NSObject {
           mapVC.isViewLoaded,
           mapVC.mapView.window == nil,
           mapHost != .none else { return }
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
     LOG(.warning, "[CarPlayHost] Map view is in no window while mapHost=\(mapHost); re-attaching")
     mapHost = .none
     updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "reconcileMapHostIfOrphaned")
+  }
+
+  private func refreshLocationPolicyIfHostingChanged(from wasHostingMapOnCarScreen: Bool, reason: String) {
+    guard wasHostingMapOnCarScreen != isHostingMapOnCarScreen else { return }
+    LOG(.info, "[CarPlayHost] car screen hosting changed \(wasHostingMapOnCarScreen) -> \(isHostingMapOnCarScreen); refreshing location policy (\(reason))")
+    LocationManager.refreshBackgroundLocationPolicy()
+  }
+
+  private func resumeLocationForActiveCarSceneIfNeeded() {
+    guard LocationManager.shouldKeepRunningInBackground() else {
+      LocationManager.refreshBackgroundLocationPolicy()
+      return
+    }
+    LocationManager.applicationDidBecomeActive()
   }
 
   private func attachMapToCarScreen(_ mapVC: MapViewController, addMapView: () -> Void) {
@@ -456,30 +483,41 @@ final class CarPlayService: NSObject {
   /// Set default zoom to 15 on car screens
   private static let kDefaultCarZoomLevel: Int32 = 15
 
-  private func applyDefaultCarZoomIfNeeded() {
+  private func applyDefaultCarZoomIfNeeded(requiresFollowMode: Bool = true) {
     guard !hasAppliedDefaultCarZoom,
           mapHost == .carplay || mapHost == .dashboard,
           !MWMRouter.isRoutingActive(),
-          currentPositionMode == .follow || currentPositionMode == .followAndRotate
+          !requiresFollowMode || currentPositionMode == .follow || currentPositionMode == .followAndRotate
     else { return }
     hasAppliedDefaultCarZoom = true
     FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
   }
 
-  private func engageInitialCarFollowIfNeeded(_ mode: MWMMyPositionMode) {
-    guard !hasEngagedInitialCarFollow,
+  private func engageInitialCarFollowIfNeeded(_ mode: MWMMyPositionMode, allowAfterInitial: Bool = false) {
+    guard (!hasEngagedInitialCarFollow || allowAfterInitial),
           mapHost == .carplay || mapHost == .dashboard,
           !MWMRouter.isRoutingActive()
     else { return }
     switch mode {
     case .notFollow:
-      hasEngagedInitialCarFollow = true
       FrameworkHelper.switchMyPositionMode()
-    case .follow, .followAndRotate:
+    case .follow:
+      hasEngagedInitialCarFollow = true
+      if !isInitialCarHeadingModeDisabled {
+        FrameworkHelper.switchMyPositionMode()
+      }
+    case .followAndRotate:
       hasEngagedInitialCarFollow = true
     case .pendingPosition, .notFollowNoPosition:
-      break
+      if mode == .notFollowNoPosition {
+        FrameworkHelper.switchMyPositionMode()
+      }
     }
+  }
+
+  func switchMyPositionModeFromCarPlayControl() {
+    isInitialCarHeadingModeDisabled = true
+    FrameworkHelper.switchMyPositionMode()
   }
 
   // MARK: - Dashboard scene
@@ -492,6 +530,7 @@ final class CarPlayService: NSObject {
 
   @objc func dashboardDisconnected() {
     logStateSnapshot("dashboardDisconnected")
+    let wasHostingMapOnCarScreen = isHostingMapOnCarScreen
     if mapHost == .dashboard {
       dashboardVC?.removeMapView()
       mapHost = .none
@@ -499,6 +538,7 @@ final class CarPlayService: NSObject {
     dashboardWindow = nil
     isDashboardActive = false
     updateMapHost()
+    refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "dashboardDisconnected")
   }
 
   @objc func dashboardDidBecomeActive() {
@@ -506,6 +546,8 @@ final class CarPlayService: NSObject {
     isDashboardActive = true
     reconcileMapHostIfOrphaned()
     updateMapHost()
+    resumeLocationForActiveCarSceneIfNeeded()
+    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: true)
   }
 
   @objc func dashboardDidResignActive() {
@@ -614,6 +656,27 @@ final class CarPlayService: NSObject {
     if let carplayVC = carplayVC {
       carplayVC.updateCameraInfo(isCameraOnRoute: isCameraOnRoute, speedLimitMps: limit)
     }
+  }
+
+  private func startObservingTTS() {
+    guard !isObservingTTS else { return }
+    isObservingTTS = true
+    MWMTextToSpeech.add(self)
+  }
+
+  private func stopObservingTTS() {
+    guard isObservingTTS else { return }
+    isObservingTTS = false
+    MWMTextToSpeech.remove(self)
+  }
+
+  private func refreshNavigationAudioButtons() {
+    guard let rootMapTemplate,
+          let info = rootMapTemplate.userInfo as? MapInfo,
+          info.type == CPConstants.TemplateType.navigation,
+          !rootMapTemplate.isPanningInterfaceVisible
+    else { return }
+    MapTemplateBuilder.updateNavigationAudioButtons(mapTemplate: rootMapTemplate)
   }
 
   func updateMapTemplateUIToBase() {
@@ -787,6 +850,7 @@ extension CarPlayService: CPMapTemplateDelegate {
 
   public func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate) {
     isUserPanMap = false
+    isInitialCarHeadingModeDisabled = true
     MapTemplateBuilder.configurePanUI(mapTemplate: mapTemplate)
     FrameworkHelper.stopLocationFollow()
   }
@@ -798,7 +862,7 @@ extension CarPlayService: CPMapTemplateDelegate {
     } else {
       MapTemplateBuilder.configureBaseUI(mapTemplate: mapTemplate)
     }
-    FrameworkHelper.switchMyPositionMode()
+    switchMyPositionModeFromCarPlayControl()
   }
 
   @objc(mapTemplate:panEndedWithDirection:)
@@ -1076,6 +1140,13 @@ extension CarPlayService: LocationModeListener {
       rootMapTemplate.leadingNavigationBarButtons = []
       MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
     }
+  }
+}
+
+// MARK: - MWMTextToSpeechObserver implementation
+extension CarPlayService: MWMTextToSpeechObserver {
+  func onTTSStatusUpdated() {
+    refreshNavigationAudioButtons()
   }
 }
 

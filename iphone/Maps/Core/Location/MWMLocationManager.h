@@ -27,6 +27,8 @@ NS_SWIFT_NAME(LocationManager)
 
 + (void)applicationDidBecomeActive;
 + (void)applicationWillResignActive;
++ (BOOL)shouldKeepRunningInBackground;
++ (void)refreshBackgroundLocationPolicy;
 + (void)reapplyBackgroundLocationPolicy;
 
 + (void)enableLocationAlert;

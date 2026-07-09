@@ -122,6 +122,15 @@ final class CarPlayDashboardMapViewController: UIViewController {
     if !mapView.drapeEngineCreated && !MapsAppDelegate.isTestsEnvironment() {
       mapView.createDrapeEngine()
     }
+    let viewport = view.bounds
+    guard viewport.origin.x.isFinite,
+          viewport.origin.y.isFinite,
+          viewport.size.width.isFinite,
+          viewport.size.height.isFinite,
+          viewport.size.width > 0,
+          viewport.size.height > 0,
+          mapView.contentScaleFactor.isFinite,
+          mapView.contentScaleFactor > 0 else { return }
     FrameworkHelper.setVisibleViewport(view.bounds, scaleFactor: mapView.contentScaleFactor)
   }
 

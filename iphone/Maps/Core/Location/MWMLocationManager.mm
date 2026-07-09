@@ -124,12 +124,12 @@ BOOL keepRunningInBackground()
   if (GpsTracker::Instance().IsEnabled())
     return YES;
 
-  if ([MWMCarPlayService shared].isHostingMapOnCarScreen)
-    return YES;
-
   auto const isOnRoute = [MWMRouter isOnRoute];
   auto const isRouteFinished = [MWMRouter isRouteFinished];
   if (isOnRoute && !isRouteFinished)
+    return YES;
+
+  if ([MWMCarPlayService shared].isHostingMapOnCarScreen)
     return YES;
 
   return NO;
@@ -254,10 +254,23 @@ void setShowLocationAlert(BOOL needShow) {
   [self manager].started = keepRunningInBackground();
 }
 
++ (BOOL)shouldKeepRunningInBackground
+{
+  return keepRunningInBackground();
+}
+
 + (void)reapplyBackgroundLocationPolicy
 {
+  [self refreshBackgroundLocationPolicy];
+}
+
++ (void)refreshBackgroundLocationPolicy
+{
   if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
+  {
+    [self applyBackgroundLocationUpdatesPolicy];
     return;
+  }
   [self applyBackgroundLocationUpdatesPolicy];
   [self manager].started = keepRunningInBackground();
 }
@@ -603,7 +616,12 @@ void setShowLocationAlert(BOOL needShow) {
   } else {
     _started = NO;
     [self stop];
-    [notificationCenter removeObserver:self];
+    [notificationCenter removeObserver:self
+                                  name:UIDeviceOrientationDidChangeNotification
+                                object:nil];
+    [notificationCenter removeObserver:self
+                                  name:UIDeviceBatteryStateDidChangeNotification
+                                object:nil];
   }
 }
 
