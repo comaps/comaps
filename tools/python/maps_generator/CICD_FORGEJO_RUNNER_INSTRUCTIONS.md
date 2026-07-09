@@ -152,3 +152,14 @@ container:
     " linux:host",
     " dind:host"
 ```
+
+## Cleanup scripts
+
+### /etc/crontab
+
+```
+15 *    * * *   root    docker volume prune
+0 */4    * * *   root    /opt/forgejo-runner-org/forgejo-runner-cache-cleanup.sh --delete --older-than 3
+```
+
+(get the cleanup script from the utils/ subfolder in this repo)
