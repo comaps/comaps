@@ -55,7 +55,7 @@ private:
 class PathTextHandle : public df::TextHandle
 {
 public:
-  PathTextHandle(dp::OverlayID const & id, std::shared_ptr<PathTextContext> const & context, float depth,
+  PathTextHandle(dp::OverlayID const & id, uint8_t subID, std::shared_ptr<PathTextContext> const & context, float depth,
                  uint32_t textIndex, uint64_t priority, ref_ptr<dp::TextureManager> textureManager, int minVisibleScale,
                  bool isBillboard);
 

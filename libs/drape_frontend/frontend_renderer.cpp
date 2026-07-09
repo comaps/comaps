@@ -15,6 +15,7 @@
 #include "drape_frontend/message.hpp"
 #include "drape_frontend/message_subclasses.hpp"
 #include "drape_frontend/overlay_batcher.hpp"
+#include "drape_frontend/overlay_id.hpp"
 #include "drape_frontend/postprocess_renderer.hpp"
 #include "drape_frontend/route_renderer.hpp"
 #include "drape_frontend/route_shape.hpp"
@@ -206,19 +207,20 @@ FrontendRenderer::FrontendRenderer(Params && params)
   ASSERT(m_tapEventInfoHandler, ());
   ASSERT(m_userPositionChangedHandler, ());
 
-  m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount)
+  m_gpsTrackRenderer = make_unique_dp<GpsTrackRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
     m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
-                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CacheCirclesPackMessage::GpsTrack),
+                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CirclesPackHandleGpsTrack, subID,
+                                                                      CacheCirclesPackMessage::GpsTrack),
                               MessagePriority::Normal);
   });
 
-  m_routeRenderer = make_unique_dp<RouteRenderer>([this](uint32_t pointsCount)
+  m_routeRenderer = make_unique_dp<RouteRenderer>([this](uint32_t pointsCount, uint8_t subID)
   {
-    m_commutator->PostMessage(
-        ThreadsCommutator::ResourceUploadThread,
-        make_unique_dp<CacheCirclesPackMessage>(pointsCount, CacheCirclesPackMessage::RoutePreview),
-        MessagePriority::Normal);
+    m_commutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                              make_unique_dp<CacheCirclesPackMessage>(pointsCount, CirclesPackHandleRoutePreview, subID,
+                                                                      CacheCirclesPackMessage::RoutePreview),
+                              MessagePriority::Normal);
   });
 
   m_myPositionController =

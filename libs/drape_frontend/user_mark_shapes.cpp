@@ -211,7 +211,7 @@ void GenerateColoredSymbolShapes(ref_ptr<dp::GraphicsContext> context, ref_ptr<d
   params.m_offset += offset;
   if (renderInfo.m_symbolSizes != nullptr)
   {
-    ColoredSymbolShape(renderInfo.m_pivot, params, tileKey, kStartUserMarkOverlayIndex + renderInfo.m_index,
+    ColoredSymbolShape(renderInfo.m_pivot, params, tileKey, kStartUserMarkOverlayIndex + renderInfo.m_index, 0,
                        isTextBg ? symbolSizesInc : *renderInfo.m_symbolSizes.get())
         .Draw(context, &batcher, textures);
   }
@@ -245,7 +245,7 @@ void GeneratePoiSymbolShape(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Te
   bool const hasColoredOverlay = renderInfo.m_coloredSymbols != nullptr && renderInfo.m_coloredSymbols->m_needOverlay;
   params.m_startOverlayRank = hasColoredOverlay ? dp::OverlayRank1 : dp::OverlayRank0;
 
-  PoiSymbolShape(renderInfo.m_pivot, params, tileKey, kStartUserMarkOverlayIndex + renderInfo.m_index)
+  PoiSymbolShape(renderInfo.m_pivot, params, tileKey, kStartUserMarkOverlayIndex + renderInfo.m_index, 0)
       .Draw(context, &batcher, textures);
 }
 
@@ -300,12 +300,14 @@ void GenerateTextShapes(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Textur
     if (renderInfo.m_symbolSizes != nullptr)
     {
       TextShape(renderInfo.m_pivot, params, tileKey, *renderInfo.m_symbolSizes,
-                m2::PointF(0.0f, 0.0f) /* symbolOffset */, renderInfo.m_anchor, overlayIndex)
+                m2::PointF(0.0f, 0.0f) /* symbolOffset */, renderInfo.m_anchor, overlayIndex, 0 /* subID */,
+                1 /* secondarySubID */)
           .Draw(context, &batcher, textures);
     }
     else
     {
-      TextShape(renderInfo.m_pivot, params, tileKey, symbolSize, symbolOffset, renderInfo.m_anchor, overlayIndex)
+      TextShape(renderInfo.m_pivot, params, tileKey, symbolSize, symbolOffset, renderInfo.m_anchor, overlayIndex,
+                0 /* subID */, 1 /* secondarySubID */)
           .Draw(context, &batcher, textures);
     }
   }
@@ -355,7 +357,7 @@ drape_ptr<dp::OverlayHandle> CreateSymbolOverlayHandle(UserMarkRenderParams cons
   dp::OverlayID overlayId(renderInfo.m_featureId, renderInfo.m_markId, tileKey.GetTileCoords(),
                           kStartUserMarkOverlayIndex + renderInfo.m_index);
   drape_ptr<dp::OverlayHandle> handle = make_unique_dp<dp::SquareHandle>(
-      overlayId, renderInfo.m_anchor, renderInfo.m_pivot, pixelRect.RightTop() - pixelRect.LeftBottom(),
+      overlayId, 0 /* subID */, renderInfo.m_anchor, renderInfo.m_pivot, pixelRect.RightTop() - pixelRect.LeftBottom(),
       m2::PointD(symbolOffset), 0 /*priority*/, true /* isBound */, renderInfo.m_minZoom, true /* isBillboard */);
   return handle;
 }

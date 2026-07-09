@@ -64,8 +64,8 @@ dp::BindingInfo const & GetCirclesPackDynamicBindingInfo()
 }
 }  // namespace
 
-CirclesPackHandle::CirclesPackHandle(size_t pointsCount)
-  : OverlayHandle(dp::OverlayID{}, dp::Anchor::Center, 0 /* priority */, 1 /* minVisibleScale */,
+CirclesPackHandle::CirclesPackHandle(size_t pointsCount, uint32_t id, uint8_t subID)
+  : OverlayHandle(dp::OverlayID(id), subID, dp::Anchor::Center, 0 /* priority */, 1 /* minVisibleScale */,
                   false /* isBillboard */)
   , m_needUpdate(false)
 {
@@ -170,7 +170,7 @@ void CirclesPackShape::Draw(ref_ptr<dp::GraphicsContext> context, CirclesPackRen
     data.m_state = state;
   });
 
-  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CirclesPackHandle>(data.m_pointsCount);
+  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CirclesPackHandle>(data.m_pointsCount, data.m_id, data.m_subID);
 
   dp::AttributeProvider provider(2 /* stream count */, static_cast<uint32_t>(staticVertexData.size()));
   provider.InitStream(0 /* stream index */, GetCirclesPackStaticBindingInfo(), make_ref(staticVertexData.data()));

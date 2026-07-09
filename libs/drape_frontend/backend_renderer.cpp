@@ -417,6 +417,8 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
     ref_ptr<CacheCirclesPackMessage> msg = message;
     drape_ptr<CirclesPackRenderData> data = make_unique_dp<CirclesPackRenderData>();
     data->m_pointsCount = msg->GetPointsCount();
+    data->m_id = msg->GetID();
+    data->m_subID = msg->GetSubID();
     CHECK(m_context != nullptr, ());
     CirclesPackShape::Draw(m_context, *data.get());
     m_commutator->PostMessage(ThreadsCommutator::RenderThread,

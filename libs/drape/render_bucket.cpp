@@ -51,6 +51,23 @@ ref_ptr<OverlayHandle> RenderBucket::GetOverlayHandle(size_t index)
 
 void RenderBucket::AddOverlayHandle(drape_ptr<OverlayHandle> && handle)
 {
+#ifdef CHECK_UNIQUE_IDS
+  // valid and unique IDs are required for accessibility to work, but we validate for everyone
+  // (as users of accessibility services often don't report bugs)
+  ASSERT(handle->GetOverlayID().IsValid(), (handle.get(), handle->GetOverlayID(), handle->GetOverlaySubID()));
+  // We should enforce this between OverlayBuckets too, but it would be too much effort.
+  for (auto & overlayHandle : m_overlay)
+  {
+    if (overlayHandle->GetOverlayID() == handle->GetOverlayID() &&
+        overlayHandle->GetOverlaySubID() == handle->GetOverlaySubID())
+#ifdef DEBUG_OVERLAYS_OUTPUT
+      ASSERT(false, (overlayHandle->GetOverlayDebugInfo(), handle->GetOverlayDebugInfo()));
+#else
+      ASSERT(false, (overlayHandle.get(), handle.get()));
+#endif
+  }
+#endif
+
   m_overlay.push_back(std::move(handle));
 }
 

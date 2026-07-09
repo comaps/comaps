@@ -44,7 +44,7 @@ class RouteRenderer final
 public:
   using PrepareRouteArrowsCallback = std::function<void(dp::DrapeID, std::vector<ArrowBorders> &&)>;
   using CacheRouteArrowsCallback = std::function<void(dp::DrapeID, std::vector<ArrowBorders> const &)>;
-  using PreviewPointsRequestCallback = std::function<void(uint32_t)>;
+  using PreviewPointsRequestCallback = std::function<void(uint32_t, uint8_t)>;
 
   struct PreviewInfo
   {
@@ -139,5 +139,7 @@ private:
   bool m_waitForPreviewRenderData;
   ankerl::unordered_dense::map<dp::DrapeID, PreviewInfo> m_previewSegments;
   m2::PointD m_previewPivot = m2::PointD::Zero();
+  // Old handles are kept around, so this doesn't keep growing
+  uint8_t m_subID = 0;
 };
 }  // namespace df

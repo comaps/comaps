@@ -596,7 +596,7 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
     symbolSize = region.GetPixelSize();
 
     if (region.IsValid())
-      m_insertShape(make_unique_dp<PoiSymbolShape>(centerPoint, params, m_tileKey, 0 /* textIndex */));
+      m_insertShape(make_unique_dp<PoiSymbolShape>(centerPoint, params, m_tileKey, 0 /* textIndex */, 2 /* subID */));
     else
       LOG(LERROR, ("Style error. Symbol name must be valid for feature", m_f.GetID()));
   }
@@ -627,9 +627,9 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
       params.m_titleDecl.m_anchor = GetAnchor(0, 1);
 
     params.m_startOverlayRank = symbolRule ? dp::OverlayRank1 : dp::OverlayRank0;
-    auto shape =
-        make_unique_dp<TextShape>(centerPoint, params, m_tileKey, symbolSize, m2::PointF(0.0f, 0.0f) /* symbolOffset */,
-                                  dp::Center /* symbolAnchor */, 0 /* textIndex */);
+    auto shape = make_unique_dp<TextShape>(centerPoint, params, m_tileKey, symbolSize,
+                                           m2::PointF(0.0f, 0.0f) /* symbolOffset */, dp::Center /* symbolAnchor */,
+                                           0 /* textIndex */, 0 /* subID */, 1 /* secondarySubID */);
     m_insertShape(std::move(shape));
   }
 
@@ -658,7 +658,7 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
     }
     m_insertShape(make_unique_dp<TextShape>(centerPoint, params, m_tileKey, symbolSize,
                                             m2::PointF(0.0f, 0.0f) /* symbolOffset */, dp::Center /* symbolAnchor */,
-                                            0 /* textIndex */));
+                                            0 /* textIndex */, 3 /* subID */, 0 /* secondarySubID unused */));
   }
 }
 
@@ -1208,11 +1208,12 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
     params.m_textFont = fontDecl;
     params.m_baseGtoPScale = m_currentScaleGtoP;
 
-    uint32_t textIndex = kPathTextBaseTextIndex;
+    uint32_t textIndexStart = kPathTextBaseTextIndex;
+    uint32_t textIndexCount = (std::numeric_limits<uint32_t>::max() - textIndexStart) / m_clippedSplines.size();
     for (auto const & spline : m_clippedSplines)
     {
       PathTextViewParams p = params;
-      auto shape = make_unique_dp<PathTextShape>(spline, p, m_tileKey, textIndex);
+      auto shape = make_unique_dp<PathTextShape>(spline, p, m_tileKey, textIndexStart, textIndexStart + textIndexCount);
 
       if (!shape->CalculateLayout(texMng))
         continue;
@@ -1223,8 +1224,7 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
         CalculateRoadShieldPositions(shape->GetOffsets(), spline, shieldPositions);
 
       m_insertShape(std::move(shape));
-      textIndex++;  // FIXME we actually also increment the textIndex inside PathTextShape, which means they can clash
-      // luckily it only happens in tile border regions, and just means that the labels displace slightly weirdly
+      textIndexStart += textIndexCount;
     }
   }
   else if (m_shieldRule)
@@ -1271,11 +1271,11 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
 
       m_insertShape(make_unique_dp<TextShape>(shieldPos, textParams, m_tileKey, m2::PointF(0.0f, 0.0f) /* symbolSize */,
                                               m2::PointF(0.0f, 0.0f) /* symbolOffset */, dp::Center /* symbolAnchor */,
-                                              textIndex));
+                                              textIndex, 0 /* subID */, 1 /* secondarySubID */));
       if (IsColoredRoadShield(shield) || IsColoredPillRoadShield(shield))
-        m_insertShape(make_unique_dp<ColoredSymbolShape>(shieldPos, symbolParams, m_tileKey, textIndex));
+        m_insertShape(make_unique_dp<ColoredSymbolShape>(shieldPos, symbolParams, m_tileKey, textIndex, 1));
       else if (IsSymbolRoadShield(shield))
-        m_insertShape(make_unique_dp<PoiSymbolShape>(shieldPos, poiParams, m_tileKey, textIndex));
+        m_insertShape(make_unique_dp<PoiSymbolShape>(shieldPos, poiParams, m_tileKey, textIndex, 2));
       textIndex++;
     }
     shieldIndex++;

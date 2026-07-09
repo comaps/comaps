@@ -27,6 +27,8 @@
 #include <functional>
 #include <utility>
 
+#include "drape_frontend/overlay_id.hpp"
+
 using namespace std::placeholders;
 
 namespace gui
@@ -140,8 +142,8 @@ drape_ptr<ShapeRenderer> Compass::Draw(ref_ptr<dp::GraphicsContext> context, ref
 
   provider.InitStream(0, info, make_ref(&vertexes));
 
-  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CompassHandle>(
-      EGuiHandle::GuiHandleCompass, m_position.m_pixelPivot, region.GetPixelSize(), tapHandler);
+  drape_ptr<dp::OverlayHandle> handle =
+      make_unique_dp<CompassHandle>(df::GuiHandleCompass, m_position.m_pixelPivot, region.GetPixelSize(), tapHandler);
 
   drape_ptr<ShapeRenderer> renderer = make_unique_dp<ShapeRenderer>();
   dp::Batcher batcher(dp::Batcher::IndexPerQuad, dp::Batcher::VertexPerQuad);

@@ -30,7 +30,7 @@ struct FrameValues;
 class GpsTrackRenderer final
 {
 public:
-  using TRenderDataRequestFn = std::function<void(uint32_t)>;
+  using TRenderDataRequestFn = std::function<void(uint32_t, uint8_t)>;
   explicit GpsTrackRenderer(TRenderDataRequestFn const & dataRequestFn);
 
   void AddRenderData(ref_ptr<dp::GraphicsContext> context, ref_ptr<gpu::ProgramManager> mng,
@@ -60,5 +60,7 @@ private:
   std::vector<std::pair<CirclesPackHandle *, size_t>> m_handlesCache;
   float m_radius;
   m2::PointD m_pivot;
+  // Old handles are kept around, so this doesn't keep growing
+  uint8_t m_subID = 0;
 };
 }  // namespace df

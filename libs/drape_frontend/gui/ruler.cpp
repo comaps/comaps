@@ -5,6 +5,7 @@
 #include "drape_frontend/gui/drape_gui.hpp"
 #include "drape_frontend/gui/gui_text.hpp"
 #include "drape_frontend/gui/ruler_helper.hpp"
+#include "drape_frontend/overlay_id.hpp"
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "shaders/programs.hpp"
@@ -225,9 +226,9 @@ void Ruler::DrawRuler(ref_ptr<dp::GraphicsContext> context, ShapeControl & contr
     dp::Batcher batcher(dp::Batcher::IndexPerQuad, dp::Batcher::VertexPerQuad);
     batcher.SetBatcherHash(static_cast<uint64_t>(df::BatcherBucket::Default));
     dp::SessionGuard guard(context, batcher, std::bind(&ShapeControl::AddShape, &control, _1, _2));
-    batcher.InsertTriangleStrip(context, state, make_ref(&provider),
-                                make_unique_dp<RulerHandle>(EGuiHandle::GuiHandleRuler, m_position.m_anchor,
-                                                            m_position.m_pixelPivot, isAppearing));
+    batcher.InsertTriangleStrip(
+        context, state, make_ref(&provider),
+        make_unique_dp<RulerHandle>(df::GuiHandleRuler, m_position.m_anchor, m_position.m_pixelPivot, isAppearing));
   }
 }
 
@@ -245,7 +246,7 @@ void Ruler::DrawText(ref_ptr<dp::GraphicsContext> context, ShapeControl & contro
   params.m_font = DrapeGui::GetGuiTextFont();
   params.m_pivot = m_position.m_pixelPivot + m2::PointF(0.0f, RulerHelper::GetVerticalTextOffset());
   params.m_handleCreator = [isAppearing, tex](dp::Anchor anchor, m2::PointF const & pivot)
-  { return make_unique_dp<RulerTextHandle>(EGuiHandle::GuiHandleRulerLabel, anchor, pivot, isAppearing, tex); };
+  { return make_unique_dp<RulerTextHandle>(df::GuiHandleRulerLabel, anchor, pivot, isAppearing, tex); };
 
   MutableLabelDrawer::Draw(context, params, tex, std::bind(&ShapeControl::AddShape, &control, _1, _2));
 }

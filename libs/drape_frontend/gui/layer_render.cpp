@@ -9,6 +9,7 @@
 #include "drape_frontend/gui/ruler_helper.hpp"
 #include "drape_frontend/gui/scale_fps_helper.hpp"
 #include "drape_frontend/gui/shape.hpp"
+#include "drape_frontend/overlay_id.hpp"
 
 #include "drape/drape_global.hpp"
 #include "drape/graphics_context.hpp"
@@ -377,7 +378,7 @@ void LayerCacher::CacheScaleFpsLabel(ref_ptr<dp::GraphicsContext> context, Posit
     case dp::ApiVersion::Vulkan: apiLabel = "V"; break;
     case dp::ApiVersion::Invalid: CHECK(false, ("Invalid API version.")); break;
     }
-    return make_unique_dp<ScaleFpsLabelHandle>(EGuiHandle::GuiHandleScaleLabel, textures, apiLabel, position);
+    return make_unique_dp<ScaleFpsLabelHandle>(df::GuiHandleScaleLabel, textures, apiLabel, position);
   };
 
   drape_ptr<ShapeRenderer> scaleRenderer = make_unique_dp<ShapeRenderer>();

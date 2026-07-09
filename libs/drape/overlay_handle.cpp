@@ -26,9 +26,10 @@ private:
   uint8_t m_bufferID;
 };
 
-OverlayHandle::OverlayHandle(OverlayID const & id, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale,
-                             bool isBillboard)
+OverlayHandle::OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, uint64_t priority,
+                             uint8_t minVisibleScale, bool isBillboard)
   : m_id(id)
+  , m_subID(subID)
   , m_anchor(anchor)
   , m_priority(priority)
   , m_extendingSize(0.0)
@@ -175,10 +176,10 @@ m2::RectD OverlayHandle::GetPixelRectPerspective(ScreenBase const & screen) cons
   return GetPerspectiveRect(GetPixelRect(screen, false), screen);
 }
 
-SquareHandle::SquareHandle(OverlayID const & id, dp::Anchor anchor, m2::PointD const & gbPivot,
+SquareHandle::SquareHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
                            m2::PointD const & pxSize, m2::PointD const & pxOffset, uint64_t priority, bool isBound,
                            int minVisibleScale, bool isBillboard)
-  : TBase(id, anchor, priority, minVisibleScale, isBillboard)
+  : TBase(id, subID, anchor, priority, minVisibleScale, isBillboard)
   , m_pxHalfSize(pxSize.x / 2.0, pxSize.y / 2.0)
   , m_gbPivot(gbPivot)
   , m_pxOffset(pxOffset)

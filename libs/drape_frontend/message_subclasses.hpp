@@ -902,15 +902,24 @@ public:
     RoutePreview
   };
 
-  CacheCirclesPackMessage(uint32_t pointsCount, Destination dest) : m_pointsCount(pointsCount), m_destination(dest) {}
+  CacheCirclesPackMessage(uint32_t pointsCount, uint32_t id, uint8_t subID, Destination dest)
+    : m_pointsCount(pointsCount)
+    , m_id(id)
+    , m_subID(subID)
+    , m_destination(dest)
+  {}
 
   Type GetType() const override { return Type::CacheCirclesPack; }
 
   uint32_t GetPointsCount() const { return m_pointsCount; }
+  uint32_t GetID() const { return m_id; }
+  uint8_t GetSubID() const { return m_subID; }
   Destination GetDestination() const { return m_destination; }
 
 private:
   uint32_t m_pointsCount;
+  uint32_t m_id;
+  uint8_t m_subID;
   Destination m_destination;
 };
 

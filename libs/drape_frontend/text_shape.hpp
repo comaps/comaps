@@ -26,12 +26,12 @@ class TextShape : public MapShape
 {
 public:
   TextShape(m2::PointD const & basePoint, TextViewParams const & params, TileKey const & tileKey,
-            m2::PointF const & symbolSize, m2::PointF const & symbolOffset, dp::Anchor symbolAnchor,
-            uint32_t textIndex);
+            m2::PointF const & symbolSize, m2::PointF const & symbolOffset, dp::Anchor symbolAnchor, uint32_t textIndex,
+            uint8_t subID, uint8_t secondarySubID);
 
   TextShape(m2::PointD const & basePoint, TextViewParams const & params, TileKey const & tileKey,
             std::vector<m2::PointF> const & symbolSizes, m2::PointF const & symbolOffset, dp::Anchor symbolAnchor,
-            uint32_t textIndex);
+            uint32_t textIndex, uint8_t subID, uint8_t secondarySubID);
 
   void Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,
             ref_ptr<dp::TextureManager> textures) const override;
@@ -62,6 +62,8 @@ private:
   dp::Anchor m_symbolAnchor;
   m2::PointF m_symbolOffset;
   uint32_t m_textIndex;
+  uint8_t m_subID;
+  uint8_t m_secondarySubID;
 
   bool m_disableDisplacing = false;
 };

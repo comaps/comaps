@@ -24,6 +24,12 @@
 // #define TRACK_GPU_MEM
 // #define TRACK_GLYPH_USAGE
 
+#else
+
+#if DEBUG
+#define CHECK_UNIQUE_IDS
+#endif
+
 #endif
 
 // #define ENABLE_VULKAN_DIAGNOSTICS

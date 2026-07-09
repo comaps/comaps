@@ -1283,6 +1283,7 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
   titleDecl.m_primaryTextFont.m_size = kTransitMarkTextSize * vs;
   titleDecl.m_anchor = dp::Left;
 
+  uint8_t i = 0;
   for (auto const & title : titles)
   {
     TextViewParams textParams;
@@ -1298,7 +1299,8 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
     textParams.m_startOverlayRank = dp::OverlayRank0;
     textParams.m_minVisibleScale = minVisibleScale;
 
-    TextShape(stopParams.m_pivot, textParams, TileKey(), symbolSizes, title.m_offset, dp::Center, kTransitOverlayIndex)
+    TextShape(stopParams.m_pivot, textParams, TileKey(), symbolSizes, title.m_offset, dp::Center, kTransitOverlayIndex,
+              i++, 0)
         .Draw(context, &batcher, textures);
   }
 
@@ -1313,7 +1315,7 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
   colorParams.m_specialPriority = static_cast<uint16_t>(Priority::Stub);
   colorParams.m_startOverlayRank = dp::OverlayRank0;
 
-  ColoredSymbolShape(stopParams.m_pivot, colorParams, TileKey(), kTransitStubOverlayIndex, markerSizes)
+  ColoredSymbolShape(stopParams.m_pivot, colorParams, TileKey(), kTransitStubOverlayIndex, 0, markerSizes)
       .Draw(context, &batcher, textures);
 }
 
@@ -1357,6 +1359,7 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
   titleDecl.m_primaryTextFont.m_size = kTransitMarkTextSize * vs;
   titleDecl.m_anchor = dp::Left;
 
+  uint8_t i = 0;
   for (auto const & title : titles)
   {
     TextViewParams textParams;
@@ -1372,7 +1375,8 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
     textParams.m_startOverlayRank = dp::OverlayRank0;
     textParams.m_minVisibleScale = minVisibleScale;
 
-    TextShape(stopParams.m_pivot, textParams, TileKey(), symbolSizes, title.m_offset, dp::Center, kTransitOverlayIndex)
+    TextShape(stopParams.m_pivot, textParams, TileKey(), symbolSizes, title.m_offset, dp::Center, kTransitOverlayIndex,
+              i++, 0)
         .Draw(context, &batcher, textures);
   }
 
@@ -1387,7 +1391,7 @@ void TransitSchemeBuilder::GenerateTitles(ref_ptr<dp::GraphicsContext> context, 
   colorParams.m_specialPriority = static_cast<uint16_t>(Priority::Stub);
   colorParams.m_startOverlayRank = dp::OverlayRank0;
 
-  ColoredSymbolShape(stopParams.m_pivot, colorParams, TileKey(), kTransitStubOverlayIndex, markerSizes)
+  ColoredSymbolShape(stopParams.m_pivot, colorParams, TileKey(), kTransitStubOverlayIndex, 0, markerSizes)
       .Draw(context, &batcher, textures);
 }
 

@@ -52,10 +52,10 @@ class DynamicSquareHandle : public dp::SquareHandle
   using TBase = dp::SquareHandle;
 
 public:
-  DynamicSquareHandle(dp::OverlayID const & id, dp::Anchor anchor, m2::PointD const & gbPivot,
+  DynamicSquareHandle(dp::OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
                       std::vector<m2::PointF> const & pxSizes, m2::PointD const & pxOffset, uint64_t priority,
                       bool isBound, int minVisibleScale, bool isBillboard)
-    : TBase(id, anchor, gbPivot, m2::PointD::Zero(), pxOffset, priority, isBound, minVisibleScale, isBillboard)
+    : TBase(id, subID, anchor, gbPivot, m2::PointD::Zero(), pxOffset, priority, isBound, minVisibleScale, isBillboard)
     , m_pxSizes(pxSizes)
   {
     ASSERT_GREATER(pxSizes.size(), 0, ());
@@ -78,21 +78,23 @@ private:
 };
 
 ColoredSymbolShape::ColoredSymbolShape(m2::PointD const & mercatorPt, ColoredSymbolViewParams const & params,
-                                       TileKey const & tileKey, uint32_t textIndex, bool needOverlay)
+                                       TileKey const & tileKey, uint32_t textIndex, uint8_t subID, bool needOverlay)
   : m_point(mercatorPt)
   , m_params(params)
   , m_tileCoords(tileKey.GetTileCoords())
   , m_textIndex(textIndex)
+  , m_subID(subID)
   , m_needOverlay(needOverlay)
 {}
 
 ColoredSymbolShape::ColoredSymbolShape(m2::PointD const & mercatorPt, ColoredSymbolViewParams const & params,
-                                       TileKey const & tileKey, uint32_t textIndex,
+                                       TileKey const & tileKey, uint32_t textIndex, uint8_t subID,
                                        std::vector<m2::PointF> const & overlaySizes)
   : m_point(mercatorPt)
   , m_params(params)
   , m_tileCoords(tileKey.GetTileCoords())
   , m_textIndex(textIndex)
+  , m_subID(subID)
   , m_needOverlay(true)
   , m_overlaySizes(overlaySizes)
 {}
@@ -277,15 +279,16 @@ void ColoredSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::
   drape_ptr<dp::OverlayHandle> handle;
   if (m_needOverlay)
   {
+    // TODO i think the overlay here is actually decorative
     if (!m_overlaySizes.empty())
     {
       handle = make_unique_dp<DynamicSquareHandle>(
-          overlayId, m_params.m_anchor, m_point, m_overlaySizes, m2::PointD(m_params.m_offset), GetOverlayPriority(),
-          true /* isBound */, m_params.m_minVisibleScale, true /* isBillboard */);
+          overlayId, m_subID, m_params.m_anchor, m_point, m_overlaySizes, m2::PointD(m_params.m_offset),
+          GetOverlayPriority(), true /* isBound */, m_params.m_minVisibleScale, true /* isBillboard */);
     }
     else
     {
-      handle = make_unique_dp<dp::SquareHandle>(overlayId, m_params.m_anchor, m_point, m2::PointD(pixelSize),
+      handle = make_unique_dp<dp::SquareHandle>(overlayId, m_subID, m_params.m_anchor, m_point, m2::PointD(pixelSize),
                                                 m2::PointD(m_params.m_offset), GetOverlayPriority(), true /* isBound */,
                                                 m_params.m_minVisibleScale, true /* isBillboard */);
     }

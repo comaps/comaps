@@ -146,11 +146,12 @@ void MaskedBatch(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batc
 namespace df
 {
 PoiSymbolShape::PoiSymbolShape(m2::PointD const & mercatorPt, PoiSymbolViewParams const & params,
-                               TileKey const & tileKey, uint32_t textIndex)
+                               TileKey const & tileKey, uint32_t textIndex, uint8_t subID)
   : m_pt(mercatorPt)
   , m_params(params)
   , m_tileCoords(tileKey.GetTileCoords())
   , m_textIndex(textIndex)
+  , m_subID(subID)
 {}
 
 void PoiSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,
@@ -192,8 +193,9 @@ drape_ptr<dp::OverlayHandle> PoiSymbolShape::CreateOverlayHandle(m2::RectD const
 {
   dp::OverlayID overlayId(m_params.m_featureId, m_params.m_markId, m_tileCoords, m_textIndex);
   drape_ptr<dp::OverlayHandle> handle = make_unique_dp<dp::SquareHandle>(
-      overlayId, m_params.m_anchor, m_pt, pixelRect.RightTop() - pixelRect.LeftBottom(), m2::PointD(m_params.m_offset),
-      GetOverlayPriority(), true /* isBound */, m_params.m_minVisibleScale, true /* isBillboard */);
+      overlayId, m_subID, m_params.m_anchor, m_pt, pixelRect.RightTop() - pixelRect.LeftBottom(),
+      m2::PointD(m_params.m_offset), GetOverlayPriority(), true /* isBound */, m_params.m_minVisibleScale,
+      true /* isBillboard */);
   handle->SetPivotZ(m_params.m_posZ);
   handle->SetExtendingSize(m_params.m_extendingSize);
   if (m_params.m_specialDisplacement == SpecialDisplacement::UserMark ||

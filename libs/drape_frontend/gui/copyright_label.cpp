@@ -5,6 +5,7 @@
 #include "drape_frontend/animation/opacity_animation.hpp"
 #include "drape_frontend/batcher_bucket.hpp"
 #include "drape_frontend/gui/skin.hpp"
+#include "drape_frontend/overlay_id.hpp"
 
 #include "drape/attribute_provider.hpp"
 #include "drape/batcher.hpp"
@@ -85,8 +86,8 @@ drape_ptr<ShapeRenderer> CopyrightLabel::Draw(ref_ptr<dp::GraphicsContext> conte
   ASSERT(vertexCount % dp::Batcher::VertexPerQuad == 0, ());
   auto const indexCount = dp::Batcher::IndexPerQuad * vertexCount / dp::Batcher::VertexPerQuad;
 
-  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CopyrightHandle>(GuiHandleCopyright, tex, m_position.m_anchor,
-                                                                        m_position.m_pixelPivot, std::move(glyphs));
+  drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CopyrightHandle>(
+      df::GuiHandleCopyright, tex, m_position.m_anchor, m_position.m_pixelPivot, std::move(glyphs));
 
   drape_ptr<ShapeRenderer> renderer = make_unique_dp<ShapeRenderer>();
   dp::Batcher batcher(indexCount, vertexCount);

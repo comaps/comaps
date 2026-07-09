@@ -26,20 +26,6 @@ enum EWidget
 #endif
 };
 
-enum EGuiHandle
-{
-  GuiHandleScaleLabel,
-  GuiHandleCopyright,
-  GuiHandleCompass,
-  GuiHandleRuler,
-  GuiHandleRulerLabel,
-  GuiHandleChoosePositionMark,
-  GuiHandleWatermark,
-#ifdef RENDER_DEBUG_INFO_LABELS
-  GuiHandleDebugLabel = 100
-#endif
-};
-
 struct Position
 {
   Position() : m_pixelPivot(m2::PointF::Zero()), m_anchor(dp::Center) {}

@@ -8,9 +8,10 @@
 
 namespace df
 {
-TextHandle::TextHandle(dp::OverlayID const & id, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
-                       ref_ptr<dp::TextureManager> textureManager, int minVisibleScale, bool isBillboard)
-  : OverlayHandle(id, anchor, priority, minVisibleScale, isBillboard)
+TextHandle::TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor,
+                       uint64_t priority, ref_ptr<dp::TextureManager> textureManager, int minVisibleScale,
+                       bool isBillboard)
+  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard)
   , m_forceUpdateNormals(false)
   , m_isLastVisible(false)
   , m_glyphs(std::move(glyphs))
@@ -18,10 +19,10 @@ TextHandle::TextHandle(dp::OverlayID const & id, dp::TGlyphs && glyphs, dp::Anch
   , m_glyphsReady(false)
 {}
 
-TextHandle::TextHandle(dp::OverlayID const & id, dp::TGlyphs && glyphs, dp::Anchor anchor, uint64_t priority,
-                       ref_ptr<dp::TextureManager> textureManager, gpu::TTextDynamicVertexBuffer && normals,
-                       int minVisibleScale, bool isBillboard)
-  : OverlayHandle(id, anchor, priority, minVisibleScale, isBillboard)
+TextHandle::TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor,
+                       uint64_t priority, ref_ptr<dp::TextureManager> textureManager,
+                       gpu::TTextDynamicVertexBuffer && normals, int minVisibleScale, bool isBillboard)
+  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard)
   , m_buffer(std::move(normals))
   , m_forceUpdateNormals(false)
   , m_isLastVisible(false)
@@ -79,7 +80,7 @@ std::string TextHandle::GetOverlayDebugInfo()
 {
   std::ostringstream out;
   out << "Text Priority(" << std::hex << std::setw(16) << std::setfill('0') << GetPriority() << ") " << std::dec
-      << DebugPrint(GetOverlayID());
+      << DebugPrint(GetOverlayID()) << " " << static_cast<int>(GetOverlaySubID());
   return out.str();
 }
 #endif

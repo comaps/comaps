@@ -1,6 +1,7 @@
 #include "drape_frontend/gui/choose_position_mark.hpp"
 
 #include "drape_frontend/batcher_bucket.hpp"
+#include "drape_frontend/overlay_id.hpp"
 #include "drape_frontend/render_state_extension.hpp"
 
 #include "drape/attribute_provider.hpp"
@@ -98,7 +99,7 @@ drape_ptr<ShapeRenderer> ChoosePositionMark::Draw(ref_ptr<dp::GraphicsContext> c
   provider.InitStream(0, info, make_ref(&vertexes));
 
   drape_ptr<dp::OverlayHandle> handle =
-      make_unique_dp<ChoosePositionMarkHandle>(GuiHandleChoosePositionMark, m_position.m_pixelPivot);
+      make_unique_dp<ChoosePositionMarkHandle>(df::GuiHandleChoosePositionMark, m_position.m_pixelPivot);
 
   drape_ptr<ShapeRenderer> renderer = make_unique_dp<ShapeRenderer>();
   dp::Batcher batcher(dp::Batcher::IndexPerQuad, dp::Batcher::VertexPerQuad);

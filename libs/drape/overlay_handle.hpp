@@ -51,6 +51,8 @@ struct OverlayID
   OverlayID() = default;
 
   explicit OverlayID(FeatureID const & featureId) : m_featureId(featureId) {}
+  // Non-map overlays can use this facility to get a unique id. See the list of IDs in drape_frontend/overlay_id.hpp
+  explicit OverlayID(uint32_t index) : m_index(index) {}
 
   OverlayID(FeatureID const & featureId, kml::MarkId markId, m2::PointI const & tileCoords, uint32_t index)
     : m_featureId(featureId)
@@ -59,7 +61,9 @@ struct OverlayID
     , m_index(index)
   {}
 
-  bool IsValid() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId; }
+  bool IsValid() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId || m_index != 0; }
+
+  bool IsValidForMap() const { return m_featureId.IsValid() || m_markId != kml::kInvalidMarkId; }
 
   static OverlayID GetLowerKey(FeatureID const & featureID) { return {featureID, 0, {-1, -1}, 0}; }
 
@@ -85,7 +89,8 @@ class OverlayHandle
 public:
   using Rects = std::vector<m2::RectF>;
 
-  OverlayHandle(OverlayID const & id, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale, bool isBillboard);
+  OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale,
+                bool isBillboard);
 
   virtual ~OverlayHandle() = default;
 
@@ -121,7 +126,10 @@ public:
   bool HasDynamicAttributes() const;
   void AddDynamicAttribute(BindingInfo const & binding, uint32_t offset, uint32_t count);
 
+  // Semantic group ID; many related OverlayHandles may share an OverlayID
   OverlayID const & GetOverlayID() const { return m_id; }
+  // Unique within an OverlayID group, order is meaningful.
+  uint8_t GetOverlaySubID() const { return m_subID; }
   uint64_t const & GetPriority() const { return m_priority; }
 
   virtual bool IsBound() const { return false; }
@@ -160,6 +168,7 @@ public:
 
 protected:
   OverlayID const m_id;
+  uint8_t m_subID;
   dp::Anchor const m_anchor;
   uint64_t const m_priority;
 
@@ -213,8 +222,9 @@ class SquareHandle : public OverlayHandle
   using TBase = OverlayHandle;
 
 public:
-  SquareHandle(OverlayID const & id, dp::Anchor anchor, m2::PointD const & gbPivot, m2::PointD const & pxSize,
-               m2::PointD const & pxOffset, uint64_t priority, bool isBound, int minVisibleScale, bool isBillboard);
+  SquareHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
+               m2::PointD const & pxSize, m2::PointD const & pxOffset, uint64_t priority, bool isBound,
+               int minVisibleScale, bool isBillboard);
 
   m2::RectD GetPixelRect(ScreenBase const & screen, bool perspective) const override;
   void GetPixelShape(ScreenBase const & screen, bool perspective, Rects & rects) const override;
