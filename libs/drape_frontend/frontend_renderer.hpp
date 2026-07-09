@@ -235,6 +235,7 @@ private:
 
   void DisablePerspective();
 
+  // TODO all of these should call back to the platform to fire accessibility event / haptics / etc
   void OnTap(m2::PointD const & pt, bool isLong) override;
   void OnForceTap(m2::PointD const & pt) override;
   void OnDoubleTap(m2::PointD const & pt) override;

@@ -1223,7 +1223,8 @@ void ApplyLineFeatureAdditional::ProcessAdditionalLineRules(PathTextRuleProto co
         CalculateRoadShieldPositions(shape->GetOffsets(), spline, shieldPositions);
 
       m_insertShape(std::move(shape));
-      textIndex++;
+      textIndex++;  // FIXME we actually also increment the textIndex inside PathTextShape, which means they can clash
+      // luckily it only happens in tile border regions, and just means that the labels displace slightly weirdly
     }
   }
   else if (m_shieldRule)

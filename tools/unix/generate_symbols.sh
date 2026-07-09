@@ -19,7 +19,7 @@ export QT_QPA_PLATFORM=offscreen
 
 BINARY_NAME=skin_generator_tool
 OMIM_PATH="${OMIM_PATH:-$(cd "$(dirname "$0")/../.."; pwd)}"
-BUILD_DIR="$OMIM_PATH/build"
+BUILD_DIR="$OMIM_PATH/build_$BINARY_NAME"
 SKIN_GENERATOR="${SKIN_GENERATOR:-$BUILD_DIR/$BINARY_NAME}"
 DATA_PATH="$OMIM_PATH/data"
 

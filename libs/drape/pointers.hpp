@@ -6,6 +6,22 @@
 
 #include <memory>
 
+/**
+ * Pointers for Drape code.
+ *
+ * Functions that transfer ownership should accept or return drape_ptr or (rarely) a C pointer.
+ * Functions that borrow ownership should use ref_ptr (through make_ref).
+ *
+ * A drape_ptr is unique so returning or accepting it implicitly transfers the ownership.
+ * Destroying a drape_ptr (e.g. if it goes out of scope) will also destroy the pointee.
+ *
+ * Be careful not to leave dangling ref_ptr's when transferring ownership, as the new owner
+ * could destroy the pointer.
+ *
+ * Generally, it is not safe to store a ref_ptr unless you take special steps to make it safe.
+ * That's because the ref_ptr points to some memory that could be deallocated later.
+ */
+
 #if defined(TRACK_POINTERS)
 #include <map>
 #include <mutex>

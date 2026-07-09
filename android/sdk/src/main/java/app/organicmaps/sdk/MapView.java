@@ -115,15 +115,30 @@ public class MapView extends SurfaceView
     }
     case MotionEvent.ACTION_CANCEL -> action = Map.NATIVE_ACTION_CANCEL;
     }
+    // will call back to performClick etc when needed (see frontend_renderer.cpp)
     Map.onTouch(action, event, pointerIndex);
-    performClick();
     return true;
   }
 
+  // TODO i think all of these are broken??
   @Override
   public boolean performClick()
   {
     super.performClick();
+    return true;
+  }
+
+  @Override
+  public boolean performContextClick()
+  {
+    super.performContextClick();
+    return false;
+  }
+
+  @Override
+  public boolean performLongClick()
+  {
+    super.performLongClick();
     return false;
   }
 

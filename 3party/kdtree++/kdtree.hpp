@@ -892,7 +892,8 @@ namespace KDTree
       _Link_const_type
       _M_get_root() const
       {
-         return const_cast<_Link_const_type>(_M_root);
+        // a null ptr deref here means that the tree itself is null
+        return const_cast<_Link_const_type>(_M_root);
       }
 
       _Link_type

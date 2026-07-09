@@ -168,6 +168,7 @@ libs/platform/localized_types_map.cpp
 # CMake
 cmake-build-*
 build/
+build-skin_generator_tool/
 
 qt/res/Info.plist
 

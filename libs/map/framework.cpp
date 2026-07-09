@@ -1183,6 +1183,7 @@ void Framework::MakeFrameActive()
 
 int Framework::GetDrawScale() const
 {
+  // FIXME there is a short period where drapeEngine exists but currentModelView is blank
   if (m_drapeEngine != nullptr)
     return df::GetDrawTileScale(m_currentModelView);
 

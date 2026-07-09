@@ -29,52 +29,35 @@ namespace
 class HandleComparator
 {
 public:
-  explicit HandleComparator(bool enableMask) : m_enableMask(enableMask) {}
+  explicit HandleComparator() {}
 
   bool operator()(ref_ptr<OverlayHandle> const & l, ref_ptr<OverlayHandle> const & r) const { return IsGreater(l, r); }
 
   bool IsGreater(ref_ptr<OverlayHandle> const & l, ref_ptr<OverlayHandle> const & r) const
   {
-    bool const displayFlagLeft = ((!m_enableMask || l->IsSpecialLayerOverlay()) ? true : l->GetDisplayFlag());
-    bool const displayFlagRight = ((!m_enableMask || r->IsSpecialLayerOverlay()) ? true : r->GetDisplayFlag());
-    if (displayFlagLeft > displayFlagRight)
+    uint64_t const priorityLeft = l->GetPriority();
+    uint64_t const priorityRight = r->GetPriority();
+    if (priorityLeft > priorityRight)
       return true;
 
-    if (displayFlagLeft == displayFlagRight)
+    if (priorityLeft == priorityRight)
     {
-      uint64_t const priorityLeft = l->GetPriority();
-      uint64_t const priorityRight = r->GetPriority();
-      if (priorityLeft > priorityRight)
+      auto const & hashLeft = l->GetOverlayID();
+      auto const & hashRight = r->GetOverlayID();
+
+      if (hashLeft > hashRight)
         return true;
 
-      if (priorityLeft == priorityRight)
-      {
-        auto const & hashLeft = l->GetOverlayID();
-        auto const & hashRight = r->GetOverlayID();
-
-        if (hashLeft > hashRight)
-          return true;
-
-        if (hashLeft == hashRight)
-          return l.get() > r.get();
-      }
+      if (hashLeft == hashRight)
+        return l.get() > r.get();
     }
     return false;
   }
 
   bool IsEqual(ref_ptr<OverlayHandle> const & l, ref_ptr<OverlayHandle> const & r) const
   {
-    bool const displayFlagLeft = ((!m_enableMask || l->IsSpecialLayerOverlay()) ? true : l->GetDisplayFlag());
-    bool const displayFlagRight = ((!m_enableMask || r->IsSpecialLayerOverlay()) ? true : r->GetDisplayFlag());
-
-    if (displayFlagLeft == displayFlagRight)
-      return l->GetPriority() == r->GetPriority();
-
-    return false;
+    return l->GetPriority() == r->GetPriority();
   }
-
-private:
-  bool m_enableMask;
 };
 }  // namespace
 
@@ -240,7 +223,7 @@ void OverlayTree::InsertHandle(ref_ptr<OverlayHandle> handle, int currentRank,
   }
 
   TOverlayContainer rivals;
-  HandleComparator comparator(true /* enableMask */);
+  HandleComparator comparator{};
 
   // Find elements that already on OverlayTree and it's pixel rect
   // intersect with handle pixel rect ("Intersected elements").
@@ -342,7 +325,7 @@ void OverlayTree::EndOverlayPlacing()
   LOG(LINFO, ("- BEGIN OVERLAYS PLACING"));
 #endif
 
-  HandleComparator comparator(false /* enableMask */);
+  HandleComparator comparator{};
 
   for (int rank = 0; rank < dp::OverlayRanksCount; rank++)
   {

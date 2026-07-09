@@ -877,8 +877,8 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
     ref_ptr<EnableDebugRectRenderingMessage> msg = message;
     m_isDebugRectRenderingEnabled = msg->IsEnabled();
     m_debugRectRenderer->SetEnabled(msg->IsEnabled());
+    break;
   }
-  break;
 
   case Message::Type::InvalidateUserMarks:
   {
@@ -1277,7 +1277,7 @@ std::pair<FeatureID, kml::MarkId> FrontendRenderer::GetVisiblePOI(m2::RectD cons
       closestOverlayHandle = handle;
     }
   }
-  CHECK(closestOverlayHandle, ());
+  ASSERT(closestOverlayHandle, ());
 
   auto const & overlayId = closestOverlayHandle->GetOverlayID();
   return {overlayId.m_featureId, overlayId.m_markId};
