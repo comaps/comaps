@@ -1,0 +1,90 @@
+name: Monitor World MWM Availability
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'  # twice daily, 6am and 6pm UTC
+  workflow_dispatch:
+
+env:
+  TZ: Etc/UTC
+  ZULIP_SITE: https://comaps.zulipchat.com
+  ZULIP_BOT_EMAIL: ${{ secrets.ZULIP_BOT_EMAIL }}
+  ZULIP_API_KEY: ${{ secrets.ZULIP_API_KEY }}
+
+jobs:
+  check-world-mwm:
+    name: Check World MWM CDN
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch configure.sh and countries.txt from Codeberg
+        run: |
+          curl -sf "https://codeberg.org/comaps/comaps/raw/branch/main/configure.sh" -o configure.sh
+          curl -sf "https://codeberg.org/comaps/comaps/raw/branch/main/data/countries.txt" -o countries.txt
+
+      - name: Derive MWM URLs
+        run: |
+          # Same extraction logic as configure.sh
+          MWM_VERSION=$(awk -F'[:,]' '/"v":/{ $2 = substr($2, 2); print $2 }' countries.txt)
+          MAP_SERIES=$(awk -F'"' '/"map_series":/{ print $4; exit }' countries.txt)
+          # Read the base URL template from configure.sh so CDN changes are picked up automatically
+          URL_TEMPLATE=$(grep 'MAPS_BASE_URL=' configure.sh | head -1 | sed 's/.*="\(.*\)"/\1/')
+          MAPS_BASE_URL="${URL_TEMPLATE/\$MAP_SERIES/$MAP_SERIES}"
+          MAPS_BASE_URL="${MAPS_BASE_URL/\$MWM_VERSION/$MWM_VERSION}"
+          WORLD_URL="$MAPS_BASE_URL/World.mwm"
+          COASTS_URL="$MAPS_BASE_URL/WorldCoasts.mwm"
+          echo "MWM_VERSION=$MWM_VERSION" >> "$GITHUB_ENV"
+          echo "WORLD_URL=$WORLD_URL" >> "$GITHUB_ENV"
+          echo "COASTS_URL=$COASTS_URL" >> "$GITHUB_ENV"
+          echo "World URL:  $WORLD_URL"
+          echo "Coasts URL: $COASTS_URL"
+
+      - name: HEAD check World.mwm
+        id: world
+        run: |
+          RESPONSE=$(curl -sIL "$WORLD_URL")
+          STATUS=$(echo "$RESPONSE" | grep -i '^HTTP/' | tail -1 | awk '{print $2}')
+          SIZE=$(echo "$RESPONSE" | grep -i '^content-length:' | tail -1 | awk '{print $2}' | tr -d '\r')
+          SIZE=${SIZE:-0}
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          echo "size=$SIZE" >> "$GITHUB_OUTPUT"
+          if [ "$STATUS" = "200" ] && [ "$SIZE" -ge 1000000 ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "OK: status=$STATUS size=$SIZE"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "FAIL: status=$STATUS size=$SIZE"
+          fi
+
+      - name: HEAD check WorldCoasts.mwm
+        id: coasts
+        run: |
+          RESPONSE=$(curl -sIL "$COASTS_URL")
+          STATUS=$(echo "$RESPONSE" | grep -i '^HTTP/' | tail -1 | awk '{print $2}')
+          SIZE=$(echo "$RESPONSE" | grep -i '^content-length:' | tail -1 | awk '{print $2}' | tr -d '\r')
+          SIZE=${SIZE:-0}
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          echo "size=$SIZE" >> "$GITHUB_OUTPUT"
+          if [ "$STATUS" = "200" ] && [ "$SIZE" -ge 1000000 ]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "OK: status=$STATUS size=$SIZE"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "FAIL: status=$STATUS size=$SIZE"
+          fi
+
+      - name: Alert Zulip on failure
+        if: steps.world.outputs.ok != 'true' || steps.coasts.outputs.ok != 'true'
+        run: |
+          MSG="**World.mwm configure.sh check failed** (version \`$MWM_VERSION\`)"
+          if [ "${{ steps.world.outputs.ok }}" != "true" ]; then
+            MSG="$MSG\n- World.mwm: HTTP ${{ steps.world.outputs.status }}, size=${{ steps.world.outputs.size }}\n  $WORLD_URL"
+          fi
+          if [ "${{ steps.coasts.outputs.ok }}" != "true" ]; then
+            MSG="$MSG\n- WorldCoasts.mwm: HTTP ${{ steps.coasts.outputs.status }}, size=${{ steps.coasts.outputs.size }}\n  $COASTS_URL"
+          fi
+          curl -X POST "$ZULIP_SITE/api/v1/messages" \
+            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
+            --data-urlencode type=stream \
+            --data-urlencode 'to="DevOps"' \
+            --data-urlencode topic=codeberg-bot \
+            --data-urlencode "content=$MSG"
