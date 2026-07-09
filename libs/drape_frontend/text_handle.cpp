@@ -10,8 +10,8 @@ namespace df
 {
 TextHandle::TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor,
                        uint64_t priority, ref_ptr<dp::TextureManager> textureManager, int minVisibleScale,
-                       bool isBillboard)
-  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard)
+                       bool isBillboard, dp::AccessibilityNodeInfo && accessibilityInfo)
+  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard, std::move(accessibilityInfo))
   , m_forceUpdateNormals(false)
   , m_isLastVisible(false)
   , m_glyphs(std::move(glyphs))
@@ -21,8 +21,9 @@ TextHandle::TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && g
 
 TextHandle::TextHandle(dp::OverlayID const & id, uint8_t subID, dp::TGlyphs && glyphs, dp::Anchor anchor,
                        uint64_t priority, ref_ptr<dp::TextureManager> textureManager,
-                       gpu::TTextDynamicVertexBuffer && normals, int minVisibleScale, bool isBillboard)
-  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard)
+                       gpu::TTextDynamicVertexBuffer && normals, int minVisibleScale, bool isBillboard,
+                       dp::AccessibilityNodeInfo && accessibilityInfo)
+  : OverlayHandle(id, subID, anchor, priority, minVisibleScale, isBillboard, std::move(accessibilityInfo))
   , m_buffer(std::move(normals))
   , m_forceUpdateNormals(false)
   , m_isLastVisible(false)
@@ -79,8 +80,9 @@ void TextHandle::SetForceUpdateNormals(bool forceUpdate) const
 std::string TextHandle::GetOverlayDebugInfo()
 {
   std::ostringstream out;
-  out << "Text Priority(" << std::hex << std::setw(16) << std::setfill('0') << GetPriority() << ") " << std::dec
-      << DebugPrint(GetOverlayID()) << " " << static_cast<int>(GetOverlaySubID());
+  out << "Text \"" + GetAccessibilityInfo().m_accessibilityLabel + "\" Priority(" << std::hex << std::setw(16)
+      << std::setfill('0') << GetPriority() << ") " << std::dec << DebugPrint(GetOverlayID()) << " "
+      << static_cast<int>(GetOverlaySubID());
   return out.str();
 }
 #endif

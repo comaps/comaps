@@ -46,7 +46,8 @@ class ChoosePositionMarkHandle : public Handle
   using TBase = Handle;
 
 public:
-  ChoosePositionMarkHandle(uint32_t id, m2::PointF const & pivot) : Handle(id, dp::Center, pivot)
+  ChoosePositionMarkHandle(uint32_t id, m2::PointF const & pivot)
+    : Handle(id, dp::Center, pivot, dp::AccessibilityNodeInfo())
   {
     SetIsVisible(true);
   }

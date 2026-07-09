@@ -66,7 +66,7 @@ dp::BindingInfo const & GetCirclesPackDynamicBindingInfo()
 
 CirclesPackHandle::CirclesPackHandle(size_t pointsCount, uint32_t id, uint8_t subID)
   : OverlayHandle(dp::OverlayID(id), subID, dp::Anchor::Center, 0 /* priority */, 1 /* minVisibleScale */,
-                  false /* isBillboard */)
+                  false /* isBillboard */, dp::AccessibilityNodeInfo())
   , m_needUpdate(false)
 {
   m_buffer.resize(pointsCount * dp::Batcher::VertexPerQuad);

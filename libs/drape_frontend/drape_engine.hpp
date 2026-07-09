@@ -15,6 +15,7 @@
 #include "drape_frontend/scenario_manager.hpp"
 #include "drape_frontend/selection_shape.hpp"
 
+#include "drape/accessibility_presenter.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/pointers.hpp"
 #include "drape/viewport.hpp"
@@ -167,6 +168,10 @@ public:
   void SetRenderingEnabled(ref_ptr<dp::GraphicsContextFactory> contextFactory = nullptr);
   void SetRenderingDisabled(bool const destroySurface);
   void InvalidateRect(m2::RectD const & rect);
+  void OnAccessibilityDataCallback(std::atomic<dp::AccessibilityData *> & ptr);
+  void AccessibilityDataHandler(dp::AccessibilityData * data);
+  void SetAccessibilityPresenter(std::optional<drape_ptr<dp::AccessibilityPresenter>> && presenter);
+  std::optional<ref_ptr<dp::AccessibilityPresenter>> GetAccessibilityPresenter() const;
   void UpdateMapStyle();
 
   void SetCompassInfo(location::CompassInfo const & info);
@@ -303,6 +308,11 @@ private:
   std::atomic<dp::DrapeID> m_drapeIdGenerator = 0;
 
   double m_startBackgroundTime = 0;
+
+  // temporary storage used to transfer and conflate the latest accessibility data into the GUI thread
+  std::atomic<dp::AccessibilityData *> m_accessibilityData;
+  // only access this from the gui thread! it may get modified or deallocated racily otherwise.
+  std::optional<drape_ptr<dp::AccessibilityPresenter>> m_accessibilityPresenter;
 
   friend class DrapeApi;
 };

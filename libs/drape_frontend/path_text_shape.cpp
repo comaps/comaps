@@ -24,6 +24,8 @@ using m2::Spline;
 
 namespace df
 {
+char constexpr kSpaces[] = "   ";
+
 PathTextShape::PathTextShape(m2::SharedSpline const & spline, PathTextViewParams const & params,
                              TileKey const & tileKey, uint32_t textIndexStart, uint32_t textIndexEnd)
   : m_spline(spline)
@@ -37,7 +39,6 @@ PathTextShape::PathTextShape(m2::SharedSpline const & spline, PathTextViewParams
 
 bool PathTextShape::CalculateLayout(ref_ptr<dp::TextureManager> textures)
 {
-  char constexpr kSpaces[] = "   ";
   auto layout = make_unique_dp<PathTextLayout>(
       m_params.m_tileCenter,
       m_params.m_auxText.empty() ? m_params.m_mainText : m_params.m_mainText + kSpaces + m_params.m_auxText,
@@ -145,8 +146,12 @@ drape_ptr<dp::OverlayHandle> PathTextShape::CreateOverlayHandle(uint32_t textInd
   dp::OverlayID overlayId(m_params.m_featureId, m_params.m_markId, m_tileCoords, m_textIndexStart + textIndex);
   auto const layout = m_context->GetLayout();
   auto const priority = GetOverlayPriority(textIndex, layout->GetGlyphCount());
+  dp::AccessibilityNodeInfo accessibilityInfo(
+      m_params.m_auxText.empty() ? m_params.m_mainText : m_params.m_mainText + kSpaces + m_params.m_auxText,
+      dp::ExplorationType::ANNOUNCE_LABEL_ALWAYS);
   return make_unique_dp<PathTextHandle>(overlayId, 0, m_context, m_params.m_depth, textIndex, priority, textures,
-                                        m_params.m_minVisibleScale, true /* isBillboard */);
+                                        m_params.m_minVisibleScale, true /* isBillboard */,
+                                        std::move(accessibilityInfo));
 }
 
 void PathTextShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batcher> batcher,

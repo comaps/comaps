@@ -1,6 +1,14 @@
 project(drape)
 
 set(DRAPE_TESTABLE_SRC
+  accessibility_presenter.cpp
+  accessibility_presenter.hpp
+  accessibility_data.cpp
+  accessibility_data.hpp
+  accessibility_traits.hpp
+  accessibility_node_context.cpp
+  accessibility_node_context.hpp
+  accessibility_node_info.hpp
   attribute_buffer_mutator.cpp
   attribute_buffer_mutator.hpp
   attribute_provider.cpp

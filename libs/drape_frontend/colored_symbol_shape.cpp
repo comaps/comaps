@@ -54,8 +54,10 @@ class DynamicSquareHandle : public dp::SquareHandle
 public:
   DynamicSquareHandle(dp::OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
                       std::vector<m2::PointF> const & pxSizes, m2::PointD const & pxOffset, uint64_t priority,
-                      bool isBound, int minVisibleScale, bool isBillboard)
-    : TBase(id, subID, anchor, gbPivot, m2::PointD::Zero(), pxOffset, priority, isBound, minVisibleScale, isBillboard)
+                      bool isBound, int minVisibleScale, bool isBillboard,
+                      dp::AccessibilityNodeInfo && accessibilityInfo)
+    : TBase(id, subID, anchor, gbPivot, m2::PointD::Zero(), pxOffset, priority, isBound, minVisibleScale, isBillboard,
+            std::move(accessibilityInfo))
     , m_pxSizes(pxSizes)
   {
     ASSERT_GREATER(pxSizes.size(), 0, ());
@@ -282,15 +284,17 @@ void ColoredSymbolShape::Draw(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::
     // TODO i think the overlay here is actually decorative
     if (!m_overlaySizes.empty())
     {
-      handle = make_unique_dp<DynamicSquareHandle>(
-          overlayId, m_subID, m_params.m_anchor, m_point, m_overlaySizes, m2::PointD(m_params.m_offset),
-          GetOverlayPriority(), true /* isBound */, m_params.m_minVisibleScale, true /* isBillboard */);
+      handle = make_unique_dp<DynamicSquareHandle>(overlayId, m_subID, m_params.m_anchor, m_point, m_overlaySizes,
+                                                   m2::PointD(m_params.m_offset), GetOverlayPriority(),
+                                                   true /* isBound */, m_params.m_minVisibleScale,
+                                                   true /* isBillboard */, dp::AccessibilityNodeInfo());
     }
     else
     {
       handle = make_unique_dp<dp::SquareHandle>(overlayId, m_subID, m_params.m_anchor, m_point, m2::PointD(pixelSize),
                                                 m2::PointD(m_params.m_offset), GetOverlayPriority(), true /* isBound */,
-                                                m_params.m_minVisibleScale, true /* isBillboard */);
+                                                m_params.m_minVisibleScale, true /* isBillboard */,
+                                                dp::AccessibilityNodeInfo());
     }
 
     if (m_params.m_specialDisplacement == SpecialDisplacement::UserMark ||

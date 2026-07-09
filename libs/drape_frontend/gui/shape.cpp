@@ -23,8 +23,9 @@
 
 namespace gui
 {
-Handle::Handle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot)
-  : dp::OverlayHandle(dp::OverlayID(id), 0, anchor, 0 /* priority */, 1 /* minVisibleScale */, false /* isBillboard */)
+Handle::Handle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, dp::AccessibilityNodeInfo && accessibilityInfo)
+  : dp::OverlayHandle(dp::OverlayID(id), 0, anchor, 0 /* priority */, 1 /* minVisibleScale */, false /* isBillboard */,
+                      std::move(accessibilityInfo))
   , m_pivot(glsl::ToVec2(pivot))
 {}
 

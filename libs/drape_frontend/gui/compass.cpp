@@ -50,7 +50,9 @@ class CompassHandle : public TappableHandle
 
 public:
   CompassHandle(uint32_t id, m2::PointF const & pivot, m2::PointF const & size, Shape::TTapHandler const & tapHandler)
-    : TappableHandle(id, dp::Center, pivot, size)
+    // TODO live angle
+    : TappableHandle(id, dp::Center, pivot, size,
+                     dp::AccessibilityNodeInfo("compass", dp::ExplorationType::ANNOUNCE_LABEL_ALWAYS))
     , m_tapHandler(tapHandler)
     , m_animation(false, 0.25)
   {}

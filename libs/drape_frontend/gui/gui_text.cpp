@@ -435,16 +435,18 @@ void MutableLabel::SetText(LabelResult & result, std::string text, ref_ptr<dp::T
   }
 }
 
-MutableLabelHandle::MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot)
-  : TBase(id, anchor, pivot)
+MutableLabelHandle::MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot,
+                                       dp::AccessibilityNodeInfo && accessibilityInfo)
+  : TBase(id, anchor, pivot, std::move(accessibilityInfo))
   , m_textView(make_unique_dp<MutableLabel>(anchor))
   , m_isContentDirty(true)
   , m_glyphsReady(false)
 {}
 
 MutableLabelHandle::MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot,
+                                       dp::AccessibilityNodeInfo && accessibilityInfo,
                                        ref_ptr<dp::TextureManager> textures)
-  : MutableLabelHandle(id, anchor, pivot)
+  : MutableLabelHandle(id, anchor, pivot, std::move(accessibilityInfo))
 {
   m_textureManager = std::move(textures);
 }
@@ -552,8 +554,9 @@ m2::PointF MutableLabelDrawer::Draw(ref_ptr<dp::GraphicsContext> context, Params
 }
 
 StaticLabelHandle::StaticLabelHandle(uint32_t id, ref_ptr<dp::TextureManager> textureManager, dp::Anchor anchor,
-                                     m2::PointF const & pivot, dp::TGlyphs && glyphs)
-  : TBase(id, anchor, pivot)
+                                     m2::PointF const & pivot, dp::TGlyphs && glyphs,
+                                     dp::AccessibilityNodeInfo && accessibilityInfo)
+  : TBase(id, anchor, pivot, std::move(accessibilityInfo))
   , m_glyphs(std::move(glyphs))
   , m_textureManager(std::move(textureManager))
   , m_glyphsReady(false)

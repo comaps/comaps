@@ -147,9 +147,11 @@ class MutableLabelHandle : public Handle
   using TBase = Handle;
 
 public:
-  MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot);
+  MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot,
+                     dp::AccessibilityNodeInfo && accessibilityInfo);
 
-  MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, ref_ptr<dp::TextureManager> textures);
+  MutableLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot,
+                     dp::AccessibilityNodeInfo && accessibilityInfo, ref_ptr<dp::TextureManager> textures);
 
   void GetAttributeMutation(ref_ptr<dp::AttributeBufferMutator> mutator) const override;
 
@@ -197,7 +199,7 @@ class StaticLabelHandle : public Handle
 
 public:
   StaticLabelHandle(uint32_t id, ref_ptr<dp::TextureManager> textureManager, dp::Anchor anchor,
-                    m2::PointF const & pivot, dp::TGlyphs && glyphs);
+                    m2::PointF const & pivot, dp::TGlyphs && glyphs, dp::AccessibilityNodeInfo && accessibilityInfo);
 
   bool Update(ScreenBase const & screen) override;
 

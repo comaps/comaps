@@ -18,6 +18,8 @@
 #include <functional>
 #include <utility>
 
+#define COPYRIGHT_TEXT "Map data © OpenStreetMap"
+
 namespace gui
 {
 namespace
@@ -31,8 +33,8 @@ class CopyrightHandle : public StaticLabelHandle
 
 public:
   CopyrightHandle(uint32_t id, ref_ptr<dp::TextureManager> textureManager, dp::Anchor anchor, m2::PointF const & pivot,
-                  dp::TGlyphs && glyphs)
-    : TBase(id, textureManager, anchor, pivot, std::move(glyphs))
+                  dp::TGlyphs && glyphs, dp::AccessibilityNodeInfo && accessibilityInfo)
+    : TBase(id, textureManager, anchor, pivot, std::move(glyphs), std::move(accessibilityInfo))
   {
     SetIsVisible(true);
   }
@@ -76,8 +78,8 @@ drape_ptr<ShapeRenderer> CopyrightLabel::Draw(ref_ptr<dp::GraphicsContext> conte
                                               ref_ptr<dp::TextureManager> tex) const
 {
   StaticLabel::LabelResult result;
-  auto glyphs = StaticLabel::CacheStaticText("Map data © OpenStreetMap", "", m_position.m_anchor,
-                                             DrapeGui::GetGuiTextFont(), tex, result);
+  auto glyphs =
+      StaticLabel::CacheStaticText(COPYRIGHT_TEXT, "", m_position.m_anchor, DrapeGui::GetGuiTextFont(), tex, result);
 
   dp::AttributeProvider provider(1 /*stream count*/, static_cast<uint32_t>(result.m_buffer.size()));
   provider.InitStream(0 /*stream index*/, StaticLabel::Vertex::GetBindingInfo(), make_ref(result.m_buffer.data()));
@@ -87,7 +89,8 @@ drape_ptr<ShapeRenderer> CopyrightLabel::Draw(ref_ptr<dp::GraphicsContext> conte
   auto const indexCount = dp::Batcher::IndexPerQuad * vertexCount / dp::Batcher::VertexPerQuad;
 
   drape_ptr<dp::OverlayHandle> handle = make_unique_dp<CopyrightHandle>(
-      df::GuiHandleCopyright, tex, m_position.m_anchor, m_position.m_pixelPivot, std::move(glyphs));
+      df::GuiHandleCopyright, tex, m_position.m_anchor, m_position.m_pixelPivot, std::move(glyphs),
+      dp::AccessibilityNodeInfo(COPYRIGHT_TEXT, dp::ExplorationType::ANNOUNCE_LABEL_ALWAYS));
 
   drape_ptr<ShapeRenderer> renderer = make_unique_dp<ShapeRenderer>();
   dp::Batcher batcher(indexCount, vertexCount);

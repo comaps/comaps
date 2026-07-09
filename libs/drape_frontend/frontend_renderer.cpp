@@ -32,6 +32,8 @@
 #include "shaders/program_manager.hpp"
 #include "shaders/programs.hpp"
 
+#include "drape/accessibility_data.hpp"
+#include "drape/accessibility_node_context.hpp"
 #include "drape/color.hpp"
 #include "drape/constants.hpp"
 #include "drape/drape_global.hpp"
@@ -1011,6 +1013,13 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
   }
 #endif
 
+  case Message::Type::SetAccessibilityDataHandler:
+  {
+    ref_ptr<SetAccessibilityDataHandlerMessage> msg = message;
+    m_accessibilityDataHandler = msg->GetHandler();
+    break;
+  }
+
   default: ASSERT(false, ());
   }
 }
@@ -1782,6 +1791,23 @@ void FrontendRenderer::RenderFrame()
 
   if (modelViewChanged || hasForceUpdate)
     UpdateScene(modelView);
+
+  if (m_accessibilityDataHandler)
+  {
+    // add all rendered items to accessibility data and push it
+    // everything is already sorted since we just rendered a frame
+    auto * data = new dp::AccessibilityData{};  // TODO recycle unused ones using a pool, if that's convenient in a
+                                                // thread safe manner
+    for (auto const & layer : m_layers)
+    {
+      for (auto const & renderGroup : layer.m_renderGroups)
+      {
+        renderGroup->ForEachOverlay([&data, &modelView](ref_ptr<dp::OverlayHandle> const & h)
+        { data->Add(h, modelView); });
+      }
+    }
+    (*m_accessibilityDataHandler)(data);
+  }
 
   InterpolationHolder::Instance().Advance(m_frameData.m_frameTime);
   AnimationSystem::Instance().Advance(m_frameData.m_frameTime);

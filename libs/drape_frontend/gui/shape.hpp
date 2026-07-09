@@ -31,7 +31,7 @@ namespace gui
 class Handle : public dp::OverlayHandle
 {
 public:
-  Handle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot);
+  Handle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, dp::AccessibilityNodeInfo && accessibilityInfo);
 
   gpu::GuiProgramParams const & GetParams() const { return m_params; }
 
@@ -58,8 +58,9 @@ class TappableHandle : public Handle
   m2::PointF m_size;
 
 public:
-  TappableHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, m2::PointF size)
-    : Handle(id, anchor, pivot)
+  TappableHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, m2::PointF size,
+                 dp::AccessibilityNodeInfo && accessibilityInfo)
+    : Handle(id, anchor, pivot, std::move(accessibilityInfo))
     , m_size(size)
   {}
 

@@ -23,6 +23,7 @@
 #include "drape_frontend/user_mark_shapes.hpp"
 #include "drape_frontend/user_marks_provider.hpp"
 
+#include "drape/accessibility_data.hpp"
 #include "drape/pointers.hpp"
 #include "drape/render_bucket.hpp"
 
@@ -1026,6 +1027,23 @@ public:
 private:
   bool m_needInvalidate;
   GraphicsReadyCallback m_callback;
+};
+
+class SetAccessibilityDataHandlerMessage : public Message
+{
+public:
+  using AccessibilityDataHandler = std::function<void(dp::AccessibilityData *)>;
+
+  SetAccessibilityDataHandlerMessage(std::optional<AccessibilityDataHandler> && handler) : m_handler(std::move(handler))
+  {}
+
+  Type GetType() const override { return Type::SetAccessibilityDataHandler; }
+
+  // only called once, so can move()
+  std::optional<AccessibilityDataHandler> GetHandler() const { return std::move(m_handler); }
+
+private:
+  std::optional<AccessibilityDataHandler> m_handler;
 };
 
 class EnableTrafficMessage : public Message

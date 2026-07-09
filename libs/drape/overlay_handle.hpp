@@ -1,5 +1,6 @@
 #pragma once
 
+#include "drape/accessibility_node_info.hpp"
 #include "drape/attribute_buffer_mutator.hpp"
 #include "drape/binding_info.hpp"
 #include "drape/drape_diagnostics.hpp"
@@ -83,6 +84,31 @@ struct OverlayID
            strings::to_string(overlayId.m_index);
   }
 };
+}  // namespace dp
+
+namespace std
+{
+template <>
+struct hash<dp::OverlayID>
+{
+  size_t operator()(dp::OverlayID const & overlayId) const noexcept
+  {
+    return hash<FeatureID>()(overlayId.m_featureId) ^ std::hash<kml::MarkId>()(overlayId.m_markId) ^
+           std::hash<m2::PointI>()(overlayId.m_tileCoords) ^ std::hash<uint32_t>()(overlayId.m_index);
+  }
+};
+template <>
+struct hash<pair<dp::OverlayID, uint8_t>>
+{
+  size_t operator()(pair<dp::OverlayID, uint8_t> const & overlaySubId) const noexcept
+  {
+    return hash<dp::OverlayID>()(overlaySubId.first) ^ std::hash<uint8_t>()(overlaySubId.second);
+  }
+};
+}  // namespace std
+
+namespace dp
+{
 
 class OverlayHandle
 {
@@ -90,7 +116,7 @@ public:
   using Rects = std::vector<m2::RectF>;
 
   OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, uint64_t priority, uint8_t minVisibleScale,
-                bool isBillboard);
+                bool isBillboard, AccessibilityNodeInfo && accessibilityInfo);
 
   virtual ~OverlayHandle() = default;
 
@@ -99,6 +125,8 @@ public:
 
   uint8_t GetMinVisibleScale() const { return m_minVisibleScale; }
   bool IsBillboard() const { return m_isBillboard; }
+
+  AccessibilityNodeInfo const & GetAccessibilityInfo() const { return m_accessibilityInfo; }
 
   virtual m2::PointD GetPivot(ScreenBase const & screen, bool perspective) const;
 
@@ -206,6 +234,8 @@ private:
   mutable m2::RectD m_extendedRectCache;
 
   bool const m_isBillboard : 1;
+  AccessibilityNodeInfo const m_accessibilityInfo;
+
   bool m_isVisible : 1;
 
   bool m_caching : 1;
@@ -224,7 +254,7 @@ class SquareHandle : public OverlayHandle
 public:
   SquareHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
                m2::PointD const & pxSize, m2::PointD const & pxOffset, uint64_t priority, bool isBound,
-               int minVisibleScale, bool isBillboard);
+               int minVisibleScale, bool isBillboard, AccessibilityNodeInfo && accessibilityInfo);
 
   m2::RectD GetPixelRect(ScreenBase const & screen, bool perspective) const override;
   void GetPixelShape(ScreenBase const & screen, bool perspective, Rects & rects) const override;

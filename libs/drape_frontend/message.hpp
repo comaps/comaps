@@ -102,6 +102,7 @@ public:
     ShowDebugInfo,
     NotifyRenderThread,
     NotifyGraphicsReady,
+    SetAccessibilityDataHandler,
     EnableIsolines,
     OnEnterBackground,
     Arrow3dRecache,

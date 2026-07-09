@@ -356,9 +356,13 @@ drape_ptr<dp::OverlayHandle> CreateSymbolOverlayHandle(UserMarkRenderParams cons
 
   dp::OverlayID overlayId(renderInfo.m_featureId, renderInfo.m_markId, tileKey.GetTileCoords(),
                           kStartUserMarkOverlayIndex + renderInfo.m_index);
+  // TODO get bookmark data using shared logic from GenerateTextShapes
+  dp::AccessibilityNodeInfo accessibilityInfo(
+      "bookmark", dp::ExplorationType::ANNOUNCE_LABEL_ALWAYS | dp::ExplorationType::SIGNAL_HOMING);
   drape_ptr<dp::OverlayHandle> handle = make_unique_dp<dp::SquareHandle>(
       overlayId, 0 /* subID */, renderInfo.m_anchor, renderInfo.m_pivot, pixelRect.RightTop() - pixelRect.LeftBottom(),
-      m2::PointD(symbolOffset), 0 /*priority*/, true /* isBound */, renderInfo.m_minZoom, true /* isBillboard */);
+      m2::PointD(symbolOffset), 0 /*priority*/, true /* isBound */, renderInfo.m_minZoom, true /* isBillboard */,
+      std::move(accessibilityInfo));
   return handle;
 }
 }  // namespace

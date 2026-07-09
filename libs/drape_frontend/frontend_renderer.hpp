@@ -16,6 +16,7 @@
 
 #include "kml/type_utils.hpp"
 
+#include "drape/accessibility_data.hpp"
 #include "drape/drape_global.hpp"
 #include "drape/overlay_tree.hpp"
 #include "drape/pointers.hpp"
@@ -105,6 +106,7 @@ public:
   using GraphicsReadyHandler = std::function<void()>;
   using TapEventInfoHandler = std::function<void(TapInfo const &)>;
   using UserPositionChangedHandler = std::function<void(m2::PointD const & pt, bool hasPosition)>;
+  using AccessibilityDataHandler = std::function<void(dp::AccessibilityData *)>;
 
   struct Params : BaseRenderer::Params
   {
@@ -435,6 +437,9 @@ private:
   drape_ptr<DebugRectRenderer> m_debugRectRenderer;
 
   drape_ptr<ScenarioManager> m_scenarioManager;
+
+  // note that the ownership of the pointer is transferred
+  std::optional<AccessibilityDataHandler> m_accessibilityDataHandler;
 
   bool m_firstTilesReady = false;
   bool m_firstLaunchAnimationTriggered = false;

@@ -13,6 +13,7 @@
 #include "drape_frontend/user_marks_provider.hpp"
 #include "drape_frontend/visual_params.hpp"
 
+#include "drape/accessibility_presenter.hpp"
 #include "drape/drape_routine.hpp"
 #include "drape/support_manager.hpp"
 #include "drape/texture_manager.hpp"
@@ -30,6 +31,7 @@
 #include "base/timer.hpp"
 
 #include "3party/ankerl/unordered_dense.h"
+#include "platform/platform.hpp"
 
 namespace df
 {
@@ -386,6 +388,54 @@ void DrapeEngine::InvalidateRect(m2::RectD const & rect)
 {
   m_threadCommutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<InvalidateRectMessage>(rect),
                                   MessagePriority::High);
+}
+
+// Called on the GUI thread
+void DrapeEngine::OnAccessibilityDataCallback(std::atomic<dp::AccessibilityData *> & ptr)
+{
+  if (!m_accessibilityPresenter)
+    return;
+
+  // Atomically steal the pointer from the FrontendRenderer thread
+  // The pointer we get could be null if conflation happened, or if the presenter was recently removed.
+  auto data = drape_ptr<dp::AccessibilityData>{ptr.exchange(nullptr)};
+  if (data == nullptr)
+    return;
+
+  (*m_accessibilityPresenter)->Update(std::move(data));
+}
+
+// to be called on the RenderThread
+void DrapeEngine::AccessibilityDataHandler(dp::AccessibilityData * data)
+{
+  dp::AccessibilityData * old = m_accessibilityData.exchange(data);
+  if (old != nullptr)
+    delete old;  // TODO it would be neat to recycle these to reduce allocation
+
+  // queue a call to handle on the GUI thread, and conflate while we're at it.
+  GetPlatform().RunTask(Platform::Thread::Gui, [this] { this->OnAccessibilityDataCallback(m_accessibilityData); });
+}
+
+// to be called on the GUI thread, takes ownership of a new accessibility presenter
+void DrapeEngine::SetAccessibilityPresenter(std::optional<drape_ptr<dp::AccessibilityPresenter>> && presenter)
+{
+  m_accessibilityPresenter = std::move(presenter);
+  // we also prevent building the a11y tree when there is no presenter, to save cycles
+  m_threadCommutator->PostMessage(
+      ThreadsCommutator::RenderThread,
+      make_unique_dp<SetAccessibilityDataHandlerMessage>(
+          presenter ? std::bind(&DrapeEngine::AccessibilityDataHandler, this, _1)
+                    : (std::optional<SetAccessibilityDataHandlerMessage::AccessibilityDataHandler>{})),
+      MessagePriority::UberHighSingleton);
+}
+
+// to be called on the GUI thread, gets a ref to the accessibility presenter (only valid until the next call to
+// SetAccessibilityPresenter)
+std::optional<ref_ptr<dp::AccessibilityPresenter>> DrapeEngine::GetAccessibilityPresenter() const
+{
+  if (!m_accessibilityPresenter)
+    return {};
+  return make_ref(*m_accessibilityPresenter);
 }
 
 void DrapeEngine::UpdateMapStyle()

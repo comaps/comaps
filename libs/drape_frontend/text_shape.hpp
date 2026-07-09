@@ -47,11 +47,12 @@ private:
 
   void DrawSubStringPlain(ref_ptr<dp::GraphicsContext> context, StraightTextLayout const & layout,
                           dp::FontDecl const & font, ref_ptr<dp::Batcher> batcher, ref_ptr<dp::TextureManager> textures,
-                          bool isPrimary, bool isOptional) const;
+                          bool isPrimary, bool isOptional, std::string substring) const;
 
   void DrawSubStringOutlined(ref_ptr<dp::GraphicsContext> context, StraightTextLayout const & layout,
                              dp::FontDecl const & font, ref_ptr<dp::Batcher> batcher,
-                             ref_ptr<dp::TextureManager> textures, bool isPrimary, bool isOptional) const;
+                             ref_ptr<dp::TextureManager> textures, bool isPrimary, bool isOptional,
+                             std::string substring) const;
 
   uint64_t GetOverlayPriority() const;
 

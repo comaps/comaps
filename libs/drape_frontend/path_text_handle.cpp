@@ -254,9 +254,9 @@ end:
 PathTextHandle::PathTextHandle(dp::OverlayID const & id, uint8_t subID,
                                std::shared_ptr<PathTextContext> const & context, float depth, uint32_t textIndex,
                                uint64_t priority, ref_ptr<dp::TextureManager> textureManager, int minVisibleScale,
-                               bool isBillboard)
+                               bool isBillboard, dp::AccessibilityNodeInfo && accessibilityInfo)
   : TextHandle(id, subID, context->GetLayout()->GetGlyphs(), dp::Center, priority, textureManager, minVisibleScale,
-               isBillboard)
+               isBillboard, std::move(accessibilityInfo))
   , m_context(context)
   , m_textIndex(textIndex)
   , m_depth(depth)

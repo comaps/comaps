@@ -27,7 +27,7 @@ private:
 };
 
 OverlayHandle::OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, uint64_t priority,
-                             uint8_t minVisibleScale, bool isBillboard)
+                             uint8_t minVisibleScale, bool isBillboard, AccessibilityNodeInfo && accessibilityInfo)
   : m_id(id)
   , m_subID(subID)
   , m_anchor(anchor)
@@ -37,6 +37,7 @@ OverlayHandle::OverlayHandle(OverlayID const & id, uint8_t subID, dp::Anchor anc
   , m_overlayRank(OverlayRank0)
   , m_minVisibleScale(minVisibleScale)
   , m_isBillboard(isBillboard)
+  , m_accessibilityInfo(std::move(accessibilityInfo))
   , m_isVisible(false)
   , m_caching(false)
   , m_extendedShapeDirty(true)
@@ -178,8 +179,8 @@ m2::RectD OverlayHandle::GetPixelRectPerspective(ScreenBase const & screen) cons
 
 SquareHandle::SquareHandle(OverlayID const & id, uint8_t subID, dp::Anchor anchor, m2::PointD const & gbPivot,
                            m2::PointD const & pxSize, m2::PointD const & pxOffset, uint64_t priority, bool isBound,
-                           int minVisibleScale, bool isBillboard)
-  : TBase(id, subID, anchor, priority, minVisibleScale, isBillboard)
+                           int minVisibleScale, bool isBillboard, AccessibilityNodeInfo && accessibilityInfo)
+  : TBase(id, subID, anchor, priority, minVisibleScale, isBillboard, std::move(accessibilityInfo))
   , m_pxHalfSize(pxSize.x / 2.0, pxSize.y / 2.0)
   , m_gbPivot(gbPivot)
   , m_pxOffset(pxOffset)

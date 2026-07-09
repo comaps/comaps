@@ -172,7 +172,8 @@ class ScaleFpsLabelHandle : public MutableLabelHandle
 public:
   ScaleFpsLabelHandle(uint32_t id, ref_ptr<dp::TextureManager> textures, std::string const & apiLabel,
                       Position const & position)
-    : TBase(id, position.m_anchor, position.m_pixelPivot, textures)
+    // TODO add a11y info
+    : TBase(id, position.m_anchor, position.m_pixelPivot, dp::AccessibilityNodeInfo(), textures)
     , m_apiLabel(apiLabel)
   {
     SetIsVisible(true);

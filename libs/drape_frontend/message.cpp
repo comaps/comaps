@@ -101,6 +101,7 @@ std::string DebugPrint(Message::Type msgType)
   case Message::Type::ShowDebugInfo: return "ShowDebugInfo";
   case Message::Type::NotifyRenderThread: return "NotifyRenderThread";
   case Message::Type::NotifyGraphicsReady: return "NotifyGraphicsReady";
+  case Message::Type::SetAccessibilityDataHandler: return "SetAccessibilityDataHandler";
   case Message::Type::EnableIsolines: return "EnableIsolines";
   case Message::Type::OnEnterBackground: return "OnEnterBackground";
   case Message::Type::Arrow3dRecache: return "Arrow3dRecache";

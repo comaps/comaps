@@ -23,7 +23,7 @@ class DebugLabelHandle : public MutableLabelHandle
 public:
   DebugLabelHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, ref_ptr<dp::TextureManager> tex,
                    TUpdateDebugLabelFn const & onUpdateFn)
-    : MutableLabelHandle(id, anchor, pivot)
+    : MutableLabelHandle(id, anchor, pivot, dp::AccessibilityNodeInfo())
     , m_onUpdateFn(onUpdateFn)
   {
     SetTextureManager(tex);

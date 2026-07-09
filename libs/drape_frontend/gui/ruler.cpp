@@ -58,7 +58,8 @@ class BaseRulerHandle : public TBase
 {
 public:
   BaseRulerHandle(uint32_t id, dp::Anchor anchor, m2::PointF const & pivot, bool isAppearing)
-    : TBase(id, anchor, pivot)
+    // TODO support live region ruler for a11y
+    : TBase(id, anchor, pivot, dp::AccessibilityNodeInfo())
     , m_isAppearing(isAppearing)
     , m_isVisibleAtEnd(true)
     , m_animation(false, 0.4)

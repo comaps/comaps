@@ -67,6 +67,7 @@ set(SRC
   shared_buffer_manager.hpp
   src_point.cpp
   src_point.hpp
+  stable_id_table.hpp
   stats.hpp
   stl_helpers.hpp
   stl_iterator.hpp
