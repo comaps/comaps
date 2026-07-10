@@ -184,8 +184,10 @@ final class CarPlayService: NSObject {
     interfaceController = nil
     pendingDashboardAction = nil
     pendingDashboardNavigationTrip = nil
-    ThemeManager.invalidate()
+    // Apply the visual-scale change (and its GPU context reset) before the theme switch,
+    // so the context teardown doesn't race with an in-flight route recache from the style change.
     updateMapHost()
+    ThemeManager.invalidate()
   }
 
   private var pendingTeardown: DispatchWorkItem?
