@@ -166,4 +166,6 @@ void DumpBorderToPolyFile(std::string const & filePath, storage::CountryId const
 void UnpackBorders(std::string const & baseDir, std::string const & targetDir);
 
 CountryPolygonsCollection const & GetOrCreateCountryPolygonsTree(std::string const & baseDir);
+
+void GeneratePackedBorders(std::string const & baseDir);
 }  // namespace borders
