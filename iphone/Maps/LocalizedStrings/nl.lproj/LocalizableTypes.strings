@@ -1534,6 +1534,6 @@
 "type.organic.no" = "Geen biologisch";
 "type.amenity.stage" = "Podium";
 "type.amenity.animal_boarding" = "Dierenpension";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.toilets.customers" = "Klanttoegang";
+"type.amenity.toilets.private" = "Privétoegang";
 "type.amenity.planetarium" = "Planetarium";
