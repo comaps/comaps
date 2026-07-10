@@ -72,6 +72,8 @@
 
 #include <android/api-level.h>
 
+#include "drape/accessibility_data.hpp"
+
 using namespace std;
 using namespace std::placeholders;
 
@@ -552,6 +554,79 @@ void Framework::Scale(m2::PointD const & centerPt, int targetZoom, bool animate)
   ref_ptr<df::DrapeEngine> engine = m_work.GetDrapeEngine();
   if (engine)
     engine->SetModelViewCenter(centerPt, targetZoom, animate, false);
+}
+
+dp::TAccessibilityStableID Framework::GetAccessibilityNodeAtPoint(m2::PointD const & point)
+{
+  ref_ptr<df::DrapeEngine> engine = m_work.GetDrapeEngine();
+  if (engine)
+  {
+    auto presenter = engine->GetAccessibilityPresenter();
+    if (presenter)
+      return (*presenter)->GetNodeAtPoint(point);
+  }
+  return 0;
+}
+
+// Not reentrant-safe; return value is only valid until the next call of this method.
+dp::TAccessibilityStableIDContainer & Framework::GetAllAccessibilityNodes()
+{
+  m_allAccessibilityNodes.clear();
+
+  ref_ptr<df::DrapeEngine> engine = m_work.GetDrapeEngine();
+  if (engine)
+  {
+    auto presenter = engine->GetAccessibilityPresenter();
+    if (presenter)
+      (*presenter)->GetAllNodes(m_allAccessibilityNodes);
+  }
+  return m_allAccessibilityNodes;
+}
+
+// Not async-safe; return value is only valid until control of the thread is yielded.
+// Make a copy if you want to store it.
+std::optional<ref_ptr<dp::AccessibilityNodeContext>> Framework::GetAccessibilityNodeContext(
+    dp::TAccessibilityStableID id)
+{
+  ref_ptr<df::DrapeEngine> engine = m_work.GetDrapeEngine();
+  if (engine)
+  {
+    auto presenter = engine->GetAccessibilityPresenter();
+    if (presenter)
+    {
+      auto overlay = (*presenter)->GetNode(id);
+      if (overlay)
+        return overlay;
+    }
+  }
+  return {};
+}
+
+bool Framework::SetAccessibilityUpdateCallback(std::optional<dp::AccessibilityPresenter::TUpdateCallback> const & cb)
+{
+  ref_ptr<df::DrapeEngine> engine = m_work.GetDrapeEngine();
+  if (engine)
+  {
+    auto presenter = engine->GetAccessibilityPresenter();
+
+    if (static_cast<bool>(presenter) != static_cast<bool>(cb))
+    {
+      std::optional<drape_ptr<dp::AccessibilityPresenter>> new_presenter;
+      if (cb)
+        new_presenter = make_unique_dp<dp::AccessibilityPresenter>();
+      else
+        new_presenter = {};
+      engine->SetAccessibilityPresenter(std::move(new_presenter));
+      presenter = engine->GetAccessibilityPresenter();
+    }
+
+    if (presenter)
+    {
+      (*presenter)->SetUpdateCallback(cb);
+      return true;
+    }
+  }
+  return !cb;
 }
 
 ::Framework * Framework::NativeFramework()

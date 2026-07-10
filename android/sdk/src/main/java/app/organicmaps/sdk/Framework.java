@@ -57,6 +57,21 @@ public class Framework
     public boolean isMetricUnits;
   }
 
+  // Used by JNI.
+  @Keep
+  public static class AccessibilityNodeContext
+  {
+    // Rect
+    public double top;
+    public double left;
+    public double bottom;
+    public double right;
+
+    // AccessibilityNodeInfo
+    public String accessibilityLabel;
+    public int explorationType;
+  }
+
   // this class is just bridge between Java and C++ worlds, we must not create it
   private Framework() {}
 

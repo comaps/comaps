@@ -86,6 +86,9 @@ private:
   ChoosePositionMode m_isChoosePositionMode = ChoosePositionMode::None;
   bool m_isSurfaceDestroyed = false;
 
+  dp::TAccessibilityStableIDContainer m_allAccessibilityNodes;
+  dp::AccessibilityPresenter::TUpdateCallback m_accessibilityUpdateCallback;
+
 public:
   Framework(std::function<void()> && afterMapsLoaded);
 
@@ -134,6 +137,17 @@ public:
   void Scroll(double distanceX, double distanceY);
 
   void Touch(int action, Finger const & f1, Finger const & f2, uint8_t maskedPointer);
+
+  dp::TAccessibilityStableID GetAccessibilityNodeAtPoint(m2::PointD const & point);
+
+  // Not reentrant-safe; return value is only valid until the next call of this method.
+  dp::TAccessibilityStableIDContainer & GetAllAccessibilityNodes();
+
+  // Not async-safe; return value is only valid until control of the thread is yielded.
+  // Make a copy if you want to store it.
+  std::optional<ref_ptr<dp::AccessibilityNodeContext>> GetAccessibilityNodeContext(dp::TAccessibilityStableID id);
+
+  bool SetAccessibilityUpdateCallback(std::optional<dp::AccessibilityPresenter::TUpdateCallback> const & cb);
 
   bool Search(search::EverywhereSearchParams const & params);
   std::string GetLastSearchQuery() { return m_searchQuery; }

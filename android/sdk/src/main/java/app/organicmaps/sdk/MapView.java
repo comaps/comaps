@@ -6,12 +6,17 @@ import android.content.ContextWrapper;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
+import android.os.Bundle;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.res.ConfigurationHelper;
+import androidx.core.view.ViewCompat;
 import app.organicmaps.sdk.display.DisplayType;
 import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.sdk.util.log.Logger;
@@ -49,6 +54,9 @@ public class MapView extends SurfaceView
   @NonNull
   private final Map mMap;
 
+  @NonNull
+  private final MapViewAccessibilityDelegate mAccessibilityDelegate;
+
   public MapView(Context context)
   {
     this(context, null, 0);
@@ -80,6 +88,27 @@ public class MapView extends SurfaceView
     super(context, attrs, defStyleAttr, defStyleRes);
     mMap = new Map(displayType);
     getHolder().addCallback(new SurfaceHolderCallback());
+    mAccessibilityDelegate = new MapViewAccessibilityDelegate(this, mMap);
+    ViewCompat.setAccessibilityDelegate(this, mAccessibilityDelegate);
+  }
+
+  @Override
+  public boolean dispatchHoverEvent(MotionEvent event)
+  {
+    return mAccessibilityDelegate.dispatchHoverEvent(event) || super.dispatchHoverEvent(event);
+  }
+
+  @Override
+  public boolean dispatchKeyEvent(KeyEvent event)
+  {
+    return mAccessibilityDelegate.dispatchKeyEvent(event) || super.dispatchKeyEvent(event);
+  }
+
+  @Override
+  public void onFocusChanged(boolean gainFocus, int direction, Rect previouslyFocusedRect)
+  {
+    super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
+    mAccessibilityDelegate.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
   }
 
   public final void onDraw(@NonNull Canvas canvas)
@@ -118,6 +147,14 @@ public class MapView extends SurfaceView
     // will call back to performClick etc when needed (see frontend_renderer.cpp)
     Map.onTouch(action, event, pointerIndex);
     return true;
+  }
+
+  @Override
+  public boolean performAccessibilityAction(int action, @Nullable Bundle arguments)
+  {
+    if (mAccessibilityDelegate.onPerformActionForHost(action, arguments))
+      return true;
+    return super.performAccessibilityAction(action, arguments);
   }
 
   // TODO i think all of these are broken??

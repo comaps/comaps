@@ -132,6 +132,7 @@ dependencies {
   implementation libs.androidx.preference
   implementation libs.android.material
   implementation libs.androidx.documentfile
+  implementation libs.androidx.customview
 
   testImplementation libs.junit
 }

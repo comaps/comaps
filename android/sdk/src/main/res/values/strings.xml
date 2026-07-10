@@ -45,4 +45,8 @@
     <string name="months_ago">%s months ago</string>
     <string name="year_ago">%s year ago</string>
     <string name="years_ago">%s years ago</string>
+    <string name="accessibility_map_content_description_collapsed">Map. Swipe up or down with one finger and expand to explore by touch.</string>
+    <string name="accessibility_map_content_description_expanded">Map. Tap and hold to explore by touch. Places will be read out as your finger reaches them. To stop, swipe up or down with one finger and dismiss.</string>
+    <string name="accessibility_map_action_expand_label">explore by touch</string>
+    <string name="accessibility_map_action_collapse_label">end touch exploration</string>
 </resources>
