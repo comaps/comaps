@@ -1537,4 +1537,7 @@
     <string name="type.organic.no">Geen biologisch</string>
     <string name="type.amenity.stage">Podium</string>
     <string name="type.amenity.animal_boarding">Dierenpension</string>
+    <string name="type.amenity.planetarium">Planetarium</string>
+    <string name="type.amenity.toilets.customers">Klanttoegang</string>
+    <string name="type.amenity.toilets.private">Privétoegang</string>
 </resources>
