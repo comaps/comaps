@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.OptIn;
@@ -31,6 +32,7 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.downloader.UpdateInfo;
 import app.organicmaps.sdk.location.TrackRecorder;
+import app.organicmaps.sdk.maplayer.indoor.IndoorManager;
 import app.organicmaps.sdk.maplayer.isolines.IsolinesManager;
 import app.organicmaps.sdk.maplayer.subway.SubwayManager;
 import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
@@ -42,6 +44,7 @@ import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.menu.MyPositionButton;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.badge.BadgeDrawable;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.badge.ExperimentalBadgeUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -60,6 +63,8 @@ public class MapButtonsController extends Fragment
   private LayersButton mToggleMapLayerButton;
   @Nullable
   FloatingActionButton mTrackRecordingStatusButton;
+  @Nullable
+  private LinearLayout mIndoorLevelsContainer;
 
   @Nullable
   private MyPositionButton mNavMyPosition;
@@ -129,6 +134,7 @@ public class MapButtonsController extends Fragment
       mToggleMapLayerButton.setVisibility(View.VISIBLE);
     }
     mMapButtonsViewModel.setTopButtonsMarginTop(-1);
+    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container);
     mTrackRecordingStatusButton = mFrame.findViewById(R.id.track_recording_status);
     if (mTrackRecordingStatusButton != null)
       mTrackRecordingStatusButton.setOnClickListener(
@@ -323,6 +329,30 @@ public class MapButtonsController extends Fragment
     BadgeUtils.attachBadgeDrawable(mBadgeDrawable, menuButton);
 
     updateMenuBadge(TrackRecorder.nativeIsTrackRecordingEnabled());
+  }
+
+  public void updateIndoorLevels(@NonNull String[] levels, @NonNull String activeLevel)
+  {
+    if (mIndoorLevelsContainer == null)
+      return;
+
+    mIndoorLevelsContainer.removeAllViews();
+    if (levels.length == 0)
+    {
+      UiUtils.hide(mIndoorLevelsContainer);
+      return;
+    }
+
+    for (final String level : levels)
+    {
+      final MaterialButton button =
+          new MaterialButton(requireContext(), null, com.google.android.material.R.attr.materialButtonOutlinedStyle);
+      button.setText(level);
+      button.setEnabled(!level.equals(activeLevel));
+      button.setOnClickListener(v -> IndoorManager.selectLevel(level));
+      mIndoorLevelsContainer.addView(button);
+    }
+    UiUtils.show(mIndoorLevelsContainer);
   }
 
   public void updateLayerButton()

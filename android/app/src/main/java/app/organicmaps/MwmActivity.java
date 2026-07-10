@@ -1165,6 +1165,14 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
   }
 
+  private void onIndoorLevelsChanged(@NonNull String[] levels, @NonNull String activeLevel)
+  {
+    final MapButtonsController mapButtonsController =
+        (MapButtonsController) getSupportFragmentManager().findFragmentById(R.id.map_buttons);
+    if (mapButtonsController != null)
+      mapButtonsController.updateIndoorLevels(levels, activeLevel);
+  }
+
   @Override
   protected void onNewIntent(Intent intent)
   {
@@ -1229,6 +1237,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     BookmarkManager.INSTANCE.addLoadingListener(this);
     RoutingController.get().attach(this);
     MwmApplication.from(getApplicationContext()).getIsolinesManager().attach(this::onIsolinesStateChanged);
+    MwmApplication.from(getApplicationContext()).getIndoorManager().attach(this::onIndoorLevelsChanged);
     LocationState.nativeSetListener(this);
     MwmApplication.from(this).getLocationHelper().addListener(this);
     mSearchController.attach(this);
@@ -1248,6 +1257,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       RoutingController.get().detach();
     }
     MwmApplication.from(getApplicationContext()).getIsolinesManager().detach();
+    MwmApplication.from(getApplicationContext()).getIndoorManager().detach();
     mSearchController.detach();
     Utils.keepScreenOn(false, getWindow());
 

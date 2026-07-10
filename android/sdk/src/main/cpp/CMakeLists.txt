@@ -61,6 +61,7 @@ set(SRC
   app/organicmaps/sdk/editor/OpeningHours.cpp
   app/organicmaps/sdk/editor/OsmOAuth.cpp
   app/organicmaps/sdk/Framework.cpp
+  app/organicmaps/sdk/indoor/IndoorManager.cpp
   app/organicmaps/sdk/isolines/IsolinesManager.cpp
   app/organicmaps/sdk/LocationState.cpp
   app/organicmaps/sdk/Map.cpp

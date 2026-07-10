@@ -125,6 +125,7 @@ Framework::Framework(std::function<void()> && afterMapsLoaded) : m_work({} /* pa
   m_work.GetTrafficManager().SetStateListener(bind(&Framework::TrafficStateChanged, this, _1));
   m_work.GetTransitManager().SetStateListener(bind(&Framework::TransitSchemeStateChanged, this, _1));
   m_work.GetIsolinesManager().SetStateListener(bind(&Framework::IsolinesSchemeStateChanged, this, _1));
+  m_work.GetIndoorManager().SetLevelsListener(bind(&Framework::IndoorLevelsChanged, this, _1, _2));
   m_work.GetPowerManager().Subscribe(this);
 }
 
@@ -173,6 +174,12 @@ void Framework::IsolinesSchemeStateChanged(IsolinesManager::IsolinesState state)
 {
   if (m_onIsolinesStateChangedFn)
     m_onIsolinesStateChangedFn(state);
+}
+
+void Framework::IndoorLevelsChanged(std::vector<std::string> const & levels, std::string const & activeLevel)
+{
+  if (m_onIndoorLevelsChangedFn)
+    m_onIndoorLevelsChangedFn(levels, activeLevel);
 }
 
 bool Framework::DestroySurfaceOnDetach()
@@ -659,6 +666,11 @@ void Framework::SetTransitSchemeListener(TransitReadManager::TransitStateChanged
 void Framework::SetIsolinesListener(IsolinesManager::IsolinesStateChangedFn const & function)
 {
   m_onIsolinesStateChangedFn = function;
+}
+
+void Framework::SetIndoorLevelsListener(IndoorManager::LevelsChangedFn const & function)
+{
+  m_onIndoorLevelsChangedFn = function;
 }
 
 bool Framework::IsTrafficEnabled()
