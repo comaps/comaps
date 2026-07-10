@@ -824,7 +824,8 @@ public:
       return RoadShield(RoadShieldType::Default, rawText);
 
     if (parts[0] == "BR")
-      return RoadShield(RoadShieldType::Brazil_National, parts[1]);
+      return RoadShield(RoadShieldType::Brazil_National, std::string{parts[1]}, /* additionalText */ "",
+                        /* shieldText */ "BR-" + std::string{parts[1]});
 
     std::string_view code = parts[0];
     // Some states add a letter to the code for special road classes, e.g. ERS/VRS/RSC
@@ -844,7 +845,8 @@ public:
       // (e.g. ref="BR-453;RSC-453"): show only the federal shield then.
       if (IsCoincidentWithFederal(parts[1]))
         return RoadShield(RoadShieldType::Hidden, parts[1]);
-      return RoadShield(RoadShieldType::Brazil_State, std::string{parts[1]}, std::string{code});
+      return RoadShield(RoadShieldType::Brazil_State, std::string{parts[1]}, std::string{code},
+                        /* shieldText */ std::string{code} + "-" + std::string{parts[1]});
     }
 
     return RoadShield(RoadShieldType::Default, rawText);
@@ -1119,20 +1121,6 @@ std::vector<std::string> GetRoadShieldsNames(FeatureType & ft)
     for (auto && shield : GetRoadShields(ref))
       names.push_back(std::move(shield.m_name));
   return names;
-}
-
-std::string GetRoadShieldDisplayText(RoadShield const & shield)
-{
-  // Restore the network prefix that is drawn into the symbol graphic (and thus stripped from m_name),
-  // since a generic drawn shield has no such graphic. E.g. Brazilian "BR-116" / "CE-040".
-  switch (shield.m_type)
-  {
-  case RoadShieldType::Brazil_National: return "BR-" + shield.m_name;
-  case RoadShieldType::Brazil_State:
-    return shield.m_additionalText.empty() ? shield.m_name : shield.m_additionalText + "-" + shield.m_name;
-  default:
-    return shield.m_additionalText.empty() ? shield.m_name : shield.m_name + " " + shield.m_additionalText;
-  }
 }
 
 std::string DebugPrint(RoadShieldType shieldType)

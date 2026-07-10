@@ -64,8 +64,15 @@ enum class RoadShieldType
 struct RoadShield
 {
   RoadShieldType m_type;
+  // Text drawn inside the shield symbol on the map (bare reference, e.g. "116"): the network prefix
+  // is part of the symbol graphic, so it is not included here.
   std::string m_name;
+  // Text drawn next to (outside) the shield, e.g. the road direction "East" for US highways.
   std::string m_additionalText;
+  // Text a generic drawn shield (no country-specific symbol graphic, e.g. the navigation UI) should
+  // show inside the box. Empty means "use m_name". Lets parsers restore a prefix that would otherwise
+  // be baked into the symbol, e.g. Brazilian "BR-116" / "CE-040".
+  std::string m_shieldText;
 
   RoadShield() = default;
   RoadShield(RoadShieldType const & type, std::string_view name) : m_type(type), m_name(name) {}
@@ -74,6 +81,16 @@ struct RoadShield
     , m_name(name)
     , m_additionalText(additionalText)
   {}
+  RoadShield(RoadShieldType const & type, std::string const & name, std::string const & additionalText,
+             std::string const & shieldText)
+    : m_type(type)
+    , m_name(name)
+    , m_additionalText(additionalText)
+    , m_shieldText(shieldText)
+  {}
+
+  // Text to draw inside a generic shield: m_shieldText if set, otherwise the bare m_name.
+  std::string const & GetShieldText() const { return m_shieldText.empty() ? m_name : m_shieldText; }
 
   inline bool operator<(RoadShield const & other) const
   {
@@ -103,10 +120,6 @@ RoadShieldsSetT GetRoadShields(std::string const & rawRoadNumber);
 
 // Returns names of road shields if |ft| is a "highway" feature.
 std::vector<std::string> GetRoadShieldsNames(FeatureType & ft);
-
-// Text a generic drawn shield (e.g. navigation UI) should display for |shield|, restoring any
-// network prefix that is otherwise baked into the shield's symbol graphic (e.g. Brazilian "BR").
-std::string GetRoadShieldDisplayText(RoadShield const & shield);
 
 std::string DebugPrint(RoadShieldType shieldType);
 std::string DebugPrint(RoadShield const & shield);

@@ -166,10 +166,13 @@ MWMRoadShieldType roadShieldType(ftypes::RoadShieldType type) {
 NSArray<MWMRoadShield *> *buildRoadShields(ftypes::RoadShieldsSetT const & shields) {
   NSMutableArray<MWMRoadShield *> * result = [NSMutableArray arrayWithCapacity:shields.size()];
   for (auto const & shield : shields) {
-    // GetRoadShieldDisplayText restores any network prefix that would otherwise be drawn into the
-    // symbol graphic (e.g. Brazilian "BR"), so the whole reference is drawn inside the generic shield.
-    NSString * text = @(ftypes::GetRoadShieldDisplayText(shield).c_str());
-    [result addObject:[[MWMRoadShield alloc] initWithType:roadShieldType(shield.m_type) text:text]];
+    // GetShieldText() is the text drawn inside the box (with any prefix a country symbol would carry,
+    // e.g. Brazilian "BR-116"); m_additionalText (e.g. US "East") is drawn next to the shield.
+    NSString * text = @(shield.GetShieldText().c_str());
+    NSString * additionalText = shield.m_additionalText.empty() ? nil : @(shield.m_additionalText.c_str());
+    [result addObject:[[MWMRoadShield alloc] initWithType:roadShieldType(shield.m_type)
+                                                     text:text
+                                           additionalText:additionalText]];
   }
   return result;
 }
