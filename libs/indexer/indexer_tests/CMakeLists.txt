@@ -24,6 +24,7 @@ set(SRC
   features_offsets_table_test.cpp
   features_vector_test.cpp
   index_builder_test.cpp
+  indoor_level_tests.cpp
   interval_index_test.cpp
   metadata_serdes_tests.cpp
   mwm_set_test.cpp

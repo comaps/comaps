@@ -296,6 +296,14 @@ public:
   DECLARE_CHECKER_INSTANCE(IsIsolineChecker);
 };
 
+class IsIndoorChecker : public BaseChecker
+{
+  IsIndoorChecker();
+
+public:
+  DECLARE_CHECKER_INSTANCE(IsIndoorChecker);
+};
+
 class IsPisteChecker : public BaseChecker
 {
   IsPisteChecker();

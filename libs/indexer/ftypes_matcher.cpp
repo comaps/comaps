@@ -446,6 +446,11 @@ IsIsolineChecker::IsIsolineChecker() : BaseChecker(1 /* level */)
   m_types.push_back(classif().GetTypeByPath({"isoline"}));
 }
 
+IsIndoorChecker::IsIndoorChecker() : BaseChecker(1 /* level */)
+{
+  m_types.push_back(classif().GetTypeByPath({"indoor"}));
+}
+
 IsPisteChecker::IsPisteChecker() : BaseChecker(1 /* level */)
 {
   m_types.push_back(classif().GetTypeByPath({"piste:type"}));
