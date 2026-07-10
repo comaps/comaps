@@ -35,6 +35,7 @@
 #endif  // BUILD_DESIGNER
 
 #include <QtGui/QCloseEvent>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QHBoxLayout>
@@ -300,6 +301,24 @@ void MainWindow::CreateNavigationBar()
 
     pToolBar->addWidget(m_layers->create());
     m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
+
+    // Indoor level selector, hidden until indoor data appears in the viewport.
+    m_levelSelector = new QComboBox(this);
+    m_levelSelector->setToolTip(tr("Indoor level"));
+    connect(m_levelSelector, &QComboBox::activated, this, [this](int index)
+    { m_pDrawWidget->GetFramework().GetIndoorManager().SelectLevel(m_levelSelector->itemText(index).toStdString()); });
+    m_levelSelectorAction = pToolBar->addWidget(m_levelSelector);
+    m_levelSelectorAction->setVisible(false);
+
+    m_pDrawWidget->GetFramework().GetIndoorManager().SetLevelsListener(
+        [this](std::vector<std::string> const & levels, std::string const & activeLevel)
+    {
+      m_levelSelector->clear();
+      for (auto const & level : levels)
+        m_levelSelector->addItem(QString::fromStdString(level));
+      m_levelSelector->setCurrentText(QString::fromStdString(activeLevel));
+      m_levelSelectorAction->setVisible(!levels.empty());
+    });
 
     pToolBar->addSeparator();
 
