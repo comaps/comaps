@@ -941,8 +941,6 @@
     <string name="downloader_check_updates_no_updates">Нема доступних ажурирања</string>
     <string name="downloader_check_updates_eol">За ову верзију апликације више нема ажурирања мапе. Молим Вас, ажурирајте апликацију!</string>
     <string name="downloader_check_updates_error">Грешка при провери ажурирања</string>
-    <string name="pref_keyboard_typing_history_title">Инкогнито режим тастатуре</string>
-    <string name="pref_keyboard_typing_history_summary">Захтева од системске тастатуре да не бележи историју куцања</string>
     <string name="tts_toggle_enable">Укључи гласовне инструкције</string>
     <string name="tts_toggle_disable">Искључи гласовне инструкције</string>
     <string name="oh_unknown">Непознато радно време</string>

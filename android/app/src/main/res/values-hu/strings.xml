@@ -947,8 +947,6 @@
     <string name="route_recalculating">Útvonal újraszámítása…</string>
     <string name="pref_openexternallinks_title">Külső hivatkozások automatikus megnyitása</string>
     <string name="pref_openexternallinks_summary">Külső hivatkozások automatikus megnyitása a CoMapsban</string>
-    <string name="pref_keyboard_typing_history_title">Billentyűzet ikognitó módja</string>
-    <string name="pref_keyboard_typing_history_summary">A rendszerbillentyűzet megkérése, hogy ne jegyezze fel a gépelési előzményeket</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Az alkalmazás a Google Playből lett telepítve, így használhatja az autójában.</string>
     <string name="pref_aa_support_summary_no">Az alkalmazás nem a Google Playből lett telepítve, így nem használhatja az autójában. Koppintson a beállításra, hogy több információt kapjon a GYIK oldalunkon.</string>

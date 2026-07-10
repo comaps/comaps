@@ -925,8 +925,6 @@
     <string name="downloader_check_updates_error">Xảy ra lỗi khi kiểm tra cập nhật</string>
     <string name="setting_value_system_default">Mặc định hệ thống</string>
     <string name="change_app_locale">Ngôn ngữ ứng dụng</string>
-    <string name="pref_keyboard_typing_history_title">Chế độ ẩn danh bàn phím</string>
-    <string name="pref_keyboard_typing_history_summary">Yêu cầu bàn phím hệ thống không lưu lại lịch sử nhập</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Ứng dụng đã được cài đặt từ Google Play, bạn có thể dùng nó trong ô tô của mình.</string>
     <string name="pref_aa_support_summary_no">Ứng dụng chưa được cài đặt từ Google Play, bạn không thể dùng nó trong ô tô của mình. Nhấn vào phần cài đặt để tìm hiểu thêm trên trang FAQ của chúng tôi.</string>

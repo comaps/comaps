@@ -920,8 +920,6 @@
     <string name="downloader_check_updates_no_updates">Nenhuma atualização disponível</string>
     <string name="downloader_check_updates_eol">Não haverá mais atualizações de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
     <string name="downloader_check_updates_error">Erro ao buscar atualizações</string>
-    <string name="pref_keyboard_typing_history_title">Modo anônimo do teclado</string>
-    <string name="pref_keyboard_typing_history_summary">Solicite ao teclado do sistema que não registre o histórico de digitação</string>
     <string name="oh_unknown">Horário de funcionamento desconhecido</string>
     <string name="tts_toggle_enable">Ativar orientação por voz</string>
     <string name="tts_toggle_disable">Desativar orientação por voz</string>

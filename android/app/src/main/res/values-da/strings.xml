@@ -930,8 +930,6 @@
     <string name="downloader_check_updates_error">Fejl ved søgning efter opdateringer</string>
     <string name="downloader_check_updates_no_updates">Ingen opdateringer tilgængelige</string>
     <string name="downloader_check_updates_updated">Kortopdateringer tilgængelige!</string>
-    <string name="pref_keyboard_typing_history_title">Inkognitotilstand på tastatur</string>
-    <string name="pref_keyboard_typing_history_summary">Anmod systemtastatur om ikke at gemme tastetrykhistorik</string>
     <string name="tts_toggle_enable">Aktivér stemmevejledninger</string>
     <string name="tts_toggle_disable">Deaktivér stemmevejledninger</string>
     <string name="pref_aa_support_title">Android Auto</string>

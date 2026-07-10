@@ -1,10 +1,8 @@
 package app.organicmaps.settings;
-import androidx.annotation.Keep;
-
 import android.annotation.SuppressLint;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.Preference;
@@ -30,7 +28,6 @@ public class PrivacySettingsFragment extends BaseXmlSettingsFragment
     super.onViewCreated(view, savedInstanceState);
     initPlayServicesPrefsCallbacks();
     initSearchPrivacyPrefsCallbacks();
-    initIncognitoModePrefsCallback();
   }
 
   private void initPlayServicesPrefsCallbacks()
@@ -91,11 +88,5 @@ public class PrivacySettingsFragment extends BaseXmlSettingsFragment
       }
       return true;
     });
-  }
-
-  private void initIncognitoModePrefsCallback()
-  {
-    Preference keyboardTypingHistoryPref = getPreference(getString(R.string.pref_keyboard_typing_history));
-    keyboardTypingHistoryPref.setVisible(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O);
   }
 }

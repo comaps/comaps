@@ -931,8 +931,6 @@
     <string name="setting_value_system_default">Systemstandard</string>
     <string name="downloader_check_updates_no_updates">Ingen oppdateringer tilgjengelig</string>
     <string name="downloader_check_updates_checking">Ser etter oppdateringer...</string>
-    <string name="pref_keyboard_typing_history_summary">Be systemtastaturet om ikke å ta opp skrivehistorikk</string>
-    <string name="pref_keyboard_typing_history_title">Inkognitomodus for tastaturet</string>
     <string name="downloader_check_updates_error">Feil under oppdateringssjekk</string>
     <string name="downloader_check_updates_eol">Ingen flere kartoppdateringer for denne app-versjonen. Oppdater appen!</string>
     <string name="downloader_check_updates_updated">Kartoppdateringer er tilgjengelige!</string>

@@ -936,8 +936,6 @@
     <string name="downloader_check_updates_no_updates">Nenhuma atualização disponível</string>
     <string name="downloader_check_updates_eol">Não existirão mais atualizações do mapa para esta versão. Por favor, atualize a aplicação!</string>
     <string name="downloader_check_updates_error">Erro ao procurar atualizações</string>
-    <string name="pref_keyboard_typing_history_title">Modo de teclado anónimo</string>
-    <string name="pref_keyboard_typing_history_summary">Solicitar ao teclado do sistema que não registe o histórico de escrita</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">A aplicação foi instalada pela Google Play, pode utilizá-la no seu carro.</string>
     <string name="pref_aa_support_summary_no">A aplicação não foi instalada pela Google Play, não pode utilizá-la no seu carro. Pressione as definições para obter mais detalhes nas nossas perguntas frequentes.</string>

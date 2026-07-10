@@ -944,8 +944,6 @@
     <string name="downloader_check_updates_no_updates">没有可用更新</string>
     <string name="downloader_check_updates_eol">此应用版本不再有地图更新。请更新应用！</string>
     <string name="downloader_check_updates_error">检查更新时出错</string>
-    <string name="pref_keyboard_typing_history_title">键盘隐身模式</string>
-    <string name="pref_keyboard_typing_history_summary">请求系统键盘不记录输入历史记录</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">该应用已从 Google Play 安装，您可以在车内使用它。</string>
     <string name="pref_aa_support_summary_no">该应用未从 Google Play 安装，您无法在车内使用它。点击设置查看常见问题中的更多详情。</string>

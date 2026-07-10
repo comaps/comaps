@@ -3,7 +3,6 @@ package app.organicmaps.widget;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -15,9 +14,8 @@ import androidx.activity.result.ActivityResult;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
-import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
+import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.UiUtils;
@@ -79,8 +77,7 @@ public class SearchToolbarController extends ToolbarController implements View.O
 
       return (isSearchDown || isSearchAction) && onStartSearchClick();
     });
-    SharedPreferences mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
-    if (mSharedPreferences.getBoolean(ContextCompat.getString(activity, R.string.pref_keyboard_typing_history), false))
+    if (!Config.isSearchHistoryEnabled())
       mQuery.setImeOptions(mQuery.getImeOptions() | EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING);
     mProgress = mSearchContainer.findViewById(R.id.progress);
     mVoiceInput = mSearchContainer.findViewById(R.id.voice_input);

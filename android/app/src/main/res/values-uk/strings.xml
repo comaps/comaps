@@ -950,6 +950,4 @@
     <string name="downloader_check_updates_eol">Оновлень карт для цієї версії додатку більше немає. Будь ласка, оновіть додаток!</string>
     <string name="downloader_check_updates_error">Помилка перевірки оновлень</string>
     <string name="downloader_check_updates_updated">Доступні оновлення карти!</string>
-    <string name="pref_keyboard_typing_history_title">Анонімний режим клавіатури</string>
-    <string name="pref_keyboard_typing_history_summary">Заборонити системній клавіатурі запис історії друку</string>
 </resources>

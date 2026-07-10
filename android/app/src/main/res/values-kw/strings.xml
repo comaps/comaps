@@ -699,8 +699,6 @@
     <string name="setting_value_system_default">Defowt system</string>
     <string name="editor_add_select_category_all_subtitle">Oll Klassys</string>
     <string name="change_app_locale">Yeth an app</string>
-    <string name="pref_keyboard_typing_history_title">Fordh vysowek yn-dann hanow fug</string>
-    <string name="pref_keyboard_typing_history_summary">Govyn bysowek system dhe na rekordya istori jynnskrifans</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">An app re beu leys dhyworth Google Play, hwi a yll devnydhya y\'gas karr.</string>
     <string name="pref_aa_support_summary_no">An app nag o leys dhyworth Google Play, ny yllowgh hwi devnydhya y\'gas karr. Tevewgh an settyans rag kavos moy manylyon war agas FAQ.</string>
