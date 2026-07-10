@@ -976,4 +976,10 @@
     <string name="prefs_group_data_management">Gegevensbeheer</string>
     <string name="prefs_group_advanced_summary">Logboekregistratie inschakelen</string>
     <string name="recalculate_route">Herberekenen</string>
+    <string name="pref_about_summary">Meld problemen, hulp, doneer\nVersie: v%1$s</string>
+    <string name="prefs_group_interface_summary">Nachtmodus, knoppen, taal</string>
+    <string name="prefs_group_data_management_summary">Kaartopslag, back-up maken van favorieten</string>
+    <string name="pref_enable_auto_reroute_title">Automatisch omleiden</string>
+    <string name="pref_enable_auto_reroute_description">Indien ingeschakeld, wordt er automatisch een nieuwe route aangemaakt wanneer u de geplande route verlaat.</string>
+    <string name="off_route">Je bent van de route afgeweken</string>
 </resources>
