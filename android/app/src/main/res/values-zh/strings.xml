@@ -48,13 +48,13 @@
     <!-- The button that opens system location settings -->
     <string name="location_settings">位置设置</string>
     <string name="close">关闭</string>
-    <string name="unsupported_phone">该应用程序需要硬件加速的 OpenGL。很遗憾，您的设备不受支持。</string>
+    <string name="unsupported_phone">该应用需要硬件加速的 OpenGL。很遗憾，您的设备不受支持。</string>
     <string name="download">下载</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable">请拔除 USB 线或插入 SD 卡以使用 CoMaps</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="not_enough_free_space_on_sdcard">请先释放一些 SD 卡 / USB 存储空间以便使用 CoMaps</string>
-    <string name="download_resources">在您开始使用此应用程序之前，请下载全球地图到您的设备。 \n它将使用 %s 的存储空间。</string>
+    <string name="download_resources">在您开始使用该应用之前，请先将世界概览地图下载到您的设备上。\n它将使用 %s 的存储空间。</string>
     <string name="download_resources_continue">前往地图</string>
     <string name="downloading_country_can_proceed">正在下载%1$s (%2$s)。您现在可以 \n继续查看地图。</string>
     <string name="download_country_ask">下载%1$s的地图吗？ (%2$s)</string>
@@ -157,7 +157,7 @@
     <!-- Kml file loading failed -->
     <string name="load_kmz_failed">无法加载收藏，文件可能已损坏或不完整。</string>
     <!-- Failed to recognize the format of a bookmarks or tracks file. -->
-    <string name="unknown_file_type">应用程序无法识别该文件类型： \n%1$s</string>
+    <string name="unknown_file_type">应用无法识别该文件类型：\n%1$s</string>
     <!-- Failed to open a bookmarks or tracks file in CoMaps. -->
     <string name="failed_to_open_file">无法打开文件 %1$s \n \n%2$s</string>
     <!-- resource for context menu -->
@@ -245,7 +245,7 @@
     <!-- Button in the main Help dialog -->
     <string name="faq">问题和解答</string>
     <!-- Button in the main menu -->
-    <string name="donate">捐助我们</string>
+    <string name="donate">捐赠</string>
     <!-- Button in the main Help dialog -->
     <string name="how_to_support_us">志愿改进 CoMaps</string>
     <!-- Button in the main Help dialog -->
@@ -714,13 +714,13 @@
     <string name="connection_failure">连接失败</string>
     <!-- Used in DownloadResources startup screen -->
     <string name="disconnect_usb_cable_title">断开 USB 线连接</string>
-    <string name="enable_keep_screen_on">保持屏幕打开</string>
+    <string name="enable_keep_screen_on">保持屏幕开启</string>
     <!-- Description in preferences -->
-    <string name="enable_keep_screen_on_description">启用后，显示地图时屏幕将始终打开。</string>
+    <string name="enable_keep_screen_on_description">启用后，显示地图时屏幕将始终保持开启状态。</string>
     <!-- A preference title; keep short! -->
     <string name="enable_show_on_lock_screen">在锁屏上显示</string>
     <!-- Description in preferences -->
-    <string name="enable_show_on_lock_screen_description">启用后，即使设备已锁定，应用程序仍将在锁屏上运行。</string>
+    <string name="enable_show_on_lock_screen_description">启用后，即使设备处于锁定状态，应用仍将在锁屏上运行。</string>
     <!-- Current language of the map! -->
     <string name="change_map_locale">地图语言</string>
     <!-- OpenStreetMap text on splash screen -->
@@ -734,7 +734,7 @@
     <!-- App tip #01 -->
     <string name="app_tip_01">有了您的捐赠和支持，我们可以创造世界上最好的地图！</string>
     <!-- App tip #02 -->
-    <string name="app_tip_02">您喜欢我们的应用吗？请捐款以支持发展！还不喜欢吗？请告诉我们，我们会修复您提到的问题！</string>
+    <string name="app_tip_02">您喜欢我们的应用吗？请捐赠以支持开发！还不喜欢吗？请告诉我们原因，我们会解决的！</string>
     <!-- App tip #03 -->
     <string name="app_tip_03">如果您认识软件开发人员，您可以要求他实现您需要的功能。</string>
     <!-- App tip #04 -->
@@ -742,9 +742,9 @@
     <!-- App tip #05 -->
     <string name="app_tip_05">您知道您可以在地图上选择您当前的位置吗？</string>
     <!-- App tip #06 -->
-    <string name="app_tip_06">您可以帮助将我们的应用程序翻译成您的语言。</string>
+    <string name="app_tip_06">您可以帮助将我们的应用翻译成您的语言。</string>
     <!-- App tip #07 -->
-    <string name="app_tip_07">我们的应用程序是由一些爱好者和社区开发的。</string>
+    <string name="app_tip_07">我们的应用由几位爱好者和社区共同开发。</string>
     <!-- App tip #08 -->
     <string name="app_tip_08">您可以轻松修复和改进地图数据。</string>
     <!-- App tip #09 -->
@@ -762,7 +762,7 @@
     <!-- Ask user to grant location permissions -->
     <string name="aa_location_permissions_request">CoMaps 需要位置访问权限。在安全的情况下，请查看手机上的通知。</string>
     <!-- Notification title for permission request from AA. -->
-    <string name="aa_request_permission_notification">此应用程序需要您的许可</string>
+    <string name="aa_request_permission_notification">此应用需要您授予相应权限</string>
     <!-- The text in the activity for location permission request. -->
     <string name="aa_request_permission_activity_text">Android Auto 中的 CoMaps 需要位置权限才能有效工作</string>
     <!-- Grant Permissions button. -->
@@ -809,7 +809,7 @@
     <!-- Message for the toast when saving the track recording is finished but nothing to save. -->
     <string name="track_recording_toast_nothing_to_save">轨迹为空 — 无内容可保存</string>
     <!-- Error message when there are no File Manager apps installed to select a folder when importing Bookmarks and Tracks -->
-    <string name="error_no_file_manager_app">由于您的设备上未安装合适的应用程序，因此无法显示文件夹选择对话框。请安装文件管理器应用并重试。</string>
+    <string name="error_no_file_manager_app">由于您的设备上未安装合适的应用，因此无法显示文件夹选择对话框。请安装文件管理器应用并重试。</string>
     <string name="choose_color">选择颜色</string>
     <string name="edit_track">编辑轨迹</string>
     <string name="uri_open_location_failed">未安装可以打开位置的应用</string>
