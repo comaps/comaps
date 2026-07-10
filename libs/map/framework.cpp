@@ -274,6 +274,16 @@ IsolinesManager const & Framework::GetIsolinesManager() const
   return m_isolinesManager;
 }
 
+IndoorManager & Framework::GetIndoorManager()
+{
+  return m_indoorManager;
+}
+
+IndoorManager const & Framework::GetIndoorManager() const
+{
+  return m_indoorManager;
+}
+
 void Framework::OnUserPositionChanged(m2::PointD const & position, bool hasPosition)
 {
   GetBookmarkManager().MyPositionMark().SetUserPosition(position, hasPosition);
@@ -303,6 +313,7 @@ void Framework::OnViewportChanged(ScreenBase const & screen)
   m_trafficManager.UpdateViewport(m_currentModelView);
   m_transitManager.UpdateViewport(m_currentModelView);
   m_isolinesManager.UpdateViewport(m_currentModelView);
+  m_indoorManager.UpdateViewport(m_currentModelView);
 
   if (m_viewportChangedFn != nullptr)
     m_viewportChangedFn(screen);
@@ -315,6 +326,8 @@ Framework::Framework(FrameworkParams const & params, bool loadMaps)
                      [this](FeatureCallback const & fn, vector<FeatureID> const & features)
 { return m_featuresFetcher.ReadFeatures(fn, features); }, bind(&Framework::GetMwmsByRect, this, _1, false /* rough */))
   , m_isolinesManager(m_featuresFetcher.GetDataSource(), bind(&Framework::GetMwmsByRect, this, _1, false /* rough */))
+  , m_indoorManager([this](m2::RectD const & rect, std::function<void(FeatureType &)> const & fn, int scale)
+{ m_featuresFetcher.ForEachFeature(rect, fn, scale); })
   , m_routingManager(RoutingManager::Callbacks([this]() -> DataSource & { return m_featuresFetcher.GetDataSource(); },
                                                [this]() -> storage::CountryInfoGetter const &
 { return GetCountryInfoGetter(); }, [this](string const & id) -> string { return m_storage.GetParentIdFor(id); },
@@ -457,6 +470,7 @@ void Framework::OnCountryFileDownloaded(storage::CountryId const &, storage::Loc
   m_trafficManager.Invalidate();
   m_transitManager.Invalidate();
   m_isolinesManager.Invalidate();
+  m_indoorManager.Invalidate();
 
   InvalidateRect(rect);
   GetSearchAPI().ClearCaches();
@@ -1596,6 +1610,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_trafficManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_transitManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_isolinesManager.SetDrapeEngine(make_ref(m_drapeEngine));
+  m_indoorManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();
@@ -1627,6 +1642,7 @@ void Framework::OnRecoverSurface(int width, int height, bool recreateContextDepe
   m_trafficManager.OnRecoverSurface();
   m_transitManager.Invalidate();
   m_isolinesManager.Invalidate();
+  m_indoorManager.Invalidate();
 }
 
 void Framework::OnDestroySurface()
@@ -1660,6 +1676,7 @@ void Framework::DestroyDrapeEngine()
     m_trafficManager.SetDrapeEngine(nullptr);
     m_transitManager.SetDrapeEngine(nullptr);
     m_isolinesManager.SetDrapeEngine(nullptr);
+    m_indoorManager.SetDrapeEngine(nullptr);
     m_searchMarks.SetDrapeEngine(nullptr);
     GetBookmarkManager().SetDrapeEngine(nullptr);
 

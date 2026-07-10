@@ -35,6 +35,8 @@ set(SRC
   gps_track.hpp
   gps_tracker.cpp
   gps_tracker.hpp
+  indoor_manager.cpp
+  indoor_manager.hpp
   isolines_manager.cpp
   isolines_manager.hpp
   mwm_url.cpp
