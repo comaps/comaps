@@ -224,7 +224,7 @@
 /* Button in the main Help dialog */
 "faq" = "问题和解答";
 /* Button in the main menu */
-"donate" = "捐助我们";
+"donate" = "捐赠";
 /* Button in the main Help dialog */
 "copyright" = "版权";
 /* Text in menu + Button in the main Help dialog */
@@ -698,7 +698,7 @@
 "ok" = "确定";
 "speedcams_alert_title_carplay_1" = "限速拍照";
 "speedcams_alert_title_carplay_2" = "超速警告";
-"download_map_carplay" = "将 CoMaps 应用程序中的地图下载至个人设备中";
+"download_map_carplay" = "请在您的移动设备上的应用中下载地图";
 "carplay_roundabout_exit" = "第 %@ 个出口";
 /* max. 10 symbols, both iOS and Android */
 "sort" = "排序…";
@@ -772,7 +772,7 @@
 /* App tip #01 */
 "app_tip_01" = "有了您的捐赠和支持，我们可以创造世界上最好的地图！";
 /* App tip #02 */
-"app_tip_02" = "您喜欢我们的应用程序吗？请捐款以支持发展！还不喜欢吗？请告诉我们，我们会修复您提到的问题！";
+"app_tip_02" = "您喜欢我们的应用吗？请捐赠以支持开发！还不喜欢吗？请告诉我们原因，我们会解决的！";
 /* App tip #03 */
 "app_tip_03" = "如果您认识软件开发人员，您可以要求他实现您需要的功能。";
 /* App tip #04 */
@@ -780,9 +780,9 @@
 /* App tip #05 */
 "app_tip_05" = "您知道您可以在地图上选择您当前的位置吗？";
 /* App tip #06 */
-"app_tip_06" = "您可以帮助将我们的应用程序翻译成您的语言。";
+"app_tip_06" = "您可以帮助将我们的应用翻译成您的语言。";
 /* App tip #07 */
-"app_tip_07" = "我们的应用程序是由一些爱好者和社区开发的。";
+"app_tip_07" = "我们的应用由几位爱好者和社区共同开发。";
 /* App tip #08 */
 "app_tip_08" = "您可以轻松修复和改进地图数据。";
 /* App tip #09 */
