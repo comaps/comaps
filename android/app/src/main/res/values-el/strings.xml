@@ -482,7 +482,7 @@
     <!-- To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... -->
     <string name="operator">Χειριστής: %s</string>
     <string name="editor_category_unsuitable_title">Δεν μπορείτε να βρείτε την κατάλληλη κατηγορία;</string>
-    <string name="editor_category_unsuitable_text">Το CoMaps επιτρέπει την προσθήκης κατηγοριών απλών σημείων μόνο, δηλαδή όχι την προσθήκη πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ελέγξτε τον <a href="https://www.comaps.app/support/advanced-map-editing/">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.</string>
+    <string name="editor_category_unsuitable_text">Το CoMaps επιτρέπει την προσθήκη κατηγοριών απλών σημείων μόνο, δηλαδή όχι την προσθήκη πόλεων, δρόμων, λιμνών, περιγραμμάτων κτιρίων κ.λπ. Παρακαλούμε προσθέστε τέτοιες κατηγορίες απευθείας στο <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Ελέγξτε τον <a href="https://www.comaps.app/support/advanced-map-editing/">οδηγό μας</a> για λεπτομερείς οδηγίες βήμα προς βήμα.</string>
     <string name="downloader_no_downloaded_maps_title">Δεν έχετε κατεβάσει χάρτες</string>
     <string name="downloader_no_downloaded_maps_message">Κατεβάστε χάρτες για να κάνετε αναζήτηση και να πλοηγηθείτε χωρίς σύνδεση</string>
     <string name="current_location_unknown_error_title">Η τρέχουσα τοποθεσία είναι άγνωστη</string>
@@ -965,7 +965,21 @@
     <string name="capacity_disabled">Θέσεις για ΑΜΕΑ: %s</string>
     <string name="permission_read_navigation_label">Ανάγνωση δεδομένων πλοήγησης CoMaps</string>
     <string name="permission_read_navigation_description">ανάγνωση ζωντανών πληροφοριών πλοήγησης, όπως επερχόμενες στροφές ή ονομασία του δρόμου όπου βρίσκεστε</string>
-    <string name="prefs_group_route_summary">Φωνητικές οδηγίες, επιλογές δρομολόγησης</string>
-    <string name="prefs_group_privacy_summary">Υπηρεσίες Google Play, ιστορικό αναζήτησης</string>
-    <string name="prefs_group_power_summary">Στυλ χάρτη, σβήσιμο οθόνης</string>
+    <string name="prefs_group_route_summary">Μονάδες μέτρησης, φωνητικές οδηγίες, επιλογές δρομολόγησης</string>
+    <string name="prefs_group_privacy_summary">Ιστορικό αναζητήσεων</string>
+    <string name="prefs_group_power_summary">Σβήσιμο οθόνης, δεδομένα κινητής τηλεφωνίας</string>
+    <string name="planning_route_preview">Προεπισκόπηση</string>
+    <string name="pref_about_summary">Αναφέρετε ζητήματ, λάβετε βοήθεια, κάντε δωρεά\nΈκδοση: v%1$s</string>
+    <string name="prefs_group_map_appearance">Εμφάνιση χάρτη</string>
+    <string name="prefs_group_map_appearance_summary">Γλώσσα χάρτη, μέγεθος ετικετών, 2D/3D κτίρια</string>
+    <string name="prefs_group_interface">Διεπαφή</string>
+    <string name="prefs_group_interface_summary">Νυχτερινή λειτουργία, κουμπιά, γλώσσα</string>
+    <string name="prefs_group_data_management">Διαχείριση δεδομένων</string>
+    <string name="prefs_group_data_management_summary">Αποθηκευτικός χώρος χάρτη, αντίγραφο ασφαλείας αγαπημένων</string>
+    <string name="prefs_group_advanced_summary">Ενεργοποίηση αρχείου καταγραφής</string>
+    <string name="search_in_all_lists">Αναζήτηση σε όλες τις λίστες</string>
+    <string name="pref_enable_auto_reroute_title">Αυτόματη επαναδρομολόγηση</string>
+    <string name="pref_enable_auto_reroute_description">Όταν είναι ενεργό, μια νέα διαδρομή θα δημιουργείται αυτόματα όταν αφήνετε την σχεδιασμένη διαδρομή.</string>
+    <string name="recalculate_route">Επανυπολογισμός</string>
+    <string name="off_route">Είστε εκτός διαδρομής</string>
 </resources>

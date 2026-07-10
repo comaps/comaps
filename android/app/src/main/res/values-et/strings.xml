@@ -548,7 +548,7 @@
     <string name="button_plan">Kavanda</string>
     <string name="placepage_remove_stop">Eemalda peatus</string>
     <string name="placepage_add_stop">Lisa peatus</string>
-    <string name="dialog_error_storage_title">Andmeruumi ligipääsu probleem</string>
+    <string name="dialog_error_storage_title">Probleem ligipääsul andmeruumile</string>
     <string name="dialog_error_storage_message">Väline andmeruum pole juurdepääsetav. SD-kaart võib olla eemaldatud, kahjustatud või failisüsteem on kirjutuskaitstud. Palun kontrolli oma SD-kaarti või võta meiega ühendust aadressil support@comaps.app</string>
     <string name="setting_emulate_bad_storage">Imiteeri vigast andmeruumi</string>
     <string name="error_enter_correct_name">Palun sisesta korrektne nimi</string>
@@ -957,11 +957,25 @@
     <string name="capacity_disabled_no">Pole eraldi parkimiskohti puuetega inimeste jaoks</string>
     <string name="capacity_charging_yes">On laadijatega parkimiskohad</string>
     <string name="capacity_charging_no">Pole laadijatega parkimiskohti</string>
-    <string name="prefs_group_route_summary">Hääljuhised, teekonna koostamise valikud</string>
-    <string name="prefs_group_privacy_summary">Google Play teenused, otsinguajalugu</string>
-    <string name="prefs_group_power_summary">Kaardistiil, ekraani väljalülitumine</string>
+    <string name="prefs_group_route_summary">Ühikud, hääljuhised, teekonna koostamise valikud</string>
+    <string name="prefs_group_privacy_summary">Otsinguajalugu</string>
+    <string name="prefs_group_power_summary">Ekraani väljalülitumine, mobiilne andmeside</string>
     <string name="capacity_disabled_yes">On eraldi parkimiskohti puuetega inimeste jaoks</string>
     <string name="capacity_charging">Laadijatega parkimiskohti: %s</string>
     <string name="permission_read_navigation_label">CoMapsi teejuhatamise teabe ettelugemine</string>
     <string name="permission_read_navigation_description">teejuhatamise teabe ettelugemine reaalajas, näiteks järgmised pöörded ja hetkel kasutusel tee nimi</string>
+    <string name="planning_route_preview">Eelvaade</string>
+    <string name="prefs_group_interface">Kasutajaliides</string>
+    <string name="prefs_group_advanced_summary">Lülita logimine sisse</string>
+    <string name="pref_about_summary">Teata vigadest, otsi abiteavet, toeta rahaliselt\nVersioon: %1$s</string>
+    <string name="prefs_group_map_appearance_summary">Kaardi keel, siltide suurus, 2D/3D hooned</string>
+    <string name="prefs_group_interface_summary">Öörežiim, nupud, keel</string>
+    <string name="prefs_group_data_management">Andmehaldus</string>
+    <string name="prefs_group_data_management_summary">Kaardi andmeruum, lemmikute varukoopia</string>
+    <string name="search_in_all_lists">Otsi kõikidest loenditest</string>
+    <string name="pref_enable_auto_reroute_title">Automaatne teekonna ümberarvutus</string>
+    <string name="pref_enable_auto_reroute_description">Selle eelistuse sisselülitamisel koostatakse vanalt teekonnalt lahkudes uus teekond.</string>
+    <string name="off_route">Sa enam ei asu kavandatud teekonnal</string>
+    <string name="prefs_group_map_appearance">Kaardi välimus</string>
+    <string name="recalculate_route">Arvuta uuesti</string>
 </resources>

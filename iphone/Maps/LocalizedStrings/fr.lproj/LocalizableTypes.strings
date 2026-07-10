@@ -153,7 +153,7 @@
 "type.amenity.public_bookcase" = "Microbibliothèque";
 "type.amenity.recycling.centre" = "Centre de recyclage";
 "type.amenity.recycling.container" = "Conteneur de recyclage";
-"type.recycling.batteries" = "Batteries";
+"type.recycling.batteries" = "Piles";
 "type.recycling.clothes" = "Vêtements usagés";
 "type.recycling.glass_bottles" = "Verre";
 "type.recycling.paper" = "Papier usagé";
@@ -410,8 +410,8 @@
 "type.spherical_buoy.special_purpose" = "Bouée sphérique, marque spéciale";
 "type.lateral.port" = "Bâbord";
 "type.lateral.starboard" = "Tribord";
-"type.cardinal.east" = "Est :";
-"type.cardinal.north" = "Nord :";
+"type.cardinal.east" = "Est";
+"type.cardinal.north" = "Nord";
 "type.cardinal.south" = "Sud";
 "type.cardinal.west" = "Ouest";
 /* A mountain rescue base for search and rescue activities. */
@@ -1121,8 +1121,8 @@
 "type.railway.station.subway.yerevan" = "Station de métro";
 "type.railway.station.subway.yokohama" = "Station de métro";
 "type.railway.subway" = "Ligne de métro";
-"type.railway.subway.bridge" = "Voie de métro";
-"type.railway.subway.tunnel" = "Voie de métro";
+"type.railway.subway.bridge" = "Pont de la ligne de métro";
+"type.railway.subway.tunnel" = "Tunnel de la ligne de métro";
 "type.railway.subway_entrance" = "Entrée du métro";
 "type.railway.subway_entrance.adana" = "Entrée du métro";
 "type.railway.subway_entrance.algiers" = "Entrée du métro";
@@ -1533,6 +1533,7 @@
 "type.sport.pickleball" = "Pickleball";
 "type.leisure.sports_centre.sport.pickleball" = "Centre Sportif";
 "type.organic.no" = "Pas d'options bio";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.animal_boarding" = "Pension pour animaux";
+"type.amenity.toilets.customers" = "Accès client";
+"type.amenity.toilets.private" = "Accès privé";
+"type.amenity.planetarium" = "Planétarium";

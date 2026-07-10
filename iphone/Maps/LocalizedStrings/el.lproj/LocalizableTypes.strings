@@ -683,7 +683,7 @@
 "type.landuse.education" = "Εκπαιδευτική Εγκατάσταση";
 "type.landuse.farmland" = "Αγροτική γη";
 "type.landuse.farmyard" = "Φάρμα";
-"type.landuse.field" = "Field";
+"type.landuse.field" = "Χωράφι";
 "type.landuse.flowerbed" = "Παρτέρι";
 "type.landuse.forest" = "Δάσος";
 "type.landuse.forest.coniferous" = "Κωνοφόρο δάσος";
@@ -1534,5 +1534,6 @@
 "type.organic.no" = "Χωρίς οργανικές επιλογές";
 "type.amenity.stage" = "Σκηνή";
 "type.amenity.animal_boarding" = "Φιλοξενία ζώων";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.toilets.customers" = "Πρόσβαση για πελάτες";
+"type.amenity.toilets.private" = "Ιδιωτική πρόσβαση";
+"type.amenity.planetarium" = "Πλανητάριο";

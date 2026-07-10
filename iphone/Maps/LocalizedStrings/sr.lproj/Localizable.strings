@@ -385,7 +385,7 @@
 /* Voice */
 "voice" = "Глас";
 "voice_explanation" = "Можете изабрати бољи глас у *Приступачност*, *Читање и говор*, *Гласови*.";
-"voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Гласовни садржај*, *Гласови*.";
+"voice_explanation_before_version26" = "Можете изабрати бољи глас у системским подешавањима под *Приступачност*, *Читање и говор*, *Гласови*.";
 "unknown" = "Непознато";
 /* Place page confirmation messages and time ago formatting */
 "existence_confirmed_time_ago" = "Проверено да постоји %@";
@@ -877,9 +877,9 @@
 "editor_add_select_category_recent_subtitle" = "Недавно коришћено";
 "oh_unknown" = "Непознато радно време";
 "carplay_highway_exit" = "Излаз %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"capacity_disabled_yes" = "Има посебна места за особе са инвалидитетом";
+"capacity_disabled_no" = "Нема одвојен простор за особе са инвалидитетом";
+"capacity_charging_yes" = "Има места са пуњачима";
+"capacity_charging_no" = "Нема места са пуњачима";
+"planning_route_preview" = "Преглед";
+"planning_route_preview_sheet_title" = "Преглед руте";

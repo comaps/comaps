@@ -1540,4 +1540,5 @@
     <string name="type.amenity.animal_boarding">Alojamiento para animales</string>
     <string name="type.amenity.toilets.customers">Acceso para clientes</string>
     <string name="type.amenity.toilets.private">Acceso privado</string>
+    <string name="type.amenity.planetarium">Planetario</string>
 </resources>

@@ -881,5 +881,5 @@
 "capacity_disabled_no" = "Pole eraldi parkimiskohti puuetega inimeste jaoks";
 "capacity_charging_yes" = "On laadijatega parkimiskohad";
 "capacity_charging_no" = "Pole laadijatega parkimiskohti";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"planning_route_preview" = "Eelvaade";
+"planning_route_preview_sheet_title" = "Teekonna eelvaade";

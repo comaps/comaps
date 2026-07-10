@@ -962,7 +962,7 @@
     <string name="sort_categories">Ordenar favoritos</string>
     <string name="by_recently_used">Por los más recientes</string>
     <string name="by_custom">Personalizado</string>
-    <string name="enable_long_tap_fullscreen">Mantén pulsado para ocultar la interfaz de usuario.</string>
+    <string name="enable_long_tap_fullscreen">Mantén pulsado para ocultar la interfaz de usuario</string>
     <string name="long_tap_disabled_toast">Para ocultar la interfaz, active la opción de pulsación larga en los ajustes</string>
     <string name="capacity_disabled">Plazas de aparcamiento para personas con discapacidad: %s</string>
     <string name="capacity_disabled_yes">Dispone de plazas de aparcamiento reservadas para personas con discapacidad</string>
@@ -970,13 +970,23 @@
     <string name="capacity_charging">Plazas con cargadores: %s</string>
     <string name="capacity_charging_yes">Dispone de plazas con cargadores</string>
     <string name="capacity_charging_no">No hay plazas con cargadores</string>
-    <string name="prefs_group_route_summary">Instrucciones de voz, opciones de la ruta</string>
-    <string name="prefs_group_privacy_summary">Servicios de Google Play, historial de búsqueda</string>
-    <string name="prefs_group_power_summary">Estilo del mapa, tiempo de espera de pantalla</string>
+    <string name="prefs_group_route_summary">Unidades, instrucciones de voz, opciones de ruta</string>
+    <string name="prefs_group_privacy_summary">Historial de búsquedas</string>
+    <string name="prefs_group_power_summary">Tiempo de inactividad de la pantalla, datos móviles</string>
     <string name="prefs_group_map_appearance">Aspecto del mapa</string>
     <string name="prefs_group_map_appearance_summary">Idioma del mapa, tamaño de las etiquetas, edificios en 2D/3D</string>
     <string name="planning_route_preview">Vista previa</string>
     <string name="search_in_all_lists">Buscar en todas las listas</string>
     <string name="permission_read_navigation_label">Leer los datos de navegación de CoMaps</string>
     <string name="permission_read_navigation_description">leer información de navegación en tiempo real, como los próximos giros o el nombre de la calle por la que circulas</string>
+    <string name="pref_about_summary">Informar de problemas, solicitar ayuda, hacer una donación\nVersión: v%1$s</string>
+    <string name="prefs_group_interface">Interfaz</string>
+    <string name="prefs_group_interface_summary">Modo nocturno, botones, idioma</string>
+    <string name="prefs_group_data_management">Gestión de datos</string>
+    <string name="prefs_group_data_management_summary">Almacenamiento de mapas, copia de seguridad de favoritos</string>
+    <string name="prefs_group_advanced_summary">Activar el registro</string>
+    <string name="pref_enable_auto_reroute_title">Redireccionamiento automático</string>
+    <string name="pref_enable_auto_reroute_description">Si se activa esta opción, se creará automáticamente una nueva ruta en cuanto te desvíes de la ruta planificada.</string>
+    <string name="recalculate_route">Recalcular</string>
+    <string name="off_route">Te has desviado de la ruta</string>
 </resources>

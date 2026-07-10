@@ -3219,7 +3219,7 @@
         "defaultMessage": "Kentucky — Ouest"
     },
     "US_Louisiana_Central": {
-        "defaultMessage": "Louisiane — Ouest"
+        "defaultMessage": "Louisiane — Centre"
     },
     "US_Louisiana_New Orleans": {
         "defaultMessage": "La Nouvelle-Orléans"
@@ -3231,7 +3231,7 @@
         "defaultMessage": "Baltimore"
     },
     "US_Maryland_and_DC": {
-        "defaultMessage": "Ouest, Washington"
+        "defaultMessage": "L'Ouest et Washington, D.C."
     },
     "US_Massachusetts_Boston": {
         "defaultMessage": "Boston"
@@ -3417,7 +3417,7 @@
         "defaultMessage": "Waco"
     },
     "US_Texas_West": {
-        "defaultMessage": "Odessa"
+        "defaultMessage": "El Paso"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "Îles mineures éloignées des États-Unis"
@@ -3456,7 +3456,7 @@
         "defaultMessage": "Milwaukee"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Nord du Wisconsin"
+        "defaultMessage": "Wisconsin — Nord"
     },
     "US_Wyoming": {
         "defaultMessage": "Wyoming"
@@ -6891,52 +6891,52 @@
         "defaultMessage": "Cardiff"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Warrior, Vestavia Hills, Scottsboro"
+        "defaultMessage": "Huntsville, Decatur, Florence"
     },
     "US_Alabama_Montgomery Description": {
-        "defaultMessage": "Creola, Centreville, Valley"
+        "defaultMessage": "Mobile, Tuscaloosa, Dothan"
     },
     "US_Alaska Description": {
-        "defaultMessage": "Fairbanks"
+        "defaultMessage": "Anchorage, Fairbanks, Juneau"
     },
     "US_Arizona_Flagstaff Description": {
-        "defaultMessage": "Cottonwood, Holbrook, Show Low"
+        "defaultMessage": "Lake Havasu City, Prescott, Bullhead City"
     },
     "US_Arizona_Phoenix Description": {
-        "defaultMessage": "Phoenix, Mesa"
+        "defaultMessage": "Surprise, Yuma, Buckeye"
     },
     "US_Arizona_Tucson Description": {
-        "defaultMessage": "Tucson, South Tucson, Bisbee"
+        "defaultMessage": "Sierra Vista, Marana, Nogales"
     },
     "US_Arkansas_North Description": {
-        "defaultMessage": "Ward, Cabot, Des Arc"
+        "defaultMessage": "Fort Smith, Fayetteville, Jonesboro"
     },
     "US_Arkansas_South Description": {
-        "defaultMessage": "Stamps, Rockport"
+        "defaultMessage": "Little Rock, Pine Bluff, Texarkana"
     },
     "US_California_Bakersfield_Bakersfield Description": {
-        "defaultMessage": "Arroyo Grande, Pismo Beach, Maricopa"
+        "defaultMessage": "Santa Maria, Delano, San Luis Obispo"
     },
     "US_California_Bakersfield_Lancaster Description": {
-        "defaultMessage": "Hesperia, Big Bear Lake, Holtville"
+        "defaultMessage": "Victorville, El Centro, Joshua Tree"
     },
     "US_California_Chico Description": {
-        "defaultMessage": "Tehama, Cloverdale, Cloverdale"
+        "defaultMessage": "Oroville, Paradise, Susanville"
     },
     "US_California_LA Description": {
-        "defaultMessage": "Los Angeles"
+        "defaultMessage": "Long Beach, Santa Ana, Riverside"
     },
     "US_California_LA North Description": {
-        "defaultMessage": "Santa Barbara, Ojai, Avalon"
+        "defaultMessage": "Oxnard, Santa Clarita, Thousand Oaks"
     },
     "US_California_Redding Description": {
-        "defaultMessage": "Ferndale, Rio Dell, Arcata"
+        "defaultMessage": "Eureka, Red Bluff, Crescent City"
     },
     "US_California_Sacramento_Fresno Description": {
-        "defaultMessage": "Fresno, Selma, Bishop"
+        "defaultMessage": "Visalia, Porterville, Hanford"
     },
     "US_California_Sacramento_Sacramento Description": {
-        "defaultMessage": "Sacramento, West Sacramento, Placerville"
+        "defaultMessage": "Yuba City, Rocklin, Auburn"
     },
     "US_California_Sacramento_Stockton Description": {
         "defaultMessage": "Ceres, Ione, Tracy"
@@ -6984,7 +6984,7 @@
         "defaultMessage": "Atlanta, Chamblee, Walnut Grove"
     },
     "US_Georgia_Macon Description": {
-        "defaultMessage": "Grovetown, Perry, Byron"
+        "defaultMessage": "Augusta, Athens, Columbus"
     },
     "US_Georgia_North Description": {
         "defaultMessage": "Emerson, Jefferson, Cartersville"
@@ -7029,13 +7029,13 @@
         "defaultMessage": "Elwood, Kokomo, Whiting"
     },
     "US_Iowa_Des Moines Description": {
-        "defaultMessage": "Indianola, Slater, Martensdale"
+        "defaultMessage": "Davenport, Iowa City, Burlington"
     },
     "US_Iowa_Waterloo Description": {
-        "defaultMessage": "Dixon, Floyd, Elma"
+        "defaultMessage": "Cedar Rapids, Ames, Dubuque"
     },
     "US_Iowa_West Description": {
-        "defaultMessage": "Churdan, Orange City, Paton"
+        "defaultMessage": "Sioux City, Council Bluffs, Fort Dodge"
     },
     "US_Kansas_East Description": {
         "defaultMessage": "Benedict, Coffeyville, Severance"

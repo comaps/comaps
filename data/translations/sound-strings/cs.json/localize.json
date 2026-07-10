@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Na konci silnice,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Nacházíte se %1$s od trasy"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Za více než tři kilometry"
+    },
+    "from_50_meters": {
+        "defaultMessage": "padesát metrů"
+    },
+    "from_100_meters": {
+        "defaultMessage": "sto metrů"
+    },
+    "from_200_meters": {
+        "defaultMessage": "dvě stě metrů"
+    },
+    "from_250_meters": {
+        "defaultMessage": "dvě stě padesát metrů"
+    },
+    "from_300_meters": {
+        "defaultMessage": "tři sta metrů"
+    },
+    "from_400_meters": {
+        "defaultMessage": "čtyři sta metrů"
+    },
+    "from_500_meters": {
+        "defaultMessage": "pět set metrů"
+    },
+    "from_600_meters": {
+        "defaultMessage": "šest set metrů"
+    },
+    "from_700_meters": {
+        "defaultMessage": "sedm set metrů"
+    },
+    "from_750_meters": {
+        "defaultMessage": "sedm set padesát metrů"
+    },
+    "from_800_meters": {
+        "defaultMessage": "osm set metrů"
+    },
+    "from_900_meters": {
+        "defaultMessage": "devět set metrů"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "jeden kilometr"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "jeden a půl kilometru"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "dva kilometry"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "dva a půl kilometru"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "tři kilometry"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "více než tři kilometry"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Za více než dvě míle"
+    },
+    "from_50_feet": {
+        "defaultMessage": "padesát stop"
+    },
+    "from_100_feet": {
+        "defaultMessage": "sto stop"
+    },
+    "from_200_feet": {
+        "defaultMessage": "dvě stě stop"
+    },
+    "from_300_feet": {
+        "defaultMessage": "tři sta stop"
+    },
+    "from_400_feet": {
+        "defaultMessage": "čtyři sta stop"
+    },
+    "from_500_feet": {
+        "defaultMessage": "pět set stop"
+    },
+    "from_600_feet": {
+        "defaultMessage": "šest set stop"
+    },
+    "from_700_feet": {
+        "defaultMessage": "sedm set stop"
+    },
+    "from_800_feet": {
+        "defaultMessage": "osm set stop"
+    },
+    "from_900_feet": {
+        "defaultMessage": "devět set stop"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "tisíc stop"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "tisíc pět set stop"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "dva tisíce stop"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "dva tisíce pět set stop"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "tři tisíce stop"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "tři tisíce pět set stop"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "čtyři tisíce stop"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "čtyři tisíce pět set stop"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "pět tisíc stop"
+    },
+    "from_1_mile": {
+        "defaultMessage": "jednu míli"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "jednu a půl míle"
+    },
+    "from_2_miles": {
+        "defaultMessage": "dvě míle"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "více než dvě míle"
     }
 }

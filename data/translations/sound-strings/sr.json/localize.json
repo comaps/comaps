@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "На крају улице,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Удаљени сте %1$s од руте"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "За више од три километра"
+    },
+    "from_50_meters": {
+        "defaultMessage": "педесет метара"
+    },
+    "from_100_meters": {
+        "defaultMessage": "сто метара"
+    },
+    "from_200_meters": {
+        "defaultMessage": "двеста метара"
+    },
+    "from_250_meters": {
+        "defaultMessage": "двеста педесет метара"
+    },
+    "from_300_meters": {
+        "defaultMessage": "триста метара"
+    },
+    "from_400_meters": {
+        "defaultMessage": "четиристо метара"
+    },
+    "from_500_meters": {
+        "defaultMessage": "петсто метара"
+    },
+    "from_600_meters": {
+        "defaultMessage": "шестсто метара"
+    },
+    "from_700_meters": {
+        "defaultMessage": "седамсто метара"
+    },
+    "from_750_meters": {
+        "defaultMessage": "седамсто педесет метара"
+    },
+    "from_800_meters": {
+        "defaultMessage": "осамсто метара"
+    },
+    "from_900_meters": {
+        "defaultMessage": "деветсто метара"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "један километар"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "један и по километар"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "два километра"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "два и по километра"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "три километра"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "више од три километра"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "За више од две миље"
+    },
+    "from_50_feet": {
+        "defaultMessage": "педесет стопа"
+    },
+    "from_100_feet": {
+        "defaultMessage": "сто стопа"
+    },
+    "from_200_feet": {
+        "defaultMessage": "двеста стопа"
+    },
+    "from_300_feet": {
+        "defaultMessage": "триста стопа"
+    },
+    "from_400_feet": {
+        "defaultMessage": "четиристо стопа"
+    },
+    "from_500_feet": {
+        "defaultMessage": "петсто стопа"
+    },
+    "from_600_feet": {
+        "defaultMessage": "шестсто стопа"
+    },
+    "from_700_feet": {
+        "defaultMessage": "седамсто стопа"
+    },
+    "from_800_feet": {
+        "defaultMessage": "осамсто стопа"
+    },
+    "from_900_feet": {
+        "defaultMessage": "деветсто стопа"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "хиљаду стопа"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "хиљаду и петсто стопа"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "две хиљаде стопа"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "две хиљаде и петсто стопа"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "три хиљаде стопа"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "три хиљаде и петсто стопа"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "четири хиљаде стопа"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "четири хиљаде и петсто стопа"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "пет хиљада стопа"
+    },
+    "from_1_mile": {
+        "defaultMessage": "једну миљу"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "једну и по миљу"
+    },
+    "from_2_miles": {
+        "defaultMessage": "две миље"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "више од две миље"
     }
 }

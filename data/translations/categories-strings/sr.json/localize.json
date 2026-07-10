@@ -120,7 +120,7 @@
         "defaultMessage": "Електроника|Elektronika"
     },
     "shop-jewelry|@category_shopping|@shop": {
-        "defaultMessage": "3Златара|3Јувелирница|3Кујунџија|3Zlatara|3Juvelirnica|3Kujundžija"
+        "defaultMessage": "3Златара|3Јувелирница|3Кујунџија|4Дијаманти|3Zlatara|3Juvelirnica|3Kujundžija|4Dijamanti"
     },
     "shop-optician|@shop": {
         "defaultMessage": "Оптика|Optika"
@@ -165,7 +165,7 @@
         "defaultMessage": "Трансфер новца|Transfer novca"
     },
     "shop-clothes|@category_shopping|@shop": {
-        "defaultMessage": "Бутик|Butik "
+        "defaultMessage": "Бутик|Одећа|Butik|Odeća"
     },
     "shop-car|@shop": {
         "defaultMessage": "Салон аутомобила|Salon automobila"
@@ -195,7 +195,7 @@
         "defaultMessage": "Атракција|Atrakcija"
     },
     "tourism-viewpoint|@category_tourism": {
-        "defaultMessage": "Видиковац|Vidikovac"
+        "defaultMessage": "4Видиковац|4Vidikovac"
     },
     "tourism-information": {
         "defaultMessage": "Туристичке информације|Turističke informacije"
@@ -330,7 +330,7 @@
         "defaultMessage": "Медицинска лабораторија|Medicinska laboratorija"
     },
     "healthcare-physiotherapist": {
-        "defaultMessage": "Физиотерапеут|Fizioterapeut"
+        "defaultMessage": "5Физиотерапеут|5Fizioterapeut"
     },
     "healthcare-alternative": {
         "defaultMessage": "Алтернативна медицина|Alternativna medicina"
@@ -846,7 +846,7 @@
         "defaultMessage": "Вулканизер|Vulkanizer"
     },
     "shop-chemist|@shop": {
-        "defaultMessage": "Кућна хемија|Kućna hemija"
+        "defaultMessage": "5Кућна хемија|5Kućna hemija"
     },
     "shop-pet|@shop": {
         "defaultMessage": "Кућни љубимци|Пет шоп|Kućni ljubimci|Pet šop"
@@ -954,7 +954,7 @@
         "defaultMessage": "Гранични прелаз|Granični prelaz"
     },
     "leisure-water_park|@category_tourism|@category_children": {
-        "defaultMessage": "Аква парк|Водени парк|Akva park|Vodeni park"
+        "defaultMessage": "4Аква парк|4Водени парк|4Akva park|4Vodeni park"
     },
     "man_made-water_tower": {
         "defaultMessage": "Водоторањ|Vodotoranj"
@@ -1215,7 +1215,7 @@
         "defaultMessage": "Спортска хала|Sportska hala"
     },
     "amenity-arts_centre|@category_tourism": {
-        "defaultMessage": "Центар за културу|Centar za kulturu"
+        "defaultMessage": "6Центар за културу|5Уметнички центар|6Centar za kulturu|5Umetnički centar"
     },
     "amenity-prison": {
         "defaultMessage": "4затвор|4zatvor"
@@ -1251,7 +1251,7 @@
         "defaultMessage": "Травар|Продавница биља|Travar|Prodavnica bilja"
     },
     "shop-appliance|@shop": {
-        "defaultMessage": "4Бела техника|4Bela tehnika"
+        "defaultMessage": "4Бела техника|5Кућни апарати|4Bela tehnika|5Kućni aparati"
     },
     "shop-agrarian|@shop": {
         "defaultMessage": "4Пољопривреда|4Poljoprivreda"
@@ -1275,7 +1275,7 @@
         "defaultMessage": "Спомен-крст"
     },
     "historic-memorial-plaque": {
-        "defaultMessage": "Спомен-плоча"
+        "defaultMessage": "6Спомен-плоча|6историјска плоча|6Spomen-ploča|6istorijska ploča"
     },
     "historic-wayside_cross": {
         "defaultMessage": "Крст поред пута"
@@ -1290,7 +1290,7 @@
         "defaultMessage": "Доручак|doručak"
     },
     "cuisine-burger|@fastfood": {
-        "defaultMessage": "Бургер|Хамбургер|Burger|Hamburger"
+        "defaultMessage": "4Бургер|4Хамбургер|4Burger|4Hamburger"
     },
     "cuisine-bubble_tea": {
         "defaultMessage": "Боба чај|бабл ти|Чај с мехурићима|Boba čaj|babl ti|Čaj s mehurićima"
@@ -1308,7 +1308,7 @@
         "defaultMessage": "Дајнер|Dajner"
     },
     "cuisine-donut": {
-        "defaultMessage": "Крофне|Krofne"
+        "defaultMessage": "4Крофне|4Krofne"
     },
     "cuisine-fish_and_chips": {
         "defaultMessage": "Риба и чипс|Фиш енд чипс|Riba i čips|Fiš end čips"
@@ -1323,7 +1323,7 @@
         "defaultMessage": "Хотдог|Хот дог|Хот-дог|Hotdog|Hot dog|Hot-dog"
     },
     "cuisine-ice_cream": {
-        "defaultMessage": "Сладолед|Sladoled"
+        "defaultMessage": "4Сладолед|4Sladoled"
     },
     "cuisine-kebab|@fastfood": {
         "defaultMessage": "Кебаб|Kebab"
@@ -1344,13 +1344,13 @@
         "defaultMessage": "Рамен|Ramen"
     },
     "cuisine-sandwich|@fastfood": {
-        "defaultMessage": "Сендвич|Sendvič"
+        "defaultMessage": "4Сендвич|4Sendvič"
     },
     "cuisine-sausage|@fastfood": {
         "defaultMessage": "Кобасица|Kobasica"
     },
     "cuisine-seafood|cuisine-fish": {
-        "defaultMessage": "Морски плодови|Плодови мора|риба|Morski plodovi|Plodovi mora|riba"
+        "defaultMessage": "5Морски плодови|4Плодови мора|риба|5Morski plodovi|4Plodovi mora|riba"
     },
     "cuisine-steak_house": {
         "defaultMessage": "Бифтек|Одрезак|Стек|Biftek|Odrezak|Stek"
@@ -1422,7 +1422,7 @@
         "defaultMessage": "5Медијски студио|студио|5Medijski studio|studio"
     },
     "shop-cannabis|@shop": {
-        "defaultMessage": "Канабис"
+        "defaultMessage": "Канабис|Kanabis"
     },
     "tourism-artwork-painting": {
         "defaultMessage": "Слика|Уметничко дело|Slika|Umetničko delo"
@@ -1500,7 +1500,7 @@
         "defaultMessage": "4Плаћање рачуна|4Plaćanje računa"
     },
     "leisure-bandstand": {
-        "defaultMessage": "Бина|Bina"
+        "defaultMessage": "4Музички павиљон|Бина|4Muzički paviljon|Bina"
     },
     "power-generator-wind": {
         "defaultMessage": "5Ветрогенератор|5Vetrogenerator"
@@ -1569,7 +1569,7 @@
         "defaultMessage": "3Храм|Таоисти|3Hram|Taoisti"
     },
     "historic-memorial|@category_tourism": {
-        "defaultMessage": "4Меморијал|Споменик|4Memorijal|Spomen"
+        "defaultMessage": "4Меморијал|Споменик|помен|4Memorijal|Spomen|pomen"
     },
     "historic-monument|@category_tourism": {
         "defaultMessage": "4Споменик|4Spomenik"
@@ -1665,7 +1665,7 @@
         "defaultMessage": "4Школа једрења|4Наутичка школа|4Škola jedrenja|4Nautička škola"
     },
     "amenity-flight_school": {
-        "defaultMessage": "5Школа летења|Ваздухопловна школа|5Škola letenja|Vazduhoplovna škola"
+        "defaultMessage": "5Школа летења|6Ваздухопловна школа|4Авио-школа|5Škola letenja|6Vazduhoplovna škola|4Avio-škola"
     },
     "amenity-prep_school": {
         "defaultMessage": "3Припремна школа|Школа за припрему|3Pripremna škola|Škola za pripremu"
@@ -1858,5 +1858,11 @@
     },
     "amenity-stage": {
         "defaultMessage": "Бина|Bina"
+    },
+    "amenity-planetarium|@category_tourism": {
+        "defaultMessage": "5Планетаријум|5Plantarijum"
+    },
+    "amenity-animal_boarding": {
+        "defaultMessage": "5Хотел за љубимце|5Хотел за животиње|5Hotel za ljubimce|5Hotel za životinje"
     }
 }

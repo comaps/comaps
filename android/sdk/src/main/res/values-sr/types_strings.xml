@@ -1536,4 +1536,8 @@
     <string name="type.sport.pickleball">Пиклбол</string>
     <string name="type.organic.no">Нема органску храну</string>
     <string name="type.amenity.stage">Бина</string>
+    <string name="type.amenity.planetarium">Планетаријум</string>
+    <string name="type.amenity.toilets.customers">Само за муштерије</string>
+    <string name="type.amenity.toilets.private">Приватни</string>
+    <string name="type.amenity.animal_boarding">Хотел за љубимце</string>
 </resources>

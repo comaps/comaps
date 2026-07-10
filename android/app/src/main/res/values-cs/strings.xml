@@ -23,7 +23,7 @@
     <!-- Search box placeholder text; Used when searching on the map itself, not when searching for a map -->
     <string name="search_map">Prohledat mapu</string>
     <!-- Location services are disabled by user alert - message -->
-    <string name="location_is_disabled_long_text">Aktuálně máte všechny možnosti pro určování polohy vypnuté. Prosím, povolte je v Nastavení.</string>
+    <string name="location_is_disabled_long_text">Aktuálně máte všechny možnosti pro určování polohy vypnuté. Povolte je prosím v nastavení systému.</string>
     <!-- A dialog title, that warns a user that Precise Location is disabled and suggests to turn it on -->
     <string name="limited_accuracy">Omezená přesnost</string>
     <!-- A dialog text, that warns a user that Precise Location is disabled and suggests to turn it on -->
@@ -205,7 +205,7 @@
     <!-- Settings «Map» category: «3D buildings» title -->
     <string name="pref_map_3d_buildings_title">3D budovy</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
-    <string name="pref_map_3d_buildings_disabled_summary">3D budovy jsou vypnuty v úsporném režimu</string>
+    <string name="pref_map_3d_buildings_disabled_summary">3D budovy jsou v úsporném režimu vypnuty</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
     <string name="pref_tts_enable_title">Hlasové instrukce</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
@@ -614,7 +614,7 @@
     <string name="avoid_motorways">Vyhnout se dálnicím</string>
     <string name="unable_to_calc_alert_title">Nelze vypočítat trasu</string>
     <string name="unable_to_calc_alert_subtitle">Bohužel jsme nemohli nalézt trasu. Mohlo se tak stát kvůli vámi definovaným možnostem trasy nebo nekompletním datům OpenStreetMap. Změňte prosím nastavenímožnosti trasy a zkuste to znovu.</string>
-    <string name="define_to_avoid_btn">Definovat silnice, kterým se vyhnout</string>
+    <string name="define_to_avoid_btn">Vyberte možnosti trasy</string>
     <string name="change_driving_options_btn">Možnosti trasy aktivní</string>
     <string name="toll_road">Silnice s mýtným</string>
     <string name="unpaved_road">Nezpevněná silnice</string>
@@ -956,4 +956,29 @@
     <string name="sort_categories">Seřadit seznamy oblíbených</string>
     <string name="by_recently_used">Podle nedávno použitých</string>
     <string name="by_custom">Podle vlastního pořadí</string>
+    <string name="planning_route_preview">Náhled</string>
+    <string name="prefs_group_interface">Rozhraní</string>
+    <string name="prefs_group_data_management">Správa dat</string>
+    <string name="prefs_group_advanced_summary">Povolit protokolování</string>
+    <string name="prefs_group_privacy_summary">Historie vyhledávání</string>
+    <string name="recalculate_route">Přepočítat</string>
+    <string name="capacity_disabled">Parkovací místa pro invalidy: %s</string>
+    <string name="capacity_disabled_no">Žádná vyhrazená místa pro invalidy</string>
+    <string name="capacity_charging_yes">Má místa s nabíječkami</string>
+    <string name="capacity_charging_no">Žádná místa s nabíječkami</string>
+    <string name="pref_about_summary">Nahlaste chyby, získejte pomoc, přispějte\nVerze: v%1$s</string>
+    <string name="prefs_group_map_appearance_summary">Jazyk mapy, velikost popisků, 2D/3D stavby</string>
+    <string name="prefs_group_interface_summary">Noční režim, tlačítka, jazyk</string>
+    <string name="prefs_group_data_management_summary">Úložiště map, záloha oblíbených</string>
+    <string name="prefs_group_route_summary">Jednotky, hlasové pokyny, nastavení navigace</string>
+    <string name="prefs_group_power_summary">Vypínání obrazovky, mobilní data</string>
+    <string name="search_in_all_lists">Hledat ve všech seznamech</string>
+    <string name="pref_enable_auto_reroute_title">Automatické přepočítání trasy</string>
+    <string name="pref_enable_auto_reroute_description">Pokud je povoleno, budue při opuštění plánované trasy automaticky vytvořena nová trasa.</string>
+    <string name="off_route">Nacházíte se mimo trasu</string>
+    <string name="capacity_disabled_yes">Má vyhrazené místo pro invalidy</string>
+    <string name="capacity_charging">Místa s nabíječkami: %s</string>
+    <string name="permission_read_navigation_label">Číst navigační data aplikace CoMaps</string>
+    <string name="permission_read_navigation_description">číst živé informcace o navigaci, jako jsou nadcházející odbočení nebo název silnice, na které se nacházíte</string>
+    <string name="prefs_group_map_appearance">Vzhled mapy</string>
 </resources>

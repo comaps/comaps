@@ -1534,4 +1534,7 @@
     <string name="type.social_facility.food_bank">Τράπεζα Τροφίμων</string>
     <string name="type.amenity.food_sharing">Διαμοιρασμός Φαγητού</string>
     <string name="type.amenity.give_box">Κουτί Δωρεών</string>
+    <string name="type.amenity.planetarium">Πλανητάριο</string>
+    <string name="type.amenity.toilets.customers">Πρόσβαση για πελάτες</string>
+    <string name="type.amenity.toilets.private">Ιδιωτική πρόσβαση</string>
 </resources>

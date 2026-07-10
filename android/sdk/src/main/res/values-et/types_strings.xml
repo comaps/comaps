@@ -1537,4 +1537,7 @@
     <string name="type.organic.no">Valikus pole mahetooteid</string>
     <string name="type.amenity.stage">Lava</string>
     <string name="type.amenity.animal_boarding">Loomahotell</string>
+    <string name="type.amenity.planetarium">Planetaarium</string>
+    <string name="type.amenity.toilets.customers">Ligipääs klientidele</string>
+    <string name="type.amenity.toilets.private">Privaatne ligipääs</string>
 </resources>

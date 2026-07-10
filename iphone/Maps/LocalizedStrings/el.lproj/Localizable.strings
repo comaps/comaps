@@ -881,5 +881,5 @@
 "capacity_disabled_no" = "Δεν έχει θέσεις για ΑΜΕΑ";
 "capacity_charging_yes" = "Έχει θέσεις με φορτιστές";
 "capacity_charging_no" = "Δεν έχει θέσεις με φορτιστές";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"planning_route_preview" = "Προεπισκόπηση";
+"planning_route_preview_sheet_title" = "Προεπισκόπηση διαδρομής";

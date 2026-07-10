@@ -125,7 +125,7 @@
     <!-- SECTION: Types: Recycling -->
     <string name="type.amenity.recycling.centre">Centre de recyclage</string>
     <string name="type.amenity.recycling.container">Conteneur de recyclage</string>
-    <string name="type.recycling.batteries">Batteries</string>
+    <string name="type.recycling.batteries">Piles</string>
     <string name="type.recycling.clothes">Vêtements usagés</string>
     <string name="type.recycling.glass_bottles">Verre</string>
     <string name="type.recycling.paper">Papier usagé</string>
@@ -950,8 +950,8 @@
     <string name="type.railway.station.subway.yerevan">Station de métro</string>
     <string name="type.railway.station.subway.yokohama">Station de métro</string>
     <string name="type.railway.subway">Ligne de métro</string>
-    <string name="type.railway.subway.bridge">Voie de métro</string>
-    <string name="type.railway.subway.tunnel">Voie de métro</string>
+    <string name="type.railway.subway.bridge">Pont de la ligne de métro</string>
+    <string name="type.railway.subway.tunnel">Tunnel de la ligne de métro</string>
     <string name="type.railway.subway_entrance">Entrée du métro</string>
     <string name="type.railway.subway_entrance.adana">Entrée du métro</string>
     <string name="type.railway.subway_entrance.algiers">Entrée du métro</string>
@@ -1500,8 +1500,8 @@
     <string name="type.spherical_buoy.special_purpose">Bouée sphérique, marque spéciale</string>
     <string name="type.lateral.port">Bâbord</string>
     <string name="type.lateral.starboard">Tribord</string>
-    <string name="type.cardinal.east">Est :</string>
-    <string name="type.cardinal.north">Nord :</string>
+    <string name="type.cardinal.east">Est</string>
+    <string name="type.cardinal.north">Nord</string>
     <string name="type.cardinal.south">Sud</string>
     <string name="type.cardinal.west">Ouest</string>
     <string name="type.entrance.house">Entrée de la maison</string>
@@ -1536,4 +1536,8 @@
     <string name="type.leisure.sports_centre.sport.pickleball">Centre Sportif</string>
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.organic.no">Pas d\'options bio</string>
+    <string name="type.amenity.planetarium">Planétarium</string>
+    <string name="type.amenity.toilets.customers">Accès client</string>
+    <string name="type.amenity.toilets.private">Accès privé</string>
+    <string name="type.amenity.animal_boarding">Pension pour animaux</string>
 </resources>

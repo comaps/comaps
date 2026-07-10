@@ -1536,3 +1536,4 @@
 "type.amenity.animal_boarding" = "Alojamiento para animales";
 "type.amenity.toilets.customers" = "Acceso para clientes";
 "type.amenity.toilets.private" = "Acceso privado";
+"type.amenity.planetarium" = "Planetario";

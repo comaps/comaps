@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Tee lõpus,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Oled teekonnast %1$s kaugusel"
+    },
+    "from_50_meters": {
+        "defaultMessage": "viiekümne meetri"
+    },
+    "from_100_meters": {
+        "defaultMessage": "saja meetri"
+    },
+    "from_200_meters": {
+        "defaultMessage": "kahesaja meetri"
+    },
+    "from_250_meters": {
+        "defaultMessage": "kahesaja viiekümne meetri"
+    },
+    "from_300_meters": {
+        "defaultMessage": "kolmesaja meetri"
+    },
+    "from_400_meters": {
+        "defaultMessage": "neljasaja meetri"
+    },
+    "from_500_meters": {
+        "defaultMessage": "viiesaja meetri"
+    },
+    "from_600_meters": {
+        "defaultMessage": "kuuesaja meetri"
+    },
+    "from_700_meters": {
+        "defaultMessage": "seitsmesaja meetri"
+    },
+    "from_750_meters": {
+        "defaultMessage": "seitsmesaja viiekümne meetri"
+    },
+    "from_800_meters": {
+        "defaultMessage": "kaheksasaja meetri"
+    },
+    "from_900_meters": {
+        "defaultMessage": "üheksasaja meetri"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "ühe kilomeetri"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "pooleteise kilomeetri"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "kahe kilomeetri"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "kahe ja poole kilomeetri"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "kolme kilomeetri"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "enam kui kolme kilomeetri"
+    },
+    "from_50_feet": {
+        "defaultMessage": "viiekümne jala"
+    },
+    "from_100_feet": {
+        "defaultMessage": "saja jala"
+    },
+    "from_200_feet": {
+        "defaultMessage": "kahesaja jala"
+    },
+    "from_300_feet": {
+        "defaultMessage": "kolmesaja jala"
+    },
+    "from_400_feet": {
+        "defaultMessage": "neljasaja jala"
+    },
+    "from_500_feet": {
+        "defaultMessage": "viiesaja jala"
+    },
+    "from_600_feet": {
+        "defaultMessage": "kuuesaja jala"
+    },
+    "from_700_feet": {
+        "defaultMessage": "seitsmesaja jala"
+    },
+    "from_800_feet": {
+        "defaultMessage": "kaheksasaja jala"
+    },
+    "from_900_feet": {
+        "defaultMessage": "ühekdsasaja jala"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "tuhande jala"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "tuhande viiesaja jala"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "kahe tuhande jala"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "kahe tuhande viiesaja jala"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "kolme tuhande jala"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "kolme tuhande viiesaja jala"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "nelja tuhande jala"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "nelja tuhande viiesaja jala"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "viie tuhande jala"
+    },
+    "from_1_mile": {
+        "defaultMessage": "ühe miili"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "pooleteise miili"
+    },
+    "from_2_miles": {
+        "defaultMessage": "kahe miili"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "enam kui kahe miili"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Enam kui kolme kilomeetri pärast"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Enam kui kahe miili pärast"
     }
 }

@@ -1534,5 +1534,6 @@
 "type.organic.no" = "Valikus pole mahetooteid";
 "type.amenity.stage" = "Lava";
 "type.amenity.animal_boarding" = "Loomahotell";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.toilets.customers" = "Ligipääs klientidele";
+"type.amenity.toilets.private" = "Privaatne ligipääs";
+"type.amenity.planetarium" = "Planetaarium";

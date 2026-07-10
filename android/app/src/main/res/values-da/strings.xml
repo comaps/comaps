@@ -946,7 +946,6 @@
     <string name="sort_categories">Sortér favoritlister</string>
     <string name="by_recently_used">Efter senest anvendte</string>
     <string name="by_custom">Efter brugerdefineret rækkefølge</string>
-    <string name="prefs_group_general_summary">Enheder, sprog, lagring</string>
     <string name="prefs_group_map_appearance">Kortets udseende</string>
     <string name="prefs_group_map_appearance_summary">Kortsprog, størrelse på etiketter, 2D/3D-bygninger</string>
     <string name="prefs_group_route_summary">Stemmevejledninger, indstillinger for ruteberegning</string>

@@ -951,7 +951,7 @@
 "type.railway.funicular" = "Pozemní lanová dráha";
 "type.railway.funicular.bridge" = "Most pozemní lanové dráhy";
 "type.railway.funicular.tunnel" = "Tunel pozemní lanové dráhy";
-"type.railway.halt" = "Železniční stanice";
+"type.railway.halt" = "Železniční zastávka";
 "type.railway.level_crossing" = "Přejezd";
 "type.railway.light_rail" = "Lehká železnice";
 "type.railway.light_rail.bridge" = "Most lehké železnice";
@@ -1533,6 +1533,7 @@
 "type.leisure.sports_centre.sport.pickleball" = "Sportovní centrum";
 "type.organic.no" = "Žádné přírodní volby";
 "type.amenity.stage" = "Scéna";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.animal_boarding" = "Hotel pro zvířata";
+"type.amenity.toilets.customers" = "Pouze pro zákazníky";
+"type.amenity.toilets.private" = "Soukromé";
+"type.amenity.planetarium" = "Planetárium";

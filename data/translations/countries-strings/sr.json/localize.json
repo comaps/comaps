@@ -2628,7 +2628,7 @@
         "defaultMessage": "Кентаки — запад"
     },
     "US_Louisiana_Central": {
-        "defaultMessage": "Луизијана — запад"
+        "defaultMessage": "Луизијана — центар"
     },
     "US_Louisiana_New Orleans": {
         "defaultMessage": "Њу Орлеанс"
@@ -2640,7 +2640,7 @@
         "defaultMessage": "Балтимор"
     },
     "US_Maryland_and_DC": {
-        "defaultMessage": "Запад, Вашингтон (град)"
+        "defaultMessage": "Запад и Вашингтон (град)"
     },
     "US_Massachusetts_Boston": {
         "defaultMessage": "Бостон"
@@ -2823,7 +2823,7 @@
         "defaultMessage": "Вејко"
     },
     "US_Texas_West": {
-        "defaultMessage": "Одеса"
+        "defaultMessage": "Ел Пасо"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "Мала спољна острва САД"
@@ -2862,7 +2862,7 @@
         "defaultMessage": "Милвоки"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Северни Висконсин"
+        "defaultMessage": "Висконсин — Север"
     },
     "US_Wyoming": {
         "defaultMessage": "Вајоминг"
@@ -6900,10 +6900,10 @@
         "defaultMessage": "Кардиф, Свонзи, Њупорт"
     },
     "US_Alabama_Birmingham Description": {
-        "defaultMessage": "Вориор, Веставија Хилс, Скотсборо"
+        "defaultMessage": "Хантсвил, Декатур, Флоренс"
     },
     "US_Alabama_Montgomery Description": {
-        "defaultMessage": "Креола, Центревил, Вали"
+        "defaultMessage": "Мобајл, Таскалуса, Дотан"
     },
     "US_Alaska Description": {
         "defaultMessage": "Скамон Беј, МакГрат, Форт wејнрајт"

@@ -1536,3 +1536,4 @@
 "type.amenity.animal_boarding" = "Vkrcanje živali";
 "type.amenity.toilets.customers" = "Customer Access";
 "type.amenity.toilets.private" = "Private Access";
+"type.amenity.planetarium" = "Planetarium";

@@ -319,5 +319,137 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Στο τέλος του δρόμου,"
+    },
+    "route_not_recalculating": {
+        "defaultMessage": "Είστε %1$s από τη διαδρομή"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Σε περισσότερο από τρία χιλιόμετρα"
+    },
+    "from_50_meters": {
+        "defaultMessage": "πενήντα μέτρα"
+    },
+    "from_100_meters": {
+        "defaultMessage": "εκατό μέτρα"
+    },
+    "from_200_meters": {
+        "defaultMessage": "διακόσια μέτρα"
+    },
+    "from_250_meters": {
+        "defaultMessage": "διακόσια πενήντα μέτρα"
+    },
+    "from_300_meters": {
+        "defaultMessage": "τριακόσια μέτρα"
+    },
+    "from_400_meters": {
+        "defaultMessage": "τετρακόσια μέτρα"
+    },
+    "from_500_meters": {
+        "defaultMessage": "πεντακόσια μέτρα"
+    },
+    "from_600_meters": {
+        "defaultMessage": "εξακόσια μέτρα"
+    },
+    "from_700_meters": {
+        "defaultMessage": "εφτακόσια μέτρα"
+    },
+    "from_750_meters": {
+        "defaultMessage": "εφτακόσια πενήντα μέτρα"
+    },
+    "from_800_meters": {
+        "defaultMessage": "οχτακόσια μέτρα"
+    },
+    "from_900_meters": {
+        "defaultMessage": "εννιακόσια μέτρα"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "ένα χιλιόμετρο"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "ενάμιση χιλιόμετρο"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "δύο χιλιόμετρα"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "δυόμιση χιλιόμετρα"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "τρία χιλιόμετρα"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "πάνω από τρία χιλιόμετρα"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Σε περισσότερο από δύο μίλια"
+    },
+    "from_50_feet": {
+        "defaultMessage": "πενήντα πόδια"
+    },
+    "from_100_feet": {
+        "defaultMessage": "εκατό πόδια"
+    },
+    "from_200_feet": {
+        "defaultMessage": "διακόσια πόδια"
+    },
+    "from_300_feet": {
+        "defaultMessage": "τριακόσια πόδια"
+    },
+    "from_400_feet": {
+        "defaultMessage": "τετρακόσια πόδια"
+    },
+    "from_500_feet": {
+        "defaultMessage": "πεντακόσια πόδια"
+    },
+    "from_600_feet": {
+        "defaultMessage": "εξακόσια πόδια"
+    },
+    "from_700_feet": {
+        "defaultMessage": "εφτακόσια πόδια"
+    },
+    "from_800_feet": {
+        "defaultMessage": "οχτακόσια πόδια"
+    },
+    "from_900_feet": {
+        "defaultMessage": "εννιακόσια πόδια"
+    },
+    "from_1000_feet": {
+        "defaultMessage": "χίλια πόδια"
+    },
+    "from_1500_feet": {
+        "defaultMessage": "χίλια πεντακόσια πόδια"
+    },
+    "from_2000_feet": {
+        "defaultMessage": "δύο χιλιάδες πόδια"
+    },
+    "from_2500_feet": {
+        "defaultMessage": "δυόμιση χιλιάδες πόδια"
+    },
+    "from_3000_feet": {
+        "defaultMessage": "τρεις χιλιάδες πόδια"
+    },
+    "from_3500_feet": {
+        "defaultMessage": "τρεισήμισι χιλιάδες πόδια"
+    },
+    "from_4000_feet": {
+        "defaultMessage": "τέσσερις χιλιάδες πόδια"
+    },
+    "from_4500_feet": {
+        "defaultMessage": "τεσσερισήμισι χιλιάδες πόδια"
+    },
+    "from_5000_feet": {
+        "defaultMessage": "πέντε χιλιάδες πόδια"
+    },
+    "from_1_mile": {
+        "defaultMessage": "ένα μίλι"
+    },
+    "from_1_5_miles": {
+        "defaultMessage": "ενάμιση μίλι"
+    },
+    "from_2_miles": {
+        "defaultMessage": "δύο μίλια"
+    },
+    "from_over_2_miles": {
+        "defaultMessage": "πάνω από δύο μίλια"
     }
 }

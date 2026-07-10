@@ -331,7 +331,7 @@
 "dialog_routing_end_not_determined" = "Impossible de localiser la destination. L’itinéraire n’a pas pu être créé.";
 "dialog_routing_select_closer_end" = "Choisissez un lieu de destination à proximité d’une route.";
 "dialog_routing_change_intermediate" = "Impossible de localiser le point intermédiaire.";
-"dialog_routing_intermediate_not_determined" = "Veuillez modifier votre point intermédiaire";
+"dialog_routing_intermediate_not_determined" = "Veuillez ajuster votre point intermédiaire.";
 "dialog_routing_system_error" = "Erreur système";
 "dialog_routing_application_error" = "Impossible de créer l’itinéraire à cause d’une erreur dans l’application.";
 "dialog_routing_try_again" = "Veuillez réessayer";
@@ -493,11 +493,11 @@
 /* To indicate the operator of ATMs, bicycle rentals, electric vehicle charging stations... */
 "operator" = "Opérateur : %@";
 "editor_category_unsuitable_title" = "Vous ne trouvez pas de catégorie appropriée ?";
-"editor_category_unsuitable_text" = "CoMaps ne permet d’ajouter que des catégories de points simples, c’est-à-dire pas de villes, de routes, de lacs, de contours de bâtiments, etc. Merci d’ajouter ces catégories directement sur <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consultez notre <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> pour obtenir des instructions détaillées étape par étape.";
+"editor_category_unsuitable_text" = "CoMaps permet uniquement d'ajouter des catégories de points simples ; cela signifie qu'il n'est pas possible d'ajouter des villes, des routes, des lacs, les contours de bâtiments, etc. Veuillez ajouter ces catégories directement sur <a href=\"https://www.openstreetmap.org\">OpenStreetMap.org</a>. Consultez notre <a href=\"https://www.comaps.app/support/advanced-map-editing/\">guide</a> pour obtenir des instructions détaillées étape par étape.";
 "downloader_no_downloaded_maps_title" = "Vous n’avez téléchargé aucune carte";
-"downloader_no_downloaded_maps_message" = "Téléchargez des cartes pour rechercher un lieu et utiliser la navigation hors ligne";
+"downloader_no_downloaded_maps_message" = "Téléchargez des cartes pour effectuer des recherches et vous déplacer hors ligne.";
 "current_location_unknown_error_title" = "L’emplacement actuel est inconnu.";
-"current_location_unknown_error_message" = "Une erreur est survenue lors de la recherche de votre emplacement. Vérifiez que le périphérique fonctionne correctement et réessayez ultérieurement";
+"current_location_unknown_error_message" = "Une erreur s'est produite lors de la détermination de votre position. Vérifiez que votre appareil fonctionne correctement et réessayez plus tard.";
 "location_services_disabled_header" = "L’identification de la localisation est désactivée";
 "location_services_disabled_message" = "Permettre l’accès à la géolocalisation dans les paramètres de l’appareil";
 "location_services_disabled_1" = "1. Ouvrir les paramètres";
@@ -645,7 +645,7 @@
 /* Speed camera settings menu option - Never warn (about speedcams) */
 "pref_tts_speedcams_never" = "Ne jamais avertir";
 "power_managment_title" = "Mode économie d’énergie";
-"power_managment_description" = "Si le mode d’économie d’énergie est activé, l’application désactive les fonctions consommant de l’énergie en fonction de la charge actuelle du téléphone";
+"power_managment_description" = "Essayez de réduire la consommation d'énergie, même si cela implique de renoncer à certaines fonctionnalités.";
 "power_managment_setting_never" = "Jamais";
 "power_managment_setting_auto" = "Automatique";
 "power_managment_setting_manual_max" = "Économie d’énergie maximale";
@@ -867,7 +867,7 @@
 "contribute_to_osm" = "Contribuez à OpenStreetMap";
 "contribute_to_osm_add_place" = "Ajouter un lieu";
 "contribute_to_osm_update_map" = "Mettre à jour la carte pour contribuer";
-"contribute_to_osm_update_map_description" = "Vous devez mettre à jour la carte %@ vers la dernière version avant de pouvoir contribuer aux données OpenStreetMap.";
+"contribute_to_osm_update_map_description" = "Vous devez mettre à jour la carte %@ vers la dernière version avant de pouvoir contribuer aux données d'OpenStreetMap.";
 "downloader_check_updates_button" = "Vérifier les mises à jour";
 "downloader_check_updates_checking" = "Recherche de mises à jour...";
 "downloader_check_updates_updated" = "Mises à jour cartographiques disponibles !";
@@ -881,5 +881,5 @@
 "capacity_disabled_no" = "Ne possède pas de place de stationnement pour handicapé";
 "capacity_charging_yes" = "Possède des emplacements de stationnement avec chargeur";
 "capacity_charging_no" = "Ne possède pas d’emplacement de stationnement avec chargeur";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"planning_route_preview" = "Aperçu";
+"planning_route_preview_sheet_title" = "Aperçu de l'itinéraire";

@@ -963,13 +963,17 @@
     <string name="capacity_charging">Plaatsen met laders: %s</string>
     <string name="capacity_charging_yes">Heeft plaatsen met laders</string>
     <string name="capacity_charging_no">Geen plaatsen met laders</string>
-    <string name="prefs_group_route_summary">Spraakinstructies, routeringsopties</string>
-    <string name="prefs_group_privacy_summary">Google Play Services, zoekgeschiedenis</string>
-    <string name="prefs_group_power_summary">Kaartstijl, scherm-time-out</string>
+    <string name="prefs_group_route_summary">Eenheden, spraakinstructies, routeringsopties</string>
+    <string name="prefs_group_privacy_summary">Zoekgeschiedenis</string>
+    <string name="prefs_group_power_summary">Scherm-time-out, mobiele gegevens</string>
     <string name="permission_read_navigation_label">CoMaps navigatiegegevens lezen</string>
     <string name="permission_read_navigation_description">lees live navigatie-informatie zoals aankomende bochten of de naam van de weg waarop u zich bevindt</string>
     <string name="prefs_group_map_appearance">Kaartuiterlijk</string>
     <string name="prefs_group_map_appearance_summary">Kaart-taal, labelgrootte, 2D/3D-gebouwen</string>
     <string name="planning_route_preview">Voorbeeld</string>
     <string name="search_in_all_lists">Zoek in alle lijsten</string>
+    <string name="prefs_group_interface">Vormgeving</string>
+    <string name="prefs_group_data_management">Gegevensbeheer</string>
+    <string name="prefs_group_advanced_summary">Logboekregistratie inschakelen</string>
+    <string name="recalculate_route">Herberekenen</string>
 </resources>

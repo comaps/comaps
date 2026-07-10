@@ -698,7 +698,7 @@
     <!-- A tower or pylon carrying high voltage electricity cables. -->
     <string name="type.power.tower">Věž elektrického vedení</string>
     <string name="type.railway.funicular">Pozemní lanová dráha</string>
-    <string name="type.railway.halt">Železniční stanice</string>
+    <string name="type.railway.halt">Železniční zastávka</string>
     <string name="type.railway.level_crossing">Přejezd</string>
     <string name="type.railway.monorail">Jednokolejná železnice</string>
     <string name="type.railway.rail">Železnice</string>
@@ -1533,4 +1533,8 @@
     <string name="type.sport.pickleball">Pickleball</string>
     <string name="type.organic.no">Žádné přírodní volby</string>
     <string name="type.amenity.stage">Scéna</string>
+    <string name="type.amenity.planetarium">Planetárium</string>
+    <string name="type.amenity.toilets.customers">Pouze pro zákazníky</string>
+    <string name="type.amenity.toilets.private">Soukromé</string>
+    <string name="type.amenity.animal_boarding">Hotel pro zvířata</string>
 </resources>

@@ -169,7 +169,7 @@
 /* Settings «Map» category: «3D buildings» title */
 "pref_map_3d_buildings_title" = "3D budovy";
 /* A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled */
-"pref_map_3d_buildings_disabled_summary" = "3D budovy jsou vypnuty v úsporném režimu";
+"pref_map_3d_buildings_disabled_summary" = "3D budovy jsou v úsporném režimu vypnuty";
 /* Settings «Route» category: «Tts enabled» title */
 "pref_tts_title" = "Hlasové instrukce";
 /* Settings «Route» category: «Tts enable» title */
@@ -499,11 +499,11 @@
 "current_location_unknown_error_title" = "Současná poloha nezjištěna.";
 "current_location_unknown_error_message" = "Při zjišťování současné polohy došlo k chybě. Zkontrolujte, že nedošlo k chybě zařízení a pokus prosím opakujte později.";
 "location_services_disabled_header" = "Určení polohy je zakázáno";
-"location_services_disabled_message" = "Povolte přístup ke geolokaci v nastavení přístroje";
+"location_services_disabled_message" = "Povolte přístup ke geolokaci v nastavení zařízení";
 "location_services_disabled_1" = "1. Otevřete Nastavení";
 "location_services_disabled_2" = "2. Klepněte na položku Poloha";
 /* iOS Dialog for the case when the location permission is not granted; you might find the exact wording for your language here: https://support.apple.com/en-us/102647 (replace 'en-us' in URL with your language/region) */
-"location_services_disabled_3" = "3. Vyberte při používání aplikace";
+"location_services_disabled_3" = "3. Vyberte Při používání aplikace";
 "location_services_disabled_on_device_2" = "2. Vyberte možnost Soukromí";
 "location_services_disabled_on_device_3" = "3. Vyberte možnost Služby určování polohy";
 "location_services_disabled_on_device_4" = "4. Zapnutí služeb určování polohy";
@@ -877,9 +877,9 @@
 "editor_add_select_category_recent_subtitle" = "Naposledy použito";
 "oh_unknown" = "Neznámá otevírací doba";
 "carplay_highway_exit" = "Výjezd %@";
-"capacity_disabled_yes" = "Has dedicated disabled spaces";
-"capacity_disabled_no" = "No dedicated disabled spaces";
-"capacity_charging_yes" = "Has spaces with chargers";
-"capacity_charging_no" = "No spaces with chargers";
-"planning_route_preview" = "Preview";
-"planning_route_preview_sheet_title" = "Route Preview";
+"capacity_disabled_yes" = "Má vyhrazená místa pro invalidy";
+"capacity_disabled_no" = "Žádná vyhrazená místa pro invalidy";
+"capacity_charging_yes" = "Má místa s nabíječkami";
+"capacity_charging_no" = "Žádná místa s nabíječkami";
+"planning_route_preview" = "Náhled";
+"planning_route_preview_sheet_title" = "Náhled trasy";

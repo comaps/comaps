@@ -1167,10 +1167,10 @@
         "defaultMessage": "Cottbus"
     },
     "Germany_Free State of Bavaria": {
-        "defaultMessage": "Baieri"
+        "defaultMessage": "Baier"
     },
     "Germany_Free State of Bavaria_Lower Bavaria": {
-        "defaultMessage": "Alam-Baieri"
+        "defaultMessage": "Alam-Baier"
     },
     "Germany_Free State of Bavaria_Lower Franconia": {
         "defaultMessage": "Alam-Frangimaa"
@@ -1182,13 +1182,13 @@
         "defaultMessage": "Švaabimaa"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_East": {
-        "defaultMessage": "Ülem-Baieri - Ida"
+        "defaultMessage": "Ülem-Baieri idaosa"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_Ingolstadt": {
-        "defaultMessage": "Ülem-Baieri - Ingolstadt"
+        "defaultMessage": "Ülem-Baier - Ingolstadt"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_Munchen": {
-        "defaultMessage": "Ülem-Baieri - München"
+        "defaultMessage": "Ülem-Baier - München"
     },
     "Germany_Free State of Bavaria_Upper Franconia": {
         "defaultMessage": "Ülem-Frangoonia"
@@ -3384,7 +3384,7 @@
         "defaultMessage": "Waco"
     },
     "US_Texas_West": {
-        "defaultMessage": "Odessa"
+        "defaultMessage": "El Paso"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "USA väikesed kõrvalsaared"
@@ -3423,7 +3423,7 @@
         "defaultMessage": "Milwaukee"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Põhja-Wisconsin"
+        "defaultMessage": "Wisconsini põhjaosa"
     },
     "US_Wyoming": {
         "defaultMessage": "Wyoming"
@@ -3654,13 +3654,13 @@
         "defaultMessage": "Franche-Comté - Lõuna"
     },
     "France_Pays de la Loire_Loire-Atlantique_Nantes": {
-        "defaultMessage": "Loire-Atlantique — Nantes"
+        "defaultMessage": "Loire-Atlantique - Nantes"
     },
     "France_Pays de la Loire_Loire-Atlantique_Saint-Nazaire": {
-        "defaultMessage": "Loire-Atlantique — Saint-Nazaire"
+        "defaultMessage": "Loire-Atlantique - Saint-Nazaire"
     },
     "Germany_Free State of Bavaria_Upper Bavaria_South": {
-        "defaultMessage": "Ülem-Baieri - Lõuna"
+        "defaultMessage": "Ülem-Baieri lõunaosa"
     },
     "India_Karnataka_North": {
         "defaultMessage": "Karnataka - Põhi"
@@ -7113,100 +7113,100 @@
         "defaultMessage": "Missoula, Great Falls, Helena"
     },
     "US_Nebraska_East Description": {
-        "defaultMessage": "Omaha, Stanton, Pawnee City"
+        "defaultMessage": "Omaha, Lincoln, Columbus"
     },
     "US_Nebraska_West Description": {
-        "defaultMessage": "Bassett, Long Pine, Bloomfield"
+        "defaultMessage": "Grand Island, North Platte, Scottsbluff"
     },
     "US_Nevada Description": {
-        "defaultMessage": "Las Vegas, Winnemucca, Caliente"
+        "defaultMessage": "Las Vegas, Reno, Carson City"
     },
     "US_New Hampshire Description": {
-        "defaultMessage": "Somersworth, Laconia, Franklin"
+        "defaultMessage": "Manchester, Nashua, Concord"
     },
     "US_New Jersey_North Description": {
-        "defaultMessage": "Hackensack, Garfield, Lambertville"
+        "defaultMessage": "Newark, Paterson, Jersey City"
     },
     "US_New Jersey_South Description": {
-        "defaultMessage": "Absecon, Long Branch, Margate City"
+        "defaultMessage": "Trenton, Camden, Atlantic City"
     },
     "US_New Mexico_Albuquerque Description": {
-        "defaultMessage": "Albuquerque, Raton, Bloomfield"
+        "defaultMessage": "Santa Fe, Farmington, Gallup"
     },
     "US_New Mexico_Roswell Description": {
-        "defaultMessage": "Eunice, Socorro, Jal"
+        "defaultMessage": "Las Cruces, Carlsbad, Clovis"
     },
     "US_New York_East Description": {
-        "defaultMessage": "Brookhaven, New Rochelle, Mount Vernon"
+        "defaultMessage": "Long Island, Yonkers, White Plains"
     },
     "US_New York_New York Description": {
-        "defaultMessage": "New York, New York City, Inwood"
+        "defaultMessage": "Kõik viis New Yorki linnaosa"
     },
     "US_New York_North Description": {
-        "defaultMessage": "City of Cohoes, City of Schenectady, Beacon"
+        "defaultMessage": "Albany, Utica, Watertown"
     },
     "US_New York_West Description": {
-        "defaultMessage": "Oswego, Jamestown, North Tonawanda"
+        "defaultMessage": "Buffalo, Rochester, Syracuse"
     },
     "US_North Carolina_Asheville Description": {
-        "defaultMessage": "Morganton, Brevard, Marion"
+        "defaultMessage": "Morganton, Hendersonville, Waynesville"
     },
     "US_North Carolina_Charlotte Description": {
-        "defaultMessage": "Charlotte, Shelby, Statesville"
+        "defaultMessage": "Concord, Hickory, Monroe"
     },
     "US_North Carolina_Greensboro Description": {
-        "defaultMessage": "Thomasville, Hamlet, Albemarle"
+        "defaultMessage": "Winston-Salem, High Point, Salisbury"
     },
     "US_North Carolina_Raleigh Description": {
-        "defaultMessage": "Raleigh, Roxboro, Graham"
+        "defaultMessage": "Durham, Chapel Hill, Burlington"
     },
     "US_North Carolina_Wilmington Description": {
-        "defaultMessage": "Clinton, Boiling Spring Lakes, Laurinburg"
+        "defaultMessage": "Fayetteville, Jacksonville, Lumberton"
     },
     "US_North Carolina_Wilson Description": {
-        "defaultMessage": "New Bern, Havelock, Elizabeth City"
+        "defaultMessage": "Greenville, New Bern, Rocky Mount"
     },
     "US_North Dakota_Bismarck Description": {
-        "defaultMessage": "Zap, Reeder, Stanton"
+        "defaultMessage": "Dickinson, Mandan, Watford City"
     },
     "US_North Dakota_East Description": {
-        "defaultMessage": "Harwood, Cavalier, Lakota"
+        "defaultMessage": "Grand Forks, Jamestown, Devils Lake"
     },
     "US_North Dakota_Minot Description": {
-        "defaultMessage": "Makoti, Bowdon, Kramer"
+        "defaultMessage": "Williston, Rugby, New Town"
     },
     "US_Ohio_Cincinnati Description": {
-        "defaultMessage": "St. Bernard, Centerville, Madeira"
+        "defaultMessage": "Dayton, Springfield, Hamilton"
     },
     "US_Ohio_Cleveland Description": {
-        "defaultMessage": "Streetsboro, Willoughby Hills, Avon Lake"
+        "defaultMessage": "Akron, Canton, Youngstown"
     },
     "US_Ohio_Columbus Description": {
-        "defaultMessage": "Columbus, Pickerington, Reynoldsburg"
+        "defaultMessage": "Newark, Lancaster, Zanesville"
     },
     "US_Ohio_Toledo Description": {
-        "defaultMessage": "Bucyrus, Crestline, Maumee"
+        "defaultMessage": "Marion, Findlay, Sandusky"
     },
     "US_Oklahoma_East Description": {
-        "defaultMessage": "Ada, Coalgate, Konawa"
+        "defaultMessage": "Ada, McAlester, Durant"
     },
     "US_Oklahoma_Oklahoma Description": {
-        "defaultMessage": "Oklahoma City, Noble, Del City"
+        "defaultMessage": "Lawton, Ardmore, Elk City"
     },
     "US_Oklahoma_Tulsa Description": {
-        "defaultMessage": "Shidler, Prague, Beggs"
+        "defaultMessage": "Muskogee, Stillwater, Bartlesville"
     },
     "US_Oklahoma_West Description": {
-        "defaultMessage": "Cherokee, Thomas, Perry"
+        "defaultMessage": "Enid, Woodward, Guymon"
     },
     "US_Oregon_Eugene Description": {
-        "defaultMessage": "Albany, Medford, Coos Bay"
+        "defaultMessage": "Medford, Corvallis, Roseburg"
     },
     "US_Oregon_Portland Description": {
-        "defaultMessage": "Salem, Newport, Government Camp"
+        "defaultMessage": "Salem, Astoria, Newport"
     },
     "US_Oregon_West Description": {
-        "defaultMessage": "Bend, The Dalles, Klamath Falls"
+        "defaultMessage": "Bend, Klamath Falls, Pendleton"
     },
     "US_Pennsylvania_Central Description": {
         "defaultMessage": "State College, York, Johnstown"
@@ -7224,112 +7224,112 @@
         "defaultMessage": "San Juan, Mayaguez, Ponce"
     },
     "US_Rhode Island Description": {
-        "defaultMessage": "Narragansett, Providence, Warwick"
+        "defaultMessage": "Providence, Warwick, Newport"
     },
     "US_South Carolina_Charleston Description": {
-        "defaultMessage": "Barnwell, Goose Creek, Folly Beach"
+        "defaultMessage": "Summerville, Hilton Head Island, Orangeburg"
     },
     "US_South Carolina_Columbia Description": {
-        "defaultMessage": "Belton, Travelers Rest, Walhalla"
+        "defaultMessage": "Greenville, Spartanburg, Anderson"
     },
     "US_South Carolina_Florence Description": {
-        "defaultMessage": "Tega Cay, Bishopville, Johnsonville"
+        "defaultMessage": "Myrtle Beach, Rock Hill, Sumter"
     },
     "US_South Dakota Description": {
-        "defaultMessage": "Irene, Centerville, Baltic"
+        "defaultMessage": "Sioux Falls, Rapid City, Pierre"
     },
     "US_Tennessee_East Description": {
-        "defaultMessage": "Pigeon Forge, Celina, Friendsville"
+        "defaultMessage": "Knoxville, Chattanooga, Murfreesboro"
     },
     "US_Tennessee_West Description": {
-        "defaultMessage": "Memphis, Nashville, Medina"
+        "defaultMessage": "Memphis, Nashville, Jackson"
     },
     "US_Texas_Amarillo Description": {
-        "defaultMessage": "Pampa, Jolly, Howardwick"
+        "defaultMessage": "Wichita Falls, Pampa, Borger"
     },
     "US_Texas_Austin Description": {
-        "defaultMessage": "Austin, Hutto, Belton"
+        "defaultMessage": "Killeen, New Braunfels, Temple"
     },
     "US_Texas_Dallas Description": {
-        "defaultMessage": "Dallas, Fort Worth, Rowlett"
+        "defaultMessage": "Fort Worth, Weatherford, Sherman"
     },
     "US_Texas_Houston Description": {
-        "defaultMessage": "Houston, Seabrook, Plum Grove"
+        "defaultMessage": "Sugar Land, Galveston, Beaumont"
     },
     "US_Texas_Lubbock Description": {
-        "defaultMessage": "Sudan, Ralls, Goree"
+        "defaultMessage": "Plainview, Levelland, Snyder"
     },
     "US_Texas_San Antonio Description": {
-        "defaultMessage": "San Antonio, Rockport, Mathis"
+        "defaultMessage": "Corpus Christi, Brownsville, Kingsville"
     },
     "US_Texas_Southwest Description": {
-        "defaultMessage": "Leakey, Camp Wood, Carrizo Springs"
+        "defaultMessage": "Del Rio, Eagle Pass, Uvalde"
     },
     "US_Texas_Tyler Description": {
-        "defaultMessage": "Troup, Cottonwood, Fate"
+        "defaultMessage": "Longview, Texarkana, Rockwall"
     },
     "US_Texas_Victoria Description": {
-        "defaultMessage": "Niederwald, Lockhart, Palacios"
+        "defaultMessage": "Port Lavaca, Cuero, Gonzales"
     },
     "US_Texas_Wako Description": {
-        "defaultMessage": "Calvert, Golinda, Bruceville-Eddy"
+        "defaultMessage": "College Station, Conroe, Huntsville"
     },
     "US_Texas_West Description": {
-        "defaultMessage": "El Paso, Westbrook, Stanton"
+        "defaultMessage": "Odessa, Midland, Abilene"
     },
     "US_United States Minor Outlying Islands Description": {
         "defaultMessage": "Lulu Town, Millersville"
     },
     "US_Utah_North Description": {
-        "defaultMessage": "Holladay, South Ogden, Murray"
+        "defaultMessage": "Salt Lake City, Ogden, Provo"
     },
     "US_Utah_South Description": {
-        "defaultMessage": "Parowan, Hildale, Enoch"
+        "defaultMessage": "St. George, Cedar City, Moab"
     },
     "US_Vermont Description": {
-        "defaultMessage": "Saint Albans, Barre, South Burlington"
+        "defaultMessage": "Burlington, Montpelier, Rutland"
     },
     "US_Virginia_Alexandria Description": {
-        "defaultMessage": "Fairfax, Fredericksburg, Falls Church"
+        "defaultMessage": "Leesburg, Manassas, Fredericksburg"
     },
     "US_Virginia_Lynchburg Description": {
-        "defaultMessage": "Lynchburg City, Bedford, Staunton"
+        "defaultMessage": "Harrisonburg, Charlottesville, Danville"
     },
     "US_Virginia_Norfolk Description": {
-        "defaultMessage": "Virginia Beach, Poquoson City, Franklin City"
+        "defaultMessage": "Virginia Beach, Chesapeake, Newport News"
     },
     "US_Virginia_Richmond Description": {
-        "defaultMessage": "Emporia, Colonial Heights, Richmond"
+        "defaultMessage": "Petersburg, Hopewell, Colonial Heights"
     },
     "US_Virginia_Roanoke Description": {
-        "defaultMessage": "Galax, Norton, Radford City"
+        "defaultMessage": "Blacksburg, Christiansburg, Radford"
     },
     "US_Washington_Coast Description": {
-        "defaultMessage": "Raymond, Camas, Port Townsend"
+        "defaultMessage": "Vancouver, Bellingham, Olympia"
     },
     "US_Washington_Seattle Description": {
-        "defaultMessage": "Seattle, Edmonds, Sultan"
+        "defaultMessage": "Everett, Bellevue, Federal Way"
     },
     "US_Washington_Yakima Description": {
-        "defaultMessage": "Pullman, Grand Coulee, White Salmon"
+        "defaultMessage": "Spokane, Kennewick, Walla Walla"
     },
     "US_West Virginia Description": {
-        "defaultMessage": "Stonewood, Bluefield, Mullens"
+        "defaultMessage": "Charleston, Huntington, Morgantown"
     },
     "US_Wisconsin_Eau Claire Description": {
-        "defaultMessage": "Durand, Fountain City, River Falls"
+        "defaultMessage": "Wausau, Stevens Point, Marshfield"
     },
     "US_Wisconsin_Madison Description": {
-        "defaultMessage": "Edgerton, Mineral Point, Brodhead"
+        "defaultMessage": "Janesville, La Crosse, Beloit"
     },
     "US_Wisconsin_Milwaukee Description": {
-        "defaultMessage": "Milwaukee, Lake Mills, Brillion"
+        "defaultMessage": "Green Bay, Kenosha, Appleton"
     },
     "US_Wisconsin_North Description": {
-        "defaultMessage": "Montreal, Tomahawk, Marinette"
+        "defaultMessage": "Superior, Rhinelander, Marinette"
     },
     "US_Wyoming Description": {
-        "defaultMessage": "Worland, Rawlins, Kemmerer"
+        "defaultMessage": "Cheyenne, Casper, Gillette"
     },
     "Uganda Description": {
         "defaultMessage": "Kampala, Yumbe, Kanoni"

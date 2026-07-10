@@ -627,7 +627,7 @@
     <string name="avoid_motorways">Autobahnen meiden</string>
     <string name="unable_to_calc_alert_title">Route kann nicht berechnet werden</string>
     <string name="unable_to_calc_alert_subtitle">Es konnte keine Route gefunden werden. Dies kann an deinen Routingoptionen oder an unvollständigen OpenStreetMap-Daten liegen. Bitte ändere deine Routingoptionen und versuche es erneut.</string>
-    <string name="define_to_avoid_btn">Routenoptionen einstellen</string>
+    <string name="define_to_avoid_btn">Routenoptionen auswählen</string>
     <string name="change_driving_options_btn">Routenoptionen aktiv</string>
     <string name="toll_road">Mautstraße</string>
     <string name="unpaved_road">Unbefestigte Straße</string>
@@ -958,4 +958,28 @@
     <string name="by_recently_used">Zuletzt verwendet</string>
     <string name="by_custom">benutzerdefiniert</string>
     <string name="capacity_disabled">Behindertenparkplätze: %s</string>
+    <string name="pref_about_summary">Melde Probleme, bekomme Hilfe, spende\nVersion: v%1$s</string>
+    <string name="prefs_group_map_appearance">Kartendarstellung</string>
+    <string name="prefs_group_map_appearance_summary">Kartensprache, Schriftgröße, 2D/3D-Gebäude</string>
+    <string name="prefs_group_interface_summary">Nachtmodus, Menüfelder, Sprache</string>
+    <string name="prefs_group_data_management">Speicherverwaltung</string>
+    <string name="prefs_group_data_management_summary">Kartenspeicher, Favoriten sichern</string>
+    <string name="prefs_group_route_summary">Einheiten, Sprachführung, Routenoptionen</string>
+    <string name="prefs_group_advanced_summary">Protokollierung aktivieren</string>
+    <string name="planning_route_preview">Vorschau</string>
+    <string name="prefs_group_power_summary">Bildschirmauszeit, mobile Daten</string>
+    <string name="search_in_all_lists">Suche in allen Listen</string>
+    <string name="pref_enable_auto_reroute_title">Automatische Routenneuberechnung</string>
+    <string name="pref_enable_auto_reroute_description">Wenn aktiviert, wird eine neue Route automatisch erstellt sofern du die geplante Route verlässt.</string>
+    <string name="recalculate_route">Neuberechnung</string>
+    <string name="off_route">Du hast die Route verlassen</string>
+    <string name="capacity_disabled_yes">Verfügt über ausgewiesene Behindertenparkplätze</string>
+    <string name="capacity_disabled_no">Keine ausgewiesenen Behindertenparkplätze</string>
+    <string name="capacity_charging">Ladestellplätze: %s</string>
+    <string name="capacity_charging_yes">Verfügt über Ladestellplätze</string>
+    <string name="capacity_charging_no">Keine Ladestellplätze</string>
+    <string name="permission_read_navigation_label">CoMaps-Navigationsdaten lesen</string>
+    <string name="permission_read_navigation_description">Abrufen von Live-Navigationsinformationen wie anstehende Abbiegungen oder den Namen der Straße auf der du dich gerade befindest</string>
+    <string name="prefs_group_interface">Benutzeroberfläche</string>
+    <string name="prefs_group_privacy_summary">Suchverlauf</string>
 </resources>

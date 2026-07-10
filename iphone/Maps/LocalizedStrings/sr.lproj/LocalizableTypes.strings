@@ -1533,6 +1533,7 @@
 "type.leisure.sports_centre.sport.pickleball" = "Спортски центар";
 "type.organic.no" = "Нема органску храну";
 "type.amenity.stage" = "Бина";
-"type.amenity.animal_boarding" = "Animal Boarding";
-"type.amenity.toilets.customers" = "Customer Access";
-"type.amenity.toilets.private" = "Private Access";
+"type.amenity.animal_boarding" = "Хотел за љубимце";
+"type.amenity.toilets.customers" = "Само за муштерије";
+"type.amenity.toilets.private" = "Приватни";
+"type.amenity.planetarium" = "Планетаријум";
