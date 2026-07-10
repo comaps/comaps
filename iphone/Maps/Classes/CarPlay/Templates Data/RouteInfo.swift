@@ -245,6 +245,10 @@ final class NavigationInstructionFormatter: NSObject {
         let yOffset = lineFont.capHeight / 2.0 - image.size.height / 2.0
         attachment.bounds = CGRect(x: 0, y: yOffset, width: image.size.width, height: image.size.height)
         result.append(NSAttributedString(attachment: attachment))
+        // additionalText (e.g. a US highway's "East") is drawn next to the shield, not inside it.
+        if let additional = shield.additionalText, !additional.isEmpty {
+          appendText(" " + additional)
+        }
       }
     }
 

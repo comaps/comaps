@@ -51,16 +51,19 @@ enum RoadShieldType: Int {
   }
 }
 
-/// A single road shield resolved from the native `ftypes::RoadShield`. `text` is the full display
-/// reference (see `GetRoadShieldDisplayText`), so the network prefix is already included.
+/// A single road shield resolved from the native `ftypes::RoadShield`.
 @objc(MWMRoadShield)
 final class RoadShield: NSObject {
   @objc let type: RoadShieldType
+  /// Text drawn inside the shield box (already includes any network prefix, e.g. "BR-116").
   @objc let text: String
+  /// Text drawn next to the shield, e.g. a US highway's direction "East". May be nil.
+  @objc let additionalText: String?
 
-  @objc init(type: RoadShieldType, text: String) {
+  @objc init(type: RoadShieldType, text: String, additionalText: String?) {
     self.type = type
     self.text = text
+    self.additionalText = additionalText
   }
 }
 
