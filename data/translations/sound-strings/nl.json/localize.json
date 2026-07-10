@@ -319,5 +319,83 @@
     },
     "at_the_end_of_the_road": {
         "defaultMessage": "Bij het verlaten van de routine,"
+    },
+    "in_over_3_kilometers": {
+        "defaultMessage": "Over meer dan drie kilometer"
+    },
+    "from_50_meters": {
+        "defaultMessage": "vijftig meter"
+    },
+    "from_100_meters": {
+        "defaultMessage": "honderd meter"
+    },
+    "from_200_meters": {
+        "defaultMessage": "tweehonderd meter"
+    },
+    "from_250_meters": {
+        "defaultMessage": "tweehonderdvijftig meter"
+    },
+    "from_300_meters": {
+        "defaultMessage": "driehonderd meter"
+    },
+    "from_400_meters": {
+        "defaultMessage": "vierhonderd meter"
+    },
+    "from_500_meters": {
+        "defaultMessage": "vijfhonderd meter"
+    },
+    "from_600_meters": {
+        "defaultMessage": "zeshonderd meter"
+    },
+    "from_700_meters": {
+        "defaultMessage": "zevenhonderd meter"
+    },
+    "from_750_meters": {
+        "defaultMessage": "zevenhonderdvijftig meter"
+    },
+    "from_800_meters": {
+        "defaultMessage": "achthonderd meter"
+    },
+    "from_900_meters": {
+        "defaultMessage": "negenhonderd meter"
+    },
+    "from_1_kilometer": {
+        "defaultMessage": "één kilometer"
+    },
+    "from_1_5_kilometers": {
+        "defaultMessage": "anderhalve kilometer"
+    },
+    "from_2_kilometers": {
+        "defaultMessage": "twee kilometer"
+    },
+    "from_2_5_kilometers": {
+        "defaultMessage": "tweeëneenhalf kilometer"
+    },
+    "from_3_kilometers": {
+        "defaultMessage": "drie kilometer"
+    },
+    "from_over_3_kilometers": {
+        "defaultMessage": "meer dan drie kilometer"
+    },
+    "in_over_2_miles": {
+        "defaultMessage": "Over meer dan twee mijl"
+    },
+    "from_50_feet": {
+        "defaultMessage": "vijftig voet"
+    },
+    "from_100_feet": {
+        "defaultMessage": "honderd voet"
+    },
+    "from_200_feet": {
+        "defaultMessage": "tweehonderd voet"
+    },
+    "from_300_feet": {
+        "defaultMessage": "driehonderd voet"
+    },
+    "from_400_feet": {
+        "defaultMessage": "vierhonderd voet"
+    },
+    "from_500_feet": {
+        "defaultMessage": "vijfhonderd voet"
     }
 }
