@@ -51,6 +51,11 @@ final class CarPlayService: NSObject {
     hasAppliedDefaultCarZoom = false
     hasEngagedInitialCarFollow = false
     isInitialCarHeadingModeDisabled = false
+    isCarMapViewportReady = false
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
+    needsBaseMapNorthUp = false
+    needsRecenterOnViewportReady = false
   }
   private weak var dashboardWindow: UIWindow?
   private var isDashboardActive = false
@@ -73,16 +78,17 @@ final class CarPlayService: NSObject {
   private var searchText = ""
 
   private enum PendingDashboardAction {
-    case navigateBookmark(MWMMarkID)
+    case navigateBookmark(MWMCarPlayBookmarkObject)
     case destinationPicker
   }
   private var pendingDashboardAction: PendingDashboardAction?
-  private var isStartingDashboardNavigation = false
+  private var pendingDashboardNavigationTrip: CPTrip?
 
   @objc func setup(window: CPWindow, interfaceController: CPInterfaceController) {
     LOG(.info, "Settting up service...")
     pendingTeardown?.cancel()
     pendingTeardown = nil
+    endTeardownBackgroundTask()
     let isRebind = isCarplayActivated && router != nil
     isCarplayActivated = true
     self.window = window
@@ -116,7 +122,7 @@ final class CarPlayService: NSObject {
       LOG(.info, "[CarPlayHost] setup() firing deferred dashboard action")
       pendingDashboardAction = nil
       switch action {
-      case .navigateBookmark(let bookmarkId): navigateToBookmarkFromDashboard(bookmarkId: bookmarkId)
+      case .navigateBookmark(let bookmark): navigateToBookmarkFromDashboard(bookmark: bookmark)
       case .destinationPicker: showDestinationPickerFromDashboard()
       }
     }
@@ -177,12 +183,37 @@ final class CarPlayService: NSObject {
     sessionConfiguration = nil
     interfaceController = nil
     pendingDashboardAction = nil
+    pendingDashboardNavigationTrip = nil
     ThemeManager.invalidate()
     updateMapHost()
   }
 
   private var pendingTeardown: DispatchWorkItem?
+  private var teardownBackgroundTask: UIBackgroundTaskIdentifier = .invalid
   private static let kTeardownGracePeriod: TimeInterval = 2.0
+
+  private func beginTeardownBackgroundTask() {
+    endTeardownBackgroundTask()
+    teardownBackgroundTask = UIApplication.shared.beginBackgroundTask(withName: "CarPlay scene teardown") { [weak self] in
+      guard let self else { return }
+      if self.interfaceController == nil {
+        LOG(.warning, "[CarPlayHost] teardown background task expired; tearing down immediately")
+        self.pendingTeardown?.cancel()
+        self.pendingTeardown = nil
+        self.destroy()
+        self.window = nil
+      } else {
+        self.endTeardownBackgroundTask()
+      }
+    }
+  }
+
+  private func endTeardownBackgroundTask() {
+    guard teardownBackgroundTask != .invalid else { return }
+    let task = teardownBackgroundTask
+    teardownBackgroundTask = .invalid
+    UIApplication.shared.endBackgroundTask(task)
+  }
 
   func appSceneDidDisconnect() {
     logStateSnapshot("appSceneDidDisconnect")
@@ -192,10 +223,14 @@ final class CarPlayService: NSObject {
     if isDashboardActive {
       updateMapHost()
     }
+    beginTeardownBackgroundTask()
     let teardown = DispatchWorkItem { [weak self] in
       guard let self else { return }
       self.pendingTeardown = nil
-      guard self.interfaceController == nil else { return }
+      guard self.interfaceController == nil else {
+        self.endTeardownBackgroundTask()
+        return
+      }
       LOG(.info, "[CarPlayHost] app scene stayed disconnected; tearing down the CarPlay service")
       self.destroy()
       self.window = nil
@@ -209,6 +244,8 @@ final class CarPlayService: NSObject {
     logStateSnapshot("destroy()")
     pendingTeardown?.cancel()
     pendingTeardown = nil
+    endTeardownBackgroundTask()
+    pendingDashboardNavigationTrip = nil
     if isCarplayActivated {
       switchScreenToPhone()
     }
@@ -339,6 +376,9 @@ final class CarPlayService: NSObject {
       return
     }
     guard desired != mapHost else { return }
+    isCarMapViewportReady = false
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
 
     MapsAppDelegate.theApp().ensureMapNavigationController()
     guard let mapVC = MapViewController.shared() else {
@@ -482,12 +522,18 @@ final class CarPlayService: NSObject {
 
   /// Set default zoom to 15 on car screens
   private static let kDefaultCarZoomLevel: Int32 = 15
+  private var isCarMapViewportReady = false
+  private var isWaitingForCarMapViewport = false
+  private var carMapViewportReadinessAttempts = 0
+  private var needsBaseMapNorthUp = false
+  private var needsRecenterOnViewportReady = false
 
-  private func applyDefaultCarZoomIfNeeded(requiresFollowMode: Bool = true) {
+  private func applyDefaultCarZoomIfNeeded() {
     guard !hasAppliedDefaultCarZoom,
+          isCarMapViewportReady,
           mapHost == .carplay || mapHost == .dashboard,
           !MWMRouter.isRoutingActive(),
-          !requiresFollowMode || currentPositionMode == .follow || currentPositionMode == .followAndRotate
+          currentPositionMode == .follow || currentPositionMode == .followAndRotate
     else { return }
     hasAppliedDefaultCarZoom = true
     FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
@@ -496,8 +542,15 @@ final class CarPlayService: NSObject {
   private func engageInitialCarFollowIfNeeded(_ mode: MWMMyPositionMode, allowAfterInitial: Bool = false) {
     guard (!hasEngagedInitialCarFollow || allowAfterInitial),
           mapHost == .carplay || mapHost == .dashboard,
-          !MWMRouter.isRoutingActive()
+          !MWMRouter.isRoutingActive(),
+          rootMapTemplate?.isPanningInterfaceVisible != true
     else { return }
+    guard isCarMapViewportReady else {
+      if allowAfterInitial {
+        needsRecenterOnViewportReady = true
+      }
+      return
+    }
     switch mode {
     case .notFollow:
       FrameworkHelper.switchMyPositionMode()
@@ -513,6 +566,43 @@ final class CarPlayService: NSObject {
         FrameworkHelper.switchMyPositionMode()
       }
     }
+  }
+
+  func mapViewportDidBecomeReady(_ mapView: EAGLView) {
+    guard !MapsAppDelegate.isTestsEnvironment() else { return }
+    guard isHostingMapOnCarScreen,
+          mapView === MapViewController.shared()?.mapView,
+          mapView.window != nil else {
+      isWaitingForCarMapViewport = false
+      return
+    }
+    guard mapView.graphicContextInitialized else {
+      guard !isWaitingForCarMapViewport else { return }
+      guard carMapViewportReadinessAttempts < 100 else {
+        LOG(.warning, "[CarPlayHost] graphics context did not initialize in time; deferring map defaults until the next layout")
+        return
+      }
+      carMapViewportReadinessAttempts += 1
+      isWaitingForCarMapViewport = true
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.05) { [weak self, weak mapView] in
+        guard let self, let mapView else { return }
+        self.isWaitingForCarMapViewport = false
+        self.mapViewportDidBecomeReady(mapView)
+      }
+      return
+    }
+
+    isWaitingForCarMapViewport = false
+    carMapViewportReadinessAttempts = 0
+    isCarMapViewportReady = true
+    if needsBaseMapNorthUp {
+      needsBaseMapNorthUp = false
+      FrameworkHelper.rotateMap(0.0, animated: false)
+    }
+    applyDefaultCarZoomIfNeeded()
+    let allowAfterInitial = needsRecenterOnViewportReady
+    needsRecenterOnViewportReady = false
+    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: allowAfterInitial)
   }
 
   func switchMyPositionModeFromCarPlayControl() {
@@ -561,11 +651,15 @@ final class CarPlayService: NSObject {
     mapTemplate.mapDelegate = self
     mapTemplate.tripEstimateStyle = rootTemplateStyle
     setRootTemplate(mapTemplate)
-    FrameworkHelper.rotateMap(0.0, animated: false)
+    needsBaseMapNorthUp = true
+    if let mapView = MapViewController.shared()?.mapView {
+      mapViewportDidBecomeReady(mapView)
+    }
   }
 
   private func applyNavigationRootTemplate(trip: CPTrip, routeInfo: RouteInfo) {
     let mapTemplate = MapTemplateBuilder.buildNavigationTemplate()
+    needsBaseMapNorthUp = false
     mapTemplate.mapDelegate = self
     setRootTemplate(mapTemplate)
     router?.startNavigationSession(forTrip: trip, template: mapTemplate)
@@ -580,16 +674,15 @@ final class CarPlayService: NSObject {
     }
   }
 
-  func navigateToBookmarkFromDashboard(bookmarkId: MWMMarkID) {
-    LOG(.info, "[CarPlayHost] navigateToBookmarkFromDashboard id=\(bookmarkId) router=\(router != nil) interfaceController=\(interfaceController != nil)")
+  func navigateToBookmarkFromDashboard(bookmark: MWMCarPlayBookmarkObject) {
+    LOG(.info, "[CarPlayHost] navigateToBookmarkFromDashboard id=\(bookmark.bookmarkId) router=\(router != nil) interfaceController=\(interfaceController != nil)")
     guard let router = router, interfaceController != nil else {
       if !isPhoneModeRequested {
         LOG(.info, "[CarPlayHost] App scene not ready; deferring bookmark navigation to setup()")
-        pendingDashboardAction = .navigateBookmark(bookmarkId)
+        pendingDashboardAction = .navigateBookmark(bookmark)
       }
       return
     }
-    let bookmark = MWMCarPlayBookmarkObject(bookmarkId: bookmarkId)
     guard let startPoint = MWMRoutePoint(lastLocationAndType: .start, intermediateIndex: 0),
           let endPoint = MWMRoutePoint(cgPoint: bookmark.mercatorPoint,
                                        title: bookmark.prefferedName,
@@ -603,7 +696,7 @@ final class CarPlayService: NSObject {
       cancelCurrentTrip()
     }
     let trip = router.createTrip(startPoint: startPoint, endPoint: endPoint)
-    isStartingDashboardNavigation = true
+    pendingDashboardNavigationTrip = trip
     LOG(.info, "[CarPlayHost] Building route to bookmark '\(bookmark.prefferedName)'")
     router.buildRoute(trip: trip)
   }
@@ -645,6 +738,7 @@ final class CarPlayService: NSObject {
 
   func cancelCurrentTrip() {
     LOG(.info, "Cancel current trip")
+    pendingDashboardNavigationTrip = nil
     router?.cancelTrip()
     if let carplayVC = carplayVC {
       carplayVC.hideSpeedControl()
@@ -1054,9 +1148,9 @@ extension CarPlayService: CPSearchTemplateDelegate {
 // MARK: - CarPlayRouterListener implementation
 extension CarPlayService: CarPlayRouterListener {
   func didCreateRoute(routeInfo: RouteInfo, trip: CPTrip) {
-    if isStartingDashboardNavigation {
+    if pendingDashboardNavigationTrip === trip {
       LOG(.info, "[CarPlayHost] Route built for dashboard shortcut; starting navigation")
-      isStartingDashboardNavigation = false
+      pendingDashboardNavigationTrip = nil
       startNavigation(trip: trip, routeInfo: routeInfo)
       return
     }
@@ -1086,9 +1180,9 @@ extension CarPlayService: CarPlayRouterListener {
   }
 
   func didFailureBuildRoute(forTrip trip: CPTrip, code: RouterResultCode, countries: [String]) {
-    if isStartingDashboardNavigation {
+    if pendingDashboardNavigationTrip === trip {
       LOG(.warning, "[CarPlayHost] Route build failed for dashboard shortcut: code=\(code.rawValue)")
-      isStartingDashboardNavigation = false
+      pendingDashboardNavigationTrip = nil
       showErrorAlert(code: code, countries: countries)
       return
     }
@@ -1098,6 +1192,7 @@ extension CarPlayService: CarPlayRouterListener {
   }
 
   func routeDidFinish(_ trip: CPTrip) {
+    pendingDashboardNavigationTrip = nil
     if router?.currentTrip == nil { return }
     router?.finishTrip()
     if let carplayVC = carplayVC {

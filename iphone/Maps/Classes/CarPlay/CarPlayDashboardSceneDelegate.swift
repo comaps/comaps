@@ -15,11 +15,12 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
     CarPlayService.shared.dashboardConnected(window: window)
     self.dashboardController = dashboardController
     refreshDashboardButtons()
-    // Ensure bookmarks are loaded
     let manager = BookmarksManager.shared()
-    if !manager.areBookmarksLoaded() {
+    if !isObservingBookmarks {
       isObservingBookmarks = true
       manager.add(self)
+    }
+    if !manager.areBookmarksLoaded() {
       manager.loadBookmarks()
     }
   }
@@ -69,7 +70,7 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
         subtitleVariants: bookmark.address.isEmpty ? [] : [bookmark.address],
         image: UIImage(systemName: "star.fill") ?? UIImage(),
         handler: { _ in
-          CarPlayService.shared.navigateToBookmarkFromDashboard(bookmarkId: bookmark.bookmarkId)
+          CarPlayService.shared.navigateToBookmarkFromDashboard(bookmark: bookmark)
         }
       )
     }
@@ -91,8 +92,14 @@ final class CarPlayDashboardSceneDelegate: UIResponder, CPTemplateApplicationDas
 extension CarPlayDashboardSceneDelegate: BookmarksObserver {
   func onBookmarksLoadFinished() {
     refreshDashboardButtons()
-    BookmarksManager.shared().remove(self)
-    isObservingBookmarks = false
+  }
+
+  func onBookmarkDeleted(_: MWMMarkID) {
+    refreshDashboardButtons()
+  }
+
+  func onBookmarksCategoryDeleted(_: MWMMarkGroupID) {
+    refreshDashboardButtons()
   }
 }
 
@@ -122,16 +129,8 @@ final class CarPlayDashboardMapViewController: UIViewController {
     if !mapView.drapeEngineCreated && !MapsAppDelegate.isTestsEnvironment() {
       mapView.createDrapeEngine()
     }
-    let viewport = view.bounds
-    guard viewport.origin.x.isFinite,
-          viewport.origin.y.isFinite,
-          viewport.size.width.isFinite,
-          viewport.size.height.isFinite,
-          viewport.size.width > 0,
-          viewport.size.height > 0,
-          mapView.contentScaleFactor.isFinite,
-          mapView.contentScaleFactor > 0 else { return }
     FrameworkHelper.setVisibleViewport(view.bounds, scaleFactor: mapView.contentScaleFactor)
+    CarPlayService.shared.mapViewportDidBecomeReady(mapView)
   }
 
   func addMapView(_ mapView: EAGLView) {

@@ -103,7 +103,7 @@ final class MapTemplateBuilder {
     }
     let myPositionModeButton = buildMyPositionModeButton()
     mapTemplate.mapButtons = [myPositionModeButton, panningButton]
-    setupMuteAndRedirectButtons(template: mapTemplate)
+    setupAudioAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
       CarPlayService.shared.cancelCurrentTrip()
     }
@@ -135,10 +135,6 @@ final class MapTemplateBuilder {
 
   class func updateNavigationAudioButtons(mapTemplate: CPMapTemplate) {
     setupAudioAndRedirectButtons(template: mapTemplate)
-  }
-  
-  private class func setupMuteAndRedirectButtons(template: CPMapTemplate) {
-    setupAudioAndRedirectButtons(template: template)
   }
 
   private class func setupAudioAndRedirectButtons(template: CPMapTemplate) {

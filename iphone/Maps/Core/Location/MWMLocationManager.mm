@@ -163,6 +163,9 @@ void setShowLocationAlert(BOOL needShow) {
 @property(nonatomic) Observers * observers;
 @property(nonatomic) location::TLocationSource locationSource;
 
++ (void)applyBackgroundLocationUpdatesPolicy;
+- (void)startUpdatingLocationFor:(CLLocationManager *)manager;
+
 @end
 
 @implementation MWMLocationManager
@@ -195,8 +198,15 @@ void setShowLocationAlert(BOOL needShow) {
 
 - (void)protectedDataDidBecomeAvailable
 {
-  if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive)
-    [MWMLocationManager applicationDidBecomeActive];
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateActive && !keepRunningInBackground())
+    return;
+
+  MWMLocationManager * manager = [MWMLocationManager manager];
+  if (manager.started)
+    [manager startUpdatingLocationFor:manager.locationManager];
+  else
+    manager.started = YES;
+  [MWMLocationManager applyBackgroundLocationUpdatesPolicy];
 }
 
 - (void)dealloc
@@ -259,20 +269,19 @@ void setShowLocationAlert(BOOL needShow) {
   return keepRunningInBackground();
 }
 
-+ (void)reapplyBackgroundLocationPolicy
-{
-  [self refreshBackgroundLocationPolicy];
-}
-
 + (void)refreshBackgroundLocationPolicy
 {
-  if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
-  {
-    [self applyBackgroundLocationUpdatesPolicy];
-    return;
-  }
   [self applyBackgroundLocationUpdatesPolicy];
-  [self manager].started = keepRunningInBackground();
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
+    return;
+
+  MWMLocationManager * manager = [self manager];
+  BOOL const shouldRun = keepRunningInBackground();
+  // Starting Core Location before the first unlock can yield a transient kCLErrorDenied.
+  // Keep an already-running session alive, but defer a new session until protected data is available.
+  if (shouldRun && !UIApplication.sharedApplication.isProtectedDataAvailable && !manager.started)
+    return;
+  manager.started = shouldRun;
 }
 
 #pragma mark - Getters
