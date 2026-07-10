@@ -1,6 +1,6 @@
 #include "generator/borders.hpp"
 
-#include "generator/borders.hpp"
+#include "generator/tesselator.hpp"
 
 #include "platform/platform.hpp"
 
@@ -9,6 +9,8 @@
 #include "indexer/scales.hpp"
 
 #include "coding/files_container.hpp"
+#include "coding/geometry_coding.hpp"
+#include "coding/point_coding.hpp"
 #include "coding/read_write_utils.hpp"
 #include "coding/varint.hpp"
 
@@ -61,35 +63,55 @@ public:
 
   void operator()(std::string name, PolygonsList && borders)
   {
-    // use index in vector as tag
-    auto w = m_writer.GetWriter(strings::to_string(m_polys.size()));
-    serial::GeometryCodingParams cp;
+    LOG(LINFO, ("[BORDERS_GENERATOR] Processing country:", name, "with", borders.size(), "borders"));
 
     // calc rect
     m2::RectD rect;
     for (m2::RegionD const & border : borders)
       rect.Add(border.GetRect());
 
-    // store polygon info
+    // save polygon info
     m_polys.push_back(storage::CountryDef(name, rect));
+    size_t const countryIndex = m_polys.size() - 1;
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Assigned country index:", countryIndex, "to country:", name));
 
-    // write polygons as paths
+    // use index in vector as tag
+    auto w = m_writer.GetWriter(strings::to_string(countryIndex));
+    serial::GeometryCodingParams cp;
+
+    // Write original polygons + store simplified polygons for later triangle generation
+    std::vector<std::vector<m2::PointD>> simplifiedPolygons;
     WriteVarUint(w, borders.size());
     for (m2::RegionD const & border : borders)
     {
       std::vector<m2::PointD> const & in = border.Data();
       std::vector<m2::PointD> out;
 
-      /// @todo Choose scale level for simplification.
+      /// @todo Figure out best scale level
       SimplifyDefault(in.begin(), in.end(), math::Pow2(scales::GetEpsilonForSimplify(10)), out);
-
       serial::SaveOuterPath(out, cp, *w);
+
+      // Save simplified for triangles
+      std::vector<m2::PointD> const & inTriangles = border.Data();
+      std::vector<m2::PointD> outTriangles;
+      /// @todo Figure out best scale level (for downloaded country overlay)
+      SimplifyDefault(inTriangles.begin(), inTriangles.end(), math::Pow2(scales::GetEpsilonForSimplify(8)),
+                      outTriangles);
+      simplifiedPolygons.push_back(outTriangles);
     }
+
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Stored triangle data for country index:", countryIndex, "with",
+                 simplifiedPolygons.size(), "polygons"));
+    m_triangleData.emplace_back(TriangleGenerationData{countryIndex, simplifiedPolygons, cp});
   }
 
   void WritePolygonsInfo()
   {
+    for (auto const & data : m_triangleData)
+      GenerateAndSaveTriangles(data.m_simplifiedPolygons, data.m_cp, data.m_countryIndex);
+
     auto w = m_writer.GetWriter(PACKED_POLYGONS_INFO_TAG);
+    CHECK(w, ("[BORDERS_GENERATOR] Failed to create writer for info tag"));
     rw::Write(*w, m_polys);
   }
 
@@ -97,6 +119,76 @@ private:
   FilesContainerW m_writer;
 
   std::vector<storage::CountryDef> m_polys;
+
+  struct TriangleGenerationData
+  {
+    size_t m_countryIndex;
+    std::vector<std::vector<m2::PointD>> m_simplifiedPolygons;
+    serial::GeometryCodingParams m_cp;
+  };
+
+  std::vector<TriangleGenerationData> m_triangleData;
+
+  void GenerateAndSaveTriangles(std::vector<std::vector<m2::PointD>> const & simplifiedPolygons,
+                                serial::GeometryCodingParams const & cp, size_t countryIndex)
+  {
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] GenerateAndSaveTriangles called for country index:", countryIndex));
+
+    CHECK(!simplifiedPolygons.empty(), ("[BORDERS_GENERATOR] No simplified polygons for country index", countryIndex));
+
+    tesselator::PolygonsT polygons;
+    for (auto const & polygon : simplifiedPolygons)
+    {
+      LOG(LDEBUG, ("[BORDERS_GENERATOR] Simplified polygon size:", polygon.size()));
+      if (!polygon.empty())
+      {
+        polygons.push_back(polygon);
+        LOG(LDEBUG, ("[BORDERS_GENERATOR] Polygon for country index", countryIndex, "points:", polygon.size()));
+      }
+      else
+      {
+        LOG(LWARNING, ("[BORDERS_GENERATOR] Empty simplified polygon for country index", countryIndex));
+      }
+    }
+
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Number of polygons for country index", countryIndex, ":", polygons.size()));
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Total simplified polygons:", simplifiedPolygons.size()));
+
+    CHECK(!polygons.empty(),
+          ("[BORDERS_GENERATOR] No suitable polygons for triangle generation in country index", countryIndex));
+
+    tesselator::TrianglesInfo trianglesInfo;
+    int const trianglesCount = tesselator::TesselateInterior(polygons, trianglesInfo);
+
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Triangles generated for country index", countryIndex, ":", trianglesCount));
+
+    CHECK(trianglesCount != 0, ("[BORDERS_GENERATOR] No triangles generated for country index", countryIndex));
+
+    CHECK(!trianglesInfo.IsEmpty(), ("[BORDERS_GENERATOR] Empty triangles info for country index", countryIndex));
+
+    // Prepare points info for serialization
+    tesselator::PointsInfo pointsInfo;
+    m2::PointU const basePoint = cp.GetBasePoint();
+    m2::PointU const maxPoint = serial::pts::GetMaxPoint(cp);
+
+    trianglesInfo.GetPointsInfo(basePoint, maxPoint, [coordBits = cp.GetCoordBits()](m2::PointD const & p)
+    { return PointDToPointU(p, coordBits); }, pointsInfo);
+
+    // Validation: Check that we have points to serialize
+    CHECK(!pointsInfo.m_points.empty(),
+          ("[BORDERS_GENERATOR] No points in pointsInfo for country index", countryIndex));
+
+    // Save triangles using chain encoding
+    serial::TrianglesChainSaver saver(cp);
+    trianglesInfo.ProcessPortions(pointsInfo, saver);
+
+    // Write triangles to "t" + countryIndex tag
+    auto const trgWriter = m_writer.GetWriter("t" + strings::to_string(countryIndex));
+    CHECK(trgWriter, ("[BORDERS_GENERATOR] Failed to create writer for triangle tag t", countryIndex));
+
+    saver.Save(*trgWriter);
+    LOG(LDEBUG, ("[BORDERS_GENERATOR] Generated", trianglesCount, "triangles for country index", countryIndex));
+  }
 };
 
 bool ReadPolygon(std::istream & stream, Polygon & poly, std::string const & filename)
@@ -205,6 +297,7 @@ void GeneratePackedBorders(std::string const & baseDir)
   PackedBordersGenerator generator(baseDir);
   ForEachCountry(baseDir, generator);
   generator.WritePolygonsInfo();
+  LOG(LINFO, ("[BORDERS_GENERATOR] done"));
 }
 
 void DumpBorderToPolyFile(std::string const & targetDir, storage::CountryId const & mwmName,
@@ -242,14 +335,32 @@ void UnpackBorders(std::string const & baseDir, std::string const & targetDir)
   if (!Platform::IsFileExistsByFullPath(targetDir) && !Platform::MkDirChecked(targetDir))
     MYTHROW(FileSystemException, ("Unable to find or create directory", targetDir));
 
+  std::string const packedFile = base::JoinPath(baseDir, PACKED_POLYGONS_FILE);
+  LOG(LDEBUG, ("[BORDERS_UNPACK] Opening file:", packedFile));
+
   std::vector<storage::CountryDef> countries;
-  FilesContainerR reader(base::JoinPath(baseDir, PACKED_POLYGONS_FILE));
+  FilesContainerR reader(packedFile);
+
+  LOG(LDEBUG, ("[BORDERS_UNPACK] File size:", reader.GetFileSize()));
+  LOG(LDEBUG, ("[BORDERS_UNPACK] Tags in file:"));
+  reader.ForEachTagInfo([](FilesContainerBase::TagInfo const & info)
+  { LOG(LDEBUG, ("[BORDERS_UNPACK]   Tag:", info.m_tag, "offset:", info.m_offset, "size:", info.m_size)); });
+
+  CHECK(reader.IsExist(PACKED_POLYGONS_INFO_TAG),
+        ("[BORDERS_UNPACK] Info tag does not exist:", PACKED_POLYGONS_INFO_TAG));
+
   ReaderSource<ModelReaderPtr> src(reader.GetReader(PACKED_POLYGONS_INFO_TAG));
   rw::Read(src, countries);
+
+  LOG(LDEBUG, ("[BORDERS_UNPACK] Found", countries.size(), "countries"));
 
   for (size_t id = 0; id < countries.size(); id++)
   {
     storage::CountryId const mwmName = countries[id].m_countryId;
+    LOG(LDEBUG, ("[BORDERS_UNPACK] Processing country", id, ":", mwmName));
+
+    LOG(LDEBUG, ("[BORDERS_UNPACK] Trying to read tag:", strings::to_string(id)));
+    CHECK(reader.IsExist(strings::to_string(id)), ("[BORDERS_UNPACK] Tag does not exist:", strings::to_string(id)));
 
     src = reader.GetReader(strings::to_string(id));
 
