@@ -802,6 +802,12 @@ void DrapeEngine::EnableIsolines(bool enable)
                                   make_unique_dp<EnableIsolinesMessage>(enable), MessagePriority::Normal);
 }
 
+void DrapeEngine::SetIndoorLevel(double level)
+{
+  m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
+                                  make_unique_dp<SetIndoorLevelMessage>(level), MessagePriority::Normal);
+}
+
 void DrapeEngine::SetFontScaleFactor(double scaleFactor)
 {
   VisualParams::Instance().SetFontScale(scaleFactor);

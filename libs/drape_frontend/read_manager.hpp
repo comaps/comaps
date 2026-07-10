@@ -57,6 +57,7 @@ public:
 
   void SetTrafficEnabled(bool trafficEnabled);
   void SetIsolinesEnabled(bool isolinesEnabled);
+  void SetIndoorLevel(double level);
 
   void SetCustomFeatures(CustomFeatures && ids);
   std::vector<FeatureID> GetCustomFeaturesArray() const;
@@ -87,6 +88,7 @@ private:
   bool m_allow3dBuildings;
   bool m_trafficEnabled;
   bool m_isolinesEnabled;
+  double m_indoorLevel = 0.0;
   bool m_modeChanged;
   int8_t m_mapLangIndex;
 

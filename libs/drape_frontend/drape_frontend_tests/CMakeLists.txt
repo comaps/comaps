@@ -2,6 +2,7 @@ project(drape_frontend_tests)
 
 set(SRC
   frame_values_tests.cpp
+  indoor_filter_tests.cpp
   navigator_test.cpp
   path_text_test.cpp
   stylist_tests.cpp

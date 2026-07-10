@@ -103,6 +103,7 @@ public:
     NotifyRenderThread,
     NotifyGraphicsReady,
     EnableIsolines,
+    SetIndoorLevel,
     OnEnterBackground,
     Arrow3dRecache,
     VisualScaleChanged,

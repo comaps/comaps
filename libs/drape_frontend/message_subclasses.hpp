@@ -1110,6 +1110,19 @@ private:
   bool m_isEnabled = false;
 };
 
+class SetIndoorLevelMessage : public Message
+{
+public:
+  explicit SetIndoorLevelMessage(double level) : m_level(level) {}
+
+  Type GetType() const override { return Type::SetIndoorLevel; }
+
+  double GetLevel() const { return m_level; }
+
+private:
+  double m_level = 0.0;
+};
+
 class EnableTransitSchemeMessage : public Message
 {
 public:

@@ -233,6 +233,8 @@ public:
 
   void EnableIsolines(bool enable);
 
+  void SetIndoorLevel(double level);
+
   void SetFontScaleFactor(double scaleFactor);
 
   void RunScenario(ScenarioManager::ScenarioData && scenarioData, ScenarioManager::ScenarioCallback const & onStartFn,

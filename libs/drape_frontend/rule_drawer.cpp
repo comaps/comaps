@@ -2,6 +2,7 @@
 
 #include "drape_frontend/apply_feature_functors.hpp"
 #include "drape_frontend/engine_context.hpp"
+#include "drape_frontend/indoor_filter.hpp"
 #include "drape_frontend/metaline_manager.hpp"
 #include "drape_frontend/stylist.hpp"
 #include "drape_frontend/tile_key.hpp"
@@ -424,6 +425,10 @@ void RuleDrawer::operator()(FeatureType & f)
   if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||
       (!m_context->Is3dBuildingsEnabled() && ftypes::IsBuildingPartChecker::Instance()(types) &&
        !ftypes::IsBuildingChecker::Instance()(types)))
+    return;
+
+  if (ftypes::IsIndoorChecker::Instance()(types) &&
+      ShouldSkipIndoorFeature(types, f.GetMetadata(feature::Metadata::FMD_LEVEL), m_context->GetIndoorLevel()))
     return;
 
   if (ftypes::IsCoastlineChecker::Instance()(types) && !CheckCoastlines(f))

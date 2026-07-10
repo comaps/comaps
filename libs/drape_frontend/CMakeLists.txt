@@ -100,6 +100,7 @@ set(SRC
   gui/shape.hpp
   gui/skin.cpp
   gui/skin.hpp
+  indoor_filter.hpp
   kinetic_scroller.cpp
   kinetic_scroller.hpp
   line_shape.cpp
