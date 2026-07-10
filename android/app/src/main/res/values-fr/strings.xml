@@ -950,8 +950,6 @@
     <string name="downloader_check_updates_updated">Mises à jour cartographiques disponibles !</string>
     <string name="downloader_check_updates_eol">Cette version de l\'application ne bénéficie plus de mises à jour cartographiques. Veuillez mettre à jour l\'application !</string>
     <string name="downloader_check_updates_error">Erreur lors de la recherche de mises à jour</string>
-    <string name="pref_keyboard_typing_history_title">Mode incognito du clavier</string>
-    <string name="pref_keyboard_typing_history_summary">Demander au clavier système de ne pas enregistrer l\'historique de frappe</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">L\'application a été installée depuis Google Play, vous pouvez l\'utiliser dans votre voiture.</string>
     <string name="pref_aa_support_summary_no">L\'application n\'a pas été installée depuis Google Play ; vous ne pouvez pas l\'utiliser dans votre voiture. Cliquez sur le paramètre pour obtenir plus d\'informations dans notre FAQ.</string>

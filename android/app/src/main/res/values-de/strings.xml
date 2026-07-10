@@ -942,8 +942,6 @@
     <string name="downloader_check_updates_no_updates">Keine Aktualisierungen verfügbar</string>
     <string name="downloader_check_updates_eol">Kartenaktualisierungen wurden für diese App-Version eingestellt. Bitte aktualisiere die App!</string>
     <string name="downloader_check_updates_error">Fehler beim Prüfen auf Aktualisierungen</string>
-    <string name="pref_keyboard_typing_history_title">Tastatur-Privatsphärenmodus</string>
-    <string name="pref_keyboard_typing_history_summary">Das System dazu auffordern, den Tastatur-Eingabeverlauf nicht mitzuzeichnen</string>
     <string name="tts_toggle_enable">Sprachführung aktivieren</string>
     <string name="tts_toggle_disable">Sprachführung deaktvieren</string>
     <string name="oh_unknown">Unbekannte Öffnungszeiten</string>

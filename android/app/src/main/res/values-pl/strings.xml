@@ -951,8 +951,6 @@
     <string name="downloader_check_updates_no_updates">Brak dostępnych aktualizacji</string>
     <string name="downloader_check_updates_eol">Nowe aktualizacje map nie są już dostępne dla tej wersji aplikacji. Zaktualizuj aplikację!</string>
     <string name="downloader_check_updates_error">Sprawdzanie dostępności aktualizacji nie powiodło się</string>
-    <string name="pref_keyboard_typing_history_title">Tryb incognito klawiatury</string>
-    <string name="pref_keyboard_typing_history_summary">Poproś klawiaturę systemową, aby nie zapisywała historii wpisywania</string>
     <string name="tts_toggle_enable">Włącz wskazówki głosowe</string>
     <string name="tts_toggle_disable">Wyłącz wskazówki głosowe</string>
     <string name="oh_unknown">Nieznane godziny otwarcia</string>

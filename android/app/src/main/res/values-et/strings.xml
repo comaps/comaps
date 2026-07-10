@@ -937,8 +937,6 @@
     <string name="downloader_check_updates_updated">Saadaval on kaartide uuendused!</string>
     <string name="downloader_check_updates_eol">Selle rakenduse versiooni jaoks enam kaardiuuendusi ei lisandu. Palun uuenda rakendust!</string>
     <string name="downloader_check_updates_error">Viga uuenduste olemaolu kontrollimisel</string>
-    <string name="pref_keyboard_typing_history_title">Klahvistiku privaatne režiim</string>
-    <string name="pref_keyboard_typing_history_summary">Palu, et süsteemne klahvistik ei salvestaks sisestuste ajalugu</string>
     <string name="downloader_check_updates_no_updates">Uuendusi pole saadaval</string>
     <string name="pref_aa_support_title">Android Auto liidestus</string>
     <string name="pref_aa_support_summary_yes">Rakendus on paigaldatud Google Play rakendustepoest ja saad seda oma autos kasutada Android Auto liidestusega.</string>

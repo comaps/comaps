@@ -954,8 +954,6 @@
     <string name="downloader_check_updates_no_updates">لا توجد تحديثات متوفرة</string>
     <string name="downloader_check_updates_eol">لا توجد تحديثات خرائط إضافية لهذا الإصدار من التطبيق. يُرجى تحديث التطبيق!</string>
     <string name="downloader_check_updates_error">حدث خطأ أثناء التحقق من التحديثات</string>
-    <string name="pref_keyboard_typing_history_title">وضع لوحة المفاتيح المتخفي</string>
-    <string name="pref_keyboard_typing_history_summary">اطلب لوحة مفاتيح النظام لكي لا تُسجل تاريخ الكتابة</string>
     <string name="tts_toggle_enable">فعِّل التعليمات الصوتية</string>
     <string name="tts_toggle_disable">عطِّل التعليمات الصوتية</string>
     <string name="pref_aa_support_title">Android Auto</string>

@@ -952,8 +952,6 @@
     <string name="charge_socket_unknown_other">Άλλο ή άγνωστο</string>
     <string name="charge_socket_power">Ισχύς (kW)</string>
     <string name="editor_socket">Επεξεργασία πρίζας</string>
-    <string name="pref_keyboard_typing_history_title">Ανώνυμη λειτουργία πληκτρολογίου</string>
-    <string name="pref_keyboard_typing_history_summary">Αιτηθείτε απ\' το πληκτρολόγιο συστήματος να μην καταγράφει το ιστορικό πληκτρολόγησης</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Η εφαρμογή έχει εγκατασταθεί απ\' το Google Play, μπορείτε να τη χρησιμοποιείτε στο αυτοκίνητό σας.</string>
     <string name="pref_aa_support_summary_no">Η εφαρμογή δεν έχει εγκατασταθεί απ\' το Google Play, δε μπορείτε να τη χρησιμοποιείτε στο αυτοκίνητό σας. Πατήστε την ρύθμιση για να δείτε περισσότερες λεπτομέρειες στο FAQ μας.</string>

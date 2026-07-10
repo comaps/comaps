@@ -699,8 +699,6 @@
     <string name="by_recently_used">Po zadnji uporabi</string>
     <string name="by_custom">Po lastnem vrstnem redu</string>
     <string name="editor_add_select_category_all_subtitle">Vse kategorije</string>
-    <string name="pref_keyboard_typing_history_title">Tipkovnica v načinu brez beleženja zgodovine</string>
-    <string name="pref_keyboard_typing_history_summary">Zahtevaj, da sistemska tipkovnica ne beleži zgodovine tipkanja</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Aplikacija je bila nameščena iz trgovine Play. Zato jo lahko uporabljate v avtomobilu.</string>
     <string name="pref_aa_support_summary_no">Aplikacija ni bila nameščena iz trgovine Play zato je ne morete uporabljati v avtomobilu. Odprite nastavitve za več podrobnosti v Pogostih vprašanjih.</string>

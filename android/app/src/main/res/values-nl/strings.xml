@@ -942,8 +942,6 @@
     <string name="downloader_check_updates_no_updates">Geen updates beschikbaar</string>
     <string name="downloader_check_updates_eol">Geen kaartupdates meer voor deze appversie. Update de app!</string>
     <string name="downloader_check_updates_error">Fout bij het controleren op updates</string>
-    <string name="pref_keyboard_typing_history_title">Incognitomodus voor toetsenbord</string>
-    <string name="pref_keyboard_typing_history_summary">Vraag het systeemtoetsenbord om geen typgeschiedenis bij te houden</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">De app is geïnstalleerd vanuit Google Play, u kunt hem gebruiken in uw auto.</string>
     <string name="pref_aa_support_summary_no">De app is niet geïnstalleerd vanuit Google Play en daarom kunt u hem niet gebruiken in uw auto. Tik op de instelling voor meer informatie in onze FAQ.</string>

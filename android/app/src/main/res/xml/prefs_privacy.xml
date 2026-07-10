@@ -10,13 +10,6 @@
     app:icon="@drawable/ic_search_recent_st"
     app:singleLineTitle="false" />
   <SwitchPreferenceCompat
-    android:defaultValue="false"
-    android:key="@string/pref_keyboard_typing_history"
-    android:title="@string/pref_keyboard_typing_history_title"
-    android:summary="@string/pref_keyboard_typing_history_summary"
-    android:widgetLayout="@layout/preference_switch"
-    app:icon="@drawable/ic_keyboard" />
-  <SwitchPreferenceCompat
     android:defaultValue="true"
     android:key="@string/pref_play_services"
     android:summary="@string/pref_use_google_play"

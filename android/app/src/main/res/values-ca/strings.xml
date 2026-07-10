@@ -947,8 +947,6 @@
     <string name="downloader_check_updates_no_updates">Cap actualització disponible</string>
     <string name="downloader_check_updates_eol">No hi ha més actualitzacions per a mapes en aquesta versió. Per favor, actualitza l\'app!</string>
     <string name="downloader_check_updates_error">No s\'han pogut comprovar les actualitzacions</string>
-    <string name="pref_keyboard_typing_history_title">Teclat en mode incògnit</string>
-    <string name="pref_keyboard_typing_history_summary">Sol·licita al teclat del sistema que no es gravi l\'historial d\'escriptura</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Aquesta aplicació s\'ha instal·lat des de Google Play, la pots fer servir al teu cotxe.</string>
     <string name="pref_aa_support_summary_no">Aquesta app no ha sigut instal·lada des de Google Play, no pots fer-la servir al cotxe. Prem la opció per a veure més detalls als nostres FAQ.</string>

@@ -940,8 +940,6 @@
     <string name="downloader_check_updates_updated">Jsou dostupné aktualizace map!</string>
     <string name="downloader_check_updates_no_updates">Nejsou dostupné žádné aktualizace</string>
     <string name="downloader_check_updates_eol">Pro tuto verzi aplikace nejsou dostupné žádné další aktualizace map. Aktualizujte prosím aplikaci!</string>
-    <string name="pref_keyboard_typing_history_title">Anonymní režim klávesnice</string>
-    <string name="pref_keyboard_typing_history_summary">Požádat systémovou klávesnici o nezaznamenávání historie psaní</string>
     <string name="downloader_check_updates_error">Chyba při kontrole aktualizací</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Aplikace byla nainstalována z Obchodu Google Play, můžete ji použít ve svém autě.</string>

@@ -1031,8 +1031,6 @@
     <string name="route_recalculating">Recalculating the route…</string>
     <string name="pref_openexternallinks_title">Automatically open third-party links</string>
     <string name="pref_openexternallinks_summary">Open third-party links in CoMaps by default</string>
-    <string name="pref_keyboard_typing_history_title">Keyboard incognito mode</string>
-    <string name="pref_keyboard_typing_history_summary">Request system keyboard to not record typing history</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">The app has been installed from Google Play, you can use it in your car.</string>
     <string name="pref_aa_support_summary_no">The app has not been installed from Google Play, you can\'t use it in your car. Press the setting to get more details on our FAQ.</string>
