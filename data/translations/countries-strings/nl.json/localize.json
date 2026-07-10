@@ -3384,7 +3384,7 @@
         "defaultMessage": "Waco"
     },
     "US_Texas_West": {
-        "defaultMessage": "Odessa"
+        "defaultMessage": "El Paso"
     },
     "US_United States Minor Outlying Islands": {
         "defaultMessage": "Kleine afgelegen eilanden van de Verenigde Staten"
@@ -3423,7 +3423,7 @@
         "defaultMessage": "Milwaukee"
     },
     "US_Wisconsin_North": {
-        "defaultMessage": "Noord Wisconsin"
+        "defaultMessage": "Wisconsin — North"
     },
     "US_Wyoming": {
         "defaultMessage": "Wyoming"
@@ -7113,10 +7113,10 @@
         "defaultMessage": "Missoula, Great Falls, Helena"
     },
     "US_Nebraska_East Description": {
-        "defaultMessage": "Omaha, Stanton, Pawnee City"
+        "defaultMessage": "Omaha, Lincoln, Columbus"
     },
     "US_Nebraska_West Description": {
-        "defaultMessage": "Bassett, Long Pine, Bloomfield"
+        "defaultMessage": "Grand Island, North Platte, Scottsbluff"
     },
     "US_Nevada Description": {
         "defaultMessage": "Las Vegas, Winnemucca, Caliente"
