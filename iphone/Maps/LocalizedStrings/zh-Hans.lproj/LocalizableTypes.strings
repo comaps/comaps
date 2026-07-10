@@ -1,6 +1,6 @@
 "type.addr_interpolation" = "地址/区块";
-"type.addr_interpolation.even" = "地址/区块（偶数）";
-"type.addr_interpolation.odd" = "地址/区块（奇数）";
+"type.addr_interpolation.even" = "地址/区块";
+"type.addr_interpolation.odd" = "地址/区块";
 "type.aerialway" = "架空索道";
 "type.aerialway.cable_car" = "缆车";
 "type.aerialway.chair_lift" = "吊椅式缆车";
