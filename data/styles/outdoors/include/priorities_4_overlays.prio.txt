@@ -1333,6 +1333,8 @@ building                                            # caption z17- (also has are
 building-garage                                     # caption z17- (also has area z14-)
 building-guardhouse                                 # icon z16- (also has caption(optional) z18-, area z14-)
 building-has_parts                                  # caption z17- (also has area z14-)
+indoor-area                                         # caption z18- (also has area z17-)
+indoor-room                                         # caption z18- (also has area z17-)
 man_made-utility_pole                               # icon z15-
 power-plant                                         # icon z17- (also has area z13-)
 power-plant-coal                                    # icon z17- (also has area z13-)
@@ -1350,6 +1352,7 @@ entrance-main                                       # icon z17- (also has captio
 entrance                                            # icon z18- (also has caption(optional) z19-)
 entrance-entry                                      # icon z17- (also has caption(optional) z19-)
 entrance-exit                                       # icon z17- (also has caption(optional) z19-)
+indoor-door                                         # icon z18-
 === 220
 
 spherical_buoy-cardinal-east                        # icon z15-

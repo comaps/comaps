@@ -741,6 +741,15 @@ node|z19-[amenity=loading_dock],
 node|z20-[entrance=emergency],
 {icon-image: emergency-exit-m.svg; font-size: 10; text-offset: 1;}
 
+/* 8.2.1 Indoor */
+
+area|z18-[indoor=room],
+area|z18-[indoor=area],
+{text: name; font-size: 10; text-color: @building_label; text-position: center;}
+
+node|z18-[indoor=door],
+{icon-image: entrance-m.svg;}
+
 node|z18[entrance=garage],
 node|z18[entrance=service],
 node|z18-19[entrance=emergency],

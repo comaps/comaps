@@ -1240,6 +1240,106 @@ UNIT_CLASS_TEST(TestWithClassificator, OsmType_Entrance)
   }
 }
 
+UNIT_CLASS_TEST(TestWithClassificator, OsmType_Indoor)
+{
+  {
+    Tags const tags = {
+        {"indoor", "room"},
+        {"level", "2"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "room"})), (params));
+    TEST_EQUAL(params.GetMetadata().Get(feature::Metadata::FMD_LEVEL), "2", (params));
+  }
+
+  {
+    Tags const tags = {
+        {"room", "office"},
+        {"level", "1"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "room"})), (params));
+    TEST_EQUAL(params.GetMetadata().Get(feature::Metadata::FMD_LEVEL), "1", (params));
+  }
+
+  {
+    Tags const tags = {
+        {"indoor", "corridor"},
+        {"level", "0"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "corridor"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"indoor", "area"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "area"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"indoor", "wall"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "wall"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"indoor", "door"},
+        {"level", "1"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "door"})), (params));
+  }
+
+  {
+    Tags const tags = {
+        {"door", "hinged"},
+        {"level", "0"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST_EQUAL(params.m_types.size(), 1, (params));
+    TEST(params.IsTypeExist(GetType({"indoor", "door"})), (params));
+  }
+
+  {
+    // An entrance tagged indoor=yes must not match entrance types (guard [!indoor]),
+    // and indoor=yes has no dedicated type.
+    Tags const tags = {
+        {"entrance", "yes"},
+        {"indoor", "yes"},
+    };
+
+    auto const params = GetFeatureBuilderParams(tags);
+
+    TEST(!params.IsTypeExist(GetType({"entrance", "entry"})), (params));
+  }
+}
+
 UNIT_CLASS_TEST(TestWithClassificator, OsmType_Moscow)
 {
   {

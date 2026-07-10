@@ -1760,3 +1760,8 @@ amenity|luggage_locker;1629;
 building|guardhouse;[building=guardhouse],[amenity=security_booth],[amenity=checkpoint];;;;1630;
 office|security;1631;
 shop|lighting;1632;
+indoor|room;[indoor=room],[room];;name;int_name;1633;
+indoor|corridor;[indoor=corridor];;name;int_name;1634;
+indoor|area;[indoor=area];;name;int_name;1635;
+indoor|wall;[indoor=wall];;;;1636;
+indoor|door;[indoor=door],[door][level];;ref;name;1637;

@@ -702,6 +702,18 @@ area|z17-[building:part],
 area|z17-[waterway=dam],
 {fill-color: @building1;casing-width: 1;casing-color: @building_border1;}
 
+/* 8.2.1 Indoor */
+
+area|z17-[indoor=room],
+area|z17-[indoor=area],
+{fill-color: @indoor_room;casing-width: 0.5;casing-color: @indoor_wall;}
+
+area|z18-[indoor=corridor],
+{fill-color: @indoor_corridor;}
+
+line|z18-[indoor=wall],
+{color: @indoor_wall; width: 1;}
+
 
 /* 8.3 Barriers, cliffs */
 
