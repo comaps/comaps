@@ -397,5 +397,8 @@
     },
     "from_500_feet": {
         "defaultMessage": "vijfhonderd voet"
+    },
+    "from_600_feet": {
+        "defaultMessage": "zeshonderd voet"
     }
 }
