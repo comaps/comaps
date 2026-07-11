@@ -50,6 +50,7 @@ UNIT_TEST(TestSetRecommendedLaneWays_Smoke)
 UNIT_TEST(TestSetRecommendedLaneWays)
 {
   {
+    // GoStraight with Through lanes only
     LanesInfo lanesInfo = {
         {{LaneWay::ReverseLeft, LaneWay::Left, LaneWay::Through}},
         {{LaneWay::Through}},
@@ -62,6 +63,38 @@ UNIT_TEST(TestSetRecommendedLaneWays)
     TEST_EQUAL(lanesInfo[1].recommendedWay, LaneWay::Through, ());
     TEST_EQUAL(lanesInfo[2].recommendedWay, LaneWay::Through, ());
     TEST_EQUAL(lanesInfo[3].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[4].recommendedWay, LaneWay::None, ());
+  }
+  {
+    // GoStraight with Through and unrestricted lanes
+    LanesInfo lanesInfo = {
+        {{LaneWay::ReverseLeft, LaneWay::Left, LaneWay::Through}},
+        {{LaneWay::None}},
+        {{LaneWay::None}},
+        {{LaneWay::Through, LaneWay::Right}},
+        {{LaneWay::Right}},
+    };
+    TEST(impl::SetRecommendedLaneWays(CarDirection::GoStraight, lanesInfo), ());
+    TEST_EQUAL(lanesInfo[0].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[1].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[2].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[3].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[4].recommendedWay, LaneWay::None, ());
+  }
+  {
+    // GoStraight with unrestricted lanes
+    LanesInfo lanesInfo = {
+        {{LaneWay::ReverseLeft, LaneWay::Left}},
+        {{LaneWay::None}},
+        {{LaneWay::None}},
+        {{LaneWay::SlightRight}},
+        {{LaneWay::Right}},
+    };
+    TEST(impl::SetRecommendedLaneWays(CarDirection::GoStraight, lanesInfo), ());
+    TEST_EQUAL(lanesInfo[0].recommendedWay, LaneWay::None, ());
+    TEST_EQUAL(lanesInfo[1].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[2].recommendedWay, LaneWay::Through, ());
+    TEST_EQUAL(lanesInfo[3].recommendedWay, LaneWay::None, ());
     TEST_EQUAL(lanesInfo[4].recommendedWay, LaneWay::None, ());
   }
   {
