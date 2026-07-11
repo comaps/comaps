@@ -103,7 +103,7 @@ final class MapTemplateBuilder {
     }
     let myPositionModeButton = buildMyPositionModeButton()
     mapTemplate.mapButtons = [myPositionModeButton, panningButton]
-    setupMuteAndRedirectButtons(template: mapTemplate)
+    setupAudioAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
       CarPlayService.shared.cancelCurrentTrip()
     }
@@ -133,33 +133,29 @@ final class MapTemplateBuilder {
     mapTemplate.leadingNavigationBarButtons = [recenterButton]
   }
   
-  private class func setupMuteAndRedirectButtons(template: CPMapTemplate) {
-    let redirectButton = buildBarButton(type: .redirectRoute) { _ in
-      let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
-      CarPlayService.shared.pushTemplate(listTemplate, animated: true)
-    }
-    if MWMTextToSpeech.isTTSEnabled() {
-      let muteButton = buildBarButton(type: .mute) { _ in
-        MWMTextToSpeech.tts().active = false
-        setupUnmuteAndRedirectButtons(template: template)
-      }
-      template.leadingNavigationBarButtons = [muteButton, redirectButton]
-    } else {
-      template.leadingNavigationBarButtons = [redirectButton]
-    }
+  class func updateNavigationAudioButtons(mapTemplate: CPMapTemplate) {
+    setupAudioAndRedirectButtons(template: mapTemplate)
   }
-  
-  private class func setupUnmuteAndRedirectButtons(template: CPMapTemplate) {
+
+  private class func setupAudioAndRedirectButtons(template: CPMapTemplate) {
     let redirectButton = buildBarButton(type: .redirectRoute) { _ in
       let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
     if MWMTextToSpeech.isTTSEnabled() {
-      let unmuteButton = buildBarButton(type: .unmute) { _ in
-        MWMTextToSpeech.tts().active = true
-        setupMuteAndRedirectButtons(template: template)
+      if MWMTextToSpeech.tts().active {
+        let muteButton = buildBarButton(type: .mute) { _ in
+          MWMTextToSpeech.tts().active = false
+          setupAudioAndRedirectButtons(template: template)
+        }
+        template.leadingNavigationBarButtons = [muteButton, redirectButton]
+      } else {
+        let unmuteButton = buildBarButton(type: .unmute) { _ in
+          MWMTextToSpeech.tts().active = true
+          setupAudioAndRedirectButtons(template: template)
+        }
+        template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
       }
-      template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
     } else {
       template.leadingNavigationBarButtons = [redirectButton]
     }

@@ -48,6 +48,7 @@ final class CarPlayService: NSObject {
     router.setupCarPlaySpeedCameraMode()
     self.router = router
     MWMRouter.unsubscribeFromEvents()
+    startObservingTTS()
     applyRootViewController()
     if let sessionData = router.restoredNavigationSession() {
       applyNavigationRootTemplate(trip: sessionData.0, routeInfo: sessionData.1)
@@ -68,6 +69,7 @@ final class CarPlayService: NSObject {
   }
 
   private var savedInterfaceController: CPInterfaceController?
+  private var isObservingTTS = false
 
   func showOnPhone() {
     LOG(.info, "Show on the Phone screen")
@@ -123,6 +125,7 @@ final class CarPlayService: NSObject {
     router?.cancelNavigationSession()
     searchService = nil
     router = nil
+    stopObservingTTS()
     sessionConfiguration = nil
     interfaceController = nil
     ThemeManager.invalidate()
@@ -241,6 +244,27 @@ final class CarPlayService: NSObject {
     if let carplayVC = carplayVC {
       carplayVC.updateCameraInfo(isCameraOnRoute: isCameraOnRoute, speedLimitMps: limit)
     }
+  }
+
+  private func startObservingTTS() {
+    guard !isObservingTTS else { return }
+    isObservingTTS = true
+    MWMTextToSpeech.add(self)
+  }
+
+  private func stopObservingTTS() {
+    guard isObservingTTS else { return }
+    isObservingTTS = false
+    MWMTextToSpeech.remove(self)
+  }
+
+  private func refreshNavigationAudioButtons() {
+    guard let rootMapTemplate,
+          let info = rootMapTemplate.userInfo as? MapInfo,
+          info.type == CPConstants.TemplateType.navigation,
+          !rootMapTemplate.isPanningInterfaceVisible
+    else { return }
+    MapTemplateBuilder.updateNavigationAudioButtons(mapTemplate: rootMapTemplate)
   }
 
   func updateMapTemplateUIToBase() {
@@ -670,6 +694,13 @@ extension CarPlayService: LocationModeListener {
       rootMapTemplate.leadingNavigationBarButtons = []
       MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
     }
+  }
+}
+
+// MARK: - MWMTextToSpeechObserver implementation
+extension CarPlayService: MWMTextToSpeechObserver {
+  func onTTSStatusUpdated() {
+    refreshNavigationAudioButtons()
   }
 }
 
