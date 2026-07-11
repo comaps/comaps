@@ -129,6 +129,9 @@ BOOL keepRunningInBackground()
   if (isOnRoute && !isRouteFinished)
     return YES;
 
+  if ([MWMCarPlayService shared].isHostingMapOnCarScreen)
+    return YES;
+
   return NO;
 }
 
@@ -159,6 +162,9 @@ void setShowLocationAlert(BOOL needShow) {
 @property(nonatomic) MWMLocationPredictor * predictor;
 @property(nonatomic) Observers * observers;
 @property(nonatomic) location::TLocationSource locationSource;
+
++ (void)applyBackgroundLocationUpdatesPolicy;
+- (void)startUpdatingLocationFor:(CLLocationManager *)manager;
 
 @end
 
@@ -192,8 +198,15 @@ void setShowLocationAlert(BOOL needShow) {
 
 - (void)protectedDataDidBecomeAvailable
 {
-  if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive)
-    [MWMLocationManager applicationDidBecomeActive];
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateActive && !keepRunningInBackground())
+    return;
+
+  MWMLocationManager * manager = [MWMLocationManager manager];
+  if (manager.started)
+    [manager startUpdatingLocationFor:manager.locationManager];
+  else
+    manager.started = YES;
+  [MWMLocationManager applyBackgroundLocationUpdatesPolicy];
 }
 
 - (void)dealloc
@@ -228,23 +241,47 @@ void setShowLocationAlert(BOOL needShow) {
 
 #pragma mark - App Life Cycle
 
++ (void)applyBackgroundLocationUpdatesPolicy
+{
+  CLLocationManager * locationManager = [self manager].locationManager;
+  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
+    [locationManager setAllowsBackgroundLocationUpdates:keepRunningInBackground()];
+}
+
 + (void)applicationDidBecomeActive
-  // Starting before the first unlock can yield a transient kCLErrorDenied.
+{
+  // Check if protected data is available before starting location updates.
+  // Otherwise, can get false positives with kCLErrorDenied
   if (!UIApplication.sharedApplication.isProtectedDataAvailable)
     return;
-
-{
   [self start];
+  [self applyBackgroundLocationUpdatesPolicy];
 }
 
 + (void)applicationWillResignActive
 {
-  BOOL const keepRunning = keepRunningInBackground();
+  [self applyBackgroundLocationUpdatesPolicy];
+  [self manager].started = keepRunningInBackground();
+}
+
++ (BOOL)shouldKeepRunningInBackground
+{
+  return keepRunningInBackground();
+}
+
++ (void)refreshBackgroundLocationPolicy
+{
+  [self applyBackgroundLocationUpdatesPolicy];
+  if (UIApplication.sharedApplication.applicationState != UIApplicationStateBackground)
+    return;
+
   MWMLocationManager * manager = [self manager];
-  CLLocationManager * locationManager = manager.locationManager;
-  if ([locationManager respondsToSelector:@selector(setAllowsBackgroundLocationUpdates:)])
-    [locationManager setAllowsBackgroundLocationUpdates:keepRunning];
-  manager.started = keepRunning;
+  BOOL const shouldRun = keepRunningInBackground();
+  // Starting Core Location before the first unlock can yield a transient kCLErrorDenied.
+  // Keep an already-running session alive, but defer a new session until protected data is available.
+  if (shouldRun && !UIApplication.sharedApplication.isProtectedDataAvailable && !manager.started)
+    return;
+  manager.started = shouldRun;
 }
 
 #pragma mark - Getters
@@ -520,7 +557,8 @@ void setShowLocationAlert(BOOL needShow) {
   if (self.lastLocationStatus != MWMLocationStatusNoError || error.code != kCLErrorDenied)
     return;
 
-  // A transient startup failure is not an authorization denial.
+  // Only trigger location authorization dialog if the app is actually restricted.
+  // Otherwise, fires false positives
   switch (manager.authorizationStatus)
   {
     case kCLAuthorizationStatusDenied:
