@@ -173,11 +173,11 @@ final class CarPlayMapViewController: MWMViewController {
   }
 
   private func updateVisibleViewPortToPreviewState() {
-    updateVisibleViewPort(frame: view.frame.inset(by: view.safeAreaInsets))
+    updateVisibleViewPort(frame: view.bounds.inset(by: view.safeAreaInsets))
   }
 
   private func updateVisibleViewPortToNavigationState() {
-    updateVisibleViewPort(frame: view.frame.inset(by: view.safeAreaInsets))
+    updateVisibleViewPort(frame: view.bounds.inset(by: view.safeAreaInsets))
   }
 
   private func updateVisibleViewPortToDefaultState() {
@@ -185,8 +185,9 @@ final class CarPlayMapViewController: MWMViewController {
   }
 
   private func updateVisibleViewPort(frame: CGRect) {
-    guard CarPlayService.shared.isCarplayActivated else { return }
-    FrameworkHelper.setVisibleViewport(frame, scaleFactor: mapView?.contentScaleFactor ?? 1)
+    guard CarPlayService.shared.isCarplayActivated, let mapView else { return }
+    FrameworkHelper.setVisibleViewport(frame, scaleFactor: mapView.contentScaleFactor)
+    CarPlayService.shared.mapViewportDidBecomeReady(mapView)
   }
 
   override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
