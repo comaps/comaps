@@ -100,6 +100,18 @@ protected:
 
   void Reset() { m_indexer = nullptr; }
 
+  void Invalidate(ref_ptr<TIndexer> indexer, DynamicTextureParams const & params,
+                  std::vector<drape_ptr<HWTexture>> * texturesToCleanup)
+  {
+    if (texturesToCleanup != nullptr && m_hwTexture != nullptr)
+      Base::DeferredCleanup(*texturesToCleanup);
+    else
+      Base::Destroy();
+    m_isInitialized = false;
+    auto const allocator = m_params.m_allocator;
+    Init(allocator, indexer, params);
+  }
+
   ref_ptr<TIndexer> m_indexer;
   Texture::Params m_params;
   std::atomic<bool> m_isInitialized;
