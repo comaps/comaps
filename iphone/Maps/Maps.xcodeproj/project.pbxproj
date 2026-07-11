@@ -336,7 +336,6 @@
 		6741A9A51BF340DE002C974C /* MWMShareActivityItem.mm in Sources */ = {isa = PBXBuildFile; fileRef = 340837151B72451A00B5C185 /* MWMShareActivityItem.mm */; };
 		6741A9A91BF340DE002C974C /* MWMDefaultAlert.mm in Sources */ = {isa = PBXBuildFile; fileRef = F64F198B1AB81A00006EAF7E /* MWMDefaultAlert.mm */; };
 		6741A9B01BF340DE002C974C /* MapsAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* MapsAppDelegate.mm */; };
-		AABC12340D0F684500AABB03 /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB02 /* SceneDelegate.mm */; };
 		6741A9B71BF340DE002C974C /* EAGLView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 46F26CD710F623BA00ECCA39 /* EAGLView.mm */; };
 		6741A9B81BF340DE002C974C /* MapViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = EED10A4411F78D120095FAD4 /* MapViewController.mm */; };
 		6741A9C01BF340DE002C974C /* MWMTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6588E2B1B15C26700EE1E58 /* MWMTextView.m */; };
@@ -452,6 +451,9 @@
 		99F9A0E72462CA1700AE21E0 /* DownloadAllView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 99F9A0E62462CA1700AE21E0 /* DownloadAllView.xib */; };
 		A630D1EA207CA95900976DEA /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = A630D1E8207CA95900976DEA /* Localizable.stringsdict */; };
 		AA1C7E3E269A2DD600BAADF2 /* EditTrackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA1C7E3D269A2DD600BAADF2 /* EditTrackViewController.swift */; };
+		AABC12340D0F684500AABB03 /* SceneDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB02 /* SceneDelegate.mm */; };
+		AABC12340D0F684500AABB05 /* CarPlayDashboardSceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB04 /* CarPlayDashboardSceneDelegate.swift */; };
+		AABC12340D0F684500AABB07 /* CarPlaySceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */; };
 		AC79C8922A65AB9500594C24 /* UIColor+hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC79C8912A65AB9500594C24 /* UIColor+hexString.swift */; };
 		B33D21AF20DAF9F000BAD749 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33D21AE20DAF9F000BAD749 /* Toast.swift */; };
 		B3E3B4FD20D463B700DA8C13 /* BMCCategoriesHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3E3B4FC20D463B700DA8C13 /* BMCCategoriesHeader.xib */; };
@@ -774,8 +776,6 @@
 		165953932CB44B3B00CFED7C /* symbols */ = {isa = PBXFileReference; lastKnownFileType = folder; name = symbols; path = ../../data/symbols; sourceTree = "<group>"; };
 		1D3623240D0F684500981E51 /* MapsAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MapsAppDelegate.h; sourceTree = "<group>"; tabWidth = 2; };
 		1D3623250D0F684500981E51 /* MapsAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = MapsAppDelegate.mm; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		AABC12340D0F684500AABB01 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; tabWidth = 2; };
-		AABC12340D0F684500AABB02 /* SceneDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = SceneDelegate.mm; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		1DFA2F6820D3B52F00FB2C66 /* UIColor+PartnerColor.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "UIColor+PartnerColor.h"; sourceTree = "<group>"; tabWidth = 2; };
 		1DFA2F6920D3B57400FB2C66 /* UIColor+PartnerColor.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; indentWidth = 2; lineEnding = 0; path = "UIColor+PartnerColor.m"; sourceTree = "<group>"; tabWidth = 2; };
 		1DFA2F6E20D3CA9200FB2C66 /* UIColorRoutines.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = UIColorRoutines.h; sourceTree = "<group>"; tabWidth = 2; };
@@ -1394,6 +1394,10 @@
 		A630D205207CAA3A00976DEA /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		A630D206207CAA5800976DEA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.stringsdict"; sourceTree = "<group>"; };
 		AA1C7E3D269A2DD600BAADF2 /* EditTrackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTrackViewController.swift; sourceTree = "<group>"; };
+		AABC12340D0F684500AABB01 /* SceneDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; tabWidth = 2; };
+		AABC12340D0F684500AABB02 /* SceneDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; lineEnding = 0; path = SceneDelegate.mm; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		AABC12340D0F684500AABB04 /* CarPlayDashboardSceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlayDashboardSceneDelegate.swift; sourceTree = "<group>"; };
+		AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarPlaySceneDelegate.swift; sourceTree = "<group>"; };
 		AC4209FF2D79BCEC00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AC420A002D79BCED00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = af; path = af.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC420A012D79BCED00A64AA9 /* af */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = af; path = af.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -3194,6 +3198,8 @@
 				CDCA2747223FD24600167D87 /* MWMCarPlaySearchResultObject.mm */,
 				8C4FB9C62BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift */,
 				8CB13C3A2BF1276A004288F2 /* CarplayPlaceholderView.swift */,
+				AABC12340D0F684500AABB04 /* CarPlayDashboardSceneDelegate.swift */,
+				AABC12340D0F684500AABB06 /* CarPlaySceneDelegate.swift */,
 			);
 			path = CarPlay;
 			sourceTree = "<group>";
@@ -4608,6 +4614,8 @@
 				8C4FB9C72BEFEFF400D44877 /* CarPlayWindowScaleAdjuster.swift in Sources */,
 				349D1CE41E3F836900A878FD /* UIViewController+Hierarchy.swift in Sources */,
 				8CB13C3B2BF1276A004288F2 /* CarplayPlaceholderView.swift in Sources */,
+				AABC12340D0F684500AABB05 /* CarPlayDashboardSceneDelegate.swift in Sources */,
+				AABC12340D0F684500AABB07 /* CarPlaySceneDelegate.swift in Sources */,
 				CDB4D4E1222D70DF00104869 /* CarPlayMapViewController.swift in Sources */,
 				471AB98923AA8A3500F56D49 /* IDownloaderDataSource.swift in Sources */,
 				F692F3831EA0FAF5001E82EB /* MWMAutoupdateController.mm in Sources */,
