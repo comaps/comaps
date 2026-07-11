@@ -123,7 +123,7 @@
     case .menu:
       return false
     case .settings:
-      MapsAppDelegate.theApp().mapViewController.openSettings()
+      MapsAppDelegate.theApp().mapViewController?.openSettings()
       return true
     case .crosshair:
       // Not supported on iOS.
