@@ -465,10 +465,22 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
 
   std::atomic<uint32_t> address = 0;
   std::atomic<uint32_t> missing = 0;
+  std::atomic<uint32_t> matchedTight = 0;   // streets at 50m, places at 500m
+  std::atomic<uint32_t> matchedMedium = 0; // streets at 200m (no medium tier for places)
+  std::atomic<uint32_t> matchedWide = 0;   // streets at 2000m, places at 4000m
 
   /// @see Addr_Street_Place test for checking constants.
-  double constexpr kStreetRadiusM = 2000;
-  double constexpr kPlaceRadiusM = 4000;
+  /// Progressive retry: OA point addresses and most OSM nodes lie directly
+  /// on the street and match at 50m (same threshold TIGER uses).  OSM
+  /// building-centroid addresses may need 200m.  Only TIGER and OSM
+  /// addr:interpolation segments whose endpoints can be far from the
+  /// matched geometry need the full 2000m window.
+  /// Start tight for the common case; expand only on miss.
+  double constexpr kStreetRadiusTightM = 50.0;
+  double constexpr kStreetRadiusMediumM = 200.0;
+  double constexpr kStreetRadiusWideM = 2000.0;
+  double constexpr kPlaceRadiusTightM = 500.0;
+  double constexpr kPlaceRadiusWideM = 4000.0;
 
   std::vector<uint32_t> streets(featuresCount, kInvalidFeatureId);
   std::vector<uint32_t> places(featuresCount, kInvalidFeatureId);
@@ -497,22 +509,43 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
 
       if (!street.empty())
       {
-        auto const streets =
-            search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, kStreetRadiusM, true);
-        streetId = MatchObjectByName(street, streets, [](std::string_view name)
-        { return search::GetStreetNameAsKey(name, false /* ignoreStreetSynonyms */); });
-
-        if (!streetId)
+        auto const matchStreets = [&](double radius) -> std::optional<uint32_t>
         {
-          streetId = MatchObjectByName(street, streets, [](std::string_view name)
-          { return search::GetStreetNameAsKey(name, true /* ignoreStreetSynonyms */); });
-        }
+          auto const nearby =
+              search::ReverseGeocoder::GetNearbyStreets(*contexts[threadIdx], center, radius, true);
+          auto result = MatchObjectByName(street, nearby, [](std::string_view name)
+          { return search::GetStreetNameAsKey(name, false /* ignoreStreetSynonyms */); });
+          if (!result)
+          {
+            result = MatchObjectByName(street, nearby, [](std::string_view name)
+            { return search::GetStreetNameAsKey(name, true /* ignoreStreetSynonyms */); });
+          }
+          return result;
+        };
+
+        streetId = matchStreets(kStreetRadiusTightM);
+        if (streetId)
+          ++matchedTight;
+        else if ((streetId = matchStreets(kStreetRadiusMediumM)))
+          ++matchedMedium;
+        else if ((streetId = matchStreets(kStreetRadiusWideM)))
+          ++matchedWide;
       }
 
       if (!place.empty())
       {
-        auto const places = search::ReverseGeocoder::GetNearbyPlaces(*contexts[threadIdx], center, kPlaceRadiusM, true);
-        placeId = MatchObjectByName(place, places, [](std::string_view name) { return strings::MakeUniString(name); });
+        auto const matchPlaces = [&](double radius) -> std::optional<uint32_t>
+        {
+          auto const nearby =
+              search::ReverseGeocoder::GetNearbyPlaces(*contexts[threadIdx], center, radius, true);
+          return MatchObjectByName(place, nearby, [](std::string_view name) { return strings::MakeUniString(name); });
+        };
+
+        placeId = matchPlaces(kPlaceRadiusTightM);
+        if (placeId)
+          ++matchedTight;
+        else if ((placeId = matchPlaces(kPlaceRadiusWideM)))
+          ++matchedWide;
       }
 
       if (streetId || placeId)
@@ -564,7 +597,8 @@ void BuildAddressTable(FilesContainerR & container, std::string const & addressD
   double matchedPercent = 100;
   if (address > 0)
     matchedPercent = 100.0 * (1.0 - static_cast<double>(missing) / static_cast<double>(address));
-  LOG(LINFO, ("Matched addresses percent:", matchedPercent, "Total:", address, "Missing:", missing));
+  LOG(LINFO, ("Matched addresses percent:", matchedPercent, "Total:", address, "Missing:", missing,
+              "Tight:", matchedTight, "Medium:", matchedMedium, "Wide:", matchedWide));
 }
 }  // namespace
 
