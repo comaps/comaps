@@ -6,6 +6,9 @@
 #include <memory>
 #include <string>
 
+// TODO: not used since Apr 2021, see 2fcd601b and 415f7a5c
+// but could be useful to fetch maps.json and countries.txt (Check Updates)?
+
 namespace platform
 {
 class RemoteFile

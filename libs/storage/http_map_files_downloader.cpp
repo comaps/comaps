@@ -51,8 +51,8 @@ void HttpMapFilesDownloader::Download()
 
   auto const & queuedCountry = m_queue.GetFirstCountry();
 
-  auto const urls = MakeUrlList(queuedCountry.GetRelativeUrl());
-  auto const path = queuedCountry.GetFileDownloadPath();
+  auto const urls = MakeUrlList(queuedCountry.GetRelativeUrl(m_dataVersion));
+  auto const path = queuedCountry.GetFileDownloadPath(m_dataVersion);
   auto const size = queuedCountry.GetDownloadSize();
 
   m_request.reset();
@@ -101,7 +101,7 @@ void HttpMapFilesDownloader::Clear()
   m_queue.Clear();
 }
 
-QueueInterface const & HttpMapFilesDownloader::GetQueue() const
+Queue & HttpMapFilesDownloader::GetQueue()
 {
   CHECK_THREAD_CHECKER(m_checker, ());
 

@@ -38,9 +38,10 @@ public:
 
   CountryId const & GetCountryId() const;
 
-  std::string GetRelativeUrl() const;
-  std::string GetFileDownloadPath() const;
+  std::string GetRelativeUrl(int64_t const dataVersion) const;
+  std::string GetFileDownloadPath(int64_t const dataVersion) const;
   uint64_t GetDownloadSize() const;
+  void SetCountryFile(platform::CountryFile const & countryFile);
 
   void OnCountryInQueue() const;
   void OnStartDownloading() const;
@@ -50,10 +51,10 @@ public:
   bool operator==(CountryId const & countryId) const;
 
 private:
-  platform::CountryFile const m_countryFile;
+  platform::CountryFile m_countryFile;
   CountryId const m_countryId;
   MapFileType m_fileType;
-  int64_t m_currentDataVersion;
+  int64_t m_currentDataVersion;  ///@todo(pastk): cleanup unused
   std::string m_dataDir;
   diffs::DiffsSourcePtr m_diffsDataSource;
 

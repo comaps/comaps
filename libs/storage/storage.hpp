@@ -7,7 +7,7 @@
 #include "storage/country_tree.hpp"
 #include "storage/diff_scheme/diff_types.hpp"
 #include "storage/diff_scheme/diffs_data_source.hpp"
-#include "storage/downloader_queue_interface.hpp"
+#include "storage/downloader_queue_universal.hpp"
 #include "storage/downloading_policy.hpp"
 #include "storage/map_files_downloader.hpp"
 #include "storage/queued_country.hpp"
@@ -188,11 +188,9 @@ private:
   std::string m_pendingCountriesBuffer;
   int64_t m_pendingCountriesVersion = 0;
   bool m_hasPendingCountries = false;
+  bool m_isCheckUpdatesRunning = false;
 
-  inline bool IsIdleForCountriesApply() const
-  {
-    return m_downloader->GetQueue().IsEmpty() && m_downloadingCountries.empty() && m_diffsBeingApplied.empty();
-  }
+  inline bool IsIdleForCountriesApply() const { return m_downloadingCountries.empty() && m_diffsBeingApplied.empty(); }
   inline bool IsInitialResourcesDownloadRequired() const
   {
     std::vector<platform::CountryFile> missing;
@@ -225,7 +223,7 @@ private:
   /// \param isEOL is true if no more updates are planned for this map series
   /// @return 0 If error.
   int64_t ParseServerMapsAndGetLatestVersion(std::string const & buffer, bool & isEOL) const;
-  void NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status) const;
+  void NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status);
 
   /// Set of mwm files which have been downloaded recently.
   /// When a mwm file is downloaded it's added to |m_justDownloaded|.

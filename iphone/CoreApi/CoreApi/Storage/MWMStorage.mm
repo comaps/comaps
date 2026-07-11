@@ -331,7 +331,7 @@ using namespace storage;
     GetFramework().GetStorage().SetCheckUpdatesListener(nullptr);
     return;
   }
-  
+
   GetFramework().GetStorage().SetCheckUpdatesListener([listener](storage::CheckUpdatesStatus const & status) {
     listener(static_cast<MWMCheckUpdatesStatus>(status));
   });

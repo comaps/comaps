@@ -201,6 +201,9 @@ void Storage::ApplyPendingCountriesIfAny()
 
   if (m_pendingCountriesVersion <= m_currentVersion)
   {
+    LOG(LWARNING,
+        ("COUNTRIES: pending", m_pendingCountriesVersion, "is not newer than current", m_currentVersion, "- skipping"));
+    NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
     m_hasPendingCountries = false;
     m_pendingCountriesVersion = 0;
     m_pendingCountriesBuffer.clear();
@@ -234,6 +237,11 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
         m_pendingCountriesVersion = parsedVersion;
         m_hasPendingCountries = true;
       }
+      else
+      {
+        LOG(LWARNING, ("COUNTRIES: there is already a pending update to", m_pendingCountriesVersion, "- skipping"));
+        NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
+      }
       LOG(LINFO, ("COUNTRIES: initial resources download active; deferring apply. version=", parsedVersion));
       return;
     }
@@ -249,7 +257,12 @@ void Storage::PersistAndApplyCountries(std::shared_ptr<std::string> buffer, int6
       m_pendingCountriesBuffer = *buffer;
       m_pendingCountriesVersion = parsedVersion;
       m_hasPendingCountries = true;
-      LOG(LDEBUG, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+      LOG(LINFO, ("COUNTRIES: queued apply for later. version=", m_pendingCountriesVersion));
+    }
+    else
+    {
+      LOG(LWARNING, ("COUNTRIES: there is already a pending update to", m_pendingCountriesVersion, "- skipping"));
+      NotifyCheckUpdatesResult(storage::CheckUpdatesStatus::Error);
     }
   });
 }
@@ -294,18 +307,37 @@ int64_t Storage::ParseServerMapsAndGetLatestVersion(std::string const & buffer, 
   }
 }
 
-void Storage::NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status) const
+void Storage::NotifyCheckUpdatesResult(storage::CheckUpdatesStatus const status)
 {
   LOG(LINFO, ("COUNTRIES: check updates result:", storage::DebugPrint(status)));
+  m_isCheckUpdatesRunning = false;
+  if (status == storage::CheckUpdatesStatus::Updated)
+  {
+    // Update expected file sizes and SHAs in existing download queue
+    m_downloader->GetQueue().ForEachCountry([this](QueuedCountry & country)
+    { country.SetCountryFile(GetCountryFile(country.GetCountryId())); });
+    // ... and in pending requests as well
+    m_downloader->GetPendingRequests().ForEachCountry([this](QueuedCountry & country)
+    { country.SetCountryFile(GetCountryFile(country.GetCountryId())); });
+  }
+  m_downloader->StartPendingMapDownloads();
   if (m_onCheckUpdates != nullptr)
     GetPlatform().RunTask(Platform::Thread::Gui, [this, status]() { m_onCheckUpdates(status); });
 }
 
 void Storage::RunCountriesCheckAsyncSaveOnly()
 {
+  if (m_isCheckUpdatesRunning)
+  {
+    LOG(LWARNING, ("COUNTRIES: check updates is running already - skipping"));
+    return;
+  }
+  m_isCheckUpdatesRunning = true;
+
   std::string const serverMapsUrl = "meta/" SERVER_MAPS_FILE;
   LOG(LINFO, ("COUNTRIES: check for map updates by fetching", serverMapsUrl));
 
+  // TODO: make sure following runs in background, e.g. GetPlatform().RunTask(Platform::Thread::Network, ...
   m_downloader->DownloadAsStringFromMeta(serverMapsUrl, [this, serverMapsUrl](std::string const & mapsBuffer)
   {
     if (mapsBuffer.empty())
@@ -847,7 +879,18 @@ void Storage::DownloadCountry(CountryId const & countryId, MapFileType type)
   QueuedCountry queuedCountry(countryFile, countryId, type, m_currentVersion, m_dataDir, m_diffsDataSource);
   queuedCountry.Subscribe(*this);
 
+  // Check there are no downloading or pending countries
+  /// @todo(pastk): don't check for updates for e.g. 15 minutes since last check
+  bool const needCheck =
+      IsIdleForCountriesApply() && m_downloader->GetQueue().IsEmpty() && m_downloader->GetPendingRequests().IsEmpty();
   m_downloader->DownloadMapFile(std::move(queuedCountry));
+  if (!m_isCheckUpdatesRunning)
+  {
+    if (needCheck)
+      RunCountriesCheckAsyncSaveOnly();
+    else
+      m_downloader->StartPendingMapDownloads();
+  }
 }
 
 void Storage::DeleteCountry(CountryId const & countryId, MapFileType type)
@@ -1104,7 +1147,7 @@ void Storage::RegisterDownloadedFiles(CountryId const & countryId, MapFileType t
   else
   {
     /// @todo If localFile already exists, we will remove it from disk below?
-    LOG(LERROR, ("Downloaded country file for already existing one", *localFile));
+    LOG(LWARNING, ("Downloaded country file for already existing one", *localFile));
   }
 
   if (!localFile)

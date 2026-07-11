@@ -32,23 +32,29 @@ public:
 
   virtual ~MapFilesDownloader() = default;
 
-  /// Asynchronously downloads a map file (first queries the metaserver
-  /// for the map servers list, if it haven't been done before),
+  /// Asynchronously downloads a map file
+  /// (first Checks for Updates and queries metaserver for the map servers list),
   /// periodically invokes onProgress callback and finally invokes onDownloaded
   /// callback. Both callbacks will be invoked on the main thread.
   void DownloadMapFile(QueuedCountry && queuedCountry);
 
-  // Removes item from m_quarantine queue when list of servers is not received.
+  // Removes item from m_pendingRequests queue when list of servers is not received.
   // Parent method must be called into override method.
   virtual void Remove(CountryId const & id);
 
-  // Clears m_quarantine queue when list of servers is not received.
+  // Clears m_pendingRequests queue when list of servers is not received.
   // Parent method must be called into override method.
   virtual void Clear();
 
-  // Returns m_quarantine queue when list of servers is not received.
+  // Returns m_pendingRequests queue when list of servers is not received.
   // Parent method must be called into override method.
-  virtual QueueInterface const & GetQueue() const;
+  virtual Queue & GetQueue();
+  // Same as above, but not overridable.
+  Queue & GetPendingRequests();
+
+  // Starts downloads from m_pendingRequests queue.
+  // Supposed to be called after CheckUpdates and meta check had been processed.
+  void StartPendingMapDownloads();
 
   /**
    * @brief Async file download as string buffer from meta-server (for small files only).
@@ -90,6 +96,8 @@ protected:
   // On dl failure fallbacks to the hardcoded list.
   MetaConfig LoadMetaConfig();
 
+  int64_t m_dataVersion = 0;
+
 private:
   /**
    * @brief This method is blocking and should be called on network thread.
@@ -108,7 +116,6 @@ private:
   std::unique_ptr<RequestT> m_fileRequest;
 
   ServersList m_serversList;
-  int64_t m_dataVersion = 0;
 
   /// Used as guard for m_serversList assign.
   std::atomic_bool m_isMetaConfigRequested = false;
