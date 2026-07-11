@@ -332,7 +332,7 @@ void TextureManager::Init(ref_ptr<dp::GraphicsContext> context, Params const & p
   m_smaaSearchTexture = make_unique_dp<StaticTexture>(context, "smaa-search.png", StaticTexture::kDefaultResource,
                                                       dp::TextureFormat::Red, make_ref(m_textureAllocator));
 
-  InitStipplePen(params);
+  InitStipplePen(params, nullptr /* texturesToCleanup */);
 
   // Initialize colors (reserved ./data/colors.txt lines count).
   std::vector<dp::Color> colors;
@@ -365,7 +365,7 @@ void TextureManager::Init(ref_ptr<dp::GraphicsContext> context, Params const & p
   m_nothingToUpload.clear();
 }
 
-void TextureManager::InitStipplePen(Params const & params)
+void TextureManager::InitStipplePen(Params const & params, std::vector<drape_ptr<HWTexture>> * texturesToCleanup)
 {
   // Initialize patterns (reserved ./data/patterns.txt lines count).
   std::set<PenPatternT> patterns;
@@ -391,12 +391,22 @@ void TextureManager::InitStipplePen(Params const & params)
     }
   });
 
-  m_stipplePenTexture = make_unique_dp<StipplePenTexture>(StipplePenTextureSize(rowsCount, m_maxTextureSize),
-                                                          make_ref(m_textureAllocator));
+  auto const size = StipplePenTextureSize(rowsCount, m_maxTextureSize);
+  ref_ptr<StipplePenTexture> stipplePenTex;
+  if (m_stipplePenTexture == nullptr)
+  {
+    m_stipplePenTexture = make_unique_dp<StipplePenTexture>(size, make_ref(m_textureAllocator));
+    stipplePenTex = make_ref(m_stipplePenTexture);
+  }
+  else
+  {
+    // Keep this object alive because existing render states still use it.
+    stipplePenTex = make_ref(m_stipplePenTexture);
+    stipplePenTex->Invalidate(size, texturesToCleanup);
+  }
 
   LOG(LDEBUG, ("Patterns texture size =", m_stipplePenTexture->GetWidth(), m_stipplePenTexture->GetHeight()));
 
-  ref_ptr<StipplePenTexture> stipplePenTex = make_ref(m_stipplePenTexture);
   for (auto const & p : patterns)
     stipplePenTex->ReservePattern(p);
 }
@@ -426,10 +436,11 @@ void TextureManager::OnVisualScaleChanged(ref_ptr<dp::GraphicsContext> context, 
 
   OnSwitchMapStyle(context);
 
-  if (context->GetApiVersion() == dp::ApiVersion::Vulkan)
-    m_stipplePenTexture->DeferredCleanup(m_texturesToCleanup);
+  bool const isVulkan = context->GetApiVersion() == dp::ApiVersion::Vulkan;
+  InitStipplePen(params, isVulkan ? &m_texturesToCleanup : nullptr);
 
-  InitStipplePen(params);
+  // Trigger the texture upload.
+  m_nothingToUpload.clear();
 }
 
 void TextureManager::InvalidateArrowTexture(ref_ptr<dp::GraphicsContext> context,
