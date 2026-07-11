@@ -22,6 +22,7 @@
 #include "geometry/screenbase.hpp"
 
 #include "base/assert.hpp"
+#include "base/logging.hpp"
 #include "base/matrix.hpp"
 
 #include <algorithm>
@@ -732,6 +733,8 @@ void RouteRenderer::Clear()
 
 void RouteRenderer::ClearContextDependentResources()
 {
+  LOG(LINFO, ("ClearContextDependentResources: clearing GPU data for", m_subroutes.size(), "subroute(s)"));
+
   // Here we clear only context-dependent part of subroute data.
   for (auto & subroute : m_subroutes)
   {

@@ -526,7 +526,13 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
       subrouteData->m_recacheId = m_lastRecacheRouteId;
 
     if (!CheckRouteRecaching(make_ref(subrouteData)))
+    {
+      LOG(LINFO, ("FlushSubroute: discarded stale render data, recacheId =", subrouteData->m_recacheId,
+                  "lastRecacheRouteId =", m_lastRecacheRouteId));
       break;
+    }
+
+    LOG(LINFO, ("FlushSubroute: accepted render data, recacheId =", subrouteData->m_recacheId));
 
     m_routeRenderer->ClearObsoleteData(m_lastRecacheRouteId);
 
@@ -1016,6 +1022,7 @@ void FrontendRenderer::AcceptMessage(ref_ptr<Message> message)
 template <class MessageT>
 void FrontendRenderer::UpdateAll()
 {
+  LOG(LINFO, ("UpdateAll started."));
 #ifdef BUILD_DESIGNER
   classificator::Load();
 
@@ -1077,6 +1084,9 @@ std::unique_ptr<threads::IRoutine> FrontendRenderer::CreateRoutine()
 void FrontendRenderer::UpdateContextDependentResources()
 {
   ++m_lastRecacheRouteId;
+
+  LOG(LINFO, ("UpdateContextDependentResources: recaching", m_routeRenderer->GetSubroutes().size(),
+              "subroute(s), recacheId =", m_lastRecacheRouteId));
 
   for (auto const & subroute : m_routeRenderer->GetSubroutes())
   {
