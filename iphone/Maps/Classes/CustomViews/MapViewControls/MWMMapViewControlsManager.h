@@ -5,6 +5,7 @@
 @class MapViewController;
 @class BottomTabBarViewController;
 @class TrackRecordingButtonViewController;
+@class IndoorLevelPickerViewController;
 @class SearchQuery;
 
 typedef NS_ENUM(NSUInteger, TrackRecordingButtonState) {
@@ -28,6 +29,7 @@ typedef NS_ENUM(NSUInteger, TrackRecordingButtonState) {
 @property(nonatomic) BOOL isDirectionViewHidden;
 @property(nonatomic) BottomTabBarViewController * tabBarController;
 @property(nonatomic) TrackRecordingButtonViewController * trackRecordingButton;
+@property(nonatomic) IndoorLevelPickerViewController * indoorLevelPicker;
 
 - (instancetype)init __attribute__((unavailable("init is not available")));
 - (instancetype)initWithParentController:(MapViewController *)controller;

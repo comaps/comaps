@@ -60,6 +60,7 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
   self.sideButtonsHidden = NO;
   self.trafficButtonHidden = NO;
   self.isDirectionViewHidden = YES;
+  (void)self.indoorLevelPicker;
   self.menuState = MWMBottomMenuStateInactive;
   self.menuRestoreState = MWMBottomMenuStateInactive;
   self.isAddingPlace = NO;
@@ -218,6 +219,12 @@ NSString *const kMapToCategorySelectorSegue = @"MapToCategorySelectorSegue";
   if (!_trafficButton)
     _trafficButton = [[MWMTrafficButtonViewController alloc] init];
   return _trafficButton;
+}
+
+- (IndoorLevelPickerViewController *)indoorLevelPicker {
+  if (!_indoorLevelPicker)
+    _indoorLevelPicker = [[IndoorLevelPickerViewController alloc] init];
+  return _indoorLevelPicker;
 }
 
 - (BottomTabBarViewController *)tabBarController {

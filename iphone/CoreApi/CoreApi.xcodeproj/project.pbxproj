@@ -46,6 +46,8 @@
 		479F7062234FBC4700011E2E /* MWMCarPlayBookmarkObject.mm in Sources */ = {isa = PBXBuildFile; fileRef = 479F7061234FBC4600011E2E /* MWMCarPlayBookmarkObject.mm */; };
 		479F7063234FBC5900011E2E /* MWMCarPlayBookmarkObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 479F7060234FBC4500011E2E /* MWMCarPlayBookmarkObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47C637D62354AEBE00E12DE0 /* MWMMapOverlayManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C637D42354AEBD00E12DE0 /* MWMMapOverlayManager.mm */; };
+		4A1DD001202607F000000001 /* MWMIndoorManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A1DD003202607F000000003 /* MWMIndoorManager.mm */; };
+		4A1DD002202607F000000002 /* MWMIndoorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1DD004202607F000000004 /* MWMIndoorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47C637D72354AEBE00E12DE0 /* MWMMapOverlayManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 47C637D52354AEBE00E12DE0 /* MWMMapOverlayManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47C637DC2354B79B00E12DE0 /* MWMSearchFrameworkHelper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 47C637DA2354B79A00E12DE0 /* MWMSearchFrameworkHelper.mm */; };
 		47C637DD2354B79B00E12DE0 /* MWMSearchFrameworkHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 47C637DB2354B79B00E12DE0 /* MWMSearchFrameworkHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -153,6 +155,8 @@
 		479F7060234FBC4500011E2E /* MWMCarPlayBookmarkObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMCarPlayBookmarkObject.h; sourceTree = "<group>"; };
 		479F7061234FBC4600011E2E /* MWMCarPlayBookmarkObject.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMCarPlayBookmarkObject.mm; sourceTree = "<group>"; };
 		47C637D42354AEBD00E12DE0 /* MWMMapOverlayManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMMapOverlayManager.mm; sourceTree = "<group>"; };
+		4A1DD003202607F000000003 /* MWMIndoorManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMIndoorManager.mm; sourceTree = "<group>"; };
+		4A1DD004202607F000000004 /* MWMIndoorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMIndoorManager.h; sourceTree = "<group>"; };
 		47C637D52354AEBE00E12DE0 /* MWMMapOverlayManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMMapOverlayManager.h; sourceTree = "<group>"; };
 		47C637DA2354B79A00E12DE0 /* MWMSearchFrameworkHelper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMSearchFrameworkHelper.mm; sourceTree = "<group>"; };
 		47C637DB2354B79B00E12DE0 /* MWMSearchFrameworkHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWMSearchFrameworkHelper.h; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				4718C42F2355FC0D00640DF1 /* NetworkPolicy */,
 				47C637D92354B76700E12DE0 /* Search */,
 				47C637D32354AEA800E12DE0 /* Traffic */,
+				4A1DD005202607F000000005 /* Indoor */,
 				479F704C234FB5C800011E2E /* Bookmarks */,
 				479F7048234F784B00011E2E /* Common */,
 				477C775523435B69001C5B4E /* Framework */,
@@ -398,6 +403,15 @@
 				47C637D42354AEBD00E12DE0 /* MWMMapOverlayManager.mm */,
 			);
 			path = Traffic;
+			sourceTree = "<group>";
+		};
+		4A1DD005202607F000000005 /* Indoor */ = {
+			isa = PBXGroup;
+			children = (
+				4A1DD004202607F000000004 /* MWMIndoorManager.h */,
+				4A1DD003202607F000000003 /* MWMIndoorManager.mm */,
+			);
+			path = Indoor;
 			sourceTree = "<group>";
 		};
 		47C637D92354B76700E12DE0 /* Search */ = {
@@ -540,6 +554,7 @@
 				47F4F1F923A3336C0022FD56 /* MWMMapNodeAttributes.h in Headers */,
 				479F704A234F785B00011E2E /* MWMTypes.h in Headers */,
 				47C637D72354AEBE00E12DE0 /* MWMMapOverlayManager.h in Headers */,
+				4A1DD002202607F000000002 /* MWMIndoorManager.h in Headers */,
 				47942D9C237D927800DEFAE3 /* PlacePageBookmarkData.h in Headers */,
 				EDC4E3522C5D222D009286A2 /* RecentlyDeletedCategory.h in Headers */,
 				47942D72237CC40B00DEFAE3 /* OpeningHours.h in Headers */,
@@ -648,6 +663,7 @@
 				47CA68E42506D29000671019 /* MWMBookmarkColor.mm in Sources */,
 				471AB98E23AB925D00F56D49 /* MWMMapSearchResult.mm in Sources */,
 				47C637D62354AEBE00E12DE0 /* MWMMapOverlayManager.mm in Sources */,
+				4A1DD001202607F000000001 /* MWMIndoorManager.mm in Sources */,
 				475784C32344B422008291A4 /* Framework.cpp in Sources */,
 				4718C4332355FC3C00640DF1 /* MWMNetworkPolicy.mm in Sources */,
 				47CA68E92506F61400671019 /* MWMTrack.mm in Sources */,
