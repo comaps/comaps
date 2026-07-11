@@ -109,20 +109,12 @@ OsmOAuth OsmOAuth::ServerAuth(string const & oauthToken)
 // static
 OsmOAuth OsmOAuth::DevServerAuth()
 {
-  constexpr char const * kOsmDevServer = "https://master.apis.dev.openstreetmap.org";
-  // CoMaps keys for OSM dev server
-  constexpr char const * kOsmDevClientId = "Tj8yyx3FWy_N5wz6sUTAXTM6YBAiwVgM7sRLrLix2u8";
-  constexpr char const * kOsmDevScope = "read_prefs write_api write_notes";
-  constexpr char const * kOsmDevRedirectUri = "comaps://oauth2/osm/callback";
-
-  return {kOsmDevClientId, kOsmDevScope, kOsmDevRedirectUri, kOsmDevServer, kOsmDevServer};
+  return {OSM_OAUTH2_CLIENT_ID_DEV, OSM_OAUTH2_SCOPE, OSM_OAUTH2_REDIRECT_URI, OSM_OAUTH2_BASE_URL_DEV, OSM_OAUTH2_BASE_URL_DEV};
 }
 // static
 OsmOAuth OsmOAuth::ProductionServerAuth()
 {
-  constexpr char const * kOsmMainSiteURL = "https://www.openstreetmap.org";
-  constexpr char const * kOsmApiURL = "https://api.openstreetmap.org";
-  return {OSM_OAUTH2_CLIENT_ID, OSM_OAUTH2_SCOPE, OSM_OAUTH2_REDIRECT_URI, kOsmMainSiteURL, kOsmApiURL};
+  return {OSM_OAUTH2_CLIENT_ID_PROD, OSM_OAUTH2_SCOPE, OSM_OAUTH2_REDIRECT_URI, OSM_OAUTH2_BASE_URL_PROD, OSM_OAUTH2_API_URL_PROD};
 }
 
 void OsmOAuth::SetAuthToken(string const & oauthToken)

@@ -1,8 +1,13 @@
 #pragma once
 
-#define OSM_OAUTH2_CLIENT_ID "feHq7fMSmKzZD6XLgPPah3whHPbavSTrJCgwhLMmqT0"
-#define OSM_OAUTH2_REDIRECT_URI "comaps://oauth2/osm/callback"
+#define OSM_OAUTH2_REDIRECT_URI "cm://oauth2/osm/callback"
 #define OSM_OAUTH2_SCOPE "read_prefs write_api write_notes"
+#define OSM_OAUTH2_CLIENT_ID_PROD "feHq7fMSmKzZD6XLgPPah3whHPbavSTrJCgwhLMmqT0"
+#define OSM_OAUTH2_CLIENT_ID_DEV "Tj8yyx3FWy_N5wz6sUTAXTM6YBAiwVgM7sRLrLix2u8"
+#define OSM_OAUTH2_BASE_URL_PROD "https://www.openstreetmap.org"
+#define OSM_OAUTH2_API_URL_PROD "https://api.openstreetmap.org"
+#define OSM_OAUTH2_BASE_URL_DEV "https://master.apis.dev.openstreetmap.org"
+
 #define MWM_GEOLOCATION_SERVER ""
 #define DIFF_LIST_URL ""
 #define METASERVER_URL "https://cdn-us-1.comaps.app"
