@@ -182,8 +182,18 @@ void setShowLocationAlert(BOOL needShow) {
   if (self)
   {
     _observers = [Observers weakObjectsHashTable];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(protectedDataDidBecomeAvailable)
+                                               name:UIApplicationProtectedDataDidBecomeAvailable
+                                             object:nil];
   }
   return self;
+}
+
+- (void)protectedDataDidBecomeAvailable
+{
+  if (UIApplication.sharedApplication.applicationState == UIApplicationStateActive)
+    [MWMLocationManager applicationDidBecomeActive];
 }
 
 - (void)dealloc
@@ -219,6 +229,10 @@ void setShowLocationAlert(BOOL needShow) {
 #pragma mark - App Life Cycle
 
 + (void)applicationDidBecomeActive
+  // Starting before the first unlock can yield a transient kCLErrorDenied.
+  if (!UIApplication.sharedApplication.isProtectedDataAvailable)
+    return;
+
 {
   [self start];
 }
@@ -503,8 +517,19 @@ void setShowLocationAlert(BOOL needShow) {
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
   LOG(LWARNING, ("CLLocationManagerDelegate: Did fail with error:", error.localizedDescription.UTF8String));
-  if (self.lastLocationStatus == MWMLocationStatusNoError && error.code == kCLErrorDenied)
-    [self processLocationStatus:MWMLocationStatusDenied];
+  if (self.lastLocationStatus != MWMLocationStatusNoError || error.code != kCLErrorDenied)
+    return;
+
+  // A transient startup failure is not an authorization denial.
+  switch (manager.authorizationStatus)
+  {
+    case kCLAuthorizationStatusDenied:
+    case kCLAuthorizationStatusRestricted:
+      [self processLocationStatus:MWMLocationStatusDenied];
+      break;
+    default:
+      break;
+  }
 }
 
 // Delegate's method didChangeAuthorizationStatus is used to handle the authorization status when the application finishes launching
@@ -562,7 +587,12 @@ void setShowLocationAlert(BOOL needShow) {
   } else {
     _started = NO;
     [self stop];
-    [notificationCenter removeObserver:self];
+    [notificationCenter removeObserver:self
+                                  name:UIDeviceOrientationDidChangeNotification
+                                object:nil];
+    [notificationCenter removeObserver:self
+                                  name:UIDeviceBatteryStateDidChangeNotification
+                                object:nil];
   }
 }
 
