@@ -5,6 +5,8 @@
 #include "geometry/transformations.hpp"
 #include "testing/testing.hpp"
 
+#include <cmath>
+
 namespace screen_test
 {
 using test::is_equal;
@@ -81,6 +83,26 @@ UNIT_TEST(ScreenBase_3dTransform)
   p3d = m2::PointD(screen.PixelRectIn3d().SizeX(), 0);
   pp = screen.P3dtoP(p3d);
   TEST(fabs(pp.x - screen.PixelRect().maxX()) < kEps, ());
+}
+
+UNIT_TEST(ScreenBase_AutoPerspectiveThresholdTransition)
+{
+  ScreenBase screen;
+  screen.OnSize(0, 0, 600, 400);
+
+  double const threshold = ScreenBase::GetStartPerspectiveScale();
+  screen.SetScale(threshold * (1.0 + 1.0e-6));
+  screen.SetAutoPerspective(true);
+  TEST(!screen.isPerspective(), ());
+
+  // Cross the threshold by less than the projection-update epsilon. The perspective state still
+  // changes, so its matrices must be rebuilt rather than retaining the flat projection.
+  screen.SetScale(threshold * (1.0 - 1.0e-6));
+  TEST(screen.isPerspective(), ());
+
+  m2::PointD const point = screen.PtoP3d(m2::PointD(300.0, 200.0));
+  TEST(std::isfinite(point.x), (point));
+  TEST(std::isfinite(point.y), (point));
 }
 
 UNIT_TEST(ScreenBase_P2P3d2P)
