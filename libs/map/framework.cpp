@@ -2622,6 +2622,23 @@ void Framework::SwitchToMapMode(MapMode const mapMode, bool const shouldAlwaysRe
   string mapModeValue = "Default";
   switch (mapMode)
   {
+  case MapMode::Walking:
+      mapModeValue = "Walking";
+      if (MapStyleIsDark(mapStyle))
+      {
+        if (MapStyleIsOutdoor(mapStyle))
+          mapStyle = MapStyleWalkingOutdoorDark;
+        else
+          mapStyle = MapStyleWalkingDark;
+      }
+      else
+      {
+        if (MapStyleIsOutdoor(mapStyle))
+          mapStyle = MapStyleWalkingOutdoorLight;
+        else
+          mapStyle = MapStyleWalkingLight;
+      }
+      break;
   case MapMode::Cycling:
       mapModeValue = "Cycling";
       if (MapStyleIsDark(mapStyle))
