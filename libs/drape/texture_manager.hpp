@@ -140,7 +140,7 @@ public:
   ref_ptr<HWTextureAllocator> GetTextureAllocator() const;
 
 private:
-  void InitStipplePen(Params const & params);
+  void InitStipplePen(Params const & params, std::vector<drape_ptr<HWTexture>> * texturesToCleanup);
 
   struct GlyphGroup
   {
