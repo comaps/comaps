@@ -341,6 +341,7 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
   {
     ref_ptr<AddSubrouteMessage> msg = message;
     CHECK(m_context != nullptr, ());
+    LOG(LINFO, ("AddSubroute: building subroute", msg->GetSubrouteId(), "recacheId =", msg->GetRecacheId()));
     m_routeBuilder->Build(m_context, msg->GetSubrouteId(), msg->GetSubroute(), m_texMng, msg->GetRecacheId());
     break;
   }
