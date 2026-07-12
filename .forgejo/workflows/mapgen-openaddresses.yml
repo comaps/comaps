@@ -92,23 +92,18 @@ jobs:
           ZIP="/home/planet/open-addresses/collection-${COLLECTION_NAME}.zip"
           STAGING_DIR="/home/planet/open-addresses/staging-${COLLECTION_NAME}"
           DEST_DIR="/home/planet/open-addresses/addresses"
-          BORDERS_DIR="${HOME}/comaps/data/borders"
 
-          [ -f "${ZIP}" ] || { echo "ERROR: ${ZIP} not found -- re-run the workflow to download it" >&2; exit 1; }
+          mkdir -p "${DEST_DIR}"
 
-          echo "Backing up previous staging output ..."
-          rm -rf "${STAGING_DIR}.bak"
-          [ -d "${STAGING_DIR}" ] && mv -fT "${STAGING_DIR}" "${STAGING_DIR}.bak" || true
-          mkdir -p "${STAGING_DIR}" "${DEST_DIR}"
+          export SKIP_DOWNLOAD=1
+          export OA_ZIP_PATH="${ZIP}"
+          export OA_OUTPUT_DIR="${STAGING_DIR}"
+          export OA_COLLECTION_NAME="${COLLECTION_NAME}"
+          export OA_COLLECTION_ID="${{ inputs.oa-collection-id }}"
+          export OA_API_TOKEN="${OA_API_TOKEN}"
+          export COMAPS_DIR="${HOME}/comaps"
 
-          echo "Running preprocessor ..."
-          python3 ~/comaps/tools/python/maps_generator/generator/openaddresses_preprocessor.py \
-            "${ZIP}" \
-            "${STAGING_DIR}" \
-            --borders-dir "${BORDERS_DIR}"
-
-          echo "Preprocessor output:"
-          ls -lah "${STAGING_DIR}" | head -20
+          bash "${COMAPS_DIR}/tools/unix/run_oa_preprocessor.sh"
 
           echo "Copying .tempaddr files to ${DEST_DIR} ..."
           shopt -s nullglob

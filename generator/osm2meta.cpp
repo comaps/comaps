@@ -669,7 +669,7 @@ void MetadataTagProcessor::operator()(std::string const & k, std::string const &
   case Metadata::FMD_CUISINE:
   case Metadata::FMD_DESCRIPTION:  // processed separately
   case Metadata::FMD_TEST_ID:
-  case Metadata::FMD_CUSTOM_IDS:
+  case Metadata::FMD_CUSTOM_KEYVALUES:
   case Metadata::FMD_PRICE_RATES:
   case Metadata::FMD_RATINGS:
   case Metadata::FMD_EXTERNAL_URI:

@@ -41,7 +41,7 @@ public class Metadata implements Parcelable
     FMD_DENOMINATION(21),
     FMD_BUILDING_LEVELS(22),
     FWD_TEST_ID(23),
-    FMD_CUSTOM_IDS(24),
+    FMD_CUSTOM_KEYVALUES(24),
     FMD_PRICE_RATES(25),
     FMD_RATINGS(26),
     FMD_EXTERNAL_URI(27),

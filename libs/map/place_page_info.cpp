@@ -9,7 +9,7 @@
 #include "indexer/feature.hpp"
 #include "indexer/feature_utils.hpp"
 #include "indexer/ftypes_matcher.hpp"
-#include "indexer/imported_source.hpp"
+
 #include "indexer/mwm_set.hpp"
 #include "indexer/road_shields_parser.hpp"
 
@@ -314,7 +314,7 @@ bool Info::ShouldShowEditPlace() const
   static auto const kAddrType = classif().GetTypeByPath({"building", "address"});
   if (GetTypes().Has(kAddrType))
   {
-    auto const customIds = GetMetadata(feature::Metadata::FMD_CUSTOM_IDS);
+    auto const customIds = GetMetadata(feature::Metadata::FMD_CUSTOM_KEYVALUES);
     if (!customIds.empty() &&
         indexer::CustomKeyValue(customIds).Get(indexer::kOpenAddressesEditableKey).value_or(0) == 0)
       return false;

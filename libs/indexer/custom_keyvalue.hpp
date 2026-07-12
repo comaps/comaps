@@ -9,6 +9,9 @@
 
 namespace indexer
 {
+// Key definitions for CustomKeyValue. Add new keys here when extending the generic
+// metadata payload (e.g. imported-source flags, feature tags, etc.).
+inline constexpr uint8_t kOpenAddressesEditableKey = 0;
 
 class CustomKeyValue
 {

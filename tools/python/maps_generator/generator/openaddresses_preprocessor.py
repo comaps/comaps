@@ -214,10 +214,11 @@ _LAYER_SUFFIX_RE = re.compile(
     re.IGNORECASE,
 )
 
-_NC_ND_SUBSTRINGS: tuple[str, ...] = (
+_INCOMPATIBLE_LICENSE_SUBSTRINGS: tuple[str, ...] = (
     "non-commercial", "noncommercial",
     "no derivatives", "no-derivatives", "noderivatives",
     "-nc-", "-nc/", "-nd-", "-nd/",
+    "-sa-", "-sa/",  # ShareAlike: incompatible with ODbL for derivative uploads
 )
 
 
@@ -238,7 +239,7 @@ def _source_key_from_geojson_path(geojson_path: str) -> str:
 def _license_is_odbl_compatible(license_info) -> bool:
     """Return True if a single OA license object is compatible with ODbL.
 
-    Blocklist approach: only reject if explicit NC or ND terms are present.
+    Blocklist approach: only reject if explicit NC, ND, or SA terms are present.
     license_info may be a dict or a bare URL string (both occur in OA data).
     """
     if isinstance(license_info, str):
@@ -248,7 +249,7 @@ def _license_is_odbl_compatible(license_info) -> bool:
         url = (license_info.get("url") or "").lower()
         text = (license_info.get("text") or "").lower()
 
-    for term in _NC_ND_SUBSTRINGS:
+    for term in _INCOMPATIBLE_LICENSE_SUBSTRINGS:
         if term in url or term in text:
             return False
 

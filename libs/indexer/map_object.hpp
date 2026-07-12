@@ -57,7 +57,7 @@ public:
       /// @todo Clients should make separate processing of non-string values, skip for now.
       /// @see EditableMapObject::ForEachMetadataItem.
       case MetadataID::FMD_DESCRIPTION:
-      case MetadataID::FMD_CUSTOM_IDS:
+      case MetadataID::FMD_CUSTOM_KEYVALUES:
       case MetadataID::FMD_PRICE_RATES:
       case MetadataID::FMD_RATINGS:
       case MetadataID::FMD_EXTERNAL_URI: break;

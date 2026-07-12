@@ -55,7 +55,7 @@
 #include "indexer/feature_utils.hpp"
 #include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
-#include "indexer/imported_source.hpp"
+
 #include "indexer/map_style_reader.hpp"
 #include "indexer/scales.hpp"
 #include "indexer/transliteration_loader.hpp"
@@ -2980,7 +2980,7 @@ bool Framework::GetEditableMapObject(FeatureID const & fid, osm::EditableMapObje
   emo = {};
   auto const & editor = osm::Editor::Instance();
 
-  bool const isImported = indexer::CustomKeyValue(ft->GetMetadata(feature::Metadata::FMD_CUSTOM_IDS))
+  bool const isImported = indexer::CustomKeyValue(ft->GetMetadata(feature::Metadata::FMD_CUSTOM_KEYVALUES))
                                .Get(indexer::kOpenAddressesEditableKey).value_or(0) != 0;
   if (isImported)
   {

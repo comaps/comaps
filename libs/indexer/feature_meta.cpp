@@ -316,7 +316,7 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_DENOMINATION: return "denomination";
   case Metadata::FMD_BUILDING_LEVELS: return "building:levels";
   case Metadata::FMD_TEST_ID: return "test_id";
-  case Metadata::FMD_CUSTOM_IDS: return "custom_ids";
+  case Metadata::FMD_CUSTOM_KEYVALUES: return "custom_keyvalues";
   case Metadata::FMD_PRICE_RATES: return "price_rates";
   case Metadata::FMD_RATINGS: return "ratings";
   case Metadata::FMD_EXTERNAL_URI: return "external_uri";
@@ -375,7 +375,7 @@ string DebugPrint(Metadata const & metadata)
       switch (t)
       {
       case Metadata::FMD_DESCRIPTION: res += DebugPrint(StringUtf8Multilang::FromBuffer(std::string(sv))); break;
-      case Metadata::FMD_CUSTOM_IDS:
+      case Metadata::FMD_CUSTOM_KEYVALUES:
       case Metadata::FMD_PRICE_RATES:
       case Metadata::FMD_RATINGS: res += DebugPrint(indexer::CustomKeyValue(sv)); break;
       default: res.append(sv); break;

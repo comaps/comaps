@@ -32,6 +32,7 @@ _MIN_X                      = _mod._MIN_X
 _MAX_X                      = _mod._MAX_X
 _MIN_Y                      = _mod._MIN_Y
 _MAX_Y                      = _mod._MAX_Y
+_license_is_odbl_compatible = _mod._license_is_odbl_compatible
 
 
 class TestWriteVaruint(unittest.TestCase):
@@ -734,6 +735,153 @@ class TestLicenseIsOdblCompatible(unittest.TestCase):
 
     def test_odbl_url_is_compatible(self):
         self.assertTrue(self._check({"url": "https://opendatacommons.org/licenses/odbl/1.0/"}))
+
+    def test_sa_url_is_blocked(self):
+        self.assertFalse(self._check({"url": "https://creativecommons.org/licenses/by-sa/4.0/"}))
+
+    def test_sa_url_is_blocked_v3(self):
+        self.assertFalse(self._check({"url": "https://creativecommons.org/licenses/by-sa/3.0/",
+                                      "text": "CC BY-SA 3.0"}))
+
+    def test_nc_sa_url_is_blocked(self):
+        self.assertFalse(self._check({"url": "https://creativecommons.org/licenses/by-nc-sa/4.0/"}))
+
+
+class TestLicenseBlacklistAgainstOaSoures(unittest.TestCase):
+    """Validate the license blacklist against the full set of real OA source licenses.
+
+    Requires a local clone of https://github.com/openaddresses/openaddresses.
+    Set OA_SOURCES_DIR to the path, otherwise the test is skipped.
+    """
+
+    @classmethod
+    def _collect_real_licenses(cls, oa_sources_dir):
+        """Walk OA sources/ tree and collect unique license values."""
+        import os as _os
+
+        licenses = set()
+        sources_root = _os.path.join(oa_sources_dir, "sources")
+        if not _os.path.isdir(sources_root):
+            raise FileNotFoundError(f"OA sources dir not found: {sources_root}")
+
+        for root, _dirs, files in _os.walk(sources_root):
+            for f in files:
+                if not f.endswith(".json"):
+                    continue
+                path = _os.path.join(root, f)
+                try:
+                    with open(path) as fh:
+                        data = json.load(fh)
+                except Exception:
+                    continue
+                entries = data if isinstance(data, list) else [data]
+                for entry in entries:
+                    if not isinstance(entry, dict):
+                        continue
+                    for layer_list in entry.get("layers", {}).values():
+                        if not isinstance(layer_list, list):
+                            layer_list = [layer_list]
+                        for layer in layer_list:
+                            if not isinstance(layer, dict):
+                                continue
+                            lic = layer.get("license")
+                            if lic:
+                                if isinstance(lic, str):
+                                    licenses.add(lic)
+                                elif isinstance(lic, dict):
+                                    licenses.add((lic.get("url", ""), lic.get("text", "")))
+        return licenses
+
+    # Licenses known to be ODbL-compatible. The blacklist must NOT block these.
+    KNOWN_COMPATIBLE = {
+        "https://creativecommons.org/licenses/by/4.0/",
+        "https://creativecommons.org/licenses/by/3.0/",
+        "https://creativecommons.org/publicdomain/zero/1.0/",
+        "https://opendatacommons.org/licenses/odbl/1.0/",
+        "https://opendatacommons.org/licenses/pddl/1-0/",
+        "https://www.openstreetmap.org/copyright",
+        "https://alliance.numerique.gouv.fr/licence-ouverte-open-licence/",
+        "https://www.dati.gov.it/iodl/2.0/",
+        "https://www.govdata.de/dl-de/by-2-0",
+        "https://www.govdata.de/dl-de/zero-2-0",
+        "https://data.gov.tw/license",
+        "https://datos.gob.mx/libreusomx/",
+        "https://creativecommons.org/licenses/by/3.0/au/",
+        "https://data.norge.no/nlod/no/1.0",
+        "https://www.statcan.gc.ca/en/reference/licence",
+        # Municipal Open Government Licences
+        "https://opendata.vancouver.ca/pages/licence/",
+        "https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-licence/",
+        "https://data.edmonton.ca/stories/s/City-of-Edmonton-Open-Data-Terms-of-Use/msh8-if28/",
+    }
+
+    # Licenses known to be ODbL-incompatible. The blacklist MUST block these.
+    KNOWN_INCOMPATIBLE = {
+        "https://creativecommons.org/licenses/by-nc/4.0/",
+        "https://creativecommons.org/licenses/by-nd/4.0/",
+        "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "https://creativecommons.org/licenses/by-sa/4.0/",
+        "https://creativecommons.org/licenses/by-sa/3.0/",
+    }
+
+    def test_known_compatible_not_blocked(self):
+        """No known-good license should be rejected by the blacklist."""
+        for lic_url in self.KNOWN_COMPATIBLE:
+            with self.subTest(license=lic_url):
+                self.assertTrue(
+                    _license_is_odbl_compatible({"url": lic_url}),
+                    f"Known-compatible license was BLOCKED: {lic_url}"
+                )
+
+    def test_known_incompatible_are_blocked(self):
+        """Known-bad licenses must be rejected by the blacklist."""
+        for lic_url in self.KNOWN_INCOMPATIBLE:
+            with self.subTest(license=lic_url):
+                self.assertFalse(
+                    _license_is_odbl_compatible({"url": lic_url}),
+                    f"Known-incompatible license was ALLOWED: {lic_url}"
+                )
+
+    @unittest.skipUnless(os.environ.get("OA_SOURCES_DIR"), "Set OA_SOURCES_DIR to run full license audit")
+    def test_all_real_licenses_no_false_positives(self):
+        """Every real OA license is either marked compatible or there's a reason it's not.
+
+        This catches regressions where a blacklist term is too broad and
+        accidentally blocks good licenses (e.g. ``-sa-`` matching a legitimate URL).
+        """
+        oa_dir = os.environ["OA_SOURCES_DIR"]
+        licenses = self._collect_real_licenses(oa_dir)
+
+        # Licenses we explicitly expect to be blocked (and why).
+        blocked_expected = {
+            "https://creativecommons.org/licenses/by-nc-sa/4.0/": "-nc-",
+            "https://creativecommons.org/licenses/by-nc/4.0/": None,  # excluded from check below
+        }
+
+        for lic in licenses:
+            if isinstance(lic, tuple):
+                lic_obj = {"url": lic[0], "text": lic[1]}
+                combined = (lic[0] + " " + lic[1]).lower()
+            else:
+                lic_obj = lic
+                combined = lic.lower()
+
+            result = _license_is_odbl_compatible(lic_obj)
+
+            if result:
+                # Allowed — must NOT contain any blocklisted substrings.
+                for term in _mod._INCOMPATIBLE_LICENSE_SUBSTRINGS:
+                    self.assertNotIn(
+                        term, combined,
+                        f"License ALLOWED but contains blocklisted term '{term}': {lic_obj!r}"
+                    )
+            else:
+                # Blocked — must contain at least one blocklisted substring.
+                matched = any(term in combined for term in _mod._INCOMPATIBLE_LICENSE_SUBSTRINGS)
+                self.assertTrue(
+                    matched,
+                    f"License BLOCKED but no blocklisted term matched: {lic_obj!r}"
+                )
 
 
 class TestSourceKeyFromGeojsonPath(unittest.TestCase):

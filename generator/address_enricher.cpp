@@ -6,7 +6,6 @@
 
 #include "indexer/custom_keyvalue.hpp"
 #include "indexer/ftypes_matcher.hpp"
-#include "indexer/imported_source.hpp"
 #include "indexer/search_string_utils.hpp"
 
 #include "geometry/distance_on_sphere.hpp"
@@ -138,7 +137,7 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
       {
         indexer::CustomKeyValue kv;
         kv.Add(indexer::kOpenAddressesEditableKey, e.m_editable ? 1 : 0);
-        fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_IDS, kv.ToString());
+        fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_KEYVALUES, kv.ToString());
       }
       auto & params = fb.GetParams();
       params.SetStreet(e.m_street);
