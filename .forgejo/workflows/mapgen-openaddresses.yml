@@ -48,26 +48,6 @@ jobs:
           echo "collection-name=${COLLECTION_NAME}" >> "$GITHUB_OUTPUT"
           echo "download-url=${DOWNLOAD_URL}" >> "$GITHUB_OUTPUT"
 
-      - name: Download OpenAddresses collection
-        shell: bash
-        run: |
-          COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
-          DOWNLOAD_URL="${{ steps.resolve.outputs.download-url }}"
-          DEST="/home/planet/open-addresses/collection-${COLLECTION_NAME}.zip"
-          mkdir -p /home/planet/open-addresses
-
-          echo "Downloading collection ${COLLECTION_NAME} to ${DEST} ..."
-          [ -f "${DEST}" ] && mv -f "${DEST}" "${DEST}.bak"
-          curl -fsSL -o "${DEST}" "${DOWNLOAD_URL}"
-          echo "Downloaded $(du -sh "${DEST}" | cut -f1) to ${DEST}"
-
-          curl -X POST https://comaps.zulipchat.com/api/v1/messages \
-            -u $ZULIP_BOT_EMAIL:$ZULIP_API_KEY \
-            --data-urlencode type=stream \
-            --data-urlencode 'to="DevOps"' \
-            --data-urlencode topic=codeberg-bot \
-            --data-urlencode "content=OpenAddresses collection ${COLLECTION_NAME} downloaded."
-
       - name: Checkout main repo
         shell: bash
         run: |
@@ -77,37 +57,24 @@ jobs:
             -b $FORGEJO_REF_NAME --single-branch \
             $FORGEJO_SERVER_URL/$FORGEJO_REPOSITORY.git comaps
 
-      - name: Install Python dependencies
-        shell: bash
-        # shapely was added to requirements.txt in this PR but the pinned container
-        # image predates it. Install at runtime until the image is rebuilt.
-        # TODO: remove this step once maps_generator image is rebuilt with new requirements.txt
-        run: |
-          pip install --quiet "shapely>=2.0"
-
-      - name: Run OpenAddresses preprocessor
+      - name: Download and preprocess OpenAddresses
         shell: bash
         run: |
-          COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
-          ZIP="/home/planet/open-addresses/collection-${COLLECTION_NAME}.zip"
-          STAGING_DIR="/home/planet/open-addresses/staging-${COLLECTION_NAME}"
-          DEST_DIR="/home/planet/open-addresses/addresses"
+          mkdir -p /home/planet/open-addresses/addresses
 
-          mkdir -p "${DEST_DIR}"
-
-          export SKIP_DOWNLOAD=1
-          export OA_ZIP_PATH="${ZIP}"
-          export OA_OUTPUT_DIR="${STAGING_DIR}"
-          export OA_COLLECTION_NAME="${COLLECTION_NAME}"
           export OA_COLLECTION_ID="${{ inputs.oa-collection-id }}"
+          export OA_COLLECTION_NAME="${{ steps.resolve.outputs.collection-name }}"
           export OA_API_TOKEN="${OA_API_TOKEN}"
           export COMAPS_DIR="${HOME}/comaps"
+          export OA_ZIP_PATH="/home/planet/open-addresses/collection-${OA_COLLECTION_NAME}.zip"
+          export OA_OUTPUT_DIR="/home/planet/open-addresses/staging-${OA_COLLECTION_NAME}"
 
           bash "${COMAPS_DIR}/tools/unix/run_oa_preprocessor.sh"
 
+          DEST_DIR="/home/planet/open-addresses/addresses"
           echo "Copying .tempaddr files to ${DEST_DIR} ..."
           shopt -s nullglob
-          for f in "${STAGING_DIR}"/*.tempaddr; do
+          for f in "${OA_OUTPUT_DIR}"/*.tempaddr; do
             basename=$(basename "${f}")
             cp "${f}" "${DEST_DIR}/${basename}.tmp" && mv "${DEST_DIR}/${basename}.tmp" "${DEST_DIR}/${basename}"
           done
@@ -118,4 +85,4 @@ jobs:
             --data-urlencode type=stream \
             --data-urlencode 'to="DevOps"' \
             --data-urlencode topic=codeberg-bot \
-            --data-urlencode "content=OpenAddresses preprocessor finished for collection ${COLLECTION_NAME}. Copied to ${DEST_DIR}."
+            --data-urlencode "content=OpenAddresses preprocessor finished for collection ${OA_COLLECTION_NAME}. Copied to ${DEST_DIR}."

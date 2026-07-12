@@ -58,6 +58,7 @@ public:
       /// @see EditableMapObject::ForEachMetadataItem.
       case MetadataID::FMD_DESCRIPTION:
       case MetadataID::FMD_CUSTOM_KEYVALUES:
+      case MetadataID::FMD_IMPORTED_SOURCE:
       case MetadataID::FMD_PRICE_RATES:
       case MetadataID::FMD_RATINGS:
       case MetadataID::FMD_EXTERNAL_URI: break;

@@ -5,6 +5,8 @@ set(SRC
   processor.hpp
   tiger_parser.cpp
   tiger_parser.hpp
+  oa_processor.cpp
+  oa_processor.hpp
 )
 
 omim_add_library(${PROJECT_NAME} ${SRC})
@@ -22,6 +24,12 @@ target_link_libraries(${PROJECT_NAME}
 
 omim_add_executable(address_parser_tool parser_tool.cpp)
 target_link_libraries(address_parser_tool
+  ${PROJECT_NAME}
+  gflags::gflags
+)
+
+omim_add_executable(oa_processor_tool oa_processor_tool.cpp)
+target_link_libraries(oa_processor_tool
   ${PROJECT_NAME}
   gflags::gflags
 )

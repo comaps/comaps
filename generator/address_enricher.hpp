@@ -20,15 +20,31 @@ class AddressEnricher
   static double constexpr kDistanceThresholdM = 50.0;
 
 public:
-  // .tempaddr file-format header: magic byte + version.
   static constexpr uint8_t kTempAddrMagic = 0xFF;
-  static constexpr uint8_t kTempAddrVersion = 1;
+  static constexpr uint8_t kTempAddrVersion = 2;
 
   struct RawEntryBase
   {
     std::string m_from, m_to, m_street, m_postcode;
     feature::InterpolType m_interpol = feature::InterpolType::None;
     bool m_editable = true;
+    std::string m_sourceName, m_licenseUrl, m_licenseName;
+
+    enum Flags : uint8_t
+    {
+      FlagSourceName  = 1 << 0,
+      FlagLicenseUrl  = 1 << 1,
+      FlagLicenseName = 1 << 2,
+    };
+
+    uint8_t GetFlags() const
+    {
+      uint8_t f = 0;
+      if (!m_sourceName.empty())  f |= FlagSourceName;
+      if (!m_licenseUrl.empty())  f |= FlagLicenseUrl;
+      if (!m_licenseName.empty()) f |= FlagLicenseName;
+      return f;
+    }
 
     /// @name Used to compare house numbers by its integer value.
     /// @{
@@ -47,6 +63,12 @@ public:
 
       WriteToSink(sink, static_cast<uint8_t>(m_interpol));
       WriteToSink(sink, static_cast<uint8_t>(m_editable ? 1 : 0));
+
+      uint8_t const flags = GetFlags();
+      WriteToSink(sink, flags);
+      if (flags & FlagSourceName)  rw::Write(sink, m_sourceName);
+      if (flags & FlagLicenseUrl)  rw::Write(sink, m_licenseUrl);
+      if (flags & FlagLicenseName) rw::Write(sink, m_licenseName);
     }
 
     template <class TSource>
@@ -59,6 +81,11 @@ public:
 
       m_interpol = static_cast<feature::InterpolType>(ReadPrimitiveFromSource<uint8_t>(src));
       m_editable = ReadPrimitiveFromSource<uint8_t>(src) != 0;
+
+      uint8_t const flags = ReadPrimitiveFromSource<uint8_t>(src);
+      if (flags & FlagSourceName)  rw::Read(src, m_sourceName);
+      if (flags & FlagLicenseUrl)  rw::Read(src, m_licenseUrl);
+      if (flags & FlagLicenseName) rw::Read(src, m_licenseName);
     }
   };
 

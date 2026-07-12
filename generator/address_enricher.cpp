@@ -112,9 +112,8 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
   CHECK_GREATER_OR_EQUAL(src.Size(), 2, ("tempaddr file too small or empty:", path));
   uint8_t const magic = ReadPrimitiveFromSource<uint8_t>(src);
   CHECK_EQUAL(magic, kTempAddrMagic,
-              ("Old-format tempaddr file. Delete cached .tempaddr files and regenerate:", path));
-  uint8_t const version = ReadPrimitiveFromSource<uint8_t>(src);
-  CHECK_EQUAL(version, kTempAddrVersion, ("Unsupported tempaddr version:", version, path));
+              ("Bad tempaddr file. Delete cached .tempaddr files and regenerate:", path));
+  ReadPrimitiveFromSource<uint8_t>(src);  // version byte — ignored
 
   while (src.Size())
   {
@@ -138,6 +137,19 @@ void AddressEnricher::ProcessRawEntries(std::string const & path, TFBCollectFn c
         indexer::CustomKeyValue kv;
         kv.Add(indexer::kOpenAddressesEditableKey, e.m_editable ? 1 : 0);
         fb.GetMetadata().Set(feature::Metadata::FMD_CUSTOM_KEYVALUES, kv.ToString());
+      }
+
+      if (!e.m_sourceName.empty() || !e.m_licenseUrl.empty() || !e.m_licenseName.empty())
+      {
+        std::string attr;
+        if (!e.m_sourceName.empty())
+          attr += "\"source_name\":\"" + e.m_sourceName + "\"";
+        if (!e.m_licenseUrl.empty())
+          attr += (attr.empty() ? "" : ",") + std::string("\"license_url\":\"") + e.m_licenseUrl + "\"";
+        if (!e.m_licenseName.empty())
+          attr += (attr.empty() ? "" : ",") + std::string("\"license_name\":\"") + e.m_licenseName + "\"";
+        attr = "{" + attr + "}";
+        fb.GetMetadata().Set(feature::Metadata::FMD_IMPORTED_SOURCE, attr);
       }
       auto & params = fb.GetParams();
       params.SetStreet(e.m_street);

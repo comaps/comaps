@@ -6,4 +6,3 @@ filelock==3.0.10
 beautifulsoup4==4.9.1
 requests>=2.31.0
 requests_file==1.5.1
-shapely>=2.0

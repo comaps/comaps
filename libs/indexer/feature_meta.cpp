@@ -350,6 +350,7 @@ string ToString(Metadata::EType type)
   case Metadata::FMD_ROOMS: return "rooms";
   case Metadata::FMD_CHARGE: return "charge";
   case Metadata::FMD_POPULATION: return "population";
+  case Metadata::FMD_IMPORTED_SOURCE: return "imported_source";
   case Metadata::FMD_COUNT: CHECK(false, ("FMD_COUNT can not be used as a type."));
   };
 

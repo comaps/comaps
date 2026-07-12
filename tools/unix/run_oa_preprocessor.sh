@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# run_oa_preprocessor.sh — Download an OpenAddresses collection and run the CoMaps preprocessor.
+# run_oa_preprocessor.sh — Download an OpenAddresses collection, extract addresses
+# as TSV, then run the C++ oa_processor_tool to write .tempaddr files.
 #
 # Required environment variables:
 #   OA_API_TOKEN         Bearer token for batch.openaddresses.io
@@ -22,20 +23,19 @@ set -euo pipefail
 
 OA_ZIP_PATH="${OA_ZIP_PATH:-/tmp/collection-oa-${OA_COLLECTION_NAME}.zip}"
 OA_OUTPUT_DIR="${OA_OUTPUT_DIR:-/tmp/oa-out-${OA_COLLECTION_NAME}}"
-BORDERS_DIR="${COMAPS_DIR}/data/borders"
-PREPROCESSOR="${COMAPS_DIR}/tools/python/maps_generator/generator/openaddresses_preprocessor.py"
 SKIP_DOWNLOAD="${SKIP_DOWNLOAD:-0}"
+
+# Path to oa_processor_tool.  Override via OA_PROCESSOR_TOOL if it's not on PATH
+# (e.g. when built in a non-standard location like omim-build-release/).
+OA_PROCESSOR_TOOL="${OA_PROCESSOR_TOOL:-oa_processor_tool}"
+
+PREPROCESSOR="${COMAPS_DIR}/tools/python/maps_generator/generator/openaddresses_preprocessor.py"
 
 echo "=== OpenAddresses preprocessor for collection ${OA_COLLECTION_NAME} (ID: ${OA_COLLECTION_ID}) ==="
 
 # --- Download ---
 if [ "${SKIP_DOWNLOAD}" != "1" ]; then
     echo "Resolving download URL ..."
-    # Two-step download: the API returns a 302 redirect to the actual file host.
-    # We resolve the redirect URL first (without -L so %{redirect_url} is populated),
-    # then download from the resolved URL without the Bearer token.
-    # Sending the Authorization header directly to the file host may cause errors
-    # on some S3-compatible hosts that use their own auth in the URL.
     DOWNLOAD_URL=$(curl -fsS \
         -H "Authorization: Bearer ${OA_API_TOKEN}" \
         -w "%{redirect_url}" -o /dev/null \
@@ -55,24 +55,20 @@ else
     [ -f "${OA_ZIP_PATH}" ] || { echo "ERROR: ${OA_ZIP_PATH} does not exist" >&2; exit 1; }
 fi
 
-# --- Run preprocessor ---
+# --- Run pipeline: Python (TSV) | C++ (.tempaddr) ---
 echo "Preparing output directory: ${OA_OUTPUT_DIR} ..."
 rm -rf "${OA_OUTPUT_DIR}.bak"
 [ -d "${OA_OUTPUT_DIR}" ] && mv -fT "${OA_OUTPUT_DIR}" "${OA_OUTPUT_DIR}.bak" || true
 mkdir -p "${OA_OUTPUT_DIR}"
 
-PREPROCESSOR_ARGS=(
-    "${OA_ZIP_PATH}"
-    "${OA_OUTPUT_DIR}"
-    --borders-dir "${BORDERS_DIR}"
-)
-
+PYTHON_ARGS=("${OA_ZIP_PATH}")
 if [ -n "${OA_SOURCES_DIR:-}" ]; then
-    PREPROCESSOR_ARGS+=(--oa-sources-dir "${OA_SOURCES_DIR}")
+    PYTHON_ARGS+=(--oa-sources-dir "${OA_SOURCES_DIR}")
 fi
 
-echo "Running preprocessor ..."
-python3 "${PREPROCESSOR}" "${PREPROCESSOR_ARGS[@]}"
+echo "Running preprocessor pipeline ..."
+python3 "${PREPROCESSOR}" "${PYTHON_ARGS[@]}" \
+    | "${OA_PROCESSOR_TOOL}" --data_path "${COMAPS_DIR}/data" --output_path "${OA_OUTPUT_DIR}"
 
 echo ""
 echo "=== Done. Output in ${OA_OUTPUT_DIR} ==="
