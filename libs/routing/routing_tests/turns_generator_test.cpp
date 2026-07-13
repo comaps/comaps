@@ -1,11 +1,13 @@
 #include "testing/testing.hpp"
 
+#include "routing/routing_tests/road_graph_builder.hpp"
 #include "routing/routing_tests/tools.hpp"
 
 #include "routing/car_directions.hpp"
 #include "routing/loaded_path_segment.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_result_graph.hpp"
+#include "routing/routing_settings.hpp"
 #include "routing/turns.hpp"
 #include "routing/turns_generator.hpp"
 #include "routing/turns_generator_utils.hpp"
@@ -21,6 +23,13 @@
 #include <string>
 #include <vector>
 
+namespace routing
+{
+void GetTurnDirectionBasic(turns::IRoutingResult const & result, size_t outgoingSegmentIndex,
+                           NumMwmIds const & numMwmIds, RoutingSettings const & vehicleSettings,
+                           turns::TurnItem & turn);
+}  // namespace routing
+
 namespace turn_generator_test
 {
 using namespace routing;
@@ -33,11 +42,25 @@ class RoutingResultTest : public IRoutingResult
 public:
   explicit RoutingResultTest(TUnpackedPathSegments const & segments) : m_segments(segments) {}
 
+  void SetPossibleTurns(size_t const ingoingCount, TurnCandidates const & turns)
+  {
+    m_ingoingCount = ingoingCount;
+    m_possibleTurns = turns;
+    m_hasPossibleTurns = true;
+  }
+
   TUnpackedPathSegments const & GetSegments() const override { return m_segments; }
 
   void GetPossibleTurns(SegmentRange const & segmentRange, m2::PointD const & junctionPoint, size_t & ingoingCount,
                         TurnCandidates & outgoingTurns) const override
   {
+    if (m_hasPossibleTurns)
+    {
+      ingoingCount = m_ingoingCount;
+      outgoingTurns = m_possibleTurns;
+      return;
+    }
+
     outgoingTurns.candidates.emplace_back(0.0, Segment(), ftypes::HighwayClass::Tertiary, false);
     outgoingTurns.isCandidatesAngleValid = false;
   }
@@ -62,6 +85,9 @@ public:
 
 private:
   TUnpackedPathSegments m_segments;
+  size_t m_ingoingCount = 0;
+  TurnCandidates m_possibleTurns;
+  bool m_hasPossibleTurns = false;
 };
 
 UNIT_TEST(TestFixupTurns)
@@ -228,6 +254,120 @@ UNIT_TEST(TestCheckUTurnOnRoute)
   // Empty path test.
   TurnItem turn3;
   TEST_EQUAL(CheckUTurnOnRoute(resultTest, 3 /* outgoingSegmentIndex */, NumMwmIds(), vehicleSettings, turn3), 0, ());
+}
+
+UNIT_TEST(CheckUTurnOnRoute_ContinuousHairpin)
+{
+  NumMwmId constexpr kMwmId = 0;
+  uint32_t constexpr kFeatureId = 1;
+  uint32_t constexpr kIngoingSegmentIdx = 10;
+
+  auto const TestContinuousHairpin = [&](bool const forward)
+  {
+    TUnpackedPathSegments pathSegments(3, LoadedPathSegment());
+    pathSegments[0].m_roadNameInfo = {"A road", "", "", "", "", false};
+    pathSegments[0].m_highwayClass = ftypes::HighwayClass::Trunk;
+    pathSegments[0].m_path = {{{0, 0}, 0}, {{0, 1}, 0}};
+
+    pathSegments[1] = pathSegments[0];
+    pathSegments[1].m_path = {{{0, 1}, 0}, {{0.2, 0}, 0}};
+
+    if (forward)
+    {
+      pathSegments[0].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx, true /* forward */);
+      pathSegments[1].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx + 1, true /* forward */);
+    }
+    else
+    {
+      pathSegments[0].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx + 1, false /* forward */);
+      pathSegments[1].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx, false /* forward */);
+    }
+
+    RoutingResultTest resultTest(pathSegments);
+    TurnItem turn;
+    TEST_EQUAL(CheckUTurnOnRoute(resultTest, 1 /* outgoingSegmentIndex */, NumMwmIds(),
+                                 GetRoutingSettings(VehicleType::Car), turn),
+               0, (forward));
+    TEST_EQUAL(turn.m_turn, CarDirection::None, (forward));
+  };
+
+  TestContinuousHairpin(true /* forward */);
+  TestContinuousHairpin(false /* forward */);
+}
+
+UNIT_TEST(CheckUTurnOnRoute_WideUTurnOnDifferentFeatures)
+{
+  NumMwmId constexpr kMwmId = 0;
+
+  TUnpackedPathSegments pathSegments(3, LoadedPathSegment());
+  pathSegments[0].m_roadNameInfo = {"A road", "", "", "", "", false};
+  pathSegments[0].m_highwayClass = ftypes::HighwayClass::Trunk;
+  pathSegments[0].m_path = {{{0, 0}, 0}, {{0, 1}, 0}};
+  pathSegments[0].m_segments.emplace_back(kMwmId, 1 /* featureId */, 10 /* segmentIdx */, true /* forward */);
+
+  pathSegments[1] = pathSegments[0];
+  pathSegments[1].m_path = {{{0, 1}, 0}, {{0.2, 0}, 0}};
+  pathSegments[1].m_segments.clear();
+  pathSegments[1].m_segments.emplace_back(kMwmId, 2 /* featureId */, 0 /* segmentIdx */, true /* forward */);
+
+  RoutingResultTest resultTest(pathSegments);
+  TurnItem turn;
+  TEST_EQUAL(CheckUTurnOnRoute(resultTest, 1 /* outgoingSegmentIndex */, NumMwmIds(),
+                               GetRoutingSettings(VehicleType::Car), turn),
+             1, ());
+  TEST_EQUAL(turn.m_turn, CarDirection::UTurnRight, ());
+}
+
+UNIT_TEST(GetTurnDirectionBasic_ContinuousHairpin)
+{
+  NumMwmId constexpr kMwmId = 0;
+  uint32_t constexpr kFeatureId = 1;
+  uint32_t constexpr kIngoingSegmentIdx = 10;
+
+  FeatureID const featureId = routing_test::MakeTestFeatureID(kFeatureId);
+  TUnpackedPathSegments pathSegments(2, LoadedPathSegment());
+  // SP246 has no name and is identified by its ref only.
+  pathSegments[0].m_roadNameInfo = {"", "IT:VI/SP246", "", "", "", false};
+  pathSegments[0].m_highwayClass = ftypes::HighwayClass::Primary;
+  pathSegments[0].m_path = {{{0, 0}, 0}, {{0, 1}, 0}};
+  pathSegments[0].m_segmentRange =
+      SegmentRange(featureId, kIngoingSegmentIdx, kIngoingSegmentIdx, true /* forward */,
+                   pathSegments[0].m_path.front().GetPoint(), pathSegments[0].m_path.back().GetPoint());
+  pathSegments[0].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx, true /* forward */);
+
+  pathSegments[1] = pathSegments[0];
+  pathSegments[1].m_path = {{{0, 1}, 0}, {{-0.2, 0}, 0}};
+  pathSegments[1].m_segmentRange =
+      SegmentRange(featureId, kIngoingSegmentIdx + 1, kIngoingSegmentIdx + 1, true /* forward */,
+                   pathSegments[1].m_path.front().GetPoint(), pathSegments[1].m_path.back().GetPoint());
+  pathSegments[1].m_segments.clear();
+  pathSegments[1].m_segments.emplace_back(kMwmId, kFeatureId, kIngoingSegmentIdx + 1, true /* forward */);
+
+  NumMwmIds numMwmIds;
+  numMwmIds.RegisterFile(platform::CountryFile("0"));
+
+  auto const TestStraightCandidate = [&](ftypes::HighwayClass const candidateClass,
+                                         CarDirection const expectedDirection)
+  {
+    RoutingResultTest resultTest(pathSegments);
+    TurnCandidates turns;
+    turns.isCandidatesAngleValid = true;
+    double const routeAngle = CalcOneSegmentTurnAngle(TurnInfo(&pathSegments[0], &pathSegments[1]));
+    turns.candidates.emplace_back(routeAngle,
+                                  Segment(kMwmId, kFeatureId, kIngoingSegmentIdx + 1, true /* forward */),
+                                  ftypes::HighwayClass::Primary, false /* isLink */);
+    turns.candidates.emplace_back(0.0, Segment(kMwmId, 2 /* featureId */, 0 /* segmentIdx */, true /* forward */),
+                                  candidateClass, false /* isLink */);
+    resultTest.SetPossibleTurns(2 /* ingoingCount */, turns);
+
+    TurnItem turn;
+    GetTurnDirectionBasic(resultTest, 1 /* outgoingSegmentIndex */, numMwmIds,
+                          GetRoutingSettings(VehicleType::Car), turn);
+    TEST_EQUAL(turn.m_turn, expectedDirection, (candidateClass));
+  };
+
+  TestStraightCandidate(ftypes::HighwayClass::Service, CarDirection::None);
+  TestStraightCandidate(ftypes::HighwayClass::Primary, CarDirection::TurnSharpLeft);
 }
 
 UNIT_TEST(GetNextRoutePointIndex)
