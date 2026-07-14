@@ -42,7 +42,7 @@ final class CarPlayService: NSObject {
     let configuration = CPSessionConfiguration(delegate: self)
     sessionConfiguration = configuration
     searchService = CarPlaySearchService()
-    let router = CarPlayRouter()
+    let router = CarPlayRouter(displayScale: interfaceController.carTraitCollection.displayScale)
     router.addListener(self)
     router.subscribeToEvents()
     router.setupCarPlaySpeedCameraMode()
