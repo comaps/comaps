@@ -97,7 +97,14 @@ else
 fi
 
 # Install protobuf
-if ! python3 -m pip install -q "$_VENV_PROTOBUF_SPEC"; then
+# If a SOCKS proxy is configured but PySocks is not installed, pip cannot
+# connect through it. Temporarily unset the variable to bypass this.
+_PIP_INSTALL_ENV=
+if [ -n "${all_proxy:-}" ] && printf '%s' "$all_proxy" | grep -qi '^socks' && ! python3 -c 'import socks' 2>/dev/null; then
+  _PIP_INSTALL_ENV="env -u all_proxy -u ALL_PROXY"
+fi
+
+if ! $_PIP_INSTALL_ENV python3 -m pip install -q "$_VENV_PROTOBUF_SPEC"; then
   echo "ERROR: failed to install $_VENV_PROTOBUF_SPEC into the venv" >&2
   _venv_cleanup
   return 1 2>/dev/null || true
