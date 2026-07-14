@@ -154,7 +154,6 @@
 		349D1CE41E3F836900A878FD /* UIViewController+Hierarchy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 349D1CE21E3F836900A878FD /* UIViewController+Hierarchy.swift */; };
 		34AB39C21D2BD8310021857D /* MWMStopButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 34AB39C01D2BD8310021857D /* MWMStopButton.m */; };
 		34AB66051FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65C51FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm */; };
-		DEAD5411D0000000000A0001 /* RoadShield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD5411D0000000000A0002 /* RoadShield.swift */; };
 		34AB66081FC5AA320078E451 /* MWMNavigationDashboardManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65C61FC5AA320078E451 /* MWMNavigationDashboardManager.mm */; };
 		34AB660E1FC5AA320078E451 /* NavigationControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34AB65CD1FC5AA320078E451 /* NavigationControlView.xib */; };
 		34AB66111FC5AA320078E451 /* NavigationTurnsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AB65CE1FC5AA320078E451 /* NavigationTurnsView.swift */; };
@@ -194,7 +193,6 @@
 		34AB66861FC5AA330078E451 /* MWMNavigationInfoView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AB66011FC5AA320078E451 /* MWMNavigationInfoView.mm */; };
 		34AB66891FC5AA330078E451 /* NavigationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AB66021FC5AA320078E451 /* NavigationControlView.swift */; };
 		34AB668C1FC5AA330078E451 /* NavigationStreetNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AB66031FC5AA320078E451 /* NavigationStreetNameView.swift */; };
-		EA01BB01EA01BB01EA01BB01 /* NavigationLanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA01AA01EA01AA01EA01AA01 /* NavigationLanesView.swift */; };
 		34AC8FD11EFC02C000E7F910 /* MWMRoutePoint.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34AC8FC71EFC01F500E7F910 /* MWMRoutePoint.mm */; };
 		34AC8FDB1EFC07FE00E7F910 /* UILabel+NumberOfVisibleLines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AC8FD91EFC062400E7F910 /* UILabel+NumberOfVisibleLines.swift */; };
 		34B127EA1FBDD410008713D9 /* MWMRouterTransitStepInfo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 34B127E81FBDD410008713D9 /* MWMRouterTransitStepInfo.mm */; };
@@ -483,6 +481,8 @@
 		CDCA278622451F5000167D87 /* RouteInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDCA278522451F5000167D87 /* RouteInfo.swift */; };
 		CDCA278E2248F34C00167D87 /* MWMRoutingManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = CDCA278B2248F34C00167D87 /* MWMRoutingManager.mm */; };
 		CE8597442FC10A4500D250DC /* libi18n.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CE8597432FC10A4500D250DC /* libi18n.a */; };
+		DEAD5411D0000000000A0001 /* RoadShield.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAD5411D0000000000A0002 /* RoadShield.swift */; };
+		EA01BB01EA01BB01EA01BB01 /* NavigationLanesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA01AA01EA01AA01EA01AA01 /* NavigationLanesView.swift */; };
 		ED0B1C312BC2951F00FB8EDD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = ED0B1C302BC2951F00FB8EDD /* PrivacyInfo.xcprivacy */; };
 		ED0B1FEF2CAA9A25006E31A4 /* UIView+Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0B1FEE2CAA9A25006E31A4 /* UIView+Highlight.swift */; };
 		ED0C54992C6E6AF000253A5F /* TrackRecordingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0C54972C6E14E800253A5F /* TrackRecordingManager.swift */; };
@@ -985,8 +985,6 @@
 		34AB39BF1D2BD8310021857D /* MWMStopButton.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMStopButton.h; sourceTree = "<group>"; tabWidth = 2; };
 		34AB39C01D2BD8310021857D /* MWMStopButton.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = MWMStopButton.m; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C51FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = "MWMNavigationDashboardManager+Entity.mm"; sourceTree = "<group>"; tabWidth = 2; };
-		DEAD5411D0000000000A0003 /* MWMRoadShieldInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMRoadShieldInfo+CPP.h"; sourceTree = "<group>"; };
-		DEAD5411D0000000000A0002 /* RoadShield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadShield.swift; sourceTree = "<group>"; };
 		34AB65C61FC5AA320078E451 /* MWMNavigationDashboardManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMNavigationDashboardManager.mm; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C71FC5AA320078E451 /* MWMNavigationDashboardManager+Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "MWMNavigationDashboardManager+Entity.h"; sourceTree = "<group>"; tabWidth = 2; };
 		34AB65C91FC5AA320078E451 /* MWMNavigationDashboardEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMNavigationDashboardEntity.h; sourceTree = "<group>"; tabWidth = 2; };
@@ -1034,7 +1032,6 @@
 		34AB66011FC5AA320078E451 /* MWMNavigationInfoView.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMNavigationInfoView.mm; sourceTree = "<group>"; tabWidth = 2; };
 		34AB66021FC5AA320078E451 /* NavigationControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationControlView.swift; sourceTree = "<group>"; };
 		34AB66031FC5AA320078E451 /* NavigationStreetNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationStreetNameView.swift; sourceTree = "<group>"; };
-		EA01AA01EA01AA01EA01AA01 /* NavigationLanesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationLanesView.swift; sourceTree = "<group>"; };
 		34AC8FC71EFC01F500E7F910 /* MWMRoutePoint.mm */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMRoutePoint.mm; sourceTree = "<group>"; tabWidth = 2; };
 		34AC8FC81EFC01F500E7F910 /* MWMRoutePoint+CPP.h */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = "MWMRoutePoint+CPP.h"; sourceTree = "<group>"; tabWidth = 2; };
 		34AC8FD91EFC062400E7F910 /* UILabel+NumberOfVisibleLines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+NumberOfVisibleLines.swift"; sourceTree = "<group>"; };
@@ -1446,6 +1443,9 @@
 		CDCA278F2248F3B800167D87 /* MWMLocationModeListener.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMLocationModeListener.h; sourceTree = "<group>"; tabWidth = 2; };
 		CDE0F3AD225B8D45008BA5C3 /* MWMSpeedCameraManagerMode.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MWMSpeedCameraManagerMode.h; sourceTree = "<group>"; tabWidth = 2; };
 		CE8597432FC10A4500D250DC /* libi18n.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libi18n.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEAD5411D0000000000A0002 /* RoadShield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadShield.swift; sourceTree = "<group>"; };
+		DEAD5411D0000000000A0003 /* MWMRoadShieldInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMRoadShieldInfo+CPP.h"; sourceTree = "<group>"; };
+		EA01AA01EA01AA01EA01AA01 /* NavigationLanesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationLanesView.swift; sourceTree = "<group>"; };
 		ED097E762BB80C320006ED01 /* CoMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0B1C302BC2951F00FB8EDD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		ED0B1FEE2CAA9A25006E31A4 /* UIView+Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Highlight.swift"; sourceTree = "<group>"; };
@@ -4615,7 +4615,6 @@
 				3454D7E01E07F045004AF2AD /* UITextField+RuntimeAttributes.m in Sources */,
 				4761BE2A252D3DB900EE2DE4 /* SubgroupCell.swift in Sources */,
 				1DFA2F6A20D3B57400FB2C66 /* UIColor+PartnerColor.m in Sources */,
-				9989273B2449E60200260CE2 /* BottomMenuBuilder.swift in Sources */,
 				848120732FEF20A100D4AC63 /* DirectionsStepCell.swift in Sources */,
 				993DF10F23F6BDB100AC231A /* UIActivityIndicatorRenderer.swift in Sources */,
 				ED9DDF882D6F151000645BC8 /* PlacePageTrackRecordingLayout.swift in Sources */,
@@ -5200,7 +5199,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2026.01.01;
+				MARKETING_VERSION = 2026.07.14;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5236,7 +5235,7 @@
 					"@executable_path/Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2026.01.01;
+				MARKETING_VERSION = 2026.07.14;
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.comaps;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -5294,7 +5293,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2026.01.01;
+				MARKETING_VERSION = 2026.07.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug.widgetextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5324,7 +5323,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 2026.01.01;
+				MARKETING_VERSION = 2026.07.14;
 				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.widgetextension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
