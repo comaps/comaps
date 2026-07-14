@@ -10,6 +10,96 @@ protocol CarPlayRouterListener: AnyObject {
   func routeDidFinish(_ trip: CPTrip)
 }
 
+enum CarPlayManeuverSymbol {
+  static func image(named name: String, exitNumber: Int? = nil) -> UIImage? {
+    guard let base = UIImage(named: name) else { return nil }
+    if let exitNumber, exitNumber <= 0 { return nil }
+
+    guard let black = render(base, tint: .black, exitNumber: exitNumber),
+      let white = render(base, tint: .white, exitNumber: exitNumber) else {
+      return nil
+    }
+
+    let asset = UIImageAsset()
+    asset.register(black, with: traits(for: .light, scale: base.scale))
+    asset.register(white, with: traits(for: .dark, scale: base.scale))
+    return asset.image(with: traits(for: .light, scale: base.scale))
+  }
+
+  static func resolvedVariant(of image: UIImage, style: UIUserInterfaceStyle) -> UIImage {
+    guard let asset = image.imageAsset else { return image }
+    return asset.image(with: traits(for: style, scale: image.scale))
+  }
+
+  private static func traits(for style: UIUserInterfaceStyle, scale: CGFloat) -> UITraitCollection {
+    return UITraitCollection(traitsFrom: [
+      UITraitCollection(userInterfaceStyle: style),
+      UITraitCollection(displayScale: scale),
+    ])
+  }
+
+  private static func render(_ base: UIImage, tint: UIColor, exitNumber: Int?) -> UIImage? {
+    let format = UIGraphicsImageRendererFormat()
+    format.scale = base.scale
+    format.opaque = false
+    let renderer = UIGraphicsImageRenderer(size: base.size, format: format)
+    let image = renderer.image { _ in
+      base.withRenderingMode(.alwaysTemplate)
+        .withTintColor(tint, renderingMode: .alwaysOriginal)
+        .draw(in: CGRect(origin: .zero, size: base.size))
+
+      guard let exitNumber else { return }
+      let text = String(exitNumber) as NSString
+      let font = UIFont.systemFont(ofSize: base.size.height * 0.30, weight: .bold)
+      let attributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: tint]
+      let textSize = text.size(withAttributes: attributes)
+      // Centre on the cap height (not the line box) so the digit is optically centred.
+      let origin = CGPoint(x: (base.size.width - textSize.width) / 2,
+                           y: base.size.height / 2 - font.ascender + font.capHeight / 2)
+      text.draw(at: origin, withAttributes: attributes)
+    }
+    return image.withRenderingMode(.alwaysOriginal)
+  }
+}
+
+enum CarPlayLaneSymbol {
+  static func imageSet(for lanes: [LaneInfo]) -> CPImageSet? {
+    guard !lanes.isEmpty,
+      let lightContentImage = stripImage(for: lanes, tint: .white),
+      let darkContentImage = stripImage(for: lanes, tint: .black) else {
+      return nil
+    }
+    return CPImageSet(lightContentImage: lightContentImage,
+                      darkContentImage: darkContentImage)
+  }
+
+  /// Draws the upcoming turn's lanes as one horizontal strip, centered in a 120x18pt canvas (max per Apple).
+  /// The recommended lane(s) use `tint` at full opacity; others are dimmed, mirroring Android.
+  private static func stripImage(for lanes: [LaneInfo], tint: UIColor) -> UIImage? {
+    guard !lanes.isEmpty else { return nil }
+    let maxWidth: CGFloat = 120
+    let height: CGFloat = 18
+    let count = CGFloat(lanes.count)
+    let cell = min(height, maxWidth / count)
+    let xOffset = (maxWidth - cell * count) / 2
+    let config = UIImage.SymbolConfiguration(pointSize: cell * 0.85, weight: .semibold)
+    let renderer = UIGraphicsImageRenderer(size: CGSize(width: maxWidth, height: height))
+    return renderer.image { _ in
+      for (i, lane) in lanes.enumerated() {
+        let recommended = LaneWay(rawValue: lane.recommendedWay)
+        let isActive = recommended != nil && recommended != LaneWay.none
+        let way = isActive ? recommended!
+          : (lane.laneWays.compactMap { LaneWay(rawValue: $0) }.first ?? .through)
+        let color = isActive ? tint : tint.withAlphaComponent(0.38)
+        guard let symbol = UIImage(systemName: way.symbolName, withConfiguration: config)?
+          .withTintColor(color, renderingMode: .alwaysOriginal) else { continue }
+        let cellRect = CGRect(x: xOffset + CGFloat(i) * cell, y: 0, width: cell, height: height)
+        symbol.draw(in: AVMakeRect(aspectRatio: symbol.size, insideRect: cellRect))
+      }
+    }
+  }
+}
+
 
 @objc(MWMCarPlayRouter)
 final class CarPlayRouter: NSObject {
@@ -323,13 +413,11 @@ extension CarPlayRouter {
     if !attributedVariants.isEmpty {
       primaryManeuver.attributedInstructionVariants = attributedVariants
     }
-    if let imageName = routeInfo.turnImageName {
-      if routeInfo.roundExitNumber != 0,
-        let symbol = roundaboutSymbol(named: imageName, exitNumber: routeInfo.roundExitNumber) {
-        primaryManeuver.symbolImage = symbol
-      } else if let symbol = UIImage(named: imageName) {
-        primaryManeuver.symbolImage = symbol
-      }
+    if let imageName = routeInfo.turnImageName,
+      let symbol = CarPlayManeuverSymbol.image(
+        named: imageName,
+        exitNumber: routeInfo.roundExitNumber == 0 ? nil : routeInfo.roundExitNumber) {
+      primaryManeuver.symbolImage = symbol
     }
     if let estimates = createEstimates(routeInfo) {
       primaryManeuver.initialTravelEstimates = estimates
@@ -357,7 +445,7 @@ extension CarPlayRouter {
     maneuvers.append(primaryManeuver)
     // Lanes must always be the second maneuver supplied to CarPlay, per Developer guidance 2026
     // https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf
-    if !routeInfo.lanes.isEmpty, let laneImages = laneImageSet(for: routeInfo.lanes) {
+    if !routeInfo.lanes.isEmpty, let laneImages = CarPlayLaneSymbol.imageSet(for: routeInfo.lanes) {
       let laneManeuver = CPManeuver()
       laneManeuver.userInfo = CPConstants.Maneuvers.lanes
       laneManeuver.instructionVariants = []
@@ -366,7 +454,7 @@ extension CarPlayRouter {
     }
     // Always provide the next upcoming turn, as you should provide as many meaneuvers as possible
     if let imageName = routeInfo.nextTurnImageName,
-      let symbol = UIImage(named: imageName) {
+      let symbol = CarPlayManeuverSymbol.image(named: imageName) {
       let secondaryManeuver = CPManeuver()
       secondaryManeuver.userInfo = CPConstants.Maneuvers.secondary
       secondaryManeuver.instructionVariants = [L("then_turn")]
@@ -384,62 +472,6 @@ extension CarPlayRouter {
                                                               destinationRef: info.destinationRef,
                                                               destination: info.destination,
                                                               isLink: info.isLink)
-  }
-
-  /// Draw the roundabout symbol with `exitNumber` in its centre
-  private func roundaboutSymbol(named name: String, exitNumber: Int) -> UIImage? {
-    guard exitNumber > 0, let base = UIImage(named: name) else { return nil }
-    let size = base.size
-    let renderer = UIGraphicsImageRenderer(size: size)
-    let image = renderer.image { _ in
-      base.withRenderingMode(.alwaysTemplate).withTintColor(.white, renderingMode: .alwaysOriginal)
-        .draw(in: CGRect(origin: .zero, size: size))
-      let text = String(exitNumber) as NSString
-      let font = UIFont.systemFont(ofSize: size.height * 0.30, weight: .bold)
-      let attrs: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: UIColor.white]
-      let textSize = text.size(withAttributes: attrs)
-      // Centre on the cap height (not the line box) so the digit is optically centred
-      let origin = CGPoint(x: (size.width - textSize.width) / 2,
-                           y: size.height / 2 - font.ascender + font.capHeight / 2)
-      text.draw(at: origin, withAttributes: attrs)
-    }
-    return image.withRenderingMode(.alwaysOriginal)
-  }
-
-  /// Lane strip for the symbol-only second maneuver, as a `CPImageSet`.
-  /// The guidance card is a fixed dark green (`guidanceBackgroundColor`) in both CarPlay light and
-  /// dark modes, so white glyphs are used for both image variants to match the white card text.
-  private func laneImageSet(for lanes: [LaneInfo]) -> CPImageSet? {
-    guard !lanes.isEmpty, let image = laneStripImage(for: lanes, tint: .white) else {
-      return nil
-    }
-    return CPImageSet(lightContentImage: image, darkContentImage: image)
-  }
-
-  /// Draws the upcoming turn's lanes as one horizontal strip, centered in a 120x18pt canvas (max per Apple).
-  /// The recommended lane(s) use `tint` at full opacity; others are dimmed, mirroring Android.
-  private func laneStripImage(for lanes: [LaneInfo], tint: UIColor) -> UIImage? {
-    guard !lanes.isEmpty else { return nil }
-    let maxWidth: CGFloat = 120
-    let height: CGFloat = 18
-    let count = CGFloat(lanes.count)
-    let cell = min(height, maxWidth / count)
-    let xOffset = (maxWidth - cell * count) / 2
-    let config = UIImage.SymbolConfiguration(pointSize: cell * 0.85, weight: .semibold)
-    let renderer = UIGraphicsImageRenderer(size: CGSize(width: maxWidth, height: height))
-    return renderer.image { _ in
-      for (i, lane) in lanes.enumerated() {
-        let recommended = LaneWay(rawValue: lane.recommendedWay)
-        let isActive = recommended != nil && recommended != LaneWay.none
-        let way = isActive ? recommended!
-          : (lane.laneWays.compactMap { LaneWay(rawValue: $0) }.first ?? .through)
-        let color = isActive ? tint : tint.withAlphaComponent(0.38)
-        guard let symbol = UIImage(systemName: way.symbolName, withConfiguration: config)?
-          .withTintColor(color, renderingMode: .alwaysOriginal) else { continue }
-        let cellRect = CGRect(x: xOffset + CGFloat(i) * cell, y: 0, width: cell, height: height)
-        symbol.draw(in: AVMakeRect(aspectRatio: symbol.size, insideRect: cellRect))
-      }
-    }
   }
 
   @available(iOS 18.0, *)
