@@ -31,7 +31,7 @@ class TextureManager;
 
 namespace df
 {
-double constexpr kArrowSize = 0.0008;
+double constexpr kArrowSize = 0.0012;
 
 // Constants below depend on arrow texture.
 double constexpr kArrowTextureWidth = 74.0;
@@ -51,7 +51,7 @@ std::array<float, 20> constexpr kRouteHalfWidthInPixelCar = {
     // 1   2     3     4     5     6     7     8     9     10
     1.0f, 1.2f, 1.5f, 1.5f, 1.7f, 2.0f, 2.0f, 2.3f, 2.5f, 2.7f,
     // 11   12    13    14    15   16    17    18    19     20
-    3.0f, 3.5f, 4.5f, 5.5f, 7.0, 9.0f, 10.0f, 14.0f, 22.0f, 27.0f};
+    3.0f, 3.5f, 4.5f, 9.0f, 11.0f, 12.0f, 14.0f, 18.0f, 22.0f, 26.0f};
 
 std::array<float, 20> constexpr kRouteHalfWidthInPixelTransit = {
     // 1   2     3     4     5     6     7     8     9     10

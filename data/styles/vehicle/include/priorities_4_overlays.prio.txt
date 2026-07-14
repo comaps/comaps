@@ -82,10 +82,10 @@ highway-secondary_link-bridge                       # pathtext z16- (also has li
 highway-secondary_link-tunnel                       # pathtext z16- (also has line z13-, line(casing) z14-)
 === 4050
 
-highway-unclassified                                # pathtext z14- (also has line z11-)
-highway-unclassified-area                           # pathtext z14- (also has line z11-)
-highway-unclassified-bridge                         # pathtext z14- (also has line z11-, line::bridgeblack z14-, line::bridgewhite z14-)
-highway-unclassified-tunnel                         # pathtext z14- (also has line z11-, line(casing) z16-)
+highway-unclassified                                # pathtext z14- (also has line z11-, line(casing) z15-)
+highway-unclassified-area                           # pathtext z14- (also has line z11-, line(casing) z15-)
+highway-unclassified-bridge                         # pathtext z14- (also has line z11-, line::bridgeblack z14-, line::bridgewhite z14-, line(casing) z15-)
+highway-unclassified-tunnel                         # pathtext z14- (also has line z11-, line(casing) z15-)
 === 4000
 
 highway-residential                                 # pathtext z12- (also has shield::shield z15-, line z12-, line(casing) z15-)
@@ -115,9 +115,9 @@ highway-residential-bridge::shield                  # shield::shield z15- (also 
 highway-residential-tunnel::shield                  # shield::shield z15- (also has pathtext z12-, line z12-, line(casing) z15-)
 === 3910
 
-highway-road                                        # pathtext z14- (also has line z12-)
-highway-road-bridge                                 # pathtext z14- (also has line z12-)
-highway-road-tunnel                                 # pathtext z14- (also has line z12-)
+highway-road                                        # pathtext z14- (also has line z12-, line(casing) z15-)
+highway-road-bridge                                 # pathtext z14- (also has line z12-, line(casing) z15-)
+highway-road-tunnel                                 # pathtext z14- (also has line z12-, line(casing) z15-)
 === 3900
 
 highway-tertiary_link                               # pathtext z18- (also has line z14-, line(casing) z15-)
@@ -303,9 +303,9 @@ amenity-motorcycle_rental                           # icon z18- (also has captio
 shop-car                                            # icon z17-
 === 2400
 
-highway-living_street                               # pathtext z14- (also has line z12-)
-highway-living_street-bridge                        # pathtext z14- (also has line z12-)
-highway-living_street-tunnel                        # pathtext z14- (also has line z12-, line(casing) z16-)
+highway-living_street                               # pathtext z14- (also has line z12-, line(casing) z15-)
+highway-living_street-bridge                        # pathtext z14- (also has line z12-, line(casing) z15-)
+highway-living_street-tunnel                        # pathtext z14- (also has line z12-, line(casing) z15-)
 === 2350
 
 highway-service                                     # pathtext z16- (also has line z14-)

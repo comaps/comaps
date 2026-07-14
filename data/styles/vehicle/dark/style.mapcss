@@ -51,7 +51,7 @@ colors
   Arrow3DObsolete-color: #82AAC8;
   Arrow3DObsolete-opacity: 0.72;
   Arrow3DShadow-color: #3C3C3C;
-  Arrow3DShadow-opacity: 0.24;
+  Arrow3DShadow-opacity: 0.40;
   Arrow3DOutline-color: #FFFFFF;
   TrackHumanSpeed-color: #FF9800;
   TrackCarSpeed-color: #FFCA28;

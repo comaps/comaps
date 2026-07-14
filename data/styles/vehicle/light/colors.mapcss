@@ -1,6 +1,6 @@
 /* BASE */
 
-@background: #E3E1D2;
+@background: #C0CEB2;
 
 /* BOUNDARIES */
 @border_country: #63635C;
@@ -15,13 +15,13 @@
 @primary0:  #FF8726;
 @primary1: #FFAD57;
 @primary2: #FFAD57;
-@secondary0: #FFFFFF;
-@residential: #FCFCFC;
-@unclassified: #FCFCFC;
+@secondary0: #F4F0E8;
+@residential: #F4F4EF;
+@unclassified: #F5F2EA;
 @pedestrian: #FCFCFC;
 @footway: #FCFCFC;
-@cycleway: #5654FF;
-@construction: #BBBBAA;
+@cycleway: #4040DD;
+@construction: #A8A898;
 @track: #635730;
 @path: #A05012;
 @bridleway: #3D361E;
@@ -64,35 +64,31 @@
 @aerodrome5: #D8D1E8;
 
 /* NATURAL */
-@glacier: #FFFFFF;
-@water: #8BD3E0;
-@water_bad: #9dc7c1;
-@river: #36B0BF;
-@wetland: #c9ddd6;
-@forest:  #C8DBAD;
-/*
-@park: #C8DBAD;
-@natpark: #C8DBAD;
-*/
-@beach: #FCEC7E;
-@barerock: #D9D2BF;
-@desert: #EEE5B2;
+@glacier: #EEEEEE;
+@water: #7CBCC9;
+@water_bad: #8DB4AE;
+@river: #2A94A2;
+@wetland: #A0BDB5;
+@forest:  #AFC498;
+@beach: #E0D070;
+@barerock: #BAB3A0;
+@desert: #CAC29E;
 
 /*forest-park*/
-@green0: #C6D9AB;
-@green1: #C6D9AB;
-@green2: #C6D9AB;
-@green3: #C6D9AB;
-@green4: #C6D9AB;
-@green5: #C6D9AB;
-@green6: #888C38;
+@green0: #AFC29A;
+@green1: #AFC29A;
+@green2: #AFC29A;
+@green3: #AFC29A;
+@green4: #AFC29A;
+@green5: #AFC29A;
+@green6: #737830;
 
 /* BUILDINGS */
 @housenumber: #65655E;
 @building_label: #61615A;
-@building0: #D4D3CA;
-@building1: #C7C6BF;
-@building_border0: #D4D3CA;
+@building0: #C0BFB7;
+@building1: #B4B3AD;
+@building_border0: #A8A79C;
 
 /* LANDUSE */
 
@@ -100,16 +96,16 @@
 @unversity: #F8E4BA;
 @hospital: #F8D9D9;
 */
-@general_area: #FAEFE1;
-@industrial: #E1DCE3;
-@construction_area: #E4E3E6;
-@sport: #C8DBAD;
+@general_area: #DED3C5;
+@industrial: #D0CBD2;
+@construction_area: #D2D1D4;
+@sport: #AFC498;
 @parking: #E8EFEC;
 @parking_l: #E1EDE9;
-@military: #E53935;
-@prison: #727272;
-@farmland: #ededc3;
-@farmyard: #e8dabb;
+@military: #C62828;
+@prison: #666666;
+@farmland: #CEC898;
+@farmyard: #C4B694;
 
 /* BARRIERS */
 @fence: #888888;

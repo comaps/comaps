@@ -178,7 +178,7 @@ line|z18-[highway=trunk_link]
 
 line|z10-[highway=primary],
 line|z11-[highway=primary_link],
-{text: name;text-color: @label_medium;text-halo-opacity: 0.8;text-halo-radius: 1;text-halo-color: @label_halo_light;}
+{text: name;text-color: @label_medium;text-halo-opacity: 0.9;text-halo-radius: 1;text-halo-color: @label_halo_light;}
 
 line|z10[highway=primary],
 {font-size: 12.5;text-halo-color: @label_halo_medium;}
@@ -211,7 +211,7 @@ line|z18-[highway=primary_link],
 
 line|z10-[highway=secondary],
 line|z16-[highway=secondary_link]
-{text: name;text-color: @label_medium;text-halo-opacity: 0.8;text-halo-radius: 1;text-halo-color: @label_halo_medium;}
+{text: name;text-color: @label_medium;text-halo-opacity: 0.9;text-halo-radius: 1;text-halo-color: @label_halo_medium;}
 
 line|z10-11[highway=secondary]
 {font-size: 12;text-color: @label_light;}
@@ -240,7 +240,7 @@ line|z16-[railway=rail][usage=tourism],
 line|z12-[highway=residential],
 line|z12-[highway=tertiary],
 line|z18-[highway=tertiary_link]
-{text: name;text-color: @label_medium;text-halo-opacity: 0.8;text-halo-radius: 1;text-halo-color: @label_halo_medium;}
+{text: name;text-color: @label_medium;text-halo-opacity: 0.9;text-halo-radius: 1;text-halo-color: @label_halo_medium;}
 
 line|z12-13[highway=residential],
 line|z12-13[highway=tertiary]

@@ -32,7 +32,7 @@ colors
   RoutePreview-color: #000000;
   RoutePreview-opacity: 0.3;
   RouteMaskCar-color: #000000;
-  RouteMaskCar-opacity: 0.3;
+  RouteMaskCar-opacity: 0.2;
   RouteFirstSegmentArrowsMaskCar-color: #033B80;
   RouteFirstSegmentArrowsMaskCar-opacity: 0.0;
   RouteArrowsMaskCar-color: #033B80;
@@ -51,7 +51,7 @@ colors
   Arrow3DObsolete-color: #82AAC8;
   Arrow3DObsolete-opacity: 0.72;
   Arrow3DShadow-color: #3C3C3C;
-  Arrow3DShadow-opacity: 0.24;
+  Arrow3DShadow-opacity: 0.40;
   Arrow3DOutline-color: #FFFFFF;
   TrackHumanSpeed-color: #1D339E;
   TrackCarSpeed-color: #7C8EDE;

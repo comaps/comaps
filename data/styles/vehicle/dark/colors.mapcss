@@ -36,13 +36,13 @@
 /* 3.NATURAL */
 /* 3.1 Main natural */
 
-@glacier: #111111;
-@water: #002222;
+@glacier: #242222;
+@water: #273434;
 @water_bad: #00261e;
-@river: #062026;
+@river: #2B373A;
 @wetland: #001919;
-@beach: #28281A;
-@barerock: #302A2A;
+@beach: #3A3A2B;
+@barerock: #3A3535;
 @desert: #191007;
 
 /*3.2 Vegetation*/
@@ -64,15 +64,15 @@
 @hospital: #261916;
 */
 @general_area: #000000;
-@industrial: #0D0A0D;
-@construction_area: #0D0A0D;
-@sport: #070F0A;
-@military: #B71C1C;
-@prison: #7f7f7f;
-@parking: #191509;
-@parking_l: #1F190A;
-@farmland: #151500;
-@farmyard: #212106;
+@industrial: #080608;
+@construction_area: #080608;
+@sport: #040805;
+@military: #8B1515;
+@prison: #555555;
+@parking: #2C2A25;
+@parking_l: #322F29;
+@farmland: #0D0D00;
+@farmyard: #161604;
 
 /*4.2 Aerodrome*/
 
@@ -92,19 +92,19 @@
 
 @building0: #191919;
 @building1: #1D1D1D;
-@building_border0: #1C1C1C;
+@building_border0: #343131;
 
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@trunk0: #4C2A19;
-@trunk1: #4C2A17;
-@primary0:  #5E351D;
-@primary1: #5E351D;
-@primary2: #5E351D;
-@secondary0: #3B3939;
-@residential: #363434;
-@unclassified: #333131;
+@trunk0: #8A4A28;
+@trunk1: #8A4A28;
+@primary0:  #8C5030;
+@primary1: #8C5030;
+@primary2: #8C5030;
+@secondary0: #5C5040;
+@residential: #3F3C3A;
+@unclassified: #3C3A38;
 @pedestrian: #4D4744;
 @footway: #2B2827;
 @cycleway: #6E3D47;
@@ -117,7 +117,7 @@
 
 @bridge_background: #121212;
 @bridge_casing: #0D0D0D;
-@casing_road:  #0D0D0D;
+@casing_road:  #2F2C2C;
 
 /* 5.3 Tunnels */
 

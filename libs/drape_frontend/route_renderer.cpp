@@ -55,7 +55,7 @@ std::array<float, 20> constexpr kPreviewPointRadiusInPixel = {
     // 11   12    13    14    15    16    17    18    19     20
     2.5f, 2.5f, 2.5f, 2.5f, 3.0f, 4.0f, 4.5f, 4.5f, 5.0f, 5.5f};
 
-int constexpr kArrowAppearingZoomLevel = 14;
+int constexpr kArrowAppearingZoomLevel = 13;
 int constexpr kInvalidGroup = -1;
 
 uint32_t constexpr kPreviewPointsCount = 512;
