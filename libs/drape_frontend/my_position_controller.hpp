@@ -7,7 +7,6 @@
 
 #include "drape/pointers.hpp"
 
-#include "routing/base/followed_polyline.hpp"
 #include "shaders/program_manager.hpp"
 
 #include "geometry/point2d.hpp"
@@ -19,6 +18,7 @@
 
 #include <cstdint>
 #include <functional>
+#include <vector>
 
 class ScreenBase;
 
@@ -38,19 +38,24 @@ class DrapeNotifier;
 
 struct NavigationContext
 {
+  static double constexpr kSubPolylineDistanceM = 5000.0;
+
   bool m_isNavigable = false;
   double m_distanceToNextTurn = 0.0;
   double m_speedLimit = 0.0;
-  routing::FollowedPolyline const * m_followedPolyline = nullptr;
+  m2::PointD m_currentRoutePoint = m2::PointD::Zero();
+  std::vector<m2::PointD> m_routeSubPolyline;
 
   NavigationContext() = default;
 
   NavigationContext(bool navigable, double distanceToTurn, double speedLimit,
-                    routing::FollowedPolyline const & followedPolyline)
+                    m2::PointD const & routePoint,
+                    std::vector<m2::PointD> && polylineSubset)
     : m_isNavigable(navigable)
     , m_distanceToNextTurn(distanceToTurn)
     , m_speedLimit(speedLimit)
-    , m_followedPolyline(&followedPolyline)
+    , m_currentRoutePoint(routePoint)
+    , m_routeSubPolyline(std::move(polylineSubset))
   {}
 };
 
