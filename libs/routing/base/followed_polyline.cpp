@@ -238,33 +238,28 @@ Iter FollowedPolyline::GetClosestMatchingProjectionInInterval(m2::RectD const & 
   return nearestIter;
 }
 
-m2::PointD FollowedPolyline::GetLookaheadPoint(double lookaheadDistanceM) const
+std::vector<m2::PointD> FollowedPolyline::ExtractSubPolyline(double maxDistanceM) const
 {
+  std::vector<m2::PointD> result;
   if (!IsValid())
-    return m2::PointD();
+    return result;
+
+  result.push_back(m_current.m_pt);
 
   size_t segmentIdx = m_current.m_ind;
   m2::PointD prev = m_current.m_pt;
-
+  double remaining = maxDistanceM;
   size_t const maxSegmentIdx = m_poly.GetSize() - 1;
-  double remaining = lookaheadDistanceM;
 
-  while (segmentIdx < maxSegmentIdx)
+  while (segmentIdx < maxSegmentIdx && remaining > 0)
   {
     m2::PointD const & next = m_poly.GetPoint(segmentIdx + 1);
-    double segLen = mercator::DistanceOnEarth(prev, next);
-
-    if (remaining <= segLen)
-    {
-      double t = remaining / segLen;
-      return prev + (next - prev) * t;
-    }
-
-    remaining -= segLen;
+    remaining -= mercator::DistanceOnEarth(prev, next);
     prev = next;
-    segmentIdx += 1;
+    ++segmentIdx;
+    result.push_back(next);
   }
 
-  return m_poly.GetPoint(segmentIdx);
+  return result;
 }
 }  //  namespace routing
