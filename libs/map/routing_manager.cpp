@@ -1324,8 +1324,12 @@ void RoutingManager::SetDrapeEngine(ref_ptr<df::DrapeEngine> engine, bool is3dAl
   if (m_gpsInfoCache != nullptr)
   {
     auto routeMatchingInfo = GetRouteMatchingInfo(*m_gpsInfoCache);
+    auto const route = m_routingSession.GetRouteForTests();
+    auto subPoly = route ? route->GetFollowedPolyline().ExtractSubPolyline(df::NavigationContext::kSubPolylineDistanceM)
+                         : std::vector<m2::PointD>();
+    m2::PointD const routePt = route ? route->GetFollowedPolyline().GetCurrentIter().m_pt : m2::PointD::Zero();
     df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
-                                            m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+                                            m_routingSession.GetCurrentSpeedLimit(), routePt, std::move(subPoly));
     m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, *m_gpsInfoCache, navigationContext, routeMatchingInfo);
     m_gpsInfoCache.reset();
   }
@@ -1670,8 +1674,12 @@ void RoutingManager::OnExtrapolatedLocationUpdate(location::GpsInfo const & info
     m_gpsInfoCache = make_unique<location::GpsInfo>(gpsInfo);
 
   auto routeMatchingInfo = GetRouteMatchingInfo(gpsInfo);
+  auto const route = m_routingSession.GetRouteForTests();
+  auto subPoly = route ? route->GetFollowedPolyline().ExtractSubPolyline(df::NavigationContext::kSubPolylineDistanceM)
+                       : std::vector<m2::PointD>();
+  m2::PointD const routePt = route ? route->GetFollowedPolyline().GetCurrentIter().m_pt : m2::PointD::Zero();
   df::NavigationContext navigationContext(m_routingSession.IsNavigable(), m_routingSession.GetDistanceToNextTurn(),
-                                          m_routingSession.GetCurrentSpeedLimit(), GetRoutePolyline());
+                                          m_routingSession.GetCurrentSpeedLimit(), routePt, std::move(subPoly));
   m_drapeEngine.SafeCall(&df::DrapeEngine::SetGpsInfo, gpsInfo, navigationContext, routeMatchingInfo);
 }
 
