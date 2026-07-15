@@ -20,12 +20,10 @@
 
 #include "base/logging.hpp"
 #include "base/math.hpp"
-#include "routing/base/followed_polyline.hpp"
 
 #include <algorithm>
 #include <array>
 #include <chrono>
-#include <string>
 #include <vector>
 
 namespace df
@@ -52,6 +50,27 @@ double constexpr kMaxLookaheadTimeSec = 40.0;
 int constexpr kLookaheadSamples = 6;
 int constexpr kExtendedSamplesThresholdM = 1000;
 std::array<double, kLookaheadSamples> constexpr kLookaheadSampleMultipliers = {{0.15, 0.5, 1, 0.275, 0.35, 0.75}};
+
+m2::PointD LookaheadPoint(std::vector<m2::PointD> const & pts, double distanceM)
+{
+  if (pts.size() < 2)
+    return pts.empty() ? m2::PointD() : pts[0];
+
+  m2::PointD prev = pts[0];
+  double remaining = distanceM;
+
+  for (size_t i = 1; i < pts.size(); ++i)
+  {
+    m2::PointD const & next = pts[i];
+    double const segLen = mercator::DistanceOnEarth(prev, next);
+    if (remaining <= segLen)
+      return prev + (next - prev) * (remaining / segLen);
+    remaining -= segLen;
+    prev = next;
+  }
+
+  return pts.back();
+}
 
 inline int GetZoomLevel(ScreenBase const & screen)
 {
@@ -498,15 +517,16 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
 
   // Calculate the route direction by sampling points along the route up to the lookahead distance
   // and taking the average direction
-  if (glueArrowInRouting && navigationContext.m_followedPolyline != nullptr)
+  if (glueArrowInRouting && !navigationContext.m_routeSubPolyline.empty())
   {
     double const speedLimitMps =
         (navigationContext.m_speedLimit > 0 ? navigationContext.m_speedLimit : kDefaultLookaheadSpeedMps);
     double const lookaheadTimeSec = std::min(speedLimitMps * kLookaheadTimeSpeedRatio, kMaxLookaheadTimeSec);
     double const lookaheadDistanceM =
-        std::min(speedLimitMps * lookaheadTimeSec, navigationContext.m_distanceToNextTurn);
+        std::min(df::NavigationContext::kSubPolylineDistanceM,
+                 std::min(speedLimitMps * lookaheadTimeSec, navigationContext.m_distanceToNextTurn));
 
-    m2::PointD const currentPoint = navigationContext.m_followedPolyline->GetCurrentIter().m_pt;
+    m2::PointD const currentPoint = navigationContext.m_currentRoutePoint;
 
     int const numSamples =
         navigationContext.m_distanceToNextTurn < kExtendedSamplesThresholdM ? kLookaheadSamples / 2 : kLookaheadSamples;
@@ -517,7 +537,7 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
     for (int i = 0; i < numSamples; i++)
     {
       double const sampleDist = kLookaheadSampleMultipliers[i] * lookaheadDistanceM;
-      m2::PointD const samplePoint = navigationContext.m_followedPolyline->GetLookaheadPoint(sampleDist);
+      m2::PointD const samplePoint = LookaheadPoint(navigationContext.m_routeSubPolyline, sampleDist);
       double const angle = ang::AngleTo(currentPoint, samplePoint);
 
       if (std::isnan(angle) || std::isinf(angle))
@@ -538,8 +558,9 @@ void MyPositionController::OnLocationUpdate(location::GpsInfo const & info,
       // The angle is clamped to a cone in front of the driver to prevent situations
       // where the route direction faces the opposite way the driver is actually
       // going
-      double const bisect = ang::AngleTo(currentPoint, navigationContext.m_followedPolyline->GetLookaheadPoint(
-                                                           std::min(speedLimitMps, lookaheadDistanceM * 0.1)));
+      double const bisect = ang::AngleTo(
+          currentPoint,
+          LookaheadPoint(navigationContext.m_routeSubPolyline, std::min(speedLimitMps, lookaheadDistanceM * 0.1)));
       SetRouteDirection(location::RadiansToBearing(ang::ClampAngle(calc.GetAverage(), bisect, math::DegToRad(15.0))));
     }
   }
