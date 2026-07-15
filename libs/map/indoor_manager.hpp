@@ -40,9 +40,15 @@ public:
 
   void SetDrapeEngine(ref_ptr<df::DrapeEngine> engine);
   void SetLevelsListener(LevelsChangedFn const & fn);
+  // Called (on the Gui thread) whenever indoor mode toggles on/off, i.e. the viewport gains or
+  // loses indoor data. Used e.g. to temporarily disable 3D buildings while indoors.
+  void SetModeChangedListener(std::function<void()> const & fn);
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
+
+  // True while the viewport has indoor data and level filtering is active. Gui thread only.
+  bool IsActive() const { return !m_levels.empty(); }
 
   std::vector<std::string> GetViewportLevels() const;
   std::string GetActiveLevel() const;
@@ -53,12 +59,14 @@ private:
   void ApplyScanResult(uint64_t generation, std::vector<double> && levels);
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
+  void NotifyModeChanged();
 
   ForEachFeatureFn m_forEachFeature;
   TaskRunnerFn m_backgroundRunner;
   TaskRunnerFn m_uiRunner;
 
   LevelsChangedFn m_onLevelsChangedFn;
+  std::function<void()> m_onModeChangedFn;
 
   df::DrapeEngineSafePtr m_drapeEngine;
 

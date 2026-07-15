@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  style="@style/MwmWidget.M3.Button.IndoorLevel"
+  android:layout_width="@dimen/map_button_size"
+  android:layout_height="@dimen/map_button_size" />

@@ -51,6 +51,11 @@ void IndoorManager::SetLevelsListener(LevelsChangedFn const & fn)
   m_onLevelsChangedFn = fn;
 }
 
+void IndoorManager::SetModeChangedListener(std::function<void()> const & fn)
+{
+  m_onModeChangedFn = fn;
+}
+
 void IndoorManager::UpdateViewport(ScreenBase const & screen)
 {
   m_currentModelView = screen;
@@ -151,13 +156,17 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   if (levels == m_levels)
     return;
 
+  bool const wasActive = !m_levels.empty();
   m_levels = std::move(levels);
+  bool const isActive = !m_levels.empty();
 
-  if (m_levels.empty())
+  if (!isActive)
   {
     // No indoor data in the viewport: deactivate level filtering in drape so ordinary level-tagged
     // POIs stay visible. m_activeLevel is kept as the remembered floor for when we re-enter indoors.
     m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, indoor::kNoActiveLevel);
+    if (wasActive)
+      NotifyModeChanged();
     NotifyListener();
     return;
   }
@@ -176,6 +185,8 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   // empty (drape currently inactive) even when the remembered m_activeLevel is unchanged.
   m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, m_activeLevel);
 
+  if (!wasActive)
+    NotifyModeChanged();
   NotifyListener();
 }
 
@@ -193,4 +204,10 @@ void IndoorManager::NotifyListener()
 {
   if (m_onLevelsChangedFn)
     m_onLevelsChangedFn(GetViewportLevels(), GetActiveLevel());
+}
+
+void IndoorManager::NotifyModeChanged()
+{
+  if (m_onModeChangedFn)
+    m_onModeChangedFn();
 }

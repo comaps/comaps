@@ -48,6 +48,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.badge.BadgeUtils;
 import com.google.android.material.badge.ExperimentalBadgeUtils;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.shape.CornerFamily;
+import com.google.android.material.shape.RelativeCornerSize;
+import com.google.android.material.shape.ShapeAppearanceModel;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +68,7 @@ public class MapButtonsController extends Fragment
   FloatingActionButton mTrackRecordingStatusButton;
   @Nullable
   private LinearLayout mIndoorLevelsContainer;
+  private boolean mHasIndoorLevels = false;
 
   @Nullable
   private MyPositionButton mNavMyPosition;
@@ -150,6 +154,10 @@ public class MapButtonsController extends Fragment
 
     mButtonsMap.put(MapButtons.zoom, zoomFrame);
     mButtonsMap.put(MapButtons.myPosition, myPosition);
+    // Present only in the regular layout (not navigation/planning). When absent, the picker is simply
+    // never shown; updateIndoorLevels() also guards on a null container.
+    if (mIndoorLevelsContainer != null)
+      mButtonsMap.put(MapButtons.indoorLevels, mIndoorLevelsContainer);
 
     if (mToggleMapLayerButton != null)
       mButtonsMap.put(MapButtons.toggleMapLayer, mToggleMapLayerButton);
@@ -238,6 +246,7 @@ public class MapButtonsController extends Fragment
     switch (button)
     {
     case zoom: UiUtils.showIf(show && Config.showZoomButtons(), buttonView); break;
+    case indoorLevels: UiUtils.showIf(show && mHasIndoorLevels, buttonView); break;
     case toggleMapLayer:
       if (mToggleMapLayerButton != null)
         UiUtils.showIf(show && !isInNavigationMode(), mToggleMapLayerButton);
@@ -337,22 +346,49 @@ public class MapButtonsController extends Fragment
       return;
 
     mIndoorLevelsContainer.removeAllViews();
-    if (levels.length == 0)
-    {
-      UiUtils.hide(mIndoorLevelsContainer);
-      return;
-    }
+    mHasIndoorLevels = levels.length > 0;
 
-    for (final String level : levels)
+    for (int i = 0; i < levels.length; i++)
     {
-      final MaterialButton button =
-          new MaterialButton(requireContext(), null, com.google.android.material.R.attr.floatingActionButtonStyle);
-      button.setText(level);
+      final String level = levels[i];
+      final MaterialButton button = createIndoorLevelButton(level, i, levels.length);
+      // The active floor's button is disabled to show which level is currently selected.
       button.setEnabled(!level.equals(activeLevel));
       button.setOnClickListener(v -> IndoorManager.selectLevel(level));
       mIndoorLevelsContainer.addView(button);
     }
-    UiUtils.show(mIndoorLevelsContainer);
+
+    // Respect the current place page position: the picker hides with the zoom buttons.
+    updateButtonsVisibility();
+  }
+
+  @NonNull
+  private MaterialButton createIndoorLevelButton(@NonNull String level, int index, int count)
+  {
+    final MaterialButton button = (MaterialButton) LayoutInflater.from(requireContext())
+                                      .inflate(R.layout.map_button_indoor_level, mIndoorLevelsContainer, false);
+    button.setText(level);
+
+    // Rounded outer corners on the top-most and bottom-most buttons, squarish everywhere else, so the
+    // stack reads as one piece like the +/- zoom control. A lone button is fully rounded.
+    final RelativeCornerSize round = new RelativeCornerSize(0.5f);
+    final RelativeCornerSize square = new RelativeCornerSize(0.12f);
+    final boolean isTop = index == 0;
+    final boolean isBottom = index == count - 1;
+    button.setShapeAppearanceModel(ShapeAppearanceModel.builder()
+                                       .setTopLeftCorner(CornerFamily.ROUNDED, isTop ? round : square)
+                                       .setTopRightCorner(CornerFamily.ROUNDED, isTop ? round : square)
+                                       .setBottomLeftCorner(CornerFamily.ROUNDED, isBottom ? round : square)
+                                       .setBottomRightCorner(CornerFamily.ROUNDED, isBottom ? round : square)
+                                       .build());
+
+    if (!isBottom)
+    {
+      final LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) button.getLayoutParams();
+      lp.bottomMargin = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+    }
+
+    return button;
   }
 
   public void updateLayerButton()
@@ -420,10 +456,9 @@ public class MapButtonsController extends Fragment
       {
         int toleranceOffset = switch (entry.getKey())
         {
-          case zoomIn, zoomOut, zoom -> -140;
-          default ->
-            0;
-            // Allow offset tolerance for zoom buttons
+          // Allow offset tolerance for the zoom buttons and the indoor level picker stacked above them.
+          case zoomIn, zoomOut, zoom, indoorLevels -> -140;
+          default -> 0;
         };
         showButton(getViewTopOffset(translation, button) >= toleranceOffset, entry.getKey());
       }
@@ -551,6 +586,7 @@ public class MapButtonsController extends Fragment
     zoomIn,
     zoomOut,
     zoom,
+    indoorLevels,
     search,
     bookmarks,
     menu,

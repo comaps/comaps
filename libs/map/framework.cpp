@@ -1611,6 +1611,14 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_transitManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_isolinesManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_indoorManager.SetDrapeEngine(make_ref(m_drapeEngine));
+  // Re-apply the 3D mode whenever indoor mode toggles: Allow3dMode forces 3D buildings off while
+  // indoors so they don't occlude indoor rooms, and restores the user's setting on the way out.
+  m_indoorManager.SetModeChangedListener([this]()
+  {
+    bool allow3d, allow3dBuildings;
+    Load3dMode(allow3d, allow3dBuildings);
+    Allow3dMode(allow3d, allow3dBuildings);
+  });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();
@@ -2532,6 +2540,10 @@ void Framework::Allow3dMode(bool allow3d, bool allow3dBuildings)
 
   /// If we are in CarPlay/AA mode and Navigation is active, force 3D buildings off.
   if (m_isCarScreenMode && m_routingManager.IsRoutingActive())
+    allow3dBuildings = false;
+
+  // While indoors, force 3D buildings off so the building extrusion doesn't occlude indoor rooms.
+  if (m_indoorManager.IsActive())
     allow3dBuildings = false;
 
   m_drapeEngine->Allow3dMode(allow3d, allow3dBuildings);
