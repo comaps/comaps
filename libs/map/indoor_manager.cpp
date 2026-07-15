@@ -12,12 +12,14 @@
 
 #include "platform/platform.hpp"
 
+#include "base/logging.hpp"
+
 #include <algorithm>
 #include <cmath>
 
 namespace
 {
-int constexpr kMinIndoorZoom = 17;
+int constexpr kMinIndoorZoom = 16;
 double constexpr kLevelEpsilon = 1e-9;
 
 bool LevelsEqual(double lhs, double rhs)
@@ -53,6 +55,7 @@ void IndoorManager::UpdateViewport(ScreenBase const & screen)
 {
   m_currentModelView = screen;
 
+  LOG(LINFO, ("IndoorManager::UpdateViewport, zoom =", df::GetDrawTileScale(screen)));
   if (df::GetDrawTileScale(screen) < kMinIndoorZoom)
   {
     ++m_generation;
@@ -80,11 +83,13 @@ std::vector<std::string> IndoorManager::GetViewportLevels() const
   // Topmost floor first, as in a real level selector.
   for (auto it = m_levels.rbegin(); it != m_levels.rend(); ++it)
     result.push_back(indoor::FormatLevel(*it));
+  LOG(LINFO, ("IndoorManager ViewportLevels: ", m_levels.size()));
   return result;
 }
 
 std::string IndoorManager::GetActiveLevel() const
 {
+  LOG(LINFO, ("IndoorManager ActiveLevel: ", m_activeLevel));
   return indoor::FormatLevel(m_activeLevel);
 }
 
@@ -109,8 +114,10 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
       return;
 
     std::vector<double> levels;
-    m_forEachFeature(rect, [&levels](FeatureType & ft)
+    size_t totalCount = 0;
+    m_forEachFeature(rect, [&levels, &totalCount](FeatureType & ft)
     {
+      ++totalCount;
       feature::TypesHolder const types(ft);
       if (!ftypes::IsIndoorChecker::Instance()(types))
         return;
@@ -128,6 +135,7 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
     }, scales::GetUpperScale());
 
     std::sort(levels.begin(), levels.end());
+    LOG(LINFO, ("IndoorManager scan finished, rect =", rect, "total =", totalCount, "levels count =", levels.size()));
 
     m_uiRunner([this, generation, levels = std::move(levels)]() mutable
     { ApplyScanResult(generation, std::move(levels)); });
@@ -136,6 +144,7 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
 
 void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && levels)
 {
+  LOG(LINFO, ("IndoorManager::ApplyScanResult, gen =", generation, "cur =", m_generation.load(), "levels =", levels.size()));
   if (generation != m_generation)
     return;
 
@@ -146,6 +155,9 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
 
   if (m_levels.empty())
   {
+    // No indoor data in the viewport: deactivate level filtering in drape so ordinary level-tagged
+    // POIs stay visible. m_activeLevel is kept as the remembered floor for when we re-enter indoors.
+    m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, indoor::kNoActiveLevel);
     NotifyListener();
     return;
   }
@@ -157,8 +169,12 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     // Prefer the ground floor, otherwise the lowest available level.
     bool const hasGround =
         std::any_of(m_levels.begin(), m_levels.end(), [](double level) { return LevelsEqual(level, 0.0); });
-    SetActiveLevel(hasGround ? 0.0 : m_levels.front(), true /* notifyDrape */);
+    m_activeLevel = hasGround ? 0.0 : m_levels.front();
   }
+
+  // Always (re)assert the active level to drape: we may be re-entering an indoor context after being
+  // empty (drape currently inactive) even when the remembered m_activeLevel is unchanged.
+  m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, m_activeLevel);
 
   NotifyListener();
 }

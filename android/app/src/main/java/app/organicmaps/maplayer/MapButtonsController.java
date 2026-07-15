@@ -134,7 +134,7 @@ public class MapButtonsController extends Fragment
       mToggleMapLayerButton.setVisibility(View.VISIBLE);
     }
     mMapButtonsViewModel.setTopButtonsMarginTop(-1);
-    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container);
+    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container); // @+id/indoor_levels_container
     mTrackRecordingStatusButton = mFrame.findViewById(R.id.track_recording_status);
     if (mTrackRecordingStatusButton != null)
       mTrackRecordingStatusButton.setOnClickListener(
@@ -346,7 +346,7 @@ public class MapButtonsController extends Fragment
     for (final String level : levels)
     {
       final MaterialButton button =
-          new MaterialButton(requireContext(), null, com.google.android.material.R.attr.materialButtonOutlinedStyle);
+          new MaterialButton(requireContext(), null, com.google.android.material.R.attr.floatingActionButtonStyle);
       button.setText(level);
       button.setEnabled(!level.equals(activeLevel));
       button.setOnClickListener(v -> IndoorManager.selectLevel(level));

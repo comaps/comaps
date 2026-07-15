@@ -13,6 +13,7 @@ set(SRC
   gps_track_test.cpp
   indoor_manager_tests.cpp
   kmz_unarchive_test.cpp
+  mall_diag_test.cpp
   mwm_url_tests.cpp
   power_manager_tests.cpp
   search_api_tests.cpp

@@ -6,6 +6,7 @@
 #include "drape_frontend/tile_utils.hpp"
 
 #include "indexer/feature_decl.hpp"
+#include "indexer/indoor_level.hpp"
 #include "indexer/mwm_set.hpp"
 
 #include "geometry/screenbase.hpp"
@@ -88,7 +89,7 @@ private:
   bool m_allow3dBuildings;
   bool m_trafficEnabled;
   bool m_isolinesEnabled;
-  double m_indoorLevel = 0.0;
+  double m_indoorLevel = indoor::kNoActiveLevel;
   bool m_modeChanged;
   int8_t m_mapLangIndex;
 

@@ -427,8 +427,7 @@ void RuleDrawer::operator()(FeatureType & f)
        !ftypes::IsBuildingChecker::Instance()(types)))
     return;
 
-  if (ftypes::IsIndoorChecker::Instance()(types) &&
-      ShouldSkipIndoorFeature(types, f.GetMetadata(feature::Metadata::FMD_LEVEL), m_context->GetIndoorLevel()))
+  if (ShouldSkipIndoorFeature(types, f.GetMetadata(feature::Metadata::FMD_LEVEL), m_context->GetIndoorLevel()))
     return;
 
   if (ftypes::IsCoastlineChecker::Instance()(types) && !CheckCoastlines(f))

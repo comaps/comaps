@@ -335,7 +335,10 @@ void ReadManager::SetIsolinesEnabled(bool isolinesEnabled)
 
 void ReadManager::SetIndoorLevel(double level)
 {
-  if (m_indoorLevel != level)
+  // NaN (kNoActiveLevel) never compares equal, so treat "both inactive" as unchanged explicitly.
+  bool const unchanged = m_indoorLevel == level ||
+                         (!indoor::HasActiveLevel(m_indoorLevel) && !indoor::HasActiveLevel(level));
+  if (!unchanged)
   {
     m_modeChanged = true;
     m_indoorLevel = level;
