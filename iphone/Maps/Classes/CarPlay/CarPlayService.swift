@@ -1,6 +1,29 @@
 import CarPlay
 import Contacts
 
+struct CarPlayPanningInterfaceState {
+  private var presentedTemplateIdentifier: ObjectIdentifier?
+
+  var isPresented: Bool {
+    presentedTemplateIdentifier != nil
+  }
+
+  mutating func didShow(_ template: CPMapTemplate) {
+    presentedTemplateIdentifier = ObjectIdentifier(template)
+  }
+
+  @discardableResult
+  mutating func didDismiss(_ template: CPMapTemplate) -> Bool {
+    guard presentedTemplateIdentifier == ObjectIdentifier(template) else { return false }
+    presentedTemplateIdentifier = nil
+    return true
+  }
+
+  mutating func reset() {
+    presentedTemplateIdentifier = nil
+  }
+}
+
 @objc(MWMCarPlayService)
 final class CarPlayService: NSObject {
   @objc static let shared = CarPlayService()
@@ -44,6 +67,7 @@ final class CarPlayService: NSObject {
   private var mapHost: MapHost = .none
 
   private var rootTemplateDidAppear = false
+  private var panningInterfaceState = CarPlayPanningInterfaceState()
   private var hasAppliedDefaultCarZoom = false
   private var hasEngagedInitialCarFollow = false
   private var isInitialCarHeadingModeDisabled = false
@@ -241,6 +265,7 @@ final class CarPlayService: NSObject {
 
   @objc func destroy() {
     logStateSnapshot("destroy()")
+    panningInterfaceState.reset()
     pendingTeardown?.cancel()
     pendingTeardown = nil
     endTeardownBackgroundTask()
@@ -304,6 +329,7 @@ final class CarPlayService: NSObject {
 
   private func setRootTemplate(_ template: CPMapTemplate) {
     rootTemplateDidAppear = false
+    panningInterfaceState.reset()
     interfaceController?.setRootTemplate(template, animated: false) { success, error in
       self.logStateSnapshot("setRootTemplate completion success=\(success) error=\(String(describing: error))")
     }
@@ -313,7 +339,7 @@ final class CarPlayService: NSObject {
     logStateSnapshot("appSceneDidBecomeActive")
     reconcileMapHostIfOrphaned()
     resumeLocationForActiveCarSceneIfNeeded()
-    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: true)
+    engageCarFollowIfNeeded(currentPositionMode, request: .sceneReactivation)
     guard isCarplayActivated, let controller = interfaceController else { return }
     if rootTemplateDidAppear {
       LOG(.info, "app scene active: root template already presented, nothing to reconcile")
@@ -442,7 +468,7 @@ final class CarPlayService: NSObject {
       resetCarSessionDefaults()
     }
     applyDefaultCarZoomIfNeeded()
-    engageInitialCarFollowIfNeeded(currentPositionMode)
+    engageCarFollowIfNeeded(currentPositionMode)
     logStateSnapshot("after map host switch")
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
   }
@@ -538,14 +564,27 @@ final class CarPlayService: NSObject {
     FrameworkHelper.setZoomLevel(Self.kDefaultCarZoomLevel, animated: true)
   }
 
-  private func engageInitialCarFollowIfNeeded(_ mode: MWMMyPositionMode, allowAfterInitial: Bool = false) {
-    guard (!hasEngagedInitialCarFollow || allowAfterInitial),
+  private enum CarFollowRequest {
+    case initialEngagement
+    case sceneReactivation
+
+    var allowsReengagement: Bool {
+      switch self {
+      case .initialEngagement: return false
+      case .sceneReactivation: return true
+      }
+    }
+  }
+
+  private func engageCarFollowIfNeeded(_ mode: MWMMyPositionMode,
+                                       request: CarFollowRequest = .initialEngagement) {
+    guard (!hasEngagedInitialCarFollow || request.allowsReengagement),
           mapHost == .carplay || mapHost == .dashboard,
           !MWMRouter.isRoutingActive(),
-          rootMapTemplate?.isPanningInterfaceVisible != true
+          !panningInterfaceState.isPresented
     else { return }
     guard isCarMapViewportReady else {
-      if allowAfterInitial {
+      if request.allowsReengagement {
         needsRecenterOnViewportReady = true
       }
       return
@@ -599,9 +638,9 @@ final class CarPlayService: NSObject {
       FrameworkHelper.rotateMap(0.0, animated: false)
     }
     applyDefaultCarZoomIfNeeded()
-    let allowAfterInitial = needsRecenterOnViewportReady
+    let request: CarFollowRequest = needsRecenterOnViewportReady ? .sceneReactivation : .initialEngagement
     needsRecenterOnViewportReady = false
-    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: allowAfterInitial)
+    engageCarFollowIfNeeded(currentPositionMode, request: request)
   }
 
   func switchMyPositionModeFromCarPlayControl() {
@@ -636,7 +675,7 @@ final class CarPlayService: NSObject {
     reconcileMapHostIfOrphaned()
     updateMapHost()
     resumeLocationForActiveCarSceneIfNeeded()
-    engageInitialCarFollowIfNeeded(currentPositionMode, allowAfterInitial: true)
+    engageCarFollowIfNeeded(currentPositionMode, request: .sceneReactivation)
   }
 
   @objc func dashboardDidResignActive() {
@@ -921,6 +960,8 @@ extension CarPlayService: CPMapTemplateDelegate {
   }
 
   public func mapTemplateDidShowPanningInterface(_ mapTemplate: CPMapTemplate) {
+    guard mapTemplate === rootMapTemplate else { return }
+    panningInterfaceState.didShow(mapTemplate)
     isUserPanMap = false
     isInitialCarHeadingModeDisabled = true
     MapTemplateBuilder.configurePanUI(mapTemplate: mapTemplate)
@@ -928,6 +969,8 @@ extension CarPlayService: CPMapTemplateDelegate {
   }
 
   public func mapTemplateDidDismissPanningInterface(_ mapTemplate: CPMapTemplate) {
+    guard mapTemplate === rootMapTemplate,
+          panningInterfaceState.didDismiss(mapTemplate) else { return }
     if let info = mapTemplate.userInfo as? MapInfo,
       info.type == CPConstants.TemplateType.navigation {
       MapTemplateBuilder.configureNavigationUI(mapTemplate: mapTemplate)
@@ -1185,7 +1228,7 @@ extension CarPlayService: LocationModeListener {
   func processMyPositionStateModeEvent(_ mode: MWMMyPositionMode) {
     currentPositionMode = mode
     applyDefaultCarZoomIfNeeded()
-    engageInitialCarFollowIfNeeded(mode)
+    engageCarFollowIfNeeded(mode)
 
     // make sure we have a rootMapTemplate
     guard let rootMapTemplate = rootMapTemplate else {
@@ -1200,12 +1243,12 @@ extension CarPlayService: LocationModeListener {
     }
     switch mode {
     case .follow, .followAndRotate:
-      if !rootMapTemplate.isPanningInterfaceVisible {
+      if !panningInterfaceState.isPresented {
         MapTemplateBuilder.setupDestinationButton(mapTemplate: rootMapTemplate)
         MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
     case .notFollow:
-      if !rootMapTemplate.isPanningInterfaceVisible {
+      if !panningInterfaceState.isPresented {
         MapTemplateBuilder.setupRecenterButton(mapTemplate: rootMapTemplate)
         MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
       }
