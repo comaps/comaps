@@ -1,3 +1,4 @@
+import CarPlay
 import XCTest
 import UIKit
 @testable import CoMaps__Debug_
@@ -14,6 +15,45 @@ final class CarPlayServiceTests: XCTestCase {
   override func tearDown() {
     carPlayService = nil
     super.tearDown()
+  }
+
+  func testPanningInterfaceStateIsInitiallyHidden() {
+    let state = CarPlayPanningInterfaceState()
+
+    XCTAssertFalse(state.isPresented)
+  }
+
+  func testPanningInterfaceStateTracksShowAndDismiss() {
+    var state = CarPlayPanningInterfaceState()
+    let template = CPMapTemplate()
+
+    state.didShow(template)
+    XCTAssertTrue(state.isPresented)
+    XCTAssertTrue(state.didDismiss(template))
+    XCTAssertFalse(state.isPresented)
+  }
+
+  func testPanningInterfaceStateResetClearsPresentedTemplate() {
+    var state = CarPlayPanningInterfaceState()
+    state.didShow(CPMapTemplate())
+
+    state.reset()
+
+    XCTAssertFalse(state.isPresented)
+  }
+
+  func testPanningInterfaceStateIgnoresLateDismissFromReplacedTemplate() {
+    var state = CarPlayPanningInterfaceState()
+    let replacedTemplate = CPMapTemplate()
+    let currentTemplate = CPMapTemplate()
+    state.didShow(replacedTemplate)
+    state.reset()
+    state.didShow(currentTemplate)
+
+    XCTAssertFalse(state.didDismiss(replacedTemplate))
+    XCTAssertTrue(state.isPresented)
+    XCTAssertTrue(state.didDismiss(currentTemplate))
+    XCTAssertFalse(state.isPresented)
   }
 
   func testCreateEstimates() {
