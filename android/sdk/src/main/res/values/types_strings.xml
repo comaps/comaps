@@ -267,6 +267,12 @@
     <string name="type.building.garage">Garage</string>
     <string name="type.building.train_station">Station Building</string>
     <string name="type.building.warehouse">Warehouse</string>
+    <string name="type.indoor">Indoor</string>
+    <string name="type.indoor.area">Area</string>
+    <string name="type.indoor.corridor">Corridor</string>
+    <string name="type.indoor.door">Door</string>
+    <string name="type.indoor.room">Room</string>
+    <string name="type.indoor.wall">Wall</string>
     <string name="type.cemetery.grave">Grave</string>
     <string name="type.craft">Craft</string>
     <string name="type.craft.beekeeper">Beekeeper</string>

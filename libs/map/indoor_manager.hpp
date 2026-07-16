@@ -32,6 +32,14 @@ public:
   using ForEachFeatureFn =
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
   using TaskRunnerFn = std::function<void(std::function<void()> &&)>;
+  // Returns whether indoor mode may be entered or switched to a different building right now. When
+  // it returns false, new indoor data in the viewport is ignored so nothing pops up (e.g. while
+  // driving during navigation).
+  using CanEnterFn = std::function<bool()>;
+  // Returns whether an already-active indoor context should be preserved against viewport-driven
+  // deactivation (zoom-out, panning off the building). True e.g. throughout route planning and
+  // navigation, so fitting the route view doesn't drop the level chooser/filtering.
+  using ShouldHoldFn = std::function<bool()>;
 
   explicit IndoorManager(ForEachFeatureFn && forEachFeature);
 
@@ -43,6 +51,11 @@ public:
   // Called (on the Gui thread) whenever indoor mode toggles on/off, i.e. the viewport gains or
   // loses indoor data. Used e.g. to temporarily disable 3D buildings while indoors.
   void SetModeChangedListener(std::function<void()> const & fn);
+  // Sets a predicate deciding whether indoor mode may be entered or switched (see CanEnterFn).
+  void SetCanEnterPredicate(CanEnterFn const & fn);
+  // Sets a predicate deciding whether an already-active indoor context is held against viewport-
+  // driven deactivation (see ShouldHoldFn).
+  void SetShouldHoldPredicate(ShouldHoldFn const & fn);
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
@@ -60,6 +73,10 @@ private:
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
   void NotifyModeChanged();
+  // Preserve an already-active context against viewport-driven deactivation (routing in progress).
+  bool ShouldHold() const;
+  // May we enter/switch indoor context now? Defaults to true when no predicate is set.
+  bool CanEnter() const;
 
   ForEachFeatureFn m_forEachFeature;
   TaskRunnerFn m_backgroundRunner;
@@ -67,6 +84,8 @@ private:
 
   LevelsChangedFn m_onLevelsChangedFn;
   std::function<void()> m_onModeChangedFn;
+  CanEnterFn m_canEnterIndoorFn;
+  ShouldHoldFn m_shouldHoldIndoorFn;
 
   df::DrapeEngineSafePtr m_drapeEngine;
 

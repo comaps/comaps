@@ -28,6 +28,16 @@ bool LevelsEqual(double lhs, double rhs)
 }
 }  // namespace
 
+bool IndoorManager::ShouldHold() const
+{
+  return m_shouldHoldIndoorFn && m_shouldHoldIndoorFn();
+}
+
+bool IndoorManager::CanEnter() const
+{
+  return !m_canEnterIndoorFn || m_canEnterIndoorFn();
+}
+
 IndoorManager::IndoorManager(ForEachFeatureFn && forEachFeature) : m_forEachFeature(std::move(forEachFeature))
 {
   m_backgroundRunner = [](std::function<void()> && task)
@@ -56,6 +66,16 @@ void IndoorManager::SetModeChangedListener(std::function<void()> const & fn)
   m_onModeChangedFn = fn;
 }
 
+void IndoorManager::SetCanEnterPredicate(CanEnterFn const & fn)
+{
+  m_canEnterIndoorFn = fn;
+}
+
+void IndoorManager::SetShouldHoldPredicate(ShouldHoldFn const & fn)
+{
+  m_shouldHoldIndoorFn = fn;
+}
+
 void IndoorManager::UpdateViewport(ScreenBase const & screen)
 {
   m_currentModelView = screen;
@@ -64,9 +84,14 @@ void IndoorManager::UpdateViewport(ScreenBase const & screen)
   if (df::GetDrawTileScale(screen) < kMinIndoorZoom)
   {
     ++m_generation;
-    if (!m_levels.empty())
+    // While holding (route planning/navigation), keep an active context so fitting the route view
+    // doesn't drop the chooser/filtering. Otherwise fully deactivate: drape stops level-filtering,
+    // 3D buildings come back, and the chooser hides.
+    if (!m_levels.empty() && !ShouldHold())
     {
       m_levels.clear();
+      m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, indoor::kNoActiveLevel);
+      NotifyModeChanged();
       NotifyListener();
     }
     return;
@@ -153,10 +178,35 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   if (generation != m_generation)
     return;
 
+  bool const active = !m_levels.empty();
+
+  if (!active)
+  {
+    // Gate entering indoor mode: if entry is currently disallowed (e.g. driving during navigation),
+    // drop any indoor data found so nothing pops up.
+    if (!levels.empty() && !CanEnter())
+      levels.clear();
+  }
+  else
+  {
+    if (levels.empty())
+    {
+      // An active context lost its indoor data (panned off the building). While holding (route
+      // planning/navigation) keep it frozen instead of deactivating.
+      if (ShouldHold())
+        return;
+    }
+    else if (levels != m_levels && !CanEnter())
+    {
+      // A different building came into view but switching isn't allowed now (e.g. driving past
+      // other buildings): keep the current context frozen rather than popping to the new one.
+      return;
+    }
+  }
+
   if (levels == m_levels)
     return;
 
-  bool const wasActive = !m_levels.empty();
   m_levels = std::move(levels);
   bool const isActive = !m_levels.empty();
 
@@ -165,7 +215,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     // No indoor data in the viewport: deactivate level filtering in drape so ordinary level-tagged
     // POIs stay visible. m_activeLevel is kept as the remembered floor for when we re-enter indoors.
     m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, indoor::kNoActiveLevel);
-    if (wasActive)
+    if (active)
       NotifyModeChanged();
     NotifyListener();
     return;
@@ -185,7 +235,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   // empty (drape currently inactive) even when the remembered m_activeLevel is unchanged.
   m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, m_activeLevel);
 
-  if (!wasActive)
+  if (!active)
     NotifyModeChanged();
   NotifyListener();
 }

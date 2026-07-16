@@ -108,6 +108,66 @@ UNIT_CLASS_TEST(IndoorManagerTest, ViewportLevels)
   TEST(m_lastLevels.empty(), ());
 }
 
+UNIT_CLASS_TEST(IndoorManagerTest, EntryGate)
+{
+  m2::PointD const center(0.0, 0.0);
+
+  auto poi0 = MakeIndoorPoi(center, "room ground", "0");
+  auto poi1 = MakeIndoorPoi(m2::PointD(0.0001, 0.0001), "room first", "1");
+
+  BuildCountry("IndoorLand", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(poi0);
+    builder.Add(poi1);
+  });
+
+  // Entry disallowed (e.g. driving during navigation): indoor data is ignored, mode stays inactive.
+  bool canEnter = false;
+  m_manager.SetCanEnterPredicate([&canEnter]() { return canEnter; });
+  m_manager.UpdateViewport(MakeScreen(center, 17));
+  TEST(m_manager.GetViewportLevels().empty(), ());
+
+  // Once entry is allowed (e.g. on foot), indoor mode activates normally.
+  canEnter = true;
+  m_manager.Invalidate();
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"1", "0"}), ());
+
+  // An already-active context is preserved even if entry becomes disallowed again: a scan while
+  // still inside keeps the levels (the predicate isn't consulted once active).
+  canEnter = false;
+  m_manager.Invalidate();
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"1", "0"}), ());
+}
+
+UNIT_CLASS_TEST(IndoorManagerTest, HoldDuringRouting)
+{
+  m2::PointD const center(0.0, 0.0);
+
+  auto poi0 = MakeIndoorPoi(center, "room ground", "0");
+  auto poi1 = MakeIndoorPoi(m2::PointD(0.0001, 0.0001), "room first", "1");
+
+  BuildCountry("IndoorLand", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(poi0);
+    builder.Add(poi1);
+  });
+
+  // Enter indoors normally.
+  m_manager.UpdateViewport(MakeScreen(center, 17));
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"1", "0"}), ());
+
+  // Routing starts (hold on): zooming out to fit the route must NOT drop the active indoor context.
+  bool hold = true;
+  m_manager.SetShouldHoldPredicate([&hold]() { return hold; });
+  m_manager.UpdateViewport(MakeScreen(center, 14));
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"1", "0"}), ());
+
+  // Routing ends (hold off): the same zoomed-out viewport now deactivates as usual.
+  hold = false;
+  m_manager.UpdateViewport(MakeScreen(center, 14));
+  TEST(m_manager.GetViewportLevels().empty(), ());
+}
+
 UNIT_CLASS_TEST(IndoorManagerTest, NoIndoorData)
 {
   m2::PointD const center(5.0, 5.0);

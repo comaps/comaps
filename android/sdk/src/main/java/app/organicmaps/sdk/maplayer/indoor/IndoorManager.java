@@ -33,9 +33,19 @@ public class IndoorManager
     return nativeGetActiveLevel();
   }
 
+  // Current viewport levels (topmost floor first), or empty when indoor mode is inactive. Lets a
+  // freshly created UI re-sync without waiting for the next levels-changed notification.
+  @NonNull
+  public static String[] getViewportLevels()
+  {
+    return nativeGetViewportLevels();
+  }
+
   private static native void nativeAddListener(@NonNull OnIndoorLevelsChangedListener listener);
   private static native void nativeRemoveListener();
   private static native void nativeSelectLevel(@NonNull String level);
   @NonNull
   private static native String nativeGetActiveLevel();
+  @NonNull
+  private static native String[] nativeGetViewportLevels();
 }

@@ -1619,6 +1619,22 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     Load3dMode(allow3d, allow3dBuildings);
     Allow3dMode(allow3d, allow3dBuildings);
   });
+  m_indoorManager.SetCanEnterPredicate([this]()
+  {
+    // Freely enter indoor mode while browsing or planning a route; during active navigation only do
+    // so on foot (pedestrian/transit), so a driver passing buildings doesn't get indoor popups. An
+    // already-active indoor context is preserved regardless (the predicate isn't consulted then).
+    if (!m_routingManager.IsRoutingFollowing())
+      return true;
+    auto const router = m_routingManager.GetCurrentRouterType();
+    return router == routing::RouterType::Pedestrian || router == routing::RouterType::Transit;
+  });
+  m_indoorManager.SetShouldHoldPredicate([this]()
+  {
+    // Preserve an already-active indoor context throughout route planning and navigation, so fitting
+    // the route into view (which zooms out) doesn't drop the level chooser and filtering.
+    return m_routingManager.IsRoutingActive();
+  });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();

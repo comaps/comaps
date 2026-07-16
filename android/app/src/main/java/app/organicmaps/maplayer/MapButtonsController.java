@@ -164,6 +164,13 @@ public class MapButtonsController extends Fragment
     if (mTrackRecordingStatusButton != null)
       mButtonsMap.put(MapButtons.trackRecordingStatus, mTrackRecordingStatusButton);
     showButton(false, MapButtons.trackRecordingStatus);
+
+    // Re-sync the level picker from current native state: on a layout-mode switch (e.g. entering
+    // planning/navigation) this controller is recreated, and no levels-changed notification fires
+    // while an active indoor context is being held.
+    if (mIndoorLevelsContainer != null)
+      updateIndoorLevels(IndoorManager.getViewportLevels(), IndoorManager.getActiveLevel());
+
     return mFrame;
   }
 
@@ -351,9 +358,8 @@ public class MapButtonsController extends Fragment
     for (int i = 0; i < levels.length; i++)
     {
       final String level = levels[i];
-      final MaterialButton button = createIndoorLevelButton(level, i, levels.length);
-      // The active floor's button is disabled to show which level is currently selected.
-      button.setEnabled(!level.equals(activeLevel));
+      final boolean active = level.equals(activeLevel);
+      final MaterialButton button = createIndoorLevelButton(level, i, levels.length, active);
       button.setOnClickListener(v -> IndoorManager.selectLevel(level));
       mIndoorLevelsContainer.addView(button);
     }
@@ -363,11 +369,21 @@ public class MapButtonsController extends Fragment
   }
 
   @NonNull
-  private MaterialButton createIndoorLevelButton(@NonNull String level, int index, int count)
+  private MaterialButton createIndoorLevelButton(@NonNull String level, int index, int count, boolean active)
   {
-    final MaterialButton button = (MaterialButton) LayoutInflater.from(requireContext())
+    final Context context = requireContext();
+    final MaterialButton button = (MaterialButton) LayoutInflater.from(context)
                                       .inflate(R.layout.map_button_indoor_level, mIndoorLevelsContainer, false);
     button.setText(level);
+
+    // Highlight the currently selected floor with a filled accent, leaving the others in the default
+    // map-button colors so the active level is unmistakable.
+    if (active)
+    {
+      button.setBackgroundTintList(
+          ColorStateList.valueOf(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorPrimary)));
+      button.setTextColor(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorOnPrimary));
+    }
 
     // Rounded outer corners on the top-most and bottom-most buttons, squarish everywhere else, so the
     // stack reads as one piece like the +/- zoom control. A lone button is fully rounded.

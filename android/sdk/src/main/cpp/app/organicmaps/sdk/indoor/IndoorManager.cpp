@@ -46,4 +46,11 @@ JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorManager
   CHECK(g_framework, ("Framework isn't created yet!"));
   return jni::ToJavaString(env, g_framework->NativeFramework()->GetIndoorManager().GetActiveLevel());
 }
+
+JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorManager_nativeGetViewportLevels(
+    JNIEnv * env, jclass clazz)
+{
+  CHECK(g_framework, ("Framework isn't created yet!"));
+  return jni::ToJavaStringArray(env, g_framework->NativeFramework()->GetIndoorManager().GetViewportLevels());
+}
 }
