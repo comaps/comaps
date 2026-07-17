@@ -3,6 +3,7 @@
 #include "routing/routing_tests/tools.hpp"
 
 #include "routing/absent_regions_finder.hpp"
+#include "routing/following_info.hpp"
 #include "routing/route.hpp"
 #include "routing/router.hpp"
 #include "routing/routing_callbacks.hpp"
@@ -11,6 +12,7 @@
 
 #include "platform/location.hpp"
 
+#include "geometry/mercator.hpp"
 #include "geometry/point2d.hpp"
 #include "geometry/point_with_altitude.hpp"
 
@@ -475,6 +477,83 @@ UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowRouteFlagPersist
   });
   TEST(checkTimedSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route checking timeout."));
   TEST_EQUAL(m_onNewTurnCallbackCounter, 1, ());
+}
+
+UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowingTurnIsCurrentInNewTurnCallback)
+{
+  vector<m2::PointD> const routePoints =
+      {{0.0, 0.0}, {0.0, 0.0}, {0.0, 0.001}, {0.0, 0.002}, {0.0, 0.003}, {0.0, 0.004}};
+  vector<turns::TurnItem> const turns = {
+      {1, turns::CarDirection::None},
+      {2, turns::CarDirection::TurnLeft},
+      {3, turns::CarDirection::TurnLeft},
+      {4, turns::CarDirection::TurnRight},
+      {5, turns::CarDirection::ReachedYourDestination}};
+
+  TimedSignal routeBuiltSignal;
+  size_t buildCounter = 0;
+  GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
+  {
+    InitRoutingSession();
+
+    Route masterRoute("dummy", routePoints.begin(), routePoints.end(), 0 /* route id */);
+    vector<RouteSegment> routeSegments;
+    RouteSegmentsFrom({}, routePoints, turns, {}, routeSegments);
+    FillSegmentInfo({1.0, 2.0, 3.0, 4.0, 5.0}, routeSegments);
+    masterRoute.SetRouteSegments(std::move(routeSegments));
+    masterRoute.SetSubroteAttrs(vector<Route::SubrouteAttrs>{Route::SubrouteAttrs(
+        geometry::PointWithAltitude(routePoints.front(), geometry::kDefaultAltitudeMeters),
+        geometry::PointWithAltitude(routePoints.back(), geometry::kDefaultAltitudeMeters), 0,
+        routePoints.size() - 1)});
+
+    m_session->SetRouter(
+        make_unique<DummyRouter>(masterRoute, RouterResultCode::NoError, buildCounter), nullptr);
+    m_session->SetRoutingCallbacks(
+        [&routeBuiltSignal](Route const &, RouterResultCode) { routeBuiltSignal.Signal(); },
+        nullptr /* rebuildReadyCallback */, nullptr /* needMoreMapsCallback */, nullptr /* removeRouteCallback */);
+    m_session->BuildRoute(Checkpoints(routePoints.front(), routePoints.back()), RouterDelegate::kNoTimeout);
+  });
+  TEST(routeBuiltSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Route was not built."));
+
+  FollowingInfo followingInfoInCallback;
+  bool callbackCalled = false;
+  TimedSignal turnPassedSignal;
+  GetPlatform().RunTask(Platform::Thread::Gui, [&, this]()
+  {
+    TEST(m_session->EnableFollowMode(), ());
+    m_session->SetTurnNotificationsUnits(measurement_utils::Units::Metric);
+
+    location::GpsInfo info;
+    info.m_latitude = mercator::YToLat(0.0009);
+    info.m_longitude = mercator::XToLon(0.0);
+    info.m_horizontalAccuracy = 2.0;
+    info.m_speed = 10.0;
+    m_session->OnLocationPositionChanged(info);
+
+    // Populate the secondary-turn cache as the platform TTS polling path normally does.
+    vector<string> notifications;
+    m_session->GenerateNotifications(notifications, false /* announceStreets */);
+
+    FollowingInfo beforeTurn;
+    m_session->GetRouteFollowingInfo(beforeTurn);
+    TEST_EQUAL(beforeTurn.m_turn, turns::CarDirection::TurnLeft, ());
+    TEST_EQUAL(beforeTurn.m_nextTurn, turns::CarDirection::TurnLeft, ());
+
+    m_session->SetOnNewTurnCallback([&, this]()
+    {
+      callbackCalled = true;
+      m_session->GetRouteFollowingInfo(followingInfoInCallback);
+    });
+
+    info.m_latitude = mercator::YToLat(0.0011);
+    m_session->OnLocationPositionChanged(info);
+    turnPassedSignal.Signal();
+  });
+  TEST(turnPassedSignal.WaitUntil(steady_clock::now() + kRouteBuildingMaxDuration), ("Turn was not passed."));
+
+  TEST(callbackCalled, ());
+  TEST_EQUAL(followingInfoInCallback.m_turn, turns::CarDirection::TurnLeft, ());
+  TEST_EQUAL(followingInfoInCallback.m_nextTurn, turns::CarDirection::TurnRight, ());
 }
 
 UNIT_CLASS_TEST(AsyncGuiThreadTestWithRoutingSession, TestFollowRoutePercentTest)
