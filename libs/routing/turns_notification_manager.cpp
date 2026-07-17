@@ -196,7 +196,7 @@ void NotificationManager::GenerateTurnNotifications(std::vector<TurnItemDist> co
                                                     std::vector<std::string> & turnNotifications,
                                                     RouteSegment::RoadNameInfo const & nextStreetInfo)
 {
-  m_secondTurnNotification = GenerateSecondTurnNotification(turns);
+  UpdateSecondTurnNotification(turns);
 
   turnNotifications.clear();
   if (!m_enabled || turns.empty())
@@ -466,6 +466,11 @@ void NotificationManager::Reset()
   m_turnNotificationWithThen = false;
   m_secondTurnNotification = CarDirection::None;
   m_secondTurnNotificationIndex = 0;
+}
+
+void NotificationManager::UpdateSecondTurnNotification(std::vector<TurnItemDist> const & turns)
+{
+  m_secondTurnNotification = GenerateSecondTurnNotification(turns);
 }
 
 void NotificationManager::FastForwardFirstTurnNotification()
