@@ -24,6 +24,21 @@ struct CarPlayPanningInterfaceState {
   }
 }
 
+struct CarPlaySearchContextState {
+  enum Owner {
+    case phone
+    case car
+  }
+
+  private(set) var owner: Owner = .phone
+
+  mutating func transition(to newOwner: Owner?) -> Bool {
+    guard let newOwner, newOwner != owner else { return false }
+    owner = newOwner
+    return true
+  }
+}
+
 @objc(MWMCarPlayService)
 final class CarPlayService: NSObject {
   @objc static let shared = CarPlayService()
@@ -65,6 +80,7 @@ final class CarPlayService: NSObject {
     case dashboard
   }
   private var mapHost: MapHost = .none
+  private var searchContextState = CarPlaySearchContextState()
 
   private var rootTemplateDidAppear = false
   private var panningInterfaceState = CarPlayPanningInterfaceState()
@@ -437,6 +453,7 @@ final class CarPlayService: NSObject {
       desired = MapsAppDelegate.theApp().window != nil ? .phone : .none
       guard desired != mapHost else { return }
     }
+    updateSearchContext(for: desired)
     LOG(.info, "[CarPlayHost] Map host switch: \(mapHost) -> \(desired)")
 
     switch mapHost {
@@ -471,6 +488,22 @@ final class CarPlayService: NSObject {
     engageCarFollowIfNeeded(currentPositionMode)
     logStateSnapshot("after map host switch")
     refreshLocationPolicyIfHostingChanged(from: wasHostingMapOnCarScreen, reason: "updateMapHost")
+  }
+
+  private func updateSearchContext(for host: MapHost) {
+    let owner: CarPlaySearchContextState.Owner?
+    switch host {
+    case .carplay, .dashboard:
+      owner = .car
+    case .phone:
+      owner = .phone
+    case .none:
+      owner = nil
+    }
+    let previousOwner = searchContextState.owner
+    guard searchContextState.transition(to: owner) else { return }
+    LOG(.info, "[CarPlayHost] Search context switch: \(previousOwner) -> \(searchContextState.owner)")
+    Search.clear()
   }
 
   private func reconcileMapHostIfOrphaned() {
