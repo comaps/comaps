@@ -97,14 +97,14 @@
 /* 5.ROADS */
 /* 5.1 All roads */
 
-@trunk0: #8A4A28;
-@trunk1: #8A4A28;
-@primary0:  #8C5030;
-@primary1: #8C5030;
-@primary2: #8C5030;
-@secondary0: #5C5040;
-@residential: #3F3C3A;
-@unclassified: #3C3A38;
+@trunk0: #8A3C10;
+@trunk1: #8A3C10;
+@primary0:  #7A3410;
+@primary1: #7A3410;
+@primary2: #7A3410;
+@secondary0: #5A3820;
+@residential: #44301E;
+@unclassified: #3E281A;
 @pedestrian: #4D4744;
 @footway: #2B2827;
 @cycleway: #6E3D47;
@@ -117,19 +117,19 @@
 
 @bridge_background: #121212;
 @bridge_casing: #0D0D0D;
-@casing_road:  #2F2C2C;
+@casing_road:  #2E1A0E;
 
 /* 5.3 Tunnels */
 
-@trunk_tunnel: #381F14;
+@trunk_tunnel: #2E180E;
 @trunk_tunnel_casing: #000000;
-@primary_tunnel: #4C2A1B;
+@primary_tunnel: #2E180E;
 @primary_tunnel_casing: #000000;
-@secondary_tunnel: #2B2827;
+@secondary_tunnel: #1E1814;
 @secondary_tunnel_casing:  #000000;
-@tertiary_tunnel: #2B2827;
+@tertiary_tunnel: #1E1814;
 @tertiary_tunnel_casing:  #000000;
-@unclassified_tunnel: #2B2827;
+@unclassified_tunnel: #1E1814;
 @unclassified_tunnel_casing: #000000;
 
 /* 5.5 Transport */

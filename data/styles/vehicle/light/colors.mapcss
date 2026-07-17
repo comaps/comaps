@@ -1,6 +1,6 @@
 /* BASE */
 
-@background: #C0CEB2;
+@background: #B0BEA0;
 
 /* BOUNDARIES */
 @border_country: #63635C;
@@ -10,19 +10,19 @@
 
 /* ROADS */
 
-@trunk0: #FF9140;
-@trunk1: #FF8742;
-@primary0:  #FF8726;
-@primary1: #FFAD57;
-@primary2: #FFAD57;
-@secondary0: #F4F0E8;
-@residential: #F4F4EF;
-@unclassified: #F5F2EA;
-@pedestrian: #FCFCFC;
-@footway: #FCFCFC;
+@trunk0: #FF8000;
+@trunk1: #FF8000;
+@primary0:  #FF7000;
+@primary1: #FF7000;
+@primary2: #FF7000;
+@secondary0: #FFC890;
+@residential: #FFD4A0;
+@unclassified: #FFCC98;
+@pedestrian: #F5F0E8;
+@footway: #F0EBE0;
 @cycleway: #4040DD;
 @construction: #A8A898;
-@track: #635730;
+@track: #6A6030;
 @path: #A05012;
 @bridleway: #3D361E;
 
@@ -30,19 +30,19 @@
 /* bridges */
 @bridge_background: #E5E4D5;
 @bridge_casing: #808080;
-@casing_road:  #F5F3E4;
+@casing_road:  #C06800;
 
 /* tunnels */
 
-@primary_tunnel: #FCA462;
-@trunk_tunnel: #FCA462;
+@primary_tunnel: #D08030;
+@trunk_tunnel: #D08030;
 @primary_tunnel_casing: #808080;
 @trunk_tunnel_casing: #808080;
-@secondary_tunnel: #FFFFFF;
+@secondary_tunnel: #F5E0C0;
 @secondary_tunnel_casing:  #808080;
-@tertiary_tunnel: #FFFFFF;
+@tertiary_tunnel: #F5E0C0;
 @tertiary_tunnel_casing:  #808080;
-@unclassified_tunnel: #FFFFFF;
+@unclassified_tunnel: #F5E0C0;
 @unclassified_tunnel_casing: #808080;
 
 /* TRANSPORT */
