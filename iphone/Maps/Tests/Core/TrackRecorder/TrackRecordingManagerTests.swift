@@ -58,6 +58,21 @@ final class TrackRecordingManagerTests: XCTestCase {
     XCTAssertTrue(trackRecordingManager.recordingState == .active)
   }
 
+  func test_GivenStartRecording_WhenStateChanges_ThenPostsNotification() {
+    mockLocationService.locationIsProhibited = false
+    mockTrackRecorder.trackRecordingIsEnabled = false
+    let notificationExpectation = expectation(
+      forNotification: MapControls.changeTrackRecordingNotificationName,
+      object: nil
+    ) { [weak self] _ in
+      self?.trackRecordingManager.recordingState == .active
+    }
+
+    trackRecordingManager.start()
+
+    wait(for: [notificationExpectation], timeout: 1.0)
+  }
+
   func test_GivenStartRecording_WhenLocationDisabled_ThenShouldFail() {
     mockLocationService.locationIsProhibited = true
     let expectation = expectation(description: "Location is prohibited")
@@ -95,6 +110,20 @@ final class TrackRecordingManagerTests: XCTestCase {
     XCTAssertTrue(mockTrackRecorder.saveTrackRecordingCalled)
     XCTAssertTrue(mockActivityManager.stopCalled)
     XCTAssertTrue(trackRecordingManager.recordingState == .inactive)
+  }
+
+  func test_GivenStopRecording_WhenStateChanges_ThenPostsNotification() {
+    mockTrackRecorder.trackRecordingIsEnabled = true
+    let notificationExpectation = expectation(
+      forNotification: MapControls.changeTrackRecordingNotificationName,
+      object: nil
+    ) { [weak self] _ in
+      self?.trackRecordingManager.recordingState == .inactive
+    }
+
+    trackRecordingManager.stop()
+
+    wait(for: [notificationExpectation], timeout: 1.0)
   }
 
   func test_GivenStopRecording_WhenTrackIsEmpty_ThenShouldFail() {
