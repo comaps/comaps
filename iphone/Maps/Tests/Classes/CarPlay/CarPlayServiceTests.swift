@@ -56,6 +56,32 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertFalse(state.isPresented)
   }
 
+  func testSearchContextStateStartsOwnedByPhone() {
+    let state = CarPlaySearchContextState()
+
+    XCTAssertEqual(state.owner, .phone)
+  }
+
+  func testSearchContextStateResetsOnlyWhenOwnerChanges() {
+    var state = CarPlaySearchContextState()
+
+    XCTAssertTrue(state.transition(to: .car))
+    XCTAssertEqual(state.owner, .car)
+    XCTAssertFalse(state.transition(to: .car))
+    XCTAssertTrue(state.transition(to: .phone))
+    XCTAssertEqual(state.owner, .phone)
+    XCTAssertFalse(state.transition(to: .phone))
+  }
+
+  func testSearchContextStateIgnoresTransientHostlessRebind() {
+    var state = CarPlaySearchContextState()
+    XCTAssertTrue(state.transition(to: .car))
+
+    XCTAssertFalse(state.transition(to: nil))
+    XCTAssertEqual(state.owner, .car)
+    XCTAssertFalse(state.transition(to: .car))
+  }
+
   func testCreateEstimates() {
     let routeInfo = RouteInfo(timeToTarget: 100,
                               targetDistance: 25.2,
