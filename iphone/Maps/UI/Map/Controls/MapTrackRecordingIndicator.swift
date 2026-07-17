@@ -1,5 +1,24 @@
 import SwiftUI
 
+struct MapActiveTrackRecordingButton: View {
+    var body: some View {
+        Button(role: .destructive) {
+            MapCustomButton.Kind.recordTrack.action
+        } label: {
+            Label {
+                Text(String(localized: "recording_track"))
+            } icon: {
+                Image("track.badge.record")
+                    .symbolRenderingMode(.palette)
+                    .foregroundStyle(Color.BaseColors.red, Color.primary)
+                    .padding(.top, 3)
+            }
+        }
+        .buttonStyle(MapButtonStyle())
+        .contentShape(Rectangle())
+    }
+}
+
 /// View for a map track recording indicator
 struct MapTrackRecordingIndicator: View {
     // MARK: Properties

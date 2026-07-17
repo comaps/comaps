@@ -9,8 +9,8 @@ import UIKit
         profileBridgeController.view.backgroundColor = .systemGroupedBackground
         return profileBridgeController
     }
-    
-    
+
+
     /// The `MapPositionButton` for presentation in an alert
     @objc static func mapPositionButton() -> UIViewController {
         let mapPositionButtonBridgeController = UIHostingController(rootView: MapPositionButton())
@@ -18,6 +18,16 @@ import UIKit
         mapPositionButtonBridgeController.view.isOpaque = false
         mapPositionButtonBridgeController.view.backgroundColor = .clear
         return mapPositionButtonBridgeController
+    }
+
+
+    /// The `MapActiveTrackRecordingButton` for presentation during navigation
+    @objc static func mapActiveTrackRecordingButton() -> UIViewController {
+        let trackRecordingButtonBridgeController = UIHostingController(rootView: MapActiveTrackRecordingButton())
+        trackRecordingButtonBridgeController.view.isUserInteractionEnabled = true
+        trackRecordingButtonBridgeController.view.isOpaque = false
+        trackRecordingButtonBridgeController.view.backgroundColor = .clear
+        return trackRecordingButtonBridgeController
     }
     
     
