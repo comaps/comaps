@@ -470,6 +470,9 @@
 		CA7C00010000000000000019 /* CoMapsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000008 /* CoMapsWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA7C0001000000000000001A /* MWMWatchMapExtractor.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000B /* MWMWatchMapExtractor.mm */; };
 		CA7C0001000000000000001B /* WatchMapContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000C /* WatchMapContext.swift */; };
+		CA7C00010000000000000080 /* WatchSyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000083 /* WatchSyncTests.swift */; };
+		CA7C00010000000000000081 /* RouteMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000006 /* RouteMath.swift */; };
+		CA7C00010000000000000082 /* WatchMapContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000C /* WatchMapContext.swift */; };
 		CA7C0001000000000000001C /* WatchDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000009 /* WatchDestination.swift */; };
 		CA7C0001000000000000001D /* ElevationProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000D /* ElevationProfileView.swift */; };
 		CA7C0001000000000000001E /* DestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000E /* DestinationsView.swift */; };
@@ -1484,6 +1487,7 @@
 		CA7C0001000000000000000A /* MWMWatchMapExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMWatchMapExtractor.h; sourceTree = "<group>"; };
 		CA7C0001000000000000000B /* MWMWatchMapExtractor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMWatchMapExtractor.mm; sourceTree = "<group>"; };
 		CA7C0001000000000000000C /* WatchMapContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMapContext.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000083 /* WatchSyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchSyncTests.swift; sourceTree = "<group>"; };
 		CA7C0001000000000000000D /* ElevationProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfileView.swift; sourceTree = "<group>"; };
 		CA7C0001000000000000000E /* DestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationsView.swift; sourceTree = "<group>"; };
 		CA7C0001000000000000000F /* CompassGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassGuidanceView.swift; sourceTree = "<group>"; };
@@ -2987,11 +2991,20 @@
 		4B4153B62BF9709100EE4B02 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				CA7C00010000000000000084 /* WatchSync */,
 				ED9DDF982D6F6D8000645BC8 /* TrackRecorder */,
 				EDF838AB2C00B9C7007E4E67 /* iCloudTests */,
 				4B4153B72BF970A000EE4B02 /* TextToSpeech */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		CA7C00010000000000000084 /* WatchSync */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C00010000000000000083 /* WatchSyncTests.swift */,
+			);
+			path = WatchSync;
 			sourceTree = "<group>";
 		};
 		4B4153B72BF970A000EE4B02 /* TextToSpeech */ = {
@@ -5144,6 +5157,9 @@
 				EDF838C12C00B9D6007E4E67 /* iCloudDirectoryMonitorTests.swift in Sources */,
 				EDF838C02C00B9D0007E4E67 /* DefaultLocalDirectoryMonitorTests.swift in Sources */,
 				ED1ADA332BC6B1B40029209F /* CarPlayServiceTests.swift in Sources */,
+				CA7C00010000000000000080 /* WatchSyncTests.swift in Sources */,
+				CA7C00010000000000000081 /* RouteMath.swift in Sources */,
+				CA7C00010000000000000082 /* WatchMapContext.swift in Sources */,
 				EDF838C32C00B9D6007E4E67 /* UbiquitousDirectoryMonitorDelegateMock.swift in Sources */,
 				EDF838BE2C00B9D0007E4E67 /* LocalDirectoryMonitorDelegateMock.swift in Sources */,
 				EDC4E3692C5E6F5B009286A2 /* MockRecentlyDeletedCategoriesManager.swift in Sources */,
