@@ -13,6 +13,8 @@ typedef NS_ENUM(NSInteger, MWMRoadType) {
 
 typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 
+@class CLLocation;
+
 @interface MWMRouter : NSObject
 
 + (void)subscribeToEvents;
@@ -49,6 +51,10 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 + (NSArray<NSString *> *)turnNotifications;
 
 + (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale;
+
+/// Geometry of the current route as CLLocation objects (lat/lon only),
+/// or an empty array when no valid route is built.
++ (NSArray<CLLocation *> *)routePolyline;
 
 + (void)addPoint:(MWMRoutePoint *)point;
 + (void)removePoint:(MWMRoutePoint *)point;

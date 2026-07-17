@@ -19,6 +19,8 @@
 
 #include "routing/following_info.hpp"
 
+#include "geometry/mercator.hpp"
+
 #include "platform/local_country_file_utils.hpp"
 #include "platform/localization.hpp"
 #include "platform/distance.hpp"
@@ -230,6 +232,20 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   return [mwmSteps copy];
 }
 
++ (NSArray<CLLocation *> *)routePolyline {
+  auto const &rm = GetFramework().GetRoutingManager();
+  if (!rm.IsRouteValid())
+    return @[];
+  auto const &points = rm.GetRoutePolyline().GetPolyline().GetPoints();
+  NSMutableArray<CLLocation *> *locations = [[NSMutableArray alloc] initWithCapacity:points.size()];
+  for (auto const &point : points)
+  {
+    auto const latLon = mercator::ToLatLon(point);
+    [locations addObject:[[CLLocation alloc] initWithLatitude:latLon.m_lat longitude:latLon.m_lon]];
+  }
+  return [locations copy];
+}
+
 + (void)removePoint:(MWMRoutePoint *)point {
   RouteMarkData pt = point.routeMarkData;
   GetFramework().GetRoutingManager().RemoveRoutePoint(pt.m_pointType, pt.m_intermediateIndex);
@@ -372,6 +388,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 
 + (void)doStop:(BOOL)removeRoutePoints {
   [self clearAltitudeImagesData];
+  [[MWMWatchRouteSync shared] routeDidStop];
   GetFramework().GetRoutingManager().CloseRouting(removeRoutePoints);
   if (removeRoutePoints)
     GetFramework().GetRoutingManager().DeleteSavedRoutePoints();
@@ -465,6 +482,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   }
 
   [self updateFollowingInfo];
+  [[MWMWatchRouteSync shared] navigationDidUpdate];
 }
 
 #pragma mark - MWMFrameworkRouteBuilderObserver
@@ -482,6 +500,7 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 
   [[MWMMapViewControlsManager manager] onRouteReady:hasWarnings];
   [self updateFollowingInfo];
+  [[MWMWatchRouteSync shared] routeDidChange];
 }
 
 - (void)processRouteBuilderEvent:(routing::RouterResultCode)code

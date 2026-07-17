@@ -106,6 +106,7 @@ void InitLocalizedStrings() {
   [self updateApplicationIconBadgeNumber];
   [TrackRecordingManager.shared setup];
   [self startObservingLifecycle];
+  [MWMWatchRouteSync.shared activate];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

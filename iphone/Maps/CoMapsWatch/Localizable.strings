@@ -1,0 +1,27 @@
+/* CoMapsWatch UI strings. SwiftUI Text() literals resolve against these
+   keys, so translators can localize the watch app independently of the
+   phone app's generated strings. */
+
+"CoMaps" = "CoMaps";
+"Locating…" = "Locating…";
+"Location access denied" = "Location access denied";
+"%@ left" = "%@ left";
+"%@ to route" = "%@ to route";
+"No saved places" = "No saved places";
+"Bookmark places in CoMaps on your iPhone to route to them from here." = "Bookmark places in CoMaps on your iPhone to route to them from here.";
+"Name a bookmark “Home” to pin it here." = "Name a bookmark “Home” to pin it here.";
+"Unnamed place" = "Unnamed place";
+"Refresh" = "Refresh";
+"iPhone not reachable — routing needs CoMaps on the phone." = "iPhone not reachable — routing needs CoMaps on the phone.";
+"Building route…" = "Building route…";
+"Waiting for navigation…" = "Waiting for navigation…";
+"Record workout" = "Record workout";
+"Stop workout" = "Stop workout";
+"End route" = "End route";
+"Pin %@" = "Pin %@";
+"%lld min" = "%lld min";
+"Page order" = "Page order";
+"Map" = "Map";
+"Guidance" = "Guidance";
+"Elevation profile" = "Elevation profile";
+"Tap a page to move it up. The first page shows when a route opens." = "Tap a page to move it up. The first page shows when a route opens.";

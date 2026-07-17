@@ -459,6 +459,27 @@
 		BB25B1A71FB32767007276FA /* transit_colors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB25B1A51FB32767007276FA /* transit_colors.txt */; };
 		BB7626B61E85599C0031D71C /* icudt75l.dat in Resources */ = {isa = PBXBuildFile; fileRef = BB7626B41E8559980031D71C /* icudt75l.dat */; };
 		BB8123D62130427E00ADE512 /* MetalContextFactory.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB8123D52130427E00ADE512 /* MetalContextFactory.mm */; };
+		CA7C00010000000000000011 /* WatchRouteSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000002 /* WatchRouteSyncManager.swift */; };
+		CA7C00010000000000000012 /* WatchRoutePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000001 /* WatchRoutePayload.swift */; };
+		CA7C00010000000000000013 /* CoMapsWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000003 /* CoMapsWatchApp.swift */; };
+		CA7C00010000000000000014 /* RouteStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000004 /* RouteStore.swift */; };
+		CA7C00010000000000000015 /* WatchLocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000005 /* WatchLocationProvider.swift */; };
+		CA7C00010000000000000016 /* RouteMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000006 /* RouteMath.swift */; };
+		CA7C00010000000000000017 /* RouteGlanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000007 /* RouteGlanceView.swift */; };
+		CA7C00010000000000000018 /* WatchRoutePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000001 /* WatchRoutePayload.swift */; };
+		CA7C00010000000000000019 /* CoMapsWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000008 /* CoMapsWatch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CA7C0001000000000000001A /* MWMWatchMapExtractor.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000B /* MWMWatchMapExtractor.mm */; };
+		CA7C0001000000000000001B /* WatchMapContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000C /* WatchMapContext.swift */; };
+		CA7C0001000000000000001C /* WatchDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000009 /* WatchDestination.swift */; };
+		CA7C0001000000000000001D /* ElevationProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000D /* ElevationProfileView.swift */; };
+		CA7C0001000000000000001E /* DestinationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000E /* DestinationsView.swift */; };
+		CA7C0001000000000000001F /* CompassGuidanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000000F /* CompassGuidanceView.swift */; };
+		CA7C00010000000000000025 /* WatchDestination.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000009 /* WatchDestination.swift */; };
+		CA7C00010000000000000027 /* WorkoutSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000064 /* WorkoutSessionManager.swift */; };
+		CA7C00010000000000000028 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000065 /* Localizable.strings */; };
+		CA7C00010000000000000029 /* CoMapsWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C00010000000000000068 /* CoMapsWatchWidget.swift */; };
+		CA7C0001000000000000002A /* CoMapsWatchWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000006A /* CoMapsWatchWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CA7C0001000000000000002B /* PageOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7C0001000000000000006B /* PageOrderView.swift */; };
 		CD4A1F132305872700F2A6B6 /* PromoBookingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4A1F122305872700F2A6B6 /* PromoBookingPresentationController.swift */; };
 		CD6E8677226774C700D1EDF7 /* CPConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6E8676226774C700D1EDF7 /* CPConstants.swift */; };
 		CD9AD967228067F500EC174A /* MapInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9AD966228067F500EC174A /* MapInfo.swift */; };
@@ -688,6 +709,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA7C00010000000000000032 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA7C00010000000000000031;
+			remoteInfo = CoMapsWatch;
+		};
+		CA7C00010000000000000079 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA7C00010000000000000075;
+			remoteInfo = CoMapsWatchWidget;
+		};
 		ED097E7A2BB80C320006ED01 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -744,6 +779,28 @@
 				FA456C3D26BDC6BA00B83C20 /* Chart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7C00010000000000000074 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CA7C0001000000000000002A /* CoMapsWatchWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7C00010000000000000024 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CA7C00010000000000000019 /* CoMapsWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		ED46DDE22D098A0C007CACD6 /* Embed Foundation Extensions */ = {
@@ -1415,6 +1472,29 @@
 		BB7626B41E8559980031D71C /* icudt75l.dat */ = {isa = PBXFileReference; lastKnownFileType = file; name = icudt75l.dat; path = ../../data/icudt75l.dat; sourceTree = "<group>"; };
 		BB8123D42130427E00ADE512 /* MetalContextFactory.h */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.h; path = MetalContextFactory.h; sourceTree = "<group>"; tabWidth = 2; };
 		BB8123D52130427E00ADE512 /* MetalContextFactory.mm */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.cpp.objcpp; path = MetalContextFactory.mm; sourceTree = "<group>"; tabWidth = 2; };
+		CA7C00010000000000000001 /* WatchRoutePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRoutePayload.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000002 /* WatchRouteSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchRouteSyncManager.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000003 /* CoMapsWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoMapsWatchApp.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000004 /* RouteStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteStore.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000005 /* WatchLocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchLocationProvider.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000006 /* RouteMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMath.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000007 /* RouteGlanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteGlanceView.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000008 /* CoMapsWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoMapsWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA7C00010000000000000009 /* WatchDestination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDestination.swift; sourceTree = "<group>"; };
+		CA7C0001000000000000000A /* MWMWatchMapExtractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MWMWatchMapExtractor.h; sourceTree = "<group>"; };
+		CA7C0001000000000000000B /* MWMWatchMapExtractor.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = MWMWatchMapExtractor.mm; sourceTree = "<group>"; };
+		CA7C0001000000000000000C /* WatchMapContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMapContext.swift; sourceTree = "<group>"; };
+		CA7C0001000000000000000D /* ElevationProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElevationProfileView.swift; sourceTree = "<group>"; };
+		CA7C0001000000000000000E /* DestinationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationsView.swift; sourceTree = "<group>"; };
+		CA7C0001000000000000000F /* CompassGuidanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassGuidanceView.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000064 /* WorkoutSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSessionManager.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000065 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		CA7C00010000000000000066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA7C00010000000000000067 /* CoMapsWatch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CoMapsWatch.entitlements; sourceTree = "<group>"; };
+		CA7C00010000000000000068 /* CoMapsWatchWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoMapsWatchWidget.swift; sourceTree = "<group>"; };
+		CA7C00010000000000000069 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA7C0001000000000000006A /* CoMapsWatchWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = CoMapsWatchWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA7C0001000000000000006B /* PageOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageOrderView.swift; sourceTree = "<group>"; };
 		CD4A1F122305872700F2A6B6 /* PromoBookingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromoBookingPresentationController.swift; sourceTree = "<group>"; };
 		CD6E8676226774C700D1EDF7 /* CPConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPConstants.swift; sourceTree = "<group>"; };
 		CD9AD966228067F500EC174A /* MapInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInfo.swift; sourceTree = "<group>"; };
@@ -1872,6 +1952,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA7C00010000000000000022 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7C00010000000000000072 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED097E732BB80C320006ED01 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1932,6 +2026,8 @@
 				6741AA5D1BF340DE002C974C /* CoMaps (Debug).app */,
 				ED097E762BB80C320006ED01 /* CoMapsTests.xctest */,
 				ED46DDCC2D098A0B007CACD6 /* CoMapsWidgetExtension.appex */,
+				CA7C00010000000000000008 /* CoMapsWatch.app */,
+				CA7C0001000000000000006A /* CoMapsWatchWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2116,6 +2212,7 @@
 				F6E2FBFB1E097B9F0083EBEC /* UI */,
 				ED1ADA312BC6B19E0029209F /* Tests */,
 				ED2D74372D14337500660FBF /* CoMapsWidgetExtension */,
+				CA7C00010000000000000041 /* CoMapsWatch */,
 			);
 			indentWidth = 4;
 			name = Maps;
@@ -2243,6 +2340,7 @@
 				3404753F1E081A4600C92850 /* Settings */,
 				340475421E081A4600C92850 /* Storage */,
 				34763EE31F2F392300F4D2D3 /* TextToSpeech */,
+				CA7C00010000000000000043 /* WatchSync */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -3164,6 +3262,57 @@
 			path = DownloadAllView;
 			sourceTree = "<group>";
 		};
+		CA7C00010000000000000041 /* CoMapsWatch */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C00010000000000000042 /* Shared */,
+				CA7C00010000000000000003 /* CoMapsWatchApp.swift */,
+				CA7C00010000000000000004 /* RouteStore.swift */,
+				CA7C00010000000000000005 /* WatchLocationProvider.swift */,
+				CA7C00010000000000000006 /* RouteMath.swift */,
+				CA7C00010000000000000007 /* RouteGlanceView.swift */,
+				CA7C0001000000000000000D /* ElevationProfileView.swift */,
+				CA7C0001000000000000000E /* DestinationsView.swift */,
+				CA7C0001000000000000000F /* CompassGuidanceView.swift */,
+				CA7C0001000000000000006B /* PageOrderView.swift */,
+				CA7C00010000000000000064 /* WorkoutSessionManager.swift */,
+				CA7C00010000000000000065 /* Localizable.strings */,
+				CA7C00010000000000000066 /* Info.plist */,
+				CA7C00010000000000000067 /* CoMapsWatch.entitlements */,
+				CA7C0001000000000000007B /* Widget */,
+			);
+			path = CoMapsWatch;
+			sourceTree = "<group>";
+		};
+		CA7C0001000000000000007B /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C00010000000000000068 /* CoMapsWatchWidget.swift */,
+				CA7C00010000000000000069 /* Info.plist */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		CA7C00010000000000000042 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C00010000000000000001 /* WatchRoutePayload.swift */,
+				CA7C0001000000000000000C /* WatchMapContext.swift */,
+				CA7C00010000000000000009 /* WatchDestination.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		CA7C00010000000000000043 /* WatchSync */ = {
+			isa = PBXGroup;
+			children = (
+				CA7C00010000000000000002 /* WatchRouteSyncManager.swift */,
+				CA7C0001000000000000000A /* MWMWatchMapExtractor.h */,
+				CA7C0001000000000000000B /* MWMWatchMapExtractor.mm */,
+			);
+			path = WatchSync;
+			sourceTree = "<group>";
+		};
 		CDB4D4DA222D24EE00104869 /* CarPlay */ = {
 			isa = PBXGroup;
 			children = (
@@ -4059,17 +4208,55 @@
 				6741AA311BF340DE002C974C /* Frameworks */,
 				4740184523F5BDE900A93C81 /* Embed Frameworks */,
 				ED46DDE22D098A0C007CACD6 /* Embed Foundation Extensions */,
+				CA7C00010000000000000024 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				FA456C4D26BDCC9400B83C20 /* PBXTargetDependency */,
 				ED46DDE02D098A0C007CACD6 /* PBXTargetDependency */,
+				CA7C00010000000000000033 /* PBXTargetDependency */,
 			);
 			name = CoMaps;
 			productName = Maps;
 			productReference = 6741AA5D1BF340DE002C974C /* CoMaps (Debug).app */;
 			productType = "com.apple.product-type.application";
+		};
+		CA7C00010000000000000031 /* CoMapsWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA7C00010000000000000053 /* Build configuration list for PBXNativeTarget "CoMapsWatch" */;
+			buildPhases = (
+				CA7C00010000000000000021 /* Sources */,
+				CA7C00010000000000000022 /* Frameworks */,
+				CA7C00010000000000000023 /* Resources */,
+				CA7C00010000000000000074 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA7C0001000000000000007A /* PBXTargetDependency */,
+			);
+			name = CoMapsWatch;
+			productName = CoMapsWatch;
+			productReference = CA7C00010000000000000008 /* CoMapsWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CA7C00010000000000000075 /* CoMapsWatchWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA7C00010000000000000076 /* Build configuration list for PBXNativeTarget "CoMapsWatchWidget" */;
+			buildPhases = (
+				CA7C00010000000000000071 /* Sources */,
+				CA7C00010000000000000072 /* Frameworks */,
+				CA7C00010000000000000073 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CoMapsWatchWidget;
+			productName = CoMapsWatchWidget;
+			productReference = CA7C0001000000000000006A /* CoMapsWatchWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 		ED097E752BB80C320006ED01 /* CoMapsTests */ = {
 			isa = PBXNativeTarget;
@@ -4129,6 +4316,12 @@
 								enabled = 0;
 							};
 						};
+					};
+					CA7C00010000000000000031 = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					CA7C00010000000000000075 = {
+						CreatedOnToolsVersion = 16.0;
 					};
 					ED46DDCB2D098A0B007CACD6 = {
 						CreatedOnToolsVersion = 16.0;
@@ -4203,6 +4396,8 @@
 				6741A93D1BF340DE002C974C /* CoMaps */,
 				ED097E752BB80C320006ED01 /* CoMapsTests */,
 				ED46DDCB2D098A0B007CACD6 /* CoMapsWidgetExtension */,
+				CA7C00010000000000000031 /* CoMapsWatch */,
+				CA7C00010000000000000075 /* CoMapsWatchWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -4370,6 +4565,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA7C00010000000000000023 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7C00010000000000000028 /* Localizable.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7C00010000000000000073 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED097E742BB80C320006ED01 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4415,6 +4625,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA7C00010000000000000011 /* WatchRouteSyncManager.swift in Sources */,
+				CA7C00010000000000000012 /* WatchRoutePayload.swift in Sources */,
+				CA7C0001000000000000001A /* MWMWatchMapExtractor.mm in Sources */,
+				CA7C00010000000000000025 /* WatchDestination.swift in Sources */,
 				ED914ABE2D351FF800973C45 /* UILabel+SetFontStyle.swift in Sources */,
 				34845DB71E166084003D55B9 /* Common.swift in Sources */,
 				47F4F21323A6EC420022FD56 /* DownloadMapsViewController.swift in Sources */,
@@ -4895,6 +5109,34 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA7C00010000000000000071 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7C00010000000000000029 /* CoMapsWatchWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA7C00010000000000000021 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA7C00010000000000000013 /* CoMapsWatchApp.swift in Sources */,
+				CA7C00010000000000000014 /* RouteStore.swift in Sources */,
+				CA7C00010000000000000015 /* WatchLocationProvider.swift in Sources */,
+				CA7C00010000000000000016 /* RouteMath.swift in Sources */,
+				CA7C00010000000000000017 /* RouteGlanceView.swift in Sources */,
+				CA7C00010000000000000018 /* WatchRoutePayload.swift in Sources */,
+				CA7C0001000000000000001B /* WatchMapContext.swift in Sources */,
+				CA7C0001000000000000001C /* WatchDestination.swift in Sources */,
+				CA7C0001000000000000001D /* ElevationProfileView.swift in Sources */,
+				CA7C0001000000000000001E /* DestinationsView.swift in Sources */,
+				CA7C0001000000000000001F /* CompassGuidanceView.swift in Sources */,
+				CA7C0001000000000000002B /* PageOrderView.swift in Sources */,
+				CA7C00010000000000000027 /* WorkoutSessionManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		ED097E722BB80C320006ED01 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4934,6 +5176,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CA7C00010000000000000033 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA7C00010000000000000031 /* CoMapsWatch */;
+			targetProxy = CA7C00010000000000000032 /* PBXContainerItemProxy */;
+		};
+		CA7C0001000000000000007A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA7C00010000000000000075 /* CoMapsWatchWidget */;
+			targetProxy = CA7C00010000000000000079 /* PBXContainerItemProxy */;
+		};
 		ED097E7B2BB80C320006ED01 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6741A93D1BF340DE002C974C /* CoMaps */;
@@ -5182,7 +5434,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 0;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoMaps (Debug)";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
@@ -5218,7 +5470,7 @@
 				CURRENT_PROJECT_VERSION = 0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_KEY_CFBundleDisplayName = "${PRODUCT_NAME}";
+				INFOPLIST_KEY_CFBundleDisplayName = "CoMaps (Debug)";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = NO;
@@ -5239,6 +5491,148 @@
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.comaps;
 				PROVISIONING_PROFILE_SPECIFIER = "";
+			};
+			name = Release;
+		};
+		CA7C00010000000000000077 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoMapsWatch/Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoMaps;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CoMaps Contributors. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2026.01.01;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug.watchkitapp.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		CA7C00010000000000000078 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoMapsWatch/Widget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoMaps;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CoMaps Contributors. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2026.01.01;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.watchkitapp.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		CA7C00010000000000000051 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoMapsWatch/CoMapsWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_PREVIEWS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoMapsWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoMaps;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CoMaps Contributors. All rights reserved.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to show your position on the route.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.comaps.debug;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2026.01.01;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.debug.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		CA7C00010000000000000052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = CoMapsWatch/CoMapsWatch.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CoMapsWatch/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = CoMaps;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 CoMaps Contributors. All rights reserved.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Your location is used to show your position on the route.";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_WKApplication = YES;
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = app.comaps;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2026.01.01;
+				PRODUCT_BUNDLE_IDENTIFIER = app.comaps.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchos watchsimulator";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_INTERFACE_HEADER_NAME = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 9.0;
 			};
 			name = Release;
 		};
@@ -5438,6 +5832,24 @@
 			buildConfigurations = (
 				FAAB411B149BA84700C245B1 /* Debug */,
 				FABB561E149CD957006969C0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CA7C00010000000000000053 /* Build configuration list for PBXNativeTarget "CoMapsWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA7C00010000000000000051 /* Debug */,
+				CA7C00010000000000000052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CA7C00010000000000000076 /* Build configuration list for PBXNativeTarget "CoMapsWatchWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA7C00010000000000000077 /* Debug */,
+				CA7C00010000000000000078 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
