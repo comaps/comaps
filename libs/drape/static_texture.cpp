@@ -27,7 +27,7 @@
 
 namespace dp
 {
-std::string const StaticTexture::kDefaultResource = "walking";
+std::string const StaticTexture::kDefaultResource = "default";
 
 namespace
 {

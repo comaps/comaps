@@ -169,7 +169,7 @@ ReaderPtr<Reader> StyleReader::GetResourceReader(std::string const & file, std::
 
 ReaderPtr<Reader> StyleReader::GetDefaultResourceReader(std::string const & file) const
 {
-  return GetPlatform().GetReader(base::JoinPath("symbols/walking", file));
+  return GetPlatform().GetReader(base::JoinPath("symbols/default", file));
 }
 
 StyleReader & GetStyleReader()

@@ -273,7 +273,7 @@ ReaderPtr<Reader> ResolveGuiSkinFile(std::string const & deviceType)
   {
     try
     {
-      reader = pl.GetReader("symbols/walking/default.ui");
+      reader = pl.GetReader("symbols/default/default.ui");
     }
     catch (FileAbsentException & e)
     {
