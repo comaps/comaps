@@ -279,9 +279,10 @@
   for (auto const & text : notifications) {
     [turnNotifications addObject:@(text.c_str())];
   }
+  RouteInfo * routeInfo = self.routeInfo;
   NSArray<id<MWMRoutingManagerListener>> * objects = self.listeners.allObjects;
   for (id<MWMRoutingManagerListener> object in objects) {
-    [object didLocationUpdate:turnNotifications];
+    [object didLocationUpdate:turnNotifications routeInfo:routeInfo];
   }
 }
 
