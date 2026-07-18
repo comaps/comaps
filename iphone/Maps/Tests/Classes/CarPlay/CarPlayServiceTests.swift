@@ -115,6 +115,67 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(estimates.timeRemaining, 100)
   }
 
+  func testManeuverRefreshStateConsumesPendingPrimary() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    var state = CarPlayManeuverRefreshState()
+
+    XCTAssertTrue(state.needsRefresh(for: content))
+    state.didDisplay(content)
+    XCTAssertFalse(state.needsRefresh(for: content))
+
+    state.markPrimaryChanged()
+    XCTAssertTrue(state.needsRefresh(for: content),
+                  "A new primary must refresh even when consecutive maneuvers look identical")
+    state.didDisplay(content)
+    XCTAssertFalse(state.needsRefresh(for: content))
+  }
+
+  func testManeuverRefreshStateTracksSecondaryEligibility() {
+    let withoutSecondary = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    let withSecondary = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(nextTurnImageName: "ic_cp_simple_right_then"))
+    var state = CarPlayManeuverRefreshState()
+
+    state.didDisplay(withoutSecondary)
+
+    XCTAssertTrue(state.needsRefresh(for: withSecondary))
+    state.didDisplay(withSecondary)
+    XCTAssertFalse(state.needsRefresh(for: withSecondary))
+  }
+
+  func testManeuverRefreshStateTracksLaneGuidance() {
+    let withoutLanes = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    let leftLane = makeLane(ways: [.left], recommended: .left)
+    let rightLane = makeLane(ways: [.right], recommended: .right)
+    let withLeftLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [leftLane]))
+    let withRightLane = CarPlayManeuverContent(routeInfo: makeRouteInfo(lanes: [rightLane]))
+    let withUnrecommendedLeftLane = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(lanes: [makeLane(ways: [.left], recommended: .none)]))
+    var state = CarPlayManeuverRefreshState()
+
+    state.didDisplay(withoutLanes)
+    XCTAssertTrue(state.needsRefresh(for: withLeftLane))
+    state.didDisplay(withLeftLane)
+    XCTAssertTrue(state.needsRefresh(for: withRightLane))
+    state.didDisplay(withLeftLane)
+    XCTAssertTrue(state.needsRefresh(for: withUnrecommendedLeftLane))
+  }
+
+  func testRoundaboutEntranceSuppressesRawExitManeuver() {
+    let imageName = "ic_cp_round_then"
+
+    XCTAssertNil(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .enterRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName)
+    XCTAssertNil(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .stayOnRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName)
+    XCTAssertEqual(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .leaveRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName,
+                   imageName)
+  }
+
   func testLaneWayTurnImageNames() {
     XCTAssertEqual(LaneWay.through.turnImageName, "straight")
     XCTAssertEqual(LaneWay.none.turnImageName, "straight")
@@ -304,6 +365,37 @@ final class CarPlayServiceTests: XCTestCase {
       }
     }
     return result
+  }
+
+  private func makeRouteInfo(carDirection: CarDirection = .turnLeft,
+                             nextTurnImageName: String? = nil,
+                             lanes: [LaneInfo] = []) -> RouteInfo {
+    return RouteInfo(timeToTarget: 100,
+                     targetDistance: 1,
+                     targetUnitsIndex: 1,
+                     distanceToTurn: 100,
+                     turnUnitsIndex: 0,
+                     turnImageName: "ic_cp_simple_left",
+                     nextTurnImageName: nextTurnImageName,
+                     speedMps: 10,
+                     speedLimitMps: 50,
+                     roundExitNumber: 0,
+                     lanes: lanes,
+                     roadName: "Main Street",
+                     roadRef: "",
+                     junctionRef: "",
+                     destinationRef: "",
+                     destination: "",
+                     isLink: false,
+                     roadShields: nil,
+                     currentRoadName: "Current Street",
+                     carDirectionIndex: carDirection.rawValue,
+                     isLeftHandTraffic: false)
+  }
+
+  private func makeLane(ways: [LaneWay], recommended: LaneWay) -> LaneInfo {
+    return LaneInfo(laneWays: ways.map { NSNumber(value: $0.rawValue) },
+                    recommendedWay: recommended.rawValue)
   }
 
   private func averageVisibleLuminance(of image: UIImage) throws -> CGFloat {
