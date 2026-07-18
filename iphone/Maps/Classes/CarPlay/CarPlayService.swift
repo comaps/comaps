@@ -1250,7 +1250,7 @@ extension CarPlayService: CarPlayRouterListener {
       let template = rootMapTemplate else {
         return
     }
-    router.updateEstimates()
+    router.updateEstimates(with: routeInfo)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       template.updateEstimates(estimates, for: trip)
     }
