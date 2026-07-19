@@ -7,6 +7,7 @@
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRoadShieldInfo+CPP.h"
 #import "MWMCoreUnits.h"
+#import "MWMTextToSpeech.h"
 #import "SwiftBridge.h"
 
 #include <CoreApi/Framework.h>
@@ -274,8 +275,13 @@
 - (void)onLocationUpdate:(CLLocation *)location {
   NSMutableArray<NSString *> * turnNotifications = [NSMutableArray array];
   std::vector<std::string> notifications;
-  auto announceStreets = [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
-  self.rm.GenerateNotifications(notifications, announceStreets);
+  if ([MWMTextToSpeech tts].allowsTurnInstructions) {
+    auto announceStreets =
+        [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
+    self.rm.GenerateNotifications(notifications, announceStreets);
+  } else {
+    self.rm.GetSpeedCamManager().GenerateNotifications(notifications);
+  }
   for (auto const & text : notifications) {
     [turnNotifications addObject:@(text.c_str())];
   }

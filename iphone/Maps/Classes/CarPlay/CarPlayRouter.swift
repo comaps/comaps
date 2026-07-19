@@ -626,8 +626,8 @@ extension CarPlayRouter: RoutingManagerListener {
     })
 
     let tts = MWMTextToSpeech.tts()!
-    if manager.isOnRoute && tts.active {
-      tts.playTurnNotifications(notifications)
+    if manager.isOnRoute {
+      tts.playNotifications(notifications)
       tts.playWarningSound()
     }
   }

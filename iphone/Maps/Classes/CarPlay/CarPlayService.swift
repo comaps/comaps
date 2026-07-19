@@ -838,13 +838,13 @@ final class CarPlayService: NSObject {
     MWMTextToSpeech.remove(self)
   }
 
-  private func refreshNavigationAudioButtons() {
+  private func refreshNavigationSoundButton() {
     guard let rootMapTemplate,
           let info = rootMapTemplate.userInfo as? MapInfo,
           info.type == CPConstants.TemplateType.navigation,
           !panningInterfaceState.isPresented
     else { return }
-    MapTemplateBuilder.updateNavigationAudioButtons(mapTemplate: rootMapTemplate)
+    MapTemplateBuilder.updateNavigationSoundButton(mapTemplate: rootMapTemplate)
   }
 
   func updateMapTemplateUIToBase() {
@@ -1319,7 +1319,7 @@ extension CarPlayService: LocationModeListener {
 // MARK: - MWMTextToSpeechObserver implementation
 extension CarPlayService: MWMTextToSpeechObserver {
   func onTTSStatusUpdated() {
-    refreshNavigationAudioButtons()
+    refreshNavigationSoundButton()
   }
 }
 

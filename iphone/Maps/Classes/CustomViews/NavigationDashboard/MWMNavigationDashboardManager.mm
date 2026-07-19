@@ -264,8 +264,7 @@ NSString *const kNavigationControlViewXibName = @"NavigationControlView";
 #pragma mark - MWMNavigationControlView
 
 - (IBAction)ttsButtonAction {
-  BOOL const isEnabled = [MWMTextToSpeech tts].active;
-  [MWMTextToSpeech tts].active = !isEnabled;
+  [[MWMTextToSpeech tts] cycleNavigationSoundMode];
 }
 
 - (IBAction)settingsButtonAction {

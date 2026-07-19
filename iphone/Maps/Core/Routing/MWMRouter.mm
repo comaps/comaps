@@ -10,6 +10,7 @@
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRouteStepInfo+CPP.h"
 #import "MWMStorage+UI.h"
+#import "MWMTextToSpeech.h"
 #import "MapsAppDelegate.h"
 #import "SwiftBridge.h"
 #import "UIImage+RGBAData.h"
@@ -206,8 +207,14 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
 + (NSArray<NSString *> *)turnNotifications {
   NSMutableArray<NSString *> *turnNotifications = [@[] mutableCopy];
   std::vector<std::string> notifications;
-  auto announceStreets = [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
-  GetFramework().GetRoutingManager().GenerateNotifications(notifications, announceStreets);
+  auto & routingManager = GetFramework().GetRoutingManager();
+  if ([MWMTextToSpeech tts].allowsTurnInstructions) {
+    auto announceStreets =
+        [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
+    routingManager.GenerateNotifications(notifications, announceStreets);
+  } else {
+    routingManager.GetSpeedCamManager().GenerateNotifications(notifications);
+  }
 
   for (auto const &text : notifications)
     [turnNotifications addObject:@(text.c_str())];
@@ -451,9 +458,9 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   if (![MWMRouter isRoutingActive])
     return;
   auto tts = [MWMTextToSpeech tts];
-  NSArray<NSString *> *turnNotifications = [MWMRouter turnNotifications];
-  if ([MWMRouter isOnRoute] && tts.active) {
-    [tts playTurnNotifications:turnNotifications];
+  NSArray<NSString *> * notifications = [MWMRouter turnNotifications];
+  if ([MWMRouter isOnRoute]) {
+    [tts playNotifications:notifications];
     [tts playWarningSound];
   }
 

@@ -11,8 +11,9 @@ final class MapTemplateBuilder {
     case destination
     case recenter
     case settings
-    case mute
-    case unmute
+    case voiceGuidance
+    case speedCameraWarningsOnly
+    case muted
     case redirectRoute
     case endRoute
   }
@@ -103,7 +104,7 @@ final class MapTemplateBuilder {
     }
     let myPositionModeButton = buildMyPositionModeButton()
     mapTemplate.mapButtons = [myPositionModeButton, panningButton]
-    setupAudioAndRedirectButtons(template: mapTemplate)
+    setupSoundAndRedirectButtons(template: mapTemplate)
     let endButton = buildBarButton(type: .endRoute) { _ in
       CarPlayService.shared.cancelCurrentTrip()
     }
@@ -133,29 +134,32 @@ final class MapTemplateBuilder {
     mapTemplate.leadingNavigationBarButtons = [recenterButton]
   }
 
-  class func updateNavigationAudioButtons(mapTemplate: CPMapTemplate) {
-    setupAudioAndRedirectButtons(template: mapTemplate)
+  class func updateNavigationSoundButton(mapTemplate: CPMapTemplate) {
+    setupSoundAndRedirectButtons(template: mapTemplate)
   }
 
-  private class func setupAudioAndRedirectButtons(template: CPMapTemplate) {
+  private class func setupSoundAndRedirectButtons(template: CPMapTemplate) {
     let redirectButton = buildBarButton(type: .redirectRoute) { _ in
       let listTemplate = ListTemplateBuilder.buildListTemplate(for: .history)
       CarPlayService.shared.pushTemplate(listTemplate, animated: true)
     }
     if MWMTextToSpeech.isTTSEnabled() {
-      if MWMTextToSpeech.tts().active {
-        let muteButton = buildBarButton(type: .mute) { _ in
-          MWMTextToSpeech.tts().active = false
-          setupAudioAndRedirectButtons(template: template)
-        }
-        template.leadingNavigationBarButtons = [muteButton, redirectButton]
-      } else {
-        let unmuteButton = buildBarButton(type: .unmute) { _ in
-          MWMTextToSpeech.tts().active = true
-          setupAudioAndRedirectButtons(template: template)
-        }
-        template.leadingNavigationBarButtons = [unmuteButton, redirectButton]
+      let soundButtonType: BarButtonType
+      switch MWMTextToSpeech.tts().navigationSoundMode {
+      case .voiceGuidance:
+        soundButtonType = .voiceGuidance
+      case .speedCameraWarningsOnly:
+        soundButtonType = .speedCameraWarningsOnly
+      case .muted:
+        soundButtonType = .muted
+      @unknown default:
+        soundButtonType = .voiceGuidance
       }
+      let soundButton = buildBarButton(type: soundButtonType) { _ in
+        MWMTextToSpeech.tts().cycleNavigationSoundMode()
+        setupSoundAndRedirectButtons(template: template)
+      }
+      template.leadingNavigationBarButtons = [soundButton, redirectButton]
     } else {
       template.leadingNavigationBarButtons = [redirectButton]
     }
@@ -217,9 +221,11 @@ final class MapTemplateBuilder {
       return CPBarButton(title: L("follow_my_position"), handler: action)
     case .settings:
       return CPBarButton(image: UIImage(systemName: "gearshape.fill")!, handler: action)
-    case .mute:
+    case .voiceGuidance:
       return CPBarButton(image: UIImage(systemName: "speaker.wave.3")!, handler: action)
-    case .unmute:
+    case .speedCameraWarningsOnly:
+      return CPBarButton(image: UIImage(named: "ic_carplay_camera")!, handler: action)
+    case .muted:
       return CPBarButton(image: UIImage(systemName: "speaker.slash")!, handler: action)
     case .redirectRoute:
       return CPBarButton(image: UIImage(named: "ic_carplay_redirect_route")!, handler: action)
