@@ -616,7 +616,7 @@ extension CarPlayRouter: RoutingManagerListener {
     }
   }
 
-  func didLocationUpdate(_ notifications: [String], routeInfo: RouteInfo?) {
+  func didLocationUpdate(_ routeNotifications: [String], routeInfo: RouteInfo?) {
     guard let trip = previewTrip else { return }
 
     let manager = RoutingManager.routingManager
@@ -638,8 +638,8 @@ extension CarPlayRouter: RoutingManagerListener {
     })
 
     let tts = MWMTextToSpeech.tts()!
-    if manager.isOnRoute && tts.active {
-      tts.playTurnNotifications(notifications)
+    if manager.isOnRoute {
+      tts.playRouteNotifications(routeNotifications)
       tts.playWarningSound()
     }
   }
