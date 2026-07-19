@@ -7,6 +7,7 @@
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRoadShieldInfo+CPP.h"
 #import "MWMCoreUnits.h"
+#import "MWMTextToSpeech.h"
 #import "SwiftBridge.h"
 
 #include <CoreApi/Framework.h>
@@ -272,17 +273,22 @@
 #pragma mark - MWMLocationObserver implementation
 
 - (void)onLocationUpdate:(CLLocation *)location {
-  NSMutableArray<NSString *> * turnNotifications = [NSMutableArray array];
+  NSMutableArray<NSString *> * routeNotifications = [NSMutableArray array];
   std::vector<std::string> notifications;
-  auto announceStreets = [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
-  self.rm.GenerateNotifications(notifications, announceStreets);
+  if ([MWMTextToSpeech tts].allowsTurnInstructions) {
+    auto announceStreets =
+        [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
+    self.rm.GenerateNotifications(notifications, announceStreets);
+  } else {
+    self.rm.GetSpeedCamManager().GenerateNotifications(notifications);
+  }
   for (auto const & text : notifications) {
-    [turnNotifications addObject:@(text.c_str())];
+    [routeNotifications addObject:@(text.c_str())];
   }
   RouteInfo * routeInfo = self.routeInfo;
   NSArray<id<MWMRoutingManagerListener>> * objects = self.listeners.allObjects;
   for (id<MWMRoutingManagerListener> object in objects) {
-    [object didLocationUpdate:turnNotifications routeInfo:routeInfo];
+    [object didLocationUpdate:routeNotifications routeInfo:routeInfo];
   }
 }
 

@@ -147,6 +147,7 @@ final class CarPlayService: NSObject {
       self.router = router
       MWMRouter.unsubscribeFromEvents()
     }
+    startObservingTTS()
     applyRootViewController()
     if let sessionData = router?.restoredNavigationSession() {
       router?.cancelNavigationSession()
@@ -169,6 +170,7 @@ final class CarPlayService: NSObject {
   }
 
   private var savedInterfaceController: CPInterfaceController?
+  private var isObservingTTS = false
 
   func showOnPhone() {
     LOG(.info, "Show on the Phone screen")
@@ -217,6 +219,7 @@ final class CarPlayService: NSObject {
     router?.cancelNavigationSession()
     searchService = nil
     router = nil
+    stopObservingTTS()
     sessionConfiguration = nil
     interfaceController = nil
     pendingDashboardAction = nil
@@ -823,6 +826,27 @@ final class CarPlayService: NSObject {
     }
   }
 
+  private func startObservingTTS() {
+    guard !isObservingTTS else { return }
+    isObservingTTS = true
+    MWMTextToSpeech.add(self)
+  }
+
+  private func stopObservingTTS() {
+    guard isObservingTTS else { return }
+    isObservingTTS = false
+    MWMTextToSpeech.remove(self)
+  }
+
+  private func refreshNavigationSoundButton() {
+    guard let rootMapTemplate,
+          let info = rootMapTemplate.userInfo as? MapInfo,
+          info.type == CPConstants.TemplateType.navigation,
+          !panningInterfaceState.isPresented
+    else { return }
+    MapTemplateBuilder.updateNavigationSoundButton(mapTemplate: rootMapTemplate)
+  }
+
   func updateMapTemplateUIToBase() {
     guard let mapTemplate = rootMapTemplate else {
         return
@@ -1289,6 +1313,13 @@ extension CarPlayService: LocationModeListener {
       rootMapTemplate.leadingNavigationBarButtons = []
       MapTemplateBuilder.updateMyPositionModeButton(mapTemplate: rootMapTemplate)
     }
+  }
+}
+
+// MARK: - MWMTextToSpeechObserver implementation
+extension CarPlayService: MWMTextToSpeechObserver {
+  func onTTSStatusUpdated() {
+    refreshNavigationSoundButton()
   }
 }
 
