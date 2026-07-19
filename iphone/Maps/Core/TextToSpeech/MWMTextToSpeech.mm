@@ -17,6 +17,7 @@ namespace
 {
 NSString * const kUserDefaultsTTSLanguageBcp47 = @"UserDefaultsTTSLanguageBcp47";
 NSString * const kIsTTSEnabled = @"UserDefaultsNeedToEnableTTS";
+NSString * const kNavigationSoundMode = @"UserDefaultsNavigationSoundMode";
 NSString * const kIsStreetNamesTTSEnabled = @"UserDefaultsNeedToEnableStreetNamesTTS";
 NSString * const kDefaultLanguage = @"en-US";
 
@@ -58,6 +59,8 @@ using Observers = NSHashTable<Observer>;
 @property(nonatomic) AVAudioPlayer * audioPlayer;
 
 @property(nonatomic) Observers * observers;
+
+- (BOOL)allowsSpokenNotifications;
 
 @end
 
@@ -110,11 +113,13 @@ using Observers = NSHashTable<Observer>;
       LOG(LWARNING, ("Couldn't configure audio session: ", [err localizedDescription]));
     }
 
-    // Set initial StreetNamesTTS setting
-    NSDictionary *dictionary = @{ kIsStreetNamesTTSEnabled : @NO };
+    NSDictionary * dictionary = @{
+      kNavigationSoundMode : @(MWMNavigationSoundModeVoiceGuidance),
+      kIsStreetNamesTTSEnabled : @NO
+    };
     [NSUserDefaults.standardUserDefaults registerDefaults:dictionary];
-    
-    self.active = YES;
+
+    [MWMRouter enableTurnNotifications:self.allowsTurnInstructions];
   }
   return self;
 }
@@ -144,14 +149,11 @@ using Observers = NSHashTable<Observer>;
   if ([self isTTSEnabled] == enabled)
     return;
   auto tts = [self tts];
-  if (!enabled)
-    [tts setActive:NO];
   NSUserDefaults * ud = NSUserDefaults.standardUserDefaults;
   [ud setBool:enabled forKey:kIsTTSEnabled];
 
+  [MWMRouter enableTurnNotifications:tts.allowsTurnInstructions];
   [tts onTTSStatusUpdated];
-  if (enabled)
-    [tts setActive:YES];
 }
 + (BOOL)isStreetNamesTTSEnabled { return [NSUserDefaults.standardUserDefaults boolForKey:kIsStreetNamesTTSEnabled]; }
 + (void)setStreetNamesTTSEnabled:(BOOL)enabled {
@@ -162,18 +164,55 @@ using Observers = NSHashTable<Observer>;
   [ud synchronize];
 }
 
-- (void)setActive:(BOOL)active {
-  if (![[self class] isTTSEnabled] || self.active == active)
+- (void)setNavigationSoundMode:(MWMNavigationSoundMode)navigationSoundMode {
+  if (self.navigationSoundMode == navigationSoundMode)
     return;
-  if (active && ![self isValid])
+
+  if (navigationSoundMode != MWMNavigationSoundModeMuted && [[self class] isTTSEnabled] && ![self isValid])
     [self createVoice:[[self class] savedLanguage]];
-  [MWMRouter enableTurnNotifications:active];
+
+  [NSUserDefaults.standardUserDefaults setInteger:navigationSoundMode forKey:kNavigationSoundMode];
+  [MWMRouter enableTurnNotifications:self.allowsTurnInstructions];
   dispatch_async(dispatch_get_main_queue(), ^{
     [self onTTSStatusUpdated];
   });
 }
 
-- (BOOL)active { return [[self class] isTTSEnabled] && [MWMRouter areTurnNotificationsEnabled]; }
+- (MWMNavigationSoundMode)navigationSoundMode {
+  NSInteger const mode = [NSUserDefaults.standardUserDefaults integerForKey:kNavigationSoundMode];
+  if (mode < MWMNavigationSoundModeVoiceGuidance || mode > MWMNavigationSoundModeMuted)
+    return MWMNavigationSoundModeVoiceGuidance;
+  return (MWMNavigationSoundMode)mode;
+}
+
+- (BOOL)allowsTurnInstructions {
+  return [[self class] isTTSEnabled] &&
+         self.navigationSoundMode == MWMNavigationSoundModeVoiceGuidance;
+}
+
+- (BOOL)allowsSpeedCameraWarnings {
+  return [[self class] isTTSEnabled] &&
+         self.navigationSoundMode != MWMNavigationSoundModeMuted;
+}
+
+- (BOOL)allowsSpokenNotifications {
+  return [[self class] isTTSEnabled] &&
+         self.navigationSoundMode != MWMNavigationSoundModeMuted;
+}
+
+- (void)cycleNavigationSoundMode {
+  switch (self.navigationSoundMode) {
+    case MWMNavigationSoundModeVoiceGuidance:
+      self.navigationSoundMode = MWMNavigationSoundModeSpeedCameraWarningsOnly;
+      break;
+    case MWMNavigationSoundModeSpeedCameraWarningsOnly:
+      self.navigationSoundMode = MWMNavigationSoundModeMuted;
+      break;
+    case MWMNavigationSoundModeMuted:
+      self.navigationSoundMode = MWMNavigationSoundModeVoiceGuidance;
+      break;
+  }
+}
 
 + (NSDictionary<NSString *, NSString *> *)availableLanguages
 {
@@ -294,7 +333,7 @@ using Observers = NSHashTable<Observer>;
   [self.speechSynthesizer speakUtterance:utterance];
 }
 
-- (void)playTurnNotifications:(NSArray<NSString *> *)turnNotifications {
+- (void)playRouteNotifications:(NSArray<NSString *> *)routeNotifications {
   auto stopSession = ^{
     if (self.speechSynthesizer.isSpeaking)
       return;
@@ -304,7 +343,7 @@ using Observers = NSHashTable<Observer>;
               error:nil];
   };
 
-  if (![MWMRouter isOnRoute] || !self.active) {
+  if (![MWMRouter isOnRoute] || !self.allowsSpokenNotifications) {
     stopSession();
     return;
   }
@@ -317,7 +356,7 @@ using Observers = NSHashTable<Observer>;
     return;
   }
 
-  if (turnNotifications.count == 0) {
+  if (routeNotifications.count == 0) {
     stopSession();
     return;
   } else {
@@ -327,7 +366,7 @@ using Observers = NSHashTable<Observer>;
       return;
     }
 
-    for (NSString * notification in turnNotifications)
+    for (NSString * notification in routeNotifications)
       [self speakOneString:notification];
   }
 }
@@ -336,7 +375,8 @@ using Observers = NSHashTable<Observer>;
   if (!GetFramework().GetRoutingManager().GetSpeedCamManager().ShouldPlayBeepSignal())
     return;
 
-  [self.audioPlayer play];
+  if (self.allowsSpeedCameraWarnings)
+    [self.audioPlayer play];
 }
 
 - (AVAudioPlayer *)audioPlayer {
