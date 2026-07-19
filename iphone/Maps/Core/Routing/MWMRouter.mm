@@ -10,6 +10,7 @@
 #import "MWMRoutePoint+CPP.h"
 #import "MWMRouteStepInfo+CPP.h"
 #import "MWMStorage+UI.h"
+#import "MWMTextToSpeech.h"
 #import "MapsAppDelegate.h"
 #import "SwiftBridge.h"
 #import "UIImage+RGBAData.h"
@@ -203,15 +204,21 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   GetFramework().GetRoutingManager().SetTurnNotificationsLocale(locale.UTF8String);
 }
 
-+ (NSArray<NSString *> *)turnNotifications {
-  NSMutableArray<NSString *> *turnNotifications = [@[] mutableCopy];
++ (NSArray<NSString *> *)routeNotifications {
+  NSMutableArray<NSString *> *routeNotifications = [@[] mutableCopy];
   std::vector<std::string> notifications;
-  auto announceStreets = [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
-  GetFramework().GetRoutingManager().GenerateNotifications(notifications, announceStreets);
+  auto & routingManager = GetFramework().GetRoutingManager();
+  if ([MWMTextToSpeech tts].allowsTurnInstructions) {
+    auto announceStreets =
+        [NSUserDefaults.standardUserDefaults boolForKey:@"UserDefaultsNeedToEnableStreetNamesTTS"];
+    routingManager.GenerateNotifications(notifications, announceStreets);
+  } else {
+    routingManager.GetSpeedCamManager().GenerateNotifications(notifications);
+  }
 
   for (auto const &text : notifications)
-    [turnNotifications addObject:@(text.c_str())];
-  return [turnNotifications copy];
+    [routeNotifications addObject:@(text.c_str())];
+  return [routeNotifications copy];
 }
 
 + (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale {
@@ -451,9 +458,9 @@ char const *kRenderAltitudeImagesQueueLabel = "mapsme.mwmrouter.renderAltitudeIm
   if (![MWMRouter isRoutingActive])
     return;
   auto tts = [MWMTextToSpeech tts];
-  NSArray<NSString *> *turnNotifications = [MWMRouter turnNotifications];
-  if ([MWMRouter isOnRoute] && tts.active) {
-    [tts playTurnNotifications:turnNotifications];
+  NSArray<NSString *> * routeNotifications = [MWMRouter routeNotifications];
+  if ([MWMRouter isOnRoute]) {
+    [tts playRouteNotifications:routeNotifications];
     [tts playWarningSound];
   }
 

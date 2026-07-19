@@ -25,4 +25,19 @@
   XCTAssertEqual(tts::translateLocale("unknown"), "");
 }
 
+- (void)testNavigationSoundModeCycle {
+  MWMTextToSpeech * tts = [MWMTextToSpeech tts];
+  MWMNavigationSoundMode const savedMode = tts.navigationSoundMode;
+
+  tts.navigationSoundMode = MWMNavigationSoundModeVoiceGuidance;
+  [tts cycleNavigationSoundMode];
+  XCTAssertEqual(tts.navigationSoundMode, MWMNavigationSoundModeSpeedCameraWarningsOnly);
+  [tts cycleNavigationSoundMode];
+  XCTAssertEqual(tts.navigationSoundMode, MWMNavigationSoundModeMuted);
+  [tts cycleNavigationSoundMode];
+  XCTAssertEqual(tts.navigationSoundMode, MWMNavigationSoundModeVoiceGuidance);
+
+  tts.navigationSoundMode = savedMode;
+}
+
 @end
