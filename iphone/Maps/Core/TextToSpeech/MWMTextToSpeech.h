@@ -1,6 +1,12 @@
 #import "MWMTextToSpeechObserver.h"
 #import <AVFoundation/AVFoundation.h>
 
+typedef NS_ENUM(NSInteger, MWMNavigationSoundMode) {
+  MWMNavigationSoundModeVoiceGuidance,
+  MWMNavigationSoundModeSpeedCameraWarningsOnly,
+  MWMNavigationSoundModeMuted
+} NS_SWIFT_NAME(NavigationSoundMode);
+
 @interface MWMTextToSpeech : NSObject
 
 + (MWMTextToSpeech *)tts;
@@ -21,9 +27,13 @@
 
 + (void)applicationDidBecomeActive;
 
-@property(nonatomic) BOOL active;
+@property(nonatomic) MWMNavigationSoundMode navigationSoundMode;
+@property(nonatomic, readonly) BOOL allowsTurnInstructions;
+@property(nonatomic, readonly) BOOL allowsSpeedCameraWarnings;
+
+- (void)cycleNavigationSoundMode;
 - (void)setNotificationsLocale:(NSString *)locale;
-- (void)playTurnNotifications:(NSArray<NSString *> *)turnNotifications;
+- (void)playRouteNotifications:(NSArray<NSString *> *)routeNotifications;
 - (void)playWarningSound;
 - (void)play:(NSString *)text;
 

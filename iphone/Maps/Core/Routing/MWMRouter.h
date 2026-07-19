@@ -46,7 +46,7 @@ typedef void (^MWMImageHeightBlock)(UIImage *, NSString *, NSString *);
 + (void)enableTurnNotifications:(BOOL)active;
 + (BOOL)areTurnNotificationsEnabled;
 + (void)setTurnNotificationsLocale:(NSString *)locale;
-+ (NSArray<NSString *> *)turnNotifications;
++ (NSArray<NSString *> *)routeNotifications;
 
 + (NSArray<MWMRouteStepInfo *> *)routeStepsForLocale:(NSString *)locale;
 
