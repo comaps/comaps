@@ -476,7 +476,13 @@ public class MapButtonsController extends Fragment
           case zoomIn, zoomOut, zoom, indoorLevels -> -140;
           default -> 0;
         };
-        showButton(getViewTopOffset(translation, button) >= toleranceOffset, entry.getKey());
+        // For the indoor levels container use its bottom edge (anchored above the zoom buttons),
+        // not its top, because a tall container (many floors) extends above the parent's origin
+        // and would have a large-negative top even when fully on screen.
+        int offset = entry.getKey() == MapButtons.indoorLevels
+            ? (int) (translation + button.getBottom())
+            : getViewTopOffset(translation, button);
+        showButton(offset >= toleranceOffset, entry.getKey());
       }
     }
   }

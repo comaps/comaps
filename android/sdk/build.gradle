@@ -167,6 +167,9 @@ project.afterEvaluate {
 
       if (isWindows) {
         environment 'PYTHONUTF8', '1'
+        // Symbols are pre-generated via WSL; skip cmake/rebuild under Git Bash to avoid CMakeCache path conflicts.
+        environment 'SKIP_GENERATE_SYMBOLS', '1'
+        environment 'SKIP_GENERATE_DRULES', '1'
       }
 
       commandLine bash, './configure.sh'
