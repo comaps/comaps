@@ -1660,9 +1660,15 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
       // Faded (lower alpha) for level=* POIs that are floor-filtered but don't trigger indoor mode.
       uint8_t const alpha = isIndoor ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
       dp::Color const color(base.GetRed(), base.GetGreen(), base.GetBlue(), alpha);
-      std::vector<m2::PointD> const pts = {featureRect.LeftTop(), featureRect.RightTop(),
-                                           featureRect.RightBottom(), featureRect.LeftBottom(),
-                                           featureRect.LeftTop()};
+      // Point features (POIs) have zero-area rects; expand to a minimum visible box (~10m at equator).
+      double constexpr kMinBoxHalf = 0.0001;  // degrees in the internal mercator coordinate system
+      m2::RectD const drawRect = (featureRect.SizeX() < kMinBoxHalf || featureRect.SizeY() < kMinBoxHalf)
+          ? m2::RectD(featureRect.Center() - m2::PointD(kMinBoxHalf, kMinBoxHalf),
+                      featureRect.Center() + m2::PointD(kMinBoxHalf, kMinBoxHalf))
+          : featureRect;
+      std::vector<m2::PointD> const pts = {drawRect.LeftTop(), drawRect.RightTop(),
+                                           drawRect.RightBottom(), drawRect.LeftBottom(),
+                                           drawRect.LeftTop()};
       m_drapeApi.AddLine("i" + std::to_string(id++), df::DrapeApiLineData(pts, color).Width(isIndoor ? 2.0f : 1.0f));
     }
   });
