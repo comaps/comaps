@@ -19,7 +19,7 @@
 
 namespace
 {
-int constexpr kMinIndoorZoom = 16;
+int constexpr kMinIndoorZoom = 17;
 double constexpr kLevelEpsilon = 1e-9;
 
 bool LevelsEqual(double lhs, double rhs)
@@ -74,6 +74,19 @@ void IndoorManager::SetCanEnterPredicate(CanEnterFn const & fn)
 void IndoorManager::SetShouldHoldPredicate(ShouldHoldFn const & fn)
 {
   m_shouldHoldIndoorFn = fn;
+}
+
+void IndoorManager::SetDebugEnabled(bool enabled)
+{
+  m_debugEnabled = enabled;
+  if (!enabled && m_onDebugRectsChangedFn)
+    m_onDebugRectsChangedFn({});
+  Invalidate();
+}
+
+void IndoorManager::SetDebugRectsListener(DebugRectsChangedFn const & fn)
+{
+  m_onDebugRectsChangedFn = fn;
 }
 
 void IndoorManager::UpdateViewport(ScreenBase const & screen)
@@ -137,15 +150,17 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
 {
   uint64_t const generation = ++m_generation;
 
+  bool const debugEnabled = m_debugEnabled;
   m_backgroundRunner(
-      [this, generation, rect]()
+      [this, generation, rect, debugEnabled]()
   {
     if (generation != m_generation)
       return;
 
     std::vector<double> levels;
+    std::vector<std::pair<m2::RectD, double>> debugRects;
     size_t totalCount = 0;
-    m_forEachFeature(rect, [&levels, &totalCount](FeatureType & ft)
+    m_forEachFeature(rect, [&levels, &debugRects, &totalCount, debugEnabled](FeatureType & ft)
     {
       ++totalCount;
       feature::TypesHolder const types(ft);
@@ -161,18 +176,21 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
         if (std::none_of(levels.begin(), levels.end(),
                          [level](double existing) { return LevelsEqual(existing, level); }))
           levels.push_back(level);
+        if (debugEnabled)
+          debugRects.emplace_back(ft.GetLimitRect(scales::GetUpperScale()), level);
       }
     }, scales::GetUpperScale());
 
     std::sort(levels.begin(), levels.end());
     LOG(LINFO, ("IndoorManager scan finished, rect =", rect, "total =", totalCount, "levels count =", levels.size()));
 
-    m_uiRunner([this, generation, levels = std::move(levels)]() mutable
-    { ApplyScanResult(generation, std::move(levels)); });
+    m_uiRunner([this, generation, levels = std::move(levels), debugRects = std::move(debugRects)]() mutable
+    { ApplyScanResult(generation, std::move(levels), std::move(debugRects)); });
   });
 }
 
-void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && levels)
+void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && levels,
+                                     std::vector<std::pair<m2::RectD, double>> && debugRects)
 {
   LOG(LINFO, ("IndoorManager::ApplyScanResult, gen =", generation, "cur =", m_generation.load(), "levels =", levels.size()));
   if (generation != m_generation)
@@ -218,6 +236,8 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     if (active)
       NotifyModeChanged();
     NotifyListener();
+    if (m_debugEnabled && m_onDebugRectsChangedFn)
+      m_onDebugRectsChangedFn(debugRects);
     return;
   }
 
@@ -238,6 +258,8 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   if (!active)
     NotifyModeChanged();
   NotifyListener();
+  if (m_debugEnabled && m_onDebugRectsChangedFn)
+    m_onDebugRectsChangedFn(debugRects);
 }
 
 void IndoorManager::SetActiveLevel(double level, bool notifyDrape)

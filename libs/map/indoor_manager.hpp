@@ -12,6 +12,7 @@
 #include <functional>
 #include <optional>
 #include <string>
+#include <utility>
 #include <vector>
 
 class FeatureType;
@@ -29,6 +30,9 @@ public:
   // |levels| are formatted level labels sorted from the topmost floor down; empty means no indoor
   // data in the viewport (the level selector UI should be hidden).
   using LevelsChangedFn = std::function<void(std::vector<std::string> const & levels, std::string const & activeLevel)>;
+  // Called with {mercator-rect, level} pairs for every indoor feature found in the viewport scan
+  // when debug mode is enabled. Empty vector means debug mode was disabled or no indoor features.
+  using DebugRectsChangedFn = std::function<void(std::vector<std::pair<m2::RectD, double>> const &)>;
   using ForEachFeatureFn =
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
   using TaskRunnerFn = std::function<void(std::function<void()> &&)>;
@@ -56,6 +60,10 @@ public:
   // Sets a predicate deciding whether an already-active indoor context is held against viewport-
   // driven deactivation (see ShouldHoldFn).
   void SetShouldHoldPredicate(ShouldHoldFn const & fn);
+  // Enables/disables indoor debug mode. When enabled, DebugRectsChangedFn is called after each
+  // scan with the bounding rect + level of every indoor feature found in the viewport.
+  void SetDebugEnabled(bool enabled);
+  void SetDebugRectsListener(DebugRectsChangedFn const & fn);
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
@@ -69,7 +77,8 @@ public:
 
 private:
   void ScheduleScan(m2::RectD const & rect);
-  void ApplyScanResult(uint64_t generation, std::vector<double> && levels);
+  void ApplyScanResult(uint64_t generation, std::vector<double> && levels,
+                        std::vector<std::pair<m2::RectD, double>> && debugRects);
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
   void NotifyModeChanged();
@@ -83,9 +92,11 @@ private:
   TaskRunnerFn m_uiRunner;
 
   LevelsChangedFn m_onLevelsChangedFn;
+  DebugRectsChangedFn m_onDebugRectsChangedFn;
   std::function<void()> m_onModeChangedFn;
   CanEnterFn m_canEnterIndoorFn;
   ShouldHoldFn m_shouldHoldIndoorFn;
+  std::atomic<bool> m_debugEnabled{false};
 
   df::DrapeEngineSafePtr m_drapeEngine;
 

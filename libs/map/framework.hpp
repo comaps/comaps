@@ -360,6 +360,7 @@ public:
 
   void InvalidateRendering();
   void EnableDebugRectRendering(bool enabled);
+  void EnableIndoorDebug(bool enabled);
 
   void EnableChoosePositionMode(bool enable, bool enableBounds, m2::PointD const * optionalPosition);
   void BlockTapEvents(bool block);

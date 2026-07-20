@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.core.widget.NestedScrollView
   xmlns:android="http://schemas.android.com/apk/res/android"
-  android:id="@+id/indoor_levels_container"
+  android:id="@+id/indoor_levels_scroll"
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
-  android:orientation="vertical" />
+  android:background="@drawable/bg_indoor_scroll"
+  android:clipToOutline="true"
+  android:scrollbars="none"
+  android:requiresFadingEdge="vertical"
+  android:fadingEdgeLength="28dp"
+  android:paddingTop="4dp"
+  android:paddingBottom="4dp">
+  <LinearLayout
+    android:id="@+id/indoor_levels_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" />
+</androidx.core.widget.NestedScrollView>

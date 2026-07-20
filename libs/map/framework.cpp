@@ -100,6 +100,7 @@
 #include "defines.hpp"
 
 #include <algorithm>
+#include <cmath>
 
 using namespace location;
 using namespace routing;
@@ -1635,6 +1636,32 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     // the route into view (which zooms out) doesn't drop the level chooser and filtering.
     return m_routingManager.IsRoutingActive();
   });
+  m_indoorManager.SetDebugRectsListener([this](std::vector<std::pair<m2::RectD, double>> const & rects)
+  {
+    // Level-keyed color palette for the ?indoor debug overlay.
+    static dp::Color const kLevelColors[] = {
+      dp::Color(0, 180, 0, 200),    // 0: green  (ground)
+      dp::Color(0, 100, 255, 200),  // 1: blue
+      dp::Color(180, 0, 180, 200),  // 2: purple
+      dp::Color(220, 120, 0, 200),  // 3: orange
+      dp::Color(0, 180, 180, 200),  // 4: teal
+      dp::Color(200, 200, 0, 200),  // 5: yellow
+      dp::Color(255, 0, 80, 200),   // 6: pink-red
+    };
+    int constexpr kColorCount = 7;
+
+    m_drapeApi.Clear();
+    int id = 0;
+    for (auto const & [featureRect, level] : rects)
+    {
+      int const colorIdx = ((static_cast<int>(std::round(level)) % kColorCount) + kColorCount) % kColorCount;
+      dp::Color const & color = kLevelColors[colorIdx];
+      std::vector<m2::PointD> const pts = {featureRect.LeftTop(), featureRect.RightTop(),
+                                           featureRect.RightBottom(), featureRect.LeftBottom(),
+                                           featureRect.LeftTop()};
+      m_drapeApi.AddLine("i" + std::to_string(id++), df::DrapeApiLineData(pts, color).Width(2.0f));
+    }
+  });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();
@@ -1733,6 +1760,13 @@ void Framework::EnableDebugRectRendering(bool enabled)
 {
   if (m_drapeEngine)
     m_drapeEngine->EnableDebugRectRendering(enabled);
+}
+
+void Framework::EnableIndoorDebug(bool enabled)
+{
+  m_indoorManager.SetDebugEnabled(enabled);
+  if (!enabled)
+    m_drapeApi.Clear();
 }
 
 void Framework::ConnectToGpsTracker()
@@ -2810,6 +2844,16 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   if (query == "?no-debug-rect")
   {
     m_drapeEngine->EnableDebugRectRendering(false /* shown */);
+    return true;
+  }
+  if (query == "?indoor")
+  {
+    EnableIndoorDebug(true);
+    return true;
+  }
+  if (query == "?no-indoor")
+  {
+    EnableIndoorDebug(false);
     return true;
   }
 #if defined(OMIM_METAL_AVAILABLE)
