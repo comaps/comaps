@@ -1653,23 +1653,36 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
 
     m_drapeApi.Clear();
     int id = 0;
+    // Min box so point-feature rects (zero area) are visible; crosshair arm slightly larger.
+    double constexpr kMinBoxHalf = 0.0001;   // ~10m at equator in internal mercator degrees
+    double constexpr kCrossArm   = kMinBoxHalf * 2.0;
     for (auto const & [featureRect, level, isIndoor] : rects)
     {
       int const colorIdx = ((static_cast<int>(std::round(level)) % kColorCount) + kColorCount) % kColorCount;
       auto const & base = kLevelColors[colorIdx];
-      // Faded (lower alpha) for level=* POIs that are floor-filtered but don't trigger indoor mode.
+      // Faded for: level=* POIs (don't trigger indoor mode) and oversized/filtered indoor=* features.
       uint8_t const alpha = isIndoor ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
       dp::Color const color(base.GetRed(), base.GetGreen(), base.GetBlue(), alpha);
-      // Point features (POIs) have zero-area rects; expand to a minimum visible box (~10m at equator).
-      double constexpr kMinBoxHalf = 0.0001;  // degrees in the internal mercator coordinate system
+      float const w = isIndoor ? 2.0f : 1.0f;
+
+      // Expand zero-area point-feature rects to a minimum visible box.
       m2::RectD const drawRect = (featureRect.SizeX() < kMinBoxHalf || featureRect.SizeY() < kMinBoxHalf)
           ? m2::RectD(featureRect.Center() - m2::PointD(kMinBoxHalf, kMinBoxHalf),
                       featureRect.Center() + m2::PointD(kMinBoxHalf, kMinBoxHalf))
           : featureRect;
+
+      // Bounding box outline.
       std::vector<m2::PointD> const pts = {drawRect.LeftTop(), drawRect.RightTop(),
                                            drawRect.RightBottom(), drawRect.LeftBottom(),
                                            drawRect.LeftTop()};
-      m_drapeApi.AddLine("i" + std::to_string(id++), df::DrapeApiLineData(pts, color).Width(isIndoor ? 2.0f : 1.0f));
+      m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(pts, color).Width(w));
+
+      // Fixed-size crosshair at center: makes every feature visible even when geometry is tiny.
+      m2::PointD const c = drawRect.Center();
+      m_drapeApi.AddLine("ih" + std::to_string(id), df::DrapeApiLineData(
+          {c - m2::PointD(kCrossArm, 0.0), c + m2::PointD(kCrossArm, 0.0)}, color).Width(w));
+      m_drapeApi.AddLine("iv" + std::to_string(id++), df::DrapeApiLineData(
+          {c - m2::PointD(0.0, kCrossArm), c + m2::PointD(0.0, kCrossArm)}, color).Width(w));
     }
   });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));

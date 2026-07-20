@@ -21,6 +21,10 @@ namespace
 {
 int constexpr kMinIndoorZoom = 17;
 double constexpr kLevelEpsilon = 1e-9;
+// City-scale polygons / transit networks sometimes tagged indoor=* would trigger indoor mode across
+// a wide area and produce a giant debug box. Skip any feature whose bounding rect exceeds this.
+// The world's largest indoor spaces (airport terminals, mega-malls) are well under 0.1°.
+double constexpr kMaxIndoorRectDeg = 0.1;
 
 bool LevelsEqual(double lhs, double rhs)
 {
@@ -180,13 +184,25 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
       if (isIndoor && parsed.empty())
         parsed.push_back(0.0);  // Indoor feature without a level is on the ground floor.
 
+      // Compute limit rect once: needed for the size-cap check (indoor) and/or debug overlay.
+      m2::RectD limitRect;
+      bool isOversized = false;
+      if (isIndoor || debugEnabled)
+      {
+        limitRect = ft.GetLimitRect(scales::GetUpperScale());
+        isOversized = isIndoor &&
+            (limitRect.SizeX() > kMaxIndoorRectDeg || limitRect.SizeY() > kMaxIndoorRectDeg);
+      }
+
       for (double const level : parsed)
       {
-        if (isIndoor && std::none_of(levels.begin(), levels.end(),
+        // Oversized indoor features don't contribute to active levels; they won't trigger indoor mode.
+        if (isIndoor && !isOversized && std::none_of(levels.begin(), levels.end(),
                          [level](double existing) { return LevelsEqual(existing, level); }))
           levels.push_back(level);
         if (debugEnabled)
-          debugRects.emplace_back(ft.GetLimitRect(scales::GetUpperScale()), level, isIndoor);
+          // Oversized indoor features appear faded (isIndoor=false style) to distinguish them.
+          debugRects.emplace_back(limitRect, level, isIndoor && !isOversized);
       }
     }, scales::GetUpperScale());
 
