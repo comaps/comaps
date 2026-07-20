@@ -1636,9 +1636,10 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     // the route into view (which zooms out) doesn't drop the level chooser and filtering.
     return m_routingManager.IsRoutingActive();
   });
-  m_indoorManager.SetDebugRectsListener([this](std::vector<std::pair<m2::RectD, double>> const & rects)
+  m_indoorManager.SetDebugRectsListener([this](std::vector<IndoorManager::DebugRect> const & rects)
   {
     // Level-keyed color palette for the ?indoor debug overlay.
+    // indoor=* geometry: opaque (alpha=200); level=* POIs: faded (alpha=90).
     static dp::Color const kLevelColors[] = {
       dp::Color(0, 180, 0, 200),    // 0: green  (ground)
       dp::Color(0, 100, 255, 200),  // 1: blue
@@ -1652,14 +1653,17 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
 
     m_drapeApi.Clear();
     int id = 0;
-    for (auto const & [featureRect, level] : rects)
+    for (auto const & [featureRect, level, isIndoor] : rects)
     {
       int const colorIdx = ((static_cast<int>(std::round(level)) % kColorCount) + kColorCount) % kColorCount;
-      dp::Color const & color = kLevelColors[colorIdx];
+      auto const & base = kLevelColors[colorIdx];
+      // Faded (lower alpha) for level=* POIs that are floor-filtered but don't trigger indoor mode.
+      uint8_t const alpha = isIndoor ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
+      dp::Color const color(base.GetRed(), base.GetGreen(), base.GetBlue(), alpha);
       std::vector<m2::PointD> const pts = {featureRect.LeftTop(), featureRect.RightTop(),
                                            featureRect.RightBottom(), featureRect.LeftBottom(),
                                            featureRect.LeftTop()};
-      m_drapeApi.AddLine("i" + std::to_string(id++), df::DrapeApiLineData(pts, color).Width(2.0f));
+      m_drapeApi.AddLine("i" + std::to_string(id++), df::DrapeApiLineData(pts, color).Width(isIndoor ? 2.0f : 1.0f));
     }
   });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));

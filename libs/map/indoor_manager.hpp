@@ -12,6 +12,7 @@
 #include <functional>
 #include <optional>
 #include <string>
+#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -30,9 +31,11 @@ public:
   // |levels| are formatted level labels sorted from the topmost floor down; empty means no indoor
   // data in the viewport (the level selector UI should be hidden).
   using LevelsChangedFn = std::function<void(std::vector<std::string> const & levels, std::string const & activeLevel)>;
-  // Called with {mercator-rect, level} pairs for every indoor feature found in the viewport scan
-  // when debug mode is enabled. Empty vector means debug mode was disabled or no indoor features.
-  using DebugRectsChangedFn = std::function<void(std::vector<std::pair<m2::RectD, double>> const &)>;
+  // Called after each viewport scan when debug mode is on. Each entry is
+  // {mercator-rect, level, isIndoorTyped}: isIndoorTyped=true for indoor=* geometry (triggers
+  // indoor mode), false for level=* POIs/footways (floor-filtered by drape but don't trigger mode).
+  using DebugRect = std::tuple<m2::RectD, double, bool>;
+  using DebugRectsChangedFn = std::function<void(std::vector<DebugRect> const &)>;
   using ForEachFeatureFn =
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
   using TaskRunnerFn = std::function<void(std::function<void()> &&)>;
@@ -78,7 +81,7 @@ public:
 private:
   void ScheduleScan(m2::RectD const & rect);
   void ApplyScanResult(uint64_t generation, std::vector<double> && levels,
-                        std::vector<std::pair<m2::RectD, double>> && debugRects);
+                        std::vector<DebugRect> && debugRects);
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
   void NotifyModeChanged();

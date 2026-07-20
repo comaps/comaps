@@ -158,26 +158,35 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
       return;
 
     std::vector<double> levels;
-    std::vector<std::pair<m2::RectD, double>> debugRects;
+    std::vector<IndoorManager::DebugRect> debugRects;
     size_t totalCount = 0;
     m_forEachFeature(rect, [&levels, &debugRects, &totalCount, debugEnabled](FeatureType & ft)
     {
       ++totalCount;
       feature::TypesHolder const types(ft);
-      if (!ftypes::IsIndoorChecker::Instance()(types))
+      bool const isIndoor = ftypes::IsIndoorChecker::Instance()(types);
+
+      // In debug mode also collect level-tagged non-indoor features (the same set drape
+      // floor-filters via ShouldSkipIndoorFeature's "isLeveled" path).
+      std::string_view const levelMeta = ft.GetMetadata(feature::Metadata::FMD_LEVEL);
+      bool const isLeveled = !levelMeta.empty()
+          && !ftypes::IsBuildingChecker::Instance()(types)
+          && !ftypes::IsBuildingPartChecker::Instance()(types);
+
+      if (!isIndoor && !(debugEnabled && isLeveled))
         return;
 
-      auto parsed = indoor::ParseLevels(ft.GetMetadata(feature::Metadata::FMD_LEVEL));
-      if (parsed.empty())
+      auto parsed = indoor::ParseLevels(levelMeta);
+      if (isIndoor && parsed.empty())
         parsed.push_back(0.0);  // Indoor feature without a level is on the ground floor.
 
       for (double const level : parsed)
       {
-        if (std::none_of(levels.begin(), levels.end(),
+        if (isIndoor && std::none_of(levels.begin(), levels.end(),
                          [level](double existing) { return LevelsEqual(existing, level); }))
           levels.push_back(level);
         if (debugEnabled)
-          debugRects.emplace_back(ft.GetLimitRect(scales::GetUpperScale()), level);
+          debugRects.emplace_back(ft.GetLimitRect(scales::GetUpperScale()), level, isIndoor);
       }
     }, scales::GetUpperScale());
 
@@ -190,7 +199,7 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
 }
 
 void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && levels,
-                                     std::vector<std::pair<m2::RectD, double>> && debugRects)
+                                     std::vector<IndoorManager::DebugRect> && debugRects)
 {
   LOG(LINFO, ("IndoorManager::ApplyScanResult, gen =", generation, "cur =", m_generation.load(), "levels =", levels.size()));
   if (generation != m_generation)

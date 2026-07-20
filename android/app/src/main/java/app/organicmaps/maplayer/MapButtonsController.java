@@ -20,6 +20,7 @@ import androidx.annotation.OptIn;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.lifecycle.Observer;
@@ -66,6 +67,8 @@ public class MapButtonsController extends Fragment
   private LayersButton mToggleMapLayerButton;
   @Nullable
   FloatingActionButton mTrackRecordingStatusButton;
+  @Nullable
+  private NestedScrollView mIndoorLevelsScroll;
   @Nullable
   private LinearLayout mIndoorLevelsContainer;
   private boolean mHasIndoorLevels = false;
@@ -138,7 +141,8 @@ public class MapButtonsController extends Fragment
       mToggleMapLayerButton.setVisibility(View.VISIBLE);
     }
     mMapButtonsViewModel.setTopButtonsMarginTop(-1);
-    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container); // @+id/indoor_levels_container
+    mIndoorLevelsScroll = mFrame.findViewById(R.id.indoor_levels_scroll);
+    mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container);
     mTrackRecordingStatusButton = mFrame.findViewById(R.id.track_recording_status);
     if (mTrackRecordingStatusButton != null)
       mTrackRecordingStatusButton.setOnClickListener(
@@ -154,10 +158,10 @@ public class MapButtonsController extends Fragment
 
     mButtonsMap.put(MapButtons.zoom, zoomFrame);
     mButtonsMap.put(MapButtons.myPosition, myPosition);
-    // Present only in the regular layout (not navigation/planning). When absent, the picker is simply
-    // never shown; updateIndoorLevels() also guards on a null container.
-    if (mIndoorLevelsContainer != null)
-      mButtonsMap.put(MapButtons.indoorLevels, mIndoorLevelsContainer);
+    // mIndoorLevelsScroll (NestedScrollView) goes into the map for visibility/parent checks;
+    // mIndoorLevelsContainer (inner LinearLayout) is used to add the per-floor buttons.
+    if (mIndoorLevelsScroll != null)
+      mButtonsMap.put(MapButtons.indoorLevels, mIndoorLevelsScroll);
 
     if (mToggleMapLayerButton != null)
       mButtonsMap.put(MapButtons.toggleMapLayer, mToggleMapLayerButton);
@@ -168,7 +172,7 @@ public class MapButtonsController extends Fragment
     // Re-sync the level picker from current native state: on a layout-mode switch (e.g. entering
     // planning/navigation) this controller is recreated, and no levels-changed notification fires
     // while an active indoor context is being held.
-    if (mIndoorLevelsContainer != null)
+    if (mIndoorLevelsScroll != null)
       updateIndoorLevels(IndoorManager.getViewportLevels(), IndoorManager.getActiveLevel());
 
     return mFrame;
@@ -349,7 +353,7 @@ public class MapButtonsController extends Fragment
 
   public void updateIndoorLevels(@NonNull String[] levels, @NonNull String activeLevel)
   {
-    if (mIndoorLevelsContainer == null)
+    if (mIndoorLevelsScroll == null || mIndoorLevelsContainer == null)
       return;
 
     mIndoorLevelsContainer.removeAllViews();
