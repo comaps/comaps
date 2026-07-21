@@ -564,8 +564,10 @@ void BackendRenderer::AcceptMessage(ref_ptr<Message> message)
   case Message::Type::SetIndoorLevel:
   {
     ref_ptr<SetIndoorLevelMessage> msg = message;
-    m_readManager->SetIndoorLevel(msg->GetLevel());
-    m_commutator->PostMessage(ThreadsCommutator::RenderThread, make_unique_dp<SetIndoorLevelMessage>(msg->GetLevel()),
+    m_readManager->SetIndoorLevel(msg->GetLevel(), msg->GetAvailableLevels(), msg->GetIndoorPolygonRects());
+    m_commutator->PostMessage(ThreadsCommutator::RenderThread,
+                              make_unique_dp<SetIndoorLevelMessage>(msg->GetLevel(), msg->GetAvailableLevels(),
+                                                                    msg->GetIndoorPolygonRects()),
                               MessagePriority::Normal);
     break;
   }

@@ -6,6 +6,7 @@ import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.widget.Toast;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.TypedValue;
@@ -71,6 +72,8 @@ public class MapButtonsController extends Fragment
   private NestedScrollView mIndoorLevelsScroll;
   @Nullable
   private LinearLayout mIndoorLevelsContainer;
+  @Nullable
+  private View mIndoorLegend;
   private boolean mHasIndoorLevels = false;
 
   @Nullable
@@ -143,6 +146,9 @@ public class MapButtonsController extends Fragment
     mMapButtonsViewModel.setTopButtonsMarginTop(-1);
     mIndoorLevelsScroll = mFrame.findViewById(R.id.indoor_levels_scroll);
     mIndoorLevelsContainer = mFrame.findViewById(R.id.indoor_levels_container);
+    mIndoorLegend = mFrame.findViewById(R.id.indoor_debug_legend);
+    if (mIndoorLevelsScroll != null && mIndoorLevelsScroll.getBackground() != null)
+      mIndoorLevelsScroll.getBackground().setAlpha(51); // 20% opacity
     mTrackRecordingStatusButton = mFrame.findViewById(R.id.track_recording_status);
     if (mTrackRecordingStatusButton != null)
       mTrackRecordingStatusButton.setOnClickListener(
@@ -357,7 +363,18 @@ public class MapButtonsController extends Fragment
       return;
 
     mIndoorLevelsContainer.removeAllViews();
+    boolean wasActive = mHasIndoorLevels;
     mHasIndoorLevels = levels.length > 0;
+
+    if (!wasActive && mHasIndoorLevels && IndoorManager.isDebugEnabled())
+    {
+      String info = IndoorManager.getActivatingInfo();
+      if (!info.isEmpty())
+        Toast.makeText(requireContext(), info, Toast.LENGTH_LONG).show();
+    }
+
+    if (mIndoorLegend != null)
+      mIndoorLegend.setVisibility(IndoorManager.isDebugEnabled() ? View.VISIBLE : View.GONE);
 
     for (int i = 0; i < levels.length; i++)
     {

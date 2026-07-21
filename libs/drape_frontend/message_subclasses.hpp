@@ -1113,14 +1113,23 @@ private:
 class SetIndoorLevelMessage : public Message
 {
 public:
-  explicit SetIndoorLevelMessage(double level) : m_level(level) {}
+  SetIndoorLevelMessage(double level, std::vector<double> availableLevels,
+                        std::vector<m2::RectD> indoorPolygonRects)
+    : m_level(level)
+    , m_availableLevels(std::move(availableLevels))
+    , m_indoorPolygonRects(std::move(indoorPolygonRects))
+  {}
 
   Type GetType() const override { return Type::SetIndoorLevel; }
 
   double GetLevel() const { return m_level; }
+  std::vector<double> const & GetAvailableLevels() const { return m_availableLevels; }
+  std::vector<m2::RectD> const & GetIndoorPolygonRects() const { return m_indoorPolygonRects; }
 
 private:
   double m_level = 0.0;
+  std::vector<double> m_availableLevels;
+  std::vector<m2::RectD> m_indoorPolygonRects;
 };
 
 class EnableTransitSchemeMessage : public Message

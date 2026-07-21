@@ -802,10 +802,13 @@ void DrapeEngine::EnableIsolines(bool enable)
                                   make_unique_dp<EnableIsolinesMessage>(enable), MessagePriority::Normal);
 }
 
-void DrapeEngine::SetIndoorLevel(double level)
+void DrapeEngine::SetIndoorLevel(double level, std::vector<double> availableLevels,
+                                  std::vector<m2::RectD> indoorPolygonRects)
 {
   m_threadCommutator->PostMessage(ThreadsCommutator::ResourceUploadThread,
-                                  make_unique_dp<SetIndoorLevelMessage>(level), MessagePriority::Normal);
+                                  make_unique_dp<SetIndoorLevelMessage>(level, std::move(availableLevels),
+                                                                        std::move(indoorPolygonRects)),
+                                  MessagePriority::Normal);
 }
 
 void DrapeEngine::SetFontScaleFactor(double scaleFactor)

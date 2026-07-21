@@ -10,9 +10,9 @@
 #include <atomic>
 #include <cstdint>
 #include <functional>
+#include <mutex>
 #include <optional>
 #include <string>
-#include <tuple>
 #include <utility>
 #include <vector>
 
@@ -31,10 +31,17 @@ public:
   // |levels| are formatted level labels sorted from the topmost floor down; empty means no indoor
   // data in the viewport (the level selector UI should be hidden).
   using LevelsChangedFn = std::function<void(std::vector<std::string> const & levels, std::string const & activeLevel)>;
-  // Called after each viewport scan when debug mode is on. Each entry is
-  // {mercator-rect, level, isIndoorTyped}: isIndoorTyped=true for indoor=* geometry (triggers
-  // indoor mode), false for level=* POIs/footways (floor-filtered by drape but don't trigger mode).
-  using DebugRect = std::tuple<m2::RectD, double, bool>;
+  // Called (on the Gui thread) after each viewport scan when debug mode is on.
+  // isIndoorTyped=true for indoor=* geometry (triggers indoor mode),
+  // false for level=* POIs/footways (floor-filtered by drape but don't trigger mode).
+  struct DebugRect
+  {
+    m2::RectD rect;
+    double level;
+    bool isIndoorTyped;
+    std::string name;   // feature display name (may be empty for unnamed features)
+    std::string types;  // space-separated classificator type strings, e.g. "shop-mall"
+  };
   using DebugRectsChangedFn = std::function<void(std::vector<DebugRect> const &)>;
   using ForEachFeatureFn =
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
@@ -66,7 +73,16 @@ public:
   // Enables/disables indoor debug mode. When enabled, DebugRectsChangedFn is called after each
   // scan with the bounding rect + level of every indoor feature found in the viewport.
   void SetDebugEnabled(bool enabled);
+  bool IsDebugEnabled() const { return m_debugEnabled; }
   void SetDebugRectsListener(DebugRectsChangedFn const & fn);
+
+  // Returns a human-readable description of the debug feature nearest to |mercatorPt|, or empty
+  // if no debug rects are stored (debug mode off or no scan yet).
+  std::string GetDebugFeatureAt(m2::PointD const & mercatorPt) const;
+
+  // Returns a human-readable description of the feature that last triggered indoor mode activation,
+  // or empty if indoor mode hasn't been entered yet.
+  std::string GetActivatingInfo() const { return m_lastActivatingInfo; }
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
@@ -81,7 +97,8 @@ public:
 private:
   void ScheduleScan(m2::RectD const & rect);
   void ApplyScanResult(uint64_t generation, std::vector<double> && levels,
-                        std::vector<DebugRect> && debugRects);
+                        std::vector<m2::RectD> && polygonRects,
+                        std::vector<DebugRect> && debugRects, std::string && triggerInfo);
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
   void NotifyModeChanged();
@@ -109,5 +126,14 @@ private:
 
   // Distinct levels present in the viewport, sorted ascending. Gui thread only.
   std::vector<double> m_levels;
+  std::vector<m2::RectD> m_indoorPolygonRects;
   double m_activeLevel = 0.0;
+
+  // Last set of debug rects from the most recent scan; guarded by mutex so GetDebugFeatureAt
+  // can be called from any thread (e.g. JNI).
+  mutable std::mutex m_debugRectsMutex;
+  std::vector<DebugRect> m_lastDebugRects;
+
+  // Description of the feature that most recently triggered indoor mode activation (Gui thread only).
+  std::string m_lastActivatingInfo;
 };

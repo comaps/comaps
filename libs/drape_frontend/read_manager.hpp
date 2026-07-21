@@ -58,7 +58,8 @@ public:
 
   void SetTrafficEnabled(bool trafficEnabled);
   void SetIsolinesEnabled(bool isolinesEnabled);
-  void SetIndoorLevel(double level);
+  void SetIndoorLevel(double level, std::vector<double> const & availableLevels = {},
+                     std::vector<m2::RectD> const & indoorPolygonRects = {});
 
   void SetCustomFeatures(CustomFeatures && ids);
   std::vector<FeatureID> GetCustomFeaturesArray() const;
@@ -90,6 +91,8 @@ private:
   bool m_trafficEnabled;
   bool m_isolinesEnabled;
   double m_indoorLevel = indoor::kNoActiveLevel;
+  std::vector<double> m_indoorLevels;
+  std::vector<m2::RectD> m_indoorPolygonRects;
   bool m_modeChanged;
   int8_t m_mapLangIndex;
 

@@ -706,7 +706,7 @@ area|z17-[waterway=dam],
 
 area|z17-[indoor=room],
 area|z17-[indoor=area],
-{fill-color: @indoor_room;casing-width: 0.5;casing-color: @indoor_wall;}
+{fill-color: @indoor_room;casing-width: 1;casing-color: @indoor_wall;}
 
 area|z18-[indoor=corridor],
 {fill-color: @indoor_corridor;}

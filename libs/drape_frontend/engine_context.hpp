@@ -9,6 +9,7 @@
 #include "drape/pointers.hpp"
 
 #include <functional>
+#include <vector>
 
 namespace dp
 {
@@ -26,6 +27,7 @@ public:
   EngineContext(TileKey tileKey, ref_ptr<ThreadsCommutator> commutator, ref_ptr<dp::TextureManager> texMng,
                 ref_ptr<MetalineManager> metalineMng, CustomFeaturesContextWeakPtr customFeaturesContext,
                 bool is3dBuildingsEnabled, bool isTrafficEnabled, bool isolinesEnabled, double indoorLevel,
+                std::vector<double> indoorLevels, std::vector<m2::RectD> indoorPolygonRects,
                 int8_t mapLangIndex);
 
   TileKey const & GetTileKey() const { return m_tileKey; }
@@ -33,6 +35,8 @@ public:
   bool IsTrafficEnabled() const { return m_trafficEnabled; }
   bool IsolinesEnabled() const { return m_isolinesEnabled; }
   double GetIndoorLevel() const { return m_indoorLevel; }
+  std::vector<double> const & GetIndoorLevels() const { return m_indoorLevels; }
+  std::vector<m2::RectD> const & GetIndoorPolygonRects() const { return m_indoorPolygonRects; }
   int8_t GetMapLangIndex() const { return m_mapLangIndex; }
   CustomFeaturesContextWeakPtr GetCustomFeaturesContext() const { return m_customFeaturesContext; }
   ref_ptr<dp::TextureManager> GetTextureManager() const;
@@ -56,6 +60,8 @@ private:
   bool m_trafficEnabled;
   bool m_isolinesEnabled;
   double m_indoorLevel;
+  std::vector<double> m_indoorLevels;
+  std::vector<m2::RectD> m_indoorPolygonRects;
   int8_t m_mapLangIndex;
 };
 }  // namespace df

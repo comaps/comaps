@@ -221,7 +221,8 @@ void ReadManager::PushTaskBackForTileKey(TileKey const & tileKey, ref_ptr<dp::Te
   auto context = make_unique_dp<EngineContext>(TileKey(tileKey, m_generationCounter, m_userMarksGenerationCounter),
                                                m_commutator, texMng, metalineMng, m_customFeaturesContext,
                                                m_have3dBuildings && m_allow3dBuildings, m_trafficEnabled,
-                                               m_isolinesEnabled, m_indoorLevel, m_mapLangIndex);
+                                               m_isolinesEnabled, m_indoorLevel, m_indoorLevels,
+                                               m_indoorPolygonRects, m_mapLangIndex);
   std::shared_ptr<TileInfo> tileInfo = std::make_shared<TileInfo>(std::move(context));
   m_tileInfos.insert(tileInfo);
 
@@ -333,15 +334,18 @@ void ReadManager::SetIsolinesEnabled(bool isolinesEnabled)
   }
 }
 
-void ReadManager::SetIndoorLevel(double level)
+void ReadManager::SetIndoorLevel(double level, std::vector<double> const & availableLevels,
+                                  std::vector<m2::RectD> const & indoorPolygonRects)
 {
   // NaN (kNoActiveLevel) never compares equal, so treat "both inactive" as unchanged explicitly.
-  bool const unchanged = m_indoorLevel == level ||
-                         (!indoor::HasActiveLevel(m_indoorLevel) && !indoor::HasActiveLevel(level));
-  if (!unchanged)
+  bool const levelUnchanged = m_indoorLevel == level ||
+                              (!indoor::HasActiveLevel(m_indoorLevel) && !indoor::HasActiveLevel(level));
+  if (!levelUnchanged || m_indoorLevels != availableLevels || m_indoorPolygonRects != indoorPolygonRects)
   {
     m_modeChanged = true;
     m_indoorLevel = level;
+    m_indoorLevels = availableLevels;
+    m_indoorPolygonRects = indoorPolygonRects;
   }
 }
 

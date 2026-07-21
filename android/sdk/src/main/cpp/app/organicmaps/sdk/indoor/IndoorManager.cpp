@@ -53,4 +53,28 @@ JNIEXPORT jobjectArray JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorMa
   CHECK(g_framework, ("Framework isn't created yet!"));
   return jni::ToJavaStringArray(env, g_framework->NativeFramework()->GetIndoorManager().GetViewportLevels());
 }
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorManager_nativeIsDebugEnabled(
+    JNIEnv * env, jclass clazz)
+{
+  if (!g_framework) return JNI_FALSE;
+  return g_framework->NativeFramework()->GetIndoorManager().IsDebugEnabled() ? JNI_TRUE : JNI_FALSE;
+}
+
+JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorManager_nativeGetActivatingInfo(
+    JNIEnv * env, jclass clazz)
+{
+  if (!g_framework) return jni::ToJavaString(env, "");
+  return jni::ToJavaString(env, g_framework->NativeFramework()->GetIndoorManager().GetActivatingInfo());
+}
+
+// screenX, screenY are device-pixel coordinates (from MotionEvent).
+JNIEXPORT jstring JNICALL Java_app_organicmaps_sdk_maplayer_indoor_IndoorManager_nativeGetDebugFeatureAt(
+    JNIEnv * env, jclass clazz, jint screenX, jint screenY)
+{
+  if (!g_framework) return jni::ToJavaString(env, "");
+  auto const * fw = g_framework->NativeFramework();
+  m2::PointD const mercPt = fw->PtoG(m2::PointD(screenX, screenY));
+  return jni::ToJavaString(env, fw->GetDebugIndoorFeature(mercPt));
+}
 }

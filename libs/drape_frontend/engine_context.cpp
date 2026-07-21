@@ -10,7 +10,8 @@ namespace df
 EngineContext::EngineContext(TileKey tileKey, ref_ptr<ThreadsCommutator> commutator, ref_ptr<dp::TextureManager> texMng,
                              ref_ptr<MetalineManager> metalineMng, CustomFeaturesContextWeakPtr customFeaturesContext,
                              bool is3dBuildingsEnabled, bool isTrafficEnabled, bool isolinesEnabled,
-                             double indoorLevel, int8_t mapLangIndex)
+                             double indoorLevel, std::vector<double> indoorLevels,
+                             std::vector<m2::RectD> indoorPolygonRects, int8_t mapLangIndex)
   : m_tileKey(tileKey)
   , m_commutator(commutator)
   , m_texMng(texMng)
@@ -20,6 +21,8 @@ EngineContext::EngineContext(TileKey tileKey, ref_ptr<ThreadsCommutator> commuta
   , m_trafficEnabled(isTrafficEnabled)
   , m_isolinesEnabled(isolinesEnabled)
   , m_indoorLevel(indoorLevel)
+  , m_indoorLevels(std::move(indoorLevels))
+  , m_indoorPolygonRects(std::move(indoorPolygonRects))
   , m_mapLangIndex(mapLangIndex)
 {}
 

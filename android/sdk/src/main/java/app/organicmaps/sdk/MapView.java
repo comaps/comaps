@@ -7,12 +7,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ConfigurationHelper;
 import app.organicmaps.sdk.display.DisplayType;
+import app.organicmaps.sdk.maplayer.indoor.IndoorManager;
 import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.sdk.util.log.Logger;
 
@@ -48,6 +51,8 @@ public class MapView extends SurfaceView
 
   @NonNull
   private final Map mMap;
+  @NonNull
+  private final GestureDetector mDebugGestureDetector;
 
   public MapView(Context context)
   {
@@ -80,6 +85,19 @@ public class MapView extends SurfaceView
     super(context, attrs, defStyleAttr, defStyleRes);
     mMap = new Map(displayType);
     getHolder().addCallback(new SurfaceHolderCallback());
+    mDebugGestureDetector = new GestureDetector(context, new GestureDetector.SimpleOnGestureListener()
+    {
+      @Override
+      public void onLongPress(@NonNull MotionEvent e)
+      {
+        if (!IndoorManager.isDebugEnabled())
+          return;
+        String info = IndoorManager.getDebugFeatureAt((int) e.getX(), (int) e.getY());
+        if (info.isEmpty())
+          info = "No indoor debug feature nearby";
+        Toast.makeText(getContext(), info, Toast.LENGTH_LONG).show();
+      }
+    });
   }
 
   public final void onDraw(@NonNull Canvas canvas)
@@ -92,6 +110,9 @@ public class MapView extends SurfaceView
   @Override
   public boolean onTouchEvent(@NonNull MotionEvent event)
   {
+    // Feed raw events to the debug gesture detector (runs in parallel with native touch handling).
+    mDebugGestureDetector.onTouchEvent(event);
+
     int action = event.getActionMasked();
     int pointerIndex = event.getActionIndex();
     switch (action)

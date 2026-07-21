@@ -1656,29 +1656,46 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     // Min box so point-feature rects (zero area) are visible; crosshair arm slightly larger.
     double constexpr kMinBoxHalf = 0.0001;   // ~10m at equator in internal mercator degrees
     double constexpr kCrossArm   = kMinBoxHalf * 2.0;
-    for (auto const & [featureRect, level, isIndoor] : rects)
+    for (auto const & dr : rects)
     {
-      int const colorIdx = ((static_cast<int>(std::round(level)) % kColorCount) + kColorCount) % kColorCount;
+      int const colorIdx = ((static_cast<int>(std::round(dr.level)) % kColorCount) + kColorCount) % kColorCount;
       auto const & base = kLevelColors[colorIdx];
       // Faded for: level=* POIs (don't trigger indoor mode) and oversized/filtered indoor=* features.
-      uint8_t const alpha = isIndoor ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
+      uint8_t const alpha = dr.isIndoorTyped ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
       dp::Color const color(base.GetRed(), base.GetGreen(), base.GetBlue(), alpha);
-      float const w = isIndoor ? 2.0f : 1.0f;
+      float const w = dr.isIndoorTyped ? 2.0f : 1.0f;
 
       // Expand zero-area point-feature rects to a minimum visible box.
-      m2::RectD const drawRect = (featureRect.SizeX() < kMinBoxHalf || featureRect.SizeY() < kMinBoxHalf)
-          ? m2::RectD(featureRect.Center() - m2::PointD(kMinBoxHalf, kMinBoxHalf),
-                      featureRect.Center() + m2::PointD(kMinBoxHalf, kMinBoxHalf))
-          : featureRect;
+      m2::RectD const drawRect = (dr.rect.SizeX() < kMinBoxHalf || dr.rect.SizeY() < kMinBoxHalf)
+          ? m2::RectD(dr.rect.Center() - m2::PointD(kMinBoxHalf, kMinBoxHalf),
+                      dr.rect.Center() + m2::PointD(kMinBoxHalf, kMinBoxHalf))
+          : dr.rect;
 
-      // Bounding box outline.
-      std::vector<m2::PointD> const pts = {drawRect.LeftTop(), drawRect.RightTop(),
-                                           drawRect.RightBottom(), drawRect.LeftBottom(),
-                                           drawRect.LeftTop()};
-      m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(pts, color).Width(w));
+      m2::PointD const c = drawRect.Center();
+
+      if (dr.isIndoorTyped)
+      {
+        // Indoor=* polygons: bounding box outline.
+        std::vector<m2::PointD> const pts = {drawRect.LeftTop(), drawRect.RightTop(),
+                                             drawRect.RightBottom(), drawRect.LeftBottom(),
+                                             drawRect.LeftTop()};
+        m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(pts, color).Width(w));
+      }
+      else
+      {
+        // level=* POIs: 8-segment circle so they're visually distinct from polygon boxes.
+        double const r = kMinBoxHalf;
+        std::vector<m2::PointD> circle;
+        circle.reserve(9);
+        for (int k = 0; k <= 8; ++k)
+        {
+          double const angle = k * M_PI / 4.0;
+          circle.push_back(c + m2::PointD(r * std::cos(angle), r * std::sin(angle)));
+        }
+        m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(circle, color).Width(w));
+      }
 
       // Fixed-size crosshair at center: makes every feature visible even when geometry is tiny.
-      m2::PointD const c = drawRect.Center();
       m_drapeApi.AddLine("ih" + std::to_string(id), df::DrapeApiLineData(
           {c - m2::PointD(kCrossArm, 0.0), c + m2::PointD(kCrossArm, 0.0)}, color).Width(w));
       m_drapeApi.AddLine("iv" + std::to_string(id++), df::DrapeApiLineData(
@@ -1790,6 +1807,11 @@ void Framework::EnableIndoorDebug(bool enabled)
   m_indoorManager.SetDebugEnabled(enabled);
   if (!enabled)
     m_drapeApi.Clear();
+}
+
+std::string Framework::GetDebugIndoorFeature(m2::PointD const & mercatorPt) const
+{
+  return m_indoorManager.GetDebugFeatureAt(mercatorPt);
 }
 
 void Framework::ConnectToGpsTracker()
