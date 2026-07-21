@@ -137,6 +137,10 @@ private:
   float const m_minPosZ;
   bool const m_isBuilding;
   double const m_currentScaleGtoP;
+  float m_buildingAlphaScale = 1.0f;
+
+public:
+  void SetBuildingAlphaScale(float scale) { m_buildingAlphaScale = scale; }
 };
 
 class ApplyLineFeatureGeometry : public BaseApplyFeature

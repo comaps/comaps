@@ -138,9 +138,10 @@
 @building_border0: #A1A096;
 @building_border1: #9B9A8F;
 @historic_wall: #AEAD9E;
-@indoor_room: #F7F4EC;
-@indoor_corridor: #EDEAD8;
-@indoor_wall: #8F8E85;
+@indoor_room: #F5EFE2;
+@indoor_area: #DFE4D8;
+@indoor_corridor: #D0D8C8;
+@indoor_wall: #4A4840;
 
 /* 5.ROADS */
 /* 5.1 All roads */

@@ -890,6 +890,17 @@ void ApplyAreaFeature::ProcessRule(AreaRuleProto const & areaRule, double areaDe
     params.m_is3D = !outline.m_indices.empty() && calculateNormals;
   }
 
+  if (m_isBuilding && m_buildingAlphaScale < 1.0f)
+  {
+    auto scaleAlpha = [this](dp::Color c) {
+      return dp::Color(c.GetRed(), c.GetGreen(), c.GetBlue(),
+                       static_cast<uint8_t>(c.GetAlpha() * m_buildingAlphaScale));
+    };
+    params.m_color = scaleAlpha(params.m_color);
+    if (outline.m_generateOutline)
+      params.m_outlineColor = scaleAlpha(params.m_outlineColor);
+  }
+
   // see ProcessAreaRules: isHatching first, - !isHatching last.
   m_insertShape(
       make_unique_dp<AreaShape>(!isHatching ? std::move(m_triangles) : m_triangles, std::move(outline), params));

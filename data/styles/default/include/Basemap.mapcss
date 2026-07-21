@@ -705,14 +705,22 @@ area|z17-[waterway=dam],
 /* 8.2.1 Indoor */
 
 area|z17-[indoor=room],
-area|z17-[indoor=area],
 {fill-color: @indoor_room;casing-width: 1;casing-color: @indoor_wall;}
 
-area|z18-[indoor=corridor],
-{fill-color: @indoor_corridor;}
+area|z17-[indoor=area],
+area|z17-[indoor=level],
+{fill-color: @indoor_area;casing-width: 1;casing-color: @indoor_wall;}
 
+area|z17-[indoor=stairs],
+{fill-color: @indoor_corridor;casing-width: 1;casing-color: @indoor_wall;}
+
+area|z18-[indoor=corridor],
+{fill-color: @indoor_corridor;casing-width: 0.5;casing-color: @indoor_wall;}
+
+line|z17-[indoor=wall],
+{color: @indoor_wall; width: 2;}
 line|z18-[indoor=wall],
-{color: @indoor_wall; width: 1;}
+{width: 2.5;}
 
 
 /* 8.3 Barriers, cliffs */

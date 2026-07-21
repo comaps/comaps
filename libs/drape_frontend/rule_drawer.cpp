@@ -319,6 +319,8 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
 
   ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding,
                          areaMinHeight /* minPosZ */, areaHeight /* posZ */, s.GetCaptionDescription());
+  if (isBuilding && indoor::HasActiveLevel(m_context->GetIndoorLevel()))
+    apply.SetBuildingAlphaScale(0.2f);
 
   if (!skipTriangles && (s.m_areaRule || s.m_hatchingRule))
   {
