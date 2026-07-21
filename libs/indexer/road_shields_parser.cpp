@@ -785,6 +785,38 @@ private:
   HighwayClass const m_highwayClass;
 };
 
+class GeorgiaRoadShieldParser : public RoadShieldParser
+{
+public:
+  GeorgiaRoadShieldParser(std::string const & baseRoadNumber, HighwayClass highwayClass)
+    : RoadShieldParser(baseRoadNumber)
+    , m_highwayClass(highwayClass)
+  {}
+
+  RoadShield ParseRoadShield(std::string_view rawText, uint8_t index) const override
+  {
+    if (rawText.size() > kMaxRoadShieldBytesSize)
+      return RoadShield();
+
+    // საერთაშორისო მნიშვნელობის გზა (motorway road of international importance)
+    if (rawText.starts_with("ს") && m_highwayClass == HighwayClass::Motorway)
+      return RoadShield(RoadShieldType::Generic_Green_Bordered, rawText);
+
+    // საერთაშორისო მნიშვნელობის გზა (trunk road of international importance)
+    if (rawText.starts_with("ს") && m_highwayClass == HighwayClass::Trunk)
+      return RoadShield(RoadShieldType::Generic_Blue_Bordered, rawText);
+
+    // შიდასახელმწიფოებრივი მნიშვნელობის გზა (road of domestic importance)
+    if (rawText.starts_with("შ"))
+      return RoadShield(RoadShieldType::Generic_Blue_Bordered, rawText);
+
+    return RoadShield(RoadShieldType::Default, rawText);
+  }
+
+private:
+  HighwayClass const m_highwayClass;
+};
+
 class SwitzerlandRoadShieldParser : public SimpleRoadShieldParser
 {
 public:
@@ -1226,6 +1258,8 @@ RoadShieldsSetT GetRoadShields(std::string_view mwmName, std::string const & roa
     return LiechtensteinRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Russia")
     return RussiaRoadShieldParser(roadNumber).GetRoadShields();
+  if (mwmName == "Georgia")
+    return GeorgiaRoadShieldParser(roadNumber, highwayClass).GetRoadShields();
   if (mwmName == "France")
     return FranceRoadShieldParser(roadNumber).GetRoadShields();
   if (mwmName == "Germany")
