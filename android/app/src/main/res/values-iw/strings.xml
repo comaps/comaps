@@ -814,6 +814,7 @@
     <string name="mb_downloaded">%1$d מ״ב / %2$d מ״ב</string>
     <string name="opens_at">הפתיחה בשעה %s</string>
     <string name="closes_at">הסגירה בשעה %s</string>
+    <string name="opens_tomorrow_at">נפתח מחר ב-%s</string>
     <string name="opens_day_at">הפתיחה ביום %1$s בשעה %2$s</string>
     <string name="closes_day_at">הסגירה ביום %1$s בשעה %2$s</string>
     <plurals name="minutes_short">

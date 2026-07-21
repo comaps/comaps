@@ -1027,9 +1027,11 @@ public class PlacePageView extends Fragment
       final String closesAtStr = getString(R.string.closes_at); // "Closes at %s"
       final String opensDayAtStr = getString(R.string.opens_day_at); // "Opens %1$s at %2$s"
       final String closesDayAtStr = getString(R.string.closes_day_at); // "Closes %1$s at %2$s"
+      final String opensTomorrowAtStr = getString(R.string.opens_tomorrow_at); // "Opens tomorrow at %s"
 
-      final boolean isToday =
-          OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, ZonedDateTime.now(nextChangeLocal.getZone()));
+      final ZonedDateTime nowLocal = ZonedDateTime.now(nextChangeLocal.getZone());
+      final boolean isToday = OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, nowLocal);
+      final boolean isTomorrow = !isToday && OpenStateTextFormatter.isSameLocalDate(nextChangeLocal, nowLocal.plusDays(1));
       // Full weekday name per design feedback.
       final String dayName = nextChangeLocal.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.getDefault());
 
@@ -1037,8 +1039,8 @@ public class PlacePageView extends Fragment
       {
         openStateString.append(getString(R.string.open_now), colorGreen, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        final String atLabel = OpenStateTextFormatter.buildAtLabel(
-            false, isToday, dayName, localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+        final String atLabel = OpenStateTextFormatter.buildAtLabel(false, isToday, isTomorrow, dayName,
+            localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr, opensTomorrowAtStr);
 
         if (!TextUtils.isEmpty(atLabel))
           openStateString.append(" • ").append(atLabel);
@@ -1047,8 +1049,8 @@ public class PlacePageView extends Fragment
       {
         openStateString.append(getString(R.string.closed_now), colorRed, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        final String atLabel = OpenStateTextFormatter.buildAtLabel(
-            true, isToday, dayName, localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr);
+        final String atLabel = OpenStateTextFormatter.buildAtLabel(true, isToday, isTomorrow, dayName,
+            localizedTimeString, opensAtStr, closesAtStr, opensDayAtStr, closesDayAtStr, opensTomorrowAtStr);
 
         if (!TextUtils.isEmpty(atLabel))
           openStateString.append(" • ").append(atLabel);

@@ -894,6 +894,7 @@
     <string name="avoid_paved">Evitar caminos pavimentados</string>
     <string name="opens_at">Abre a las %s</string>
     <string name="closes_at">Cierra a las %s</string>
+    <string name="opens_tomorrow_at">Abre mañana a las %s</string>
     <string name="opens_day_at">Abre el %1$s a las %2$s</string>
     <string name="closes_day_at">Cierra el %1$s a las %2$s</string>
     <plurals name="minutes_short">

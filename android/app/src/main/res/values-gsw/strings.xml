@@ -602,6 +602,7 @@
     <string name="pref_tts_no_system_tts_short">Keis Text-to-Speech-Modul gfunde, überprüef d App-Iistellige</string>
     <string name="opens_at">Öffnet am %s</string>
     <string name="closes_at">Schlüsst am %s</string>
+    <string name="opens_tomorrow_at">Öffnet morn am %s</string>
     <string name="opens_day_at">Öffnet am %1$s am %2$s</string>
     <string name="closes_day_at">Schlüsst am %1$s am %2$s</string>
     <plurals name="minutes_short">

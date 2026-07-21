@@ -850,6 +850,7 @@
         <item quantity="other">%d min.</item>
     </plurals>
     <string name="pref_maplanguage_local">Vietējā valoda</string>
+    <string name="opens_tomorrow_at">Atveras rīt %s</string>
     <string name="opens_day_at">Atvērsies %1$s %2$s</string>
     <string name="closes_at">Tiks slēgts %s</string>
     <string name="opens_at">Atvērsies %s</string>

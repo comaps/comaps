@@ -888,6 +888,7 @@
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
     <string name="opens_at">Nyitás: %s</string>
     <string name="closes_at">Zárás: %s</string>
+    <string name="opens_tomorrow_at">Holnap ekkor nyit: %s</string>
     <string name="opens_day_at">Nyitás: %1$s %2$s</string>
     <string name="closes_day_at">Zárás: %1$s %2$s</string>
     <plurals name="minutes_short">

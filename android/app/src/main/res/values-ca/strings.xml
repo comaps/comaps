@@ -883,6 +883,7 @@
     <string name="list_description_empty">Edita la llista per afegir una descripció</string>
     <string name="opens_at">Obre a %s</string>
     <string name="closes_at">Tanca a %s</string>
+    <string name="opens_tomorrow_at">Obre demà a les %s</string>
     <string name="opens_day_at">Obre els %1$s a %2$s</string>
     <string name="closes_day_at">Tanca els %1$s a %2$s</string>
     <plurals name="minutes_short">

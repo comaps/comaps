@@ -839,6 +839,7 @@
     <string name="charge_socket_chademo">CHAdeMO</string>
     <string name="charge_socket_power">Потужність (кВт)</string>
     <string name="closes_at">Закривається о %s</string>
+    <string name="opens_tomorrow_at">Відкриття завтра о %s</string>
     <string name="opens_day_at">Відчиняється %1$s о %2$s</string>
     <string name="closes_day_at">Закривається %1$s о %2$s</string>
     <plurals name="minutes_short">

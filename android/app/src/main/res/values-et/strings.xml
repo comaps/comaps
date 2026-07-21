@@ -884,6 +884,7 @@
     <string name="avoid_paved">Väldi sillutatud teid</string>
     <string name="opens_at">Avatakse %s</string>
     <string name="closes_at">Suletakse %s</string>
+    <string name="opens_tomorrow_at">Avatakse homme kell %s</string>
     <string name="opens_day_at">Avatakse %1$s kell %2$s</string>
     <string name="closes_day_at">Suletakse %1$s kell %2$s</string>
     <plurals name="minutes_short">

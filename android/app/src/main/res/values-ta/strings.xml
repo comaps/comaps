@@ -442,6 +442,7 @@
     <string name="closes_in">%s இல் மூடப்படும்</string>
     <string name="opens_at">%s இல் திறக்கப்படும்</string>
     <string name="closes_at">%s இல் மூடப்படும்</string>
+    <string name="opens_tomorrow_at">நாளை %sக்கு திறக்கப்படும்</string>
     <string name="opens_day_at">%1$s அன்று %2$sக்கு திறக்கப்படும்</string>
     <string name="closes_day_at">%1$s அன்று %2$s இல் மூடப்படும்</string>
     <plurals name="minutes_short">

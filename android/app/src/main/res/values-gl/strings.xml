@@ -624,6 +624,7 @@
     <string name="list_description_empty">Editar a lista para engadir unha descrición</string>
     <string name="opens_at">Abre ás %s</string>
     <string name="closes_at">Fecha ás %s</string>
+    <string name="opens_tomorrow_at">Abre mañá a Ábreas %s</string>
     <string name="opens_day_at">Abre o %1$s ás %2$s</string>
     <string name="closes_day_at">Fecha o %1$s ás %2$s</string>
     <plurals name="minutes_short">

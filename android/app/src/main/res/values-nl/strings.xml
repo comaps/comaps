@@ -892,6 +892,7 @@
     </plurals>
     <string name="opens_at">Opent om %s</string>
     <string name="closes_at">Sluit om %s</string>
+    <string name="opens_tomorrow_at">Opent morgen om %s</string>
     <string name="opens_day_at">Opent op %1$s om %2$s</string>
     <string name="closes_day_at">Sluit op %1$s om %2$s</string>
     <string name="editor_submit">Indienen</string>

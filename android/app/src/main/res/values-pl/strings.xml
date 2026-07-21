@@ -901,6 +901,7 @@
     </plurals>
     <string name="avoid_paved">Unikaj dróg utwardzonych</string>
     <string name="charge_socket_schuko">Schuko</string>
+    <string name="opens_tomorrow_at">Otwarcie jutro o %s</string>
     <string name="opens_day_at">Otwiera w %1$s o %2$s</string>
     <string name="closes_day_at">Zamyka się w %1$s o %2$s</string>
     <string name="editor_mark_business_vacant_description">Użyj tego, jeśli firma się wyprowadziła, a lokal jest pusty i gotowy na nowego najemcę.</string>

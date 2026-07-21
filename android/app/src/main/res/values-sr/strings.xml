@@ -886,6 +886,7 @@
     <string name="list_description_empty">Промените листу да бисте додали опис</string>
     <string name="opens_at">Отвара се у %s</string>
     <string name="closes_at">Затвара се у %s</string>
+    <string name="opens_tomorrow_at">Отвара се сутра у %s</string>
     <string name="opens_day_at">Отвара се у %1$s у %2$s</string>
     <string name="closes_day_at">Затвара се у %1$s у %2$s</string>
     <plurals name="minutes_short">

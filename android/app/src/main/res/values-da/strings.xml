@@ -876,6 +876,7 @@
     <string name="avoid_paved">Undgå veje med fast belægning</string>
     <string name="opens_at">Åbner kl. %s</string>
     <string name="closes_at">Lukker kl. %s</string>
+    <string name="opens_tomorrow_at">Åbner i morgen kl. %s</string>
     <string name="opens_day_at">Åbner %1$s kl. %2$s</string>
     <string name="closes_day_at">Lukker %1$s kl. %2$s</string>
     <plurals name="minutes_short">

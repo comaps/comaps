@@ -861,6 +861,7 @@
     <string name="at">在 %s</string>
     <string name="opens_at">在 %s 開啟</string>
     <string name="closes_at">在 %s 關閉</string>
+    <string name="opens_tomorrow_at">明天 %s 營業</string>
     <string name="opens_day_at">在 %1$s 與 %2$s 開啟</string>
     <string name="closes_day_at">在 %1$s 與%2$s 關閉</string>
     <plurals name="minutes_short">

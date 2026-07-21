@@ -856,6 +856,7 @@
     <string name="at">%s-etan</string>
     <string name="opens_at">%s ean irekitzen da</string>
     <string name="closes_at">%s ean itxiko da</string>
+    <string name="opens_tomorrow_at">Bihar %sean irekiko da</string>
     <string name="opens_day_at">1$s ean %2$s tan irekitzen da</string>
     <string name="closes_day_at">%1$s ean %2$s etan itxiko da</string>
     <string name="editor_place_doesnt_exist_description">Deskribatu nolakoa den lekua orain OpenStreetMap komunitateari errore-ohar bat bidaltzeko.</string>

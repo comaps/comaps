@@ -862,6 +862,7 @@
     <string name="osm_note_toast">Nota va fi trimisă către OpenStreetMap</string>
     <string name="opens_at">Deschide la %s</string>
     <string name="closes_at">Închide la %s</string>
+    <string name="opens_tomorrow_at">Deschide mâine la %s</string>
     <string name="opens_day_at">Deschide %1$s la %2$s</string>
     <string name="closes_day_at">Închide %1$s la %2$s</string>
     <string name="editor_business_vacant_button">Magazinul este vacant</string>

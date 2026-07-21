@@ -867,6 +867,7 @@
     <string name="avoid_paved">Vengti grįstų kelių</string>
     <string name="opens_at">Atidaroma %s</string>
     <string name="closes_at">Uždaroma %s</string>
+    <string name="opens_tomorrow_at">Atsidaro rytoj %s</string>
     <string name="opens_day_at">Atidaroma %1$s , %2$s</string>
     <string name="closes_day_at">Uždaroma %1$s, %2$s</string>
     <plurals name="minutes_short">

@@ -820,6 +820,7 @@
     <string name="saved">Αποθηκεύτηκε</string>
     <string name="opens_at">Ανοίγει %s</string>
     <string name="closes_at">Κλείνει %s</string>
+    <string name="opens_tomorrow_at">Ανοίγει αύριο στις %s</string>
     <string name="opens_day_at">Ανοίγει %1$s στις %2$s</string>
     <string name="closes_day_at">Κλείνει %1$s στις %2$s</string>
     <plurals name="minutes_short">

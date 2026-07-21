@@ -890,6 +890,7 @@
     <string name="list_description_empty">编辑列表以添加描述</string>
     <string name="opens_at">%s 开放</string>
     <string name="closes_at">%s 关闭</string>
+    <string name="opens_tomorrow_at">明天 %s 开放</string>
     <string name="opens_day_at">%1$s %2$s 开放</string>
     <string name="closes_day_at">%1$s %2$s 关闭</string>
     <plurals name="minutes_short">

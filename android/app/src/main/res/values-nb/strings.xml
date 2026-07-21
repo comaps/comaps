@@ -883,6 +883,7 @@
         <item quantity="other">%d min</item>
     </plurals>
     <string name="closes_day_at">Stenger %1$s %2$s</string>
+    <string name="opens_tomorrow_at">Åpner i morgen klokka %s</string>
     <string name="opens_day_at">Åpner %1$s %2$s</string>
     <string name="closes_at">Stenger %s</string>
     <string name="opens_at">Åpner %s</string>

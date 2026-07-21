@@ -635,6 +635,7 @@
         <item quantity="few">%d min</item>
         <item quantity="other">%d min</item>
     </plurals>
+    <string name="opens_tomorrow_at">Odpre se jutri ob %s</string>
     <string name="opens_day_at">Odpre se %1$s, ob %2$s</string>
     <string name="closes_day_at">Zapre se %1$s, ob %2$s</string>
     <string name="editor_business_vacant_button">Podjetje ni zakupljeno</string>

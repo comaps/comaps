@@ -464,6 +464,7 @@
     <string name="closed">Closed</string>
     <string name="opens_at">Opens at %s</string>
     <string name="closes_at">Closes at %s</string>
+    <string name="opens_tomorrow_at">Opens tomorrow at %s</string>
     <string name="opens_day_at">Opens on %1$s at %2$s</string>
     <string name="closes_day_at">Closes on %1$s at %2$s</string>
     <plurals name="minutes_short">

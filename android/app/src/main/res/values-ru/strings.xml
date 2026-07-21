@@ -913,6 +913,7 @@
     <string name="list_description_empty">Отредактируйте список, чтобы добавить описание</string>
     <string name="pref_tts_no_system_tts_short">Не найден движок синтезатора речи, проверьте настройки приложения</string>
     <string name="unknown_power_output">неизвестно</string>
+    <string name="opens_tomorrow_at">Откроется завтра в %s</string>
     <string name="opens_day_at">Откроется %1$s на %2$s</string>
     <string name="closes_day_at">Закроется %1$s на %2$s</string>
     <string name="place_page_map_too_old_title">Данные карты устарели</string>
