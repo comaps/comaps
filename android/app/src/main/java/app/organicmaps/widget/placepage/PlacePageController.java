@@ -10,8 +10,11 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.accessibility.AccessibilityEvent;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -43,7 +46,9 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PlacePageController
     extends Fragment implements PlacePageView.PlacePageViewListener, PlacePageButtons.PlacePageButtonClickListener,
@@ -71,6 +76,10 @@ public class PlacePageController
   @Nullable
   private MapObject mPreviousMapObject;
   private WindowInsetsCompat mCurrentWindowInsets;
+  @Nullable
+  private Map<View, Integer> mImportantForAccessibilityMap;
+
+
 
   private boolean mShouldCollapse;
   private int mDistanceToTop;
@@ -138,6 +147,8 @@ public class PlacePageController
 
           if (PlacePageUtils.isHiddenState(newState))
             onHiddenInternal();
+          else
+            onVisibleInternal();
         }
 
         @Override
@@ -243,6 +254,74 @@ public class PlacePageController
     PlacePageUtils.updateMapViewport(mCoordinator, mDistanceToTop, mViewportMinHeight);
     resetPlacePageHeightBounds();
     removePlacePageFragments();
+    setAccessibilityFocusLock(false);
+  }
+
+  private void onVisibleInternal()
+  {
+    setAccessibilityFocusLock(true);
+  }
+
+  private void setAccessibilityFocusLock(boolean expanded)
+  {
+    /*
+     * Copied from
+     * https://github.com/material-components/material-components-android/blob/ac7e18efeefb331850c561faf9ab8bf81d27ba68/lib/java/com/google/android/material/bottomsheet/BottomSheetBehavior.java#L2489
+     * and modified extensively
+     */
+    CoordinatorLayout parent = (CoordinatorLayout) mCoordinator;
+    View relevantChild = mCoordinator.findViewById(R.id.place_page_container_fragment);
+
+    final int childCount = parent.getChildCount();
+    if (expanded)
+    {
+      if (mImportantForAccessibilityMap == null)
+      {
+        mImportantForAccessibilityMap = new HashMap<>(childCount);
+      }
+      else
+      {
+        // The important for accessibility values of the child views have been saved already.
+        return;
+      }
+    }
+
+    for (int i = 0; i < childCount; i++)
+    {
+      final View child = parent.getChildAt(i);
+      if (child == relevantChild)
+      {
+        continue;
+      }
+
+      if (expanded)
+      {
+        // Saves the important for accessibility value of the child view.
+        mImportantForAccessibilityMap.put(child, child.getImportantForAccessibility());
+        child.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
+      }
+      else
+      {
+
+        if (mImportantForAccessibilityMap != null
+            && mImportantForAccessibilityMap.containsKey(child))
+        {
+          // Restores the original important for accessibility value of the child view.
+          child.setImportantForAccessibility(mImportantForAccessibilityMap.get(child));
+        }
+      }
+    }
+
+    if (!expanded)
+    {
+      mImportantForAccessibilityMap = null;
+    }
+    else
+    {
+      // If the siblings of the bottom sheet have been set to not important for a11y, move the focus
+      // to the bottom sheet when expanded.
+      relevantChild.sendAccessibilityEvent(AccessibilityEvent.TYPE_VIEW_FOCUSED);
+    }
   }
 
   @Nullable
@@ -679,8 +758,8 @@ public class PlacePageController
   @Override
   public void onStart()
   {
-    super.onStart();
     mPlacePageBehavior.addBottomSheetCallback(mDefaultBottomSheetCallback);
+    super.onStart();
     mViewModel.getMapObject().observe(requireActivity(), this);
     mViewModel.getPlacePageDistanceToTop().observe(requireActivity(), mPlacePageDistanceToTopObserver);
   }
