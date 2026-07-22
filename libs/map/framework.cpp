@@ -136,6 +136,7 @@ std::string_view constexpr kScreenViewport = "ScreenClipRect";
 
 auto constexpr kLargeFontsScaleFactor = 1.6;
 size_t constexpr kMaxTrafficCacheSizeBytes = 64 /* Mb */ * 1024 * 1024;
+double constexpr kCloseDistance = 1.0;
 
 // TODO!
 // To adjust GpsTrackFilter was added secret command "?gpstrackaccuracy:xxx;"
@@ -1888,7 +1889,9 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
 {
   FeatureID fullMatch, poi, line, area;
   auto haveBuilding = false;
-  auto closestDistanceToCenter = numeric_limits<double>::max();
+  auto poiClosestDistanceToCenter = numeric_limits<double>::max();
+  auto lineClosestDistance = numeric_limits<double>::max();
+  auto areaClosestDistanceToCenter = numeric_limits<double>::max();
   auto currentDistance = numeric_limits<double>::max();
 
   indexer::ForEachFeatureAtPoint(m_featuresFetcher.GetDataSource(), [&](FeatureType & ft)
@@ -1904,33 +1907,52 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
 
     switch (ft.GetGeomType())
     {
-    case feature::GeomType::Point: poi = ft.GetID(); break;
+    case feature::GeomType::Point:
+    {
+      currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
+      if (currentDistance >= poiClosestDistanceToCenter)
+        return;
+      poi = ft.GetID();
+      poiClosestDistanceToCenter = currentDistance;
+      break;
+    }
     case feature::GeomType::Line:
+    {
       // Skip/ignore isolines.
       if (ftypes::IsIsolineChecker::Instance()(ft))
         return;
+      currentDistance = feature::GetMinDistanceMeters(ft, mercator);
+      if (currentDistance >= lineClosestDistance)
+        return;
       line = ft.GetID();
+      lineClosestDistance = currentDistance;
       break;
+    }
     case feature::GeomType::Area:
     {
-      // Buildings have higher priority over other types.
-      if (haveBuilding)
-        return;
-
       // Skip/ignore coastlines.
       feature::TypesHolder types(ft);
       if (ftypes::IsCoastlineChecker::Instance()(types))
         return;
 
-      haveBuilding = ftypes::IsBuildingChecker::Instance()(types);
       currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
-      // Choose the first matching building or, if no buildings are matched,
-      // the first among the closest matching non-buildings.
-      if (!haveBuilding && currentDistance >= closestDistanceToCenter)
+
+      // Buildings have higher priority over other types.
+      // But center/label position is still preferred when it's very close.
+      if (haveBuilding && currentDistance > kCloseDistance)
         return;
+      auto currentIsBuilding = ftypes::IsBuildingChecker::Instance()(types);
+      if (currentDistance >= areaClosestDistanceToCenter)
+      {
+        if (!currentIsBuilding)
+          return;
+        if (areaClosestDistanceToCenter <= kCloseDistance)
+          return;
+      }
 
       area = ft.GetID();
-      closestDistanceToCenter = currentDistance;
+      areaClosestDistanceToCenter = currentDistance;
+      haveBuilding = currentIsBuilding;
       break;
     }
     case feature::GeomType::Undefined: ASSERT(false, ("case feature::Undefined")); break;
