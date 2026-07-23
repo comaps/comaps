@@ -132,7 +132,42 @@ than a fake country.
 
 - `--generate_search_index` was intentionally omitted; it tries to read all
   other MWM files in the data path for cross-MWM search and can hang when
-  large maps (IleDeFrance 239 MB) are present.
+  large maps (IleDeFrance 239 MB) are present.  The missing `addr` and
+  `centers` sections would abort the app in debug builds — those `LOG(LERROR)`
+  calls in `libs/search/house_to_street_table.cpp` and
+  `libs/search/lazy_centers_table.cpp` have been patched to `LWARNING`.
+- `--generate_routing` is also omitted.  Without a routing graph the app cannot
+  plan routes through this MWM and every routing call throws an exception.
+  The routing library (`async_router`, `index_graph_loader`, `index_router`,
+  `city_roads`, `maxspeeds`, `restriction_loader`, `transit_graph_loader`,
+  `index_road_graph`) logged these at `LERROR`, which in debug builds
+  (`g_LogAbortLevel = LERROR`) caused an immediate abort.  All have been
+  patched to `LWARNING` so routing returns a "route not found" error instead.
 - `data/borders/*.poly` files use CRLF on Windows checkouts.  The
   `generator_tool` border parser does not strip `\r`, so always copy through
   `sed 's/\r//'` before use on Linux/WSL.
+
+---
+
+## Style changes — regenerating drule binaries
+
+After any edit to `data/styles/` (MapCSS or priority files) you must regenerate
+the drule binaries and copy them into the Android assets:
+
+```bash
+# From the repo root (Git Bash or WSL with Python 3 + protobuf installed)
+PYTHONUTF8=1 bash tools/unix/generate_drules.sh
+```
+
+The script writes directly into `data/` which is symlinked to
+`android/sdk/src/main/assets/`, so the updated `.bin` files are picked up by
+the next Gradle build automatically.  The Gradle build itself skips drule
+generation ("Skipping generate drules…"), so **you must run this manually**
+after every style change.
+
+New OSM tag values used as drule type names (e.g. `indoor=stairs`) must also be
+added to `data/mapcss-mapping.csv` with a sequential type ID; otherwise kothic
+reports "no style defined" and the type is silently dropped.  After editing
+`mapcss-mapping.csv`, add the new type to the `priorities_3_FG.prio.txt` in
+**every** style family that references it (`default/`, `outdoors/`) or kothic
+will fail with a validation error.
