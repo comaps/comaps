@@ -4,7 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:id="@+id/ll__place_editor"
-  style="@style/PlacePageItemFrame"
+  style="@style/PlacePageItemFrame.Unclickable"
   tools:visibility="visible">
   <com.google.android.material.button.MaterialButton
     android:id="@+id/mb__place_editor"
