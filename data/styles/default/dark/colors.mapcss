@@ -143,6 +143,7 @@
 @indoor_area: #303830;
 @indoor_corridor: #323A32;
 @indoor_wall: #7A7868;
+@indoor_perimeter: #000000;
 
 /* 5.ROADS */
 /* 5.1 All roads */

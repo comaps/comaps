@@ -2007,11 +2007,12 @@ url_scheme::InAppFeatureHighlightRequest Framework::GetInAppFeatureHighlightRequ
 
 FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatcher && matcher /* = nullptr */) const
 {
-  FeatureID fullMatch, poi, line, area;
+  FeatureID fullMatch, poi, line, area, indoorArea;
   auto haveBuilding = false;
   auto poiClosestDistanceToCenter = numeric_limits<double>::max();
   auto lineClosestDistance = numeric_limits<double>::max();
   auto areaClosestDistanceToCenter = numeric_limits<double>::max();
+  auto closestIndoorDistance = numeric_limits<double>::max();
   auto currentDistance = numeric_limits<double>::max();
 
   indexer::ForEachFeatureAtPoint(m_featuresFetcher.GetDataSource(), [&](FeatureType & ft)
@@ -2055,6 +2056,19 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
       if (ftypes::IsCoastlineChecker::Instance()(types))
         return;
 
+      // In indoor mode, indoor area features (rooms, corridors, etc.) take precedence
+      // over the building polygon so tapping shows the specific space, not just the building.
+      if (m_indoorManager.IsActive() && ftypes::IsIndoorChecker::Instance()(types))
+      {
+        currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
+        if (currentDistance < closestIndoorDistance)
+        {
+          indoorArea = ft.GetID();
+          closestIndoorDistance = currentDistance;
+        }
+        return;
+      }
+
       currentDistance = mercator::DistanceOnEarth(mercator, feature::GetCenter(ft));
 
       // Buildings have higher priority over other types.
@@ -2079,7 +2093,11 @@ FeatureID Framework::GetFeatureAtPoint(m2::PointD const & mercator, FeatureMatch
     }
   }, mercator);
 
-  return fullMatch.IsValid() ? fullMatch : (poi.IsValid() ? poi : (line.IsValid() ? line : area));
+  return fullMatch.IsValid() ? fullMatch
+       : (poi.IsValid()       ? poi
+       : (line.IsValid()      ? line
+       : (indoorArea.IsValid() ? indoorArea
+       : area)));
 }
 
 osm::MapObject Framework::GetMapObjectByID(FeatureID const & fid) const

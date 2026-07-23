@@ -376,6 +376,9 @@ public class MapButtonsController extends Fragment
     if (mIndoorLegend != null)
       mIndoorLegend.setVisibility(IndoorManager.isDebugEnabled() ? View.VISIBLE : View.GONE);
 
+    // When no level is active yet (first entering a building), default to floor 0 or the lowest
+    // available floor. The C++ side already selects it; we just need to scroll there.
+    final String scrollTarget = activeLevel;
     for (int i = 0; i < levels.length; i++)
     {
       final String level = levels[i];
@@ -385,8 +388,26 @@ public class MapButtonsController extends Fragment
       mIndoorLevelsContainer.addView(button);
     }
 
+    if (mHasIndoorLevels)
+      mIndoorLevelsScroll.post(() -> scrollToActiveLevel(scrollTarget, levels));
+
     // Respect the current place page position: the picker hides with the zoom buttons.
     updateButtonsVisibility();
+  }
+
+  private void scrollToActiveLevel(@NonNull String activeLevel, @NonNull String[] levels)
+  {
+    for (int i = 0; i < levels.length; i++)
+    {
+      if (!levels[i].equals(activeLevel))
+        continue;
+      View btn = mIndoorLevelsContainer.getChildAt(i);
+      if (btn == null)
+        return;
+      int scrollTo = btn.getTop() - (mIndoorLevelsScroll.getHeight() - btn.getHeight()) / 2;
+      mIndoorLevelsScroll.scrollTo(0, Math.max(0, scrollTo));
+      return;
+    }
   }
 
   @NonNull

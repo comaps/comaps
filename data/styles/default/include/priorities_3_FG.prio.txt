@@ -550,6 +550,10 @@ indoor-area                                         # area z17- (also has captio
 indoor-room                                         # area z17- (also has caption z18-)
 === 203
 
+indoor-stairs                                       # area z17-
+indoor-level                                        # area z17-
+=== 201
+
 building                                            # area z14- (also has caption z17-)
 building-garage                                     # area z14- (also has caption z17-)
 building-guardhouse                                 # area z14- (also has icon z18-, caption(optional) z18-)
