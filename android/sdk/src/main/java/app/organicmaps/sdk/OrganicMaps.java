@@ -272,6 +272,7 @@ public final class OrganicMaps implements DefaultLifecycleObserver
       bundledMaps.put("MallOfAmerica.mwm",  "US_Minnesota_Minneapolis.mwm");
       bundledMaps.put("SanFrancisco.mwm",   "US_California_Santa_Clara_Palo Alto.mwm");
       bundledMaps.put("SantaRosa.mwm",      "US_California_Chico.mwm");
+      bundledMaps.put("France_Ile-de-France_Seine-et-Marne.mwm", "France_Ile-de-France_Seine-et-Marne.mwm");
 
       // Remove stale copies (old fake names or old version dirs) from every version directory
       // so Storage never encounters a fake country at m_currentVersion (which would crash).
