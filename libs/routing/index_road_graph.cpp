@@ -66,7 +66,7 @@ void IndexRoadGraph::GetEdgeTypes(Edge const & edge, feature::TypesHolder & type
   auto ft = m_dataSource.GetFeature(featureId);
   if (!ft)
   {
-    LOG(LERROR, ("Can't load types for feature", featureId));
+    LOG(LWARNING, ("Can't load types for feature", featureId));
     return;
   }
 

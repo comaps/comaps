@@ -73,7 +73,7 @@ std::unique_ptr<Maxspeeds> LoadMaxspeeds(MwmSet::MwmHandle const & handle)
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR, ("File", value->GetCountryFileName(), "Error while reading", MAXSPEEDS_FILE_TAG, "section.", e.Msg()));
+    LOG(LWARNING, ("File", value->GetCountryFileName(), "Error while reading", MAXSPEEDS_FILE_TAG, "section.", e.Msg()));
     return std::make_unique<Maxspeeds>();
   }
 }

@@ -165,7 +165,7 @@ IndexGraphLoaderImpl::GraphPtrT IndexGraphLoaderImpl::CreateIndexGraph(NumMwmId 
   }
   catch (RootException const & ex)
   {
-    LOG(LERROR, ("Error reading graph for", value->m_file));
+    LOG(LWARNING, ("Error reading graph for", value->m_file));
     throw;
   }
 }
@@ -201,7 +201,7 @@ bool ReadSpeedCamsFromMwm(MwmValue const & mwmValue, SpeedCamerasMapT & camerasM
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR,
+    LOG(LWARNING,
         ("Error while reading", CAMERAS_INFO_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
@@ -222,7 +222,7 @@ bool ReadRoadAccessFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, R
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR,
+    LOG(LWARNING,
         ("Error while reading", ROAD_ACCESS_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
@@ -263,7 +263,7 @@ bool ReadRoadPenaltyFromMwm(MwmValue const & mwmValue, VehicleType vehicleType, 
   }
   catch (Reader::Exception const & e)
   {
-    LOG(LERROR,
+    LOG(LWARNING,
         ("Error while reading", ROAD_PENALTY_FILE_TAG, "section in", mwmValue.GetCountryFileName(), ":", e.Msg()));
   }
   return false;
