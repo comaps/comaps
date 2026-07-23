@@ -542,14 +542,16 @@ railway-rail-utility-bridge::bridgeblack            # line::bridgeblack z16- (al
 railway-subway-bridge::bridgeblack                  # line::bridgeblack z16- (also has line z13-, line::bridgewhite z13-, line::dash z16-)
 === 130
 
-indoor-wall                                         # line z18-
+indoor-wall                                         # line z17-
 === 128
 
 indoor-corridor                                     # area z18-
 === 126
 
 indoor-area                                         # area z17- (also has caption z18-)
+indoor-level                                        # area z17-
 indoor-room                                         # area z17- (also has caption z18-)
+indoor-stairs                                       # area z17-
 === 124
 
 building                                            # area z14- (also has caption z17-)

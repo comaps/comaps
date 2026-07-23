@@ -1765,3 +1765,5 @@ indoor|corridor;[indoor=corridor];;name;int_name;1634;
 indoor|area;[indoor=area];;name;int_name;1635;
 indoor|wall;[indoor=wall];;;;1636;
 indoor|door;[indoor=door],[door][level];;ref;name;1637;
+indoor|stairs;[indoor=stairs];;name;int_name;1638;
+indoor|level;[indoor=level];;name;int_name;1639;

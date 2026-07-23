@@ -264,6 +264,20 @@ railway-subway-bridge                               # line z13- (also has line::
 # railway-rail-utility-tunnel                       # line(casing) z14- (also has line z13-, line::dash z17-)
 # === 209
 
+indoor-wall                                         # line z17-
+=== 205
+
+indoor-corridor                                     # area z18-
+=== 204
+
+indoor-area                                         # area z17- (also has caption z18-)
+indoor-room                                         # area z17- (also has caption z18-)
+=== 203
+
+indoor-level                                        # area z17-
+indoor-stairs                                       # area z17-
+=== 201
+
 highway-ford                                        # line z13- (also has line::border z14-, icon z16-, pathtext z16-)
 highway-pedestrian                                  # line z13- (also has line::border z14-, pathtext z14-)
 highway-pedestrian-area                             # line z13- and area z14- (also has line::border z14-, pathtext z14-)
@@ -539,20 +553,6 @@ railway-rail-tourism-bridge::bridgeblack            # line::bridgeblack z16- (al
 railway-rail-utility-bridge::bridgeblack            # line::bridgeblack z16- (also has line z13-, line::bridgewhite z13-, line::dash z17-)
 railway-subway-bridge::bridgeblack                  # line::bridgeblack z16- (also has line z13-, line::bridgewhite z13-, line::dash z16-)
 === 130
-
-indoor-wall                                         # line z18-
-=== 205
-
-indoor-corridor                                     # area z18-
-=== 204
-
-indoor-area                                         # area z17- (also has caption z18-)
-indoor-room                                         # area z17- (also has caption z18-)
-=== 203
-
-indoor-stairs                                       # area z17-
-indoor-level                                        # area z17-
-=== 201
 
 building                                            # area z14- (also has caption z17-)
 building-garage                                     # area z14- (also has caption z17-)
