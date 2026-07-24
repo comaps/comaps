@@ -663,22 +663,29 @@ void ApplyPointFeature::ProcessPointRules(SymbolRuleProto const * symbolRule, Ca
 }
 
 ApplyAreaFeature::ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const & insertShape, FeatureType & f,
-                                   double currentScaleGtoP, bool isBuilding, float minPosZ, float posZ,
-                                   CaptionDescription const & captions)
+                                   double currentScaleGtoP, bool isBuilding, bool generateOutline, float minPosZ,
+                                   float posZ, CaptionDescription const & captions)
   : TBase(tileKey, insertShape, f, captions)
   , m_minPosZ(minPosZ)
   , m_isBuilding(isBuilding)
+  , m_generateOutline(generateOutline)
   , m_currentScaleGtoP(currentScaleGtoP)
 {
   m_posZ = posZ;
 }
 
+bool ApplyAreaFeature::NeedOutline(AreaRuleProto const * areaRule)
+{
+  return areaRule != nullptr && areaRule->has_border() &&
+         areaRule->color() != areaRule->border().color() && areaRule->border().width() > 0.0;
+}
+
 void ApplyAreaFeature::operator()(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3)
 {
-  if (m_isBuilding)
+  if (m_isBuilding || m_generateOutline)
   {
     /// @todo I suppose that we don't intersect triangles with tile rect because of _simple_
-    /// 3D and outline algo. It makes sense only if buildings have _not many_ triangles.
+    /// 3D and outline algo. It makes sense only if buildings (and outlined areas) have _not many_ triangles.
     ProcessBuildingPolygon(p1, p2, p3);
     return;
   }
@@ -875,15 +882,13 @@ void ApplyAreaFeature::ProcessRule(AreaRuleProto const & areaRule, double areaDe
   params.m_baseGtoPScale = m_currentScaleGtoP;
 
   BuildingOutline outline;
-  if (m_isBuilding && !isHatching)
+  if (!isHatching)
   {
-    /// @todo Make borders work for non-building areas too.
-    outline.m_generateOutline =
-        areaRule.has_border() && areaRule.color() != areaRule.border().color() && areaRule.border().width() > 0.0;
+    outline.m_generateOutline = m_generateOutline;
     if (outline.m_generateOutline)
       params.m_outlineColor = ToDrapeColor(areaRule.border().color());
 
-    bool const calculateNormals = m_posZ > 0.0;
+    bool const calculateNormals = m_isBuilding && m_posZ > 0.0;
     if (calculateNormals || outline.m_generateOutline)
       CalculateBuildingOutline(calculateNormals, outline);
 

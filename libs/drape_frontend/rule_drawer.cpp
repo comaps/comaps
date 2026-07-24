@@ -317,7 +317,8 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
   if (!skipTriangles && isBuilding && f.GetTrgVerticesCount(m_zoomLevel) >= 10000)
     isBuilding = false;
 
-  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding,
+  bool const generateOutline = ApplyAreaFeature::NeedOutline(s.m_areaRule);
+  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding, generateOutline,
                          areaMinHeight /* minPosZ */, areaHeight /* posZ */, s.GetCaptionDescription());
   if (isBuilding && indoor::HasActiveLevel(m_context->GetIndoorLevel()))
     apply.SetBuildingAlphaScale(0.2f);

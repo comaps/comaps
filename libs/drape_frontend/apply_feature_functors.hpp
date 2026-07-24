@@ -83,12 +83,15 @@ class ApplyAreaFeature : public ApplyPointFeature
 
 public:
   ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const & insertShape, FeatureType & f,
-                   double currentScaleGtoP, bool isBuilding, float minPosZ, float posZ,
+                   double currentScaleGtoP, bool isBuilding, bool generateOutline, float minPosZ, float posZ,
                    CaptionDescription const & captions);
 
   void operator()(m2::PointD const & p1, m2::PointD const & p2, m2::PointD const & p3);
   bool HasGeometry() const { return !m_triangles.empty(); }
   void ProcessAreaRules(AreaRuleProto const * areaRule, AreaRuleProto const * hatchingRule);
+
+  // Whether an area rule needs a drawn perimeter outline (border of a different color and non-zero width).
+  static bool NeedOutline(AreaRuleProto const * areaRule);
 
   struct Edge
   {
@@ -136,6 +139,7 @@ private:
 
   float const m_minPosZ;
   bool const m_isBuilding;
+  bool const m_generateOutline;
   double const m_currentScaleGtoP;
   float m_buildingAlphaScale = 1.0f;
 
