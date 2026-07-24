@@ -2419,8 +2419,17 @@ place_page::Info Framework::BuildPlacePageInfo(place_page::BuildInfo const & bui
   bool isBuildingSelected = false;
   if (isFeatureMatchingEnabled && !selectedFeature.IsValid())
   {
-    selectedFeature = FindBuildingAtPoint(buildInfo.m_mercator);
-    isBuildingSelected = selectedFeature.IsValid();
+    // In indoor mode, prefer the specific indoor space (room/corridor/etc.) under the tap over the
+    // enclosing building. Drape only reports POI overlays for taps, so area features never arrive as
+    // buildInfo.m_featureId; GetFeatureAtPoint returns the indoor area (falling back to the building).
+    if (m_indoorManager.IsActive())
+      selectedFeature = GetFeatureAtPoint(buildInfo.m_mercator);
+
+    if (!selectedFeature.IsValid())
+    {
+      selectedFeature = FindBuildingAtPoint(buildInfo.m_mercator);
+      isBuildingSelected = selectedFeature.IsValid();
+    }
   }
 
   if (selectedFeature.IsValid())
