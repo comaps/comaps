@@ -235,8 +235,10 @@ NSString *const kPP2BookmarkEditingSegue = @"PP2BookmarkEditing";
 - (void)onSwitchFullScreen {
   BOOL const isNavigationDashboardHidden = MWMNavigationDashboardManager.sharedManager.state == MWMNavigationDashboardStateHidden;
   if (!self.searchManager.isSearching && isNavigationDashboardHidden) {
-    if (!self.controlsManager.hidden)
+    if (!self.controlsManager.hidden) {
       [self dismissPlacePage];
+      [Toast showWithText:L(@"long_tap_toast")];
+    }
     self.controlsManager.hidden = !self.controlsManager.hidden;
   }
 }
