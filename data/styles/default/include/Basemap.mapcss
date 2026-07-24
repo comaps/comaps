@@ -704,24 +704,22 @@ area|z17-[waterway=dam],
 
 /* 8.2.1 Indoor */
 
-/* Outer perimeter of each mapped floor — thick near-black casing marks the boundary. */
 area|z17-[indoor=level],
-{fill-color: @indoor_area;casing-width: 3;casing-color: @indoor_perimeter;}
+{fill-color: @indoor_area;casing-color: @indoor_perimeter;casing-width: 2;}
 area|z18-[indoor=level],
-{casing-width: 4;}
+{casing-width: 3;}
 
-/* Individual spaces — thin wall-colored casing separates adjacent rooms/corridors. */
 area|z17-[indoor=room],
-{fill-color: @indoor_room;casing-width: 0.5;casing-color: @indoor_wall;}
+{fill-color: @indoor_room;casing-color: @indoor_wall;casing-width: 1;}
 
 area|z17-[indoor=area],
-{fill-color: @indoor_area;casing-width: 0.5;casing-color: @indoor_wall;}
+{fill-color: @indoor_area;casing-color: @indoor_wall;casing-width: 1;}
 
 area|z17-[indoor=stairs],
-{fill-color: @indoor_corridor;casing-width: 0.5;casing-color: @indoor_wall;}
+{fill-color: @indoor_corridor;casing-color: @indoor_wall;casing-width: 1;}
 
 area|z18-[indoor=corridor],
-{fill-color: @indoor_corridor;casing-width: 0.5;casing-color: @indoor_wall;}
+{fill-color: @indoor_corridor;casing-color: @indoor_wall;casing-width: 1;}
 
 line|z17-[indoor=wall],
 {color: @indoor_wall; width: 2;}

@@ -266,6 +266,9 @@ railway-subway-bridge                               # line z13- (also has line::
 # railway-rail-utility-tunnel                       # line(casing) z14- (also has line z12-, line::dash z16-)
 # === 209
 
+indoor-wall                                         # line z17-
+=== 205
+
 highway-ford                                        # line z13- (also has line::border z14-, icon z14-, pathtext z16-)
 highway-pedestrian                                  # line z13- (also has line::border z14-, pathtext z14-)
 highway-pedestrian-area                             # line z13- and area z14- (also has line::border z14-, pathtext z14-)
@@ -350,11 +353,20 @@ highway-steps-tunnel::tunnelCasing                  # line::tunnelCasing z17- (a
 highway-track-tunnel::tunnelCasing                  # line::tunnelCasing z17- (also has line z11-, line::tunnelBackground z17-, pathtext z13-)
 === 168
 
+indoor-corridor                                     # area z18-
+=== 166
+
+indoor-area                                         # area z17- (also has caption z18-)
+indoor-room                                         # area z17- (also has caption z18-)
+indoor-stairs                                       # area z17-
+=== 165
+
 highway-motorway::border                            # line::border z10- (also has line z6-, pathtext z10-, shield::shield z10-)
 highway-trunk::border                               # line::border z10- (also has line z6-, pathtext z10-, shield::shield z10-)
 === 163
 
 highway-primary::border                             # line::border z10- (also has line z8-, pathtext z10-, shield::shield z10-)
+indoor-level                                        # area z17-
 === 162
 
 highway-secondary::border                           # line::border z10- (also has line z10-, pathtext z10-, shield::shield z12-)
@@ -541,18 +553,6 @@ railway-rail-tourism-bridge::bridgeblack            # line::bridgeblack z16- (al
 railway-rail-utility-bridge::bridgeblack            # line::bridgeblack z16- (also has line z12-, line::bridgewhite z13-, line::dash z16-)
 railway-subway-bridge::bridgeblack                  # line::bridgeblack z16- (also has line z13-, line::bridgewhite z13-, line::dash z16-)
 === 130
-
-indoor-wall                                         # line z17-
-=== 128
-
-indoor-corridor                                     # area z18-
-=== 126
-
-indoor-area                                         # area z17- (also has caption z18-)
-indoor-level                                        # area z17-
-indoor-room                                         # area z17- (also has caption z18-)
-indoor-stairs                                       # area z17-
-=== 124
 
 building                                            # area z14- (also has caption z17-)
 building-garage                                     # area z14- (also has caption z17-)

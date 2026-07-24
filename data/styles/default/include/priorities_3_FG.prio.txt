@@ -267,17 +267,6 @@ railway-subway-bridge                               # line z13- (also has line::
 indoor-wall                                         # line z17-
 === 205
 
-indoor-corridor                                     # area z18-
-=== 204
-
-indoor-area                                         # area z17- (also has caption z18-)
-indoor-room                                         # area z17- (also has caption z18-)
-=== 203
-
-indoor-level                                        # area z17-
-indoor-stairs                                       # area z17-
-=== 201
-
 highway-ford                                        # line z13- (also has line::border z14-, icon z16-, pathtext z16-)
 highway-pedestrian                                  # line z13- (also has line::border z14-, pathtext z14-)
 highway-pedestrian-area                             # line z13- and area z14- (also has line::border z14-, pathtext z14-)
@@ -362,11 +351,20 @@ highway-steps-tunnel::tunnelCasing                  # line::tunnelCasing z17- (a
 highway-track-tunnel::tunnelCasing                  # line::tunnelCasing z17- (also has line z15-, line::tunnelBackground z17-, pathtext z15-)
 === 168
 
+indoor-corridor                                     # area z18-
+=== 166
+
+indoor-area                                         # area z17- (also has caption z18-)
+indoor-room                                         # area z17- (also has caption z18-)
+indoor-stairs                                       # area z17-
+=== 165
+
 highway-motorway::border                            # line::border z14- (also has line z6-, pathtext z10-, shield::shield z10-)
 highway-trunk::border                               # line::border z14- (also has line z6-, pathtext z10-, shield::shield z10-)
 === 163
 
 highway-primary::border                             # line::border z11- (also has line z8-, pathtext z10-, shield::shield z10-)
+indoor-level                                        # area z17-
 === 162
 
 highway-secondary::border                           # line::border z11- (also has line z10-, pathtext z10-, shield::shield z12-)
