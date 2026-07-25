@@ -2337,7 +2337,9 @@ place_page::Info Framework::BuildPlacePageInfo(place_page::BuildInfo const & bui
     }
   }
 
-  bool isBuildingSelected = false;
+  // Whether the matched feature is an area/building enclosing the tap point, in which case the
+  // selection circle should stay where the user pressed rather than snapping to the feature centroid.
+  bool keepTapPosition = false;
   if (isFeatureMatchingEnabled && !selectedFeature.IsValid())
   {
     // In indoor mode, prefer the specific indoor space (room/corridor/etc.) under the tap over the
@@ -2346,10 +2348,12 @@ place_page::Info Framework::BuildPlacePageInfo(place_page::BuildInfo const & bui
     if (m_indoorManager.IsActive())
       selectedFeature = GetFeatureAtPoint(buildInfo.m_mercator);
 
-    if (!selectedFeature.IsValid())
+    if (selectedFeature.IsValid())
+      keepTapPosition = true;
+    else
     {
       selectedFeature = FindBuildingAtPoint(buildInfo.m_mercator);
-      isBuildingSelected = selectedFeature.IsValid();
+      keepTapPosition = selectedFeature.IsValid();
     }
   }
 
@@ -2358,8 +2362,8 @@ place_page::Info Framework::BuildPlacePageInfo(place_page::BuildInfo const & bui
     // Selection circle should match feature
     FillFeatureInfo(selectedFeature, outInfo);
 
-    if (isBuildingSelected)
-      outInfo.SetMercator(buildInfo.m_mercator);  // Move selection circle to the tap position inside a building.
+    if (keepTapPosition)
+      outInfo.SetMercator(buildInfo.m_mercator);  // Keep the selection circle at the tap position.
     else if (buildInfo.IsUserMarkMatchingEnabled() && !outInfo.IsBookmark())
     {
       // Search for a user mark at POI position instead of tap position (an icon or text label was tapped).
