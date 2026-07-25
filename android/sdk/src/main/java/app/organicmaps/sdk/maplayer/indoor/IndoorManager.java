@@ -41,27 +41,6 @@ public class IndoorManager
     return nativeGetViewportLevels();
   }
 
-  public static boolean isDebugEnabled()
-  {
-    return nativeIsDebugEnabled();
-  }
-
-  // Returns a human-readable description of the feature that most recently triggered indoor mode,
-  // or empty string if indoor mode hasn't been entered yet.
-  @NonNull
-  public static String getActivatingInfo()
-  {
-    return nativeGetActivatingInfo();
-  }
-
-  // Returns a human-readable description of the debug indoor feature nearest to the given screen
-  // pixel coordinate, or an empty string if debug mode is off or nothing is nearby.
-  @NonNull
-  public static String getDebugFeatureAt(int screenX, int screenY)
-  {
-    return nativeGetDebugFeatureAt(screenX, screenY);
-  }
-
   private static native void nativeAddListener(@NonNull OnIndoorLevelsChangedListener listener);
   private static native void nativeRemoveListener();
   private static native void nativeSelectLevel(@NonNull String level);
@@ -69,9 +48,4 @@ public class IndoorManager
   private static native String nativeGetActiveLevel();
   @NonNull
   private static native String[] nativeGetViewportLevels();
-  private static native boolean nativeIsDebugEnabled();
-  @NonNull
-  private static native String nativeGetActivatingInfo();
-  @NonNull
-  private static native String nativeGetDebugFeatureAt(int screenX, int screenY);
 }

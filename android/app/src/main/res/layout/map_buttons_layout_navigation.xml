@@ -50,14 +50,6 @@
       app:layout_constraintStart_toStartOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>
   <include
-    layout="@layout/map_buttons_indoor_legend"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/nav_frame_padding"
-    android:layout_marginEnd="@dimen/nav_frame_padding"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
-  <include
     layout="@layout/map_status_track_recording"
     android:layout_margin="@dimen/nav_frame_padding"
     android:layout_width="wrap_content"

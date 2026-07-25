@@ -100,7 +100,6 @@
 #include "defines.hpp"
 
 #include <algorithm>
-#include <cmath>
 
 using namespace location;
 using namespace routing;
@@ -1636,72 +1635,6 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
     // the route into view (which zooms out) doesn't drop the level chooser and filtering.
     return m_routingManager.IsRoutingActive();
   });
-  m_indoorManager.SetDebugRectsListener([this](std::vector<IndoorManager::DebugRect> const & rects)
-  {
-    // Level-keyed color palette for the ?indoor debug overlay.
-    // indoor=* geometry: opaque (alpha=200); level=* POIs: faded (alpha=90).
-    static dp::Color const kLevelColors[] = {
-      dp::Color(0, 180, 0, 200),    // 0: green  (ground)
-      dp::Color(0, 100, 255, 200),  // 1: blue
-      dp::Color(180, 0, 180, 200),  // 2: purple
-      dp::Color(220, 120, 0, 200),  // 3: orange
-      dp::Color(0, 180, 180, 200),  // 4: teal
-      dp::Color(200, 200, 0, 200),  // 5: yellow
-      dp::Color(255, 0, 80, 200),   // 6: pink-red
-    };
-    int constexpr kColorCount = 7;
-
-    m_drapeApi.Clear();
-    int id = 0;
-    // Min box so point-feature rects (zero area) are visible; crosshair arm slightly larger.
-    double constexpr kMinBoxHalf = 0.0001;   // ~10m at equator in internal mercator degrees
-    double constexpr kCrossArm   = kMinBoxHalf * 2.0;
-    for (auto const & dr : rects)
-    {
-      int const colorIdx = ((static_cast<int>(std::round(dr.level)) % kColorCount) + kColorCount) % kColorCount;
-      auto const & base = kLevelColors[colorIdx];
-      // Faded for: level=* POIs (don't trigger indoor mode) and oversized/filtered indoor=* features.
-      uint8_t const alpha = dr.isIndoorTyped ? static_cast<uint8_t>(200) : static_cast<uint8_t>(90);
-      dp::Color const color(base.GetRed(), base.GetGreen(), base.GetBlue(), alpha);
-      float const w = dr.isIndoorTyped ? 2.0f : 1.0f;
-
-      // Expand zero-area point-feature rects to a minimum visible box.
-      m2::RectD const drawRect = (dr.rect.SizeX() < kMinBoxHalf || dr.rect.SizeY() < kMinBoxHalf)
-          ? m2::RectD(dr.rect.Center() - m2::PointD(kMinBoxHalf, kMinBoxHalf),
-                      dr.rect.Center() + m2::PointD(kMinBoxHalf, kMinBoxHalf))
-          : dr.rect;
-
-      m2::PointD const c = drawRect.Center();
-
-      if (dr.isIndoorTyped)
-      {
-        // Indoor=* polygons: bounding box outline.
-        std::vector<m2::PointD> const pts = {drawRect.LeftTop(), drawRect.RightTop(),
-                                             drawRect.RightBottom(), drawRect.LeftBottom(),
-                                             drawRect.LeftTop()};
-        m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(pts, color).Width(w));
-      }
-      else
-      {
-        // level=* POIs: 8-segment circle so they're visually distinct from polygon boxes.
-        double const r = kMinBoxHalf;
-        std::vector<m2::PointD> circle;
-        circle.reserve(9);
-        for (int k = 0; k <= 8; ++k)
-        {
-          double const angle = k * M_PI / 4.0;
-          circle.push_back(c + m2::PointD(r * std::cos(angle), r * std::sin(angle)));
-        }
-        m_drapeApi.AddLine("ib" + std::to_string(id), df::DrapeApiLineData(circle, color).Width(w));
-      }
-
-      // Fixed-size crosshair at center: makes every feature visible even when geometry is tiny.
-      m_drapeApi.AddLine("ih" + std::to_string(id), df::DrapeApiLineData(
-          {c - m2::PointD(kCrossArm, 0.0), c + m2::PointD(kCrossArm, 0.0)}, color).Width(w));
-      m_drapeApi.AddLine("iv" + std::to_string(id++), df::DrapeApiLineData(
-          {c - m2::PointD(0.0, kCrossArm), c + m2::PointD(0.0, kCrossArm)}, color).Width(w));
-    }
-  });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
 
   InvalidateUserMarks();
@@ -1800,18 +1733,6 @@ void Framework::EnableDebugRectRendering(bool enabled)
 {
   if (m_drapeEngine)
     m_drapeEngine->EnableDebugRectRendering(enabled);
-}
-
-void Framework::EnableIndoorDebug(bool enabled)
-{
-  m_indoorManager.SetDebugEnabled(enabled);
-  if (!enabled)
-    m_drapeApi.Clear();
-}
-
-std::string Framework::GetDebugIndoorFeature(m2::PointD const & mercatorPt) const
-{
-  return m_indoorManager.GetDebugFeatureAt(mercatorPt);
 }
 
 void Framework::ConnectToGpsTracker()
@@ -2916,16 +2837,6 @@ bool Framework::ParseDrapeDebugCommand(string const & query)
   if (query == "?no-debug-rect")
   {
     m_drapeEngine->EnableDebugRectRendering(false /* shown */);
-    return true;
-  }
-  if (query == "?indoor")
-  {
-    EnableIndoorDebug(true);
-    return true;
-  }
-  if (query == "?no-indoor")
-  {
-    EnableIndoorDebug(false);
     return true;
   }
 #if defined(OMIM_METAL_AVAILABLE)

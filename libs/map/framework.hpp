@@ -360,10 +360,6 @@ public:
 
   void InvalidateRendering();
   void EnableDebugRectRendering(bool enabled);
-  void EnableIndoorDebug(bool enabled);
-  // Returns a human-readable description of the debug indoor feature nearest to the given mercator
-  // point, or empty if debug mode is off or no feature is within a reasonable tap radius.
-  std::string GetDebugIndoorFeature(m2::PointD const & mercatorPt) const;
 
   void EnableChoosePositionMode(bool enable, bool enableBounds, m2::PointD const * optionalPosition);
   void BlockTapEvents(bool block);
