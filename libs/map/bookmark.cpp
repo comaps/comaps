@@ -58,6 +58,7 @@ std::string GetBookmarkIconType(kml::BookmarkIcon const & icon)
 std::string const kCustomImageProperty = "CustomImage";
 std::string const kHasElevationProfileProperty = "has_elevation_profile";
 int constexpr kInvalidColor = 0;
+int constexpr kMinTitleZoomLevel = 13;
 }  // namespace
 
 Bookmark::Bookmark(m2::PointD const & ptOrg) : Base(ptOrg, UserMark::BOOKMARK), m_groupId(kml::kInvalidMarkGroupId)
@@ -100,6 +101,11 @@ void Bookmark::SetIsVisible(bool isVisible)
 {
   SetDirty();
   m_isVisible = isVisible;
+}
+
+int Bookmark::GetMinTitleZoom() const
+{
+  return std::max(m_data.m_minZoom, kMinTitleZoomLevel);
 }
 
 drape_ptr<df::UserPointMark::TitlesInfo> Bookmark::GetTitleDeclEx(settings::Placement p, dp::Color outlineColor) const
