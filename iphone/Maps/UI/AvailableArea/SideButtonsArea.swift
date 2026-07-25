@@ -13,6 +13,8 @@ final class SideButtonsArea: AvailableArea {
 
   override func notifyObserver() {
     MWMSideButtons.updateAvailableArea(areaFrame)
+    // The indoor level picker shares this right-side region with the zoom/side buttons.
+    IndoorLevelPickerViewController.updateAvailableArea(areaFrame)
   }
 }
 

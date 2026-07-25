@@ -53,8 +53,17 @@
   return [MWMIndoorManager manager].currentLevels;
 }
 
++ (NSArray<NSString *> *)viewportLevels {
+  auto const levels = GetFramework().GetIndoorManager().GetViewportLevels();
+  NSMutableArray<NSString *> *result = [NSMutableArray arrayWithCapacity:levels.size()];
+  for (auto const &level : levels)
+    [result addObject:@(level.c_str())];
+  return result;
+}
+
 + (NSString *)activeLevel {
-  return [MWMIndoorManager manager].currentActiveLevel;
+  // Read straight from the core so the value is correct even before the first observer callback.
+  return @(GetFramework().GetIndoorManager().GetActiveLevel().c_str());
 }
 
 + (void)selectLevel:(NSString *)level {

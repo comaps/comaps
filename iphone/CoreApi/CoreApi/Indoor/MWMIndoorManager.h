@@ -16,7 +16,14 @@ NS_SWIFT_NAME(IndoorManager)
 + (void)removeObserver:(id<MWMIndoorObserver>)observer;
 
 /// Level labels sorted from the topmost floor down; empty when no indoor data is visible.
+/// Cached from the last observer notification.
 + (NSArray<NSString *> *)levels;
+
+/// Current viewport levels read straight from the core (topmost floor first), independent of the
+/// observer cache. Lets a freshly created UI re-sync immediately without waiting for the next
+/// levels-changed notification. Mirrors Android's IndoorManager.getViewportLevels().
++ (NSArray<NSString *> *)viewportLevels;
+
 + (NSString *)activeLevel;
 + (void)selectLevel:(NSString *)level;
 
