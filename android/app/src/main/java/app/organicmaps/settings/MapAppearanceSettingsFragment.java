@@ -2,12 +2,14 @@ package app.organicmaps.settings;
 import androidx.annotation.Keep;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
+
 import app.organicmaps.R;
 import app.organicmaps.editor.MapLanguagesFragment;
 import app.organicmaps.sdk.Framework;
@@ -15,6 +17,8 @@ import app.organicmaps.sdk.editor.data.Language;
 import app.organicmaps.sdk.settings.MapLanguageCode;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.PowerManagment;
+import app.organicmaps.util.Utils;
+
 import java.util.Locale;
 
 @Keep
@@ -108,13 +112,17 @@ public class MapAppearanceSettingsFragment extends BaseXmlSettingsFragment imple
 
   private void initBookmarksTextPlacementPrefsCallbacks()
   {
-    final ListPreference pref = getPreference(getString(R.string.pref_bookmarks_text_placement));
-    pref.setValue(String.valueOf(Framework.nativeGetBookmarksTextPlacement()));
+    final Preference pref = getPreference(getString(R.string.pref_bookmarks_text_placement));
+    ((TwoStatePreference) pref).setChecked(Framework.nativeGetShowBookmarkLabels());
     pref.setOnPreferenceChangeListener((preference, newValue) -> {
-      Framework.nativeSetBookmarksTextPlacement(Integer.parseInt((String) newValue));
+      final boolean oldVal = Framework.nativeGetShowBookmarkLabels();
+      final boolean newVal = (Boolean) newValue;
+      if (oldVal != newVal)
+        Framework.nativeSetShowBookmarkLabels(newVal);
       return true;
     });
   }
+
 
   private void initTransliterationPrefsCallbacks()
   {

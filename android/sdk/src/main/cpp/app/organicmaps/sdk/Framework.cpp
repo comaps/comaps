@@ -1917,16 +1917,14 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeMemoryWarning(JN
   return frm()->MemoryWarning();
 }
 
-JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetBookmarksTextPlacement(JNIEnv *, jclass,
-                                                                                          jint enumIndex)
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeSetShowBookmarkLabels(JNIEnv *, jclass,
+                                                                                       jboolean show)
 {
-  ASSERT_GREATER_OR_EQUAL(enumIndex, 0, ());
-  ASSERT_LESS(enumIndex, std::to_underlying(settings::Placement::Count), ());
-  frm()->SetBookmarksTextPlacement(settings::Placement{enumIndex});
+  frm()->SetShowBookmarkLabels(show);
 }
 
-JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Framework_nativeGetBookmarksTextPlacement(JNIEnv *, jclass)
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Framework_nativeGetShowBookmarkLabels(JNIEnv *, jclass)
 {
-  return std::to_underlying(Framework::GetBookmarksTextPlacement());
+  return Framework::GetShowBookmarkLabels();
 }
 }  // extern "C"
