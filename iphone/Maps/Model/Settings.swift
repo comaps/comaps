@@ -219,6 +219,16 @@ import Combine
         }
     }
     
+    /// If bookmark labels are shown
+    static var showBookmarkLabels: Bool {
+        get {
+            return SettingsBridge.showBookmarkLabels()
+        }
+        set {
+            SettingsBridge.setShowBookmarkLabels(newValue)
+        }
+    }
+    
     
     /// If the bookmarks should be synced via iCloud
     @objc static var shouldSync: Bool {
