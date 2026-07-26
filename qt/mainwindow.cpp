@@ -310,15 +310,19 @@ void MainWindow::CreateNavigationBar()
     m_levelSelectorAction = pToolBar->addWidget(m_levelSelector);
     m_levelSelectorAction->setVisible(false);
 
-    m_pDrawWidget->GetFramework().GetIndoorManager().SetLevelsListener(
-        [this](std::vector<std::string> const & levels, std::string const & activeLevel)
+    auto const updateLevels = [this](std::vector<std::string> const & levels, std::string const & activeLevel)
     {
       m_levelSelector->clear();
       for (auto const & level : levels)
         m_levelSelector->addItem(QString::fromStdString(level));
       m_levelSelector->setCurrentText(QString::fromStdString(activeLevel));
       m_levelSelectorAction->setVisible(!levels.empty());
-    });
+    };
+
+    auto & indoorManager = m_pDrawWidget->GetFramework().GetIndoorManager();
+    indoorManager.SetLevelsListener(updateLevels);
+    // Populate immediately in case indoor data is already in the viewport (e.g. restored session).
+    updateLevels(indoorManager.GetViewportLevels(), indoorManager.GetActiveLevel());
 
     pToolBar->addSeparator();
 
