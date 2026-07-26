@@ -26,7 +26,7 @@ struct SettingsView: View {
     
     /// The selected appearance
     @State private var selectedAppearance: Settings.Appearance = .auto
-    
+
     
     /// The selected custom button type
     @State private var selectedCustomButtonKind: MapCustomButton.Kind = .favourites
@@ -54,6 +54,9 @@ struct SettingsView: View {
     
     /// If names should be transliterated to Latin
     @State private var shouldTransliterateToLatin: Bool = false
+    
+    /// The selected bookmarks label position
+    @State private var showBookmarkLabels: Bool = false
     
     
     /// If the bookmarks should be synced via iCloud
@@ -208,6 +211,17 @@ struct SettingsView: View {
                         Text("transliteration_title")
                     }
                     .tint(.accent)
+                    
+                    Toggle(isOn: $showBookmarkLabels) {
+                        VStack(alignment: .leading) {
+                            Text("bookmarks_text_placement_title")
+
+                            Text("bookmarks_text_placement_description")
+                                .font(.footnote)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                    .tint(.accent)
                 } header: {
                     HStack(spacing: 4) {
                         Image(systemName: "map")
@@ -331,6 +345,7 @@ struct SettingsView: View {
             selectedLanguageForMap = Settings.languageForMap
             alternativeMapLanguageHandling = Settings.alternativeMapLanguageHandling
             shouldTransliterateToLatin = Settings.shouldTransliterateToLatin
+            showBookmarkLabels = Settings.showBookmarkLabels
             shouldSync = Settings.shouldSync
             isLogging = Settings.isLogging
         }
@@ -371,6 +386,9 @@ struct SettingsView: View {
         }
         .onChange(of: shouldTransliterateToLatin) { changedShouldTransliterateToLatin in
             Settings.shouldTransliterateToLatin = changedShouldTransliterateToLatin
+        }
+        .onChange(of: showBookmarkLabels) { showBookmarkLabels in
+            Settings.showBookmarkLabels = showBookmarkLabels
         }
         .onChange(of: shouldSync) { changedShouldSync in
             if changedShouldSync, !Settings.hasShownSyncBetaAlert {

@@ -16,8 +16,8 @@ NS_SWIFT_NAME(SettingsBridge)
 + (BOOL)zoomButtonsEnabled;
 + (void)setZoomButtonsEnabled:(BOOL)zoomButtonsEnabled;
 
-+ (MWMPlacement)bookmarksTextPlacement;
-+ (void)setBookmarksTextPlacement:(MWMPlacement)placement;
++ (BOOL)showBookmarkLabels;
++ (void)setShowBookmarkLabels:(BOOL)show;
 
 + (MWMTheme)theme;
 + (void)setTheme:(MWMTheme)theme;
