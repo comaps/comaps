@@ -168,6 +168,29 @@ UNIT_CLASS_TEST(IndoorManagerTest, HoldDuringRouting)
   TEST(m_manager.GetViewportLevels().empty(), ());
 }
 
+UNIT_CLASS_TEST(IndoorManagerTest, ClosestToGroundWhenNoGroundFloor)
+{
+  m2::PointD const center(0.0, 0.0);
+
+  // A building with no level=0: -2, -1 and 3. The floor closest to ground is -1.
+  auto poiDown2 = MakeIndoorPoi(center, "basement 2", "-2");
+  auto poiDown1 = MakeIndoorPoi(m2::PointD(0.0001, 0.0001), "basement 1", "-1");
+  auto poiUp3 = MakeIndoorPoi(m2::PointD(-0.0001, -0.0001), "roof", "3");
+
+  BuildCountry("IndoorLand", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(poiDown2);
+    builder.Add(poiDown1);
+    builder.Add(poiUp3);
+  });
+
+  // On entering, the active floor is the one closest to 0 rather than the lowest available.
+  m_manager.UpdateViewport(MakeScreen(center, 17));
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"3", "-1", "-2"}), ());
+  TEST_EQUAL(m_manager.GetActiveLevel(), "-1", ());
+  TEST_EQUAL(m_lastActiveLevel, "-1", ());
+}
+
 UNIT_CLASS_TEST(IndoorManagerTest, NoIndoorData)
 {
   m2::PointD const center(5.0, 5.0);

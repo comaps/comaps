@@ -27,6 +27,18 @@ bool LevelsEqual(double lhs, double rhs)
 {
   return std::fabs(lhs - rhs) < kLevelEpsilon;
 }
+// The level closest to ground (0). |levels| must be non-empty. A floor and its negative counterpart
+// (e.g. -1 and 1) are equidistant; ties resolve to the upper floor.
+double ClosestToGround(std::vector<double> const & levels)
+{
+  return *std::min_element(levels.begin(), levels.end(), [](double lhs, double rhs)
+  {
+    double const dl = std::fabs(lhs), dr = std::fabs(rhs);
+    if (!LevelsEqual(dl, dr))
+      return dl < dr;
+    return lhs > rhs;
+  });
+}
 }  // namespace
 
 bool IndoorManager::ShouldHold() const
@@ -235,21 +247,21 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     return;
   }
 
+  // |active| was captured before m_levels was reassigned, so !active means we're entering indoor
+  // mode now (the viewport just gained indoor data).
+  bool const entering = !active;
   bool const activePresent = std::any_of(m_levels.begin(), m_levels.end(),
                                          [this](double level) { return LevelsEqual(level, m_activeLevel); });
-  if (!activePresent)
-  {
-    // Prefer the ground floor, otherwise the lowest available level.
-    bool const hasGround =
-        std::any_of(m_levels.begin(), m_levels.end(), [](double level) { return LevelsEqual(level, 0.0); });
-    m_activeLevel = hasGround ? 0.0 : m_levels.front();
-  }
+  // On entering a building, auto-select the floor closest to ground level (0). Also fall back to it
+  // when the remembered floor isn't present in the newly focused building.
+  if (entering || !activePresent)
+    m_activeLevel = ClosestToGround(m_levels);
 
   // Always (re)assert the active level to drape: we may be re-entering an indoor context after being
   // empty (drape currently inactive) even when the remembered m_activeLevel is unchanged.
   m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, m_activeLevel, m_levels, m_indoorPolygonRects);
 
-  if (!active)
+  if (entering)
     NotifyModeChanged();
   NotifyListener();
 }
