@@ -12,6 +12,9 @@
 
 #include "platform/platform.hpp"
 
+#include "geometry/rect_intersect.hpp"
+#include "geometry/triangle2d.hpp"
+
 #include <algorithm>
 #include <cmath>
 
@@ -26,6 +29,27 @@ double constexpr kMaxIndoorRectDeg = 0.1;
 bool LevelsEqual(double lhs, double rhs)
 {
   return std::fabs(lhs - rhs) < kLevelEpsilon;
+}
+// True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes). Catches the
+// three cases: a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
+bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
+                            m2::PointD const & c)
+{
+  if (rect.IsPointInside(a) || rect.IsPointInside(b) || rect.IsPointInside(c))
+    return true;
+  if (m2::IsPointInsideTriangle(rect.Center(), a, b, c))
+    return true;
+  // m2::Intersect clips the segment to the rect (mutating the endpoints) and reports overlap.
+  m2::PointD e1 = a, e2 = b;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  e1 = b, e2 = c;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  e1 = c, e2 = a;
+  if (m2::Intersect(rect, e1, e2))
+    return true;
+  return false;
 }
 // The level closest to ground (0). |levels| must be non-empty. A floor and its negative counterpart
 // (e.g. -1 and 1) are equidistant; ties resolve to the upper floor.
@@ -172,13 +196,26 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
 
       m2::RectD const limitRect = ft.GetLimitRect(scales::GetUpperScale());
 
-      // m_forEachFeature uses tile-level indexing and may return features from the same tile that
-      // don't actually intersect the viewport. Filter them out here.
+      // Cheap bbox reject: m_forEachFeature uses tile-level indexing and may return features whose
+      // bbox doesn't even touch the viewport.
       if (!rect.IsIntersect(limitRect))
         return;
 
       // City-scale polygons mis-tagged indoor=* would trigger indoor mode across a wide area. Skip.
       if (limitRect.SizeX() > kMaxIndoorRectDeg || limitRect.SizeY() > kMaxIndoorRectDeg)
+        return;
+
+      // Precise geometry check: a rotated/diamond-shaped station (e.g. Berlin Hbf) has large empty
+      // corners in its bbox, so panning over a blank corner would spuriously trigger indoor mode.
+      // Require the actual triangulated area to overlap the viewport.
+      bool geometryIntersects = false;
+      ft.ForEachTriangle(
+          [&rect, &geometryIntersects](m2::PointD const & a, m2::PointD const & b, m2::PointD const & c)
+      {
+        if (!geometryIntersects && TriangleIntersectsRect(rect, a, b, c))
+          geometryIntersects = true;
+      }, scales::GetUpperScale());
+      if (!geometryIntersects)
         return;
 
       auto parsed = indoor::ParseLevels(levelMeta);
