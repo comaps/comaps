@@ -62,9 +62,16 @@ void AreaShape::DrawArea(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batch
   for (m2::PointD const & vertex : m_vertexes)
     vertexes.emplace_back(ToShapeVertex3(vertex), uv);
 
-  auto const areaProgram = m_params.m_color.GetAlpha() == 255 ? gpu::Program::Area : gpu::Program::TransparentArea;
+  bool const isTransparent = m_params.m_color.GetAlpha() != 255;
+  auto const areaProgram = isTransparent ? gpu::Program::TransparentArea : gpu::Program::Area;
   auto state = CreateRenderState(areaProgram, DepthLayer::GeometryLayer);
   state.SetDepthTestEnabled(m_params.m_depthTestEnabled);
+  // A translucent area redrawn coplanar with itself - e.g. the same building present in both the old
+  // and new tiles during a zoom-level transition - blends twice with the default LessOrEqual depth
+  // test and visibly flickers. A strict Less test rejects the duplicate coplanar fragments (only one
+  // draw survives) while still letting the building draw over the lower-depth indoor polygons.
+  if (isTransparent)
+    state.SetDepthFunction(dp::TestFunction::Less);
   state.SetColorTexture(texture);
 
   dp::AttributeProvider provider(1, static_cast<uint32_t>(vertexes.size()));
