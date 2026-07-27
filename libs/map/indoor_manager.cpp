@@ -158,10 +158,15 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
     m_forEachFeature(rect, [&levels, &polygonRects, rect](FeatureType & ft)
     {
       feature::TypesHolder const types(ft);
-      if (!ftypes::IsIndoorChecker::Instance()(types))
+      auto const levelMeta = ft.GetMetadata(feature::Metadata::FMD_LEVEL);
+      // Public-transport platforms carrying an explicit level=* act as indoor elements too: at
+      // multi-level stations a floor is often occupied by nothing but a platform, which should still
+      // register as a selectable level. Surface platforms (no level tag) are left alone.
+      bool const isLeveledPlatform = !levelMeta.empty() && ftypes::IsPlatformChecker::Instance()(types);
+      if (!ftypes::IsIndoorChecker::Instance()(types) && !isLeveledPlatform)
         return;
 
-      // Only polygon (Area) indoor features trigger indoor mode; door nodes and wall ways don't.
+      // Only polygon (Area) features trigger indoor mode; door nodes and wall/edge ways don't.
       if (ft.GetGeomType() != feature::GeomType::Area)
         return;
 
@@ -176,7 +181,7 @@ void IndoorManager::ScheduleScan(m2::RectD const & rect)
       if (limitRect.SizeX() > kMaxIndoorRectDeg || limitRect.SizeY() > kMaxIndoorRectDeg)
         return;
 
-      auto parsed = indoor::ParseLevels(ft.GetMetadata(feature::Metadata::FMD_LEVEL));
+      auto parsed = indoor::ParseLevels(levelMeta);
       if (parsed.empty())
         parsed.push_back(0.0);  // Indoor feature without a level is on the ground floor.
 

@@ -59,6 +59,15 @@ protected:
     return poi;
   }
 
+  static TestPOI MakePlatform(m2::PointD const & center, std::string const & name, std::string const & level)
+  {
+    TestPOI platform(center, name, "en");
+    platform.SetTypes({{"railway", "platform"}});
+    if (!level.empty())
+      platform.GetMetadata().Set(feature::Metadata::FMD_LEVEL, level);
+    return platform;
+  }
+
   IndoorManager m_manager;
   std::vector<std::string> m_lastLevels;
   std::string m_lastActiveLevel;
@@ -189,6 +198,26 @@ UNIT_CLASS_TEST(IndoorManagerTest, ClosestToGroundWhenNoGroundFloor)
   TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"3", "-1", "-2"}), ());
   TEST_EQUAL(m_manager.GetActiveLevel(), "-1", ());
   TEST_EQUAL(m_lastActiveLevel, "-1", ());
+}
+
+UNIT_CLASS_TEST(IndoorManagerTest, LeveledPlatformIsIndoor)
+{
+  m2::PointD const center(0.0, 0.0);
+
+  // A transit platform on level 2 (the only feature on that floor) plus a surface platform with no
+  // level tag. Only the leveled one should register as an indoor level.
+  auto leveledPlatform = MakePlatform(center, "Platform 11-12", "2");
+  auto surfacePlatform = MakePlatform(m2::PointD(0.0002, 0.0), "Bus stop platform", "");
+
+  BuildCountry("PlatformLand", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(leveledPlatform);
+    builder.Add(surfacePlatform);
+  });
+
+  m_manager.UpdateViewport(MakeScreen(center, 17));
+  TEST_EQUAL(m_manager.GetViewportLevels(), std::vector<std::string>({"2"}), ());
+  TEST_EQUAL(m_manager.GetActiveLevel(), "2", ());
 }
 
 UNIT_CLASS_TEST(IndoorManagerTest, NoIndoorData)
