@@ -282,10 +282,17 @@ UNIT_CLASS_TEST(IndoorManagerTest, NoIndoorData)
 {
   m2::PointD const center(5.0, 5.0);
 
-  TestPOI cafe(center, "plain cafe", "en");
-  cafe.SetTypes({{"amenity", "cafe"}});
+  // Non-indoor areas never trigger indoor mode - not a plain cafe area, and not even a shop area that
+  // happens to carry a level=* tag. Only indoor=* areas and leveled transit platforms count, so these
+  // guard both the type filter and the platform-is-special rule.
+  TestArea cafe(Square(center), {"amenity", "cafe"}, "");
+  TestArea leveledShop(Square(m2::PointD(5.0001, 5.0)), {"shop", "convenience"}, "2");
 
-  BuildCountry("OutdoorLand", [&](TestMwmBuilder & builder) { builder.Add(cafe); });
+  BuildCountry("OutdoorLand", [&](TestMwmBuilder & builder)
+  {
+    builder.Add(cafe);
+    builder.Add(leveledShop);
+  });
 
   m_manager.UpdateViewport(MakeScreen(center, 17));
   TEST(m_manager.GetViewportLevels().empty(), ());
