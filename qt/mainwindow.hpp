@@ -16,8 +16,8 @@
 #include <string>
 
 class Framework;
-class QComboBox;
 class QDockWidget;
+class QListWidget;
 class QLabel;
 class QPushButton;
 
@@ -67,7 +67,7 @@ class MainWindow
   PopupMenuHolder * m_selection = nullptr;
 
   // Indoor level selector; visible only when indoor data is present in the viewport.
-  QComboBox * m_levelSelector = nullptr;
+  QListWidget * m_levelSelector = nullptr;
   QAction * m_levelSelectorAction = nullptr;
 
 #ifdef BUILD_DESIGNER

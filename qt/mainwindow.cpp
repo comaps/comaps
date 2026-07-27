@@ -35,11 +35,11 @@
 #endif  // BUILD_DESIGNER
 
 #include <QtGui/QCloseEvent>
-#include <QtWidgets/QComboBox>
 #include <QtWidgets/QDockWidget>
 #include <QtWidgets/QFileDialog>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QMessageBox>
 #include <QtWidgets/QPushButton>
@@ -303,19 +303,40 @@ void MainWindow::CreateNavigationBar()
     m_layers->setMainIcon(QIcon(":/navig64/layers.png"));
 
     // Indoor level selector, hidden until indoor data appears in the viewport.
-    m_levelSelector = new QComboBox(this);
+    // Always-open, single-selection list with a fixed height (scrolls when there
+    // are more levels than fit), rather than a drop-down.
+    m_levelSelector = new QListWidget(this);
     m_levelSelector->setToolTip(tr("Indoor level"));
-    connect(m_levelSelector, &QComboBox::activated, this, [this](int index)
-    { m_pDrawWidget->GetFramework().GetIndoorManager().SelectLevel(m_levelSelector->itemText(index).toStdString()); });
+    m_levelSelector->setSelectionMode(QAbstractItemView::SingleSelection);
+    m_levelSelector->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    m_levelSelector->setFixedWidth(48);
+    m_levelSelector->setFixedHeight(96);
+    connect(m_levelSelector, &QListWidget::currentTextChanged, this, [this](QString const & level)
+    {
+      if (!level.isEmpty())
+        m_pDrawWidget->GetFramework().GetIndoorManager().SelectLevel(level.toStdString());
+    });
     m_levelSelectorAction = pToolBar->addWidget(m_levelSelector);
     m_levelSelectorAction->setVisible(false);
 
     auto const updateLevels = [this](std::vector<std::string> const & levels, std::string const & activeLevel)
     {
+      // The selector becomes visible exactly when indoor mode activates; use that transition to
+      // center the active floor only on activation, not on every refresh or manual floor change.
+      bool const activating = !levels.empty() && !m_levelSelectorAction->isVisible();
+
+      // Block signals so repopulating doesn't fire SelectLevel back at the framework.
+      QSignalBlocker const blocker(m_levelSelector);
       m_levelSelector->clear();
       for (auto const & level : levels)
         m_levelSelector->addItem(QString::fromStdString(level));
-      m_levelSelector->setCurrentText(QString::fromStdString(activeLevel));
+      auto const active = m_levelSelector->findItems(QString::fromStdString(activeLevel), Qt::MatchExactly);
+      if (!active.empty())
+      {
+        m_levelSelector->setCurrentItem(active.front());
+        if (activating)
+          m_levelSelector->scrollToItem(active.front(), QAbstractItemView::PositionAtCenter);
+      }
       m_levelSelectorAction->setVisible(!levels.empty());
     };
 
