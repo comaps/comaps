@@ -273,10 +273,15 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
     bool const hasParts =
         IsBuildingHasPartsChecker::Instance()(types);  // possible to do this checks beforehand in stylist?
     bool const isPart = IsBuildingPartChecker::Instance()(types);
+    // While indoors, an indoor building:part draws as an indoor element (its higher-priority indoor
+    // area drule) rather than a dimmed/extruded building, so don't treat it as a building here.
+    bool const isIndoorElement =
+        indoor::HasActiveLevel(m_context->GetIndoorLevel()) && IsIndoorChecker::Instance()(types);
 
     // Looks like nonsense, but there are some osm objects with types
     // highway-path-bridge and building (sic!) at the same time (pedestrian crossing).
-    isBuilding = (isPart || IsBuildingChecker::Instance()(types)) && !IsBridgeOrTunnelChecker::Instance()(types);
+    isBuilding = (isPart || IsBuildingChecker::Instance()(types)) && !IsBridgeOrTunnelChecker::Instance()(types) &&
+                 !isIndoorElement;
 
     isBuildingOutline = isBuilding && hasParts && !isPart;
     is3dBuilding = isBuilding && !isBuildingOutline && m_context->Is3dBuildingsEnabled();
@@ -425,9 +430,15 @@ void RuleDrawer::operator()(FeatureType & f)
     return;
 
   feature::TypesHolder const types(f);
+  // A building:part that is also an indoor element (e.g. an elevated glass corridor) should render as
+  // an indoor floor element while indoors, and as a building part otherwise. Indoor mode forces 3D
+  // buildings off, which would normally skip building parts below; keep the indoor ones so they draw
+  // as indoor elements (ProcessAreaAndPointStyle then skips the building dimming/extrusion for them).
+  bool const isIndoorElement =
+      indoor::HasActiveLevel(m_context->GetIndoorLevel()) && ftypes::IsIndoorChecker::Instance()(types);
   if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||
       (!m_context->Is3dBuildingsEnabled() && ftypes::IsBuildingPartChecker::Instance()(types) &&
-       !ftypes::IsBuildingChecker::Instance()(types)))
+       !ftypes::IsBuildingChecker::Instance()(types) && !isIndoorElement))
     return;
 
   if (indoor::HasActiveLevel(m_context->GetIndoorLevel()))
