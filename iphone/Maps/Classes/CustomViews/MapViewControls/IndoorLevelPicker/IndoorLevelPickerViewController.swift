@@ -3,10 +3,14 @@ final class IndoorLevelPickerViewController: MWMViewController {
   private enum Constants {
     static let buttonWidth = CGFloat(48)
     static let buttonHeight = CGFloat(44)
+    static let spacing = CGFloat(1)
     static let trailingOffset = CGFloat(10)
     static let cornerRadius = CGFloat(8)
-    // Cap the visible height so a tall building (many floors) scrolls instead of covering the screen.
-    static let maxHeightFraction = CGFloat(0.6)
+    // Cap the visible height at 4 buttons. With the active floor centered that leaves 1.5 buttons on
+    // each side - a full button plus a half-button peek top and bottom - so it's obvious there's more
+    // (no floors flush-hidden past an edge, e.g. basements below the centered floor 0). Fewer floors
+    // shrink to fit.
+    static let maxVisibleHeight = buttonHeight * 4 + spacing * 3
   }
 
   // A scroll view keeps the picker on-screen when there are more floors than fit; the inner stack
@@ -60,7 +64,7 @@ final class IndoorLevelPickerViewController: MWMViewController {
     view.addSubview(scrollView)
 
     stackView.axis = .vertical
-    stackView.spacing = 1
+    stackView.spacing = Constants.spacing
     stackView.translatesAutoresizingMaskIntoConstraints = false
     scrollView.addSubview(stackView)
   }
@@ -78,8 +82,7 @@ final class IndoorLevelPickerViewController: MWMViewController {
       scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
       scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      scrollView.heightAnchor.constraint(lessThanOrEqualTo: superview.heightAnchor,
-                                         multiplier: Constants.maxHeightFraction),
+      scrollView.heightAnchor.constraint(lessThanOrEqualToConstant: Constants.maxVisibleHeight),
 
       stackView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
       stackView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
@@ -101,10 +104,14 @@ final class IndoorLevelPickerViewController: MWMViewController {
       stackView.addArrangedSubview(makeLevelButton(title: level, active: level == activeLevel))
     }
 
-    // Scroll the active floor into view once the stack has been laid out.
+    // Center the active floor in the scroll view once the stack has been laid out, so floors on both
+    // sides of it (e.g. basements below floor 0) stay visible rather than being clipped at an edge.
     scrollView.layoutIfNeeded()
     if let index = levels.firstIndex(of: activeLevel), index < stackView.arrangedSubviews.count {
-      scrollView.scrollRectToVisible(stackView.arrangedSubviews[index].frame, animated: false)
+      let activeFrame = stackView.arrangedSubviews[index].frame
+      let maxOffset = max(0, scrollView.contentSize.height - scrollView.bounds.height)
+      let centeredY = activeFrame.midY - scrollView.bounds.height / 2
+      scrollView.contentOffset = CGPoint(x: 0, y: min(max(0, centeredY), maxOffset))
     }
   }
 
