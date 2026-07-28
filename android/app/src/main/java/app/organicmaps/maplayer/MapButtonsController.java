@@ -374,7 +374,22 @@ public class MapButtonsController extends Fragment
     }
 
     if (mHasIndoorLevels)
+    {
+      final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
+      final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
+      final int padding = mIndoorLevelsScroll.getPaddingTop() + mIndoorLevelsScroll.getPaddingBottom();
+      // Cap at 4 buttons. With the active floor centered, that leaves 1.5 buttons on each side - a full
+      // button plus a half-button peek top and bottom - so it's obvious there's more (no floors flush-
+      // hidden past an edge, e.g. basements below the centered floor 0). Fewer floors shrink to fit.
+      // Capping also gives the centering scroll room to work - with wrap_content there's no range.
+      final int maxHeight = buttonSize * 4 + gap * 3 + padding;
+      final int contentHeight = levels.length * buttonSize + (levels.length - 1) * gap + padding;
+      final ViewGroup.LayoutParams lp = mIndoorLevelsScroll.getLayoutParams();
+      lp.height = Math.min(maxHeight, contentHeight);
+      mIndoorLevelsScroll.setLayoutParams(lp);
+
       mIndoorLevelsScroll.post(() -> scrollToActiveLevel(scrollTarget, levels));
+    }
 
     // Respect the current place page position: the picker hides with the zoom buttons.
     updateButtonsVisibility();
@@ -412,8 +427,9 @@ public class MapButtonsController extends Fragment
       button.setTextColor(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorOnPrimary));
     }
 
-    // Rounded outer corners on the top-most and bottom-most buttons, squarish everywhere else, so the
-    // stack reads as one piece like the +/- zoom control. A lone button is fully rounded.
+    // Fully rounded outer corners on the top-most and bottom-most buttons so it's obvious when you've
+    // scrolled to the end of the list; squarish everywhere else. The container background itself stays a
+    // rounded rectangle (bg_indoor_scroll).
     final RelativeCornerSize round = new RelativeCornerSize(0.5f);
     final RelativeCornerSize square = new RelativeCornerSize(0.12f);
     final boolean isTop = index == 0;

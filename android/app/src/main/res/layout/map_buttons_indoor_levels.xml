@@ -8,7 +8,7 @@
   android:clipToOutline="true"
   android:scrollbars="none"
   android:requiresFadingEdge="vertical"
-  android:fadingEdgeLength="28dp"
+  android:fadingEdgeLength="14dp"
   android:paddingTop="4dp"
   android:paddingBottom="4dp">
   <LinearLayout
