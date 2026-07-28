@@ -38,6 +38,7 @@ import app.organicmaps.sdk.search.SearchResult;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.Language;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
+import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
@@ -55,6 +56,7 @@ import java.util.List;
 public class SearchFragment extends BaseMwmFragment implements SearchListener, CategoriesAdapter.CategoriesUiListener
 {
   private long mLastQueryTimestamp;
+  private boolean compatibleContactsAppInstalled = true;
   @NonNull
   private final List<HiddenCommand> mHiddenCommands = new ArrayList<>();
 
@@ -240,7 +242,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
       mTabFrame.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
     else
       mTabFrame.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_YES);
-    UiUtils.showIf(!hasQuery, mOpenContactPicker);
+    UiUtils.showIf(!hasQuery && compatibleContactsAppInstalled, mOpenContactPicker);
     if (hasQuery)
       hideDownloadSuggest();
     else if (doShowDownloadSuggest())
@@ -303,6 +305,12 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mShowOnMapFab.setOnClickListener(v -> showAllResultsOnMap());
     mOpenContactPicker = root.findViewById(R.id.open_contact_picker);
     mOpenContactPicker.setOnClickListener(v -> mContactPickerLauncher.launch(Utils.openContactPicker()));
+
+    if (Utils.openContactPicker().resolveActivity(getContext().getPackageManager()) == null) {
+      Logger.i("mOpenContactPicker", "No compatible contacts app (needs to support postal-address_v2) installed, hiding contacts picker...");
+      compatibleContactsAppInstalled = false;
+    }
+
     ViewCompat.setOnApplyWindowInsetsListener(mResultsPlaceholder, new WindowInsetUtils.ScrollableContentInsetsListener(mResultsPlaceholder, mOpenContactPicker));
 
     mResults.setLayoutManager(new LinearLayoutManager(view.getContext()));
