@@ -309,8 +309,10 @@ void MainWindow::CreateNavigationBar()
     m_levelSelector->setToolTip(tr("Indoor level"));
     m_levelSelector->setSelectionMode(QAbstractItemView::SingleSelection);
     m_levelSelector->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    // Per-pixel (not per-item) scrolling so the centered active floor can leave a half-row peeking at
+    // the top and bottom rather than snapping to whole rows.
+    m_levelSelector->setVerticalScrollMode(QAbstractItemView::ScrollPerPixel);
     m_levelSelector->setFixedWidth(48);
-    m_levelSelector->setFixedHeight(96);
     connect(m_levelSelector, &QListWidget::currentTextChanged, this, [this](QString const & level)
     {
       if (!level.isEmpty())
@@ -330,6 +332,19 @@ void MainWindow::CreateNavigationBar()
       m_levelSelector->clear();
       for (auto const & level : levels)
         m_levelSelector->addItem(QString::fromStdString(level));
+
+      // Cap the height at 4 rows. Combined with centering the active row, that leaves 1.5 rows on each
+      // side - a full row plus a half-row peek top and bottom - so it's obvious there's more without
+      // odd quarter-rows. Fewer floors shrink to fit.
+      if (!levels.empty())
+      {
+        int const rowH = m_levelSelector->sizeHintForRow(0);
+        int const frame = 2 * m_levelSelector->frameWidth();
+        int const maxHeight = rowH * 4 + frame;
+        int const fitHeight = rowH * static_cast<int>(levels.size()) + frame;
+        m_levelSelector->setFixedHeight(std::min(maxHeight, fitHeight));
+      }
+
       auto const active = m_levelSelector->findItems(QString::fromStdString(activeLevel), Qt::MatchExactly);
       if (!active.empty())
       {
