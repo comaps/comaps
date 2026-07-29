@@ -4,6 +4,7 @@
 
 #include <algorithm>
 #include <cmath>
+#include <locale>
 #include <sstream>
 
 namespace indoor
@@ -105,7 +106,9 @@ std::string FormatLevel(double level)
   if (std::fabs(level - std::round(level)) < kLevelEpsilon)
     return std::to_string(static_cast<int64_t>(std::llround(level)));
 
+  // Classic locale so a half-level renders as "0.5" regardless of the process locale (never "0,5").
   std::ostringstream ss;
+  ss.imbue(std::locale::classic());
   ss << level;
   return ss.str();
 }
