@@ -10,9 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = 'https://www.jitpack.io' } // MPAndroidChart
+        maven { url = "https://www.jitpack.io" } // MPAndroidChart
     }
 }
-rootProject.name = 'CoMaps'
-include ':app'
-include ':sdk'
+rootProject.name = "CoMaps"
+include(":app")
+include(":sdk")
