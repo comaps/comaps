@@ -65,7 +65,14 @@ std::vector<double> ParseLevels(std::string_view s)
     double from, to;
     if (ParseRange(token, from, to))
     {
-      // Expand integer ranges by whole steps ("0-2" => 0, 1, 2).
+      // Expand integer ranges by whole steps ("0-2" => 0, 1, 2). level=* comes from untrusted OSM
+      // tags, so reject absurdly wide ranges (e.g. "0-100000") rather than expanding to 100k doubles.
+      double constexpr kMaxRangeFloors = 100.0;
+      if (to - from > kMaxRangeFloors)
+      {
+        failed = true;
+        return;
+      }
       for (double l = from; l <= to + kLevelEpsilon; l += 1.0)
         AppendUnique(levels, l);
       return;
