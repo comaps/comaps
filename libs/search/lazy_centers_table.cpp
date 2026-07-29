@@ -32,7 +32,7 @@ void LazyCentersTable::EnsureTableLoaded()
   }
   catch (RootException const & ex)
   {
-    LOG(LWARNING, ("Unable to load", CENTERS_FILE_TAG, ex.Msg()));
+    LOG(LERROR, ("Unable to load", CENTERS_FILE_TAG, ex.Msg()));
     m_state = STATE_FAILED;
     return;
   }

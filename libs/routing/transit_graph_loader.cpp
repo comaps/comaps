@@ -101,7 +101,7 @@ private:
     }
     catch (Reader::OpenException const & e)
     {
-      LOG(LWARNING, ("Error while reading", TRANSIT_FILE_TAG, "section.", e.Msg()));
+      LOG(LERROR, ("Error while reading", TRANSIT_FILE_TAG, "section.", e.Msg()));
       throw;
     }
 

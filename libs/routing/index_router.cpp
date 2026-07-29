@@ -374,8 +374,8 @@ RouterResultCode IndexRouter::CalculateRoute(Checkpoints const & checkpoints, m2
   }
   catch (RootException const & e)
   {
-    LOG(LWARNING, ("Can't find path from", mercator::ToLatLon(startPoint), "to", mercator::ToLatLon(finalPoint), ":\n ",
-                   e.what()));
+    LOG(LERROR, ("Can't find path from", mercator::ToLatLon(startPoint), "to", mercator::ToLatLon(finalPoint), ":\n ",
+                 e.what()));
     return RouterResultCode::InternalError;
   }
 }
@@ -1668,7 +1668,7 @@ RouterResultCode IndexRouter::RedressRoute(vector<Segment> const & segments, bas
 
   if (!route.IsValid())
   {
-    LOG(LWARNING, ("RedressRoute failed, segmenst count =", segments.size()));
+    LOG(LERROR, ("RedressRoute failed, segmenst count =", segments.size()));
     return RouterResultCode::RouteNotFoundRedressRouteError;
   }
 

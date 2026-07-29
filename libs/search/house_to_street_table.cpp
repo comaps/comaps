@@ -93,7 +93,7 @@ unique_ptr<HouseToStreetTable> LoadHouseTableImpl(MwmValue const & value, std::s
   }
   catch (Reader::OpenException const & ex)
   {
-    LOG(LWARNING, (ex.Msg()));
+    LOG(LERROR, (ex.Msg()));
   }
 
   if (!result)

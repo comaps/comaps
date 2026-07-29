@@ -74,7 +74,7 @@ RestrictionLoader::RestrictionLoader(MwmValue const & mwmValue, IndexGraph & gra
   catch (Reader::OpenException const & e)
   {
     m_header.Reset();
-    LOG(LWARNING, ("File", m_countryFileName, "Error while reading", RESTRICTIONS_FILE_TAG, "section.", e.Msg()));
+    LOG(LERROR, ("File", m_countryFileName, "Error while reading", RESTRICTIONS_FILE_TAG, "section.", e.Msg()));
     throw;
   }
 }

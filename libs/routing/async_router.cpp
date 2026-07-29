@@ -322,7 +322,7 @@ void AsyncRouter::CalculateRoute()
   catch (RootException const & e)
   {
     code = RouterResultCode::InternalError;
-    LOG(LWARNING, ("Exception happened while calculating route:", e.Msg()));
+    LOG(LERROR, ("Exception happened while calculating route:", e.Msg()));
     // Note. After call of this method |route| should be used only on ui thread.
     // And |route| should stop using on routing background thread, in this method.
     GetPlatform().RunTask(Platform::Thread::Gui,
