@@ -171,3 +171,102 @@ reports "no style defined" and the type is silently dropped.  After editing
 `mapcss-mapping.csv`, add the new type to the `priorities_3_FG.prio.txt` in
 **every** style family that references it (`default/`, `outdoors/`) or kothic
 will fail with a validation error.
+
+---
+
+## Splitting "bundle test MWMs with the APK" into its own branch (future work)
+
+The APK-bundling of test MWMs is **generic dev tooling** that rode along on the
+indoor-mapping feature branch (`zy-indoor-mapping`). It is not part of the indoor
+feature and should not ship in that PR. This section is a self-contained plan to
+move it to a standalone branch. **Leave it in place for now** — do this only when
+splitting the indoor PR.
+
+### What "bundle test MWMs with the APK" actually is
+
+Exactly one code file plus this doc (the map binaries themselves are already
+local-only / untracked):
+
+- **Code — `android/sdk/src/main/java/app/organicmaps/sdk/OrganicMaps.java`:**
+  - the call `extractBundledMaps(writablePath, mContext.getAssets());` (right after
+    `createPlatformDirectories(...)` in the platform-init method);
+  - the private method `extractBundledMaps(...)` (its Javadoc + body);
+  - the private helper `readCountriesVersion(...)` (used only by that method —
+    confirm with a grep before moving);
+  - any `import`s used only by the above (candidates: `LinkedHashMap`, `Map`,
+    `AssetManager`, `BufferedReader`, `InputStreamReader`, `InputStream`,
+    `FileOutputStream`, `java.util.regex.Matcher`, `java.util.regex.Pattern`) —
+    verify each is otherwise unused before adding/removing.
+- **Doc — `docs/bundling-test-mwm.md`** (this file).
+- **`.gitignore`** — the test-MWM ignore line(s) added for this
+  (e.g. `android/app/src/debug/assets/France_Ile-de-France_Seine-et-Marne.mwm`);
+  `grep -nE 'mwm|debug/assets' .gitignore` to find them.
+
+### What does NOT move (stays with the indoor feature)
+
+- `generator/generator_tests/osm_type_test.cpp` — the `OsmType_Indoor` test
+  (verifies `indoor=*` + `level=*` → type + `FMD_LEVEL`). It is a feature test, not
+  bundling. **Keep it.**
+- The actual `.mwm` files and symlinks under `android/app/src/debug/assets/` and
+  `data/`, and the `*.local.sh` generation scripts — all already untracked; leave
+  them exactly where they are on both branches.
+
+### Why not `git cherry-pick`
+
+The bundling work is spread across ~9 interleaved commits mixed with unrelated
+indoor work (`6599665244`, `bed900c01c`, `212c82c393`, `df4e596a28`, `e6af9a1611`,
+`7b4cd96520`, `8535dce7fc`, `d79dd6b9c2`, and `6ae9d8ec7d` which removed a related
+scratch test). Cherry-picking would drag in unrelated hunks. Do a **file/hunk-based**
+move instead.
+
+### Step 1 — create the standalone branch from `main`
+
+```bash
+git switch main && git pull
+git switch -c zy-bundle-test-mwms
+```
+
+### Step 2 — bring the doc over
+
+```bash
+git checkout zy-indoor-mapping -- docs/bundling-test-mwm.md
+# optional: trim this "Splitting…" section on the new branch — it's no longer future work there
+```
+
+### Step 3 — bring the code over (by hand, not a whole-file checkout)
+
+`OrganicMaps.java` on `zy-indoor-mapping` may contain other indoor changes, so do
+**not** `git checkout` the whole file. Instead, view the branch version and copy
+only the three blocks into `main`'s `OrganicMaps.java`:
+
+```bash
+git show zy-indoor-mapping:android/sdk/src/main/java/app/organicmaps/sdk/OrganicMaps.java
+```
+
+Add: (a) the `extractBundledMaps(...)` call after `createPlatformDirectories(...)`,
+(b) the `extractBundledMaps` method + `readCountriesVersion` helper, (c) only the
+imports those need. Compile (`bash build-android.local.sh`) to catch missing/extra
+imports.
+
+### Step 4 — bring the `.gitignore` line(s) and commit
+
+Add the test-MWM ignore entries, then commit with a clear message
+(`[Android] Bundle test MWMs from debug assets on first launch (dev tooling)`).
+Keep the `.mwm` binaries local-only per the sections above.
+
+### Step 5 — remove it from `zy-indoor-mapping` (only when actually splitting)
+
+1. In `OrganicMaps.java`: delete the `extractBundledMaps(...)` call, the
+   `extractBundledMaps` method, the `readCountriesVersion` helper, and any imports
+   left unused.
+2. Remove the test-MWM `.gitignore` entries added for this.
+3. Either `git rm docs/bundling-test-mwm.md` or keep it (duplicated across branches —
+   your call).
+4. Leave the untracked local `.mwm` files/symlinks alone.
+
+### Verification
+
+- New branch: a debug APK bundles a local test MWM and it appears in-app on first
+  launch with **no** download prompt.
+- Indoor branch after removal: `grep -rn extractBundledMaps android/` is empty, the
+  debug APK still builds, and Android lint is clean (no unused imports).
