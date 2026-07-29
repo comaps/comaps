@@ -676,6 +676,10 @@ ApplyAreaFeature::ApplyAreaFeature(TileKey const & tileKey, TInsertShapeFn const
 
 bool ApplyAreaFeature::NeedOutline(AreaRuleProto const * areaRule)
 {
+  // Any area with a distinct, non-zero-width border is outlined through the unclipped, O(n^2)
+  // ProcessBuildingPolygon path (see operator()). That assumes relatively small polygons - indoor
+  // rooms, dams, etc. Adding a border/casing to a large landcover area would hit the quadratic path,
+  // so keep border styling scoped to small areas (or add a vertex-count guard here if that changes).
   return areaRule != nullptr && areaRule->has_border() &&
          areaRule->color() != areaRule->border().color() && areaRule->border().width() > 0.0;
 }

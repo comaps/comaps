@@ -271,6 +271,10 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
     }
   }
 
+  // An identical level set is treated as the same building, so we keep the existing polygon rects
+  // instead of re-asserting to drape (which would re-tile on every scan and flicker). If two adjacent
+  // buildings ever shared an identical level set the proximity rects could be briefly stale, which is
+  // acceptable for a ~5 m POI proximity gate.
   if (levels == m_levels)
     return;
 
