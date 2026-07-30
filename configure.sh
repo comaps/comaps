@@ -114,14 +114,14 @@ if [ -z "$SKIP_MAP_DOWNLOAD" ]; then
   if [ ! -f "$WORLD_PATH" ]; then
     echo "Downloading world map..."
     # mapgen-fi-1 is supposed to have all historic prod map versions as well as recent test maps
-    if ! wget -N "$MAPS_BASE_URL/World.mwm" -P "$MWM_PATH"; then
+    if ! curl -fL -o "$WORLD_PATH" "$MAPS_BASE_URL/World.mwm"; then
       echo "ERROR: could not download World.mwm from $MAPS_BASE_URL" >&2
       exit 1
     fi
     rm -f World.mwm; ln -s "$WORLD_PATH" World.mwm
   fi
   if [ ! -f "$WORLD_PATH2" ]; then
-    if ! wget -N "$MAPS_BASE_URL/WorldCoasts.mwm" -P "$MWM_PATH"; then
+    if ! curl -fL -o "$WORLD_PATH2" "$MAPS_BASE_URL/WorldCoasts.mwm"; then
       echo "ERROR: could not download WorldCoasts.mwm from $MAPS_BASE_URL" >&2
       exit 1
     fi
