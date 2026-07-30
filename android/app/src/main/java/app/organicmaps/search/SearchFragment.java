@@ -304,7 +304,15 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mShowOnMapFab = root.findViewById(R.id.show_on_map_fab);
     mShowOnMapFab.setOnClickListener(v -> showAllResultsOnMap());
     mOpenContactPicker = root.findViewById(R.id.open_contact_picker);
-    mOpenContactPicker.setOnClickListener(v -> mContactPickerLauncher.launch(Utils.openContactPicker()));
+    mOpenContactPicker.setOnClickListener(v -> {
+      if (Utils.openContactPicker().resolveActivity(getContext().getPackageManager()) != null) {
+        mContactPickerLauncher.launch(Utils.openContactPicker());
+      }
+      else {
+        Logger.i("mOpenContactPicker", "No compatible contacts app (needs to support postal-address_v2) installed, hiding contacts picker...");
+        mOpenContactPicker.hide();
+      }
+    });
 
     if (Utils.openContactPicker().resolveActivity(getContext().getPackageManager()) == null) {
       Logger.i("mOpenContactPicker", "No compatible contacts app (needs to support postal-address_v2) installed, hiding contacts picker...");
