@@ -1,4 +1,5 @@
 #import "MWMLocationManager.h"
+#import "MWMFollowingInfo+CPP.h"
 #import "MWMNavigationDashboardEntity.h"
 #import "MWMNavigationDashboardManager+Entity.h"
 #import "MWMRoadShieldInfo+CPP.h"
@@ -313,6 +314,7 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
 
   if (auto entity = self.entity) {
     BOOL const showEta = (type != MWMRouterTypeRuler);
+    auto const displayedRoad = routing::ios::GetDisplayedRoadInfo(info);
     
     entity.isValid = YES;
     entity.timeToTarget = info.m_time;
@@ -321,7 +323,7 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
     entity.progress = info.m_completionPercent;
     entity.distanceToTurn = @(info.m_distToTurn.GetDistanceString().c_str());
     entity.turnUnits = @(info.m_distToTurn.GetUnitsString().c_str());
-    entity.streetName = @(info.m_nextStreetName.c_str());
+    entity.streetName = @(displayedRoad.m_formattedName.c_str());
     entity.speedLimitMps = info.m_speedLimitMps;
 
     entity.isWalk = NO;
@@ -339,7 +341,7 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
       using namespace routing::turns;
       CarDirection const turn = info.m_turn;
       entity.turnImage = image(turn, false);
-      entity.nextTurnImage = image(info.m_nextTurn, true);
+      entity.nextTurnImage = routing::ios::IsCombinedRoundaboutEntrance(info) ? nil : image(info.m_nextTurn, true);
       BOOL const isRound = turn == CarDirection::EnterRoundAbout || turn == CarDirection::StayOnRoundAbout ||
                            turn == CarDirection::LeaveRoundAbout;
       if (isRound)
@@ -348,14 +350,14 @@ MWMRoadShieldInfo * MWMBuildRoadShieldInfo(routing::FollowingInfo::RoadShieldInf
         entity.roundExitNumber = 0;
       entity.lanes = buildLanes(info.m_lanes);
 
-      entity.nextRoadName = @(info.m_nextName.c_str());
-      entity.nextRoadRef = @(info.m_nextRef.c_str());
-      entity.nextJunctionRef = @(info.m_nextJunctionRef.c_str());
-      entity.nextDestinationRef = @(info.m_nextDestinationRef.c_str());
-      entity.nextDestination = @(info.m_nextDestination.c_str());
-      entity.nextIsLink = info.m_nextIsLink;
+      entity.nextRoadName = @(displayedRoad.m_name.c_str());
+      entity.nextRoadRef = @(displayedRoad.m_ref.c_str());
+      entity.nextJunctionRef = @(displayedRoad.m_junctionRef.c_str());
+      entity.nextDestinationRef = @(displayedRoad.m_destinationRef.c_str());
+      entity.nextDestination = @(displayedRoad.m_destination.c_str());
+      entity.nextIsLink = displayedRoad.m_isLink;
       entity.isLeftHandTraffic = info.m_isLeftHandTraffic;
-      entity.nextRoadShields = MWMBuildRoadShieldInfo(info.m_nextStreetShields);
+      entity.nextRoadShields = MWMBuildRoadShieldInfo(displayedRoad.m_shields);
 
       NSArray<NSString *> * variants =
           [MWMNavigationInstructionFormatter instructionVariantsWithRoadName:entity.nextRoadName
