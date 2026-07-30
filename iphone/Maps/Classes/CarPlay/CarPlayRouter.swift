@@ -133,7 +133,13 @@ struct CarPlayManeuverContent: Equatable {
     primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID,
                                                      turnIndex: routeInfo.turnIndex)
     carDirection = routeInfo.carDirection
-    secondaryTurnImageName = routeInfo.nextTurnImageName
+    switch routeInfo.carDirection {
+    case .enterRoundAbout, .stayOnRoundAbout:
+      // The numbered primary maneuver already represents entering and leaving the roundabout.
+      secondaryTurnImageName = nil
+    default:
+      secondaryTurnImageName = routeInfo.nextTurnImageName
+    }
     lanes = routeInfo.lanes.map(CarPlayLaneManeuverContent.init)
   }
 }
@@ -145,6 +151,7 @@ enum CarPlayManeuverRefreshReason: String, Equatable {
   case primaryAdvanced
   case primaryContentChanged
   case supplementaryChanged
+  case roundaboutPrimaryRetained
 }
 
 enum CarPlayManeuverRefreshDecision: Equatable {
@@ -181,6 +188,14 @@ struct CarPlayManeuverRefreshState {
     }
 
     let sameRoute = displayedContent.primaryIdentity.routeID == content.primaryIdentity.routeID
+    // The Apple bridge selects the exit road before entry; after entry that same road becomes
+    // the normal next road, so only supplementary content needs to advance here.
+    if sameRoute,
+       (displayedContent.carDirection == .enterRoundAbout ||
+        displayedContent.carDirection == .stayOnRoundAbout),
+       content.carDirection == .leaveRoundAbout {
+      return .retainPrimary(.roundaboutPrimaryRetained)
+    }
     return .replacePrimary(sameRoute ? .primaryAdvanced : .routeChanged)
   }
 
@@ -202,6 +217,7 @@ final class CarPlayRouter: NSObject {
   private var initialSpeedCamSettings: SpeedCameraManagerMode
   private var maneuverRefreshState = CarPlayManeuverRefreshState()
   private var publishedPrimaryIdentity: CarPlayPrimaryManeuverIdentity?
+  private var isRetainingCombinedRoundaboutPrimary = false
   private var lastObservedContent: CarPlayManeuverContent?
   private var lastObservedDistanceMeters: Double?
   private var lastManeuverPhase: CarPlayManeuverPhase?
@@ -441,6 +457,7 @@ extension CarPlayRouter {
   private func resetGuidanceState() {
     maneuverRefreshState.reset()
     publishedPrimaryIdentity = nil
+    isRetainingCombinedRoundaboutPrimary = false
     lastObservedContent = nil
     lastObservedDistanceMeters = nil
     lastManeuverPhase = nil
@@ -483,12 +500,18 @@ extension CarPlayRouter {
       if let guidance = activeLaneGuidance as? CPLaneGuidance {
         routeSession.add([guidance])
       }
-      routeSession.add(maneuvers)
+      let newManeuvers = retainedPrimary == nil ? maneuvers : Array(maneuvers.dropFirst())
+      if !newManeuvers.isEmpty {
+        routeSession.add(newManeuvers)
+      }
     }
     routeSession.upcomingManeuvers = maneuvers
     maneuverRefreshState.didDisplay(content)
     if !didRetainPrimary {
       publishedPrimaryIdentity = content.primaryIdentity
+      isRetainingCombinedRoundaboutPrimary = false
+    } else if reason == .roundaboutPrimaryRetained {
+      isRetainingCombinedRoundaboutPrimary = true
     }
 
     LOG(.info,
@@ -497,7 +520,7 @@ extension CarPlayRouter {
     if routeSession.upcomingManeuvers.first == nil {
       LOG(.warning, "[CarPlayGuidance] invariant_failed missing_primary snapshot=\(identityDescription(content.primaryIdentity))")
     }
-    if publishedPrimaryIdentity != content.primaryIdentity {
+    if publishedPrimaryIdentity != content.primaryIdentity && !isRetainingCombinedRoundaboutPrimary {
       LOG(.warning,
           "[CarPlayGuidance] invariant_failed identity_mismatch supplied=\(identityDescription(publishedPrimaryIdentity)) snapshot=\(identityDescription(content.primaryIdentity))")
     }
@@ -603,9 +626,7 @@ extension CarPlayRouter {
     return CPTravelEstimates(distanceRemaining: measurement, timeRemaining: 0.0)
   }
 
-  private func createUpcomingManeuvers(with routeInfo: RouteInfo,
-                                       content: CarPlayManeuverContent) -> [CPManeuver] {
-    var maneuvers = [CPManeuver]()
+  private func createPrimaryManeuver(with routeInfo: RouteInfo) -> CPManeuver {
     let primaryManeuver = CPManeuver()
     primaryManeuver.userInfo = CPConstants.Maneuvers.primary
     let formattedVariants = NavigationInstructionFormatter.carPlayInstructionVariants(
@@ -645,16 +666,6 @@ extension CarPlayRouter {
     if let estimates = createEstimates(routeInfo) {
       primaryManeuver.initialTravelEstimates = estimates
     }
-    // Lane guidance for the instrument cluster / any surface that consumes it (not the app screen).
-    if #available(iOS 18.0, *) {
-      if routeInfo.lanes.isEmpty {
-        activeLaneGuidance = nil
-      } else {
-        let guidance = laneGuidance(for: routeInfo)
-        activeLaneGuidance = guidance
-        primaryManeuver.linkedLaneGuidance = guidance
-      }
-    }
     // Structured metadata for the instrument cluster / HUD on supported vehicles.
     if #available(iOS 17.4, *) {
       primaryManeuver.maneuverType = routeInfo.carDirection.cpManeuverType
@@ -665,7 +676,29 @@ extension CarPlayRouter {
         primaryManeuver.highwayExitLabel = routeInfo.junctionRef
       }
     }
-    maneuvers.append(primaryManeuver)
+    return primaryManeuver
+  }
+
+  private func updateLaneGuidance(on primaryManeuver: CPManeuver, with routeInfo: RouteInfo) {
+    // Lane guidance for the instrument cluster / any surface that consumes it (not the app screen).
+    if #available(iOS 18.0, *) {
+      if routeInfo.lanes.isEmpty {
+        activeLaneGuidance = nil
+        primaryManeuver.setValue(nil, forKey: #keyPath(CPManeuver.linkedLaneGuidance))
+      } else {
+        let guidance = laneGuidance(for: routeInfo)
+        activeLaneGuidance = guidance
+        primaryManeuver.linkedLaneGuidance = guidance
+      }
+    }
+  }
+
+  private func createUpcomingManeuvers(with routeInfo: RouteInfo,
+                                       content: CarPlayManeuverContent,
+                                       retainedPrimary: CPManeuver?) -> [CPManeuver] {
+    let primaryManeuver = retainedPrimary ?? createPrimaryManeuver(with: routeInfo)
+    updateLaneGuidance(on: primaryManeuver, with: routeInfo)
+    var maneuvers = [primaryManeuver]
     // Lanes must always be the second maneuver supplied to CarPlay, per Developer guidance 2026
     // https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf
     if !routeInfo.lanes.isEmpty,

@@ -178,6 +178,32 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertEqual(state.decision(for: withUnrecommendedLeftLane), .retainPrimary(.supplementaryChanged))
   }
 
+  func testManeuverRefreshStatePreservesCombinedRoundaboutPrimary() {
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 4, carDirection: .enterRoundAbout))
+    let exit = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(turnIndex: 5,
+                               carDirection: .leaveRoundAbout,
+                               nextTurnImageName: "ic_cp_simple_right_then",
+                               lanes: [makeLane(ways: [.right], recommended: .right)]))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(entrance)
+
+    XCTAssertEqual(state.decision(for: exit), .retainPrimary(.roundaboutPrimaryRetained),
+                   "The post-roundabout turn and lanes should update without replacing the combined primary")
+  }
+
+  func testManeuverRefreshStateDoesNotRetainRoundaboutPrimaryAcrossRoutes() {
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(routeID: 1, turnIndex: 4, carDirection: .enterRoundAbout))
+    let exitOnReroute = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(routeID: 2, turnIndex: 5, carDirection: .leaveRoundAbout))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(entrance)
+
+    XCTAssertEqual(state.decision(for: exitOnReroute), .replacePrimary(.routeChanged))
+  }
+
   func testManeuverRefreshStateResetForcesReplacement() {
     let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
     var state = CarPlayManeuverRefreshState()
@@ -194,6 +220,22 @@ final class CarPlayServiceTests: XCTestCase {
 
     XCTAssertEqual(state.decision(for: content, forcing: .reroute), .replacePrimary(.reroute))
   }
+
+  func testRoundaboutEntranceSuppressesRawExitManeuver() {
+    let imageName = "ic_cp_round_then"
+
+    XCTAssertNil(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .enterRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName)
+    XCTAssertNil(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .stayOnRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName)
+    XCTAssertEqual(CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .leaveRoundAbout, nextTurnImageName: imageName))
+      .secondaryTurnImageName,
+                   imageName)
+  }
+
   func testLaneWayTurnImageNames() {
     XCTAssertEqual(LaneWay.through.turnImageName, "straight")
     XCTAssertEqual(LaneWay.none.turnImageName, "straight")
