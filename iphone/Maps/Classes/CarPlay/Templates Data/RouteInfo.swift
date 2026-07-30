@@ -287,12 +287,12 @@ final class NavigationInstructionFormatter: NSObject {
                                                                   shields: targetShields,
                                                                   isJunction: false)]
     var candidates = [[InstructionPart]]()
-    let hasExitInfo = !junctionRef.isEmpty || !destinationRef.isEmpty || !destination.isEmpty
-    if isLink || hasExitInfo {
-      let exitLabel = junctionRef.isEmpty ? "" : String(format: L("carplay_highway_exit"), junctionRef)
-      let exitParts: [InstructionPart] = exitLabel.isEmpty ? [] : [.roadRef(text: exitLabel,
-                                                                           shields: junctionShields,
-                                                                           isJunction: true)]
+    let exitLabel = junctionRef.isEmpty ? "" : String(format: L("carplay_highway_exit"), junctionRef)
+    let exitParts: [InstructionPart] = exitLabel.isEmpty ? [] : [.roadRef(text: exitLabel,
+                                                                         shields: junctionShields,
+                                                                         isJunction: true)]
+    let hasDestinationInfo = !destinationRef.isEmpty || !destination.isEmpty
+    if hasDestinationInfo {
       let destinationRefParts: [InstructionPart] = destinationRef.isEmpty ? [] : [
         .roadRef(text: destinationRef, shields: targetShields, isJunction: false),
       ]
@@ -303,17 +303,17 @@ final class NavigationInstructionFormatter: NSObject {
       let destinationList = destination.split(separator: ";").map { clean(String($0)) }.filter { !$0.isEmpty }.joined(separator: " / ")
       let destinationParts: [InstructionPart] = destinationList.isEmpty ? [] : [.text(destinationList)]
       let firstDestinationParts: [InstructionPart] = firstDestination.isEmpty ? [] : [.text(firstDestination)]
-      // Always include exit label for the simple only road name variant as this is critical information
-      let roadFallback = exitParts.isEmpty
-        ? joined([refParts, nameParts], separator: " ")
-        : joined([lead, nameParts], separator: destinationRefParts.isEmpty ? ": " : " → ")
       candidates = [
         joined([lead, destinationParts], separator: " → "),
         firstDestination == destination ? [] : joined([lead, firstDestinationParts], separator: " → "),
         lead,
         exitParts,
-        exitParts.isEmpty || destinationParts.isEmpty ? roadFallback : [],
-        exitParts.isEmpty ? nameParts : [],
+      ]
+    } else if !exitParts.isEmpty {
+      let roadParts = joined([refParts, nameParts], separator: " ")
+      candidates = [
+        joined([exitParts, roadParts], separator: ": "),
+        exitParts,
       ]
     } else {
       candidates = [
@@ -447,10 +447,10 @@ final class NavigationInstructionFormatter: NSObject {
       }
     }
 
-    let hasExitInfo = !junctionRef.isEmpty || !destinationRef.isEmpty || !destination.isEmpty
+    let hasDestinationInfo = !destinationRef.isEmpty || !destination.isEmpty
 
     // These follow roughly the same rules as GetFullRoadName in routing_session.cpp.
-    if isLink || hasExitInfo {
+    if hasDestinationInfo {
       if !junctionRef.isEmpty {
         if let shields, shields.hasJunctionRoadShields {
           appendShields(shields.junctionRoadShields, isJunction: true)
@@ -476,15 +476,24 @@ final class NavigationInstructionFormatter: NSObject {
         }
         let parts = destination.split(separator: ";").map { $0.trimmingCharacters(in: .whitespaces) }
         appendText(parts.joined(separator: " / "))
-      } else if !roadName.isEmpty {
-        if result.length > 0 {
-          appendText(" ")
-        }
-        appendText(roadName)
       }
     } else {
-      if !roadRef.isEmpty, let shields, shields.hasTargetRoadShields {
-        appendShields(shields.targetRoadShields, isJunction: false)
+      if !junctionRef.isEmpty {
+        if let shields, shields.hasJunctionRoadShields {
+          appendShields(shields.junctionRoadShields, isJunction: true)
+        } else {
+          appendText(junctionRef)
+        }
+      }
+      if !roadRef.isEmpty {
+        if result.length > 0 {
+          appendText(": ")
+        }
+        if let shields, shields.hasTargetRoadShields {
+          appendShields(shields.targetRoadShields, isJunction: false)
+        } else {
+          appendText(roadRef)
+        }
       }
       if !roadName.isEmpty {
         if result.length > 0 {
