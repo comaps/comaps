@@ -366,16 +366,22 @@ SessionState RoutingSession::OnLocationPositionChanged(GpsInfo const & info)
 void GetRoadShieldsInfo(RouteSegment::RoadNameInfo const & road, FollowingInfo::RoadShieldInfo & info)
 {
   std::string const & mwmName = road.m_mwmId.GetMwmName();
-  if (road.HasExitInfo())
+  info.m_junctionRoadShields =
+      ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
+
+  if (!road.m_destination_ref.empty())
   {
     info.m_targetRoadShields =
         ftypes::GetRoadShields(mwmName, road.m_destination_ref, ftypes::HighwayClass::Undefined);
-    info.m_junctionRoadShields =
-        ftypes::GetRoadShields(mwmName, road.m_junction_ref, ftypes::HighwayClass::Undefined);
+  }
+  else if (road.m_destination.empty())
+  {
+    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
   }
   else
   {
-    info.m_targetRoadShields = ftypes::GetRoadShields(mwmName, road.m_ref, road.m_highwayClass);
+    // A road's own ref does not imply that it is present on the destination sign.
+    info.m_targetRoadShields.clear();
   }
 }
 

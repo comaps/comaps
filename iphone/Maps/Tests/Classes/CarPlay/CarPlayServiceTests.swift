@@ -380,6 +380,84 @@ final class CarPlayServiceTests: XCTestCase {
     }
   }
 
+  func testLinkWithoutDestinationUsesShieldedRoadFallback() {
+    let shields = RoadShieldInfo(
+      targetRoadShields: [
+        RoadShield(type: .genericGreen, text: "150", additionalText: nil),
+        RoadShield(type: .genericWhite, text: "Ring 3", additionalText: nil),
+      ],
+      junctionRoadShields: [])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "",
+      isLink: true,
+      isLeftHandTraffic: false,
+      shields: shields)
+
+    XCTAssertEqual(variants.text.first, "150;Ring 3 Storoveien")
+    XCTAssertEqual(attachments(in: variants.attributed.first!).count, 2)
+    XCTAssertTrue(variants.attributed.first!.string.contains("Storoveien"))
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "Storoveien",
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "",
+      isLink: true,
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(attachments(in: phoneInstruction).count, 2)
+    XCTAssertTrue(phoneInstruction.string.contains("Storoveien"))
+  }
+
+  func testDestinationWithoutDestinationRefExcludesRoadFallback() {
+    // Supplying target shields deliberately verifies that presentation precedence, not merely
+    // missing native shield data, prevents the ordinary road ref from leaking into the instruction.
+    let shields = RoadShieldInfo(
+      targetRoadShields: [
+        RoadShield(type: .genericGreen, text: "150", additionalText: nil),
+        RoadShield(type: .genericWhite, text: "Ring 3", additionalText: nil),
+      ],
+      junctionRoadShields: [])
+
+    let variants = NavigationInstructionFormatter.carPlayInstructionVariants(
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "Grefsen;Sandaker",
+      isLink: true,
+      isLeftHandTraffic: false,
+      shields: shields)
+
+    XCTAssertEqual(variants.text, ["Grefsen / Sandaker", "Grefsen"])
+    XCTAssertTrue(variants.attributed.isEmpty)
+    XCTAssertFalse(variants.text.contains { $0.contains("Ring 3") || $0.contains("Storoveien") })
+
+    let phoneInstruction = NavigationInstructionFormatter.attributedInstruction(
+      nextStreet: "Grefsen / Sandaker",
+      roadName: "Storoveien",
+      roadRef: "150;Ring 3",
+      junctionRef: "",
+      destinationRef: "",
+      destination: "Grefsen;Sandaker",
+      isLink: true,
+      isLeftHandTraffic: false,
+      shields: shields,
+      textSize: 16,
+      textColor: nil)
+    XCTAssertEqual(phoneInstruction.string, "Grefsen / Sandaker")
+    XCTAssertTrue(attachments(in: phoneInstruction).isEmpty)
+  }
+
   func testCarPlayExitShieldInstructionVariants() {
     let shields = RoadShieldInfo(
       targetRoadShields: [RoadShield(type: .usHighway, text: "101", additionalText: "South")],
