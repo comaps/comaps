@@ -93,13 +93,14 @@ jobs:
         id: release_build
         shell: bash
         run: |
-          xcodebuild build \
+          xcodebuild archive \
             -workspace xcode/CoMaps.xcworkspace \
             -scheme CoMaps \
             -configuration Release \
             -destination 'generic/platform=iOS' \
             -derivedDataPath "${DERIVED_DATA_PATH}" \
             -quiet \
+            -archivePath CoMaps-Release.xcarchive \
             -resultBundlePath ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGNING_ALLOWED=NO \
@@ -111,6 +112,20 @@ jobs:
         with:
           name: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}-${{ github.run_number }}.xcresult
           path: ${{ env.RELEASE_RESULTS_BUNDLE_NAME }}.xcresult
+          if-no-files-found: error
+
+      - name: Create ipa
+        shell: bash
+        run: |
+          mkdir Payload
+          cp -R CoMaps-Release.xcarchive/Products/Applications/CoMaps.app Payload/
+          zip -ry 'CoMaps.ipa' Payload
+
+      - name: Upload ipa
+        uses: actions/upload-artifact@v3
+        with:
+          name: CoMaps release ipa
+          path: CoMaps.ipa
           if-no-files-found: error
 
       - name: Trim index store from DerivedData before caching
