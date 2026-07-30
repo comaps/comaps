@@ -1447,6 +1447,7 @@
 		CE8597432FC10A4500D250DC /* libi18n.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libi18n.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAD5411D0000000000A0002 /* RoadShield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoadShield.swift; sourceTree = "<group>"; };
 		DEAD5411D0000000000A0003 /* MWMRoadShieldInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMRoadShieldInfo+CPP.h"; sourceTree = "<group>"; };
+		E1A2B3C4D5E6F70809101112 /* MWMFollowingInfo+CPP.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MWMFollowingInfo+CPP.h"; sourceTree = "<group>"; };
 		EA01AA01EA01AA01EA01AA01 /* NavigationLanesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationLanesView.swift; sourceTree = "<group>"; };
 		ED097E762BB80C320006ED01 /* CoMapsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoMapsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED0B1C302BC2951F00FB8EDD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -2278,6 +2279,7 @@
 		340475331E081A4600C92850 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
+				E1A2B3C4D5E6F70809101112 /* MWMFollowingInfo+CPP.h */,
 				848120742FEF3FF400D4AC63 /* MWMRouteStepInfo+CPP.h */,
 				8481206D2FEF164D00D4AC63 /* MWMRouteStepInfo.mm */,
 				8481206A2FEF15EB00D4AC63 /* MWMRouteStepInfo.h */,

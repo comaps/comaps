@@ -161,6 +161,31 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertTrue(state.needsRefresh(for: withUnrecommendedLeftLane))
   }
 
+  func testManeuverRefreshStatePreservesCombinedRoundaboutPrimary() {
+    let entrance = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .enterRoundAbout))
+    let exit = CarPlayManeuverContent(
+      routeInfo: makeRouteInfo(carDirection: .leaveRoundAbout,
+                               nextTurnImageName: "ic_cp_simple_right_then",
+                               lanes: [makeLane(ways: [.right], recommended: .right)]))
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(entrance)
+    state.markPrimaryChanged()
+
+    XCTAssertTrue(state.retainsPrimary(for: exit),
+                  "The post-roundabout turn and lanes should update without replacing the combined primary")
+  }
+
+  func testManeuverRefreshStateResetForcesReplacement() {
+    let content = CarPlayManeuverContent(routeInfo: makeRouteInfo())
+    var state = CarPlayManeuverRefreshState()
+    state.didDisplay(content)
+    state.reset()
+
+    XCTAssertFalse(state.retainsPrimary(for: content))
+    XCTAssertTrue(state.needsRefresh(for: content))
+  }
+
   func testRoundaboutEntranceSuppressesRawExitManeuver() {
     let imageName = "ic_cp_round_then"
 
