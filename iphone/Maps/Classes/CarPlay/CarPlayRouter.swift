@@ -118,12 +118,20 @@ struct CarPlayLaneManeuverContent: Equatable {
   }
 }
 
+struct CarPlayPrimaryManeuverIdentity: Equatable {
+  let routeID: UInt64
+  let turnIndex: UInt32
+}
+
 struct CarPlayManeuverContent: Equatable {
+  let primaryIdentity: CarPlayPrimaryManeuverIdentity
   let carDirection: CarDirection
   let secondaryTurnImageName: String?
   let lanes: [CarPlayLaneManeuverContent]
 
   init(routeInfo: RouteInfo) {
+    primaryIdentity = CarPlayPrimaryManeuverIdentity(routeID: routeInfo.routeID,
+                                                     turnIndex: routeInfo.turnIndex)
     carDirection = routeInfo.carDirection
     switch routeInfo.carDirection {
     case .enterRoundAbout, .stayOnRoundAbout:
@@ -136,29 +144,62 @@ struct CarPlayManeuverContent: Equatable {
   }
 }
 
+enum CarPlayManeuverRefreshReason: String, Equatable {
+  case initial
+  case reroute
+  case routeChanged
+  case primaryAdvanced
+  case primaryContentChanged
+  case supplementaryChanged
+  case roundaboutPrimaryRetained
+}
+
+enum CarPlayManeuverRefreshDecision: Equatable {
+  case none
+  case replacePrimary(CarPlayManeuverRefreshReason)
+  case retainPrimary(CarPlayManeuverRefreshReason)
+}
+
+enum CarPlayManeuverPhase: String, Equatable {
+  case execute
+  case prepare
+  case initial
+  case `continue`
+}
+
 struct CarPlayManeuverRefreshState {
-  private(set) var hasPendingPrimary = false
   private(set) var displayedContent: CarPlayManeuverContent?
 
-  mutating func markPrimaryChanged() {
-    hasPendingPrimary = true
-  }
+  func decision(for content: CarPlayManeuverContent,
+                forcing reason: CarPlayManeuverRefreshReason? = nil) -> CarPlayManeuverRefreshDecision {
+    if let reason {
+      return .replacePrimary(reason)
+    }
+    guard let displayedContent else {
+      return .replacePrimary(.initial)
+    }
+    guard displayedContent != content else { return .none }
 
-  func retainsPrimary(for content: CarPlayManeuverContent) -> Bool {
-    guard hasPendingPrimary, let displayedContent else { return false }
+    if displayedContent.primaryIdentity == content.primaryIdentity {
+      if displayedContent.carDirection != content.carDirection {
+        return .replacePrimary(.primaryContentChanged)
+      }
+      return .retainPrimary(.supplementaryChanged)
+    }
+
+    let sameRoute = displayedContent.primaryIdentity.routeID == content.primaryIdentity.routeID
     // The Apple bridge selects the exit road before entry; after entry that same road becomes
     // the normal next road, so only supplementary content needs to advance here.
-    return (displayedContent.carDirection == .enterRoundAbout ||
-            displayedContent.carDirection == .stayOnRoundAbout) &&
-           content.carDirection == .leaveRoundAbout
-  }
-
-  func needsRefresh(for content: CarPlayManeuverContent) -> Bool {
-    return hasPendingPrimary || displayedContent != content
+    if sameRoute,
+       (displayedContent.carDirection == .enterRoundAbout ||
+        displayedContent.carDirection == .stayOnRoundAbout),
+       content.carDirection == .leaveRoundAbout {
+      return .retainPrimary(.roundaboutPrimaryRetained)
+    }
+    return .replacePrimary(sameRoute ? .primaryAdvanced : .routeChanged)
   }
 
   mutating func didDisplay(_ content: CarPlayManeuverContent) {
-    hasPendingPrimary = false
     displayedContent = content
   }
 
@@ -175,6 +216,12 @@ final class CarPlayRouter: NSObject {
   private var routeSession: CPNavigationSession?
   private var initialSpeedCamSettings: SpeedCameraManagerMode
   private var maneuverRefreshState = CarPlayManeuverRefreshState()
+  private var publishedPrimaryIdentity: CarPlayPrimaryManeuverIdentity?
+  private var isRetainingCombinedRoundaboutPrimary = false
+  private var lastObservedContent: CarPlayManeuverContent?
+  private var lastObservedDistanceMeters: Double?
+  private var lastManeuverPhase: CarPlayManeuverPhase?
+  private var isMissingPrimaryWarningActive = false
   /// Typed `AnyObject?` until we target iOS 18
   private var activeLaneGuidance: AnyObject?
   var currentTrip: CPTrip? {
@@ -373,25 +420,23 @@ extension CarPlayRouter {
       Toast.show(withText: errorMessage, alignment: .top)
       return
     }
-    LOG(.info, "Starting a new navigation session")
+    LOG(.info, "[CarPlayGuidance] session_started")
     routeSession = template.startNavigationSession(for: trip)
     routeSession?.pauseTrip(for: .loading, description: nil)
-    maneuverRefreshState.reset()
+    resetGuidanceState()
     if let routeInfo = RoutingManager.routingManager.routeInfo {
-      updateUpcomingManeuvers(with: routeInfo)
-    }
-    RoutingManager.routingManager.setOnNewTurnCallback { [weak self] in
-      self?.maneuverRefreshState.markPrimaryChanged()
+      observeGuidance(routeInfo)
+      refreshUpcomingManeuvers(with: routeInfo)
+      updateDynamicNavigationState(with: routeInfo)
     }
   }
 
   func cancelNavigationSession() {
-    LOG(.info, "Cancelling navigation session")
+    LOG(.info, "[CarPlayGuidance] session_cancelled last=\(identityDescription(publishedPrimaryIdentity))")
     routeSession?.cancelTrip()
     routeSession = nil
     activeLaneGuidance = nil
-    maneuverRefreshState.reset()
-    RoutingManager.routingManager.resetOnNewTurnCallback()
+    resetGuidanceState()
   }
 
   func cancelTrip() {
@@ -401,19 +446,53 @@ extension CarPlayRouter {
   }
 
   func finishTrip() {
-    LOG(.info, "Finishing trip")
+    LOG(.info, "[CarPlayGuidance] session_finished last=\(identityDescription(publishedPrimaryIdentity))")
     routeSession?.finishTrip()
     routeSession = nil
     activeLaneGuidance = nil
-    maneuverRefreshState.reset()
+    resetGuidanceState()
     completeRouteAndRemovePoints()
-    RoutingManager.routingManager.resetOnNewTurnCallback()
   }
 
-  func updateUpcomingManeuvers(with routeInfo: RouteInfo, retainingPrimary: Bool = false) {
-    guard let routeSession else { return }
+  private func resetGuidanceState() {
+    maneuverRefreshState.reset()
+    publishedPrimaryIdentity = nil
+    isRetainingCombinedRoundaboutPrimary = false
+    lastObservedContent = nil
+    lastObservedDistanceMeters = nil
+    lastManeuverPhase = nil
+    isMissingPrimaryWarningActive = false
+  }
+
+  private func refreshUpcomingManeuvers(
+    with routeInfo: RouteInfo,
+    forcing reason: CarPlayManeuverRefreshReason? = nil
+  ) {
     let content = CarPlayManeuverContent(routeInfo: routeInfo)
-    let retainedPrimary = retainingPrimary ? routeSession.upcomingManeuvers.first : nil
+    let decision = maneuverRefreshState.decision(for: content, forcing: reason)
+    guard decision != .none else { return }
+    updateUpcomingManeuvers(with: routeInfo, content: content, decision: decision)
+  }
+
+  private func updateUpcomingManeuvers(with routeInfo: RouteInfo,
+                                       content: CarPlayManeuverContent,
+                                       decision: CarPlayManeuverRefreshDecision) {
+    guard let routeSession else { return }
+    let previousContent = maneuverRefreshState.displayedContent
+    let shouldRetainPrimary: Bool
+    let reason: CarPlayManeuverRefreshReason
+    switch decision {
+    case .none:
+      return
+    case .replacePrimary(let refreshReason):
+      shouldRetainPrimary = false
+      reason = refreshReason
+    case .retainPrimary(let refreshReason):
+      shouldRetainPrimary = true
+      reason = refreshReason
+    }
+    let retainedPrimary = shouldRetainPrimary ? routeSession.upcomingManeuvers.first : nil
+    let didRetainPrimary = retainedPrimary != nil
     let maneuvers = createUpcomingManeuvers(with: routeInfo,
                                             content: content,
                                             retainedPrimary: retainedPrimary)
@@ -428,18 +507,28 @@ extension CarPlayRouter {
     }
     routeSession.upcomingManeuvers = maneuvers
     maneuverRefreshState.didDisplay(content)
-    if #available(iOS 17.4, *) {
-      routeSession.maneuverState = maneuverState(forDistanceToTurn: routeInfo.distanceToTurn,
-                                                 units: routeInfo.turnUnits)
-      routeSession.currentLaneGuidance = activeLaneGuidance as? CPLaneGuidance
-      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
-      routeSession.currentRoadNameVariants = roadName.isEmpty ? [] : [roadName]
+    if !didRetainPrimary {
+      publishedPrimaryIdentity = content.primaryIdentity
+      isRetainingCombinedRoundaboutPrimary = false
+    } else if reason == .roundaboutPrimaryRetained {
+      isRetainingCombinedRoundaboutPrimary = true
+    }
+
+    LOG(.info,
+        "[CarPlayGuidance] maneuvers_published reason=\(reason.rawValue) retainedPrimary=\(didRetainPrimary) previous=\(identityDescription(previousContent?.primaryIdentity)) snapshot=\(identityDescription(content.primaryIdentity)) suppliedPrimary=\(identityDescription(publishedPrimaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) lanes=\(previousContent?.lanes.count ?? 0)->\(routeInfo.lanes.count) secondary=\(logValue(previousContent?.secondaryTurnImageName ?? "none"))->\(logValue(content.secondaryTurnImageName ?? "none")) \(roadDescription(routeInfo))")
+
+    if routeSession.upcomingManeuvers.first == nil {
+      LOG(.warning, "[CarPlayGuidance] invariant_failed missing_primary snapshot=\(identityDescription(content.primaryIdentity))")
+    }
+    if publishedPrimaryIdentity != content.primaryIdentity && !isRetainingCombinedRoundaboutPrimary {
+      LOG(.warning,
+          "[CarPlayGuidance] invariant_failed identity_mismatch supplied=\(identityDescription(publishedPrimaryIdentity)) snapshot=\(identityDescription(content.primaryIdentity))")
     }
   }
 
-  @available(iOS 17.4, *)
-  private func maneuverState(forDistanceToTurn distance: Double, units: UnitLength) -> CPManeuverState {
-    let meters = Measurement(value: distance, unit: units).converted(to: .meters).value
+  private func maneuverPhase(forDistanceToTurn distance: Double,
+                             units: UnitLength) -> CarPlayManeuverPhase {
+    let meters = distanceInMeters(distance, units: units)
     switch meters {
     case ..<30: return .execute
     case ..<150: return .prepare
@@ -448,13 +537,88 @@ extension CarPlayRouter {
     }
   }
 
-  func updateEstimates(with routeInfo: RouteInfo) {
-    guard let routeSession = routeSession,
-          let primaryManeuver = routeSession.upcomingManeuvers.first,
+  private func updateDynamicNavigationState(with routeInfo: RouteInfo) {
+    guard let routeSession else { return }
+    guard let primaryManeuver = routeSession.upcomingManeuvers.first,
           let estimates = createEstimates(routeInfo) else {
+      if !isMissingPrimaryWarningActive {
+        LOG(.warning,
+            "[CarPlayGuidance] invariant_failed dynamic_update_without_primary snapshot=\(identityDescription(CarPlayManeuverContent(routeInfo: routeInfo).primaryIdentity))")
+        isMissingPrimaryWarningActive = true
+      }
       return
     }
+    isMissingPrimaryWarningActive = false
     routeSession.updateEstimates(estimates, for: primaryManeuver)
+
+    if #available(iOS 17.4, *) {
+      let phase = maneuverPhase(forDistanceToTurn: routeInfo.distanceToTurn, units: routeInfo.turnUnits)
+      switch phase {
+      case .execute: routeSession.maneuverState = .execute
+      case .prepare: routeSession.maneuverState = .prepare
+      case .initial: routeSession.maneuverState = .initial
+      case .continue: routeSession.maneuverState = .continue
+      }
+      routeSession.currentLaneGuidance = activeLaneGuidance as? CPLaneGuidance
+      let roadName = routeInfo.currentRoadName.trimmingCharacters(in: .whitespacesAndNewlines)
+      routeSession.currentRoadNameVariants = roadName.isEmpty ? [] : [roadName]
+
+      if phase != lastManeuverPhase {
+        LOG(.info,
+            "[CarPlayGuidance] maneuver_state_changed from=\(lastManeuverPhase?.rawValue ?? "none") to=\(phase.rawValue) snapshot=\(identityDescription(CarPlayManeuverContent(routeInfo: routeInfo).primaryIdentity)) direction=\(routeInfo.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(routeInfo)) \(roadDescription(routeInfo))")
+        lastManeuverPhase = phase
+      }
+    }
+  }
+
+  private func observeGuidance(_ routeInfo: RouteInfo) {
+    let content = CarPlayManeuverContent(routeInfo: routeInfo)
+    let distanceMeters = distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits)
+    if let previousContent = lastObservedContent,
+       previousContent.primaryIdentity != content.primaryIdentity {
+      let sameRoute = previousContent.primaryIdentity.routeID == content.primaryIdentity.routeID
+      let indexDelta = Int64(content.primaryIdentity.turnIndex) - Int64(previousContent.primaryIdentity.turnIndex)
+      if sameRoute && indexDelta < 0 {
+        LOG(.warning,
+            "[CarPlayGuidance] invariant_failed turn_index_moved_backwards previous=\(identityDescription(previousContent.primaryIdentity)) current=\(identityDescription(content.primaryIdentity))")
+      }
+      LOG(.info,
+          "[CarPlayGuidance] \(sameRoute ? "turn_advanced" : "route_changed") previous=\(identityDescription(previousContent.primaryIdentity)) current=\(identityDescription(content.primaryIdentity)) previousDirection=\(previousContent.carDirection.diagnosticName) currentDirection=\(content.carDirection.diagnosticName) indexDelta=\(indexDelta) previousLastDistanceM=\(formatMeters(lastObservedDistanceMeters)) currentDistanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")
+      lastManeuverPhase = nil
+    } else if lastObservedContent == nil {
+      LOG(.info,
+          "[CarPlayGuidance] route_observed current=\(identityDescription(content.primaryIdentity)) direction=\(content.carDirection.diagnosticName) distanceM=\(formatMeters(distanceMeters)) \(roadDescription(routeInfo))")
+    }
+    lastObservedContent = content
+    lastObservedDistanceMeters = distanceMeters
+  }
+
+  private func distanceInMeters(_ distance: Double, units: UnitLength) -> Double {
+    return Measurement(value: distance, unit: units).converted(to: .meters).value
+  }
+
+  private func formattedDistanceMeters(_ routeInfo: RouteInfo) -> String {
+    return formatMeters(distanceInMeters(routeInfo.distanceToTurn, units: routeInfo.turnUnits))
+  }
+
+  private func formatMeters(_ meters: Double?) -> String {
+    guard let meters else { return "none" }
+    return String(format: "%.1f", meters)
+  }
+
+  private func identityDescription(_ identity: CarPlayPrimaryManeuverIdentity?) -> String {
+    guard let identity else { return "none" }
+    return "\(identity.routeID):\(identity.turnIndex)"
+  }
+
+  private func logValue(_ value: String) -> String {
+    let singleLine = value.replacingOccurrences(of: "\n", with: " ")
+      .replacingOccurrences(of: "\r", with: " ")
+    return "\"\(singleLine)\""
+  }
+
+  private func roadDescription(_ routeInfo: RouteInfo) -> String {
+    return "currentRoad=\(logValue(routeInfo.currentRoadName)) nextRoad=\(logValue(routeInfo.roadName)) roadRef=\(logValue(routeInfo.roadRef)) junction=\(logValue(routeInfo.junctionRef)) destinationRef=\(logValue(routeInfo.destinationRef)) destination=\(logValue(routeInfo.destination))"
   }
 
   private func createEstimates(_ routeInfo: RouteInfo) -> CPTravelEstimates? {
@@ -624,16 +788,20 @@ extension CarPlayRouter: RoutingManagerListener {
       }
       if let info = manager.routeInfo {
         previewTrip?.routeChoices.first?.userInfo = info
+        LOG(.info,
+            "[CarPlayGuidance] route_installed identity=\(identityDescription(CarPlayManeuverContent(routeInfo: info).primaryIdentity)) direction=\(info.carDirection.diagnosticName) distanceM=\(formattedDistanceMeters(info)) \(roadDescription(info))")
         if routeSession == nil {
           listenerContainer.forEach({
             $0.didCreateRoute(routeInfo: info,
                               trip: trip)
           })
         } else {
+          observeGuidance(info)
+          refreshUpcomingManeuvers(with: info, forcing: .reroute)
+          updateDynamicNavigationState(with: info)
           listenerContainer.forEach({
             $0.didUpdateRouteInfo(info, forTrip: trip)
           })
-          updateUpcomingManeuvers(with: info)
         }
       }
     default:
@@ -656,11 +824,9 @@ extension CarPlayRouter: RoutingManagerListener {
 
     guard let routeInfo,
       manager.isRoutingActive else { return }
-    let content = CarPlayManeuverContent(routeInfo: routeInfo)
-    if maneuverRefreshState.needsRefresh(for: content) {
-      updateUpcomingManeuvers(with: routeInfo,
-                              retainingPrimary: maneuverRefreshState.retainsPrimary(for: content))
-    }
+    observeGuidance(routeInfo)
+    refreshUpcomingManeuvers(with: routeInfo)
+    updateDynamicNavigationState(with: routeInfo)
     listenerContainer.forEach({
       $0.didUpdateRouteInfo(routeInfo, forTrip: trip)
     })

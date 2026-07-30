@@ -98,6 +98,28 @@ enum CarDirection: UInt8 {
     }
   }
 
+  var diagnosticName: String {
+    switch self {
+    case .none: return "none"
+    case .goStraight: return "go_straight"
+    case .turnRight: return "turn_right"
+    case .turnSharpRight: return "turn_sharp_right"
+    case .turnSlightRight: return "turn_slight_right"
+    case .turnLeft: return "turn_left"
+    case .turnSharpLeft: return "turn_sharp_left"
+    case .turnSlightLeft: return "turn_slight_left"
+    case .uTurnLeft: return "u_turn_left"
+    case .uTurnRight: return "u_turn_right"
+    case .enterRoundAbout: return "enter_roundabout"
+    case .leaveRoundAbout: return "leave_roundabout"
+    case .stayOnRoundAbout: return "stay_on_roundabout"
+    case .startAtEndOfStreet: return "start_at_end_of_street"
+    case .reachedYourDestination: return "reached_destination"
+    case .exitHighwayToLeft: return "exit_highway_left"
+    case .exitHighwayToRight: return "exit_highway_right"
+    }
+  }
+
   /// CarPlay maneuver type for the instrument cluster / HUD.
   @available(iOS 17.4, *)
   var cpManeuverType: CPManeuverType {
@@ -482,6 +504,8 @@ final class NavigationInstructionFormatter: NSObject {
 
 @objc(MWMRouteInfo)
 class RouteInfo: NSObject {
+  let routeID: UInt64
+  let turnIndex: UInt32
   let timeToTarget: TimeInterval
   let targetDistance: Double
   let targetUnits: UnitLength
@@ -508,7 +532,9 @@ class RouteInfo: NSObject {
   let carDirection: CarDirection
   let isLeftHandTraffic: Bool
 
-  @objc init(timeToTarget: TimeInterval,
+  @objc init(routeID: UInt64,
+             turnIndex: UInt32,
+             timeToTarget: TimeInterval,
              targetDistance: Double,
              targetUnitsIndex: UInt8,
              distanceToTurn: Double,
@@ -529,6 +555,8 @@ class RouteInfo: NSObject {
              currentRoadName: String,
              carDirectionIndex: UInt8,
              isLeftHandTraffic: Bool) {
+    self.routeID = routeID
+    self.turnIndex = turnIndex
     self.timeToTarget = timeToTarget
     self.targetDistance = targetDistance
     self.targetUnits = RouteInfo.unitLength(for: targetUnitsIndex)

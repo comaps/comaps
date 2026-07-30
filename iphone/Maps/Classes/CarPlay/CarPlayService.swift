@@ -1246,11 +1246,9 @@ extension CarPlayService: CarPlayRouterListener {
     if let carplayVC = carplayVC {
       carplayVC.updateCurrentSpeed(routeInfo.speedMps, speedLimitMps: routeInfo.speedLimitMps)
     }
-    guard let router = router,
-      let template = rootMapTemplate else {
-        return
+    guard let template = rootMapTemplate else {
+      return
     }
-    router.updateEstimates(with: routeInfo)
     if let estimates = createEstimates(routeInfo: routeInfo) {
       template.updateEstimates(estimates, for: trip)
     }
