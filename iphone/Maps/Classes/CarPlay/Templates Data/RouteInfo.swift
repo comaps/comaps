@@ -281,15 +281,17 @@ final class NavigationInstructionFormatter: NSObject {
       let destinationList = destination.split(separator: ";").map { clean(String($0)) }.filter { !$0.isEmpty }.joined(separator: " / ")
       let destinationParts: [InstructionPart] = destinationList.isEmpty ? [] : [.text(destinationList)]
       let firstDestinationParts: [InstructionPart] = firstDestination.isEmpty ? [] : [.text(firstDestination)]
+      // Always include exit label for the simple only road name variant as this is critical information
+      let roadFallback = exitParts.isEmpty
+        ? joined([refParts, nameParts], separator: " ")
+        : joined([lead, nameParts], separator: destinationRefParts.isEmpty ? ": " : " → ")
       candidates = [
         joined([lead, destinationParts], separator: " → "),
         firstDestination == destination ? [] : joined([lead, firstDestinationParts], separator: " → "),
         lead,
         exitParts,
-        // A link with no exit data at all (no junction/destination/ref) would produce nothing,
-        // fall back to its plain road name/ref.
-        joined([refParts, nameParts], separator: " "),
-        nameParts,
+        exitParts.isEmpty || destinationParts.isEmpty ? roadFallback : [],
+        exitParts.isEmpty ? nameParts : [],
       ]
     } else {
       candidates = [
