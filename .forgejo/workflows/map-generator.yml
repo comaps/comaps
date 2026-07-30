@@ -13,7 +13,7 @@ on:
         default: true
         type: boolean
       run-planet-o5m:
-        description: 'Update OSM planet?'
+        description: 'Update OSM Planet (copy O5M from PBF)?'
         required: false
         default: true
         type: boolean

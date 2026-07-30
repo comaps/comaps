@@ -3,7 +3,7 @@ on:
   workflow_dispatch: # Manual trigger
     inputs:
       skip-planet-update:
-        description: 'Skip OSM planet update?'
+        description: 'Skip updating OSM Planet (skip copying O5M from PBF)?'
         required: true
         default: false
         type: boolean
