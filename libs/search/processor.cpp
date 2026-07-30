@@ -69,6 +69,16 @@ enum LanguageTier
   LANGUAGE_TIER_COUNT
 };
 
+// Sets language (plus similar languages) for scorer tier
+void SetTierLanguages(KeywordLangMatcher & scorer, LanguageTier tier, std::string const & locale)
+{
+  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
+  std::vector<localisation::LanguageIndex> languageIndexes = {languageIndex};
+  auto const similarLanguageIndexes = localisation::SimilarLanguageIndexes(languageIndex);
+  languageIndexes.insert(languageIndexes.cend(), similarLanguageIndexes.cbegin(), similarLanguageIndexes.cend());
+  scorer.SetLanguages(tier, std::move(languageIndexes));
+}
+
 m2::RectD GetRectAroundPosition(m2::PointD const & position)
 {
   double constexpr kMaxPositionRadiusM = 50.0 * 1000;
@@ -194,8 +204,7 @@ void Processor::SetPreferredLocale(string const & locale)
 
   LOG(LINFO, ("New preferred locale:", locale));
 
-  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  SetTierLanguages(m_keywordsScorer, LANGUAGE_TIER_CURRENT, locale);
 
   m_currentLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 
@@ -210,9 +219,9 @@ void Processor::SetInputLocale(string const & locale)
   if (locale.empty())
     return;
 
-  localisation::LanguageIndex const languageIndex = localisation::ConvertLanguageCodeToLanguageIndex(locale);
-  LOG(LDEBUG, ("New input locale:", locale, "; locale code:", int(languageIndex)));
-  m_keywordsScorer.SetLanguages(LanguageTier::LANGUAGE_TIER_CURRENT, localisation::SimilarLanguageIndexes(languageIndex));
+  LOG(LDEBUG, ("New input locale:", locale, "; locale code:",
+               int(localisation::ConvertLanguageCodeToLanguageIndex(locale))));
+  SetTierLanguages(m_keywordsScorer, LANGUAGE_TIER_INPUT, locale);
   m_inputLanguageIndex = CategoriesHolder::MapLocaleToInteger(locale);
 }
 
