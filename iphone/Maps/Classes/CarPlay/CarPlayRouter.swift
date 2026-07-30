@@ -119,10 +119,12 @@ struct CarPlayLaneManeuverContent: Equatable {
 }
 
 struct CarPlayManeuverContent: Equatable {
+  let carDirection: CarDirection
   let secondaryTurnImageName: String?
   let lanes: [CarPlayLaneManeuverContent]
 
   init(routeInfo: RouteInfo) {
+    carDirection = routeInfo.carDirection
     switch routeInfo.carDirection {
     case .enterRoundAbout, .stayOnRoundAbout:
       // The numbered primary maneuver already represents entering and leaving the roundabout.
@@ -140,6 +142,15 @@ struct CarPlayManeuverRefreshState {
 
   mutating func markPrimaryChanged() {
     hasPendingPrimary = true
+  }
+
+  func retainsPrimary(for content: CarPlayManeuverContent) -> Bool {
+    guard hasPendingPrimary, let displayedContent else { return false }
+    // The Apple bridge selects the exit road before entry; after entry that same road becomes
+    // the normal next road, so only supplementary content needs to advance here.
+    return (displayedContent.carDirection == .enterRoundAbout ||
+            displayedContent.carDirection == .stayOnRoundAbout) &&
+           content.carDirection == .leaveRoundAbout
   }
 
   func needsRefresh(for content: CarPlayManeuverContent) -> Bool {
@@ -399,15 +410,21 @@ extension CarPlayRouter {
     RoutingManager.routingManager.resetOnNewTurnCallback()
   }
 
-  func updateUpcomingManeuvers(with routeInfo: RouteInfo) {
+  func updateUpcomingManeuvers(with routeInfo: RouteInfo, retainingPrimary: Bool = false) {
     guard let routeSession else { return }
     let content = CarPlayManeuverContent(routeInfo: routeInfo)
-    let maneuvers = createUpcomingManeuvers(with: routeInfo, content: content)
+    let retainedPrimary = retainingPrimary ? routeSession.upcomingManeuvers.first : nil
+    let maneuvers = createUpcomingManeuvers(with: routeInfo,
+                                            content: content,
+                                            retainedPrimary: retainedPrimary)
     if #available(iOS 17.4, *) {
       if let guidance = activeLaneGuidance as? CPLaneGuidance {
         routeSession.add([guidance])
       }
-      routeSession.add(maneuvers)
+      let newManeuvers = retainedPrimary == nil ? maneuvers : Array(maneuvers.dropFirst())
+      if !newManeuvers.isEmpty {
+        routeSession.add(newManeuvers)
+      }
     }
     routeSession.upcomingManeuvers = maneuvers
     maneuverRefreshState.didDisplay(content)
@@ -445,9 +462,7 @@ extension CarPlayRouter {
     return CPTravelEstimates(distanceRemaining: measurement, timeRemaining: 0.0)
   }
 
-  private func createUpcomingManeuvers(with routeInfo: RouteInfo,
-                                       content: CarPlayManeuverContent) -> [CPManeuver] {
-    var maneuvers = [CPManeuver]()
+  private func createPrimaryManeuver(with routeInfo: RouteInfo) -> CPManeuver {
     let primaryManeuver = CPManeuver()
     primaryManeuver.userInfo = CPConstants.Maneuvers.primary
     let formattedVariants = NavigationInstructionFormatter.carPlayInstructionVariants(
@@ -487,16 +502,6 @@ extension CarPlayRouter {
     if let estimates = createEstimates(routeInfo) {
       primaryManeuver.initialTravelEstimates = estimates
     }
-    // Lane guidance for the instrument cluster / any surface that consumes it (not the app screen).
-    if #available(iOS 18.0, *) {
-      if routeInfo.lanes.isEmpty {
-        activeLaneGuidance = nil
-      } else {
-        let guidance = laneGuidance(for: routeInfo)
-        activeLaneGuidance = guidance
-        primaryManeuver.linkedLaneGuidance = guidance
-      }
-    }
     // Structured metadata for the instrument cluster / HUD on supported vehicles.
     if #available(iOS 17.4, *) {
       primaryManeuver.maneuverType = routeInfo.carDirection.cpManeuverType
@@ -507,7 +512,29 @@ extension CarPlayRouter {
         primaryManeuver.highwayExitLabel = routeInfo.junctionRef
       }
     }
-    maneuvers.append(primaryManeuver)
+    return primaryManeuver
+  }
+
+  private func updateLaneGuidance(on primaryManeuver: CPManeuver, with routeInfo: RouteInfo) {
+    // Lane guidance for the instrument cluster / any surface that consumes it (not the app screen).
+    if #available(iOS 18.0, *) {
+      if routeInfo.lanes.isEmpty {
+        activeLaneGuidance = nil
+        primaryManeuver.setValue(nil, forKey: #keyPath(CPManeuver.linkedLaneGuidance))
+      } else {
+        let guidance = laneGuidance(for: routeInfo)
+        activeLaneGuidance = guidance
+        primaryManeuver.linkedLaneGuidance = guidance
+      }
+    }
+  }
+
+  private func createUpcomingManeuvers(with routeInfo: RouteInfo,
+                                       content: CarPlayManeuverContent,
+                                       retainedPrimary: CPManeuver?) -> [CPManeuver] {
+    let primaryManeuver = retainedPrimary ?? createPrimaryManeuver(with: routeInfo)
+    updateLaneGuidance(on: primaryManeuver, with: routeInfo)
+    var maneuvers = [primaryManeuver]
     // Lanes must always be the second maneuver supplied to CarPlay, per Developer guidance 2026
     // https://developer.apple.com/download/files/CarPlay-Developer-Guide.pdf
     if !routeInfo.lanes.isEmpty,
@@ -631,7 +658,8 @@ extension CarPlayRouter: RoutingManagerListener {
       manager.isRoutingActive else { return }
     let content = CarPlayManeuverContent(routeInfo: routeInfo)
     if maneuverRefreshState.needsRefresh(for: content) {
-      updateUpcomingManeuvers(with: routeInfo)
+      updateUpcomingManeuvers(with: routeInfo,
+                              retainingPrimary: maneuverRefreshState.retainsPrimary(for: content))
     }
     listenerContainer.forEach({
       $0.didUpdateRouteInfo(routeInfo, forTrip: trip)

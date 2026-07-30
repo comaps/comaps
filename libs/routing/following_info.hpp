@@ -81,6 +81,14 @@ public:
   bool m_nextIsLink = false;          // True when the next segment is a link (ramp).
   ftypes::HighwayClass m_nextHighwayClass = ftypes::HighwayClass::Undefined;
 
+  // NextNext variants for showing the correct direction string in roundabouts that has two instructions
+  std::string m_nextNextName;
+  std::string m_nextNextRef;
+  std::string m_nextNextJunctionRef;
+  std::string m_nextNextDestinationRef;
+  std::string m_nextNextDestination;
+  bool m_nextNextIsLink = false;
+
   // True in left-hand-driving regions (e.g. UK, Japan)
   bool m_isLeftHandTraffic = false;
 
