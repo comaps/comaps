@@ -229,6 +229,8 @@
 		FACB7C4126B9479800810C9C /* libtraffic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FACB7C4026B9479800810C9C /* libtraffic.a */; };
 		FACB7C4326B947A700810C9C /* libtess2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FACB7C4226B947A700810C9C /* libtess2.a */; };
 		FACB7C4526B947C400810C9C /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FACB7C4426B947AD00810C9C /* libz.tbd */; };
+		E1D00B012F1A000000000003 /* indoor_level.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D00B012F1A000000000001 /* indoor_level.cpp */; };
+		E1D00B012F1A000000000004 /* indoor_level.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1D00B012F1A000000000002 /* indoor_level.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -470,6 +472,8 @@
 		FACB7C4026B9479800810C9C /* libtraffic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtraffic.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACB7C4226B947A700810C9C /* libtess2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libtess2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACB7C4426B947AD00810C9C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		E1D00B012F1A000000000001 /* indoor_level.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indoor_level.cpp; sourceTree = "<group>"; };
+		E1D00B012F1A000000000002 /* indoor_level.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = indoor_level.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,6 +732,8 @@
 				272CA4442F126795005A3F5B /* ftypes_subtypes.hpp */,
 				675340DB1A3F540F00A0A8C3 /* index_builder.cpp */,
 				675340DC1A3F540F00A0A8C3 /* index_builder.hpp */,
+				E1D00B012F1A000000000001 /* indoor_level.cpp */,
+				E1D00B012F1A000000000002 /* indoor_level.hpp */,
 				675340DF1A3F540F00A0A8C3 /* interval_index_builder.hpp */,
 				675340E11A3F540F00A0A8C3 /* interval_index.hpp */,
 				BBB7060D23E46E0000A7F29A /* isolines_info.cpp */,
@@ -892,6 +898,7 @@
 				6753411B1A3F540F00A0A8C3 /* feature_impl.hpp in Headers */,
 				675341111A3F540F00A0A8C3 /* drules_struct.pb.h in Headers */,
 				4099F64A1FC7142A002A7B05 /* fake_feature_ids.hpp in Headers */,
+				E1D00B012F1A000000000004 /* indoor_level.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,6 +1080,7 @@
 				675341401A3F540F00A0A8C3 /* scales.cpp in Sources */,
 				675341251A3F540F00A0A8C3 /* feature.cpp in Sources */,
 				276A00612FCD8D6C00CE3020 /* reviews_loader.cpp in Sources */,
+				E1D00B012F1A000000000003 /* indoor_level.cpp in Sources */,
 				27BCD5272E93E625002C50F0 /* feature_charge_sockets.cpp in Sources */,
 				675341091A3F540F00A0A8C3 /* data_header.cpp in Sources */,
 				F61F83061E4B187500B37B7A /* road_shields_parser.cpp in Sources */,

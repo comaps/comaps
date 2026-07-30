@@ -116,6 +116,8 @@
 		FAA8388426BB3CBE002E54C6 /* libcppjansson.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA8388326BB3CBE002E54C6 /* libcppjansson.a */; };
 		FAA8388626BB3CC3002E54C6 /* libexpat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA8388526BB3CC3002E54C6 /* libexpat.a */; };
 		FAA8388A26BB3CE4002E54C6 /* libdrape.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA8388926BB3CE4002E54C6 /* libdrape.a */; };
+		E1D00A012F1A000000000003 /* indoor_manager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000001 /* indoor_manager.cpp */; };
+		E1D00A012F1A000000000004 /* indoor_manager.hpp in Headers */ = {isa = PBXBuildFile; fileRef = E1D00A012F1A000000000002 /* indoor_manager.hpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -261,6 +263,8 @@
 		FAA8388326BB3CBE002E54C6 /* libcppjansson.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libcppjansson.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA8388526BB3CC3002E54C6 /* libexpat.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libexpat.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA8388926BB3CE4002E54C6 /* libdrape.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libdrape.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E1D00A012F1A000000000001 /* indoor_manager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = indoor_manager.cpp; sourceTree = "<group>"; };
+		E1D00A012F1A000000000002 /* indoor_manager.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = indoor_manager.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,6 +428,8 @@
 				F6B283021C1B03320081957A /* gps_track.hpp */,
 				670E393E1C46C5C700E9C0A6 /* gps_tracker.cpp */,
 				670E393F1C46C5C700E9C0A6 /* gps_tracker.hpp */,
+				E1D00A012F1A000000000001 /* indoor_manager.cpp */,
+				E1D00A012F1A000000000002 /* indoor_manager.hpp */,
 				BBB7060923E45F3300A7F29A /* isolines_manager.cpp */,
 				BBB7060A23E45F3300A7F29A /* isolines_manager.hpp */,
 				45F6EE9B1FB1C77500019892 /* mwm_tree.hpp */,
@@ -526,6 +532,7 @@
 				BBD9E2C71EE9D01900DF189A /* routing_mark.hpp in Headers */,
 				3DEE1ADE21EE03B400054A91 /* power_management_schemas.hpp in Headers */,
 				F6B283041C1B03320081957A /* gps_track_collection.hpp in Headers */,
+				E1D00A012F1A000000000004 /* indoor_manager.hpp in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,6 +699,7 @@
 				674C38621BFF3095000D603B /* user_mark.cpp in Sources */,
 				3DA5723320C195ED007BDE27 /* viewport_search_callback.cpp in Sources */,
 				675346641A4054E800A0A8C3 /* framework.cpp in Sources */,
+				E1D00A012F1A000000000003 /* indoor_manager.cpp in Sources */,
 				3DBD7B92240D523400ED9FE8 /* elevation_info.cpp in Sources */,
 				BB1C0197241BF73C0067FD5C /* track_mark.cpp in Sources */,
 				3DEE1AE021EE03B400054A91 /* power_manager.cpp in Sources */,
