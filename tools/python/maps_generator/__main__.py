@@ -155,7 +155,7 @@ def main():
 
         for country_item in countries_list:
             for country in all_countries:
-                if fnmatch.fnmatch(country.lower(), country_item.lower()):
+                if fnmatch.fnmatchcase(country, country_item):
                     used_countries.add(country_item)
                     countries.append(country)
 
