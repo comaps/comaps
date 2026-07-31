@@ -159,6 +159,15 @@ To run Linux GUI apps, you'll need to [install a driver](https://learn.microsoft
 
 Once a GPU driver is installed and you have [built the app](#building-1) you should be able to [run](#running) it without any additional steps.
 
+##### Troubleshooting
+
+- **Software rendering (`llvmpipe`).** Without a working vGPU driver, WSLg falls
+  back to Mesa's software renderer, visible in the startup log as
+  `Renderer = llvmpipe`. The app still runs, just without GPU acceleration.
+  Installing a matching GPU driver (above) enables hardware OpenGL. If the map
+  ever comes up as a blank window despite a healthy startup log, try resizing the
+  window to force a repaint.
+
 #### Windows 10 (WSL)
 
 For Windows 10 you should do these steps (taken from [here](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242), check this blog post if you have any problems):
@@ -371,3 +380,9 @@ The `build_omim.sh` script basically runs these commands:
     cmake <path_to_omim> -DCMAKE_BUILD_TYPE={Debug|Release}
     <make or ninja> [<target>] -j <number_of_processes>
 ```
+
+### Sideloading MWM map files
+  The app scans version-numbered subdirectories of the data directory. Place your MWMs
+  at i.e. `data/261231/<CountryLeafId>.mwm`, where `<version>` is `<=` the countries.txt "v"
+  and `<CountryLeafId>` exactly matches a map id in `data/countries.txt` (i.e. `Germany_Berlin`,
+  not `Berlin`) — otherwise startup aborts with `Node with id = ... not found in country tree as a leaf`.
