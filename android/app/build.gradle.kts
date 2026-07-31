@@ -31,15 +31,16 @@ java {
     }
 }
 
-project.ext["appId"] = "app.comaps"
+val appName = "CoMaps"
+val appId = "app.comaps"
 // These are properly set in the 'secure.properties.*' files but must be declared here for build sync to succeed.
 project.ext["secretTestStoreFile"] = "comaps-test.keystore"
 project.ext["secretTestStorePassword"] = ""
-project.ext["secretTestKeyAlias"] = "CoMaps Test"
+project.ext["secretTestKeyAlias"] = "$appName Test"
 project.ext["secretTestKeyPassword"] = ""
 project.ext["secretReleaseStoreFile"] = "comaps-release.keystore"
 project.ext["secretReleaseStorePassword"] = ""
-project.ext["secretReleaseKeyAlias"] = "CoMaps Release"
+project.ext["secretReleaseKeyAlias"] = "$appName Release"
 project.ext["secretReleaseKeyPassword"] = ""
 
 val secureReleasePropertiesFileExists = File("secure.properties.release").exists()
@@ -79,10 +80,10 @@ android {
     defaultConfig {
         versionCode = rootProject.ext.get("versionCode") as Int
         versionName = rootProject.ext.get("versionName") as String
-        applicationId = project.ext.get("appId") as String
+        applicationId = appId
         minSdk = providers.gradleProperty("propMinSdkVersion").get().toInt()
         targetSdk = providers.gradleProperty("propTargetSdkVersion").get().toInt()
-        base.archivesName = "${project.name.replace(oldValue = "\\s", newValue = "")}-${defaultConfig.versionCode}"
+        base.archivesName = "$appName-${defaultConfig.versionCode}"
         ndk.debugSymbolLevel = "full"
         buildConfigField("String", "REVIEW_URL", "\"\"")
         buildConfigField("String", "SUPPORT_MAIL", "\"android@comaps.app\"") // Customized in flavors.
@@ -173,7 +174,7 @@ android {
         getByName("debug") {
             storeFile = File("${rootProject.layout.projectDirectory}/app/comaps-debug.keystore")
             storePassword = "12345678"
-            keyAlias = "CoMaps Debug"
+            keyAlias = "$appName Debug"
             keyPassword = "12345678"
         }
         create("test") {
@@ -197,7 +198,7 @@ android {
             applicationIdSuffix = ".debug" // Allows installing debug and release builds together.
             versionNameSuffix = "-debug"
             signingConfig = signingConfigs["debug"]
-            resValue("string", "app_name", "CoMaps Debug")
+            resValue("string", "app_name", "$appName Debug")
         }
         release {
             if (taskName.contains("release")) {
@@ -234,7 +235,7 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             matchingFallbacks += "release" // Use dependencies of "release" build type.
-            resValue("string", "app_name", "CoMaps Test")
+            resValue("string", "app_name", "$appName Test")
         }
     }
 
