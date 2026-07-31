@@ -1760,3 +1760,5 @@ amenity|luggage_locker;1629;
 building|guardhouse;[building=guardhouse],[amenity=security_booth],[amenity=checkpoint];;;;1630;
 office|security;1631;
 shop|lighting;1632;
+comapsapp|mwm_border;1633;
+organicapp|mwm_border;1640;
