@@ -4,7 +4,6 @@
 
 #include "base/geo_object_id.hpp"
 
-#include <cstdint>
 #include <functional>
 #include <map>
 #include <memory>

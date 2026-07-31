@@ -5,14 +5,6 @@
 
 namespace m2
 {
-namespace
-{
-bool Collinear(PointD const & a, PointD const & b, double eps)
-{
-  return std::fabs(CrossProduct(a, b)) < eps;
-}
-}  // namespace
-
 std::string DebugPrint(Line2D const & line)
 {
   std::ostringstream os;
@@ -31,19 +23,18 @@ IntersectionResult Intersect(Line2D const & lhs, Line2D const & rhs, double eps)
   auto const & c = rhs.m_point;
   auto const & cd = rhs.m_direction;
 
-  if (Collinear(ab, cd, eps))
-  {
-    if (Collinear(c - a, cd, eps))
-      return IntersectionResult(IntersectionResult::Type::Infinity);
-    return IntersectionResult(IntersectionResult::Type::Zero);
-  }
-
   auto const ac = c - a;
-
   auto const n = CrossProduct(ac, cd);
   auto const d = CrossProduct(ab, cd);
-  auto const scale = n / d;
 
+  if (fabs(d) < eps)
+  {
+    if (fabs(n) < eps)
+      return IntersectionResult::Type::Infinity;
+    return IntersectionResult::Type::Zero;
+  }
+
+  auto const scale = n / d;
   return IntersectionResult(a + ab * scale);
 }
 }  // namespace m2

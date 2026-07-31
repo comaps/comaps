@@ -1278,7 +1278,7 @@ void Framework::InitCountryInfoGetter()
   ASSERT(!m_infoGetter.get(), ("InitCountryInfoGetter() must be called only once."));
 
   auto const & platform = GetPlatform();
-  m_infoGetter = CountryInfoReader::CreateCountryInfoGetter(platform);
+  m_infoGetter = CountryInfoReader::CreateCountryInfoReader(platform);
 
   // Storage::GetAffiliations() pointer never changed.
   m_infoGetter->SetAffiliations(m_storage.GetAffiliations());
@@ -3302,11 +3302,6 @@ vector<MwmSet::MwmId> Framework::GetMwmsByRect(m2::RectD const & rect, bool roug
     result.push_back(dataSource.GetMwmIdByCountryFile(platform::CountryFile(std::move(id))));
 
   return result;
-}
-
-void Framework::ReadFeatures(function<void(FeatureType &)> const & reader, vector<FeatureID> const & features)
-{
-  m_featuresFetcher.ReadFeatures(reader, features);
 }
 
 // RoutingManager::Delegate
