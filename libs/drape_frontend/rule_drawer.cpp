@@ -13,7 +13,9 @@
 #include "indexer/feature_data.hpp"
 #include "indexer/feature_decl.hpp"
 #include "indexer/feature_meta.hpp"
+#include "indexer/feature_visibility.hpp"
 #include "indexer/ftypes_matcher.hpp"
+#include "indexer/map_style_reader.hpp"
 #include "indexer/mwm_set.hpp"
 #include "indexer/scales.hpp"
 
@@ -264,24 +266,20 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
   bool isBuilding = false;
   bool is3dBuilding = false;
   bool isBuildingOutline = false;
+
+  feature::TypesHolder const types(f);
   if (f.GetLayer() >= 0)
   {
-    feature::TypesHolder const types(f);
-    using namespace ftypes;
-
-    bool const hasParts =
-        IsBuildingHasPartsChecker::Instance()(types);  // possible to do this checks beforehand in stylist?
-    bool const isPart = IsBuildingPartChecker::Instance()(types);
+    bool const hasParts = m_isBuildingHasParts(types);  // possible to do this checks beforehand in stylist?
+    bool const isPart = m_isBuildingPart(types);
 
     // Looks like nonsense, but there are some osm objects with types
     // highway-path-bridge and building (sic!) at the same time (pedestrian crossing).
-    isBuilding = (isPart || IsBuildingChecker::Instance()(types)) && !IsBridgeOrTunnelChecker::Instance()(types);
+    isBuilding = (isPart || m_isBuilding(types)) && !m_isBridgeOrTunnel(types);
 
     isBuildingOutline = isBuilding && hasParts && !isPart;
     is3dBuilding = isBuilding && !isBuildingOutline && m_context->Is3dBuildingsEnabled();
   }
-
-  bool const isMwmBorder = ftypes::IsMwmBorderChecker::Instance()(types);
 
   m2::PointD featureCenter;
 
@@ -318,15 +316,19 @@ void RuleDrawer::ProcessAreaAndPointStyle(FeatureType & f, Stylist const & s, TI
   if (!skipTriangles && isBuilding && f.GetTrgVerticesCount(m_zoomLevel) >= 10000)
     isBuilding = false;
 
-  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding,
-                         isMwmBorder, areaMinHeight /* minPosZ */, areaHeight /* posZ */, 
-                         s.GetCaptionDescription());
+  ApplyAreaFeature apply(m_context->GetTileKey(), insertShape, f, m_currentScaleGtoP, isBuilding, m_isMwmBorder(types),
+                         areaMinHeight /* minPosZ */, areaHeight /* posZ */, s.GetCaptionDescription());
 
   if (!skipTriangles && (s.m_areaRule || s.m_hatchingRule))
   {
     f.ForEachTriangle(apply, m_zoomLevel);
     if (apply.HasGeometry())
-      apply.ProcessAreaRules(s.m_areaRule, s.m_hatchingRule);
+    {
+      std::string_view hatchKey;
+      if (s.m_hatchingRule)
+        hatchKey = m_isHatching.GetHatch(types);
+      apply.ProcessAreaRules(s.m_areaRule, s.m_hatchingRule, hatchKey);
+    }
   }
 
   /// @todo Can we put this check in the beginning of this function?
@@ -388,7 +390,7 @@ void RuleDrawer::ProcessLineStyle(FeatureType & f, Stylist const & s, TInsertSha
          kRoadClass2ZoomLevel,
          df::RoadClass::Class2}};
 
-    bool const oneWay = ftypes::IsOneWayChecker::Instance()(f);
+    bool const oneWay = m_isOneWay(f);
     auto const highwayClass = ftypes::GetHighwayClass(feature::TypesHolder(f));
     for (size_t i = 0; i < ARRAY_SIZE(checkers); ++i)
     {
@@ -424,12 +426,11 @@ void RuleDrawer::operator()(FeatureType & f)
     return;
 
   feature::TypesHolder const types(f);
-  if ((!m_context->IsolinesEnabled() && ftypes::IsIsolineChecker::Instance()(types)) ||
-      (!m_context->Is3dBuildingsEnabled() && ftypes::IsBuildingPartChecker::Instance()(types) &&
-       !ftypes::IsBuildingChecker::Instance()(types)))
+  if ((!m_context->IsolinesEnabled() && m_isIsoline(types)) ||
+      (!m_context->Is3dBuildingsEnabled() && m_isBuildingPart(types) && !m_isBuilding(types)))
     return;
 
-  if (ftypes::IsCoastlineChecker::Instance()(types) && !CheckCoastlines(f))
+  if (m_isCoastline(types) && !CheckCoastlines(f))
     return;
 
   Stylist const s(f, m_zoomLevel, m_deviceLang);
