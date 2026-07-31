@@ -153,7 +153,12 @@ pair<MwmSet::MwmId, MwmSet::RegResult> MwmSet::RegisterImpl(LocalCountryFile con
 
   info->m_file = localFile;
   SetStatus(*info, MwmInfo::STATUS_REGISTERED, events);
-  m_info[localFile.GetCountryName()].push_back(info);
+
+  {
+    auto & vec = m_info[localFile.GetCountryName()];
+    ASSERT(vec.empty(), ());
+    vec.push_back(info);
+  }
 
   return make_pair(MwmId(info), RegResult::Success);
 }
@@ -209,8 +214,27 @@ bool MwmSet::IsLoaded(CountryFile const & countryFile) const
   return id.IsAlive() && id.GetInfo()->IsRegistered();
 }
 
-void MwmSet::GetMwmsInfo(vector<shared_ptr<MwmInfo>> & info) const
+std::vector<std::string> MwmSet::GetLoadedCountryNames(m2::RectD const & rect) const
 {
+  lock_guard<mutex> lock(m_lock);
+
+  std::vector<std::string> res;
+  for (auto const & [name, info] : m_info)
+    if (!info.empty() && info.back()->IsRegistered() && info.back()->m_bordersRect.IsIntersect(rect) &&
+        info.back()->GetType() == MwmInfo::COUNTRY)
+      res.push_back(name);
+  return res;
+}
+
+int64_t MwmSet::GetMwmVersion(CountryFile const & countryFile) const
+{
+  lock_guard<mutex> lock(m_lock);
+
+  MwmId const id = GetMwmIdByCountryFileImpl(countryFile);
+  return id.IsAlive() ? id.GetInfo()->GetVersion() : 0;
+}
+
+void MwmSet::GetMwmsInfo(vector<shared_ptr<MwmInfo>> & info) const
   lock_guard<mutex> lock(m_lock);
   info.clear();
   info.reserve(m_info.size());
