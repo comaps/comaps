@@ -14,6 +14,7 @@
 
 #include "platform/mwm_version.hpp"
 
+#include "base/stl_helpers.hpp"
 #include "defines.hpp"
 
 #include <algorithm>
@@ -285,16 +286,16 @@ void DataSource::ForEachInRectForMWM(FeatureCallback const & f, m2::RectD const 
 
 void DataSource::ReadFeatures(FeatureCallback const & fn, std::vector<FeatureID> const & features) const
 {
-  ASSERT(is_sorted(features.begin(), features.end()), ());
+  ASSERT(base::IsSortedAndUnique(features), ());
 
   auto fidIter = features.begin();
   auto const endIter = features.end();
   while (fidIter != endIter)
   {
     MwmId const & id = fidIter->m_mwmId;
-    MwmHandle const handle = GetMwmHandleById(id);
-    if (handle.IsAlive())
+    if (id.IsAlive())
     {
+      MwmHandle const handle = GetMwmHandleById(id);
       // Prepare features reading.
       auto src = (*m_factory)(handle);
       do

@@ -26,11 +26,6 @@
 
 namespace storage
 {
-namespace
-{
-size_t constexpr kInvalidId = std::numeric_limits<size_t>::max();
-}  // namespace
-
 // CountryInfoGetterBase ---------------------------------------------------------------------------
 CountryId CountryInfoGetterBase::GetRegionCountryId(m2::PointD const & pt) const
 {
@@ -52,6 +47,14 @@ bool CountryInfoGetterBase::BelongsToAnyRegion(CountryId const & countryId, Regi
     if (m_countries[id].m_countryId == countryId)
       return true;
   return false;
+}
+
+CountryInfoGetterBase::RegionId CountryInfoGetterBase::GetRegionId(CountryId const & countryId) const
+{
+  for (size_t id = 0; id < m_countries.size(); ++id)
+    if (m_countries[id].m_countryId == countryId)
+      return id;
+  return kInvalidId;
 }
 
 CountryInfoGetterBase::RegionId CountryInfoGetterBase::FindFirstCountry(m2::PointD const & pt) const
@@ -160,8 +163,8 @@ void CountryInfoGetter::GetMatchedRegions(std::string const & affiliation, Regio
   if (it == m_affiliations->end())
     return;
 
-  for (size_t i = 0; i < m_countries.size(); ++i)
-    if (binary_search(it->second.begin(), it->second.end(), m_countries[i].m_countryId))
+  for (RegionId i = 0; i < m_countries.size(); ++i)
+    if (std::binary_search(it->second.begin(), it->second.end(), m_countries[i].m_countryId))
       regions.push_back(i);
 }
 
@@ -170,7 +173,7 @@ void CountryInfoGetter::SetAffiliations(Affiliations const * affiliations)
   m_affiliations = affiliations;
 }
 
-template <typename ToDo>
+template <class ToDo>
 void CountryInfoGetter::ForEachCountry(std::string const & prefix, ToDo && toDo) const
 {
   for (auto const & country : m_countries)
@@ -192,7 +195,7 @@ std::unique_ptr<CountryInfoReader> CountryInfoReader::CreateCountryInfoReader(Pl
   {
     LOG(LCRITICAL, ("Can't load needed resources for storage::CountryInfoGetter:", e.Msg()));
   }
-  return std::unique_ptr<CountryInfoReader>();
+  return {};
 }
 
 // static
@@ -201,9 +204,9 @@ std::unique_ptr<CountryInfoGetter> CountryInfoReader::CreateCountryInfoGetter(Pl
   return CreateCountryInfoReader(platform);
 }
 
-void CountryInfoReader::LoadRegionsFromDisk(size_t id, std::vector<m2::RegionD> & regions) const
+std::vector<m2::RegionD> CountryInfoReader::LoadRegionsFromDisk(RegionId id) const
 {
-  regions.clear();
+  std::vector<m2::RegionD> result;
   ReaderSource<ModelReaderPtr> src(m_reader.GetReader(strings::to_string(id)));
 
   uint32_t const count = ReadVarUint<uint32_t>(src);
@@ -211,8 +214,9 @@ void CountryInfoReader::LoadRegionsFromDisk(size_t id, std::vector<m2::RegionD> 
   {
     std::vector<m2::PointD> points;
     serial::LoadOuterPath(src, serial::GeometryCodingParams(), points);
-    regions.emplace_back(std::move(points));
+    result.emplace_back(std::move(points));
   }
+  return result;
 }
 
 CountryInfoReader::CountryInfoReader(ModelReaderPtr polyR, ModelReaderPtr countryR)
@@ -224,12 +228,15 @@ CountryInfoReader::CountryInfoReader(ModelReaderPtr polyR, ModelReaderPtr countr
   rw::Read(src, m_countries);
 
   m_countryIndex.reserve(m_countries.size());
-  for (size_t i = 0; i < m_countries.size(); ++i)
+  for (RegionId i = 0; i < m_countries.size(); ++i)
     m_countryIndex[m_countries[i].m_countryId] = i;
 
   std::string buffer;
   countryR.ReadAsString(buffer);
   LoadCountryFile2CountryInfo(buffer, m_idToInfo);
+
+  for (auto const & [k, v] : m_idToInfo)
+    ASSERT_EQUAL(k, v.m_name, ());
 }
 
 void CountryInfoReader::ClearCachesImpl() const
@@ -240,8 +247,8 @@ void CountryInfoReader::ClearCachesImpl() const
   m_cache.Reset();
 }
 
-template <typename Fn>
-std::invoke_result_t<Fn, std::vector<m2::RegionD>> CountryInfoReader::WithRegion(size_t id, Fn && fn) const
+template <class Fn>
+auto CountryInfoReader::WithRegion(RegionId id, Fn && fn) const
 {
   std::lock_guard<std::mutex> lock(m_cacheMutex);
 
@@ -249,12 +256,12 @@ std::invoke_result_t<Fn, std::vector<m2::RegionD>> CountryInfoReader::WithRegion
   auto & regions = m_cache.Find(static_cast<uint32_t>(id), isFound);
 
   if (!isFound)
-    LoadRegionsFromDisk(id, regions);
+    regions = LoadRegionsFromDisk(id);
 
   return fn(regions);
 }
 
-bool CountryInfoReader::BelongsToRegion(m2::PointD const & pt, size_t id) const
+bool CountryInfoReader::BelongsToRegion(m2::PointD const & pt, RegionId id) const
 {
   if (!m_countries[id].m_rect.IsPointInside(pt))
     return false;
@@ -270,22 +277,22 @@ bool CountryInfoReader::BelongsToRegion(m2::PointD const & pt, size_t id) const
   return WithRegion(id, contains);
 }
 
-bool CountryInfoReader::IsIntersectedByRegion(m2::RectD const & rect, size_t id) const
+bool CountryInfoReader::IsIntersectedByRegion(m2::RectD const & rect, RegionId id) const
 {
-  std::vector<std::pair<m2::PointD, m2::PointD>> const edges = {{rect.LeftTop(), rect.RightTop()},
-                                                                {rect.RightTop(), rect.RightBottom()},
-                                                                {rect.RightBottom(), rect.LeftBottom()},
-                                                                {rect.LeftBottom(), rect.LeftTop()}};
-  auto contains = [&edges](std::vector<m2::RegionD> const & regions)
+  auto contains = [&rect](std::vector<m2::RegionD> const & regions)
   {
     for (auto const & region : regions)
     {
-      for (auto const & edge : edges)
+      bool isIntersect = false;
+      rect.ForEachSide([&](m2::PointD const & p1, m2::PointD const & p2)
       {
+        if (isIntersect)
+          return;
         m2::PointD result;
-        if (region.FindIntersection(edge.first, edge.second, result))
-          return true;
-      }
+        isIntersect = region.FindIntersection(p1, p2, result);
+      });
+      if (isIntersect)
+        return true;
     }
     return false;
   };
@@ -296,7 +303,7 @@ bool CountryInfoReader::IsIntersectedByRegion(m2::RectD const & rect, size_t id)
   return BelongsToRegion(rect.Center(), id);
 }
 
-bool CountryInfoReader::IsCloseEnough(size_t id, m2::PointD const & pt, double distance) const
+bool CountryInfoReader::IsCloseEnough(RegionId id, m2::PointD const & pt, double distance) const
 {
   m2::RectD const lookupRect = mercator::RectByCenterXYAndSizeInMeters(pt, distance);
   auto isCloseEnough = [&](std::vector<m2::RegionD> const & regions)
@@ -333,19 +340,19 @@ void CountryInfoGetterForTesting::GetMatchedRegions(std::string const & affiliat
 
 void CountryInfoGetterForTesting::ClearCachesImpl() const {}
 
-bool CountryInfoGetterForTesting::BelongsToRegion(m2::PointD const & pt, size_t id) const
+bool CountryInfoGetterForTesting::BelongsToRegion(m2::PointD const & pt, RegionId id) const
 {
   CHECK_LESS(id, m_countries.size(), ());
   return m_countries[id].m_rect.IsPointInside(pt);
 }
 
-bool CountryInfoGetterForTesting::IsIntersectedByRegion(m2::RectD const & rect, size_t id) const
+bool CountryInfoGetterForTesting::IsIntersectedByRegion(m2::RectD const & rect, RegionId id) const
 {
   CHECK_LESS(id, m_countries.size(), ());
   return rect.IsIntersect(m_countries[id].m_rect);
 }
 
-bool CountryInfoGetterForTesting::IsCloseEnough(size_t id, m2::PointD const & pt, double distance) const
+bool CountryInfoGetterForTesting::IsCloseEnough(RegionId id, m2::PointD const & pt, double distance) const
 {
   CHECK_LESS(id, m_countries.size(), ());
 
