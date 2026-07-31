@@ -95,7 +95,9 @@ depends on [`libs/indexer`](#the-library) for loading the review data.
 
 #### Android
 
-TODO
+The review information is stored in `MapObject`, which is populated through JNI in `UserMarkHelper.cpp`. The information from `MapObject` is then displayed in
+the place info panel (`place_page_preview.xml`) and a review list (`item_review.xml`). These layouts use a custom `StarRatingView` widget to display the
+ratings.
 
 #### iOS
 
