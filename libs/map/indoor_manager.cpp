@@ -22,16 +22,16 @@ namespace
 {
 int constexpr kMinIndoorZoom = 17;
 double constexpr kLevelEpsilon = 1e-9;
-// City-scale polygons / transit networks sometimes tagged indoor=* would trigger indoor mode across
-// a wide area and produce a giant debug box. Skip any feature whose bounding rect exceeds this.
-// The world's largest indoor spaces (airport terminals, mega-malls) are well under 0.1°.
+// City-sized polygons or transit networks sometimes tagged indoor=* would trigger indoor mode across
+// a wide area. Skip any feature whose bounding rect exceeds this. The world's largest indoor spaces
+// (airport terminals, mega-malls) should be well under 0.1°.
 double constexpr kMaxIndoorRectDeg = 0.1;
 bool LevelsEqual(double lhs, double rhs)
 {
   return std::fabs(lhs - rhs) < kLevelEpsilon;
 }
-// True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes). Catches the
-// three cases: a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
+// True if triangle |a,b,c| actually overlaps |rect| (not just their bounding boxes).
+// Catches a vertex inside the rect, the rect fully inside the triangle, or an edge crossing.
 bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::PointD const & b,
                             m2::PointD const & c)
 {
@@ -51,7 +51,7 @@ bool TriangleIntersectsRect(m2::RectD const & rect, m2::PointD const & a, m2::Po
     return true;
   return false;
 }
-// The level closest to ground (0). |levels| must be non-empty. A floor and its negative counterpart
+// Find the level closest to ground (0). |levels| must be non-empty. A floor and its negative counterpart
 // (e.g. -1 and 1) are equidistant; ties resolve to the upper floor.
 double ClosestToGround(std::vector<double> const & levels)
 {
@@ -120,9 +120,9 @@ void IndoorManager::UpdateViewport(ScreenBase const & screen)
   if (df::GetDrawTileScale(screen) < kMinIndoorZoom)
   {
     ++m_generation;
-    // While holding (route planning/navigation), keep an active context so fitting the route view
-    // doesn't drop the chooser/filtering. Otherwise fully deactivate: drape stops level-filtering,
-    // 3D buildings come back, and the chooser hides.
+    // While holding (during route planning/navigation), keep an active context so automatic panning/zooming
+    // doesn't exit indoor mode. Otherwise fully deactivate indoor mode: drape stops level-filtering,
+    // 3D buildings come back, and the level chooser hides.
     if (!m_levels.empty() && !ShouldHold())
     {
       m_levels.clear();
@@ -249,7 +249,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
 
   if (!active)
   {
-    // Gate entering indoor mode: if entry is currently disallowed (e.g. driving during navigation),
+    // If starting indoor mode is currently disallowed (e.g. driving during navigation),
     // drop any indoor data found so nothing pops up.
     if (!levels.empty() && !CanEnter())
       levels.clear();
@@ -274,7 +274,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
   // An identical level set is treated as the same building, so we keep the existing polygon rects
   // instead of re-asserting to drape (which would re-tile on every scan and flicker). If two adjacent
   // buildings ever shared an identical level set the proximity rects could be briefly stale, which is
-  // acceptable for a ~5 m POI proximity gate.
+  // acceptable for a ~5 m POI proximity filter.
   if (levels == m_levels)
     return;
 
@@ -284,8 +284,7 @@ void IndoorManager::ApplyScanResult(uint64_t generation, std::vector<double> && 
 
   if (!isActive)
   {
-    // No indoor data in the viewport: deactivate level filtering in drape so ordinary level-tagged
-    // POIs stay visible. m_activeLevel is kept as the remembered floor for when we re-enter indoors.
+    // No indoor data in the viewport: deactivate level filtering in drape so ordinary level-tagged POIs stay visible.
     m_drapeEngine.SafeCall(&df::DrapeEngine::SetIndoorLevel, indoor::kNoActiveLevel, m_levels, m_indoorPolygonRects);
     if (active)
       NotifyModeChanged();

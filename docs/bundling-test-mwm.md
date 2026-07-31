@@ -1,5 +1,7 @@
 # Bundling a test MWM in the debug APK
 
+> TODO: follow the Splitting instructions below to move this out of this branch before merge
+
 Test maps shipped with the debug APK land in
 `android/app/src/debug/assets/` and are extracted into the app's versioned
 map directory at first launch by `extractBundledMaps()` in

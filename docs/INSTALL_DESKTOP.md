@@ -159,29 +159,6 @@ To run Linux GUI apps, you'll need to [install a driver](https://learn.microsoft
 
 Once a GPU driver is installed and you have [built the app](#building-1) you should be able to [run](#running) it without any additional steps.
 
-##### WSL gotchas
-
-- **Software rendering (`llvmpipe`).** Without a working vGPU driver, WSLg falls
-  back to Mesa's software renderer, visible in the startup log as
-  `Renderer = llvmpipe`. The app still runs, just without GPU acceleration.
-  Installing a matching GPU driver (above) enables hardware OpenGL. If the map
-  ever comes up as a blank window despite a healthy startup log, resizing the
-  window forces a repaint.
-- **Runtime files polluting the repo.** `CoMaps` uses its resources directory as
-  the writable directory when that directory is writable. If you run with the
-  repo's `data/` folder as resources, downloaded maps and logs are written back
-  into `data/`. Point the writable dir elsewhere to keep the tree clean:
-  ```bash
-  MWM_WRITABLE_DIR=~/.local/share/CoMaps/ ./CoMaps
-  ```
-- **Sideloading a locally generated map.** The app only scans
-  version-numbered subdirectories of the writable dir, not its root. Place the
-  file at `<writableDir>/<version>/<CountryLeafId>.mwm`, where `<version>` is a
-  number `<=` the "map version" logged at startup (e.g. `260603`) and
-  `<CountryLeafId>` exactly matches a leaf id in `data/countries.txt` (e.g.
-  `Germany_Berlin`, not `Berlin`) — otherwise startup aborts with
-  `Node with id = ... not found in country tree as a leaf`.
-
 #### Windows 10 (WSL)
 
 For Windows 10 you should do these steps (taken from [here](https://techcommunity.microsoft.com/t5/windows-dev-appconsult/running-wsl-gui-apps-on-windows-10/ba-p/1493242), check this blog post if you have any problems):

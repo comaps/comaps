@@ -378,10 +378,7 @@ public class MapButtonsController extends Fragment
       final int buttonSize = getResources().getDimensionPixelSize(R.dimen.map_button_size);
       final int gap = getResources().getDimensionPixelSize(R.dimen.margin_eighth_plus);
       final int padding = mIndoorLevelsScroll.getPaddingTop() + mIndoorLevelsScroll.getPaddingBottom();
-      // Cap at 4 buttons. With the active floor centered, that leaves 1.5 buttons on each side - a full
-      // button plus a half-button peek top and bottom - so it's obvious there's more (no floors flush-
-      // hidden past an edge, e.g. basements below the centered floor 0). Fewer floors shrink to fit.
-      // Capping also gives the centering scroll room to work - with wrap_content there's no range.
+      // Cap at 4 buttons high and center the active floor so there's visible cutoff at the edges
       final int maxHeight = buttonSize * 4 + gap * 3 + padding;
       final int contentHeight = levels.length * buttonSize + (levels.length - 1) * gap + padding;
       final ViewGroup.LayoutParams lp = mIndoorLevelsScroll.getLayoutParams();
@@ -391,7 +388,7 @@ public class MapButtonsController extends Fragment
       mIndoorLevelsScroll.post(() -> scrollToActiveLevel(scrollTarget, levels));
     }
 
-    // Respect the current place page position: the picker hides with the zoom buttons.
+    // Hide the level picker when the zoom buttons hide
     updateButtonsVisibility();
   }
 
@@ -418,8 +415,7 @@ public class MapButtonsController extends Fragment
                                       .inflate(R.layout.map_button_indoor_level, mIndoorLevelsContainer, false);
     button.setText(level);
 
-    // Highlight the currently selected floor with a filled accent, leaving the others in the default
-    // map-button colors so the active level is unmistakable.
+    // Highlight the currently selected floor
     if (active)
     {
       button.setBackgroundTintList(
@@ -427,9 +423,8 @@ public class MapButtonsController extends Fragment
       button.setTextColor(ThemeUtils.getColor(context, com.google.android.material.R.attr.colorOnPrimary));
     }
 
-    // Fully rounded outer corners on the top-most and bottom-most buttons so it's obvious when you've
-    // scrolled to the end of the list; squarish everywhere else. The container background itself stays a
-    // rounded rectangle (bg_indoor_scroll).
+    // Fully rounded outer corners on the top-most and bottom-most buttons, rounded rectangle in the middle
+    // Container background is rounded rectangle to provide a cleanly visible cutoff
     final RelativeCornerSize round = new RelativeCornerSize(0.5f);
     final RelativeCornerSize square = new RelativeCornerSize(0.12f);
     final boolean isTop = index == 0;
@@ -519,9 +514,7 @@ public class MapButtonsController extends Fragment
           case zoomIn, zoomOut, zoom, indoorLevels -> -140;
           default -> 0;
         };
-        // For the indoor levels container use its bottom edge (anchored above the zoom buttons),
-        // not its top, because a tall container (many floors) extends above the parent's origin
-        // and would have a large-negative top even when fully on screen.
+        // Avoid negative offset bugs by positioning the level container via its bottom instead of top
         int offset = entry.getKey() == MapButtons.indoorLevels
             ? (int) (translation + button.getBottom())
             : getViewTopOffset(translation, button);

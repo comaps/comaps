@@ -12,15 +12,14 @@
 
 namespace df
 {
-// Returns true if a floor-bound feature must be skipped at rendering because its level=* metadata
-// doesn't include the active indoor level.
+// Returns true if a feature isn't part of the active indoor level and should be skipped at rendering
 //
 // Indoor-typed features (indoor=*) are always filtered by the active level.
 //
 // Non-indoor features that carry a level=* tag (POIs, stairs, etc.) are filtered ONLY when:
-//   1. Their center is within ~5 m of an indoor polygon rect (proximity gate), AND
-//   2. Their level intersects the building's available floor set (level-in-building gate).
-// If either gate fails the feature stays visible. This prevents transit platforms or external
+//   1. Their center is within ~5 m of an indoor polygon rect AND
+//   2. Their level intersects the building's available floor set.
+// If either is false the feature stays visible. This prevents transit platforms or external
 // footways from being hidden just because they happen to share a level tag with a nearby mall.
 //
 // The building shell (building / building:part) is never filtered: it spans all floors.
@@ -42,7 +41,7 @@ inline bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::str
 
   if (!isIndoor)
   {
-    // Proximity gate: only filter if the feature center is within ~5 m of an indoor polygon.
+    // only filter if the feature center is within ~5 m of an indoor polygon.
     double constexpr kProximityDeg = 0.00005;
     if (!indoorPolygonRects.empty())
     {
@@ -61,7 +60,7 @@ inline bool ShouldSkipIndoorFeature(feature::TypesHolder const & types, std::str
         return false;
     }
 
-    // Level-in-building gate: only filter if the feature's level intersects the building floors.
+    // only filter if the feature's level intersects the building floors.
     bool const levelIsInBuilding = std::any_of(availableLevels.begin(), availableLevels.end(),
       [&](double buildingLevel) { return indoor::LevelsContain(levelMeta, buildingLevel); });
     if (!levelIsInBuilding)

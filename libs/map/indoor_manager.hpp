@@ -23,7 +23,7 @@ class DrapeEngine;
 }  // namespace df
 
 // Tracks indoor (level=*) data in the current viewport and holds the active indoor level
-// which is used by drape to filter indoor features. Modeled on IsolinesManager.
+// which is used by drape to filter indoor features. Based on IsolinesManager.
 class IndoorManager final
 {
 public:
@@ -34,12 +34,12 @@ public:
       std::function<void(m2::RectD const &, std::function<void(FeatureType &)> const &, int scale)>;
   using TaskRunnerFn = std::function<void(std::function<void()> &&)>;
   // Returns whether indoor mode may be entered or switched to a different building right now. When
-  // it returns false, new indoor data in the viewport is ignored so nothing pops up (e.g. while
+  // it returns false, new indoor data in the viewport is ignored so nothing pops up (i.e. while
   // driving during navigation).
   using CanEnterFn = std::function<bool()>;
   // Returns whether an already-active indoor context should be preserved against viewport-driven
-  // deactivation (zoom-out, panning off the building). True e.g. throughout route planning and
-  // navigation, so fitting the route view doesn't drop the level chooser/filtering.
+  // deactivation (zoom-out, panning off the building). True throughout route planning and
+  // navigation, so automatic panning and zooming doesn't exit indoor mode
   using ShouldHoldFn = std::function<bool()>;
 
   explicit IndoorManager(ForEachFeatureFn && forEachFeature);
@@ -49,19 +49,18 @@ public:
 
   void SetDrapeEngine(ref_ptr<df::DrapeEngine> engine);
   void SetLevelsListener(LevelsChangedFn const & fn);
-  // Called (on the Gui thread) whenever indoor mode toggles on/off, i.e. the viewport gains or
-  // loses indoor data. Used e.g. to temporarily disable 3D buildings while indoors.
+  // Called (on the GUI thread) whenever indoor mode toggles on/off, i.e. the viewport gains or
+  // loses indoor data. Used to temporarily disable 3D buildings while indoors.
   void SetModeChangedListener(std::function<void()> const & fn);
   // Sets a predicate deciding whether indoor mode may be entered or switched (see CanEnterFn).
   void SetCanEnterPredicate(CanEnterFn const & fn);
-  // Sets a predicate deciding whether an already-active indoor context is held against viewport-
-  // driven deactivation (see ShouldHoldFn).
+  // Sets a predicate deciding whether an already-active indoor context is prevented from viewport-based deactivation (see ShouldHoldFn).
   void SetShouldHoldPredicate(ShouldHoldFn const & fn);
 
   void UpdateViewport(ScreenBase const & screen);
   void Invalidate();
 
-  // True while the viewport has indoor data and level filtering is active. Gui thread only.
+  // True while the viewport has indoor data and level filtering is active. GUI thread only.
   bool IsActive() const { return !m_levels.empty(); }
 
   std::vector<std::string> GetViewportLevels() const;
@@ -75,7 +74,7 @@ private:
   void SetActiveLevel(double level, bool notifyDrape);
   void NotifyListener();
   void NotifyModeChanged();
-  // Preserve an already-active context against viewport-driven deactivation (routing in progress).
+  // Prevent an already-active context from being deactivated based on panning and zooming (during route planning mode).
   bool ShouldHold() const;
   // May we enter/switch indoor context now? Defaults to true when no predicate is set.
   bool CanEnter() const;
@@ -95,7 +94,7 @@ private:
 
   std::atomic<uint64_t> m_generation{0};
 
-  // Distinct levels present in the viewport, sorted ascending. Gui thread only.
+  // Distinct levels present in the viewport, sorted ascending. GUI thread only.
   std::vector<double> m_levels;
   std::vector<m2::RectD> m_indoorPolygonRects;
   double m_activeLevel = 0.0;

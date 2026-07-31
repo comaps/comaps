@@ -1612,7 +1612,7 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   m_isolinesManager.SetDrapeEngine(make_ref(m_drapeEngine));
   m_indoorManager.SetDrapeEngine(make_ref(m_drapeEngine));
   // Re-apply the 3D mode whenever indoor mode toggles: Allow3dMode forces 3D buildings off while
-  // indoors so they don't occlude indoor rooms, and restores the user's setting on the way out.
+  // indoors so they don't cover up indoor rooms, and restores the user's 3D preference on the way out.
   m_indoorManager.SetModeChangedListener([this]()
   {
     bool allow3d, allow3dBuildings;
@@ -1631,8 +1631,8 @@ void Framework::CreateDrapeEngine(ref_ptr<dp::GraphicsContextFactory> contextFac
   });
   m_indoorManager.SetShouldHoldPredicate([this]()
   {
-    // Preserve an already-active indoor context throughout route planning and navigation, so fitting
-    // the route into view (which zooms out) doesn't drop the level chooser and filtering.
+    // Preserve an already-active indoor context throughout route planning and navigation, so temporary
+    // automatic route-planning zooms/pans don't drop out of indoor mode
     return m_routingManager.IsRoutingActive();
   });
   m_searchMarks.SetDrapeEngine(make_ref(m_drapeEngine));
@@ -2589,7 +2589,7 @@ void Framework::Allow3dMode(bool allow3d, bool allow3dBuildings)
   if (m_isCarScreenMode && m_routingManager.IsRoutingActive())
     allow3dBuildings = false;
 
-  // While indoors, force 3D buildings off so the building extrusion doesn't occlude indoor rooms.
+  // While indoors, force 3D buildings off so the building extrusion doesn't cover up indoor rooms.
   if (m_indoorManager.IsActive())
     allow3dBuildings = false;
 

@@ -244,7 +244,7 @@ public final class OrganicMaps implements DefaultLifecycleObserver
     nativeAddLocalization("wifi", mContext.getString(R.string.category_wifi));
   }
 
-  /**
+  /** @TODO: REMOVE BUNDLED MWM LOGIC AND INCLUDES BEFORE MERGE
    * Copies any .mwm files bundled in APK assets (except World/WorldCoasts, which C++ handles) into
    * the versioned maps directory so FindAllLocalMapsAndCleanup can discover them on first launch.
    */

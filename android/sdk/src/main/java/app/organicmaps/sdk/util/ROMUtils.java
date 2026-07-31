@@ -30,9 +30,9 @@ public class ROMUtils
         "ro.lineage.build.version", // LineageOS
     };
 
-    // Indexed loop (not for-each) on purpose: lint's HardwareIdDetector.findReflectionUsage crashes
-    // (getParameterIndex "Not my parameter") when a Method.invoke call sits inside a for-each, so the
-    // loop variable must not be a for-each parameter.
+    // Indexed loop (not foreach) on purpose: HardwareIdDetector.findReflectionUsage crashes in Lint
+    // with getParameterIndex "Not my parameter" when a Method.invoke call sits inside a foreach, so the
+    // loop variable must not be a foreach parameter.
     for (int i = 0; i < customROMIndicators.length; i++)
     {
       final String prop = customROMIndicators[i];

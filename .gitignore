@@ -31,8 +31,6 @@ data/edits.xml
 data/World.mwm
 data/WorldCoasts.mwm
 data/world_mwm/*
-# Large regenerated test MWM kept locally only (not committed — see docs/bundling-test-mwm.md)
-android/app/src/debug/assets/France_Ile-de-France_Seine-et-Marne.mwm
 data/*_hash
 data/drules_proto*
 data/classificator.txt*

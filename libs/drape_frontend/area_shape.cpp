@@ -66,10 +66,8 @@ void AreaShape::DrawArea(ref_ptr<dp::GraphicsContext> context, ref_ptr<dp::Batch
   auto const areaProgram = isTransparent ? gpu::Program::TransparentArea : gpu::Program::Area;
   auto state = CreateRenderState(areaProgram, DepthLayer::GeometryLayer);
   state.SetDepthTestEnabled(m_params.m_depthTestEnabled);
-  // A translucent area redrawn coplanar with itself - e.g. the same building present in both the old
-  // and new tiles during a zoom-level transition - blends twice with the default LessOrEqual depth
-  // test and visibly flickers. A strict Less test rejects the duplicate coplanar fragments (only one
-  // draw survives) while still letting the building draw over the lower-depth indoor polygons.
+  // The default LessOrEqual depth can cause flickering on transparent objects. Using Less rejects
+  // the duplicated same-depth fragments while letting transparent objects display over lower-depth objects
   if (isTransparent)
     state.SetDepthFunction(dp::TestFunction::Less);
   state.SetColorTexture(texture);

@@ -323,8 +323,7 @@ void MainWindow::CreateNavigationBar()
 
     auto const updateLevels = [this](std::vector<std::string> const & levels, std::string const & activeLevel)
     {
-      // The selector becomes visible exactly when indoor mode activates; use that transition to
-      // center the active floor only on activation, not on every refresh or manual floor change.
+      // Center the active floor when the level selector becomes visible
       bool const activating = !levels.empty() && !m_levelSelectorAction->isVisible();
 
       // Block signals so repopulating doesn't fire SelectLevel back at the framework.
@@ -333,9 +332,7 @@ void MainWindow::CreateNavigationBar()
       for (auto const & level : levels)
         m_levelSelector->addItem(QString::fromStdString(level));
 
-      // Cap the height at 4 rows. Combined with centering the active row, that leaves 1.5 rows on each
-      // side - a full row plus a half-row peek top and bottom - so it's obvious there's more without
-      // odd quarter-rows. Fewer floors shrink to fit.
+      // Cap at 4 buttons high and center the active floor so there's visible cutoff at the edges
       if (!levels.empty())
       {
         int const rowH = m_levelSelector->sizeHintForRow(0);
@@ -357,7 +354,7 @@ void MainWindow::CreateNavigationBar()
 
     auto & indoorManager = m_pDrawWidget->GetFramework().GetIndoorManager();
     indoorManager.SetLevelsListener(updateLevels);
-    // Populate immediately in case indoor data is already in the viewport (e.g. restored session).
+    // Populate immediately in case indoor data is already in the viewport
     updateLevels(indoorManager.GetViewportLevels(), indoorManager.GetActiveLevel());
 
     pToolBar->addSeparator();

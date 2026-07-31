@@ -21,7 +21,7 @@ inline bool HasActiveLevel(double level) { return !std::isnan(level); }
 std::vector<double> ParseLevels(std::string_view s);
 
 // Returns true if the level=* value |s| includes |level|.
-// A missing or unparsable value is treated as level 0 (OSM convention for indoor features).
+// A missing or unparsable value is treated as level 0 (ground floor)
 bool LevelsContain(std::string_view s, double level);
 
 // Formats a level for UI display: "0", "-1", "1.5".
