@@ -108,10 +108,6 @@ target_link_libraries(${PROJECT_NAME}
     cppjansson
     descriptions
     ge0
-)
-
-target_link_libraries(${PROJECT_NAME}
-  PUBLIC
     agg
 )
 
