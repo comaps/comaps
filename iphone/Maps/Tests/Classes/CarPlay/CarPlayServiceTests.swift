@@ -56,6 +56,56 @@ final class CarPlayServiceTests: XCTestCase {
     XCTAssertFalse(state.isPresented)
   }
 
+  func testFollowPolicyDefaultsToHeadingUp() {
+    let policy = CarPlayFollowPolicy()
+
+    XCTAssertEqual(policy.orientation, .headingUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .switchMode)
+  }
+
+  func testFollowPolicyRecordsExplicitNorthUpUntilChanged() {
+    var policy = CarPlayFollowPolicy()
+
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+
+    XCTAssertEqual(policy.orientation, .northUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .follow), .none)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .switchMode)
+
+    policy.recordExplicitModeSwitch(from: .follow)
+
+    XCTAssertEqual(policy.orientation, .headingUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
+  }
+
+  func testFollowPolicyPreservesOrientationWhenRecentering() {
+    var policy = CarPlayFollowPolicy()
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+
+    policy.recordExplicitModeSwitch(from: .notFollow)
+
+    XCTAssertEqual(policy.orientation, .northUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollow), .switchMode)
+  }
+
+  func testFollowPolicyWaitsForPendingPositionAndRequestsDisabledPosition() {
+    let policy = CarPlayFollowPolicy()
+
+    XCTAssertEqual(policy.reconciliationAction(for: .pendingPosition), .waitForPosition)
+    XCTAssertEqual(policy.reconciliationAction(for: .notFollowNoPosition), .switchMode)
+  }
+
+  func testFollowPolicyResetRestoresHeadingUpDefault() {
+    var policy = CarPlayFollowPolicy()
+    policy.recordExplicitModeSwitch(from: .followAndRotate)
+
+    policy.reset()
+
+    XCTAssertEqual(policy.orientation, .headingUp)
+    XCTAssertEqual(policy.reconciliationAction(for: .followAndRotate), .none)
+  }
+
   func testSearchContextStateStartsOwnedByPhone() {
     let state = CarPlaySearchContextState()
 
